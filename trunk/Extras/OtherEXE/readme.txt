@@ -1,0 +1,10 @@
+CDIMAGE		:M$的ISO生成工具(2.47;2.52)
+cdburn.exe	:M$的CD刻录程序.
+dvdburn.exe	:M$的DVD刻录程序.
+Depends.Exe	:M$的东西,不用多说.(简单汉化,包含翻译字符串)
+empty.exe	:M$的内存释放程序.
+modifyPE.exe	:用于修改M$光盘中的文件,使其躲过验证.
+runassrv.exe	:用于运行一个程序为服务.杀毒软件报病毒,已经移除.
+PView.Exe	:M$的东西,不用多说.
+speak.exe	:命令行的英语工具.
+递归文件.exe	:列出所选文件夹包含的所有文件(包括子文件夹).

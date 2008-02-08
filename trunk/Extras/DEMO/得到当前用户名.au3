@@ -1,0 +1,1 @@
+MsgBox(32,"您的用户名为:",EnvGet("username"))
