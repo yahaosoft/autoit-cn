@@ -1,0 +1,42 @@
+###User Defined Function###
+_DateTimeSplit
+
+###Description###
+Split a string containing Date and Time into two separate Arrays.
+
+###Syntax###
+#Include <Date.au3>
+_DateTimeSplit($sDate, ByRef $asDatePart, ByRef $iTimePart)
+
+###Parameters###
+@@ParamTable@@
+$sDate
+	Any of these formats:
+		"yyyy/mm/dd[ hh:mm[:ss]]"
+		"yyyy/mm/dd[Thh:mm[:ss]]"
+		"yyyy-mm-dd[ hh:mm[:ss]]"
+		"yyyy-mm-dd[Thh:mm[:ss]]"
+		"yyyy.mm.dd[ hh:mm[:ss]]"
+		"yyyy.mm.dd[Thh:mm[:ss]]"
+$asDatePart
+	array that contains the Date.
+		$asDatePart[0] number of values returned
+$iTimePart
+	array that contains the Time.
+		$asTimePart[0] number of values returned
+@@End@@
+
+###ReturnValue###
+Success: Date and Time into two separate Arrays.
+Failure: 0 and Set @ERROR to:
+		0 - No error.
+		1 - Invalid Input Date
+
+###Remarks###
+None.
+
+###Related###
+_DayValueToDate, _DateAdd, _DateDiff
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,37 @@
+###Function###
+UDPBind
+
+###Description###
+创建一个已经连接的套接字(socket)绑定. 
+
+
+###Syntax###
+UDPBind ( IP地址, 端口 ) 
+
+
+###Parameters###
+@@ParamTable@@
+IP地址
+	IP V4类型的地址(Internet Protocol dotted address缩写为IP),如 "192.162.1.1".   
+端口
+	用于连接创建的连接的端口.    
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回一个数组: $array[1] 包含一个真实的套接字(socket), $array[2] 包含一个指定的IP地址, $array[3] 包含端口. 我们需要这个信息才能在后面调用 UDPSend(), where we pass this socket structure/array(未知意思) .     
+失败:	返回 -1 和设置 @error 的值(依照 Windows API WSAGetError 返回).   
+	如果IP地址错误,设置 @error 为 1.   
+	如果端口错误,设置 @error 为 2.    
+@@End@@
+
+
+###Remarks###
+None.
+
+###Related###
+UDPRecv, UDPOpen
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,41 @@
+###Function###
+FileFindFirstFile
+
+###Description###
+返回一个依照搜索的字符串得到的搜索"句柄".
+
+###Syntax###
+FileFindFirstFile ( "文件名" )
+
+
+###Parameters###
+@@ParamTable@@
+文件名
+	要搜索的文件的完整或部分字符串(支持 * 和 ? 等通配符)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回一个搜索"句柄",用于后来的 FileFindNextFile 函数调用.
+失败:	返回值为-1说明遇到错误. 如果文件夹为空,将还会设置 @error 为 1.
+@@End@@
+
+
+###Remarks###
+要搜索的字符串是不区分大小写的.
+通配符:一般而言,星号 * 可代替零个或多个字符,而问号 ? 则可代替零个或单个字符.若指定的搜索字符串中只有通配符(或者是"*.*"),请查看下面的示例并留意返回值!
+
+你可以使用一个通配符来匹配部分文件名,例如: a*.b?.
+?? seems equivalent to * (not described in Microsoft documentation).
+When using a 3-char extension any extension starting with those 3 chars will match, .e.g. "*.log" will match "test.log_1". (not described either in Microsoft dosumentation).
+
+在使用 FileFind...等函数完成搜索后务必调用 FileClose() 函数来释放搜索句柄.
+
+使用任意通配符都会将会返回匹配的文件夹名称.
+
+###Related###
+FileClose, FileFindNextFile
+
+
+###Example###
+@@IncludeExample@@

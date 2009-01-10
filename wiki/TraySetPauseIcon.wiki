@@ -1,0 +1,40 @@
+###Function###
+TraySetPauseIcon
+
+###Description###
+载入/设置 指定的系统托盘图标(脚本暂停时显示).
+
+###Syntax###
+TraySetPauseIcon ( [图标文件[, 图标ID] ) 
+
+
+###Parameters###
+@@ParamTable@@
+文件名
+	[可选] 图标文件的文件名.(在脚本暂停时显示)   
+图标ID
+	[可选] 图标ID(如果图标文件包含多个图标).    
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回 1.   
+失败:	返回 0.    
+@@End@@
+
+
+###Remarks###
+To reset the pause icon to the default (red cross), use the function with no parameters:
+TraySetPauseIcon().
+
+Passing a positive number will reference the string equivalent icon name.
+Passing a negative number causes 1-based "index" behaviour. Some Dll can have icon extracted 
+just with negative numbers.
+
+
+###Related###
+TraySetIcon
+
+
+###Example###
+@@IncludeExample@@

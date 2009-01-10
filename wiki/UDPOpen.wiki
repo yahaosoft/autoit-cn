@@ -1,0 +1,36 @@
+###Function###
+UDPOpen
+
+###Description###
+打开一个套接字(socket)连接到一个存在的服务器. 
+
+
+###Syntax###
+UDPOpen ( IP地址, 端口) 
+
+
+###Parameters###
+@@ParamTable@@
+IP地址
+	因特网协议地址(IpV4) ,如 "192.162.1.1".   
+端口
+	用于连接创建的连接的端口.    
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回一个数组: $array[1] 包含一个真实的套接字(socket), $array[2] 包含一个指定的IP地址, $array[3] 包含端口. 我们需要这个信息才能在后面调用 UDPSend(), where we pass this socket structure/array(意思不明).     
+失败:	返回 -1 和设置 @error 的值(依照 Windows API WSAGetError 返回)..    
+@@End@@
+
+
+###Remarks###
+这个函数使用于客户端连接到服务器进行会话. 
+
+
+###Related###
+UDPBind, UDPSend
+
+
+###Example###
+@@IncludeExample@@

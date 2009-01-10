@@ -1,0 +1,50 @@
+###User Defined Function###
+_GDIPlus_DrawImagePoints
+
+###Description###
+Draws an image at a specified location.
+
+###Syntax###
+#Include <GDIPlus.au3>
+_GDIPlus_DrawImagePoints($hGraphic, $hImage, $nULX, $nULY, $nURX, $nURY, $nLLX, $nLLY[, $count = 3])
+
+###Parameters###
+@@ParamTable@@
+$hGraphics
+	Handle to a Graphics object
+$hImage
+	Handle to an Image object
+$nULX
+	The X coordinate of the upper left corner of the source image
+$nULY
+	The Y coordinate of the upper left corner of the source image
+$nURX
+	The X coordinate of the upper right corner of the source image
+$nURY
+	The Y coordinate of the upper right corner of the source image
+$nLLX
+	The X coordinate of the lower left corner of the source image
+$nLLY
+	The Y coordinate of the lower left corner of the source image
+$count
+	Specifies the number of points (x,y)'s in the structure.
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False
+
+###Remarks###
+The value of the count parameter must equal 3 to specify the coordinates of
+the upper-left corner, upper-right corner, and lower-left corner of the
+parallelogram. The coordinate of the lower-right corner, the width, and the
+height of the image, are calculated using the three given coordinates.
+The image is scaled to fit the parallelogram.
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ GdipDrawImagePoints
+
+###Example###
+@@IncludeExample@@

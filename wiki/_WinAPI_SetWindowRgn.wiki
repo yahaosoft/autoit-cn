@@ -1,0 +1,41 @@
+###User Defined Function###
+_WinAPI_SetWindowRgn
+
+###Description###
+Sets the window region of a window
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_SetWindowRgn($hWnd, $hRgn[, $bRedraw])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window whose window region is to be set.
+$hRgn
+	Handle to a region. The function sets the window region of the window to this region.
+$bRedraw
+	Specifies whether the system redraws the window after setting the window region.
+@@End@@
+
+###ReturnValue###
+Success: Nonzero
+Failure: 0
+
+###Remarks###
+The window region determines the area within the window where the system permits drawing.
+The system does not display any portion of a window that lies outside of the window region
+When this function is called, the system sends the WM_WINDOWPOSCHANGING and WM_WINDOWPOSCHANGED messages to the window.
+The coordinates of a window's window region are relative to the upper-left corner of the window, not the client area of the window.
+After a successful call to SetWindowRgn, the system owns the region specified by the region handle hRgn.
+The system does not make a copy of the region. Thus, you should not make any further function calls with this region handle.
+In particular, do not delete this region handle. The system deletes the region handle when it no longer needed.
+
+###Related###
+_WinAPI_CreateRectRgn, _WinAPI_CreateRoundRectRgn, _WinAPI_CombineRgn
+
+###See Also###
+@@MsdnLink@@ SetWindowRgn
+
+###Example###
+@@IncludeExample@@

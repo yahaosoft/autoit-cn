@@ -1,0 +1,38 @@
+###Function###
+UDPRecv
+
+###Description###
+从已经连接的套接字里面接收数据. 
+
+###Syntax###
+UDPRecv ( 套接字数组, 最大返回量[, 标志] ) 
+
+
+###Parameters###
+@@ParamTable@@
+套接字数组
+	一个由 <a href="UDPBind.htm">UDPBind</a> 函数返回的套接字/数组.   
+最大返回量
+	定义返回是接收的最大字符数.
+标志
+	[可选参数] 强制函数返回二进制数据需要设置为1(默认为 0, 并且不会自动进行检测二进制/字符串数据).    
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回二进制/字符串的值(从已经连接的套接字里面接收).   
+失败:	返回空字符串 "" 并设置 @error 的值(依照 Windows API WSAGetError 返回).    
+@@End@@
+
+
+###Remarks###
+For backwards compatibility reasons this function will try to return strings by default. If null (0x00) characters are received then the return value will be a binary type.
+To force the function to always return binary data (the most sensible option) then use the "flag" parameter set to 1.
+
+
+###Related###
+BinaryLen, BinaryMid, UDPBind, UDPOpen
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,39 @@
+###Function###
+GUICtrlCreateContextMenu
+
+###Description###
+在指定控件或GUI窗口上创建上下文菜单(右键).
+
+###Syntax###
+GUICtrlCreateContextMenu ( [控件ID] )
+
+
+###Parameters###
+@@ParamTable@@
+控件ID
+	[可选参数] 控件标识符,可由 <a href="../guiref/GUICtrlCreate.htm">GUICtrlCreate...</a> 的返回值获得.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回新控件的控件标识符(控件ID).
+失败:	返回值为0.
+@@End@@
+
+
+###Remarks###
+在使用本函数创建右键菜单的主控件之后,即可使用 <a href="GUICtrlCreateMenuItem.htm">GUICtrlCreateMenuItem</a> 来创建每个菜单项.
+至于子菜单则可使用 <a href="GUICtrlCreateMenu.htm">GUICtrlCreateMenu</a> 来创建.
+
+若参数为空或为-1则表示所创建的右键菜单将关联到整个GUI窗口而不仅仅只是个别控件.
+
+每个控件只能设置一个右键菜单.因此若要创建一个新的右键菜单则必须先把现有的菜单删除.
+
+您不能为那些本身已有 <b>系统<b> 右键菜单的控件创建右键菜单,比如 编辑框/输入控件等.
+
+###Related###
+GUICtrlCreateMenuItem, GUICtrlCreateMenu, GUICtrlGetHandle, GUICtrlSetState, GUICtrlDelete
+
+
+###Example###
+@@IncludeExample@@

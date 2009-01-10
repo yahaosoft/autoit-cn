@@ -1,0 +1,44 @@
+###Function###
+FileRead
+
+###Description###
+从此前已打开的文本文件中读取指定数量的字符.
+
+###Syntax###
+FileRead ( 文件名句柄 或者 "文件名" [, 数量] )
+
+
+###Parameters###
+@@ParamTable@@
+文件句柄
+	目标文件句柄，可由此前调用 FileOpen 函数的返回值获得。另外也可以直接使用目标文件名.
+数量
+	[可选参数]指定要读取字符的数量。默认读取整个文件
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回所读取的字符/二进制数据.
+特殊:	把 @error 设为 -1，说明已经读到文件尾.
+失败:	把 @error 设为 1，说明文件并非以读取模式打开或者有其它错误.
+	把 @error 设为 2，说明文件并非以RAW读取模式打开或者有其它错误.
+@@End@@
+
+
+###Remarks###
+若给定的是文件名而不是文件句柄,那么该文件将在函数执行期间被打开并关闭,如果打开的文件较大则会比使用文件句柄要慢得多.
+注意:不要混用文件句柄和文件名,比如使用 FileOpen 函数打开某个文件然后又以文件名的形式使用本函数.在程序中要么使用文件句柄要么就使用文件名,不要两者都用!
+
+If the file was opened in Raw mode=4, the count must be a multiple of the sector size (512).
+
+Both ANSI and UTF16/UTF8 text formats can be read - AutoIt will automatically determine the type.
+
+A file can be read as binary(byte) data by using FileOpen with the binary flag - in this case count is in bytes rather than characters.
+
+
+###Related###
+IniRead, FileClose, FileOpen, FileReadLine, FileWrite, FileWriteLine, String
+
+
+###Example###
+@@IncludeExample@@

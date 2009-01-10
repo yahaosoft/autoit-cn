@@ -1,0 +1,42 @@
+###User Defined Function###
+_GUICtrlComboBox_AddDir
+
+###Description###
+Adds the names of directories and files
+
+###Syntax###
+#Include <GuiComboBox.au3>
+_GUICtrlComboBox_AddDir($hWnd, $sFile[, $iAttributes = 0[, $fBrackets = True]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to control
+$sFile
+	Specifies an absolute path, relative path, or filename
+$iAttributes
+	Specifies the attributes of the files or directories to be added:
+		$DDL_READWRITE - Includes read-write files with no additional attributes
+		$DDL_READONLY - Includes read-only files
+		$DDL_HIDDEN - Includes hidden files
+		$DDL_SYSTEM - Includes system files
+		$DDL_DIRECTORY - Includes subdirectories
+		$DDL_ARCHIVE - Includes archived files
+		$DDL_DRIVES - All mapped drives are added to the list
+		$DDL_EXCLUSIVE - Includes only files with the specified attributes
+$fBrackets
+	include/exclude brackets when $DDL_DRIVES is used
+@@End@@
+
+###ReturnValue###
+Success: Zero based index of the last name added
+Failure: -1
+
+###Remarks###
+If there is insufficient space to store the new strings, the return value is $CB_ERRSPACE
+Needs Constants.au3 for pre-defined constants
+
+###Related###
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,67 @@
+###Function###
+GUIRegisterMsg
+
+###Description###
+为已知的Windows 消息代码(WM_MSG)注册一个用户自定义的函数.
+
+###Syntax###
+GUIRegisterMsg ( msgID, "函数" ) 
+
+###Parameters###
+@@ParamTable@@
+msgID
+	一个Windows消息ID (参考附录的: <a href="../appendix/WinMsgCodes.htm">Windows Message Codes</a>).
+函数
+	当消息出现时,或者一个空字符串""(未注册的消息)说调用的用户自定义函数的名称.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回1
+失败:	返回0
+@@End@@
+
+
+###Remarks###
+!!! To make the user function workable you have to define it with <strong>maximum 4 function parameters</strong> otherwise the function won't be called !!!
+i.e:
+Func MyUserFunction($hWndGUI, $MsgID, $WParam, $LParam)
+...
+EndFunc
+
+Or
+
+Func MyUserFunction($hWndGUI, $MsgID)
+...
+EndFunc
+
+When the user function is called then these 4 parameters have the following values:
+@@StandardTable1@@
+<b>位置</b>	<b>参数</b>	<b>详细信息</b>
+1	hWnd	The Window handle of the GUI in which the message appears.
+2	Msg	The Windows message ID.
+3	wParam	The first message parameter as hex value.
+4	lParam	The second message parameter as hex value.
+@@End@@
+
+Up to 256 user functions can be registered for message ID's.
+
+By default after finishing the user function the AutoIt internal message handler will be proceed.
+That won't be if your <strong>Return</strong> a value (See WM_COMMAND in example) or if you use the keyword 'Return' without any value.
+By using 'Return' without any return value the AutoIt internal message handler (if there is one for this message) will NOT be proceed!
+
+!!! If you want AutoIt to run it's internal handler for a message, return the variable <strong>$GUI_RUNDEFMSG</strong> (in GUIConstantsEx.au3) from the function (see also examples) !!!
+I.e. if you want to return earlier than the user function ends and also proceed the AutoIt internal message handler.
+
+<strong>Warning:</strong> blocking of running user functions which executes window messages with commands such as "Msgbox()" can lead to unexpected behavior, the return to the system should be as fast as possible !!!
+
+Some controls consume internally specific Windows Message ID, so registrating them will have no effect, e.g; WM_CHAR, WM_KEYDOWN, WM_KEYUP are consumed by an edit control.
+
+
+###Related###
+GUICtrlGetHandle
+
+
+###Example###
+@@IncludeExample@@

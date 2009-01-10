@@ -1,0 +1,41 @@
+###User Defined Function###
+_ExcelHyperlinkInsert
+
+###Description###
+Inserts a hyperlink into the active page.
+
+###Syntax###
+#Include <Excel.au3>
+_ExcelHyperlinkInsert($oExcel, $sLinkText, $sAddress, $sScreenTip, $sRangeOrRow, $iColumn = 1)
+
+###Parameters###
+@@ParamTable@@
+$oExcel
+	An Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+$sLinkText
+	The text to display the hyperlink as
+$sAddress
+	The URL to link to, as a string
+$sScreenTip
+	The popup screen tip, as a string
+$sRangeOrRow
+	The range in A1 format, or a row number for R1C1 format
+$iColumn
+	The specified column number for R1C1 format (default = 1)
+@@End@@
+
+###ReturnValue###
+Success: Returns 1
+Failure: Returns 0 and sets @error on errors:
+@error=1: Specified object does not exist
+@error=2: Row or column invalid
+@extended=0: Row invalid
+@extended=1: Column invalid
+
+###Remarks###
+None
+
+###Related###
+
+###Example###
+@@IncludeExample@@

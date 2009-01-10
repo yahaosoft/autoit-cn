@@ -1,0 +1,35 @@
+###User Defined Function###
+_WinAPI_InvalidateRect
+
+###Description###
+Adds a rectangle to the specified window's update region
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_InvalidateRect($hWnd[, $tRect = 0[, $fErase = True]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to windows
+$tRect
+	$tagRECT structure that contains the client coordinates of the rectangle to be added to the
+		update region. If this parameter is 0 the entire client area is added to the update region.
+$fErase
+	Specifies whether the background within the update region is to be erased when the update
+		region is processed. If this parameter is True the background is erased when the BeginPaint function is
+		called. If this parameter is False, the background remains unchanged.
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False
+
+###Remarks###
+None.
+
+###Related###
+$tagRECT
+
+###See Also###
+@@MsdnLink@@ InvalidateRect

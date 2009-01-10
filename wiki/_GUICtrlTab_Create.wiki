@@ -1,0 +1,79 @@
+###User Defined Function###
+_GUICtrlTab_Create
+
+###Description###
+Create a TabControl control
+
+###Syntax###
+#Include <GuiTab.au3>
+_GUICtrlTab_Create($hWnd, $iX, $iY[, $iWidth=150[, $iHeight=150[, $iStyle=0x00000040[, $iExStyle=0x00000000]]]])
+
+###Parameters###
+@@ParamTable@@
+$hParent
+	Handle to parent or owner window
+$iX
+	Horizontal position of the control
+$iY
+	Vertical position of the control
+$iWidth
+	Control width
+$iHeight
+	Control height
+$iStyle
+	Control styles:
+		$TCS_BOTTOM - Tabs appear at the bottom of the control
+		$TCS_BUTTONS - Tabs appear as buttons, and no border is drawn around the display area
+		$TCS_FIXEDWIDTH - All tabs are the same width
+		$TCS_FLATBUTTONS - Selected tabs appear as being indented into the background while other tabs appear
+		as being on the same plane as the background. This only affects tab controls with the $TCS_BUTTONS style.
+		$TCS_FOCUSNEVER - The control does not receive the input focus when clicked
+		$TCS_FOCUSONBUTTONDOWN - The control receives the input focus when clicked
+		$TCS_FORCEICONLEFT - Icons are aligned with the left edge of each fixed width tab. This style can only be
+		used with the $TCS_FIXEDWIDTH style.
+		$TCS_FORCELABELLEFT - Labels are aligned on the left edge of each fixed width tab. The label is displayed
+		immediately to the right of the icon instead of being centered. This style can only be used with the
+		$TCS_FIXEDWIDTH style and it implies the $TCS_FORCEICONLEFT style.
+		$TCS_HOTTRACK - Items under the pointer are automatically highlighted. You can check whether or not
+		hot tracking is enabled by calling SystemParametersInfo.
+		$TCS_MULTILINE - Multiple rows of tabs are displayed, if necessary, so all tabs are visible at once
+		$TCS_MULTISELECT - Multiple tabs can be selected by holding down the CTRL key when clicking. This style
+		must be used with the $TCS_BUTTONS style.
+		$TCS_OWNERDRAWFIXED - The parent window is responsible for drawing tabs
+		$TCS_RAGGEDRIGHT - Rows of tabs will not be stretched to fill the entire width of the control. This
+		style is the default.
+		$TCS_RIGHT - Tabs appear vertically on the right side of controls that use the $TCS_VERTICAL
+		style. This value equals $TCS_BOTTOM. This style is not supported if you use visual styles.
+		$TCS_RIGHTJUSTIFY - The width of each tab is increased, if necessary, so that each row of tabs fills the
+		entire width of the tab control. This style is ignored unless the $TCS_MULTILINE style is also specified.
+		$TCS_SCROLLOPPOSITE - Unneeded tabs scroll to the opposite side of the control when a tab is selected
+		$TCS_SINGLELINE - Only one row of tabs is displayed. The user can scroll to see more tabs, if
+		necessary. This style is the default.
+		$TCS_TABS - Tabs appear as tabs, and a border is drawn around the display area. This style is
+		the default.
+		$TCS_TOOLTIPS - The tab control has a ToolTip control associated with it
+		$TCS_VERTICAL - Tabs appear at the left side of the control with tab text displayed vertically. This
+		style is valid only when used with the $TCS_MULTILINE style. To make tabs appear on the right side of the
+		control, also use the $TCS_RIGHT style.
+
+		Default: $TCS_HOTTRACK
+		Forced: $WS_CHILD, $WS_CLIPSIBLINGS, $WS_VISIBLE
+$iExStyle
+	Control extended styles:
+		$TCS_EX_FLATSEPARATORS - The control will draw separators between the tab items
+		$TCS_EX_REGISTERDROP - The control generates $TCN_GETOBJECT notification messages to request a drop target
+		object when an object is dragged over the tab items.
+@@End@@
+
+###ReturnValue###
+Success: Handle to the control
+Failure: 0
+
+###Remarks###
+This function is for Advanced users and for learning how the control works.
+
+###Related###
+_GUICtrlTab_Destroy
+
+###Example###
+@@IncludeExample@@

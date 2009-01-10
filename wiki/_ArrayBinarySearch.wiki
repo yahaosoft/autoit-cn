@@ -1,0 +1,40 @@
+###User Defined Function###
+_ArrayBinarySearch
+
+###Description###
+使用二进制搜索运算搜索一个一维数组.
+
+###Syntax###
+#Include <Array.au3>
+_ArrayBinarySearch(Const ByRef $avArray, $vValue[, $iStart = 0[, $iEnd = 0]])
+
+###Parameters###
+@@ParamTable@@
+$avArray
+	Array to search
+$vValue
+	Value to find
+$iWidth
+	[optional] Index of array to start searching at
+$iHeight
+	[optional] Index of array to stop searching at
+@@End@@
+
+###ReturnValue###
+Success: Index that value was found at
+Failure: -1, sets @error to:
+		1 - $avArray is not an array
+		2 - $vValue outside of array's min/max values
+		3 - $vValue was not found in array
+		4 - $iStart is greater than $iEnd
+		5 - $avArray is not a 1 dimensional array
+
+###Remarks###
+When performing a binary search on an array of items, the contents MUST be sorted before the search is done.
+Otherwise undefined results will be returned.
+
+###Related###
+_ArrayFindAll, _ArraySearch
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,47 @@
+###Function###
+FileCopy
+
+###Description###
+复制一个或多个文件.
+
+###Syntax###
+FileCopy ( "源文件", "目标路径" [, 标志] )
+
+
+###Parameters###
+@@ParamTable@@
+源文件
+	要复制的文件的路径.可使用通配符.
+目标路径
+	要复制到的目标路径.
+标志
+	[可选参数] 此标志参数用以决定是否覆盖已存在的文件:
+	可以是下面的这些值:
+	 0 = (默认)不覆盖已存在的文件
+	 1 = 覆盖已存在的文件
+	 8 = 当目标文件夹不存在,就自动创建一个 (参考 注意 部分).
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回值为1.
+失败:	返回值为0.
+@@End@@
+
+
+###Remarks###
+目标文件夹必须确实存在,除非把标志设置为8.
+例如组合标志'9'(1+8)覆盖存在的目标文件,并且如果目标文件夹不存在,就自动创建一个.
+
+关于通配符请查看 <a href="FileFindFirstFile.htm">FileFindFirstFile</a> 上的说明.
+
+一些文件属性不能替换(如只读等).
+
+
+###Related###
+FileMove, FileDelete, DirCopy
+
+
+###Example###
+@@IncludeExample@@

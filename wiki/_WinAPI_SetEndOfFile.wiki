@@ -1,0 +1,34 @@
+###User Defined Function###
+_WinAPI_SetEndOfFile
+
+###Description###
+Sets the physical file size for the specified file to the current position of the file pointer.
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_SetEndOfFile($hFile)
+
+###Parameters###
+@@ParamTable@@
+$hFile
+	Handle to the file to be extended or truncated.
+		The file handle must have the $GENERIC_WRITE access right.
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False, Use GetLastError() to get details
+
+###Remarks###
+This function can be used to truncate or extend a file.
++If the file is extended, the contents of the file between the old end of the file and the new end of the file are not defined.
++This function sets the file size.
+
+###Related###
+_WinAPI_CloseHandle, _WinAPI_CreateFile, _WinAPI_FlushFileBuffers, _WinAPI_GetFileSizeEx, _WinAPI_ReadFile, _WinAPI_SetFilePointer, _WinAPI_WriteFile
+
+###See Also###
+@@MsdnLink@@ SetEndOfFile
+
+###Example###
+@@IncludeExample@@

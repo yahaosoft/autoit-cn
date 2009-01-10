@@ -1,0 +1,49 @@
+###Function###
+FileSetAttrib
+
+###Description###
+修改一个或多个文件的属性.
+
+
+###Syntax###
+FileSetAttrib ( "文件", "+-RASHNOT" [, 递归遍历] ) 
+
+
+###Parameters###
+@@ParamTable@@
+文件
+	目标文件,例如 C:\*.au3,C:\Dir   
++-RASHNOT
+ 	要增加或去除地属性,例如"+A","+RA-SH"   
+递归遍历
+	[可选参数] 若设为1则将指定的属性更改递归应用到所有子目录(默认值为0,表示不递归).    
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回值为1.
+失败:	返回值为0,说明遇到了错误.
+@@End@@
+
+
+###Remarks###
+本函数的参数 <i>文件</i> 不可以含有空格! 
+可通过本函数增减的属性包括:
+"R" = READONLY(只读)
+"A" = ARCHIVE(存档) 
+"S" = SYSTEM(系统文件) 
+"H" = HIDDEN(隐藏文件) 
+"N" = NORMAL(普通) 
+"O" = OFFLINE(脱机文件) 
+"T" = TEMPORARY(临时文件) 
+
+(注意,本函数并不能设置压缩的/目录属性.) 
+
+
+###Related###
+FileGetAttrib, FileGetTime, FileSetTime
+
+
+###Example###
+@@IncludeExample@@

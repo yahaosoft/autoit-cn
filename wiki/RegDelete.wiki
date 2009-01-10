@@ -1,0 +1,51 @@
+###Function###
+RegDelete
+
+###Description###
+从注册表中删除指定键值.
+
+###Syntax###
+RegDelete ( "键名" [, "值项"] ) 
+
+
+###Parameters###
+@@ParamTable@@
+键名
+	要删除的注册表的根键或其子键.
+值项
+	[可选参数] 要删除的值项名.   
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回1.   
+特殊:	返回0,说明目标键/值项并不存在.   
+失败:	返回2,说明在删除目标键/值项时遇到错误.   
+	@error 会被设置为下面这些值: 
+	1 如果不能打开被请求的键(key)   
+	2 如果不能打开被请求的主键(main key)   
+	3 如果不能远程连接到注册表    
+	-1 如果不能删除被请求的值   
+	-2 如果不能删除被请求的值键/值    
+@@End@@
+
+
+###Remarks###
+键名必须以以下几种根键开头(也可用括号内的缩写):"HKEY_LOCAL_MACHINE" ("HKLM") 或 "HKEY_USERS" ("HKU") 或 "HKEY_CURRENT_USER" ("HKCU") 或 "HKEY_CLASSES_ROOT" ("HKCR") 或 "HKEY_CURRENT_CONFIG" ("HKCC").
+
+当运行于 64-位 Windows 操作系统,如果您想删除一个键或者值,在64位环境下面比较特殊.您必须添加HK的后缀64,如:HKLM64. 
+
+如果要访问 <b>(默认)</b> 值项只需传递一个""(空字符串)到值项参数中即可.
+
+删除注册表的数据具有潜在危险,请小心操作!
+
+如果要访问网络注册表则参数格式应该是"\\计算机名\键名".此功能要求您必须拥有相应的访问权限(NT/2000/XP/2003).
+
+
+###Related###
+RegRead, RegWrite
+
+
+###Example###
+@@IncludeExample@@

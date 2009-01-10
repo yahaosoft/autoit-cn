@@ -1,0 +1,40 @@
+###User Defined Function###
+_SQLite_QuerySingleRow
+
+###Description###
+Read out the first row of the result from the specified query.
+
+###Syntax###
+#include <SQLite.au3>
+_SQLite_QuerySingleRow ( $hDB, $sSQL, ByRef $aRow )
+
+
+###Parameters###
+@@ParamTable@@
+$hDB
+	An open database, use -1 to use last opened database
+$sSQL
+	SQL statement to be executed
+$aRow
+	Passes out the amount of 'data' rows
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns $SQLITE_OK
+Failure:	Return value can be compared against $SQLITE_* constants
+@error	-1 - SQLite Reported an Error (Check Return value)
+	1 - Error calling SQLite API 'sqlite3_get_table'
+	2 - Error calling SQLite API 'sqlite3_free_table'
+	3 - Call prevented by SaveMode
+@@End@@
+
+###Remarks###
+None.
+
+
+###Related###
+_SQLite_Query
+
+###Example###
+@@IncludeExample@@

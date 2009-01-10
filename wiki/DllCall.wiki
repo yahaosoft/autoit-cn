@@ -1,0 +1,143 @@
+###Function###
+DllCall
+
+###Description###
+调用指定DLL(动态链接库)文件里面的函数.
+
+###Syntax###
+DllCall ( "dll", "返回值类型", "函数名称" [, "类型1", 参数1[, "类型n", 参数n]] ) 
+
+###Parameters###
+@@ParamTable@@
+dll
+	要使用的 DLL 文件名，例如 "user32.dll"。也可使用由 DllOpen 获得的句柄(请查看下面的 注意 部分).
+返回值类型
+	函数的返回值类型(请查看下面的 注意 部分). 
+函数名称
+	调用DLL文件里面的函数名称, 如: "MessageBox" 或者使用序号, 如. 62
+类型
+	[可选] 参数的数据类型(请查看下面的 注意 部分).  
+参数
+	[可选] 实参(请查看下面的 注意 部分).
+@@End@@
+
+<br>值类型为:
+
+@@ParamTable@@
+<b>类型</b>
+	<b>详细信息</b>
+none
+	没有值 (仅用作无返回值函数的返回类型,这点跟C语言类似)   
+byte
+	8 位(bit)整数 
+ubyte
+	无符号 8 位(bit)整数
+short
+	16 位整数
+ushort
+	无符号16 位整数 
+dword
+	32 位整数
+udword
+	无符号 32 位整数 
+int
+	32 位整数
+uint
+	无符号 32 位整数
+long
+	32 位整数
+ulong
+	无符号 32 位整数 
+int64
+	64 位整数
+uint64
+	无符号 64 位整数
+str
+	ANSI 字符串(不能超过 65536 个字符).
+wstr
+	UNICODE 宽字符串(转换 到/从 ANSI 字符串,部分CALL需要).  不能超过 65536 字符.
+hwnd
+	窗口句柄(pointer)
+ptr
+	常规指针(void *)
+float
+	单精度浮点指针数 
+double
+	双精度浮点指针数
+lresult/int_ptr/long_ptr
+	an integer big enough to hold a pointer when running on x86 or x64 versions of AutoIt.
+lparam/int_ptr/long_ptr
+	an integer big enough to hold a pointer when running on x86 or x64 versions of AutoIt.
+wparam/uint_ptr/ulong_ptr
+	an unsigned integer big enough to hold a pointer when running on x86 or x64 versions of AutoIt.
+*
+	Add * to the end of another type to pass it by reference.  For example "int*" passes a pointer to an "int" type.
+@@End@@
+
+
+<br>从 Windows API 类型转换为 AutoIt 类型: 
+
+@@ParamTable@@
+<b>WINDOWS API 类型</b>
+	<b>AutoIt 类型</b>
+LPCSTR/LPSTR
+	str
+LPCWSTR/LPWSTR
+	wstr
+LPVOID
+	ptr
+HWND
+	hwnd
+WPARAM
+	wparam
+LPARAM
+	lparam
+DWORD
+	dword
+LPDWORD
+	dword*
+HANDLE/HINSTANCE
+	ptr
+LONGLONG/LARGE_INTEGER
+	int64
+ULONGLONG/ULARGE_INTEGER
+	uint64
+UINT_PTR
+	wparam
+LONG_PTR
+	lparam
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	@error = 0.
+失败:	@error = 1 不能使用这个DLL文件,
+	@error = 2 未知 "返回值", 
+	@error = 3 未在DLL文件中发现这个"函数".
+@@End@@
+See remarks.
+
+
+###Remarks###
+If a dll filename is given then the DLL is automatically loaded and then closed at the end of the call. If you want to manually control the loading and unloading of the DLL then you should use DllOpen and DllClose and use a handle instead of a filename in this function.
+
+By default, AutoIt uses the 'stdcall' calling method. To use the 'cdecl' method place ':cdecl' after the return type.
+DllCall("SQLite.dll", "int:cdecl", "sqlite3_open", "str", $sDatabase_Filename , "long*", 0).
+
+By default, AutoIt tries to use the ANSI version of a function name, i.e. MessageBoxA is attempted when MessageBox is given as the function name. To call the unicode version use MessageBoxW.
+
+If the function call fails then @error is set to 1.  Otherwise an array is returned that contains the function return value and a copy of all the parameters (including parameters that the function may have modified when passed by reference).
+$return[0] = 函数的返回值 
+$return[1] = 参数1 
+$return[2] = 参数2 
+...
+$return[n] = 参数n 
+
+
+###Related###
+DllCallbackFree, DllCallbackGetPtr, DllCallbackRegister, DllOpen, DllClose, DllStructCreate, DllStructGetPtr
+
+
+###Example###
+@@IncludeExample@@

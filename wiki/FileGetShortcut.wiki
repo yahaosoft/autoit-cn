@@ -1,0 +1,40 @@
+###Function###
+FileGetShortcut
+
+###Description###
+获取指定快捷方式的各种属性.
+
+###Syntax###
+FileGetShortcut ( "lnk文件" )
+
+
+###Parameters###
+@@ParamTable@@
+lnk文件
+	快捷方式文件(*.lnk)的完整路径.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回一个含有快捷方式###Related###信息的数组。请查看下面的 注意 部分.
+失败:	把 @error 设为 1,说明无法访问快捷方式.
+@@End@@
+
+
+###Remarks###
+本函数将返回一个含有下列元素的一维数组:
+$array[0] = 快捷方式的目标路径
+$array[1] = 工作目录
+$array[2] = 参数
+$array[3] = 描述
+$array[4] = 图标文件名
+$array[5] = 图标编号
+$array[6] = 状态(运行方式):  @SW_SHOWNORMAL、@SW_SHOWMINNOACTIVE 或 @SW_SHOWMAXIMIZED
+
+
+###Related###
+FileCreateShortcut
+
+
+###Example###
+@@IncludeExample@@

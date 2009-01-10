@@ -1,0 +1,39 @@
+###User Defined Function###
+_SQLite_Query
+
+###Description###
+Prepares a SQLite Query
+
+###Syntax###
+#include <SQLite.au3>
+_SQLite_Query ( $hDB, $sSQL, ByRef $hQuery )
+
+
+###Parameters###
+@@ParamTable@@
+$hDB
+	An open database, use -1 to use last opened database
+$sSQL
+	SQL statement to be executed
+$hQuery
+	Passes out a query handle
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns $SQLITE_OK
+Failure:	Return value can be compared against $SQLITE_* constants
+@error	-1 - SQLite reported an error (Check return value)
+	1 - Error calling SQLite API 'sqlite3_prepare'
+	2 - Call prevented by SafeMode
+@@End@@
+
+###Remarks###
+None.
+
+
+###Related###
+_SQLite_FetchData, _SQLite_FetchNames
+
+###Example###
+@@IncludeExample@@

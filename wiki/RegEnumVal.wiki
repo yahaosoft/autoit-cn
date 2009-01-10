@@ -1,0 +1,40 @@
+###Function###
+RegEnumVal
+
+###Description###
+读取指定值项的名称.
+
+###Syntax###
+RegEnumVal ( "键名", 序数 ) 
+
+
+###Parameters###
+@@ParamTable@@
+键名
+	要读取的注册表的根键或其子键.
+序数
+	要获取的子键序数,从1开始.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回目标值项名   
+失败:	返回空字符串 "",并把 @error 设为以下值之一:
+	1 如果不能打开被请求的键
+	2 如果不能打开被请求的主键
+	3 如果不能远程连接到注册表
+	-1 如果不能打开被请求的子键(可能是子键序数超出范围)
+@@End@@
+
+###Remarks###
+键名必须以以下几种根键开头(也可用括号内的缩写):"HKEY_LOCAL_MACHINE" ("HKLM") 或 "HKEY_USERS" ("HKU") 或 "HKEY_CURRENT_USER" ("HKCU") 或 "HKEY_CLASSES_ROOT" ("HKCR") 或 "HKEY_CURRENT_CONFIG" ("HKCC").
+
+当运行于 64-位 Windows 操作系统,如果您想删除一个键或者值,在64位环境下面比较特殊.您必须添加HK的后缀64,如:HKLM64.  
+
+###Related###
+RegEnumKey, RegDelete, RegWrite
+
+
+###Example###
+@@IncludeExample@@

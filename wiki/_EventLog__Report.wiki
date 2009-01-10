@@ -1,0 +1,53 @@
+###User Defined Function###
+_EventLog__Report
+
+###Description###
+Writes an entry at the end of the specified event log
+
+###Syntax###
+#Include <EventLog.au3>
+_EventLog__Report($hEventLog, $iType, $iCategory, $iEventID, $sUserName, $sDesc, $aData)
+
+###Parameters###
+@@ParamTable@@
+$hEventLog
+	A handle to the event log. As of Windows XP SP2, this cannot be a handle to the Security log.
+$iType
+	Event type. This can be one of the following values:
+		 0 - Success event
+		 1 - Error event
+		 2 - Warning event
+		 4 - Information event
+		 8 - Success audit event
+		16 - Failue audit event
+$iCategory
+	The event category. This is source specific information the category can have any value.
+$iEventID
+	The event identifier. The event identifier specifies the entry in the message file associated
+		with the event source.
+$sUserName
+	User name for the event. This can be blank to indicate that no name is required.
+$sDesc
+	Event description
+$aData
+	Data array formated as follows:
+		[0] - Number of bytes in array
+		[1] - Byte 1
+		[2] - Byte 2
+		[n] - Byte n
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False
+
+###Remarks###
+This function is used to log an event. The entry is written to the end of the configured log for the source
+identified by the hEventLog parameter. This function adds the time, the entry's length, and the offsets before
+storing the entry in the log.
+
+###Related###
+_EventLog__Close, _EventLog__Open
+
+###Example###
+@@IncludeExample@@

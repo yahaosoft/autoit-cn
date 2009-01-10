@@ -1,0 +1,38 @@
+###User Defined Function###
+_NamedPipes_ConnectNamedPipe
+
+###Description###
+Enables a named pipe server process to wait for a client process to connect
+
+###Syntax###
+#Include <NamedPipes.au3>
+_NamedPipes_ConnectNamedPipe($hNamedPipe[, $pOverlapped = 0])
+
+###Parameters###
+@@ParamTable@@
+$hNamedPipe
+	Handle to the server end of a named pipe instance
+$pOverlapped
+	Pointer to a $tagOVERLAPPED structure. If hNamedPipe was opened with $FILE_FLAG_OVERLAPPED,
+		pOverlapped must not be 0. If hNamedPipe was created with $FILE_FLAG_OVERLAPPED and pOverlapped is not 0, the
+		$tagOVERLAPPED structure should contain a handle to a manual reset event object. If hNamedPipe was not opened
+		with $FILE_FLAG_OVERLAPPED, the function does not return until a client is connected or an error occurs.
+		Successful synchronous operations result in the function returning a nonzero value if a client connects after
+		the function is called.
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False
+
+###Remarks###
+If a client connects before the function is called, the function returns zero and GetLastError will return
+ERROR_PIPE_CONNECTED. This can happen if a client connects in the interval between the call to CreateNamedPipe
+and the call to ConnectNamedPipe. In this situation, there is a good connection between client and server even
+though the function returns zero.
+
+###Related###
+_NamedPipes_CreateNamedPipe, $tagOVERLAPPED
+
+###See Also###
+@@MsdnLink@@ ConnectNamedPipe
