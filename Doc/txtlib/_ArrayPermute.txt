@@ -1,0 +1,35 @@
+###User Defined Function###
+_ArrayPermute
+
+###Description###
+Returns an Array of the Permutations of all Elements in an Array
+
+###Syntax###
+#Include <Array.au3>
+_ArrayPermute(ByRef $avArray[, $sDelim = ""])
+
+###Parameters###
+@@ParamTable@@
+$avArray
+	The Array to get Permutations
+$sDelim
+	[optional] String result separator, default is "" for none
+@@End@@
+
+###ReturnValue###
+Success: Returns an Array of Permutations
+		$array[0] contains the number of strings returned.
+		The remaining elements ($array[1], $array[2] ... $array[n]) contain the Permutations.
+		Failure - Returns 0 and Sets @error:
+		1 - The Input Must be an Array
+		2 - $avArray is not a 1 dimensional array
+
+###Remarks###
+The input array must be 0-based, i.e. no counter in $array[0]. Based on the algorithm by Alexander Bogomolny.
+
+http://www.bearcave.com/random_hacks/permute.html
+
+###Related###
+
+###Example###
+@@IncludeExample@@

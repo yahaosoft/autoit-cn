@@ -1,0 +1,27 @@
+###Structure Name###
+$tagNMOBJECTNOTIFY
+
+###Description###
+Contains information used with the $TBN_GETOBJECT, $TCN_GETOBJECT, $RBN_GETOBJECT, and $PSN_GETOBJECT notification messages
+
+###Syntax###
+Global Const $tagNMOBJECTNOTIFY = $tagNMHDR & ";int Item;ptr piid;ptr pObject;int Result"
+
+###Fields###
+@@ParamTable@@
+$tagNMHDR
+	Contains information about a notification message
+Item
+	A control-specific item identifier
+piid
+	A pointer to an interface identifier of the requested object
+pObject
+	A pointer to an object provided by the window processing the notification message
+	The application processing the notification message sets this member
+Result
+	COM success or failure flags. The application processing the notification message sets this member
+@@End@@
+
+###Remarks###
+None.
+

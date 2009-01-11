@@ -1,0 +1,47 @@
+###User Defined Function###
+_ExcelWriteSheetFromArray
+
+###Description###
+Writes a 2D array to the active worksheet
+
+###Syntax###
+#Include <Excel.au3>
+_ExcelWriteSheetFromArray($oExcel, ByRef $aArray [, $iStartRow = 1, $iStartColumn = 1 [, $iRowBase = 1, $iColBase = 1]])
+
+###Parameters###
+@@ParamTable@@
+$oExcel
+	Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+$aArray
+	The array ByRef to write data from (array is not modified)
+$iStartRow
+	The table row to start writing the array to, default is 1
+$iStartColumn
+	The table column to start writing the array to, default is 1
+$iRowBase
+	array index base for rows, default is 1
+$iColBase
+	array index base for columns, default is 1
+@@End@@
+
+###ReturnValue###
+Success: Returns 1
+Failure: Returns 0 and sets @error on errors:
+@error=1: Specified object does not exist
+@error=2: Parameter out of range
+   @extended=0: $iStartRow out of range
+   @extended=1: $iStartColumn out of range
+@error=3: Array invalid
+         @extended=0: doesn't exist / variable is not an array
+         @extended=1: not a 2D array
+@error=4: Base index out of range
+   @extended=0: $iRowBase out of range
+   @extended=1: $iColBase out of range
+
+###Remarks###
+Default base indexes in the array are both = 1, so first cell written is from $aArray[1][1].
+
+###Related###
+
+###Example###
+@@IncludeExample@@

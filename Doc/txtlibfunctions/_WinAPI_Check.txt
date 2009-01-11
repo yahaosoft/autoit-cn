@@ -1,0 +1,35 @@
+###User Defined Function###
+_WinAPI_Check
+
+###Description###
+Displays any errors produced by the AutoIt library
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_Check($sFunction, $fError, $vError[, $fTranslate = False])
+
+###Parameters###
+@@ParamTable@@
+$Function
+	Name of function
+$fError
+	True if error occurred
+$iError
+	Error code
+$fTranslate
+	Translate error using _WinAPI_GetLastErrorMessage
+@@End@@
+
+###ReturnValue###
+None.
+
+###Remarks###
+This function is used within many of the lower level API functions to simulate a "fatal" application error.
+It is used in functions that normally should not fail or where there is no clear corrective action that can be
+taken if an error is generated.
+
+###Related###
+_WinAPI_GetLastErrorMessage
+
+###Example###
+@@IncludeExample@@

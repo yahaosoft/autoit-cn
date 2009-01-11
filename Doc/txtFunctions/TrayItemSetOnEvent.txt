@@ -1,0 +1,40 @@
+###Function###
+TrayItemSetOnEvent
+
+###Description###
+当菜单项目被点击,执行一个用户自定义函数. 
+
+###Syntax###
+TrayItemSetOnEvent ( 项目ID, "函数" ) 
+
+
+###Parameters###
+@@ParamTable@@
+项目ID
+	控件标识 (itemID) ,参见 <a href="../functions/TrayCreateItem.htm">TrayCreateItem</a> 的返回值.   
+函数
+	自定义函数的名称.    
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回1. 
+失败:	返回0.
+@@End@@
+
+
+###Remarks###
+OnEvent 函数只能在 TrayOnEventMode 选项设置为 1 时才能使用 - 当使用这种模式, TrayGetMsg 就不能使用. 
+
+可以使用 @TRAY_ID 得到项目控件标识. 
+
+如果 函数 是一个空字符串 "" ,先前定义的用户函数会被关闭.(the previous user-defined is disabled.) 
+
+
+###Related###
+TrayCreateItem, TrayGetMsg, TrayOnEventMode (Option), TraySetOnEvent
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,52 @@
+###Function###
+PixelSearch
+
+###Description###
+在指定矩形区域中搜寻与指定颜色值匹配的象素(并返回第一个匹配的象素的坐标). 
+
+###Syntax###
+PixelSearch ( 左侧, 上方, 右侧, 下方, 颜色 [, 色差 [, 步进 [,句柄]]]  ) 
+
+
+###Parameters###
+@@ParamTable@@
+左侧
+	矩形区域左侧的坐标.   
+上方
+	矩形区域上方的坐标.   
+右侧
+	矩形区域右侧的坐标.   
+下方
+	矩形区域下方的坐标.   
+颜色
+	要搜索的颜色值(十进制或十六进制皆可).   
+色差
+	[可选参数] 一个介于0到255之间的数值,用以指定允许的颜色偏差范围.默认值为0(表示完全匹配).   
+步进
+	[可选参数] 默认情况下每个象素都要校验一次,而此参数可跳过指定数量的象素才校验(可提升执行速度).例如,数值2表示每隔一个象素才校验一次.默认值为 1.   
+句柄 
+	[可选参数] 目标窗口的窗口句柄.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回一个含有两个元素的数组,分别储存着指定象素的坐标(Array[0] =  x , Array[1] = y)   
+失败:	把 @error 设为 1,说明指定的颜色未被发现.
+@@End@@
+
+
+###Remarks###
+搜索动作将从左到右,从上到下执行,并且返回首个匹配的象素的坐标. 
+
+旧版的 AutoIt(v3.0.102 之前)使用的是 BGR 格式的颜色值,而新版的则默认使用 RGB 格式,您可以使用 ColorMode 选项修改这一设置. 
+
+Remember, a typical display at 1024 x 768 has 786432 pixels. Although PixelSearch is optimized, narrowing the search area helps speed up the result.
+
+
+###Related###
+ColorMode (Option), PixelChecksum, PixelGetColor, PixelCoordMode (Option)
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,57 @@
+###Function###
+GUICtrlCreateLabel
+
+###Description###
+在GUI上创建一个静态的 Label 控件. 
+
+###Syntax###
+GUICtrlCreateLabel ( "文本", 左侧, 顶部 [, 宽度 [, 高度 [, 样式 [, 扩展样式]]]] ) 
+
+
+###Parameters###
+@@ParamTable@@
+文本
+	控件的文本. 
+左侧
+	控件左侧的位置.若此值为 -1 则根据 <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> 的设置来计算左侧位置.   
+顶部
+	控件上方的位置.若此值为 -1 则根据 <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> 的设置来计算上方位置.   
+宽度
+	[可选参数] 控件的宽度(默认值为上一个控件的宽度).
+高度
+	[可选参数] 控件的高度(默认值为上一个控件的高度).
+样式
+	[可选参数] 指定控件的样式.请查看附录中关于 <a href="../appendix/GUIStyles.htm#Label">GUI 控件样式</a> 的说明.
+
+	默认值(-1): 无.
+	强制样式: $SS_NOTIFY, $SS_LEFT   
+扩展样式
+	[可选参数] 指定控件的扩展样式.请查看附录的 <a href="../appendix/GUIStyles.htm#Extended">扩展样式表</a> .
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回控件标识符(控件ID).
+失败:	返回值为0.    
+@@End@@
+
+
+###Remarks###
+若要设置或修改控件的各种信息请查看 <a href="../guiref/GUICtrlSet.htm">GUICtrlSet...</a> . 
+
+要在默认样式的基础上添加一个新的样式可使用 <b>BitOr</b>($GUI_SS_DEFAULT_LABEL, 新样式,...). 
+
+要使用上方指定的值,您必须包含 #include <StaticConstants.au3> 在您的脚本中. 
+
+默认大小为 $GUI_DOCKAUTO ,坐标随机.
+
+扩展样式 $GUI_WS_EX_PARENTDRAG 可以允许用户拖动父窗口到窗口不能有标题栏(原文:parent window for windows that don't have a titlebar) (GUICreate 没有 $WS_CAPTION 样式). 
+
+要设置背景为透明,请使用 GUICtrlSetBkColor(-1, $GUI_BKCOLOR_TRANSPARENT). 
+
+###Related###
+GUICoordMode (Option), GUICtrlSet..., GUIGetMsg
+
+
+###Example###
+@@IncludeExample@@

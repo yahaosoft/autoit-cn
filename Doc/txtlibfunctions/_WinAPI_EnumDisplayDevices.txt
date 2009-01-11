@@ -1,0 +1,43 @@
+###User Defined Function###
+_WinAPI_EnumDisplayDevices
+
+###Description###
+Obtains information about the display devices in a system
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_EnumDisplayDevices($sDevice, $iDevNum)
+
+###Parameters###
+@@ParamTable@@
+$sDevice
+	Device name. If blank, the function returns information for the display adapters on the machine
+		based on iDevNum.
+$iDevNum
+	Zero based index value that specifies the display device of interest
+@@End@@
+
+###ReturnValue###
+Success: Array with the following format:
+		$aDevice[0] - True on success, otherwise False
+		$aDevice[1] - Either the adapter device or the monitor device
+		$aDevice[2] - Either a description of the adapter or the monitor
+		$aDevice[3] - Device state flags:
+		 1 - The device is part of the desktop
+		 2 - The primary desktop is on the device
+		 4 - Represents a pseudo device used to mirror application drawing for remoting
+		 8 - The device is VGA compatible
+		16 - The device is removable; it cannot be the primary display
+		32 - The device has more display modes than its output devices support
+		$aDevice[4] - Plug and Play identifier string (Windows 98/ME)
+
+###Remarks###
+None.
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ EnumDisplayDevices
+
+###Example###
+@@IncludeExample@@

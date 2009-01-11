@@ -1,0 +1,36 @@
+###User Defined Function###
+_GUICtrlListBox_SetTabStops
+
+###Description###
+Sets the tab-stop positions
+
+###Syntax###
+#Include <GuiListBox.au3>
+_GUICtrlListBox_SetTabStops($hWnd, $aTabStops)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to control
+$aTabStops
+	Array with the following format:
+		[0] - Number of tab stops in the array (n)
+		[1] - First tab stop
+		[2] - Second tab stop
+		[n] - Nth tab stop
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False
+
+###Remarks###
+The integers in $aTabStops represent the number of quarters of the average character width for the font that
+is selected into the list box. For example, a tab stop of 4 is placed at 1.0 character units, and a tab stop
+of 6 is placed at 1.5 average character units. However, if the list box is part of a dialog box, the integers
+are in dialog template units. The tab stops must be sorted in ascending order; backward tabs are not allowed.
+
+###Related###
+
+###Example###
+@@IncludeExample@@

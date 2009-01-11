@@ -1,0 +1,29 @@
+###User Defined Function###
+_WinAPI_InProcess
+
+###Description###
+Determines whether a window belongs to the current process
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_InProcess($hWnd, ByRef $hLastWnd)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Window handle to be tested
+$hLastWnd
+	Last window tested. If $hWnd = $hLastWnd, this process will immediately return True. Otherwise,
+		_WinAPI_InProcess will be called. If $hWnd is in process, $hLastWnd will be set to $hWnd on return.
+@@End@@
+
+###ReturnValue###
+True: Window handle belongs to the current process
+False: Window handle does not belong to the current process
+
+###Remarks###
+This is one of the key functions to the control memory mapping technique. It checks the process ID of the
+window to determine if it belongs to the current process, which means it can be accessed without mapping the control memory.
+
+###Related###
+

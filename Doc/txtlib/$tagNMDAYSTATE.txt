@@ -1,0 +1,42 @@
+###Structure Name###
+$tagNMDAYSTATE
+
+###Description###
+Carries information required to process the $MCN_GETDAYSTATE notification me
+
+###Syntax###
+Global Const $tagNMDAYSTATE = $tagNMHDR & ";short Year;short Month;short DOW;short Day;short Hour;" & _
+		"short Minute;short Second;short MSeconds;int DayState;ptr pDayState"
+
+###Fields###
+@@ParamTable@@
+$tagNMHDR
+	Contains information about a notification message
+Year
+	Year
+Month
+	Month
+DOW
+	DOW
+Day
+	Day
+Hour
+	Hour
+Minute
+	Minute
+Second
+	Seconds
+MSeconds
+	Milliseconds
+DayState
+	The total number of elements that must be in the array at pDayState
+pDayState
+	Address of an array of MONTHDAYSTATE (DWORD bit field that holds the state of each day in a month)
+	Each bit (1 through 31) represents the state of a day in a month. If a bit is on, the corresponding day will
+	be displayed in bold; otherwise it will be displayed with no emphasis.
+	The buffer at this address must be large enough to contain at least DayState elements.
+@@End@@
+
+###Remarks###
+None.
+

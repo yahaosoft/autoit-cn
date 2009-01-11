@@ -1,0 +1,48 @@
+###Function###
+GUICtrlCreateGraphic
+
+###Description###
+在GUI上创建一个绘图(Graphic)控件. 
+
+###Syntax###
+GUICtrlCreateGraphic ( 左侧, 顶部[, 宽度[, 高度[, 样式]]] ) 
+
+
+###Parameters###
+@@ParamTable@@
+左侧
+	控件左侧的位置.若此值为 -1 则根据 <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> 的设置来计算左侧位置.
+顶部
+	控件上方的位置.若此值为 -1 则根据 <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> 的设置来计算上方位置.
+宽度
+	[可选参数] 控件的宽度(默认值为上一个控件的宽度).
+高度
+	[可选参数] 控件的高度(默认值为上一个控件的高度).
+ 样式
+	[可选参数]定义控件的样式. 请参考 <a href="../appendix/GUIStyles.htm#Label">GUI 控件样式参考</a> .
+	
+	默认( -1) : $SS_NOTIFY. 
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回控件标识符(控件ID).
+失败:	返回 0.
+@@End@@
+
+
+###Remarks###
+要在控件中绘图,请参考 <a href="GUICtrlSetGraphic.htm">GUICtrlSetGraphic</a>.
+
+边框或者背景颜色可以用 GUICtrlSetBkColor 和 GUICtrlSetColor 进行设置.
+
+绘图控件不能接受点击事件,因此不能与其它控件交迭使用. 如果是交迭的,请关闭绘图控件 : GuiCtrlSetState(-1,$GUI_DISABLE).
+
+This control cannot be resized due to fix graphic relative addressing creation but can be dock with GUICtrlSetResizing().
+
+###Related###
+GUICtrlSetGraphic, GUICtrlSetBkColor, GUICtrlSetColor, GUICtrlDelete, GUICoordMode (Option), GUISetState, GUICtrlSetStyle, GUICtrlSetResizing, GUIGetMsg
+
+
+###Example###
+@@IncludeExample@@

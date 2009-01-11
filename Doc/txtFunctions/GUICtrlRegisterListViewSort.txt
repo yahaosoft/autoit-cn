@@ -1,0 +1,65 @@
+###Function###
+GUICtrlRegisterListViewSort
+
+###Description###
+Register a user defined function for an internal listview sorting callback function.
+
+###Syntax###
+GUICtrlRegisterListViewSort ( controlID, "function" )
+
+###Parameters###
+@@ParamTable@@
+controlID
+	The listview controlID for which the user function should proceed.
+function
+	The name of the user function to call when the sorting callback runs.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	1
+Failure:	0
+@@End@@
+
+
+###Remarks###
+!!! To make the user function workable you have to define it with <strong>maximum 4 function parameters</strong> otherwise the function won't be called !!!
+i.e:
+Func MySortFunction($nListViewID, $LParam1, $LParam2, $nColumn)
+...
+EndFunc
+
+Or
+
+Func MySortFunction($nListViewID, $LParam1, $LParam2)
+...
+EndFunc
+
+
+When the user function is called then these 4 parameters have the following values:
+@@StandardTable1@@
+<b>Position</b>	<b>Parameter</b>	<b>Meaning</b>
+1	controlID	The controlID of the listview control for which the callback function is used.
+2	lParam1	The lParam value of the first item (by default the item controlID).
+3	lParam2	The lParam value of the second item (by default the item controlID).
+4	column	The column that was clicked for sorting (the first column number is 0).
+@@End@@
+
+The following values have to be <strong>Return</strong>ed to change the behaviour of the sorting callback:
+@@StandardTable1@@
+<b>Return value</b>	<b>Meaning</b>
+-1	1st item should precede the 2nd.
+0	No Change.
+1	1st item should follow the 2nd.
+@@End@@
+
+See also examples for sorting with selfcreated GUI listview items.
+
+
+###Related###
+GUICtrlCreateListView
+
+
+###Example###
+@@IncludeExample@@

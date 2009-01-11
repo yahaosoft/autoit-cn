@@ -1,0 +1,36 @@
+###Function###
+WinGetClassList
+
+###Description###
+获取指定窗口的所有控件类的列表.
+
+###Syntax###
+WinGetClassList ( "窗口标题" [, "窗口文本"] )
+
+
+###Parameters###
+@@ParamTable@@
+窗口标题
+	目标窗口标题. See <a href="../intro/windowsadvanced.htm">标题特殊定义</a>.
+窗口文本
+	[可选参数] 目标窗口文本.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回一个含有所有控件类的字符串.
+失败:	返回值为1,并把 @error 设为 1,说明不存在符合匹配要求的窗口.
+@@End@@
+
+
+###Remarks###
+类别名由换行符(@LF)分开.在目标窗口处于最小化或隐藏状态时  WinGetClassList 仍能正常工作.最多能获得 64KB 的文本内容.若同时有多个窗口符合匹配条件则程序将读取最近被激活的窗口的控件类.
+
+
+###Related###
+WinGetText, ControlCommand
+
+
+###Example###
+@@IncludeExample@@

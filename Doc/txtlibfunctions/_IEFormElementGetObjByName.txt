@@ -1,0 +1,44 @@
+###User Defined Function###
+_IEFormElementGetObjByName
+
+###Description###
+Returns an object reference to a Form Element by name.
+
+###Syntax###
+#include <IE.au3> 
+_IEFormElementGetObjByName ( ByRef $o_object, $s_name [, $i_index = 0] )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	Object variable of an InternetExplorer.Application, Form object
+$s_name
+	Specifies the name of the Form Element you wish to match
+$i_index
+	Optional: If the Form Element name occurs more than once, specifies instance by 0-based index
+	0 (Default) or positive integer returns an indexed instance
+	-1 returns a collection of the specified Form Elements
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an object variable pointing to the Form Element object, @EXTENDED = form count
+Failure:	Returns 0 and sets @ERROR
+@Error:	0 ($_IEStatus_Success) = No Error
+	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
+	4 ($_IEStatus_InvalidObjectType) = Invalid Object Type
+	7 ($_IEStatus_NoMatch) = No Match
+@Extended:	Contains invalid parameter number
+@@End@@
+
+
+###Remarks###
+If the desired form element does not have a name or ID, _IEFormElementGetCollection to get a reference by index
+
+
+###Related###
+_IEFormElementGetCollection
+
+
+###Example###
+@@IncludeExample@@

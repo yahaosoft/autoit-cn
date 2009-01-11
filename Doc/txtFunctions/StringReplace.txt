@@ -1,0 +1,44 @@
+###Function###
+StringReplace
+
+###Description###
+替换字符串中的指定子串. 
+
+###Syntax###
+StringReplace ( "字符串", "搜索串" 或 起始位置, "替换串" [, 数量 [, 区分大小写]] )
+
+
+###Parameters###
+@@ParamTable@@
+字符串
+	目标字符串.   
+搜索串
+	要搜索(并替换)的子串,或者是开始执行替换操作的字符位置.   
+替换串
+	替换字符串.   
+数量   
+	[可选参数] 指定替换搜索串的次数. 
+	0 = 所有搜索串都将被替换(默认)  [若 数量 < 0 也表示替换所有实例]
+区分大小写
+	[可选参数] 指定搜索操作是否要区分大小写. 
+	0 = 不区分大小写(默认) 
+	1 = 区分大小写 
+	2 = 不区分大小写,  使用基本/快速的比较方法    
+@@End@@
+
+
+###ReturnValue###
+返回替换后的字符串,替换操作的次数保存在宏 @extended 中. 
+
+
+###Remarks###
+搜索/替换操作是从左到右执行的,因此 StringReplace("aaa", "aa", "bb") 的返回值是 "bba" 
+
+若使用了 起始位置 这种替换方式则 数量 及 区分大小写 将被忽略.若替换串无法保存则返回一个空字符串并把 @error 设为 1. 
+
+###Related###
+String, StringLeft, StringLen, StringLower, StringMid, StringRight, StringTrimLeft, StringTrimRight, StringUpper
+
+
+###Example###
+@@IncludeExample@@

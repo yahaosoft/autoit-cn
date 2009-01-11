@@ -1,0 +1,36 @@
+###User Defined Function###
+_GUIImageList_GetIcon
+
+###Description###
+Creates an icon from an image and mask in an image list
+
+###Syntax###
+#Include <GuiImageList.au3>
+_GUIImageList_GetIcon($hWnd, $iIndex[, $iStyle = 0])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iIndex
+	Zero based index of the image
+$iStyle
+	Drawing style and overlay image:
+		1 - Draws the image transparently using the mask, regardless of the background color
+		2 - Draws the image, blending 25 percent with the system highlight color
+		4 - Draws the image, blending 50 percent with the system highlight color
+		8 - Draws the mask
+@@End@@
+
+###ReturnValue###
+Success: The handle to the icon if successful
+Failure: 0
+
+###Remarks###
+It is the responsibility of the calling application to destroy the icon returned from this function
+using _GUIImageList_DestroyIcon
+
+###Related###
+
+###Example###
+@@IncludeExample@@

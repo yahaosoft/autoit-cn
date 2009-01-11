@@ -1,0 +1,51 @@
+###Structure Name###
+$tagSCROLLBARINFO
+
+###Description###
+Contains scroll bar information
+
+###Syntax###
+Global Const $tagSCROLLBARINFO = "dword cbSize;int Left;int Top;int Right;int Bottom;int dxyLineButton;int xyThumbTop;" & _
+		"int xyThumbBottom;int reserved;dword rgstate[6]"
+
+###Fields###
+@@ParamTable@@
+cbSize
+	Specifies the size, in bytes, of this structure. The caller must set this to DllStructGetSize($tagSCROLLBARINFO).
+Left
+	Specifies the x-coordinate of the upper-left corner of the rectangle coordinates of the scroll bar
+Top
+	Specifies the y-coordinate of the upper-left corner of the rectangle coordinates of the scroll bar
+Right
+	Specifies the x-coordinate of the lower-right corner of the rectangle coordinates of the scroll bar
+Bottom
+	Specifies the y-coordinate of the lower-right corner of the rectangle coordinates of the scroll bar
+dxyLineButton
+	Height or width of the thumb.
+xyThumbTop
+	Position of the top or left of the thumb.
+xyThumbBottom
+	Position of the bottom or right of the thumb.
+reserved
+	Reserved.
+rgstate
+	An array of DWORD elements. Each element indicates the state of a scroll bar component.
+		The following values show the scroll bar component that corresponds to each array index:
+		  0 The scroll bar itself.
+		  1 The top or right arrow button.
+		  2 The page up or page right region.
+		  3 The scroll box (thumb).
+		  4 The page down or page left region.
+		  5 The bottom or left arrow button.
+
+		The DWORD element for each scroll bar component can include a combination of the following bit flags.
+		  STATE_SYSTEM_INVISIBLE - For the scroll bar itself, indicates the specified vertical or horizontal scroll bar does not exist.
+		    For the page up or page down regions, indicates the thumb is positioned such that the region does not exist.
+		  STATE_SYSTEM_OFFSCREEN - For the scroll bar itself, indicates the window is sized such that the specified vertical or horizontal scroll bar is not currently displayed.
+		  STATE_SYSTEM_PRESSED - The arrow button or page region is pressed.
+		  STATE_SYSTEM_UNAVAILABLE - The component is disabled.
+@@End@@
+
+###Remarks###
+$SIF_xxxxx and $SB_xxxxx for scrollbar require WindowsConstants.au3
+

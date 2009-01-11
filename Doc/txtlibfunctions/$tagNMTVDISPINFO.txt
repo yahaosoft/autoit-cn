@@ -1,0 +1,52 @@
+###Structure Name###
+$tagNMTVDISPINFO
+
+###Description###
+Contains and receives display information for a tree-view item
+
+###Syntax###
+Global Const $tagNMTVDISPINFO = $tagNMHDR & ";int Mask;int hItem;int State;int StateMask;" & _
+		"ptr Text;int TextMax;int Image;int SelectedImage;int Children;int Param"
+
+###Fields###
+@@ParamTable@@
+$tagNMHDR
+	Contains information about a notification message
+Mask
+	Specifies which information is being set or retrieved. It can be one or more of the following values:
+		$TVIF_CHILDREN - The Children member is valid
+		$TVIF_IMAGE - The Image member is valid
+		$TVIF_SELECTEDIMAGE - The SelectedImage member is valid
+		$TVIF_TEXT - The Text and TextMax members are valid
+hItem
+	Item to which this structure refers
+State
+	Set of bit flags and image list indexes that indicate the item's state. When setting the state
+	of an item, the StateMask member indicates the bits of this member that are valid. When retrieving the state
+	of an item, this member returns the current state for the bits indicated in the StateMask member. Bits 0
+	through 7 of this member contain the item state flags. Bits 8 through 11 of this member specify the one based
+	overlay image index.
+StateMask
+	Bits of the state member that are valid. If you are retrieving an item's state, set the bits
+	of the stateMask member to indicate the bits to be returned in the state member. If you are setting an item's
+	state, set the bits of the stateMask member to indicate the bits of the state member that you want to set.
+Text
+	Pointer to a null-terminated string that contains the item text.
+TextMax
+	Size of the buffer pointed to by the Text member, in characters
+Image
+	Index in the image list of the icon image to use when the item is in the nonselected state
+SelectedImage
+	Index in the image list of the icon image to use when the item is in the selected state
+Children
+	Flag that indicates whether the item has associated child items. This member can be one of the
+	following values:
+		0 - The item has no child items
+		1 - The item has one or more child items
+Param
+	A value to associate with the item
+@@End@@
+
+###Remarks###
+None.
+

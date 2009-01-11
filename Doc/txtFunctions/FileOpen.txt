@@ -1,0 +1,59 @@
+###Function###
+FileOpen
+
+###Description###
+打开指定的文件以供读写.
+
+###Syntax###
+FileOpen ( "文件名", 模式)
+
+
+###Parameters###
+@@ParamTable@@
+文件名 
+	要打开的文件名.
+模式
+	指定以何种模式(读或写)打开文件:
+	可以是下列几种:
+	  0 = 只读模式
+	  1 = 写入模式(附加数据到文件尾部)
+	  2 = 写入模式(先删除之前的内容)
+	  4 = Raw 模式读取数据
+	  8 = 如果目标目录不存在就创建(参考注意).
+	  16 = 强制使用二进制(字节)模式读取与写入
+	  32 = 使用 Unicode UTF16 小编码读写模式,读取不会覆盖存在的BOM.
+	  64 = 使用 Unicode UTF16 大编码读写模式,读取不会覆盖存在的BOM.
+	  128 =使用 Unicode UTF8 读写模式,读取不会覆盖存在的BOM.
+	Both write modes will create the file if it does not already exist. The folder path must already exist (except using mode '8' - See Remarks).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回一个文件"句柄",用于后来的文件函数调用.
+失败:	返回值为 -1,说明有错误发生.
+@@End@@
+
+
+###Remarks###
+A file can only be in either read or write mode; it cannot be in both.
+Some file attributes can make the opening impossible.
+When opening a file in write mode, the file will be created if it does not exist.
+When finished working with a file, call the FileClose function to close the file.  Autoit normally closes all files upon termination, but explicitly calling FileClose is still a good idea.
+
+The default mode when writing text is ANSI - use the unicode flags to change this. When writing unicode files the Windows default mode (and the fastest in AutoIt due to the least conversion) is UTF16 Little Endian (mode 32).
+
+When using the mode=4 (Raw Read) the filename is defined as "\\.\A:" for reading sector on a floppy disk the count must be a multiple of sector size(512).
+
+Non-existing directory structure:
+------------------------------------
+By default the file will not be created if the directory structure doesn't exist.
+To overwrite this behaviour use the modes '1' or '2' together with mode-flag '8'!
+For instance the mode-flag '9' (1 + 8) checks for the directory structure and if it doesn't exist creates it automatically and then opens the file for appending.
+
+
+###Related###
+FileClose, FileReadLine, FileWriteLine, FileRead
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,41 @@
+###Function###
+GUICtrlCreateTabItem
+
+###Description###
+在GUI上创建一个标签页控件项目.
+
+###Syntax###
+GUICtrlCreateTabItem ( "文本" )
+
+
+###Parameters###
+@@ParamTable@@
+文本  
+	控件的文本.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回控件标识符(控件ID).   
+失败:	返回值为0.
+@@End@@
+
+
+###Remarks###
+若要设置或修改控件的各种信息请查看 <a href="../guiref/GUICtrlSet.htm">GUICtrlSet...</a>.
+
+若要让指定的标签页在对话框(窗口)打开的时候先被显示则请参考下面的示例使用语句 GUICtrlSetState(-1,$GUI_SHOW).参考例子.
+
+若要结束标签控件的定义则只需在最后创建一个空文本的"标签项"即可.这个"标签项"将不被绘制(代码太多了 ...)
+
+When advanced mode is used, GUICtrlRead($tab,1) will return the controlID instead of index of the clicked tab item.
+
+To create a new control on an existing tabitem use GUISwitch($hWin,$tabitem) to select it and just create your new control. Don't forget to close your tabitem creation with GUICtrlCreateTabItem("").
+
+
+###Related###
+GUICtrlSetState, GUISwitch, GUIGetMsg, GUICtrlRead, GUIEventOptions (Option)
+
+
+###Example###
+@@IncludeExample@@

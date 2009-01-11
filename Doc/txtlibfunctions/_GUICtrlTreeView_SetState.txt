@@ -1,0 +1,41 @@
+###User Defined Function###
+_GUICtrlTreeView_SetState
+
+###Description###
+Set the state of the specified item
+
+###Syntax###
+#Include <GuiTreeView.au3>
+_GUICtrlTreeView_SetState($hWnd, $hItem[, $iState = 0[, $iSetState = 0]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$hItem
+	item ID/handle to set the icon
+$iState
+	The new item state, can be one or more of the following:
+		$TVIS_SELECTED - Set item selected
+		$TVIS_CUT - Set item as part of a cut-and-paste operation
+		$TVIS_DROPHILITED - Set item as a drag-and-drop target
+		$TVIS_BOLD - Set item as bold
+		$TVIS_EXPANDED - Expand item
+		$TVIS_EXPANDEDONCE - Set item's list of child items has been expanded at least once
+		$TVIS_EXPANDPARTIAL - Set item as partially expanded
+$iSetState
+	True if item state is to be set, False remove item state
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False
+
+###Remarks###
+State values can BitOr'ed together as for example BitOr($TVIS_SELECTED, $TVIS_BOLD).
+
+###Related###
+_GUICtrlTreeView_GetState
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,64 @@
+###Structure Name###
+$tagMENUITEMINFO
+
+###Description###
+Contains information about a menu item
+
+###Syntax###
+Global Const $tagMENUITEMINFO = "int Size;int Mask;int Type;int State;int ID;int SubMenu;int BmpChecked;int BmpUnchecked;" & _
+		"int ItemData;ptr TypeData;int CCH;int BmpItem"
+
+###Fields###
+@@ParamTable@@
+Size
+	Specifies the size, in bytes, of the structure
+Mask
+	Members to retrieve or set. This member can be one or more of these values:
+		$MIIM_BITMAP - Retrieves or sets the BmpItem member
+		$MIIM_CHECKMARKS - Retrieves or sets the BmpChecked and BmpUnchecked members
+		$MIIM_DATA - Retrieves or sets the ItemData member
+		$MIIM_FTYPE - Retrieves or sets the Type member
+		$MIIM_ID - Retrieves or sets the ID member
+		$MIIM_STATE - Retrieves or sets the State member
+		$MIIM_STRING - Retrieves or sets the TypeData member
+		$MIIM_SUBMENU - Retrieves or sets the SubMenu member
+		$MIIM_TYPE - Retrieves or sets the Type and TypeData members
+Type
+	Menu item type. This member can be one or more of the following values:
+		$MFT_BITMAP - Displays the menu item using a bitmap
+		$MFT_MENUBARBREAK - Places the menu item on a new line or in a new column
+		$MFT_MENUBREAK - Places the menu item on a new line or in a new column
+		$MFT_OWNERDRAW - Assigns responsibility for drawing the menu item to the menu owner
+		$MFT_RADIOCHECK - Displays selected menu items using a radio button mark
+		$MFT_RIGHTJUSTIFY - Right justifies the menu item and any subsequent items
+		$MFT_RIGHTORDER - Specifies that menus cascade right to left
+		$MFT_SEPARATOR - Specifies that the menu item is a separator
+State
+	Menu item state. This member can be one or more of these values:
+		$MFS_CHECKED - Checks the menu item
+		$MFS_DEFAULT - Specifies that the menu item is the default
+		$MFS_DISABLED - Disables the menu item and grays it so that it cannot be selected
+		$MFS_ENABLED - Enables the menu item so that it can be selected
+		$MFS_GRAYED - Disables the menu item and grays it so that it cannot be selected
+		$MFS_HILITE - Highlights the menu item
+ID
+	Application-defined 16-bit value that identifies the menu item
+SubMenu
+	Handle to the drop down menu or submenu associated with the menu item
+BmpChecked
+	Handle to the bitmap to display next to the item if it is selected
+BmpUnchecked
+	Handle to the bitmap to display next to the item if it is not selected
+ItemData
+	Application-defined value associated with the menu item
+TypeData
+	Content of the menu item
+CCH
+	Length of the menu item text
+BmpItem
+	Handle to the bitmap to be displayed
+@@End@@
+
+###Remarks###
+None.
+

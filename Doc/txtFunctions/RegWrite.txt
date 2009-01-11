@@ -1,0 +1,56 @@
+###Function###
+RegWrite
+
+###Description###
+创建一个主键,子键或值项. 
+
+###Syntax###
+RegWrite ( "键名" [,"值项", "类型", 数据] ) 
+
+
+###Parameters###
+@@ParamTable@@
+键名
+	目标键名.若其它参数未指定则只创建该子键.
+值项
+	[可选参数] 目标值项.
+类型
+	[可选参数] 目标值项的数据类型,比如:"REG_SZ","REG_MULTI_SZ","REG_EXPAND_SZ","REG_DWORD" 或 "REG_BINARY".
+数据
+	[可选参数] 数值数据.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回值为 1.   
+失败:	返回值为 0,写入注册表键或者值发生错误.
+	@error 设为以下值之一   
+	1 如果不能打开被请求的键   
+	2 如果不能打开被请求的主键   
+	3 如果不能远程连接到注册表   
+	-1 如果不能打开被请求的值
+	-2 如果值的类型是不支持的
+@@End@@
+
+
+###Remarks###
+键名必须以以下几种根键开头(也可用括号内的缩写):"HKEY_LOCAL_MACHINE" ("HKLM"),"HKEY_USERS" ("HKU"),"HKEY_CURRENT_USER" ("HKCU"),"HKEY_CLASSES_ROOT" ("HKCR") 或 "HKEY_CURRENT_CONFIG" ("HKCC").
+
+当运行于 64-位 Windows 操作系统,如果您想删除一个键或者值,在64位环境下面比较特殊.您必须添加HK的后缀64,如:HKLM64. 
+
+目前 AutoIt 支持的数据类型包括 REG_BINARY,REG_SZ,REG_MULTI_SZ,REG_EXPAND_SZ 以及 REG_DWORD. 
+
+如果要访问(默认)值项只需传递一个""(空字符串)到值项参数中即可. 
+
+若要写入的目标值项的数据类型是 REG_MULTI_SZ 则应该使用 @LF 分割各个字符串项目,该值项 不能 以 @LF 结尾,也允许写入"空项目"(请看下面的示例). 
+
+如果要访问网络注册表则参数格式应该是"\\计算机名\键名".此功能要求您必须拥有相应的访问权限(2000/XP/2003)
+
+
+###Related###
+RegDelete, RegRead
+
+
+###Example###
+@@IncludeExample@@

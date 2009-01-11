@@ -1,0 +1,59 @@
+###Function###
+GUICtrlSetGraphic
+
+###Description###
+修改一个控件的图形数据.
+
+###Syntax###
+GUICtrlSetGraphic ( 控件ID, 类型 [, par1  [, ... par6]] )
+
+
+###Parameters###
+@@ParamTable@@
+控件ID
+	控件标识符(控件ID),可由  <a href="GUICtrlCreateGraphic.htm">GUICtrlCreateGraphic</a> 函数的返回值获得.
+类型
+	可以直接绘图的类型 : 点(dot) , 线(line) , 贝赛尔曲线(bezier) , 矩形(rect) , 圆(ellipse) , pie.
+par1...par6
+	参考 <a href="GUICtrlSetGraphic.htm#Graphic Type table">绘图类型列表</a>.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回1.   
+失败:	返回0.
+       返回-1 (数据无效)
+@@End@@
+
+
+###Remarks###
+点的坐标 (x,y) 是 GUICtrlCreateGraphic 的相对坐标.它可以超出绘图控件,但是不能超出GUI窗口.
+
+<a name="Graphic Type table"></a><b>绘图类型列表</b>
+@@StandardTable1@@
+<b>类型</b>	<b>参数</b>	<b>结果</b>
+$GUI_GR_COLOR	颜色 [,背景色]	定义下次绘图时的颜色. 当背景色等于$GUI_GR_NOCOLOR 时,绘图将会失败.(这是默认值). 默认线的颜色为黑色.
+$GUI_GR_MOVE	x,y 移动当前坐标,但是不进行绘图. 
+$GUI_GR_DOT	x,y 画一个点(smallest square around the point), 下次绘图时使用上一次的坐标.
+$GUI_GR_PIXEL	x,y 画一个像素, 下次绘图时使用上一次的坐标.
+$GUI_GR_LINE	x,y 画一条线.
+$GUI_GR_BEZIER	x,y,x1,y1,x2,y2	使用两个控制点画一个贝赛尔曲线.
+$GUI_GR_RECT	x,y,宽,高 画一个矩形. 当 宽=高 ,将画出一个正方形.
+$GUI_GR_ELLIPSE	x,y,宽,高 画一个椭圆. 当 宽=高 ,将画出一个正圆.
+$GUI_GR_PIE	x,y,r,sa,wa	Draw a pie radius=r startangle=sa sweepangle=wa. Angles are in degrees.
+$GUI_GR_CLOSE	&nbsp;	to close the current drawing. It has to be added to $GUI_GR_LINE or $GUI_GR_BEZIER to close current drawing. Use alone will be ignored.
+$GUI_GR_REFRESH	&nbsp;	to force refresh after dynamic update of graphics.
+$GUI_GR_HINT	&nbsp;	to display control point and end point of bezier/line curve.
+$GUI_GR_PENSIZE	n	set pensize for the next drawings. It has to be defined before $GUI_GR_COLOR to be taken in account.
+$GUI_GR_NOBKCOLOR	&nbsp;	is a dummy BkColor to force closed drawing not to be filled. Just line drawings.
+@@End@@
+
+Due to design constraints RECT, ELLIPSE and PIE graphics are drawn first.  For example, a LINE will always be drawn over a RECT.  If the drawing order is important to the look of the graphic, then it is recommended that multiple graphic controls be used instead of using a single control to do all the drawing.
+
+
+###Related###
+GUICtrlCreateGraphic
+
+
+###Example###
+@@IncludeExample@@

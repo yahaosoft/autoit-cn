@@ -1,0 +1,43 @@
+###User Defined Function###
+_IEHeadInsertEventScript
+
+###Description###
+Inserts a Javascript into the Head of the document.
+
+###Syntax###
+#include <IE.au3> 
+_IEHeadInsertEventScript ( ByRef $o_object, $s_htmlFor, $s_event, $s_script )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	Object variable of an InternetExplorer.Application, Window or Frame object
+$s_htmlFor
+	The HTML element for event monitoring (e.g. "document", "window" or an element ID)
+$s_event
+	The event to monitor (e.g. "onclick" or "oncontextmenu")
+$s_script
+	Javascript string to be executed
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1
+Failure:	Returns 0 and sets @ERROR
+@Error:	0 ($_IEStatus_Success) = No Error
+	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
+@Extended:	Contains invalid parameter number
+@@End@@
+
+
+###Remarks###
+Using ObjEvent, AutoIt is able to be notified of events via COM, but it manages them asynchronously (rather than synchronously as they are handled in the browser context).  This routine allows you to inject code that is managed inside the browser context.
+
+Note that elements that do not have an ID assigned can still be used by obtaining their "uniqueID" property with _IEPropertyGet
+
+###Related###
+_IEDocInsertHTML, _IEPropertyGet
+
+
+###Example###
+@@IncludeExample@@

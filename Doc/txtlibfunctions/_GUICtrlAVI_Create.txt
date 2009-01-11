@@ -1,0 +1,51 @@
+###User Defined Function###
+_GUICtrlAVI_Create
+
+###Description###
+创建一个 AVI 控件
+
+###Syntax###
+#Include <GuiAVI.au3>
+_GUICtrlAVI_Create($hWnd[, $sFile = ""[, $subfileid = -1[, $iX = 0[, $iY = 0[, $iWidth = 0[, $iHeight = 0[, $iStyle = 0x00000006[, $iExStyle = 0x00000000]]]]]]]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to parent or owner window
+$sFile
+	The filename of the video. Only .avi files are supported
+$subfileid
+	id of the subfile to be used.
+$iX
+	Horizontal position of the control
+$iY
+	Vertical position of the control
+$iWidth
+	Control width
+$iHeight
+	Control height
+$iStyle
+	Control styles:
+		$ACS_CENTER - Centers the animation in the animation control's window
+		$ACS_TRANSPARENT - Creates the control with a transparent background
+		$ACS_AUTOPLAY - Starts playing the animation as soon as the AVI clip is opened
+		$ACS_TIMER - The control plays the clip without creating a thread
+
+		Default: $ACS_TRANSPARENT, $ACS_AUTOPLAY
+		Forced : $WS_CHILD, $WS_VISIBLE
+$iExStyle
+	Control external styles
+@@End@@
+
+###ReturnValue###
+Success: Handle of the animation control
+Failure: 0
+
+###Remarks###
+This function is for Advanced users and for learning how the control works.
+
+###Related###
+_GUICtrlAVI_Destroy
+
+###Example###
+@@IncludeExample@@

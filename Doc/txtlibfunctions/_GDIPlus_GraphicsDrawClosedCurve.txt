@@ -1,0 +1,43 @@
+###User Defined Function###
+_GDIPlus_GraphicsDrawClosedCurve
+
+###Description###
+Draw a closed cardinal spline
+
+###Syntax###
+#Include <GDIPlus.au3>
+_GDIPlus_GraphicsDrawClosedCurve($hGraphics, $aPoints[, $hPen = 0])
+
+###Parameters###
+@@ParamTable@@
+$hGraphics
+	Handle to a Graphics object
+$aPoints
+	Array that specifies the points of the curve:
+		[0][0] - Number of points
+		[1][0] - Point 1 X position
+		[1][1] - Point 1 Y position
+		[2][0] - Point 2 X position
+		[2][1] - Point 2 Y position
+		[n][0] - Point n X position
+		[n][1] - Point n Y position
+$hPen
+	Handle to a pen object that is used to draw the spline. If 0, a solid black pen with a width of
+		1 will be used.
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False
+
+###Remarks###
+In a closed cardinal spline, the curve continues through the last point in the points array and connects with
+the first point in the array. The array of points must contain a minimum of three elements.
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ GdipDrawClosedCurveI
+
+###Example###
+@@IncludeExample@@

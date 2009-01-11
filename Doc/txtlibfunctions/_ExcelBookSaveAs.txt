@@ -1,0 +1,59 @@
+###User Defined Function###
+_ExcelBookSaveAs
+
+###Description###
+Saves the active workbook of the specified Excel object with a new filename and/or type.
+
+###Syntax###
+#Include <Excel.au3>
+_ExcelBookSaveAs($oExcel, $sFilePath, $sType = "xls", $fAlerts = 0, $fOverWrite = 0, $sPassword = "", $sWritePassword = "", $iAccessMode = 1, $iConflictResolution = 2)
+
+###Parameters###
+@@ParamTable@@
+$oExcel
+	Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+$sFilePath
+	Path and filename of the file to be read
+$sType
+	Excel writable filetype string = "xls|csv|txt|template|html", default "xls"
+$fAlerts
+	Flag for disabling/enabling Excel message alerts (0=disable, 1=enable)
+$fOverWrite
+	Flag for overwriting the file, if it already exists (0=no, 1=yes)
+$sPassword
+	The string password to protect the sheet with; if blank, no password will be used (default = blank)
+$sWritePassword
+	The string write-access password to protect the sheet with; if blank, no password will be used (default = blank)
+$iAccessMode
+	The document sharing mode to assign to the workbook:
+$xlNoChange
+	Leaves the sharing mode as it is (default) (numeric value = 1)
+$xlExclusive
+	Disables sharing on the workbook (numeric value = 3)
+$xlShared
+	Enable sharing on the workbook (numeric value = 2)
+$iConflictResolution
+	For shared documents, how to resolve sharing conflicts:
+$xlUserResolution
+	Pop up a dialog box asking the user how to resolve (numeric value = 1)
+$xlLocalSessionChanges
+	The local user's changes are always accepted (default) (numeric value = 2)
+$xlOtherSessionChanges
+	The local user's changes are always rejected (numeric value = 3)
+@@End@@
+
+###ReturnValue###
+Success: Returns 1
+Failure: Returns 0 and sets @error on errors:
+@error=1: Specified object does not exist
+@error=2: Invalid filetype string
+@error=3: File exists, overwrite flag not set
+
+###Remarks###
+You can only SaveAs back to the same working path the workbook was originally opened from at this time
+(not applicable to newly created, unsaved books).
+
+###Related###
+
+###Example###
+@@IncludeExample@@

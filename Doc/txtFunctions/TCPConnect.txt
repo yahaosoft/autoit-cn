@@ -1,0 +1,38 @@
+###Function###
+TCPConnect
+
+###Description###
+创建一个套接字(socket)连接到已经存在的服务器. 
+
+
+###Syntax###
+TCPConnect ( IP地址, 端口) 
+
+
+###Parameters###
+@@ParamTable@@
+IP地址
+	V4类型的地址(Internet Protocol dotted address缩写为IP),如 "192.162.1.1".   
+端口
+	用于连接创建的连接的端口.    
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回主套接字(socket)ID.   
+失败:	返回 -1 并设置 @error 的值(依照 Windows API WSAGetError 返回)...   
+	如果IP地址错误 @error 设置为 1.   
+	如果端口错误,设置@error 为 2.    
+@@End@@
+
+
+###Remarks###
+这个函数使用于客户端连接到服务器进行会话.
+
+
+###Related###
+TCPStartup, TCPListen, TCPTimeout (Option)
+
+
+###Example###
+@@IncludeExample@@

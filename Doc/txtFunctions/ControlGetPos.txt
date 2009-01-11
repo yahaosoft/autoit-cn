@@ -1,0 +1,40 @@
+###Function###
+ControlGetPos
+
+###Description###
+获取指定控件相对其窗口的坐标位置和大小等信息.
+
+###Syntax###
+ControlGetPos ( "窗口标题", "窗口文本", 控件ID) 
+
+
+###Parameters###
+@@ParamTable@@
+窗口标题
+	目标窗口标题.
+窗口文本
+	目标窗口文本.
+控件ID
+	目标控件.请查看关于<a href="../intro/controls.htm">控件</a>的说明.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回一个储存着指定控件相对其窗口的位置及大小等信息的数组：
+	$array[0] = X 坐标
+	$array[1] = Y 坐标 
+	$array[2] = 宽度
+	$array[3] = 高度
+失败:	把 @error 设为 1。
+@@End@@
+
+
+###Remarks###
+窗口标题/文本会涉及到父窗口,请小心的使用("","")定义参数。
+
+###Related###
+ControlCommand, ControlMove, WinMove
+
+
+###Example###
+@@IncludeExample@@

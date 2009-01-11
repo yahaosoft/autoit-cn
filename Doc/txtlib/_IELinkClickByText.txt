@@ -1,0 +1,50 @@
+###User Defined Function###
+_IELinkClickByText
+
+###Description###
+Simulate a mouse click on a link with text sub-string matching the string provided.
+
+###Syntax###
+#include <IE.au3> 
+_IELinkClickByText ( ByRef $o_object, $s_linkText [, $i_index = 0], $f_wait = 1]] )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	Object variable of an InternetExplorer.Application, Window or Frame object
+$s_linkText
+	Text displayed on the web page for the desired link to click
+$i_index
+	Optional: If the link text occurs more than once, specify which instance you want by 0-based index
+$f_wait
+	Optional: specifies whether to wait for page to load before returning
+	0 = Return immediately, not waiting for page to load
+	1 = (Default) Wait for page load to complete before returning
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns -1
+Failure:	Returns 0 and sets @ERROR
+@Error:	0 ($_IEStatus_Success) = No Error
+	1 ($_IEStatus_GeneralError) = General Error
+	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
+	4 ($_IEStatus_InvalidObjectType) = Invalid Object Type
+	6 ($_IEStatus_LoadWaitTimeout) = Load Wait Timeout
+	7 ($_IEStatus_NoMatch) = No Match
+	8 ($_IEStatus_AccessIsDenied) = Access Is Denied
+	9 ($_IEStatus_ClientDisconnected) = Client Disconnected
+@Extended:	Contains invalid parameter number
+@@End@@
+
+
+###Remarks###
+Not all elements that appear to be links actually are.  It is common practice to attach onClick JavaScript events to other DOM elements to simulate the behavior of links.  To activate such elements, use "click" with _IEAction.
+
+
+###Related###
+_IELinkClickByIndex, _IELoadWait
+
+
+###Example###
+@@IncludeExample@@

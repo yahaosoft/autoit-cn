@@ -1,0 +1,47 @@
+###User Defined Function###
+_WinAPI_CombineRgn
+
+###Description###
+Combines two regions and stores the result in a third region
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_CombineRgn($hRgnDest, $hRgnSrc1, $hRgnSrc2, $iCombineMode)
+
+###Parameters###
+@@ParamTable@@
+$hRgnDest
+	Handle to a new region with dimensions defined by combining two other regions. (This region must exist before CombineRgn is called.)
+$hRgnSrc1
+	Handle to the first of two regions to be combined.
+$hRgnSrc2
+	Handle to the second of two regions to be combined.
+$iCombineMode
+	Specifies a mode indicating how the two regions will be combined. This parameter can be one of the following values.
+		RGN_AND - Creates the intersection of the two combined regions.
+		RGN_COPY - Creates a copy of the region identified by hrgnSrc1.
+		RGN_DIFF - Combines the parts of hrgnSrc1 that are not part of hrgnSrc2.
+		RGN_OR - Creates the union of two combined regions.
+		RGN_XOR - Creates the union of two combined regions except for any overlapping areas.
+@@End@@
+
+###ReturnValue###
+Success: Specifies the type of the resulting region. It can be one of the following values.
+		NULLREGION - The region is empty.
+		SIMPLEREGION - The region is a single rectangle.
+		COMPLEXREGION - The region is more than a single rectangle.
+		ERROR - No region is created.
+Failure: 0
+
+###Remarks###
+The two regions are combined according to the specified mode.
+The three regions need not be distinct. For example, the hrgnSrc1 parameter can equal the hrgnDest parameter.
+
+###Related###
+_WinAPI_CreateRectRgn, _WinAPI_CreateRoundRectRgn, _WinAPI_SetWindowRgn
+
+###See Also###
+@@MsdnLink@@ CombineRgn
+
+###Example###
+@@IncludeExample@@

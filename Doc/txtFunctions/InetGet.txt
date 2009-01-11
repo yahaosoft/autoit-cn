@@ -1,0 +1,63 @@
+###Function###
+InetGet
+
+###Description###
+通过HTTP或FTP协议从互联网上下载指定文件.
+
+###Syntax###
+InetGet ( "URL", "文件名" [, 是否重载 [, 是否后台]] )
+
+
+###Parameters###
+@@ParamTable@@
+URL
+	要下载文件的 URL(地址).  参考注意事项. 取消是 "abort".
+文件名
+	[可选参数]
+	下载到本地的文件路径.
+是否重载
+	[可选参数]
+	0 = (默认)如有可能则从本地IE缓存中获得文件
+	1 = 强制性地要求脚本从远程站点重新下载文件
+是否后台
+	[可选参数]
+	0 = (默认)等待下载完成之后才继续执行后面的语句.
+	1 = 立即返回并在后台完成下载 (参考注意事项).
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回值为 1.
+失败:	返回值为 0.
+@@End@@
+
+
+###Remarks###
+为保证此函数的正常工作必须安装 Internet Explorer 3 或更高版本.
+
+URL 参数是指类似"http://www.somesite.com/path/file.html"这样的形式,这和我们在网页浏览器中输入的地址是一样的格式.
+
+如果连接时需要指定用户名及密码,只要在主机名前加以下前缀即可:"用户名:密码@"(都是英文字符 ),比如
+"http://myuser:mypassword@www.somesite.com"
+
+InetGet 函数支持这几种协议:http:// https:// 和 ftp://,如需调整ftp的传输模式请查看 FtpBinaryMode 属性.
+
+
+<b>&quot;后台&quot; 参数</b>
+
+在默认情况下,此函数将在完成下载任务之后才返回.如果下载的文件较大那么这样的处理方式是让人无法接受的.如果把 "是否后台" 参数设为1则函数将立即返回,下载工作则在后台继续进行.在此模式下,有两个宏可供使用:
+@InetGetActive = 下载任务进行中则为 1,完成则为 0.
+@InetGetBytesRead = 已下载文件字节数,如果出错则为  -1.
+
+每次只可以激活一个下载任务,如果您在上一个下载任务尚未完成时再次调用此函数将会失败.
+
+如果要撤销下载任务则只需再次调用此函数并传递"abort"到第一个参数即可:
+<p class="codebox">InetGet("abort")</p>
+
+###Related###
+FtpBinaryMode (Option), FtpSetProxy, InetGetSize, HttpSetProxy,  
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,57 @@
+###User Defined Function###
+_GUICtrlMenu_TrackPopupMenu
+
+###Description###
+Displays a shortcut menu at the specified location
+
+###Syntax###
+#Include <GuiMenu.au3>
+_GUICtrlMenu_TrackPopupMenu($hMenu, $hWnd[, $iX = -1[, $iY = -1[, $iAlignX = 1[, $iAlignY = 1[, $iNotify = 0[, $iButtons = 0]]]]]])
+
+###Parameters###
+@@ParamTable@@
+$hMenu
+	Handle to the shortcut menu to be displayed
+$hWnd
+	Handle to the window that owns the shortcut menu
+$iX
+	Specifies the horizontal location of the shortcut menu, in screen coordinates. If this is -1,
+		the current mouse position is used.
+$iY
+	Specifies the vertical location of the shortcut menu, in screen coordinates. If this is -1, the
+		current mouse position is used.
+$iAlignX
+	Specifies how to position the menu horizontally:
+		0 - Center the menu horizontally relative to $iX
+		1 - Position the menu so that its left side is aligned with $iX
+		2 - Position the menu so that its right side is aligned with $iX
+$iAlignY
+	Specifies how to position the menu vertically:
+		0 - Position the menu so that its bottom side is aligned with $iY
+		1 - Position the menu so that its top side is aligned with $iY
+		2 - Center the menu vertically relative to $iY
+$iNotify
+	Use to determine the selection withouta parent window:
+		1 - Do not send notification messages
+		2 - Return the menu item identifier of the user's selection
+$iButtons
+	Mouse button the shortcut menu tracks:
+		0 - The user can select items with only the left mouse button
+		1 - The user can select items with both left and right buttons
+@@End@@
+
+###ReturnValue###
+Success: If $iNotify is set to 2, the return value is the menu item identifier of the item that the
+	user selected. If the user cancels the menu without making a selection or if an error occurs, then the return	value is zero. If $iNotify is not set to 2, the return value is 1.
+Failure: 0
+
+###Remarks###
+None.
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ TrackPopupMenu
+
+###Example###
+@@IncludeExample@@

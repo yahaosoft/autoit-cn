@@ -1,0 +1,41 @@
+###User Defined Function###
+_ProcessGetPriority
+
+###Description###
+Get the  priority of an open process
+
+###Syntax###
+#include <Process.au3>
+_ProcessGetPriority ($i_PID)
+
+
+###Parameters###
+@@ParamTable@@
+$i_PID
+	Process ID (Int) of process to be examined.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns integer corressponding to the processes's priority:
+	0 - Idle/Low
+	1 - Below Normal (Not supported on Windows 95/98/ME)
+	2 - Normal
+	3 - Above Normal (Not supported on Windows 95/98/ME)
+	4 - High
+	5 - Realtime
+
+Failure:	Returns -1 and sets @Error to 1
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+.ProcessSetPriority
+
+
+###Example###
+@@IncludeExample@@

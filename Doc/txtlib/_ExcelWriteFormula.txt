@@ -1,0 +1,37 @@
+###User Defined Function###
+_ExcelWriteFormula
+
+###Description###
+Write a formula to a cell on the active worksheet of the specified Excel object.
+
+###Syntax###
+#Include <Excel.au3>
+_ExcelWriteFormula($oExcel, $iRow, $iColumn, $sFormula)
+
+###Parameters###
+@@ParamTable@@
+$oExcel
+	Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+$sFormula
+	Formula to be written
+$sRangeOrRow
+	Either an A1 range, or an integer row number to write to if using R1C1
+$iColumn
+	The column to write to if using R1C1 (default = 1)
+@@End@@
+
+###ReturnValue###
+Success: Returns 1
+Failure: Returns 0 and sets @error on errors:
+@error=1: Specified object does not exist
+@error=2: Parameter out of range
+@extended=0: Row out of range
+@extended=1: Column out of range
+
+###Remarks###
+None
+
+###Related###
+
+###Example###
+@@IncludeExample@@

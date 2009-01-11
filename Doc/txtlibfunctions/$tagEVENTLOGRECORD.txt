@@ -1,0 +1,50 @@
+###Structure Name###
+$tagEVENTLOGRECORD
+
+###Description###
+Contains information about an event record
+
+###Syntax###
+Global Const $tagEVENTLOGRECORD = "int Length;int Reserved;int RecordNumber;int TimeGenerated;int TimeWritten;int EventID;" & _
+		"short EventType;short NumStrings;short EventCategory;short ReservedFlags;int ClosingRecordNumber;int StringOffset;" & _
+		"int UserSidLength;int UserSidOffset;int DataLength;int DataOffset"
+
+###Fields###
+@@ParamTable@@
+Length
+	The size of this event record, in bytes
+Reserved
+	Reserved
+RecordNumber
+	The number of the record
+TimeGenerated
+	The time at which this entry was submitted
+TimeWritten
+	The time at which this entry was received by the service to be written to the log
+EventID
+	The event identifier
+EventType
+	The type of event
+NumStrings
+	The number of strings present in the log
+EventCategory
+	The category for this event
+ReservedFlags
+	Reserved
+ClosingRecordNumber
+	Reserved
+StringOffset
+	The offset of the description strings within this event log record
+UserSidLength
+	The size of the UserSid member, in bytes
+UserSidOffset
+	The offset of the security identifier (SID) within this event log record
+DataLength
+	The size of the event-specific data (at the position indicated by DataOffset), in bytes
+DataOffset
+	The offset of the event-specific information within this event log record, in bytes
+@@End@@
+
+###Remarks###
+None.
+

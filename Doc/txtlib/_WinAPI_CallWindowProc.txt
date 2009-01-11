@@ -1,0 +1,48 @@
+###User Defined Function###
+_WinAPI_CallWindowProc
+
+###Description###
+Passes the hook information to the next hook procedure in the current hook chain
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_CallWindowProc($lpPrevWndFunc, $hWnd, $Msg, $wParam, $lParam)
+
+###Parameters###
+@@ParamTable@@
+$lpPrevWndFunc
+	Pointer to the previous window procedure.
+		  If this value is obtained by calling the _WinAPI_GetWindowLong function with the $iIndex parameter set to $GWL_WNDPROC or $DWL_DLGPROC,
+		  it is actually either the address of a window or dialog box procedure, or a special internal value meaningful only to _WinAPI_CallWindowProc.
+$hWnd
+	Handle to the window procedure to receive the message
+$Msg
+	Specifies the message
+$wParam
+	Specifies additional message-specific information. The contents of this parameter depend on the value of the Msg parameter
+$lParam
+	Specifies additional message-specific information. The contents of this parameter depend on the value of the Msg parameter
+@@End@@
+
+###ReturnValue###
+Success: The return value specifies the result of the message processing and depends on the message sent
+Failure: -1 and @error is set
+
+###Remarks###
+Use the _WinAPI_CallWindowProc function for window subclassing. Usually, all windows with the same class share one window procedure.
+A subclass is a window or set of windows with the same class whose messages are intercepted and processed by another window procedure
+or procedures) before being passed to the window procedure of the class.
+
+he _WinAPI_SetWindowLong function creates the subclass by changing the window procedure associated with a particular window, causing
+he system to call the new window procedure instead of the previous one. An application must pass any messages not processed by the
+ew window procedure to the previous window procedure by calling _WinAPI_CallWindowProc. This allows the application to create a chain
+f window procedures
+
+###Related###
+DllCallbackRegister, _WinAPI_SetWindowLong
+
+###See Also###
+@@MsdnLink@@ CallWindowProc
+
+###Example###
+@@IncludeExample@@

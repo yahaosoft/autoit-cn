@@ -1,0 +1,40 @@
+###Keyword###
+Struct...EndStruct
+
+###Description###
+Declare a variable with typed subelements.
+
+###Syntax###
+[Scope] <b>Struct</b> $structvar <b>[</b>subscript<b>]</b>
+	<b>type</b> [<i>elementname</i>];
+	...
+<b>EndStruct</b>
+
+
+###Parameters###
+@@ParamTable@@
+scope
+	[optional] scope of the struct variable can be Local or Global
+structvar
+	Name of the variable.
+subscript
+	[optional] to define a monodimensional array
+type
+	See DllStructCreate for definition
+elementname
+	name of the element  to be use to reference sub element by "$structvar.elementname"
+@@End@@
+
+
+###Remarks###
+Using Struct Keyword is equivalent to use $structvar=DllStructCreate("elements")
+See DllStructCreate definition for complete definition of types.
+Array element can be used "$structvar.elementname[n]". It differ from DllStruct... function as the first element index is 0.
+If a monodimensional struct array as been defined it will be reference as "$structvar[n].elementname[m]"
+  
+
+###Related###
+DllStructCreate
+
+###Example###
+@@IncludeExample@@

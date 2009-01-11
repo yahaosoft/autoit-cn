@@ -1,0 +1,39 @@
+###Function###
+StringToASCIIArray
+
+###Description###
+Converts a string to an array containing the ASCII code of each character.
+
+###Syntax###
+StringToASCIIArray( "string", [ start [, end [, encoding ] ] ] )
+
+
+###Parameters###
+@@ParamTable@@
+"string"
+	The string to convert to an array of ASCII codes.
+start
+	[optional] The 0-based position to start processing from (Default: 0).
+end
+	[optional] The 0-based position to end processing at (Default: StringLen("string")).
+encoding
+	[optional] The returned array will contain values in the specified character set:
+		0 - UTF-16 (Default)
+		1 - ANSI
+		2 - UTF-8
+@@End@@
+
+
+###ReturnValue###
+Success - An array where each element is the UNICODE code of the character at the corresponding position.
+Failure - Returns an empty string.
+
+###Remarks###
+The string may contain embedded Chr(0).  These will appear in the returned array as well as any data past them.  Processing only stops when the end of the string is reached or the user specified end.
+
+###Related###
+StringFromASCIIArray
+
+
+###Example###
+@@IncludeExample@@

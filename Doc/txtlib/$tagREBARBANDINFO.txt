@@ -1,0 +1,96 @@
+###Structure Name###
+$tagREBARBANDINFO
+
+###Description###
+Contains information about an item in a ComboBoxEx control
+
+###Syntax###
+Global Const $tagREBARBANDINFO = "uint cbSize;uint fMask;uint fStyle;dword clrFore;dword clrBack;ptr lpText;uint cch;" & _
+		"int iImage;hwnd hwndChild;uint cxMinChild;uint cyMinChild;uint cx;hwnd hbmBack;uint wID;uint cyChild;uint cyMaxChild;" & _
+		"uint cyIntegral;uint cxIdeal;int lParam;uint cxHeader"
+
+###Fields###
+@@ParamTable@@
+cbSize
+	Size of this structure, in bytes. Your application must fill this member before sending any messages that use the address of this structure as a parameter.
+fMask
+	Flags that indicate which members of this structure are valid or must be filled. This value can be a combination of the following:;
+		$RBBIM_BACKGROUND - The hbmBack member is valid or must be set.
+		$RBBIM_CHILD - The hwndChild member is valid or must be set.
+		$RBBIM_CHILDSIZE - The cxMinChild, cyMinChild, cyChild, cyMaxChild, and cyIntegral members are valid or must be set.
+		$RBBIM_COLORS - The clrFore and clrBack members are valid or must be set.
+		$RBBIM_HEADERSIZE - Version 4.71. The cxHeader member is valid or must be set.
+		$RBBIM_IDEALSIZE - Version 4.71. The cxIdeal member is valid or must be set.
+		$RBBIM_ID - The wID member is valid or must be set.
+		$RBBIM_IMAGE - The iImage member is valid or must be set.
+		$RBBIM_LPARAM - Version 4.71. The lParam member is valid or must be set.
+		$RBBIM_SIZE - The cx member is valid or must be set.
+		$RBBIM_STYLE - The fStyle member is valid or must be set.
+		$RBBIM_TEXT - The lpText member is valid or must be set.
+		$RBBIM_CHEVRONLOCATION - The rcChevronLocation member is valid or must be set.
+		$RBBIM_CHEVRONSTATE - The uChevronState member is valid or must be set.
+fStyle
+	Flags that specify the band style. This value can be a combination of the following:
+		$RBBS_BREAK - The band is on a new line.
+		$RBBS_CHILDEDGE - The band has an edge at the top and bottom of the child window.
+		$RBBS_FIXEDBMP - The background bitmap does not move when the band is resized.
+		$RBBS_FIXEDSIZE - The band can't be sized. With this style, the sizing grip is not displayed on the band.
+		$RBBS_GRIPPERALWAYS - Version 4.71. The band will always have a sizing grip, even if it is the only band in the rebar.
+		$RBBS_HIDDEN - The band will not be visible.
+		$RBBS_NOGRIPPER - Version 4.71. The band will never have a sizing grip, even if there is more than one band in the rebar.
+		$RBBS_USECHEVRON - Version 5.80. Show a chevron button if the band is smaller than cxIdeal.
+		$RBBS_VARIABLEHEIGHT - Version 4.71. The band can be resized by the rebar control; cyIntegral and cyMaxChild affect how the rebar will resize the band.
+		$RBBS_NOVERT - Don't show when vertical.
+		$RBBS_USECHEVRON - Display drop-down button.
+		$RBBS_HIDETITLE - Keep band title hidden.
+		$RBBS_TOPALIGN - Keep band in top row.
+clrFore
+	Band foreground colors.
+clrBack
+	Band background colors.
+		If hbmBack specifies a background bitmap, these members are ignored.
+		By default, the band will use the background color of the rebar control set with the $RB_SETBKCOLOR message.
+		If a background color is specified here, then this background color will be used instead.
+lpText
+	Pointer to a buffer that contains the display text for the band.
+		If band information is being requested from the control and $RBBIM_TEXT is specified in fMask,
+		this member must be initialized to the address of the buffer that will receive the text.
+cch
+	Size of the buffer at lpText, in bytes. If information is not being requested from the control, this member is ignored.
+iImage
+	Zero-based index of any image that should be displayed in the band. The image list is set using the $RB_SETBARINFO message.
+hwndChild
+	Handle to the child window contained in the band, if any.
+cxMinChild
+	Minimum width of the child window, in pixels. The band can't be sized smaller than this value.
+cyMinChild
+	Minimum height of the child window, in pixels. The band can't be sized smaller than this value.
+cx
+	Length of the band, in pixels.
+hbmBack
+	Handle to a bitmap that is used as the background for this band.
+wID
+	UINT value that the control uses to identify this band for custom draw notification messages.
+cyChild
+	Version 4.71. Initial height of the band, in pixels. This member is ignored unless the $RBBS_VARIABLEHEIGHT style is specified.
+cyMaxChild
+	Version 4.71. Maximum height of the band, in pixels. This member is ignored unless the $RBBS_VARIABLEHEIGHT style is specified.
+cyIntegral
+	Version 4.71. Step value by which the band can grow or shrink, in pixels.
+		If the band is resized, it will be resized in steps specified by this value.
+		This member is ignored unless the $RBBS_VARIABLEHEIGHT style is specified.
+cxIdeal
+	Version 4.71. Ideal width of the band, in pixels.
+		If the band is maximized to the ideal width (see $RB_MAXIMIZEBAND), the rebar control will attempt to make the band this width.
+lParam
+	Version 4.71. Application-defined value.
+cxHeader
+	Version 4.71. Size of the band's header, in pixels.
+		The band header is the area between the edge of the band and the edge of the child window.
+		This is the area where band text and images are displayed, if they are specified.
+		If this value is specified, it will override the normal header dimensions that the control calculates for the band.
+@@End@@
+
+###Remarks###
+None.
+

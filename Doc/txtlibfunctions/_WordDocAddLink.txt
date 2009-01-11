@@ -1,0 +1,53 @@
+###User Defined Function###
+_WordDocAddLink
+
+###Description###
+Add a hyperlink to the document
+
+###Syntax###
+#include <Word.au3> 
+_WordDocAddLink ( ByRef $o_object [, $o_Anchor = "" [, $s_Address = "" [, $s_SubAddress = "" [, $s_ScreenTip = "" [, $s_TextToDisplay = "" [, $s_Target = ""]]]]]] )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	Object variable of a Word.Application, document object
+$o_Anchor
+	<b>Optional:</b> The text or graphic that you want turned into a hyperlink.
+	"" = (Default) Uses entire document as range
+$s_Address
+	<b>Optional:</b> The address for the specified link. The address can be an e-mail address, an Internet address, or a file name.
+	"" = (Default) Link to the specified document is used
+$s_SubAddress
+	<b>Optional:</b> The name of a location within the destination file, such as a bookmark, named range, or slide number.
+$s_ScreenTip
+	<b>Optional:</b> The text that appears as a ScreenTip when the mouse pointer is positioned over the specified hyperlink.
+	"" = (Default) Uses value of $s_Address
+$s_TextToDisplay
+	<b>Optional:</b> The display text of the specified hyperlink. The value of this argument replaces the text or graphic specified by Anchor.
+	"" = (Default) Uses value of $s_Address
+$s_Target
+	<b>Optional:</b> The name of the frame or window in which you want to load the specified hyperlink.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1
+Failure:	Retuns 0  and sets @ERROR = 1
+@Error:	0 ($_WordStatus_Success) = No Error
+	3 ($_WordStatus_InvalidDataType) = Invalid Data Type
+	4 ($_WordStatus_InvalidObjectType) = Invalid Object Type
+@Extended:	Contains invalid parameter number
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+None.
+
+
+###Example###
+@@IncludeExample@@

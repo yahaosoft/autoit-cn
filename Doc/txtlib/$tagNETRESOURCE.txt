@@ -1,0 +1,53 @@
+###Structure Name###
+$tagNETRESOURCE
+
+###Description###
+tagNETRESOURCE structure
+
+###Syntax###
+Global Const $tagNETRESOURCE = "int Scope;int Type;int DisplayType;int Usage;ptr LocalName;ptr RemoteName;ptr Comment;ptr Provider"
+
+###Fields###
+@@ParamTable@@
+Scope
+	Scope of the enumeration:
+		$RESOURCE_CONNECTED - Enumerate currently connected resources
+		$RESOURCE_GLOBALNET - Enumerate all resources on the network
+		$RESOURCE_REMEMBERED - Enumerate remembered connections
+Type
+	Set of bit flags identifying the type of resource:
+		$RESOURCETYPE_ANY - All resources
+		$RESOURCETYPE_DISK - Disk resources
+		$RESOURCETYPE_PRINT - Print resources
+DisplayType
+	Display options for the network object in a network browsing user interface:
+		$RESOURCEDISPLAYTYPE_DOMAIN - The object should be displayed as a domain
+		$RESOURCEDISPLAYTYPE_SERVER - The object should be displayed as a server
+		$RESOURCEDISPLAYTYPE_SHARE - The object should be displayed as a share
+		$RESOURCEDISPLAYTYPE_GENERIC - The method used to display the object does not matter
+Usage
+	Set of bit flags describing how the resource can be used. Note that this member can be specified
+	only if the Scope member is equal to $RESOURCE_GLOBALNET. This member can be one of the following values:
+		$RESOURCEUSAGE_CONNECTABLE - The resource is a connectable resource; the name pointed to by RemoteName can be
+	passed to the _WNet_AddConnection function to make a network connection.
+		$RESOURCEUSAGE_CONTAINER - The resource is a container resource; the name pointed to by RemoteName can be
+	passed to the WNet_OpenEnum function to enumerate the resources in the container.
+LocalName
+	If the Scope member is equal to $RESOURCE_CONNECTED or $RESOURCE_REMEMBERED, this member is a
+	pointer to a null terminated character string that specifies the name of a local device. This member is 0 if
+	the connection does not use a device.
+RemoteName
+	If the entry is a network resource, this member is a pointer to a null terminated string that
+	specifies the remote network name. If the entry is a current or persistent connection, RemoteName points to
+	the network name associated with the name pointed to by the LocalName member.
+Comment
+	Pointer to a null-terminated string that contains a comment supplied by the network provider
+Provider
+	Pointer to a null-terminated string that contains the name of the provider that owns the
+	resource. This member can be NULL if the provider name is unknown. To retrieve the provider name, you can
+	call the _WNet_GetProviderName function.
+@@End@@
+
+###Remarks###
+None.
+
