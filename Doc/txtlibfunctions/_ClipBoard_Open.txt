@@ -11,17 +11,17 @@ _ClipBoard_Open($hOwner)
 ###Parameters###
 @@ParamTable@@
 $hOwner
-	Handle to the window to be associated with the open clipboard. If this parameter is 0, the open
-		clipboard is associated with the current task.
+	要关联到打开的剪切板的窗口句柄. 如果这个参数为 0, 就打开剪切板
+		为关联到当前任务.
 @@End@@
 
 ###ReturnValue###
-Success: True
-Failure: False
+成功: True
+失败: False
 
 ###Remarks###
-This function fails if another window has the clipboard open. Call the _ClipBoard_Close function after every
-successful call to this function. The window identified by the $hOwner parameter does not become the clipboard
+如果其他窗口打开了剪切板,这个函数会失败. 调用 _ClipBoard_Close 函数成功后再调用这个函数.
+The window identified by the $hOwner parameter does not become the clipboard
 owner unless the _ClipBoard_Empty function is called. If you call _ClipBoard_Open with hwnd set to 0, _ClipBoard_Empty sets
 the clipboard owner to0 which causes _ClipBoard_SetData to fail.
 
