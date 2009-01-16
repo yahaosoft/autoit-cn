@@ -2,23 +2,23 @@
 #include
 
 ###Description###
-Includes a file in the current script.
+包含一个文件到脚本中。.
 
 ###Syntax###
-<b>#include</b> "[path\]filename"
-<b>#include</b> &lt;filename&gt;
+<b>#include</b> "[路径\]文件名"
+<b>#include</b> &lt;文件名&gt;
 
 
 ###Parameters###
 @@ParamTable@@
-filename
-	The filename of the current script to include. Path is optional. <b>This must be a string--it cannot be a variable.</b>
+文件名
+	要包含到当前脚本的文件名. 路径是可选的.(如果该包含文件与脚本处于同一文件夹下或者处于AU3的包含目录). <b>文件名必须是字符串,不能是一个变量.</b>
 	If <b>"..."</b> is used, the filename is taken to be relative to the current script.
 	If <b>&lt;...&gt;</b> is used the filename is taken to be relative to include library directory (usually C:\Program Files\AutoIt3\Include).  The include library contains many pre-written user-functions for you to use!
  @@End@@
 
 ###Remarks###
-In an AutoIt script, other scripts can be included using the #include" command.
+在 AutoIt 的脚本中,可通过 "#include" 命令包含其它脚本文件.
 
 For the include library syntax (#include &lt;file&gt;) to work AutoIt must have been installed using the supplied installer otherwise the installation directory will not be known and the current script directory (@ScriptDir\Include) will be used instead.
 
@@ -28,23 +28,23 @@ There is a special registry value that can be created at "HKEY_CURRENT_USER\Soft
 
 The search order used by AutoIt depends on which form of #include you use.  The tables below show the order directories are searched using both forms.
 
-Using #include <>
+使用 #include <>
 @@ParamTable@@
-Standard library
+标准库文件
 	The path of the currently running interpreter with "\Include" appended is searched.
-User-defined libraries
+用户自定义库
 	The registry value mentioned above is read and each directory is searched in the order they appear in.
-Script directory
+脚本所在目录
 	The directory of the currently executing script.
 @@End@@
 
-Using #include "" (This is the reverse of #include <>).
+使用 #include "" (和 #include <> 相反).
 @@ParamTable@@
-Script directory
+脚本目录
 	The directory of the currently executing script.
-User-defined libraries
+用户自定义库
 	The registry value mentioned above is read and each directory is searched in the reverse order they appear in.
-Standard library
+标准库文件
 	The path of the currently running interpreter with "\Include" appended is searched.
 @@End@@
 
