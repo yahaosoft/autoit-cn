@@ -2,7 +2,7 @@
 _GUICtrlMenu_TrackPopupMenu
 
 ###Description###
-Displays a shortcut menu at the specified location
+在指定区域显示一个快捷菜单(弹出菜单)
 
 ###Syntax###
 #Include <GuiMenu.au3>
@@ -11,15 +11,15 @@ _GUICtrlMenu_TrackPopupMenu($hMenu, $hWnd[, $iX = -1[, $iY = -1[, $iAlignX = 1[,
 ###Parameters###
 @@ParamTable@@
 $hMenu
-	Handle to the shortcut menu to be displayed
+	要显示的快捷菜单的句柄
 $hWnd
-	Handle to the window that owns the shortcut menu
+	快捷菜单的所有者窗口句柄
 $iX
-	Specifies the horizontal location of the shortcut menu, in screen coordinates. If this is -1,
-		the current mouse position is used.
+	指定弹出快捷菜单位置的水平坐标,如果为-1,
+		使用当前鼠标所在坐标.
 $iY
-	Specifies the vertical location of the shortcut menu, in screen coordinates. If this is -1, the
-		current mouse position is used.
+	指定弹出快捷菜单位置的垂直坐标,如果为-1,
+		使用当前鼠标所在坐标.
 $iAlignX
 	Specifies how to position the menu horizontally:
 		0 - Center the menu horizontally relative to $iX
@@ -35,15 +35,15 @@ $iNotify
 		1 - Do not send notification messages
 		2 - Return the menu item identifier of the user's selection
 $iButtons
-	Mouse button the shortcut menu tracks:
-		0 - The user can select items with only the left mouse button
-		1 - The user can select items with both left and right buttons
+	鼠标选择状态:
+		0 - 用户只能使用鼠标左键选择菜单项目.
+		1 - 用户可以使用鼠标左键或者右键选择菜单项目.
 @@End@@
 
 ###ReturnValue###
-Success: If $iNotify is set to 2, the return value is the menu item identifier of the item that the
+成功: If $iNotify is set to 2, the return value is the menu item identifier of the item that the
 	user selected. If the user cancels the menu without making a selection or if an error occurs, then the return	value is zero. If $iNotify is not set to 2, the return value is 1.
-Failure: 0
+失败: 0
 
 ###Remarks###
 None.
