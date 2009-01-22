@@ -5,7 +5,7 @@ GUIGetMsg
 捕获窗口消息.
 
 ###Syntax###
-GUIGetMsg ( [高级模式] ) 
+GUIGetMsg ( [高级模式] )
 
 
 ###Parameters###
@@ -24,30 +24,30 @@ GUIGetMsg ( [高级模式] )
 @@ReturnTable@@
 <b>事件 ID</b>	<b>控件发生的消息ID</b>
 0	无事件
-$GUI_EVENT_CLOSE	对话框（窗口）正被关闭（相关按钮被点击或系统菜单项被选中）   
-$GUI_EVENT_MINIMIZE	对话框（窗口）被最小化（窗口标题栏上的最小化按钮被点击）   
-$GUI_EVENT_RESTORE	对话框（窗口）被还原（任务栏图标被点击）   
-$GUI_EVENT_MAXIMIZE	对话框（窗口）被最大化（窗口标题栏上的最大化按钮被点击）   
+$GUI_EVENT_CLOSE	对话框(窗口)正被关闭(相关按钮被点击或系统菜单项被选中).
+$GUI_EVENT_MINIMIZE	对话框(窗口)被最小化(窗口标题栏上的最小化按钮被点击)
+$GUI_EVENT_RESTORE	对话框(窗口)被还原(任务栏图标被点击)
+$GUI_EVENT_MAXIMIZE	对话框(窗口)被最大化(窗口标题栏上的最大化按钮被点击)
 $GUI_EVENT_MOUSEMOVE	鼠标光标被移动.   
-$GUI_EVENT_PRIMARYDOWN	鼠标的主要按钮被按下.(多指左键)   
+$GUI_EVENT_PRIMARYDOWN	鼠标的主要按钮被按下.(多指左键)
 $GUI_EVENT_PRIMARYUP	鼠标的主要按钮被松开.(多指左键)   
 $GUI_EVENT_SECONDARYDOWN	鼠标的第二个按钮被按下.(多指右键)   
 $GUI_EVENT_SECONDARYUP	鼠标的第二个按钮被松开.(多指右键)
-$GUI_EVENT_RESIZED	dialog box has been resized.
-$GUI_EVENT_DROPPED	End of a Drag&Drop action @GUI_DRAGID, @GUI_DRAGFILE and @GUI_DROPID will be used to retrieve the ID's/file corresponding to the involve control.
+$GUI_EVENT_RESIZED	对话框大小改变.
+$GUI_EVENT_DROPPED	拖放(Drag&Drop)操作结束,@GUI_DRAGID, @GUI_DRAGFILE 和 @GUI_DROPID 将用于返回 ID/文件 相应的控件.
 @@End@@
 <br>
 当使用"高级模式"时,函数返回的是一个含有下列扩展信息的数组: 
 
-$array[0] = 0 或 事件 ID 或 控件 ID 
-$array[1] = 产生事件的窗口句柄 
-$array[2] = 产生事件的控件句柄(若适用) 
-$array[3] = 鼠标指针的当前 X 坐标(相对于 GUI 窗口) 
-$array[4] = 鼠标指针的当前 Y 坐标(相对于 GUI 窗口) 
+$array[0] = 0 或 事件 ID 或 控件 ID
+$array[1] = 产生事件的窗口句柄
+$array[2] = 产生事件的控件句柄(若适用)
+$array[3] = 鼠标指针的当前 X 坐标(相对于 GUI 窗口)
+$array[4] = 鼠标指针的当前 Y 坐标(相对于 GUI 窗口)
 <br>
 若 GUIOnEventMode 选项被设为1,则 GUIGetMsg 的返回值将总是 0,同时 @error 被设为1.
 
-If the option GUIEventOptions is set to 1 the minimize, restore and maximize button will not do any action on the window just a simple notification.
+如果选项 GUIEventOptions 被设置为1,最小化,还原和最大化按钮将不会有任何动作,仅仅通知.
 
 ###Remarks###
 本函数在执行时将自动按需闲置 CPU 因此您可以放心地在紧凑的循环中使用本函数而不必担心 CPU 的负荷问题.

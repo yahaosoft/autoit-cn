@@ -2,31 +2,31 @@
 DllCallbackRegister
 
 ###Description###
-Creates a user-defined DLL Callback function.
+创建一个用户自定义回调函数.
 
 ###Syntax###
-DllCallbackRegister ( "function", "return type", "params" )
+DllCallbackRegister ( "函数名", "返回类型", "参数" )
 
 
 ###Parameters###
 @@ParamTable@@
-function
-	The name of the User Defined Function to call.
-return type
-	The return type and calling convention of the function (see DllCall).
-params
-	A semi-colon separated list of parameters that will be passed to this function. Uses DllCall types.
+函数名
+	要调用的用户自定义函数的名称.
+返回类型
+	函数调用后的返回值类型(参考 DllCall).
+参数
+	使用分隔符分开的参数将会被传递给函数. 使用 DllCall 类型.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns a dll "handle" to be used with DllCallbackGetPtr and DllCallbackFree functions.
-Failure:	Returns 0 if error occurs.
+成功:	返回一个 dll "句柄" 给 DllCallbackGetPtr 和 DllCallbackFree 函数使用.
+失败:	发生错误,返回0.
 @@End@@
 
 
 ###Remarks###
-When finished working with a callback, call the DllCallbackFree function to close it.  AutoIt normally closes all files upon termination, but explicitly calling DllCallbackFree is still a good idea.
+当完成了回调工作, 请调用 DllCallbackFree 函数关闭它.  AutoIt 虽然会在终止时关闭所有文件(句柄), 但是明确的调用 DllCallbackFree 总是一个好主意(习惯).
 
 
 ###Related###

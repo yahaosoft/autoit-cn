@@ -10,64 +10,64 @@ GUICreate ( "窗口标题" [, 宽度 [, 高度 [, 左侧 [, 顶部 [, 样式 [, 扩展样式 [, 父
 
 ###Parameters###
 @@ParamTable@@
-参数 
-	 窗口标题  窗口标题.  
+窗口标题
+	窗口标题.  
 宽度
 	[可选参数] 窗口宽度. 
 高度
 	[可选参数] 窗口高度.
 左侧
-	[可选参数] 窗口左侧离屏幕左边缘的距离(像素).默认值为 -1，表示窗口将居中显示，若此参数被指定则参数 上方 也必须指定.   
+	[可选参数] 窗口左侧离屏幕左边缘的距离(像素).默认值为 -1,表示窗口将居中显示,若此参数被指定则参数 顶部 也必须指定.
 顶部
-	[可选参数] 窗口上方离屏幕上边缘的距离(像素).默认值为 -1，表示窗口将居中显示.
+	[可选参数] 窗口上方离屏幕上边缘的距离(像素).默认值为 -1,表示窗口将居中显示.
 样式
 	[可选参数] 指定窗口的显示样式.请查看附录中关于 <a href="../appendix/GUIStyles.htm">GUI 控件样式</a> 的说明. 
 
-	默认值为-1，表示下列样式的组合：$WS_MINIMIZEBOX、$WS_CAPTION、$WS_POPUP、$WS_SYSMENU.
+	默认值为-1,表示下列样式的组合:$WS_MINIMIZEBOX,$WS_CAPTION,$WS_POPUP,$WS_SYSMENU.
 
-	某些样式总是被包括进去的：$WS_CLIPSIBLINGS；若 $WS_MAXIMIZEBOX 或 $WS_SIZEBOX 被指定则 $WS_SYSMENU 也将被添加到窗口样式中.
+	某些样式总是被包括进去的:$WS_CLIPSIBLINGS,若有 $WS_MAXIMIZEBOX 或 $WS_SIZEBOX 则 $WS_SYSMENU 也将被添加到窗口样式中.
 扩展样式
-	[可选参数] 指定窗口的扩展样式.请查看下面的 扩展样式 .默认值为 -1.
+	[可选参数] 指定窗口的扩展样式.请参考下方的 <a href="GUICreate.htm#Extended Style Table">扩展样式表</a>.默认值为 -1.
 父窗口
-	[可选参数] 另外一个已创建窗口的句柄，此(新创建的)窗口将成为该窗口的子窗口.
+	[可选参数] 另外一个已创建窗口的句柄,此(新创建的)窗口将成为该窗口的子窗口.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回窗口句柄.
-失败:	返回值为0，说明无法创建窗口，并把 @error 设为 1.
+失败:	返回值为0,说明无法创建窗口,并把 @error 设为 1.
 @@End@@
 
 
 ###Remarks###
 在默认设置下创建的窗口是不可调整大小并且是不可最大化的.您可以使用 WS_SIZEBOX 或 WS_MAXIMIZEBOX 来添加相应样式. 
-由于只指定一个风格就只会添加一个样式，所以别忘了和默认的样式组合起来.比如说，如果只是指定 WS_SIZEBOX 那么将没有 WS_MINIMIZEBOX、WS_CAPTION、WS_POPUP、WS_SYSMENU.因此要定义一个可调整大小的窗口最好还是使用 WS_OVERLAPPEDWINDOW. 
-当使用$WS_EX_MDICHILD 样式时,子窗体的坐标将会在父窗体的中间. With $WS_EX_LAYERED it is possible to have a transparent pic on a background pic defined in the parent window. 
+由于只指定一个样式就只会添加一个样式,所以别忘了和默认的样式组合起来.比如说,如果只是指定 WS_SIZEBOX 那么将没有 WS_MINIMIZEBOX,WS_CAPTION,WS_POPUP,WS_SYSMENU.因此要定义一个可调整大小的窗口最好还是使用 WS_OVERLAPPEDWINDOW.
+当使用 $WS_EX_MDICHILD 样式时,子窗体的坐标将会相对于父窗体的客户区. 使用 $WS_EX_LAYERED 可以使用一个透明图片背景定义于父窗口. 
 
-要在默认风格的基础上添加一个新的样式可使用 </b>BitOr</b>($GUI_SS_DEFAULT_GUI, 新样式,...).
+要在默认样式的基础上添加一个新的样式可使用 </b>BitOr</b>($GUI_SS_DEFAULT_GUI, 新样式,...).
 
 
-<a name="Extended Style table"></a><b>Extended Style table</b>
+<a name="Extended Style table"></a><b>扩展样式表</b>
 @@StandardTable1@@
-扩展样式  结果   
-$WS_EX_ACCEPTFILES  允许(用户)通过拖放让被创建的GUI窗口中的编辑框/输入控件接受文件名.该控件也必须具有 $GUI_DROPACCEPTED state set by <a href="GUICtrlSetState.htm">GUICtrlSetState</a>. for other controls the drag&drop info  can be retrieved with @GUI_DRAGID, @GUI_DRAGFILE, @GUIDROPID.
-$WS_EX_APPWINDOW  当窗口可见时将一个顶层窗口放到任务栏上.
-$WS_EX_CLIENTEDGE  使窗口带有凹陷边框.   
-$WS_EX_CONTEXTHELP  使窗口标题栏带有一个问号标志，不能和 WS_MAXIMIZEBOX 或 WS_MINIMIZEBOX 同时使用.   
-$WS_EX_DLGMODALFRAME  创建一个带有双层边框的窗口；对这种窗口还可以在创建时通过在样式参数中指定 WS_CAPTION 样式使其带有标题栏(可选).   
-$WS_EX_MDICHILD  创建一个包含于父窗体的子窗体.(模拟MDI,但不是真正的MDI).   
-$WS_EX_OVERLAPPEDWINDOW  相当于 WS_EX_CLIENTEDGE 和 WS_EX_WINDOWEDGE 样式的组合.   
-$WS_EX_STATICEDGE  创建一个带有三维边框样式的窗口，一般用于不接受用户输入的项目.   
-$WS_EX_TOPMOST  使带有此样式的窗口放置在所有非顶层窗口之上，而且即使在该窗口失去激活状态时还总是保持在它们之上.   
-$WS_EX_TRANSPARENT  该样式会使窗口透明显示，在它下方的同属窗口也被重绘.   
-$WS_EX_TOOLWINDOW  创建一个工具窗口.即，一个一般用作浮动工具栏的窗口.工具窗口的标题栏比普通标题栏要短，而且它的窗口标题使用更小的字体.工具窗口在任务栏上不显示按钮，用户按下热键 Alt+Tab 后在弹出的对话框中也不会显示它的图标.如果一个工具窗口拥有系统菜单，那么它的图标不会在其标题栏上显示出来.不过，您可以按下热键 Alt+空格 来显示它的系统菜单.   
-$WS_EX_WINDOWEDGE  使窗口带有凸起边框.   
-$WS_EX_LAYERED  创建一个分层的窗口.注意,此样式不能用于子窗口.   
+扩展样式	结果
+$WS_EX_ACCEPTFILES	允许(用户)通过拖放让被创建的GUI窗口中的编辑框/输入控件接受文件名.该控件也必须具有 $GUI_DROPACCEPTED 状态,可由 <a href="GUICtrlSetState.htm">GUICtrlSetState</a> 函数设置. 其它控件的拖放信息可以由 @GUI_DRAGID, @GUI_DRAGFILE, @GUIDROPID返回.
+$WS_EX_APPWINDOW	当窗口可见时将一个顶层窗口放到任务栏上.
+$WS_EX_CLIENTEDGE	使窗口带有凹陷边框.   
+$WS_EX_CONTEXTHELP	使窗口标题栏带有一个问号标志,不能和 WS_MAXIMIZEBOX 或 WS_MINIMIZEBOX 同时使用.   
+$WS_EX_DLGMODALFRAME	创建一个带有双层边框的窗口;对这种窗口还可以在创建时通过在样式参数中指定 WS_CAPTION 样式使其带有标题栏(可选).   
+$WS_EX_MDICHILD	创建一个包含于父窗体的子窗体.(模拟MDI,但不是真正的MDI).   
+$WS_EX_OVERLAPPEDWINDOW	相当于 WS_EX_CLIENTEDGE 和 WS_EX_WINDOWEDGE 样式的组合.   
+$WS_EX_STATICEDGE	创建一个带有三维边框样式的窗口,一般用于不接受用户输入的项目.   
+$WS_EX_TOPMOST	使带有此样式的窗口放置在所有非顶层窗口之上,而且即使在该窗口失去激活状态时还总是保持在它们之上.   
+$WS_EX_TRANSPARENT	该样式会使窗口透明显示,在它下方的同属窗口也被重绘.   
+$WS_EX_TOOLWINDOW	创建一个工具窗口.即,一个一般用作浮动工具栏的窗口.工具窗口的标题栏比普通标题栏要短,而且它的窗口标题使用更小的字体.工具窗口在任务栏上不显示按钮,用户按下热键 Alt+Tab 后在弹出的对话框中也不会显示它的图标.如果一个工具窗口拥有系统菜单,那么它的图标不会在其标题栏上显示出来.不过,您可以按下热键 Alt+空格 来显示它的系统菜单.
+$WS_EX_WINDOWEDGE	使窗口带有凸起边框.   
+$WS_EX_LAYERED	创建一个分层的窗口.注意,此样式不能用于子窗口.   
 @@End@@
 
-要使用上面列出的数值必须先 #include <GUIConstants.au3> 到脚本中. 
+要使用上面列出的数值必须先 #include <WindowsConstants.au3> 到脚本中. 
 
-注意:本函数返回的句柄是真正的窗口句柄，也就是说我们不能像 WinGetHandle 那样使用返回值. 
+注意:本函数返回的句柄是真正的窗口句柄,也就是说我们可以使用于像 WinGetHandle 那样的函数.
 
 ###Related###
 GUISet..., GUICtrlCreate..., GUIGetMsg, GUIGetStyle, GUIDelete, WinGetHandle

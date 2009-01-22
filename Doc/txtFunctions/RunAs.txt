@@ -2,35 +2,35 @@
 RunAs
 
 ###Description###
-Runs an external program under the context of a different user.
+使用一个不同的用户运行一个外部程序文件.
 
 ###Syntax###
-RunAs ( "username", "domain", "password", logon_flag, "filename" [, "workingdir" [, show_flag [, opt_flag ]]] )
+RunAs ( "用户名", "域名", "密码", 登录标志, "文件名" [, "工作目录" [, 显示标志 [, 可选标志 ]]] )
 
 
 ###Parameters###
 @@ParamTable@@
-username
-	The username to log on with.
-domain
-	The domain to authenticate against.
-password
-	The password for the user.
-logon_flag
-	0 - Interactive logon with no profile.
-	1 - Interactive logon with profile.
-	2 - Network credentials only.
+用户名
+	需要使用的用户名.
+域名
+	用于甄别的域名称.
+密码
+	用户的密码.
+登录标志
+	0 - 不加载配置文件的交互式登录.
+	1 - 加载配置文件的交互式登录.
+	2 - 只是网络认证.
 	4 - Inherit the calling processes environment instead of the user's.
-filename
-	The name of the executable (EXE, BAT, COM, or PIF) to run.
-workingdir
-	[optional] The working directory.  If not specified, then the value of @SystemDir will be used.
-show_flag
-	[optional] The "show" flag of the executed program:
-	  @SW_HIDE = Hidden window (or Default keyword)
-	  @SW_MINIMIZE = Minimized window
-	  @SW_MAXIMIZE = Maximized window
-opt_flag
+文件名
+	要运行的可执行文件名称 (EXE, BAT, COM, PIF).
+工作目录
+	[可选参数] 程序工作目录. 如果不指定, 将会被设置为 @SystemDir .
+显示标志
+	[可选参数] 执行程序的 "显示" 标志:
+	  @SW_HIDE = 隐藏窗口 (或者 Default 关键字)
+	  @SW_MINIMIZE = 最小化的窗口
+	  @SW_MAXIMIZE = 最大化的窗口
+可选标志
 	[optional] Controls various options related to how the parent and child process interact.
 	  0x1 ($STDIN_CHILD)  = Provide a handle to the child's STDIN stream
 	  0x2 ($STDOUT_CHILD) = Provide a handle to the child's STDOUT stream
@@ -43,8 +43,8 @@ opt_flag
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The PID of the process that was launched.
-Failure:	Returns 0 and sets @error to non-zero.
+成功:	运行的进程的 PID .
+失败:	返回0 并设置@error 为一个非0值
 @@End@@
 
 

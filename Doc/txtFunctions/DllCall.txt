@@ -10,15 +10,15 @@ DllCall ( "dll", "返回值类型", "函数名称" [, "类型1", 参数1[, "类型n", 参数n]] )
 ###Parameters###
 @@ParamTable@@
 dll
-	要使用的 DLL 文件名，例如 "user32.dll"。也可使用由 DllOpen 获得的句柄(请查看下面的 注意 部分).
+	要使用的 DLL 文件名，例如 "user32.dll".也可使用由 DllOpen 获得的句柄(请查看下面的 注意 部分).
 返回值类型
 	函数的返回值类型(请查看下面的 注意 部分). 
 函数名称
 	调用DLL文件里面的函数名称, 如: "MessageBox" 或者使用序号, 如. 62
 类型
-	[可选] 参数的数据类型(请查看下面的 注意 部分).  
+	[可选参数] 参数的数据类型(请查看下面的 注意 部分).  
 参数
-	[可选] 实参(请查看下面的 注意 部分).
+	[可选参数] 实参(请查看下面的 注意 部分).
 @@End@@
 
 <br>值类型为:
@@ -65,13 +65,13 @@ float
 double
 	双精度浮点指针数
 lresult/int_ptr/long_ptr
-	an integer big enough to hold a pointer when running on x86 or x64 versions of AutoIt.
+	一个大型整数指针.(目前x86,x64版本AutoIt都可以使用).
 lparam/int_ptr/long_ptr
-	an integer big enough to hold a pointer when running on x86 or x64 versions of AutoIt.
+	一个大型整数指针.(目前x86,x64版本AutoIt都可以使用).
 wparam/uint_ptr/ulong_ptr
-	an unsigned integer big enough to hold a pointer when running on x86 or x64 versions of AutoIt.
+	一个大型无符号整数指针.(目前x86,x64版本AutoIt都可以使用).
 *
-	Add * to the end of another type to pass it by reference.  For example "int*" passes a pointer to an "int" type.
+	传递一个其它类型(添加一个*到末尾.)  例如 "int*" 传递一个指针到 "int" 类型.
 @@End@@
 
 
@@ -116,18 +116,18 @@ LONG_PTR
 	@error = 2 未知 "返回值", 
 	@error = 3 未在DLL文件中发现这个"函数".
 @@End@@
-See remarks.
+参考注意项目.
 
 
 ###Remarks###
-If a dll filename is given then the DLL is automatically loaded and then closed at the end of the call. If you want to manually control the loading and unloading of the DLL then you should use DllOpen and DllClose and use a handle instead of a filename in this function.
+如果dll使用的是一个文件名,这个DLL将会被自动载入,并在调用结束后关闭并卸载. 如果您想手动控制载入或者卸载一个dll文件,您需要使用 DllOpen 和 DllClose 操作DLL句柄代替dll文件名.
 
-By default, AutoIt uses the 'stdcall' calling method. To use the 'cdecl' method place ':cdecl' after the return type.
+默认情况下, AutoIt 使用 'stdcall' 调用方式. 要使用 'cdecl' 方式调用,请在返回值类型后面加上 ':cdecl' .
 DllCall("SQLite.dll", "int:cdecl", "sqlite3_open", "str", $sDatabase_Filename , "long*", 0).
 
-By default, AutoIt tries to use the ANSI version of a function name, i.e. MessageBoxA is attempted when MessageBox is given as the function name. To call the unicode version use MessageBoxW.
+默认情况下, AutoIt 尝试使用 ANSI 版本的函数名, 例如. MessageBoxA 为尝试调用 MessageBox 所得到的函数名. 要调用 unicode 版本的函数,请使用 MessageBoxW.(注意:这里是指如果存在的情况下,虽然微软的函数都带有ANSI和UNICODE版本的函数,但是不保证其它DLL也带有)
 
-If the function call fails then @error is set to 1.  Otherwise an array is returned that contains the function return value and a copy of all the parameters (including parameters that the function may have modified when passed by reference).
+如果函数调用失败,将会设置 @error 为一 1.  另外将会返回一个包含函数返回值和所有参数拷贝的数组(包括可能被传递后修改的函数参数).
 $return[0] = 函数的返回值 
 $return[1] = 参数1 
 $return[2] = 参数2 
