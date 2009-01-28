@@ -2,7 +2,7 @@
 _WinAPI_CreateFile
 
 ###Description###
-Creates or opens a file or other device
+为其它设备创建或者打开一个文件.
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,41 +11,41 @@ _WinAPI_CreateFile($sFileName, $iCreation[, $iAccess = 4[, $iShare = 0[, $iAttri
 ###Parameters###
 @@ParamTable@@
 $sFileName
-	Name of an object to create or open
+	要创建或者打开的对象的名称
 $iCreation
-	Action to take on files that exist and do not exist:
-		0 - Creates a new file. The function fails if the file exists
-		1 - Creates a new file. If a file exists, it is overwritten
-		2 - Opens a file. The function fails if the file does not exist
-		3 - Opens a file. If the file does not exist, the function creates the file
-		4 - Opens a file and truncates it so that its size is 0 bytes. The function fails if the file does not exist.
+	当文件存在或者不存在时的操作:
+		0 - 创建一个新文件. 如果文件存在,函数失败.
+		1 - 创建一个新文件. 如果文件存在,覆盖写入.
+		2 - 打开一个文件. 如果文件不存在,函数失败.
+		3 - 打开一个文件. 如果文件不存在, 函数将创建一个新文件.
+		4 - 打开一个文件并将文件清空(大小为0字节).如果文件不存在,函数失败.
 $iAccess
-	Access to the object:
-		1 - Execute
-		2 - Read
-		4 - Write
+	访问对象权限:
+		1 - 执行
+		2 - 读取
+		4 - 写入
 $iShare
-	Sharing mode of an object:
-		1 - Delete
-		2 - Read
-		4 - Write
+	对象共享模式:
+		1 - 删除
+		2 - 读取
+		4 - 写入
 $iAttributes
-	The file attributes:
-		1 - File should be archived
-		2 - File is hidden
-		4 - File is read only
-		8 - File is part of or used exclusively by an operating system.
+	文件属性:
+		1 - 文件将要存档
+		2 - 文件为隐藏
+		4 - 文件为只读
+		8 - 文件是操作系统专有,或者是操作系统的一部分.(系统属性)
 $pSecurity
-	Pointer to a $tagSECURITY_ATTRIBUTES structure that determines if the returned handle can be
-		inherited by child processes. If pSecurity is 0, the handle cannot be inherited.
+	一个指向 $tagSECURITY_ATTRIBUTES 的数据结构指针.用于确定返回的句柄是否可被
+		自己的子进程继承. 如果 pSecurity 为 0, 句柄将不能被继承.
 @@End@@
 
 ###ReturnValue###
-Success: The open handle to a specified file
-Failure: 0
+成功: 指定文件的打开句柄
+失败: 返回0
 
 ###Remarks###
-None.
+thesnow注:CreateFile不仅仅是用来操作文件的.只要有权限,驱动器,硬件同样可以操作.
 
 ###Related###
 $tagSECURITY_ATTRIBUTES, _WinAPI_CloseHandle, _WinAPI_FlushFileBuffers, _WinAPI_GetFileSizeEx, _WinAPI_ReadFile, _WinAPI_SetEndOfFile, _WinAPI_SetFilePointer, _WinAPI_WriteFile

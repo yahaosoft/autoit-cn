@@ -2,7 +2,7 @@
 _WordCreate
 
 ###Description###
-Create a Microsoft Office Word Object
+创建一个 Microsoft Office Word 对象
 
 ###Syntax###
 #include <Word.au3> 
@@ -11,35 +11,35 @@ _WordCreate ( [ $s_FilePath = "" [, $b_tryAttach = 0 [, $b_visible = 1 [, $b_tak
 ###Parameters###
 @@ParamTable@@
 $s_FilePath
-	<b>Optional:</b> specifies the file to open upon creation (See Remarks)
+	<b>可选参数:</b> 文件路径,如果路径存在就打开,不存在就新建(参考注意)
 $b_tryAttach
-	<b>Optional:</b> specifies whether to try to attach to an existing window
-	0 = (Default) do not try to attach
-	1 = Try to attach to an existing window
+	<b>可选参数:</b> 指定是否尝试附加到一个已经存在的word窗口
+	0 = (默认) 不尝试附加
+	1 = 尝试附加到一个已存在的word窗口.
 $b_visible
-	<b>Optional:</b> specifies whether the window will be visible
-	0 = Window is hidden
-	1 = (Default) Window is visible
+	<b>可选参数:</b> 指定窗口是否为可见状态
+	0 = 窗口为隐藏
+	1 = (默认) 窗口可见
 $b_takeFocus
-	<b>Optional:</b> specifies whether to bring the attached window to focus
-	0 =  Do Not Bring window into focus
-	1 = (Default) bring window into focus
+	<b>可选参数:</b> 指定是否给附加的窗口一个焦点
+	0 =  不用给附加的窗口一个焦点
+	1 = (默认) 给附加的窗口一个焦点
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns an object variable pointing to a Word.Application object
-Failure:	Returns 0 and sets @ERROR
-@Error:	0 ($_WordStatus_Success) = No Error
-	1 ($_WordStatus_GeneralError) = General Error
-	3 ($_WordStatus_InvalidDataType) = Invalid Data Type
-	4 ($_WordStatus_InvalidObjectType) = Invalid Object Type
-@Extended:	Set to true (1) or false (0) depending on the success of $f_tryAttach
+成功:	返回一个指向 Word.Application 对象的对象变量
+失败:	返回 0 并设置 @ERROR
+@Error:	0 ($_WordStatus_Success) = 没有错误
+	1 ($_WordStatus_GeneralError) = 常规错误
+	3 ($_WordStatus_InvalidDataType) = 无效数据类型
+	4 ($_WordStatus_InvalidObjectType) = 无效对象类型
+@Extended:	设置 true (1) 或者 false (0),依赖于是否成功附加($f_tryAttach)
 @@End@@
 
 
 ###Remarks###
-File will be created if it does not exist.
+如果文件不存在,将会被创建.
 
 
 ###Related###

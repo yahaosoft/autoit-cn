@@ -17,14 +17,14 @@ None.
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回1. 
-失败:	返回 0 并设置 @error 的值(依照 Windows API WSAGetError 返回).    
+失败:	返回 0 并设置 @error 的值(依照 Windows API WSAStartup 返回).
 @@End@@
 
 
 ###Remarks###
-There must be a TCPShutdown() call to avoid memory consomption.
-A script must call one TCPShutdown() call for every successful TCPStartup() call.
-UDPStartup() is just an alias of TCPStartup().
+这里必须包含一个 TCPShutdown() 调用来避免内存出错.
+每当成功完成了一个 TCPStartup() 调用,必须调用一个TCPShutdown()来关闭初始化的网络.
+UDPStartup() 是 TCPStartup()的一个别名.
 
 
 ###Related###
