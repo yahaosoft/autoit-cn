@@ -2,7 +2,7 @@
 _GUICtrlButton_SetSplitInfo
 
 ###Description###
-Gets information for a split button control
+获取拆分标志按钮件信息 (需 Windows Vista 支持 ）
 
 ###Syntax###
 #Include <GuiButton.au3>
@@ -11,28 +11,29 @@ _GUICtrlButton_SetSplitInfo($hWnd[, $himlGlyph = -1[, $iSplitStyle = $BCSS_ALIGN
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $himlGlyph
-	Handle to the image list
+	图像列表句柄
 $iSplitStyle
-	The split button style. Value must be one or more of the following flags.
-		  $BCSS_ALIGNLEFT - Align the image or glyph horizontally with the left margin
-		  $BCSS_IMAGE - Draw an icon image as the glyph
-		  $BCSS_NOSPLIT - No split
-		  $BCSS_STRETCH - Stretch glyph, but try to retain aspect ratio
+	拆分标志按钮样式. 可以是下列标志之一或多项.
+		  $BCSS_ALIGNLEFT - 图标或拆分标志水平居中
+		  $BCSS_IMAGE - 以ico 图标作为拆分标志
+		  $BCSS_NOSPLIT - 没有拆分标志
+		  $BCSS_STRETCH - 伸展拆分标志, 但必须保持高宽比
 $iWidth
-	Width of the glyph
-		$iHeight - Height of the glyph
+	拆分标志宽度
+$iHeight
+	拆分标志高度
 @@End@@
 
 ###ReturnValue###
-Success: True
-Failure: False
+成功: 布尔真 True
+失败: 布尔假 False
 
 ###Remarks###
-This function works only with the $BS_SPLITBUTTON and $BS_DEFSPLITBUTTON button styles
+这个函数只能作用于 $BS_SPLITBUTTON and $BS_DEFSPLITBUTTON 样式的按钮
 
-Minimum Operating Systems: Windows Vista
+最低操作系统: Windows Vista
 
 ###Related###
 _GUICtrlButton_GetSplitInfo
