@@ -2,7 +2,7 @@
 _ArrayPermute
 
 ###Description###
-Returns an Array of the Permutations of all Elements in an Array
+返回数组元素的所有排列
 
 ###Syntax###
 #Include <Array.au3>
@@ -11,21 +11,21 @@ _ArrayPermute(ByRef $avArray[, $sDelim = ""])
 ###Parameters###
 @@ParamTable@@
 $avArray
-	The Array to get Permutations
+	目标数组
 $sDelim
-	[optional] String result separator, default is "" for none
+	[可选] 字串分隔符，默认 "" 无
 @@End@@
 
 ###ReturnValue###
-Success: Returns an Array of Permutations
-		$array[0] contains the number of strings returned.
-		The remaining elements ($array[1], $array[2] ... $array[n]) contain the Permutations.
-		Failure - Returns 0 and Sets @error:
-		1 - The Input Must be an Array
-		2 - $avArray is not a 1 dimensional array
+成功: 返回一个交换排列的数组
+		$array[0] 为数组元素的数量.
+	        剩馀的下标 ($array[1], $array[2] ... $array[n]) 为数组的元素.
+失败：- 返回 0 设置 @error:
+		1 - 目标 $avArray 不是数组
+	        2 - 目标 $avArray 不是一维数组
 
 ###Remarks###
-The input array must be 0-based, i.e. no counter in $array[0]. Based on the algorithm by Alexander Bogomolny.
+数组下标必须以 0 为基础,且不把 $array[0] 计算在内. 派生于Alexander Bogomolny 的算法.
 
 http://www.bearcave.com/random_hacks/permute.html
 

@@ -2,7 +2,7 @@
 _ArrayCombinations
 
 ###Description###
-Returns an Array of the Combinations of a Set of Elements from a Selected Array
+从数组中按指定长度返回所有元素的组合数组
 
 ###Syntax###
 #Include <Array.au3>
@@ -11,23 +11,23 @@ _ArrayCombinations(ByRef $avArray, $iSet[, $sDelim = ""])
 ###Parameters###
 @@ParamTable@@
 $sArray
-	The Array to use
+	目标数组
 $iSet
-	Size of the combinations set
+	组合的长度
 $sDelim
-	[optional] String result separator, default is "" for none
+	[可选] 字串分隔符, 默认 "" 为无
 @@End@@
 
 ###ReturnValue###
-Success: Returns an Array of Combinations
-		Returns an array, the first element ($array[0]) contains the number of strings returned.
-		The remaining elements ($array[1], $array[2], etc.) contain the Combinations.
-Failure: Returns 0 and Sets @error:
-		1 - The Input Must be an Array
-		2 - $avArray is not a 1 dimensional array
+成功: 返回一个组合的数组
+		第一个下标($array[0])为被返回的字串数量.
+		剩馀的下标($array[1], $array[2], ...) 为组合数组的元素.
+失败: 返回 0 设置 @error:
+		1 - 目标 $avArray 不是一个数组
+		2 - 目标 $avArray 不是一维数组
 
 ###Remarks###
-The input array must be 0-based, i.e. no counter in $array[0]. Based on an algorithm by Kenneth H. Rosen.
+数组下标必须以 0 为基础,在 $array[0]中没有元素（用于显示数组元素的数量）. 派生于Kenneth H. Rosen 的一个算法.
 
 http://www.merriampark.com/comb.htm
 

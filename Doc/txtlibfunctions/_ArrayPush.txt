@@ -2,7 +2,7 @@
 _ArrayPush
 
 ###Description###
-Add new values without increasing array size by inserting at the end the new value and deleting the first one or vice versa.
+在目标数组末端（或首端）插入新值,同时删除目标数组的首位（或末位）元素，保持目标数组大小不变.注意插入与删除的位置为反向
 
 ###Syntax###
 #Include <Array.au3>
@@ -11,26 +11,26 @@ _ArrayPush(ByRef $avArray, $vValue[, $iDirection = 0])
 ###Parameters###
 @@ParamTable@@
 $avArray
-	Array to modify
+	目标数组
 $vValue
-	Value(s) to add (can be in an array)
+	来源值 (可以使用一个数组)
 $iDirection
-	[optional] Direction to push existing array elements:
-		0 = Slide left (adding at the end)
-		1 = Slide right (adding at the start)
+	[可选] 来源值添加到目标数组的方向:
+		0 = 末端
+		1 = 首端
 @@End@@
 
 ###ReturnValue###
-Success: 1
-Failure: 0, sets @error:
-		1 - $avArray is not an array
-		2 - $vValue is an array larger than $avArray (so it can't fit)
-		3 - $avArray is not a 1 dimensional array
+成功: 1
+失败: 0, 设置 @error:
+	        1 - 目标 $avArray 不是一个数组
+	        2 - 来源值 $vValue 是一数组，但大于目标数组 $avArray, (不匹配)
+	        3 - 目标 $avArray不是一维数组
 
 ###Remarks###
-This function is used for continuous updates of data in array, where in other cases a vast size of array would be created.
-It keeps all values inside the array (something like History), minus the first one or the last one depending on direction chosen.
-It is similar to the push command in assembly.
+这个函数可连续更新数组的数据, 某些情况下，可能会建立一个巨大的数组.
+它在数组内保存所有的数值(有点像记录档案), 删除首位或末位元素取决于选择的方向.
+在组合时与进栈(push)命令类似. 原文：[It is similar to the push command in assembly.]
 
 ###Related###
 _ArrayAdd, _ArrayConcatenate, _ArrayDelete, _ArrayInsert, _ArrayPop
