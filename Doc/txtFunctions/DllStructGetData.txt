@@ -2,7 +2,7 @@
 DllStructGetData
 
 ###Description###
-Returns the data of an element of the struct.
+返回 struct 元素的数据.
 
 ###Syntax###
 DllStructGetData ( Struct, Element [, index ] )
@@ -11,32 +11,31 @@ DllStructGetData ( Struct, Element [, index ] )
 ###Parameters###
 @@ParamTable@@
 Struct
-	The struct returned by DllStructCreate.
+	被 DllStructCreate 送回的 struct.
 Element
-	Which element of the struct you want to access, starting at 1 or the elementname as defined in DllStructCreate.
+	你想要存取的 struct 元素, 起始于 1 或 DllStructCreate 定义的元素名.
 index
-	If the element is an array, you need to specify which index to return, otherwise it returns index 1. The first element is 1.
+	如果元素是一个数组，你需要指定返回的索引，否则它返回索引 1 . 第一个元素是 1.
 @@End@@
-*char[n], byte[n] and ubyte[n] return all element data when index is omitted.
+*char[n], byte[n] 与 ubyte[n] 返回所有的元素数据索引被省略.
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Data in the element of the struct.
-Failure:	0.
-@Error:	0 = No Error.
-	1 = Struct not a correct struct returned by DllStructCreate.
-	2 = Element value out of range.
-	3 = index would be outside of the struct.
-	4 = Element data type is unknown
-	5 = index &lt;= 0.
+成功: struct 的元素数据. 
+失败: 0. 
+@Error: 0 = 没有错误. 
+	 1 = 被 DllStructCreate 送回的 struct 不正确. 
+	 2 = 元素值超出范围. 
+	 3 = 索引值在 struct 的外面. 
+	 4 = 元素数据种类未知 
+	 5 = 索引 &lt;= 0.
 	
 @@End@@
 
-
 ###Remarks###
-When the element is char[n] and index is omitted the data returned is a String,
-when the element is byte[n] or ubyte[n] and index is omitted the data returned is a binary type,
-otherwise it always returns a number.
+当元素字符[n]与索引被省略时，被送回的数据是字串,
+当元素是 byte[n] 或 ubyte[n] 与索引被省略时， 被送回的是二进制数据,
+否则它总是返回一个数字.
 
 ###Related###
 DllCall, DllStructCreate, DllStructSetData

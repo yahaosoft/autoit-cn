@@ -53,16 +53,16 @@ $GUI_ONTOP	控件将会拥有一个相对于窗口的置顶属性(Z轴).
 若要隐藏某个 AVI 控件(使用 $GUI_HIDE),应该使用 $GUI_AVICLOSE 来关闭它.
 
 "上下文菜单" 控件的状态 <b>不能被修改.</b>
-State of a "listviewitem" control can be changed if the associated "listview" control has been created with an extended style $LVS_EX_CHECKBOXES. $GUI_FOCUS and $GUI_NOFOCUS can be used on specific listviewitem provided listview control style allows to display it : $LVS_SHOWSELALWAYS.
-State of a "menu or a ""menuitem" control <b>cannot be hidden.</b>
+如果通过扩展样式 $LVS_EX_CHECKBOXES 建立的"listview" 关联控件，"listviewitem" 控件的状态能被改变. $GUI_FOCUS 和 $GUI_NOFOCUS 能在特定的 listviewitem 上使用， listview 控件样式: $LVS_SHOWSELALWAYS 允许显示它
+"菜单"或"菜单子项" 控件的状态 <b>不能被隐藏.</b>
 
-! Important information for $GUI_EXPAND: this state is only used for TreeViewItems. If you want to use this 'action' then at least 1 Sub-TreeViewItem has to exist/created under this item !
-If you want to select another item in a TreeView then you can use $GUI_FOCUS - the parent TreeView gets the window focus and the specified item is marked as selected.
-If you want to set a treeview item as a default item which means painting it bold you can use $GUI_DEFBUTTON - to turn it off just use another value but $GUI_DEFBUTTON, for instance 0. This state will not be returned by GUICtrlGetState.
+! $GUI_EXPAND 的重要信息: 这状态只能为 TreeViewItems 使用. 如果要使用这个'动作'，则至少有 1 个 Sub-TreeViewItem 必须在项目下存在/建立 !
+如果你想要在 TreeView 中选择另外的一个项目 , 那么使用 $GUI_FOCUS - 父 TreeView 获取窗口焦点给指定的项目作为选择记号.
+如果你想要设定一个 treeview 项目默认为粗体，可以使用 $GUI_DEFBUTTON - 要关掉除使用 $GUI_DEFBUTTON 之外,也可以使用另外的一个值, 例如 0. 这个状态不能被 GUICtrlGetState 返回.
 
-If $GUI_DROPACCEPTED is set to a visible control a drag&drop can be taken in account. The edit/input control will be set with the filename. 
-For other controls on reception of $GUI_EVENT_DROPPED, @GUI_DRAGID will return the controlID from where the drag start (-1 if from a file, @GUI_DRAGFILE contain the filename being dropped) and @GUI_DROPID returns the controlID of the dropped control.
-Only dragging a ListviewItem will start the drag & drop process. The @GUI_DRAGID will be the ListView controlID.
+如果 $GUI_DROPACCEPTED 被设定成一个可见控件，则拖动和撤消能被接受计算. 编辑/输入控件将会与文件名一起设定. 
+对于在 $GUI_EVENT_DROPPED 的接收方面的其他控件, @GUI_DRAGID 将会返回从哪里启动拖动的控件ID (-1 如果是从一个文件, @GUI_DRAGFILE 包含存放的文件名) 和 @GUI_DROPID 返回被放弃控件的控件ID.
+拖动 ListviewItem 将会启动拖动和撤消进程. @GUI_DRAGID 将会是 ListView 控件.
 
 
 ###Related###

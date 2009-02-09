@@ -42,20 +42,20 @@ GUICtrlCreateListView ( "文本", 左侧, 顶部 [, 宽度 [, 高度 [, 样式 [, 扩展样式]]
 ListView 将总是以"详细信息"视图显示 (这是因为 LVS_REPORT 风格是强制性的). 
 若要调整列的大小(宽度)则可在列的标题中补一些空格或者制表符(键盘上面的TAB).另外,列的宽度也可能会在使用 GUICtrlCreateListViewItem 后根据所添加项目的大小而扩大.每个列的宽度最多能达25个字符.在使用 GUICtrlSetData 更新数据时并不会自动调整项目大小. 
 
-To create a ListView with Icon-, SmallIcon- or List-style just use after creation:
-<a href="GUICtrlSetStyle.htm">GUICtrlSetStyle</a> with the styles $LVS_ICON, $LVS_LIST or $LVS_SMALLICON.
+产生一个有图标的 ListView, 创造小图标或列表风格使用:
+<a href="GUICtrlSetStyle.htm">GUICtrlSetStyle</a> 加样式 $LVS_ICON, $LVS_LIST 或 $LVS_SMALLICON.
 
-Sorting the list by clicking the column name (as in Explorer) is not currently implemented.
+点击列名称可排序当前列表 (在资源管理器内).
 
-To have the entire line visually selected use the <a href="../appendix/GUIStyles.htm#Extended">extended style</a> LVS_EX_FULLROWSELECT.
+要想能选择整行使用 <a href="../appendix/GUIStyles.htm#Extended">扩展样式</a> LVS_EX_FULLROWSELECT.
 
-To combine styles with the default style use <b>BitOr</b>($GUI_SS_DEFAULT_LISTVIEW, newstyle,...).
+要在默认样式的基础上添加一个新的样式可使用 <b>BitOr</b>($GUI_SS_DEFAULT_LISTVIEW, 新样式,...).
 
-To use the values specified above you must #include <ListViewConstants.au3> in your script.
+要使用上方指定的值,您必须包含 #include <ListViewConstants.au3> 语句写入你脚本的头部.
 
-The special flag $GUI_BKCOLOR_LV_ALTERNATE can be used with Listview control to give alternate background of the ListviewItems lines.
-The odd lines will get the color set by GUICtrlSetBkColor of the Listview control.
-The even lines will get the color set by GUICtrlSetBkColor of the ListviewItem control.
+专用标记 $GUI_BKCOLOR_LV_ALTERNATE 与 Listview 控件一起使用，能改变 Listview 项目行的背景.
+奇数行将会获取 Listview 控件 GUICtrlSetBkColor 的彩色位置.
+偶数行将会获取 ListviewItem 控件的 GUICtrlSetBkColor 的彩色位置.
 
 
 ###Related###

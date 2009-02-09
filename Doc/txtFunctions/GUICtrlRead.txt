@@ -43,25 +43,25 @@ Dummy	值设置于 <a href="GUICtrlSendToDummy.htm">GUICtrlSendToDummy</a> 或者 <a h
 
 
 ###Remarks###
-In 'advanced' mode the return value contains additional data of the control (see below).
+在'高级'模态的返回值包含控件的附加值.(见下面).
 
-Note: not for all known controls there is additional data available!
+注意: 不是所有的已知控件都有附加值可用!
 <br>
 @@StandardTable1@@
-<b>Type</b>	<b>Additional Value</b>
-Checkbox, Radio	The text of the control.
-Menu, MenuItem	The text of the control.
-TreeView	The text of the current selected TreeViewItem.
-TreeViewItem	The text of the TreeViewItem.
-ListViewItem	The state of the ListViewItem if $LVS_EX_CHECKBOXES exStyle used in advanced mode.  <a href="GUICtrlSetState.htm#StateTable">See State table </a>
-Tab	The controlID of the tabitem selected
+<b>类型</b>	<b>附加值</b>
+Checkbox, Radio	控件的文本.
+Menu, MenuItem	控件的文本.
+TreeView	当前挑选的 TreeViewItem 的文本.
+TreeViewItem	TreeViewItem 的文本.
+ListViewItem	如果在高级模态中用 $LVS_EX_CHECKBOXES 扩展样式时 ListViewItem 的状态.  <a href="GUICtrlSetState.htm#StateTable">见状态表</a>
+Tab	被选取的标签项目的控件ID
 @@End@@
 
-For Checkbox, Radio control several states can be returned as $GUI_FOCUS and $GUI_CHECKED,. So use i.e. BitAnd(GUICtrlRead($Item),$GUI_CHECKED) to test if the control is checked.
+对于复选框, 单选框控件的一些状态能被 $GUI_FOCUS 和 $GUI_CHECKED 返回,. 因此如果控件被选取使用 BitAnd(GUICtrlRead($Item),$GUI_CHECKED) 测试.
 
-For Listview items several states can be returned as $GUI_CHECKED and $GUI_UNCHECKED (only for listview controls with LVS_EX_CHECKBOXES-exstyle and on 'advanced' return) . So use i.e. BitAnd(GUICtrlRead($Item),$GUI_CHECKED) to test if the item is checked.
+因为 Listview 项目的一些状态可以被 $GUI_CHECKED 和 $GUI_UNCHECKED 返回 (仅在 listview 控件有 LVS_EX_CHECKBOXES-扩展样式与使用高级模态时) . 因此如果控件被选取使用 BitAnd(GUICtrlRead($Item),$GUI_CHECKED) 测试.
 
-For Treeview items several states can be returned as $GUI_FOCUS, $GUI_EXPAND and $GUI_CHECKED, $GUI_UNCHECKED (only for treeview controls with TVS_CHECKBOXES-style . So use i.e. BitAnd(GUICtrlRead($Item),$GUI_CHECKED) to test if the item is checked.
+因为 Listview 项目的一些状态可以被 $GUI_FOCUS, $GUI_EXPAND 与 $GUI_CHECKED, $GUI_UNCHECKED (仅当 treeview 控件有 TVS_CHECKBOXES-样式时)返回 . 因此如果控件被选取使用 BitAnd(GUICtrlRead($Item),$GUI_CHECKED) 测试.
 
 
 ###Related###

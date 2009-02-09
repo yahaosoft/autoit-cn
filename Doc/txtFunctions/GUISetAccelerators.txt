@@ -2,7 +2,7 @@
 GUISetAccelerators
 
 ###Description###
-Sets the accelerator table to be used in a GUI window.
+在 GUI 中设置快捷键.
 
 ###Syntax###
 GUISetAccelerators ( accelerators [, 窗口句柄] )
@@ -11,9 +11,9 @@ GUISetAccelerators ( accelerators [, 窗口句柄] )
 ###Parameters###
 @@ParamTable@@
 accelerators
-	A 2 dimensional array holding the accelerator table (See remarks).
+	存储快捷键的2维数组 (见注意).
 窗口句柄
-	[可选参数] Windows handle as returned by GUICreate (default is the previously used window).
+	[可选参数] GUICreate 返回的窗口句柄(默认上次使用的窗口).
 @@End@@
 
 ###ReturnValue###
@@ -24,18 +24,18 @@ accelerators
 
 
 ###Remarks###
-The array passed to this function contains the hotkey and the control ID of the accelerator. The array must be defined as Dim $array[n][2] - where n is the number of accelerator keys to set:
+传给这个函数的包含快捷键和控件ID的数组.必须以 Dim $array[n][2] 语句定义，n 为快捷键的数目:
 
-$array[0][0] = Hotkey (in HotKeySet() format) of 1st accelerator
-$array[0][1] = Control ID of the 1st accelerator, as returned by GUICtrlCreate...()
-$array[1][0] = Hotkey of 2nd accelerator
-$array[1][1] = Control ID of the 2nd accelerator
+$array[0][0] = 第一个加速器的热键 (以 HotKeySet() 格式)
+$array[0][1] = 第一个加速器的控件ID, 由 GUICtrlCreate...()返回
+$array[1][0] = 第二个加速器的热键
+$array[1][1] = 第二个加速器的控件ID
 ...
-$array[n][0] = Hotkey of nth accelerator
-$array[n][1] = Control ID of the nth accelerator
+$array[n][0] = 第 n 个加速器的热键
+$array[n][1] = 第 n 个加速器的控件ID
 
 
-Passing this function a non-array will unset all accelerators for the given winhandle.
+非数组形式不会为给定的窗口句柄设定快捷键.
 
 ###Related###
 GUICreate, HotKeySet

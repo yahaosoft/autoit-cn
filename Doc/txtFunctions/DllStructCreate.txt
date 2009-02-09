@@ -1,7 +1,7 @@
 ###Function###
 DllStructCreate
 ###Description###
-Creates a C/C++ style structure to be used in DllCall.
+产生一个 C/C++ 样式结构供 DllCall 使用.
 
 ###Syntax###
 DllStructCreate ( "Struct" [,Pointer] )
@@ -10,74 +10,74 @@ DllStructCreate ( "Struct" [,Pointer] )
 ###Parameters###
 @@ParamTable@@
 "Struct"
-	A string representing the structure to create (See Remarks).
+	建立结构的字符串.(见 注释)..
 Pointer
-	If supplied the struct will not allocate memory but use the pointer supplied.
+	如果提供了结构体(定义关键字"struct")将不配置存储器而是使用指针代理.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	A variable for use with DllStruct calls.
-Failure:	0.
-@Error:	0 = No Error.
-	1 = Variable passed to DllStructCreate was not a string.
-	2 = There is an unknown Data Type in the string passed.
-	3 = Failed to allocate the memory needed for the struct, or Pointer = 0.
-	4 = Error allocating memory for the passed string.
+成功: 	使用 DllStruct 呼叫的变量. 
+失败: 	0 .
+@Error:	0 = 没有错误. 
+	 1 = 传给 DllStructCreate 的变量不是字串. 
+	 2 = 一个未知数据种类在传递的字串中. 
+	 3 = 对 struct 的需要没有分派内存, 或指针 =0. 
+	 4 = 为传递的字串分派内存错误.
 	
 @@End@@
 
 <br>
 @@ParamTable@@
-<b>Type</b>
-	<b>Details</b>
+<b>类型</b>
+	<b>详细资料</b>
 byte
-	8bit(1byte) signed char
+	8bit(1byte) 带符号的字符
 ubyte
-	8bit(1byte) unsigned char
+	8bit(1byte) 无符号的字符
 char
-	8bit(1byte) ASCII char
+	8bit(1byte) ASCII 字符
 wchar
-	16bit(2byte) Wide char
+	16bit(2byte) Wide 字符
 short
-	16bit(2bytes) signed integer
+	16bit(2bytes) 带符号整数
 ushort
-	16bit(2bytes) unsigned integer
+	16bit(2bytes) 无符号整数
 int
-	32bit(4bytes) signed integer
+	32bit(4bytes) 带符号整数
 uint
-	32bit(4bytes) unsigned integer
+	32bit(4bytes) 无符号整数
 long
-	32bit(4bytes) signed integer
+	32bit(4bytes) 带符号整数
 ulong
-	32bit(4bytes) unsigned integer
+	32bit(4bytes) 无符号整数
 dword
-	32bit(4bytes) unsigned integer
+	32bit(4bytes) 无符号整数
 ptr
-	32bit(4bytes) integer
+	32bit(4bytes) 整数
 hwnd
-	32bit(4bytes) integer
+	32bit(4bytes) 整数
 float
-	32bit(4bytes) floating point
+	32bit(4bytes)  浮点
 double
-	64bit(8bytes) floating point
+	64bit(8bytes)  浮点
 int64
-	64bit(8bytes) signed integer
+	64bit(8bytes) 带符号整数
 uint64
-	64bit(8bytes) unsigned integer
+	64bit(8bytes) 无符号整数
 int_ptr
-	32 or 64bit signed integer (depending on if the x86 or x64 version of AutoIt is used)
+	32 or 64bit 带符号整数 (依据使用的 x86 或 x64 AutoIt 的版本)
 uint_ptr
-	32 or 64bit signed integer (depending on if the x86 or x64 version of AutoIt is used)
+	32 or 64bit 带符号整数 (依据使用的 x86 或 x64 AutoIt 的版本)
 long_ptr
-	32 or 64bit unsigned integer (depending on if the x86 or x64 version of AutoIt is used)
+	32 or 64bit 无符号整数 (依据使用的 x86 或 x64 AutoIt 的版本)
 ulong_ptr
-	32 or 64bit unsigned integer (depending on if the x86 or x64 version of AutoIt is used)
+	32 or 64bit 无符号整数 (依据使用的 x86 或 x64 AutoIt 的版本)
 @@End@@
 
 
 ###Remarks###
-Each data type must be separated by a semi-colon ';'.  Create arrays by adding '[size]' after the data type.
+每个数据种类一定被分号 ';' 分开. 在数据类型之后增加数组'[大小]'.
 DllStructCreate("int;char[128]"). An elementname can be added similar to a C-style declaration DllStructCreate("int n;char buffer[128]"). This dataname can be used in place of the element in other DllStruct... functions.
 
 By default, a structure alignment of 8 is used (to be consistent with general Microsoft compilers and APIs). To use a different alignment prefix the structure with the align keyword - valid alignments are 1,2,4,8 and 16:

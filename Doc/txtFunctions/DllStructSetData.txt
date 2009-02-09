@@ -2,7 +2,7 @@
 DllStructSetData
 
 ###Description###
-Sets the data in of an element in the struct.
+在 struct 中设置数据元素.
 
 ###Syntax###
 DllStructSetData ( Struct, Element, value [, index ] )
@@ -11,30 +11,30 @@ DllStructSetData ( Struct, Element, value [, index ] )
 ###Parameters###
 @@ParamTable@@
 Struct
-	The struct returned by DllStructCreate.
+	被 DllStructCreate 送回的 struct.
 Element
-	Which element of the struct you want to access, starting at 1 or the element name as defined in DllStructCreate.
+	你想要存取的 struct 的一个元素, 起始于 1 或 DllStructCreate 所定义的元素名.
 value
-	The new value to place in the struct.
+	放到 struct 内的新值.
 index
-	If the element is an array, you need to specify which index to set, otherwise it sets index 1. The first element is 1.
+	如果元素是一个数组，你需要设定一个索引，否则它会设定索引为 1. 第一个元素是 1.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	value, which is read back from the struct.
-Failure:	0.
-@Error:	0 = No Error.
-	1 = Struct not a correct struct returned by DllStructCreate.
-	2 = Element value out of range.
-	3 = index would be outside of the struct.
-	4 = Element data type is unknown
-	5 = index &lt;= 0.
+成功: 	值, 从 struct 读取.
+失败:	0.
+@Error:	0 = 没有错误. 
+	1 = 从 DllStructCreate 送回的 Struct not 不正确. 
+	2 = 元素值超出范围. 
+	3 = 索引在 struct 的外面. 
+	4 = 元素数据种类未知 
+	5 = 索引 &lt;= 0.
 @@End@@
 
 
 ###Remarks###
-When the element is char[n], byte[n] or ubyte[n] the data can be a string otherwise it has to be a number.
+当元素是字符[n]时, byte[n] 或 ubyte[n] 数据可以是字串，否则一定是个数字.
 
 ###Related###
 DllCall, DllStructCreate, DllStructGetData

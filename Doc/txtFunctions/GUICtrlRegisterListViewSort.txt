@@ -2,7 +2,7 @@
 GUICtrlRegisterListViewSort
 
 ###Description###
-Register a user defined function for an internal listview sorting callback function.
+为 listview 控件注册一个用户定义排序函数.
 
 ###Syntax###
 GUICtrlRegisterListViewSort ( controlID, "function" )
@@ -10,51 +10,51 @@ GUICtrlRegisterListViewSort ( controlID, "function" )
 ###Parameters###
 @@ParamTable@@
 controlID
-	The listview controlID for which the user function should proceed.
+	listview 控件ID.
 function
-	The name of the user function to call when the sorting callback runs.
+	用户定义排序函数名称.
 @@End@@
 
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	1
-Failure:	0
+成功:	1
+失败:	0
 @@End@@
 
 
 ###Remarks###
-!!! To make the user function workable you have to define it with <strong>maximum 4 function parameters</strong> otherwise the function won't be called !!!
-i.e:
+!!! 要使用户定义函数能工作，必须定义它 最多4个参数 ，否则函数将不能被调用 !!!
+例如:
 Func MySortFunction($nListViewID, $LParam1, $LParam2, $nColumn)
 ...
 EndFunc
 
-Or
+或
 
 Func MySortFunction($nListViewID, $LParam1, $LParam2)
 ...
 EndFunc
 
 
-When the user function is called then these 4 parameters have the following values:
+当用户函数被调用时，这 4个参数有下列值:
 @@StandardTable1@@
-<b>Position</b>	<b>Parameter</b>	<b>Meaning</b>
-1	controlID	The controlID of the listview control for which the callback function is used.
-2	lParam1	The lParam value of the first item (by default the item controlID).
-3	lParam2	The lParam value of the second item (by default the item controlID).
-4	column	The column that was clicked for sorting (the first column number is 0).
+<b>位置</b>	<b>参数</b>	<b>意义</b>
+1	controlID	排序函数使用的 listview 控件ID.
+2	lParam1		第一个项目的 lParam 值.(默认为项目控件ID).
+3	lParam2		第二个项目的 lParam 值.(默认为项目控件ID).
+4	column		点击排序的列.(第一列为 0).
 @@End@@
 
-The following values have to be <strong>Return</strong>ed to change the behaviour of the sorting callback:
+下列是改变排序调用行为的返值:
 @@StandardTable1@@
-<b>Return value</b>	<b>Meaning</b>
--1	1st item should precede the 2nd.
-0	No Change.
-1	1st item should follow the 2nd.
+<b>返回值</b>	<b>意义</b>
+-1	第一个项目应该在第二个之前.（好像是废话哦！）
+0	没有改变.
+1	第一个项目应该跟随第二个.（又是废话哦！）
 @@End@@
 
-See also examples for sorting with selfcreated GUI listview items.
+参阅 selfcreated GUI 中 listview 列排序的例子.
 
 
 ###Related###
