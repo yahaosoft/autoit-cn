@@ -2,61 +2,61 @@
 RunAsWait
 
 ###Description###
-Runs an external program under the context of a different user and pauses script execution until the program finishes.
+在不同的用户环境中运行一个外部程序和中止脚本执行直到程序完成.
 
 ###Syntax###
-RunAsWait ( "username", "domain", "password", logon_flag, "filename" [, "workingdir" [, show_flag [, opt_flag ]]] )
+RunAsWait ( "用户名", "范围", "密码", 登录标志, "文件名" [, "工作目录" [, 显示标志 [, 选择标志 ]]] )
 
 
 ###Parameters###
 @@ParamTable@@
-username
-	The username to log on with.
-domain
-	The domain to authenticate against.
-password
-	The password for the user.
-logon_flag
-	0 - Interactive logon with no profile.
-	1 - Interactive logon with profile.
-	2 - Network credentials only.
-	4 - Inherit the calling processes environment instead of the user's.
-filename
-	The name of the executable (EXE, BAT, COM, PIF) to run.
-workingdir
-	[optional] The working directory.  If not specified, then the value of @SystemDir will be used.
-show_flag
-	[optional] The "show" flag of the executed program:
-	  @SW_HIDE = Hidden window (or Default keyword)
-	  @SW_MINIMIZE = Minimized window
-	  @SW_MAXIMIZE = Maximized window
-opt_flag
-	[optional] Controls various options related to how the parent and child process interact.
-	  0x10000 ($RUN_CREATE_NEW_CONSOLE) = The child console process should be created with it's own window instead of using the parent's window.  This flag is only useful when the parent is compiled as a Console application.
+用户名
+	登录的用户名.
+范围
+	验证的依据范围.
+密码
+	用户的登录口令.
+登录标志
+	0 - 交互登录，没有 profile.
+	1 - 交互登录，有 profile.
+	2 - 网[络]唯一凭证.
+	4 - 继承调用过程环境而非用户的.
+文件名
+	可执行文件的完整路径(文件格式为 EXE,BAT,COM 或 PIF)..
+工作目录
+	[可选] 工作目录. 如果不指定, 则使用 @SystemDir.
+显示标志
+	[可选] 启动程序时的初始状态:
+	  @SW_HIDE = 隐藏窗口 (或 默认关键字)
+	  @SW_MINIMIZE = 最小化窗口
+	  @SW_MAXIMIZE = 最大化窗口
+选择标志
+	[可选] 控制不同选项处理父进程/子进程交互.
+	  0x10000 ($RUN_CREATE_NEW_CONSOLE) = 子控制台进程应该与它一起建立自己的窗口而非使用父窗口. 当父层作为控制台应用被编译时，这标志才有用.
 @@End@@
 
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns the exit code of the program that was run.
-Failure:	Returns 0 and sets @error to non-zero.
+成功: 	返回运行程序的退出[代]码. 
+失败: 	返回 0 并设置 @error 非零.
 @@End@@
 
 
 ###Remarks###
-It is important to specify a working directory the user you are running as has access to, otherwise the function will fail.
+指定你正在运行的用户工作目录是很重要的, 否则函数将会失败.
 
-It is recommended that you only load the user's profile is you are sure you need it.  There is a small chance a profile can be stuck in memory under the right conditions.  If a script using RunAs() happens to be running as the SYSTEM account (for example, if the script is running as a service) and the user's profile is loaded, then you must take care that the script remains running until the child process closes.
+建议你只载入确定你需要的用户需求文件. There is a small chance a profile can be stuck in memory under the right conditions. 如果一个使用 RunAs() 的脚本作为系统帐户运行 (例如, 脚本当做一个服务运行) 和用户需求文件被载入, 你必须保持脚本运行直到子进程关闭.
 
-When running as an administrator, the Secondary Logon (RunAs) service must be enabled or this function will fail.  This does not apply when running as the SYSTEM account.
+当运行一个系统管理程序时, 第二次的登录 (RunAs) 服务必须被允许否则这函数将失败. 这个不应用到运行系统帐户时.
 
-After running the requested program the script pauses until the program terminates.  To run a program and then immediately continue script execution use the RunAs function instead.
+在运行那请求程序之后，脚本会暂停直到程序结束. 运行一个程序然后立刻继续脚本执行，需改为使用 RunAs 函数.
 
-Some programs will appear to return immediately even though they are still running; these programs spawn another process - you may be able to use the ProcessWaitClose function to handle these cases.
+即使他们仍然在运行，一些程序也会立刻返回; 这些程序产生另外的一个进程 - 你能够使用 ProcessWaitClose 函数处理这些范例.
 
-The "load profile" and "network credentials only" options are incompatible.  Using both will produce undefined results.
+The "load profile" 与登录标志2 "网[络]唯一凭证" 选项不兼容. 使用两者将产生不明确的结果.
 
-There is an issue in the Windows XP generation of Windows which prevents STDIO redirection and the show flag from working.  See Microsoft Knowledge Base article KB818858 for more information about which versions are affected as well as a hotfix for the issue.  User's running Windows 2000, Windows XP SP2 or later, or Windows Vista are not affected.
+There is an issue in the Windows XP generation of Windows which prevents STDIO redirection and the show flag from working.  See Microsoft Knowledge Base article KB818858 for more information about which versions are affected as well as a hotfix for the issue.  使用 Windows 2000, Windows XP SP2 或更高版本, 以及 Windows Vista 没有这个影响.
 
 ###Related###
 ProcessWait, ProcessWaitClose, Run, RunWait, ShellExecute, ShellExecuteWait, RunAs

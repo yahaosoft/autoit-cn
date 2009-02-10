@@ -24,9 +24,9 @@ Run ( "文件名" [, "工作目录" [, 显示标志[, 可选标志]]] )
 	  1 ($STDIN_CHILD) = 提供一个句柄到子 STDIN 流. 
 	  2 ($STDOUT_CHILD) = 提供一个句柄到子 STDOUT 流. 
 	  4 ($STDERR_CHILD) = 提供一个句柄到子 STDERR 流.
-	  0x8 ($STDERR_MERGED) = Provides the same handle for STDOUT and STDERR.  Implies both $STDOUT_CHILD and $STDERR_CHILD.
-	  0x10 ($STDIO_INHERIT_PARENT) = Provide the child with the parent's STDIO streams.  This flag can not be combined with any other STDIO flag.  This flag is only useful when the parent is compiled as a Console application.
-	  0x10000 ($RUN_CREATE_NEW_CONSOLE) = The child console process should be created with it's own window instead of using the parent's window.  This flag is only useful when the parent is compiled as a Console application.
+	  0x8 ($STDERR_MERGED) = 提供相同的句柄给 STDOUT 与 STDERR. 隐含 $STDOUT_CHILD 与 $STDERR_CHILD.
+	  0x10 ($STDIO_INHERIT_PARENT) = 提供父层的 STDIO 流给子层. 这个标志不能和任何其他的 STDIO 标志结合. 当父层作为控制台应用被编译时，这标志才有用.
+	  0x10000 ($RUN_CREATE_NEW_CONSOLE) = 子控制台进程应该与它一起建立自己的窗口而非使用父窗口. 当父层作为控制台应用被编译时，这标志才有用.
 @@End@@
 
 
@@ -42,10 +42,17 @@ Run ( "文件名" [, "工作目录" [, 显示标志[, 可选标志]]] )
 
 在运行指定程序后脚本将(立即)继续执行后面的语句.若要在指定程序执行完毕之前暂停脚本的执行则请使用 RunWait 函数代替.
 
-Providing the Standard I/O parameter with the proper values permits interaction with the child process through the StderrRead, StdinWrite and StdoutRead functions. Combine the flag values (or use $STDERR_CHILD, $STDIN_CHILD & $STDOUT_CHILD, defined in Constants.au3) to manage more than one stream.
+用适当的数值为互动子进程提供标准 I/O 参数处理 StderrRead 、 StdinWrite 和 StdoutRead 函数. 结合标志值 (或者使用 $STDERR_CHILD, $STDIN_CHILD&$STDOUT_CHILD,定义 Constants.au3) 处理超过一条的流.
 
-In order for the streams to close, the following conditions must be met: 1) The child process has closed it's end of the stream (this happens when the child closes).  2) AutoIt must read any captured streams until there is no more data.  3) If STDIN is provided for the child, StdinWrite() must be called to close the stream.  Once all streams are detected as no longer needed, all internal resources will automatically be freed.
-StdioClose can be used to force the STDIO streams closed.
+使流关闭，下列条件式必须存在: 
+	1) 子进程关闭则流结束.(子段关闭时发生). 
+
+	2) AutoIt 必须读出任何被捕获的流，直到没有更多的数据. 
+
+	3) 如果 STDIN 被提供给子段，必须调用 StdinWrite() 关闭流. 
+
+如果 STDIN 被提供给子段，必须调用 StdinWrite() 关闭流.
+可使用 StdioClose 强制关闭 STDIO 流.
 
 
 ###Related###

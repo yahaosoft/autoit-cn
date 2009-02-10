@@ -2,230 +2,241 @@
 StringRegExp
 
 ###Description###
-Check if a string fits a given regular expression pattern.
+检查字串是否符合给定的正则表达式模式.
 
 ###Syntax###
-StringRegExp ( "test", "pattern" [, flag ] [, offset ] ] )
+StringRegExp ( "测试", "模式" [, 标志 ] [, 偏移量 ] ] )
 
 
 ###Parameters###
 @@ParamTable@@
-test
-	The string to check
-pattern
-	The regular expression to compare.
-flag
-	[optional] A number to indicate how the function behaves.  See below for details.  The default is 0.
-offset
-	[optional] The string position to start the match (starts at 1)  The default is 1.
+测试
+	检查的字串
+模式
+	正则表达式比较.
+标志
+	[可选] 一个表示函数运行方式的值. 见下文详细资料. 默认 0.
+偏移量
+	[可选] 启动比较的字串位置 (起始于 1). 默认 1.
 @@End@@
 <br>
 @@ParamTable@@
-<b>Flag</b>
-	<b>Values</b>
+<b>标志</b>
+	<b>值</b>
 0
-	Returns 1 (matched) or 0 (no match)
+	返回 1(匹配) 或 0(不匹配)
 1
-	Return array of matches.
+	返回匹配的数组.
 2
-	Return array of matches including the full match (Perl / PHP style).
+	返回包括完整匹配的数组.(Perl/ PHP 样式).
 3
-	Return array of global matches.
+	返回全局匹配数组.
 4
-	Return an array of arrays containing global matches including the full match (Perl / PHP style).
+	返回包括完整匹配(Perl/ PHP 样式)和全局匹配的数组.
 @@End@@
 
 ###ReturnValue###
-<i>Flag = 0 :</i>
+<i>标志 = 0 时:</i>
 
 @@ReturnTable@@
-@Error	Meaning
-2 	Bad pattern. @Extended = offset of error in pattern.
+@Error代码	意义
+2 	表达式错误. @Extended = 在错误模式中的偏移量.
 @@End@@
 
 <br>
-<i>Flag = 1 or 2 :</i>
+<i>标志= 1 或 2 时:</i>
 
 @@ReturnTable@@
-@Error	Meaning
-0	Array is valid.  Check @Extended for next offset
-1	Array is invalid.  No matches.
-2	Bad pattern, array is invalid.  @Extended = offset of error in pattern.
+@Error 代码	意义
+0	有效数组. 检查 @Extended 的下一个偏移量
+1	数组无效. 没有匹配.
+2	表达式错误, 数组无效. @Extended = 在错误模式中的偏移量.
 @@End@@
 
 <br>
-<i>Flag = 3 or 4 :</i>
+<i>标志 = 3 或 4 时:</i>
 
 @@ReturnTable@@
-@Error	Meaning
-0	Array is valid.
-1	Array is invalid.  No matches.
-2	Bad pattern, array is invalid.  @Extended = offset of error in pattern.
+@Error 代码	意义
+0	有效数组.
+1	数组无效. 没有匹配.
+2	表达式错误, 数组无效. @Extended = 在错误模式中的偏移量.
 @@End@@
 
 
 ###Remarks###
-Regular expression notation is a compact way of specifying a pattern for strings that can be searched.  Regular expressions are character strings in which plain text characters indicate what text should exist in the target string, and a some characters are given special meanings to indicate what variability is allowed in the target string.  AutoIt regular expressions are normally case-sensitive.
+使用正则表达式是搜寻字串的一个轻巧的方法. 正则表达式指出纯文本字符串应该在目标字串中存在, 而且有些字符有特别的意义，表示什么样的可变性是承认目标字串的. AutoIt 正则表达式通常是与大小写有关.
 
-Regular expressions are constructed of one or more of the following simple regular expression specifiers.  If the character is not in the following table, then it will match only itself.
+正则表达式由下面所列的一个或多个简单的字符规则组成. 如果字符不在下列表格中,则它只会匹配它本身.
 
-Repeating characters (*, +, ?, {...} ) will try to match the largest set possible, which allows the following characters to match as well, unless followed immediately by a question mark; then it will find the smallest pattern that allows the following characters to match as well.
+次数修饰符 (*, +, ?, {...} ) 将尝试最大可能的匹配, 使第一次匹配之后的字符也能得到匹配, 除非被一个问号跟随; then it will find the smallest pattern that allows the following characters to match as well.
 
-Nested groups are allowed, but keep in mind that all the groups, except non-capturing groups, assign to the returned array, with the outer groups assigning after the inner groups.
+允许嵌套的组, 但必须记住所有的组, 除非不捕获组, 在返回的数组中，里面的表达式匹配的值在前，而外面的表达式匹配的值在后.
 
-Complete description can be found <b><a href="http://www.autoitscript.com/autoit3/pcrepattern.html" target="_blank">here</a></b>
+完整的描述在 <b><a href="http://www.autoitscript.com/autoit3/pcrepattern.html" target="_blank">这里</a></b>
 
-<b>Caution</b>: bad regular expressions can produce a quasi infinite loop hogging the CPU even a crash.
+<b>注意</b>: 错误的的正则表达式能生产一个死循环,使 CPU even(偶校验)崩溃.
 
-<b><u>Matching Characters</u></b>
+<b><u>匹配字符</u></b>
 
 @@ParamTable@@
 [ ... ]
-	Match any character in the set.  e.g. <b>[aeiou]</b> matches any lower-case vowel.  A contiguous set can be defined using a dash between the starting and ending characters.  e.g. <b>[a-z]</b> matches any lower case character.  To include a dash (<b>-</b>) in a set, use it as the first or last character of the set.  To include a closing bracket in a set, use it as the first character of the set.  e.g. <b>[][]</b> will match either [ or ].  Note that special characters <b>do not</b> retain their special meanings inside a set, with the exception of <b>\\</b>,  <b>\^</b>, <b>\-</b>,<b>\[</b> and <b>\]</b> match the escaped character inside a set.
+	匹配[]内的任何字符。如 <b>[aeiou]</b> 匹配任何小写元音字母. 可以使用破折号定义起始和结束字符匹配字符集，如 <b>[a-z]</b> 匹配任何小写字母. 又如 <b>[][]</b> 可以匹配 [ or ]. 要注意的是，[]内的特殊字符需要使用转义符 \ 来匹配自身，比如 <b>\\</b>,  <b>\^</b>, <b>\-</b>,<b>\[</b> 与 <b>\]</b>.
 [^ ... ]
-	Match any character <b>not</b> in the set.  e.g. <b>[^0-9]</b> matches any non-digit.  To include a caret (<b>^</b>) in a set, put it after the beginning of the set or escape it (\^).
+	匹配 "..." 外的任何字符。如: <b>[^0-9]</b> 匹配任何非数字. 如果是需要匹配字符 (<b>^</b>), 则需要使用转义符，如 (\^).
 [:class:]
-	Match a character in the given class of characters.  Valid classes are: alpha (any alphabetic character), alnum (any alphanumeric character), lower (any lower-case letter), upper (any upper-case letter), digit (any decimal digit 0-9), xdigit (any hexadecimal digit, 0-9, A-F, a-f), space (any whitespace character), blank (only a space or tab), print (any printable character), graph (any printable character except spaces), cntrl (any control character [ascii 127 or <32]) or punct (any punctuation character). So [0-9] is equivalent to [[:digit:]].
+	在字符的给定类中匹配一个字符. 有效类是: 
+	alpha (任何字母字符), 
+	alnum (任何字母数字字符), 
+	lower (任何小写字母), 
+	upper (任何大写字母), 
+	digit (任何十进制数字 0-9), 
+	xdigit (任何十六进制数字, 0-9, A-F, a-f), 
+	space (任何空格字符), 
+	blank (只有一个空格或制表符), 
+	print (任何可打印字符), 
+	graph (任何可打印刷字符除空格), 
+	cntrl (任何控制字符 [ascii 127 或 <32]) 或 punct (任何标点符号). 因此[0-9] 相当于 [[:digit:]].
 [^:class:]
-	Match any character <b>not</b> in the class, but only if the first character.
+	除第一个字符外，在类中不匹配任何字符.
 ( ... )
-	Group. The elements in the group are treated in order and can be repeated together.  e.g. <b>(ab)+</b> will match "ab" or "abab", but not "aba".  A group will also store the text matched for use in back-references and in the array returned by the function, depending on flag value.
+	组. 在组中的的元素经过排序处理，而且能一起被重复. 例如： <b>(ab)+</b> 将会匹配 "ab" 或 "abab", 但不匹配 "aba". 依赖标志值，一个组也将储存被匹配的文本，在被函数返回的数组中作为在背面-参考中的使用.
 (?i)
-	Case-insensitivity flag.  This does not operate as a group.  It tells the regular expression engine to do case-insensitive matching from that point on.
+	大小写-不敏感性标志. 这个不操作组. 它告诉正则表达式从此处开始的匹配不区分大小写.
 (?-i)
-	(default) Case-sensitivity flag.  This does not operate as a group.  It tells the regular expression engine to do case-sensitive matching from that point on.
+	(默认) 区分大小写标志. 这个不操作组. 它告诉正则表达式从此处开始的匹配区分大小写.
 (?i ... )
-	Case-insensitive group.  Behaves just like a normal group, but performs case-insensitive matches within the group.
+	忽略大小写的组. 运转在一个正常的组内, 在组内执行忽略大小写的匹配.
 (?-i ... )
-	Case-sensitive group.  Behaves just like a normal group, but performs case-sensitive matches within the group.  Primarily for use after (-i) flag or inside a case-insensitive group.
+	区分大小写的组. 运转在一个正常的组内,但是在组里面执行大小写有关的匹配. 主要使用在 (-i) 标志之后，或在一个忽略大小写的组内.
 (?: ... )
-	Non-capturing group.  Behaves just like a normal group, but does not record the matching characters in the array nor can the matched text be used for back-referencing.
+	不捕捉组. 运转在一个正常的组内, 但是不记录数组的匹配字符，被匹配的文本也不会用来做后面-参考.
 (?i: ... )
-	Case-insensitive non-capturing group.  Behaves just like a non-capturing group, but performs case-insensitive matches within the group.
+	忽略大小写的不捕捉组. 运转在一个不捕捉组内, 执行不捕捉组内忽略大小写的匹配.
 (?-i: ... )
-	Case-sensitive non-capturing group.  Behaves just like a non-capturing group, but performs case-sensitive matches within the group.
+	区分大小写的不捕捉组. 运转在一个不捕捉组内, 执行不捕捉组内区分大小写的匹配.
 (?m)
-	^ and $ match newlines within data.
+	^ 与 $ 匹配数据里面的换行.
 (?s)
-	. matches anything including newline. (by default "." don't match newline)
+	. 任意匹配包括换行. (默认 "." 不匹配换行)
 (?x)
-	Ignore whitespace and # comments.
+	忽略空格和 # 注解.
 (?U)
 	Invert greediness of quantifiers.
 <b>.</b>
-	Match any single character (except newline).
+	匹配任何的单字符 (除换行以外)..
 |
-	Or.  The expression on one side <b>or</b> the other can be matched.
+	或. 用前或后侧表达式匹配.
 \
-	<i>Escape</i> a special character (have it match the actual character) or introduce a special character type (see below).
+	换码一个特殊字符 (让它匹配实际字符) 或者引进一个特殊字符类型 (见下文)..
 \\
-	Match an actual backslash (\).
+	匹配一个实际的反斜线 (\).
 \a
-	Alarm, that is, the BEL character (chr(7)).
+	警告，即字符 BEL (chr(7)).
 \A
-	Match only at beginning of string.
+	只在字串的开始处匹配.
 \b
-	Matches at a word boundary.
+	在字边界的匹配.
 \B
-	Matches when not at a word boundary.
+	不在字边界匹配.
 \c
-	Match a control character, based on the next character.  For example, <b>\cM</b> matches ctrl-M.
+	匹配一个控制字符,以下一个字符为基础. 例如, <b>\cM</b> 匹配 ctrl-M.
 \d
-	Match any digit (0-9).
+	匹配任何的数字 (0-9).
 \D
-	Match any non-digit.
+	匹配任何的非数字.
 \e
-	Match an escape character (chr(27)).
+	匹配一个换码符 (chr(27)).
 \E
-	end case modification.
+	结束大小写修改.
 \f
-	Match an formfeed character (chr(12)).
+	匹配换页符 (chr(12)).
 \h
-	any horizontal whitespace character.
+	任何的水平空格符.
 \H
-	any character that is not a horizontal whitespace character.
+	任意不是水平的空格字符.
 \n
-	Match a linefeed (@LF, chr(10)).
+	匹配换行符 (@LF, chr(10)).
 \Q
-	quote (disable) pattern metacharacters till \E.
+	引号(禁用)元字符模式直到 \E 为止.
 \r
-	Match a carriage return (@CR, chr(13)).
+	匹配一个回车 (@CR, chr(13)).
 \s
-	Match any whitespace character: Chr(9) through Chr(13) which are Horizontal Tab, Line Feed, Vertical Tab, Form Feed, and Carriage Return, and the standard space ( Chr(32) ).
+	匹配任何的空间字符: Chr(9) 通过 Chr(13) 有：水平制表符、换行、纵向列表符、换页、回车以及标准空格 ( Chr(32) ).
 \S
-	Match any non-whitespace character.
+	匹配任何的非空白的字符.
 \t
-	Match a tab character (chr(9)).
+	匹配一个制表符 (chr(9)).
 \v
-	any vertical whitespace character.
+	任何的垂直空白字符.
 \V
-	any character that is not a vertical whitespace character.
+	任何的不是一个垂直的空白字符.
 \w
-	Match any "word" character: a-z, A-Z, 0-9 or underscore (_).
+	匹配任何的"字" 字符: a-z, A-Z, 0-9 或下划线 (_).
 \W
-	Match any non-word character.
+	匹配任何的非"字"字符.
 \###
-	Match the ascii character whose code is given or back-reference.  Can be up to 3 octal digits.<br>Match back-reference if found. Match the prior group number given exactly.  For example, <b>([:alpha:])\1</b> would match a double letter.
+	匹配[代]码特定的 ascii 字符或背面-参考. 可以达 3个八进制数值.匹配找到的背面-参考. 匹配完全地被给予的之前的组编号. 例如, <b>([:alpha:])\1</b> 会匹配一个双重文字.
 \x##
-	Match the ascii character whose code is given in hexadecimal.  Can be up to 2 digits.
+	匹配[代]码特定的十六进制 ascii 字符. 可以是 2个数字.
 \z
-	Match only at end of string.
+	匹配字串尾部.
 \Z
-	Match only at end of string, or before newline at the end.
+	匹配字串尾部,或在最后的换行之前.
 @@END@@
 
-<u><b>Repeating Characters</u></b>
+<u><b>重复字符</u></b>
 
 @@ParamTable@@
 {<i>x</i>}
-	Repeat the previous character, set or group exactly <i>x</i> times.
+	重复匹配 x 次.
 {<i>x</i>,}
-	Repeat the previous character, set or group at least <i>x</i> times.
+	重复匹配次数 >= x.
 {0,<i>x</i>}
-	Repeat the previous character, set or group at most <i>x</i> times.
+	重复匹配 0 到 x 次.
 {<i>x</i>, <i>y</i>}
-	Repeat the previous character, set or group between <i>x</i> and <i>y</i> times, inclusive.
+	重复匹配 x 到 y 次, x、y包括在内.
 *
-	Repeat the previous character, set or group 0 or more times.  Equivalent to {0,}
+	重复匹配次数 >= 0.  等价于 {0,}
 +
-	Repeat the previous character, set or group 1 or more times.  Equivalent to {1,}
+	重复匹配次数 >= 1.  等价于 {1,}
 ?
-	The previous character, set or group may or may not appear.  Equivalent to {0, 1}
-? (after a repeating character)
-	Find the smallest match instead of the largest.
+	重复匹配 0 到 1 次.  等价于 {0, 1}
+? (在一个重复字符之后)
+	匹配最小的而非最大的.
 @@END@@
 
-<u><b>Character Classes</u></b>
+<u><b>字符类别</u></b>
 
 @@ParamTable@@
 [:alnum:]
-	letters and digits
+	文字和数字
 [:alpha:]
-	letters
+	文字
 [:ascii:]
-	character codes 0 - 127
+	字符编码 0 - 127
 [:blank:]
-	space or tab only
+	空格或唯一的制表符
 [:cntrl:]
-	control characters
+	控制字符
 [:digit:]
-	decimal digits (same as \d)
+	十进制数字 (相同于 \d)
 [:graph:]
-	printing characters, excluding space
+	印刷字符, 排除空格
 [:lower:]
-	lower case letters
+	小写字体
 [:print:]
-	printing characters, including space
+	可打印字符，包括空格
 [:punct:]
-	printing characters, excluding letters and digits
+	印刷字符, 排除文字和数字
 [:space:]
-	white space (not quite the same as \s, it include VT: chr(11) )
+	空格 (不同于 \s, 包括 VT: chr(11) )
 [:upper:]
-	upper case letters
+	大写字母
 [:word:]
-	"word" characters (same as \w)
+	"字" 字符 (相同于 \w)
 [:xdigit:]
-	hexadecimal digits
+	十六进制数字
 @@END@@
 
 

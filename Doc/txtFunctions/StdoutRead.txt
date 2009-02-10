@@ -2,34 +2,34 @@
 StdoutRead
 
 ###Description###
-Reads from the STDOUT stream of a previously run child process.
+从 STDOUT 流读先前运行的子进程.
 
 ###Syntax###
-StdoutRead ( process_id[, peek = false[, binary = false]] )
+StdoutRead ( 进程id[, peek = false[, binary = false]] )
 
 
 ###Parameters###
 @@ParamTable@@
-process_id
-	The process ID of a child process, as returned by a previous call to Run.
-peek
-	If true the function does not remove the read characters from the stream.
-binary
-	If true the function reads the data as binary instead of text (default is text).
+进程id
+	子进程ID, 由一个早先调用 Run 所返回.
+取数
+	如果设为 true 函数不移除从流读出的字符.
+二进制
+	如果设为 true 函数读取二进制数据而非文本.(默认为文本).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns the data read. @extended contains the number of bytes read.
-Failure:	Sets @error to non-zero if EOF is reached, STDOUT was not redirected for the process or other error.
+成功:	 返回读取的数据. @extended 包含读取 bytes(二进制字节) 的数量. 
+失败:	 设置 @error 非零， 如果 EOF 达到(范围), STDOUT 不为进程或其他差错重新传入.
 @@End@@
 
 
 ###Remarks###
-StdoutRead reads from the console standard output stream of a child process, which is normally used by console applications to write to the screen. During the call to Run for the child process you wish to read from the STD I/O parameter must have included the value of $STDOUT_CHILD (2) for this function to work properly (see the <a href="Run.htm">Run</a> function).
-StdoutRead does not block, it will return immediately.  In order to get all data, it must be called in a loop.
-Peeking on the stream does not remove the data from the buffer, however, it does return the available data as normal.
-By default, data is returned in text format.  By using the binary option, the data will be returned in binary format.
+StdoutRead 从子进程控制台标准输出流读取, 通常是控制台应用程序对屏幕的写入, 在对子进程调用 Run 期间，你想要读取标准 I/O 参数包括的数值 $STDOUT_CHILD (2) 这个函数应该适当地工作 (见 <a href="Run.htm">Run</a> 函数).
+StdoutRead 不阻塞，它将会立刻返回. 为了要获取所有数据，它一定在一个循环中被调用.
+在流上取数不会把数据从缓冲器移开, 然而，它确实能返回得到的数据.
+默认数据以文本的格式被返回. 如使用"二进制"选项,数据将会以二进制格式返回.
 
 ###Related###
 StderrRead, StdinWrite, StdioClose, Run, RunAs

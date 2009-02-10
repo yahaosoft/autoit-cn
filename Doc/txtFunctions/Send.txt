@@ -82,9 +82,9 @@ Windows 不允许模拟 "CTRL-ALT-DEL" 组合键
 {PRINTSCREEN}	Print Screen 键
 {LWIN}	左徽标键
 {RWIN}	右徽标键
-{NUMLOCK on}	NUMLOCK (on/off/toggle)
-{CAPSLOCK off}	CAPSLOCK (on/off/toggle)
-{SCROLLLOCK toggle}	SCROLLLOCK (on/off/toggle)
+{NUMLOCK on}	NUMLOCK(数字锁定键) (开/关/切换)
+{CAPSLOCK off}	CAPSLOCK(大小写字母锁定键) (开/关/切换)
+{SCROLLLOCK toggle}	SCROLLLOCK (开/关/切换)
 {BREAK}	for Ctrl+Break processing
 {PAUSE}	PAUSE
 
@@ -191,11 +191,11 @@ Send("{RIGHT}")	切换到右边的菜单或展开子菜单.
 如果您对快捷键(Alt+F4,PrintScreen,Ctrl+C等等)的重要性还不太了解,请查看 Windows 的帮助信息(按下热键 Win+F1 即可) 以获得关于快捷键的完整列表.
 
 When running a script on a remote computer through a program as psexec (www.sysinternals.com) or beyondexec (www.beyondlogic.org) it is necessary, specially when sending strokes to a program launch by the script with a Run function, to use <b>ControlSend</b> or other ControlXXX functions to directly communicate with the control. Send even with Opt("SendAttachMode",1) is not working.
-Using the -s mode when submitting can help to have better right on the remote computer.
+使用 -s 模态提交(作业)时，能帮助正确打开远程计算机.
 
 Opt("SendKeyDelay",...) 修改发送按钮的延迟时间(两次按键之间).
 Opt("SendKeyDownDelay",...) 修改按钮按下延迟时间(从释放按键结束).
-Set both "SendKeyDelay" and "SendKeyDownDelay" to 0 to remove all delays when sending keystrokes.  This may be required under certain circumstances, for example, when locking the system ("#l") it may be necessary to remove the delays in order to prevent the WIN key from being stuck down.
+当发送按键的时候，设定 " SendKeyDelay" 和 " SendKeyDownDelay" 至 0 移除所有的时间延迟. 这在某种情况下可能是需要的, 例如, when locking the system ("#l") it may be necessary to remove the delays in order to prevent the WIN key from being stuck down.
 
 ###Related###
 SendAttachmode (Option), SendKeepActive, SendKeyDelay (Option), SendKeyDownDelay (Option), ControlSend

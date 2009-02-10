@@ -2,33 +2,33 @@
 StdinWrite
 
 ###Description###
-Writes a number of characters to the STDIN stream of a previously run child process.
+对先前运行的子进程写一些字符到 STDIN 流.
 
 ###Syntax###
-StdinWrite ( process_id[, data] )
+StdinWrite ( 进程id[, data] )
 
 
 ###Parameters###
 @@ParamTable@@
-process_id
-	The process ID of a child process, as returned by a previous call to Run.
-data
-	The data you wish to output.  This may either be text or binary.
+进程id
+	子进程ID, 由一个早先调用 Run 所返回.
+数据
+	要输出的数据. 可以是文本或二进制数据.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns the number of characters written.
-Failure:	Sets @error to non-zero if STDIN was not redirected for the process or other error.
+成功: 	返回被写字符的数目. 
+失败: 	设置 @error 非零 如果 STDIN 不为进程或其他的差错被重新传.
 @@End@@
 
 
 ###Remarks###
-StdinWrite writes to the console standard input stream for a child process, which is normally used by console applications to read input from the user i.e. from the keyboard. During the call to Run for the child process you wish to write to the STD I/O parameter must have included the value of $STDIN_CHILD (1) for this function to work properly (see the <a href="Run.htm">Run</a> function).
+StdinWrite 为一个子进程写入控制台标准输入流, 通常是根据控制台的应用程序读取用户的输入，比如从键盘. 在对子进程调用 Run 期间，你想要读取标准 I/O 参数包括的数值 $STDERR_CHILD (1) 这个函数应该适当地工作 (见 <a href="Run.htm">Run</a> 函数).
 
-The optional second parameter is the string that you wish StdinWrite to write to the stream. If the function is called with no second argument, StdinWrite closes the stream and invalidates it for further writing.
+第二参数可选项是 StdinWrite 写入到流的字串. 如果函数没有调用第二参数, StdinWrite 将关闭流并且随后的写入无效.
 
-The stream is a first-in first-out buffer with an arbitrary limited size; if at any time when this function is called (unless it's being called to close the stream) there is no room for more characters to be written to the stream, the StdinWrite function will block (pause) and not return until the child process closes the stream or reads enough characters from the stream to permit the write procedure to complete. This means that the AutoIt process will be halted, and there will be no processing of hotkeys, GUI messages, etc. until the child process reads from the STDIN stream.
+stream(流) 是最初输入、最初输出的缓冲器，可以任意限制其大小; 当这函数被调用时(除非它正在被调用关闭流),对要写入给流的更多字符没有存储空间， StdinWrite 函数将会阻塞 (中止) 而且不返回，直到子进程关闭流或者读取流允许写入足够字符的过程完成. 这意谓 AutoIt 进程将会被停止, 而且将会没有热键处理, GUI 消息, 等等. 到子进程从 STDIN 流读取为止.
 
 ###Related###
 StdoutRead, StderrRead, StdioClose, Run, RunAs

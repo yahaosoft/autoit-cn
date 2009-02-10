@@ -2,27 +2,27 @@
 StdioClose
 
 ###Description###
-Closes all resources associated with a process previously run with STDIO redirection.
+关闭先前运行进程的所有关联文件，用 STDIO 重定向.
 
 ###Syntax###
-StdioClose ( process_id )
+StdioClose ( 进程id )
 
 
 ###Parameters###
 @@ParamTable@@
-process_id
-	The process ID of a child process, as returned by a previous call to Run.
+进程id
+	子进程ID, 由一个早先调用 Run 所返回.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Non-zero.
-Failure:	0 if the process did not have STDIO redirection or was already closed.
+成功: 	非零. 
+失败: 	0, 如果进程没有用 STDIO 重定向或者已经被关闭.
 @@End@@
 
 
 ###Remarks###
-This function closes all handles and releases all resources related to STDIO.  It will no longer be possible to read the STDIO data from the process.  Any pending data will be lost.
+函数将关闭所有句柄而且释放 STDIO 的所有资源. 不再可能读进程的 STDIO 数据. 任何待定的数据将会被遗失.
 
 ###Related###
 StdoutRead, StderrRead, StdinWrite, Run, RunAs
