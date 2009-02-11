@@ -2,23 +2,23 @@
 Exit
 
 ###Description###
-Terminates the script.
+终止脚本运行.
 
 ###Syntax###
-<b>Exit</b> [return code]
+<b>Exit</b> [返回值]
 
 
 ###Parameters###
 @@ParamTable@@
-return code
-	[optional] Integer that sets the script's return code.  This code can be used by Windows or the DOS variable %ERRORLEVEL%. The default is 0. Scripts normally set an errorlevel of 0 if the script executed properly; error levels 1 and above typically indicate that the script did not execute properly.
+返回值
+	[可选] 脚本退出时返回的整数代码. 这个代码可以使用于 Windows 或者 DOS 下面的 %ERRORLEVEL% 变量. 默认值为 0. 脚本正常的退出会设置 %errorlevel% 为 0 ,如果值为1就说明脚本没有正常退出(如:被任务管理器终止).
 @@End@@
 
 
 ###Remarks###
-The parameter, if included, can be enclosed in parentheses.  Thus, the following are equivalent:  <b>Exit</b>, <b>Exit 0</b>, and<b> Exit(0)</b>.  However, <b>Exit()</b> is invalid.
+如果包含返回值参数,下列语句是正确的:  <b>Exit</b>, <b>Exit 0</b>, 和 <b> Exit(0)</b>.  然而, <b>Exit()</b> 是错误的.
 
-The code can be retrieved in a Func OnAutoItExit() by @EXITCODE.
+返回值可以使用 OnAutoItExit() 由 @EXITCODE 取得.
 
 
 ###Related###

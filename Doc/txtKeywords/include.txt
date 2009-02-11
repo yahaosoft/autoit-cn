@@ -20,39 +20,39 @@
 ###Remarks###
 在 AutoIt 的脚本中,可通过 "#include" 命令包含其它脚本文件.
 
-For the include library syntax (#include &lt;file&gt;) to work AutoIt must have been installed using the supplied installer otherwise the installation directory will not be known and the current script directory (@ScriptDir\Include) will be used instead.
+当使用包含库文件语句时(#include <文件>)必须保证已(通过官方提供的安装程序)安装了 AutoIt，否则程序将因无法获知安装目录而改为在当前脚本所在"包含"目录(假定为@ScriptDir\Include)内查找包含文件.
 
-If you include the same file containing a user-function more than once you will get a "Duplicate function" error.  When writing an include file that may be used in this way, make sure that the top line contains <b>#include-once</b> to prevent that file from being included more than once.
+若某个脚本文件含有一个自定义函数而您又多次包含该脚本文件，您就会接收到一个"Duplicate function(重复定义的函数)"错误提示.在编写包含文件时最好在首行添加一句 <b>#include-once</b> 指令以防止该文件被重复包含.
 
-There is a special registry value that can be created at "HKEY_CURRENT_USER\Software\AutoIt v3\AutoIt" called "Include".  It should be a REG_SZ (string) value.  The contents of this value are a semi-colon delimited list of directories that should be searched for files when resolving #include's in addition to the standard locations.
+还有一个注册表值,创建于 "HKEY_CURRENT_USER\Software\AutoIt v3\AutoIt" 名称为 "Include".  必须是 REG_SZ (字符串) 值. 将它指定一个您需要包含的文件所在的目录,您就可以使用它来包含一个指定目录下面的文件.
 
-The search order used by AutoIt depends on which form of #include you use.  The tables below show the order directories are searched using both forms.
+搜索命令由 AutoIt 依赖你使用 #include 的格式. 下面表格是使用搜寻命令的格式目录.
 
 使用 #include <>
 @@ParamTable@@
 标准库文件
-	The path of the currently running interpreter with "\Include" appended is searched.
+	会在解释程序(AUTOIT3.EXE)所在目录下面的 "\Include" 目录中搜索.
 用户自定义库
-	The registry value mentioned above is read and each directory is searched in the order they appear in.
+	请按照上面的方法设置注册表.
 脚本所在目录
-	The directory of the currently executing script.
+	当前执行脚本的目录.
 @@End@@
 
 使用 #include "" (和 #include <> 相反).
 @@ParamTable@@
 脚本目录
-	The directory of the currently executing script.
+	当前执行脚本的目录.
 用户自定义库
-	The registry value mentioned above is read and each directory is searched in the reverse order they appear in.
+	请按照上面的方法设置注册表.
 标准库文件
-	The path of the currently running interpreter with "\Include" appended is searched.
+	会在解释程序(AUTOIT3.EXE)所在目录下面的 "\Include" 目录中搜索.
 @@End@@
 
-A note about using the /AutoIt3ExecuteScript option.  Since the standard library is searched for in the current interpreter's directory, the standard library functions will not be found; that library will only be found when run through AutoIt3.exe.  It's recommended that you compile a script to the .a3x format before attempting to run it with /AutoIt3ExecuteScript.
+关于使用 /AutoIt3ExecuteScript 选项的一点注解. 因为标准函数库会搜索当前解释程序目录, 如果标准函数库中的函数没有发现;那么当运行 AutoIt3.exe 时,程序出错. 推荐您在准备使用/AutoIt3ExecuteScript选项前，编译您的脚本为.a3x格式.
 
-Aut2Exe uses the same algorithm as AutoIt3.exe with the only difference being it looks for the Include sub-directory as being in a sibling directory to itself (..\Include).
+Aut2Exe 和 AutoIt3.exe 运行时原理基本相同,惟一不同的是可以在包含子目录时同时包含自身目录的文件(..\Include).
 
-If Opt("TrayIconDebug",1) only 64 include files name can be displayed in the traytooltip. for the other no filename will be displayed.
+如果设置 Opt("TrayIconDebug",1) ,那么只有 64 个包含文件名可以在托盘工具提示中被显示. 其它文件名将不会显示.
 
 ###Related###
 <a href="include-once.htm">#include-once</a>, <a href="../functions/FileInstall.htm">FileInstall</a>

@@ -2,33 +2,33 @@
 Func...Return...EndFunc
 
 ###Description###
-Defines a user-defined function that takes zero or more arguments and optionally returns a result.
+定义一个用户自定义函数(UDF),返回一个0,或者更多参数的结果.
 
 ###Syntax###
-<b>Func</b> functioname ( [<b>Const</b>] [<b>ByRef</b>] $param1, ..., [<b>Const</b>] [<b>ByRef</b>] $paramN, $optionalpar1 = value, ...)
+<b>Func</b> 函数名称 ( [<b>Const</b>] [<b>ByRef</b>] $参数1, ..., [<b>Const</b>] [<b>ByRef</b>] $参数N, $可选1 = 值, ...)
 	...
 	[<b>Return</b> [<i>value</i>]]
 <b>EndFunc</b>
 
 
 ###Parameters###
-The parameters are set by you.  You later call the function like any other built-in function.
+您可以随意设置参数. 以后象调用内置函数一样调用它们.
 
 
 ###Remarks###
-The Const keyword is optional and indicates that the value of the parameter will not change during the execution of the function.  A variable declared Const can only be passed to a function using a Const parameter.
+关键词 [Const] 是可选的， 并且在函数的执行期间参数值将不能改变.一个变量申明为常量才能被传递给使用 [Const] 参数的函数.
 
-The ByRef keyword is optional and means: (1) the parameter must a variable, and (2) the original variable is linked to the parameter, so that any changes to the parameter inside the function, would affect the original variable as well. By default, a parameter is <i>passed by value</i> which means that a copy of the parameter's value, is manipulated by the function.
+关键词[ByRef] 也是可选的并且意谓: (1) 参数一定一个变量、 (2) 最初的变量与参数相连, 以便在函数内对应参数的任何变化, 也会影响最初的变量. 默认的, 一个参数 按值传送 ，意谓着一个参数值的复制,或被函数操作.
 
-The order of the ByRef and Const keywords is not important, so long as they are in front of the variable they modify.
+关键字 [ByRef] 和 [Const] 并不重要, 只要他们在变量之前修改.
 
-Arrays can be passed to functions (and returned from them) by simply using the array name without any brackets.  Arrays should be passed to user-defined functions using the ByRef keyword to avoid copying all the data in the array.
+数组能被传给函数(而且能从函数返回) ，只是使用没有任何括号的数组名称. 数组应该使用 [ByRef] 关键词传给用户定义的函数，避免拷贝数组的所有的数据.
 
-Optional parameters are defined by assigning a default value to them. The value may be a global variable, macro or literal value.  Optional parameters always appear last in the function definition. All parameters added after the first optional parameter must also be optional. Inside the function, the number of parameters given when the function was called can be retrieved with the @NUMPARAMS macro.
+可选参数由指定一个系统设定值来定义. 数值可能是全局变量、宏指令或常量值. 可选参数总是出现在函数定义的最后. 在增加所有参数之后，第一个选择的参数也一定是可选的. 在函数内, 参数给定的数目在函数被调用时能被 @NUMPARAMS 宏指令取回.
 
-Use the Return keyword to exit the function.  Unlike built-in functions, user-defined functions return 0 unless another return value is specified.
+使用 Return(返回)关键词退出函数. 不像内建函数,除非另外的一个Return(返回)值被指定，否则用户定义的函数返回 0.
 
-Note that function declarations cannot appear inside other function declarations.  
+注意：函数声明不能够出现在其他函数声明内.  
 
 ###Related###
 <a href="Dim.htm">Dim/Global/Local</a>, <a href="include.htm">#include</a>, <a href="Dim.htm">Const</a>
