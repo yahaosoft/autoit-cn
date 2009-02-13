@@ -1,21 +1,21 @@
-;First Example
+;示例 1
 Exit
 
-;Second Example
-; Terminate script if no command-line arguments
+;示例 2 
+; 结束脚本：命令行中没有自变量
 If $CmdLine[0] = 0 Then Exit(1)
 
-;Third Example
-; Open file specified as first command-line argument
+;示例 3 
+; 打开第一命令行中自变量指定的文件
 $file = FileOpen($CmdLine[1], 0)
 
-; Check if file opened for reading OK
+; 检查文件属性是否为读
 If $file = -1 Then Exit(2)
 
-; If file is empty then exit (script is successful)
+; 如果文件是空的 , 那么退出 (脚本运行是成功的)
 $line = FileReadLine($file)
 If @error = -1 Then Exit
 
-;code to process file goes here
+;在这里编码处理文件
 FileClose($file)
-Exit ;is optional if last line of script
+Exit ;如果是脚本的最后行，则是可选择的

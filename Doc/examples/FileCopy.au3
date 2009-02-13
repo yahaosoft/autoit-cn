@@ -1,11 +1,11 @@
 FileCopy("C:\*.au3", "D:\mydir\*.*")
 
-; Method to copy a folder (with its contents)
+; 拷贝一个文件夹及其内容
 DirCreate("C:\new")
 FileCopy("C:\old\*.*", "C:\new\")
 
 FileCopy("C:\Temp\*.txt", "C:\Temp\TxtFiles\", 8)
-; RIGHT - 'TxtFiles' is now the target directory and the file names are given by the source names
+; 在右边的'TxtFiles'是当前目标目录而且文件名根据源名
 
-FileCopy("C:\Temp\*.txt", "C:\Temp\TxtFiles\", 9) ; Flag = 1 + 8 (overwrite + create target directory structure)
-; Copy the txt-files from source to target and overwrite target files with same name
+FileCopy("C:\Temp\*.txt", "C:\Temp\TxtFiles\", 9) ; 标志 = 1 + 8 (修改 + 产生目标目录结构)
+; 从源到目标以相同的名字修改复制 txt 文件

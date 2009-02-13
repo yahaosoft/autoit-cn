@@ -1,1 +1,1 @@
-$var = FileSelectFolder("Choose a folder.", "")
+$var = FileSelectFolder("Ñ¡ÔñÎÄ¼ş¼Ğ.", "")

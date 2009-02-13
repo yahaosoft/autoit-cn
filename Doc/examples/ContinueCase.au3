@@ -1,21 +1,21 @@
 $msg = ""
-$szName = InputBox(Default, "Please enter a word.", "", " M", Default, Default, Default, Default, 10)
+$szName = InputBox(Default, "请输入......", "", " M", Default, Default, Default, Default, 10)
 Switch @error
 Case 2
-	$msg = "Timeout "
+	$msg = "超时 "
 	ContinueCase
-Case 1; Continuing previous case
-	$msg &= "Cancellation"
+Case 1; 继续上一事件
+	$msg &= "注销"
 Case 0
 	Switch $szName
 	Case "a", "e", "i", "o", "u"
-		$msg = "Vowel"
-	Case "QP"
-		$msg = "Mathematics"
+		$msg = "这是字符"
+	Case "258"
+		$msg = "这是数字"
 	Case "Q" to "QZ"
 		$msg = "Science"
 	Case Else
-		$msg = "Others"
+		$msg = "其它类"
 	EndSwitch
 Case Else
 	$msg = "Something went horribly wrong."

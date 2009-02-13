@@ -1,30 +1,30 @@
-; This calls a function accepting no arguments.
+; 调用没用参数的自定义函数函数"Test1".
 Call("Test1")
 
-; This calls a function accepting one argument and passes it an argument.
-Call("Test2", "Message from Call()!")
+; 调用用参数的自定义函数函数"Test2".
+Call("Test2", "消息来自函数调用 Call()!")
 
-; This demonstrates how to use the special array argument.
+; 示范该如何使用特别数组函数中的参数.
 Global $aArgs[4]
-$aArgs[0] = "CallArgArray" ; This is required, otherwise, Call() will not recognize the array as containing arguments
-$aArgs[1] = "This is a string"	; Parameter one is a string
-$aArgs[2] = 47	; Parameter two is a number
+$aArgs[0] = "CallArgArray" ; 这是必需的,否则 Call() 将不认识数组包含的参数
+$aArgs[1] = "这里是字串"	; 字串参数
+$aArgs[2] = 47	; 参数[2]是一个数字
 Global $array[2]
-$array[0] = "Array Element 0"
-$array[1] = "Array Element 1"
-$aArgs[3] = $array	; Parameter three is an array
+$array[0] = "数组元素 0"
+$array[1] = "数组元素 1"
+$aArgs[3] = $array	;参数[3]是一个数组
 
-; We've built the special array, now call the function
+; 我们已经建造特别的数组, 现在调用自定义函数"Test3"
 Call("Test3", $aArgs)
 
-; Test calling a function that does not exist.  This shows the proper way to test by
-; checking that both @error and @extended contain the documented failure values.
+; 测试调用一个不存在的函数.  这里显示适当的测试方法
+; 检查 @error 与 @extended 两者都包含的失败值.
 Local Const $sFunction = "DoesNotExist"
 Call($sFunction)
-If @error = 0xDEAD And @extended = 0xBEEF Then MsgBox(4096, "", "Function does not exist.")
+If @error = 0xDEAD And @extended = 0xBEEF Then MsgBox(4096, "", "函数不存在.")
 
 Func Test1()
-	MsgBox(4096, "", "Hello")
+	MsgBox(4096, "", "哈罗")
 EndFunc
 
 Func Test2($sMsg)
@@ -32,9 +32,9 @@ Func Test2($sMsg)
 EndFunc
 
 Func Test3($sString, $nNumber, $aArray)
-	MsgBox(4096, "", "The string is: " & @CRLF & $sString)
-	MsgBox(4096, "", "The number is: "& @CRLF & $nNumber)
+	MsgBox(4096, "", "字串是: " & @CRLF & $sString)
+	MsgBox(4096, "", "数字是: "& @CRLF & $nNumber)
 	For $i = 0 To UBound($aArray) - 1
-		MsgBox(4096, "", "Array[" & $i & "] contains:" & @CRLF & $aArray[$i])
+		MsgBox(4096, "", "数组[" & $i & "] 包含:" & @CRLF & $aArray[$i])
 	Next
 EndFunc

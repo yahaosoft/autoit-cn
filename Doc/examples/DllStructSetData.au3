@@ -1,5 +1,5 @@
 ;=========================================================
-;	Create the struct
+;	建立 struct
 ;	struct {
 ;		int				var1;
 ;		unsigned char	var2;
@@ -10,12 +10,12 @@
 $str		= "int;ubyte;uint;char[128]"
 $a			= DllStructCreate($str)
 if @error Then
-	MsgBox(0,"","Error in DllStructCreate " & @error);
+	MsgBox(0,"","写入 DllStructCreate 错误" & @error);
 	exit
 endif
 
 ;=========================================================
-;	Set data in the struct
+;	在 struct 中设定数据
 ;	struct.var1	= -1;
 ;	struct.var2	= 255;
 ;	struct.var3	= INT_MAX; -1 will be typecasted to (unsigned int)
@@ -29,7 +29,7 @@ DllStructSetData($a,4,"Hello")
 DllStructSetData($a,4,Asc("h"),1)
 
 ;=========================================================
-;	Display info in the struct
+;	显示写入 struct 的信息
 ;=========================================================
 MsgBox(0,"DllStruct","Struct Size: " & DllStructGetSize($a) & @CRLF & _
 		"Struct pointer: " & DllStructGetPtr($a) & @CRLF & _
@@ -40,6 +40,6 @@ MsgBox(0,"DllStruct","Struct Size: " & DllStructGetSize($a) & @CRLF & _
 		DllStructGetData($a,4))
 
 ;=========================================================
-;	Free the memory allocated for the struct
+;	如果需要，释放为 struct 分派的内存
 ;=========================================================
 $a = 0

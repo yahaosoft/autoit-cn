@@ -1,19 +1,19 @@
 $file = FileOpen("test.txt", 0)
 
-; Check if file opened for reading OK
+; 检查是否文件属性是否可读，以便好打开
 If $file = -1 Then
-	MsgBox(0, "Error", "Unable to open file.")
+	MsgBox(0, "错误", "不能打开文件.")
 	Exit
 EndIf
 
 FileClose($file)
 
 
-; Another sample which automatically creates the directory structure
-$file = FileOpen("test.txt", 10) ; which is similar to 2 + 8 (erase + create dir)
+; 自动产生目录结构的另外一个样本
+$file = FileOpen("test.txt", 10) ; 类似 2 + 8 (清除 + 产生目录)
 
 If $file = -1 Then
-	MsgBox(0, "Error", "Unable to open file.")
+	MsgBox(0, "错误", "不能打开文件.")
 	Exit
 EndIf
 

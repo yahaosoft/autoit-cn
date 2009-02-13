@@ -1,8 +1,8 @@
-; Use no proxy
+; 没有使用代理
 FtpSetProxy(1)
 
-; Use IE defaults for proxy
+; 使用 IE 默认代理
 FtpSetProxy(0)
 
-; Use the proxy "www-cache.myisp.net" on port 8080
+; 使用代理 "www-cache.myisp.net" 打开端口 8080
 FtpSetProxy(2, "www-cache.myisp.net:8080")

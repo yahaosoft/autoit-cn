@@ -1,7 +1,7 @@
-;Print all numbers from 1 to 10 except number 7
+;除了 7 以外从 1 到 10 显示所有数字
 For $i = 1 to 10
 	If $i = 7 Then ContinueLoop
-	MsgBox(0, "The value of $i is:", $i)
+	MsgBox(0, "$i 的当前值是:", $i)
 Next
 
-;Example of using level is needed.
+;使用层次是必须的.

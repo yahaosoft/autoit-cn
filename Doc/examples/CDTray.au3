@@ -1,2 +1,2 @@
-; Open the CD tray on drive E:
+; ´ò¿ª¹âÇý E:
 CDTray("E:", "open")

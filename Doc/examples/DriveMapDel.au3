@@ -1,6 +1,6 @@
 
-; Map X drive to \\myserver\stuff using current user
+; Ó³Éä X ´ÅÅÌµ½ \\myserver\stuff using current user
 DriveMapAdd("X:", "\\myserver\stuff")
 
-; Disconnect
+; ¶Ï¿ª
 DriveMapDel("X:")

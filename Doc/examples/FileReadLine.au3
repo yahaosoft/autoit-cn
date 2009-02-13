@@ -1,12 +1,12 @@
 $file = FileOpen("test.txt", 0)
 
-; Check if file opened for reading OK
+; 检查文件属性是否为读，以便好打开
 If $file = -1 Then
 	MsgBox(0, "错误", "不能打开文件.")
 	Exit
 EndIf
 
-; Read in lines of text until the EOF is reached
+; 读文本行直到文件结束
 While 1
 	$line = FileReadLine($file)
 	If @error = -1 Then ExitLoop
