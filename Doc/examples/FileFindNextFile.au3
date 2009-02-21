@@ -1,9 +1,9 @@
-; 显示当前目录中所有文件的档名
+; 显示当前目录中所有文件的文件名
 $search = FileFindFirstFile("*.*")  
 
 ; 检查搜索是否成功
 If $search = -1 Then
-	MsgBox(0, "错误", "没有文件/目录 匹配搜索模式")
+	MsgBox(0, "错误", "没有文件/目录 匹配搜索")
 	Exit
 EndIf
 

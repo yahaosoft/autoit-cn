@@ -1,11 +1,11 @@
-; 这是有三个自定义函数的示例脚本
+; 三个自定义函数的示例脚本
 ; 注意变量(variables), 传递(ByRef), 与 返回值(Return)的用法
 
 $foo = 2
 $bar = 5
-msgBox(0,"今天是 " & today(), "$foo 的当前值:" & $foo)
+msgBox(0,"今天是 " & today(), "$foo 等于:" & $foo)
 swap($foo, $bar)
-msgBox(0,"在变量 $foo 和 $bar 交换之后", "现在 $foo 的值是：" & $foo)
+msgBox(0,"变量 $foo 和 $bar 交换后", "现在 $foo 的值是：" & $foo)
 msgBox(0,"最后", "3 和 4 中较大的数是:" & max(3,4))
 Exit
 

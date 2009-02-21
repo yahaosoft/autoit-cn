@@ -1,13 +1,13 @@
 $p	= DllStructCreate("dword dwOSVersionInfoSize;dword dwMajorVersion;dword dwMinorVersion;dword dwBuildNumber;dword dwPlatformId;char szCSDVersion[128]")
 
-;看作 p->dwOSVersionInfoSize = sizeof(OSVERSIONINFO)
+;请想象为这样(C++样式): p->dwOSVersionInfoSize = sizeof(OSVERSIONINFO)
 DllStructSetData($p, "dwOSVersionInfoSize", DllStructGetSize($p))
 
-;建立 Dll 调用
+;构成 DllCall
 $ret = DllCall("kernel32.dll","int","GetVersionEx","ptr",DllStructGetPtr($p))
 
 if Not $ret[0] Then
-	MsgBox(0,"Dll调用错误","Dll调用失败")
+	MsgBox(0,"DllCall 错误","DllCall 失败")
 	exit
 EndIf
 
@@ -18,12 +18,12 @@ $build		= DllStructGetData($p,"dwBuildNumber")
 $platform	= DllStructGetData($p,"dwPlatformId")
 $version	= DllStructGetData($p,"szCSDVersion")
 
-;释放 struct
+;释放数据结构所占内存
 $p =0
 
-msgbox(0,"","重点: " & $major & @CRLF & _
-			"次要: " & $minor & @CRLF & _
-			"编译: " & $build & @CRLF & _
-			"操作平台 ID: " & $platform & @CRLF & _
-			"升级包版本: " & $version)
+msgbox(0,"","Major: " & $major & @CRLF & _
+			"Minor: " & $minor & @CRLF & _
+			"Build: " & $build & @CRLF & _
+			"Platform ID: " & $platform & @CRLF & _
+			"Version: " & $version)
 

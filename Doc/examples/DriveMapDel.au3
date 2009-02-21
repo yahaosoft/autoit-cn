@@ -1,5 +1,5 @@
 
-; 映射 X 磁盘到 \\myserver\stuff using current user
+; 使用当前用户映射 X: 驱动器到 \\myserver\stuff 
 DriveMapAdd("X:", "\\myserver\stuff")
 
 ; 断开

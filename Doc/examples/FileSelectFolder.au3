@@ -1,1 +1,1 @@
-$var = FileSelectFolder("选择文件夹.", "")
+$var = FileSelectFolder("选择一个文件夹.", "")

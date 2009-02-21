@@ -1,11 +1,11 @@
 FileCopy("C:\*.au3", "D:\mydir\*.*")
 
-; 拷贝一个文件夹及其内容
+; 复制一个文件夹及其内容
 DirCreate("C:\new")
 FileCopy("C:\old\*.*", "C:\new\")
 
 FileCopy("C:\Temp\*.txt", "C:\Temp\TxtFiles\", 8)
-; 在右边的'TxtFiles'是当前目标目录而且文件名根据源名
+; 右边的 'TxtFiles' 是目标目录,复制过去的文件名称和原始名称相同.
 
-FileCopy("C:\Temp\*.txt", "C:\Temp\TxtFiles\", 9) ; 标志 = 1 + 8 (修改 + 产生目标目录结构)
-; 从源到目标以相同的名字修改复制 txt 文件
+FileCopy("C:\Temp\*.txt", "C:\Temp\TxtFiles\", 9) ; 标志 = 1 + 8 (覆盖 + 创建目标目录结构)
+; 复制TXT文件到目标目录中,如果目标目录不存在则创建.如果文件存在则覆盖.

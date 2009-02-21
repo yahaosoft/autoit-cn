@@ -1,2 +1,2 @@
 $var = DriveGetType( "c:\" )
-MsgBox(4096, "磁盘类型:", $var)
+MsgBox(4096, "驱动器类型:", $var)

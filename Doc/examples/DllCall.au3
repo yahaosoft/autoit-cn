@@ -11,8 +11,8 @@ $result = DllCall("user32.dll", "int", "MessageBox", "hwnd", 0, "str", "若干文字
 
 $hwnd = WinGetHandle("[CLASS:Notepad]")
 $result = DllCall("user32.dll", "int", "GetWindowText", "hwnd", $hwnd, "str", "", "int", 32768)
-msgbox(0, "", $result[0])	; 被送回的字符数
-msgbox(0, "", $result[2])	; 在参数 2 中被送回的文本
+msgbox(0, "", $result[0])	; 返回的字符数
+msgbox(0, "", $result[2])	; 在参数 2 返回的文本
 
 
 ; *******************************************************
@@ -21,7 +21,7 @@ msgbox(0, "", $result[2])	; 在参数 2 中被送回的文本
 
 $sFileName  = @SystemDir & '\shell32.dll'
 
-; 产生一个数据结构储存图标索引
+; 创建一个数据结构储存图标索引
 $stIcon     =  DllStructCreate("int")
 $stString       = DLLStructCreate("wchar[260]")
 $structsize = DllStructGetSize($stString)/2
@@ -34,4 +34,4 @@ $sFileName  = DllStructGetData($stString, 1)
 $nIconIndex = DllStructGetData($stIcon, 1)
 
 ; 显示文件名和图标索引
-Msgbox(0, "信息", "选定文件: " & $sFileName & @LF & "图标索引: " & $nIconIndex)
+Msgbox(0, "信息", "最后选择的文件: " & $sFileName & @LF & "图标索引: " & $nIconIndex)

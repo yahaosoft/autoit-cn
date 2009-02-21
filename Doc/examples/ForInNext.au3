@@ -1,4 +1,4 @@
-;使用数组
+;使用一个数组
 Dim $aArray[4]
 
 $aArray[0]="a"
@@ -11,9 +11,9 @@ FOR $element IN $aArray
 	$string = $string & $element & @CRLF
 NEXT
 
-Msgbox(0,"For..IN Arraytest","结果: " & @CRLF & $string)
+Msgbox(0,"For..IN 数组测试","结果: " & @CRLF & $string)
 
-;使用对象集合
+;使用一个对象集合
 
 $oShell = ObjCreate("shell.application")
 $oShellWindows=$oShell.windows
@@ -25,8 +25,8 @@ if Isobj($oShellWindows) then
 	$String = $String & $Window.LocationName & @CRLF
   next
 
-  msgbox(0,"","下列窗口被打开:" & @CRLF & $String)
+  msgbox(0,"","您打开了下列窗口:" & @CRLF & $String)
 else
 
-  msgbox(0,"","没有打开窗口.")
+  msgbox(0,"","您没有打开外壳窗口.")
 endif

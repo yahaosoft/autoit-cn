@@ -1,2 +1,2 @@
 $var = EnvGet("PATH")
-MsgBox(4096, "路径变量:", $var)
+MsgBox(4096, "%PATH% 变量为:", $var)
