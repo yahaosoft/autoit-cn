@@ -1,3 +1,3 @@
 $bool= False
-if NOT $bool = true Then Msgbox(0,"布尔符号比较", "OK")
+if NOT $bool = true Then Msgbox(0,"布尔值比较", "OK")
 	

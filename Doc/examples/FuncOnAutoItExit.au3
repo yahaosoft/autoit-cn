@@ -1,6 +1,6 @@
 Opt("OnExitFunc", "endscript")
-MsgBox(0,"","第一语句")
+MsgBox(0,"","程序中的第一个语句")
 
 Func endscript()
-	MsgBox(0,"","在最后语句之后 " & @EXITMETHOD)
+	MsgBox(0,"","程序中的最后一个语句,程序退出方式: " & @EXITMETHOD)
 EndFunc

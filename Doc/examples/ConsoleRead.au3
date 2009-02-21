@@ -1,10 +1,13 @@
-; 对 "ConsoleRead.exe" 编译一个脚本.
-; 对 ConsoleRead.exe 常驻的目录打开一个命令提示.
-; 命令行上输入: echo 哈罗 ! | ConsoleRead.exe
-; 在调用一个控制台窗口时, 上述命令回送文本 "哈罗 !"
-; but instead of dispalying it,  | 告诉控制台对 ConsoleRead.exe 进程的 STDIN 串以管道输送它.
+; Compile this script to "ConsoleRead.exe".
+; Open a command prompt to the directory where ConsoleRead.exe resides.
+; Type the following on the command line:
+;	echo Hello! | ConsoleRead.exe
+;
+; When invoked in a console window, the above command echos the text "Hello!"
+; but instead of dispalying it, the | tells the console to pipe it to the STDIN stream
+; of the ConsoleRead.exe process.
 If Not @Compiled Then
-	MsgBox(0, "", "这个脚本在命令中示范它的功能性.")
+	MsgBox(0, "", "This script must be compiled in order to properly demonstrate it's functionality.")
 	Exit -1
 EndIf
 
@@ -14,4 +17,4 @@ While True
 	If @error Then ExitLoop
 	Sleep(25)
 WEnd
-MsgBox(0, "", "接收: " & @CRLF & @CRLF & $data)
+MsgBox(0, "", "Received: " & @CRLF & @CRLF & $data)

@@ -1,23 +1,23 @@
 ﻿; 二进制(Binary) ANSI 到 字符串(String) 
 $buffer = StringToBinary("Hello - 你好")
-MsgBox(0, "字符串的二进制数据(ANSI 编码):" , $buffer)
+MsgBox(4096, "String() 描述" , $buffer)
 $buffer = BinaryToString($buffer)
-MsgBox(0, "转换二进制变量为ANSI字串:" , $buffer)
+MsgBox(4096, "BinaryToString() ANSI 描述" , $buffer)
 
-; Binary UTF16-LE to String 
+; 二进制 UTF16-LE 转换 字符串.注:LE代表Little Encode(小编码) 
 $buffer = StringToBinary("Hello - 你好", 2)
-MsgBox(0, "字符串的二进制数据(UTF16 小编码):" , $buffer)
+MsgBox(4096, "String() 描述" , $buffer)
 $buffer = BinaryToString($buffer, 2)
-MsgBox(0, "转换二进制变量为UTF16-LE字串:" , $buffer)
+MsgBox(4096, "BinaryToString() UTF16-LE 描述" , $buffer)
 
-; Binary UTF16-BE to String 
+; 二进制 UTF16-BE 转换 字符串.注:BE代表Big Encode(大编码) 
 $buffer = StringToBinary("Hello - 你好", 3)
-MsgBox(0, "字符串的二进制数据(UTF16 大编码):" , $buffer)
+MsgBox(4096, "String() 描述" , $buffer)
 $buffer = BinaryToString($buffer, 3)
-MsgBox(0, "转换二进制变量为UTF16-BE字串:" , $buffer)
+MsgBox(4096, "BinaryToString() UTF16-BE 描述" , $buffer)
 
-; Binary UTF8 to String 
+; 二进制 UTF8 转换 字符串 
 $buffer = StringToBinary("Hello - 你好", 4)
-MsgBox(0, "字符串的二进制数据(UTF8 编码):" , $buffer)
+MsgBox(4096, "String() 描述" , $buffer)
 $buffer = BinaryToString($buffer, 4)
-MsgBox(0, "转换二进制变量为UTF8字串:" , $buffer)
+MsgBox(4096, "BinaryToString() UTF8 描述" , $buffer)

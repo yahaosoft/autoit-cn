@@ -1,5 +1,5 @@
-MsgBox(0,"","第一语句")
+MsgBox(0,"","程序中的第一个语句")
 
 Func OnAutoItStart()
-	MsgBox(0,"","在首语句之前")
+	MsgBox(0,"","程序第一个语句之前的语句")
 EndFunc
