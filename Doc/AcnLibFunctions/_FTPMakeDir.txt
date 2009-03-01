@@ -1,22 +1,25 @@
 ###ACN Defined Function###
-_EncryptFile
+_FTPMakeDir
 
 ###Description###
-加密文件,NTFS磁盘系统自带的EFS加密.
+在FTP服务器上新建一个目录.
 
 ###Syntax###
-#Include <ACN_File.au3>
-_EncryptFile($sFilePath)
+#Include <ACN_NET.au3>
+_FTPMakeDir($l_FTPSession, $s_Remote)
 
 ###Parameters###
 @@ParamTable@@
-$sFilePath
-	您想加密的文件.
+$l_FTPSession
+	由_FTPConnect()返回的会话标识符.
+$s_Remote
+	要创建的目录名.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-无
+成功:	返回1
+失败:	返回0,并设置 @ERROR = -1
 @@End@@
 ###Remarks###
 

@@ -1,22 +1,23 @@
 ###ACN Defined Function###
-_EncryptFile
+_FTPClose
 
 ###Description###
-加密文件,NTFS磁盘系统自带的EFS加密.
+关闭FTP会话.
 
 ###Syntax###
-#Include <ACN_File.au3>
-_EncryptFile($sFilePath)
+#Include <ACN_NET.au3>
+_FTPClose($l_InternetSession)
 
 ###Parameters###
 @@ParamTable@@
-$sFilePath
-	您想加密的文件.
+$l_InternetSession
+	由_FTPOpen()返回的会话标识符.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-无
+成功:	返回1
+失败:	返回0,并设置 @ERROR = -1
 @@End@@
 ###Remarks###
 

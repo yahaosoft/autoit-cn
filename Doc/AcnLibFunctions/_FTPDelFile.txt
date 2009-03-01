@@ -1,22 +1,25 @@
 ###ACN Defined Function###
-_EncryptFile
+_FTPDelFile
 
 ###Description###
-加密文件,NTFS磁盘系统自带的EFS加密.
+从FTP服务器上删除一个文件.
 
 ###Syntax###
-#Include <ACN_File.au3>
-_EncryptFile($sFilePath)
+#Include <ACN_NET.au3>
+_FTPDelFile($l_FTPSession, $s_RemoteFile)
 
 ###Parameters###
 @@ParamTable@@
-$sFilePath
-	您想加密的文件.
+$l_FTPSession
+	由_FTPConnect()返回的会话标识符.
+$s_RemoteFile
+	远程文件.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-无
+成功:	返回1
+失败:	返回0,并设置 @ERROR = -1
 @@End@@
 ###Remarks###
 
