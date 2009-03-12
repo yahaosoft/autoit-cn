@@ -2,39 +2,40 @@
 DllStructGetData
 
 ###Description###
-返回 struct 元素的数据.
+返回数据结构(struct)元素的数据.
 
 ###Syntax###
-DllStructGetData ( Struct, Element [, index ] )
+DllStructGetData ( 数据结构, 元素 [, 索引 ] )
 
 
 ###Parameters###
 @@ParamTable@@
-Struct
-	被 DllStructCreate 送回的 struct.
-Element
-	你想要存取的 struct 元素, 起始于 1 或 DllStructCreate 定义的元素名.
-index
-	如果元素是一个数组，你需要指定返回的索引，否则它返回索引 1 . 第一个元素是 1.
+数据结构
+	由 DllStructCreate 返回的数据结构(struct).
+元素
+	你想要访问的数据结构(struct)元素, 起始于 1 或者由 DllStructCreate 函数定义的元素名.
+索引
+	如果元素是一个数组,你需要指定返回的索引,否则它返回索引 1 . 第一个元素是 1.
 @@End@@
-*char[n], byte[n] 与 ubyte[n] 返回所有的元素数据索引被省略.
+*char[n], byte[n] 与 ubyte[n] 返回所有的元素数据,并且索引被省略.
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: struct 的元素数据. 
-失败: 0. 
-@Error: 0 = 没有错误. 
-	 1 = 被 DllStructCreate 送回的 struct 不正确. 
-	 2 = 元素值超出范围. 
-	 3 = 索引值在 struct 的外面. 
-	 4 = 元素数据种类未知 
-	 5 = 索引 &lt;= 0.
+成功: 	返回数据结构(struct)的元素数据. 
+失败:	返回0.
+@Error:	0 = 没有错误. 
+	1 = DllStructCreate 函数返回的数据结构(struct)不正确. 
+	2 = 元素值超出范围. 
+	3 = 索引值在数据结构(struct)外面. 
+	4 = 元素的数据类型未知. 
+	5 = 索引 &lt;= 0.
 	
 @@End@@
 
+
 ###Remarks###
-当元素字符[n]与索引被省略时，被送回的数据是字串,
-当元素是 byte[n] 或 ubyte[n] 与索引被省略时， 被送回的是二进制数据,
+当元素为 char[n] 并且索引被省略时,返回的数据是字符串,
+当元素为 byte[n] 或 ubyte[n] 并且索引被省略时, 返回的数据为二进制数据类型,
 否则它总是返回一个数字.
 
 ###Related###

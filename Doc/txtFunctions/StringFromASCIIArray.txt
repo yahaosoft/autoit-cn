@@ -2,22 +2,22 @@
 StringFromASCIIArray
 
 ###Description###
-转换一个数组 ASCII 编码到一字串.
+转换一个 ASCII 码数组到一个字符串.
 
 ###Syntax###
-StringFromASCIIArray( 数组, [ 起始索引 [, 结束索引 [, 编码 ] ] ] )
+StringFromASCIIArray( 数组, [ 开始 [, 结束 [, 编码 ] ] ] )
 
 
 ###Parameters###
 @@ParamTable@@
 数组
-	目标数组.
-起始索引
-	[可选] 以 0 为基础的起始索引 (默认: 0).
-结束索引
-	[可选] 以 0 为基础的结束索引 (默认: UBound($array) - 1).
+	要转化为字符串的包含ASCII代码的数组.
+开始
+	[可选参数] 基于0开始的开始位置的坐标,用于指定进行处理的开始位置(默认: 0).
+结束
+	[可选产生] 基于0开始的结束位置的坐标,用于指定进行处理的结束位置(默认: UBound($array) - 1).
 编码
-	[可选] 指定数组的字符集:
+	[可选产生] 指定数组包含的值使用的字符集:
 		0 - UTF-16 (默认)
 		1 - ANSI
 		2 - UTF-8
@@ -25,15 +25,15 @@ StringFromASCIIArray( 数组, [ 起始索引 [, 结束索引 [, 编码 ] ] ] )
 
 
 ###ReturnValue###
-成功 - 返回 ASCII 编码的字串.
-失效 - 返回一个空串，设置 @error 非零. @error 可以是:
+成功 - 返回 ASCII 码表示的字符串.
+失效 - 返回一个空字符串,设置 @error 为非零. @error 可以是:
 	1 - 输入的不是一个数组.
-	2 - 起始索引无效.
+	2 - 开始位置无效.
 
 ###Remarks###
-返回的字串可能包含嵌入的 Chr(0)，但仍然是一个字串类型. 大多数的字串函数将会在发现第一个 Chr(0) 时停止, 然而，如果需要访问字串的整个内容，那么 StringToBinary() 函数能把它转换成能保存所有数据的 BinaryString(二进制字串).
+The returned string may contain embedded Chr(0) but will still be a string type.  Most string functions will stop at the first Chr(0) found, however, if access to the entire contents of the string is required then the StringToBinary() function can convert it into a BinaryString preserving all the data.
 
-如果你尝试手控 (相对于使用从 StringToASCIIArray() 返回的一个数组) 产生一个数组，那么数组代码必须指定为统一码.
+If you attempt to create an array manually (As opposed to using an array returned from StringToASCIIArray()) then the codes in the array must be specified in UNICODE.
 
 ###Related###
 StringToASCIIArray

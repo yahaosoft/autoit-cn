@@ -43,7 +43,7 @@ Dummy	值设置于 <a href="GUICtrlSendToDummy.htm">GUICtrlSendToDummy</a> 或者 <a h
 
 
 ###Remarks###
-在'高级'模态的返回值包含控件的附加值.(见下面).
+在'高级'模式的返回值包含控件的附加值.(见下面).
 
 注意: 不是所有的已知控件都有附加值可用!
 <br>
@@ -51,17 +51,17 @@ Dummy	值设置于 <a href="GUICtrlSendToDummy.htm">GUICtrlSendToDummy</a> 或者 <a h
 <b>类型</b>	<b>附加值</b>
 Checkbox, Radio	控件的文本.
 Menu, MenuItem	控件的文本.
-TreeView	当前挑选的 TreeViewItem 的文本.
+TreeView	TreeViewItem 中当前选中的文本.
 TreeViewItem	TreeViewItem 的文本.
-ListViewItem	如果在高级模态中用 $LVS_EX_CHECKBOXES 扩展样式时 ListViewItem 的状态.  <a href="GUICtrlSetState.htm#StateTable">见状态表</a>
-Tab	被选取的标签项目的控件ID
+ListViewItem	如果在高级模式中用 $LVS_EX_CHECKBOXES 扩展样式时,返回 ListViewItem 的选中状态.  <a href="GUICtrlSetState.htm#StateTable">见状态表</a>
+Tab	被选择的标签项目的控件ID
 @@End@@
 
-对于复选框, 单选框控件的一些状态能被 $GUI_FOCUS 和 $GUI_CHECKED 返回,. 因此如果控件被选取使用 BitAnd(GUICtrlRead($Item),$GUI_CHECKED) 测试.
+由于复选框, 单选框控件的一些状态能返回 $GUI_FOCUS 和 $GUI_CHECKED ,因此可以使用 BitAnd(GUICtrlRead($Item),$GUI_CHECKED) 测试控件是否被选中.
 
-因为 Listview 项目的一些状态可以被 $GUI_CHECKED 和 $GUI_UNCHECKED 返回 (仅在 listview 控件有 LVS_EX_CHECKBOXES-扩展样式与使用高级模态时) . 因此如果控件被选取使用 BitAnd(GUICtrlRead($Item),$GUI_CHECKED) 测试.
+由于 Listview 项目的一些状态能返回 $GUI_CHECKED 和 $GUI_UNCHECKED ,(仅在 listview 控件有 LVS_EX_CHECKBOXES-扩展样式与使用高级模式时) . 因此可以使用 BitAnd(GUICtrlRead($Item),$GUI_CHECKED) 测试项目是否被选中.
 
-因为 Listview 项目的一些状态可以被 $GUI_FOCUS, $GUI_EXPAND 与 $GUI_CHECKED, $GUI_UNCHECKED (仅当 treeview 控件有 TVS_CHECKBOXES-样式时)返回 . 因此如果控件被选取使用 BitAnd(GUICtrlRead($Item),$GUI_CHECKED) 测试.
+由于 Treeview 项目的一些状态能返回 $GUI_FOCUS, $GUI_EXPAND 与 $GUI_CHECKED, $GUI_UNCHECKED (仅当 treeview 控件有 TVS_CHECKBOXES-样式时). 因此可以使用 BitAnd(GUICtrlRead($Item),$GUI_CHECKED) 测试项目是否被选中.
 
 
 ###Related###

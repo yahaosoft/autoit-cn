@@ -2,7 +2,7 @@
 StringToASCIIArray
 
 ###Description###
-对包含ASCII[代]码的数组的每个字符转换一个字串.
+转换一个字符串为包含每个字符的ASCII码的数组.
 
 ###Syntax###
 StringToASCIIArray( "字符串", [ 开始 [, 结束 [, 编码 ] ] ] )
@@ -11,13 +11,13 @@ StringToASCIIArray( "字符串", [ 开始 [, 结束 [, 编码 ] ] ] )
 ###Parameters###
 @@ParamTable@@
 "字符串"
-	转换数组 ASCII[代]码的字串.
+	需要转换为ASCII码数组的字符串.
 开始
-	[可选] 以 0 为基础的启动处理位置 (默认: 0).
+	[可选参数] 基于0开始的位置的坐标,用于指定处理字符串的开始位置(默认: 0).
 结束
-	[可选] 以 0 为基础结束处理的位置 (默认: StringLen("字符串")).
+	[可选参数] 基于0开始的位置的坐标,用于指定处理字符串结束的位置(默认: StringLen("字符串")).
 编码
-	[可选] 被返回的数组将包含指定字符集的值:
+	[可选参数] 返回的数组内容使用的字符集:
 		0 - UTF-16 (默认)
 		1 - ANSI
 		2 - UTF-8
@@ -25,11 +25,11 @@ StringToASCIIArray( "字符串", [ 开始 [, 结束 [, 编码 ] ] ] )
 
 
 ###ReturnValue###
-成功 - 每个元素在对应位置是统一码字符的数组[代]码.
-失效 - 返回一个空串.
+成功 - 返回一个包含每个字符UNICODE编码(默认为UNICODE)的数组.
+失效 - 返回一个空字符串"".
 
 ###Remarks###
-字串可能包含嵌入的 Chr(0).  These will appear in the returned array as well as any data past them.  当字串转换结束时，唯一的处理是停机或用户指定的结束.
+字串可能包含嵌入的 Chr(0).  These will appear in the returned array as well as any data past them.  Processing only stops when the end of the string is reached or the user specified end.
 
 ###Related###
 StringFromASCIIArray

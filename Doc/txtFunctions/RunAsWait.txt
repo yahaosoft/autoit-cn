@@ -5,41 +5,41 @@ RunAsWait
 在不同的用户环境中运行一个外部程序和中止脚本执行直到程序完成.
 
 ###Syntax###
-RunAsWait ( "用户名", "范围", "密码", 登录标志, "文件名" [, "工作目录" [, 显示标志 [, 选择标志 ]]] )
+RunAsWait ( "用户名", "域", "密码", 登录标志, "文件名" [, "工作目录" [, 显示标志 [, 可选标志 ]]] )
 
 
 ###Parameters###
 @@ParamTable@@
 用户名
 	登录的用户名.
-范围
-	验证的依据范围.
+域
+	依赖验证的域.
 密码
 	用户的登录口令.
 登录标志
-	0 - 交互登录，没有 profile.
-	1 - 交互登录，有 profile.
-	2 - 网[络]唯一凭证.
+	0 - 交互登录,没有 profile.
+	1 - 交互登录,有 profile.
+	2 - 只使用网络证书.
 	4 - 继承调用过程环境而非用户的.
 文件名
-	可执行文件的完整路径(文件格式为 EXE,BAT,COM 或 PIF)..
+	可执行文件的完整路径(文件格式为 EXE,BAT,COM 或 PIF).
 工作目录
-	[可选] 工作目录. 如果不指定, 则使用 @SystemDir.
+	[可选参数] 工作目录. 如果不指定, 则使用 @SystemDir.
 显示标志
-	[可选] 启动程序时的初始状态:
-	  @SW_HIDE = 隐藏窗口 (或 默认关键字)
+	[可选参数] 执行程序的显示状态:
+	  @SW_HIDE = 隐藏窗口 (或 Default 关键字)
 	  @SW_MINIMIZE = 最小化窗口
 	  @SW_MAXIMIZE = 最大化窗口
-选择标志
-	[可选] 控制不同选项处理父进程/子进程交互.
-	  0x10000 ($RUN_CREATE_NEW_CONSOLE) = 子控制台进程应该与它一起建立自己的窗口而非使用父窗口. 当父层作为控制台应用被编译时，这标志才有用.
+可选标志
+	[optional] Controls various options related to how the parent and child process interact.
+	  0x10000 ($RUN_CREATE_NEW_CONSOLE) = The child console process should be created with it's own window instead of using the parent's window.  This flag is only useful when the parent is compiled as a Console application.
 @@End@@
 
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 	返回运行程序的退出[代]码. 
-失败: 	返回 0 并设置 @error 非零.
+成功: 	返回运行程序的退出代码. 
+失败: 	返回 0 并设置 @error 为非零.
 @@End@@
 
 
