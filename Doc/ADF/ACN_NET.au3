@@ -1,38 +1,38 @@
-#include-once
+ï»¿#include-once
 #include <ie.au3>
 ;======================================================
 ;
-; º¯ÊıÃû³Æ:		_Thunder($url,$Filename,$Path,$comment,$ReferUrl,$startmode,$Orgin,$OrginThread)
-; ÏêÏ¸ĞÅÏ¢:		µ÷ÓÃÑ¸À×ÏÂÔØ
-; $Url:			ÏÂÔØµØÖ·
-; $Filename:	±£´æµÄÎÄ¼şÃû
-; $Path:		±£´æµÄÂ·¾¶
-; $comment:		ÏÂÔØÈÎÎñ×¢ÊÍ
-; $ReferUrl:	ÒıÓÃµÄURL
-; $startmode:	¿ªÊ¼Ä£Ê½,True(Á¢¼´)/False(ÊÖ¶¯)
-; $Orgin:		Ö»´ÓÔ­Ê¼µØÖ·ÏÂÔØ(True/False)
-; $OrginThread: ´ÓÔ­Ê¼µØÖ·ÏÂÔØÏß³ÌÊı
-; ·µ»ØÖµ :		Ê§°Ü·µ»Ø0,³É¹¦·µ»Ø1
-; ×÷Õß:			thesnow(rundll32@126.com)
+; å‡½æ•°åç§°:		_Thunder($url,$Filename,$Path,$comment,$ReferUrl,$startmode,$Orgin,$OrginThread)
+; è¯¦ç»†ä¿¡æ¯:		è°ƒç”¨è¿…é›·ä¸‹è½½
+; $Url:			ä¸‹è½½åœ°å€
+; $Filename:	ä¿å­˜çš„æ–‡ä»¶å
+; $Path:		ä¿å­˜çš„è·¯å¾„
+; $comment:		ä¸‹è½½ä»»åŠ¡æ³¨é‡Š
+; $ReferUrl:	å¼•ç”¨çš„URL
+; $startmode:	å¼€å§‹æ¨¡å¼,True(ç«‹å³)/False(æ‰‹åŠ¨)
+; $Orgin:		åªä»åŸå§‹åœ°å€ä¸‹è½½(True/False)
+; $OrginThread: ä»åŸå§‹åœ°å€ä¸‹è½½çº¿ç¨‹æ•°
+; è¿”å›å€¼ :		å¤±è´¥è¿”å›0,æˆåŠŸè¿”å›1
+; ä½œè€…:			thesnow(rundll32@126.com)
 ;
 ;======================================================
 Func _Thunder($Url, $Filename = "", $Path = "", $comment = "", $ReferUrl = "", $startmode = True, $Orgin = False, $OrginThread = 10)
 	$obj = ObjCreate("ThunderAgent.Agent")
 	If IsObj($obj) = 0 Then Return 0
-	$obj.AddTask($Url, $Filename, $Path, $comment, $ReferUrl, $startmode, $Orgin, $OrginThread);Ìí¼ÓÏÂÔØÈÎÎñ
-	$obj.CommitTasks() ;Ìá½»ÈÎÎñ.
+	$obj.AddTask($Url, $Filename, $Path, $comment, $ReferUrl, $startmode, $Orgin, $OrginThread);æ·»åŠ ä¸‹è½½ä»»åŠ¡
+	$obj.CommitTasks() ;æäº¤ä»»åŠ¡.
 	Return 1
 EndFunc   ;==>_Thunder
 
 ;======================================================
 ;
-; º¯ÊıÃû³Æ:		_Flashget($url,$Path,$flashgetpath)
-; ÏêÏ¸ĞÅÏ¢:		µ÷ÓÃÍø¼Ê¿ì³µÏÂÔØ
-; $url:			ÏÂÔØµØÖ·
-; $Path:		±£´æµÄÂ·¾¶
-; $flashgetpath:Íø¼Ê¿ì³µµÄÂ·¾¶
-; ·µ»ØÖµ :		Ê§°Ü·µ»Ø0(Íø¼Ê¿ì³µÎ´°²×°),³É¹¦·µ»Ø1
-; ×÷Õß:			thesnow(rundll32@126.com)
+; å‡½æ•°åç§°:		_Flashget($url,$Path,$flashgetpath)
+; è¯¦ç»†ä¿¡æ¯:		è°ƒç”¨ç½‘é™…å¿«è½¦ä¸‹è½½
+; $url:			ä¸‹è½½åœ°å€
+; $Path:		ä¿å­˜çš„è·¯å¾„
+; $flashgetpath:ç½‘é™…å¿«è½¦çš„è·¯å¾„
+; è¿”å›å€¼ :		å¤±è´¥è¿”å›0(ç½‘é™…å¿«è½¦æœªå®‰è£…),æˆåŠŸè¿”å›1
+; ä½œè€…:			thesnow(rundll32@126.com)
 ;
 ;======================================================
 Func _Flashget($Url, $Path = "", $flashgetpath = "")
@@ -50,20 +50,20 @@ EndFunc   ;==>_Flashget
 
 ;======================================================
 ;
-; º¯ÊıÃû³Æ:        _CMD_SetLocalIP("Á¬½ÓÃû³Æ","IPµØÖ·",["×ÓÍøÑÚÂë"],["Ä¬ÈÏÍø¹Ø"],["DNS"])
-; ÏêÏ¸ĞÅÏ¢:        ÉèÖÃIPµØÖ·.
-; $ConName:        Á¬½ÓÃû³Æ
-; $IpADD:          IPµØÖ·
-; $SubMask:        ×ÓÍøÑÚÂë
-; $GateWay:        Ä¬ÈÏÍø¹Ø
-; $ConDNS:         DNS(ÓòÃû½âÎö)
-; ×÷Õß:            thesnow(rundll32@126.com)
+; å‡½æ•°åç§°:        _CMD_SetLocalIP("è¿æ¥åç§°","IPåœ°å€",["å­ç½‘æ©ç "],["é»˜è®¤ç½‘å…³"],["DNS"])
+; è¯¦ç»†ä¿¡æ¯:        è®¾ç½®IPåœ°å€.
+; $ConName:        è¿æ¥åç§°
+; $IpADD:          IPåœ°å€
+; $SubMask:        å­ç½‘æ©ç 
+; $GateWay:        é»˜è®¤ç½‘å…³
+; $ConDNS:         DNS(åŸŸåè§£æ)
+; ä½œè€…:            thesnow(rundll32@126.com)
 ;
 ;======================================================
 Func _CMD_SetLocalIP($ConName, $IpADD, $SubMask, $GateWay, $ConDNS)
 	If $SubMask = "" Then $SubMask = "255.255.255.0"
 	If $ConName = "" And $IpADD <> "" Then
-		RunWait(@ComSpec & ' /C netsh -c interface ip set address "±¾µØÁ¬½Ó" static ' & $IpADD & " " & $SubMask & " " & $GateWay, "", @SW_HIDE)
+		RunWait(@ComSpec & ' /C netsh -c interface ip set address "æœ¬åœ°è¿æ¥" static ' & $IpADD & " " & $SubMask & " " & $GateWay, "", @SW_HIDE)
 	EndIf
 	If $ConName <> "" And $IpADD <> "" Then
 		RunWait(@ComSpec & ' /C netsh -c interface ip set address ' & '"' & $ConName & '"' & ' static ' & $IpADD & " " & $SubMask & " " & $GateWay, "", @SW_HIDE)
@@ -76,11 +76,11 @@ EndFunc   ;==>_CMD_SetLocalIP
 
 ;======================================================
 ;
-; º¯ÊıÃû³Æ:		_API_Get_NetworkAdapterMAC ($sIP)
-; ÏêÏ¸ĞÅÏ¢:		¸ù¾İAPIµÃµ½MAC.
-; thesnow±¸×¢:	´Ëº¯ÊıÊÇ²ÉÓÃ·¢ËÍARP·½Ê½,Èç¹ûÓĞ´íÎóµÄÂ·ÓÉ°ó¶¨»ò½»»»»ú°ó¶¨.¿ÉÄÜµÃµ½´íÎóµÄMAC.
-; $sIP:         IPµØÖ·
-; ×÷Õß:         jiexunpc
+; å‡½æ•°åç§°:		_API_Get_NetworkAdapterMAC ($sIP)
+; è¯¦ç»†ä¿¡æ¯:		æ ¹æ®APIå¾—åˆ°MAC.
+; thesnowå¤‡æ³¨:	æ­¤å‡½æ•°æ˜¯é‡‡ç”¨å‘é€ARPæ–¹å¼,å¦‚æœæœ‰é”™è¯¯çš„è·¯ç”±ç»‘å®šæˆ–äº¤æ¢æœºç»‘å®š.å¯èƒ½å¾—åˆ°é”™è¯¯çš„MAC.
+; $sIP:         IPåœ°å€
+; ä½œè€…:         jiexunpc
 ;
 ;======================================================
 Func _API_Get_NetworkAdapterMAC($sIP)
@@ -105,9 +105,9 @@ EndFunc   ;==>_API_Get_NetworkAdapterMAC
 
 ;======================================================
 ;
-; º¯ÊıÃû³Æ:        _NetworkGetInternetIP
-; ÏêÏ¸ĞÅÏ¢:        µÃµ½¹«ÍøIPµØÖ·.
-; ×÷Õß:            pcbar
+; å‡½æ•°åç§°:        _NetworkGetInternetIP
+; è¯¦ç»†ä¿¡æ¯:        å¾—åˆ°å…¬ç½‘IPåœ°å€.
+; ä½œè€…:            pcbar
 ;
 ;======================================================
 Func _NetworkGetInternetIP()
@@ -127,26 +127,26 @@ EndFunc   ;==>_NetworkGetInternetIP
 
 ;======================================================
 ;
-; º¯ÊıÃû³Æ:        _NetworkAdapterInfo()
-; ÏêÏ¸ĞÅÏ¢:        »ñµÃÍø¿¨ĞÅÏ¢
-; ·µ»ØÖµËµÃ÷:
-; ÒÔ¶şÎ¬Êı×é·½Ê½·µ»Ø.ÀıÈç $info=_NetworkAdapterInfo()
-; $info[0][0]=Íø¿¨ÊıÁ¿
-; $info[1][0]µÚÒ»¿éÍø¿¨µÄ±êÖ¾1
-; $info[2][0]µÚ¶ş¿éÍø¿¨µÄ±êÖ¾2
-; $info[1][1]µÚÒ»¿éÍø¿¨µÄÍø¿¨Ãû³Æ
-; $info[2][1]µÚ¶ş¿éÍø¿¨µÄÍø¿¨Ãû³Æ
-; $info[1][2]µÚÒ»¿éÍø¿¨µÄÄ¬ÈÏÍø¹Ø
-; $info[1][3]µÚÒ»¿éÍø¿¨µÄDNSÖ÷»úÃû³Æ(±¾»úÃû³Æ)
-; $info[1][4]µÚÒ»¿éÍø¿¨µÄIPµØÖ·
-; $info[1][5]µÚÒ»¿éÍø¿¨µÄÖ÷DNS
-; $info[1][6]µÚÒ»¿éÍø¿¨µÄ´ÎDNS
-; $info[1][7]µÚÒ»¿éÍø¿¨µÄ×ÓÍøÑÚÂë
-; $info[1][8]µÚÒ»¿éÍø¿¨µÄMACµØÖ·
-; $info[1][9]µÚÒ»¿éÍø¿¨µÄÁ¬½ÓÃû³Æ
-; ×¢Òâ£¬´ËUDF²»»á»ñÈ¡ÒÑ¾­½ûÓÃµÄÍø¿¨¡£
-; Èç¹ûÓĞĞèÒª£¬ÇëÉ¾³ı' WHERE IPEnabled != 0'ºÍ' WHERE NetConnectionStatus >0'
-; ×÷Õß:            thesnow(rundll32@126.com)
+; å‡½æ•°åç§°:        _NetworkAdapterInfo()
+; è¯¦ç»†ä¿¡æ¯:        è·å¾—ç½‘å¡ä¿¡æ¯
+; è¿”å›å€¼è¯´æ˜:
+; ä»¥äºŒç»´æ•°ç»„æ–¹å¼è¿”å›.ä¾‹å¦‚ $info=_NetworkAdapterInfo()
+; $info[0][0]=ç½‘å¡æ•°é‡
+; $info[1][0]ç¬¬ä¸€å—ç½‘å¡çš„æ ‡å¿—1
+; $info[2][0]ç¬¬äºŒå—ç½‘å¡çš„æ ‡å¿—2
+; $info[1][1]ç¬¬ä¸€å—ç½‘å¡çš„ç½‘å¡åç§°
+; $info[2][1]ç¬¬äºŒå—ç½‘å¡çš„ç½‘å¡åç§°
+; $info[1][2]ç¬¬ä¸€å—ç½‘å¡çš„é»˜è®¤ç½‘å…³
+; $info[1][3]ç¬¬ä¸€å—ç½‘å¡çš„DNSä¸»æœºåç§°(æœ¬æœºåç§°)
+; $info[1][4]ç¬¬ä¸€å—ç½‘å¡çš„IPåœ°å€
+; $info[1][5]ç¬¬ä¸€å—ç½‘å¡çš„ä¸»DNS
+; $info[1][6]ç¬¬ä¸€å—ç½‘å¡çš„æ¬¡DNS
+; $info[1][7]ç¬¬ä¸€å—ç½‘å¡çš„å­ç½‘æ©ç 
+; $info[1][8]ç¬¬ä¸€å—ç½‘å¡çš„MACåœ°å€
+; $info[1][9]ç¬¬ä¸€å—ç½‘å¡çš„è¿æ¥åç§°
+; æ³¨æ„ï¼Œæ­¤UDFä¸ä¼šè·å–å·²ç»ç¦ç”¨çš„ç½‘å¡ã€‚
+; å¦‚æœæœ‰éœ€è¦ï¼Œè¯·åˆ é™¤' WHERE IPEnabled != 0'å’Œ' WHERE NetConnectionStatus >0'
+; ä½œè€…:            thesnow(rundll32@126.com)
 ;
 ;======================================================
 Func _NetworkAdapterInfo()
@@ -162,7 +162,7 @@ Func _NetworkAdapterInfo()
 	Local $NetworkAdapterSubnet = ""
 	Local $NetworkAdapterMAC = ""
 	Local $NetworkAdapterNetConnectionID = ""
-	Local $NetworkAdapterInfo[10][10] ;×î¸ß10¿éÍø¿¨.
+	Local $NetworkAdapterInfo[10][10] ;æœ€é«˜10å—ç½‘å¡.
 	$NetworkAdapterInfo[0][0] = 0
 	$objWMIService = ObjGet("winmgmts:\\localhost\root\CIMV2")
 	$colItems = $objWMIService.ExecQuery("SELECT * FROM Win32_NetworkAdapterConfiguration WHERE IPEnabled != 0", "WQL", 0x10 + 0x20)
@@ -208,16 +208,16 @@ EndFunc   ;==>_NetworkAdapterInfo
 
 ;======================================================
 ;
-; º¯ÊıÃû³Æ:		_WMI_SetNetworkAdapterInfo($HostName, $IpAdd, $SubMask, $GateWay, $DNS1, $DNS2, $IPX)
-; ÏêÏ¸ĞÅÏ¢:		ÉèÖÃIPµØÖ·.
-; $HostName:	¼ÆËã»úÃû³Æ
-; $IpAdd:		IPµØÖ·
-; $SubMask:		×ÓÍøÑÚÂë
-; $GateWay:		Ä¬ÈÏÍø¹Ø
-; $DNS1:		Ö÷DNS(ÓòÃû½âÎö)
-; $DNS2:		´ÎDNS(ÓòÃû½âÎö)
-; $IPX:			IPXĞéÄâÍøÂçºÅ
-; ×÷Õß:			thesnow(rundll32@126.com)
+; å‡½æ•°åç§°:		_WMI_SetNetworkAdapterInfo($HostName, $IpAdd, $SubMask, $GateWay, $DNS1, $DNS2, $IPX)
+; è¯¦ç»†ä¿¡æ¯:		è®¾ç½®IPåœ°å€.
+; $HostName:	è®¡ç®—æœºåç§°
+; $IpAdd:		IPåœ°å€
+; $SubMask:		å­ç½‘æ©ç 
+; $GateWay:		é»˜è®¤ç½‘å…³
+; $DNS1:		ä¸»DNS(åŸŸåè§£æ)
+; $DNS2:		æ¬¡DNS(åŸŸåè§£æ)
+; $IPX:			IPXè™šæ‹Ÿç½‘ç»œå·
+; ä½œè€…:			thesnow(rundll32@126.com)
 ;
 ;======================================================
 
@@ -248,18 +248,18 @@ EndFunc   ;==>_WMI_SetNetworkAdapterInfo
 ;===============================================================================
 ;
 ; Function Name:    _FTPOpen()
-; Description:      ´ò¿ªÒ»¸öFTP»á»°.
-; Parameter(s):     $s_Agent      	- ÈÎÒâÃû×Ö. ( ÀıÈç "myftp" )
-;                   $l_AccessType 	- Á¬½Ó·½Ê½(
-;									- 0,Ê¹ÓÃIEµÄÁ¬½ÓÉèÖÃ,
-;									- 1,Ö±½ÓÁ¬½Óµ½·şÎñÆ÷,
-;									- 3,Í¨¹ı´úÀí·şÎñÆ÷½øĞĞÁ¬½Ó)
-;                   $s_ProxyName  	- ´úÀí·şÎñÆ÷Ãû.
-;                   $s_ProxyBypass	- ´úÀí·şÎñÆ÷µØÖ·.
-;                   $l_Flags       	- ÌØÊâ±ê¼Ç(Ò»°ãÎª0).
+; Description:      æ‰“å¼€ä¸€ä¸ªFTPä¼šè¯.
+; Parameter(s):     $s_Agent      	- ä»»æ„åå­—. ( ä¾‹å¦‚ "myftp" )
+;                   $l_AccessType 	- è¿æ¥æ–¹å¼(
+;									- 0,ä½¿ç”¨IEçš„è¿æ¥è®¾ç½®,
+;									- 1,ç›´æ¥è¿æ¥åˆ°æœåŠ¡å™¨,
+;									- 3,é€šè¿‡ä»£ç†æœåŠ¡å™¨è¿›è¡Œè¿æ¥)
+;                   $s_ProxyName  	- ä»£ç†æœåŠ¡å™¨å.
+;                   $s_ProxyBypass	- ä»£ç†æœåŠ¡å™¨åœ°å€.
+;                   $l_Flags       	- ç‰¹æ®Šæ ‡è®°(ä¸€èˆ¬ä¸º0).
 ; Requirement(s):   DllCall, wininet.dll
-; Return Value(s):  ³É¹¦ - ·µ»ØÒ»¸ö±êÊ¶·û.
-;                   Ê§°Ü - ·µ»Ø0²¢ÉèÖÃ@ERROR = -1
+; Return Value(s):  æˆåŠŸ - è¿”å›ä¸€ä¸ªæ ‡è¯†ç¬¦.
+;                   å¤±è´¥ - è¿”å›0å¹¶è®¾ç½®@ERROR = -1
 ; Author(s):        Wouter van Kesteren.
 ;
 ;===============================================================================
@@ -279,20 +279,20 @@ EndFunc ;==> _FTPOpen()
 ;===============================================================================
 ;
 ; Function Name:    _FTPConnect()
-; Description:      Á¬½Óµ½Ò»¸öFTP·şÎñÆ÷.
-; Parameter(s):     $l_InternetSession	- ÓÉ_FTPOpen()·µ»ØµÄ»á»°±êÊ¶·û.
-;                   $s_ServerName 		- ·şÎñÆ÷µØÖ·»òIP.
-;                   $s_Username  		- ÓÃ»§Ãû.
-;                   $s_Password			- ÃÜÂë.
-;                   $i_ServerPort  		- ·şÎñÆ÷¶Ë¿Ú ( 0 Ä¬ÈÏµÄÊÇ21¶Ë¿Ú )
-;					$l_Service			- ·şÎñÆ÷ÀàĞÍ(
+; Description:      è¿æ¥åˆ°ä¸€ä¸ªFTPæœåŠ¡å™¨.
+; Parameter(s):     $l_InternetSession	- ç”±_FTPOpen()è¿”å›çš„ä¼šè¯æ ‡è¯†ç¬¦.
+;                   $s_ServerName 		- æœåŠ¡å™¨åœ°å€æˆ–IP.
+;                   $s_Username  		- ç”¨æˆ·å.
+;                   $s_Password			- å¯†ç .
+;                   $i_ServerPort  		- æœåŠ¡å™¨ç«¯å£ ( 0 é»˜è®¤çš„æ˜¯21ç«¯å£ )
+;					$l_Service			- æœåŠ¡å™¨ç±»å‹(
 ;										- 1,FTP.
 ;										- 3,HTTP)
-;					$l_Flags			- ÌØÊâ±êÖ¾.
-;					$l_Context			- ÉÏÏÂÎÄID.
+;					$l_Flags			- ç‰¹æ®Šæ ‡å¿—.
+;					$l_Context			- ä¸Šä¸‹æ–‡ID.
 ; Requirement(s):   DllCall, wininet.dll
-; Return Value(s):  ³É¹¦ - ·µ»ØÒ»¸ö±êÊ¶·û.
-;                   Ê§°Ü - ·µ»Ø0²¢ÉèÖÃ@ERROR = -1
+; Return Value(s):  æˆåŠŸ - è¿”å›ä¸€ä¸ªæ ‡è¯†ç¬¦.
+;                   å¤±è´¥ - è¿”å›0å¹¶è®¾ç½®@ERROR = -1
 ; Author(s):        Wouter van Kesteren
 ;
 ;===============================================================================
@@ -312,15 +312,15 @@ EndFunc ;==> _FTPConnect()
 ;===============================================================================
 ;
 ; Function Name:    _FTPPutFile()
-; Description:      ÉÏ´«Ò»¸öÎÄ¼şµ½FTP·şÎñÆ÷.
-; Parameter(s):     $l_FTPSession	- ÓÉ_FTPConnect()·µ»ØµÄ»á»°±êÊ¶·û.
-;                   $s_LocalFile 	- ±¾µØÎÄ¼ş.
-;                   $s_RemoteFile  	- Ô¶³ÌÎÄ¼ş.
-;                   $l_Flags		- ÌØÊâ±êÖ¾.
-;                   $l_Context  	- ÉÏÏÂÎÄID.
+; Description:      ä¸Šä¼ ä¸€ä¸ªæ–‡ä»¶åˆ°FTPæœåŠ¡å™¨.
+; Parameter(s):     $l_FTPSession	- ç”±_FTPConnect()è¿”å›çš„ä¼šè¯æ ‡è¯†ç¬¦.
+;                   $s_LocalFile 	- æœ¬åœ°æ–‡ä»¶.
+;                   $s_RemoteFile  	- è¿œç¨‹æ–‡ä»¶.
+;                   $l_Flags		- ç‰¹æ®Šæ ‡å¿—.
+;                   $l_Context  	- ä¸Šä¸‹æ–‡ID.
 ; Requirement(s):   DllCall, wininet.dll
-; Return Value(s):  ³É¹¦ - ·µ»Ø1
-;                   Ê§°Ü - ·µ»Ø0²¢ÉèÖÃ@ERROR = -1
+; Return Value(s):  æˆåŠŸ - è¿”å›1
+;                   å¤±è´¥ - è¿”å›0å¹¶è®¾ç½®@ERROR = -1
 ; Author(s):        Wouter van Kesteren
 ;
 ;===============================================================================
@@ -340,12 +340,12 @@ EndFunc ;==> _FTPPutFile()
 ;===============================================================================
 ;
 ; Function Name:    _FTPDelFile()
-; Description:      ´ÓFTP·şÎñÆ÷ÉÏÉ¾³ıÒ»¸öÎÄ¼ş.
-; Parameter(s):     $l_FTPSession	- ÓÉ_FTPConnect()·µ»ØµÄ»á»°±êÊ¶·û.
-;                   $s_RemoteFile  	- Ô¶³ÌÎÄ¼ş.
+; Description:      ä»FTPæœåŠ¡å™¨ä¸Šåˆ é™¤ä¸€ä¸ªæ–‡ä»¶.
+; Parameter(s):     $l_FTPSession	- ç”±_FTPConnect()è¿”å›çš„ä¼šè¯æ ‡è¯†ç¬¦.
+;                   $s_RemoteFile  	- è¿œç¨‹æ–‡ä»¶.
 ; Requirement(s):   DllCall, wininet.dll
-; Return Value(s):  ³É¹¦ - ·µ»Ø1
-;                   Ê§°Ü - ·µ»Ø0²¢ÉèÖÃ@ERROR = -1
+; Return Value(s):  æˆåŠŸ - è¿”å›1
+;                   å¤±è´¥ - è¿”å›0å¹¶è®¾ç½®@ERROR = -1
 ; Author(s):        Wouter van Kesteren
 ;
 ;===============================================================================
@@ -365,13 +365,13 @@ EndFunc ;==> _FTPDelFile()
 ;===============================================================================
 ;
 ; Function Name:    _FTPRenameFile()
-; Description:      ÖØÃüÃûFTP·şÎñÆ÷ÉÏµÄÎÄ¼ş.
-; Parameter(s):     $l_FTPSession	- ÓÉ_FTPConnect()·µ»ØµÄ»á»°±êÊ¶·û.
-;                   $s_Existing 	- Ô­ÎÄ¼şÃû.
-;                   $s_New  		- ĞÂÎÄ¼şÃû.
+; Description:      é‡å‘½åFTPæœåŠ¡å™¨ä¸Šçš„æ–‡ä»¶.
+; Parameter(s):     $l_FTPSession	- ç”±_FTPConnect()è¿”å›çš„ä¼šè¯æ ‡è¯†ç¬¦.
+;                   $s_Existing 	- åŸæ–‡ä»¶å.
+;                   $s_New  		- æ–°æ–‡ä»¶å.
 ; Requirement(s):   DllCall, wininet.dll
-; Return Value(s):  ³É¹¦ - ·µ»Ø1
-;                   Ê§°Ü - ·µ»Ø0²¢ÉèÖÃ@ERROR = -1
+; Return Value(s):  æˆåŠŸ - è¿”å›1
+;                   å¤±è´¥ - è¿”å›0å¹¶è®¾ç½®@ERROR = -1
 ; Author(s):        Wouter van Kesteren
 ;
 ;===============================================================================
@@ -391,12 +391,12 @@ EndFunc ;==> _FTPRenameFile()
 ;===============================================================================
 ;
 ; Function Name:    _FTPMakeDir()
-; Description:      ÔÚFTP·şÎñÆ÷ÉÏĞÂ½¨Ò»¸öÄ¿Â¼.
-; Parameter(s):     $l_FTPSession	- ÓÉ_FTPConnect()·µ»ØµÄ»á»°±êÊ¶·û.
-;                   $s_Remote 		- Òª´´½¨µÄÄ¿Â¼Ãû.
+; Description:      åœ¨FTPæœåŠ¡å™¨ä¸Šæ–°å»ºä¸€ä¸ªç›®å½•.
+; Parameter(s):     $l_FTPSession	- ç”±_FTPConnect()è¿”å›çš„ä¼šè¯æ ‡è¯†ç¬¦.
+;                   $s_Remote 		- è¦åˆ›å»ºçš„ç›®å½•å.
 ; Requirement(s):   DllCall, wininet.dll
-; Return Value(s):  ³É¹¦ - ·µ»Ø1
-;                   Ê§°Ü - ·µ»Ø0²¢ÉèÖÃ@ERROR = -1
+; Return Value(s):  æˆåŠŸ - è¿”å›1
+;                   å¤±è´¥ - è¿”å›0å¹¶è®¾ç½®@ERROR = -1
 ; Author(s):        Wouter van Kesteren
 ;
 ;===============================================================================
@@ -416,12 +416,12 @@ EndFunc ;==> _FTPMakeDir()
 ;===============================================================================
 ;
 ; Function Name:    _FTPDelDir()
-; Description:      É¾³ıFTP·şÎñÆ÷ÉÏµÄÒ»¸öÄ¿Â¼.
-; Parameter(s):     $l_FTPSession	- ÓÉ_FTPConnect()·µ»ØµÄ»á»°±êÊ¶·û.
-;                   $s_Remote 		- ÒªÉ¾³ıµÄÄ¿Â¼Ãû.
+; Description:      åˆ é™¤FTPæœåŠ¡å™¨ä¸Šçš„ä¸€ä¸ªç›®å½•.
+; Parameter(s):     $l_FTPSession	- ç”±_FTPConnect()è¿”å›çš„ä¼šè¯æ ‡è¯†ç¬¦.
+;                   $s_Remote 		- è¦åˆ é™¤çš„ç›®å½•å.
 ; Requirement(s):   DllCall, wininet.dll
-; Return Value(s):  ³É¹¦ - ·µ»Ø1
-;                   Ê§°Ü - ·µ»Ø0²¢ÉèÖÃ@ERROR = -1
+; Return Value(s):  æˆåŠŸ - è¿”å›1
+;                   å¤±è´¥ - è¿”å›0å¹¶è®¾ç½®@ERROR = -1
 ; Author(s):        Wouter van Kesteren
 ;
 ;===============================================================================
@@ -441,11 +441,11 @@ EndFunc ;==> _FTPDelDir()
 ;===============================================================================
 ;
 ; Function Name:    _FTPClose()
-; Description:      ¹Ø±ÕFTP»á»°.
-; Parameter(s):     $l_InternetSession	- ÓÉ_FTPOpen()·µ»ØµÄ»á»°±êÊ¶·û.
+; Description:      å…³é—­FTPä¼šè¯.
+; Parameter(s):     $l_InternetSession	- ç”±_FTPOpen()è¿”å›çš„ä¼šè¯æ ‡è¯†ç¬¦.
 ; Requirement(s):   DllCall, wininet.dll
-; Return Value(s):  ³É¹¦ - ·µ»Ø1
-;                   Ê§°Ü - ·µ»Ø0²¢ÉèÖÃ@ERROR = -1
+; Return Value(s):  æˆåŠŸ - è¿”å›1
+;                   å¤±è´¥ - è¿”å›0å¹¶è®¾ç½®@ERROR = -1
 ; Author(s):        Wouter van Kesteren
 ;
 ;===============================================================================

@@ -1,8 +1,8 @@
-###User Defined Function###
+﻿###User Defined Function###
 _ArraySearch
 
 ###Description###
-��һά���ά�����в���һ����Ŀ������_ArrayBinarySearch()����, �����鲻��Ҫ����.
+在一维或二维数组中查找一个项目。类似_ArrayBinarySearch()函数, 但数组不需要分类.
 
 ###Syntax###
 #Include <Array.au3>
@@ -11,35 +11,35 @@ _ArraySearch(Const ByRef $avArray, $vValue[, $iStart = 0[, $iEnd = 0[, $iCase = 
 ###Parameters###
 @@ParamTable@@
 $avArray
-	Ŀ������
+	目标数组
 $vValue
-	���Ҷ����ֵ
+	查找对象的值
 $iStart
-	[��ѡ] ��ʼ�±�
+	[可选] 起始下标
 $iEnd
-	[��ѡ] ��ֹ�±�
+	[可选] 终止下标
 $iCase
-	[��ѡ] ��Ϊ 1, �������ִ�Сд
+	[可选] 设为 1, 查找区分大小写
 $iPartial
-	[��ѡ] ��Ϊ 1, ִ�в��ֲ���
+	[可选] 设为 1, 执行部分查找
 $iForward
-	[��ѡ] ����趨Ϊ 0, ���Ҵӽ����˵���ʼ��(�����Ǵӿ�ʼ�˵�������)
+	[可选] 如果设定为 0, 查找从结束端到开始端(而不是从开始端到结束端)
 $iSubItem
-	[��ѡ] �ڶ�ά����Ĵ��±��в���
+	[可选] 在二维数组的次下标中查找
 @@End@@
 
 ###ReturnValue###
-�ɹ�: ���ز���ֵ���±�
-ʧ��: -1, ���� @error:
-	        1 - Ŀ�� $avArray ����һ������
-	        2 - Ŀ�� $avArray ����һά����
-	        4 - ��ʼ�±���ڻ������ֹ�±�
-	        6 - û�в鵽
-	        7 - Ŀ�� $avArray Ϊ��ά
-	       (3, 5- ���Դ������)
+成功: 返回查找值的下标
+失败: -1, 设置 @error:
+	        1 - 目标 $avArray 不是一个数组
+	        2 - 目标 $avArray 不是一维数组
+	        4 - 起始下标等于或大于终止下标
+	        6 - 没有查到
+	        7 - 目标 $avArray 为多维
+	       (3, 5- 忽略错误代码)
 
 ###Remarks###
-�⺯�����ܱ�_ArrayBinarySearch()�����������������ܸı�ʱ�����õ�.
+这函数可能比_ArrayBinarySearch()慢，但对数组的命令不能改变时是有用的.
 
 ###Related###
 _ArrayBinarySearch, _ArrayFindAll

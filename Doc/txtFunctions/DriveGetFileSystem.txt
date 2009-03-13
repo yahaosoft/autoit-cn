@@ -1,47 +1,47 @@
-###Function###
+﻿###Function###
 DriveGetFileSystem
 
 ###Description###
-����ָ�����������ļ�ϵͳ����.
+返回指定驱动器的文件系统类型.
 
 ###Syntax###
-DriveGetFileSystem ( "·��" )
+DriveGetFileSystem ( "路径" )
 
 
 ###Parameters###
 @@ParamTable@@
-·��
-	Ҫ�����Ϣ����������·��.
+路径
+	要获得信息的驱动器的路径.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	���ַ�������ʽ����ָ�����������ļ�ϵͳ����,��鿴������б�.
-ʧ��:	���� @error Ϊ 1.
+成功:	以字符串的形式返回指定驱动器的文件系统类型,请查看下面的列表.
+失败:	设置 @error 为 1.
 @@End@@
 
 <br>
 @@ParamTable@@
-<b>����ֵ</b>
-	<b>��ϸ��Ϣ</b>
-1 <i>(����)</i>
-	ָ��������û��ý��(CD, ����, Zip��)����ý���ʽδ֪(RAW).
+<b>返回值</b>
+	<b>详细信息</b>
+1 <i>(数字)</i>
+	指定驱动器没有媒体(CD, 软驱, Zip等)或者媒体格式未知(RAW).
 "FAT"
-	ͨ������Щ��������500MB����������ʹ�õ��ļ�ϵͳ,�����������ڴ��̡�USB"��ʽ"�������ȵ�.
+	通常是那些容量低于500MB的驱动器所使用的文件系统,比如软驱、内存盘、USB"笔式"驱动器等等.
 "FAT32"
-	Windows 9x/Me �µ�Ӳ�̷�����ʹ�õ��ļ�ϵͳ.
+	Windows 9x/Me 下的硬盘分区所使用的文件系统.
 "NTFS"
-	Windows NT/2000/XP �µ�Ӳ�̷�����ʹ�õ��ļ�ϵͳ.
+	Windows NT/2000/XP 下的硬盘分区所使用的文件系统.
 "NWFS"
-	Novell �����ļ���������ʹ�õ��ļ�ϵͳ.
+	Novell 网络文件服务器所使用的文件系统.
 "CDFS"
-	ͨ���� CD(Ҳ��������������������ص�ISO����).
+	通常是 CD(也可能是虚拟光驱软件挂载的ISO镜像).
 "UDF"
-	ͨ���� DVD.
+	通常是 DVD.
 @@End@@
 
 ###Remarks###
-�����г��ķ���ֵ�����ǲ���ȫ��.
+以上列出的返回值可能是不完全的.
 
 ###Related###
 DriveGetDrive, DriveGetLabel, DriveGetSerial, DriveGetType, DriveSetLabel, DriveSpaceFree, DriveSpaceTotal, DriveStatus

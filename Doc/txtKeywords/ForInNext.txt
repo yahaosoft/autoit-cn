@@ -1,12 +1,12 @@
-###Keyword###
+﻿###Keyword###
 For...In...Next
 
 ###Description###
-�оٶ��󼯺ϻ������е�Ԫ��
+列举对象集合或数组中的元素
 
 
 ###Syntax###
-<b>For</b> &lt;$����&gt; <b>In</b> &lt;����ʽ&gt;
+<b>For</b> &lt;$变量&gt; <b>In</b> &lt;表达式&gt;
 	<i>statements</i>
 	...
 <b>Next</b>
@@ -14,20 +14,20 @@ For...In...Next
 
 ###Parameters###
 @@ParamTable@@
-����
-	һ���Ѹ�ֵ�Ķ��󼯺ϻ�����
-����ʽ
-	������һ��Ԫ�صĶ��������
+变量
+	一个已赋值的对象集合或数组
+表达式
+	有至少一个元素的对象或数组
 @@End@@
 
 
 ###Remarks###
-��������һ���ֲ��������Զ�����,��ʹ�� MustDeclareVars �Ĵ���.
-�������ʽ�����û��Ԫ�صĶ��󼯺ϣ�ѭ���������������ұ���������һ���մ�.
-�������ʽ��䲻�Ƕ���Ҳ��������, �ű��Բ��ֹͣ������ COM Error ���������ʽ������.
-��ʹ�� For...In ʱ Autoit ������ֻ����. ������� For...In ѭ����Ϊ������ֵ, ����仯����ӳ���鱾��. ʹ�� For...To ѭ��������ö���ڼ��޸�Ŀ¼.
+变量将由一个局部作用域自动创建,即使有 MustDeclareVars 的存在.
+如果表达式语句是没用元素的对象集合，循环将会跳过，而且变量将包含一个空串.
+如果表达式语句不是对象也不是数组, 脚本以差错停止，除非 COM Error 差错处理程式被配置.
+当使用 For...In 时 Autoit 数组是只读的. 你可以在 For...In 循环内为变量赋值, 这个变化不反映数组本身. 使用 For...To 循环在数组枚举期间修改目录.
 
-For...In...Next ������Ƕ��ʹ��.
+For...In...Next 语句可以嵌套使用.
 
 ###Related###
 <a href="With.htm">With...EndWith</a>, <a href="..\functions\ObjEvent.htm">ObjEvent (COM Error handler)</a>

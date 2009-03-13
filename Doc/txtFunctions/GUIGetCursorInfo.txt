@@ -1,39 +1,39 @@
-###Function###
+﻿###Function###
 GUIGetCursorInfo
 
 ###Description###
-��ȡ(����� GUI ���ڵ�)���λ��.
+获取(相对于 GUI 窗口的)鼠标位置.
 
 ###Syntax###
-GUIGetCursorInfo ( [���ھ��] )
+GUIGetCursorInfo ( [窗口句柄] )
 
 
 ###Parameters###
 @@ParamTable@@
-���ھ��
-	[��ѡ����] Ŀ�괰�ھ�������˲���ȱʡ��ʹ��"��ǰ"����.
+窗口句柄
+	[可选参数] 目标窗口句柄。若此参数缺省则使用"当前"窗口.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	����һ��5��Ԫ�ص���������ʾ����������Ϣ: 
-	$array[0] = X ���� (ˮƽ��)
-	$array[1] = Y ����(��ֱ��)
-	$array[2] = ������������ (1 Ϊ����, 0 Ϊδ����)
-	$array[3] = ����Ҽ������� (1 δ����, 0 Ϊδ����) 
-	$array[4] = �������Ŀؼ��Ŀؼ�ID( 0 Ϊû�л����޷���ȡ)   
-ʧ��:	���� 0 ������ @error Ϊ 1
+成功:	返回一个5个元素的数组来表示鼠标的坐标信息: 
+	$array[0] = X 坐标 (水平轴)
+	$array[1] = Y 坐标(垂直轴)
+	$array[2] = 鼠标左键被按下 (1 为按下, 0 为未按下)
+	$array[3] = 鼠标右键被按下 (1 未按下, 0 为未按下) 
+	$array[4] = 鼠标下面的控件的控件ID( 0 为没有或者无法获取)   
+失败:	返回 0 并设置 @error 为 1
 @@End@@
 
 
 ###Remarks###
-������ GUI �����ֵ (known as client coords).
+坐标是 GUI 的相对值 (known as client coords).
 
-��� "���ھ��" ������ʹ�� , ��ôָ���Ĵ��ڱ���µ� "��ǰ" ����.
+如果 "窗口句柄" 参数被使用 , 那么指定的窗口变成新的 "当前" 窗口.
 
-�����λ��ֻ���ڱ� GUICreate �����Ĵ���������Ч��. ���û�д��ھ���� GUI �� <b>���</b> ��Ҳ����Ч.
+鼠标光标位置只有在被 GUICreate 建立的窗口上是有效的. 如果没有窗口句柄的 GUI 是 <b>活动的</b> ，也将有效.
 
-ListViewItem �� TreeViewItem �ؼ�ID��Զ���ᱻ����, ֻ���ظ� Listview ���� TreeView �ؼ�ID.
+ListViewItem 或 TreeViewItem 控件ID永远不会被返回, 只返回父 Listview 或者 TreeView 控件ID.
 
 ###Related###
 GUICreate, GUIGetMsg

@@ -1,40 +1,40 @@
-###Function###
+﻿###Function###
 FileReadLine
 
 ###Description###
-�Ӵ�ǰ�Ѵ򿪵��ı��ļ��ж�ȡָ���е��ַ�.
+从此前已打开的文本文件中读取指定行的字符.
 
 ###Syntax###
-FileReadLine ( �ļ���� �� "�ļ���" [, �к�] )
+FileReadLine ( 文件句柄 或 "文件名" [, 行号] )
 
 
 ###Parameters###
 @@ParamTable@@
-�ļ����
-	Ŀ���ļ����,���ɴ�ǰ���� FileOpen �����ķ���ֵ���.����Ҳ����ֱ��ʹ��Ŀ���ļ���.
-�к�
-	[��ѡ����] Ҫ��ȡ���к�.��һ����1��ʾ(����0).
+文件句柄
+	目标文件句柄,可由此前调用 FileOpen 函数的返回值获得.另外也可以直接使用目标文件名.
+行号
+	[可选参数] 要读取的行号.第一行用1表示(不是0).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	����ָ���е��ı�. 
-����:	�� @error ��Ϊ -1,˵���Ѿ������ļ�β. 
-ʧ��:	�� @error ��Ϊ 1,˵���ļ������Զ�ȡģʽ�򿪻�������������.
+成功:	返回指定行的文本. 
+特殊:	把 @error 设为 -1,说明已经读到文件尾. 
+失败:	把 @error 设为 1,说明文件并非以读取模式打开或者有其它错误.
 @@End@@
 
 
 ###Remarks###
-�����������ض�����ָ���е��ı�����,ÿһ"��"֮�䶼�������з��ָ�( CHR(10) �� @LF ).
-��û�и���Ҫ��ȡ���к�,������Զ���ȡ"��һ��"("��һ��"���´򿪵��ļ�������ָ��һ��).
-���һ�������в���һ���ļ���� - �򿪵��ļ������ں��������ڼ�ر� - Ϊ��������ı��ļ���ʹ�� filehandles ���������.
-ע��: ��Ҫ�����ļ�������ļ���,Ҳ����, ��Ҫʹ�� FileOpen �ļ�Ȼ�����⺯����ʹ��һ���ļ���. �����������ֻ��ʹ���ļ�������ļ���������������!
+本函数将返回读到的指定行的文本内容,每一"行"之间都是以新行符分割( CHR(10) 或 @LF ).
+若没有给定要读取的行号,则程序将自动读取"下一行"("下一行"对新打开的文件而言是指第一行).
+如果一个档名有并非一个文件句柄 - 打开的文件将会在函数调用期间关闭 - 为分析大的文本文件与使用 filehandles 将会更加慢.
+注意: 不要混淆文件句柄与文件名,也就是, 不要使用 FileOpen 文件然后在这函数中使用一个文件名. 在你的例程中只能使用文件句柄或文件名，而不是两者!
 
-From a performance standpoint it is a bad idea to read line by line specifying "line" parameter whose value is incrementing by one. ���ǿ�� AutoIt �ӿ�ʼֱ��ָ�����ض��ļ�.
+From a performance standpoint it is a bad idea to read line by line specifying "line" parameter whose value is incrementing by one. 这会强迫 AutoIt 从开始直到指定行重读文件.
 
-ANSI ������ UTF16/UTF8 �ı���ʽ���Զ�ȡ - AutoIt �����Զ��ؾ�������.
+ANSI 的两种 UTF16/UTF8 文本格式可以读取 - AutoIt 将会自动地决定类型.
 
-һ������ܷ��� 65534 �ַ�.
+一次最大能返回 65534 字符.
 
 
 ###Related###

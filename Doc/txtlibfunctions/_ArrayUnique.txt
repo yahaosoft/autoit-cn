@@ -1,8 +1,8 @@
-###User Defined Function###
+﻿###User Defined Function###
 _ArrayUnique
 
 ###Description###
-���� 1 ά����Ķ���Ԫ��.
+返回 1 维数组的独特元素.
 
 ###Syntax###
 #Include <Array.au3>
@@ -11,27 +11,27 @@ _ArrayUnique($aArray[, $iDimension = 1[, $iBase = 0[, $iCase = 0[, $vDelim = "|"
 ###Parameters###
 @@ParamTable@@
 $sArray
-	Ŀ������
+	目标数组
 $iDimension
-	[��ѡ] ��ʹ�õ������С
+	[可选] 被使用的数组大小
 $iBase
-	[��ѡ] �趨������±��� 0 Ϊ��ַ���� 1 Ϊ��ַ��Ĭ���� 0 Ϊ��ַ
+	[可选] 设定数组的下标以 0 为基址或以 1 为基址。默认以 0 为基址
 $iCase
-	[��ѡ] �Ƿ����ִ�Сд.
+	[可选] 是否区分大小写.
 $vDelim
-	[��ѡ] �����ָ���ʹ�õ�һ��϶��ַ���������ʹ��ȫ���ַ�
+	[可选] 当做分隔符使用的一或较多字符。但不能使用全部字符
 @@End@@
 
 ###ReturnValue###
-�ɹ�: ����ֻ�����ض�Ԫ�ص�һά����
-ʧ��: ���� 0 ������ @Error:
-		0: û�д��� [No error.]
-		1: �����������һ�������򷵻� 0
-		2: ����������һЩ����ԭ��ʧ�� 
-		3: ����ά����Ч, Ӧ����һ������ 0 ������
+成功: 返回只包含特定元素的一维数组
+失败: 返回 0 ，设置 @Error:
+		0: 没有错误 [No error.]
+		1: 如果参数不是一个数组则返回 0
+		2: 函数操作因一些其他原因失败 
+		3: 数组维数无效, 应该是一个大于 0 的整数
 
 ###Remarks###
-��һ���±� ($array[0]) �������ص��ִ���Ŀ,ʣ�ŵ��±� ($array[1], $array[2] �ȵȡ�) �����ض����ִ�.
+第一个下标 ($array[0]) 包含返回的字串数目,剩馀的下标 ($array[1], $array[2] 等等。) 包含特定的字串.
 
 ###Related###
 _ArrayMax, _ArrayMin

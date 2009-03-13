@@ -1,33 +1,33 @@
-###Function###
+﻿###Function###
 WinGetState
 
 ###Description###
-��ȡָ�����ڵ�״̬.
+获取指定窗口的状态.
 
 ###Syntax###
-WinGetState ( "���ڱ���" [, "�����ı�"] ) 
+WinGetState ( "窗口标题" [, "窗口文本"] ) 
 
 
 ###Parameters###
 @@ParamTable@@
-���ڱ���
-	Ŀ�괰�ڱ���.�ο�<a href="../intro/windowsadvanced.htm">�������ⶨ��</a>
-�����ı�
-	[��ѡ����] ָ�����ڰ������ı�.
+窗口标题
+	目标窗口标题.参考<a href="../intro/windowsadvanced.htm">标题特殊定义</a>
+窗口文本
+	[可选参数] 指定窗口包含的文本.
 @@End@@
 
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	����һ��ָʾ����״̬��ֵ.���״ֵ̬���ӵ�һ��,���Ҫ���ô����Ƿ����ָ��״̬��ʹ�� BitAND() ����:
-	1 = ����ȷʵ����
-	2 = ���ڿɼ�
-	4 = ���ڿ���(δ������)
-	8 = ���ڱ�����
-	16 = ���ڱ���С��
-	32 = ���ڱ����
+成功:	返回一个指示窗口状态的值.多个状态值被加到一起,因此要检查该窗口是否具有指定状态请使用 BitAND() 函数:
+	1 = 窗口确实存在
+	2 = 窗口可见
+	4 = 窗口可用(未被禁用)
+	8 = 窗口被激活
+	16 = 窗口被最小化
+	32 = 窗口被最大化
 
-ʧ��:	����ֵΪ0,���� @error ��Ϊ 1,˵��δ�ҵ�Ŀ�괰��.
+失败:	返回值为0,并把 @error 设为 1,说明未找到目标窗口.
 @@End@@
 
 

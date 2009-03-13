@@ -1,8 +1,8 @@
-###User Defined Function###
+﻿###User Defined Function###
 _ClipPutFile
 
 ###Description###
-�����ļ������а������Դ������һ��
+复制文件到剪切板就像资源管理器一样
 
 ###Syntax###
 #Include <Misc.au3>
@@ -11,23 +11,23 @@ _ClipPutFile($sFile[, $sSeperator = "|"])
 ###Parameters###
 @@ParamTable@@
 $sFile
-	�ļ�������·��
+	文件的完整路径
 $sSeperator
-	�ָ����ļ��ķָ���, Ĭ�� = '|'
+	分割多个文件的分隔符, 默认 = '|'
 @@End@@
 
 ###ReturnValue###
-�ɹ�: True
-ʧ��: False ������ @ERROR Ϊ:
+成功: True
+失败: False 并设置 @ERROR 为:
 
-	1 - ���ܴ򿪼��а�
-	2 - ������ռ��а�
-	3 - GlobalAlloc ʧ��
-	4 - GlobalLock ʧ��
-	5 - ���ܴ��� H_DROP
-	6 - ���ܸ��¼��а�
-	7 - ���ܹرռ��а�
-	8 - GlobalUnlock ʧ��
+	1 - 不能打开剪切板
+	2 - 不能清空剪切板
+	3 - GlobalAlloc 失败
+	4 - GlobalLock 失败
+	5 - 不能创建 H_DROP
+	6 - 不能更新剪切板
+	7 - 不能关闭剪切板
+	8 - GlobalUnlock 失败
 
 ###Remarks###
 None.

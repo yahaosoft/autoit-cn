@@ -1,83 +1,83 @@
-###Function###
+﻿###Function###
 ControlCommand
 
 ###Description###
-��ָ���ؼ���������. 
+向指定控件发送命令. 
 
 ###Syntax###
-ControlCommand ( "���ڱ���", "�����ı�", �ؼ�ID, "����" [, "ѡ��"] ) 
+ControlCommand ( "窗口标题", "窗口文本", 控件ID, "命令" [, "选项"] ) 
 
 
 ###Parameters###
 @@ParamTable@@
-���ڱ���
-	Ŀ�괰�ڱ���.
-�����ı�
-	Ŀ�괰���ı�.
-�ؼ�ID
-	Ŀ��ؼ�.��鿴���� <a href="../intro/controls.htm">�ؼ�</a>  ��˵��.   
-����
-	Ҫ���͵��ؼ�������.
-ѡ��
-	[��ѡ����]ĳЩ������Ҫ����Ĳ���.(���Բ���,����Ϊ"")
+窗口标题
+	目标窗口标题.
+窗口文本
+	目标窗口文本.
+控件ID
+	目标控件.请查看关于 <a href="../intro/controls.htm">控件</a>  的说明.   
+命令
+	要发送到控件的命令.
+选项
+	[可选参数]某些命令需要额外的参数.(可以不填,或者为"")
 @@End@@
 
 ###ReturnValue###
-�����г��˿�������.����������(�����������Ч������/����/�ؼ�),�� @error=1. 
+下面列出了可用命令.若遇到错误(比如给定了无效的命令/窗口/控件),则 @error=1. 
 
 @@ControlCommandTable@@
-<b>����, ѡ��</b>
-	<b>����ֵ</b>
+<b>命令, 选项</b>
+	<b>返回值</b>
 "IsVisible", ""
-	��Ŀ��ؼ��ɼ��򷵻�ֵΪ1,����Ϊ0.   
+	若目标控件可见则返回值为1,否则为0.   
 "IsEnabled", ""
-	��Ŀ��ؼ�����(δ������)�򷵻�ֵΪ1,����Ϊ0.   
+	若目标控件可用(未被禁用)则返回值为1,否则为0.   
 "ShowDropDown", ""
-	����/���� ��Ͽ�(ComboBox)���б�.   
+	弹出/下拉 组合框(ComboBox)的列表.   
 "HideDropDown", ""
-	�ջ�/���� ��Ͽ�(ComboBox)���б�.   
-"AddString", '�ַ���'
-	�� ListBox �� ComboBox �ı༭����渽��ָ���ַ���.   
-"DelString", ���ִ���
-	ɾ���� ListBox �� ComboBox �ı༭����ָ�����ַ���(��0��ʼ,0 ������һ��).   
-"FindString", '�ַ���'
-	������ ListBox �� ComboBox �ı༭������ָ���ַ���ƥ����Ŀ�ĳ��ִ���(��0��ʼ,0 ������һ��).   
-"SetCurrentSelection", <i>���ִ���</i>
-	ͨ��ָ�����ִ���(��0��ʼ,0 ������һ��)�� ListBox �� ComboBox �ĵ�ǰѡ������Ϊָ������Ŀ.   
-"SelectString", '�ַ���'
-	ͨ��ָ���ַ����� ListBox �� ComboBox �ĵ�ǰѡ������Ϊƥ���ַ�������Ŀ.   
+	收回/隐藏 组合框(ComboBox)的列表.   
+"AddString", '字符串'
+	在 ListBox 或 ComboBox 的编辑框后面附加指定字符串.   
+"DelString", 出现次序
+	删除在 ListBox 或 ComboBox 的编辑框中指定的字符串(从0开始,0 代表第一个).   
+"FindString", '字符串'
+	返回在 ListBox 或 ComboBox 的编辑框中与指定字符串匹配项目的出现次序(从0开始,0 代表第一个).   
+"SetCurrentSelection", <i>出现次序</i>
+	通过指定出现次序(从0开始,0 代表第一个)把 ListBox 或 ComboBox 的当前选择项设为指定的项目.   
+"SelectString", '字符串'
+	通过指定字符串把 ListBox 或 ComboBox 的当前选择项设为匹配字符串的项目.   
 "IsChecked", ""
-	��Ŀ�갴ť(��ѡ��/��ѡ��)��ѡ���򷵻�ֵΪ1,����Ϊ0.   
+	若目标按钮(复选框/单选框)被选中则返回值为1,否则为0.   
 "Check", ""
-	ʹĿ�갴ť(��ѡ��/��ѡ��)��Ϊѡ��״̬   
+	使目标按钮(复选框/单选框)变为选中状态   
 "UnCheck", ""
-	ʹĿ�갴ť(��ѡ��/��ѡ��)��Ϊ��ѡ��״̬   
+	使目标按钮(复选框/单选框)变为非选中状态   
 "GetCurrentLine", ""
-	������Ŀ��༭���в����(caret,���)�������к�.   
+	返回在目标编辑框中插入符(caret,光标)的所在行号.   
 "GetCurrentCol", ""
-	������Ŀ��༭���в����(caret,���)�������к�.   
+	返回在目标编辑框中插入符(caret,光标)的所在列号.   
 "GetCurrentSelection", ""
-	���� ListBox �� ComboBox �ؼ���ǰѡ�е���Ŀ��.   
+	返回 ListBox 或 ComboBox 控件当前选中的项目名.   
 "GetLineCount", ""
-	����Ŀ��༭���е�������.   
-"GetLine", <i>�к�</i>
-	����Ŀ��༭����ָ���е��ı�����.   
+	返回目标编辑框中的总行数.   
+"GetLine", <i>行号</i>
+	返回目标编辑框中指定行的文本内容.   
 "GetSelected", ""
-	����Ŀ��༭���е�(�û�������������ʽ)ѡ�����ı�.   
-"EditPaste", '�ַ���'
-	��Ŀ��༭���в����(caret)����λ�ú����ָ���ַ���.   
+	返回目标编辑框中的(用户用鼠标或其它方式)选定的文本.   
+"EditPaste", '字符串'
+	在目标编辑框中插入符(caret)所在位置后插入指定字符串.   
 "CurrentTab", ""
-	������ SysTabControl32 �ؼ��е�ǰ��ʾ�ı�ǩ���(��1��ʼ,1������ߵ�һ��).   
+	返回在 SysTabControl32 控件中当前显示的标签编号(从1开始,1代表左边第一个).   
 "TabRight", ""
-	ʹ SysTabControl32 �ؼ��л���(�ұߵ�)��һ����ǩ.   
+	使 SysTabControl32 控件切换到(右边的)下一个标签.   
 "TabLeft", ""
-	ʹ SysTabControl32 �ؼ��л���(��ߵ�)��һ����ǩ.    
+	使 SysTabControl32 控件切换到(左边的)下一个标签.    
 @@End@@
 
 ###Remarks###
-�еĴ����ڷǻ״̬�»��ֹ�Զ�������(����:��ť��ɻ�ɫ). ʹ�� WinActive() ����������ؼ����ڵĴ��ڹ�����ʹ��ControlCommand() �����������ؼ�. 
+有的窗口在非活动状态下会禁止自动化操作(比如:按钮变成灰色). 使用 WinActive() 函数来激活控件所在的窗口过后再使用ControlCommand() 函数来操作控件. 
 
-ĳЩ��������������ͨ�� Combo �� ListBox �ؼ�,��ȴ���ܶ� "ComboLBox" �ؼ���������. 
+某些命令能作用于普通的 Combo 和 ListBox 控件,但却不能对 "ComboLBox" 控件正常工作. 
 
 
 ###Related###

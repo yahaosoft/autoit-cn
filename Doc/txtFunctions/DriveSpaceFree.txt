@@ -1,29 +1,29 @@
-###Function###
+﻿###Function###
 DriveSpaceFree
 
 ###Description###
-��MB(���ֽ�)Ϊ��λ����ָ��·�����ڷ�����ʣ��ռ�.
+以MB(兆字节)为单位返回指定路径所在分区的剩余空间.
 
 ###Syntax###
-DriveSpaceFree ( "·��" )
+DriveSpaceFree ( "路径" )
 
 
 ###Parameters###
 @@ParamTable@@
-·��
-	Ҫ�����Ӧ��Ϣ��������·��.
+路径
+	要获得相应信息的驱动器路径.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	��MB(���ֽ�)Ϊ��λ����ָ��·�����ڷ�����ʣ��ռ�(������).
-ʧ��:	����ֵΪ 0,���� @error ��Ϊ 1.
+成功:	以MB(兆字节)为单位返回指定路径所在分区的剩余空间(浮点数).
+失败:	返回值为 0,并把 @error 设为 1.
 @@End@@
 
 
 ###Remarks###
-��ʹ������·����ĳ��������Ŀ¼������·��(������ȷʵ���ڵ�)DriveSpaceFreeҲ�ܼ���������ڷ����Ŀ��ÿռ�;�����ָ�ɵ���һ���ļ���·������. 
-����Ծ�ȷ�ȵ�Ҫ�󲻸����ʹ�� Round ����(��������).
+即使给定的路径是某驱动器子目录的完整路径(必须是确实存在的)DriveSpaceFree也能计算出其所在分区的可用空间;但如果指派的是一个文件的路径则不行. 
+如果对精确度的要求不高则可使用 Round 函数(四舍五入).
 
 ###Related###
 DriveGetDrive, DriveGetFileSystem, DriveGetLabel, DriveGetSerial, DriveGetType, DriveSetLabel, DriveSpaceTotal, DriveStatus

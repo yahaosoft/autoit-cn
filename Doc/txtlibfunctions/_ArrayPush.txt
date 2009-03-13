@@ -1,8 +1,8 @@
-###User Defined Function###
+﻿###User Defined Function###
 _ArrayPush
 
 ###Description###
-��Ŀ������ĩ�ˣ����׶ˣ�������ֵ,ͬʱɾ��Ŀ���������λ����ĩλ��Ԫ�أ�����Ŀ�������С����.ע�������ɾ����λ��Ϊ����
+在目标数组末端（或首端）插入新值,同时删除目标数组的首位（或末位）元素，保持目标数组大小不变.注意插入与删除的位置为反向
 
 ###Syntax###
 #Include <Array.au3>
@@ -11,26 +11,26 @@ _ArrayPush(ByRef $avArray, $vValue[, $iDirection = 0])
 ###Parameters###
 @@ParamTable@@
 $avArray
-	Ŀ������
+	目标数组
 $vValue
-	��Դֵ (����ʹ��һ������)
+	来源值 (可以使用一个数组)
 $iDirection
-	[��ѡ] ��Դֵ���ӵ�Ŀ������ķ���:
-		0 = ĩ��
-		1 = �׶�
+	[可选] 来源值添加到目标数组的方向:
+		0 = 末端
+		1 = 首端
 @@End@@
 
 ###ReturnValue###
-�ɹ�: 1
-ʧ��: 0, ���� @error:
-	        1 - Ŀ�� $avArray ����һ������
-	        2 - ��Դֵ $vValue ��һ���飬������Ŀ������ $avArray, (��ƥ��)
-	        3 - Ŀ�� $avArray����һά����
+成功: 1
+失败: 0, 设置 @error:
+	        1 - 目标 $avArray 不是一个数组
+	        2 - 来源值 $vValue 是一数组，但大于目标数组 $avArray, (不匹配)
+	        3 - 目标 $avArray不是一维数组
 
 ###Remarks###
-��������������������������, ĳЩ����£����ܻὨ��һ���޴������.
-���������ڱ������е���ֵ(�е����¼����), ɾ����λ��ĩλԪ��ȡ����ѡ��ķ���.
-�����ʱ���ջ(push)��������. ԭ�ģ�[It is similar to the push command in assembly.]
+这个函数可连续更新数组的数据, 某些情况下，可能会建立一个巨大的数组.
+它在数组内保存所有的数值(有点像记录档案), 删除首位或末位元素取决于选择的方向.
+在组合时与进栈(push)命令类似. 原文：[It is similar to the push command in assembly.]
 
 ###Related###
 _ArrayAdd, _ArrayConcatenate, _ArrayDelete, _ArrayInsert, _ArrayPop

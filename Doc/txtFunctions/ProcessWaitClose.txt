@@ -1,37 +1,37 @@
-###Function###
+﻿###Function###
 ProcessWaitClose
 
 ###Description###
-��ͣ�ű���ִ��ֱ���������̲��ٴ���Ϊֹ.
+暂停脚本的执行直至给定进程不再存在为止.
 
 ###Syntax###
-ProcessWaitClose ( "������" [, ��ʱʱ��] ) 
+ProcessWaitClose ( "进程名" [, 超时时间] ) 
 
 
 ###Parameters###
 @@ParamTable@@
-������
-	Ŀ����̵����ƻ� PID(���̱�ʶ��).   
-��ʱʱ��
-	[��ѡ����] ָ��Ҫ�ȴ���ʱ�䳤��(Ĭ��Ϊһֱ�ȴ�).    
+进程名
+	目标进程的名称或 PID(进程标识符).   
+超时时间
+	[可选参数] 指定要等待的时间长度(默认为一直等待).    
 @@End@@
 
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	����1������ @extended Ϊ�����˳�����.
-ʧ��:	����0 ,��ʱ. ����ЧPIDʱ @error ����Ϊ��0 ���� @extended ����Ϊ 0xCCCCCCCC.
+成功:	返回1并设置 @extended 为进程退出代码.
+失败:	返回0 ,超时. 当无效PID时 @error 设置为非0 并且 @extended 设置为 0xCCCCCCCC.
 @@End@@
 
 
 ###Remarks###
-��������ָ��ִ���ļ�������(�����������·��),����:"notepad.exe" �� "winword.exe" 
+进程名是指可执行文件的名称(无需给出完整路径),例如:"notepad.exe" 或 "winword.exe" 
 
-PID �Ǳ�ʶ���̵�Ψһ����ֵ.PID ��ͨ�� ProcessExists �� Run ����ķ���ֵ���.
+PID 是标识进程的唯一的数值.PID 可通过 ProcessExists 或 Run 命令的返回值获得.
 
-ÿ�� 250 �������ҽ��̽������һ��.
+每隔 250 毫秒左右进程将被检测一次.
 
-������̲�����,����1.
+如果进程不存在,返回1.
 
 
 ###Related###

@@ -1,31 +1,31 @@
-###Function###
+﻿###Function###
 SetError
 
 ###Description###
-���ú� @error ��ֵ.
+设置宏 @error 的值.
 
 ###Syntax###
-SetError ( ������ [, ��չֵ [, ����ֵ]] )
+SetError ( 错误码 [, 扩展值 [, 返回值]] )
 
 
 ###Parameters###
 @@ParamTable@@
-������
-	Ϊ@error������һ���û�ָ����ֵ(����).   
-��չֵ
-	[��ѡ����]Ϊ@extended������һ��ֵ(����). �������Ҳ����ʹ�� SetExtended()������������.   
-����ֵ
-	����Ĭ��ֵ���������õ�ֵ.    
+错误码
+	为@error宏设置一个用户指定的值(整数).   
+扩展值
+	[可选参数]为@extended宏设置一个值(整数). 这个设置也可以使用 SetExtended()函数进行设置.   
+返回值
+	忽略默认值并返回设置的值.    
 @@End@@
 
 
 ###ReturnValue###
-Ĭ���޷���ֵ, Ȼ�������ѡ����չֵ�����е��Ա�����ͨ��, ��ô�������᷵���Ǹ�ֵ.
+默认无返回值, 然而如果可选的扩展值函数中的自变量被通过, 那么函数将会返回那个值.
 
 
 ###Remarks###
-�� @error ��ֵ������һ������������֮ǰ����.���,����Ҫ��ĳ�� While-WEnd ѭ���в�������ֵ,��þͰ������浽ĳ�������б���.
-��չֵ�����ǿ�ѡ��. ֻ���ṩͬʱ�趨 @error �� @extended ��һ������. �� @extended �����趨ʱ, �Ƽ���Ϊʹ�� SetExtended() ����.
+宏 @error 的值仅当下一个函数被调用之前可用.因此,若您要在某个 While-WEnd 循环中测试它的值,最好就把它保存到某个变量中备份.
+扩展值参数是可选的. 只是提供同时设定 @error 和 @extended 的一个方法. 当 @extended 必须设定时, 推荐改为使用 SetExtended() 函数.
 
 ###Related###
 SetExtended

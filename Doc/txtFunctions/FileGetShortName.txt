@@ -1,30 +1,30 @@
-###Function###
+﻿###Function###
 FileGetShortName
 
 ###Description###
-����ָ��·���Ķ��ļ���(��8.3��������,���ļ�ǰ׺8���ַ�,��׺3���ַ�).
+返回指定路径的短文件名(按8.3命名规则,即文件前缀8个字符,后缀3个字符).
 
 ###Syntax###
-FileGetShortName ( "�ļ�" [, ��־] )
+FileGetShortName ( "文件" [, 标志] )
 
 
 ###Parameters###
 @@ParamTable@@
-�ļ�
-	Ҫת���ɶ��ļ�����Ŀ���ļ���·��
-��־
-	[��ѡ] ���Ϊ1,����֧�����·��, ����: "..\file.txt"
+文件
+	要转换成短文件名的目标文件的路径
+标志
+	[可选] 如果为1,可以支持相对路径, 例如: "..\file.txt"
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	����ָ��·���Ķ��ļ���.
-ʧ��:	���ز��������� @error Ϊ 1.
+成功:	返回指定路径的短文件名.
+失败:	返回参数并设置 @error 为 1.
 @@End@@
 
 
 ###Remarks###
-����м����ļ�ǰ8���ַ���ͬ,��������һ�� ~i ,iΪ�ڼ����ļ�.
+如果有几个文件前8个字符相同,将会添加一个 ~i ,i为第几个文件.
 
 ###Related###
 FileGetLongName

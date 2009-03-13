@@ -1,42 +1,42 @@
-###Function###
+﻿###Function###
 GUICtrlSetBkColor
 
 ###Description###
-����ָ���ؼ��ı�����ɫ��
+设置指定控件的背景颜色。
 
 ###Syntax###
-GUICtrlSetBkColor ( �ؼ�ID, ����ɫ ) 
+GUICtrlSetBkColor ( 控件ID, 背景色 ) 
 
 
 ###Parameters###
 @@ParamTable@@
-�ؼ�ID
-	�ؼ���ʶ�����ؼ�ID�������� <a href="../guiref/GUICtrlCreate.htm">GUICtrlCreate...</a> �����ķ���ֵ���.
-����ɫ
-	RGB ģʽ����ɫֵ��
+控件ID
+	控件标识符（控件ID），可由 <a href="../guiref/GUICtrlCreate.htm">GUICtrlCreate...</a> 函数的返回值获得.
+背景色
+	RGB 模式的颜色值。
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	����ֵΪ1.
-�ɹ�:	����ֵΪ0.
+成功:	返回值为1.
+成功:	返回值为0.
 @@End@@
 
 
 ###Remarks###
-ֻ�а�ť(Button),��ǩ(Label),���� (Checkbox),Ⱥ��(Group), ��ѡ��ť(Radio),�ı��༭��(Edit), �����(Input),�б� (List),�б��鿴 (Listview), �б��鿴��Ŀ(ListviewItem), �����б�(Treeview), �����б���Ŀ(TreeviewItem),ͼ����ʾ(Graphic), ������(Progress) �� ������(Slider) �ؼ�����������ɫ. 
+只有按钮(Button),标签(Label),检查框 (Checkbox),群组(Group), 单选按钮(Radio),文本编辑框(Edit), 输入框(Input),列表 (List),列表查看 (Listview), 列表查看项目(ListviewItem), 树形列表(Treeview), 树形列表项目(TreeviewItem),图形显示(Graphic), 进度条(Progress) 和 滑动条(Slider) 控件可以设置颜色. 
 
-�������ʹ����XP��ʽ,��ô�����������ܶ�����ɫ. 
+如果程序使用了XP样式,那么进度条将不能定义颜色. 
 
-��ť�ؼ���"windows ����" ��ϵͳ������,������ $BS_ICON ��ʽ. 
+按钮控件在"windows 经典" 的系统主题下,不能有 $BS_ICON 样式. 
 
-�ɰ�� autoit ��ǰv3.0.102 ����BGR��ʽ�������ɫ-���µİ汾ʹ�õ�RGBĬ������£����������ǿ��Ըı��ʹ��Colormode��ѡ��
+旧版的 autoit （前v3.0.102 ）用BGR格式定义的颜色-较新的版本使用的RGB默认情况下，不过，这是可以改变的使用Colormode的选择。
 
-ר�ñ�� $GUI_BKCOLOR_TRANSPARENT �ܸ���ǩ�ؼ�һ��͸���ı���. ��Ƭ�ؼ�������͸����ɫ��.
+专用标记 $GUI_BKCOLOR_TRANSPARENT 能给标签控件一个透明的背景. 照片控件总是有透明颜色的.
 
-ר�ñ�� $GUI_BKCOLOR_LV_ALTERNATE ���� Listview �ؼ�һ���ṩ ListviewItems �е��滻����.
-�����н���ȡ Listview �ؼ��� GUICtrlSetBkColor ��ɫ��λ��.
-ż���н���ȡ ListviewItem �ؼ��� GUICtrlSetBkColor ��ɫ��λ��.
+专用标记 $GUI_BKCOLOR_LV_ALTERNATE 能与 Listview 控件一起提供 ListviewItems 行的替换背景.
+奇数行将获取 Listview 控件的 GUICtrlSetBkColor 的色彩位置.
+偶数行将获取 ListviewItem 控件的 GUICtrlSetBkColor 的色彩位置.
 
 ###Related###
 ColorMode (Option), GUICtrlCreate..., GUICtrlSetColor, GUICtrlSetDefBkColor

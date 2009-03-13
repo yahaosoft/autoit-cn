@@ -1,8 +1,8 @@
-###User Defined Function###
+﻿###User Defined Function###
 _GUICtrlButton_Create
 
 ###Description###
-����һ����ť�ؼ�
+创建一个按钮控件
 
 ###Syntax###
 #Include <GuiButton.au3>
@@ -11,63 +11,63 @@ _GUICtrlButton_Create($hWnd, $sText, $iX, $iY, $iWidth, $iHeight[, $iStyle = -1[
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	�����ڻ������ߴ��ڵľ��
+	父窗口或所有者窗口的句柄
 $sText
-	��ť�ı�
+	按钮文本
 $iX
-	ˮƽλ��
+	水平位置
 $iY
-	��ֱλ��
+	垂直位置
 $iWidth
-	����
+	宽度
 $iHeight
-	�߶�
+	高度
 $iStyle
-	�ؼ���ʽ:
-		  $BS_AUTO3STATE - ѡ�С������á��Ƴ�ѡ�� ��״̬�ĸ�ѡ��.
-		  $BS_AUTOCHECKBOX - ѡ�С���ѡ�ж�״̬��ѡ��.
-		  $BS_AUTORADIOBUTTON - ��ͬ�ڵ�ѡ��ť,����ѡ��ʱ,��ť�Զ��ظ�����ʾ�����Ƴ�ͬ����������ͬ��ʽ��ť��ѡ��״̬.
-		  $BS_FLAT - ��ά��ť; ��ʹ��Ĭ���������������� 3D ͼ��.
-		  $BS_GROUPBOX - һ�����ο���Ⱥ��������ť�����ϱ����������ʾ��ť�ı�.
-		  $BS_PUSHLIKE - ���ɵİ�ť (�縴ѡ��, ��״̬��ѡ��, ��ѡ��ť) ������������ư�ť����.
+	控件样式:
+		  $BS_AUTO3STATE - 选中、不可用、移除选中 三状态的复选框.
+		  $BS_AUTOCHECKBOX - 选中、非选中二状态复选框.
+		  $BS_AUTORADIOBUTTON - 相同于单选按钮,当被选择时,按钮自动地高亮显示，并移除同组中其它相同样式按钮的选中状态.
+		  $BS_FLAT - 二维按钮; 不使用默认明暗处理产生的 3D 图像.
+		  $BS_GROUPBOX - 一个矩形框，能群组其它按钮，在上边线左对齐显示按钮文本.
+		  $BS_PUSHLIKE - 生成的按钮 (如复选框, 三状态复选框, 或单选按钮) 外表、动作类似按钮开关.
 
-		  $BS_DEFPUSHBUTTON - ��ʼ����ʱ��ɫ�߿�. �����ť��һ���Ի����У���ʹû�����뽹�㣬�û�Ҳ���ûس����м��ܿ��ѡ����, ��ʹ����ΪĬ��ѡ�а�ť.
+		  $BS_DEFPUSHBUTTON - 初始启动时有色边框. 如果按钮在一个对话框中，即使没有输入焦点，用户也能用回车换行键很快地选择它, 或使它成为默认选中按钮.
 
-		  $BS_BOTTOM - �ı��ڰ�ť�ײ����ж���.
-		  $BS_CENTER - �ı��ڰ�ť���ľ��ж���.
-		  $BS_LEFT - �ı��ڰ�ť�������.
-		  $BS_MULTILINE - �����ı��Զ�����.
-		  $BS_RIGHT - �ı��ڰ�ť���Ҷ���.
+		  $BS_BOTTOM - 文本在按钮底部居中对齐.
+		  $BS_CENTER - 文本在按钮中心居中对齐.
+		  $BS_LEFT - 文本在按钮中左对齐.
+		  $BS_MULTILINE - 超长文本自动换行.
+		  $BS_RIGHT - 文本在按钮中右对齐.
 		  $BS_RIGHTBUTTON - Positions a check box square on the right side of the button rectangle.
-		  $BS_TOP - �ı��ڰ�ť�������ж���.
-		  $BS_VCENTER - �ı��ڰ�ť��ֱ����.
+		  $BS_TOP - 文本在按钮顶部居中对齐.
+		  $BS_VCENTER - 文本在按钮垂直中心.
 
-		  $BS_ICON - ��ť����ʾһ�� ico ͼ��.
-		  $BS_BITMAP - ��ť����ʾһ�� bmp λͼ.
+		  $BS_ICON - 按钮能显示一个 ico 图标.
+		  $BS_BITMAP - 按钮能显示一个 bmp 位图.
 
-		  $BS_NOTIFY - ������ť���� BN_KILLFOCUS �� BN_SETFOCUS ֪ͨ��Ϣ�����ĸ�����. ע�ⲻ�۰�ť�Ƿ��������ʽ�����ܷ��� BN_CLICKED ֪ͨ��Ϣ��Ҫ��ȡ BN_DBLCLK ��Ϣ,��ť������ BS_RADIOBUTTON �� BS_OWNERDRAW ��ʽ.
+		  $BS_NOTIFY - 允许按钮发送 BN_KILLFOCUS 和 BN_SETFOCUS 通知消息到它的父窗口. 注意不论按钮是否有这个样式，都能发送 BN_CLICKED 通知消息，要获取 BN_DBLCLK 消息,按钮必须有 BS_RADIOBUTTON 或 BS_OWNERDRAW 样式.
 
-		  Windows Vista ��ʽ:
-		    $BS_SPLITBUTTON - �в�ֱ�־ " l '�İ�ť�� ���һ�������˵���ͷ
-		    $BS_DEFSPLITBUTTON - ���� $BS_PUSHBUTTON ��ʽ��ɫ�߿򣨳�ʼ����ʱ����ť, Ҳ�в�ֱ�־ " l '�� ���һ�������˵���ͷ.
-		    $BS_COMMANDLINK - �ޱ߿�ť
-		    $BS_DEFCOMMANDLINK - ���� $BS_PUSHBUTTON ��ʽ�İ�ť����ϸɫ�߿��Χ.
+		  Windows Vista 样式:
+		    $BS_SPLITBUTTON - 有拆分标志 " l '的按钮， 配合一个下拉菜单箭头
+		    $BS_DEFSPLITBUTTON - 类似 $BS_PUSHBUTTON 样式的色边框（初始启动时）按钮, 也有拆分标志 " l '， 配合一个下拉菜单箭头.
+		    $BS_COMMANDLINK - 无边框按钮
+		    $BS_DEFCOMMANDLINK - 类似 $BS_PUSHBUTTON 样式的按钮，由细色边框包围.
 
-		Ĭ��: ( -1) : ��
-		ǿ����ʽ : $WS_CHILD, $WS_TABSTOP, $WS_VISIBLE, $BS_NOTIFY
+		默认: ( -1) : 无
+		强制样式 : $WS_CHILD, $WS_TABSTOP, $WS_VISIBLE, $BS_NOTIFY
 
 $iExStyle
-	�ؼ���չ��ʽ. ��Щ���ϱ�׼ $WS_EX_ constants.
+	控件扩展样式. 这些符合标准 $WS_EX_ constants.
 @@End@@
 
 ###ReturnValue###
-�ɹ�: ���ذ�ť�ؼ����
-ʧ��: ����0
+成功: 返回按钮控件句柄
+失败: 返回0
 
 ###Remarks###
-�Ϸ�������Ҫ ButtonConstants.au3
+上方常量需要 ButtonConstants.au3
 
-������������߼��û�ѧϰ��������ƹ���.
+这个函数帮助高级用户学习如何做控制工作.
 
 ###Related###
 _GUICtrlButton_Destroy

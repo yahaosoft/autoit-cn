@@ -1,36 +1,36 @@
-###Function###
+﻿###Function###
 RunAsWait
 
 ###Description###
-�ڲ�ͬ���û�����������һ���ⲿ�������ֹ�ű�ִ��ֱ���������.
+在不同的用户环境中运行一个外部程序和中止脚本执行直到程序完成.
 
 ###Syntax###
-RunAsWait ( "�û���", "��", "����", ��¼��־, "�ļ���" [, "����Ŀ¼" [, ��ʾ��־ [, ��ѡ��־ ]]] )
+RunAsWait ( "用户名", "域", "密码", 登录标志, "文件名" [, "工作目录" [, 显示标志 [, 可选标志 ]]] )
 
 
 ###Parameters###
 @@ParamTable@@
-�û���
-	��¼���û���.
-��
-	������֤����.
-����
-	�û��ĵ�¼����.
-��¼��־
-	0 - ������¼,û�� profile.
-	1 - ������¼,�� profile.
-	2 - ֻʹ������֤��.
-	4 - �̳е��ù��̻��������û���.
-�ļ���
-	��ִ���ļ�������·��(�ļ���ʽΪ EXE,BAT,COM �� PIF).
-����Ŀ¼
-	[��ѡ����] ����Ŀ¼. �����ָ��, ��ʹ�� @SystemDir.
-��ʾ��־
-	[��ѡ����] ִ�г������ʾ״̬:
-	  @SW_HIDE = ���ش��� (�� Default �ؼ���)
-	  @SW_MINIMIZE = ��С������
-	  @SW_MAXIMIZE = ��󻯴���
-��ѡ��־
+用户名
+	登录的用户名.
+域
+	依赖验证的域.
+密码
+	用户的登录口令.
+登录标志
+	0 - 交互登录,没有 profile.
+	1 - 交互登录,有 profile.
+	2 - 只使用网络证书.
+	4 - 继承调用过程环境而非用户的.
+文件名
+	可执行文件的完整路径(文件格式为 EXE,BAT,COM 或 PIF).
+工作目录
+	[可选参数] 工作目录. 如果不指定, 则使用 @SystemDir.
+显示标志
+	[可选参数] 执行程序的显示状态:
+	  @SW_HIDE = 隐藏窗口 (或 Default 关键字)
+	  @SW_MINIMIZE = 最小化窗口
+	  @SW_MAXIMIZE = 最大化窗口
+可选标志
 	[optional] Controls various options related to how the parent and child process interact.
 	  0x10000 ($RUN_CREATE_NEW_CONSOLE) = The child console process should be created with it's own window instead of using the parent's window.  This flag is only useful when the parent is compiled as a Console application.
 @@End@@
@@ -38,25 +38,25 @@ RunAsWait ( "�û���", "��", "����", ��¼��־, "�ļ���" [, "����Ŀ¼" [, ��ʾ��־
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�: 	�������г�����˳�����. 
-ʧ��: 	���� 0 ������ @error Ϊ����.
+成功: 	返回运行程序的退出代码. 
+失败: 	返回 0 并设置 @error 为非零.
 @@End@@
 
 
 ###Remarks###
-ָ�����������е��û�����Ŀ¼�Ǻ���Ҫ��, ����������ʧ��.
+指定你正在运行的用户工作目录是很重要的, 否则函数将会失败.
 
-������ֻ����ȷ������Ҫ���û������ļ�. There is a small chance a profile can be stuck in memory under the right conditions. ���һ��ʹ�� RunAs() �Ľű���Ϊϵͳ�ʻ����� (����, �ű�����һ����������) ���û������ļ�������, ����뱣�ֽű�����ֱ���ӽ��̹ر�.
+建议你只载入确定你需要的用户需求文件. There is a small chance a profile can be stuck in memory under the right conditions. 如果一个使用 RunAs() 的脚本作为系统帐户运行 (例如, 脚本当做一个服务运行) 和用户需求文件被载入, 你必须保持脚本运行直到子进程关闭.
 
-������һ��ϵͳ��������ʱ, �ڶ��εĵ�¼ (RunAs) ������뱻���������⺯����ʧ��. �����Ӧ�õ�����ϵͳ�ʻ�ʱ.
+当运行一个系统管理程序时, 第二次的登录 (RunAs) 服务必须被允许否则这函数将失败. 这个不应用到运行系统帐户时.
 
-���������������֮�󣬽ű�����ֱͣ���������. ����һ������Ȼ�����̼����ű�ִ�У����Ϊʹ�� RunAs ����.
+在运行那请求程序之后，脚本会暂停直到程序结束. 运行一个程序然后立刻继续脚本执行，需改为使用 RunAs 函数.
 
-��ʹ������Ȼ�����У�һЩ����Ҳ�����̷���; ��Щ������������һ������ - ���ܹ�ʹ�� ProcessWaitClose ����������Щ����.
+即使他们仍然在运行，一些程序也会立刻返回; 这些程序产生另外的一个进程 - 你能够使用 ProcessWaitClose 函数处理这些范例.
 
-The "load profile" ���¼��־2 "��[��]Ψһƾ֤" ѡ�����. ʹ�����߽���������ȷ�Ľ��.
+The "load profile" 与登录标志2 "网[络]唯一凭证" 选项不兼容. 使用两者将产生不明确的结果.
 
-There is an issue in the Windows XP generation of Windows which prevents STDIO redirection and the show flag from working.  See Microsoft Knowledge Base article KB818858 for more information about which versions are affected as well as a hotfix for the issue.  ʹ�� Windows 2000, Windows XP SP2 ����߰汾, �Լ� Windows Vista û�����Ӱ��.
+There is an issue in the Windows XP generation of Windows which prevents STDIO redirection and the show flag from working.  See Microsoft Knowledge Base article KB818858 for more information about which versions are affected as well as a hotfix for the issue.  使用 Windows 2000, Windows XP SP2 或更高版本, 以及 Windows Vista 没有这个影响.
 
 ###Related###
 ProcessWait, ProcessWaitClose, Run, RunWait, ShellExecute, ShellExecuteWait, RunAs

@@ -1,4 +1,4 @@
-txt2htm.au3 converts specially formatted text files to htm files which comprise the compiled help file.
+﻿txt2htm.au3 converts specially formatted text files to htm files which comprise the compiled help file.
 
 The following is an example with explanations:
 

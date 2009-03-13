@@ -1,61 +1,61 @@
-###Function###
+﻿###Function###
 GUICtrlCreateListView
 
 ###Description###
-��GUI�ϴ���һ�� ListView �ؼ�. 
+在GUI上创建一个 ListView 控件. 
 
 ###Syntax###
-GUICtrlCreateListView ( "�ı�", ���, ���� [, ���� [, �߶� [, ��ʽ [, ��չ��ʽ]]]] ) 
+GUICtrlCreateListView ( "文本", 左侧, 顶部 [, 宽度 [, 高度 [, 样式 [, 扩展样式]]]] ) 
 
 
 ###Parameters###
 @@ParamTable@@
-�ı�
-	������Ŀͷ. ÿ����Ŀ���� <a href="AutoItSetOption.htm#GUIDataSeparatorChar">Opt("GUIDataSeparatorChar")</a> �ֿ�.
-���
-	�ؼ�����λ��.����ֵΪ -1 ����� <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> ���������������λ��.   
-����
-	�ؼ��Ϸ���λ��.����ֵΪ -1 ����� <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> �������������Ϸ�λ��.   
-����
-	[��ѡ����] �ؼ��Ŀ���(Ĭ��ֵΪ��һ���ؼ��Ŀ���).
-�߶�
-	[��ѡ����] �ؼ��ĸ߶�(Ĭ��ֵΪ��һ���ؼ��ĸ߶�).
-��ʽ
-	[��ѡ����] ָ���ؼ�����ʽ. ��鿴��¼�й��� <a href="../appendix/GUIStyles.htm#ListView">GUI �ؼ���ʽ��¼</a> ��˵��.
+文本
+	定义栏目头. 每个项目可由 <a href="AutoItSetOption.htm#GUIDataSeparatorChar">Opt("GUIDataSeparatorChar")</a> 分开.
+左侧
+	控件左侧的位置.若此值为 -1 则根据 <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> 的设置来计算左侧位置.   
+顶部
+	控件上方的位置.若此值为 -1 则根据 <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> 的设置来计算上方位置.   
+宽度
+	[可选参数] 控件的宽度(默认值为上一个控件的宽度).
+高度
+	[可选参数] 控件的高度(默认值为上一个控件的高度).
+样式
+	[可选参数] 指定控件的样式. 请查看附录中关于 <a href="../appendix/GUIStyles.htm#ListView">GUI 控件样式附录</a> 的说明.
 	
-	Ĭ��ֵ(-1):$LVS_SHOWSELALWAYS, $LVS_SINGLESEL 
-	ǿ������ʽ: $LVS_REPORT
-��չ��ʽ
-	[��ѡ����] ָ���ؼ�����չ��ʽ.��鿴��¼�� <a href="../appendix/GUIStyles.htm#Extended">��չ��ʽ��</a> ���� <a href="../appendix/GUIStyles.htm#ListViewExtended">ListView ��չ��ʽ��</a>.
+	默认值(-1):$LVS_SHOWSELALWAYS, $LVS_SINGLESEL 
+	强制性样式: $LVS_REPORT
+扩展样式
+	[可选参数] 指定控件的扩展样式.请查看附录的 <a href="../appendix/GUIStyles.htm#Extended">扩展样式表</a> 或者 <a href="../appendix/GUIStyles.htm#ListViewExtended">ListView 扩展样式表</a>.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	���ؿؼ���ʶ��(�ؼ�ID). 
-ʧ��:	����ֵΪ0. 
+成功:	返回控件标识符(控件ID). 
+失败:	返回值为0. 
 @@End@@
 
 
 ###Remarks###
-��Ҫ������Ŀ�� ListView �ؼ���ʹ�� <a href="GUICtrlCreateListViewItem.htm">GUICtrlCreateListViewItem</a> ����.
+若要添加项目到 ListView 控件请使用 <a href="GUICtrlCreateListViewItem.htm">GUICtrlCreateListViewItem</a> 函数.
 
-ListView ��������"��ϸ��Ϣ"��ͼ��ʾ (������Ϊ LVS_REPORT �����ǿ���Ե�). 
-��Ҫ�����еĴ�С(����)������еı����в�һЩ�ո�����Ʊ���(���������TAB).����,�еĿ���Ҳ���ܻ���ʹ�� GUICtrlCreateListViewItem �������������Ŀ�Ĵ�С������.ÿ���еĿ�������ܴ�25���ַ�.��ʹ�� GUICtrlSetData ��������ʱ�������Զ�������Ŀ��С. 
+ListView 将总是以"详细信息"视图显示 (这是因为 LVS_REPORT 风格是强制性的). 
+若要调整列的大小(宽度)则可在列的标题中补一些空格或者制表符(键盘上面的TAB).另外,列的宽度也可能会在使用 GUICtrlCreateListViewItem 后根据所添加项目的大小而扩大.每个列的宽度最多能达25个字符.在使用 GUICtrlSetData 更新数据时并不会自动调整项目大小. 
 
-����һ����ͼ��� ListView, ����Сͼ����б����ʹ��:
-<a href="GUICtrlSetStyle.htm">GUICtrlSetStyle</a> ����ʽ $LVS_ICON, $LVS_LIST �� $LVS_SMALLICON.
+产生一个有图标的 ListView, 创造小图标或列表风格使用:
+<a href="GUICtrlSetStyle.htm">GUICtrlSetStyle</a> 加样式 $LVS_ICON, $LVS_LIST 或 $LVS_SMALLICON.
 
-��������ƿ�����ǰ�б� (����Դ��������).
+点击列名称可排序当前列表 (在资源管理器内).
 
-Ҫ����ѡ������ʹ�� <a href="../appendix/GUIStyles.htm#Extended">��չ��ʽ</a> LVS_EX_FULLROWSELECT.
+要想能选择整行使用 <a href="../appendix/GUIStyles.htm#Extended">扩展样式</a> LVS_EX_FULLROWSELECT.
 
-Ҫ��Ĭ����ʽ�Ļ���������һ���µ���ʽ��ʹ�� <b>BitOr</b>($GUI_SS_DEFAULT_LISTVIEW, ����ʽ,...).
+要在默认样式的基础上添加一个新的样式可使用 <b>BitOr</b>($GUI_SS_DEFAULT_LISTVIEW, 新样式,...).
 
-Ҫʹ���Ϸ�ָ����ֵ,��������� #include <ListViewConstants.au3> ���д����ű���ͷ��.
+要使用上方指定的值,您必须包含 #include <ListViewConstants.au3> 语句写入你脚本的头部.
 
-ר�ñ�� $GUI_BKCOLOR_LV_ALTERNATE �� Listview �ؼ�һ��ʹ�ã��ܸı� Listview ��Ŀ�еı���.
-�����н����ȡ Listview �ؼ� GUICtrlSetBkColor �Ĳ�ɫλ��.
-ż���н����ȡ ListviewItem �ؼ��� GUICtrlSetBkColor �Ĳ�ɫλ��.
+专用标记 $GUI_BKCOLOR_LV_ALTERNATE 与 Listview 控件一起使用，能改变 Listview 项目行的背景.
+奇数行将会获取 Listview 控件 GUICtrlSetBkColor 的彩色位置.
+偶数行将会获取 ListviewItem 控件的 GUICtrlSetBkColor 的彩色位置.
 
 
 ###Related###

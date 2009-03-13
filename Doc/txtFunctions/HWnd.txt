@@ -1,27 +1,27 @@
-###Function###
+﻿###Function###
 HWnd
 
 ###Description###
-ת��һ������ʽΪ HWND ���.
+转换一个表达式为 HWND 句柄.
 
 ###Syntax###
-HWnd ( ����ʽ )
+HWnd ( 表达式 )
 
 
 ###Parameters###
 @@ParamTable@@
-����ʽ
-	��Ҫת��Ϊ HWND ����ı���ʽ.
+表达式
+	需要转换为 HWND 句柄的表达式.
 @@End@@
 
 ###ReturnValue###
-�ɹ� - ����������ʽ����ת��Ϊ HWND ���,����ֵΪ HWND ���.
-ʧ�� - ����������ʽ����ת��Ϊ HWND ���,��������������������,������ 0 (NULL) HWND ���,������ @error Ϊ 1.
+成功 - 如果这个表达式可以转换为 HWND 句柄,返回值为 HWND 句柄.
+失败 - 如果这个表达式不能转换为 HWND 句柄,或者这个句柄根本不存在,将返回 0 (NULL) HWND 句柄,并设置 @error 为 1.
 
 
 ###Remarks###
-˫����С������ת��Ϊ HWND ���.
-���ܽ����ֱ���(���߳���)ת��Ϊһ�� HWND ���,��Ϊ���ܱ�֤��׽���Ĵ���������Ωһ��,���Ҿ����ϵͳ�����,Ωһ��(ÿ�δ�ͬһ����,����ǲ�ͬ��), Ӧ�ñ�������������.
+双精度小数不能转换为 HWND 句柄.
+不能将文字变量(或者常量)转换为一个 HWND 句柄,因为不能保证捕捉到的窗口文字是惟一的,而且句柄是系统分配的,惟一的(每次打开同一窗口,句柄是不同的), 应该避免这类程序错误.
 
 
 ###Related###

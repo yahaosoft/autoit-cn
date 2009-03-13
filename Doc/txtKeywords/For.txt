@@ -1,11 +1,11 @@
-###Keyword###
+﻿###Keyword###
 For...To...Step...Next
 
 ###Description###
-���ڱ���ʽѭ��.
+基于表达式循环.
 
 ###Syntax###
-<b>For</b> &lt;����&gt; = &lt;��ʼ&gt; <b>To</b> &lt;ֹͣ&gt; [<b>Step</b> &lt;����ֵ&gt;]
+<b>For</b> &lt;变量&gt; = &lt;开始&gt; <b>To</b> &lt;停止&gt; [<b>Step</b> &lt;步进值&gt;]
 	<i>statements</i>
 	...
 <b>Next</b>
@@ -13,25 +13,25 @@ For...To...Step...Next
 
 ###Parameters###
 @@ParamTable@@
-����
-	����ͳ�Ƶ�ǰѭ������.
-��ʼ
-	�����ĳ�ʼֵ.
-ֹͣ
-	��������ֵֹ.
-����ֵ
-	[��ѡ����] ����ֵ (����С��) ,ÿ��ѭ�������ӵ�ֵ. Ĭ��Ϊ 1.
+变量
+	用于统计当前循环次数.
+开始
+	变量的初始值.
+停止
+	变量的终止值.
+步进值
+	[可选参数] 数字值 (或者小数) ,每次循环所增加的值. 默认为 1.
 @@End@@
 
 
 ###Remarks###
-��������һ���ֲ��������Զ�����,��ʹ�� MustDeclareVars �Ĵ���.
+变量将由一个局部作用域自动创建,即使有 MustDeclareVars 的存在.
 
-For...Next ������Ƕ��ʹ��. ��������ֵ����ֹͣ��ֵʱ��For ѭ������. �������ֵ��ֵֹͣ��һ������, ����ֵֻ�ܱ���һ��ѭ��ʱ��ȡ.
+For...Next 语句可以嵌套使用. 当变量的值超过停止阈值时，For 循环结束. 如果步进值或停止值是一个变量, 它的值只能被第一次循环时读取.
 
-������� For ѭ����ִ�� 0 ��:
-   <i>��ʼ</i> &gt; <i>ֹͣ</i> �� <i>����ֵ</i> <u>&gt;</u> 0, ����
-   <i>��ʼ</i> &lt; <i>ֹͣ</i> �� <i>����ֵ</i> Ϊ����
+以下情况 For 循环将执行 0 次:
+   <i>开始</i> &gt; <i>停止</i> 与 <i>步进值</i> <u>&gt;</u> 0, 或者
+   <i>开始</i> &lt; <i>停止</i> 与 <i>步进值</i> 为负数
 
 
 ###Related###

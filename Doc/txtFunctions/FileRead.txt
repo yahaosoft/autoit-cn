@@ -1,39 +1,39 @@
-###Function###
+﻿###Function###
 FileRead
 
 ###Description###
-�Ӵ�ǰ�Ѵ򿪵��ı��ļ��ж�ȡָ���������ַ�.
+从此前已打开的文本文件中读取指定数量的字符.
 
 ###Syntax###
-FileRead ( �ļ������ ���� "�ļ���" [, ����] )
+FileRead ( 文件名句柄 或者 "文件名" [, 数量] )
 
 
 ###Parameters###
 @@ParamTable@@
-�ļ����
-	Ŀ���ļ���������ɴ�ǰ���� FileOpen �����ķ���ֵ��á�����Ҳ����ֱ��ʹ��Ŀ���ļ���.
-����
-	[��ѡ����]ָ��Ҫ��ȡ�ַ���������Ĭ�϶�ȡ�����ļ�
+文件句柄
+	目标文件句柄，可由此前调用 FileOpen 函数的返回值获得。另外也可以直接使用目标文件名.
+数量
+	[可选参数]指定要读取字符的数量。默认读取整个文件
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	��������ȡ���ַ�/����������.
-����:	�� @error ��Ϊ -1��˵���Ѿ������ļ�β.
-ʧ��:	�� @error ��Ϊ 1��˵���ļ������Զ�ȡģʽ�򿪻�������������.
-	�� @error ��Ϊ 2��˵���ļ�������RAW��ȡģʽ�򿪻�������������.
+成功:	返回所读取的字符/二进制数据.
+特殊:	把 @error 设为 -1，说明已经读到文件尾.
+失败:	把 @error 设为 1，说明文件并非以读取模式打开或者有其它错误.
+	把 @error 设为 2，说明文件并非以RAW读取模式打开或者有其它错误.
 @@End@@
 
 
 ###Remarks###
-�����������ļ����������ļ����,��ô���ļ����ں���ִ���ڼ䱻�򿪲��ر�,����򿪵��ļ��ϴ�����ʹ���ļ����Ҫ���ö�.
-ע��:��Ҫ�����ļ�������ļ���,����ʹ�� FileOpen ������ĳ���ļ�Ȼ�������ļ�������ʽʹ�ñ�����.�ڳ�����Ҫôʹ���ļ����Ҫô��ʹ���ļ���,��Ҫ���߶���!
+若给定的是文件名而不是文件句柄,那么该文件将在函数执行期间被打开并关闭,如果打开的文件较大则会比使用文件句柄要慢得多.
+注意:不要混用文件句柄和文件名,比如使用 FileOpen 函数打开某个文件然后又以文件名的形式使用本函数.在程序中要么使用文件句柄要么就使用文件名,不要两者都用!
 
-��ʹ��ģ̬=4, ��ȡһ��������һ����������С�ı��� (512).
+当使用模态=4, 读取一个扇区数一定是扇区大小的倍数 (512).
 
-ANSI���� UTF16/UTF8 �ı���ʽ���Զ�ȡ - AutoIt �����Զ��ؾ�������.
+ANSI两种 UTF16/UTF8 文本格式可以读取 - AutoIt 将会自动地决定类型.
 
-�Ͷ���λ��־һ��ʹ�� FileOpen ��һ���ļ���Ϊ����λ(byte)���� - in this case count is in bytes rather than characters.
+和二进位标志一起使用 FileOpen 把一个文件读为二进位(byte)数据 - in this case count is in bytes rather than characters.
 
 
 ###Related###

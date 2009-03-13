@@ -1,49 +1,49 @@
-###Function###
+﻿###Function###
 MouseClick
 
 ###Description###
-ִ�����������.
+执行鼠标点击操作.
 
 ###Syntax###
-MouseClick ( "��ť" [, X����, Y���� [, ������� [, �ٶ� ]]] )
+MouseClick ( "按钮" [, X坐标, Y坐标 [, 点击次数 [, 速度 ]]] )
 
 
 ###Parameters###
 @@ParamTable@@
-��ť
-	Ҫ����İ�ť:"left"(���),"right"(�Ҽ�),"middle"(�м�),"main"(����),"menu"(�˵���),"primary"(��Ҫ��ť),"secondary"(��Ҫ��ť).
-X����,Y����
-	[��ѡ����] Ŀ������ֵ X/Y.�����߶�������ʹ�õ�ǰλ��.
-�������
-	[��ѡ����] Ҫ�����갴ť�Ĵ���.Ĭ��ֵΪ 1.
-�ٶ�
-	[��ѡ����] ����ƶ��ٶȣ�������ֵ��Χ�� 1(���)�� 100(����)֮��.�������ٶ�Ϊ 0 �������ƶ���굽ָ��λ��.Ĭ���ٶ�Ϊ 10.
+按钮
+	要点击的按钮:"left"(左键),"right"(右键),"middle"(中键),"main"(主键),"menu"(菜单键),"primary"(主要按钮),"secondary"(次要按钮).
+X坐标,Y坐标
+	[可选参数] 目标坐标值 X/Y.若两者都留空则使用当前位置.
+点击次数
+	[可选参数] 要点击鼠标按钮的次数.默认值为 1.
+速度
+	[可选参数] 鼠标移动速度，可设数值范围在 1(最快)和 100(最慢)之间.若设置速度为 0 则立即移动鼠标到指定位置.默认速度为 10.
 @@End@@
 
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	����1.
-ʧ��:	����0, ��ťû�����б���.
+成功:	返回1.
+失败:	返回0, 按钮没有在列表中.
 @@End@@
 
 
 ###Remarks###
-<a name="remarks"></a>�������İ�ť��һ�����ַ����򽫵�����.
+<a name="remarks"></a>若给定的按钮是一个空字符串则将点击左键.
 
-���û���ͨ����������л������Ұ�ť�����ڴ�����Щ��ťʱ���в�ͬ�ı���."Left" �� "right" ��Զֻ���������Ӧ��ť(�����)�������ܰ�ť�Ƿ��ѱ��л���"primary" �� "main" ��ť����Զֻ������������������ܰ�ť�Ƿ��ѱ��л���"secondary" �� "menu" ��ťͨ���������Ҽ��˵��������ܰ�ť�Ƿ��ѱ��л�.
+若用户已通过控制面板切换了左右按钮则函数在处理这些按钮时将有不同的表现."Left" 和 "right" 永远只代表点击相应按钮(左或右)，而不管按钮是否已被切换；"primary" 或 "main" 按钮将永远只代表点击主键，而不管按钮是否已被切换；"secondary" 或 "menu" 按钮通常将触发右键菜单，而不管按钮是否已被切换.
 
 <a name="table"></a>
 @@StandardTable1@@
-<b>��ť</b>	<b>���������</b>	<b>�л���</b>
-""	���	���
-"left"	���	���
-"middle"	�м�	�м�
-"right"	�Ҽ�	�Ҽ�
-"primary"	���	�Ҽ�
-"main"	���	�Ҽ�
-"secondary"	�Ҽ�	���
-"menu"	�Ҽ�	���
+<b>按钮</b>	<b>正常情况下</b>	<b>切换后</b>
+""	左键	左键
+"left"	左键	左键
+"middle"	中键	中键
+"right"	右键	右键
+"primary"	左键	右键
+"main"	左键	右键
+"secondary"	右键	左键
+"menu"	右键	左键
 @@End@@
 
 ###Related###

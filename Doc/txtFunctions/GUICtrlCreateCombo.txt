@@ -1,52 +1,52 @@
-###Function###
+﻿###Function###
 GUICtrlCreateCombo
 
 ###Description###
-��GUI�ϴ���һ��ѡ���(ComboBox)�ؼ�. 
+在GUI上创建一个选择框(ComboBox)控件. 
 
 ###Syntax###
-GUICtrlCreateCombo ( "�ı�", ���, �Ϸ� [, ���� [, �߶� [, ��ʽ [, ��չ��ʽ]]]] ) 
+GUICtrlCreateCombo ( "文本", 左侧, 上方 [, 宽度 [, 高度 [, 样式 [, 扩展样式]]]] ) 
 
 
 ###Parameters###
 @@ParamTable@@
-�ı�
-	�ؼ����ı�.
-���
-	�ؼ�����λ��.����ֵΪ -1 ����� <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> ���������������λ��.
-�Ϸ�
-	�ؼ��Ϸ���λ��.����ֵΪ -1 ����� <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> �������������Ϸ�λ��.
-����
-	[��ѡ����] �ؼ��Ŀ���(Ĭ��ֵΪ��һ���ؼ��Ŀ���).
-�߶�
-	[��ѡ����] �ؼ��ĸ߶�(Ĭ��ֵΪ��һ���ؼ��ĸ߶�).
-��ʽ
-	[��ѡ����] ָ���ؼ�����ʽ.��鿴��¼�й��� <a href="../appendix/GUIStyles.htm#Combo">GUI �ؼ���ʽ</a> ��˵��.
+文本
+	控件的文本.
+左侧
+	控件左侧的位置.若此值为 -1 则根据 <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> 的设置来计算左侧位置.
+上方
+	控件上方的位置.若此值为 -1 则根据 <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> 的设置来计算上方位置.
+宽度
+	[可选参数] 控件的宽度(默认值为上一个控件的宽度).
+高度
+	[可选参数] 控件的高度(默认值为上一个控件的高度).
+样式
+	[可选参数] 指定控件的样式.请查看附录中关于 <a href="../appendix/GUIStyles.htm#Combo">GUI 控件样式</a> 的说明.
 	
-	Ĭ��ֵ(-1):$CBS_DROPDOWN, $CBS_AUTOHSCROLL, $WS_VSCROLL 
-	ǿ������ʽ: $WS_TABSTOP 
-��չ��ʽ
-	[��ѡ����] ָ���ؼ�����չ��ʽ.��鿴��¼�� <a href="../appendix/GUIStyles.htm#Extended">��չ��ʽ��</a>.
+	默认值(-1):$CBS_DROPDOWN, $CBS_AUTOHSCROLL, $WS_VSCROLL 
+	强制性样式: $WS_TABSTOP 
+扩展样式
+	[可选参数] 指定控件的扩展样式.请查看附录的 <a href="../appendix/GUIStyles.htm#Extended">扩展样式表</a>.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	���ؿؼ���ʶ��(�ؼ�ID).
-ʧ��:	����ֵΪ0.
+成功:	返回控件标识符(控件ID).
+失败:	返回值为0.
 @@End@@
 
 
 ###Remarks###
-��Ҫ��ÿؼ��ĸ���ֵ��鿴 GUICtrlRead . 
-��Ҫ���û��޸Ŀؼ��ĸ�����Ϣ��鿴 GUICtrlSet... .
+若要获得控件的各种值请查看 GUICtrlRead . 
+若要设置或修改控件的各种信息请查看 GUICtrlSet... .
 
-�� Windows XP/2003 ��ϵͳ���Զ�������(����)��ѡ���ؼ��Ĵ�С,���������� Windows �汾�����������"�߶�"�����������Ĵ�С.
+在 Windows XP/2003 下系统会自动调整打开(弹出)的选择框控件的大小,而在其它的 Windows 版本下则可以利用"高度"参数定义它的大小.
 
-Ҫ��Ĭ�Ϸ��Ļ���������һ���µ���ʽ��ʹ�� <b>BitOr</b>($GUI_SS_DEFAULT_COMBO, ����ʽ,...).
+要在默认风格的基础上添加一个新的样式可使用 <b>BitOr</b>($GUI_SS_DEFAULT_COMBO, 新样式,...).
 
-Ҫʹ���Ϸ�ָ����ֵ,��������� #include <ComboConstants.au3> ����Ľű���.
+要使用上方指定的值,您必须包含 #include <ComboConstants.au3> 在你的脚本中.
 
-Ĭ�ϴ�СΪ: $GUI_DOCKHEIGHT. 
+默认大小为: $GUI_DOCKHEIGHT. 
 
 
 ###Related###

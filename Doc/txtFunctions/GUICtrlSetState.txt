@@ -1,68 +1,68 @@
-###Function###
+﻿###Function###
 GUICtrlSetState
 
 ###Description###
-����ָ���ؼ���״̬.
+调整指定控件的状态.
 
 ###Syntax###
-GUICtrlSetState ( �ؼ�ID, ״̬ ) 
+GUICtrlSetState ( 控件ID, 状态 ) 
 
 
 ###Parameters###
 @@ParamTable@@
-�ؼ�ID
-	�ؼ���ʶ��(�ؼ�ID),���� <a href="../guiref/GUICtrlCreate.htm">GUICtrlCreate...</a> �����ķ���ֵ���.
-״̬
-	��鿴����� <a href="#StateTable">״̬��</a> .
+控件ID
+	控件标识符(控件ID),可由 <a href="../guiref/GUICtrlCreate.htm">GUICtrlCreate...</a> 函数的返回值获得.
+状态
+	请查看下面的 <a href="#StateTable">状态表</a> .
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	����ֵΪ1.
-ʧ��:	����ֵΪ0.
+成功:	返回值为1.
+失败:	返回值为0.
 @@End@@
 
 
 ###Remarks###
 
-	<a name="StateTable"></a><b>״̬��</b>
+	<a name="StateTable"></a><b>状态表</b>
 @@StandardTable1@@
-<b>״̬�б�</b>	<b>��ϸ��Ϣ</b>
-�ޱ仯	0
-$GUI_UNCHECKED	��ѡ����ť(Radio)��ѡ��ť(Checkbox)����ȡ��ѡ��   
-$GUI_CHECKED	��ѡ����ť(Radio)��ѡ��ť(Checkbox)����ѡ��   
-$GUI_INDETERMINATE	������̬���Եĸ�ѡ��(Checkbox)����ɻ�ɫ(������)״̬   
-$GUI_AVISTART	Avi �ؼ���ʼ����   
-$GUI_AVISTOP	Avi �ؼ�ֹͣ����   
-$GUI_AVICLOSE	Avi �ؼ�ֹͣ���Ų��ͷ���Դ.
-$GUI_DROPACCEPTED	�ؼ����Խ����ϷŲ����ķ��²���: ��һ���ļ����������ؼ�.�ο�ע����Ŀ.
-$GUI_NODROPACCEPTED	�ؼ����ܽ����ϷŲ����ķ��²���.
-$GUI_SHOW	�ؼ����ɼ�.���ڱ�ǩ�����һ����ǩҳ������ʾ   
-$GUI_HIDE	�ؼ������ɼ�.   
-$GUI_ENABLE	�ؼ�������.   
-$GUI_DISABLE	�ؼ�����ɻ�ɫ״̬(������)   
-$GUI_FOCUS	�ؼ�����õ�����/ѡ�񽹵�.   
-$GUI_NOFOCUS	Listview �ؼ�����ʧȥ����.
-$GUI_DEFBUTTON	�ؼ����ᱻ����Ϊ���ڵ�Ĭ�ϰ�ť. �ο����� TreeviewItems �ı�ע.
-$GUI_EXPAND	TreeViewItem ����չ����������Ŀ.
-$GUI_ONTOP	�ؼ�����ӵ��һ������ڴ��ڵ��ö�����(Z��).
+<b>状态列表</b>	<b>详细信息</b>
+无变化	0
+$GUI_UNCHECKED	单选按框钮(Radio)或复选框按钮(Checkbox)将被取消选中   
+$GUI_CHECKED	单选按框钮(Radio)或复选框按钮(Checkbox)将被选中   
+$GUI_INDETERMINATE	具有三态属性的复选框(Checkbox)将变成灰色(不可用)状态   
+$GUI_AVISTART	Avi 控件开始播放   
+$GUI_AVISTOP	Avi 控件停止播放   
+$GUI_AVICLOSE	Avi 控件停止播放并释放资源.
+$GUI_DROPACCEPTED	控件可以接受拖放操作的放下操作: 从一个文件或者其它控件.参考注意项目.
+$GUI_NODROPACCEPTED	控件不能接受拖放操作的放下操作.
+$GUI_SHOW	控件将可见.对于标签项则第一个标签页将被显示   
+$GUI_HIDE	控件将不可见.   
+$GUI_ENABLE	控件将可用.   
+$GUI_DISABLE	控件将变成灰色状态(不可用)   
+$GUI_FOCUS	控件将会得到输入/选择焦点.   
+$GUI_NOFOCUS	Listview 控件将会失去焦点.
+$GUI_DEFBUTTON	控件将会被设置为窗口的默认按钮. 参考关于 TreeviewItems 的备注.
+$GUI_EXPAND	TreeViewItem 将会展开它的子项目.
+$GUI_ONTOP	控件将会拥有一个相对于窗口的置顶属性(Z轴).
 @@End@@
 
-״ֵ̬���Լ�����ʹ��,����������ʾ���е� $GUI_DISABLE + $GUI_HIDE ��ʹ�ؼ���Ϊ���ò�������״̬.
+状态值可以加起来使用,比如像下面示例中的 $GUI_DISABLE + $GUI_HIDE 将使控件变为禁用并且隐藏状态.
 
-��Ҫ����ĳ�� AVI �ؼ�(ʹ�� $GUI_HIDE),Ӧ��ʹ�� $GUI_AVICLOSE ���ر���.
+若要隐藏某个 AVI 控件(使用 $GUI_HIDE),应该使用 $GUI_AVICLOSE 来关闭它.
 
-"�����Ĳ˵�" �ؼ���״̬ <b>���ܱ��޸�.</b>
-���ͨ����չ��ʽ $LVS_EX_CHECKBOXES ������"listview" �����ؼ���"listviewitem" �ؼ���״̬�ܱ��ı�. $GUI_FOCUS �� $GUI_NOFOCUS �����ض��� listviewitem ��ʹ�ã� listview �ؼ���ʽ: $LVS_SHOWSELALWAYS ������ʾ��
-"�˵�"��"�˵�����" �ؼ���״̬ <b>���ܱ�����.</b>
+"上下文菜单" 控件的状态 <b>不能被修改.</b>
+如果通过扩展样式 $LVS_EX_CHECKBOXES 建立的"listview" 关联控件，"listviewitem" 控件的状态能被改变. $GUI_FOCUS 和 $GUI_NOFOCUS 能在特定的 listviewitem 上使用， listview 控件样式: $LVS_SHOWSELALWAYS 允许显示它
+"菜单"或"菜单子项" 控件的状态 <b>不能被隐藏.</b>
 
-! $GUI_EXPAND ����Ҫ��Ϣ: ��״ֻ̬��Ϊ TreeViewItems ʹ��. ���Ҫʹ�����'����'���������� 1 �� Sub-TreeViewItem ��������Ŀ�´���/���� !
-�������Ҫ�� TreeView ��ѡ�������һ����Ŀ , ��ôʹ�� $GUI_FOCUS - �� TreeView ��ȡ���ڽ����ָ������Ŀ��Ϊѡ��Ǻ�.
-�������Ҫ�趨һ�� treeview ��ĿĬ��Ϊ���壬����ʹ�� $GUI_DEFBUTTON - Ҫ�ص���ʹ�� $GUI_DEFBUTTON ֮��,Ҳ����ʹ�������һ��ֵ, ���� 0. ���״̬���ܱ� GUICtrlGetState ����.
+! $GUI_EXPAND 的重要信息: 这状态只能为 TreeViewItems 使用. 如果要使用这个'动作'，则至少有 1 个 Sub-TreeViewItem 必须在项目下存在/建立 !
+如果你想要在 TreeView 中选择另外的一个项目 , 那么使用 $GUI_FOCUS - 父 TreeView 获取窗口焦点给指定的项目作为选择记号.
+如果你想要设定一个 treeview 项目默认为粗体，可以使用 $GUI_DEFBUTTON - 要关掉除使用 $GUI_DEFBUTTON 之外,也可以使用另外的一个值, 例如 0. 这个状态不能被 GUICtrlGetState 返回.
 
-��� $GUI_DROPACCEPTED ���趨��һ���ɼ��ؼ������϶��ͳ����ܱ����ܼ���. �༭/����ؼ��������ļ���һ���趨. 
-������ $GUI_EVENT_DROPPED �Ľ��շ���������ؼ�, @GUI_DRAGID ���᷵�ش����������϶��Ŀؼ�ID (-1 ����Ǵ�һ���ļ�, @GUI_DRAGFILE ������ŵ��ļ���) �� @GUI_DROPID ���ر������ؼ��Ŀؼ�ID.
-�϶� ListviewItem ���������϶��ͳ�������. @GUI_DRAGID ������ ListView �ؼ�.
+如果 $GUI_DROPACCEPTED 被设定成一个可见控件，则拖动和撤消能被接受计算. 编辑/输入控件将会与文件名一起设定. 
+对于在 $GUI_EVENT_DROPPED 的接收方面的其他控件, @GUI_DRAGID 将会返回从哪里启动拖动的控件ID (-1 如果是从一个文件, @GUI_DRAGFILE 包含存放的文件名) 和 @GUI_DROPID 返回被放弃控件的控件ID.
+拖动 ListviewItem 将会启动拖动和撤消进程. @GUI_DRAGID 将会是 ListView 控件.
 
 
 ###Related###

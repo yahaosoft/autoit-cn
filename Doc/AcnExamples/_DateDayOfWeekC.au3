@@ -1,3 +1,3 @@
-#include <ACN_Date.au3>
+ï»¿#include <ACN_Date.au3>
 $sDayName = _DateDayOfWeekC()
-MsgBox(4096, "Ò»ÖÜÖĞµÄÒ»Ìì", "½ñÌìÊÇ: " & $sDayName)
+MsgBox(4096, "ä¸€å‘¨ä¸­çš„ä¸€å¤©", "ä»Šå¤©æ˜¯: " & $sDayName)

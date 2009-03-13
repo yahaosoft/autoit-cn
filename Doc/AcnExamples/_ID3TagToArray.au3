@@ -1,9 +1,9 @@
-#include <ID3.au3>
+ï»¿#include <ID3.au3>
 Dim $sID3
 
-$hFile = FileOpenDialog("ÇëÑ¡ÔñÒ»¸öMP3ÎÄ¼þ", @DesktopDir, "MP3(*.MP3)")
+$hFile = FileOpenDialog("è¯·é€‰æ‹©ä¸€ä¸ªMP3æ–‡ä»¶", @DesktopDir, "MP3(*.MP3)")
 $aID3 = _ID3TagToArray($hFile, 1)
 For $I = 1 To $aID3[0]
 	$sID3 &= $aID3[$I] & @LF
 Next
-MsgBox(0, "Ò»¹²ÓÐ" & $aID3[0] & "¸ö±êÇ©", $sID3)
+MsgBox(0, "ä¸€å…±æœ‰" & $aID3[0] & "ä¸ªæ ‡ç­¾", $sID3)

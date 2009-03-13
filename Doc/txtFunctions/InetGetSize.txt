@@ -1,8 +1,8 @@
-###Function###
+﻿###Function###
 InetGetSize
 
 ###Description###
-���ֽ�Ϊ��λ���ش���ڻ������ϵ�ָ���ļ��Ĵ�С.
+以字节为单位返回存放在互联网上的指定文件的大小.
 
 ###Syntax###
 InetGetSize ( "URL" )
@@ -11,26 +11,26 @@ InetGetSize ( "URL" )
 ###Parameters###
 @@ParamTable@@
 URL
-	URL  Ҫ�����ļ��� URL(��ַ).  �ο�ע������.
+	URL  要下载文件的 URL(地址).  参考注意事项.
 @@End@@
 
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	����Ŀ���ļ��Ĵ�С(���ֽ�Ϊ��λ).
-ʧ��:	����ֵΪ 0������ @error Ϊ 1.
+成功:	返回目标文件的大小(以字节为单位).
+失败:	返回值为 0并设置 @error 为 1.
 @@End@@
 
 
 ###Remarks###
-Ϊ��֤�˺����������������밲װ Internet Explorer 3 ����߰汾,���URL��Э����FTP(ftp://...��Ҫ��װ IE 5)
+为保证此函数的正常工作必须安装 Internet Explorer 3 或更高版本,如果URL的协议是FTP(ftp://...则要安装 IE 5)
 
-URL ������ָ����"http://www.somesite.com/path/file.html"��������ʽ,�����������ҳ�����������ĵ�ַ��һ���ĸ�ʽ.
+URL 参数是指类似"http://www.somesite.com/path/file.html"这样的形式,这和我们在网页浏览器中输入的地址是一样的格式.
 
-�������ʱ��Ҫָ���û���������,ֻҪ��������ǰ������ǰ׺����:"�û���:����@"( ����Ӣ���ַ� ),����
+如果连接时需要指定用户名及密码,只要在主机名前加以下前缀即可:"用户名:密码@"( 都是英文字符 ),比如
 "http://myuser:mypassword@www.somesite.com"
 
-�������еķ��������ܷ�����ȷ���ļ���С,��������ʹ���˴����������.
+并非所有的服务器都能返回正确的文件大小,尤其是在使用了代理的情况下.
 
 
 ###Related###

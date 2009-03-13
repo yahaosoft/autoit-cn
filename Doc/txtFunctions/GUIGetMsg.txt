@@ -1,58 +1,58 @@
-###Function###
+﻿###Function###
 GUIGetMsg
 
 ###Description###
-���񴰿���Ϣ.
+捕获窗口消息.
 
 ###Syntax###
-GUIGetMsg ( [�߼�ģʽ] )
+GUIGetMsg ( [高级模式] )
 
 
 ###Parameters###
 @@ParamTable@@
-�߼�ģʽ
-	[��ѡ����] ���������ʽ������չ��Ϣ.
-	0 = (Ĭ��)ֻ���ز�����¼�.
-	1 = ����һ�������¼�����չ��Ϣ������.
+高级模式
+	[可选参数] 以数组的形式返回扩展信息.
+	0 = (默认)只返回捕获的事件.
+	1 = 返回一个含有事件及扩展信息的数组.
 @@End@@
 
 ###ReturnValue###
-����һ���¼�(ID)��һ������,ȡ����"�߼�ģʽ"����������.
+返回一个事件(ID)或一个数组,取决于"高级模式"参数的设置.
 
-���ص�"�¼�"��ָ������Ϣ�Ŀؼ�ID,������ĳ�������¼�(���細�������ر�,��С���ȵ�).��û����Ϣ�򷵻ص��¼�ֵ�� 0.
+返回的"事件"是指发送消息的控件ID,或者是某个特殊事件(例如窗口正被关闭,最小化等等).若没有消息则返回的事件值是 0.
 <BR>
 @@ReturnTable@@
-<b>�¼� ID</b>	<b>�ؼ���������ϢID</b>
-0	���¼�
-$GUI_EVENT_CLOSE	�Ի���(����)�����ر�(��ذ�ť�������ϵͳ�˵��ѡ��).
-$GUI_EVENT_MINIMIZE	�Ի���(����)����С��(���ڱ������ϵ���С����ť�����)
-$GUI_EVENT_RESTORE	�Ի���(����)����ԭ(������ͼ�걻���)
-$GUI_EVENT_MAXIMIZE	�Ի���(����)�����(���ڱ������ϵ���󻯰�ť�����)
-$GUI_EVENT_MOUSEMOVE	����걻�ƶ�.   
-$GUI_EVENT_PRIMARYDOWN	������Ҫ��ť������.(��ָ���)
-$GUI_EVENT_PRIMARYUP	������Ҫ��ť���ɿ�.(��ָ���)   
-$GUI_EVENT_SECONDARYDOWN	���ĵڶ�����ť������.(��ָ�Ҽ�)   
-$GUI_EVENT_SECONDARYUP	���ĵڶ�����ť���ɿ�.(��ָ�Ҽ�)
-$GUI_EVENT_RESIZED	�Ի����С�ı�.
-$GUI_EVENT_DROPPED	�Ϸ�(Drag&Drop)��������,@GUI_DRAGID, @GUI_DRAGFILE �� @GUI_DROPID �����ڷ��� ID/�ļ� ��Ӧ�Ŀؼ�.
+<b>事件 ID</b>	<b>控件发生的消息ID</b>
+0	无事件
+$GUI_EVENT_CLOSE	对话框(窗口)正被关闭(相关按钮被点击或系统菜单项被选中).
+$GUI_EVENT_MINIMIZE	对话框(窗口)被最小化(窗口标题栏上的最小化按钮被点击)
+$GUI_EVENT_RESTORE	对话框(窗口)被还原(任务栏图标被点击)
+$GUI_EVENT_MAXIMIZE	对话框(窗口)被最大化(窗口标题栏上的最大化按钮被点击)
+$GUI_EVENT_MOUSEMOVE	鼠标光标被移动.   
+$GUI_EVENT_PRIMARYDOWN	鼠标的主要按钮被按下.(多指左键)
+$GUI_EVENT_PRIMARYUP	鼠标的主要按钮被松开.(多指左键)   
+$GUI_EVENT_SECONDARYDOWN	鼠标的第二个按钮被按下.(多指右键)   
+$GUI_EVENT_SECONDARYUP	鼠标的第二个按钮被松开.(多指右键)
+$GUI_EVENT_RESIZED	对话框大小改变.
+$GUI_EVENT_DROPPED	拖放(Drag&Drop)操作结束,@GUI_DRAGID, @GUI_DRAGFILE 和 @GUI_DROPID 将用于返回 ID/文件 相应的控件.
 @@End@@
 <br>
-��ʹ��"�߼�ģʽ"ʱ,�������ص���һ������������չ��Ϣ������: 
+当使用"高级模式"时,函数返回的是一个含有下列扩展信息的数组: 
 
-$array[0] = 0 �� �¼� ID �� �ؼ� ID
-$array[1] = �����¼��Ĵ��ھ��
-$array[2] = �����¼��Ŀؼ����(������)
-$array[3] = ���ָ��ĵ�ǰ X ����(����� GUI ����)
-$array[4] = ���ָ��ĵ�ǰ Y ����(����� GUI ����)
+$array[0] = 0 或 事件 ID 或 控件 ID
+$array[1] = 产生事件的窗口句柄
+$array[2] = 产生事件的控件句柄(若适用)
+$array[3] = 鼠标指针的当前 X 坐标(相对于 GUI 窗口)
+$array[4] = 鼠标指针的当前 Y 坐标(相对于 GUI 窗口)
 <br>
-�� GUIOnEventMode ѡ���Ϊ1,�� GUIGetMsg �ķ���ֵ������ 0,ͬʱ @error ����Ϊ1.
+若 GUIOnEventMode 选项被设为1,则 GUIGetMsg 的返回值将总是 0,同时 @error 被设为1.
 
-���ѡ�� GUIEventOptions ������Ϊ1,��С��,��ԭ����󻯰�ť���������κζ���,����֪ͨ.
+如果选项 GUIEventOptions 被设置为1,最小化,还原和最大化按钮将不会有任何动作,仅仅通知.
 
 ###Remarks###
-��������ִ��ʱ���Զ��������� CPU ��������Է��ĵ��ڽ��յ�ѭ����ʹ�ñ����������ص��� CPU �ĸ�������.
+本函数在执行时将自动按需闲置 CPU 因此您可以放心地在紧凑的循环中使用本函数而不必担心 CPU 的负荷问题.
 
-�������λ�ú� hovering �ؼ���Ϣ�ܱ� GUIGetCursorInfo һ�𷵻�. �������һ���ؼ���ʱ��û���¼�������.��� GUIGetCursorInfo һ����������ȡ�ؿؼ�ID.
+关于鼠标位置和 hovering 控件信息能被 GUIGetCursorInfo 一起返回. 当鼠标在一个控件上时，没有事件被激发.因此 GUIGetCursorInfo 一定被调用于取回控件ID.
 
 ###Related###
 GUICreate, GUICtrlCreate..., GUICtrlRead, GUIOnEventMode (Option), GUIEventOptions (Option), GUIGetCursorInfo

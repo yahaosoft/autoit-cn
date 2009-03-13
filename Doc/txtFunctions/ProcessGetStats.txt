@@ -1,46 +1,46 @@
-###Function###
+﻿###Function###
 ProcessGetStats
 
 ###Description###
-����һ������,�����а����������еĽ��̵��ڴ����IO��Ϣ. 
+返回一个数组,数组中包含了运行中的进程的内存或者IO信息. 
 
 ###Syntax###
-ProcessGetStats ( ["����" [, ����]] ) 
+ProcessGetStats ( ["进程" [, 类型]] ) 
 
 
 ###Parameters###
 @@ParamTable@@
-����
-	[��ѡ] ��Ҫȡ����Ϣ�Ľ��̵����ƻ���PID. Ĭ��ֵ(-1) ��ʾ��ǰ����.   
-����
-	[��ѡ] 0 = (Ĭ��) �ڴ���Ϣ, 1 = IO ��Ϣ.    
+进程
+	[可选] 需要取得信息的进程的名称或者PID. 默认值(-1) 表示当前进程.   
+类型
+	[可选] 0 = (默认) 内存信息, 1 = IO 信息.    
 @@End@@
 
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	����һ��������Ϣ���ݵ�����(�ο�ע�ⲿ��).   
-ʧ��:	����0.    
+成功:	返回一个包含信息数据的数组(参考注意部分).   
+失败:	返回0.    
 @@End@@
 
 
 ###Remarks###
-�ɹ����ص�������������: 
+成功返回的数组类型如下: 
 
-���� = 0 : �ڴ�״̬ 
+类型 = 0 : 内存状态 
 
-$array[0] = ��������С(WorkingSetSize) 
-$array[1] = ��ֵ�ڴ��С(PeakWorkingSetSize) 
+$array[0] = 工作区大小(WorkingSetSize) 
+$array[1] = 峰值内存大小(PeakWorkingSetSize) 
 
 
-���� = 1 : IO ��Ϣ 
+类型 = 1 : IO 信息 
 
-$array[0] = �ɹ�ʹ��I/O��ȡ����. 
-$array[1] = �ɹ�ʹ��I/Oд������. 
-$array[2] = �ɹ�ʹ��I/O��������, ��ͬ�ڶ�д����. 
-$array[3] = �ɹ�ʹ��I/O��ȡ�����ֽ�. 
-$array[4] = �ɹ�ʹ��I/Oд������ֽ�. 
-$array[5] = �ɹ�ʹ��I/Oת�ƶ����ֽ�,��ͬ�ڶ�д����. 
+$array[0] = 成功使用I/O读取数量. 
+$array[1] = 成功使用I/O写入数量. 
+$array[2] = 成功使用I/O操作数量, 不同于读写操作. 
+$array[3] = 成功使用I/O读取多少字节. 
+$array[4] = 成功使用I/O写入多少字节. 
+$array[5] = 成功使用I/O转移多少字节,不同于读写操作. 
 
 
 

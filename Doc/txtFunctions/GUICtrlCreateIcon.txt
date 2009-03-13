@@ -1,59 +1,59 @@
-###Function###
+﻿###Function###
 GUICtrlCreateIcon
 
 ###Description###
-��GUI�ϴ���һ��ͼ��(Icon)�ؼ�. 
+在GUI上创建一个图标(Icon)控件. 
 
 ###Syntax###
-GUICtrlCreateIcon ( �ļ���, ͼ��ID, ���, ���� [, ���� [, �߶� [, ��ʽ [, ��չ��ʽ]]]] ) 
+GUICtrlCreateIcon ( 文件名, 图标ID, 左侧, 顶部 [, 宽度 [, 高度 [, 样式 [, 扩展样式]]]] ) 
 
 
 ###Parameters###
 @@ParamTable@@
-�ļ���
-	Ҫ���ص�ͼ���ļ�.   
-ͼ��ID
-	��ָ����ͼ���ļ����ж��ͼ����Ҫָ��ͼ���ʶ��(���),����ʹ�� -1.   
-���
-	�ؼ�����λ��.����ֵΪ -1 ����� <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> ���������������λ��.   
-����
-	�ؼ��Ϸ���λ��.����ֵΪ -1 ����� <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> �������������Ϸ�λ��.   
-����
-	[��ѡ����] �ؼ��Ŀ���(Ĭ��ֵΪ32).   
-�߶�
-	[��ѡ����] �ؼ��ĸ߶�(Ĭ��ֵΪ32).   
-��ʽ
-	[��ѡ����] ָ���ؼ�����ʽ.��鿴��¼�й��� GUI �ؼ���ʽ ��˵��. 
+文件名
+	要加载的图标文件.   
+图标ID
+	若指定的图标文件含有多个图标则要指定图标标识符(编号),否则使用 -1.   
+左侧
+	控件左侧的位置.若此值为 -1 则根据 <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> 的设置来计算左侧位置.   
+顶部
+	控件上方的位置.若此值为 -1 则根据 <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> 的设置来计算上方位置.   
+宽度
+	[可选参数] 控件的宽度(默认值为32).   
+高度
+	[可选参数] 控件的高度(默认值为32).   
+样式
+	[可选参数] 指定控件的样式.请查看附录中关于 GUI 控件样式 的说明. 
  
-	Ĭ��ֵ(-1): $SS_NOTIFY 
-	ǿ������ʽ:$WS_TABSTOP, $SS_ICON   
-��չ��ʽ
-	[��ѡ����] ָ���ؼ�����չ��ʽ.��鿴��¼�� <a href="../appendix/GUIStyles.htm#Extended">��չ��ʽ�� </a>.    
+	默认值(-1): $SS_NOTIFY 
+	强制性样式:$WS_TABSTOP, $SS_ICON   
+扩展样式
+	[可选参数] 指定控件的扩展样式.请查看附录的 <a href="../appendix/GUIStyles.htm#Extended">扩展样式表 </a>.    
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	���ؿؼ���ʶ��(�ؼ�ID).   
-ʧ��:	����ֵΪ0.    
+成功:	返回控件标识符(控件ID).   
+失败:	返回值为0.    
    
 @@End@@
 
 
 ###Remarks###
-��Ҫ���û��޸Ŀؼ��ĸ�����Ϣ��鿴 <a href="../guiref/GUICtrlSet.htm">GUICtrlSet...</a>.
+若要设置或修改控件的各种信息请查看 <a href="../guiref/GUICtrlSet.htm">GUICtrlSet...</a>.
 
-��Ҫ����ͼ�����ʹ�� <a href="GUICtrlSetImage.htm">GUICtrlSetImage</a>
+若要更新图标则可使用 <a href="GUICtrlSetImage.htm">GUICtrlSetImage</a>
 
-ͼ��ID ���Բο�ͼ������. ʹ�� Resource hacker ( ע:����һ����Դ�޸����� )�ܵõ�����ֵ.
+图标ID 可以参考图标的组号. 使用 Resource hacker ( 注:这是一个资源修改软件 )能得到它的值.
 
-Ҫ��Ĭ����ʽ�Ļ���������һ���µ���ʽ��ʹ�� <b>BitOr</b>($GUI_SS_DEFAULT_ICON, ����ʽ,...).
+要在默认样式的基础上添加一个新的样式可使用 <b>BitOr</b>($GUI_SS_DEFAULT_ICON, 新样式,...).
 
-Ҫʹ���Ϸ�ָ����ֵ,��������� #include <StaticConstants.au3> ����Ľű���.
+要使用上方指定的值,您必须包含 #include <StaticConstants.au3> 在你的脚本中.
 
-Ĭ�ϴ�СΪ: $GUI_DOCKSIZE.
+默认大小为: $GUI_DOCKSIZE.
 
-���ʹ������,��ô�ο�ͼ�������. 
-���ʹ�ø���(-1),�õ���ͼ��. һЩDLL�ļ�����Դ�����п���Ҳ�Ǹ���.  
+如果使用正数,那么参考图标的名称. 
+如果使用负数(-1),得到主图标. 一些DLL文件的资源名称有可能也是负数.  
 
 
 ###Related###

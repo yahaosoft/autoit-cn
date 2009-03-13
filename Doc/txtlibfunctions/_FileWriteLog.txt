@@ -1,8 +1,8 @@
-###User Defined Function###
+﻿###User Defined Function###
 _FileWriteLog
 
 ###Description###
-д��һ����ǰ����,ʱ���һ��ָ���ı���һ����־�ļ�.
+写入一个当前日期,时间和一个指定文本到一个日志文件.
 
 ###Syntax###
 #Include <File.au3>
@@ -11,21 +11,21 @@ _FileWriteLog($sLogPath, $sLogMsg[, $iFlag = -1])
 ###Parameters###
 @@ParamTable@@
 $sFilePath
-	Ҫд�����־�ļ�������·�����ļ���.
+	要写入的日志文件的完整路径与文件名.
 $sLogMsg
-	Ҫд�뵽��־�ļ�����Ϣ.
+	要写入到日志文件的消息.
 $iFlag
-	[��ѡ����] - ��־���� $sLogMsg ��д���ļ����������ļ���ʼ..
-		��� $iFlag = -1 (Ĭ��) $sLogMsg ����д�뵽�ļ�ĩβ.
-		��� $iFlag <> -1 $sLogMsg ����д�뵽�ļ���ʼ.
+	[可选参数] - 标志定义 $sLogMsg 是写在文件结束还是文件开始..
+		如果 $iFlag = -1 (默认) $sLogMsg 将会写入到文件末尾.
+		如果 $iFlag <> -1 $sLogMsg 将会写入到文件开始.
 @@End@@
 
 ###ReturnValue###
-�ɹ�: ���� 1
-ʧ��: ���� 0
-@Error: 0 = û�д���.
-		1 = ��ָ���ļ�����.
-		2 = �ļ�����д.
+成功: 返回 1
+失败: 返回 0
+@Error: 0 = 没有错误.
+		1 = 打开指定文件错误.
+		2 = 文件不可写.
 
 ###Remarks###
 None.

@@ -1,73 +1,73 @@
-###Function###
+﻿###Function###
 RunAs
 
 ###Description###
-ʹ��һ����ͬ���û�����һ���ⲿ�����ļ�.
+使用一个不同的用户运行一个外部程序文件.
 
 ###Syntax###
-RunAs ( "�û���", "����", "����", ��¼��־, "�ļ���" [, "����Ŀ¼" [, ��ʾ��־ [, ��ѡ��־ ]]] )
+RunAs ( "用户名", "域名", "密码", 登录标志, "文件名" [, "工作目录" [, 显示标志 [, 可选标志 ]]] )
 
 
 ###Parameters###
 @@ParamTable@@
-�û���
-	��Ҫʹ�õ��û���.
-����
-	��������������.
-����
-	�û�������.
-��¼��־
-	0 - �����������ļ��Ľ���ʽ��¼.
-	1 - ���������ļ��Ľ���ʽ��¼.
-	2 - ֻ��������֤.
-	4 - �̳е��ù��̻��������û���.
-�ļ���
-	Ҫ���еĿ�ִ���ļ����� (EXE, BAT, COM, PIF).
-����Ŀ¼
-	[��ѡ����] ������Ŀ¼. �����ָ��, ���ᱻ����Ϊ @SystemDir .
-��ʾ��־
-	[��ѡ����] ִ�г���� "��ʾ" ��־:
-	  @SW_HIDE = ���ش��� (���� Default �ؼ���)
-	  @SW_MINIMIZE = ��С���Ĵ���
-	  @SW_MAXIMIZE = ��󻯵Ĵ���
-��ѡ��־
-	[optional] ���Ʋ�ͬѡ���������/�ӽ��̽���.
-	  0x1 ($STDIN_CHILD) = �ṩһ��������� STDIN ��
-	  0x2 ($STDOUT_CHILD) = �ṩһ��������� STDOUT ��
-	  0x4 ($STDERR_CHILD) = �ṩһ��������� STDERR ��
-	  0x8 ($STDERR_MERGED) = �ṩ��ͬ�ľ���� STDOUT �� STDERR. ���� $STDOUT_CHILD �� $STDERR_CHILD.
-	  0x10 ($STDIO_INHERIT_PARENT) = �ṩ����� STDIO �����Ӳ�. �����־���ܺ��κ������� STDIO ��־���. ��������Ϊ����̨Ӧ�ñ�����ʱ�����־������.
-	  0x10000 ($RUN_CREATE_NEW_CONSOLE) = �ӿ���̨����Ӧ������һ�����Լ��Ĵ��ڶ���ʹ�ø�����. ��������Ϊ����̨Ӧ�ñ�����ʱ�����־������.
+用户名
+	需要使用的用户名.
+域名
+	用于甄别的域名称.
+密码
+	用户的密码.
+登录标志
+	0 - 不加载配置文件的交互式登录.
+	1 - 加载配置文件的交互式登录.
+	2 - 只是网络认证.
+	4 - 继承调用过程环境而非用户的.
+文件名
+	要运行的可执行文件名称 (EXE, BAT, COM, PIF).
+工作目录
+	[可选参数] 程序工作目录. 如果不指定, 将会被设置为 @SystemDir .
+显示标志
+	[可选参数] 执行程序的 "显示" 标志:
+	  @SW_HIDE = 隐藏窗口 (或者 Default 关键字)
+	  @SW_MINIMIZE = 最小化的窗口
+	  @SW_MAXIMIZE = 最大化的窗口
+可选标志
+	[optional] 控制不同选项处理父进程/子进程交互.
+	  0x1 ($STDIN_CHILD) = 提供一个句柄到子 STDIN 流
+	  0x2 ($STDOUT_CHILD) = 提供一个句柄到子 STDOUT 流
+	  0x4 ($STDERR_CHILD) = 提供一个句柄到子 STDERR 流
+	  0x8 ($STDERR_MERGED) = 提供相同的句柄给 STDOUT 与 STDERR. 隐含 $STDOUT_CHILD 和 $STDERR_CHILD.
+	  0x10 ($STDIO_INHERIT_PARENT) = 提供父层的 STDIO 流给子层. 这个标志不能和任何其他的 STDIO 标志结合. 当父层作为控制台应用被编译时，这标志才有用.
+	  0x10000 ($RUN_CREATE_NEW_CONSOLE) = 子控制台进程应该与它一起建立自己的窗口而非使用父窗口. 当父层作为控制台应用被编译时，这标志才有用.
 @@End@@
 
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	���еĽ��̵� PID .
-ʧ��:	����0 ������@error Ϊһ����0ֵ
+成功:	运行的进程的 PID .
+失败:	返回0 并设置@error 为一个非0值
 @@End@@
 
 
 ###Remarks###
-ָ�����������е��û�����Ŀ¼�Ǻ���Ҫ��, ����������ʧ��.
+指定你正在运行的用户工作目录是很重要的, 否则函数将会失败.
 
-������ֻ����ȷ������Ҫ���û������ļ�. There is a small chance a profile can be stuck in memory under the right conditions. ���һ��ʹ�� RunAs() �Ľű���Ϊϵͳ�ʻ����� (����, �ű�����һ����������) ���û������ļ�������, ����뱣�ֽű�����ֱ���ӽ��̹ر�.
+建议你只载入确定你需要的用户需求文件. There is a small chance a profile can be stuck in memory under the right conditions. 如果一个使用 RunAs() 的脚本作为系统帐户运行 (例如, 脚本当做一个服务运行) 和用户需求文件被载入, 你必须保持脚本运行直到子进程关闭.
 
-������һ��ϵͳ��������ʱ, �ڶ��εĵ�¼ (RunAs) ������뱻���������⺯����ʧ��. �����Ӧ�õ�����ϵͳ�ʻ�ʱ.
+当运行一个系统管理程序时, 第二次的登录 (RunAs) 服务必须被允许否则这函数将失败. 这个不应用到运行系统帐户时.
 
-���������������֮�󣬽ű�����ֱͣ���������. Ҫ��ͣ�ű�ִ�У�ֱ����ǰ���еĳ�����ɣ�Ӧ��Ϊʹ�� RunAsWait ����.
+在运行那请求程序之后，脚本会暂停直到程序结束. 要暂停脚本执行，直到当前运行的程序完成，应改为使用 RunAsWait 函数.
 
-���ʵ�����ֵΪ�����ӽ����ṩ��׼ I/O �������� StderrRead �� StdinWrite �� StdoutRead ����. ��ϱ�־ֵ (����ʹ�� $STDERR_CHILD, $STDIN_CHILD&$STDOUT_CHILD,���� Constants.au3) ��������һ������.
+用适当的数值为互动子进程提供标准 I/O 参数处理 StderrRead 、 StdinWrite 和 StdoutRead 函数. 结合标志值 (或者使用 $STDERR_CHILD, $STDIN_CHILD&$STDOUT_CHILD,定义 Constants.au3) 处理超过一条的流.
 
-ʹ���رգ���������ʽ�������: 
-	1) �ӽ��̹ر���������.(�Ӷιر�ʱ����).
-	2) AutoIt ��������κα����������ֱ��û�и��������.
-	3) ��� STDIN ���ṩ���ӶΣ�������� StdinWrite() �ر���. ��� STDIN ���ṩ���ӶΣ�������� StdinWrite() �ر���. 
-��ʹ�� StdioClose ǿ�ƹر� STDIO ��.
+使流关闭，下列条件式必须存在: 
+	1) 子进程关闭则流结束.(子段关闭时发生).
+	2) AutoIt 必须读出任何被捕获的流，直到没有更多的数据.
+	3) 如果 STDIN 被提供给子段，必须调用 StdinWrite() 关闭流. 如果 STDIN 被提供给子段，必须调用 StdinWrite() 关闭流. 
+可使用 StdioClose 强制关闭 STDIO 流.
 
-"load profile" ���¼_��־2 "��[��]Ψһƾ֤" ѡ�����. ʹ�����߽���������ȷ�Ľ��.
+"load profile" 与登录_标志2 "网[络]唯一凭证" 选项不兼容. 使用两者将产生不明确的结果.
 
-There is an issue in the Windows XP generation of Windows which prevents STDIO redirection and the show flag from working.  See Microsoft Knowledge Base article KB818858 for more information about which versions are affected as well as a hotfix for the issue.  ʹ�� Windows 2000, Windows XP SP2 ���Ժ�汾, �Լ� Windows Vista �����д�Ӱ��.
+There is an issue in the Windows XP generation of Windows which prevents STDIO redirection and the show flag from working.  See Microsoft Knowledge Base article KB818858 for more information about which versions are affected as well as a hotfix for the issue.  使用 Windows 2000, Windows XP SP2 或以后版本, 以及 Windows Vista 不会有此影响.
 
 ###Related###
 Run, RunWait, RunAsWait, ShellExecute, ShellExecuteWait, StderrRead, StdinWrite, StdoutRead, StdioClose, ProcessClose

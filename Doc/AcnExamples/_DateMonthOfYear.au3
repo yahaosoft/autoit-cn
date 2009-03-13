@@ -1,3 +1,3 @@
-#include <ACN_Date.au3>
+ï»¿#include <ACN_Date.au3>
 $sMonthName = _DateMonthOfYear(@MON)
-MsgBox(4096, "Ò»ÄêÖĞµÄÒ»ÔÂ", "Õâ¸öÔÂÊÇ: " & $sMonthName)
+MsgBox(4096, "ä¸€å¹´ä¸­çš„ä¸€æœˆ", "è¿™ä¸ªæœˆæ˜¯: " & $sMonthName)

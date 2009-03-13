@@ -1,166 +1,166 @@
-###Function###
+﻿###Function###
 AutoItSetOption
 
 ###Description###
-����Autoit���ֺ���/������������ʽ.
+调整Autoit各种函数/参数的运作方式.
 
 ###Syntax###
-AutoItSetOption ( "ѡ��" [, ����] ) 
+AutoItSetOption ( "选项" [, 参数] ) 
 
 
 ###Parameters###
 @@ParamTable@@
-ѡ��
-	Ҫ�޸ĵ�ѡ��.��鿴�����ע�ⲿ��.
-����
-	[��ѡ����] ��Ҫ�����ѡ���ֵ. �����õ�ѡ�ͬ����������˼��ͬ.  �ο������ע�ⲿ��.  ���û�в���, �����᷵��Ŀǰ��ѡ��ֵ.  �ؼ��� <a href="../keywords/Default.htm">Default</a> ������������ѡ��ΪĬ��ֵ.
+选项
+	要修改的选项.请查看下面的注意部分.
+参数
+	[可选参数] 需要分配给选项的值. 因设置的选项不同而类型与意思不同.  参考下面的注意部分.  如果没有参数, 函数会返回目前的选项值.  关键字 <a href="../keywords/Default.htm">Default</a> 可以用于重置选项为默认值.
 @@End@@
 
 ###ReturnValue###
-����ֵ ������һ�����õ�ֵ. 
+返回值 返回上一次设置的值. 
 
 ###Remarks###
-������ʹ�� Opt() ������ AutoItSetOption().
+您可以使用 Opt() 来代替 AutoItSetOption().
 
-���ָ��һ��δ֪������ AutoIt ������ִͣ�в���ʾ������Ϣ.��Ч�����԰���: 
+如果指定一个未知属性则 AutoIt 将会暂停执行并显示错误信息.有效的属性包括: 
 <br>
 @@ParamTable@@
-<b>ѡ��</b>
-	<b>����</b>
+<b>选项</b>
+	<b>参数</b>
 CaretCoordMode
-	<a name="CaretCoordMode"></a>��������caret(�����)�������������,�����Ǿ���λ��Ҳ��������Ե�ǰ����ڵ�����λ��. 
-	0 =  ��Լ���ڵ����� 
-	1 =  ��Ļ�ľ���λ��(Ĭ��) 
-	2 =  ��Լ���ڿͻ���������   
+	<a name="CaretCoordMode"></a>设置用于caret(插入符)函数的坐标参照,可以是绝对位置也可以是相对当前激活窗口的坐标位置. 
+	0 =  相对激活窗口的坐标 
+	1 =  屏幕的绝对位置(默认) 
+	2 =  相对激活窗口客户区的坐标   
 ExpandEnvStrings
-	<a name="ExpandEnvStrings"></a>���������ַ����� % ���ŵĽ��ͷ�ʽ.Ĭ��������ַ�����ԭ�Ľ���,��ѡ�����������ַ�����ʹ������ %environment% �����Ļ�������,���� "��ʱ�ļ��е�·����: %temp%". 
-	1 =  չ����������(������ AutoIt v2) 
-	0 = ��չ��չ��������(Ĭ��) 
-	��δ���ô�ѡ����Ҫʵ�����ƹ��ܵķ�����:"��ʱ�ļ��е�·����: " & EnvGet("temp")   
+	<a name="ExpandEnvStrings"></a>更改字面字符串和 % 符号的解释方式.默认情况下字符串按原文解释,此选项允许您在字符串中使用形如 %environment% 这样的环境变量,例如 "临时文件夹的路径是: %temp%". 
+	1 =  展开环境变量(类似于 AutoIt v2) 
+	0 = 不展开展环境变量(默认) 
+	若未设置此选项则要实现类似功能的方法是:"临时文件夹的路径是: " & EnvGet("temp")   
 ExpandVarStrings
-	<a name="ExpandVarStrings"></a>���������ַ����ͱ���/��($ �� @)���ŵĽ��ͷ�ʽ.Ĭ��������ַ�����ԭ�Ľ���,��ѡ�����������ַ�����ʹ�ñ����ͺ�,���� "���� var1 ��ֵ�� $var1$". 
-	1 =   չ������(�ڴ�ģʽ�����Ҫ��ʾ $ �� @ ��������������������Ӧ���ű�ʾ,����:"������һ����Ԫ���� $$"). 
-	0 =   ��չ������(Ĭ��)   
+	<a name="ExpandVarStrings"></a>更改字面字符串和变量/宏($ 和 @)符号的解释方式.默认情况下字符串按原文解释,此选项允许您在字符串中使用变量和宏,例如 "变量 var1 的值是 $var1$". 
+	1 =   展开变量(在此模式下如果要表示 $ 或 @ 本身则请用连续两个相应符号表示,例如:"这里有一个美元符号 $$"). 
+	0 =   不展开变量(默认)   
 FtpBinaryMode
-	<a name="FtpBinaryMode"></a>����FTP�ļ��Ĵ���ģʽ. 
-	1 =  ������(Ĭ��) 
+	<a name="FtpBinaryMode"></a>调整FTP文件的传输模式. 
+	1 =  二进制(默认) 
 	0 = ASCII
 GUICloseOnESC
-	<a name="GUICloseOnESC"></a>���û���һ��GUI����(���ڼ���״̬ʱ)���� ESC ����$GUI_EVENT_CLOSE ��Ϣ��������.��ѡ�������л���һ��Ϊ. 
-	1 = �ڰ��� ESC ʱ������Ϣ $GUI_EVENT_CLOSE(Ĭ��). 
-	0 = �ڰ��� ESC ʱ��������Ϣ $GUI_EVENT_CLOSE  
+	<a name="GUICloseOnESC"></a>当用户在一个GUI窗口(处于激活状态时)按下 ESC 键则$GUI_EVENT_CLOSE 消息将被发送.此选项用以切换这一行为. 
+	1 = 在按下 ESC 时发送消息 $GUI_EVENT_CLOSE(默认). 
+	0 = 在按下 ESC 时不发送消息 $GUI_EVENT_CLOSE  
 GUICoordMode
-	<a name="GUICoordMode"></a>�������� <a href="GUICtrlSetPos.htm">GUICtrlSetPos</a> �������������.
-	1 = ��������(Ĭ��)������ڶԻ���.
-	0 = �������һ���ؼ�����ʼλ��(���Ͻ�).
-	2 = ����ڵ�ǰλ�õ�����. A -1 for left or top parameter don't increment the start. 
+	<a name="GUICoordMode"></a>设置用于 <a href="GUICtrlSetPos.htm">GUICtrlSetPos</a> 函数的坐标参照.
+	1 = 绝对坐标(默认)将相对于对话框.
+	0 = 相对于上一个控件的起始位置(左上角).
+	2 = 相对于当前位置的坐标. A -1 for left or top parameter don't increment the start. 
 	So next line is -1,offset; next cell is offset,-1; current cell is -1,-1.
 
 	Obviously "offset" cannot be -1 which reserved to indicate the no increment. But if you can use a multiple of the width you choose to skip or go back.
 GUIDataSeparatorChar
-	<a name="GUIDataSeparatorChar"></a>���� GUICtrlSetData ��������ķָ��. 
-	 Ĭ���ַ�Ϊ: '|'.  
+	<a name="GUIDataSeparatorChar"></a>定义 GUICtrlSetData 函数里面的分割符. 
+	 默认字符为: '|'.  
 GUIOnEventMode
-	<a name="GUIOnEventMode"></a>����/�ر� OnEvent ����֪ͨ.
-	0 =  (Ĭ��)ȡ��.
-	1 =  ����. 
+	<a name="GUIOnEventMode"></a>启用/关闭 OnEvent 函数通知.
+	0 =  (默认)取消.
+	1 =  启用. 
 GUIResizeMode
-	<a name="GUIResizeMode"></a>���Ŀؼ���С������ģʽ. 
-	0 = (Ĭ��)������
-	&lt;1024 = ������鿴 <a href="GUICtrlSetResizing.htm">GUICtrlSetResizing</a>.
+	<a name="GUIResizeMode"></a>更改控件大小调整的模式. 
+	0 = (默认)不调整
+	&lt;1024 = 详情请查看 <a href="GUICtrlSetResizing.htm">GUICtrlSetResizing</a>.
 GUIEventOptions
-	<a name="GUIEventOptions"></a>�޸������ GUI �����ķ���ֵ����. 
-	0 =  (Ĭ��) �����ڱ���С��,��ԭ,���,�ı��С,ֻ֪ͨ 
-	1 =  �����ڷ�����С��,���,�ı��С,�ͽ�ֹ�����¼�����������֪ͨ,�ȴ��Զ��庯�����д���.
+	<a name="GUIEventOptions"></a>修改特殊的 GUI 函数的返回值类型. 
+	0 =  (默认) 当窗口被最小化,还原,最大化,改变大小,只通知 
+	1 =  当窗口发生最小化,最大化,改变大小,就禁止这种事件并立即发出通知,等待自定义函数进行处理.
 MouseClickDelay
-	<a name="MouseClickDelay"></a>����ÿ�����������֮����ӳ�ʱ�䳤��.
-	�Ժ���Ϊ��λ(Ĭ��ֵ =10). 
+	<a name="MouseClickDelay"></a>更改每个鼠标点击命令之间的延迟时间长度.
+	以毫秒为单位(默认值 =10). 
 MouseClickDownDelay
-	<a name="MouseClickDownDelay"></a>�������ɿ�����֮ǰ��ס��ť��ʱ�䳤��. 
-	�Ժ���Ϊ��λ(Ĭ��ֵ = 10).
+	<a name="MouseClickDownDelay"></a>更改在松开按键之前按住按钮的时间长度. 
+	以毫秒为单位(默认值 = 10).
 MouseClickDragDelay
-	<a name="MouseClickDragDelay"></a>������꿪ʼ��ҷ��������ҷ֮���ʱ�䳤��.
-	�Ժ���Ϊ��λ(Ĭ��ֵ = 250).
+	<a name="MouseClickDragDelay"></a>更改鼠标开始拖曳到结束拖曳之间的时间长度.
+	以毫秒为单位(默认值 = 250).
 MouseCoordMode
-	<a name="MouseCoordMode"></a>����������꺯�����������,�����Ǿ���λ��Ҳ��������Ե�ǰ����ڵ�����λ��. 
-	0 =  ��Լ���ڵ����� 
-	1 =  ��Ļ�ľ���λ��(Ĭ��) 
-	2 =  ��Լ���ڿͻ��������� 
+	<a name="MouseCoordMode"></a>设置用于鼠标函数的坐标参照,可以是绝对位置也可以是相对当前激活窗口的坐标位置. 
+	0 =  相对激活窗口的坐标 
+	1 =  屏幕的绝对位置(默认) 
+	2 =  相对激活窗口客户区的坐标 
 MustDeclareVars
-	<a name="MustDeclareVars"></a>��������˴�ѡ��Ϊ1�����б�����ʹ��֮ǰ������ʹ�� Dim/Local/Global ����,�⽫�����ڼ��ٸ�������ƴ�����������bug�ĳ���. 
-	1 = �������������� 
-	0 = ��������Ԥ������(Ĭ��) 
+	<a name="MustDeclareVars"></a>如果设置了此选项为1则所有变量在使用之前必须先使用 Dim/Local/Global 声明,这将有助于减少各种因误拼变量而引起的bug的出现. 
+	1 = 变量必须先声明 
+	0 = 变量不需预先声明(默认) 
 OnExitFunc
-	<a name="OnExitFunc"></a>������ AutoIt �˳�ʱ�����õĺ���(Ĭ��ֵΪ OnAutoItExit). 
+	<a name="OnExitFunc"></a>设置在 AutoIt 退出时将调用的函数(默认值为 OnAutoItExit). 
 PixelCoordMode
-	<a name="PixelCoordMode"></a>�����������غ������������,�����Ǿ���λ��Ҳ��������Ե�ǰ����ڵ�����λ��. 
-	0 = ��Լ���ڵ����� 
-	1 = ��Ļ�ľ���λ��(Ĭ��) 
-	2 = ��Լ���ڿͻ���������
+	<a name="PixelCoordMode"></a>设置用于象素函数的坐标参照,可以是绝对位置也可以是相对当前激活窗口的坐标位置. 
+	0 = 相对激活窗口的坐标 
+	1 = 屏幕的绝对位置(默认) 
+	2 = 相对激活窗口客户区的坐标
 SendAttachMode
-	<a name="SendAttachMode"></a>SendAttachMode  ָ����ʹ�� Send() ����ʱ AutoIt �Ƿ�����(attach)�����߳�.���������ʱ��(Ĭ��ģʽ = 0)�� capslock/scrolllock/numlock �Ȱ���״̬�ļ�⽫�ǲ�׼ȷ��(ָ�� NT4 ��).����,����������ģʽ = 1��ʱ��,Send("{... down/up}") ���﷨������֧��,�ڷ��Ͱ�����ʱ��Ҳ���ܻᵼ��ϵͳ���������.���� ControlSend() ������ ���� �����̵߳�,���Ҳ��ܴ�ģʽ���õ�Ӱ��. 
-	0 = ������(Ĭ��) 
-	1 = ���� 
+	<a name="SendAttachMode"></a>SendAttachMode  指定在使用 Send() 函数时 AutoIt 是否捆绑(attach)输入线程.当不捆绑的时候(默认模式 = 0)对 capslock/scrolllock/numlock 等按键状态的检测将是不准确的(指在 NT4 下).不过,在设置捆绑模式 = 1的时候,Send("{... down/up}") 等语法将不被支持,在发送按键的时候也可能会导致系统挂起等问题.至于 ControlSend() 函数则 总是 捆绑线程的,而且不受此模式设置的影响. 
+	0 = 不捆绑(默认) 
+	1 = 捆绑 
 SendCapslockMode
-	<a name="SendCapslockMode"></a> ָ���Ƿ��� AutoIt ��ִ�� Send ����֮ǰ�����Сд�л���(CapsLock)��״̬������ɲ�����ָ���ԭ����״̬. 
-	0 =  ������/�ָ� 
-	1 =  ���沢�ָ�(Ĭ��)   
+	<a name="SendCapslockMode"></a> 指定是否让 AutoIt 在执行 Send 函数之前保存大小写切换键(CapsLock)的状态并在完成操作后恢复到原来的状态. 
+	0 =  不保存/恢复 
+	1 =  保存并恢复(默认)   
 SendKeyDelay
-	<a name="SendKeyDelay"></a>���ķ��ͼ�������֮����ӳ�ʱ�䳤��. 
-	�Ժ���Ϊ��λ(Ĭ��ֵ=5).���ô�ֵΪ0ʱҲ������Ч,��ʱ��ʹ��1����. 
+	<a name="SendKeyDelay"></a>更改发送键击命令之间的延迟时间长度. 
+	以毫秒为单位(默认值=5).设置此值为0时也许会无效,这时请使用1代替. 
 SendKeyDownDelay
-	<a name="SendKeyDownDelay"></a>������ÿ�μ����ڼ�(�ɿ�����֮ǰ)��ס������ʱ�䳤��.����һЩ��Ҫ����һ��ʱ�����ע�������Ӧ�ó���(�Լ�������Ϸ)�����ܾ�Ҫ�����һ��ֵ. 
-	�Ժ���Ϊ��λ(Ĭ��ֵ = 5).   
+	<a name="SendKeyDownDelay"></a>更改在每次键击期间(松开按键之前)按住按键的时间长度.对于一些需要花费一定时间才能注册键击的应用程序(以及各种游戏)您可能就要提高这一数值. 
+	以毫秒为单位(默认值 = 5).   
 TCPTimeout
-	<a name="TCPTimeout"></a>����TCP ��������ʱ����ӳ��¼�(�����Ͳ�������).	
-	��λΪ����(Ĭ��100����)
+	<a name="TCPTimeout"></a>定义TCP 函数连接时最大延迟事件(超过就不再连接).	
+	单位为毫秒(默认100毫秒)
 TrayAutoPause
-	<a name="TrayAutoPause"></a>����������ͼ��ʱ�Ƿ���ͣ. 
-	0 =  ����ͣ 
-	1 =  ��ͣ(Ĭ��). Ҫ���Ѿ���������ͣ�˵�,����ʧЧ(�ο�TrayMenuMode) 
+	<a name="TrayAutoPause"></a>当单击托盘图标时是否暂停. 
+	0 =  不暂停 
+	1 =  暂停(默认). 要是已经禁用了暂停菜单,这里失效(参考TrayMenuMode) 
 TrayIconDebug
-	<a name="TrayIconDebug"></a>������ͼ������ʾ��ǰ�ű�ִ�е�����һ�е������Ϣ(������ʾ)��������. 
-	0 = ����ʾ������Ϣ(Ĭ��) 
-	1 =  ��ʾ������Ϣ  
+	<a name="TrayIconDebug"></a>在托盘图标上显示当前脚本执行到的那一行的相关信息(工具提示)以助调试. 
+	0 = 不显示调试信息(默认) 
+	1 =  显示调试信息  
 TrayIconHide
-	<a name="TrayIconHide"></a>���� AutoIt ����ͼ��.ע��:����ͼ���Ի��ڳ��������ʱ���ִ�Լ 750 ����. 
-	0 = ��ʾ����ͼ��(Ĭ��) 
-	1 = ��������ͼ��   
+	<a name="TrayIconHide"></a>隐藏 AutoIt 托盘图标.注意:托盘图标仍会在程序刚运行时出现大约 750 毫秒. 
+	0 = 显示托盘图标(默认) 
+	1 = 隐藏托盘图标   
 TrayMenuMode
-	<a name="TrayMenuMode"></a>��չ�ű��� ϵͳ����ͼ��/�˵�������¼�. ���ѡ����Խ�϶��ѡ��: 
-	0 =   Ĭ�ϲ˵���Ŀ(�ű���ͣ��.../�˳�) ��չ��ϵͳ����ͼ��; �û����ӵ���Ŀ�Զ���ȡ��ѡ��; �����˫��ϵͳ����ͼ��,��ô����ֵΪĬ����ʽ (default). 
-	1 =   û��Ĭ�ϲ˵� 
-	2 =   �û������Ĳ˵��������󲻻��Զ���ȡ��ѡ��״̬. 
-	4 =   ˫��ϵͳ����ͼ�겻�᷵�ز˵���ĿID. 
-	8 =   �ر���Ŀ��ĵ�ѡ���   
+	<a name="TrayMenuMode"></a>扩展脚本在 系统托盘图标/菜单里面的事件. 这个选项可以结合多个选项: 
+	0 =   默认菜单项目(脚本暂停中.../退出) 扩展到系统托盘图标; 用户添加的项目自动的取消选中; 如果您双击系统托盘图标,那么返回值为默认样式 (default). 
+	1 =   没有默认菜单 
+	2 =   用户创建的菜单单击过后不会自动的取消选中状态. 
+	4 =   双击系统托盘图标不会返回菜单项目ID. 
+	8 =   关闭项目组的单选检查   
 TrayOnEventMode
-	<a name="TrayOnEventMode"></a>Ӧ��/�ر� OnEvent ����֪ͨ��ϵͳ����ͼ��. 
-	0 = (Ĭ��) �ر� 
-	1 = Ӧ��   
+	<a name="TrayOnEventMode"></a>应用/关闭 OnEvent 函数通知于系统托盘图标. 
+	0 = (默认) 关闭 
+	1 = 应用   
 WinDetectHiddenText
-	<a name="WinDetectHiddenText"></a>ָ���Ƿ������صĴ����ı�Ҳ�ܱ�����ƥ�亯��"����"(�����ڴ����ı�����). 
-	0 =  ����������ı�(Ĭ��) 
-	1 =  ��������ı�   
+	<a name="WinDetectHiddenText"></a>指定是否让隐藏的窗口文本也能被窗口匹配函数"看见"(可用于窗口文本参数). 
+	0 =  不检测隐藏文本(默认) 
+	1 =  检测隐藏文本   
 WinSearchChildren
-	<a name="WinSearchChildren"></a>�������������������������㴰�ڵ�ͬʱҲ�����Ӵ���. 
-	0 = ���������㴰��(Ĭ��) 
-	1 = �������㴰�ڼ��Ӵ���.   
+	<a name="WinSearchChildren"></a>允许窗口搜索程序在搜索顶层窗口的同时也搜索子窗口. 
+	0 = 仅搜索顶层窗口(默认) 
+	1 = 搜索顶层窗口及子窗口.   
 WinTextMatchMode
-	<a name="WinTextMatchMode"></a>���Ĵ��ں�����ִ����������ʱ�Ĵ����ı�ƥ��ģʽ. 
-	1 = ��ȫƥ��(����)ģʽ(Ĭ��) 
-	2 = ����ģʽ 
-	�ڿ���ƥ��ģʽ��,AutoIt ��ֻ��"����"�Ի����ı�����ť�ı���ĳЩ�ؼ��ı���,����Ĭ��ģʽ�����ܼ�⵽������ı�(������±����ڵ�����). 
-	�����ִ�н϶ര�ڵ���������ʱ��������(ָ�ٶ�)�ϵ�����,��ô����Ӧ�ÿ���ʹ�ÿ���ģʽ.   
+	<a name="WinTextMatchMode"></a>更改窗口函数在执行搜索操作时的窗口文本匹配模式. 
+	1 = 完全匹配(较慢)模式(默认) 
+	2 = 快速模式 
+	在快速匹配模式下,AutoIt 将只能"看见"对话框文本、按钮文本和某些控件的标题,而在默认模式下则能检测到更多的文本(例如记事本窗口的内容). 
+	如果在执行较多窗口的搜索操作时遇到性能(指速度)上的问题,那么您就应该考虑使用快速模式.   
 WinTitleMatchMode
-	<a name="WinTitleMatchMode"></a>���Ĵ��ں�����ִ����������ʱ�ı���ƥ��ģʽ. 
-	1 =  ֻƥ������ǰ�沿��(Ĭ��) 
-	2 = ����������Ӵ��Կ�ƥ�� 
-	3 = ��ȫƥ����� 
-	4 = �߼�ģʽ,������鿴 <a href="../intro/windowsadvanced.htm">���ڱ������ı�(�߼�)</a>
+	<a name="WinTitleMatchMode"></a>更改窗口函数在执行搜索操作时的标题匹配模式. 
+	1 =  只匹配标题的前面部分(默认) 
+	2 = 标题的任意子串皆可匹配 
+	3 = 完全匹配标题 
+	4 = 高级模式,详情请查看 <a href="../intro/windowsadvanced.htm">窗口标题与文本(高级)</a>
 	-1 to -4 = force lower case match according to other type of match.
 WinWaitDelay
-	<a name="WinWaitDelay"></a>����ÿ�γɹ�ִ�д�����ز�������ӳ�ʱ�䳤��. 
-	�Ժ���Ϊ��λ(Ĭ��ֵ = 250). 
+	<a name="WinWaitDelay"></a>更改每次成功执行窗口相关操作后的延迟时间长度. 
+	以毫秒为单位(默认值 = 250). 
 @@End@@
 
 ###Related###
