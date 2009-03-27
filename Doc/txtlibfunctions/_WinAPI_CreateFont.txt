@@ -2,7 +2,7 @@
 _WinAPI_CreateFont
 
 ###Description###
-Creates a logical font with the specified characteristics
+创建一个带有指定字符的逻辑字体,注:characteristics有字符的意思也有特性的意思(可能翻译错误).
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,15 +11,15 @@ _WinAPI_CreateFont($nHeight, $nWidth[, $nEscape = 0[, $nOrientn = 0[, $fnWeight 
 ###Parameters###
 @@ParamTable@@
 $nHeight
-	height of font
+	字体高度
 $nWidth
-	average character width
+	字符(特性)平均宽度
 $nEscape
-	angle of escapement
+	夹角
 $nOrientn
-	base-line orientation angle
+	基线方向角
 $fnWeight
-	font weight, The following values are defined for convenience:
+	字体重度(weight), 下方是预定义的值:
 		$FW_DONTCARE - 0
 		$FW_THIN - 100
 		$FW_EXTRALIGHT - 200
@@ -31,13 +31,13 @@ $fnWeight
 		$FW_EXTRABOLD - 800
 		$FW_HEAVY - 900
 $bItalic
-	italic attribute option
+	是否是斜体
 $bUnderline
-	underline attribute option
+	是否带有下划线
 $bStrikeout
-	strikeout attribute option
+	是否带有删除线(strikeout)
 $nCharset
-	Specifies the character set. The following values are predefined:
+	指定字符集. 可以使用下方预定义的值:
 		$ANSI_CHARSET - 0
 		$BALTIC_CHARSET - 186
 		$CHINESEBIG5_CHARSET - 136
@@ -54,9 +54,9 @@ $nCharset
 		$TURKISH_CHARSET - 162
 		$VIETNAMESE_CHARSET - 163
 $nOutputPrec
-	Specifies the output precision, It can be one of the following values:
-		$OUT_CHARACTER_PRECIS - Not used
-		$OUT_DEFAULT_PRECIS - Specifies the default font mapper behavior
+	指定输出精确度, 可以是下方的一个值:
+		$OUT_CHARACTER_PRECIS - 未使用
+		$OUT_DEFAULT_PRECIS - 指定默认字体映射行为.
 		$OUT_DEVICE_PRECIS - Instructs the font mapper to choose a Device font when the system contains multiple fonts with the same name
 		$OUT_OUTLINE_PRECIS - Windows NT/2000/XP: This value instructs the font mapper to choose from TrueType and other outline-based fonts
 		$OUT_PS_ONLY_PRECIS - Windows 2000/XP: Instructs the font mapper to choose from only PostScript fonts.
@@ -69,19 +69,19 @@ $nOutputPrec
 		the font mapper returns to default behavior
 		$OUT_TT_PRECIS - Instructs the font mapper to choose a TrueType font when the system contains multiple fonts with the same name
 $nClipPrec
-	Specifies the clipping precision, It can be one or more of the following values:
-		$CLIP_CHARACTER_PRECIS - Not used
+	指定切边精确度, 可以是下方一个或多个值:
+		$CLIP_CHARACTER_PRECIS - 未使用
 		$CLIP_DEFAULT_PRECIS - Specifies default clipping behavior
 		$CLIP_EMBEDDED - You must specify this flag to use an embedded read-only font
 		$CLIP_LH_ANGLES - When this value is used, the rotation for all fonts depends on whether the orientation of the coordinate system is left-handed or right-handed.
 		If not used, device fonts always rotate counterclockwise, but the rotation of other fonts is dependent on the orientation of the coordinate system.
-		$CLIP_MASK - Not used
+		$CLIP_MASK - 未使用
 		$CLIP_STROKE_PRECIS - Not used by the font mapper, but is returned when raster, vector, or TrueType fonts are enumerated
 		Windows NT/2000/XP: For compatibility, this value is always returned when enumerating fonts
-		$CLIP_TT_ALWAYS - Not used
+		$CLIP_TT_ALWAYS - 未使用
 $fdwQuality
-	Specifies the output quality, It can be one of the following values:
-		$ANTIALIASED_QUALITY - Windows NT 4.0 and later: Font is antialiased, or smoothed, if the font supports it and the size of the font is not too small or too large.
+	指定输出质量, 可以是下方的一个值:
+		$ANTIALIASED_QUALITY - Windows NT 4.0 或更高: 字体平滑,抗锯齿, or smoothed, if the font supports it and the size of the font is not too small or too large.
 		Windows 95 with Plus!, Windows 98/Me: The display must greater than 8-bit color, it must be a single plane device, it cannot be a palette display, and it cannot be in a multiple display monitor setup.
 		In addition, you must select a TrueType font into a screen DC prior to using it in a DIBSection, otherwise antialiasing does not happen
 		$DEFAULT_QUALITY - Appearance of the font does not matter
@@ -94,7 +94,7 @@ $fdwQuality
 		Although the chosen font size may not be mapped exactly when PROOF_QUALITY is used, the quality of the font is high and there is no distortion of appearance.
 		Bold, italic, underline, and strikeout fonts are synthesized, if necessary
 $nPitch
-	Specifies the pitch and family of the font. The two low-order bits specify the pitch of the font and can be one of the following values:
+	指定字体斜度和家族. 使用两个低(序)位指定字体斜度,可以是下方的一个值:
 		$DEFAULT_PITCH, $FIXED_PITCH, $VARIABLE_PITCH
 		The four high-order bits specify the font family and can be one of the following values:
 		$FF_DECORATIVE - Novelty fonts. Old English is an example
@@ -104,16 +104,16 @@ $nPitch
 		$FF_SCRIPT - Fonts designed to look like handwriting. Script and Cursive are examples
 		$FF_SWISS - Fonts with variable stroke width and without serifs. MS Sans Serif is an example
 $szFace
-	typeface name
+	字体名称
 @@End@@
 
 ###ReturnValue###
-Success: The handle to a logical font
-Failure: 0
+成功: 逻辑字体句柄
+失败: 0
 
 ###Remarks###
-When you no longer need the font, call the _WinAPI_DeleteObject function to delete it
-Needs FontConstants.au3 for pre-defined constants.
+如果你不长期使用这个字体, 请调用 _WinAPI_DeleteObject 函数删除字体
+预定义常量需要包含 FontConstants.au3
 
 ###Related###
 
