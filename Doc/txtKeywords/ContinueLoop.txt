@@ -2,26 +2,26 @@
 ContinueLoop
 
 ###Description###
-继续 While / Do / For 循环.
+继续一个 While/Do/For 循环.
 
 ###Syntax###
-<b>ContinueLoop</b> [level]
+<b>ContinueLoop</b> [循环等级]
 
 
 ###Parameters###
 @@ParamTable@@
-level
-	[可选]  重新开始循环的层. 默认值为 1 (表示当前循环).
+循环等级
+	[可选参数]  跳到(多层嵌套循环中的)指定层重新开始循环.默认值为 1 (表示当前循环).
 @@End@@
 
 
 ###Remarks###
-ContinueLoop 将会在表达式测试语句中继续执行循环 (也就是 While,Until 或者 Next 语句).
+ContinueLoop 将(跳过循环体中所有在 ContinueLoop 语句后尚未执行的语句)继续进行下一次循环的表达式判断语句(也就是 While,Until 或者 Next 语句).
 
-如果参数 <i>level</i> 为负数或零则无任何作用.
+如果参数 <i>循环等级</i> 是负数或零则无任何作用.
 
-尽管程序中用到 ContinueLoop 语句的部分都可以改写成 If-ElseIf-End 的形式，但 ContinueLoop 的使用能让较长的脚本易于理解.
-使用 While/Do 循环时必须谨慎小心，因为一不小心很容易就会建立一个死循环（无限循环）..
+尽管程序中用到 ContinueLoop 语句的部分都可以改写成 If-ElseIf-EndIf 的形式,但 ContinueLoop 的使用能让较长的脚本易于理解.
+用于 While/Do 循环时必须谨慎小心,因为一不小心很容易就会建立一个死循环(无限循环).
 
 ###Related###
 <a href="ExitLoop.htm">ExitLoop</a>, For, While, Do
