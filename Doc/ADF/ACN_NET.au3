@@ -105,28 +105,6 @@ EndFunc   ;==>_API_Get_NetworkAdapterMAC
 
 ;======================================================
 ;
-; 函数名称:        _NetworkGetInternetIP
-; 详细信息:        得到公网IP地址.
-; 作者:            pcbar
-;
-;======================================================
-Func _NetworkGetInternetIP()
-	;by pcbar
-	$oie = _IECreate("http://www.net.cn/static/customercare/yourIP.asp", 0, 0, 1, -1)
-	$sText = _IEBodyReadText($oie)
-	$ttext = StringRegExp($sText, '((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)', 2)
-	_IEQuit($oie)
-	If IsArray($ttext) Then
-		Return $ttext[0]
-	Else
-		SetError(1)
-		Return 0
-	EndIf
-EndFunc   ;==>_NetworkGetInternetIP
-
-
-;======================================================
-;
 ; 函数名称:        _NetworkAdapterInfo()
 ; 详细信息:        获得网卡信息
 ; 返回值说明:
