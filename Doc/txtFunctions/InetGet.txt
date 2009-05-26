@@ -2,23 +2,26 @@
 InetGet
 
 ###Description###
-通过HTTP或FTP协议从互联网上下载指定文件.
+通过HTTP,HTTPS或FTP协议从互联网上下载指定文件.
 
 ###Syntax###
-InetGet ( "URL" [, "文件名" [, 是否重载 [, 是否后台]]] )
+InetGet ( "URL" [, "文件名" [, 选项 [, 是否后台]]] )
 
 
 ###Parameters###
 @@ParamTable@@
 URL
-	要下载文件的 URL(地址).  参考注意事项. 取消是 "abort".
+	要下载文件的 URL(地址).  参考注意事项.
 文件名
 	[可选参数]
 	下载到本地的文件路径.
-是否重载
+选项
 	[可选参数]
 	0 = (默认)如有可能则从本地IE缓存中获得文件
 	1 = 强制性地要求脚本从远程站点重新下载文件
+	2 = Ignore all SSL errors (with HTTPS connections).
+	4 = Use ASCII when transfering files with the FTP protocol (Can not be combined with flag 8).
+	8 = Use BINARY when transfering files with the FTP protocol (Can not be combined with flag 4).  This is the default transfer mode if none are provided.
 是否后台
 	[可选参数]
 	0 = (默认)等待下载完成之后才继续执行后面的语句.
@@ -28,8 +31,10 @@ URL
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回值为 1.
-失败:	返回值为 0.
+Success:	The return value changes depending on if the download is in the background:
+	Background: A handle is returned.  The handle can be used with InetGetInfo().  The handle must be closed with InetClose().
+	Wait: The number of bytes downloaded.
+Failure:	Sets @error to non-zero and returns 0.
 @@End@@
 
 
@@ -41,23 +46,18 @@ URL 参数是指类似"http://www.somesite.com/path/file.html"这样的形式,�
 如果连接时需要指定用户名及密码,只要在主机名前加以下前缀即可:"用户名:密码@"(都是英文字符 ),比如
 "http://myuser:mypassword@www.somesite.com"
 
-InetGet 函数支持这几种协议:http:// https:// 和 ftp://,如需调整ftp的传输模式请查看 FtpBinaryMode 属性.
 
 
-<b>&quot;后台&quot; 参数</b>
+<b>关于 &quot;后台&quot; 参数说明</b>
 
-在默认情况下,此函数将在完成下载任务之后才返回.如果下载的文件较大那么这样的处理方式是让人无法接受的.如果把 <b>"是否后台"</b> 参数设为1则函数将立即返回,下载工作则在后台继续进行.在此模式下,有两个宏可供使用:
-@InetGetActive = 下载任务进行中则为 1,完成则为 0.
-@InetGetBytesRead = 已下载文件字节数,如果出错则为  -1.
+By default the function waits until the download has finished before returning.  If the <b>background</b> parameter is set to 1 the function returns immediately and the download continues in the background.  The function InetGetInfo() can be used to check the status of the download.  It takes the handle returned from InetGet().
 
-每次只可以激活一个下载任务,如果您在上一个下载任务尚未完成时再次调用此函数将会失败.
+Multiple downloads are supported if they are started in background mode.
 
-如果要撤销下载任务则只需再次调用此函数并传递"abort"到第一个参数即可:
-<p class="codebox">InetGet("abort")</p>
+To abort a download call InetClose() and pass it the handle returned by InetGet().
 
 ###Related###
-FtpBinaryMode (Option), FtpSetProxy, InetGetSize, HttpSetProxy,  
-
+InetGetSize, InetRead, InetGetInfo, InetClose, HttpSetProxy, FtpSetProxy, HttpSetUserAgent
 
 ###Example###
 @@IncludeExample@@

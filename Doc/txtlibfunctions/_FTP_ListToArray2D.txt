@@ -1,0 +1,37 @@
+###User Defined Function###
+_FTP_ListToArray2D
+
+###Description###
+Get Filenames and filesizes of current remote directory.
+
+###Syntax###
+#Include <FTPEx.au3>
+_Ftp_ListToArray2D($l_FTPSession[, $Return_Type = 0[, $l_Flags = 0]])
+
+###Parameters###
+@@ParamTable@@
+$l_FTPSession
+	as returned by _FTP_Connect().
+$Return_type
+	0 = Both Files and Directories, 1 = Directories, 2 = Files.
+$l_Flags
+	see _FTP_FindFileFirst().
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	2D Array with names and size. Array[0][0] contain the number of found entries.
+Failure:	Array[0][0] = 0
+@@End@@
+
+###Remarks###
+Array[0][0] = number of found entries
+
+Array[x][0] Filename
+Array[x][1] Filesize
+
+###Related###
+_FTP_Connect
+
+###Example###
+@@IncludeExample@@

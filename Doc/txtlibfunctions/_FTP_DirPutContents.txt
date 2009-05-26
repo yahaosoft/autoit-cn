@@ -1,0 +1,35 @@
+###User Defined Function###
+_FTP_DirPutContents
+
+###Description###
+Puts an folder on an FTP server. Recursivley if selected.
+
+###Syntax###
+#Include <FTPEx.au3>
+_FTP_DirPutContents($l_InternetSession, $s_LocalFolder, $s_RemoteFolder, $b_RecursivePut)
+
+###Parameters###
+@@ParamTable@@
+$l_FTPSession
+	as returned by _FTP_Connect().
+$s_LocalFolder
+	The local folder i.e. "c:\temp".
+$s_RemoteFolder
+	The remote folder i.e. '/website/home'.
+$b_RecursivePut
+	Recurse through sub-dirs. 0=Non recursive, 1=Recursive
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Directory Name
+Failure:	0  and sets @ERROR
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_FTP_Connect
+
+###Example###

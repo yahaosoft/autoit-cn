@@ -2,7 +2,7 @@
 
 The following is an example with explanations:
 
-###Function###
+###Function### or ###Keyword### or ###User Defined Function###
 Name goes here.  The above title could also be ###Keyword###
 
 ###Description###
@@ -27,12 +27,15 @@ How To Denote
 
 
 ###ReturnValue###
-None.
+@@ReturnTable@@
+Success:	tab followed by info for second column as Returns 1.
+Failure:	Returns 0.
+@@End@@
  
 
 ###Remarks###
 In general, whitespace outside of tables is ignored.
-The exception is the Remarks Section:  Lines can be indendented, and non-consecutive blank lines are converted
+The exception is the Remarks Section:  Lines can be indented, and non-consecutive blank lines are converted
 as HTML <br>'s.
 
 You can also use <b>bold</b> and <i>italic</i> tags.  Pretty much any HTML formatting can be used, since this text is more or less copied directly over to the htm file.
@@ -52,6 +55,17 @@ Foo, Bar (Option), <a href="whatever/baz.htm">Baz</a>
 <a href="foo.htm">Foo</a>, <a href="AutoItSetOption.htm#Bar">Bar (Option)</a>, <a href="whatever/baz.htm">Baz</a>
 
 
+###See Also###
+@@MsdnLink@@ stringToBeSearched
+
+;a Link that will search on the masdn Online library will be inserted
+
 ###Example###
 The example will be formatted appropriately
 Indent the lines with tabs; they will be converted to spaces (4, I think) in the html output.
+
+;or
+
+@@IncludeExample@@
+
+;The example under Examples or libExamples will be included.

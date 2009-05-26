@@ -5,13 +5,20 @@ InetGetSize
 以字节为单位返回存放在互联网上的指定文件的大小.
 
 ###Syntax###
-InetGetSize ( "URL" )
+InetGetSize ( "URL" [, options ] )
 
 
 ###Parameters###
 @@ParamTable@@
 URL
 	URL  要下载文件的 URL(地址).  参考注意事项.
+options
+	[optional]
+	0 = (default) Get the file from local cache if available.
+	1 = Forces a reload from the remote site.
+	2 = Ignore all SSL errors (with HTTPS connections).
+	4 = Use ASCII when transfering files with the FTP protocol (Can not be combined with flag 8).
+	8 = Use BINARY when transfering files with the FTP protocol (Can not be combined with flag 4).  This is the default transfer mode if none are provided.
 @@End@@
 
 
@@ -34,7 +41,7 @@ URL 参数是指类似"http://www.somesite.com/path/file.html"这样的形式,�
 
 
 ###Related###
-InetGet
+InetGet, InetRead, HttpSetProxy, FtpSetProxy, HttpSetUserAgent
 
 
 ###Example###

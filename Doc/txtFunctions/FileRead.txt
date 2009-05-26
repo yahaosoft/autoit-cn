@@ -29,15 +29,15 @@ FileRead ( 文件名句柄 或者 "文件名" [, 数量] )
 若给定的是文件名而不是文件句柄,那么该文件将在函数执行期间被打开并关闭,如果打开的文件较大则会比使用文件句柄要慢得多.
 注意:不要混用文件句柄和文件名,比如使用 FileOpen 函数打开某个文件然后又以文件名的形式使用本函数.在程序中要么使用文件句柄要么就使用文件名,不要两者都用!
 
-当使用模态=4, 读取一个扇区数一定是扇区大小的倍数 (512).
+If the file was opened in Raw mode=4, the count must be a multiple of the sector size (512).
 
-ANSI两种 UTF16/UTF8 文本格式可以读取 - AutoIt 将会自动地决定类型.
+Both ANSI and UTF16/UTF8 text formats can be read - AutoIt will automatically determine the type.
 
-和二进位标志一起使用 FileOpen 把一个文件读为二进位(byte)数据 - in this case count is in bytes rather than characters.
+A file can be read as binary(byte) data by using FileOpen with the binary flag - in this case count is in bytes rather than characters.
 
 
 ###Related###
-IniRead, FileClose, FileOpen, FileReadLine, FileWrite, FileWriteLine, String
+IniRead, FileClose, FileOpen, FileReadLine, FileWrite, FileWriteLine, String, FileSetPos, FileGetPos
 
 
 ###Example###

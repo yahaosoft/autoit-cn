@@ -11,7 +11,7 @@ GUICtrlSetData ( 控件ID, 数据 [, 默认值] )
 ###Parameters###
 @@ParamTable@@
 控件ID
-	控件标识符(控件ID),可由<a href="../guiref/GUICtrlCreate.htm">GUICtrlCreate...</a>函数的返回值获得.
+	控件标识符(控件ID),可由 <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a> 函数的返回值获得.
 数据
 	对于 Combo (列表框), List (列表), ListView (列表查看), ListViewItem (列表查看项目):  由 <a href="AutoItSetOption.htm#GUIDataSeparatorChar">Opt("GUIDataSeparatorChar",...) </a>分开的项目文本,默认使用"|"分开.
 	对于 Progress (进度条): 百分比 
@@ -35,17 +35,19 @@ GUICtrlSetData ( 控件ID, 数据 [, 默认值] )
 
 
 ###Remarks###
-对于 Combo (组合框), List (列表)控件 :
-如果 "数据" 符合一个现有项目，它将当做默认被设定.
-如果 "数据" 以 GUIDataSeparatorChar 开始或者是一个空的串 ""，早先的列表将被破坏.
+For Combo or List control :
+If the "data" corresponds to an already existing entry it is set as the default.
+If the "data" starts with GUIDataSeparatorChar or is an empty string "" the previous list is destroyed.
 
-对于ListView (列表查看), ListViewItem (列表查看项目) 控件 :
-仅仅更新一个特定列,其余忽略. 例如： "||update" 将更新第三列.
-如果 "更新" 是空值，列/子项将被抹掉. 举例来说， "|" 将会抹掉第二列/子项, "" 将会抹掉第一.
+For ListView, ListViewItem controls :
+To update a specific column just forget about the others ie "||update" to update 3rd column.
+If "update" is empty the column/subitem will be erased. For example "|" will erase the second column/subitem, "" will erase the first.
 
+For Date, Monthcal controls :
+The "data" date format is "yyyy/mm/dd".
 
 ###Related###
-GUICtrlCreate..., GUICtrlSet..., GUICtrlRead, GUIDataSeparatorChar (Option)
+GUICtrlCreate..., GUICtrlUpdate..., GUICtrlRead, GUIDataSeparatorChar (Option)
 
 
 ###Example###

@@ -1,0 +1,64 @@
+###User Defined Function###
+_FTP_ProgressDownload
+
+###Description###
+Downloads a file in Binary Mode and shows a Progress window or by Calling a User defined Function.
+
+###Syntax###
+#Include <FTPEx.au3>
+_FTP_ProgressDownload($l_FTPSession, $s_LocalFile, $s_RemoteFile[, $FunctionToCall = ""])
+
+###Parameters###
+@@ParamTable@@
+$l_FTPSession
+	as returned by _FTP_Connect().
+$s_LocalFile
+	The local file to create.
+$s_RemoteFile
+	The remote source file.
+$FunctionToCall
+	[Optional] A function which can update a Progressbar and react on UserInput like Click on Abort or Close App. (More info in the end of this comment)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	1
+Failure:	0 and sets @error:
+	-1 -> Local file couldn't be created
+	-3 -> Open RemoteFile failed
+	-4 -> Read from Remotefile failed
+	-5 -> Close RemoteFile failed
+	-6 -> Download aborted by PercentageFunc and Return of Called Function
+@@End@@
+
+###Remarks###
+Information about $FunctionToCall:
+   Parameter: $Percentage - The Percentage of Progress
+   Return Values: Continue Download - 1
+                  Abort Download    - 0 Or negative
+                       These Return Values are returned by _FTP_ProgressDownload(), too,
+                       so you can react on different Actions like Aborting by User, closing App or TimeOut of whatever
+   Examples:
+                   Func _UpdateProgress($Percentage)
+                      ProgressSet($percent,$percent &"%")
+                      If _IsPressed("77") Then Return 0 ; Abort on F8
+                      Return 1 ; bei 1 Fortsetzten
+                   Endfunc
+
+                   Func _UpdateProgress($Percentage)
+                      GUICtrlSetData($ProgressBarCtrl,$percent)
+                      Switch GUIGetMsg()
+                         Case $GUI_EVENT_CLOSE
+                            Return -1 ; _FTP_DownloadProgress Aborts with -1, so you can exit you app afterwards
+                        Case $Btn_Cancel
+                           Return 0 ; Just Cancel, without special Return value
+                      EndSwitch
+                      Return 1 ; Otherwise contine Download
+                   Endfunc
+
+
+###Related###
+None.
+
+
+###Example###

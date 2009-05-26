@@ -1,0 +1,45 @@
+###Function###
+InetRead
+
+###Description###
+Downloads a file from the internet using the HTTP, HTTPS or FTP protocol.
+
+###Syntax###
+InetGet ( "URL" [, options ] )
+
+
+###Parameters###
+@@ParamTable@@
+URL
+	URL of the file to download.  See remarks below.
+options
+	[optional]
+	0 = (default) Get the file from local cache if available.
+	1 = Forces a reload from the remote site.
+	2 = Ignore all SSL errors (with HTTPS connections).
+	4 = Use ASCII when transfering files with the FTP protocol (Can not be combined with flag 8).
+	8 = Use BINARY when transfering files with the FTP protocol (Can not be combined with flag 4).  This is the default transfer mode if none are provided.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	A binary string and @extended set to the number of bytes downloaded.
+Failure:	Sets @error to non-zero and returns an empty string.
+@@End@@
+
+
+###Remarks###
+Internet Explorer 3 or greater must be installed for this function to work.
+
+The URL parameter should be in the form "http://www.somesite.com/path/file.html" - just like an address you would type into your web browser.
+
+To use a username and password when connecting simply prefix the servername with "username:password@", e.g.
+"http://myuser:mypassword@www.somesite.com"
+
+
+###Related###
+InetGet, InetGetSize, HttpSetProxy, FtpSetProxy, HttpSetUserAgent
+
+###Example###
+@@IncludeExample@@

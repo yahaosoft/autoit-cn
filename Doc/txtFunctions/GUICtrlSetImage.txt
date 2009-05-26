@@ -10,7 +10,7 @@ GUICtrlSetImage ( 控件ID, 文件名 [, 图标名 [, 图标类型]] )
 ###Parameters###
 @@ParamTable@@
 控件ID
-	控件标识符(控件ID),可由<a href="../guiref/GUICtrlCreate.htm">GUICtrlCreate...</a>函数的返回值获得.
+	控件标识符(控件ID),可由 <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a> 函数的返回值获得.
 文件名
 	要在控件上显示的图片文件.
 图标名
@@ -28,15 +28,15 @@ GUICtrlSetImage ( 控件ID, 文件名 [, 图标名 [, 图标类型]] )
 
 
 ###Remarks###
-使用资源的程序高手都熟悉一个文件的有效图标名称值.
+Use a resource hacker to know the value of the valid icon name in a file.
 
-如果在一个按钮用了图像，将会在按钮上被显示. 只要设置了 $BS_PUSHLIKE 样式的复选框也能适应图像. 在 $BS_ICON 或 $BS_BITMAP 样式中使用图像需要选择图像类型. 第一个图标分辨率将在使用的多重分辨率图标文件中. 如果图标分辨率是 128 x 128 ，控件是 64 x 64 ，图像将会被切断.
+If used on a Button control the image will be displayed on the button. Images can also be set for Checkbox controls as long as the $BS_PUSHLIKE style is used. In both case the $BS_ICON or $BS_BITMAP styles are needed to select the type of the picture used. The first icon resolution will be used in a multi icon resolution file. I.E. if a 128x128 is the first resolution and the control is 64x64 the image will be truncated.
 
-!!! 如果在 TreeViewItem 上使用这命令第一次, 那么所有的其他项目将会自动地预先设定地使用这一个图标/图像 !!!
-如果你在 TreeView 或者 ListView 上使用 GUICtrlSetImage 那么它的所有项目将会换成这一个图标/图像.
+!!! If use this command on a TreeViewItem the first time, then all other items will use this icon/image automatically by default !!!
+If you use GUICtrlSetImage on a TreeView or ListView then all items of it will change to this icon/image.
 
-一个正数将参考与字串一致的图标名.
-一个负数将参考以 1 为基础的 " 索引 " 状态，一些 DLL 仅仅能以负数提取图标.
+Passing a positive number will reference the string equivalent icon name.
+Passing a negative number causes 1-based "index" behaviour. Some Dll can have icon extracted just with negative numbers.
 
 ###Related###
 GUICtrlCreatePic, GUICtrlCreateIcon, GUICtrlCreateButton, GUICtrlCreateCheckbox
