@@ -18,10 +18,12 @@ ShellExecute ( "文件名" [, "参数" [, "工作目录" [, "verb" [, 显示标�
 	[可选] 程序的工作目录. 空白 ("") 使用当前工作目录 directory.
 verb
 	[可选] 使用 "verb" ,公共 verbs 包含:
-	  open = (默认) 打开指定文件. 文件可以是可执行文件,文档,或者一个文件夹.
+	  open = 打开指定文件. 文件可以是可执行文件,文档,或者一个文件夹.
 	  edit = 启动一个编辑器编辑指定文档. 如果 "文件名" 不是一个文档文件,函数将失败.
 	  print = 打印指定的文档文件. 如果 "文件名" 不是一个文档文件, 函数将失败
 	  properties = 显示文件或者文件夹的属性
+	  <b>See remarks for more information on the default behavior when a verb is not specified.</b>
+
 显示标志
 	[可选] 可执行程序的显示标志:
 	  @SW_HIDE = 隐藏窗口
@@ -39,6 +41,8 @@ verb
 
 ###Remarks###
 在被请求的程序运行后,脚本将继续运行.要使被请求的程序运行完成后脚本才继续运行,请使用 ShellExecuteWait 函数.
+
+When no verb is specified the default verb is used.  The default verb is the verb configured in the registry.  If no verb is set as default in the registry then the "open" verb is used.  If the "open" verb is not present then the first verb listed in the registry is used (except on Windows 2000).
 
 ###Related###
 ShellExecuteWait, Run, RunWait, RunAs, RunAsWait

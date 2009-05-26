@@ -50,10 +50,13 @@ Abs ( |expression )
 ACos ( |expression )
 ;
 [AdlibDisable | Disables the adlib functionality.]
-AdlibDisable ( |)
+AdlibDisable ( |[ "function"])
 ;
-[AdlibEnable | Enables Adlib functionality.]
-AdlibEnable ( |"function" [, time] )
+[AdlibRegister | Registers an Adlib function.]
+AdlibRegister ( |"function" [, time] )
+;
+[AdlibUnRegister | Unregisters an adlib function.]
+AdlibUnRegister( |"function" )
 ;
 [Asc | Returns the ASCII code of a character.]
 Asc ( |"char" )
@@ -269,7 +272,7 @@ DriveGetType ( |"path" )
 DriveMapAdd ( |"device", "remote share" [, flags [, "user" [, "password"]]] )
 ;
 [DriveMapDel | Disconnects a network drive.]
-DriveMapDel ( |"device" )
+DriveMapDel ( |"drive" )
 ;
 [DriveMapGet | Retrieves the details of a mapped drive.]
 DriveMapGet ( |"device" )
@@ -331,11 +334,17 @@ FileFindFirstFile ( |"filename" )
 [FileFindNextFile | Returns a filename according to a previous call to FileFindFirstFile.]
 FileFindNextFile ( |search )
 ;
+[FileFlush | Flushes the file's buffer to disk.]
+FileFlush ( |handle )
+;
 [FileGetAttrib | Returns a code string representing a file's attributes.]
 FileGetAttrib ( |"filename" )
 ;
 [FileGetLongName | Returns the long path+name of the path+name passed.]
 FileGetLongName ( |"file" [, flag] )
+;
+[FileGetPos | Retrieves the current file position.]
+FileGetPos ( |handle )
 ;
 [FileGetShortcut | Retrieves details about a shortcut.]
 FileGetShortcut ( |"lnk" )
@@ -374,7 +383,7 @@ FileReadLine ( |filehandle or "filename" [, line] )
 FileRecycle ( |"source" )
 ;
 [FileRecycleEmpty | Empties the recycle bin.]
-FileRecycleEmpty ( |["drive"] )
+FileRecycleEmpty ( |["source"] )
 ;
 [FileSaveDialog | Initiates a Save File Dialog.]
 FileSaveDialog ( |"title", "init dir", "filter" [, options [, "default name" [, hwnd]]] )
@@ -384,6 +393,9 @@ FileSelectFolder ( |"dialog text", "root dir" [, flag [, "initial dir" [, hwnd]]
 ;
 [FileSetAttrib | Sets the attributes of one or more files.]
 FileSetAttrib ( |"file pattern", "+-RASHNOT" [, recurse] )
+;
+[FileSetPos | Sets the current file position.]
+FileSetPos ( |handle, offset, origin )
 ;
 [FileSetTime | Sets the timestamp of one of more files.]
 FileSetTime ( |"file pattern", "time" [, type [, recurse] ] )
@@ -533,7 +545,7 @@ GUICtrlSetDefBkColor ( |defbkcolor [, winhandle] )
 GUICtrlSetDefColor ( |deftextcolor [, winhandle] )
 ;
 [GUICtrlSetFont | Sets the font for a control.]
-GUICtrlSetFont (controlID, size [, weight [, attribute [, fontname]]] )
+GUICtrlSetFont (controlID, size [, weight [, attribute [, fontname[, quality]]]] )
 ;
 [GUICtrlSetGraphic | Modifies the data for a control.]
 GUICtrlSetGraphic ( |controlID, type [, par1  [, ... par6]] )
@@ -590,7 +602,7 @@ GUISetCoord ( |left, top [, width [, height [, winhandle]]] )
 GUISetCursor ( |[cursorID [, override [, winhandle]]] )
 ;
 [GUISetFont | Sets the default font for a GUI window.]
-GUISetFont (size [, weight [, attribute [, fontname [, winhandle]]]] )
+GUISetFont (size [, weight [, attribute [, fontname [, winhandle[, quality]]]]] )
 ;
 [GUISetHelp | Sets an executable file that will be run when F1 is pressed.]
 GUISetHelp ( |helpfile [, winhandle] )
@@ -622,14 +634,26 @@ HotKeySet ( |"key" [, "function"] )
 [HttpSetProxy | Sets the internet proxy to use for http access.]
 HttpSetProxy ( |mode [, "proxy:port" [, "username", "password"]] )
 ;
+[HttpSetUserAgent | Sets the user-agent string sent with InetGet() requests.]
+HttpSetUserAgent ( |"user agent" )
+;
 [HWnd | Converts an expression into an HWND handle.]
 HWnd ( |expression )
 ;
-[InetGet | Downloads a file from the internet using the http or ftp protocol.]
-InetGet ( |"URL" [,"filename" [, reload [, background]]] )
+[InetClose | Closes a handle returned from InetGet().]
+InetClose ( |handle )
+;
+[InetGet | Downloads a file from the internet using the HTTP, HTTPS or FTP protocol.]
+InetGet ( |"URL" [,"filename" [, options [, background]]] )
+;
+[InetGetInfo | Returns detailed data for a handle returned from InetGet().]
+InetGetInfo( |[ handle [, index ]] )
 ;
 [InetGetSize | Returns the size (in bytes) of a file located on the internet.]
-InetGetSize ( |"URL" )
+InetGetSize ( |"URL" [, options ] )
+;
+[InetRead | Downloads a file from the internet using the HTTP, HTTPS or FTP protocol.]
+InetGet ( |"URL" [, options ] )
 ;
 [IniDelete | Deletes a value from a standard format .ini file.]
 IniDelete ( |"filename", "section" [, "key"] )
@@ -751,6 +775,12 @@ ObjGet ( |"filename" [, "classname"] )
 [ObjName | Returns the name or interface description of an Object]
 ObjName ( |$Objectvariable [,Flag] )
 ;
+[OnAutoItExitRegister | Registers a function to be called when AutoIt exits.]
+OnAutoItExitRegister( |"function" )
+;
+[OnAutoItExitUnRegister | UnRegisters a function that was called when AutoIt exits.]
+OnAutoItExitUnregister( |"function" )
+;
 [Ping | Pings a host and returns the roundtrip-time.]
 Ping ( |address or hostname [, timeout] )
 ;
@@ -818,16 +848,16 @@ RegWrite ( |"keyname" [,"valuename", "type", value] )
 Round ( |expression [, decimalplaces]  )
 ;
 [Run | Runs an external program.]
-Run ( |"filename" [, "workingdir" [, show_flag[, opt_flag ]]] )
+Run ( |"program" [, "workingdir" [, show_flag[, opt_flag ]]] )
 ;
 [RunAs | Runs an external program under the context of a different user.]
-RunAs ( |"username", "domain", "password", logon_flag, "filename" [, "workingdir" [, show_flag [, opt_flag ]]] )
+RunAs ( |"username", "domain", "password", logon_flag, "program" [, "workingdir" [, show_flag [, opt_flag ]]] )
 ;
 [RunAsWait | Runs an external program under the context of a different user and pauses script execution until the program finishes.]
-RunAsWait ( |"username", "domain", "password", logon_flag, "filename" [, "workingdir" [, show_flag [, opt_flag ]]] )
+RunAsWait ( |"username", "domain", "password", logon_flag, "program" [, "workingdir" [, show_flag [, opt_flag ]]] )
 ;
 [RunWait | Runs an external program and pauses script execution until the program finishes.]
-RunWait ( |"filename" [, "workingdir" [, show_flag [, opt_flag ]]] )
+RunWait ( |"program" [, "workingdir" [, show_flag [, opt_flag ]]] )
 ;
 [Send | Sends simulated keystrokes to the active window.]
 Send ( |"keys" [, flag] )
@@ -848,7 +878,7 @@ ShellExecute ( |"filename" [, "parameters" [, "workingdir" [, "verb" [, showflag
 ShellExecuteWait ( |"filename" [, "parameters" [, "workingdir" [, "verb" [, showflag]]]] )
 ;
 [Shutdown | Shuts down the system.]
-Shutdown ( |code )
+Shutdown ( |code [, reason] )
 ;
 [Sin | Calculates the sine of a number.]
 Sin ( |expression )
@@ -905,7 +935,7 @@ StringCompare ( |"string1", "string2" [, casesense] )
 StringFormat ( |"format control", var1 [, ... var32] )
 ;
 [StringFromASCIIArray | Converts an array of ASCII codes to a string.]
-StringFromASCIIArray( |array, [ start [, end ] ] )
+StringFromASCIIArray( |array, [ start [, end [, encoding ] ] ] )
 ;
 [StringInStr | Checks if a string contains a given substring.]
 StringInStr ( |"string", "substring" [, casesense [, occurrence [, start [, count]]]] )
@@ -959,7 +989,7 @@ StringRegExp ( |"test", "pattern" [, flag ] [, offset ] ] )
 StringRegExpReplace ( |"test", "pattern", "replace", [ count ] )
 ;
 [StringReplace | Replaces substrings in a string.]
-StringReplace ( |"string", "searchstring" or start, "replacestring" [, count [, casesense]] )
+StringReplace ( |"string", "searchstring" or start, "replacestring" [, occurrence [, casesense]] )
 ;
 [StringRight | Returns a number of characters from the right-hand side of a string.]
 StringRight ( |"string", count )
@@ -974,7 +1004,7 @@ StringStripCR ( |"string" )
 StringStripWS ( |"string", flag )
 ;
 [StringToASCIIArray | Converts a string to an array containing the ASCII code of each character.]
-StringToASCIIArray( |"string", [ start [, end ] ] )
+StringToASCIIArray( |"string", [ start [, end [, encoding ] ] ] )
 ;
 [StringToBinary | Converts a string into binary data.]
 StringToBinary ( |expression [, flag] )
@@ -1061,13 +1091,13 @@ TrayItemSetText ( |controlID, text )
 TraySetClick ( |flag )
 ;
 [TraySetIcon | Loads/Sets a specified tray icon.]
-TraySetIcon ( |[iconfile [, iconID] )
+TraySetIcon ( |[filename [, iconID] )
 ;
 [TraySetOnEvent | Defines a user function to be called when a special tray action happens.]
 TraySetOnEvent ( |specialID, "function" )
 ;
 [TraySetPauseIcon | Loads/Sets a specified tray pause icon.]
-TraySetPauseIcon ( |[iconfile [, iconID] )
+TraySetPauseIcon ( |[filename [, iconID] )
 ;
 [TraySetState | Sets the state of the tray icon.]
 TraySetState ( |[ flag ] )
@@ -1297,12 +1327,6 @@ WinWaitNotActive ( |"title" [, "text" [, timeout]] )
 [@HotKeyPressed |   Last hotkey pressed. See the HotKeySet function.]
 @HotKeyPressed
 ;
-[@InetGetActive |   Is 1 if a InetGet download is currently active, otherwise is 0. ]
-@InetGetActive
-;
-[@InetGetBytesRead |   During a InetGet download this is the number of bytes currently read. It is -1 when there is an error downloading. ]
-@InetGetBytesRead
-;
 [@IPAddress1 |   IP address of first network adapter. Tends to return 127.0.0.1 on some computers.<br>]
 @IPAddress1
 ;
@@ -1342,6 +1366,9 @@ WinWaitNotActive ( |"title" [, "text" [, timeout]] )
 [@MSEC |   Milliseconds value of clock.&nbsp; Range is 00 to 999]
 @MSEC
 ;
+[@MUILang |   Returns code denoting Multi Language if available (Vista is OK by default). See <a href="appendix/OSLangCodes.htm">Appendix</a> for possible values.]
+@MUILang
+;
 [@MyDocumentsDir |   path to My Documents target]
 @MyDocumentsDir
 ;
@@ -1360,10 +1387,10 @@ WinWaitNotActive ( |"title" [, "text" [, timeout]] )
 [@OSServicePack |   Service pack info in the form of &quot;Service Pack 3&quot;.]
 @OSServicePack
 ;
-[@OSType |   Returns "WIN32_NT" for NT/2000/XP/2003/Vista/2008.]
+[@OSType |   Returns "WIN32_NT" for NT/2000/XP/2003/Vista/2008/Win7/2008R2.]
 @OSType
 ;
-[@OSVersion |   Returns one of the following: &quot;WIN_2008&quot;, &quot;WIN_VISTA&quot;, &quot;WIN_2003&quot;,]
+[@OSVersion |   Returns one of the following: &quot;WIN_2008R2&quot;, &quot;WIN_7&quot;, &quot;WIN_2008&quot;, &quot;WIN_VISTA&quot;, &quot;WIN_2003&quot;,]
 @OSVersion
 ;
 [@ProgramFilesDir |   path to Program Files folder]

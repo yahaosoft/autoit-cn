@@ -5,15 +5,15 @@ Run
 运行外部程序.
 
 ###Syntax###
-Run ( "文件名" [, "工作目录" [, 显示标志[, 可选标志]]] )
+Run ( "程序" [, "工作目录" [, 显示标志[, 可选标志]]] )
 
 
 ###Parameters###
 @@ParamTable@@
-文件名
-	可执行文件的完整路径(文件格式为 EXE,BAT,COM 或 PIF).
+程序
+	程序所在的完整路径(文件格式为 EXE,BAT,COM 或 PIF).
 工作目录
-	[可选] 工作目录.
+	[可选] 工作目录.这个路径不一定指向程序所在路径.
 显示标志
 	[可选] 启动程序时的初始状态:
 	  @SW_HIDE = 隐藏窗口 
@@ -44,19 +44,12 @@ Run ( "文件名" [, "工作目录" [, 显示标志[, 可选标志]]] )
 
 用适当的数值为互动子进程提供标准 I/O 参数处理 StderrRead 、 StdinWrite 和 StdoutRead 函数. 结合标志值 (或者使用 $STDERR_CHILD, $STDIN_CHILD&$STDOUT_CHILD,定义 Constants.au3) 处理超过一条的流.
 
-使流关闭，下列条件式必须存在: 
-	1) 子进程关闭则流结束.(子段关闭时发生). 
-
-	2) AutoIt 必须读出任何被捕获的流，直到没有更多的数据. 
-
-	3) 如果 STDIN 被提供给子段，必须调用 StdinWrite() 关闭流. 
-
-如果 STDIN 被提供给子段，必须调用 StdinWrite() 关闭流.
-可使用 StdioClose 强制关闭 STDIO 流.
+In order for the streams to close, the following conditions must be met: 1) The child process has closed it's end of the stream (this happens when the child closes).  2) AutoIt must read any captured streams until there is no more data.  3) If STDIN is provided for the child, StdinWrite() must be called to close the stream.  Once all streams are detected as no longer needed, all internal resources will automatically be freed.
+StdioClose can be used to force the STDIO streams closed.
 
 
 ###Related###
-RunWait, RunAs, RunAsWait, ShellExecute, ShellExecuteWait, StderrRead, StdinWrite, StdoutRead, StdioClose, ProcessClose
+RunWait, RunAs, RunAsWait, ShellExecute, ShellExecuteWait, StderrRead, StdinWrite, StdoutRead, StdioClose, ProcessClose, ConsoleRead
 
 
 ###Example###
