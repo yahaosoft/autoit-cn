@@ -11,23 +11,21 @@ GUICreate ( "窗口标题" [, 宽度 [, 高度 [, 左侧 [, 顶部 [, 样式 [, 
 ###Parameters###
 @@ParamTable@@
 窗口标题
-	窗口标题.  
+	对话框窗口标题.  
 宽度
 	[可选参数] 窗口宽度. 
 高度
 	[可选参数] 窗口高度.
 左侧
-	[可选参数] 窗口左侧离屏幕左边缘的距离(像素).默认值为 -1,表示窗口将居中显示,若此参数被指定则参数 顶部 也必须指定.
+	[可选参数] 窗口左侧离屏幕左边缘的距离(像素).默认值(default)为 -1,表示窗口将居中显示,若此参数被指定则参数 顶部 也必须指定.
 顶部
-	[可选参数] 窗口上方离屏幕上边缘的距离(像素).默认值为 -1,表示窗口将居中显示.
+	[可选参数] 窗口上方离屏幕上边缘的距离(像素).默认值(default)为 -1,表示窗口将居中显示.
 样式
 	[可选参数] 指定窗口的显示样式.请查看附录中关于 <a href="../appendix/GUIStyles.htm">GUI 控件样式</a> 的说明. 
-
-	默认值为-1,表示下列样式的组合:$WS_MINIMIZEBOX,$WS_CAPTION,$WS_POPUP,$WS_SYSMENU.
-
+	默认值(default)为-1,表示下列样式的组合:$WS_MINIMIZEBOX,$WS_CAPTION,$WS_POPUP,$WS_SYSMENU.
 	某些样式总是被包括进去的:$WS_CLIPSIBLINGS,若有 $WS_MAXIMIZEBOX 或 $WS_SIZEBOX 则 $WS_SYSMENU 也将被添加到窗口样式中.
 扩展样式
-	[可选参数] 指定窗口的扩展样式.请参考下方的 <a href="GUICreate.htm#Extended Style Table">扩展样式表</a>.默认值为 -1.
+	[可选参数] 指定窗口的扩展样式.请参考下方的 <a href="GUICreate.htm#Extended Style Table">扩展样式表</a>.默认值(default)为 -1.
 父窗口
 	[可选参数] 另外一个已创建窗口的句柄,此(新创建的)窗口将成为该窗口的子窗口.
 @@End@@
@@ -40,12 +38,13 @@ GUICreate ( "窗口标题" [, 宽度 [, 高度 [, 左侧 [, 顶部 [, 样式 [, 
 
 
 ###Remarks###
-在默认设置下创建的窗口是不可调整大小并且是不可最大化的.您可以使用 WS_SIZEBOX 或 WS_MAXIMIZEBOX 来添加相应样式. 
+在默认设置下创建的窗口是不可调整大小并且是不可最大化的.您可以使用 WS_SIZEBOX 或 WS_MAXIMIZEBOX 来添加到样式参数. 
 由于只指定一个样式就只会添加一个样式,所以别忘了和默认的样式组合起来.比如说,如果只是指定 WS_SIZEBOX 那么将没有 WS_MINIMIZEBOX,WS_CAPTION,WS_POPUP,WS_SYSMENU.因此要定义一个可调整大小的窗口最好还是使用 WS_OVERLAPPEDWINDOW.
 当使用 $WS_EX_MDICHILD 样式时,子窗体的坐标将会相对于父窗体的客户区. 使用 $WS_EX_LAYERED 可以使用一个透明图片背景定义于父窗口. 
+Adding $WS_CLIPCHILDREN style can avoid some flickering when resizing GUI containing Edit control for example.
+You can enable window draging for GUI without $WS_CAPTION by using $WS_EX_CONTROLPARENT in the exStyle parameter.
 
-要在默认样式的基础上添加一个新的样式可使用 </b>BitOr</b>($GUI_SS_DEFAULT_GUI, 新样式,...).
-
+要在默认样式的基础上添加一个新的样式可使用 <b>BitOr</b>($GUI_SS_DEFAULT_GUI, 新样式,...).
 The size specified is the size of the client area of the window.  The border and title bar will make the window slightly larger than specified. Using menu controls will also change the windows height.
 
 <a name="Extended Style table"></a><b>扩展样式表</b>

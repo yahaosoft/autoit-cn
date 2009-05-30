@@ -5,49 +5,49 @@ GUICtrlCreateDate
 在GUI上创建一个日期控件.
 
 ###Syntax###
-GUICtrlCreateDate ( "文本", 左侧, 上方 [, 宽度 [, 高度 [, 样式 [, 扩展样式]]]] ) 
+GUICtrlCreateDate ( "文本", 左侧, 顶部 [, 宽度 [, 高度 [, 样式 [, 扩展样式]]]] ) 
 
 
 ###Parameters###
 @@ParamTable@@
 文本
-	预选日期.(always as "yyyy/mm/dd").
+	预选日期.(总是为 "yyyy/mm/dd" 格式).
 左侧
 	控件左侧的位置.若此值为 -1 则根据 <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> 的设置来计算左侧位置.
-上方
+顶部
 	控件上方的位置.若此值为 -1 则根据 <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> 的设置来计算上方位置.
 宽度
-	[可选参数] 控件的宽度(默认值为上一个控件的宽度).
+	[可选参数] 控件的宽度(默认值(default)为上一个控件的宽度).
 高度
-	[可选参数] 控件的高度(默认值为上一个控件的高度).
+	[可选参数] 控件的高度(默认值(default)为上一个控件的高度).
 样式
 	[可选参数] 指定控件的样式.请查看附录中关于 <a href="../appendix/GUIStyles.htm#Date">GUI 控件样式</a> 的说明.
 	
 	默认值(-1):$DTS_LONGDATEFORMAT
 	强制性样式: $WS_TABSTOP
 扩展样式
-	[可选参数] 指定控件的扩展样式.请查看附录的 <a href="../appendix/GUIStyles.htm#Extended">扩展样式表</a> .
-	默认值 (-1) : WS_EX_CLIENTEDGE 
+	[可选参数] 指定控件的扩展样式.请查看附录的 <a href="../appendix/GUIStyles.htm#Extended">扩展样式表</a>.
+	默认值(default) (-1) : WS_EX_CLIENTEDGE
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回控件标识符(控件ID).
+成功:	返回新控件的空间标识符(控件ID).
 失败:	返回值为0.
 @@End@@
 
 
 ###Remarks###
-若要获得控件的各种值请查看 <a href="GUICtrlRead.htm">GUICtrlRead</a>.
-To set or change information in the control see <a href="GUICtrlUpdate Management.htm">GUICtrlUpdate...</a>.
+若要获得控件的各种值,请参考 <a href="GUICtrlRead.htm">GUICtrlRead</a>.
+要设置或者修改控件信息,请参考 <a href="GUICtrlUpdate Management.htm">GUICtrlUpdate...</a>.
 
 要在默认样式的基础上添加一个新的样式可使用 <b>BitOr</b>($GUI_SS_DEFAULT_DATE, 新样式,...). 
 
 要格式化 日期/时间 请查看例子3来了解怎么使用GuiCtrlSendMsg 和 $DTM_SETFORMAT. 
 
-要使用上方指定的值,您必须包含 #include <DateTimeConstants.au3> 在你的脚本中.
+要使用上方指定的值,您必须包含 #include &lt;DateTimeConstants.au3&gt; 在你的脚本中.
 
-默认大小为: $GUI_DOCKHEIGHT.
+默认大小为: $GUI_DOCKHEIGHT. 
 
 
 ###Related###
