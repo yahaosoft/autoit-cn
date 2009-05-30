@@ -6,13 +6,13 @@ _SoundPlay
 
 ###Syntax###
 #include <Sound.au3>
-_SoundPlay ( $sSnd_id [, $fWait ] )
+_SoundPlay ( $aSnd_id [, $fWait ] )
 
 
 ###Parameters###
 @@ParamTable@@
-$sSnd_id
-	声音 ID ('别名') 为 一个 _SoundOpen 返回的结果或者一个文件.
+$aSnd_id
+	声音 ID 数组为一个 _SoundOpen 返回的结果或者一个文件名.
 $fWait
 	[可选参数] 这个标志定义脚本是否等待声音播放完成后再继续运行脚本:
 	1 = 等待声音播放完成再继续运行脚本.
@@ -22,19 +22,17 @@ $fWait
 ###ReturnValue###
 @@ReturnTable@@
 成功:	1
-失败:	0
-@Error:	0 = 没有错误
+失败:	0 并设置 @Error
 	1 = 播放失败
 	2 = $fWait 参数无效
-	3 = 无效声音ID. 可能需要 _SoundOpen 使用别名.
+	3 = 无效声音ID. 请从 _SoundOpen 返回一个数组或者使用一个有效的文件名.
 @@End@@
 
 ###Remarks###
 None.
 
 ###Related###
-_SoundPause, _SoundStop, _SoundSeek, _SoundOpen
+_SoundPause, _SoundStop, _SoundSeek, _SoundOpen, _SoundResume
 
 ###Example###
 @@IncludeExample@@
-

@@ -6,13 +6,13 @@ Returns the current position of the sound.
 
 ###Syntax###
 #include <Sound.au3>
-_SoundPos ( $sSnd_id [, $iMode ] )
+_SoundPos ( $aSnd_id [, $iMode ] )
 
 
 ###Parameters###
 @@ParamTable@@
-$sSnd_id
-	Sound ID (the 'alias') as returned by _SoundOpen or a file
+$aSnd_id
+	Sound ID array as returned by _SoundOpen or a file name
 $iMode
 	[optional] This flag determines which format the position of the sound is returned in
 	1 = hh:mm:ss where h = hours, m = minutes and s = seconds
@@ -22,14 +22,13 @@ $iMode
 ###ReturnValue###
 @@ReturnTable@@
 Success:	Sound Position
-Failure:	0
-@Error:	0 = No Error
+Failure:	0 and set @error
 	1 = $iMode is invalid
-	3 = Invalid Sound ID. May be _SoundOpen with alias needed.
+	3 = Invalid Sound ID. Use return array from _SoundOpen or a valid file name.
 @@End@@
 
 ###Remarks###
-None.
+It is recommended to open a sound file with _SoundOpen and pass the ID array rather than use the file name in this function.  A VBR encoded file is very unlikely to return the correct position if the file name is passed directly to this function.
 
 ###Related###
 _SoundLength, _SoundOpen

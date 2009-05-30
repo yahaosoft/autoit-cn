@@ -14,23 +14,26 @@ $avArray
 	要搜索的数组
 $vValue
 	要搜索的值
-$iWidth
+$iStart
 	[可选参数] 搜索开始的索引
-$iHeight
+$iEnd
 	[可选参数] 搜索结束的索引
 @@End@@
 
 ###ReturnValue###
+@@ReturnTable@@
 成功: 搜索到的值所在的索引
 失败: -1, 设置 @error 为:
-		1 - $avArray 不是一个数组
-		2 - $vValue 在数组的 最小/最大值 外面.
-		3 - $vValue 未在数组中找到.
-		4 - $iStart 比 $iEnd 要大.
-		5 - $avArray 不是一个一维数组.
+	1 - $avArray 不是一个数组
+	2 - $vValue 在数组的 最小/最大值 外面.
+	3 - $vValue 未在数组中找到.
+	4 - $iStart 比 $iEnd 要大.
+	5 - $avArray 不是一个一维数组.
+@@End@@
 
 ###Remarks###
-搜索之前，数组的内容、目录必须被分类，否则将返回不明确的结果.
+When performing a binary search on an array of items, the contents MUST be sorted before the search is done.
+Otherwise undefined results will be returned.
 
 ###Related###
 _ArrayFindAll, _ArraySearch

@@ -17,11 +17,11 @@ URL
 	下载到本地的文件路径.
 选项
 	[可选参数]
-	0 = (默认)如有可能则从本地IE缓存中获得文件
-	1 = 强制性地要求脚本从远程站点重新下载文件
-	2 = Ignore all SSL errors (with HTTPS connections).
-	4 = Use ASCII when transfering files with the FTP protocol (Can not be combined with flag 8).
-	8 = Use BINARY when transfering files with the FTP protocol (Can not be combined with flag 4).  This is the default transfer mode if none are provided.
+	0 = (默认)如有可能则从本地缓存中获得文件.
+	1 = 强制性地要求脚本从远程站点重新下载文件.
+	2 = 忽略所有 SSL 错误(使用 HTTPS 连接时).
+	4 = 使用FTP协议传输文件时,使用 ASCII 方式传输文件(不能和标志 8 一起使用).
+	8 = 使用FTP协议传输文件时,使用 二进制 方式传输文件(不能和标志 4 一起使用). 如果未使用过或者上次未指定,则二进制方式为默认传输方式.
 是否后台
 	[可选参数]
 	0 = (默认)等待下载完成之后才继续执行后面的语句.
@@ -31,21 +31,20 @@ URL
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The return value changes depending on if the download is in the background:
-	Background: A handle is returned.  The handle can be used with InetGetInfo().  The handle must be closed with InetClose().
-	Wait: The number of bytes downloaded.
-Failure:	Sets @error to non-zero and returns 0.
+成功:	返回值取决于是否使用后台下载:
+	后台下载: 返回一个控制句柄. 这个句柄可以用于 InetGetInfo().  这个句柄必须使用 InetClose() 关闭.
+	等待下载: 所下载的字节数.
+失败:	设置 @error 为非0,并返回 0.
 @@End@@
 
 
 ###Remarks###
-为保证此函数的正常工作必须安装 Internet Explorer 3 或更高版本.
+为保证此函数的正常工作必须安装 Internet Explorer 5 或更高版本.
 
 URL 参数是指类似"http://www.somesite.com/path/file.html"这样的形式,这和我们在网页浏览器中输入的地址是一样的格式.
 
-如果连接时需要指定用户名及密码,只要在主机名前加以下前缀即可:"用户名:密码@"(都是英文字符 ),比如
+如果连接时需要指定用户名及密码,只要在主机名前加以下前缀即可:"用户名:密码@"(都是英文字符),比如
 "http://myuser:mypassword@www.somesite.com"
-
 
 
 <b>关于 &quot;后台&quot; 参数说明</b>

@@ -6,12 +6,12 @@ _SoundOpen
 
 ###Syntax###
 #include <Sound.au3>
-_SoundOpen ( $hFile [, $sAlias ] )
+_SoundOpen ( $sFile [, $sAlias ] )
 
 
 ###Parameters###
 @@ParamTable@@
-$hFile
+$sFile
 	声音文件路径
 $sAlias
 	可选 - 可以让其它函数调用的声音别名..
@@ -19,21 +19,23 @@ $sAlias
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	声音 ID
-失败:	返回0
-@Error:	0 = 无错误
+成功:	返回一个包含下列信息的三元素数组:
+	$array[0] = 声音文件 ID 字符串
+	$array[1] = VBR length correction factor
+	$array[2] = VBR timing correction factor
+失败:	返回 0 并设置 @Error
+	1 = MCI 错误
 	2 = 文件不存在
-	3 = 别名包含空格或者符号(原帮助只说感叹号)
-@Extended:	0 = 无错误
-	其它超过 0 的整数 = MCI 错误
+	3 = 创建 ID 字符串错误.
+@Extended:	MCI 错误
 @@End@@
 
 ###Remarks###
-None.
+Although many of the _Sound functions will accept a filename, if there is a possibility of the file being VBR encoded it is highly recommended to use _SoundOpen initially and then use the returned array as the identity parameter.  This is because because the MCI DLL assumes all files are CBR (constant bit rate) encoded and produces incorrect results from those _Sound functions dealing with length and position when the sound file has been VBR (variable bit rate) encoded.
+The individual elements of the returned array have no utility outside the _Sound functions and their internal use is transparent to the user.
 
 ###Related###
-_SoundClose
+_SoundClose, _SoundLength, _SoundPause, _SoundPlay, _SoundPos, _SoundResume, _SoundStatus, _SoundStop
 
 ###Example###
 @@IncludeExample@@
-
