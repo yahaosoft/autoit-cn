@@ -79,7 +79,7 @@ $nClipPrec
 		$CLIP_STROKE_PRECIS - Not used by the font mapper, but is returned when raster, vector, or TrueType fonts are enumerated
 		Windows NT/2000/XP: For compatibility, this value is always returned when enumerating fonts
 		$CLIP_TT_ALWAYS - 未使用
-$fdwQuality
+$nQuality
 	指定输出质量, 可以是下方的一个值:
 		$ANTIALIASED_QUALITY - Windows NT 4.0 或更高: 字体平滑,抗锯齿, or smoothed, if the font supports it and the size of the font is not too small or too large.
 		Windows 95 with Plus!, Windows 98/Me: The display must greater than 8-bit color, it must be a single plane device, it cannot be a palette display, and it cannot be in a multiple display monitor setup.
@@ -108,8 +108,10 @@ $szFace
 @@End@@
 
 ###ReturnValue###
-成功: 逻辑字体句柄
-失败: 0
+@@ReturnTable@@
+成功	逻辑字体句柄
+失败	0
+@@End@@
 
 ###Remarks###
 如果你不长期使用这个字体, 请调用 _WinAPI_DeleteObject 函数删除字体
