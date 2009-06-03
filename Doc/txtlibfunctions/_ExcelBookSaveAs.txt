@@ -6,7 +6,7 @@ Saves the active workbook of the specified Excel object with a new filename and/
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelBookSaveAs($oExcel, $sFilePath, $sType = "xls", $fAlerts = 0, $fOverWrite = 0, $sPassword = "", $sWritePassword = "", $iAccessMode = 1, $iConflictResolution = 2)
+_ExcelBookSaveAs($oExcel, $sFilePath[, $sType = "xls"[, $fAlerts = 0[, $fOverWrite = 0[, $sPassword = ""[, $sWritePassword = ""[, $iAccessMode = 1[, $iConflictResolution = 2]]]]]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -45,9 +45,9 @@ $xlOtherSessionChanges
 ###ReturnValue###
 Success: Returns 1
 Failure: Returns 0 and sets @error on errors:
-@error=1: Specified object does not exist
-@error=2: Invalid filetype string
-@error=3: File exists, overwrite flag not set
+		@error=1 - Specified object does not exist
+		@error=2 - Invalid filetype string
+		@error=3 - File exists, overwrite flag not set
 
 ###Remarks###
 You can only SaveAs back to the same working path the workbook was originally opened from at this time

@@ -2,7 +2,7 @@
 _ArraySort
 
 ###Description###
-使用快速排序/插入排列算法在一个特定的下标上排列一个一维或二维数组.
+使用快速排序法/插入排序法对一个一维或者二维数组进行排序.
 
 ###Syntax###
 #Include <Array.au3>
@@ -11,24 +11,26 @@ _ArraySort(ByRef $avArray[, $iDescending = 0[, $iStart = 0[, $iEnd = 0[, $iSubIt
 ###Parameters###
 @@ParamTable@@
 $avArray
-	目标数组
+	要排序的数组
 $iDescending
-	[可选] 如设定为 1, 降序排序
+	[可选参数] 如果设置为 1, 递减排列
 $iStart
-	[可选] 起始下标值
+	[可选参数] 开始排序的数组索引
 $iEnd
-	[可选] 终止下标值
+	[可选参数] 停止排序的数值索引
 $iSubItem
-	[可选] 排列二维数组的次下标
+	[可选参数] 储存于二维数组中的子索引
 @@End@@
 
 ###ReturnValue###
-成功: 1
-失败: 0, 设置 @error:
-	        1 - 目标 $avArray 不是一个数组
-	        2 - 起始下标值 $iStart 等于或大于终止下标值 $iEnd
-	        3 - 参数 $iSubItem 等于或大于次下标总数 
-	        4 - 目标 $avArray 为多维
+@@ReturnTable@@
+成功	返回1
+失败	返回0, 并设置 @error:
+		1 - $avArray 不是一个数组
+		2 - $iStart 大于 $iEnd
+		3 - $iSubItem 大于子项目数
+		4 - $avArray 有太多的维度
+@@End@@
 
 ###Remarks###
 None.

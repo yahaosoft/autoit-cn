@@ -2,7 +2,7 @@
 _GUICtrlButton_SetImageList
 
 ###Description###
-分配一个图像列表到按钮控件
+分配一个图像列表到一个按钮控件
 
 ###Syntax###
 #Include <GuiButton.au3>
@@ -14,40 +14,41 @@ $hWnd
 	控件句柄
 $hImage
 	图像列表句柄.
-		  包含图像的所有或个别状态，状态值在下列各项中列出:
-		    1 - 常规
+		  包含一个单图像用于所有状态或者下方状态列出的每个状态值的图像:
+		    1 - 正常
 		    2 - 激活
-		    3 - 点击
+		    3 - 按下
 		    4 - 禁用
 		    5 - 默认
-		    6 - 激活指示. （仅 tablet 电脑)
+		    6 - 感应笔热点(仅平板电脑)
 $nAlign
-	指定对齐方法。参数可能是下列值之一:
+	指定对齐方式,参数可能是下列值之一:
 		  0 - 图像左对齐.
 		  1 - 图像右对齐.
 		  2 - 图像顶端对齐.
 		  3 - 图像底部对齐.
 		  4 - 图像居中对齐.
 $iLeft
-	图标的左页边空白
+	图标的左页边距
 $iTop
-	图标的顶页边空白
+	图标的顶页边距
 $iRight
-	图标的右页边空白
+	图标的右页边距
 $iBottom
-	图标的底页边空白
+	图标的底页边距
 @@End@@
 
 ###ReturnValue###
-成功: 布尔真 True
-失败: 布尔假 False
+成功: True
+失败: False
 
 ###Remarks###
 最低操作系统: Windows XP.
-图像目录有多个图像时，只显示第一个图像.
+Image list with multiple images will only show the images other than the 1st image when
+Themes is being used.
 
 ###Related###
-_GUICtrlButton_SetImageList
+_GUICtrlButton_GetImageList
 
 ###See Also###
 @@MsdnLink@@ BCM_SETIMAGELIST
