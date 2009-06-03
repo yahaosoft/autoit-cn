@@ -6,7 +6,7 @@ Write a formula to a cell on the active worksheet of the specified Excel object.
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelWriteFormula($oExcel, $iRow, $iColumn, $sFormula)
+_ExcelWriteFormula($oExcel, $sFormula, $sRangeOrRow[, $iColumn = 1])
 
 ###Parameters###
 @@ParamTable@@
@@ -23,10 +23,10 @@ $iColumn
 ###ReturnValue###
 Success: Returns 1
 Failure: Returns 0 and sets @error on errors:
-@error=1: Specified object does not exist
-@error=2: Parameter out of range
-@extended=0: Row out of range
-@extended=1: Column out of range
+		@error=1 - Specified object does not exist
+		@error=2 - Parameter out of range
+		@extended=0 - Row out of range
+		@extended=1 - Column out of range
 
 ###Remarks###
 None

@@ -17,15 +17,18 @@ $iElement
 @@End@@
 
 ###ReturnValue###
-成功: 数组新的大小
-失败: 0, 设置 @error 为:
+@@ReturnTable@@
+成功	数组新的大小
+失败	0, 设置 @error 为:
 		1 - $avArray 不是一个数组.
 		3 - $avArray 有太多的维度 (最高支持二维数组)
 		(2 - 忽略的错误代码)
+@@End@@
 
 ###Remarks###
-如果数组向左(或者二维数组的一行)有一个元素，在_ArrayDelete()执行之后，它将被设定成""
-译注：留存原文[If the array has one element left (or one row for 2D arrays), it will be set to "" after _ArrayDelete() is used on it.]
+If the array has one element left (or one row for 2D arrays), it will be set to "" after _ArrayDelete() is used on it.
+
+If the $ilement is greater than the array size then the last element is destroyed.
 
 ###Related###
 _ArrayAdd, _ArrayInsert, _ArrayPop, _ArrayPush

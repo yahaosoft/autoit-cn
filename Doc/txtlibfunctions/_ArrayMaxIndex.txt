@@ -2,7 +2,7 @@
 _ArrayMaxIndex
 
 ###Description###
-返回数组中最大值的下标.
+返回数组中最大值的索引.
 
 ###Syntax###
 #Include <Array.au3>
@@ -11,23 +11,25 @@ _ArrayMaxIndex(Const ByRef $avArray[, $iCompNumeric = 0[, $iStart = 0[, $iEnd = 
 ###Parameters###
 @@ParamTable@@
 $avArray
-	目标数组
+	Array to search
 $iCompNumeric
-	[可选] 比较方法: (译者存疑：下面所列参数好象应倒过来):
-		0 - 字母与数字并用比较
-		1 - 数字比较
+	[optional] Comparison method:
+		0 - compare alphanumerically
+		1 - compare numerically
 $iStart
-	[可选] 起始下标
+	[optional] Index of array to start searching at
 $iEnd
-	[可选] 终止下标
+	[optional] Index of array to stop searching at
 @@End@@
 
 ###ReturnValue###
-成功: 返回数组中最大值的下标
-失败: -1, 设置 @error to:
-		1 - 目标 $avArray 不是一个数组
-	        2 - 起始下标等于或大于终止下标
-	        3 - 目标 $avArray 不是一个一维数组
+@@ReturnTable@@
+Success	The index of the maximum value in the array
+Failure	-1, sets @error to:
+	1 - $avArray is not an array
+	2 - $iStart is greater than $iEnd
+	3 - $avArray is not a 1 dimensional array
+@@End@@
 
 ###Remarks###
 None.
