@@ -6,7 +6,7 @@ Returns or prints a 2Dimensional array formated to Console
 
 ###Syntax###
 #include <SQLite.au3>
-_SQLite_Display2DResult ( $aResult [, $iCellWidth = 0 [, $nReturn = 0 ]] )
+_SQLite_Display2DResult ( $aResult [, $iCellWidth = 0 [, $bReturn = 0 ]] )
 
 
 ###Parameters###
@@ -15,10 +15,9 @@ $aResult
 	The array to be displayed
 $iCellWidth
 	[optional] specifies the size of a data field
-$nReturn
-	[optional] if 1 the formated string is returned
-	if 0 ANSI formated string send to StdOut by ConsoleWrite
-	other see remarks
+$bReturn
+	[optional] if True the formated string is returned
+	if False formated string send to StdOut
 @@End@@
 
 ###ReturnValue###
@@ -28,13 +27,10 @@ Failure:	@error = 1 - $aResult is no array or has wrong dimension
 @@End@@
 
 ###Remarks###
-If $nReturn is different from 1 and 0 prints UTF8 formated string prints to console.
-This allows application as SCiTE to display those characters if configures with output.code.page=65001.
-This is the case when running SCiTE under a non-english version as Vista(fr).
-
+None.
 
 ###Related###
-_SQLite_GetTable2d
+_SQLite_GetTable2d, _SQLite_Startup
 
 ###Example###
 @@IncludeExample@@

@@ -49,9 +49,6 @@ Abs ( |expression )
 [ACos | Calculates the arcCosine of a number.]
 ACos ( |expression )
 ;
-[AdlibDisable | Disables the adlib functionality.]
-AdlibDisable ( |[ "function"])
-;
 [AdlibRegister | Registers an Adlib function.]
 AdlibRegister ( |"function" [, time] )
 ;
@@ -410,7 +407,7 @@ FileWriteLine ( |filehandle or "filename", "line" )
 Floor ( |expression )
 ;
 [FtpSetProxy | Sets the internet proxy to use for ftp access.]
-FtpSetProxy ( |mode [, "proxy:port" [, "username", "password"]] )
+FtpSetProxy ( |mode [, "proxy:port" [, "username" [, "password"]]] )
 ;
 [GUICreate | Create a GUI window.]
 GUICreate ( |"title" [, width [, height [, left [, top [, style [, exStyle [, parent]]]]]]] )
@@ -632,7 +629,7 @@ Hex ( |expression [, length] )
 HotKeySet ( |"key" [, "function"] )
 ;
 [HttpSetProxy | Sets the internet proxy to use for http access.]
-HttpSetProxy ( |mode [, "proxy:port" [, "username", "password"]] )
+HttpSetProxy ( |mode [, "proxy:port" [, "username" [, "password"]]] )
 ;
 [HttpSetUserAgent | Sets the user-agent string sent with InetGet() requests.]
 HttpSetUserAgent ( |"user agent" )
@@ -653,7 +650,7 @@ InetGetInfo( |[ handle [, index ]] )
 InetGetSize ( |"URL" [, options ] )
 ;
 [InetRead | Downloads a file from the internet using the HTTP, HTTPS or FTP protocol.]
-InetGet ( |"URL" [, options ] )
+InetRead ( |"URL" [, options ] )
 ;
 [IniDelete | Deletes a value from a standard format .ini file.]
 IniDelete ( |"filename", "section" [, "key"] )
@@ -677,7 +674,7 @@ IniWrite ( |"filename", "section", "key", "value" )
 IniWriteSection ( |"filename", "section", "data" [, index ] )
 ;
 [InputBox | Displays an input box to ask the user to enter a string.]
-InputBox ( |"title", "Prompt" [, "Default" [, "password char" [, width, height [, left, top [, timeOut [, hwnd]]]]]] )
+InputBox ( |"title", "prompt" [, "default" [, "password char" [, width, height [, left, top [, timeOut [, hwnd]]]]]] )
 ;
 [Int | Returns the integer (whole number) representation of an expression.]
 Int ( |expression )
@@ -785,7 +782,7 @@ OnAutoItExitUnregister( |"function" )
 Ping ( |address or hostname [, timeout] )
 ;
 [PixelChecksum | Generates a checksum for a region of pixels.]
-PixelChecksum ( |left, top, right, bottom [, step [,hwnd]] )
+PixelChecksum ( |left, top, right, bottom [, step [, hwnd [, mode]]] )
 ;
 [PixelGetColor | Returns a pixel color according to x,y pixel coordinates.]
 PixelGetColor ( | x , y [, hwnd] )
@@ -842,7 +839,7 @@ RegEnumVal ( |"keyname", instance )
 RegRead ( |"keyname", "valuename" )
 ;
 [RegWrite | Creates a key or value in the registry.]
-RegWrite ( |"keyname" [,"valuename", "type", value] )
+RegWrite ( |"keyname" [,"valuename" [, "type" [, value]]] )
 ;
 [Round | Returns a number rounded to a specified number of decimal places.]
 Round ( |expression [, decimalplaces]  )
@@ -989,7 +986,7 @@ StringRegExp ( |"test", "pattern" [, flag ] [, offset ] ] )
 StringRegExpReplace ( |"test", "pattern", "replace", [ count ] )
 ;
 [StringReplace | Replaces substrings in a string.]
-StringReplace ( |"string", "searchstring" or start, "replacestring" [, occurrence [, casesense]] )
+StringReplace ( |"string", "searchstring/start", "replacestring" [, occurrence [, casesense]] )
 ;
 [StringRight | Returns a number of characters from the right-hand side of a string.]
 StringRight ( |"string", count )
@@ -1118,7 +1115,7 @@ UDPBind ( |IPAddr, port )
 UDPCloseSocket ( |socketarray )
 ;
 [UDPOpen | Open a socket connected to an existing server .]
-UDPOpen ( |IPAddr, port )
+UDPOpen ( |IPAddr, port [, flag] )
 ;
 [UDPRecv | Receives data from a opened socket]
 UDPRecv ( |socketarray, maxlen [, flag] )

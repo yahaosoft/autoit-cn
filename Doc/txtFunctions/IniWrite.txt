@@ -2,10 +2,10 @@
 IniWrite
 
 ###Description###
-向某标准配置文件(*.ini)中写入某个数值.
+写入一个值到标准格式的 .ini 文件.
 
 ###Syntax###
-IniWrite ( "文件名", "字段名", "关键字", "值" )
+IniWrite ( "文件名", "字段名", "键名", "值" )
 
 
 ###Parameters###
@@ -14,8 +14,8 @@ IniWrite ( "文件名", "字段名", "关键字", "值" )
 	目标文件名.
 字段名
 	.INI 文件中的某个字段名.
-关键字
-	.INI文件中的某个关键字.
+键名
+	.INI 文件中的某个键名.
 值
 	要写入/修改的数值.
 @@End@@
@@ -31,11 +31,11 @@ IniWrite ( "文件名", "字段名", "关键字", "值" )
 ###Remarks###
 一个标准的INI文件的结构如下:
 <i>[段名]
-关键字=数值</i>
-若目标文件并不存在,则程序将自动创建该文件,关键字和字段将被添加到后面部分而且并不按任何规则排列.
+键名=数值</i>
+若目标文件并不存在,则程序将自动创建该文件,键名和字段将被添加到后面部分而且并不按任何规则排列.
 When writing a value that is quoted, the quotes are stripped.  In order to write the quote marks to the value, you must double up the quoting.  For example: ""This is a test"" will produce "This is a test" in the file.
 Leading and trailing whitespace is stripped.  In order to preserve the whitespace, the string must be quoted.  For example, "    this is a test" will preserve the whitespace but per above, the quotation marks are stripped.
-Multi-line values are not possible.
+不可能使用多行的值.
 
 ###Related###
 IniDelete, IniRead, FileWriteLine, IniReadSection, IniReadSectionNames, IniWriteSection, IniRenameSection
