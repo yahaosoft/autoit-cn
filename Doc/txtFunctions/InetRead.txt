@@ -2,39 +2,39 @@
 InetRead
 
 ###Description###
-Downloads a file from the internet using the HTTP, HTTPS or FTP protocol.
+通过HTTP,HTTPS或FTP协议从互联网上下载一个文件.
 
 ###Syntax###
-InetRead ( "URL" [, options ] )
+InetRead ( "URL" [, 选项 ] )
 
 
 ###Parameters###
 @@ParamTable@@
 URL
-	URL of the file to download.  See remarks below.
-options
-	[optional]
-	0 = (default) Get the file from local cache if available.
-	1 = Forces a reload from the remote site.
-	2 = Ignore all SSL errors (with HTTPS connections).
-	4 = Use ASCII when transfering files with the FTP protocol (Can not be combined with flag 8).
-	8 = Use BINARY when transfering files with the FTP protocol (Can not be combined with flag 4).  This is the default transfer mode if none are provided.
+	要下载文件的 URL(地址).  参考注意事项.
+选项
+	[可选参数]
+	0 = (默认)如有可能则从本地缓存中获得文件.
+	1 = 强制性地要求脚本从远程站点重新下载文件.
+	2 = 忽略所有 SSL 错误(使用 HTTPS 连接时).
+	4 = 使用FTP协议传输文件时,使用 ASCII 方式传输文件(不能和标志 8 一起使用).
+	8 = 使用FTP协议传输文件时,使用 二进制 方式传输文件(不能和标志 4 一起使用). 如果未使用过或者上次未指定,则二进制方式为默认传输方式.
 @@End@@
 
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	A binary string and @extended set to the number of bytes downloaded.
-Failure:	Sets @error to non-zero and returns an empty string.
+成功:	返回一个二进制字符串并将 @extended 设置为下载的字节数.
+失败:	设置 @error 为非零并返回一个空字符串.
 @@End@@
 
 
 ###Remarks###
-Internet Explorer 3 or greater must be installed for this function to work.
+为保证此函数的正常工作必须安装 Internet Explorer 3 或更高版本.
 
-The URL parameter should be in the form "http://www.somesite.com/path/file.html" - just like an address you would type into your web browser.
+URL 参数是指类似"http://www.somesite.com/path/file.html"这样的形式,这和我们在网页浏览器中输入的地址是一样的格式.
 
-To use a username and password when connecting simply prefix the servername with "username:password@", e.g.
+如果连接时需要指定用户名及密码,只要在主机名前加以下前缀即可:"用户名:密码@"(都是英文字符),比如
 "http://myuser:mypassword@www.somesite.com"
 
 
