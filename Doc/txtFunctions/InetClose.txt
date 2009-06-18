@@ -2,27 +2,28 @@
 InetClose
 
 ###Description###
-Closes a handle returned from InetGet().
+关闭一个由 InetGet() 返回的句柄.
 
 ###Syntax###
-InetClose ( handle )
+InetClose ( 句柄 )
 
 
 ###Parameters###
 @@ParamTable@@
-handle
-	A handle return from InetGet().
+句柄
+	由 InetGet() 函数返回的句柄.
 @@End@@
 
 
 ###ReturnValue###
-True if the handle was found and closed, False if not.
+成功:	如果句柄找到并关闭,返回 True
+失败:	返回 False .
 
 
 ###Remarks###
-InetGet() handles must be closed or resources will leak.
+InetGet() 句柄必须关闭,不然资源会残留不释放.
 
-Closing the handle to a download still in progress will cancel the download.
+当在下载过程中关闭句柄会导致取消下载.
 
 
 ###Related###
