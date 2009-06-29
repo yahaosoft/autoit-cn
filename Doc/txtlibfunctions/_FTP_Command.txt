@@ -2,7 +2,7 @@
 _FTP_Command
 
 ###Description###
-Sends a command to an FTP server.
+发送一个命令到 FTP 服务器.
 
 ###Syntax###
 #Include <FTPEx.au3>
@@ -11,15 +11,15 @@ _FTP_Command($l_FTPSession, $s_FTPCommand[, $l_Flags = 0x00000001[, $l_ExpectRes
 ###Parameters###
 @@ParamTable@@
 $l_FTPSession
-	as returned by _FTP_Connect()
+	由 _FTP_Connect() 返回的回话名
 $s_FTPCommand
-	Command string to send to FTP Server
+	要发送到FTP服务器的命令字符串
 $l_Flags
-	[optional] $FTP_TRANSFER_TYPE_ASCII or $FTP_TRANSFER_TYPE_BINARY
+	[可选参数] $FTP_TRANSFER_TYPE_ASCII(文本传输) 或者 $FTP_TRANSFER_TYPE_BINARY(二进制传输)
 $l_ExpectResponse
-	[optional] Data socket for response in Async mode
+	[可选参数] Data socket for response in Async mode
 $l_Context
-	[optional] A pointer to a variable that contains an application-defined
+	[可选参数] A pointer to a variable that contains an application-defined
 	value used to identify the application context in callback operations
 	The $l_ExpectResponse parameter must be set to TRUE for phFtpCommand to be filled.
 	-> Parameter removed, is returned as @extended
@@ -27,13 +27,13 @@ $l_Context
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns an identifier.
-Failure:	0  and sets @ERROR.
+成功:	返回一个标识(identifier).
+失败:	返回 0 并设置 @ERROR.
 @@End@@
 
 ###Remarks###
 Command Examples: depends on server syntax/
-The following is for Binary transfer, ASCII transfer, Passive transfer mode (used with firewalls) 'type I' 'type A'  'pasv'
+下列命令:二进制传输, ASCII 传输, 被动传输模式 (用于防火墙) 'type I' 'type A'  'pasv'
 
 
 ###Related###
