@@ -1,10 +1,10 @@
-﻿; Example Resizing an array
+﻿; 演示调整数组大小
 Dim $I, $K, $T, $MSG
 Dim $X[4][6], $Y[4][6]
 
 For $I = 0 To 3
    For $K = 0 To 5
-      $T = Int(Random(20) + 1)  ;Get random numbers between 1 and 20
+      $T = Int(Random(20) + 1)  ;得到 1 到 20 之间的随机数
       $X[$I][$K] = $T
       $Y[$I][$K] = $T
    Next
@@ -21,7 +21,7 @@ For $I = 0 To UBound($X, 1) - 1
    Next
    $MSG = $MSG & @CR
 Next
-MsgBox(0, "ReDim Demo", $MSG)
+MsgBox(0, "ReDim 演示", $MSG)
 
 $MSG = ""
 For $I = 0 To UBound($Y, 1) - 1
@@ -31,4 +31,4 @@ For $I = 0 To UBound($Y, 1) - 1
    Next
    $MSG = $MSG & @CR
 Next
-MsgBox(0, "ReDim Demo", $MSG)
+MsgBox(0, "ReDim 演示", $MSG)
