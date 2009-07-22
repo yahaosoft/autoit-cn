@@ -3,7 +3,7 @@
 Opt("CaretCoordMode", 1)        ;1=绝对位置, 0=相对位置, 2=客户区
 Opt("ExpandEnvStrings", 0)      ;0=不展开, 1=展开
 Opt("ExpandVarStrings", 0)      ;0=不展开, 1=展开
-Opt("GUICloseOnESC", 1)         ;1=按下 ESC 将不关闭窗口, 0=按下 ESC 将关闭窗口
+Opt("GUICloseOnESC", 1)         ;1=按下 ESC 将关闭窗口, 0=按下 ESC 将不关闭窗口
 Opt("GUICoordMode", 1)          ;1=绝对位置, 0=相对位置, 2=单元格
 Opt("GUIDataSeparatorChar","|") ;"|"为默认
 Opt("GUIOnEventMode", 0)        ;0=取消, 1=启用 OnEvent 模式
