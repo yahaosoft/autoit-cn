@@ -2,7 +2,7 @@
 _FTP_Open
 
 ###Description###
-Opens an FTP session.
+打开一个 FTP 会话.
 
 ###Syntax###
 #Include <FTPEx.au3>
@@ -11,31 +11,31 @@ _FTP_Open($s_Agent[, $l_AccessType = 1[, $s_ProxyName = ''[, $s_ProxyBypass = ''
 ###Parameters###
 @@ParamTable@@
 $s_Agent
-	Random name. ( like "myftp" )
+	随机名称. ( 例如 "myftp" )
 $l_AccessType
-	Set if proxy is used.
+	设置代理是否使用.
 $s_ProxyName
-	ProxyName.
+	代理名称.
 $s_ProxyBypass
 	ProxyByPasses's.
 $l_Flags
-	See remarks.
+	参考备注.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Handle to internet session to be used in _FTP_Connect().
-Failure:	0  and sets @ERROR.
+成功:	Handle to internet session to be used in _FTP_Connect().
+失败:	0  and sets @ERROR.
 @@End@@
 
 ###Remarks###
-Values for $l_AccessType
-	$INTERNET_OPEN_TYPE_DIRECT -> no proxy
+$l_AccessType 的值
+	$INTERNET_OPEN_TYPE_DIRECT -> 不使用代理
 	$INTERNET_OPEN_TYPE_PRECONFIG -> Retrieves the proxy or direct configuration from the registry.
 	$INTERNET_OPEN_TYPE_PRECONFIG_WITH_NO_AUTOPROXY -> Retrieves the proxy or direct configuration from the registry and prevents the use of a startup Microsoft JScript or Internet Setup (INS) file.
 	$INTERNET_OPEN_TYPE_PROXY -> Passes requests to the proxy unless a proxy bypass list is supplied and the name to be resolved bypasses the proxy. Then no proxy is used.
 
-Values for $l_Flags
+$l_Flags 的值
 	$INTERNET_FLAG_ASYNC -> Makes only asynchronous requests on handles descended from the handle returned from this function.
 	$INTERNET_FLAG_FROM_CACHE -> Does not make network requests. All entities are returned from the cache. If the requested item is not in the cache, a suitable error, such as ERROR_FILE_NOT_FOUND, is returned.
 

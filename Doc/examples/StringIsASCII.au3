@@ -1,2 +1,2 @@
-﻿$x = StringIsASCII("This is a sentence.")
-MsgBox(0,"StringIsASCII returns:", $x)
+﻿$x = StringIsASCII("这是一个句子.")
+MsgBox(0,"StringIsASCII 返回:", $x)
