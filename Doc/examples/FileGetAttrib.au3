@@ -18,5 +18,5 @@ For $i = 1 to 9
 	$attrib = StringReplace($attrib, $input[$i], $output[$i], 0, 1)
 	; last parameter in StringReplace means case-sensitivity
 Next
-$attrib = StringTrimRight($attrib, 2) ;remove trailing slash
+$attrib = StringTrimRight($attrib, 2) ;移除反斜杠
 MsgBox(0,"完整的文件属性:", $attrib)
