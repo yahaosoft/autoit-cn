@@ -1,0 +1,40 @@
+﻿###ACN Defined Function###
+_accessQueryLike
+
+###Description###
+搜索数据库中指定的表内的字段所包含指定的字符串
+
+###Syntax###
+#Include <Access.au3>
+_accessQueryLike($adSource, $adTable, $adCol, $Find, $adFull = 1)
+
+###Parameters###
+@@ParamTable@@
+$adSource
+	打开数据库文件的完整路径以及数据库文件名
+$adTable
+	搜索的表名称
+$adCol
+	搜索的字段名(请勿使用索引)
+$Find
+	搜索的字符串(为空即搜索全部记录)
+$adFull
+	如果 = 1 使用Chr(28)作为分隔符. (默认)
+	如果 <> 1 返回一个包含指定字段的每一条记录的数组
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回一个包含符合条件的记录,每个字段名下值的数组,每条记录的信息以Chr(28)为分割的(分隔符请参照$adFull的说明)
+失败:	设置@Error
+	1 = 无法创建连接
+	2 = 无法创建recordset对象
+@@End@@
+###Remarks###
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@
