@@ -6,7 +6,7 @@ _WinAPI_OpenProcess
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_OpenProcess($iAccess, $fInherit, $iProcessID[, $fDebugPriv = False])
+_WinAPI_OpenProcess($iAccess, $fInherit, $iProcessID [, $fDebugPriv = False])
 
 ###Parameters###
 @@ParamTable@@
@@ -17,14 +17,15 @@ $fInherit
 $iProcessID
 	Specifies the process identifier of the process to open
 $fDebugPriv
-	Certain system processes can not be opened unless you have the debug security privilege. If
+	<b>Optional:</b> Certain system processes can not be opened unless you have the debug security privilege. If
 		True, this function will attempt to open the process with debug priviliges if the process can not be opened
 		with standard access privileges.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Process handle to the object
+Success:	Process handle to the object
+Failure:	set @error
 @@End@@
 
 ###Remarks###

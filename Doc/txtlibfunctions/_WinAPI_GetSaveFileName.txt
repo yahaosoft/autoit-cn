@@ -6,42 +6,42 @@ Creates a Save dialog box that lets the user specify the drive, directory, and n
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_GetSaveFileName([$sTitle = ""[, $sFilter = "All files (*.*)"[, $sInitalDir = "."[, $sDefaultFile = ""[, $sDefaultExt = ""[, $iFilterIndex = 1[, $iFlags = 0[, $iFlagsEx = 0[, $hwndOwner = 0]]]]]]]]])
+_WinAPI_GetSaveFileName([$sTitle = "" [, $sFilter = "All files (*.*)" [, $sInitalDir = "." [, $sDefaultFile = "" [, $sDefaultExt = "" [, $iFilterIndex = 1 [, $iFlags = 0 [, $iFlagsEx = 0 [, $hwndOwner = 0]]]]]]]]])
 
 ###Parameters###
 @@ParamTable@@
 $sTitle
-	string to be placed in the title bar of the dialog box
+	<b>Optional:</b> string to be placed in the title bar of the dialog box
 $sFilter
-	Pairs of filter strings (for example "Text Files (*.txt)|All Files (*.*)")
+	<b>Optional:</b> Pairs of filter strings (for example "Text Files (*.txt)|All Files (*.*)")
 		The first string in each pair is a display string that describes the filter (for example, "Text Files")
 		The second string specifies the filter pattern (for example, "*.TXT")
 		To specify multiple filter patterns for a single display string, use a semicolon to separate the patterns (for example, "*.TXT;*.DOC;*.BAK")
 		A pattern string can be a combination of valid file name characters and the asterisk (*) wildcard character
 		Do not include spaces in the pattern string.
 $sInitalDir
-	String that can specify the initial directory
+	<b>Optional:</b> String that can specify the initial directory
 $sDefaultFile
-	A file name used to initialize the File Name edit control
+	<b>Optional:</b> A file name used to initialize the File Name edit control
 $sDefaultExt
-	String that contains the default extension
+	<b>Optional:</b> String that contains the default extension
 $iFilterIndex
-	Specifies the index of the currently selected filter in the File Types control
+	<b>Optional:</b> Specifies the index of the currently selected filter in the File Types control
 $iFlags
-	See Flags in $tagOPENFILENAME information
+	<b>Optional:</b> See Flags in $tagOPENFILENAME information
 $iFlagsEx
-	See FlagEx in $tagOPENFILENAME information
+	<b>Optional:</b> See FlagEx in $tagOPENFILENAME information
 $hwndOwner
-	Handle to the window that owns the dialog box. This member can be any valid window handle, or it can be 0 if the dialog box has no owner
+	<b>Optional:</b> Handle to the window that owns the dialog box. This member can be any valid window handle, or it can be 0 if the dialog box has no owner
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Array in the following format:
+Success:	Array in the following format:
 	[0] - Contains the number of strings (2)
 	[1] - Contains the path selected
 	[2] - Contains file selected
-Failure	Array of 1 item set to 0
+Failure:	Array of 1 item set to 0
 @@End@@
 
 ###Remarks###

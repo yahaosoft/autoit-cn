@@ -1,0 +1,42 @@
+###User Defined Function###
+_GUICtrlRichEdit_ScrollLines
+
+###Description###
+Scrolls the text down or up a number of lines
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_ScrollLines($hWnd, $iQlines)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iQlines
+	number of lines to scroll
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and sets @error
+@error:	101 - $hWnd is not a handle
+	102 - $iQlines is not numeric
+	700 - attempt to scroll a single-line control
+@@End@@
+
+###Remarks###
+To scroll down, set $iQlines to a positive value; to scroll up, a negative value.
+
+_GUICtrlRichEdit_ScrollLines is well behaved: if $iQlines is more than the number of lines below
+the current line, it scrolls to show only the last line; if $iQlines is negative and specifies
+a line before the first one, it scrolls to show the first line at the top of the control window.
+
+###Related###
+_GUICtrlRichEdit_ScrollLineOrPage, _GUICtrlRichEdit_ScrollToCaret
+
+###See Also###
+@@MsdnLink@@ EM_LINESCROLL
+
+###Example###
+@@IncludeExample@@

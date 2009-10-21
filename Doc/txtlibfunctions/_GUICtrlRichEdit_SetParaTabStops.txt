@@ -1,0 +1,58 @@
+###User Defined Function###
+_GUICtrlRichEdit_SetParaTabStops
+
+###Description###
+Sets tab stops of paragraphs having selected text or, if none selected, sets it for text inserted at the insertion point
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetParaTabStops($hWnd, $sTabStops)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$sTabStops
+	A string consisting of groups separated by ; (semicolon). Format of a group:
+		 absolute position of a tab stop (in space units)
+		 kind of tab
+		   l - left tab
+		   c - center tab
+		   r - decimal tab
+		   b - bar tab
+		 kind of dot leader
+		   . - dotted leader
+		   - - dashed leader
+		   _ - underline leader
+		   = - double line leader
+		   t - thick-line leader
+		   a space - no leader
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and sets @error
+@error:	101 - $hWnd is not a handle
+	1021 - absolute position of a tab stop missing or invalid
+	1022 - kind of tab missing or invalid
+	1023 - kind of tab leader missing or invalid
+	1024 - attempt to set too many tab stops
+	   @extended contains the tab number (ref 1) in $sTabStops where the error occurred.
+@@End@@
+
+###Remarks###
+To reset the tab stops, do _GUICtrlRichEdit_SetParaTabStops($hWnd, "")
+
+To set "space units", call _GUICtrlRichEdit_SetSpaceUnit. Initially inches
+
+To enter a tab into a control, press Ctrl_Tab
+
+###Related###
+_GUICtrlRichEdit_GetParaTabStops, _GUICtrlRichEdit_SetSpaceUnit
+
+###See Also###
+@@MsdnLink@@ EM_SETCHARFORMAT
+
+###Example###
+@@IncludeExample@@

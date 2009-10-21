@@ -1,0 +1,49 @@
+###User Defined Function###
+_GUICtrlRichEdit_SetParaNumbering
+
+###Description###
+Sets numbering of paragraph(s) in the current selection or, if no selection, of paragraph(s) inserted at the insertion point
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetParaNumbering($hWnd, $sStyle, $iTextToNbrSpace = Default,$fForceRoman=False)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$sStyle
+	a string specifying style and starting "number": e.g. "." (bullet), "1)","(b)", "C.", "iv", "V)"
+		   This is the "numbering" that will display for the first paragraph.
+		   Trailing spaces indicate the minimum spaces between the number and the paragraph unless iTextToNbrSpace is entered
+		   Special cases:
+		      "=" - This paragraph is an unnumbered paragraph within the preceding list element
+		       "" - removed the numbering from the selected paragraph(s)
+$iTextToNbrSpace
+	<b>Optional:</b> space between number/bullet and paragraph (in space units)
+		Default: number of trailing spaces times point size
+$fForceRoman
+	<b>Optional:</b> False - i, v, x ... in $sStyle is letter i, v, x ... {Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and set @error
+@error:	101 - $hWnd is not a handle
+	102 - $sStyle is invalid
+	103 - $iTextToNbrSpace is not a postive number
+	104 - $fForceRoman must be True or False
+@@End@@
+
+###Remarks###
+To set "space units", call _GUICtrlRichEdit_SetSpaceUnit. Initially inches
+
+###Related###
+_GUICtrlRichEdit_GetParaNumbering, _GUICtrlRichEdit_SetSpaceUnit
+
+###See Also###
+@@MsdnLink@@ EM_SETPARAFORMAT
+
+###Example###
+@@IncludeExample@@

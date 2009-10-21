@@ -1,0 +1,61 @@
+###User Defined Function###
+_GUICtrlRichEdit_SetEventMask
+
+###Description###
+Specifies which notification messages are sent to the parent window
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetEventMask($hWnd, $iFlags)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iEventMask
+	BitOr combination of :
+		$ENM_CHANGE - Sends $EN_CHANGE notifications (user may have altered text)
+		$ENM_CORRECTTEXT - Sends $EN_CORRECTTEXT notifications (parent window can cancel correction of text)
+		$ENM_DRAGDROPDONE - Sends $EN_DRAGDROPDONE notifications (drag and drop operation completed)
+		$ENM_DROPFILES - Sends $EN_DROPFILES notifications (user is attempting to drop files into the control)
+		$ENM_KEYEVENTS - Sends $EN_MSGFILTER notifications for keyboard events
+		$ENM_LINK - Sends $EN_LINK notifications when the mouse pointer is over text having the link character
+		attribute set and when user clicks the mouse [2.0+]
+		$ENM_MOUSEEVENTS - Sends $EN_MSGFILTER notifications for mouse events to parent window
+		$ENM_OBJECTPOSITIONS - Sends $EN_OBJECTPOSITIONS notifications when the control reads in objects
+		$ENM_PROTECTED - Sends $EN_PROTECTED notifications when the user attempts to change characters having
+		the protected attribute set
+		$ENM_REQUESTRESIZE - Sends $EN_REQUESTRESIZE notifications that the control's contents are either smaller or
+		larger than the control's window size
+		$ENM_SCROLL - Sends $EN_HSCROLL and $EN_VSCROLL notifications when the user clicks the horizontal/vertical
+		scroll bar
+		$ENM_SCROLLEVENTS - Sends EN_MSGFILTER notifications for mouse wheel events
+		$ENM_SELCHANGE - Sends EN_SELCHANGE notifications when the current selection changes
+		$ENM_UPDATE - Sends EN_UPDATE notifications when a control is about to redraw itself
+		or
+		$ENM_NONE - Disables sending of notification messages to the parent window
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and sets @error
+@error:	101 - $hWnd is not a handle
+	102 - $iEventMask is not a number
+@@End@@
+
+###Remarks###
+The number in parentheses indicate which versions mask settings apply to.
+
+$ENM_IMECHANGE only applies to Asian-language versions of Windows
+
+$EN_UPDATE notifications are always sent except for when 4.0 is emulating 1.0
+
+###Related###
+_GUICtrlRichEdit_SetCharAttributes, _GUICtrlRichEdit_GetCharAttributes
+
+###See Also###
+@@MsdnLink@@ EM_SETEVENTMASK
+
+###Example###
+@@IncludeExample@@

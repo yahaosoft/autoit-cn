@@ -1,0 +1,50 @@
+###User Defined Function###
+_GUICtrlRichEdit_GetText
+
+###Description###
+Get all of the text in the control
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_GetText($hWnd [, $fCrToCrLf = False [, $iCodePage = 0 [, $sReplChar = ""]]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to control
+$fCrToCrLf
+	<b>Optional:</b> Convert each CR to a CrLf
+		True - do it
+		 don't (Default)
+$iCodePage
+	<b>Optional:</b> code page used in translation
+		Default: use system default
+		CP_ACP for ANSI, 1200 for Unicode
+$sReplaChar
+	<b>Optional:</b> Character used if $iCodePage is not 1200 and a wide character cannot be represented in
+		specified code page
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	the text
+Failure:	"" and sets @error:
+@error:	101 - $hWnd is not a handle
+	102 - $fCrToCrLf must be True or False
+	103 - $iCodePage is not a number
+	700 - internal error
+@@End@@
+
+###Remarks###
+On success, if $sReplChar set, @extended contains whether this character was used
+
+Call _GUICtrlRichEdit_IsModified() to determine whether the text has changed
+
+###Related###
+_GUICtrlRichEdit_SetText, _GUICtrlRichEdit_AppendText, _GUICtrlRichEdit_InsertText, _GUICtrlRichEdit_IsModified
+
+###See Also###
+@@MsdnLink@@ EM_GETTEXTEX
+
+###Example###
+@@IncludeExample@@

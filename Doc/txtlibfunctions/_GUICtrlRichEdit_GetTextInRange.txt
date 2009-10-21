@@ -1,0 +1,42 @@
+###User Defined Function###
+_GUICtrlRichEdit_GetTextInRange
+
+###Description###
+Gets the text from from one inter-character position to another
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_GetTextInRange($hWnd, $iStart, $iEnd)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iStart
+	Inter-character position before the text
+$iEnd
+	Inter-character position after the text
+		Special value: -1 - end of text
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	the text
+Failure:	False, and sets @error
+@error:	101 - $hWnd is not a handle
+	102 - $iStart is neither positive nor zero
+	1031 - $iEnd is neither positive nor zero nor -1
+	1032 - $iStart &lt; $iEnd and $iEnd &l;&gt; -1
+@@End@@
+
+###Remarks###
+The first character position in the control is 0
+
+###Related###
+_GUICtrlRichEdit_GetTextinLine
+
+###See Also###
+@@MsdnLink@@ EM_GETTEXTRANGE
+
+###Example###
+@@IncludeExample@@

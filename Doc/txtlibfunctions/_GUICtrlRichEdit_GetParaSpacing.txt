@@ -1,0 +1,45 @@
+###User Defined Function###
+_GUICtrlRichEdit_GetParaSpacing
+
+###Description###
+Gets the spacing settings of (first) selected paragraph or (if no selection) of the current paragraph
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_GetParaSpacing($hWnd)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	a string consisting of the settings separated by semicolons (;):
+	value 1 - inter-line spacing:
+	   either a number - in space units
+	   or "<number> lines" - in lines
+	Value 2 - scope of value 1:
+	   a - all (or only) selected paragraph(s) have the above setting
+	   f - the first selected paragraph has this setting, but other(s) don't
+	   c - the current paragraph has this setting
+	value 3 - spacing before paragraphs (in space units)
+	value 4 - scope of value 3 - see above
+	value 5 - spacing after paragraphs (in space units)
+	value 6 - scope of value 5 - see above
+Failure:	"" and sets @error
+@error:	101 - $hWnd is not a handle
+@@End@@
+
+###Remarks###
+To set "space units", call _GUICtrlRichEdit_SetSpaceUnit. Initially inches
+
+###Related###
+_GUICtrlRichEdit_SetParaSpacing, _GUICtrlRichEdit_SetSpaceUnit
+
+###See Also###
+@@MsdnLink@@ EM_SETPARAFORMAT
+
+###Example###
+@@IncludeExample@@

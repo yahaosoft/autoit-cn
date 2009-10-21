@@ -1,0 +1,40 @@
+###User Defined Function###
+_GUICtrlRichEdit_GetFirstCharPosOnLine
+
+###Description###
+Retrieves the inter-character position preceding the first character of a line
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_GetFirstCharPosOnLine($h_RichEdit [, $iLine = -1])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to control
+$iLine
+	<b>Optional:</b> Line number
+		Default: current line
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Character position of the first character of the line
+Failure:	0 and sets @error
+@error:	101 - $hWnd is not a handle
+	1021 - $iLine is neither positive nor -1
+	1022 - $iLine greater than number of lines of text
+@@End@@
+
+###Remarks###
+A control that contains no text has one line.
+
+The first line is line 1. The first character position in the client area is 0.
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ EM_GETLINEINDEX
+
+###Example###
+@@IncludeExample@@

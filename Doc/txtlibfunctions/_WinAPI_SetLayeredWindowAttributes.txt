@@ -6,7 +6,7 @@ Sets Layered Window Attributes
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_SetLayeredWindowAttributes($hWnd, $i_transcolor[, $Transparency = 255[, $dwFlags = 0x03[, $isColorRef = False]]])
+_WinAPI_SetLayeredWindowAttributes($hWnd, $i_transcolor [, $Transparency = 255 [, $dwFlags = 0x03 [, $isColorRef = False]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -17,17 +17,16 @@ $i_transcolor
 $Transparency
 	Set Transparancy of GUI
 $dwFlags
-	[optional] Flags.
+	<b>Optional:</b> Flags.
 $isColorRef
-	[optional] If True, $i_transcolor is a COLORREF( 0x00bbggrr ), else an RGB-Color
+	<b>Optional:</b> If True, $i_transcolor is a COLORREF( 0x00bbggrr ), else an RGB-Color
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1
-@Error	0
-	@error: 1 to 3 - Error from DllCall
-	@error: 4 - Function did not succeed - use _WinAPI_GetLastErrorMessage to get more information
+Success:	1
+Failure:	0
+@error:	4 - Function did not succeed - @extended is set to _WinAPI_GetLastErrorMessage to get more information
 @@End@@
 
 ###Remarks###

@@ -23,7 +23,7 @@ $iOutSize
 $iRead
 	On return, contains the number of bytes read from the pipe
 $iTimeOut
-	Number of milliseconds to wait for the named pipe to be available. In addition to numeric
+	<b>Optional:</b> Number of milliseconds to wait for the named pipe to be available. In addition to numeric
 		values, the following special values can be specified:
 		-1 - Wait indefinitely
 		 0 - Uses the default time-out specified in the call to the CreateNamedPipe
@@ -31,8 +31,10 @@ $iTimeOut
 @@End@@
 
 ###ReturnValue###
-成功: True
-失败: False
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
 
 ###Remarks###
 Calling CallNamedPipe is equivalent to calling the CreateFile (or WaitNamedPipe, if CreateFile cannot open
