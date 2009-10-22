@@ -11,13 +11,13 @@ _Net_Share_StatisticsGetWrk([$sWorkStation = ""])
 ###Parameters###
 @@ParamTable@@
 $sWorkStation
-	Specifies the DNS or NetBIOS name of the remote server on which the function is to execute. If
+	<b>Optional:</b> Specifies the DNS or NetBIOS name of the remote server on which the function is to execute. If
 		this parameter is blank, the local computer is used.
 @@End@@
 
 ###ReturnValue###
-Success: Array with the following format:
-
+@@ReturnTable@@
+Success:	Array with the following format:
 	[ 0] - Statistics collection start time. The value is stored as the number of seconds elapsed since 00:00:00,	January 1, 1970.
 	[ 1] - Bytes received by the workstation
 	[ 2] - Server message blocks (SMBs) received by the workstation
@@ -58,6 +58,8 @@ Success: Array with the following format:
 	[37] - Network connections established by the workstation
 	[38] - Failed network connections for the workstation
 	[39] - Current requests that have not been completed
+Failure:	Set @error
+@@End@@
 
 ###Remarks###
 No special group membership is required to obtain workstation statistics. Only members of the Administrators

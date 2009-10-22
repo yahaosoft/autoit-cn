@@ -6,7 +6,7 @@ Retrieves a security identifier (SID) for the account and the name of the domain
 
 ###Syntax###
 #Include <Security.au3>
-_Security__LookupAccountName($sAccount[, $sSystem = ""])
+_Security__LookupAccountName($sAccount [, $sSystem = ""])
 
 ###Parameters###
 @@ParamTable@@
@@ -14,14 +14,14 @@ $sAccount
 	Specifies the account name. Use a fully qualified string in the domain_name\user_name format to
 		ensure that the function finds the account in the desired domain.
 $sSystem
-	Name of the system. This string can be the name of a remote computer. If this string is blank,
+	<b>Optional:</b> Name of the system. This string can be the name of a remote computer. If this string is blank,
 		the account name translation begins on the local system. If the name cannot be resolved on the local system,
 		this function will try to resolve the name using domain controllers trusted by the local system.
 @@End@@
 
 ###ReturnValue###
-Success: Array with the following format:
-
+@@ReturnTable@@
+Success:	Array with the following format:
 	$aAcct[0] - SID String
 	$aAcct[1] - Domain name
 	$aAcct[2] - SID type, which can be one of the following values:
@@ -34,6 +34,8 @@ Success: Array with the following format:
 	 7 - Indicates an invalid SID
 	 8 - Indicates an unknown SID type
 	 9 - Indicates a SID for a computer
+Failure:	Set @error
+@@End@@
 
 ###Remarks###
 None.

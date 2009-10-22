@@ -12,20 +12,20 @@ _SQLite_Open ( [ $sDatabase_Filename = ":memory:" [,$iAccessMode [,$iEncoding ]]
 ###Parameters###
 @@ParamTable@@
 $sDatabase_Filename
-	[optional] Database filename, by default will opens an in memory database.
+	<b>Optional:</b> Database filename, by default will opens an in memory database.
 $iAccessMode
-	[optional] access mode flags. Defaults to $SQLITE_OPEN_READWRITE + $SQLITE_OPEN_CREATE  
+	<b>Optional:</b> access mode flags. Defaults to $SQLITE_OPEN_READWRITE + $SQLITE_OPEN_CREATE  
 $iEncoding
-	[optional] encoding mode flag, only used at creation time. Defaults to $SQLITE_ENCODING_UTF8
+	<b>Optional:</b> encoding mode flag, only used at creation time. Defaults to $SQLITE_ENCODING_UTF8
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 Success:	Returns database handle.
 Failure:	Returns 0.
-@extended	value can be compared against $SQLITE_* constants
-@error	1 - Error calling SQLite API 'sqlite3_open_V2'
+@error:	1 - Error calling SQLite API 'sqlite3_open_V2'
 	-1 - SQLite reported an error (Check @extended value)
+@extended:	value can be compared against $SQLITE_* constants
 @@End@@
 
 ###Remarks###

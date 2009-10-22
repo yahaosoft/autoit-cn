@@ -6,7 +6,7 @@ Draws an icon or cursor into the specified device context
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_DrawIconEx($hDC, $iX, $iY, $hIcon[, $iWidth = 0[, $iHeight = 0[, $iStep = 0[, $hBrush = 0[, $iFlags = 3]]]]])
+_WinAPI_DrawIconEx($hDC, $iX, $iY, $hIcon [, $iWidth = 0 [, $iHeight = 0 [, $iStep = 0 [, $hBrush = 0 [, $iFlags = 3]]]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -19,23 +19,23 @@ $iY
 $hIcon
 	Handle to the icon to be drawn
 $iWidth
-	Specifies the logical width of the icon or cursor. If this parameter is zero and the iFlags
+	<b>Optional:</b> Specifies the logical width of the icon or cursor. If this parameter is zero and the iFlags
 		parameter is "default size", the function uses the $SM_CXICON or $SM_CXCURSOR system metric value to set the
 		width. If this is zero and "default size" is not used, the function uses the actual resource width.
 $iHeight
-	Specifies the logical height of the icon or cursor. If this parameter is zero and the iFlags
+	<b>Optional:</b> Specifies the logical height of the icon or cursor. If this parameter is zero and the iFlags
 		parameter is "default size", the function uses the $SM_CYICON or $SM_CYCURSOR system metric value to set the
 		width. If this is zero and "default size" is not used, the function uses the actual resource height.
 $iStep
-	Specifies the index of the frame to draw if hIcon identifies an animated cursor. This parameter
+	<b>Optional:</b> Specifies the index of the frame to draw if hIcon identifies an animated cursor. This parameter
 		is ignored if hIcon does not identify an animated cursor.
 $hBrush
-	Handle to a brush that the system uses for flicker-free drawing. If hBrush is a valid brush
+	<b>Optional:</b> Handle to a brush that the system uses for flicker-free drawing. If hBrush is a valid brush
 		handle, the system creates an offscreen bitmap using the specified brush for the background color, draws the
 		icon or cursor into the bitmap, and then copies the bitmap into the device context identified by hDC. If
 		hBrush is 0, the system draws the icon or cursor directly into the device context.
 $iFlags
-	Specifies the drawing flags. This parameter can be one of the following values:
+	<b>Optional:</b> Specifies the drawing flags. This parameter can be one of the following values:
 		1 - Draws the icon or cursor using the mask
 		2 - Draws the icon or cursor using the image
 		3 - Draws the icon or cursor using the mask and image
@@ -48,8 +48,8 @@ $iFlags
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	True
-Failure	False
+Success:	True
+Failure:	False
 @@End@@
 
 ###Remarks###

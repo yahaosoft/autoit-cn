@@ -6,20 +6,23 @@ _ExcelSheetAddNew
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelSheetAddNew($oExcel[, $sName = ""])
+_ExcelSheetAddNew($oExcel [, $sName = ""])
 
 ###Parameters###
 @@ParamTable@@
 $oExcel
 	前面由 _ExcelBookOpen() 或者 _ExcelBookNew() 函数返回的 Excel 对象.
 $sName
-	要创建的工作表的名称(默认根据标准 Excel 新建表格格式添加)
+	<b>可选参数:</b>要创建的工作表的名称(默认根据标准 Excel 新建表格格式添加)
 @@End@@
 
 ###ReturnValue###
-成功: 返回 1
-失败: 返回 0 并在错误时设置 @error:
-		@error=1 - 指定对象不存在.
+@@ReturnTable@@
+成功:	返回 1
+失败:	返回 0 并设置 @error
+@error:	0 - 无错误.
+	1 - 指定对象不存在.
+@@End@@
 
 ###Remarks###
 None
