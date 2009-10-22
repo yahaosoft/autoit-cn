@@ -6,7 +6,7 @@ Downloads a file in Binary Mode and shows a Progress window or by Calling a User
 
 ###Syntax###
 #Include <FTPEx.au3>
-_FTP_ProgressDownload($l_FTPSession, $s_LocalFile, $s_RemoteFile[, $FunctionToCall = ""])
+_FTP_ProgressDownload($l_FTPSession, $s_LocalFile, $s_RemoteFile [, $FunctionToCall = ""])
 
 ###Parameters###
 @@ParamTable@@
@@ -17,18 +17,18 @@ $s_LocalFile
 $s_RemoteFile
 	The remote source file.
 $FunctionToCall
-	[Optional] A function which can update a Progressbar and react on UserInput like Click on Abort or Close App. (More info in the end of this comment)
+	<b>Optional:</b> A function which can update a Progressbar and react on UserInput like Click on Abort or Close App. (More info in the end of this comment)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 Success:	1
 Failure:	0 and sets @error:
-	-1 -> Local file couldn't be created
-	-3 -> Open RemoteFile failed
-	-4 -> Read from Remotefile failed
-	-5 -> Close RemoteFile failed
-	-6 -> Download aborted by PercentageFunc and Return of Called Function
+@error:	-1 - Local file couldn't be created
+	-3 - Open RemoteFile failed
+	-4 - Read from Remotefile failed
+	-5 - Close RemoteFile failed
+	-6 - Download aborted by PercentageFunc and Return of Called Function
 @@End@@
 
 ###Remarks###

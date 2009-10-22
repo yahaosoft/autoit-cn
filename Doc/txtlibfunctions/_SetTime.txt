@@ -6,7 +6,7 @@ _SetTime
 
 ###Syntax###
 #Include <Date.au3>
-_SetTime($iHour, $iMinute[, $iSecond = 0])
+_SetTime($iHour, $iMinute [, $iSecond = 0])
 
 ###Parameters###
 @@ParamTable@@
@@ -15,16 +15,18 @@ $iHour
 $iMinute
 	the minute. Values: 0-59
 $iSecond
-	Optional: the seconds. Values: 0-59
+	<b>Optional:</b> the seconds. Values: 0-59
 @@End@@
 
 ###ReturnValue###
-Success: 1
-Failure: 0
-@Error: 0 - No error.
-		1 - Failure
-@extended: GetLastError()
+@@ReturnTable@@
+Success:	1
+Failure:	0 and set @error
+@error:	0 - No error
+	1 - Failure
+@extended:	GetLastError()
 		Error code(s): http://msdn.microsoft.com/en-us/library/ms681381.aspx
+@@End@@
 
 ###Remarks###
 If the optional parameter (iSecond) is NOT defined, the function will not change the current value!
