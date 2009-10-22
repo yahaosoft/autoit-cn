@@ -12,9 +12,9 @@ _SoundLength ( $aSnd_id [, $iMode ] )
 ###Parameters###
 @@ParamTable@@
 $aSnd_id
-	Sound ID array as returned by _SoundOpen or a file name
+	Sound ID array as returned by _SoundOpen() or a file name
 $iMode
-	[optional] This flag determines the format of the returned sound length
+	<b>Optional:</b> This flag determines the format of the returned sound length
 	1 = hh:mm:ss where h = hours, m = minutes and s = seconds
 	2 = milliseconds
 @@End@@
@@ -23,12 +23,13 @@ $iMode
 @@ReturnTable@@
 Success:	Sound Length
 Failure:	0 and set @error
-	1 = $iMode is invalid
-	3 = Invalid Sound ID. Use return array from _SoundOpen or valid file name.
+@error:	1 = $iMode is invalid
+	3 = Invalid Sound ID. Use return array from _SoundOpen() or valid file name.
 @@End@@
 
 ###Remarks###
-It is recommended to open a sound file with _SoundOpen and pass the ID array rather than use the file name in this function.  A VBR encoded file is very unlikely to return the correct length if the file name is passed directly to this function.
+This function will return the best available value for the length of the file regardless of encoding method or parameter type.
+
 
 ###Related###
 _SoundPos, _SoundOpen
