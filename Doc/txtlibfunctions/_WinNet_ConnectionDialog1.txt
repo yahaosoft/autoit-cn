@@ -6,16 +6,16 @@ Starts a general browsing dialog box for connecting to network resources
 
 ###Syntax###
 #Include <WinNet.au3>
-_WinNet_ConnectionDialog1($hWnd[, $sRemoteName = ""[, $iFlags = 2]])
+_WinNet_ConnectionDialog1($hWnd [, $sRemoteName = "" [, $iFlags = 2]])
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
 	Handle to the owner window for the dialog box
 $sRemoteName
-	Name of the network resource to connect to
+	<b>Optional:</b> Name of the network resource to connect to
 $iFlags
-	Dialog box options. Can be one or more of the following:
+	<b>Optional:</b> Dialog box options. Can be one or more of the following:
 		 1 - Display a read-only path instead of allowing the user to type in a path
 		 2 - Enter the most recently used paths into the combination box
 		 4 - Do not show the restore the connection at logon checkbox
@@ -24,8 +24,10 @@ $iFlags
 @@End@@
 
 ###ReturnValue###
-Success: The number of the connected device. The value is 1 for A:, 2 for B:, 3 for C: and so on. If
-		the user made a deviceless connection, the value is –1.
+@@ReturnTable@@
+Success:	Returns the number of the connected device. The value is 1 for A:, 2 for B:, 3 for C: and so on. If the user made a deviceless connection, the value is –1.
+Failure:	Set @error
+@@End@@
 
 ###Remarks###
 None.

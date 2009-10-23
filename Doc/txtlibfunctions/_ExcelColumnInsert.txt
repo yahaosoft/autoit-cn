@@ -6,7 +6,7 @@ Insert a number of columns into the active worksheet.
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelColumnInsert($oExcel, $iColumn[, $iNumCols = 1])
+_ExcelColumnInsert($oExcel, $iColumn [, $iNumCols = 1])
 
 ###Parameters###
 @@ParamTable@@
@@ -15,14 +15,16 @@ $oExcel
 $iColumn
 	The specified column number to begin insertion
 $iNumCols
-	The number of columns to insert
+	<b>Optional:</b> The number of columns to insert
 @@End@@
 
 ###ReturnValue###
-Success: Returns 1
-Failure: Returns 0 and sets @error on errors:
-		@error=1 - Specified object does not exist
-		@error=2 - Specified column is invalid
+@@ReturnTable@@
+Success:	1
+Failure:	0 and sets @error
+@error:	1 - Specified object does not exist
+	2 - Specified column is invalid
+@@End@@
 
 ###Remarks###
 This function will shift right all columns after the inserted columns(s)

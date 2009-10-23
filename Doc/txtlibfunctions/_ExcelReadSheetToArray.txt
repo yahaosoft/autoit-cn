@@ -6,34 +6,35 @@ Create a 2D array from the rows/columns of the active worksheet.
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelReadSheetToArray($oExcel[, $iStartRow = 1[, $iStartColumn = 1[, $iRowCnt = 0[, $iColCnt = 0[, $iColShift = False]]]]])
+_ExcelReadSheetToArray($oExcel [, $iStartRow = 1 [, $iStartColumn = 1 [, $iRowCnt = 0 [, $iColCnt = 0 [, $iColShift = False]]]]])
 
 ###Parameters###
 @@ParamTable@@
 $oExcel
 	Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
 $iStartRow
-	Row number to start reading, defaults to 1 (first row)
+	<b>Optional:</b> Row number to start reading, defaults to 1 (first row)
 $iStartColumn
-	Column number to start reading, defaults to 1 (first column)
+	<b>Optional:</b> Column number to start reading, defaults to 1 (first column)
 $iRowCnt
-	Count of rows to read, defaults to 0 (all)
+	<b>Optional:</b> Count of rows to read, defaults to 0 (all)
 $iColCnt
-	Count of columns to read, defaults to 0 (all)
+	<b>Optional:</b> Count of columns to read, defaults to 0 (all)
 $iColShift
-	Determines if the Array returned, from Excel, will begin in the 0-index base or 1-index base Column. False by Default to match R1C1 values.
+	<b>Optional:</b> Determines if the Array returned, from Excel, will begin in the 0-index base or 1-index base Column. False by Default to match R1C1 values.
 @@End@@
 
 ###ReturnValue###
-Success: Returns a 2D array with the specified cell contents by [$row][$col]
-Failure: Returns 0 and sets @error on errors:
-		@error=1 - Specified object does not exist
-		@error=2 - Start parameter out of range
-		@extended=0 - Row out of range
-		@extended=1 - Column out of range
-		@error=3 - Count parameter out of range
-		@extended=0 - Row count out of range
-		@extended=1 - Column count out of range
+@@ReturnTable@@
+Success:	a 2D array with the specified cell contents by [$row][$col]
+Failure:	0 and sets @error
+@error:	0 - No error
+	1 - Specified object does not exist
+	2 - Start parameter out of range
+	3 - Count parameter out of range
+@extended	0 - Row count out of range
+		1 - Column count out of range
+@@End@@
 
 ###Remarks###
 Returned array has row count in [0][0] and column count in [0][1].

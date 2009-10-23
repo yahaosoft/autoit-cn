@@ -2,33 +2,35 @@
 _ArrayFindAll
 
 ###Description###
-在一维或二维数组的二个下标之间搜索目标.
+Find the indices of all ocurrences of a search query between two points in a 1D or 2D array using _ArraySearch().
 
 ###Syntax###
 #Include <Array.au3>
-_ArrayFindAll(Const ByRef $avArray, $vValue[, $iStart = 0[, $iEnd = 0[, $iCase = 0[, $iPartial = 0[, $iSubItem = 0]]]]])
+_ArrayFindAll(Const ByRef $avArray, $vValue [, $iStart = 0 [, $iEnd = 0 [, $iCase = 0 [, $iPartial = 0 [, $iSubItem = 0]]]]])
 
 ###Parameters###
 @@ParamTable@@
 $avArray
-	目标数组
+	The array to search
 $vValue
-	搜索的项目
+	What to search $avArray for
 $iStart
-	[可选] 起始下标
+	<b>Optional:</b> Index of array to start searching at
 $iEnd
-	[可选] 终止下标
+	<b>Optional:</b> Index of array to stop searching at
 $iCase
-	[可选] 如果设定 1, 搜索区分大小写
+	<b>Optional:</b> If set to 1, search is case sensitive
 $iPartial
-	[可选] 如果设定 1,执行部分搜索
+	<b>Optional:</b> If set to 1, executes a partial search
 $iSubItem
-	[可选] 在二维数组次下标内搜索
+	<b>Optional:</b> Sub-index to search on in 2D arrays
 @@End@@
 
 ###ReturnValue###
-成功: 返回一个标示所有 $vValue 在目标数组中的下标值的新数组
-失败: -1, 设置 @error (参考 _ArraySearch() 错误代码的描述)
+@@ReturnTable@@
+Success:	An array of all index numbers in array containing $vValue
+Failure:	-1, sets @error (see _ArraySearch() description for error codes)
+@@End@@
 
 ###Remarks###
 None.

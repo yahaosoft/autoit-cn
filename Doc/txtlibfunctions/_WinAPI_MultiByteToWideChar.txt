@@ -6,27 +6,34 @@ Maps a character string to a wide-character (Unicode) string
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_MultiByteToWideChar($sText[, $iCodePage = 0[, $iFlags = 0]])
+_WinAPI_MultiByteToWideChar($sText [, $iCodePage = 0 [, $iFlags = 0 [, $bRetString = False]]])
 
 ###Parameters###
 @@ParamTable@@
 $sText
-	Text to be converted
+	Text or Pointer to a byte array structure containing multibyte text to be converted
 $iCodePage
-	Specifies the code page to be used to perform the conversion:
+	<b>Optional:</b> Specifies the code page to be used to perform the conversion:
 		0 - ANSI code page
 		1 - OEM code page
 		2 - Macintosh code page
+		3 - The Windows ANSI code page for the current thread
+		42 - Symbol code page
+		65000 - UTF-7
+		65001 - UTF-8
 $iFlags
-	Flags that indicate whether to translate to precomposed or composite wide characters:
+	<b>Optional:</b> Flags that indicate whether to translate to precomposed or composite wide characters:
 		$MB_PRECOMPOSED - Always use precomposed characters
 		$MB_COMPOSITE - Always use composite characters
 		$MB_USEGLYPHCHARS - Use glyph characters instead of control characters
+$bRetString
+	<b>Optional:</b> Flags that indicate whether to return a String or a Structure (default False : Structure)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Structure that contains the Unicode character string
+Success:	String or Structure that contains the Unicode character string
+Failure:	set @error
 @@End@@
 
 ###Remarks###

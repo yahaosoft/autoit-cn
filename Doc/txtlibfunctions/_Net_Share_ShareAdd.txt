@@ -6,7 +6,7 @@ Shares a server resource
 
 ###Syntax###
 #Include <NetShare.au3>
-_Net_Share_ShareAdd($sServer, $sShare, $iType, $sPath[, $sComment = ""[, $iMaxUses = -1]])
+_Net_Share_ShareAdd($sServer, $sShare, $iType, $sPath [, $sComment = "" [, $iMaxUses = -1]])
 
 ###Parameters###
 @@ParamTable@@
@@ -27,15 +27,17 @@ $sPath
 	Local path for the shared resource. For disks, this is the path being shared. For print queues,
 		this is the name of the print queue being shared.
 $sComment
-	String that contains an optional comment about the shared resource
+	<b>Optional:</b> String that contains an comment about the shared resource
 $iMaxUses
-	The maximum number of concurrent connections that the shared resource can accommodate. The
+	<b>Optional:</b> The maximum number of concurrent connections that the shared resource can accommodate. The
 		number of connections is unlimited if the value specified is –1.
 @@End@@
 
 ###ReturnValue###
-Success: True
-Failure: False
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
 
 ###Remarks###
 Only members of the Administrators, System Operators, or Power Users local group can add file shares with a

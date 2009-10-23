@@ -6,7 +6,7 @@ Opens the access token associated with a thread
 
 ###Syntax###
 #Include <Security.au3>
-_Security__OpenThreadToken($iAccess[, $hThread = 0[, $fOpenAsSelf = False]])
+_Security__OpenThreadToken($iAccess[, $hThread = 0 [, $fOpenAsSelf = False]])
 
 ###Parameters###
 @@ParamTable@@
@@ -17,7 +17,7 @@ $iAccess
 $hThread
 	Handle to the thread whose access token is opened
 $fOpenAsSelf
-	Indicates whether the access check is to be made against the security context of the thread
+	<b>Optional:</b> Indicates whether the access check is to be made against the security context of the thread
 		calling the OpenThreadToken function or against the security context of the process for the calling thread.
 		If this parameter is False, the access check is performed using the security context for the calling thread.
 		If the thread is impersonating a client, this security context can be that of a client process. If this
@@ -25,8 +25,10 @@ $fOpenAsSelf
 @@End@@
 
 ###ReturnValue###
-Success: Handle to the newly opened access token
-Failure: 0
+@@ReturnTable@@
+Success:	Handle to the newly opened access token
+Failure:	0
+@@End@@
 
 ###Remarks###
 None.
