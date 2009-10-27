@@ -6,7 +6,7 @@ Set the bold, italic, and underline font properties of a range in an Excel objec
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelFontSetProperties($oExcel, $sRangeOrRowStart[, $iColStart = 1[, $iRowEnd = 1[, $iColEnd = 1[, $fBold = False[, $fItalic = False[, $fUnderline = False]]]]]])
+_ExcelFontSetProperties($oExcel, $sRangeOrRowStart [, $iColStart = 1 [, $iRowEnd = 1 [, $iColEnd = 1 [, $fBold = False [, $fItalic = False [, $fUnderline = False]]]]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -15,29 +15,29 @@ $oExcel
 $sRangeOrRowStart
 	Either an A1 range, or an integer row number to start from if using R1C1
 $iColStart
-	The starting column for the number format(left) (default=1)
+	<b>Optional:</b> The starting column for the number format(left) (default=1)
 $iRowEnd
-	The ending row for the number format (bottom) (default=1)
+	<b>Optional:</b> The ending row for the number format (bottom) (default=1)
 $iColEnd
-	The ending column for the number format (right) (default=1)
+	<b>Optional:</b> The ending column for the number format (right) (default=1)
 $fBold
-	Bold flag: TRUE=Bold, FALSE=No Bold (remove bold type)
+	<b>Optional:</b> Bold flag: TRUE=Bold, FALSE=No Bold (remove bold type)
 $fItalic
-	Italic flag: TRUE=Italic, FALSE=No Italic (remove italic type)
+	<b>Optional:</b> Italic flag: TRUE=Italic, FALSE=No Italic (remove italic type)
 $fUnderline
-	Underline flag: TRUE=Underline, FALSE=No Underline (remove underline type)
+	<b>Optional:</b> Underline flag: TRUE=Underline, FALSE=No Underline (remove underline type)
 @@End@@
 
 ###ReturnValue###
-On Success: Returns 1
-On Failure: Returns 0 and sets @error on errors:
-		@error=1 - Specified object does not exist
-		@error=2 - Starting row or column invalid
-		@extended=0 - Starting row invalid
-		@extended=1 - Starting column invalid
-		@error=3 - Ending row or column invalid
-		@extended=0 - Ending row invalid
-		@extended=1 - Ending column invalid
+@@ReturnTable@@
+Success:	1
+Failure:	0 and sets @error
+@error:	1 - Specified object does not exist
+	2 - Starting row or column invalid
+	3 - Ending row or column invalid
+@extended:	0 - Row invalid
+	1 - Column invalid
+@@End@@
 
 ###Remarks###
 None

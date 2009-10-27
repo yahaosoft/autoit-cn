@@ -6,21 +6,21 @@ _ClipPutFile
 
 ###Syntax###
 #Include <Misc.au3>
-_ClipPutFile($sFile[, $sSeperator = "|"])
+_ClipPutFile($sFile [, $sSeparator = "|"])
 
 ###Parameters###
 @@ParamTable@@
 $sFile
 	文件的完整路径
-$sSeperator
-	分割多个文件的分隔符, 默认 = '|'
+$sSeparator
+	<b>可选参数:</b>分割多个文件的分隔符, 默认 = '|'
 @@End@@
 
 ###ReturnValue###
+@@ReturnTable@@
 成功: True
-失败: False 并设置 @ERROR 为:
-
-	1 - 不能打开剪切板
+失败: False 并设置 @error
+@error:	1 - 不能打开剪切板
 	2 - 不能清空剪切板
 	3 - GlobalAlloc 失败
 	4 - GlobalLock 失败
@@ -28,6 +28,7 @@ $sSeperator
 	6 - 不能更新剪切板
 	7 - 不能关闭剪切板
 	8 - GlobalUnlock 失败
+@@End@@
 
 ###Remarks###
 None.

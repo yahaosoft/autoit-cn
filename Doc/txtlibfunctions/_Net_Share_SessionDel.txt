@@ -6,24 +6,26 @@ Ends a network session between a server and a workstation
 
 ###Syntax###
 #Include <NetShare.au3>
-_Net_Share_SessionDel([$sServer = ""[, $sClientName = ""[, $sUserName = ""]]])
+_Net_Share_SessionDel([$sServer = "" [, $sClientName = "" [, $sUserName = ""]]])
 
 ###Parameters###
 @@ParamTable@@
 $sServer
-	Specifies the DNS or NetBIOS name of the remote server on which the function is to execute. If
+	<b>Optional:</b> Specifies the DNS or NetBIOS name of the remote server on which the function is to execute. If
 		this parameter is blank, the local computer is used.
 $sClientName
-	Specifies the computer name of the client to disconnect. If blank, then all the sessions of the
+	<b>Optional:</b> Specifies the computer name of the client to disconnect. If blank, then all the sessions of the
 		user identified by the username parameter will be deleted on the server specified by $sServer.
 $sUserName
-	Specifies the name of the user whose session is to be terminated. If this parameter is blank,
+	<b>Optional:</b> Specifies the name of the user whose session is to be terminated. If this parameter is blank,
 		all user sessions from the client specified by the $sClientName parameter are to be terminated.
 @@End@@
 
 ###ReturnValue###
-成功: True
-失败: False
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
 
 ###Remarks###
 Only members of the Administrators or Server Operators local group can execute this function. You must pass

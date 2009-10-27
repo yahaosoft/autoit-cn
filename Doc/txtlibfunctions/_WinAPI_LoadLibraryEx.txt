@@ -6,7 +6,7 @@ Maps a specified executable module into the address space of the calling process
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_LoadLibraryEx($sFileName[, $iFlags = 0])
+_WinAPI_LoadLibraryEx($sFileName [, $iFlags = 0])
 
 ###Parameters###
 @@ParamTable@@
@@ -14,7 +14,7 @@ $sFileName
 	Names a Win32 executable module (either a .DLL or an .EXE file). The name specified is the
 		filename of the executable module.
 $iFlags
-	Specifies the action to take when loading the module. This parameter can be one of the
+	<b>Optional:</b> Specifies the action to take when loading the module. This parameter can be one of the
 		following values:
 		$DONT_RESOLVE_DLL_REFERENCES - If this value is used and the executable module is a DLL the system does
 		not call DllMain for process and thread initialization and termination. Also, the system does not load
@@ -28,8 +28,8 @@ $iFlags
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	A handle to the executable module
-Failure	0
+Success:	A handle to the executable module
+Failure:	0
 @@End@@
 
 ###Remarks###
@@ -39,7 +39,7 @@ Needs Constants.au3 for pre-defined constants
 _WinAPI_LoadLibrary, _WinAPI_FreeLibrary, _WinAPI_LoadString
 
 ###See Also###
-@@MsdnLink@@ LoadLibraryExA
+@@MsdnLink@@ LoadLibraryEx
 
 ###Example###
 @@IncludeExample@@

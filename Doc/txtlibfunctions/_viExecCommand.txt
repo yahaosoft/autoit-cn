@@ -6,7 +6,7 @@ Send a Command/Query to an Instrument/Device through the VISA interface (GPIB / 
 
 ###Syntax###
 #include <Visa.au3>
-_viExecCommand ( $h_session, $s_command, $i_timeout_ms = -1 )
+_viExecCommand ( $h_session, $s_command [, $i_timeout_ms = -1] )
 
 
 ###Parameters###
@@ -37,9 +37,8 @@ $s_command
 	When the command is a QUERY the function will automatically wait for the
 	instrument's answer (or until the operation times out)
 $i_timeout_ms
-	Optional: The operation timeout in MILISECONDS.
+	<b>Optional:</b> The operation timeout in MILISECONDS.
 	This is mostly important for QUERIES only.
-	This is an OPTIONAL PARAMETER.
 	If it is not specified the last set timeout will be used. If it was never set 
 	before the default timeout (which depends on the VISA implementation) will be used.
 	Timeouts can also be set separatelly with the _viSetTimeout function.

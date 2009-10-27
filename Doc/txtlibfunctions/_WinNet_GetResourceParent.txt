@@ -6,7 +6,7 @@ Returns the parent of a network resource in the network browse hierarchy
 
 ###Syntax###
 #Include <WinNet.au3>
-_WinNet_GetResourceParent($sRemoteName, $sProvider[, $iType = 0])
+_WinNet_GetResourceParent($sRemoteName, $sProvider [, $iType = 0])
 
 ###Parameters###
 @@ParamTable@@
@@ -15,12 +15,12 @@ $sRemoteName
 $sProvider
 	The name of the provider that owns the resource
 $iType
-	Type of resource. This member can be 0 if it is not known.
+	<b>Optional:</b> Type of resource. This member can be 0 if it is not known.
 @@End@@
 
 ###ReturnValue###
-Success: Array with the following format:
-
+@@ReturnTable@@
+Success:	Array with the following format:
 	$aResource[0] - Scope of enumeration:
 	 0 - Connected
 	 1 - All resources
@@ -51,6 +51,8 @@ Success: Array with the following format:
 	$aResource[5] - Remote name
 	$aResource[6] - Comment supplied by the network provider
 	$aResource[7] - The name of the provider that owns the resource
+Failure:	Set @error
+@@End@@
 
 ###Remarks###
 None.
@@ -58,4 +60,4 @@ None.
 ###Related###
 
 ###See Also###
-@@MsdnLink@@ WNetGetResourceParentA
+@@MsdnLink@@ WNetGetResourceParent

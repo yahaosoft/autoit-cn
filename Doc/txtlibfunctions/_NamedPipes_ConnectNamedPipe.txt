@@ -13,7 +13,7 @@ _NamedPipes_ConnectNamedPipe($hNamedPipe[, $pOverlapped = 0])
 $hNamedPipe
 	Handle to the server end of a named pipe instance
 $pOverlapped
-	Pointer to a $tagOVERLAPPED structure. If hNamedPipe was opened with $FILE_FLAG_OVERLAPPED,
+	<b>Optional:</b> Pointer to a $tagOVERLAPPED structure. If hNamedPipe was opened with $FILE_FLAG_OVERLAPPED,
 		pOverlapped must not be 0. If hNamedPipe was created with $FILE_FLAG_OVERLAPPED and pOverlapped is not 0, the
 		$tagOVERLAPPED structure should contain a handle to a manual reset event object. If hNamedPipe was not opened
 		with $FILE_FLAG_OVERLAPPED, the function does not return until a client is connected or an error occurs.
@@ -22,8 +22,10 @@ $pOverlapped
 @@End@@
 
 ###ReturnValue###
-成功: True
-失败: False
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
 
 ###Remarks###
 If a client connects before the function is called, the function returns zero and GetLastError will return

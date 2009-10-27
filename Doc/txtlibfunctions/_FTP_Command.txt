@@ -1,25 +1,25 @@
-###User Defined Function###
+ï»¿###User Defined Function###
 _FTP_Command
 
 ###Description###
-·¢ËÍÒ»¸öÃüÁîµ½ FTP ·şÎñÆ÷.
+å‘é€ä¸€ä¸ªå‘½ä»¤åˆ° FTP æœåŠ¡å™¨.
 
 ###Syntax###
 #Include <FTPEx.au3>
-_FTP_Command($l_FTPSession, $s_FTPCommand[, $l_Flags = 0x00000001[, $l_ExpectResponse = 0[, $l_Context = 0]]])
+_FTP_Command($l_FTPSession, $s_FTPCommand [, $l_Flags = 0x00000001 [, $l_ExpectResponse = 0 [, $l_Context = 0]]])
 
 ###Parameters###
 @@ParamTable@@
 $l_FTPSession
-	ÓÉ _FTP_Connect() ·µ»ØµÄ»Ø»°Ãû
+	ç”± _FTP_Connect() è¿”å›çš„å›è¯å
 $s_FTPCommand
-	Òª·¢ËÍµ½FTP·şÎñÆ÷µÄÃüÁî×Ö·û´®
+	è¦å‘é€åˆ°FTPæœåŠ¡å™¨çš„å‘½ä»¤å­—ç¬¦ä¸²
 $l_Flags
-	[¿ÉÑ¡²ÎÊı] $FTP_TRANSFER_TYPE_ASCII(ÎÄ±¾´«Êä) »òÕß $FTP_TRANSFER_TYPE_BINARY(¶ş½øÖÆ´«Êä)
+	<b>å¯é€‰å‚æ•°:</b> $FTP_TRANSFER_TYPE_ASCII(æ–‡æœ¬ä¼ è¾“) æˆ–è€… $FTP_TRANSFER_TYPE_BINARY(äºŒè¿›åˆ¶ä¼ è¾“)
 $l_ExpectResponse
-	[¿ÉÑ¡²ÎÊı] Data socket for response in Async mode
+	<b>å¯é€‰å‚æ•°:</b> Data socket for response in Async mode
 $l_Context
-	[¿ÉÑ¡²ÎÊı] A pointer to a variable that contains an application-defined
+	<b>å¯é€‰å‚æ•°:</b> A pointer to a variable that contains an application-defined
 	value used to identify the application context in callback operations
 	The $l_ExpectResponse parameter must be set to TRUE for phFtpCommand to be filled.
 	-> Parameter removed, is returned as @extended
@@ -27,13 +27,13 @@ $l_Context
 
 ###ReturnValue###
 @@ReturnTable@@
-³É¹¦:	·µ»ØÒ»¸ö±êÊ¶(identifier).
-Ê§°Ü:	·µ»Ø 0 ²¢ÉèÖÃ @ERROR.
+æˆåŠŸ:	è¿”å›ä¸€ä¸ªæ ‡è¯†(identifier).
+å¤±è´¥:	è¿”å› 0 å¹¶è®¾ç½® @ERROR.
 @@End@@
 
 ###Remarks###
 Command Examples: depends on server syntax/
-ÏÂÁĞÃüÁî:¶ş½øÖÆ´«Êä, ASCII ´«Êä, ±»¶¯´«ÊäÄ£Ê½ (ÓÃÓÚ·À»ğÇ½) 'type I' 'type A'  'pasv'
+ä¸‹åˆ—å‘½ä»¤:äºŒè¿›åˆ¶ä¼ è¾“, ASCII ä¼ è¾“, è¢«åŠ¨ä¼ è¾“æ¨¡å¼ (ç”¨äºé˜²ç«å¢™) 'type I' 'type A'  'pasv'
 
 
 ###Related###

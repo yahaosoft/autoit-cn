@@ -6,7 +6,7 @@ Connects a local device to a network resource
 
 ###Syntax###
 #Include <WinNet.au3>
-_WinNet_AddConnection($sLocalName, $sRemoteName[, $sPassword = 0])
+_WinNet_AddConnection($sLocalName, $sRemoteName [, $sPassword = 0])
 
 ###Parameters###
 @@ParamTable@@
@@ -17,13 +17,15 @@ $sLocalName
 $sRemoteName
 	Name of the network resource to connect to
 $sPassword
-	Password to be used to make a connection. This parameter is usually the password associated
+	<b>Optional:</b> Password to be used to make a connection. This parameter is usually the password associated
 		with the current user. If 0, the default password is used. If the string is empty, no password is used.
 @@End@@
 
 ###ReturnValue###
-成功: True
-失败: False
+@@ReturnTable@@
+成功:	True
+失败:	False
+@@End@@
 
 ###Remarks###
 This function is provided only for compatibility with 16-bit versions of Windows. Applications should call the
@@ -34,4 +36,4 @@ the system automatically restores the connection during subsequent logon operati
 _WinNet_AddConnection2, _WinNet_AddConnection3
 
 ###See Also###
-@@MsdnLink@@ WNetAddConnectionA
+@@MsdnLink@@ WNetAddConnection

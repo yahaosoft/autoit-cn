@@ -2,40 +2,50 @@
 _DebugSetup
 
 ###Description###
-Setups up a debug session by opening a Notepad window for writing by _DebugOut()
+Setups up a debug session  using a specify reporting
 
 ###Syntax###
 #include <Debug.au3>
-_DebugSetup ( $sTitle )
+_DebugSetup ( $sTitle = Default, $bBugReportInfos = False, $vReportType = 1, $sLogFile = "" )
 
 
 ###Parameters###
 @@ParamTable@@
 $sTitle
-	(Optional) Title to put on the Notepad window used by _DebugOut().
+	Title to be displayed on the report window.  Default value is "AutoIt Debug Report".
+$bBugReportInfos
+	Display BugReport infos.  Default value is False.
+$vReportType
+	1 - Report Log Window (Default).
+	2 - ConsoleWrite.
+	3 - MsgBox.
+	4 - FileWrite into $sLogFile defines the filename.
+	string - name of specific report function to be used.
+$sLogFile
+	Name of the file  if $vReportType = 4
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回值为 1.
-Failure:	Sets @Error and returns 0.
-@Error:	0 = No error.
-	1 = $sTitle is not a compatible type
-	2 = A debug session is already open.  Use it instead of starting a new session.
-	3 = Another Untitled MS-Notepad window is open.  Save it or close it before continuing.
-@@End@@
+Success:	report type
+Failure:	set @error
+@error:
+	1 if already called
+	2 invalid report type
+	3 invalid CallBack function
+@@END@@
 
 ###Remarks###
-You can only start one debug session at a time in the running script.  Attempting to call _DebugSetup() when another debug Notepad session is still open will cause @Error = 2, but _DebugOut() will continue to operate, using the original session.  If the Notepad window is closed, _DebugSetup will need to be called to restart the debug Notepad session.
-You can debug several concurrent scripts using the same Notepad session, just use the same $sTitle when calling _DebugSetup(). All _DebugOut() will go to the same Notepad session.
+If a specific reporting function is registered then on AutoIt exit it is called without parameter.
 
-If an untitled Notepad session is already open when calling this function, the script may not be able to tell the difference between your Notepad session and the one it starts, so it may abort with @Error = 3, if this is the situation.  Notepad sessions can be started without any confusion after _DebugSetup() returns.
+You can only start one debug session at a time in the running script.
+You can debug several concurrent scripts using the same debugging session, just use the same $sTitle when calling _DebugSetup(). All _DebugOut() will go to the same debugging session.
 
-Commenting out the _DebugSetup() call will effectively disable all the calls to _DebugOut(), but you may want to remove the calls to all _Debug functions before making a release version of your script.
+Commenting out the _DebugSetup() call will effectively disable all the calls to _Debug...(), but you may want to remove the calls to all _Debug functions before making a release version of your script.
 
 
 ###Related###
-_DebugOut
+_DebugOut, _DebugReport, _DebugReportEx
 
 
 ###Example###
