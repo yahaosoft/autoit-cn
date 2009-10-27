@@ -13,8 +13,9 @@ $avArray[7] = "Nutster"
 $avArray[8] = "JdeB"
 $avArray[9] = "Tylo"
 
-_ArrayDisplay($avArray, "$avArray BEFORE _ArrayPop()")
+MsgBox(0,"提示", "将会在列表视图中显示运行_ArrayPop()之前的一维或二维数组")
+_ArrayDisplay($avArray, "运行前")
 While UBound($avArray)
-   MsgBox(0,'_ArrayPop() return value', _ArrayPop($avArray))
-   _ArrayDisplay($avArray, "$avArray AFTER _ArrayPop()")
+	MsgBox(0,"返回值提示", "将会返回数组的最后一个元素：" & _ArrayPop($avArray))
+   _ArrayDisplay($avArray, "运行后")
 WEnd
