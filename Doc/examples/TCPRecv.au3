@@ -4,71 +4,71 @@ Opt('MustDeclareVars', 1)
 
 ;==============================================
 ;==============================================
-;SERVER!! Start Me First !!!!!!!!!!!!!!!
+;服务端! 服务端启用后,再启用客户端(服务端为接收信息方)
 ;==============================================
 ;==============================================
 
 Example()
 
 Func Example()
-	; Set Some reusable info
-	; Set your Public IP address (@IPAddress1) here.
+	; 设置一些常用信息
+	; 在这里设置你的公共IP地址 (@IPAddress1).
 ;	Local $szServerPC = @ComputerName
 ;	Local $szIPADDRESS = TCPNameToIP($szServerPC)
-	Local $szIPADDRESS = @IPAddress1
-	Local $nPORT = 33891
+	Local $szIPADDRESS = @IPAddress1;你的公共IP地址
+	Local $nPORT = 33891;端口
 	Local $MainSocket, $GOOEY, $edit, $ConnectedSocket, $szIP_Accepted
 	Local $msg, $recv
 
-	; Start The TCP Services
+	; 开始 TCP 服务
 	;==============================================
 	TCPStartup()
 
-	; Create a Listening "SOCKET".
-	;   Using your IP Address and Port 33891.
+	; 创建一个监听 "SOCKET".
+	;   使用您的IP地址和端口33891.
 	;==============================================
 	$MainSocket = TCPListen($szIPADDRESS, $nPORT)
 
-	; If the Socket creation fails, exit.
+	; 如果套接字创建失败，退出.
 	If $MainSocket = -1 Then Exit
 
 
-	; Create a GUI for messages
+	; 创建一个图形用户界面消息窗
 	;==============================================
 	$GOOEY = GUICreate("My Server (IP: " & $szIPADDRESS & ")", 300, 200)
 	$edit = GUICtrlCreateEdit("", 10, 10, 280, 180)
 	GUISetState()
 
 
-	; Initialize a variable to represent a connection
+	; 初始化一个变量描述连接
 	;==============================================
 	$ConnectedSocket = -1
 
 
-	;Wait for and Accept a connection
+	;等待和接受连接
 	;==============================================
 	Do
 		$ConnectedSocket = TCPAccept($MainSocket)
 	Until $ConnectedSocket <> -1
 
 
-	; Get IP of client connecting
+	; 取得连接的客户端的IP
 	$szIP_Accepted = SocketToIP($ConnectedSocket)
 
-	; GUI Message Loop
+	; 循环图形用户界面消息
 	;==============================================
 	While 1
 		$msg = GUIGetMsg()
 
-		; GUI Closed
+		; 关闭图形用户界面
 		;--------------------
 		If $msg = $GUI_EVENT_CLOSE Then ExitLoop
 
-		; Try to receive (up to) 2048 bytes
+		; 尝试接收（最高）2048字节
 		;----------------------------------------------------------------
 		$recv = TCPRecv($ConnectedSocket, 2048)
 
-		; If the receive failed with @error then the socket has disconnected
+		; 如果接收失败(@error)将断开连接   
 		;----------------------------------------------------------------
 		If @error Then ExitLoop
 
@@ -84,7 +84,7 @@ Func Example()
 	TCPShutdown()
 EndFunc   ;==>Example
 
-; Function to return IP Address from a connected socket.
+; 函数返回一个连接的套接字的IP地址. 
 ;----------------------------------------------------------------------
 Func SocketToIP($SHOCKET)
 	Local $sockaddr, $aRet

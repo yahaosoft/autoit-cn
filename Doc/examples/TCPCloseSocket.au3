@@ -10,7 +10,7 @@ Opt('MustDeclareVars', 1)
 ;==============================================
 ;==============================================
 
-; Initialize a variable to represent a connection
+; 初始化一个变量描述连接
 ;==============================================
 Global $ConnectedSocket = -1
 
@@ -24,35 +24,35 @@ Func Example()
 	
 	$g_IP = "127.0.0.1"
 
-	; Start The TCP Services
+	; 开始 TCP 服务
 	;==============================================
 	TCPStartup()
 
-	; Create a Listening "SOCKET"
+	; 创建一个套接字(socket)监听
 	;==============================================
 	$MainSocket = TCPListen($g_IP, 65432, 100)
 	If $MainSocket = -1 Then Exit
 	$RogueSocket = -1
 
-	; Create a GUI for chatting
+	; 创建一个图形用户界面消息窗
 	;==============================================
-	$GOOEY = GUICreate("my server", 300, 200)
+	$GOOEY = GUICreate("我的服务端", 300, 200)
 	$edit = GUICtrlCreateEdit("", 10, 40, 280, 150, $WS_DISABLED)
 	$input = GUICtrlCreateInput("", 10, 10, 200, 20)
-	$butt = GUICtrlCreateButton("Send", 210, 10, 80, 20, $BS_DEFPUSHBUTTON)
+	$butt = GUICtrlCreateButton("发送", 210, 10, 80, 20, $BS_DEFPUSHBUTTON)
 	GUISetState()
 
 
-	; GUI Message Loop
+	; 循环图形用户界面消息
 	;==============================================
 	While 1
 		$msg = GUIGetMsg()
 
-		; GUI Closed
+		; 关闭界面
 		;--------------------
 		If $msg = $GUI_EVENT_CLOSE Then ExitLoop
 
-		; User Pressed SEND
+		; 用户按下发送按钮
 		;--------------------
 		If $msg = $butt Then
 			If $ConnectedSocket > -1 Then
@@ -61,7 +61,7 @@ Func Example()
 					; ERROR OCCURRED, CLOSE SOCKET AND RESET ConnectedSocket to -1
 					;----------------------------------------------------------------
 					TCPCloseSocket($ConnectedSocket)
-					WinSetTitle($GOOEY, "", "my server - Client Disconnected")
+					WinSetTitle($GOOEY, "", "我的服务端 - 客户端断开连接")
 					$ConnectedSocket = -1
 				ElseIf $ret > 0 Then
 					; UPDATE EDIT CONTROL WITH DATA WE SENT
