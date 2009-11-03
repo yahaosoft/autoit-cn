@@ -1,5 +1,5 @@
 ﻿; *******************************************************
-; Example 1 - Create a Microsoft Excel window and open an .xls file
+; 示例 1 创建一个新的工作表并打开
 ; *******************************************************
 #include <Excel.au3>
 $oExcel = _ExcelBookNew()
