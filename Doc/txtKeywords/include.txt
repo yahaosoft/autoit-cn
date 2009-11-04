@@ -1,59 +1,59 @@
-﻿###Keyword###
+###Keyword###
 #include
 
 ###Description###
-包含一个文件到脚本中.
+����һ���ļ����ű���.
 
 ###Syntax###
-<b>#include</b> "[路径\]文件名"
-<b>#include</b> &lt;文件名&gt;
+<b>#include</b> "[·��\]�ļ���"
+<b>#include</b> &lt;�ļ���&gt;
 
 
 ###Parameters###
 @@ParamTable@@
-文件名
-	要包含到当前脚本的文件名. 路径是可选的.(如果该包含文件与脚本处于同一文件夹下或者处于AU3的包含目录). <b>文件名必须是字符串,不能是一个变量.</b>
-	如果使用的是双引号 <b>"..."</b> , 则表示该文件是用户编写的,查找该文件时将从当前文件目录开始.
-	如果使用的是尖括号 <b>&lt;...&gt;</b> , 则表示该文件是库文件,查找该文件时将在包含文件库所在目录(通常在 C:\Program Files\AutoIt3\Include)中查找.  包含文件库目录中有许多为您预定义的用户函数!
+�ļ���
+	Ҫ��������ǰ�ű����ļ���. ·���ǿ�ѡ��.(����ð����ļ���ű�����ͬһ�ļ����»��ߴ���AU3�İ���Ŀ¼). <b>�ļ����������ַ���,������һ������.</b>
+	���ʹ�õ���˫���� <b>"..."</b> , ���ʾ���ļ����û���д��,���Ҹ��ļ�ʱ���ӵ�ǰ�ļ�Ŀ¼��ʼ.
+	���ʹ�õ��Ǽ����� <b>&lt;...&gt;</b> , ���ʾ���ļ��ǿ��ļ�,���Ҹ��ļ�ʱ���ڰ����ļ�������Ŀ¼(ͨ���� C:\Program Files\AutoIt3\Include)�в���.  �����ļ���Ŀ¼��������Ϊ��Ԥ������û�����!
  @@End@@
 
 ###Remarks###
-在 AutoIt 的脚本中,可通过 "#include" 命令包含其它脚本文件.
+�� AutoIt �Ľű���,��ͨ�� "#include" ������������ű��ļ�.
 
-若某个脚本文件含有一个自定义函数而您又多次包含该脚本文件,您就会接收到一个"Duplicate function(重复定义的函数)"错误提示.在编写包含文件时最好在首行添加一句 <b>#include-once</b> 指令以防止该文件被重复包含.
+��ĳ���ű��ļ�����һ���Զ��庯�������ֶ�ΰ����ýű��ļ�,���ͻ���յ�һ��"Duplicate function(�ظ�����ĺ���)"������ʾ.�ڱ�д�����ļ�ʱ�������������һ�� <b>#include-once</b> ָ���Է�ֹ���ļ����ظ�����.
 
-还有一个注册表值,创建于 "HKEY_CURRENT_USER\Software\AutoIt v3\AutoIt" 名称为 "Include".  必须是 REG_SZ (字符串) 值. 将它指定一个您需要包含的文件所在的目录,您就可以使用它来包含一个指定目录下面的文件.
+����һ��ע���ֵ,������ "HKEY_CURRENT_USER\Software\AutoIt v3\AutoIt" ����Ϊ "Include".  ������ REG_SZ (�ַ���) ֵ. ����ָ��һ������Ҫ�������ļ����ڵ�Ŀ¼,���Ϳ���ʹ����������һ��ָ��Ŀ¼������ļ�.
 
-搜索次序依赖你使用 AutoIt #include 的格式. 下面表格是使用搜寻次序的格式目录.
+��������������ʹ�� AutoIt #include �ĸ�ʽ. ���������ʹ����Ѱ����ĸ�ʽĿ¼.
 
-使用 #include <>
+ʹ�� #include <>
 @@ParamTable@@
-标准库文件
-	会在解释程序(AUTOIT3.EXE)所在目录下面的 "\Include" 目录中搜索.
-用户自定义库
-	请按照上面的方法设置注册表.
-脚本所在目录
-	当前执行脚本的目录.
+��׼���ļ�
+	���ڽ��ͳ���(AUTOIT3.EXE)����Ŀ¼����� "\Include" Ŀ¼������.
+�û��Զ����
+	�밴������ķ�������ע���.
+�ű�����Ŀ¼
+	��ǰִ�нű���Ŀ¼.
 @@End@@
 
-使用 #include "" (和 #include <> 相反).
+ʹ�� #include "" (�� #include <> �෴).
 @@ParamTable@@
-脚本目录
-	当前执行脚本的目录.
-用户自定义库
-	请按照上面的方法设置注册表.
-标准库文件
-	会在解释程序(AUTOIT3.EXE)所在目录下面的 "\Include" 目录中搜索.
+�ű�Ŀ¼
+	��ǰִ�нű���Ŀ¼.
+�û��Զ����
+	�밴������ķ�������ע���.
+��׼���ļ�
+	���ڽ��ͳ���(AUTOIT3.EXE)����Ŀ¼����� "\Include" Ŀ¼������.
 @@End@@
 
-关于使用 /AutoIt3ExecuteScript 选项的一点注解. 因为标准函数库会搜索当前解释程序目录, 如果标准函数库中的函数没有发现;那么当运行 AutoIt3.exe 时,程序出错. 推荐您在准备使用/AutoIt3ExecuteScript选项前，编译您的脚本为.a3x格式.
+A note about using the /AutoIt3ExecuteScript option.  Since the standard library is searched for in the current interpreter's directory, the standard library functions will not be found; that library will only be found when run through AutoIt3.exe.  It's recommended that you compile a script to the .a3x format before attempting to run it with /AutoIt3ExecuteScript.
 
-Aut2Exe 和 AutoIt3.exe 运行时原理基本相同,惟一不同的是可以在包含子目录时同时包含自身目录的文件(..\Include).
+Aut2Exe uses the same algorithm as AutoIt3.exe with the only difference being it looks for the Include sub-directory as being in a sibling directory to itself (..\Include).
 
-如果设置 Opt("TrayIconDebug",1) ,那么只有 64 个包含文件名可以在托盘工具提示中被显示. 其它文件名将不会显示.
+If Opt("TrayIconDebug",1) only 64 include files name can be displayed in the traytooltip. for the other no filename will be displayed.
 
 ###Related###
-<a href="include-once.htm">#include-once</a>, <a href="../functions/FileInstall.htm">FileInstall</a>
+<a href="include-once.htm">#include-once</a>
 
 
 ###Example###

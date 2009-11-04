@@ -1,8 +1,8 @@
-﻿###Keyword###
+###Keyword###
 Dim / Global / Local / Const
 
 ###Description###
-定义一个变量,常量,或者创建一个数组
+����һ������,����,���ߴ���һ������
 
 ###Syntax###
 <b>Dim</b> [Const] $variable [ = initializer ]
@@ -11,71 +11,71 @@ Dim / Global / Local / Const
 ###Parameters###
 @@ParamTable@@
 const
-	[可选参数] 如果定义, Const 关键字将创建一个常量而不是变量.
+	[��ѡ����] �������, Const �ؼ��ֽ�����һ�����������Ǳ���.
 $variable
-	需要声明的变量/常量名称.
+	��Ҫ�����ı���/��������.
 initializer
-	为变量赋的初始值.  使用 Const 关键字必须包含 initializer (因为创建的是常量,不能再赋值). 初始值可以是一个函数 call.
+	Ϊ�������ĳ�ʼֵ.  ʹ�� Const �ؼ��ֱ������ initializer (��Ϊ�������ǳ���,�����ٸ�ֵ). ��ʼֵ������һ������ call.
 subscript
-	一个多维数组的元素数量,索引为0 到 n-1.
+	һ����ά�����Ԫ������,����Ϊ0 �� n-1.
 @@End@@
 
 
 ###Remarks###
-与 Dim/Local/Global 关键字完成类似功能的函数:
-1. 声明一个变量然后使用(就像 VBScript)
-2. 创建一个数组
+�� Dim/Local/Global �ؼ���������ƹ��ܵĺ���:
+1. ����һ������Ȼ��ʹ��(���� VBScript)
+2. ����һ������
 
-<b>提示</b>:  在 AutoIt 里面,您可以简单的创建一个变量并赋值 ($myvar = 0).但是很多人们喜欢明确的声明它们.  你可以在脚本最前加上 <b><a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption("MustDeclareVars", 1)</a></b>, 然后所有要使用的变量都必须先声明才能使用.
+<b>��ʾ</b>:  �� AutoIt ����,�����Լ򵥵Ĵ���һ����������ֵ ($myvar = 0).���Ǻܶ�����ϲ����ȷ����������.  ������ڽű���ǰ���� <b><a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption("MustDeclareVars", 1)</a></b>, Ȼ������Ҫʹ�õı�������������������ʹ��.
 
-您可以在一行里面声明多个变量:
+��������һ�����������������:
 <p class="code">Dim $a, $b, $c</p>
-声明时分配一个初始值到变量:
+����ʱ����һ����ʼֵ������:
 <p class="code">Dim $a = 2, $b = 10, $c = 20</p>
 
-声明一个常量也可以使用类似的方法:
+����һ������Ҳ����ʹ�����Ƶķ���:
 <p class="code">Const $a = 2, $b = 10, $c = 20
 Dim Const $d = 21, $e = Exp(1)
 Local Const $f = 5, $g = 7, $h = -2
 </p>
-当然,您不能再修改一个已声明的常量的值.同样的,您也不能将一个存在的常量修改为一个变量.
+��Ȼ,���������޸�һ���������ĳ�����ֵ.ͬ����,��Ҳ���ܽ�һ�����ڵĳ����޸�Ϊһ������.
 <br>
 
-要初始化一个数组, 需要在方括号"[]"里面指定每一个元素的值, 使用逗号分开.  如果有多个维数, 可以再套用方括号进行赋值. 你可以分配的值的数量不能超过声明的元素数量
-(为元素$x[3]的值不能大于$x[3],比如可以分配$x[2]的值,但不能分配$x[4]的值). <br>
-函数 calls 也可以放置一个已初始化的数组.  如果函数 call 返回一个数组, 原先的数组(变量)将包含返回的数组(同时变量成为数组).<br>
-例如:$msg=FuncCall(),FuncCall()如果返回一个值,$msg为一个变量,如果返回一个数组,$msg为一个数组.<br>
+Ҫ��ʼ��һ������, ��Ҫ�ڷ�����"[]"����ָ��ÿһ��Ԫ�ص�ֵ, ʹ�ö��ŷֿ�.  ����ж��ά��, ���������÷����Ž��и�ֵ. ����Է����ֵ���������ܳ���������Ԫ������
+(ΪԪ��$x[3]��ֵ���ܴ���$x[3],������Է���$x[2]��ֵ,�����ܷ���$x[4]��ֵ). <br>
+���� calls Ҳ���Է���һ���ѳ�ʼ��������.  ������� call ����һ������, ԭ�ȵ�����(����)���������ص�����(ͬʱ������Ϊ����).<br>
+����:$msg=FuncCall(),FuncCall()�������һ��ֵ,$msgΪһ������,�������һ������,$msgΪһ������.<br>
 <p class="code">Dim $Array1[12]=[3, 7.5, "string"], $array[5] = [8, 4, 5, 9, 1]
 Dim $Grid[2][4]=[["Paul", "Jim", "Richard", "Louis"], [485.44, 160.68, 275.16, 320.00]]
 Dim $Test[5] = [3, 1, StringSplit("Abe|Jack|Bobby|Marty", "|"), Cos(0)]
 </p>
 
-Dim,Local,Global 这三者的不同之处在于其声明变量的作用域:
-<b>Dim</b> = 如果同名的全局变量并不存在则作用域为局部(如果已有同名的全局变量存在则将复用该变量!)
-<b>Global</b> = 将创建的变量的作用域强制转换为全局的
-<b>Local</b> = 将创建的变量的作用域强制转换为 局部/函数 的
+Dim,Local,Global �����ߵĲ�֮ͬ������������������������:
+<b>Dim</b> = ���ͬ����ȫ�ֱ�������������������Ϊ�ֲ�(�������ͬ����ȫ�ֱ��������򽫸��øñ���!)
+<b>Global</b> = �������ı�����������ǿ��ת��Ϊȫ�ֵ�
+<b>Local</b> = �������ı�����������ǿ��ת��Ϊ �ֲ�/���� ��
 
-您应该更多的使用 Local 或者 Global, 而不是 Dim, 这样能够更清楚的了解每个已经声明的 变量/常数/数组的作用范围.
+��Ӧ�ø����ʹ�� Local ���� Global, ������ Dim, �����ܹ���������˽�ÿ���Ѿ������� ����/����/��������÷�Χ.
 
-在使用变量时程序将首先检查其局部作用域然后再检查其全局作用域.
+��ʹ�ñ���ʱ�������ȼ����ֲ�������Ȼ���ټ����ȫ��������.
 
-创建数组时有一个限制:数组最大只能达64维 和/或 共1600万个元素.
+��������ʱ��һ������:�������ֻ�ܴ�64ά ��/�� ��1600���Ԫ��.
 
-关于数组,有一点比较特别,那就是数组允许被(整体)复制,比如:
+��������,��һ��Ƚ��ر�,�Ǿ�������������(����)����,����:
 $mycopy = $myarray
-在上例中,$mycopy 将成为数组 $myarray 的一份完整副本并具有同样地维数(不需要事先通过 Dim 语句声明它).  如果设置了 <b><a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption("MustDeclareVars", 1)</a></b> 选项,$mycopy 还是需要先声明的,但是可以不必知道数组的大小. 如果变量 $mycopy 本身就已经是数组或已被赋值,则程序将先把它的内容删除随后再执行复制动作.
+��������,$mycopy ����Ϊ���� $myarray ��һ����������������ͬ����ά��(����Ҫ����ͨ�� Dim ���������).  ��������� <b><a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption("MustDeclareVars", 1)</a></b> ѡ��,$mycopy ������Ҫ��������,���ǿ��Բ���֪������Ĵ�С. ������� $mycopy �������Ѿ���������ѱ���ֵ,������Ȱ���������ɾ�������ִ�и��ƶ���.
 
-如果要删除某个数组(比如某个全局数组存储地内容非常大,可能我们就需要把它删除以释放内存空间), 简单的分配一个单值给它:
+���Ҫɾ��ĳ������(����ĳ��ȫ������洢�����ݷǳ���,�������Ǿ���Ҫ����ɾ�����ͷ��ڴ�ռ�), �򵥵ķ���һ����ֵ����:
 $array = 0
-这样之后该数组所占空间将被释放,同时它的值变成 0(注意:数组没有真正意义上被删除).
+����֮���������ռ�ռ佫���ͷ�,ͬʱ����ֵ��� 0(ע��:����û�����������ϱ�ɾ��).
 
-再次申明同变量名数组将会消除原数组的所有值，其维数也将被重新定义. 在相同的作用域内用一个简单值申明一个变量，将不在变量中改变值.
+Declaring the same variable name again will erase all array values and reset the dimensions to the new definition.  Declaring a variable with a simple value in the same scope will not change the value in the variable.
 
-如果你用一个与参数相同的名字申明一个变量,或在一个用户函数内使用 <b>Local</b> 变量，将会发生差错.  <b>Global</b> 在一个函数内赋值的是全局变量, 但是如果一个局部变量 (或参数) 有一个与全局变量相同的名字, 将只使用局部变量. 推荐局部和全局变量必须有明确的名字.
+If you declare a variable with the same name as a parameter, using <b>Local</b> inside a user function, an error will occur.  <b>Global</b> can be used to assign to global variables inside a function, but if a local variable (or parameter) has the same name as a global variable, the local variable will be the only one used.  It is recommended that local and global variables have distinct names.
 
 
 ###Related###
-<a href="../functions/UBound.htm">UBound</a>, ReDim, <a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption</a></b> 
+UBound, ReDim, Static, <a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption</a></b> 
 
 
 ###Example###

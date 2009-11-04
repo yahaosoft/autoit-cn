@@ -28,7 +28,6 @@ _ExcelBookClose($oExcel, 1, 0) ;在没有任何提示的情况下保存该文件
 $sFilePath1 = @ScriptDir & "\Test1.xls" ;这个文件应该已经存在
 $oExcel = _ExcelBookOpen($sFilePath1)
 
-
 ;显示打开文件时可能发生的错误提示
 If @error = 1 Then
 	MsgBox(0, "错误!", "无法创建对象!")

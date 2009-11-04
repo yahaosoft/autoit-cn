@@ -1,12 +1,12 @@
-﻿###Keyword###
+###Keyword###
 For...In...Next
 
 ###Description###
-列举对象集合或数组中的元素
+Enumerates elements in an Object collection or an array
 
 
 ###Syntax###
-<b>For</b> &lt;$变量&gt; <b>In</b> &lt;表达式&gt;
+<b>For</b> &lt;$Variable&gt; <b>In</b> &lt;expression&gt;
 	<i>statements</i>
 	...
 <b>Next</b>
@@ -14,23 +14,23 @@ For...In...Next
 
 ###Parameters###
 @@ParamTable@@
-变量
-	一个已赋值的对象集合或数组
-表达式
-	有至少一个元素的对象或数组
+Variable
+	A variable to which an element is being assigned
+expression
+	Must be an expression resulting in an Object, or an Array with at least one element
 @@End@@
 
 
 ###Remarks###
-变量将由一个局部作用域自动创建,即使有 MustDeclareVars 的存在.
-如果表达式语句是没用元素的对象集合，循环将会跳过，而且变量将包含一个空串.
-如果表达式语句不是对象也不是数组, 脚本以差错停止，除非 COM Error 差错处理程式被配置.
-当使用 For...In 时 Autoit 数组是只读的. 你可以在 For...In 循环内为变量赋值, 这个变化不反映数组本身. 使用 For...To 循环在数组枚举期间修改目录.
+The Variable will be created automatically with a LOCAL scope, even when MustDeclareVars is on.
+If the expression is an Object collection with no elements, the loop will be skipped and the Variable will contain an empty string.
+If the expression is not an Object nor an Array, the script stops with an error, unless a COM Error handler had been configured.
+Autoit Array's are read-only when using For...In.  While you can assign the variable inside the For...In loop a value, this change is not reflected in the array itself.  To modify the contents of an array during enumeration, use a For...To loop.
 
-For...In...Next 语句可以嵌套使用.
+For...In...Next statements may be nested.
 
 ###Related###
-<a href="With.htm">With...EndWith</a>, <a href="..\functions\ObjEvent.htm">ObjEvent (COM Error handler)</a>
+<a href="With.htm">With...EndWith</a>
 
 ###Example###
 @@IncludeExample@@
