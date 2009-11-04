@@ -11,13 +11,13 @@ _Net_Share_ShareEnum([$sServer = ""])
 ###Parameters###
 @@ParamTable@@
 $sServer
-	String that specifies the DNS or NetBIOS name of the remote server on which the function is to
+	<b>Optional:</b> String that specifies the DNS or NetBIOS name of the remote server on which the function is to
 		execute. If this parameter is blank the local computer is used.
 @@End@@
 
 ###ReturnValue###
-Success: Array with the following format:
-
+@@ReturnTable@@
+Success:	Array with the following format:
 	[0][0] - Number of entries in array
 	[1][0] - Share name of a resource
 	[1][1] - Type of the shared resource. Can be a combination of:
@@ -40,6 +40,8 @@ Success: Array with the following format:
 	[1][5] - Indicates the number of current connections to the resource
 	[1][6] - Specifies the local path for the shared resource
 	[1][7] - Specifies the share's password
+Failure:	Set @error
+@@End@@
 
 ###Remarks###
 Administrator, Power User, Print Operator, or Server Operator group membership is required to execute this

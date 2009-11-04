@@ -6,7 +6,7 @@ Reads and writes to a named pipe in one network operation
 
 ###Syntax###
 #Include <NamedPipes.au3>
-_NamedPipes_TransactNamedPipe($hNamedPipe, $pInpBuf, $iInpSize, $pOutBuf, $iOutSize[, $pOverlapped = 0])
+_NamedPipes_TransactNamedPipe($hNamedPipe, $pInpBuf, $iInpSize, $pOutBuf, $iOutSize [, $pOverlapped = 0])
 
 ###Parameters###
 @@ParamTable@@
@@ -21,7 +21,7 @@ $pOutBuf
 $iOutSize
 	Size of the read buffer, in bytes
 $pOverlapped
-	Pointer to a $tagOVERLAPPED structure. This structure is required if hNamedPipe was opened with
+	<b>Optional:</b> Pointer to a $tagOVERLAPPED structure. This structure is required if hNamedPipe was opened with
 		$FILE_FLAG_OVERLAPPED. If hNamedPipe was opened with $FILE_FLAG_OVERLAPPED, pOverlapped must not be 0. If
 		hNamedPipe was opened with $FILE_FLAG_OVERLAPPED and pOverlapped is not 0, TransactNamedPipe is executed as
 		an overlapped operation. The $tagOVERLAPPED structure should contain a manual reset event object. If the
@@ -30,7 +30,10 @@ $pOverlapped
 @@End@@
 
 ###ReturnValue###
-Success: Number of bytes read from the pipe
+@@ReturnTable@@
+Success:	the Number of bytes read from the pipe
+Failure:	Set @error
+@@End@@
 
 ###Remarks###
 TransactNamedPipe fails if the server did not create the pipe as a message-type pipe or if the pipe handle is

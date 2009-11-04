@@ -14,7 +14,7 @@ FileWriteLine($hFile, "Line1")
 FileWriteLine($hFile, "Line2")
 FileWriteLine($hFile, "Line3")
 
-;在磁盘刷新这个文件.
+; Flush the file to disk.
 FileFlush($hFile)
 
 ; Check file position and try to read contents for current position.

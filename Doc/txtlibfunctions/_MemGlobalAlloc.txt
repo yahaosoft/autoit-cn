@@ -14,7 +14,7 @@ $iBytes
 	The number of bytes to allocate. If this parameter is zero and the $iFlags parameter specifies
 		$GMEM_MOVEABLE, the function returns a handle to a memory object that is marked as discarded.
 $iFlags
-	The memory allocation attributes:
+	<b>Optional:</b> The memory allocation attributes:
 		$GMEM_FIXED - Allocates fixed memory. The return value is a pointer.
 		$GMEM_MOVEABLE - Allocates movable memory. Memory blocks are never moved in physical memory, but
 		they can be moved within the default heap. The return value is a handle to the memory object.
@@ -26,8 +26,10 @@ $iFlags
 @@End@@
 
 ###ReturnValue###
-Success: Handle to the newly allocated memory object
-Failure: 0
+@@ReturnTable@@
+Success:	Handle to the newly allocated memory object
+Failure:	0
+@@End@@
 
 ###Remarks###
 Windows memory management does not provide a separate local heap and global heap. If this function succeeds,
@@ -37,7 +39,7 @@ use the _MemGlobalSize function. If the heap does not contain sufficient free sp
 this function returns NULL. Memory allocated with this function is guaranteed to be aligned on an 8 byte
 boundary. To execute dynamically generated code, use the _MemVirtualAlloc function to allocate memory and the
 _Mem_VirtualProtect function to grant $PAGE_EXECUTE access. To free the memory, use the _MemGlobalFree
-function. It is not safe to free memory allocated with _MemGlobalAlloc using _Mem_LocalFree.
+function.
 
 ###Related###
 _MemGlobalLock, _MemGlobalSize, _MemVirtualAlloc, _MemGlobalFree
