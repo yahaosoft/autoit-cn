@@ -1,20 +1,20 @@
-﻿###User Defined Function###
+###User Defined Function###
 _DebugOut
 
 ###Description###
-Displays output on a Notepad session started by _DebugSetup()
+Displays output on a debugging session started by _DebugSetup()
 
 ###Syntax###
 #include <Debug.au3>
-_DebugOut ( $sOutput[, $bActivate] )
+_DebugOut ( $sOutput [, $bActivate] )
 
 
 ###Parameters###
 @@ParamTable@@
 $sOutput
-	Text string to be output.
+	The string (or other printable value) to be output to the debugging session.
 $bActivate
-	(Optional) Boolean flag, if true make sure the debug window is the active window before writing $sOutput to the debug Notepad window.  Default value is False.
+	[optional] Ignored, kept for backward compatibility.
 @@End@@
 
 ###ReturnValue###
@@ -23,19 +23,13 @@ Success:	Returns 1, @Error and @Extended as before calling _DebugOut().
 Failure:	Sets @Error and returns 0.
 @Error:	0 = No error.
 	1 = $sOutput is an incompatible type.
-	2 = $bActivate is an incompatible type.
 	3 = _DebugSetup() did not run properly.
-	4 = The debug Notepad window has been closed.  Output can not occur.
 @@End@@
 
 ###Remarks###
 Each time _DebugOut() is called, the output is put on its own line.
 
 _DebugSetup() must be called before the first call of _DebugOut(), or it will return with @Error = 3.
-
-If the Notepad window is closed, _DebugSetup() will need to be called to restart the debug Notepad session.
-
-Setting $bActivate to True slows down the output of the debug message significantly.  
 
 
 ###Related###

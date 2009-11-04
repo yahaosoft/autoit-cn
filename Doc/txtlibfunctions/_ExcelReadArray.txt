@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _ExcelReadArray
 
 ###Description###
@@ -6,7 +6,7 @@ Create an array from a row or column of the active worksheet.
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelReadArray($oExcel, $iStartRow, $iStartColumn, $iNumCells[, $iDirection = 0[, $iIndexBase = 0]])
+_ExcelReadArray($oExcel, $iStartRow, $iStartColumn, $iNumCells [, $iDirection = 0 [, $iIndexBase = 0]])
 
 ###Parameters###
 @@ParamTable@@
@@ -19,20 +19,23 @@ $iStartColumn
 $iNumCells
 	The number of cells to read into the array
 $iDirection
-	The direction of the cells to read into array (0=right, 1=down)
+	[optional] The direction of the cells to read into array (0=right, 1=down)
 $iIndexBase
-	Specify whether array created is to have index base of either 0 or 1
+	[optional] Specify whether array created is to have index base of either 0 or 1
 @@End@@
 
 ###ReturnValue###
-Success: Returns an array with the specified cell contents
-Failure: Returns 0 and sets @error on errors:
-		@error=1 - Specified object does not exist
-		@error=2 - Parameter out of range
-		@extended=0 - Row out of range
-		@extended=1 - Column out of range
-		@error=3 - Invalid number of cells
-		@error=4 - Invalid direction parameter
+@@ReturnTable@@
+Success:	an array with the specified cell contents
+Failure:	0 and sets @error
+@error:	0 - No error
+	1 - Specified object does not exist
+	2 - Parameter out of range
+	3 - Invalid number of cells
+	4 - Invalid direction parameter
+@extended	0 - Row out of range
+		1 - Column out of range
+@@End@@
 
 ###Remarks###
 None

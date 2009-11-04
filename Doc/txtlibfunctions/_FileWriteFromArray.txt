@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _FileWriteFromArray
 
 ###Description###
@@ -6,7 +6,7 @@ Writes Array records to the specified file.
 
 ###Syntax###
 #Include <File.au3>
-_FileWriteFromArray($File, $a_Array[, $i_Base = 0[, $i_UBound = 0]])
+_FileWriteFromArray($File, $a_Array [, $i_Base = 0 [, $i_UBound = 0]])
 
 ###Parameters###
 @@ParamTable@@
@@ -15,18 +15,19 @@ $File
 $a_Array
 	The array to be written to the file.
 $i_Base
-	Optional: Start Array index to read, normally set to 0 or 1. Default=0
+	[optional] Start Array index to read, normally set to 0 or 1. Default=0
 $i_Ubound
-	Optional: Set to the last record you want to write to the File. default=0 - whole array.
+	[optional] Set to the last record you want to write to the File. default=0 - whole array.
 @@End@@
 
 ###ReturnValue###
-Success: Returns a 1
-Failure: Returns a 0
-@Error: 0 = No error.
-		1 = Error opening specified file
-		2 = Input is not an Array
-		3 = Error writing to file
+@@ReturnTable@@
+Success:	1
+Failure:	0 and set @error
+@Error:	1 = Error opening specified file
+	2 = Input is not an Array
+	3 = Error writing to file
+@@End@@
 
 ###Remarks###
 If a string path is provided, the file is overwritten and closed.

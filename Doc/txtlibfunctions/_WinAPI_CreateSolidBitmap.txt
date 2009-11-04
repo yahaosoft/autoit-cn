@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _WinAPI_CreateSolidBitmap
 
 ###Description###
@@ -6,7 +6,7 @@ Creates a solid color bitmap
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_CreateSolidBitmap($hWnd, $iColor, $iWidth, $iHeight)
+_WinAPI_CreateSolidBitmap($hWnd, $iColor, $iWidth, $iHeight [, $bRGB = 1])
 
 ###Parameters###
 @@ParamTable@@
@@ -18,11 +18,14 @@ $iWidth
 	The width of the bitmap
 $iHeight
 	The height of the bitmap
+$bRGB
+	[optional] If True converts to COLOREF (0x00bbggrr)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle to the bitmap
+Success:	Handle to the bitmap
+Failure:	0
 @@End@@
 
 ###Remarks###
@@ -30,4 +33,3 @@ None.
 
 ###Related###
 _WinAPI_CreateCompatibleBitmap
-

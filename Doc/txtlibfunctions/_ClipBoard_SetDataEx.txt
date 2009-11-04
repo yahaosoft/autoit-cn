@@ -6,7 +6,7 @@ _ClipBoard_SetDataEx
 
 ###Syntax###
 #Include <Clipboard.au3>
-_ClipBoard_SetDataEx(ByRef $hMemory[, $iFormat = 1])
+_ClipBoard_SetDataEx(ByRef $hMemory [, $iFormat = 1])
 
 ###Parameters###
 @@ParamTable@@
@@ -20,7 +20,7 @@ $hMemory
 		identifies a memory object, the object must have been allocated using the function with the $GMEM_MOVEABLE
 		flag.
 $iFormat
-	Specifies a clipboard format:
+	[optional] Specifies a clipboard format:
 		$CF_TEXT - Text format
 		$CF_BITMAP - Handle to a bitmap (HBITMAP)
 		$CF_METAFILEPICT - Handle to a metafile picture (METAFILEPICT)
@@ -46,8 +46,10 @@ $iFormat
 @@End@@
 
 ###ReturnValue###
-Success: The handle to the data
-Failure: 0
+@@ReturnTable@@
+Success:	The handle to the data
+Failure:	0
+@@End@@
 
 ###Remarks###
 The $iFormat parameter can identify a registered clipboard format, or it can be one of the standard clipboard

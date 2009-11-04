@@ -1,0 +1,54 @@
+###Keyword###
+Static
+
+###Description###
+Declare a static variable or create a static array.
+
+###Syntax###
+<b>Static</b> [Scope] $variable [ = initializer ]
+<b>Static</b> [Scope] $array<b>[</b>subscript 1<b>]</b>...<b>[</b>subscript n<b>]</b> [ = initializer ]
+
+###Parameters###
+@@ParamTable@@
+Scope
+	An optional modifier, <b>Local</b> or <b>Global</b> that indicates where the variable is visible.
+$variable
+	The name of the static variable to declare.
+initializer
+	The value that will be initially assigned to the variable.  The initializer can be a function call of involve mathematical or string operations.  This initializer is only evaluated the first time this variable declaration is encountered.
+subscript
+	The number of elements to create for the array dimension, indexed 0 to n-1.
+@@End@@
+
+
+###Remarks###
+The Static keyword can appear before the optional scope specifier, or after. e.g.  <b>Local Static</b> or <b>Static Local</b>
+
+If the scope modifier <b>Local</b> is used, then the static variable is visible and usable only in the function in which it is declared.  If the scope modifier <b>Global</b> is used, then the static variable is visible and usable in all parts of the script; in this regard, a Global Static has very little difference from a Global variable.  If the scope modifier is not used, then the static variable will be created in the local context, unless the variable already exists in the global context; in this way, Static is similar to Dim.
+
+The difference between Local and Static is variable lifetime.  Local variables are only stored while the function is being called and are visible only within the function in which they are declared; when the function returns, all its local variables are released.  Static variables are likewise visible in the function in which they are declared, but they continue to exist, retaining their last value, after the function finishes execution.  When looking for variables, the local scope is checked first and then the global scope second.
+
+The Static keyword performs similar functions to the Global/Local/Dim keywords.
+1. They all declare a variable before you use it.
+2. They all can create an array.
+
+<b>Note</b>:  Static variables <i>must</i> be declared using the <b>Static</b> keyword prior to use.  Static variables can not be <b><a href="Dim.htm">Const</a><b>.
+
+You can also declare multiple static variables on a single line:
+<p class="code">Static $a, $b, $c</p>
+And initialize the variables:
+<p class="code">Static $a = 2, $b = 10, $c = 20</p>
+
+When initializing a static variable, the initialization value is evaluated and assigned only the first time, when the variable is created.  On all subsequent passes, the initializer is ignored.
+
+See <a href="Dim.htm">Local</a> for more information about using arrays, which has all the same functionality as in Local, except for:
+<ol><li>Reinitalizing a Static variable has no effect.</li>
+<li>Changing the size of a Static array is treated like a ReDim.</li>
+<li>You can not change a static variable to a local or global variable nor vice-versa.</li></ol>
+
+###Related###
+<a href="Dim.htm">Local</a>, UBound, ReDim, <a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption</a></b> 
+
+
+###Example###
+@@IncludeExample@@

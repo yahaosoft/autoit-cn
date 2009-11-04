@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _EventLog__Read
 
 ###Description###
@@ -6,26 +6,26 @@ Reads an entry from the event log
 
 ###Syntax###
 #Include <EventLog.au3>
-_EventLog__Read($hEventLog[, $fRead = True[, $fForward = True[, $iOffset = 0]]])
+_EventLog__Read($hEventLog [, $fRead = True [, $fForward = True [, $iOffset = 0]]])
 
 ###Parameters###
 @@ParamTable@@
 $hEventLog
 	A handle to the event log
 $fRead
-	If True, operation proceeds sequentially from the last call to this function using this handle.
+	[optional] If True, operation proceeds sequentially from the last call to this function using this handle.
 		If False, the read will operation proceeds from the record specified by the $iOffset parameter.
 $fForward
-	If True, the log is read in date order. If False, the log is read in reverse date order.
+	[optional] If True, the log is read in date order. If False, the log is read in reverse date order.
 $iOffset
-	The number of the event record at which the read operation should start. This parameter is
+	[optional] The number of the event record at which the read operation should start. This parameter is
 		ignored if fRead is True.
 @@End@@
 
 ###ReturnValue###
-Success: Array with the following format:
-
-	[ 0] - True on success, False on failure
+@@ReturnTable@@
+Success:	Array with the following format:
+	[ 0] - True
 	[ 1] - Number of the record
 	[ 2] - Date at which this entry was submitted
 	[ 3] - Time at which this entry was submitted
@@ -45,6 +45,8 @@ Success: Array with the following format:
 	[12] - Username
 	[13] - Event description
 	[14] - Event data array
+Failure:	Array[0] = False
+@@End@@
 
 ###Remarks###
 When this function returns successfully, the read position in the event log is adjusted by the number of

@@ -1,34 +1,34 @@
-﻿###User Defined Function###
+###User Defined Function###
 _ArrayTrim
 
 ###Description###
-按指定数量、方向消除数组中的字符元素.
+Trims a certain number of characters from all elements in an array.
 
 ###Syntax###
 #Include <Array.au3>
-_ArrayTrim(ByRef $avArray, $iTrimNum[, $iDirection = 0[, $iStart = 0[, $iEnd = 0]]])
+_ArrayTrim(ByRef $avArray, $iTrimNum [, $iDirection = 0 [, $iStart = 0 [, $iEnd = 0]]])
 
 ###Parameters###
 @@ParamTable@@
 $avArray
-	目标数组
+	Array to modify
 $iTrimNum
-	消除的字符数
+	Number of characters to remove
 $iDirection
-	[可选] 消除的方向:
-		0 - 消除左边
-		1 - 消除右边
+	[optional] Direction to trim:
+		0 - trim left
+		1 - trim right
 $iStart
-	[可选] 起始下标
+	[optional] Index of array to start trimming at
 $iEnd
-	[可选] 终止下标
+	[optional] Index of array to stop trimming at
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1
-Failure	0, sets @error:
-	1 - $avArray is not an array
+Success:	1
+Failure:	0, sets @error:
+@error:	1 - $avArray is not an array
 	2 - $avArray is not an 1 dimensional array
 	5 - $iStart is greater than $iEnd
 	(3-4 - Deprecated error codes)

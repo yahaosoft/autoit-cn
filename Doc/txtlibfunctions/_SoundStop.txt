@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _SoundStop
 
 ###Description###
@@ -6,25 +6,25 @@ Stop a playing sound.
 
 ###Syntax###
 #include <Sound.au3>
-_SoundStop ( $aSnd_id )
+_SoundStop (ByRef $aSnd_id )
 
 
 ###Parameters###
 @@ParamTable@@
 $aSnd_id
-	Sound ID array as returned by _SoundOpen or a file name
+	Sound ID array as returned by _SoundOpen() or a file name (must be a variable)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 Success:	1
 Failure:	0 and set @error
-	1 = Stop Failed
-	3 = Invalid Sound ID. Use return array from _SoundOpen or a valid file name.
+@error:	1 = Stop Failed
+	3 = Invalid Sound ID. Use return array from _SoundOpen() or a valid file name.
 @@End@@
 
 ###Remarks###
-None.
+_SoundPlay() will replay the sound from the beginning.
 
 ###Related###
 _SoundPlay, _SoundOpen

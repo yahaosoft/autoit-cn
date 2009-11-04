@@ -1,37 +1,39 @@
-﻿###User Defined Function###
+###User Defined Function###
 _ArrayUnique
 
 ###Description###
-返回 1 维数组的独特元素.
+Returns the Unique Elements of a 1-dimensional array.
 
 ###Syntax###
 #Include <Array.au3>
-_ArrayUnique($aArray[, $iDimension = 1[, $iBase = 0[, $iCase = 0[, $vDelim = "|"]]]])
+_ArrayUnique($aArray[, $iDimension = 1 [, $iBase = 0 [, $iCase = 0 [, $vDelim = "|"]]]])
 
 ###Parameters###
 @@ParamTable@@
 $aArray
-	目标数组
+	The Array to use
 $iDimension
-	[可选] 被使用的数组大小
+	[[optional] The Dimension of the Array to use
 $iBase
-	[可选] 设定数组的下标以 0 为基址或以 1 为基址。默认以 0 为基址
+	[optional] Is the Array 0-base or 1-base index. 0-base by default
 $iCase
-	[可选] 是否区分大小写.
+	[optional] Flag to indicate if the operations should be case sensitive.
 $vDelim
-	[可选] 当做分隔符使用的一或较多字符。但不能使用全部字符
+	[optional] One or more characters to use as delimiters. However, cannot forsee its usefullness
 @@End@@
 
 ###ReturnValue###
-成功: 返回只包含特定元素的一维数组
-失败: 返回 0 ，设置 @Error:
-		0: 没有错误 [No error.]
-		1: 如果参数不是一个数组则返回 0
-		2: 函数操作因一些其他原因失败 
-		3: 数组维数无效, 应该是一个大于 0 的整数
+@@ReturnTable@@
+Success:	Returns a 1-dimensional array containing only the unique elements of that Dimension
+Failure:	Returns 0 and set @Error:
+@error:	0 - No error.
+	1 - Returns 0 if parameter is not an array.
+	2 - _ArrayUnique failed for some other reason
+	3 - Array dimension is invalid, should be an integer greater than 0
+@@End@@
 
 ###Remarks###
-第一个下标 ($array[0]) 包含返回的字串数目,剩馀的下标 ($array[1], $array[2] 等等。) 包含特定的字串.
+Returns an array, the first element ($array[0]) contains the number of strings returned, the remaining elements ($array[1], $array[2], etc.) contain the unique strings.
 
 ###Related###
 _ArrayMax, _ArrayMin

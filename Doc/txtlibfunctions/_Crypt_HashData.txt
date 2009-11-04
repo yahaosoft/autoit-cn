@@ -6,7 +6,7 @@ Hash data with specified algorithm
 
 ###Syntax###
 #Include <Crypt.au3>
-_Crypt_HashData($vData, $iALG_ID[[, $fFinal = True, ]hCryptHash = 0])
+_Crypt_HashData($vData, $iALG_ID [, $fFinal = True [, $hCryptHash = 0]])
 
 ###Parameters###
 @@ParamTable@@
@@ -15,16 +15,16 @@ $vData
 $iALG_ID
 	Hash ID to use
 $fFinal
-	False if this is only a segment of the full data, also makes the function return a hash object instead of hash
+	[optional] False if this is only a segment of the full data, also makes the function return a hash object instead of hash
 $hCryptHash
-	Hash object returned from a previous call to _Crypt_HashData
+	[optional] Hash object returned from a previous call to _Crypt_HashData
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Returns hash or hash object if $fFinal=False
+Success:	Returns hash or hash object if $fFinal=False
 	Sets @error to 0
-Failure	Returns -1 and sets @error:
+Failure:	Returns -1 and sets @error:
 	1 - Failed to create hash object
 	2 - Failed to hash data
 	3 - Failed to get hash size

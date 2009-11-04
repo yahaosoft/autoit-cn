@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _WinNet_UseConnection
 
 ###Description###
@@ -6,7 +6,7 @@ Connects a local device to a network resource
 
 ###Syntax###
 #Include <WinNet.au3>
-_WinNet_UseConnection($hWnd, $sLocalName, $sRemoteName[, $sUserName = 0[, $sPassword = 0[, $iType = 1[, $iOptions = 1]]]])
+_WinNet_UseConnection($hWnd, $sLocalName, $sRemoteName [, $sUserName = 0 [, $sPassword = 0 [, $iType = 1 [, $iOptions = 1]]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -20,17 +20,17 @@ $sLocalName
 $sRemoteName
 	Name of the network resource to connect to
 $sUsername
-	User name for making the connection. If 0, the function uses the default user name.
+	[optional] User name for making the connection. If 0, the function uses the default user name.
 $sPassword
-	Password to be used to make a connection. If 0, the default password is used. If the string is
+	[optional] Password to be used to make a connection. If 0, the default password is used. If the string is
 		empty, no password is used.
 $iType
-	Specifies the type of network resource to connect to:
+	[optional] Specifies the type of network resource to connect to:
 		0 - Any (only if $sLocalName is blank)
 		1 - Disk
 		2 - Print
 $iOptions
-	Connection options. Can be one or more of the following:
+	[optional] Connection options. Can be one or more of the following:
 		 1 - The network resource connection should be remembered
 		 2 - The operating system may interact with the user for authentication purposes
 		 4 - The system does not use any default setting for user names or passwords without offering the user the
@@ -45,10 +45,13 @@ $iOptions
 @@End@@
 
 ###ReturnValue###
-Success: Array with the following format:
-		$aInfo[0] - If True, the connection was made using a local device redirection
-		$aInfo[1] - If sLocalName specifies a local device, this is the local device name. If sLocalName does not
-		specify a device and the network requires a local device redirection, or if bit 4 (force redirection) is set,		this buffer receives the name of the redirected local device. Otherwise, the name copied into the buffer is		that of a remote resource.
+@@ReturnTable@@
+Success:	Array with the following format:
+	$aInfo[0] - If True, the connection was made using a local device redirection
+	$aInfo[1] - If sLocalName specifies a local device, this is the local device name. If sLocalName does not
+	specify a device and the network requires a local device redirection, or if bit 4 (force redirection) is set,		this buffer receives the name of the redirected local device. Otherwise, the name copied into the buffer is		that of a remote resource.
+Failure:	Set @error
+@@End@@
 
 ###Remarks###
 None.
@@ -56,4 +59,4 @@ None.
 ###Related###
 
 ###See Also###
-@@MsdnLink@@ WNetUseConnectionA
+@@MsdnLink@@ WNetUseConnection

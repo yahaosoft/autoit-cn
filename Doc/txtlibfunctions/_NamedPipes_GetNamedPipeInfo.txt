@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _NamedPipes_GetNamedPipeInfo
 
 ###Description###
@@ -15,13 +15,15 @@ $hNamedPipe
 @@End@@
 
 ###ReturnValue###
-Success: Array with the following format:
-
+@@ReturnTable@@
+Success:	Array with the following format:
 	$aInfo[0] - True if handle refers to server end, otherwise client end
 	$aInfo[1] - True for a message pipe, otherwise byte pipe
 	$aInfo[2] - Size of the buffer for outgoing data, in bytes
 	$aInfo[3] - Size of the buffer for incoming data, in bytes
 	$aInfo[4] - Maximum number of pipe instances that can be created
+Failure:	Set @error
+@@End@@
 
 ###Remarks###
 None.

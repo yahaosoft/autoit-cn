@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _FileListToArray
 
 ###Description###
@@ -6,26 +6,30 @@ Lists files and\or folders in a specified path (Similar to using Dir with the /B
 
 ###Syntax###
 #Include <File.au3>
-_FileListToArray($sPath[, $sFilter = "*"[, $iFlag = 0]])
+_FileListToArray($sPath [, $sFilter = "*" [, $iFlag = 0]])
 
 ###Parameters###
 @@ParamTable@@
 $sPath
 	Path to generate filelist for.
 $sFilter
-	Optional the filter to use, default is *. Search the Autoit3 helpfile for the word "WildCards" For details.
+	[optional] the filter to use, default is *. Search the Autoit3 helpfile for the word "WildCards" For details.
 $iFlag
-	Optional: specifies whether to return files folders or both
+	[optional] specifies whether to return files folders or both
 		$iFlag=0(Default) Return both files and folders
 		$iFlag=1 Return files only
 		$iFlag=2 Return Folders only
 @@End@@
 
 ###ReturnValue###
-@Error: 1 = Path not found or invalid
-		2 = Invalid $sFilter
-		3 = Invalid $iFlag
-		4 = No File(s) Found
+@@ReturnTable@@
+Success:	an Array, see remarks
+Failure:	0
+@Error:	1 = Path not found or invalid
+	2 = Invalid $sFilter
+	3 = Invalid $iFlag
+	4 = No File(s) Found
+@@End@@
 
 ###Remarks###
 The array returned is one-dimensional and is made up as follows:

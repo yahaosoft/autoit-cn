@@ -1,32 +1,34 @@
-﻿###User Defined Function###
+###User Defined Function###
 _ExcelBookOpen
 
 ###Description###
-打开一个存在的工作表并返回它的对象标识.
+Opens an existing workbook and returns its object identifier.
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelBookOpen($sFilePath[, $fVisible = 1[, $fReadOnly = False[, $sPassword = ""[, $sWritePassword = ""]]]])
+_ExcelBookOpen($sFilePath [, $fVisible = 1 [, $fReadOnly = False [, $sPassword = "" [, $sWritePassword = ""]]]])
 
 ###Parameters###
 @@ParamTable@@
 $sFilePath
 	Path and filename of the file to be opened
 $fVisible
-	Flag, whether to show or hide the workbook (0=not visible, 1=visible) (default=1)
+	[optional] Flag, whether to show or hide the workbook (0=not visible, 1=visible) (default=1)
 $fReadOnly
-	Flag, whether to open the workbook as read-only (True or False) (default=False)
+	[optional] Flag, whether to open the workbook as read-only (True or False) (default=False)
 $sPassword
-	The password that was used to read-protect the workbook, if any (default is none)
+	[optional] The password that was used to read-protect the workbook, if any (default is none)
 $sWritePassword
-	The password that was used to write-protect the workbook, if any (default is none)
+	[optional] The password that was used to write-protect the workbook, if any (default is none)
 @@End@@
 
 ###ReturnValue###
-Success: Returns new object identifier
-Failure: Returns 0 and sets @error on errors:
-		@error=1 - Unable to create the object
-		@error=2 - File does not exist
+@@ReturnTable@@
+Success:	Returns new object identifier
+Failure:	0 and set @error
+@error:	1 - Unable to create the object
+	2 - File does not exist
+@@End@@
 
 ###Remarks###
 None

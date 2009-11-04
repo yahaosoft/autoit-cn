@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _INetSmtpMail
 
 ###Description###
@@ -6,7 +6,7 @@ Sends an email without using an external email program.
 
 ###Syntax###
 #include <INet.au3>
-_INetSmtpMail ( $s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress [,$s_Subject [,$as_Body [,$s_helo, [,$s_first [,$b_trace]]]]])
+_INetSmtpMail ( $s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress [,$s_Subject [,$as_Body [,$s_helo [,$s_first [,$b_trace]]]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -35,15 +35,17 @@ $b_trace
 @@End@@
 
 ###ReturnValue###
-On Success - Returns 1
-On Failure - Returns 0 and sets:
-	@ERROR = 1		-	Invalid Parameters
-	@ERROR = 2		-	Unable to start TCP
-	@ERROR = 3		-	Unable to resolve IP
-	@ERROR = 4		-	Unable to create socket
-	@ERROR = 5x		-	Cannot open SMTP session.  x indicates the index number of last command issued to the SMTP server.
-	@ERROR = 50x	-	Cannot send body.  x indicates the line number of $as_Body (first line is 0).
-	@ERROR = 5000	-	Cannot close SMTP session
+@@ReturnTable@@
+Success:	Returns 1
+Failure:	Returns 0 and set @error
+@error:	1    - Invalid Parameters
+	2    - Unable to start TCP
+	3    - Unable to resolve IP
+	4    - Unable to create socket
+	5x   - Cannot open SMTP session.  x indicates the index number of last command issued to the SMTP server.
+	50x  - Cannot send body.  x indicates the line number of $as_Body (first line is 0).
+	5000 - Cannot close SMTP session
+@@End@@
 
 
 

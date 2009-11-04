@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _ExcelSheetDelete
 
 ###Description###
@@ -6,7 +6,7 @@ Delete the specified sheet by string name or by number.
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelSheetDelete($oExcel, $vSheet[, $fAlerts = False])
+_ExcelSheetDelete($oExcel, $vSheet [, $fAlerts = False])
 
 ###Parameters###
 @@ParamTable@@
@@ -15,15 +15,18 @@ $oExcel
 $vSheet
 	The sheet to delete, either by string name or by number
 $fAlerts
-	Allow modal alerts (True or False) (default=False)
+	[optional] Allow modal alerts (True or False) (default=False)
 @@End@@
 
 ###ReturnValue###
-Success: Returns 1
-Failure: Returns 0 and sets @error on errors:
-		@error=1 - Specified object does not exist
-		@error=2 - Specified sheet number does not exist
-		@error=3 - Specified sheet name does not exist
+@@ReturnTable@@
+Success:	1
+Failure:	0 and sets @error
+@error:	0 - No error
+	1 - Specified object does not exist
+	2 - Specified sheet number does not exist
+	3 - Specified sheet name does not exist
+@@End@@
 
 ###Remarks###
 None

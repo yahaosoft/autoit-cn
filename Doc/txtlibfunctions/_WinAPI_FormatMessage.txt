@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _WinAPI_FormatMessage
 
 ###Description###
@@ -6,7 +6,7 @@ Formats a message string
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_FormatMessage($iFlags, $pSource, $iMessageID, $iLanguageID, $pBuffer, $iSize, $vArguments)
+_WinAPI_FormatMessage($iFlags, $pSource, $iMessageID, $iLanguageID, ByRef $pBuffer, $iSize, $vArguments)
 
 ###Parameters###
 @@ParamTable@@
@@ -21,7 +21,7 @@ $iMessageID
 $iLanguageID
 	Language identifier for requested message
 $pBuffer
-	Pointer to message buffer
+	Pointer to message buffer or string variable that will contain the message
 $iSize
 	Maximum size of message buffer
 $vArguments
@@ -30,7 +30,8 @@ $vArguments
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Number of bytes stored in message buffer
+Success:	Number of bytes stored in message buffer
+Failure:	Set @error
 @@End@@
 
 ###Remarks###
@@ -39,4 +40,4 @@ None.
 ###Related###
 
 ###See Also###
-@@MsdnLink@@ FormatMessageA
+@@MsdnLink@@ FormatMessage

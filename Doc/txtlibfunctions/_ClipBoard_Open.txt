@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _ClipBoard_Open
 
 ###Description###
@@ -16,14 +16,17 @@ $hOwner
 @@End@@
 
 ###ReturnValue###
-成功: True
-失败: False
+@@ReturnTable@@
+成功:	True
+失败:	False
+@@End@@
+
 
 ###Remarks###
 如果其他窗口打开了剪切板,这个函数会失败. 调用 _ClipBoard_Close 函数成功后再调用这个函数.
-The window identified by the $hOwner parameter does not become the clipboard
+successful call to this function. The window identified by the $hOwner parameter does not become the clipboard
 owner unless the _ClipBoard_Empty function is called. If you call _ClipBoard_Open with hwnd set to 0, _ClipBoard_Empty sets
-the clipboard owner to0 which causes _ClipBoard_SetData to fail.
+the clipboard owner to 0 which causes _ClipBoard_SetData to fail.
 
 ###Related###
 _ClipBoard_Close, _ClipBoard_Empty, _ClipBoard_EnumFormats, _ClipBoard_GetOpenWindow, _ClipBoard_SetDataEx

@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _WinAPI_SystemParametersInfo
 
 ###Description###
@@ -6,18 +6,18 @@ Retrieves or sets the value of one of the system-wide parameters
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_SystemParametersInfo($iAction[, $iParam = 0[, $vParam = 0[, $iWinIni = 0]]])
+_WinAPI_SystemParametersInfo($iAction [, $iParam = 0 [, $vParam = 0 [, $iWinIni = 0]]])
 
 ###Parameters###
 @@ParamTable@@
 $iAction
 	The system-wide parameter to be retrieved or set
 $iParam
-	A parameter whose usage and format depends on the parameter being queried or set
+	[optional] A parameter whose usage and format depends on the parameter being queried or set
 $vParam
-	A parameter whose usage and format depends on the parameter being queried or set
+	[optional] A parameter whose usage and format depends on the parameter being queried or set
 $iWinIni
-	If a system parameter is being set, specifies whether the user profile is to be updated, and
+	[optional] If a system parameter is being set, specifies whether the user profile is to be updated, and
 		if so, whether the $WM_SETTINGCHANGE message is to be broadcast. This parameter can be zero if you don't want
 		to update the user profile or it can be one or more of the following values:
 		$SPIF_UPDATEINIFILE - Writes the new setting to the user profile
@@ -26,12 +26,12 @@ $iWinIni
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	True
-Failure	False
+Success:	True
+Failure:	False
 @@End@@
 
 ###Remarks###
-None.
+This function always call the Unicode version so $vParam must be inaccordance when using strings.
 
 ###Related###
 

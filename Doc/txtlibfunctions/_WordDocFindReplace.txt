@@ -13,51 +13,51 @@ _WordDocFindReplace ( ByRef $o_object [, $s_FindText = "" [, $s_ReplaceWith = ""
 $o_object
 	一个有效的 Word.Application, 文档对象的对象变量
 $s_FindText
-	<b>可选参数:</b> 需要查找的文本. (参考 Remarks)
+	[可选参数] 需要查找的文本. (参考 Remarks)
 	"" = (默认) Used to search for formatting only.
 $s_ReplaceWith
-	<b>可选参数:</b> 需要替换的文本. (参考 Remarks)
+	[可选参数] 需要替换的文本. (参考 Remarks)
 	"" = (默认) Delete the text specified by $s_FindText
 $i_Replace
-	<b>可选参数:</b> 指定替换次数.
+	[可选参数] 指定替换次数.
 	0 = 不进行替换
 	1 = 替换第一个匹配项目
 	2 = (默认) 替换所有匹配项目
 $v_SearchRange
-	<b>可选参数:</b> 指定搜索所选或者搜索范围.
+	[可选参数] 指定搜索所选或者搜索范围.
 	-1 = 搜索当前所选
 	0 = (默认) 搜索全部文档
 	任何范围的对象
 $b_MatchCase
-	<b>可选参数:</b> Specifies whether the find text will be case-sensitive.
+	[可选参数] Specifies whether the find text will be case-sensitive.
 	0 = (Default) Not case-sensitive
 	1 = Case-sensitive
 $b_MatchWholeWord
-	<b>可选参数:</b> Specifies whether to have the find operation locate only entire words, not text that's part of a larger word.
+	[可选参数] Specifies whether to have the find operation locate only entire words, not text that's part of a larger word.
 	0 = (Default) Match partial words
 	1 = Only match entire words
 $b_MatchWildcards
-	<b>可选参数:</b> Specifies whether to have $s_FindText be a special search operator.
+	[可选参数] Specifies whether to have $s_FindText be a special search operator.
 	0 = (Default) Not a special search operator
 	1 = Special search operator
 $b_MatchSoundsLike
-	<b>可选参数:</b> Specifies whether to have the find operation locate words that sound similar to $s_FindText.
+	[可选参数] Specifies whether to have the find operation locate words that sound similar to $s_FindText.
 	0 = (Default) Do not find similar sounding words
 	1 = Find similar sounding words
 $b_MatchAllWordForms
-	<b>可选参数:</b> Specifies whether to have the find operation locate all forms of the find text (for example, "sit" locates "sitting" and "sat").
+	[可选参数] Specifies whether to have the find operation locate all forms of the find text (for example, "sit" locates "sitting" and "sat").
 	0 = (Default) Do not match other word forms
 	1 = Match all word forms
 $b_Forward
-	<b>可选参数:</b> Specifies which direction to search.
+	[可选参数] Specifies which direction to search.
 	0 = Search backward (toward the start of the document)
 	1 = (Default) Search forward (toward the end of the document)
 $i_Wrap
-	<b>可选参数:</b> Controls what happens if the search begins at a point other than the beginning of the document and the end of the document is reached (or vice versa if $b_Forward is set to 0).
+	[可选参数] Controls what happens if the search begins at a point other than the beginning of the document and the end of the document is reached (or vice versa if $b_Forward is set to 0).
 	0 = The find operation ends if the beginning or end of the search range is reached
 	1 = (Default) The find operation continues if the beginning or end of the search range is reached
 $b_Format
-	<b>可选参数:</b> Specifies whether to have the find operation locate formatting in addition to or instead of the find text.
+	[可选参数] Specifies whether to have the find operation locate formatting in addition to or instead of the find text.
 	0 = (Default) Do not locate formatting
 	1 = Locate formatting
 @@End@@
@@ -66,11 +66,11 @@ $b_Format
 @@ReturnTable@@
 成功:	返回 1
 失败:	返回 0  并设置 @ERROR = 1
-@Error:	0 ($_WordStatus_Success) = 没有错误
-	3 ($_WordStatus_InvalidDataType) = 无效数据类型
-	4 ($_WordStatus_InvalidObjectType) = 无效对象类型
-	5 ($_WordStatus_InvalidValue) = 无效值
-	7 ($_WordStatus_NoMatch) = 没有匹配项目
+@Error:	$_WordStatus_Success = 没有错误
+	$_WordStatus_InvalidDataType = 无效数据类型
+	$_WordStatus_InvalidObjectType = 无效对象类型
+	$_WordStatus_InvalidValue = 无效值
+	$_WordStatus_NoMatch = 没有匹配项目
 @Extended:	包含无效的参数数量
 @@End@@
 

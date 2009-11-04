@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _WordDocSaveAs
 
 ###Description###
@@ -13,10 +13,10 @@ _WordDocSaveAs ( ByRef $o_object [, $s_FilePath = "" [, $i_Format = 0 [, $b_Read
 $o_object
 	Object variable of a Word.Application, document object
 $s_FilePath
-	<b>Optional:</b> The full file path for saving the document. (See Remarks)
+	[optional] The full file path for saving the document. (See Remarks)
 	"" = (Default) If the document has never been saved, the default name is used (for example, Document1.doc)
 $i_Format
-	<b>Optional:</b> The format in which the document is saved.
+	[optional] The format in which the document is saved.
 	0 = (Default) Microsoft Word format
 	1 = Microsoft Word template format
 	2 = Microsoft Windows text format
@@ -30,37 +30,38 @@ $i_Format
 	10 = Filtered HTML format
 	11 = Extensible Markup Language (XML) format
 $b_ReadOnlyRecommended
-	<b>Optional:</b> Specifies whether to have Microsoft Word suggest read-only status whenever the document is opened.
+	[optional] Specifies whether to have Microsoft Word suggest read-only status whenever the document is opened.
 	0 = (Default) Do not suggest read only
 	1 = Suggest read only
 $b_AddToRecentFiles
-	<b>Optional:</b> Specifies whether to add the file name to the list of recently used files at the bottom of the File menu.
+	[optional] Specifies whether to add the file name to the list of recently used files at the bottom of the File menu.
 	0 = (Default) Do not add
 	1 = Add
 $b_LockComments
-	<b>Optional:</b> Specifies whether to lock the document for comments.
+	[optional] Specifies whether to lock the document for comments.
 	0 = (Default) Do not lock for comments
 	1 = Lock for comments
 $s_Password
-	<b>Optional:</b> A password string for opening the document. (See Remarks)
+	[optional] A password string for opening the document. (See Remarks)
 $s_WritePassword
-	<b>Optional:</b> A password string for saving changes to the document. (See Remarks)
+	[optional] A password string for saving changes to the document. (See Remarks)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 Success:	Returns 1
 Failure:	Returns 0 and sets @ERROR
-@Error:	0 ($_WordStatus_Success) = No Error
-	1 ($_WordStatus_GeneralError) = General Error
-	3 ($_WordStatus_InvalidDataType) = Invalid Data Type
-	4 ($_WordStatus_InvalidObjectType) = Invalid Object Type
+@Error:	$_WordStatus_Success = No Error
+	$_WordStatus_GeneralError = General Error
+	$_WordStatus_InvalidDataType = Invalid Data Type
+	$_WordStatus_InvalidObjectType = Invalid Object Type
 @Extended:	Contains invalid parameter number
 @@End@@
 
 
 ###Remarks###
 If a document with the specified file name already exists, the document is overwritten without the user being prompted first.
+If the file cannot be saved the script will be stop unless WordErrorHandler has been registered.
 
 Avoid using hard-coded passwords in your applications. If a password is required in a procedure, request the password from the user, store it in a variable, and then use the variable in your code.
 

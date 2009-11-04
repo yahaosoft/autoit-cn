@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _ReplaceStringInFile
 
 ###Description###
@@ -6,7 +6,7 @@ Replaces a string with another string in the given text file (binary won't work!
 
 ###Syntax###
 #Include <File.au3>
-_ReplaceStringInFile($szFileName, $szSearchString, $szReplaceString[, $fCaseness = 0[, $fOccurance = 1]])
+_ReplaceStringInFile($szFileName, $szSearchString, $szReplaceString [, $fCaseness = 0 [, $fOccurance = 1]])
 
 ###Parameters###
 @@ParamTable@@
@@ -17,20 +17,22 @@ $szSearchString
 $szReplaceString
 	The string we want as a replacement for $szSearchString
 $fCaseness
-	0 = Not Case sensitive (default), 1 = Case sensitive, case does matter
+	[optional] 0 = Not Case sensitive (default), 1 = Case sensitive, case does matter
 $fOccurance
-	0 = Only first found is replaced, 1 = ALL occurrences are replaced (default)
+	[optional] 0 = Only first found is replaced, 1 = ALL occurrences are replaced (default)
 @@End@@
 
 ###ReturnValue###
-Success: Returns the number of occurrences of $szSearchString we found
-Failure: Returns -1 and sets @error
-		@error=1 - Cannot open file
-		@error=2 - Cannot open temp file
-		@error=3 - Cannot write to temp file
-		@error=4 - Cannot delete original file
-		@error=5 - Cannot rename/move temp file
-		@error=6 - ReadOnly Attribute set.
+@@ReturnTable@@
+Success:	Returns the number of occurrences of $szSearchString we found
+Failure:	Returns -1 and sets @error
+@error:	1 - Cannot open file
+	2 - Cannot open temp file
+	3 - Cannot write to temp file
+	4 - Cannot delete original file
+	5 - Cannot rename/move temp file
+	6 - ReadOnly Attribute set.
+@@End@@
 
 ###Remarks###
 None.

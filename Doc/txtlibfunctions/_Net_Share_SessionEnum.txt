@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _Net_Share_SessionEnum
 
 ###Description###
@@ -11,19 +11,19 @@ _Net_Share_SessionEnum([$sServer = ""[, $sClientName = ""[, $sUserName = ""]]])
 ###Parameters###
 @@ParamTable@@
 $sServer
-	String that specifies the DNS or NetBIOS name of the remote server on which the function is to
+	[optional] String that specifies the DNS or NetBIOS name of the remote server on which the function is to
 		execute. If this parameter is blank the local computer is used.
 $sClientName
-	Specifies the name of the computer session for which information is to be returned. If this
+	[optional] Specifies the name of the computer session for which information is to be returned. If this
 		parameter is blank, the function returns information for all computer sessions on the server.
 $sUserName
-	Specifies the name of the user for which information is to be returned. If this parameter is
+	[optional] Specifies the name of the user for which information is to be returned. If this parameter is
 		blank, the function returns information for all users.
 @@End@@
 
 ###ReturnValue###
-Success: Array with the following format
-
+@@ReturnTable@@
+Success:	Array with the following format:
 	[0][0] - Number of entries in array
 	[1][0] - Name of the computer that established the session
 	[1][1] - Name of the user who established the session
@@ -35,6 +35,9 @@ Success: Array with the following format
 	 2 - User established session without using password encryption
 	[1][6] - Specifies the type of client that established the session
 	[1][7] - Name of the transport that the client is using
+Failure:	Set @error
+@@End@@
+
 
 ###Remarks###
 Only members of the Administrators or Server Operators local group can execute this function

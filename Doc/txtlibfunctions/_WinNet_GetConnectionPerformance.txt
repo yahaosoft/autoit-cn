@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _WinNet_GetConnectionPerformance
 
 ###Description###
@@ -21,8 +21,8 @@ $sRemoteName
 @@End@@
 
 ###ReturnValue###
-Success: Array with the following format:
-
+@@ReturnTable@@
+Success:	Array with the following format:
 	$aInfo[0] - Connection description. Can be one of more of the following:
 	 1 - The information returned applies to the performance of the network card
 	 2 - The connection is not being routed
@@ -31,6 +31,8 @@ Success: Array with the following format:
 	$aInfo[1] - Speed of the media to the network resource, in 100 bps
 	$aInfo[2] - One-way delay time introduced when sending information
 	$aInfo[3] - Size of data that an application should use when making a single request to the resource
+Failure:	Set @error
+@@End@@
 
 ###Remarks###
 None.
@@ -38,4 +40,4 @@ None.
 ###Related###
 
 ###See Also###
-@@MsdnLink@@ MultinetGetConnectionPerformanceA
+@@MsdnLink@@ MultinetGetConnectionPerformance

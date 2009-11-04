@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _Net_Share_FileEnum
 
 ###Description###
@@ -11,19 +11,19 @@ _Net_Share_FileEnum([$sServer = ""[, $sBaseName = ""[, $sUserName = ""]]])
 ###Parameters###
 @@ParamTable@@
 $sServer
-	String that contains the name of the server on which the function is to execute. A blank
+	[optional] String that contains the name of the server on which the function is to execute. A blank
 		specifies the local computer.
 $sBaseName
-	String containing a qualifier for the returned information. If blank all open resources are
+	[optional] String containing a qualifier for the returned information. If blank all open resources are
 		enumerated. If not blank, the function enumerates only resources that have $sBaseName as a prefix.
 $sUserName
-	String that specifies the name of the user. If not blank $sUserName serves as a qualifier to
+	[optional] String that specifies the name of the user. If not blank $sUserName serves as a qualifier to
 		the enumeration.
 @@End@@
 
 ###ReturnValue###
-Success: Array with the following format:
-
+@@ReturnTable@@
+Success:	Array with the following format:
 	[0][0] - Number of entries in the array (n)
 	[1][0] - ID number assigned to the resource when it is opened
 	[1][1] - Access permissions associated with the opening application:
@@ -37,6 +37,9 @@ Success: Array with the following format:
 	[1][2] - Contains the number of file locks on the resource
 	[1][3] - Specifies the path of the opened resource
 	[1][4] - Specifies which user or which computer opened the resource
+Failure:	Set @error
+@@End@@
+
 
 ###Remarks###
 Only members of the Administrators or Server Operators local group can execute this function

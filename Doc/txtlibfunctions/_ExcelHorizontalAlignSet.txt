@@ -1,4 +1,4 @@
-﻿###User Defined Function###
+###User Defined Function###
 _ExcelHorizontalAlignSet
 
 ###Description###
@@ -6,7 +6,7 @@ Set the horizontal alignment of each cell in a range.
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelHorizontalAlignSet($oExcel, $sRangeOrRowStart[, $iColStart = 1[, $iRowEnd = 1[, $iColEnd = 1[, $sHorizAlign = "left"]]]])
+_ExcelHorizontalAlignSet($oExcel, $sRangeOrRowStart [, $iColStart = 1 [, $iRowEnd = 1 [, $iColEnd = 1 [, $sHorizAlign = "left"]]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -15,25 +15,25 @@ $oExcel
 $sRangeOrRowStart
 	Either an A1 range, or an integer row number to start from if using R1C1
 $iColStart
-	The starting column for the number format(left) (default=1)
+	[optional] The starting column for the number format(left) (default=1)
 $iRowEnd
-	The ending row for the number format (bottom) (default=1)
+	[optional] The ending row for the number format (bottom) (default=1)
 $iColEnd
-	The ending column for the number format (right) (default=1)
+	[optional] The ending column for the number format (right) (default=1)
 $sHorizAlign
-	Horizontal alignment ("left"|"center"|"right") (default="left")
+	[optional] Horizontal alignment ("left"|"center"|"right") (default="left")
 @@End@@
 
 ###ReturnValue###
-On Success: Returns 1
-On Failure: Returns 0 and sets @error on errors:
-		@error=1 - Specified object does not exist
-		@error=2 - Starting row or column invalid
-		@extended=0 - Starting row invalid
-		@extended=1 - Starting column invalid
-		@error=3 - Ending row or column invalid
-		@extended=0 - Ending row invalid
-		@extended=1 - Ending column invalid
+@@ReturnTable@@
+Success:	1
+Failure:	0 and sets @error on errors:
+@error:	1 - Specified object does not exist
+	2 - Starting row or column invalid
+	3 - Ending row or column invalid
+@extended:	0 - Row invalid
+		1 - Column invalid
+@@End@@
 
 ###Remarks###
 None

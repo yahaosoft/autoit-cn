@@ -60,12 +60,13 @@ $iIndex
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功	返回指定元素的RGB颜色值[Red红, Green绿, Blue蓝]
-@@End@@
+返回指定元素的RGB颜色值[Red红, Green绿, Blue蓝]
 
 ###Remarks###
 上方的常量需要包含 WindowsConstants.au3
+
+If the $iIndex parameter is out of range, the return value is zero. Because zero is also a valid RGB value, you cannot use GetSysColor to determine whether a system color is supported by the current platform. Instead, use the GetSysColorBrush function, which returns NULL if the color is not supported.
+
 
 ###Related###
 _WinAPI_SetSysColors
