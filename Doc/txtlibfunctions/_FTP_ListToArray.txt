@@ -6,7 +6,7 @@ Get Filenames, Directories or Both of current remote directory.
 
 ###Syntax###
 #Include <FTPEx.au3>
-_Ftp_ListToArray($l_FTPSession [, $Return_Type = 0 [, $l_Flags = 0]])
+_Ftp_ListToArray($l_FTPSession [, $Return_Type = 0 [, $l_Flags = 0 [, $l_Context]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -16,6 +16,9 @@ $Return_type
 	[optional] 0 = Both Files and Directories, 1 = Directories, 2 = Files.
 $l_Flags
 	[optional] see _FTP_FindFileFirst().
+$l_Context
+	[optional] A variable that contains the application-defined value that associates this search with any application data.
+	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
 @@End@@
 
 ###ReturnValue###
@@ -28,7 +31,7 @@ Failure:	Array[0] = 0
 None.
 
 ###Related###
-_FTP_Connect
+_FTP_Connect, _FTP_SetStatusCallback
 
 ###Example###
 @@IncludeExample@@

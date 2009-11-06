@@ -6,7 +6,7 @@ Puts an folder on an FTP server. Recursivley if selected.
 
 ###Syntax###
 #Include <FTPEx.au3>
-_FTP_DirPutContents($l_InternetSession, $s_LocalFolder, $s_RemoteFolder, $b_RecursivePut)
+_FTP_DirPutContents($l_InternetSession, $s_LocalFolder, $s_RemoteFolder, $b_RecursivePut [, $l_Context])
 
 ###Parameters###
 @@ParamTable@@
@@ -18,6 +18,9 @@ $s_RemoteFolder
 	The remote folder i.e. '/website/home'.
 $b_RecursivePut
 	Recurse through sub-dirs. 0=Non recursive, 1=Recursive
+$l_Context
+	[optional] A variable that contains the application-defined value that associates this search with any application data.
+	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
 @@End@@
 
 ###ReturnValue###
@@ -30,6 +33,6 @@ Failure:	0  and sets @ERROR
 None.
 
 ###Related###
-_FTP_Connect
+_FTP_Connect, _FTP_SetStatusCallback
 
 ###Example###

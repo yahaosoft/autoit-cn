@@ -32,7 +32,7 @@ Func Example()
 
 	; 如果发生了错误... 显示出来
 	If @error Then
-		MsgBox(4112, "错误", "TCP连接失败，服务端未启用！错误代码: " & @error)
+		MsgBox(4112, "错误", "TCP连接失败,服务端未启用！错误代码: " & @error)
 		; 如果这里没有错误,就循环一个 inputbox 用于发送数据
 		; 到服务端
 	Else

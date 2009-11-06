@@ -19,7 +19,8 @@ $dwAccess
 $dwFlags
 	[optional] Settings for the transfer see notes below (Default is $FTP_TRANSFER_TYPE_BINARY).
 $dwContext
-	[optional] (Not Used) in case someone can use it.
+	[optional] A variable that contains the application-defined value that associates this search with any application data.
+	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
 @@End@@
 
 ###ReturnValue###
@@ -45,7 +46,7 @@ The following values are used to control the caching of the file. The applicatio
 
 
 ###Related###
-_FTP_FileClose, _FTP_FileRead
+_FTP_FileClose, _FTP_FileRead, _FTP_SetStatusCallback, _FTP_FileGet, _FTP_FilePut
 
 ###See Also###
 @@MsdnLink@@ FtpOpenFile

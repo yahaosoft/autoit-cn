@@ -2,7 +2,6 @@
 Opt('MustDeclareVars', 1)
 
 #include <WinAPI.au3>
-#include <WindowsConstants.au3>
 
 _Main()
 

@@ -19,7 +19,8 @@ $s_RemoteFile
 $l_Flags 
 	[optional] as in _FTP_FileOpen().
 $l_Context
-	[optional] (Not Used) in case someone can use it.
+	[optional] A variable that contains the application-defined value that associates this search with any application data.
+	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
 @@End@@
 
 ###ReturnValue###
@@ -32,7 +33,7 @@ Failure:	0  and sets @ERROR
 None.
 
 ###Related###
-_FTP_Connect, _FTP_FileOpen
+_FTP_Connect, _FTP_FileOpen, _FTP_SetStatusCallback
 
 ###See Also###
 @@MsdnLink@@ FtpPutFile
