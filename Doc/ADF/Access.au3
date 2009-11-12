@@ -1,23 +1,23 @@
-;*******************************************************************************
+ï»¿;*******************************************************************************
 ;
-;   º¯ÊýÁÐ±í
-;         _accessAddRecord();ÔÚÏÖÓÐµÄ MS Access Êý¾Ý¿â±íÖÐÌí¼ÓÐÂ¼ÇÂ¼(µ¥¸ö»ò¶à¸ö×Ö¶Î)
-;         _accessClearTable();Çå³ý MS Access Êý¾Ý¿âÖ¸¶¨µÄ±íÄÚËùÓÐ¼ÇÂ¼
-;         _accessCompactDB();Ñ¹Ëõ MS Access Êý¾Ý¿âÎÄ¼þ(*. mdb)
-;         _accessCountFields();·µ»Ø MS Access Êý¾Ý¿â±íÖÐµÄ×Ö¶ÎÊý
-;         _accessCountRecords();·µ»Ø MS Access Êý¾Ý¿â±íÖÐµÄ¼ÇÂ¼Êý
-;         _accessCreateDB();´´½¨Ò»¸ö MS Access Êý¾Ý¿â(*. mdb)ÎÄ¼þ
-;         _accessCreateTable();ÔÚÏÖÓÐµÄ MS Access Êý¾Ý¿âÖÐ½¨Á¢±í
-;         _accessDeleteRecord()ËÑË÷Êý¾Ý¿â×Ö·û´®£¬²¢½«ËÑË÷µ½µÄ×Ö·û´®(ÕûÁÐ)Êý¾ÝÉ¾³ý
-;         _accessDeleteTable();´Ó MS Access Êý¾Ý¿â(*. mdb)ÎÄ¼þÖÐÉ¾³ý±í
-;         _accessGetVal();ËÑË÷Êý¾Ý¿âµÄµÚÒ»¸ö¼ÇÂ¼Ö¸¶¨×Ö·û´®£¬²¢·µ»ØËÑË÷½á¹û
-;         _accessListFields();·µ»Ø MS Access Êý¾Ý¿âÖÐËùÖ¸¶¨µÄ±íÖÐµÄËùÓÐ×Ö¶ÎÃû³Æ
-;         _accessListTables();·µ»Ø MS Access Êý¾Ý¿âÖÐËùÓÐµÄ±íÃû³Æ
-;         _accessQueryLike();ËÑË÷Êý¾Ý¿âÖÐÖ¸¶¨µÄ±íÄÚµÄ×Ö¶ÎËù°üº¬Ö¸¶¨µÄ×Ö·û´®(Êý¾ÝÎª¿Õ¼´ËÑË÷È«²¿×Ö·û´®)
-;         _accessQueryStr();ËÑË÷Êý¾Ý¿âÖÐµÄÖ¸¶¨×Ö·û´®£¬²¢·µ»ØËÑË÷½á¹û
-;         _accessSaveXML();½« MS Access Êý¾Ý¿âÖÐÖ¸¶¨µÄ±í½«µ¼³öÎªXMLÎÄ¼þ
-;         _accessTableCount();Í³¼Æ MS Access Êý¾Ý¿âÖÐÓÐ¶àÉÙ¸ö±í
-;         _accessUpdateRecord();ËÑË÷ MS Access Êý¾Ý¿âÖÐµÄ±í£¬²¢¸üÐÂ±íÖÐµÄÊý¾Ý¼ÇÂ¼
+;   å‡½æ•°åˆ—è¡¨
+;         _accessAddRecord();åœ¨çŽ°æœ‰çš„ MS Access æ•°æ®åº“è¡¨ä¸­æ·»åŠ æ–°è®°å½•(å•ä¸ªæˆ–å¤šä¸ªå­—æ®µ)
+;         _accessClearTable();æ¸…é™¤ MS Access æ•°æ®åº“æŒ‡å®šçš„è¡¨å†…æ‰€æœ‰è®°å½•
+;         _accessCompactDB();åŽ‹ç¼© MS Access æ•°æ®åº“æ–‡ä»¶(*. mdb)
+;         _accessCountFields();è¿”å›ž MS Access æ•°æ®åº“è¡¨ä¸­çš„å­—æ®µæ•°
+;         _accessCountRecords();è¿”å›ž MS Access æ•°æ®åº“è¡¨ä¸­çš„è®°å½•æ•°
+;         _accessCreateDB();åˆ›å»ºä¸€ä¸ª MS Access æ•°æ®åº“(*. mdb)æ–‡ä»¶
+;         _accessCreateTable();åœ¨çŽ°æœ‰çš„ MS Access æ•°æ®åº“ä¸­å»ºç«‹è¡¨
+;         _accessDeleteRecord()æœç´¢æ•°æ®åº“å­—ç¬¦ä¸²ï¼Œå¹¶å°†æœç´¢åˆ°çš„å­—ç¬¦ä¸²(æ•´åˆ—)æ•°æ®åˆ é™¤
+;         _accessDeleteTable();ä»Ž MS Access æ•°æ®åº“(*. mdb)æ–‡ä»¶ä¸­åˆ é™¤è¡¨
+;         _accessGetVal();æœç´¢æ•°æ®åº“çš„ç¬¬ä¸€ä¸ªè®°å½•æŒ‡å®šå­—ç¬¦ä¸²ï¼Œå¹¶è¿”å›žæœç´¢ç»“æžœ
+;         _accessListFields();è¿”å›ž MS Access æ•°æ®åº“ä¸­æ‰€æŒ‡å®šçš„è¡¨ä¸­çš„æ‰€æœ‰å­—æ®µåç§°
+;         _accessListTables();è¿”å›ž MS Access æ•°æ®åº“ä¸­æ‰€æœ‰çš„è¡¨åç§°
+;         _accessQueryLike();æœç´¢æ•°æ®åº“ä¸­æŒ‡å®šçš„è¡¨å†…çš„å­—æ®µæ‰€åŒ…å«æŒ‡å®šçš„å­—ç¬¦ä¸²(æ•°æ®ä¸ºç©ºå³æœç´¢å…¨éƒ¨å­—ç¬¦ä¸²)
+;         _accessQueryStr();æœç´¢æ•°æ®åº“ä¸­çš„æŒ‡å®šå­—ç¬¦ä¸²ï¼Œå¹¶è¿”å›žæœç´¢ç»“æžœ
+;         _accessSaveXML();å°† MS Access æ•°æ®åº“ä¸­æŒ‡å®šçš„è¡¨å°†å¯¼å‡ºä¸ºXMLæ–‡ä»¶
+;         _accessTableCount();ç»Ÿè®¡ MS Access æ•°æ®åº“ä¸­æœ‰å¤šå°‘ä¸ªè¡¨
+;         _accessUpdateRecord();æœç´¢ MS Access æ•°æ®åº“ä¸­çš„è¡¨ï¼Œå¹¶æ›´æ–°è¡¨ä¸­çš„æ•°æ®è®°å½•
 ;
 ;*******************************************************************************
 
@@ -32,23 +32,23 @@
 ; ------------------------------------------------------------------------------
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessAddRecord()
-; ÃèÊö:       ÔÚÏÖÓÐµÄ MS Access Êý¾Ý¿â±íÌí¼ÓÐÂ¼ÇÂ¼(µ¥¸ö»ò¶à¸ö×Ö¶Î)
-; Óï·¨:       _accessAddRecord($adSource, $adTable)
-; ²ÎÊý:       $adSource - ´ò¿ªÊý¾Ý¿âÎÄ¼þµÄÍêÕûÂ·¾¶ÒÔ¼°Êý¾Ý¿âÎÄ¼þÃû
-;             $adTable - ËÑË÷µÄ±íÃû³Æ
-;             $rData - ½«Êý¾Ý±»Ìí¼Óµ½×Ö¶Î(±ØÐëÊÇÒ»¸öÊý×é²ÅÄÜ½«Êý¾ÝÌí¼Óµ½¶à¸ö×Ö¶Î£¬Êý¾Ý±ØÐëÊäÈëÏàÓ¦µÄ¹¤×÷ÀàÐÍÊý¾Ý)
-;             $adCol - µ±ÊýÖµµÈÓÚ0£¬¶øµ±$rData²»ÊÇÊý×é£¬½«»áÌí¼ÓÊý¾ÝÖÁ(Ä¬ÈÏÎªµÚÒ»¸ñ)
-; ÐèÇó:
-; ·µ»ØÖµ:     ³É¹¦ - @Error = 0 ¼ÇÂ¼ÒÑ¾­Ìí¼Óµ½±íÄÚ
-;             Ê§°Ü - ÉèÖÃ@Error
-;                        1 = ÎÞ·¨´´½¨Á¬½Ó
-;                        2 = ÎÞ·¨´´½¨recordset¶ÔÏó
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:
-; ÐÞ¸Ä:
-; Àý×Ó:       yes
+; å‡½æ•°åç§°:   _accessAddRecord()
+; æè¿°:       åœ¨çŽ°æœ‰çš„ MS Access æ•°æ®åº“è¡¨æ·»åŠ æ–°è®°å½•(å•ä¸ªæˆ–å¤šä¸ªå­—æ®µ)
+; è¯­æ³•:       _accessAddRecord($adSource, $adTable)
+; å‚æ•°:       $adSource - æ‰“å¼€æ•°æ®åº“æ–‡ä»¶çš„å®Œæ•´è·¯å¾„ä»¥åŠæ•°æ®åº“æ–‡ä»¶å
+;             $adTable - æœç´¢çš„è¡¨åç§°
+;             $rData - å°†æ•°æ®è¢«æ·»åŠ åˆ°å­—æ®µ(å¿…é¡»æ˜¯ä¸€ä¸ªæ•°ç»„æ‰èƒ½å°†æ•°æ®æ·»åŠ åˆ°å¤šä¸ªå­—æ®µï¼Œæ•°æ®å¿…é¡»è¾“å…¥ç›¸åº”çš„å·¥ä½œç±»åž‹æ•°æ®)
+;             $adCol - å½“æ•°å€¼ç­‰äºŽ0ï¼Œè€Œå½“$rDataä¸æ˜¯æ•°ç»„ï¼Œå°†ä¼šæ·»åŠ æ•°æ®è‡³(é»˜è®¤ä¸ºç¬¬ä¸€æ ¼)
+; éœ€æ±‚:
+; è¿”å›žå€¼:     æˆåŠŸ - @Error = 0 è®°å½•å·²ç»æ·»åŠ åˆ°è¡¨å†…
+;             å¤±è´¥ - è®¾ç½®@Error
+;                        1 = æ— æ³•åˆ›å»ºè¿žæŽ¥
+;                        2 = æ— æ³•åˆ›å»ºrecordsetå¯¹è±¡
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:
+; ä¿®æ”¹:
+; ä¾‹å­:       yes
 ;===============================================================================
 
 Func _accessAddRecord($adSource, $adTable, $rData, $adCol = 0)
@@ -83,20 +83,20 @@ Func _accessAddRecord($adSource, $adTable, $rData, $adCol = 0)
 EndFunc   ;==>_accessAddRecord
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessClearTable()
-; ÃèÊö:       Çå³ý MS Access Êý¾Ý¿âÖ¸¶¨µÄ±íÄÚËùÓÐ¼ÇÂ¼
-; Óï·¨:       _accessClearTable($adSource, $adTable)
-; ²ÎÊý:       $adSource - ´ò¿ªÊý¾Ý¿âÎÄ¼þµÄÍêÕûÂ·¾¶ÒÔ¼°Êý¾Ý¿âÎÄ¼þÃû
-;             $adTable - ËÑË÷µÄ±íÃû³Æ
-; ÐèÇó:
-; ·µ»ØÖµ:     ³É¹¦ - @Error = 0
-;             Ê§°Ü - ÉèÖÃ@Error
-;                        1 = ÎÞ·¨´´½¨Á¬½Ó
-;                        2 = ÎÞ·¨´´½¨recordset¶ÔÏó
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:         ÕâÖ»»áÇå³ý¼ÇÂ¼£¬ÎÞ·¨É¾³ý±í£¬ÎÞ·¨Çå³ý±íÀàÐÍ
-; ÐÞ¸Ä:
+; å‡½æ•°åç§°:   _accessClearTable()
+; æè¿°:       æ¸…é™¤ MS Access æ•°æ®åº“æŒ‡å®šçš„è¡¨å†…æ‰€æœ‰è®°å½•
+; è¯­æ³•:       _accessClearTable($adSource, $adTable)
+; å‚æ•°:       $adSource - æ‰“å¼€æ•°æ®åº“æ–‡ä»¶çš„å®Œæ•´è·¯å¾„ä»¥åŠæ•°æ®åº“æ–‡ä»¶å
+;             $adTable - æœç´¢çš„è¡¨åç§°
+; éœ€æ±‚:
+; è¿”å›žå€¼:     æˆåŠŸ - @Error = 0
+;             å¤±è´¥ - è®¾ç½®@Error
+;                        1 = æ— æ³•åˆ›å»ºè¿žæŽ¥
+;                        2 = æ— æ³•åˆ›å»ºrecordsetå¯¹è±¡
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:         è¿™åªä¼šæ¸…é™¤è®°å½•ï¼Œæ— æ³•åˆ é™¤è¡¨ï¼Œæ— æ³•æ¸…é™¤è¡¨ç±»åž‹
+; ä¿®æ”¹:
 ;===============================================================================
 
 Func _accessClearTable($adSource, $adTable)
@@ -117,17 +117,17 @@ Func _accessClearTable($adSource, $adTable)
 EndFunc   ;==>_accessClearTable
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessCompactDB()
-; ÃèÊö:       Ñ¹Ëõ MS Access Êý¾Ý¿âÎÄ¼þ(*. mdb)
-; Óï·¨:       _accessCompactDB($adSource)
-; ²ÎÊý:       $adSource - ´ò¿ªÊý¾Ý¿âÎÄ¼þµÄÍêÕûÂ·¾¶ÒÔ¼°Êý¾Ý¿âÎÄ¼þÃû
-; ÐèÇó:
-; ·µ»ØÖµ:     ³É¹¦ - @Error = 0
-;             Ê§°Ü - @Error = 1
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:
-; Àý×Ó:
+; å‡½æ•°åç§°:   _accessCompactDB()
+; æè¿°:       åŽ‹ç¼© MS Access æ•°æ®åº“æ–‡ä»¶(*. mdb)
+; è¯­æ³•:       _accessCompactDB($adSource)
+; å‚æ•°:       $adSource - æ‰“å¼€æ•°æ®åº“æ–‡ä»¶çš„å®Œæ•´è·¯å¾„ä»¥åŠæ•°æ®åº“æ–‡ä»¶å
+; éœ€æ±‚:
+; è¿”å›žå€¼:     æˆåŠŸ - @Error = 0
+;             å¤±è´¥ - @Error = 1
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:
+; ä¾‹å­:
 ;===============================================================================
 
 Func _accessCompactDB($adSource)
@@ -152,22 +152,22 @@ Func _accessCompactDB($adSource)
 EndFunc   ;==>_accessCompactDB
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessCountFields()
-; ÃèÊö:       ·µ»Ø MS Access Êý¾Ý¿â±íÖÐµÄ×Ö¶ÎÊý
-; Óï·¨:       _accessCountFields($adSource, $adTable)
-; ²ÎÊý:       $adSource - ´ò¿ªÊý¾Ý¿âÎÄ¼þµÄÍêÕûÂ·¾¶ÒÔ¼°Êý¾Ý¿âÎÄ¼þÃû
-;             $adTable - ËÑË÷µÄ±íÃû³Æ
-; ÐèÇó:
-; ·µ»ØÖµ:     ³É¹¦ - ·µ»Ø±íÄÚµÄ×Ö¶ÎÊý
-;             Ê§°Ü - ÉèÖÃ@Error
-;                        1 = ÎÞ·¨´´½¨Á¬½Ó
-;                        2 = ÎÞ·¨´´½¨recordset¶ÔÏó
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:         µäÐÍÓÃ·¨Èç:
-;             MsgBox(0,'×Ö¶ÎÊý', '±¾±íÓÐ<' & _accessCountFields($adSource, $adTable) & '>¸ö×Ö¶ÎÊý')
-; ÐÞ¸Ä:
-; Àý×Ó:
+; å‡½æ•°åç§°:   _accessCountFields()
+; æè¿°:       è¿”å›ž MS Access æ•°æ®åº“è¡¨ä¸­çš„å­—æ®µæ•°
+; è¯­æ³•:       _accessCountFields($adSource, $adTable)
+; å‚æ•°:       $adSource - æ‰“å¼€æ•°æ®åº“æ–‡ä»¶çš„å®Œæ•´è·¯å¾„ä»¥åŠæ•°æ®åº“æ–‡ä»¶å
+;             $adTable - æœç´¢çš„è¡¨åç§°
+; éœ€æ±‚:
+; è¿”å›žå€¼:     æˆåŠŸ - è¿”å›žè¡¨å†…çš„å­—æ®µæ•°
+;             å¤±è´¥ - è®¾ç½®@Error
+;                        1 = æ— æ³•åˆ›å»ºè¿žæŽ¥
+;                        2 = æ— æ³•åˆ›å»ºrecordsetå¯¹è±¡
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:         å…¸åž‹ç”¨æ³•å¦‚:
+;             MsgBox(0,'å­—æ®µæ•°', 'æœ¬è¡¨æœ‰<' & _accessCountFields($adSource, $adTable) & '>ä¸ªå­—æ®µæ•°')
+; ä¿®æ”¹:
+; ä¾‹å­:
 ;===============================================================================
 
 Func _accessCountFields($adSource, $adTable)
@@ -188,22 +188,22 @@ Func _accessCountFields($adSource, $adTable)
 EndFunc   ;==>_accessCountFields
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessCountRecords()
-; ÃèÊö:       ·µ»Ø MS Access Êý¾Ý¿â±íÖÐµÄ¼ÇÂ¼Êý
-; Óï·¨:       _accessCountRecords($adSource, $adTable)
-; ²ÎÊý:       $adSource - ´ò¿ªÊý¾Ý¿âÎÄ¼þµÄÍêÕûÂ·¾¶ÒÔ¼°Êý¾Ý¿âÎÄ¼þÃû
-;             $adTable - ËÑË÷µÄ±íÃû³Æ
-; ÐèÇó:
-; ·µ»ØÖµ:     ³É¹¦ - ·µ»Ø±íÖÐµÄ¼ÇÂ¼Êý
-;             Ê§°Ü - ÉèÖÃ@Error
-;                        1 = ÎÞ·¨´´½¨Á¬½Ó
-;                        2 = ÎÞ·¨´´½¨recordset¶ÔÏó
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:         µäÐÍÓÃ·¨Èç:
-;             MsgBox(0,'¼ÍÂ¼Êý', '±¾±íÓÐ<' & _accessCountRecords($adSource, $adTable) & '>ÌõÊý¾Ý¼ÇÂ¼')
-; ÐÞ¸Ä:
-; Àý×Ó:
+; å‡½æ•°åç§°:   _accessCountRecords()
+; æè¿°:       è¿”å›ž MS Access æ•°æ®åº“è¡¨ä¸­çš„è®°å½•æ•°
+; è¯­æ³•:       _accessCountRecords($adSource, $adTable)
+; å‚æ•°:       $adSource - æ‰“å¼€æ•°æ®åº“æ–‡ä»¶çš„å®Œæ•´è·¯å¾„ä»¥åŠæ•°æ®åº“æ–‡ä»¶å
+;             $adTable - æœç´¢çš„è¡¨åç§°
+; éœ€æ±‚:
+; è¿”å›žå€¼:     æˆåŠŸ - è¿”å›žè¡¨ä¸­çš„è®°å½•æ•°
+;             å¤±è´¥ - è®¾ç½®@Error
+;                        1 = æ— æ³•åˆ›å»ºè¿žæŽ¥
+;                        2 = æ— æ³•åˆ›å»ºrecordsetå¯¹è±¡
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:         å…¸åž‹ç”¨æ³•å¦‚:
+;             MsgBox(0,'çºªå½•æ•°', 'æœ¬è¡¨æœ‰<' & _accessCountRecords($adSource, $adTable) & '>æ¡æ•°æ®è®°å½•')
+; ä¿®æ”¹:
+; ä¾‹å­:
 ;===============================================================================
 
 Func _accessCountRecords($adSource, $adTable)
@@ -225,16 +225,16 @@ Func _accessCountRecords($adSource, $adTable)
 EndFunc   ;==>_accessCountRecords
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessCreateDB ()
-; ÃèÊö:       ´´½¨Ò»¸ö MS Access Êý¾Ý¿â(*. mdb)ÎÄ¼þ
-; Óï·¨:       _accessCreateDB ($adSource)
-; ²ÎÊý:       $adSource - ´´½¨MS AccessÊý¾Ý¿âµÄÍêÕûÂ·¾¶ÒÔ¼°´´½¨Êý¾Ý¿âµÄÎÄ¼þÃû
-; ÐèÇó:
-; ·µ»ØÖµ:     ÎÞ
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:
-; ÐÞ¸Ä:
+; å‡½æ•°åç§°:   _accessCreateDB ()
+; æè¿°:       åˆ›å»ºä¸€ä¸ª MS Access æ•°æ®åº“(*. mdb)æ–‡ä»¶
+; è¯­æ³•:       _accessCreateDB ($adSource)
+; å‚æ•°:       $adSource - åˆ›å»ºMS Accessæ•°æ®åº“çš„å®Œæ•´è·¯å¾„ä»¥åŠåˆ›å»ºæ•°æ®åº“çš„æ–‡ä»¶å
+; éœ€æ±‚:
+; è¿”å›žå€¼:     æ— 
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:
+; ä¿®æ”¹:
 ;===============================================================================
 
 Func _accessCreateDB($adSource)
@@ -256,26 +256,26 @@ Func _accessCreateDB($adSource)
 EndFunc   ;==>_accessCreateDB
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessCreateTable()
-; ÃèÊö:       ÔÚÏÖÓÐµÄ MS Access Êý¾Ý¿âÖÐ½¨Á¢±í
-; Óï·¨:       _accessCreateTable($adSource, $adTable, $adCol)
-; ²ÎÊý:       $adSource - ´ò¿ªÊý¾Ý¿âÎÄ¼þµÄÍêÕûÂ·¾¶ÒÔ¼°Êý¾Ý¿âÎÄ¼þÃû
-;             $adTable - ËÑË÷µÄ±íÃû³Æ
-;             $adCol - ×Ö¶ÎÀàÐÍ±ØÐëÓÃ·Ö¸ô·û'|'·Ö¸î±êÍ·Ãû³ÆºÍ×Ö¶ÎÀàÐÍ
-; ÐèÇó:
-; ·µ»ØÖµ:     ³É¹¦ - @Error = 0
-;             Ê§°Ü - ÉèÖÃ@Error
-;                        1 = ÎÞ·¨´´½¨Á¬½Ó
-;                        3 = ±íÒÑ¾­´æÔÚ
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:         ×Ö¶ÎÀàÐÍÊÇ²»Çø·Ö´óÐ¡Ð´.
-;             ¹¤×÷ÀàÐÍ; TEXT(ÊýÖµ1-255)=ÎÄ±¾, MEMO=±¸×¢, COUNTER=×Ô¶¯±àºÅ, INTEGER=Êý×Ö,
-;                       YESNO=ÊÇ/·ñ, DATETIME=ÈÕÆÚÊ±¼ä, CURRENCY=»õ±Ò£¬OLEOBJECT=OLE ¶ÔÏó
-;             ±êÍ·Ãû³Æ²»ÄÜ°üº¬¿Õ¸ñ£¬µ«±ØÐëÒÔÒ»¸ö¿Õ¸ñ×÷Îª·Ö¸ô×Ö¶ÎÀàÐÍ
-;             ÒªÉèÖÃµÄÎÄ±¾×Ö¶ÎÖÐÊ¹ÓÃÎÄ±¾µÄ×î´ó×Ö·ûÊý(<ÊýÖµ>) ÆäÖÐ <ÊýÖµ> ×î´óÊÇ255¸ö.
-; ÐÞ¸Ä:
-; Àý×Ó:       _accessCreateTable($adSource,$adTable,$aArray)
+; å‡½æ•°åç§°:   _accessCreateTable()
+; æè¿°:       åœ¨çŽ°æœ‰çš„ MS Access æ•°æ®åº“ä¸­å»ºç«‹è¡¨
+; è¯­æ³•:       _accessCreateTable($adSource, $adTable, $adCol)
+; å‚æ•°:       $adSource - æ‰“å¼€æ•°æ®åº“æ–‡ä»¶çš„å®Œæ•´è·¯å¾„ä»¥åŠæ•°æ®åº“æ–‡ä»¶å
+;             $adTable - æœç´¢çš„è¡¨åç§°
+;             $adCol - å­—æ®µç±»åž‹å¿…é¡»ç”¨åˆ†éš”ç¬¦'|'åˆ†å‰²æ ‡å¤´åç§°å’Œå­—æ®µç±»åž‹
+; éœ€æ±‚:
+; è¿”å›žå€¼:     æˆåŠŸ - @Error = 0
+;             å¤±è´¥ - è®¾ç½®@Error
+;                        1 = æ— æ³•åˆ›å»ºè¿žæŽ¥
+;                        3 = è¡¨å·²ç»å­˜åœ¨
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:         å­—æ®µç±»åž‹æ˜¯ä¸åŒºåˆ†å¤§å°å†™.
+;             å·¥ä½œç±»åž‹; TEXT(æ•°å€¼1-255)=æ–‡æœ¬, MEMO=å¤‡æ³¨, COUNTER=è‡ªåŠ¨ç¼–å·, INTEGER=æ•°å­—,
+;                       YESNO=æ˜¯/å¦, DATETIME=æ—¥æœŸæ—¶é—´, CURRENCY=è´§å¸ï¼ŒOLEOBJECT=OLE å¯¹è±¡
+;             æ ‡å¤´åç§°ä¸èƒ½åŒ…å«ç©ºæ ¼ï¼Œä½†å¿…é¡»ä»¥ä¸€ä¸ªç©ºæ ¼ä½œä¸ºåˆ†éš”å­—æ®µç±»åž‹
+;             è¦è®¾ç½®çš„æ–‡æœ¬å­—æ®µä¸­ä½¿ç”¨æ–‡æœ¬çš„æœ€å¤§å­—ç¬¦æ•°(<æ•°å€¼>) å…¶ä¸­ <æ•°å€¼> æœ€å¤§æ˜¯255ä¸ª.
+; ä¿®æ”¹:
+; ä¾‹å­:       _accessCreateTable($adSource,$adTable,$aArray)
 ;===============================================================================
 
 Func _accessCreateTable($adSource, $adTable, $adCol = '')
@@ -306,24 +306,24 @@ Func _accessCreateTable($adSource, $adTable, $adCol = '')
 EndFunc   ;==>_accessCreateTable
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessDeleteRecord()
-; ÃèÊö:       ËÑË÷Êý¾Ý¿â×Ö·û´®£¬²¢½«ËÑË÷µ½µÄ×Ö·û´®(ÕûÁÐ)Êý¾ÝÉ¾³ý
-; Óï·¨:       _adoDeleteRecord($adSource,$adTable, $adCol,$Find,[$adOcc])
-; ²ÎÊý:       $adSource - ´ò¿ªÊý¾Ý¿âÎÄ¼þµÄÍêÕûÂ·¾¶ÒÔ¼°Êý¾Ý¿âÎÄ¼þÃû
-;             $adTable - ËÑË÷µÄ±íÃû³Æ
-;             $adCol - ËÑË÷µÄ×Ö¶ÎÃû(ÇëÎðÊ¹ÓÃË÷ÒýºÅ)
-;             $Find - ²éÕÒµ½µÄ×Ö·û´®
-;             $adOcc - Èç¹ûÉèÖÃµÄÊýÖµ = 1 É¾³ýµÚÒ»¸öÆ¥ÅäµÄ¼ÇÂ¼ (Ä¬ÈÏÖµ)
-;                      Èç¹ûÉèÖÃµÄÊýÖµ <> 1 É¾³ýËùÓÐÆ¥ÅäµÄ¼ÇÂ¼
-; ÐèÇó:
-; ·µ»ØÖµ:     ³É¹¦ - @Error = 0
-;             Ê§°Ü - ÉèÖÃ@Error
-;                        1 = ÎÞ·¨´´½¨Á¬½Ó
-;                        2 = ÎÞ·¨´´½¨recordset¶ÔÏó
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:         Chr(28) ÊÇÒ»ÖÖ²»¿É¼û×Ö·û£¬ÓÃÓÚ±ÜÃâ×Ö·û´®ÖÐÈÝÒ×³åÍ»µÄ×Ö·û
-; ÐÞ¸Ä:
+; å‡½æ•°åç§°:   _accessDeleteRecord()
+; æè¿°:       æœç´¢æ•°æ®åº“å­—ç¬¦ä¸²ï¼Œå¹¶å°†æœç´¢åˆ°çš„å­—ç¬¦ä¸²(æ•´åˆ—)æ•°æ®åˆ é™¤
+; è¯­æ³•:       _adoDeleteRecord($adSource,$adTable, $adCol,$Find,[$adOcc])
+; å‚æ•°:       $adSource - æ‰“å¼€æ•°æ®åº“æ–‡ä»¶çš„å®Œæ•´è·¯å¾„ä»¥åŠæ•°æ®åº“æ–‡ä»¶å
+;             $adTable - æœç´¢çš„è¡¨åç§°
+;             $adCol - æœç´¢çš„å­—æ®µå(è¯·å‹¿ä½¿ç”¨ç´¢å¼•å·)
+;             $Find - æŸ¥æ‰¾åˆ°çš„å­—ç¬¦ä¸²
+;             $adOcc - å¦‚æžœè®¾ç½®çš„æ•°å€¼ = 1 åˆ é™¤ç¬¬ä¸€ä¸ªåŒ¹é…çš„è®°å½• (é»˜è®¤å€¼)
+;                      å¦‚æžœè®¾ç½®çš„æ•°å€¼ <> 1 åˆ é™¤æ‰€æœ‰åŒ¹é…çš„è®°å½•
+; éœ€æ±‚:
+; è¿”å›žå€¼:     æˆåŠŸ - @Error = 0
+;             å¤±è´¥ - è®¾ç½®@Error
+;                        1 = æ— æ³•åˆ›å»ºè¿žæŽ¥
+;                        2 = æ— æ³•åˆ›å»ºrecordsetå¯¹è±¡
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:         Chr(28) æ˜¯ä¸€ç§ä¸å¯è§å­—ç¬¦ï¼Œç”¨äºŽé¿å…å­—ç¬¦ä¸²ä¸­å®¹æ˜“å†²çªçš„å­—ç¬¦
+; ä¿®æ”¹:
 ;===============================================================================
 
 Func _accessDeleteRecord($adSource, $adTable, $adCol, $Find, $adOcc = 1)
@@ -352,20 +352,20 @@ Func _accessDeleteRecord($adSource, $adTable, $adCol, $Find, $adOcc = 1)
 EndFunc   ;==>_accessDeleteRecord
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessDeleteTable()
-; ÃèÊö:       ´Ó MS Access Êý¾Ý¿â(*. mdb)ÎÄ¼þÖÐÉ¾³ý±í
-; Óï·¨:       _accessDeleteTable($adSource, $adTable)
-; ²ÎÊý:       $adSource - ´ò¿ªÊý¾Ý¿âÎÄ¼þµÄÍêÕûÂ·¾¶ÒÔ¼°Êý¾Ý¿âÎÄ¼þÃû
-;             $adTable - ËÑË÷µÄ±íÃû³Æ
-; ÐèÇó:
-; ·µ»ØÖµ:     ³É¹¦ - @Error = 0
-;             Ê§°Ü - ÉèÖÃ@Error
-;                       1 = ÎÞ·¨´´½¨Á¬½Ó
-;                       2 = ÎÞ·¨´´½¨recordset¶ÔÏó
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:
-; ÐÞ¸Ä:
+; å‡½æ•°åç§°:   _accessDeleteTable()
+; æè¿°:       ä»Ž MS Access æ•°æ®åº“(*. mdb)æ–‡ä»¶ä¸­åˆ é™¤è¡¨
+; è¯­æ³•:       _accessDeleteTable($adSource, $adTable)
+; å‚æ•°:       $adSource - æ‰“å¼€æ•°æ®åº“æ–‡ä»¶çš„å®Œæ•´è·¯å¾„ä»¥åŠæ•°æ®åº“æ–‡ä»¶å
+;             $adTable - æœç´¢çš„è¡¨åç§°
+; éœ€æ±‚:
+; è¿”å›žå€¼:     æˆåŠŸ - @Error = 0
+;             å¤±è´¥ - è®¾ç½®@Error
+;                       1 = æ— æ³•åˆ›å»ºè¿žæŽ¥
+;                       2 = æ— æ³•åˆ›å»ºrecordsetå¯¹è±¡
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:
+; ä¿®æ”¹:
 ;===============================================================================
 
 Func _accessDeleteTable($adSource, $adTable)
@@ -377,21 +377,21 @@ Func _accessDeleteTable($adSource, $adTable)
 EndFunc   ;==>_accessDeleteTable
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessGetVal()
-; ÃèÊö:       ·µ»ØÖ¸¶¨×Ö¶ÎµÄµÚÒ»¸öÖµ
-; Óï·¨:       _accessGetVal($adSource,$adTable, $adCol)
-; ²ÎÊý:       $adSource - ´ò¿ªÊý¾Ý¿âÎÄ¼þµÄÍêÕûÂ·¾¶ÒÔ¼°Êý¾Ý¿âÎÄ¼þÃû
-;             $adTable - ËÑË÷µÄ±íÃû³Æ
-;             $adCol - µ±ÊýÖµ=0(µÚÒ»¸ö×Ö¶ÎË÷Òý)=1(µÚ¶þ¸ö×Ö¶ÎË÷Òý)...
-; ÐèÇó:
-; ·µ»ØÖµ:     ³É¹¦ - ·µ»ØÖ¸¶¨×Ö¶ÎµÄÖµ
-;             Ê§°Ü - ·µ»ØÒ»¸ö¿Õ×Ö·û´®²¢ÉèÖÃ@Error
-;                                          1 = ÎÞ·¨´´½¨Á¬½Ó
-;                                          2 = ÎÞ·¨´´½¨recordset¶ÔÏó
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:
-; ÐÞ¸Ä:
+; å‡½æ•°åç§°:   _accessGetVal()
+; æè¿°:       è¿”å›žæŒ‡å®šå­—æ®µçš„ç¬¬ä¸€ä¸ªå€¼
+; è¯­æ³•:       _accessGetVal($adSource,$adTable, $adCol)
+; å‚æ•°:       $adSource - æ‰“å¼€æ•°æ®åº“æ–‡ä»¶çš„å®Œæ•´è·¯å¾„ä»¥åŠæ•°æ®åº“æ–‡ä»¶å
+;             $adTable - æœç´¢çš„è¡¨åç§°
+;             $adCol - å½“æ•°å€¼=0(ç¬¬ä¸€ä¸ªå­—æ®µç´¢å¼•)=1(ç¬¬äºŒä¸ªå­—æ®µç´¢å¼•)...
+; éœ€æ±‚:
+; è¿”å›žå€¼:     æˆåŠŸ - è¿”å›žæŒ‡å®šå­—æ®µçš„å€¼
+;             å¤±è´¥ - è¿”å›žä¸€ä¸ªç©ºå­—ç¬¦ä¸²å¹¶è®¾ç½®@Error
+;                                          1 = æ— æ³•åˆ›å»ºè¿žæŽ¥
+;                                          2 = æ— æ³•åˆ›å»ºrecordsetå¯¹è±¡
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:
+; ä¿®æ”¹:
 ;===============================================================================
 
 Func _accessGetVal($adSource, $adTable, $adCol)
@@ -413,20 +413,20 @@ Func _accessGetVal($adSource, $adTable, $adCol)
 EndFunc   ;==>_accessGetVal
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessListFields()
-; ÃèÊö:       ·µ»Ø MS Access Êý¾Ý¿âÖÐËùÖ¸¶¨µÄ±íÖÐµÄËùÓÐ×Ö¶ÎÃû³Æ
-; Óï·¨:       _accessListFields($adSource, $adTable)
-; ²ÎÊý:       $adSource - ´ò¿ªÊý¾Ý¿âÎÄ¼þµÄÍêÕûÂ·¾¶ÒÔ¼°Êý¾Ý¿âÎÄ¼þÃû
-;             $adTable - ËÑË÷µÄ±íÃû³Æ
-; ÐèÇó:
-; ·µ»ØÖµ:     ³É¹¦ - ·µ»ØÒ»¸ö°Ñ×Ö¶ÎÃûÒÔ"|"·Ö¸îµÄ×Ö·û´®
-;             Ê§°Ü - ÉèÖÃ@Error
-;                        1 = ÎÞ·¨´´½¨Á¬½Ó
-;                        2 = ÎÞ·¨´´½¨recordset¶ÔÏó
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:
-; ÐÞ¸Ä:
+; å‡½æ•°åç§°:   _accessListFields()
+; æè¿°:       è¿”å›ž MS Access æ•°æ®åº“ä¸­æ‰€æŒ‡å®šçš„è¡¨ä¸­çš„æ‰€æœ‰å­—æ®µåç§°
+; è¯­æ³•:       _accessListFields($adSource, $adTable)
+; å‚æ•°:       $adSource - æ‰“å¼€æ•°æ®åº“æ–‡ä»¶çš„å®Œæ•´è·¯å¾„ä»¥åŠæ•°æ®åº“æ–‡ä»¶å
+;             $adTable - æœç´¢çš„è¡¨åç§°
+; éœ€æ±‚:
+; è¿”å›žå€¼:     æˆåŠŸ - è¿”å›žä¸€ä¸ªæŠŠå­—æ®µåä»¥"|"åˆ†å‰²çš„å­—ç¬¦ä¸²
+;             å¤±è´¥ - è®¾ç½®@Error
+;                        1 = æ— æ³•åˆ›å»ºè¿žæŽ¥
+;                        2 = æ— æ³•åˆ›å»ºrecordsetå¯¹è±¡
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:
+; ä¿®æ”¹:
 ;===============================================================================
 
 Func _accessListFields($adSource, $adTable)
@@ -457,19 +457,19 @@ Func _accessListFields($adSource, $adTable)
 EndFunc   ;==>_accessListFields
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessListTables()
-; ÃèÊö:       ·µ»Ø MS Access Êý¾Ý¿âÖÐËùÓÐµÄ±íÃû³Æ
-; Óï·¨:       _accessListTables($adSource)
-; ²ÎÊý:       $adSource - ´ò¿ªÊý¾Ý¿âÎÄ¼þµÄÍêÕûÂ·¾¶ÒÔ¼°Êý¾Ý¿âÎÄ¼þÃû
-; ÐèÇó:
-; ·µ»ØÖµ:     ³É¹¦ - ·µ»ØÒ»¸ö°Ñ±íÃûÒÔ"|"·Ö¸îµÄ×Ö·û´®
-;             Ê§°Ü - ÉèÖÃ@Error
-;                        1 = ÎÞ·¨´´½¨Á¬½Ó
-;                        3 = Ã»ÓÐÕÒµ½±íÃû(·µ»ØÒ»¸ö¿Õ×Ö·û´®)
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:
-; ÐÞ¸Ä:
+; å‡½æ•°åç§°:   _accessListTables()
+; æè¿°:       è¿”å›ž MS Access æ•°æ®åº“ä¸­æ‰€æœ‰çš„è¡¨åç§°
+; è¯­æ³•:       _accessListTables($adSource)
+; å‚æ•°:       $adSource - æ‰“å¼€æ•°æ®åº“æ–‡ä»¶çš„å®Œæ•´è·¯å¾„ä»¥åŠæ•°æ®åº“æ–‡ä»¶å
+; éœ€æ±‚:
+; è¿”å›žå€¼:     æˆåŠŸ - è¿”å›žä¸€ä¸ªæŠŠè¡¨åä»¥"|"åˆ†å‰²çš„å­—ç¬¦ä¸²
+;             å¤±è´¥ - è®¾ç½®@Error
+;                        1 = æ— æ³•åˆ›å»ºè¿žæŽ¥
+;                        3 = æ²¡æœ‰æ‰¾åˆ°è¡¨å(è¿”å›žä¸€ä¸ªç©ºå­—ç¬¦ä¸²)
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:
+; ä¿®æ”¹:
 ;===============================================================================
 
 Func _accessListTables($adSource)
@@ -501,25 +501,25 @@ Func _accessListTables($adSource)
 EndFunc   ;==>_accessListTables
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessQueryLike()
-; ÃèÊö:       ËÑË÷Êý¾Ý¿âÖÐÖ¸¶¨µÄ±íÄÚµÄ×Ö¶ÎËù°üº¬Ö¸¶¨µÄ×Ö·û´®
-; Óï·¨:       _accessQueryLike($adSource, $adTable, $adCol, $Find, [$adFull])
-; ²ÎÊý:       $adSource - ´ò¿ªÊý¾Ý¿âÎÄ¼þµÄÍêÕûÂ·¾¶ÒÔ¼°Êý¾Ý¿âÎÄ¼þÃû
-;             $adTable - ËÑË÷µÄ±íÃû³Æ
-;             $adCol - ËÑË÷µÄ×Ö¶ÎÃû(ÇëÎðÊ¹ÓÃË÷Òý)
-;             $Find - ËÑË÷µÄ×Ö·û´®(Îª¿Õ¼´ËÑË÷È«²¿¼ÇÂ¼)
-;             $adFull - Èç¹û = 1 Ê¹ÓÃChr(28)×÷Îª·Ö¸ô·û. (Ä¬ÈÏ)
-;                       Èç¹û <> 1 ·µ»ØÒ»¸ö°üº¬Ö¸¶¨×Ö¶ÎµÄÃ¿Ò»Ìõ¼ÇÂ¼µÄÊý×é
-; ÐèÇó:       _accessCountFields()
-; ·µ»ØÖµ:     ³É¹¦ - ·µ»ØÒ»¸ö°üº¬·ûºÏÌõ¼þµÄ¼ÇÂ¼,Ã¿¸ö×Ö¶ÎÃûÏÂÖµµÄÊý×é,Ã¿Ìõ¼ÇÂ¼µÄÐÅÏ¢ÒÔChr(28)Îª·Ö¸îµÄ(·Ö¸ô·ûÇë²ÎÕÕ$adFullµÄËµÃ÷)
-;             Ê§°Ü - ÉèÖÃ@Error
-;                        1 = ÎÞ·¨´´½¨Á¬½Ó
-;                        2 = ÎÞ·¨´´½¨recordset¶ÔÏó
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:         Chr(28) ÊÇÒ»ÖÖ²»¿É¼û×Ö·û ÓÃÓÚ±ÜÃâ×Ö·û´®ÖÐÈÝÒ×³åÍ»µÄ×Ö·û
-;                     ÔÚWindows 2000ÖÐ "Like" ²éÑ¯½«Ê§°Ü
-; ÐÞ¸Ä:
+; å‡½æ•°åç§°:   _accessQueryLike()
+; æè¿°:       æœç´¢æ•°æ®åº“ä¸­æŒ‡å®šçš„è¡¨å†…çš„å­—æ®µæ‰€åŒ…å«æŒ‡å®šçš„å­—ç¬¦ä¸²
+; è¯­æ³•:       _accessQueryLike($adSource, $adTable, $adCol, $Find, [$adFull])
+; å‚æ•°:       $adSource - æ‰“å¼€æ•°æ®åº“æ–‡ä»¶çš„å®Œæ•´è·¯å¾„ä»¥åŠæ•°æ®åº“æ–‡ä»¶å
+;             $adTable - æœç´¢çš„è¡¨åç§°
+;             $adCol - æœç´¢çš„å­—æ®µå(è¯·å‹¿ä½¿ç”¨ç´¢å¼•)
+;             $Find - æœç´¢çš„å­—ç¬¦ä¸²(ä¸ºç©ºå³æœç´¢å…¨éƒ¨è®°å½•)
+;             $adFull - å¦‚æžœ = 1 ä½¿ç”¨Chr(28)ä½œä¸ºåˆ†éš”ç¬¦. (é»˜è®¤)
+;                       å¦‚æžœ <> 1 è¿”å›žä¸€ä¸ªåŒ…å«æŒ‡å®šå­—æ®µçš„æ¯ä¸€æ¡è®°å½•çš„æ•°ç»„
+; éœ€æ±‚:       _accessCountFields()
+; è¿”å›žå€¼:     æˆåŠŸ - è¿”å›žä¸€ä¸ªåŒ…å«ç¬¦åˆæ¡ä»¶çš„è®°å½•,æ¯ä¸ªå­—æ®µåä¸‹å€¼çš„æ•°ç»„,æ¯æ¡è®°å½•çš„ä¿¡æ¯ä»¥Chr(28)ä¸ºåˆ†å‰²çš„(åˆ†éš”ç¬¦è¯·å‚ç…§$adFullçš„è¯´æ˜Ž)
+;             å¤±è´¥ - è®¾ç½®@Error
+;                        1 = æ— æ³•åˆ›å»ºè¿žæŽ¥
+;                        2 = æ— æ³•åˆ›å»ºrecordsetå¯¹è±¡
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:         Chr(28) æ˜¯ä¸€ç§ä¸å¯è§å­—ç¬¦ ç”¨äºŽé¿å…å­—ç¬¦ä¸²ä¸­å®¹æ˜“å†²çªçš„å­—ç¬¦
+;                     åœ¨Windows 2000ä¸­ "Like" æŸ¥è¯¢å°†å¤±è´¥
+; ä¿®æ”¹:
 ;===============================================================================
 
 Func _accessQueryLike($adSource, $adTable, $adCol, $Find, $adFull = 1)
@@ -558,22 +558,22 @@ Func _accessQueryLike($adSource, $adTable, $adCol, $Find, $adFull = 1)
 EndFunc   ;==>_accessQueryLike
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessQueryStr()
-; ÃèÊö:       ËÑË÷Êý¾Ý¿âÖÐµÄÖ¸¶¨×Ö·û´®,²¢·µ»ØËÑË÷½á¹û
-; Óï·¨:       _accessQueryStr($adSource,$adTable, $adCol,$Find)
-; ²ÎÊý:       $adSource - ´ò¿ªÊý¾Ý¿âÎÄ¼þµÄÍêÕûÂ·¾¶ÒÔ¼°Êý¾Ý¿âÎÄ¼þÃû
-;             $adTable - ËÑË÷µÄ±íÃû³Æ
-;             $adCol - ËÑË÷µÄ×Ö¶ÎÃû³Æ (ÇëÎðÊ¹ÓÃÖ¸Êý)
-;             $Find - ËÑË÷µÄ×Ö·û´®
-; ÐèÇó:
-; ·µ»ØÖµ:     ³É¹¦ - ·µ»ØÖ¸¶¨×Ö¶ÎµÄÖµ
-;             Ê§°Ü - ÉèÖÃ@Error
-;                        1 = ÎÞ·¨´´½¨Á¬½Ó
-;                        2 = ÎÞ·¨´´½¨recordset¶ÔÏó
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:
-; ÐÞ¸Ä:
+; å‡½æ•°åç§°:   _accessQueryStr()
+; æè¿°:       æœç´¢æ•°æ®åº“ä¸­çš„æŒ‡å®šå­—ç¬¦ä¸²,å¹¶è¿”å›žæœç´¢ç»“æžœ
+; è¯­æ³•:       _accessQueryStr($adSource,$adTable, $adCol,$Find)
+; å‚æ•°:       $adSource - æ‰“å¼€æ•°æ®åº“æ–‡ä»¶çš„å®Œæ•´è·¯å¾„ä»¥åŠæ•°æ®åº“æ–‡ä»¶å
+;             $adTable - æœç´¢çš„è¡¨åç§°
+;             $adCol - æœç´¢çš„å­—æ®µåç§° (è¯·å‹¿ä½¿ç”¨æŒ‡æ•°)
+;             $Find - æœç´¢çš„å­—ç¬¦ä¸²
+; éœ€æ±‚:
+; è¿”å›žå€¼:     æˆåŠŸ - è¿”å›žæŒ‡å®šå­—æ®µçš„å€¼
+;             å¤±è´¥ - è®¾ç½®@Error
+;                        1 = æ— æ³•åˆ›å»ºè¿žæŽ¥
+;                        2 = æ— æ³•åˆ›å»ºrecordsetå¯¹è±¡
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:
+; ä¿®æ”¹:
 ;===============================================================================
 
 Func _accessQueryStr($adSource, $adTable, $adCol, $Find)
@@ -596,18 +596,18 @@ Func _accessQueryStr($adSource, $adTable, $adCol, $Find)
 EndFunc   ;==>_accessQueryStr
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessSaveXML()
-; ÃèÊö:       ½« MS Access Êý¾Ý¿âÖÐÖ¸¶¨µÄ±í½«µ¼³öÎªXMLÎÄ¼þ
-; Óï·¨:       _accessSaveXML($adSource, $adTable[,$oFile])
-; ²ÎÊý:       $adSource - ´ò¿ªÊý¾Ý¿âÎÄ¼þµÄÍêÕûÂ·¾¶ÒÔ¼°Êý¾Ý¿âÎÄ¼þÃû
-;             $adTable - ËÑË÷µÄ±íÃû³Æ
-;             $oFile - Â·¾¶ÒÔ¼°xmlÎÄ¼þÃû (Ä¬ÈÏÀ©Õ¹Ãû.xml)
-; ÐèÇó:
-; ·µ»ØÖµ:     ÎÞ
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:
-; ÐÞ¸Ä:
+; å‡½æ•°åç§°:   _accessSaveXML()
+; æè¿°:       å°† MS Access æ•°æ®åº“ä¸­æŒ‡å®šçš„è¡¨å°†å¯¼å‡ºä¸ºXMLæ–‡ä»¶
+; è¯­æ³•:       _accessSaveXML($adSource, $adTable[,$oFile])
+; å‚æ•°:       $adSource - æ‰“å¼€æ•°æ®åº“æ–‡ä»¶çš„å®Œæ•´è·¯å¾„ä»¥åŠæ•°æ®åº“æ–‡ä»¶å
+;             $adTable - æœç´¢çš„è¡¨åç§°
+;             $oFile - è·¯å¾„ä»¥åŠxmlæ–‡ä»¶å (é»˜è®¤æ‰©å±•å.xml)
+; éœ€æ±‚:
+; è¿”å›žå€¼:     æ— 
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:
+; ä¿®æ”¹:
 ;===============================================================================
 
 Func _accessSaveXML($adSource, $adTable, $oFile = '')
@@ -630,17 +630,17 @@ Func _accessSaveXML($adSource, $adTable, $oFile = '')
 EndFunc   ;==>_accessSaveXML
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessTableCount()
-; ÃèÊö:       Í³¼ÆÔÚ MS Access Êý¾Ý¿âÖÐÓÐ¶àÉÙ¸ö±í
-; Óï·¨:       _accessTableCount($adSource)
-; ²ÎÊý:       $adSource - ´ò¿ªÊý¾Ý¿âÎÄ¼þµÄÍêÕûÂ·¾¶ÒÔ¼°Êý¾Ý¿âÎÄ¼þÃû
-; ÐèÇó:
-; ·µ»ØÖµ:     ³É¹¦ - ·µ»Ø±íµÄÊýÁ¿
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:
-; ÐÞ¸Ä:
-; Àý×Ó:       MsgBox(4096, '±í', 'ÔÚÊý¾Ý¿âÖÐÓÐ<' & _accessTableCount($adSource) & '>¸ö±í')
+; å‡½æ•°åç§°:   _accessTableCount()
+; æè¿°:       ç»Ÿè®¡åœ¨ MS Access æ•°æ®åº“ä¸­æœ‰å¤šå°‘ä¸ªè¡¨
+; è¯­æ³•:       _accessTableCount($adSource)
+; å‚æ•°:       $adSource - æ‰“å¼€æ•°æ®åº“æ–‡ä»¶çš„å®Œæ•´è·¯å¾„ä»¥åŠæ•°æ®åº“æ–‡ä»¶å
+; éœ€æ±‚:
+; è¿”å›žå€¼:     æˆåŠŸ - è¿”å›žè¡¨çš„æ•°é‡
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:
+; ä¿®æ”¹:
+; ä¾‹å­:       MsgBox(4096, 'è¡¨', 'åœ¨æ•°æ®åº“ä¸­æœ‰<' & _accessTableCount($adSource) & '>ä¸ªè¡¨')
 ;===============================================================================
 
 Func _accessTableCount($adSource)
@@ -649,25 +649,25 @@ Func _accessTableCount($adSource)
 EndFunc   ;==>_accessTableCount
 
 ;===============================================================================
-; º¯ÊýÃû³Æ:   _accessUpdateRecord()
-; ÃèÊö:       ËÑË÷MS AccessÊý¾Ý¿âÖÐµÄ±í£¬²¢¸üÐÂ±íÖÐµÄÊý¾Ý¼ÇÂ¼
-; Óï·¨:       _accessUpdateRecord($adSource,$adTable,$adCol,$adQuery,$adcCol,$adData)
-; ²ÎÊý:       $adSource - ´ò¿ªÊý¾Ý¿âÎÄ¼þµÄÍêÕûÂ·¾¶ÒÔ¼°Êý¾Ý¿âÎÄ¼þÃû
-;             $adTable - ËÑË÷µÄ±íÃû³Æ
-;             $adCol - ËÑË÷µÄ×Ö¶ÎÃû
-;             $adQuery - ËÑË÷µÄ×Ö·û´®
-;             $adcCol - ¸üÐÂºó×Ö¶ÎÃû
-;             $adData - ¸üÐÂºó×Ö·û´®£¬ÐÂµÄ×Ö·û´®½«»á´¢´æÔÚ$adcCol
-; ÐèÇó:
-; ·µ»ØÖµ:     ³É¹¦ - ¸üÐÂ±í
-;             Ê§°Ü - ÉèÖÃ@Error
-;                        1 = ÎÞ·¨´´½¨Á¬½Ó
-;                        2 = ÎÞ·¨´´½¨recordset¶ÔÏó
-;                        3 = ¸üÐÂÊ§°Ü,ÎÞ·¨´ò¿ª¼ÇÂ¼
-; ×÷Õß:       George (GEOSoft) Gedye
-; ±¾µØ»¯:     Kodin
-; ×¢:
-; ÐÞ¸Ä:
+; å‡½æ•°åç§°:   _accessUpdateRecord()
+; æè¿°:       æœç´¢MS Accessæ•°æ®åº“ä¸­çš„è¡¨ï¼Œå¹¶æ›´æ–°è¡¨ä¸­çš„æ•°æ®è®°å½•
+; è¯­æ³•:       _accessUpdateRecord($adSource,$adTable,$adCol,$adQuery,$adcCol,$adData)
+; å‚æ•°:       $adSource - æ‰“å¼€æ•°æ®åº“æ–‡ä»¶çš„å®Œæ•´è·¯å¾„ä»¥åŠæ•°æ®åº“æ–‡ä»¶å
+;             $adTable - æœç´¢çš„è¡¨åç§°
+;             $adCol - æœç´¢çš„å­—æ®µå
+;             $adQuery - æœç´¢çš„å­—ç¬¦ä¸²
+;             $adcCol - æ›´æ–°åŽå­—æ®µå
+;             $adData - æ›´æ–°åŽå­—ç¬¦ä¸²ï¼Œæ–°çš„å­—ç¬¦ä¸²å°†ä¼šå‚¨å­˜åœ¨$adcCol
+; éœ€æ±‚:
+; è¿”å›žå€¼:     æˆåŠŸ - æ›´æ–°è¡¨
+;             å¤±è´¥ - è®¾ç½®@Error
+;                        1 = æ— æ³•åˆ›å»ºè¿žæŽ¥
+;                        2 = æ— æ³•åˆ›å»ºrecordsetå¯¹è±¡
+;                        3 = æ›´æ–°å¤±è´¥,æ— æ³•æ‰“å¼€è®°å½•
+; ä½œè€…:       George (GEOSoft) Gedye
+; æœ¬åœ°åŒ–:     Kodin
+; æ³¨:
+; ä¿®æ”¹:
 ;===============================================================================
 
 Func _accessUpdateRecord($adSource, $adTable, $adCol, $adQuery, $adcCol, $adData)

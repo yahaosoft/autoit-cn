@@ -1,3 +1,3 @@
-#include <Access.au3>
+я╗┐#include <Access.au3>
 $adSource = @ScriptDir & "\DB1.mdb"
-MsgBox(4096, '═│╝╞', '╘┌╩¤╛▌┐т╓╨╙╨<' & _accessTableCount($adSource) & '>╕Ў▒э')
+MsgBox(4096, 'ч╗Яшоб', 'хЬицХ░цНох║Уф╕нцЬЙ<' & _accessTableCount($adSource) & '>ф╕кшби')

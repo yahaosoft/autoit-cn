@@ -1,7 +1,7 @@
-#include <Access.au3>
+ï»¿#include <Access.au3>
 Dim $yo
 $adSource = @ScriptDir & "\DB1.mdb"
 $adTable = "Computer"
 
 $yo = _accessCountRecords($adSource, $adTable)
-MsgBox(0, '¼ÍÂ¼Êı', '±¾±íÓĞ' & _accessCountRecords($adSource, $adTable) & 'ÌõÊı¾İ¼ÇÂ¼')
+MsgBox(0, 'çºªå½•æ•°', 'æœ¬è¡¨æœ‰' & _accessCountRecords($adSource, $adTable) & 'æ¡æ•°æ®è®°å½•')

@@ -1,4 +1,4 @@
-;Global Const $adoProvider = 'Microsoft.Jet.OLEDB.4.0; '
+﻿;Global Const $adoProvider = 'Microsoft.Jet.OLEDB.4.0; '
 Global Const $adoProvider = _adoProvider()
  ;CursorTypeEnum
 Global Const $adOpenUnspecified = -1

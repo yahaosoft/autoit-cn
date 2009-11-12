@@ -1,4 +1,4 @@
-#include <Access.au3>
+ï»¿#include <Access.au3>
 #include <Array.au3>
 Dim $yo
 $adSource = @ScriptDir & "\DB1.mdb"
@@ -7,6 +7,6 @@ $adCol = "a"
 $Find = ""
 $adFull = 1
 $yo = _accessQueryLike($adSource, $adTable, $adCol, $Find, $adFull)
-_ArrayDisplay($yo, "·µ»ØÖµ")
+_ArrayDisplay($yo, "è¿”å›å€¼")
 $aRecord = StringSplit($yo[1], Chr(28))
-_ArrayDisplay($aRecord, "Ã¿¸öÖµ")
+_ArrayDisplay($aRecord, "æ¯ä¸ªå€¼")

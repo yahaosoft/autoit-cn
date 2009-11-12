@@ -1,8 +1,8 @@
-#include <Access.au3>
+ï»¿#include <Access.au3>
 Dim $yo
 $adSource = @ScriptDir & "\DB1.mdb"
 $adTable = "Computer"
 $adCol = "a"
-$Find = "ÎÄ±¾1"
+$Find = "æ–‡æœ¬1"
 $yo = _accessQueryStr($adSource, $adTable, $adCol, $Find)
-MsgBox(0, "1", $yo);³É¹¦Ôò·µ»Ø×Ö¶ÎµÄÖµ£¬Ê§°ÜÔò·µ»Ø¿Õ×Ö·û´®
+MsgBox(0, "1", $yo);æˆåŠŸåˆ™è¿”å›å­—æ®µçš„å€¼ï¼Œå¤±è´¥åˆ™è¿”å›ç©ºå­—ç¬¦ä¸²

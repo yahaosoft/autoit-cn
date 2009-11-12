@@ -1,10 +1,10 @@
-#include <Access.au3>
+ï»¿#include <Access.au3>
 $adSource = @ScriptDir & "\DB1.mdb"
 $adTable = "Computer"
 $adCol = "a TEXT(255) | b MEMO | c COUNTER | d INTEGER | e YESNO | f DATETIME | g CURRENCY | h OLEOBJECT"
-$rData = "ÎÄ±¾ | ±¸×¢ | 1 | 111";ÔÚDB1.mdbÊı¾İ¿âÖĞÌí¼ÓĞÂ¼ÇÂ¼£¬ÊäÈëµÄ±ØĞëÊÇ¹¤×÷ÀàĞÍÏàÓ¦Êı¾İ
+$rData = "æ–‡æœ¬ | å¤‡æ³¨ | 1 | 111";åœ¨DB1.mdbæ•°æ®åº“ä¸­æ·»åŠ æ–°è®°å½•ï¼Œè¾“å…¥çš„å¿…é¡»æ˜¯å·¥ä½œç±»å‹ç›¸åº”æ•°æ®
 
-_accessCreateDB($adSource);ÔÚ½Å±¾Ä¿Â¼´´½¨DB1.mdbÊı¾İ¿â
-_accessCreateTable($adSource, $adTable, $adCol);ÔÚDB1.mdbÊı¾İ¿âÖĞ´´½¨±í
-$yo = _accessAddRecord($adSource, $adTable, $rData, $adCol = 0);ÔÚDB1.mdbÊı¾İ¿âÖĞÌí¼ÓĞÂ¼ÇÂ¼
-MsgBox(0, "ÌáÊ¾", "Êı¾İ¿âÌí¼ÓĞÂ¼ÇÂ¼<" & $rData & ">³É¹¦")
+_accessCreateDB($adSource);åœ¨è„šæœ¬ç›®å½•åˆ›å»ºDB1.mdbæ•°æ®åº“
+_accessCreateTable($adSource, $adTable, $adCol);åœ¨DB1.mdbæ•°æ®åº“ä¸­åˆ›å»ºè¡¨
+$yo = _accessAddRecord($adSource, $adTable, $rData, $adCol = 0);åœ¨DB1.mdbæ•°æ®åº“ä¸­æ·»åŠ æ–°è®°å½•
+MsgBox(0, "æç¤º", "æ•°æ®åº“æ·»åŠ æ–°è®°å½•<" & $rData & ">æˆåŠŸ")

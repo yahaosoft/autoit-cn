@@ -1,8 +1,8 @@
-#include <Access.au3>
+ï»¿#include <Access.au3>
 $adSource = @ScriptDir & "\DB1.mdb"
 $adTable = "Computer"
 $adCol = "a TEXT(10) | b MEMO | c COUNTER | d INTEGER | e YESNO | f DATETIME | g CURRENCY | h OLEOBJECT"
 
-_accessCreateDB($adSource);ÔÚ½Å±¾Ä¿Â¼´´½¨DB1.mdbÊı¾İ¿â
-_accessCreateTable($adSource, $adTable, $adCol);ÔÚDB1.mdbÊı¾İ¿âÖĞ´´½¨±í
-MsgBox(0, "ÌáÊ¾", "Êı¾İ¿â<" & $adTable & ">±í´´½¨³É¹¦£¬´´½¨ÄÚÈİÎª" & $adCol)
+_accessCreateDB($adSource);åœ¨è„šæœ¬ç›®å½•åˆ›å»ºDB1.mdbæ•°æ®åº“
+_accessCreateTable($adSource, $adTable, $adCol);åœ¨DB1.mdbæ•°æ®åº“ä¸­åˆ›å»ºè¡¨
+MsgBox(0, "æç¤º", "æ•°æ®åº“<" & $adTable & ">è¡¨åˆ›å»ºæˆåŠŸï¼Œåˆ›å»ºå†…å®¹ä¸º" & $adCol)

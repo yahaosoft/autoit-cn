@@ -1,5 +1,5 @@
-#include <Access.au3>
+ï»¿#include <Access.au3>
 $adSource = @ScriptDir & "\DB1.mdb"
 
 _accessCreateDB($adSource)
-MsgBox(0, "ÌáÊ¾", "Êı¾İ¿â´´½¨³É¹¦£¬´´½¨Â·¾¶ÔÚ£º" & $adSource)
+MsgBox(0, "æç¤º", "æ•°æ®åº“åˆ›å»ºæˆåŠŸï¼Œåˆ›å»ºè·¯å¾„åœ¨ï¼š" & $adSource)
