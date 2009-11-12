@@ -5,7 +5,7 @@ BitRotate
 执行位移操作, 使用旋度. 
 
 ###Syntax###
-BitRotate ( 值, 位移[, 大小] ) 
+BitRotate ( 值, 位移 [, 大小] ) 
 
 
 ###Parameters###
@@ -15,7 +15,7 @@ BitRotate ( 值, 位移[, 大小] )
 位移
 	Number of bits to rotate to the left (negative numbers shift right).  If not given, the default is 1.
 大小
-	[optional] A string that determines the rotation size, the default is (16 bits). See below.
+	[可选参数] A string that determines the rotation size, the default is (16 bits). See below.
 @@End@@
 <br>
 Size parameter :
@@ -26,11 +26,15 @@ Size parameter :
 	rotate bits within the low-order word (16 bits).
 "D"
 	rotate bits within the entire double-word (32 bits).
+"Q"
+	rotate bits within the entire quadruple-word (64 bits).
 @@End@@
 
 ###ReturnValue###
-Returns the value rotated by the required number of bits.
-Bit operations are performed as 32-bit integers.
+@@ReturnTable@@
+Success:	Returns the value rotated by the required number of bits.
+Failure:	Set @error if size is invalid
+@@End@@
 
 
 ###Remarks###
