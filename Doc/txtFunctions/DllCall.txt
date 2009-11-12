@@ -19,6 +19,10 @@ dll
 	[可选参数] 参数的数据类型(请查看下面的 注意 部分).  
 参数
 	[可选参数] 实参(请查看下面的 注意 部分).
+type n
+	[可选参数] 参数的数据类型(请查看下面的 注意 部分). 
+param n
+	[可选参数] 实参(请查看下面的 注意 部分).
 @@End@@
 
 <br>值类型为:
@@ -28,48 +32,50 @@ dll
 	<b>详细信息</b>
 none
 	没有值 (仅用作无返回值函数的返回类型,这点跟C语言类似)   
-byte
+BYTE
 	8 位(bit)整数 
-ubyte
+BOOLEAN
 	无符号 8 位(bit)整数
 short
 	16 位整数
-ushort
+USHORT
 	无符号16 位整数 
-dword
-	32 位整数
-udword
-	无符号 32 位整数 
+WORD
+	无符号16 位整数 
 int
 	32 位整数
-uint
-	无符号 32 位整数
 long
 	32 位整数
-ulong
+BOOL
+	32 位整数
+UINT
+	无符号 32 位整数
+ULONG
 	无符号 32 位整数 
-int64
+DWORD
+	无符号 32 位整数 
+INT64
 	64 位整数
-uint64
+UINT64
 	无符号 64 位整数
-str
-	ANSI 字符串(不能超过 65536 个字符).
-wstr
-	UNICODE 宽字符串(转换 到/从 ANSI 字符串,部分CALL需要).  不能超过 65536 字符.
-hwnd
-	窗口句柄(pointer)
 ptr
 	常规指针(void *)
+HWND
+	窗口句柄(指针)
+HANDLE
+	一个句柄(指针)
 float
 	单精度浮点指针数 
 double
 	双精度浮点指针数
-lresult/int_ptr/long_ptr
+INT_PTR, LONG_PTR, LRESULT, LPARAM
 	一个大型整数指针.(目前x86,x64版本AutoIt都可以使用).
-lparam/int_ptr/long_ptr
-	一个大型整数指针.(目前x86,x64版本AutoIt都可以使用).
-wparam/uint_ptr/ulong_ptr
+UINT_PTR, ULONG_PTR, DWORD_PTR, WPARAM
 	一个大型无符号整数指针.(目前x86,x64版本AutoIt都可以使用).
+str
+	ANSI 字符串(不能超过 65536 个字符).
+wstr
+	UNICODE 宽字符串(转换 到/从 ANSI 字符串,部分CALL需要).  不能超过 65536 字符.
 *
 	传递一个其它类型(添加一个*到末尾.)  例如 "int*" 传递一个指针到 "int" 类型.
 @@End@@
@@ -86,35 +92,32 @@ LPCWSTR/LPWSTR
 	wstr
 LPVOID
 	ptr
-HWND
-	hwnd
-WPARAM
-	wparam
-LPARAM
-	lparam
-DWORD
-	dword
-LPDWORD
-	dword*
-HANDLE/HINSTANCE
-	ptr
+LP<i>xyz</i>
+	<i>xyz</i>*
+HINSTANCE
+	handle
+HRESULT
+	long
 LONGLONG/LARGE_INTEGER
-	int64
+	INT64
 ULONGLONG/ULARGE_INTEGER
-	uint64
-UINT_PTR
-	wparam
-LONG_PTR
-	lparam
+	UINT64
+SIZE_T
+	ULONG_PTR
 @@End@@
 
+如果要使用嵌套的数据结构(数据结构中包含数据结构)你必须重新定义嵌套的数据结构.  举个例子,一个数据结构包含两个指针数据结构("long;long") ,必须声明为 "long;long;long;long".  最前面的两个 long 值相当于第一个指针数据结构,后面的两个值相当于第二个数据结构.(thesnoW:比C更复杂了...)
+
+了解更多的 Windows API 类型,请参考 <a href="http://msdn.microsoft.com/en-us/library/aa383751.aspx">MSDN</a>.
 
 ###ReturnValue###
 @@ReturnTable@@
 成功:	@error = 0.
-失败:	@error = 1 不能使用这个DLL文件,
-	@error = 2 未知 "返回值", 
-	@error = 3 未在DLL文件中发现这个"函数".
+失败:	设置 @error
+@error:	1 不能使用这个DLL文件,
+	2 未知 "返回值", 
+	3 未在DLL文件中找到这个"函数".
+	4 参数数量错误.
 @@End@@
 参考注意项目.
 
@@ -133,6 +136,8 @@ $return[1] = 参数1
 $return[2] = 参数2 
 ...
 $return[n] = 参数n 
+
+
 
 
 ###Related###

@@ -2,31 +2,31 @@
 FileFlush
 
 ###Description###
-Flushes the file's buffer to disk.
+清空文件缓冲器到磁盘.
 
 ###Syntax###
-FileFlush ( handle )
+FileFlush ( 句柄 )
 
 
 ###Parameters###
 @@ParamTable@@
-handle
-	A handle to a file previously opened with FileOpen().
+句柄
+	由前面使用 FileOpen() 函数返回的句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns true if the buffer was flushed (or did not need to be flushed).
-Failure:	Returns false.
+成功:	返回 true ,如果缓冲器已被清空(或者不需要清空).
+失败:	返回 false.
 @@End@@
 
 
 ###Remarks###
 A file is flushed when it's handle is closed or when Windows internal buffer is full.  This function forces an immediate flushing of the buffer.
-This function can only be used with file handles returned from FileOpen().
+这个函数只能使用 FileOpen() 函数返回的句柄.
 
 ###Related###
-FileClose, FileOpen, FileWrite, FileWriteLine
+FileClose, FileOpen, FileWrite, FileWriteLine, FileSetPos
 
 
 ###Example###

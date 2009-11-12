@@ -11,8 +11,8 @@ DllStructCreate ( "数据结构" [,指针] )
 @@ParamTable@@
 "数据结构"
 	字符串表示的要创建的数据结构.(见 注释)..
-Pointer
-	[optional] If supplied the struct will not allocate memory but use the pointer supplied.
+指针
+	[可选参数] If supplied the struct will not allocate memory but use the pointer supplied.
 @@End@@
 
 ###ReturnValue###
@@ -24,54 +24,55 @@ Pointer
 	 2 = 传递的字符串中有一个未知的数据类型. 
 	 3 = 为数据结构分配需要的内存失败, 或者指针 = 0. 
 	 4 = 为传递的字串分配内存错误.
-
 @@End@@
 
 <br>
 @@ParamTable@@
 <b>类型</b>
 	<b>详细信息</b>
-byte
+BYTE
 	8bit(1字节) 带符号字符(signed char)
-ubyte
+BOOLEAN
 	8bit(1字节) 无符号字符(unsigned char)
-char
+CHAR
 	8bit(1字节) ASCII 字符(ASCII char)
-wchar
+WCHAR
 	16bit(2字节) 宽字符(Wide char)
 short
 	16bit(2字节) 带符号整数(signed integer)
-ushort
+USHORT
+	16bit(2字节) 无符号整数(unsigned integer)
+WORD
 	16bit(2字节) 无符号整数(unsigned integer)
 int
 	32bit(4字节) 带符号整数(signed integer)
-uint
-	32bit(4字节) 无符号整数(unsigned integer)
 long
 	32bit(4字节) 带符号整数(signed integer)
-ulong
+BOOL
+	32bit(4字节) 带符号整数(signed integer)
+UINT
 	32bit(4字节) 无符号整数(unsigned integer)
-dword
+ULONG
 	32bit(4字节) 无符号整数(unsigned integer)
+DWORD
+	32bit(4字节) 无符号整数(unsigned integer)
+INT64
+	64bit(8字节) 带符号整数(signed integer)
+UINT64
+	64bit(8字节) 无符号整数(unsigned integer)
 ptr
 	32bit(4字节) 整数(integer)
-hwnd
+HWND
+	32bit(4字节) 整数(integer)
+HANDLE
 	32bit(4字节) 整数(integer)
 float
 	32bit(4字节) 浮点指针(floating point)
 double
 	64bit(8字节) 浮点指针(floating point)
-int64
-	64bit(8字节) 带符号整数(signed integer)
-uint64
-	64bit(8字节) 无符号整数(unsigned integer)
-int_ptr
+INT_PTR, LONG_PTR, LRESULT, LPARAM
 	32/64位 带符号整数(signed integer) (依据使用的 x86 或 x64 AutoIt 的版本)
-uint_ptr
-	32/64位 带符号整数(signed integer) (依据使用的 x86 或 x64 AutoIt 的版本)
-long_ptr
-	32/64位 无符号整数(unsigned integer) (依据使用的 x86 或 x64 AutoIt 的版本)
-ulong_ptr
+UINT_PTR, ULONG_PTR, DWORD_PTR, WPARAM
 	32/64位 无符号整数(unsigned integer) (依据使用的 x86 或 x64 AutoIt 的版本)
 @@End@@
 
@@ -80,11 +81,18 @@ ulong_ptr
 Each data type must be separated by a semi-colon ';'.  Create arrays by adding '[size]' after the data type.
 DllStructCreate("int;char[128]"). An elementname can be added similar to a C-style declaration DllStructCreate("int n;char buffer[128]"). This dataname can be used in place of the element in other DllStruct... functions.
 
-By default, a structure alignment of 8 is used (to be consistent with general Microsoft compilers and APIs). To use a different alignment prefix the structure with the align keyword - valid alignments are 1,2,4,8 and 16:
+To use a different alignment prefix the structure with the align keyword.  The default value for n is 8. Valid values are 1, 2, 4, 8, and 16.  The alignment of a member will be on a boundary that is either a multiple of n or a multiple of the size of the member, <b>whichever is smaller</b>.  This is equivalent to the #pragma pack option with the Microsoft Visual C++ compiler.
+
 DllStructCreate("short;int")     ; structure is 8 bytes, the "int" is at offset 4
 DllStructCreate("align 2;short;int")     ; structure is 6 bytes, the "int" is at offset 2
 
-To release allocated memory just set the returned variable to 0.
+DllStructCreate("byte;double")     ; structure is 16 bytes, the "double" is at offset 8
+DllStructCreate("align 4;byte;double")     ; structure is 12 bytes, the "double" is at offset 4
+
+If a change of alignment is needed "align" can be use before the first element which need to be changed.
+"align" or "align 8" leads to default alignment.
+
+要释放分配的内存,只需将返回的变量设置为 0.
 
 
 ###Related###
