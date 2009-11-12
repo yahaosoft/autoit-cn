@@ -13,12 +13,12 @@ InetRead ( "URL" [, 选项 ] )
 URL
 	要下载文件的 URL(地址).  参考注意事项.
 选项
-	[可选参数]
-	0 = (默认)如有可能则从本地缓存中获得文件.
+	[可选参数] 0 = (默认)如有可能则从本地缓存中获得文件.
 	1 = 强制性地要求脚本从远程站点重新下载文件.
 	2 = 忽略所有 SSL 错误(使用 HTTPS 连接时).
 	4 = 使用FTP协议传输文件时,使用 ASCII 方式传输文件(不能和标志 8 一起使用).
 	8 = 使用FTP协议传输文件时,使用 二进制 方式传输文件(不能和标志 4 一起使用). 如果未使用过或者上次未指定,则二进制方式为默认传输方式.
+	16 = By-pass forcing the connection online (See remarks).
 @@End@@
 
 
@@ -37,6 +37,9 @@ URL 参数是指类似"http://www.somesite.com/path/file.html"这样的形式,�
 如果连接时需要指定用户名及密码,只要在主机名前加以下前缀即可:"用户名:密码@"(都是英文字符),比如
 "http://myuser:mypassword@www.somesite.com"
 
+The returned data is in binary format.  The <a href="BinaryToString.htm">BinaryToString()</a> function can be used to convert the data to a string.
+
+By default AutoIt forces a connection before starting a download.  For dial-up users this will prompt to go online or dial the modem (depending on how the system is configured).  The options value 16 disables this behavior.  Disabling the behavior can be useful for persistent connects (Broadband, LAN).  However, it is also required to work around certain issues in Windows Vista and Windows 7.
 
 ###Related###
 InetGet, InetGetSize, HttpSetProxy, FtpSetProxy, HttpSetUserAgent

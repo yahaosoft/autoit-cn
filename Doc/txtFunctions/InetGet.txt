@@ -13,18 +13,16 @@ InetGet ( "URL" [, "文件名" [, 选项 [, 是否后台]]] )
 URL
 	要下载文件的 URL(地址).  参考注意事项.
 文件名
-	[可选参数]
-	下载到本地的文件路径.
+	[可选参数] 下载到本地的文件路径.
 选项
-	[可选参数]
-	0 = (默认)如有可能则从本地缓存中获得文件.
+	[可选参数] 0 = (默认)如有可能则从本地缓存中获得文件.
 	1 = 强制性地要求脚本从远程站点重新下载文件.
 	2 = 忽略所有 SSL 错误(使用 HTTPS 连接时).
 	4 = 使用FTP协议传输文件时,使用 ASCII 方式传输文件(不能和标志 8 一起使用).
 	8 = 使用FTP协议传输文件时,使用 二进制 方式传输文件(不能和标志 4 一起使用). 如果未使用过或者上次未指定,则二进制方式为默认传输方式.
+	16 = By-pass forcing the connection online (See remarks).
 是否后台
-	[可选参数]
-	0 = (默认)等待下载完成之后才继续执行后面的语句.
+	[可选参数] 0 = (默认)等待下载完成之后才继续执行后面的语句.
 	1 = 立即返回并在后台完成下载 (参考注意事项).
 @@End@@
 
@@ -34,7 +32,9 @@ URL
 成功:	返回值取决于是否使用后台下载:
 	后台下载: 返回一个控制句柄. 这个句柄可以用于 InetGetInfo().  这个句柄必须使用 InetClose() 关闭.
 	等待下载: 所下载的字节数.
-失败:	设置 @error 为非0,并返回 0.
+失败:
+	后台下载: A handle is returned.  To determine if there was an error with the download, use InetGetInfo().  The handle must be closed with InetClose().
+	等待下载:设置 @error 为非0,并返回 0.
 @@End@@
 
 
@@ -54,6 +54,8 @@ URL 参数是指类似"http://www.somesite.com/path/file.html"这样的形式,�
 后台下载模式支持多文件同时下载.
 
 要终止下载,请调用 InetClose() 并传递一个由 InetGet() 返回的下载句柄.
+
+By default AutoIt forces a connection before starting a download.  For dial-up users this will prompt to go online or dial the modem (depending on how the system is configured).  The options value 16 disables this behavior.  Disabling the behavior can be useful for persistent connects (Broadband, LAN).  However, it is also required to work around certain issues in Windows Vista and Windows 7.
 
 ###Related###
 InetGetSize, InetRead, InetGetInfo, InetClose, HttpSetProxy, FtpSetProxy, HttpSetUserAgent
