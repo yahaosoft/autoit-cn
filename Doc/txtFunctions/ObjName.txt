@@ -2,7 +2,7 @@
 ObjName
 
 ###Description###
-返回对象名称或接口的描述
+返回一个对象的名称或者接口描述
 
 ###Syntax###
 ObjName ( $Objectvariable [,标志] )
@@ -10,25 +10,24 @@ ObjName ( $Objectvariable [,标志] )
 ###Parameters###
 @@ParamTable@@
 $Objectvariable
-	一个有对象名称的变量
+	您想取得的对象的对象变量
 标志
-	[optional]
-	1 = 分派接口的名字(默认)
-	2 = 对象(文档)的描述
-	3 = 对象的 ProgID
-	4 = 对象创建立的DLL 文件(如果支持)
-	5 = 工具箱图符的文件名和位置 (如果支持)
+	[可选参数] 1 = 开始使用的调用接口名称(默认)
+	2 = (文档)对象的描述
+	3 = 对象的 ProgID.
+	4 = 创建对象所使用的 DLL 文件(如果支持)
+	5 = 工具箱(ToolBox)图标的文件名与坐标(如果支持)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 	返回一个名字串 
-失败: 	设置 @error 并返回 "" 
+成功:	返回表示名称的字符串
+失败:	设置 @error 并返回 ""
 @@End@@
 
 
 ###Remarks###
-不是全部对象都支持标志 2-5. 必需总是为这些情况测试 @error.
+不是所有对象都支持标志 2 到 5. 请判断 @error 的值来确定.
 
 ###Related###
 IsObj, ObjGet, ObjCreate

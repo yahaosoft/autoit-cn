@@ -1,44 +1,45 @@
-###Function###
+﻿###Function###
 OnAutoItExitRegister
 
-
 ###Description###
-Registers a function to be called when AutoIt exits.
-
+注册一个当Autoit退出时执行的函数.
 
 ###Syntax###
-OnAutoItExitRegister( "����" )
+OnAutoItExitRegister( "函数" )
 
 
 ###Parameters###
 @@ParamTable@@
-����
-	Ҫ���õ��û��Զ��庯������
+函数
+	要调用的用户自定义函数名称
 @@End@@
-
 
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	����1,@extended can be set if already registered.
-ʧ��:	����0
+成功:	返回 1. @extended 返回是否已被注册.
+失败:	返回 0.
 @@End@@
 
+
 ###Remarks###
-The mode of exit can be retrieved with @ExitMethod.
+退出代码可以从 @ExitCode 得到.
+退出方式可以从 @ExitMethod 得到.
 @@ParamTable@@
 0
-	Natural closing.
+	正常关闭.
 1
-	close by Exit function.
+	由 Exit 函数关闭.
 2
-	close by clicking on exit of the systray.
+	点击系统托盘的退出而关闭.
 3
-	close by user logoff.
+	由用户注销系统关闭.
 4
-	close by Windows shutdown.
-@@END@@
+	Windows 关机.
+@@End@@
+
+
 ###Related###
-OnAutoItExitUnRegister
+OnAutoItExitUnRegister, Exit
 
 
 ###Example###

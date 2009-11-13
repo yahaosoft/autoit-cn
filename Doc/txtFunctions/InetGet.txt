@@ -20,7 +20,7 @@ URL
 	2 = 忽略所有 SSL 错误(使用 HTTPS 连接时).
 	4 = 使用FTP协议传输文件时,使用 ASCII 方式传输文件(不能和标志 8 一起使用).
 	8 = 使用FTP协议传输文件时,使用 二进制 方式传输文件(不能和标志 4 一起使用). 如果未使用过或者上次未指定,则二进制方式为默认传输方式.
-	16 = By-pass forcing the connection online (See remarks).
+	16 = 跳过强制网络连接开始连接 (参考说明).
 是否后台
 	[可选参数] 0 = (默认)等待下载完成之后才继续执行后面的语句.
 	1 = 立即返回并在后台完成下载 (参考注意事项).
@@ -33,8 +33,8 @@ URL
 	后台下载: 返回一个控制句柄. 这个句柄可以用于 InetGetInfo().  这个句柄必须使用 InetClose() 关闭.
 	等待下载: 所下载的字节数.
 失败:
-	后台下载: A handle is returned.  To determine if there was an error with the download, use InetGetInfo().  The handle must be closed with InetClose().
-	等待下载:设置 @error 为非0,并返回 0.
+	后台下载: 返回一个句柄. 如果出现下载错误,请使用 InetGetInfo() 得到信息. 这个句柄必须使用 InetClose() 关闭.
+	等待下载: 设置 @error 为非0,并返回 0.
 @@End@@
 
 
@@ -55,7 +55,7 @@ URL 参数是指类似"http://www.somesite.com/path/file.html"这样的形式,�
 
 要终止下载,请调用 InetClose() 并传递一个由 InetGet() 返回的下载句柄.
 
-By default AutoIt forces a connection before starting a download.  For dial-up users this will prompt to go online or dial the modem (depending on how the system is configured).  The options value 16 disables this behavior.  Disabling the behavior can be useful for persistent connects (Broadband, LAN).  However, it is also required to work around certain issues in Windows Vista and Windows 7.
+默认 AutoIt 强制一个连接然后开始下载.  如果是拨号用户将提示上线或者连接ADSL等(取决于什么系统设置). 选项 16 将关闭这个提示.  关闭提示对固定连接非常有用(宽带(指光纤一类), LAN(局域网)).  尽管如此, 它可能在 Windows Vista 和 Windows 7/2008中不可用.
 
 ###Related###
 InetGetSize, InetRead, InetGetInfo, InetClose, HttpSetProxy, FtpSetProxy, HttpSetUserAgent
