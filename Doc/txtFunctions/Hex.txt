@@ -13,9 +13,9 @@ Hex ( 表达式 [, 长度] )
 表达式
 	待转换的表达式.
 长度
-	[可选参数]要返回的整数的十六进制数的字符数(最高为8).
+	[可选参数] 要返回的整数的十六进制数的字符数(默认为 8 或者 16).
 	若指定的长度过小则这些字符将被从左边开始截断.
-	当数据类型是二进制类型,将会被全部转换.
+	当数据类型是二进制类型,此参数会被忽略.
 @@End@@
 
 
@@ -29,9 +29,7 @@ Hex ( 表达式 [, 长度] )
 
 
 ###Remarks###
-本函数仅支持32位的带符号整数(-2147483648 到 2147483647)
-
-若指定的数值的有效数字不足则 @error 将被设为 1,返回的字符串将是该数值的最低有效数字.
+If the length of the data is longer than the requested <i>length</i> then as many least significant characters will be returned as possible and @error will be set to non-zero.
 
 ###Related###
 Dec, BitAND, BitNOT, BitOR, BitRotate, BitShift, BitXOR

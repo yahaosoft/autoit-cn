@@ -2,23 +2,23 @@
 FileWrite
 
 ###Description###
-向此前已打开的文本文件尾追加一行数据.
+向此前已打开的文本/数据文件尾追加数据.
 
 ###Syntax###
-FileWrite ( 文件句柄 或 "文件名", "数据" ) 
+FileWrite ( "文件句柄/文件名", "文本/数据" ) 
 
 
 ###Parameters###
 @@ParamTable@@
 文件句柄
 	目标文件句柄,可由此前调用 FileOpen 函数的返回值获得.另外也可以直接使用目标文件名. 
-数据
-	需要写入的数据.程序不会对写入的每行字符自动添加 @CR 或 @LF 字符.    
+文本/数据
+	需要写入文件的文本/数据.程序不会对写入的每行字符自动添加 @CR 或 @LF 字符.    
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回值为1.  
+成功:	返回值为1.
 失败:	返回值为0,说明文件无法以写入模式打开,文件具有只读属性或者无法写入数据.
 @@End@@
 
@@ -32,11 +32,11 @@ FileWrite ( 文件句柄 或 "文件名", "数据" )
 
 当写入文本时, AutoIt 默认使用 ANSI 模式. 要写入 Unicode 模式的文本,必须使用 FileOpen() 并加上标志来打开文件. 
 
-如果一行是二进制数据类型(和不是文本),那么将会一个字节一个字节的写入. 要进行二进制操作(Binary operation)必须使用 Fileopen() 并加上 binary 标志打开文件. 
+如果数据是二进制数据变量(而不是文本),那么将会一个字节一个字节的写入. 要进行二进制操作(Binary operation)必须使用 Fileopen() 并加上 binary 标志打开文件. 
 
 
 ###Related###
-FileClose, FileFlush, FileOpen, FileRead, FileReadLine, FileWriteLine, Binary, FileSetPos, FileGetPos
+FileFlush, FileOpen, FileRead, FileReadLine, FileWriteLine, Binary, FileSetPos, FileGetPos
 
 
 ###Example###
