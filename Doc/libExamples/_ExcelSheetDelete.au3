@@ -1,25 +1,25 @@
 ﻿; ***************************************************************
-; Example 1 - After opening a workbook and returning its object identifier, Delete a Worksheet by String Name
+; 示例 1 打开一个新的工作表并返回其对象标识符, 然后通过表的名称字符串删除表
 ; *****************************************************************
 #include <Excel.au3>
 
-Local $oExcel = _ExcelBookNew() ;Create new book, make it visible
+Local $oExcel = _ExcelBookNew() ;创建一个新的工作表并打开
 
-_ExcelSheetDelete($oExcel, "Sheet1") ;Delete Sheet by string name of SheetName
+_ExcelSheetDelete($oExcel, "Sheet1") ;通过表的名称字符串删除表
 
-MsgBox(0, "Exiting", "Press OK to Save File and Exit")
-_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; Now we save it into the temp directory; overwrite existing file if necessary
-_ExcelBookClose($oExcel) ; And finally we close out
+MsgBox(0, "退出", "按确定保存文件并退出")
+_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 在临时目录保存文件, 如果文件已存在则覆盖原文件
+_ExcelBookClose($oExcel) ; 关闭工作表, 退出
 
 ; ***************************************************************
-; Example 2 - After opening a workbook and returning its object identifier, Delete a Worksheet by Index
+; 示例 2 打开一个新的工作表并返回其对象标识符, 然后通过表的索引值删除表
 ; *****************************************************************
 #include <Excel.au3>
 
-Local $oExcel = _ExcelBookNew() ;Create new book, make it visible
+Local $oExcel = _ExcelBookNew() ;创建一个新的工作表并打开
 
-_ExcelSheetDelete($oExcel, 1) ;Delete Sheet by index of SheetName
+_ExcelSheetDelete($oExcel, 1) ;通过表的索引值删除表
 
-MsgBox(0, "Exiting", "Press OK to Save File and Exit")
-_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; Now we save it into the temp directory; overwrite existing file if necessary
-_ExcelBookClose($oExcel) ; And finally we close out
+MsgBox(0, "退出", "按确定保存文件并退出")
+_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 在临时目录保存文件, 如果文件已存在则覆盖原文件
+_ExcelBookClose($oExcel) ; 关闭工作表, 退出
