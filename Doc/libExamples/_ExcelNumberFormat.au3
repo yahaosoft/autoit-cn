@@ -1,55 +1,58 @@
 ﻿; ***************************************************************
-; Example 1 - Write to a Cell using a Loop, after opening a workbook and returning its object identifier.  Format Numbers, then Save and Close file.
+; 示例 1 打开一个新的工作表并返回其对象标识符, 然后使用一个循环写入单元格. 格式化字符串后保存并关闭文件.
 ; *****************************************************************
 #include <Excel.au3>
 
-Local $oExcel = _ExcelBookNew() ;Create new book, make it visible
+Local $oExcel = _ExcelBookNew() ;创建一个新的工作表并打开
 
-; We can fill-up some cells using a simple loop and random Numbers
+;使用一个简单的循环和随机数字填充单元格
 For $y = 1 To 10
 	For $x = 1 To 10
-		_ExcelWriteCell($oExcel, Random(1000, 10000), $x, $y) ;Some random numbers to file
+		_ExcelWriteCell($oExcel, Random(1000, 10000), $x, $y)  ;向文件写入随机数字信息
 	Next
 Next
 
-$sFormat = "$#,##0.00" ;Format String tells _ExcelNumberFormat to make it a $ currency
-_ExcelNumberFormat($oExcel, $sFormat, 1, 1, 5, 5) ;Start on Row 1, Start on Column 1, End on Row 5, End on Column 5
+Sleep(3500) ; 暂停让用户观察操作
 
-MsgBox(0, "Exiting", "Press OK to Save File and Exit")
-_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; Now we save it into the temp directory; overwrite existing file if necessary
-_ExcelBookClose($oExcel) ; And finally we close out
+$sFormat = "$#,##0.00" ;应用到指定范围的格式化字符串(使其带有$现金符号)
+_ExcelNumberFormat($oExcel, $sFormat, 1, 1, 5, 5) ;第1行第一列开始，第5行第五列结束
+
+MsgBox(0, "退出", "按[确认]保存文件并退出")
+_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 在临时目录保存文件, 如果文件已存在则覆盖原文件
+_ExcelBookClose($oExcel)  ; 关闭工作表, 退出
 
 ; ***************************************************************
-; Example 2 - Write to a Cell using a Loop, after opening a workbook and returning its object identifier.  Format Numbers, then Save and Close file.
+; 示例 2 打开一个新的工作表并返回其对象标识符, 然后使用一个循环写入单元格. 
+;            格式化字符串后保存并关闭文件.
 ; *****************************************************************
 #include <Excel.au3>
 
-Local $oExcel = _ExcelBookNew() ;Create new book, make it visible
-Local $aFormatExamples[5] = ["Format Examples", "General", "hh:mm:ss", "$#,##0.00", "[Red]($#,##0.00)"] ;Array to Create Headers
+Local $oExcel = _ExcelBookNew() ;创建一个新的工作表并打开
+Local $aFormatExamples[5] = ["Format Examples", "yyyy-mm-dd", "hh:mm:ss", "$#,##0.00", "$#,##0.00$"] ;创建用于表头的数组
 
-For $i = 0 To UBound($aFormatExamples) - 1 ;Use loop to write headers
-	_ExcelWriteCell($oExcel, $aFormatExamples[$i], 1, $i + 1) ; +1 to $i so that 0-base index and row match
+For $i = 0 To UBound($aFormatExamples) - 1 ;使用循环来写表头
+	_ExcelWriteCell($oExcel, $aFormatExamples[$i], 1, $i + 1) ; +1到$i以便0基索引与行匹配
 Next
 
-; We can fill-up some cells using a simple loop and random Numbers
-For $y = 2 To 5 ;Start on Column 2
-	For $x = 2 To 10
-		_ExcelWriteCell($oExcel, Random(1000, 10000), $x, $y) ;Some random numbers to file
+;使用一个简单的循环和随机数字填充单元格
+For $y = 2 To 5 ;在第二列开始
+	For $x = 2 To 11
+		_ExcelWriteCell($oExcel, Random(1000, 10000), $x, $y) ;向文件写入随机数字信息
 	Next
 Next
 
-ToolTip("Formatting Column(s) Soon...")
-Sleep(3500) ;Pause to let user view action
+ToolTip("准备应用指定的格式...")
+Sleep(3500) ; 暂停让用户观察操作
 
-; We can format using a simple loop
-; Each Column will have a differnt type of Format
-For $i = 1 To UBound($aFormatExamples) - 1
-	_ExcelNumberFormat($oExcel, $aFormatExamples[$i], 2, $i, 11, $i)
+; 使用一个简单的循环格式化
+; 每列应用不同类型新的格式
+For $i = 1 To UBound($aFormatExamples) -1
+    _ExcelNumberFormat($oExcel, $aFormatExamples[$i], 2, $i+1, 11, $i+1)
 Next
 
-$oExcel.Columns.AutoFit ;AutoFits the Columns for better viewing
-$oExcel.Rows.AutoFit ;AutoFits the Rows for better viewing
+$oExcel.Columns.AutoFit ;自动匹配列以便更好观察
+$oExcel.Rows.AutoFit ;自动匹配行以便更好观察
 
-MsgBox(0, "Exiting", "Press OK to Save File and Exit")
-_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; Now we save it into the temp directory; overwrite existing file if necessary
-_ExcelBookClose($oExcel) ; And finally we close out
+MsgBox(0, "退出", "按[确认]保存文件并退出")
+_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 在临时目录保存文件, 如果文件已存在则覆盖原文件
+_ExcelBookClose($oExcel) ; 关闭工作表, 退出

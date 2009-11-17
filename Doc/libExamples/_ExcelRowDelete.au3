@@ -1,40 +1,42 @@
 ﻿; ***************************************************************
-; Example 1 - Write to a Cell using a Loop, after opening a workbook and returning its object identifier.  Delete 1 row, then Save and Close file.
+; 示例 1 打开一个新的工作表并返回其对象标识符, 然后使用循环写入单元格.
+;            删除 1 行后, 保存并关闭文件.
 ; *****************************************************************
 #include <Excel.au3>
 
-Local $oExcel = _ExcelBookNew() ;Create new book, make it visible
+Local $oExcel = _ExcelBookNew() ;创建一个新的工作表并打开
 
-For $i = 1 To 5 ;Loop
-	_ExcelWriteCell($oExcel, $i, $i, 1) ;Write to the Cell Vertically using values 1 to 5
+For $i = 1 To 5 ;循环
+	_ExcelWriteCell($oExcel, $i, $i, 1) ;在工作表单元格中垂直方向写入 1 至 5 信息
 Next
 
-ToolTip("Deleting Rows Soon...")
+ToolTip("准备删除数据...")
 Sleep(3500)
 
-_ExcelRowDelete($oExcel, 1, 1) ;Delete Row 1 and only delete 1 Row
+_ExcelRowDelete($oExcel, 1, 1) ;删除行 1 数据, 仅删除 1 行
 
-MsgBox(0, "Exiting", "Press OK to Save File and Exit")
-_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; Now we save it into the temp directory; overwrite existing file if necessary
-_ExcelBookClose($oExcel) ; And finally we close out
+MsgBox(0, "退出", "按[确认]保存文件并退出")
+_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 在临时目录保存文件, 如果文件已存在则覆盖原文件
+_ExcelBookClose($oExcel) ; 关闭工作表, 退出
 
 ; ***************************************************************
-; Example 2 - Write to a Cell using a Loop, after opening a workbook and returning its object identifier.  Delete some rows, then Save and Close file.
+; 示例 2 打开一个新的工作表并返回其对象标识符, 然后使用循环写入单元格.
+;            删除一些行后, 保存并关闭文件.
 ; *****************************************************************
 
 #include <Excel.au3>
 
-Local $oExcel = _ExcelBookNew() ; Open new book, make it visible
+Local $oExcel = _ExcelBookNew() ;创建一个新的工作表并打开e
 
-For $i = 1 To 5 ;Loop
-	_ExcelWriteCell($oExcel, $i, $i, 1) ;Write to the Cell Vertically using values 1 to 5
+For $i = 1 To 5 ;循环
+	_ExcelWriteCell($oExcel, $i, $i, 1) ;在工作表单元格中垂直方向写入 1 至 5 信息
 Next
 
-ToolTip("Deleting Rows Soon...")
+ToolTip("准备删除数据...")
 Sleep(3500)
 
-_ExcelRowDelete($oExcel, 3, 2) ;Delete Rows starting at row 3, and delete 2 Rows
+_ExcelRowDelete($oExcel, 3, 2) ;从行 3 开始, 删除 2 行
 
-MsgBox(0, "Exiting", "Press OK to Save File and Exit")
-_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; Now we save it into the temp directory; overwrite existing file if necessary
-_ExcelBookClose($oExcel) ; And finally we close out
+MsgBox(0, "退出", "按[确认]保存文件并退出")
+_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 在临时目录保存文件, 如果文件已存在则覆盖原文件
+_ExcelBookClose($oExcel) ; 关闭工作表, 退出
