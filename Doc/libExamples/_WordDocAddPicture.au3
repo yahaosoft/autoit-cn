@@ -1,16 +1,13 @@
 ﻿; *******************************************************
-; Example 1 - Create a word window with a new blank document,
-;				then add some pictures to the document.
+;示例1 - 创建一个新的空白文档Word窗口, 然后添加一些图片文件.
 ; *******************************************************
-;
 #include <Word.au3>
-
-$sPath = @WindowsDir & "\"
+$sPath = @SystemDir & "\"
 $search = FileFindFirstFile($sPath & "*.bmp")
 
-; Check if the search was successful
+;检查搜索是否成功
 If $search = -1 Then
-	MsgBox(0, "Error", "No images found")
+	MsgBox(0, "错误", "没有发现图片文件")
 	Exit
 EndIf
 
@@ -24,5 +21,5 @@ While 1
 	If Not @error Then $oShape.Range.InsertAfter (@CRLF)
 WEnd
 
-; Close the search handle
+; 关闭搜索句柄
 FileClose($search)

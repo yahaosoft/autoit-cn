@@ -1,7 +1,6 @@
 ﻿; *******************************************************
 ; 例子 1 - 创建一个新的Microsoft Word文件并打开(创建成功则自动保存到相应路径)
 ; *******************************************************
-;
 #include <Word.au3>
 $oWordApp = _WordCreate (@ScriptDir & "\Test.doc")
 
@@ -22,7 +21,6 @@ EndIf
 ; *******************************************************
 ; 例子 3 - 创建一个新Microsoft Word文件并打开
 ; *******************************************************
-;
 #include <Word.au3>
 $oWordApp = _WordCreate ()
 
@@ -30,7 +28,6 @@ $oWordApp = _WordCreate ()
 ;例子 4 -创建一个新的Microsoft Word文件并打开(指定窗口为隐藏状态)，
 ;            追加一些文本，然后保存更改退出.
 ; *******************************************************
-;
 #include <Word.au3>
 $oWordApp = _WordCreate (@ScriptDir & "\Test.doc", 0, 0)
 $oDoc = _WordDocGetCollection ($oWordApp, 0)
