@@ -1,8 +1,8 @@
 ﻿; *******************************************************
-; Example 1 - Create a word window, open a document,
-;				then read all available document properties by index
+; 示例 1 - 创建一个新的空白文档Word窗口, 打开一个文档,
+;				然后按索引读取索引中所有可读取的属性
 ; *******************************************************
-;
+
 #include <Word.au3>
 $oWordApp = _WordCreate (@ScriptDir & "\Test.doc")
 $oDoc = _WordDocGetCollection ($oWordApp, 0)
@@ -11,10 +11,10 @@ For $i = 1 To 30
 Next
 
 ; *******************************************************
-; Example 2 - Create a word window, open a document,
-;				then read the title, subject, and author properties by name.
+; 示例 2 - 创建一个新的空白文档Word窗口, 打开一个文档,
+;				然后读取标题，主题，作者名字的属性
 ; *******************************************************
-;
+
 #include <Word.au3>
 $oWordApp = _WordCreate (@ScriptDir & "\Test.doc")
 $oDoc = _WordDocGetCollection ($oWordApp, 0)
