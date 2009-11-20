@@ -1,22 +1,23 @@
 ﻿; *******************************************************
-; Example 1 - Register and later deregister a custom and the default Word.au3 error handler
+; 示例 1 - 注册一个自定义的和默认的 Word.au3 错误句柄, 然后注销
 ; *******************************************************
-;
+
 #include <Word.au3>
-; Register a customer error handler
+
+; 注册自定义的错误句柄
 _WordErrorHandlerRegister ("MyErrFunc")
-; Do something
-; Deregister the customer error handler
+
+; 注销自定义的错误句柄
 _WordErrorHandlerDeregister ()
-; Do something else
-; Register the default IE.au3 COM Error Handler
+
+; 注册默认的 IE.au3 COM 错误句柄
 _WordErrorHandlerRegister ()
-; Do more work
+
 
 Exit
 
 Func MyErrFunc()
-	; Important: the error object variable MUST be named $oWordErrorHandler
+	;重要：错误对象变量必须命名为 $oWordErrorHandler
 	$ErrorScriptline = $oWordErrorHandler.scriptline
 	$ErrorNumber = $oWordErrorHandler.number
 	$ErrorNumberHex = Hex($oWordErrorHandler.number, 8)

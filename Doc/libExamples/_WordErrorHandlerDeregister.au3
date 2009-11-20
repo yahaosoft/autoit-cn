@@ -1,14 +1,13 @@
 ﻿; *******************************************************
-; Example 1 - Register and later deregister a custom error handler
+; 示例 1 - 注册自定义的错误句柄, 然后注销自定义的错误句柄.
 ; *******************************************************
-;
+
 #include <Word.au3>
-; Register a customer error handler
+; 注册自定义的错误句柄
 _WordErrorHandlerRegister ("MyErrFunc")
-; Do something
-; Deregister the customer error handler
+
+; 注销自定义的错误句柄
 _WordErrorHandlerDeregister ()
-; Do something else
 
 Exit
 
@@ -17,5 +16,5 @@ Func MyErrFunc()
 	MsgBox(0, "", "We intercepted a COM Error !" & @CRLF & _
 			"Number is: " & $HexNumber & @CRLF & _
 			"Windescription is: " & $oWordErrorHandler.windescription)
-	SetError(1) ; something to check for when this function returns
+	SetError(1) ; 函数返回时检查
 EndFunc   ;==>MyErrFunc
