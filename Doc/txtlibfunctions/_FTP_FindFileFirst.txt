@@ -1,8 +1,8 @@
-###User Defined Function###
+﻿###User Defined Function###
 _FTP_FindFileFirst
 
 ###Description###
-Find First File on an FTP server.
+查找 FTP 服务器上第一个文件.
 
 ###Syntax###
 #Include <FTPEx.au3>
@@ -11,44 +11,44 @@ _FTP_FindFileFirst($l_FTPSession, $s_RemotePath, ByRef $h_Handle [, $l_Flags = 0
 ###Parameters###
 @@ParamTable@@
 $l_FTPSession
-	as returned by _FTP_Connect().
+	由 _FTP_Connect() 返回.
 $s_RemotePath
-	path to be used when searching the file.
+	用于搜索文件的路径.
 $h_Handle
-	returns Handle to be used in _FTP_FindFileNext() or _FTP_FindFileClose().
+	返回给 _FTP_FindFileNext() 或者 _FTP_FindFileClose() 使用的句柄.
 $l_Flags
-	[optional] see remarks.
+	[可选参数] 参考备注.
 $l_Context
-	[optional] A variable that contains the application-defined value that associates this search with any application data.
+	[可选参数] A variable that contains the application-defined value that associates this search with any application data.
 	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	an array, see remarks.
-Failure:	0  and sets @ERROR
+成功:	返回一个数组, 参考备注.
+失败:	返回 0 并设置 @ERROR
 @@End@@
 
 ###Remarks###
-If successfull a return array:
-[0]  - Number of elements
-[1]  - File Attributes
-[2]  - Creation Time Low
-[3]  - Creation Time Hi
-[4]  - Access Time Low
-[5]  - Access Time Hi
-[6]  - Last Write Low
-[7]  - Last Write Hi
-[8]  - File Size High
-[9]  - File Size Low
-[10] - File Name
-[11] - Altername
+如果成功则返回一个数组:
+[0]  - 元素数量
+[1]  - 文件属性
+[2]  - 创建时间低位
+[3]  - 创建时间高位
+[4]  - 访问时间低位
+[5]  - 访问时间高位
+[6]  - 最后写入时间低位
+[7]  - 最后写入时间高位
+[8]  - 文件大小高位
+[9]  - 文件大小低位
+[10] - 文件名
+[11] - 别名
 
 $l_Flags can be a combination of $INTERNET_FLAG_HYPERLINK, $INTERNET_FLAG_NEED_FILE, $INTERNET_FLAG_NO_CACHE_WRITE, $INTERNET_FLAG_RELOAD, $INTERNET_FLAG_RESYNCHRONIZE
 
 
 ###Related###
-_FTP_FindFileNext, _FTP_FindFileClose
+_FTP_FindFileNext, _FTP_FindFileClose, _FTP_SetStatusCallback
 
 ###See Also###
 @@MsdnLink@@ FtpFindFirstFile
