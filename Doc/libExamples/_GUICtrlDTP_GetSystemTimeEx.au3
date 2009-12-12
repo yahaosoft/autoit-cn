@@ -1,4 +1,4 @@
-﻿#AutoIt3Wrapper_au3check_parameters=-d -w 1 -w 2 -w 3 -w 4 -w 5 -w 6
+#AutoIt3Wrapper_au3check_parameters=-d -w 1 -w 2 -w 3 -w 4 -w 5 -w 6
 #include <GuiConstantsEx.au3>
 #include <GuiDateTimePicker.au3>
 
@@ -24,7 +24,7 @@ Func _Main()
 	_GUICtrlDTP_SetFormat($hDTP, "ddd MMM dd, yyyy hh:mm ttt")
 
 	; Set system time
-	$tDate = DllStructCreate($tagDTPTIME)
+	$tDate = DllStructCreate($tagSYSTEMTIME)
 	DllStructSetData($tDate, "Year", @YEAR)
 	DllStructSetData($tDate, "Month", 8)
 	DllStructSetData($tDate, "Day", 19)
