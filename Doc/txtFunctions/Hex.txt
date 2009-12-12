@@ -29,7 +29,9 @@ Hex ( 表达式 [, 长度] )
 
 
 ###Remarks###
-If the length of the data is longer than the requested <i>length</i> then as many least significant characters will be returned as possible and @error will be set to non-zero.
+The function only works with numbers that fit in a 32 bit signed integer (-2147483648 to 2147483647)
+
+The function will also set @error to 1 if not enough digits were requested - the returned string will return the least significant digits in this case.
 
 ###Related###
 Dec, BitAND, BitNOT, BitOR, BitRotate, BitShift, BitXOR

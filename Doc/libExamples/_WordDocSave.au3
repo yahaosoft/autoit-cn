@@ -1,7 +1,8 @@
 ﻿; *******************************************************
-; 示例 1 - 创建一个新的Microsoft Word文件并打开，追加一些文本，然后保存更改退出.
+; 示例 1 - 创建一个新的Microsoft Word文件并打开,追加一些文本,然后保存更改退出.
+;
 ; *******************************************************
-
+;
 #include <Word.au3>
 $oWordApp = _WordCreate (@ScriptDir & "\Test.doc")
 $oDoc = _WordDocGetCollection ($oWordApp, 0)

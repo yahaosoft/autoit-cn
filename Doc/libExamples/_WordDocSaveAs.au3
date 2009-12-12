@@ -2,7 +2,7 @@
 ; 示例 1 - 创建一个新的Microsoft Word文件并打开，追加一些文本，
 ;				执行另存为操作, 然后退出.
 ; *******************************************************
-
+;
 #include <Word.au3>
 $oWordApp = _WordCreate ()
 $oDoc = _WordDocGetCollection ($oWordApp, 0)

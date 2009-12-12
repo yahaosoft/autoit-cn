@@ -37,7 +37,7 @@ BOOLEAN
 CHAR
 	8bit(1字节) ASCII 字符(ASCII char)
 WCHAR
-	16bit(2字节) 宽字符(Wide char)
+	16bit(2字节) UNICODE 宽字符(Wide char)
 short
 	16bit(2字节) 带符号整数(signed integer)
 USHORT
@@ -61,7 +61,7 @@ INT64
 UINT64
 	64bit(8字节) 无符号整数(unsigned integer)
 ptr
-	32bit(4字节) 整数(integer)
+	32/64位 无符号整数(unsigned integer) (依据使用的 x86 或 x64 AutoIt 的版本)
 HWND
 	32bit(4字节) 整数(integer)
 HANDLE
@@ -78,8 +78,12 @@ UINT_PTR, ULONG_PTR, DWORD_PTR, WPARAM
 
 
 ###Remarks###
-Each data type must be separated by a semi-colon ';'.  Create arrays by adding '[size]' after the data type.
-DllStructCreate("int;char[128]"). An elementname can be added similar to a C-style declaration DllStructCreate("int n;char buffer[128]"). This dataname can be used in place of the element in other DllStruct... functions.
+Each data type must be separated by a semi-colon ';'.
+
+Create arrays by adding '[size]' after the data type: DllStructCreate("int;char[128]")
+
+An elementname can be added similar to a C-style declaration: DllStructCreate("int n;char buffer[128]").
+This dataname can be used in place of the element in other DllStruct... functions.  The dataname must be alphanumeric or an underscore.
 
 To use a different alignment prefix the structure with the align keyword.  The default value for n is 8. Valid values are 1, 2, 4, 8, and 16.  The alignment of a member will be on a boundary that is either a multiple of n or a multiple of the size of the member, <b>whichever is smaller</b>.  This is equivalent to the #pragma pack option with the Microsoft Visual C++ compiler.
 

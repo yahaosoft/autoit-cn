@@ -53,7 +53,7 @@ ACos ( |expression )
 AdlibRegister ( |"function" [, time] )
 ;
 [AdlibUnRegister | Unregisters an adlib function.]
-AdlibUnRegister( |"function" )
+AdlibUnRegister( |[ "function" ] )
 ;
 [Asc | Returns the ASCII code of a character.]
 Asc ( |"char" )
@@ -218,7 +218,7 @@ DirMove ( |"source dir", "dest dir" [, flag] )
 DirRemove ( |"path" [, recurse] )
 ;
 [DllCall | Dynamically calls a function in a DLL.]
-DllCall ( |"dll", "return type", "function" [, "type1", param1 [, "type n", param n]] )
+DllCall ( |"dll", "return type", "function" [, type1, param1 [, type n, param n]] )
 ;
 [DllCallbackFree | Frees a previously created handle created with DllCallbackRegister.]
 DllCallbackFree ( |handle )
@@ -371,10 +371,10 @@ FileOpen ( |"filename", mode )
 FileOpenDialog ( |"title", "init dir", "filter" [, options [, "default name" [, hwnd]]] )
 ;
 [FileRead | Read in a number of characters from a previously opened text file.]
-FileRead ( |filehandle or "filename" [, count] )
+FileRead ( |"filehandle/filename" [, count] )
 ;
 [FileReadLine | Read in a line of text from a previously opened text file.]
-FileReadLine ( |filehandle or "filename" [, line] )
+FileReadLine ( |"filehandle/filename" [, line] )
 ;
 [FileRecycle | Sends a file or directory to the recycle bin.]
 FileRecycle ( |"source" )
@@ -397,11 +397,11 @@ FileSetPos ( |handle, offset, origin )
 [FileSetTime | Sets the timestamp of one of more files.]
 FileSetTime ( |"file pattern", "time" [, type [, recurse] ] )
 ;
-[FileWrite | Append a line of text to the end of a previously opened text file.]
-FileWrite ( |filehandle or "filename", "line" )
+[FileWrite | Append a text/data to the end of a previously opened file.]
+FileWrite ( |"filehandle/filename", "text/data" )
 ;
 [FileWriteLine | Append a line of text to the end of a previously opened text file.]
-FileWriteLine ( |filehandle or "filename", "line" )
+FileWriteLine ( |"filehandle/filename", "line" )
 ;
 [Floor | Returns a number rounded down to the closest integer.]
 Floor ( |expression )
@@ -470,7 +470,7 @@ GUICtrlCreateMenuItem ( |"text", menuID [, menuentry [, menuradioitem]] )
 GUICtrlCreateMonthCal ( |"text", left, top [, width [, height [, style [, exStyle]]]] )
 ;
 [GUICtrlCreateObj | Creates an ActiveX control in the GUI.]
-GUICtrlCreateObj ( |$ObjectVar, left, top [, width [, height ]] )
+GUICtrlCreateObj ( |ObjectVar, left, top [, width [, height ]] )
 ;
 [GUICtrlCreatePic | Creates a Picture control for the GUI.]
 GUICtrlCreatePic ( |filename, left, top [, width [, height [, style [, exStyle]]]] )
@@ -674,7 +674,7 @@ IniWrite ( |"filename", "section", "key", "value" )
 IniWriteSection ( |"filename", "section", "data" [, index ] )
 ;
 [InputBox | Displays an input box to ask the user to enter a string.]
-InputBox ( |"title", "prompt" [, "default" [, "password char" [, width, height [, left, top [, timeOut [, hwnd]]]]]] )
+InputBox ( |"title", "prompt" [, "default" [, "password char" [, width [, height [, left [, top [, timeout [, hwnd]]]]]]]] )
 ;
 [Int | Returns the integer (whole number) representation of an expression.]
 Int ( |expression )
@@ -779,7 +779,7 @@ OnAutoItExitRegister( |"function" )
 OnAutoItExitUnregister( |"function" )
 ;
 [Ping | Pings a host and returns the roundtrip-time.]
-Ping ( |address or hostname [, timeout] )
+Ping ( |"address/hostname" [, timeout] )
 ;
 [PixelChecksum | Generates a checksum for a region of pixels.]
 PixelChecksum ( |left, top, right, bottom [, step [, hwnd [, mode]]] )
@@ -789,6 +789,12 @@ PixelGetColor ( | x , y [, hwnd] )
 ;
 [PixelSearch | Searches a rectangle of pixels for the pixel color provided.]
 PixelSearch ( |left, top, right, bottom, color [, shade-variation [, step [, hwnd]]] )
+;
+[PluginClose | Close a plugin file]
+PluginClose ( |dllhandle )
+;
+[PluginOpen | Open a plugin file.]
+PluginOpen ( |filename )
 ;
 [ProcessClose | Terminates a named process.]
 ProcessClose ( |"process")
@@ -1279,7 +1285,7 @@ WinWaitNotActive ( |"title" [, "text" [, timeout]] )
 [@exitCode |   Exit code as set by Exit]
 @exitCode
 ;
-[@exitMethod |   Exit method.&nbsp; See the Func OnAutoItExit().]
+[@exitMethod |   Exit method.&nbsp; See the Func OnAutoItExitRegister().]
 @exitMethod
 ;
 [@extended |   Extended function return - used in certain functions such as StringReplace.]
@@ -1507,7 +1513,7 @@ WinWaitNotActive ( |"title" [, "text" [, timeout]] )
 [@WorkingDir |   Current/active working directory. (Result does not contain a trailing backslash)]
 @WorkingDir
 ;
-[@YDAY |   Current day of year. Range is 1 to 366 (or 365 if not a leap year)]
+[@YDAY |   Current day of year. Range is 001 to 366 (or 001 to 365 if not a leap year)]
 @YDAY
 ;
 [@YEAR |   Current four-digit year]
