@@ -38,12 +38,14 @@ RunAsWait ( "用户名", "域", "密码", 登录标志, "程序" [, "工作目�
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 	返回运行程序的退出代码. 
+成功: 	返回运行程序的退出代码.
 失败: 	返回 0 并设置 @error 为非零.
 @@End@@
 
 
 ###Remarks###
+Paths with spaces need to be enclosed in quotation marks.
+
 It is important to specify a working directory the user you are running as has access to, otherwise the function will fail.
 
 It is recommended that you only load the user's profile is you are sure you need it.  There is a small chance a profile can be stuck in memory under the right conditions.  If a script using RunAs() happens to be running as the SYSTEM account (for example, if the script is running as a service) and the user's profile is loaded, then you must take care that the script remains running until the child process closes.

@@ -12,11 +12,11 @@ FileSetTime ( "文件名", "时间" [, 类型 [, 递归遍历] ])
 ###Parameters###
 @@ParamTable@@
 文件名
-	目标文件,例如: C:\*.au3 , C:\文件夹   
+	目标文件,例如: C:\*.au3 , C:\文件夹
 时间
 	格式为"YYYYMMDDHHMMSS"(年月日时分秒,24小时制)的时间.若给定的时间为空("")则使用当前时间.   
 类型
-	[可选参数] 要更改的时间戳类型: 0 = 修改时间, 1 = 创建时间, 2 = 访问时间
+	[可选参数] 要更改的时间戳类型: 0 = 修改时间(默认), 1 = 创建时间, 2 = 访问时间
 递归遍历
 	[可选参数] 若设为1则将指定的属性更改递归应用到所有子目录(默认值为0,表示不递归).
 @@End@@
@@ -30,8 +30,8 @@ FileSetTime ( "文件名", "时间" [, 类型 [, 递归遍历] ])
 
 
 ###Remarks###
-Using a date earlier than 1980-01-01 will have no effect.
-Trying to change a timestamp on read-only files will result in a error.
+如果设置日期早于 1980-01-01 则没有任何效果.
+如果尝试修改一个只读文件的时间戳将返回一个错误.
 
 ###Related###
 FileGetTime, FileGetAttrib, FileSetAttrib

@@ -20,7 +20,7 @@ RunAs ( "用户名", "域名", "密码", 登录标志, "程序" [, "工作目录
 	0 - 不加载配置文件的交互式登录.
 	1 - 加载配置文件的交互式登录.
 	2 - 只是网络认证.
-	4 - Inherit the calling processes environment instead of the user's.
+	4 - 继承调用程序的环境变量替换用户的环境变量.
 程序
 	程序所在的完整路径(文件格式为 EXE,BAT,COM 或 PIF).
 工作目录
@@ -31,7 +31,7 @@ RunAs ( "用户名", "域名", "密码", 登录标志, "程序" [, "工作目录
 	  @SW_MINIMIZE = 最小化的窗口
 	  @SW_MAXIMIZE = 最大化的窗口
 可选标志
-	[optional] Controls various options related to how the parent and child process interact.
+	[可选参数] Controls various options related to how the parent and child process interact.
 	  0x1 ($STDIN_CHILD)  = Provide a handle to the child's STDIN stream
 	  0x2 ($STDOUT_CHILD) = Provide a handle to the child's STDOUT stream
 	  0x4 ($STDERR_CHILD) = Provide a handle to the child's STDERR stream
@@ -49,6 +49,8 @@ RunAs ( "用户名", "域名", "密码", 登录标志, "程序" [, "工作目录
 
 
 ###Remarks###
+Paths with spaces need to be enclosed in quotation marks.
+
 It is important to specify a working directory the user you are running as has access to, otherwise the function will fail.
 
 It is recommended that you only load the user's profile is you are sure you need it.  There is a small chance a profile can be stuck in memory under the right conditions.  If a script using RunAs() happens to be running as the SYSTEM account (for example, if the script is running as a service) and the user's profile is loaded, then you must take care that the script remains running until the child process closes.

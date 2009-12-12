@@ -65,13 +65,15 @@ StringRegExp ( "字符串", "表达式" [, 标志 ] [, 偏移量 ] ] )
 
 
 ###Remarks###
+The flag parameter can have one of 5 values (0 through 4).  0 gives a true (1) or false (0) as to whether the pattern was found or not.  1 and 2 find the first match and returns it in an array.  3 and 4 find multiple hits and fills the array with all the matching text.  2 and 4 include the full matching text as the first record, not just the capturing groups, which is all you get with flag 1 and 3.
+
 使用正则表达式是搜寻字串的一个轻巧的方法. 正则表达式指出纯文本字符串应该在目标字串中存在, 而且有些字符有特别的意义，表示什么样的可变性是承认目标字串的. AutoIt 正则表达式通常是与大小写有关.
 
 正则表达式由下面所列的一个或多个简单的字符规则组成. 如果字符不在下列表格中,则它只会匹配它本身.
 
 次数修饰符 (*, +, ?, {...} ) 将尝试最大可能的匹配, 使第一次匹配之后的字符也能得到匹配, 除非被一个问号跟随; then it will find the smallest pattern that allows the following characters to match as well.
 
-允许嵌套的组, 但必须记住所有的组, 除非不捕获组, 在返回的数组中，里面的表达式匹配的值在前，而外面的表达式匹配的值在后.
+允许嵌套的组, 但必须记住所有的组, 除非不捕获组, 在返回的数组中，里面的表达式匹配的值在前,而外面的表达式匹配的值在后.
 
 完整的描述在 <b><a href="http://www.autoitscript.com/autoit3/pcrepattern.html" target="_blank">这里</a></b>
 
@@ -81,42 +83,27 @@ StringRegExp ( "字符串", "表达式" [, 标志 ] [, 偏移量 ] ] )
 
 @@ParamTable@@
 [ ... ]
-	匹配[]内的任何字符.如 <b>[aeiou]</b> 匹配任何小写元音字母. 可以使用破折号定义起始和结束字符匹配字符集,如 <b>[a-z]</b> 匹配任何小写字母. 又如 <b>[][]</b> 可以匹配 [ or ]. 要注意的是，[]内的特殊字符需要使用转义符 \ 来匹配自身，比如 <b>\\</b>,  <b>\^</b>, <b>\-</b>,<b>\[</b> 与 <b>\]</b>.
+	Match any character in the set.  e.g. <b>[aeiou]</b> matches any lower-case vowel.  A contiguous set can be defined using a dash between the starting and ending characters.  e.g. <b>[a-z]</b> matches any lower case character.  To include a dash (<b>-</b>) in a set, use it as the first or last character of the set.  To include a closing bracket in a set, use it as the first character of the set.  e.g. <b>[][]</b> will match either [ or ].  Note that special characters <b>do not</b> retain their special meanings inside a set, with the exception of <b>\\</b>,  <b>\^</b>, <b>\-</b>,<b>\[</b> and <b>\]</b> match the escaped character inside a set.
 [^ ... ]
-	匹配 "..." 外的任何字符。如: <b>[^0-9]</b> 匹配任何非数字. 如果是需要匹配字符 (<b>^</b>), 则需要使用转义符，如 (\^).
+	Match any character <b>not</b> in the set.  e.g. <b>[^0-9]</b> matches any non-digit.  To include a caret (<b>^</b>) in a set, put it after the beginning of the set or escape it (\^).
 [:class:]
-	在字符的给定类中匹配一个字符. 有效类是: 
-	alpha (任何字母字符), 
-	alnum (任何字母数字字符), 
-	lower (任何小写字母), 
-	upper (任何大写字母), 
-	digit (任何十进制数字 0-9), 
-	xdigit (任何十六进制数字, 0-9, A-F, a-f), 
-	space (任何空格字符), 
-	blank (只有一个空格或制表符), 
-	print (任何可打印字符), 
-	graph (任何可打印刷字符除空格), 
-	cntrl (任何控制字符 [ascii 127 或 <32]) 或 punct (任何标点符号). 因此[0-9] 相当于 [[:digit:]].
+	Match a character in the given class of characters.  Valid classes are: alpha (any alphabetic character), alnum (any alphanumeric character), lower (any lower-case letter), upper (any upper-case letter), digit (any decimal digit 0-9), xdigit (any hexadecimal digit, 0-9, A-F, a-f), space (any whitespace character), blank (only a space or tab), print (any printable character), graph (any printable character except spaces), cntrl (any control character [ascii 127 or <32]) or punct (any punctuation character). So [0-9] is equivalent to [[:digit:]].
 [^:class:]
-	除第一个字符外,在类中不匹配任何字符.
+	Match any character <b>not</b> in the class, but only if the first character.
 ( ... )
-	组. 在组中的的元素经过排序处理，而且能一起被重复. 例如： <b>(ab)+</b> 将会匹配 "ab" 或 "abab", 但不匹配 "aba". 依赖标志值，一个组也将储存被匹配的文本，在被函数返回的数组中作为在背面-参考中的使用.
+	Group. The elements in the group are treated in order and can be repeated together.  e.g. <b>(ab)+</b> will match "ab" or "abab", but not "aba".  A group will also store the text matched for use in back-references and in the array returned by the function, depending on flag value.
 (?i)
-	大小写-不敏感性标志. 这个不操作组. 它告诉正则表达式从此处开始的匹配不区分大小写.
+	Case-insensitivity flag.  This does not operate as a group.  It tells the regular expression engine to do case-insensitive matching from that point on.
 (?-i)
-	(默认) 区分大小写标志. 这个不操作组. 它告诉正则表达式从此处开始的匹配区分大小写.
-(?i ... )
-	忽略大小写的组. 运转在一个正常的组内, 在组内执行忽略大小写的匹配.
-(?-i ... )
-	区分大小写的组. 运转在一个正常的组内,但是在组里面执行大小写有关的匹配. 主要使用在 (-i) 标志之后，或在一个忽略大小写的组内.
+	(default) Case-sensitivity flag.  This does not operate as a group.  It tells the regular expression engine to do case-sensitive matching from that point on.
 (?: ... )
-	不捕捉组. 运转在一个正常的组内, 但是不记录数组的匹配字符，被匹配的文本也不会用来做后面-参考.
+	Non-capturing group.  Behaves just like a normal group, but does not record the matching characters in the array nor can the matched text be used for back-referencing.
 (?i: ... )
-	忽略大小写的不捕捉组. 运转在一个不捕捉组内, 执行不捕捉组内忽略大小写的匹配.
+	Case-insensitive non-capturing group.  Behaves just like a non-capturing group, but performs case-insensitive matches within the group.
 (?-i: ... )
-	区分大小写的不捕捉组. 运转在一个不捕捉组内, 执行不捕捉组内区分大小写的匹配.
+	Case-sensitive non-capturing group.  Behaves just like a non-capturing group, but performs case-sensitive matches within the group.
 (?m)
-	^ 与 $ 匹配数据里面的换行.
+	^ and $ match newlines within data.
 (?s)
 	. 匹配任意字符,包括换行. (默认 "." 不匹配换行)
 (?x)
@@ -134,13 +121,13 @@ StringRegExp ( "字符串", "表达式" [, 标志 ] [, 偏移量 ] ] )
 \a
 	闹铃,即字符 BEL (chr(7)).
 \A
-	只在字串的开始处匹配.
+	Match only at beginning of string.
 \b
-	在字边界的匹配.
+	Matches at a word boundary.
 \B
-	不在字边界匹配.
+	Matches when not at a word boundary.
 \c
-	匹配一个控制字符,以下一个字符为基础. 例如, <b>\cM</b> 匹配 ctrl-M.
+	Match a control character, based on the next character.  For example, <b>\cM</b> matches ctrl-M.
 \d
 	匹配任何的数字 (0-9).
 \D
@@ -148,7 +135,7 @@ StringRegExp ( "字符串", "表达式" [, 标志 ] [, 偏移量 ] ] )
 \e
 	匹配一个退出符 (chr(27)).
 \E
-	结束大小写修改.
+	end case modification.
 \f
 	匹配进纸符 (chr(12)).
 \h
@@ -158,7 +145,7 @@ StringRegExp ( "字符串", "表达式" [, 标志 ] [, 偏移量 ] ] )
 \n
 	匹配换行符 (@LF, chr(10)).
 \Q
-	引号(禁用)元字符模式直到 \E 为止.
+	quote (disable) pattern metacharacters till \E.
 \r
 	匹配一个回车符 (@CR, chr(13)).
 \s
@@ -176,7 +163,7 @@ StringRegExp ( "字符串", "表达式" [, 标志 ] [, 偏移量 ] ] )
 \W
 	匹配任何的非"单词"字符.
 \###
-	匹配[代]码特定的 ascii 字符或背面-参考. 可以达 3个八进制数值.匹配找到的背面-参考. 匹配完全地被给予的之前的组编号. 例如, <b>([:alpha:])\1</b> 会匹配一个双重文字.
+	Match the ascii character whose code is given or back-reference.  Can be up to 3 octal digits.<br>Match back-reference if found. Match the prior group number given exactly.  For example, <b>([:alpha:])\1</b> would match a double letter.
 \x##
 	匹配指定的ascii字符,用字符的的十六进制表示. 只能是 2 个数字.
 \z

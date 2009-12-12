@@ -10,9 +10,9 @@ DllStructCreate ( "数据结构" [,指针] )
 ###Parameters###
 @@ParamTable@@
 "数据结构"
-	字符串表示的要创建的数据结构.(见 注释)..
+	字符串表示的要创建的数据结构.(见 注释).
 指针
-	[可选参数] If supplied the struct will not allocate memory but use the pointer supplied.
+	[可选参数] 如果指定的数据结构不能分配内存,则使用此指针参数.
 @@End@@
 
 ###ReturnValue###
@@ -78,20 +78,20 @@ UINT_PTR, ULONG_PTR, DWORD_PTR, WPARAM
 
 
 ###Remarks###
-Each data type must be separated by a semi-colon ';'.
+每个数据类型必须使用分号 ';' 分开.
 
-Create arrays by adding '[size]' after the data type: DllStructCreate("int;char[128]")
+如果要指定数据大小请在数据类型后面添加 '[大小]' : DllStructCreate("int;char[128]")
 
 An elementname can be added similar to a C-style declaration: DllStructCreate("int n;char buffer[128]").
 This dataname can be used in place of the element in other DllStruct... functions.  The dataname must be alphanumeric or an underscore.
 
 To use a different alignment prefix the structure with the align keyword.  The default value for n is 8. Valid values are 1, 2, 4, 8, and 16.  The alignment of a member will be on a boundary that is either a multiple of n or a multiple of the size of the member, <b>whichever is smaller</b>.  This is equivalent to the #pragma pack option with the Microsoft Visual C++ compiler.
 
-DllStructCreate("short;int")     ; structure is 8 bytes, the "int" is at offset 4
-DllStructCreate("align 2;short;int")     ; structure is 6 bytes, the "int" is at offset 2
+DllStructCreate("short;int")     ; 数据结构有 8 字节, "int" 在偏移量 4 的位置
+DllStructCreate("align 2;short;int")     ; 数据结构有 6 字节, "int" 在偏移量 2 的位置
 
-DllStructCreate("byte;double")     ; structure is 16 bytes, the "double" is at offset 8
-DllStructCreate("align 4;byte;double")     ; structure is 12 bytes, the "double" is at offset 4
+DllStructCreate("byte;double")     ; 数据结构有 16 字节, "double" 在偏移量 8 的位置
+DllStructCreate("align 4;byte;double")     ; 数据结构有 12 字节, "double" 在偏移量 4 的位置
 
 If a change of alignment is needed "align" can be use before the first element which need to be changed.
 "align" or "align 8" leads to default alignment.
