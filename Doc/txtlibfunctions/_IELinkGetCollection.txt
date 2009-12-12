@@ -2,7 +2,7 @@
 _IELinkGetCollection
 
 ###Description###
-Returns a collection object containing all links in the document or a single link by index.
+返回包含文档中全部链接的集合对象或按索引的单一链接.
 
 ###Syntax###
 #include <IE.au3> 
@@ -11,27 +11,27 @@ _IELinkGetCollection ( ByRef $o_object [, $i_index = -1] )
 ###Parameters###
 @@ParamTable@@
 $o_object
-	Object variable of an InternetExplorer.Application, Window or Frame object
+	InternetExplorer.Application, 窗体或框架对象的对象变量
 $i_index
-	[optional] specifies whether to return a collection or indexed instance
-	0 or positive integer returns an indexed instance
-	-1 = (Default) returns a collection
+	[可选参数]: 指定是返回集合或是索引实例
+0或正整数返回一个索引实例
+-1 = (默认)返回一个集合
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns an object collection of all links in the document, @EXTENDED = link count
-Failure:	Returns 0 and sets @ERROR
-@Error:	0 ($_IEStatus_Success) = No Error
-	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
-	5 ($_IEStatus_InvalidValue) = Invalid Value
-	7 ($_IEStatus_NoMatch) = No Match
-@Extended:	Contains invalid parameter number
+成功:	返回文档中所有链接的对象集合, @EXTENDED = 链接计数
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	5 ($_IEStatus_InvalidValue) = 无效值
+	7 ($_IEStatus_NoMatch) = 无匹配
+@Extended:	包含无效参数数量
 @@End@@
 
 
 ###Remarks###
-Not all elements that appear to be links actually are.  It is common practice to attach onClick JavaScript events to other DOM elements to simulate the behavior of links.  To activate such elements, use "click" with _IEAction.
+不是所有表示为链接的元素都名副其实. 简单通过指向其他DOM元素的JS onClick事件来模拟链接行为. 激活此元素, 通过_IEAction使用"click".
 
 
 ###Related###

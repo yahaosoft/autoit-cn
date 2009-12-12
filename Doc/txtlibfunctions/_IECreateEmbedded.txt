@@ -2,7 +2,7 @@
 _IECreateEmbedded
 
 ###Description###
-Create a Webbrowser object suitable for embedding in an AutoIt GUI with GuiCtrlCreateObj().
+创建一个适合于嵌入AutoIt图形化界面 (GUI)的web浏览器对象,此图形化界面由GuiCtrlCreateObj()生成.
 
 ###Syntax###
 #include <IE.au3> 
@@ -13,21 +13,21 @@ None.
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns a Webbrowser object reference
-Failure:	Returns 0 and sets @ERROR
-@Error:	0 ($_IEStatus_Success) = No Error
-	1 ($_IEStatus_GeneralError) = General Error
+成功:	返回web浏览器的对象引用
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	1 ($_IEStatus_GeneralError) = 一般性错误
 @@End@@
 
 
 ###Remarks###
-No actions can be performed on this object until it has been embedded into a parent application (e.g. you cannot perform an _IENavigate).  Because of this restriction, the browser is not automatically navigated to 'about:blank' as is a browser created with _IECreate.  You must therefore use _IENavigate to navigate this browser to 'about:blank' after it has been embedded into the parent application and before you attempt any operations that rely on having a document loaded (e.g. _IEBodyWriteHTML).
+除非这个对象已被嵌入到父层界面否则无法对此对象执行任何操作(如, 你可以执行一个 _IENavigate). 由于此限制, 在_IECreate创建时浏览器不会自动打开'about:blank'. 因此必须在被内嵌入父应用程序后且在试图进行任何依赖于所加载文件的操作(如_IEBodyWriteHTML)前使用_IENavigate浏览'about:blank'.
 
-There are several properties related to an InternetExplorer object (e.g. returned by _IECreate) that do not apply to this object.  These include status text, addressbar and others that may exist for a browser, but do not exist for an embedded control.
+有几个IE对象的属性(例如通过_IECreate返回)不能应用到这个对象,包括状态文字,地址栏和其他可以在一个浏览器存在但不能在嵌入控件对象中存在的属性.
 
-You may have object visibility issues unless you use the Windows style $WS_CLIPCHILDREN in GUICreate().
+除非在GUICreate()中使用$WS_CLIPCHILDREN风格的窗体否则可能会有对象可见的问题.
 
-_IEQuit cannot be used with this object.  The object will be destroyed when its parent GUI is destroyed.
+_IEQuit不能用于此对象.且该对象会随着其父层界面(GUI)关闭而关闭.
 
 
 

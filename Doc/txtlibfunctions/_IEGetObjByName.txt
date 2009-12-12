@@ -2,7 +2,7 @@
 _IEGetObjByName
 
 ###Description###
-Returns an object variable by name or id.
+按名称或标识返回对象变量.
 
 ###Syntax###
 #include <IE.au3> 
@@ -11,28 +11,28 @@ _IEGetObjByName ( ByRef $o_object, $s_Id [, $i_index = 0] )
 ###Parameters###
 @@ParamTable@@
 $o_object
-	Object variable of an InternetExplorer.Application, Window or Frame object
+	InternetExplorer.Application窗体或框架对象的对象变量
 $s_Id
-	Specifies name or id of the object you wish to match
+	指定想要匹配的对象的名称或ID
 $i_index
-	[optional] If name of id occurs more than once, specifies instance by 0-based index
-	0 (Default) or positive integer returns an indexed instance
-	-1 returns a collection of the specified objects
+	[可选参数]: 如果id的名称不止一次出现, 由0基索引指定实例
+	0 (默认)或正整数返回一个索引的实例
+	-1 返回一个指定对象的集合
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns an object variable pointing to the specified Object, @EXTENDED = specified object count
-Failure:	Returns 0 and sets @ERROR
-@Error:	0 ($_IEStatus_Success) = No Error
-	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
-	7 ($_IEStatus_NoMatch) = No Match
-@Extended:	Contains invalid parameter number
+成功:	返回指向指定对象的对象变量, @EXTENDED = 指定对象数量
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	7 ($_IEStatus_NoMatch) = 无匹配
+@Extended:	包含无效参数数量
 @@End@@
 
 
 ###Remarks###
-This function will return an object reference to any object in the document with a specified name or id.  DOM elements can have Name or ID attributes or both.  A specific ID can be assigned to only a single element while a specific Name can be assigned to multiple elements.  In Internet Explorer, the Name and ID namespaces are shared.
+函数将返回一个指向文档中带有指定ID或名称的任意对象的对象. DOM元素可具有名称或ID属性或两者. 当一个指定名称被分配给Internet Explorer中的多个元素时指定的ID只可被分配给单一元素, 名称和ID的命名空间是共享的.
 
 
 ###Related###

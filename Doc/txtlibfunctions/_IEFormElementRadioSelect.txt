@@ -2,7 +2,7 @@
 _IEFormElementRadioSelect
 
 ###Description###
-Set the value of a specified form element.
+设置指定表单元素的值.
 
 ###Syntax###
 #include <IE.au3> 
@@ -11,43 +11,43 @@ _IEFormElementRadioSelect ( ByRef $o_object, $s_string , $s_name [, $f_select = 
 ###Parameters###
 @@ParamTable@@
 $o_object
-	Object variable of an InternetExplorer.Application, Form object
+	InternetExplorer.Application, 表单对象的对象变量
 $s_string
-	Value used to match element - treatment based on $s_mode
+	匹配元素的值 - 基于设定的模式$s_mode
 $s_name
-	Name or Id of Radio Group
+	单选按钮组的名称或者标识
 $f_select
-	[optional] specifies whether element should be selected or deselected
-	-1 = Return selected state
-	0 = Unselect the element
-	1 = (Default) Select the element
+	[可选参数]: 指定元素选中或未选中
+	-1 = 返回选中状态
+	0 = 不选元素
+	1 = (默认)选中元素
 $s_mode
-	[optional] specifies search mode
-	byValue = (Default) value of the radio you wish to select
-	byIndex = 0-based index of radio you wish to select
+	[可选参数]: 指定搜索模式
+	按值 = (默认)要选取的单选框的值
+	按索引 = 要选取的单选框的0基索引
 $f_fireEvent
-	[optional] specifies whether to fire OnChange and OnClick events after changing value
-	0 = do not fire OnChange or OnClick event after setting value 
-	1 = (Default) fire OnChange and OnClick events after setting value
+	[可选参数]: 指定是否在改变值后激活OnChange和OnClick事件
+	0 = 设置值后不激活OnChange或OnClick事件
+	1 = (默认)设置值后激活OnChange或OnClick事件
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	If $f_select = -1, returns the current selected state, else returns 1
-Failure:	Returns 0 and sets @ERROR
-@Error:	0 ($_IEStatus_Success) = No Error
-	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
-	4 ($_IEStatus_InvalidObjectType) = Invalid Object Type
-	5 ($_IEStatus_InvalidValue) = Invalid Value
-	7 ($_IEStatus_NoMatch) = No Match
-@Extended:	Contains invalid parameter number
+成功:	如果$f_select = -1, 返回当前的被选中状态, 或返回1
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+	5 ($_IEStatus_InvalidValue) = 无效值
+	7 ($_IEStatus_NoMatch) = 无匹配
+@Extended:	包含无效参数数量
 @@End@@
 
 
 ###Remarks###
-The $f_fireEvent parameter is significant only if the form element has an onChange event associated with it.
+仅当表单元素与onChange事件关联时, $f_fireEvent参数才有效.
 
-$s_Name is a mandatory parameter for this function.  Radio buttons are operated upon in groups sharing the same name.  No more than one element within a group may be selected at a given time - when one item is selected, all others are deselected.
+该函数的$s_Name是一个强制参数. 在具有相同名称的组中操作单选按钮. 同一时间组中只有一个被选择 - 选中一个之后其他都是未选择.
 
 
 ###Related###

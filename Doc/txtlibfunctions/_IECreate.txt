@@ -11,46 +11,45 @@ _IECreate ( [$s_Url = "about:blank" [, $f_tryAttach = 0 [, $f_visible = 1 [, $f_
 ###Parameters###
 @@ParamTable@@
 $s_Url
-	[optional] specifies the Url to navigate to upon creation
+	[可选参数]: 定义打开浏览器的URL地址
 $f_tryAttach
-	[optional] specifies whether to try to attach to an existing window
-	0 = (Default) do not try to attach
-	1 = Try to attach to an existing window
+	[可选参数]: 定义是否附着在存在的窗口
+	0 = (默认) 不试图附着
+	1 = 试着附着在已存在窗口
 $f_visible
-	[optional] specifies whether the browser window will be visible
-	0 = Browser Window is hidden
-	1 = (Default) Browser Window is visible
+	[可选参数]: 定义浏览器窗口是否可见
+	0 = 浏览器窗口不可见
+	1 = (默认) 浏览器窗口可见
 $f_wait
-	[optional] specifies whether to wait for page to load before returning
-	0 = Return immediately, not waiting for page to load
-	1 = (Default) Wait for page load to complete before returning
+	[可选参数]: 定义是否返回前是否等待网页加载完毕
+	0 = 立即返回, 不等待网页加载
+	1 = (默认) 在返回之前等待网页加载完毕
 $f_takeFocus
-	[optional] specifies whether to bring the attached window to focus
-	0 =  Do not bring window into focus
-	1 = (Default) bring window into focus
+	[可选参数]: 定义是否把聚焦在附着的窗口
+	0 = 使窗口聚焦
+	-1 = (默认)不使窗口处于聚焦
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns an object variable pointing to an InternetExplorer.Application object
-Failure:	Returns 0 and sets @ERROR
-@Error:	0 ($_IEStatus_Success) = No Error
-	1 ($_IEStatus_GeneralError) = General Error
-	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
-	4 ($_IEStatus_InvalidObjectType) = Invalid Object Type
-	6 ($_IEStatus_LoadWaitTimeout) = Load Wait Timeout
-	8 ($_IEStatus_AccessIsDenied) = Access Is Denied
-	9 ($_IEStatus_ClientDisconnected) = Client Disconnected
-@Extended:	Set to true (1) or false (0) depending on the success of $f_tryAttach
+成功:	返回指向InternetExplorer.Application对象的对象变量
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	1 ($_IEStatus_GeneralError) = 一般性错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+	6 ($_IEStatus_LoadWaitTimeout) = 加载等待超时
+	8 ($_IEStatus_AccessIsDenied) = 服务被拒绝
+	9 ($_IEStatus_ClientDisconnected) = 客户端断开
+@Extended:	如果"附着"是成功设置true (1) ,反之设置为false (0)
 @@End@@
 
 
 ###Remarks###
-When using tryAttach, a No Match error will be displayed to the console from _IEAttach.  This can be controlled with _IEErrorNotify.
+当使用附加参数时,如果不匹配则在控制台显示相应的错误.是否显示可以通过_IEErrorNotify控制. 当打开一个本地HTA文件(.hta) , IE将针对它打开一个新的浏览进程,而此时_IECreate返回的对象变量无法操作这个新的浏览窗口.要控制这个新窗口你必须用_IEAttach 参数为"embedded".
 
-When opening a local HyperTextApplication (.hta) file, Internet Explorer will open a new browser process for it that will not be accessible through the object variable returned by _IECreate.  To control this new browser you must use _IEAttach with the "embedded" option.
+Windows Vista中新的安全性可在不同的安全区域中创建新的用以浏览URL的浏览器窗口. 这也发生在由_IECreate初始化的创建和浏览中. 新建窗口 是一个新的浏览器实例且以前的浏览器对象变量不再指向它. 有几种解决方式: 1)将#RequireAdmin添加到代码中 (这是必需的, 即使账户是管理员组的一部分, 而且在必要时会提交凭证) , 2) 使用_IEAttach链接到新的浏览器窗口 3)添加目标网址到IE受信任安全区4)关闭"保护模式", 或5)禁用UAC. 当浏览非受信地址时必须 谨慎并理解禁用IE安全特性可能带来的影响.
 
-New security in Windows Vista causes a new browser window to be created when a browser is instructed to navigate to a URL in a different security zone.  This occurs as well with the initial creation and navigation initiated with _IECreate.  The new window is a new browser instance and the previous browser object variable no longer points to it.  There are several workarounds:  1) add #RequireAdmin to your code (this is required even if the account is part of the Administrator's Group and will propmt for credentials if necessary), 2) use _IEAttach to connect to the new browser window 3) add the target website to the Trusted Sites security zone in IE, 4) turn off "Protected Mode" in IE, or 5) disable UAC.  Care must be taken to understand the implications of disabling IE security features when accessing untrusted sites.
 ###Related###
 _IEAttach, _IECreateEmbedded, _IEQuit, _IENavigate, _IELoadWait
 

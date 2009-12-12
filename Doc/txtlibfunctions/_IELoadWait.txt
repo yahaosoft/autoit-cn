@@ -2,7 +2,7 @@
 _IELoadWait
 
 ###Description###
-Wait for a browser page load to complete before returning.
+在网页内容加载完全之后返回.
 
 ###Syntax###
 #include <IE.au3> 
@@ -11,36 +11,36 @@ _IELoadWait ( ByRef $o_object [, $i_delay = 0 [, $i_timeout = -1]] )
 ###Parameters###
 @@ParamTable@@
 $o_object
-	Object variable of an InternetExplorer.Application or DOM element
+	InternetExplorer.Application或DOM组件的对象变量
 $i_delay
-	[optional] Milliseconds to wait before checking status
+	[可选参数]: 检查状态前等待的毫秒值
 $i_timeout
-	[optional] Period of time to wait before exiting function (default = 300000 ms aka 5 min)
+	[可选参数]: 退出程序前等待的时间(默认 = 300000毫秒;5分钟)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns 1
-Failure:	Returns 0 and sets @ERROR
-@Error:	0 ($_IEStatus_Success) = No Error
-	1 ($_IEStatus_GeneralError) = General Error
-	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
-	4 ($_IEStatus_InvalidObjectType) = Invalid Object Type
-	6 ($_IEStatus_LoadWaitTimeout) = Load Wait Timeout
-	8 ($_IEStatus_AccessIsDenied) = Access Is Denied
-	9 ($_IEStatus_ClientDisconnected) = Client Disconnected
-@Extended:	Contains invalid parameter number
+成功:	返回1
+失败:	返回0并设置@ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	1 ($_IEStatus_GeneralError) = 一般错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+	6 ($_IEStatus_LoadWaitTimeout) = 等待加载超时
+	8 ($_IEStatus_AccessIsDenied) = 访问被拒绝
+	9 ($_IEStatus_ClientDisconnected) = 客户端断开
+@Extended:	包含无效参数数量
 @@End@@
 
 
 ###Remarks###
-Several IE.au3 functions call _IELoadWait() automatically (e.g. _IECreate(), _IENavigate() etc.).  Most functions that do this also allow you to turn this off with a $f_wait parameter if you do not want the wait or if you want to call it yourself.
+许多IE.au3程序自动调用_IELoadWait()(如_IECreate(), _IENavigate()等). 大多数运行它的函数也允许你通过$f_wait参数关闭它如果你不想等候或如果你想自己调用它.
 
-When document objects or DOM elements are passed to _IELoadWait, it will check the readyState of the container elements up to and including the parentWindow.
+当文档对象或DOM组件被传递到_IELoadWait, 将检查容器元素的准备状态并且包括父窗口状态.
 
-Browser scripting security restrictions may sometimes prevent _IELoadWait from guaranteeing that a page is fully loaded and can occasionally result in untrapped errors.  In these cases you may need to avoid calling _IELoadWait and attempt to employ other methods of insuring that the page load has completed.  These methods might include using a Sleep command, examining browser status bar text and other methods.  When using functions that call _IELoadWait for objects other than the InternetExplorer (browser) object, you may also be successful by calling _IELoadWait for the browser yourself (e.g. _IELoadWait($oIE)).
+浏览器脚本安全限制有时会阻止_IELoadWait完全加载页且偶尔会导致不被捕获的错误. 在此类情况中可能需要避免调用_IELoadWait和试图使用其他方法确保页面完成加载. 这些方法包括使用休眠命令, 检查浏览器状态栏文本和其他方法. 当使用针对除InternetExplorer (browser)外的对象所调用的_IELoadWait函数, 或许针对浏览器自身调用_IELoadWait也可成功(如_IELoadWait($oIE)).
 
-The most common causes of trouble are page redirects and cross-site scripting security restrictions associated with frames.  Page re-writing techniques employed by some applications (e.g. Gmail) can also cause trouble here.
+最常见的麻烦是页面重定向和与框架相关的跨站点脚本的安全限制. 一些应用程序(如Gmail)采用的页面重写技术也可能带来麻烦.
 
 
 ###Related###

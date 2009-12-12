@@ -2,7 +2,7 @@
 _IEQuit
 
 ###Description###
-Close the browser and remove the object reference to it.
+关闭浏览器并移除相关的对象.
 
 ###Syntax###
 #include <IE.au3> 
@@ -11,24 +11,23 @@ _IEQuit ( ByRef $o_object )
 ###Parameters###
 @@ParamTable@@
 $o_object
-	Object variable of an InternetExplorer.Application
+	InternetExplorer.Application对象变量
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns 1
-Failure:	Returns 0 and sets @ERROR
-@Error:	0 ($_IEStatus_Success) = No Error
-	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
-	4 ($_IEStatus_InvalidObjectType) = Invalid Object Type
-@Extended:	Contains invalid parameter number
+成功:	返回1
+失败:	返回0并设置@ERROR @Error: 0 ($_IEStatus_Success) = 无错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+@Extended:	包含无效参数数量
 @@End@@
 
 
 ###Remarks###
-_IEQuit is particularly important when creating or working with invisible instances of Internet Explorer.  When AutoIt exits when working with visible instances of a browser, the browser continues to run and the visible window is left for the user to manage.  When the browser instance is invisible however, when AutoIt exits the browser process is left running and there is no user interface to interact with and an orphan Iexplore.exe process is left running on the system.  It is therefore good practice to call _IEQuit whenever the browser process is not needed after the script exists.
+当打开或者运行不可见的IE窗口例子时_IEQuit是特别重要的. 当运行可见的IE例子而Autoit退出后, 可见的IE窗口将继续运行使用户操作. 当浏览器实例不可见时, 当AutoIt退出浏览器进程时保持运行及没有用户界面交互及一个孤立的Iexplore.exe进程正运行在系统上. 所以当脚本运行完毕并且浏览器进程不需要的时候调用_IEQuit关闭IE是一个很好的习惯.
 
-_IEQuit is not allowed with embedded browser objects created with _IECreateEmbedded.  The browser processes associated with those objects will close when their parent GUI window is destroyed.
+_IEQuit不允许用于由_IECreateEmbedded创建的内嵌浏览器对象. 与那些对象相关的浏览器进程将在其父GUI窗体被销毁时关闭.
 
 
 ###Related###

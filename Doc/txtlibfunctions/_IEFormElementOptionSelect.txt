@@ -2,7 +2,7 @@
 _IEFormElementOptionSelect
 
 ###Description###
-Set the value of a specified form element.
+设置指定表单元素的值.
 
 ###Syntax###
 #include <IE.au3> 
@@ -11,40 +11,40 @@ _IEFormElementOptionSelect ( ByRef $o_object, $s_string [, $f_select = 1 [, $s_m
 ###Parameters###
 @@ParamTable@@
 $o_object
-	Form Element Object of type "Select Option"
+	"Select Option"类型的表单元素对象
 $s_string
-	Value used to match element - treatment based on $s_mode
+	用于匹配元素的值 - 基于设定的模式$s_mode
 $f_select
-	[optional] specifies whether element should be selected or deselected
-	-1 = Return selected state
-	0 = Deselect the element
-	1 = (Default) Select the element
+	[可选参数]: 指定元素是选中或未选中
+	-1 = 返回选中状态
+	0 = 不选中元素
+	1 = (默认)选中元素
 $s_mode
-	[optional] specifies search mode
-	byValue = (Default) value of the option you wish to select
-	byText = text of the option you wish to select
-	byIndex = 0-based index of option you wish to select
+	[可选参数]: 定义搜索模式
+	byValue = (默认)希望选中的选项的值
+	byText = 希望选中的选项的文本
+	byIndex = 希望选中的选项的0基索引
 $f_fireEvent
-	[optional] specifies whether to fire OnChange and OnClick events after changing value
-	0 = do not fire OnChange or OnClick event after setting value 
-	1 = (Default) fire OnChange and OnClick events after setting value
+	[可选参数]: 指定在改变值后是否激活OnChange和OnClick事件
+	0 = 设置值后不激活OnChange或OnClick事件
+	1 = (默认)设置值后激活OnChange和OnClick事件
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	If $f_select = -1, returns the current selected state, else returns 1
-Failure:	Returns 0 and sets @ERROR
-@Error:	0 ($_IEStatus_Success) = No Error
-	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
-	4 ($_IEStatus_InvalidObjectType) = Invalid Object Type
-	5 ($_IEStatus_InvalidValue) = Invalid Value
-	7 ($_IEStatus_NoMatch) = No Match
-@Extended:	Contains invalid parameter number
+成功:	如果$f_select = -1, 返回当前的被选中状态, 或返回1
+失败:	返回0并设置@ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+	5 ($_IEStatus_InvalidValue) = 无效值
+	7 ($_IEStatus_NoMatch) = 无匹配
+@Extended:	包含无效参数数量
 @@End@@
 
 
 ###Remarks###
-The $f_fireEvent parameter is significant only if the form element has an onChange event associated with it.
+仅当表单元素与onChange事件关联时, $f_fireEvent参数才有效.
 
 
 ###Related###

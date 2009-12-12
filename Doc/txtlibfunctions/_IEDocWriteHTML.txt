@@ -2,7 +2,7 @@
 _IEDocWriteHTML
 
 ###Description###
-Replaces the HTML for the entire document.
+替换整个网页(文档)的HTML代码.
 
 ###Syntax###
 #include <IE.au3> 
@@ -11,30 +11,30 @@ _IEDocWriteHTML ( ByRef $o_object, $s_html )
 ###Parameters###
 @@ParamTable@@
 $o_object
-	Object variable of an InternetExplorer.Application, Window or Frame object
+	InternetExplorer.Application, 窗口或框架(frame)对象的对象变量
 $s_html
-	The HTML string to write to the document
+	写入文档的HTML代码
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns -1
-Failure:	Returns 0 and sets @ERROR
-@Error:	0 ($_IEStatus_Success) = No Error
-	1 ($_IEStatus_GeneralError) = General Error
-	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
-	4 ($_IEStatus_InvalidObjectType) = Invalid Object Type
-	6 ($_IEStatus_LoadWaitTimeout) = Load Wait Timeout
-	8 ($_IEStatus_AccessIsDenied) = Access Is Denied
-	9 ($_IEStatus_ClientDisconnected) = Client Disconnected
-@Extended:	Contains invalid parameter number
+成功:	返回-1
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	1 ($_IEStatus_GeneralError) = 一般性错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+	6 ($_IEStatus_LoadWaitTimeout) = 载入等待超时
+	8 ($_IEStatus_AccessIsDenied) = 访问被拒绝
+	9 ($_IEStatus_ClientDisconnected) = 客户端断开
+@Extended:	包含无效参数数量
 @@End@@
 
 
 ###Remarks###
-This function completely replaces the content of the document in a browser or a frame.  It can be used to create a new page with custom HTML and JavaScript.
+该函数完全替换一个网页或者框架的内容. 这可以用来创建自己的HTML和JavaScript网页.
 
-It is sometimes necessary to refresh the page after writing with _IEAction($oIE, "refresh") (e,g, after creating a FRAMESET).
+有时为了在使用_IEAction($oIE, "refresh")写入后刷新页面是必要的(如, 在创建一个框架集(frameset)之后).
 
 
 ###Related###

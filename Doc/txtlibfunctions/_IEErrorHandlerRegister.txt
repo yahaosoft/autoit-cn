@@ -2,7 +2,7 @@
 _IEErrorHandlerRegister
 
 ###Description###
-Register and enable a user COM error handler
+注册并使用一个自定义COM错误处理程序.
 
 ###Syntax###
 #include <IE.au3> 
@@ -11,31 +11,31 @@ _IEErrorHandlerRegister ( [$s_functionName = "__IEInternalErrorHandler"] )
 ###Parameters###
 @@ParamTable@@
 $s_functionName
-	[optional] String variable with the name of a user-defined COM error handler, defaults to the internal COM error handler in this UDF
+	[可选参数]: 带有自定义COM错误处理程序名称的字符串变量, 在此UDF中默认为内部COM错误处理程序
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns 1
-Failure:	Returns 0 and sets @ERROR
-@Error:	0 ($_IEStatus_Success) = No Error
-	1 ($_IEStatus_GeneralError) = General Error
-@Extended:	Contains invalid parameter number
+成功:	返回-1
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	1 ($_IEStatus_GeneralError) = 一般性错误
+@Extended:	包含无效参数数量
 @@End@@
 
 
 ###Remarks###
-Important: When using your own error handler, the Error Object variable used MUST be named $oIEErrorHandler (see example).
+重要: 当使用自己的错误处理程序时, 错误对象变量必须被命名为$oIEErrorHandler(见示例).
 
-AutoIt has the ability to trap COM errors and pass them through a custom error handler using the ObjEvent function.  There is a problem with this for UDF writers however because only a single COM error handler can be in use at a time.  For the UDF to use a COM error handler it must first deregister the user error handler, install its own and then put the user handler back in place.  Unfortunately, by default, the UDF has no way to access the handle of the user error handler.
+AutoIt有捕获COM错误的能力并使用ObjEvent函数传递自定义错误处理程序. 然而因为一次只能使用一个单独的COM错误处理程序所以对于使用它的UDF作者存在一个问题. 对于将使用一个COM错误处理程序的UDF, 必须先注销用户的错误处理程序, 安装其自身的并将用户错误处理程序原地返回. 不幸的是, UDF默认无法获取用户错误处理程序的句柄.
 
-Using this routine you can register your COM error handler in a way that IE.au3 can gracefully remove and reinstate it when it needs to.  You may either point to your own custom error handler or you may use the one developed for IE.au3 (the default).  Using the default IE.au3 error handler you will also get some nice diagnostic information written to the console and some global variables that contain information about the trapped errors.
+通过此程序你可以注册自己的COM错误处理程序, 同样的方法, 在需要时, IE.au3也可轻而易举的移除和重新注册. 你可以指定你自己的自定义错误处理程序也可以使用为IE.au3开发的(默认). 使用默认的IE.au3错误处理程序, 可以得到很好的写入控制台的诊断信息和一些包含关于捕捉到的错误的信息的全局变量.
 
-If you instantiate your own COM error handler without using this routine IE.au3 will not be able to trap some COM errors and you may experience some abrupt script terminations as a result.
+如果你即时化你自己的COM错误处理程序而不使用该程序, IE.au3将无法捕捉一些COM错误, 其结果是你可能会遇到脚本中断.
 
-If you use the default error handler (__IEInternalErrorHandler), the following global variables are set for you to reference: $IEComErrorNumber, $IEComErrorNumberHex, $IEComErrorDescription, $IEComErrorScriptline, $IEComErrorWinDescription, $IEComErrorSource, $IEComErrorHelpFile, $IEComErrorHelpContext, $IEComErrorLastDllError, $IEComErrorComObj and $IEComErrorOutput
+如果你使用默认的错误处理程序(__IEInternalErrorHandler), 后续的全局变量可参考: $IEComErrorNumber, $IEComErrorNumberHex, $IEComErrorDescription, $IEComErrorScriptline, $IEComErrorWinDescription, $IEComErrorSource, $IEComErrorHelpFile, $IEComErrorHelpContext, $IEComErrorLastDllError, $IEComErrorComObj及$IEComErrorOutput
 
-You may control the display of COM error messages to the console with _IEErrorNotify.
+你可以使用_IEErrorNotify控制写入到控制台的COM错误消息的显示.
 
 
 ###Related###
