@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Get a reference to a specific form element by name.
-;				In this case, submit a query to the Google search engine
+; 例 1 - 通过0基索引获取对指定表单元素的引用.
+;     在此例中, 向Google搜索引擎提交一个查询
 ; *******************************************************
 ;
 #include <IE.au3>

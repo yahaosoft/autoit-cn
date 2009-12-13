@@ -1,5 +1,5 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the form example, set the value of a text form element
+; 例 1 - 打开带有表单示例的浏览器, 设置文本表单元素的值
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -9,8 +9,8 @@ $oText = _IEFormElementGetObjByName ($oForm, "textExample")
 _IEFormElementSetValue ($oText, "Hey! This works!")
 
 ; *******************************************************
-; Example 2 - Get a reference to a specific form element and set its value.
-;				In this case, submit a query to the Google search engine
+; 例 2 - 获取指定表单元素的实例并设置其值.
+;     在此例中, 向Google搜索引擎提交查询
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -21,30 +21,30 @@ _IEFormElementSetValue ($oQuery, "AutoIt IE.au3")
 _IEFormSubmit ($oForm)
 
 ; *******************************************************
-; Example 3 - Login to Hotmail
+; 例 3 - 登录Hotmail
 ; *******************************************************
 ;
 #include <IE.au3>
-; Create a browser window and navigate to hotmail
+; 创建浏览器窗口并浏览hotmail
 $oIE = _IECreate ("http://www.hotmail.com")
 
-; get pointers to the login form and username, password and signin fields
+; 获取登录表单的指针和用户名, 密码及登录区
 $o_form = _IEFormGetObjByName ($oIE, "f1")
 $o_login = _IEFormElementGetObjByName ($o_form, "login")
 $o_password = _IEFormElementGetObjByName ($o_form, "passwd")
 $o_signin = _IEFormElementGetObjByName ($o_form, "SI")
 
-$username = "your username here"
-$password = "your password here"
+$username = "这里是你的用户名"
+$password = "这里是你的密码"
 
-; Set field values and submit the form
+; 设置字段值并提交表单
 _IEFormElementSetValue ($o_login, $username)
 _IEFormElementSetValue ($o_password, $password)
 _IEAction ($o_signin, "click")
 
 ; *******************************************************
-; Example 4 - Set the value of an INPUT TYPE=FILE element
-;				(security restrictions prevent using _IEFormElementSetValue)
+; 例 4 - 设置一个INPUT TYPE=FILE元素的值
+;     (安全限制阻止使用_IEFormElementSetValue)
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -53,30 +53,30 @@ $oIE = _IE_Example("form")
 $oForm = _IEFormGetObjByName($oIE, "ExampleForm")
 $oInputFile = _IEFormElementGetObjByName($oForm, "fileExample")
 
-; Assign input focus to the field and then send the text string
+; 将输入焦点指定到字段然后发送文本字符串
 _IEAction($oInputFile, "focus")
 Send("C:\myfile.txt")
 
 ; *******************************************************
-; Example 5 - Set the value of an INPUT TYPE=FILE element
-;				Same as previous example, but with invisible window
-;				(security restrictions prevent using _IEFormElementSetValue)
+; 例 5 - 设置INPUT TYPE=FILE元素的值
+;     和前例相同, 但是是一个不可见窗口
+;     (安全限制阻止使用_IEFormElementSetValue)
 ; *******************************************************
 ;
 #include <IE.au3>
 
 $oIE = _IE_Example("form")
 
-; Hide the browser window to demonstrate sending text to invisible window
+; 隐藏浏览器窗口以示范向不可见窗口发送文本
 _IEAction($oIE, "invisible")
 
 $oForm = _IEFormGetObjByName($oIE, "ExampleForm")
 $oInputFile = _IEFormElementGetObjByName($oForm, "fileExample")
 
-; Assign input focus to the field and then send the text string
+; 将输入焦点指定到字段然后发送文本字符串
 _IEAction($oInputFile, "focus")
 $hIE = _IEPropertyGet($oIE, "hwnd")
 ControlSend($hIE, "", "[CLASS:Internet Explorer_Server; INSTANCE:1]", "C:\myfile.txt")
 
-MsgBox(0, "Success", "Value set to C:\myfile.txt")
+MsgBox(0, "成功", "值设置到C:\myfile.txt")
 _IEAction($oIE, "visible")

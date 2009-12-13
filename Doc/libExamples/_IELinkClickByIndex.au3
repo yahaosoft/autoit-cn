@@ -1,8 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Open browser with basic example, click on the 3rd
-;				link on the page (note: the first link is index 0)
+; 例 1 - 打开带有基本示例的浏览器窗口, 点击第三个链接(注: 第一个链接索引为0)
 ; *******************************************************
-;
 #include <IE.au3>
 $oIE = _IE_Example ("basic")
 _IELinkClickByIndex ($oIE, 2)

@@ -1,7 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the basic example page, insert an
-;				event script into the head of the document that creates
-;				a JavaScript alert when someone clicks on the document
+; 例 1 - 打开带有基本示例页的浏览器, 将一个事件脚本插入到文档头部, 当点击文
+;     档时创建JavaScript警告
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -9,11 +8,8 @@ $oIE = _IE_Example ("basic")
 _IEHeadInsertEventScript ($oIE, "document", "onclick", "alert('Someone clicked the document!');")
 
 ; *******************************************************
-; Example 2 - Open a browser with the basic example page, insert an
-;				event script into the head of the document that creates
-;				a JavaScript alert when someone tries to right-click on the
-;				document and then the event script returns "false" to prevent
-;				the right-click context menu from appearing
+; 例 2 - 打开带有基本示例页的浏览器, 将一个事件脚本插入到文档头部, 当试图右击
+;     文档时创建JavaScript警告并返回"false"以阻止右键菜单出现
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -21,10 +17,8 @@ $oIE = _IE_Example ("basic")
 _IEHeadInsertEventScript ($oIE, "document", "oncontextmenu", "alert('No Context Menu');return false")
 
 ; *******************************************************
-; Example 3 - Open a browser with the basic example page, insert an
-;				event script into the head of the document that creates a
-;				JavaScript alert when we are about to navigate away from the 
-;				page and presents the option to cancel the operation.
+; 例 3 - 打开带有基本示例页的浏览器, 将一个事件脚本插入到文档头部, 当试图从页
+;     面离开时创建JavaScript警告并提供取消操作的选项
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -34,9 +28,8 @@ _IEHeadInsertEventScript ($oIE, "window", "onbeforeunload", _
 _IENavigate($oIE, "www.autoitscript.com")
 
 ; *******************************************************
-; Example 4 - Open a browser with the basic example page, insert an
-;				event script into the head of the document that prevents
-;				selection of text in the document
+; 例 4 - 打开带有基本示例页的浏览器, 将一个事件脚本插入到文档头部, 以保护文档中
+;     选取的文本
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -45,10 +38,8 @@ _IEHeadInsertEventScript ($oIE, "document", "ondrag", "return false;")
 _IEHeadInsertEventScript ($oIE, "document", "onselectstart", "return false;")
 
 ; *******************************************************
-; Example 5 - Open a browser with the AutoIt homepage, insert an
-;				event script into the head of the document that prevents
-;				navigation when any link is clicked and log the URL of the
-;               clicked link to the console
+; 例 5 - 以AutoIt主页打开浏览器, 当点击任意链接并将点击的链接地址记录到控制台时,
+;     将一个事件脚本插入到防止浏览的文档头部
 ; *******************************************************
 ;
 #include <IE.au3>

@@ -1,7 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Trap COM errors so that 'Back' and 'Forward' 
-;				outside of history bounds does not abort script 
-;				(expect COM errors to be sent to the console)
+; 例 1 - 捕捉COM错误以便'后退'及'前进'到历史外时不会退出脚本
+;        (除非COM错误被发送至控制台)
 ; *******************************************************
 ;
 #include <GUIConstantsEx.au3>
@@ -11,20 +10,20 @@
 _IEErrorHandlerRegister ()
 
 $oIE = _IECreateEmbedded ()
-GUICreate("Embedded Web control Test", 640, 580, _
+GUICreate("嵌入Web控件测试", 640, 580, _
 		(@DesktopWidth - 640) / 2, (@DesktopHeight - 580) / 2, _
 		$WS_OVERLAPPEDWINDOW + $WS_VISIBLE + $WS_CLIPSIBLINGS + $WS_CLIPCHILDREN)
 $GUIActiveX = GUICtrlCreateObj($oIE, 10, 40, 600, 360)
-$GUI_Button_Back = GUICtrlCreateButton("Back", 10, 420, 100, 30)
-$GUI_Button_Forward = GUICtrlCreateButton("Forward", 120, 420, 100, 30)
-$GUI_Button_Home = GUICtrlCreateButton("Home", 230, 420, 100, 30)
-$GUI_Button_Stop = GUICtrlCreateButton("Stop", 340, 420, 100, 30)
+$GUI_Button_Back = GUICtrlCreateButton("后退", 10, 420, 100, 30)
+$GUI_Button_Forward = GUICtrlCreateButton("前进", 120, 420, 100, 30)
+$GUI_Button_Home = GUICtrlCreateButton("主页", 230, 420, 100, 30)
+$GUI_Button_Stop = GUICtrlCreateButton("停止", 340, 420, 100, 30)
 
-GUISetState()       ;Show GUI
+GUISetState()       ;把GUI显示出来(默认隐藏)
 
 _IENavigate ($oIE, "http://www.autoitscript.com")
 
-; Waiting for user to close the window
+; 等待用户关闭窗口
 While 1
 	$msg = GUIGetMsg()
 	Select

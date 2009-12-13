@@ -1,6 +1,5 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the table example, get a reference to the second table
-;				on the page (index 1) and read its contents into a 2-D array
+; 例 1 - 打开带有表示例的浏览器, 获取页(索引1)上第二张表的引用, 并将其内容读入二维数组
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -9,8 +8,7 @@ $oTable = _IETableGetCollection ($oIE, 1)
 $aTableData = _IETableWriteToArray ($oTable)
 
 ; *******************************************************
-; Example 2 - Same as Example 1, except transpose the output array and display
-;				the results with _ArrayDisplay()
+; 例 2 - 同例 1, 变换输出数组的位置并以_ArrayDisplay()显示结果
 ; *******************************************************
 ;
 #include <IE.au3>

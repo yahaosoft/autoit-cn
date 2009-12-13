@@ -1,22 +1,22 @@
 ﻿; *******************************************************
-; Example 1 - Register and later deregister a custom and the default IE.au3 error handler
+; 例 1 - 注册然后注销一个自定义和默认的IE.au3错误处理程序
 ; *******************************************************
 ;
 #include <IE.au3>
-; Register a customer error handler
+; 注册自定义错误处理程序
 _IEErrorHandlerRegister ("MyErrFunc")
-; Do something
-; Deregister the customer error handler
+; 进行一些操作
+; 注销自定义错误处理程序
 _IEErrorHandlerDeregister ()
-; Do something else
-; Register the default IE.au3 COM Error Handler
+; 进行另一些操作
+; 注册默认IE.au3 COM错误处理程序
 _IEErrorHandlerRegister ()
-; Do more work
+; 进行更多操作
 
 Exit
 
 Func MyErrFunc()
-	; Important: the error object variable MUST be named $oIEErrorHandler
+	; 重要: 错误对象变量必须命名为$oIEErrorHandler
 	$ErrorScriptline = $oIEErrorHandler.scriptline
 	$ErrorNumber = $oIEErrorHandler.number
 	$ErrorNumberHex = Hex($oIEErrorHandler.number, 8)
@@ -27,7 +27,7 @@ Func MyErrFunc()
 	$ErrorHelpContext = $oIEErrorHandler.HelpContext
 	$ErrorLastDllError = $oIEErrorHandler.LastDllError
 	$ErrorOutput = ""
-	$ErrorOutput &= "--> COM Error Encountered in " & @ScriptName & @CR
+	$ErrorOutput &= "--> COM错误发生在" & @ScriptName & @CR
 	$ErrorOutput &= "----> $ErrorScriptline = " & $ErrorScriptline & @CR
 	$ErrorOutput &= "----> $ErrorNumberHex = " & $ErrorNumberHex & @CR
 	$ErrorOutput &= "----> $ErrorNumber = " & $ErrorNumber & @CR
@@ -37,7 +37,7 @@ Func MyErrFunc()
 	$ErrorOutput &= "----> $ErrorHelpFile = " & $ErrorHelpFile & @CR
 	$ErrorOutput &= "----> $ErrorHelpContext = " & $ErrorHelpContext & @CR
 	$ErrorOutput &= "----> $ErrorLastDllError = " & $ErrorLastDllError
-	MsgBox(0,"COM Error", $ErrorOutput)
+	MsgBox(0,"COM错误", $ErrorOutput)
 	SetError(1)
 	Return
 EndFunc  ;==>MyErrFunc

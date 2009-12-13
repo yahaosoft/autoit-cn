@@ -1,7 +1,7 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the form example, get reference to form, select
-;				each radio button byValue, then deselect the last item leaving none selected.
-;				Note: You will likely need to scroll down on the page to see the changes
+; 例 1 - 打开带表单实例的浏览器, 获取表单引用, 按值选取每个单选按钮,
+;     然后不选最后一项使得没有选中项.
+;     说明: 可能需要向下滚动页面以查看变化
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -21,9 +21,9 @@ For $i = 1 To 5
 Next
 
 ; *******************************************************
-; Example 2 - Open a browser with the form example, get reference to form, select
-;				each radio button byIndex, then deselect the last item leaving none selected.
-;				Note: You will likely need to scroll down on the page to see the changes
+; 例 2 - 打开带表单实例的浏览器, 获取表单引用, 按索引选取每个单选按钮,
+;     然后不选最后一项使得没有选中项.
+;     说明: 可能需要向下滚动页面以查看变化
 ; *******************************************************
 ;
 #include <IE.au3>

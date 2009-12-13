@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Create an empty browser, write customer HTML to it - in this case a
-;				FRAMESET - and then update the contents of each of the frames
+; 例 1 - 创建一个空浏览器, 写入自定义HTML代码 - 此例中为一个框架集,
+;    然后更新每一个框架里面的内容
 ; *******************************************************
 ;
 #include <IE.au3>

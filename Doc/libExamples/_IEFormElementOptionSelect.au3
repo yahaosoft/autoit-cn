@@ -1,7 +1,7 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the form example, get reference to form, get reference
-;				to select element, cycle 10 times selecting options byValue, byText and byIndex
-;				Note: You will likely need to scroll down on the page to see the changes
+; 例 1 - 打开带表单实例的浏览器, 获取表单引用, 获取选择元素的引用,
+;     循环10次分别使用byValue, byText和byIndex选取选项
+;     说明: 可能需要向下滚动页面以查看变化
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -18,10 +18,9 @@ For $i = 1 To 10
 Next
 
 ; *******************************************************
-; Example 2 - Open a browser with the form example, get reference to form, get reference
-;				to select multiple element, cycle 5 times selecting and then deselecting
-;				options byValue, byText and byIndex.
-;				Note: You will likely need to scroll down on the page to see the changes
+; 例 2 - 打开带表单实例的浏览器, 获取表单引用, 获取选取多个元素的引用,
+;     循环5次选择并分别使用byValue, byText和byIndex不选取选项.
+;     说明: 可能需要向下滚动页面以查看变化
 ; *******************************************************
 ;
 #include <IE.au3>

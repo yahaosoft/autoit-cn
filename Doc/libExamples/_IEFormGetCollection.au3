@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Get a reference to a specific form by 0-based index,
-;				in this case the first form on the page
+; 例 1 - 获取指定的0基索引的表单的引用,
+;     此例为页面上的首个表单
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -11,30 +11,27 @@ _IEFormElementSetValue ($oQuery, "AutoIt IE.au3")
 _IEFormSubmit ($oForm)
 
 ; *******************************************************
-; Example 2 - Get a reference to the collection of forms on a page,
-;				and then loop through them displaying information for each
+; 例 2 - 获取页上表单集合的引用, 然后循环显示每个信息
 ; *******************************************************
 ;
 #include <IE.au3>
 $oIE = _IECreate ("http://www.autoitscript.com")
 $oForms = _IEFormGetCollection ($oIE)
-MsgBox(0, "Forms Info", "There are " & @extended & " forms on this page")
+MsgBox(0, "表单总计", "现在有" & @extended & "个表单在这个页面上")
 For $oForm In $oForms
-	MsgBox(0, "Form Info", $oForm.name)
+	MsgBox(0, "表单信息", $oForm.name)
 Next
 
 ; *******************************************************
-; Example 3 - Get a reference to the collection of forms on a page,
-;				and then loop through them displaying information for each
-;				demonstrating use of form index
+; 例 3 - 获取页上表单集合的引用, 然后循环显示每个信息以示范表单索引的用法
 ; *******************************************************
 ;
 #include <IE.au3>
 $oIE = _IECreate ("http://www.autoitscript.com")
 $oForms = _IEFormGetCollection ($oIE)
 $iNumForms = @extended
-MsgBox(0, "Forms Info", "There are " & $iNumForms & " forms on this page")
+MsgBox(0, "表单总计", "现在有" & $iNumForms & "个表单在这个页面上")
 For $i = 0 to $iNumForms - 1
 	$oForm = _IEFormGetCollection ($oIE, $i)
-	MsgBox(0, "Form Info", $oForm.name)
+	MsgBox(0, "表单信息", $oForm.name)
 Next

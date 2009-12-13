@@ -1,9 +1,9 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the basic example, read the body Text
-;				(the content with all HTML tags removed) and display it in a MsgBox
+; 例 1 - 打开带基本示例的浏览器, 读取主体文本(所有移走HTML标签的内容)
+;        并显示在Msgbox中
 ; *******************************************************
 ;
 #include <IE.au3>
 $oIE = _IE_Example ("basic")
 $sText = _IEBodyReadText ($oIE)
-MsgBox(0, "Body Text", $sText)
+MsgBox(0, "Body的文本", $sText)

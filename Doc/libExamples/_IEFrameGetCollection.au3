@@ -1,6 +1,5 @@
 ﻿; *******************************************************
-; Example 1 - Open frameset example, get collection of frames
-;				and loop through them displaying their source URL's
+; 例 1 - 打开框架集示例, 获取框架集合, 并循环显示他们的源地址
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -9,5 +8,5 @@ $oFrames = _IEFrameGetCollection ($oIE)
 $iNumFrames = @extended
 For $i = 0 to ($iNumFrames - 1)
 	$oFrame = _IEFrameGetCollection ($oIE, $i)
-	MsgBox(0, "Frame Info", _IEPropertyGet ($oFrame, "locationurl"))
+	MsgBox(0, "框架信息", _IEPropertyGet ($oFrame, "locationurl"))
 Next

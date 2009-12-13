@@ -1,5 +1,5 @@
 ﻿; *******************************************************
-; Example 1 - Click on IMG by Alt text
+; 例 1 - 按可选文本点击图像
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -7,7 +7,7 @@ $oIE = _IE_Example ("basic")
 _IEImgClick ($oIE, "AutoIt Homepage Image", "alt")
 
 ; *******************************************************
-; Example 2 - Click on IMG by name
+; 例 2 - 按名称点击图像
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -15,7 +15,7 @@ $oIE = _IE_Example ("basic")
 _IEImgClick ($oIE, "AutoItImage", "name")
 
 ; *******************************************************
-; Example 3 - Click on IMG by src sub-string
+; 例 3 - 按源地址子串点击图像
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -23,7 +23,7 @@ $oIE = _IE_Example ("basic")
 _IEImgClick ($oIE, "autoit_6_240x100.jpg", "src")
 
 ; *******************************************************
-; Example 4 - Click on IMG by full src string
+; 例 4 - 按完整源地址串点击图像
 ; *******************************************************
 ;
 #include <IE.au3>

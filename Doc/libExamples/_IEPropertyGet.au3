@@ -1,6 +1,5 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the basic example, check to see if the
-;				addressbar is visible, if it is turn it off, if it is not turn it on
+; 例 1 - 打开带有基本示例的浏览器, 检查地址栏是否可见, 如果可见关闭它, 不可见打开它.
 ; *******************************************************
 ;
 #include <IE.au3>

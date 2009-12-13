@@ -1,7 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Open the AutoIt forum page, tab to the "View new posts"
-;				link and activate the link with the enter key.
-;				Then wait for the page load to complete	before moving on.
+; 例 1 - 打开AutoIt论坛页, 切换到"View new posts"链接并使用回车键激活.
+;     然后再离开前等待页面完成加载.
 ; *******************************************************
 ;
 #include <IE.au3>

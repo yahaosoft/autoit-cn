@@ -1,38 +1,34 @@
 ﻿; *******************************************************
-; Example 1 - Attach to a browser with "AutoIt" in its title, display the URL
+; 例 1 - 获取标题带有"AutoIt"的浏览器窗口, 并显示URL
 ; *******************************************************
 ;
 #include <IE.au3>
 $oIE = _IEAttach ("AutoIt")
-MsgBox(0, "The URL", _IEPropertyGet ($oIE, "locationurl"))
+MsgBox(0, "URL是", _IEPropertyGet ($oIE, "locationurl"))
 
 ; *******************************************************
-; Example 2 - Attach to a browser with "The quick brown fox"
-;				in the text of it's top-level document
+; 例 2 - 获取顶层文件中带有"The quick brown fox"文本的浏览器窗口
 ; *******************************************************
 ;
 #include <IE.au3>
 $oIE = _IEAttach ("The quick brown fox", "text")
 
 ; *******************************************************
-; Example 3 - Attach to a browser control embedded in another window
+; 例 3 - 获取内嵌于一个窗口的浏览器控件
 ; *******************************************************
 ;
 #include <IE.au3>
 $oIE = _IEAttach ("A Window Title", "embedded")
 
 ; *******************************************************
-; Example 4 - Attach to the 3rd browser control embedded in another window
-;				Use the advanced window title syntax to use the 2nd window 
-;				with the string 'ICQ' in the title
+; 例 4 - 获取内嵌于另一窗口的第三个浏览器控件; 使用高级窗口标题语法以使用标题中带有"ICQ"的第二个窗口
 ; *******************************************************
 ;
 #include <IE.au3>
 $oIE = _IEAttach ("[REGEXPTITLE:ICQ; INSTANCE:2]", "embedded", 3)
 
 ; *******************************************************
-; Example 5 - Create an array of object references to all current browser instances
-;				The first array element will contain the number of instances found
+; 例 5 - 创建指向当前浏览器实例的对象数组; 首个元素包含找到的实例的数量
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -50,4 +46,4 @@ While 1
 	$i += 1
 WEnd
 
-MsgBox(0, "Browsers Found", "Number of browser instances in the array: " & $aIE[0])
+MsgBox(0, "已经找到浏览器", "数组里有: " & $aIE[0] & " 个浏览器的实例")

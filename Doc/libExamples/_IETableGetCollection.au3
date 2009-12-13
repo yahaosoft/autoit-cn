@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the table example, get a reference to the first table
-;				on the page (index 0) and read its contents into a 2-D array
+; 例 1 - 打开带表实例的浏览器, 获取页上首张表的引用(索引0)
+;     并将内容读取到二维数组
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -9,12 +9,11 @@ $oTable = _IETableGetCollection ($oIE, 0)
 $aTableData = _IETableWriteToArray ($oTable)
 
 ; *******************************************************
-; Example 2 - Open a browser with the table example, get a reference to the
-;				table collection and display the number of tables on the page
+; 例 2 - 打开带表实例的浏览器, 获取页上表集合的引用并显示页上的表数量
 ; *******************************************************
 ;
 #include <IE.au3>
 $oIE = _IE_Example ("table")
 $oTable = _IETableGetCollection ($oIE)
 $iNumTables = @extended
-MsgBox(0, "Table Info", "There are " & $iNumTables & " tables on the page")
+MsgBox(0, "表单信息", "这个页面上有" & $iNumTables & "个表单")

@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Display the frameset example, get frame collection,
-;				check number of frames, display number of frames or iFrames present
+; 例 1 - 显示框架集合示例, 获取框架集, 检查框架数量,
+;       显示框架数量或iFrames百分数
 ; *******************************************************
 ;
 #include <IE.au3>
@@ -9,10 +9,10 @@ $oFrames = _IEFrameGetCollection ($oIE)
 $iNumFrames = @extended
 If $iNumFrames > 0 Then
 	If _IEIsFrameSet ($oIE) Then
-		MsgBox(0, "Frame Info", "Page contains " & $iNumFrames & " frames in a FrameSet")
+		MsgBox(0, "框架信息", "在这个框架集合中有" & $iNumFrames & "个框架")
 	Else
-		MsgBox(0, "Frame Info", "Page contains " & $iNumFrames & " iFrames")
+		MsgBox(0, "框架信息", "页面有" & $iNumFrames & "个框架")
 	EndIf
 Else
-	MsgBox(0, "Frame Info", "Page contains no frames")
+	MsgBox(0, "框架信息", "页面内没有框架")
 EndIf
