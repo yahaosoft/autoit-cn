@@ -1,8 +1,8 @@
-###User Defined Function###
+﻿###User Defined Function###
 _FTP_FilePut
 
 ###Description###
-Puts an file on an FTP server.
+在 FTP 服务器上放置(上传)一个文件.
 
 ###Syntax###
 #Include <FTPEx.au3>
@@ -11,13 +11,13 @@ _FTP_FilePut($l_FTPSession, $s_LocalFile, $s_RemoteFile [, $l_Flags = 0 [, $l_Co
 ###Parameters###
 @@ParamTable@@
 $l_FTPSession
-	as returned by _FTP_Connect()
+	由 _FTP_Connect() 返回
 $s_LocalFile
-	The local file.
+	本地文件.
 $s_RemoteFile
-	The remote Location for the file.
+	放置文件的远程位置.
 $l_Flags
-	[optional] Specify the conditions under which the transfers occur. The application should select one transfer type and any of the flags that indicate how the caching of the file will be controlled.
+	[可选参数] Specify the conditions under which the transfers occur. The application should select one transfer type and any of the flags that indicate how the caching of the file will be controlled.
 		<br/>The transfer type can be one of the following values:
 			<b>$FTP_TRANSFER_TYPE_ASCII</b> - Transfers the file using FTP's ASCII (Type A) transfer method. Control and formatting information is converted to local equivalents.
 			<b>$FTP_TRANSFER_TYPE_BINARY</b> - Transfers the file using FTP's Image (Type I) transfer method. The file is transferred exactly as it exists with no changes. This is the default transfer method.
@@ -30,14 +30,14 @@ $l_Flags
 			<b>$INTERNET_FLAG_RELOAD</b> - Forces a download of the requested file, object, or directory listing from the origin server, not from the cache.
 			<b>$INTERNET_FLAG_RESYNCHRONIZE</b> - Reloads HTTP resources if the resource has been modified since the last time it was downloaded. All FTP and Gopher resources are reloaded.
 $l_Context
-	[optional] A variable that contains the application-defined value that associates this search with any application data.
+	[可选参数] A variable that contains the application-defined value that associates this search with any application data.
 	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	1
-Failure:	0  and sets @ERROR
+成功:	返回 1
+失败:	返回 0 并设置 @ERROR
 @@End@@
 
 ###Remarks###
