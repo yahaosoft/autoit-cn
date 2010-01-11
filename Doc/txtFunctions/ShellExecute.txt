@@ -13,18 +13,18 @@ ShellExecute ( "文件名" [, "参数" [, "工作目录" [, "verb" [, 显示标�
 文件名
 	需要运行的文件名 (.EXE,.txt,.lnk,等等).
 参数
-	[可选] 程序需要的运行参数. 空白("")为不使用参数.
+	[可选参数] 程序需要的运行参数. 空白("")为不使用参数.
 工作目录
-	[可选] 程序的工作目录. 空白 ("") 使用当前工作目录 directory.
+	[可选参数] 程序的工作目录. 空白 ("") 使用当前工作目录.
 verb
-	[可选] 使用 "verb" ,公共 verbs 包含:
+	[可选参数] 使用 "verb" ,公共 verbs 包含:
 	  open = 打开指定文件. 文件可以是可执行文件,文档,或者一个文件夹.
 	  edit = 启动一个编辑器编辑指定文档. 如果 "文件名" 不是一个文档文件,函数将失败.
-	  print = 打印指定的文档文件. 如果 "文件名" 不是一个文档文件, 函数将失败
-	  properties = 显示文件或者文件夹的属性
-	  <b>See remarks for more information on the default behavior when a verb is not specified.</b>
+	  print = 打印指定的文档文件. 如果 "文件名" 不是一个文档文件, 函数将失败.
+	  properties = 显示文件或者文件夹的属性.
+	  <b>当没有指定verb时会出现的情况请参考备注的说明.</b>
 显示标志
-	[可选] 可执行程序的显示标志:
+	[可选参数] 可执行程序的显示标志:
 	  @SW_HIDE = 隐藏窗口
 	  @SW_MINIMIZE = 最小化窗口
 	  @SW_MAXIMIZE = 最大化窗口
@@ -34,14 +34,14 @@ verb
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回 1.
-失败:	返回 0 并设置@error为非0值.
+失败:	返回 0 并设置 @error 为非 0 值.
 @@End@@
 
 
 ###Remarks###
 在被请求的程序运行后,脚本将继续运行.要使被请求的程序运行完成后脚本才继续运行,请使用 ShellExecuteWait 函数.
 
-When no verb is specified the default verb is used.  The default verb is the verb configured in the registry.  If no verb is set as default in the registry then the "open" verb is used.  If the "open" verb is not present then the first verb listed in the registry is used (except on Windows 2000).
+当默认没有指定 verb 时. 将会自动设置为注册表设置的 verb 值. 如果注册表没有设置默认的 verb 值,将被自动设置为注册表中的 "open" verb 值. 如果注册表中没有 "open" verb 值则使用第一个注册表列出的值 (排除 Windows 2000).
 
 ###Related###
 ShellExecuteWait, Run, RunWait, RunAs, RunAsWait
