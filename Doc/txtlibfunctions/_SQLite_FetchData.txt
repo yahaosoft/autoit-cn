@@ -6,7 +6,7 @@ Fetches 1 row of data from a _SQLite_Query() based query
 
 ###Syntax###
 #include <SQLite.au3>
-_SQLite_FetchData ( $hQuery, ByRef $aRow [, $fBinary ] )
+_SQLite_FetchData ( $hQuery, ByRef $aRow [, $fBinary  = False [, $fDoNotFinalize = False]] )
 
 
 ###Parameters###
@@ -17,6 +17,9 @@ $aRow
 	A 1 dimensional array containing a row of data
 $fBinary
 	[optional] Switch for binary mode ($aRow will be a array of binary strings)
+$fDoNotFinalize
+	[optional] Switch can be set to TRUE if you need to keep the query unfinalized for further use.
+	(It is then the caller's responsability to invoke _SQLite_QueryFinalize before Shutdown.)
 @@End@@
 
 ###ReturnValue###
