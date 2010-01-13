@@ -1,8 +1,7 @@
 ﻿; 1、编译此脚本 "ConsoleRead.exe".
 ; 2、以命令提示符的方式打开程序ConsoleRead.exe所在目录在.
-; 3、键入以下命令行:
-;	echo Hello! | ConsoleRead.exe
-;
+; 3、键入以下命令行: echo Hello! | ConsoleRead.exe
+
 ; When invoked in a console window, the above command echos the text "Hello!"
 ; but instead of dispalying it, the | tells the console to pipe it to the STDIN stream
 ; of the ConsoleRead.exe process.

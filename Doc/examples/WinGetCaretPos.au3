@@ -28,7 +28,7 @@ Func _CaretPos()
 	If IsArray($c) and IsArray($w) and IsArray($e) Then
 		$t[0] = $c[0] + $w[0] + $e[0] + $x_adjust
 		$t[1] = $c[1] + $w[1] + $e[1] + $y_adjust
-		Return $t     ;absolute screen coords of caret cursor
+		Return $t     ;插入坐标的绝对位置
 	Else
 		SetError(1)
 	EndIf

@@ -4,20 +4,20 @@
 
 Opt('MustDeclareVars', 1)
 
-$Debug_LV = False ; Check ClassName being passed to ListView functions, set to True and use a handle to another control to see it work
+$Debug_LV = False ; 检查传递给函数的类名, 设置为真并使用另一控件的句柄观察其工作.
 
 _Main()
 
 Func _Main()
 	Local $iI, $iTimer, $hListView
 
-	; Create GUI
-	GUICreate("ListView Add Array", 400, 300)
+	; 创建界面
+	GUICreate("列表中添加项目", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268)
 	_GUICtrlListView_SetUnicodeFormat($hListView, False)
 	GUISetState()
 
-	; Add columns
+	; 添加列
 	_GUICtrlListView_AddColumn($hListView, "Items", 100)
 	_GUICtrlListView_AddColumn($hListView, "SubItems 1", 100)
 	_GUICtrlListView_AddColumn($hListView, "SubItems 2", 100)
@@ -25,19 +25,19 @@ Func _Main()
 
 	_GUICtrlListView_SetItemCount($hListView, 5000)
 	
-	; One column load
-	Dim $aItems[5000][1]
+	; 加载一列
+	Local $aItems[5000][1]
 	For $iI = 0 To UBound($aItems) - 1
 		$aItems[$iI][0] = "Item " & $iI
 	Next
 	$iTimer = TimerInit()
 	_GUICtrlListView_AddArray($hListView, $aItems)
-	MsgBox(4160, "Information", "Load time: " & TimerDiff($iTimer) / 1000 & " seconds")
+	MsgBox(4160, "信息", "加载时间: " & TimerDiff($iTimer) / 1000 & " 秒")
 
-	_GUICtrlListView_DeleteAllItems(GUICtrlGetHandle($hListView)) ; items added with UDF function can be deleted using UDF function
+	_GUICtrlListView_DeleteAllItems(GUICtrlGetHandle($hListView)) ; 使用 UDF 函数创建的列, 可使用 UDF 函数删除.
 
-	; Four column load
-	Dim $aItems[5000][4]
+	; 加载四列
+	Local $aItems[5000][4]
 	For $iI = 0 To UBound($aItems) - 1
 		$aItems[$iI][0] = "Item " & $iI
 		$aItems[$iI][1] = "Item " & $iI & "-1"
@@ -46,9 +46,9 @@ Func _Main()
 	Next
 	$iTimer = TimerInit()
 	_GUICtrlListView_AddArray($hListView, $aItems)
-	MsgBox(4160, "Information", "Load time: " & TimerDiff($iTimer) / 1000 & " seconds")
+	MsgBox(4160, "信息", "加载时间: " & TimerDiff($iTimer) / 1000 & " 秒")
 
-	; Loop until user exits
+	; 循环至用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()
