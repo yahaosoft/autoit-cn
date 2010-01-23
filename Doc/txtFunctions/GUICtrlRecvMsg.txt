@@ -2,7 +2,7 @@
 GUICtrlRecvMsg
 
 ###Description###
-获取控件消息。向指定控件发送消息并获取返回的 lParam 的值。
+向指定控件发送消息并获取返回的 lParam 的信息.(获取控件消息)
 
 ###Syntax###
 GUICtrlRecvMsg ( 控件ID , msg [, wParam [, lParam类型]] )
@@ -13,26 +13,26 @@ GUICtrlRecvMsg ( 控件ID , msg [, wParam [, lParam类型]] )
 控件ID
 	控件标识符(控件ID),可由 <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a> 函数的返回值获得.
 msg
-	要发送到控件的消息类型，在 Windows 的控件文档中有定义。
+	要发送到控件的消息类型,在 Windows 的控件文档中有定义.
 wParam
-	[可选参数] 要发送到控件的第一个整型参数。
+	[可选参数] 要发送到控件的第一个整型参数.
 lParamType
-	[可选参数] 定义将返回的 lParam 的类型：0（默认）表示 wParam 和 lParam，1 表示 lParam 字符串，2 表示 lParam RECT 结构体。
+	[可选参数] 定义将返回的 lParam 的类型:0(默认)表示 wParam 和 lParam,1 表示 lParam 字符串,2 表示 lParam RECT 数据结构.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回 SendMessage（Windows API） 的返回值。
-失败:	返回值为0。
+成功:	返回 SendMessage(Windows API) 的返回值.
+失败:	返回 0.
 @@End@@
 
 
 ###Remarks###
-本函数允许我们使用 SendMessage（API 函数） 来把某些特殊的 Windows 消息直接发送到控件上。它可以用来启用某些特殊的控件功能，而这些功能往往是简单的 GUICtrlRead() 和 GUICtrlSet...() 函数无法实现的。
+本函数允许我们使用 SendMessage(API 函数) 来把某些特殊的 Windows 消息直接发送到控件上.它可以用来启用某些特殊的控件功能,而这些功能往往是简单的 GUICtrlRead() 和 GUICtrlSet...() 函数无法实现的.
 
-若在调用本函数时未指定 wParam 和 lParam类型 这两个参数则函数将返回一个含有两个元素的数组 (LPwParam, LPlParam)。
+若在调用本函数时未指定 wParam 和 lParam类型 这两个参数则函数将返回一个含有两个元素的数组 (LPwParam, LPlParam).
 
-若指定了返回值为 RECT 则以含有四个元素的数组的形式返回(左侧, 上方, 右侧, 下方)。 
+若指定了返回值为 RECT 则以含有四个元素的数组的形式返回(左侧, 上方, 右侧, 下方). 
 
 ###Related###
 GUICtrlSendMsg, GUICtrlUpdate..., GUIGetMsg, GUICtrlRead

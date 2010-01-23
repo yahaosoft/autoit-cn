@@ -30,7 +30,7 @@ Func _Main()
 	_GUICtrlListView_InsertColumn($hListView, 1, "Column 2", 100)
 	_GUICtrlListView_InsertColumn($hListView, 2, "Column 3", 100)
 
-	; 添加项
+	; 添加项目
 	_GUICtrlListView_AddItem($hListView, "Row 1: Col 1", 0)
 	_GUICtrlListView_AddItem($hListView, "Row 2: Col 1", 1)
 	_GUICtrlListView_AddItem($hListView, "Row 3: Col 1", 2)
