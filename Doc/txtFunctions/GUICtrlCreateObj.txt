@@ -5,12 +5,12 @@ GUICtrlCreateObj
 在GUI上面创建一个 ActiveX 控件.
 
 ###Syntax###
-GUICtrlCreateObj ( $ObjectVar, 左侧, 顶部[, 宽度[, 高度]] ) 
+GUICtrlCreateObj ( 对象变量, 左侧, 顶部 [, 宽度 [, 高度 ]] )
 
 
 ###Parameters###
 @@ParamTable@@
-ObjectVar
+对象变量
 	一个指向前面已经打开的对象(object)的变量.
 左侧
 	控件左侧的位置.若此值为 -1 则根据 <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> 的设置来计算左侧位置. 
@@ -24,18 +24,18 @@ ObjectVar
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回新控件的控件标识符(控件ID).   
-失败:	返回 0. 
+成功:	返回新控件的控件标识符(控件ID).
+失败:	返回 0.
 @@End@@
 
 
 ###Remarks###
-这个函数尝试植入一个 'ActiveX 控件' 或者 'Document Object' 到 GUI. 
+这个函数尝试植入一个 'ActiveX 控件' 或者 'Document Object' 到 GUI.
 不是任何控件都可以植入的. 这个控件至少得支持 'IDispatch' 接口.
 
-'Document Objects' 只能显示于 $WS_CLIPCHILDREN 样式的GUI,参考 GUICreate(). 
+'Document Objects' 只能显示于 $WS_CLIPCHILDREN 样式的GUI,参考 GUICreate().
 
-GUI 函数 GUICtrlRead 和 GUICtrlSet 不能对这个控件有任何影响. 这个对象只能调用它自身($ObjectVar)的"方法"('methods')或者属性('properties'). 
+GUI 函数 GUICtrlRead 和 GUICtrlSet 不能对这个控件有任何影响. 这个对象只能调用它自身(ObjectVar)的"方法"('methods')或者属性('properties'). 
 
 ###Related###
 ObjCreate, ObjGet, ObjEvent, IsObj

@@ -7,21 +7,21 @@ PixelChecksum
 
 
 ###Syntax###
-PixelChecksum ( 左侧, 上方, 右侧, 下方 [, 步进 [,句柄 [,模式]]] )  
+PixelChecksum ( 左侧, 顶部, 右侧, 底部 [, 步进 [,句柄 [,模式]]] )  
 
 
 ###Parameters###
 @@ParamTable@@
 左侧
 	矩形区域左侧的坐标.
-上方
-	矩形区域上方的坐标.
+顶部
+	矩形区域顶部的坐标.
 右侧
 	矩形区域右侧的坐标.
-下方
-	矩形区域下方的坐标.
+底部
+	矩形区域底部的坐标.
 步进
-	[可选参数] 默认情况下每个象素都要校验一次,而此参数可跳过指定数量的象素才校验(可提升执行速度).例如,数值2表示每隔一个象素才校验一次.默认值为 1.   
+	[可选参数] 默认情况下每个象素都要校验一次,而此参数可跳过指定数量的象素才校验(可提升执行速度).例如,数值2表示每隔一个象素才校验一次.默认值为 1. <b>不推荐步进值超过 1 .</b>
 句柄
 	[可选参数] 目标窗口句柄.
 模式 
@@ -32,19 +32,18 @@ PixelChecksum ( 左侧, 上方, 右侧, 下方 [, 步进 [,句柄 [,模式]]] )
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回指定区域的校验和.
-失败:	如果为无效但坐标,将返回0,只能是从左到右或者从上到下.
+失败:	返回 0.
 @@End@@
 
 
 
 ###Remarks###
-计算某个区域的校验和是非常耗时的,因此请使用尽可能小的区域以减轻CPU负荷.在某些机器上要计算整个屏幕的校验和甚至要花数秒的时间!
+校验和使我们能检查某个区域里"某些地方"是否有变化,但我们却无从知道具体有什么变化 - 它不会告诉你哪里发生了变化.
 
-校验和使我们能检查某个区域里"某些地方"是否有变化,但我们却无从知道具体有什么变化. 
+上一个版本里,工作非常慢, 因此现在将校检写得更快了. 使用步进参数也不再被推荐.  The performance gain from using a larger step is not nearly as noticeable since the function is faster all around.  Also, the larger the step, the less reliable the checksum becomes when used to detect small changes in the region.
 
 CRC32 校检略为比 ADLDER 校检慢,但是校检精度更高.
 
-记住一点,设置的跳进的数值越高则精确度越低,生成的校验和就越不可靠!
 ###Related###
 PixelGetColor, PixelCoordMode (Option), PixelSearch
 

@@ -30,6 +30,7 @@ Func Example2()
 	$gui = GUICreate("Background", 400, 100)
 	; 创建背景图片
 	$background = GUICtrlCreatePic("..\GUI\msoobe.jpg", 0, 0, 400, 100)	
+		
 	GUISetState(@SW_SHOW)
 
 	; 创建透明的 MDI子窗口
