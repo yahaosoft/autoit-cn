@@ -8,7 +8,7 @@ Example2()
 Example3()
 Example4()
 
-; example1
+; 示例1
 Func Example1()
 	Local $date, $msg
 
@@ -25,7 +25,7 @@ Func Example1()
 	GUIDelete()
 EndFunc   ;==>Example1
 
-; example2
+; 示例2
 Func Example2()
 	Local $n, $msg
 
@@ -42,7 +42,7 @@ Func Example2()
 	GUIDelete()
 EndFunc   ;==>Example2
 
-; example3
+; 示例3
 Func Example3()
 	Local $date, $DTM_SETFORMAT_, $style
 
@@ -61,7 +61,7 @@ Func Example3()
 	MsgBox(0, "Time", GUICtrlRead($date))
 EndFunc   ;==>Example3
 
-; example4
+; 示例4
 Func Example4()
 	Local $n, $msg
 

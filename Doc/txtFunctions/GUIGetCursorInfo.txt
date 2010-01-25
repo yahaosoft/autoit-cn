@@ -11,29 +11,29 @@ GUIGetCursorInfo ( [窗口句柄] )
 ###Parameters###
 @@ParamTable@@
 窗口句柄
-	[可选参数] 目标窗口句柄。若此参数缺省则使用"当前"窗口.
+	[可选参数] 目标窗口句柄.若此参数缺省则使用"当前"窗口.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回一个5个元素的数组来表示鼠标的坐标信息: 
-	$array[0] = X 坐标 (水平轴)
+成功:	返回一个5个元素的数组来表示鼠标的坐标信息:
+	$array[0] = X 坐标(水平轴)
 	$array[1] = Y 坐标(垂直轴)
 	$array[2] = 鼠标左键被按下 (1 为按下, 0 为未按下)
-	$array[3] = 鼠标右键被按下 (1 未按下, 0 为未按下) 
-	$array[4] = 鼠标下面的控件的控件ID( 0 为没有或者无法获取)   
+	$array[3] = 鼠标右键被按下 (1 未按下, 0 为未按下)
+	$array[4] = 鼠标下面的控件的控件ID( 0 为没有或者无法获取)
 失败:	返回 0 并设置 @error 为 1
 @@End@@
 
 
 ###Remarks###
-坐标是 GUI 的相对值 (known as client coords).
+The coordinates given are relative to the GUI window (known as client coords).
 
-如果 "窗口句柄" 参数被使用 , 那么指定的窗口变成新的 "当前" 窗口.
+If the "winhandle" parameter is used then the specified window becomes the new "current" window.
 
-鼠标光标位置只有在被 GUICreate 建立的窗口上是有效的. 如果没有窗口句柄的 GUI 是 <b>活动的</b> ，也将有效.
+The mouse cursor position is successful only on an window created by a GUICreate. When no winhandle it will be successful if the GUI Windows is <b>active</b>.
 
-ListViewItem 或 TreeViewItem 控件ID永远不会被返回, 只返回父 Listview 或者 TreeView 控件ID.
+ListViewItem or TreeViewItem controlID will never be returned, only the parent Listview or TreeView control ID is.
 
 ###Related###
 GUICreate, GUIGetMsg
