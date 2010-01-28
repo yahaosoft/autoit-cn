@@ -1,33 +1,33 @@
-#include <Constants.au3>
+﻿#include <Constants.au3>
 
 Local Const $sFile = "test.txt"
 Local $hFile = FileOpen($sFile, 2)
 
-; ����ļ��Ƿ��Ѵ�
+; 检查文件是否已打开
 If $hFile = -1 Then
-	MsgBox(0, "����", "�޷����ļ�.")
+	MsgBox(0, "错误", "无法打开文件.")
 	Exit
 EndIf
 
-; ���ǰ�Ѵ򿪵��ı��ļ�β׷��һ������.
+; 向此前已打开的文本文件尾追加一行数据.
 FileWriteLine($hFile, "Line1")
 FileWriteLine($hFile, "Line2")
 FileWriteLine($hFile, "Line3")
 
-; ������ı��ļ��ڴ滺�������ݵ�����.����ڱ������.
+; 保存该文本文件内存缓冲区数据到磁盘.相等于保存操作.
 FileFlush($hFile)
 
-; ��ȡ��ǰ�ļ���������
-MsgBox(0, "", "λ��: " & FileGetPos($hFile) & @CRLF & "����: " & @CRLF & FileRead($hFile))
+; 读取当前文件坐标内容
+MsgBox(0, "", "位置: " & FileGetPos($hFile) & @CRLF & "数据: " & @CRLF & FileRead($hFile))
 
-; ���õ�ǰ�ļ�����.
+; 设置当前文件坐标.
 Local $n = FileSetPos($hFile, 0, $FILE_BEGIN)
 
-;��ȡ��ǰ�ļ���������
-MsgBox(0, "", "λ��: " & FileGetPos($hFile) & @CRLF & "����: " & @CRLF & FileRead($hFile))
+;读取当前文件坐标内容
+MsgBox(0, "", "位置: " & FileGetPos($hFile) & @CRLF & "数据: " & @CRLF & FileRead($hFile))
 
-; �رմ�ǰ�Ѵ򿪵��ļ�.
+; 关闭此前已打开的文件.
 FileClose($hFile)
 
-;ɾ����ʱ�ļ�.
+;删除临时文件.
 FileDelete($sFile)
