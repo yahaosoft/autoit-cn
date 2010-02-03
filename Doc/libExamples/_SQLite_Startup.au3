@@ -4,9 +4,9 @@
 Local $sSQliteDll
 $sSQliteDll = _SQLite_Startup ()
 If @error Then
-	MsgBox(16, "SQLite Error", "SQLite.dll Can't be Loaded!")
-	Exit - 1
+    MsgBox(16, "错误", "SQLite.dll加载失败!")
+    Exit - 1
 EndIf
-ConsoleWrite("_SQLite_LibVersion=" &_SQLite_LibVersion() & @CR)
-MsgBox(0,"SQLite3.dll Loaded",$sSQliteDll)
+ConsoleWrite("SQLite_LibVersion=" &_SQLite_LibVersion() & @CR);SQLite版本号
+MsgBox(0,"SQLite3.dll 加载路径：",$sSQliteDll)
 _SQLite_Shutdown ()

@@ -5,7 +5,7 @@ Example2()
 
 Func Example1()
 	;================================================
-	;示例 官方默认例子
+	;示例1 官方默认例子
 	;================================================
 	Local Const $sFile = "test.txt"
 	Local $hFile = FileOpen($sFile, 1)
@@ -37,7 +37,7 @@ EndFunc   ;==>Example1
 
 Func Example2()
 	;================================================
-	;示例 ACN例子
+	;示例2 ACN例子
 	;================================================
 	#include <Constants.au3>
 	Local Const $aFile = "test.txt"
