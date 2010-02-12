@@ -15,25 +15,25 @@ Func Example()
 	Global $defaultstatus = "Ready"
 	Global $status
 
-	$filemenu = GUICtrlCreateMenu("&File")
+	$filemenu = GUICtrlCreateMenu("&File"); 创建一个菜单控件
 	$fileitem = GUICtrlCreateMenuItem("Open", $filemenu)
-	GUICtrlSetState(-1, $GUI_DEFBUTTON)
-	$helpmenu = GUICtrlCreateMenu("?")
-	$saveitem = GUICtrlCreateMenuItem("Save", $filemenu)
-	GUICtrlSetState(-1, $GUI_DISABLE)
-	$infoitem = GUICtrlCreateMenuItem("Info", $helpmenu)
-	$exititem = GUICtrlCreateMenuItem("Exit", $filemenu)
 	$recentfilesmenu = GUICtrlCreateMenu("Recent Files", $filemenu, 1)
-
-	$separator1 = GUICtrlCreateMenuItem("", $filemenu, 2) 	; create a separator line
-
-	$viewmenu = GUICtrlCreateMenu("View", -1, 1) 	; is created before "?" menu
+	GUICtrlSetState(-1, $GUI_DEFBUTTON);调整指定控件为窗口的默认按钮
+	$separator1 = GUICtrlCreateMenuItem("", $filemenu, 2) 	; 创建分隔线
+	$saveitem = GUICtrlCreateMenuItem("Save", $filemenu)
+	GUICtrlSetState(-1, $GUI_DISABLE);调整指定控件为灰色状态
+	$exititem = GUICtrlCreateMenuItem("Exit", $filemenu)
+	
+	$viewmenu = GUICtrlCreateMenu("View", -1, 1); 创建一个菜单控件
 	$viewstatusitem = GUICtrlCreateMenuItem("Statusbar", $viewmenu)
-	GUICtrlSetState(-1, $GUI_CHECKED)
+	GUICtrlSetState(-1, $GUI_CHECKED);调整指定控件为选中状态
+	
+	$helpmenu = GUICtrlCreateMenu("?"); 创建一个菜单控件
+	$infoitem = GUICtrlCreateMenuItem("Info", $helpmenu)
+	
 	$okbutton = GUICtrlCreateButton("OK", 50, 130, 70, 20)
 	GUICtrlSetState(-1, $GUI_FOCUS)
 	$cancelbutton = GUICtrlCreateButton("Cancel", 180, 130, 70, 20)
-
 	$statuslabel = GUICtrlCreateLabel($defaultstatus, 0, 165, 300, 16, BitOR($SS_SIMPLE, $SS_SUNKEN))
 
 	GUISetState()

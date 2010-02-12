@@ -17,7 +17,7 @@ Func Example1()
 	$n2 = GUICtrlCreateIcon("shell32.dll", 7, 20, 75, 32, 32)
 	GUISetState()
 
-	; Run the GUI until the dialog is closed
+	; 运行界面，直到窗口被关闭
 	While 1
 		$msg = GUIGetMsg()
 		
