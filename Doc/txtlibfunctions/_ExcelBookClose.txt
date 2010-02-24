@@ -1,8 +1,8 @@
-###User Defined Function###
+﻿###User Defined Function###
 _ExcelBookClose
 
 ###Description###
-Closes the active workbook and removes the specified Excel object.
+关闭活动工作表并移除指定的 Excel 对象.
 
 ###Syntax###
 #Include <Excel.au3>
@@ -11,19 +11,19 @@ _ExcelBookClose($oExcel [, $fSave = 1 [, $fAlerts = 0]])
 ###Parameters###
 @@ParamTable@@
 $oExcel
-	Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+	由前面调用 _ExcelBookOpen() 或者 _ExcelBookNew() 函数返回的 Excel 对象.
 $fSave
-	[optional] Flag for saving the file before closing (0=no save, 1=save) (default = 1)
+	[可选参数] 关闭前是否保存 (0=不保存, 1=保存) (默认 = 1)
 $fAlerts
-	[optional] Flag for disabling/enabling Excel message alerts (0=disable, 1=enable) (default = 0)
+	[可选参数] 此标志用于禁用/启用 Excel 消息警告(弹出警告窗口) (0=禁用, 1=启用) (默认 = 0)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	1
-Failure:	0 and set @error
-@error:	1 - Specified object does not exist
-	2 - File exists, overwrite flag not set
+成功:	返回 1
+失败:	返回 0 并设置 @error
+@error:	1 - 指定对象不存在
+	2 - 文件已存在, 但覆盖标志未设置
 @@End@@
 
 ###Remarks###

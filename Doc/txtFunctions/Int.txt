@@ -17,13 +17,14 @@ Int ( 表达式 )
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回整数.
-失败:	返回 0 并设置 @error 为1(如果表达式不是一个整数,浮点或者字符串)  
+失败:	返回 0 并设置 @error 为 1 (如果表达式不是一个整数,浮点或者字符串)
 @@End@@
 
 
 ###Remarks###
-小数部分将被约去,因此 Int(1.999999) 的返回值将是 1 
+小数部分将被约去,因此 Int(1.999999) 的返回值将是 1
 Int(0/0) 的返回值将是 -9223372036854775807.令人奇怪?
+This function makes minor corrects to floating point numbers to account for the imprecise nature of floating point numbers.  For example, the floating point expression 0.7 + 0.2 + 0.1 produces a floating point number that is not quite 1.0.  Int() corrects for this anomaly, however, certain extremely rare circumstances may lead to Int() returning an unexpected value (the odds of getting an unexpected value are less than if Int() did not attempt any correction at all).
 
 
 ###Related###
