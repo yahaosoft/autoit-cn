@@ -2,7 +2,7 @@
 BitRotate
 
 ###Description###
-执行位移操作, 使用旋度. 
+执行位移操作, 使用旋度(rotation). 
 
 ###Syntax###
 BitRotate ( 值, 位移 [, 大小] ) 
@@ -13,25 +13,25 @@ BitRotate ( 值, 位移 [, 大小] )
 值
 	要被操作的值.
 位移
-	Number of bits to rotate to the left (negative numbers shift right).  If not given, the default is 1.
+	比特数旋转(rotate)到左边（负数右移）,如果没有,则默认为1.
 大小
-	[可选参数] A string that determines the rotation size, the default is (16 bits). See below.
+	[可选参数] 决定旋转大小的字符串,默认为（16 bits）.见下文.
 @@End@@
 <br>
 Size parameter :
 @@ParamTable@@
 "B"
-	rotate bits within the low-order byte (8 bits).
+	低位字节(low-order byte)旋转(8 bits).
 "W"
-	rotate bits within the low-order word (16 bits).
+	低位字(low-order word)操作(16 bits).
 "D"
-	rotate bits within the entire double-word (32 bits).
+	双字(double-word)操作(32 bits).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns the value rotated by the required number of bits.
-Failure:	Set @error if size is invalid
+成功:	返回按照比特数旋转后的值.
+失败:	如果大小无效,将设置@error.
 @@End@@
 位操作使用 32-位整数.
 
