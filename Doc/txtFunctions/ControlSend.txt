@@ -32,13 +32,13 @@ ControlSend ( "窗口标题", "窗口文本", 控件ID, "字符串" [, 标志] )
 
 
 ###Remarks###
-ControlSend works in a similar way to <a href="Send.htm">Send</a> but it can send key strokes directly to a window/control, rather than just to the active window.
+ControlSend像<a href="Send.htm">Send</a>一样工作,但它可以直接发送按键到控件和窗口，而不只是活动窗口.
 
-ControlSend is only unreliable for command prompts as that works differently to normal windows (seems to check physical states rather than accepting the keystroke messages).  For normal windows ControlSend should be way more reliable than a normal Send - and yes it does send shift, ctrl, alt etc.
+ControlSend仅对于命令提示行不可靠,因为它和正常的窗口工作方式不一样(似乎是检查状态，而不是接受按键消息).  正常窗口下ControlSend比Send更可靠 - 它能发送shift, ctrl, alt etc.
 
-As mention in the Send help the keyboard that send different chars when in CAPS LOCK and using the Shift Key cannot be simulated. An example is the Czech Keyboard. A good workaround is to use the ControlSetText.
+CAPS LOCK灯工作的话,将发送不同的字符,不能模拟Shift键. 比如捷克键盘. 一个好的解决办法是使用ControlSetText.
 
-The control might first need to be given focus with the ControlFocus command, specially when referencing an controlID created by the script itself.
+控件可能需要先使用ControlFocus命令得到焦点, 特别是当引用的控件ID由脚本本身创建.
 
 Opt("SendKeyDelay",...) 改变发送按键之间的间歇长度.
 Opt("SendKeyDownDelay",...) 改变按键在释放之前被按压的时间长度.
