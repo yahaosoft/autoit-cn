@@ -2,7 +2,7 @@
 _IEFormImageClick
 
 ###Description###
-模拟对<input type=image>的鼠标点击. 由匹配可选文本, 名称或源的子串匹配.
+模拟对&lt;input type=image&gt;进行鼠标点击. 按子字符串匹配替换文本, 名称源(src标记).
 
 ###Syntax###
 #include <IE.au3> 
@@ -11,16 +11,16 @@ _IEFormImageClick ( ByRef $o_object, $s_linkText [, $s_mode = "src" [, $i_index 
 ###Parameters###
 @@ParamTable@@
 $o_object
-	任意DOM元素(将转化为相关的文档对象)的对象变量
+	任何DOM元素(将转化为关联的文档对象)的对象变量
 $s_linkText
-	用以匹配元素的值 - 基于$s_mode处理
+	用于匹配元素的值 - 基于 $s_mode 进行处理
 $s_mode
 	[可选参数]: 指定搜索模式
-	src = (默认)匹配图像地址
+	src = (默认)匹配图像地址(url)
 	name = 匹配图像名
-	alt = 匹配图像的可选文本
+	alt = 匹配图像的替代文本
 $i_index
-	[可选参数]: 如果图像文本不止一次出现, 指定想要的0基索引的实例
+	[可选参数]: 如果图像文本不止一次出现, 按照基于0开始的索引指定您所在实例的位置
 $f_wait
 	[可选参数]: 指定是否在返回前等待页面加载
 	0 = 立即返回, 不等待加载页面
@@ -32,11 +32,11 @@ $f_wait
 成功:	返回-1
 失败:	返回0 并且设置 @ERROR
 @Error:	0 ($_IEStatus_Success) = 无错误
-	1 ($_IEStatus_GeneralError) = 一般性错误
+	1 ($_IEStatus_GeneralError) = 常规错误
 	3 ($_IEStatus_InvalidDataType) = 无效数据类型
 	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
 	5 ($_IEStatus_InvalidValue) = 无效值
-	6 ($_IEStatus_LoadWaitTimeout) = 加载等待超时
+	6 ($_IEStatus_LoadWaitTimeout) = 等待加载超时
 	7 ($_IEStatus_NoMatch) = 无匹配
 	8 ($_IEStatus_AccessIsDenied) = 拒绝访问
 	9 ($_IEStatus_ClientDisconnected) = 客户端断开
@@ -45,7 +45,7 @@ $f_wait
 
 
 ###Remarks###
-<input type=image>表单元素被看作不同于其他所有的. 它无法作为表单元素集合的一个成员被Internet Explorer识别因此该函数通过使用地址, 名称或可选字符串的文档提供其他获取查寻的方法. 无论对象是否传递给函数, 函数都会通过完整文档的上下文搜索表单元素.
+The &lt;input type=image&gt; form element is handled differently from all others. It is not recognized by Internet Explorer as a member of the form element collection and this function therefore gives you other means of getting a reference to it within the document using src, name or alt strings. Regardless of the object passed to this function, it looks for the form element within the full document context.
 
 
 ###Related###
