@@ -17,7 +17,7 @@ Sleep(3500) ; 暂停让用户观察操作
 $sFormat = "$#,##0.00" ;应用到指定范围的格式化字符串(使其带有$现金符号)
 _ExcelNumberFormat($oExcel, $sFormat, 1, 1, 5, 5) ;第1行第一列开始，第5行第五列结束
 
-MsgBox(0, "退出", "按[确认]保存文件并退出")
+MsgBox(0, "退出", "按[确定]保存文件并退出")
 _ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 在临时目录保存文件, 如果文件已存在则覆盖原文件
 _ExcelBookClose($oExcel)  ; 关闭工作表, 退出
 
@@ -53,6 +53,6 @@ Next
 $oExcel.Columns.AutoFit ;自动匹配列以便更好观察
 $oExcel.Rows.AutoFit ;自动匹配行以便更好观察
 
-MsgBox(0, "退出", "按[确认]保存文件并退出")
+MsgBox(0, "退出", "按[确定]保存文件并退出")
 _ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 在临时目录保存文件, 如果文件已存在则覆盖原文件
 _ExcelBookClose($oExcel) ; 关闭工作表, 退出

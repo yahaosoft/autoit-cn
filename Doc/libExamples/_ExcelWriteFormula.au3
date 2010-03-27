@@ -13,6 +13,6 @@ Next
 
 _ExcelWriteFormula($oExcel, "=Average(R1C1:R20C1)", 1, 2) ;使用 R1C1 引用
 
-MsgBox(0, "退出", "按[确认]保存文件并退出")
+MsgBox(0, "退出", "按[确定]保存文件并退出")
 _ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1)  ; 在临时目录保存文件, 如果文件已存在则覆盖原文件
 _ExcelBookClose($oExcel) ; 关闭工作表, 退出
