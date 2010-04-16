@@ -1,0 +1,50 @@
+﻿###User Defined Function###
+_WordCreate
+
+###Description###
+创建一个 Microsoft Office Word 对象
+
+###Syntax###
+#include <Word.au3> 
+_WordCreate ( [ $s_FilePath = "" [, $b_tryAttach = 0 [, $b_visible = 1 [, $b_takeFocus = 1]]]] )
+
+###Parameters###
+@@ParamTable@@
+$s_FilePath
+	[可选参数] 文件路径,如果路径存在就打开,不存在就新建(参考注意)
+$b_tryAttach
+	[可选参数] 指定是否尝试附加到一个已经存在的word窗口
+	0 = (默认) 不尝试附加
+	1 = 尝试附加到一个已存在的word窗口.
+$b_visible
+	[可选参数] 指定窗口是否为可见状态
+	0 = 窗口为隐藏
+	1 = (默认) 窗口可见
+$b_takeFocus
+	[可选参数] 指定是否给附加的窗口一个焦点
+	0 =  不用给附加的窗口一个焦点
+	1 = (默认) 给附加的窗口一个焦点
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回一个指向 Word.Application 对象的对象变量
+失败:	返回 0 并设置 @ERROR
+@Error:	$_WordStatus_Success = 没有错误
+	$_WordStatus_GeneralError = 常规错误
+	$_WordStatus_InvalidDataType = 无效数据类型
+	$_WordStatus_InvalidObjectType = 无效对象类型
+@Extended:	设置 true (1) 或者 false (0),依赖于是否成功附加($f_tryAttach)
+@@End@@
+
+
+###Remarks###
+如果文件不存在,将会被创建.
+
+
+###Related###
+_WordAttach, _WordQuit
+
+
+###Example###
+@@IncludeExample@@

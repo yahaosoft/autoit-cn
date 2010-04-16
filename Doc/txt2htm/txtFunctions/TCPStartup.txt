@@ -1,0 +1,36 @@
+﻿###Function###
+TCPStartup, UDPStartup
+
+###Description###
+开始 TCP/UDP 服务.
+
+
+###Syntax###
+TCPStartup ( )
+UDPStartup ( )
+
+
+###Parameters###
+None.
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回1.
+失败:	返回 0 并设置 @error.
+@error:	windows API WSAStartup 返回值 (参考 <a href="http://msdn.microsoft.com/en-us/library/ms742213.aspx">MSDN</a>).
+@@End@@
+
+
+###Remarks###
+这里必须包含一个 TCPShutdown() 调用来避免内存出错.
+每当成功完成了一个 TCPStartup() 调用,必须调用一个TCPShutdown()来关闭初始化的网络.
+UDPStartup() 是 TCPStartup()的一个别名.
+
+
+###Related###
+TCPShutdown, TCPListen, TCPCloseSocket, UDPCloseSocket, TCPAccept, TCPConnect, TCPNameToIP, TCPRecv, TCPSend
+
+
+###Example###
+@@IncludeExample@@

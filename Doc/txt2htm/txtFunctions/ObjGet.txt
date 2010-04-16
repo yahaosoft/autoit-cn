@@ -1,0 +1,43 @@
+﻿###Function###
+ObjGet
+
+###Description###
+对 COM 对象从现有的进程或文件名检索一个参考.
+
+###Syntax###
+ObjGet ( "文件名" [, "类名"] )
+
+
+###Parameters###
+@@ParamTable@@
+文件名
+	(见注意)对象文件的完整路径和名称.
+类名
+	(可选) 对象的类名，依下列格式:
+	"appname.objectype"
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功: 	返回对象. 
+失败: 	返回 0 并设置 @error 为 1.
+@@End@@
+
+
+###Remarks###
+如果你想要只使用类名字，文件名则是可选择的,但参数不能被省略，可以使用一个空串替代. 
+类似: $Object = ObjGet("","Excel.Application")
+
+如果你想要使用一个文件名，类名字则是可选择的. 但当多个类被定义为相同的文件类型时，
+这个类名必需是你想要访问的一个特定类.
+
+不是所有的计算机都有对象的相同设置。 因此在调用 ObjGet() 之后总是要作差错检查.
+
+见 <a href="../intro/ComRef.htm">Obj/COM Reference</a> 关于对象的更多资讯.
+
+###Related###
+GUICtrlCreateObj, IsObj, ObjCreate, ObjEvent, ObjName
+
+
+###Example###
+@@IncludeExample@@

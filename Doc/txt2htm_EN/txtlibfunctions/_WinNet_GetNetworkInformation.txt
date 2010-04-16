@@ -1,0 +1,39 @@
+###User Defined Function###
+_WinNet_GetNetworkInformation
+
+###Description###
+Returns extended information about a specific network provider
+
+###Syntax###
+#Include <WinNet.au3>
+_WinNet_GetNetworkInformation($sName)
+
+###Parameters###
+@@ParamTable@@
+$sName
+	The network provider for which information is required
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Array with the following format:
+	$aInfo[0] - Version number of the network provider software
+	$aInfo[1] - Current status of the network provider software:
+	 0 - The network is running
+	 1 - The network is unavailable
+	 2 - The network is not currently able to service requests
+	$aInfo[2] - Instance handle for the network provider
+	$aInfo[3] - High word of the network type unique to the running network
+	$aInfo[4] - Set of bit flags indicating the valid print numbers for redirecting local printer devices, with
+	the low-order bit corresponding to LPT1.		$aInfo[5] - Set of bit flags indicating the valid local disk devices that can be used for redirecting disk
+	drives, with the low-order bit corresponding to A:.
+Failure:	Set @error
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ WNetGetNetworkInformation

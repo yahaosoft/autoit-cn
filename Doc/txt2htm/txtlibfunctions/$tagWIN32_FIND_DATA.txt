@@ -1,0 +1,38 @@
+###Structure Name###
+$tagWIN32_FIND_DATA
+
+###Description###
+Contains the data found when finding a file
+
+###Syntax###
+Global Const $tagWIN32_FIND_DATA = "dword dwFileAttributes;dword ftCreationTime[2];dword ftLastAccessTime[2];dword ftLastWriteTime[2];dword nFileSizeHigh;dword nFileSizeLow;dword dwReserved0;dword dwReserved1;wchar cFileName[260];wchar cAlternateFileName[14]"
+
+###Fields###
+@@ParamTable@@
+dwFileAttributes
+	The file attributes of a file.
+ftCreationTime
+	A FILETIME structure that specifies when a file or directory was created.
+ftLastAccessTime
+	A FILETIME structure that specifies when the file was last read from, written to, or for executable files, run.
+ftLastWriteTime
+	A FILETIME structure that specifies when when the file was last written to, truncated, or overwritten.
+nFileSizeHigh
+	The high-order DWORD value of the file size, in bytes.
+nFileSizeLow
+	The low-order DWORD value of the file size, in bytes.
+dwReserved0
+	If the dwFileAttributes member includes the $FILE_ATTRIBUTE_REPARSE_POINT attribute. This member specifies the reparse tag.
+dwReserved1
+	Reserved.
+cFileName
+	The name of the file.
+cAlternateFileName
+	An alternative name for the file, the classic 8.3 (filename.ext) file name format.
+@@End@@
+
+###Remarks###
+Unicode version must be used.
+
+###See Also###
+@@MsdnLink@@ WIN32_FIND_DATA

@@ -1,0 +1,38 @@
+###User Defined Function###
+_SoundPlay
+
+###Description###
+播放一个声音文件.
+
+###Syntax###
+#include <Sound.au3>
+_SoundPlay ( $aSnd_id [, $iWait ] )
+
+
+###Parameters###
+@@ParamTable@@
+$aSnd_id
+	声音 ID 数组为一个 _SoundOpen 返回的结果或者一个文件名.
+$iWait
+	[可选参数] 这个标志定义脚本是否等待声音播放完成后再继续运行脚本:
+	1 = 等待声音播放完成再继续运行脚本.
+	0 = 当声音开始播放,脚本继续运行.(默认)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	1
+失败:	0 并设置 @Error
+@error:	1 = 播放失败
+	2 = $iWait 参数无效
+	3 = 无效声音ID. 请从 _SoundOpen 返回一个数组或者使用一个有效的文件名.
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_SoundPause, _SoundStop, _SoundSeek, _SoundOpen, _SoundResume
+
+###Example###
+@@IncludeExample@@

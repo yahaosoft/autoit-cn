@@ -1,0 +1,39 @@
+﻿###User Defined Function###
+_ExcelReadCell
+
+###Description###
+从一个指定Excel对象的活动工作表读取(单元格)信息.
+
+###Syntax###
+#Include <Excel.au3>
+_ExcelReadCell($oExcel, $sRangeOrRow [, $iColumn = 1])
+
+###Parameters###
+@@ParamTable@@
+$oExcel
+	Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+$sRangeOrRow
+	Either an A1 range, or an integer row number to read from if using R1C1
+$iColumn
+	[optional] The column to read from if using R1C1 (default = 1)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	the data from the specified cell
+Failure:	0 and sets @error
+@error:	0 _ No error
+	1 - Specified object does not exist
+	2 - Specified parameter is incorrect
+@extended:	0 - Row out of valid range
+	1 - Column out of valid range
+@@End@@
+
+###Remarks###
+This function will only read one cell per call - if the specified range spans
+multiple cells, only the content of the top left cell will be returned.
+
+###Related###
+
+###Example###
+@@IncludeExample@@

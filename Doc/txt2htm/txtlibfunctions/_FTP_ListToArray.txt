@@ -1,0 +1,37 @@
+###User Defined Function###
+_FTP_ListToArray
+
+###Description###
+Get Filenames, Directories or Both of current remote directory.
+
+###Syntax###
+#Include <FTPEx.au3>
+_Ftp_ListToArray($l_FTPSession [, $Return_Type = 0 [, $l_Flags = 0 [, $l_Context]]])
+
+###Parameters###
+@@ParamTable@@
+$l_FTPSession
+	as returned by _FTP_Connect().
+$Return_type
+	[optional] 0 = Both Files and Directories, 1 = Directories, 2 = Files.
+$l_Flags
+	[optional] see _FTP_FindFileFirst().
+$l_Context
+	[optional] A variable that contains the application-defined value that associates this search with any application data.
+	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	An array containing the names. Array[0] contain the number of found entries.
+Failure:	Array[0] = 0
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_FTP_Connect, _FTP_SetStatusCallback
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,59 @@
+﻿###User Defined Function###
+_WinAPI_SetWindowPos
+
+###Description###
+Changes the size, position, and Z order of a child, pop-up, or top-level window
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_SetWindowPos($hWnd, $hAfter, $iX, $iY, $iCX, $iCY, $iFlags)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle of window
+$hAfter
+	Identifies the window to precede the positioned window in the Z order. This parameter must be a
+		window handle or one of the following values:
+		$HWND_BOTTOM - Places the window at the bottom of the Z order
+		$HWND_NOTOPMOST - Places the window above all non-topmost windows
+		$HWND_TOP - Places the window at the top of the Z order
+		$HWND_TOPMOST - Places the window above all non-topmost windows
+$iX
+	Specifies the new position of the left side of the window
+$iY
+	Specifies the new position of the top of the window
+$iCX
+	Specifies the new width of the window, in pixels
+$iCY
+	Specifies the new height of the window, in pixels
+$iFlags
+	Specifies the window sizing and positioning flags:
+		$SWP_DRAWFRAME - Draws a frame around the window
+		$SWP_FRAMECHANGED - Sends a $WM_NCCALCSIZE message to the window, even if the window's size is not changed
+		$SWP_HIDEWINDOW - Hides the window
+		$SWP_NOACTIVATE - Does not activate the window
+		$SWP_NOCOPYBITS - Discards the entire contents of the client area
+		$SWP_NOMOVE - Retains the current position
+		$SWP_NOOWNERZORDER - Does not change the owner window's position in the Z order
+		$SWP_NOREDRAW - Does not redraw changes
+		$SWP_NOREPOSITION - Same as the $SWP_NOOWNERZORDER flag
+		$SWP_NOSENDCHANGING - Prevents the window from receiving $WM_WINDOWPOSCHANGING
+		$SWP_NOSIZE - Retains the current size
+		$SWP_NOZORDER - Retains the current Z order
+		$SWP_SHOWWINDOW - Displays the window
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+###Remarks###
+Needs Constants.au3 for pre-defined constants
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ SetWindowPos

@@ -1,0 +1,43 @@
+﻿###User Defined Function###
+_Timer_SetTimer
+
+###Description###
+Creates a timer with the specified time-out value
+
+###Syntax###
+#Include <Timers.au3>
+_Timer_SetTimer($hWnd [, $iElapse = 250 [, $sTimerFunc = "" [, $iTimerID = -1]]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window to be associated with the timer.
+		This window must be owned by the calling thread
+$iElapse
+	[optional] Specifies the time-out value, in milliseconds
+$sTimerFunc
+	[optional] Function name to be notified when the time-out value elapses
+$iTimerID
+	[optional] Specifies a timer identifier.
+		If $iTimerID = -1 then a new timer is created
+		If $iTimerID matches an existing timer then the timer is replaced
+		If $iTimerID = -1 and $sTimerFunc = "" then timer will use WM_TIMER events
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Integer identifying the new timer
+Failure:	0
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_Timer_KillTimer, _Timer_KillAllTimers, _Timer_GetTimerID
+
+###See Also###
+@@MsdnLink@@ SetTimer
+
+###Example###
+@@IncludeExample@@

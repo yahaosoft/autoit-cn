@@ -1,0 +1,57 @@
+###User Defined Function###
+_GUICtrlRebar_AddBand
+
+###Description###
+Adds a new band in a rebar control
+
+###Syntax###
+#Include <GuiRebar.au3>
+_GUICtrlRebar_AddBand($hwndRebar, $hwndChild[, $iMinWidth = 100[, $iDefaultWidth = 100[, $sText = ""[, $iIndex = -1[, $fStyle = -1]]]]])
+
+###Parameters###
+@@ParamTable@@
+$hwndRebar
+	Handle to rebar control
+$hwndChild
+	Handle of control to add
+$iMinWidth
+	[optional] Minimum width for the band
+$iDefaultWidth
+	[optional] Length of the band, in pixels
+$sText
+	[optional] Display text for the band
+$iIndex
+	[optional] Zero-based index of the location where the band will be inserted.
+		If you set this parameter to -1, the control will add the new band at the last location
+$fStyle
+	[optional] Flags that specify the band style. This value can be a combination of the following:
+		$RBBS_BREAK - The band is on a new line.
+		$RBBS_CHILDEDGE - The band has an edge at the top and bottom of the child window.
+		$RBBS_FIXEDBMP - The background bitmap does not move when the band is resized.
+		$RBBS_FIXEDSIZE - The band can't be sized. With this style, the sizing grip is not displayed on the band.
+		$RBBS_GRIPPERALWAYS - Version 4.71. The band will always have a sizing grip, even if it is the only band in the rebar.
+		$RBBS_HIDDEN - The band will not be visible.
+		$RBBS_NOGRIPPER - Version 4.71. The band will never have a sizing grip, even if there is more than one band in the rebar.
+		$RBBS_USECHEVRON - Version 5.80. Show a chevron button if the band is smaller than cxIdeal.
+		$RBBS_VARIABLEHEIGHT - Version 4.71. The band can be resized by the rebar control;
+		cyIntegral and cyMaxChild affect how the rebar will resize the band.
+		$RBBS_NOVERT - Don't show when vertical.
+		$RBBS_USECHEVRON - Display drop-down button.
+		$RBBS_HIDETITLE - Keep band title hidden.
+		$RBBS_TOPALIGN - Keep band in top row.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_GUICtrlRebar_AddToolBarBand, _GUICtrlRebar_DeleteBand
+
+###Example###
+@@IncludeExample@@

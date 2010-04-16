@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Language Reference - Conditional Statements</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1>语言相关 - 条件选择语句</h1>
+
+  
+<p>在我们写脚本程序的过程中总会需要根据某个<em>条件</em>
+或一组条件的成立情况来控制程序的流程,我们可能要判断某个数值是否大于另外一个&nbsp;,
+又或者是判断某个字符串里是否含有指定的子串等等.&nbsp; </p>
+<p>对系统而言所有的条件判断只有 <strong>true</strong> (非零,真) 或者 <strong>false</strong> 
+  (零,假)两种可能结果.通常我们利用<strong> ==, </strong><strong>&lt;&gt;,</strong> <strong>&gt;=</strong>等比较 <a href="lang_operators.htm">运算符</a> 
+  来对各种对象进行比较从而建立条件. </p>
+<p>&nbsp;</p>
+<p>在 AutoIt 可用下面两种条件语句:</p>
+<ul>
+  <li>&nbsp;<a href="../keywords/IfElseEndIf.htm">If...Then...Else</a></li>
+  <br>(字面意思:如果(某个条件成立)…那么(执行某些操作)…否则(执行另外一些不同的操作) 
+  <li>&nbsp;<a href="../keywords/Select.htm">Select...Case</a></li>
+  <br>(这是开关语句,根据某个表达式的多种不同的值来选择执行不同的语句) 
+  <li>&nbsp;<a href="../keywords/Switch.htm">Switch...Case</a></li>
+  <br>(同上)
+</ul>
+<p>这三种语句的功能差不多,具体要用哪一种决定于给定的条件.
+下面是一个使用<a href="../keywords/IfElseEndIf.htm">If</a> 
+  语句的例子,根据变量的值弹出一个 <a href="../functions/MsgBox.htm">对话框(Message Box)</a> .</p>
+<p class="codebox">$var = -20<br>
+  <br>
+  If $var &gt; 0 Then<br>
+&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;例子&quot;, &quot;$var 为正数!&quot;)<br>
+  ElseIf $var &lt; 0 Then<br>
+&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;例子&quot;, &quot;$var 为负数!&quot;)<br>
+  Else<br>
+&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;例子&quot;, &quot;$var 为零!&quot;)<br>
+EndIf</p>
+<p>&nbsp;</p>
+<p>在上面的例子中, 表达式 <strong>$var &gt; 0</strong> 的值为 
+  <strong>false</strong> 因为变量小于零.&nbsp; 因此第一个条件不成立, 开始判断第二个条件.  表达式 <strong>$var &lt; 0</strong> 的值为 <strong>true</strong>. 这样 if 语句将会去执行第二个 MsgBox 行,并显示 <strong>&quot;$var 
+为零!&quot;</strong>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="../keywords/Select.htm">选择(Select)</a> 选择语句的使用也是类似的,
+但通常用于判断较多条件,这样比 If/Else 的语句往往要更清晰.&nbsp;<br>
+例如:</p>
+<p class="codebox">$var = 30<br>
+  <br>
+  Select<br>
+&nbsp;&nbsp;&nbsp;&nbsp; Case $var &gt; 1 AND $var &lt;= 10<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;示例&quot;, 
+  &quot;$var 大于 1&quot;)<br>
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp; Case $var &gt; 10 AND $var &lt;= 20<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, "示例", 
+  "$var 大于 10")<br>
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp; Case $var &gt; 20 AND $var &lt;= 30<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;示例&quot;, 
+  &quot;$var 大于 20&quot;)<br>
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp; Case $var &gt; 30 AND $var &lt;= 40<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;示例&quot;, 
+  &quot;$var 大于 30&quot;)<br>
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp; Case $var &gt; 40<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;示例&quot;, 
+  &quot;$var 大于 40&quot;)<br>
+  EndSelect
+</p>
+<p>&nbsp;</p>
+<p><a href="../keywords/Switch.htm">Switch</a> 选择语句和 Select 
+非常相像,但是它主要用于测试一个变量的不同范围.请看例子:</p>
+
+<p class="codebox">$var = 30<br>
+  <br>
+  Switch Int($var)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; Case 1 To 10<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;例子&quot;, 
+&quot;$var 为 1 ~ 10的范围之间&quot;)<br>
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp; Case 11 To 20<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;例子&quot;, 
+&quot;$var 为 11 ~ 20的范围之间&quot;)<br>
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp; Case 21 To 30<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;例子&quot;, 
+&quot;$var 为 21 ~ 30的范围之间&quot;)<br>
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp; Case 31 To 40<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;例子&quot;,
+  &quot;$var 为 31 ~ 40的范围之间&quot;)<br>
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp; Case Else<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;例子&quot;, 
+&quot;$var 不在 0 ~ 40的范围里面&quot;)<br>
+  <br>
+  EndSwitch
+</p>
+<p>With each of these structures, the first condition that is true controls which group of statements get executed.  All subsequent conditions and their associated statements get ignored.</p>
+</body>
+</html>

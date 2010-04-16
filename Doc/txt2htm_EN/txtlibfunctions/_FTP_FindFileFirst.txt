@@ -1,0 +1,58 @@
+###User Defined Function###
+_FTP_FindFileFirst
+
+###Description###
+Find First File on an FTP server.
+
+###Syntax###
+#Include <FTPEx.au3>
+_FTP_FindFileFirst($l_FTPSession, $s_RemotePath, ByRef $h_Handle [, $l_Flags = 0 [, $l_Context = 0]])
+
+###Parameters###
+@@ParamTable@@
+$l_FTPSession
+	as returned by _FTP_Connect().
+$s_RemotePath
+	path to be used when searching the file.
+$h_Handle
+	returns Handle to be used in _FTP_FindFileNext() or _FTP_FindFileClose().
+$l_Flags
+	[optional] see remarks.
+$l_Context
+	[optional] A variable that contains the application-defined value that associates this search with any application data.
+	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	an array, see remarks.
+Failure:	0  and sets @ERROR
+@@End@@
+
+###Remarks###
+If successfull a return array:
+[0]  - Number of elements
+[1]  - File Attributes
+[2]  - Creation Time Low
+[3]  - Creation Time Hi
+[4]  - Access Time Low
+[5]  - Access Time Hi
+[6]  - Last Write Low
+[7]  - Last Write Hi
+[8]  - File Size High
+[9]  - File Size Low
+[10] - File Name
+[11] - Altername
+
+$l_Flags can be a combination of $INTERNET_FLAG_HYPERLINK, $INTERNET_FLAG_NEED_FILE, $INTERNET_FLAG_NO_CACHE_WRITE, $INTERNET_FLAG_RELOAD, $INTERNET_FLAG_RESYNCHRONIZE
+
+
+###Related###
+_FTP_FindFileNext, _FTP_FindFileClose, _FTP_SetStatusCallback
+
+###See Also###
+@@MsdnLink@@ FtpFindFirstFile
+
+###Example###
+@@IncludeExample@@
+

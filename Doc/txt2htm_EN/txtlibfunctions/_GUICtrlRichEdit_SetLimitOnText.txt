@@ -1,0 +1,44 @@
+###User Defined Function###
+_GUICtrlRichEdit_SetLimitOnText
+
+###Description###
+Change number of characters that can be typed, pasted or streamed in as Rich Text Format
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetLimitOnText($hWnd, $iNewLimit)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iNewLimit
+	new limit
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and sets @error
+@error:	101 - $hWnd is not a handle
+	102 - $iNewLimit is neither a positive number nor zero
+@@End@@
+
+###Remarks###
+This function sets the limit on the number of characters a user can type in or paste into a control.
+
+It also limits the number of characters of RTF text that can be streamed in using
+_GUICtrlRichEdit_StreamFromFile and _GUICtrlRichEdit_StreamFromVar.
+
+It does not limit the amount of plain text that can be streamed in.
+
+The initial limit is 32,767 characters.
+
+###Related###
+_GUICtrlRichEdit_StreamToFile, _GUICtrlRichEdit_StreamToVar, _GUICtrlRichEdit_StreamFromFile, _GUICtrlRichEdit_StreamFromVar
+
+###See Also###
+@@MsdnLink@@ EM_EXLIMITTEXT
+
+###Example###
+@@IncludeExample@@

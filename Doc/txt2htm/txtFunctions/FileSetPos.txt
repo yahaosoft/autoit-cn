@@ -1,0 +1,41 @@
+###Function###
+FileSetPos
+
+###Description###
+设置当前文件坐标.
+
+###Syntax###
+FileSetPos ( 句柄, 偏移量, 原点 )
+
+
+###Parameters###
+@@ParamTable@@
+句柄
+	由 FileOpen() 函数返回的句柄.
+偏移量
+	从原点移动到需要的位置的偏移量. 这个值可能是一个正数,也可能是负数. 负数值将从原点向文件开始处移动.
+原点
+	必须设置为下方的一个值:
+	 0 - 文件开始处 ($FILE_BEGIN 包含于 Constants.au3).
+	 1 - 当前坐标 ($FILE_CURRENT 包含于 Constants.au3).
+	 2 - 文件末尾 ($FILE_END 包含于 Constants.au3).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	如果操作成功,返回 True.
+失败:	返回 False.
+@@End@@
+
+
+###Remarks###
+Include Constants.au3 in your script to use the symbolic name in parentheses to specify the origin.
+使用 FileSetPos() 将同一文件的同时读写成为可能. 当您在同时读写同一文件时, 请在每次读写操作后调用 FileFlush() 将缓冲器数据写入磁盘.
+Moving the pointer to the middle of the data can be used to overwrite data.
+
+###Related###
+FileGetPos, FileFlush, FileRead, FileReadLine, FileWrite, FileWriteLine, FileOpen
+
+
+###Example###
+@@IncludeExample@@

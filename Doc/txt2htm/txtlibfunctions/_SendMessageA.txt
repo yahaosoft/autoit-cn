@@ -1,0 +1,48 @@
+﻿###User Defined Function###
+_SendMessageA
+
+###Description###
+Wrapper for commonly used Dll Call (Force Ansi Call)
+
+###Syntax###
+#Include <SendMessage.au3>
+_SendMessageA($hWnd, $iMsg [, $wParam = 0 [, $lParam = 0 [, $iReturn = 0 [, $wParamType = "wparam" [, $lParamType = "lparam" [, $sReturnType = "lparam"]]]]]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Window/control handle
+$iMsg
+	Message to send to control (number)
+$wParam
+	[optional] Specifies additional message-specific information
+$lParam
+	[optional] Specifies additional message-specific information
+$iReturn
+	[optional] What to return:
+		0 - Return value from dll call
+		1 - $ihWnd
+		2 - $iMsg
+		3 - $wParam
+		4 - $lParam
+		<0 or > 4 - array same as dllcall
+$wParamType
+	[optional] See DllCall in Related
+$lParamType
+	[optional] See DllCall in Related
+$sReturnType
+	[optional] See DllCall in Related
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	User selected value from the DllCall() result
+Failure:	@error is set
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_SendMessage, DllCall
+

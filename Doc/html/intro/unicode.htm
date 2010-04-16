@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Unicode Support</title>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=GB2312">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Unicode 支持</h1>
+<p>从 3.2.4.0 开始 AutoIt 开始提供 Unicode 版本程序.Unicode 版本允许您使用国际字符,这样可以是全球各地的朋友能同时正确显示(执行)可执行脚本和脚本文件!</p>
+<p><strong>注意: Unicode 版本的 AutoIt (AutoIt3.exe) 和 使用 Unicode 模式编译的脚本只能运行于 Windows NT/2000/XP/2003/Vista 或者更高的机器. 要允许一个脚本运行于 Windows 9x ,
+那么您必须使用早期版本的 ANSI 模式进行编译.最后一个兼容于
+Windows 9x 的版本为 3.2.12.x. </strong></p>
+<p>AutoIt 读取脚本文件使用 ANSI, UTF16 (大/小编码) 和 带有有效<a href="http://en.wikipedia.org/wiki/Byte_Order_Mark">BOM</a>的 UTF8 编码格式. 另外, 像 <a href="../functions/FileReadLine.htm">FileReadLine</a>这种函数会自动的使用ANSI 和 UTF16/UTF8 读取文件(前提是必须有一个有效的 <a href="http://en.wikipedia.org/wiki/Byte_Order_Mark">BOM</a>). 
+UTF8 文件不管有没有使用 BOM 都能正确支持.</p>
+<p>像 <a href="../functions/FileWriteLine.htm">FileWriteLine</a>这种输出函数
+可以使用 ANSI, UTF16 和 UTF8 编码模式 - 但是必须先使用 <a href="../functions/FileOpen.htm">FileOpen</a>进行打开并设置标志.如果未设置,将使用默认的 ANSI 模式. </p>
+<p>下方列表是流行的编辑器对带格式的文本文件的支持情况:</p>
+<table width="700" border="1">
+  <tr>
+    <td style="width: 179px"><strong>AutoIt 符号 </strong></td>
+    <td style="width: 158px"><strong>记事本</strong></td>
+    <td width="180"><b>Notepad++</b></td>
+    <td style="width: 255px"><strong>SciTe (AutoIt 默认编辑器)</strong></td>
+  </tr>
+  <tr>
+    <td style="width: 179px">ANSI</td>
+    <td style="width: 158px">ANSI</td>
+    <td>ANSI</td>
+    <td style="width: 255px">8 位 / 代码页属性 </td>
+  </tr>
+  <tr>
+    <td style="width: 179px">UTF16 小编码 </td>
+    <td style="width: 158px">Unicode</td>
+    <td>UCS-2 小编码 </td>
+    <td style="width: 255px">UCS-2 小编码 </td>
+  </tr>
+  <tr>
+    <td style="width: 179px">UTF16 大编码</td>
+    <td style="width: 158px">Unicode 大编码 </td>
+    <td>UCS-2 Big Endian</td>
+    <td style="width: 255px">UCS-2 大编码 </td>
+  </tr>
+  <tr>
+    <td style="width: 179px">UTF8 + BOM</td>
+    <td style="width: 158px">UTF-8</td>
+    <td>UTF-8</td>
+    <td style="width: 255px">UTF-8 + BOM </td>
+  </tr>
+  <tr>
+    <td style="width: 179px">UTF8 无 BOM</td>
+    <td style="width: 158px">不支持</td>
+    <td>UTF-8 无 BOM</td>
+    <td style="width: 255px">UTF-8</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>推荐的 Unicode 格式为 UTF-8.ANSI 格式不推荐使用于
+非英文语言的国家,因为不能在不同的地区(语言下)的机器上
+很好的工作. </p>
+<p>&nbsp; </p>
+<h2>当前的一些限制</h2>
+<p>有一些函数不能完整的支持 Unicode 模式. 列表如下:</p>
+<ul>
+  <li><a href="../functions/Send.htm">Send</a> 和 <a href="../functions/ControlSend.htm">ControlSend</a> - 替代方法, 使用 <a href="../functions/ControlSetText.htm">ControlSetText</a> 或者 <a href="../functions/ClipPut.htm">Clipboard</a> 函数.</li>
+  <li><a href="../functions/ConsoleWrite.htm">Console </a>操作被转换为 ANSI 模式. </li>
+</ul>
+<p>这些限制可能还将存在于未来的版本中.. </p>
+</body>
+</html>

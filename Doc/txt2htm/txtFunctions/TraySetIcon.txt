@@ -1,0 +1,36 @@
+###Function###
+TraySetIcon
+
+###Description###
+载入/设置 指定的系统托盘图标. 
+
+###Syntax###
+TraySetIcon ( [文件名 [, 图标ID]] ) 
+
+
+###Parameters###
+@@ParamTable@@
+文件名
+	[可选参数] 图标文件的文件名.
+图标ID
+	[可选参数] 图标标识(如果图标文件包含多个图标). 
+@@End@@
+
+###ReturnValue###
+None.
+
+###Remarks###
+要重置图标为默认, 不带参数调用函数:
+TraySetIcon().
+
+传递一个正数将引用相同字符串的图标名称.
+传递一个负数将引用图标"索引"(默认为-1开始). 一些DLL可以进行图标释放(中文多为解压缩,extracted) 
+
+文件名参数可以设置为 "blank"(空), "info"(信息), "question"(询问), "stop"(停止) 或者 "warning"(警告) .
+
+###Related###
+TraySetPauseIcon, TraySetState
+
+
+###Example###
+@@IncludeExample@@

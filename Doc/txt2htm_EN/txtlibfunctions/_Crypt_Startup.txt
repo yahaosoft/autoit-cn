@@ -1,0 +1,35 @@
+###User Defined Function###
+_Crypt_Startup
+
+###Description###
+Initialize the Crypt library
+
+###Syntax###
+#Include <Crypt.au3>
+_Crypt_Startup()
+
+###Parameters###
+None.
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Returns True
+	Sets @error to 0
+Failure	Returns False and sets @error:
+	1 - Failed to open Advapi32.dll
+	2 - Failed to aquire crypt context
+@@End@@
+
+###Remarks###
+Calling this function is optional.
+To provide backwards compatibility with Windows 2000 it will use the PROV_RSA_FULL provider for Win2000 and PROV_RSA_AES for windows xp and higher
+
+###Related###
+_Crypt_Shutdown
+
+###See Also###
+@@MsdnLink@@ CryptAcquireContext
+
+###Example###
+@@IncludeExample@@

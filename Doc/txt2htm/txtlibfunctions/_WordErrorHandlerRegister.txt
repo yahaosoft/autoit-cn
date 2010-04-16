@@ -1,0 +1,42 @@
+﻿###User Defined Function###
+_WordErrorHandlerRegister
+
+###Description###
+Register and enable a user COM error handler
+
+###Syntax###
+#include <Word.au3> 
+_WordErrorHandlerRegister ( [$s_functionName = "__WordInternalErrorHandler"] )
+
+###Parameters###
+@@ParamTable@@
+$s_functionName
+	[optional] String variable with the name of a user-defined COM error handler, defaults to the internal COM error handler in this UDF
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1
+Failure:	Returns 0 and sets @ERROR
+@Error:	$_WordStatus_Success = No Error
+	$_WordStatus_GeneralError = General Error
+@Extended:	Contains invalid parameter number
+@@End@@
+
+
+###Remarks###
+Important: When using your own error handler, the Error Object variable used MUST be named $oWordErrorHandler (see example).
+
+AutoIt has the ability to trap COM errors and pass then through a custom error handler using the ObjEvent function.  There is a problem with this for UDF writers however because only a single COM error handler can be in use at a time.  For the UDF to use a COM error handler it must first deregister the user error handler, install its own and then put the user handler back in place.  Unfortunately, by default, the UDF has no way to access the handle of the user error handler.
+
+Using this routine you can register your COM error handler in a way that Word.au3 can gracefully remove and reinstate it when it needs to.  You may either point to your own custom error handler or you may use the one developed for Word.au3 (the default).  Using the default Word.au3 error handler you will also get some nice diagnostic information written to the console and some global variables that contain information about the trapped errors.
+
+If you instantiate your own COM error handler without using this routine Word.au3 will not be able to trap some COM errors and you may experience some abrupt script terminations as a result.
+
+
+###Related###
+_WordErrorHandlerDeRegister
+
+
+###Example###
+@@IncludeExample@@

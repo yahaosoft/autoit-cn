@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Language Reference - Comments</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1> 语言相关 - 注释</h1>
+
+  
+<p>在脚本中一般来说每条语句只允许占用一行,但如果某条语句过长
+则可通过在语句结尾附加一个下划线 &quot;_&quot; (称为续行符)从而达到让该语句跨行的目的.<BR>             
+字符串定义不能切割成几行,您可以使用连字符.
+<br>
+</p>
+<p class="codebox"> MsgBox(4096,"", "这条语句过长了,影响了程序的美观和可读性, 因此需要利用下划线跨行&quot; &amp; _<br>
+&nbsp;&nbsp; &quot;这里有一个小问题需要注意:必须是英文下划线字符'_'.")</p>
+<p>&nbsp;</p>
+
+  
+<p>在脚本中分号(;) 的身份是注释符.
+一旦某条语句里出现了分号,则除非它在某个字符串内,否则跟在其后的所有同行语句都将被脚本解释器/编译器忽略而不起任何作用.<br>
+</p>
+<p class="codebox"> ; 下面这行语句的结尾带有一条有助于别人更好理解程序的注释<br>
+  Sleep(5000)&nbsp; ;暂停 5 秒
+</p>
+  
+<p>&nbsp;</p> 
+  
+<p><STRONG>注意:</STRONG>根据上面的说明分析可知,凡是以下划线结尾的语句后都不能添加注释!
+一个很长的声明可以分割到下一行.如下:</p>
+<p class="codebox"> dim $b_ ; 这个 _ 不是续行符<br>
+dim $k_<br>
+Dim $a[8][2] = [ _<br>
+		[ "Word", 4 ], _ 			; 注释1<br>
+		[ "Test", 3 ], _<br>
+		[ "pi", 3.14159], _ 		; 结合值的名称<br>
+		[ "e", 2.718281828465], _	; 同上<br>
+		[ "test;1;2;3", 123], _<br>
+		[ ';', Asc(';') ], _		; 这个注释是需要移除的, 但是 _ 需保留.<br>
+		["", 0] ]</p>
+<p>&nbsp;</p>
+<p>有时候我们需要把一大块的语句段给注释掉,这时可利用 <a href="../keywords/comments-start.htm">#comments-start</a>
+ 和 <a href="../keywords/comments-start.htm">#comments-end</a> 关键字.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

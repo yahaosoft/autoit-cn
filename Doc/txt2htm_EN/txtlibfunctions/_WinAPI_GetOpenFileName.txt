@@ -1,0 +1,58 @@
+###User Defined Function###
+_WinAPI_GetOpenFileName
+
+###Description###
+Creates an Open dialog box that lets the user specify the drive, directory, and the name of a file or set of files to open
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_GetOpenFileName([$sTitle = "" [, $sFilter = "All files (*.*)" [, $sInitalDir = "." [, $sDefaultFile = "" [, $sDefaultExt = "" [, $iFilterIndex = 1 [, $iFlags = 0 [, $iFlagsEx = 0 [, $hwndOwner = 0]]]]]]]]])
+
+###Parameters###
+@@ParamTable@@
+$sTitle
+	[optional] string to be placed in the title bar of the dialog box
+$sFilter
+	[optional] Pairs of filter strings (for example "Text Files (*.txt)|All Files (*.*)")
+		The first string in each pair is a display string that describes the filter (for example, "Text Files")
+		The second string specifies the filter pattern (for example, "*.TXT")
+		To specify multiple filter patterns for a single display string, use a semicolon to separate the patterns (for example, "*.TXT;*.DOC;*.BAK")
+		A pattern string can be a combination of valid file name characters and the asterisk (*) wildcard character
+		Do not include spaces in the pattern string.
+$sInitalDir
+	[optional] String that can specify the initial directory
+$sDefaultFile
+	[optional] A file name used to initialize the File Name edit control
+$sDefaultExt
+	[optional] String that contains the default extension
+$iFilterIndex
+	[optional] Specifies the index of the currently selected filter in the File Types control
+$iFlags
+	[optional] See Flags in $tagOPENFILENAME information
+$iFlagsEx
+	[optional] See FlagEx in $tagOPENFILENAME information
+$hwndOwner
+	[optional] Handle to the window that owns the dialog box. This member can be any valid window handle, or it can be 0 if the dialog box has no owner
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Array in the following format:
+	[0] - Contains the number of strings
+	[1] - Contains the path selected
+	[2] - Contains file selected
+	[n] - Contains file selected
+Failure:	Array of 1 item set to 0
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+$tagOPENFILENAME, _WinAPI_GetSaveFileName, _WinAPI_CommDlgExtendedError
+
+###See Also###
+@@MsdnLink@@ GetOpenFileName
+
+###Example###
+@@IncludeExample@@

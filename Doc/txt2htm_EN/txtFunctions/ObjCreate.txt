@@ -1,0 +1,52 @@
+###Function###
+ObjCreate
+
+###Description###
+Creates a reference to a COM object from the given classname.
+
+###Syntax###
+ObjCreate ( "classname"  [, "servername" [,"username", ["password"]]] )
+
+
+###Parameters###
+@@ParamTable@@
+classname
+	The class of the object in the following format:
+	"appname.objectype"
+servername
+	[optional] name of a remote computer from which the
+	object must be obtained.
+username
+	[optional] name of a usercode on the remote computer
+	You have to enter this in the format "computer\usercode" or
+	"domain\usercode".
+password
+	[optional] password for the usercode on the remote computer.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an object.
+Failure:	Returns 0 and sets @error to 1.
+@@End@@
+
+
+###Remarks###
+Use ObjCreate() if you want to have a new instance of the referring application.
+If you want to connect to an existing process, use ObjGet() instead.
+
+Keep in mind that not all computers have the same set of Objects. So <b>always</b> check for errors after calling ObjCreate(). 
+
+The following requirements apply if you want to access objects on <i>remote</i> computers:
+-The user running the script must have the appropriate permissions.
+-The Object on the remote computer must support DCOM (Distributed COM)
+-The remote computer must have 'Remote Registry Service' and 'File and Printer sharing' services running.
+
+See the <a href="../intro/ComRef.htm">Obj/COM Reference</a> for more information about Objects.
+
+###Related###
+GUICtrlCreateObj, IsObj, ObjEvent, ObjGet, ObjName
+
+
+###Example###
+@@IncludeExample@@

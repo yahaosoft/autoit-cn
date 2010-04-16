@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Au3check syntax Tool</title>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=GB2312">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Au3check 语法表达式工具 </h1>
+<p>Syntax checks the complete language (3.0.103+).<br>
+Checks all symbols used:<br>
+<br>
+* Macros (defined in Au3Check.dat).<br>
+Usage of non-defined macros are reported as errors.<br>
+<br>
+* Variables: (built-in variables ($CmdLine) are defined in Au3Check.dat)<br>
+Au3Check issues warning if variables are used before they are seen. <br>
+It is possible that the program is still correct, like the following:<br>
+<br>
+For $i=1 To 2<br>
+If $i=2 Then msgbox(0, &quot;ok&quot;, $hello);<br>
+Local $hello = &quot;Goodbye&quot;<br>
+Next<br>
+<br>
+However, this is bad programming style, and Au3Check will issue a warning that 
+$hello is<br>
+possible used before it is declared. Likewise, global variables declared in 
+functions<br>
+should best not be used in other functions. If one is used higher up in the 
+code, a warning<br>
+is issued. Finally, Au3Check issues an error if a variable is used, but never 
+declared,<br>
+explicitly or implicitly.<br>
+<br>
+* Functions: (built-in functions are defined in Au3Check.dat).<br>
+Functions may be defined later than where they are called. Au3Check checks that 
+all<br>
+functions are called with the correct number of parameters. It also checks that 
+ByRef parameters<br>
+are called with variables (not l-values, expressions). Finally, non-defined 
+functions<br>
+are reported. <br>
+<br>
+<br>
+Usage<br>
+-----<br>
+Simply add as a tool in TextPad.<br>
+<br>
+Au3Check [-q] [-d] [-w[-] n].. [-v[-] n].. [-I include-dir].. file.au3<br>
+-q : quiet (only error/warn output)<br>
+-d : as Opt(&quot;MustDeclareVars&quot;, 1)<br>
+-w 1: already included file (on)<br>
+-w 2: missing #comments-end (on)<br>
+-w 3: already declared var (off)<br>
+-v 1: show include paths/files (off)<br>
+-v 2: show lexer tokens (off)<br>
+Exit codes:<br>
+0: success: no errors or warnings<br>
+1: warning(s) only<br>
+2: syntax error(s)<br>
+3: usage or input error<br>
+<br>
+You should set up regular expression (POSIX) like the following: <br>
+^([^(]+)\(([0-9]+),([0-9]+)\)<br>
+<br>
+Argument 3 is column.<br>
+If you do not use POSIX RegEx, you must use \ in a different way on ()'s.<br>
+<br>
+<br>
+What is not checked<br>
+-------------------<br>
+Basically runtime information:<br>
+- No checking is made for array dimensions, or indices. This can only be done 
+runtime.<br>
+- Logical errors, illegal parameters to functions, and division on zero.<br>
+&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

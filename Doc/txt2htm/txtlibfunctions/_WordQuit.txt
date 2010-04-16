@@ -1,0 +1,52 @@
+﻿###User Defined Function###
+_WordQuit
+
+###Description###
+关闭(Word)窗口并移除对象参考
+
+###Syntax###
+#include <Word.au3> 
+_WordQuit( ByRef $o_object [, $i_SaveChanges = -2 [, $i_OriginalFormat = 1 [, $b_RouteDocument = 0]]] )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	一个 Word.Application 对象变量
+$i_SaveChanges
+	[可选参数] 指定文档保存操作
+	0 = 不保存修改
+	-1 = 保存效果
+	-2 = (默认) 提示保存修改
+$i_OriginalFormat
+	[可选参数] 指定文档保存格式
+	0 = Word 文档
+	1 = (默认) 原始文档格式
+	2 = 提示用户
+$b_RouteDocument
+	[可选参数] 指定是否发送文档到下一个容器
+	0 = (默认) 不发送
+	1 = 发送到下一个容器
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回 1
+失败:	返回 0 并设置 @ERROR
+@Error:	$_WordStatus_Success = 没错误
+	$_WordStatus_GeneralError = 常规错误
+	$_WordStatus_InvalidDataType = 无效数据类型
+	$_WordStatus_InvalidObjectType = 无效对象类型
+@Extended:	包含一个无效参数数字
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_WordCreate, _WordAttach
+
+
+###Example###
+@@IncludeExample@@

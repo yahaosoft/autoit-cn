@@ -1,0 +1,45 @@
+﻿###User Defined Function###
+_DateDiff
+
+###Description###
+返回两个日期的不同, 使用指定类型表达.
+
+###Syntax###
+#Include <Date.au3>
+_DateDiff($sType, $sStartDate, $sEndDate)
+
+###Parameters###
+@@ParamTable@@
+$sType
+	下方一个值:
+		D = 按天数比较不同
+		M = 按月数比较不同
+		Y = 按年数比较不同
+		w = 按周数比较不同
+		h = 按小时比较不同
+		n = 按分钟比较不同
+		s = 按秒数比较不同
+$sStartDate
+	输入开始日期,格式 "YYYY/MM/DD[ HH:MM:SS]"
+$sEndDate
+	输入结束日期,格式 "YYYY/MM/DD[ HH:MM:SS]"
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	两个日期不同处.
+失败:	返回 0 并设置 @Error
+@error:	0 - 没有错误.
+	1 - 无效 $sType
+	2 - 无效 $sStartDate
+	3 - 无效 $sEndDate
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_DateAdd, _DateTimeSplit, _DateToDayOfWeek, _DateToDayOfWeekISO, _DateToDayValue, _DayValueToDate
+
+###Example###
+@@IncludeExample@@

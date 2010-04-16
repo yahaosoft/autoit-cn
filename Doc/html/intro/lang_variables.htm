@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Language Reference - Variables</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1>语言相关 - 变量类型</h1>
+
+  
+<p>所谓变量是指在为了快速读取而在内存中保存数据的一块空间.
+  您可以把它想象成是一个在内存里的邮箱,
+  我们可以往里面存信也可以取信.例如您可以创建
+  一个变量用来保存用户回复的数值或者某个数学表达式的
+  运算结果.</p>
+<p>每个变量都有自己的名字(这跟邮箱是不是很像?)而且必须以英文
+  字符"<strong>$</strong>"开头,其中只能包含 <strong>字母</strong>,
+  <strong>数字</strong> 和下划线<strong>_</strong>字符.&nbsp; 
+  下面是一些有效的变量名:</p>
+<p>&nbsp;&nbsp;&nbsp; $var1</p>
+<p>&nbsp;&nbsp;&nbsp; $my_variable</p>
+<p>&nbsp;</p>
+<p>每个变量都储存为一个<a href="lang_datatypes.htm">Variant</a>.</p>
+<p>&nbsp;</p>
+<h2>变量的声明</h2>
+<p>AutoIt 中使用关键字<a href="../keywords/Dim.htm"> Dim</a>,
+<a href="../keywords/Dim.htm">Local</a> 和 <a href="../keywords/Dim.htm">Global</a> 
+  来声明并创建变量:</p>
+<p class="codebox">&nbsp;&nbsp;&nbsp; Dim $var1</p>
+<p>还可以像下面这样一次声明多个变量:</p>
+<p class="codebox">&nbsp;&nbsp;&nbsp; Dim $var1, $myvariable</p>
+<p>&nbsp;</p>
+<p>另外还可以<strong>不</strong>先声明某个变量而直接对其赋值,
+  但最好还是要显式的声明一下.</p>
+<p class="codebox">&nbsp;&nbsp;&nbsp; $var1 = &quot;创建并赋值&quot;</p>
+<p>&nbsp;</p>
+<h2>声明常量</h2>
+<p>常量声明使用 <a href="../keywords/Dim.htm">Const</a> 
+   关键字,就像:</p>
+<p class="codebox">&nbsp;&nbsp;&nbsp; Const $const1 = 1, $const2=12</p>
+<p>声明的常量可以用 <a href="../keywords/Enum.htm">
+Enum</a>关键字进行初始化,就像:</p>
+<p class="codebox">&nbsp;&nbsp;&nbsp; Enum $const1 = 1, $const2, $const3&nbsp;&nbsp;&nbsp; 
+; 1, 2, 3<br>
+&nbsp;&nbsp;&nbsp; Enum STEP 2 $incr0, $incr2, $incr4&nbsp;&nbsp;&nbsp; ; 0, 2, 
+4<br>
+&nbsp;&nbsp;&nbsp; Enum STEP *2 $mult1, $mult2, $mult4&nbsp;&nbsp; ; 1, 2, 4</p>
+<p>&nbsp;</p>
+<p>常量不能声明为一个已经存在的变量.</p>
+<p>&nbsp;</p>
+<h2>变量的作用域</h2>
+<p>某个变量的作用域要看您是何时以及如何声明该变量的.
+  如果您在脚本开头且在所有函数之外声明了某个变量
+  则该变量将在<strong>Global(全局)</strong>范围内存在,此时您就可以在脚本的任意位置读取或更改该变量,
+  我们把这种变量称为全局变量.</p>
+<p>如果您是在某个 <a href="lang_functions.htm">函数</a>
+  内部声明一个变量则该变量就只在该函数的 <strong>Local(局部)</strong>
+  范围内有效,我们把这种变量称为局部变量.&nbsp;在函数内创建的变量将在函数结束时
+  自动被销毁.</p>
+<p>在默认情况下,使用 <a href="../keywords/Dim.htm">Dim</a> 
+  声明的变量或在函数内部直接赋值而成的变量都是 <strong>Local(局部)变量</strong>,<strong>除非</strong>
+  有同名的全局变量存在(此时将视此变量为该全局变量).&nbsp;
+  另外我们可以使用关键字 <a href="../keywords/Dim.htm">Local</a> 和 
+  <a href="../keywords/Dim.htm">Global</a> 来声明变量以
+  <strong>强制</strong> 变量的作用域.</p>
+<h2>数组</h2>
+<p>所谓<b>数组</b>是一系列具有相同类型和大小的变量的集合.
+其中每个变量可以用相应的索引序号(下标)来访问.
+<br>
+<br>
+例如:<br>
+<br>
+假设你要存取这样一系列的字符: &quot;A&quot;, &quot;U&quot;, &quot;T&quot;, &quot;O&quot;, &quot;I&quot;, 
+&quot;T&quot; 和 &quot;3&quot;.<br>
+你可以使用7个单独的变量来完成,但使用如下数组将更有效率:</p>
+<p class="codebox">$Array[0]=&quot;A&quot;<br>
+$Array[1]=&quot;U&quot;<br>
+..等等..<br>
+$Array[6]=&quot;3&quot;</p>
+<p>存取数组中的某个特定值,你只需知道它的索引序号(下标):</p>
+<p class="codebox">$MyChar=$Array[2]</p>
+<p>这将使变量 $MyChar 的值为字母&quot;T&quot; (参见: <b>'运算符'</b>).<br>
+<br>
+<br>
+下标也可以使用变量或表达式,所以你可以建立更加复杂的方式来赋值或访问数组.<br>
+<br>
+<br>
+数组可以是多维的,当你使用多个下标时,
+例如:</p>
+<p class="codebox">$Array[0][0]=&quot;Upper-Left&quot;<br>
+$Array[1][0]=&quot;Lower-Left&quot;<br>
+$Array[0][1]=&quot;Upper-Right&quot;<br>
+$Array[1][1]=&quot;Lower-Right&quot;</p>
+<p>(这里只是举个例子)<br>
+<br>
+你最高可以使用 64 维数组变量.
+元素总数不能超过 2^24 (16 777 216).<br>
+<br>
+当你在脚本里使用数组之前,
+你必须使用关键字<b>'<a href="../keywords/Dim.htm">Dim</a>'</b>来定义它的维数.<br>
+<br>
+<!--c1--></p>
+<h2>数组里面的数据类型</h2>
+<p><br>
+有人说数组仅能包含<strong>一种</strong>数据类型.
+但是从技术上来讲,AutoIt里面的变量可以包含包括布尔值在内的任何数据.
+所以一个AutoIt数组可以包含不同的类型,
+甚至别的数组:</p>
+<p class="codebox">$Array[0]=1<br>
+$Array[1]=true<br>
+$Array[2]=&quot;Text&quot;<br>
+$Array[3]=$AnotherArray</p>
+<p>虽然AutoIt中并不明确禁止在一个数组中混合使用多种数据类型.
+然而,那样做是<b>极不明智</b>的.尤其是当一个数组内使用另一个数组时,将严重影响脚本的运行速度!</p>
+</body>
+</html>

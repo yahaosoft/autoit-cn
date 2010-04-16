@@ -1,0 +1,55 @@
+###User Defined Function###
+_GUICtrlRichEdit_SetParaIndents
+
+###Description###
+Sets indents of paragraph(s) in the current selection or, if no selection, of paragraphs inserted at the insertion point
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetParaIndents($hWnd [, $vLeft = Default [, $iRight = Default [, $iFirstLine = Default]]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$vLeft
+	[optional] indentation of left side of the body of the paragraph (in space units)
+		 absolute - a number
+		 relative to previous - a string - "+<number>" or "-<number>"
+$iRight
+	[optional] indentation of right side of the paragraph (in space units)
+$iFirstLine
+	[optional] indentation of the first line relative to other lines (in space units)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and set @error
+@error:	101 - $hWnd is not a handle
+	1021 - $vLeft is neither a number nor a string consisting of a number
+	1022 - $vLeft would start body of paragrpah to left of client area
+	103 - $iRight is not a number
+	105 - $iFirstLine is not a number
+	200 - First line would be outdented beyond the client area
+	700 - Operation failed
+@@End@@
+
+###Remarks###
+Postive values of $iLeft, $iRight and $iFirstLine indent towards the center of the paragraph
+
+All three values are initially zero.
+
+To set "space units", call _GUICtrlRichEdit_SetSpaceUnit. Initially inches
+
+If text is selected, the defaults are the values of the first paragraph with text selected.
+If none is selected, the defaults are the values of the current paragraph.
+
+###Related###
+_GUICtrlRichEdit_GetParaIndents, _GUICtrlRichEdit_SetSpaceUnit
+
+###See Also###
+@@MsdnLink@@ EM_SETPARAFORMAT
+
+###Example###
+@@IncludeExample@@

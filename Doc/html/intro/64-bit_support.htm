@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>运行于64位 Windows 操作系统</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1>运行于64位 Windows 操作系统</h1>
+
+
+<p>AutoIt 原先是一个32位应用程序. 当在 3.2.10.0 版本发布时
+添加了内部 x64 版本支持, 包括:</p>
+<ul>
+	<li>AutoIt (AutoIt3_x64.exe)</li>
+	<li>Aut2Exe (Aut2Exe_x64.exe)</li>
+	<li>Au3Info (Au3Info_x64.exe)</li>
+	<li>AutoItX (AutoItX3_x64.dll)</li>
+</ul>
+<p>During installation, if found to be running on x64 you will be given the
+choice to install and configure the x64 versions. These versions are fully x64
+compatible, however, some scripts that use <a href="../functions/DllCall.htm">
+DllCall</a>/<a href="../functions/DllStructCreate.htm">DllStruct</a> with custom
+structures may use values that break 64-bit compatibility (such as using 32-bit
+integers for pointers). This includes some of the UDFs supplied with AutoIt as
+they have not all been tested under x64.</p>
+<p>You can run the x86 version of AutoIt by right-clicking a script and
+selecting &quot;Run Script (x86)&quot;.</p>
+<p>If you suspect that a script is not working correctly under x64 but it works
+under x86 then please report a bug.</p>
+<p>To see if you are running under a 64-Bit Edition of Windows use @OSArch macro. To
+see if you are using the 32 or 64-bit version of AutoIt use @AutoItX64.</p>
+<p>&nbsp;</p>
+<h2>Running the 32-bit version of AutoIt on a x64 System</h2>
+<p>For Files, Windows has a special redirection mechanism for some system
+directories :</p>
+<table borderColor="#c0c0c0" cellSpacing="0" cellPadding="3" width="623" border="1">
+  <tr>
+    <td width="129" bgColor="#000099" height="16"><b><font color="#FFFFFF">
+    目录</font></b></td>
+    <td width="253" bgColor="#000099" height="16"><b><font color="#FFFFFF">
+    32-位值</font></b></td>
+    <td width="215" bgColor="#000099" height="16"><b><font color="#FFFFFF">
+    64-位值</font></b></td>
+  </tr>
+  <tr>
+    <td width="129">@SystemDir</td>
+    <td width="253">@WindowsDir &amp; &quot;\SYSWOW64&quot;</td>
+    <td width="215">@WindowsDir &amp; &quot;\System32&quot;</td>
+  </tr>
+  <tr>
+    <td width="129">@ProgramFilesDir</td>
+    <td width="253">{SystemDrive} &amp; &quot;\Program Files (x86)&quot;</td>
+    <td width="215">{SystemDrive} &amp; &quot;\Program Files&quot;</td>
+  </tr>
+</table>
+<p>It is possible to access the 64-bit version of those directories by disabling
+the redirection mechanism.</p>
+<p class="codebox"><br>
+<span class="S4"><span style="background-position: 0% 0%">D<span style="background-color: #F0F5FA">llCall</span></span></span><span class="S8">(</span><span class="S7">&quot;kernel32.dll&quot;</span><span class="S8">,</span><span class="S0">
+</span><span class="S7">&quot;int&quot;</span><span class="S8">,</span><span class="S0">
+</span><span class="S7">&quot;Wow64DisableWow64FsRedirection&quot;</span><span class="S8">,</span><span class="S0">
+</span><span class="S7">&quot;int&quot;</span><span class="S8">,</span><span class="S0">
+</span><span class="S7"><font color="#FF00FF">1</font></span><span class="S8">)</span><br>
+&nbsp;</p>
+<p>更多信息请参考:
+<a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/winprog64/winprog64/file_system_redirector.asp">
+<u>MSDN</u></a>.</p>
+<p>For registry, use HKCR64 or HKLM64 to bypass the redirection mechanism see
+Registry Functions documentation.</p>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,54 @@
+###User Defined Function###
+_WordDocAddPicture
+
+###Description###
+Add a picture to the document
+
+###Syntax###
+#include <Word.au3> 
+_WordDocAddPicture ( ByRef $o_object, $s_FilePath [, $b_LinkToFile = 0 [, $b_SaveWithDocument = 0 [, $o_Range = ""]]] )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	Object variable of a Word.Application, document object
+$s_FilePath
+	The path and file name of the picture.
+$b_LinkToFile
+	[optional] Specifies whether to link the picture to the file from which it was created.
+	0 = (Default) Make the picture an independent copy of the file
+	1 = Link the picture to the file from which it was created
+$b_SaveWithDocument
+	[optional] Specifies whether to save the linked picture with the document.
+	0 = (Default) Do not save the linked picture with the document
+	1 = Save the linked picture with the document
+$o_Range
+	[optional] The location where the picture will be placed in the text.
+	"" = (Default) The picture is placed automatically
+	Any range object
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an object variable pointing to a Word.Application, shape object
+Failure:	Returns 0  and sets @ERROR = 1
+@Error:	$_WordStatus_Success = No Error
+	$_WordStatus_GeneralError = General Error
+	$_WordStatus_ComError = Com Error
+	$_WordStatus_InvalidDataType = Invalid Data Type
+	$_WordStatus_InvalidObjectType = Invalid Object Type
+	$_WordStatus_InvalidValue = Invalid Value
+@Extended:	Contains invalid parameter number
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+None.
+
+
+###Example###
+@@IncludeExample@@

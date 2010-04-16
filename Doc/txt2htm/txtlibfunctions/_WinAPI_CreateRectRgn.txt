@@ -1,0 +1,41 @@
+###User Defined Function###
+_WinAPI_CreateRectRgn
+
+###Description###
+Creates a rectangular region
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_CreateRectRgn($iLeftRect, $iTopRect, $iRightRect, $iBottomRect)
+
+###Parameters###
+@@ParamTable@@
+$iLeftRect
+	X-coordinate of the upper-left corner of the region
+$iTopRect
+	Y-coordinate of the upper-left corner of the region
+$iRightRect
+	X-coordinate of the lower-right corner of the region
+$iBottomRect
+	Y-coordinate of the lower-right corner of the region
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the handle to the region
+Failure:	0
+@@End@@
+
+###Remarks###
+When you no longer need the HRGN object call the _WinAPI_DeleteObject function to delete it.
+Region coordinates are represented as 27-bit signed integers.
+The region will be exclusive of the bottom and right edges.
+
+###Related###
+_WinAPI_CreateRoundRectRgn, _WinAPI_SetWindowRgn, _WinAPI_DeleteObject, _WinAPI_CombineRgn, _WinAPI_GetWindowRgn
+
+###See Also###
+@@MsdnLink@@ CreateRectRgn
+
+###Example###
+@@IncludeExample@@

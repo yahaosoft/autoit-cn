@@ -1,0 +1,35 @@
+###User Defined Function###
+_GUIImageList_ReplaceIcon
+
+###Description###
+Replaces an image with an icon or cursor
+
+###Syntax###
+#Include <GuiImageList.au3>
+_GUIImageList_ReplaceIcon($hWnd, $iIndex, $hIcon)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iIndex
+	Index of the image to replace. If -1, the function appends the image to the end of the list.
+$hIcon
+	Handle to the icon or cursor that contains the bitmap and mask for the new image
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	The index of the image
+Failure:	-1
+@@End@@
+
+###Remarks###
+Because the system does not save hIcon you can destroy it after the function returns if the icon or cursor was
+created by the CreateIcon function. You do not need to destroy hIcon if it was loaded by the LoadIcon function
+the system automatically frees an icon resource when it is no longer needed.
+
+###Related###
+
+###Example###
+@@IncludeExample@@

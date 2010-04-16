@@ -1,0 +1,42 @@
+﻿###Function###
+GUICtrlSendMsg
+
+###Description###
+发送一个消息到控件.
+
+###Syntax###
+GUICtrlSendMsg ( 控件ID, msg , wParam, lParam )
+
+
+###Parameters###
+@@ParamTable@@
+控件ID
+	控件标识符(控件ID),可由 <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a> 函数的返回值获得.
+msg
+	要发送到控件的消息类型,在 Windows 的控件文档中有定义.
+wParam
+	要发送到控件的第一个参数.
+lParam
+	要发送到控件的第二个参数.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回 SendMessage(Windows API) 的返回值.
+失败:	返回 0.
+@@End@@
+
+
+###Remarks###
+此函数允许我们使用 SendMessage(API 函数) 来把某些特殊的 Windows 消息直接发送到控件上.它可以用来启用某些特殊的控件功能,而这些功能往往是简单的 GUICtrlRead() 和 GUICtrlUpdate...() 函数无法实现的.
+
+参数(wParam 和 lParam)可以是整型值也可以是字符串.
+
+GUICtrlSendMsg 可用于发送那些没有特殊返回值类型的消息.对于其它需要接收额外数据的更高级的消息发送就必须使用 <a href="GUICtrlRecvMsg.htm">GUICtrlRecvMsg()</a>. 
+
+###Related###
+GUICtrlRecvMsg, GUICtrlCreate..., GUICtrlUpdate..., GUIGetMsg, GUICtrlRead
+
+
+###Example###
+@@IncludeExample@@

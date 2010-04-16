@@ -1,0 +1,42 @@
+###User Defined Function###
+_IEFrameGetCollection
+
+###Description###
+返回包含框架集中的框架或普通页面上的浮动框架或按索引的单一框架或浮动框架的对象集合.
+
+###Syntax###
+#include <IE.au3> 
+_IEFrameGetCollection ( ByRef $o_object [, $i_index = -1] )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	InternetExplorer.Application, 窗口或框架对象的对象变量
+$i_index
+	[可选参数]: 指定返回的是一个集合或一个索引实例
+	0或正整数返回一个索引的实例
+	-1 = (默认)返回一个集合
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回包含框架集的对象变量, @EXTENDED = 框架数量
+失败:	返回0并设置@ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	5 ($_IEStatus_InvalidValue) = 无效值
+	7 ($_IEStatus_NoMatch) = 无匹配
+@Extended:	包含无效参数数量
+@@End@@
+
+
+###Remarks###
+尽管MSDN文档表明该函数的返回值是一个集合对象, 但它不能像一个标准集合对象一样使用For...Next循环浏览. 必须以集合的索引代替步长 - 见示例.
+
+
+###Related###
+_IEIsFrameSet, _IEFrameGetObjByName
+
+
+###Example###
+@@IncludeExample@@

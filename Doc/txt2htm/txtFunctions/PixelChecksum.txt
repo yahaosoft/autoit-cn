@@ -1,0 +1,52 @@
+﻿###Function###
+PixelChecksum
+
+
+###Description###
+生成某区域象素的校验和.
+
+
+###Syntax###
+PixelChecksum ( 左侧, 顶部, 右侧, 底部 [, 步进 [,句柄 [,模式]]] )  
+
+
+###Parameters###
+@@ParamTable@@
+左侧
+	矩形区域左侧的坐标.
+顶部
+	矩形区域顶部的坐标.
+右侧
+	矩形区域右侧的坐标.
+底部
+	矩形区域底部的坐标.
+步进
+	[可选参数] 默认情况下每个象素都要校验一次,而此参数可跳过指定数量的象素才校验(可提升执行速度).例如,数值2表示每隔一个象素才校验一次.默认值为 1. <b>不推荐步进值超过 1 .</b>
+句柄
+	[可选参数] 目标窗口句柄.
+模式 
+	[可选参数] 默认 0 使用 ADLER 校检, 1 CRC32 校检.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回指定区域的校验和.
+失败:	返回 0.
+@@End@@
+
+
+
+###Remarks###
+校验和使我们能检查某个区域里"某些地方"是否有变化,但我们却无从知道具体有什么变化 - 它不会告诉你哪里发生了变化.
+
+上一个版本里,工作非常慢, 因此现在将校检写得更快了. 使用步进参数也不再被推荐.  The performance gain from using a larger step is not nearly as noticeable since the function is faster all around.  Also, the larger the step, the less reliable the checksum becomes when used to detect small changes in the region.
+
+CRC32 校检略为比 ADLDER 校检慢,但是校检精度更高.
+
+###Related###
+PixelGetColor, PixelCoordMode (Option), PixelSearch
+
+
+###Example###
+@@IncludeExample@@

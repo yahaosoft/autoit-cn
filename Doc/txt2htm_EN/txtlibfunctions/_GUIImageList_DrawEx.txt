@@ -1,0 +1,58 @@
+###User Defined Function###
+_GUIImageList_DrawEx
+
+###Description###
+Draws an image list item in the specified device context
+
+###Syntax###
+#Include <GuiImageList.au3>
+_GUIImageList_DrawEx($hWnd, $iIndex, $hDC, $iX, $iY[, $iDX = 0[, $iDY = 0[, $iRGBBk = 0xFFFFFFFF[, $iRGBFg = 0xFFFFFFFF[, $iStyle=0]]]]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iIndex
+	Zero based index of the image to draw
+$hDC
+	Handle to the destination device context
+$iX
+	X coordinate where the image will be drawn
+$iY
+	Y coordinate where the image will be drawn
+$iDX
+	[optional] The width of the portion of the image to draw relative to the upper-left corner of the image.
+		If $iDX and $iDY are zero, the function draws the entire image. The function does not ensure that the parameters are valid.
+$iDY
+	[optional] The height of the portion of the image to draw, relative to the upper-left corner of the image.
+		If $iDX and $iDY are zero, the function draws the entire image. The function does not ensure that the parameters are valid.
+$iRGBBk
+	[optional] The background color of the image. This parameter can be an application-defined RGB value or one of the following values:
+		$CLR_NONE - No background color. The image is drawn transparently.
+		$CLR_DEFAULT - The default background color. The image is drawn using the background color of the image list.
+$iRGBFg
+	[optional] The foreground color of the image. This parameter can be an application-defined RGB value or one of the following values:
+		$CLR_NONE - No blend color. The image is blended with the color of the destination device context.
+		$CLR_DEFAULT - The default foreground color. The image is drawn using the system highlight color as the foreground color.
+$iStyle
+	[optional] Drawing style and overlay image:
+		1 - Draws the image transparently using the mask, regardless of the background color
+		2 - Draws the image, blending 25 percent with the system highlight color
+		4 - Draws the image, blending 50 percent with the system highlight color
+		8 - Draws the mask
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_GUIImageList_Draw
+
+###Example###
+@@IncludeExample@@

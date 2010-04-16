@@ -1,0 +1,60 @@
+###Keyword###
+#include
+
+###Description###
+Includes a file in the current script.
+
+###Syntax###
+<b>#include</b> "[path\]filename"
+<b>#include</b> &lt;filename&gt;
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	The filename of the current script to include. Path is optional. <b>This must be a string--it cannot be a variable.</b>
+	If <b>"..."</b> is used, the filename is taken to be relative to the current script.
+	If <b>&lt;...&gt;</b> is used the filename is taken to be relative to include library directory (usually C:\Program Files\AutoIt3\Include).  The include library contains many pre-written user-functions for you to use!
+ @@End@@
+
+###Remarks###
+In an AutoIt script, other scripts can be included using the #include" command.
+
+If you include the same file containing a user-function more than once you will get a "Duplicate function" error.  When writing an include file that may be used in this way, make sure that the top line contains <b>#include-once</b> to prevent that file from being included more than once.
+
+There is a special registry value that can be created at "HKEY_CURRENT_USER\Software\AutoIt v3\AutoIt" called "Include".  It should be a REG_SZ (string) value.  The contents of this value are a semi-colon delimited list of directories that should be searched for files when resolving #include's in addition to the standard locations.
+
+The search order used by AutoIt depends on which form of #include you use.  The tables below show the order directories are searched using both forms.
+
+Using #include <>
+@@ParamTable@@
+Standard library
+	The path of the currently running interpreter with "\Include" appended is searched.
+User-defined libraries
+	The registry value mentioned above is read and each directory is searched in the order they appear in.
+Script directory
+	The directory of the currently executing script.
+@@End@@
+
+Using #include "" (This is the reverse of #include <>).
+@@ParamTable@@
+Script directory
+	The directory of the currently executing script.
+User-defined libraries
+	The registry value mentioned above is read and each directory is searched in the reverse order they appear in.
+Standard library
+	The path of the currently running interpreter with "\Include" appended is searched.
+@@End@@
+
+A note about using the /AutoIt3ExecuteScript option.  Since the standard library is searched for in the current interpreter's directory, the standard library functions will not be found; that library will only be found when run through AutoIt3.exe.  It's recommended that you compile a script to the .a3x format before attempting to run it with /AutoIt3ExecuteScript.
+
+Aut2Exe uses the same algorithm as AutoIt3.exe with the only difference being it looks for the Include sub-directory as being in a sibling directory to itself (..\Include).
+
+If Opt("TrayIconDebug",1) only 64 include files name can be displayed in the traytooltip. for the other no filename will be displayed.
+
+###Related###
+<a href="include-once.htm">#include-once</a>
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,40 @@
+﻿###Function###
+GUISetCursor
+
+###Description###
+设置(鼠标经过窗口时的)鼠标指针.
+
+###Syntax###
+GUISetCursor ( [指针ID [, 覆盖 [, 窗口句柄]]] )
+
+
+###Parameters###
+@@ParamTable@@
+指针ID
+	[可选参数] 鼠标指针 Id (请查看下面的注意部分).
+覆盖
+	[可选参数] 当鼠标经过控件时强制切换鼠标指针(请看下面的解释).
+	0 = (默认)不覆盖控件本身设置的默认指针.
+	1= 忽略控件本身设置的默认指针而强制性使用给定指针.
+窗口句柄
+	[可选参数] 窗口句柄,可由 GUICreate 的返回值获得(默认使用上一次用过的句柄).
+@@End@@
+
+###ReturnValue###
+None.
+
+###Remarks###
+若给定的 指针ID 无效则程序将使用标准的箭头指针代替.
+
+通常当我们把鼠标指针移到一个编辑框或其它控件上时指针形状就会变化."覆盖"选项使得我们能保证在任何时候显示的都是给定的指针.注意:若曾使用 GUICtrlSetCursor 设置过某个控件的指针则在鼠标经过该控件时将以该指针为准.
+
+详细的指针ID列表请查看 <a href="MouseGetCursor.htm">MouseGetCursor</a>.
+CursorId = 16 将隐藏鼠标光标.
+
+
+###Related###
+GUICtrlSetCursor
+
+
+###Example###
+@@IncludeExample@@

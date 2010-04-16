@@ -1,0 +1,46 @@
+﻿###User Defined Function###
+_ExcelWriteSheetFromArray
+
+###Description###
+写入一个二维数组到活动工作表
+
+###Syntax###
+#Include <Excel.au3>
+_ExcelWriteSheetFromArray($oExcel, ByRef $aArray [, $iStartRow = 1 [, $iStartColumn = 1 [, $iRowBase = 1 [, $iColBase = 1]]]])
+
+###Parameters###
+@@ParamTable@@
+$oExcel
+	Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+$aArray
+	The array ByRef to write data from (array is not modified)
+$iStartRow
+	[optional] The table row to start writing the array to, default is 1
+$iStartColumn
+	[optional] The table column to start writing the array to, default is 1
+$iRowBase
+	[optional] array index base for rows, default is 1
+$iColBase
+	[optional] array index base for columns, default is 1
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	1
+Failure:	0 and sets @error on errors:
+@error:	0 - No error
+	1 - Specified object does not exist
+	2 - Parameter out of range
+	3 - Array invalid
+	4 - Base index out of range
+@extended:	0 - Row out of range
+	1 - Col out of range
+@@End@@
+
+###Remarks###
+Default base indexes in the array are both = 1, so first cell written is from $aArray[1][1].
+
+###Related###
+
+###Example###
+@@IncludeExample@@

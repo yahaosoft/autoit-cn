@@ -1,0 +1,37 @@
+###User Defined Function###
+_WinAPI_OpenProcess
+
+###Description###
+Returns a handle of an existing process object
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_OpenProcess($iAccess, $fInherit, $iProcessID [, $fDebugPriv = False])
+
+###Parameters###
+@@ParamTable@@
+$iAccess
+	Specifies the access to the process object
+$fInherit
+	Specifies whether the returned handle can be inherited
+$iProcessID
+	Specifies the process identifier of the process to open
+$fDebugPriv
+	[optional] Certain system processes can not be opened unless you have the debug security privilege. If
+		True, this function will attempt to open the process with debug priviliges if the process can not be opened
+		with standard access privileges.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Process handle to the object
+Failure:	set @error
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ OpenProcess

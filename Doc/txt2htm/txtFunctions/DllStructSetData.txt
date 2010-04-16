@@ -1,0 +1,44 @@
+﻿###Function###
+DllStructSetData
+
+###Description###
+设置数据结构(struct)中部分元素的数据.
+
+###Syntax###
+DllStructSetData ( 数据结构, 元素, 值 [, 索引 ] )
+
+
+###Parameters###
+@@ParamTable@@
+数据结构
+	由 DllStructCreate 函数返回的数据结构(struct).
+元素
+	你想要访问的数据结构(struct)元素, 起始于 1 或者由 DllStructCreate 函数定义的元素名.
+值
+	需要放到数据结构(struct)中的新值.
+索引
+	[可选参数] 如果元素是一个数组,你需要设定一个索引,否则它会设定索引为 1. 第一个元素是 1.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	值, 从数据结构(struct)读取的值.
+失败:	返回 0.
+@Error:	0 = 没有错误. 
+	1 = DllStructCreate 函数返回的数据结构(struct)不正确. 
+	2 = 元素值超出范围. 
+	3 = 索引值在数据结构(struct)外面. 
+	4 = 元素数据类型未知 
+	5 = 索引 &lt;= 0.
+@@End@@
+
+
+###Remarks###
+当元素是 char[n], byte[n] 或 ubyte[n] 时,数据可以是一个字符串,否则一定是个数字.
+
+###Related###
+DllStructCreate, DllStructGetData, DllStructGetSize
+
+
+###Example###
+@@IncludeExample@@

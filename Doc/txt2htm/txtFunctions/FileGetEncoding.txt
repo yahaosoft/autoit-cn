@@ -1,0 +1,45 @@
+﻿###Function###
+FileGetEncoding
+
+###Description###
+检测一个正在使用的文件的文本编码.
+
+###Syntax###
+FileGetEncoding ( "文件句柄/文件名" [, 模式] )
+
+
+###Parameters###
+@@ParamTable@@
+文件句柄/文件名
+	一个文件的句柄,有前面调用 FileOpen 函数返回的值. 当然,您也可以使用一个字符串文件名作为参数.
+模式
+	[可选参数] 需要使用的 UTF8 检测模式.
+	1 = 检测整个文件的 UTF8 序列值 (默认)
+	2 = 检测文件最前面部分的 UTF8 序列值 (相当于 FileOpen 使用默认值打开)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回与 FileOpen 函数相似的文件编码值:
+	0 = ANSI
+	32 = UTF16 小编码(Little Endian).
+	64 = UTF16 大编码(Big Endian).
+	128 = UTF8 (带有 BOM).
+	256 = UTF8 (没有 BOM).
+失败:	返回 -1.
+@@End@@
+
+
+###Remarks###
+If a filename is given rather than a file handle - the file will be opened and closed during the function call.
+Note: Do not mix filehandles and filenames, i.e., don't FileOpen a file and then use a filename in this function.  Use either filehandles or filenames in your routines, not both!
+
+If a file handle is used then the "mode" parameter has no effect - the mode used for FileOpen takes precedence.
+
+
+###Related###
+FileOpen, FileRead, FileReadLine, FileWrite, FileWriteLine
+
+
+###Example###
+@@IncludeExample@@

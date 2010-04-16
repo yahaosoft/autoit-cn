@@ -1,0 +1,75 @@
+###User Defined Function###
+_WinAPI_DrawFrameControl
+
+###Description###
+Draws a frame control of the specified type and style
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_DrawFrameControl($hDC, $ptrRect, $nType, $nState)
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context into which the icon or cursor is drawn
+$ptrRect
+	Pointer to a $tagRECT structure that contains the logical coordinates of the rectangle
+$nType
+	Specifies the type of frame control to draw. This parameter can be one of the following values:
+		$DFC_BUTTON - Standard button
+		$DFC_CAPTION - Title bar
+		$DFC_MENU - Menu bar
+		$DFC_POPUPMENU - Windows 98/Me, Windows 2000/XP: Popup menu item
+		$DFC_SCROLL - Scroll bar
+$nState
+	Specifies the initial state of the frame control. If $nType is $DFC_BUTTON, $nState can be one of the following values:
+		$DFCS_BUTTON3STATE - Three-state button
+		$DFCS_BUTTONCHECK - Check box
+		$DFCS_BUTTONPUSH - Push button
+		$DFCS_BUTTONRADIO - Radio button
+		$DFCS_BUTTONRADIOIMAGE - Image for radio button (nonsquare needs image)
+		$DFCS_BUTTONRADIOMASK - Mask for radio button (nonsquare needs mask)
+		If $nType is $DFC_CAPTION, $nState can be one of the following values:
+		$DFCS_CAPTIONCLOSE - Close button
+		$DFCS_CAPTIONHELP - Help button
+		$DFCS_CAPTIONMAX - Maximize button
+		$DFCS_CAPTIONMIN - Minimize button
+		$DFCS_CAPTIONRESTORE - Restore button
+		If $nType is $DFC_MENU, $nState can be one of the following values:
+		$DFCS_MENUARROW - Submenu arrow
+		$DFCS_MENUARROWRIGHT - Submenu arrow pointing left. This is used for the right-to-left cascading menus used with right-to-left languages such as Arabic or Hebrew
+		$DFCS_MENUBULLET - Bullet
+		$DFCS_MENUCHECK - Check mark
+		If $nType is $DFC_SCROLL, $nState can be one of the following values:
+		$DFCS_SCROLLCOMBOBOX - Combo box scroll bar
+		$DFCS_SCROLLDOWN - Down arrow of scroll bar
+		$DFCS_SCROLLLEFT - Left arrow of scroll bar
+		$DFCS_SCROLLRIGHT - Right arrow of scroll bar
+		$DFCS_SCROLLSIZEGRIP - Size grip in bottom-right corner of window
+		$DFCS_SCROLLSIZEGRIPRIGHT - Size grip in bottom-left corner of window. This is used with right-to-left languages such as Arabic or Hebrew
+		$DFCS_SCROLLUP - Up arrow of scroll bar
+		The following style can be used to adjust the bounding rectangle of the push button:
+		$DFCS_ADJUSTRECT - Bounding rectangle is adjusted to exclude the surrounding edge of the push button
+		One or more of the following values can be used to set the state of the control to be drawn:
+		$DFCS_CHECKED - Button is checked
+		$DFCS_FLAT - Button has a flat border
+		$DFCS_HOT - Windows 98/Me, Windows 2000/XP: Button is hot-tracked
+		$DFCS_INACTIVE - Button is inactive (grayed)
+		$DFCS_PUSHED - Button is pushed
+		$DFCS_TRANSPARENT - Windows 98/Me, Windows 2000/XP: The background remains untouched. This flag can only be combined with $DFCS_MENUARROWUP or $DFCS_MENUARROWDOWN
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+###Remarks###
+Needs FrameConstants.au3 for pre-defined constants
+
+###Related###
+$tagRECT
+
+###See Also###
+@@MsdnLink@@ DrawFrameControl

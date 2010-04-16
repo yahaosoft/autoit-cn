@@ -1,0 +1,52 @@
+###Function###
+GUICtrlSetData
+
+###Description###
+Modifies the data for a control.
+
+###Syntax###
+GUICtrlSetData ( controlID, data [, default] )
+
+
+###Parameters###
+@@ParamTable@@
+controlID
+	The control identifier (controlID) as returned by a <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a> function.
+data
+	Combo, List, ListView, ListViewItem: An <a href="AutoItSetOption.htm#GUIDataSeparatorChar">Opt("GUIDataSeparatorChar",...)</a> separated list of items.
+	Progress: The percentage.
+	Slider: The value.
+	Group, Label, Button, Checkbox, Radio, Combo, List, Input, Edit, TabItem, TreeViewItem: Replaces the text.
+	Date : The date or time depending the style of the control.
+	Dummy: The value.
+default
+	[optional] Combo, List: The default value.
+	Edit, Input: If non-empty (""), the string is inserted at the current insertion point (caret).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+	Returns -1 in case of invalid data
+@@End@@
+
+
+###Remarks###
+For Combo or List control :
+If the "data" corresponds to an already existing entry it is set as the default.
+If the "data" starts with GUIDataSeparatorChar or is an empty string "" the previous list is destroyed.
+
+For ListView, ListViewItem controls :
+To update a specific column just forget about the others ie "||update" to update 3rd column.
+If "update" is empty the column/subitem will be erased. For example "|" will erase the second column/subitem, "" will erase the first.
+
+For Date, Monthcal controls :
+The "data" date format is "yyyy/mm/dd".
+
+###Related###
+GUICtrlCreate..., GUICtrlUpdate..., GUICtrlRead, GUIDataSeparatorChar (Option)
+
+
+###Example###
+@@IncludeExample@@

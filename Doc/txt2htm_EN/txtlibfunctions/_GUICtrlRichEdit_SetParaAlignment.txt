@@ -1,0 +1,42 @@
+###User Defined Function###
+_GUICtrlRichEdit_SetParaAlignment
+
+###Description###
+Sets alignment of paragraph(s) in the current selection or, if no selection, of paragraphs inserted at the insertion point
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetParaAlignment($hWnd, $sAlignment)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$sAlignment
+	values:
+		"l" - align with the left margin.
+		"r" - align with the right margin.
+		"c" - center between margins
+		"j" - justify between margins
+		"f" - justify between margins by only expanding spaces
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and sets @error
+@error:	101 - $hWnd is not a handle
+	102 - invalid $sAlignment
+@@End@@
+
+###Remarks###
+In Richedit 2.0, justify does not display
+
+###Related###
+_GUICtrlRichEdit_GetParaAlignment
+
+###See Also###
+@@MsdnLink@@ EM_SETPARAFORMAT
+
+###Example###
+@@IncludeExample@@

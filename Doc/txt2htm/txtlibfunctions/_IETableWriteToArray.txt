@@ -1,0 +1,40 @@
+###User Defined Function###
+_IETableWriteToArray
+
+###Description###
+将表内容读取到数组.
+
+###Syntax###
+#include <IE.au3> 
+_IETableWriteToArray ( ByRef $o_object [, $f_transpose] )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	InternetExplorer.Application, 表对象的对象变量
+$f_transpose
+	[可选参数]: 指定是否在输出的数组中互换行列的布尔值
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回包含表内容的二维数组
+失败:	返回0并设置@ERROR
+@Error:	0 ($_IEStatus_Success) = 没有错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+@Extended:	包含有效的参数数量
+@@End@@
+
+
+###Remarks###
+当表单元格跨越多列或行时, 添加空白数组元素适当对其结果. 跨单元格的数据将位于数组元素左或顶.
+
+在HTML文档中表经常被圈出. 如果所有数据未按预期返回到单一数组元素, 你可能需要将一个更深的表引入到此函数.
+
+###Related###
+_IETableGetCollection
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,72 @@
+###User Defined Function###
+_WordDocOpen
+
+###Description###
+Opens an existing Microsoft Word Document
+
+###Syntax###
+#include <Word.au3> 
+_WordDocOpen ( ByRef $o_object , $s_FilePath [, $b_ConfirmConversions = 0 [, $i_Format = 0 [, $b_ReadOnly = 0 [, $b_Revert = 0 [, $b_AddToRecentFiles = 0 [, $s_PasswordDocument = "" [, $s_WritePasswordDocument = ""]]]]]]] )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	Object variable of a Word.Application object
+$s_FilePath
+	Full path of the document to open (See Remarks)
+$b_ConfirmConversions
+	[optional] Specifies whether to display the Convert File dialog box if the file isn't in Microsoft Word format.
+	0 = (Default) Do not display
+	1 = Display
+$i_Format
+	[optional] The file converter to be used to open the document.
+	0 = (Default) The existing format
+	1 = Microsoft Word Document format
+	2 = Microsoft Word Template format
+	3 = Rich text format (RTF)
+	4 = Unencoded text format
+	5 = Unicode text format or Encoded text format
+	6 = Microsoft Word format that is backward compatible with earlier versions of Microsoft Word
+	7 = HTML format
+	8 = XML format
+$b_ReadOnly
+	[optional] Specifies whether to open the document as read-only.
+	Note: This argument doesn't override the read-only recommended setting on a saved document.
+	0 = (Default) Open as Read/Write
+	1 = Open as Read Only
+$b_Revert
+	[optional] Controls what happens if $s_FilePath is an open document.
+	0 = (Default) Activate the open document
+	1 = Discard any unsaved changes to the open document and reopen the file
+$b_AddToRecentFiles
+	[optional] Specifies whether to add the file name to the list of recently used files at the bottom of the File menu.
+	0 = (Default) Do not add
+	1 = Add
+$s_PasswordDocument
+	[optional] The password for opening the document.
+$s_WritePasswordDocument
+	[optional] The password for saving changes to the document.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an object variable pointing to a Word.Application, document object
+Failure:	Returns 0 and sets @ERROR
+@Error:	$_WordStatus_Success = No Error
+	$_WordStatus_GeneralError = General Error
+	$_WordStatus_InvalidDataType = Invalid Data Type
+	$_WordStatus_InvalidObjectType = Invalid Object Type
+@Extended:	Contains invalid parameter number
+@@End@@
+
+
+###Remarks###
+File will be created if it does not exist.
+
+
+###Related###
+_WordDocAdd, _WordDocClose, _WordDocSave, _WordDocSaveAs
+
+
+###Example###
+@@IncludeExample@@

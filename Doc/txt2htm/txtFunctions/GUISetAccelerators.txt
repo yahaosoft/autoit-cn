@@ -1,0 +1,45 @@
+﻿###Function###
+GUISetAccelerators
+
+###Description###
+为 GUI 窗口设置快捷键表.
+
+###Syntax###
+GUISetAccelerators ( 快捷键 [, 窗口句柄] )
+
+
+###Parameters###
+@@ParamTable@@
+快捷键
+	一个二维数组定义的快捷键表 (参考备注).
+窗口句柄
+	[可选参数] 由 GUICreate 返回的窗口句柄(默认 (default) 为上一次使用的窗口).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回 1.
+失败:	返回 0.
+@@End@@
+
+
+###Remarks###
+传给这个函数的包含快捷键和控件ID的数组.必须以 Dim $array[n][2] 语句定义，n 为快捷键的数目:
+
+$array[0][0] = 第一个加速器的热键 (以 HotKeySet() 格式)
+$array[0][1] = 第一个加速器的控件ID, 由 GUICtrlCreate...()返回
+$array[1][0] = 第二个加速器的热键
+$array[1][1] = 第二个加速器的控件ID
+...
+$array[n][0] = 第 n 个加速器的热键
+$array[n][1] = 第 n 个加速器的控件ID
+
+
+非数组形式不会为给定的窗口句柄设定快捷键.
+
+###Related###
+GUICreate, HotKeySet
+
+
+###Example###
+@@IncludeExample@@

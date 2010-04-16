@@ -1,0 +1,44 @@
+﻿###User Defined Function###
+_ScreenCapture_Capture
+
+###Description###
+捕捉某一屏幕区域
+
+###Syntax###
+#Include <ScreenCapture.au3>
+_ScreenCapture_Capture([$sFileName = "" [, $iLeft = 0 [, $iTop = 0 [, $iRight = -1 [, $iBottom = -1 [, $fCursor = True]]]]]])
+
+###Parameters###
+@@ParamTable@@
+$sFileName
+	[可选参数] 图像文件的完整路径与扩展名
+$iLeft
+	[可选参数] X coordinate of the upper left corner of the rectangle
+$iTop
+	[可选参数] Y coordinate of the upper left corner of the rectangle
+$iRight
+	[可选参数] X coordinate of the lower right corner of the rectangle. If this is -1, the current screen
+		width will be used.
+$iBottom
+	[可选参数] Y coordinate of the lower right corner of the rectangle. If this is -1, the current screen
+		height will be used.
+$fCursor
+	[可选参数] If True the cursor will be captured with the image
+@@End@@
+
+###ReturnValue###
+None.
+
+###Remarks###
+If FileName is not blank this function will capture the screen and save it to file. If FileName is blank, this
+function will capture the screen and return a HBITMAP handle to the bitmap image. In this case, after you are
+finished with the bitmap you must call _WinAPI_DeleteObject to delete the bitmap handle.
+
+Requires GDI+: GDI+ requires a redistributable for applications that
+run on the Microsoft Windows NT 4.0 SP6, Windows 2000, Windows 98, and Windows Me operating systems.
+
+###Related###
+_WinAPI_DeleteObject, _ScreenCapture_SaveImage
+
+###Example###
+@@IncludeExample@@

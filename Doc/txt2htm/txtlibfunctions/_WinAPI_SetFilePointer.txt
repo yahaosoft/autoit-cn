@@ -1,0 +1,47 @@
+﻿###User Defined Function###
+_WinAPI_SetFilePointer
+
+###Description###
+Moves the file pointer of the specified file
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_SetFilePointer($hFile, $iPos [, $iMethod = 0])
+
+###Parameters###
+@@ParamTable@@
+$hFile
+	Handle to the file to be processed
+$iPos
+	Number of bytes to move the file pointer. Maximum value is 2^32
+		A positive value moves the file pointer forward in the file, and a negative value moves the file pointer back.
+$iMethod
+	[optional] The starting point for the file pointer move.
+		Can be one of the predefined values:
+		$FILE_BEGIN = 0 - The starting point is zero (0) or the beginning of the file
+		$FILE_CURRENT = 1 - The starting point is the current value of the file pointer.
+		$FILE_END = 2 - The starting point is the current end-of-file position.
+		Implicit value is $FILE_BEGIN = 0
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	New file pointer.
+Failure:	Returns INVALID_SET_FILE_POINTER (-1) and Set @error
+@error:	0 - No error
+	2 - API returned INVALID_SET_FILE_POINTER
+@@End@@
+
+###Remarks###
+This function can also be used to query the current file pointer position by specifying a move method of FILE_CURRENT and a distance of zero.
+This function stores the file pointer in LONG value. To work with file pointers that are larger than a single LONG value, it must be used the SetFilePointerEx function.
+File pointer is the position in the file to read/write to/from by _WinAPI_ReadFile/_WinAPI_WriteFile
+
+###Related###
+_WinAPI_CloseHandle, _WinAPI_CreateFile, _WinAPI_FlushFileBuffers, _WinAPI_GetFileSizeEx, _WinAPI_ReadFile, _WinAPI_SetEndOfFile, _WinAPI_WriteFile
+
+###See Also###
+@@MsdnLink@@ SetFilePointer
+
+###Example###
+@@IncludeExample@@

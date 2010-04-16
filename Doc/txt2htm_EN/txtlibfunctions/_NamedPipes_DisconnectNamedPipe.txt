@@ -1,0 +1,31 @@
+###User Defined Function###
+_NamedPipes_DisconnectNamedPipe
+
+###Description###
+Disconnects the server end of a named pipe instance from a client process
+
+###Syntax###
+#Include <NamedPipes.au3>
+_NamedPipes_DisconnectNamedPipe($hNamedPipe)
+
+###Parameters###
+@@ParamTable@@
+$hNamedPipe
+	Handle to the server end of a named pipe instance.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+###Remarks###
+If the client end of the named pipe is open, the DisconnectNamedPipe function forces that end of the named
+pipe closed. The client receives an error the next time it attempts to access the pipe. A client that is
+forced off a pipe must still use the CloseHandle function to close its end of the pipe.
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ DisconnectNamedPipe

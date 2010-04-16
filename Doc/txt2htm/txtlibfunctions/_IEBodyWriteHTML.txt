@@ -1,0 +1,43 @@
+﻿###User Defined Function###
+_IEBodyWriteHTML
+
+###Description###
+替换文档中 &lt;body&gt; 标记中的HTML.
+
+###Syntax###
+#include <IE.au3> 
+_IEBodyWriteHTML ( ByRef $o_object, $s_html )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	InternetExplorer.Application,窗口或者框架(frame)对象的对象变量
+$s_html
+	要写入文档的 HTML 字符串
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回 -1
+失败:	返回 0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 没有错误
+	1 ($_IEStatus_GeneralError) = 常规错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+	6 ($_IEStatus_LoadWaitTimeout) = 载入等待超时
+	8 ($_IEStatus_AccessIsDenied) = 访问被拒绝
+	9 ($_IEStatus_ClientDisconnected) = 客户端断开
+@Extended:	包含无效参数数量
+@@End@@
+
+
+###Remarks###
+你可以使用 _IEBodyReadHTML 读取当前文档Body中的 HTML 内容, 使用 _IEBodyWriteHTML 对字符串进行会写操作. 你同样可以使用 _IEPropertyGet 和 _IEPropertySet中的 _IEDocInsertHTML, _IEDocInsertText 和 innerHTML, innerText, outerHTML 与 outerText 特性来控制指定元素而无需重写大量的文本.
+
+
+###Related###
+_IEBodyReadHTML, _IEBodyReadText, _IEDocInsertHTML, _IEDocInsertText, _IEPropertyGet, _IEPropertySet, _IELoadWait
+
+
+###Example###
+@@IncludeExample@@

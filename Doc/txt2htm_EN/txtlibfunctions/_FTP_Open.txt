@@ -1,0 +1,50 @@
+###User Defined Function###
+_FTP_Open
+
+###Description###
+Opens an FTP session.
+
+###Syntax###
+#Include <FTPEx.au3>
+_FTP_Open($s_Agent[, $l_AccessType = 1 [, $s_ProxyName = '' [, $s_ProxyBypass = '' [, $l_Flags = 0]]]] )
+
+###Parameters###
+@@ParamTable@@
+$s_Agent
+	Random name. ( like "myftp" )
+$l_AccessType
+	[optional] Set if proxy is used.
+$s_ProxyName
+	[optional] ProxyName.
+$s_ProxyBypass
+	[optional] ProxyByPasses's.
+$l_Flags
+	[optional] See remarks.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Handle to internet session to be used in _FTP_Connect().
+Failure:	0  and sets @ERROR.
+@@End@@
+
+###Remarks###
+Values for $l_AccessType
+	$INTERNET_OPEN_TYPE_DIRECT -> no proxy
+	$INTERNET_OPEN_TYPE_PRECONFIG -> Retrieves the proxy or direct configuration from the registry.
+	$INTERNET_OPEN_TYPE_PRECONFIG_WITH_NO_AUTOPROXY -> Retrieves the proxy or direct configuration from the registry and prevents the use of a startup Microsoft JScript or Internet Setup (INS) file.
+	$INTERNET_OPEN_TYPE_PROXY -> Passes requests to the proxy unless a proxy bypass list is supplied and the name to be resolved bypasses the proxy. Then no proxy is used.
+
+Values for $l_Flags
+	$INTERNET_FLAG_ASYNC -> Makes only asynchronous requests on handles descended from the handle returned from this function.
+	$INTERNET_FLAG_FROM_CACHE -> Does not make network requests. All entities are returned from the cache. If the requested item is not in the cache, a suitable error, such as ERROR_FILE_NOT_FOUND, is returned.
+
+
+###Related###
+_FTP_Connect, _FTP_Close, _FTP_SetStatusCallback
+
+###See Also###
+@@MsdnLink@@ InternetOpen
+
+###Example###
+@@IncludeExample@@

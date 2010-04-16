@@ -1,0 +1,44 @@
+﻿###User Defined Function###
+_GUIToolTip_EnumTools
+
+###Description###
+Retrieves information about the current tool
+
+###Syntax###
+#Include <GuiToolTip.au3>
+_GUIToolTip_EnumTools($hWnd, $iIndex)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to control
+$iIndex
+	Zero based index of the tool for which to retrieve information
+@@End@@
+
+###ReturnValue###
+Success: Array with the following format:
+		[0] - Flags that control the ToolTip display:
+		  1 - Indicates that $iID is the window handle to the tool instead of the ID
+		  2 - Centers the window below the tool specified by $iID
+		  4 - Indicates that text will be displayed in the opposite direction
+		  8 - Indicates that the control should subclass the tool's window to intercept messages
+		 16 - Positions the control next to the tool to which it corresponds
+		 32 - Positions the window at the same coordinates provided by TTM_TRACKPOSITION
+		 64 - Causes the control to forward mouse messages to the parent window
+		128 - Indicates that links in the control text should be parsed
+		[1] - Handle to the window that contains the tool
+		[2] - Identifier of the tool
+		[3] - X coordinate of the upper left corner of the rectangle
+		[4] - Y coordinate of the upper left corner of the rectangle
+		[5] - X coordinate of the lower right corner of the rectangle
+		[6] - Y coordinate of the lower right corner of the rectangle
+		[7] - Handle to the instance that contains the string resource for the tool
+		[8] - Text for the tool
+		[9] - Application-defined value associated with the tool
+
+###Remarks###
+None.
+
+###Related###
+

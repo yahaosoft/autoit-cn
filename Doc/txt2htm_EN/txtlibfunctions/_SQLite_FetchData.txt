@@ -1,0 +1,46 @@
+###User Defined Function###
+_SQLite_FetchData
+
+###Description###
+Fetches 1 row of data from a _SQLite_Query() based query
+
+###Syntax###
+#include <SQLite.au3>
+_SQLite_FetchData ( $hQuery, ByRef $aRow [, $fBinary  = False [, $fDoNotFinalize = False]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hQuery
+	Queryhandle passed out by _SQLite_Query()
+$aRow
+	A 1 dimensional array containing a row of data
+$fBinary
+	[optional] Switch for binary mode ($aRow will be a array of binary strings)
+$fDoNotFinalize
+	[optional] Switch can be set to TRUE if you need to keep the query unfinalized for further use.
+	(It is then the caller's responsability to invoke _SQLite_QueryFinalize before Shutdown.)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns $SQLITE_OK
+Failure:	Return value can be compared against $SQLITE_* constants
+@error:	-1 - SQLite reported an error (Check return value)
+	1 - Error calling SQLite API 'sqlite3_step'
+	2 - Error calling SQLite API 'sqlite3_data_count'
+	3 - Error calling SQLite API 'sqlite3_column_text16'
+	4 - Error calling SQLite API 'sqlite3_column_type'
+	5 - Error calling SQLite API 'sqlite3_column_bytes'
+	6 - Error calling SQLite API 'sqlite3_column_blob'
+	7 - Call prevented by SafeMode
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_SQLite_Query
+
+###Example###
+@@IncludeExample@@

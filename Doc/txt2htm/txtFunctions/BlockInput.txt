@@ -1,0 +1,48 @@
+﻿###Function###
+BlockInput
+
+###Description###
+屏蔽/启用鼠标与键盘(输入).
+
+###Syntax###
+BlockInput ( 标志 ) 
+
+
+###Parameters###
+@@ParamTable@@
+标志
+	1 = 屏蔽用户输入
+	0 = 启用用户输入
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回 1.
+失败:	返回 0. 已经应用或者 #requireAdmin 未使用(需求管理员权限).
+@@End@@
+
+
+###Remarks###
+下面这个表格列出了在不同的 Windows 版本下的不同表现; 但是, 无论在何种平台下按下<i>Ctrl+Alt+Del</i>都将重新恢复输入,这是由Windows API的特性决定的.
+<br>
+@@ParamTable@@
+<b><i>操作系统</b></i>
+	<b><i>"BlockInput" 应用结果</b></i>
+Windows 2000
+	用户输入将被屏蔽,但 AutoIt 能模拟鼠标与键盘的输入行为.
+Windows XP
+	用户输入将被屏蔽,但 AutoIt 能模拟鼠标与键盘的输入行为.请看下面例外的情况.
+Windows Vista/7/2008
+	用户输入将被屏蔽,但 AutoIt 能模拟鼠标与键盘的输入行为.(需使用 #requireAdmin).
+@@End@@
+
+若您正使用的操作系统是 Windows XP,那么要提醒您的是在 SP1 已发布而 SP2 未发布之前微软发布了一个升级补丁限制了 Blockinput 而导致 ALT 键无法发送.这一问题已在XP SP2下修复.
+
+BlockInput() 只会影响用户输入.如果使用 Send() 或者 MouseMove() 这类函数,将正常工作.
+
+###Related###
+Send
+
+
+###Example###
+@@IncludeExample@@

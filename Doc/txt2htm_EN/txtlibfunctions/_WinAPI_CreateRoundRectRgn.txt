@@ -1,0 +1,44 @@
+###User Defined Function###
+_WinAPI_CreateRoundRectRgn
+
+###Description###
+Creates a rectangular region with rounded corners
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_CreateRoundRectRgn($iLeftRect, $iTopRect, $iRightRect, $iBottomRect, $iWidthEllipse, $iHeightEllipse)
+
+###Parameters###
+@@ParamTable@@
+$iLeftRect
+	X-coordinate of the upper-left corner of the region
+$iTopRect
+	Y-coordinate of the upper-left corner of the region
+$iRightRect
+	X-coordinate of the lower-right corner of the region
+$iBottomRect
+	Y-coordinate of the lower-right corner of the region
+$iWidthEllipse
+	Width of the ellipse used to create the rounded corners
+$iHeightEllipse
+	Height of the ellipse used to create the rounded corners
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the handle to the region
+Failure:	0
+@@End@@
+
+###Remarks###
+When you no longer need the HRGN object call the _WinAPI_DeleteObject function to delete it.
+Region coordinates are represented as 27-bit signed integers.
+
+###Related###
+_WinAPI_CreateRectRgn, _WinAPI_SetWindowRgn, _WinAPI_DeleteObject, _WinAPI_CombineRgn, _WinAPI_GetWindowRgn
+
+###See Also###
+@@MsdnLink@@ CreateRoundRectRgn
+
+###Example###
+@@IncludeExample@@

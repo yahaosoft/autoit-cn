@@ -1,0 +1,60 @@
+###Keyword###
+#include
+
+###Description###
+包含一个文件到脚本中.
+
+###Syntax###
+<b>#include</b> "[路径\]文件名"
+<b>#include</b> &lt;文件名&gt;
+
+
+###Parameters###
+@@ParamTable@@
+文件名
+	要包含到当前脚本的文件名. 路径是可选的.(如果该包含文件与脚本处于同一文件夹下或者处于AU3的包含目录). <b>文件名必须是字符串,不能是一个变量.</b>
+	如果使用的是双引号 <b>"..."</b> , 则表示该文件是用户编写的,查找该文件时将从当前文件目录开始.
+	如果使用的是尖括号 <b>&lt;...&gt;</b> , 则表示该文件是库文件,查找该文件时将在包含文件库所在目录(通常在 C:\Program Files\AutoIt3\Include)中查找.  包含文件库目录中有许多为您预定义的用户函数!
+ @@End@@
+
+###Remarks###
+在 AutoIt 的脚本中,可通过 "#include" 命令包含其它脚本文件.
+
+若某个脚本文件含有一个自定义函数而您又多次包含该脚本文件,您就会接收到一个"Duplicate function(重复定义的函数)"错误提示.在编写包含文件时最好在首行添加一句 <b>#include-once</b> 指令以防止该文件被重复包含.
+
+还有一个注册表值,创建于 "HKEY_CURRENT_USER\Software\AutoIt v3\AutoIt" 名称为 "Include".  必须是 REG_SZ (字符串) 值. 将它指定一个您需要包含的文件所在的目录,您就可以使用它来包含一个指定目录下面的文件.
+
+搜索次序依赖你使用 AutoIt #include 的格式. 下面表格是使用搜寻次序的格式目录.
+
+使用 #include <>
+@@ParamTable@@
+标准库文件
+	会在解释程序(AUTOIT3.EXE)所在目录下面的 "\Include" 目录中搜索.
+用户自定义库
+	请按照上面的方法设置注册表.
+脚本所在目录
+	当前执行脚本的目录.
+@@End@@
+
+使用 #include "" (和 #include <> 相反).
+@@ParamTable@@
+脚本目录
+	当前执行脚本的目录.
+用户自定义库
+	请按照上面的方法设置注册表.
+标准库文件
+	会在解释程序(AUTOIT3.EXE)所在目录下面的 "\Include" 目录中搜索.
+@@End@@
+
+A note about using the /AutoIt3ExecuteScript option.  Since the standard library is searched for in the current interpreter's directory, the standard library functions will not be found; that library will only be found when run through AutoIt3.exe.  It's recommended that you compile a script to the .a3x format before attempting to run it with /AutoIt3ExecuteScript.
+
+Aut2Exe uses the same algorithm as AutoIt3.exe with the only difference being it looks for the Include sub-directory as being in a sibling directory to itself (..\Include).
+
+If Opt("TrayIconDebug",1) only 64 include files name can be displayed in the traytooltip. for the other no filename will be displayed.
+
+###Related###
+<a href="include-once.htm">#include-once</a>
+
+
+###Example###
+@@IncludeExample@@

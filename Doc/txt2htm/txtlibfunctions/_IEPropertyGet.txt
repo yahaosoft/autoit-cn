@@ -1,0 +1,150 @@
+﻿###User Defined Function###
+_IEPropertyGet
+
+###Description###
+返回浏览器或者 DOM 元素的一个选定的属性.
+
+###Syntax###
+#include <IE.au3> 
+_IEPropertyGet ( ByRef $o_object, $s_property )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	一个 InternetExplorer.Application 或者 DOM 元素的对象变量
+$s_property
+	要选定的属性(参考注意)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	所选属性的值
+失败:	返回 0 并设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 没有错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+	5 ($_IEStatus_InvalidValue) = 无效值
+@Extended:	包含无效参数数量
+@@End@@
+
+
+###Remarks###
+更多信息请参考 <a href="http://msdn2.microsoft.com/en-us/library/aa752084.aspx" target="_blank">MSDN</a>.
+
+下方的表中规定了每个属性可以使用的详细信息. 一些属性只能用于 DOM 元素, 其它用于浏览器.
+
+<b><u>浏览器属性</u></b>
+
+@@ParamTable@@
+<b>属性</b>
+	<b>详细信息</b>
+"addressbar"
+	返回一个布尔值用来说明浏览器地址栏是可见还是隐藏.
+"browserx"
+	返回一个文档元素相对于浏览器左(侧)顶(部)的 X 坐标.
+"browsery"
+	返回一个文档元素相对于浏览器左(侧)顶(部)的 Y 坐标.
+"busy"
+	返回一个布尔值用来说明对象是处于一个浏览的操作还是下载的操作.
+"contenteditable"
+	返回一个布尔值用来说明对象是否可以用鼠标或者键盘编辑.
+"fullscreen"
+	返回一个布尔值用来说明浏览器是全屏模式还是正常窗口模式.
+"height"
+	返回浏览器主窗口或者一个文档元素的高度.
+"hwnd"
+	返回IE主窗口的句柄(HWND),可以用于大多数 AutoIt 的 Win* 函数中.
+"innerhtml"
+	返回排除开始和结尾元素标记的 HTML.
+"innertext"
+	返回一个元素显示的文本(但没有任何标记).通常等同于outertext.
+"isdisabled"
+	返回一个值说明用户是否可以和对象进行交互.
+"left"
+	返回对象主窗口左侧边缘与屏幕的相对坐标.
+"locationname"
+	返回当前显示中IE资源的名称.
+"locationurl"
+	返回当前显示中IE资源的URL地址.
+"menubar"
+	返回一个布尔值用来说明浏览器菜单栏是否可见.
+"offline"
+	返回一个布尔值用来说明浏览器当前操作是否是在脱机模式中.
+"outertext"
+	返回一个元素显示的文本(但没有任何标记).通常等同于 innertext.
+"outerhtml"
+	获取经过渲染的HTML的包含开始和结束元素标签的元素.
+"readystate"
+	返回对象准备状态.
+"referrer"
+	获取当前页面可由其访问的页面的网址的字符串(但只当通过该页上的链接才能访问时, 否则字符串为空.).
+"resizable"
+	返回一个布尔值用来说明浏览器否是可以被改变大小的.
+"screenx"
+	Retrieves the x-coordinate of the top left corner of a document object or the browser, relative to the screen.
+"screeny"
+	Retrieves the y-coordinate of the top left corner of a document object or the browser, relative to the screen.
+"silent"
+	返回一个布尔值用来说明浏览器能否显示对话框.
+"statusbar"
+	返回一个布尔值用来说明浏览器状态栏是否可见.
+"statustext"
+	返回浏览器状态栏上显示的文字.
+"theatermode"
+	返回一个布尔值用来说明浏览器是否处于剧院模式. 在剧院模式, 浏览器主窗口将充满整个屏幕并且显示一个包含极少浏览按钮的工具条..
+"title"
+	返回文档标题.注意这个不同与Window标题(通常以文档标题开始), Window标题会额外的windows注册表信息附加在上面.
+"toolbar"
+	返回一个布尔值用来说明浏览器工具栏可见还是隐藏.
+"top"
+	返回浏览器主窗口上边在屏幕上的坐标.
+"visible"
+	返回一个布尔值用来说明浏览器可见还是隐藏.
+"width"
+	返回浏览器主窗口的宽度.
+"uniqueid"
+	Retrieves an ID assigned by the DOM that is unique among all elements.  This can be used in any context that requires an element ID.
+@@END@@
+
+<b><u>客户区信息属性</u></b>
+
+@@ParamTable@@
+<b>属性</b>
+	<b>详细信息</b>
+"appcodename"
+	返回浏览器代码名称 (这个属性中Mozilla有一个默认值).
+"appminorversion"
+	返回应用程序的小版本值.
+"appname"
+	回浏览器名称 (这个属性中Microsoft Internet Explorer有一个默认值).
+"appversion"
+	返回浏览器平台和版本.
+"browserlanguage"
+	返回当前浏览器语言 (返回值是这里面的 <a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/language_codes.asp" target="_blank">Language Codes</a>).
+"cookieenabled"
+	返回客户端浏览器是否是支持cookies.cookies是那些被储存在客户端电脑里面.
+"cpuclass"
+	回字符串说明CPU类型(返回值可以在这里查到<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/cpuclass.asp" target="_blank">here</a>).
+"javaenabled"
+	返回Java是否可以使用.
+"online"
+	返回值说明系统是否在<a href="http://msdn.microsoft.com/workshop/components/offline/offline.asp" target="_blank">global offline mode</a>.
+"platform"
+	返回用户操作系统的名称 (返回值可以在这里查到<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/platform.asp" target="_blank">here</a>).
+"systemlanguage"
+	回操作系统的语言(返回值是这里面的<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/language_codes.asp" target="_blank">Language Codes</a>).
+"useragent"
+	获取相当于HTTP用户代理请求文件头的字符串.
+"userlanguage"
+	返回操作系统的自然语言设置 (返回值是这里面之一<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/language_codes.asp" target="_blank">Language Codes</a>).
+"vcard"
+	返回包含每个在用户配置对象中的属性的数组(属性列表可查看<a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/getattribute_1.asp" target="_blank">here</a>). 返回一个二维数组, 其中第一维有两个元素. 第一个元素(0)包含属性名, 第二个元素(1)包含相应的值. 第二维有29个元素(0到28).
+@@END@@
+
+
+###Related###
+_IEPropertySet, _IEBodyReadHTML, _IEBodyReadText, _IEBodyWriteHTML, _IEDocInsertHTML, _IEDocInsertText, _IEHeadInsertEventScript
+
+
+###Example###
+@@IncludeExample@@

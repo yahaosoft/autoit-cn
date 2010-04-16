@@ -1,0 +1,43 @@
+###User Defined Function###
+_GUICtrlRichEdit_GetTextLength
+
+###Description###
+Get the length of the whole text in the control
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_GetTextLength($hWnd [, $fExact = True [, $fChars = False]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to control
+$fExact
+	[optional] True Return the exact length
+		       - = False return at least the number of characters in the control (faster)
+		Default: exact length
+$fChars
+	[optional] True - return length in characters
+		          = False - return length in bytes
+		Default: bytes
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	length, in bytes or characters
+Failure:	0 and set @error
+@error:	101 - $hWnd is not a handle
+	102 - $fExact must be True or False
+	103 - $fChars must be True or False
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ EM_GETTEXTLENGTHEX
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>Language Reference - Datatypes</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+		<meta http-equiv="Content-Language" content="en-us">
+		<link href="../css/default.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<h1>语言相关 - 数据类型</h1>
+		<p>AutoIt 中只存在一种数据类型,那就是<strong>Variant</strong>.&nbsp;
+		  Variant可用来存储纯数字的或字符串类型的数据,
+		  而程序具体如何看待这些数据则要看用户的使用方式;举例来说,若您试图让两个变量相乘,
+		  那么它们将被当作数字类型(指具有数学意义的可供计算的值)使用,
+		  而若您试图连接(拼合)两个变量则它们将被认做字符串(String类型).</P>
+		<p>一些例子:</p>
+		<p>&nbsp;&nbsp;&nbsp; 10 * 20 等价于 <strong>数字 </strong>200 (<strong>*</strong> 
+			是乘法运算符)</p>
+		<p>&nbsp;&nbsp;&nbsp; 10 * "20" 等价于 <strong>数字</strong> 200</p>
+		<p>&nbsp;&nbsp;&nbsp; "10" * "20" 等价于 <strong>数字</strong> 200</p>
+		<p>&nbsp;&nbsp;&nbsp; 10 &amp; 20 等价于 <strong>字符串</strong> "1020" (<strong>&amp;</strong>
+			是字符串连接运算符)</p>
+		<p>&nbsp;</p>
+		<p>若某个字符串被当作数字进行运算,后台调用<b><a href="../functions/Number.htm">Number()</a></b>
+		后它又并不能表示有效的数值,
+			则它将被假定为0.例如:
+		</p>
+		<p>&nbsp;&nbsp;&nbsp; 10 * "fgh" 等价于数值 <strong>0</strong>.</p>
+		<p>如果一个字符串使用 布尔值 ,假定字符串为空&quot;&quot; ,
+		它的结果为假.见下文.例子:
+		</p>
+		<p>&nbsp;&nbsp;&nbsp; NOT "&quot; 结果为 布尔值 真 <b>(true)</b>.</p>
+		<p>&nbsp;</p>
+		<h2>数字类型</h2>
+		<p>数字可以是标准的十进制数,<strong>2</strong>,<strong>4.566</strong>,
+			和<strong>-7</strong>&nbsp; 
+		</p>
+		<p>指数形式也被支持,因此你可以用 <strong>1.5e3</strong>
+			来代替 <strong>1500</strong>.&nbsp;
+		</p>
+		<p>(说明:字母e或E后面的数表示指数,因此上例等价于1.5*10*10*10,字母e或E之前必须要有数字,而且需用小数表示,e或E后面的指数必须是整数)</P>
+		<p>整数还可以用十六进制来表示,
+		但需添加前缀 <strong>0x</strong> ,如 <strong>0x409</strong> 或 
+		<strong>0x4fff</strong>(此时只有32位的数值才是合法的数字)..&nbsp;
+		</p>
+		<p>&nbsp;</p>
+		<h2>字符串类型(String)</h2>
+		<p>字符串以一对英文双引号括起来,比如 <strong>"这样"</strong>.&nbsp;
+			若需表示一个包含双引号的字符串则需连续两次用双引号括起来,比如:</p>
+		<p>&nbsp;&nbsp;&nbsp; <strong>"这里是一对 ""双引号"" - ok?"</strong></p>
+		<p>此外还可以用一对单引号括起来以表示字符串,比如 <strong>'这样'</strong> 和 <strong>'这里是一对 '
+				'单引号'' - ok?'</strong></p>
+		<p>&nbsp;</p>
+		<p>有时一个字符串包含大量双引号或单引号,
+			则可以通过混和使用使得对字符串的表示更加简单.
+			比如下例:</p>
+			
+		<p>&nbsp;&nbsp;&nbsp; <strong>'这个 "句子" 中包含了 "很多" 的 "双引号" 
+				,留意到了吗?'</strong></p>
+		<p>该例使用了单引号来括住字符串,看起来就没有下面常规的表示方法那么累赘了.</p>
+		<p>&nbsp;&nbsp;&nbsp; <strong>"这个 ""句子"" 中包含了 ""很多"" 的 ""双引号"".
+				能留意到吗?"</strong></p>
+		<p>当求值时,字符串可以有一个环境变量或者变量代替
+			<a href="../functions/AutoItSetOption.htm#ExpandEnvStrings">Opt()</a>
+			函数定义.</p>
+		<p>&nbsp;</p>
+		<h2>布尔值(Booleans)</h2>
+		<p>布尔值是一个<b>逻辑</b>值.只有 <b>true</b>&nbsp;和 
+			<b>false </b>(真和假).<br>
+			<br>
+			你可以给一个变量赋值, 使用布尔操作<b> and</b>,
+			<b>or</b> 和 <b>not</b>.<br>
+			<br>
+			例子:<br>
+			$Boolean1 = true<br>
+			$Boolean2 = false<br>
+			$Boolean3 = $Boolean1 AND $Boolean2<br>
+			<br>
+			结果:&nbsp;$Boolean3 为 <b>false</b><br>
+			<br>
+			$Boolean1 = false<br>
+			$Boolean2 = not $boolean1<br>
+			<br>
+			结果: $Boolean2 为 <b>true</b><br>
+			<br>
+			<br>
+			如果布尔值使用其它数的和, 将会得到下面的结果:<br>
+			<br>
+			数值0等于布尔值 <b>false</b><br>
+			任何其它数值将会等于布尔值<b>true</b><br>
+			<br>
+			例子:<br>
+			$Number1 = 0<br>
+			$Boolean1 = true<br>
+			$Boolean2 = $Number1 and $Boolean1<br>
+			<br>
+			(如果含有失败)这个结果将会返回<b>false</b><br>
+			<br>
+			<br>
+			如果您计算一个布尔值的算术.(<b>这是不明智的!</b>), 
+			将会返回下面的结果:<br>
+			<br>
+			如果布尔值为 true 将会转换为数值 <b>1</b><br>
+			如果布尔值为 false 将会转换为数值 <b>0</b><br>
+			<br>
+			例子:<br>
+			$Boolean1 = true<br>
+			$Number1 = 100<br>
+			$Number2 = $Boolean1 + $Number1<br>
+			<br>
+			这个$Number2结果将会返回数值 101<br>
+			<br>
+			<br>
+			如果您使用字符串进行布尔值连接,
+			将会返回下面的结果:<br>
+			<br>
+			如果布尔值为 true 将会返回字符串 <b>"True"</b><br>
+			如果布尔值为 false 将会返回字符串 <b>"False"</b><br>
+			<br>
+			例子:<br>
+			$Boolean1=true<br>
+			$String1="Test is: "<br>
+			$String2=$String1 &amp; $Boolean1<br>
+			<br>
+			这个结果将会返回字符串"Test is: True"<br>
+			<br>
+			如果要从反方向来比较布尔值,结果是不同的. 
+			当您使用字符串比较布尔值请使用下面的方法:<br>
+			只有空字符串("")才能返回布尔值 <b>false</b><br>
+			任何其它的字符串(包括字符串等于"0")
+			都将会返回布尔值 <b>true</b><br>
+			<br>
+			&nbsp;</p>
+		<h2>二进制值(Binary)</h2>
+		<p>Binary 类型可以储存任意字节的值. 
+		当储存时会自动转换为十六进制值(HEX).
+		例子:<br>
+		$bin = Binary(&quot;abc&quot;)<br>$str = String($bin)&nbsp;&nbsp;&nbsp; 
+        ; &quot;0x616263&quot;</p>
+<br>
+		<h2>指针</h2>
+		<p>指针类型将会存放一个32位或者64位内存地址.
+		定义于使用的是32位或者64位的AutoiIt. 它们将会被转换
+		到
+        一个字符串变量表示的十六进制值. 窗口
+		句柄 (HWnd) 从 <a href="../functions/WinGetHandle.htm">WinGetHandle</a> 返回一个指针类型.</p>
+<p>&nbsp;</p>
+		<h2> 数量类型范围</h2>
+		<p>在下方的这个列表中显示了各种变量
+		有效的范围.</p>
+		<table width="100%" border="1" cellspacing="0" cellpadding="3">
+			<tr bgcolor="#000066">
+				<td width="12%" nowrap><font color="#ffffff"><strong>数据子类型</strong></font></td>
+				<td width="88%"><font color="#ffffff"><strong>范围与说明</strong></font></td>
+			</tr>
+			<tr>
+				<td nowrap>Int32</td>
+				<td>32位浮点整数.</td>
+			</tr>
+			<tr>
+				<td nowrap>Int64</td>
+				<td>64位浮点整数</td>
+			</tr>
+			<tr>
+				<td nowrap>Double</td>
+				<td>双精度浮点数.</td>
+			</tr>
+			<tr>
+				<td nowrap>String</td>
+				<td>可以包含 2147483647 个字符的字符串.</td>
+			</tr>
+			<tr>
+				<td nowrap>Binary</td>
+				<td>二进制数据, 可以包含 2147483647 字节数据.</td>
+			</tr>
+			<tr>
+				<td nowrap>Pointer</td>
+				<td>内存地址指针.&nbsp; 32bit 或者 64bit 定义于
+				使用的 AutoIt 版本.</td>
+			</tr>
+		</table>
+		<p>&nbsp;</p>
+		<p>一些 AutoIt 内置函数只能工作于 32 位数字(e.g. <a href="../functions/BitAND.htm">
+				BitAND</a>) 和其它自动转换的 - 
+				这些函数必须有定义.</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+	</body>
+</html>

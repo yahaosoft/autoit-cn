@@ -1,0 +1,43 @@
+﻿###User Defined Function###
+_ArrayDisplay
+
+###Description###
+在列表视图(listview)中显示一维或二维数组.
+
+###Syntax###
+#Include <Array.au3>
+_ArrayDisplay(Const ByRef $avArray [, $sTitle = "Array: ListView Display" [, $iItemLimit = -1 [, $iTranspose = 0 [, $sSeparator = "" [, $sReplace = "|" [, $sHeader = ""]]]]]])
+
+###Parameters###
+@@ParamTable@@
+$avArray
+	要显示的数组
+$sTitle
+	[可选参数] 窗口显示的标题
+$iItemLimit
+	[可选参数] 要显示的列表的最大的项目(行).
+$iTranspose
+	[可选参数] If set differently than default, will transpose the array if 2D
+$sSeparator
+	[可选参数] Change Opt("GUIDataSeparatorChar") on-the-fly
+$sReplace
+	[可选参数] String to replace any occurrence of $sSeparator with in each array element
+$sheader
+	[可选参数] Header column names
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功: 1
+失败: 0, 设置 @error:
+@error:	1 - $avArray 不是一个数组
+	2 - $avArray 有太多的维度 (只能支持到二维数组)
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+
+###Example###
+@@IncludeExample@@

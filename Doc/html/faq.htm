@@ -1,0 +1,335 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>AutoIt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="css/default.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<H1><a name="FAQ"></a>常见问题(FAQ)</H1>
+<p>这一部分将列出在<a class="ext" href="http://www.autoitscript.com/forum/">官方论坛</a>里经常会被问到的问题.
+如果您在此处仍不能找到想要的答案,那么 <a class="ext" href="http://www.autoitscript.com/forum/">官方论坛</a>
+将会是您第一个应该去的地方.<br>
+当然对于中文用户那么 <a class="ext" href="http://www.autoit.net.cn">AUTOIT CN论坛</a> 将是您必去的地方</p>
+<h2>问题</h2>
+<p>01. <a href="#01">为什么AutoIt v2.64的旧版脚本不能运行在v3下呢?</a></p>
+<p>02. <a href="#02">v3版本是不是会比前一版本更难掌握?</a></p>
+<p>03. <a href="#03">怎样把v2.64版的脚本文件转换到v3版本?</a></p>
+<p>04. <a href="#04">&quot;goto&quot;命令哪去了?</a></p>
+<p>05. <a href="#05">怎样在AutoIt中运行DOS程序?</a></p>
+<p>06. <a href="#06">为什么只能用Run()命令来执行.exe 和 .com 文件?对于.msi/.txt 还有其它格式的文件该怎样做呢?</a></p>
+<p>07. <a href="#07">为什么当我尝试使用双引号(&quot;)的时候会发生错误?</A></p>
+<p>08. <a href="#08">究竟窗口&quot;标题&quot;和&quot;文本&quot;参数的意思是什么?</A></p>
+<p>09. <a href="#09">为什么不能使用&quot;我的变量是 $variable&quot;来输出变量?</A></p>
+<p>10. <a href="#10">当我使用Send()命令来输出变量时发生古怪的事情? </A></p>
+<p>11. <a href="#11">返回值和@error究竟有什么不同?</A></p>
+<p>12. <a href="#12">怎样使用热键来退出脚本?</A></p>
+<p>13. <a href="#13">编译脚本时怎样自定义图标?</A></p>
+<p>14. <a href="#14">怎样才能确保只有一个脚本实例运行?</A></p>
+<p>15. <a href="#15">目前AutoIt v3有什么技术上的局限吗?</A></p>
+<p>16. <a href="#16">在AutoIt v3帮助里面不能显示图片(打开脚本按钮).</A></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+<h2><a name="01"></a>01. <a href="#01">为什么AutoIt v2.64的旧版脚本不能运行在v3下呢?</a></h2>
+<p>v3 具有不同于v2.64的语言结构.</p>
+<p>AutoIt的前一个版本能够很好地应付它被设计用以满足的需求——编写简单的脚本来实现软件的自动安装.
+但是随着发展人们开始需要使用它来进行更加常见且更为复杂的脚本任务.
+旧有的语法和结构虽然还是可以实现这些,但编写起来却非常的困难而且麻烦.
+于是我们决定要改进 AutoIt 使其更加适合常见的自动化任务并且可以成为更标准且类似BASIC的语言.
+这就意味着如果您已经懂得脚本语言的编写的话,那么您就能很快地掌握AutoIt v3.</p>
+<p>&nbsp;</p>
+<p><font size="-2"><a href="#FAQ">回到顶部</A></font></p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+<p></p>
+<h2><a name="02"></a>02.<a href="#02"> v3版本是不是会比前一版本更难掌握?</a></h2>
+<p>当然不是.事实上在很多情况下它比起前一版本更加容易学习,
+因为您不需要再尝试强迫让此语言去完成它原本未被设计实现的工作.
+此外它还使用了我们所熟悉的类BASIC的语言,而BASIC正是由于它的...呃...简单性和易用性而闻名:)</p>
+<p>&nbsp;</p>
+<p>绝大多数的AutoIt脚本都是用在软件安装以及在许多对话框中点击"下一步".
+大部分的这些脚本都可以简单地通过添加一对小括号到特定字符串即可转换为v3版本.
+下面就是一个示例,分别演示了在v2和v3中的脚本(模拟了一系列带有 <strong>下一步(<u>N</u>)</strong> 和 <strong>完成(<u>F</u>)</strong> 按钮的对话框的软件安装)</p>
+<p>&nbsp;</p>
+<p class="code"> ; v2.64 脚本<br>
+  WinWaitActive, 欢迎, 欢迎使用XSoft安装程序<br>
+  Send, !n<br>
+  WinWaitActive, 选择安装目标文件夹, 请选择 <br>
+  Send, !n<br>
+  WinWaitActive, 已准备好安装所需信息, 点击[下一步]开始进行安装<br>
+  Send, !n<br>
+  WinWaitActive, 安装完成, 点击[完成]退出安装程序<br>
+  Send, !f<br>
+  WinWaitClose, 安装完成<br>
+  <br>
+  ; v3 脚本<br>
+  WinWaitActive("欢迎", "欢迎使用XSoft安装程序")<br>
+  Send(&quot;!n&quot;)<br>
+  WinWaitActive("选择安装目标文件夹", "请选择")<br>
+  Send(&quot;!n&quot;)<br>
+  WinWaitActive("已准备好安装所需信息", "点击[下一步]开始进行安装")<br>
+  Send(&quot;!n&quot;)<br>
+  WinWaitActive("安装完成", "点击[完成]退出安装程序")<br>
+  Send(&quot;!f&quot;)<br>
+  WinWaitClose("安装完成")
+</p>
+<p>&nbsp;</p>
+<p>看来还不是太难! :)
+由于所有的"字符串"都附上了引号,因此您再也不用受到由文本头部和尾部的空格引起的问题的困扰了.
+同时还有个非常爽的好处就是可以支持许多<a href="intro/editors.htm"> 文本编辑器</A> 
+,因此在编写v3脚本时就可以有语法高亮提示了,这使得脚本的编写更加容易.</p>
+<p>&nbsp;</p>
+<p><font size="-2"><a href="#FAQ">回到顶部</a></font></p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+<h2><a name="03"></a>03. <a href="#03">怎样把v2.64版的脚本文件转换到v3版本?</a></h2>
+<p>其实您要先问自己一个问题"有必要转换脚本吗?".我们将继续提供v2.64的下载和支持,
+因此不必仅仅为了升级而升级——除非您非要这么做:)<br>
+</p>
+<p>&nbsp;</p>
+<p>本帮助文档中专门有一节说明了v2和v3版本命令的不同点--
+请点击<a href="intro/v264users.htm">这里</A> 查看该页.</p>
+<p>&nbsp;</p>
+<p>AutoIt v3的一个作者已经编写了一个用来自动转换v2脚本为v3版本的工具.这一转换是非常完美的,
+除非您的代码到处都含有goto指令:)
+您可在"Extras"目录找到此转换工具(开始 \ 所有程序 \ AutoIt v3 \ Extras——或者到
+AutoIt v3的安装目录中寻找).</p>
+<p>&nbsp;</p>
+<p><font size="-2"><a href="#FAQ">回到顶部</A></font></p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+<p></p>
+<h2><a name="04"></a>04. <a href="#04">&quot;goto&quot;命令哪去了</a></h2>
+<p>失踪了,呵呵.很不幸.噢不,您不能问为什么——反正就是这样.
+这就像是在电影&nbsp;<a class="ext" href="http://www.allmov.com/movie/20181/main.html">时间劫匪(Time Bandits)</a>结尾时他们在微波发现的那块石头:)<br>
+</p>
+<p>AutoIt v3 以使用现今大部分常用的&quot;循环&quot;为特色,因此Goto不再是必需的.
+  请查看<a href="keywords/While.htm"> While</A>,
+  <a href="keywords/Do.htm">Do</a>, <a href="keywords/For.htm">For</a>, <a href="keywords/ExitLoop.htm">ExitLoop</a>,
+  <a href="keywords/ContinueLoop.htm">ContinueLoop</a> 以及 <a href="keywords/Func.htm">函数</a>
+  了解更加先进的解决方式:) 另外当你看帮助文档的时候,
+  请查看 <a href="intro/lang_loops.htm">循环(loops)</A>,<a href="intro/lang_conditional.htm">条件语句</A> 和
+  <a href="intro/lang_functions.htm">函数</A> 部分的说明.
+  我向您保证,一旦您熟悉了它们的用法,实际上您将能在几分钟内用其它语言编写程序.<br>
+</p>
+<p>为了让你开始了解这一点,下面演示在2.64版中Goto的最基本用法,同时也是个无限循环:</p>
+<p class="code"> :mylabel<br>
+  ...执行一些任务...<br>
+  ...其它任务...<br>
+  goto, mylabel<br>
+
+</p>
+<p>v3 版中一个总是&quot;true(表达式成立)&quot;的简单的While循环</p>
+<p class="code">While 1 = 1<br>
+  &nbsp;&nbsp; ...执行一些任务...<br>
+  &nbsp;&nbsp; ...其它任务...<br>
+  Wend<br>
+</p>
+<p>&nbsp;</p>
+<p><font size="-2"><a href="#FAQ">回到顶部</A></font></p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+<p></p>
+<h2><a name="05" id="05"></a>05. <a href="#05">怎样在AutoIt中运行DOS程序?</a></h2>
+
+<p>如果您想要执行类似&quot;dir&quot;这样的DOS命令,
+  那么您必须通过命令解释程序(command.com 或 cmd.exe,决定于您使用的操作系统)来执行.
+  <a href="macros.htm">@Comspec(指向命令解释器的全路径)</A> 这个宏指示了此文件的准确位置.
+  您应该使用<a href="functions/RunWait.htm"> RunWait()</A>
+  函数来令脚本在DOS程序结束后才继续执行下一行指令.下面是一个示例,
+  演示了使用DOS的Dir命令来显示C:驱动盘下的文件
+  (等效于使用 <strong>command.com /c Dir C:\</strong> 命令)</p>
+<p class="code">&nbsp;&nbsp;&nbsp; RunWait(@COMSPEC &amp; &quot; /c Dir C:\&quot;)</p>
+<p>&nbsp;</p>
+<p><font size="-2"><a href="#FAQ">回到顶部</A></font></p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+
+<h2><a name="06" id="06"></a>06. <a href="#06">为什么只能用Run()命令来执行.exe 和 .com 文件?
+  对于.msi/.txt 还有其它格式的文件该怎样做呢?</a></h2>
+<p>只有少数文件扩展是&quot;可运行&quot;的——通常这些文件是.exe,
+  .bat, .com, .pif.其它类型的文件如.txt 和 .msi实际上是借助其它程序来执行的.
+  比如当您双击&quot;myfile.msi&quot;文件的时候,实际上在后台执行的命令是&quot;msiexec.exe myfile.msi&quot;.
+  所以要在AutoIt中运行一个.msi文件就需要这样做:</p>
+<p class="code">&nbsp;&nbsp;&nbsp; RunWait(&quot;msiexec myfile.msi&quot;)</p>
+<p>&nbsp;</p>
+<p>或者用更简单的方法,就是使用&quot;start&quot;命令,它会自动为您处理这个文件:</p>
+<p class="code"
+>&nbsp;&nbsp;&nbsp; RunWait(@COMSPEC &amp; &quot; /c Start myfile.msi&quot;)</p>
+<p class="code"
+>&nbsp;</p>
+<p>或者, 使用 ShellExecuteWait 函数是最好的选择 
+:</p>
+<p class="code">
+&nbsp;&nbsp;&nbsp; ShellExecuteWait(&quot;myfile.msi&quot;)</p>
+<p class="code">&nbsp;
+</p><!--QuoteEnd-->
+<p><font size="-2"><a href="#FAQ">回到顶部</A></font></p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+<p></p>
+<h2><a name="07" id="07"></a>07. <a href="#07">为什么当我尝试使用双引号(&quot;)的时候会发生错误?</a></h2>
+<p>如果您想要在字符串里面使用双引号,那么您必须连续使用两次双引号.
+  也就是说每次您要使用引号就应该使用两对.例如,如果您想要设置一个变量为这样的字符串:
+  <strong>此句中&quot;这个词&quot;是有引号的！</strong>&nbsp;
+  那么您应该做的是: </p>
+  
+<p class="code">&nbsp;&nbsp;&nbsp; $var = &quot;此句中&quot;&quot;这个词&quot;&quot;是有引号的&quot;</p>
+<p>或者使用单引号也可以:</p>
+<p class="code"
+>&nbsp;&nbsp;&nbsp; $var =   '此句中&quot;这个词&quot;是有引号的'<font size="-2"></font></p>
+<p>&nbsp;</p>
+<p><font size="-2"><a href="#FAQ">回到顶部</A></font></p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+<p></p>
+<h2><a name="08" id="08"></a>08. <a href="#08">究竟窗口"标题"和"文本"参数的意思是什么?</a></h2>
+<p>关于这个问题 <a href="intro/windowsbasic.htm">这里</A> 有详细的描述. </p>
+<p>&nbsp;</p>
+<p><font size="-2"><a href="#FAQ">回到顶部</A></font></p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+
+<h2><a name="09" id="09"></a>09. <a href="#09">为什么不能使用"我的变量是 $variable"来输出变量?</a></h2>
+
+<p>如果有个变量名为$msg而您想要在对话框(MsgBox)中输出这一变量,那么下面这种做法是<strong>错误</strong>的:</p>
+
+<p class="code">&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;示例&quot;, &quot;我的变量是 $msg&quot;)</p>
+
+<p>实际上它会输出 <strong>我的变量是 $msg</strong> .
+您要做的应该是使用<a href="intro/lang_operators.htm"> &amp; 操作符</a> 把字符串和变量连接起来(成为新的字符串):</p>
+
+<p class="code">&nbsp;&nbsp;&nbsp; MsgBox(0, "示例", "我的变量是" &amp; $msg)</p>
+<p>&nbsp;</p>
+<p><strong>注意:</strong>如果您有很多变量需要添加到某个字符串当中,那么您会发现<a href="functions/StringFormat.htm"> StringFormat()</A>
+  函数将是非常有用的.例如,如果我想要在某个字符串中插入$var1 到 $var5 这五个变量,那么更简单的方法就是这样了:</p>
+<p class="code">&nbsp;&nbsp;&nbsp;&nbsp; $msg =           StringFormat("变量1是 %s,
+  变量2是 %s, 变量3是 %s, V变量4是 %s, 变量5是 %s", $var1, $var2, $var3, $var4,
+  $var5)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, "示例", $msg)</p>
+<p>&nbsp;</p>
+<p><font size="-2"><a href="#FAQ">回到顶部</A></font></p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+<h2><a name="10" id="10"></a>10. <a href="#10">当我使用Send()命令来输出变量时发生古怪的事情?</a></h2>
+<p>如果您要<a href="functions/Send.htm"> 输出</A> 变量的内容,那么请小心检查它是否含有 ! ^ + {SPACE} 这样的特殊的发送字符,因为它们将会被解释为特殊的键击动作——而这很少会是我们希望它做的.要克服这一问题,请使用<a href="functions/Send.htm"> Send()</A> 函数的原文模式,这样就不会解释这些特殊按键了:</p>
+<p class="code">&nbsp;&nbsp;&nbsp; Send($myvar, 1)</p>
+<p>&nbsp;</p>
+<p><font size="-2"><a href="#FAQ">回到顶部</A></font></p>
+<p></p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+<h2><a name="11" id="11"></a>11. <a href="#11">返回值和@error究竟有什么不同?</a></h2>
+<p>一般来说返回值是用来指示某个函数的成功执行.但是,如果某个函数因为其它的需要已经返回了一些值(比如<a href="functions/WinGetText.htm"> WinGetText()</A>),那么我们就需要找到一种方法来确定函数是否成功执行,因此我们用 @error 来代替.</p>
+<p><font size="-2"><a href="#FAQ">回到顶部</A></font></p>
+<p></p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+
+<h2><a name="12" id="12"></a>12. <a href="#12">怎样使用热键来退出脚本?</a></h2>
+<p>噢,总算遇到一个比较简单的问题了.如果您想要在按下某个按键组合后可以退出脚本,那么请使用<a href="functions/HotKeySet.htm"> HotKeySet()</A>
+  函数来设置指定按键被按下后执行的用户函数.这个用户函数应该仅含有<a href="keywords/Exit.htm"> Exit</A>
+  关键字.</p>
+<p>下面这些脚本演示的是在按下CTRL+ALT+x后退出脚本:<br></p>
+<p class="code"> HotKeySet(&quot;^!x&quot;, &quot;MyExit&quot;)<br>
+  ...<br>
+  ...<br>
+  ; 其它代码<br>
+  ...<br>
+  ...<br>
+  Func MyExit()<br>
+  &nbsp;&nbsp;&nbsp; Exit <br>
+  EndFunc
+
+</p>
+<p>&nbsp;</p>
+<p><font size="-2"><a href="#FAQ">回到顶部</A></font></p>
+<p></p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+
+<h2><a name="13" id="13"></a>13. <a href="#13">编译脚本时怎样自定义图标?</a></h2>
+<p>您需要运行编译程序(如果是右键点击脚本然后选择编译则不行)来编译脚本.
+关于这个问题<a href="intro/compiler.htm">这里</A>有更详细的描述.<br>
+如果您使用的是汉化版本,请编辑脚本头部的 #AutoIt3Wrapper_Icon= 来指定一个图标.</p>
+<p>&nbsp;</p>
+<p><font size="-2"><a href="#FAQ">回到顶部</A></font></p>
+<p></p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+<h2><a name="14" id="14"></a>14. <a href="#14">怎样才能确保只有一个脚本实例运行?</a></h2>
+<p>1.使用 _Singleton() 函数. 参考用户自定义函数文档得到 _Singleton() 的更多信息.</p>
+<p>2.当然,以前最简单的方法是在脚本首次运行时重命名(隐藏的)AutoIt窗口的标题.然后在同一脚本中检查该窗口标题是否存在——如果存在则说明另外一个脚本副本正在运行.<br>
+  <br>
+  ; 请置于脚本顶部 <br>
+  $g_szVersion =   "我的脚本"<br>
+  If WinExists($g_szVersion) Then Exit ; 此脚本已经运行了<br>
+  AutoItWinSetTitle($g_szVersion)<br>
+  ; 下面是脚本的其它代码</p>
+<p class="code">&nbsp;</p>
+<p><font size="-2"><a href="#FAQ">回到顶部</a></font></p>
+<p></p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+<h2><a name="15" id="15"></a>15. <a href="#15">目前AutoIt v3有什么技术上的局限吗?</a></h2>
+<p>下面详细列出目前AutoIt在技术上的局限.要注意的是,一些所谓的限制其实是理论上的,因此往往在能达到实际限制之前您就会碰到有关性能和内存的问题,</p>
+<p>&nbsp; </p>
+<p>最大单行脚本长度: 4,095<br>
+  最大字符串长度: 2,147,483,647 个字符 </p>
+<p>数字范围(浮点): 1.7E–308 到 1.7E+308 有 15 位的精确度<br>
+  数字范围(整数): 64 位带符号整数<br>
+十六进制数目: 32 位带符号整数(0x80000000 到 0x7FFFFFFF)</p>
+<p>数组: 最大64维 和/或 共1600万个元素<br>
+递归函数能够调用的最大深度: 5100 级</p>
+<p>能够同时使用的最大变量数量: 没有限制<br>
+用户定义函数的最大数量: 没有限制</p>
+<p>GUI窗口的最大数量: 没有限制 <br>
+每个窗口中的GUI控件的最大数量: 65532 </p>
+<p>&nbsp;</p>
+<p><font size="-2"><a href="#FAQ">回到顶部</A></font></p>
+<p></p>
+<p></p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+<h2><a name="16" id="16"></a>16. <a href="#16">在AutoIt v3帮助中的代码部分里面不能显示图片(打开脚本按钮).
+</a></h2>
+<P>在帮助文件中有个打开脚本按钮,如果不能正常显示.通常是由于 hhctrl.ocx 引起的,您可以在"运行"里面使用 regsvr32 hhctrl.ocx 来注册.</P>
+
+
+
+
+
+<p><font size="-2"><a href="#FAQ">回到顶部</a></font></p>
+<p></p>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html>

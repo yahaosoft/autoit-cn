@@ -1,0 +1,89 @@
+###User Defined Function###
+_GUICtrlRichEdit_SetParaBorder
+
+###Description###
+Sets the border of paragraph(s) in the current selection or, if no selection, of paragraphs inserted at the insertion point
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetParaBorder($hWnd [, $sLocation [, $vLineStyle [, $sColor [, $iSpace]]]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$sLocation
+	[optional] a string consisting of any logical combination of:
+		   l - left border
+		   r - right border
+		   t - top border
+		   b - bottom border
+		   i - inside border
+		   o - outside border
+		or "" - no border (initial value)
+$vLineStyle
+	[optional] line style - one of:
+		   "none" - no line (initial value)
+		   .75 - 3/4 point
+		   1.5 - 1 1/2 points
+		   2.25 - 2 1/4 points
+		   3 - 3 points
+		   4.5 - 4 1/2 points
+		   6 - 6 points
+		   ".75d" - 1/2 points, double
+		   "1.5d" - 1 1/2 points, double
+		   "2.25d" - 2 1/4 points, double
+		   ".75g" - 3/4 point grey
+		   ".75gd" - 3/4 point grey dashed
+$sColor
+	[optional] one of:
+		   "aut" - autocolor
+		   "blk" - black (initial value)
+		   "blu" - blue
+		   "cyn" - cyan
+		   "grn" - green
+		   "mag" - magenta
+		   "red" - red
+		   "yel" - yellow
+		   "whi" - white
+		   "dbl" - dark blue
+		   "dgn" - dark green
+		   "dmg" - dark magenta
+		   "drd" - dark red
+		   "dyl" - dark yellow
+		   "dgy" - dark grey
+		   "lgy" - light grey
+$iSpace
+	[optional] space between the border and the text (in space units) ( (initial value): 0)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and set @error
+@error:	101 - $hWnd is not a handle
+	102 - value of $sLocation is invalid
+	103 - value of $ivLineStyle is invalid
+	104 - value of $sColor is invalid
+	106 - $iSpace is neither a positive number nor zero
+	106 - $iWidth is neither a positive number nor zero
+@@End@@
+
+###Remarks###
+To set "space units", call _GUICtrlRichEdit_SetSpaceUnit. Initially inches
+
+If text is selected, the defaults are the values of the first paragraph with text selected.
+If none is selected, the defaults are the values of the current paragraph.
+
+To remove a border, call with two parameters: ($hWnd, "")
+
+Borders do not show in Rich Edit, but ones created here should show in Word
+
+###Related###
+_GUICtrlRichEdit_GetParaBorder, _GUICtrlRichEdit_SetSpaceUnit
+
+###See Also###
+@@MsdnLink@@ EM_SETPARAFORMAT
+
+###Example###
+@@IncludeExample@@

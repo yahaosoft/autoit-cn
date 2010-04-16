@@ -1,0 +1,48 @@
+﻿###User Defined Function###
+_MemVirtualAllocEx
+
+###Description###
+Reserves a region of memory within the virtual address space of a specified process
+
+###Syntax###
+#Include <Memory.au3>
+_MemVirtualAllocEx($hProcess, $pAddress, $iSize, $iAllocation, $iProtect)
+
+###Parameters###
+@@ParamTable@@
+$hProcess
+	Handle to process
+$pAddress
+	Specifies the desired starting address of the region to allocate
+$iSize
+	Specifies the size, in bytes, of th region
+$iAllocation
+	Specifies the type of allocation:
+		$MEM_COMMIT - Allocates physical storage in memory or in the paging file on disk for the specified region
+		of pages.
+		$MEM_RESERVE - Reserves a range of the process's virtual address space without allocating any physical
+		storage.
+		$MEM_TOP_DOWN - Allocates memory at the highest possible address
+$iProtect
+	Type of access protection:
+		$PAGE_READONLY - Enables read access to the committed region of pages
+		$PAGE_READWRITE - Enables read and write access to the committed region
+		$PAGE_EXECUTE - Enables execute access to the committed region
+		$PAGE_EXECUTE_READ - Enables execute and read access to the committed region
+		$PAGE_EXECUTE_READWRITE - Enables execute, read, and write access to the committed region of pages
+		$PAGE_GUARD - Pages in the region become guard pages
+		$PAGE_NOACCESS - Disables all access to the committed region of pages
+		$PAGE_NOCACHE - Allows no caching of the committed regions of pages
+@@End@@
+
+###ReturnValue###
+Returns a Memory address pointer
+
+###Remarks###
+None.
+
+###Related###
+_MemVirtualFreeEx
+
+###See Also###
+@@MsdnLink@@ VirtualAllocEx

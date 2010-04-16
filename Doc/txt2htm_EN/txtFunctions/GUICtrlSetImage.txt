@@ -1,0 +1,46 @@
+###Function###
+GUICtrlSetImage
+
+###Description###
+Sets the bitmap or icon image to use for a control.
+
+###Syntax###
+GUICtrlSetImage ( controlID, filename [, iconname [, icontype]] )
+
+###Parameters###
+@@ParamTable@@
+controlID
+	The control identifier (controlID) as returned by a <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a> function.
+filename
+	The filename containing the picture to be display on the control.
+iconname
+	[optional] Icon name if the file contain multiple icon.  Can be an ordinal name if negative number. Otherwise -1.
+icontype
+	[optional] To select a specific icon size : 0 = small, 1 = normal (default).
+	for a TreeViewItem the icon size : 2 = selected, 4 for non-selected item.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+Use a resource hacker to know the value of the valid icon name in a file.
+
+If used on a Button control the image will be displayed on the button. Images can also be set for Checkbox controls as long as the $BS_PUSHLIKE style is used. In both case the $BS_ICON or $BS_BITMAP styles are needed to select the type of the picture used. The first icon resolution will be used in a multi icon resolution file. I.E. if a 128x128 is the first resolution and the control is 64x64 the image will be truncated.
+
+!!! If use this command on a TreeViewItem the first time, then all other items will use this icon/image automatically by default !!!
+If you use GUICtrlSetImage on a TreeView or ListView then all items of it will change to this icon/image.
+
+Passing a positive number will reference the string equivalent icon name.
+Passing a negative number causes 1-based "index" behaviour. Some Dll can have icon extracted just with negative numbers.
+
+###Related###
+GUICtrlCreatePic, GUICtrlCreateIcon, GUICtrlCreateButton, GUICtrlCreateCheckbox
+
+
+###Example###
+@@IncludeExample@@

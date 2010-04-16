@@ -1,0 +1,35 @@
+﻿###Function###
+ConsoleWrite
+
+###Description###
+写入数据到 STDOUT 流.一些文本编辑器可以读取这个流作为其它程序可接受的数据.
+
+###Syntax###
+ConsoleWrite ( "数据" )
+
+
+###Parameters###
+@@ParamTable@@
+数据
+	要输出的数据.可能是任意的文本或者二进制数据.
+@@End@@
+
+###ReturnValue###
+返回写入的数据量.  如果写入的是二进制, 返回写入的字节数, 如果写入的是文本, 返回写入字符数.
+
+
+###Remarks###
+这个函数的目的是可以写入数据到STDOUT流.一些流行的文本编辑器可以读取这个流. 脚本编译为控制台程序同样也拥有一个 STDOUT 流.
+
+<b>如果不编译为控制台程序,本函数并不能向 DOS 控制台写入数据..</b>
+
+写入前,字符集将会被转换为 ANSI .
+
+二进制数据写入是按原样的. 它不会被转换成一个字符串. 要表示(打印,print)一个十六进制的二进制数据, 使用 String() 函数明确的计算数据为一个字符串.
+
+###Related###
+ConsoleWriteError, ConsoleRead
+
+
+###Example###
+@@IncludeExample@@

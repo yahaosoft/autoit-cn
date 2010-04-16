@@ -1,0 +1,48 @@
+﻿###Function###
+HttpSetProxy
+
+###Description###
+设置访问HTTP时使用的代理服务器.
+
+###Syntax###
+HttpSetProxy ( 模式 [, "地址:端口" [, "用户名" [, "密码"]]] )
+
+
+###Parameters###
+@@ParamTable@@
+模式
+	指以下几种模式:
+	0 = (默认)使用 Internet Explorer 设置的代理服务器.
+	1 = 不使用任何代理(直接访问)
+	2 = 使用指定的代理服务器
+地址:端口
+	[可选参数] 代理服务器的地址及其端口. 请查看下面的备注.
+用户名
+	[可选参数] 登录代理的用户名(如果需要).
+密码
+	[可选参数] 登录代理的登录密码(如果需要).
+@@End@@
+
+
+###ReturnValue###
+None.
+
+
+###Remarks###
+为保证此函数的正常工作必须安装 Internet Explorer 3 或更高版本.
+
+仅支持 CERN 代理服务器.
+
+代理服务器一般由站点地址及端口组成.大部分的 ISP 都使用 8080 号端口.假设代理服务器的地址为"www.proxy.com"且端口为"8080"则设置方法如下:
+HttpSetProxy(2, "www.proxy.com:8080")
+
+当然也有很多代理服务器并不需要用户名和密码.
+
+当使用模式 0 时,你仍然可以指定一个用户名和密码,将被自动设置为 Internet Explorer 的代理.
+
+###Related###
+InetGet, InetGetSize, InetRead, FtpSetProxy
+
+
+###Example###
+@@IncludeExample@@

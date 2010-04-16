@@ -1,0 +1,55 @@
+﻿###User Defined Function###
+_GUICtrlRebar_Create
+
+###Description###
+Create a Rebar control
+
+###Syntax###
+#Include <GuiRebar.au3>
+_GUICtrlRebar_Create($hWnd[, $iStyles = 0x513])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to parent or owner window
+$iStyles
+	[optional] Rebar controls support a variety of control styles in addition to standard window styles:
+		$RBS_AUTOSIZE - Version 4.71. The rebar control will automatically change the layout of the bands when
+		the size or position of the control changes. An $RBN_AUTOSIZE notification will be sent when this occurs
+		$RBS_BANDBORDERS - Version 4.71. The rebar control displays narrow lines to separate adjacent bands
+		$RBS_DBLCLKTOGGLE - Version 4.71. The rebar band will toggle its maximized or minimized state when the user
+		double-clicks the band. Without this style, the maximized or minimized state is toggled when the user
+		single-clicks on the band
+		$RBS_FIXEDORDER - Version 4.70. The rebar control always displays bands in the same order. You can move
+		bands to different rows, but the band order is static
+		$RBS_REGISTERDROP - Version 4.71. The rebar control generates $RBN_GETOBJECT notification messages when an
+		object is dragged over a band in the control
+		$RBS_TOOLTIPS - Version 4.71. Not yet supported
+		$RBS_VARHEIGHT - Version 4.71. The rebar control displays bands at the minimum required height, when
+		possible. Without this style, the rebar control displays all bands at the same height, using the height of
+		the tallest visible band to determine the height of other bands
+		$RBS_VERTICALGRIPPER - Version 4.71. The size grip will be displayed vertically instead of horizontally in a
+		vertical rebar control. This style is ignored for rebar controls that do not have the $CCS_VERT style
+		$CCS_LEFT - Version 4.70. Causes the control to be displayed vertically on the left side of the parent window
+		$CCS_NODIVIDER - Prevents a two-pixel highlight from being drawn at the top of the control
+		$CCS_RIGHT - Version 4.70. Causes the control to be displayed vertically on the right side of the parent window
+		$CCS_VERT - Version 4.70. Causes the control to be displayed vertically
+
+		Default: $CCS_TOP, $RBS_VARHEIGHT
+		Forced: $WS_CHILD, $WS_VISIBLE, $WS_CLIPCHILDREN, $WS_CLIPSIBLINGS
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Handle to the Rebar control
+Failure:	set @error
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_GUICtrlRebar_Destroy
+
+###Example###
+@@IncludeExample@@

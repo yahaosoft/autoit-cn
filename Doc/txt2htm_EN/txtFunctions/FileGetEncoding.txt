@@ -1,0 +1,45 @@
+###Function###
+FileGetEncoding
+
+###Description###
+Determines the text encoding used in a file.
+
+###Syntax###
+FileGetEncoding ( "filehandle/filename" [, mode] )
+
+
+###Parameters###
+@@ParamTable@@
+filehandle/filename
+	The handle of a file, as returned by a previous call to FileOpen.  Alternatively you may use a string filename as the first parameter.
+mode
+	[optional] The UTF8 detection mode to use.
+	1 = Check entire file for UTF8 sequences (default)
+	2 = Check first part of file for UTF8 sequences (the same as FileOpen uses by default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the file encoding using similar values to the FileOpen function:
+	0 = ANSI
+	32 = UTF16 Little Endian.
+	64 = UTF16 Big Endian.
+	128 = UTF8 (with BOM).
+	256 = (without BOM).
+Failure:	Returns -1.
+@@End@@
+
+
+###Remarks###
+If a filename is given rather than a file handle - the file will be opened and closed during the function call.
+Note: Do not mix filehandles and filenames, i.e., don't FileOpen a file and then use a filename in this function.  Use either filehandles or filenames in your routines, not both!
+
+If a file handle is used then the "mode" parameter has no effect - the mode used for FileOpen takes precedence.
+
+
+###Related###
+FileOpen, FileRead, FileReadLine, FileWrite, FileWriteLine
+
+
+###Example###
+@@IncludeExample@@

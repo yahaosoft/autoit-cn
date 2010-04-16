@@ -1,0 +1,38 @@
+###User Defined Function###
+_ClipBoard_Open
+
+###Description###
+打开剪切板并防止其它程序修改剪切板
+
+###Syntax###
+#Include <Clipboard.au3>
+_ClipBoard_Open($hOwner)
+
+###Parameters###
+@@ParamTable@@
+$hOwner
+	要关联到打开的剪切板的窗口句柄. 如果这个参数为 0, 就打开剪切板
+		为关联到当前任务.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	True
+失败:	False
+@@End@@
+
+
+###Remarks###
+如果其他窗口打开了剪切板,这个函数会失败. 调用 _ClipBoard_Close 函数成功后再调用这个函数.
+successful call to this function. The window identified by the $hOwner parameter does not become the clipboard
+owner unless the _ClipBoard_Empty function is called. If you call _ClipBoard_Open with hwnd set to 0, _ClipBoard_Empty sets
+the clipboard owner to 0 which causes _ClipBoard_SetData to fail.
+
+###Related###
+_ClipBoard_Close, _ClipBoard_Empty, _ClipBoard_EnumFormats, _ClipBoard_GetOpenWindow, _ClipBoard_SetDataEx
+
+###See Also###
+@@MsdnLink@@ OpenClipboard
+
+###Example###
+@@IncludeExample@@

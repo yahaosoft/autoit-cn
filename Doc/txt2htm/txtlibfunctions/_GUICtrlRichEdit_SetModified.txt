@@ -1,0 +1,41 @@
+###User Defined Function###
+_GUICtrlRichEdit_SetModified
+
+###Description###
+Sets or clears the modification flag
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetModified($hWnd, $fState = True)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$fState
+	Specifies the new value for the modification flag:
+		 True - Indicates that the text has been modified (default)
+		False - Indicates it has not been modified.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and sets @error
+@error:	101 - $hWnd is not a handle
+	102 - $fState must be True or False
+@@End@@
+
+###Remarks###
+The system automatically sets the modification flag to False when the control is created.
+If the control's text is changed, either by the user or programmatically, the system sets the flag to True
+Call _GUICtrlRichEdit_IsModified to retrieve the current state of the flag.
+
+###Related###
+_GUICtrlRichEdit_IsModified
+
+###See Also###
+@@MsdnLink@@ $EM_SETMODIFY
+
+###Example###
+@@IncludeExample@@

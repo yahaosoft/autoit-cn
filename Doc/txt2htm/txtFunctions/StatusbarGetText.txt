@@ -1,0 +1,39 @@
+﻿###Function###
+StatusbarGetText
+
+###Description###
+获取标准状态栏控件的文本.
+
+###Syntax###
+StatusbarGetText ( "窗口标题" [, "窗口文本" [, 部分]] )
+
+
+###Parameters###
+@@ParamTable@@
+窗口标题
+	目标窗口标题.
+窗口文本
+	[可选参数] 目标窗口文本.
+部分
+	[可选参数] 要读取的状态栏的文本"部分",默认值为 1.  1 表示状态栏上的(左边)第一个可能的分区文本,通常包含最有用的信息(比如"准备","载入中..."等等).
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回获得的文本.
+失败:	返回一个空字符串并把 @error 设为 1 说明无法读取文本.
+@@End@@
+
+
+###Remarks###
+本函数执行时将尝试读取目标窗口的第一个标准状态栏(Microsoft 通用控件: msctls_statusbar32)的文本.某些程序使用了它们自己的状态栏或者MS通用控件的特殊版本,StatusbarGetText 就无法读取这些状态栏.例如,StatusbarText 就不能获取 TextPad 的状态栏信息.不过,TextPad 的状态栏的第一个区域的文本可通过使用 ControlGetText("TextPad", "", "HSStatusBar1") 来获取
+StatusbarGetText 能在目标窗口最小化甚至隐藏的情况下正常工作.
+
+
+###Related###
+ControlGetText, ControlCommand
+
+
+###Example###
+@@IncludeExample@@

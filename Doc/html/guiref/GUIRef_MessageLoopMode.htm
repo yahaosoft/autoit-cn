@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>GUI Reference - MessageLoop Mode</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1>GUI 相关 - 消息循环模式</h1>
+
+
+<p>In the MessageLoop mode your script will spend the majority of its time in a tight loop. This loop will simply poll the GUI using the <a href="../functions/GUIGetMsg.htm">GUIGetMsg</a> function. When an event has occurred the return value of the GUIGetMsg function will show the details (a button is clicked, the GUI has been closed, etc.).</p>
+<p>The MessageLoop mode is the default message mode for AutoIt GUIs - the other possible mode is the <a href="GUIRef_OnEventMode.htm">OnEvent</a> mode.</p>
+<p><strong>In the MessageLoop mode you will only receive events while you are actively polling the GUIGetMsg function so you must ensure that you call it many times a second otherwise your GUI will be unresponsive.</strong></p>
+<p>&nbsp;</p>
+<h2>基本的 消息循环 结构</h2>
+<p>下面是 消息循环 的基本结构代码:</p>
+<p class="codebox">While 1<br>
+&nbsp;&nbsp;$msg = GUIGetMsg()<br>
+&nbsp; ...<br>&nbsp; ...
+<br>
+WEnd</p>
+<p>&nbsp;</p>
+<p>像上面这种循环周期非常短的脚本通常会把CPU占用推到高达 100%,幸运的是 <a href="../functions/GUIGetMsg.htm">GUIGetMsg</a> 函数可在无事件等待时自动闲置CPU.另外千万 <strong> 不要 </strong>因为怕增加CPU压力而自己添加休眠语句(Sleep)到脚本中,这么做只会让GUI响应迟钝.</p>
+<p>&nbsp;</p>
+<h2>GUI 事件 </h2>
+<p><a href="../functions/GUIGetMsg.htm">GUIGetMsg</a>返回的事件消息有以下三种:</p>
+<p>
+<li>无事件</li>
+<li>控件事件</li>
+<li>系统事件</li>
+<p>&nbsp;</p>
+<p><strong>无事件</strong></p>
+<p>没有截获任何事件时 GUIGetMsg 的返回值为 <strong>0</strong>.这也是 <em>最常发生的事件</em>.</p>
+<p>&nbsp;</p>
+<p><strong>控件事件</strong></p>
+<p>当某个控件被点击或该控件有其它变化时将发送控件事件。这些事件代码都是<strong>正数</strong>并且关联发送事件消息的 <strong>控件ID(</strong>也即使用<a href="GUICtrlCreate.htm"> GUICtrlCreate...</a> 函数创建该控件时的返回值).</p>
+<p>&nbsp;</p>
+<p><strong>系统事件</strong></p>
+<p>系统事件包括GUI(窗口)被关闭等在内,它们的值都是 <strong>负数</strong>.下面列出了各种系统事件(在<strong> GUIConstantsEx.au3</strong> 中有定义):</p>
+<p class="code">$GUI_EVENT_CLOSE<br>
+  $GUI_EVENT_MINIMIZE<br>
+  $GUI_EVENT_RESTORE<br>
+  $GUI_EVENT_MAXIMIZE<br>
+  $GUI_EVENT_PRIMARYDOWN<br>
+  $GUI_EVENT_PRIMARYUP<br>
+  $GUI_EVENT_SECONDARYDOWN<br>
+  $GUI_EVENT_SECONDARYUP<br>
+$GUI_EVENT_MOUSEMOVE<br>
+$GUI_EVENT_RESIZED<br>
+$GUI_EVENT_DROPPED</p>
+<p>&nbsp;</p>
+<h2>GUI 示例</h2>
+<p>在 <a href="GUIRef.htm">GUI 相关</a> 的页面上我们曾编写过一个简单的窗口:</p>
+<p class="codebox">#include &lt;GUIConstantsEx.au3&gt;<br>
+    <br>
+GUICreate(&quot;你好世界&quot;, 200, 100) 
+GUICtrlCreateLabel("你好世界!你好么?", 30, 10)<br>
+GUICtrlCreateButton("确定", 70, 50,60)<br>
+  GUISetState(@SW_SHOW)<br>
+  Sleep(2000)</p>
+<p>&nbsp;</p>
+<p>现在我们来尝试使用 消息循环 以及上面描述的事件消息来完成全部代码.为了脚本的可读性考虑我们使用条件选择语句.</p>
+<p>&nbsp;</p>
+<p class="codebox">
+#include &lt;GUIConstantsEx.au3&gt;<br>
+<br>
+GUICreate("你好世界", 200, 100)<br>
+GUICtrlCreateLabel("你好世界!你好么?", 30, 10)<br>
+$okbutton = GUICtrlCreateButton("确定", 70, 50, 60)<br>
+GUISetState(@SW_SHOW)<br>
+<br>
+While 1<br>
+  &nbsp;&nbsp;$msg = GUIGetMsg()<br>
+  <br>
+&nbsp;&nbsp;Select<br>
+ &nbsp;&nbsp;&nbsp; Case $msg = $okbutton<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       MsgBox(0, &quot;GUI 事件&quot;, &quot;您按下了[确定]按钮!&quot;)<br>
+<br>
+ &nbsp;&nbsp;&nbsp; Case $msg = $GUI_EVENT_CLOSE<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MsgBox(0, &quot;GUI 事件&quot;, &quot;您选择了关闭!正在退出...&quot;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ExitLoop<br>
+&nbsp; EndSelect<br>
+WEnd
+</p>
+<p>It's that simple. Obviously the more windows and controls you create the more complicated it gets but the above shows you the basics. </p>
+<p>&nbsp;</p>
+<h2>Advanced GUIGetMsg and Multiple Windows</h2>
+<p>Control IDs are unique, even when you have multiple windows, so the above code with work fine with controls and multiple windows.&nbsp; However, when processing events such as $GUI_EVENT_CLOSE or $GUI_MOUSEMOVE you need to know which GUI window generated the event.&nbsp; To do this you must call GUIGetMsg like so:</p>
+<p class="codebox">$msg = GUIGetMsg(1)</p>
+<p>&nbsp;</p>
+<p>When called with the <strong>1 </strong> parameter instead of returning an event value an <strong>array</strong> will be returned, the array contains the event ( in $array[0] ) and extra information such as the window handle ( in $array[1] ).&nbsp; If two windows were created in the previous example then the correct way to write the code would be:</p>
+<p class="codebox"> #include &lt;GUIConstantsEx.au3&gt;<br>
+    <br>
+  $mainwindow = GUICreate("Hello World", 200, 100)<br>
+  GUICtrlCreateLabel("Hello world! How are you?", 30, 10)<br>
+  $okbutton = GUICtrlCreateButton("OK", 70, 50, 60)<br>
+  <br>
+  $dummywindow = GUICreate("Dummy window for testing ", 200, 100)<br>
+  <br>
+  GUISwitch($mainwindow)<br>
+  GUISetState(@SW_SHOW)<br>
+  <br>
+  While 1<br>
+&nbsp;&nbsp;$msg = GUIGetMsg(1)<br>
+  <br>
+&nbsp;&nbsp;Select<br>
+&nbsp;&nbsp;&nbsp; Case $msg[0] = $okbutton<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;GUI Event&quot;, &quot;You pressed OK!&quot;)<br>
+  <br>
+&nbsp;&nbsp;&nbsp; Case $msg[0] = $GUI_EVENT_CLOSE And $msg[1] = $mainwindow <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;GUI Event&quot;, &quot;You clicked CLOSE on the main window! Exiting...&quot;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ExitLoop<br>
+&nbsp; EndSelect<br>
+  WEnd </p>
+<p>&nbsp;</p>
+<p>The first major change is the <a href="../functions/GUISwitch.htm">GUISwitch</a> function call - when a new window is created it becomes the &quot;default&quot; window for future GUI operations (including control creation).&nbsp; In our case we want to work with the main &quot;Hello World&quot; window, not the test window, so we &quot;switch&quot;.&nbsp; Some GUI functions allow you to use the window handle in the function call itself - these functions will do the switch automatically.&nbsp; In our example we could have done this with:</p>
+<p class="codebox">GUISetState(@SW_SHOW, $mainwindow)</p>
+<p>&nbsp;</p>
+<p>The next change is the way GUIGetMsg is called and how the events are checked - notice the use of $msg[0] and $msg[1] - now we only exit the script if the close event is sent <strong>and</strong> the event is from our main window. </p>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,202 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>GUI Reference</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1>GUI 相关</h1>
+
+
+<p>AutoIt 有能力创建一个简单用户图形界面(GUI),用户图形界面(GUI)由窗口和控件组成. </p>
+<p>&nbsp;</p>
+<h2>GUI 的概念</h2>
+<p>GUI 可由一个或多个 <em>窗口</em> 组成,这些窗口又带有一个或多个控件.GUI是靠"事件驱动"实现与用户的交互的,比如像点击按钮这样的动作就会引发一个事件.程序在空闲状态时等待事件的发生,捕捉到事件时则根据事件执行相关操作.您可以猜想自己在门边等邮差(一直坐在那儿直到有信被送进来为止),等邮差把信送来了,您就要阅读该信并决定下一步做什么,这就跟GUI的原理一样了:您等待的是邮差,而GUI则等待事件,</P>
+<P>当然,在GUI(指程序的界面)运行时您也可以选择要做的其它任务,比如使用GUI函数创建一个自动更新的动态的进度条，同时还可执行其它复杂的任务.</P>
+<p>&nbsp;</p>
+<h2>GUI 控件</h2>
+<p>所有用户应该都对控件非常了解了,在窗口上能被点击或进行其它交互的部分都是控件的一种.AutoIt 可创建的控件类型有如下几种(您肯定已在其它Windows程序中见过它们了): </p>
+<table border="0" cellpadding="0" cellspacing="0" valign="top" style="border-collapse: collapse" bordercolor="#111111" width="82%" id="AutoNumber2">
+  <tr>
+    <td width="20%"><li>Label</li></td>
+    <td width="80%">纯文字控件(标签控件).</td>
+  </tr>
+  <tr>
+    <td><li>Button</li></td>
+    <td>按钮控件.</td>
+  </tr>
+  <tr>
+    <td><li>Input</li></td>
+    <td>单行编辑框,可供输入文字.</td>
+  </tr>
+  <tr>
+    <td><li>Edit</li></td>
+    <td>多行编辑框,可供输入文字.</td>
+  </tr>
+  <tr>
+    <td><li>Checkbox</li></td>
+    <td>方框按钮(检查框),可被选中或取消选中</td>
+  </tr>
+  <tr>
+    <td><li>Radio</li></td>
+    <td>圆形按钮(通常几个一组，每次只能激活/选中其中一个)</td>
+  </tr>
+  <tr>
+    <td><li>Combo</li></td>
+    <td>组合框,带有下拉列表. </td>
+  </tr>
+  <tr>
+    <td><li>List</li></td>
+    <td>列表框. </td>
+  </tr>
+  <tr>
+    <td><li>Date</li></td>
+    <td>日期选择.</td>
+  </tr>
+  <tr>
+    <td><li>Pic</li></td>
+    <td>图片控件. </td>
+  </tr>
+  <tr>
+    <td><li>Icon</li></td>
+    <td>图标控件.</td>
+  </tr>
+  <tr>
+    <td><li>Progress</li></td>
+    <td>进度条控件. </td>
+  </tr>
+  <tr>
+    <td><li>Tab</li></td>
+    <td>标签，每个标器都可包含一组控件. </td>
+  </tr>
+  <tr>
+    <td><li>UpDown</li></td>
+    <td>可附加到输入型控件上(提供上下按钮).</td>
+  </tr>
+  <tr>
+    <td><li>Avi</li></td>
+    <td>显示 AVI 格式的剪辑.</td>
+  </tr>
+  <tr>
+    <td><li>Menu</li></td>
+    <td>位于窗口顶部的菜单.</td>
+  </tr>
+  <tr>
+    <td><li>ContextMenu</li></td>
+    <td>当在窗口上点击右键时出现的菜单. </td>
+  </tr>
+  <tr>
+    <td><li>TreeView</li></td>
+    <td>类似于Windows的资源管理器(树型视图). </td>
+  </tr>
+  <tr>
+    <td><li>Slider</li></td>
+    <td>类似于Windows的音量控件(滑动条). </td>
+  </tr>
+  <tr>
+    <td><li>ListView</li></td>
+    <td>按列显示信息的控件(列表视图). </td>
+  </tr>
+  <tr>
+    <td><li>ListViewItem</li></td>
+    <td>ListView控件的项目.</td>
+  </tr>
+  <tr>
+    <td><li>Graphic</li></td>
+    <td>图形控件,可以在上面用GUICtrlSetGraphic函数画出图形.</td>
+  </tr>
+  <tr>
+    <td><li>Dummy</li></td>
+    <td>虚拟的用户控件. </td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+<p>下面是一个单窗口的GUI示例,它包含了许多被AutoIt支持的控件.从中我们可以看到 AutoIt 确实可以创建内容非常丰富的GUI!</p>
+<p> <img src="../images/SampleGuiScreenshot.png" width="406" height="425"> </p>
+<p>&nbsp;</p>
+<p>使用 <A href="GUICtrlCreate.htm">GUICtrlCreate...</A> 等函数即可创建控件.在创建时函数会返回 <strong>控件ID</strong> .关于控件ID有几个注意事项:</p>
+<p>
+<LI>控件ID是一个正数(即该数大于0) 
+<LI>每个控件ID都具有唯一性(即使有多个窗口存在).
+<LI>控件ID可通过 <A href="../intro/au3spy.htm">AutoIt 窗口信息工具</A> 获得.          
+<p>&nbsp;</p>
+<h2> GUI 基本函数</h2>
+<p>下面这些就是可用于创建GUI的函数.但这些都是比较初级的应用,如果您已经准备好创建更高级的GUI,则还有其它高级的函数. </p>
+<table width="100%" border="1" cellspacing="0" cellpadding="3">
+  <tr bgcolor="#000066">
+    <td width="12%" nowrap><strong><font color="#FFFFFF">函数</font></strong></td>
+    <td width="88%"><strong><font color="#FFFFFF">详细信息</font></strong></td>
+  </tr>
+  <tr>
+    <td nowrap><a href="../functions/GUICreate.htm">GUICreate</a></td>
+    <td>创建一个窗口.</td>
+  </tr>
+  <tr>
+    <td nowrap><a href="../functions/GUICtrlCreate Management.htm">GUICtrlCreate...</a></td>
+    <td>创建各种控件. </td>
+  </tr>
+  <tr>
+    <td nowrap><a href="../functions/GUISetState.htm">GUISetState</a></td>
+    <td>显示/隐藏窗口.</td>
+  </tr>
+  <tr>
+    <td nowrap><a href="../functions/GUIGetMsg.htm">GUIGetMsg</a></td>
+    <td>通知GUI检测是否有事件发生(仅用于消息循环模式).</td>
+  </tr>
+  <tr>
+    <td nowrap><a href="../functions/GUICtrlRead.htm">GUICtrlRead</a></td>
+    <td>读取一个控件里面得数据.</td>
+  </tr>
+  <tr>
+    <td nowrap><a href="../functions/GUICtrlSetData.htm">GUICtrlSetData</a></td>
+    <td>设置/修改一个控件里面得数据.</td>
+  </tr>
+  <tr>
+    <td nowrap><a href="../functions/GUICtrlUpdate Management.htm">GUICtrlUpdate...</a></td>
+    <td>对控件进行各种属性设置(颜色/样式等等). </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>在您着手编写任何GUI脚本之前别忘了先 #include &lt;GUIConstantsEx.au3&gt; 到脚本开头位置(该文件包含了在编写GUI程序时要用到的常用变量和常量). There are <a href="GUIConstants.htm">other files</a> containing constants related to the various controls you can create on the GUI. </p>
+<p> </p>
+<p>让我们先来创建一个窗口吧，把它命名为"您好,世界",设置其长宽分别为200和100个象素.当窗口被创建时它是被隐藏的,所以我们还要先把它给"show"(显示)出来.</p>
+<p class="codebox">
+#include &lt;GUIConstantsEx.au3&gt;<br>
+<br>
+ GUICreate("你好,世界", 200, 100) <br>
+GUISetState(@SW_SHOW)<br>
+Sleep(2000)</p>
+<p>&nbsp;</p>
+<p>如果运行上面的脚本您会看到出现一个窗口并在两秒后消失.看来还不是很有意思哦...那让我们尝试增加一些文字和一个确定按钮到窗口上吧!我们把文字加到 30, 10 这个位置并把按钮放到 70, 50 这个位置,按钮宽度设为60个象素. </p>
+<p class="codebox">#include &lt;GUIConstantsEx.au3&gt;<br>
+    <br>
+ GUICreate("你好,世界", 200, 100) <br>
+    GUICtrlCreateLabel("你好,世界! 过得怎么样?", 30, 10)<br>
+GUICtrlCreateButton("确定", 70, 50, 60)<br>
+
+GUISetState(@SW_SHOW)<br>
+Sleep(2000)</p>
+<p>&nbsp;</p>
+<p>好,现在看来还不错.但是怎样使这个GUI能响应我们点击按钮的事件呢?这时我们必须先决定究竟如何处理事件:要么通过<strong>消息循环(MessageLoop)</STRONG>&nbsp;<U>或者</U> 事件模式(<STRONG>OnEvent)</STRONG> 函数.</p>
+<p>&nbsp;</p>
+<h2>GUI 事件模式(Event Modes)</h2>
+<P>正如上面所提到的那样,我们有两种基本的GUI模式:<strong>消息循环(MessageLoop)</strong>模式和<strong>OnEvent</strong> 模式.这两种模式是响应GUI事件的不同的实现方式.具体选择哪一种模式主要看您的 <EM>个人喜好</EM>或者您想要创建的GUI类型.这两种模式都能用于创建任何您想要的GUI,只不过某些时候使用其中一个会比另外一个要好用些.</P>
+<P>消息循环是默认的模式.若要切换为 OnEvent 模式请使用 <A href="../functions/AutoItSetOption.htm#GUIOnEventMode">Opt("GUIOnEventMode",1)</A> 语句.</P>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong> 消息循环模式(Message-loop) (默认) </strong></p>
+<P>在消息循环模式下，脚本大部分时间都在执行一个周期非常短的循环,这个循环通知GUI使用 <A href="../functions/GUIGetMsg.htm">GUIGetMsg</A> (截获消息)函数.当某个事件发生时 GUIGetMsg 函数把消息作为返回数值返回(比如某个按钮被按下,GUI被关闭,等等).</P>
+<P>在此模式下,只有当我们频繁地使用 GUIGetMsg 函数时才有可能接收到事件,因此您必须确保在每一秒内都有数次调用该函数,否则您的 GUI 将无法响应事件.</P>
+<P><EM>这一模式最适合用于那些以 GUI 为重点的脚本中,并且您最关心的就是等待用户事件.</EM></P>
+<P>如需了解关于 <A href="GUIRef_MessageLoopMode.htm">消息循环模式</A> 的更详细的解释请到 <A href="GUIRef_MessageLoopMode.htm">此页</A> 查看.</P>
+<p>&nbsp;</p>
+<p><strong>事件模式(OnEvent)</strong></p>
+<P>在OnEvent模式下,脚本并不需要频繁地要求GUI检查是否有任何事件发生(并根据返回信息处理事件),而是仅当某个事件发生时GUI才临时性暂停脚本并调用一个用户预定义的函数来处理该事件.例如,假定用户点击了按钮1则GUI将暂停主脚本并调用某个预定义的用户函数来处理按钮1事件.当该函数完成处理操作后才回到主脚本继续执行.这个模式比较类似 Visual Basic 的窗体方法.</P>
+<P><EM>这一模式最适合用于那些 GUI 处于第二重要地位的脚本中,并且您的脚本需要优先执行其它任务.</EM></P>
+<P>如需了解关于 <A href="GUIRef_OnEventMode.htm">OnEvent模式</A> 的更详细的解释请到 <A href="GUIRef_OnEventMode.htm">此页</A> 查看.</P>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,41 @@
+###User Defined Function###
+_ExcelSheetMove
+
+###Description###
+Move the specified sheet before another specified sheet.
+
+###Syntax###
+#Include <Excel.au3>
+_ExcelSheetMove($oExcel, $vMoveSheet [, $vRelativeSheet = 1 [, $fBefore = True]])
+
+###Parameters###
+@@ParamTable@@
+$oExcel
+	An Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+$vMoveSheet
+	The name or number of the sheet to move (a string or integer)
+$vRelativeSheet
+	[optional] The moved sheet will be placed before or after this sheet (a string or integer, defaults to first sheet)
+$fBefore
+	[optional] The moved sheet will be placed before the relative sheet if true, after it if false (True or False) (default=True)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	1
+Failure:	0 and sets @error
+@error:	0 - No error
+	1 - Specified object does not exist
+	2 - Specified sheet number to move does not exist
+	3 - Specified sheet name to move does not exist
+	4 - Specified relative sheet number does not exist
+	5 - Specified relative sheet name does not exist
+@@End@@
+
+###Remarks###
+None
+
+###Related###
+
+###Example###
+@@IncludeExample@@

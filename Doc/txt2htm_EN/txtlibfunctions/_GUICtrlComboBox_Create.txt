@@ -1,0 +1,58 @@
+###User Defined Function###
+_GUICtrlComboBox_Create
+
+###Description###
+Create a ComboBox control
+
+###Syntax###
+#Include <GuiComboBox.au3>
+_GUICtrlComboBox_Create($hWnd, $sText, $iX, $iY[, $iWidth = 100[, $iHeight = 120[, $iStyle = 0x00200042[, $iExStyle = 0x00000000]]]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to parent or owner window
+$sText
+	Delimited string to add to the combobox
+$iX
+	Horizontal position of the control
+$iY
+	Vertical position of the control
+$iWidth
+	[optional] Control width
+$iHeight
+	[optional] Control height
+$iStyle
+	[optional] Control style:
+		$CBS_AUTOHSCROLL - Automatically scrolls the text in an edit control to the right when the user types a character at the end of the line.
+		$CBS_DISABLENOSCROLL - Shows a disabled vertical scroll bar
+		$CBS_DROPDOWN - Similar to $CBS_SIMPLE, except that the list box is not displayed unless the user selects an icon next to the edit control
+		$CBS_DROPDOWNLIST - Similar to $CBS_DROPDOWN, except that the edit control is replaced by a static text item that displays the current selection in the list box
+		$CBS_LOWERCASE - Converts to lowercase all text in both the selection field and the list
+		$CBS_NOINTEGRALHEIGHT - Specifies that the size of the combo box is exactly the size specified by the application when it created the combo box
+		$CBS_OEMCONVERT - Converts text entered in the combo box edit control from the Windows character set to the OEM character set and then back to the Windows character set
+		$CBS_OWNERDRAWFIXED - Specifies that the owner of the list box is responsible for drawing its contents and that the items in the list box are all the same height
+		$CBS_OWNERDRAWVARIABLE - Specifies that the owner of the list box is responsible for drawing its contents and that the items in the list box are variable in height
+		$CBS_SIMPLE - Displays the list box at all times
+		$CBS_SORT - Automatically sorts strings added to the list box
+		$CBS_UPPERCASE - Converts to uppercase all text in both the selection field and the list
+
+		Default: $CBS_DROPDOWN, $CBS_AUTOHSCROLL, $WS_VSCROLL
+		Forced : $WS_CHILD, $WS_TABSTOP, $WS_VISIBLE
+
+$iExStyle
+	[optional] Control extended style. These correspond to the standard $WS_EX_ constants.
+@@End@@
+
+###ReturnValue###
+Success: Handle to the Listbox control
+Failure: 0
+
+###Remarks###
+This function is for Advanced users and for learning how the control works.
+
+###Related###
+_GUICtrlComboBox_Destroy
+
+###Example###
+@@IncludeExample@@

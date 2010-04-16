@@ -1,0 +1,235 @@
+###Function###
+StringRegExp
+
+###Description###
+Check if a string fits a given regular expression pattern.
+
+###Syntax###
+StringRegExp ( "test", "pattern" [, flag ] [, offset ] ] )
+
+
+###Parameters###
+@@ParamTable@@
+test
+	The string to check
+pattern
+	The regular expression to compare.
+flag
+	[optional] A number to indicate how the function behaves.  See below for details.  The default is 0.
+offset
+	[optional] The string position to start the match (starts at 1)  The default is 1.
+@@End@@
+<br>
+@@ParamTable@@
+<b>Flag</b>
+	<b>Values</b>
+0
+	Returns 1 (matched) or 0 (no match)
+1
+	Return array of matches.
+2
+	Return array of matches including the full match (Perl / PHP style).
+3
+	Return array of global matches.
+4
+	Return an array of arrays containing global matches including the full match (Perl / PHP style).
+@@End@@
+
+###ReturnValue###
+<i>Flag = 0 :</i>
+
+@@ReturnTable@@
+@Error	Meaning
+2 	Bad pattern. @Extended = offset of error in pattern.
+@@End@@
+
+<br>
+<i>Flag = 1 or 2 :</i>
+
+@@ReturnTable@@
+@Error	Meaning
+0	Array is valid.  Check @Extended for next offset
+1	Array is invalid.  No matches.
+2	Bad pattern, array is invalid.  @Extended = offset of error in pattern.
+@@End@@
+
+<br>
+<i>Flag = 3 or 4 :</i>
+
+@@ReturnTable@@
+@Error	Meaning
+0	Array is valid.
+1	Array is invalid.  No matches.
+2	Bad pattern, array is invalid.  @Extended = offset of error in pattern.
+@@End@@
+
+
+###Remarks###
+The flag parameter can have one of 5 values (0 through 4).  0 gives a true (1) or false (0) as to whether the pattern was found or not.  1 and 2 find the first match and returns it in an array.  3 and 4 find multiple hits and fills the array with all the matching text.  2 and 4 include the full matching text as the first record, not just the capturing groups, which is all you get with flag 1 and 3.
+
+Regular expression notation is a compact way of specifying a pattern for strings that can be searched.  Regular expressions are character strings in which plain text characters indicate what text should exist in the target string, and a some characters are given special meanings to indicate what variability is allowed in the target string.  AutoIt regular expressions are normally case-sensitive.
+
+Regular expressions are constructed of one or more of the following simple regular expression specifiers.  If the character is not in the following table, then it will match only itself.
+
+Repeating characters (*, +, ?, {...} ) will try to match the largest set possible, which allows the following characters to match as well, unless followed immediately by a question mark; then it will find the smallest pattern that allows the following characters to match as well.
+
+Nested groups are allowed, but keep in mind that all the groups, except non-capturing groups, assign to the returned array, with the outer groups assigning after the inner groups.
+
+Complete description can be found <b><a href="http://www.autoitscript.com/autoit3/pcrepattern.html" target="_blank">here</a></b>
+
+<b>Caution</b>: bad regular expressions can produce a quasi-infinite loop hogging the CPU, and can even cause a crash.
+
+<b><u>Matching Characters</u></b>
+
+@@ParamTable@@
+[ ... ]
+	Match any character in the set.  e.g. <b>[aeiou]</b> matches any lower-case vowel.  A contiguous set can be defined using a dash between the starting and ending characters.  e.g. <b>[a-z]</b> matches any lower case character.  To include a dash (<b>-</b>) in a set, use it as the first or last character of the set.  To include a closing bracket in a set, use it as the first character of the set.  e.g. <b>[][]</b> will match either [ or ].  Note that special characters <b>do not</b> retain their special meanings inside a set, with the exception of <b>\\</b>,  <b>\^</b>, <b>\-</b>,<b>\[</b> and <b>\]</b> match the escaped character inside a set.
+[^ ... ]
+	Match any character <b>not</b> in the set.  e.g. <b>[^0-9]</b> matches any non-digit.  To include a caret (<b>^</b>) in a set, put it after the beginning of the set or escape it (\^).
+[:class:]
+	Match a character in the given class of characters.  Valid classes are: alpha (any alphabetic character), alnum (any alphanumeric character), lower (any lower-case letter), upper (any upper-case letter), digit (any decimal digit 0-9), xdigit (any hexadecimal digit, 0-9, A-F, a-f), space (any whitespace character), blank (only a space or tab), print (any printable character), graph (any printable character except spaces), cntrl (any control character [ascii 127 or <32]) or punct (any punctuation character). So [0-9] is equivalent to [[:digit:]].
+[^:class:]
+	Match any character <b>not</b> in the class, but only if the first character.
+( ... )
+	Group. The elements in the group are treated in order and can be repeated together.  e.g. <b>(ab)+</b> will match "ab" or "abab", but not "aba".  A group will also store the text matched for use in back-references and in the array returned by the function, depending on flag value.
+(?i)
+	Case-insensitivity flag.  This does not operate as a group.  It tells the regular expression engine to do case-insensitive matching from that point on.
+(?-i)
+	(default) Case-sensitivity flag.  This does not operate as a group.  It tells the regular expression engine to do case-sensitive matching from that point on.
+(?: ... )
+	Non-capturing group.  Behaves just like a normal group, but does not record the matching characters in the array nor can the matched text be used for back-referencing.
+(?i: ... )
+	Case-insensitive non-capturing group.  Behaves just like a non-capturing group, but performs case-insensitive matches within the group.
+(?-i: ... )
+	Case-sensitive non-capturing group.  Behaves just like a non-capturing group, but performs case-sensitive matches within the group.
+(?m)
+	^ and $ match newlines within data.
+(?s)
+	. matches anything including newline. (by default "." don't match newline)
+(?x)
+	Ignore whitespace and # comments.
+(?U)
+	Invert greediness of quantifiers.
+<b>.</b>
+	Match any single character (except newline).
+|
+	Or.  The expression on one side <b>or</b> the other can be matched.
+\
+	<i>Escape</i> a special character (have it match the actual character) or introduce a special character type (see below).
+\\
+	Match an actual backslash (\).
+\a
+	Alarm, that is, the BEL character (chr(7)).
+\A
+	Match only at beginning of string.
+\b
+	Matches at a word boundary.
+\B
+	Matches when not at a word boundary.
+\c
+	Match a control character, based on the next character.  For example, <b>\cM</b> matches ctrl-M.
+\d
+	Match any digit (0-9).
+\D
+	Match any non-digit.
+\e
+	Match an escape character (chr(27)).
+\E
+	end case modification.
+\f
+	Match an formfeed character (chr(12)).
+\h
+	any horizontal whitespace character.
+\H
+	any character that is not a horizontal whitespace character.
+\n
+	Match a linefeed (@LF, chr(10)).
+\Q
+	quote (disable) pattern metacharacters till \E.
+\r
+	Match a carriage return (@CR, chr(13)).
+\s
+	Match any whitespace character: Chr(9) through Chr(13) which are Horizontal Tab, Line Feed, Vertical Tab, Form Feed, and Carriage Return, and the standard space ( Chr(32) ).
+\S
+	Match any non-whitespace character.
+\t
+	Match a tab character (chr(9)).
+\v
+	any vertical whitespace character.
+\V
+	any character that is not a vertical whitespace character.
+\w
+	Match any "word" character: a-z, A-Z, 0-9 or underscore (_).
+\W
+	Match any non-word character.
+\###
+	Match the ascii character whose code is given or back-reference.  Can be up to 3 octal digits.<br>Match back-reference if found. Match the prior group number given exactly.  For example, <b>([:alpha:])\1</b> would match a double letter.
+\x##
+	Match the ascii character whose code is given in hexadecimal.  Can be up to 2 digits.
+\z
+	Match only at end of string.
+\Z
+	Match only at end of string, or before newline at the end.
+@@END@@
+
+<u><b>Repeating Characters</u></b>
+
+@@ParamTable@@
+{<i>x</i>}
+	Repeat the previous character, set or group exactly <i>x</i> times.
+{<i>x</i>,}
+	Repeat the previous character, set or group at least <i>x</i> times.
+{0,<i>x</i>}
+	Repeat the previous character, set or group at most <i>x</i> times.
+{<i>x</i>, <i>y</i>}
+	Repeat the previous character, set or group between <i>x</i> and <i>y</i> times, inclusive.
+*
+	Repeat the previous character, set or group 0 or more times.  Equivalent to {0,}
++
+	Repeat the previous character, set or group 1 or more times.  Equivalent to {1,}
+?
+	The previous character, set or group may or may not appear.  Equivalent to {0, 1}
+? (after a repeating character)
+	Find the smallest match instead of the largest.
+@@END@@
+
+<u><b>Character Classes</u></b>
+
+@@ParamTable@@
+[:alnum:]
+	letters and digits
+[:alpha:]
+	letters
+[:ascii:]
+	character codes 0 - 127
+[:blank:]
+	space or tab only
+[:cntrl:]
+	control characters
+[:digit:]
+	decimal digits (same as \d)
+[:graph:]
+	printing characters, excluding space
+[:lower:]
+	lower case letters
+[:print:]
+	printing characters, including space
+[:punct:]
+	printing characters, excluding letters and digits
+[:space:]
+	white space (not quite the same as \s, it include VT: chr(11) )
+[:upper:]
+	upper case letters
+[:word:]
+	"word" characters (same as \w)
+[:xdigit:]
+	hexadecimal digits
+@@END@@
+
+
+###Related###
+StringInStr, StringRegExpReplace
+
+
+###Example###
+@@IncludeExample@@

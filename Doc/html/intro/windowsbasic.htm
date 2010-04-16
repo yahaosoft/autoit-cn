@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Window 标题与文本 (基本)</title>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=GB2312">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Window 标题与文本 (基本)</h1>
+<p>当我们在编写用以实现自动化操作(通常是指窗口操作)的脚本的时候,经常要解决的一个问题就是如何(在众多窗口中)准确识别出目标窗口,一般来说我们把窗口的<strong>标题(Title)</strong>
+ 作为它的标识,有时候只给标题还不够,这时就需要同时给出<strong>标题及文本(text)</strong>.
+ 要获得某个窗口的标题是件很简单的事情(直接就可以看到),可以使用 AutoIt 提供的 <a href="au3spy.htm">AutoIt Window Info Tool(窗口信息工具).</a>
+ 大多数窗口的标题都是显而易见的,例如系统自带的记事本程序(notepad.exe),
+ 它的标题是<strong>无标题 - 记事本</strong>,
+ 并不难理解对吧?而且一般来说这就已经足以帮助我们完成自动化任务了.&nbsp; </p>
+<p>&nbsp;</p>
+<p><strong><font color="#0000FF">注意:若作为参数传递到窗口函数的 <em>窗口标题</em> 和 <em>窗口文本</em> 
+都是空字符串&quot;&quot;的话,则该函数的操作目标将会是当前<em>激活</em>的窗口
+(但设置了非默认的 <a href="../functions/AutoItSetOption.htm#WinTitleMatchMode">窗口匹配模式(WinTitleMatchMode)</a> 时除外)!</font></strong></p>
+<p>&nbsp;</p>
+<p>窗口标题及其文本是 <strong>大小写敏感</strong> (或者说是严格区分大小写)的.
+  包括标点符号在内您必须确保它们是完全匹配的.为了避免在这种小问题上出错,您可以使用窗口信息工具
+  (Window Info Tool) 然后选中获得的标题或文本,按下 <strong>ctrl-c</strong>       
+  复制之后就可以直接粘贴到脚本中使用了. <br>
+你可以使用<b><a href="windowsadvanced.htm">高级模式</a></b> 强制小写匹配.</p>
+<p>&nbsp;</p>
+<p>AutoIt 的大部分窗口函数都有窗口标题和文本参数,
+  比如说下面的 WinWaitActive 函数.这个函数的功能是使脚本暂停执行并
+  <em><strong>一直等到</strong></em>指定窗口出现且激活为止.</p>
+<p class="codebox">WinWaitActive ( &quot;<strong>窗口标题</strong>&quot;,
+  [&quot;<strong>窗口文本</strong>&quot;], [超时时间] )</p>
+<p>&nbsp;</p>
+<p>其中<em><strong>窗口标题</strong></em>是必须指定的参数,而 
+  <em><strong>窗口文本</strong></em> 和 <em><strong>超时时间</strong></em> 都是可选参数.
+  不过也有些函数的<em><strong>窗口文本</strong></em> 参数是必须指定的,
+  如果想省略这个参数的话只需指定 <strong>&quot;&quot;</strong>
+  (表示空字符串)作为参数即可.在参数 <em><strong>窗口文本</strong></em>
+  中指定一个空字符串或者干脆留空的话相当于告诉 AutoIt 任何文本都是有效的(反正只管标题匹配了就OK).</p>
+<p>&nbsp;</p>
+<p>下面以记事本窗口为例说明上面提到的函数的两种用法:</p>
+<p class="codebox"> WinWaitActive(&quot;无标题 - 记事本&quot;)</p>
+<p>和</p>
+<p class="codebox"> WinWaitActive(&quot;无标题 - 记事本&quot;, &quot;&quot;)</p>
+<p>&nbsp;</p>
+<p>如果我们打些字到该窗口上,比如说&quot;这里是足以区分其它记事本窗口的文字&quot;,
+  则在 <a href="au3spy.htm">窗口信息工具(Window Info Tool)</a> 的窗口上将会显示相关信息.</p>
+<p>&nbsp;</p>
+<p><img src="../images/au3spy_notepad.png" width="463" height="512"></p>
+<p>&nbsp;</p>
+<p>我们可以注意到窗口信息工具(Window Info)已经捕捉了这个记事本窗口的标题及文本并显示出来了.
+  记住,凡是窗口信息工具(Window Info Tool)能捕捉的 AutoIt 也能捕捉到(指能在脚本中使用).
+  现在我们得到的这些信息已经足以用来准确识别此窗口了(就算此时还打开了很多记事本窗口).
+  这时我们应该这么使用函数:</p>
+<p>&nbsp;</p>
+<p class="codebox"> WinWaitActive(&quot;无标题 - 记事本&quot;,
+  &quot;This is some text!&quot;)</p>
+<p class="code">&nbsp;</p>
+<h2>窗口文本</h2>
+<p>作为参数使用的窗口文本必须是 AutoIt 能够&quot;看见&quot;的.
+  一般来说有效的文本是指编辑框控件内的文本(比如像上面的&quot;This is some text!&quot;)
+  此外还可以使用下面这些文本:</p>
+<ul>
+  <li>&nbsp;按钮上的文本,比如 &amp;Yes,&amp;No,&amp;Next 确定(&amp;O) 等
+  ("&amp;"号后的字符将带有下划线)</li>
+  <li>&nbsp;对话框上的文本,比如 &quot;是否要继续?&quot; </li>
+  <li>&nbsp;控件上的文本</li>
+  <li>&nbsp;其它文本-有时您也不知道那是什么 :)</li>
+</ul>
+<p>另外还有一个必须了解的技巧就是除了上面这些文本之外,很多程序窗口的标题会根据操作对象的不同而不同(通常会在默认标题后附加),
+  因此把接在标题后的文本作为窗口文本参数使用也是可以的.</p>
+<p>其实我们传递到窗口函数中的 <em><strong>窗口文本</strong></em> 参数是被 AutoIt 当作子字符串(substring)来处理的.
+还是以上面的记事本窗口为例,即使把&quot;以区分其它记事本窗口的&quot;
+作为窗口文本参数也是可以获得同样效果的.</p>
+<p>&nbsp;</p>
+<p>前面提到的所有应用都是以在<em>默认</em>模式下操作为例的,
+AutoIt 还提供了其它几种 <a href="windowsadvanced.htm">更高级</a> 的方法.</P>
+<p>&nbsp;</p>
+<strong>说明:</strong> 隐藏窗口可以使用"窗口标题"进行匹配,前提是"窗口文本"为空("").
+</body>
+</html>

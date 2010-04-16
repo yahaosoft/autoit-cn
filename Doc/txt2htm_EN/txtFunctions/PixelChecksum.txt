@@ -1,0 +1,52 @@
+###Function###
+PixelChecksum
+
+
+###Description###
+Generates a checksum for a region of pixels.
+
+
+###Syntax###
+PixelChecksum ( left, top, right, bottom [, step [, hwnd [, mode]]] )
+
+
+###Parameters###
+@@ParamTable@@
+left
+	left coordinate of rectangle.
+top
+	top coordinate of rectangle.
+right
+	right coordinate of rectangle.
+bottom
+	bottom coordinate of rectangle.
+step
+	[optional] Instead of checksumming each pixel use a value larger than 1 to skip pixels (for speed).  E.g. A value of 2 will only check every other pixel.  Default is 1. <b>It is not recommended to use a step value greater than 1.</b>
+hwnd
+	[optional] Window handle to be used.
+mode
+	[optional] default 0 ADLER checksum, 1 CRC32 Checksum.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the checksum value of the region.
+Failure:	Returns 0.
+@@End@@
+
+
+
+###Remarks###
+A checksum only allows you to see if "something" has changed in a region - it does not tell you exactly what has changed.
+
+Previous versions were extremely slow, however the function is now significantly faster.  Using the step parameter is no longer recommended.  The performance gain from using a larger step is not nearly as noticeable since the function is faster all around.  Also, the larger the step, the less reliable the checksum becomes when used to detect small changes in the region.
+
+CRC32 checksum is a little slower than ADLDER but detect better pixel variation.
+
+###Related###
+PixelGetColor, PixelCoordMode (Option), PixelSearch
+
+
+###Example###
+@@IncludeExample@@

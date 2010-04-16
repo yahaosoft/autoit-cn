@@ -1,0 +1,38 @@
+﻿###Keyword###
+Func...Return...EndFunc
+
+###Description###
+声明一个用户自定义函数(user-defined function),并可以放置0个或者多个可选参数,也可以设置返回一个值.
+
+###Syntax###
+<b>Func</b> 函数名称 ( [<b>Const</b>] [<b>ByRef</b>] $param1, ..., [<b>Const</b>] [<b>ByRef</b>] $paramN, $optionalpar1 = value, ...)
+	...
+	[<b>Return</b> [<i>value</i>]]
+<b>EndFunc</b>
+
+
+###Parameters###
+您可以随意设置参数. 以后象调用内置函数一样调用它们.
+
+
+###Remarks###
+The Const keyword is optional and indicates that the value of the parameter will not change during the execution of the function.  A variable declared Const can only be passed to a function using a Const parameter.
+
+The ByRef keyword indicates the parameter should be treated as a reference to the original object.  The default behavior copies the parameter into a new variable however ByRef links the new variable to the original parameter.  ByRef is typically preferred when a function expects large amounts of data, such as a large array, where copying all the data would impose a significant performance penalty.  Note that not only a named variable can be passed for a ByRef parameter; unnamed temporary variables, such as function return values, may be passed as ByRef parameters as well.  A literal can not be passed to a ByRef parameter.
+
+If using both keywords ByRef and Const with a function parameter, the order of the keywords is not important, so long as they are both in front of the variable they modify.
+
+Entire arrays can be passed to functions (and returned from them) by simply using the array name without any brackets.  Arrays should be passed to user-defined functions using the ByRef keyword to avoid the overhead of copying all the data in the array.
+
+Optional parameters are defined by assigning a default value to them. The value may be a global variable, macro or literal value.  Optional parameters always appear last in the function definition. All parameters added after the first optional parameter must also be optional. Inside the function, the number of parameters given when the function was called can be retrieved with the @NUMPARAMS macro (see example 2).
+
+Use the Return keyword to exit the function.  Unlike built-in functions, user-defined functions return 0 unless another return value is specified.
+
+Note that function declarations cannot appear inside other function declarations.
+
+###Related###
+<a href="Dim.htm">Dim/Global/Local</a>, <a href="include.htm">#include</a>, <a href="Dim.htm">Const</a>
+
+
+###Example###
+@@IncludeExample@@

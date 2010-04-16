@@ -1,0 +1,35 @@
+###Function###
+SetError
+
+###Description###
+Manually set the value of the @error macro.
+
+###Syntax###
+SetError ( code [, extended [, return value]] )
+
+
+###Parameters###
+@@ParamTable@@
+code
+	The required value (integer) to set the @error macro to.
+extended
+	[optional] The optional value (integer) to set the @extended macro to.  This sets the same macro as the SetExtended() function.
+return value
+	[optional] Override the default return value and return this parameter.
+@@End@@
+
+
+###ReturnValue###
+By default, none, however if the optional return value argument is passed, then the function will return that value.
+
+
+###Remarks###
+When entering a function @error is set to 0.  Unless SetError() is called, then @error will remain 0 after the function has ended.  This means that in order for @error to be set after a function, it must be explicitly set.  This also means you may need to backup the status of @error in a variable if you are testing it in a While-WEnd loop.
+The extended parameter is optional.  It is only provided as a way to set both @error and @extended at the same time.  If only @extended needs set, then it is recommended to use the SetExtended() function instead.
+
+###Related###
+SetExtended
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,63 @@
+###User Defined Function###
+_GUICtrlSlider_Create
+
+###Description###
+Create a Slider control
+
+###Syntax###
+#Include <GuiSlider.au3>
+_GUICtrlSlider_Create($hWnd, $iX, $iY[, $iWidth = 100[, $iHeight = 20[, $iStyle = 0x0001[, $iExStyle = 0x00000000]]]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to parent or owner window
+$iX
+	Horizontal position of the control
+$iY
+	Vertical position of the control
+$iWidth
+	[optional] Control width
+$iHeight
+	[optional] Control height
+$iStyle
+	[optional] Control style:
+		$TBS_AUTOTICKS - Adds tick marks when you set the range on the slider by using the TBM_SETRANGE message.
+		$TBS_BOTH - Places ticks on both sides of the slider.
+		$TBS_BOTTOM - Places ticks on the bottom of a horizontal slider.
+		$TBS_DOWNISLEFT - Down equal left and up equal right
+		$TBS_ENABLESELRANGE - The tick marks at the starting and ending positions of a selection range are displayed as triangles
+		(instead of vertical dashes), and the selection range is highlighted
+		$TBS_FIXEDLENGTH - allows the size of the slider to be changed with the $TBM_SETTHUMBLENGTH message
+		$TBS_HORZ - Specifies a horizontal slider. This is the default.
+		$TBS_LEFT - Places ticks on the left side of a vertical slider.
+		$TBS_NOTHUMB - Specifies that the slider has no slider.
+		$TBS_NOTICKS - Specifies that no ticks are placed on the slider.
+		$TBS_REVERSED - Smaller number indicates "higher" and a larger number indicates "lower"
+		$TBS_RIGHT - Places ticks on the right side of a vertical slider.
+		$TBS_TOP - Places ticks on the top of a horizontal slider.
+		$TBS_TOOLTIPS - Creates a default ToolTip control that displays the slider's current position
+		$TBS_VERT - Places ticks on the left side of a vertical slider.
+
+		Default: $TBS_AUTOTICKS
+		Forced : $WS_CHILD, $WS_TABSTOP, $WS_VISIBLE
+
+$iExStyle
+	[optional] Control extended style. These correspond to the standard $WS_EX_ constants.
+		Default: $WS_EX_STATICEDGE
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Handle to the Slider control
+Failure:	0
+@@End@@
+
+###Remarks###
+This function is for Advanced users and for learning how the control works.
+
+###Related###
+_GUICtrlSlider_Destroy
+
+###Example###
+@@IncludeExample@@

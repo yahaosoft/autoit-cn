@@ -1,0 +1,34 @@
+###User Defined Function###
+_PathGetRelative
+
+###Description###
+Returns the relative path to a directory
+
+###Syntax###
+#Include <File.au3>
+_PathGetRelative($sFrom, $sTo)
+
+###Parameters###
+@@ParamTable@@
+$sFrom
+	Path to the source directory
+$sTo
+	Path to the destination file or directory
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Relative path to the destination.
+Failure:	Returns the destination and set @error
+@error:	1 - $sFrom equlas $sTo
+	2 - Root drives of $sFrom and $sTo are different, a relative path is impossible.
+@@End@@
+
+###Remarks###
+The returned path will not have a trailing "\", even if it is a root
+drive returned after a failure.
+
+###Related###
+
+###Example###
+@@IncludeExample@@

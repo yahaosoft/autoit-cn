@@ -1,0 +1,42 @@
+###Function###
+InetGetInfo
+
+###Description###
+返回一个由InetGet()函数返回的句柄的详细信息.
+
+###Syntax###
+InetGetInfo( [ 句柄 [, 索引 ]] )
+
+
+###Parameters###
+@@ParamTable@@
+句柄
+	[可选参数] 由 InetGet() 函数返回的句柄.
+索引
+	[可选参数] 要返回的数据索引. 如果索引为 -1 ,将返回包含下列所有值的数组.
+		0 - 读取字节数 (这是一个在下载时不断更新的数字).
+		1 - 要下载的文件的大小(不一定有效).
+		2 - 如果值为 True 则下载完成, False 为下载正在进行.
+		3 - 如果值为 True 则下载成功完成. False 为下一数据成员将会是非0.
+		4 - 下载错误值.  The value itself is arbitrary.  Testing that the value is non-zero is sufficient for determining if an error occurred.
+		5 - 下载扩展值.  这个值可能是任意的,并且这个值只对 AutoIt 开发者有用.
+@@End@@
+
+
+###ReturnValue###
+成功 - 返回数据.
+失败 - 返回空字符串并设置 @error 为非0.
+
+
+###Remarks###
+If called with no arguments then the total number of active downloads will be returned.
+
+This function can be called in a loop to query the number of bytes download or to pause until a download is complete.
+
+
+###Related###
+InetGet
+
+
+###Example###
+@@IncludeExample@@

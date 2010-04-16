@@ -1,0 +1,35 @@
+###User Defined Function###
+_IELoadWaitTimeout
+
+###Description###
+Retrieve or set the current value in milliseconds _IELoadWait will try before timing out.
+
+###Syntax###
+#include <IE.au3> 
+_IELoadWaitTimeout ( [$i_timeout = -1] )
+
+###Parameters###
+@@ParamTable@@
+$i_timeout
+	[optional] retrieve or specify the number of milliseconds
+	0 or positive integer sets timeout to this value
+	-1 = (Default) returns the current timeout value (stored in global variable $__IELoadWaitTimeout)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	If $i_timeout = -1, returns the current timeout value, else returns 1
+Failure:	None
+@@End@@
+
+
+###Remarks###
+There is no way to completely disable the Timeout value.  You can functionally do this however by setting it to a very large positive integer.  The initial timeout value is 30000 ms (5 minutes).
+
+
+###Related###
+_IELoadWait
+
+
+###Example###
+@@IncludeExample@@

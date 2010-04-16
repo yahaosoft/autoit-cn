@@ -1,0 +1,44 @@
+﻿###Function###
+GUICtrlSetBkColor
+
+###Description###
+设置指定控件的背景颜色.
+
+###Syntax###
+GUICtrlSetBkColor ( 控件ID, 背景色 ) 
+
+
+###Parameters###
+@@ParamTable@@
+控件ID
+	控件标识符(控件ID),可由 <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a> 函数的返回值获得.
+背景色
+	要使用的 RGB 模式的颜色值.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回值为1.
+失败:	返回值为0.
+@@End@@
+
+
+###Remarks###
+只有按钮(Button),标签(Label),检查框 (Checkbox),群组(Group), 单选按钮(Radio),文本编辑框(Edit), 输入框(Input),列表 (List),列表查看 (Listview), 列表查看项目(ListviewItem), 树形列表(Treeview), 树形列表项目(TreeviewItem),图形显示(Graphic), 进度条(Progress) 和 滑动条(Slider) 控件可以设置颜色. 
+
+如果程序使用了XP样式,那么进度条将不能定义颜色. 
+
+按钮控件在"windows 经典" 的系统主题下,不能有 $BS_ICON 样式. 
+
+The special flag $GUI_BKCOLOR_TRANSPARENT can be used with Label, Group, Radio, Checkbox controls to give them a transparent background.
+
+The special flag $GUI_BKCOLOR_LV_ALTERNATE can be used with Listview control to give alternate background of the ListviewItems lines.
+The odd lines will get the color set by GUICtrlSetBkColor of the Listview control.
+The even lines will get the color set by GUICtrlSetBkColor of the ListviewItem control.
+
+###Related###
+GUICtrlCreate..., GUICtrlSetColor, GUICtrlSetDefBkColor
+
+
+###Example###
+@@IncludeExample@@

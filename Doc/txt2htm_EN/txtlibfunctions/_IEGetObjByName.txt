@@ -1,0 +1,43 @@
+###User Defined Function###
+_IEGetObjByName
+
+###Description###
+Returns an object variable by name or id.
+
+###Syntax###
+#include <IE.au3> 
+_IEGetObjByName ( ByRef $o_object, $s_Id [, $i_index = 0] )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	Object variable of an InternetExplorer.Application, Window or Frame object
+$s_Id
+	Specifies name or id of the object you wish to match
+$i_index
+	[optional] If name of id occurs more than once, specifies instance by 0-based index
+	0 (Default) or positive integer returns an indexed instance
+	-1 returns a collection of the specified objects
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an object variable pointing to the specified Object, @EXTENDED = specified object count
+Failure:	Returns 0 and sets @ERROR
+@Error:	0 ($_IEStatus_Success) = No Error
+	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
+	7 ($_IEStatus_NoMatch) = No Match
+@Extended:	Contains invalid parameter number
+@@End@@
+
+
+###Remarks###
+This function will return an object reference to any object in the document with a specified name or id.  DOM elements can have Name or ID attributes or both.  A specific ID can be assigned to only a single element while a specific Name can be assigned to multiple elements.  In Internet Explorer, the Name and ID namespaces are shared.
+
+
+###Related###
+_IEGetObjById
+
+
+###Example###
+@@IncludeExample@@

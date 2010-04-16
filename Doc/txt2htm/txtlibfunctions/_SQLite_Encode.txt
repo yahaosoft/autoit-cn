@@ -1,0 +1,33 @@
+﻿###User Defined Function###
+_SQLite_Encode
+
+###Description###
+Encodes strings or binary data for use in SQLite query's
+
+###Syntax###
+#include <SQLite.au3>
+_SQLite_Encode ( $vData )
+
+
+###Parameters###
+@@ParamTable@@
+$vData
+	Data To be encoded (String, Number or Binary)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns encoded string
+Failure:	Returns empty string and sets @error to 1
+@@End@@
+
+###Remarks###
+The encoded string is already wrapped with single quotes.
+For example chr(0) & chr(1) would look like X'0001'
+The encoded string is decoded by Sqlite which stores the data in binary state.
+
+###Related###
+_SQLite_Escape
+
+###Example###
+@@IncludeExample@@

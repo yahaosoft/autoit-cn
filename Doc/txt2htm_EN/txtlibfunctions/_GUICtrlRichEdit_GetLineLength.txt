@@ -1,0 +1,42 @@
+###User Defined Function###
+_GUICtrlRichEdit_GetLineLength
+
+###Description###
+Retrieves the length of a line
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_GetLineLength($hWnd, $iLine)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to control
+$iLine
+	line number
+		Special value: -1 - return number of unselected characters on lines containing selected characters
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Multi-line control - Length of the line (in characters)
+	Single-line control - number of characters in the control
+Failure:	0 and sets @error
+@error:	101 - $hWnd is not a handle
+	102 - $iLine is neither positive nor -1
+	1022 - $iLine is greater than number of characters in the control
+@@End@@
+
+###Remarks###
+A control that contains no text has one line
+The first inter-character position in a control is 0.
+
+The result does not include carriage-return characters at the end of the line.
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ EM_GETLINELENGTH
+
+###Example###
+@@IncludeExample@@

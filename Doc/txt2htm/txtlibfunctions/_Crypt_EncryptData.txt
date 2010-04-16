@@ -1,0 +1,43 @@
+###User Defined Function###
+_Crypt_EncryptData
+
+###Description###
+Encrypts data using the supplied key
+
+###Syntax###
+#Include <Crypt.au3>
+_Crypt_EncryptData($vData, $vCryptKey, $iALG_ID[, $fFinal = True])
+
+###Parameters###
+@@ParamTable@@
+$vData
+	Data to encrypt/decrypt
+$vCryptKey
+	Password or handle to a key if the CALG_USERKEY flag is specified
+$iALG_ID
+	The algorithm to use
+$fFinal
+	[optional] False if this is only a segment of the full data
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Returns encrypted data
+	Sets @error to 0
+Failure	Returns -1 and sets @error:
+	1 - Cannot create key
+	2 - Failed to determine buffer
+	3 - Failed to encrypt data
+@@End@@
+
+###Remarks###
+Returns a binary string regardless of input
+
+###Related###
+_Crypt_DecryptData, _Crypt_DeriveKey, _Crypt_EncryptFile
+
+###See Also###
+@@MsdnLink@@ CryptEncrypt
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,77 @@
+###User Defined Function###
+_NamedPipes_CreateNamedPipe
+
+###Description###
+Creates an instance of a named pipe
+
+###Syntax###
+#Include <NamedPipes.au3>
+_NamedPipes_CreateNamedPipe($sName[, $iAccess = 2[, $iFlags = 2[, $iACL = 0[, $iType = 1[, $iRead = 1[, $iWait = 0[, $iMaxInst = 25[, $iOutBufSize = 4096[, $iInpBufSize = 4096[, $iDefTimeout = 5000[, $pSecurity = 0]]]]]]]]]]])
+
+###Parameters###
+@@ParamTable@@
+$sName
+	Pipe name with the following format: \\.\pipe\pipename. The pipename part of the name can
+		include any character other than a backslash, including numbers and special characters. The pipe name string
+		can be up to 256 characters long. Pipe names are not case sensitive.
+$iAccess
+	[optional] The pipe access mode. Must be one of the following:
+		0 - The flow of data in the pipe goes from client to server only (inbound)
+		1 - The flow of data in the pipe goes from server to client only (outbound)
+		2 - The pipe is bi-directional (duplex)
+$iFlags
+	[optional] The pipe flags. Can be any combination of the following:
+		1 - If you attempt to create multiple instances of a pipe with this flag, creation of the first instance
+		succeeds, but creation of the next instance fails.
+		2 - Overlapped mode is enabled. If this mode is enabled functions performing read, write, and connect
+		operations that may take a significant time to be completed can return immediately.
+		4 - Write-through mode is enabled. This mode affects only write operations on byte type pipes and only when
+		the client and server are on different computers.
+$iACL
+	[optional] Security ACL flags. Can be any combination of the following:
+		1 - The caller will have write access to the named pipe's discretionary ACL
+		2 - The caller will have write access to the named pipe's owner
+		4 - The caller will have write access to the named pipe's security ACL
+$iType
+	[optional] Pipe type mode. Must be one of the following:
+		0 - Data is written to the pipe as a stream of bytes
+		1 - Data is written to the pipe as a stream of messages
+$iRead
+	[optional] Pipe read mode. Must be one of the following:
+		0 - Data is read from the pipe as a stream of bytes
+		1 - Data is read from the pipe as a stream of messages
+$iWait
+	[optional] Pipe wait mode. Must be one of the following:
+		0 - Blocking mode is enabled. When the pipe handle is specified in ReadFile, WriteFile, or ConnectNamedPipe,
+		the operation is not completed until there is data to read, all data is written, or a client is connected.
+		1 - Nonblocking mode is enabled. ReadFile, WriteFile, and ConnectNamedPipe always return immediately.
+$iMaxInst
+	[optional] The maximum number of instances that can be created for this pipe
+$iOutBufSize
+	[optional] The number of bytes to reserve for the output buffer
+$iInpBufSize
+	[optional] The number of bytes to reserve for the input buffer
+$iDefTimeOut
+	[optional] The default time out value, in milliseconds
+$pSecurity
+	[optional] A pointer to a tagSECURITY_ATTRIBUTES structure that specifies a security descriptor for the
+		new named pipe and determines whether child processes can inherit the returned handle. If pSecurity is 0, the
+		named pipe gets a default security descriptor and the handle cannot be inherited. The ACLs in the default
+		security descriptor for a named pipe grant full control to the LocalSystem account administrators, and the
+		creator owner. They also grant read access to members of the Everyone group and the anonymous account.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Handle to the server end of a named pipe instance
+Failure:	-1
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_NamedPipes_ConnectNamedPipe, _NamedPipes_CreatePipe
+
+###See Also###
+@@MsdnLink@@ CreateNamedPipe

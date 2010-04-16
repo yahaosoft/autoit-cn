@@ -1,0 +1,41 @@
+###Structure Name###
+$tagBITMAPINFO
+
+###Description###
+This structure defines the dimensions and color information of a Windows-based device-independent bitmap (DIB).
+
+###Syntax###
+Global Const $tagBITMAPINFO = "dword Size;long Width;long Height;word Planes;word BitCount;dword Compression;dword SizeImage;" & _
+		"long XPelsPerMeter;long YPelsPerMeter;dword ClrUsed;dword ClrImportant;dword RGBQuad"
+
+###Fields###
+@@ParamTable@@
+Size
+	The number of bytes required by the structure, minus the size of the RGBQuad data
+Width
+	Specifies the width of the bitmap, in pixels
+Height
+	Specifies the height of the bitmap, in pixels
+Planes
+	Specifies the number of planes for the target device. This must be set to 1
+BitCount
+	Specifies the number of bits-per-pixel
+Compression
+	Specifies the type of compression for a compressed bottom-up bitmap
+SizeImage
+	Specifies the size, in bytes, of the image
+XPelsPerMeter
+	Specifies the horizontal resolution, in pixels-per-meter, of the target device for the bitmap
+YPelsPerMeter
+	Specifies the vertical resolution, in pixels-per-meter, of the target device for the bitmap
+ClrUsed
+	Specifies the number of color indexes in the color table that are actually used by the bitmap
+ClrImportant
+	Specifies the number of color indexes that are required for displaying the bitmap
+RGBQuad
+	An array of tagRGBQUAD structures. The elements of the array that make up the color table.
+@@End@@
+
+###Remarks###
+None.
+

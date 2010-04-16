@@ -1,0 +1,235 @@
+﻿###Function###
+StringRegExp
+
+###Description###
+检查字串是否符合给定的正则表达式.
+
+###Syntax###
+StringRegExp ( "字符串", "表达式" [, 标志 ] [, 偏移量 ] ] )
+
+
+###Parameters###
+@@ParamTable@@
+字符串
+	需要检查的字符串
+表达式
+	正则表达式比较.
+标志
+	[可选参数] 一个表示函数运行方式的值. 见下表详细说明. 默认 0.
+偏移量
+	[可选参数] 开始匹配的字符串位置 (起始于1). 默认为 1.
+@@End@@
+<br>
+@@ParamTable@@
+<b>标志</b>
+	<b>值</b>
+0
+	返回 1(匹配) 或 0(不匹配)
+1
+	返回匹配项目的数组.
+2
+	返回包括完整匹配的数组.(Perl/ PHP 样式).
+3
+	返回全局匹配的数组.
+4
+	返回包括完整匹配(Perl/ PHP 样式)和全局匹配的数组.
+@@End@@
+
+###ReturnValue###
+<i>标志 = 0 时:</i>
+
+@@ReturnTable@@
+@Error	意思
+2 	正则表达式错误. @Extended = 在正则表达式中的错误偏移量.
+@@End@@
+
+<br>
+<i>标志= 1 或 2 时:</i>
+
+@@ReturnTable@@
+@Error	意思
+0	有效数组. 检查 @Extended 的下一个偏移量.
+1	数组无效. 没有匹配项目.
+2	正则表达式错误, 数组无效. @Extended = 在正则表达式中的错误偏移量.
+@@End@@
+
+<br>
+<i>标志 = 3 或 4 时:</i>
+
+@@ReturnTable@@
+@Error	意思
+0	有效数组.
+1	数组无效. 没有匹配项目.
+2	正则表达式错误, 数组无效. @Extended = 在正则表达式中的错误偏移量.
+@@End@@
+
+
+###Remarks###
+The flag parameter can have one of 5 values (0 through 4).  0 gives a true (1) or false (0) as to whether the pattern was found or not.  1 and 2 find the first match and returns it in an array.  3 and 4 find multiple hits and fills the array with all the matching text.  2 and 4 include the full matching text as the first record, not just the capturing groups, which is all you get with flag 1 and 3.
+
+使用正则表达式是搜寻字串的一个轻巧的方法. 正则表达式指出纯文本字符串应该在目标字串中存在, 而且有些字符有特别的意义，表示什么样的可变性是承认目标字串的. AutoIt 正则表达式通常是与大小写有关.
+
+正则表达式由下面所列的一个或多个简单的字符规则组成. 如果字符不在下列表格中,则它只会匹配它本身.
+
+次数修饰符 (*, +, ?, {...} ) 将尝试最大可能的匹配, 使第一次匹配之后的字符也能得到匹配, 除非被一个问号跟随; then it will find the smallest pattern that allows the following characters to match as well.
+
+允许嵌套的组, 但必须记住所有的组, 除非不捕获组, 在返回的数组中，里面的表达式匹配的值在前,而外面的表达式匹配的值在后.
+
+完整的描述在 <b><a href="http://www.autoitscript.com/autoit3/pcrepattern.html" target="_blank">这里</a></b>
+
+<b>注意</b>: 错误的的正则表达式可能产生一个死循环,使 CPU even(偶校验)崩溃.
+
+<b><u>匹配字符</u></b>
+
+@@ParamTable@@
+[ ... ]
+	Match any character in the set.  e.g. <b>[aeiou]</b> matches any lower-case vowel.  A contiguous set can be defined using a dash between the starting and ending characters.  e.g. <b>[a-z]</b> matches any lower case character.  To include a dash (<b>-</b>) in a set, use it as the first or last character of the set.  To include a closing bracket in a set, use it as the first character of the set.  e.g. <b>[][]</b> will match either [ or ].  Note that special characters <b>do not</b> retain their special meanings inside a set, with the exception of <b>\\</b>,  <b>\^</b>, <b>\-</b>,<b>\[</b> and <b>\]</b> match the escaped character inside a set.
+[^ ... ]
+	Match any character <b>not</b> in the set.  e.g. <b>[^0-9]</b> matches any non-digit.  To include a caret (<b>^</b>) in a set, put it after the beginning of the set or escape it (\^).
+[:class:]
+	Match a character in the given class of characters.  Valid classes are: alpha (any alphabetic character), alnum (any alphanumeric character), lower (any lower-case letter), upper (any upper-case letter), digit (any decimal digit 0-9), xdigit (any hexadecimal digit, 0-9, A-F, a-f), space (any whitespace character), blank (only a space or tab), print (any printable character), graph (any printable character except spaces), cntrl (any control character [ascii 127 or <32]) or punct (any punctuation character). So [0-9] is equivalent to [[:digit:]].
+[^:class:]
+	Match any character <b>not</b> in the class, but only if the first character.
+( ... )
+	Group. The elements in the group are treated in order and can be repeated together.  e.g. <b>(ab)+</b> will match "ab" or "abab", but not "aba".  A group will also store the text matched for use in back-references and in the array returned by the function, depending on flag value.
+(?i)
+	Case-insensitivity flag.  This does not operate as a group.  It tells the regular expression engine to do case-insensitive matching from that point on.
+(?-i)
+	(default) Case-sensitivity flag.  This does not operate as a group.  It tells the regular expression engine to do case-sensitive matching from that point on.
+(?: ... )
+	Non-capturing group.  Behaves just like a normal group, but does not record the matching characters in the array nor can the matched text be used for back-referencing.
+(?i: ... )
+	Case-insensitive non-capturing group.  Behaves just like a non-capturing group, but performs case-insensitive matches within the group.
+(?-i: ... )
+	Case-sensitive non-capturing group.  Behaves just like a non-capturing group, but performs case-sensitive matches within the group.
+(?m)
+	^ and $ match newlines within data.
+(?s)
+	. 匹配任意字符,包括换行. (默认 "." 不匹配换行)
+(?x)
+	忽略空白区域和 # 注释.
+(?U)
+	Invert greediness of quantifiers.
+<b>.</b>
+	匹配任何的单字符 (除换行以外)..
+|
+	或(or). 可以匹配|前的字符也可以匹配|之后的字符.
+\
+	退出一个特殊字符 (让它匹配实际字符) 或者引用一个特殊字符类型 (见下文)..
+\\
+	匹配一个真实的反斜线 (\).
+\a
+	闹铃,即字符 BEL (chr(7)).
+\A
+	只匹配字符串开始.
+\b
+	Matches at a word boundary.
+\B
+	Matches when not at a word boundary.
+\c
+	Match a control character, based on the next character.  For example, <b>\cM</b> matches ctrl-M.
+\d
+	匹配任何的数字 (0-9).
+\D
+	匹配任何的非数字.
+\e
+	匹配一个退出符 (chr(27)).
+\E
+	end case modification.
+\f
+	匹配进纸符 (chr(12)).
+\h
+	任何的水平空白字符.
+\H
+	任何不是水平的空白字符.
+\n
+	匹配换行符 (@LF, chr(10)).
+\Q
+	quote (disable) pattern metacharacters till \E.
+\r
+	匹配一个回车符 (@CR, chr(13)).
+\s
+	匹配任何的空白字符: Chr(9) 到 Chr(13).包括:水平制表符,换行,垂直列表符,换页,回车以及标准空格 ( Chr(32) ).
+\S
+	匹配任何的非空白的字符.
+\t
+	匹配一个制表符 (chr(9)).
+\v
+	任何的垂直空白字符.
+\V
+	任何一个不是垂直空白字符的字符.
+\w
+	匹配任何的"单词" 字符: a-z, A-Z, 0-9 或下划线 (_).
+\W
+	匹配任何的非"单词"字符.
+\###
+	Match the ascii character whose code is given or back-reference.  Can be up to 3 octal digits.<br>Match back-reference if found. Match the prior group number given exactly.  For example, <b>([:alpha:])\1</b> would match a double letter.
+\x##
+	匹配指定的ascii字符,用字符的的十六进制表示. 只能是 2 个数字.
+\z
+	只匹配字符串结束.
+\Z
+	只匹配字符串结束,或者换行之前.
+@@END@@
+
+<u><b>重复字符</u></b>
+
+@@ParamTable@@
+{<i>x</i>}
+	重复匹配 x 次.
+{<i>x</i>,}
+	重复匹配次数 >= x.
+{0,<i>x</i>}
+	重复匹配 0 到 x 次.
+{<i>x</i>, <i>y</i>}
+	重复匹配 x 到 y 次, x、y包括在内.
+*
+	重复匹配次数 >= 0.  等价于 {0,}
++
+	重复匹配次数 >= 1.  等价于 {1,}
+?
+	重复匹配 0 到 1 次.  等价于 {0, 1}
+? (在一个重复字符之后)
+	匹配最小的而非最大的.
+@@END@@
+
+<u><b>字符类别</u></b>
+
+@@ParamTable@@
+[:alnum:]
+	字母和数字
+[:alpha:]
+	字母
+[:ascii:]
+	字符代码 0 - 127
+[:blank:]
+	空格或制表符
+[:cntrl:]
+	控制字符
+[:digit:]
+	十进制数字 (相同于 \d)
+[:graph:]
+	可打印字符, 排除空格
+[:lower:]
+	小写字母
+[:print:]
+	可打印字符,包括空格
+[:punct:]
+	可打印字符, 排除文字和数字
+[:space:]
+	空白空间 (不完全和 \s 相同, 还包括 VT: chr(11) )
+[:upper:]
+	大写字母
+[:word:]
+	"字" 字符 (相同于 \w)
+[:xdigit:]
+	十六进制数
+@@END@@
+
+
+###Related###
+StringInStr, StringRegExpReplace
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,43 @@
+###User Defined Function###
+_WinAPI_GetOverlappedResult
+
+###Description###
+Retrieves the results of an overlapped operation
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_GetOverlappedResult($hFile, $pOverlapped, ByRef $iBytes [, $fWait = False])
+
+###Parameters###
+@@ParamTable@@
+$hFile
+	Handle to the file, named pipe, or communications device. This is the same handle that was
+		specified when the overlapped operation was started by a call to ReadFile, WriteFile, ConnectNamedPipe,
+		TransactNamedPipe, DeviceIoControl, or WaitCommEvent.
+$pOverlapped
+	Pointer to the $tagOVERLAPPED structure that was specified when the overlapped operation was
+		started.
+$iBytes
+	The number of bytes that were actually transferred by a read or write operation.
+		For a TransactNamedPipe operation, this is the number of bytes that were read from the pipe.
+		For a DeviceIoControl operation this is the number of bytes of output data returned by the device driver.
+		For a ConnectNamedPipe or WaitCommEvent operation, this value is undefined.
+$fWait
+	[optional] If True, the function does not return until the operation has been completed.
+		If False and the operation is still pending, the function returns False and the GetLastError function will return ERROR_IO_INCOMPLETE.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+$tagOVERLAPPED
+
+###See Also###
+@@MsdnLink@@ GetOverlappedResult

@@ -1,0 +1,50 @@
+﻿###User Defined Function###
+_IELinkClickByText
+
+###Description###
+模拟鼠标点击带有与所提供字符串相匹配的文本子串的链接.
+
+###Syntax###
+#include <IE.au3> 
+_IELinkClickByText ( ByRef $o_object, $s_linkText [, $i_index = 0[, $f_wait = 1]] )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	InternetExplorer.Application, 窗口或框架对象的对象变量
+$s_linkText
+	要点击的链接在网页上显示的文本
+$i_index
+	[可选参数]: 如果链接文字不止一次出项, 指定想要的0基索引的实例
+$f_wait
+	[可选参数]: 定义在返回前是否等待窗口加载完毕
+	0 = 立即返回,不等待窗口加载
+	1 = (默认) 等待窗口加载完毕然后返回
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回-1
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	1 ($_IEStatus_GeneralError) = 一般性错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+	6 ($_IEStatus_LoadWaitTimeout) = 加载等待超时
+	7 ($_IEStatus_NoMatch) = 无匹配
+	8 ($_IEStatus_AccessIsDenied) = 访问被禁止
+	9 ($_IEStatus_ClientDisconnected) = 客户端断开
+@Extended:	包含无效参数数量
+@@End@@
+
+
+###Remarks###
+并非所有组件都像其显示的那样是链接,它们通常是通过获取Javascript在其他DOM组件的点击事件模拟点击链接的.要激活这种组件,使用_IEAction的"click".
+
+
+###Related###
+_IELinkClickByIndex, _IELoadWait
+
+
+###Example###
+@@IncludeExample@@

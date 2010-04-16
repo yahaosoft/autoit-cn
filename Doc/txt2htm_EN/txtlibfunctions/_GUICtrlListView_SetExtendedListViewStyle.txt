@@ -1,0 +1,51 @@
+###User Defined Function###
+_GUICtrlListView_SetExtendedListViewStyle
+
+###Description###
+Sets extended styles
+
+###Syntax###
+#Include <GuiListView.au3>
+_GUICtrlListView_SetExtendedListViewStyle($hWnd, $iExStyle[, $iExMask = 0])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iExStyle
+	Extended control styles:
+		$LVS_EX_BORDERSELECT - When an item is selected the border color of the item changes
+		$LVS_EX_CHECKBOXES - Enables check boxes for items in a list-view control
+		$LVS_EX_DOUBLEBUFFER - Paints via double-buffering, which reduces flicker
+		$LVS_EX_FLATSB - Enables flat scroll bars in the list view
+		$LVS_EX_FULLROWSELECT - When an item is selected, the item and all its subitems are highlighted
+		$LVS_EX_GRIDLINES - Displays gridlines around items and subitems
+		$LVS_EX_HEADERDRAGDROP - Enables drag-and-drop reordering of columns
+		$LVS_EX_INFOTIP - The $LVN_GETINFOTIP notification message is sent before displaying a ToolTip
+		$LVS_EX_LABELTIP - If not set, the unfolds partly hidden labels only for the large icon mode
+		$LVS_EX_MULTIWORKAREAS - The control will not autoarrange its icons until one or more work areas are defined
+		$LVS_EX_ONECLICKACTIVATE - The control sends an $LVN_ITEMACTIVATE messages when the user clicks an item
+		$LVS_EX_REGIONAL - Sets the control region to include only the item icons and text
+		$LVS_EX_SIMPLESELECT - In icon view moves the state image of the control to the top right
+		$LVS_EX_SUBITEMIMAGES - Allows images to be displayed for subitems
+		$LVS_EX_TRACKSELECT - Enables hot-track selection in the control
+		$LVS_EX_TWOCLICKACTIVATE - The control sends an $LVN_ITEMACTIVATE message when the user double-clicks an item
+		$LVS_EX_UNDERLINECOLD - Causes non-hot items that may be activated to be displayed with underlined text
+		$LVS_EX_UNDERLINEHOT - Causes hot items that may be activated to be displayed with underlined text
+$iExMask
+	[optional] Specifies which styles in $iExStyle are to be affected. This parameter can be a combination of
+		extended styles. Only the extended styles in $iExMask will be changed. All other styles will be maintained as
+		they are. If this parameter is zero, all of the styles in $iExStyle will be affected.
+@@End@@
+
+###ReturnValue###
+Returns the previous extended styles
+
+###Remarks###
+None.
+
+###Related###
+_GUICtrlListView_GetExtendedListViewStyle
+
+###Example###
+@@IncludeExample@@

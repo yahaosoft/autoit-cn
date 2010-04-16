@@ -1,0 +1,51 @@
+﻿###Function###
+TrayItemSetState
+
+###Description###
+设置当前系统托盘菜单/项目控件的状态.
+
+###Syntax###
+TrayItemSetState ( 控件ID, 状态)
+
+
+###Parameters###
+@@ParamTable@@
+控件ID
+	控件标识(controlID),参见 <a href="../functions/TrayCreateItem.htm">TrayCreateItem</a> 或者 <a href="..\functions\TrayCreateMenu.htm">TrayCreateMenu</a> 函数的返回值.   
+状态
+	查看下面的 <a href="#StateTable">状态列表</a> .
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回 1.
+失败:	返回 0.
+@@End@@
+
+
+###Remarks###
+	<a name="StateTable"></a><b>状态列表</b>
+@@StandardTable1@@
+<b>状态</b>	<b>值</b>	<b>说明</b>
+No Change	0
+$TRAY_CHECKED	1	菜单项目被选中
+$TRAY_UNCHECKED	4	菜单项目不被选中
+$TRAY_ENABLE	64	应用菜单项目
+$TRAY_DISABLE	128	禁用菜单项目(变成灰色)
+$TRAY_FOCUS	256	菜单项目被选择
+$TRAY_DEFAULT	512	菜单项目被设置为默认菜单项目
+@@End@@
+
+状态值可以多个状态相加,如 $TRAY_CHECKED + $TRAY_DEFAULT 将设置菜单项目被选中且设置为默认菜单项目. 
+
+要 重置/删除  $TRAY_DEFAULT 状态只需设置为其它状态,例如:设置为 $TRAY_ENABLE.
+
+要使用上方这些常量值需要包含 #include <Constants.au3>
+
+
+###Related###
+TrayItemGetState, TrayCreateItem, TrayCreateMenu, TraySetState
+
+
+###Example###
+@@IncludeExample@@

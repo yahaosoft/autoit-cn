@@ -1,0 +1,40 @@
+﻿###Function###
+TCPRecv
+
+###Description###
+从已经连接的套接字里面接收数据.
+
+###Syntax###
+TCPRecv ( 主套接字, 最大返回量[, 标志])
+
+
+###Parameters###
+@@ParamTable@@
+主套接字
+	套接字标识(SocketID),参见 a <a href="TCPAccept.htm">TCPAccept</a> 或者 <a href="TCPConnect.htm">TCPConnect</a>  函数.   
+最大返回量
+	定义返回是接收的最大字符数.
+标志
+	[可选参数] 强制函数返回二进制数据需要设置为1(默认为 0, 并且不会自动进行检测二进制/字符串数据).    
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回二进制/字符串的值(从已经连接的套接字里面接收).
+失败:	返回空字符串 "" 并设置 @error 的值
+@error:	-1 套接字错误
+	Windows API WSAGetError 返回值(参考 <a href="http://msdn.microsoft.com/en-us/library/ms740668.aspx">MSDN</a>).
+@@End@@
+
+
+###Remarks###
+由于向后兼容的原因,函数将试着返回一个字符串. 默认情况下.如果是空字符(0x00)返回,返回值将是二进制类型.
+要强制函数总是返回二进位的数据(最好的选择),需要将参数 "标志" 设置为 1.
+
+
+###Related###
+BinaryLen, BinaryMid, TCPStartup, TCPAccept, TCPConnect, TCPTimeout (Option)
+
+
+###Example###
+@@IncludeExample@@

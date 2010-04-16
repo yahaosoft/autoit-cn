@@ -1,0 +1,56 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Function Notes</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="css/default.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+<!--
+.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+-->
+  </style>
+</head>
+
+<body>
+<H1>用户自定义函数说明</H1>
+
+  
+<p>我们有很多包含了标准 AutoIt3 函数的文件, 我们叫它 <span class="style1">U</span>ser <span class="style1">D</span>efined <span class="style1">F</span>unctions(用户定义的函数).<br> 
+UDF 是一些函数/脚本片段, 使用 AutoIt3 编写, 您可以包含(#include)它们到您自己的脚本中并使用它们.在需要它们时,不需要程序自己或者每次手动复制&amp;粘贴代码.</p>
+<p>例子:<br>
+</p>
+    <p class="codebox">#include &lt;date.au3&gt;<br>
+      MsgBox(0,&quot;今天&quot;,&quot;今天的日期为 &quot; &amp; 
+      _Now())</p>
+<p>这个脚本将会显示按计算机长格式格式化后的当前日期. 例如: &quot;Sunday, December 18, 2004&quot; / &quot;2010/2/24 3:09:15&quot;</p>
+<p>&nbsp;</p>
+<p>Many UDF's contain optional parameters that can be omitted.&nbsp; If you 
+  wish to specify an optional parameter, however, all parameters that precede 
+  it must be specified! <br>
+  For example, consider <i><a href="libfunctions/_ArraySort.htm">_ArraySort</a> </i>
+( ByRef $a_Array [, $i_Descending [, $i_Base=0 [, $i_Ubound=0 [, $i_Dim=1 [, 
+$i_SortIndex=0 ]]]]] )<BR> 
+  When a parameters  is preceded with Byref mean that the function will update this variable with a new value. These parameters must be a variable ($xyz) and cannot be a constant. <br>
+</p>
+<p>Most  UDF's indicate success/failure as a <b>return value</b>; others indicate 
+  it by setting the <b>@error flag</b>.&nbsp; Some do both....<br>
+  @error = 0 ;is always success<br>
+  Return = varies, but is typically non-zero for success to allow easy to read 
+  code...<br>
+  <br>
+  <b>If a function can set the @error flag, you should always check it before 
+  using a return value - if @error indicates an error then the function return 
+  value is generally undefined...</b><br>
+</p>
+<p><br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+<p><img src="images/blue_gradient_1024x24.jpg" width="1024" height="1"></p>
+</html>

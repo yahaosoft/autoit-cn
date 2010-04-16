@@ -1,0 +1,73 @@
+﻿###Function###
+HotKeySet
+
+###Description###
+设置一个可调用某用户函数的热键.
+
+###Syntax###
+HotKeySet ( "热键" [, "函数名"] )
+
+
+###Parameters###
+@@ParamTable@@
+热键
+	要设置的热键,按键格式与 <a href="Send.htm">Send()</a> 函数使用的一样. 
+函数名
+	[可选参数] 按下热键后要调用的函数名.留空则撤销此前设置的热键.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回值为 1.
+失败:	返回值为 0.
+@@End@@
+
+
+###Remarks###
+如果有两个 AutoIt 脚本设置了同样的热键,您应该避免同时运行这两个脚本程序(否则第二个脚本将无法捕获热键,除非第一个脚本终止运行或在第二个脚本设置热键前撤销了冲突热键). 
+
+用户按下热键后 *通常会* 中断当前运行中的 AutoIt 函数/语句,并运行该热键关联的用户函数,直到其完成操作或被中断为止.当然也会有些例外:
+1)  如果当前(运行的)函数是个"阻断型(blocking)"函数,则键击动作将被缓冲并等待该阻断型函数完成操作后才继续执行.MsgBox 和 FileSelectFolder 就是典型的阻断型函数.您可以试试在下面示例脚本中定义的热键 Shift-Alt-d.
+2)  如果您在 AutoIt 的托盘菜单上选择了暂停脚本则任何在暂停期间按下的热键都将被忽略.
+
+<b>不能设置的热键:</b>
+
+@@ParamTable@@
+Ctrl+Alt+Delete
+	由 Windows 系统保留
+F12
+	也是由 Windows 保留,涉及到 API.
+小键盘上的 Enter(回车)键
+	使用 {Enter} 即可同时捕获主键盘和小键盘上的回车键.
+Win+B,D,E,F,L,M,R,U; 以及 Win+Shift+M
+	这些都是 Windows 内置的快捷键.  Note:  Win+B 和 Win+L 仅由 Windows XP 以上系统保留.
+Alt, Ctrl, Shift, Win
+	这些都是辅助按键!
+其它
+	任何由第三方软件定义的全局热键、任何由两个或更多"基键"组成的热键 '{F1}{F2}', 任何型如'{LALT}' 或 '{ALTDOWN}'的按键.
+@@End@@
+	
+在设置了一个热键后,AutoIt 将尝试捕获指定按键事件但并不会把它传递到激活程序中,不过也有一个例外:按下 Lock 键(包括 NumLock、CapsLock 和 ScrollLock)在任何时候都将切换其相应状态!
+如果希望把捕获的热键事件发送到激活程序中,您就必须先注销该热键然后再调用 Send 或 ControlSend 函数:
+
+; 捕获并传递按键事件
+<i>HotKeySet("{Esc}", "captureEsc")
+Func captureEsc()
+	; 这里可定义要做的各种任务 
+	HotKeySet("{Esc}")
+	Send("{Esc}")
+	HotKeySet("{Esc}", "captureEsc")
+EndFunc
+</i>
+
+要调用一个函数 <b>不能</b> 给函数加上参数. 它将会被忽略.
+
+@HotKeyPressed 宏可以用于一些函数中得到相应按键的句柄.
+
+
+###Related###
+Send, GUISetAccelerators
+
+
+###Example###
+@@IncludeExample@@

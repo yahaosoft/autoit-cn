@@ -1,0 +1,36 @@
+###User Defined Function###
+_GUIImageList_SetImageCount
+
+###Description###
+Resizes an existing image list
+
+###Syntax###
+#Include <GuiImageList.au3>
+_GUIImageList_SetImageCount($hWnd, $iNewCount)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iNewCount
+	The new size of the image list
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+###Remarks###
+If an application expands an image list with this function, it must add new images by using
+the GUIImageList_Replace function. If your application does not add valid images at the new indexes,
+draw operations that use the new indexes will be unpredictable.
+
+If you decrease the size of an image list by using this function, the truncated images are freed.
+
+###Related###
+_GUIImageList_GetImageCount
+
+###Example###
+@@IncludeExample@@

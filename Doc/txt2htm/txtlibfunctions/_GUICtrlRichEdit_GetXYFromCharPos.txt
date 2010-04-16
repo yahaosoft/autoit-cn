@@ -1,0 +1,41 @@
+###User Defined Function###
+_GUICtrlRichEdit_GetXYFromCharPos
+
+###Description###
+Retrieves the XY coordinates of an inter-character position
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_GetXYFromCharPos($hWnd, $iCharPos)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iCharPos
+	Inter-character position
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	an array [<x>, <y>] - coordinates of the inter-character position, relative to the top-left corner of the client area
+Failure:	sets @error
+@error:	101 - $hWnd is not a handle
+	1021 - $iCharPos is neither a positive number nor zero
+	1022 - $iCharPos exceeds the number of characters in the control
+@@End@@
+
+###Remarks###
+The first inter-character position is numbered 0
+
+With a multi-line control, coordinates are returned even for inter-character positions
+that are not visible.
+
+###Related###
+_GUICtrlRichEdit_GetCharPosFromXY
+
+###See Also###
+@@MsdnLink@@ EM_POSFROMCHAR
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,43 @@
+###User Defined Function###
+_WinAPI_FormatMessage
+
+###Description###
+Formats a message string
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_FormatMessage($iFlags, $pSource, $iMessageID, $iLanguageID, ByRef $pBuffer, $iSize, $vArguments)
+
+###Parameters###
+@@ParamTable@@
+$iFlags
+	Contains a set of bit flags that specify aspects of the formatting process and how to interpret
+		the pSource parameter. The low-order byte of $iFlags specifies how the function handles line breaks in the
+		output buffer. The low-order byte can also specify the maximum width of a formatted output line.
+$pSource
+	Pointer to message source
+$iMessageID
+	Requested message identifier
+$iLanguageID
+	Language identifier for requested message
+$pBuffer
+	Pointer to message buffer or string variable that will contain the message
+$iSize
+	Maximum size of message buffer
+$vArguments
+	Address of array of message inserts
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Number of bytes stored in message buffer
+Failure:	Set @error
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ FormatMessage

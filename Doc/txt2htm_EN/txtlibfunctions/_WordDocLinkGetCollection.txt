@@ -1,0 +1,42 @@
+###User Defined Function###
+_WordDocLinkGetCollection
+
+###Description###
+Returns a collection object containing all links in the document
+
+###Syntax###
+#include <Word.au3> 
+_WordDocLinkGetCollection ( ByRef $o_object [, $i_index = -1] )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	Object variable of an Word.Application, document object
+$i_index
+	[optional] specifies whether to return a collection or indexed instance
+	Positive integer returns an indexed instance (1 based)
+	-1 = (Default) returns a collection
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an object collection of all links in the document, @EXTENDED = link count
+Failure:	Returns 0  and sets @ERROR = 1
+@Error:	$_WordStatus_Success = No Error
+	$_WordStatus_InvalidDataType = Invalid Data Type
+	$_WordStatus_InvalidValue = Invalid Value
+	$_WordStatus_NoMatch = No Match
+@Extended:	Contains invalid parameter number
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+None.
+
+
+###Example###
+@@IncludeExample@@

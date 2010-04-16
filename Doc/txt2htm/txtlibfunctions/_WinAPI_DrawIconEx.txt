@@ -1,0 +1,62 @@
+﻿###User Defined Function###
+_WinAPI_DrawIconEx
+
+###Description###
+Draws an icon or cursor into the specified device context
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_DrawIconEx($hDC, $iX, $iY, $hIcon [, $iWidth = 0 [, $iHeight = 0 [, $iStep = 0 [, $hBrush = 0 [, $iFlags = 3]]]]])
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context into which the icon or cursor is drawn
+$iX
+	X coordinate of the upper-left corner of the icon
+$iY
+	Y coordinate of the upper-left corner of the icon
+$hIcon
+	Handle to the icon to be drawn
+$iWidth
+	[optional] Specifies the logical width of the icon or cursor. If this parameter is zero and the iFlags
+		parameter is "default size", the function uses the $SM_CXICON or $SM_CXCURSOR system metric value to set the
+		width. If this is zero and "default size" is not used, the function uses the actual resource width.
+$iHeight
+	[optional] Specifies the logical height of the icon or cursor. If this parameter is zero and the iFlags
+		parameter is "default size", the function uses the $SM_CYICON or $SM_CYCURSOR system metric value to set the
+		width. If this is zero and "default size" is not used, the function uses the actual resource height.
+$iStep
+	[optional] Specifies the index of the frame to draw if hIcon identifies an animated cursor. This parameter
+		is ignored if hIcon does not identify an animated cursor.
+$hBrush
+	[optional] Handle to a brush that the system uses for flicker-free drawing. If hBrush is a valid brush
+		handle, the system creates an offscreen bitmap using the specified brush for the background color, draws the
+		icon or cursor into the bitmap, and then copies the bitmap into the device context identified by hDC. If
+		hBrush is 0, the system draws the icon or cursor directly into the device context.
+$iFlags
+	[optional] Specifies the drawing flags. This parameter can be one of the following values:
+		1 - Draws the icon or cursor using the mask
+		2 - Draws the icon or cursor using the image
+		3 - Draws the icon or cursor using the mask and image
+		4 - Draws the icon or cursor using the system default image rather than the user-specified image
+		5 - Draws the icon or cursor using the width and height specified by the system metric values for cursors or
+		icons, if the iWidth and iWidth parameters are set to zero. If this flag is not specified and iWidth and
+		iWidth are set to zero, the function uses the actual resource size.
+		6 - Draws the icon as an unmirrored icon
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_WinAPI_DrawIcon
+
+###See Also###
+@@MsdnLink@@ DrawIconEx

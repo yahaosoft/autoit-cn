@@ -1,0 +1,43 @@
+﻿###User Defined Function###
+_IEHeadInsertEventScript
+
+###Description###
+在文档Head标签内插入Javascript代码.
+
+###Syntax###
+#include <IE.au3> 
+_IEHeadInsertEventScript ( ByRef $o_object, $s_htmlFor, $s_event, $s_script )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	InternetExplorer.Application, 窗口或框架对象的对象变量
+$s_htmlFor
+	用于事件监视的HTML元素(如 "文档", "窗体"或元素ID)
+$s_event
+	监视的事件(如 "onclick"或"oncontextmenu")
+$s_script
+	执行JS字符串
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回1
+失败:	返回0并设置@ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+@Extended:	包含无效参数数量
+@@End@@
+
+
+###Remarks###
+通过使用ObjEvent, AutoIt能够通过COM被事件通知, 但非同步管理它们(好于在浏览器场景中同步控制). 该事务允许向浏览器场景中插入被管理的代码.
+
+说明: 没有被分配ID的元素仍可以通过_IEPropertyGet获取他们的"uniqueID"属性
+
+###Related###
+_IEDocInsertHTML, _IEPropertyGet, _IEDocInsertText
+
+
+###Example###
+@@IncludeExample@@

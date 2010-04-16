@@ -1,0 +1,37 @@
+﻿###Function###
+WinGetClientSize
+
+###Description###
+获取指定窗口的客户区的大小信息.
+
+###Syntax###
+WinGetClientSize ( "窗口标题" [, "窗口文本"] )
+
+
+###Parameters###
+@@ParamTable@@
+窗口标题
+	目标窗口标题. See <a href="../intro/windowsadvanced.htm">标题特殊定义</a>.
+窗口文本
+	[可选参数] 目标窗口文本.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回一个含有下列信息的2元素数组:
+	$array[0] = 目标窗口客户区的宽度
+	$array[1] = 目标窗口客户区的高度
+失败:	返回值为0,并把 @error 设为1,说明未找到目标窗口.
+@@End@@
+
+
+###Remarks###
+若目标窗口被最小化,则返回的宽度和高度都是零.但是,即使目标窗口处于(非最小化)隐藏状态 WinGetClientSize 仍能正常工作.若窗口标题是"Program Manager"则本函数将返回桌面的大小.WinGetClientSize("") 则表示目标窗口是当前激活窗口.若同时有多个窗口符合匹配条件则程序将获取最近被激活的窗口的大小.
+
+###Related###
+WinGetPos, WinMove
+
+
+###Example###
+@@IncludeExample@@

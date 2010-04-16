@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Tutorial - Regular Expression</title>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <link href="../../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Tutorial - Regular Expression</h1>
+<p>Here's a smallish guide on unravelling the seeming mysteries of StringRegExp().<br>
+  <br>
+  StringRegExp(
+  <!--coloro:#3333FF--><span style="color: #3333ff">
+  <!--/coloro-->&quot;test&quot;<!--colorc--></span><!--/colorc-->,
+  <!--coloro:#FF0000--><span style="color: #ff0000">
+  <!--/coloro-->&quot;pattern&quot;<!--colorc--></span><!--/colorc--> [,
+  <!--coloro:#009900--><span style="color: #009900">
+  <!--/coloro-->flag<!--colorc--></span><!--/colorc--> ] )<br>
+  <br>
+  <!--coloro:#3333FF--><span style="color: #3333ff">
+  <!--/coloro-->&quot;test&quot;<!--colorc--></span><!--/colorc--> = The string to search 
+  through for matches.<br>
+  <!--coloro:#FF0000--><span style="color: #ff0000">
+  <!--/coloro-->&quot;pattern&quot;<!--colorc--></span><!--/colorc--> = A string 
+  consisting of certain key characters that let the function know <b>PRECISELY</b> 
+  what you want to match. No ifs, ands, or buts.. it's a match or it isn't.<br>
+  <!--coloro:#009900--><span style="color: #009900">
+  <!--/coloro-->flag<!--colorc--></span><!--/colorc-->[optional] = Tells the 
+  function if you just want to know if the &quot;pattern&quot; is found, or if you want it 
+  to return the first match, or if you want it to return all the matches in the 
+  &quot;test&quot; string.<br>
+  <br>
+  <H2>The Very Basics</H2>
+  As you may have figured out, the &quot;pattern&quot; string is the only difficult part 
+  of calling a StringRegExp() (forthwith: SRE). I find it best to think of 
+  patterns as telling the function to match a string character by character. 
+  There are different ways to find a certain character: If you want to match the 
+  string &quot;test&quot;, that should be simple enough. You want to tell SRE to first 
+  search the string for a &quot;t&quot;. If it finds one, then it assumes it has a match, 
+  and the rest of the pattern is used to try to prove that what it's found is 
+  not a match. So, if the next character is an &quot;e&quot;, it could still be a match. 
+  Let's say the next letter is an &quot;x&quot;. SRE knows immediately that it hasn't 
+  found a match because the third character you tell it to look for is an &quot;s&quot;.<br>
+  &nbsp;</p>
+<p>
+  <u><b>Example 1</b></u></p>
+<p class="codebox">MsgBox(0, &quot;SRE Example 1 Result&quot;, StringRegExp(&quot;text&quot;, 'test'))</p>
+<p>In this example, the message box should read &quot;0&quot;, which means the pattern 
+  &quot;test&quot; was not found in the test string &quot;text&quot;. I know this seems pretty 
+  simple, but now you know why it wasn't found.<br>
+  <br>
+  The next way of specifying a pattern is by using a set (&quot;[ ... ]&quot;). You can 
+  equate a set to the logic function &quot;OR&quot;. Let's use the previous Example. We 
+  want to find either the string &quot;test&quot; or the string &quot;text&quot;. So, the way I 
+  start looking for a pattern is to think like SRE would think: The first 
+  character I want to match is &quot;t&quot;, then the letter &quot;e&quot;, this is the same for 
+  both strings we want to match. Now we want to match &quot;s&quot; OR &quot;x&quot;, so we can use 
+  a set as a substitute: &quot;[sx]&quot; means match an &quot;s&quot; or an &quot;x&quot;. Then the last 
+  letter is a &quot;t&quot; again.<br>
+  <br>
+  <u><b>Example 2</b></u></p>
+<p class="codebox">MsgBox(0, &quot;SRE Example 2 Result&quot;, StringRegExp(&quot;text&quot;, 'te[sx]t'))<br>
+    MsgBox(0, &quot;SRE Example 2 Result&quot;, StringRegExp(&quot;test&quot;, 'te[sx]t'))</p>
+<p>These should both provide the result &quot;1&quot;, because the pattern should match 
+  both &quot;test&quot; and &quot;text&quot;.<br>
+  <br>
+  You can also specify how many times to match each character by using &quot;{number 
+  of matches}&quot; or you can specify a range by using &quot;{min, max}&quot;. The first 
+  example below is redundant, but shows what I mean:<br>
+  <br>
+  <u><b>Example 3</b></u></p>
+<p class="codebox">MsgBox(0, &quot;SRE Example 3 Result&quot;, StringRegExp(&quot;text&quot;, 't{1}e{1}[sx]{1}t{1}'))<br>
+    MsgBox(0, &quot;SRE Example 3 Result&quot;, StringRegExp(&quot;aaaabbbbcccc&quot;, 'b{4}'))</p>
+  <p><br>
+  <br>
+  <H2>The Not-So Basics</H2>
+  Right now you're probably thinking &quot;Isn't this just a glorified StringInStr() 
+  function?&quot;. Well, using a &quot;flag&quot; value of 0, most of the time you're right. 
+  But SRE is much more powerful than that. As you use SRE's more and more, 
+  you'll find you might know less and less about the type of pattern you are 
+  looking for. There are ways to be less and less specific about each character 
+  you wish to specify in the pattern. Take, for example, a line from the chat 
+  log of a game: &quot;Gnarly Monster hits you for 18 damage.&quot; You want to find out 
+  how much damage Gnarly Monster hit you for. Well, you can't use StringInStr() 
+  because you aren't looking for &quot;18&quot;, you're looking for &quot;????&quot;, where ? could 
+  be any digit.<br>
+  <br>
+  Here's how I would assemble this pattern. Look at what you do and do not know 
+  about what you want to find:<br>
+  1) You know that it will ALWAYS contain nothing but digits.<br>
+  2) You know that it will SOMETIMES be 2 characters long.<br>
+  2a) You know from playing the game that the maximum damage a monster can do is 
+  999.<br>
+  2b) You know that the minimum damage a monster can do is 0.<br>
+  3) You know that it will ALWAYS be between 1 and 3 characters long.<br>
+  4) You know that there are no other digits in the test string.<br>
+  <br>
+  At this point, I'd like to introduce the FLAG value of &quot;1&quot; and the grouping 
+  characters &quot;()&quot;. The flag value of &quot;1&quot; means that SRE will not only match your 
+  pattern, but also return an array, with each element of the array consisting 
+  of a captured &quot;group&quot; of characters. So without veering off course too much, 
+  take this example:<br>
+  <br>
+  <u><b>Example 4</b></u><!--c1--></p>
+<p class="codebox">$asResult = StringRegExp(&quot;This is a test example&quot;, '(test)', 1)<br>
+    If @error == 0 Then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;MsgBox(0, &quot;SRE Example 4 Result&quot;, $asResult[0])<br>
+    EndIf<br>
+    $asResult = StringRegExp(&quot;This is a test example&quot;, '(te)(st)', 1)<br>
+    If @error == 0 Then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;MsgBox(0, &quot;SRE Example 4 Result&quot;, $asResult[0] &amp; &quot;,&quot; &amp; $asResult[1])<br>
+    EndIf</p>
+<p>&nbsp;</p>
+<p>So, first the pattern must match somewhere in the test string. If it does, 
+  then SRE is told to &quot;capture&quot; any groups (&quot;()&quot;) and store them in the return 
+  array. You can use multiple captures, as demonstrated by the second piece of 
+  code in Example 4.<br>
+  <br>
+  Ok, back to the Gnarly Monster. Now that we know how to &quot;capture&quot; text, let's 
+  construct our pattern: Since you know what you're looking for is digits, there 
+  are 3 ways to specify &quot;match any digit&quot;: &quot;[:digit:]&quot;, &quot;[0-9]&quot;, and &quot;\d&quot;. The 
+  first is probably the easiest to understand. There are a few classes (digit, alnum, space, etc. Check the helpfile for a full list) you can use to specify 
+  sets of characters, one of them being digit. &quot;[0-9]&quot; just specifies a range of 
+  all the digits 0 through 9. &quot;\d&quot; is just a special character that means the 
+  same as the first two. There is no difference between the three, and with all SRE's there are usually at least a couple ways to construct any pattern.<br>
+  <br>
+  So, first we know we want to capture the digits, so indicate that with the 
+  opening parentheses &quot;(&quot;. Next, we know we want to capture between 1 and 3 
+  characters, all consisting of digits, so our pattern now looks like 
+  &quot;([0-9]{1,3}&quot;. And finally close it off with the closing parentheses to 
+  indicate the end of our group: &quot;([0-9]{1,3})&quot;. Let's try it:<br>
+  <br>
+  <u><b>Example 5</b></u></p>
+<p class="codebox">$asResult = StringRegExp(&quot;Gnarly Monster hits you for 18 damage.&quot;, 
+_<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '([0-9]{1,3})', 1)<br>
+    If @error == 0 Then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;MsgBox(0, &quot;SRE Example 5 Result&quot;, $asResult[0])<br>
+    EndIf</p>
+<p>&nbsp;</p>
+<p>There you go, the message box correctly displays &quot;18&quot;.<br>
+  <br>
+  Next we need to cover non-capturing groups. The way you indicate these groups 
+  is by opening the group with &quot;(?:&quot; instead of just &quot;(&quot;. Let's say your log 
+  says &quot;You deflect 36 of Gnarly Monster's 279 damage.&quot; Now if you run Example 
+  5's SRE on this, you'll come up with &quot;36&quot; instead of &quot;279&quot;. Now what I like to 
+  do here is just determine what's different between the numbers. One that jumps 
+  out at me is that the second number is always followed by a space and then the 
+  word &quot;damage&quot;. We could just modify our previous pattern to be &quot;([0-9]{1,3} 
+  damage)&quot;, but what if our script is just looking for the amount of damage, 
+  without &quot; damage&quot; tacked onto the end of the number? Here's where you can use 
+  a non-capturing group to accomplish this.<br>
+  <br>
+  <u><b>Example 6</b></u></p>
+<p class="codebox">$asResult = StringRegExp(&quot;You deflect 36 of Gnarly Monster's 279 damage.&quot;, 
+    '([0-9]{1,3})(?: damage)', 1)<br>
+    If @error == 0 Then<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;MsgBox(0, &quot;SRE Example 6 Result&quot;, $asResult[0])<br>
+    EndIf</p>
+<p>&nbsp;</p>
+
+  <p>This could get lengthy, but mostly I just wanted to lay out the foundation for 
+  how regular expressions work, and mainly how SRE &quot;thinks&quot;. A few things to 
+  keep in mind:<br>
+  - Remember to think about the pattern one character at a time<br>
+  - The StringRegExp() function finds the first character in the pattern, then 
+  it's your job to provide enough <br>
+  evidence to &quot;prove&quot; whether or not it truly is a match. Example 6 is a good 
+  display of this.<br>
+  - Remember [ ... ] means OR ([xyz] match an &quot;x&quot;, a &quot;y&quot;, OR a &quot;z&quot;)<br>
+  If you have any other questions, consult the help file first! It explains in 
+  detail all of the nitty gritty syntax that comes along with SRE's. One thing 
+  to look at in particular is the section on &quot;Repeating Characters&quot;. It can make 
+  your pattern more readible by substituting certain characters for ranges. For 
+  example: &quot;*&quot; is equivalent to {0,} or the range from 0 to any number of 
+  characters.<br>
+  <br>
+  Good luck, Regular Expressions can greatly decrease the length of your code, 
+  and make it easier to modify later. Corrections and feedback are welcome!<H2>Resources</H2><br>
+
+<a href="http://en.wikipedia.org/wiki/Regular_expression" target="_blank">
+Wikipedia Article - Regular Expressions</a> - Thanks blindwig.<p>
+
+<a href="http://www.codeproject.com/dotnet/regextutorial.asp" target="_blank">
+The 30 Minute Regex Tutorial</a> - by Jim Hollenhorst.</p>
+<p><br>
+GUI for testing various StringRegExp() patterns - 
+Thanks steve8tch. Credit: w0uter</p>
+<p>&nbsp;
+<OBJECT id=hhctrl type="application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" width=58 height=57>
+<PARAM name="Command" value="ShortCut">
+<PARAM name="Button" value="Text:Open StringRegExpGUI.au3">
+<PARAM name="Item1" value=",Examples\Helpfile\StringRegExpGUI.au3,">
+</OBJECT> </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</p>
+
+<p>Thanks to neogia for this tutorial.</p>
+<p>&nbsp;</p>
+</h2>
+</body>
+</html>

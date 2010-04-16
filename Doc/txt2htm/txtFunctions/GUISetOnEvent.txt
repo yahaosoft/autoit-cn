@@ -1,0 +1,58 @@
+﻿###Function###
+GUISetOnEvent
+
+###Description###
+当一个系统按钮被点击时调用一个用户自定义函数(UDF).
+
+###Syntax###
+GUISetOnEvent ( 特殊ID, "函数名" [, 窗口句柄] )
+
+
+###Parameters###
+@@ParamTable@@
+特殊ID
+	见下面的 <a href="#SpecialIDTable">特殊ID表</a>.
+函数名
+	要调用的用户函数.
+窗口句柄
+	[可选参数] 窗口句柄,可由 GUICreate 的返回值获得(若使用默认(default)则使用上一次用过的句柄.)
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回 1.
+失败:	返回 0.
+@@End@@
+
+
+###Remarks###
+OnEvent 函数仅当选项 GUIOnEventMode 的值为1时才能被调用,而在此模式下 GUIGetMsg 将完全无效.
+
+如果选项 GUIEventOptions 设置为1,最小化,还原和最大化按钮除了给函数发送消息外不会有任何动作.
+
+如果函数名称为空字符串"",那么上一个用户定义的函数事件将会被关闭.
+
+	<a name="SpecialIDTable"></a><b>特殊 ID 表</b>
+@@StandardTable1@@
+<b>特殊 Id</b>	<b>说明</b>
+$GUI_EVENT_CLOSE	对话框(窗口)正被关闭(相关按钮被点击或系统菜单项被选中).
+$GUI_EVENT_MINIMIZE	对话框(窗口)被最小化(窗口标题栏上的最小化按钮被点击).
+$GUI_EVENT_RESTORE	对话框(窗口)被还原(任务栏图标被点击).
+$GUI_EVENT_MAXIMIZE	对话框(窗口)被最大化(窗口标题栏上的最大化按钮被点击).
+$GUI_EVENT_MOUSEMOVE	鼠标指针移动.
+$GUI_EVENT_PRIMARYDOWN	鼠标的主要按钮被按下.
+$GUI_EVENT_PRIMARYUP	鼠标的主要按钮被松开.
+$GUI_EVENT_SECONDARYDOWN	鼠标的次要按钮被按下.
+$GUI_EVENT_SECONDARYUP	鼠标的次要按钮被松开.
+$GUI_EVENT_RESIZED	对话框大小改变.
+$GUI_EVENT_DROPPED	结束拖放操作 @GUI_DRAGID, @GUI_DRAGFILE 和 @GUI_DROPID 将返回一个相关的ID,文件通信到相关控件.
+@@End@@
+
+
+###Related###
+GUIOnEventMode (Option), GUIEventOptions (Option), GUICtrlSetOnEvent
+
+
+###Example###
+@@IncludeExample@@

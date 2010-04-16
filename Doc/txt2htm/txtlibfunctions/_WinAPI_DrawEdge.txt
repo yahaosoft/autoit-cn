@@ -1,0 +1,67 @@
+###User Defined Function###
+_WinAPI_DrawEdge
+
+###Description###
+Draws one or more edges of rectangle
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_DrawEdge($hDC, $ptrRect, $nEdgeType, $grfFlags)
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context into which the icon or cursor is drawn
+$ptrRect
+	Pointer to a $tagRECT structure that contains the logical coordinates of the rectangle
+$nEdgeType
+	Specifies the type of inner and outer edges to draw. This parameter must be a combination of one inner-border flag and one outer-border flag.
+		The inner-border flags are as follows:
+		$BDR_RAISEDINNER - Raised inner edge
+		$BDR_SUNKENINNER - Sunken inner edge
+		The outer-border flags are as follows:
+		$BDR_RAISEDOUTER - Raised outer edge
+		$BDR_SUNKENOUTER - Sunken outer edge
+		Alternatively, the edge parameter can specify one of the following flags:
+		$EDGE_BUMP - Combination of $BDR_RAISEDOUTER and $BDR_SUNKENINNER
+		$EDGE_ETCHED - Combination of $BDR_SUNKENOUTER and $BDR_RAISEDINNER
+		$EDGE_RAISED - Combination of $BDR_RAISEDOUTER and $BDR_RAISEDINNER
+		$EDGE_SUNKEN - Combination of $BDR_SUNKENOUTER and $BDR_SUNKENINNER
+$grfFlags
+	Specifies the type of border. This parameter can be a combination of the following values:
+		$BF_ADJUST - If this flag is passed, shrink the rectangle pointed to by the $ptrRect parameter to exclude the edges that were drawn.
+		If this flag is not passed, then do not change the rectangle pointed to by the $ptrRect parameter
+		$BF_BOTTOM - Bottom of border rectangle
+		$BF_BOTTOMLEFT - Bottom and left side of border rectangle
+		$BF_BOTTOMRIGHT - Bottom and right side of border rectangle
+		$BF_DIAGONAL - Diagonal border
+		$BF_DIAGONAL_ENDBOTTOMLEFT - Diagonal border. The end point is the bottom-left corner of the rectangle; the origin is top-right corner
+		$BF_DIAGONAL_ENDBOTTOMRIGHT - Diagonal border. The end point is the bottom-right corner of the rectangle; the origin is top-left corner
+		$BF_DIAGONAL_ENDTOPLEFT - Diagonal border. The end point is the top-left corner of the rectangle; the origin is bottom-right corner
+		$BF_DIAGONAL_ENDTOPRIGHT - Diagonal border. The end point is the top-right corner of the rectangle; the origin is bottom-left corner
+		$BF_FLAT - Flat border
+		$BF_LEFT - Left side of border rectangle
+		$BF_MIDDLE - Interior of rectangle to be filled
+		$BF_MONO - One-dimensional border
+		$BF_RECT - Entire border rectangle
+		$BF_RIGHT - Right side of border rectangle
+		$BF_SOFT - Soft buttons instead of tiles
+		$BF_TOP - Top of border rectangle
+		$BF_TOPLEFT - Top and left side of border rectangle
+		$BF_TOPRIGHT - Top and right side of border rectangle
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+###Remarks###
+Needs BorderConstants.au3 for pre-defined constants
+
+###Related###
+$tagRECT
+
+###See Also###
+@@MsdnLink@@ DrawEdge

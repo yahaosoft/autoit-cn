@@ -1,0 +1,50 @@
+###User Defined Function###
+_WinNet_OpenEnum
+
+###Description###
+Starts an enumeration of network resources or existing connections
+
+###Syntax###
+#Include <WinNet.au3>
+_WinNet_OpenEnum($iScope, $iType, $iUsage, $pResource, ByRef $hEnum)
+
+###Parameters###
+@@ParamTable@@
+$iScope
+	Scope of the enumeration:
+		0 - Enumerate all currently connected resources
+		1 - Enumerate all resources on the network
+		2 - Enumerate all remembered (persistent) connections
+		3 - Enumerate only resources in the network context of the caller
+$iType
+	Resource types:
+		0 - All resources
+		1 - Disk resources
+		2 - Print resources
+$iUsage
+	Resource usage types:
+		0 - All resources
+		1 - All connectable resources
+		2 - All container resources
+		4 - Forces the function to fail if the user is not authenticated
+$pResource
+	Pointer to a $tagNETRESOURCE structure that specifies the container to enumerate. If iScope is
+		not 1, this must be 0. If 0, the root of the network is assumed.
+$hEnum
+	On return, a handle that can be used in calls to WNet_EnumResource
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_WinNet_EnumResource, _WinNet_CloseEnum, $tagNETRESOURCE
+
+###See Also###
+@@MsdnLink@@ WNetOpenEnum

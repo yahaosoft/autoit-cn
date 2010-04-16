@@ -1,0 +1,40 @@
+﻿###User Defined Function###
+_ExcelBookOpen
+
+###Description###
+打开一个存在的工作表并返回它的对象标识.
+
+###Syntax###
+#Include <Excel.au3>
+_ExcelBookOpen($sFilePath [, $fVisible = 1 [, $fReadOnly = False [, $sPassword = "" [, $sWritePassword = ""]]]])
+
+###Parameters###
+@@ParamTable@@
+$sFilePath
+	要打开文件的路径与文件名
+$fVisible
+	[可选参数] 标志, 是否显示/隐藏工作表 (0=不显示, 1=显示) (默认=1)
+$fReadOnly
+	[可选参数] 标志, 是否以只读方式打开工作表(True 或者 False) (默认=False)
+$sPassword
+	[可选参数] 用于打开读保护的工作表的密码 (默认没有)
+$sWritePassword
+	[可选参数] 用于打开写保护的工作表的密码 (默认没有)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回一个新对象标识
+失败:	返回 0 并设置 @error
+@error:	1 - 不能创建对象
+	2 - 文件不存在
+@@End@@
+
+###Remarks###
+None
+
+###Related###
+_ExcelBookAttach
+
+###Example###
+@@IncludeExample@@

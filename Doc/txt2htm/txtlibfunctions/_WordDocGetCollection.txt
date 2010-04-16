@@ -1,0 +1,44 @@
+﻿###User Defined Function###
+_WordDocGetCollection
+
+###Description###
+Returns a collection object containing all documents
+
+###Syntax###
+#include <Word.au3> 
+_WordDocGetCollection ( ByRef $o_object [, $v_index = -1] )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	Object variable of a Word.Application object
+$v_index
+	[optional] Specifies whether to return a collection or indexed instance.
+	-1 = (Default) Returns a collection
+	0 = Returns the Active Document
+	The document name or index number to return (1 based)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an object collection of all documents, @EXTENDED = document count
+Failure:	Returns 0  and sets @ERROR = 1
+@Error:	$_WordStatus_Success = No Error
+	$_WordStatus_InvalidDataType = Invalid Data Type
+	$_WordStatus_InvalidObjectType = Invalid Object Type
+	$_WordStatus_InvalidValue = Invalid Value
+	$_WordStatus_NoMatch = No Match
+@Extended:	Contains invalid parameter number
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+None.
+
+
+###Example###
+@@IncludeExample@@

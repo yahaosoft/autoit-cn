@@ -1,0 +1,33 @@
+###User Defined Function###
+_EventLog__Clear
+
+###Description###
+Clears the event log
+
+###Syntax###
+#Include <EventLog.au3>
+_EventLog__Clear($hEventLog, $sFileName)
+
+###Parameters###
+@@ParamTable@@
+$hEventLog
+	Handle to the event log
+$sFileName
+	The name of the backup file. If the name is blank, the current event log is not backed up.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+###Remarks###
+This function fails if the event log is empty or a file already exists with the same name as sFileName. After
+this function returns, any handles that reference the cleared event log cannot be used to read the log.
+
+###Related###
+_EventLog__Open
+
+###Example###
+@@IncludeExample@@

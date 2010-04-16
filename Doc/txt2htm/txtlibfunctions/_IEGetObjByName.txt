@@ -1,0 +1,43 @@
+###User Defined Function###
+_IEGetObjByName
+
+###Description###
+按名称或标识返回对象变量.
+
+###Syntax###
+#include <IE.au3> 
+_IEGetObjByName ( ByRef $o_object, $s_Id [, $i_index = 0] )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	InternetExplorer.Application窗体或框架对象的对象变量
+$s_Id
+	指定想要匹配的对象的名称或ID
+$i_index
+	[可选参数]: 如果id的名称不止一次出现, 由0基索引指定实例
+	0 (默认)或正整数返回一个索引的实例
+	-1 返回一个指定对象的集合
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回指向指定对象的对象变量, @EXTENDED = 指定对象数量
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	7 ($_IEStatus_NoMatch) = 无匹配
+@Extended:	包含无效参数数量
+@@End@@
+
+
+###Remarks###
+函数将返回一个指向文档中带有指定ID或名称的任意对象的对象. DOM元素可具有名称或ID属性或两者. 当一个指定名称被分配给Internet Explorer中的多个元素时指定的ID只可被分配给单一元素, 名称和ID的命名空间是共享的.
+
+
+###Related###
+_IEGetObjById
+
+
+###Example###
+@@IncludeExample@@

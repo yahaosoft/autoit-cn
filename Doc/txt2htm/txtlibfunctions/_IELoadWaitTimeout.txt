@@ -1,0 +1,35 @@
+###User Defined Function###
+_IELoadWaitTimeout
+
+###Description###
+获取和设置当前_IELoadWait在超时前尝试的毫秒值.
+
+###Syntax###
+#include <IE.au3> 
+_IELoadWaitTimeout ( [$i_timeout = -1] )
+
+###Parameters###
+@@ParamTable@@
+$i_timeout
+	[可选参数]: 获取或指定毫秒数
+	0或正整数 - 设置超时为此值
+	-1 - (默认)返回当前超时值(存储在全局变量$__IELoadWaitTimeout中)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	如果$i_timeout = -1, 返回当前超时值, 或者返回1
+失败:	无
+@@End@@
+
+
+###Remarks###
+没有完全禁用超时的方法。你可以通过设置一个非常大的正整数达到同样效果. 初始超时值为30000毫秒. (5 分钟).
+
+
+###Related###
+_IELoadWait
+
+
+###Example###
+@@IncludeExample@@

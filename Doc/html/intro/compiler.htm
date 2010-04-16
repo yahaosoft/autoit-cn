@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>使用 Aut2Exe 编译脚本</title>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=GB2312">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>使用 Aut2Exe 编译脚本</h1>
+<p>这是一个标准的方法来编译您的 <em>.au3</em> 脚本到 <strong>独立的</strong>
+  可执行文件; 这个可执行文件可以在没有安装 AutoIt 的机器上运行,并且
+  也不需要机器中带有 <em>AutoIt3.exe</em> .&nbsp; 此外,
+  the compiled script is compressed and encrypted and there is the option to bind
+  additional files (also compressed/encrypted) to the exe using the <a href="../functions/FileInstall.htm">FileInstall</a>
+  function.&nbsp; Also, any <a href="../keywords/include.htm">#include</a> files
+  will also be compiled into the script so they are not required at run-time.</p>
+<p><b>注:</b>这些信息可能不能适用于汉化版本,只是为使用英文原版的同志,以及有兴趣的朋友作个参考</p><br>
+<p><b>小心</b>: 在编译您的脚本前,您必须检查您的脚本语法表达式是否正确,
+编译器不会对您的脚本进行语法检查.</p>
+<p>&nbsp;</p>
+<p>Aut2Exe 可以有三种使用方法:</p>
+<h2>方法 1 - 开始菜单</h2>
+<p><em>只在完整安装有效(汉化版本因为有强大的ACNWrapper/AutoIt3Wrapper所以去掉快捷方式,这里只是给使用英文原版的做个介绍).</em></p>
+<p>1.&nbsp; 点击开始菜单并浏览 <em>AutoIt v3</em> 组.</p>
+<p>2.&nbsp; 点击 <em>Script Compiler \ Convert .au3 to .exe</em></p>
+<p>3.&nbsp; Aut2Exe 主界面就应该出现.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="../images/aut2exe.png" width="450" height="377"></p>
+<p>4.&nbsp; 使用 <em>Browse</em>(英文版)/<em>浏览(B)</em>(汉化版) 按钮选择您的输入 (.au3) 和输出
+  (.exe) 文件.</p>
+<p>5.&nbsp; If you like you can change the icon of the resulting .exe - just browse
+  to the icon you want (some example icons are supplied in <em>Program Files\AutoIt3\Aut2Exe\Icons</em>).</p>
+<p>6.&nbsp; The only other option you might wish to change is the compression
+  level (especially if using FileInstall to add extra files).&nbsp; Use the <em>Compression</em>
+  menu to set this.&nbsp; As with all compression routines the better the compression
+  you select the slower it will be.&nbsp; However, no matter what compression
+  level you select the decompression speed (when the .exe is run) is the same.</p>
+<p>7.&nbsp; Click on <em>Convert</em> to compile the script.</p>
+<p>Note: scripts can be compile with .a3x extension. They should be run with
+AutoIt.exe filename.a3x. The .a3x contains the script itself with all referred #include plus the FileInstall files. This format allow to distribute smaller files as they don't
+include the AutoIt3.exe in each compile script. You still need to have it
+accessible on the target machine but just AutoIt3.exe. </p>
+<p>&nbsp;</p>
+<h2>方法 2 - 右键点击</h2>
+<p><em>只在完整安装有效(汉化版已使用ACNWrapper工具替代).</em></p>
+<p>1.&nbsp; 在资源管理器里面找到您需要编译的脚本文件(.au3).</p>
+<p>2.&nbsp; 在脚本文件上面点击右键.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="../images/compile-rightclick.png" width="336" height="274"></p>
+<p>3.&nbsp; The file will be silently compiled with the same filename - just with
+  a .exe extension.</p>
+<p>When compiling in this way, Aut2Exe uses current icon/compression settings (from
+  the last time Aut2Exe was run manually as in method 1).</p>
+<p>&nbsp;</p>
+<h2>方法 3 - 命令行</h2>
+<p><em>Aut2Exe.exe</em> 程序可以运行于下列命令行:</p>
+<p class="code">&nbsp;&nbsp;&nbsp; Aut2exe.exe /in &lt;infile.au3&gt; [/out &lt;outfile.exe&gt;] [/icon
+  &lt;iconfile.ico&gt;] [/comp 0-4]
+[/nopack] [x64] [/bin &lt;binfile.bin&gt;]</p>
+<p>Where</p>
+<table border="1" width="100%" id="table1">
+	<tr>
+		<td width="90px"><strong>开关 </strong></td>
+		<td><strong>用法 </strong></td>
+		<td><strong>默认值</strong></td>
+	</tr>
+	<tr>
+		<td>/in</td>
+		<td>&lt;infile.au3&gt; 指定要进行编译的脚本的完整路径.</td>
+		<td align="center">无. 输入文件 <strong>必须</strong> 指定</td>
+	</tr>
+	<tr>
+		<td>/out</td>
+		<td>&lt;outfile.exe&gt; 指定编译后,生成的可执行文件的完整路径.<br>
+		&lt;outfile.a3x&gt; 指定编译后,生成的已编译文件(*.a3x)的完整路径.</td>
+		<td align="center">和输入脚本文件名相同,但是扩展名为 .exe</td>
+	</tr>
+	<tr>
+		<td>/icon</td>
+		<td>&lt;iconfile.ico&gt; 指定已编译可执行文件要使用的图标的完整路径
+		.</td>
+		<td align="center">默认 AutoIt 图标</td>
+	</tr>
+	<tr>
+		<td>/comp</td>
+		<td>指定编码脚本使用的压缩等级 (这个和 UPX 加壳压缩没关系).<br>
+		它只能是数字的 0(无) 和 4 (最大).[原文档是and(和)不是to(到)]</td>
+		<td align="center">2</td>
+	</tr>
+	<tr>
+		<td>/nopack</td>
+		<td>指定输出的可执行文件不进行外部的 UPX 压缩.</td>
+		<td align="center">压缩</td>
+	</tr>
+	<tr>
+		<td>/pack</td>
+		<td>指定输出的可执行文件进行外部的 UPX 加壳压缩.</td>
+		<td align="center">压缩</td>
+	</tr>
+	<tr>
+		<td>/x64</td>
+		<td>指定输出的可执行文件为 x64 系统构架的程序.</td>
+		<td align="center">参考说明</td>
+	</tr>
+	<tr>
+		<td>/x86</td>
+		<td>Specifies that the script should be compiled for use on systems with x86 (32-bit) architecture.</td>
+		<td align="center">see notes</td>
+	</tr>
+	<tr>
+		<td>/console</td>
+		<td>指定输出的文件为一个控制台程序.</td>
+		<td align="center">Windows 应用程序 (/gui)</td>
+	</tr>
+	<tr>
+		<td>/gui</td>
+		<td>指定输出的文件为一个 Windows 应用程序.</td>
+		<td align="center">Windows 应用程序 (/gui)</td>
+	</tr>
+	<tr>
+		<td>/bin</td>
+		<td>&lt;binfile.bin&gt; 指定根文件(AU3脚本的执行体)的完整路径
+		.</td>
+		<td align="center">在 Aut2exe 文件夹中搜索</td>
+	</tr>
+</table>
+<p><br>
+</p>
+<h2>命令行例子</h2>
+<p>/in c:\myscript.au3 /out c:\myapp.exe /icon c:\myicon.ico /x64</p>
+<p>Will result in the creation of c:\myapp.exe with normal compression which will use the specified icon and be compiled for
+use on x64 system architecture.</p>
+<p>/in c:\myscript.au3</p>
+<p>will result in the creation of a unicode c:\myscript.exe with normal compression which will use
+the default AutoIt icon for use on win_32 systems.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<h2>命令行说明</h2>
+<p>Long filenames should be enclosed in double-quotes like&nbsp; &quot;C:\Program
+Files\Test\test.au3&quot;.</p>
+<p>With the exception of /in all switches are optional.</p>
+<p>By default, the 32-bit compiler produces a 32-bit binary and the 64-bit compiler produces a 64-bit binary.  Use the /x86 and /x64 parameters to explicitly specify the output.</p>
+<p>The /pass and /nodecompile switches are redundant as of version 3.2.8.1. They will be ignored if
+used and have been removed from this list.</p>
+<p> /ansi 和 /unicode 开关在 3.3.0.0 版本后已经是多余的.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2>技术细节</h2>
+<p>被编译的脚本将会附加在根文件(AU3脚本的执行体)末尾, FileInstall 使用我(Jon)自己的压缩算法进行压缩
+.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿###Function###
+ObjCreate
+
+###Description###
+通过一个指定的类名引用一个 COM 对象.
+
+###Syntax###
+ObjCreate ( "类名称"  [, "服务器名称" [,"用户名", ["密码"]]] ) 
+
+
+###Parameters###
+@@ParamTable@@
+类名称
+	一个对象的类名称,格式如下:
+	"appname.objectype"
+服务器名称
+	[可选参数]服务器的名称.当使用一个远程计算机的对象时,
+	必须填写.	
+用户名
+	[可选参数]用户名称,用于使用远程计算机上面的对象时.
+	请输入这种格式的用户名 "计算机名称\用户名" 或者
+	"域名\用户名".
+密码
+	[可选参数]可选的密码,用于使用远程计算机上面的对象时.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回 对象句柄.
+失败:	返回 0 并设置 @error 为 1.
+@@End@@
+
+
+###Remarks###
+如果你想要有访问一个新对象，使用 ObjCreate() .
+如果您想连接到一个已存在的进程,使用 ObjGet() 代替.
+
+注意：不是所有的计算机都有相同的设置对象，因此在调用 ObjCreate() 之后，总是要检查差错. 
+
+如果你想要在<i>远程计算机</i>上存取对象，需下列应用:
+- 运行脚本的用户一定有适当的许可权限.
+- 远程计算机上的对象一定支持 DCOM(分布的 COM)
+- 远程计算机一定有 '远程登录服务' 和 '文件和打印机分享 ' 服务正在运行中.
+
+查看 <a href="../intro/ComRef.htm">Obj/COM Reference</a> 得到关于 Objects (对象) 的更多信息.
+
+###Related###
+GUICtrlCreateObj, IsObj, ObjEvent, ObjGet, ObjName
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,57 @@
+﻿###Structure Name###
+$tagTVITEMEX
+
+###Description###
+Specifies or receives attributes of a tree-view item
+
+###Syntax###
+Global Const $tagTVITEMEX = "int Mask;int hItem;int State;int StateMask;ptr Text;int TextMax;int Image;int SelectedImage;" & _
+		"int Children;int Param;int Integral"
+
+###Fields###
+@@ParamTable@@
+Mask
+	Flags that indicate which of the other structure members contain valid data:
+		$TVIF_CHILDREN - The Children member is valid
+		$TVIF_DI_SETITEM - The will retain the supplied information and will not request it again
+		$TVIF_HANDLE - The hItem member is valid
+		$TVIF_IMAGE - The Image member is valid
+		$TVIF_INTEGRAL - The Integral member is valid
+		$TVIF_PARAM - The Param member is valid
+		$TVIF_SELECTEDIMAGE - The SelectedImage member is valid
+		$TVIF_STATE - The State and StateMask members are valid
+		$TVIF_TEXT - The Text and TextMax members are valid
+hItem
+	Item to which this structure refers
+State
+	Set of bit flags and image list indexes that indicate the item's state. When setting the state
+	of an item, the StateMask member indicates the bits of this member that are valid. When retrieving the state
+	of an item, this member returns the current state for the bits indicated in the StateMask member. Bits 0
+	through 7 of this member contain the item state flags. Bits 8 through 11 of this member specify the one based
+	overlay image index.
+StateMask
+	Bits of the state member that are valid. If you are retrieving an item's state, set the bits
+	of the stateMask member to indicate the bits to be returned in the state member. If you are setting an item's
+	state, set the bits of the stateMask member to indicate the bits of the state member that you want to set.
+Text
+	Pointer to a null-terminated string that contains the item text.
+TextMax
+	Size of the buffer pointed to by the Text member, in characters
+Image
+	Index in the image list of the icon image to use when the item is in the nonselected state
+SelectedImage
+	Index in the image list of the icon image to use when the item is in the selected state
+Children
+	Flag that indicates whether the item has associated child items. This member can be one of the
+	following values:
+		0 - The item has no child items
+		1 - The item has one or more child items
+Param
+	A value to associate with the item
+Integral
+	Height of the item
+@@End@@
+
+###Remarks###
+None.
+

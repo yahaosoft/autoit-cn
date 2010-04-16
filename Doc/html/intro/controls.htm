@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>控件</title>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=GB2312">
+  <link href="../css/default.css" rel="stylesheet" type="text/css"></head>
+<body>
+<h1>控件</h1>
+<p>AutoIt v3 的其中一个最优秀的新功能就是提供了直接
+  操作某些窗口<em>控件</em>的支持.&nbsp;通常我们在窗口上
+  能看到的东西大多都是以下控件的一种:按钮,列表框,文本编辑框,
+  静态文本等.&nbsp;比如说系统自带的记事本程序的主窗口也不过只是一个相对而言比较大一点的&quot;编辑框(Edit)&quot;
+  控件罢了!正因为 AutoIt 提供了直接对控件操作的途径,我们再也不需要(也不应该)使用模拟键击等低级的方法来操作窗口了,
+  这使得需要实现窗口操作的脚本更加可靠.</p>
+<p>&nbsp;</p>
+<p><strong><em>注意</em></strong><em>: AutoIt 仅支持标准的 Microsoft
+  控件 - 有些应用程序(的作者)自己写的自定义控件看起来很像是标准的 MS 控件,
+  但却无法被脚本程序识别,那就只能靠您的经验判断了,自己试试!</em></p>
+<p>&nbsp;</p>
+<p>运行 <a href="au3spy.htm">AutoIt 窗口信息工具(AutoIt Window Info) </a>
+  之后您可以试着把鼠标移动到自己感兴趣的窗口上,
+  在 Window Info 的窗口就会显示当前鼠标经过的控件的信息.</p>
+<p>在使用&nbsp;<a href="../functions/ControlClick.htm">Control...()</a> 函数时,有一些控件描述可以使用<strong>ControlID</strong>. 通过这些描述才能正确的识别.这些描述包括:</p>
+<ul>
+  <li><strong>ID - </strong>内部控件 ID. The Control ID is the internal numeric identifier that windows gives to each control. It is generally the best method of 
+identifying controls. In addition to the AutoIt Window Info Tool, other applications such as screenreaders for the blind and Microsoft tools/APIs may allow you to get this Control ID</li>
+  <li><strong>TEXT - </strong>控件上的文本,例如: 按钮上显示的 &quot;下一步(&amp;N)&quot;</li>
+  <li><strong>CLASS -</strong>内部控件的&quot;类&quot;名称,如 &quot;Edit&quot; 或者 &quot;Button&quot; </li>
+  <li><strong>CLASSNN -</strong> 类别名, 如: &quot;Edit1&quot; </li>
+	<li><b>NAME</b> - 内部 .NET Framework WinForms 名称 (如果有效)</li>
+	<li><strong>REGEXPCLASS -</strong> 控件类名使用 <a href="../functions/StringRegExp.htm">正则表达式</a> </li>
+	<li><strong>X</strong>(坐标) \ <strong>Y</strong>(坐标) \ <strong>W</strong>(宽度) \ <strong>H</strong>(高度) 
+	- 控件坐标与大小.</li>
+	<li><strong>INSTANCE - </strong>基于1开始的接口(instance,原翻译为枚举) 由程序自动分配的唯一标识.</li>
+</ul>
+<p>一个控件中的一个或者多个<em> controlID </em>,使用下列格式</p>
+<p class="codebox"> [属性1:值1; 属性2:值2]</p>
+<p><strong>注意: </strong>If this special format is <strong>not</strong> used then the parameter is taken to be a control ID (if numeric) or the ClassnameNN/text of the control (if a string). Although the special format is more longwinded than these methods it is much less ambiguous. </p>
+<p>如果一个值中包含了一个 &quot;;&quot; 它必须是成对的(it must be doubled).</p>
+<p>&nbsp;</p>
+<p>例如 发送一些文本到记事本窗口</p>
+<p class="codebox"> ControlSend(&quot;无标题 - 记事本&quot;, &quot;&quot;, &quot;[CLASS:Edit; INSTANCE:1]&quot;, &quot;This is some text&quot;)</p>
+<p>或者</p>
+<p class="codebox"> ControlSend(&quot;无标题 - 记事本&quot;, &quot;&quot;, &quot;[CLASSNN:Edit1]&quot;, &quot;This is some text&quot;)</p>
+<p>或者</p>
+<p class="codebox"> ControlSend(&quot;无标题 - 记事本&quot;, &quot;&quot;, &quot;Edit1&quot;, &quot;This is some text&quot;)</p>
+<p>&nbsp;</p>
+<p>例如 点击 &quot;我的窗口&quot; 中控件ID为254的控件</p>
+<p class="codebox"> ControlClick(&quot;我的窗口&quot;, &quot;&quot;, &quot;[ID:254]&quot;)</p>
+<p>或者  </p>
+<p class="codebox">ControlClick(&quot;我的窗口&quot;, &quot;&quot;, 254)</p>
+<p>&nbsp;</p>
+<p>例如 设置 .NET Winforms &quot;textBoxFolder&quot; 控件文本为 &quot;C:\Some\Folder&quot; </p>
+<p class="codebox">ControlSetText(&quot;我的窗口&quot;, &quot;&quot;, &quot;[NAME:textBoxFolder]&quot;, 
+&quot;C:\Some\Folder&quot;)</p>
+<p>&nbsp;</p>
+<p>例如. 单击第二个包含&quot;完成&quot;文本的&quot;按钮&quot;</p>
+<p class="codebox">ControlClick(&quot;我的窗口&quot;, &quot;&quot;, &quot;[CLASS:Button; TEXT:完成; INSTANCE:2]&quot;)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2>控件句柄 (HWND)</h2>
+<p>使用 <a href="../functions/ControlGetHandle.htm">ControlGetHandle</a> 函数里可以确定控件的 <em>Handle(句柄)</em> 或者 <em>HWND(窗口句柄)</em>. 一个句柄是 Windows 赋予控件的唯一标识符. 创建的每个控件 <em>都有不同的句柄</em>. 使用这个方法来访问控件一般是为对怎么使用
+句柄有深刻认识的用户准备的.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>请到这里 <strong><a href="../functions/ControlCommand.htm">函数参考\
+ 窗口管理\控件相关</a></strong>
+ 查看控件函数列表及说明.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

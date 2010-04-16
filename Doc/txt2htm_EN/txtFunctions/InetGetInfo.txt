@@ -1,0 +1,42 @@
+###Function###
+InetGetInfo
+
+###Description###
+Returns detailed data for a handle returned from InetGet().
+
+###Syntax###
+InetGetInfo( [ handle [, index ]] )
+
+
+###Parameters###
+@@ParamTable@@
+handle
+	[optional] A handle return from InetGet().
+index
+	[optional] The index for the data to retrieve.  If this value is -1 an array containing all of the below data will be returned.
+		0 - Bytes read so far (this is updated while the download progresses).
+		1 - The size of the download (this may not always be present).
+		2 - Set to True if the download is complete, False if the download is still ongoing.
+		3 - True if the download was successful.  If this is False then the next data member will be non-zero.
+		4 - The error value for the download.  The value itself is arbitrary.  Testing that the value is non-zero is sufficient for determining if an error occurred.
+		5 - The extended value for the download.  The value is arbitrary and is primarily only useful to the AutoIt developers.
+@@End@@
+
+
+###ReturnValue###
+Success - The request data.
+Failure - An empty string and @error is set to non-zero.
+
+
+###Remarks###
+If called with no arguments then the total number of active downloads will be returned.
+
+This function can be called in a loop to query the number of bytes download or to pause until a download is complete.
+
+
+###Related###
+InetGet
+
+
+###Example###
+@@IncludeExample@@

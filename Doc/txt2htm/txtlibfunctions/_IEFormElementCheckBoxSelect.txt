@@ -1,0 +1,59 @@
+###User Defined Function###
+_IEFormElementCheckBoxSelect
+
+###Description###
+设定指定表单元素的值.
+
+###Syntax###
+#include <IE.au3> 
+_IEFormElementCheckBoxSelect ( ByRef $o_object, $s_string [, $s_name = "" [, $f_select = 1 [, $s_mode = "byValue" [, $f_fireEvent = 1]]]] )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	InternetExplorer.Application的表单对象变量
+$s_string
+	用于匹配元素的值 - 基于$s_mode
+$s_name
+	[可选参数]: 复选框名称或编号(es)
+$f_select
+	[可选参数]: 指定元素选中或未选中
+	-1 = 返回选中状态
+	0 = 不选元素
+	1 = (默认)选中元素
+$s_mode
+	[可选参数]: 指定搜索模式
+	按值 = (默认)要选取的复选框的值
+	按索引 = 要选取的复选框的0基索引
+$f_fireEvent
+	[可选参数]: 指定是否在改变值后激活OnChange和OnClick事件
+	0 = 设置值后不激活OnChange或OnClick事件
+	1 = (默认)设置值后激活OnChange或OnClick事件
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	如果$f_select = -1, 返回当前的被选中状态, 或返回1
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	1 ($_IEStatus_GeneralError) = 一般性错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+	5 ($_IEStatus_InvalidValue) = 无效值
+	7 ($_IEStatus_NoMatch) = 无匹配
+@Extended:	包含无效参数数量
+@@End@@
+
+
+###Remarks###
+仅当表单元素与onChange事件关联时, $f_fireEvent参数才有效.
+
+$s_Name对该函数是可选的. 如果忽略, 函数将操作表单中所有<input type=checkbox>元素的集合. 如果指定, 函数具有该名称的<input type=checkbox>元素的集合.
+
+
+###Related###
+_IEFormElementOptionSelect, _IEFormElementRadioSelect, _IEFormElementGetValue, _IEFormElementSetValue
+
+
+###Example###
+@@IncludeExample@@

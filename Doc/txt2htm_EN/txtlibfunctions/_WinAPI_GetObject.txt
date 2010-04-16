@@ -1,0 +1,43 @@
+###User Defined Function###
+_WinAPI_GetObject
+
+###Description###
+Retrieves information for the specified graphics object
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_GetObject($hObject, $iSize, $pObject)
+
+###Parameters###
+@@ParamTable@@
+$hObject
+	Identifies a logical pen, brush, font, bitmap, region, or palette
+$iSize
+	Specifies the number of bytes to be written to the buffer
+$pObject
+	Pointer to a buffer that receives the information. The following shows the type of information
+		the buffer receives for each type of graphics object you can specify:
+		HBITMAP - BITMAP or DIBSECTION
+		HPALETTE - A count of the number of entries in the logical palette
+		HPEN - EXTLOGPEN or LOGPEN
+		HBRUSH - LOGBRUSH
+		HFONT - LOGFONT
+
+		If $pObject is 0 the function return value is the number of bytes required to store the information it writes
+		to the buffer for the specified graphics object.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	If $pObject is a valid pointer, the return value is the number of bytes stored into the buffer.
+	If the function succeeds, and $pObject is 0, the return value is the number of bytes required to hold the information the function would store into the buffer.
+Failure:	0
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ GetObject

@@ -1,0 +1,42 @@
+###User Defined Function###
+_GUICtrlListView_SubItemHitTest
+
+###Description###
+Determines which listview item or subitem is at a given position
+
+###Syntax###
+#Include <GuiListView.au3>
+_GUICtrlListView_SubItemHitTest($hWnd[, $iX = -1[, $iY = -1]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iX
+	[optional] X position to test or -1 to use the current mouse position
+$iY
+	[optional] Y position to test or -1 to use the current mouse position
+@@End@@
+
+###ReturnValue###
+Returns an Array with the following format:
+		[ 0] - Zero based index of the item at the specified position, or -1
+		[ 1] - Zero based index of the subitem at the specified position, or -1
+		[ 2] - If True, position is in control's client window but not on an item
+		[ 3] - If True, position is over item icon
+		[ 4] - If True, position is over item text
+		[ 5] - If True, position is over item state image
+		[ 6] - If True, position is somewhere on the item
+		[ 7] - If True, the position is above the control's client area
+		[ 8] - If True, the position is below the control's client area
+		[ 9] - If True, the position is to the left of the client area
+		[10] - If True, the position is to the right of the client area
+
+###Remarks###
+None.
+
+###Related###
+_GUICtrlListView_HitTest
+
+###Example###
+@@IncludeExample@@

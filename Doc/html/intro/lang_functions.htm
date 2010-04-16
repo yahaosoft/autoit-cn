@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Language Reference - User Functions</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1>语言相关 - 用户函数</h1>
+
+  
+<p>所谓函数是指可在脚本中调用并实现特定&quot;功能&quot;的代码片段.
+	在 AutoIt 中有两种函数,
+	包括<strong>内建函数</strong>和<strong>用户函数</strong>.</p>
+<p>&nbsp;</p>
+<h2>内建函数</h2>
+<p>内建函数的完整列表请到 <a href="../functions.htm">此处</a> 查看,
+	关于使用内建函数的注意事项请到 <a href="../function_notes.htm">此处</a> 查看.</p>
+<p>&nbsp;</p>
+<h2>用户函数</h2>
+<p>用户可通过使用 <a href="../keywords/Func.htm">Func...EndFunc </a>语句来自定义函数.</p>
+
+<p>可按需要定义函数的参数及其返回值.</p>
+<p>函数名必须用字母或下划线"_"开头,
+	剩下的部分(非首字符)则可在字母,数字或下划线中随意选择.
+	下面列出的都是合法的函数名:</p>
+<p>&nbsp;&nbsp;&nbsp; MyFunc</p>
+<p>&nbsp;&nbsp;&nbsp; Func1</p>
+<p>&nbsp;&nbsp;&nbsp; _My_Func1</p>
+<p>&nbsp;</p>
+<p>下面是一个示例函数,该函数的功能是获得某个数的10倍是多少:</p>
+<p class="codebox">$val = 10&nbsp; <br>
+  For $i = 1 To 10<br>
+  &nbsp;&nbsp;&nbsp;&nbsp; $doubled = MyDouble($val)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;&quot;, $val &amp; &quot; 的两倍是 
+  &quot; &amp; $doubled)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp; $val = $doubled<br>
+  Next<br>
+  <br>
+  Exit<br>
+  <br>
+  <br>
+  Func MyDouble($value)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp; $value = $value * 2<br>
+  &nbsp;&nbsp;&nbsp;&nbsp; Return $value<br>
+EndFunc</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

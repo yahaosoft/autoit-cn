@@ -1,0 +1,50 @@
+###User Defined Function###
+_FTP_Connect
+
+###Description###
+Connects to an FTP server.
+
+###Syntax###
+#Include <FTPEx.au3>
+_FTP_Connect($l_InternetSession, $s_ServerName, $s_Username, $s_Password [, $i_Passive = 0 [, $i_ServerPort = 0 [, $l_Service = 1 [, $l_Flags = 0 [, $l_Context = 0]]]]])
+
+###Parameters###
+@@ParamTable@@
+$l_InternetSession
+	as returned by _FTP_Open()
+$s_ServerName
+	Server name/ip.
+$s_Username
+	Username.
+$s_Password
+	Password.
+$i_Passive
+	[optional] Passive mode.
+$i_ServerPort
+	[optional] Server port ( 0 is default (21) )
+$l_Service
+	[optional] I dont got a clue what this does.
+$l_Flags
+	[optional] Special flags.
+$l_Context
+	[optional] A variable that contains the application-defined value that associates this search with any application data.
+	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an identifier
+Failure:	0  and sets @ERROR
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_FTP_Open, _FTP_SetStatusCallback, _FTP_Command, _FTP_DirCreate, _FTP_DirDelete, _FTP_DirGetCurrent, _FTP_DirPutContents, _FTP_DirSetCurrent, _FTP_FileDelete, _FTP_FileGet, _FTP_FileGetSize, _FTP_FilePut, _FTP_FileRename, _FTP_ListToArray, _FTP_ListToArray2D, _FTP_ListToArrayEx
+
+###See Also###
+@@MsdnLink@@ InternetConnect
+
+###Example###
+@@IncludeExample@@

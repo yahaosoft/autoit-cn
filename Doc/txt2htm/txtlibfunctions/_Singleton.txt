@@ -1,0 +1,34 @@
+###User Defined Function###
+_Singleton
+
+###Description###
+Enforce a design paradigm where only one instance of the script may be running.
+
+###Syntax###
+#Include <Misc.au3>
+_Singleton($sOccurenceName [, $iFlag = 0])
+
+###Parameters###
+@@ParamTable@@
+$sOccurenceName
+	String to identify the occurrence of the script.  This string may not contain the \ character unless you are placing the object in a namespace (See Remarks).
+$iFlag
+	[optional] Behavior options.
+		0 - Exit the script with the exit code -1 if another instance already exists.
+		1 - Return from the function without exiting the script.
+		2 - Allow the object to be accessed by anybody in the system. This is useful if specifying a "Global\" object in a multi-user environment.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	The handle to the object used for synchronization (a mutex).
+Failure:	0
+@@End@@
+
+###Remarks###
+You can place the object in a namespace by prefixing your object name with either "Global\" or "Local\". "Global\" objects combined with the flag 2 are useful in multi-user environments.
+
+###Related###
+
+###Example###
+@@IncludeExample@@

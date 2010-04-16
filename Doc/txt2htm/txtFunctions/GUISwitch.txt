@@ -1,0 +1,37 @@
+﻿###Function###
+GUISwitch
+
+###Description###
+切换用于 GUI 函数的"当前"窗口.
+
+###Syntax###
+GUISwitch ( 窗口句柄 [,标签项目ID] ) 
+
+
+###Parameters###
+@@ParamTable@@
+窗口句柄
+	要切换到的窗口句柄.   
+标签项目ID
+	[可选参数] 要选择的标签项目(tabitem)控件的控件ID.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回上一个"当前"窗口的句柄.
+失败:	返回一个空的句柄.    
+@@End@@
+
+
+###Remarks###
+许多 GUI 函数(在没有指定目标窗口时)都是把"当前"窗口作为默认窗口目标,"当前"窗口通常是指由 GUICreate 创建的最后一个窗口.本函数使得我们能够指定其它窗口成为"当前"窗口. 
+
+使用标签项目ID允许创建一个新控件到指定的标签项目控件中. 不要忘了关闭标签项目定义 GuiCtrlCreateTabItem("")
+
+
+###Related###
+GUICreate, GUIDelete, GUICtrlCreateTabItem
+
+
+###Example###
+@@IncludeExample@@

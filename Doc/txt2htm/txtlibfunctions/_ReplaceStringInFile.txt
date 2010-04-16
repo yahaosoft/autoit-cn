@@ -1,0 +1,43 @@
+###User Defined Function###
+_ReplaceStringInFile
+
+###Description###
+Replaces a string with another string in the given text file (binary won't work!)
+
+###Syntax###
+#Include <File.au3>
+_ReplaceStringInFile($szFileName, $szSearchString, $szReplaceString [, $fCaseness = 0 [, $fOccurance = 1]])
+
+###Parameters###
+@@ParamTable@@
+$szFileName
+	name of the file to open. ATTENTION !! Needs the FULL path, not just the name returned by eg. FileFindNextFile
+$szSearchString
+	The string we want to replace in the file
+$szReplaceString
+	The string we want as a replacement for $szSearchString
+$fCaseness
+	[optional] 0 = Not Case sensitive (default), 1 = Case sensitive, case does matter
+$fOccurance
+	[optional] 0 = Only first found is replaced, 1 = ALL occurrences are replaced (default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the number of occurrences of $szSearchString we found
+Failure:	Returns -1 and sets @error
+@error:	1 - Cannot open file
+	2 - Cannot open temp file
+	3 - Cannot write to temp file
+	4 - Cannot delete original file
+	5 - Cannot rename/move temp file
+	6 - ReadOnly Attribute set.
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+
+###Example###
+@@IncludeExample@@

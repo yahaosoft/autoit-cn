@@ -1,0 +1,41 @@
+﻿###Function###
+GUICtrlCreateListViewItem
+
+###Description###
+在GUI上创建一个 ListView 项目控件.
+
+###Syntax###
+GUICtrlCreateListViewItem ( "文本", listviewID ) 
+
+
+###Parameters###
+@@ParamTable@@
+文本
+	子项目文本使用分隔符"|"分开,您可以使用 <a href="AutoItSetOption.htm#GUIDataSeparatorChar">Opt("GUIDataSeparatorChar")</a> 进行设置.   
+listviewID
+	当前列表查看(ListView)控件的项目控件标识.    
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回控件标识(控件ID).
+失败:	返回 0.
+@@End@@
+
+
+###Remarks###
+本函数用于创建 ListView 项目,创建的项目和普通的控件一样可以使用 <a href="GUICtrlSetData.htm">GUICtrlSetData</a> 设置相关数据. 
+创建的项目也可以像其它控件一样使用 <a href="GUICtrlDelete.htm">GUICtrlDelete</a> 删除.
+ListView 项目可拖放到设置了 $GUI_ACCEPTFILES 状态的编辑框或输入框控件上.
+请查看 GUICtrlCreateListView 了解如何调整列的大小.
+
+还有个特别的标志 $GUI_BKCOLOR_LV_ALTERNATE 用于设置 Listview 控件的列表查看项目行(ListviewItems)的交替背景色. 
+要设置背景颜色使用 GUICtrlSetBkColor 设置 Listview 控件.
+或者使用GUICtrlSetBkColor 设置 ListviewItem 控件. 
+
+###Related###
+GUICtrlCreateListView, GUICtrlSetData, GUICtrlSetState, GUICtrlDelete, GUIGetMsg, GUICtrlRead, GUIDataSeparatorChar (Option)
+
+
+###Example###
+@@IncludeExample@@

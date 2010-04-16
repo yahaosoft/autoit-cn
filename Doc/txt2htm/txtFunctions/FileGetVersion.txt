@@ -1,0 +1,44 @@
+﻿###Function###
+FileGetVersion
+
+###Description###
+返回指定"文件"(通常是指可执行文件)的版本信息.
+
+###Syntax###
+FileGetVersion ( "文件名" [,"字符串名称"] )
+
+
+###Parameters###
+@@ParamTable@@
+文件名 
+	需要检测的文件名.
+字符串名称
+	[可选参数]定义的字段的名称.如:autoit工具箱的"声明"字段.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回一个含有版本信息的字符串,例如:"3.0.81.0".
+失败:	返回字符串"0.0.0.0",说明目标文件没有版本信息,为空""(或者遇到其它错误),并把 @error 设为 1.
+@@End@@
+
+
+###Remarks###
+字符串名称可以是下面的任何一个:
+Comments, InternalName, ProductName, CompanyName, LegalCopyright, ProductVersion, 
+FileDescription, LegalTrademarks, PrivateBuild, FileVersion, OriginalFilename, SpecialBuild
+
+或者指定一个像 "CompiledScript" 的自定义的字段. FileGetVersion(@AutoItExe, "CompiledScript") 将会返回 "AutoIt v3 Script : 3, 2, 8, 0 " 这样的字符串.
+
+程序作者可以使用指定的字符串 "DefaultLangCodepage" 来返回程序使用的默认语言和活页代码(codepage).
+
+语言和活页代码可以使用于需要添加不同的语言到程序中,那么我们需要添加一个不同的"字符串名称",例如: "080404b0\Comments" (参考 MSDN 里面VerQueryValue函数中的StringFileInfo定义).
+
+
+###Related###
+FileGetSize, FileGetTime
+
+
+###Example###
+@@IncludeExample@@

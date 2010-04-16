@@ -1,0 +1,38 @@
+###User Defined Function###
+_Net_Share_ShareDel
+
+###Description###
+Deletes a share name from a server's list of shared resources
+
+###Syntax###
+#Include <NetShare.au3>
+_Net_Share_ShareDel($sServer, $sShare)
+
+###Parameters###
+@@ParamTable@@
+$sServer
+	Specifies the DNS or NetBIOS name of the remote server on which the function is to execute. If
+		this parameter is blank, the local computer is used.
+$sShare
+	Specifies the name of the share to delete
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+###Remarks###
+Only members of the Administrators, Server Operators, or Power Users local group, or those with Server
+Operator group membership, can successfully delete file shares with this function. The Print Operator can
+delete printer shares.
+
+###Related###
+_Net_Share_ShareAdd, _Net_Share_ShareCheck, _Net_Share_SessionDel
+
+###See Also###
+@@MsdnLink@@ NetShareDel
+
+###Example###
+@@IncludeExample@@

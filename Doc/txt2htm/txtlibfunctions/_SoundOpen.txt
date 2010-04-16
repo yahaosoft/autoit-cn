@@ -1,0 +1,40 @@
+###User Defined Function###
+_SoundOpen
+
+###Description###
+打开一个声音文件,用于其它 _Sound 函数.
+
+###Syntax###
+#include <Sound.au3>
+_SoundOpen ( $sFile )
+
+
+###Parameters###
+@@ParamTable@@
+$sFile
+	声音文件路径
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回一个包含下列信息的三元素数组:
+	$array[0] = 声音文件 ID 字符串
+	$array[1] = VBR 长度修正数
+	$array[2] = VBR 速度修正数
+	$array[3] = Sound ID marker
+失败:	返回 0 并设置 @Error
+@error:	1 = MCI 错误
+	2 = 文件不存在
+@Extended:	0 = 没有错误.
+	大于0 =  MCI 错误.
+@@End@@
+
+###Remarks###
+Although many of the _Sound functions will accept the filename as a parameter, if there is a possibility of the file being VBR (variable bit rate) encoded it is highly recommended to use _SoundOpen initially and then use the returned array as the identity parameter in other _Sound...() functions.  This is because because the MCI DLL assumes all files are CBR (constant bit rate) encoded and produces incorrect results from those _Sound...() functions dealing with length and position when the sound file has been VBR (variable bit rate) encoded.  If using the array as the ID parameter with the _Sound...() functions which alter the VBR correction factors (_SoundStop) the ID array will be updated when needed. 
+The individual elements of the returned array have no utility outside the _Sound functions and their internal use is transparent to the user.
+
+###Related###
+_SoundClose, _SoundLength, _SoundPause, _SoundPlay, _SoundPos, _SoundResume, _SoundStatus, _SoundStop
+
+###Example###
+@@IncludeExample@@

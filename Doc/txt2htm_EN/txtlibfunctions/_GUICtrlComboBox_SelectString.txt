@@ -1,0 +1,39 @@
+###User Defined Function###
+_GUICtrlComboBox_SelectString
+
+###Description###
+Searches the ListBox of a ComboBox for an item that begins with the characters in a specified string
+
+###Syntax###
+#Include <GuiComboBox.au3>
+_GUICtrlComboBox_SelectString($hWnd, $sText[, $iIndex = -1])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to control
+$sText
+	String that contains the characters for which to search
+$iIndex
+	[optional] Specifies the zero-based index of the item preceding the first item to be searched
+@@End@@
+
+###ReturnValue###
+Success: The index of the selected item
+Failure: -1
+
+###Remarks###
+When the search reaches the bottom of the list, it continues from the top of the list back to the
+item specified by the wParam parameter.
+
+If $iIndex is –1, the entire list is searched from the beginning.
+A string is selected only if the characters from the starting point match the characters in the
+prefix string
+
+If a matching item is found, it is selected and copied to the edit control
+
+###Related###
+_GUICtrlComboBox_FindString, _GUICtrlComboBox_FindStringExact, _GUICtrlComboBoxEx_FindStringExact
+
+###Example###
+@@IncludeExample@@

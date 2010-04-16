@@ -1,0 +1,47 @@
+﻿###Function###
+InetGetSize
+
+###Description###
+以字节为单位返回存放在互联网上的指定文件的大小.
+
+###Syntax###
+InetGetSize ( "URL" [, 选项 ] )
+
+
+###Parameters###
+@@ParamTable@@
+URL
+	要下载文件的 URL(地址).  参考注意事项.
+选项
+	[可选参数] 0 = (默认)如有可能则从本地缓存中获得文件.
+	1 = 强制性地要求脚本从远程站点重新得到文件.
+	2 = 忽略所有 SSL 错误(使用 HTTPS 连接时).
+	4 = 使用FTP协议传输文件时,使用 ASCII 方式传输文件(不能和标志 8 一起使用).
+	8 = 使用FTP协议传输文件时,使用 二进制 方式传输文件(不能和标志 4 一起使用). 如果未使用过或者上次未指定,则二进制方式为默认传输方式.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回目标文件的大小(以字节为单位).
+失败:	返回值为 0并设置 @error 为非 0.
+@@End@@
+
+
+###Remarks###
+为保证此函数的正常工作必须安装 Internet Explorer 3 或更高版本,如果URL的协议是FTP(ftp://...则要安装 IE 5)
+
+URL 参数是指类似"http://www.somesite.com/path/file.html"这样的形式,这和我们在网页浏览器中输入的地址是一样的格式.
+
+如果连接时需要指定用户名及密码,只要在主机名前加以下前缀即可:"用户名:密码@"( 都是英文字符 ),比如
+"http://myuser:mypassword@www.somesite.com"
+
+并非所有的服务器都能返回正确的文件大小,尤其是在使用了代理的情况下.
+
+
+###Related###
+InetGet, InetRead, HttpSetProxy, FtpSetProxy, HttpSetUserAgent
+
+
+###Example###
+@@IncludeExample@@

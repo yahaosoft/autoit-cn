@@ -1,0 +1,45 @@
+﻿###Function###
+StringFromASCIIArray
+
+###Description###
+转换一个 ASCII 码数组到一个字符串.
+
+###Syntax###
+StringFromASCIIArray( 数组, [ 开始 [, 结束 [, 编码 ] ] ] )
+
+
+###Parameters###
+@@ParamTable@@
+数组
+	要转化为字符串的包含ASCII代码的数组.
+开始
+	[可选参数] 基于0开始的开始位置的坐标,用于指定进行处理的开始位置(默认: 0).
+结束
+	[可选产生] 基于0开始的结束位置的坐标,用于指定进行处理的结束位置(默认: UBound($array) - 1).
+编码
+	[可选产生] 指定数组包含的值使用的字符集:
+		0 - UTF-16 (默认)
+		1 - ANSI
+		2 - UTF-8
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回 ASCII 码表示的字符串.
+失败:	返回一个空字符串,并设置 @error 为非零. @error 可以是:
+	1 - 输入的不是一个数组.
+	2 - 开始位置无效.
+@@End@@
+
+###Remarks###
+The returned string may contain embedded Chr(0) but will still be a string type.  Most string functions will stop at the first Chr(0) found, however, if access to the entire contents of the string is required then the StringToBinary() function can convert it into a BinaryString preserving all the data.
+
+If you attempt to create an array manually (As opposed to using an array returned from StringToASCIIArray()) then the codes in the array must be specified in UNICODE.
+
+###Related###
+StringToASCIIArray
+
+
+###Example###
+@@IncludeExample@@

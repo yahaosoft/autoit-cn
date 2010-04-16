@@ -1,0 +1,37 @@
+﻿###User Defined Function###
+_GDIPlus_ImageGetRawFormat
+
+###Description###
+Returns file format GUID and image format name of an image
+
+###Syntax###
+#Include <GDIPlus.au3>
+_GDIPlus_ImageGetRawFormat($hImage)
+
+###Parameters###
+@@ParamTable@@
+$hImage
+	Handle to an image object
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Array with the following format
+	[0] - - String of file format GUID
+	[1] - - String of image format name
+Failure:	Returns empty array and @error is set, @extended set to error location
+@error:	0 - No error.
+	10 - Invalid image handle
+@@End@@
+
+###Remarks###
+@error 4 relies on GDI+ UDF return of -1 or 0 instead of image handle for errors
+
+###Related###
+_GDIPlus_ImageGetType
+
+###See Also###
+@@MsdnLink@@ GdipGetImageRawFormat
+
+###Example###
+@@IncludeExample@@

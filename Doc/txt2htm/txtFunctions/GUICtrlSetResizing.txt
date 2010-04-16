@@ -1,0 +1,62 @@
+﻿###Function###
+GUICtrlSetResizing
+
+###Description###
+设置某个控件的大小调整方式.
+
+###Syntax###
+GUICtrlSetResizing ( 控件ID, 调整方式 ) 
+
+
+###Parameters###
+@@ParamTable@@
+控件ID
+	控件标识符(控件ID),可由 <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a> 函数的返回值获得.
+调整方式
+	请查看下面的 停靠值列表 了解可用数值(可按需把相应数值相加).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回值为1.
+失败:	返回值为0.
+@@End@@
+
+
+###Remarks###
+当 GUI 窗口被调整大小时,其所属控件也会有相应变化,至于如何变化则是由本函数定义的.若要使某个 GUI 窗口可调整大小必须在创建时添加 $WS_SIZEBOX 和 $WS_SYSMENU 风格.请查看 <a href="GUICreate.htm">GUICreate</a>.
+
+	<a name="DockingValues"></a><b>停靠值列表</b>
+@@StandardTable1@@
+<b>各种尺寸</b>	<b>值</b>	<b>详细信息</b>
+$GUI_DOCKAUTO	1	按照新窗口的大小重新设置窗口大小和坐标.   
+$GUI_DOCKLEFT	2	左边   
+$GUI_DOCKRIGHT	4	右边  
+$GUI_DOCKHCENTER	8	水平居中   
+		
+$GUI_DOCKTOP	32	上方   
+$GUI_DOCKBOTTOM	64	底部   
+$GUI_DOCKVCENTER	128	垂直居中   
+		
+$GUI_DOCKWIDTH	256	宽度不变   
+$GUI_DOCKHEIGHT	512	高度不变   
+		混合大小
+$GUI_DOCKSIZE	768	大小不变(256+512=768)   
+$GUI_DOCKMENUBAR	544	512+32=544,表示控件将保持在窗口上方并且高度不变   
+$GUI_DOCKSTATEBAR	576	512+64=576,表示控件将保持在窗口底部并且高度不变   
+$GUI_DOCKALL	802	2+32+256+512=802,表示(在窗口被调整大小时)控件位置将一直不变   
+$GUI_DOCKBORDERS	102	(2+4+32+64) so the control will grow as the window
+@@End@@
+
+The default resizing for a given control is control dependent see the control doc.
+A default value for any control can be set with GUIResizeMode (Option).
+
+The automatic resizing event can be disabled if GUIEventOptions (Option) is set to 1.
+
+
+###Related###
+GUIResizeMode (Option), GUIEventOptions (Option), GUICtrlCreate...
+
+
+###Example###
+@@IncludeExample@@

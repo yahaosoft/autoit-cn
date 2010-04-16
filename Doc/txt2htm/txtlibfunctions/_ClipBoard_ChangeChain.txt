@@ -1,0 +1,35 @@
+﻿###User Defined Function###
+_ClipBoard_ChangeChain
+
+###Description###
+从剪切板查看器中移除指定窗口链
+
+###Syntax###
+#Include <Clipboard.au3>
+_ClipBoard_ChangeChain($hRemove, $hNewNext)
+
+###Parameters###
+@@ParamTable@@
+$hRemove
+	要移除链的窗口句柄.
+		The handle must have been passed to the _ClipBoard_SetClipboardViewer function.
+$hNewNext
+	Handle to the window that follows the $hRemove window in the clipboard viewer chain.
+		This is the handle returned by _ClipBoard_SetViewer, unless the sequence was changed in response to a $WM_CHANGECBCHAIN message.
+@@End@@
+
+###ReturnValue###
+None.
+
+###Remarks###
+The window identified by $hNewNext replaces the $hRemove window in the chain. The _ClipBoard_SetViewer function
+sends a $WM_CHANGECBCHAIN message to the first window in the clipboard viewer chain.
+
+###Related###
+_ClipBoard_SetViewer
+
+###See Also###
+@@MsdnLink@@ ChangeClipboardChain
+
+###Example###
+@@IncludeExample@@

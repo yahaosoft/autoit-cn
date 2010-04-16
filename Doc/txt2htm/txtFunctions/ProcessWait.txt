@@ -1,0 +1,39 @@
+﻿###Function###
+ProcessWait
+
+###Description###
+暂停脚本的执行直至给定进程出现为止.
+
+###Syntax###
+ProcessWait ( "进程名" [, 超时时间] )
+
+
+###Parameters###
+@@ParamTable@@
+进程名
+	目标进程的名称. 
+超时时间
+	[可选参数] 指定要等待的时间长度(默认为一直等待).    
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回 进程PID.
+失败:	返回 0,已超时.    
+@@End@@
+
+
+###Remarks###
+进程名是指可执行文件的名称(无需给出完整路径),例如:"notepad.exe" 或 "winword.exe" 
+
+每隔 250 毫秒左右进程将被检测一次.
+
+本函数是唯一一个不接受PID作为参数的进程函数,这是因为 PID 是随机分配的,等待一个特定的 PID 出现并没有任何意义.
+
+###Related###
+ProcessClose, ProcessExists, ProcessWaitClose, RunWait, WinWait, WinWaitActive, ProcessList, RunAsWait, WinGetProcess
+
+
+###Example###
+@@IncludeExample@@

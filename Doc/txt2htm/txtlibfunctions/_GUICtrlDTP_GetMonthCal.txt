@@ -1,0 +1,30 @@
+﻿###User Defined Function###
+_GUICtrlDTP_GetMonthCal
+
+###Description###
+Retrieves the handle to child month calendar control
+
+###Syntax###
+#Include <GuiDateTimePicker.au3>
+_GUICtrlDTP_GetMonthCal($hWnd)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+@@End@@
+
+###ReturnValue###
+Success: Month calendar handle
+Failure: 0
+
+###Remarks###
+DTP controls create a child month calendar control when the user clicks the drop down arrow ($DTN_DROPDOWN
+notification). When the month calendar is no longer needed, it is destroyed (a $DTN_CLOSEUP notification is
+sent on destruction). So your application must not rely on a static handle to the DTP control's child month
+calendar.
+
+###Related###
+
+###Example###
+@@IncludeExample@@

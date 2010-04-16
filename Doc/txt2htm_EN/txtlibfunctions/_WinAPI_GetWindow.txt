@@ -1,0 +1,56 @@
+###User Defined Function###
+_WinAPI_GetWindow
+
+###Description###
+Retrieves the handle of a window that has a specified relationship to the specified window
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_GetWindow($hWnd, $iCmd)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle of the window
+$iCmd
+	Specifies the relationship between the specified window and the window whose handle is to be
+		retrieved. This parameter can be one of the following values:
+		$GW_CHILD - The retrieved handle identifies the child window at the top of the Z order, if the specified
+		window is a parent window; otherwise, the retrieved handle is 0. The function examines only child windows of
+		the specified window. It does not examine descendant windows.
+		$GW_HWNDFIRST - The retrieved handle identifies the window of the same type that is highest in the Z order.
+		If the specified window is a topmost window, the handle identifies the topmost window that is highest in the
+		Z order. If the specified window is a top-level window, the handle identifies the top level window that is
+		highest in the Z order. If the specified window is a child window, the handle identifies the sibling window
+		that is highest in the Z order.
+		$GW_HWNDLAST - The retrieved handle identifies the window of the same type that is lowest in the Z order. If
+		the specified window is a topmost window, the handle identifies the topmost window that is lowest in the Z
+		order. If the specified window is a top-level window the handle identifies the top-level window that's lowest
+		in the Z order. If the specified window is a child window, the handle identifies the sibling window that is
+		lowest in the Z order.
+		$GW_HWNDNEXT - The retrieved handle identifies the window below the specified window in the Z order. If the
+		specified window is a topmost window, the handle identifies the topmost window below the specified window. If
+		the specified window is a top-level window, the handle identifies the top-level window below the specified
+		window. If the specified window is a child window the handle identifies the sibling window below the
+		specified window.
+		$GW_HWNDPREV - The retrieved handle identifies the window above the specified window in the Z order. If the
+		specified window is a topmost window, the handle identifies the topmost window above the specified window. If
+		the specified window is a top-level window, the handle identifies the top-level window above the specified
+		window. If the specified window is a child window, the handle identifies the sibling window above the
+		specified window.
+		$GW_OWNER - The retrieved handle identifies the specified window's owner window if any
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	The window handle
+Failure:	0
+@@End@@
+
+###Remarks###
+Needs Constants.au3 for pre-defined constants
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ GetWindow

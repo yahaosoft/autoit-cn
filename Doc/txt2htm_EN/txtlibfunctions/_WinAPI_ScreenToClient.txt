@@ -1,0 +1,37 @@
+###User Defined Function###
+_WinAPI_ScreenToClient
+
+###Description###
+Converts screen coordinates of a specified point on the screen to client coordinates
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_ScreenToClient($hWnd, ByRef $tPoint)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Identifies the window that be used for the conversion
+$tPoint
+	$tagPOINT structure that contains the screen coordinates to be converted
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+###Remarks###
+The function uses the window identified by the $hWnd parameter and the screen coordinates given in the
+$tagPOINT structure to compute client coordinates. It then replaces the screen coordinates with the client
+coordinates. The new coordinates are relative to the upper-left corner of the specified window's client area.
+
+###Related###
+_WinAPI_ClientToScreen, $tagPOINT
+
+###See Also###
+@@MsdnLink@@ ScreenToClient
+
+###Example###
+@@IncludeExample@@

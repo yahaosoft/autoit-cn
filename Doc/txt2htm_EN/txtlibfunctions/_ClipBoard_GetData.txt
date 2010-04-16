@@ -1,0 +1,57 @@
+###User Defined Function###
+_ClipBoard_GetData
+
+###Description###
+Retrieves data from the clipboard in a specified format
+
+###Syntax###
+#Include <Clipboard.au3>
+_ClipBoard_GetData([$iFormat = 1])
+
+###Parameters###
+@@ParamTable@@
+$iFormat
+	[optional] Specifies a clipboard format:
+		$CF_TEXT - Text format
+		$CF_BITMAP - Handle to a bitmap (HBITMAP)
+		$CF_METAFILEPICT - Handle to a metafile picture (METAFILEPICT)
+		$CF_SYLK - Microsoft Symbolic Link (SYLK) format
+		$CF_DIF - Software Arts' Data Interchange Format
+		$CF_TIFF - Tagged image file format
+		$CF_OEMTEXT - Text format containing characters in the OEM character set
+		$CF_DIB - BITMAPINFO structure followed by the bitmap bits
+		$CF_PALETTE - Handle to a color palette
+		$CF_PENDATA - Data for the pen extensions to Pen Computing
+		$CF_RIFF - Represents audio data in RIFF format
+		$CF_WAVE - Represents audio data in WAVE format
+		$CF_UNICODETEXT - Unicode text format
+		$CF_ENHMETAFILE - Handle to an enhanced metafile (HENHMETAFILE)
+		$CF_HDROP - Handle to type HDROP that identifies a list of files
+		$CF_LOCALE - Handle to the locale identifier associated with text in the clipboard
+		$CF_DIBV5 - BITMAPV5HEADER structure followed by bitmap color and the bitmap bits
+		$CF_OWNERDISPLAY - Owner display format
+		$CF_DSPTEXT - Text display format associated with a private format
+		$CF_DSPBITMAP - Bitmap display format associated with a private format
+		$CF_DSPMETAFILEPICT - Metafile picture display format associated with a private format
+		$CF_DSPENHMETAFILE - Enhanced metafile display format associated with a private format
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Text for text based formats or Binary data for all other formats
+	@extended is set to the # of characters for Text, or # of bytes for Binary
+Failure:	0
+@@End@@
+
+###Remarks###
+This function performs all of the steps neccesary to get data from the clipboard. It checks to see if the data
+format is available, opens the clipboard, closes the clipboard and returns the data in one of
+two formats: String format for datatypes $CF_TEXT, $CF_OEMTEXT, or $CF_UNICODETEXT,
+or Binary format for every other type. If you need a finer degree of control over retrieving data from
+the clipboard, you may want to use the _ClipBoard_GetDataEx function.
+
+###Related###
+_ClipBoard_GetDataEx, _ClipBoard_SetData, _ClipBoard_SetDataEx
+
+###Example###
+@@IncludeExample@@

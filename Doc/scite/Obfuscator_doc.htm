@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<HTML>
+<HEAD>
+  <META name="generator" content="Microsoft FrontPage 12.0">
+  <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+
+  <TITLE>Obfuscator for AutoIt3</TITLE>
+  <LINK rel="stylesheet" href="css/default.css" type="text/css">
+</HEAD>
+
+<BODY lang="EN-US" link="blue" vlink="purple">
+  <H1>Description of Obfuscator.exe</H1>
+
+  <H2>Introduction:</H2>
+	<p>Many people have requested an Obfuscator function since Smoke_N stopped
+support on his version.<br>
+I took the Tidy program, which has all Lexing logic built-in, and created a
+separate program called Obfuscator.<br>
+	Obfuscator will make it a lot harder to read your source code but remember:</p>
+	<p align="center"><b><u><font size="6">Obfuscator doesn't make your source safe!</font></u></b><br>
+	&nbsp;</p>
+	<p>Ok, now we have this out of the way a few other things:</p>
+	<ol>
+		<li>Ensure you have a proper working script before using the Obfuscator.</li>
+		<li>Ensure you extensively test the Obfuscated script.</li>
+		<li>Don't come to me complaining Obfuscator corrupted the working of your
+		script.</li>
+		<li>Oh ...&nbsp; and did I tell you already that Obfuscator doesn't make
+		your Script source safe enough to store passwords?</li>
+	</ol>
+	<H2>What Obfuscator does:</H2>
+	<p>Obfuscator will:</p>
+	<ol>
+		<li>Read your script and Includes needed and create a new source file:<ol>
+			<li>Rename Variable names.</li>
+			<li>Rename Func name.</li>
+			<li>Convert Strings to a Variable.</li>
+			<li>Convert Values to a Number(Variable).</li>
+			<li>Convert @Marcros to Execute(Variable)</li>
+			<li>Warn you about the use of these AutoIt3 Functions and in which
+			File/Func/line they are used and the Parameter contains an Ampersand
+			(&amp;), <b>since they will cripple the functioning of the script when
+			used</b>:<ol>
+				<li>adlibenable()</li>
+				<li>call()</li>
+				<li>eval()</li>
+				<li>Execute()</li>
+				<li>guiregistermsg()</li>
+				<li>guisetonevent()</li>
+				<li>guictrlsetonevent()</li>
+				<li>hotkeyset()</li>
+				<li>isdeclared()</li>
+				<li>trayitemsetonevent()</li>
+				<li>objevent()</li>
+				<li>Opt(&quot;OnExitFunc&quot;,&quot;OnAutoItExit&quot;)<br>
+&nbsp;</li>
+			</ol>
+			</li>
+		</ol>
+		</li>
+		<li>Produce an Obfuscator.log which contains all information about the
+		conversion process in case of problems.</li>
+	</ol>
+
+  <h2>Supported Commandline or compiler directive options:</h2>
+	<p>This is the list of supported parameters to specify on the command line
+	or in the Directive: #Obfuscator_Parameters=:</p>
+	<ul>
+		<li><font face="Courier">/CV&nbsp; or /Convert_Vars=0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; No
+		Variable encryption (Default = 1)</font></li>
+		<li><font face="Courier">/CF&nbsp; or /Convert_Funcs=0&nbsp;&nbsp;&nbsp;&nbsp; ; No FuncName
+		encryption (Default = 1)</font></li>
+		<li><font face="Courier">/CS&nbsp; or /Convert_Strings=0&nbsp;&nbsp; ; No String encryption
+		(Default = 1)</font></li>
+		<li><font face="Courier">/CN&nbsp; or /Convert_Numerics=0&nbsp; ; No Numeric encryption (Default = 1 )
+		</font>
+		</li>
+		<li><font face="Courier">/SO&nbsp; or /StripOnly&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;; Set the options to: /SF /SV /CV=0 /CF=0 /CS=0 /CN=0</font></li>
+		<li><font face="Courier">/SOI or /StripOnlyIncludes&nbsp;&nbsp;&nbsp;; Same as /SO but
+		will leave masterscript untouched.</font></li>
+		<li><font face="Courier">/OM&nbsp; or /ObfuscateMinumum&nbsp;&nbsp;&nbsp;&nbsp;;
+		Generates a much smaller obfuscated file.</font></li>
+		<li><font face="Courier">/SF&nbsp; or /StripUnusedFunc&nbsp; &nbsp;&nbsp; ; Remove Func's that are not
+		used by the MainScript. (Default = 0)</font></li>
+		<li><font face="Courier">/SV&nbsp; or /StripUnusedVars&nbsp; &nbsp;&nbsp; ; Remove
+		unused Gobal Variable
+		declarations lines. (Default = 0)</font></li>
+		<li><font face="Courier">/SCI or /showconsoleinfo 0&nbsp;&nbsp; ; Default Minimal output to the
+		console; warning and errors.</font></li>
+		<li><font face="Courier">/SCI or /showconsoleinfo 1&nbsp;&nbsp; ; Show more progress information.</font></li>
+		<li><font face="Courier">/SCI or /showconsoleinfo 9&nbsp;&nbsp; ; Show all debug lines as found in
+		the Obfuscator.log</font></li>
+		<li><font face="Courier">/Beta&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		; Use the AutoIt\Beta\Include files </font>
+		<p><br>
+		&nbsp;&nbsp;</p>
+		<table border="1" id="table3">
+			<tr>
+				<td style="margin-top: 0; margin-bottom: 0">
+				<p style="margin-top: 0; margin-bottom: 0">
+				<font color="#FF66FF">#Autoit3Wrapperr_Run_Obfuscator=y </font>&nbsp;&nbsp;&nbsp;
+				<font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Run Obfuscator before compilation. default=n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</font></p>
+				<p style="margin-top: 0; margin-bottom: 0">
+				<font color="#FF66FF">#Obfuscator_Parameters= /Convert_Strings=0 /Convert_Numerics=0 /showconsoleinfo=1 /Beta</font><p style="margin-top: 0; margin-bottom: 0">
+				<font color="#FF66FF">#Obfuscator_Off&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</font><font color="#008000">;Stop the Obfuscation process below this
+				line</font><p style="margin-top: 0; margin-bottom: 0">
+				<font color="#FF66FF">#Obfuscator_On&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</font><font color="#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				;Start the Obfuscation process below this line</font><p style="margin-top: 0; margin-bottom: 0">
+				<font color="#FF66FF">#Obfuscator_Ignore_Funcs=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</font><font color="#008000">&nbsp;; Don't convert these Funcs</font><p style="margin-top: 0; margin-bottom: 0">
+				<font color="#FF66FF">#Obfuscator_Ignore_Variables=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</font><font color="#008000">&nbsp;; Don't convert these
+				Variables</font></td>
+			</tr>
+		</table>
+		</li>
+	</ul>
+	<p>&nbsp;</p>
+
+  <H2>Running Obfuscator:</H2>
+
+  <p>Obfuscator can be run </p>
+	<ol>
+		<li><b>Manually:</b> Add these lines to SciTEUSer.properties<br>
+&nbsp;<table border="1" width="100%" id="table4">
+			<tr>
+				<td><font face="Courier New">command.46.*.au3=&quot;$(SciteDefaultHome)\Obfuscator\Obfuscator.exe&quot;
+				&quot;$(FilePath)&quot; <br>
+				command.name.46.*.au3=Obfuscator<br>
+				command.save.before.46.*.au3=1<br>
+				command.is.filter.46.*.au3=1<br>
+				command.shortcut.46.*.au3=Ctrl+Shift+O</font></td>
+			</tr>
+		</table>
+		<p>&nbsp;</li>
+		<li><b>Batch:</b> Obfuscator.exe Scriptname.au3</li>
+		<li><b>From SciTE</b> with F7 or Alt+F7 (Compile) and will need to be
+		activated by the following Compiler directive:<br>&nbsp;<table border="1" id="table2">
+			<tr>
+				<td><font color="#FF66FF">#Compiler_Run_Obfuscator=y </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<font color="#008000">&nbsp;;Run Obfuscator before compilation.
+				default=n</font></td>
+			</tr>
+		</table></li>
+	</ol>
+	<blockquote>
+		<p>AutoIt3Wrapper will first run Au3Check against the original source
+		and when no errors fond it will run Obfuscator.exe to create an
+		encrypted source file, <i>Scriptfile</i><b>_Obfuscated</b>.au3 in the
+		same directory, containing all source information&nbsp; including all
+		#included files. <br>This file is then also run through AU3Check to
+		ensure nothing went wrong during conversion.<br>Then the <i>Scriptfile</i><b>_Obfuscated</b>.au3
+		is used by AUT2EXE to create your program.</p>
+		<table border="1" width="100%" id="table1">
+			<tr>
+				<td><br><font face="Courier New" size="2"><font color="#0000FF">
+				AutoIt3 Source Obfuscator v?.?.?.? Copyright (c) Jos van der
+				Zande&nbsp; <i>date</i><br></font><font color="#FF9933">-###
+				Obfuscation Warning: Found Eval() statement which will lead to
+				problems running your script.<br>-### current Func:_ArrayCreate<br>
+				</font><font color="#FF0000">C:\Program
+				Files\AutoIt3\include\array.au3(101,1) Warning for
+				line:$av_Array[$i_Index] = Eval(&quot;v_&quot; &amp; String($i_Index))</font>
+				<br><font color="#FF9933">-### Obfuscation Warning: Found
+				IsDeclared() statement which could lead to problems running your
+				script.<br>-### current Func:_About</font><br>
+				<font color="#FF0000">c:\program files\autoit3\scite\csnippet\csnippet.au3(2182,1)
+				Warning for line:If Not IsDeclared('Cadet_Blue_3') Then Local
+				$Cadet_Blue_3 = 0x7AC5CD </font><br><font color="#FF9933">
+				-############################################################################################<br>
+				-#### Obfuscator Found 2 warning(s)!!!!&nbsp;&nbsp; This means
+				your script could not run properly. ####<br>
+				-############################################################################################</font><font color="#008000"><br>
+				+Obfuscator finished obfuscating 4025 lines and created:c:\program
+				files\autoit3\scite\csnippet\csnippet_Obfuscated.au3</font></font></td>
+			</tr>
+		</table>
+		<p>&nbsp;</p>
+	</blockquote>
+	</BODY>
+</HTML>

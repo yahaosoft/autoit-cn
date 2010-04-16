@@ -1,0 +1,34 @@
+﻿###User Defined Function###
+_WinAPI_SetWindowText
+
+###Description###
+Changes the text of the specified window's title bar
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_SetWindowText($hWnd, $sText)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window or control whose text is to be changed
+$sText
+	String to be used as the new title or control te
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	True
+Failure	False
+@@End@@
+
+###Remarks###
+If the target window is owned by the current process, SetWindowText causes a $WM_SETTEXT message to be sent to
+the specified window or control. If the control is a list box control created with the $WS_CAPTION style,
+however, SetWindowText sets the text for the control, not for the list box entries. To set the text of a
+control in another process, send the $WM_SETTEXT message directly instead of calling SetWindowText.
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ SetWindowText

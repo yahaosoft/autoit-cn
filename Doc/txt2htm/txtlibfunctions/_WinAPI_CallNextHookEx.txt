@@ -1,0 +1,39 @@
+﻿###User Defined Function###
+_WinAPI_CallNextHookEx
+
+###Description###
+Passes the hook information to the next hook procedure in the current hook chain
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_CallNextHookEx($hhk, $iCode, $wParam, $lParam)
+
+###Parameters###
+@@ParamTable@@
+$hhk
+	Windows 95/98/ME: Handle to the current hook. An application receives this handle as a result of a previous call to the _WinAPI_SetWindowsHookEx function.
+		Windows NT/XP/2003: Ignored
+$iCode
+	Specifies the hook code passed to the current hook procedure. The next hook procedure uses this code to determine how to process the hook information
+$wParam
+	Specifies the wParam value passed to the current hook procedure.
+		The meaning of this parameter depends on the type of hook associated with the current hook chain
+$lParam
+	Specifies the lParam value passed to the current hook procedure.
+		The meaning of this parameter depends on the type of hook associated with the current hook chain
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	This value is returned by the next hook procedure in the chain
+Failure:	-1 and @error is set
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_WinAPI_SetWindowsHookEx, $tagKBDLLHOOKSTRUCT
+
+###See Also###
+@@MsdnLink@@ CallNextHookEx

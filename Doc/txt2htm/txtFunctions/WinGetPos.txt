@@ -1,0 +1,41 @@
+﻿###Function###
+WinGetPos
+
+###Description###
+获取指定窗口的坐标位置和大小等属性.
+
+###Syntax###
+WinGetPos ( "窗口标题" [, "窗口文本"] ) 
+
+
+###Parameters###
+@@ParamTable@@
+窗口标题
+	目标窗口标题. 参考<a href="../intro/windowsadvanced.htm">标题高级定义</a>.
+窗口文本
+	[可选参数] 指定窗口包含的文本.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回一个含有下列信息的4维数组:
+	$array[0] = X 坐标
+	$array[1] = Y 坐标   
+	$array[2] = 宽度   
+	$array[3] = 高度   
+失败:	返回值为1,并把 @error 设为 1,说明未找到目标窗口.  
+@@End@@
+
+
+###Remarks###
+若目标窗口被最小化则 WinGetPos 的返回值将是负数(比如 -32000),但对(非最小化的)隐藏窗口则可正常工作. 
+若窗口标题是"Program Manager"则本函数将返回桌面的大小.若同时有多个窗口符合匹配条件则程序将获取最近被激活的窗口的大小.
+
+
+###Related###
+WinGetClientSize, WinMove, WinGetState
+
+
+###Example###
+@@IncludeExample@@

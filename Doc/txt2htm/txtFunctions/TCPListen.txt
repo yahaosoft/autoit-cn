@@ -1,0 +1,40 @@
+﻿###Function###
+TCPListen
+
+###Description###
+创建一个套接字(socket)监听. 
+
+
+###Syntax###
+TCPListen ( IP地址, 端口 [, 最大未决连接] ) 
+
+
+###Parameters###
+@@ParamTable@@
+IP地址
+	因特网协议地址(IpV4) ,如 "192.162.1.1".
+端口
+	用于连接创建的连接的端口.
+最大未决连接
+	[可选参数] 最大数量的未决连接队列. 在默认时将会自动设置一个合适的值.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回主套接字标识(socket Id).
+失败:	返回-1 或者 0 并设置 @error.
+@error:	1 IP地址错误.
+	2 端口错误.
+	windows API WSAGetError 返回值 (参考 <a href="http://msdn.microsoft.com/en-us/library/ms740668.aspx">MSDN</a>).
+@@End@@
+
+
+###Remarks###
+None.
+
+###Related###
+TCPStartup, TCPConnect, TCPAccept, TCPTimeout (Option), TCPCloseSocket, TCPSend, TCPShutdown
+
+
+###Example###
+@@IncludeExample@@

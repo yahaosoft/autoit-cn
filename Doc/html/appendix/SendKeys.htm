@@ -1,0 +1,422 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Send 按键列表</title>
+<meta content="text/html; charset=GB2312"
+ http-equiv="Content-Type">
+  <link type="text/css" rel="stylesheet" href="../css/default.css">
+</head>
+<body>
+<H1>Send 命令的可用按键列表</H1>
+<p><br>
+快速了解 <B><A href="../functions/Send.htm">Send ( "按键" [, 标志] )</a></b>命令
+<b>^</b> Ctrl &nbsp;&nbsp; <B>!</B> Alt &nbsp;&nbsp;<b>+</b> Shift &nbsp;&nbsp; <B>#</B> Win(徽标键)<BR>
+</p>
+<P>AutoIt 可发送所有的 ASCII 码及扩展 ASCII 码字符(0-255),若要发送 UNICODE 编码的字符则必须使用"ASC"选项加上您要发送的字符代码(见下面的 {ASC}).</P>
+<p><br>
+  <br>
+如果要发送 ASCII 字符 A 则参考下例(相当于 ALT+065,按住ALT键并在数字键盘上顺序按下065)</P>
+<p class="codebox">Send("{ASC 065}")</p>
+<P>(在使用两位数的 ASCII 码时必须在前面加一个 0,否则将使用 437号代码页).</P>
+<p>&nbsp;</p>
+<P>如果要发送 UNICODE 字符则输入该字符代码,例如下例将发送一个中文字符</P>
+<P class=codebox>Send("{ASC 2709}")</P>
+<p>&nbsp;</p>
+<P>可参考下例重复发送某按键:</P>
+<P class="codebox">Send("{DEL 4}") ;连续4次按下 DEL 键<BR>
+Send("{S 30}") ;发送30个字符"S"<BR>
+Send("+{TAB 4}) ;连续4次按下 SHIFT+TAB</P>
+
+<p>&nbsp;</p>
+<P>如果要按住(保持按下状态)某个按键(通常用于游戏中)</P>
+<P class="codebox">Send("{a down}") ;按住按键 A<br>
+Send("{a up}") ;松开按键 A</P>
+
+<p>&nbsp;</p>
+<P>如果要用变量来指定重复发送的次数,参考下例: 
+<p class="codebox">$n = 4<br>
+Send("+{TAB " & $n & "}")</p>
+
+<p>&nbsp;</p>
+<P>如果要用变量来指定要重复发送的 ASCII 字符(比如 A),参考下例: 
+<p class="codebox">$x = Chr(65)<br>
+  Send("{" & $x & " 4}")</p>
+
+<p>&nbsp;</p>
+<P>大多数笔记本电脑的键盘上都会有一个特殊的 Fn 键,此键无法被模拟.<BR>
+          <br>
+注意，若把标志参数的值设为1则"按键"参数将被原样发送.如果某些文本是从变量里拷贝而来,而您又希望完全按原样发送这些文本的话,就应该使用这一设置.<BR>
+          <br>
+          <br>
+<B>Send 是非常有用的一个函数/命令,因为我们可用它来对窗口进行操作而无需使用鼠标.</B><BR>
+          <br>
+例如，先打开 文件夹选项窗口(位于控制面板),然后请尝试执行下面这些语句: <br>
+        <br>
+        </p>
+        </p>
+          </p>
+            </p>
+                </p>
+<table border="1" width="100%" cellspacing="0" cellpadding="3" bordercolor="#c0c0c0">
+<tr>
+  <td>Send("{TAB}")</td>
+    <TD>切换到(焦点切换)下一个控件(按钮、复选框等)</TD>
+</tr>
+<tr>
+  <td>Send("+{TAB}")</td>
+    <TD>切换到上一个控件</TD>
+</tr>
+<tr>
+  <td>Send("^{TAB}")</td>
+    <TD>切换到下一个窗口标签</TD>
+</tr>
+<tr>
+  <td>Send("^+{TAB}")</td>
+    <TD>切换到上一个窗口标签</TD>
+</tr>
+<tr>
+  <td>Send("{SPACE}")</td>
+    <TD>可用来切换复选框的选中状态或点击某个按钮</TD>
+</tr>
+<tr>
+  <td>Send("{+}")</td>
+    <TD>通常用来选中某个复选框(如果它“确实是”复选框的话)</TD>
+</tr>
+<tr>
+  <td>Send("{-}")</td>
+    <TD>通常用来取消选中某个复选框</TD>
+</tr>
+  <td>Send("{NumPadMult}")</td>
+    <TD>完全展开 SysTreeView32 控件内显示的文件夹 
+<tr>
+</tr>
+</table>
+<br>
+<br>
+组合 Alt 键使用可访问菜单项，请打开记事本窗口然后尝试执行下面这些语句:
+<BR>
+<br>
+<table bordercolor="#c0c0c0" cellpadding="3" cellspacing="0" width="100%" border="1">
+  <tbody>
+    <tr>
+      <td>Send("!f")</td>
+    <TD>发送 Alt+f，这是打开记事本的文件菜单的快捷键，您还可以试试其它的！<BR>
+      </td>
+    </tr>
+    <tr>
+      <td>Send("{DOWN}")</td>
+    <TD>移动焦点到下一个菜单项</TD></TR>
+    </tr>
+    <tr>
+      <td>Send("{UP}")</td>
+    <TD>移动焦点到上一个菜单项</TD></TR>
+    </tr>
+    <tr>
+      <td>Send("{LEFT}")</td>
+    <TD>切换到左边的菜单或收缩子菜单</TD></TR>
+    </tr>
+    <tr>
+      <td>Send("{RIGHT}")</td>
+    <TD>切换到右边的菜单或展开子菜单</TD>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+如果您对快捷键(Alt+F4,PrintScreen,Ctrl+C等等)的重要性还不太了解,请查看 
+Windows 的帮助信息(按下热键 <I>Win+F1</I>即可<I>)</I>以获得关于快捷键的完整列表.<BR>
+<br>
+<br>
+<table bordercolor="#c0c0c0" cellpadding="3" cellspacing="0" width="100%" border="1">
+  <tbody>
+<tr>
+  <td align="center"><b>Send 命令(无标志参数)</B></TD>
+  <td>
+      <P align="center"><B>键击结果</B></P>
+  </td>
+</tr>
+<tr>
+  <td align="center">{!}</td>
+  <td>!</td>
+</tr>
+<tr>
+  <td align="center">{#}</td>
+  <td>#</td>
+</tr>
+<tr>
+  <td align="center">{+}</td>
+  <td>+</td>
+</tr>
+<tr>
+  <td align="center">{^}</td>
+  <td>^</td>
+</tr>
+<tr>
+  <td align="center">{{}</td>
+  <td>{</td>
+</tr>
+<tr>
+  <td align="center">{}}</td>
+  <td>}</td>
+</tr>
+<tr>
+  <td align="center">{SPACE}</td>
+    <TD>空格</td>
+</tr>
+<tr>
+  <td align="center">{ENTER}</td>
+    <TD>主键盘区的 回车键</td>
+</tr>
+<tr>
+  <td align="center">{ALT}</td>
+  <td>ALT</td>
+</tr>
+<tr>
+    <td align="center">{BACKSPACE} 或 {BS}</TD>
+    <TD>退格</td>
+</tr>
+<tr>
+  <td align="center">{DELETE} 或 {DEL}</td>
+    <TD>删除(DELETE)</td>
+</tr>
+<tr>
+  <td align="center">{UP}</td>
+    <TD>向上箭头</td>
+</tr>
+<tr>
+  <td align="center">{DOWN}</td>
+    <TD>向下箭头</td>
+</tr>
+<tr>
+  <td align="center">{LEFT}</td>
+    <TD>向左箭头</td>
+</tr>
+<tr>
+  <td align="center">{RIGHT}</td>
+    <TD>向右箭头</td>
+</tr>
+<tr>
+  <td align="center">{HOME}</td>
+  <td>HOME</td>
+</tr>
+<tr>
+  <td align="center">{END}</td>
+  <td>END</td>
+</tr>
+<tr>
+  <td align="center">{ESCAPE} 或 {ESC}</td>
+    <TD>ESC键</td>
+</tr>
+<tr>
+    <TD align="center">{INSERT} 或 {INS}</TD>
+    <TD>INS(Insert)</td>
+</tr>
+<tr>
+  <td align="center">{PGUP}</td>
+    <Td>PGUP(PageUp)</td>
+</tr>
+<tr>
+  <td align="center">{PGDN}</td>
+    <TD>PGDN(PageDown)</td>
+</tr>
+<tr>
+  <td align="center">{F1} - {F12}</td>
+    <TD width="67%">功能键</td>
+</tr>
+<tr>
+  <td align="center">{TAB}</td>
+  <td>TAB</td>
+</tr>
+<tr>
+  <td align="center">{PRINTSCREEN}</td>
+    <TD>PRINTSCREEN</td>
+</tr>
+<tr>
+  <td align="center">{LWIN}</td>
+    <TD>左徽标键</td>
+</tr>
+<tr>
+  <td align="center"">{RWIN}</td>
+    <TD>右徽标键</td>
+</tr>
+<tr>
+  <td align="center">{NUMLOCK}</td>
+  <td>NUMLOCK</td>
+</tr>
+<tr>
+  <td align="center">{BREAK}</td>
+    <TD>Ctrl+Break</td>
+</tr>
+<tr>
+  <td align="center">{PAUSE}</td>
+  <td>PAUSE</td>
+</tr>
+<tr>
+  <td align="center"">{CAPSLOCK}</td>
+  <td>CAPSLOCK</td>
+</tr>
+<tr>
+  <td align="center">{NUMPAD0} - {NUMPAD9}</td>
+    <TD>数字键盘上的 数字键</td>
+</tr>
+<tr>
+  <td align="center">{NUMPADMULT}</td>
+    <TD>数字键盘上的 乘号</td>
+</tr>
+<tr>
+  <td align="center">{NUMPADADD}</td>
+    <TD>数字键盘上的 加号</td>
+</tr>
+<tr>
+  <td align="center">{NUMPADSUB}</td>
+    <TD>数字键盘上的 减号</td>
+</tr>
+<tr>
+  <td align="center">{NUMPADDIV}</td>
+    <TD>数字键盘上的 除号</td>
+</tr>
+<tr>
+  <td align="center">{NUMPADDOT}</td>
+    <TD>数字键盘上的 点号</td>
+</tr>
+<tr>
+  <td align="center">{NUMPADENTER}</td>
+    <TD>数字键盘上的 回车键</td>
+</tr>
+<tr>
+  <td align="center">{APPSKEY}</td>
+    <TD>Windows 应用程序键</td>
+</tr>
+<tr>
+  <td align="center">{LALT}</td>
+    <TD>左 ALT 键</td>
+</tr>
+<tr>
+  <td align="center">{RALT}</td>
+    <TD>右 ALT 键</td>
+</tr>
+<tr>
+  <td align="center">{LCTRL}</td>
+    <TD>左 CTRL 键</td>
+</tr>
+<tr>
+  <td align="center">{RCTRL}</td>
+    <TD>右 CTRL 键</td>
+</tr>
+<tr>
+  <td align="center">{LSHIFT}</td>
+    <TD>左 Shift 键</td>
+</tr>
+<tr>
+  <td align="center">{RSHIFT}</td>
+    <TD>右 Shift 键</td>
+</tr>
+<tr>
+  <td align="center">{SLEEP}</td>
+    <TD>系统休眠(SLEEP)键</td>
+</tr>
+<tr>
+  <td align="center">{ALTDOWN}</td>
+    <TD>按住 ALT 键直到发送 {ALTUP} 为止</td>
+</tr>
+<tr>
+  <td align="center">{SHIFTDOWN}</td>
+    <TD>按住 SHIFT 键直到发送 {SHIFTUP} 为止</td>
+</tr>
+<tr>
+  <td align="center">{CTRLDOWN}</td>
+    <td>按住 CTRL 键直到发送 {CTRLUP} 为止</td>
+</tr>
+<tr>
+  <td align="center">{LWINDOWN}</td>
+    <td>按住左徽标键直到发送 {LWINUP} 为止</td>
+</tr>
+<tr>
+  <td align="center">{RWINDOWN}</td>
+    <td>按住右徽标键直到发送 {RWINUP} 为止</td>
+</tr>
+<tr>
+  <td align="center">{ASC nnnn}</td>
+    <TD>发送 ALT+nnnn 组合键</td>
+</tr>
+<tr>
+  <td align="center">&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<tr>
+  <td align="center">{BROWSER_BACK}</td>
+    <TD>仅支持2000/XP:按下浏览器中的“后退”按钮</td>
+</tr>
+<tr>
+  <td align="center">{BROWSER_FORWARD}</td>
+    <TD>仅支持2000/XP:按下浏览器中的“前进”按钮</td>
+</tr>
+<tr>
+  <td align="center">{BROWSER_REFRESH}</td>
+    <TD>仅支持2000/XP:按下浏览器中的“刷新”按钮</td>
+</tr>
+<tr>
+  <td align="center">{BROWSER_STOP}</td>
+    <TD>仅支持2000/XP:按下浏览器中的“停止”按钮</td>
+</tr>
+<tr>
+  <td align="center">{BROWSER_SEARCH}</td>
+    <TD>仅支持2000/XP:按下浏览器中的“搜索”按钮</td>
+</tr>
+<tr>
+  <td align="center">{BROWSER_FAVORITES}</td>
+    <TD>仅支持2000/XP:按下浏览器中的“收藏夹”按钮</td>
+</tr>
+<tr>
+  <td align="center">{BROWSER_HOME}</td>
+    <TD>仅支持2000/XP:运行浏览器并转到主页</td>
+</tr>
+<tr>
+  <td align="center">{VOLUME_MUTE}</td>
+    <TD>仅支持2000/XP:切换系统静音状态</td>
+</tr>
+<tr>
+  <td align="center">{VOLUME_DOWN}</td>
+    <TD>仅支持2000/XP:减小系统音量</td>
+</tr>
+<tr>
+  <td align="center">{VOLUME_UP}</td>
+    <TD>仅支持2000/XP:增大系统音量</TD>
+</tr>
+<tr>
+  <td align="center">{MEDIA_NEXT}</td>
+  <TD>仅支持2000/XP:在播放器中选择播放下一个轨道(影音媒体)</TD>
+</tr>
+<tr>
+  <td align="center">{MEDIA_PREV}</td>
+    <TD>仅支持2000/XP:在播放器中选择播放上一个轨道</TD>
+</tr>
+<tr>
+  <td align="center">{MEDIA_STOP}</td>
+    <TD>仅支持2000/XP:使播放器停止播放</TD>
+</tr>
+<tr>
+  <td align="center">{MEDIA_PLAY_PAUSE}</td>
+    <TD>仅支持2000/XP:使播放器播放/暂停</TD>
+</tr>
+<tr>
+  <td align="center">{LAUNCH_MAIL}</td>
+  <td>仅支持2000/XP:运行邮件客户端程序</td>
+</tr>
+<tr>
+  <td align="center">{LAUNCH_MEDIA}</td>
+  <td>仅支持2000/XP:运行播放器(Media player)</td>
+</tr>
+<tr>
+  <td align="center">{LAUNCH_APP1}</td>
+  <td>仅支持2000/XP:运行用户程序1(我的电脑)</TD>
+</tr>
+<tr>
+  <td align="center">{LAUNCH_APP2}</td>
+  <td>仅支持2000/XP:运行用户程序2(计算器)</TD>
+</tr>
+  </tbody>
+</table>
+<br>
+</body>
+</html>

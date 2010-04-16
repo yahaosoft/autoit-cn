@@ -1,0 +1,57 @@
+###User Defined Function###
+_GUICtrlRichEdit_StreamToVar
+
+###Description###
+Writes contents of a control to a variable
+
+###Syntax###
+#Include <GuiRichEdit.au3>
+_GUICtrlRichEdit_StreamToVar($hWnd [, $fRtf = True [, $fIncludeCOM=True [, $iOpts=0[, $iCodePage = 0]]]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$fRtf
+	[optional] True - write Rich Text Format (RTF) (Default)
+		False - write only text
+$fIncludeCOM
+	[optional] True (default):
+		    If writing RTF, include any COM objects (space consuming)
+		    If writing only text, write a text represntation of COM objects
+		False: Write spaces instead of COM objects
+$iOpts
+	[optional] additional options:
+		$SFF_PLAINTRTF - write only rich text keywords common to all languages
+		$SF_UNICODE - write Unicode
+$iCodePage
+	[optional] Generate UTF-8 and text using this code page
+		Default: do not
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	the RTF or text
+Failure:	"" and set @error
+@error:	101 - $hWnd is not a handle
+	1041 - $SFF_PLAINRTF is invalid for a text file
+	1042 - $opts: invalid option
+	1043 - $SF_UNICODE is only valid for a text file
+	700 - internal error
+@@End@@
+
+###Remarks###
+If text is selected, writes only the selection, else writes all text in the control
+
+If the extension in $sFileSpec is .rtf, RTF is written, else text
+
+Call _GUICtrlRichEdit_IsModified() to determine whether the text has changed
+
+###Related###
+_GUICtrlRichEdit_SetLimitOnText, _GUICtrlRichEdit_StreamFromVar, _GUICtrlRichEdit_StreamToFile
+
+###See Also###
+@@MsdnLink@@ EM_STREAMIN
+
+###Example###
+@@IncludeExample@@

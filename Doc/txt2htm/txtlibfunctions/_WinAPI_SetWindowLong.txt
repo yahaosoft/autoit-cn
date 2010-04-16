@@ -1,0 +1,44 @@
+﻿###User Defined Function###
+_WinAPI_SetWindowLong
+
+###Description###
+Sets information about the specified window
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_SetWindowLong($hWnd, $iIndex, $iValue)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle of the window
+$iIndex
+	Specifies the zero based offset to the value to be set. Valid values are in the range zero
+		through the number of bytes of extra window memory, minus four; for example, if you specified 12 or more
+		bytes of extra memory, a value of 8 would be an index to the third 32-bit integer. To retrieve any other
+		value specify one of the following values:
+		$GWL_EXSTYLE - Sets the extended window styles
+		$GWL_STYLE - Sets the window styles
+		$GWL_WNDPROC - Sets the address of the window procedure
+		$GWL_HINSTANCE - Sets the handle of the application instance
+		$GWL_HWNDPARENT - Sets the handle of the parent window, if any
+		$GWL_ID - Sets the identifier of the window
+		$GWL_USERDATA - Sets the 32-bit value associated with the window
+$iValue
+	Specifies the replacement value
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	The previous value
+失败:	0
+@@End@@
+
+###Remarks###
+Needs Constants.au3 for pre-defined constants
+
+###Related###
+_WinAPI_GetWindowLong, _WinAPI_CallWindowProc
+
+###See Also###
+@@MsdnLink@@ SetWindowLongPtr

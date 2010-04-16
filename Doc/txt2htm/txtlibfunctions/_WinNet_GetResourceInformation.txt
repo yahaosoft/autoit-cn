@@ -1,0 +1,65 @@
+﻿###User Defined Function###
+_WinNet_GetResourceInformation
+
+###Description###
+Identifies the network provider that owns the resource
+
+###Syntax###
+#Include <WinNet.au3>
+_WinNet_GetResourceInformation($sRemoteName [, $sProvider = "" [, $iType = 0]])
+
+###Parameters###
+@@ParamTable@@
+$sRemoteName
+	The remote path name of the resource
+$sProvider
+	[optional] The name of the provider that owns the resource. This member can be blank if the provider name
+		is unknown.
+$iType
+	[optional] Type of resource. This member can be 0 if it is not known.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Array with the following format:
+	$aResource[0] - Scope of enumeration:
+	 0 - Connected
+	 1 - All resources
+	 2 - Remembered
+	$aResource[1] - Type of resource:
+	 0 - Disk
+	 1 - Print
+	 2 - Unknown
+	$aResource[2] - Display option:
+	 0 - Generic
+	 1 - Domain
+	 2 - Server
+	 3 - Share
+	 4 - File
+	 5 - Group
+	 6 - Network
+	 7 - Root
+	 8 - Admin Share
+	 9 - Directory
+	10 - Tree
+	11 - NDS Container
+	$aResource[3] - Resource usage. Can be one or more of the following:
+	 1 - The resource is a connectable resource
+	 2 - The resource is a container resource
+	 4 - The resource is attached
+	 8 - Thre resource is reserved
+	$aResource[4] - Local name
+	$aResource[5] - Remote name
+	$aResource[6] - Comment supplied by the network provider
+	$aResource[7] - The name of the provider that owns the resource
+	$aResource[8] - The part of the resource that is accessed through system functions
+Failure:	Set @error
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ WNetGetResourceInformation

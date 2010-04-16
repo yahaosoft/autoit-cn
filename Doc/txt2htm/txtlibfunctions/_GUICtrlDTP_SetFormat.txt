@@ -1,0 +1,52 @@
+﻿###User Defined Function###
+_GUICtrlDTP_SetFormat
+
+###Description###
+Sets the display based on a given format string
+
+###Syntax###
+#Include <GuiDateTimePicker.au3>
+_GUICtrlDTP_SetFormat($hWnd, $sFormat)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$sFormat
+	String that defines the desired format. Setting this to blank will reset the control to the
+		default format string for the current style. You can use the following format strings:
+		"d" - The one or two digit day
+		"dd" - The two digit day. Single digit day values are preceded by a zero
+		"ddd" - The three character weekday abbreviation
+		"dddd" - The full weekday name
+		"h" - The one or two digit hour in 12-hour format
+		"hh" - The two digit hour in 12-hour format
+		"H" - The one or twodigit hour in 24-hour format
+		"HH" - The two digit hour in 24 hour format
+		"m" - The one or two digit minute
+		"mm" - The two digit minute
+		"M" - The one or two digit month number
+		"MM" - The two digit month number
+		"MMM" - The three-character month abbreviation
+		"MMMM" - The full month name
+		"t" - The one letter AM/PM abbreviation
+		"tt" - The two letter AM/PM abbreviation
+		"yy" - The last two digits of the year
+		"yyyy" - The full year
+@@End@@
+
+###ReturnValue###
+成功: True
+失败: False
+
+###Remarks###
+It is acceptable to include extra characters within the format string to produce a more rich display. However,
+any nonformat characters must be enclosed within single quotes. For example, the format string "'Today is:
+'hh':'m':'s ddddMMMdd', 'yyy" would produce output like "Today is: 04:22:31 Tuesday Mar 23, 1996". Note: A DTP
+control tracks locale changes when it is using the default format string. If you set a custom format string,
+it will not be updated in response to locale changes.
+
+###Related###
+
+###Example###
+@@IncludeExample@@

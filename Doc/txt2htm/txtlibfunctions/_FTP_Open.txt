@@ -1,0 +1,50 @@
+###User Defined Function###
+_FTP_Open
+
+###Description###
+打开一个 FTP 会话.
+
+###Syntax###
+#Include <FTPEx.au3>
+_FTP_Open($s_Agent[, $l_AccessType = 1 [, $s_ProxyName = '' [, $s_ProxyBypass = '' [, $l_Flags = 0]]]] )
+
+###Parameters###
+@@ParamTable@@
+$s_Agent
+	随机名称. ( 例如 "myftp" )
+$l_AccessType
+	[可选参数] 设置代理是否使用.
+$s_ProxyName
+	[可选参数] 代理名称.
+$s_ProxyBypass
+	[可选参数] ProxyByPasses's.
+$l_Flags
+	[可选参数] 参考备注.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	Handle to internet session to be used in _FTP_Connect().
+失败:	0  and sets @ERROR.
+@@End@@
+
+###Remarks###
+$l_AccessType 的值
+	$INTERNET_OPEN_TYPE_DIRECT -> 不使用代理
+	$INTERNET_OPEN_TYPE_PRECONFIG -> Retrieves the proxy or direct configuration from the registry.
+	$INTERNET_OPEN_TYPE_PRECONFIG_WITH_NO_AUTOPROXY -> Retrieves the proxy or direct configuration from the registry and prevents the use of a startup Microsoft JScript or Internet Setup (INS) file.
+	$INTERNET_OPEN_TYPE_PROXY -> Passes requests to the proxy unless a proxy bypass list is supplied and the name to be resolved bypasses the proxy. Then no proxy is used.
+
+$l_Flags 的值
+	$INTERNET_FLAG_ASYNC -> Makes only asynchronous requests on handles descended from the handle returned from this function.
+	$INTERNET_FLAG_FROM_CACHE -> Does not make network requests. All entities are returned from the cache. If the requested item is not in the cache, a suitable error, such as ERROR_FILE_NOT_FOUND, is returned.
+
+
+###Related###
+_FTP_Connect, _FTP_Close, _FTP_SetStatusCallback
+
+###See Also###
+@@MsdnLink@@ InternetOpen
+
+###Example###
+@@IncludeExample@@

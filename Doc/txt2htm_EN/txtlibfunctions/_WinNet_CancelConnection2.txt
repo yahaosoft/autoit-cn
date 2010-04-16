@@ -1,0 +1,39 @@
+###User Defined Function###
+_WinNet_CancelConnection2
+
+###Description###
+Cancels an existing network connection
+
+###Syntax###
+#Include <WinNet.au3>
+_WinNet_CancelConnection2($sName [, $fUpdate = True [, $fForce = True]])
+
+###Parameters###
+@@ParamTable@@
+$sName
+	Name of either the redirected local device or the remote network resource to disconnect from.
+		When this parameter specifies a redirected local device, the function cancels only the specified device
+		redirection. If the parameter specifies a remote network resource, only the connections to remote networks
+		without devices are canceled.
+$fUpdate
+	[optional] If True, the users profile is updated with the information that the connection is no longer a
+		persistent one.
+$fForce
+	[optional] Specifies whether or not the disconnection should occur if there are open files or jobs on the
+		connection. If this parameter is False, the function fails if there are open files or jobs.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_WinNet_CancelConnection
+
+###See Also###
+@@MsdnLink@@ WNetCancelConnection2

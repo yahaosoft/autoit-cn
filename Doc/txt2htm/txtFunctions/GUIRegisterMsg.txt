@@ -1,0 +1,67 @@
+﻿###Function###
+GUIRegisterMsg
+
+###Description###
+为已知的Windows 消息代码(WM_MSG)注册一个用户自定义的函数.
+
+###Syntax###
+GUIRegisterMsg ( msgID, "函数" ) 
+
+###Parameters###
+@@ParamTable@@
+msgID
+	一个Windows消息ID (参考附录的: <a href="../appendix/WinMsgCodes.htm">Windows 消息代码</a>).
+函数
+	要调用的自定义函数的名称,或者或者一个空字符串""(反注册一个消息).
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回1
+失败:	返回0
+@@End@@
+
+
+###Remarks###
+!!! 要使用户函数能工作，你必须定义它 <strong>最多 4个函数参数</strong> 否则函数将不能被调用 !!!
+例如:
+Func MyUserFunction($hWndGUI, $MsgID, $WParam, $LParam)
+...
+EndFunc
+
+或者
+
+Func MyUserFunction($hWndGUI, $MsgID)
+...
+EndFunc
+
+当用户函数被调用时，这 4个参数有下列值:
+@@StandardTable1@@
+<b>位置</b>	<b>参数</b>	<b>详细信息</b>
+1	hWnd	出现消息的 GUI 窗口句柄.
+2	Msg	窗口消息 ID.
+3	wParam	第一个消息参数十六进制值.
+4	lParam	第二个消息参数十六进制值.
+@@End@@
+
+最多 256个用户函数能被注册 ID's.
+
+默认在用户函数终结之后，AutoIt 内部消息处理程式将继续进行.
+That won't be if your <strong>Return</strong> a value (See WM_COMMAND in example) or if you use the keyword 'Return' without any value.
+By using 'Return' without any return value the AutoIt internal message handler (if there is one for this message) will NOT be proceed!
+
+!!! 如果你想要 AutoIt 为消息运行一个内部处理程式, 从函数返回变量 <strong>$GUI_RUNDEFMSG</strong> (在 GUIConstantsEx.au3 内). (请参阅例子) !!!
+I.e. if you want to return earlier than the user function ends and also proceed the AutoIt internal message handler.
+
+<strong>警告:</strong> 运行窗口消息命令能阻断正在运行中的用户函数, 例如 " Msgbox()" 能导致意外发生, 对系统的返回应该尽可能快速 !!!
+
+一些控件消耗内部特定的窗口消息ID, 因此寄存器标称值将没有效果, 例如; WM_CHAR, WM_KEYDOWN, WM_KEYUP 被一个编辑控件消耗.
+
+
+###Related###
+GUICtrlGetHandle
+
+
+###Example###
+@@IncludeExample@@

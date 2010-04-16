@@ -1,0 +1,40 @@
+﻿###Function###
+IniDelete
+
+###Description###
+从某标准配置文件(*.ini)中删除某个数值.
+
+###Syntax###
+IniDelete ( "文件名", "字段名" [, "关键字"] )
+
+
+###Parameters###
+@@ParamTable@@
+文件名
+	目标.ini文件路径/文件名.
+字段名
+	.ini 文件中的某个字段名.
+关键字
+	[可选参数] 要删除的关键字.若不指定关键字则整个段的内容将被删除.使用 Default 关键字也许同样能用于删除字段.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回值为 1.
+失败:	返回值为 0,无法找到指定的字段/关键字或INI文件具有只读属性.
+@@End@@
+
+
+###Remarks###
+标准 INI 文件结构如下:
+<i>[字段名]
+关键字=值</i>
+
+
+###Related###
+IniRead, IniWrite, IniReadSection, IniReadSectionNames, IniRenameSection, IniWriteSection
+
+
+###Example###
+@@IncludeExample@@

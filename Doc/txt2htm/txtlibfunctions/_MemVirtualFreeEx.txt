@@ -1,0 +1,38 @@
+﻿###User Defined Function###
+_MemVirtualFreeEx
+
+###Description###
+Releases a region of pages within the virtual address space of a process
+
+###Syntax###
+#Include <Memory.au3>
+_MemVirtualFreeEx($hProcess, $pAddress, $iSize, $iFreeType)
+
+###Parameters###
+@@ParamTable@@
+$hProcess
+	Handle to a process
+$pAddress
+	A pointer to the starting address of the region of memory to be freed
+$iSize
+	The size of the region of memory to free, in bytes
+$iFreeType
+	Specifies the type of free operation:
+		$MEM_DECOMMIT - Decommits the specified region of committed pages
+		$MEM_RELEASE - Releases the specified region of reserved pages
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	True
+失败:	False
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_MemVirtualAllocEx
+
+###See Also###
+@@MsdnLink@@ VirtualFreeEx

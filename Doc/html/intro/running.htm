@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Running Scripts</title>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=GB2312">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>运行脚本</h1>
+<p>当您打开AutoIt.exe,程序会出现打开一个 <strong>脚本文件</strong> 的对话框.&nbsp;
+  一个脚本文件是纯文本文档,包含的 AutoIt 关键词和函数告诉
+  AutoIt 您想做什么.&nbsp; 脚本文件创建于一些
+纯文本文档编辑器,比如 <strong>notepad.exe</strong> 或者许多更好的 <a href="editors.htm">编辑器</a>.</p>
+<p>尽管 AutoIt v3 的脚本只是些纯文本文件,但是为了区别脚本文件于文本文件的区别. 
+  我们定义了 <strong>.au3</strong> 的文件关联.
+  &nbsp; 如果您完整安装了 AutoIt,
+  那么只需直接双击这些脚本文件即可运行它们.&nbsp; 您可以打开,编辑,或者编译一个脚本文件.
+  在哪里?右键单击<span style="font-weight: bold;">.au3</span> 文件.</p>
+<p>&nbsp;</p>
+<p>这里有一个脚本例子.  说明 <strong>;</strong> 
+是用来注释用的 (就像DOS批处理下的 <strong>REM</strong>命令):</p>
+<p class="codebox">
+; 这是我的第一个脚本<br>
+MsgBox(0, "我的第一个脚本!", "Hello World!")</p>
+<p>&nbsp;</p>
+<p>更复杂的脚本一般会用到 <strong>函数</strong>, 
+通常我们把函数放在脚本的最后部分(这是一个好习惯,虽然在很多高级语言中不是这样.如C++).&nbsp; 下面是一个带有函数的脚本示例
+:</p>
+<p class="codebox">
+; 这是我的第二个脚本 (使用函数)<br>
+  MsgBox(0, "我的第二个脚本!", "主脚本:Hello!")<br>
+  TestFunc()<br>
+  <br>
+  Func TestFunc()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MsgBox(0, "我的第二个脚本!", "主脚本:Hello!")<br>
+  EndFunc
+</p>
+<p class="code">&nbsp;</p>
+<h2><a name="CommandLine"></a>命令行参数</h2>
+<p>当我们传递命令行参数到AutoIt脚本中的时候,AutoIt会初始化一个特殊的数组 $CmdLine.
+&nbsp; 注意,
+脚本文件名不算进参数; 请使用 @ScriptName 代替脚本名称.&nbsp; 一个参数中
+如果含有空格,必须使用 <strong>&quot;</strong>双引号<strong>&quot;</strong>把内容围住.&nbsp;
+  <a href="compiler.htm">已编译的</a> 脚本同样也能接受命令行参数.
+  请看下面代码:<br>
+  <br>
+  $CmdLine[0] ;参数的数量<br>
+  $CmdLine[1] ;第一个参数 (脚本名称后面)<br>
+  $CmdLine[2] ;第二个参数等等<br>
+  ...<br>
+  $CmdLine[$CmdLine[0]] ;可以用来表示得到最后一个参数...</p>
+<p>&nbsp;</p>
+<p>如果您的脚本是像下面这样被运行的话:</p>
+<p class="code">&nbsp;&nbsp;&nbsp; AutoIt3.exe myscript.au3 参数1 &quot;这是
+  一个其它参数&quot;</p>
+<p>$CmdLine[0] <em>等价于...</em> 2</p>
+<p>$CmdLine[1] <em>等价于...</em> 参数1</p>
+<p>$CmdLine[2] <em>等价于...</em> 这是一个其它参数</p>
+<p>@ScriptName <em>等价于...</em> myscript.au3</p>
+<p>&nbsp;</p>
+<p>除开 $CmdLine 之外还有一个变量叫做 $CmdLineRaw ,它保存着完整的未被拆分的命令行语句, 对于上面这个例子:</p>
+<p>$CmdLineRaw <em>等价于...</em> <span class="code">myscript.au3 参数1 &quot;这是一个其它参数&quot;</span></p>
+<p>&nbsp;</p>
+<p>如果脚本已经被编译,那么得到的值将会是下面这个样子:</p>
+<p class="code">&nbsp;&nbsp;&nbsp;  myscript.exe 参数1 &quot;这是
+  一个其它参数&quot;</p>
+<p>$CmdLineRaw <em>等价于...</em> <span class="code">参数1 &quot;这是一个其它参数&quot;</span></p>
+<p>注意 $CmdLineRaw 会立即返回参数.</p>
+<p>&nbsp;</p>
+<p><b>注意</b> : 只有 63 个参数会被 $CmdLine[...] 正常返回, 但是 $CmdLineRaw 
+总是会返回完整的所有参数.</p>
+<p>&nbsp;</p>
+<h2>AutoIt 特殊命令行开关</h2>
+<p><b>格式1</b>: AutoIt3.exe [/ErrorStdOut]  [/AutoIt3ExecuteScript] 文件 [参数 ...]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+执行一个脚本文件</p>
+<p><br>
+/ErrorStdOut&nbsp;&nbsp;&nbsp; 允许使用 StdOut 返回失败错误. 
+可以被 Scite 编辑器捕捉. 这个开关不能用于
+已经编译的脚本.<br>
+&nbsp;</p>
+<p>执行一个标准的 AutoIt 脚本文件 'myscript.au3', 使用命令:<br>
+'AutoIt3.exe myscript.au3'</p>
+<p>&nbsp;</p>
+<p><b>格式2</b>: Compiled.exe [/ErrorStdOut] [参数 ...]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+执行一个 Aut2Exe 编译的 AutoIt3 脚本文件.</p>
+<p><b>格式3</b>: Compiled.exe [/ErrorStdOut] [/AutoIt3ExecuteScript file] [参数 
+...]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+执行其他脚本,使用已经编译的AutoIt3脚本文件. 
+您不需要使用 fileinstall 释放一个 AutoIT3.exe 的拷贝.</p>
+<p><br>
+<b>格式4</b>: AutoIt3.exe [/ErrorStdOut] /AutoIt3ExecuteLine &quot;脚本代码&quot;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+执行一行代码.<br>
+<br>
+要执行单行代码, 使用命令:<br>
+Run(@AutoItExe &amp; ' /AutoIt3ExecuteLine&nbsp; &quot;MsgBox(0,
+<font color="#FF0000">''</font>Hello World!<font color="#FF0000">''</font>,
+<font color="#FF0000">''</font>Hi!<font color="#FF0000">''</font>)&quot;')</p>
+<p>使用 /AutoIt3ExecuteLine 参数执行的命令不会显示托盘图标.<br>
+<br>
+注意: 正确的使用 单/双引号是非常重要的, 
+<font color="#FF0000">切记!</font>.&nbsp; </p>
+<br>
+在已编译的脚本中可以使用#NoAutoIt3Execute来关闭格式3和格式4的内容.
+</body>
+</html>

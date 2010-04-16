@@ -1,0 +1,53 @@
+﻿###User Defined Function###
+_GUICtrlAVI_Create
+
+###Description###
+创建一个 AVI 控件
+
+###Syntax###
+#Include <GuiAVI.au3>
+_GUICtrlAVI_Create($hWnd[, $sFile = ""[, $subfileid = -1[, $iX = 0[, $iY = 0[, $iWidth = 0[, $iHeight = 0[, $iStyle = 0x00000006[, $iExStyle = 0x00000000]]]]]]]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	父窗口或者所有者句柄
+$sFile
+	[可选参数] 视频文件的文件名. 只支持 .avi 文件.
+$subfileid
+	[可选参数] 要使用的子文件.
+$iX
+	[可选参数] 控件的水平坐标
+$iY
+	[可选参数] 控件的垂直坐标
+$iWidth
+	[可选参数] 控件宽度
+$iHeight
+	[可选参数] 控件高度
+$iStyle
+	[可选参数] 控件样式:
+		$ACS_CENTER - 在动画控件窗口中居中动画
+		$ACS_TRANSPARENT - 创建的控件拥有透明背景
+		$ACS_AUTOPLAY - 创建控件后自动开始播放动画
+		$ACS_TIMER - 控件播放剪辑不创建线程
+
+		默认: $ACS_TRANSPARENT, $ACS_AUTOPLAY
+		强制 : $WS_CHILD, $WS_VISIBLE
+$iExStyle
+	[可选参数] 控件外部样式
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	动画控件句柄
+失败:	0
+@@End@@
+
+###Remarks###
+这个控件是为高级用户准备的并且含有怎么使这个控件工作的知识.
+
+###Related###
+_GUICtrlAVI_Destroy
+
+###Example###
+@@IncludeExample@@

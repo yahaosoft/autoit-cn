@@ -1,0 +1,52 @@
+﻿###Function###
+GUICtrlCreateProgress
+
+###Description###
+在GUI上创建一个进度条控件.
+
+###Syntax###
+GUICtrlCreateProgress ( 左侧, 顶部 [, 宽度 [, 高度 [, 样式 [, 扩展样式]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+左侧
+	控件左侧的位置.若此值为 -1 则根据 <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> 的设置来计算左侧位置.
+顶部
+	控件上方的位置.若此值为 -1 则根据 <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a> 的设置来计算上方位置.
+宽度
+	[可选参数] 控件的宽度(默认值(default)为上一个控件的宽度).
+高度
+	[可选参数] 控件的高度(默认值(default)为上一个控件的高度).
+样式
+	[可选参数] 指定控件的样式.请查看附录中关于 <a href="../appendix/GUIStyles.htm#Progress">GUI 控件样式</a> 的说明.
+扩展样式
+	[可选参数] 指定控件的扩展样式.请查看附录的 <a href="../appendix/GUIStyles.htm#Extended">扩展样式表</a>.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回新控件的控件标识符(控件ID).
+失败:	返回值为 0.
+@@End@@
+
+
+###Remarks###
+若要获得控件的各种值,请参考 <a href="GUICtrlRead.htm">GUICtrlRead</a>.
+要设置或者修改控件信息,请参考 <a href="GUICtrlUpdate Management.htm">GUICtrlUpdate...</a>.
+
+若要更新滑块的位置请使用 <a href="GUICtrlSetData.htm">GUICtrlSetData</a>.
+
+要在默认样式的基础上添加一个新的样式可使用 <b>BitOr</b>($GUI_SS_DEFAULT_PROGRESS, 新样式,...).
+
+要使用上方指定的值,您必须包含 #include <ProgressConstants.au3> 在你的脚本.
+
+默认大小为: $GUI_DOCKAUTO
+
+
+###Related###
+GUICoordMode (Option), GUICtrlSetData, GUICtrlUpdate..., GUIGetMsg
+
+
+###Example###
+@@IncludeExample@@

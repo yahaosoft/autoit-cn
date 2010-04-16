@@ -1,0 +1,78 @@
+﻿###User Defined Function###
+_GUICtrlTreeView_Create
+
+###Description###
+创建一个树形查看(TreeView)控件
+
+###Syntax###
+#Include <GuiTreeView.au3>
+_GUICtrlTreeView_Create($hWnd, $iX, $iY[, $iWidth=150[, $iHeight=150[, $iStyle=0x00000037[, $iExStyle=0x00000000]]]])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	父窗口或者所有者窗口
+$iX
+	控件水平坐标
+$iY
+	控件垂直坐标
+$iWidth
+	[可选参数] 控件宽度
+$iHeight
+	[可选参数] 控件高度
+$iStyle
+	[可选参数] 控件样式:
+		DllStructGetData($TVS_CHECKBOXES - Enables check boxes for items, "") A check box will be displayed only if an image is
+		associated with the item. When set to this style, the control effectively uses DrawFrameControl to create and
+		set a state image list containing two images. State image 1 is the unchecked box and state image 2 is the
+		checked box. Setting the state image to zero removes the check box. Version 5.80 displays a check box even
+		if no image is associated with the item.
+		$TVS_DISABLEDRAGDROP - Prevents the control from sending $TVN_BEGINDRAG notification messages
+		$TVS_EDITLABELS - Allows the user to edit the item labels
+		DllStructGetData($TVS_FULLROWSELECT - Enables full row selection, "") The entire row of the selected item is highlighted, and
+		clicking anywhere on an item's row causes it to be selected. This style cannot be used in conjunction with
+		the DllStructGetData($TVS_HASLINES style, "")
+		DllStructGetData($TVS_HASBUTTONS - Displays plus and minus buttons next to parent items, "") The user clicks the buttons to
+		expand or collapse a parent item's list of child items. To include buttons with items at the root, you must
+		also specify DllStructGetData($TVS_LINESATROOT, "")
+		$TVS_HASLINES - Uses lines to show the hierarchy of items
+		$TVS_INFOTIP - Obtains ToolTip information by sending the $TVN_GETINFOTIP notification
+		DllStructGetData($TVS_LINESATROOT - Uses lines to link items at the root of the control, "") This value is ignored if
+		DllStructGetData($TVS_HASLINES is not also specified, "")
+		DllStructGetData($TVS_NOHSCROLL - Disables horizontal scrolling in the control, "") The control will not display any
+		horizontal scroll bars.
+		DllStructGetData($TVS_NONEVENHEIGHT - Sets the height of the items to an odd height with the $TVM_SETITEMHEIGHT message, "") By
+		default the height of items must be an even value.
+		DllStructGetData($TVS_NOSCROLL - Disables both horizontal and vertical scrolling in the control, "") The control will not
+		display any scroll bars.
+		$TVS_NOTOOLTIPS - Disables ToolTips
+		$TVS_RTLREADING - Causes text to be displayed from right to left
+		$TVS_SHOWSELALWAYS - Causes a selected item to remain selected when the control loses focus
+		$TVS_SINGLEEXPAND - Causes the item being selected to expand and the item being unselected to collapse
+		upon selection. If the mouse is used to single-click the selected item and that item is closed, it will be
+		expanded. If the user holds down the CTRL key while selecting an item, the item being unselected will not be
+		collapsed. Version 5.80 causes the item being selected to expand and the item being unselected to collapse
+		upon selection. If the user holds down the CTRL key while selecting an item, the item being unselected will
+		not be collapsed.
+		$TVS_TRACKSELECT - Enables hot tracking
+
+		Default: $TVS_HASBUTTONS, $TVS_HASLINES, $TVS_LINESATROOT, $TVS_DISABLEDRAGDROP, $TVS_SHOWSELALWAYS
+		Forced: $WS_CHILD, $WS_VISIBLE
+$iExStyle
+	[可选参数] 控件扩展样式
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	控件句柄
+失败:	0
+@@End@@
+
+###Remarks###
+This function is for Advanced users and for learning how the control works.
+
+###Related###
+_GUICtrlTreeView_Destroy
+
+###Example###
+@@IncludeExample@@

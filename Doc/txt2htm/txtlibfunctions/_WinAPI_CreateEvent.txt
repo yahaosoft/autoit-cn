@@ -1,0 +1,47 @@
+﻿###User Defined Function###
+_WinAPI_CreateEvent
+
+###Description###
+创建或者打开一个命名的或者未命名的事件对象
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_CreateEvent([$pAttributes = 0 [, $fManualReset = True [, $fInitialState = True [, $sName = ""]]]])
+
+###Parameters###
+@@ParamTable@@
+$pAttributes
+	[optional] Pointer to a $tagSECURITY_ATTRIBUTES structure. If 0, the handle cannot be inherited by child
+		processes. The Descriptor member of the structure specifies a security descriptor for the new event. If
+		pAttributes is 0, the event gets a default security descriptor. The ACLs in the default security descriptor
+		for an event come from the primary or impersonation token of the creator.
+$fManualReset
+	[optional] If True, the function creates a manual-reset event object, which requires the use of the
+		ResetEvent function to set the event state to nonsignaled. If False, the function creates an auto-reset event
+		object and system automatically resets the event state to nonsignaled after a single waiting thread has been
+		released.
+$fInitialState
+	[optional] If True, the initial state of the event object is signaled; otherwise, it is nonsignaled
+$sName
+	[optional] The name of the event object. Name comparison is case sensitive. If sName matches the name of
+		an existing named event object, this function requests the EVENT_ALL_ACCESS access right. In this case the
+		fManualReset and fInitialState parameters are ignored because they have already been set by the creating
+		process. If the pAttributes parameter is not 0, it determines whether the handle can be inherited, but its
+		security-descriptor member is ignored. If Name is blank, the event object is created without a name.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	The handle to the event object.
+	If the named event object existed before the function call the function returns a handle to the existing object and GetLastError returns ERROR_ALREADY_EXISTS.
+Failure:	0
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+$tagSECURITY_ATTRIBUTES
+
+###See Also###
+@@MsdnLink@@ CreateEvent

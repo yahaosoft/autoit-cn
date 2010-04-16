@@ -1,0 +1,59 @@
+﻿###Function###
+GUICtrlSetGraphic
+
+###Description###
+修改画图控件的数据.
+
+###Syntax###
+GUICtrlSetGraphic ( 控件ID, 类型 [, par1  [, ... par6]] )
+
+
+###Parameters###
+@@ParamTable@@
+控件ID
+	控件标识符(控件ID),可由 <a href="GUICtrlCreateGraphic.htm">GUICtrlCreateGraphic</a> 函数的返回值获得.
+类型
+	可以直接绘图的类型: 点(dot) , 线(line) , 贝赛尔曲线(bezier) , 矩形(rect) , 圆(ellipse) , 饼(pie).
+par1...par6
+	参考下面 <a href="GUICtrlSetGraphic.htm#Graphic Type table">绘图类型列表</a>.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回1.
+失败:	返回0.
+	返回-1 (数据无效)
+@@End@@
+
+
+###Remarks###
+点的坐标 (x,y) 是 GUICtrlCreateGraphic 的相对坐标.它可以超出绘图控件,但是不能超出GUI窗口.
+
+<a name="Graphic Type table"></a><b>绘图类型列表</b>
+@@StandardTable1@@
+<b>类型</b>	<b>参数</b>	<b>结果</b>
+$GUI_GR_COLOR	颜色 [,背景色]	定义下次绘图时的颜色. 当背景色等于$GUI_GR_NOCOLOR 时,绘图将会失败.(这是默认值). 默认线的颜色为黑色.
+$GUI_GR_MOVE	x,y	移动当前坐标,但是不进行绘图. 
+$GUI_GR_DOT	x,y	画一个点(点周围环绕小正方形), 下次绘图时使用上一次的坐标.
+$GUI_GR_PIXEL	x,y	画一个像素, 下次绘图时使用上一次的坐标.
+$GUI_GR_LINE	x,y	画一条线.
+$GUI_GR_BEZIER	x,y,x1,y1,x2,y2	使用两个控制点画一个贝赛尔曲线.
+$GUI_GR_RECT	x,y,宽,高	画一个矩形. 当 宽=高 ,将画出一个正方形.
+$GUI_GR_ELLIPSE	x,y,宽,高	画一个椭圆. 当 宽=高 ,将画出一个正圆.
+$GUI_GR_PIE	x,y,r,sa,wa	画一个饼图 半径=r 出发点=sa 扫描角=wa. Angles are in degrees.
+$GUI_GR_CLOSE	&nbsp;	关闭当前绘图. 必须附加 $GUI_GR_LINE 或 $GUI_GR_BEZIER . 单独使用将被忽略.
+$GUI_GR_REFRESH	&nbsp;	在图形动态更新之后强制刷新.
+$GUI_GR_HINT	&nbsp;	对贝塞尔曲线/线曲线显示控制点与终点.
+$GUI_GR_PENSIZE	n	为下一幅图画设定画笔大小. 它必须在定义 $GUI_GR_COLOR 之前接受计算.
+$GUI_GR_NOBKCOLOR	&nbsp;	一个 dummy BkColor 强制关闭图画不填充. 只是在画线时.
+@@End@@
+
+适当的设计约束首先画长方形、椭圆和饼图. 例如, 一个矩形总是先画线. 如果图画命令对图形的形状很重要, 那么建议使用多个画图控件而非使用一个控件做所有的图画.
+
+
+###Related###
+GUICtrlCreateGraphic
+
+
+###Example###
+@@IncludeExample@@

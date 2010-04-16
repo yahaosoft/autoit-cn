@@ -1,0 +1,42 @@
+﻿###Function###
+TrayGetMsg
+
+###Description###
+得到一个系统托盘图标项目产生的事件.
+
+###Syntax###
+TrayGetMsg ( )
+
+
+###Parameters###
+None.
+
+###ReturnValue###
+返回一个事件.
+
+"事件"是由控件发送的控件标识消息返回的, 或者它是一个特殊事件 (就像鼠标点击 托盘图标). 或者没有发生事件,事件值为 0. 
+<BR>
+<b>事件 ID</b>
+@@ReturnTable@@
+0	没有事件发生
+Control ID	发送消息的控件标识
+$TRAY_EVENT_PRIMARYDOWN	鼠标主要按键被点击(默认左键)
+$TRAY_EVENT_PRIMARYUP	鼠标主要按键被释放(默认左键)
+$TRAY_EVENT_SECONDARYDOWN	鼠标次要按键被点击(默认右键)
+$TRAY_EVENT_SECONDARYUP	鼠标次要按键被释放(默认右键)
+$TRAY_EVENT_PRIMARYDOUBLE	鼠标主要按键双击(默认左键)
+$TRAY_EVENT_SECONDARYDOUBLE	鼠标次要按键双击(默认右键)
+@@End@@
+
+###Remarks###
+这个函数会自动空闲CPU,注意使用正确的循环模式以降低CPU的占用.
+
+上面这些常量定义于 #include <Constants.au3>
+
+
+###Related###
+TrayCreateItem, TrayCreateMenu, TrayItemSetOnEvent
+
+
+###Example###
+@@IncludeExample@@

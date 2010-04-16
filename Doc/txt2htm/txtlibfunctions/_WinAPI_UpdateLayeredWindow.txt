@@ -1,0 +1,54 @@
+﻿###User Defined Function###
+_WinAPI_UpdateLayeredWindow
+
+###Description###
+Updates the position, size, shape, content, and translucency of a layered window
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_UpdateLayeredWindow($hWnd, $hDCDest, $pPTDest, $pSize, $hDCSrce, $pPTSrce, $iRGB, $pBlend, $iFlags)
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to a layered window. A layered window is created by specifying $WS_EX_LAYERED when
+		creating the window.
+$hDCDest
+	Handle to a device context for the screen
+$pPTDest
+	Pointer to a $tagPOINT structure that specifies the new screen position of the layered window.
+		If the current position is not changing, this can be zero.
+$pSize
+	Pointer to a $tagSIZE structure that specifies the new size of the layered window. If the size
+		of the window is not changing, this can be 0.
+$hDCSrce
+	Handle to a device context for the surface that defines the layered window. This handle can be
+		obtained by calling the _WinAPI_CreateCompatibleDC function.
+$pPTSrce
+	Pointer to a $tagPOINT structure that specifies the location of the layer in the device context
+$iRGB
+	The color key to be used when composing the layered window
+$pBlend
+	Pointer to a $tagBLENDFUNCTION structure that specifies the transparency value to be used when
+		composing the layered window.
+$iFlags
+	This parameter can be one of the following values.
+		$ULW_ALPHA - Use $tblend as the blend function
+		$ULW_COLORKEY - Use $iRGB as the transparency color
+		$ULW_OPAQUE - Draw an opaque layered window
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+$tagBLENDFUNCTION, $tagPOINT, $tagSIZE
+
+###See Also###
+@@MsdnLink@@ UpdateLayeredWindow

@@ -1,0 +1,51 @@
+﻿###User Defined Function###
+_GDIPlus_FontCreate
+
+###Description###
+创建一个字体对象
+
+###Syntax###
+#Include <GDIPlus.au3>
+_GDIPlus_FontCreate($hFamily, $fSize[, $iStyle = 0[, $iUnit = 3]])
+
+###Parameters###
+@@ParamTable@@
+$hFamily
+	字体家族对象句柄
+$fSize
+	字体的大小,测量单位可在下方 $iUnit 参数指定.
+$iStyle
+	[可选参数] 字体样式. 可以结合下面的值:
+		0 - 正常重度或者浓度
+		1 - 粗体
+		2 - 斜体
+		4 - 下划线
+		8 - 删除线
+$iUnit
+	[可选参数] 字体的单位测量方法:
+		0 - 世界坐标, 非物理单位.
+		1 - 显示单位
+		2 - 单位为 1 像素
+		3 - 单位为 1 点或者 1/72 英寸
+		4 - 单位为 1 英寸
+		5 - 单位为 1/300 英寸
+		6 - 单位为毫米
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回字体对象句柄
+失败:	0
+@@End@@
+
+###Remarks###
+如果您完成了字体对象, 调用 _GDIPlus_FontDispose 释放资源.
+
+###Related###
+_GDIPlus_FontDispose
+
+###See Also###
+@@MsdnLink@@ GdipCreateFont
+
+###Example###
+@@IncludeExample@@

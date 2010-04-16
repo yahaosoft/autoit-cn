@@ -1,0 +1,72 @@
+﻿###Function###
+GUICtrlRead
+
+###Description###
+读取指定控件的状态或相关数据.
+
+###Syntax###
+GUICtrlRead ( 控件ID [, 高级] )
+
+
+###Parameters###
+@@ParamTable@@
+控件ID
+	控件标识符(控件ID),可由 <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a> 函数的返回值获得.
+高级
+	[可选参数] 返回控件的扩展信息.
+	0 = (默认) 返回控件的状态或者数据.
+	1 = 返回控件的扩展信息 (参考 注意 部分).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回值视控件类型的不同而不同(请看下表).
+失败:	返回值为0.
+@@End@@
+
+@@StandardTable1@@
+<b>类型</b>	<b>值</b>
+复选框(Checkbox),单选框(Radio)	按钮的状态. 请参考 <a href="GUICtrlSetState.htm#StateTable">状态表</a>
+组合框(Combo),列表框(List)	选中的项目
+输入框(Input),编辑框(Edit)	输入的文本
+按钮(Button)	显示的文本
+日期(Date)	选择的日期
+进度条(Progress)	当前百分比
+滑动条(Slider)	当前值
+标签(Tab)	选中的标签项的编号
+菜单(Menu),菜单项(MenuItem)	菜单/项目的状态. 请参考<a href="GUICtrlSetState.htm#StateTable">状态表</a>.
+树型视图(TreeView)	选中的 TreeView 项目的控件标识符(控件ID)
+树型视图项目(TreeViewItem)	TreeView 项目的状态
+列表视图(ListView)	选中的 ListView 项目的控件标识符(控件ID).0表示没有项目被选中
+Dummy	值设置于 <a href="GUICtrlSendToDummy.htm">GUICtrlSendToDummy</a> 或者 <a href="GUICtrlSetData.htm">GUICtrlSetData</a>函数.
+@@End@@
+
+
+###Remarks###
+在'高级'模式的返回值包含控件的附加值.(见下面).
+
+注意: 不是所有的已知控件都有附加值可用!
+<br>
+@@StandardTable1@@
+<b>类型</b>	<b>附加值</b>
+Checkbox, Radio	控件的文本.
+Menu, MenuItem	控件的文本.
+TreeView	TreeViewItem 中当前选中的文本.
+TreeViewItem	TreeViewItem 的文本.
+ListViewItem	如果在高级模式中用 $LVS_EX_CHECKBOXES 扩展样式时,返回 ListViewItem 的选中状态.  <a href="GUICtrlSetState.htm#StateTable">见状态表</a>
+Tab	被选择的标签项目的控件ID
+@@End@@
+
+由于复选框, 单选框控件的一些状态能返回 $GUI_FOCUS 和 $GUI_CHECKED ,因此可以使用 BitAnd(GUICtrlRead($Item),$GUI_CHECKED) 测试控件是否被选中.
+
+由于 Listview 项目的一些状态能返回 $GUI_CHECKED 和 $GUI_UNCHECKED ,(仅在 listview 控件有 LVS_EX_CHECKBOXES-扩展样式与使用高级模式时) . 因此可以使用 BitAnd(GUICtrlRead($Item),$GUI_CHECKED) 测试项目是否被选中.
+
+由于 Treeview 项目的一些状态能返回 $GUI_FOCUS, $GUI_EXPAND 与 $GUI_CHECKED, $GUI_UNCHECKED (仅当 treeview 控件有 TVS_CHECKBOXES-样式时). 因此可以使用 BitAnd(GUICtrlRead($Item),$GUI_CHECKED) 测试项目是否被选中.
+
+
+###Related###
+GUICtrlUpdate..., GUIGetMsg, GUICtrlSetData, GUIEventOptions (Option), GUICtrlCreate..., GUICtrlGetState, GUICtrlSendToDummy, GUICtrlSendMsg
+
+
+###Example###
+@@IncludeExample@@

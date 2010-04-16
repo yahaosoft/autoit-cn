@@ -1,0 +1,41 @@
+###User Defined Function###
+_GUICtrlMenu_GetSystemMenu
+
+###Description###
+Allows the application to access the window menu for copying and modifying
+
+###Syntax###
+#Include <GuiMenu.au3>
+_GUICtrlMenu_GetSystemMenu($hWnd[, $fRevert = False])
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window that will own a copy of the window menu
+$fRevert
+	[optional] Specifies the action to be taken. If this parameter is False, the function returns a handle to
+		the copy of the window menu currently in use. The copy is initially identical to the window menu, but it can
+		be modified. If this parameter is True, the function resets the window menu back to the default state. The
+		previous window menu, if any, is destroyed.
+@@End@@
+
+###ReturnValue###
+Returns If the $fRevert parameter is False, the return value is a handle to a copy of the window menu.
+	If the $fRevert parameter is True, the return value is 0.
+
+###Remarks###
+Any window that does not use the GetSystemMenu function to make its own copy of the window menu receives the
+standard window menu. The window menu initially contains items with various identifier values, such as
+$SC_CLOSE, $SC_MOVE, and $SC_SIZE. Menu items on the window menu send $WM_SYSCOMMAND messages. All predefined
+window menu items have identifier numbers greater than 0xF000. If an application adds commands to the window
+menu, it should use identifier numbers less than 0xF000. The system automatically grays items on the standard
+window menu, depending on the situation. The application can perform its own checking or graying by responding
+to the $WM_INITMENU message that is sent before any menu is displayed.
+
+###Related###
+
+###See Also###
+@@MsdnLink@@ GetSystemMenu
+
+###Example###
+@@IncludeExample@@

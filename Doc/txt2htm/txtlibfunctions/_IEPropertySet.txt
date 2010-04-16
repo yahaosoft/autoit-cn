@@ -1,0 +1,89 @@
+﻿###User Defined Function###
+_IEPropertySet
+
+###Description###
+设置浏览器或者DOM元素的一个选择的属性.
+
+###Syntax###
+#include <IE.au3> 
+_IEPropertySet ( ByRef $o_object, $s_property, $newvalue )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	InternetExplorer.Application的对象变量
+$s_property
+	属性选项 (见备注)
+$newvalue
+	被设置的浏览器属性的新值
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	返回1
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+	5 ($_IEStatus_InvalidValue) = 无效值
+@Extended:	包含无效参数数量
+@@End@@
+
+
+###Remarks###
+更多信息可在<a href="http://msdn.microsoft.com/library/default.asp?url=/workshop/browser/webbrowser/reference/objects/internetexplorer.asp" target="_blank">MSDN</a>找到.
+
+下表提供了每个可用属性的描述. 一些属性针对DOM元素, 其他的针对浏览器.
+
+<b><u>Browser Properties</u></b>
+
+@@ParamTable@@
+<b>属性</b>
+	<b>描述</b>
+"addressbar"
+	指定浏览器的地址栏是可见还是隐藏.
+"contenteditable"
+	指定一个布尔值用来说明对象是否可以用鼠标或者键盘编辑.
+"height"
+	指定浏览器窗口的高度.
+"innerhtml"
+	设置经过渲染的HTML的元素, 排除开始和结束元素标记.
+"innertext"
+	获取元素经过渲染的文本(但不是任意标签). 通常等同于外部文本.
+"left"
+	返回对象主窗口左边在屏幕中的坐标.
+"menubar"
+	指定一个布尔值说明浏览器菜单是否可见.
+"offline"
+	指定一个布尔值用来说明浏览器否是执行脱机模式.
+"outertext"
+	一个元素经过渲染的文本(但不带任何标签). 通常等同于内部文本.
+"outerhtml"
+	设置经过渲染的HTML的包含开始和结束元素标签的元素.
+"resizable"
+	指定一个布尔值用来说明浏览器是否可以被改变大小的.
+"silent"
+	指定一个布尔值用来说明浏览器能否显示对话框.
+"statusbar"
+	指定一个布尔值用来说明浏览器状态栏是否可见.
+"statustext"
+	指定浏览器状态栏上显示的文字.
+"theatermode"
+	指定一个布尔值用来说明浏览器是否处于剧院模式. 在剧院模式, 浏览器主窗口将充满整个屏幕并且显示一个包含极少浏览按钮的工具条.
+"title"
+	设置文档标题. 注意这不同于窗口标题(通常以文档标题开始), 它会将Windows注册表中指定的额外文本附加到其上.
+"toolbar"
+	指定一个布尔值用来说明浏览器工具栏可见还是隐藏.
+"top"
+	指定浏览器主窗口上边在屏幕上的坐标.
+"width"
+	指定浏览器主窗口的宽度.
+@@END@@
+
+
+###Related###
+_IEPropertyGet, _IEAction, _IEBodyWriteHTML, _IEDocInsertHTML, _IEDocInsertText
+
+
+###Example###
+@@IncludeExample@@

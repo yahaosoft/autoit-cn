@@ -1,0 +1,54 @@
+﻿###User Defined Function###
+_GUIToolTip_AddTool
+
+###Description###
+Registers a tool with the control
+
+###Syntax###
+#Include <GuiToolTip.au3>
+_GUIToolTip_AddTool($hTool, $hWnd, $sText[, $iID = 0[, $iLeft = 0[, $iTop = 0[, $iRight = 0[, $iBottom = 0[, $iFlags = 8[, $iParam = 0]]]]]]])
+
+###Parameters###
+@@ParamTable@@
+$hTool
+	ToolTip handle
+$hWnd
+	Handle to the window that contains the tool
+$sText
+	Text for the ToolTip control
+$iID
+	[optional] Identifier or window handle of the tool
+$iLeft
+	[optional] X coordinate of the upper left corner of the rectangle
+$iTop
+	[optional] Y coordinate of the upper left corner of the rectangle
+$iRight
+	[optional] X coordinate of the lower right corner of the rectangle
+$iBottom
+	[optional] Y coordinate of the lower right corner of the rectangle
+$iFlags
+	[optional] Flags that control the ToolTip display:
+		  1 - Indicates that $iID is the window handle to the tool instead of the ID
+		  2 - Centers the window below the tool specified by $iID
+		  4 - Indicates that text will be displayed in the opposite direction
+		  8 - Indicates that the control should subclass the tool's window
+		 16 - Positions the control next to the tool to which it corresponds
+		 32 - Positions the window at the same coordinates provided by TTM_TRACKPOSITION
+		 64 - Causes the control to forward mouse messages to the parent window
+		128 - Indicates that links in the control text should be parsed
+$iParam
+	[optional] Application-defined value that is associated with the tool
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+成功:	True
+失败:	False
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_GUIToolTip_DelTool
+
