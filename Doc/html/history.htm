@@ -20,6 +20,81 @@
 请单击 <a href="autoit_changelog.txt">这里</a>. 要查看
 <b>每个测试版</b>的之间完整的更新,请单击 <a href="autoit_changelog_complete.txt">这里</a>.</p>
 <p>&nbsp;</p>
+<p style="font-size: small"><b><u>16th April, 2010  - v3.3.6.1</u></b></p>
+<p><strong>AutoIt:</strong></p>
+<ul>
+    <li>Fixed #1515: FileOpen() still opening in exclusive mode in some 
+	situations.</li>
+	</ul>
+	<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-size: small"><b><u>7th March, 2010  - v3.3.6.0</u></b></p>
+<p><strong>AutoIt:</strong></p>
+<ul>
+    <li>Added #1376: FileOpen() mode parameter is now optional. Default 
+	mode is read.</li>
+	<li>Added #1054: Added FileGetEncoding().</li>
+	<li>Added: ControlCommand() &quot;SendCommandID&quot; - used to send WM_COMMAND 
+	Control ID messages. Allows the automation of ToolBarWindow32 controls 
+	(amongst others). For example, the &quot;Back&quot; button of Internet Explorer. Use 
+	Au3Info to get the Command ID from the ToolBar tab.</li>
+	</ul>
+	<ul>
+	<li>Fixed #1428: AdlibRegister/Unregister() were incorrectly using 
+	case-sensitive function names.</li>
+	<li>Fixed #1448: #OnAutoItStartRegister did not work in compiled scripts.</li>
+	<li>Fixed #961: RegDelete() was not working properly on 64bit keys when 
+	using the 32bit version of AutoIt and HKLM64.</li>
+	<li>Fixed: Regression in FileOpen() where it wasn't allowed to open files in 
+	read mode if they were already open in write mode.</li>
+	<li>Fixed #1449: GUICtrlDelete() not working for GUICtrlCreateDummy() types.</li>
+	<li>Fixed #1458: Inet sizes were capped to 32-bits.</li>
+	<li>Fixed #1459: Hard crash when too much recursion is used.</li>
+	<li>Fixed #1464: Regular expressions with a single character * pattern were 
+	stopping after the first null match.</li>
+	<li>Fixed #1463: StringToASCIIArray() working incorrectly with UTF8 
+	characters.</li>
+	<li>Fixed #1475: TrayItemSetState($Value, $Tray_Checked) incorrectly enables 
+	a disabled TrayItem.</li>
+	</ul>
+	<ul>
+	<li>Changed: Send() and ControlSend() code reworked to allow for more 
+	Unicode characters to be used.</li>
+	<li>Changed: FileWriteLine() performance improved.</li>
+</ul>
+	<p><strong>Aut2Exe</strong></p>
+<ul>
+  <li>Fixed #1409: Ctrl+C is no longer the shortcut for Convert. It is now 
+  Ctrl+G (Go) to avoid clashing with a Ctrl+C copy operation..</li>
+</ul>
+	<p><strong>Au3Info</strong></p>
+<ul>
+  <li>Fixed #1444: Controls in applications like RegEdit were left highlighted.</li>
+	<li>Fixed #1391: ToolbarWindow32 info only showing the first toolbar.</li>
+</ul>
+	<p><strong>AutoIt3Help</strong></p>
+<ul>
+  <li>Fixed #1423: &quot;Open Script&quot; button stopped working.</li>
+</ul>
+	<p><strong>AutoItX</strong></p>
+<ul>
+  <li>&nbsp;Fixed: Missing .lib files readded.</li>
+</ul>
+<p><strong>UDFs:</strong></p>
+<ul>
+	<li>&nbsp;Fixed #1438: AutoIt error when using _ArrayCombinations().</li>
+	<li>Fixed #1454: StringBetween() not working correctly.</li>
+	<li>Fixed #1441: _GUICtrlRichEdit_GetText() using wrong buffer length.</li>
+	<li>Fixed #1446: _ScreenCapture_Capture() was using height/width of 1 pixel 
+	less.</li>
+	<li>Fixed #1445: Documentation updated for _MemGlobalFree().</li>
+	<li>Fixed #1469: _GDIPlus_BitmapCloneArea() documentation updated.</li>
+	<li>Fixed #1466: _GUICtrlEdit_GetLine() returns an unexpected character.</li>
+	<li>Fixed #1487: _DateToDayOfWeekIso returned 0-6 but should be 1-7 where 
+	Monday = 1</li>
+  </ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <p style="font-size: small"><b><u>15th January, 2010  - v3.3.4.0</u></b></p>
 <p><strong>AutoIt:</strong></p>
 <ul>
@@ -34,7 +109,7 @@
 </ul>
 
 <ul>
-    <li>&nbsp;Fixed #384: Under certain circumstances the network credentials 
+    <li>Fixed #384: Under certain circumstances the network credentials 
 	flag would prevent the process from starting when launched with RunAs() or 
 	RunAsWait().</li>
 	<li>Fixed #1370: StringInStr() would crash with a negative occurrence and 
@@ -51,7 +126,7 @@
 </ul>
 
 <ul>
-    <li>&nbsp;Removed: The &quot;RAW&quot; reading mode from FileOpen() has been removed.</li>
+    <li>Removed: The &quot;RAW&quot; reading mode from FileOpen() has been removed.</li>
 	<li>Removed: InetGet(&quot;abort&quot;), @InetGetActive and @InetGetBytesRead have 
 	been removed.</li>
 	<li>Removed: AdlibEnable() and AdlibDisable() have been removed.</li>
@@ -64,7 +139,7 @@
 </ul>
 <p><strong>UDFs:</strong></p>
 <ul>
-	<li>&nbsp;Changed: _SQLite 3.6.19 -&gt; 3.6.22</li>
+	<li>Changed: _SQLite 3.6.19 -&gt; 3.6.22</li>
 	<li>Fixed #1338: bad _ArrayDisplay() GUI position error.</li>
 	<li>Fixed #1362: _WinAPI_WindowFromPoint() did not work with 64-bit AutoIt.</li>
 	<li>Fixed #1389: _IEAttach() could fail if called multiple times.</li>
@@ -167,7 +242,7 @@
 	char.</li>
 	<li>Fixed: DllCall() returning 64-bit int.</li>
 	<li>Fixed: GuiCtrlSetImage() after GUI resized.</li>
-	<li>&nbsp;Fixed: DirMove() return code wrong 
+	<li>Fixed: DirMove() return code wrong 
 	under XP.</li>
 	<li>Fixed #931: bad GUICtrlSetResizing() for graphic control.</li>
 	<li>Fixed #934: MouseGetCursor() hogging mouse double click.</li>
