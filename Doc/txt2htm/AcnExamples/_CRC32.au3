@@ -1,4 +1,4 @@
-#include "ACN_HASH.au3"
+#include <ACN_HASH.au3>
 
 ; Method 1
 $CRC32 = _CRC32("The quick brown fox jumps over the lazy dog")
