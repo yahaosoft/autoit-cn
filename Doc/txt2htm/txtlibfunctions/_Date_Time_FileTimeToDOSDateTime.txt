@@ -11,19 +11,19 @@ _Date_Time_FileTimeToDOSDateTime($pFileTime)
 ###Parameters###
 @@ParamTable@@
 $pFileTime
-	Pointer to a $tagFILETIME structure containing the file time to convert to MS-DOS format
+	指向一个 $tagFILETIME 数据结构的指针,包含了一个转换成MS-DOS格式的文件时间.
 @@End@@
 
 ###ReturnValue###
-Returns an Array with the following format:
-		[0] - MS-DOS date, packed as follows:
-		 Bits 0- 4 Day of the month (1–31)
-		 Bits 5- 8 Month (1 = January, 2 = February, and so on)
-		 Bits 9-15 Year offset from 1980 (add 1980 to get actual year)
-		[1] - MS-DOS time, packed as follows:
-		 Bits 0- 4 Second divided by 2
-		 Bits 5-10 Minute (0–59)
-		 Bits 11-15 Hour (0–23 on a 24-hour clock)
+返回一个下方格式的数组:
+		[0] - MS-DOS 日期, 封装为下方格式:
+		位 0- 4 ,一月中的其中一天(1–31)
+		位 5- 8 ,月份 (1 = 一月, 2 = 二月, 等等)
+		位 9-15 ,相对 1980 的偏移量(加上1980得到实际年份)
+		[1] - MS-DOS 时间, 封装为下方格式:
+		位 0- 4 ,按2分开的秒(Second divided by 2)
+		位 5-10 ,分钟 (0–59)
+		位 11-15 ,时钟 (0–23 于 24 小时计时)
 
 ###Remarks###
 None.
