@@ -1,5 +1,5 @@
-ï»¿;å¯ä»¥ç”¨ä½œè°ƒè¯•ç”¨, ç±»ä¼¼ MsgBoxæ•ˆæžœ.
+;¿ÉÒÔÓÃ×÷µ÷ÊÔÓÃ, ÀàËÆ MsgBox Ð§¹û.
 
 Local $var = "Test"
 ConsoleWriteError("var=" & $var & @CRLF)
-;è¿è¡Œåœ¨æ–‡æœ¬ç¼–è¾‘å™¨ï¼Œå¯ä»¥æ•èŽ·æŽ§åˆ¶å°è¾“å‡ºçš„æ•°æ® "var=Test"
+;ÔËÐÐÔÚÎÄ±¾±à¼­Æ÷,¿ÉÒÔ²¶»ñ¿ØÖÆÌ¨Êä³öµÄÊý¾Ý "var=Test"
