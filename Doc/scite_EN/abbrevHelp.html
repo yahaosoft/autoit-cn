@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>
+      Abbreviation Help
+    </title>
+    <link rel="stylesheet" title="" type="text/css" href="css/default.css">
+    <link rel="stylesheet" title="Scite" type="text/css" href="css/scite_style.css">
+    <link rel="alternate stylesheet" title="AutoIt3" type="text/css" href="css/autoit3_style.css">
+  </head>
+  <body>
+
+    <h1>
+      Scite Abbreviations
+    </h1>
+    <p>
+      To use an abbreviation, type it and use the Expand Abbreviation command or the Ctrl+B key. The abbreviation is replaced by an expansion defined in the Abbreviations file. You can open the Abbreviations file with a command in the Options menu and add abbreviations. There is a default abbreviations file but a different abbreviations file can be set for particular file extensions.
+    </p>
+    <p>
+      Each line in the files looks like "abbreviation=expansion".<br>
+    </p>
+
+    <p>
+      The abbreviations names can have any character (except perhaps control chars, surely for CR and LF), including high Ascii chars (accented chars).<br>
+      Names have properties files limits: they cannot start with sharp (#) or space or tab (but can have spaces inside); and they cannot have '=' character inside.<br>
+      Abbreviations names are limited to 32 characters. It is probably enough for abbreviations.<br>
+    </p>
+    <p>
+      An expansion may contain new line characters indicated by '\n' and a caret position indicated by the '|' character. To include a literal '|' character, use '||'.<br>
+
+    </p>
+    <p>
+      Some simple examples are included in the distributed Abbreviations file.<br>
+    </p>
+    <p>
+      When expanding, the names don't need to be separated from the previous text.<br>
+      If a name is the ending of another one, only the shorter will ever be expanded. Ie. if you define 'ring' and 'gathering', the later will see only the 'ring' part expanded.
+    </p><br>
+
+    <span>&nbsp;&nbsp;<img src="images/AbbrevCut.PNG" border="1" alt="Editor showing examples"></span>
+    <p>
+      <br>
+      The Abbreviations file is in the Options menu of Scite. Have a look at the syntax required to use them. You can add some of you own into the list.
+    </p><br>
+    <h2>
+      <u>Using Abbreviations in a script</u>
+    </h2><br>
+    <p>
+
+      A small tutorial for starting a GUI project. RED words are abbreviations, that expand after Spacebar ( or Ctrl+B ). This '|' is the caret (curser). First type 'setupgui', without the quotes.
+    </p><br>
+    <table summary="T1" width="800" border="1" bgcolor="#FAFCFE">
+      <tr>
+        <td width="690">
+          <span class="S13">setupgui</span><span class="S0">|</span>
+        </td>
+      </tr>
+
+    </table><br>
+    <p>
+      Press the Spacebar. Now it is shown expanded below.
+    </p><br>
+    <table summary="T2" width="800" border="1" bgcolor="#FAFCFE">
+      <tr>
+        <td width="690" valign="middle">
+          <span class="S11">#include</span> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+
+          <span class="S11">#include</span> <span class="S7">&lt;WindowsConstants.au3&gt;</span><br>
+          <br>
+          <span class="S12">#region - GUI Create</span><br>
+          <span class="S4">GUICreate</span><span class="S8">(</span><span class="S7">'<span class="S0">|</span>'</span><span class="S8">)</span><br>
+
+          <span class="S4">GUISetState</span><span class="S8">()</span><br>
+          <span class="S12">#endregion</span><br>
+          <br>
+          <span class="S13">SelectLoop</span><br>
+        </td>
+      </tr>
+    </table><br>
+
+    <p>
+      The caret is located at the title parameter of 'GUICreate'. Typing '(' will make a Calltip popup with help on parameters for the function. Moving along, if you move the caret to the end of 'selectloop', then press Spacebar, a loop function is expanded, as shown below.
+    </p><br>
+    <table summary="T3" width="800" border="1" bgcolor="#FAFCFE">
+      <tr>
+        <td width="690" valign="middle">
+          <span class="S11">#include</span> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+          <span class="S11">#include</span> <span class="S7">&lt;WindowsConstants.au3&gt;</span><br>
+
+          <br>
+          <span class="S12">#region - GUI Create</span><br>
+          <span class="S4">GUICreate</span><span class="S8">(</span><span class="S7">''</span><span class="S8">)</span><br>
+          <span class="S4">GUISetState</span><span class="S8">()</span><br>
+          <span class="S12">#endregion</span><br>
+
+          <br>
+          <span class="S12">#region - GUI SelectLoop</span><br>
+          <span class="S5">While</span> <span class="S3">1</span><br>
+          <span class="S0">&nbsp; &nbsp;</span> <span class="S9">$msg</span> <span class="S8">=</span> <span class="S4">GUIGetMsg</span><span class="S8">()</span><br>
+
+          <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Select</span><br>
+          <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$msg</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+
+          <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">Exit</span><br>
+          <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$msg</span> <span class="S8">=</span><br>
+
+          <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$msg</span> <span class="S8">=</span><br>
+          <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$msg</span> <span class="S8">=</span><br>
+
+          <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$msg</span> <span class="S8">=</span><br>
+          <span class="S0">&nbsp; &nbsp;</span> <span class="S5">EndSelect</span><br>
+          <span class="S5">WEnd</span><br>
+
+          <span class="S12">#endregion</span><br>
+        </td>
+      </tr>
+    </table><br>
+    <p>
+      If 5 Case statements are not enough, move the caret to the end of the last Case statement, delete '$msg = ' and type 'moremsg'. Then press Spacebar.
+    </p><br>
+    <table summary="T4" width="800" border="1" bgcolor="#FAFCFE">
+      <tr>
+
+        <td>
+          <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S13">moremsg</span><span class="S0">|</span><br>
+        </td>
+      </tr>
+    </table><br>
+
+    <p>
+      Then press Spacebar.<br>
+      5 more Case statements will be expanded.<br>
+    </p>
+    <p>
+      As above displays, with little effort, a basic script structure can be created easily with Abbreviations in Scite. Only 3 Abbreviations used, to create the script above. Creating a script to do repeatative task can save you X amount of time. Abbreviations in Scite can do the same within your scripts. Save time can make more time for other, more precious needs. Like more family time ;)<br>
+      <br>
+
+      The Abbreviations file is in the Options menu of Scite. Have a look at the syntax required to use them. You can also add some of you own into the list. Let's use Scite, closer to it's full usefulness :)
+    </p>
+    <p>
+      <br>
+    </p>
+  </body>
+</html>
