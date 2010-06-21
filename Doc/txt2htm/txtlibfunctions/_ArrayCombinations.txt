@@ -2,7 +2,7 @@
 _ArrayCombinations
 
 ###Description###
-返回一个由一系列选中的数组中的元素组成的数组
+返回所选数组每个元素相互可能出现的组合的一个数组.
 
 ###Syntax###
 #Include <Array.au3>
@@ -11,25 +11,25 @@ _ArrayCombinations(ByRef $avArray, $iSet [, $sDelim = ""])
 ###Parameters###
 @@ParamTable@@
 $avArray
-	使用到的数组
+	要使用的数组
 $iSet
 	组合集的大小
 $sDelim
-	[可选的] 字符串分割符, 默认为"" 
+	[可选参数] 字符串结果分割符, 默认为""(不分割)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回一个组合的数组
-	返回一个数组,第一个元素 ($array[0]) 包含着返回字符串的数量.
-	其它的元素 ($array[1], $array[2], 等等.) 包含组合.
+成功:	返回一个包含组合后数据的数组
+	返回一个数组,第一个元素 ($array[0]) 包含返回字符串的数量.
+	其它的元素 ($array[1], $array[2], 等等.) 包含组合后的数据.
 失败:	返回 0 并且设置 @error:
-@error:	1 - 必须输入一个数组
+@error:	1 - $avArray 必须是一个数组
 	2 - $avArray 不是一个一维数组
 @@End@@
 
 ###Remarks###
-输入的数组必须是基于0的. 基于Kenneth H. Rosen的算法.
+输入的数组必须是基于0开始的. 即$array[0]中不包含计数器. 本函数基于Kenneth H. Rosen的算法.
 
 http://www.merriampark.com/comb.htm
 
