@@ -2,34 +2,34 @@
 StderrRead
 
 ###Description###
-从先前运行的子进程读取Stderr流.
+从以前运行的子进程读取 STDERR 流.
 
 ###Syntax###
-StderrRead ( 进程ID[, peek = false[, binary = false]] )
+StderrRead ( 进程ID[, 只读取 = false[, 二进制 = false]] )
 
 
 ###Parameters###
 @@ParamTable@@
 进程ID
-	先前调用的子进程ID.
-peek
-	[optional] 如果为true,将不删除从流读取的字符.
-binary(二进制)
-	[optional] 如果为true,将按二进制读取数据而不是文本(默认为文本(text)).
+	子进程进程ID(PID), 由前面调用run函数返回.
+只读取
+	[可选参数] 如果值为 true ,函数将不会移除从流中读取的字符.
+二进制
+	[可选参数] 如果值为 true ,函数将由读取二进制代替读取文本 (默认为文本).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回读取的数据. @extended 包含读取的字节数.
-失败:	如果到达文件尾(EOF)将设置@error不为0, STDERR 不会重定向进程或其它错误.
+失败:	如果出现EOF字符将设置 @error 为非0(数据已经结束), STDERR 不会重定向进程或者其它错误.
 @@End@@
 
 
 ###Remarks###
-StderrRead从控制台读取一个子进程的标准输出流，通常用来从控制台应用程序写入到屏幕. 为保证函数正常工作,你在 STD I/O 调用的子进程参数必须包含 $STDERR_CHILD (4) (参见<a href="Run.htm">Run</a>函数).
-StderrRead不会暂停,它会立即返回.为得到所有的数据，必须在一个循环内调用它.
-流上的Peeking不会从缓冲区中删除数据, however, 它会正常地返回现有的数据.
-默认情况下,返回的数据是文本格式.  通过使用binary(二进制)选项, 数据将按二进制格式返回.
+StderrRead 从子进程的控制台标准输出流读取数据, 通常用于控制台应用程序输出数据到屏幕. 为了保证函数的正常工作,当你想从 STD I/O 读取时,你需要在调用时包括 $STDERR_CHILD (4) 值 (参考 <a href="Run.htm">Run</a> 函数).
+由于 StderrRead 无法屏蔽,它会立即返回数据. 因此如果要连续得到所有数据,你必须在一个循环内调用它.
+由于默认不会移除流的数据缓冲区, 因此它通常能正确返回数据.
+默认情况下,返回的数据为文本格式. 可以使用二进制选项,就能让数据将按二进制格式返回.
 
 ###Related###
 StdoutRead, StdinWrite, StdioClose, Run, RunAs
