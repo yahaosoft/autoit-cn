@@ -24,7 +24,7 @@ GUISetAccelerators ( 快捷键 [, 窗口句柄] )
 
 
 ###Remarks###
-传给这个函数的包含快捷键和控件ID的数组.必须以 Dim $array[n][2] 语句定义，n 为快捷键的数目:
+传给这个函数的数组包含快捷键和关联的控件ID.这个数组必须定义为 Dim $array[n][2] - n 为快捷键的数目:
 
 $array[0][0] = 第一个加速器的热键 (以 HotKeySet() 格式)
 $array[0][1] = 第一个加速器的控件ID, 由 GUICtrlCreate...()返回
@@ -35,7 +35,7 @@ $array[n][0] = 第 n 个加速器的热键
 $array[n][1] = 第 n 个加速器的控件ID
 
 
-非数组形式不会为给定的窗口句柄设定快捷键.
+传递非数组数据将会取消指定窗口句柄设置的快捷键.
 
 ###Related###
 GUICreate, HotKeySet
