@@ -10,30 +10,30 @@ Func Example()
 	Local $infoitem, $exititem, $recentfilesmenu, $separator1, $viewmenu
 	Local $viewstatusitem, $okbutton, $cancelbutton, $statuslabel, $msg, $file
 	
-	GUICreate("My GUI menu", 300, 200)
+	GUICreate("我的图形菜单", 300, 200)
 
 	Global $defaultstatus = "Ready"
 	Global $status
 
-	$filemenu = GUICtrlCreateMenu("&File"); 创建一个菜单控件
-	$fileitem = GUICtrlCreateMenuItem("Open", $filemenu)
-	$recentfilesmenu = GUICtrlCreateMenu("Recent Files", $filemenu, 1)
+	$filemenu = GUICtrlCreateMenu("文件(&F)")
+	$fileitem = GUICtrlCreateMenuItem("打开", $filemenu)
 	GUICtrlSetState(-1, $GUI_DEFBUTTON);调整指定控件为窗口的默认按钮
-	$separator1 = GUICtrlCreateMenuItem("", $filemenu, 2) 	; 创建分隔线
-	$saveitem = GUICtrlCreateMenuItem("Save", $filemenu)
-	GUICtrlSetState(-1, $GUI_DISABLE);调整指定控件为灰色状态
-	$exititem = GUICtrlCreateMenuItem("Exit", $filemenu)
-	
-	$viewmenu = GUICtrlCreateMenu("View", -1, 1); 创建一个菜单控件
-	$viewstatusitem = GUICtrlCreateMenuItem("Statusbar", $viewmenu)
-	GUICtrlSetState(-1, $GUI_CHECKED);调整指定控件为选中状态
-	
 	$helpmenu = GUICtrlCreateMenu("?"); 创建一个菜单控件
-	$infoitem = GUICtrlCreateMenuItem("Info", $helpmenu)
-	
-	$okbutton = GUICtrlCreateButton("OK", 50, 130, 70, 20)
+	$saveitem = GUICtrlCreateMenuItem("保存", $filemenu)
+	GUICtrlSetState(-1, $GUI_DISABLE);调整指定控件为灰色状态
+	$infoitem = GUICtrlCreateMenuItem("信息", $helpmenu)
+	$exititem = GUICtrlCreateMenuItem("退出", $filemenu)
+	$recentfilesmenu = GUICtrlCreateMenu("历史文件", $filemenu, 1)
+
+	$separator1 = GUICtrlCreateMenuItem("", $filemenu, 2) 	; 创建分隔线
+
+	$viewmenu = GUICtrlCreateMenu("查看", -1, 1); 创建一个菜单控件
+	$viewstatusitem = GUICtrlCreateMenuItem("状态栏", $viewmenu)
+	GUICtrlSetState(-1, $GUI_CHECKED);调整指定控件为选中状态
+	$okbutton = GUICtrlCreateButton("确定", 50, 130, 70, 20)
 	GUICtrlSetState(-1, $GUI_FOCUS)
-	$cancelbutton = GUICtrlCreateButton("Cancel", 180, 130, 70, 20)
+	$cancelbutton = GUICtrlCreateButton("取消", 180, 130, 70, 20)
+
 	$statuslabel = GUICtrlCreateLabel($defaultstatus, 0, 165, 300, 16, BitOR($SS_SIMPLE, $SS_SUNKEN))
 
 	GUISetState()
@@ -41,7 +41,7 @@ Func Example()
 		$msg = GUIGetMsg()
 		
 		If $msg = $fileitem Then
-			$file = FileOpenDialog("Choose file...", @TempDir, "All (*.*)")
+			$file = FileOpenDialog("选择文件...", @TempDir, "All (*.*)")
 			If @error <> 1 Then GUICtrlCreateMenuItem($file, $recentfilesmenu)
 		EndIf
 		If $msg = $viewstatusitem Then
@@ -54,7 +54,7 @@ Func Example()
 			EndIf
 		EndIf
 		If $msg = $GUI_EVENT_CLOSE Or $msg = $cancelbutton Or $msg = $exititem Then ExitLoop
-		If $msg = $infoitem Then MsgBox(0, "Info", "Only a test...")
+		If $msg = $infoitem Then MsgBox(0, "信息", "仅仅测试...")
 	WEnd
 	GUIDelete()
 EndFunc   ;==>Example
