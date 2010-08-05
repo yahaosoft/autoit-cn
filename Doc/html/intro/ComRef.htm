@@ -9,7 +9,7 @@
 		<h1>AutoIt COM 扩展</h1>
 		<p>一个简短的介绍</p>
 		<H2>什么是 COM?</H2>
-		<p>COM 是 "Component Object Model"(对象组件模型) 的缩写. 是微软为应用程序相互连接使用
+		<p>COM 是 "Component Object Model"(组件对象模型) 的缩写. 是微软为应用程序相互连接使用
 		的一种公共接口.&nbsp;这些接口定义为 COM 
 		对象(Object).</p>
 		<p>在开始 COM 编程时, 您必须知道严格的程序是怎么执行的.
@@ -24,10 +24,11 @@
 		<H2>我需要在 AutoIt 脚本里面使用COM吗?</H2>
 		<p>这是绝对的. AutoIt 有很多内置的函数,也有巨大的
 			UDF 函数库.&nbsp; 您可以使用它们做出绝大多数的程序.
-			可是如果您需要指定一个接口('interfacing')连接到其它程序, 使用 COM 可以帮助您节省很多行的脚本代码.&nbsp;&nbsp; 
-			编写脚本需要知道有那些存在的 COM 对象是严重依赖操作系统和已经安装的软件的.
-			下面的这个例子已经在无格式('plain')的 Windows XP 专业版 上面
-			(安装有&nbsp;Microsoft Office 2000) 经过测试.</p>
+			可是如果您需要指定一个接口('interfacing')连接到其它程序, 
+			使用 COM 可以帮助您节省很多行的脚本代码.&nbsp;&nbsp; 
+			编写脚本需要知道有哪些已经存在的 COM 对象是严重依赖操作系统和已经安装的软件的.
+			下方的所有例子都已经在纯净安装的 Windows XP 
+			专业版上面通过测试(安装有 Microsoft Office 2000).</p>
 		<p>&nbsp;</p>
 		<p>&nbsp;</p>
 		<h1>一个在 AutoIt 中使用COM的例子</h1>
@@ -49,26 +50,26 @@
 			<span style="FONT-SIZE:11pt;FONT-FAMILY:'Courier New'">"shell.application"</span> 的对象.
 			这是一个 Windows 内部对象, 定义于
 			<span style="FONT-SIZE:11pt;
-FONT-FAMILY: 'Courier New'">shell32.dll</span>. 指向这个对象的值分配
-			到了变量 $oShell.&nbsp; $oShell 现在就是一个对象变量.</p>
+FONT-FAMILY: 'Courier New'">shell32.dll</span>. 分配的变量 $oShell 指向这个新对象;
+		 $oShell 现在就是一个对象变量.</p>
 		<p>&nbsp;</p>
 		<p>
 			在第二行, 我们使用了一个名叫
 			<span style="FONT-SIZE:11pt;FONT-FAMILY:'Courier New'">"MinimizeAll"</span>
-			的 oShell 对象方法.&nbsp; 这个方法会最小化所有窗口.</p>
+			的 oShell 对象方法.&nbsp; 它将最小化所有窗口.</p>
 		<p>&nbsp;</p>
 		<p>所有 Windows 系统都有一个巨大的内部对象库为不同用途简化操作.
 			&nbsp; 同样一些应用程序,就像Excel 或者Word
 			同样也有自己的对象库.&nbsp;&nbsp;
 		</p>
 		<p>可是,有时要获得一个您系统上面所有存在的对象的属性和方法
-			是非常困难的.&nbsp;&nbsp;搜索 Microsoft.com
-			或者 Google.com 可以帮助您找到一些关于您想使用的 Object 'X' 的线索.
-			(别提百度,汉化作者有严重偏见,那是给菜鸟,低级用户用的)</p>
+			是非常困难的.&nbsp;&nbsp;
+			搜索 Microsoft.com
+			或者 Google.com 可以帮助您找到一些关于您想使用的 Object 'X' 的线索.</p>
 		<p>&nbsp;</p>
 		<p>例如, 您可以在这里找到关于
 			<span style="FONT-SIZE:11pt;FONT-FAMILY:'Courier New'">"shell.application"</span>
-			 对象的一些信息于:
+			 对象的一些信息:
 			<BR>
 			<a href="http://msdn.microsoft.com/en-us/library/bb774094.aspx"
 				target="_blank"style="COLOR: blue; TEXT-DECORATION: underline; text-underline: single">http://msdn.microsoft.com/en-us/library/bb774094.aspx</a>
@@ -78,10 +79,10 @@ FONT-FAMILY: 'Courier New'">shell32.dll</span>. 指向这个对象的值分配
 				<br clear="all" style="PAGE-BREAK-BEFORE:always">
 				<FONT face="Verdana" size="2">要查看一下当前安装在您的计算机系统上面的所有对象,&nbsp;
 				"<FONT face="Courier New">OLE/COM Object Viewer</FONT>
-				"(OLE/COM 对象查看器) 是一个相当有用的工具. 而且这个工具会有选择的项目的一些说明.</FONT></P>
+				"(OLE/COM 对象查看器) 是一个相当有用的工具. 而且这个工具会有所选的项目的一些说明.</FONT></P>
 			<P>
 		</span>&nbsp;</P>
-		<p>让我们来看一下其它例子.&nbsp; 我们想获得某一个 HTML 
+		<p>让我们来看一个其它例子.&nbsp; 我们想获得某一个 HTML 
 			网页的源代码.&nbsp;您可以使用 InetGet() 函数保存网页文件后再用 FileRead() 来读取内容.
 			但是这里只有三行代码就可以搞定:</p>
 		<p>&nbsp;</p>
@@ -91,8 +92,8 @@ FONT-FAMILY: 'Courier New'">shell32.dll</span>. 指向这个对象的值分配
 			$HTMLSource = $oHTTP.Responsetext
 		</P>
 		<p>&nbsp;</p>
-		<p>变量(字符串)&nbsp; $HTMLSource 现在包含了AutoItScript.com 
-		主页的完整的 HTML 源代码. (更确切的说,是顶层 HTML 框架).</p>
+		<p>字符串变量 $HTMLSource 现在包含了AutoItScript.com 
+		主页完整的 HTML 源代码. (更确切的说,是顶层 HTML 框架).</p>
 		<p>&nbsp;</p>
 		<p>  (关于
 			<span style="FONT-SIZE:11pt;
@@ -103,20 +104,21 @@ FONT-FAMILY:'Courier New'">"winhttp.winhttprequest"</span>
 				style="COLOR: blue; TEXT-DECORATION: underline; text-underline: single">http://msdn.microsoft.com/en-us/library/aa384106.aspx</a>
 			)</p>
 		<p>&nbsp;</p>
-		<p><STRONG>请注意这里:</STRONG>一些对象依赖于
-		计算机的操作系统或者已经安装的程序.&nbsp;例如:
+		<p><STRONG>请注意这里:</STRONG>
+		一些对象依赖于计算机的操作系统或者已经安装的程序.&nbsp;例如:
 			<span style="FONT-FAMILY:
 'Courier New'">winhttp.winhttprequest.5.1</span>
 			对象只存在于安装有 Internet Explorer 5.0 及更高的操作系统.&nbsp;
-			当您要共享您的使用 COM 对象的脚本时, 
+			当您要共享您使用 COM 对象的脚本时, 
 			请先确认对象是否存在于所有计算机.</p>
 		<p>&nbsp;</p>
-		<P>对象变量的使用方法和其它类型的Autoit变量略有不同.
-			一个对象不是一个真实的值, 但是指向('pointer')到外部脚本的一些事件.
-			因此你不能执行它的算法, 也不能等于一个对象变量.
-			当你分配一个对象变量一个不同的值, 指向( 'pointer')也会自动的释放.&nbsp;
+		<P>对象变量和其它类型的 AutoIt 变量略有不同.
+			一个对象不是一个真实值, 而是指向('pointer')脚本以外的一些东西.
+			因此你不能对它进行数学运算, 也不能等于一个对象变量.
+			当你分配一个对象变量一个不同的值, 指向('pointer')也会自动释放.&nbsp;
 			你可以看下面的例子,
-			强制定义一个对象变量为任何数或者文本值.</P>
+			强制定义一个对象变量为任何数字或者文本值.</P>
+		<P>thesnoW:指向('pointer')姑且可以译作"指针",但要注意,真正意义上的指针是指向一个内存地址,如C/C++</P>
 		<P>&nbsp;</P>
 		<P class="codebox">$oHTTP = ObjCreate("winhttp.winhttprequest.5.1")&nbsp; ; 对象被
 			创建<BR>
@@ -124,7 +126,7 @@ FONT-FAMILY:'Courier New'">"winhttp.winhttprequest"</span>
 			; 对象被删除</P>
 		<P>&nbsp;</P>
 		<P>当一个脚本执行完成,您 <STRONG>不需要</STRONG> 删除对象变量.
-			如果脚本退出,&nbsp;AutoIt 会尝试释放由AUTOIT脚本创建的所有活动对象. 
+			如果脚本退出,&nbsp;AutoIt 会尝试释放脚本创建的所有活动对象. 
 			对象会产生一些事件,您可以定义一个局部对象变量在函数CALL里面,
 			并在函数结束时返回结果.</P>
 		<p>&nbsp;</p>
