@@ -11,10 +11,10 @@ ObjEvent ( "AutoIt.Error" [, "函数名称"] )
 ###Parameters###
 @@ParamTable@@
 $ObjectVar
-	一个包含要接收事件对象的变量
+	A variable containing an Object from which you want to receive events
 "functionprefix"
-	定义接收事件函数句柄的前缀. 
-	前缀后拼接对象方法名.
+	The prefix of the functions you define to handle receiving events. 
+	The prefix is appended by the Objects method name.
 "接口名称"
 	[可选参数] name of an Event interface to use.
 	Note: It must be a supported as outgoing for the
@@ -29,11 +29,14 @@ $ObjectVar
 
 
 ###Remarks###
-第一行语句接收来自给定对象的事件. 
-为了要接收一个特定的事件, 使用与事件名字一起附加的给定前缀产生一个 AutoIt 函数名.
+The first format is used to receive Events from the given Object. 
+To receive a specific event, create an AutoIt function name using
+the given prefix appended with the event name.
 
-第二行语句为 COM 差错处理. 如果任何的 COM 差错发生，给定的函数将被调用. 
-如果第二个参数被省略, 它将会返回目前差错处理程式函数的名字, 如果存在.
+The second format is used for COM Error Handling. If any COM error
+occurs, the given function is being called.  
+If the second parameter is omitted, it will return the name of the
+current Error handler function, if present.
 
 参考 <a href="../intro/ComRef.htm">Obj/COM 参考</a> 相关说明.
 
