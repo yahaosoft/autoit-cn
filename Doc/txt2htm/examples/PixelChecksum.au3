@@ -1,11 +1,11 @@
-﻿; Wait until something changes in the region 0,0 to 50,50
+﻿; 等待该坐标区域 0,0 至50,50 的颜色发生变化
 
-; Get initial checksum
+; 取得初步校验和
 $checksum = PixelChecksum(0,0, 50,50)
 
-; Wait for the region to change, the region is checked every 100ms to reduce CPU load
+;循环检查区域校验和;每100毫秒检查一次,以减少CPU负载
 While $checksum = PixelChecksum(0,0, 50, 50)
   Sleep(100)
 WEnd
 
-MsgBox(0, "", "Something in the region has changed!")
+MsgBox(0, "", "该坐标区域的东东被改变了!")
