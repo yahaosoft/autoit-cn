@@ -10,7 +10,7 @@ DllStructCreate ( "数据结构" [,指针] )
 ###Parameters###
 @@ParamTable@@
 "数据结构"
-	字符串表示的要创建的数据结构.(见 注释).
+	用字符串来表示的要创建的数据结构.(见 注释).
 指针
 	[可选参数] 如果指定的数据结构不能分配内存,则使用此指针参数.
 @@End@@
@@ -20,7 +20,7 @@ DllStructCreate ( "数据结构" [,指针] )
 成功: 	返回一个供 DllStruct 调用的变量. 
 失败: 	0 .
 @Error:	0 = 没有错误. 
-	 1 = 传递给 DllStructCreate 的变量不是字符串. 
+	 1 = 传递给 DllStructCreate 的变量不是一个字符串. 
 	 2 = 传递的字符串中有一个未知的数据类型. 
 	 3 = 为数据结构分配需要的内存失败, 或者指针 = 0. 
 	 4 = 为传递的字串分配内存错误.
@@ -83,9 +83,9 @@ UINT_PTR, ULONG_PTR, DWORD_PTR, WPARAM
 如果要指定数据大小请在数据类型后面添加 '[大小]' : DllStructCreate("int;char[128]")
 
 元素名称可以添加类似C风格的声明: DllStructCreate("int n;char buffer[128]").
-这些数据名称可用于在其他DllStruct... functions里.  数据名称必须为英文字母或下划线.
+这些数据名称可用于在其他 DllStruct... 函数里.  数据名称必须为英文字母或下划线.
 
-要使用不同的对齐前缀与关键字的结构调整。n的默认值为8。有效值为1，2，4，8和16。The alignment of a member will be on a boundary that is either a multiple of n or a multiple of the size of the member， <b>whichever is smaller</b>。这相当于Microsoft Visual C + +编译器选项＃pragma。
+要使用不同的对齐前缀与关键字的结构调整.n的默认值为8.有效值为1,2,4,8和16.The alignment of a member will be on a boundary that is either a multiple of n or a multiple of the size of the member， <b>whichever is smaller</b>.这相当于 Microsoft Visual C++ 编译器的 #pragma 选项.
 
 DllStructCreate("short;int")     ; 数据结构有 8 字节, "int" 在偏移量 4 的位置
 DllStructCreate("align 2;short;int")     ; 数据结构有 6 字节, "int" 在偏移量 2 的位置

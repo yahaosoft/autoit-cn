@@ -1,11 +1,11 @@
-﻿; 按Esc键终止运行脚本, 按Pause/Break键暂停或继续运行
+﻿; 按Esc键终止脚本, 按Pause/Break键暂停
 
 Global $Paused
 HotKeySet("{PAUSE}", "TogglePause")
 HotKeySet("{ESC}", "Terminate")
 HotKeySet("+!d", "ShowMessage")  ;Shift-Alt-d
 
-;;;; 保持脚本运行状态，直到用户关闭它 ;;;;
+;;;; 下面是程序正文 ;;;;
 While 1
 	Sleep(100)
 WEnd
@@ -15,7 +15,7 @@ Func TogglePause()
 	$Paused = NOT $Paused
 	While $Paused
 		sleep(100)
-		ToolTip('脚本已经暂停了',0,0)
+		ToolTip('脚本已经"暂停"了',0,0)
 	WEnd
 	ToolTip("")
 EndFunc
@@ -25,5 +25,5 @@ Func Terminate()
 EndFunc
 
 Func ShowMessage()
-	MsgBox(4096,"标题","我是一个消息框.")
+	MsgBox(4096,"标题","这是一个消息.")
 EndFunc
