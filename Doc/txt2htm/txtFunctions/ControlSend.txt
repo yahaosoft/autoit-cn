@@ -20,8 +20,8 @@ ControlSend ( "窗口标题", "窗口文本", 控件ID, "字符串" [, 标志] )
 	要发送到控件的字符串.
 标志
 	[可选参数] 更改程序处理"按键"的方式:
-	  flag = 0 (默认),按键序列中含有的特殊字符比如 + 和 {LEFT} 将被视为 SHIFT 和 左箭头 键.
-	  flag = 1, 按键将按原样发送.
+	  标志 = 0 (默认),按键序列中含有的特殊字符比如 + 和 {LEFT} 将被视为 SHIFT 和 左箭头 键.
+	  标志 = 1, 按键将按原样发送.
 @@End@@
 
 ###ReturnValue###
@@ -32,13 +32,13 @@ ControlSend ( "窗口标题", "窗口文本", 控件ID, "字符串" [, 标志] )
 
 
 ###Remarks###
-ControlSend像<a href="Send.htm">Send</a>一样工作,但它可以直接发送按键到控件和窗口，而不只是活动窗口.
+ControlSend 工作和 <a href="Send.htm">Send</a> 类似,但它可以直接发送按键到控件和窗口,而不只是活动窗口.
 
-ControlSend仅对于命令提示行不可靠,因为它和正常的窗口工作方式不一样(似乎是检查状态，而不是接受按键消息).  正常窗口下ControlSend比Send更可靠 - 它能发送shift, ctrl, alt etc.
+ControlSend 对于命令提示行操作不稳定,因为它和正常窗口工作方式不一样(似乎检查物理按键状态超过了接受按键消息). 正常窗口下 ControlSend 可能比 Send 更可靠 - 并且它能发送shift, ctrl, alt 等等.
 
-CAPS LOCK灯工作的话,将发送不同的字符,不能模拟Shift键. 比如捷克键盘. 一个好的解决办法是使用ControlSetText.
+话说键盘 CAPS LOCK 开启情况下,Send 将发送不同的字符,也不能模拟Shift键. 比如使用捷克键盘布局. 一个好的解决办法是使用 ControlSetText.
 
-控件可能需要先使用ControlFocus命令得到焦点, 特别是当引用的控件ID由脚本本身创建.
+控件可能需要先使用 ControlFocus 命令得到焦点, 特别是当引用的控件ID由脚本本身创建.
 
 Opt("SendKeyDelay",...) 改变发送按键之间的间歇长度.
 Opt("SendKeyDownDelay",...) 改变按键在释放之前被按压的时间长度.

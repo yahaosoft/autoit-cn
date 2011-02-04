@@ -22,7 +22,8 @@ SetExtended ( 代码 [, 返回值] )
 
 
 ###Remarks###
-函数默认的@extended值为零，除非调用SetExtended()，否则在函数执行完之后将一直保持零。所以使用@extended之前必须准确设定。同时，如果你在循环中测试@extended，记得将每次的@extended状态备份到其他变量中。
+当进入函数是 @extended 的值将被设置为零. 除非调用 SetExtended() ,否则在函数执行完之后将一直保持为零.这意味着你不能在函数调用后设置 @extended 的值.这也意味着你需要在While-WEnd循环时注意备份@extended的状态.
+
 ###Related###
 SetError
 

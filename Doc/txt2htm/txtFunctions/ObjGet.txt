@@ -11,29 +11,30 @@ ObjGet ( "文件名" [, "类名"] )
 ###Parameters###
 @@ParamTable@@
 文件名
-	(见注意)对象文件的完整路径和名称.
+	包含对象的文件的完整路径和名称(参考备注).
 类名
-	(可选) 对象的类名，依下列格式:
+	[可选参数] 按下列格式的对象的类名:
 	"appname.objectype"
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 	返回对象. 
+成功: 	返回一个对象.
 失败: 	返回 0 并设置 @error 为 1.
 @@End@@
 
 
 ###Remarks###
-如果你想要只使用类名字，文件名则是可选择的,但参数不能被省略，可以使用一个空串替代. 
-类似: $Object = ObjGet("","Excel.Application")
+如果你只想使用类名,文件名则是可选的,但参数不能被省略.
+你可以使用一个空字符串来代替. 
+就像: $Object = ObjGet("","Excel.Application")
 
-如果你想要使用一个文件名，类名字则是可选择的. 但当多个类被定义为相同的文件类型时，
-这个类名必需是你想要访问的一个特定类.
+如果你想使用一个文件名,类名则是可选的. 它只需要当多个类被定义到相同的文件类型,
+并且你指定了去访问一个特定的类.
 
-不是所有的计算机都有对象的相同设置。 因此在调用 ObjGet() 之后总是要作差错检查.
+保持警惕,不是所有计算机都拥有相同的对象集合. 因此 <b>一定要</b> 在调用 ObjCreate() 后检查错误. 
 
-见 <a href="../intro/ComRef.htm">Obj/COM Reference</a> 关于对象的更多资讯.
+参考 <a href="../intro/ComRef.htm">Obj/COM 参考</a> 得到更多关于对象的信息.
 
 ###Related###
 GUICtrlCreateObj, IsObj, ObjCreate, ObjEvent, ObjName

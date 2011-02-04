@@ -123,11 +123,11 @@ The flag parameter can have one of 5 values (0 through 4).  0 gives a true (1) o
 \A
 	只匹配字符串开始.
 \b
-	Matches at a word boundary.
+	匹配一个单词范围.
 \B
-	Matches when not at a word boundary.
+	匹配一个非单词范围.
 \c
-	Match a control character, based on the next character.  For example, <b>\cM</b> matches ctrl-M.
+	匹配一个控制字符, 基于下一字符进行计算. 例如, <b>\cM</b> 匹配 ctrl-M.
 \d
 	匹配任何的数字 (0-9).
 \D
@@ -176,21 +176,21 @@ The flag parameter can have one of 5 values (0 through 4).  0 gives a true (1) o
 
 @@ParamTable@@
 {<i>x</i>}
-	重复匹配 x 次.
+	重复上一字符,字符集,字符组 <i>x</i> 次.
 {<i>x</i>,}
-	重复匹配次数 >= x.
+	重复上一字符,字符集,字符组至少 <i>x</i> 次.
 {0,<i>x</i>}
-	重复匹配 0 到 x 次.
+	重复上一字符,字符集,字符组最多 <i>x</i> 次.
 {<i>x</i>, <i>y</i>}
-	重复匹配 x 到 y 次, x、y包括在内.
+	重复上一字符,字符集,字符组 <i>x</i> 到 <i>y</i> 次, x,y也包括在内.
 *
-	重复匹配次数 >= 0.  等价于 {0,}
+	重复上一字符,字符集,字符组 0 次或多次. 等于 {0,}
 +
-	重复匹配次数 >= 1.  等价于 {1,}
+	重复上一字符,字符集,字符组 1 次或多次. 等于 {1,}
 ?
-	重复匹配 0 到 1 次.  等价于 {0, 1}
+	重复上一字符,字符集,字符组可能或者不可能出现.  等价于 {0, 1}
 ? (在一个重复字符之后)
-	匹配最小的而非最大的.
+	查询最小范围匹配代替最大范围.
 @@END@@
 
 <u><b>字符类别</u></b>

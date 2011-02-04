@@ -82,10 +82,10 @@ UINT_PTR, ULONG_PTR, DWORD_PTR, WPARAM
 
 如果要指定数据大小请在数据类型后面添加 '[大小]' : DllStructCreate("int;char[128]")
 
-元素名称可以添加类似C风格的声明: DllStructCreate("int n;char buffer[128]").
+元素名称可以添加类似C样式的声明: DllStructCreate("int n;char buffer[128]").
 这些数据名称可用于在其他 DllStruct... 函数里.  数据名称必须为英文字母或下划线.
 
-要使用不同的对齐前缀与关键字的结构调整.n的默认值为8.有效值为1,2,4,8和16.The alignment of a member will be on a boundary that is either a multiple of n or a multiple of the size of the member， <b>whichever is smaller</b>.这相当于 Microsoft Visual C++ 编译器的 #pragma 选项.
+To use a different alignment prefix the structure with the align keyword.  The default value for n is 8. Valid values are 1, 2, 4, 8, and 16.  The alignment of a member will be on a boundary that is either a multiple of n or a multiple of the size of the member, <b>whichever is smaller</b>.  This is equivalent to the #pragma pack option with the Microsoft Visual C++ compiler.
 
 DllStructCreate("short;int")     ; 数据结构有 8 字节, "int" 在偏移量 4 的位置
 DllStructCreate("align 2;short;int")     ; 数据结构有 6 字节, "int" 在偏移量 2 的位置
