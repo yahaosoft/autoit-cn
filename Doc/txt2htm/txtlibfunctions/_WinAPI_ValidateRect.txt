@@ -1,0 +1,34 @@
+﻿###Function###
+_WinAPI_ValidateRect
+
+###Description###
+Removes a rectangle from the current update region of the specified window.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ValidateRect ( $hWnd [, $tRECT] )
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window whose update region is to be modified. If this parameter is 0, the system
+	invalidates and redraws all windows and sends the WM_ERASEBKGND and WM_NCPAINT messages to the window
+	procedure before the function returns.
+$tRECT
+	$tagRECT structure that contains the client coordinates of the rectangle to be removed from the
+	update region. If this parameter is 0, the entire client area is removed.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ ValidateRect
+

@@ -1,0 +1,33 @@
+﻿###Function###
+_WinAPI_InvertRect
+
+###Description###
+Inverts a rectangle in a window by performing a logical NOT operation on the color values for each pixel.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_InvertRect ( $hDC, $tRECT )
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context.
+$tRECT
+	$tagRECT structure that contains the logical coordinates of the rectangle to be inverted.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+On monochrome screens, the _WinAPI_InvertRect() makes white pixels black and black pixels white. On color screens,
+the inversion depends on how colors are generated for the screen. Calling _WinAPI_InvertRect() twice for the same
+rectangle restores the display to its previous colors.
+
+
+###See Also###
+@@MsdnLink@@ InvertRect
+

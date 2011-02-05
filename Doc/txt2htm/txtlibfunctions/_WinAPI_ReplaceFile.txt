@@ -1,0 +1,60 @@
+﻿###Function###
+_WinAPI_ReplaceFile
+
+###Description###
+Replaces one file with another file, and creates a backup copy of the original file.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ReplaceFile ( $sReplacedFile, $sReplacementFile [, $sBackupFile [, $iFlags]] )
+
+###Parameters###
+@@ParamTable@@
+$sReplacedFile
+	The name of the file to be replaced.
+$sReplacementFile
+	The name of the file that will replace the $sReplacedFile file.
+$sBackupFile
+	The name of the file that will serve as a backup copy of the $sReplacedFile file. If this
+	parameter is empty string, no backup file is created.
+$iFlags
+	The replacement options. This parameter can be one or more of the following values.
+	
+	$REPLACEFILE_WRITE_THROUGH
+	$REPLACEFILE_IGNORE_MERGE_ERRORS
+	$REPLACEFILE_IGNORE_ACL_ERRORS
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero (see remarks).
+@@End@@
+
+###Remarks###
+If this function fails, call _WinAPI_GetLastError() function to get extended error information. The following
+are possible error codes for this function.
+
+ERROR_UNABLE_TO_MOVE_REPLACEMENT (1176)
+The replacement file could not be renamed. If $sBackupFile was specified, the replaced and replacement files
+retain their original file names. Otherwise, the replaced file no longer exists and the replacement file exists
+under its original name.
+
+ERROR_UNABLE_TO_MOVE_REPLACEMENT_2 (1177)
+The replacement file could not be moved. The replacement file still exists under its original namehowever,
+it has inherited the file streams and attributes from the file it is replacing. The file to be replaced still
+exists with the name specified by $sReplacedFile.
+
+ERROR_UNABLE_TO_REMOVE_REPLACED (1175)
+The replaced file could not be deleted. The replaced and replacement files retain their original file names.
+
+If any other error is returned, such as ERROR_INVALID_PARAMETER, the replaced and replacement files will retain
+their original file names. In this scenario, a backup file does not exist and it is not guaranteed that the
+replacement file will have inherited all of the attributes and streams of the replaced file.
+
+
+
+###See Also###
+@@MsdnLink@@ ReplaceFile
+

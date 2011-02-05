@@ -1,0 +1,49 @@
+﻿###Function###
+_WinAPI_RegRestoreKey
+
+###Description###
+Reads the registry information in a specified file and copies it over the specified key.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_RegRestoreKey ( $hKey, $sFile )
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to an open registry key. This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey()
+	function. It can also be one of the following predefined keys.
+	
+	$HKEY_CLASSES_ROOT
+	$HKEY_CURRENT_CONFIG
+	$HKEY_CURRENT_USER
+	$HKEY_LOCAL_MACHINE
+	$HKEY_USERS
+	
+$sFile
+	The name of the file with the registry information. This file is typically created by
+	using the _WinAPI_RegSaveKey() function.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+There are two different registry hive file formats. Registry hives created on current operating systems typically
+cannot be loaded by earlier ones.
+
+The new information in the file specified by $sFile overwrites the contents of the key specified by the $hKey
+parameter, except for the key name.
+
+If any subkeys of the hKey parameter are open, _WinAPI_RegRestoreKey() fails.
+
+
+###See Also###
+@@MsdnLink@@ RegRestoreKey
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,52 @@
+﻿###Function###
+_WinAPI_ResizeBitmap
+
+###Description###
+Changes the size of a bitmap to the specified dimensions.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ResizeBitmap ( $hBitmap, $iWidth, $iHeight [, $iMode] )
+
+###Parameters###
+@@ParamTable@@
+$hBitmap
+	Handle to the bitmap to be resized.
+$iWidth
+	The width, in pixels, in which the bitmap must fit.
+$iHeight
+	The height, in pixels, in which the bitmap must fit.
+$iMode
+	The resizing mode. This parameter can be one of the following values (same as for
+	_WinAPI_SetStretchBltMode()).
+	
+	$BLACKONWHITE
+	$COLORONCOLOR
+	$HALFTONE
+	$WHITEONBLACK
+	$STRETCH_ANDSCANS
+	$STRETCH_DELETESCANS
+	$STRETCH_HALFTONE
+	$STRETCH_ORSCANS
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the new bitmap that was created.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function does not support bitmaps with Alpha channel, use _WinAPI_AlphaBlend() to work with this bitmaps.
+
+When you are finished using the bitmap, destroy it using the _WinAPI_DeleteObject() function. This function
+does not destroy the original bitmap, you must to destroy it.
+
+
+###See Also###
+None
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,71 @@
+﻿###Function###
+_WinAPI_MoveFileEx
+
+###Description###
+Moves a file or directory, notifying the application of its progress through a callback function.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_MoveFileEx ( $sExistingFile, $sNewFile [, $iFlags [, $pProgressProc [, $pData] )
+
+###Parameters###
+@@ParamTable@@
+$sExistingFile
+	The name of the existing file or directory on the local computer.
+	
+	If $iFlags specifies $MOVE_FILE_DELAY_UNTIL_REBOOT, the file cannot exist on a remote share
+	because delayed operations are performed before the network is available.
+	
+$sNewFile
+	The new name of the file or directory on the local computer.
+	
+	When moving a file, $sNewFile can be on a different file system or volume. If $sNewFile is
+	on another drive, you must set the  $MOVE_FILE_COPY_ALLOWED flag in $iFlags parameter.
+	
+	When moving a directory, $sExistingFile and $sNewFile  must be on the same drive.
+	
+	If $iFlags specifies $MOVE_FILE_DELAY_UNTIL_REBOOT and $sNewFile is 0, _WinAPI_MoveFileEx()
+	registers $sExistingFile to be deleted when the system restarts. If $sExistingFile refers to
+	a directory, the system removes the directory at restart only if the directory is empty.
+	
+$iFlags
+	The move options. This parameter can be one or more of the following values.
+	
+	$MOVE_FILE_COPY_ALLOWED
+	$MOVE_FILE_CREATE_HARDLINK
+	$MOVE_FILE_DELAY_UNTIL_REBOOT
+	$MOVE_FILE_FAIL_IF_NOT_TRACKABLE
+	$MOVE_FILE_REPLACE_EXISTING
+	$MOVE_FILE_WRITE_THROUGH
+	
+$pProgressProc
+	The address of a callback function that is called each time another portion of the file
+	has been moved.
+	
+	(See MSDN for more information)
+	
+$pData
+	The argument to be passed to the callback function.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+If the $iFlags parameter specifies $MOVE_FILE_DELAY_UNTIL_REBOOT, _WinAPI_MoveFileEx() fails if it cannot
+access the registry. The function stores the locations of the files to be renamed at restart in the
+following registry value:
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\PendingFileRenameOperations
+
+
+
+###See Also###
+@@MsdnLink@@ MoveFileWithProgress
+
+###Example###
+@@IncludeExample@@
+

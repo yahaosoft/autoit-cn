@@ -1,0 +1,49 @@
+﻿###Function###
+_WinAPI_PolyBezier
+
+###Description###
+Draws one or more Bezier curves.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_PolyBezier ( $hDC, $aPoint [, $iStart [, $iEnd]] )
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to a device context.
+$aPoint
+	The 2D array ([x1, y1], [x2, y2], ... [xN, yN]) that contains the endpoints and control points of the
+	curve(s), in logical units. The number of points must be one more than three times the number of curves
+	to be drawn, because each Bezier curve requires two control points and an endpoint, and the initial
+	curve requires an additional starting point.
+$iStart
+	The index of array to start drawing at.
+$iEnd
+	The index of array to stop drawing at.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function draws cubic Bezier curves by using the endpoints and control points specified by the $aPoint
+parameter. The first curve is drawn from the first point to the fourth point by using the second and third points
+as control points. Each subsequent curve in the sequence needs exactly three more points: the ending point of the
+previous curve is used as the starting point, the next two points in the sequence are control points, and the
+third is the ending point.
+
+The current position is neither used nor updated by the _WinAPI_PolyBezier() function. The figure is not filled.
+
+This function draws lines by using the current pen.
+
+
+###See Also###
+@@MsdnLink@@ PolyBezier
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,33 @@
+﻿###Function###
+_WinAPI_ShellQueryRecycleBin
+
+###Description###
+Retrieves the size of the Recycle Bin and the number of items in it, for a specified drive.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ShellQueryRecycleBin ( $sRoot )
+
+###Parameters###
+@@ParamTable@@
+$sRoot
+	The string that contains the path of the root drive on which the Recycle Bin is located. This string
+	can be formatted with the drive, folder, and subfolder names, for example "c:\windows\system\".
+	If this parameter is empty string, information is retrieved for all Recycle Bins on all drives.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The array that contains the following information.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0]	The total size of all the objects in the specified Recycle Bin, in bytes.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1]	The total number of items in the specified Recycle Bin.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ SHQueryRecycleBin
+

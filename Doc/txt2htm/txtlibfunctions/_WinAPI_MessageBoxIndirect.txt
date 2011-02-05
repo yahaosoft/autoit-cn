@@ -1,0 +1,37 @@
+﻿###Function###
+_WinAPI_MessageBoxIndirect
+
+###Description###
+Creates, displays, and operates a message box.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_MessageBoxIndirect ( $tMSGBOXPARAMS )
+
+###Parameters###
+@@ParamTable@@
+$tMSGBOXPARAMS
+	$tagMSGBOXPARAMS structure that contains information used to display the message box.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	One of the $ID* constants.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+When you use a system-modal message box to indicate that the system is low on memory, the strings pointed to by the
+"Text" and "Caption" members of the $tagMSGBOXPARAMS structure should not be taken from a resource file, because
+an attempt to load the resource may fail.
+
+If you create a message box while a dialog box is present, use a handle to the dialog box as the hWnd parameter.
+The hWnd parameter should not identify a child window, such as a control in a dialog box.
+
+
+###See Also###
+@@MsdnLink@@ MessageBoxIndirect
+
+###Example###
+@@IncludeExample@@
+

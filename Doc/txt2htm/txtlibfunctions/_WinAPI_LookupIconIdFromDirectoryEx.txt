@@ -1,0 +1,52 @@
+﻿###Function###
+_WinAPI_LookupIconIdFromDirectoryEx
+
+###Description###
+Searches through icon or cursor data for the icon or cursor that best fits the current display device.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_LookupIconIdFromDirectoryEx ( $pData [, $fIcon [, $xDesired [, $yDesired [, $iFlags]]]] )
+
+###Parameters###
+@@ParamTable@@
+$pData
+	The icon or cursor directory data. Because this function does not validate the resource data, it
+	causes a general protection (GP) fault or returns an undefined value if presbits is not pointing
+	to validresource data.
+$fIcon
+	Specifies whether an icon or a cursor is sought, valid values:
+		TRUE     - The function is searching for an icon. (Default)
+		FALSE    - The function is searching for a cursor.
+$xDesired
+	The desired width, in pixels, of the icon or cursor. If this parameter is zero, the function uses the
+	system metric value.
+$yDesired
+	The desired height, in pixels, of the icon or cursor. If this parameter is zero, the function uses the
+	system metric value.
+$iFlags
+	This parameter can be one or more of the following values.
+	
+	$LR_DEFAULTCOLOR
+	$LR_MONOCHROME
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	An integer resource identifier for the icon or cursor that best fits the current display device.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The icon directory is loaded from a resource file with resource type $RT_GROUP_ICON (or $RT_GROUP_CURSOR),
+and an integer resource name for the specific icon to be loaded. _WinAPI_LookupIconIdFromDirectoryEx() returns
+an integer identifier that is the resource name of the icon that best fits the current display device.
+
+
+###See Also###
+@@MsdnLink@@ LookupIconIdFromDirectoryEx
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,29 @@
+﻿###Function###
+_WinAPI_ShellGetSpecialFolderLocation
+
+###Description###
+Retrieves a PIDL structure of a special folder.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ShellGetSpecialFolderLocation ( $CSIDL )
+
+###Parameters###
+@@ParamTable@@
+$CSIDL
+	The CSIDL ($CSIDL_*) that identifies the folder of interest.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The PIDL specifying the folder's location relative to the root of the namespace (the desktop).
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+To free the returned PIDL, call the _WinAPI_CoTaskMemFree() function.
+
+
+###See Also###
+@@MsdnLink@@ SHGetSpecialFolderLocation
+

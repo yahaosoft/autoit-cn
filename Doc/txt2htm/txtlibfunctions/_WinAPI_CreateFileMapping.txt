@@ -1,0 +1,77 @@
+﻿###Function###
+_WinAPI_CreateFileMapping
+
+###Description###
+Creates or opens a named or unnamed file mapping object for a specified file.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateFileMapping ( $hFile [, $iSize [, $sName [, $iProtect [, $tSecurity]]]] )
+
+###Parameters###
+@@ParamTable@@
+$hFile
+	Handle to the file from which to create a file mapping object. If this parameter is (-1), the calling
+	process must also specify a size for the file mapping object in the $iSize parameters. In this scenario,
+	_WinAPI_CreateFileMapping() creates a file mapping object of a specified size that is backed by the
+	system paging file instead of by a file in the file system.
+$iSize
+	The maximum size of the file mapping object. If this parameter is 0, the maximum size of the file
+	mapping object is equal to the current size of the file that $hFile identifies.
+$sName
+	The name of the file mapping object.
+$iProtect
+	Specifies the page protection of the file mapping object and can be one of the following values.
+	
+	$PAGE_EXECUTE_READ
+	$PAGE_EXECUTE_READWRITE
+	$PAGE_EXECUTE_WRITECOPY
+	$PAGE_READONLY
+	$PAGE_READWRITE
+	$PAGE_WRITECOPY
+	
+	An application can specify one or more of the following attributes for the file mapping object
+	by combining them with one of the preceding page protection values.
+	
+	$SEC_COMMIT
+	$SEC_IMAGE
+	$SEC_LARGE_PAGES
+	$SEC_NOCACHE
+	$SEC_RESERVE
+	$SEC_WRITECOMBINE
+	
+$tSecurity
+	$tagSECURITY_ATTRIBUTES structure that determines whether a returned handle can be inherited by
+	child processes. If this parameter is 0, the handle cannot be inherited and the file mapping object
+	gets a default security descriptor.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the newly created file mapping object. If the object exists before the function call,
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+After a file mapping object is created, the size of the file must not exceed the size of the file mapping object
+if it does, not all of the file contents are available for sharing.
+
+Multiple processes can share a view of the same file by either using a single shared file mapping object or creating
+separate file mapping objects backed by the same file. A single file mapping object can be shared by multiple processes
+through inheriting the handle at process creation, duplicating the handle, or opening the file mapping object by name.
+
+A file mapping object does not actually map the view into a process address space. The _WinAPI_MapViewOfFile()
+functions map a view of a file into a process address space.
+
+Mapped views of a file mapping object maintain internal references to the object, and a file mapping object does
+not close until all references to it are released. Therefore, to fully close a file mapping object, an application
+must unmap all mapped views of the file mapping object by calling _WinAPI_UnmapViewOfFile() and close the file
+mapping object handle by calling _WinAPI_CloseHandle(). These functions can be called in any order.
+
+
+###See Also###
+@@MsdnLink@@ CreateFileMapping
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,57 @@
+﻿###Function###
+_WinAPI_VerQueryValue
+
+###Description###
+Retrieves specified version information from the specified file.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_VerQueryValue ( $sFile [, $sValues] )
+
+###Parameters###
+@@ParamTable@@
+$sFile
+	The name of the file.
+$sValues
+	The string containing the field names for which you want to get values. The names must be separated
+	by a "|". For example, "name1|name2|...|namei". If some fields do not exist, the corresponding array
+	elements is an empty string. If this parameter is not specified (empty string), uses the reserved
+	names (12) in the following sequence.
+	
+	"Comments"
+	"CompanyName"
+	"FileDescription"
+	"FileVersion'
+	"InternalName"
+	"LegalCopyright"
+	"LegalTrademarks"
+	"OriginalFilename"
+	"ProductName"
+	"ProductVersion"
+	"PrivateBuild"
+	"SpecialBuild"
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The 2D array of the string values that specified by $sValues parameter for each language. The zeroth
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0][0]	Number of languages (n)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0][i]	Unused
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1][0]	LCID
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1][i]	Value
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[n][0]	LCID
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[n][i]	Value
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ VerQueryValue
+
+###Example###
+@@IncludeExample@@
+

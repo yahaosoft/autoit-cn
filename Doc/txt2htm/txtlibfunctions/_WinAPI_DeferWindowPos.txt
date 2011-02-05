@@ -1,0 +1,69 @@
+﻿###Function###
+_WinAPI_DeferWindowPos
+
+###Description###
+Updates the specified multiple-window-position structure for the specified window.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_DeferWindowPos ( $hInfo, $hWnd, $hAfter, $iX, $iY, $iWidth, $iHeight, $iFlags )
+
+###Parameters###
+@@ParamTable@@
+$hInfo
+	Handle to a multiple-window-position structure that contains size and position information for one
+	or more windows. This structure is returned by _WinAPI_BeginDeferWindowPos() or by the most recent
+	call to _WinAPI_DeferWindowPos().
+$hWnd
+	Handle to the window for which update information is stored in the structure. All windows in a
+	multiple-window-position structure must have the same parent.
+$hAfter
+	Handle to the window that precedes the positioned window in the Z order. This parameter must be a
+	window handle or one of the following values. This parameter is ignored if the $SWP_NOZORDER flag
+	is set in the $iFlags parameter.
+	
+	$HWND_BOTTOM
+	$HWND_NOTOPMOST
+	$HWND_TOP
+	$HWND_TOPMOST
+	
+$iX
+	The x-coordinate of the window's upper-left corner.
+$iY
+	The y-coordinate of the window's upper-left corner.
+$iWidth
+	The window's new width, in pixels.
+$iHeight
+	The window's new height, in pixels.
+$iFlags
+	A combination of the following values that affect the size and position of the window.
+	
+	$SWP_DRAWFRAME
+	$SWP_FRAMECHANGED
+	$SWP_HIDEWINDOW
+	$SWP_NOACTIVATE
+	$SWP_NOCOPYBITS
+	$SWP_NOMOVE
+	$SWP_NOOWNERZORDER
+	$SWP_NOREDRAW
+	$SWP_NOREPOSITION
+	$SWP_NOSENDCHANGING
+	$SWP_NOSIZE
+	$SWP_NOZORDER
+	$SWP_SHOWWINDOW
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The return value identifies the updated multiple-window-position structure.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ DeferWindowPos
+

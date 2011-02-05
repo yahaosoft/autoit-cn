@@ -1,0 +1,53 @@
+﻿###Function###
+_WinAPI_CreateMutex
+
+###Description###
+Creates or opens a named or unnamed mutex object.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateMutex ($sMutex [, $fInitial [, $tSecurity]] )
+
+###Parameters###
+@@ParamTable@@
+$sMutex
+	The name of the mutex object. Name comparisons are case sensitive.
+$fInitial
+	Specifies whether the calling process obtains the initial ownership of the mutex object, valid values:
+		TRUE      - The calling thread obtains initial ownership of the mutex object. (Default)
+		FALSE     - The calling thread does not obtain ownership of the mutex object.
+$tSecurity
+	$tagSECURITY_ATTRIBUTES structure that specifies a security descriptor for the new mutex. If this
+	parameter is 0, the mutex gets a default security descriptor.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The handle to the newly created mutex object.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+If the mutex is a named mutex and the object existed before this function call, the return value is a handle to
+the existing object, _WinAPI_GetLastError() returns ERROR_ALREADY_EXISTS, $fInitial is ignored, and the calling
+thread is not granted ownership. However, if the caller has limited access rights, the function will fail with
+ERROR_ACCESS_DENIED and the caller should use the _WinAPI_OpenMutex() function.
+
+Any process can specify the mutex-object handle in a call to one of the wait functions. The single-object wait
+functions return when the state of the specified object is signaled. The multiple-object wait functions can be
+instructed to return either when any one or when all of the specified objects are signaled. When a wait function
+returns, the waiting thread is released to continue its execution.
+
+Two or more processes can call _WinAPI_CreateMutex() to create the same named mutex. The first process actually
+creates the mutex, and subsequent processes with sufficient access rights simply open a handle to the existing
+mutex. This enables multiple processes to get handles of the same mutex, while relieving the user of the responsibility
+of ensuring that the creating process is started first. When using this technique, you should set the $fInitial
+parameter to FALSEotherwise, it can be difficult to be certain which process has initial ownership.
+
+Use the _WinAPI_CloseHandle() function to close the handle. The system closes the handle automatically when the
+process terminates. The mutex object is destroyed when its last handle has been closed.
+
+
+###See Also###
+@@MsdnLink@@ CreateMutex
+

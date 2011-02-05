@@ -1,0 +1,46 @@
+﻿###Function###
+_WinAPI_CreateIcon
+
+###Description###
+Creates an icon that has the specified size, colors, and bit patterns.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateIcon ( $hInstance, $iWidth, $iHeight, $iPlanes, $iBitsPixel, $pANDBits, $pXORBits )
+
+###Parameters###
+@@ParamTable@@
+$hInstance
+	Handle to the instance of the module creating the icon.
+$iWidth
+	The width, in pixels, of the icon.
+$iHeight
+	The height, in pixels, of the icon.
+$iPlanes
+	The number of planes in the XOR bitmask of the icon.
+$iBitsPixel
+	The number of bits-per-pixel in the XOR bitmask of the icon.
+$pANDBits
+	An array of bytes that contains the bit values for the AND bitmask of the icon. This bitmask describes
+	a monochrome bitmap.
+$pXORBits
+	An array of bytes that contains the bit values for the XOR bitmask of the icon. This bitmask describes
+	a monochrome or device-dependent color bitmap.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the icon that is created.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+When you are finished using the icon, destroy it using the _WinAPI_DestroyIcon() function.
+
+
+###See Also###
+@@MsdnLink@@ CreateIcon
+
+###Example###
+@@IncludeExample@@
+

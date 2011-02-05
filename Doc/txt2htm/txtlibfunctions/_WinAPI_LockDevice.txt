@@ -1,0 +1,36 @@
+﻿###Function###
+_WinAPI_LockDevice
+
+###Description###
+Enables or disables the mechanism that ejects media, for those devices possessing that locking capability.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_LockDevice ( $sDrive, $fLock )
+
+###Parameters###
+@@ParamTable@@
+$sDrive
+	The drive letter of the device to enable or disable, in the format D:, E:, etc.
+$fLock
+	Specifies whether the device should be disabled, valid values:
+		TRUE   - The device is disabled.
+		FALSE  - The device is enabled.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function is valid only for devices that support removable media.
+
+
+###See Also###
+@@MsdnLink@@ IOCTL_STORAGE_MEDIA_REMOVAL
+
+###Example###
+@@IncludeExample@@
+

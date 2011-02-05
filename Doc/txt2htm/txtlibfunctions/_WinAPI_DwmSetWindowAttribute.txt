@@ -1,0 +1,47 @@
+﻿###Function###
+_WinAPI_DwmSetWindowAttribute
+
+###Description###
+Sets the value of the specified attributes for non-client rendering to apply to the window.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_DwmSetWindowAttribute ( $hWnd, $iAttribute, $iData )
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	The window handle to apply the given attribute.
+$iAttribute
+	The attribute to apply to the window. This parameter can be one of the following values.
+	
+	$DWMWA_NCRENDERING_POLICY
+	$DWMWA_TRANSITIONS_FORCEDISABLED
+	$DWMWA_ALLOW_NCPAINT
+	$DWMWA_NONCLIENT_RTL_LAYOUT
+	$DWMWA_FORCE_ICONIC_REPRESENTATION
+	$DWMWA_FLIP3D_POLICY
+	
+	*Windows 7 or later
+	
+	$DWMWA_HAS_ICONIC_BITMAP
+	$DWMWA_DISALLOW_PEEK
+	$DWMWA_EXCLUDED_FROM_PEEK
+	
+$iData
+	The value of the attribute.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ DwmSetWindowAttribute
+

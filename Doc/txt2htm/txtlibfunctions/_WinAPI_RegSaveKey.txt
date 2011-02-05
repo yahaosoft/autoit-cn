@@ -1,0 +1,38 @@
+﻿###Function###
+_WinAPI_RegSaveKey
+
+###Description###
+Saves the specified key and all of its subkeys and values to a new file, in the standard format.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_RegSaveKey ( $hKey, $sFile [, $tSecurity] )
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to an open registry key.
+$sFile
+	The name of the file in which the specified key and subkeys are to be saved. If the file already
+	exists, the function replaces it. The new file has the archive attribute.
+$tSecurity
+	$tagSECURITY_ATTRIBUTES structure that specifies a security descriptor for the new file. If this
+	parameter is 0, the file gets a default security descriptor.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+You can use the file created by this function in subsequent calls to the _WinAPI_RegRestoreKey() functions.
+
+
+###See Also###
+@@MsdnLink@@ RegSaveKey
+
+###Example###
+@@IncludeExample@@
+

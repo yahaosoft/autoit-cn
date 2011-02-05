@@ -1,0 +1,53 @@
+﻿###Function###
+_WinAPI_CreateIconFromResourceEx
+
+###Description###
+Creates an icon or cursor from resource bits describing the icon.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateIconFromResourceEx ( $pData, $iSize [, $fIcon [, $xDesired [, $yDesired [, $iFlags]]]] )
+
+###Parameters###
+@@ParamTable@@
+$pData
+	The icon or cursor resource bits. These bits are typically loaded by calls to the _WinAPI_LookupIconIdFromDirectoryEx()
+	and _WinAPI_LoadResource() functions.
+$iSize
+	The size, in bytes, of the set of bits pointed to by the $pData parameter.
+$fIcon
+	Specifies whether an icon or a cursor is to be created, valid values:
+		TRUE     - An icon is to be created. (Default)
+		FALSE    - A cursor is to be created.
+$xDesired
+	The desired width, in pixels, of the icon or cursor. If this parameter is zero, the function uses the
+	system metric value to set the width.
+$yDesired
+	The desired height, in pixels, of the icon or cursor. If this parameter is zero, the function uses the
+	system metric value to set the height.
+$iFlags
+	This parameter can be one or more of the following values.
+	
+	$LR_DEFAULTCOLOR
+	$LR_DEFAULTSIZE
+	$LR_MONOCHROME
+	$LR_SHARED
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the icon or cursor.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+You should call _WinAPI_DestroyIcon() for icons created with _WinAPI_CreateIconFromResourceEx().
+
+
+###See Also###
+@@MsdnLink@@ CreateIconFromResourceEx
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,37 @@
+﻿###Function###
+_WinAPI_InvalidateRgn
+
+###Description###
+Adds a region to the specified window's update region.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_InvalidateRgn ( $hWnd [, $hRgn [, $fErase]] )
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window with an update region that is to be modified.
+$hRgn
+	Handle to the region to be added to the update region. The region is assumed to have client coordinates.
+	If this parameter is 0, the entire client area is added to the update region.
+$fErase
+	Specifies whether the background within the update region is to be erased when the
+	update region is processed.
+		TRUE   - The background is erased. (Default)
+		FALSE  - The background remains unchanged.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ InvalidateRgn
+

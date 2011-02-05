@@ -1,0 +1,38 @@
+﻿###Function###
+_WinAPI_PlayEnhMetaFile
+
+###Description###
+Displays the picture stored in the specified enhanced-format metafile.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_PlayEnhMetaFile( $hDC, $hEmf, $tRECT )
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context for the output device on which the picture will appear.
+$hEmf
+	Handle to the enhanced metafile.
+$tRECT
+	$tagRECT structure that contains the coordinates of the bounding rectangle used to display the picture,
+	in logical units
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+An enhanced metafile can be embedded in a newly created enhanced metafile by calling _WinAPI_PlayEnhMetaFile()
+and playing the source enhanced metafile into the device context for the new enhanced metafile.
+
+
+###See Also###
+@@MsdnLink@@ PlayEnhMetaFile
+
+###Example###
+@@IncludeExample@@
+

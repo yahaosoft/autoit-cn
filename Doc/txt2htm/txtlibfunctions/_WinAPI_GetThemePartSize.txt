@@ -1,0 +1,44 @@
+﻿###Function###
+_WinAPI_GetThemePartSize
+
+###Description###
+Calculates the original size of the part defined by a visual style.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetThemePartSize ( $hTheme, $iPartId, $iStateId, $hDC, $tRECT, $iType )
+
+###Parameters###
+@@ParamTable@@
+$hTheme
+	Handle to a window's specified theme data.
+$iPartId
+	The part part to calculate the size of.
+$iStateId
+	The state of the part.
+$hDC
+	Handle to a device context to select fonts into.
+$tRECT
+	$tagRECT structure that contains the rectangle used for the part drawing destination.
+$iType
+	The type of size to retrieve. This parameter can be one of the following values.
+	
+	$TS_MIN
+	$TS_TRUE
+	$TS_DRAW
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	$tagSIZE structure that contains a dimensions of the specified part.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ GetThemePartSize
+

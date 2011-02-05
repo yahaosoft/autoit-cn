@@ -1,0 +1,47 @@
+﻿###Function###
+_WinAPI_QueryInformationJobObject
+
+###Description###
+Retrieves limit and job state information from the job object.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_QueryInformationJobObject ( $hJob, $iJobObjectInfoClass, ByRef $tJobObjectInfo )
+
+###Parameters###
+@@ParamTable@@
+$hJob
+	Handle to the job whose information is being queried. The handle must have the
+	$JOB_OBJECT_QUERY access right. If this value is 0 and the calling process is associated
+	with a job, the job associated with the calling process is used.
+$iJobObjectInfoClass
+	The information class for the limits to be queried. This parameter specifies the type
+	of $tJobObjectInfo structure, valid values:
+		1  - $tagJOBOBJECT_BASIC_ACCOUNTING_INFORMATION
+		2  - $tagJOBOBJECT_BASIC_LIMIT_INFORMATION
+		3  - $tagJOBOBJECT_BASIC_PROCESS_ID_LIST
+		4  - $tagJOBOBJECT_BASIC_UI_RESTRICTIONS
+		5  - $tagJOBOBJECT_SECURITY_LIMIT_INFORMATION
+		8  - $tagJOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION
+		9  - $tagJOBOBJECT_EXTENDED_LIMIT_INFORMATION
+		11 - $tagJOBOBJECT_GROUP_INFORMATION
+$tJobObjectInfo
+	$tagJOBOBJECT_* structure that retrieves the limit and job state information.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The length of data (in bytes) written to the structure pointed to by the
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ QueryInformationJobObject
+
+###Example###
+@@IncludeExample@@
+

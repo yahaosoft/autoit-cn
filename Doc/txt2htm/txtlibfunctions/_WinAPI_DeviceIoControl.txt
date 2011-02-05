@@ -1,0 +1,45 @@
+﻿###Function###
+_WinAPI_DeviceIoControl
+
+###Description###
+Sends a control code directly to a specified device driver.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_DeviceIoControl ( $hDevice, $iControlCode [, $pInBuffer [, $iInBufferSize [, $pOutBuffer [, $iOutBufferSize]]]] )
+
+###Parameters###
+@@ParamTable@@
+$hDevice
+	Handle to the device on which the operation is to be performed. The device is typically a volume,
+	directory, file, or stream. To retrieve a device handle, use the _WinAPI_CreateFileEx function.
+	To specify a device name, use the following format:
+	
+	_WinAPI_CreateFileEx("\\.\DeviceName", ...)
+	
+$iControlCode
+	The control code for the operation. This value identifies the specific operation to be performed
+	and the type of device on which to perform it.
+$pInBuffer
+	A pointer to the input buffer that contains the data required to perform the operation.
+$iInBufferSize
+	The size of the input buffer, in bytes.
+$pOutBuffer
+	A pointer to the output buffer that is to receive the data returned by the operation.
+$iOutBufferSize
+	The size of the output buffer, in bytes.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1 and @extended flag contains the size of the data stored in the output buffer, in bytes.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ DeviceIoControl
+

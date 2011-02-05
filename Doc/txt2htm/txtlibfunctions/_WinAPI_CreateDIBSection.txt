@@ -1,0 +1,50 @@
+﻿###Function###
+_WinAPI_CreateDIBSection
+
+###Description###
+Creates a DIB that applications can write to directly.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateDIBSection ( $hDC, ByRef $tBITMAPINFO, $iUsage, ByRef $pBits [, $hSection [, $iOffset]] )
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to a device context. If the value of $iUsage is $DIB_PAL_COLORS, the function uses this
+	device context's logical palette to initialize the DIB colors.
+$tBITMAPINFO
+	$tagBITMAPINFO structure that specifies various attributes of the DIB, including the bitmap
+	dimensions and colors.
+$iUsage
+	The type of colors used (either logical palette indexes or literal RGB values). The following
+	values are defined.
+	
+	$DIB_PAL_COLORS
+	$DIB_RGB_COLORS
+	
+$pBits
+	A pointer to the location of the DIB bit values.
+$hSection
+	Handle to a file-mapping object that the function will use to create the DIB.
+$iOffset
+	The offset from the beginning of the file-mapping object referenced by $hSection where storage
+	for the bitmap bit values is to begin. This value is ignored if $hSection is 0.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the newly created DIB, and $pBits points to the bitmap bit values. You can create the
+Failure	0 and sets the @error flag to non-zero, $pBits also is 0.
+@@End@@
+
+###Remarks###
+When you no longer need the bitmap, call the _WinAPI_DeleteObject() function to delete it.
+
+
+###See Also###
+@@MsdnLink@@ CreateDIBSection
+
+###Example###
+@@IncludeExample@@
+

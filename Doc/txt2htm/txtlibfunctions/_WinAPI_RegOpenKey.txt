@@ -1,0 +1,46 @@
+﻿###Function###
+_WinAPI_RegOpenKey
+
+###Description###
+Opens the specified registry key.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_RegOpenKey ( $hKey [, $sSubKey [, $iAccess]] )
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to an open registry key. This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey()
+	function, or it can be one of the following predefined keys.
+	
+	$HKEY_CLASSES_ROOT
+	$HKEY_CURRENT_USER
+	$HKEY_LOCAL_MACHINE
+	$HKEY_USERS
+	
+$sSubKey
+	The name of the registry subkey to be opened.
+$iAccess
+	A mask that specifies the desired access rights to the key. The function fails if the security
+	descriptor of the key does not permit the requested access for the calling process. This parameter
+	can be one or more of the $KEY_* constants.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the opened key.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+Unlike the _WinAPI_RegCreateKey() function, the _WinAPI_RegOpenKey() function does not create the specified key
+if the key does not exist in the registry.
+
+If the key is not one of the predefined registry keys ($HKEY_*) you must call the _WinAPI_RegCloseKey()
+function after finished using the handle.
+
+
+###See Also###
+@@MsdnLink@@ RegOpenKeyEx
+

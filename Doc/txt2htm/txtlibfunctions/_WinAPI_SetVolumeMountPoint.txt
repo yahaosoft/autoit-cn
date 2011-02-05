@@ -1,0 +1,39 @@
+﻿###Function###
+_WinAPI_SetVolumeMountPoint
+
+###Description###
+Associates a volume with a drive letter or a directory on another volume.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SetVolumeMountPoint ( $sPath, $GUID )
+
+###Parameters###
+@@ParamTable@@
+$sPath
+	The user-mode path to be associated with the volume. This may be a drive letter (for example, X:\)
+	or a directory on another volume (for example, Y:\MountX).
+$GUID
+	The volume GUID path for the volume. This string must be of the form "\\?\Volume{GUID}\" where
+	GUID is a GUID that identifies the volume. The \\?\ turns off path parsing and is ignored as part
+	of the path.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+It is an error to associate a volume with a directory that has any files or subdirectories in it. This error
+occurs for system and hidden directories as well as other directories, and it occurs for system and hidden
+files.
+
+
+###See Also###
+@@MsdnLink@@ SetVolumeMountPoint
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,34 @@
+﻿###Function###
+_WinAPI_RegCopyTree
+
+###Description###
+Recursively copies the subkeys and values of the source subkey to the destination key.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_RegCopyTree ( $hSrcKey, $sSrcSubKey, $hDestKey )
+
+###Parameters###
+@@ParamTable@@
+$hSrcKey
+	Handle to the source key or one of the predefined registry keys ($HKEY_*).
+$sSrcSubKey
+	The subkey whose subkeys and values are to be copied.
+$hDestKey
+	Handle to the destination key.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+This function does not duplicate the security attributes of the keys and values that it copies. Rather,
+all security attributes in the destination key are the default attributes.
+
+
+###See Also###
+@@MsdnLink@@ SHCopyKey
+

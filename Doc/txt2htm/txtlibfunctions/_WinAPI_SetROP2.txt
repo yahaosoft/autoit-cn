@@ -1,0 +1,53 @@
+﻿###Function###
+_WinAPI_SetROP2
+
+###Description###
+Retrieves the foreground mix mode of the specified device context.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SetROP2 ( $hDC, $iMode )
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context.
+$iMode
+	The mix mode. This parameter can be one of the following values.
+	
+	$R2_BLACK
+	$R2_COPYPEN
+	$R2_LAST
+	$R2_MASKNOTPEN
+	$R2_MASKPEN
+	$R2_MASKPENNOT
+	$R2_MERGENOTPEN
+	$R2_MERGEPEN
+	$R2_MERGEPENNOT
+	$R2_NOP
+	$R2_NOT
+	$R2_NOTCOPYPEN
+	$R2_NOTMASKPEN
+	$R2_NOTMERGEPEN
+	$R2_NOTXORPEN
+	$R2_WHITE
+	$R2_XORPEN
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The value that specifies the previous mix mode.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+Mix modes define how GDI combines source and destination colors when drawing with the current pen. The mix modes
+are binary raster operation codes, representing all possible Boolean functions of two variables, using the binary
+operations AND, OR, and XOR (exclusive OR), and the unary operation NOT. The mix mode is for raster devices only
+it is not available for vector devices.
+
+
+###See Also###
+@@MsdnLink@@ SetROP2
+

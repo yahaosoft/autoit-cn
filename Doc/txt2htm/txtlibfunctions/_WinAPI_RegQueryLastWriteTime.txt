@@ -1,0 +1,42 @@
+﻿###Function###
+_WinAPI_RegQueryLastWriteTime
+
+###Description###
+Retrieves information about the last write time to the specified registry key.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_RegQueryLastWriteTime ( $hKey )
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to an open registry key. The key must have been opened with the $KEY_QUERY_VALUE access right.
+	This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey() function. It can also
+	be one of the following predefined keys.
+	
+	$HKEY_CLASSES_ROOT
+	$HKEY_CURRENT_CONFIG
+	$HKEY_CURRENT_USER
+	$HKEY_LOCAL_MACHINE
+	$HKEY_PERFORMANCE_DATA
+	$HKEY_USERS
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	$tagFILETIME structure that contains the last write time.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ RegQueryInfoKey
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,56 @@
+﻿###Function###
+_WinAPI_GetDateFormat
+
+###Description###
+Formats a date as a date string for a locale specified by the locale identifier.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetDateFormat ( [$LCID [, $tSYSTEMTIME [, $iFlag [, $sFormat]]]] )
+
+###Parameters###
+@@ParamTable@@
+$LCID
+	Locale identifier (LCID) that specifies the locale. If this parameter is 0, the function will
+	use default locale for the user.
+$tSYSTEMTIME
+	$tagSYSTEMTIME structure that contains the date information to format. If this parameter is 0,
+	the function will use the current local system date.
+$iFlag
+	Flags specifying date format options. This parameter can be one or more of the following values.
+	
+	$DATE_LONGDATE
+	$DATE_SHORTDATE (Default)
+	$DATE_USE_ALT_CALENDAR
+	
+	*Windows Vista or later
+	
+	$DATE_LTRREADING
+	$DATE_RTLREADING
+	$DATE_YEARMONTH
+	
+	*Windows 7 or later
+	
+	$DATE_AUTOLAYOUT
+	
+$sFormat
+	The string that is used to form the date. For example, "dddd dd, yyyy". If this parameter is 0,
+	the function returns the string according to the date format for the specified locale ($LCID).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The formatted date string.
+Failure	Empty string and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ GetDateFormat
+
+###Example###
+@@IncludeExample@@
+

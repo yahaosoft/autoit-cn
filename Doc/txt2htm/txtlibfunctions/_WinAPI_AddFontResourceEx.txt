@@ -1,0 +1,57 @@
+﻿###Function###
+_WinAPI_AddFontResourceEx
+
+###Description###
+Adds the font resource from the specified file to the system font table.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_AddFontResourceEx ( $sFont [, $iFlag [, $fNotify]] )
+
+###Parameters###
+@@ParamTable@@
+$sFont
+	String that contains a valid font file name. This parameter can specify any of the following files:
+	
+	.fon - Font resource file.
+	.fnt - Raw bitmap font file.
+	.ttf - Raw TrueType file.
+	.ttc - East Asian Windows: TrueType font collection.
+	.fot - TrueType resource file.
+	.otf - PostScript OpenType font.
+	.mmm - Multiple master Type1 font resource file. It must be used with .pfm and .pfb files.
+	.pfb - Type 1 font bits file. It is used with a .pfm file.
+	.pfm - Type 1 font metrics file. It is used with a .pfb file.
+	
+	To add a font whose information comes from several resource files, they must be separated by a "|".
+	For example, abcxxxxx.pfm|abcxxxxx.pfb.
+	
+$iFlag
+	The characteristics of the font to be added to the system. This parameter can be one of the following values.
+	
+	$FR_PRIVATE
+	$FR_NOT_ENUM
+	
+$fNotify
+	Specifies whether sends a WM_FONTCHANGE message, valid values:
+		TRUE    - Send the WM_FONTCHANGE message to all top-level windows after changing the pool of font resources.
+		FALSE   - Don`t send. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The value that specifies the number of fonts added.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function installs the font only for the current session. When the system restarts, the font will not be present.
+To have the font installed even after restarting the system, the font must be listed in the registry.
+
+
+###See Also###
+@@MsdnLink@@ AddFontResourceEx
+
+###Example###
+@@IncludeExample@@
+

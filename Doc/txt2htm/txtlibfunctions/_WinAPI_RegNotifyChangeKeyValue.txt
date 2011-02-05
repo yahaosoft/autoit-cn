@@ -1,0 +1,61 @@
+﻿###Function###
+_WinAPI_RegNotifyChangeKeyValue
+
+###Description###
+Notifies the caller about changes to the attributes or contents of a specified registry key.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_RegNotifyChangeKeyValue ( $hKey, $iFilter [, $fSubtree [, $fAsync [, $hEvent]]] )
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to an open registry key. The key must have been opened with the KEY_NOTIFY access right.
+	This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey() function. It can also
+	be one of the following predefined keys.
+	
+	$HKEY_CLASSES_ROOT
+	$HKEY_CURRENT_CONFIG
+	$HKEY_CURRENT_USER
+	$HKEY_LOCAL_MACHINE
+	$HKEY_USERS
+	
+$iFilter
+	Indicates the changes that should be reported. This parameter can be one or more of the following values.
+	
+	$REG_NOTIFY_CHANGE_NAME
+	$REG_NOTIFY_CHANGE_ATTRIBUTES
+	$REG_NOTIFY_CHANGE_LAST_SET
+	$REG_NOTIFY_CHANGE_SECURITY
+	
+$fSubtree
+	Specifies whether report changes in the subkeys of the specified key, valid values:
+		TRUE     - The function reports changes in the specified key and all its subkeys.
+		FALSE    - The function reports changes only in the specified key. (Default)
+$fAsync
+	Specifies whether return immediately, valid values:
+		TRUE     - The function returns immediately and reports changes by signaling the specified event.
+		FALSE    - The function does not return until a change has occurred. (Default)
+$hEvent
+	Handle to an event. If the $fAsync parameter is TRUE, the function returns immediately and changes are
+	reported by signaling this event, otherwise this parameter is ignored.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+If the specified key is closed, the event is signaled. This means that an application should not depend on the
+key being open after returning from a wait operation on the event.
+
+
+###See Also###
+@@MsdnLink@@ RegNotifyChangeKeyValue
+
+###Example###
+@@IncludeExample@@
+

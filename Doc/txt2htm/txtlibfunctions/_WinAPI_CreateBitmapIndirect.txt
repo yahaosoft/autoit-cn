@@ -1,0 +1,31 @@
+﻿###Function###
+_WinAPI_CreateBitmapIndirect
+
+###Description###
+Creates a bitmap with the specified width, height, and color format (color planes and bits-per-pixel).
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateBitmapIndirect ( $tBITMAP )
+
+###Parameters###
+@@ParamTable@@
+$tBITMAP
+	$tagBITMAP structure that contains information about the bitmap. If an application sets the "bmWidth"
+	or "bmHeight" members to zero, _WinAPI_CreateBitmapIndirect() returns the handle to a 1-by-1 pixel,
+	monochrome bitmap.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the device-dependent (DDB) bitmap.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+When you no longer need the bitmap, call the _WinAPI_DeleteObject() function to delete it.
+
+
+###See Also###
+@@MsdnLink@@ CreateBitmapIndirect
+

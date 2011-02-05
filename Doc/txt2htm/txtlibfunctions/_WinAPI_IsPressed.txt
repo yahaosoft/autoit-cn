@@ -1,0 +1,38 @@
+﻿###Function###
+_WinAPI_IsPressed
+
+###Description###
+Checks whether the key is pressed from the specified range.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_IsPressed ( [$iFrom [, $iTo]] )
+
+###Parameters###
+@@ParamTable@@
+$iFrom
+	Specifies a virtual-key code to start checking. The code must be a value in the range 1 to 254.
+$iTo
+	Specifies a virtual-key code to end checking. The code must be a value in the range 1 to 254 and be
+	greater than value of the $iFrom parameter.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1 - The key is pressed.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0	Otherwise.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The key status returned from this function changes as a process reads key messages from its message queue.
+The status does not reflect the interrupt-level state associated with the hardware. Use the _WinAPI_GetAsyncKeyState()
+function to retrieve that information.
+
+
+###See Also###
+None
+
+###Example###
+@@IncludeExample@@
+

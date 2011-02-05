@@ -1,0 +1,43 @@
+﻿###Function###
+_WinAPI_OpenSemaphore
+
+###Description###
+Opens an existing named semaphore object.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_OpenSemaphore ( $sSemaphore [, $iAccess [, $fInherit]] )
+
+###Parameters###
+@@ParamTable@@
+$sSemaphore
+	The name of the semaphore to be opened. Name comparisons are case sensitive.
+$iAccess
+	The access to the semaphore object. The function fails if the security descriptor of the specified
+	object does not permit the requested access for the calling process. This parameter can be one
+	of the following values.
+	
+	$SEMAPHORE_ALL_ACCESS
+	$SEMAPHORE_MODIFY_STATE
+	
+$fInherit
+	Specifies whether inherites the handle by a processes, valid values:
+		TRUE       - The processes created by this process will inherit the handle.
+		FALSE      - The processes do not inherit this handle. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The handle to the semaphore object.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The function succeeds only if some process has already created the semaphore by using the _WinAPI_CreateSemaphore()
+function. The calling process can use the returned handle in any function that requires a handle to
+a semaphore object.
+
+
+###See Also###
+@@MsdnLink@@ OpenSemaphore
+

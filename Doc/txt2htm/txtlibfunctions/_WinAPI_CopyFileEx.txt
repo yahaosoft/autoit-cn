@@ -1,0 +1,53 @@
+﻿###Function###
+_WinAPI_CopyFileEx
+
+###Description###
+Copies an existing file to a new file, notifying the application of its progress through a callback function.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CopyFileEx ( $sExistingFile, $sNewFile [, $iFlags [, $pProgressProc [, $pData] )
+
+###Parameters###
+@@ParamTable@@
+$sExistingFile
+	The name of an existing file.
+$sNewFile
+	The name of the new file.
+$iFlags
+	The flags that specify how the file is to be copied. This parameter can be a combination
+	of the following values.
+	
+	$COPY_FILE_ALLOW_DECRYPTED_DESTINATION
+	$COPY_FILE_COPY_SYMLINK
+	$COPY_FILE_FAIL_IF_EXISTS
+	$COPY_FILE_NO_BUFFERING
+	$COPY_FILE_OPEN_SOURCE_FOR_WRITE
+	$COPY_FILE_RESTARTABLE
+	
+$pProgressProc
+	The address of a callback function that is called each time another portion of the file
+	has been copied.
+	
+	(See MSDN for more information)
+	
+$pData
+	The argument to be passed to the callback function.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ CopyFileEx
+
+###Example###
+@@IncludeExample@@
+

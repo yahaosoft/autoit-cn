@@ -1,0 +1,35 @@
+﻿###Function###
+_WinAPI_GetClassInfoEx
+
+###Description###
+Retrieves information about a window class.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetClassInfoEx ( $sClass [, $hInstance] )
+
+###Parameters###
+@@ParamTable@@
+$sClass
+	The class name. The name must be that of a preregistered class or a class registered by a previous
+	call to the _WinAPI_RegisterClass() or _WinAPI_RegisterClassEx() function. Alternatively, this
+	parameter can be a class atom. The atom must be in the low-order word of $sClass; the high-order
+	word must be zero.
+$hInstance
+	Handle to the instance of the application that created the class. To retrieve information about
+	classes defined by the system (such as buttons or list boxes), set this parameter to 0.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	$tagWNDCLASSEX structure that contains the information about the class.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ GetClassInfoEx
+

@@ -1,0 +1,54 @@
+﻿###Function###
+_WinAPI_GetDCEx
+
+###Description###
+Retrieves a handle to a device context (DC) for the client area of a specified window.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetDCEx ( $hWnd, $hRgn, $iFlags )
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window whose DC is to be retrieved. If this value is 0, _WinAPI_GetDCEx() retrieves the
+	DC for the entire screen. If the value of $iFlags parameter is $DCX_INTERSECTRGN or DCX_EXCLUDERGN,
+	then the operating system assumes ownership of the region and will automatically delete it when it is
+	no longer needed. In this case, the application should not use or delete the region after a successful
+	call to _WinAPI_GetDCEx().
+$hRgn
+	A clipping region that may be combined with the visible region of the DC.
+$iFlags
+	Flags that specifies how the DC is created. This parameter can be one or more of the following values.
+	
+	$DCX_WINDOW
+	$DCX_CACHE
+	$DCX_PARENTCLIP
+	$DCX_CLIPSIBLINGS
+	$DCX_CLIPCHILDREN
+	$DCX_NORESETATTRS
+	$DCX_LOCKWINDOWUPDATE
+	$DCX_EXCLUDERGN
+	$DCX_INTERSECTRGN
+	$DCX_INTERSECTUPDATE
+	$DCX_VALIDATE
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the DC for the specified window.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+Unless the display DC belongs to a window class, the _WinAPI_ReleaseDC() function must be called to release the
+DC after painting.
+
+
+###See Also###
+@@MsdnLink@@ GetDCEx
+
+###Example###
+@@IncludeExample@@
+

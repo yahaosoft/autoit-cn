@@ -1,0 +1,47 @@
+﻿###Function###
+_WinAPI_ShellOpenFolderAndSelectItems
+
+###Description###
+Opens a Windows Explorer window with specified items in a particular folder selected.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ShellOpenFolderAndSelectItems ( $sPath [, $aNames [, $iStart [, $iEnd [, $iFlags]]]] )
+
+###Parameters###
+@@ParamTable@@
+$sPath
+	The fully qualified path that specifies the folder or file. If $aNames parameter is used, $sPath should
+	specified only to a folder, otherwise, the function fails. This parameter can be an empty string.
+$aNames
+	The array of the folder or file names to be selected. It should be just names inside the folder.
+$iStart
+	The index of array to start selecting at.
+$iEnd
+	The index of array to stop selecting at.
+$iFlags
+	The optional flags. This parameter can be one or more of the following values.
+	
+	*Windows Vista or later
+	
+	$OFASI_EDIT
+	$OFASI_OPENDESKTOP
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ SHOpenFolderAndSelectItems
+
+###Example###
+@@IncludeExample@@
+

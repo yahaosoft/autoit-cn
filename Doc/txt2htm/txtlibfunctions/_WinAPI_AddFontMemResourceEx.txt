@@ -1,0 +1,39 @@
+﻿###Function###
+_WinAPI_AddFontMemResourceEx
+
+###Description###
+Adds the font resource from a memory image to the system.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_AddFontMemResourceEx ( $pData, $iSize )
+
+###Parameters###
+@@ParamTable@@
+$pData
+	The pointer to a font resource.
+$iSize
+	The number of bytes in the font resource.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The handle uniquely identifies the fonts that were installed on the system, @extended flag will contain
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function allows an application to get a font that is embedded in a document or a Web page. A font that is
+added by this is always private to the process that made the call and is not enumerable.
+
+When the function succeeds, the caller of this function can free the memory pointed to by $pData because the system
+has made its own copy of the memory. To remove the fonts that were installed, call _WinAPI_RemoveFontMemResourceEx().
+However, when the process goes away, the system will unload the fonts.
+
+
+###See Also###
+@@MsdnLink@@ AddFontMemResourceEx
+
+###Example###
+@@IncludeExample@@
+

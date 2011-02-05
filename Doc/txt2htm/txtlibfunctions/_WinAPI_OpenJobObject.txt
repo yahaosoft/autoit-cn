@@ -1,0 +1,43 @@
+﻿###Function###
+_WinAPI_OpenJobObject
+
+###Description###
+Opens an existing job object.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_OpenJobObject ( $sName [, $iAccess [, $fInherit] )
+
+###Parameters###
+@@ParamTable@@
+$sName
+	The name of the job to be opened. Name comparisons are case sensitive.
+$iAccess
+	The access to the job object. This parameter can be one or more of the following values.
+	
+	$JOB_OBJECT_ALL_ACCESS
+	$JOB_OBJECT_ASSIGN_PROCESS
+	$JOB_OBJECT_QUERY
+	$JOB_OBJECT_SET_ATTRIBUTES
+	$JOB_OBJECT_SET_SECURITY_ATTRIBUTES
+	$JOB_OBJECT_TERMINATE
+	
+$fInherit
+	Specifies whether inherites the handle by a processes, valid values:
+		TRUE     - The processes created by this process will inherit the handle.
+		FALSE    - The processes do not inherit this handle. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the job object.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ OpenJobObject
+

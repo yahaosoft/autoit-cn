@@ -1,0 +1,36 @@
+﻿###Function###
+_WinAPI_GetKeyNameText
+
+###Description###
+Retrieves a string that represents the name of a key.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetKeyNameText ( $lParam )
+
+###Parameters###
+@@ParamTable@@
+$lParam
+	Specifies the second parameter of the keyboard message (such as WM_KEYDOWN) to be processed.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	String containing the name of the key.
+Failure	Empty string and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The format of the key-name string depends on the current keyboard layout. The keyboard driver maintains a list
+of names in the form of character strings for keys with names longer than a single character. The key name
+is translated according to the layout of the currently installed keyboard, thus the function may give different
+results for different input locales. The name of a character key is the character itself. The names of dead
+keys are spelled out in full.
+
+
+###See Also###
+@@MsdnLink@@ GetKeyNameText
+
+###Example###
+@@IncludeExample@@
+

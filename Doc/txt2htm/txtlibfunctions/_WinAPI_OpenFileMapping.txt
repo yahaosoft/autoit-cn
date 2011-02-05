@@ -1,0 +1,48 @@
+﻿###Function###
+_WinAPI_OpenFileMapping
+
+###Description###
+Opens a named file mapping object.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_OpenFileMapping ( $sName [, $iAccess [, $fInherit]] )
+
+###Parameters###
+@@ParamTable@@
+$sName
+	The name of the file mapping object to be opened.
+$iAccess
+	The access to the file mapping object. This parameter can be one of the following values.
+	
+	$FILE_MAP_ALL_ACCESS
+	$FILE_MAP_COPY
+	$FILE_MAP_READ
+	$FILE_MAP_WRITE
+	
+	Each of the preceding values can be combined with the following value.
+	
+	$FILE_MAP_EXECUTE
+	
+$fInherit
+	Specifies whether inherites the handle by a processes, valid values:
+		TRUE     - The processes created by this process will inherit the handle.
+		FALSE    - The processes do not inherit this handle. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the specified file mapping object.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ OpenFileMapping
+
+###Example###
+@@IncludeExample@@
+

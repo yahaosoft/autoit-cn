@@ -1,0 +1,41 @@
+﻿###Function###
+_WinAPI_ShellGetSetFolderCustomSettings
+
+###Description###
+Sets or retrieves custom folder settings.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ShellGetSetFolderCustomSettings ( $sPath, $iFlag, ByRef $tSHFCS )
+
+###Parameters###
+@@ParamTable@@
+$sPath
+	The path to the folder.
+$iFlag
+	A flag controlling the action of the function. It may be one of the following values.
+	
+	$FCS_READ
+	$FCS_FORCEWRITE
+	$FCS_WRITE
+	
+$tSHFCS
+	$tagSHFOLDERCUSTOMSETTINGS structure that provides or receives the custom folder settings.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+This function reads from and writes to Desktop.ini.
+
+
+###See Also###
+@@MsdnLink@@ SHGetSetFolderCustomSettings
+
+###Example###
+@@IncludeExample@@
+

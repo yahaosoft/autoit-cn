@@ -1,0 +1,48 @@
+﻿###Function###
+_WinAPI_FillStruct
+
+###Description###
+Fills the structure with a specified value in the specified range.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_FillStruct ( ByRef $tStruct, $iValue [, $iBytes [, $iStart [, $iEnd]]] )
+
+###Parameters###
+@@ParamTable@@
+$tStruct
+	The structure to be filled that returned by DllStructCreate() function. It should contain a single
+	element or element is an array. For example, "byte[32]", "int[8]", "int64[4]", etc.
+$iValue
+	The value to be used to fill the structure. $iValue must be an integer, the chars are not allowed.
+	To fill with a character use the Asc() or AscW() functions.
+$iBytes
+	The number of bytes for each element required. It can be one of the following values: 1, 2, 4,
+	or 8. For other values of this parameter the function is fails.
+$iStart
+	The index of element in the structure to start filling at.
+$iEnd
+	The index of element in the structure to stop filling at.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The number of elements that has been filled. If successful, the same ($iEnd - $iStart + 1).
+Failure	0 and sets the @error flag to one of the following values:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1	$tStruct not a correct structure returned by DllStructCreate().
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2	$iByte value is incorrect.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3	$iStart or $iEnd values outside of the structure.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4	Failed to allocate the memory.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5	Error filling structure.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+None
+
+###Example###
+@@IncludeExample@@
+

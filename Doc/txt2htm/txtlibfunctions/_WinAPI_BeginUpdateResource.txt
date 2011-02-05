@@ -1,0 +1,38 @@
+﻿###Function###
+_WinAPI_BeginUpdateResource
+
+###Description###
+Retrieves a handle that can be used to add, delete, or replace resources in a binary module.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_BeginUpdateResource ( $sFile [, $fDelete] )
+
+###Parameters###
+@@ParamTable@@
+$sFile
+	The binary file in which to update resources. An application must be able to obtain write-access to
+	this file; the file referenced by $sFile cannot be currently executing.
+$fDelete
+	Specifies whether to delete existing resources, valid values:
+		TRUE    - The resources are deleted and the updated file includes only resources added with the _WinAPI_UpdateResource().
+		FALSE   - The updated file includes existing resources. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle that can be used by the _WinAPI_UpdateResource() and _WinAPI_EndUpdateResource() functions.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+It is recommended that the resource file is not loaded before this function is called. However, if that file
+is already loaded, it will not cause an error to be returned.
+
+
+###See Also###
+@@MsdnLink@@ BeginUpdateResource
+
+###Example###
+@@IncludeExample@@
+

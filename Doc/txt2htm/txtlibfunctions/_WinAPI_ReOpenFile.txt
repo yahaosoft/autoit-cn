@@ -1,0 +1,70 @@
+﻿###Function###
+_WinAPI_ReOpenFile
+
+###Description###
+Reopens the specified file system object with different access rights, sharing mode, and flags.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ReOpenFile ( $hFile, $iAccess, $iShare [, $iFlags] )
+
+###Parameters###
+@@ParamTable@@
+$sFile
+	Handle to the object to be reopened. The object must have been created by the _WinAPI_CreateFile() function.
+$iAccess
+	The required access to the object. If this parameter is 0, the application can query device attributes
+	without accessing the device.
+	
+	$GENERIC_READ
+	$GENERIC_WRITE
+	
+	(See MSDN for more information)
+	
+$iShare
+	The sharing mode of the object. If this parameter is 0, the object cannot be shared and cannot be
+	opened again until the handle is closed.
+	
+	$FILE_SHARE_READ
+	$FILE_SHARE_WRITE
+	$FILE_SHARE_DELETE
+	
+$iFlags
+	The file or device attributes and flags. This parameter can be one or more of the following values.
+	
+	$FILE_FLAG_BACKUP_SEMANTICS
+	$FILE_FLAG_DELETE_ON_CLOSE
+	$FILE_FLAG_NO_BUFFERING
+	$FILE_FLAG_OPEN_NO_RECALL
+	$FILE_FLAG_OPEN_REPARSE_POINT
+	$FILE_FLAG_OVERLAPPED
+	$FILE_FLAG_POSIX_SEMANTICS
+	$FILE_FLAG_RANDOM_ACCESS
+	$FILE_FLAG_SEQUENTIAL_SCAN
+	$FILE_FLAG_WRITE_THROUGH
+	
+	$SECURITY_ANONYMOUS
+	$SECURITY_CONTEXT_TRACKING
+	$SECURITY_DELEGATION
+	$SECURITY_EFFECTIVE_ONLY
+	$SECURITY_IDENTIFICATION
+	$SECURITY_IMPERSONATION
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the specified file.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The $iFlags parameter cannot contain any of the file attribute flags ($FILE_ATTRIBUTE_*). These can only be
+specified when the file is created.
+
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ ReOpenFile
+

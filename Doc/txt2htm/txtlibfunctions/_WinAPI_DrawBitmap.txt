@@ -1,0 +1,40 @@
+﻿###Function###
+_WinAPI_DrawBitmap
+
+###Description###
+Draws a bitmap into the specified device context.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_DrawBitmap ( $hDC, $iX, $iY, $hBitmap [, $iRop] )
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context into which the bitmap will be drawn.
+$iX
+	Specifies the logical x-coordinate of the upper-left corner of the bitmap.
+$iY
+	Specifies the logical y-coordinate of the upper-left corner of the bitmap.
+$hBitmap
+	Handle to the bitmap to be drawn.
+$iRop
+	The raster-operation code (same as for _WinAPI_BitBlt()).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function does not support bitmaps with Alpha channel, use _WinAPI_AlphaBlend() to work with them.
+
+
+###See Also###
+None
+
+###Example###
+@@IncludeExample@@
+

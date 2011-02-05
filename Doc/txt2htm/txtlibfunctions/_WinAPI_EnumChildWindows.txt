@@ -1,0 +1,43 @@
+﻿###Function###
+_WinAPI_EnumChildWindows
+
+###Description###
+Enumerates the child windows that belong to the specified parent window.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_EnumChildWindows ( $hWnd [, $fVisible] )
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the parent window whose child windows are to be enumerated. If this parameter is 0,
+	this function is equivalent to _WinAPI_EnumWindows().
+$fVisible
+	Specifies whether enumerates the invisible window, valid values:
+		TRUE     - Enumerate only visible windows. (Default)
+		FALSE    - Enumerate all windows.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The 2D array of the handles to the child windows and classes for the specified parent window.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0][0]	Number of rows in array (n)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0][1]	Unused
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1][0]	Window handle
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1][1]	Window class name
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[n][0]	Window handle
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[n][1]	Window class name
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ EnumChildWindows
+
+###Example###
+@@IncludeExample@@
+
