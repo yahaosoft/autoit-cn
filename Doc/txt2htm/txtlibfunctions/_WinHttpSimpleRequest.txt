@@ -1,0 +1,54 @@
+﻿###User Defined Function###
+_WinHttpSimpleRequest
+
+###Description###
+A function to send a request in a simpler form
+
+###Syntax###
+#Include <WinHttp.au3>
+_WinHttpSimpleRequest($hConnect, $sType, $sPath [, $sReferrer = Default [, $sData = Default [, $sHeader = Default [, $fGetHeaders = Default [, $iMode = Default ]]]]])
+
+###Parameters###
+@@ParamTable@@
+$hConnect
+	Handle from _WinHttpConnect
+$sType
+	[optional] GET or POST (default: GET)
+$sPath
+	[optional] request path (default: "" - empty string; meaning 'default' page on the server)
+$sReferrer
+	[可选参数] referrer (default: $WINHTTP_NO_REFERER)
+$sData
+	[可选参数] POST-Data (default: $WINHTTP_NO_REQUEST_DATA)
+$sHeader
+	[可选参数] additional Headers (default: $WINHTTP_NO_ADDITIONAL_HEADERS)
+$fGetHeaders
+	[可选参数] return response headers (default: False)
+$iMode
+	[可选参数] reading mode of result (default: 0)
+		0 - ASCII-text
+		1 - UTF-8 text
+		2 - binary data
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	response data if $fGetHeaders = False (default)
+[0]	response headers
+[1]	response data
+Failure	0 and set @error
+	1 - could not open request
+	2 - could not send request
+	3 - could not receive response
+	4 - $iMode is not valid
+@@End@@
+
+###Remarks###
+None.
+###Related###
+<a href="_WinHttpSimpleSSLRequest.htm">_WinHttpSimpleSSLRequest</a>, <a href="_WinHttpSimpleSendRequest.htm">_WinHttpSimpleSendRequest</a>, <a href="_WinHttpSimpleSendSSLRequest.htm">_WinHttpSimpleSendSSLRequest</a>, <a href="_WinHttpQueryHeaders.htm">_WinHttpQueryHeaders</a>, <a href="_WinHttpSimpleReadData.htm">_WinHttpSimpleReadData</a>
+
+
+###Example###
+@@IncludeExample@@
+

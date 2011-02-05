@@ -1,0 +1,39 @@
+﻿###User Defined Function###
+_WinHttpConnect
+
+###Description###
+Specifies the initial target server of an HTTP request and returns connection handle to an HTTP session for that initial target.
+
+###Syntax###
+#Include <WinHttp.au3>
+_WinHttpConnect($hSession, $sServerName [, $iServerPort = Default ])
+
+###Parameters###
+@@ParamTable@@
+$hSession
+	Valid WinHttp session handle returned by a previous call to WinHttpOpen.
+$sServerName
+	Host name of an HTTP server.
+$iServerPort
+	[可选参数] TCP/IP port on the server to which a connection is made (default is $INTERNET_DEFAULT_PORT)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Returns a valid connection handle to the HTTP session
+Failure	Returns 0 and sets @error:
+	1 - DllCall failed
+@@End@@
+
+###Remarks###
+$iServerPort can be defined via global constants $INTERNET_DEFAULT_PORT, $INTERNET_DEFAULT_HTTP_PORT or $INTERNET_DEFAULT_HTTPS_PORT
+###Related###
+<a href="_WinHttpOpen.htm">_WinHttpOpen</a>
+
+
+###See Also###
+http://msdn.microsoft.com/en-us/library/aa384091(VS.85).aspx
+
+###Example###
+@@IncludeExample@@
+
