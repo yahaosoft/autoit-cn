@@ -1,0 +1,170 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html>
+<head>
+	<title>数据结构常量</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="css/default.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1>数据结构常量参考</h1>
+<p>Below is a complete list of the Structures constants available in this library. Many functions from this library use these constants.</p>
+<p>When using them you need to add a <b>#Include &lt;WinAPIEx.au3&gt;</b>.</p>
+<br />
+<p>其中淡紫色背景的项目为可能在未来版本中移除的项目</p>
+<br />
+<table bordercolor="#c0c0c0" cellpadding="3" cellspacing="0" width="100%" border="1">
+<tr>
+	<td height="16" bgcolor="#000099"><font color="#ffffff"><b>数据结构</b></font></td>
+	<td height="16" bgcolor="#000099"><font color="#ffffff"><b>值</b></font></td>
+</tr>
+<tr><td>$tagBITMAP</td>
+<td>'long bmType;long bmWidth;long bmHeight;long bmWidthBytes;ushort bmPlanes;ushort bmBitsPixel;ptr bmBits;'</td>
+</tr>
+<tr><td>$tagBITMAPINFOHEADER</td>
+<td>'dword biSize;long biWidth;long biHeight;ushort biPlanes;ushort biBitCount;dword biCompression;dword biSizeImage;long biXPelsPerMeter;long biYPelsPerMeter;dword biClrUsed;dword biClrImportant;'</td>
+</tr>
+<tr><td>$tagBITMAPV4HEADER</td>
+<td>'dword bV4Size;long bV4Width;long bV4Height;ushort bV4Planes;ushort bV4BitCount;dword bV4Compression;dword bV4SizeImage;long bV4XPelsPerMeter;long bV4YPelsPerMeter;dword bV4ClrUsed;dword bV4ClrImportant;dword bV4RedMask;dword bV4GreenMask;dword bV4BlueMask;dword bV4AlphaMask;dword bV4CSType;int bV4Endpoints[3];dword bV4GammaRed;dword bV4GammaGreen;dword bV4GammaBlue;'</td>
+</tr>
+<tr><td>$tagBITMAPV5HEADER</td>
+<td>'dword bV5Size;long bV5Width;long bV5Height;ushort bV5Planes;ushort bV5BitCount;dword bV5Compression;dword bV5SizeImage;long bV5XPelsPerMeter;long bV5YPelsPerMeter;dword bV5ClrUsed;dword bV5ClrImportant;dword bV5RedMask;dword bV5GreenMask;dword bV5BlueMask;dword bV5AlphaMask;dword bV5CSType;int bV5Endpoints[3];dword bV5GammaRed;dword bV5GammaGreen;dword bV5GammaBlue;dword bV5Intent;dword bV5ProfileData;dword bV5ProfileSize;dword bV5Reserved;'</td>
+</tr>
+<tr><td bgcolor="#9999CC">$tagBITMAPINFO</td>
+<td bgcolor="#9999CC">$tagBITMAPINFOHEADER & 'dword bmiColors[1];'</td>
+</tr>
+<tr><td>$tagDIBSECTION</td>
+<td>$tagBITMAP & $tagBITMAPINFOHEADER & 'dword dsBitfields[3];ptr dshSection;dword dsOffset;'</td>
+</tr>
+<tr><td>$tagDISK_GEOMETRY</td>
+<td>'int64 Cylinders;dword MediaType;dword TracksPerCylinder;dword SectorsPerTrack;dword BytesPerSector;'</td>
+</tr>
+<tr><td>$tagDISK_GEOMETRY_EX</td>
+<td>$tagDISK_GEOMETRY & 'int64 DiskSize;' ; & 'byte Data[n];'</td>
+</tr>
+<tr><td>$tagDTTOPTS</td>
+<td>'dword Size;dword Flags;dword clrText;dword clrBorder;dword clrShadow;int TextShadowType;' & $tagPOINT & ';int BorderSize;int FontPropId;int ColorPropId;int StateId;int ApplyOverlay;int GlowSize;ptr DrawTextCallback;lparam lParam;'</td>
+</tr>
+<tr><td>$tagENHMETAHEADER</td>
+<td>'dword Type;dword Size;long rcBounds[4];long rcFrame[4];dword Signature;dword Version;dword Bytes;dword Records;ushort Handles;ushort Reserved;dword Description;dword OffDescription;dword PalEntries;long Device[2];long Millimeters[2];dword PixelFormat;dword OffPixelFormat;dword OpenGL;long Micrometers[2];'</td>
+</tr>
+<tr><td>$tagEXTLOGPEN</td>
+<td>'dword PenStyle;dword Width;uint BrushStyle;dword Color;ulong_ptr Hatch;dword NumEntries' ; & 'dword StyleEntry[n];'</td>
+</tr>
+<tr><td>$tagHW_PROFILE_INFO</td>
+<td>'dword DockInfo;wchar ProfileGuid[39];wchar ProfileName[80];'</td>
+</tr>
+<tr><td bgcolor="#9999CC">$tagICONINFO</td>
+<td bgcolor="#9999CC">'int Icon;dword xHotspot;dword yHotspot;ptr hMask;ptr hColor'</td>
+</tr>
+<tr><td>$tagIO_COUNTERS</td>
+<td>'uint64 ReadOperationCount;uint64 WriteOperationCount;uint64 OtherOperationCount;uint64 ReadTransferCount;uint64 WriteTransferCount;uint64 OtherTransferCount;'</td>
+</tr>
+<tr><td>$tagLOGBRUSH</td>
+<td>'uint Style;dword Color;ulong_ptr Hatch;'</td>
+</tr>
+<tr><td>$tagLOGPEN</td>
+<td>'uint Style;dword Width;dword Color;'</td>
+</tr>
+<tr><td>$tagLUID</td>
+<td>'dword LowPart;long HighPart;'</td>
+</tr>
+<tr><td>$tagMSGBOXPARAMS</td>
+<td>'uint Size;hwnd hOwner;ptr hInstance;int_ptr Text;int_ptr Caption;dword Style;int_ptr Icon;dword_ptr ContextHelpId;ptr MsgBoxCallback;dword LanguageId;'</td>
+</tr>
+<tr><td>$tagNOTIFYICONDATA</td>
+<td>'dword Size;hwnd hWnd;uint ID;uint Flags;uint CallbackMessage;ptr hIcon;wchar Tip[128];dword State;dword StateMask;wchar Info[256];uint Version;wchar InfoTitle[64];dword InfoFlags;'</td>
+</tr>
+<tr><td>$tagNOTIFYICONDATA_XP</td>
+<td>$tagNOTIFYICONDATA & 'uint GUID;'</td>
+</tr>
+<tr><td>$tagNOTIFYICONDATA_VISTA</td>
+<td>$tagNOTIFYICONDATA_XP & 'ptr hBalloonIcon;'</td>
+</tr>
+<tr><td>$tagJOBOBJECT_ASSOCIATE_COMPLETION_PORT</td>
+<td>'ulong_ptr CompletionKey;ptr CompletionPort;'</td>
+</tr>
+<tr><td>$tagJOBOBJECT_BASIC_ACCOUNTING_INFORMATION</td>
+<td>'int64 TotalUserTime;int64 TotalKernelTime;int64 ThisPeriodTotalUserTime;int64 ThisPeriodTotalKernelTime;dword TotalPageFaultCount;dword TotalProcesses;dword ActiveProcesses;dword TotalTerminatedProcesses;'</td>
+</tr>
+<tr><td>$tagJOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION</td>
+<td>$tagJOBOBJECT_BASIC_ACCOUNTING_INFORMATION & $tagIO_COUNTERS</td>
+</tr>
+<tr><td>$tagJOBOBJECT_BASIC_LIMIT_INFORMATION</td>
+<td>'int64 PerProcessUserTimeLimit;int64 PerJobUserTimeLimit;dword LimitFlags;ulong_ptr MinimumWorkingSetSize;ulong_ptr MaximumWorkingSetSize;dword ActiveProcessLimit;ulong_ptr Affinity;dword PriorityClass;dword SchedulingClass;'</td>
+</tr>
+<tr><td>$tagJOBOBJECT_BASIC_PROCESS_ID_LIST</td>
+<td>'dword NumberOfAssignedProcesses;dword NumberOfProcessIdsInList' ; & 'ulong_ptr ProcessIdList[n];'</td>
+</tr>
+<tr><td>$tagJOBOBJECT_BASIC_UI_RESTRICTIONS</td>
+<td>'dword UIRestrictionsClass;'</td>
+</tr>
+<tr><td>$tagJOBOBJECT_END_OF_JOB_TIME_INFORMATION</td>
+<td>'dword EndOfJobTimeAction;'</td>
+</tr>
+<tr><td>$tagJOBOBJECT_EXTENDED_LIMIT_INFORMATION</td>
+<td>$tagJOBOBJECT_BASIC_LIMIT_INFORMATION & $tagIO_COUNTERS & 'ulong_ptr ProcessMemoryLimit;ulong_ptr JobMemoryLimit;ulong_ptr PeakProcessMemoryUsed;ulong_ptr PeakJobMemoryUsed;'</td>
+</tr>
+<tr><td>$tagJOBOBJECT_GROUP_INFORMATION</td>
+<td>'' ; & 'ushort ProcessorGroup[n];'</td>
+</tr>
+<tr><td>$tagJOBOBJECT_SECURITY_LIMIT_INFORMATION</td>
+<td>'dword SecurityLimitFlags;ptr JobToken;ptr SidsToDisable;ptr PrivilegesToDelete;ptr RestrictedSids;'</td>
+</tr>
+<tr><td>$tagOSVERSIONINFO</td>
+<td>'dword OSVersionInfoSize;dword MajorVersion;dword MinorVersion;dword BuildNumber;dword PlatformId;wchar CSDVersion[128];'</td>
+</tr>
+<tr><td>$tagOSVERSIONINFOEX</td>
+<td>$tagOSVERSIONINFO & 'ushort ServicePackMajor;ushort ServicePackMinor;ushort SuiteMask;byte ProductType;byte Reserved;'</td>
+</tr>
+<tr><td>$tagPAINTSTRUCT</td>
+<td>'hwnd hDC;int fErase;dword rPaint[4];int fRestore;int fIncUpdate;byte rgbReserved[32];'</td>
+</tr>
+<tr><td>$tagPANOSE</td>
+<td>'byte bFamilyType;byte bSerifStyle;byte bWeight;byte bProportion;byte bContrast;byte bStrokeVariation;byte bArmStyle;byte bLetterform;byte bMidline;byte bXHeight;'</td>
+</tr>
+<tr><td>$tagRGNDATAHEADER</td>
+<td>'dword Size;dword Type;dword Count;dword RgnSize;' & $tagRECT & ';'</td>
+</tr>
+<tr><td bgcolor="#9999CC">$tagRGNDATA</td>
+<td bgcolor="#9999CC">$tagRGNDATAHEADER ; & $tagRECT[n] & ';'</td>
+</tr>
+<tr><td>$tagSHFILEINFO</td>
+<td>'ptr hIcon;int iIcon;dword Attributes;wchar DisplayName[260];wchar TypeName[80];'</td>
+</tr>
+<tr><td>$tagSHFILEOPSTRUCT</td>
+<td>'hwnd hWnd;uint Func;ptr From;ptr To;dword Flags;int fAnyOperationsAborted;ptr hNameMappings;ptr ProgressTitle;'</td>
+</tr>
+<tr><td>$tagSHFOLDERCUSTOMSETTINGS</td>
+<td>'dword Size;dword Mask;ptr GUID;ptr WebViewTemplate;dword SizeWVT;ptr WebViewTemplateVersion;ptr InfoTip;dword SizeIT;ptr CLSID;dword Flags;ptr IconFile;dword SizeIF;int IconIndex;ptr Logo;dword SizeL;'</td>
+</tr>
+<tr><td>$tagSHSTOCKICONINFO</td>
+<td>'dword Size;ptr hIcon;int SysImageIndex;int iIcon;wchar Path[260];'</td>
+</tr>
+<tr><td>$tagSTORAGE_DEVICE_NUMBER</td>
+<td>'dword DeviceType;ulong DeviceNumber;ulong PartitionNumber;'</td>
+</tr>
+<tr><td bgcolor="#9999CC">$tagTEXTMETRIC</td>
+<td bgcolor="#9999CC">'long tmHeight;long tmAscent;long tmDescent;long tmInternalLeading;long tmExternalLeading;long tmAveCharWidth;long tmMaxCharWidth;long tmWeight;long tmOverhang;long tmDigitizedAspectX;long tmDigitizedAspectY;wchar tmFirstChar;wchar tmLastChar;wchar tmDefaultChar;wchar tmBreakChar;byte tmItalic;byte tmUnderlined;byte tmStruckOut;byte tmPitchAndFamily;byte tmCharSet;'</td>
+</tr>
+<tr><td bgcolor="#9999CC">$tagOUTLINETEXTMETRIC</td>
+<td bgcolor="#9999CC">'uint otmSize;' & $tagTEXTMETRIC & 'byte otmFiller[4];' & $tagPANOSE & 'uint otmSelection;uint otmType;int otmCharSlopeRise;int otmCharSlopeRun;int otmItalicAngle;uint otmEMSquare;int otmAscent;int otmDescent;uint otmLineGap;uint otmCapEmHeight;uint otmXHeight;long otmFontBox[4];int otmMacAscent;int otmMacDescent;uint otmMacLineGap;uint otmMinimumPPEM;long otmSubscriptSize[2];long otmSubscriptOffset[2];long otmSuperscriptSize[2];long otmSuperscriptOffset[2];uint otmStrikeoutSize;int otmStrikeoutPosition;int otmUnderscoreSize;int otmUnderscorePosition;uint otmFamilyName;uint otmFaceName;uint otmStyleName;uint otmFullName;' ; & 'byte Data[n];'</td>
+</tr>
+<tr><td>$tagVS_FIXEDFILEINFO</td>
+<td>'dword Signature;dword StrucVersion;dword FileVersionMS;dword FileVersionLS;dword ProductVersionMS;dword ProductVersionLS;dword FileFlagsMask;dword FileFlags;dword FileOS;dword FileType;dword FileSubtype;dword FileDateMS;dword FileDateLS;'</td>
+</tr>
+<tr><td bgcolor="#9999CC">$tagVS_VERSIONINFO</td>
+<td bgcolor="#9999CC">'ushort Length;ushort ValueLength;ushort Type;wchar Key;ushort Padding1;' & $tagVS_FIXEDFILEINFO & 'ushort Padding2;ushort Children;'</td>
+</tr>
+<tr><td>$tagWINDOWINFO</td>
+<td>'dword Size;dword rWindow[4];dword rClient[4];dword Style;dword ExStyle;dword WindowStatus;uint cxWindowBorders;uint cyWindowBorders;ushort atomWindowType;ushort CreatorVersion;'</td>
+</tr>
+<tr><td>$tagWNDCLASSEX</td>
+<td>'uint Size;uint Style;ptr hWndProc;int ClsExtra;int WndExtra;ptr hInstance;ptr hIcon;ptr hCursor;ptr hBackground;ptr MenuName;ptr ClassName;ptr hIconSm;'</td>
+</tr>
+<tr><td>$tagXFORM</td>
+<td>'float eM11;float eM12;float eM21;float eM22;float eDX;float eDY;'</td>
+</tr>
+</table><BR /><BR />
+</body>
+</html>
