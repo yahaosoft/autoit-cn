@@ -1,4 +1,4 @@
-﻿###Function###
+﻿###User Defined Function###
 _WinAPI_CreateFileMapping
 
 ###Description###
@@ -16,12 +16,12 @@ $hFile
 	_WinAPI_CreateFileMapping() creates a file mapping object of a specified size that is backed by the
 	system paging file instead of by a file in the file system.
 $iSize
-	The maximum size of the file mapping object. If this parameter is 0, the maximum size of the file
+	[可选参数] The maximum size of the file mapping object. If this parameter is 0, the maximum size of the file
 	mapping object is equal to the current size of the file that $hFile identifies.
 $sName
-	The name of the file mapping object.
+	[可选参数] The name of the file mapping object.
 $iProtect
-	Specifies the page protection of the file mapping object and can be one of the following values.
+	[可选参数] Specifies the page protection of the file mapping object and can be one of the following values.
 	
 	$PAGE_EXECUTE_READ
 	$PAGE_EXECUTE_READWRITE
@@ -41,7 +41,7 @@ $iProtect
 	$SEC_WRITECOMBINE
 	
 $tSecurity
-	$tagSECURITY_ATTRIBUTES structure that determines whether a returned handle can be inherited by
+	[可选参数] $tagSECURITY_ATTRIBUTES structure that determines whether a returned handle can be inherited by
 	child processes. If this parameter is 0, the handle cannot be inherited and the file mapping object
 	gets a default security descriptor.
 @@End@@

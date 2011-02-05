@@ -1,4 +1,4 @@
-﻿###Function###
+﻿###User Defined Function###
 _WinAPI_CreateEnhMetaFile
 
 ###Description###
@@ -11,23 +11,23 @@ _WinAPI_CreateEnhMetaFile ( [$hDC [, $tRECT [, $fPixels [, $sFile [, $sDescripti
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to a reference device for the enhanced metafile. The system uses this device context to
+	[可选参数] Handle to a reference device for the enhanced metafile. The system uses this device context to
 	record the resolution and units of the device on which a picture originally appeared.
 	If this parameter is 0, it uses the current display device for reference.
 $tRECT
-	$tagRECT structure that specifies the dimensions of the picture to be stored in the enhanced metafile.
+	[可选参数] $tagRECT structure that specifies the dimensions of the picture to be stored in the enhanced metafile.
 	If this parameter is 0, the graphics device interface computes
 	the dimensions of the smallest rectangle that surrounds the picture drawn by the application.
 $fPixels
-	Specifies whether the $tRECT structure defined in pixels, valid values:
+	[可选参数] Specifies whether the $tRECT structure defined in pixels, valid values:
 		TRUE         - In logical units (pixels).
 		FALSE        - In .01-millimeter units. (Default)
 $sFile
-	The file name for the enhanced metafile to be created. If this parameter is 0, the enhanced
+	[可选参数] The file name for the enhanced metafile to be created. If this parameter is 0, the enhanced
 	metafile is memory based and its contents are lost when it is deleted by using the
 	_WinAPI_DeleteEnhMetaFile() function.
 $sDescription
-	The string that specifies the name of the application that created the picture, as well as the
+	[可选参数] The string that specifies the name of the application that created the picture, as well as the
 	picture's title. This string must be an empty string or represented as follows:
 	
 	"application name|picture name"
