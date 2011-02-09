@@ -2,7 +2,7 @@
 _ArrayPush
 
 ###Description###
-Add new values without increasing array size by inserting at the end the new value and deleting the first one or vice versa.
+添加新值而不增加数组大小, 在结尾插入新值则删除第一个,反之亦然.
 
 ###Syntax###
 #Include <Array.au3>
@@ -11,28 +11,26 @@ _ArrayPush(ByRef $avArray, $vValue [, $iDirection = 0])
 ###Parameters###
 @@ParamTable@@
 $avArray
-	Array to modify
+	要修改的数组
 $vValue
-	Value(s) to add (can be in an array)
+	要添加的值 (可以是一个数组)
 $iDirection
-	[optional] Direction to push existing array elements:
-		0 = Slide left (adding at the end)
-		1 = Slide right (adding at the start)
+	[可选参数]原有数组元素的移动方向:
+		0 = 左边 (在结尾添加)
+		1 = 右边 (在开始添加)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	1
-Failure:	0, sets @error:
-@error:	1 - $avArray is not an array
-	2 - $vValue is an array larger than $avArray (so it can't fit)
-	3 - $avArray is not a 1 dimensional array
+成功: 1
+失败: 0, 设置@error:
+@error:	1 - $avArray不是一个数组
+	2 - $vValue是一个大于$avArray的数组(所以不适合)
+	3 - $avArray不是一维数组
 @@End@@
 
 ###Remarks###
-This function is used for continuous updates of data in array, where in other cases a vast size of array would be created.
-It keeps all values inside the array (something like History), minus the first one or the last one depending on direction chosen.
-It is similar to the push command in assembly.
+该功能适合用于数据不断更新的大型数组中.类似于集合中的推动命令, 通过从不同方向减去第一个或最后一个以保留数组的所有数据(类似历史).
 
 ###Related###
 _ArrayAdd, _ArrayConcatenate, _ArrayDelete, _ArrayInsert, _ArrayPop
