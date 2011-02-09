@@ -2,7 +2,7 @@
 _WinAPI_SetWindowLong
 
 ###Description###
-Sets information about the specified window
+设置指定窗口的指定信息
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,31 +11,31 @@ _WinAPI_SetWindowLong($hWnd, $iIndex, $iValue)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle of the window
+	窗口句柄
 $iIndex
-	Specifies the zero based offset to the value to be set. Valid values are in the range zero
-		through the number of bytes of extra window memory, minus four; for example, if you specified 12 or more
-		bytes of extra memory, a value of 8 would be an index to the third 32-bit integer. To retrieve any other
-		value specify one of the following values:
-		$GWL_EXSTYLE - Sets the extended window styles
-		$GWL_STYLE - Sets the window styles
-		$GWL_WNDPROC - Sets the address of the window procedure
-		$GWL_HINSTANCE - Sets the handle of the application instance
-		$GWL_HWNDPARENT - Sets the handle of the parent window, if any
-		$GWL_ID - Sets the identifier of the window
-		$GWL_USERDATA - Sets the 32-bit value associated with the window
+	指定一个以0为基础的偏移量到所设定的值. 
+		有效值的范围从0到额外类的存储空间的字节数-4;  
+		例如若指定了12位或多于12位的额外空间,则应设为第三个32位整数的索引位8.  
+		要设置其他任何值，可以指定下面值之一:
+		$GWL_EXSTYLE - 设定一个新的扩展风格
+		$GWL_STYLE - 设定一个新的窗口风格
+		$GWL_WNDPROC - 设定一个窗口过程地址
+		$GWL_HINSTANCE - 设置一个应用程序事例句柄
+		$GWL_HWNDPARENT - 无论如何设置一个父窗口地址
+		$GWL_ID - 设置窗口标识符
+		$GWL_USERDATA - 设置与窗口有关的32位值
 $iValue
-	Specifies the replacement value
+	指定替换值
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	The previous value
+成功:	以前的值
 失败:	0
 @@End@@
 
 ###Remarks###
-Needs Constants.au3 for pre-defined constants
+需要 Constants.au3 预定义常量
 
 ###Related###
 _WinAPI_GetWindowLong, _WinAPI_CallWindowProc
