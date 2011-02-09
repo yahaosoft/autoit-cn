@@ -2,7 +2,7 @@
 _ExcelBookSaveAs
 
 ###Description###
-Saves the active workbook of the specified Excel object with a new filename and/or type.
+使用新文件名或格式保存指定Excel对象的活动工作簿
 
 ###Syntax###
 #Include <Excel.au3>
@@ -11,49 +11,48 @@ _ExcelBookSaveAs($oExcel, $sFilePath [, $sType = "xls" [, $fAlerts = 0 [, $fOver
 ###Parameters###
 @@ParamTable@@
 $oExcel
-	Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+	由预先调用_ExcelBookOpen()或_ExcelBookNew()打开的Excel对象
 $sFilePath
-	Path and filename of the file to be read
+	被读取的文件的文件名和路径
 $sType
-	[optional] Excel writable filetype string = "xls|csv|txt|template|html", default "xls"
+	[可选参数] Excel可写文件类型字符串 = "xls|csv|txt|template|html", 默认"xls"
 $fAlerts
-	[optional] Flag for disabling/enabling Excel message alerts (0=disable, 1=enable)
+	[可选参数] 禁用/启用Excel消息警告的标记(0=禁用(默认), 1=启用)
 $fOverWrite
-	[optional] Flag for overwriting the file, if it already exists (0=no, 1=yes)
+	[可选参数] 文件存在时是否覆盖的标记(0=否, 1=是)
 $sPassword
-	[optional] The string password to protect the sheet with; if blank, no password will be used (default = blank)
+	[可选参数] 用于保护工作表的密码字符串; 如果为空, 不使用密码(默认)
 $sWritePassword
-	[optional] The string write-access password to protect the sheet with; if blank, no password will be used (default = blank)
+	[可选参数] 工作表写入保护使用的密码字符串; 如果为空, 不使用密码(默认)
 $iAccessMode
-	[optional] The document sharing mode to assign to the workbook:
+	[可选参数] 分配给工作簿的文件共享模式:
 $xlNoChange
-	[optional] Leaves the sharing mode as it is (default) (numeric value = 1)
+	[可选参数] 保留共享模式(默认) (数字值 = 1)
 $xlExclusive
-	[optional] Disables sharing on the workbook (numeric value = 3)
+	[可选参数] 禁止共享(数字值 = 3)
 $xlShared
-	[optional] Enable sharing on the workbook (numeric value = 2)
+	[可选参数] 共享可用(数字值 = 2)
 $iConflictResolution
-	[optional] For shared documents, how to resolve sharing conflicts:
+	[可选参数] 对于共享文件, 如何解决共享冲突:
 $xlUserResolution
-	[optional] Pop up a dialog box asking the user how to resolve (numeric value = 1)
+	[可选参数] 弹出对话框询问用户如何解决(数字值 = 1)
 $xlLocalSessionChanges
-	[optional] The local user's changes are always accepted (default) (numeric value = 2)
+	[可选参数] 接受本地用户的修改(默认) (数字值 = 2)
 $xlOtherSessionChanges
-	[optional] The local user's changes are always rejected (numeric value = 3)
+	[可选参数] 拒绝本地用户修改(数字值 = 3)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	1
-Failure:	0 and set @error
-@error:	1 - Specified object does not exist
-	2 - Invalid filetype string
-	3 - File exists, overwrite flag not set
+成功:	返回1
+失败:	返回0并设置@error
+@error:	1 - 指定对象不存在
+	2 - 无效文件格式字符串
+	3 - 文件已存在但未设置覆写标记
 @@End@@
 
 ###Remarks###
-You can only SaveAs back to the same working path the workbook was originally opened from at this time
-(not applicable to newly created, unsaved books).
+只能在工作簿已被打开时另存回相同的工作路径(而不是新创建, 未保存的工作簿)
 
 ###Related###
 

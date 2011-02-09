@@ -2,7 +2,7 @@
 _EventLog__Notify
 
 ###Description###
-Enables an application to receive event notifications
+使应用程序接受一个事件通知
 
 ###Syntax###
 #Include <EventLog.au3>
@@ -11,9 +11,9 @@ _EventLog__Notify($hEventLog, $hEvent)
 ###Parameters###
 @@ParamTable@@
 $hEventLog
-	A handle to the event log
+	事件日志句柄
 $hEvent
-	A handle to a manual-reset event object
+	手工重设的事件对象的句柄
 @@End@@
 
 ###ReturnValue###
@@ -23,15 +23,13 @@ $hEvent
 @@End@@
 
 ###Remarks###
-This function does not work with remote handles. If the hEventLog parameter is the handle to an event log on a
-remote computer, this function returns zero, and GetLastError returns ERROR_INVALID_HANDLE. When an event is
-written to the log specified by hEventLog, the system uses the PulseEvent function to set the event specified
-by the hEvent parameter to the signaled state. If the thread is not waiting on the event when the system calls
-PulseEvent, the thread will not receive the notification. Therefore, you should create a separate thread to
-wait for notifications. Note that the system calls PulseEvent no more than once every five seconds. Therefore,
-even if more than one event log change occurs within a five second interval, you will only receive one
-notification. The system will continue to notify you of changes until you close the handle to the event log.
-To close the event log, use the _EventLog__Close or _EventLog__DeregisterSource function.
+该函数无法进行远程处理. 
+如果hEventLog参数是指向远程计算机上的事件日志, 函数返回0, 且GetLastError返回ERROR_INVALID_HANDLE.
+当事件写入由hEventLog指定的日志时, 系统使用PulseEvent函数设置由hEvent参数指定的事件为信号状态. 
+如果线程在系统调用PulseEvent时没有等待, 线程将无法收到通知. 因此, 必须创建一个独立线程等待通知. 
+注意系统调用PulseEvent不会超过每五秒一次. 因此, 即使日志在五秒内发生不止一次改变, 你将只收到一个通知. 
+系统将继续通知你这些改变直到你敢比事件日志的句柄.
+可以使用_EventLog__Close或_EventLog__DeregisterSource函数关闭事件日志句柄.
 
 ###Related###
 _EventLog__Close, _EventLog__DeregisterSource

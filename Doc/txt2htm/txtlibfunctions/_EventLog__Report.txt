@@ -11,27 +11,26 @@ _EventLog__Report($hEventLog, $iType, $iCategory, $iEventID, $sUserName, $sDesc,
 ###Parameters###
 @@ParamTable@@
 $hEventLog
-	A handle to the event log. As of Windows XP SP2, this cannot be a handle to the Security log.
+	事件日志句柄. 对于Windows XP SP2, 不能是一个指向安全日志的句柄.
 $iType
-	Event type. This can be one of the following values:
-		 0 - Success event
-		 1 - Error event
-		 2 - Warning event
-		 4 - Information event
-		 8 - Success audit event
-		16 - Failue audit event
+	事件类型. 可为下列值之一:
+		0 - 成功事件
+		1 - 错误事件
+		2 - 警告事件
+		4 - 通知事件
+		8 - 审查成功事件
+		16 - 审查失败事件
 $iCategory
-	The event category. This is source specific information the category can have any value.
+	事件目录.
 $iEventID
-	The event identifier. The event identifier specifies the entry in the message file associated
-		with the event source.
+	事件认证. 事件认证指定信息文件的数据与事件来源相关联.
 $sUserName
-	User name for the event. This can be blank to indicate that no name is required.
+	事件的用户名. 可以为空表示不需要名称
 $sDesc
-	Event description
+	事件描述
 $aData
-	Data array formated as follows:
-		[0] - Number of bytes in array
+	下列格式的数据数组:
+		[0] - 数组中的字节数
 		[1] - Byte 1
 		[2] - Byte 2
 		[n] - Byte n
@@ -44,9 +43,7 @@ $aData
 @@End@@
 
 ###Remarks###
-This function is used to log an event. The entry is written to the end of the configured log for the source
-identified by the hEventLog parameter. This function adds the time, the entry's length, and the offsets before
-storing the entry in the log.
+该函数用于记录一个事件. 数据将被写到已定义的日志结尾, 该日志由通过hEventLog参数认证的资源来配置. 函数添加时间, 数据长度, 以及在将数据存入日志前的偏移.(译注：这段文字似乎有点问题，总感觉不舒服)
 
 ###Related###
 _EventLog__Close, _EventLog__Open

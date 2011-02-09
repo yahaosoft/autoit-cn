@@ -2,7 +2,7 @@
 _EventLog__RegisterSource
 
 ###Description###
-Retrieves a registered handle to the specified event log
+获取已注册的指定事件日志的句柄
 
 ###Syntax###
 #Include <EventLog.au3>
@@ -11,25 +11,22 @@ _EventLog__RegisterSource($sServerName, $sSourceName)
 ###Parameters###
 @@ParamTable@@
 $sServerName
-	The UNC name of the server on where the event log will be opened. If blank, the operation is
-		performed on the local computer.
+	打开日志的服务器的UNC名称, 如果为空, 在本地机上操作.
 $sSourceName
-	The name of the event source whose handle is to be retrieved. The source name must be a subkey
-		of a log under the Eventlog registry key.
+	被提取句柄的事件资源名称. 资源名必须是事件日志注册表主键下的一个日志子键
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The handle to an event log
-Failure:	0
+成功:	事件日志句柄
+失败:	0
 @@End@@
 
 
 ###Remarks###
-If the source name cannot be found, the event logging service uses the Application log; it does not create a
-new source. Events are reported for the source, however, there are no message and category message files
-specified for looking up descriptions of the event identifiers for the source. To close the handle to the
-event log, use the DeregisterEventSource function.
+如果无法找到资源名称, 事件日志服务使用应用程序日志; 但它无法创建新资源. 
+事件会被报告给来源, 然而, 没有消息及分类消息文件会指定给所查找的资源的事件标识描述符. 
+使用DeregisterEventSource函数关闭事件日志句柄.
 
 ###Related###
 _EventLog__DeregisterSource

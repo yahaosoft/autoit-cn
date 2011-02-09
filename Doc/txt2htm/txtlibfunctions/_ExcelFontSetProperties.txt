@@ -2,7 +2,7 @@
 _ExcelFontSetProperties
 
 ###Description###
-Set the bold, italic, and underline font properties of a range in an Excel object.
+设置Excel对象一个范围内的粗体, 斜体, 及下划线字体属性
 
 ###Syntax###
 #Include <Excel.au3>
@@ -11,32 +11,32 @@ _ExcelFontSetProperties($oExcel, $sRangeOrRowStart [, $iColStart = 1 [, $iRowEnd
 ###Parameters###
 @@ParamTable@@
 $oExcel
-	An Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+	    由预先调用_ExcelBookOpen()或_ExcelBookNew()打开的Excel对象
 $sRangeOrRowStart
-	Either an A1 range, or an integer row number to start from if using R1C1
+	   A1范围, 或者在使用R1C1格式时的整数行数
 $iColStart
-	[optional] The starting column for the number format(left) (default=1)
+	   [可选参数] 数字格式开始列(左) (默认为1)
 $iRowEnd
-	[optional] The ending row for the number format (bottom) (default=1)
+	   [可选参数] 数字格式结束行(底) (默认为1)
 $iColEnd
-	[optional] The ending column for the number format (right) (default=1)
+	   [可选参数] 数字格式结束列(右) (默认为1)
 $fBold
-	[optional] Bold flag: TRUE=Bold, FALSE=No Bold (remove bold type)
+	   [可选参数] 粗体标记: TRUE=粗体, FALSE=非粗体(移去粗体格式)
 $fItalic
-	[optional] Italic flag: TRUE=Italic, FALSE=No Italic (remove italic type)
+	   [可选参数] 斜体标记: TRUE=斜体, FALSE=非斜体(移去斜体格式)
 $fUnderline
-	[optional] Underline flag: TRUE=Underline, FALSE=No Underline (remove underline type)
+	   [可选参数] 下划线标记: TRUE=下划线, FALSE=无下划线(移去下划线格式)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	1
-Failure:	0 and sets @error
-@error:	1 - Specified object does not exist
-	2 - Starting row or column invalid
-	3 - Ending row or column invalid
-@extended:	0 - Row invalid
-	1 - Column invalid
+成功:	返回1
+失败:	返回0并设置@error
+@error:	1 - 指定对象不存在
+	2 - 开始行或列不可用
+	3 - 结束行或列不可用
+@extended:
+	1 - 列不可用
 @@End@@
 
 ###Remarks###
