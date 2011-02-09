@@ -2,7 +2,7 @@
 _WinAPI_SetKeyboardLayout
 
 ###Description###
-Sets an input locale identifier to the specified window.
+加载新的输入标识到指定窗口
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,181 +11,181 @@ _WinAPI_SetKeyboardLayout ( $hWnd, $iLanguage [, $iFlags] )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window to set input locale identifier.
+	加载输入法标识的窗体的句柄
 $iLanguage
-	The name of the input locale identifier (LCID).
+	下列LCID常量:
 	
-	0x0436 - Afrikaans
-	0x041C - Albanian
-	0x0401 - Arabic
-	0x1401 - Arabic Algeria
-	0x3C01 - Arabic Bahrain
-	0x0C01 - Arabic Egypt
-	0x0801 - Arabic Iraq
-	0x2C01 - Arabic Jordan
-	0x3401 - Arabic Kuwait
-	0x3001 - Arabic Lebanon
-	0x1001 - Arabic Libya
-	0x1801 - Arabic Morocco
-	0x2001 - Arabic Oman
-	0x4001 - Arabic Qatar
-	0x0401 - Arabic Saudi Arabia
-	0x2801 - Arabic Syria
-	0x1C01 - Arabic Tunisia
-	0x3801 - Arabic U.A.E
-	0x2401 - Arabic Yemen
-	0x042B - Armenian
-	0x044D - Assamese
-	0x082C - Azeri Cyrillic
-	0x042C - Azeri Latin
-	0x042D - Basque
-	0x0813 - Belgian Dutch
-	0x080C - Belgian French
-	0x0445 - Bengali
-	0x0416 - Portuguese (Brazil)
-	0x0402 - Bulgarian
-	0x0455 - Burmese
-	0x0423 - Byelorussian (Belarusian)
-	0x0403 - Catalan
-	0x0C04 - Chinese Hong Kong SAR
-	0x1404 - Chinese Macau SAR
-	0x0804 - Chinese Simplified
-	0x1004 - Chinese Singapore
-	0x0404 - Chinese Traditional
-	0x041A - Croatian
-	0x0405 - Czech
-	0x0406 - Danish
-	0x0413 - Dutch
-	0x0C09 - English Australia
-	0x2809 - English Belize
-	0x1009 - English Canadian
-	0x2409 - English Caribbean
-	0x1813 - English Ireland
-	0x2009 - English Jamaica
-	0x1409 - English New Zealand
-	0x3409 - English Philippines
-	0x1C09 - English South Africa
-	0x2C09 - English Trinidad
-	0x0809 - English U.K.
-	0x0409 - English U.S.
-	0x3009 - English Zimbabwe
-	0x0425 - Estonian
-	0x0438 - Faeroese
-	0x0429 - Farsi
-	0x040B - Finnish
-	0x040C - French
-	0x2C0C - French Cameroon
-	0x0C0C - French Canadian
-	0x300C - French Cote d'Ivoire
-	0x140C - French Luxembourg
-	0x340C - French Mali
-	0x180C - French Monaco
-	0x200C - French Reunion
-	0x280C - French Senegal
-	0x1C0C - French West Indies
-	0x240C - French Congo (DRC)
-	0x0462 - Frisian Netherlands
-	0x083C - Gaelic Ireland
-	0x043C - Gaelic Scotland
-	0x0456 - Galician
-	0x0437 - Georgian
-	0x0407 - German
-	0x0C07 - German Austria
-	0x1407 - German Liechtenstein
-	0x1007 - German Luxembourg
-	0x0408 - Greek
-	0x0447 - Gujarati
-	0x040D - Hebrew
-	0x0439 - Hindi
-	0x040E - Hungarian
-	0x040F - Icelandic
-	0x0421 - Indonesian
-	0x0410 - Italian
-	0x0411 - Japanese
-	0x044B - Kannada
-	0x0460 - Kashmiri
-	0x043F - Kazakh
-	0x0453 - Khmer
-	0x0440 - Kirghiz
-	0x0457 - Konkani
-	0x0412 - Korean
-	0x0454 - Lao
-	0x0426 - Latvian
-	0x0427 - Lithuanian
-	0x042F - FYRO Macedonian
-	0x044C - Malayalam
-	0x083E - Malay Brunei Darussalam
-	0x043E - Malaysian
-	0x043A - Maltese
-	0x0458 - Manipuri
-	0x044E - Marathi
-	0x0450 - Mongolian
-	0x0461 - Nepali
-	0x0414 - Norwegian Bokmol
-	0x0814 - Norwegian Nynorsk
-	0x0448 - Oriya
-	0x0415 - Polish
-	0x0816 - Portuguese
-	0x0446 - Punjabi
-	0x0417 - Rhaeto-Romanic
-	0x0418 - Romanian
-	0x0818 - Romanian Moldova
-	0x0419 - Russian
-	0x0819 - Russian Moldova
-	0x043B - Sami Lappish
-	0x044F - Sanskrit
-	0x0C1A - Serbian Cyrillic
-	0x081A - Serbian Latin
-	0x0430 - Sesotho
-	0x0459 - Sindhi
-	0x041B - Slovak
-	0x0424 - Slovenian
-	0x042E - Sorbian
-	0x040A - Spanish (Traditional)
-	0x2C0A - Spanish Argentina
-	0x400A - Spanish Bolivia
-	0x340A - Spanish Chile
-	0x240A - Spanish Colombia
-	0x140A - Spanish Costa Rica
-	0x1C0A - Spanish Dominican Republic
-	0x300A - Spanish Ecuador
-	0x440A - Spanish El Salvador
-	0x100A - Spanish Guatemala
-	0x480A - Spanish Honduras
-	0x4C0A - Spanish Nicaragua
-	0x180A - Spanish Panama
-	0x3C0A - Spanish Paraguay
-	0x280A - Spanish Peru
-	0x500A - Spanish Puerto Rico
-	0x0C0A - Spanish Spain (Modern Sort)
-	0x380A - Spanish Uruguay
-	0x200A - Spanish Venezuela
-	0x0430 - Sutu
-	0x0441 - Swahili
-	0x041D - Swedish
-	0x081D - Swedish Finland
-	0x100C - Swiss French
-	0x0807 - Swiss German
-	0x0810 - Swiss Italian
-	0x0428 - Tajik
-	0x0449 - Tamil
-	0x0444 - Tatar
-	0x044A - Telugu
-	0x041E - Thai
-	0x0451 - Tibetan
-	0x0431 - Tsonga
-	0x0432 - Tswana
-	0x041F - Turkish
-	0x0442 - Turkmen
-	0x0422 - Ukrainian
-	0x0420 - Urdu
-	0x0843 - Uzbek Cyrillic
-	0x0443 - Uzbek Latin
-	0x0433 - Venda
-	0x042A - Vietnamese
-	0x0452 - Welsh
-	0x0434 - Xhosa
-	0x0435 - Zulu
+	0x0436 - 南非荷兰语
+	0x041C - 阿尔巴尼亚语
+	0x0401 - 阿拉伯语
+	0x1401 - 阿尔及利亚阿拉伯语
+	0x3C01 - 巴林阿拉伯语
+	0x0C01 - 埃及阿拉伯语
+	0x0801 - 伊拉克阿拉伯语
+	0x2C01 - 约旦阿拉伯语
+	0x3401 - 科威特阿拉伯语
+	0x3001 - 黎巴嫩阿拉伯语
+	0x1001 - 利比亚阿拉伯语
+	0x1801 - 摩洛哥阿拉伯语
+	0x2001 - 阿曼阿拉伯语
+	0x4001 - 卡塔尔阿拉伯语
+	0x0401 - 沙特阿拉伯语
+	0x2801 - 叙利亚阿拉伯语
+	0x1C01 - 突尼斯阿拉伯语
+	0x3801 - 阿拉伯联合酋长国阿拉伯语
+	0x2401 - 也门阿拉伯语
+	0x042B - 亚美尼亚语
+	0x044D - 阿萨姆语
+	0x082C - 阿塞拜疆西里尔语
+	0x042C - 阿塞拜疆拉丁语
+	0x042D - 巴斯克语
+	0x0813 - 比利时荷兰语
+	0x080C - 比利时法语
+	0x0445 - 孟加拉语
+	0x0416 - 葡萄牙语(巴西)
+	0x0402 - 保加利亚语
+	0x0455 - 缅甸语
+	0x0423 - 白俄罗斯语(白俄罗斯)
+	0x0403 - 加泰罗尼亚语
+	0x0C04 - 香港特区中文
+	0x1404 - 澳门特区中文
+	0x0804 - 简体中文
+	0x1004 - 新加坡中文
+	0x0404 - 繁体中文
+	0x041A - 克罗地亚语
+	0x0405 - 捷克语
+	0x0406 - 丹麦语
+	0x0413 - 荷兰语
+	0x0C09 - 澳大利亚英语
+	0x2809 - 贝里斯英语
+	0x1009 - 加拿大英语
+	0x2409 - 加勒比地区英语
+	0x1813 - 爱尔兰英语
+	0x2009 - 牙买加英语
+	0x1409 - 新西兰英语
+	0x3409 - 菲律宾英语
+	0x1C09 - 南非英语
+	0x2C09 - 千里英语
+	0x0809 - 英国英语
+	0x0409 - 美国英语
+	0x3009 - 津巴布韦英语
+	0x0425 - 爱沙尼亚语
+	0x0438 - 法罗语
+	0x0429 - 波斯语
+	0x040B - 芬兰语
+	0x040C - 法语
+	0x2C0C - 喀麦隆法语
+	0x0C0C - 加拿大法语
+	0x300C - 科特迪瓦法语
+	0x140C - 卢森堡法语
+	0x340C - 马里法语
+	0x180C - 摩纳哥法语
+	0x200C - 留尼汪法语
+	0x280C - 塞内加尔法语
+	0x1C0C - 法属西印度群岛法语
+	0x240C - 刚果(金)法语
+	0x0462 - 荷兰弗里斯兰语
+	0x083C - 爱尔兰盖尔语
+	0x043C - 苏格兰盖尔语
+	0x0456 - 加利西亚语
+	0x0437 - 格鲁吉亚语
+	0x0407 - 德语
+	0x0C07 - 奥地利德语
+	0x1407 - 列支敦士登德语
+	0x1007 - 卢森堡德语
+	0x0408 - 希腊语
+	0x0447 - 古吉拉特语
+	0x040D - 希伯来语
+	0x0439 - 印地语
+	0x040E - 匈牙利语
+	0x040F - 冰岛语
+	0x0421 - 印尼语
+	0x0410 - 意大利语
+	0x0411 - 日语
+	0x044B - 坎纳达语
+	0x0460 - 克什米尔语
+	0x043F - 哈萨克语
+	0x0453 - 高棉语
+	0x0440 - 吉尔吉斯语
+	0x0457 - 孔卡尼语
+	0x0412 - 韩语
+	0x0454 - 老挝语
+	0x0426 - 拉脱维亚语
+	0x0427 - 立陶宛语
+	0x042F - 马其顿语
+	0x044C - 马来亚语
+	0x083E - 马来文莱达鲁萨兰国语
+	0x043E - 马来西亚语
+	0x043A - 马耳他语
+	0x0458 - 曼尼普尔语
+	0x044E - 马拉语
+	0x0450 - 蒙古语
+	0x0461 - 尼泊尔语
+	0x0414 - 挪威语Bokmol
+	0x0814 - 挪威语
+	0x0448 - 奥里雅语
+	0x0415 - 波兰语
+	0x0816 - 葡萄牙语
+	0x0446 - 旁遮普语
+	0x0417 - 托罗曼斯文
+	0x0418 - 罗马尼亚语
+	0x0818 - 罗马尼亚摩尔多瓦语
+	0x0419 - 俄语
+	0x0819 - 俄罗斯摩尔多瓦语
+	0x043B - 拉普兰萨米语
+	0x044F - 梵语
+	0x0C1A - 塞尔维亚西里尔语
+	0x081A - 塞尔维亚拉丁语
+	0x0430 - 塞索托语
+	0x0459 - 信德语
+	0x041B - 斯洛伐克语
+	0x0424 - 斯洛文尼亚语
+	0x042E - 索布语
+	0x040A - (传统)西班牙语
+	0x2C0A - 阿根廷西班牙语
+	0x400A - 玻利维亚西班牙语
+	0x340A - 智利西班牙语
+	0x240A - 哥伦比亚西班牙语
+	0x140A - 斯达黎加哥西班牙语
+	0x1C0A - 多米尼加共和国西班牙语
+	0x300A - 厄瓜多尔西班牙语
+	0x440A - 萨尔瓦多西班牙语
+	0x100A - 危地马拉西班牙语
+	0x480A - 洪都拉斯西班牙语
+	0x4C0A - 尼加拉瓜西班牙语
+	0x180A - 巴拿马西班牙语
+	0x3C0A - 巴拉圭西班牙语
+	0x280A - 秘鲁西班牙语
+	0x500A - 波多黎各西班牙语
+	0x0C0A - (现代)西班牙语
+	0x380A - 乌拉圭西班牙语
+	0x200A - 委内瑞拉西班牙语
+	0x0430 - 舒图语
+	0x0441 - 斯瓦希里语
+	0x041D - 瑞典语
+	0x081D - 瑞典芬兰语
+	0x100C - 法语
+	0x0807 - 瑞士德语
+	0x0810 - 瑞士意大利语
+	0x0428 - 塔吉克语
+	0x0449 - 泰米尔语
+	0x0444 - 鞑靼语
+	0x044A - 泰卢固语
+	0x041E - 泰国语
+	0x0451 - 西藏语
+	0x0431 - 聪加语
+	0x0432 - 茨瓦纳语
+	0x041F - 土耳其语
+	0x0442 - 土库曼语
+	0x0422 - 乌克兰语
+	0x0420 - 乌尔都语
+	0x0843 - 乌兹别克西里尔语
+	0x0443 - 乌兹别克拉丁语
+	0x0433 - 文达语
+	0x042A - 越南语
+	0x0452 - 威尔士语
+	0x0434 - 科萨语
+	0x0435 - 祖鲁语
 	
 $iFlags
 	[可选参数] The new input locale. This parameter can be one or more of the following values.
@@ -198,8 +198,8 @@ $iFlags
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回1
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###

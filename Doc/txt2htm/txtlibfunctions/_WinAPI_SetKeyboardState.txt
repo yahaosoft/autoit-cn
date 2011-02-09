@@ -2,7 +2,7 @@
 _WinAPI_SetKeyboardState
 
 ###Description###
-Copies a 256-byte array of keyboard key states into the calling process's keyboard input-state table.
+将256个虚拟键的状态复制到调用进程的键盘输入状态表
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,19 +11,18 @@ _WinAPI_SetKeyboardState ( $tState )
 ###Parameters###
 @@ParamTable@@
 $tData
-	"byte[256]" structure that contains keyboard key states.
+	包含每个虚拟键状态数据的byte[256]结构
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回1
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###
-This function alters the input state of the calling process and not the global input state of the system.
-You cannot use this function to set the NUM LOCK, CAPS LOCK, or SCROLL LOCK indicator lights on the
-keyboard.
+该函数将选择调用进程的输入状态而不是系统的全局输入状态.
+该函数无法设置键盘上的NUM LOCK, CAPS LOCK或SCROLL LOCK指示灯.
 
 
 ###See Also###

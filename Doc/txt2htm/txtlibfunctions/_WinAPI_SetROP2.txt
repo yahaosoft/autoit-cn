@@ -2,7 +2,7 @@
 _WinAPI_SetROP2
 
 ###Description###
-Retrieves the foreground mix mode of the specified device context.
+设置指定设备场景的前景混合模式
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,41 +11,39 @@ _WinAPI_SetROP2 ( $hDC, $iMode )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+	设备场景句柄
 $iMode
-	The mix mode. This parameter can be one of the following values.
+	混合模式. 该参数可为下列值之一.
 	
-	$R2_BLACK
-	$R2_COPYPEN
-	$R2_LAST
-	$R2_MASKNOTPEN
-	$R2_MASKPEN
-	$R2_MASKPENNOT
-	$R2_MERGENOTPEN
-	$R2_MERGEPEN
-	$R2_MERGEPENNOT
-	$R2_NOP
-	$R2_NOT
-	$R2_NOTCOPYPEN
-	$R2_NOTMASKPEN
-	$R2_NOTMERGEPEN
-	$R2_NOTXORPEN
-	$R2_WHITE
-	$R2_XORPEN
-	
+	$R2_BLACK - 像素总为0
+	$R2_COPYPEN - 像素为笔色
+	$R2_LAST - 像素为以前的屏幕色和画笔色
+	$R2_MASKNOTPEN - 像素为屏幕色和画笔反色的结合
+	$R2_MASKPEN - 像素为笔色和屏幕色的结合
+	$R2_MASKPENNOT - 像素为屏幕反色和笔色的结合
+	$R2_MERGENOTPEN - 像素为屏幕色和画笔反色的结合
+	$R2_MERGEPEN - 像素为笔色和屏幕色的结合
+	$R2_MERGEPENNOT - 像素为屏幕反色和笔色的结合
+	$R2_NOP - 像素保持不变
+	$R2_NOT - 像素为屏幕反色
+	$R2_NOTCOPYPEN - 像素为画笔反色
+	$R2_NOTMASKPEN - 像素为R2_MASKPEN的反色
+	$R2_NOTMERGEPEN - 像素为R2_MERGEPEN的反色
+	$R2_NOTXORPEN - 像素为R2_XORPEN的反色
+	$R2_WHITE - 像素总为1
+	$R2_XORPEN - 像素为笔色和屏幕色的结合
+
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The value that specifies the previous mix mode.
-Failure	0 and sets the @error flag to non-zero.
+成功:	指定以前的混合模式的值
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###
-Mix modes define how GDI combines source and destination colors when drawing with the current pen. The mix modes
-are binary raster operation codes, representing all possible Boolean functions of two variables, using the binary
-operations AND, OR, and XOR (exclusive OR), and the unary operation NOT. The mix mode is for raster devices only
-it is not available for vector devices.
+混合模式定义了GDI以当前画笔绘图时如何合并来源色和目标色. 混合模式为二进制光栅操作代码, 代表所有可能的布尔函数(AND, OR， XOR(异或), 及NOT)的两个元素.
+混合模式只用于光栅设备; 对向量设备无效.
 
 
 ###See Also###

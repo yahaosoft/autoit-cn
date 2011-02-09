@@ -2,7 +2,7 @@
 _WinAPI_ShellNotifyIcon
 
 ###Description###
-Sends a message to the taskbar's status area.
+将消息发送到任务栏的状态区
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,23 +11,23 @@ _WinAPI_ShellNotifyIcon ( $iMessage, $tNOTIFYICONDATA )
 ###Parameters###
 @@ParamTable@@
 $iMessage
-	The variable that specifies the action to be taken. It can have one of the following values.
+	指定要执行的操作变量. 可为下列值之一:
 	
-	$NIM_ADD
-	$NIM_MODIFY
-	$NIM_DELETE
-	$NIM_SETFOCUS
-	$NIM_SETVERSION
-	
+	$NIM_ADD - 向状态区添加图标
+	$NIM_MODIFY - 修改状态区图标
+	$NIM_DELETE - 删除状态区图标
+	$NIM_SETFOCUS - shell32.dll版本5.0以上, 返回任务栏通知区的焦点
+	$NIM_SETVERSION - 根据版本构建通知区操作
+
 $tNOTIFYICONDATA
-	$tagNOTIFYICONDATA structure. The content and size of this structure depends on the value
-	of the $iMessage and version of the operating system.
+	$tagNOTIFYICONDATA结构. 
+	该结构的内容和大小依赖于$iMessage和操作系统版本.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回1
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###
