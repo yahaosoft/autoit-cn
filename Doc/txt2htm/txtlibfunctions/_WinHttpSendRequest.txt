@@ -2,7 +2,7 @@
 _WinHttpSendRequest
 
 ###Description###
-Sends the specified request to the HTTP server.
+向HTTP服务器发送指定请求
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,26 +11,27 @@ _WinHttpSendRequest($hRequest [, $sHeaders = Default [, $sOptional = Default [, 
 ###Parameters###
 @@ParamTable@@
 $hRequest
-	Handle returned by _WinHttpOpenRequest().
+	_WinHttpOpenRequest() 返回的句柄
 $sHeaders
-	[可选参数] Additional headers to append to the request. Default is $WINHTTP_NO_ADDITIONAL_HEADERS.
+	[可选参数] 包含附加到请求的额外头部的字符串. 默认为 $WINHTTP_NO_ADDITIONAL_HEADERS.
 $sOptional
-	[可选参数] Optional data to send immediately after the request headers. Default is $WINHTTP_NO_REQUEST_DATA.
+	[可选参数] 包含任意可选的在请求的头部之后立即发送的数据的字符串. 默认为 $WINHTTP_NO_REQUEST_DATA.
 $iTotalLength
-	[可选参数] Length, in bytes, of the total optional data sent. Default is 0.
+	[可选参数] 包含发送的全部可选数据字节长度的未签名长整值. 默认为 0.
 $iContext
-	[可选参数] Application-defined value that is passed, with the request handle, to any callback functions. Default is 0.
+	[可选参数] 表示写入模式的整数. 默认为0(写入ANSI字符串)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Returns 1.
-Failure	Returns 0 and sets @error:
-	1 - DllCall failed
+成功:	返回1
+失败:	返回0并设置@error
+	1 - 表示DllCall失败
 @@End@@
 
 ###Remarks###
-Specifying optional data ($sOptional) will cause $iTotalLength to receive the size of that data if left default value.
+指定可选数据($sOptional)将使$iTotalLength接收默认大小的数据
+
 ###Related###
 <a href="_WinHttpOpenRequest.htm">_WinHttpOpenRequest</a>
 

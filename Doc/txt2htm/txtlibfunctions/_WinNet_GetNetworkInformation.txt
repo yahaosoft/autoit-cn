@@ -2,7 +2,7 @@
 _WinNet_GetNetworkInformation
 
 ###Description###
-Returns extended information about a specific network provider
+返回指定网络提供者的扩展信息
 
 ###Syntax###
 #Include <WinNet.au3>
@@ -11,23 +11,24 @@ _WinNet_GetNetworkInformation($sName)
 ###Parameters###
 @@ParamTable@@
 $sName
-	The network provider for which information is required
+	所要信息的网络提供者
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	$aInfo[0] - Version number of the network provider software
-	$aInfo[1] - Current status of the network provider software:
-	 0 - The network is running
-	 1 - The network is unavailable
-	 2 - The network is not currently able to service requests
-	$aInfo[2] - Instance handle for the network provider
-	$aInfo[3] - High word of the network type unique to the running network
-	$aInfo[4] - Set of bit flags indicating the valid print numbers for redirecting local printer devices, with
-	the low-order bit corresponding to LPT1.		$aInfo[5] - Set of bit flags indicating the valid local disk devices that can be used for redirecting disk
-	drives, with the low-order bit corresponding to A:.
-Failure:	Set @error
+成功:	如下格式数组:
+	$aInfo[0] - 网络提供方软件的版本数
+	$aInfo[1] - 网络提供方软件的当前状态:
+	0 - 网络处于运行中
+	1 - 网络不可用
+	2 - 网络当前不能服务请求
+	$aInfo[2] - 网络提供方的实例句柄
+	$aInfo[3] - 运行中的网络的唯一类型的高位文字
+	$aInfo[4] - 描述重定向到本地打印机设备的可用打印数量数位标记, 
+	低位数位与LPT1一致
+	$aInfo[5] - 描述用于重定向磁盘驱动的有效本地磁盘设备的数位标记,
+	低位数位与A:一致
+失败:	设置 @error
 @@End@@
 
 ###Remarks###

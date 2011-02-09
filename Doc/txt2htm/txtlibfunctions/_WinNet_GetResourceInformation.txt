@@ -2,7 +2,7 @@
 _WinNet_GetResourceInformation
 
 ###Description###
-Identifies the network provider that owns the resource
+标识拥有资源的网络提供方
 
 ###Syntax###
 #Include <WinNet.au3>
@@ -11,49 +11,49 @@ _WinNet_GetResourceInformation($sRemoteName [, $sProvider = "" [, $iType = 0]])
 ###Parameters###
 @@ParamTable@@
 $sRemoteName
-	The remote path name of the resource
+	资源的远程路径名
 $sProvider
-	[optional] The name of the provider that owns the resource. This member can be blank if the provider name
-		is unknown.
+	[可选参数] 拥有资源的提供方名称. 如果提供方名称未知,
+		可为空.
 $iType
-	[optional] Type of resource. This member can be 0 if it is not known.
+	[可选参数] 资源类型. 如果未知可为0.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	$aResource[0] - Scope of enumeration:
-	 0 - Connected
-	 1 - All resources
-	 2 - Remembered
-	$aResource[1] - Type of resource:
-	 0 - Disk
-	 1 - Print
-	 2 - Unknown
-	$aResource[2] - Display option:
-	 0 - Generic
-	 1 - Domain
-	 2 - Server
-	 3 - Share
-	 4 - File
-	 5 - Group
-	 6 - Network
-	 7 - Root
-	 8 - Admin Share
-	 9 - Directory
-	10 - Tree
-	11 - NDS Container
-	$aResource[3] - Resource usage. Can be one or more of the following:
-	 1 - The resource is a connectable resource
-	 2 - The resource is a container resource
-	 4 - The resource is attached
-	 8 - Thre resource is reserved
-	$aResource[4] - Local name
-	$aResource[5] - Remote name
-	$aResource[6] - Comment supplied by the network provider
-	$aResource[7] - The name of the provider that owns the resource
+成功:	如下格式数组:
+	$aResource[0] - 枚举方法:
+	 0 - 连接的
+	 1 - 所有的
+	 2 - 记录的
+	$aResource[1] - 资源类型:
+	 0 - 磁盘
+	 1 - 打印机
+	 2 - 未知
+	$aResource[2] - 显示选项:
+	 0 - 常规
+	 1 - 域
+	 2 - 服务器
+	 3 - 共享
+	 4 - 文件
+	 5 - 组
+	 6 - 网络
+	 7 - 根
+	 8 - 管理员共享
+	 9 - 目录
+	10 - 树
+	11 - NDS容器
+	$aResource[3] - 资源用法. 可为下列中的一个或多个:
+	 1 - 可连接的资源
+	 2 - 容器资源
+	 4 - 附加的资源
+	 8 - 保留的资源
+	$aResource[4] - 本地名称
+	$aResource[5] - 远程名称
+	$aResource[6] - 由网络提供方提供的评论
+	$aResource[7] - 部分可通过系统函数访问的资源
 	$aResource[8] - The part of the resource that is accessed through system functions
-Failure:	Set @error
+失败:	设置 @error
 @@End@@
 
 ###Remarks###

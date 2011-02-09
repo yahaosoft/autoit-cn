@@ -2,7 +2,7 @@
 _WinNet_OpenEnum
 
 ###Description###
-Starts an enumeration of network resources or existing connections
+启动对网络资源或存在的连接进行枚举的过程
 
 ###Syntax###
 #Include <WinNet.au3>
@@ -11,33 +11,33 @@ _WinNet_OpenEnum($iScope, $iType, $iUsage, $pResource, ByRef $hEnum)
 ###Parameters###
 @@ParamTable@@
 $iScope
-	Scope of the enumeration:
-		0 - Enumerate all currently connected resources
-		1 - Enumerate all resources on the network
-		2 - Enumerate all remembered (persistent) connections
-		3 - Enumerate only resources in the network context of the caller
+	枚举的范围:
+		0 - 枚举已连接的资源
+		1 - 枚举所有资源
+		2 - 枚举所有推荐的(存在的)连接
+		3 - 只枚举在网络上使用的资源
 $iType
-	Resource types:
-		0 - All resources
-		1 - Disk resources
-		2 - Print resources
+	资源类型:
+		0 - 所有资源
+		1 - 磁盘资源
+		2 - 打印资源
 $iUsage
-	Resource usage types:
-		0 - All resources
-		1 - All connectable resources
-		2 - All container resources
-		4 - Forces the function to fail if the user is not authenticated
+	资源的用法:
+		0 - 所有资源
+		1 - 所有可连接资源
+		2 - 所有包含其他资源的资源
+		4 - 如果用户不被认证强制函数失败
 $pResource
-	Pointer to a $tagNETRESOURCE structure that specifies the container to enumerate. If iScope is
-		not 1, this must be 0. If 0, the root of the network is assumed.
+	$tagNETRESOURCE结构的指针，该结构指定了一个容器资源. 如果iScope不是1, 则必须是0. 
+		如果为0, 则采用顶级网络资源.
 $hEnum
-	On return, a handle that can be used in calls to WNet_EnumResource
+	指定一个变量用来装载由WNet_EnumResource使用的句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	True
+失败:	False
 @@End@@
 
 ###Remarks###

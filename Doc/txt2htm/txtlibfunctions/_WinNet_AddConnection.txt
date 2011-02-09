@@ -2,7 +2,7 @@
 _WinNet_AddConnection
 
 ###Description###
-Connects a local device to a network resource
+将本地设备连接到网络资源
 
 ###Syntax###
 #Include <WinNet.au3>
@@ -11,14 +11,14 @@ _WinNet_AddConnection($sLocalName, $sRemoteName [, $sPassword = 0])
 ###Parameters###
 @@ParamTable@@
 $sLocalName
-	Name of a local device to be redirected, such as "F:" or "LPT1". The string is treated in a
-		case-insensitive manner. If 0, a connection to the network resource is made without redirecting the local
-		device.
+	资源的本地名称, 如"F:"或"LPT1". 字符串不区分大小写. 
+		如果为0, 指向网络资源的连接不用重定向本地
+		设备.
 $sRemoteName
-	Name of the network resource to connect to
+	要连接的网络资源的名称
 $sPassword
-	[optional] Password to be used to make a connection. This parameter is usually the password associated
-		with the current user. If 0, the default password is used. If the string is empty, no password is used.
+	[可选参数] 用于创建连接的密码. 参数通常是关联当前用户的密码. 
+		如果为0, 使用默认密码. 如果字符串为空, 不使用密码.
 @@End@@
 
 ###ReturnValue###
@@ -28,9 +28,7 @@ $sPassword
 @@End@@
 
 ###Remarks###
-This function is provided only for compatibility with 16-bit versions of Windows. Applications should call the
-WNet_AddConnection2 or the WNet_AddConnection3 function. A successful connection is persistent meaning that
-the system automatically restores the connection during subsequent logon operations.
+该函数只兼容16位版本的Windows. 应用程序应该调用WNet_AddConnection2或WNet_AddConnection3函数. 持久的成功连接意味着系统在随后的登录操作期间自动保存连接.
 
 ###Related###
 _WinNet_AddConnection2, _WinNet_AddConnection3
