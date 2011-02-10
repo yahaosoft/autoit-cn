@@ -2,7 +2,7 @@
 _WinAPI_SetWindowsHookEx
 
 ###Description###
-Installs an application-defined hook procedure into a hook chain
+安装应用程序定义的钩子程序到钩链
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,39 +11,39 @@ _WinAPI_SetWindowsHookEx($idHook, $lpfn, $hmod [, $dwThreadId = 0])
 ###Parameters###
 @@ParamTable@@
 $idHook
-	Specifies the type of hook procedure to be installed. This parameter can be one of the following values:
-		$WH_CALLWNDPROC - Installs a hook procedure that monitors messages before the system sends them to the destination window procedure
-		$WH_CALLWNDPROCRET - Installs a hook procedure that monitors messages after they have been processed by the destination window procedure
-		$WH_CBT - Installs a hook procedure that receives notifications useful to a computer-based training (CBT) application
-		$WH_DEBUG - Installs a hook procedure useful for debugging other hook procedures
-		$WH_FOREGROUNDIDLE - Installs a hook procedure that will be called when the application's foreground thread is about to become idle
-		$WH_GETMESSAGE - Installs a hook procedure that monitors messages posted to a message queue
-		$WH_JOURNALPLAYBACK - Installs a hook procedure that posts messages previously recorded by a $WH_JOURNALRECORD hook procedure
-		$WH_JOURNALRECORD - Installs a hook procedure that records input messages posted to the system message queue
-		$WH_KEYBOARD - Installs a hook procedure that monitors keystroke messages
-		$WH_KEYBOARD_LL - Windows NT/2000/XP: Installs a hook procedure that monitors low-level keyboard input events
-		$WH_MOUSE - Installs a hook procedure that monitors mouse messages
-		$WH_MOUSE_LL - Windows NT/2000/XP: Installs a hook procedure that monitors low-level mouse input events
-		$WH_MSGFILTER - Installs a hook procedure that monitors messages generated as a result of an input event in a dialog box, message box, menu, or scroll bar
-		$WH_SHELL - Installs a hook procedure that receives notifications useful to shell applications
-		$WH_SYSMSGFILTER - Installs a hook procedure that monitors messages generated as a result of an input event in a dialog box, message box, menu, or scroll bar
+	指定钩子程序类型的. 这个参数可以是以下值之一:
+		$WH_CALLWNDPROC - 安装钩子程序在消息监控之前,系统将它们发送到目标窗口程序
+		$WH_CALLWNDPROCRET - 安装钩子程序在消息监控之后,由目标窗口程序处理
+		$WH_CBT - 安装钩子程序接收基于计算机培训（CBT）的应用有用通知
+		$WH_DEBUG - 安装一个钩子程序调试其他有用的钩子程序
+		$WH_FOREGROUNDIDLE - 安装一个钩子程序被调用时,将应用程序的前台线程设置为闲置
+		$WH_GETMESSAGE - 安装一个钩子程序, 监视消息队列的消息
+		$WH_JOURNALPLAYBACK - 安装一个钩子程序, 记录 $WH_JOURNALRECORD 挂钩程序以前发布的消息
+		$WH_JOURNALRECORD - 安装一个钩子程序, 记录发送到系统消息队列的输入信息
+		$WH_KEYBOARD - 安装一个钩子程序,监控击键消息
+		$WH_KEYBOARD_LL - Windows NT/2000/XP: 安装一个钩子程序, 可以监测低级别的键盘输入事件
+		$WH_MOUSE - 安装一个钩子程序, 监控鼠标消息
+		$WH_MOUSE_LL - Windows NT/2000/XP: 安装一个钩子程序, 监控低级别鼠标输入事件
+		$WH_MSGFILTER - 安装一个钩子程序, 监控输入事件产生对话框, 消息框, 菜单或滚动条消息
+		$WH_SHELL - 安装一个钩子程序接收有用的通知到外壳应用
+		$WH_SYSMSGFILTER - 安装一个钩子程序, 监控输入事件产生对话框, 消息框, 菜单或滚动条消息
 $lpfn
-	Pointer to the hook procedure. If the $dwThreadId parameter is zero or specifies the identifier of a thread created by a different process,
-		the $lpfn parameter must point to a hook procedure in a DLL.
-		Otherwise, $lpfn can point to a hook procedure in the code associated with the current process
+	钩子程序指针. 如果 $dwThreadId 参数为 0, 或指定一个不同的进程创建的线程标识符,
+		$lpfn 参数必须指向一个在 DLL 中的钩子程序.
+		否则, $lpfn 可以指向当前进程中相关的钩子程序代码
 $hmod
-	Handle to the DLL containing the hook procedure pointed to by the $lpfn parameter.
-		The $hMod parameter must be set to NULL if the $dwThreadId parameter specifies a thread created by the current process and if the hook procedure is within the
-		code associated with the current process
+	$lpfn 参数指向的, 包含钩子程序的 DLL 句柄.
+		如果 $dwThreadId 参数指定由当前进程创的一个线程, 且钩子程序与当前进程的代码相关,
+		$hMod 参数必须设置为 NULL
 $dwThreadId
-	[optional] Specifies the identifier of the thread with which the hook procedure is to be associated.
-		If this parameter is zero, the hook procedure is associated with all existing threads running in the same desktop as the calling thread
+	[可选参数] 指定与钩子过程相关联的线程标识符.
+		如果此参数为 0, 钩子程序与调用线程是在同一桌面运行的所有现有线程
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Handle to the hook procedure
-Failure:	0 and @error is set
+成功:	返回钩子程序句柄
+失败:	返回 0, 并设置 @error
 @@End@@
 
 ###Remarks###

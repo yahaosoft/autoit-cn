@@ -2,7 +2,7 @@
 _Security__AdjustTokenPrivileges
 
 ###Description###
-Enables or disables privileges in the specified access token
+启用或禁用指定的访问令牌权限
 
 ###Syntax###
 #Include <Security.au3>
@@ -11,31 +11,31 @@ _Security__AdjustTokenPrivileges($hToken, $fDisableAll, $pNewState, $iBufferLen 
 ###Parameters###
 @@ParamTable@@
 $hToken
-	Handle to the access token that contains privileges to be modified
+	访问令牌的句柄，它包含要修改的权限
 $fDisableAll
-	If True, the function disables all privileges and ignores the NewState parameter. If False, the
-		function modifies privileges based on the information pointed to by the $pNewState parameter.
+	如果为 True,该函数禁用所有特权,并且忽略 $pNewState 参数.
+	如果为 False,该函数依据 $pNewState 参数的指向修改权限信息.
 $pNewState
-	Pointer to a $tagTOKEN_PRIVILEGES structure that contains the privilege and it's attributes
+	$tagTOKEN_PRIVILEGES 结构指针，它包含特权及其属性.
 $iBufferLen
-	Size, in bytes, of the buffer pointed to by $pNewState
+	$pNewState 指向的缓冲区字节大小
 $pPrevState
-	[optional] Pointer to a $tagTOKEN_PRIVILEGES structure that specifies the previous state of the privilege
-		that the function modified. This can be 0
+	[可选参数] $tagTOKEN_PRIVILEGES 结构指针，
+		指定在函数修改前的特权状态. 可以为 0
 $pRequired
-	[optional] Pointer to a variable that receives the required size, in bytes, of the buffer pointed to by
-		$pPrevState. This parameter can be 0 if $pPrevState is 0.
+	[可选参数] 变量指针, 用于接收 $pPrevState 指定的缓冲区数据,
+		大小以字节为单位. 如果 $pPrevState 为 0, 这个参数可以是 0.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-This function cannot add new privileges to an access token. It can only enable or disable the token's existing
-privileges.
+ 函数不能为访问令牌添加新的权限.
+只是启用或禁用令牌的现行特权. 
 
 ###Related###
 $tagTOKEN_PRIVILEGES

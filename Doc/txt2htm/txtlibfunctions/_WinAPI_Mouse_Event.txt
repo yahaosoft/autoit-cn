@@ -2,7 +2,7 @@
 _WinAPI_Mouse_Event
 
 ###Description###
-综合鼠标运动轨迹与按钮点击
+综合鼠标运动轨迹与按键点击
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,47 +11,47 @@ _WinAPI_Mouse_Event($iFlags [, $iX = 0 [, $iY = 0 [, $iData = 0 [, $iExtraInfo =
 ###Parameters###
 @@ParamTable@@
 $iFlags
-	A set of flag bits that specify various aspects of mouse motion and button clicking. The bits
-		in this parameter can be any reasonable combination of the following values:
-		$MOUSEEVENTF_ABSOLUTE - Specifies that the $iX and $iY parameters contain normal absolute coordinates. If
-		not set, those parameters contain relative data. The change in position since the last reported position.
-		This flag can be set, or not set, regardless of what kind of mouse or mouse-like device, if any, is connected
-		to the system.
-		$MOUSEEVENTF_ABSOLUTE - Specifies that the dx and dy parameters contain normalized absolute coordinates.
-		If not set, those parameters contain relative data: the change in position since the last reported position.
-		This flag can be set, or not set, regardless of what kind of mouse or mouse-like device, if any, is connected to the system.
-		$MOUSEEVENTF_MOVE - Specifies that movement occurred
-		$MOUSEEVENTF_LEFTDOWN - Specifies that the left button changed to down
-		$MOUSEEVENTF_LEFTUP - Specifies that the left button changed to up
-		$MOUSEEVENTF_RIGHTDOWN - Specifies that the right button changed to down
-		$MOUSEEVENTF_RIGHTUP - Specifies that the right button changed to up
-		$MOUSEEVENTF_MIDDLEDOWN - Specifies that the middle button changed to down
-		$MOUSEEVENTF_MIDDLEUP - Specifies that the middle button changed to up
-		$MOUSEEVENTF_WHEEL - Specifies that the wheel has been moved, if the mouse has a wheel
-		$MOUSEEVENTF_XDOWN - Specifies that an X button was pressed
-		$MOUSEEVENTF_XUP - Specifies that an X button was released
+	指定鼠标移动和按钮点击的标志.
+		此参数可以是任何以下值的合理结合:
+		$MOUSEEVENTF_ABSOLUTE - 指定 $iX 与 $iY 参数包含普通(normal)绝对坐标.
+		如果不设置,这些参数包含相关数据. 变化的地位引自上次报告的位置..
+		这个标志可以设置或不设置,无论什么样的鼠标或类似装置,如果有的话,
+		要连接到系统.
+		$MOUSEEVENTF_ABSOLUTE - 指定 dx 与 dy 参数包含规范化的(normalized)绝对坐标.
+		如果不设置, 这些参数包含相关数据：变化的地位引自上次报告的位置.
+		这个标志可以设置或不设置,无论什么样的鼠标或类似装置,如果有的话,要连接到系统.
+		$MOUSEEVENTF_MOVE - 出现移动
+		$MOUSEEVENTF_LEFTDOWN - 左按钮改为按下
+		$MOUSEEVENTF_LEFTUP - 左边的按钮改为松开
+		$MOUSEEVENTF_RIGHTDOWN - 右按钮改为按下
+		$MOUSEEVENTF_RIGHTUP - 右按钮改为松开
+		$MOUSEEVENTF_MIDDLEDOWN - 中间按钮改为按下
+		$MOUSEEVENTF_MIDDLEUP - 中间按钮改为松开
+		$MOUSEEVENTF_WHEEL - 滚轮已被移动, 如果鼠标有一个滚轮
+		$MOUSEEVENTF_XDOWN - X 按钮被按下
+		$MOUSEEVENTF_XUP - X 按钮被释放
 $iX
-	[optional] Specifies the mouse's absolute position along the X axis or its amount of motion since the
-		last mouse event was generated depending on the setting of $MOUSEEVENTF_ABSOLUTE. Absolute data is given as
-		the mouse's actual X coordinate relative data is given as the number of mickeys moved.
+	[可选参数] 鼠标沿 X 轴绝对位置或上次鼠标事件产生以来移动的数量,
+		这取决 $MOUSEEVENTF_ABSOLUTE 的设置.
+		给出的绝对数据作为鼠标的实际 X 坐标; 相对数据作为 mickeys 移动数
 $iY
-	[optional] Specifies the mouse's absolute position along the Y axis or its amount of motion since the
-		last mouse event was generated depending on the setting of $MOUSEEVENTF_ABSOLUTE. Absolute data is given as
-		the mouse's actual Y coordinate relative data is given as the number of mickeys moved.
+	[可选参数] 鼠标沿 Y 轴绝对位置或上次鼠标事件产生以来移动的数量
+		这取决 $MOUSEEVENTF_ABSOLUTE 的设置. Absolute data is given as
+		给出的绝对数据作为鼠标的实际 Y 坐标; 相对数据作为 mickeys 移动数.
 $iData
-	[optional] If iFlags is $MOUSEEVENTF_WHEEL, then iData specifies the amount of wheel movement. A positive
-		value indicates that the wheel was rotated forward away from the user. A negative value indicates that the
-		wheel was rotated backward, toward the user. One wheel click is defined as $WHEEL_DELTA, which is 120. If
-		iFlags is not $MOUSEEVENTF_WHEEL, then $iData should be zero.
+	[可选参数] 如果 iFlags 是 $MOUSEEVENTF_WHEEL, 则 iData 指定滚轮移动次数.
+		正值表明滚轮向前旋转. 负值表明滚轮向后旋转
+		一个轮击定义为 $WHEEL_DELTA, 即 120.
+		如果 iFlags 不是 $MOUSEEVENTF_WHEEL, 则 $iData 应为0.
 $iExtraInfo
-	[optional] Specifies a 32 bit value associated with the mouse event
+	[可选参数] 指定与鼠标事件相关联的 32 位值
 @@End@@
 
 ###ReturnValue###
 None.
 
 ###Remarks###
-Needs Constants.au3 for pre-defined constants
+ 必须 Constants.au3 预先定义的常量
 
 ###Related###
 

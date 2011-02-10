@@ -2,7 +2,7 @@
 _GUIImageList_BeginDrag
 
 ###Description###
-Begins dragging an image
+开始拖动图像
 
 ###Syntax###
 #Include <GuiImageList.au3>
@@ -13,23 +13,23 @@ _GUIImageList_BeginDrag($hWnd, $iTrack, $iXHotSpot, $iYHotSpot)
 $hWnd
 	控件句柄
 $iTrack
-	Index of the image to drag
+	被拖动图像的索引
 $iXHotSpot
-	X coordinate of the location of the drag position relative to image upper left corner
+	被拖动图像左上角相对位置的 X 坐标
 $iYHotSpot
-	Y coordinate of the location of the drag position relative to image upper left corner
+	被拖动图像左上角相对位置的 Y 坐标
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-This function creates a temporary image list that is used for dragging. In response to subsequent WM_MOUSEMOVE
-messages, you can move the drag image by using the ImageList_DragMove function. To end the drag operation, you
-can use the ImageList_EndDrag function.
+ 函数为拖动图像创建一个临时图像列表. 使用 _GUIImageList_DragMove 函数拖动图像,
+ 随后用 WM_MOUSEMOVE 消息响应拖动信息.
+ 要结束拖动操作,可以使用 _GUIImageList_EndDrag 函数
 
 ###Related###
 _GUIImageList_EndDrag, _GUIImageList_DragEnter

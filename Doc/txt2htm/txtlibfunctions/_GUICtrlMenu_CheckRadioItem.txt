@@ -2,38 +2,38 @@
 _GUICtrlMenu_CheckRadioItem
 
 ###Description###
-Checks a specified menu item and makes it a radio item
+选中指定菜单项,并使其成为单选项目
 
 ###Syntax###
 #Include <GuiMenu.au3>
-_GUICtrlMenu_CheckRadioItem($hMenu, $iFirst, $iLast, $iCheck[, $fByPos = True])
+_GUICtrlMenu_CheckRadioItem($hMenu, $iFirst, $iLast, $iCheck [, $fByPos = True])
 
 ###Parameters###
 @@ParamTable@@
 $hMenu
-	Handle of the menu
+	菜单句柄
 $iFirst
-	Identifier or position of the first menu item in the group
+	菜单组第一菜单项的标识符或位置,由 $fByPos 参数决定.
 $iLast
-	Identifier or position of the last menu item in the group
+	菜单组最后菜单项的标识符或位置.
 $iCheck
-	Identifier or position of the menu item to check
+	菜单项目的标识符或位置,
 $fByPos
-	[optional] Menu identifier flag:
-		 True - $iFirst, $iLast and $iCheck are a zero based item position
-		False - $iFirst, $iLast and $iCheck are a menu item identifier
+	[可选参数] 菜单识别标志:
+		True - 对于 $iFirst(首个菜单项), $iLast 与 $iCheck 是项目的 0 基位置
+		False - 对于 $iFirst(首个菜单项), $iLast 与 $iCheck 是项目的标识符
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	True
-失败:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-This function sets the $MFT_RADIOCHECK type flag and the $MFS_CHECKED state for the item specified by $iCheck
-and, at the same time, clears both flags for all other items in the group. The checked item is displayed using
-a bullet bitmap instead of a check-mark bitmap.
+ 这个函数为 $iCheck 指定的项目设置 $MFT_RADIOCHECK (单选)类型标志和 $MFS_CHECKED (选中)状态,
+ 同时清除同组中所有其他项目的这两个标志.
+ 选中项目的旁边会显示项目加重号 ● 位图,而不是复选标记位图
 
 ###Related###
 _GUICtrlMenu_CheckMenuItem

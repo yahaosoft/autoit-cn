@@ -2,45 +2,45 @@
 _NamedPipes_CallNamedPipe
 
 ###Description###
-Performs a read/write operation on a named pipe
+执行命名管道读/写操作
 
 ###Syntax###
 #Include <NamedPipes.au3>
-_NamedPipes_CallNamedPipe($sPipeName, $pInpBuf, $iInpSize, $pOutBuf, $iOutSize, ByRef $iRead[, $iTimeOut = 0])
+_NamedPipes_CallNamedPipe($sPipeName, $pInpBuf, $iInpSize, $pOutBuf, $iOutSize, ByRef $iRead [, $iTimeOut = 0])
 
 ###Parameters###
 @@ParamTable@@
 $sPipeName
-	Pipe name
+	管道名称
 $pInpBuf
-	Pointer to the buffer containing the data written to the pipe
+	包含写入管道的数据缓冲区指针
 $iInpSize
-	Size of the write buffer, in bytes
+	写入缓冲区的字节大小
 $pOutBuf
-	Pointer to the buffer that receives the data read from the pipe
+	接收读取管道数据的缓冲区指针
 $iOutSize
-	Size of the read buffer, in bytes
+	读取缓冲区的字节大小
 $iRead
-	On return, contains the number of bytes read from the pipe
+	返回时, 从缓冲区读取的字节数
 $iTimeOut
-	[optional] Number of milliseconds to wait for the named pipe to be available. In addition to numeric
-		values, the following special values can be specified:
-		-1 - Wait indefinitely
-		 0 - Uses the default time-out specified in the call to the CreateNamedPipe
-		 1 - Do not wait. If the pipe is not available, return an error
+	[可选参数] 命名管道可用的等待毫秒数.
+		除数字值外,可以指定以下特殊值:
+		-1 - 无限期地等待
+		 0 - 调用 CreateNamedPipe 函数指定使用的默认超时值
+		 1 - 不等待.如果管道不可用,返回一个错误
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-Calling CallNamedPipe is equivalent to calling the CreateFile (or WaitNamedPipe, if CreateFile cannot open
-the pipe immediately), TransactNamedPipe, and CloseHandle functions. CreateFile is called with an access flag
-of GENERIC_READ | GENERIC_WRITE, and an inherit handle flag of False. CallNamedPipe fails if the pipe is a
-byte-type pipe.
+调用 CallNamedPipe 相当于调用 CreateFile (或 WaitNamedPipe,如果 CreateFile 不能立即打开管道时)
+TransactNamedPipe, 与 CloseHandle 函数. CreateFile 是 GENERIC_READ | GENERIC_WRITE 的调用访问标志,
+of GENERIC_READ | GENERIC_WRITE, 当为 False 时继承标志句柄. 如果管道是一个字节型管道,CallNamedPipe 将失败:	###See Also###
+在 MSDN 中搜索函数: CallNamedPipe 的相关信息
 
 ###Related###
 _NamedPipes_WaitNamedPipe, _NamedPipes_TransactNamedPipe

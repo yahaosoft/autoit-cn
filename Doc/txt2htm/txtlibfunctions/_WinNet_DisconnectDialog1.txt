@@ -2,7 +2,7 @@
 _WinNet_DisconnectDialog1
 
 ###Description###
-Starts a general browsing dialog box for disconnecting from network resources
+为断开网络资源启动普通浏览对话框
 
 ###Syntax###
 #Include <WinNet.au3>
@@ -11,24 +11,24 @@ _WinNet_DisconnectDialog1($hWnd, $sLocalName [, $sRemoteName = "" [, $iFlags = 1
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the owner window for the dialog box
+	对话框所有者窗口句柄．
 $sLocalName
-	Name of a local device, such as "F:" or "LPT1"
+	本地设备名称，例如 "F:" or "LPT1"
 $sRemoteName
-	[optional] Name of the network resource to disconnect. This member can be 0 if $LocalName is specified.
-		When sLocalName is specified, the connection to the network resource redirected from sLocalName is
+	[可选参数] 被断开网络资源的名称．如果 $LocalName 已有指定，这个参数值可以是 0.
+		当 $sLocalName 指定，重定向 $sLocalName 断开连接的网络资源．
 		disconnected.
 $iFlags
-	[optional] Flags describing the connection. Can be a combination of:
-		1 - If this value is set, the specified connection is no longer a persistent one. This flag is valid only if
-		sLocalName specifies a local device.
-		2 - If this value is NOT set, the system applies force when disconnecting
+	[可选参数] 描述连接的标志．可以是一个组合:
+		1 - 如果此值设置，指定的连接已经不再是一个持续的连接．
+		仅当　$sLocalName　指定有本地设备时，此标志有效期．
+		2 - 如果此值未设置，该系统强制断开
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns 1. If the user cancels the dialog box, the return value is –1.
-Failure:	Returns 0 and set @error.
+成功:	返回　1.如果用户取消对话框,返回值　-1．
+失败:	返回  0. 并设置 @error.
 @@End@@
 
 ###Remarks###

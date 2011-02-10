@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_ChangeFontSize
 
 ###Description###
-Increment or decrement font size(s) of selected text
+递增或递减选定文本的字体大小
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,30 +11,30 @@ _GUICtrlRichEdit_ChangeFontSize($hWnd, $iIncrement)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iIncrement
-	Positive to increase, negative to decrease
+	正值递增; 负值递减
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Succcess:	True - Font sizes were changed
-Failure:	False and may set @error
-@error:	101 - $hWnd is not a handle
-	102 - $iIncrement is not a number
-	-1 - no text selected
+成功:	返回 True - 字体大小被改变
+失败:	返回 False, 并设置 @error
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $iIncrement 参数值不是数字
+	-1 - 没有选择文本
 @@End@@
 
 ###Remarks###
-If there are several font sizes in the selected text, all are incremented/decremented
+ 如果选定的文本中有多个字体尺寸,将同时递增/递减
 
-For $iIncrement positive, font sizes are rounded up; for $iIncrement negative, they are rounded down.
+ 如果 $iIncrement 为正值, 字体大小只入不舍; 如果 $iIncrement 为负值, 将只入不舍.
 
-Rich Edit first adds $iIncrement to the existing font size. It then rounds up (or down) as follows:
-&lt;= 12 points: 1 e.g. 7 + 1 =&gt; 8 points, 14 - 3 =&gt; 10 points
-12.05 to 28 points: 20 + 2.25 =&gt; 24 points
-28.05 to 80 points: rounded to next of 28, 36, 48, 72 or 80, e.g. 28 + 1 =&gt; 36 points, 80 - 1 =&gt; 72 points
-&gt; 80 points: 10, e.g. 80 + 1 =&gt; 90
+ Rich Edit 添加 $iIncrement 值到现有字体大小.递增/递减四舍五入列举如下:
+ &lt;= 12 points: 1 例如: 7 + 1 =&gt; 8 points, 14 - 3 =&gt; 10 points
+ 12.05 到 28 points: 20 + 2.25 =&gt; 24 points
+ 28.05 到 80 points: 四舍五入到下一个 28, 36, 48, 72 或 80, 例如: 28 + 1 =&gt; 36 points, 80 - 1 =&gt; 72 points
+ &gt; 80 points: 10, 例如: 80 + 1 =&gt; 90
 
 ###Related###
 _GUICtrlRichEdit_SetFont

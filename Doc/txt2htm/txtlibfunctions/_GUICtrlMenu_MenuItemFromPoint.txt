@@ -2,33 +2,33 @@
 _GUICtrlMenu_MenuItemFromPoint
 
 ###Description###
-Determines which menu item is at the specified location.
+确定哪个菜单项在指定的位置.
 
 ###Syntax###
 #Include <GuiMenu.au3>
-_GUICtrlMenu_MenuItemFromPoint($hWnd, $hMenu[, $iX = -1[, $iY = -1]])
+_GUICtrlMenu_MenuItemFromPoint($hWnd, $hMenu [, $iX = -1 [, $iY = -1]])
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window containing the menu. If this value is 0 and $hMenu represents a popup menu, the
-		function will find the menu window.
+	菜单窗口的句柄. 如此值为 0,且 $hMenu 表示一个弹出菜单,
+		函数将查找菜单窗口.
 $hMenu
-	Handle to the menu containing the menu items to hit test
+	包含测试菜单项的菜单句柄
 $iX
-	[optional] X position to test. If -1, the current mouse X position will be used.
+	[可选参数] 测试位置的 X 值.如为 -1, 则使用当前鼠标的 X 位置.
 $iY
-	[optional] Y position to test. If -1, the current mouse Y position will be used.
+	[可选参数] 测试位置的 Y 值.如为 -1, 则使用当前鼠标的 Y 位置.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The zero based position of the menu item at the specified location
-Failure:	-1
+成功:	返回指定位置菜单项目的 0 基位置
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
-If $hMenu specifies a menu bar the coordinates are window coordinates. Otherwise, they are client coordinates.
+ 如 $hMenu 指定一个菜单栏,则匹配窗口坐标;否则,为客户端坐标.
 
 ###Related###
 

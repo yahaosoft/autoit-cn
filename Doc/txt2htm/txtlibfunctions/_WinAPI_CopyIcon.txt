@@ -11,19 +11,19 @@ _WinAPI_CopyIcon($hIcon)
 ###Parameters###
 @@ParamTable@@
 $hIcon
-	Handle to the icon to be copied
+	要复制的图标句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	The handle to the duplicate icon
-失败:	0
+成功:	返回副本图标的句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-The CopyIcon function enables an application or DLL to get its own handle to an icon owned by another module.
-If the other module is freed, the application icon will still be able to use the icon. Before closing, call
-the _WinAPI_DestroyIcon function to free any system resources associated with the icon.
+ 本函数使应用程序或 DLL 由另一个模块获得自己拥有的图标句柄.
+ 如果其他模块被释放,应用程序的图标副本将仍然能够使用.
+ 在结束之前，调用 _WinAPI_DestroyIcon 函数释放任何系统图标相关资源.
 
 ###Related###
 _WinAPI_DestroyIcon

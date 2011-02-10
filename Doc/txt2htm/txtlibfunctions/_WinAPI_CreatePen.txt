@@ -2,7 +2,7 @@
 _WinAPI_CreatePen
 
 ###Description###
-Creates a logical pen that has the specified style, width, and color.
+创建指定样式,宽度和颜色得逻辑笔.
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,32 +11,32 @@ _WinAPI_CreatePen($iPenStyle, $iWidth, $nColor)
 ###Parameters###
 @@ParamTable@@
 $iPenStyle
-	Specifies the pen style. It can be any one of the following values.
-		PS_SOLID - The pen is solid.
-		PS_DASH - The pen is dashed. This style is valid only when the pen width is one or less in device units.
-		PS_DOT - The pen is dotted. This style is valid only when the pen width is one or less in device units.
-		PS_DASHDOT - The pen has alternating dashes and dots. This style is valid only when the pen width is one or less in device units.
-		PS_DASHDOTDOT - The pen has alternating dashes and double dots. This style is valid only when the pen width is one or less in device units.
-		PS_NULL - The pen is invisible.
-		PS_INSIDEFRAME - The pen is solid. When this pen is used in any GDI drawing function that takes a bounding rectangle, the dimensions of the figure are shrunk so that it fits entirely in the bounding rectangle, taking into account the width of the pen. This applies only to geometric pens.
+	指定笔的样式.可以是下值之一.
+		PS_SOLID - 实心纯色.
+		PS_DASH - 虚线笔.仅当画笔宽度为 1 或设备单位不足时,这种样式有效.
+		PS_DOT - 点线笔.. 仅当画笔宽度为 1 或设备单位不足时,这种样式有效.
+		PS_DASHDOT - 虚线与点交替. 仅当画笔宽度为 1 或设备单位不足时,这种样式有效.
+		PS_DASHDOTDOT - 虚线与双点交替. 仅当画笔宽度为 1 或设备单位不足时,这种样式有效.
+		PS_NULL - 隐形笔.
+		PS_INSIDEFRAME - 实心纯色. 当此笔用于 GDI 绘图函数时,可以使用尺寸缩小的笔宽,所以它完全适合于矩形.考虑到笔的宽度,此样式仅适用于几何笔.
 $iWidth
-	Specifies the width of the pen, in logical units.
+	指定笔的逻辑单位宽度.
 $nColor
-	Specifies the color of the pen (BGR)
+	指定笔的颜色 (BGR)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	HPEN Value that identifies a logical pen
-失败:	0
+成功:	返回标识逻辑笔的 HPEN 值
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-The pen can subsequently be selected into a device context and used to draw lines and curves.
-After an application creates a logical pen, it can select that pen into a device context by calling the SelectObject function. After a pen is selected into a device context, it can be used to draw lines and curves.
-If the value specified by the nWidth parameter is zero, a line drawn with the created pen always is a single pixel wide regardless of the current transformation.
-If the value specified by nWidth is greater than 1, the fnPenStyle parameter must be PS_NULL, PS_SOLID, or PS_INSIDEFRAME.
-When you no longer need the pen, call the DeleteObject function to delete it.
+ 创建的笔可以随后选择到设备环境和用于绘制直线和曲线.
+ 应用程序创建逻辑笔后,通过调用 SelectObject 函数,可以选中到一个设备环境;以后在设备环境中选中笔,可以用来绘制直线和曲线.
+ 如果 nWidth 参数指定值为 0,不管当前转型,创建笔绘制一条线始终是一个像素宽.
+ 如果 nWidth 指定的值大于 1, fnPenStyle 参数必须 PS_NULL, PS_SOLID, 或 PS_INSIDEFRAME.
+ 当不再需要用笔,调用 DeleteObject 函数删除它.
 
 ###Related###
 _WinAPI_MoveTo, _WinAPI_LineTo, _WinAPI_SelectObject, _WinAPI_DeleteObject, _WinAPI_DrawLine, _WinAPI_GetBkMode, _WinAPI_SetBkMode

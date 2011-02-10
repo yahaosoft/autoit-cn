@@ -6,35 +6,35 @@ _WinAPI_CreateEvent
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_CreateEvent([$pAttributes = 0 [, $fManualReset = True [, $fInitialState = True [, $sName = ""]]]])
+_WinAPI_CreateEvent( [$pAttributes = 0 [, $fManualReset = True [, $fInitialState = True [, $sName = ""]]]])
 
 ###Parameters###
 @@ParamTable@@
 $pAttributes
-	[optional] Pointer to a $tagSECURITY_ATTRIBUTES structure. If 0, the handle cannot be inherited by child
-		processes. The Descriptor member of the structure specifies a security descriptor for the new event. If
-		pAttributes is 0, the event gets a default security descriptor. The ACLs in the default security descriptor
-		for an event come from the primary or impersonation token of the creator.
+	[可选参数] $tagSECURITY_ATTRIBUTES 结构指针.如果为 0,句柄不能由子进程继承.
+		结构的 Descriptor 成员指定新事件的安全描述符.
+		如果此参数为 0, 事件获得默认的安全描述符.
+		事件的默认安全描述符的 ACL 来自最初的创建者或模拟令牌.
 $fManualReset
-	[optional] If True, the function creates a manual-reset event object, which requires the use of the
-		ResetEvent function to set the event state to nonsignaled. If False, the function creates an auto-reset event
-		object and system automatically resets the event state to nonsignaled after a single waiting thread has been
-		released.
+	[可选参数] 如为 True, 函数创建手动重置事件对象,
+		它需要 ResetEvent 函数设置事件为无信号状态
+		如为 False, 数创建自动重置事件对象,系统会自动重置事件的状态,
+		非单一信号后等待线程被释放
 $fInitialState
-	[optional] If True, the initial state of the event object is signaled; otherwise, it is nonsignaled
+	[可选参数] 如为 True, 事件对象初始为信号状态;否则,为无信号
 $sName
-	[optional] The name of the event object. Name comparison is case sensitive. If sName matches the name of
-		an existing named event object, this function requests the EVENT_ALL_ACCESS access right. In this case the
-		fManualReset and fInitialState parameters are ignored because they have already been set by the creating
-		process. If the pAttributes parameter is not 0, it determines whether the handle can be inherited, but its
-		security-descriptor member is ignored. If Name is blank, the event object is created without a name.
+	[可选参数] 事件对象的名称.名称比较区分大小写.
+		如果 $sName 匹配现有的命名事件对象的名称,这个函数要求 EVENT_ALL_ACCESS 访问权.
+		这种情况下,$fManualReset 和 $fInitialState 参数将被忽略,因为他们已经被创建进程设置
+		如果 $pAttributes 参数不为 0, 它决定句柄是否可以继承,但它的安全描述符 成员将被忽略
+		如果名称为空白,创建的事件对象没有名字.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The handle to the event object.
-	If the named event object existed before the function call the function returns a handle to the existing object and GetLastError returns ERROR_ALREADY_EXISTS.
-Failure:	0
+成功:	返回事件对象的句柄.
+	如果命名事件对象存在, 调用该函数将返回现有对象句柄,且 GetLastError 返回 ERROR_ALREADY_EXISTS.
+失败:	返回 0
 @@End@@
 
 ###Remarks###

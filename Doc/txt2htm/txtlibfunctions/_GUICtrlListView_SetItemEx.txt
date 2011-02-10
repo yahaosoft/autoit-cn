@@ -2,7 +2,7 @@
 _GUICtrlListView_SetItemEx
 
 ###Description###
-Sets some or all of a item's attributes
+设置项目的部分或全部属性,使用数据结构.
 
 ###Syntax###
 #Include <GuiListView.au3>
@@ -13,23 +13,22 @@ _GUICtrlListView_SetItemEx($hWnd, ByRef $tItem)
 $hWnd
 	控件句柄
 $tItem
-	$tagLVITEM structure
+	$tagLVITEM 结构
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	True
-失败:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-To set the attributes of an item set the Item member of the $tagLVITEM structure to the index of the item, and
-set the SubItem member to zero. For an item, you can set the State, Text, Image, and Param members of the
-$tagLVITEM structure.
-
-To set the text of a subitem, set the Item and SubItem members to indicate the specific subitem, and use the
-Text member to specify the text. You cannot set the State or Param members for subitems because subitems do
-not have these attributes.
+要设置项目的属性,设置 $tagLVITEM 结构的 Item 成员为该项目的索引,并设置 SubItem 成员为 0.
+对于一个项目时,您可以设置 $tagLVITEM 结构的
+ State, Text, Image, 与 Param 等成员.
+ 
+要设置一个子项的文本,设置 Item 与 SubItem 成员指向具体子项,并设置 Text 成员为指定文本.
+你不能设置子项的 State 或 Param 成员,因为子项没有这些属性.
 
 ###Related###
 _GUICtrlListView_SetItem, $tagLVITEM
