@@ -1,0 +1,149 @@
+﻿###User Defined Function###
+_WinAPI_Keybd_Event
+
+###Description###
+Synthesizes a keystroke.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_Keybd_Event ( $vKey, $iFlags [, $iScanCode [, $iExtraInfo]] )
+
+###Parameters###
+@@ParamTable@@
+$vKey
+	The virtual-key code ($VK_*). The code must be a value in the range 1 to 254.
+	
+	0x01 - Left mouse button
+	0x02 - Right mouse button
+	0x03 - Control-break processing
+	0x04 - Middle mouse button (three-button mouse)
+	0x05 - X1 mouse button
+	0x06 - X2 mouse button
+	
+	0x08 - BACKSPACE key
+	0x09 - TAB key
+	
+	0x0C - CLEAR key
+	0x0D - ENTER key
+	
+	0x10 - SHIFT key
+	0x11 - CTRL key
+	0x12 - ALT key
+	0x13 - PAUSE key
+	0x14 - CAPS LOCK key
+	
+	0x1B - ESC key
+	
+	0x20 - SPACEBAR key
+	0x21 - PAGE UP key
+	0x22 - PAGE DOWN key
+	0x23 - END key
+	0x24 - HOME key
+	0x25 - LEFT ARROW key
+	0x26 - UP ARROW key
+	0x27 - RIGHT ARROW key
+	0x28 - DOWN ARROW key
+	0x29 - SELECT key
+	0x2A - PRINT key
+	0x2B - EXECUTE key
+	0x2C - PRINT SCREEN key
+	0x2D - INS key
+	0x2E - DEL key
+	0x2F - HELP key
+	0x30 - 0x39 - (0 - 9) key
+	
+	0x41 - 0x5A - (A - Z) key
+	0x5B - Left Windows key
+	0x5C - Right Windows key
+	0x5D - Applications key
+	
+	0x5F - Computer Sleep key
+	0x60 - 0x69 - Numeric keypad (0 - 9) key
+	0x6A - Multiply key
+	0x6B - Add key
+	0x6C - Separator key
+	0x6D - Subtract key
+	0x6E - Decimal key
+	0x6F - Divide key
+	0x70 - 0x87 - (F1 - F24) key
+	
+	0x90 - NUM LOCK key
+	0x91 - SCROLL LOCK key
+	
+	0xA0 - Left SHIFT key
+	0xA1 - Right SHIFT key
+	0xA2 - Left CONTROL key
+	0xA3 - Right CONTROL key
+	0xA4 - Left MENU key
+	0xA5 - Right MENU key
+	0xA6 - Browser Back key
+	0xA7 - Browser Forward key
+	0xA8 - Browser Refresh key
+	0xA9 - Browser Stop key
+	0xAA - Browser Search key
+	0xAB - Browser Favorites key
+	0xAC - Browser Start and Home key
+	0xAD - Volume Mute key
+	0xAE - Volume Down key
+	0xAF - Volume Up key
+	0xB0 - Next Track key
+	0xB1 - Previous Track key
+	0xB2 - Stop Media key
+	0xB3 - Play/Pause Media key
+	0xB4 - Start Mail key
+	0xB5 - Select Media key
+	0xB6 - Start Application 1 key
+	0xB7 - Start Application 2 key
+	
+	0xBA - ';:' key
+	0xBB - '+' key
+	0xBC - ',' key
+	0xBD - '-' key
+	0xBE - '.' key
+	0xBF - '/?' key
+	0xC0 - '`~' key
+	
+	0xDB - '[{' key
+	0xDC - '\|' key
+	0xDD - ']}' key
+	0xDE - 'single-quote/double-quote' key
+	
+	0xE2 - Either the angle bracket key or the backslash key on the RT 102-key keyboard
+	
+	0xE7 - Used to pass Unicode characters as if they were keystrokes
+	
+	0xF6 - Attn key
+	0xF7 - CrSel key
+	0xF8 - ExSel key
+	0xF9 - Erase EOF key
+	0xFA - Play key
+	0xFB - Zoom key
+	
+	0xFD - PA1 key
+	0xFE - Clear key
+	
+$iFlags
+	This parameter can be one or more of the following values.
+	
+	$KEYEVENTF_EXTENDEDKEY
+	$KEYEVENTF_KEYUP
+	
+$iScanCode
+	[可选参数] The hardware scan code for the key.
+$iExtraInfo
+	[可选参数] The additional value associated with the key stroke.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ keybd_event
+

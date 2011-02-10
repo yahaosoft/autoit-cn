@@ -1,0 +1,36 @@
+﻿###User Defined Function###
+_WinAPI_GetUpdateRgn
+
+###Description###
+Retrieves the update region of a window by copying it into the specified region.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetUpdateRgn ( $hWnd, $hRgn [, $fErase] )
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window with an update region that is to be retrieved.
+$hRgn
+	Handle to the region to receive the update region.
+$fErase
+	[可选参数] Specifies whether the background in the update region is to be erased, valid values:
+		TRUE   - The background is erased. (Default)
+		FALSE  - The background remains unchanged.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The value that indicates the complexity of the resulting region&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it can be one of the following values.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+_WinAPI_BeginPaint() automatically validates the update region, so any call to _WinAPI_GetUpdateRgn() made
+immediately after the call to _WinAPI_BeginPaint() retrieves an empty update region.
+
+
+###See Also###
+@@MsdnLink@@ GetUpdateRgn
+

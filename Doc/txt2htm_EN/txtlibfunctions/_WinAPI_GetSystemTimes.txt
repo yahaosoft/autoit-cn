@@ -1,0 +1,32 @@
+﻿###User Defined Function###
+_WinAPI_GetSystemTimes
+
+###Description###
+Retrieves system timing information.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetSystemTimes ( )
+
+###Parameters###
+@@ParamTable@@
+None.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The array that contains the following information.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0]	The time that the system has been idle.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1]	The time that the system has spent executing in kernel mode, in 100-nanosecond time units.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2]	The time that the system has spent executing in user mode, in 100-nanosecond time units.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+On a multiprocessor system, the _WinAPI_GetSystemTimes() returns a values are the sum of the designated times
+across all processors.
+
+
+###See Also###
+@@MsdnLink@@ GetSystemTimes
+

@@ -1,0 +1,54 @@
+﻿###User Defined Function###
+_WinAPI_GradientFill
+
+###Description###
+Fills rectangle or triangle gradient.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GradientFill ($hDC, $aVertex [, $iStart [, $iEnd [, $fRotate]]] )
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context.
+$aVertex
+	The 2D array ([x1, y1, $rgb1], [x2, y2, $rgb2], ... [xN, yN, $rgbN]) that contains the necessary
+	gradient vertices. Each vertex in this array contains the following parameters.
+	
+	x   - The x-coordinate, in logical units.
+	y   - The y-coordinate, in logical units
+	rgb - The color information at the point of x, y.
+	
+$iStart
+	[可选参数] The index of array to start filling at.
+$iEnd
+	[可选参数] The index of array to stop filling at.
+$fRotate
+	[可选参数] Specifies whether fills a rectangle from left to right edge (horizontal gradient). $fRotate used
+	only for the rectangular gradients, for the triangular gradients this parameter will be ignored,
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+If the number of vertices defined by using $iStart and $iEnd parameters is 2, _WinAPI_GradientFill() function
+fills a rectangle. If the number of vertices is 3, fills a triangle. For the rectangle, the vertices must
+specify its upper left and lower right corners. Note that $aVertex array may contain any number of vertices
+of the gradient, but only 2 or 3 vertices may be used at the same time from this array.
+Otherwise, the function is fails.
+
+_WinAPI_GradientFill() function can only fill the rectangle or triangle at one call. Use multiple calls this
+function to fill a complex gradients.
+
+
+###See Also###
+@@MsdnLink@@ GdiGradientFill
+
+###Example###
+@@IncludeExample@@
+

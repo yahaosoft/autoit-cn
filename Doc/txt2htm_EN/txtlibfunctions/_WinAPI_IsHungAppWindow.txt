@@ -1,0 +1,31 @@
+﻿###User Defined Function###
+_WinAPI_IsHungAppWindow
+
+###Description###
+Determines whether the specified application is not responding.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_IsHungAppWindow ( $hWnd )
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1 - The window stops responding.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0	Otherwise.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+An application is considered to be not responding if it is not waiting for input, is not in startup processing,
+and has not called PeekMessage within the internal timeout period of 5 seconds.
+
+
+###See Also###
+@@MsdnLink@@ IsHungAppWindow
+

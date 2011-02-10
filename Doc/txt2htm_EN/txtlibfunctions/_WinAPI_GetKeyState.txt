@@ -1,0 +1,35 @@
+﻿###User Defined Function###
+_WinAPI_GetKeyState
+
+###Description###
+Retrieves the status of the specified virtual key.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetKeyState ( $vKey )
+
+###Parameters###
+@@ParamTable@@
+$vKey
+	Specifies a virtual key ($VK_*). If the desired virtual key is a letter or digit (A through Z,
+	a through z, or 0 through 9).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The value that specifies the status of the specified virtual key. If the high-order bit is 1, the key is
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The key status returned from this function changes as a process reads key messages from its message queue.
+The status does not reflect the interrupt-level state associated with the hardware. Use the _WinAPI_GetAsyncKeyState()
+function to retrieve that information.
+
+
+###See Also###
+@@MsdnLink@@ GetKeyState
+
+###Example###
+@@IncludeExample@@
+

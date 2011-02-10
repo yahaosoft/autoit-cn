@@ -1,0 +1,39 @@
+﻿###User Defined Function###
+_WinAPI_DwmExtendFrameIntoClientArea
+
+###Description###
+Extends the window frame behind the client area.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_DwmExtendFrameIntoClientArea ( $hWnd [, $tMARGINS] )
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window for which the frame is extended into the client area.
+$tMARGINS
+	[可选参数] $tagMARGINS structure that describes the margins to use when extending the frame into the client area.
+	Negative margins are used to create the "sheet of glass" effect where the client area is rendered as
+	a solid surface with no window border.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+This function must be called whenever Desktop Window Manager (DWM) composition is toggled. Handle the
+WM_DWMCOMPOSITIONCHANGED message for composition change notification.
+
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ DwmExtendFrameIntoClientArea
+
+###Example###
+@@IncludeExample@@
+

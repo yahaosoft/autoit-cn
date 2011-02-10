@@ -1,0 +1,42 @@
+﻿###User Defined Function###
+_WinAPI_SetInformationJobObject
+
+###Description###
+Sets limits for a job object.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SetInformationJobObject ( $hJob, $iJobObjectInfoClass, $tJobObjectInfo )
+
+###Parameters###
+@@ParamTable@@
+$hJob
+	Handle to the job whose limits are being set. The handle must have the
+	$JOB_OBJECT_SET_ATTRIBUTES access right.
+$iJobObjectInfoClass
+	The information class for the limits to be set. This parameter specifies the type
+	of $tJobObjectInfo structure, valid values:
+		2  - $tagJOBOBJECT_BASIC_LIMIT_INFORMATION
+		4  - $tagJOBOBJECT_BASIC_UI_RESTRICTIONS
+		5  - $tagJOBOBJECT_SECURITY_LIMIT_INFORMATION
+		6  - $tagJOBOBJECT_END_OF_JOB_TIME_INFORMATION
+		7  - $tagJOBOBJECT_ASSOCIATE_COMPLETION_PORT
+		9  - $tagJOBOBJECT_EXTENDED_LIMIT_INFORMATION
+		11 - $tagJOBOBJECT_GROUP_INFORMATION
+$tJobObjectInfo
+	$tagJOBOBJECT_* structure that sets the limit and job state information.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ SetInformationJobObject
+

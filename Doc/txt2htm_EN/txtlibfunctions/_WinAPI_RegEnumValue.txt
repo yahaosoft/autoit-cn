@@ -1,0 +1,54 @@
+﻿###User Defined Function###
+_WinAPI_RegEnumValue
+
+###Description###
+Enumerates the values for the specified open registry key.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_RegEnumValue ( $hKey, $iIndex )
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to an open registry key. The key must have been opened with the $KEY_QUERY_VALUE access right.
+	This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey() function. It can also
+	be one of the following predefined keys.
+	
+	$HKEY_CLASSES_ROOT
+	$HKEY_CURRENT_CONFIG
+	$HKEY_CURRENT_USER
+	$HKEY_LOCAL_MACHINE
+	$HKEY_PERFORMANCE_DATA
+	$HKEY_USERS
+	
+$iIndex
+	The index of the value to be retrieved. This parameter should be zero for the first call to the _WinAPI_RegEnumValue()
+	function and then be incremented for subsequent calls.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The string that contains the name of the value, @extended flag will contain the code indicating the
+Failure	Empty string and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+To enumerate values, an application should initially call the _WinAPI_RegEnumValue() function with the $iIndex
+parameter set to zero. The application should then increment $iIndex and call the _WinAPI_RegEnumValue() function
+until there are no more values (until the @extended flag sets to ERROR_NO_MORE_ITEMS (259)).
+
+The application can also set $iIndex to the index of the last value on the first call to the function and
+decrement the index until the value with index 0 is enumerated. To retrieve the index of the last value,
+use the _WinAPI_RegQueryInfoKey() function.
+
+While using _WinAPI_RegEnumValue(), an application should not call any registry functions that might change the
+key being queried.
+
+
+###See Also###
+@@MsdnLink@@ RegEnumValue
+
+###Example###
+@@IncludeExample@@
+

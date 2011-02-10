@@ -1,0 +1,37 @@
+﻿###User Defined Function###
+_WinAPI_HideCaret
+
+###Description###
+Removes the caret from the screen.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_HideCaret ( $hWnd )
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window that owns the caret. If this parameter is 0, _WinAPI_HideCaret() searches the
+	current task for the window that owns the caret.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+_WinAPI_HideCaret() hides the caret only if the specified window owns the caret. If the specified window does
+not own the caret, _WinAPI_HideCaret() does nothing and returns 0.
+
+Hiding is cumulative. If your application calls _WinAPI_HideCaret() five times in a row, it must also call
+_WinAPI_ShowCaret() five times before the caret is displayed.
+
+
+###See Also###
+@@MsdnLink@@ HideCaret
+
+###Example###
+@@IncludeExample@@
+

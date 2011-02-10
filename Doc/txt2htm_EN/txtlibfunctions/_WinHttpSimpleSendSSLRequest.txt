@@ -1,0 +1,44 @@
+﻿###User Defined Function###
+_WinHttpSimpleSendSSLRequest
+
+###Description###
+A function to send a SSL request in a simpler form, but not read the data
+
+###Syntax###
+#Include <WinHttp.au3>
+_WinHttpSimpleSendSSLRequest($hConnect [, $sType [, $sPath [, $sReferrer = Default [, $sData = Default [, $sHeader = Default ]]]]])
+
+###Parameters###
+@@ParamTable@@
+$hConnect
+	Handle from _WinHttpConnect
+$sType
+	[可选参数] GET or POST (default: GET)
+$sPath
+	[可选参数] request path (default: "" - empty string; meaning 'default' page on the server)
+$sReferrer
+	[可选参数] referrer (default: $WINHTTP_NO_REFERER)
+$sData
+	[可选参数] POST-Data (default: $WINHTTP_NO_REQUEST_DATA)
+$sHeader
+	[可选参数] additional Headers (default: $WINHTTP_NO_ADDITIONAL_HEADERS)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	handle of request after _WinHttpReceiveResponse.
+Failure	0 and set @error
+	1 - could not open request
+	2 - could not send request
+	3 - could not receive response
+@@End@@
+
+###Remarks###
+None.
+###Related###
+<a href="_WinHttpSimpleSSLRequest.htm">_WinHttpSimpleSSLRequest</a>, <a href="_WinHttpSimpleSendRequest.htm">_WinHttpSimpleSendRequest</a>, <a href="_WinHttpSimpleReadData.htm">_WinHttpSimpleReadData</a>
+
+
+###Example###
+@@IncludeExample@@
+

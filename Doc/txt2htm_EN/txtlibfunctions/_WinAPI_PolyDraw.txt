@@ -1,0 +1,52 @@
+﻿###User Defined Function###
+_WinAPI_PolyDraw
+
+###Description###
+Draws a set of line segments and Bezier curves.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_PolyDraw ( $hDC, $aPoint [, $iStart [, $iEnd]] )
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to a device context.
+$aPoint
+	The 2D array ([x1, y1, type1], [x2, y2, type2], ... [xN, yN, typeN]) that contains the endpoints for
+	each line segment and the endpoints and control points for each Bezier curve, in logical units. In addition,
+	the array contains a parameters that specifies how each point is used. The third parameter of the array
+	can be one of the following values.
+	
+	$PT_BEZIERTO
+	$PT_LINETO
+	$PT_MOVETO
+	
+	$PT_BEZIERTO or $PT_LINETO type can be combined with the following value that the corresponding point
+	is the last point in a figure and the figure is closed.
+	
+	$PT_CLOSEFIGURE
+	
+$iStart
+	[可选参数] The index of array to start drawing at.
+$iEnd
+	[可选参数] The index of array to stop drawing at.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function can be used in place of consecutive calls to _WinAPI_MoveToEx(), _WinAPI_LineTo(), and _WinAPI_PolyBezierTo()
+functions to draw disjoint figures. The lines and curves are drawn using the current pen and figures are not filled.
+If there is an active path started by calling _WinAPI_BeginPath(), _WinAPI_PolyDraw() adds to the path.
+
+This function updates the current position.
+
+
+###See Also###
+@@MsdnLink@@ PolyDraw
+

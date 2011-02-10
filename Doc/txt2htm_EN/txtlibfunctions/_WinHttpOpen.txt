@@ -1,0 +1,43 @@
+﻿###User Defined Function###
+_WinHttpOpen
+
+###Description###
+Initializes the use of WinHttp functions and returns a WinHttp-session handle.
+
+###Syntax###
+#Include <WinHttp.au3>
+_WinHttpOpen([$sUserAgent = Default [, $iAccessType = Default [, $sProxyName = Default [, $sProxyBypass = Default [, $iFlag = Default ]]]]])
+
+###Parameters###
+@@ParamTable@@
+$sUserAgent
+	[可选参数] The name of the application or entity calling the WinHttp functions. Default is "AutoIt/3.3".
+$iAccessType
+	[可选参数] Type of access required. Default is $WINHTTP_ACCESS_TYPE_NO_PROXY.
+$sProxyName
+	[可选参数] The name of the proxy server to use when proxy access is specified by setting $iAccessType to $WINHTTP_ACCESS_TYPE_NAMED_PROXY. Default is $WINHTTP_NO_PROXY_NAME.
+$sProxyBypass
+	[可选参数] An optional list of host names or IP addresses, or both, that should not be routed through the proxy when $iAccessType is set to $WINHTTP_ACCESS_TYPE_NAMED_PROXY. Default is $WINHTTP_NO_PROXY_BYPASS.
+$iFlag
+	[可选参数] Integer that contains the flags that indicate various options affecting the behavior of this function. Default is 0.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Returns valid session handle.
+Failure	Returns 0 and sets @error:
+	1 - DllCall failed
+@@End@@
+
+###Remarks###
+For asynchronous mode set $iFlag to $WINHTTP_FLAG_ASYNC
+###Related###
+<a href="_WinHttpCloseHandle.htm">_WinHttpCloseHandle</a>, <a href="_WinHttpConnect.htm">_WinHttpConnect</a>
+
+
+###See Also###
+http://msdn.microsoft.com/en-us/library/aa384098(VS.85).aspx
+
+###Example###
+@@IncludeExample@@
+

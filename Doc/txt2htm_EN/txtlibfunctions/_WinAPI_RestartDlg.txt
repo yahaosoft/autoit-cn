@@ -1,0 +1,46 @@
+﻿###User Defined Function###
+_WinAPI_RestartDlg
+
+###Description###
+Displays a dialog box that prompts the user to restart Microsoft Windows.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_RestartDlg ( [$sText [, $iFlags [, $hParent]]] )
+
+###Parameters###
+@@ParamTable@@
+$sText
+	[可选参数] The text that displays in the dialog box which prompts the user.
+$iFlags
+	[可选参数] The flags that specify the type of shutdown.
+	
+	This parameter must include one of the following values.
+	
+	$EWX_LOGOFF
+	$EWX_POWEROFF
+	$EWX_REBOOT
+	$EWX_SHUTDOWN
+	
+	This parameter can optionally include the following values.
+	
+	$EWX_FORCE
+	$EWX_FORCEIFHUNG
+	
+$hParent
+	[可选参数] Handle to the parent window.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The identifier of the button that was pressed to close the dialog box.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ RestartDialog
+

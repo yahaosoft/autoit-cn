@@ -1,0 +1,48 @@
+﻿###User Defined Function###
+_WinAPI_OpenProcessToken
+
+###Description###
+Opens the access token associated with a process.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_OpenProcessToken ( $iAccess [, $hProcess] )
+
+###Parameters###
+@@ParamTable@@
+$iAccess
+	Access mask that specifies the requested types of access to the access token. This parameter can be
+	one or more of the following values.
+	
+	$TOKEN_ADJUST_DEFAULT
+	$TOKEN_ADJUST_GROUPS
+	$TOKEN_ADJUST_PRIVILEGES
+	$TOKEN_ADJUST_SESSIONID
+	$TOKEN_ASSIGN_PRIMARY
+	$TOKEN_DUPLICATE
+	$TOKEN_EXECUTE
+	$TOKEN_IMPERSONATE
+	$TOKEN_QUERY
+	$TOKEN_QUERY_SOURCE
+	$TOKEN_READ
+	$TOKEN_WRITE
+	$TOKEN_ALL_ACCESS
+	
+$hProcess
+	[可选参数] Handle to the process whose access token is opened. The process must have the
+	$PROCESS_QUERY_INFORMATION access permission. If this parameter is 0, will use the current process.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle that identifies the newly opened access token.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+Close the access token handle returned through this function by calling _WinAPI_CloseHandle().
+
+
+###See Also###
+@@MsdnLink@@ OpenProcessToken
+

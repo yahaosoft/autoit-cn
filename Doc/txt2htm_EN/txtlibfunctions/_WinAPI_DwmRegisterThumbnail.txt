@@ -1,0 +1,37 @@
+﻿###User Defined Function###
+_WinAPI_DwmRegisterThumbnail
+
+###Description###
+Creates a Desktop Window Manager (DWM) thumbnail relationship between the destination and source windows.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_DwmRegisterThumbnail ( $hDestination, $hSource )
+
+###Parameters###
+@@ParamTable@@
+$hDestination
+	Handle to the window that will use the DWM thumbnail.
+$hSource
+	Handle to the window to use as the thumbnail source.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle that represents the registration of the DWM thumbnail.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+The window designated by $hDestination must either be the desktop window itself or be owned by the process that
+is calling _WinAPI_DwmRegisterThumbnail().
+
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ DwmRegisterThumbnail
+
+###Example###
+@@IncludeExample@@
+

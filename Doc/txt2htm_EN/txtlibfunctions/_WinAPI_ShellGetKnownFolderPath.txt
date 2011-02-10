@@ -1,0 +1,52 @@
+﻿###User Defined Function###
+_WinAPI_ShellGetKnownFolderPath
+
+###Description###
+Retrieves the full path of a known folder identified.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ShellGetKnownFolderPath ( $GUID [, $iFlags [, $hToken]] )
+
+###Parameters###
+@@ParamTable@@
+$GUID
+	The GUID ($FOLDERID_*) that identifies the standard folders registered with the system.
+$iFlags
+	[可选参数] The flags that specify special retrieval options. This parameter can be one or more of the following values.
+	
+	$KF_FLAG_CREATE
+	$KF_FLAG_DONT_VERIFY
+	$KF_FLAG_DONT_UNEXPAND
+	$KF_FLAG_NO_ALIAS
+	$KF_FLAG_INIT
+	$KF_FLAG_DEFAULT_PATH
+	$KF_FLAG_NOT_PARENT_RELATIVE
+	$KF_FLAG_SIMPLE_IDLIST
+	
+	*Windows 7 or later
+	
+	$KF_FLAG_ALIAS_ONLY
+	
+$hToken
+	[可选参数] The access token that represents a particular user. If this parameter is 0, the function requests
+	the known folder for the current user. Assigning the $hToken parameter a value of (-1) indicates the
+	Default User. Note that access to the Default User folders requires administrator privileges.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The path of the known folder.
+Failure	Empty string and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ SHGetKnownFolderPath
+
+###Example###
+@@IncludeExample@@
+

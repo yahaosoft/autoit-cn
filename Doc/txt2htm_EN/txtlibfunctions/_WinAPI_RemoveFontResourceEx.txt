@@ -1,0 +1,37 @@
+﻿###User Defined Function###
+_WinAPI_RemoveFontResourceEx
+
+###Description###
+Removes the fonts in the specified file from the system font table.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_RemoveFontResourceEx ( $sFont [, $iFlag [, $fNotify]] )
+
+###Parameters###
+@@ParamTable@@
+$sFont
+	String that names a font resource file. To remove a font whose information comes from several resource
+	files, they must be separated by a "|". For example, abcxxxxx.pfm|abcxxxxx.pfb.
+$iFlag
+	[可选参数] The characteristics of the font to be removed from the system. In order for the font to be removed, the flags
+	used must be the same as when the font was added with the _WinAPI_AddFontResourceEx() function.
+$fNotify
+	[可选参数] Specifies whether sends a WM_FONTCHANGE message, valid values:
+		TRUE    - Send the WM_FONTCHANGE message to all top-level windows after changing the pool of font resources.
+		FALSE   - Don`t send. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ RemoveFontResourceEx
+

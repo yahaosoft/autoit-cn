@@ -1,0 +1,35 @@
+﻿###User Defined Function###
+_WinAPI_GetProcessIoCounters
+
+###Description###
+Retrieves accounting information for all I/O operations performed by the specified process.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetProcessIoCounters ( [$PID] )
+
+###Parameters###
+@@ParamTable@@
+$PID
+	[可选参数] The PID of the process. Default (0) is the current process.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The array that contains the following information.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0]	The number of read operations performed.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1]	The number of write operations performed.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2]	The number of I/O operations performed, other than read and write operations.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3]	The number of bytes read.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4]	The number of bytes written.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5]	The number of bytes transferred during operations other than read and write operations.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ GetProcessIoCounters
+

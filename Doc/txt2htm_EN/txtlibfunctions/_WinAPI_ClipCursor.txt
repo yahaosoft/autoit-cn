@@ -1,0 +1,34 @@
+﻿###User Defined Function###
+_WinAPI_ClipCursor
+
+###Description###
+Confines the cursor to a rectangular area on the screen.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ClipCursor ( $tRECT )
+
+###Parameters###
+@@ParamTable@@
+$tRECT
+	$tagRECT structure that contains the screen coordinates of the confining rectangle. If this parameter is 0,
+	the cursor is free to move anywhere on the screen.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The cursor is a shared resource. If an application confines the cursor, it must release the cursor by using
+_WinAPI_ClipCursor() before relinquishing control to another application.
+
+
+###See Also###
+@@MsdnLink@@ ClipCursor
+
+###Example###
+@@IncludeExample@@
+

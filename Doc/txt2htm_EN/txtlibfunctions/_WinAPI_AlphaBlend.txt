@@ -1,0 +1,68 @@
+﻿###User Defined Function###
+_WinAPI_AlphaBlend
+
+###Description###
+Displays bitmaps that have transparent or semitransparent pixels.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_AlphaBlend ( $hDestDC, $iXDest, $iYDest, $iWidthDest, $iHeightDest, $hSrcDC, $iXSrc, $iYSrc, $iWidthSrc, $iHeightSrc, $iAlpha [, $fAlpha] )
+
+###Parameters###
+@@ParamTable@@
+$hDestDC
+	Handle to the destination device context.
+$iXDest
+	The x-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+$iYDest
+	The y-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+$iWidthDest
+	The width, in logical units, of the destination rectangle.
+$iHeightDest
+	The height, in logical units, of the destination rectangle.
+$hSrcDC
+	Handle to the source device context.
+$iXSrc
+	The x-coordinate, in logical units, of the upper-left corner of the source rectangle.
+$iYSrc
+	The y-coordinate, in logical units, of the upper-left corner of the source rectangle.
+$iWidthSrc
+	The width, in logical units, of the source rectangle.
+$iHeightSrc
+	The height, in logical units, of the source rectangle.
+$iAlpha
+	The alpha transparency value to be used on the entire source bitmap. This value is combined with
+	any per-pixel alpha values in the source bitmap. If you set $iAlpha to 0, it is assumed that
+	your image is transparent. Set $iAlpha value to 255 (opaque) when you only want to use per-pixel
+	alpha values.
+$fAlpha
+	[可选参数] Specifies whether uses an Alpha channel from the source bitmap, valid values:
+		TRUE        - Use the Alpha channel (that is, per-pixel alpha). Note that the APIs use premultiplied alpha,
+	which means that the red, green and blue channel values in the bitmap must be premultiplied with the
+	alpha channel value. For example, if the alpha channel value is x, the red, green and blue channels
+	must be multiplied by x and divided by 255 prior to the call.
+		FALSE       - Do not use the Alpha channel. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+If the source rectangle and destination rectangle are not the same size, the source bitmap is stretched to
+match the destination rectangle. If the _WinAPI_SetStretchBltMode() function is used, the stretching mode value
+is automatically converted to $COLORONCOLOR for this function (that is, $BLACKONWHITE, $WHITEONBLACK, and
+$HALFTONE are changed to $COLORONCOLOR).
+
+If destination and source bitmaps do not have the same color format, _WinAPI_AlphaBlend() function converts
+the source bitmap to match the destination bitmap.
+
+
+###See Also###
+@@MsdnLink@@ GdiAlphaBlend
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,36 @@
+﻿###User Defined Function###
+_WinAPI_CoTaskMemRealloc
+
+###Description###
+Changes the size of a previously allocated block of task memory.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CoTaskMemRealloc ( $hMemory, $iSize )
+
+###Parameters###
+@@ParamTable@@
+$hMemory
+	The pointer to the memory block to be reallocated.
+$iSize
+	The size of the memory block to be reallocated, in bytes.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The reallocated memory block.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+If $hMemory is 0, function allocates a new memory block in the same way as the _WinAPI_CoTaskMemAlloc() function.
+If $hMemory is not 0, it should be a pointer returned by a prior call to _WinAPI_CoTaskMemAlloc().
+
+The contents of the block are unchanged up to the shorter of the new and old sizes, although the new block
+can be in a different location. If $hMemory is not 0 and $iSize is 0, then the memory pointed to by
+$hMemory is freed.
+
+
+###See Also###
+@@MsdnLink@@ CoTaskMemRealloc
+

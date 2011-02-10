@@ -1,0 +1,54 @@
+﻿###User Defined Function###
+_WinAPI_RegQueryValue
+
+###Description###
+Retrieves the type and data for the specified value name associated with an open registry key.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_RegQueryValue ( $hKey, $sValueName, ByRef $tValueData, $iBytes )
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to an open registry key. The key must have been opened with the KEY_QUERY_VALUE access right.
+	This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey() function. It can also
+	be one of the following predefined keys.
+	
+	$HKEY_CLASSES_ROOT
+	$HKEY_CURRENT_CONFIG
+	$HKEY_CURRENT_USER
+	$HKEY_LOCAL_MACHINE
+	$HKEY_PERFORMANCE_DATA
+	$HKEY_PERFORMANCE_NLSTEXT
+	$HKEY_PERFORMANCE_TEXT
+	$HKEY_USERS
+	
+$sValueName
+	The name of the registry value. If $sValueName is empty string, the function retrieves the type and
+	data for the key's unnamed or default value, if any.
+$tValueData
+	The structure (buffer) that receives the value's data.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The size of the data copied to $tValueData, in bytes, @extended flag will contain the code indicating
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+If the data has the REG_SZ, REG_MULTI_SZ or REG_EXPAND_SZ type, returned size includes any terminating null
+character or characters unless the data was stored without them.
+
+If the buffer specified by $tValueData parameter is not large enough to hold the data, the function returns
+ERROR_MORE_DATA (234) and returns the required buffer size. In this case, the contents of the buffer are
+undefined.
+
+
+###See Also###
+@@MsdnLink@@ RegQueryValueEx
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,60 @@
+﻿###User Defined Function###
+_WinAPI_BroadcastSystemMessage
+
+###Description###
+Sends a message to the specified recipients.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_BroadcastSystemMessage ( $iMessage [, $wParam [, $lParam [, $iFlags [, $iRecipients]]]] )
+
+###Parameters###
+@@ParamTable@@
+$iMessage
+	The message to be sent.
+$wParam
+	[可选参数] Additional message-specific information.
+$lParam
+	[可选参数] Additional message-specific information.
+$iFlags
+	[可选参数] The broadcast option. This parameter can be one or more of the following values.
+	
+	$BSF_ALLOWSFW
+	$BSF_FLUSHDISK
+	$BSF_FORCEIFHUNG
+	$BSF_IGNORECURRENTTASK
+	$BSF_NOHANG
+	$BSF_NOTIMEOUTIFNOTHUNG
+	$BSF_POSTMESSAGE
+	$BSF_QUERY
+	$BSF_SENDNOTIFYMESSAGE
+	
+$iRecipients
+	[可选参数] The recipients of the message. This parameter can be one or more of the following values.
+	
+	$BSM_ALLCOMPONENTS
+	$BSM_ALLDESKTOPS
+	$BSM_APPLICATIONS
+	$BSM_INSTALLABLEDRIVERS
+	$BSM_NETDRIVER
+	$BSM_VXDS
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1 or 0 (see below), @extended flag receives a combination of $BSM_* values identifying which
+Failure	(-1) and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+If the $iFlags parameter is $BSF_QUERY and at least one recipient returned BROADCAST_QUERY_DENY to the corresponding
+message, the return value is 0.
+
+The system only does marshalling for system messages (those in the range 0 to (WM_USER-1)). To send other messages
+(those >= WM_USER) to another process, you must do custom marshalling.
+
+
+###See Also###
+@@MsdnLink@@ BroadcastSystemMessage
+

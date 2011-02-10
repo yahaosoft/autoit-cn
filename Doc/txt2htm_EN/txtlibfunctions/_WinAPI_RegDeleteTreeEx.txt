@@ -1,0 +1,43 @@
+﻿###User Defined Function###
+_WinAPI_RegDeleteTreeEx
+
+###Description###
+Deletes the subkeys and values of the specified key recursively.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_RegDeleteTreeEx ( $hKey [, $sSubKey] )
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to an open registry key. The key must have been opened with the following access rights:
+	$DELETE, $KEY_ENUMERATE_SUB_KEYS, and $KEY_QUERY_VALUE. This handle is returned by the _WinAPI_RegCreateKey()
+	or _WinAPI_RegOpenKey() function, or it can be one of the following predefined keys.
+	
+	$HKEY_CLASSES_ROOT
+	$HKEY_CURRENT_CONFIG
+	$HKEY_CURRENT_USER
+	$HKEY_LOCAL_MACHINE
+	$HKEY_USERS
+	
+$sSubKey
+	[可选参数] The name of the key to delete. This key must be a subkey of the key identified by the $hKey parameter.
+	If this parameter is not specified, the subkeys and values of $hKey are deleted.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+If the key has values, it must be opened with $KEY_SET_VALUE or this function will fail.
+
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ RegDeleteTree
+

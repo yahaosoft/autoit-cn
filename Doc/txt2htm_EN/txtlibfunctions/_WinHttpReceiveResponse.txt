@@ -1,0 +1,35 @@
+﻿###User Defined Function###
+_WinHttpReceiveResponse
+
+###Description###
+Waits to receive the response to an HTTP request initiated by WinHttpSendRequest().
+
+###Syntax###
+#Include <WinHttp.au3>
+_WinHttpReceiveResponse($hRequest)
+
+###Parameters###
+@@ParamTable@@
+$hRequest
+	Handle returned by _WinHttpOpenRequest() and sent by _WinHttpSendRequest().
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Returns 1.
+Failure	Returns 0 and sets @error:
+	1 - DllCall failed
+@@End@@
+
+###Remarks###
+Call to _WinHttpReceiveResponse() must be done before _WinHttpQueryDataAvailable() and _WinHttpReadData().
+###Related###
+<a href="_WinHttpOpenRequest.htm">_WinHttpOpenRequest</a>, <a href="_WinHttpSetTimeouts.htm">_WinHttpSetTimeouts</a>
+
+
+###See Also###
+http://msdn.microsoft.com/en-us/library/aa384105(VS.85).aspx
+
+###Example###
+@@IncludeExample@@
+

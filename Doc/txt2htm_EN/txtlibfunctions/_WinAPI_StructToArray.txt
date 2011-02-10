@@ -1,0 +1,35 @@
+﻿###User Defined Function###
+_WinAPI_StructToArray
+
+###Description###
+Converts the structure to the array of strings.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_StructToArray ( $pStruct [, $iItems] )
+
+###Parameters###
+@@ParamTable@@
+$pStruct
+	The pointer to the structure to convert. This structure should be same as for _WinAPI_ArrayToStruct().
+$iItems
+	[可选参数] The number of strings that contains the structure. If this parameter is 0, the end of the structure
+	determined by a double null-terminated character ("... ;{0};{0}").
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The array of strings. The zeroth array element contains the number of strings.
+Failure	0 and sets the @error flag to one of the following values:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1	$pStruct is not a correct pointer.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2	Failed to allocate the memory.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3	Size of the structure exceeds the allowable size (32 KB).
+@@End@@
+
+###Remarks###
+This function works for Unicode strings only.
+
+
+###See Also###
+None
+

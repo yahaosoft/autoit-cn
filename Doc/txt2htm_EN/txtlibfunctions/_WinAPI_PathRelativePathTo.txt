@@ -1,0 +1,49 @@
+﻿###User Defined Function###
+_WinAPI_PathRelativePathTo
+
+###Description###
+Creates a relative path from one file or folder to another.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_PathRelativePathTo ( $sPathFrom, $fDirFrom, $sPathTo, $fDirTo )
+
+###Parameters###
+@@ParamTable@@
+$sPathFrom
+	The path to the file or directory that defines the start of the relative path.
+$fDirFrom
+	Specifies whether is $sPathFrom path to the directory, valid values:
+		TRUE      - Directory.
+		FALSE     - File.
+$sPathTo
+	The path to the file or directory that defines the endpoint of the relative path.
+$fDirTo
+	Specifies whether is $fDirTo path to the directory, valid values:
+		TRUE      - Directory.
+		FALSE     - File.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The relative path.
+Failure	Empty string and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function takes a pair of paths and generates a relative path from one to the other. The paths do not have
+to be fully-qualified, but they must have a common prefix, otherwise, the function fails.
+
+For example, let the starting point, $sPathFrom, be "C:\A\B\C", and the ending point, $sPathTo, be "C:\A\D".
+_WinAPI_PathRelativePathTo() will return the relative path from $sPathFrom to $sPathTo as: "..\..\D\E". You will
+get the same result if you set $sPathFrom to "\A\B\C" and $sPathTo to "\A\D\E". On the other hand, "C:\A\B\C"
+and "D:\A\D" do not share a common prefix, and the function will fail. Note that "\" is not considered a prefix
+and is ignored. If you set $sPathFrom to "\\A\B\C", and $sPathTo to "\\C\D", the function will fail.
+
+
+###See Also###
+@@MsdnLink@@ PathRelativePathTo
+
+###Example###
+@@IncludeExample@@
+

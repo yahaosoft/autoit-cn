@@ -1,0 +1,38 @@
+﻿###User Defined Function###
+_WinHttpSimpleReadData
+
+###Description###
+Reads data from a request
+
+###Syntax###
+#Include <WinHttp.au3>
+_WinHttpSimpleReadData($hRequest [, $iMode = Default ])
+
+###Parameters###
+@@ParamTable@@
+$hRequest
+	request handle after _WinHttpReceiveResponse
+$iMode
+	[可选参数] type of data returned (default: 0)
+		0 - ASCII-String
+		1 - UTF-8-String
+		2 - binary data
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	String or binary depending on $iMode
+Failure	empty string or empty binary (mode 2) and set @error
+	1 - invalid mode
+	2 - no data availbale
+@@End@@
+
+###Remarks###
+None.
+###Related###
+<a href="_WinHttpReadData.htm">_WinHttpReadData</a>, <a href="_WinHttpSimpleRequest.htm">_WinHttpSimpleRequest</a>, <a href="_WinHttpSimpleSSLRequest.htm">_WinHttpSimpleSSLRequest</a>
+
+
+###Example###
+@@IncludeExample@@
+

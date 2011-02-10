@@ -1,0 +1,54 @@
+﻿###User Defined Function###
+_WinAPI_CreateSemaphore
+
+###Description###
+Creates or opens a named or unnamed semaphore object.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateSemaphore ( $sSemaphore, $iInitial, $iMaximum [, $tSecurity] )
+
+###Parameters###
+@@ParamTable@@
+$sSemaphore
+	The name of the semaphore to be opened. Name comparisons are case sensitive.
+$iInitial
+	The initial count for the semaphore object. This value must be greater than or equal to zero and
+	less than or equal to $iMaximum.
+$iMaximum
+	The maximum count for the semaphore object. This value must be greater than zero.
+$tSecurity
+	[可选参数] $tagSECURITY_ATTRIBUTES structure that specifies a security descriptor for the new semaphore.
+	If this parameter is 0, the semaphore gets a default security descriptor.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The handle to the newly created semaphore object.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+If the named semaphore object existed before the function call, the function returns a handle to the existing object.
+
+Any process can specify the semaphore-object handle in a call to _WinAPI_WaitFor... functions. The single-object
+wait functions return when the state of the specified object is signaled. The multiple-object wait functions can
+be instructed to return either when any one or when all of the specified objects are signaled. When a wait function
+returns, the waiting process is released to continue its execution.
+
+The state of a semaphore object is signaled when its count is greater than zero, and nonsignaled when its count
+is equal to zero. The $iInitial parameter specifies the initial count. Each time a waiting process is released
+because of the semaphore's signaled state, the count of the semaphore is decreased by one. Use the _WinAPI_ReleaseSemaphore()
+function to increment a semaphore's count by a specified amount. The count can never be less than zero or greater
+than the value specified in the $iMaximum parameter.
+
+Use the _WinAPI_CloseHandle() function to close the handle. The system closes the handle automatically when the
+process terminates. The semaphore object is destroyed when its last handle has been closed.
+
+
+###See Also###
+@@MsdnLink@@ CreateSemaphore
+
+###Example###
+@@IncludeExample@@
+

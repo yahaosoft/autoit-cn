@@ -1,0 +1,43 @@
+﻿###User Defined Function###
+_WinAPI_UnmapViewOfFile
+
+###Description###
+Unmaps a mapped view of a file from the calling process's address space.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_UnmapViewOfFile ( $pAddress )
+
+###Parameters###
+@@ParamTable@@
+$pAddress
+	A pointer to the base address of the mapped view of a file that is to be unmapped. This value must be
+	identical to the value returned by a previous call to the _WinAPI_MapViewOfFile() function.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+Unmapping a mapped view of a file invalidates the range occupied by the view in the address space of the process
+and makes the range available for other allocations. It removes the working set entry for each unmapped virtual page
+that was part of the working set of the process and reduces the working set size of the process. It also
+decrements the share count of the corresponding physical page.
+
+Although an application may close the file handle used to create a file mapping object, the system holds the
+corresponding file open until the last view of the file is unmapped. Files for which the last view has not
+yet been unmapped are held open with no sharing restrictions.
+
+To minimize the risk of data loss in the event of a power failure or a system crash, you should explicitly flush
+modified pages using the _WinAPI_FlushViewOfFile() function.
+
+
+###See Also###
+@@MsdnLink@@ UnmapViewOfFile
+
+###Example###
+@@IncludeExample@@
+

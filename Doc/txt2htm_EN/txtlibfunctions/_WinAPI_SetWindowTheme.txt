@@ -1,0 +1,42 @@
+﻿###User Defined Function###
+_WinAPI_SetWindowTheme
+
+###Description###
+Causes a window to use a different set of visual style information than its class normally uses.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SetWindowTheme ( $hWnd [, $sName [, $sList]] )
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window whose visual style information is to be changed.
+$sName
+	[可选参数] A string that contains the application name. If this parameter is 0, the calling application's name is used.
+$sList
+	[可选参数] A string that contains a semicolon-separated list of CLSID names to use in place of the actual list
+	passed by the window's class. If this parameter is 0, the ID list from the calling class is used.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+The theme manager retains the $sName and the $sList associations through the lifetime of the window, even
+if visual styles subsequently change.
+
+When $sName and $sList are 0, the theme manager removes the previously applied associations. To prevent visual
+styles from being applied to a specified window, pass an empty string ("") which will not match any section
+entries.
+
+
+###See Also###
+@@MsdnLink@@ SetWindowTheme
+
+###Example###
+@@IncludeExample@@
+

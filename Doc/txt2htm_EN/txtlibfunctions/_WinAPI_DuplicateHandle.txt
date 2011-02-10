@@ -1,0 +1,52 @@
+﻿###User Defined Function###
+_WinAPI_DuplicateHandle
+
+###Description###
+Duplicates an object handle.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_DuplicateHandle ( $hProcess, $hSource, $hTarget [, $iAccess [, $iOptions [, $fInherit]]] )
+
+###Parameters###
+@@ParamTable@@
+$hProcess
+	Handle to the process with the handle to be duplicated. The handle must have the $PROCESS_DUP_HANDLE access right.
+$hSource
+	Handle to be duplicated. This is an open object handle that is valid in the context of the source process.
+$hTarget
+	Handle to the process that is to receive the duplicated handle. The handle must have the
+	$PROCESS_DUP_HANDLE access right.
+$iAccess
+	[可选参数] The access requested for the new handle.
+$iOptions
+	[可选参数] Optional actions. This parameter can be zero, or any combination of the following values.
+	
+	$DUPLICATE_CLOSE_SOURCE
+	$DUPLICATE_SAME_ACCESS
+	
+$fInherit
+	[可选参数] Specifies whether the handle is inheritable, valid values:
+		TRUE     - The duplicate handle can be inherited by new processes created by the target process.
+		FALSE    - The new handle cannot be inherited. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The duplicate handle. This handle is valid in the context of the target process.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The duplicate handle refers to the same object as the original handle. Therefore, any changes to the object are
+reflected through both handles. For example, if you duplicate a file handle, the current file position is always
+the same for both handles. For file handles to have different file positions, use the _WinAPI_CreateFile()
+function to create file handles that share access to the same file.
+
+
+###See Also###
+@@MsdnLink@@ DuplicateHandle
+
+###Example###
+@@IncludeExample@@
+

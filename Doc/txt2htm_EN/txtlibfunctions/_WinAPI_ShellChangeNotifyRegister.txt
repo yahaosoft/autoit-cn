@@ -1,0 +1,58 @@
+﻿###User Defined Function###
+_WinAPI_ShellChangeNotifyRegister
+
+###Description###
+Registers a window to receive notifications from the file system or Shell.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ShellChangeNotifyRegister ( $hWnd, $iMsg, $iEvents, $iSources, $aPaths [, $fRecursive] )
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window that receives the change or notification messages.
+$iMsg
+	Message to be posted to the window procedure.
+$iEvents
+	Change notification events for which to receive notification. This parameter can be one or more
+	of the $SHCNE_* values.
+$iSources
+	One or more of the following values that indicate the type of events for which to receive
+	notifications.
+	
+	$SHCNRF_INTERRUPTLEVEL
+	$SHCNRF_SHELLLEVEL
+	$SHCNRF_RECURSIVEINTERRUPT
+	$SHCNRF_NEWDELIVERY
+	
+$aPaths
+	Single path or array of paths for which to receive notifications. These names should be
+	fully-qualified paths to prevent unexpected results.
+$fRecursive
+	[可选参数] Specifies whether to post notifications for children paths in $aPaths parameter, valid values:
+		TRUE       - Notifications would come from the folder's children.
+		FALSE      - Notifications would come from the specified folder's only. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The registration ID.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+When a change notification event is raised, the message indicated by $iMsg is delivered to the window specified
+by the $hWnd parameter. (See example)
+
+For performance reasons, multiple notifications can be combined into a single notification. For example,
+if a large number of $SHCNE_UPDATEITEM notifications are generated for files in the same folder, they can be
+joined into a single $SHCNE_UPDATEDIR notification.
+
+
+###See Also###
+@@MsdnLink@@ SHChangeNotifyRegister
+
+###Example###
+@@IncludeExample@@
+

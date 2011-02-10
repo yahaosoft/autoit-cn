@@ -1,0 +1,39 @@
+﻿###User Defined Function###
+_WinHttpGetIEProxyConfigForCurrentUser
+
+###Description###
+Retrieves the Internet Explorer proxy configuration for the current user.
+
+###Syntax###
+#Include <WinHttp.au3>
+_WinHttpGetIEProxyConfigForCurrentUser()
+
+###Parameters###
+@@ParamTable@@
+None.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Returns array with 4 elements:
+	$array[0] - if 1 indicates that the Internet Explorer proxy configuration for the current user specifies "automatically detect settings",
+	$array[1] - auto-configuration URL if the Internet Explorer proxy configuration for the current user specifies "Use automatic proxy configuration",
+	$array[2] - proxy URL if the Internet Explorer proxy configuration for the current user specifies "use a proxy server",
+	$array[3] - optional proxy by-pass server list.
+Failure	Returns 0 and sets @error:
+	1 - DllCall failed
+	2 - Internal failure.
+@@End@@
+
+###Remarks###
+None.
+###Related###
+<a href="_WinHttpDetectAutoProxyConfigUrl.htm">_WinHttpDetectAutoProxyConfigUrl</a>, <a href="_WinHttpGetDefaultProxyConfiguration.htm">_WinHttpGetDefaultProxyConfiguration</a>, <a href="_WinHttpSetDefaultProxyConfiguration.htm">_WinHttpSetDefaultProxyConfiguration</a>
+
+
+###See Also###
+http://msdn.microsoft.com/en-us/library/aa384096(VS.85).aspx
+
+###Example###
+@@IncludeExample@@
+

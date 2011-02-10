@@ -1,0 +1,33 @@
+﻿###User Defined Function###
+_WinAPI_GetFileTitle
+
+###Description###
+Retrieves the name of the specified file.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetFileTitle ( $sFile )
+
+###Parameters###
+@@ParamTable@@
+$sFile
+	The name and location of a file.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The name of the file.
+Failure	Empty string and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+_WinAPI_GetFileTitle() should only be called with legal file namesusing an illegal file name has an undefined result.
+
+_WinAPI_GetFileTitle() returns the string that the system would use to display the file name to the user.
+The display name includes an extension only if that is the user's preference for displaying file names. This means
+that the returned string may not accurately identify the file if it is used in calls to file system functions.
+
+
+###See Also###
+@@MsdnLink@@ GetFileTitle
+

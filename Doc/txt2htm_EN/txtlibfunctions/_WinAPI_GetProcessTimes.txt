@@ -1,0 +1,35 @@
+﻿###User Defined Function###
+_WinAPI_GetProcessTimes
+
+###Description###
+Retrieves timing information for the specified process.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetProcessTimes ( [$PID] )
+
+###Parameters###
+@@ParamTable@@
+$PID
+	[可选参数] The PID of the process. Default (0) is the current process.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The array that contains the following information.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0]	$tagFILETIME structure that contains the creation time of the process.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1]	The time that the process has executed in kernel mode, in 100-nanosecond time units.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2]	The time that the process has executed in user mode, in 100-nanosecond time units.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ GetProcessTimes
+
+###Example###
+@@IncludeExample@@
+

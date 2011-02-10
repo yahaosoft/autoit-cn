@@ -1,0 +1,95 @@
+﻿###User Defined Function###
+_WinAPI_ShellFileOperation
+
+###Description###
+Copies, moves, renames, or deletes a file system object.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ShellFileOperation ( $sFrom, $sTo, $iFunc, $iFlags [, $sTitle [, $hParent]] )
+
+###Parameters###
+@@ParamTable@@
+$sFrom
+	Single string or array of string that contains the source file name(s). These names should be
+	fully-qualified paths to prevent unexpected results.
+$sTo
+	Single string or array of string that contains the destination file or directory name(s) (if used).
+	These names should be fully-qualified paths to prevent unexpected results.
+$iFunc
+	A value that indicates which operation to perform. This parameter can be one of the following values.
+	
+	$FO_COPY
+	$FO_DELETE
+	$FO_MOVE
+	$FO_RENAME
+	
+$iFlags
+	Flags that control the file operation. This parameter can be one of the following values.
+	
+	$FOF_ALLOWUNDO
+	$FOF_CONFIRMMOUSE
+	$FOF_FILESONLY
+	$FOF_MULTIDESTFILES
+	$FOF_NOCONFIRMATION
+	$FOF_NOCONFIRMMKDIR
+	$FOF_NO_CONNECTED_ELEMENTS
+	$FOF_NOCOPYSECURITYATTRIBS
+	$FOF_NOERRORUI
+	$FOF_NORECURSEREPARSE
+	$FOF_NORECURSION
+	$FOF_RENAMEONCOLLISION
+	$FOF_SILENT
+	$FOF_SIMPLEPROGRESS
+	$FOF_WANTMAPPINGHANDLE
+	$FOF_WANTNUKEWARNING
+	$FOF_NO_UI
+	
+$sTitle
+	[可选参数] The title of a progress dialog box. This parameter is used only if $iFlags includes the $FOF_SIMPLEPROGRESS flag.
+$hParent
+	[可选参数] Handle to the dialog box to display information about the status of the file operation.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	$tagSHFILEOPSTRUCT structure that contains the additional information.
+Failure	0 and sets the @error flag to the one of the following values.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1	AutoIt inherent error.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;113	The source and destination files are the same file.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;114	Multiple file paths were specified in the source buffer, but only one destination file path.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;115	Rename operation was specified but the destination path is a different directory. Use the move operation instead.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;116	The source is a root directory, which cannot be moved or renamed.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;117	The operation was cancelled by the user, or silently cancelled if the appropriate flags were supplied to _WinAPI_ShellFileOperation().
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;118	The destination is a subtree of the source.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120	Security settings denied access to the source.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;121	The source or destination path exceeded or would exceed MAX_PATH.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;122	The operation involved multiple destination paths, which can fail in the case of a move operation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;124	The path in the source or destination or both was invalid.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;125	The source and destination have the same parent folder.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;126	The destination path is an existing file.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;128	The destination path is an existing folder.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;129	The name of the file exceeds MAX_PATH.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130	The destination is a read-only CD-ROM, possibly unformatted.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;131	The destination is a read-only DVD, possibly unformatted.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;132	The destination is a writable CD-ROM, possibly unformatted.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;133	The file involved in the operation is too large for the destination media or file system.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;134	The source is a read-only CD-ROM, possibly unformatted.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;135	The source is a read-only DVD, possibly unformatted.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;136	The source is a writable CD-ROM, possibly unformatted.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;183	MAX_PATH was exceeded during the operation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1026	An unknown error occurred. This is typically due to an invalid path in the source or destination.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;65536	An unspecified error occurred on the destination.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;65652	Destination is a root directory and cannot be renamed.
+@@End@@
+
+###Remarks###
+You should use fully-qualified path names with this function. Using it with relative path names is not thread safe.
+
+
+###See Also###
+@@MsdnLink@@ SHFileOperation
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,61 @@
+﻿###User Defined Function###
+_WinAPI_MessageBoxCheck
+
+###Description###
+Displays a message box that gives the user the option of suppressing further occurrences.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_MessageBoxCheck ( $iType, $sTitle, $sText, $sRegVal [, $iDefault [, $hParent]] )
+
+###Parameters###
+@@ParamTable@@
+$iType
+	The flags that specify the contents and behavior of the message box.
+	
+	You must specify the buttons to be displayed by setting one and only one of the following flags.
+	
+	$MB_OK
+	$MB_OKCANCEL
+	$MB_YESNO
+	
+	You can display an optional icon by setting one and only one of the following flags.
+	
+	$MB_ICONEXCLAMATION
+	$MB_ICONHAND
+	$MB_ICONINFORMATION
+	$MB_ICONQUESTION
+	
+$sTitle
+	The string that contains the title of the message box.
+$sText
+	The string that contains the message to be displayed.
+$sRegVal
+	The string that contains a unique string value to associate with this message.
+$iDefault
+	[可选参数] The value that the function returns when the user has opted not to have the message box displayed
+	again. If the user has not opted to suppress the message box, the message box is displayed and
+	the function ignores $iDefault.
+$hParent
+	[可选参数] The window handle to the message box's owner.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	If the user has already chosen to suppress the message box, the function immediately returns the
+Failure	(-1) and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function records the message boxes that the user has chosen to suppress under the following registry key.
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\LowRegistry\DontShowMeThisDialogAgain
+
+
+
+###See Also###
+@@MsdnLink@@ SHMessageBoxCheck
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,58 @@
+﻿###User Defined Function###
+_WinAPI_AdjustTokenPrivileges
+
+###Description###
+Enables or disables privileges in the specified access token.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_AdjustTokenPrivileges ( $hToken, $aPrivileges, $iState )
+
+###Parameters###
+@@ParamTable@@
+$hToken
+	Handle to the access token that contains the privileges to be modified. The handle must have
+	$TOKEN_ADJUST_PRIVILEGES and $TOKEN_QUERY accesses to the token.
+$aPrivileges
+	The variable that specifies a privileges. If this parameter is (-1), the function disables of the token's
+	privileges and ignores the $iState parameter. $aPrivileges can be one of the following types.
+	
+	Single privileges constants ($SE_*).
+	1D array of $SE_* constants.
+	2D array of $SE_* constants and their attributes (see $iState).
+	
+	[0][0] - Privilege
+	[0][1] - Attribute
+	[n][0] - Privilege
+	[n][1] - Attribute
+	
+$iState
+	The privilege attribute. If $aPrivileges parameter is 1D array, $iState applied to the entire
+	array. If $aPrivileges parameter is (-1) or 2D array, the function ignores this parameter and will
+	use the attributes specified in the array. This parameter can be one of the following values.
+	
+	0 - The privilege is disabled.
+	1 - The privilege is enabled.
+	2 - The privilege is enabled by default.
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	If $aPrivileges is a single $SE_* constant, returns a previous privilege attribute (0 or 1),
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0	The function adjusted all specified privileges.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1	The token does not have one or more of the privileges specified in the $aPrivileges parameter.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function cannot add new privileges to the access token. It can only enable or disable the token's
+existing privileges.
+
+
+###See Also###
+@@MsdnLink@@ AdjustTokenPrivileges
+
+###Example###
+@@IncludeExample@@
+

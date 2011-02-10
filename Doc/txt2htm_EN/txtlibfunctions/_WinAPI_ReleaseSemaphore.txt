@@ -1,0 +1,37 @@
+﻿###User Defined Function###
+_WinAPI_ReleaseSemaphore
+
+###Description###
+Increases the count of the specified semaphore object by a specified amount.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ReleaseSemaphore ( $hSemaphore [, $iIncrease] )
+
+###Parameters###
+@@ParamTable@@
+$hSemaphore
+	Handle to the semaphore object. The _WinAPI_CreateSemaphore() or _WinAPI_OpenSemaphore() function
+	returns this handle.
+$iIncrease
+	[可选参数] The amount by which the semaphore object's current count is to be increased. The value must be greater
+	than zero. If the specified amount would cause the semaphore's count to exceed the maximum count that
+	was specified when the semaphore was created, the count is not changed and the function returns 0.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The previous count for the semaphore.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The state of a semaphore object is signaled when its count is greater than zero and nonsignaled when its count
+is equal to zero. The process that calls the _WinAPI_CreateSemaphore() function specifies the semaphore's initial
+count. Each time a waiting process is released because of the semaphore's signaled state, the count of the
+semaphore is decreased by one.
+
+
+###See Also###
+@@MsdnLink@@ ReleaseSemaphore
+

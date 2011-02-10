@@ -1,0 +1,56 @@
+﻿###User Defined Function###
+_WinAPI_MaskBlt
+
+###Description###
+Combines the color data for the source and destination bitmaps using the specified mask and raster operation.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_MaskBlt ( $hDestDC, $iXDest, $iYDest, $iWidth, $iHeight, $hSrcDC, $iXSrc, $iYSrc, $hMask, $iXMask, $iYMask, $iRop )
+
+###Parameters###
+@@ParamTable@@
+$hDestDC
+	Handle to the destination device context.
+$iXDest
+	The x-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+$iYDest
+	The y-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+$iWidth
+	The width, in logical units, of the destination rectangle and source bitmap.
+$iHeight
+	The height, in logical units, of the destination rectangle and source bitmap.
+$hSrcDC
+	Handle to the device context from which the bitmap is to be copied.
+$iXSrc
+	The x-coordinate, in logical units, of the upper-left corner of the source bitmap.
+$iYSrc
+	The y-coordinate, in logical units, of the upper-left corner of the source bitmap.
+$hMask
+	Handle to the monochrome mask bitmap combined with the color bitmap in the source device context.
+$iXMask
+	The horizontal pixel offset for the mask bitmap specified by the hbmMask parameter.
+$iYMask
+	The vertical pixel offset for the mask bitmap specified by the hbmMask parameter.
+$iRop
+	The raster-operation code (same as for _WinAPI_BitBlt()).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+A value of 1 in the mask specified by $hMask indicates that the foreground raster operation code specified by
+$iRop should be applied at that location. A value of 0 in the mask indicates that the background raster operation
+code specified by $iRop should be applied at that location.
+
+If no mask bitmap is supplied, this function behaves exactly like _WinAPI_BitBlt(), using the foreground raster
+operation code.
+
+
+###See Also###
+@@MsdnLink@@ MaskBlt
+

@@ -1,0 +1,41 @@
+﻿###User Defined Function###
+_WinAPI_RegDeleteKey
+
+###Description###
+Deletes a subkey and its values.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_RegDeleteKey ( $hKey [, $sSubKey] )
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to an open registry key. The access rights of this key do not affect the delete operation.
+	This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey() function, or it can be
+	one of the following predefined keys.
+	
+	$HKEY_CLASSES_ROOT
+	$HKEY_CURRENT_CONFIG
+	$HKEY_CURRENT_USER
+	$HKEY_LOCAL_MACHINE
+	$HKEY_USERS
+	
+$sSubKey
+	[可选参数] The name of the key to be deleted. It must be a subkey of the key that $hKey identifies, but it
+	cannot have subkeys.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+A deleted key is not removed until the last handle to it is closed.
+
+
+###See Also###
+@@MsdnLink@@ RegDeleteKey
+

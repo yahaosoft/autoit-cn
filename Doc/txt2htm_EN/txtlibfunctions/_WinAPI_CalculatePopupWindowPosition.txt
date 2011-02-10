@@ -1,0 +1,56 @@
+﻿###User Defined Function###
+_WinAPI_CalculatePopupWindowPosition
+
+###Description###
+Calculates an appropriate pop-up window position.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CalculatePopupWindowPosition ( $iX, $iY, $iWidth, $iHeight [, $iFlags [, $tExclude]] )
+
+###Parameters###
+@@ParamTable@@
+$iX
+	The x-coordinate, in logical units, of the specified anchor point.
+$iY
+	The y-coordinate, in logical units, of the specified anchor point.
+$iWidth
+	The width, in logical units, of the specified window.
+$iHeight
+	The height, in logical units, of the specified window.
+$iFlags
+	[可选参数] The flags that specify how the function positions the pop-up window horizontally and vertically.
+	
+	$TPM_CENTERALIGN
+	$TPM_LEFTALIGN
+	$TPM_RIGHTALIGN
+	
+	$TPM_BOTTOMALIGN
+	$TPM_TOPALIGN
+	$TPM_VCENTERALIGN
+	
+	$TPM_HORIZONTAL
+	$TPM_VERTICAL
+	
+	$TPM_WORKAREA
+	
+$tExclude
+	[可选参数] $tagRECT structure that specifies the exclude rectangle.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	$tagRECT structure that specifies the pop-up window position.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function requires Windows 7 or later.
+
+
+###See Also###
+@@MsdnLink@@ CalculatePopupWindowPosition
+
+###Example###
+@@IncludeExample@@
+

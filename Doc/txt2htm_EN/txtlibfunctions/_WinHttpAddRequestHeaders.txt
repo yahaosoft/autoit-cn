@@ -1,0 +1,39 @@
+﻿###User Defined Function###
+_WinHttpAddRequestHeaders
+
+###Description###
+添加一个或者多个 HTTP 请求头到 HTTP 请求句柄.
+
+###Syntax###
+#Include <WinHttp.au3>
+_WinHttpAddRequestHeaders ($hRequest, $sHeaders [, $iModifiers = Default ])
+
+###Parameters###
+@@ParamTable@@
+$hRequest
+	Handle returned by _WinHttpOpenRequest function.
+$sHeader
+	[optional] Header(s) to append to the request.
+$iModifier
+	[可选参数] Contains the flags used to modify the semantics of this function. Default is $WINHTTP_ADDREQ_FLAG_ADD_IF_NEW.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Returns 1
+Failure	Returns 0 and sets @error:
+	1 - DllCall failed
+@@End@@
+
+###Remarks###
+In case of multiple additions at once, must use @CRLF to separate each $hRequest and responded $sHeaders and $iModifiers.
+###Related###
+<a href="_WinHttpOpenRequest.htm">_WinHttpOpenRequest</a>, <a href="_WinHttpQueryHeaders.htm">_WinHttpQueryHeaders</a>
+
+
+###See Also###
+http://msdn.microsoft.com/en-us/library/aa384087(VS.85).aspx
+
+###Example###
+@@IncludeExample@@
+

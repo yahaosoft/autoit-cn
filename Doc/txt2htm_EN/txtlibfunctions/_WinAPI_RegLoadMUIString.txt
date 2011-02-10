@@ -1,0 +1,50 @@
+﻿###User Defined Function###
+_WinAPI_RegLoadMUIString
+
+###Description###
+Loads the specified string from the specified key and subkey.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_RegLoadMUIString ( $hKey, $sValueName [, $sDirectory] )
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to an open registry key. The key must have been opened with the $KEY_QUERY_VALUE access right.
+	This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey() function. It can also
+	be one of the following predefined keys.
+	
+	$HKEY_CLASSES_ROOT
+	$HKEY_CURRENT_CONFIG
+	$HKEY_CURRENT_USER
+	$HKEY_LOCAL_MACHINE
+	$HKEY_USERS
+	
+$sValueName
+	The name of the registry value.
+$sDirectory
+	[可选参数] The directory path.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The loaded string.
+Failure	Empty string and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+The strings of the following form receive special handling:
+
+@[path]\dllname,-strID
+
+The string with identifier strID is loaded from dllnamethe path is optional. If the $sDirectory parameter is
+empty string, the directory is prepended to the path specified in the registry data. Note that dllname can contain
+environment variables to be expanded.
+
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ RegLoadMUIString
+

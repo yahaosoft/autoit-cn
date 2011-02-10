@@ -1,0 +1,38 @@
+﻿###User Defined Function###
+_WinAPI_UnregisterClass
+
+###Description###
+Unregisters a window class, freeing the memory required for the class.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_UnregisterClass ( $sClass [, $hInstance] )
+
+###Parameters###
+@@ParamTable@@
+$sClass
+	A null-terminated string or a class atom. If $sClass is a string, it specifies the window class
+	name. This class name must have been registered by a previous call to the _WinAPI_RegisterClass()
+	or _WinAPI_RegisterClassEx() function. If this parameter is an atom, it must be in the low-order
+	word of $sClass; the high-order word must be zero.
+$hInstance
+	[可选参数] Handle to the instance of the module that created the class.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+Before calling this function, an application must destroy all windows created with the specified class.
+All window classes that an application registers are unregistered when it terminates.
+
+
+###See Also###
+@@MsdnLink@@ UnregisterClass
+
+###Example###
+@@IncludeExample@@
+

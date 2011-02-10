@@ -1,0 +1,38 @@
+﻿###User Defined Function###
+_WinAPI_DllGetVersion
+
+###Description###
+Retrieves a DLL-specific version information.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_DllGetVersion ( $sPath )
+
+###Parameters###
+@@ParamTable@@
+$sPath
+	The path to the DLL file from which information is retrieved.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The array containing the following information:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0]	The major version.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1]	The minor version.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2]	The build number.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3]	The platform for which the DLL was built ($DLLVER_PLATFORM_*).
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+This function is not an API. It is exported by name from each DLL that implements it. Currently, most of the Windows Shell
+and common controls DLLs implement DllGetVersion. These include, but are not limited to, shell32.dll, comctl32.dll,
+shdocvw.dll, and shlwapi.dll.
+
+
+###See Also###
+@@MsdnLink@@ DllGetVersion
+
+###Example###
+@@IncludeExample@@
+

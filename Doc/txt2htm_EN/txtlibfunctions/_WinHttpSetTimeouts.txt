@@ -1,0 +1,47 @@
+﻿###User Defined Function###
+_WinHttpSetTimeouts
+
+###Description###
+Sets time-outs involved with HTTP transactions.
+
+###Syntax###
+#Include <WinHttp.au3>
+_WinHttpSetTimeouts($hInternet [, $iResolveTimeout = Default [, $iConnectTimeout = Default [, $iSendTimeout = Default [, $iReceiveTimeout = Default ]]]])
+
+###Parameters###
+@@ParamTable@@
+$hInternet
+	Handle returned by _WinHttpOpen() or _WinHttpOpenRequest().
+$iResolveTimeout
+	[可选参数] Time-out value, in milliseconds, to use for name resolution. Default is 0 ms.
+$iConnectTimeout
+	[可选参数] Time-out value, in milliseconds, to use for server connection requests. Default is 60000 ms.
+$iSendTimeout
+	[可选参数] Time-out value, in milliseconds, to use for sending requests. Default is 30000 ms.
+$iReceiveTimeout
+	[可选参数] Time-out value, in milliseconds, to receive a response to a request. Default is 30000 ms.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Returns 1.
+Failure	Returns 0 and sets @error:
+	1 - DllCall failed
+@@End@@
+
+###Remarks###
+Initial values are:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- $iResolveTimeout = 0
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- $iConnectTimeout = 60000
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- $iSendTimeout = 30000
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- $iReceiveTimeout = 30000
+###Related###
+<a href="_WinHttpReceiveResponse.htm">_WinHttpReceiveResponse</a>
+
+
+###See Also###
+http://msdn.microsoft.com/en-us/library/aa384116(VS.85).aspx
+
+###Example###
+@@IncludeExample@@
+

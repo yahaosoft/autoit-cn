@@ -1,0 +1,32 @@
+﻿###User Defined Function###
+_WinAPI_EndDeferWindowPos
+
+###Description###
+Simultaneously updates the position and size of one or more windows in a single screen-refreshing cycle.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_EndDeferWindowPos ( $hInfo )
+
+###Parameters###
+@@ParamTable@@
+$hInfo
+	Handle to a multiple-window-position structure that contains size and position information for one or
+	more windows. This internal structure is returned by the _WinAPI_BeginDeferWindowPos() function or by
+	the most recent call to the _WinAPI_DeferWindowPos() function.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The _WinAPI_EndDeferWindowPos() function sends the WM_WINDOWPOSCHANGING and WM_WINDOWPOSCHANGED messages to
+each window identified in the internal structure.
+
+
+###See Also###
+@@MsdnLink@@ EndDeferWindowPos
+

@@ -1,0 +1,42 @@
+﻿###User Defined Function###
+_WinAPI_GetProcessMemoryInfo
+
+###Description###
+Retrieves information about the memory usage of the specified process.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetProcessMemoryInfo ( [$PID] )
+
+###Parameters###
+@@ParamTable@@
+$PID
+	[可选参数] The PID of the process. Default (0) is the current process.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The array that contains the following information.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0]	The number of page faults.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1]	The peak working set size, in bytes.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2]	The current working set size, in bytes.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3]	The peak paged pool usage, in bytes.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4]	The current paged pool usage, in bytes.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5]	The peak nonpaged pool usage, in bytes.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[6]	The current nonpaged pool usage, in bytes.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[7]	The current space allocated for the pagefile, in bytes.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[8]	The peak space allocated for the pagefile, in bytes.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[9]	The current amount of memory that cannot be shared with other processes, in bytes.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ GetProcessMemoryInfo
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,56 @@
+﻿###User Defined Function###
+_WinAPI_CreateEnhMetaFile
+
+###Description###
+Creates a device context for an enhanced-format metafile.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateEnhMetaFile ( [$hDC [, $tRECT [, $fPixels [, $sFile [, $sDescription]]]]] )
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	[可选参数] Handle to a reference device for the enhanced metafile. The system uses this device context to
+	record the resolution and units of the device on which a picture originally appeared.
+	If this parameter is 0, it uses the current display device for reference.
+$tRECT
+	[可选参数] $tagRECT structure that specifies the dimensions of the picture to be stored in the enhanced metafile.
+	If this parameter is 0, the graphics device interface computes
+	the dimensions of the smallest rectangle that surrounds the picture drawn by the application.
+$fPixels
+	[可选参数] Specifies whether the $tRECT structure defined in pixels, valid values:
+		TRUE         - In logical units (pixels).
+		FALSE        - In .01-millimeter units. (Default)
+$sFile
+	[可选参数] The file name for the enhanced metafile to be created. If this parameter is 0, the enhanced
+	metafile is memory based and its contents are lost when it is deleted by using the
+	_WinAPI_DeleteEnhMetaFile() function.
+$sDescription
+	[可选参数] The string that specifies the name of the application that created the picture, as well as the
+	picture's title. This string must be an empty string or represented as follows:
+	
+	"application name|picture name"
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the device context for the enhanced metafile.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+Applications use the device context created by this function to store a graphics picture in an enhanced metafile.
+The handle identifying this device context can be passed to any GDI function.
+
+After an application stores a picture in an enhanced metafile, it can display the picture on any output device by
+calling the _WinAPI_PlayEnhMetaFile() function. When displaying the picture, the system uses the rectangle pointed
+to by the $tRECT parameter and the resolution data from the reference device to position and scale the picture.
+
+The file name for the enhanced metafile should use the .emf extension.
+
+
+###See Also###
+@@MsdnLink@@ CreateEnhMetaFile
+

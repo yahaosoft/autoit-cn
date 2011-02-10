@@ -1,0 +1,31 @@
+﻿###User Defined Function###
+_WinAPI_SetKeyboardState
+
+###Description###
+Copies a 256-byte array of keyboard key states into the calling process's keyboard input-state table.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SetKeyboardState ( $tState )
+
+###Parameters###
+@@ParamTable@@
+$tData
+	"byte[256]" structure that contains keyboard key states.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function alters the input state of the calling process and not the global input state of the system.
+You cannot use this function to set the NUM LOCK, CAPS LOCK, or SCROLL LOCK indicator lights on the
+keyboard.
+
+
+###See Also###
+@@MsdnLink@@ SetKeyboardState
+

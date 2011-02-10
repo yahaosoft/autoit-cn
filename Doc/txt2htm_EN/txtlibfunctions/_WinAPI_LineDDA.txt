@@ -1,0 +1,44 @@
+﻿###User Defined Function###
+_WinAPI_LineDDA
+
+###Description###
+Determines which pixels should be highlighted for a line.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_LineDDA ( $X1, $Y1, $X2, $Y2, $pLineProc [, $pData] )
+
+###Parameters###
+@@ParamTable@@
+$X1
+	Specifies the x-coordinate, in logical units, of the line's starting point.
+$Y1
+	Specifies the y-coordinate, in logical units, of the line's starting point.
+$X2
+	Specifies the x-coordinate, in logical units, of the line's ending point.
+$Y2
+	Specifies the y-coordinate, in logical units, of the line's ending point.
+$pLineProc
+	Pointer to an application-defined callback function.
+$pData
+	[可选参数] Pointer to the application-defined data.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The _WinAPI_LineDDA() function passes the coordinates for each point along the line, except for the line's ending
+point, to the application-defined callback function. In addition to passing the coordinates of a point, this
+function passes any existing application-defined data.
+
+
+###See Also###
+@@MsdnLink@@ LineDDA
+
+###Example###
+@@IncludeExample@@
+

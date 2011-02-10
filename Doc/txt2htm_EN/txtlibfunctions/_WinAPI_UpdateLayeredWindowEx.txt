@@ -1,0 +1,41 @@
+﻿###User Defined Function###
+_WinAPI_UpdateLayeredWindowEx
+
+###Description###
+Updates a bitmap translucency of a layered window.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_UpdateLayeredWindowEx ( $hWnd, $hBitmap [, $iOpacity [, $fDelete]] )
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to a layered window. A layered window is created by specifying $WS_EX_LAYERED when its creating.
+$hBitmap
+	Handle to the bitmap that will be set in the layered window.
+$iOpacity
+	[可选参数] The alpha transparency value to be used on the entire source bitmap.
+$fDelete
+	[可选参数] Specifies whether deletes a bitmap after updated the window, valid values:
+		TRUE     - Bitmap will be deleted if function succeeds.
+		FALSE    - Don't deleted, you must release the bitmap when you are finished using it. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+For best drawing performance by the layered window and any underlying windows, the layered window should be
+as small as possible.
+
+
+###See Also###
+None
+
+###Example###
+@@IncludeExample@@
+

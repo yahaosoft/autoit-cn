@@ -1,0 +1,40 @@
+﻿###User Defined Function###
+_WinHttpReadData
+
+###Description###
+Reads data from a handle opened by the _WinHttpOpenRequest() function.
+
+###Syntax###
+#Include <WinHttp.au3>
+_WinHttpReadData($hRequest [, $iMode = Default [, $iNumberOfBytesToRead = Default ]])
+
+###Parameters###
+@@ParamTable@@
+$hRequest
+	Valid handle returned from a previous call to _WinHttpOpenRequest().
+$iMode
+	[可选参数] Integer representing reading mode. Default is 0 (charset is decoded as it is ANSI).
+$iNumberOfBytesToRead
+	[可选参数] Integer. The number of bytes to read. Default is 8192 bytes.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Returns data read.
+@@End@@
+
+###Remarks###
+$iMode can have these values:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 - ANSI
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 - UTF8
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 - Binary
+###Related###
+<a href="_WinHttpOpenRequest.htm">_WinHttpOpenRequest</a>, <a href="_WinHttpWriteData.htm">_WinHttpWriteData</a>
+
+
+###See Also###
+http://msdn.microsoft.com/en-us/library/aa384104(VS.85).aspx
+
+###Example###
+@@IncludeExample@@
+
