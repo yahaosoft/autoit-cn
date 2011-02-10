@@ -11,34 +11,34 @@ _ExcelWriteSheetFromArray($oExcel, ByRef $aArray [, $iStartRow = 1 [, $iStartCol
 ###Parameters###
 @@ParamTable@@
 $oExcel
-	Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+	由前面调用 _ExcelBookOpen() 或者 _ExcelBookNew() 函数返回的 Excel 对象
 $aArray
-	The array ByRef to write data from (array is not modified)
+	写入工作表的数组(数组未被改变)
 $iStartRow
-	[optional] The table row to start writing the array to, default is 1
+	[可选参数] 工作表写入开始行, 默认 1
 $iStartColumn
-	[optional] The table column to start writing the array to, default is 1
+	[可选参数] 工作写入表开始列, 默认 1
 $iRowBase
-	[optional] array index base for rows, default is 1
+	[可选参数] 数组行的索引, 默认 1
 $iColBase
-	[optional] array index base for columns, default is 1
+	[可选参数] 数组列的索引, 默认 1
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	1
-Failure:	0 and sets @error on errors:
-@error:	0 - No error
-	1 - Specified object does not exist
-	2 - Parameter out of range
-	3 - Array invalid
-	4 - Base index out of range
-@extended:	0 - Row out of range
-	1 - Col out of range
+成功:	返回 1
+失败:	返回 0, 并设置 @error:
+@error:	0 - 无错误
+	1 - 指定的对象不存在
+	2 - 参数超出范围
+	3 - 数组无效
+	4 - 索引超出范围
+@extended:	0 - 行数超出范围
+	1 - 列超出范围
 @@End@@
 
 ###Remarks###
-Default base indexes in the array are both = 1, so first cell written is from $aArray[1][1].
+ 默认索引为1, 首个单元格写入 $aArray[1][1] .
 
 ###Related###
 

@@ -2,52 +2,51 @@
 _GUICtrlComboBoxEx_Create
 
 ###Description###
-Create a ComboBoxEx control
+创建扩展组合控件
 
 ###Syntax###
 #Include <GuiComboBoxEx.au3>
-_GUICtrlComboBoxEx_Create($hWnd, $sText, $iX, $iY[, $iWidth = 100[, $iHeight = 200[, $iStyle = 0x00200002[, $iExStyle = 0x00000000]]]])
+_GUICtrlComboBoxEx_Create($hWnd, $sText, $iX, $iY [, $iWidth = 100 [, $iHeight = 200 [, $iStyle = 0x00200002 [, $iExStyle = 0x00000000]]]])
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to parent or owner window
+	父窗或属主窗体句柄
 $sText
-	Delimited text to add to ComboBox
+	将添加到组合控件的项目文本,多项目由 "|" 分隔
 $iX
-	Horizontal position of the control
+	控件水平位置
 $iY
-	Vertical position of the control
+	控件垂直位置
 $iWidth
-	[optional] Control width
+	[可选参数] 控件宽度
 $iHeight
-	[optional] Control height
+	[可选参数] 控件高度
 $iStyle
-	[optional] Control style:
-		$CBS_DROPDOWN - Similar to $CBS_SIMPLE, except that the list box is not displayed
-		unless the user selects an icon next to the edit control
-		$CBS_DROPDOWNLIST - Similar to $CBS_DROPDOWN, except that the edit control is replaced
-		by a static text item that displays the current selection in the list box
-		$CBS_SIMPLE - Displays the list box at all times
+	[可选参数] 控件样式:
+		$CBS_DROPDOWN - 类似 $CBS_SIMPLE，但列表框不显示,
+		只在用户点击编辑框边上的下拉按钮时才显示.
+		$CBS_DROPDOWNLIST - 类似 $CBS_DROPDOWN,编辑框通过一个静态文本项显示列表中的当前选择项.
+		$CBS_SIMPLE - 总是示列表框
 
-		Default: $CBS_DROPDOWN, $WS_VSCROLL
-		Forced : $WS_CHILD, $WS_TABSTOP, $WS_VISIBLE
+		默认 : $CBS_DROPDOWN, $WS_VSCROLL
+		强制 : $WS_CHILD, $WS_TABSTOP, $WS_VISIBLE
 
 $iExStyle
-	[optional] Control extended style:
-		$CBES_EX_CASESENSITIVE - Searches in the list will be case sensitive
-		$CBES_EX_NOEDITIMAGE - The edit box and the dropdown list will not display item images
-		$CBES_EX_NOEDITIMAGEINDENT - The edit box and the dropdown list will not display item images
-		$CBES_EX_NOSIZELIMIT - Allows the ComboBoxEx control to be vertically sized smaller than its contained combo box control
-		$CBES_EX_PATHWORDBREAKPROC - Microsoft Windows NT only.
-		The edit box will use the slash (/), backslash (\), and period (.) characters as word delimiters.
-		This makes keyboard shortcuts for word-by-word cursor movement () effective in path names and URLs.
+	[可选参数] 扩展样式:
+		$CBES_EX_CASESENSITIVE - 列表框搜索将区分大小写
+		$CBES_EX_NOEDITIMAGE - 编辑框和下拉列表框不显示项目图像
+		$CBES_EX_NOEDITIMAGEINDENT - 编辑框和下拉列表框不显示项目图像
+		$CBES_EX_NOSIZELIMIT - 允许 ComboBoxEx 控件垂直尺寸比其中的组合框控件小.
+		$CBES_EX_PATHWORDBREAKPROC - 仅用于微软 Windows NT 系统.
+		编辑框使用斜杠 (/), 反斜杠 (\), 和句点 (.) 作为字符串分隔符.
+		这将使得键盘快捷键在路径和网址名称中的光标移动有效.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Handle to the Listbox control
-Failure:	0
+成功:	返回 ComboBoxEx 组合控件句柄.
+失败:	返回 0
 @@End@@
 
 ###Remarks###

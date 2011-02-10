@@ -2,50 +2,50 @@
 _GUICtrlRichEdit_StreamToVar
 
 ###Description###
-Writes contents of a control to a variable
+控件内容写入到变量
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
-_GUICtrlRichEdit_StreamToVar($hWnd [, $fRtf = True [, $fIncludeCOM=True [, $iOpts=0[, $iCodePage = 0]]]])
+_GUICtrlRichEdit_StreamToVar($hWnd [, $fRtf = True [, $fIncludeCOM=True [, $iOpts=0 [, $iCodePage = 0]]]])
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $fRtf
-	[optional] True - write Rich Text Format (RTF) (Default)
-		False - write only text
+	[可选参数] True - 写入富文本格式(RTF) (默认)
+		False - 只写文字
 $fIncludeCOM
-	[optional] True (default):
-		    If writing RTF, include any COM objects (space consuming)
-		    If writing only text, write a text represntation of COM objects
-		False: Write spaces instead of COM objects
+	[可选参数] True (default):
+		如果写 RTF 格式,包括任何 COM 对象（消耗空间）
+		如果只写文字,写 COM 对象的文本表达
+		False: 写空格代替 COM 对象
 $iOpts
-	[optional] additional options:
-		$SFF_PLAINTRTF - write only rich text keywords common to all languages
-		$SF_UNICODE - write Unicode
+	[可选参数] 其他选项:
+		$SFF_PLAINTRTF - 只写入对所有语言普遍适用的关键字
+		$SF_UNICODE - 写入 Unicode
 $iCodePage
-	[optional] Generate UTF-8 and text using this code page
-		Default: do not
+	[可选参数] 生成 UTF-8 和文字使用的代码页
+		默认 : 没有
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	the RTF or text
-Failure:	"" and set @error
-@error:	101 - $hWnd is not a handle
-	1041 - $SFF_PLAINRTF is invalid for a text file
-	1042 - $opts: invalid option
-	1043 - $SF_UNICODE is only valid for a text file
-	700 - internal error
+成功:	返回 RTF 或文本
+失败:	返回 "" ,设置 @error
+@error:	101 - $hWnd 参数值不是句柄
+	1041 - $SFF_PLAINRTF 是无效的文本文件
+	1042 - $opts: 是无效的选项
+	1043 - $SF_UNICODE 仅对文本文件有效
+	700 - 内部错误
 @@End@@
 
 ###Remarks###
-If text is selected, writes only the selection, else writes all text in the control
+ 如果文本被选中,只写选择的,否则全部文本写入到控件
 
-If the extension in $sFileSpec is .rtf, RTF is written, else text
+ 如果 $sFileSpec 指定扩展名为 .rtf, 则写入 RTF, 否则写纯文本
 
-Call _GUICtrlRichEdit_IsModified() to determine whether the text has changed
+ 调用 _GUICtrlRichEdit_IsModified() 确定文本是否发生了变化
 
 ###Related###
 _GUICtrlRichEdit_SetLimitOnText, _GUICtrlRichEdit_StreamFromVar, _GUICtrlRichEdit_StreamToFile

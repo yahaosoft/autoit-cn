@@ -2,50 +2,50 @@
 _GDIPlus_BitmapCloneArea
 
 ###Description###
-Create a clone of a Bitmap object from the coordinates and format specified
+创建指定坐标和格式的位图对象克隆
 
 ###Syntax###
 #Include <GDIPlus.au3>
-_GDIPlus_BitmapCloneArea($hBmp, $iLeft, $iTop, $iWidth, $iHeight[, $iFormat = 0x00021808])
+_GDIPlus_BitmapCloneArea($hBmp, $iLeft, $iTop, $iWidth, $iHeight [, $iFormat = 0x00021808])
 
 ###Parameters###
 @@ParamTable@@
 $hBmp
-	Handle to a Bitmap object
+	位图对象句柄
 $iLeft
-	X coordinate of upper left corner of the rectangle to copy
+	被克隆的矩形左上角 X 坐标
 $iTop
-	Y coordinate of upper left corner of the rectangle to copy
+	被克隆的矩形左上角 Y 坐标
 $iWidth
-	The width of the rectangle that specifies the portion of this bitmap to copy
+	位图副本矩形宽度
 $iHeight
-	The height of the rectangle that specifies the portion of this bitmap to copy
+	位图副本矩形高度
 $iFormat
-	[optional] Pixel format for the new bitmap:
-		$GDIP_PXF01INDEXED = 1 bit per pixel, indexed
-		$GDIP_PXF04INDEXED = 4 bits per pixel, indexed
-		$GDIP_PXF08INDEXED = 8 bits per pixel, indexed
-		$GDIP_PXF16GRAYSCALE = 16 bits per pixel, grayscale
-		$GDIP_PXF16RGB555 = 16 bits per pixel; 5 bits for each RGB component
-		$GDIP_PXF16RGB565 = 16 bits per pixel; 5 bits for red, 6 bits for green and 5 bits blue
-		$GDIP_PXF16ARGB1555 = 16 bits per pixel; 1 bit for alpha and 5 bits for each RGB component
-		$GDIP_PXF24RGB = 24 bits per pixel; 8 bits for each RGB component
-		$GDIP_PXF32RGB = 32 bits per pixel; 8 bits for each RGB component. No alpha component.
-		$GDIP_PXF32ARGB = 32 bits per pixel; 8 bits for each RGB and alpha component
-		$GDIP_PXF32PARGB = 32 bits per pixel; 8 bits for each RGB and alpha component, pre-mulitiplied
-		$GDIP_PXF48RGB = 48 bits per pixel; 16 bits for each RGB component
-		$GDIP_PXF64ARGB = 64 bits per pixel; 16 bits for each RGB and alpha component
-		$GDIP_PXF64PARGB = 64 bits per pixel; 16 bits for each RGB and alpha component, pre-multiplied
+	[可选参数] 新位图像素格式:
+		$GDIP_PXF01INDEXED = 1 位象素,索引
+		$GDIP_PXF04INDEXED = 4 位象素,索引
+		$GDIP_PXF08INDEXED = 8 位象素,索引
+		$GDIP_PXF16GRAYSCALE = 16 位象素,灰度级
+		$GDIP_PXF16RGB555 = 16 位象素; 每个 RGB 分量 5 位
+		$GDIP_PXF16RGB565 = 16 位象素; 红色 5 位 , 绿色 6 位, 蓝色 5 位
+		$GDIP_PXF16ARGB1555 = 16 位象素; 1 bit alpha 每个 RGB 分量 5 位
+		$GDIP_PXF24RGB = 24 位象素;每个 RGB 分量 8 位
+		$GDIP_PXF32RGB = 32 位象素; 每个 RGB 分量 8 位. 没有 alpha 分量.
+		$GDIP_PXF32ARGB = 32 位象素; 每组 RGB 分量和 alpha 8 位
+		$GDIP_PXF32PARGB = 32 位象素; 每组 RGB 分量和 alpha 8 位, pre-mulitiplied
+		$GDIP_PXF48RGB = 48 位象素; 每组 RGB 分量 16 位
+		$GDIP_PXF64ARGB = 64 位象素; 每组 RGB 分量和 alpha 16 位
+		$GDIP_PXF64PARGB = 64 位象素; 每组 RGB 分量和 alpha 16 位, pre-multiplied
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns a handle to a new Bitmap object
-Failure:	0
+成功:	返回位图对象句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-When you are done with the Bitmap object, call _GDIPlus_BitmapDispose to release the resources
+当您完成位图对象，调用 _GDIPlus_BitmapDispose 释放资源
 
 ###Related###
 _GDIPlus_BitmapDispose, _GDIPlus_ImageGetPixelFormat

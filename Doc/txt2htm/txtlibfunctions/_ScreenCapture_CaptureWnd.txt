@@ -2,7 +2,7 @@
 _ScreenCapture_CaptureWnd
 
 ###Description###
-Captures a screen shot of a specified window
+捕获指定窗口的屏幕快照
 
 ###Syntax###
 #Include <ScreenCapture.au3>
@@ -11,32 +11,32 @@ _ScreenCapture_CaptureWnd($sFileName, $hWnd [, $iLeft = 0 [, $iTop = 0 [, $iRigh
 ###Parameters###
 @@ParamTable@@
 $sFileName
-	Full path and extension of the image file
+	保存捕获图像的文件扩展名和完整路径
 $hWnd
-	Handle to the window to be captured
+	被抓获的窗口句柄
 $iLeft
-	[optional] X coordinate of the upper left corner of the client rectangle
+	[可选参数] 客户端矩形左上角 X 坐标
 $iTop
-	[optional] Y coordinate of the upper left corner of the client rectangle
+	[可选参数] 客户端矩形左上角 Y 坐标
 $iRight
-	[optional] X coordinate of the lower right corner of the rectangle
+	[可选参数] 矩形右下角 X 坐标
 $iBottom
-	[optional] Y coordinate of the lower right corner of the rectangle
+	[可选参数] 矩形右下角 Y 坐标
 $fCursor
-	[optional] If True the cursor will be captured with the image
+	[可选参数] 如为 True, 光标将被捕获为图像
 @@End@@
 
 ###ReturnValue###
 None.
 
 ###Remarks###
-If FileName is not blank this function will capture the screen and save it to file. If FileName is blank, this
-function will capture the screen and return a HBITMAP handle to the bitmap image. In this case, after you are
-finished with the bitmap you must call _WinAPI_DeleteObject to delete the bitmap handle. All coordinates are in
-client coordinate mode.
+ 如果文件名不为空, 此函数将捕获屏幕并保存到文件中.
+ 如果文件名是空的，函数将捕获屏幕并返回位图图像的 HBITMAP 句柄
+ 在这种情况下，当您完成位图后, 你必须调用 _WinAPI_DeleteObject 删除位图的句柄.
+ 全部坐标为客户坐标模式.
 
-Requires GDI+: GDI+ requires a redistributable for applications that
-run on the Microsoft Windows NT 4.0 SP6, Windows 2000, Windows 98, and Windows Me operating systems.
+ 需要 GDI+: GDI+ 需要一个可再发行的应用程序
+ 运行于微软 Windows NT 4.0 SP6, Windows 2000, Windows 98, 与 Windows Me 操作系统.
 
 ###Related###
 _WinAPI_DeleteObject
