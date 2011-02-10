@@ -2,46 +2,46 @@
 _WinAPI_GetSaveFileName
 
 ###Description###
-Creates a Save dialog box that lets the user specify the drive, directory, and name of a file to save
+创建保存对话框,让用户保存文件到指定的驱动器,目录和文件名
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_GetSaveFileName([$sTitle = "" [, $sFilter = "All files (*.*)" [, $sInitalDir = "." [, $sDefaultFile = "" [, $sDefaultExt = "" [, $iFilterIndex = 1 [, $iFlags = 0 [, $iFlagsEx = 0 [, $hwndOwner = 0]]]]]]]]])
+_WinAPI_GetSaveFileName( [$sTitle = "" [, $sFilter = "All files (*.*)" [, $sInitalDir = "." [, $sDefaultFile = "" [, $sDefaultExt = "" [, $iFilterIndex = 1 [, $iFlags = 0 [, $iFlagsEx = 0 [, $hwndOwner = 0]]]]]]]]])
 
 ###Parameters###
 @@ParamTable@@
 $sTitle
-	[optional] string to be placed in the title bar of the dialog box
+	[可选参数] 对话框的标题栏字符串
 $sFilter
-	[optional] Pairs of filter strings (for example "Text Files (*.txt)|All Files (*.*)")
-		The first string in each pair is a display string that describes the filter (for example, "Text Files")
-		The second string specifies the filter pattern (for example, "*.TXT")
-		To specify multiple filter patterns for a single display string, use a semicolon to separate the patterns (for example, "*.TXT;*.DOC;*.BAK")
-		A pattern string can be a combination of valid file name characters and the asterisk (*) wildcard character
-		Do not include spaces in the pattern string.
+	[可选参数] 双过滤字符串 (例如 "文本文件 (*.txt)|全部文件 (*.*)")
+		第一个字符串描述过滤器显示字符串 (例如: "文本文件")
+		第二个字符串指定过滤模式 (例如: "*.TXT")
+		要指定多个过滤器模式的显示字符串,使用分号分隔(例如: "*.TXT;*.DOC;*.BAK")
+		模式串由有效文件名和星号通配符 (*) 组合
+		模式串不包括空格.
 $sInitalDir
-	[optional] String that can specify the initial directory
+	[可选参数] 指定初始目录
 $sDefaultFile
-	[optional] A file name used to initialize the File Name edit control
+	[可选参数] 编辑控件中文件名使用初始化文件名
 $sDefaultExt
-	[optional] String that contains the default extension
+	[可选参数] 包含默认扩展名的字符串
 $iFilterIndex
-	[optional] Specifies the index of the currently selected filter in the File Types control
+	[可选参数] 指定文件类型控件中当前选定过滤器的索引
 $iFlags
-	[optional] See Flags in $tagOPENFILENAME information
+	[可选参数] 见 $tagOPENFILENAME 结构中 Flags 的信息
 $iFlagsEx
-	[optional] See FlagEx in $tagOPENFILENAME information
+	[可选参数] 见 $tagOPENFILENAME 结构中 FlagEx 信息
 $hwndOwner
-	[optional] Handle to the window that owns the dialog box. This member can be any valid window handle, or it can be 0 if the dialog box has no owner
+	[可选参数] 拥有对话框的窗口句柄.可以是任何有效的窗口句柄;或为 0, 表示对话框没有属主
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array in the following format:
-	[0] - Contains the number of strings (2)
-	[1] - Contains the path selected
-	[2] - Contains file selected
-Failure:	Array of 1 item set to 0
+成功:	返回数组格式如下:
+	[0] - 数量字符串 (2)
+	[1] - 路径选择
+	[2] - 选定的文件
+失败:	返回数组 [0] 为 0 
 @@End@@
 
 ###Remarks###

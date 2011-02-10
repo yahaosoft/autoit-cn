@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_SetUndoLimit
 
 ###Description###
-Sets the maximum number of actions that can stored in the undo queue
+设置撤消队列可以存储的最大数量
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,23 +11,23 @@ _GUICtrlRichEdit_SetUndoLimit($hWnd, $iLimit)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iLimit
-	the maximum number of actions that can be stored in the undo queue
+	撤消队列中可以存储的最大数量
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	True
-Failure	False and sets @error
-@error:	101 - $hWnd is not a handle
-	102 - $iLimit is neither a positive number nor zero
+成功:	返回 True
+失败:	返回 False 并设置 @error
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $iLimit 不是正数,也不是 0, 
 @@End@@
 
 ###Remarks###
-To disable the Undo feature, set $iLimit to zero
+ 要禁用撤消功能, 设置 $iLimit 为 0
 
-The initial value of $iLimit is 100.
+ $iLimit 的初始值为 100.
 
 ###Related###
 _GUICtrlRichEdit_Undo, _GUICtrlRichEdit_CanRedo, _GUICtrlRichEdit_CanUndo, _GUICtrlRichEdit_GetNextRedo, _GUICtrlRichEdit_Redo
