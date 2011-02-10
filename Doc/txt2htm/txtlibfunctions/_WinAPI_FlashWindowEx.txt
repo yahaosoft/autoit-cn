@@ -2,7 +2,7 @@
 _WinAPI_FlashWindowEx
 
 ###Description###
-Flashes the specified window
+闪烁指定的窗口
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,32 +11,31 @@ _WinAPI_FlashWindowEx($hWnd [, $iFlags = 3 [, $iCount = 3 [, $iTimeout = 0]]])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window to be flashed. The window can be either open or minimized.
+	窗口句柄.窗口可以是打开的或最小化的
 $iFlags
-	[optional] The flash status. Can be one or more of the following values:
-		0 - Stop flashing. The system restores the window to its original state.
-		1 - Flash the window caption
-		2 - Flash the taskbar button
-		4 - Flash continuously until stopped
-		8 - Flash continuously until the window comes to the foreground
+	[可选参数] 闪烁状态.可以是一或多个下列值:
+		0 - 停止闪烁.系统恢复其原始状态窗口.
+		1 - 闪烁窗口标题
+		2 - 闪烁任务栏按钮
+		4 - 连续闪烁,直到停止
+		8 - 连续闪烁, 直至窗口出现在前台
 $iCount
-	[optional] The number of times to flash the window
+	[可选参数] 窗口闪烁次数
 $iTimeout
-	[optional] The rate at which the window is to be flashed, in milliseconds. If 0, the function uses the
-		default cursor blink rate.
+	[可选参数] 闪烁速度得毫秒值.如果为 0,
+		函数使用默认闪烁速率
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-Typically, you flash a window to inform the user that the window requires attention but does not currently
-have the keyboard focus. When a window flashes, it appears to change from inactive to active status. An
-inactive caption bar changes to an active caption bar; an active caption bar changes to an inactive caption
-bar.
+ 通常情况下, 闪烁窗口是通知用户该窗口目前还没有键盘焦点.
+ 当一个窗口闪烁时,表现为非活跃到活跃的状态.
+ 不活跃的标题栏更改为活跃的标题栏;活跃的标题栏更改为不活跃的标题栏.
 
 ###Related###
 _WinAPI_FlashWindow

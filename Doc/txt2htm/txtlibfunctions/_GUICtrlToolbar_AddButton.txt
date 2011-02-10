@@ -2,55 +2,55 @@
 _GUICtrlToolbar_AddButton
 
 ###Description###
-Adds a button
+添加按钮
 
 ###Syntax###
 #Include <GuiToolBar.au3>
-_GUICtrlToolbar_AddButton($hWnd, $iID, $iImage[, $iString = 0[, $iStyle = 0[, $iState = 4[, $iParam = 0]]]])
+_GUICtrlToolbar_AddButton($hWnd, $iID, $iImage [, $iString = 0 [, $iStyle = 0 [, $iState = 4 [, $iParam = 0]]]])
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iID
-	Command ID
+	命令 ID
 $iImage
-	Zero based index of the button image. Set this parameter to -1 and the control will send the
-		$TBN_GETDISPINFO notification to retrieve the image index when it is needed. Set this to -2 to indicate that
-		the button does not have an image. The button layout will only include space for the text. If the button is
-		a separator, this is the width of the separator, in pixels.
+	按钮图像的 0 基索引.设置此参数为 -1,
+		控件将发送 $TBN_GETDISPINFO 通知检索需要的图像.
+		将此项设置为 -2,表明按钮没有图像,按钮布局只包括文字空间.
+		如果按钮是分隔符,这里指定分隔符的宽度像素值.
 $iString
-	[optional] Zero based index of the button string that was set with AddString
+	[可选参数] 由 _GUICtrlToolbar_AddString 设置字符串的按钮 0 基索引
 $iStyle
-	[optional] Button style. Can be a combination of the following:
-		$BTNS_AUTOSIZE - The toolbar control should not assign the standard width to the button
-		$BTNS_BUTTON - Standard button
-		$BTNS_CHECK - Toggles between the pressed and nonpressed
-		$BTNS_CHECKGROUP - Button that stays pressed until another button in the group is pressed
-		$BTNS_DROPDOWN - Creates a drop-down style button that can display a list
-		$BTNS_GROUP - Button that stays pressed until another button in the group is pressed
-		$BTNS_NOPREFIX - The button text will not have an accelerator prefix
-		$BTNS_SEP - Creates a separator
-		$BTNS_SHOWTEXT - Specifies that button text should be displayed
-		$BTNS_WHOLEDROPDOWN - Specifies that the button will have a drop-down arrow
+	[可选参数] 按钮样式. 可以是下列值的组合:
+	$BTNS_AUTOSIZE - 工具栏控件应不分配标准宽度到按钮.按钮宽度将计算文本加上图像的宽度
+	$BTNS_BUTTON - 标准按钮
+	$BTNS_CHECK - 双状态推动按钮,在按压与非按压之间切换,按下状态具有不同的背景颜色
+	$BTNS_CHECKGROUP - 按下的按钮保持到另一组中的按钮被按下为止,类似选项按钮,相当于 $BTNS_CHECK 与 $BTNS_GROUP 的结合
+	$BTNS_DROPDOWN - 创建一个下拉式按钮,按钮被点击时,显示一个列表.代替使用 $WM_COMMAND 消息的按钮,下拉按钮发送 $TBN_DROPDOWN 讯息.应用程序通知处理程序显示一个选项列表
+	$BTNS_GROUP - 按下的按钮保持到另一组中的按钮被按下为止.类似选项按钮,相当于 $BTNS_CHECK 与 $BTNS_GROUP 的结合
+	$BTNS_NOPREFIX - 按钮文本没有与它相关的快捷键前缀
+	$BTNS_SEP - 创建一个分隔符,提供按钮组之间的小间隙;此样式不接受用户输入
+	$BTNS_SHOWTEXT - 按钮应显示指定的文本.所有按钮可以有文字,	但只有该样式的按钮才能显示文字.必须与 $TBSTYLE_LIST 样式与 $TBSTYLE_EX_MIXEDBUTTONS 扩展样式配合使用,如果您设置文本的按钮没有这个样式,当鼠标停留时,工具栏控件将自动显示为工具提示,这个特征允许您的应用程序避免在工具栏处理 $TBN_GETINFOTIP 消息
+	$BTNS_WHOLEDROPDOWN - 指定按钮将有一个下拉箭头
 $iState
-	[optional] Button state. Can be a combination of the following:
-		$TBSTATE_CHECKED - The button has the $TBSTYLE_CHECK style and is being clicked
-		$TBSTATE_PRESSED - The button is being clicked
-		$TBSTATE_ENABLED - The button accepts user input
-		$TBSTATE_HIDDEN - The button is not visible and cannot receive user input
-		$TBSTATE_INDETERMINATE - The button is grayed
-		$TBSTATE_WRAP - The button is followed by a line break
-		$TBSTATE_ELLIPSES - The button's text is cut off and an ellipsis is displayed
-		$TBSTATE_MARKED - The button is marked
+	[可选参数] 按钮状态. 可以是下列值的组合:
+	$TBSTATE_CHECKED - 按钮有 $TBSTYLE_CHECK 样式并被点击
+	$TBSTATE_PRESSED - 按钮被点击
+	$TBSTATE_ENABLED - 按钮接受用户输入
+	$TBSTATE_HIDDEN - 按钮不可见,且不能接收用户输入
+	$TBSTATE_INDETERMINATE - 按钮呈灰色
+	$TBSTATE_WRAP - 按钮之后跟随一个换行符
+	$TBSTATE_ELLIPSES - 按钮文本被截断,并显示一个省略号
+	$TBSTATE_MARKED - 按钮被标记
 $iParam
-	[optional] Application-defined value
+	[可选参数] 应用程序定义的值
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	True
-失败:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###

@@ -2,7 +2,7 @@
 _FTP_FileOpen
 
 ###Description###
-Initiates access to a remote file on an FTP server for reading or writing.
+打开 FTP 服务器上的远程文件供读/写.
 
 ###Syntax###
 #Include <FTPEx.au3>
@@ -11,33 +11,33 @@ _FTP_FileOpen($hConnect, $lpszFileName [, $dwAccess = 0x80000000 [, $dwFlags = 2
 ###Parameters###
 @@ParamTable@@
 $hConnect
-	as returned by _FTP_Connect().
+	_FTP_Connect() 返回值.
 $lpszFileName
-	String of the ftp file to open.
+	打开 ftp 文件的名称.
 $dwAccess
-	[optional] The Local attribute (default $GENERIC_READ).
+	[可选参数] 本地属性 (默认 $GENERIC_READ).
 $dwFlags
-	[optional] Specify the conditions under which the transfers occur. The application should select one transfer type and any of the flags that indicate how the caching of the file will be controlled.
-	<br/>The transfer type can be one of the following values:
-		<b>$FTP_TRANSFER_TYPE_ASCII</b> - Transfers the file using FTP's ASCII (Type A) transfer method. Control and formatting information is converted to local equivalents.
-		<b>$FTP_TRANSFER_TYPE_BINARY</b> - Transfers the file using FTP's Image (Type I) transfer method. The file is transferred exactly as it exists with no changes. This is the default transfer method.
-		<b>$FTP_TRANSFER_TYPE_UNKNOWN</b> - Defaults to $FTP_TRANSFER_TYPE_BINARY.
-		<b>$INTERNET_FLAG_TRANSFER_ASCII</b> - Transfers the file as ASCII.
-		<b>$INTERNET_FLAG_TRANSFER_BINARY</b> - Transfers the file as binary.
-	<br/>The following values are used to control the caching of the file. The application can use one or more of these values:
-		<b>$INTERNET_FLAG_HYPERLINK</b> - Forces a reload if there was no Expires time and no LastModified time returned from the server when determining whether to reload the item from the network.
-		<b>$INTERNET_FLAG_NEED_FILE</b> - Causes a temporary file to be created if the file cannot be cached.
-		<b>$INTERNET_FLAG_RELOAD</b> - Forces a download of the requested file, object, or directory listing from the origin server, not from the cache.
-		<b>$INTERNET_FLAG_RESYNCHRONIZE</b> - Reloads HTTP resources if the resource has been modified since the last time it was downloaded. All FTP and Gopher resources are reloaded.
+	[可选参数] 指明在何种条件下发生传输. 应用程序应选择一个传输类型标志,这表明如何控制文件缓存
+	<br/>传输类型可以是以下值之一:
+		<b>$FTP_TRANSFER_TYPE_ASCII</b> - 文件使用 FTP 的 ASCII（A型）传输方式. 控制和格式化信息转换为本地等值.
+		<b>$FTP_TRANSFER_TYPE_BINARY</b> - 文件使用 FTP 的图像（I型）传输方式. 文件完全传输，没有变化. 这是默认的传输方法.
+		<b>$FTP_TRANSFER_TYPE_UNKNOWN</b> - 默认为 $FTP_TRANSFER_TYPE_BINARY.
+		<b>$INTERNET_FLAG_TRANSFER_ASCII</b> - 文件作为 ASCII 传输
+		<b>$INTERNET_FLAG_TRANSFER_BINARY</b> - 文件作为二进制传输.
+	<br/>下面的值是用来控制文件的缓存. 应用程序可以使用一或多个这些值:
+		<b>$INTERNET_FLAG_HYPERLINK</b> - 如果在确定是否从网络重载项目时服务器既没有返回到期时间也没有返回最后修改时间则强制重载.
+		<b>$INTERNET_FLAG_NEED_FILE</b> - 无法缓存文件时建立临时文件.
+		<b>$INTERNET_FLAG_RELOAD</b> - 强制从原始服务器而不是从缓存下载请求的文件, 对象或目录列表.
+		<b>$INTERNET_FLAG_RESYNCHRONIZE</b> - 如果资源在上次下载后已被修改, 重载HTTP资源. 所有 FTP 及 Gopher 资源均被重载.
 $dwContext
-	[optional] A variable that contains the application-defined value that associates this search with any application data.
-	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
+	[可选参数] 一个变量, 它包含应用程序定义的值, 关联应用程序数据的搜索.
+	用于应用程序已调用 _FTP_SetStatusCallback() 时,设置一个状态回调函数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns the handle to ftp file for read/write with _FTP_FileRead()
-Failure:	0  and sets @error to non-zero
+成功:	返回供 _FTP_FileRead() 读/写的 ftp 文件句柄
+失败:	返回 0, 并设置 @error 为非 0
 @@End@@
 
 ###Remarks###

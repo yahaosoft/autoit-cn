@@ -2,7 +2,7 @@
 _GUICtrlListView_GetItemTextArray
 
 ###Description###
-Retrieves all of a list-view item
+添加所有列表视图控件项目的文本到一个数组
 
 ###Syntax###
 #Include <GuiListView.au3>
@@ -11,24 +11,24 @@ _GUICtrlListView_GetItemTextArray($hWnd[, $iItem = -1])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iItem
-	[optional] Zero based index of item to retrieve
+	[可选参数] 要获取的项目的基于0开始的项目索引
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	[0] - Number of Columns in array (n)
-	[1] - First column index
-	[2] - Second column index
-	[n] - Last column index
-Failure:	Array with the following format:
-	[0] - Number of Columns in array (0)
+成功:	返回如下格式数组:
+	[0] - 控件中列数 (n)
+	[1] - 第一列的文本字符串(主项文本)
+	[2] - 第二列的文本字符串(主项第一子项文本)
+	[n] - 最后列的文本字符串(主项的末项文本)
+失败:	返回如下格式数组:
+	[0] - 控件中列数 (0)
 @@End@@
 
 ###Remarks###
-If $iItem = -1 then will attempt to get the Currently Selected item.
+ 如 $iItem = -1, 则获取当前选定项目的文本.
 
 ###Related###
 _GUICtrlListView_SetItemText, _GUICtrlListView_GetItemText, _GUICtrlListView_GetItemTextString
