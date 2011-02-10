@@ -2,7 +2,7 @@
 _DebugReportEx
 
 ###Description###
-Writes to a debugging session a formatted message
+格式化写入调试会话框的信息
 
 ###Syntax###
 #include <Debug.au3>
@@ -12,29 +12,29 @@ _DebugReportEx ( $sData [,$bLastError = False [,$bExit = False]])
 ###Parameters###
 @@ParamTable@@
 $sData
-	Data to be reported
+	须予报告的数据
 $bLastError
-	[optional] True if GetLastErrorMessage() must be append to the data being reported
+	[可选参数] 设置为 True, 表示如有 GetLastErrorMessage() 数据必须追加到报告中
 $bExit
-	[optional] True if the script must be terminated
+	[可选参数] 设置为 True, 表示脚本必须终止
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	1.
-Failure:	0.
+成功:	返回 1.
+失败:	返回 0.
 @@End@@
 
 ###Remarks###
-According to @error value the message will be formatted as follow:
-0 - report "Bad return from FUNCTION in DLL".
-1 - report "unable to open a dll"
-3 - report "unable to find FUNCTION in DLL".
+根据 @error 错误信息将被格式化如下:
+0 - 报告 "DLL 返回错误函数".
+1 - 报告 "无法打开 dll"
+3 - 报告 "无法找到 DLL 函数".
 
-If $sData is does not contain a "|" or @error not as specified above the reported message will not be formated.
-If no _DebugSetup() have been issued the function always returns.
-@error of the caller is preserved.
-@extended can be set to Windows API GetlastError() if  $bLastError = True. Otherwise it is preserved.
+ 如果 $sData 不包含 "|" 或 @error 不是上面所指定的报告内容, 信息将不会被格式化.
+ 如果没有 _DebugSetup(), 已发布的函数总是返回.
+ @error 为调用方保留.
+ 如果 $bLastError = True, @extended 可以设置为 Windows API 的 GetlastError(). 否则保留.
 
 
 ###Related###

@@ -11,34 +11,34 @@ _Date_Time_SetFileTime($hFile, $pCreateTime, $pLastAccess, $pLastWrite)
 ###Parameters###
 @@ParamTable@@
 $hFile
-	Handle to the file. The file handle must have been created using the CreateFile function with
-		the FILE_WRITE_ATTRIBUTES access right.
+	文件句柄，使用 _WinAPI_CreateFile 函数的返回值,
+		并具有 FILE_WRITE_ATTRIBUTES 访问权.
 $pCreateTime
-	Pointer to a $tagFILETIME structure that contains the new date and time the file was created.
-		This be 0 if the application does not need to set this information.
+	$tagFILETIME 结构指针, 它包含创建文件的新日期和时间.
+		如果应用程序不需要此信息, 设置此参数为 0.
 $pLastAccess
-	Pointer to a $tagFILETIME structure that contains the new date and time the file was last
-		accessed. The last access time includes the last time the file was written to, read from, or (in the case of
-		executable files) run. This can be 0 if the application does not need to set this information. To preserve
-		the existing last access time for a file even after accessing a file, call SetFileTime with this parameter
-		set to -1 before closing the file handle.
+	$tagFILETIME 结构指针, 它包含文件的新的最后访问日期和时间,
+		包括文件上次写入,读取,或运行(可执行文件)
+		如果应用程序不需要此信息, 设置此参数为 0.
+		为了保持文件的现有上次访问时间，调用 SetFileTime 参数,
+		并设置为 -1 之前关闭文件句柄.
 $pLastWrite
-	Pointer to a $tagFILETIME structure that contains the new date and time the file was last
-		written to. This can be 0 if the application does not want to set this information.
+	$tagFILETIME 结构指针, 包含文件的最后写入日期和时间.
+		如果应用程序不需要此信息, 设置此参数为 0.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	True
-失败:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-Not all file systems can record creation and last access times and not all file systems record them in the
-same manner. For example, on FAT, create time has a resolution of 10 milliseconds, write time has a resolution
-of 2 seconds, and access time has a resolution of 1 day (really, the access date). Therefore, the GetFileTime
-function may not return the same file time information set using SetFileTime. NTFS delays updates to the last
-access time for a file by up to one hour after the last access.
+ 不是所有文件系统可以记录创建和访问时间.
+ 并非所有文件系统以同样的方式记录文件时间信息.
+ 例如 FAT 文件系统, 创建时间有 10 毫秒延迟, 修改时间有 2秒 延迟 , 访问时间有 1 天延迟(真实的访问日期)
+ 因此, 本函数返回的文件时间信息可能会与 SetFileTime 函数的设置不相同
+ NTFS 文件系统更新文件最近访问时间, 最多时会延迟一小时. 
 
 ###Related###
 _Date_Time_GetFileTime, $tagFILETIME

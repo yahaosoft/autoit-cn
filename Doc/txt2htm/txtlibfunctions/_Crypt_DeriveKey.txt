@@ -2,7 +2,7 @@
 _Crypt_DeriveKey
 
 ###Description###
-Creates a key from algorithm and password
+用算法和密码创建密钥
 
 ###Syntax###
 #Include <Crypt.au3>
@@ -11,26 +11,26 @@ _Crypt_DeriveKey($vPassword, $iALG_ID [, $iHash_ALG_ID = $CALG_MD5 ] )
 ###Parameters###
 @@ParamTable@@
 $vPassword
-	Password to use
+	要使用的密码
 $iALG_ID
-	Encryption ID of algorithm to be used with the key
+	加密算法的 ID
 $iHash_ALG_ID
-	[optional] Id of the algo to hash the password with
+	[可选参数] hash 算法的 ID 与密码 译注:关于 Hash 见下文注意部分
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Returns a handle to a cryptographic key,
-	Sets @error to 0
-Failure	Returns -1 and sets @error:
-	1 - Failed to create hash object
-	2 - Failed to hash password
-	3 - Failed to generate key
+成功:	返回密钥句柄
+	设置 @error 为 0
+失败:	返回 -1 并设置 @error:
+	1 - 无法创建 hash 对象
+	2 - 没有 hash 密码
+	3 - 无法生成密钥
 @@End@@
 
 ###Remarks###
-The key needs to be destroyed with _Crypt_DestroyKey.
-The AES algorithm is not available on Windows 2000.
+ 密钥需要用 _Crypt_DestroyKey 销毁.
+ AES 算法不适用于 Windows 2000.
 
 ###Related###
 _Crypt_DestroyKey, _Crypt_EncryptData, _Crypt_EncryptFile, _Crypt_DecryptData, _Crypt_DecryptFile

@@ -2,7 +2,7 @@
 _Crypt_HashData
 
 ###Description###
-Hash data with specified algorithm
+指定算法 Hash 数据
 
 ###Syntax###
 #Include <Crypt.au3>
@@ -11,28 +11,28 @@ _Crypt_HashData($vData, $iALG_ID [, $fFinal = True [, $hCryptHash = 0]])
 ###Parameters###
 @@ParamTable@@
 $vData
-	Data to hash
+	需要 hash 处理的数据
 $iALG_ID
-	Hash ID to use
+	使用的 Hash 标识符
 $fFinal
-	[optional] False if this is only a segment of the full data, also makes the function return a hash object instead of hash
+	[可选参数] 设置为 False, 表明只是全部数据的一部分, 同时使该函数返回一个对象而不是 Hash
 $hCryptHash
-	[optional] Hash object returned from a previous call to _Crypt_HashData
+	[可选参数] 先前调用 _Crypt_HashData 函数返回的 Hash 对象
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns hash or hash object if $fFinal=False
-	Sets @error to 0
-Failure:	Returns -1 and sets @error:
-	1 - Failed to create hash object
-	2 - Failed to hash data
-	3 - Failed to get hash size
-	4 - Failed to get hash
+成功:	返回 Hash , 如果设置 $fFinal = False, 则返回 Hash 对象
+	设置 @error 为 0
+失败:	返回 -1 并设置 @error:
+	1 - 无法创建 hash 对象
+	2 - 无法 Hash 数据
+	3 - 无法取得 Hash 大小
+	4 - 无法获取 Hash
 @@End@@
 
 ###Remarks###
-The hash digest will be returned as a binary string, the size is specified by the algorithm. To use this with segments of data set the fFinal flag to False for all non ending segments and use the returned hash object with all subsequent calls.
+ hash 结果将返回一个二进制字符串,大小由算法指定. 要使用部分数据段,设置 $fFinal 标志为 False . 要使用非结尾数据段和使用所有后续数据段, 则调用 Hash 返回的对象.
 
 ###Related###
 _Crypt_HashFile

@@ -2,7 +2,7 @@
 _DebugOut
 
 ###Description###
-Displays output on a debugging session started by _DebugSetup()
+输出调试信息到 _DebugSetup() 设置的调试会话框
 
 ###Syntax###
 #include <Debug.au3>
@@ -12,24 +12,24 @@ _DebugOut ( $sOutput [, $bActivate] )
 ###Parameters###
 @@ParamTable@@
 $sOutput
-	The string (or other printable value) to be output to the debugging session.
+	要输出到调试会话的字符串或其他可打印值.
 $bActivate
-	[optional] Ignored, kept for backward compatibility.
+	[可选参数] 忽略,保持向后兼容性.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns 1, @Error and @Extended as before calling _DebugOut().
-Failure:	Sets @Error and returns 0.
-@Error:	0 = No error.
-	1 = $sOutput is an incompatible type.
-	3 = _DebugSetup() did not run properly.
+成功:	返回 1, @Error 与 @Extended 和以前一样调用 _DebugOut().
+失败:	返回 0 , 设置 @Error :.
+@Error:	0 = 没有错误.
+	1 = $sOutput 是一个不兼容的类型.
+	3 = _DebugSetup() 没有正常运行.
 @@End@@
 
 ###Remarks###
-Each time _DebugOut() is called, the output is put on its own line.
+ 每次调用 _DebugOut(), 输出都将占用各自的行.
 
-_DebugSetup() must be called before the first call of _DebugOut(), or it will return with @Error = 3.
+ _DebugSetup() 必须在第一次调用 _DebugOut() 之前, 否则将返回 @Error = 3..
 
 
 ###Related###

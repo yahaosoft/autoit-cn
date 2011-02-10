@@ -2,7 +2,7 @@
 _Date_Time_SetSystemTimeAdjustment
 
 ###Description###
-Enables or disables periodic time adjustments to the system's time of day clock
+启用或禁用系统时钟定期调整
 
 ###Syntax###
 #Include <Date.au3>
@@ -11,21 +11,21 @@ _Date_Time_SetSystemTimeAdjustment($iAdjustment, $fDisabled)
 ###Parameters###
 @@ParamTable@@
 $iAdjustment
-	The number of 100 nanosecond units added to the time of day clock at each clock interrupt if
-		periodic time adjustment is enabled.
+	如果周期时间的调整已启用,
+		24小时内每个时钟中断增加 100 纳秒单位时间.
 $fDisabled
-	A value of True specifies that periodic time adjustment is to be disabled. The system is free
-		to adjust time of day using its own internal mechanisms. The system's internal adjustment mechanisms may
-		cause the time-of-day clock to jump noticeably when adjustments are made. A value of False specifies that
-		periodic time adjustment is to be enabled, and will be used to adjust the time of day clock. The system will
-		not interfere with the time adjustment scheme, and will not attempt to synchronize time of day on its own.
-		The system will add the value of iAdjustment to the time of day at each clock interrupt.
+	设置为 返回 True,禁用时间周期调整. 
+		系统使用内部机制调整一天的时间;
+		系统内部调整机制可能导致时间时钟明显跳转. 
+		设置为 返回 False, 启用时间周期调整. 将用于调整一天钟的时间, 
+		系统将不会干扰时间调整计划,也不会尝试同步时间,
+		系统将在每个时钟中断加入 $iAdjustment 指定的值.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###

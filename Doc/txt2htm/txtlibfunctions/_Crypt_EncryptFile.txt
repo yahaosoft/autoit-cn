@@ -2,7 +2,7 @@
 _Crypt_EncryptFile
 
 ###Description###
-Encrypts a file with specified key and algorithm
+指定密钥和算法加密文件
 
 ###Syntax###
 #Include <Crypt.au3>
@@ -11,29 +11,29 @@ _Crypt_EncryptFile($sSourceFile, $sDestinationFile, $vCryptKey, $iALG_ID)
 ###Parameters###
 @@ParamTable@@
 $sSourceFile
-	File to process
+	源文件
 $sDestinationFile
-	File to save the processed file
+	结果文件
 $vCryptKey
-	Password or handle to a key if the CALG_USERKEY flag is specified
+	当指定了 CALG_USERKEY 标记时，需提供的密钥密码或句柄
 $iALG_ID
-	The algorithm to use
+	使用的算法
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	True
-	Sets @error to 0
-Failure	Returns -1 and sets @error:
-	1 - Failed to create key
-	2 - Failed to open source file
-	3 - Failed to open destination file
-	4 - Failed to encrypt final piece
-	5 - Failed to encrypt piece
+成功:	返回 True
+	设置 @error 为 0
+失败:	返回 -1 并设置 @error:
+	1 - 无法建立密钥
+	2 - 无法打开源文件
+	3 - 无法打开结果文件
+	4 - 无法加密最后部分
+	5 - 部分无法加密
 @@End@@
 
 ###Remarks###
-The the output file can be larger than the input file depending on the algorithm.
+ 根据算法, 结果文件可以大于源文件.
 
 ###Related###
 _Crypt_EncryptData, _Crypt_DecryptFile, _Crypt_DeriveKey

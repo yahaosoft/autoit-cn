@@ -2,7 +2,7 @@
 _DebugReport
 
 ###Description###
-Writes to a debugging session
+写调试会话
 
 ###Syntax###
 #include <Debug.au3>
@@ -12,23 +12,23 @@ _DebugReport ( $sData [,$bLastError = False [,$bExit = False]])
 ###Parameters###
 @@ParamTable@@
 $sData
-	Data to be reported
+	须予报告的数据
 $bLastError
-	[optional] True if GetLastErrorMessage() must be append to the data being reported
+	[可选参数] 设置为 True, 表示如有 GetLastErrorMessage() 数据必须追加到报告中
 $bExit
-	[optional] True if the script must be terminated
+	[可选参数] 设置为 True, 表示脚本必须终止
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	1.
-Failure:	0.
+成功:	返回 1.
+失败:	返回 0.
 @@End@@
 
 ###Remarks###
-If no _DebugSetup() have been issued the function always returns.
-@error of the caller is preserved.
-@extended can be set to Windows API GetlastError() if  $bLastError = True. Otherwise it is preserved.
+ 如果没有 _DebugSetup(), 已发布的函数总是返回.
+ @error 为调用方保留.
+ 如果 $bLastError = True, @extended 可以设置为 Windows API 的 GetlastError(). 否则保留.
 
 
 ###Related###

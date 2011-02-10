@@ -2,36 +2,36 @@
 _Crypt_EncryptData
 
 ###Description###
-Encrypts data using the supplied key
+使用提供的密钥加密数据
 
 ###Syntax###
 #Include <Crypt.au3>
-_Crypt_EncryptData($vData, $vCryptKey, $iALG_ID[, $fFinal = True])
+_Crypt_EncryptData($vData, $vCryptKey, $iALG_ID [, $fFinal = True])
 
 ###Parameters###
 @@ParamTable@@
 $vData
-	Data to encrypt/decrypt
+	要加密/解密的数据
 $vCryptKey
-	Password or handle to a key if the CALG_USERKEY flag is specified
+	当指定了 CALG_USERKEY 标记时，需提供的密钥密码或句柄
 $iALG_ID
-	The algorithm to use
+	使用的算法
 $fFinal
-	[optional] False if this is only a segment of the full data
+	[可选参数] 设置为 False, 表明只是全部数据的一部分
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Returns encrypted data
-	Sets @error to 0
-Failure	Returns -1 and sets @error:
-	1 - Cannot create key
-	2 - Failed to determine buffer
-	3 - Failed to encrypt data
+成功:	返回加密后的数据
+	设置 @error 为 0
+失败:	返回 -1 并设置 @error:
+	1 - 无法创建密钥
+	2 - 无法确定缓冲区
+	3 - 加密数据失败
 @@End@@
 
 ###Remarks###
-Returns a binary string regardless of input
+ 返回一个二进制字符串，不涉及输入格式
 
 ###Related###
 _Crypt_DecryptData, _Crypt_DeriveKey, _Crypt_EncryptFile
