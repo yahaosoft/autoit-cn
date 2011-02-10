@@ -12,18 +12,18 @@ _ClipBoard_ChangeChain($hRemove, $hNewNext)
 @@ParamTable@@
 $hRemove
 	要移除链的窗口句柄.
-		The handle must have been passed to the _ClipBoard_SetClipboardViewer function.
+		必须是传递到 _ClipBoard_SetClipboardViewer 函数的窗口句柄.
 $hNewNext
-	Handle to the window that follows the $hRemove window in the clipboard viewer chain.
-		This is the handle returned by _ClipBoard_SetViewer, unless the sequence was changed in response to a $WM_CHANGECBCHAIN message.
+	参数 $hRemove 的窗口句柄是在剪贴板查看器链中的窗口句柄.
+		由函数 _ClipBoard_SetViewer 返回.除非在响应 $WM_CHANGECBCHAIN 信息时，该序列发生变化.
 @@End@@
 
 ###ReturnValue###
 None.
 
 ###Remarks###
-The window identified by $hNewNext replaces the $hRemove window in the chain. The _ClipBoard_SetViewer function
-sends a $WM_CHANGECBCHAIN message to the first window in the clipboard viewer chain.
+ 确定 $hNewNext 窗口替换链中的 $hRemove 窗口
+ 函数 _ClipBoard_SetViewer 发送 $WM_CHANGECBCHAIN 消息到剪贴板查看器链的第一个窗口.
 
 ###Related###
 _ClipBoard_SetViewer

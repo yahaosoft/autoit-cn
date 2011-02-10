@@ -12,23 +12,23 @@ _SoundPos ( $aSnd_id [, $iMode ] )
 ###Parameters###
 @@ParamTable@@
 $aSnd_id
-	Sound ID array as returned by _SoundOpen() or a file name
+	由 _SoundOpen() 返回的声音数组 ID 或文件名称
 $iMode
-	[optional] This flag determines which format the position of the sound is returned in
-	1 = hh:mm:ss where h = hours, m = minutes and s = seconds
-	2 = milliseconds
+	[可选参数] 声音返回位置的格式
+	1 = hh:mm:ss h = 小时, m = 分钟 与 s = 秒
+	2 = 毫秒
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Sound Position
-Failure:	0 and set @error
-@error:	1 = $iMode is invalid
-	3 = Invalid Sound ID. Use return array from _SoundOpen() or a valid file name.
+成功:	返回声音位置
+失败:	返回 0, 并设置 @error:
+@error:	1 = $iMode 无效
+	3 = 无效的声音标识. 使用 _SoundOpen()返回的数组或有效文件名.
 @@End@@
 
 ###Remarks###
-It is recommended to open a sound file with _SoundOpen() and pass the ID array rather than use the file name in this function.  A VBR encoded file is very unlikely to return the correct position if the file name is passed directly to this function.
+ 建议此函数使用 _SoundOpen() 打开声音文件传递的 ID 数组,  而不是使用文件名. 如果将文件名直接传递给这个函数,  VBR 编码的文件非常可能返回不正确的位置.
 
 ###Related###
 _SoundLength, _SoundOpen

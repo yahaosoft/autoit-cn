@@ -2,7 +2,7 @@
 _GUICtrlToolbar_SetDrawTextFlags
 
 ###Description###
-Sets the text drawing flags for the toolbar
+设置工具栏文本绘制标志
 
 ###Syntax###
 #Include <GuiToolBar.au3>
@@ -11,23 +11,23 @@ _GUICtrlToolbar_SetDrawTextFlags($hWnd, $iMask, $iDTFlags)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iMask
-	One or more of the DT_ flags, specified in DrawText, that indicate which bits in iDTFlags will
-		be used when drawing the text.
+	为 DrawText 指定一或多个 DT_ 标志,
+		表明 $iDTFlags 的参数值将用于绘制文本
 $iDTFlags
-	One or more of the DT_ flags, specified in DrawText, that indicate how the button text will be
-		drawn. This value will be passed to the DrawText API when the button text is drawn.
+	为 DrawText 指定一或多个 DT_ 标志,
+		表明如何绘制按钮文本.当绘制按钮文本时,这个值将被传递到 DrawText API.
 @@End@@
 
 ###ReturnValue###
-Success: Returns the previous text drawing flags
+成功: 返回以前的文字绘制标志
 
 ###Remarks###
-The iMask parameter allows you to specify which flags will be used when drawing the text, even if these flags
-are turned off. For example, if you don't want the $DT_CENTER flag used when drawing text you would add the
-$DT_CENTER flag to iMask and not specify the $DT_CENTER flag in iDTFlags. This prevents the control from
-passing the $DT_CENTER flag to the DrawText API.
+ 参数 $iMask 指定排除用于绘制文本的标志,即关闭某些标志.(译注:臆测翻译)
+ 例如, 如果不想使用 $DT_CENTER 标记绘制文本时,则将 $DT_CENTER 标记添加到 $iMask,
+ 并且在 $iDTFlags 中不指定 $DT_CENTER 标记.
+ 这将阻止控件传递 $DT_CENTER 标志到 DrawText API.
 
 ###Related###
 

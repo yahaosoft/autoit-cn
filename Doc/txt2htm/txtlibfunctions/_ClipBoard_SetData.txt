@@ -11,53 +11,53 @@ _ClipBoard_SetData($vData[, $iFormat = 1])
 ###Parameters###
 @@ParamTable@@
 $vData
-	Data in Binary or String format, or optionally NULL (0) (owner must render, see below).
-		IMPORTANT: If a String is passed, and it is not of type $CF_TEXT, $CF_OEMTEXT, or $CF_UNICODETEXT,
-		it will be treated as an ANSI string. To force Unicode strings for other types, you must pass the data
-		in Binary format. Also, do NOT pass $CF_UNICODETEXT in Binary format (causes garbled data).
-		When $vData is NULL, it indicates that the window provides data in the specified clipboard format upon request.
-		If a window delays rendering, it must process the $WM_RENDERFORMAT and $WM_RENDERALLFORMATS messages.  If this
-		function succeeds, the system owns the object identified by the $hMemory parameter.  The application may not
-		write to or free the data once ownership has been transferred to the system, but it can lock and read from the
-		data until the _ClipBoard_Close function is called.  The memory must be unlocked before the clipboard is
-		closed. If the $hMemory parameter identifies a memory object, the object must have been allocated using the
-		function with the $GMEM_MOVEABLE flag.
+	二进制数据或字符串格式，或设置为零值(0) （所有者必须提供数据，见下文）
+		注意：如果一个字符串已获得通过，并且不是 $CF_TEXT, $CF_OEMTEXT, 或 $CF_UNICODETEXT,将被视为一个 ANSI 字符串.
+		要强制其他类型为 Unicode 字符串，你必须传递二进制格式的数据.
+		另外，不要将二进制数据传递给 $CF_UNICODETEXT 格式（会造成乱码数据).
+		当 $vData 为 NULL(空值), 表明窗口按指定的剪贴板格式要求提供数据.
+		如果窗口延迟执行, 表明必须处理 $WM_RENDERFORMAT 和 $WM_RENDERALLFORMATS 信息.
+		如果此函数调用成功:	$hMemory 参数确定的对象
+		(译注:虽然此页未见有 $hMemory 参数, 但原英文文档确实是 $hMemory 这个词,下同)
+		一旦数据所有权已经转移到系统, 应用程序可能无法写入或释放数据, 
+		但是可以锁定和读取, 直到调用 _ClipBoard_Close 函数时为止; 关闭剪贴板前, 内存必须解锁.
+		如果 $hMemory 参数标识为一个内存对象,对象必须使用函数与 $GMEM_MOVEABLE 标记关联.
 $iFormat
-	[optional] Specifies a clipboard format:
-		$CF_TEXT - Text format
-		$CF_BITMAP - Handle to a bitmap (HBITMAP)
-		$CF_METAFILEPICT - Handle to a metafile picture (METAFILEPICT)
-		$CF_SYLK - Microsoft Symbolic Link (SYLK) format
-		$CF_DIF - Software Arts' Data Interchange Format
-		$CF_TIFF - Tagged image file format
-		$CF_OEMTEXT - Text format containing characters in the OEM character set
-		$CF_DIB - BITMAPINFO structure followed by the bitmap bits
-		$CF_PALETTE - Handle to a color palette
-		$CF_PENDATA - Data for the pen extensions to Pen Computing
-		$CF_RIFF - Represents audio data in RIFF format
-		$CF_WAVE - Represents audio data in WAVE format
-		$CF_UNICODETEXT - Unicode text format
-		$CF_ENHMETAFILE - Handle to an enhanced metafile (HENHMETAFILE)
-		$CF_HDROP - Handle to type HDROP that identifies a list of files
-		$CF_LOCALE - Handle to the locale identifier associated with text in the clipboard
-		$CF_DIBV5 - BITMAPV5HEADER structure followed by bitmap color and the bitmap bits
-		$CF_OWNERDISPLAY - Owner display format
-		$CF_DSPTEXT - Text display format associated with a private format
-		$CF_DSPBITMAP - Bitmap display format associated with a private format
-		$CF_DSPMETAFILEPICT - Metafile picture display format associated with a private format
-		$CF_DSPENHMETAFILE - Enhanced metafile display format associated with a private format
+	[可选参数] 指定剪切板格式:
+		$CF_TEXT - 文本格式
+		$CF_BITMAP - 位图句柄 (HBITMAP)
+		$CF_METAFILEPICT - 图片的图元文件句柄 (METAFILEPICT)
+		$CF_SYLK - Microsoft 符号链接格式 (SYLK) 
+		$CF_DIF - 软件艺术数据( Arts' Data )交换格式
+		$CF_TIFF - 标记映像文件格式
+		$CF_OEMTEXT - OEM 字符集中包含字符的文本格式
+		$CF_DIB - 图位的 BITMAPINFO 结构
+		$CF_PALETTE - 调色板句柄
+		$CF_PENDATA - 扩展画笔计算数据
+		$CF_RIFF - 音频数据 RIFF 格式
+		$CF_WAVE - 音频数据 WAVE 格式
+		$CF_UNICODETEXT - Unicode 文本格式
+		$CF_ENHMETAFILE - 增强型图元文件句柄 (HENHMETAFILE)
+		$CF_HDROP - 识别文件列表的 HDROP 句柄
+		$CF_LOCALE - 与剪贴板文本相关的标识符句柄
+		$CF_DIBV5 - 带位图颜色和图位的 BITMAPV5HEADER 结构
+		$CF_OWNERDISPLAY - 属主显示格式
+		$CF_DSPTEXT - 与私有格式相关的文字显示格式
+		$CF_DSPBITMAP - 与私有格式相关的位图显示格式
+		$CF_DSPMETAFILEPICT - 与私有格式相关的图元显示格式
+		$CF_DSPENHMETAFILE - 与私有格式相关的增强型图元显示格式 
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The handle to the data
-Failure:	0
+成功:	返回数据句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-This function performs all of the steps neccesary to put data on the clipboard. It will allocate the global
-memory object, open the clipboard, place the data on the clipboard and close the clipboard. If you need more
-control over putting data on the clipboard, you may want to use the _ClipBoard_SetDataEx function.
+ 该函数执行将数据放入剪贴板的所有必须步骤.
+ 它将分配全局内存对象, 打开剪贴板, 放入数据及关闭剪贴板.
+如果需要更多控制, 可使用 _ClipBoard_SetDataEx 函数. 
 
 ###Related###
 _ClipBoard_GetData, _ClipBoard_SetDataEx, _ClipBoard_Empty, _ClipBoard_GetDataEx
