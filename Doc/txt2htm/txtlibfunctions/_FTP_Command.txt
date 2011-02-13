@@ -11,16 +11,16 @@ _FTP_Command($l_FTPSession, $s_FTPCommand [, $l_Flags = 0x00000001 [, $l_ExpectR
 ###Parameters###
 @@ParamTable@@
 $l_FTPSession
-	由 _FTP_Connect() 返回的回话名
+	由 _FTP_Connect() 返回的会话名
 $s_FTPCommand
 	要发送到FTP服务器的命令字符串
 $l_Flags
 	[可选参数] $FTP_TRANSFER_TYPE_ASCII(文本传输) 或者 $FTP_TRANSFER_TYPE_BINARY(二进制传输)
 $l_ExpectResponse
-	[可选参数] Data socket for response in Async mode.参考备注
+	[可选参数] 响应异步模式的套接字数据. (参考备注).
 $l_Context
-	[可选参数] A variable that contains the application-defined value that associates this search with any application data.
-	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
+	[可选参数] 一个变量, 它包含应用程序定义的值, 关联应用程序数据的搜索.
+	用于应用程序已调用 _FTP_SetStatusCallback() 时,设置一个状态回调函数.
 @@End@@
 
 ###ReturnValue###
@@ -30,10 +30,10 @@ $l_Context
 @@End@@
 
 ###Remarks###
-Command Examples: depends on server syntax/
+ 命令例子: 依赖于服务器的语法/
 下列命令:二进制传输, ASCII 传输, 被动传输模式 (用于防火墙) 'type I' 'type A'  'pasv'
 
-If $l_ExpectResponse is set to TRUE, a pointer to a handle that is created if a valid data socket is opened is returned in @extended.
+如果 $l_ExpectResponse 设置为 TRUE, 一个指针，如果是创建一个有效的数据套接字打开返回在 @extended 句柄.
 
 ###Related###
 _FTP_Connect, _FTP_SetStatusCallback

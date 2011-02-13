@@ -2,7 +2,7 @@
 _FTP_DirPutContents
 
 ###Description###
-Puts an folder on an FTP server. Recursivley if selected.
+如果选定 Recursivley, 将文件夹放入 FTP 服务器.
 
 ###Syntax###
 #Include <FTPEx.au3>
@@ -11,22 +11,22 @@ _FTP_DirPutContents($l_InternetSession, $s_LocalFolder, $s_RemoteFolder, $b_Recu
 ###Parameters###
 @@ParamTable@@
 $l_InternetSession
-	as returned by _FTP_Connect().
+	_FTP_Connect() 返回值.
 $s_LocalFolder
-	The local folder i.e. "c:\temp".
+	本地文件夹.例如 "c:\temp".
 $s_RemoteFolder
-	The remote folder i.e. '/website/home'.
+	远程文件夹. 例如 '/website/home'.
 $b_RecursivePut
-	Recurse through sub-dirs. 0=Non recursive, 1=Recursive
+	通过子目录递归. 0 = 不递归, 1 = 递归
 $l_Context
-	[optional] A variable that contains the application-defined value that associates this search with any application data.
-	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
+	[可选参数] 一个变量, 它包含应用程序定义的值, 关联应用程序数据的搜索.
+	用于应用程序已调用 _FTP_SetStatusCallback() 时,设置一个状态回调函数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Directory Name
-Failure:	0  and sets @ERROR
+成功:	返回目录名称
+失败:	返回 0,并设置 @ERROR
 @@End@@
 
 ###Remarks###

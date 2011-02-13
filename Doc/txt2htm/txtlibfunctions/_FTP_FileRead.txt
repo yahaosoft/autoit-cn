@@ -2,7 +2,7 @@
 _FTP_FileRead
 
 ###Description###
-Reads data from a handle opened by _FTP_FileOpen()
+使用 _FTP_FileOpen() 返回的文件句柄读取数据
 
 ###Syntax###
 #Include <FTPEx.au3>
@@ -11,17 +11,17 @@ _FTP_FileRead($h_File, $dwNumberOfBytesToRead)
 ###Parameters###
 @@ParamTable@@
 $h_File
-	Handle returned by _FTP_FileOpen() to the ftp file.
+	_FTP_FileOpen() 返回的文件句柄.
 $dwNumberOfBytesToRead
-	Number of bytes to read.
+	读取的字节数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns the binary/string read.
-Failure:	0 and Sets @error
-@error:	-1 for end-of-file
-	non-zero for other errors.
+成功:	返回读取的二进制/字符串.
+失败:	返回 0, 并设置 @error:
+@error:	-1 文件结束
+	其它错误设置 @error 非 0 
 @@End@@
 
 ###Remarks###

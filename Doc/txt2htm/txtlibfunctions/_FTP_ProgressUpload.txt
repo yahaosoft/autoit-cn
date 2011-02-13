@@ -2,7 +2,7 @@
 _FTP_ProgressUpload
 
 ###Description###
-Uploads a file in Binary Mode and shows a Progress window or by Calling a User defined Function
+以二进制模式上传文件,并显示(或通过调用用户自定义函数)进度窗口
 
 ###Syntax###
 #Include <FTPEx.au3>
@@ -11,49 +11,49 @@ _FTP_ProgressUpload($l_FTPSession, $s_LocalFile, $s_RemoteFile [, $FunctionToCal
 ###Parameters###
 @@ParamTable@@
 $l_FTPSession
-	as returned by _FTP_Connect().
+	_FTP_Connect() 返回值.
 $s_LocalFile
-	The local file to create.
+	创建的本地文件.
 $s_RemoteFile
-	The remote source file.
+	远程源文件.
 $FunctionToCall
-	[optional] A function which can update a Progressbar and react on UserInput like Click on Abort or Close App. (More info in the end of this comment)
+	[可选参数] 可更新进度条的函数,并对用户输入(如中止或关闭应用的点击操作)作出反应. (更多资讯见备注)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	1
-Failure:	0 and set @error
-@error:	-3 - Create File failed
-	-4 - Write to file failed
-	-5 - Close File failed
-	-6 - Download aborted by PercentageFunc and Return of Called Function
+成功:	返回 1
+失败:	返回 0, 并设置 @error:
+@error:	-3 - 创建文件失败
+	-4 - 写文件失败
+	-5 - 关闭文件失败
+	-6 - 被调用函数返回的百分比下载失败
 @@End@@
 
 ###Remarks###
-Information about $FunctionToCall:
-   Parameter: $Percentage - The Percentage of Progress
-   Return Values: Continue Download - 1
-                  Abort Download    - 0 Or negative
-                       These Return Values are returned by _FTP_ProgressUpload(), too,
-                       so you can react on different Actions like Aborting by User, closing App or TimeOut of whatever
-   Examples:
-                   Func _UpdateProgress($Percentage)
-                      ProgressSet($percent,$percent &"%")
-                      If _IsPressed("77") Then Return 0 ; Abort on F8
-                      Return 1 ; Continue upload
-                   Endfunc
+关于 $FunctionToCall 的信息:
+	参数: $Percentage - 进度百分比
+	返回值：继续下载 - 1
+		中止下载 - 0 或负数
+		这些返回值也可由 _FTP_ProgressUpload() 返回,
+		所以你可进行不同的操作, 比如由用户退出, 关闭应用程序或超时
+	示例:
+		Func _UpdateProgress($Percentage)
+		ProgressSet($percent,$percent &"%")
+		If _IsPressed("77") Then Return 0 ; F8 键中止
+		Return 1 ; 继续上传
+		Endfunc
 
-                   Func _UpdateProgress($Percentage)
-                      GUICtrlSetData($ProgressBarCtrl,$percent)
-                      Switch GUIGetMsg()
-                         Case $GUI_EVENT_CLOSE
-                            Return -1 ; _FTP_UploadProgress Aborts with -1, so you can exit you app afterwards
-                        Case $Btn_Cancel
-                           Return 0 ; Just Cancel, without special Return value
-                      EndSwitch
-                      Return 1 ; Otherwise contine Upload
-                   Endfunc
+		Func _UpdateProgress($Percentage)
+		GUICtrlSetData($ProgressBarCtrl,$percent)
+		Switch GUIGetMsg()
+		Case $GUI_EVENT_CLOSE
+		Return -1 ; _FTP_UploadProgress 中止, 所以稍后可退出应用
+		Case $Btn_Cancel
+		Return 0 ; 仅取消, 无指定返回值
+		EndSwitch
+		Return 1 ; 否则继续上传
+		Endfunc
 
 
 ###Related###

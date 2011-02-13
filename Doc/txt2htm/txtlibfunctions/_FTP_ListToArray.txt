@@ -2,7 +2,7 @@
 _FTP_ListToArray
 
 ###Description###
-Get Filenames, Directories or Both of current remote directory.
+获取当前远程目录的文件名, 目录或两项.
 
 ###Syntax###
 #Include <FTPEx.au3>
@@ -11,20 +11,20 @@ _Ftp_ListToArray($l_FTPSession [, $Return_Type = 0 [, $l_Flags = 0 [, $l_Context
 ###Parameters###
 @@ParamTable@@
 $l_FTPSession
-	as returned by _FTP_Connect().
+	_FTP_Connect() 返回值.
 $Return_type
-	[optional] 0 = Both Files and Directories, 1 = Directories, 2 = Files.
+	[可选参数] 0 = 获取文件及目录, 1 = 仅获取目录, 2 = 仅获取文件.
 $l_Flags
-	[optional] see _FTP_FindFileFirst().
+	[可选参数] 参见 _FTP_FindFileFirst().
 $l_Context
-	[optional] A variable that contains the application-defined value that associates this search with any application data.
-	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
+	[可选参数] 一个变量, 它包含应用程序定义的值, 关联应用程序数据的搜索.
+	用于应用程序已调用 _FTP_SetStatusCallback() 时,设置一个状态回调函数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	An array containing the names. Array[0] contain the number of found entries.
-Failure:	Array[0] = 0
+成功:	返回包含名称的数组. Array[0]为找到的条目数.
+失败:	返回 Array[0] = 0
 @@End@@
 
 ###Remarks###
