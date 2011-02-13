@@ -2,7 +2,7 @@
 _ExcelReadSheetToArray
 
 ###Description###
-Create a 2D array from the rows/columns of the active worksheet.
+用活动工作表的行/列创建二维数组.
 
 ###Syntax###
 #Include <Excel.au3>
@@ -26,22 +26,22 @@ $iColShift
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	a 2D array with the specified cell contents by [$row][$col]
-Failure:	0 and sets @error
-@error:	0 - No error
-	1 - Specified object does not exist
-	2 - Start parameter out of range
-	3 - Count parameter out of range
-@extended:	0 - Row count out of range
-	1 - Column count out of range
+成功:	返回由参数 $iRowCnt 和 $iColCnt 指定的单元格内容组成的二维数组
+失败:	返回 0, 并设置 @error:
+@error:	0 - 无错误
+	1 - 指定的对象不存在
+	2 - 开始读取行超出范围
+	3 - 开始读取列超出范围
+@extended:	0 - 行超出范围
+	1 - 列超出范围
 @@End@@
 
 ###Remarks###
-Returned array has row count in [0][0] and column count in [0][1].
-Except for the counts above, row 0 and col 0 of the returned array are empty, as actual
-cell data starts at [1][1] to match R1C1 numbers.
-By default the entire sheet is returned.
-If the sheet is empty [0][0] and [0][1] both = 0.
+返回的数组中, [0][0]表示行数, [0][1]表示列数.
+除以上计数外, 当实际单元格数据开始于[1][1]以匹配R1C1数字时, 
+返回数组的行0和列0为空.
+默认整个工作表被返回.
+如果工作表为空时, 则返回的数组的 [0][0] 与 [0][1] 都等于 0.
 
 ###Related###
 
