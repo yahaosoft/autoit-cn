@@ -2,7 +2,7 @@
 _GUICtrlComboBoxEx_InitStorage
 
 ###Description###
-Allocates memory for storing ListBox items
+分配用于存储列表框项目的内存
 
 ###Syntax###
 #Include <GuiComboBoxEx.au3>
@@ -11,23 +11,25 @@ _GUICtrlComboBoxEx_InitStorage($hWnd, $iNum, $iBytes)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to control
+	控件句柄
 $iNum
-	Number of items to add
+	项目数量
 $iBytes
-	The amount of memory to allocate for item strings, in bytes
+	内存分配字节数
 @@End@@
 
 ###ReturnValue###
-Success: The total number of items for which memory has been pre-allocated
-Failure: $CB_ERRSPACE
+@@ReturnTable@@
+成功:	返回预分配内存总数
+失败:	$CB_ERRSPACE
+@@End@@
 
 ###Remarks###
-Helps speed up the initialization of ComboBoxes that have a large number of items (over 100).
+有助于加快组合控件具有大量(超过 100)项目时的初始化.
 
-You can use estimates for the $iNum and $iBytes parameters.
-If you overestimate, the extra memory is allocated.
-If you underestimate, the normal allocation is used for items that exceed the requested amount.
+可以使用 $iNum 与 $iBytes 参数估计所需内存量.
+如果你估计过高，会分配多余的额外内存.
+如果你估计过低, 正常分配的内存将用于超过要求的项目数额.
 
 ###Related###
 _GUICtrlComboBoxEx_AddDir, _GUICtrlComboBoxEx_AddString, _GUICtrlComboBoxEx_InsertString

@@ -11,7 +11,7 @@ _WinAPI_StructToArray ( $pStruct [, $iItems] )
 ###Parameters###
 @@ParamTable@@
 $pStruct
-	The pointer to the structure to convert. This structure should be same as for _WinAPI_ArrayToStruct().
+	结构指针. 结构应与 _WinAPI_ArrayToStruct() 函数一样.
 $iItems
 	[可选参数] 指定首个元素是否包含字符串数量. 默认为False表示不返回但可使用UBound()获取,
 	反之为True时表示返回字符串数量.
@@ -19,15 +19,15 @@ $iItems
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The array of strings. The zeroth array element contains the number of strings.
-Failure	0 and sets the @error flag to one of the following values:
-	1 - $pStruct is not a correct pointer.
-	2 - Failed to allocate the memory.
-	3 - Size of the structure exceeds the allowable size (32 KB).
+成功:	返回字符串数组.元素 [0] 包含字符串数量.
+失败:	返回 0, 并设置 @error 标志为下列值之一:
+	1 - $pStruct 是不正确的指针.
+	2 - 无法分配内存.
+	3 - 结构超过允许的大小 (32 KB).
 @@End@@
 
 ###Remarks###
-This function works for Unicode strings only.
+函数仅对 Unicode 字符串有效.
 
 
 ###See Also###

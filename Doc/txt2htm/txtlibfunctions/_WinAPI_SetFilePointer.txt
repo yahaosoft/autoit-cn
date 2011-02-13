@@ -11,31 +11,31 @@ _WinAPI_SetFilePointer($hFile, $iPos [, $iMethod = 0])
 ###Parameters###
 @@ParamTable@@
 $hFile
-	Handle to the file to be processed
+	文件句柄
 $iPos
-	Number of bytes to move the file pointer. Maximum value is 2^32
-		A positive value moves the file pointer forward in the file, and a negative value moves the file pointer back.
+	移动文件指针的字节数,最大值为 2^32
+		正值向前移动文件指针, 而负数则向后移动文件指针.
 $iMethod
-	[optional] The starting point for the file pointer move.
-		Can be one of the predefined values:
-		$FILE_BEGIN = 0 - The starting point is zero (0) or the beginning of the file
-		$FILE_CURRENT = 1 - The starting point is the current value of the file pointer.
-		$FILE_END = 2 - The starting point is the current end-of-file position.
-		Implicit value is $FILE_BEGIN = 0
+	[可选参数] 文件指针移动的起点.
+		可以预定义下列值之一:
+		$FILE_BEGIN = 0 - 起点为 0 或文件的开头
+		$FILE_CURRENT = 1 - 起点为文件指针的当前值.
+		$FILE_END = 2 - 起点为文件的目前结束位置.
+		默认值为 $FILE_BEGIN = 0
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	New file pointer.
-Failure:	Returns INVALID_SET_FILE_POINTER (-1) and Set @error
-@error:	0 - No error
-	2 - API returned INVALID_SET_FILE_POINTER
+成功:	返回新的文件指针.
+失败:	返回 INVALID_SET_FILE_POINTER (-1) 并设置 @error
+@error:	0 - 无错误
+	2 - API 返回 INVALID_SET_FILE_POINTER
 @@End@@
 
 ###Remarks###
-This function can also be used to query the current file pointer position by specifying a move method of FILE_CURRENT and a distance of zero.
-This function stores the file pointer in LONG value. To work with file pointers that are larger than a single LONG value, it must be used the SetFilePointerEx function.
-File pointer is the position in the file to read/write to/from by _WinAPI_ReadFile/_WinAPI_WriteFile
+ 通过 $FILE_CURRENT 指定移动方法和零距离, 函数也可以用来查询当前文件的指针位置.
+ 这个函数值存储文件的长(LONG)值指针,为了与那些大于长值的文件指针一起工作,必须使用 SetFilePointerEx 函数.
+ 文件指针是供 _WinAPI_ReadFile 或 _WinAPI_WriteFile 函数读写文件的位置.
 
 ###Related###
 _WinAPI_CloseHandle, _WinAPI_CreateFile, _WinAPI_FlushFileBuffers, _WinAPI_GetFileSizeEx, _WinAPI_ReadFile, _WinAPI_SetEndOfFile, _WinAPI_WriteFile

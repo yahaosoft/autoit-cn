@@ -11,21 +11,21 @@ _WinAPI_OpenProcess($iAccess, $fInherit, $iProcessID [, $fDebugPriv = False])
 ###Parameters###
 @@ParamTable@@
 $iAccess
-	Specifies the access to the process object
+	有效的进程对象
 $fInherit
-	Specifies whether the returned handle can be inherited
+	返回的句柄是否可以被继承
 $iProcessID
-	Specifies the process identifier of the process to open
+	以打开进程的进程标识符
 $fDebugPriv
-	[optional] Certain system processes can not be opened unless you have the debug security privilege. If
-		True, this function will attempt to open the process with debug priviliges if the process can not be opened
-		with standard access privileges.
+	[可选参数] 某些系统进程无法打开, 除非有调试的安全特权.
+		如设为 True, 当进程不能打开标准访问权限时,
+		函数将尝试打开调试过程中的管理权限
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Process handle to the object
-Failure:	set @error
+成功:	返回进程对象句柄
+失败:	设置 @error
 @@End@@
 
 ###Remarks###
