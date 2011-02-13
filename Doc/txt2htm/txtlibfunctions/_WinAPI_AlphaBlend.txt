@@ -2,7 +2,7 @@
 _WinAPI_AlphaBlend
 
 ###Description###
-Displays bitmaps that have transparent or semitransparent pixels.
+显示位图透明或半透明的像素.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,53 +11,49 @@ _WinAPI_AlphaBlend ( $hDestDC, $iXDest, $iYDest, $iWidthDest, $iHeightDest, $hSr
 ###Parameters###
 @@ParamTable@@
 $hDestDC
-	Handle to the destination device context.
+	目标设备环境句柄.
 $iXDest
-	The x-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+	目标矩形左上角 x 坐标的逻辑单位值.
 $iYDest
-	The y-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+	目标矩形左上角 y 坐标的逻辑单位值.
 $iWidthDest
-	The width, in logical units, of the destination rectangle.
+	目标矩形宽度逻辑单位值.
 $iHeightDest
-	The height, in logical units, of the destination rectangle.
+	目标矩形高度逻辑单位值.
 $hSrcDC
-	Handle to the source device context.
+	源设备环境句柄.
 $iXSrc
-	The x-coordinate, in logical units, of the upper-left corner of the source rectangle.
+	源矩形左上角 x 坐标的逻辑单位值.
 $iYSrc
-	The y-coordinate, in logical units, of the upper-left corner of the source rectangle.
+	源矩形左上角 y 坐标的逻辑单位值.
 $iWidthSrc
-	The width, in logical units, of the source rectangle.
+	源矩形宽度逻辑单位值.
 $iHeightSrc
-	The height, in logical units, of the source rectangle.
+	源矩形高度逻辑单位值.
 $iAlpha
-	The alpha transparency value to be used on the entire source bitmap. This value is combined with
-	any per-pixel alpha values in the source bitmap. If you set $iAlpha to 0, it is assumed that
-	your image is transparent. Set $iAlpha value to 255 (opaque) when you only want to use per-pixel
-	alpha values.
+	用于整个源位图的 Alpha 透明度值. 此值为源位图每像素的 Alpha 值.
+		 如果设置 $iAlpha为 0, 则图片是透明的;
+		 当仅需使用每像素 alpha 值时, 设置 $iAlpha 值为 255(不透明). 
 $fAlpha
-	[可选参数] Specifies whether uses an Alpha channel from the source bitmap, valid values:
-		TRUE        - Use the Alpha channel (that is, per-pixel alpha). Note that the APIs use premultiplied alpha,
-	which means that the red, green and blue channel values in the bitmap must be premultiplied with the
-	alpha channel value. For example, if the alpha channel value is x, the red, green and blue channels
-	must be multiplied by x and divided by 255 prior to the call.
-		FALSE       - Do not use the Alpha channel. (Default)
+	[可选参数] 指定是否使用源位图的 Alpha 通道, 有效值为:
+		1 - 使用 Alpha 通道(即每像素 alpha).请注意, API 使用预乘 alpha,
+		 	即位图中的红, 绿和蓝色通道值必须与 Alpha 通道值预乘.
+		 	例如, 假设 Alpha 通道值是 x,在调用前, 红、绿和蓝色通道必须乘以 x 并除以 255.
+		0 - 不使用 Alpha 通道. (默认值)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-If the source rectangle and destination rectangle are not the same size, the source bitmap is stretched to
-match the destination rectangle. If the _WinAPI_SetStretchBltMode() function is used, the stretching mode value
-is automatically converted to $COLORONCOLOR for this function (that is, $BLACKONWHITE, $WHITEONBLACK, and
-$HALFTONE are changed to $COLORONCOLOR).
-
-If destination and source bitmaps do not have the same color format, _WinAPI_AlphaBlend() function converts
-the source bitmap to match the destination bitmap.
+如果源矩形和目标矩形的大小不一样, 源位图被拉伸以匹配目标矩形.
+ 如果 _WinAPI_SetStretchBltMode() 函数被使用,
+ 函数自动转换拉伸模式值为 $COLORONCOLOR.
+ (即, $BLACKONWHITE, $WHITEONBLACK, 与 $HALFTONE 更改为 $COLORONCOLOR).
+ 如果目标和源位图的颜色格式不相同,_WinAPI_AlphaBlend() 函数转换源位图以匹配目标位图.
 
 
 ###See Also###

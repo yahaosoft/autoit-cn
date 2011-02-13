@@ -2,7 +2,7 @@
 _WinAPI_InvalidateRect
 
 ###Description###
-Adds a rectangle to the specified window's update region
+添加矩形到指定窗口的更新区域
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,20 +11,20 @@ _WinAPI_InvalidateRect($hWnd [, $tRect = 0 [, $fErase = True]])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to windows
+	窗口句柄
 $tRect
-	[optional] $tagRECT structure that contains the client coordinates of the rectangle to be added to the
-		update region. If this parameter is 0 the entire client area is added to the update region.
+	[可选参数] $tagRECT 结构,包含矩形添加到更新区域的客户端坐标
+		如果此参数为 0, 整个客户区被添加到更新区域.
 $fErase
-	[optional] Specifies whether the background within the update region is to be erased when the update
-		region is processed. If this parameter is True the background is erased when the BeginPaint function is
-		called. If this parameter is False, the background remains unchanged.
+	[可选参数] 指定更新区域时是否删除背景
+		如果参数为 True ,背景被删除时, BeginPaint 函数被调用
+		如果此参数为 False, 背景保持不变
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###

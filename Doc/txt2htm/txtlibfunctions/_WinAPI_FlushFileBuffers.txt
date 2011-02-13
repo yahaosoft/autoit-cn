@@ -2,7 +2,7 @@
 _WinAPI_FlushFileBuffers
 
 ###Description###
-Flushes the buffers of a specified file and causes all buffered data to be written
+刷新缓冲区的指定文件, 并写入所有缓冲数据
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,16 +11,16 @@ _WinAPI_FlushFileBuffers($hFile)
 ###Parameters###
 @@ParamTable@@
 $hFile
-	Handle to an open file. The file handle must have the $GENERIC_WRITE access right. If hFile is
-		a handle to a communications device, the function only flushes the transmit buffer. If hFile is a handle to
-		the server end of a named pipe the function does not return until the client has read all buffered data from
-		the pipe.
+	被打开文件的句柄.该文件句柄必须具有 $GENERIC_WRITE 的写访问权限.
+		如果 $hFile 是通信设备句柄,该函数只刷新发送缓冲区.
+		如果 $hFile 是服务器端命名管道的句柄,函数不返回, 
+		直到客户端从管道读取全部缓冲数据.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###

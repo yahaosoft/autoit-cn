@@ -2,7 +2,7 @@
 _WinAPI_CombineRgn
 
 ###Description###
-Combines two regions and stores the result in a third region
+结合两个区域,并存储结果在第三区域
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,32 +11,32 @@ _WinAPI_CombineRgn($hRgnDest, $hRgnSrc1, $hRgnSrc2, $iCombineMode)
 ###Parameters###
 @@ParamTable@@
 $hRgnDest
-	Handle to a new region with dimensions defined by combining two other regions. (This region must exist before CombineRgn is called.)
+	结合其他两个地区的新区域句柄(此区域必须在调用 CombineRgn 之前已存在)
 $hRgnSrc1
-	Handle to the first of two regions to be combined.
+	第一个被合并区域句柄.
 $hRgnSrc2
-	Handle to the second of two regions to be combined.
+	第二个被合并区域句柄.
 $iCombineMode
-	Specifies a mode indicating how the two regions will be combined. This parameter can be one of the following values.
-		$RGN_AND - Creates the intersection of the two combined regions.
-		$RGN_COPY - Creates a copy of the region identified by hrgnSrc1.
-		$RGN_DIFF - Combines the parts of hrgnSrc1 that are not part of hrgnSrc2.
-		$RGN_OR - Creates the union of two combined regions.
-		$RGN_XOR - Creates the union of two combined regions except for any overlapping areas.
+	指定合并模式.参数可以是以下值之一.
+		$RGN_AND - 创建两个联合区域的交叉点.
+		$RGN_COPY - 创建由 $hrgnSrc1 确定区域的副本.
+		$RGN_DIFF - 结合 hrgnSrc1 不属于 hrgnSrc2 的一部分.
+		$RGN_OR - 创建两个区域结合的并集.
+		$RGN_XOR - 创建两个区域结合的并集, 排除任何重叠的地方.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Specifies the type of the resulting region. It can be one of the following values.
-	$NULLREGION - The region is empty.
-	$SIMPLEREGION - The region is a single rectangle.
-	$COMPLEXREGION - The region is more than a single rectangle.
-Failure:	0 - No region is created.
+成功:	返回生成指定类型的区域.可以是以下值之一:.
+	$NULLREGION - 区域是空的.
+	$SIMPLEREGION - 地区是一个单一矩形.
+	$COMPLEXREGION - 地区大于单一矩形.
+失败:	返回 0 - 无创建区域.
 @@End@@
 
 ###Remarks###
-The two regions are combined according to the specified mode.
-The three regions need not be distinct. For example, the hrgnSrc1 parameter can equal the hrgnDest parameter.
+ 两个地区根据指定模式相结合.
+ 三个地区不必不同,例如,$hrgnSrc1 的参数可以等于 $hrgnDest 的参数.
 
 ###Related###
 _WinAPI_CreateRectRgn, _WinAPI_CreateRoundRectRgn, _WinAPI_SetWindowRgn, _WinAPI_GetWindowRgn

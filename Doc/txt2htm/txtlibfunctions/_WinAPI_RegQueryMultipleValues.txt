@@ -2,7 +2,7 @@
 _WinAPI_RegQueryMultipleValues
 
 ###Description###
-Retrieves the type and data for a list of value names associated with an open registry key.
+检索注册表键的类型和名称值列表数据.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,44 +11,42 @@ _WinAPI_RegQueryMultipleValues ( $hKey, ByRef $aValent, ByRef $tData [, $iStart 
 ###Parameters###
 @@ParamTable@@
 $hKey
-	Handle to an open registry key. The key must have been opened with the KEY_QUERY_VALUE access right.
-	This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey() function. It can also
-	be one of the following predefined keys.
-	
-	$HKEY_CLASSES_ROOT
-	$HKEY_CURRENT_CONFIG
-	$HKEY_CURRENT_USER
-	$HKEY_LOCAL_MACHINE
-	$HKEY_PERFORMANCE_DATA
-	$HKEY_USERS
-	
+	注册表键句柄.注册表键必须有 KEY_QUERY_VALUE 存取权限.
+		 句柄有 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回.
+		 也可以是下列预定义键之一
+		 $HKEY_CLASSES_ROOT
+		 $HKEY_CURRENT_CONFIG
+		 $HKEY_CURRENT_USER
+		 $HKEY_LOCAL_MACHINE
+		 $HKEY_PERFORMANCE_DATA
+		 $HKEY_USERS
 $aValent
-	The 2D array ([valuename1, 0, 0, 0], [valuename2, 0, 0, 0], ... [valuenameN, 0, 0, 0]) that contains the
-	name of a values to retrieve. On input, 1, 2, and 3 array elements are not used, but the size of the array
-	should be [n][4], otherwise, the function fails. Also, this function fails if any of the specified
-	values do not exist in the specified key.
+	二维数组 ([valuename1, 0, 0, 0], [valuename2, 0, 0, 0], ... [valuenameN, 0, 0, 0]),包含被检索的名称值.
+		 不使用数组元素 1, 2, 与 3, 但该数组的大小应该是 [n][4], 否则, 函数将失败.
+		 此外,如果指定键不存在任何指定值,此函数同样失败.
 $tData
-	The buffer to receive data. If the function succeeds, the buffer is a "byte[n]" structure that receives
-	the data for each value. You should not change this structure until you finish to use the data returned
-	by this function. After that, you can release the memory allocated by this structure.
+	接收数据的缓冲区. 如果函数成功, 缓冲区是 "byte[n]" 结构, 接收数据的每个值
+		 直到这个函数返回数据完成前,不应该改变这种结构.
+		 在此之后,可以释放这个结构分配的内存.
 $iStart
-	[可选参数] The index of array to start querying at.
+	[可选参数] 开始检索的数组索引.
 $iEnd
-	[可选参数] The index of array to stop querying at.
+	[可选参数] 结束检索的数组索引.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The number of bytes copied to the buffer. The $aValent array will contain the following data:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[n][0]	The name of the value (unchanged).
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[n][1]	The size of the data, in bytes.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[n][2]	The pointer to the data in buffer pointed to by the $tData parameter.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[n][3]	The type of data ($REG_*).
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回复制到缓冲区的字节数. $aValent 数组将包含以下数据:
+	[n][0] - 名称值 (未改变的).
+	[n][1] - 数据字节大小.
+	[n][2] - 指向 $tData 参数值的缓冲区数据指针.
+	[n][3] - 数据类型 ($REG_*).
+	
+失败:	返回 0,设置@error:非 0 值, @extended 可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
-To prevent excessive serialization, the aggregate data returned by the function cannot exceed one megabyte.
+为了防止过多的系列化, 由该函数返回的数据总数不能超过一兆字节.
 
 
 ###See Also###

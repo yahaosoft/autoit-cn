@@ -2,7 +2,7 @@
 _WinAPI_RestartDlg
 
 ###Description###
-Displays a dialog box that prompts the user to restart Microsoft Windows.
+显示提示用户重新启动系统的对话框.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,30 +11,25 @@ _WinAPI_RestartDlg ( [$sText [, $iFlags [, $hParent]]] )
 ###Parameters###
 @@ParamTable@@
 $sText
-	[可选参数] The text that displays in the dialog box which prompts the user.
+	[可选参数] 显示在对话框中的文本.
 $iFlags
-	[可选参数] The flags that specify the type of shutdown.
-	
-	This parameter must include one of the following values.
-	
-	$EWX_LOGOFF
-	$EWX_POWEROFF
-	$EWX_REBOOT
-	$EWX_SHUTDOWN
-	
-	This parameter can optionally include the following values.
-	
-	$EWX_FORCE
-	$EWX_FORCEIFHUNG
-	
+	[可选参数] 指定关机类型..
+		 参数必须是以下值之一:
+		 $EWX_LOGOFF --- 该进程调用此函数关闭所有安全范围内运行的进程,然后注销用户
+		 $EWX_POWEROFF --- 系统关闭,并关闭电源
+		 $EWX_REBOOT --- 系统关闭后重新启动系统
+		 $EWX_SHUTDOWN --- 使系统关闭到一个点上,可以安全地关闭电源
+		 参数可以包含以下值之一:
+		 $EWX_FORCE --- 强制终止进程,这可能会导致应用程序丢失数据
+		 $EWX_FORCEIFHUNG --- 强制终止进程,如果不回应,这个标志被忽略
 $hParent
-	[可选参数] Handle to the parent window.
+	[可选参数] 父窗口句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The identifier of the button that was pressed to close the dialog box.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回按下该对话框"关闭"按钮的标识符.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

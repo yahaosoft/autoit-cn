@@ -2,7 +2,7 @@
 _MemVirtualAllocEx
 
 ###Description###
-Reserves a region of memory within the virtual address space of a specified process
+在一个指定进程的虚拟地址空间储备内存区域
 
 ###Syntax###
 #Include <Memory.au3>
@@ -11,32 +11,34 @@ _MemVirtualAllocEx($hProcess, $pAddress, $iSize, $iAllocation, $iProtect)
 ###Parameters###
 @@ParamTable@@
 $hProcess
-	Handle to process
+	进程句柄
 $pAddress
-	Specifies the desired starting address of the region to allocate
+	指定区域分配的起始地址
 $iSize
-	Specifies the size, in bytes, of th region
+	指定区域大小的字节单位
 $iAllocation
-	Specifies the type of allocation:
-		$MEM_COMMIT - Allocates physical storage in memory or in the paging file on disk for the specified region
+	指定分配类型:
+		$MEM_COMMIT - 为页面指定区域分配物理存储区,或磁盘上的分页文件
 		of pages.
-		$MEM_RESERVE - Reserves a range of the process's virtual address space without allocating any physical
+		$MEM_RESERVE - 储备进程的虚拟地址空间范围,不分配任何物理存储
 		storage.
-		$MEM_TOP_DOWN - Allocates memory at the highest possible address
+		$MEM_TOP_DOWN - 为最高的可能地址分配内存
 $iProtect
-	Type of access protection:
-		$PAGE_READONLY - Enables read access to the committed region of pages
-		$PAGE_READWRITE - Enables read and write access to the committed region
-		$PAGE_EXECUTE - Enables execute access to the committed region
-		$PAGE_EXECUTE_READ - Enables execute and read access to the committed region
-		$PAGE_EXECUTE_READWRITE - Enables execute, read, and write access to the committed region of pages
-		$PAGE_GUARD - Pages in the region become guard pages
-		$PAGE_NOACCESS - Disables all access to the committed region of pages
-		$PAGE_NOCACHE - Allows no caching of the committed regions of pages
+	访问保护类型:
+		$PAGE_READONLY - 允许页面承诺区域的读访问
+		$PAGE_READWRITE - 允许读写承诺区域
+		$PAGE_EXECUTE - 允许运行承诺区域的操作
+		$PAGE_EXECUTE_READ - 允许运行与读承诺区域
+		$PAGE_EXECUTE_READWRITE - 允许运行,读,写页面承诺区域
+		$PAGE_GUARD - 区域中的页面变为保护页面
+		$PAGE_NOACCESS - 禁用页面承诺区域的全部权限
+		$PAGE_NOCACHE - 允许没有页面承诺区域的缓存
 @@End@@
 
 ###ReturnValue###
-Returns a Memory address pointer
+@@ReturnTable@@
+	返回存储器地址指针
+@@End@@
 
 ###Remarks###
 None.

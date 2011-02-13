@@ -2,7 +2,7 @@
 _WinAPI_UpdateResource
 
 ###Description###
-Adds, deletes, or replaces a resource in a portable executable (PE) file.
+添加,删除或替换可移植可执行(PE)文件资源.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,44 +11,40 @@ _WinAPI_UpdateResource ( $hUpdate, $sType, $sName, $iLanguage, $pData, $iSize )
 ###Parameters###
 @@ParamTable@@
 $hUpdate
-	A module handle returned by the _WinAPI_BeginUpdateResource(), referencing the file to be updated.
+	_WinAPI_BeginUpdateResource() 返回的模块句柄.
 $sType
-	The resource type to be updated. Alternatively, rather than a pointer, this parameter can be an
-	integer value representing a predefined resource type. If the first character of the string is a
-	pound sign (#), then the remaining characters represent a decimal number that specifies the integer
-	identifier of the resource type. For example, the string "#258" represents the identifier 258.
-	Also, you can use a predefined resource types ($RT_*).
+	更新的资源类型. 不是指针, 参数可以是表示资源类型的预定义整数值.
+		 如果资源类型标识符第一字符是磅符号 (#), 则剩余字符表示一个十进制数的整数.
+		 例如,字符串 "#258" 代表标识符 258.
+		 此外,可以使用预定义资源类型 ($RT_*).
 $sName
-	The name of the resource to be updated. This parameter can be string or integer type (see above).
+	资源的名称. 参数可以是字符串或整数类型 (见上述).
 $iLanguage
-	The language of the resource (LCID).
+	资源的语言 (LCID).
 $pData
-	The resource data to be inserted into the file indicated by $hUpdate parameter. If the resource is
-	one of the predefined types, the data must be valid and properly aligned. Note that this is the raw
-	binary data, not the data provided by _WinAPI_LoadIcon(), _WinAPI_LoadString(), or other resource-
-	specific load functions. All data containing strings or text must be in Unicode format. If $pData
-	is 0 and $iSize is 0, the specified resource is deleted from the file indicated by $hUpdate.
+	被插入到 $hUpdate 资源文件的数据. 如果资源是预定义类型,
+		 数据必须有效和正确对齐. 请注意,这是原始二进制数据,
+		 不是由 _WinAPI_LoadIcon(), _WinAPI_LoadString(), 或其它特定资源加载函数提供的数据. 
+		 所有数据,包括字符串或文本必须 为Unicode 格式. 
+		 如果此参数和 $iSize 同为 0, 则删除 $hUpdate 指定的资源文件.
 $iSize
-	The size, in bytes, of the resource data at $pData.
+	指定 $pData 资源数据的字节大小.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###
-It is recommended that the resource file is not loaded before this function is called. However, if that file
-is already loaded, it will not cause an error to be returned.
-
-An application can use _WinAPI_UpdateResource() repeatedly to make changes to the resource data. Each call
-to _WinAPI_UpdateResource() contributes to an internal list of additions, deletions, and replacements but does
-not actually write the data to the file. The application must use the _WinAPI_EndUpdateResource() function to
-write the accumulated changes.
-
-If $pData is 0 and $iSize is 0, the specified resource is deleted from the file indicated by $hUpdate.
-
+建议在资源文件没有加载之前调用此函数,
+ 如果该文件已经加载,也不会导致返回错误
+ 应用程序可以使用 _WinAPI_UpdateResource() 反复修改资源数据. 
+ 每次 _WinAPI_UpdateResource() 的调用都将添加,删除和替换内部列表, but does
+ 但实际上并没有将数据写入到文件. 
+ 应用程序必须使用 _WinAPI_EndUpdateResource() 函数写累积的变化.
+ 如果 $pData is 与 $iSize 同为 0, 则删除 $hUpdate 指定的资源文件.
 
 ###See Also###
 @@MsdnLink@@ UpdateResource

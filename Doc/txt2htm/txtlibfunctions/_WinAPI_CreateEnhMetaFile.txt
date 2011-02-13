@@ -2,7 +2,7 @@
 _WinAPI_CreateEnhMetaFile
 
 ###Description###
-Creates a device context for an enhanced-format metafile.
+创建增强型图元文件格式的设备环境.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,45 +11,37 @@ _WinAPI_CreateEnhMetaFile ( [$hDC [, $tRECT [, $fPixels [, $sFile [, $sDescripti
 ###Parameters###
 @@ParamTable@@
 $hDC
-	[可选参数] Handle to a reference device for the enhanced metafile. The system uses this device context to
-	record the resolution and units of the device on which a picture originally appeared.
-	If this parameter is 0, it uses the current display device for reference.
+	[可选参数] 设备句柄.
+		 系统使用此设备环境记录设备上图片最初出现的分辨率和单位.
+		 如果此参数为 0, 则使用当前显示设备.
 $tRECT
-	[可选参数] $tagRECT structure that specifies the dimensions of the picture to be stored in the enhanced metafile.
-	If this parameter is 0, the graphics device interface computes
-	the dimensions of the smallest rectangle that surrounds the picture drawn by the application.
+	[可选参数] $tagRECT 结构,它指定存储到增强型图元文件的图片尺寸.
+		 如果此参数为 0, 图形设备接口计算应用程序包围图片矩形的最小尺寸. 
 $fPixels
-	[可选参数] Specifies whether the $tRECT structure defined in pixels, valid values:
-		TRUE         - In logical units (pixels).
-		FALSE        - In .01-millimeter units. (Default)
+	[可选参数] 指定 $tRECT 结构是否定义为像素单位. 有效的指定值:
+		1 - 像素逻辑单位
+		0 - .01-毫米单位 (默认)
 $sFile
-	[可选参数] The file name for the enhanced metafile to be created. If this parameter is 0, the enhanced
-	metafile is memory based and its contents are lost when it is deleted by using the
-	_WinAPI_DeleteEnhMetaFile() function.
+	[可选参数] 增强型图元文件的名称.如果此参数为 0, 增强型图元文件基于内存,
+		 当使用 _WinAPI_DeleteEnhMetaFile() 函数删除时,其内容都将丢失. 
 $sDescription
-	[可选参数] The string that specifies the name of the application that created the picture, as well as the
-	picture's title. This string must be an empty string or represented as follows:
-	
-	"application name|picture name"
-	
+	[可选参数] 指定应用程序创建图片的名称以及图片的标题.
+		 必须是一个空字符串或描述如下:
+		 "程序名|图片名"
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle to the device context for the enhanced metafile.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回增强型图元文件设备环境句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-Applications use the device context created by this function to store a graphics picture in an enhanced metafile.
-The handle identifying this device context can be passed to any GDI function.
-
-After an application stores a picture in an enhanced metafile, it can display the picture on any output device by
-calling the _WinAPI_PlayEnhMetaFile() function. When displaying the picture, the system uses the rectangle pointed
-to by the $tRECT parameter and the resolution data from the reference device to position and scale the picture.
-
-The file name for the enhanced metafile should use the .emf extension.
-
+应用程序使用本函数创建的设备环境将图形图片存储到增强型元文件中.
+ 标识此设备环境的句柄可以传递给任何 GDI 函数.
+ 应用程序存储图片到增强型图元文件后,调用 _WinAPI_PlayEnhMetaFile() 函数,图片可以显示在任何输出设备中.
+ 显示图片时,系统采用 $tRECT 指向的矩形,参考设备的分辨率数据定位和缩放图片.
+ 增强型图元文件的名称应使用 .emf 扩展名.
 
 ###See Also###
 @@MsdnLink@@ CreateEnhMetaFile

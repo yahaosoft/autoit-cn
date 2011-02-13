@@ -2,7 +2,7 @@
 _WinAPI_SetDefaultPrinter
 
 ###Description###
-Sets the default printer for the current user on the local computer
+设置本地计算机当前用户的默认打印机
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,16 +11,16 @@ _WinAPI_SetDefaultPrinter($sPrinter)
 ###Parameters###
 @@ParamTable@@
 $sPrinter
-	The default printer name. For a remote printer, the name format is \\server\printername. For a
-		local printer, the name format is printername. If this parameter is "", this function does nothing if there
-		is already a default printer. However, if there is no default printer, this function sets the default printer
-		to the first printer, if any, in an enumeration of printers installed on the local computer.
+	默认打印机的名称. 对于远程打印机, 名称格式为 \\服务器\打印机名称
+		对于本地打印机, 名称格式是打印机的名称. 如果这个参数为"", 或已经有一个默认打印机, 此函数不执行任何操作.
+		如果没有默认打印机, 这个函数设置默认打印机为第一台打印机;
+		如果有, 则枚举本地计算机上安装的打印机.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###

@@ -2,7 +2,7 @@
 _Timer_GetIdleTime
 
 ###Description###
-Returns the number of ticks since last user activity (i.e. KYBD/Mouse)
+返回最后一次用户活动的标记数（即键盘/鼠标）
 
 ###Syntax###
 #Include <Timers.au3>
@@ -14,17 +14,16 @@ None.
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	integer ticks since last (approx. milliseconds) since last activity
-Failure:	Sets @extended = 1 if rollover occurs (see remarks)
+成功:	返回上次活动以来的整数标记（大约毫秒）
+失败:	如果发生翻转则设置 @extended = 1 (见备注)
 @@End@@
 
 ###Remarks###
-The current ticks since last system restart will roll over to 0 every 50 days or so,
-which makes it possible for last user activity to be before the rollover, but run time
-of this function to be after the rollover. If this happens, @extended = 1 and the
-returned value is ticks since rollover occured.
-
-###Related###
+ 当前标记从上次系统重新启动大约 50 天后翻转到 0,
+ 这使得在翻转之前的用户活动可能成为最后一个.
+ 但这个函数是在运行时间后翻转. 
+ 如果发生这种情况, @extended = 1.
+ 返回的标记值是在翻转之后.
 
 ###Example###
 @@IncludeExample@@

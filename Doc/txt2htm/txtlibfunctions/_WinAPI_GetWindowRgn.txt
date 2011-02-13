@@ -2,7 +2,7 @@
 _WinAPI_GetWindowRgn
 
 ###Description###
-Obtains a copy of the window region of a window
+获得窗口范围的副本
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,26 +11,26 @@ _WinAPI_GetWindowRgn($hWnd, $hRgn)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window whose window region is to be obtained.
+	窗口句柄.
 $hRgn
-	Handle to the region which will be modified to represent the window region.
+	代表窗口区域的句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Specifies the type of the region that the function obtains. It can be one of the following values
-	$NULLREGION - The region is empty.
-	$SIMPLEREGION - The region is a single rectangle.
-	$COMPLEXREGION - The region is more than one rectangle.
-Failure:	0 The specified window does not have a region, or an error occurred while attempting to return the region.
+成功:	返回函数获得指定区域的类型. 它可以是以下值之一
+	$NULLREGION - 区域是空的.
+	$SIMPLEREGION - 区域是单一矩形.
+	$COMPLEXREGION - 区域是一个以上的矩形.
+失败:	返回 0. 指定的窗口没有区域或试图返回该区域时发生错误.
 @@End@@
 
 ###Remarks###
-The window region of a window is set by calling the SetWindowRgn function.
-The window region determines the area within the window where the system permits drawing.
-The system does not display any portion of a window that lies outside of the window region
-The coordinates of a window's window region are relative to the upper-left corner of the window, not the client area of the window.
-To set the window region of a window, call the SetWindowRgn function.
+ 窗口的窗口区域是由调用 SetWindowRgn 函数设置的.
+ 系统允许在窗口区域内的窗口绘图.
+ 系统不显示任何窗口的窗口区域以外的部分.
+ 窗口的窗口区域坐标相对于窗口的左上角,而不是窗口的客户区.
+ 要设置窗口的窗口区域, 调用 SetWindowRgn 函数.
 
 ###Related###
 _WinAPI_CreateRectRgn, _WinAPI_CreateRoundRectRgn, _WinAPI_CombineRgn, _WinAPI_SetWindowRgn

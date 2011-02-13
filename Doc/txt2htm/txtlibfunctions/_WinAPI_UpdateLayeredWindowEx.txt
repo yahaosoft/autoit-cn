@@ -2,7 +2,7 @@
 _WinAPI_UpdateLayeredWindowEx
 
 ###Description###
-Updates a bitmap translucency of a layered window.
+更新分层窗口半透明位图.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,26 +11,25 @@ _WinAPI_UpdateLayeredWindowEx ( $hWnd, $hBitmap [, $iOpacity [, $fDelete]] )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to a layered window. A layered window is created by specifying $WS_EX_LAYERED when its creating.
+	分层窗口句柄. 窗口创建时指定有 $WS_EX_LAYERED.
 $hBitmap
-	Handle to the bitmap that will be set in the layered window.
+	分层窗口中设置的位图句柄.
 $iOpacity
-	[可选参数] The alpha transparency value to be used on the entire source bitmap.
+	[可选参数] 源位图 Alpha 透明度值.
 $fDelete
-	[可选参数] Specifies whether deletes a bitmap after updated the window, valid values:
-		TRUE     - Bitmap will be deleted if function succeeds.
-		FALSE    - Don't deleted, you must release the bitmap when you are finished using it. (Default)
+	[可选参数] 更新窗口后是否删除位图,有效值:
+		1 - 函数成功后删除位图.
+		0 - 不删除, 当使用完位图你必须释放. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-For best drawing performance by the layered window and any underlying windows, the layered window should be
-as small as possible.
+为使分层窗口和任何底层窗口达到最佳绘图效能, 分层窗口应尽可能小.
 
 
 ###See Also###

@@ -2,7 +2,7 @@
 _WinAPI_GetLayeredWindowAttributes
 
 ###Description###
-Gets Layered Window Attributes
+获取分层窗口属性
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,26 +11,27 @@ _WinAPI_GetLayeredWindowAttributes($hWnd, ByRef $i_transcolor, ByRef $Transparen
 ###Parameters###
 @@ParamTable@@
 $hwnd
-	Handle of GUI to work on
+	工作 GUI 的句柄
 $i_transcolor
-	Returns Transparent color ( dword as 0x00bbggrr or string "0xRRGGBB")
+	返回透明的颜色 ( 双字 0x00bbggrr 或字符串 "0xRRGGBB")
 $Transparency
-	Returns Transparancy of GUI
+	返回透明的 GUI
 $asColorRef
-	[optional] If True, $i_transcolor will be a COLORREF( 0x00bbggrr ), else an RGB-Color
+	[可选参数] 如为 True, $i_transcolor 将是 COLORREF( 0x00bbggrr ), 否则为 RGB 颜色
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Usage of LWA_ALPHA and LWA_COLORKEY (use BitAnd)
-Failure:	0
-@error:	1 to 3 - Error from DllCall
-	4 - Function did not succeed
-@extended:	contains _WinAPI_GetLastError()
+成功:	返回应用的 LWA_ALPHA 与 LWA_COLORKEY (使用 BitAnd)
+失败:	返回 0
+@error:	
+	1 到 3 - DllCall 错误
+	4 - 函数不成功@extended:
+	包含 _WinAPI_GetLastError()
 @@End@@
 
 ###Remarks###
-Minimum OS - Windows XP.
+ 最低操作系统 - Windows XP.
 
 ###Related###
 _WinAPI_SetLayeredWindowAttributes, _WinAPI_GetLastError

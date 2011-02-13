@@ -2,7 +2,7 @@
 _WinAPI_RegFlushKey
 
 ###Description###
-Writes all the attributes of the specified open registry key into the registry.
+写入指定打开的注册表键的所有属性到注册表.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,30 +11,27 @@ _WinAPI_RegFlushKey ( $hKey )
 ###Parameters###
 @@ParamTable@@
 $hKey
-	Handle to an open registry key. The key must have been opened with the $KEY_QUERY_VALUE access right.
-	This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey() function. It can also
-	be one of the following predefined keys.
-	
-	$HKEY_CLASSES_ROOT
-	$HKEY_CURRENT_CONFIG
-	$HKEY_CURRENT_USER
-	$HKEY_LOCAL_MACHINE
-	$HKEY_PERFORMANCE_DATA
-	$HKEY_USERS
-	
+	打开的注册表项句柄,该键项必须已打开且有 $KEY_QUERY_VALUE --- 需要查询注册表项的值 访问权限.
+		 句柄由 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回.
+		 参数也可以为下列预定义项:
+		 $HKEY_CLASSES_ROOT --- 定义文件类型和类型相关的属性
+		 $HKEY_CURRENT_CONFIG --- 包含本地计算机系统目前的硬件配置文件
+		 $HKEY_CURRENT_USER --- 定义当前用户的参数选择
+		 $HKEY_LOCAL_MACHINE --- 定义计算机物理状态,包括总线类型、系统内存数据、并安装的硬件和软件
+		 $HKEY_PERFORMANCE_DATA --- 允许访问性能数据
+		 $HKEY_USERS --- 确定本地计算机新用户定义默认用户配置,并作为当前用户的用户配置
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
-The _WinAPI_RegFlushKey() function returns only when all the data for the hive that contains the specified key
-has been written to the registry store on disk. The _WinAPI_RegFlushKey() function writes out the data for other
-keys in the hive that have been modified since the last lazy flush or system start. After _WinAPI_RegFlushKey()
-returns, use _WinAPI_RegCloseKey() to close the handle to the registry key.
+当指定的键所有主要数据已写入到磁盘上的注册表后,_WinAPI_RegFlushKey（）函数才有返回.
+ 本函数写入其它键自上次刷新或系统启动后已修改的数据.
+ 本函数返回后,调用 _WinAPI_RegCloseKey() 函数关闭注册表项句柄.
 
 
 ###See Also###

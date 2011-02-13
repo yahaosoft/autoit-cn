@@ -2,7 +2,7 @@
 _WinAPI_SetErrorMode
 
 ###Description###
-Controls whether the system will handle the specified types of serious errors or whether the process will handle them.
+确定控制系统或进程是否处理指定类型的严重错误.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,19 +11,17 @@ _WinAPI_SetErrorMode ( $iMode )
 ###Parameters###
 @@ParamTable@@
 $iMode
-	The process error mode. This parameter can be one or more of the following values.
-	
-	$SEM_FAILCRITICALERRORS
-	$SEM_NOALIGNMENTFAULTEXCEPT
-	$SEM_NOGPFAULTERRORBOX
-	$SEM_NOOPENFILEERRORBOX
-	
+	进程的错误模式. 参数可以是一或多个下列值:
+		 $SEM_FAILCRITICALERRORS --- 系统不显示关键错误处理程序的消息框.相反,系统发送错误给调用进程
+		 $SEM_NOALIGNMENTFAULTEXCEPT --- 该系统自动修复内存调整错误
+		 $SEM_NOGPFAULTERRORBOX --- 系统不显示 Windows 错误报告对话框
+		 $SEM_NOOPENFILEERRORBOX --- 当无法找到文件时,系统不显示消息框,错误被返回到调用进程
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The previous state of the error-mode bit flags ($SEM_*).
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回先前错误模式的状态位标志 ($SEM_*).
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

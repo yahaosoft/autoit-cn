@@ -2,7 +2,7 @@
 _Net_Share_StatisticsGetWrk
 
 ###Description###
-返回一个工作站操作状态
+检索工作站操作统计
 
 ###Syntax###
 #Include <NetShare.au3>
@@ -11,59 +11,64 @@ _Net_Share_StatisticsGetWrk([$sWorkStation = ""])
 ###Parameters###
 @@ParamTable@@
 $sWorkStation
-	[optional] Specifies the DNS or NetBIOS name of the remote server on which the function is to execute. If
-		this parameter is blank, the local computer is used.
+	[可选参数] 指定 DNS 或 NetBIOS 远程服务器上执行函数的名称
+		如果此参数为空, 在本地计算机上使用.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	[ 0] - Statistics collection start time. The value is stored as the number of seconds elapsed since 00:00:00,	January 1, 1970.
-	[ 1] - Bytes received by the workstation
-	[ 2] - Server message blocks (SMBs) received by the workstation
-	[ 3] - Bytes that have been read by paging I/O requests
-	[ 4] - Bytes that have been read by non-paging I/O requests
-	[ 5] - Bytes that have been read by cache I/O requests
-	[ 6] - Bytes that have been read by disk I/O requests
-	[ 7] - Bytes transmitted by the workstation
-	[ 8] - SMBs transmitted by the workstation
-	[ 9] - Bytes that have been written by paging I/O requests
-	[10] - Bytes that have been written by non-paging I/O requests
-	[11] - Bytes that have been written by cache I/O requests
-	[12] - Bytes that have been written by disk I/O requests
-	[13] - Network operations that failed to begin
-	[14] - Network operations that failed to complete
-	[15] - Read operations initiated by the workstation
-	[16] - Random access reads initiated by the workstation
-	[17] - Read requests the workstation has sent to servers
-	[18] - Read requests the workstation has sent to servers that are greater than twice the size of the server's	negotiated buffer size.
-	[19] - Read requests the workstation has sent to servers that are less than 1/4 of the size of the server's	negotiated buffer size.
-	[20] - Write operations initiated by the workstation
-	[21] - Random access writes initiated by the workstation
-	[22] - Write requests the workstation has sent to servers
-	[23] - Write requests the workstation has sent to servers that are greater than twice the size of the server's	negotiated buffer size.
-	[24] - Write requests the workstation has sent to servers that are less than 1/4 of the size of the server's	negotiated buffer size.
-	[25] - Raw read requests made by the workstation that have been denied
-	[26] - Raw write requests made by the workstation that have been denied
-	[27] - Network errors received by the workstation
-	[28] - Workstation sessions that were established
-	[29] - Imes the workstation attempted to create a session but failed
-	[30] - Connections that have failed
-	[31] - PCNET connections that have succeeded
-	[32] - LanManager 20 connections that have succeeded
-	[33] - LanManager 21 connections that have succeeded
-	[34] - Windows NT connections that have succeeded
-	[35] - Times the workstation was disconnected by a network server
-	[36] - Sessions that have expired on the workstation
-	[37] - Network connections established by the workstation
-	[38] - Failed network connections for the workstation
-	[39] - Current requests that have not been completed
-Failure:	Set @error
+成功:	返回以下格式的数组:
+	[ 0] - 统计数据收集的开始时间．该值存储为　00:00:00　以来经过的秒数,
+	1970年1月1日
+	[ 1] - 工作站收到的字节
+	[ 2] - 工作站收到服务器消息块(SMBs)
+	[ 3] - 已通过分页　I/O　读取的请求字节
+	[ 4] - 由非分页 I/O 请求读取的字节
+	[ 5] - 已被缓存 I/O 请求读取的字节
+	[ 6] - 由磁盘 I/O 请求读取的字节
+	[ 7] - 由工作站传送字节
+	[ 8] - 由工作站传送服务器信息块( SMB )
+	[ 9] - 已通过分页 I/O 请求的字节
+	[10] - 已被非分页 I/O 请求的书面字节
+	[11] - 已被缓存 I/O 请求的写入字节
+	[12] - 已被磁盘 I/O 请求的写入字节
+	[13] - 网络操作失败的开始
+	[14] - 网络操作失败的结束
+	[15] - 由工作站启动读操作
+	[16] - 随机存取读取的工作站启动
+	[17] - 读取请求已发送到工作站服务器
+	[18] - 两倍于服务器的读取请求已发送到工作站服务器
+	协议缓冲区大小.
+	[19] - 不到服务器 1/4 的读取请求已发送到工作站服务器
+	协议缓冲区大小.
+	[20] - 由工作站启动写操作
+	[21] - 随机存取写操作由工作站启动
+	[22] - 工作站写入请求发送到服务器
+	[23] - 两倍于服务器的工作站写入请求发送到服务器
+	协议缓冲区大小.
+	[24] - 不到服务器 1/4 工作站写入请求发送到服务器
+	协议缓冲区大小.
+	[25] - 由工作站发出但已被拒绝的原始读取请求
+	[26] - 由工作站发出但已被拒绝的原始写入请求
+	[27] - 网络工作站收到的错误
+	[28] - 工作站建立会话
+	[29] - 工作站试图建立 Ime 会话但失败
+	[30] - 已失败的连接
+	[31] - PCNET 已经成功连接
+	[32] - LanManager 20 已成功连接
+	[33] - LanManager 21 已成功连接
+	[34] - Windows NT 已成功连接
+	[35] - 网络服务器断开工作站次数
+	[36] - 会话已过期的工作站
+	[37] - 由工作站建立的网络连接
+	[38] - 工作站的网络连接失败
+	[39] - 没有完成的当前请求
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###
-No special group membership is required to obtain workstation statistics. Only members of the Administrators
-or Server Operators local group can successfully execute this function on a remote server.
+获取工作站的统计数字不必是特殊组成员
+系统管理员或服务器操作员本地组成员, 才能成功地在远程服务器上执行此函数.
 
 ###Related###
 _Net_Share_StatisticsGetSvr

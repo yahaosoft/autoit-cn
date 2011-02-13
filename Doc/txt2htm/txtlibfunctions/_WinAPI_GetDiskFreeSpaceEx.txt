@@ -2,7 +2,7 @@
 _WinAPI_GetDiskFreeSpaceEx
 
 ###Description###
-Retrieves information about the amount of space that is available on a disk volume.
+检索磁盘可用空间信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,16 +11,18 @@ _WinAPI_GetDiskFreeSpaceEx ( $sDrive )
 ###Parameters###
 @@ParamTable@@
 $sDrive
-	The drive to retrieve information, in the format D:, E:, etc.
+	驱动器号. 如 D:, E:, 等等.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The array containing the following parameters:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0]	The total number of available free bytes on a disk. If per-user quotas are being used, this value
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1]	The total number of available bytes on a disk. If per-user quotas are being used, this value
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2]	The total number of free bytes on a disk.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回以下参数的数组:
+	[0] - 磁盘可用空间字节数.
+	如果用户正在使用配额, 此值可能会小于空闲字节总数.
+	[1] - 磁盘可用字节总数.
+	如果用户正在使用配额, 此值可能会小于字节总数.
+	[2] - 磁盘空闲字节数.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

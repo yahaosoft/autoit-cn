@@ -2,7 +2,7 @@
 _WinAPI_AdjustTokenPrivileges
 
 ###Description###
-Enables or disables privileges in the specified access token.
+启用或禁用指定的访问令牌权限.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,43 +11,39 @@ _WinAPI_AdjustTokenPrivileges ( $hToken, $aPrivileges, $iState )
 ###Parameters###
 @@ParamTable@@
 $hToken
-	Handle to the access token that contains the privileges to be modified. The handle must have
-	$TOKEN_ADJUST_PRIVILEGES and $TOKEN_QUERY accesses to the token.
+	访问令牌的句柄.
+		 该句柄必须有 $TOKEN_ADJUST_PRIVILEGES 与 $TOKEN_QUERY 访问权标.
 $aPrivileges
-	The variable that specifies a privileges. If this parameter is (-1), the function disables of the token's
-	privileges and ignores the $iState parameter. $aPrivileges can be one of the following types.
-	
-	Single privileges constants ($SE_*).
-	1D array of $SE_* constants.
-	2D array of $SE_* constants and their attributes (see $iState).
-	
-	[0][0] - Privilege
-	[0][1] - Attribute
-	[n][0] - Privilege
-	[n][1] - Attribute
-	
+	特权变量. 如果此参数为 (-1), 函数将禁用特许权标,
+		 并忽略 $iState 参数. 此参数可以是以下类型之一:
+		 单特许常量 ($SE_*).
+		 $SE_* 常量的一维数组.
+		 $SE_* 常量及其属性(见 $iState)的二维数组.
+		 [0][0] - 特许
+		 [0][1] - 属性
+		 [n][0] - 特许
+		 [n][1] - 属性
 $iState
-	The privilege attribute. If $aPrivileges parameter is 1D array, $iState applied to the entire
-	array. If $aPrivileges parameter is (-1) or 2D array, the function ignores this parameter and will
-	use the attributes specified in the array. This parameter can be one of the following values.
-	
-	0 - The privilege is disabled.
-	1 - The privilege is enabled.
-	2 - The privilege is enabled by default.
-	
+	特权属性. 如果 $aPrivileges 参数为一维数组, $iState 将应用于整个数组.
+		 如果 $aPrivileges 参数为 (-1) 或二维数组, 函数将忽略此参数,使用该数组中指定的属性.
+		 参数可以是以下值之一:
+		 0 - 禁用特许权限.
+		 1 - 启用特许权限.
+		 2 - 特许权限由默认启用.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	If $aPrivileges is a single $SE_* constant, returns a previous privilege attribute (0 or 1),
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0	The function adjusted all specified privileges.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1	The token does not have one or more of the privileges specified in the $aPrivileges parameter.
-Failure	0 and sets the @error flag to non-zero.
+成功:	如果 $aPrivileges 是单 $SE_* 常量, 则返回先前的特许属性 (0 或 1),
+	否则总是返回 1. 要确定函数是否调整了指定的全部特权,
+	当函数成功时,检查 @extended 标志返回的下列值:
+	0 - 函数已调整所有指定的特权.
+	1 - $aPrivileges 参数没有指定一或多个特权.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-This function cannot add new privileges to the access token. It can only enable or disable the token's
-existing privileges.
+函数不能添加新的权限访问令牌.它只能启用或禁用该令牌的现有权限.
 
 
 ###See Also###

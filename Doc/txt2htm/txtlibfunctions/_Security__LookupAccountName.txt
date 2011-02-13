@@ -2,7 +2,7 @@
 _Security__LookupAccountName
 
 ###Description###
-Retrieves a security identifier (SID) for the account and the name of the domain
+检索帐户安全标识符（SID）和域的名称
 
 ###Syntax###
 #Include <Security.au3>
@@ -11,30 +11,30 @@ _Security__LookupAccountName($sAccount [, $sSystem = ""])
 ###Parameters###
 @@ParamTable@@
 $sAccount
-	Specifies the account name. Use a fully qualified string in the domain_name\user_name format to
-		ensure that the function finds the account in the desired domain.
+	指定帐户名. 使用得域名\用户名格式必须是完全合格的字符串,
+		以确保函数在预期的领域查找帐户.
 $sSystem
-	[optional] Name of the system. This string can be the name of a remote computer. If this string is blank,
-		the account name translation begins on the local system. If the name cannot be resolved on the local system,
-		this function will try to resolve the name using domain controllers trusted by the local system.
+	[可选参数] 系统名称. 此字符串可以是一个远程计算机的名称.
+		如果该字符串为空, 帐户名称的翻译开始在本地系统上;
+		如果名称不能在本地系统上解决,本函数将尝试使用本地系统信任的域控制器解析名称.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	$aAcct[0] - SID String
-	$aAcct[1] - Domain name
-	$aAcct[2] - SID type, which can be one of the following values:
-	 1 - Indicates a user SID
-	 2 - Indicates a group SID
-	 3 - Indicates a domain SID
-	 4 - Indicates an alias SID
-	 5 - Indicates a SID for a well-known group
-	 6 - Indicates a SID for a deleted account
-	 7 - Indicates an invalid SID
-	 8 - Indicates an unknown SID type
-	 9 - Indicates a SID for a computer
-Failure:	Set @error
+成功:	返回数组的格式如下:
+	$aAcct[0] - SID 字符串
+	$aAcct[1] - 域名
+	$aAcct[2] - SID 的类型,它可以是以下值:
+	1 - 用户 SID
+	2 - 组 SID
+	3 - 域 SID
+	4 - 别名 SID
+	5 - 以知组 SID
+	6 - 已删除帐户的 SID
+	7 - 无效 SID
+	8 - 未知类型的 SID
+	9 - 计算机的 SID
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###

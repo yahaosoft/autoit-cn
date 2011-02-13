@@ -2,7 +2,7 @@
 _WinAPI_EnumDisplaySettings
 
 ###Description###
-Retrieves information about one of the graphics modes for a display device.
+检索显示设备图形模式信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,36 +11,29 @@ _WinAPI_EnumDisplaySettings ( $sDevice, $iMode )
 ###Parameters###
 @@ParamTable@@
 $sDevice
-	The display device about whose graphics mode the function will obtain information. An empty string
-	specifies the current display device on the computer on which the calling process is running.
+	显示设备.
+		 空字符串指定正在运行调用进程的当前显示设备
 $iMode
-	The type of information to be retrieved. This value can be a graphics mode index or one of the
-	following values.
-	
-	$ENUM_CURRENT_SETTINGS
-	$ENUM_REGISTRY_SETTINGS
-	
-	Graphics mode indexes start at zero. To obtain information for all of a display device's graphics
-	modes, make a series of calls to _WinAPI_EnumDisplaySettings(), as follows: Set $iMode to zero for
-	the first call, and increment $iMode by one for each subsequent call. Continue calling the function
-	until the return value is zero.
-	
-	When you call _WinAPI_EnumDisplaySettings() with $iMode set to zero, the operating system initializes
-	and caches information about the display device. When you call _WinAPI_EnumDisplaySettings() with
-	$iMode set to a non-zero value, the function returns the information that was cached the last time
-	the function was called with $iMode set to zero.
-	
+	信息类型.可以是图形模式索引或以下值之一:
+		 $ENUM_CURRENT_SETTINGS --- 检索显示设备的当前设置
+		 $ENUM_REGISTRY_SETTINGS --- 检索显示设备在注册表中的设置
+		 图形模式索引从 0 开始.
+		 循环调用 _WinAPI_EnumDisplaySettings() 函数获取显示设备图形模式的所有资料,列举如下:
+		 首次调用时设置 $iMode 为 0; 后续每次调用 $iMode 增量 1.
+		 如此循环调用, 直到函数返回值为 0.
+		 调用本函数并设置 $iMode 为 0 时, 操作系统初始化显示设备有关信息的缓存;
+		调用本函数并设置 $iMode 为非 0 时,函数返回缓存中上次保存的信息,同时复位 $iMode 为 0.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The array containing the following parameters:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0]	The width, in pixels, of the visible device surface.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1]	The height, in pixels, of the visible device surface.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2]	The color resolution, in bits per pixel, of the display device.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3]	The frequency, in hertz (cycles per second), of the display device in a particular mode.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4]	The device's display mode ($DM_*).
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回以下参数的数组:
+	[0] - 显示设备可见面宽度的象素值.
+	[1] - 显示设备可见面高度的象素值.
+	[2] - 显示设备分辨率的像素值.
+	[3] - 显示设备特定模式刷新频率的赫兹值(每秒周期).
+	[4] - 设备的显示模式 ($DM_*).
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

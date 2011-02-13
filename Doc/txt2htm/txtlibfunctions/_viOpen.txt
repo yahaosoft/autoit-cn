@@ -2,7 +2,7 @@
 _viOpen
 
 ###Description###
-Opens a VISA connection to an Instrument/Device
+打开 VISA 连接到仪器/设备
 
 ###Syntax###
 #include <Visa.au3>
@@ -12,25 +12,25 @@ _viOpen ( $s_visa_address [, $s_visa_secondary_address = 0] )
 ###Parameters###
 @@ParamTable@@
 $s_visa_address
-	A VISA resource descriptor STRING (see the NOTES of _viExecCommand above for more info)
-	As as shortcut you can also directly pass a GPIB address as an integer
+	VISA 资源描述字符串(更多信息 _viExecCommand 的注释)
+		也可以直接传递一个 GPIB 整数地址
 $s_visa_secondary_address
-	[optional] The "secondary GPIB address". Only used if the primary address is passed as an integer.
-	Only some GPIB instruments have secondary addresses. In those cases this optional parameter can be used to specify it.
-	This parameter is ZERO by default, which means NO SECONDARY ADDRESS
+	[可选参数] "辅助 GPIB 地址". 仅用于主地址传递正数时.
+		仅一些 GPIB 仪器有辅助地址,此时即可使用这个可选参数指定案例
+		此参数默认为 0, 意味着没有辅助地址
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns a (POSITIVE) VISA Instrument Handle
-Failure:	Returns -1 and SETS @error to 1
+成功:	返回 VISA 仪器的正数值句柄
+失败:	返回 -1,设置@error:to 1
 @@End@@
 
 
 ###Remarks###
-As for all the VISA functions the VISA libraries must be installed (you can check whether visa32.dll is in {WINDOWS}\system32) and a GPIB card (such as a National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card) must be installed
-
-* For a detailed description of the most common VISA DESCRIPTORS look at the Remarks of the help on the _viExecCommand function
+VISA 函数必须安装 VISA 库文件(您可以检查visa32.dll是否在 WINDOWS\System32 目录中)
+及 GPIB 卡(例如 National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card)
+ * 常见 VISA 描述符详细介绍,见 _viExecCommand 函数备注
 
 
 ###Related###

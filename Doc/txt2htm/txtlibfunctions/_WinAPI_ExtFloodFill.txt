@@ -2,7 +2,7 @@
 _WinAPI_ExtFloodFill
 
 ###Description###
-Fills an area of the display surface with the current brush.
+使用当前的画笔填充一个显示面.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,26 +11,25 @@ _WinAPI_ExtFloodFill ( $hDC, $iX, $iY, $iRGB [, $iType] )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+	设备环境句柄.
 $iX
-	The x-coordinate, in logical units, of the point where filling is to start.
+	填充开始的 x 逻辑坐标.
 $iY
-	The y-coordinate, in logical units, of the point where filling is to start.
+	填充开始的 y 逻辑坐标.
 $iRGB
-	The color of the boundary or of the area to be filled, in RGB. The interpretation of color depends on
-	the value of the $iType parameter.
+	填充颜色的 RGB 值
+		 取决于 $iType 的参数值.
 $iType
-	[可选参数] The type of fill operation to be performed. This parameter must be one of the following values.
-	
-	$FLOODFILLBORDER
-	$FLOODFILLSURFACE
+	[可选参数] 填充的类型.参数必须是以下值之一:
+		 $FLOODFILLBORDER --- 填充区域的边界线.
+		 $FLOODFILLSURFACE --- 填充区域.
 	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

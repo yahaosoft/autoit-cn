@@ -2,7 +2,7 @@
 _WinAPI_OffsetClipRgn
 
 ###Description###
-Moves the clipping region of a device context by the specified offsets.
+依据指定的偏移量移动设备环境剪辑区域.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,17 +11,20 @@ _WinAPI_OffsetClipRgn ( $hDC, $iXOffset, $iYOffset )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+	设备环境句柄.
 $iXOffset
-	The number of logical units to move left or right.
+	向左或向右移动的逻辑单位数量.
 $iYOffset
-	The number of logical units to move up or down.
+	向上或向下移动的逻辑单位数量.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The value that specifies the new clipping region's complexity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it can be one of the following values.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回新剪辑区域状态的值. 可以是以下值之一:
+	$COMPLEXREGION --- 区域超过一个矩形.
+	$NULLREGION --- 空区域.
+	$SIMPLEREGION --- 区域是一个单一矩形
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

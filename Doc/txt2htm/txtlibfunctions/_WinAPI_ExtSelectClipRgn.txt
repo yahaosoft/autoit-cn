@@ -2,7 +2,7 @@
 _WinAPI_ExtSelectClipRgn
 
 ###Description###
-Combines the specified region with the current clipping region.
+使用指定模式组合指定区域与目前剪辑区域.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,24 +11,25 @@ _WinAPI_ExtSelectClipRgn ( $hDC, $hRgn [, $iMode] )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+	设备环境句柄.
 $hRgn
-	Handle to the region to be selected. This handle can only be 0 when the $RGN_COPY mode is specified.
+	被选中区域的句柄. 当 $RGN_COPY 模式被指定时, 此句柄只能是 0.
 $iMode
-	[可选参数] The operation to be performed. It must be one of the following values.
-	
-	$RGN_AND
-	$RGN_COPY
-	$RGN_DIFF
-	$RGN_OR
-	$RGN_XOR
-	
+	[可选参数] 指定执行的操作. 必须是以下值之一:
+		 $RGN_AND --- 组合当前剪辑区域的重叠区域和 $hRgn 确定的区域.
+		 $RGN_COPY --- 复制 $hRgn 确定的区域.
+		 $RGN_DIFF --- 新组合区域为当前剪辑区域与排除 $hRgn 确定的区域.
+		 $RGN_OR --- 组合当前剪辑区域和 $hRgn 确定的区域
+		 $RGN_XOR --- 组合当前剪辑区域和 $hRgn 确定的地区,但不包括任何重叠的区域.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The value that specifies the new clipping region's complexity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it can be one of the following values.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回新剪辑区域状态的值. 可以是以下值之一:
+	$COMPLEXREGION --- 区域超过一个矩形.
+	$NULLREGION --- 空区域.
+	$SIMPLEREGION --- 区域是一个单一矩形
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

@@ -2,7 +2,7 @@
 _WinAPI_GetWindowLong
 
 ###Description###
-Retrieves information about the specified window
+检索指定窗口的信息
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,29 +11,29 @@ _WinAPI_GetWindowLong($hWnd, $iIndex)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle of the window
+	窗口句柄
 $iIndex
-	Specifies the zero based offset to the value to be retrieved. Valid values are in the range
-		zero through the number of bytes of extra window memory, minus four; for example, if you specified 12 or more
-		bytes of extra memory, a value of 8 would be an index to the third 32 bit integer. To retrieve any other
-		value, specify one of the following values:
-		$GWL_EXSTYLE - Retrieves the extended window styles
-		$GWL_STYLE - Retrieves the window styles
-		$GWL_WNDPROC - Retrieves the address of the window procedure
-		$GWL_HINSTANCE - Retrieves the handle of the application instance
-		$GWL_HWNDPARENT - Retrieves the handle of the parent window, if any
-		$GWL_ID - Retrieves the identifier of the window
-		$GWL_USERDATA - Retrieves the 32-bit value associated with the window
+	指定检索的 0 基偏移值
+		有效值范围在 0 到窗口附加内存的字节数,再减去4;
+		例如:如果指定 12 或更多的额外内存. 8 将是第三个 32 位字节的整数索引值
+		指定以下值之一:
+		$GWL_EXSTYLE - 检索扩展窗口样式
+		$GWL_STYLE - 检索窗口样式
+		$GWL_WNDPROC - 检索窗口程序的地址
+		$GWL_HINSTANCE - 检索应用实例的句柄
+		$GWL_HWNDPARENT - 检索父窗口句柄, 如果有的话
+		$GWL_ID - 检索窗口标识符
+		$GWL_USERDATA - 检索与窗口关联的 32 位值
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The requested value
-Failure:	set @error
+成功:	返回所要求的值
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###
-Needs Constants.au3 for pre-defined constants
+ 必须 Constants.au3 预先定义的常量
 
 ###Related###
 _WinAPI_SetWindowLong

@@ -2,7 +2,7 @@
 _WinAPI_IsProcessInJob
 
 ###Description###
-Determines whether the process is running in the specified job.
+确定进程是否运行在指定的作业对象中.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,23 +11,22 @@ _WinAPI_IsProcessInJob( $hProcess [, $hJob] )
 ###Parameters###
 @@ParamTable@@
 $hProcess
-	Handle to the process to be tested. The handle must have the $PROCESS_QUERY_INFORMATION or
-	$PROCESS_QUERY_LIMITED_INFORMATION access right.
+	进程句柄. 句柄必须有 $PROCESS_QUERY_INFORMATION 或 
+		 $PROCESS_QUERY_LIMITED_INFORMATION 访问权限.
 $hJob
-	[可选参数] Handle to the job. If this parameter is 0, the function tests if the process is running under any job.
+	[可选参数] 作业句柄. 如果此参数为 0, 函数测试进程运行的任何作业.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1 - The process is running in the job.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0	Otherwise.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1 - 进程运行在指定作业中.
+	返回 0 - 不相同.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-An application cannot obtain a handle to the job object in which it is running unless it has the name of the job
-object. However, an application can call the _WinAPI_QueryInformationJobObject() function with 0 to obtain
-information about the job object.
+应用程序无法获取运行的作业对象句柄, 除非是作业对象的名称
+ 应用程序可以调用 _WinAPI_QueryInformationJobObject() 函数获取有关作业对象的信息.
 
 
 ###See Also###

@@ -2,8 +2,8 @@
 _WinAPI_StretchBlt
 
 ###Description###
-Copies a bitmap from a source rectangle into a destination rectangle, stretching or compressing the bitmap
-;                  to fit the dimensions of the destination rectangle, if necessary.
+复制源矩形位图到目标矩形,如有必要,
+ 拉伸或压缩位图以适应目标矩形的尺寸.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -12,59 +12,55 @@ _WinAPI_StretchBlt ( $hDestDC, $iXDest, $iYDest, $iWidthDest, $iHeightDest, $hSr
 ###Parameters###
 @@ParamTable@@
 $hDestDC
-	Handle to the destination device context.
+	目标设备环境句柄.
 $iXDest
-	The x-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+	目标矩形左上角 X 坐标的逻辑单位
 $iYDest
-	The y-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+	目标矩形左上角 Y 坐标的逻辑单位.
 $iWidthDest
-	The width, in logical units, of the destination rectangle.
+	目标矩形宽度逻辑单位.
 $iHeightDest
-	The height, in logical units, of the destination rectangle.
+	目标矩形高度逻辑单位.
 $hSrcDC
-	Handle to the source device context.
+	源设备环境句柄.
 $iXSrc
-	The x-coordinate, in logical units, of the upper-left corner of the source rectangle.
+	源矩形左上角 X 坐标的逻辑单位
 $iYSrc
-	The y-coordinate, in logical units, of the upper-left corner of the source rectangle.
+	源矩形左上角 Y 坐标的逻辑单位.
 $iWidthSrc
-	The width, in logical units, of the source rectangle.
+	源矩形宽度逻辑单位.
 $iHeightSrc
-	The height, in logical units, of the source rectangle.
+	源矩形高度逻辑单位.
 $iRop
-	The raster-operation code. These codes define how the color data for the source rectangle is
-	to be combined with the color data for the destination rectangle to achieve the final color.
-	This parameter must be 0 or one of the following values.
-	
-	$BLACKNESS
-	$CAPTUREBLT
-	$DSTINVERT
-	$MERGECOPY
-	$MERGEPAINT
-	$NOMIRRORBITMAP
-	$NOTSRCCOPY
-	$NOTSRCERASE
-	$PATCOPY
-	$PATINVERT
-	$PATPAINT
-	$SRCAND
-	$SRCCOPY
-	$SRCERASE
-	$SRCINVERT
-	$SRCPAINT
-	$WHITENESS
-	
+	光栅操作代码.代码定义源矩形与目标矩形的颜色数据组合以达到最终颜色.
+		 此参数必须为 0 或下面值之一:
+		 $BLACKNESS --- 使用索引 0 相关的物理调色板颜色填充目标矩形
+		 $CAPTUREBLT --- 包括任何分层窗口生成的窗口图象
+		 $DSTINVERT --- 反转目标矩形
+		 $MERGECOPY --- 使用布尔 AND 运算合并源矩形与目前选定画笔的颜色
+		 $MERGEPAINT --- 使用布尔 OR 操作渐进式合并源与目标矩形的颜色
+		 $NOMIRRORBITMAP --- 阻止位图被镜像
+		 $NOTSRCCOPY --- 反转复制源矩形到目标矩形
+		 $NOTSRCERASE --- 使用布尔 OR 操作源和目标矩形颜色,然后反转合并的颜色
+		 $PATCOPY --- 复制指定模式到目标位图
+		 $PATINVERT --- 使用布尔 XOR 运算组合颜色指定模式与目标矩形的颜色
+		 $PATPAINT --- 结合 $hDestDC 当前选定的画笔,使用布尔 OR 操作反转源矩形颜色
+		 $SRCAND --- 使用布尔 AND 操作源和目标矩形颜色
+		 $SRCCOPY --- 直接复制源矩形到目标矩形
+		 $SRCERASE --- 使用布尔 AND 操作反转目标矩形的颜色后与源矩形颜色合并
+		 $SRCINVERT --- 使用布尔 XOR 运算结合源和目标矩形颜色
+		 $SRCPAINT --- 使用布尔 OR 操作结合源和目标矩形颜色
+		 $WHITENESS --- 使用索引 1 相关的物理调色板颜色填充目标矩形
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-The system stretches or compresses the bitmap according to the stretching mode currently set in the
-destination device context.
+当前目标设备环境设置系统拉伸或压缩位图的模式.
 
 
 ###See Also###

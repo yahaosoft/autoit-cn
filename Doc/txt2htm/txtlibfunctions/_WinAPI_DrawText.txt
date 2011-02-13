@@ -11,58 +11,57 @@ _WinAPI_DrawText($hDC, $sText, ByRef $tRect, $iFlags)
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Identifies the device context
+	设备环境的标识
 $sText
-	The string to be drawn
+	文本字符串
 $tRect
-	$tagRECT structure that contains the rectangle for the text
+	包含矩形文本的 $tagRECT 结构
 $iFlags
-	Specifies the method of formatting the text:
-		$DT_BOTTOM - Justifies the text to the bottom of the rectangle
-		$DT_CALCRECT - Determines the width and height of the rectangle
-		$DT_CENTER - Centers text horizontally in the rectangle
-		$DT_EDITCONTROL - Duplicates the text-displaying characteristics of a multiline edit control
-		$DT_END_ELLIPSIS - Replaces part of the given string with ellipses if necessary
-		$DT_EXPANDTABS - Expands tab characters
-		$DT_EXTERNALLEADING - Includes the font external leading in line height
-		$DT_HIDEPREFIX - Ignores the ampersand (&) prefix character in the text.
-		  The letter that follows will not be underlined, but other mnemonic-prefix characters are still processed.
-		$DT_INTERNAL - Uses the system font to calculate text metrics
-		$DT_LEFT - Aligns text to the left
-		$DT_MODIFYSTRING - Modifies the given string to match the displayed text
-		$DT_NOCLIP - Draws without clipping
-		$DT_NOFULLWIDTHCHARBREAK - Prevents a line break at a DBCS (double-wide character string), so that the line breaking rule is equivalent to SBCS strings.
-		  For example, this can be used in Korean windows, for more readability of icon labels.
-		  This value has no effect unless $DT_WORDBREAK is specified
-		$DT_NOPREFIX - Turns off processing of prefix characters
-		$DT_PATH_ELLIPSIS - For displayed text, replaces characters in the middle of the string with ellipses so that the result fits in the specified rectangle.
-		  If the string contains backslash (\) characters, $DT_PATH_ELLIPSIS preserves as much as possible of the text after the last backslash.
-		  The string is not modified unless the $DT_MODIFYSTRING flag is specified
-		$DT_PREFIXONLY - Draws only an underline at the position of the character following the ampersand (&) prefix character.
-		  Does not draw any other characters in the string
-		$DT_RIGHT - Aligns text to the right
-		$DT_RTLREADING - Layout in right to left reading order for bi-directional text
-		$DT_SINGLELINE - Displays text on a single line only
-		$DT_TABSTOP - Sets tab stops. Bits 15-8 of $iFlags specify the number of characters for each tab
-		$DT_TOP - Top-justifies text (single line only)
-		$DT_VCENTER - Centers text vertically (single line only)
-		$DT_WORDBREAK - Breaks words
-		$DT_WORD_ELLIPSIS - Truncates any word that does not fit in the rectangle and adds ellipses
+	指定格式文本的方法:
+		$DT_BOTTOM - 文本对齐到矩形的底部
+		$DT_CALCRECT - 确定矩形的宽度和高度
+		$DT_CENTER - 文本在矩形内水平居中
+		$DT_EDITCONTROL - 重复多行文本编辑控件中文本的显示特点
+		$DT_END_ELLIPSIS - 如果必要,用省略号替换给定字符串的一部分
+		$DT_EXPANDTABS - 扩展制表符
+		$DT_EXTERNALLEADING - 字体高度一致
+		$DT_HIDEPREFIX - 忽略文本的（＆）前缀字符.
+		跟随的字母将不会出现下划线,但其他记忆前缀字符仍将处理.
+		$DT_INTERNAL - 使用系统字体计算文本规格
+		$DT_LEFT - 文本左对齐
+		$DT_MODIFYSTRING - 修改给定的字符串匹配显示的文本
+		$DT_NOCLIP - 无剪辑绘制
+		$DT_NOFULLWIDTHCHARBREAK - 防止换行符为 DBCS(双宽字符的字符串), so that the line breaking rule is equivalent to SBCS strings.
+		例如,这可以用在朝鲜文的窗口,增加标签图标的更多可读性.
+		除非指定 $DT_WORDBREAK,否则此值没有任何效果
+		$DT_NOPREFIX - 关闭前缀字符的处理
+		$DT_PATH_ELLIPSIS - 对于显示的文本,替换字符串的省略号,以确保测试结果适合指定的矩形.
+		如果字符串包含反斜杠（\）字符, $DT_PATH_ELLIPSIS 尽可能保留文本最后一个反斜杠.
+		除非指定 $DT_MODIFYSTRING 标志,否则不修改字符串
+		$DT_PREFIXONLY - 仅绘制（＆）前缀字符位置的下划线.
+		不绘制字符串中任何其它的字符
+		$DT_RIGHT - 文本右对齐
+		$DT_RTLREADING - 双向文字的阅读顺序从右到左
+		$DT_SINGLELINE - 显示文字只有一行
+		$DT_TABSTOP - 设置制表位. $iFlags 参数指定标签中的字符数位为 15-8 
+		$DT_TOP - 顶部对齐文本(仅单行)
+		$DT_VCENTER - 中心垂直文本（仅单行）
+		$DT_WORDBREAK - 单词突变
+		$DT_WORD_ELLIPSIS - 截断不适合在该矩形的任何词,并添加省略号
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The height of the text
-Failure:	0
+成功:	返回文本的高度
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-The DrawText function uses the device context's selected font, text color, and background color to draw the
-text. Unless the $DT_NOCLIP format is used, DrawText clips the text so that it does not appear outside the
-specified rectangle. All formatting is assumed to have multiple lines unless the $DT_SINGLELINE format is
-specified. If the selected font is too large, DrawText does not attempt to substitute a smaller font.
-
-Needs WindowsConstants.au3 for pre-defined constants
+ DrawText 函数使用设备环境选定的字体,文本颜色和背景颜色绘制文本.
+ 除非使用 $DT_NOCLIP 格式, DrawText 剪辑文本,以便不会超出规定的矩形.
+ 除非指定 $DT_SINGLELINE 格式,所有格式都假设为多行.
+ 如果所选的字体太大, DrawText 并不试图使用较小的字体取代.
+ 需要 WindowsConstants.au3 预先定义的常量
 
 ###Related###
 $tagRECT, _WinAPI_GetBkMode, _WinAPI_SetBkMode

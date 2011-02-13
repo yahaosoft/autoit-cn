@@ -2,7 +2,7 @@
 _WinNet_GetConnectionPerformance
 
 ###Description###
-Returns information about the performance of a network connection resource
+返回资源网络连接性能的信息
 
 ###Syntax###
 #Include <WinNet.au3>
@@ -11,27 +11,27 @@ _WinNet_GetConnectionPerformance($sLocalName, $sRemoteName)
 ###Parameters###
 @@ParamTable@@
 $sLocalName
-	Name of a local device, such as "F:" or "LPT1", that is redirected to a network resource to be
-		queried. If blank, the network resource is specified in sRemoteName. If this parameter specifies a local
-		device sRemoteName is ignored.
+	本地设备名称,例如 "F:" 或 "LPT1",这是重定向到网络资源被查询的设备名称．
+		如果空白,网络资源是　$sRemoteName　指定．
+		如果这个参数指定本地设备,$sRemoteName　被忽略
 $sRemoteName
-	Name of the network resource to query. The resource must currently have an established
-		connection. For example, if the resource is a file on a file server, then having the file open will ensure
-		the connection.
+	查询的网络资源名称．该资源当前必须有一个建立的连接．
+		例如,如果该资源文件服务器上的一个文件,
+		然后打开该文件后会确保该连接．
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	$aInfo[0] - Connection description. Can be one of more of the following:
-	 1 - The information returned applies to the performance of the network card
-	 2 - The connection is not being routed
-	 4 - The connection is over a medium that is typically slow
-	 8 - Some of the information returned is calculated dynamically
-	$aInfo[1] - Speed of the media to the network resource, in 100 bps
-	$aInfo[2] - One-way delay time introduced when sending information
-	$aInfo[3] - Size of data that an application should use when making a single request to the resource
-Failure:	Set @error
+成功:	返回数组的格式如下:
+	$aInfo[0] - 连接描述．可以是一或多个以下值:
+	1 - 返回适用于网络卡性能的信息
+	2 - 连接不存在路由
+	4 - 连接在一个媒介通常是缓慢的
+	8 - 返回的信息是动态计算
+	$aInfo[1] - 媒体网络资源的速度,在100个比特／秒
+	$aInfo[2] - 发送信息时引入单向延迟时间
+	$aInfo[3] - 应用程序的数据大小,应使用一个单一的资源请求
+失败:	设置@error	
 @@End@@
 
 ###Remarks###

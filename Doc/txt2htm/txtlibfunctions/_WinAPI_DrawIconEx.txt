@@ -2,7 +2,7 @@
 _WinAPI_DrawIconEx
 
 ###Description###
-Draws an icon or cursor into the specified device context
+绘制图标或光标到指定的设备环境
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,45 +11,45 @@ _WinAPI_DrawIconEx($hDC, $iX, $iY, $hIcon [, $iWidth = 0 [, $iHeight = 0 [, $iSt
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context into which the icon or cursor is drawn
+	设备环境句柄
 $iX
-	X coordinate of the upper-left corner of the icon
+	图标左上角 X 坐标
 $iY
-	Y coordinate of the upper-left corner of the icon
+	图标左上角 Y 坐标
 $hIcon
-	Handle to the icon to be drawn
+	图标句柄
 $iWidth
-	[optional] Specifies the logical width of the icon or cursor. If this parameter is zero and the iFlags
-		parameter is "default size", the function uses the $SM_CXICON or $SM_CXCURSOR system metric value to set the
-		width. If this is zero and "default size" is not used, the function uses the actual resource width.
+	[可选参数] 图标或光标的逻辑宽度.如果为零,则 $iFlags 参数为“默认大小”
+		函数使用 $SM_CXICON 或 $SM_CXCURSOR 系统公制值设定宽度
+		如果为 0,且不使用“默认大小”,函数使用实际资源的宽度.
 $iHeight
-	[optional] Specifies the logical height of the icon or cursor. If this parameter is zero and the iFlags
-		parameter is "default size", the function uses the $SM_CYICON or $SM_CYCURSOR system metric value to set the
-		width. If this is zero and "default size" is not used, the function uses the actual resource height.
+	[可选参数] 图标或光标的逻辑高度.如为 0, $iFlags 参数为“默认大小”,
+		函数使用 $SM_CYICON 或 $SM_CYCURSOR 系统公制值设定宽度
+		如为 0 且不使用“默认大小”,函数将使用实际资源的高度.
 $iStep
-	[optional] Specifies the index of the frame to draw if hIcon identifies an animated cursor. This parameter
-		is ignored if hIcon does not identify an animated cursor.
+	[可选参数] 如果 $hIcon 标识为动画光标,则指定框架绘制索引.
+		如果 $hIcon 不是识别为动画光标,此参数被忽略.
 $hBrush
-	[optional] Handle to a brush that the system uses for flicker-free drawing. If hBrush is a valid brush
-		handle, the system creates an offscreen bitmap using the specified brush for the background color, draws the
-		icon or cursor into the bitmap, and then copies the bitmap into the device context identified by hDC. If
-		hBrush is 0, the system draws the icon or cursor directly into the device context.
+	[可选参数] 为系统无闪烁绘图用途的画笔句柄.如果本参数是一个有效的画笔句柄,
+		系统使用背景颜色指定的画笔创建一个屏幕外位图,
+		绘制图标或光标到位图,然后将复制位图到 $hDC 所确定的设备环境.
+		如此参数为 0 ,系统直接在设备环境中绘制图标或光标..
 $iFlags
-	[optional] Specifies the drawing flags. This parameter can be one of the following values:
-		1 - Draws the icon or cursor using the mask
-		2 - Draws the icon or cursor using the image
-		3 - Draws the icon or cursor using the mask and image
-		4 - Draws the icon or cursor using the system default image rather than the user-specified image
-		5 - Draws the icon or cursor using the width and height specified by the system metric values for cursors or
-		icons, if the iWidth and iWidth parameters are set to zero. If this flag is not specified and iWidth and
-		iWidth are set to zero, the function uses the actual resource size.
-		6 - Draws the icon as an unmirrored icon
+	[可选参数] 绘图标志.这个参数可以是以下值之一:
+		1 - 使用掩码绘制图标或光标
+		2 - 使用图像绘制图标或光标
+		3 - 使用掩码与图像绘制图标或光标
+		4 - 使用系统默认图像,而不是用户指定的图像绘制图标或光标
+		5 - 如果 $iWidth 和 $iHeight 参数设置为 0,
+		图标或光标宽度和高度由系统指定的指标确定.
+		如果不指定此标志,且 $iWidth 和 $iHeight 设置为 0 时,函数使用实际资源的大小.
+		6 - 绘制图标作为 unmirrored 图标
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###

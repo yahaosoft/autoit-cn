@@ -2,7 +2,7 @@
 _WinAPI_OpenFileMapping
 
 ###Description###
-Opens a named file mapping object.
+打开命名的文件映射对象.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,29 +11,25 @@ _WinAPI_OpenFileMapping ( $sName [, $iAccess [, $fInherit]] )
 ###Parameters###
 @@ParamTable@@
 $sName
-	The name of the file mapping object to be opened.
+	文件映射对象的名称.
 $iAccess
-	[可选参数] The access to the file mapping object. This parameter can be one of the following values.
-	
-	$FILE_MAP_ALL_ACCESS
-	$FILE_MAP_COPY
-	$FILE_MAP_READ
-	$FILE_MAP_WRITE
-	
-	Each of the preceding values can be combined with the following value.
-	
-	$FILE_MAP_EXECUTE
-	
-$fInherit
-	[可选参数] Specifies whether inherites the handle by a processes, valid values:
-		TRUE     - The processes created by this process will inherit the handle.
-		FALSE    - The processes do not inherit this handle. (Default)
+	[可选参数] 文件映射的访问类型. 可以是以下值之一:
+		 $FILE_MAP_ALL_ACCESS --- 映射文件的读/写视图
+		 $FILE_MAP_COPY --- 映射文件的写入复制视图
+		 $FILE_MAP_READ --- 映射文件的只读视图
+		 $FILE_MAP_WRITE --- 映射文件的读/写视图
+		 每个值的前面可以组合下面值:
+		 $FILE_MAP_EXECUTE --- 映射可执行文件的视图(映射内存可以运行的代码)
+$fInheritHandle
+	[可选参数] 指定是否继承进程的句柄,有效值:
+		1 - 进程继承该进程创建的句柄.
+		0 - 进程不继承这个句柄. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle to the specified file mapping object.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回指定的文件映射对象句柄.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###

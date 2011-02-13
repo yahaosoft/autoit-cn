@@ -2,7 +2,7 @@
 _WinAPI_SystemParametersInfo
 
 ###Description###
-Retrieves or sets the value of one of the system-wide parameters
+检索或设置全系统(system-wide)参数的值
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,27 +11,27 @@ _WinAPI_SystemParametersInfo($iAction [, $iParam = 0 [, $vParam = 0 [, $iWinIni 
 ###Parameters###
 @@ParamTable@@
 $iAction
-	The system-wide parameter to be retrieved or set
+	检索或设置的全系统(system-wide)参数
 $iParam
-	[optional] A parameter whose usage and format depends on the parameter being queried or set
+	[可选参数] 参数的用法和格式取决于参数的查询或设置
 $vParam
-	[optional] A parameter whose usage and format depends on the parameter being queried or set
+	[可选参数] 参数的用法和格式取决于参数的查询或设置
 $iWinIni
-	[optional] If a system parameter is being set, specifies whether the user profile is to be updated, and
-		if so, whether the $WM_SETTINGCHANGE message is to be broadcast. This parameter can be zero if you don't want
-		to update the user profile or it can be one or more of the following values:
-		$SPIF_UPDATEINIFILE - Writes the new setting to the user profile
-		$SPIF_SENDCHANGE - Broadcasts the $WM_SETTINGCHANGE message after updating the user profile
+	[可选参数] 如果系统参数被设置, 指定用户是否需要更新配置文件.
+		如果是, 则 $WM_SETTINGCHANGE 消息是否要传播
+		如果不更新用户配置文件, 参数可以为 0 , 也可以是一或多个下列值:
+		$SPIF_UPDATEINIFILE - 新设置写入到用户配置
+		$SPIF_SENDCHANGE - 传播 $WM_SETTINGCHANGE 消息后更新用户配置文件
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-This function always call the Unicode version so $vParam must be inaccordance when using strings.
+ 函数总是调用 Unicode 版本,$vParam 必须匹配使用的字符串.
 
 ###Related###
 

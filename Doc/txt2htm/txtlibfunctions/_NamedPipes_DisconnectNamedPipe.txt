@@ -2,7 +2,7 @@
 _NamedPipes_DisconnectNamedPipe
 
 ###Description###
-Disconnects the server end of a named pipe instance from a client process
+从客户端进程断开服务器端命名管道实例
 
 ###Syntax###
 #Include <NamedPipes.au3>
@@ -11,7 +11,7 @@ _NamedPipes_DisconnectNamedPipe($hNamedPipe)
 ###Parameters###
 @@ParamTable@@
 $hNamedPipe
-	Handle to the server end of a named pipe instance.
+	服务器端命名管道实例句柄.
 @@End@@
 
 ###ReturnValue###
@@ -21,9 +21,9 @@ $hNamedPipe
 @@End@@
 
 ###Remarks###
-If the client end of the named pipe is open, the DisconnectNamedPipe function forces that end of the named
-pipe closed. The client receives an error the next time it attempts to access the pipe. A client that is
-forced off a pipe must still use the CloseHandle function to close its end of the pipe.
+命名管道客户端打开时,DisconnectNamedPipe 函数强制关闭命名管道终端
+客户端收到一个下一次尝试访问管道的错误
+强制关闭管道的客户端仍然需要使用 CloseHandle 函数关闭管道终端.
 
 ###Related###
 

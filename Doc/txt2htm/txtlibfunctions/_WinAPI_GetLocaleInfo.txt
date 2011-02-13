@@ -2,7 +2,7 @@
 _WinAPI_GetLocaleInfo
 
 ###Description###
-Retrieves information about a locale specified by identifier.
+检索区域设置标识符指定区域的信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,24 +11,21 @@ _WinAPI_GetLocaleInfo ( $LCID, $iType )
 ###Parameters###
 @@ParamTable@@
 $LCID
-	Locale identifier for which to retrieve information or one of the following predefined values.
-	
-	$LOCALE_CUSTOM_DEFAULT
-	$LOCALE_CUSTOM_UI_DEFAULT
-	$LOCALE_CUSTOM_UNSPECIFIED
-	
-	$LOCALE_INVARIANT
-	$LOCALE_SYSTEM_DEFAULT
-	$LOCALE_USER_DEFAULT
-	
+	区域设置标识符资料或下列预定义值:.
+		 $LOCALE_CUSTOM_DEFAULT --- 默认的自定义区域设置
+		 $LOCALE_CUSTOM_UI_DEFAULT --- MUI 默认的自定义区域设置
+		 $LOCALE_CUSTOM_UNSPECIFIED --- 未指定的自定义区域设置
+		 $LOCALE_INVARIANT --- 用于系统级函数的区域设置.
+		 $LOCALE_SYSTEM_DEFAULT --- 操作系统的默认区域设置
+		 $LOCALE_USER_DEFAULT --- 用户或进程的默认区域设置
 $iType
-	The one of the locale information constants ($LOCALE_*) to retrieve.
+	区域信息常量$LOCALE_*).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	String containing the requested information.
-Failure	Empty string and sets the @error flag to non-zero.
+成功:	返回被请求信息的字符串.
+失败:	返回空串,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

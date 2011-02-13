@@ -2,7 +2,7 @@
 _WinAPI_DeferWindowPos
 
 ###Description###
-Updates the specified multiple-window-position structure for the specified window.
+更新指定窗口的多窗口位置结构.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,53 +11,48 @@ _WinAPI_DeferWindowPos ( $hInfo, $hWnd, $hAfter, $iX, $iY, $iWidth, $iHeight, $i
 ###Parameters###
 @@ParamTable@@
 $hInfo
-	Handle to a multiple-window-position structure that contains size and position information for one
-	or more windows. This structure is returned by _WinAPI_BeginDeferWindowPos() or by the most recent
-	call to _WinAPI_DeferWindowPos().
+	多窗口位置结构句柄.结构包含一或多个窗口大小和位置的信息.
+		 结构由 _WinAPI_BeginDeferWindowPos() 返回,
+		 或由最近调用 _WinAPI_DeferWindowPos() 返回.
 $hWnd
-	Handle to the window for which update information is stored in the structure. All windows in a
-	multiple-window-position structure must have the same parent.
+	存储结构中被更新窗口的句柄.
+		多窗口位置结构的所有窗口必须具有相同的父窗口.
 $hAfter
-	Handle to the window that precedes the positioned window in the Z order. This parameter must be a
-	window handle or one of the following values. This parameter is ignored if the $SWP_NOZORDER flag
-	is set in the $iFlags parameter.
-	
-	$HWND_BOTTOM
-	$HWND_NOTOPMOST
-	$HWND_TOP
-	$HWND_TOPMOST
-	
+	Z 序定位窗口句柄.参数必须是窗口句柄或下列值之一.
+		 如果 $iFlags 参数为 $SWP_NOZORDER 标志,此参数被忽略.
+		 $HWND_BOTTOM --- 窗口在 Z 序的底部.如果 $hWnd 参数标识一个最顶层窗口,该窗口将置于所有其它窗口的底部.
+		 $HWND_NOTOPMOST --- 窗口置于所有非顶层窗口上面.（即最顶层窗口的下面）.如果窗口已经是非最顶层窗口,此标志将没有效果.
+		 $HWND_TOP --- 放置窗口在 Z 序的顶部.
+		 $HWND_TOPMOST --- 放置窗口到最顶层,即使它被停用,也保持其最顶层窗口的位置.
 $iX
-	The x-coordinate of the window's upper-left corner.
+	窗口左上角 x 坐标.
 $iY
-	The y-coordinate of the window's upper-left corner.
+	窗口左上角 y 坐标.
 $iWidth
-	The window's new width, in pixels.
+	窗口新宽度的像素值.
 $iHeight
-	The window's new height, in pixels.
+	窗口新高度的像素值.
 $iFlags
-	A combination of the following values that affect the size and position of the window.
-	
-	$SWP_DRAWFRAME
-	$SWP_FRAMECHANGED
-	$SWP_HIDEWINDOW
-	$SWP_NOACTIVATE
-	$SWP_NOCOPYBITS
-	$SWP_NOMOVE
-	$SWP_NOOWNERZORDER
-	$SWP_NOREDRAW
-	$SWP_NOREPOSITION
-	$SWP_NOSENDCHANGING
-	$SWP_NOSIZE
-	$SWP_NOZORDER
-	$SWP_SHOWWINDOW
-	
+	下列值的组合将影响窗口的大小和位置.
+		 $SWP_DRAWFRAME --- 窗口周围绘制一个框.
+		 $SWP_FRAMECHANGED --- 即使窗口的大小不改变,也发送 WM_NCCALCSIZE 消息到窗口.如果不指定此标志,窗口在大小被改变时发送 WM_NCCALCSIZE 消息.
+		 $SWP_HIDEWINDOW --- 隐藏窗口.
+		 $SWP_NOACTIVATE --- 不激活窗口.如果未设置此标志,窗口激活后将移动到顶层或非顶层窗口的上面.
+		 $SWP_NOCOPYBITS --- 删除客户区的全部内容.如果不指定此标志,客户区有效内容被保存和复制到客户端区域后,窗口大小或被重新定位.
+		 $SWP_NOMOVE --- 保留目前位置（忽略 $iX、$iY 参数）.
+		 $SWP_NOOWNERZORDER --- 不改变属主窗口 Z 序中的位置.
+		 $SWP_NOREDRAW --- 不刷新窗口.
+		 $SWP_NOREPOSITION --- 相同于 $SWP_NOOWNERZORDER 标志.
+		 $SWP_NOSENDCHANGING --- 防止窗口接收 WM_WINDOWPOSCHANGING 消息.
+		 $SWP_NOSIZE --- 保持当前大小（忽略 $iWidth 和 $iHeight 参数）.
+		 $SWP_NOZORDER --- 保留目前的 Z 序（忽略 $hAfter 参数）.
+		 $SWP_SHOWWINDOW --- 显示窗口.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The return value identifies the updated multiple-window-position structure.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回更新的多重窗口位置结构标识值.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

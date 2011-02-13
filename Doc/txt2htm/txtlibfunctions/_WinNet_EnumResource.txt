@@ -2,7 +2,7 @@
 _WinNet_EnumResource
 
 ###Description###
-Continues an enumeration of network resources
+继续枚举网络资源
 
 ###Syntax###
 #Include <WinNet.au3>
@@ -11,20 +11,20 @@ _WinNet_EnumResource($hEnum, ByRef $iCount, $pBuffer, ByRef $iBufSize)
 ###Parameters###
 @@ParamTable@@
 $hEnum
-	Handle that identifies an enumeration instance. The handle is returned by the _WinNet_OpenEnum
+	枚举实例句柄标识．句柄由 _WinNet_OpenEnum 函数返回
 		function.
 $iCount
-	Number of entries requested. If the number requested is –1, the function returns as many
-		entries as possible. If the function succeeds, on return the variable contains the number of entries actually
+	请求的条目数．如果请求数字为 -1,则函数返回尽可能多的条目．
+		如果函数成功,返回的变量包含实际读取条目数．
 		read
 $pBuffer
-	Pointer to the buffer that receives the enumeration results. The results are returned as an
-		array of $tagNETRESOURCE structures. The buffer must be large enough to hold the structures plus the strings
-		to which their members point. The buffer is valid until the next call using the handle specified by hEnum.
-		The order of $tagNETRESOURCE structures in the array is not predictable.
+	接收访问结果的缓冲区指针． 返回的结果将是 $tagNETRESOURCE 数组结构
+		缓冲区必须足够大,以保证结构的需要和完整．
+		直到下一次调用 $hEnum 指定的句柄,缓冲区一直有效．
+		$tagNETRESOURCE 结构数组中的顺序是不可预测的．
 $iBufSize
-	The size of the buffer, in bytes. If the buffer is too small to receive even one entry, this
-		parameter receives the required size of the buffer.
+	缓冲区的字节大小．如果缓冲区太小,
+		甚至无法接受一个条目,该参数按缓冲区大小接收所需的
 @@End@@
 
 ###ReturnValue###

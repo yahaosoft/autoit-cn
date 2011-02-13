@@ -2,7 +2,7 @@
 _NamedPipes_GetNamedPipeInfo
 
 ###Description###
-Retrieves information about the specified named pipe
+检索有关指定命名管道的信息
 
 ###Syntax###
 #Include <NamedPipes.au3>
@@ -11,18 +11,18 @@ _NamedPipes_GetNamedPipeInfo($hNamedPipe)
 ###Parameters###
 @@ParamTable@@
 $hNamedPipe
-	Handle to the named pipe instance. The handle must have GENERIC_READ access to the named pipe
+	命名管道实例的句柄. 句柄必须具有 GENERIC_READ 访问命名管道的权限
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	$aInfo[0] - True if handle refers to server end, otherwise client end
-	$aInfo[1] - True for a message pipe, otherwise byte pipe
-	$aInfo[2] - Size of the buffer for outgoing data, in bytes
-	$aInfo[3] - Size of the buffer for incoming data, in bytes
-	$aInfo[4] - Maximum number of pipe instances that can be created
-Failure:	Set @error
+成功:	返回数组的格式如下:
+	$aInfo[0] - 返回 True, 句柄指向服务器端,否则指向客户端
+	$aInfo[1] - 返回 True, 为消息管道, 否则为字节管道
+	$aInfo[2] - 输出数据缓冲区字节大小
+	$aInfo[3] - 输入数据的缓冲区字节大小
+	$aInfo[4] - 可创建管道实例的最大数
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###

@@ -2,7 +2,7 @@
 _WinAPI_QueryDosDevice
 
 ###Description###
-Retrieves the current mapping for a particular MS-DOS device name.
+检索特定 MS - DOS 设备名称的当前映射.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,13 +11,16 @@ _WinAPI_QueryDosDevice ( $sDevice )
 ###Parameters###
 @@ParamTable@@
 $sDevice
-	The name of the MS-DOS device.
+	MS-DOS 设备名称.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The current mapping for the specified device. If the $sDevice parameter is empty string, return array
-Failure	Empty string and sets the @error flag to non-zero.
+成功:	返回指定设备的当前映射.如果 $sDevice 参数为空字符串
+	返回所有现存 MS - DOS 设备名的数组
+	(例如:"\Device\HarddiskVolume1" or "\Device\Floppy0").
+	数组元素 [0] 包含设备名称数量.
+失败:	返回空串,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

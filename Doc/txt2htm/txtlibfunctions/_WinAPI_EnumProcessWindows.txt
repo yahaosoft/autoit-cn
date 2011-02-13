@@ -2,7 +2,7 @@
 _WinAPI_EnumProcessWindows
 
 ###Description###
-Enumerates the windows that belong to the specified process.
+枚举指定进程的窗口.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,23 +11,24 @@ _WinAPI_EnumProcessWindows ( [$PID [, $fVisible]] )
 ###Parameters###
 @@ParamTable@@
 $PID
-	[可选参数] The PID of the process. Default (0) is the current process.
+	[可选参数] 进程 PID. 默认 0, 为当前进程.
 $fVisible
-	[可选参数] Specifies whether enumerates the invisible window, valid values:
-		TRUE     - Enumerate only visible windows. (Default)
-		FALSE    - Enumerate all windows.
+	[可选参数] 指定是否枚举不可见窗口, 有效值为:
+		1 - 仅枚举可见窗口. (默认)
+		0 - 枚举所有窗口.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The 2D array of the handles to the windows and classes for the specified process.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0][0]	Number of rows in array (n)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0][1]	Unused
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1][0]	Window handle
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1][1]	Window class name
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[n][0]	Window handle
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[n][1]	Window class name
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回窗口句柄与类名的二维数组.
+	[0][0] - 数组的行数 (n)
+	[0][1] - 未使用
+	[1][0] - 窗口句柄
+	[1][1] - 窗口类名
+	[n][0] - 窗口句柄
+	[n][1] - 窗口类名
+失败:	返回 0,设置@error:	
+标志为非 0 值.
 @@End@@
 
 ###Remarks###

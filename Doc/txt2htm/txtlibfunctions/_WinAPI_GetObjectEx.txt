@@ -2,7 +2,7 @@
 _WinAPI_GetObjectEx
 
 ###Description###
-Retrieves information for the specified graphics object.
+检索指定图形对象的信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,14 +11,27 @@ _WinAPI_GetObjectEx ( $hObject )
 ###Parameters###
 @@ParamTable@@
 $hObject
-	Handle to the graphics object of interest. This can be a handle to one of the following: a logical
-	bitmap, a brush, a font, a palette, or a pen.
+	图形对象的句柄. 可以是以下图形对象:
+		 逻辑位图、画刷、字体、调色板句柄、或画笔.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The structure that depends on the graphics object ($hObject) and @extended flag will contain the value
-Failure	0 and sets the @error flag to non-zero.
+成功:	根据图形对象($hObject)和 @extended 标志包含的值返回该对象($OBJ_...)标识结构.
+	不需要创建所需的结构, _WinAPI_GetObjectEx() 函数本身可以创建.
+	下表显示每个类型图形对象返回的结构:
+	each type of graphics object.
+	$OBJ_BITMAP (HBITMAP)
+	返回 $tagDIBSECTION 结构.
+	$OBJ_BRUSH (HBRUSH)
+	返回 $tagLOGBRUSH 结构.
+	$OBJ_FONT (HFONT)
+	返回 $tagLOGFONT 结构.
+	$OBJ_PAL (HPALETTE)
+	返回 "ushort" 结构,指定调色板中的条目数.
+	$OBJ_PEN (HPEN)
+	返回 $tagLOGPEN (12 字节) 或 $tagEXTLOGPEN (24 或更多字节) 结构.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

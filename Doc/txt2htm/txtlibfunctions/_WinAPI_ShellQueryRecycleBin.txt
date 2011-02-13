@@ -2,7 +2,7 @@
 _WinAPI_ShellQueryRecycleBin
 
 ###Description###
-Retrieves the size of the Recycle Bin and the number of items in it, for a specified drive.
+检索指定驱动器回收站的大小及其项目数量.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,17 +11,17 @@ _WinAPI_ShellQueryRecycleBin ( $sRoot )
 ###Parameters###
 @@ParamTable@@
 $sRoot
-	The string that contains the path of the root drive on which the Recycle Bin is located. This string
-	can be formatted with the drive, folder, and subfolder names, for example "c:\windows\system\".
-	If this parameter is empty string, information is retrieved for all Recycle Bins on all drives.
+	回收站所在根驱动器的路径字符串.字符串可以被格式化为驱动器, 文件夹和子文件夹名称,
+		 例如 ; "c:\windows\system\".
+		 如果此参数为空字符串,检索所有驱动器的回收站信息.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The array that contains the following information.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0]	The total size of all the objects in the specified Recycle Bin, in bytes.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1]	The total number of items in the specified Recycle Bin.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回含以下信息的数组.
+	[0] - 回收站对象总大小的字节值
+	[1] - 回收站的项目总数.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###

@@ -2,7 +2,7 @@
 _WinAPI_AssignProcessToJobObject
 
 ###Description###
-Assigns a process to an existing job object.
+分配进程到现有作业对象.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,25 +11,23 @@ _WinAPI_AssignProcessToJobObject ( $hJob, $hProcess )
 ###Parameters###
 @@ParamTable@@
 $hJob
-	Handle to the job object to which the process will be associated. The handle must have the
-	$JOB_OBJECT_ASSIGN_PROCESS access right.
+	进程相关的作业对象句柄.
+		 句柄必须具有 $JOB_OBJECT_ASSIGN_PROCESS 访问权限.
 $hProcess
-	Handle to the process to associate with the job object. The process must not already be assigned to a job.
+	作业对象关联进程句柄.该进程必须尚未被分配到作业对象.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-After you associate a process with a job object, the process is subject to the limits set for the job. To set
-limits for a job, use the _WinAPI_SetInformationJobObject() function.
-
-The process can be associated only with a single job. The process inherits limits from the job it is associated
-with and adds its accounting information to the job. If a process is associated with a job, all processes it
-creates are associated with that job by default.
+当进程关联到作业对象以后,该进程受作业设置的限制.
+ 要为作业设置限制, 使用 _WinAPI_SetInformationJobObject() 函数.
+ 进程可以只与一个单一作业关联.进程继承所关联作业的限制并向作业添加计数信息.
+ 如果进程关联到作业, 它创建的所有进程都默认与该作业相关.
 
 
 ###See Also###

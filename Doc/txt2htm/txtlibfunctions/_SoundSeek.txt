@@ -2,7 +2,7 @@
 _SoundSeek
 
 ###Description###
-Seeks the sound to the specified position 
+寻道指定位置的声音 
 
 ###Syntax###
 #include <Sound.au3>
@@ -11,27 +11,28 @@ _SoundSeek (ByRef $aSnd_id, $iHour, $iMin, $iSec )
 ###Parameters###
 @@ParamTable@@
 $aSnd_id
-	Sound ID array as returned by _SoundOpen()
+	由 _SoundOpen() 返回的声音数组 ID
 $iHour
-	Hour to seek to
+	寻道到小时
 $iMin
-	Minute to seek to
+	寻道到分钟
 $iSec
-	Second to seek to
+	寻道到秒钟
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	1
-Failure:	0 and set @error
-@error:	1 = Failure
-	3 = Invalid Sound ID. Use return array from _SoundOpen().
+成功:	返回 1
+失败:	返回 0,设置@error:	
+@error:	1 = 失败
+	3 = 无效的声音标识. 使用 _SoundOpen()返回的数组.
 @@End@@
 
 ###Remarks###
-After using _SoundSeek on a sound, _SoundPlay must be used to resume playing.
-The use of the ID array returned from _SoundOpen is mandatory with this function to ensure that the file plays from the correct position regardless of encoding type.  The ID array should be updated by the function as the VBR timing correction factor may have been altered.
-
+ 使用 _SoundSeek 的声音,必须使用 _SoundPlay 恢复播放.
+ 此函数强制使用 _SoundOpen 返回的 ID 数组, 无论编码类型,确保文件都从正确位置播放.
+ 该函数的时间校正因子 VBR 可能被改变时, ID 数组应该更新.
+ 
 ###Related###
 _SoundPlay
 

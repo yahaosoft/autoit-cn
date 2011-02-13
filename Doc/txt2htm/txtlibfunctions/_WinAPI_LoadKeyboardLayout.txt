@@ -2,7 +2,7 @@
 _WinAPI_LoadKeyboardLayout
 
 ###Description###
-Loads a new input locale identifier into the system.
+加载新的输入法区域设置标识符到系统.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,24 +11,21 @@ _WinAPI_LoadKeyboardLayout ( $iLanguage [, $iFlag] )
 ###Parameters###
 @@ParamTable@@
 $iLanguage
-	The name of the input locale identifier to load (LCID).
+	输入法区域设置标识符名称(LCID)
 $iFlag
-	[可选参数] The flag that specifies how the input locale identifier is to be loaded. This parameter can be
-	one of the following values.
-	
-	$KLF_ACTIVATE
-	$KLF_NOTELLSHELL
-	$KLF_REORDER
-	$KLF_REPLACELANG
-	$KLF_SUBSTITUTE_OK
-	$KLF_SETFORPROCESS
-	
+	[可选参数] 指定如何加载输入法标识符.参数可以是以下值之一:
+		 $KLF_ACTIVATE --- 如果指定的输入法没有加载,函数加载并激活当前线程的输入法
+		 $KLF_NOTELLSHELL --- 当新的输入法被加载,阻止 ShellProc 钩子程序从 HSHELL_LANGUAGE 接收钩子代码
+		 $KLF_REORDER --- 移动输入法标识符到输入法标识符列表的头部
+		 $KLF_REPLACELANG --- 如果新输入法标识符与当前语言标识符相同,则当前语言使用新输入法
+		 $KLF_SUBSTITUTE_OK --- 替换用户首选的另一输入法标识符
+		 $KLF_SETFORPROCESS --- 当指定 KLF_ACTIVATE 后此标志有效.为进程激活输入法并发送 WM_INPUTLANGCHANGE 信息到当前焦点线程
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The input locale identifier to the locale matched with the requested name.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回加载得输入法标识符.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

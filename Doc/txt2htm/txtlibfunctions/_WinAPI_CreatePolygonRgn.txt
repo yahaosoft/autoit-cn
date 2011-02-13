@@ -2,7 +2,7 @@
 _WinAPI_CreatePolygonRgn
 
 ###Description###
-Creates a polygonal region.
+创建一个多边形区域.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,29 +11,26 @@ _WinAPI_CreatePolygonRgn ( $aPoint [, $iStart [, $iEnd [, $iMode]]] )
 ###Parameters###
 @@ParamTable@@
 $aPoint
-	The 2D array ([x1, y1], [x2, y2], ... [xN, yN]) that contains the vertices of the polygon in logical
-	units. The polygon is presumed closed. Each vertex can be specified only once.
+	包含多边形的顶点逻辑单位的二维数组: ([x1, y1], [x2, y2], ... [xN, yN]).
+		 假定多边形是封闭的.每个顶点可以只需指定一次.
 $iStart
-	[可选参数] The index of array to start creating at.
+	[可选参数] 多边形开始点的数组索引.
 $iEnd
-	[可选参数] The index of array to stop creating at.
+	[可选参数] 多边形结束点的数组索引.
 $iMode
-	[可选参数] The fill mode used to determine which pixels are in the region. This parameter can be one of the
-	following values.
-	
-	$ALTERNATE
-	$WINDING
-	
+	[可选参数] 填充模式.参数可以是以下值之一: 
+		 $ALTERNATE --- 交替填充奇数和偶数之间的扫描线.
+		 $WINDING --- 填充任何曲折值非零的地区
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The handle to the region.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回多边形区域的句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-When you no longer need the HRGN object, call the _WinAPI_DeleteObject() function to delete it.
+不再需要 HRGN(区域句柄) 对象时, 调用 _WinAPI_DeleteObject() 函数删除它.
 
 
 ###See Also###

@@ -2,7 +2,7 @@
 _WinAPI_OpenProcessToken
 
 ###Description###
-Opens the access token associated with a process.
+打开与进程有关的访问令牌.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,36 +11,34 @@ _WinAPI_OpenProcessToken ( $iAccess [, $hProcess] )
 ###Parameters###
 @@ParamTable@@
 $iAccess
-	Access mask that specifies the requested types of access to the access token. This parameter can be
-	one or more of the following values.
-	
-	$TOKEN_ADJUST_DEFAULT
-	$TOKEN_ADJUST_GROUPS
-	$TOKEN_ADJUST_PRIVILEGES
-	$TOKEN_ADJUST_SESSIONID
-	$TOKEN_ASSIGN_PRIMARY
-	$TOKEN_DUPLICATE
-	$TOKEN_EXECUTE
-	$TOKEN_IMPERSONATE
-	$TOKEN_QUERY
-	$TOKEN_QUERY_SOURCE
-	$TOKEN_READ
-	$TOKEN_WRITE
-	$TOKEN_ALL_ACCESS
-	
+	访问掩码,指定访问所请求的访问令牌类型
+		 参数可以是以下值之一:
+		 $TOKEN_ADJUST_DEFAULT --- 更改访问令牌的默认属主、主要组或 DACL 
+		 $TOKEN_ADJUST_GROUPS --- 调整的访问组的属性标记
+		 $TOKEN_ADJUST_PRIVILEGES --- 启用或禁用访问令牌的特权
+		 $TOKEN_ADJUST_SESSIONID --- 调整访问令牌的会话 ID 
+		 $TOKEN_ASSIGN_PRIMARY --- 附上主令牌到进程 
+		 $TOKEN_DUPLICATE --- 复制访问令牌
+		 $TOKEN_EXECUTE --- STANDARD_RIGHTS_EXECUTE 与 TOKEN_IMPERSONATE 的组合
+		 $TOKEN_IMPERSONATE --- 模拟访问令牌附加到进程
+		 $TOKEN_QUERY --- 查询访问令牌
+		 $TOKEN_QUERY_SOURCE --- 查询访问源令牌
+		 $TOKEN_READ --- STANDARD_RIGHTS_READ 与 TOKEN_QUERY 的组合
+		 $TOKEN_WRITE --- 组合 STANDARD_RIGHTS_WRITE, TOKEN_ADJUST_PRIVILEGES, TOKEN_ADJUST_GROUPS, 与 TOKEN_ADJUST_DEFAULT.
+		 $TOKEN_ALL_ACCESS --- 综合令牌所有可能的访问权限
 $hProcess
-	[可选参数] Handle to the process whose access token is opened. The process must have the
-	$PROCESS_QUERY_INFORMATION access permission. If this parameter is 0, will use the current process.
+	[可选参数] 进程句柄.进程必须有 $PROCESS_QUERY_INFORMATION 访问权限.
+		 如果此参数为 0, 将使用当前进程.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle that identifies the newly opened access token.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回进程新访问令牌的标识.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-Close the access token handle returned through this function by calling _WinAPI_CloseHandle().
+调用 _WinAPI_CloseHandle() 函数关闭返回的访问令牌句柄.
 
 
 ###See Also###

@@ -2,7 +2,7 @@
 _WinAPI_ValidateRect
 
 ###Description###
-Removes a rectangle from the current update region of the specified window.
+删除窗口当前更新区域的指定矩形.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,18 +11,17 @@ _WinAPI_ValidateRect ( $hWnd [, $tRECT] )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window whose update region is to be modified. If this parameter is 0, the system
-	invalidates and redraws all windows and sends the WM_ERASEBKGND and WM_NCPAINT messages to the window
-	procedure before the function returns.
+	将更新的窗口句柄. 如果此参数为 0,系统失效和刷新所有窗口,
+		 并在函数返回之前发送 WM_ERASEBKGND 与 WM_NCPAINT 消息给窗口程序. 
 $tRECT
-	[可选参数] $tagRECT structure that contains the client coordinates of the rectangle to be removed from the
-	update region. If this parameter is 0, the entire client area is removed.
+	[可选参数] $tagRECT 结构,包含更新区域中删除矩形的客户端坐标.
+		 如果此参数为 0,删除整个客户区.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

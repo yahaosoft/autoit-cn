@@ -2,7 +2,7 @@
 _WinAPI_GetFontResourceInfo
 
 ###Description###
-Retrieves the fontname from the specified font resource file.
+检索指定字体资源文件的字体名称.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,18 +11,18 @@ _WinAPI_GetFontResourceInfo ( $sFont [, $fForce] )
 ###Parameters###
 @@ParamTable@@
 $sFont
-	String that names a font resource file. To retrieve a fontname whose information comes from several
-	resource files, they must be separated by a "|" . For example, abcxxxxx.pfm | abcxxxxx.pfb.
+	字体资源文件名称字符串.
+		 多个文件使用 "|" 分隔, 例如, abcxxxxx.pfm | abcxxxxx.pfb.
 $fForce
-	[可选参数] Specifies whether adds a file to the font table, valid values:
-		TRUE   - Forced add the specified file to the system font table and remove it after retrieving the fontname.
-		FALSE  - Don`t add and remove. (Default)
+	[可选参数] 指定是否将文件添加到字体表.有效值:
+		1 - 强制指定文件添加到系统字体表,并检索文件名后删除它.
+		0 - 不添加和删除. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The name of the font.
-Failure	Empty string and sets the @error flag to non-zero.
+成功:	返回字体名称.
+失败:	返回空串,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

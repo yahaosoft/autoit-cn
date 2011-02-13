@@ -2,7 +2,7 @@
 _WinAPI_WaitForSingleObject
 
 ###Description###
-Waits until the specified object is in the signaled state
+等待, 直到指定的对象是在信号状态
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,17 +11,18 @@ _WinAPI_WaitForSingleObject($hHandle [, $iTimeout = -1])
 ###Parameters###
 @@ParamTable@@
 $hHandle
-	A handle to the object
+	对象的句柄
 $iTimeout
-	[optional] The time-out interval, in milliseconds. The function returns if the interval elapses, even if
-		the conditions specified by the fWaitAll parameter are not met. If 0, the function tests the states of the
-		specified objects and returns immediately. If -1, the function's time-out interval never elapses.
+	[可选参数] 超时时间间隔的毫秒值. 
+		如果 $fWaitAll 参数指定的条件没有得到满足, 函数在间间隔过后返回. 
+		如果为0, 函数测试指定对象的状态并立即返回.
+		如果为 -1, 函数的超时间隔永远不会消失.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Indicates the event that caused the function to return
-Failure:	-1
+成功:	由事件导致的函数返回
+失败:	返回 -1
 @@End@@
 
 ###Remarks###

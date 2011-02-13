@@ -2,7 +2,7 @@
 _WinAPI_RegCopyTree
 
 ###Description###
-Recursively copies the subkeys and values of the source subkey to the destination key.
+递归复制子项和子项的源值到目标键项.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,22 +11,22 @@ _WinAPI_RegCopyTree ( $hSrcKey, $sSrcSubKey, $hDestKey )
 ###Parameters###
 @@ParamTable@@
 $hSrcKey
-	Handle to the source key or one of the predefined registry keys ($HKEY_*).
+	源键或预定义注册表项的句柄 ($HKEY_*).
 $sSrcSubKey
-	The subkey whose subkeys and values are to be copied.
+	待复制的子项及其子项值.
 $hDestKey
-	Handle to the destination key.
+	目标键项句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
-This function does not duplicate the security attributes of the keys and values that it copies. Rather,
-all security attributes in the destination key are the default attributes.
+函数不复制安全属性键和值及它的副本.
+ 相反,目标键项的所有安全属性为默认属性.
 
 
 ###See Also###

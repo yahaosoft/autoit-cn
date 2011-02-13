@@ -2,7 +2,7 @@
 _WinAPI_GetRgnBox
 
 ###Description###
-Retrieves the bounding rectangle of the specified region.
+检索指定矩形区域的边界.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,15 +11,18 @@ _WinAPI_GetRgnBox ( $hRgn, ByRef $tRECT )
 ###Parameters###
 @@ParamTable@@
 $hRgn
-	Handle to the region.
+	矩形句柄.
 $tRECT
-	$tagRECT structure that receives the bounding rectangle in logical units.
+	$tagRECT 结构, 接收矩形边界的逻辑单位.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The value that specifies the region's complexity. It can be one of the following values.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回指定区域的状态值. 可以是以下值之一:
+	$COMPLEXREGION --- 区域超过一个矩形.
+	$NULLREGION --- 空区域.
+	$SIMPLEREGION --- 区域是一个单一矩形
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

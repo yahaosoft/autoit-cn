@@ -2,7 +2,7 @@
 _WinAPI_GetModuleHandleEx
 
 ###Description###
-Retrieves a module handle for the specified module.
+检索指定模块的句柄.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,23 +11,21 @@ _WinAPI_GetModuleHandleEx ( $sModule [, $iFlags] )
 ###Parameters###
 @@ParamTable@@
 $sModule
-	The name of the loaded module (either a .dll or .exe file), or a pointer to an address in the module
-	(if $GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS flag is specified). If this parameter is 0 or empty string,
-	the function returns a handle to the file used to create the calling process (.exe file).
+	加载的模块(.DLL 或 .exe 文件),或模块地址的指针.
+		 (如果指定 $GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS). 
+		 如果此参数为 0 或空字符串 0,该函数返回创建调用进程的 .exe 文件句柄.
 $iFlags
-	[可选参数] This parameter can be one or more of the following values.
-	
-	$GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS
-	$GET_MODULE_HANDLE_EX_FLAG_PIN
-	$GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT
-	$GET_MODULE_HANDLE_EX_FLAG_DEFAULT
-	
+	[可选参数] 参数可以是一或多个下列值:
+		 $GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS --- $sModule 的参数值为模块地址
+		 $GET_MODULE_HANDLE_EX_FLAG_PIN --- 保持模块加载,直到进程终止.
+		 $GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT --- 不增加模块的引用计数
+		 $GET_MODULE_HANDLE_EX_FLAG_DEFAULT --- 引用计数
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle to the specified module.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回指定模块的句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

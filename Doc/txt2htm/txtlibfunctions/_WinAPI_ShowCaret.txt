@@ -2,7 +2,7 @@
 _WinAPI_ShowCaret
 
 ###Description###
-Makes the caret visible on the screen at the caret's current position.
+显示屏幕插入符当前位置的插入符.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,23 +11,23 @@ _WinAPI_ShowCaret ( $hWnd )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window that owns the caret. If this parameter is 0, _WinAPI_ShowCaret() searches the
-	current task for the window that owns the caret.
+	拥有插入符号的窗口句柄. 如果此参数为 0,
+		 本函数将为拥有插入符号的窗口搜索每一当前任务. 
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:	
+标志为非 0 值.
 @@End@@
 
 ###Remarks###
-_WinAPI_ShowCaret() shows the caret only if the specified window owns the caret, the caret has a shape,
-and the caret has not been hidden two or more times in a row. If one or more of these conditions is not met,
-_WinAPI_ShowCaret() does nothing and returns 0.
-
-Hiding is cumulative. If your application calls _WinAPI_HideCaret() five times in a row, it must also call
-_WinAPI_ShowCaret() five times before the caret reappears.
+函数仅显示拥有插入符号窗口的插入符号
+ 并且插入符号没有被连续两次或两次以上的隐藏.,
+ 如果一或多个这些条件得不到满足,本函数不执行任何操作并返回 0.
+ 隐藏是累积性的.如果应用程序连续调用 _WinAPI_HideCaret() 5 次,
+ 也必须调用本5次插入符号才会重新出现.
 
 
 ###See Also###

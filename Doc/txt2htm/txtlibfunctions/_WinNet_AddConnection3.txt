@@ -2,7 +2,7 @@
 _WinNet_AddConnection3
 
 ###Description###
-Connects a local device to a network resource
+连接本地设备到网络资源
 
 ###Syntax###
 #Include <WinNet.au3>
@@ -11,37 +11,36 @@ _WinNet_AddConnection3($hWnd, $sLocalName, $sRemoteName [, $sUserName = 0 [, $sP
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to a window that the provider of network resources can use as an owner window for
-		dialogs. Use this parameter if you set bit 2 (interactive) in the Options parameter. This parameter can be 0.
+	网络资源提供者可以作为对话框使用的所有者窗口句柄．
+		如果设置　$iOptions　参数值为　2（交互式）,这个参数可以是　0．
 $sLocalName
-	Name of a local device to be redirected, such as "F:" or "LPT1". The string is treated in a
-		case-insensitive manner. If 0, a connection to the network resource is made without redirecting the local
-		device.
+	被重定向的本地设备名字, 例如"F:" or "LPT1". 
+		字符串被视为不区分大小写的方式
+		如果为 0,本地设备不重定向连接到网络资源.
 $sRemoteName
-	Name of the network resource to connect to
+	连接到的网络资源名称
 $sUsername
-	[optional] User name for making the connection. If 0, the function uses the default user name.
+	[可选参数] 建立连接的用户名. 如果为 0,该函数使用默认用户名.
 $sPassword
-	[optional] Password to be used to make a connection. If 0, the default password is used. If the string is
-		empty, no password is used.
+	[可选参数] 用于建立连接的密码. 如果为 0,使用默认密码.
+		如果字符串是空的, 不使用密码.
 $iType
-	[optional] Specifies the type of network resource to connect to:
-		0 - Any (only if $sLocalName is 0)
-		1 - Disk
-		2 - Print
+	[可选参数] 指定连接的网络资源类型:
+		0 - 任意 (仅当 $sLocalName 为 0 时)
+		1 - 磁盘
+		2 - 打印
 $iOptions
-	[optional] Connection options. Can be one or more of the following:
-		 1 - The network resource connection should be remembered
-		 2 - The operating system may interact with the user for authentication purposes
-		 4 - The system not to use any default setting for user names or passwords without offering the user the
-		opportunity to supply an alternative. This flag is ignored unless bit 2 (interactive) is also set.
-		 8 - Forces the redirection of a local device when making the connection
-		16 - The operating system prompts the user for authentication using the command line instead of a GUI. This
-		flag is ignored unless bit 2 (interactive) is also set.
-		32 - If this bit is set, and the operating system prompts for a credential, the credential is saved by the
-		credential manager. If the credential manager is disabled for the caller's logon session, or if the network
-		provider does not support saving credentials, this flag is ignored. This flag is also ignored unless you set
-		bit 5 (command line instead of GUI).
+	[可选参数] 连接选项. 可以是一或多个下列值:
+		1 - 网络资源的连接应该被记住
+		2 - 操作系统可以与用户身份验证交互
+		4 - 系统不使用任何默认设置,不提供用户名或密码的选择.
+		除非参数值 2（交互式）成立,否则此标志将被忽略.
+		8 - 强制本地设备连接时重定向
+		16 - 操作系统会提示使用命令行,而不是图形界面的用户认证.
+		除非参数值 2（交互式）成立,否则此标志将被忽略.
+		32 - 如果此位被设置, 且操作系统提示凭据, 则凭据保存的凭据管理器.
+		如果凭据管理器被禁止调用登录会话,或者网络提供的程序不支持保存凭据,
+		此标志将被忽略．除非你设定 16（命令行而不是图形用户界面）,否则这个标志也被忽略．
 @@End@@
 
 ###ReturnValue###

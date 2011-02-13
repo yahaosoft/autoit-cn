@@ -2,7 +2,7 @@
 _Net_Share_SessionDel
 
 ###Description###
-Ends a network session between a server and a workstation
+结束服务器和工作站之间的网络会话
 
 ###Syntax###
 #Include <NetShare.au3>
@@ -11,25 +11,25 @@ _Net_Share_SessionDel([$sServer = "" [, $sClientName = "" [, $sUserName = ""]]])
 ###Parameters###
 @@ParamTable@@
 $sServer
-	[optional] Specifies the DNS or NetBIOS name of the remote server on which the function is to execute. If
-		this parameter is blank, the local computer is used.
+	[可选参数] 指定 DNS 或 NetBIOS 远程服务器上执行函数的名称
+		如果此参数为空, 在本地计算机上使用.
 $sClientName
-	[optional] Specifies the computer name of the client to disconnect. If blank, then all the sessions of the
-		user identified by the username parameter will be deleted on the server specified by $sServer.
+	[可选参数] 指定断开连接的客户端计算机名. 如果为空,
+		删除 $sServer 参数标识的服务器上所有用户对话.
 $sUserName
-	[optional] Specifies the name of the user whose session is to be terminated. If this parameter is blank,
-		all user sessions from the client specified by the $sClientName parameter are to be terminated.
+	[可选参数] 指定会话被终止的用户名称.如果此参数为空,
+		$sClientName 参数指定的客户端所有用户会话将被终止.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-Only members of the Administrators or Server Operators local group can execute this function. You must pass
-either $sClientName or $sUserName (or both) for this function to work.
+系统管理员,服务器操作员或本地组成员才能执行此功能.
+必须通过调用 $sClientName 或 $sUserName（或两者）使这个函数工作.
 
 ###Related###
 _Net_Share_ShareDel

@@ -2,7 +2,7 @@
 _WinAPI_FreeMRUList
 
 ###Description###
-Frees the handle associated with the most recently used (MRU) list and writes cached data to the registry.
+释放最近使用(MRU)列表h和写缓存数据到注册表相关的句柄.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,18 +11,18 @@ _WinAPI_FreeMRUList ( $hMRU )
 ###Parameters###
 @@ParamTable@@
 $hMRU
-	Handle of the MRU list to free.
+	MRU 列表句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-None
-
+如果 MRU 列表使用 $MRU_CACHEWRITE 标志, 
+调用 _WinAPI_FreeMRUList() 函数会导致列表变化的数据不会写入注册表.
 
 ###See Also###
 @@MsdnLink@@ FreeMRUList

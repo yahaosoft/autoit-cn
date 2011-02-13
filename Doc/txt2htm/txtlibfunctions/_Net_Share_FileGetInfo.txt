@@ -2,7 +2,7 @@
 _Net_Share_FileGetInfo
 
 ###Description###
-Retrieves information about a particular opening of a server resource
+检索服务器特定资源的信息
 
 ###Syntax###
 #Include <NetShare.au3>
@@ -11,34 +11,34 @@ _Net_Share_FileGetInfo($sServer, $iFileID)
 ###Parameters###
 @@ParamTable@@
 $sServer
-	Specifies the DNS or NetBIOS name of the remote server on which the function is to execute. If
-		this parameter is blank, the local computer is used.
+	指定 DNS 或 NetBIOS 远程服务器上执行函数的名称
+		如果此参数为空, 在本地计算机上使用.
 $iFileID
-	File identifier of the resource for which to return information. The value of this parameter
-		must have been returned in a previous enumeration call.
+	返回信息的文件资源标识符
+		此参数值必须在以前的枚举调用中已返回.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	[0] - ID number assigned to the resource when it is opened
-	[1] - Access permissions associated with the opening application:
-	  1 - Permission to read a resource and execute the resource
-	  2 - Permission to write to a resource.
-	  4 - Permission to create a resource
-	  8 - Execute permission
-	 16 - Delete permission
-	 32 - Change attribute permission
-	 64 - Change ACL permission
-	[2] - Contains the number of file locks on the resource
-	[3] - Specifies the path of the opened resource
-	[4] - Specifies which user or which computer opened the resource
-Failure:	Set @error
+成功:	返回以下格式的数组:
+	[0] - 资源打开时分配的 ID
+	[1] - 与打开的应用程序相关的权限:
+	1 - 读取和执行资源
+	2 - 写入到资源.
+	4 - 创建资源
+	8 - 执行权限
+	16 - 删除权限
+	32 - 更改属性
+	64 - 更改 ACL
+	[2] - 包含锁定在资源上的文件数
+	[3] - 指定打开资源的路径
+	[4] - 指定打开资源的用户或计算机
+失败:	设置@error:	
 @@End@@
 
 
 ###Remarks###
-Administrator, Server or Print Operator or Power User group membership is required to execute this function
+需要系统管理员(Administrator), 服务器, 打印操作员或用户组成员执行函数
 
 ###Related###
 _Net_Share_SessionGetInfo, _Net_Share_ShareGetInfo

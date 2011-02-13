@@ -2,7 +2,7 @@
 _WinAPI_CopyFileEx
 
 ###Description###
-Copies an existing file to a new file, notifying the application of its progress through a callback function.
+复制现有文件到一个新文件,将应用程序的进展通知回调函数.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,34 +11,28 @@ _WinAPI_CopyFileEx ( $sExistingFile, $sNewFile [, $iFlags [, $pProgressProc [, $
 ###Parameters###
 @@ParamTable@@
 $sExistingFile
-	The name of an existing file.
+	现有文件的名称.
 $sNewFile
-	The name of the new file.
+	新文件的名称.
 $iFlags
-	[可选参数] The flags that specify how the file is to be copied. This parameter can be a combination
-	of the following values.
-	
-	$COPY_FILE_ALLOW_DECRYPTED_DESTINATION
-	$COPY_FILE_COPY_SYMLINK
-	$COPY_FILE_FAIL_IF_EXISTS
-	$COPY_FILE_NO_BUFFERING
-	$COPY_FILE_OPEN_SOURCE_FOR_WRITE
-	$COPY_FILE_RESTARTABLE
-	
+	[可选参数] 指定如何复制文件.参数可以是以下值的组合:
+		$COPY_FILE_ALLOW_DECRYPTED_DESTINATION --- 即使目的副本不能加密,也将加密文件复制成功.不支持Window 2000.
+		$COPY_FILE_COPY_SYMLINK --- 如果源文件是符号链接,目标文件也是符号链接,并指向同一源符号链接位置.不支持 Windows Server 2003 和 Windows XP/2000
+		$COPY_FILE_FAIL_IF_EXISTS --- 如果目标文件已存在,复制操作立即失败 .
+		$COPY_FILE_NO_BUFFERING --- 复制操作使用无缓冲的 I/O,绕过系统 I/O 缓存资源.推荐传送非常大的文件.不支持 Windows Server 2003 和 Windows XP/2000
+		$COPY_FILE_OPEN_SOURCE_FOR_WRITE --- 文件被复制并打开原文件进行写访问.
+		$COPY_FILE_RESTARTABLE --- 跟踪目标文件复制进度,防止复制失败
 $pProgressProc
-	[可选参数] The address of a callback function that is called each time another portion of the file
-	has been copied.
-	
-	(See MSDN for more information)
-	
+	[可选参数] 回调函数,每次调用该文件已复制的另一部分地址
+		 (为了解更多信息,请参见 MSDN)
 $pData
-	[可选参数] The argument to be passed to the callback function.
+	[可选参数] 传递给回调函数得参数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

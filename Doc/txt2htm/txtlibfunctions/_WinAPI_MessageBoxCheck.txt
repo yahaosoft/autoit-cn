@@ -2,7 +2,7 @@
 _WinAPI_MessageBoxCheck
 
 ###Description###
-Displays a message box that gives the user the option of suppressing further occurrences.
+显示提供用户删除事件的选项消息框.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,45 +11,39 @@ _WinAPI_MessageBoxCheck ( $iType, $sTitle, $sText, $sRegVal [, $iDefault [, $hPa
 ###Parameters###
 @@ParamTable@@
 $iType
-	The flags that specify the contents and behavior of the message box.
-	
-	You must specify the buttons to be displayed by setting one and only one of the following flags.
-	
-	$MB_OK
-	$MB_OKCANCEL
-	$MB_YESNO
-	
-	You can display an optional icon by setting one and only one of the following flags.
-	
-	$MB_ICONEXCLAMATION
-	$MB_ICONHAND
-	$MB_ICONINFORMATION
-	$MB_ICONQUESTION
-	
+	指定消息框的内容和状态.
+		 设置一个且只有一个下列标志作为消息框显示的按钮.
+		 $MB_OK --- "确定"按钮
+		 $MB_OKCANCEL --- "取消"和"确定"按钮
+		 $MB_YESNO --- "是"按钮
+		 设置一个且只有一个下列标志作为消息框的显示图标.
+		 $MB_ICONEXCLAMATION --- 感叹号图标
+		 $MB_ICONHAND --- 停止信号图标
+		 $MB_ICONINFORMATION --- 圆圈加小写“i”图标
+		 $MB_ICONQUESTION --- 问号图标
 $sTitle
-	The string that contains the title of the message box.
+	消息框的标题字符串.
 $sText
-	The string that contains the message to be displayed.
+	显示信息的字符串.
 $sRegVal
-	The string that contains a unique string value to associate with this message.
+	消息关联的唯一字符串值.
 $iDefault
-	[可选参数] The value that the function returns when the user has opted not to have the message box displayed
-	again. If the user has not opted to suppress the message box, the message box is displayed and
-	the function ignores $iDefault.
+	[可选参数] 指定用户选定不再显示消息框时,函数的返回值. 
+		 如果用户未选择取消消息框, 消息框将继续显示,并且函数忽略此参数值.
 $hParent
-	[可选参数] The window handle to the message box's owner.
+	[可选参数] 消息框属主窗口句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	If the user has already chosen to suppress the message box, the function immediately returns the
-Failure	(-1) and sets the @error flag to non-zero.
+成功:	如果用户选择取消消息框,函数立即返回 $iDefault 的参数值;
+	否则,返回 $ID_* 常量.
+失败:	返回 -1,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-This function records the message boxes that the user has chosen to suppress under the following registry key.
-
-HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\LowRegistry\DontShowMeThisDialogAgain
+用户取消消息框后,函数记录的信息写入下面的注册表项.
+ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\LowRegistry\DontShowMeThisDialogAgain
 
 
 

@@ -2,7 +2,7 @@
 _WinAPI_BeginUpdateResource
 
 ###Description###
-Retrieves a handle that can be used to add, delete, or replace resources in a binary module.
+获取用于添加,删除或替换二进制模块资源的句柄.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,23 +11,23 @@ _WinAPI_BeginUpdateResource ( $sFile [, $fDelete] )
 ###Parameters###
 @@ParamTable@@
 $sFile
-	The binary file in which to update resources. An application must be able to obtain write-access to
-	this file; the file referenced by $sFile cannot be currently executing.
+	被更新的二进制文件资源.应用程序必须能够写访问此文件;
+		 $sFile 引用的文件当前还未运行.
 $fDelete
-	[可选参数] Specifies whether to delete existing resources, valid values:
-		TRUE    - The resources are deleted and the updated file includes only resources added with the _WinAPI_UpdateResource().
-		FALSE   - The updated file includes existing resources. (Default)
+	[可选参数] 指定是否删除现有资源,有效值:
+		1 - 删除资源.更新后的文件仅包含 _WinAPI_UpdateResource() 添加的资源.
+		0 - 更新后的文件包括现有资源. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle that can be used by the _WinAPI_UpdateResource() and _WinAPI_EndUpdateResource() functions.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回可供 _WinAPI_UpdateResource() 与 _WinAPI_EndUpdateResource() 函数使用的句柄.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###
-It is recommended that the resource file is not loaded before this function is called. However, if that file
-is already loaded, it will not cause an error to be returned.
+建议在资源文件没有加载之前调用此函数,
+ 如果该文件已经加载,也不会导致返回错误
 
 
 ###See Also###

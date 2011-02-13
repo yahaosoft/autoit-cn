@@ -2,7 +2,7 @@
 _WinAPI_CreateFileMapping
 
 ###Description###
-Creates or opens a named or unnamed file mapping object for a specified file.
+创建或打开指定文件的有名或无名文件映射对象.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,62 +11,55 @@ _WinAPI_CreateFileMapping ( $hFile [, $iSize [, $sName [, $iProtect [, $tSecurit
 ###Parameters###
 @@ParamTable@@
 $hFile
-	Handle to the file from which to create a file mapping object. If this parameter is (-1), the calling
-	process must also specify a size for the file mapping object in the $iSize parameters. In this scenario,
-	_WinAPI_CreateFileMapping() creates a file mapping object of a specified size that is backed by the
-	system paging file instead of by a file in the file system.
+	创建文件映射对象的文件句柄.如果此参数为 -1,
+		 则 $iSize 必须指定文件映射对象的大小.
+		 此时本函数创建的文件映射对象由系统页面文件支持,
+		 而不是由文件系统的文件支持.
 $iSize
-	[可选参数] The maximum size of the file mapping object. If this parameter is 0, the maximum size of the file
-	mapping object is equal to the current size of the file that $hFile identifies.
+	[可选参数] 文件映射对象的最大尺寸. 如果此参数为 0,
+		 文件映射对象的最大尺寸等于 $hFile 文件的当前大小
 $sName
-	[可选参数] The name of the file mapping object.
+	[可选参数] 文件映射对象的名称.
 $iProtect
-	[可选参数] Specifies the page protection of the file mapping object and can be one of the following values.
-	
-	$PAGE_EXECUTE_READ
-	$PAGE_EXECUTE_READWRITE
-	$PAGE_EXECUTE_WRITECOPY
-	$PAGE_READONLY
-	$PAGE_READWRITE
-	$PAGE_WRITECOPY
-	
-	An application can specify one or more of the following attributes for the file mapping object
-	by combining them with one of the preceding page protection values.
-	
-	$SEC_COMMIT
-	$SEC_IMAGE
-	$SEC_LARGE_PAGES
-	$SEC_NOCACHE
-	$SEC_RESERVE
-	$SEC_WRITECOMBINE
-	
+	[可选参数] 指定文件映射对象的页面保护,可以是以下值之一:
+		 $PAGE_EXECUTE_READ --- 允许映射为只读,复制写入或执行访问
+		 $PAGE_EXECUTE_READWRITE --- 允许映射为只读,复制写入,读/写或执行访问
+		 $PAGE_EXECUTE_WRITECOPY --- 相当于 PAGE_EXECUTE_READ
+		 $PAGE_READONLY --- 允许映射为只读,复制写入访问
+		 $PAGE_READWRITE --- 允许映射为只读,复制写入,或读/写访问
+		 $PAGE_WRITECOPY --- 相当于 PAGE_READONLY
+		 结合上面的页面保护值,为文件映射对象指定下列一或多个属性:
+		 $SEC_COMMIT --- 如果文件映射对象由操作系统分页文件支持（即 $hfile 参数为 -1）,当文件视图映射到进程地址空间,指定整个范围内的页面,而不是保留
+		 $SEC_IMAGE --- 指定 $hFile 参数值是一个可执行映像文件
+		 $SEC_LARGE_PAGES --- 对操作系统页面文件支持的文件映射对象启用大页面
+		 $SEC_NOCACHE --- 不缓存所有页面
+		 $SEC_RESERVE --- 如果文件映射对象由操作系统的分页支持,指定文件视图空间映射到进程地址,页面范围保留为以后整个过程使用
+		 $SEC_WRITECOMBINE --- 所有页写组合
 $tSecurity
-	[可选参数] $tagSECURITY_ATTRIBUTES structure that determines whether a returned handle can be inherited by
-	child processes. If this parameter is 0, the handle cannot be inherited and the file mapping object
-	gets a default security descriptor.
+	[可选参数] $tagSECURITY_ATTRIBUTES 结构,决定子进程是否可以继承返回的句柄.
+		 如果此参数为 0, 句柄不能被继承,文件映射对象得到一个默认的安全描述符.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle to the newly created file mapping object. If the object exists before the function call,
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回新创建的文件映射对象句柄.如果函数调用之前该对象已存在,
+	函数返回现有对象的句柄（当前的大小,而不是指定的大小）,
+	并设置 @extended 为 1.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###
-After a file mapping object is created, the size of the file must not exceed the size of the file mapping object
-if it does, not all of the file contents are available for sharing.
-
-Multiple processes can share a view of the same file by either using a single shared file mapping object or creating
-separate file mapping objects backed by the same file. A single file mapping object can be shared by multiple processes
-through inheriting the handle at process creation, duplicating the handle, or opening the file mapping object by name.
-
-A file mapping object does not actually map the view into a process address space. The _WinAPI_MapViewOfFile()
-functions map a view of a file into a process address space.
-
-Mapped views of a file mapping object maintain internal references to the object, and a file mapping object does
-not close until all references to it are released. Therefore, to fully close a file mapping object, an application
-must unmap all mapped views of the file mapping object by calling _WinAPI_UnmapViewOfFile() and close the file
-mapping object handle by calling _WinAPI_CloseHandle(). These functions can be called in any order.
+创建文件映射对象后的文件大小不得超过文件映射对象的大小;
+ 如果不是如此,则不是所有的文件内容为共享.
+ 使用单一的共享文件映射对象;或创建同一文件支持的单独映射文件,
+ 可使多个进程共享一个相同的文件视图. 
+通过继承句柄,复制句柄,或使用名称打开文件映射对象
+ 可使一个文件映射对象共享多个进程创建的句柄.
+ 文件映射对象实际上并没有映射视图到进程地址空间.
+ 映射文件视图到进程的地址空间由 _WinAPI_MapViewOfFile() 函数完成.
+ 映射文件映射对象视图维持内部引用的对象,在所有对它的引用被释放前,文件映射对象不会关闭.
+ 因此,要完全关闭文件映射对象,应用程序必须调用 _WinAPI_UnmapViewOfFile() 函数关闭映射视图;
+ 并调用 _WinAPI_CloseHandle() 关闭文件映射对象的句柄. 这些函数可以被任何顺序调用.
 
 
 ###See Also###

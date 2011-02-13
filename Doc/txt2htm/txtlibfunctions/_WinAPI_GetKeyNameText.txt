@@ -2,7 +2,7 @@
 _WinAPI_GetKeyNameText
 
 ###Description###
-Retrieves a string that represents the name of a key.
+检索键名称的字符串.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,21 +11,21 @@ _WinAPI_GetKeyNameText ( $lParam )
 ###Parameters###
 @@ParamTable@@
 $lParam
-	Specifies the second parameter of the keyboard message (such as WM_KEYDOWN) to be processed.
+	指定处理键盘消息(例如 WM_KEYDOWN)的第二个参数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	String containing the name of the key.
-Failure	Empty string and sets the @error flag to non-zero.
+成功:	返回键名称字符串.
+失败:	返回空串,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-The format of the key-name string depends on the current keyboard layout. The keyboard driver maintains a list
-of names in the form of character strings for keys with names longer than a single character. The key name
-is translated according to the layout of the currently installed keyboard, thus the function may give different
-results for different input locales. The name of a character key is the character itself. The names of dead
-keys are spelled out in full.
+键名字符串格式取决于当前的键盘布局.
+ 键盘驱动以长于单个字符的字符串格式保留键名称列表.
+ 键名称的翻译是根据当前安装的键盘布局,
+ 因此函数可能会给出不同输入区域设置的不同结果.
+ 字符键名称是字符本身,死键(如换档键)则拼写出完整名称.
 
 
 ###See Also###

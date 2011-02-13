@@ -2,7 +2,7 @@
 _WinAPI_RegCopyTreeEx
 
 ###Description###
-Copies the specified registry key, along with its values and subkeys, to the specified destination key.
+复制指定的注册表项及其子项到指定的目标键.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,27 +11,26 @@ _WinAPI_RegCopyTreeEx ( $hSrcKey, $sSrcSubKey, $hDestKey )
 ###Parameters###
 @@ParamTable@@
 $hSrcKey
-	Handle to an open registry key. The key must have been opened with the $KEY_READ access right.
-	This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey() function, or it can be
-	one of the predefined registry keys ($HKEY_*).
+	打开的注册表项句柄,该键项必须已打开且有 $KEY_READ 访问权限.
+		 句柄由 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回,
+		 也可以是预定义的注册表项 ($HKEY_*).
 $sSrcSubKey
-	The name of the key. This key must be a subkey of the key identified by the $hSrcKey parameter.
+	键名称.这个键必须是由 $hSrcKey 参数确定键的子项
 $hDestKey
-	Handle to the destination key. The calling process must have $KEY_CREATE_SUB_KEY access to the key.
-	This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey() function, or it can be
-	one of the predefined registry keys ($HKEY_*).
+	目标键句柄. 调用进程必须有 $KEY_CREATE_SUB_KEY 访问权.
+		 句柄由 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回,
+		 也可以是预定义的注册表项 ($HKEY_*).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
-This function also copies the security descriptor for the key.
-
-This function requires Windows Vista or later.
+函数能复制键的安全描述符.
+ 本函数需要 Windows Vista 或更高版本系统.
 
 
 ###See Also###

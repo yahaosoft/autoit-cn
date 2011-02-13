@@ -2,7 +2,7 @@
 _WinNet_CancelConnection2
 
 ###Description###
-Cancels an existing network connection
+取消现有的网络连接
 
 ###Syntax###
 #Include <WinNet.au3>
@@ -11,16 +11,15 @@ _WinNet_CancelConnection2($sName [, $fUpdate = True [, $fForce = True]])
 ###Parameters###
 @@ParamTable@@
 $sName
-	Name of either the redirected local device or the remote network resource to disconnect from.
-		When this parameter specifies a redirected local device, the function cancels only the specified device
-		redirection. If the parameter specifies a remote network resource, only the connections to remote networks
-		without devices are canceled.
+	指定重定向本地设备的名称,或要断开的远程网络资源的名称．
+		当此参数指定一个重定向的本地设备,函数取消指定的设备重定向;
+		如果参数指定远程网络资源,只有在没有设备连接到远程网络时才被取消.
 $fUpdate
-	[optional] If True, the users profile is updated with the information that the connection is no longer a
-		persistent one.
+	[可选参数] 如果为True,用户配置文件被更新,
+		信息连接已经不再是一个持续连接.
 $fForce
-	[optional] Specifies whether or not the disconnection should occur if there are open files or jobs on the
-		connection. If this parameter is False, the function fails if there are open files or jobs.
+	[可选参数] 如果有打开的文件或连接工作,指定是否应该发生断线．
+		如果此参数为　False,且存在打开的文件或工作,该函数失败.
 @@End@@
 
 ###ReturnValue###

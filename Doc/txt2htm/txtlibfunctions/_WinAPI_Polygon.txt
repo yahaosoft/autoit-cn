@@ -2,7 +2,7 @@
 _WinAPI_Polygon
 
 ###Description###
-Draws a polygon consisting of two or more vertices connected by straight lines.
+绘制多边形.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,24 +11,24 @@ _WinAPI_Polygon ( $hDC,  $aPoint [, $iStart [, $iEnd]] )
 ###Parameters###
 @@ParamTable@@
 $dDC
-	Handle to the device context.
+	设备环境句柄.
 $aPoint
-	The 2D array ([x1, y1], [x2, y2], ... [xN, yN]) that contains the vertices of the polygon in logical
-	units. The polygon is closed automatically by drawing a line from the last vertex to the first.
+	包含多边形顶点逻辑单位的二维数组: ([x1, y1], [x2, y2], ... [xN, yN]).
+		 多边形绘制自动连接最后顶点到第一顶点.
 $iStart
-	[可选参数] The index of array to start creating at.
+	[可选参数] 多边形开始点的数组索引.
 $iEnd
-	[可选参数] The index of array to stop creating at.
+	[可选参数] 多边形结束点的数组索引.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-The polygon is outlined by using the current pen and filled by using the current brush and polygon fill mode.
+使用当前画笔绘制多边形边框,使用当前画刷模式填充多边形.
 
 
 ###See Also###

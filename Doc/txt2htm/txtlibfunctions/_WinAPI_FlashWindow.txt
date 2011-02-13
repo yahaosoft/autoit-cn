@@ -2,7 +2,7 @@
 _WinAPI_FlashWindow
 
 ###Description###
-Flashes the specified window one time
+指定的窗口闪烁一次
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,24 +11,24 @@ _WinAPI_FlashWindow($hWnd [, $fInvert = True])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window to be flashed. The window can be either open or minimized.
+	窗口句柄.窗口可以是打开的或最小化的
 $fInvert
-	[optional] If True, the window is flashed from one state to the other. If False the window is returned to
-		its original state. When an application is minimized and this parameter is True, the taskbar window button
-		flashes active/inactive. If it is False, the taskbar window button flashes inactive, meaning that it does
-		not change colors. It flashes as if it were being redrawn, but it does not provide the visual invert clue to
-		the user.
+	[可选参数] 如为 True, 窗口从一个状态向另一个状态闪烁; 
+		如为 False, 窗口恢复到其原始状态.
+		当程序最小化和此参数 True,任务栏窗口按钮闪烁有效/无效.
+		如为 False, 任务栏窗口按钮闪烁无效, 这意味着它不会改变颜色.
+		闪烁犹如刷新屏幕,但它不对用户提供视觉切换提示.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-This function does not change the active state of the window. To flash the window a specified number of times,
-use the FlashWindowEx function.
+ 函数不改变窗口状态.
+ 要指定窗口的闪烁次数, 使用 FlashWindowEx 函数.
 
 ###Related###
 _WinAPI_FlashWindowEx

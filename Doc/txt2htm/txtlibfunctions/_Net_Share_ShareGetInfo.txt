@@ -2,7 +2,7 @@
 _Net_Share_ShareGetInfo
 
 ###Description###
-Retrieves information about a particular shared resource on a server
+检索特定服务器上共享资源的信息
 
 ###Syntax###
 #Include <NetShare.au3>
@@ -11,42 +11,42 @@ _Net_Share_ShareGetInfo($sServer, $sShare)
 ###Parameters###
 @@ParamTable@@
 $sServer
-	String that specifies the DNS or NetBIOS name of the remote server on which the function is to
-		execute. If this parameter is blank the local computer is used.
+	指定函数将操作远程服务器的 DNS 或 NetBIOS 名称字符串
+		如果参数为空, 则使用本地计算机.
 $sShare
-	Name of the share for which to return information
+	返回信息的共享名称
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	[0] - Share name of a resource
-	[1] - Type of the shared resource. Can be a combination of:
-	 $STYPE_DISKTREE - Print queue
-	 $STYPE_PRINTQ - Disk drive
-	 $STYPE_DEVICE - Communication device
-	 $STYPE_IPC - IPC
-	 $STYPE_SPECIAL - Special share reserved for IPC$ or remote administration of the server
-	 $STYPE_TEMPORARY - A temporary share
-	[2] - Contains an optional comment about the shared resource
-	[3] - Indicates the shared resource's permissions:
-	  1 - Permission to read data from a resource and to execute
-	  2 - Permission to write data to the resource
-	  4 - Permission to create an instance of the resource
-	  8 - Permission to execute the resource
-	 16 - Permission to delete the resource
-	 32 - Permission to modify the resource's attributes
-	 64 - Permission to modify the permissions assigned to a resource
-	[4] - Indicates the maximum number of connections that the resource can have
-	[5] - Indicates the number of current connections to the resource
-	[6] - Specifies the local path for the shared resource
-	[7] - Specifies the share's password
-Failure:	Set @error
+成功:	返回以下格式的数组:
+	[0] - 资源共享名
+	[1] - 共享资源类型．可以是一个组合:
+	$STYPE_磁盘TREE - 打印队列
+	$STYPE_PRINTQ - 磁盘驱动器
+	$STYPE_DEVICE - 通讯设备
+	$STYPE_IPC - IPC (工控机)
+	$STYPE_SPECIAL - 为 IPC$ 或服务器的远程管理保留的专用共享(那 $ 号反没反,不知道)
+	$STYPE_TEMPORARY - 临时共享
+	[2] - 共享资源的可选注释
+	[3] - 共享资源的权限:
+	1 - 读取数据, 并执行资源
+	2 - 将数据写入到资源
+	4 - 创建资源实例
+	8 - 执行资源
+	16 - 删除资源
+	32 - 修改资源的属性
+	64 - 修改分配给资源的权限
+	[4] - 显示资源可以连接的最大数
+	[5] - 当前资源连接数
+	[6] - 共享资源本地路径
+	[7] - 共享资源的使用密码
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###
-Only members of the Administrators, Server Operators, or Power Users local group, or those with Print or
-Server Operator group membership, can successfully execute this function.
+系统管理员,服务器操作员,或Power Users本地组成员,
+或打印操作员,或服务器操作员组的成员,可以成功地执行这个函数.
 
 ###Related###
 _Net_Share_FileGetInfo, _Net_Share_SessionGetInfo, _Net_Share_ShareSetInfo

@@ -2,7 +2,7 @@
 _GUIToolTip_GetToolInfo
 
 ###Description###
-Retrieves the information about a specific tool
+检索特定工具的信息
 
 ###Syntax###
 #Include <GuiToolTip.au3>
@@ -11,32 +11,34 @@ _GUIToolTip_GetToolInfo($hWnd, $hTool, $iID)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to control
+	控件句柄
 $hTool
-	Handle to the window that contains the tool
+	工具提示控件的窗口句柄
 $iID
-	Identifier of the tool
+	工具控件标识符
 @@End@@
 
 ###ReturnValue###
-Success: Array with the following format:
-		[1] - Flags that control the ToolTip display:
-		   1 - Indicates that $iID is the window handle to the tool instead of the ID
-		   2 - Centers the window below the tool specified by $iID
-		   4 - Indicates that text will be displayed in the opposite direction
-		   8 - Indicates that the control should subclass the tool's window to intercept messages
-		  16 - Positions the control next to the tool to which it corresponds
-		  32 - Positions the window at the same coordinates provided by TTM_TRACKPOSITION
-		  64 - Causes the control to forward mouse messages to the parent window
-		 128 - Indicates that links in the control text should be parsed
-		[2] - Handle to the window that contains the tool
-		[3] - Identifier of the tool
-		[4] - X coordinate of the upper left corner of the rectangle
-		[5] - Y coordinate of the upper left corner of the rectangle
-		[6] - X coordinate of the lower right corner of the rectangle
-		[7] - Y coordinate of the lower right corner of the rectangle
-		[8] - Handle to the instance that contains the string resource for the tool
-		[9] - Application-defined value associated with the tool
+@@ReturnTable@@
+成功:	返回以下格式的数组:
+	[1] - 工具提示显示标志:
+	1 - 指定 $iID 参数值是窗口句柄, 而不是工具提示控件的 ID
+	2 - $iID 指定的提示控件在窗口下方居中
+	4 - 指定文本反方向显示
+	8 - 指定提示控件是窗口拦截消息的子类
+	16 - 提示工具位置对应有提示信息的控件旁边
+	32 - TTM_TRACKPOSITION 提供同一位置的窗口坐标
+	64 - 控件向父窗口发送鼠标信息
+	128 - 指定解析链接的提示文本
+	[2] - 工具提示控件的窗口句柄
+	[3] - 工具控件标识符
+	[4] - 提示框矩形左上角 X 坐标
+	[5] - 提示框矩形左上角 Y 坐标
+	[6] - 提示框矩形右下角 X 坐标
+	[7] - 提示框矩形右下角 Y 坐标
+	[8] - 包含字符串资源的提示工具实例句柄
+	[9] - 应用程序定义的工具关联值
+@@End@@
 
 ###Remarks###
 None.

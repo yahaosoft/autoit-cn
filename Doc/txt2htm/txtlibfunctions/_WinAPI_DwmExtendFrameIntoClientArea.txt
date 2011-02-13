@@ -2,7 +2,7 @@
 _WinAPI_DwmExtendFrameIntoClientArea
 
 ###Description###
-Extends the window frame behind the client area.
+扩展客户区背后的窗口框架.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,23 +11,22 @@ _WinAPI_DwmExtendFrameIntoClientArea ( $hWnd [, $tMARGINS] )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window for which the frame is extended into the client area.
+	框架范围扩展到客户端的窗口句柄.
 $tMARGINS
-	[可选参数] $tagMARGINS structure that describes the margins to use when extending the frame into the client area.
-	Negative margins are used to create the "sheet of glass" effect where the client area is rendered as
-	a solid surface with no window border.
+	[可选参数] $tagMARGINS 结构,描述延伸到客户端区域的框架边界.
+		 压缩边界用于创建玻璃效果,其中客户区域为一个没有窗口边框的固体表面.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-This function must be called whenever Desktop Window Manager (DWM) composition is toggled. Handle the
-WM_DWMCOMPOSITIONCHANGED message for composition change notification.
-
+每当桌面窗口管理器（DWM）切换时,必须调用这个函数.
+ WM_DWMCOMPOSITIONCHANGED 消息通知切换的变化信息.
+ 本函数需要 Windows Vista 或更高版本系统.
 This function requires Windows Vista or later.
 
 

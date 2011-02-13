@@ -2,7 +2,7 @@
 _WinAPI_CreateIcon
 
 ###Description###
-Creates an icon that has the specified size, colors, and bit patterns.
+创建指定大小,颜色,位模式的图标.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,31 +11,31 @@ _WinAPI_CreateIcon ( $hInstance, $iWidth, $iHeight, $iPlanes, $iBitsPixel, $pAND
 ###Parameters###
 @@ParamTable@@
 $hInstance
-	Handle to the instance of the module creating the icon.
+	创建图标的模块句柄.
 $iWidth
-	The width, in pixels, of the icon.
+	图标宽度像素值.
 $iHeight
-	The height, in pixels, of the icon.
+	图标高度像素值.
 $iPlanes
-	The number of planes in the XOR bitmask of the icon.
+	图标的 XOR 掩码平面位数.
 $iBitsPixel
-	The number of bits-per-pixel in the XOR bitmask of the icon.
+	图标的 XOR 掩码每像素数.
 $pANDBits
-	An array of bytes that contains the bit values for the AND bitmask of the icon. This bitmask describes
-	a monochrome bitmap.
+	包含图标 AND 掩码位值的字节数组.
+		这个位掩码描述一个单色位图.
 $pXORBits
-	An array of bytes that contains the bit values for the XOR bitmask of the icon. This bitmask describes
-	a monochrome or device-dependent color bitmap.
+	包含图标 XOR 掩码位值的字节数组.
+		这个位掩码描述一个单色或依赖于设备的彩色位图.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle to the icon that is created.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回创建的图标句柄.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###
-When you are finished using the icon, destroy it using the _WinAPI_DestroyIcon() function.
+使用完的图标,调用 _WinAPI_DestroyIcon() 函数销毁.
 
 
 ###See Also###

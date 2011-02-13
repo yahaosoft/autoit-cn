@@ -56,53 +56,56 @@ $nCharset
 $nOutputPrec
 	[可选参数] 指定输出精确度, 可以是下方的一个值:
 		$OUT_CHARACTER_PRECIS - 未使用
-		$OUT_DEFAULT_PRECIS - 指定默认字体映射行为.
-		$OUT_DEVICE_PRECIS - Instructs the font mapper to choose a Device font when the system contains multiple fonts with the same name
-		$OUT_OUTLINE_PRECIS - Windows NT/2000/XP: This value instructs the font mapper to choose from TrueType and other outline-based fonts
-		$OUT_PS_ONLY_PRECIS - Windows 2000/XP: Instructs the font mapper to choose from only PostScript fonts.
-		If there are no PostScript fonts installed in the system, the font mapper returns to default behavior
-		$OUT_RASTER_PRECIS - Instructs the font mapper to choose a raster font when the system contains multiple fonts with the same name
-		$OUT_STRING_PRECIS - This value is not used by the font mapper, but it is returned when raster fonts are enumerated
-		$OUT_STROKE_PRECIS - Windows NT/2000/XP: This value is not used by the font mapper, but it is returned when TrueType,
-		other outline-based fonts, and vector fonts are enumerated
-		$OUT_TT_ONLY_PRECIS - Instructs the font mapper to choose from only TrueType fonts. If there are no TrueType fonts installed in the system,
-		the font mapper returns to default behavior
-		$OUT_TT_PRECIS - Instructs the font mapper to choose a TrueType font when the system contains multiple fonts with the same name
+		$OUT_DEFAULT_PRECIS - 默认字体映射表状态
+		$OUT_DEVICE_PRECIS - 当系统包含多个相同名称的字体时,字体映射表选择设备字体
+		$OUT_OUTLINE_PRECIS - Windows NT/2000/XP: 字体映射表选择 TrueType 和其他轮廓字体
+		$OUT_PS_ONLY_PRECIS - Windows 2000/XP: 字体映射表只选择 PostScript 字体.
+		如果系统中没有 PostScript 字体,则字体映射表返回到默认状态
+		$OUT_RASTER_PRECIS - 当系统包含多个相同名称字体时,字体映射表选择光栅字体
+		$OUT_STRING_PRECIS - 不使用的字体映射表,但它返回光栅字体枚举
+		$OUT_STROKE_PRECIS - Windows NT/2000/XP: 不使用的字体映射表,
+		但它返回 TrueType,其他轮廓字体,和矢量字体得枚举
+		$OUT_TT_ONLY_PRECIS - 字体映射表选择只 TrueType 字体.
+		如果系统中没有 TrueType 字体,字体映射表返回到默认状态
+		$OUT_TT_PRECIS - 当系统包含多个相同名称的字体时,字体映射表选择 TrueType 字体
 $nClipPrec
 	[可选参数] 指定切边精确度, 可以是下方一个或多个值:
 		$CLIP_CHARACTER_PRECIS - 未使用
-		$CLIP_DEFAULT_PRECIS - Specifies default clipping behavior
-		$CLIP_EMBEDDED - You must specify this flag to use an embedded read-only font
-		$CLIP_LH_ANGLES - When this value is used, the rotation for all fonts depends on whether the orientation of the coordinate system is left-handed or right-handed.
-		If not used, device fonts always rotate counterclockwise, but the rotation of other fonts is dependent on the orientation of the coordinate system.
+		$CLIP_DEFAULT_PRECIS - 默认裁剪状态
+		$CLIP_EMBEDDED - 使用嵌入式只读字体
+		$CLIP_LH_ANGLES - 字体旋转取决是否坐标系统的左手或右手方向.
+		如果不使用此值,设备字体总是逆时针方向转动,但其他字体的旋转由坐标系方向而定.
 		$CLIP_MASK - 未使用
-		$CLIP_STROKE_PRECIS - Not used by the font mapper, but is returned when raster, vector, or TrueType fonts are enumerated
-		Windows NT/2000/XP: For compatibility, this value is always returned when enumerating fonts
+		$CLIP_STROKE_PRECIS - 不使用字体映射表,但返回光栅,矢量,或 TrueType 字体枚举
+		Windows NT/2000/XP: 出于兼容性,此值总是返回枚举字体
 		$CLIP_TT_ALWAYS - 未使用
 $nQuality
-	[可选参数] 指定输出质量, 可以是下方的一个值:
-		$ANTIALIASED_QUALITY - Windows NT 4.0 或更高: 字体平滑,抗锯齿, or smoothed, if the font supports it and the size of the font is not too small or too large.
-		Windows 95 with Plus!, Windows 98/Me: The display must greater than 8-bit color, it must be a single plane device, it cannot be a palette display, and it cannot be in a multiple display monitor setup.
-		In addition, you must select a TrueType font into a screen DC prior to using it in a DIBSection, otherwise antialiasing does not happen
-		$DEFAULT_QUALITY - Appearance of the font does not matter
-		$DRAFT_QUALITY - Appearance of the font is less important than when the PROOF_QUALITY value is used.
-		For GDI raster fonts, scaling is enabled, which means that more font sizes are available, but the quality may be lower.
-		Bold, italic, underline, and strikeout fonts are synthesized, if necessary
-		$NONANTIALIASED_QUALITY - Windows 95 with Plus!, Windows 98/Me, Windows NT 4.0 and later: Font is never antialiased, that is, font smoothing is not done
-		$PROOF_QUALITY - Character quality of the font is more important than exact matching of the logical-font attributes.
-		For GDI raster fonts, scaling is disabled and the font closest in size is chosen.
-		Although the chosen font size may not be mapped exactly when PROOF_QUALITY is used, the quality of the font is high and there is no distortion of appearance.
-		Bold, italic, underline, and strikeout fonts are synthesized, if necessary
+	[可选参数] 输出质量.可以是以下值之一:
+		$ANTIALIASED_QUALITY - Windows NT 4.0 与更高版:
+		如果支持的字体尺寸不是太小或太大,字体抗锯齿,或平滑
+		Windows 95 with Plus!, Windows 98/Me: 显示器必须大于8位色,
+		必须是单一平面设备,不能被调色板显示,它不能用于多显示器.
+		此外,在进入屏幕 DC 之前,使用 DIBSection 选择 TrueType 字体,否则不会发生抗锯齿效果
+		$DEFAULT_QUALITY - 不注重字体的外观
+		$DRAFT_QUALITY - 使用 PROOF_QUALITY 值时,字体的外观很重要.
+		对于 GDI 的光栅字体,启用缩放,这意味着较大的字体大小都可用,但质量可能比较低.
+		如有必要,可以综合使用粗体,斜体,下划线和删除线字体
+		$NONANTIALIASED_QUALITY - Windows 95 with Plus!, Windows 98/Me, Windows NT 4.0 与更高版: 
+		字体没有抗锯齿,即不做字体平滑
+		$PROOF_QUALITY - 字体质量比字体属性重要.
+		对于 GDI 光栅字体,禁用缩放,字体大小接近选择的字体.
+		当使用 PROOF_QUALITY 时,虽然选择的字体大小可能不完全映射,但字体的质量高,不会出现失真.
+		如有必要,可以综合使用粗体,斜体,下划线和删除线字体
 $nPitch
 	[可选参数] 指定字体斜度和家族. 使用两个低(序)位指定字体斜度,可以是下方的一个值:
 		$DEFAULT_PITCH, $FIXED_PITCH, $VARIABLE_PITCH
-		The four high-order bits specify the font family and can be one of the following values:
-		$FF_DECORATIVE - Novelty fonts. Old English is an example
-		$FF_DONTCARE - Use default font
-		$FF_MODERN - Fonts with constant stroke width, with or without serifs. Pica, Elite, and Courier New are examples
-		$FF_ROMAN - Fonts with variable stroke width and with serifs. MS Serif is an example
-		$FF_SCRIPT - Fonts designed to look like handwriting. Script and Cursive are examples
-		$FF_SWISS - Fonts with variable stroke width and without serifs. MS Sans Serif is an example
+		四个高位设置字体,可以是以下值之一:
+		$FF_DECORATIVE - 新奇字体.例如古英语
+		$FF_DONTCARE - 使用默认字体
+		$FF_MODERN - 常规笔画宽度字体,有或无衬线,例如 Pica, Elite, 与 Courier New 
+		$FF_ROMAN - 可变笔画宽度字体和衬线.例如 MS Serif
+		$FF_SCRIPT - 手写体字体.例如 Script 与 Cursive
+		$FF_SWISS - 可变笔画宽度字体;没有衬线.例如 MS Sans Serif
 $szFace
 	[可选参数] 字体名称
 @@End@@

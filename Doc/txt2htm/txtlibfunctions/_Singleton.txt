@@ -2,7 +2,7 @@
 _Singleton
 
 ###Description###
-Enforce a design paradigm where only one instance of the script may be running.
+执行一个设计范例,其中只有一个实例脚本可能正在运行.
 
 ###Syntax###
 #Include <Misc.au3>
@@ -11,22 +11,22 @@ _Singleton($sOccurenceName [, $iFlag = 0])
 ###Parameters###
 @@ParamTable@@
 $sOccurenceName
-	String to identify the occurrence of the script.  This string may not contain the \ character unless you are placing the object in a namespace (See Remarks).
+	识别具体脚本的字符串. 字符串可能不包含 \ 字符 除非你是将对象放置在一个命名空间中(见备注).
 $iFlag
-	[optional] Behavior options.
-		0 - Exit the script with the exit code -1 if another instance already exists.
-		1 - Return from the function without exiting the script.
-		2 - Allow the object to be accessed by anybody in the system. This is useful if specifying a "Global\" object in a multi-user environment.
+	[可选参数] 状态选项.
+		0 - 如果另一个实例已经存在,退出脚本与退出代码为 -1.
+		1 - 从函数返回而不退出脚本.
+		2 - 允许对象由系统中的任何人访问. 如果在一个多用户环境指定一个 "Global\" 对象时,这是有用的.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The handle to the object used for synchronization (a mutex).
-Failure:	0
+成功:	返回用于同步对象的句柄（互斥）
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-You can place the object in a namespace by prefixing your object name with either "Global\" or "Local\". "Global\" objects combined with the flag 2 are useful in multi-user environments.
+可放置对象在一个以 "Global\" 或 "Local\" 为前缀的命名空间中"Global\" 对象结合标志 2 在多用户环境中非常有用.
 
 ###Related###
 

@@ -2,7 +2,7 @@
 _WinAPI_CreateMRUList
 
 ###Description###
-Creates a new most recently used (MRU) list.
+创建一个新的最近使用（MRU）列表.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,21 +11,27 @@ _WinAPI_CreateMRUList ( $hKey, $sSubKey [, $iMax]] )
 ###Parameters###
 @@ParamTable@@
 $hKey
-	Handle to the currently open key, or one of the following predefined values under which to store the MRU data.
-	
-	$HKEY_CURRENT_USER
-	$HKEY_LOCAL_MACHINE
-	
+	当前打开的关键字句柄, 或以下存储 MRU 数据的预定义值:
+		 $HKEY_CURRENT_USER
+		 $HKEY_LOCAL_MACHINE
 $sSubKey
-	The subkey under which to store the MRU data.
+	存储在 MRU 的子项数据.
+$iFlag
+	[可选参数] 此参数可以为以下值之一:
+		 $MRU_BINARY
+		 $MRU_CACHEWRITE
 $iMax
-	[可选参数] The maximum number of entries in the MRU list. Default is 26 (A..Z).
+	[可选参数] MRU 列表项的最大数目. 默认为 26 (A..Z).
+$pCompare
+	[可选参数] 可选的数据比较函数指针, 用于判断一个项目是否已在 MRU 列表中.
+		 对于具有 $MRU_BINARY 标志的 MRU 列表,这是非常有用的.
+		 如果此参数为 0, 字符串比较函数使用标准的二进制数据, 使用直接存储器比较. 
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle to the new MRU list.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回新 MRU 列表句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

@@ -2,7 +2,7 @@
 _GUIToolTip_SetToolInfo
 
 ###Description###
-Sets the information for a tool
+设置工具的信息
 
 ###Syntax###
 #Include <GuiToolTip.au3>
@@ -11,44 +11,43 @@ _GUIToolTip_SetToolInfo($hWnd, $sText[, $iID = 0[, $iLeft = 0[, $iTop = 0[, $iRi
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window that contains the tool
+	工具提示控件的窗口句柄
 $sText
-	Text for the ToolTip control
+	工具提示控件文本
 $iID
-	[optional] Identifier or window handle of the tool
+	[可选参数] 工具提示控件的标识符或窗口句柄
 $iLeft
-	[optional] X coordinate of the upper left corner of the rectangle
+	[可选参数] 提示框矩形左上角 X 坐标
 $iTop
-	[optional] Y coordinate of the upper left corner of the rectangle
+	[可选参数] 提示框矩形左上角 Y 坐标
 $iRight
-	[optional] X coordinate of the lower right corner of the rectangle
+	[可选参数] 提示框矩形右下角 X 坐标
 $iBottom
-	[optional] Y coordinate of the lower right corner of the rectangle
+	[可选参数] 提示框矩形右下角 Y 坐标
 $iFlags
-	[optional] Flags that control the ToolTip display:
-		  1 - Indicates that $iID is the window handle to the tool instead of the ID
-		  2 - Centers the window below the tool specified by $iID
-		  4 - Indicates that text will be displayed in the opposite direction
-		  8 - Indicates that the control should subclass the tool's window to intercept messages
-		 16 - Positions the control next to the tool to which it corresponds
-		 32 - Positions the window at the same coordinates provided by TTM_TRACKPOSITION
-		 64 - Causes the control to forward mouse messages to the parent window
-		128 - Indicates that links in the control text should be parsed
+	[可选参数] 工具提示显示标志:
+		1 - 指定 $iID 参数值是窗口句柄, 而不是工具提示控件的 ID
+		2 - $iID 指定的提示控件在窗口下方居中
+		4 - 指定文本反方向显示
+		8 - 指定提示控件是窗口拦截消息的子类
+		16 - 提示工具位置对应有提示信息的控件旁边
+		32 - TTM_TRACKPOSITION 提供同一位置的窗口坐标
+		64 - 控件向父窗口发送鼠标信息
+		128 - 指定解析链接的提示文本
 $iParam
-	[optional] Application-defined value that is associated with the tool
+	[可选参数] 应用程序定义的工具关联值
 @@End@@
 
 ###ReturnValue###
 None.
 
 ###Remarks###
-Some internal properties of a tool are established when the tool is created, and are not recomputed when a
-$TTM_SETTOOLINFO message is sent. If you simply assign valuesto a TOOLINFO structure and pass it to the
-ToolTip control with a $TTM_SETTOOLINFO message, these properties may be lost. Instead your application should
-first request the tool's current TOOLINFO structure by sending a $TTM_GETTOOLINFO message. Then, modify the
-members of this structure as needed and pass it back to the ToolTip control with $TTM_SETTOOLINFO. When
-calling $TTM_SETTOOLINFO, the string pointed to by the Text member of the TOOLINFO structure must not exceed
-80 characters in length.
+ 当该工具创建时,工具的一些内部属性已确定.
+ 当发生 $TTM_SETTOOLINFO消息时,不重新计算属性值.
+ 如果简单的分配值给 TOOLINFO 结构,并以 $TTM_SETTOOLINFO 消息传递给提示控件,这些属性可能会丢失;
+ 应该要求应用程序应首先通过发送 $TTM_GETTOOLINFO 到工具目前的 TOOLINFO 结构,
+ 然后修改这个结构的成员,根据需要通过 $TTM_SETTOOLINFO 返回到工具提示控件.
+ 当调用 $TTM_SETTOOLINFO时,结构 TOOLINFO 的 Text 成员所指向的字符串不得超过80个字符的长度.
 
 ###Related###
 _GUIToolTip_GetToolInfo

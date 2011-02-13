@@ -2,7 +2,7 @@
 _WinAPI_GetUpdateRect
 
 ###Description###
-Retrieves the coordinates of the rectangle that completely encloses the update region of the specified window.
+检索指定窗口包围更新区域的矩形坐标.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,25 +11,23 @@ _WinAPI_GetUpdateRect ( $hWnd [, $fErase] )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window whose update region is to be retrieved.
+	窗口句柄.
 $fErase
-	[可选参数] Specifies whether the background in the update region is to be erased, valid values:
-		TRUE   - The background is erased. (Default)
-		FALSE  - The background remains unchanged.
+	[可选参数] 指定是否删除更新区域背景.有效值:
+		1 - 背景删除. (默认)
+		0 - 背景不变.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	$tagRECT structure that contains the coordinates of the enclosing rectangle, in device units.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 $tagRECT 结构,包含了矩形坐标的设备单位.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-The update rectangle retrieved by the _WinAPI_BeginPaint() function is identical to that retrieved by
-_WinAPI_GetUpdateRect()
-
-_WinAPI_BeginPaint() automatically validates the update region, so any call to _WinAPI_GetUpdateRect() made
-immediately after the call to _WinAPI_BeginPaint() retrieves an empty update region.
+更新的矩形由 _WinAPI_BeginPaint() 或 _WinAPI_GetUpdateRect() 函数检索,结果一样.
+ _WinAPI_BeginPaint() 自动验证更新地区, 因此任何 _WinAPI_GetUpdateRect() 后立即
+ 调用 _WinAPI_BeginPaint() 检索一个空更新区域.
 
 
 ###See Also###

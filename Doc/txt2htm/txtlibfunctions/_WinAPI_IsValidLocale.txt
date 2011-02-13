@@ -2,7 +2,7 @@
 _WinAPI_IsValidLocale
 
 ###Description###
-Determines if the specified locale is installed or supported on the operating system.
+确定操作系统安装或支持的指定区域.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,21 +11,18 @@ _WinAPI_IsValidLocale ( $LCID [, $iFlag] )
 ###Parameters###
 @@ParamTable@@
 $LCID
-	Locale identifier of the locale to validate.
+	区域标识符.
 $iFlag
-	[可选参数] Flag specifying the validity test to apply to the locale identifier. This parameter can have one
-	of the following values.
-	
-	$LCID_INSTALLED
-	$LCID_SUPPORTED
-	
+	[可选参数] 区域标识符的有效测试标志.参数可以为以下值之一:
+		 $LCID_INSTALLED --- 枚举已安装的区域设置标识符
+		 $LCID_SUPPORTED --- 枚举支持的区域设置标识符
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1 - The locale identifier passes the specified validity test.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0	Otherwise.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1 - 区域设置标识符通过指定的有效性测试
+	返回 0 - 未通过.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

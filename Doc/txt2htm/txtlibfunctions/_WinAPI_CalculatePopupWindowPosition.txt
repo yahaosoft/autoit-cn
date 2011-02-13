@@ -2,7 +2,7 @@
 _WinAPI_CalculatePopupWindowPosition
 
 ###Description###
-Calculates an appropriate pop-up window position.
+(指定定位点,弹出窗口的大小,标志以及可选排除矩形)计算弹出窗体的适当位置.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,41 +11,36 @@ _WinAPI_CalculatePopupWindowPosition ( $iX, $iY, $iWidth, $iHeight [, $iFlags [,
 ###Parameters###
 @@ParamTable@@
 $iX
-	The x-coordinate, in logical units, of the specified anchor point.
+	定位点 x 坐标逻辑单位值.
 $iY
-	The y-coordinate, in logical units, of the specified anchor point.
+	定位点 y 坐标逻辑单位值.
 $iWidth
-	The width, in logical units, of the specified window.
+	窗口宽度逻辑单位值.
 $iHeight
-	The height, in logical units, of the specified window.
+	窗口高度逻辑单位值.
 $iFlags
-	[可选参数] The flags that specify how the function positions the pop-up window horizontally and vertically.
-	
-	$TPM_CENTERALIGN
-	$TPM_LEFTALIGN
-	$TPM_RIGHTALIGN
-	
-	$TPM_BOTTOMALIGN
-	$TPM_TOPALIGN
-	$TPM_VCENTERALIGN
-	
-	$TPM_HORIZONTAL
-	$TPM_VERTICAL
-	
-	$TPM_WORKAREA
-	
+	[可选参数] 函数如何定位弹出窗口的(水平及垂直)位置.
+		 $TPM_CENTERALIGN --- 弹出窗口的中心与参数 $iX 的坐标点水平对齐.
+		 $TPM_LEFTALIGN ------ 弹出窗口的左边与参数 $iX 的坐标点对齐.
+		 $TPM_RIGHTALIGN ----- 弹出窗口的右边与参数 $iX 的坐标点对齐.
+		 $TPM_BOTTOMALIGN ---- 弹出窗口的底边与参数 $iY 的坐标点对齐.
+		 $TPM_TOPALIGN -------- 弹出窗口的左边与参数 $iY 的坐标点对齐.
+		 $TPM_VCENTERALIGN --- 弹出窗口的中心与参数 $iY 的坐标点垂直对齐.
+		 $TPM_HORIZONTAL --- 如果弹出式窗口不能显示在指定的位置,在请求的垂直对齐前,系统按要求的水平对齐调整.
+		 $TPM_VERTICAL ------ 如果弹出式窗口不能显示在指定的位置,在请求的水平对齐前,系统按要求的垂直对齐调整.
+		 $TPM_WORKAREA --- 限制在弹出窗口在工作区内.如果未设置此标志,弹出窗口仅限制在有输入点的工作区.
 $tExclude
-	[可选参数] $tagRECT structure that specifies the exclude rectangle.
+	[可选参数] 包含被排除矩形的 $tagRECT 结构.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	$tagRECT structure that specifies the pop-up window position.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回包含弹出窗口位置的 $tagRECT 结构.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-This function requires Windows 7 or later.
+本函数需要 Windows 7 或以上版本系统.
 
 
 ###See Also###

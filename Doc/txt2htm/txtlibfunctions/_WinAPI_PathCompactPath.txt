@@ -2,7 +2,7 @@
 _WinAPI_PathCompactPath
 
 ###Description###
-Truncates a file path to fit within a given pixel width by replacing path components with ellipses.
+使用省略号截短文件路径,以符合特定的像素宽度.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,22 +11,22 @@ _WinAPI_PathCompactPath ( $hWnd, $sPath [, $iWidth] )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window used for font metrics.
+	显示缩略路径的控件句柄.
 $sPath
-	The path to be modified.
+	要修改的路径
 $iWidth
-	[可选参数] The width, in pixels, in which the string must fit. If this parameter is (-1), width will be equal to
-	the width of the window.
+	[可选参数] 路径字符串必须适应的宽度像素值
+		 如果此参数为 -1,宽度等于控件的宽度.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The modified path.
-Failure	The original $sPath parameter and sets the @error flag to non-zero.
+成功:	返回修改后的路径.
+失败:	返回原 $sPath 参数,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-This function will not compact the path beyond the base file name preceded by ellipses.
+函数压缩路径不会超越文件名前面的省略号.
 
 
 ###See Also###

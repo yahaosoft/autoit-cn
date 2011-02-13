@@ -2,7 +2,7 @@
 _WinAPI_BroadcastSystemMessage
 
 ###Description###
-Sends a message to the specified recipients.
+发送消息到指定的收件人.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,48 +11,44 @@ _WinAPI_BroadcastSystemMessage ( $iMessage [, $wParam [, $lParam [, $iFlags [, $
 ###Parameters###
 @@ParamTable@@
 $iMessage
-	The message to be sent.
+	被发送的消息.
 $wParam
-	[可选参数] Additional message-specific information.
+	[可选参数] 消息的其它特定附加信息.
 $lParam
-	[可选参数] Additional message-specific information.
+	[可选参数] 消息的其它特定附加信息.
 $iFlags
-	[可选参数] The broadcast option. This parameter can be one or more of the following values.
-	
-	$BSF_ALLOWSFW
-	$BSF_FLUSHDISK
-	$BSF_FORCEIFHUNG
-	$BSF_IGNORECURRENTTASK
-	$BSF_NOHANG
-	$BSF_NOTIMEOUTIFNOTHUNG
-	$BSF_POSTMESSAGE
-	$BSF_QUERY
-	$BSF_SENDNOTIFYMESSAGE
-	
+	[可选参数] 发送选项. 此参数可以是一或多个下列值: 
+		$BSF_ALLOWSFW --- 处理消息时,允许收件人设置前台窗口
+		$BSF_FLUSHDISK --- 每个收件人消息处理完毕之后刷新磁盘.
+		$BSF_FORCEIFHUNG --- 连续发送消息, 即使已超时或接收方没有响应.
+		$BSF_IGNORECURRENTTASK --- 不向当前任务的窗口发送消息. 这将阻止应用程序接收自己的消息
+		$BSF_NOHANG --- 强制无应答应用程序超时. 如果某接收方超时,则不再继续发送消息.
+		$BSF_NOTIMEOUTIFNOTHUNG --- 等待消息的响应,直到接收方不再继续答复.不受超时限制.
+		$BSF_POSTMESSAGE --- 发送消息.不能与 BSF_QUERY 组合使用
+		$BSF_QUERY --- 每次向一个接收方发送消息, 直到当前接收方返回 TRUE 后再发送给下一个接收方.
+		$BSF_SENDNOTIFYMESSAGE --- 使用 SendNotifyMessage 函数发送消息. 不能与 $BSF_QUERY 结合使用
 $iRecipients
-	[可选参数] The recipients of the message. This parameter can be one or more of the following values.
-	
-	$BSM_ALLCOMPONENTS
-	$BSM_ALLDESKTOPS
-	$BSM_APPLICATIONS
-	$BSM_INSTALLABLEDRIVERS
-	$BSM_NETDRIVER
-	$BSM_VXDS
+	[可选参数] 消息的收件人. 此参数可以是一或多个下列值:
+		$BSM_ALLCOMPONENTS --- 发送到所有系统组件.
+		$BSM_ALLDESKTOPS --- 发送到所有台式机.要求有 SE_TCB_NAME 权限.
+		$BSM_APPLICATIONS --- 发送到应用程序.
+		$BSM_INSTALLABLEDRIVERS --- 未查到描述,按 netegg 的汉化描述为 Windows Me/98/95 三系统专用
+		$BSM_NETDRIVER --- 未查到描述,按 netegg 的汉化描述为 Windows Me/98/95 三系统专用
+		$BSM_VXDS --- 未查到描述,按 netegg 的汉化描述为 Windows Me/98/95 三系统专用
 	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1 or 0 (see below), @extended flag receives a combination of $BSM_* values identifying which
-Failure	(-1) and sets the @error flag to non-zero.
+成功:	返回 1 或 0 (见备注),
+	@extended 标志接收 BSM_* 值确定收件人实际收到的消息.
+失败:	(-1)设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-If the $iFlags parameter is $BSF_QUERY and at least one recipient returned BROADCAST_QUERY_DENY to the corresponding
-message, the return value is 0.
-
-The system only does marshalling for system messages (those in the range 0 to (WM_USER-1)). To send other messages
-(those >= WM_USER) to another process, you must do custom marshalling.
+如果 $iFlags 参数为 BSF_QUERY,且至少一个收件人返回相应的 BROADCAST_QUERY_DENY 信息, 则返回值为 0.
+ 系统仅为系统消息编组, 范围为 0 到 (WM_USER-1).
+ 要发送其它消息( those >= WM_USER )到另一个进程,你必须自定义编组.
 
 
 ###See Also###

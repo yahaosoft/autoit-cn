@@ -2,7 +2,7 @@
 _WinAPI_SetInformationJobObject
 
 ###Description###
-Sets limits for a job object.
+设置作业对象的限制.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,26 +11,26 @@ _WinAPI_SetInformationJobObject ( $hJob, $iJobObjectInfoClass, $tJobObjectInfo )
 ###Parameters###
 @@ParamTable@@
 $hJob
-	Handle to the job whose limits are being set. The handle must have the
-	$JOB_OBJECT_SET_ATTRIBUTES access right.
+	作业对象句柄.句柄必须有
+		 $JOB_OBJECT_SET_ATTRIBUTES --- 调用 SetInformationJobObject 函数设置作业对象的属性 访问权限.
 $iJobObjectInfoClass
-	The information class for the limits to be set. This parameter specifies the type
-	of $tJobObjectInfo structure, valid values:
-		2  - $tagJOBOBJECT_BASIC_LIMIT_INFORMATION
-		4  - $tagJOBOBJECT_BASIC_UI_RESTRICTIONS
-		5  - $tagJOBOBJECT_SECURITY_LIMIT_INFORMATION
-		6  - $tagJOBOBJECT_END_OF_JOB_TIME_INFORMATION
-		7  - $tagJOBOBJECT_ASSOCIATE_COMPLETION_PORT
-		9  - $tagJOBOBJECT_EXTENDED_LIMIT_INFORMATION
-		11 - $tagJOBOBJECT_GROUP_INFORMATION
+	指定限制类别.此参数指定为 $tJobObjectInfo 结构类型, 有效值为:
+		 of $tJobObjectInfo structure, valid values:
+		2 - $tagJOBOBJECT_BASIC_LIMIT_INFORMATION --- JOBOBJECT_BASIC_LIMIT_INFORMATION 结构的指针
+		4 - $tagJOBOBJECT_BASIC_UI_RESTRICTIONS --- JOBOBJECT_BASIC_UI_RESTRICTIONS 结构的指针
+		5 - $tagJOBOBJECT_SECURITY_LIMIT_INFORMATION --- JOBOBJECT_SECURITY_LIMIT_INFORMATION 结构的指针
+		6 - $tagJOBOBJECT_END_OF_JOB_TIME_INFORMATION --- JOBOBJECT_END_OF_JOB_TIME_INFORMATION 结构的指针
+		7 - $tagJOBOBJECT_ASSOCIATE_COMPLETION_PORT --- JOBOBJECT_ASSOCIATE_COMPLETION_PORT 结构的指针
+		9 - $tagJOBOBJECT_EXTENDED_LIMIT_INFORMATION --- JOBOBJECT_EXTENDED_LIMIT_INFORMATION 结构的指针
+		11 - $tagJOBOBJECT_GROUP_INFORMATION --- 指向 USHORT 值的指针
 $tJobObjectInfo
-	$tagJOBOBJECT_* structure that sets the limit and job state information.
+	$tagJOBOBJECT_* 结构, 指定限制和作业状态信息.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

@@ -2,7 +2,7 @@
 _WinAPI_RegCloseKey
 
 ###Description###
-Closes a handle to the specified registry key.
+关闭指定注册表项的句柄.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,16 +11,18 @@ _WinAPI_RegCloseKey ( $hKey [, $fFlush] )
 ###Parameters###
 @@ParamTable@@
 $hKey
-	Handle to the open key to be closed. The handle must have been opened by the _WinAPI_RegCreateKey()
-	or _WinAPI_RegOpenKey() function.
+	待关闭的键项句柄.
+		必须是 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数打开的句柄.
 $fFlush
-	[可选参数] Specifies whether writes all the attributes of the specified registry key into the registry,
+	[可选参数] 指定是否所有属性写入到指定的注册表项.有效的值:
+		1 - 写变化到磁盘之前关闭句柄.
+		0 - 不写. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
 @@End@@
 
 ###Remarks###

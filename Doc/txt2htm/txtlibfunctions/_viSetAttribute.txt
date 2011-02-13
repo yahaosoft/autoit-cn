@@ -2,7 +2,7 @@
 _viSetAttribute
 
 ###Description###
-Set any VISA attribute This function, which is called by _viSetTimeout, can ALSO be used to set the other VISA specific attributes. Read the VISA documentation for more information and a list of VISA attributes and their corresponding values.
+设置任意 VISA 属性,也可以由 _viSetTimeout 调用来设置其他 VISA 的具体属性. 欲了解更多信息,请阅读 VISA 文档及 VISA 属性列表及其相应值 values.
 
 ###Syntax###
 #include <Visa.au3>
@@ -12,67 +12,60 @@ _viSetAttribute ( $h_session, $i_attribute, $i_value )
 ###Parameters###
 @@ParamTable@@
 $h_session
-	A VISA descriptor (STRING) OR a VISA session handle (INTEGER).
-	See the Remarks of the _viExecCommand for more info.
+	VISA 描述符（字符串）或 VISA 会话句柄（整数）.
+		更多信息见 _viExecCommand 备注.
 $i_attribute
-	The index of the attribute that must be changed.
-	Attributes are defined in the VISA library.
-	This AutoIt library only defines a CONSTANT for the TIMEOUT attribute ($VI_ATTR_TMO_VALUE) and for the Serial Interface attributes and
-	values (see the remarks) but you can pass any other valid index (as an integer) if you want to.
+	被修改属性的索引.
+		属性被定义在 VISA 库中.
+		这个 AutoIt 库只定义了超时属性的常数($VI_ATTR_TMO_VALUE) 和串行接口的属性值
+		(见备注), 但也可以传递任何其他有效的整数索引值.
 $i_value
-	The value of the attribute. It must be an integer and the possible values depend on the attribute type and are defined in the VISA documentation.
+	属性值.必须是一个整数,可能的值取决于属性的类型以及在 VISA 文档中的定义.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns 0
-Failure:	Returns -1 if the VISA DLL could not be open or a NON ZERO value representing the VISA error code (see the VISA programmer's guide).
+成功:	返回 0
+失败:	返回 -1, VISA DLL 无法打开; 非零值代表 VISA 错误代码 (见 VISA 程序员指南).
 @@End@@
 This function always sets @error to 1 in case of error.
 
 
 ###Remarks###
-This is a list of the currently pre-defined attributes and values. Remember that you can use any other valid attribute/value by passing the corresponding integer index (as defined in the VISA programmer's guide) to this function.
-
-* Attribute: $VI_ATTR_TMO_VALUE -> Set Timeout
-* Values:
-          A timeout in MILLISECONDS or
-          $VI_TMO_IMMEDIATE (or 0) for "Return immediatly"
-          VI_TMO_INFINITE (or "INF") for "No timeout"
-        
-* Attribute: $VI_ATTR_ASRL_BAUD
-* Values:
-          Any valid baudrate (9600, 115200, etc)
-
-* Attribute: $VI_ATTR_ASRL_DATA_BITS
-* Values: 
-          From 5 to 8
-
-* Attribute: $VI_ATTR_ASRL_PARITY
-* Values:
-          $VI_ASRL_PAR_NONE
-          $VI_ASRL_PAR_ODD
-          $VI_ASRL_PAR_EVEN
-          $VI_ASRL_PAR_MARK
-          $VI_ASRL_PAR_SPACE
-
-* Attribute: $VI_ATTR_ASRL_STOP_BITS
-* Values:
-          $VI_ASRL_STOP_ONE 
-          $VI_ASRL_STOP_ONE5
-          $VI_ASRL_STOP_TWO 
-          
-* Attribute: $VI_ATTR_ASRL_FLOW_CNTRL
-* Values:
-          $VI_ASRL_FLOW_NONE
-          $VI_ASRL_FLOW_XON_XOFF
-          $VI_ASRL_FLOW_RTS_CTS
-          $VI_ASRL_FLOW_DTR_DSR
-
-As for all the VISA functions the VISA libraries must be installed (you can check whether visa32.dll is in {WINDOWS}\system32).
-You onlly need a GPIB card (such as a National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card) if you use the GPIB related functions.
-
-* For a detailed description of the most common VISA DESCRIPTORS look at the Remarks of the help on the _viExecCommand function
+这是一个预定义的属性和值列表. 记住,你可以使用任何其他有效属性或值的整数索引(如 VISA 程序员指南中定义的)传递给这个函数.
+ * 属性: $VI_ATTR_TMO_VALUE -> 设置超时
+* 值:
+	A timeout in MILLISECONDS or
+	$VI_TMO_IMMEDIATE (or 0) for "Return immediatly"
+	VI_TMO_INFINITE (or "INF") for "No timeout"
+* 属性: $VI_ATTR_ASRL_BAUD
+* 值:
+	Any valid baudrate (9600, 115200, etc)
+* 属性: $VI_ATTR_ASRL_DATA_BITS
+* 值: 
+	From 5 to 8
+* 属性: $VI_ATTR_ASRL_PARITY
+* 值:
+	$VI_ASRL_PAR_NONE
+	$VI_ASRL_PAR_ODD
+	$VI_ASRL_PAR_EVEN
+	$VI_ASRL_PAR_MARK
+	$VI_ASRL_PAR_SPACE
+* 属性: $VI_ATTR_ASRL_STOP_BITS
+* 值:
+	$VI_ASRL_STOP_ONE 
+	$VI_ASRL_STOP_ONE5
+	$VI_ASRL_STOP_TWO 
+* 属性: $VI_ATTR_ASRL_FLOW_CNTRL
+* 值:
+	$VI_ASRL_FLOW_NONE
+	$VI_ASRL_FLOW_XON_XOFF
+	$VI_ASRL_FLOW_RTS_CTS
+	$VI_ASRL_FLOW_DTR_DSR
+VISA 函数必须安装 VISA 库文件(您可以检查visa32.dll是否在 WINDOWS\System32 目录中).
+如果您使用 GPIB 相关的函数,必须安装 GPIB 卡
+(例如 National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card).
+ * 常见 VISA 描述符详细介绍,见 _viExecCommand 函数备注
 
 
 ###Related###

@@ -2,7 +2,7 @@
 _WinAPI_GetAsyncKeyState
 
 ###Description###
-Determines whether a key is up or down at the time the function is called
+确定函数调用时,按键是按下还是松开
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,14 +11,14 @@ _WinAPI_GetAsyncKeyState($iKey)
 ###Parameters###
 @@ParamTable@@
 $iKey
-	Key to test for
+	测试键
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	If the most significant bit is set the key is down, and if the least significant bit is set,
-	the key was pressed after the previous call to GetAsyncKeyState.
-Failure:	0, if a window in another thread or process currently has the keyboard focus.
+成功:	如果最高有效位确定键按下,与最低有效位被设置,
+	键是在调用 GetAsyncKeyState 之前按下.
+失败:	如果另一个线程或当前进程窗口具有键盘焦点, 则返回 0.
 @@End@@
 
 ###Remarks###

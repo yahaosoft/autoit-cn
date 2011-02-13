@@ -2,7 +2,7 @@
 _WinAPI_ShellFileOperation
 
 ###Description###
-Copies, moves, renames, or deletes a file system object.
+复制,移动,重命名或删除文件系统对象.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,80 +11,76 @@ _WinAPI_ShellFileOperation ( $sFrom, $sTo, $iFunc, $iFlags [, $sTitle [, $hParen
 ###Parameters###
 @@ParamTable@@
 $sFrom
-	Single string or array of string that contains the source file name(s). These names should be
-	fully-qualified paths to prevent unexpected results.
+	单个字符串或字符串数组,包含源文件的名称.
+		 为防止意外的结果, 名称应该是完全合格的路径.
 $sTo
-	Single string or array of string that contains the destination file or directory name(s) (if used).
-	These names should be fully-qualified paths to prevent unexpected results.
+	单个字符串或字符串数组,其中包含目标文件或目录名称.
+		 为防止意外的结果, 名称应该是完全合格的路径.
 $iFunc
-	A value that indicates which operation to perform. This parameter can be one of the following values.
-	
-	$FO_COPY
-	$FO_DELETE
-	$FO_MOVE
-	$FO_RENAME
-	
+	操作执行的值. 参数可以是以下值之一:
+		 $FO_COPY --- 复制 $sFrom 指定的文件到 $sTo 指定的位置
+		 $FO_DELETE --- 删除 $sFrom 指定的文件
+		 $FO_MOVE --- 移动 $sFrom 指定的文件到 $sTo 指定的位置
+		 $FO_RENAME --- 重命名 $sFrom 指定的文件.不能用一个函数调用此标志命名多个文件.
 $iFlags
-	Flags that control the file operation. This parameter can be one of the following values.
-	
-	$FOF_ALLOWUNDO
-	$FOF_CONFIRMMOUSE
-	$FOF_FILESONLY
-	$FOF_MULTIDESTFILES
-	$FOF_NOCONFIRMATION
-	$FOF_NOCONFIRMMKDIR
-	$FOF_NO_CONNECTED_ELEMENTS
-	$FOF_NOCOPYSECURITYATTRIBS
-	$FOF_NOERRORUI
-	$FOF_NORECURSEREPARSE
-	$FOF_NORECURSION
-	$FOF_RENAMEONCOLLISION
-	$FOF_SILENT
-	$FOF_SIMPLEPROGRESS
-	$FOF_WANTMAPPINGHANDLE
-	$FOF_WANTNUKEWARNING
-	$FOF_NO_UI
-	
+	文件操作的控制标志. 参数可以是以下值之一:
+		 $FOF_ALLOWUNDO --- 如果可能的话,保留撤消信息
+		 $FOF_CONFIRMMOUSE --- 未使用
+		 $FOF_FILESONLY --- 如果一个通配符指定文件名(*.*),执行该操作只对文件,不对文件夹
+		 $FOF_MULTIDESTFILES --- $sTo 指定多个目标文件,而不是一个目录下所有源文件将被保存( $sFrom 中的每个源文件)
+		 $FOF_NOCONFIRMATION --- 对所有显示的对话框回答"是"
+		 $FOF_NOCONFIRMMKDIR --- 如果操作需要创建新的目录,不要求用户确认
+		 $FOF_NO_CONNECTED_ELEMENTS --- 版本5.0.不移动连接的一组文件,只移动指定的文件
+		 $FOF_NOCOPYSECURITYATTRIBS --- 版本4.71.不复制该文件的安全属性.目标文件接收新文件夹的安全的属性
+		 $FOF_NOERRORUI --- 如果发生错误,不向用户显示对话框
+		 $FOF_NORECURSEREPARSE --- 未使用
+		 $FOF_NORECURSION --- 仅针对本地目录的操作,不要递归操作到子目录.这是默认行为
+		 $FOF_RENAMEONCOLLISION --- 在移动,复制,或重命名操作中,如果目标文件的名称已存在于目的地,给正在运作的文件一个新名称
+		 $FOF_SILENT --- 不显示进度对话框
+		 $FOF_SIMPLEPROGRESS --- 显示进度对话框,但不显示个别文件的名称,因为它们运作中
+		 $FOF_WANTMAPPINGHANDLE --- 如果 FOF_RENAMEONCOLLISION 指定任何文件被重命名,指定一个名称映射对象.
+		 $FOF_WANTNUKEWARNING --- 版本5.0.如果文件被删除操作过程中永久摧毁,而不是回收,发送警告
+		 $FOF_NO_UI --- 版本6.0.6060（Windows Vista).执行静默地操作.不出现用户界面.
 $sTitle
-	[可选参数] The title of a progress dialog box. This parameter is used only if $iFlags includes the $FOF_SIMPLEPROGRESS flag.
+	[可选参数] 进度条对话框的标题.此参数只用于 $iFlags 指定有 $FOF_SIMPLEPROGRESS 标志时.
 $hParent
-	[可选参数] Handle to the dialog box to display information about the status of the file operation.
+	[可选参数] 显示运行状态的对话框句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	$tagSHFILEOPSTRUCT structure that contains the additional information.
-Failure	0 and sets the @error flag to the one of the following values.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1	AutoIt inherent error.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;113	The source and destination files are the same file.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;114	Multiple file paths were specified in the source buffer, but only one destination file path.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;115	Rename operation was specified but the destination path is a different directory. Use the move operation instead.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;116	The source is a root directory, which cannot be moved or renamed.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;117	The operation was cancelled by the user, or silently cancelled if the appropriate flags were supplied to _WinAPI_ShellFileOperation().
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;118	The destination is a subtree of the source.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120	Security settings denied access to the source.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;121	The source or destination path exceeded or would exceed MAX_PATH.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;122	The operation involved multiple destination paths, which can fail in the case of a move operation.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;124	The path in the source or destination or both was invalid.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;125	The source and destination have the same parent folder.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;126	The destination path is an existing file.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;128	The destination path is an existing folder.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;129	The name of the file exceeds MAX_PATH.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130	The destination is a read-only CD-ROM, possibly unformatted.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;131	The destination is a read-only DVD, possibly unformatted.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;132	The destination is a writable CD-ROM, possibly unformatted.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;133	The file involved in the operation is too large for the destination media or file system.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;134	The source is a read-only CD-ROM, possibly unformatted.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;135	The source is a read-only DVD, possibly unformatted.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;136	The source is a writable CD-ROM, possibly unformatted.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;183	MAX_PATH was exceeded during the operation.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1026	An unknown error occurred. This is typically due to an invalid path in the source or destination.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;65536	An unspecified error occurred on the destination.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;65652	Destination is a root directory and cannot be renamed.
+成功:	返回 $tagSHFILEOPSTRUCT 结构,包含附加补充信息.
+失败:	0设置@error:标志为 返回右侧值之一.
+	-1 - AutoIt 固有错误.
+	113 - 源和目标文件是相同的文件.
+	114 - 源缓冲区指定多个文件路径,但只有一个目标文件路径.
+	115 - 重命名操作,但指定的目标路径是不同的目录. 使用移动操作代替.
+	116 - 源为根目录,不能被移动或重命名.
+	117 - 操作已被用户取消, 或当有适当标志提供给本函数时,被静默取消. 
+	118 - 目标是源的子目录树.
+	120 - 安全设置拒绝访问源.
+	121 - 源或目标路径超过或将超过 MAX_PATH.
+	122 - 操作涉及多个目标路径,可能是一个移动操作失败的案例.
+	124 - 源或目标或两者的路径无效.
+	125 - 源和目标具有相同的父文件夹.
+	126 - 目标路径已存在文件.
+	128 - 目标路径已存在文件夹.
+	129 - 文件名称超过 MAX_PATH.
+	130 - 目标为只读光盘,可能未格式化.
+	131 - 目标为只读 DVD, 可能未格式化.
+	132 - 目标为可写 CD-ROM, 可能未格式化.
+	133 - 操作涉及的文件大于目标媒体或文件系统.
+	134 - 源为只读光盘(CD-ROM), 可能未格式化.
+	135 - 源为只读 DVD, 可能未格式化.
+	136 - 源为可写 CD-ROM, 可能未格式化.
+	183 - MAX_PATH 超出操作期间.
+	1026 - 未知错误. 通常是由于源或目标路径无效.
+	65536 - 目标发生未知错误.
+	65652 - 目标是根目录,不能重命名.
 @@End@@
 
 ###Remarks###
-You should use fully-qualified path names with this function. Using it with relative path names is not thread safe.
+函数应该使用完全合格的路径名. 使用线程相对路径名是不安全的.
 
 
 ###See Also###

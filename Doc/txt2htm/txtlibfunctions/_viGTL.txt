@@ -2,7 +2,7 @@
 _viGTL
 
 ###Description###
-Go To Local mode: Instruments that accept this command will exit the "Remote Control mode" and go to "Local mode". If the instrument is already in "Local mode" this is simply ignored. Normally, if an instrument does not support this command it will simply stay in the "Remote Control mode"
+转至本地模式:仪器接受此命令将退出“远程控制模式”,进入“本地模式”. 如果仪器已在“本地模式”这将被忽略. 一般说来,如果仪器不支持此命令将仅仅停留在“远程控制模式”
 
 ###Syntax###
 #include <Visa.au3>
@@ -12,21 +12,20 @@ _viGTL ( $h_session )
 ###Parameters###
 @@ParamTable@@
 $h_session
-	A VISA descriptor (STRING) OR a VISA session handle (INTEGER).
-	See the Remarks of the _viExecCommand for more info.
+	VISA 描述符（字符串）或 VISA 会话句柄（整数）.
+		更多信息见 _viExecCommand 备注.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns 0
-Failure:	Returns -1 if the VISA DLL could not be open or a NON ZERO value representing the VISA error code (see the VISA programmer's guide).
+成功:	返回 0
+失败:	返回 -1, VISA DLL 无法打开; 非零值代表 VISA 错误代码 (见 VISA 程序员指南).
 @@End@@
-This function always sets @error to 1 in case of error
 
 ###Remarks###
-As for all the VISA functions the VISA libraries must be installed (you can check whether visa32.dll is in {WINDOWS}\system32) and a GPIB card (such as a National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card) must be installed
-
-* For a detailed description of the most common VISA DESCRIPTORS look at the Remarks of the help on the _viExecCommand function
+VISA 函数必须安装 VISA 库文件(您可以检查visa32.dll是否在 WINDOWS\System32 目录中)
+及 GPIB 卡(例如 National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card)
+ * 常见 VISA 描述符详细介绍,见 _viExecCommand 函数备注
 
 
 ###Related###

@@ -2,7 +2,7 @@
 _WinAPI_GetKeyboardType
 
 ###Description###
-Retrieves information about the current keyboard.
+检索当前键盘信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,27 +11,27 @@ _WinAPI_GetKeyboardType ( $iType )
 ###Parameters###
 @@ParamTable@@
 $iType
-	The type of keyboard information to be retrieved, valid values:
-		0 - Keyboard type.
-		1 - Keyboard subtype (original equipment manufacturer (OEM)-dependent value).
-		2 - The number of function keys on the keyboard.
+	指定检索键盘信息类型, 有效值为:
+		0 - 键盘类型
+		1 - 键盘子类型 (原始设备制造商(OEM)的依赖值).
+		2 - 键盘上功能键的数量
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The value that specifies the requested information. If $iType is 0, return value may be one of the following values.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1	IBM PC/XT or compatible (83-key) keyboard.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2	Olivetti "ICO" (102-key) keyboard.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3	IBM PC/AT (84-key) or similar keyboard.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4	IBM enhanced (101- or 102-key) keyboard.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5	Nokia 1050 and similar keyboards.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6	Nokia 9140 and similar keyboards.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7	Japanese keyboard.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回要求的信息值. 如果 $iType 为 0,返回值可能是以下值之一.
+	1 - IBM 的 PC/XT, 或兼容 (83键) 键盘.
+	2 - Olivetti "ICO" (102-键) 键盘.
+	3 - IBM PC/AT (84-键) 或类似键盘.
+	4 - IBM 增强型 (101- 或 102-键) 键盘.
+	5 - 与诺基亚 1050 类似键盘.
+	6 - 与诺基亚 9140 类似键盘.
+	7 - 日语键盘.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-When a single USB keyboard is connected to the computer, this function returns the code 81.
+当 USB 键盘连接到电脑时,这函数返回代码 81.
 
 
 ###See Also###

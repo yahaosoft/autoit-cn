@@ -2,7 +2,7 @@
 _WinAPI_OpenSemaphore
 
 ###Description###
-Opens an existing named semaphore object.
+打开现有命名的信号量对象.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,31 +11,24 @@ _WinAPI_OpenSemaphore ( $sSemaphore [, $iAccess [, $fInherit]] )
 ###Parameters###
 @@ParamTable@@
 $sSemaphore
-	The name of the semaphore to be opened. Name comparisons are case sensitive.
+	信号量的名称. 名称比较区分大小写.
 $iAccess
-	[可选参数] The access to the semaphore object. The function fails if the security descriptor of the specified
-	object does not permit the requested access for the calling process. This parameter can be one
-	of the following values.
-	
-	$SEMAPHORE_ALL_ACCESS
-	$SEMAPHORE_MODIFY_STATE
-	
-$fInherit
-	[可选参数] Specifies whether inherites the handle by a processes, valid values:
-		TRUE       - The processes created by this process will inherit the handle.
-		FALSE      - The processes do not inherit this handle. (Default)
+	[可选参数] 信号量对象的访问.
+		 如果指定对象的安全描述符不允许调用进程的请求访问, 该函数失败.
+		 参数可以是以下值之一:
+		 $SEMAPHORE_ALL_ACCESS --- 信号量对象所有可能的访问权限
+		 $SEMAPHORE_MODIFY_STATE --- 修改访问状态
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The handle to the semaphore object.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回信号量对象的句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-The function succeeds only if some process has already created the semaphore by using the _WinAPI_CreateSemaphore()
-function. The calling process can use the returned handle in any function that requires a handle to
-a semaphore object.
+仅当某些进程使用 _WinAPI_CreateSemaphore() 函数创建了信号量时, 该函数成功.
+ 任何函数需要信号量对象句柄的进程, 都可以使用这个返回的句柄.
 
 
 ###See Also###

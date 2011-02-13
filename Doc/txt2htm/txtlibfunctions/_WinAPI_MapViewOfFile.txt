@@ -2,7 +2,7 @@
 _WinAPI_MapViewOfFile
 
 ###Description###
-Maps a view of a file mapping into the address space of a calling process.
+映射文件映射视图到调用进程的地址空间.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,37 +11,33 @@ _WinAPI_MapViewOfFile ( $hMapping [, $iOffset [, $iBytes [, $iAccess]]] )
 ###Parameters###
 @@ParamTable@@
 $hMapping
-	Handle to a file mapping object. The _WinAPI_CreateFileMapping() and _WinAPI_OpenFileMapping()
-	functions return this handle.
+	文件映射对象的句柄. 
+		由 _WinAPI_CreateFileMapping() 和 _WinAPI_OpenFileMapping() 函数返回此句柄.
 $iOffset
-	[可选参数] The file offset where the view is to begin.
+	[可选参数] 视图开始的文件偏移量.
 $iBytes
-	[可选参数] The number of bytes of a file mapping to map to a view. All bytes must be within the maximum size
-	specified by _WinAPI_CreateFileMapping(). If $iBytes is 0, the mapping extends from the specified
-	offset to the end of the file mapping.
+	[可选参数] 将映射到视图的文件映射的字节数
+		 所有字节都必须是 _WinAPI_CreateFileMapping() 指定的最大大小. 如果 $iBytes 为 0,
+		 映射从指定的偏移量延伸到文件映射结束.
 $iAccess
-	[可选参数] The access to the file mapping object. This parameter can be one of the following values.
-	
-	$FILE_MAP_ALL_ACCESS
-	$FILE_MAP_COPY
-	$FILE_MAP_READ
-	$FILE_MAP_WRITE
-	
-	Each of the preceding values can be combined with the following value.
-	
-	$FILE_MAP_EXECUTE
-	
+	[可选参数] 文件映射的访问类型. 可以是以下值之一:
+		 $FILE_MAP_ALL_ACCESS --- 映射文件的读/写视图
+		 $FILE_MAP_COPY --- 映射文件的写入复制视图
+		 $FILE_MAP_READ --- 映射文件的只读视图
+		 $FILE_MAP_WRITE --- 映射文件的读/写视图
+		 每个值的前面可以组合下面值:
+		 $FILE_MAP_EXECUTE --- 映射可执行文件的视图(映射内存可以运行的代码)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The starting address of the mapped view.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回映射视图的起始地址.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###
-For files that are larger than the address space, you can only map a small portion of the file data at one time.
-When the first view is complete, then you unmap it and map a new view.
+大于地址空间的文件可以一次只映射文件数据的一小部分.
+ 完成第一个视图时,可以取消它的映射,再映射一个新视图.
 
 
 ###See Also###

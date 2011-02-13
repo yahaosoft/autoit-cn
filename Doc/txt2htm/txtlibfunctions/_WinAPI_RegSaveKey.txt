@@ -2,7 +2,7 @@
 _WinAPI_RegSaveKey
 
 ###Description###
-Saves the specified key and all of its subkeys and values to a new file, in the standard format.
+以标准格式保存指定键及其子项和值到新文件.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,23 +11,23 @@ _WinAPI_RegSaveKey ( $hKey, $sFile [, $tSecurity] )
 ###Parameters###
 @@ParamTable@@
 $hKey
-	Handle to an open registry key.
+	注册表项句柄.
 $sFile
-	The name of the file in which the specified key and subkeys are to be saved. If the file already
-	exists, the function replaces it. The new file has the archive attribute.
+	文件的名称. 
+		如果该文件已经存在,函数替换它.新文件具有存档属性.
 $tSecurity
-	[可选参数] $tagSECURITY_ATTRIBUTES structure that specifies a security descriptor for the new file. If this
-	parameter is 0, the file gets a default security descriptor.
+	[可选参数] $tagSECURITY_ATTRIBUTES 结构,
+		指定新文件的安全描述符.如果此参数为 0,该文件使用默认的安全描述符.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
-You can use the file created by this function in subsequent calls to the _WinAPI_RegRestoreKey() functions.
+可以用这个函数创建的文件供随后的 _WinAPI_RegRestoreKey() 函数调用.
 
 
 ###See Also###

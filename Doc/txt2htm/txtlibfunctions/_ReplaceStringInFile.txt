@@ -2,7 +2,7 @@
 _ReplaceStringInFile
 
 ###Description###
-Replaces a string with another string in the given text file (binary won't work!)
+替换文本文件的字符串（二进制文件将无法正常工作!）
 
 ###Syntax###
 #Include <File.au3>
@@ -11,27 +11,27 @@ _ReplaceStringInFile($szFileName, $szSearchString, $szReplaceString [, $fCasenes
 ###Parameters###
 @@ParamTable@@
 $szFileName
-	name of the file to open. ATTENTION !! Needs the FULL path, not just the name returned by eg. FileFindNextFile
+	打开文件的文件名. 注意!! 需要完整路径, 不仅仅是由 FileFindNextFile 函数返回的文件名
 $szSearchString
-	The string we want to replace in the file
+	文件中要替换的字符串
 $szReplaceString
-	The string we want as a replacement for $szSearchString
+	用来替换 $szSearchString 字符串的新字符串
 $fCaseness
-	[optional] 0 = Not Case sensitive (default), 1 = Case sensitive, case does matter
+	[可选参数] 0 = 不区分大小写（默认）,1 = 区分大小写
 $fOccurance
-	[optional] 0 = Only first found is replaced, 1 = ALL occurrences are replaced (default)
+	[可选参数] 0 = 只有替换首次被发现的,1 = 所有匹配都替换（默认）
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns the number of occurrences of $szSearchString we found
-Failure:	Returns -1 and sets @error
-@error:	1 - Cannot open file
-	2 - Cannot open temp file
-	3 - Cannot write to temp file
-	4 - Cannot delete original file
-	5 - Cannot rename/move temp file
-	6 - ReadOnly Attribute set.
+成功:	返回找到 $szSearchString 的数量
+失败:	返回 -1,设置@error:	
+@error:	1 - 无法打开文件
+	2 - 无法打开临时文件
+	3 - 无法写入临时文件
+	4 - 不能删除原始文件
+	5 - 不能重命名/移动临时文件
+	6 - 原文件为只读属性设置.
 @@End@@
 
 ###Remarks###

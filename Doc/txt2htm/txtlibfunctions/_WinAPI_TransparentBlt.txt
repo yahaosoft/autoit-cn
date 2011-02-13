@@ -2,7 +2,7 @@
 _WinAPI_TransparentBlt
 
 ###Description###
-Performs a bit-block transfer of the color data corresponding to a rectangle of pixels.
+传输颜色数据位块到对应的矩形像素.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,42 +11,42 @@ _WinAPI_TransparentBlt ( $hDestDC, $iXDest, $iYDest, $iWidthDest, $iHeightDest, 
 ###Parameters###
 @@ParamTable@@
 $hDestDC
-	Handle to the destination device context.
+	目标设备环境句柄.
 $iXDest
-	The x-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+	目标矩形左上角 X 坐标的逻辑单位
 $iYDest
-	The y-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+	目标矩形左上角 Y 坐标的逻辑单位.
 $iWidthDest
-	The width, in logical units, of the destination rectangle.
+	目标矩形宽度逻辑单位.
 $iHeightDest
-	The height, in logical units, of the destination rectangle.
+	目标矩形高度逻辑单位.
 $hSrcDC
-	Handle to the source device context.
+	源设备环境句柄.
 $iXSrc
-	The x-coordinate, in logical units, of the upper-left corner of the source rectangle.
+	源矩形左上角 X 坐标的逻辑单位
 $iYSrc
-	The y-coordinate, in logical units, of the upper-left corner of the source rectangle.
+	源矩形左上角 Y 坐标的逻辑单位.
 $iWidthSrc
-	The width, in logical units, of the source rectangle.
+	源矩形宽度逻辑单位.
 $iHeightSrc
-	The height, in logical units, of the source rectangle.
+	源矩形高度逻辑单位.
 $iRGB
-	The RGB color in the source bitmap to treat as transparent.
+	源位图的透明 RGB 颜色值.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-If the source and destination rectangles are not the same size, the source bitmap is stretched to match the
-destination rectangle. When the _WinAPI_SetStretchBltMode() function is used, the stretching modes of
-$BLACKONWHITE and $WHITEONBLACK are converted to $COLORONCOLOR for the _WinAPI_TransparentBlt() function.
-
-This function supports all formats of source bitmaps. However, for 32 bpp bitmaps, it just copies the alpha
-value over. Use _WinAPI_AlphaBlend() to specify 32 bits-per-pixel bitmaps with transparency.
+如果源和目标矩形的大小不一样,源位图被拉伸以匹配目标矩形
+ 当使用 _WinAPI_SetStretchBltMode() 函数时,
+ $BLACKONWHITE 与 $WHITEONBLACK的拉伸模式被转化
+为适用于_WinAPI_TransparentBlt() 函数的 $COLORONCOLOR 模式.
+ 本函数支持所有格式的源位图. 但对于 32 bpp 位图, 它跳过复制 alpha 值.
+ 使用 _WinAPI_AlphaBlend() 指定 32 位图的每像素透明度.
 
 
 ###See Also###

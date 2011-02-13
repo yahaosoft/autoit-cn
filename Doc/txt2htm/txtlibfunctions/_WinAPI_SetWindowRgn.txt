@@ -2,7 +2,7 @@
 _WinAPI_SetWindowRgn
 
 ###Description###
-Sets the window region of a window
+设置窗口的窗口区域
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,27 +11,27 @@ _WinAPI_SetWindowRgn($hWnd, $hRgn [, $bRedraw])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window whose window region is to be set.
+	窗口句柄.
 $hRgn
-	Handle to a region. The function sets the window region of the window to this region.
+	用于函数设置为窗口区域的区域句柄.
 $bRedraw
-	[optional] Specifies whether the system redraws the window after setting the window region.
+	[可选参数] 指定区域设置后,系统是否刷新窗口.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Nonzero
-Failure:	0
+成功:	Nonzero
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-The window region determines the area within the window where the system permits drawing.
-The system does not display any portion of a window that lies outside of the window region
-When this function is called, the system sends the WM_WINDOWPOSCHANGING and WM_WINDOWPOSCHANGED messages to the window.
-The coordinates of a window's window region are relative to the upper-left corner of the window, not the client area of the window.
-After a successful call to SetWindowRgn, the system owns the region specified by the region handle hRgn.
-The system does not make a copy of the region. Thus, you should not make any further function calls with this region handle.
-In particular, do not delete this region handle. The system deletes the region handle when it no longer needed.
+ 系统允许在窗口区域内的窗口绘图.
+ 系统不显示任何窗口的窗口区域以外的部分.
+ 函数被调用时, 系统将发送 WM_WINDOWPOSCHANGING 与 WM_WINDOWPOSCHANGED 消息到窗口.
+ 窗口的窗口区域坐标相对于窗口的左上角,而不是窗口的客户区.
+ 函数调用成功, 系统拥有 $hRgn 指定的区域句柄.
+ 系统不会创建区域的副本. 因此, 不要对此区域句柄调用其他函数.
+ 特别是不要删除这个区域句柄. 当不再需要时, 该系统将删除该区域的句柄.
 
 ###Related###
 _WinAPI_CreateRectRgn, _WinAPI_CreateRoundRectRgn, _WinAPI_CombineRgn, _WinAPI_GetWindowRgn

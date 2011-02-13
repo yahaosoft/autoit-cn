@@ -2,7 +2,7 @@
 _WinAPI_CoTaskMemAlloc
 
 ###Description###
-Allocates a block of task memory.
+指定任务存储块.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,19 +11,18 @@ _WinAPI_CoTaskMemAlloc ( $iSize )
 ###Parameters###
 @@ParamTable@@
 $iSize
-	The size of the memory block to be allocated, in bytes.
+	内存块大小的字节单位数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The allocated memory block.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回分配的内存块.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-If $iSize is 0, _WinAPI_CoTaskMemAlloc() allocates a zero-length item and returns a valid pointer to that item.
-The allocated block may be larger than $iSize bytes because of the space required for alignment and for
-maintenance information.
+如果 $iSize 为 0, _WinAPI_CoTaskMemAlloc() 分配一个零长度的项目,并返回有效项目的指针.
+ 由于对齐和维护信息所需的空间的原因, 分配的块可能会大于 $iSize 指定的字节数.
 
 
 ###See Also###

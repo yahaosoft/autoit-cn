@@ -2,7 +2,7 @@
 _WinAPI_CreateCaret
 
 ###Description###
-Creates a new shape for the system caret and assigns ownership of the caret to the specified window.
+新建系统插入符的形状并分配给指定窗口.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,35 +11,33 @@ _WinAPI_CreateCaret ( $hWnd, $hBitmap [, $iWidth [, $iHeight]] )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window that owns the caret.
+	拥有插入符号的窗口句柄.
 $hBitmap
-	Handle to the bitmap that defines the caret shape. If this parameter is 0, the caret is solid.
-	If this parameter is 1, the caret is gray. If this parameter is a bitmap handle, the caret is
-	the specified bitmap.
+	定义插入符号形状的位图句柄.如果此参数为 0,插入符号是实心的.
+		 如果此参数为 1,插入符号是灰色的.
+		 如果参数是一个位图句柄,插入符号是指定的位图.
 $iWidth
-	[可选参数] The width of the caret in logical units. If this parameter is 0, the width is set to the system-defined
-	window border width. If $hBitmap is a bitmap handle, _WinAPI_CreateCaret() ignores this parameter.
+	[可选参数] 插入符号的宽度逻辑单位.如果此参数为 0,宽度设置为系统定义的窗口边框的宽度.
+		 如果 $hBitmap 为位图句柄, _WinAPI_CreateCaret() 忽略此参数.
 $iHeight
-	[可选参数] The height of the caret in logical units. If this parameter is 0, the height is set to the system-defined
-	window border height. If $hBitmap  is a bitmap handle, _WinAPI_CreateCaret() ignores this parameter.
+	[可选参数] 插入符号的高度逻辑单位.如果此参数为 0,高度设置为系统定义的窗口边框的高度.
+		 如果 $hBitmap 为位图句柄, _WinAPI_CreateCaret() 忽略此参数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-_WinAPI_CreateCaret() automatically destroys the previous caret shape, if any, regardless of the window that owns the caret.
-The caret is hidden until the application calls the _WinAPI_ShowCaret() function to make the caret visible.
-
-The system provides one caret per queue. A window should create a caret only when it has the keyboard focus or is active.
-The window should destroy the caret before losing the keyboard focus or becoming inactive.
-
-You can retrieve the width or height of the system's window border by using the _WinAPI_GetSystemMetrics() function,
-specifying the $SM_CXBORDER and $SM_CYBORDER values. Using the window border width or height guarantees that the
-caret will be visible on a high-resolution screen.
+_WinAPI_CreateCaret() 自动销毁先前得插入符号形状(如果存在).包含窗口拥有的插入符号.
+ 插入符号是隐藏的,直到应用程序调用 _WinAPI_ShowCaret() 函数使插入符号可见.
+ 系统每一队列提供一个插入符号.创建的窗口,当它具有键盘焦点或处于活动状态时,应该只有一个插入符号.
+ 窗口在失去键盘焦点或变为非活动状态前销毁插入符号.
+ 可以使用 _WinAPI_GetSystemMetrics() 函数检索系统窗口边框的宽度或高度,
+ 用于指定 $SM_CXBORDER 和 $SM_CYBORDER 值.
+ 使用窗口边框的宽度或高度可保证插入符号在一个高分辨率的屏幕上可见.
 
 
 ###See Also###

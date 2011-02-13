@@ -2,7 +2,7 @@
 _WinAPI_CreateCompatibleBitmapEx
 
 ###Description###
-Creates a bitmap compatible with the device and fills it the specified color.
+创建与设备兼容的位图, 并填充指定的颜色.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,27 +11,26 @@ _WinAPI_CreateSolidBitmapEx ( $hDC, $iWidth, $iHeight, $iRGB )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to a device context.
+	设备环境句柄.
 $iWidht
-	The bitmap width, in pixels.
+	位图宽度像素值.
 $iHeight
-	The bitmap height, in pixels.
+	位图高度像素值.
 $iRGB
-	The bitmap color, in RGB.
+	位图的 RGB 颜色.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle to the compatible solid bitmap (DDB).
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回兼容的原色位图(DDB)句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-The color format of the bitmap created by the _WinAPI_CreateCompatibleBitmapEx() function matches the color
-format of the device identified by the hdc parameter. This bitmap can be selected into any memory device context
-that is compatible with the original device.
+本函数创建的位图颜色格式匹配 $hdc 参数确定的设备颜色格式.
+ 此位图可以选择到任何内存设备环境, 且与原始设备兼容.
+ 不再需要位图时, 调用 _WinAPI_DeleteObject() 函数删除它.
 
-When you no longer need the bitmap, call the _WinAPI_DeleteObject() function to delete it.
 
 
 ###See Also###

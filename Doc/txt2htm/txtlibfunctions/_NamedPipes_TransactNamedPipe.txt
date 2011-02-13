@@ -2,7 +2,7 @@
 _NamedPipes_TransactNamedPipe
 
 ###Description###
-Reads and writes to a named pipe in one network operation
+在网络运行中读取和写入命名管道
 
 ###Syntax###
 #Include <NamedPipes.au3>
@@ -11,33 +11,33 @@ _NamedPipes_TransactNamedPipe($hNamedPipe, $pInpBuf, $iInpSize, $pOutBuf, $iOutS
 ###Parameters###
 @@ParamTable@@
 $hNamedPipe
-	The handle to the named pipe
+	命名管道句柄
 $pInpBuf
-	Pointer to the buffer containing the data to be written to the pipe
+	写入管道的数据缓冲区的指针
 $iInpSize
-	Size of the write buffer, in bytes
+	写入缓冲区的字节大小
 $pOutBuf
-	Pointer to the buffer that receives the data read from the pipe
+	接收读取管道数据的缓冲区指针
 $iOutSize
-	Size of the read buffer, in bytes
+	读取缓冲区的字节大小
 $pOverlapped
-	[optional] Pointer to a $tagOVERLAPPED structure. This structure is required if hNamedPipe was opened with
-		$FILE_FLAG_OVERLAPPED. If hNamedPipe was opened with $FILE_FLAG_OVERLAPPED, pOverlapped must not be 0. If
-		hNamedPipe was opened with $FILE_FLAG_OVERLAPPED and pOverlapped is not 0, TransactNamedPipe is executed as
-		an overlapped operation. The $tagOVERLAPPED structure should contain a manual reset event object. If the
-		operation cannot be completed immediately, TransactNamedPipe returns False and GetLastError will return
-		ERROR_IO_PENDING.
+	[可选参数] $tagOVERLAPPED 结构指针. 如果 hNamedPipe 以 $FILE_FLAG_OVERLAPPED 打开,这个结构是必需的.
+		$FILE_FLAG_OVERLAPPED. 如果 hNamedPipe 以 $FILE_FLAG_OVERLAPPED 打开, pOverlapped 必须不为 0.
+		如果 hNamedPipe 以 $FILE_FLAG_OVERLAPPED 打开,且 pOverlapped 不为 0,
+		TransactNamedPipe 执行重叠操作.
+		$tagOVERLAPPED 结构应包含一个手动重置事件对象.如果操作不能立即完成,
+		TransactNamedPipe 返回 False,而且 GetLastError 会返回 ERROR_IO_PENDING.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	the Number of bytes read from the pipe
-Failure:	Set @error
+成功:	返回管道读取的字节数
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###
-TransactNamedPipe fails if the server did not create the pipe as a message-type pipe or if the pipe handle is
-not in message-read mode.
+如果服务器无法创建消息类型的管道,或管道句柄不是读取消息模式,
+TransactNamedPipe 失败.
 
 ###Related###
 $tagOVERLAPPED, _NamedPipes_CallNamedPipe

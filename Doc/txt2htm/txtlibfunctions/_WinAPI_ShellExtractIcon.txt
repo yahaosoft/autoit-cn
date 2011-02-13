@@ -2,7 +2,7 @@
 _WinAPI_ShellExtractIcon
 
 ###Description###
-Extracts the icon with the specified dimension from the specified file.
+提取指定文件中指定尺寸的图标.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,25 +11,24 @@ _WinAPI_ShellExtractIcon ( $sIcon, $iIndex, $iWidth, $iHeight )
 ###Parameters###
 @@ParamTable@@
 $sIcon
-	Path and name of the file from which the icon are to be extracted.
+	路径和文件名.
 $iIndex
-	Index of the icon to extract.
+	图标的索引.
 $iWidth
-	Horizontal icon size wanted.
+	图标水平尺寸.
 $iHeight
-	Vertical icon size wanted.
+	图标垂直尺寸.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle to the extracted icon.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回提取图标的句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-If the icon with the specified dimension is not found in the file, it will choose the nearest appropriate icon and
-change to the specified dimension. When you are finished using the icon, destroy it using the _WinAPI_DestroyIcon()
-function.
+如果文件中找不到指定尺寸的图标,函数将就近选择适当的图标,并变换到指定的尺寸.
+ 当您使用完图标,调用 _WinAPI_DestroyIcon() 函数销毁.
 
 
 ###See Also###

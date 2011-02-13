@@ -2,7 +2,7 @@
 _WinAPI_GetProcessAffinityMask
 
 ###Description###
-Obtains a affinity masks for the process and the system
+获取进程和系统的相似掩码
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,21 +11,21 @@ _WinAPI_GetProcessAffinityMask($hProcess)
 ###Parameters###
 @@ParamTable@@
 $hProcess
-	An open handle to the process whose affinity mask is desired.
+	打开进程的句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	$aMask[0] - True on success, otherwise False
-	$aMask[1] - Process affinity mask
-	$aMask[2] - System affinity mask
-Failure:	set @error
+成功:	返回数组的格式如下:
+	$aMask[0] - 成功则返回 True; 否则返回 False
+	$aMask[1] - 进程关联掩码
+	$aMask[2] - 系统关联掩码
+失败:	设置@error:
 @@End@@
 
 ###Remarks###
-An affinity mask is a bit mask in which each bit represents a processor on which the threads of the process
-are allowed to run. For example, if you pass a mask of 0x05, processors 1 and 3 are allowed to run.
+ 相似掩码是一个数位掩码,其中每个位代表允许处理器运行哪些进程的线程.
+ 例如: 如果你传递掩码 0x05, 则允许运行进程 1 和 3.
 
 ###Related###
 

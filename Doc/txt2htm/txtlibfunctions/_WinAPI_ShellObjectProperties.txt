@@ -2,7 +2,7 @@
 _WinAPI_ShellObjectProperties
 
 ###Description###
-Invokes the Properties context menu command on a Shell object.
+调用 Shell 对象属性上下文菜单命令.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,24 +11,22 @@ _WinAPI_ShellObjectProperties ( $sPath [, $iType [, $sProperty [, $hParent]]] )
 ###Parameters###
 @@ParamTable@@
 $sPath
-	The object name.
+	对象名称.
 $iType
-	[可选参数] The value that specifies the type of object.
-	
-	$SHOP_PRINTERNAME
-	$SHOP_FILEPATH
-	$SHOP_VOLUMEGUID
-	
+	[可选参数] 指定对象的类型.
+		 $SHOP_PRINTERNAME --- $sPath 包含一个打印机名称
+		 $SHOP_FILEPATH --- $sPath 包含一个完全限定的文件名
+		 $SHOP_VOLUMEGUID --- $sPath 包含 [1]: "\\?\Volume{GUID}\" 形式的卷名,其中（GUID）是一个全局唯一标识符,（例如 "\\?\Volume\{2eca078d-5cbc-43d3-aff8-7e8511f60d0e}\)" ; 或 [2]:一个驱动器的路径（例如,"C:\") 
 $sProperty
-	[可选参数] The name of the property sheet page to be opened initially.
+	[可选参数] 首先打开的属性表页的名称.
 $hParent
-	[可选参数] Handle of the parent window of the dialog box.
+	[可选参数] 对话框的父窗句柄 box.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

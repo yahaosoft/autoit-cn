@@ -2,7 +2,7 @@
 _SQLite_Exec
 
 ###Description###
-Executes a SQLite query, does not handle results.
+执行 SQLite 查询,不处理结果.
 
 ###Syntax###
 #include <SQLite.au3>
@@ -12,30 +12,28 @@ _SQLite_Exec ( $hDB, $sSQL [, $sCallBack ] )
 ###Parameters###
 @@ParamTable@@
 $hDB
-	An open database, use -1 to use last opened database
+	打开的数据库,如为 -1, 则使用最后打开的数据库
 $sSQL
-	SQL statement to be executed
+	要执行的语句
 $sCallback
-	[optional] if specified the function will be called for each row
+	[可选参数] 如果指定此参数,则每一行都将调用函数
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns $SQLITE_OK
-Failure:	Return value can be compared against $SQLITE_* constants
-@error:	-1 - SQLite reported an error (Check return value)
-	1 - Error calling SQLite API 'sqlite3_exec'
-	2 - Call prevented by SafeMode
-	3 - Error Processing Callback from within _SQLite_GetTable2d
-	4 - Error while converting SQL statement to UTF-8
+成功:	返回 $SQLITE_OK
+失败:	返回值可能违反 $SQLITE_* 常量@错误:
+	-1 - SQLite 报告错误 (检查返回值)
+	1 - 错误调用 SQLite API 'sqlite3_exec'
+	2 - 调用被安全模式阻止
+	3 - _SQLite_GetTable2d 内部回叫错误
+	4 - 转换 SQL 语句到 UTF-8 错误
 @@End@@
 
 ###Remarks###
-The Callback function must accept 1 parameter and can return $SQLITE_ABORT to stop processing (See example).
-The first row in the Callback sequence will be the column names.
-
-###Related###
-_SQLite_Query, _SQLite_GetTable, _SQLite_GetTable2d
+ 回调函数必须接受 1 个参数,
+ 并能返回 $SQLITE_ABORT 停止处理(见示例).
+ 在回调序列的第一行为列名称.
 
 ###Example###
 @@IncludeExample@@

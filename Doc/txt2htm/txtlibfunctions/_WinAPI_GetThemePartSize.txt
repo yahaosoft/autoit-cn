@@ -2,7 +2,7 @@
 _WinAPI_GetThemePartSize
 
 ###Description###
-Calculates the original size of the part defined by a visual style.
+计算视觉样式定义部件的原始大小.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,28 +11,26 @@ _WinAPI_GetThemePartSize ( $hTheme, $iPartId, $iStateId, $hDC, $tRECT, $iType )
 ###Parameters###
 @@ParamTable@@
 $hTheme
-	Handle to a window's specified theme data.
+	指定主题数据的窗口句柄.
 $iPartId
-	The part part to calculate the size of.
+	部件.
 $iStateId
-	The state of the part.
+	指定部件的状态值.
 $hDC
-	Handle to a device context to select fonts into.
+	设备环境句柄.
 $tRECT
-	$tagRECT structure that contains the rectangle used for the part drawing destination.
+	$tagRECT 结构,包含绘制目的部件使用的矩形.
 $iType
-	The type of size to retrieve. This parameter can be one of the following values.
-	
-	$TS_MIN
-	$TS_TRUE
-	$TS_DRAW
-	
+	类型的大小.参数可以是以下值之一:
+		 $TS_MIN --- 接收视觉样式部件的最小尺寸
+		 $TS_TRUE --- 接收视觉样式部件最适合可用空间的大小
+		 $TS_DRAW --- 接收主题管理程序使用的绘制部件大小
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	$tagSIZE structure that contains a dimensions of the specified part.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回 $tagSIZE 结构,包含指定部件的尺寸.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###

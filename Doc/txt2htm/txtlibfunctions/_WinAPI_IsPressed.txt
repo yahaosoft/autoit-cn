@@ -2,7 +2,7 @@
 _WinAPI_IsPressed
 
 ###Description###
-Checks whether the key is pressed from the specified range.
+检查指定范围内的键是否按下.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,23 +11,23 @@ _WinAPI_IsPressed ( [$iFrom [, $iTo]] )
 ###Parameters###
 @@ParamTable@@
 $iFrom
-	[可选参数] Specifies a virtual-key code to start checking. The code must be a value in the range 1 to 254.
+	[可选参数] 开始检查的虚拟键代码. 代码值必须在 1 到 254 之间.
 $iTo
-	[可选参数] Specifies a virtual-key code to end checking. The code must be a value in the range 1 to 254 and be
-	greater than value of the $iFrom parameter.
+	[可选参数] 结束检查的虚拟键代码.代码值必须在 1 到 254 之间,
+		并且高于 $iFrom 的参数值.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1 - The key is pressed.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0	Otherwise.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1 - 键被按下.
+	返回 0 - 未按下.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-The key status returned from this function changes as a process reads key messages from its message queue.
-The status does not reflect the interrupt-level state associated with the hardware. Use the _WinAPI_GetAsyncKeyState()
-function to retrieve that information.
+进程从消息队列读取键消息时,函数返回键状态的变化.
+ 不反映与硬件相关的中断级别状态.
+ 调用 _WinAPI_GetAsyncKeyState() 函数获取信息
 
 
 ###See Also###

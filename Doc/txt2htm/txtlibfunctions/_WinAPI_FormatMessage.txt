@@ -2,7 +2,7 @@
 _WinAPI_FormatMessage
 
 ###Description###
-Formats a message string
+格式化消息字符串
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,27 +11,27 @@ _WinAPI_FormatMessage($iFlags, $pSource, $iMessageID, $iLanguageID, ByRef $pBuff
 ###Parameters###
 @@ParamTable@@
 $iFlags
-	Contains a set of bit flags that specify aspects of the formatting process and how to interpret
-		the pSource parameter. The low-order byte of $iFlags specifies how the function handles line breaks in the
-		output buffer. The low-order byte can also specify the maximum width of a formatted output line.
+	位标志设置,以指定格式化过程特征,以及如何解释 $pSource 参数.
+		$iFlags 的低位字节指定函数如何处理输出缓冲区的换行符.
+		低字节也可以指定格式化输出行的最大宽度.
 $pSource
-	Pointer to message source
+	消息源的指针
 $iMessageID
-	Requested message identifier
+	被请求的消息标识符
 $iLanguageID
-	Language identifier for requested message
+	被请求的消息语言识别码
 $pBuffer
-	Pointer to message buffer or string variable that will contain the message
+	消息缓冲区的指针或包含消息的字符串变量
 $iSize
-	Maximum size of message buffer
+	消息缓冲区的最大值
 $vArguments
-	Address of array of message inserts
+	插入消息的地址数组
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Number of bytes stored in message buffer
-Failure:	Set @error
+成功:	返回消息缓冲区存储的字节数
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###

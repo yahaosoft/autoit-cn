@@ -2,7 +2,7 @@
 _WinAPI_InvalidateRgn
 
 ###Description###
-Adds a region to the specified window's update region.
+增加区域到指定窗口的更新区域.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,21 +11,20 @@ _WinAPI_InvalidateRgn ( $hWnd [, $hRgn [, $fErase]] )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window with an update region that is to be modified.
+	窗口句柄.
 $hRgn
-	[可选参数] Handle to the region to be added to the update region. The region is assumed to have client coordinates.
-	If this parameter is 0, the entire client area is added to the update region.
+	[可选参数] 矩形句柄, 假定该区域为客户坐标.
+		 如果此参数为 0, 整个客户区被添加到更新区域.
 $fErase
-	[可选参数] Specifies whether the background within the update region is to be erased when the
-	update region is processed.
-		TRUE   - The background is erased. (Default)
-		FALSE  - The background remains unchanged.
+	[可选参数] 指定更新进程是否删除更新区域的背景.
+		1 - 背景删除. (默认)
+		0 - 背景不变.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

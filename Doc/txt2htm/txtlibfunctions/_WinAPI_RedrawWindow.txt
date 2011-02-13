@@ -2,7 +2,7 @@
 _WinAPI_RedrawWindow
 
 ###Description###
-Updates the specified rectangle or region in a window's client area
+更新指定矩形或窗口客户区域
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,46 +11,42 @@ _WinAPI_RedrawWindow($hWnd [, $tRect = 0 [, $hRegion = 0 [, $iFlags = 5]]])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to a Window
+	窗口句柄
 $tRect
-	[optional] $tagRECT structure containing the coordinates of the update rectangle. This parameter is
-		ignored if the $hRegion parameter identifies a region.
+	[可选参数] 包含更新矩形坐标的 $tagRECT 结构
+		如果 $hRegion 参数标识为区域,此参数被忽略.
 $hRegion
-	[optional] Identifies the update region. If the $hRegion and $tRect parameters are 0, the entire client
-		area is added to the update region.
+	[可选参数] 标识更新区域.如果 $hRegion 与 @tRect参数为 0,
+		整个客户区被添加到更新区域.
 $iFlags
-	[optional] Specifies the redraw flags. This parameter can be a combination of flags that invalidate or
-		validate a window, control repainting, and control which windows are affected:
-		$RDW_ERASE - Causes the window to receive a WM_ERASEBKGND message when the window is repainted
-		$RDW_FRAME - Causes any part of the nonclient area of the window that intersects the update region
-		to receive a WM_NCPAINT message.
-		$RDW_INTERNALPAINT - Causes a WM_PAINT message to be posted to the window regardless of whether any portion
-		of the window is invalid.
-		$RDW_INVALIDATE - Invalidates DllStructGetData($tRect or $hRegion, "") If both are 0, the entire window is invalidated.
-		$RDW_NOERASE - Suppresses any pending $WM_ERASEBKGND messages
-		$RDW_NOFRAME - Suppresses any pending $WM_NCPAINT messages
-		$RDW_NOINTERNALPAINT - Suppresses any pending internal $WM_PAINT messages
-		$RDW_VALIDATE - Validates $tRect or $hRegion
-		$RDW_ERASENOW - Causes the affected windows to receive $WM_NCPAINT and $WM_ERASEBKGND messages, if
-		necessary, before the function returns
-		$RDW_UPDATENOW - Causes the affected windows to receive $WM_NCPAINT, $WM_ERASEBKGND, and $WM_PAINT
-		messages, if necessary, before the function returns.
-		$RDW_ALLCHILDREN - Includes child windows in the repainting operation
-		$RDW_NOCHILDREN - Excludes child windows from the repainting operation
+	[可选参数] 指定重绘标志.此参数可以是使窗口无效或有效的组合标志,
+		以便控制重绘,并控制受影响的窗口:
+		$RDW_ERASE - 窗口重绘时,接收 WM_ERASEBKGND 消息
+		$RDW_FRAME - 使得与更新区域相交的窗口非客户区任意部分接收 WM_NCPAINT 消息.
+		$RDW_INTERNALPAINT - 若任何窗口的部分无效,将导致 WM_PAINT 消息被发布到窗口.
+		$RDW_INVALIDATE - DllStructGetData($tRect 或 $hRegion, "") 无效; 如果两个都为 0, 则整个窗口失效.
+		$RDW_NOERASE - 取消任何挂起的 $WM_ERASEBKGND 消息
+		$RDW_NOFRAME - 取消任何挂起的 $WM_NCPAINT 消息
+		$RDW_NOINTERNALPAINT - 取消任何挂起的内部 $WM_PAINT 消息
+		$RDW_VALIDATE - $tRect 或 $hRegion 有效
+		$RDW_ERASENOW - 如有必要, 在函数返回之前,
+		使受影响的窗口接收 $WM_NCPAINT and $WM_ERASEBKGND 消息
+		$RDW_UPDATENOW - 如有必要, 在函数返回之前,
+		使受影响的窗口接收 $WM_NCPAINT, $WM_ERASEBKGND, 与 $WM_PAINT 消息.
+		$RDW_ALLCHILDREN - 重绘操作包括子窗口
+		$RDW_NOCHILDREN - 重绘操作排除子窗口
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-When RedrawWindow is used to invalidate part of the desktop window, the desktop window does not receive a
-$WM_PAINT message. To repaint the desktop an application uses the $RDW_ERASE flag to generate a $WM_ERASEBKGND
-message.
-
-Needs WindowsConstants.au3 for pre-defined constants
+ 当 RedrawWindow 用于无效的桌面窗口的一部分, 桌面窗口不会收到 $WM_PAINT 消息.
+ 要重新绘制桌面, 应用程序使用 $RDW_ERASE 标志生成 $WM_ERASEBKGND 消息.
+ 需要 WindowsConstants.au3 预先定义的常量
 
 ###Related###
 $tagRECT

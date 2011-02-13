@@ -11,34 +11,34 @@ _WinAPI_DwmEnableBlurBehindWindow ( $hWnd [, $fEnable [, $fTransition [, $hRgn]]
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window on which the blur behind data is applied.
+	窗口句柄.
 $fEnable
-	[可选参数] Specifies whether register or unregister the window handle to DWM blur behind, valid values:
-		TRUE        - Register.
-		FALSE       - Unregister.
+	[可选参数] 指定 DWM 模糊后是否注册或注销窗口句柄.有效值:
+		1 - 注册.
+		0 - 不注册.
 $fTransition
-	[可选参数] Specifies whether colorize transition to match the maximized windows, valid values:
-		TRUE        - The window's should be colorized.
-		FALSE       - Otherwise.
+	[可选参数] 指定匹配色是否过渡到最大化窗口.有效值:
+		1 - 窗口应该是彩色.
+		0 - 不要.
 $hRgn
-	[可选参数] The region within the client area to apply the blur behind. A zeroth value will apply the blur
-	behind the entire client area.
+	[可选参数] 应用到客户端模糊区域的后面.
+		0 值将应用模糊到整个客户区.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-The alpha values in the window are honored and the rendering atop the blur will use these alpha values.
-It is the application's responsibility for ensuring that the alpha values of all pixels in the window are correct.
-Some Windows Graphics Device Interface (GDI) operations do not preserve alpha values, so care must be taken when
-presenting child windows because the alpha values they contribute are unpredictable.
-
-This function must be called whenever Desktop Window Manager (DWM) composition is toggled. Handle the
-WM_DWMCOMPOSITIONCHANGED message for composition change notification.
+窗口提供 alpha 值,且顶部模糊也将使用这些 alpha 值
+ 应用程序负责确保窗口中所有像素的 alpha 值的正确性
+ 必须注意某些 Windows GDI 操作不保留 alpha 值,
+ 因为子窗口提供的 alpha 值是不可预知的.
+ 每当桌面窗口管理器（DWM）切换时,必须调用这个函数.
+ WM_DWMCOMPOSITIONCHANGED 消息通知切换的变化信息.
+ 本函数需要 Windows Vista 或更高版本系统.
 
 This function requires Windows Vista or later.
 

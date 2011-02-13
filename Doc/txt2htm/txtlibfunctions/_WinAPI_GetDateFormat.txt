@@ -2,7 +2,7 @@
 _WinAPI_GetDateFormat
 
 ###Description###
-Formats a date as a date string for a locale specified by the locale identifier.
+格式化指定区域的日期字符串.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,37 +11,31 @@ _WinAPI_GetDateFormat ( [$LCID [, $tSYSTEMTIME [, $iFlag [, $sFormat]]]] )
 ###Parameters###
 @@ParamTable@@
 $LCID
-	[可选参数] Locale identifier (LCID) that specifies the locale. If this parameter is 0, the function will
-	use default locale for the user.
+	[可选参数] 区域设置标识符(LCID).
+		 如果此参数为 0, 函数将使用用户默认区域设置.
 $tSYSTEMTIME
-	[可选参数] $tagSYSTEMTIME structure that contains the date information to format. If this parameter is 0,
-	the function will use the current local system date.
+	[可选参数] $tagSYSTEMTIME 结构, 包含日期格式信息.
+		 如果此参数为 0, 函数将使用当前本地系统日期.
 $iFlag
-	[可选参数] Flags specifying date format options. This parameter can be one or more of the following values.
-	
-	$DATE_LONGDATE
-	$DATE_SHORTDATE (Default)
-	$DATE_USE_ALT_CALENDAR
-	
-	*Windows Vista or later
-	
-	$DATE_LTRREADING
-	$DATE_RTLREADING
-	$DATE_YEARMONTH
-	
-	*Windows 7 or later
-	
-	$DATE_AUTOLAYOUT
-	
+	[可选参数] 日期格式选项. 参数可以是一或多个下列值:
+		 $DATE_LONGDATE --- 使用长日期格式
+		 $DATE_SHORTDATE --- 使用短日期格式(默认)
+		 $DATE_USE_ALT_CALENDAR --- 使用备用日历(如果存在)
+		 *Windows Vista 或更高系统
+		 $DATE_LTRREADING --- 添加从左到右的阅读布局标志
+		 $DATE_RTLREADING --- 添加从右到左的阅读布局标志
+		 $DATE_YEARMONTH --- 使用年/月格式
+		 *Windows 7 或更高系统
+		 $DATE_AUTOLAYOUT --- 检测从右到左、左到右的阅读布局,并添加相应标志
 $sFormat
-	[可选参数] The string that is used to form the date. For example, "dddd dd, yyyy". If this parameter is 0,
-	the function returns the string according to the date format for the specified locale ($LCID).
+	[可选参数] 日期格式字符串. 例如, "dddd dd, yyyy".
+		 如果此参数为 0,函数返回指定区域设置的日期格式字符串 ($LCID).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The formatted date string.
-Failure	Empty string and sets the @error flag to non-zero.
+成功:	返回格式化的日期字符串.
+失败:	返回空串,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

@@ -2,7 +2,7 @@
 _SQLite_Open
 
 ###Description###
-Opens/creates a SQLite database.
+打开或创建 SQLite 数据库.
 
 ###Syntax###
 #include <SQLite.au3>
@@ -12,28 +12,25 @@ _SQLite_Open ( [ $sDatabase_Filename = ":memory:" [,$iAccessMode [,$iEncoding ]]
 ###Parameters###
 @@ParamTable@@
 $sDatabase_Filename
-	[optional] Database filename, by default will opens an in memory database.
+	[可选参数] 数据库文件名,默认打开内存中的数据库.
 $iAccessMode
-	[optional] access mode flags. Defaults to $SQLITE_OPEN_READWRITE + $SQLITE_OPEN_CREATE  
+	[可选参数] 访问模式标志. 默认为 $SQLITE_OPEN_READWRITE + $SQLITE_OPEN_CREATE 
 $iEncoding
-	[optional] encoding mode flag, only used at creation time. Defaults to $SQLITE_ENCODING_UTF8
+	[可选参数] 编码模式标志,只用于创建时间.默认为 $SQLITE_ENCODING_UTF8
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns database handle.
-Failure:	Returns 0.
-@error:	-1 - SQLite Reported an Error (Check @extended Value)
-     1 - Error Calling SQLite API 'sqlite3_open_v2'
-     2 - Error while converting filename to UTF-8
-@extended:	value can be compared against $SQLITE_* constants
+成功:	Returns 数据库句柄.
+失败:	返回 0.@错误:
+	-1 - SQLite 报告一个错误 (检查 @extended 的值)@extended:
+	值可能违反 $SQLITE_* 常数
 @@End@@
 
 ###Remarks###
-There is no need to store the database handle.
-Functions that use the handle are using the last opened by default.
-
-To create a database encoded in UFT16 just create it with $iEncoding=$SQLITE_ENCODING_UTF16.
+ 没有必要存储数据库句柄.
+ 函数使用的句柄是上次使用默认打开的句柄.
+ 要创建一个数据库中UFT16编码,使用 $iEncoding=$SQLITE_ENCODING_UTF16.
 
 ###Related###
 _SQLite_Close

@@ -2,7 +2,7 @@
 _WinAPI_CallWindowProc
 
 ###Description###
-Passes the hook information to the next hook procedure in the current hook chain
+目前钩链的钩子信息传递到下一个钩子程序
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,31 +11,31 @@ _WinAPI_CallWindowProc($lpPrevWndFunc, $hWnd, $Msg, $wParam, $lParam)
 ###Parameters###
 @@ParamTable@@
 $lpPrevWndFunc
-	Pointer to the previous window procedure.
-		  If this value is obtained by calling the _WinAPI_GetWindowLong function with the $iIndex parameter set to $GWL_WNDPROC or $DWL_DLGPROC,
-		  it is actually either the address of a window or dialog box procedure, or a special internal value meaningful only to _WinAPI_CallWindowProc.
+	先前的窗口进程指针.
+		如果这个值是通过调用 _WinAPI_GetWindowLong 函数和设置其 $iIndex 参数值为 $GWL_WNDPROC 或 $DWL_DLGPROC 获得,
+		它实际上是任何一个窗口或对话框程序的地址, 或对 _WinAPI_CallWindowProc 才有的特殊意义内值.
 $hWnd
-	Handle to the window procedure to receive the message
+	接收消息的窗口程序句柄
 $Msg
-	Specifies the message
+	指定消息
 $wParam
-	Specifies additional message-specific information. The contents of this parameter depend on the value of the Msg parameter
+	指定附加消息的特定信息,这个参数的内容取决于 $Msg 参数值的信息
 $lParam
-	Specifies additional message-specific information. The contents of this parameter depend on the value of the Msg parameter
+	指定附加消息的特定信息,这个参数的内容取决于 $Msg 参数值的信息
 @@End@@
 
 ###ReturnValue###
-Returns the return value specifies the result of the message processing and depends on the message sent
+@@ReturnTable@@
+	返回指定消息处理的结果且取决于对信息的发送
+@@End@@
 
 ###Remarks###
-Use the _WinAPI_CallWindowProc function for window subclassing. Usually, all windows with the same class share one window procedure.
-A subclass is a window or set of windows with the same class whose messages are intercepted and processed by another window procedure
-or procedures) before being passed to the window procedure of the class.
-
-he _WinAPI_SetWindowLong function creates the subclass by changing the window procedure associated with a particular window, causing
-he system to call the new window procedure instead of the previous one. An application must pass any messages not processed by the
-ew window procedure to the previous window procedure by calling _WinAPI_CallWindowProc. This allows the application to create a chain
-f window procedures
+ 子类窗口使用 _WinAPI_CallWindowProc 函数. 通常,同一类的所有窗口共享一个窗口程序.
+ 子类窗口是窗口设置的相同级,由另一个窗口(或程序）拦截和处理程序的信息,然后传递给类窗口程序.
+ _WinAPI_SetWindowLong 函数通过改变窗口进程与特定窗口相关联创建子类,
+ 使系统调用新的窗口进程而不是以前的窗口.
+ 应用程序通过调用 _WinAPI_CallWindowProc 传递信息到以前的窗口进程而不是通过新窗口进程.
+ 这将允许创建一个窗口进程链
 
 ###Related###
 DllCallbackRegister, _WinAPI_SetWindowLong

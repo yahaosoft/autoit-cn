@@ -2,7 +2,7 @@
 _WinAPI_SetEndOfFile
 
 ###Description###
-Sets the physical file size for the specified file to the current position of the file pointer.
+设置当前位置指针指定文件的物理文件大小
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,20 +11,20 @@ _WinAPI_SetEndOfFile($hFile)
 ###Parameters###
 @@ParamTable@@
 $hFile
-	Handle to the file to be extended or truncated.
-		The file handle must have the $GENERIC_WRITE access right.
+	延长或截断的文件句柄.
+		文件句柄必须具有 $GENERIC_WRITE 访问权.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	True
-失败:	False, 使用 GetLastError() 得到详细信息
+成功:	返回 True
+失败:	返回 False, @extend 设置为 GetLastError() 以获取详细资料
 @@End@@
 
 ###Remarks###
-This function can be used to truncate or extend a file.
-If the file is extended, the contents of the file between the old end of the file and the new end of the file are not defined.
-This function sets the file size.
+ 此函数可用于截断或扩展文件.
+ 如果文件扩展, 原文件尾和新文件尾之间的文件内容不会被定义.
+ 这个函数可以设置文件大小.
 
 ###Related###
 _WinAPI_CloseHandle, _WinAPI_CreateFile, _WinAPI_FlushFileBuffers, _WinAPI_GetFileSizeEx, _WinAPI_ReadFile, _WinAPI_SetFilePointer, _WinAPI_WriteFile

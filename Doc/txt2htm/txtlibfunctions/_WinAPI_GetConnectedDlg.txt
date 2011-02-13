@@ -2,7 +2,7 @@
 _WinAPI_GetConnectedDlg
 
 ###Description###
-Launches the Get Connected wizard within the calling application to enable network connectivity.
+启动连接向导,便于调用应用程序启用网络连接.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,29 +11,30 @@ _WinAPI_GetConnectedDlg ( $iDlg [, $iFlags [, $hParent]] )
 ###Parameters###
 @@ParamTable@@
 $iDlg
-	Specifies which the dialog should be launched, valid values:
-		0 - Local area network connectivity.
-		1 - Internet connectivity.
-		2 - Virtual private network (VPN) connectivity.
+	指定要打开的对话框, 可用值:
+		0 - 局域网络连接.
+		1 - 互联网连接.
+		2 - 虚拟专用网络 (VPN) 连接.
 $iFlags
-	[可选参数] Specifies an additional options. This parameter can be one or more of the following values.
-		0 - Default.
-		1 - Do not display the Get Connected wizard page that shows whether or not the user has a working or active Internet connection.
-		2 - Do not display the Get Connected wizard page that shows a list of existing internet connections.
-		4 - Hide the finish page of the Get Connected wizard.
+	[可选参数] 指定附加选项. 参数可以是一或多个下列值:
+		0 - 默认.
+		1 - 不显示 “提示用户是否有工作或活动的互联网连接” 的连接向导页面.
+		2 - 不显示 “现有互联网连接列表” 的连接向导页.
+		4 - 隐藏连接向导完成页.
 $hParent
-	[可选参数] Handle to the parent window that called this API.
+	[可选参数] 父窗口句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1 - The Internet is connected.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0	Otherwise.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回 1 - 已连接.
+	返回 返回 0 - 未连接.
+	
+失败:	返回 0,设置@error:非 0 值, @extended 可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
-This function requires Windows Vista or later.
+此函数需要 Windows Vista 或更高版本.
 
 
 ###See Also###

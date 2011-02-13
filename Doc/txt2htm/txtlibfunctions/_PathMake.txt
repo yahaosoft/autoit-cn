@@ -2,7 +2,7 @@
 _PathMake
 
 ###Description###
-Creates a path from drive, directory, file name and file extension parts. Not all parts must be passed.
+创建包括驱动器、目录、文件名和扩展名的路径. 不是所有部分必须具备.
 
 ###Syntax###
 #Include <File.au3>
@@ -11,20 +11,23 @@ _PathMake($szDrive, $szDir, $szFName, $szExt)
 ###Parameters###
 @@ParamTable@@
 $szDrive
-	Drive (Can be UNC). If it's a drive letter, a : is automatically appended
+	驱动器(可以是 UNC). 如果是盘符, a : 自动追加
+		UNC (Universal Naming Convention) / 通用命名规则,也叫通用命名规范、通用命名约定
 $szDir
-	Directory. A trailing slash is added if not found (No preceeding slash is added)
+	目录. 如果没有找到斜线将添加 (No preceeding slash is added)
 $szFName
-	The name of the file
+	文件名
 $szExt
-	The file extension. A period is supplied if not found in the extension
+	文件扩展名. 如果没有找到扩展名,则提供一个句点
 @@End@@
 
 ###ReturnValue###
-Returns the string containing the full path
+@@ReturnTable@@
+	返回完整路径的字符串
+@@End@@
 
 ###Remarks###
-The path will still be built with what is passed. This doesn't check the validity of the path created, it could contain characters which are invalid on your filesystem.
+ 函数不会检查创建的路径的有效性, 路径可以包含系统中无效的字符
 
 ###Related###
 _PathFull, _PathSplit, .DirCreate, .FileChangeDir

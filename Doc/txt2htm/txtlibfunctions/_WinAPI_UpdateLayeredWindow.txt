@@ -2,7 +2,7 @@
 _WinAPI_UpdateLayeredWindow
 
 ###Description###
-Updates the position, size, shape, content, and translucency of a layered window
+更新分层窗口的位置,大小,形状,内容和半透明度
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,37 +11,37 @@ _WinAPI_UpdateLayeredWindow($hWnd, $hDCDest, $pPTDest, $pSize, $hDCSrce, $pPTSrc
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to a layered window. A layered window is created by specifying $WS_EX_LAYERED when
-		creating the window.
+	分层窗口句柄. 
+		分层窗口是指定 $WS_EX_LAYERED 创建的窗口.
 $hDCDest
-	Handle to a device context for the screen
+	屏幕设备环境句柄
 $pPTDest
-	Pointer to a $tagPOINT structure that specifies the new screen position of the layered window.
-		If the current position is not changing, this can be zero.
+	$tagPOINT 结构指针, 指定分层窗口在屏幕上的新位置
+		如果不改变目前的位置, 可以设置为 0.
 $pSize
-	Pointer to a $tagSIZE structure that specifies the new size of the layered window. If the size
-		of the window is not changing, this can be 0.
+	$tagSIZE 结构指针, 指定分层窗口新的大小
+		如果不改变目前的大小, 可以设置为 0.
 $hDCSrce
-	Handle to a device context for the surface that defines the layered window. This handle can be
-		obtained by calling the _WinAPI_CreateCompatibleDC function.
+	定义分层窗口外观的设备环境句柄
+		此句柄可通过调用 _WinAPI_CreateCompatibleDC 函数获取.
 $pPTSrce
-	Pointer to a $tagPOINT structure that specifies the location of the layer in the device context
+	$tagPOINT 结构指针, 它指定分层在设备环境的位置
 $iRGB
-	The color key to be used when composing the layered window
+	用于分层窗口的主要颜色
 $pBlend
-	Pointer to a $tagBLENDFUNCTION structure that specifies the transparency value to be used when
-		composing the layered window.
+	$tagBLENDFUNCTION 结构指针, 
+		指定分层窗口使用的透明度值.
 $iFlags
-	This parameter can be one of the following values.
-		$ULW_ALPHA - Use $tblend as the blend function
-		$ULW_COLORKEY - Use $iRGB as the transparency color
-		$ULW_OPAQUE - Draw an opaque layered window
+	参数可以是以下值之一:
+		$ULW_ALPHA - 使用 $tblend 混合功能
+		$ULW_COLORKEY - 使用 $iRGB 颜色的透明度
+		$ULW_OPAQUE - 分层绘制不透明的窗口
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###

@@ -2,7 +2,7 @@
 _WinAPI_LockFile
 
 ###Description###
-Locks the specified file for exclusive access by the calling process.
+锁定由调用进程独占访问指定的文件.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,24 +11,23 @@ _WinAPI_LockFile ( $hFile, $iOffset, $iLenght )
 ###Parameters###
 @@ParamTable@@
 $hFile
-	Handle to the file.
+	文件句柄.
 $iOffset
-	The starting byte offset in the file where the lock should begin.
+	开始锁定的起始字节偏移量.
 $iLenght
-	The length of the byte range to be locked.
+	锁定范围的字节长度.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-If a process terminates with a portion of a file locked or closes a file that has outstanding locks, the locks are
-unlocked by the operating system. However, the time it takes for the operating system to unlock these locks depends
-upon available system resources. Therefore, it is recommended that your process explicitly unlock all files it
-has locked when it terminates.
+如果进程终止,文件锁定的部分或关闭未解决的锁定文件由操作系统解锁.
+ 然而,操作系统解开这些锁定的所需时间取决于系统的可用资源,
+ 因此,建议你在进程终止后释放所有已锁定文件.
 
 
 ###See Also###

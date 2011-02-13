@@ -2,7 +2,7 @@
 _WinAPI_LoadIconWithScaleDown
 
 ###Description###
-Loads an icon and scales down a larger image instead of scaling up a smaller image.
+加载了图标并按比例缩减较大图像;而不是按比例放大小图像.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,37 +11,34 @@ _WinAPI_LoadIconWithScaleDown ( $hInstance, $sName, $iWidth, $iHeight )
 ###Parameters###
 @@ParamTable@@
 $hInstance
-	Handle to the module of either a DLL or executable (.exe) file that contains the icon to be loaded.
+	包含图标模块的 DLL 或可执行(.exe)文件句柄.
 $sName
-	The information about the icon to load. If $hInstance is not 0, $sName specifies the icon resource
-	either by name or ordinal, otherwise, $sName specifies either the name of a standalone icon (.ico)
-	file or the identifier of a predefined icon to load.
-	
-	$IDI_APPLICATION
-	$IDI_ASTERISK
-	$IDI_ERROR
-	$IDI_EXCLAMATION
-	$IDI_HAND
-	$IDI_INFORMATION
-	$IDI_QUESTION
-	$IDI_SHIELD
-	$IDI_WARNING
-	$IDI_WINLOGO
-	
+	被加载图标的信息.如果 $hInstance 不为 0,$sName 使用名称或序号指定图标资源,
+		 否则,$sName 指定图标文件(.ico)的名称或预定义图标标识符.
+		 $IDI_APPLICATION --- 默认的应用程序图标
+		 $IDI_ASTERISK --- 相同于 IDI_INFORMATION
+		 $IDI_ERROR --- 手形图标
+		 $IDI_EXCLAMATION --- 相同于 IDI_WARNING
+		 $IDI_HAND --- 相同于 IDI_ERROR
+		 $IDI_INFORMATION --- 星号图标
+		 $IDI_QUESTION --- 问号图标
+		 $IDI_SHIELD --- 安全盾牌图标
+		 $IDI_WARNING --- 感叹号图标
+		 $IDI_WINLOGO --- Windows 徽标图标,Windows XP中为默认应用程序图标
 $iWidth
-	The desired width, in pixels, of the icon.
+	图标宽度的像素值.
 $iHeight
-	The desired height, in pixels, of the icon.
+	图标高度的像素值.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The icon handle.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回图标的句柄.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-This function requires Windows Vista or later.
+本函数需要 Windows Vista 或更高版本系统.
 
 
 ###See Also###

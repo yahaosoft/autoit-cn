@@ -2,7 +2,7 @@
 _WinAPI_UnlockFile
 
 ###Description###
-Unlocks a region in an open file.
+解锁打开文件的区域.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,23 +11,23 @@ _WinAPI_UnlockFile ( $hFile, $iOffset, $iLenght )
 ###Parameters###
 @@ParamTable@@
 $hFile
-	Handle to the file that contains a region locked with _WinAPI_LockFile() function.
+	文件句柄,包含 _WinAPI_LockFile() 函数锁定的区域.
 $iOffset
-	The starting byte offset in the file where the locked region begins.
+	文件锁定区域开始位置的起始字节偏移.
 $iLenght
-	The length of the byte range to be unlocked.
+	解锁范围字节长度.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:	
+标志为非 0 值.
 @@End@@
 
 ###Remarks###
-Unlocking a region of a file releases a previously acquired lock on the file. The region to unlock must correspond
-exactly to an existing locked region. Two adjacent regions of a file cannot be locked separately and then unlocked
-using a single region that spans both locked regions.
+解锁文件区域释放该文件先前的锁定.解锁区域必须与现有锁定区域完全一致.
+ 文件的两个相邻区域不能分开锁定;跨越两个锁定区域的解锁时不能只使用一个区域.
 
 
 ###See Also###

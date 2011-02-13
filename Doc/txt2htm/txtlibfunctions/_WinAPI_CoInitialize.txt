@@ -2,7 +2,7 @@
 _WinAPI_CoInitialize
 
 ###Description###
-Initializes the COM library for use by the calling process.
+初始化由调用进程使用的 COM 库.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,19 +11,17 @@ _WinAPI_CoInitialize ( [$iFlags] )
 ###Parameters###
 @@ParamTable@@
 $iFlags
-	[可选参数] This parameter can be one or more of the following values.
-	
-	$COINIT_APARTMENTTHREADED
-	$COINIT_DISABLE_OLE1DDE
-	$COINIT_MULTITHREADED
-	$COINIT_SPEED_OVER_MEMORY
-	
+	[可选参数] 参数可以是一或多个下列值:
+		 $COINIT_APARTMENTTHREADED --- 初始化单线程对象的并发线程
+		 $COINIT_DISABLE_OLE1DDE ------- 禁用 OLE1 支持的 DDE.
+		 $COINIT_MULTITHREADED --------- 初始化多线程对象的并发线程
+		 $COINIT_SPEED_OVER_MEMORY --- 交换内存速度.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回 1.
+失败:	0设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###

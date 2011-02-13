@@ -2,7 +2,7 @@
 _WinAPI_GetWindow
 
 ###Description###
-Retrieves the handle of a window that has a specified relationship to the specified window
+检索与指定窗口有特定关系的窗口句柄
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,44 +11,39 @@ _WinAPI_GetWindow($hWnd, $iCmd)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle of the window
+	窗口句柄
 $iCmd
-	Specifies the relationship between the specified window and the window whose handle is to be
-		retrieved. This parameter can be one of the following values:
-		$GW_CHILD - The retrieved handle identifies the child window at the top of the Z order, if the specified
-		window is a parent window; otherwise, the retrieved handle is 0. The function examines only child windows of
-		the specified window. It does not examine descendant windows.
-		$GW_HWNDFIRST - The retrieved handle identifies the window of the same type that is highest in the Z order.
-		If the specified window is a topmost window, the handle identifies the topmost window that is highest in the
-		Z order. If the specified window is a top-level window, the handle identifies the top level window that is
-		highest in the Z order. If the specified window is a child window, the handle identifies the sibling window
-		that is highest in the Z order.
-		$GW_HWNDLAST - The retrieved handle identifies the window of the same type that is lowest in the Z order. If
-		the specified window is a topmost window, the handle identifies the topmost window that is lowest in the Z
-		order. If the specified window is a top-level window the handle identifies the top-level window that's lowest
-		in the Z order. If the specified window is a child window, the handle identifies the sibling window that is
-		lowest in the Z order.
-		$GW_HWNDNEXT - The retrieved handle identifies the window below the specified window in the Z order. If the
-		specified window is a topmost window, the handle identifies the topmost window below the specified window. If
-		the specified window is a top-level window, the handle identifies the top-level window below the specified
-		window. If the specified window is a child window the handle identifies the sibling window below the
-		specified window.
-		$GW_HWNDPREV - The retrieved handle identifies the window above the specified window in the Z order. If the
-		specified window is a topmost window, the handle identifies the topmost window above the specified window. If
-		the specified window is a top-level window, the handle identifies the top-level window above the specified
-		window. If the specified window is a child window, the handle identifies the sibling window above the
-		specified window.
-		$GW_OWNER - The retrieved handle identifies the specified window's owner window if any
+	指定要检索的关系. 参数可以是以下值之一:
+		$GW_CHILD - 如果指定的窗口是父窗口,
+		则检索标识 Z 序顶层子窗口的句柄, 否则, 检索到的句柄为 0
+		函数检查指定窗口的唯一子窗口.它不会检查后裔窗口.
+		$GW_HWNDFIRST - 检索的句柄标识同一类型的是最高 Z 顺序窗口.
+		如果指定窗口是顶层窗口, 句柄标识 Z 顺序最高顶层窗口.
+		如果指定窗口是最高顶层窗口,句柄标识 Z 顺序顶层窗口
+		如果指定窗口是子窗口, 句柄标识的窗口是 Z 顺序最高子窗口.
+		$GW_HWNDLAST - 检索的句柄标识同一类型的 Z 顺序最低窗口.
+		如果指定窗口是顶层窗口, 句柄标识最顶层窗口的 Z 顺序最低窗口.
+		如果指定窗口是最顶层窗口,句柄标识顶层窗口 Z 顺序中最低窗口
+		如果指定窗口是子窗口, 句柄标识子窗口 Z 顺序最低子窗口.
+		$GW_HWNDNEXT - 检索到的句柄标识指定窗口 Z 顺序下方窗口.
+		如果指定窗口是顶层窗口, 句柄标识低于指定窗口的最顶层窗口 
+		如果指定窗口是最顶层窗口,句柄标识指定的窗口下方的顶层窗口
+		如果指定窗口是子窗口, 的句柄标识指定子窗口下方的子窗口.
+		$GW_HWNDPREV - 检索到的句柄标识指定窗口 Z 顺序上面的窗口.
+		如果指定窗口是顶层窗口, 句柄标识指定窗口最顶层窗口
+		如果指定窗口是最顶层窗口,句柄标识指定窗口上方的顶层窗口
+		如果指定窗口是子窗口, 句柄标识指定子窗口的上面子窗口.
+		$GW_OWNER - 检索到的句柄标识指定窗口的所有者窗口(如果存在)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The window handle
-Failure:	0
+成功:	返回窗口句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-Needs Constants.au3 for pre-defined constants
+ 必须 Constants.au3 预先定义的常量
 
 ###Related###
 

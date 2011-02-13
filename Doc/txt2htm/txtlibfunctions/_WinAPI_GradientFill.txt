@@ -2,7 +2,7 @@
 _WinAPI_GradientFill
 
 ###Description###
-Fills rectangle or triangle gradient.
+渐变填充矩形或三角形.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,39 +11,38 @@ _WinAPI_GradientFill ($hDC, $aVertex [, $iStart [, $iEnd [, $fRotate]]] )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+	设备环境句柄.
 $aVertex
-	The 2D array ([x1, y1, $rgb1], [x2, y2, $rgb2], ... [xN, yN, $rgbN]) that contains the necessary
-	gradient vertices. Each vertex in this array contains the following parameters.
-	
-	x   - The x-coordinate, in logical units.
-	y   - The y-coordinate, in logical units
-	rgb - The color information at the point of x, y.
-	
+	包含多边形的顶点逻辑单位的二维数组: ([x1, y1, $rgb1], [x2, y2, $rgb2], ... [xN, yN, $rgbN]).
+		 其中包含必要的渐变梯度顶点.数组中的每个顶点包含以下参数:.
+		 x - X 坐标的逻辑单位.
+		 y - Y 坐标的逻辑单位
+		 rgb - X,Y 点的颜色信息.
 $iStart
-	[可选参数] The index of array to start filling at.
+	[可选参数] 填充开始的数组索引.
 $iEnd
-	[可选参数] The index of array to stop filling at.
+	[可选参数] 填充结束的数组索引.
 $fRotate
-	[可选参数] Specifies whether fills a rectangle from left to right edge (horizontal gradient). $fRotate used
-	only for the rectangular gradients, for the triangular gradients this parameter will be ignored,
+	[可选参数] 指定是否从左至右填充矩形(水平渐变梯度).
+		 此参数仅用于矩形渐变,将忽略三角渐变梯度,有效值为:
+		1 - 从左至右填充矩形.
+		0 - 从顶部向底部填充矩形. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-If the number of vertices defined by using $iStart and $iEnd parameters is 2, _WinAPI_GradientFill() function
-fills a rectangle. If the number of vertices is 3, fills a triangle. For the rectangle, the vertices must
-specify its upper left and lower right corners. Note that $aVertex array may contain any number of vertices
-of the gradient, but only 2 or 3 vertices may be used at the same time from this array.
-Otherwise, the function is fails.
-
-_WinAPI_GradientFill() function can only fill the rectangle or triangle at one call. Use multiple calls this
-function to fill a complex gradients.
+如果 $iStart 与 $iEnd 参数定义的顶点数量为 2, 则函数填充矩形;
+ 如果顶点的数目是 3,则函数填充三角形.
+ 对于矩形,其顶点必须指定左上角和右下角.
+ 注意:$aVertex 数组可能包含任意数量的梯度顶点,
+ 但只有 2 个或 3 个顶点可同时使用,否则,该函数失败.
+ 函数一次调用只能填充一个矩形或三角形.
+ 使用多次函数调用,以填补一个复杂的梯度.
 
 
 ###See Also###

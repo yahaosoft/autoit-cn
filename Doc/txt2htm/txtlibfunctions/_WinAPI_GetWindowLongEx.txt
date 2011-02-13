@@ -2,7 +2,7 @@
 _WinAPI_GetWindowLongEx
 
 ###Description###
-Retrieves information about the specified window.
+检索指定窗口的信息,返回请求的信息值.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,26 +11,23 @@ _WinAPI_GetWindowLongEx ( $hWnd, $iIndex )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window and, indirectly, the class to which the window belongs.
+	窗口句柄或窗口类名.
 $iIndex
-	The zero-based offset to the value to be retrieved. Valid values are in the range zero through the
-	number of bytes of extra window memory, minus the size of an integer. To retrieve any other value,
-	specify one of the following values.
-	
-	$GWL_EXSTYLE
-	$GWL_HINSTANCE
-	$GWL_HWNDPARENT
-	$GWL_ID
-	$GWL_STYLE
-	$GWL_USERDATA
-	$GWL_WNDPROC
-	
+	基于 0 的偏移值.有效值范围在 0 到窗口附加内存的字节数,减去一个整数的大小.
+		 为检索任何其他值,可指定以下值之一:
+		 $GWL_EXSTYLE --- 检索窗口扩展样式
+		 $GWL_HINSTANCE --- 检索应用程序实例句柄
+		 $GWL_HWNDPARENT --- 检索父窗口句柄(如果有的话)
+		 $GWL_ID --- 检索窗口的标识符
+		 $GWL_STYLE --- 检索窗口样式
+		 $GWL_USERDATA --- 检索窗口关联的用户数据
+		 $GWL_WNDPROC --- 检索窗口程序的地址,或代表窗口程序地址的句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The requested value.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回请求值.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

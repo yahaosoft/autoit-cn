@@ -2,7 +2,7 @@
 _WinAPI_SetTextAlign
 
 ###Description###
-Sets the text-alignment flags for the specified device context.
+设置指定设备环境的文本对齐标志.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,36 +11,31 @@ _WinAPI_SetTextAlign ($hDC [, $iMode] )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+	设备环境句柄.
 $iMode
-	[可选参数] The text alignment by using a mask of the values in the following list. Only one flag can be chosen
-	from those that affect horizontal and vertical alignment. In addition, only one of the two flags that
-	alter the current position can be chosen.
-	
-	$TA_BASELINE
-	$TA_BOTTOM
-	$TA_TOP
-	$TA_CENTER
-	$TA_LEFT
-	$TA_RIGHT
-	$TA_NOUPDATECP
-	$TA_RTLREADING
-	$TA_UPDATECP
-	
-	When the current font has a vertical default base line, as with Kanji, the following values must be
-	used instead of $TA_BASELINE and $TA_CENTER.
-	
-	$VTA_BASELINE
-	$VTA_CENTER
-	
-	The default values are $TA_LEFT, $TA_TOP, and $TA_NOUPDATECP.
-	
+	[可选参数] 使用下列文本对齐方式的掩码值.
+		 只有一个标志可以影响水平和垂直对齐方式.
+		 此外,只有两个标志可以改变当前位置.
+		 $TA_BASELINE --- 参考点为文本底线
+		 $TA_BOTTOM --- 参考点为矩形范围的底部边缘
+		 $TA_TOP --- 参考点为矩形范围的顶部边缘
+		 $TA_CENTER --- 对齐水平参考点为矩形的中心
+		 $TA_LEFT --- 参考点为矩形范围的左边缘
+		 $TA_RIGHT --- 参考点为矩形范围的右边缘
+		 $TA_NOUPDATECP --- 不改变文本当前位置.参考点依据文本输出操作
+		 $TA_RTLREADING --- 中东 Windows 语言版本:文本为从右到左阅读,而不是默认的左到右的顺序.仅适用于设备环境的希伯来文或阿拉伯文字体
+		 $TA_UPDATECP --- 更新文本当前位置.参考点为当前位置
+		 如果当前默认字体有一个垂直基准线,如同日本汉字,
+		 使用下列值代替 $TA_BASELINE 与 $TA_CENTER.
+		 $VTA_BASELINE --- 参考点为文本底线
+		 $VTA_CENTER --- 垂直排列参考点为矩形范围的中心
+		 默认为 $TA_LEFT, $TA_TOP 与 $TA_NOUPDATECP.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The previous text-alignment setting ($TA_* and $VTA_*).
-Failure	(-1) and sets the @error flag to non-zero.
+成功:	返回先前的文本对齐设置 ($TA_* and $VTA_*).
+失败:	返回 -1,设置@error:非 0 值.
 @@End@@
 
 ###Remarks###

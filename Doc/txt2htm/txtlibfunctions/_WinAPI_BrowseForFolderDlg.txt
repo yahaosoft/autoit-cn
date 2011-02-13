@@ -2,7 +2,7 @@
 _WinAPI_BrowseForFolderDlg
 
 ###Description###
-Displays a dialog box that enables the user to select a Shell folder.
+显示对话框, 使用户能够选择处理程序(Shell)文件夹.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,53 +11,47 @@ _WinAPI_BrowseForFolderDlg ( [$sRoot [, $sText [, $iFlags [, $pBrowseProc [, $lP
 ###Parameters###
 @@ParamTable@@
 $sRoot
-	[可选参数] The root folder from which to start browsing. Only the specified folder and its subfolders in the
-	namespace hierarchy appear in the dialog box. If this parameter is 0, the namespace root
-	(the Desktop folder) is used.
+	[可选参数] 浏览开始的根文件夹.只有指定的文件夹与其子文件夹层次结构显示在对话框中.
+		 如果此参数为 0, 使用"桌面(Desktop)"文件夹为根文件夹. 
 $sText
-	[可选参数] The string that is displayed above the tree view control in the dialog box.
+	[可选参数] 显示在对话框树视图控件上方的字符串.
 $iFlags
-	[可选参数] Flags that specify the options for the dialog box. This parameter can a combination of the
-	following values.
-	
-	$BIF_RETURNONLYFSDIRS
-	$BIF_DONTGOBELOWDOMAIN
-	$BIF_STATUSTEXT
-	$BIF_RETURNFSANCESTORS
-	$BIF_EDITBOX
-	$BIF_VALIDATE
-	$BIF_NEWDIALOGSTYLE
-	$BIF_BROWSEINCLUDEURLS
-	$BIF_USENEWUI
-	$BIF_UAHINT
-	$BIF_NONEWFOLDERBUTTON
-	$BIF_NOTRANSLATETARGETS
-	$BIF_BROWSEFORCOMPUTER
-	$BIF_BROWSEFORPRINTER
-	$BIF_BROWSEINCLUDEFILES
-	$BIF_SHAREABLE
-	
+	[可选参数] 指定对话框选项的标志.参数可以是下列值的组合:
+		$BIF_RETURNONLYFSDIRS --- 只返回文件系统目录.如用户选择的文件夹不属于文件系统,&quot;确定&quot;按钮将不可用.
+		$BIF_DONTGOBELOWDOMAIN --- 不包括对话框树视图下面域级别的网络文件夹.
+		$BIF_STATUSTEXT --- 对话框包括一个状态区域.回调函数发送消息到对话框设置状态文本.当 BIF_NEWDIALOGSTYLE 被指定,则不支持此标志.
+		$BIF_RETURNFSANCESTORS --- 只返回文件系统的祖. 祖是层次结构中根文件夹下方的子文件夹. 如用户选择根文件夹下的祖不属于文件系统,则&quot;确定&quot;按钮不可用.
+		$BIF_EDITBOX --- Dll 版本4.71 浏览对话框包含一个编辑控件,允许用户输入一个项目名称.
+		$BIF_VALIDATE --- Dll 版本4.71 如用户键入一个无效的名称,对话框调用应用程序 BrowseCallbackProc 与 BFFM_VALIDATEFAILED消息.如没有指定 BIF_EDITBOX,这个标志被忽略.
+		$BIF_NEWDIALOGSTYLE --- Dll 版本5.0 提供用户可调大小的更大对话框界面,具有拖放、重排序、新建文件夹、删除与其它快捷菜单命令等功能.注意:如果组件对象模型（COM）是通过 CoInitializeEx 初始化与 COINIT_MULTITHREADED 标志被设置,函数将失败.
+		$BIF_BROWSEINCLUDEURLS --- Dll 版本5.0 对话框可以显示网址.但必须同时设置 BIF_USENEWUI 与 BIF_BROWSEINCLUDEFILES 标志,并且文件夹包含所选项目的支持网址,当该文件夹的IShellFolder::GetAttributesOf方法被调用,要求有所选项目的属性,文件夹的属性必须设置 SFGAO_FOLDER 标志.否则对话框不显示网址.
+		$BIF_USENEWUI --- Dll 版本5.0 使用新的用户界面,包括一个编辑框.这个标志相当于 BIF_EDITBOX | BIF_NEWDIALOGSTYLE.注意:如果 COM 是通过 CoInitializeEx 初始化与设置COINIT_MULTITHREADED 标志,BIF_USENEWUI 获得通过,函数失败
+		$BIF_UAHINT --- Dll 版本6.0 当与 BIF_NEWDIALOGSTYLE 相结合,在编辑框位置增加一个使用提示对话框. BIF_EDITBOX 会重写此标志.
+		$BIF_NONEWFOLDERBUTTON --- Dll 版本6.0 对话框中不包含&quot;新建文件夹&quot;按钮.
+		$BIF_NOTRANSLATETARGETS --- Dll 版本6.0 如果选定项目为快捷方式, 则返回快捷方式自身的 PIDL 而不是目标文件.
+		$BIF_BROWSEFORCOMPUTER --- 只返回计算机. 如果用户选取的不是计算机, &quot;确认&quot;按钮将不可用.
+		$BIF_BROWSEFORPRINTER --- 只允许选择打印机.否则&quot;确认&quot;按钮将不可用.对于 Windows XP和更高版本的系统,最好的做法是使用 Windows XP 样式对话框,设置对话框的根为打印机和传真文件夹（CSIDL_PRINTERS）.
+		$BIF_BROWSEINCLUDEFILES --- Dll 版本4.71 对话框显示文件以及文件夹.
+		$BIF_SHAREABLE --- Dll 版本5.0 对话框显示远程系统共享资源.应用程序将公开本地系统上的远程共享.必须添加设置 BIF_NEWDIALOGSTYLE 标志
+		$BIF_BROWSEFILEJUNCTIONS --- Win 7 和更高版本的系统. 允许如库或.zip压缩文件作为文件夹路径进行浏览.
 $pBrowseProc
-	[可选参数] Pointer to a callback function that the dialog box calls when an event occurs. This function will
-	receive one of the following event messages.
-	
-	$BFFM_INITIALIZED
-	$BFFM_IUNKNOWN
-	$BFFM_SELCHANGED
-	$BFFM_VALIDATEFAILED
-	
-	(See MSDN for more information)
-	
+	[可选参数] 对话框事件发生时调用的回调函数指针.
+		 函数将接收以下事件消息之一:.
+		 $BFFM_INITIALIZED -------- 对话框已完成初始化.
+		 $BFFM_IUNKNOWN --------- 对话框使用 IUNKNOWN 界面
+		 $BFFM_SELCHANGED ------- 对话框的选取已更改.
+		 $BFFM_VALIDATEFAILED --- Dll 版本4.71 用户输入到对话框中编辑框的名称无效的.一个不存在的文件夹被认为是无效名称
+		 (为了解更多信息,请参见 MSDN)
 $lParam
-	[可选参数] The value that the dialog box passes to the callback function.
+	[可选参数] 对话框传递给回调函数的值.
 $hParent
-	[可选参数] Handle to the parent window for the dialog box.
+	[可选参数] 对话框父窗口的句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The full path for chosen folder, or empty string if user cancels/closes the dialog.
-Failure	Empty string and sets the @error flag to non-zero.
+成功:	返回选定文件夹的完整路径; 如果用户取消或关闭对话框, 则返回空字符串.
+失败:	返回空串,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

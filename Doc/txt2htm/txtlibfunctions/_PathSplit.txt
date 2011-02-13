@@ -2,7 +2,7 @@
 _PathSplit
 
 ###Description###
-Splits a path into the drive, directory, file name and file extension parts. An empty string is set if a part is missing.
+完整路径拆分为驱动器、目录、文件名和扩展名. 缺少部分由空字符串代替.
 
 ###Syntax###
 #Include <File.au3>
@@ -11,22 +11,29 @@ _PathSplit($szPath, ByRef $szDrive, ByRef $szDir, ByRef $szFName, ByRef $szExt)
 ###Parameters###
 @@ParamTable@@
 $szPath
-	The path to be split (Can contain a UNC server or drive letter)
+	要拆分的路径 (可以包含 UNC 服务器或驱动器名)
 $szDrive
-	String to hold the drive
+	保留的驱动器名
 $szDir
-	String to hold the directory
+	保留的目录名
 $szFName
-	String to hold the file name
+	保留的文件名
 $szExt
-	String to hold the file extension
+	保留的文件扩展名
 @@End@@
 
 ###ReturnValue###
-Returns an array with 5 elements where 0 = original path, 1 = drive, 2 = directory, 3 = filename, 4 = extension
+@@ReturnTable@@
+	返回五个元素的数组 
+	0 = 原始路径, 
+	1 = 驱动器, 
+	2 = 目录, 
+	3 = 文件名, 
+	4 = 扩展名
+@@End@@
 
 ###Remarks###
-This function does not take a command line string. It works on paths, not paths with arguments.
+函数不接受命令行字符串.它适用于不带参数的路径.
 
 ###Related###
 _PathFull, _PathMake

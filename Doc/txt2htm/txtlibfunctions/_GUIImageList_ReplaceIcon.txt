@@ -2,7 +2,7 @@
 _GUIImageList_ReplaceIcon
 
 ###Description###
-Replaces an image with an icon or cursor
+替换图标的图像或光标
 
 ###Syntax###
 #Include <GuiImageList.au3>
@@ -11,24 +11,25 @@ _GUIImageList_ReplaceIcon($hWnd, $iIndex, $hIcon)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iIndex
-	Index of the image to replace. If -1, the function appends the image to the end of the list.
+	用于替换的图像索引. 如为 -1, 追加图像到列表的末尾.
 $hIcon
-	Handle to the icon or cursor that contains the bitmap and mask for the new image
+	图标句柄或光标指针, 其中包含新图像的位图和掩码
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The index of the image
-Failure:	-1
+成功:	返回图像的索引
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
-Because the system does not save hIcon you can destroy it after the function returns if the icon or cursor was
-created by the CreateIcon function. You do not need to destroy hIcon if it was loaded by the LoadIcon function
-the system automatically frees an icon resource when it is no longer needed.
-
+ 因为系统不保存 $hIcon,如果图标或光标是由 CreateIcon 函数创建的,
+ 本函数返回后,可以销毁它.
+ 如果 $hIcon 是由 LoadIcon 函数加载的,当它不再需要时,
+ 系统会自动释放图标资源,因此可以不必破坏 $hIcon.
+ 
 ###Related###
 
 ###Example###

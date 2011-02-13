@@ -2,7 +2,7 @@
 _WinAPI_GetProcessMemoryInfo
 
 ###Description###
-Retrieves information about the memory usage of the specified process.
+检索指定进程的内存使用信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,23 +11,23 @@ _WinAPI_GetProcessMemoryInfo ( [$PID] )
 ###Parameters###
 @@ParamTable@@
 $PID
-	[可选参数] The PID of the process. Default (0) is the current process.
+	[可选参数] 进程 PID. 默认 0, 为当前进程.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The array that contains the following information.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0]	The number of page faults.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1]	The peak working set size, in bytes.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2]	The current working set size, in bytes.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3]	The peak paged pool usage, in bytes.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4]	The current paged pool usage, in bytes.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5]	The peak nonpaged pool usage, in bytes.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[6]	The current nonpaged pool usage, in bytes.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[7]	The current space allocated for the pagefile, in bytes.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[8]	The peak space allocated for the pagefile, in bytes.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[9]	The current amount of memory that cannot be shared with other processes, in bytes.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回下列信息数组:
+	[0] - 页面错误数.
+	[1] - 工作集峰值字节大小.
+	[2] - 当前工作集字节大小.
+	[3] - 页缓冲池峰值的字节大小.
+	[4] - 当前页缓冲池的字节大小.
+	[5] - 非分页池的字节大小.
+	[6] - 当前非分页池的字节大小.
+	[7] - 当前页面文件空间分配的字节数.
+	[8] - 页面文件空间分配的峰值字节数.
+	[9] - 当前不与其它进程共享的内存字节数.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

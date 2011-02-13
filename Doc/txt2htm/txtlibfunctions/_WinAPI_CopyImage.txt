@@ -2,7 +2,7 @@
 _WinAPI_CopyImage
 
 ###Description###
-Creates a new image (icon, cursor, or bitmap) and copies the attributes of the specified image to the new one.
+创建新图像(图标,光标或位图), 并复制指定图像的新属性.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,43 +11,37 @@ _WinAPI_CopyImage ( $hImage [, $iType [, $xDesired [, $yDesired [, $iFlags]]]] )
 ###Parameters###
 @@ParamTable@@
 $hImage
-	Handle to the image to be copied.
+	被复制图像的句柄.
 $iType
-	[可选参数] Specifies the type of image to be copied. This parameter can be one of the following values.
-	
-	$IMAGE_BITMAP
-	$IMAGE_CURSOR
-	$IMAGE_ICON
-	
+	[可选参数] 指定复制图像的类型. 参数可以是以下值之一:.
+		 $IMAGE_BITMAP ---- 复制位图.
+		 $IMAGE_CURSOR --- 复制光标
+		 $IMAGE_ICON ------ 复制图标
 $xDesired
-	[可选参数] Specifies the desired width, in pixels, of the image. If this is zero, then the returned image will
-	have the same width as the original $hImage.
+	[可选参数] 指定图像所需宽度的像素值.
+		 如果为 0, 则使用参数 $hImage 指定的图像原始宽度.
 $yDesired
-	[可选参数] Specifies the desired height, in pixels, of the image. If this is zero, then the returned image will
-	have the same height as the original $hImage.
+	[可选参数] 指定图像所需高度的像素值.
+		 如果为 0, 则使用参数 $hImage 指定的图像原始高度.
 $iFlags
-	[可选参数] This parameter can be one or more of the following values.
-	
-	$LR_COPYDELETEORG
-	$LR_COPYFROMRESOURCE
-	$LR_COPYRETURNORG
-	$LR_CREATEDIBSECTION
-	$LR_DEFAULTSIZE
-	$LR_MONOCHROME
-	
+	[可选参数] 参数可以是一或多个下列值:
+		$LR_COPYDELETEORG --- 创建副本以后删除原始图像.
+		$LR_COPYFROMRESOURCE --- 从原始资源加载图标或光标资源文件,而不是简单地复制当前图像.当资源文件包含多个不同大小的资源时,创建一个不同大小的副本是非常有用的.如果没有这个标志,函数将延伸原始图像到新的大小.如果设置此标志,函数使用资源文件中最接近所需的大小的资源.
+		$LR_COPYRETURNORG --- 如果 $hImage 指定的图像满足复制条件,则返回原图像正确的尺寸和颜色深度.这将忽略 LR_COPYDELETEORG 标志
+		$LR_CREATEDIBSECTION --- 如果是设置和创建新位图,位图将创建为一个 DIB 区域.否则,位图将创建为一个依赖于设备的位图.如果 $iType 参数为 $IMAGE_BITMAP,此标志是唯一有效的.
+		$LR_DEFAULTSIZE --- 如果 $xDesired 或 $yDesired 设置为 0,光标或图标得宽(高)度由系统度量值确定 --- 如果 $xDesired 或 $yDesired 参数值为 0,使用系统指定宽度或高度为光标或图标的度量值.如果 $xDesired 和 $yDesired 参数值为 0,且不设置此标志,函数使用实际资源的大小.如果资源包含多个图像,函数使用第一个图像的大小.
+		$LR_MONOCHROME --- 创建单色图标或光标 --- 创建一个新的黑白图像.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle to the newly created image.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回新创建图像的句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-When you are finished using the resource, you can release its associated memory by calling _WinAPI_DeleteObject()
-function respectively for bitmaps, cursors, or icons. The system automatically deletes the resource when its
-process terminates, however, calling the appropriate function saves memory and decreases the size of the
-process's working set.
+当您使用完资源, 你可以调用 _WinAPI_DeleteObject() 函数分别释放位图, 光标, 或图标相关的占有内存.
+ 当其进程终止时, 系统将自动删除该资源.但是调用相应函数可以节省内存, 并降低进程工作集的大小. 
 
 
 ###See Also###

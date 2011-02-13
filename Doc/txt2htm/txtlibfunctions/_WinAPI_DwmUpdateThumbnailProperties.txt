@@ -2,7 +2,7 @@
 _WinAPI_DwmUpdateThumbnailProperties
 
 ###Description###
-Specifies Desktop Window Manager (DWM) thumbnail properties.
+指定桌面窗口管理器（DWM）缩略图属性.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,37 +11,35 @@ _WinAPI_DwmUpdateThumbnailProperties ( $hThumbnail [, $fVisible [, $fClientAreaO
 ###Parameters###
 @@ParamTable@@
 $hThumbnail
-	Handle of the thumbnail to retrieve the source window size from.
+	检索源窗口大小的缩略图句柄.
 $fVisible
-	[可选参数] Specifies whether make the thumbnail visible or invisible, valid values:
-		TRUE            - Visible.
-		FALSE           - Invisible.
+	[可选参数] 指定使缩图是否可见.有效值:
+		1 - 可见.
+		0 - 不可见.
 $fClientAreaOnly
-	[可选参数] Specifies whether use only the thumbnail source's client area or entire window, valid values:
-		TRUE            - Use only source's client area.
-		FALSE           - Use entire window.
+	[可选参数] 指定使用缩略图源客户区域或整个窗口.有效值:
+		1 - 使用源客户区.
+		0 - 使用整个窗口.
 $iOpacity
-	[可选参数] The opacity with which to render the thumbnail. 0 is fully transparent while 255 is fully opaque.
+	[可选参数] 缩略图的不透明度.0 为完全透明,255 为完全不透明.
 $tRectDest
-	[可选参数] $tagRECT structure containing the rectangle in the destination window the thumbnail will be
-	rendered. By default, the size of this rectangle equal to the source size of the DWM thumbnail
-	which returns the _WinAPI_DwmQueryThumbnailSourceSize() function.
+	[可选参数] $tagRECT 结构.包含将会呈现缩略图的目标窗口矩形
+		 默认矩形等于 _WinAPI_DwmQueryThumbnailSourceSize() 函数返回的源 DWM 缩略图的大小. 
 $tRectSrc
-	[可选参数] $tagRECT structure containing the rectangle that specifies the region of the source window
-	to use as the thumbnail. By default, the entire window is used as the thumbnail.
+	[可选参数] $tagRECT 结构.包含使用缩略图的源窗口矩形区域.
+		 默认整个窗口被用作缩略图.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-Thumbnail relationships created by _WinAPI_DwmRegisterThumbnail() will not be rendered to the destination window
-until this function is called. Subsequent calls will update the thumbnail according to the properties.
-
-This function requires Windows Vista or later.
+_WinAPI_DwmRegisterThumbnail() 创建的缩略图关系,在函数调用前,不会被渲染到目标窗口.
+ 后续调用将根据属性更新缩略图.
+ 本函数需要 Windows Vista 或更高版本系统.
 
 
 ###See Also###

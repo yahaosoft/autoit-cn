@@ -2,7 +2,7 @@
 _WinAPI_AddFontResourceEx
 
 ###Description###
-Adds the font resource from the specified file to the system font table.
+添加指定文件的字体资源到系统字体表.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,42 +11,36 @@ _WinAPI_AddFontResourceEx ( $sFont [, $iFlag [, $fNotify]] )
 ###Parameters###
 @@ParamTable@@
 $sFont
-	String that contains a valid font file name. This parameter can specify any of the following files:
-	
-	.fon - Font resource file.
-	.fnt - Raw bitmap font file.
-	.ttf - Raw TrueType file.
-	.ttc - East Asian Windows: TrueType font collection.
-	.fot - TrueType resource file.
-	.otf - PostScript OpenType font.
-	.mmm - Multiple master Type1 font resource file. It must be used with .pfm and .pfb files.
-	.pfb - Type 1 font bits file. It is used with a .pfm file.
-	.pfm - Type 1 font metrics file. It is used with a .pfb file.
-	
-	To add a font whose information comes from several resource files, they must be separated by a "|".
-	For example, abcxxxxx.pfm|abcxxxxx.pfb.
-	
+	有效字体文件的名称. 可以指定下列任意文件:
+		.fon --- 字体资源文件.
+		.fnt --- 原始位图字体文件.
+		.ttf --- 原始 TrueType 文件(微软和 Apple 公司共同研制的字型标准).
+		.ttc --- 东亚 Windows: TrueType 字体集.
+		.fot --- TrueType 资源文件.
+		.otf --- OpenType 附言字体.
+		.mmm --- Multiple master Type1 字体资源文件. 必须使用 .pfm 与 .pfb 文件.
+		.pfb --- Type 1 字体位文件. 使用 .pfm 文件.
+		.pfm --- Type 1 字体规格文件. 使用 .pfb 文件.
+		 添加多个字体资源文件时,必须使用“|”分隔. 例如, abcxxxxx.pfm|abcxxxxx.pfb.
 $iFlag
-	[可选参数] The characteristics of the font to be added to the system. This parameter can be one of the following values.
-	
-	$FR_PRIVATE
-	$FR_NOT_ENUM
-	
+	[可选参数] 字体特征. 参数为以下值之一:
+		$FR_PRIVATE ----- 仅调用本函数的进程可以使用此字体,当字体字体名称匹配的公用字体,将选择私用字体.当进程终止后,系统清除本函数作用过程中安装的所有字体
+		$FR_NOT_ENUM --- 进程(包括调用本函数的进程)不能枚举该字体.
 $fNotify
-	[可选参数] Specifies whether sends a WM_FONTCHANGE message, valid values:
-		TRUE    - Send the WM_FONTCHANGE message to all top-level windows after changing the pool of font resources.
-		FALSE   - Don`t send. (Default)
+	[可选参数] 指定是否发送 WM_FONTCHANGE 消息, 有效值:
+		1 --- 发送 WM_FONTCHANGE 消息给所有顶层窗口后, 修改字体资源库.
+		0 --- 不发送. (默认值)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The value that specifies the number of fonts added.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回指定添加字体的数量.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-This function installs the font only for the current session. When the system restarts, the font will not be present.
-To have the font installed even after restarting the system, the font must be listed in the registry.
+本函数仅安装字体到当前会话期, 当系统重启后, 字体将不存在.
+ 要确保添加的字体在系统重启后仍然可用, 该字体必须注册到注册表中.
 
 
 ###See Also###

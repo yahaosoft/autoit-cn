@@ -2,7 +2,7 @@
 _WinAPI_GetSystemTimes
 
 ###Description###
-Retrieves system timing information.
+检索系统计时信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -15,16 +15,15 @@ None.
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The array that contains the following information.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0]	The time that the system has been idle.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1]	The time that the system has spent executing in kernel mode, in 100-nanosecond time units.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2]	The time that the system has spent executing in user mode, in 100-nanosecond time units.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回以下信息的数组.
+	[0] - 系统闲置时间.
+	[1] - 系统内核模式的执行时间.100 纳秒时间单位.
+	[2] - 系统用户模式的执行时间.100 纳秒时间单位.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###
-On a multiprocessor system, the _WinAPI_GetSystemTimes() returns a values are the sum of the designated times
-across all processors.
+对于多处理器系统, _WinAPI_GetSystemTimes() 返回值为所有处理器指定时间的总和.
 
 
 ###See Also###

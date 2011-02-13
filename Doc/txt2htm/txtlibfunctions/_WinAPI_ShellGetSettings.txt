@@ -2,7 +2,7 @@
 _WinAPI_ShellGetSettings
 
 ###Description###
-Retrieves Shell state settings.
+检索处理程序(Shell)的状态设置.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,39 +11,36 @@ _WinAPI_ShellGetSettings ( $iFlags )
 ###Parameters###
 @@ParamTable@@
 $iFlags
-	The flags that indicate which settings should be retrieved. This parameter can be one or
-	more of the following values (use ONLY this flags).
-	
-	$SSF_SHOWALLOBJECTS
-	$SSF_SHOWEXTENSIONS
-	$SSF_SHOWCOMPCOLOR
-	$SSF_SHOWSYSFILES
-	$SSF_DOUBLECLICKINWEBVIEW
-	$SSF_DESKTOPHTML
-	$SSF_WIN95CLASSIC
-	$SSF_DONTPRETTYPATH
-	$SSF_MAPNETDRVBUTTON
-	$SSF_SHOWINFOTIP
-	$SSF_HIDEICONS
-	$SSF_NOCONFIRMRECYCLE
-	$SSF_WEBVIEW
-	$SSF_SHOWSUPERHIDDEN
-	$SSF_SEPPROCESS
-	$SSF_NONETCRAWLING
-	$SSF_STARTPANELON
-	
-	*Windows Vista or later
-	
-	$SSF_AUTOCHECKSELECT
-	$SSF_ICONSONLY
-	$SSF_SHOWTYPEOVERLAY
-	
+	应检索的设置. 此参数可以是一或多个下列值(仅使用此标志).
+		 $SSF_SHOWALLOBJECTS --- 显示所有文件和文件夹对象,包括隐藏文件和文件夹
+		 $SSF_SHOWEXTENSIONS --- 显示文件扩展名
+		 $SSF_SHOWCOMPCOLOR --- 显示加密或压缩 NTFS 文件的颜色
+		 $SSF_SHOWSYSFILES --- 显示系统文件
+		 $SSF_DOUBLECLICKINWEBVIEW --- 双击打开 Web 浏览项目
+		 $SSF_DESKTOPHTML --- 使用活动桌面
+		 $SSF_WIN95CLASSIC --- 执行 Windows 95 的 Shell 行为和限制
+		 $SSF_DONTPRETTYPATH --- 防止路径转换为小写字符
+		 $SSF_MAPNETDRVBUTTON --- 显示"映射网络驱动器"按钮
+		 $SSF_SHOWINFOTIP --- 显示文件夹和文件的弹出说明
+		 $SSF_HIDEICONS --- 隐藏桌面图标
+		 $SSF_NOCONFIRMRECYCLE --- 删除项目到回收站时不显示确认对话框
+		 $SSF_WEBVIEW --- 显示为 Web 视图
+		 $SSF_SHOWSUPERHIDDEN --- 显示操作系统文件
+		 $SSF_SEPPROCESS --- 单独进程启动文件夹窗口
+		 $SSF_NONETCRAWLING --- 禁用自动搜索网络打印机和文件夹
+		 $SSF_STARTPANELON --- 使用 Windows XP 风格的开始菜单
+		 *Windows Vista 或更高系统
+		 $SSF_AUTOCHECKSELECT --- 使用 Windows Vista 风格的文件夹视图复选框
+		 $SSF_ICONSONLY --- 显示通用图标
+		 $SSF_SHOWTYPEOVERLAY --- 显示缩略图供应用程序打开项目时调用
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The value that contains a combination of flags specified in the $iFlags parameter. If flag is set,
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 $iFlags 参数指定标志的组合.
+	如果设置了标志,则启用适当的设置,否则禁用.
+	函数仅分别检查 $iFlags 参数指定的标志.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

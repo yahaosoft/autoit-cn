@@ -2,7 +2,7 @@
 _WinAPI_FrameRect
 
 ###Description###
-Draws a border around the specified rectangle by using the specified brush
+使用指定的笔刷绘制指定的矩形边框
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,22 +11,22 @@ _WinAPI_FrameRect($hDC, $ptrRect, $hBrush)
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context in which the border is drawn
+	将绘制边框的设备环境句柄
 $ptrRect
-	Pointer to a $tagRECT structure that contains the logical coordinates of the upper-left and lower-right corners of the rectangle
+	$tagRECT 结构指针, 它包含矩形左上角和右下角的逻辑坐标
 $hBrush
-	Handle to the brush used to draw the border
+	绘制边界的画笔句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-The brush identified by the $hBrush parameter must have been created by using the _WinAPI_CreateSolidBrush function,
-or retrieved by using the _WinAPI_GetStockObject function
+ $hBrush 参数确定的笔刷必须是 _WinAPI_CreateSolidBrush 函数创建的,
+ 或使用 _WinAPI_GetStockObject 函数检索
 
 ###Related###
 $tagRECT

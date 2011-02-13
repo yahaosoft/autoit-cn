@@ -2,7 +2,7 @@
 _WinAPI_PolyBezier
 
 ###Description###
-Draws one or more Bezier curves.
+绘制一或多个贝塞尔曲线.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,34 +11,29 @@ _WinAPI_PolyBezier ( $hDC, $aPoint [, $iStart [, $iEnd]] )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to a device context.
+	设备环境句柄.
 $aPoint
-	The 2D array ([x1, y1], [x2, y2], ... [xN, yN]) that contains the endpoints and control points of the
-	curve(s), in logical units. The number of points must be one more than three times the number of curves
-	to be drawn, because each Bezier curve requires two control points and an endpoint, and the initial
-	curve requires an additional starting point.
+	顶点值二维数组: ([x1, y1], [x2, y2], ... [xN, yN]) 包含曲线端点和控制点的逻辑单位.
+		 该点的数目必须超过绘制曲线实际点的 3 倍,因为每个贝塞尔曲线需要两个控制点和一个终结点,
+		 曲线的初始还需要额外的出发点.
 $iStart
-	[可选参数] The index of array to start drawing at.
+	[可选参数] 开始绘制的数组索引.
 $iEnd
-	[可选参数] The index of array to stop drawing at.
+	[可选参数] 结束绘制的数组索引.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-This function draws cubic Bezier curves by using the endpoints and control points specified by the $aPoint
-parameter. The first curve is drawn from the first point to the fourth point by using the second and third points
-as control points. Each subsequent curve in the sequence needs exactly three more points: the ending point of the
-previous curve is used as the starting point, the next two points in the sequence are control points, and the
-third is the ending point.
-
-The current position is neither used nor updated by the _WinAPI_PolyBezier() function. The figure is not filled.
-
-This function draws lines by using the current pen.
+函数使用参数 $aPoint 指定的控制端点绘制三次 Bezier curves(贝济埃曲线).
+ 第一条曲线来自第一点至第四点,第二个和第三个点作为控制点.
+ 随后的每一个曲线正需要3个要点:前一条曲线的终点为起点,接下来的两个序列点作为控制点,第三个是终点.
+ 当前位置不由 _WinAPI_PolyBezier() 函数更新.图形也不填充..
+ 函数绘制使用当前画笔.
 
 
 ###See Also###

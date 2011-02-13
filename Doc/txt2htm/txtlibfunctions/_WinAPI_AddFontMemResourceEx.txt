@@ -2,7 +2,7 @@
 _WinAPI_AddFontMemResourceEx
 
 ###Description###
-Adds the font resource from a memory image to the system.
+添加内存映像的字体资源.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,24 +11,24 @@ _WinAPI_AddFontMemResourceEx ( $pData, $iSize )
 ###Parameters###
 @@ParamTable@@
 $pData
-	The pointer to a font resource.
+	字体资源指针.
 $iSize
-	The number of bytes in the font resource.
+	字体资源的字节数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The handle uniquely identifies the fonts that were installed on the system, @extended flag will contain
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回安装到系统的字体句柄,
+	@extended 包含添加到系统的字体数.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###
-This function allows an application to get a font that is embedded in a document or a Web page. A font that is
-added by this is always private to the process that made the call and is not enumerable.
-
-When the function succeeds, the caller of this function can free the memory pointed to by $pData because the system
-has made its own copy of the memory. To remove the fonts that were installed, call _WinAPI_RemoveFontMemResourceEx().
-However, when the process goes away, the system will unload the fonts.
+本函数允许应用程序获取文档或网页嵌入的字体.
+ 添加的字体始终为私有进程调用,且不枚举.
+ 当函数成功后,系统产生自己的内存副本,函数的调用者可以释放内存中 $pData 指定的指针.
+ 要删除已安装的字体,请调用 _WinAPI_RemoveFontMemResourceEx() 函数.
+ 但在进程消失时,系统将会卸载字体.
 
 
 ###See Also###

@@ -2,7 +2,7 @@
 _Security__OpenProcessToken
 
 ###Description###
-Returns the process handle of the calling process
+返回调用进程的进程句柄
 
 ###Syntax###
 #Include <Security.au3>
@@ -11,20 +11,20 @@ _Security__OpenProcessToken($hProcess, $iAccess)
 ###Parameters###
 @@ParamTable@@
 $hProcess
-	A handle to the process whose access token is opened. The process must have been given the
-		$PROCESS_QUERY_INFORMATION access permission.
+	其访问令牌已打开得进程句柄.
+		进程必须被赋予 $PROCESS_QUERY_INFORMATION 访问权限.
 $iAccess
-	Specifies an access mask that specifies the requested types of access to the access token.
+	指定访问掩码,指定有权使用访问令牌的类型.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	A pointer to a handle that identifies the newly opened access token when the function returns.
-Failure:	0
+成功:	返回标识新开访问令牌的句柄.
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-Close the access token handle returned by calling _WinAPI_CloseHandle
+调用 _WinAPI_CloseHandle 关闭返回的访问令牌句柄
 
 ###Related###
 _Security__OpenThreadToken

@@ -23,26 +23,27 @@ $hDll_Ws2_32
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Hostname or Array (see Remarks)
-Failure:	""
-@Error:	0 = No error.
-	1 = inet_addr DllCall Failed
-	2 = inet_addr Failed
-	3 = gethostbyaddr DllCall Failed
-	4 = gethostbyaddr Failed, WSAGetLastError = @Extended
-	5 = gethostbyaddr Failed, WSAGetLastError Failed
-	6 = strlen/sZStringRead Failed
-	7 = Error reading Aliases Array
+成功:	返回主机名或数组(见备注)
+失败:	""
+@Error:	
+	0 = 无错误.
+	1 = inet_addr DllCall 失败
+	2 = inet_addr 失败
+	3 = gethostbyaddr DllCall 失败
+	4 = gethostbyaddr 失败, WSAGetLastError = @Extended
+	5 = gethostbyaddr 失败, WSAGetLastError 失败
+	6 = strlen/sZStringRead 失败
+	7 = 读别名数组错误
 @@End@@
 
 
 ###Remarks###
-A successfull WSAStartup (Done by TCPStartup) is required.
-if $iOption = 1 then the returned Array looks Like this:
-	$aResult[0] = Number of elements
-	$aResult[1] = "Hostname"
-	$aResult[2] = "Alias 1"
-	$aResult[3] = "Alias 2"
+ 调用 WSAStartup（由 TCPStartup 完成）对于成功是必需的.
+ 如果 $iOption = 1 则返回如下格式的数组:
+	$aResult[0] = 元素数量
+	$aResult[1] = "主机名称"
+	$aResult[2] = "别名 1"
+	$aResult[3] = "别名 2"
 	...
 
 

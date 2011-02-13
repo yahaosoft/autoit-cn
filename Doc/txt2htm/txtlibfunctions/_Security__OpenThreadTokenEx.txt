@@ -2,7 +2,7 @@
 _Security__OpenThreadTokenEx
 
 ###Description###
-Opens the access token associated with a thread, impersonating the client's security context if required
+打开与线程相关访问令牌, 如果有需要, 模拟客户端的安全环境
 
 ###Syntax###
 #Include <Security.au3>
@@ -11,23 +11,22 @@ _Security__OpenThreadTokenEx($iAccess[, $hThread = 0 [, $fOpenAsSelf = False]])
 ###Parameters###
 @@ParamTable@@
 $iAccess
-	Access mask that specifies the requested types of access to the access token. These requested
-		access types are reconciled against the token's discretionary access control list (DACL) to determine which
-		accesses are granted or denied.
+	访问掩码,指定访问令牌要求的访问类型
+		请求的访问类型协调令牌的自由访问控制列表（DACL）,
+		以确定允许或拒绝访问
 $hThread
-	[optional] Handle to the thread whose access token is opened
+	[可选参数] 打开访问令牌的线程句柄
 $fOpenAsSelf
-	[optional] Indicates whether the access check is to be made against the security context of the thread
-		calling the OpenThreadToken function or against the security context of the process for the calling thread.
-		If this parameter is False, the access check is performed using the security context for the calling thread.
-		If the thread is impersonating a client, this security context can be that of a client process. If this
-		parameter is True, the access check is made using the security context of the process for the calling thread.
+	[可选参数] 指定如何检查线程调用 OpenThreadToken 函数的访问安全环境
+		如果此参数为 False,由调用线程检查访问的安全环境.
+		如果线程模拟客户端,此安全环境可以是客户端进程.
+		如果参数为 True,由调用进程的线程检查访问的安全环境.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Handle to the newly opened access token
-Failure:	0
+成功:	返回新开访问令牌的句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###

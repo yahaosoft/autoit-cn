@@ -2,7 +2,7 @@
 _viSetTimeout
 
 ###Description###
-Sets the VISA timeout in MILISECONDS
+设置 VISA 超时时间的毫秒值
 
 ###Syntax###
 #include <Visa.au3>
@@ -12,30 +12,30 @@ _viSetTimeout ( $h_session, $i_timeout_ms )
 ###Parameters###
 @@ParamTable@@
 $h_session
-	A VISA descriptor (STRING) OR a VISA session handle (INTEGER).
-	See the Remarks of the _viExecCommand for more info.
+	VISA 描述符（字符串）或 VISA 会话句柄（整数）.
+		更多信息见 _viExecCommand 备注.
 $i_timeout_ms
-	The timeout IN MILISECONDS for VISA operations (mainly for GPIB queries)
-	If you set it to 0 the tiemouts are DISABLED.
-	If you set it to "INF" the VISA operations will NEVER timeout.
-	Be careful with this as it could easly hung your program ifv  your instrument does not respond to one of your queries.
-	Depending on the bus type (GPIB, TCP, etc) the timeout might not be set to the exact value that you request. Instead the closest valid timeout bigger than the one that you requested will be used.
+	VISA 操作的超时毫秒值 (主要用于 GPIB 查询)
+		如果你将它设置为 0,超时将被禁用.
+		如果设置为 "INF", VISA 操作将永远不会超时.
+		在这方面要小心,因为它可以很容易地挂起程序, 仪器不会回应你的查询.
+		根据不同的总线类型 (GPIB, TCP, etc) 超时可能无法设置到要求的精确值;
+		相反,最接近的有效超时值大于你的请求值 the one that you requested will be used.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns 0
-Failure:	Returns -1 if the VISA DLL could not be open or a NON ZERO value representing the VISA error code (see the VISA programmer's guide).
+成功:	返回 0
+失败:	返回 -1, VISA DLL 无法打开; 非零值代表 VISA 错误代码 (见 VISA 程序员指南).
 @@End@@
-This function always sets @error to 1 in case of error.
+
 
 
 ###Remarks###
-Most of the time it is not necessary to call this function, as _viExecCommand has a third OPTIONAL parameter $i_timeout_ms which can also be used to set the VISA timeout.
-
-As for all the VISA functions the VISA libraries must be installed (you can check whether visa32.dll is in {WINDOWS}\system32) and a GPIB card (such as a National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card) must be installed
-
-* For a detailed description of the most common VISA DESCRIPTORS look at the Remarks of the help on the _viExecCommand function
+大部分的时间不需要调用这个函数, as _viExecCommand 有第三个可选参数 $i_timeout_ms 也可以用来设置 VISA 超时.
+VISA 函数必须安装 VISA 库文件(您可以检查visa32.dll是否在 WINDOWS\System32 目录中)
+及 GPIB 卡(例如 National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card)
+ * 常见 VISA 描述符详细介绍,见 _viExecCommand 函数备注
 
 
 ###Related###

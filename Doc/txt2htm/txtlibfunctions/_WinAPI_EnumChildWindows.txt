@@ -2,7 +2,7 @@
 _WinAPI_EnumChildWindows
 
 ###Description###
-Enumerates the child windows that belong to the specified parent window.
+枚举指定父窗的子窗口.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,24 +11,24 @@ _WinAPI_EnumChildWindows ( $hWnd [, $fVisible] )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the parent window whose child windows are to be enumerated. If this parameter is 0,
-	this function is equivalent to _WinAPI_EnumWindows().
+	父窗口句柄. 如果此参数为 0,
+		 则本函数相当于 _WinAPI_EnumWindows().
 $fVisible
-	[可选参数] Specifies whether enumerates the invisible window, valid values:
-		TRUE     - Enumerate only visible windows. (Default)
-		FALSE    - Enumerate all windows.
+	[可选参数] 指定是否枚举不可见窗口, 有效值为:
+		1 - 仅枚举可见窗口. (默认)
+		0 - 枚举所有窗口.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The 2D array of the handles to the child windows and classes for the specified parent window.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0][0]	Number of rows in array (n)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0][1]	Unused
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1][0]	Window handle
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1][1]	Window class name
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[n][0]	Window handle
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[n][1]	Window class name
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回子窗口句柄与类的二维数组.
+	[0][0] - 数组的行数 (n)
+	[0][1] - 未使用
+	[1][0] - 子窗口句柄
+	[1][1] - 子窗口类名
+	[n][0] - 子窗口句柄
+	[n][1] - 子窗口类名
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

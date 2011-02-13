@@ -2,7 +2,7 @@
 _WinAPI_CoTaskMemRealloc
 
 ###Description###
-Changes the size of a previously allocated block of task memory.
+修改任务存储块的大小.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,24 +11,22 @@ _WinAPI_CoTaskMemRealloc ( $hMemory, $iSize )
 ###Parameters###
 @@ParamTable@@
 $hMemory
-	The pointer to the memory block to be reallocated.
+	被重新分配的内存块指针.
 $iSize
-	The size of the memory block to be reallocated, in bytes.
+	重新分配内存块大小的字节数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The reallocated memory block.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回重分配的内存块.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-If $hMemory is 0, function allocates a new memory block in the same way as the _WinAPI_CoTaskMemAlloc() function.
-If $hMemory is not 0, it should be a pointer returned by a prior call to _WinAPI_CoTaskMemAlloc().
-
-The contents of the block are unchanged up to the shorter of the new and old sizes, although the new block
-can be in a different location. If $hMemory is not 0 and $iSize is 0, then the memory pointed to by
-$hMemory is freed.
+如果 $hMemory 为 0, 函数分配与 _WinAPI_CoTaskMemAlloc() 函数相同方式的新内存块.
+ 如果 $hMemory 不为 0, 应先调用 _WinAPI_CoTaskMemAlloc() 返回一个指针.
+ 新块可以在不同的位置,块的内容不变, 直至新尺寸短于旧尺寸.
+ 如果 $hMemory 不为 0 但 $iSize 为 0, 则 $hMemory 所指向的内存被释放.
 
 
 ###See Also###

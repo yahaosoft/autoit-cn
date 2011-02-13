@@ -2,7 +2,7 @@
 _GUIToolTip_Create
 
 ###Description###
-Creates a ToolTip control
+创建工具提示控件
 
 ###Syntax###
 #Include <GuiToolTip.au3>
@@ -11,29 +11,28 @@ _GUIToolTip_Create($hWnd[, $iStyle = 0x00000003])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to control that will own the tool tip window
+	需要工具提示的控件句柄
 $iStyle
-	[optional] ToolTip style:
-		$TTS_ALWAYSTIP - Indicates that the ToolTip control appears when the cursor is on a tool even if the ToolTip
-		control's owner window is inactive. Without this style, the ToolTip appears only when the tool's owner window
-		is active.
-		$TTS_BALLOON - Indicates that the ToolTip control has the appearance of a cartoon "balloon," with rounded
-		corners and a stem pointing to the item.
-		$TTS_NOANIMATE - Disables sliding ToolTip animation on Windows 98 and Windows 2000 systems. This style is
-		ignored on earlier systems.
-		$TTS_NOFADE - Disables fading ToolTip animation on Windows 2000 systems. This style is ignored on earlier
-		Windows NT systems, Windows 95 and Windows 98.
-		$TTS_NOPREFIX - Prevents the system from stripping the ampersand character from a string. Without this style
-		the system automatically strips ampersand characters. This allows an application to use the same string as
-		both a menu item and as text in a ToolTip control.
-		$TTS_CLOSE - Displays a close icon so that the tooltip can be canceled
-		Default: $TTS_ALWAYSTIP, $TTS_NOPREFIX
+	[可选参数] 工具提示样式:
+		$TTS_ALWAYSTIP - 
+		即使控件的所有者窗口处于非活动状态,只要光标指向控件即显示提示.
+		如没有这种样式,只有当所有者窗口处于活动状态时才能显示工具提示.
+		$TTS_BALLOON - 提示控件为卡通“气球”外观.
+		$TTS_NOANIMATE - 在 Windows 98和 Windows 2000 系统,
+		禁用工具提示得滑动动画. 这种样式被早期系统忽略.
+		$TTS_NOFADE - 在 Windows 2000 系统中禁用淡入淡出动画
+		在较早版本的 Windows NT, Windows 95 and Windows 98系统,这种样式被忽略.
+		$TTS_NOPREFIX - 防止系统从字符串中剥离 "&" 字符
+		如果没有这种样式,系统会自动剥离 "&" 字符
+		这将允许应用程序使用相同的字符串作为菜单项文本和提示文本.
+		$TTS_CLOSE - 显示关闭图标,以便提示工具可以取消
+		默认 : $TTS_ALWAYSTIP, $TTS_NOPREFIX
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The handle to the Tooltip window
-Failure:	0
+成功:	返回工具提示句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###

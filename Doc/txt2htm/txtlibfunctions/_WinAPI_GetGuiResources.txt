@@ -2,7 +2,7 @@
 _WinAPI_GetGuiResources
 
 ###Description###
-Retrieves the count of handles to graphical user interface (GUI) objects in use by the specified process
+检索指定进程使用的 GUI 对象句柄数
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,16 +11,16 @@ _WinAPI_GetGuiResources([$iflag = 1 [, $hProcess = -1}})
 ###Parameters###
 @@ParamTable@@
 $iflag
-	[optional] 0 (Default) Return the count of GDI objects.
-		1 Return the count of USER objects.
+	[可选参数] 设为 0 (默认) 则返回 GDI 对象数量.
+		设为 1, 则返回用户对象数量.
 $hProcess
-	[optional] A handle to the process. By default the current process.
+	[可选参数] 进程的句柄. 默认为当前进程.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns the count of handles to GUI objects in use by the process, according to $iFlag
-Failure:	Set @error
+成功:	根据 $iFlag 的设置,返回使用过程中 GUI 对象的句柄计数
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###

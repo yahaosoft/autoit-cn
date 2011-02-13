@@ -2,7 +2,7 @@
 _WinAPI_IsHungAppWindow
 
 ###Description###
-Determines whether the specified application is not responding.
+确定指定的应用程序是否没有响应.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,19 +11,19 @@ _WinAPI_IsHungAppWindow ( $hWnd )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window.
+	窗口句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1 - The window stops responding.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0	Otherwise.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1 - 窗口停止响应.
+	返回 0 - 有响应.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-An application is considered to be not responding if it is not waiting for input, is not in startup processing,
-and has not called PeekMessage within the internal timeout period of 5 seconds.
+如果程序不是等待输入,不在启动进行中,
+ 也没有调用 PeekMessage 的 5 秒超时时间,则是没有响应的程序.
 
 
 ###See Also###

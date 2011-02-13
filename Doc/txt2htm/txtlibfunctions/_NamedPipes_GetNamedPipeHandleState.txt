@@ -2,7 +2,7 @@
 _NamedPipes_GetNamedPipeHandleState
 
 ###Description###
-Retrieves information about a specified named pipe
+检索指定命名管道的状态信息
 
 ###Syntax###
 #Include <NamedPipes.au3>
@@ -11,19 +11,21 @@ _NamedPipes_GetNamedPipeHandleState($hNamedPipe)
 ###Parameters###
 @@ParamTable@@
 $hNamedPipe
-	Handle to the server end of a named pipe instance
+	服务器端命名管道实例句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	$aState[0] - True if pipe handle is in nonblocking mode, otherwise blocking mode
-	$aState[1] - True if pipe handle is in message-read mode, otherwise byte read mode
-	$aState[2] - Number of current pipe instances
-	$aState[3] - Maximum number of bytes to be collected on the client's computer before transmission
-	$aState[4] - Maximum time, in milliseconds, that can pass before a remote named pipe transfers information	over the network.
-	$aState[5] - User name string associated with the client application. The server can only retrieve this	information if the client opened the pipe with the SECURITY_IMPERSONATION access privilige.
-Failure:	Set @error
+成功:	返回数组的格式如下:
+	$aState[0] - 返回 True, 管道句柄为非阻塞模式,否则为阻塞模式
+	$aState[1] - 返回 True, 管道句柄为消息读模式,否则为字节读模式
+	$aState[2] - 目前的管道实例数
+	$aState[3] - 客户计算机采集传输之前的最大字节数
+	$aState[4] - 命名管道的远程传输信息可以通过前的最大时间毫秒值
+	在网络上.
+	$aState[5] - 客户端应用程序相关联的用户名字符串,仅用于服务器检索
+	如果客户端采用 SECURITY_IMPERSONATION 打开管道访问 privilige 信息.
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###

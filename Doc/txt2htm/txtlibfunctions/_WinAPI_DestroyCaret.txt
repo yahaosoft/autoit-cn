@@ -2,7 +2,7 @@
 _WinAPI_DestroyCaret
 
 ###Description###
-Destroys the caret's current shape, frees the caret from the window, and removes the caret from the screen.
+销毁插入符号当前的形状,释放窗口插入符号,并删除屏幕上插入符号.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -15,15 +15,14 @@ None.
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-_WinAPI_DestroyCaret() destroys the caret only if a window in the current task owns the caret. If a window that
-is not in the current task owns the caret, _WinAPI_DestroyCaret() does nothing and returns 0.
-
-The window should destroy the caret before losing the keyboard focus or becoming inactive.
+_WinAPI_DestroyCaret() 仅删除当前任务窗口拥有的插入符号.
+ 如果拥有插入符号的窗口不是当前任务, _WinAPI_DestroyCaret() 不执行任何操作并返回 0.
+ 窗口在失去键盘焦点或变为非活动状态前销毁插入符号.
 
 
 ###See Also###

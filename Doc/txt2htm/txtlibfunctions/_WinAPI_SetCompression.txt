@@ -2,7 +2,7 @@
 _WinAPI_SetCompression
 
 ###Description###
-Sets the compression state of a file or directory.
+设置文件或目录的压缩状态.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,26 +11,23 @@ _WinAPI_SetCompression ( $sPath, $iCompression )
 ###Parameters###
 @@ParamTable@@
 $sPath
-	Path to file or directory to be compressed.
+	被压缩文件或目录的路径.
 $iCompression
-	One of the following compression constants.
-	
-	$COMPRESSION_FORMAT_NONE
-	$COMPRESSION_FORMAT_DEFAULT
-	$COMPRESSION_FORMAT_LZNT1
-	
+	下列之一的压缩常量.
+		 $COMPRESSION_FORMAT_NONE --- 解压缩文件或目录
+		 $COMPRESSION_FORMAT_DEFAULT --- 使用默认压缩格式压缩文件或目录
+		 $COMPRESSION_FORMAT_LZNT1 --- 使用 LZNT1 算法压缩文件或目录
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-If the file system of the volume containing the specified file or directory does not support per-file or
-per-directory compression, the function fails. File compression is supported for files of a maximum uncompressed
-size of 30 gigabytes.
+如果文件或目录所在卷文件系统不支持每个文件或每个目录的压缩,函数失败.
+ 支持最高压缩为 30 千兆字节大小的文件.
 
 
 ###See Also###

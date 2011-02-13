@@ -2,7 +2,7 @@
 _WinAPI_CreateIconIndirect
 
 ###Description###
-Creates an icon or cursor that has the specified size, colors, and bit patterns.
+创建指定大小,颜色和位模式的图标或光标.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,32 +11,31 @@ _WinAPI_CreateIconIndirect ( $hBitmap, $hMask [, $XHotspot [, $YHotspot [, $fIco
 ###Parameters###
 @@ParamTable@@
 $hBitmap
-	Handle to the icon color bitmap.
+	图标的颜色位图句柄.
 $hMask
-	Handle to the icon bitmask bitmap.
+	图标的位图掩码句柄.
 $XHotspot
-	[可选参数] Specifies the x-coordinate of a cursor's hot spot. If creates an icon, the hot spot is always in
-	the center of the icon, and this member is ignored.
+	[可选参数] 热点光标 X 坐标. 如果是创建图标,
+		 热点总是在图标的中心, 并忽略此参数.
 $YHotspot
-	[可选参数] Specifies the y-coordinate of the cursor's hot spot. If creates an icon, the hot spot is always in
-	the center of the icon, and this member is ignored.
+	[可选参数] 热点光标 Y 坐标. 如果是创建图标
+		 热点总是在图标的中心, 并忽略此参数.
 $fIcon
-	[可选参数] Specifies whether creates an icon or a cursor, valid values:
-		TRUE     - Creates an icon. (Default)
-		FALSE    - Creates a cursor.
+	[可选参数] 指定创建图标或光标, 有效值为:
+		1 - 创建图标. (默认)
+		0 - 创建光标.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle to the icon or cursor that is created.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回创建的图标或光标句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-The system copies the bitmaps before creating the icon or cursor. Because the system may temporarily
-select the bitmaps in a device context, $hBitmap and $hMask should not already be selected into a device context.
-The application must continue to manage the original bitmaps and delete them by _WinAPI_DeleteObject() when they
-are no longer necessary.
+创建图标或光标之前,系统复制位图.
+ 因为系统可能会暂时选择设备环境的位图,
+ 所以 $hBitmap 与 $hMask 不应该已被选中到设备环境.
 
 
 ###See Also###

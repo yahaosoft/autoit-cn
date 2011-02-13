@@ -2,7 +2,7 @@
 _WinAPI_InvertRect
 
 ###Description###
-Inverts a rectangle in a window by performing a logical NOT operation on the color values for each pixel.
+对每个像素颜色值执行逻辑 NOT 运算, 使窗口矩形反转.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,21 +11,21 @@ _WinAPI_InvertRect ( $hDC, $tRECT )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+	设备环境句柄.
 $tRECT
-	$tagRECT structure that contains the logical coordinates of the rectangle to be inverted.
+	$tagRECT 结构,包含矩形的逻辑坐标.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-On monochrome screens, the _WinAPI_InvertRect() makes white pixels black and black pixels white. On color screens,
-the inversion depends on how colors are generated for the screen. Calling _WinAPI_InvertRect() twice for the same
-rectangle restores the display to its previous colors.
+对于单色屏幕, 本函数反转黑白象素(黑反转为白,或反之).
+ 对于彩色屏幕, 反转取决于屏幕生成的颜色.
+ 调用本函数两次, 可恢复矩形到以前显示的颜色.
 
 
 ###See Also###

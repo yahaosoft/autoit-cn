@@ -11,60 +11,60 @@ _NamedPipes_CreateNamedPipe($sName[, $iAccess = 2[, $iFlags = 2[, $iACL = 0[, $i
 ###Parameters###
 @@ParamTable@@
 $sName
-	管道名称,使用这个格式: \\.\管道\管道名. The pipename part of the name can
-		include any character other than a backslash, including numbers and special characters. The pipe name string
-		can be up to 256 characters long. Pipe names are not case sensitive.
+	管道名称有下列格式: \\.\pipe\pipename. The pipename part of the name can
+		该名称的管道名称部分除反斜杠外,可以包含任何字符, 包括数字和特殊字符.
+		管道名称字符串最多可以有 256 个字符. 管道名称不区分大小写.
 $iAccess
-	[optional] The pipe access mode. Must be one of the following:
-		0 - The flow of data in the pipe goes from client to server only (inbound)
-		1 - The flow of data in the pipe goes from server to client only (outbound)
-		2 - The pipe is bi-directional (duplex)
+	[可选参数] 管道接入方式. 必须是下列值之一:
+		0 - 管道中的数据流仅从客户端到服务器(入站)
+		1 - 管道中的数据流仅从服务器到客户端(出站)
+		2 - 管道是双向的（双工）
 $iFlags
-	[optional] The pipe flags. Can be any combination of the following:
-		1 - If you attempt to create multiple instances of a pipe with this flag, creation of the first instance
-		succeeds, but creation of the next instance fails.
-		2 - Overlapped mode is enabled. If this mode is enabled functions performing read, write, and connect
-		operations that may take a significant time to be completed can return immediately.
-		4 - Write-through mode is enabled. This mode affects only write operations on byte type pipes and only when
-		the client and server are on different computers.
+	[可选参数] 管道标志.可以是任何以下组合:
+		1 - 如果您尝试创建此标志管道的多个实例,
+		第一个实例创建成功,但下一个实例创建将失败.
+		2 - 启用重叠模式.如果这个模式被激活,函数履行读,写与连接操作,
+		这可能需要大量的时间才能完成(可以立即返回).
+		4 - 启用连续写入模式.该模式只影响字节类型管道的写操作,
+		且仅当客户端和服务器在不同计算机上.
 $iACL
-	[optional] Security ACL flags. Can be any combination of the following:
-		1 - The caller will have write access to the named pipe's discretionary ACL
-		2 - The caller will have write access to the named pipe's owner
-		4 - The caller will have write access to the named pipe's security ACL
+	[可选参数] 安全 ACL 标志.可以是任何以下值得组合:
+		1 - 调用方将具有写访问命名管道自由裁量的 ACL
+		2 - 调用方将具有写访问命名管道的所有者
+		4 - 调用方将具有写访问命名管道的安全的ACL
 $iType
-	[optional] Pipe type mode. Must be one of the following:
-		0 - Data is written to the pipe as a stream of bytes
-		1 - Data is written to the pipe as a stream of messages
+	[可选参数] 管道类型模式.必须是下列之一:
+		0 - 以字节流向管道写入数据
+		1 - 以消息流向管道写入数据
 $iRead
-	[optional] Pipe read mode. Must be one of the following:
-		0 - Data is read from the pipe as a stream of bytes
-		1 - Data is read from the pipe as a stream of messages
+	[可选参数] 管道读模式.必须是下列之一
+		0 - 以字节流从管道读取数据
+		1 - 以消息流从管道读取数据
 $iWait
-	[optional] Pipe wait mode. Must be one of the following:
-		0 - Blocking mode is enabled. When the pipe handle is specified in ReadFile, WriteFile, or ConnectNamedPipe,
-		the operation is not completed until there is data to read, all data is written, or a client is connected.
-		1 - Nonblocking mode is enabled. ReadFile, WriteFile, and ConnectNamedPipe always return immediately.
+	[可选参数] 管道等待模式.必须是下列之一
+		0 - 启用阻塞模式.当管道句柄由 ReadFile, WriteFile, 或 ConnectNamedPipe 指定时,
+		操作未完成,直到有数据读取,写入所有数据,或者一个客户端连接.
+		1 - 启用非阻塞模式.ReadFile,WriteFile 与 ConnectNamedPipe 总是立即返回.
 $iMaxInst
-	[optional] The maximum number of instances that can be created for this pipe
+	[可选参数] 管道可创建实例的最大数量
 $iOutBufSize
-	[optional] The number of bytes to reserve for the output buffer
+	[可选参数] 输出缓冲区保留的字节数
 $iInpBufSize
-	[optional] The number of bytes to reserve for the input buffer
+	[可选参数] 输入缓冲区保留的字节数
 $iDefTimeOut
-	[optional] The default time out value, in milliseconds
+	[可选参数] 默认的超时值,以毫秒为单位
 $pSecurity
-	[optional] A pointer to a tagSECURITY_ATTRIBUTES structure that specifies a security descriptor for the
-		new named pipe and determines whether child processes can inherit the returned handle. If pSecurity is 0, the
-		named pipe gets a default security descriptor and the handle cannot be inherited. The ACLs in the default
-		security descriptor for a named pipe grant full control to the LocalSystem account administrators, and the
-		creator owner. They also grant read access to members of the Everyone group and the anonymous account.
+	[可选参数] tagSECURITY_ATTRIBUTES 结构指针,它指定新命名管道的安全描述符,并确定是否可以继承子进程返回的句柄
+		如果 pSecurity 为0,命名管道获取默的安全描述符,且句柄不能被继承
+		命名管道授予 LocalSystem 帐户管理员与创建者属主默认完全控制的安全描述符的 ACL 
+		命名管道授予 LocalSystem 帐户管理员与创建者属主默认完全控制的安全描述符的 ACL
+		还授予读取访问 Everyone 组成员和匿名帐户.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Handle to the server end of a named pipe instance
-Failure:	-1
+成功:	服务器端命名管道实例句柄
+失败:	返回 -1
 @@End@@
 
 ###Remarks###

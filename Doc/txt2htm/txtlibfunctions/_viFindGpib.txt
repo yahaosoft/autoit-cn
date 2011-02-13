@@ -2,7 +2,7 @@
 _viFindGpib
 
 ###Description###
-Send a Command/Query to an Instrument/Device through the VISA interface (GPIB / TCP)
+通过 VISA 卡接口(GPIB接口/ TCP协议)发送命令或查询到仪器或设备
 
 ###Syntax###
 #include <Visa.au3>
@@ -11,26 +11,26 @@ _viFindGpib ( ByRef $a_descriptor_list, ByRef $a_idn_list [, $f_show_search_resu
 
 ###Parameters###
 @@ParamTable@@
-$a_descriptor_list (ByRef)
-	RETURNS an array of the VISA resource descriptors of the instruments that were found in the GPIB bus (see the Remarks of the _viExecCommand for more info)
-$a_idn_list (ByRef)
-	RETURNS an array of the IDNs (i.e names)   of the instruments that were found in the GPIB bus
+$a_descriptor_list(ByRef)
+	返回 GPIB 总线设备 VISA 资源描述的数组 (更多信息见 _viExecCommand 备注)
+$a_idn_list(ByRef)
+	返回 GPIB 总线设备 (例如复合名) IDN 数组
 $f_show_search_results
-	[optional] If 1 a message box showing the results of the search will be shown.
-	The default is 0, which means that the results are not shown
+	[可选参数] 如为 1, 则显示搜索结果消息框.
+		默认为 0, 不显示结果
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The number of instruments found (0 or more)
-Failure:	Returns a NEGATIVE value and SETS @error to 1
+成功:	返回设备数(0 或更多)
+失败:	返回一个负值,设置@error:to 1
 @@End@@
 
 
 ###Remarks###
-As for all the VISA functions the VISA libraries must be installed (you can check whether visa32.dll is in {WINDOWS}\system32) and a GPIB card (such as a National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card) must be installed
-
-* For a detailed description of the most common VISA DESCRIPTORS look at the Remarks of the help on the _viExecCommand function
+VISA 函数必须安装 VISA 库文件(您可以检查visa32.dll是否在 WINDOWS\System32 目录中)
+及 GPIB 卡(例如 National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card)
+ * 常见 VISA 描述符详细介绍,见 _viExecCommand 函数备注
 
 
 ###Related###

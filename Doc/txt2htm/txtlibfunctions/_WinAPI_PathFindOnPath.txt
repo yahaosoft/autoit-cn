@@ -2,7 +2,7 @@
 _WinAPI_PathFindOnPath
 
 ###Description###
-Searchs for a file in the default system paths
+搜索默认系统路径文件
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,23 +11,23 @@ _WinAPI_PathFindOnPath ( $szFile, $aExtraPaths="", $szPathDelimiter=@LF)
 ###Parameters###
 @@ParamTable@@
 $szFile
-	Filename to search for
+	搜索的文件名
 $aExtraPaths
-	Extra paths to check before any others.
+	额外的路径.
 $szPathDelimiter
-	Delimiter used to split $aExtraPaths if it's an non-empty string (StringSplit with flag 2).
+	如果 $aExtraPaths 为非空字符串,指定分割 $aExtraPaths 的分隔符(相同于 StringSplit 函数参数 2)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Full path of found file
-Failure:	Unchanged filename, @error=1
+成功:	返回文件的完整路径
+失败:	返回无变化的文件名, @error=1
 @@End@@
 
 ###Remarks###
-$aExtraPaths can contain a list of paths to be checked before any system defaults.
-It can be an array or a string. If the former, it shall not have a count in it's first element.
-If the latter, it will be split using $szPathDelimiter as the delimiter, that defaults to @LF.
+ $aExtraPaths 可以包含任何系统默认选中的路径清单.
+ 它可以是数组或字符串. 如果是前者, 则不计算它的第一个元素.
+ 如果是后者, 它会使用 $szPathDelimiter 的分隔符,而默认为 @LF.
 
 ###Related###
 

@@ -2,7 +2,7 @@
 _WinAPI_ShellGetStockIconInfo
 
 ###Description###
-Retrieves information about system-defined Shell icons.
+检索系统定义的 Shell 图标信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,33 +11,29 @@ _WinAPI_ShellGetStockIconInfo ( $SIID, $iFlags )
 ###Parameters###
 @@ParamTable@@
 $SIID
-	One of the $SIID_* constants that specifies which icon should be retrieved.
+	$SIID_* 常量,指定要检索的图标 .
 $iFlags
-	The flags that specify which information is requested. This parameter can be a combination of the
-	following values.
-	
-	$SHGSI_ICONLOCATION
-	$SHGSI_ICON
-	$SHGSI_SYSICONINDEX
-	$SHGSI_LINKOVERLAY
-	$SHGSI_SELECTED
-	$SHGSI_LARGEICON
-	$SHGSI_SMALLICON
-	$SHGSI_SHELLICONSIZE
-	
+	信息要求.参数可以是以下值的组合:
+		$SHGSI_ICONLOCATION --- $tagSHSTOCKICONINFO 结构的 szPath 与 iIcon 成员接收请求的请求的路径和图标
+		$SHGSI_ICON --- $tagSHSTOCKICONINFO 结构的 iIcon 成员接收请求的图标句柄
+		$SHGSI_SYSICONINDEX --- $tagSHSTOCKICONINFO 结构的 iSysImageImage 成员接收系统图像列表中指定图标索引
+		$SHGSI_LINKOVERLAY --- 修改 SHGSI_ICON 值,使函数将链接添加到覆盖该文件的图标
+		$SHGSI_SELECTED --- 修改 SHGSI_ICON 值,使函数融合图标与系统的高亮颜色
+		$SHGSI_LARGEICON --- 修改 SHGSI_ICON 值,使函数检索 SM_CXICON和SM_CYICON 系统标准中指定的大图标
+		$SHGSI_SMALLICON --- 修改 SHGSI_ICON 值,使函数检索 SM_CXICON 与 SM_CYICON 系统标准中指定的小图标
+		$SHGSI_SHELLICONSIZE --- 修改 SHGSI_LARGEICON 或 SHGSI_SMALLICON 值,使函数检索 Shell 大小的图标,而不是由系统标准规定的尺寸
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	$tagSHSTOCKICONINFO structure that contains the requested information.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回 $tagSHSTOCKICONINFO 结构,包含所要求的资料.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-If this function returns an icon handle in the "hIcon" member of the $tagSHSTOCKICONINFO structure, you are
-responsible for freeing the icon with _WinAPI_DestroyIcon() when you no longer need it.
-
-This function requires Windows Vista or later.
+如果此函数返回 $tagSHSTOCKICONINFO 结构中 "hIcon" 成员指向的图标句柄,
+ 当你不再需要它时,调用 _WinAPI_DestroyIcon() 释放它.
+ 本函数需要 Windows Vista 或更高版本系统.
 
 
 ###See Also###

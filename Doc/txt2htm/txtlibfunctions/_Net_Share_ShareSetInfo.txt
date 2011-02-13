@@ -2,7 +2,7 @@
 _Net_Share_ShareSetInfo
 
 ###Description###
-Shares a server resource
+共享服务器资源
 
 ###Syntax###
 #Include <NetShare.au3>
@@ -11,27 +11,26 @@ _Net_Share_ShareSetInfo($sServer, $sShare, $sComment, $iMaxUses)
 ###Parameters###
 @@ParamTable@@
 $sServer
-	Specifies the DNS or NetBIOS name of the remote server on which the function is to execute. If
-		this parameter is blank, the local computer is used.
+	指定 DNS 或 NetBIOS 远程服务器上执行函数的名称
+		如果此参数为空, 在本地计算机上使用.
 $sShare
-	Specifies the name of the share to set information on
+	指定设置信息的共享名称
 $sComment
-	String that contains an optional comment about the shared resource
+	共享资源的可选注释
 $iMaxUses
-	Indicates the maximum number of connections that the resource can accommodate. The number of
-		connections is unlimited if this value is –1.
+	资源所能容纳的最大连接数量．
+		如果这个值是　-1,则连接数是无限的．
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	True
-失败:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-Only members of the Administrators or Power Users local group or those with Print or Server Operator group
-membership, can successfully execute this function. The Print Operator can set information only about Printer
-shares.
+系统管理员或 Power Users 本地组成员或打印或服务器操作员,
+可以成功地执行这个函数.打印操作员仅可设置打印机共享信息.
 
 ###Related###
 _Net_Share_ShareGetInfo

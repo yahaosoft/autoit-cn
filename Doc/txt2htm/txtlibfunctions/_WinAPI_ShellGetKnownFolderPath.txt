@@ -2,7 +2,7 @@
 _WinAPI_ShellGetKnownFolderPath
 
 ###Description###
-Retrieves the full path of a known folder identified.
+检索已知文件夹的完整路径.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,37 +11,32 @@ _WinAPI_ShellGetKnownFolderPath ( $GUID [, $iFlags [, $hToken]] )
 ###Parameters###
 @@ParamTable@@
 $GUID
-	The GUID ($FOLDERID_*) that identifies the standard folders registered with the system.
+	系统标准文件夹的标识 GUID ($FOLDERID_*).
 $iFlags
-	[可选参数] The flags that specify special retrieval options. This parameter can be one or more of the following values.
-	
-	$KF_FLAG_CREATE
-	$KF_FLAG_DONT_VERIFY
-	$KF_FLAG_DONT_UNEXPAND
-	$KF_FLAG_NO_ALIAS
-	$KF_FLAG_INIT
-	$KF_FLAG_DEFAULT_PATH
-	$KF_FLAG_NOT_PARENT_RELATIVE
-	$KF_FLAG_SIMPLE_IDLIST
-	
-	*Windows 7 or later
-	
-	$KF_FLAG_ALIAS_ONLY
-	
+	[可选参数] 检索选项. 参数可以是一或多个下列值:
+		 $KF_FLAG_CREATE --- 如果该文件夹不存在,强制创建指定的文件夹
+		 $KF_FLAG_DONT_VERIFY --- 在检索路径或 IDList 之前,不验证该文件夹的存在
+		 $KF_FLAG_DONT_UNEXPAND --- 使用注册表中存储的完整路径,而不使用环境字符串
+		 $KF_FLAG_NO_ALIAS --- 获取任何别名文件夹
+		 $KF_FLAG_INIT --- 使用 Desktop.ini 初始化文件夹.此标志应始终结合 KF_FLAG_CREATE
+		 $KF_FLAG_DEFAULT_PATH --- 获取已知文件夹的默认路径
+		 $KF_FLAG_NOT_PARENT_RELATIVE --- 获取文件夹的默认路径,与父层位置无关,.必须同时设置 KF_FLAG_DEFAULT_PATH
+		 $KF_FLAG_SIMPLE_IDLIST --- 构建一个简单的 IDList (PIDL).检索期望的文件系统路径
+		 *Windows 7 或更高系统
+		 $KF_FLAG_ALIAS_ONLY --- 只返回别名 PIDL.不使用文件系统路径
 $hToken
-	[可选参数] The access token that represents a particular user. If this parameter is 0, the function requests
-	the known folder for the current user. Assigning the $hToken parameter a value of (-1) indicates the
-	Default User. Note that access to the Default User folders requires administrator privileges.
+	[可选参数] 代表一个特定用户的访问令牌. 如果此参数为 0, 函数使用当前用户已知的文件夹
+		 指定 $hToken 参数值为 -1,表示默认用户.请注意,文件夹的默认用户需要管理员访问权限. 
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The path of the known folder.
-Failure	Empty string and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回已知文件夹的路径.
+失败:	返回空串,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-This function requires Windows Vista or later.
+本函数需要 Windows Vista 或更高版本系统.
 
 
 ###See Also###

@@ -2,7 +2,7 @@
 _WinAPI_SetWindowText
 
 ###Description###
-Changes the text of the specified window's title bar
+更改指定窗口的标题栏文本
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,22 +11,22 @@ _WinAPI_SetWindowText($hWnd, $sText)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window or control whose text is to be changed
+	窗口或控件的句柄
 $sText
-	String to be used as the new title or control te
+	新的字符串
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	True
-Failure	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-If the target window is owned by the current process, SetWindowText causes a $WM_SETTEXT message to be sent to
-the specified window or control. If the control is a list box control created with the $WS_CAPTION style,
-however, SetWindowText sets the text for the control, not for the list box entries. To set the text of a
-control in another process, send the $WM_SETTEXT message directly instead of calling SetWindowText.
+ 如果目标窗口是由当前进程拥有, 本函数将导致 $WM_SETTEXT 消息被发送到指定的窗口或控件.
+ 如果控件是一个使用 $WS_CAPTION 样式创建的列表框控件,
+ 本函数设置控件的文本, 而不是为列表框中的项.
+ 设置另一进程控件的文本,直接发送 $WM_SETTEXT 消息, 而不是调用本函数.
 
 ###Related###
 

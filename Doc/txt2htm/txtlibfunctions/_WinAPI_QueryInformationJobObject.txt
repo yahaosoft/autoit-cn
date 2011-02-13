@@ -2,7 +2,7 @@
 _WinAPI_QueryInformationJobObject
 
 ###Description###
-Retrieves limit and job state information from the job object.
+检索作业对象的限制和作业状态信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,28 +11,27 @@ _WinAPI_QueryInformationJobObject ( $hJob, $iJobObjectInfoClass, ByRef $tJobObje
 ###Parameters###
 @@ParamTable@@
 $hJob
-	Handle to the job whose information is being queried. The handle must have the
-	$JOB_OBJECT_QUERY access right. If this value is 0 and the calling process is associated
-	with a job, the job associated with the calling process is used.
+	作业句柄.作业句柄. 句柄必须有 $JOB_OBJECT_QUERY 访问权限.
+		 如果这个值是 0, 且调用进程与作业相关,并使用与作业相关的进程.
 $iJobObjectInfoClass
-	The information class for the limits to be queried. This parameter specifies the type
-	of $tJobObjectInfo structure, valid values:
-		1  - $tagJOBOBJECT_BASIC_ACCOUNTING_INFORMATION
-		2  - $tagJOBOBJECT_BASIC_LIMIT_INFORMATION
-		3  - $tagJOBOBJECT_BASIC_PROCESS_ID_LIST
-		4  - $tagJOBOBJECT_BASIC_UI_RESTRICTIONS
-		5  - $tagJOBOBJECT_SECURITY_LIMIT_INFORMATION
-		8  - $tagJOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION
-		9  - $tagJOBOBJECT_EXTENDED_LIMIT_INFORMATION
-		11 - $tagJOBOBJECT_GROUP_INFORMATION
+	查询限制的类信息.参数指定为 $tJobObjectInfo 结构类型, 有效值为:
+		1 - $tagJOBOBJECT_BASIC_ACCOUNTING_INFORMATION --- 包含作业对象的基本统计信息
+		2 - $tagJOBOBJECT_BASIC_LIMIT_INFORMATION --- 包含作业对象的基本限制的信息
+		3 - $tagJOBOBJECT_BASIC_PROCESS_ID_LIST --- 含了作业对象的标识符列表
+		4 - $tagJOBOBJECT_BASIC_UI_RESTRICTIONS --- 包含作业对象基本用户界面限制
+		5 - $tagJOBOBJECT_SECURITY_LIMIT_INFORMATION --- 用于作业系统指定的部分
+		8 - $tagJOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION --- 包含作业对象基本统计和 I/O 统计信息
+		9 - $tagJOBOBJECT_EXTENDED_LIMIT_INFORMATION --- 包含作业对象基本的和扩展的限制信息
+		11 - $tagJOBOBJECT_GROUP_INFORMATION --- 指向一个缓冲区的指针
 $tJobObjectInfo
-	$tagJOBOBJECT_* structure that retrieves the limit and job state information.
+	检索限制和工作状态信息的 $tagJOBOBJECT_* 结构.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The length of data (in bytes) written to the structure pointed to by the
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回写入 $tJobObjectInfo 参数指定结构的数据字节长度.
+	
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

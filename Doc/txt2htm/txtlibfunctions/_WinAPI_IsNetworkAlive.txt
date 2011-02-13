@@ -2,29 +2,26 @@
 _WinAPI_IsNetworkAlive
 
 ###Description###
-Determines whether or not a local system is connected to a network, and identifies the type of network connection.
+确定本地系统的网络连接状态,并确定网络连接的类型.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_IsNetworkAlive ( )
 
 ###Parameters###
-@@ParamTable@@
 None.
-@@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The type of network connection ($NETWORK_ALIVE_*) if a local system is connected to a network.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0	Is no connection.
-Failure	0 and sets the @error flag to non-zero.
+成功:	如果本地系统连接到网络, 则返回网络连接类型($NETWORK_ALIVE_*).
+	返回 0 - 没有连接.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-Always check @error flag before checking the return value of this function. If the @error is not 0,
-the function has failed and the following values do not apply.
-
-This function is only available for TCP/IP connections.
+检查 @error 标志之前, 总是先检查此函数的返回值.
+如果 @error 不为 0, 函数失败,下面的值不适用(译注:原文未说明"下面的值"是什么值)
+此函数仅适用于 TCP/IP 连接
 
 
 ###See Also###

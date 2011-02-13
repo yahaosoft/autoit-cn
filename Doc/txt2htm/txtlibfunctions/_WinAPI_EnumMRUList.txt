@@ -2,7 +2,7 @@
 _WinAPI_EnumMRUList
 
 ###Description###
-Enumerates the contents of the most recently used (MRU) list.
+枚举最近使用（MRU）列表的内容.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,15 +11,19 @@ _WinAPI_EnumMRUList ( $hMRU, $iItem )
 ###Parameters###
 @@ParamTable@@
 $hMRU
-	Handle of the MRU list, obtained when the list was created.
+	MRU 列表句柄.
 $iItem
-	The item to return. If this value is (-1), the function returns the number of items in the MRU list.
+	返回的项目.如果此值为 -1, 则函数返回 MRU 列表的项目数.
+$fBinary
+	[可选参数] 指定是否返回二进制数据, 有效值为:
+		1 - 返回二进制数据. 仅当创建的 MRU 列表具有 $MRU_BINARY 标志时有效.
+		0 - 返回字符串. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The item requested in $iItem. If $iItem is (-1) - the number of items in the MRU list.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 $iItem 指定的项目.如果 $iItem 为 -1, 则函数返回 MRU 列表的项目数.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

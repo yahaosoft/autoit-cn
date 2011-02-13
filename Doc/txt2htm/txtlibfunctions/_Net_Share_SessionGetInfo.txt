@@ -2,7 +2,7 @@
 _Net_Share_SessionGetInfo
 
 ###Description###
-Retrieves information about a session established between a server and workstation
+检索服务器和工作站之间建立会话的信息
 
 ###Syntax###
 #Include <NetShare.au3>
@@ -11,33 +11,33 @@ _Net_Share_SessionGetInfo($sServer, $sClientName, $sUserName)
 ###Parameters###
 @@ParamTable@@
 $sServer
-	String that specifies the DNS or NetBIOS name of the remote server on which the function is to
-		execute. If this parameter is blank the local computer is used.
+	指定函数将操作远程服务器的 DNS 或 NetBIOS 名称字符串
+		如果参数为空, 则使用本地计算机.
 $sClientName
-	Specifies the name of the computer session for which information is to be returned. This
-		parameter cannot be blank.
+	指定返回信息的计算机会话名称.
+		此参数不能为空.
 $sUserName
-	String that specifies the name of the user whose session information is to be returned. This
-		parameter cannot be blank.
+	指定返回会话信息的用户名称.
+		此参数不能为空.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	[0] - Name of the computer that established the session
-	[1] - Name of the user who established the session
-	[2] - Number of files, devices, and pipes opened during the session
-	[3] - Number of seconds the session has been active
-	[4] - Number of seconds the session has been idle
-	[5] - Specifies how the user established the session:
-	 1 - User established session using a guest account
-	 2 - User established session without using password encryption
-	[6] - Specifies the type of client that established the session
-Failure:	Set @error
+成功:	返回以下格式的数组:
+	[0] - 计算机确定的会话名称
+	[1] - 建立会话的用户名称
+	[2] - 文件, 设备的数量, 并在会话期间打开的管道
+	[3] - 有效会话时间的秒数
+	[4] - 会话闲置时间的秒数
+	[5] - 指定用户如何确定会话:
+	1 - 用户使用来宾帐户建立的会话
+	2 - 用户不使用密码建立的会话
+	[6] - 指定客户端建立的会话类型
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###
-Only members of the Administrators or Server Operators local group can execute this function
+系统管理员,服务器操作员或本地组成员才能执行此功能
 
 ###Related###
 _Net_Share_FileGetInfo, _Net_Share_ShareGetInfo

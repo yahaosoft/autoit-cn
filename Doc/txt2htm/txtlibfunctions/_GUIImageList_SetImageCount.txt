@@ -2,7 +2,7 @@
 _GUIImageList_SetImageCount
 
 ###Description###
-Resizes an existing image list
+调整现有图像列表的大小
 
 ###Syntax###
 #Include <GuiImageList.au3>
@@ -11,23 +11,22 @@ _GUIImageList_SetImageCount($hWnd, $iNewCount)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iNewCount
-	The new size of the image list
+	图像列表的新大小
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	True
-失败:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-If an application expands an image list with this function, it must add new images by using
-the GUIImageList_Replace function. If your application does not add valid images at the new indexes,
-draw operations that use the new indexes will be unpredictable.
-
-If you decrease the size of an image list by using this function, the truncated images are freed.
+ 如果应用程序使用此函数扩展图像列表,
+必须使用 GUIImageList_Replace 函数添加新图像.
+如果应用程序不为新索引添加有效的图像,使用新索引绘制操作将难以预料. 
+ 如果使用此函数减小图像列表的尺寸,截断的图像将被释放.
 
 ###Related###
 _GUIImageList_GetImageCount

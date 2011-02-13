@@ -2,7 +2,7 @@
 _WinAPI_ShellChangeNotifyRegister
 
 ###Description###
-Registers a window to receive notifications from the file system or Shell.
+注册接收文件系统或 Shell 通知的窗口.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,43 +11,38 @@ _WinAPI_ShellChangeNotifyRegister ( $hWnd, $iMsg, $iEvents, $iSources, $aPaths [
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window that receives the change or notification messages.
+	接收改变或通知消息的窗口句柄.
 $iMsg
-	Message to be posted to the window procedure.
+	被发送到窗口程序的消息.
 $iEvents
-	Change notification events for which to receive notification. This parameter can be one or more
-	of the $SHCNE_* values.
+	更改接收的通知事s件.此参数可以是一或多个 $SHCNE_ * 值.	
 $iSources
-	One or more of the following values that indicate the type of events for which to receive
-	notifications.
-	
-	$SHCNRF_INTERRUPTLEVEL
-	$SHCNRF_SHELLLEVEL
-	$SHCNRF_RECURSIVEINTERRUPT
-	$SHCNRF_NEWDELIVERY
-	
+	一或多个指示事件类型的通知值:
+		 notifications.
+		 $SHCNRF_INTERRUPTLEVEL
+		 $SHCNRF_SHELLLEVEL
+		 $SHCNRF_RECURSIVEINTERRUPT
+		 $SHCNRF_NEWDELIVERY
 $aPaths
-	Single path or array of paths for which to receive notifications. These names should be
-	fully-qualified paths to prevent unexpected results.
+	接收通知的单一路径或路径的数组.
+		名称应该是完全合格的路径,以防止发生意外的结果.
 $fRecursive
-	[可选参数] Specifies whether to post notifications for children paths in $aPaths parameter, valid values:
-		TRUE       - Notifications would come from the folder's children.
-		FALSE      - Notifications would come from the specified folder's only. (Default)
+	[可选参数] 指定是否发送 $aPaths 参数的子路径通知.有效值:
+		1 - 发送来自子文件夹的通知.
+		0 - 仅发送来自指定文件夹的通知. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The registration ID.
-Failure	0 and sets the @error flag to non-zero.
+成功:	The registration ID.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-When a change notification event is raised, the message indicated by $iMsg is delivered to the window specified
-by the $hWnd parameter. (See example)
-
-For performance reasons, multiple notifications can be combined into a single notification. For example,
-if a large number of $SHCNE_UPDATEITEM notifications are generated for files in the same folder, they can be
-joined into a single $SHCNE_UPDATEDIR notification.
+当一个更改通知事件发生时,由 $iMsg 表示的消息发送到由 $hwnd 参数指定的窗口.(见示例)
+ 出于性能的原因,多次通知可以组合成一个单一的通知.
+ 例如, $SHCNE_UPDATEITEM 的多次通知是在同一文件夹中生成的,
+ 它们可以被加入到一个单一 $SHCNE_UPDATEDIR 通知中.
 
 
 ###See Also###

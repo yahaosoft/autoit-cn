@@ -2,7 +2,7 @@
 _WinNet_ConnectionDialog1
 
 ###Description###
-Starts a general browsing dialog box for connecting to network resources
+启动普通浏览对话框,用于连接网络资源．
 
 ###Syntax###
 #Include <WinNet.au3>
@@ -11,22 +11,22 @@ _WinNet_ConnectionDialog1($hWnd [, $sRemoteName = "" [, $iFlags = 2]])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the owner window for the dialog box
+	对话框所有者窗口句柄．
 $sRemoteName
-	[optional] Name of the network resource to connect to
+	[可选参数] 连接到的网络资源名称
 $iFlags
-	[optional] Dialog box options. Can be one or more of the following:
-		 1 - Display a read-only path instead of allowing the user to type in a path
-		 2 - Enter the most recently used paths into the combination box
-		 4 - Do not show the restore the connection at logon checkbox
-		 8 - Restore the connection at logon
-		16 - Do not restore the connection at logon
+	[可选参数] 对话框选项．可以是一或多个下列值:
+		1 - 显示一个只读的路径,而不是让用户输入一个路径．
+		2 - 输入最近使用的路径到组合框
+		4 - 不显示登录时恢复连接复选框
+		8 - 登录时还原连接
+		16 - Do not 登录时还原连接
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns the number of the connected device. The value is 1 for A:, 2 for B:, 3 for C: and so on. If the user made a deviceless connection, the value is –1.
-Failure:	Set @error
+成功:	返回数字的连接设备．该值是 1 为 A:, 2 为 B:, 3 为 C:等等．如果用户提出设备的连接,该值是　-1．
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###

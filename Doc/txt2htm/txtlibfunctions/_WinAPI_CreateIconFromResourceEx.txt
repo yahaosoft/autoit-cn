@@ -2,7 +2,7 @@
 _WinAPI_CreateIconFromResourceEx
 
 ###Description###
-Creates an icon or cursor from resource bits describing the icon.
+创建资源位描述的图标或光标.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,38 +11,36 @@ _WinAPI_CreateIconFromResourceEx ( $pData, $iSize [, $fIcon [, $xDesired [, $yDe
 ###Parameters###
 @@ParamTable@@
 $pData
-	The icon or cursor resource bits. These bits are typically loaded by calls to the _WinAPI_LookupIconIdFromDirectoryEx()
-	and _WinAPI_LoadResource() functions.
+	图标或光标的资源位.通常调用 _WinAPI_LookupIconIdFromDirectoryEx() 与 _WinAPI_LoadResource() 函数加载
+		 and _WinAPI_LoadResource() functions.
 $iSize
-	The size, in bytes, of the set of bits pointed to by the $pData parameter.
+	字节大小,位设置由 $pData 参数值指定.
 $fIcon
-	[可选参数] Specifies whether an icon or a cursor is to be created, valid values:
-		TRUE     - An icon is to be created. (Default)
-		FALSE    - A cursor is to be created.
+	[可选参数] 确定创建图标或光标.有效值:
+		1 - 创建图标. (默认)
+		0 - 创建光标.
 $xDesired
-	[可选参数] The desired width, in pixels, of the icon or cursor. If this parameter is zero, the function uses the
-	system metric value to set the width.
+	[可选参数] 图标或光标的宽度像素值.
+		如果次参数为 0,函数使用系统度量值设置的宽度.
 $yDesired
-	[可选参数] The desired height, in pixels, of the icon or cursor. If this parameter is zero, the function uses the
-	system metric value to set the height.
+	[可选参数] 图标或光标的高度像素值.
+		如果次参数为 0,函数使用系统度量值设置的高度.
 $iFlags
-	[可选参数] This parameter can be one or more of the following values.
-	
-	$LR_DEFAULTCOLOR
-	$LR_DEFAULTSIZE
-	$LR_MONOCHROME
-	$LR_SHARED
-	
+	[可选参数] 参数可以是一或多个下列值:
+		 $LR_DEFAULTCOLOR --- 使用默认颜色格式
+		 $LR_DEFAULTSIZE --- 如果 $xDesired 或 $yDesired 设置为 0,光标或图标得宽(高)度由系统度量值确定
+		 $LR_MONOCHROME --- 创建单色图标或光标
+		 $LR_SHARED --- 如果图标或光标多次创建,则共享图标或光标句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle to the icon or cursor.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回图标或光标的句柄.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###
-You should call _WinAPI_DestroyIcon() for icons created with _WinAPI_CreateIconFromResourceEx().
+调用 _WinAPI_DestroyIcon() 销毁 _WinAPI_CreateIconFromResourceEx() 创建的对象.
 
 
 ###See Also###

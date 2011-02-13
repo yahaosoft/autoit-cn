@@ -2,7 +2,7 @@
 _WinAPI_DrawEdge
 
 ###Description###
-Draws one or more edges of rectangle
+绘制一或多个矩形的边缘
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,54 +11,54 @@ _WinAPI_DrawEdge($hDC, $ptrRect, $nEdgeType, $grfFlags)
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context into which the icon or cursor is drawn
+	设备环境句柄
 $ptrRect
-	Pointer to a $tagRECT structure that contains the logical coordinates of the rectangle
+	$tagRECT 结构指针, 它包含矩形的逻辑坐标
 $nEdgeType
-	Specifies the type of inner and outer edges to draw. This parameter must be a combination of one inner-border flag and one outer-border flag.
-		The inner-border flags are as follows:
-		$BDR_RAISEDINNER - Raised inner edge
-		$BDR_SUNKENINNER - Sunken inner edge
-		The outer-border flags are as follows:
-		$BDR_RAISEDOUTER - Raised outer edge
-		$BDR_SUNKENOUTER - Sunken outer edge
-		Alternatively, the edge parameter can specify one of the following flags:
-		$EDGE_BUMP - Combination of $BDR_RAISEDOUTER and $BDR_SUNKENINNER
-		$EDGE_ETCHED - Combination of $BDR_SUNKENOUTER and $BDR_RAISEDINNER
-		$EDGE_RAISED - Combination of $BDR_RAISEDOUTER and $BDR_RAISEDINNER
-		$EDGE_SUNKEN - Combination of $BDR_SUNKENOUTER and $BDR_SUNKENINNER
+	内部和外部边缘类型.此参数必须是一个内部边界标志和一个外部边界标志的组合.
+		内部边界标志如下:
+		$BDR_RAISEDINNER - 凸起的内缘
+		$BDR_SUNKENINNER - 凹下的内缘
+		外部边界标志如下:
+		$BDR_RAISEDOUTER - 凸起的外缘
+		$BDR_SUNKENOUTER - 凹下的外缘
+		另外,边缘参数还`可以指定下列标志之一:
+		$EDGE_BUMP - 结合 $BDR_RAISEDOUTER and $BDR_SUNKENINNER
+		$EDGE_ETCHED - 结合 $BDR_SUNKENOUTER and $BDR_RAISEDINNER
+		$EDGE_RAISED - 结合 $BDR_RAISEDOUTER and $BDR_RAISEDINNER
+		$EDGE_SUNKEN - 结合 $BDR_SUNKENOUTER and $BDR_SUNKENINNER
 $grfFlags
-	Specifies the type of border. This parameter can be a combination of the following values:
-		$BF_ADJUST - If this flag is passed, shrink the rectangle pointed to by the $ptrRect parameter to exclude the edges that were drawn.
-		If this flag is not passed, then do not change the rectangle pointed to by the $ptrRect parameter
-		$BF_BOTTOM - Bottom of border rectangle
-		$BF_BOTTOMLEFT - Bottom and left side of border rectangle
-		$BF_BOTTOMRIGHT - Bottom and right side of border rectangle
-		$BF_DIAGONAL - Diagonal border
-		$BF_DIAGONAL_ENDBOTTOMLEFT - Diagonal border. The end point is the bottom-left corner of the rectangle; the origin is top-right corner
-		$BF_DIAGONAL_ENDBOTTOMRIGHT - Diagonal border. The end point is the bottom-right corner of the rectangle; the origin is top-left corner
-		$BF_DIAGONAL_ENDTOPLEFT - Diagonal border. The end point is the top-left corner of the rectangle; the origin is bottom-right corner
-		$BF_DIAGONAL_ENDTOPRIGHT - Diagonal border. The end point is the top-right corner of the rectangle; the origin is bottom-left corner
-		$BF_FLAT - Flat border
-		$BF_LEFT - Left side of border rectangle
-		$BF_MIDDLE - Interior of rectangle to be filled
-		$BF_MONO - One-dimensional border
-		$BF_RECT - Entire border rectangle
-		$BF_RIGHT - Right side of border rectangle
+	边框类型.此参数可以是下面值的结合:
+		$BF_ADJUST - 如果传递这个标志,收缩 $ptrRect 指向的矩形,排除绘制前的边缘.
+		如果不传递此标志,那么不改变 $ptrRect 指向的矩形
+		$BF_BOTTOM - 边界矩形底部
+		$BF_BOTTOMLEFT - 边界矩形的底部和左侧
+		$BF_BOTTOMRIGHT - 边界矩形的底部和右侧
+		$BF_DIAGONAL - 边框的对角线
+		$BF_DIAGONAL_ENDBOTTOMLEFT - 边框的对角线. 矩形的右上角到左下角
+		$BF_DIAGONAL_ENDBOTTOMRIGHT - 边框的对角线. 矩形的左上角到右下角
+		$BF_DIAGONAL_ENDTOPLEFT - 边框的对角线. 矩形的右下角到左上角
+		$BF_DIAGONAL_ENDTOPRIGHT - 边框的对角线. 矩形的左下角到右上角
+		$BF_FLAT - 平面边框
+		$BF_LEFT - 边界矩形的左边
+		$BF_MIDDLE - 矩形的内部
+		$BF_MONO - 一维边框
+		$BF_RECT - 整个矩形边框
+		$BF_RIGHT - 边界矩形的右侧
 		$BF_SOFT - Soft buttons instead of tiles
-		$BF_TOP - Top of border rectangle
-		$BF_TOPLEFT - Top and left side of border rectangle
-		$BF_TOPRIGHT - Top and right side of border rectangle
+		$BF_TOP - 矩形的上边
+		$BF_TOPLEFT - 边界矩形的上边和左边
+		$BF_TOPRIGHT - 边界矩形的上边和右侧
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-Needs BorderConstants.au3 for pre-defined constants
+ 需要 BorderConstants.au3 预先定义的常量
 
 ###Related###
 $tagRECT

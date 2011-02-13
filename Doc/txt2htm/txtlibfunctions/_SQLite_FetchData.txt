@@ -2,7 +2,7 @@
 _SQLite_FetchData
 
 ###Description###
-Fetches 1 row of data from a _SQLite_Query() based query
+提取 _SQLite_Query() 查询的一行数据
 
 ###Syntax###
 #include <SQLite.au3>
@@ -12,28 +12,28 @@ _SQLite_FetchData ( $hQuery, ByRef $aRow [, $fBinary  = False [, $fDoNotFinalize
 ###Parameters###
 @@ParamTable@@
 $hQuery
-	Queryhandle passed out by _SQLite_Query()
+	传递到 _SQLite_Query() 的查询句柄
 $aRow
-	A 1 dimensional array containing a row of data
+	包含一行数据的一维数组
 $fBinary
-	[optional] Switch for binary mode ($aRow will be a array of binary strings)
+	[可选参数] 二进制模式切换($aRow 为二进制字符串数组)
 $fDoNotFinalize
-	[optional] Switch can be set to TRUE if you need to keep the query unfinalized for further use.
-	(It is then the caller's responsability to invoke _SQLite_QueryFinalize before Shutdown.)
+	[可选参数] 如果你需要保留该查询供下一步使用, 切换设置为 TRUE.
+		(如果是这样, 则调用者必须在关机前调用 _SQLite_QueryFinalize.)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns $SQLITE_OK
-Failure:	Return value can be compared against $SQLITE_* constants
-@error:	-1 - SQLite reported an error (Check return value)
-	1 - Error calling SQLite API 'sqlite3_step'
-	2 - Error calling SQLite API 'sqlite3_data_count'
-	3 - Error calling SQLite API 'sqlite3_column_text16'
-	4 - Error calling SQLite API 'sqlite3_column_type'
-	5 - Error calling SQLite API 'sqlite3_column_bytes'
-	6 - Error calling SQLite API 'sqlite3_column_blob'
-	7 - Call prevented by SafeMode
+成功:	返回 $SQLITE_OK
+失败:	返回值可能违反 $SQLITE_* 常量@错误:
+	-1 - SQLite 报告错误 (检查返回值)
+	1 - 错误调用 SQLite API 'sqlite3_step'
+	2 - 错误调用 SQLite API 'sqlite3_data_count'
+	3 - 错误调用 SQLite API 'sqlite3_column_text16'
+	4 - 错误调用 SQLite API 'sqlite3_column_type'
+	5 - 错误调用 SQLite API 'sqlite3_column_bytes'
+	6 - 错误调用 SQLite API 'sqlite3_column_blob'
+	7 - 调用被安全模式阻止
 @@End@@
 
 ###Remarks###

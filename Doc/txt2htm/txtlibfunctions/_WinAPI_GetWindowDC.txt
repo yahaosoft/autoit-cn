@@ -2,7 +2,7 @@
 _WinAPI_GetWindowDC
 
 ###Description###
-Retrieves the device context (DC) for the entire window
+检索整个窗口的设备环境（DC）
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,21 +11,21 @@ _WinAPI_GetWindowDC($hWnd)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle of window
+	窗口句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The handle of a device context for the specified window
-Failure:	0
+成功:	返回指定窗口设备环境的句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-GetWindowDC is intended for special painting effects within a window's nonclient area. Painting in nonclient
-areas of any window is normally not recommended. The GetSystemMetrics function can be used to retrieve the
-dimensions of various parts of the nonclient area, such as the title bar, menu, and scroll bars. After
-painting is complete, the _WinAPI_ReleaseDC function must be called to release the device context. Not releasing
-the window device context has serious effects on painting requested by applications.
+ 本函数用于在窗口非客户区的特殊绘画效果,
+ 通常不推荐在任何窗口非客户区绘画.
+ GetSystemMetrics 函数可用于检索非客户区的各部分尺寸, 如标题栏, 菜单, 滚动条.
+ 绘画完成后, 必须调用 _WinAPI_ReleaseDC 函数以释放设备环境.
+ 没有释放的窗口设备环境对绘画的应用要求有严重影响.
 
 ###Related###
 _WinAPI_ReleaseDC

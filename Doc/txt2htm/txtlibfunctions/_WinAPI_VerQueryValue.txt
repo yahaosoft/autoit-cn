@@ -2,7 +2,7 @@
 _WinAPI_VerQueryValue
 
 ###Description###
-Retrieves specified version information from the specified file.
+检索指定文件的版本信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,38 +11,39 @@ _WinAPI_VerQueryValue ( $sFile [, $sValues] )
 ###Parameters###
 @@ParamTable@@
 $sFile
-	The name of the file.
+	文件的名称.
 $sValues
-	[可选参数] The string containing the field names for which you want to get values. The names must be separated
-	by a "|". For example, "name1|name2|...|namei". If some fields do not exist, the corresponding array
-	elements is an empty string. If this parameter is not specified (empty string), uses the reserved
-	names (12) in the following sequence.
-	
-	"Comments"
-	"CompanyName"
-	"FileDescription"
-	"FileVersion'
-	"InternalName"
-	"LegalCopyright"
-	"LegalTrademarks"
-	"OriginalFilename"
-	"ProductName"
-	"ProductVersion"
-	"PrivateBuild"
-	"SpecialBuild"
-	
+	[可选参数] 期望获取信息的字段名称.名称必须用一个“|”分隔.
+		 例如, "名称1|名称2|...|名称i". 如果某些字段不存在,
+		 相应的阵列元素是一个空字符串.
+		 如果指定此参数为空,使用下列顺序保留名称(12个).
+		 "Comments" ------ 注释
+		 "CompanyName" -- 公司名称
+		 "FileDescription" -- 文件说明
+		 "FileVersion&quot; ------ 文件版本
+		 "InternalName" --- 内部名称
+		 "LegalCopyright" -- 法定版权副本
+		 "LegalTrademarks" - 法定商标
+		 "OriginalFilename" - 原始文件名
+		 "ProductName" --- 产品名称
+		 "ProductVersion" - 产品版本
+		 "PrivateBuild" ---- 私用编译 
+		 "SpecialBuild" ---- 专用编译
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The 2D array of the string values that specified by $sValues parameter for each language. The zeroth
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0][0]	Number of languages (n)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0][i]	Unused
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1][0]	LCID
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1][i]	Value
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[n][0]	LCID
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[n][i]	Value
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回参数 $sValues 指定值的字符串二维数组.
+	元素 [0][0] 包含了资源的语言数量.
+	数组尺寸（i）相等于指定参数 + 1 的值.
+	数组元素 [n][0] 包含语言标识符（LCID）.
+	[0][0] - 语言数量 (n)
+	[0][i] - 未使用
+	[1][0] - LCID
+	[1][i] - 值
+	[n][0] - LCID
+	[n][i] - 值
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

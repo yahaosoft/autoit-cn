@@ -2,7 +2,7 @@
 _WinAPI_DwmRegisterThumbnail
 
 ###Description###
-Creates a Desktop Window Manager (DWM) thumbnail relationship between the destination and source windows.
+创建桌面窗口管理器（DWM）缩略图目标与源窗口之间的关系.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,22 +11,21 @@ _WinAPI_DwmRegisterThumbnail ( $hDestination, $hSource )
 ###Parameters###
 @@ParamTable@@
 $hDestination
-	Handle to the window that will use the DWM thumbnail.
+	将使用 DWM 缩略图的窗口句柄.
 $hSource
-	Handle to the window to use as the thumbnail source.
+	缩略图源窗口句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle that represents the registration of the DWM thumbnail.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回 DWM 缩略图注册的句柄.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-The window designated by $hDestination must either be the desktop window itself or be owned by the process that
-is calling _WinAPI_DwmRegisterThumbnail().
-
-This function requires Windows Vista or later.
+$hDestination 指定的窗口必须是自己的桌面窗口;
+ 或调用 _WinAPI_DwmRegisterThumbnail() 的进程拥有的窗口.
+ 本函数需要 Windows Vista 或更高版本系统.
 
 
 ###See Also###

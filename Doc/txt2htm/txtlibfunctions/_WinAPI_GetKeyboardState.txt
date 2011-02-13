@@ -2,7 +2,7 @@
 _WinAPI_GetKeyboardState
 
 ###Description###
-Copies the status of the 256 virtual keys to the specified buffer.
+复制 256 个虚拟键的状态到指定缓冲区.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -15,25 +15,23 @@ None.
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The structure of "byte[256]" that receives the status data for each virtual key.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回接收每一个虚拟键状态数据的 "byte[256]" 结构.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-An application can call this function to retrieve the current status of all the virtual keys. The status changes
-as a process removes keyboard messages from its message queue. The status does not change as keyboard messages are
-posted to the process's message queue, nor does it change as keyboard messages are posted to or retrieved from
-message queues of other processes.
-
-When the function returns, each member of the array contains status data for a virtual key. If the high-order
-bit is 1, the key is downotherwise, it is up. If the key is a toggle key, for example CAPS LOCK, then the
-low-order bit is 1 when the key is toggled and is 0 if the key is untoggled. The low-order bit is meaningless for
-non-toggle keys. A toggle key is said to be toggled when it is turned on. A toggle key's indicator light (if any)
-on the keyboard will be on when the key is toggled, and off when the key is untoggled.
-
-To retrieve status information for an individual key, use the _WinAPI_GetKeyState() function. To retrieve the
-current state for an individual key regardless of whether the corresponding keyboard message has been retrieved
-from the message queue, use the _WinAPI_GetAsyncKeyState() function.
+应用程序可以调用此函数检索所有虚拟键的当前状态.
+当进程从消息队列中移除键盘消息时状态被改变.
+键盘消息发布到该进程的消息队列时,不改变状态;
+ 键盘消息发布到(或检索)其他进程消息队列时,状态也不改变.
+ 当函数返回时,数组中的每个元素包含一个虚拟键的状态数据.
+ 如果高序位为 1,键被按下来,否则键被松开.
+ 如果是一个切换键,比如 CAPS LOCK 键,则打开时低序数位为 1,关闭时为 0.
+ 低序位对非切换键没有意义. 切换键首次触发时被认为是打开状态.
+ 切换键打开时键盘上的切换键指示灯(如果有)将点亮, 反之则关闭.
+ 要检索单个键的状态信息, 调用 _WinAPI_GetKeyState() 函数.
+ 要检索单个键的当前状态, 无论是否消息队列中检索到相应的键盘消息,
+ 都可调用 _WinAPI_GetAsyncKeyState() 函数.
 
 
 

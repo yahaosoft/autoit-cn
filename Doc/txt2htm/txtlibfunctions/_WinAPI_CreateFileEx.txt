@@ -2,7 +2,7 @@
 _WinAPI_CreateFileEx
 
 ###Description###
-Creates or opens a file or I/O device.
+创建或打开文件或 I/O 设备.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,88 +11,71 @@ _WinAPI_CreateFileEx ( $sFile, $iCreation, $iAccess, $iShare [, $iFlagsAndAttrib
 ###Parameters###
 @@ParamTable@@
 $sFile
-	The name of the file or device to be created or opened.
+	文件或设备的名称.
 $iCreation
-	The action to take on a file or device that exists or does not exist. This parameter must be
-	one of the following values, which cannot be combined.
-	
-	$CREATE_NEW
-	$CREATE_ALWAYS
-	$OPEN_EXISTING
-	$OPEN_ALWAYS
-	$TRUNCATE_EXISTING
-	
+	文件或设备存在或不存在的对应操作.
+		 此参数必须是以下值之一,不能组合使用:.
+		 $CREATE_NEW --- 如果指定的文件不存在,并且路径有效,则创建新文件.如果文件存在,则函数失败.
+		 $CREATE_ALWAYS --- 总是创建新文件,如果指定文件存在并且可写,函数覆盖该文件;如果文件不存在,但路径有效,则创建新文件
+		 $OPEN_EXISTING --- 打开存在的文件或设备.如果不存在,则函数失败.
+		 $OPEN_ALWAYS --- 总是打开文件.如果指定文件存在并且可写,函数成功;如果文件不存在,但路径有效,则创建新文件
+		 $TRUNCATE_EXISTING --- 如果指定的文件存在,则打开文件并删节它,使其成为 0 字节的文件;如果文件不存在,函数失败
 $iAccess
-	The requested access to the file or device, which can be summarized as read, write, both
-	or neither (zero).
-	
-	$GENERIC_READ
-	$GENERIC_WRITE
-	
-	(See MSDN for more information)
-	
+	请求访问的文件或设备,其内容可以概括为读、写或两者都可或都不可(0).
+		 $GENERIC_READ
+		$GENERIC_WRITE
+		(如欲了解更多信息见 MSDN)
 $iShare
-	The requested sharing mode of the file or device, which can be read, write, both,
-	delete, all of these, or none. If this parameter is 0 and _WinAPI_CreateFileEx() succeeds,
-	the file or device cannot be shared and cannot be opened again until the handle to
-	the file or device is closed.
-	
-	$FILE_SHARE_READ
-	$FILE_SHARE_WRITE
-	$FILE_SHARE_DELETE
-	
+	请求文件或设备的共享模式.可为读、写、两者都可、删除、全部或都没有.
+		 如果此参数为 0, 且 _WinAPI_CreateFileEx() 函数完成,
+		 文件或设备不能共享.不能再次打开,直到文件或设备句柄已关闭.
+		 $FILE_SHARE_READ --- 文件或设备打开后,请求读访问
+		 $FILE_SHARE_WRITE --- 文件或设备打开后,请求写访问
+		 $FILE_SHARE_DELETE --- 文件或设备打开后,删除访问
 $iFlagsAndAttributes
-	[可选参数] The file or device attributes and flags. This parameter can be one or more of the
-	following values.
-	
-	$FILE_ATTRIBUTE_READONLY
-	$FILE_ATTRIBUTE_HIDDEN
-	$FILE_ATTRIBUTE_SYSTEM
-	$FILE_ATTRIBUTE_DIRECTORY
-	$FILE_ATTRIBUTE_ARCHIVE
-	$FILE_ATTRIBUTE_DEVICE
-	$FILE_ATTRIBUTE_NORMAL
-	$FILE_ATTRIBUTE_TEMPORARY
-	$FILE_ATTRIBUTE_SPARSE_FILE
-	$FILE_ATTRIBUTE_REPARSE_POINT
-	$FILE_ATTRIBUTE_COMPRESSED
-	$FILE_ATTRIBUTE_OFFLINE
-	$FILE_ATTRIBUTE_NOT_CONTENT_INDEXED
-	$FILE_ATTRIBUTE_ENCRYPTED
-	
-	$FILE_FLAG_BACKUP_SEMANTICS
-	$FILE_FLAG_DELETE_ON_CLOSE
-	$FILE_FLAG_NO_BUFFERING
-	$FILE_FLAG_OPEN_NO_RECALL
-	$FILE_FLAG_OPEN_REPARSE_POINT
-	$FILE_FLAG_OVERLAPPED
-	$FILE_FLAG_POSIX_SEMANTICS
-	$FILE_FLAG_RANDOM_ACCESS
-	$FILE_FLAG_SEQUENTIAL_SCAN
-	$FILE_FLAG_WRITE_THROUGH
-	
-	$SECURITY_ANONYMOUS
-	$SECURITY_CONTEXT_TRACKING
-	$SECURITY_DELEGATION
-	$SECURITY_EFFECTIVE_ONLY
-	$SECURITY_IDENTIFICATION
-	$SECURITY_IMPERSONATION
-	
+	[可选参数] 文件或设备的属性和标志.此参数可以是一或多个下列值:
+		 $FILE_ATTRIBUTE_READONLY --- 文件为只读.应用程序可以读取该文件,但不能写入或删除文件.
+		 $FILE_ATTRIBUTE_HIDDEN --- 隐藏文件.不包括普通的目录列表.
+		 $FILE_ATTRIBUTE_SYSTEM --- 文件的部分或全部为操作系统专用.
+		 $FILE_ATTRIBUTE_DIRECTORY --- 文件不能被转换成目录.
+		 $FILE_ATTRIBUTE_ARCHIVE --- 文件应存档.应用程序使用此属性标记文件的备份或移除.
+		 $FILE_ATTRIBUTE_DEVICE --- 保留,不使用.
+		 $FILE_ATTRIBUTE_NORMAL --- 文件不设置任何属性.仅单独使用时,此标志有效.
+		 $FILE_ATTRIBUTE_TEMPORARY --- 文件被用作暂时储存.
+		 $FILE_ATTRIBUTE_SPARSE_FILE --- 设置文件的稀疏属性.
+		 $FILE_ATTRIBUTE_REPARSE_POINT --- 关联文件或目录的重分析点.
+		 $FILE_ATTRIBUTE_COMPRESSED --- 设置文件的压缩状态.
+		 $FILE_ATTRIBUTE_OFFLINE --- 文件的数据不能立即可用.表明文件数据在物理上移动到脱机存储.用于远程存储管理软件,应用程序不应随意改变这个属性
+		 $FILE_ATTRIBUTE_NOT_CONTENT_INDEXED --- 文件或目录不编制索引
+		 $FILE_ATTRIBUTE_ENCRYPTED --- 加密文件或目录.如果同时指定 FILE_ATTRIBUTE_SYSTEM,则此标志无效.
+		 $FILE_FLAG_BACKUP_SEMANTICS --- 文件为备份或还原操作被打开或创建.当该进程有 SE_BACKUP_NAME 和 SE_RESTORE_NAME SE_RESTORE_NAME 特权,系统保证了调用进程忽略文件的安全检查.
+		 $FILE_FLAG_DELETE_ON_CLOSE --- 文件删除后立即关闭其句柄,包含指定的句柄及其它打开或复制的句柄.
+		 $FILE_FLAG_NO_BUFFERING --- 文件或设备正在打开,系统没有缓存数据的读取和写入.不会影响硬盘缓存或内存映射文件.
+		 $FILE_FLAG_OPEN_NO_RECALL --- 被请求的文件的数据,但应继续存储在远程位置,而不是本地存储.这个标志由远程存储系统的使用.
+		 $FILE_FLAG_OPEN_REPARSE_POINT --- 不发生正常的重分析点的处理,函数将尝试打开重分析点.
+		 $FILE_FLAG_OVERLAPPED --- 异步 I/O 正在打开或创建文件或设备.
+		 $FILE_FLAG_POSIX_SEMANTICS --- 根据 POSIX 规则发生访问.
+		 $FILE_FLAG_RANDOM_ACCESS --- 随机访问.系统使用此标志暗示优化文件缓存.
+		 $FILE_FLAG_SEQUENTIAL_SCAN --- 按头尾顺序访问.系统使用此标志暗示优化文件缓存
+		 $FILE_FLAG_WRITE_THROUGH --- 写操作不经过任何中间缓存,直接到磁盘.
+		 $SECURITY_ANONYMOUS --- 模拟客户端为匿名级别.
+		 $SECURITY_CONTEXT_TRACKING --- 动态的安全跟踪模式.如不指定,则安全跟踪模式是静态的.
+		 $SECURITY_DELEGATION --- 模拟客户端为授权级别.
+		 $SECURITY_EFFECTIVE_ONLY --- 仅将客户端安全环境中允许的方面提供给服务器.
+		 $SECURITY_IDENTIFICATION --- 模拟客户端为认证级别
+		 $SECURITY_IMPERSONATION --- 模拟客户端为模拟级别
 $tSecurity
-	[可选参数] $tagSECURITY_ATTRIBUTES structure that contains two separate but related data members:
-	an optional security descriptor, and a Boolean value that determines whether the returned
-	handle can be inherited by child processes. If this parameter is 0, the handle cannot
-	be inherited by any child processes the application may create and the file or device
-	associated with the returned handle gets a default security descriptor.
+	[可选参数] $tagSECURITY_ATTRIBUTES 结构,包含两个独立但相关的数据成员:
+		 一个可选的安全描述符;和一个决定子进程是否可以继承返回句柄的布尔值.
 $hTemplate
-	[可选参数] Handle to a template file with the $GENERIC_READ access right. The template file supplies
-	file attributes and extended attributes for the file that is being created.
+	[可选参数] 具有 $GENERIC_READ 访问权的模板文件句柄.
+		 模板文件提供文件属性和正在创建的文件扩展属性.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle to the specified file, device, named pipe, or mail slot.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回指定文件、设备、命名管道或邮件插槽的句柄..
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

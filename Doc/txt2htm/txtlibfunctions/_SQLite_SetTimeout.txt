@@ -2,7 +2,7 @@
 _SQLite_SetTimeout
 
 ###Description###
-Sets timeout for busy handler
+为忙碌的处理程序设置超时
 
 ###Syntax###
 #include <SQLite.au3>
@@ -12,26 +12,24 @@ _SQLite_SetTimeout ( [ $hDB = -1 [, $iTimeout = 1000 ]] )
 ###Parameters###
 @@ParamTable@@
 $hDB
-	[optional] An open database, use -1 to use last opened database
+	[可选参数] 打开的数据库,如为 -1, 则使用最后打开的数据库
 $iTimeout
-	[optional] Timeout [msec]
+	[可选参数] 超时值 [毫秒]
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns $SQLITE_OK
-Failure:	Return value can be compared against $SQLITE_* constants
-@error:	-1 - SQLite reported an error (Check Return value)
-	1 - Error calling SQLite API 'sqlite3_busy_timeout'
-	2 - Call prevented by SafeMode
+成功:	返回 $SQLITE_OK
+失败:	返回值可能违反 $SQLITE_* 常量@错误:
+	-1 - SQLite 报告错误 (检查返回值)
+	1 - 错误调用 SQLite API 'sqlite3_busy_timeout'
+	2 - 调用被安全模式阻止
 @@End@@
 
 ###Remarks###
-This routine sets a busy handler that sleeps for a while when a table is locked. The handler will sleep multiple times until at least "ms" milliseconds of sleeping have been done. After "ms" milliseconds of sleeping, the handler returns 0 which causes sqlite3_exec() to return SQLITE_BUSY.
-
-
-###Related###
-_SQLite_Query
+ 此例程设置一个繁忙的处理程序暂时锁定表,. 该处理程序将休眠多次,
+ 至少到 “ms” 毫秒休眠时间已经完成. 休眠 "ms" 毫秒以后, 
+ 处理程序返回 0, 导致 sqlite3_exec() 返回 SQLITE_BUSY.
 
 ###Example###
 @@IncludeExample@@

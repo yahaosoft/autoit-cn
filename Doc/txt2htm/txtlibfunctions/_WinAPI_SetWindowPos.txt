@@ -2,7 +2,7 @@
 _WinAPI_SetWindowPos
 
 ###Description###
-Changes the size, position, and Z order of a child, pop-up, or top-level window
+变动子窗口, 弹出窗口, 或顶层窗口的大小, 位置和 Z 序
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,43 +11,43 @@ _WinAPI_SetWindowPos($hWnd, $hAfter, $iX, $iY, $iCX, $iCY, $iFlags)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle of window
+	窗口句柄
 $hAfter
-	Identifies the window to precede the positioned window in the Z order. This parameter must be a
-		window handle or one of the following values:
-		$HWND_BOTTOM - Places the window at the bottom of the Z order
-		$HWND_NOTOPMOST - Places the window above all non-topmost windows
-		$HWND_TOP - Places the window at the top of the Z order
-		$HWND_TOPMOST - Places the window above all non-topmost windows
+	Z 顺序定位之前的窗口标识
+		此参数必须是窗口句柄或下列值之一:
+		$HWND_BOTTOM - 放置窗口带 Z 顺序的底部
+		$HWND_NOTOPMOST - 放置窗口到所有非顶层窗口上方
+		$HWND_TOP - 放置窗口到 Z 序顶部
+		$HWND_TOPMOST - 放置窗口到所有非顶层窗口上方
 $iX
-	Specifies the new position of the left side of the window
+	新位置的窗口左侧
 $iY
-	Specifies the new position of the top of the window
+	新位置的窗口顶部
 $iCX
-	Specifies the new width of the window, in pixels
+	新窗口的宽度的象素值
 $iCY
-	Specifies the new height of the window, in pixels
+	新窗口的高度的象素值
 $iFlags
-	Specifies the window sizing and positioning flags:
-		$SWP_DRAWFRAME - Draws a frame around the window
-		$SWP_FRAMECHANGED - Sends a $WM_NCCALCSIZE message to the window, even if the window's size is not changed
-		$SWP_HIDEWINDOW - Hides the window
-		$SWP_NOACTIVATE - Does not activate the window
-		$SWP_NOCOPYBITS - Discards the entire contents of the client area
-		$SWP_NOMOVE - Retains the current position
-		$SWP_NOOWNERZORDER - Does not change the owner window's position in the Z order
-		$SWP_NOREDRAW - Does not redraw changes
-		$SWP_NOREPOSITION - Same as the $SWP_NOOWNERZORDER flag
-		$SWP_NOSENDCHANGING - Prevents the window from receiving $WM_WINDOWPOSCHANGING
-		$SWP_NOSIZE - Retains the current size
-		$SWP_NOZORDER - Retains the current Z order
-		$SWP_SHOWWINDOW - Displays the window
+	指定窗口大小调整和定位标志:
+		$SWP_DRAWFRAME - 绘制窗口的围绕框
+		$SWP_FRAMECHANGED - 发生 $WM_NCCALCSIZE message 消息到窗口, 即使窗口的大小没有改变
+		$SWP_HIDEWINDOW - 隐藏窗口
+		$SWP_NOACTIVATE - 不激活窗口
+		$SWP_NOCOPYBITS - 丢弃客户区的全部内容
+		$SWP_NOMOVE - 保持目前的位置
+		$SWP_NOOWNERZORDER - 不改变所有者窗口的 Z 顺序位置
+		$SWP_NOREDRAW - 不重绘变化的
+		$SWP_NOREPOSITION - 等同于 $SWP_NOOWNERZORDER 标志
+		$SWP_NOSENDCHANGING - 防止窗口接收 $WM_WINDOWPOSCHANGING
+		$SWP_NOSIZE - 保留了目前的大小
+		$SWP_NOZORDER - 保持目前的 Z 顺序
+		$SWP_SHOWWINDOW - 显示窗口
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###

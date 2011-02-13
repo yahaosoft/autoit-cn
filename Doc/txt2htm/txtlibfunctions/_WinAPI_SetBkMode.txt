@@ -2,7 +2,7 @@
 _WinAPI_SetBkMode
 
 ###Description###
-Sets the background mix mode of the specified device context
+设置指定设备环境的背景混合模式
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,24 +11,24 @@ _WinAPI_SetBkMode($hDC, $iBkMode)
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to device context
+	设备环境句柄
 $iBkMode
-	Specifies the background mix mode. This parameter can be one of the following values.
-		OPAQUE - Background is filled with the current background color before the text, hatched brush, or pen is drawn.
-		TRANSPARENT - Background remains untouched.
+	指定背景混合模式.参数可以是以下值之一
+		OPAQUE - 背景充满当前的背景颜色,阴影线画笔, 或绘制笔
+		TRANSPARENT - 背景不变.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Value specifies the previous background mix mode.
-Failure:	0
+成功:	返回先前的背景混合模式.
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-The background mix mode is used with text, hatched brushes, and pen styles that are not solid lines.
-The SetBkMode function affects the line styles for lines drawn using a pen created by the CreatePen function.
-SetBkMode does not affect lines drawn using a pen created by the ExtCreatePen function.
-The $iBkMode parameter can also be set to driver-specific values. GDI passes such values to the device driver and otherwise ignores them.
+ 背景混合模式是用于文字, 阴影笔刷, 非实线笔样式.
+ 函数影响使用 CreatePen 函数创建的画笔绘制线条的样式.
+ 本函数不影响使用 ExtCreatePen 函数创建的画笔.
+ $iBkMode 参数可以设置为驱动程序的特定值. GDI 传递值到设备驱动程序并忽略其它.
 
 ###Related###
 _WinAPI_GetBkMode, _WinAPI_DrawText, _WinAPI_CreatePen, _WinAPI_SelectObject

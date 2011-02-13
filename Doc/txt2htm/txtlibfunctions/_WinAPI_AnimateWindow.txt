@@ -2,7 +2,7 @@
 _WinAPI_AnimateWindow
 
 ###Description###
-Enables you to produce special effects when showing or hiding windows.
+启用窗口显示或隐藏时生成的特殊效果.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,30 +11,28 @@ _WinAPI_AnimateWindow ( $hWnd, $iFlags [, $iDuration] )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window to animate.
+	动画窗口句柄.
 $iFlags
-	The flags that specify the type of animation. This parameter can be one or more of the following
-	values. Note that, by default, these flags take effect when showing a window. To take effect when
-	hiding a window, use AW_HIDE and a logical OR operator with the appropriate flags.
-	
-	$AW_SLIDE
-	$AW_ACTIVATE
-	$AW_BLEND
-	$AW_HIDE
-	$AW_CENTER
-	$AW_HOR_POSITIVE
-	$AW_HOR_NEGATIVE
-	$AW_VER_POSITIVE
-	$AW_VER_NEGATIVE
-	
+	指定动画效果类型. 此参数可以是一或多个下列值:
+		 注意, 默认时, 这些标志生效会显示窗口;
+		 要使生效时隐藏窗口, 使用 AW_HIDE 与 逻辑 OR 运算结合适当的标志.
+		$AW_SLIDE --- 使用幻灯片动画效果.默认情况下,使用动画滚动.当使用 AW_CENTER 时,此标志将被忽略.
+		$AW_ACTIVATE --- 激活窗口.不要和 AW_HIDE 值同时使用.
+		$AW_BLEND --- 使用逐渐消失效果.这个标志只能使用于顶层窗口.
+		$AW_HIDE -- 隐藏窗口.默认情况下,窗口是显示的.
+		$AW_CENTER -- 如使用 AW_HIDE,窗口向内折叠;如不使用 AW_HIDE,窗口向外扩展.方向标志无效.
+		$AW_HOR_POSITIVE -- 由左向右滚动或滑动窗口.如使用 AW_CENTER 或 AW_BLEND,此标志被忽略.
+		$AW_HOR_NEGATIVE -- 由右向左滚动或滑动窗口.如使用 AW_CENTER 或 AW_BLEND,此标志被忽略.
+		$AW_VER_POSITIVE -- 由上向下滚动或滑动窗口.如使用 AW_CENTER 或 AW_BLEND,此标志被忽略.
+		$AW_VER_NEGATIVE -- 由下向上滚动或滑动窗口.如使用 AW_CENTER 或 AW_BLEND,此标志被忽略.
 $iDuration
-	[可选参数] Specifies how long it takes to play the animation, in milliseconds. Default is 1000.
+	[可选参数] 指定动画动作的时间毫秒值.默认为 1000.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

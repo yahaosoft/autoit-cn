@@ -2,7 +2,7 @@
 _WinAPI_DefineDosDevice
 
 ###Description###
-Defines, redefines, or deletes MS-DOS device names.
+定义, 重新定义, 或删除 MS-DOS 设备名称.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,23 +11,21 @@ _WinAPI_DefineDosDevice ( $sDevice, $iFlags [, $sPath] )
 ###Parameters###
 @@ParamTable@@
 $sDevice
-	The name of the MS-DOS device.
+	MS-DOS 设备名称.
 $iFlags
-	This parameter can be one or more of the following values.
-	
-	$DDD_EXACT_MATCH_ON_REMOVE
-	$DDD_NO_BROADCAST_SYSTEM
-	$DDD_RAW_TARGET_PATH
-	$DDD_REMOVE_DEFINITION
-	
+	参数可以是一或多个下列值:
+		 $DDD_EXACT_MATCH_ON_REMOVE --- 如果此值与 $DDD_REMOVE_DEFINITION --- 移除指定设备指定的定义. 一起指定,函数将使用完全匹配,以确定哪些映射删除,以确保您不要删除你没有界定的设备.
+		 $DDD_NO_BROADCAST_SYSTEM --- 不发送 WM_SETTINGCHANGE 消息.此消息通知命令解释程序(shell)和应用程序的变化.
+		 $DDD_RAW_TARGET_PATH --- 使用 $sPath 指定的字符串.否则,将使用 MS - DOS 路径.
+		 $DDD_REMOVE_DEFINITION --- 移除指定设备指定的定义. 
 $sPath
-	[可选参数] The path that will implement device.
+	[可选参数] 设备路径.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

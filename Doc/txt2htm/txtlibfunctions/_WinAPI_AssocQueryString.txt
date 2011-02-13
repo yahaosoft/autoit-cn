@@ -2,7 +2,7 @@
 _WinAPI_AssocQueryString
 
 ###Description###
-Searches for and retrieves a file or protocol association-related string from the registry.
+从注册表搜索并获取文件或协议关联的字符串.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,60 +11,56 @@ _WinAPI_AssocQueryString ( $sAssoc, $iType [, $iFlags [, $sExtra]] )
 ###Parameters###
 @@ParamTable@@
 $sAssoc
-	The string that is used to determine the root key. The following four types of strings can be used.
-	
-	The file name extension, such as ".txt".
-	The class identifier (CLSID) GUID in the standard "{GUID}" format.
-	The application's ProgID, such as Word.Document.8.
-	The name of an application's .exe file. The $ASSOCF_OPEN_BYEXENAME flag must be set.
-	
+	用于确定根键的字符串.可以使用以下四种类型的字符串:
+		1 . 文件扩展名,例如 ".txt".
+		2 . 标准 "{GUID}" 格式 GUID 的类标识符（CLSID）.
+		 3 . 应用程序的 ProgID,例如 Word.Document.8.
+		 4 . 应用程序 .exe 的文件名.必须设置 $ASSOCF_OPEN_BYEXENAME 标志.
+		GUID概念:	Globally Unique Identifier（全球唯一标识符） 也称作 UUID(Universally Unique IDentifier) 
+		引自百度百科: http://baike.baidu.com/view/185358.htm 
+		CLSID 也见百度百科: http://baike.baidu.com/view/150219.html?tp=0_11
 $iType
-	The value that specifies the type of string that is to be returned. This parameter can be one of the
-	following values.
-	
-	$ASSOCSTR_COMMAND
-	$ASSOCSTR_EXECUTABLE
-	$ASSOCSTR_FRIENDLYDOCNAME
-	$ASSOCSTR_FRIENDLYAPPNAME
-	$ASSOCSTR_NOOPEN
-	$ASSOCSTR_SHELLNEWVALUE
-	$ASSOCSTR_DDECOMMAND
-	$ASSOCSTR_DDEIFEXEC
-	$ASSOCSTR_DDEAPPLICATION
-	$ASSOCSTR_DDETOPIC
-	$ASSOCSTR_INFOTIP
-	$ASSOCSTR_QUICKTIP
-	$ASSOCSTR_TILEINFO
-	$ASSOCSTR_CONTENTTYPE
-	$ASSOCSTR_DEFAULTICON
-	$ASSOCSTR_SHELLEXTENSION
-	
+	指定返回字符串值的类型.参数可以是以下值之一:
+		 $ASSOCSTR_COMMAND --- 与 Shell 动词相关联的命令字符串
+		 $ASSOCSTR_EXECUTABLE --- Shell 动词命令的可执行文件字符串
+		 $ASSOCSTR_FRIENDLYDOCNAME --- 文档类型名称
+		 $ASSOCSTR_FRIENDLYAPPNAME --- 可执行文件名称
+		 $ASSOCSTR_NOOPEN --- 忽略打开子键项相关的信息
+		 $ASSOCSTR_SHELLNEWVALUE --- 新 Shell 的子键项
+		 $ASSOCSTR_DDECOMMAND --- DDE 命令模板
+		 $ASSOCSTR_DDEIFEXEC --- 用于创建进程的 DDE 命令
+		 $ASSOCSTR_DDEAPPLICATION --- 传递 DDE 应用程序的名称
+		 $ASSOCSTR_DDETOPIC --- 传递 DDE 的主题名称
+		 $ASSOCSTR_INFOTIP --- 提示注册表值信息
+		 $ASSOCSTR_QUICKTIP --- Internet Explorer 版本6或更高版本.快速提示注册表值
+		 $ASSOCSTR_TILEINFO --- Internet Explorer版本6或更高版本.并列显示注册表值
+		 $ASSOCSTR_CONTENTTYPE --- Internet Explorer版本6或更高版本. 描述 MIME 文件关联类型 
+		 $ASSOCSTR_DEFAULTICON --- Internet Explorer版本6或更高版本. 返回图标资源路径
+		 $ASSOCSTR_SHELLEXTENSION --- Internet Explorer版本6或更高版本. Shell 对象关联的扩展
 $iFlags
-	[可选参数] The flags that can be used to control the search. It can be any combination of the following
-	values, except that only one $ASSOCF_INIT_* value can be included.
-	
-	$ASSOCF_INIT_NOREMAPCLSID
-	$ASSOCF_INIT_BYEXENAME
-	$ASSOCF_OPEN_BYEXENAME
-	$ASSOCF_INIT_DEFAULTTOSTAR
-	$ASSOCF_INIT_DEFAULTTOFOLDER
-	$ASSOCF_NOUSERSETTINGS
-	$ASSOCF_NOTRUNCATE
-	$ASSOCF_VERIFY
-	$ASSOCF_REMAPRUNDLL
-	$ASSOCF_NOFIXUPS
-	$ASSOCF_IGNOREBASECLASS
-	$ASSOCF_INIT_IGNOREUNKNOWN
-	
+	[可选参数] 用于控制搜索的标志.可以是以下任意值的组合,
+		 但只有一个 $ASSOCF_INIT_ * 值可以被包含在内:
+		$ASSOCF_INIT_NOREMAPCLSID --- $sAssoc 不是映射的 CLSID 值的 ProgID 值
+		$ASSOCF_INIT_BYEXENAME --- 初始化参数 $sAssoc 标识值为一个可执行文件的名称
+		$ASSOCF_OPEN_BYEXENAME --- 相同于 ASSOCF_INIT_BYEXENAME
+		$ASSOCF_INIT_DEFAULTTOSTAR --- $sAssoc 不搜索根键下所要求的价值,它应尝试检索*子项的可比值
+		$ASSOCF_INIT_DEFAULTTOFOLDER --- $sAssoc 不搜索根键下所要求的价值,它应尝试检索文件夹的子项的可比值
+		$ASSOCF_NOUSERSETTINGS --- 指定仅搜索 HKEY_CLASSES_ROOT,忽略 HKey_Current_User
+		$ASSOCF_NOTRUNCATE --- 不截断返回得字符串
+		$ASSOCF_VERIFY --- 验证数据准确的方法
+		$ASSOCF_REMAPRUNDLL --- 忽略 Rundll.exe 回报的信息
+		$ASSOCF_NOFIXUPS --- 不能修复不匹配的错误注册表
+		$ASSOCF_IGNOREBASECLASS --- 忽略 BaseClass 的值
+		$ASSOCF_INIT_IGNOREUNKNOWN --- 忽略“未知”的 ProgID
 $sExtra
-	[可选参数] The optional string with additional information about the location of the string. It is typically
-	set to a Shell verb such as open.
+	[可选参数] 可供选择的字符串位置的附加信息.
+		 通常设置为命令解释程序(Shell)的动词,如open.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The string that contains the requested ($ASSOCSTR_*) information.
-Failure	Empty string and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回包含被请求的 ($ASSOCSTR_*) 信息字符串.
+失败:	返回空串,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###

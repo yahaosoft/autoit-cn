@@ -2,7 +2,7 @@
 _WinAPI_InProcess
 
 ###Description###
-Determines whether a window belongs to the current process
+确定窗口是否属于当前进程
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,21 +11,21 @@ _WinAPI_InProcess($hWnd, ByRef $hLastWnd)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Window handle to be tested
+	窗口句柄
 $hLastWnd
-	Last window tested. If $hWnd = $hLastWnd, this process will immediately return True. Otherwise,
-		_WinAPI_InProcess will be called. If $hWnd is in process, $hLastWnd will be set to $hWnd on return.
+	最后测试窗口.如 $hWnd = $hLastWnd, 进程将立即返回 True.
+		否则, 将调用 _WinAPI_InProcess. 如果 $hWnd 在进程中, $hLastWnd 将设置为返回 $hWnd.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-True:	Window handle belongs to the current process
-False:	Window handle does not belong to the current process
+	True:	窗口句柄属于当前进程
+	False:	窗口句柄不属于当前进程
 @@End@@
 
 ###Remarks###
-This is one of the key functions to the control memory mapping technique. It checks the process ID of the
-window to determine if it belongs to the current process, which means it can be accessed without mapping the control memory.
+ 这是关键函数之一,控制内存映射技术.
+ 检查窗口进程 ID, 确定是否属于当前进程, 这意味着可以不映射控制内存访问.
 
 ###Related###
 

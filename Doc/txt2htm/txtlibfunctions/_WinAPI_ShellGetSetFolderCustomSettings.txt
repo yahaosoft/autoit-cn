@@ -2,7 +2,7 @@
 _WinAPI_ShellGetSetFolderCustomSettings
 
 ###Description###
-Sets or retrieves custom folder settings.
+设置或检索自定义文件夹.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,26 +11,24 @@ _WinAPI_ShellGetSetFolderCustomSettings ( $sPath, $iFlag, ByRef $tSHFCS )
 ###Parameters###
 @@ParamTable@@
 $sPath
-	The path to the folder.
+	文件夹的路径.
 $iFlag
-	A flag controlling the action of the function. It may be one of the following values.
-	
-	$FCS_READ
-	$FCS_FORCEWRITE
-	$FCS_WRITE
-	
+	函数的控制操作. 参数可以是以下值之一:
+		 $FCS_READ --- 检索 $tSHFCS 提供的自定义文件夹设置
+		 $FCS_FORCEWRITE --- 使用 $tSHFCS 提供的自定义文件夹设置,无论其是否存在
+		 $FCS_WRITE --- 如果值不存在,使用 $tSHFCS 提供的自定义文件夹设置
 $tSHFCS
-	$tagSHFOLDERCUSTOMSETTINGS structure that provides or receives the custom folder settings.
+	$tagSHFOLDERCUSTOMSETTINGS 结构,提供或接收自定义文件夹设置
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-This function reads from and writes to Desktop.ini.
+返回函数读取和写入的 Desktop.ini
 
 
 ###See Also###

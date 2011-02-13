@@ -2,7 +2,7 @@
 _WinAPI_GetProcessCommandLine
 
 ###Description###
-Retrieves the command-line string for the specified process.
+检索指定进程的命令行字符串.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,20 +11,20 @@ _WinAPI_GetProcessCommandLine ( [$PID] )
 ###Parameters###
 @@ParamTable@@
 $PID
-	[可选参数] The PID of the process. Default (0) is the current process.
+	[可选参数] 进程 PID. 默认 0, 为当前进程.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The command-line string.
-Failure	Empty string and sets the @error flag to non-zero.
+成功:	命令行字符串.
+失败:	返回空串,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-This function uses undocumented API functions and may stop working properly in future versions of Windows.
-
-Using this function for some processes may require full access rights. Use _WinAPI_AdjustTokenPrivileges()
-function to enable SeDebugPrivilege privilege before calling _WinAPI_GetProcessCommandLine().
+此函数使用未公开的 API 函数,并可能会在 Windows 未来版本中停止工作.
+使用此函数的一些进程可能需要完全访问权限. 
+使用 _WinAPI_AdjustTokenPrivileges() 函数启用 SeDebug 特权之前,
+ 调用 _WinAPI_GetProcessCommandLine() 函数.
 
 
 ###See Also###

@@ -2,7 +2,7 @@
 _Net_Share_ShareAdd
 
 ###Description###
-Shares a server resource
+共享服务器资源
 
 ###Syntax###
 #Include <NetShare.au3>
@@ -11,37 +11,37 @@ _Net_Share_ShareAdd($sServer, $sShare, $iType, $sPath [, $sComment = "" [, $iMax
 ###Parameters###
 @@ParamTable@@
 $sServer
-	Specifies the DNS or NetBIOS name of the remote server on which the function is to execute. If
-		this parameter is blank, the local computer is used.
+	指定 DNS 或 NetBIOS 远程服务器上执行函数的名称
+		如果此参数为空, 在本地计算机上使用.
 $sShare
-	Share name of a resource
+	资源共享名
 $iType
-	Contains the type of the shared resource. Can be a combination of:
-		$STYPE_DISKTREE - Disk drive
-		$STYPE_PRINTQ - Print queue
-		$STYPE_DEVICE - Communication device
-		$STYPE_IPC - IPC
-		$STYPE_SPECIAL - Special share reserved for IPC$ or remote administration of the server
-		$STYPE_TEMPORARY - A temporary share
+	共享资源的类型. 可以是一个组合:
+		$STYPE_磁盘TREE - 磁盘驱动器
+		$STYPE_PRINTQ - 打印队列
+		$STYPE_DEVICE - 通讯设备
+		$STYPE_IPC - IPC (工控机)
+		$STYPE_SPECIAL - 为 IPC$ 或服务器的远程管理保留的专用共享(那 $ 号反没反,不知道)
+		$STYPE_TEMPORARY - 临时共享
 $sPath
-	Local path for the shared resource. For disks, this is the path being shared. For print queues,
-		this is the name of the print queue being shared.
+	共享资源的本地路径. 对于磁盘, 这是被共享的路径.
+		对于打印队列, 这是被共享的打印队列名称.
 $sComment
-	[optional] String that contains an comment about the shared resource
+	[可选参数] 共享资源的描述
 $iMaxUses
-	[optional] The maximum number of concurrent connections that the shared resource can accommodate. The
-		number of connections is unlimited if the value specified is –1.
+	[可选参数] 共享资源所能容纳的并发连接最大数.
+		如果指定值为 -1, 则连接数是无限的.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-Only members of the Administrators, System Operators, or Power Users local group can add file shares with a
-call to this function. The Print Operator can add printer shares.
+系统管理员,系统操作员,或 Power Users 本地组成员才能添加文件
+打印操作员可以添加打印机共享.
 
 ###Related###
 _Net_Share_ShareCheck, _Net_Share_ShareDel

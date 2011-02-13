@@ -2,7 +2,7 @@
 _WinAPI_GetIconInfo
 
 ###Description###
-Retrieves information about the specified icon or cursor
+检索指定图标或光标的信息
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -11,45 +11,45 @@ _WinAPI_GetIconInfo($hIcon)
 ###Parameters###
 @@ParamTable@@
 $hIcon
-	Handle to the icon or cursor. To retrieve information on a standard icon or cursor, specify one
-		of the following values:
-		$IDC_APPSTARTING - Standard arrow and small hourglass cursor
-		$IDC_ARROW - Standard arrow cursor
-		$IDC_CROSS - Crosshair cursor
-		$IDC_HAND - Hand cursor
-		$IDC_HELP - Arrow and question mark cursor
-		$IDC_IBEAM - I-beam cursor
-		$IDC_NO - Slashed circle cursor
-		$IDC_SIZEALL - Four-pointed arrow cursor
-		$IDC_SIZENESW - Double-pointed arrow cursor pointing NE and SW
-		$IDC_SIZENS - Double-pointed arrow cursor pointing N and S
-		$IDC_SIZENWSE - Double-pointed arrow cursor pointing NW and SE
-		$IDC_SIZEWE - Double-pointed arrow cursor pointing W and E
-		$IDC_UPARROW - Vertical arrow cursor
-		$IDC_WAIT - Hourglass cursor
-		$IDI_APPLICATION - Application icon
-		$IDI_ASTERISK - Asterisk icon
-		$IDI_EXCLAMATION - Exclamation point icon
-		$IDI_HAND - Stop sign icon
-		$IDI_QUESTION - Question-mark icon
-		$IDI_WINLOGO - Windows logo icon
+	图标或光标句柄.
+		of 它必须是以下值之一:
+		$IDC_APPSTARTING - 标准箭头和沙漏光标
+		$IDC_ARROW - 标准箭头光标
+		$IDC_CROSS - 十字准线光标
+		$IDC_HAND - 手动光标
+		$IDC_HELP - 箭头和问号光标
+		$IDC_IBEAM - I 形光标
+		$IDC_NO - 削减圈光标
+		$IDC_SIZEALL - 四向箭头光标
+		$IDC_SIZENESW - 双箭头光标指向 NE(东北)和 SW(西南)
+		$IDC_SIZENS - 双箭头光标指向 N(北) 和 S(南)
+		$IDC_SIZENWSE - 双箭头光标指向 NW(西北)和 SE(东南)
+		$IDC_SIZEWE - 双箭头光标指向 W(西) 和 E(东)
+		$IDC_UPARROW - 垂直箭头光标
+		$IDC_WAIT - 沙漏光标
+		$IDI_APPLICATION - 应用图标
+		$IDI_ASTERISK - 星号图标
+		$IDI_EXCLAMATION - 惊叹号图标
+		$IDI_HAND - 停止标志图标
+		$IDI_QUESTION - 问号图标
+		$IDI_WINLOGO - Windows 徽标图标
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
+成功:	返回数组的格式如下:
 	$aIcon[0] - True
-	$aIcon[1] - True specifies an icon, False specifies a cursor
-	$aIcon[2] - Specifies the X coordinate of a cursor's hot spot
-	$aIcon[3] - Specifies the Y coordinate of a cursor's hot spot
-	$aIcon[4] - Specifies the icon bitmask bitmap
-	$aIcon[5] - Handle to the icon color bitmap
-Failure:	Set @error
+	$aIcon[1] - 如为 True, 指定图标, 如为 False, 指定游标
+	$aIcon[2] - 光标热点 X 坐标
+	$aIcon[3] - 光标热点 Y 坐标
+	$aIcon[4] - 掩码位图的图标
+	$aIcon[5] - 彩色位图图标的句柄
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###
-This function creates bitmaps for the bitmask and color members. You must manage these bitmaps and delete
-them when they are no longer necessary.
+ 函数创建掩码位图和颜色元素的图标.
+ 必须管理好这些位图,不再需要时将其删除.
 
 ###Related###
 

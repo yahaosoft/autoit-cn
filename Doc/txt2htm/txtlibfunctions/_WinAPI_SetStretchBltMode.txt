@@ -2,7 +2,7 @@
 _WinAPI_SetStretchBltMode
 
 ###Description###
-Sets the bitmap stretching mode in the specified device context.
+设置指定设备环境的位图拉伸模式.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,32 +11,29 @@ _WinAPI_SetStretchBltMode ( $hDC, $iMode )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+	设备环境句柄.
 $iMode
-	The stretching mode. This parameter can be one of the following values.
-	
-	$BLACKONWHITE
-	$COLORONCOLOR
-	$HALFTONE
-	$WHITEONBLACK
-	$STRETCH_ANDSCANS
-	$STRETCH_DELETESCANS
-	$STRETCH_HALFTONE
-	$STRETCH_ORSCANS
-	
+	拉伸模式. 参数可以是以下值之一:
+		 $BLACKONWHITE --- 使用颜色值执行布尔 AND 操作,以消除现有的像素
+		 $COLORONCOLOR --- 删除像素
+		 $HALFTONE --- 处理目标矩形的像素为源像素块
+		 $WHITEONBLACK --- 使用颜色值执行布尔 OR 操作,以消除现有的像素
+		 $STRETCH_ANDSCANS --- 相同于 BLACKONWHITE
+		 $STRETCH_DELETESCANS --- 相同于 COLORONCOLOR
+		 $STRETCH_HALFTONE --- 相同于 $HALFTONE
+		 $STRETCH_ORSCANS --- 相同于 WHITEONBLACK
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-The $BLACKONWHITE ($STRETCH_ANDSCANS) and $WHITEONBLACK ($STRETCH_ORSCANS) modes are typically used to
-preserve foreground pixels in monochrome bitmaps. The $COLORONCOLOR ($STRETCH_DELETESCANS) mode is typically
-used to preserve color in color bitmaps. The $HALFTONE ($STRETCH_HALFTONE) mode is slower and requires more
-processing of the source image than the other three modesbut produces higher quality images.
+$BLACKONWHITE ($STRETCH_ANDSCANS) 与 $WHITEONBLACK ($STRETCH_ORSCANS) 模式通常用于保存单色位图的前景像素.
+ $COLORONCOLOR ($STRETCH_DELETESCANS) 模式通常用于保存彩色位图的颜色.
+ $HALFTONE ($STRETCH_HALFTONE) 模式速度较慢,比上述三种模式, 需要更多的源图像处理.但能生成更高质量的图像.
 
 
 ###See Also###

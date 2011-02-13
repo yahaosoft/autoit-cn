@@ -2,7 +2,7 @@
 _WinAPI_DwmEnableComposition
 
 ###Description###
-Enables or disables Desktop Window Manager (DWM) composition.
+启用或禁用桌面窗口管理器（DWM）的组成.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,22 +11,22 @@ _WinAPI_DwmEnableComposition ( $fEnable )
 ###Parameters###
 @@ParamTable@@
 $fEnable
-	Specifies whether enable or disable DWM composition, valid values:
-		TRUE     - Enable.
-		FALSE    - Disable.
+	指定启用或禁用 DWM 的组成.有效值:
+		1 - 启用.
+		0 - 禁用.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-Disabling DWM composition disables it for the entire desktop. DWM composition will be automatically enabled
-when all processes that have disabled composition have called _WinAPI_DwmEnableComposition() to enable it or have
-been terminated. The WM_DWMCOMPOSITIONCHANGED notification is sent when DWM composition has enabled or disabled.
-
+禁用 DWM 的组成会禁用它整个桌面.
+ 当所有禁用组成的进程调用 _WinAPI_DwmEnableComposition(),已执行或者已经终止时,DWM 的组成将自动启用
+ WM_DWMCOMPOSITIONCHANGED 发送 DWM 的组成已启用或禁用的通知.
+ 本函数需要 Windows Vista 或更高版本系统.
 This function requires Windows Vista or later.
 
 

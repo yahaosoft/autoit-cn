@@ -2,7 +2,7 @@
 _Net_Share_StatisticsGetSvr
 
 ###Description###
-Retrieves operating statistics for a server
+检索服务器操作统计
 
 ###Syntax###
 #Include <NetShare.au3>
@@ -11,34 +11,35 @@ _Net_Share_StatisticsGetSvr([$sServer = ""])
 ###Parameters###
 @@ParamTable@@
 $sServer
-	[optional] Specifies the DNS or NetBIOS name of the remote server on which the function is to execute. If
-		this parameter is blank, the local computer is used.
+	[可选参数] 指定 DNS 或 NetBIOS 远程服务器上执行函数的名称
+		如果此参数为空, 在本地计算机上使用.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	[ 0] - Indicates the time when statistics collection started. The value is stored as the number of seconds	that have elapsed since 00:00:00, January 1, 1970, GMT.
-	[ 1] - Indicates the number of times a file is opened on a server
-	[ 2] - Indicates the number of times a server device is opened
-	[ 3] - Indicates the number of server print jobs spooled
-	[ 4] - Indicates the number of times the server session started
-	[ 5] - Indicates the number of times the server session disconnected
-	[ 6] - Indicates the number of times the server sessions failed with error
-	[ 7] - Indicates the number of server password violations
-	[ 8] - Indicates the number of server access permission errors
-	[ 9] - Indicates the number of server system errors
-	[10] - Number of server bytes sent to the network
-	[11] - Number of server bytes received from the network
-	[12] - Indicates the average server response time (in milliseconds)
-	[13] - Indicates the number of times the server required a request buffer but failed to allocate one
-	[14] - Indicates the number of times the server required a big buffer but failed to allocate one
-Failure:	Set @error
+成功:	返回以下格式的数组:
+	[ 0] - 开始收集统计数据时间(秒).
+	从 00:00:00 开始消逝的时间, 1970年1月1日,格林尼治标准时间.
+	[ 1] - 文件在服务器上打开的次数
+	[ 2] - 服务器设备打开的次数
+	[ 3] - 服务器后台处理打印作业次数
+	[ 4] - 服务器会话启动次数
+	[ 5] - 服务器会话断开次数
+	[ 6] - 服务器会话失败错误次数
+	[ 7] - 服务器密码违规次数
+	[ 8] - 服务器访问权限错误次数
+	[ 9] - 服务器系统错误次数
+	[10] - 服务器发送到网络的字节数
+	[11] - 服务器从网络接收的字节数
+	[12] - 服务器平均响应时间（毫秒）
+	[13] - 服务器需要缓冲区, 但因未能分配而请求的次数
+	[14] - 服务器需要大的缓冲区, 但因未能分配而请求的次数
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###
-No special group membership is required to obtain workstation statistics. Only members of the Administrators
-or Server Operators local group can successfully execute this function on a remote server.
+获取工作站的统计数字不必是特殊组成员
+系统管理员或服务器操作员本地组成员, 才能成功地在远程服务器上执行此函数.
 
 ###Related###
 _Net_Share_StatisticsGetWrk

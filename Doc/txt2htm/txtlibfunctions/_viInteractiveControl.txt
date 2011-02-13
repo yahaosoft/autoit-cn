@@ -2,7 +2,7 @@
 _viInteractiveControl
 
 ###Description###
-Interactive VISA control to test your SCPI commands.
+互动 VISA 控制,以测试 SCPI 命令.
 
 ###Syntax###
 #include <Visa.au3>
@@ -12,24 +12,21 @@ _viInteractiveControl ([$s_command_save_filename = ""])
 ###Parameters###
 @@ParamTable@@
 $s_command_save_filename
-	[optional] The name of the file in which the SCPI commands issued
-	during the interactive session will be saved.
-	If no filename is passed the funcion asks the user if and
-	where does the user want to save the issued commands.
+	[可选参数] 保存 SCPI 命令交互会话的文件名.
+		如果没有指定文件名,函数将询问用户如何保存发布的命令.
 @@End@@
 
 ###ReturnValue###
-The list of AutoIt3 VISA commands that were executed by the tool.
-This is the same list that is saved into the file if the a filename is passed to the function.
-
+@@ReturnTable@@
+	返回工具执行的 AutoIt3 VISA 命令列表.如果一个文件名传递给该函数,相同的列表将保存到文件中.
+@@End@@
 
 ###Remarks###
-Type "FIND" in the Device Descriptor query to perform a GPIB search.
-
-This function lets you easily test your SCPI commands interactively.
-It also lets you save these commands into a file
-Simply answer the questions (Device Descriptor, SCPI command and timeout).
- * If you click Cancel on the 1st question the interactive control ends.
- * If you click Cancel to the other queries, you will go back to the Device Descriptor question.
+ 在设备描述符查询时键入 "FIND" 以执行 GPIB 搜索.
+ 这个函数可以让您方便地测试您的 SCPI 命令交互.
+ 也可以让您保存这些命令到一个文件.
+ 简单回答的问题 (设备描述符, SCPI 命令和超时).
+	* 如果在首个问题点击取消, 则结束交互控制.
+	* 如果在其他问题点击取消, 将返回到设备描述符问题.
 
 ###Related###

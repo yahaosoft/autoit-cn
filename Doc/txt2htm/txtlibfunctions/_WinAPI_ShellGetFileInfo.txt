@@ -2,7 +2,7 @@
 _WinAPI_ShellGetFileInfo
 
 ###Description###
-Retrieves information about an object in the file system.
+检索文件系统对象的信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,58 +11,49 @@ _WinAPI_ShellGetFileInfo ( $sPath, $iFlags, $iAttributes, ByRef $tSHFILEINFO )
 ###Parameters###
 @@ParamTable@@
 $sPath
-	String that contains the absolute or relative path and file name. This string can use either
-	short (the 8.3 form) or long file names.
-	
-	If the $iFlags parameter includes the $SHGFI_PIDL flag, this parameter must be the address of an
-	ITEMIDLIST (PIDL) structure that contains the list of item identifiers that uniquely identifies the
-	file within the Shell's namespace. The pointer to an item identifier list (PIDL) must be a fully
-	qualified PIDL. Relative PIDLs are not allowed.
-	
-	If the $iFlags parameter includes the $SHGFI_USEFILEATTRIBUTES flag, this parameter does not have
-	to be a valid file name. The function will proceed as if the file exists with the specified name and
-	with the file attributes passed in the $iAttributes parameter. This allows you to obtain information
-	about a file type by passing just the extension for $sPath and passing $FILE_ATTRIBUTE_NORMAL
-	in $iAttributes.
-	
+	绝对或相对路径和文件名字符串.可以使用短(8.3格式)或长文件名.
+		 short (the 8.3 form) or long file names.
+		 如果 $iFlags 参数包括 $SHGFI_PIDL 标志,参数必须是 ITEMIDLIST(PIDL) 结构,
+		 它包含处理程序(Shell)命名空间标识项目的唯一标识符.
+		 项目标识符列表(PIDL)必须是完全合格的 PIDL 指针. 不允许相对 PIDL.
+		 如果 $iFlags 参数包括 $SHGFI_USEFILEATTRIBUTES 标志, 这个参数不必是一个有效的文件名.
+		 如果文件具有指定名称,并且 $iAttributes 参数传递文件属性,该函数将继续.
+		 这允许通过传递 $sPath 的扩展及 $iAttributes 的 $FILE_ATTRIBUTE_NORMAL 获取文件类型信息.
 $iFlags
-	The flags that specify the file information to retrieve. This parameter can be a combination of the
-	following values.
-	
-	$SHGFI_ATTR_SPECIFIED
-	$SHGFI_ATTRIBUTES
-	$SHGFI_DISPLAYNAME
-	$SHGFI_EXETYPE
-	$SHGFI_ICON
-	$SHGFI_ICONLOCATION
-	$SHGFI_LARGEICON
-	$SHGFI_LINKOVERLAY
-	$SHGFI_OPENICON
-	$SHGFI_OVERLAYINDEX
-	$SHGFI_PIDL
-	$SHGFI_SELECTED
-	$SHGFI_SHELLICONSIZE
-	$SHGFI_SMALLICON
-	$SHGFI_SYSICONINDEX
-	$SHGFI_TYPENAME
-	$SHGFI_USEFILEATTRIBUTES
-	
+	文件信息检索标志. 此参数可以是以下值的组合:
+		 $SHGFI_ATTR_SPECIFIED --- 修改 SHGFI_ATTRIBUTES 以标示 $tSHFILEINFO 结构包含 $iAttributes 所期望的特定属性性.不能同时指定 $SHGFI_ICON 标志
+		 $SHGFI_ATTRIBUTES --- 检索项目的属性
+		 $SHGFI_DISPLAYNAME --- 检索该文件的显示名称
+		 $SHGFI_EXETYPE --- 如果 $sPath 标识为可执行文件,检索可执行文件的类型
+		 $SHGFI_ICON --- 检索图标的句柄
+		 $SHGFI_ICONLOCATION --- 检索文件的名称
+		 $SHGFI_LARGEICON --- 修改 SHGFI_ICON,使函数检索文件的大图标.必须同时设置 SHGFI_ICON 标志
+		 $SHGFI_LINKOVERLAY --- 修改 SHGFI_ICON,使函数将链接添加到该文件的图标.必须同时设置 SHGFI_ICON 标志
+		 $SHGFI_OPENICON --- 修改 $SHGFI_ICON,使函数检索文件的打开图标.必须同时设置 SHGFI_ICON 和/或 SHGFI_SYSICONINDEX 标志
+		 $SHGFI_OVERLAYINDEX --- 5.0 版本.返回覆盖图标的索引
+		 $SHGFI_PIDL --- 表明 $sPath 是 ITEMIDLIST 地址结构,而不是路径名称
+		 $SHGFI_SELECTED --- 修改SHGFI_ICON,使函数融合系统文件图标的高亮颜色.必须同时设置 SHGFI_ICON 标志
+		 $SHGFI_SHELLICONSIZE --- 修改SHGFI_ICON,使函数检索 Shell 大小的图标.必须同时设置 SHGFI_ICON 标志
+		 $SHGFI_SMALLICON --- 修改 SHGFI_ICON,使函数检索文件的小图标.必须同时设置 SHGFI_ICON 和/或 SHGFI_SYSICONINDEX 标志
+		 $SHGFI_SYSICONINDEX --- 检索系统图像列表的图标索引
+		 $SHGFI_TYPENAME --- 检索描述文件类型的字符串
+		 $SHGFI_USEFILEATTRIBUTES --- 函数不应该试图访问 $sPath 指定的文件,如果文件存在,则使用 $iAttributes 的文件属性
 $iAttributes
-	A combination of one or more file attribute flags ($FILE_ATTRIBUTE_*).
+	一或多个文件属性标志的组合 ($FILE_ATTRIBUTE_*).
 $tSHFILEINFO
-	$tagSHFILEINFO structure to receive the file information.
+	$tagSHFILEINFO 结构,用于接收文件信息.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	If $iFlags contains the $SHGFI_EXETYPE flag, return type of the executable file. If $iFlags contains the
-Otherwise	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	如果 $iFlags 包含 $SHGFI_EXETYPE --- 如果 $sPath 标识为可执行文件,检索可执行文件的类型 标志, 返回可执行文件的类型;
+	如果 $iFlags 包含 $SHGFI_SYSICONINDEX --- 检索系统图像列表的图标索引 标志. 返回系统图像列表句柄. 否则返回 - 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-If this function returns an icon handle in the hIcon member of the $tagSHFILEINFO structure, you are responsible
-for freeing it with _WinAPI_DestroyIcon() when you no longer need it.
+如果此函数返回 $tagSHFILEINFO 结构的 hIcon 成员图标句柄,
+ 当你不再需要它时, 调用 _WinAPI_DestroyIcon() 函数释放.
 
 
 ###See Also###
