@@ -11,59 +11,59 @@ _WordDocSaveAs ( ByRef $o_object [, $s_FilePath = "" [, $i_Format = 0 [, $b_Read
 ###Parameters###
 @@ParamTable@@
 $o_object
-	Object variable of a Word.Application, document object
+	Word.Application 对象变量的文档对象
 $s_FilePath
-	[optional] The full file path for saving the document. (See Remarks)
-	"" = (Default) If the document has never been saved, the default name is used (for example, Document1.doc)
+	[可选参数] 用于保存文档的完整文件路径. (见备注)
+	"" = (默认) 如果该文档从未被保存，则使用默认的名称 (例如, Doc1.doc)
 $i_Format
-	[optional] The format in which the document is saved.
-	0 = (Default) Microsoft Word format
-	1 = Microsoft Word template format
-	2 = Microsoft Windows text format
-	3 = Microsoft Windows text format with line breaks preserved
-	4 = Microsoft DOS text format
-	5 = Microsoft DOS text with line breaks preserved
-	6 = Rich text format (RTF)
-	7 = Unicode text format or Encoded text format
-	8 = Standard HTML format
-	9 = Web archive format
-	10 = Filtered HTML format
-	11 = Extensible Markup Language (XML) format
+	[可选参数] 文档保存格式.
+	0 = (默认) Microsoft Word 格式
+	1 = 微软 Word 模板格式
+	2 = Microsoft Windows 文本格式
+	3 = 微软 Windows 换行的文本格式
+	4 = Microsoft DOS 文本格式
+	5 = 微软 DOS 文本换行符
+	6 = 富文本格式 (RTF)
+	7 = Unicode 文本格式或编码文本格式
+	8 = 标准 HTML 格式
+	9 = Web 存档格式
+	10 = 筛选的 HTML 格式
+	11 = 可扩展标记语言（XML）格式
 $b_ReadOnlyRecommended
-	[optional] Specifies whether to have Microsoft Word suggest read-only status whenever the document is opened.
-	0 = (Default) Do not suggest read only
-	1 = Suggest read only
+	[可选参数] 指定 Microsoft Word 被打开时是否为建议只读状态.
+	0 = (默认) 不建议只读
+	1 = 建议只读
 $b_AddToRecentFiles
-	[optional] Specifies whether to add the file name to the list of recently used files at the bottom of the File menu.
-	0 = (Default) Do not add
-	1 = Add
+	[可选参数] 指定是否在文件菜单底部"最近使用的文件列表"添加打开的文件名.
+	0 = (默认) 不添加
+	1 = 添加
 $b_LockComments
-	[optional] Specifies whether to lock the document for comments.
-	0 = (Default) Do not lock for comments
-	1 = Lock for comments
+	[可选参数] 指定是否锁定文档的注释.
+	0 = (默认) 不锁定文档的注释
+	1 = 锁定文档的注释
 $s_Password
-	[optional] A password string for opening the document. (See Remarks)
+	[可选参数] 打开文档的密码字符串. (见备注)
 $s_WritePassword
-	[optional] A password string for saving changes to the document. (See Remarks)
+	[可选参数] 保存文档更改的密码字符串. (见备注)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns 1
-Failure:	Returns 0 and sets @ERROR
-@Error:	$_WordStatus_Success = No Error
-	$_WordStatus_GeneralError = General Error
-	$_WordStatus_InvalidDataType = Invalid Data Type
-	$_WordStatus_InvalidObjectType = Invalid Object Type
-@Extended:	Contains invalid parameter number
+成功:	返回 1
+失败:	返回 0， 并设置s @ERROR
+@Error:	$_WordStatus_Success = 没有错误
+	$_WordStatus_GeneralError = 一般错误
+	$_WordStatus_InvalidDataType = 无效的数据类型
+	$_WordStatus_InvalidObjectType = 无效的对象类型
+@Extended:	包含无效的参数数目
 @@End@@
 
 
 ###Remarks###
-If a document with the specified file name already exists, the document is overwritten without the user being prompted first.
-If the file cannot be saved the script will be stop unless WordErrorHandler has been registered.
-
-Avoid using hard-coded passwords in your applications. If a password is required in a procedure, request the password from the user, store it in a variable, and then use the variable in your code.
+ 如果指定的文件名的文件已经存在, 该文件被覆盖并且不提示用户.
+ 如果该文件不能保存时脚本将会停止，除非 WordErrorHandler 已经注册.
+ 
+ 避免在您的应用程序中使用硬编码的密码. 如果是程序需要密码，将用户密码存储在一个变量中，然后在代码中使用该变量.
 
 
 ###Related###

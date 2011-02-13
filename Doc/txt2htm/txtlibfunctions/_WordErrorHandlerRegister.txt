@@ -2,7 +2,7 @@
 _WordErrorHandlerRegister
 
 ###Description###
-Register and enable a user COM error handler
+注册并启用用户 COM 错误处理程序
 
 ###Syntax###
 #include <Word.au3> 
@@ -11,31 +11,32 @@ _WordErrorHandlerRegister ( [$s_functionName = "__WordInternalErrorHandler"] )
 ###Parameters###
 @@ParamTable@@
 $s_functionName
-	[optional] String variable with the name of a user-defined COM error handler, defaults to the internal COM error handler in this UDF
+	[可选参数] 用户定义 COM 错误处理程序名称的变量, 这个 UDF 默认为内部 COM 错误处理程序
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns 1
-Failure:	Returns 0 and sets @ERROR
-@Error:	$_WordStatus_Success = No Error
-	$_WordStatus_GeneralError = General Error
-@Extended:	Contains invalid parameter number
+成功:	返回 1
+失败:	返回 0, 并设置 @ERROR
+@Error:
+	$_WordStatus_Success = 没有错误
+	$_WordStatus_GeneralError = 一般错误
+@Extended:	包含无效的参数数目
 @@End@@
 
 
 ###Remarks###
-Important: When using your own error handler, the Error Object variable used MUST be named $oWordErrorHandler (see example).
-
-AutoIt has the ability to trap COM errors and pass then through a custom error handler using the ObjEvent function.  There is a problem with this for UDF writers however because only a single COM error handler can be in use at a time.  For the UDF to use a COM error handler it must first deregister the user error handler, install its own and then put the user handler back in place.  Unfortunately, by default, the UDF has no way to access the handle of the user error handler.
-
-Using this routine you can register your COM error handler in a way that Word.au3 can gracefully remove and reinstate it when it needs to.  You may either point to your own custom error handler or you may use the one developed for Word.au3 (the default).  Using the default Word.au3 error handler you will also get some nice diagnostic information written to the console and some global variables that contain information about the trapped errors.
-
-If you instantiate your own COM error handler without using this routine Word.au3 will not be able to trap some COM errors and you may experience some abrupt script terminations as a result.
-
-
-###Related###
-_WordErrorHandlerDeRegister
+ 重要事项：当使用自己的错误处理，必须使用对象变量名为 $oWordErrorHandler (见示例).
+ 
+ AutoIt 有能力捕获 COM 错误，并通过 ObjEvent 函数使用自定义错误处理程序.
+  这个 UDF 有一个问题，因为它在某段时间内只能有一个 COM 错误处理程序可以使用.
+ 对于 UDF 使用 COM 错误处理程序，必须先注销用户的错误处理程序, 安装自己的错误处理程序后, 
+ 再放置用户自定义错误处理程序到适当位置. 遗憾的是，默认情况下，该 UDF 没有办法访问用户错误处理程序句柄.
+ 你可以使用这个例程注册您的COM错误处理程序, 需要时在某种程度上 Word.au3 可以正常删除并恢复它.
+ 您可能要么指向您自己的自定义错误处理程序, 或者你可以使用 Word.au3 定制的(默认).
+ 使用默认 Word.au3 错误处理您还将获得一些写入到控制台的不错的诊断信息,和一些包含有关捕获错误信息的全局变量.
+ 如果你不使用这个实例例行自己的 COM 错误处理程序, Word.au3 将无法捕捉一些 COM 错误, 
+ 并且你可能会遇到一些结果突然终止的脚本.
 
 
 ###Example###
