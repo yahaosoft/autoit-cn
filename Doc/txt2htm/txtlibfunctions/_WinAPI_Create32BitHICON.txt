@@ -1,0 +1,33 @@
+﻿###User Defined Function###
+_WinAPI_Create32BitHICON
+
+###Description###
+Converts an icon to 32 bits-per-pixel format and copies to the new icon.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_Create32BitHICON ( $hIcon [, $fDelete] )
+
+###Parameters###
+@@ParamTable@@
+$hIcon
+	Handle to the icon to convert.
+$fDelete
+	[可选参数] Specifies whether delete the icon after the function is successful, valid values:
+		TRUE    - Icon will be deleted if the function succeeds.
+		FALSE   - Don't delete, you must release the icon when you are finished using it. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the newly created icon.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+When you are finished using the icon, destroy it using the _WinAPI_DestroyIcon() function.
+
+
+###See Also###
+None
+

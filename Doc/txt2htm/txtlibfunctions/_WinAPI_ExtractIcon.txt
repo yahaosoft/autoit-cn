@@ -1,0 +1,36 @@
+﻿###User Defined Function###
+_WinAPI_ExtractIcon
+
+###Description###
+Extracts an icon from the specified executable file, DLL, or icon file.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ExtractIcon ( $sIcon, $iIndex [, $fSmall] )
+
+###Parameters###
+@@ParamTable@@
+$sIcon
+	The name of an executable file, DLL, or icon file from which icons will be extracted.
+$iIndex
+	The zero-based index of the icon to extract. If this value is a negative number, the function extracts
+	the icon whose resource identifier is equal to the absolute value of $iIndex.
+$fSmall
+	[可选参数] Specifies whether extract a small icon, valid values:
+		TRUE   - Extract a small icon.
+		FALSE  - Extract a large icon. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the extracted icon.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+When you are finished using the icon, destroy it using the _WinAPI_DestroyIcon() function.
+
+
+###See Also###
+@@MsdnLink@@ ExtractIconEx
+
