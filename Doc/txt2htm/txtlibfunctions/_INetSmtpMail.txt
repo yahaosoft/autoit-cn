@@ -2,7 +2,7 @@
 _INetSmtpMail
 
 ###Description###
-Sends an email without using an external email program.
+发送一封电子邮件，不使用外部电子邮件程序.
 
 ###Syntax###
 #include <INet.au3>
@@ -11,46 +11,47 @@ _INetSmtpMail ( $s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress [,$s_Su
 ###Parameters###
 @@ParamTable@@
 $s_SmtpServer
-	Smtp server the eMail is to be sent though  May be either alpha or a numeric IP address.   In order to fight spam, many ISPs require this to be their server.
-	eg "smtp.ispdomain.com", "mail.ispdomain.com" or "192.168.1.1"
+	发送邮件的 SMTP 服务器地址. 可以是字母或数字 IP 地址. 为了打击垃圾邮件, 许多互联网服务供应商要求使用他们的服务器.
+	例如: "smtp.ispdomain.com", "mail.ispdomain.com" 或 "192.168.1.1"
 $s_FromName
-	The name you wish the message to appear to be sent from.
-	eg "Bob Smith"
+	消息发送人的名称.
+	例如: "鲍勃史密斯"
 $s_FromAddress
-	The email address you wish the message to appear to be sent from.
-	eg "bob.smith@mydomain.com".
+	发送邮件的地址.
+	例如: "bob.smith@mydomain.com".
 $s_ToAddress
-	The email address the message is to go to.
-	eg "jane.brown@yourdomain.com"
+	电子邮件接收地址.
+	例如: "jane.brown@yourdomain.com"
 $s_Subject
-	[optional] The subject of the email.
+	[可选参数] 电子邮件主题.
 $as_Body
-	[optional] The body of the email as a single dimensional array of strings.   Each value in the array will be terminated with a @CRLF in the email.
+	[可选参数] 电子邮件正文.为一个单一字符串的二维数组.数组中每个值在电子邮件中以 @CRLF 终止.
 $s_helo
-	[optional] identifier for the smtp server connection (by default @ComputerName). If Smtp server require a "EHLO" string just set the string to "EHLO " & @ComputerName.
+	[可选参数] SMTP 服务器连接标识. 	默认为 @ComputerName(@计算机名). 如果 SMTP 服务器需要一个“EHLO” 字符串, 	则设置字符串为 "EHLO " & @ComputerName.
 $s_first
-	[optional] string sent before helo for the smtp server connection (by default {SPACE}). To not send any character this parameter must equal -1, some SMTP server required it.
+	[可选参数] 字符串发送之前 SMTP 服务器连接的 helo (默认为 {SPACE}). 
+	不发送任何字符时，这个参数必须等于 -1, 有些 SMTP 服务器需要它.
 $b_trace
-	[optional] trace the dialog in a splash window
+	[可选参数] 跟踪初始窗口的对话框
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns 1
-Failure:	Returns 0 and set @error
-@error:	1    - Invalid Parameters
-	2    - Unable to start TCP
-	3    - Unable to resolve IP
-	4    - Unable to create socket
-	5x   - Cannot open SMTP session.  x indicates the index number of last command issued to the SMTP server.
-	50x  - Cannot send body.  x indicates the line number of $as_Body (first line is 0).
-	5000 - Cannot close SMTP session
+成功:	返回 1
+失败:	返回 0, 并设置 @error
+@error:	1 - 参数无效
+	2 - TCP 无法启动
+	3 - 无法解析 IP
+	4 - 无法创建套接字
+	5x - 无法打开 SMTP 会话. x 代表 SMTP 服务器发出的最后命令索引号.
+	50x - 无法发送正文. x 代表 $as_Body 正文的行号 (第一行为 0).
+	5000 - 不能关闭 SMTP 会话
 @@End@@
 
 
 
 ###Remarks###
-This function sends a email directly through an SMTP server without the use of a third party email client.   Requires AutoIt3 v 3.1.1.97 or better.
+此函数通过 SMTP 服务器直接发送电子邮件,不需使用第三方电子邮件客户端. 要求 AutoIt3 v 3.1.1.97 或更高版本.
 
 
 ###Related###

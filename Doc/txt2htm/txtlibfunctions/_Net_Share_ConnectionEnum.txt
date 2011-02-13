@@ -2,7 +2,7 @@
 _Net_Share_ConnectionEnum
 
 ###Description###
-Lists all connections made to a shared resource
+列出共享资源的所有连接
 
 ###Syntax###
 #Include <NetShare.au3>
@@ -11,36 +11,38 @@ _Net_Share_ConnectionEnum($sServer, $sQualifier)
 ###Parameters###
 @@ParamTable@@
 $sServer
-	String that specifies the DNS or NetBIOS name of the remote server on which the function is to
-		execute. If this parameter is blank the local computer is used.
+	指定函数将操作远程服务器的 DNS 或 NetBIOS 名称字符串
+	如果参数为空, 则使用本地计算机.
 $sQualifier
-	Specifies a share name or computer name of interest. If it is a share name, then all of the
-		connections made to that share name are listed. If it is a computer name, the function lists all connections
-		made from that computer to the server specified.
+	指定共享名或计算机名称
+	如果是共享名称,则列出共享名称的所有连接
+	如果是计算机名称, 函数列出计算机名指定服务器的所有连接.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	[0][0] - Number of entries in array
-	[1][0] - Connection identification number
-	[1][1] - Type of connection. Can be combination of:
-	 $STYPE_DISKTREE - Print queue
-	 $STYPE_PRINTQ - Disk drive
-	 $STYPE_DEVICE - Communication device
-	 $STYPE_IPC - IPC
-	 $STYPE_SPECIAL - Special share reserved for IPC$ or remote administration of the server
-	 $STYPE_TEMPORARY - A temporary share
-	[1][2] - Number of files currently open as a result of the connection
-	[1][3] - Number of users on the connection
-	[1][4] - Number of seconds that the connection has been established
-	[1][5] - If the server sharing the resource is running with user level security, this member describes	which user made the connection. If the server is running with share level security, this member describes	which computer made the connection.
-	[1][6] - Specifies either the share name of the server's shared resource or the computername of the client
-Failure:	Set @error
+成功:	返回以下格式的数组:
+	[0][0] - 数组中的条目数
+	[1][0] - 连接识别码
+	[1][1] - 连接类型. 可以为下列结合:
+	$STYPE_磁盘TREE - 打印队列
+	$STYPE_PRINTQ - 磁盘驱动器
+	$STYPE_DEVICE - 通讯设备
+	$STYPE_IPC - IPC (工控机)
+	$STYPE_SPECIAL - 为 IPC$ 或服务器的远程管理保留的专用共享
+	$STYPE_TEMPORARY - 临时共享
+	[1][2] - 当前连接结果打开的文件数
+	[1][3] - 连接上的用户数
+	[1][4] - 建立连接的秒数
+	[1][5] - 描述服务器共享资源, 与用户运行的安全级别
+	如果服务器是共享级安全运行, 描述用户的连接.
+	计算机接通
+	[1][6] - 指定服务器共享资源的共享名或客户端的计算机名
+失败:	设置 @error
 @@End@@
 
 ###Remarks###
-Administrator, Server or Print Operator or Power User group membership is required to execute this function
+需要系统管理员(Administrator), 服务器, 打印操作员或用户组成员执行函数
 
 ###Related###
 _Net_Share_FileEnum, _Net_Share_SessionEnum, _Net_Share_ShareEnum

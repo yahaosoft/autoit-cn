@@ -2,7 +2,7 @@
 _GUICtrlHeader_GetItem
 
 ###Description###
-Retrieves information about an item
+检索项目信息
 
 ###Syntax###
 #Include <GuiHeader.au3>
@@ -11,21 +11,23 @@ _GUICtrlHeader_GetItem($hWnd, $iIndex, ByRef $tItem)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to control
+	控件句柄
 $iIndex
-	Zero based item index
+	项目的 0 基索引
 $tItem
-	$tagHDITEM structure
+	$tagHDITEM 结构
 @@End@@
 
 ###ReturnValue###
-成功: True
-失败: False
+@@ReturnTable@@
+成功:	返回 True
+失败:	返回 False
+@@End@@
 
 ###Remarks###
-When the message is sent, the mask member indicates the type of information being requested. When the message
-returns, the other members receive the requested information. If the mask member specifies zero, the message
-returns True but copies no information to the structure.
+ 发送消息时, mask 成员表示被请求的信息类型.
+ 消息返回时,其他成员收到所要求的资料.
+ 如果 mask 成员指定为零,消息将返回 True,没有任何信息拷贝到数据结构.
 
 ###Related###
 _GUICtrlHeader_SetItem, $tagHDITEM
