@@ -2,7 +2,7 @@
 _GUICtrlListView_GetItemTextString
 
 ###Description###
-Retrieves all of a list-view item
+检索指定项目及其子项的全部文本,返回分隔的字符串.(译注:依据示例脚本翻译)
 
 ###Syntax###
 #Include <GuiListView.au3>
@@ -11,19 +11,20 @@ _GUICtrlListView_GetItemTextString($hWnd[, $iItem = -1])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iItem
-	[optional] Zero based index of item to retrieve
+	[可选参数] 项目的 0 基索引
+		(译注:似乎不是[可选参数]而是必选参数,无此参数则返回数组仅有[0],其它为空)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	delimited string
-Failure:	Empty string
+成功:	返回分隔的字符串
+失败:	返回空串
 @@End@@
 
 ###Remarks###
-If $iItem = -1 then will attempt to get the Currently Selected item.
+ 如 $iItem = -1, 则获取当前选定项目的文本.
 
 ###Related###
 _GUICtrlListView_SetItemText, _GUICtrlListView_GetItemText, _GUICtrlListView_GetItemTextArray

@@ -2,7 +2,7 @@
 _GUICtrlListView_Scroll
 
 ###Description###
-Scrolls the content of a list-view
+滚动列表视图的内容
 
 ###Syntax###
 #Include <GuiListView.au3>
@@ -11,26 +11,25 @@ _GUICtrlListView_Scroll($hWnd, $iDX, $iDY)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iDX
-	Value of type int that specifies the amount of horizontal scrolling in pixels.
-		If the list-view control is in list-view, this value specifies the number of columns to scroll
+	值的类型为 int,指定水平滚动的像素数量.
+		如果控件是列表视图, 该值指定滚动的列数
 $iDY
-	Value of type int that specifies the amount of vertical scrolling in pixels
+	值的类型为 int,指定垂直滚动的像素数量.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	True
-失败:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-When the list-view control is in report view, the control can only be scrolled vertically in whole
-line increments. Therefore, the $iDY parameter will be rounded to the nearest number of pixels
-that form a whole line increment. For example, if the height of a line is 16 pixels and 8 is passed
-for $iDY, the list will be scrolled by 16 pixels (1 line). If 7 is passed for $iDY, the list will be
-scrolled 0 pixels (0 lines).
+ 当控件为报表视图时, 控件只能按整行的增量垂直滚动.
+ 因此,$iDY 参数的像素量将四舍五入,形成最接近整行的数量递增.
+ 例如,如果一个行的高度是 16 像素,而 $iDY 指定为 8,列表将滚动 16 像素（1行）;
+ 如果 $iDY 指定为7,列表将滚动 0 像素(0 行). 
 
 ###Related###
 

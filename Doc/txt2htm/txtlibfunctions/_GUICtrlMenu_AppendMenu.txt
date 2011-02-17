@@ -2,7 +2,7 @@
 _GUICtrlMenu_AppendMenu
 
 ###Description###
-Appends a new item to the end of the specified menu bar, drop-down menu, submenu, or shortcut menu
+追加一个新项目到指定菜单栏,下拉菜单,子菜单或快捷菜单的末尾,
 
 ###Syntax###
 #Include <GuiMenu.au3>
@@ -11,7 +11,7 @@ _GUICtrlMenu_AppendMenu($hMenu, $iFlags, $iNewItem, $pNewItem)
 ###Parameters###
 @@ParamTable@@
 $hMenu
-	Handle of the menu
+	菜单句柄
 $iFlags
 	Specifies flags to control the appearance and behavior of the new menu item:
 		$MF_BITMAP - Uses a bitmap as the menu item
@@ -38,22 +38,22 @@ $iFlags
 		$MF_UNCHECKED - Does not place a check mark next to the item. If the application supplies check mark
 		bitmaps, this flag displays the clear bitmap next to the menu item.
 $iNewItem
-	Specifies either the identifier of the new menu item or, if the $iFlags parameter is set to a
-		popup, a handle to the drop down menu or submenu.
+	指定任一新菜单项的标识符,如果 $iFlags 参数设置为一个弹出式菜单,
+		则指定下拉菜单或子菜单句柄.
 $pNewItem
-	Specifies the content of the new menu item. The interpretation of pNewItem depends on whether
-		the iFlags parameter includes the $MF_BITMAP, $MF_OWNERDRAW, or $MF_STRING flag:
-		$MF_BITMAP - Contains a bitmap handle
-		$MF_OWNERDRAW - Contains an application supplied value that can be used to maintain additional data related
-		to the menu item. The value is in the ItemData member of the structure pointed to by the lParam parameter of
-		the $WM_MEASUREITEM or $WM_DRAWITEM message sent when the menu is created or its appearance is updated.
-		$MF_STRING - Contains a string
+	指定新菜单项的内容.该参数设置内容的解释取决于
+		$iFlags 参数是否包括 $MF_BITMAP, $MF_OWNERDRAW, 或 $MF_STRING 标志:
+		$MF_BITMAP - 包含一个位图句柄
+		$MF_OWNERDRAW - 包含应用程序提供的值,可用于维护相关菜单项的其他数据
+		当 $WM_MEASUREITEM or $WM_DRAWITEM 消息发送菜单创建或更新其外观时, 
+		该值所在结构的 ItemData 成员指向 lParam 参数.
+		$MF_STRING - 包含字符串
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	True
-失败:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###

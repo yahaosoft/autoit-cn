@@ -2,7 +2,7 @@
 _GUICtrlListView_GetItemRect
 
 ###Description###
-Retrieves the bounding rectangle for all or part of an item
+检索项目的全部或部分矩形,返回数据数组.
 
 ###Syntax###
 #Include <GuiListView.au3>
@@ -11,23 +11,25 @@ _GUICtrlListView_GetItemRect($hWnd, $iIndex[, $iPart = 3])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iIndex
-	Zero based index of the item
+	项目的 0 基索引
 $iPart
-	[optional] The portion of the item to retrieve:
-		0 - The bounding rectangle of the entire item
-		1 - The bounding rectangle of the icon or small icon
-		2 - The bounding rectangle of the item text
-		3 - The union of 1 and 2, but excludes columns in report view
+	[可选参数] 项目检索部分:
+		0 - 整个项目的边界矩形
+		1 - 图标或小图标的边界矩形
+		2 - 项目文本的边界矩形
+		3 - 1 和 2 的结合,但不包括报表视图
 @@End@@
 
 ###ReturnValue###
-Returns an Array with the following format:
-		[0] - X coordinate of the upper left corner of the rectangle
-		[1] - Y coordinate of the upper left corner of the rectangle
-		[2] - X coordinate of the lower right corner of the rectangle
-		[3] - Y coordinate of the lower right corner of the rectangle
+@@ReturnTable@@
+	返回如下格式数组:
+	[0] - 矩形左上角 X 坐标
+	[1] - 矩形左上角 Y 坐标
+	[2] - 矩形右下角 X 坐标
+	[3] - 矩形右下角 Y 坐标
+@@End@@
 
 ###Remarks###
 None.

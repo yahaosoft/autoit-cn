@@ -2,7 +2,7 @@
 _GUICtrlListView_GetItemRectEx
 
 ###Description###
-Retrieves the bounding rectangle for all or part of an item
+检索项目的全部或部分矩形,返回数据结构.
 
 ###Syntax###
 #Include <GuiListView.au3>
@@ -11,20 +11,22 @@ _GUICtrlListView_GetItemRectEx($hWnd, $iIndex[, $iPart = 3])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iIndex
-	Zero based index of the item
+	项目的 0 基索引
 $iPart
-	[optional] The portion of the item to retrieve:
-		$LVIR_BOUNDS - Returns the bounding rectangle of the entire item, including the icon and label
-		$LVIR_ICON - Returns the bounding rectangle of the icon or small icon
-		$LVIR_LABEL - Returns the bounding rectangle of the item text
-		$LVIR_SELECTBOUNDS - Returns the union of the $LVIR_ICON and $LVIR_LABEL rectangles, but excludes columns in
+	[可选参数] 项目检索部分:
+		$LVIR_BOUNDS - 整个项目的边界矩形, 包括图标和标签
+		$LVIR_ICON - 图标或小图标的边界矩形
+		$LVIR_LABEL - 项目文本的边界矩形
+		$LVIR_SELECTBOUNDS - 1 和 2 的结合,但不包括报表视图的列
 		report view.
 @@End@@
 
 ###ReturnValue###
-Returns a $tagRECT structure
+@@ReturnTable@@
+	返回 $tagRECT 结构
+@@End@@
 
 ###Remarks###
 None.

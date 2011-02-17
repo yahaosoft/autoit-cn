@@ -2,7 +2,7 @@
 _GUICtrlListView_InsertItem
 
 ###Description###
-Inserts a new item in the control
+插入项目
 
 ###Syntax###
 #Include <GuiListView.au3>
@@ -11,27 +11,27 @@ _GUICtrlListView_InsertItem($hWnd, $sText[, $iIndex = -1[, $iImage = -1[, $iPara
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $sText
-	Item text. If set to -1, the item text is set via the $LVN_GETDISPINFO notification message.
+	项目文本. 如设为 -1, 则项目文本通过 $LVN_GETDISPINFO 通知消息设置.
 $iIndex
-	[optional] Zero based index at which the new item should be inserted. If this value is greater than the
-		number of items currently contained by the control, the new item will be appended to the end of the list and
-		assigned the correct index.
+	[可选参数] 插入项目的 0 基索引.
+		如果这个值大于目前控件所含的项目数量,
+		项目追加到列表末尾,并指派正确的索引
 $iImage
-	[optional] Zero based index of the item's icon in the control's image list
+	[可选参数] 项目图标在图像列表中的 0 基索引
 $iParam
-	[optional] Application Defined Data
+	[可选参数] 应用程序定义的数据
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The index of the new item
-Failure:	-1
+成功:	返回新项目索引
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
-You can not use this function to insert subitems. Use _GUICtrlListView_SetItemText to insert subitems.
+ 不能使用此函数插入子项. 插入子项使用 _GUICtrlListView_SetItemText 函数.
 
 ###Related###
 _GUICtrlListView_SetItemText
