@@ -2,7 +2,7 @@
 _GDIPlus_ImageGetType
 
 ###Description###
-Returns type (bitmap or metafile) of an image
+返回图像类型(位图或图元文件)
 
 ###Syntax###
 #Include <GDIPlus.au3>
@@ -11,22 +11,22 @@ _GDIPlus_ImageGetType($hImage)
 ###Parameters###
 @@ParamTable@@
 $hImage
-	Handle to an image object
+	图形对象句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Integer of image type
-	$GDIP_IMAGETYPE_UNKNOWN - Non bitmap file or not identified as bitmap by GDI+
-	$GDIP_IMAGETYPE_BITMAP - Bitmap types: BMP, PNG, GIF, JPEG, TIFF, ICO, EXIF
-	$GDIP_IMAGETYPE_METAFILE - Metafile types: EMF, WMF
-Failure:	Returns -1 and @error is set
-@error:	0 - No error.
-	10 - Invalid image handle
+成功:	返回图像的整数类型
+	$GDIP_IMAGETYPE_UNKNOWN - 非位图文件或未被 GDI+ 标识为位图
+	$GDIP_IMAGETYPE_BITMAP - 位图类型:BMP, PNG, GIF, JPEG, TIFF, ICO, EXIF
+	$GDIP_IMAGETYPE_METAFILE - 图元文件类型:EMF, WMF
+失败:	返回 -1设置@error:	
+@error:	0 - 无错误.
+	10 - 无效图像句柄
 @@End@@
 
 ###Remarks###
-@error 4 relies on GDI+ UDF return of -1 or 0 instead of image handle for errors
+ @error 4 依赖于 GDI+ UDF 返回的 -1 或 0, 而不是图像句柄错误.
 
 ###Related###
 _GDIPlus_ImageGetRawFormat

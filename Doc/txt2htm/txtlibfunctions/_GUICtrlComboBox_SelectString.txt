@@ -2,7 +2,7 @@
 _GUICtrlComboBox_SelectString
 
 ###Description###
-Searches the ListBox of a ComboBox for an item that begins with the characters in a specified string
+搜索列表框中指定开头字符的项目
 
 ###Syntax###
 #Include <GuiComboBox.au3>
@@ -11,26 +11,26 @@ _GUICtrlComboBox_SelectString($hWnd, $sText[, $iIndex = -1])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to control
+	控件句柄
 $sText
-	String that contains the characters for which to search
+	搜索的字符串
 $iIndex
-	[optional] Specifies the zero-based index of the item preceding the first item to be searched
+	[可选参数] 指定项目前第一个项目的 0 基 索引
 @@End@@
 
 ###ReturnValue###
-Success: The index of the selected item
-Failure: -1
+@@ReturnTable@@
+成功:	返回选定项的索引 
+失败:	返回 -1
+@@End@@
 
 ###Remarks###
-When the search reaches the bottom of the list, it continues from the top of the list back to the
-item specified by the wParam parameter.
+ 当搜索到达列表框底部,
+ 将返回到 wParam 参数指定项的顶部继续搜索.
+ 如果 $iIndex 为 -1,搜索从列表框顶部开始.
+ 可以只选择项目文本开头的第一个字符串作为匹配字符. 
+ 如果找到匹配项目时,它将被选中并复制到编辑框.
 
-If $iIndex is –1, the entire list is searched from the beginning.
-A string is selected only if the characters from the starting point match the characters in the
-prefix string
-
-If a matching item is found, it is selected and copied to the edit control
 
 ###Related###
 _GUICtrlComboBox_FindString, _GUICtrlComboBox_FindStringExact, _GUICtrlComboBoxEx_FindStringExact

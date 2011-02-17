@@ -23,41 +23,39 @@ $iWidth
 $iHeight
 	高度
 $iStyle
-	控件样式:
-		  $BS_AUTO3STATE - Creates a three-state check box in which the state cycles through selected, unavailable, and cleared each time the user selects the check box.
-		  $BS_AUTOCHECKBOX - Creates a check box in which the check state switches between selected and cleared each time the user selects the check box.
-		  $BS_AUTORADIOBUTTON - Same as a radio button, except that when the user selects it, the button automatically highlights itself and removes the selection from any other radio buttons with the same style in the same group.
-		  $BS_FLAT - Specifies that the button is two-dimensional; it does not use the default shading to create a 3-D image.
-		  $BS_GROUPBOX - Creates a rectangle in which other buttons can be grouped. Any text associated with this style is displayed in the rectangle’s upper-left corner.
-		  $BS_PUSHLIKE - Makes a button (such as a check box, three-state check box, or radio button) look and act like a push button. The button looks raised when it isn't pushed or checked, and sunken when it is pushed or checked.
-
-		  $BS_DEFPUSHBUTTON - Creates a push button with a heavy black border. If the button is in a dialog box, the user can select the button by pressing the ENTER key, even when the button does not have the input focus. This style is useful for enabling the user to quickly select the most likely option, or default.
-
-		  $BS_BOTTOM - Places the text at the bottom of the button rectangle.
-		  $BS_CENTER - Centers the text horizontally in the button rectangle.
-		  $BS_LEFT - Left-aligns the text in the button rectangle on the right side of the check box.
-		  $BS_MULTILINE - Wraps the button text to multiple lines if the text string is too long to fit on a single line in the button rectangle.
-		  $BS_RIGHT - Right-aligns text in the button rectangle on the right side of the check box.
-		  $BS_RIGHTBUTTON - Positions a check box square on the right side of the button rectangle.
-		  $BS_TOP - Places text at the top of the button rectangle.
-		  $BS_VCENTER - Vertically centers text in the button rectangle.
-
-		  $BS_ICON - Specifies that the button displays an icon.
-		  $BS_BITMAP - Specifies that the button displays a bitmap.
-
-		  $BS_NOTIFY - Enables a button to send BN_KILLFOCUS and BN_SETFOCUS notification messages to its parent window. Note that buttons send the BN_CLICKED notification message regardless of whether it has this style. To get BN_DBLCLK notification messages, the button must have the BS_RADIOBUTTON or BS_OWNERDRAW style.
-
-		  Vista Sytles:
-		    $BS_SPLITBUTTON - Creates a split button. A split button has a drop down arrow
-		    $BS_DEFSPLITBUTTON - Creates a split button that behaves like a $BS_PUSHBUTTON style button, but also has a distinctive appearance.
-		    $BS_COMMANDLINK - Creates a command link button
-		    $BS_DEFCOMMANDLINK - Creates a command link button that behaves like a $BS_PUSHBUTTON style button.
-
-		Default: ( -1) : none
-		Forced : $WS_CHILD, $WS_TABSTOP, $WS_VISIBLE, $BS_NOTIFY
-
+	[可选参数] 控件样式:
+		$BS_AUTO3STATE - 创建三态复选框,当用户选择复选框,其状态在选中、不可用、移除选中 3 状态中循环.
+		$BS_AUTOCHECKBOX - 创建一个复选框,当用户选择复选框,其状态在选中和移除选中之间切换.
+		$BS_AUTORADIOBUTTON - 相当于单选按钮,被选择时,按钮自动高亮显示,并移除同组中其它同等样式按钮的选中状态.
+		$BS_FLAT - 二维按钮; 不使用默认明暗处理产生 3D 图像.
+		$BS_GROUPBOX - 创建一个矩形,其他按钮可以在其中进行分组,矩形左上角显示按钮文本.
+		$BS_PUSHLIKE - 生成的按钮 (如复选框, 三状态复选框, 或单选按钮)外表与动作类似按钮开关,当其不忙碌或未选中时,呈凸起状态;反之则呈凹下状态.(译注:反复推敲原文才如此翻译,但实际上却不知如何实现这个效果)
+	[可选参数] 	$BS_DEFPUSHBUTTON - 创建一个重黑色边框按钮. 如果按钮在对话框中, 即使按钮不具有输入焦点, 用户也可以通过按 Enter 键选中它.对于用户的快速选择或设置默认状态,这个样式是非常有用的.
+	[可选参数] 	
+		$BS_BOTTOM - 文本在按钮底部.
+		$BS_CENTER - 文本在按钮内水平居中.
+		$BS_LEFT - 左对齐按钮文本.
+		$BS_MULTILINE - 超长文本自动换行.
+		$BS_RIGHT - 右对齐按钮文本.
+		$BS_RIGHTBUTTON - 复选按钮的勾选方块定位到按钮矩形区右侧.
+		$BS_TOP - 文本在按钮顶部.
+		$BS_VCENTER - 文本在按钮矩形的垂直中心.
+	[可选参数] 	
+		$BS_ICON - 按钮显示 ico 图标. 
+		$BS_BITMAP - 按钮显示 bmp 位图.
+	[可选参数] 	
+		$BS_NOTIFY - 允许按钮发送 BN_KILLFOCUS 与 BN_SETFOCUS 通知消息到它的父窗口. 
+		注意不论按钮是否有这个样式,都能发送 the BN_CLICKED 通知消息. 
+		要获取 BN_DBLCLK 通知消息, 按钮必须有 BS_RADIOBUTTON 或 BS_OWNERDRAW 样式.
+	[可选参数] 	Vista 样式:
+		$BS_SPLITBUTTON - 有拆分标志 " l " 的按钮, 配合一个下拉菜单箭头
+		$BS_DEFSPLITBUTTON - 类似 $BS_PUSHBUTTON 样式的色边框（初始启动时）按钮, 也有拆分标志 " l ", 配合一个下拉菜单箭头.
+		$BS_COMMANDLINK - 创建命令链接按钮
+		$BS_DEFCOMMANDLINK - 创建命令链接按钮, 类似 $BS_PUSHBUTTON 样式.
+	[可选参数] 默认 : ( -1) : 无 
+		强制 : $WS_CHILD, $WS_TABSTOP, $WS_VISIBLE, $BS_NOTIFY
 $iExStyle
-	[optional] Control extended style. These correspond to the standard $WS_EX_ constants.
+	[可选参数] 控件扩展样式. 对应于标准 $WS_EX_ 常量.
 @@End@@
 
 ###ReturnValue###
@@ -67,9 +65,8 @@ $iExStyle
 @@End@@
 
 ###Remarks###
-上方常量需要 ButtonConstants.au3
-
-This function is for Advanced users and for learning how the control works.
+ 上述常量要求包含文件 ButtonConstants.au3.
+ 此功能是为高级用户学习如何控制工程控件工作
 
 ###Related###
 _GUICtrlButton_Destroy

@@ -2,7 +2,7 @@
 _GUICtrlComboBox_FindStringExact
 
 ###Description###
-Search for a string
+搜索字符串(完全匹配)
 
 ###Syntax###
 #Include <GuiComboBox.au3>
@@ -11,24 +11,25 @@ _GUICtrlComboBox_FindStringExact($hWnd, $sText[, $iIndex = -1])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to control
+	控件句柄
 $sText
-	String to search for
+	要搜索的字符串
 $iIndex
-	[optional] Zero based index of the item preceding the first item to be searched
+	[可选参数] 被搜索项目的 0 基索引
 @@End@@
 
 ###ReturnValue###
-Success: Zero based index of the matching item
-Failure: -1
+@@ReturnTable@@
+成功:	返回匹配项目的 0 基索引 
+失败:	返回 -1
+@@End@@
 
 ###Remarks###
-Find the first string that matches the string specified in the $sText parameter
+ 返回匹配 $sText 参数的第一个字符串(完全匹配).
+ 当搜索到达列表框底部, 继续从列表框顶部开始搜索,
+ 直到 $iIndex 指定的位置为止.
+ 如果 $iIndex 为 -1,将从头开始搜索整个列表框.
 
-When the search reaches the bottom of the ListBox, it continues from the top of the
-ListBox back to the item specified by $iIndex.
-
-If $iIndex is –1, the entire ListBox is searched from the beginning.
 
 ###Related###
 _GUICtrlComboBox_SelectString

@@ -2,7 +2,7 @@
 _GUICtrlComboBox_LimitText
 
 ###Description###
-Limits the length of the text the user may type into the edit control of a ComboBox
+限制组合控件编辑框文本输入长度
 
 ###Syntax###
 #Include <GuiComboBox.au3>
@@ -11,26 +11,23 @@ _GUICtrlComboBox_LimitText($hWnd[, $iLimit = 0])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to control
+	控件句柄
 $iLimit
-	[optional] limit length of the text
+	[可选参数] 指定文本的限制长度
 @@End@@
 
 ###ReturnValue###
 None.
 
 ###Remarks###
-If the $iLimit parameter is zero, the text length is limited to 0x7FFFFFFE characters.
+ 如果 $iLimit 参数为 0,文本长度被限制为 0x7FFFFFFE 个字符.
+ 如果组合控件没有 $CBS_AUTOHSCROLL 样式,
+ 设置限制大于编辑框的尺寸时没有任何效果.
+ 此函数仅限制用户可以输入的文本.
+ 在编辑控件发送消息时,没有任何文字影响,
+ 也不会影响列表框选中文本复制到编辑框中的长度.
+ 默认限制用户可以在文本编辑控件中输入 30,000 个字符
 
-If the ComboBox does not have the $CBS_AUTOHSCROLL style, setting the text limit to
-be larger than the size of the edit control has no effect.
-
-The _GUICtrlComboBox_LimitText function limits only the text the user can enter.
-It has no effect on any text already in the edit control when the message is sent,
-nor does it affect the length of the text copied to the edit control when a string
-in the ListBox is selected.
-
-The default limit to the text a user can enter in the edit control is 30,000 characters
 
 ###Related###
 

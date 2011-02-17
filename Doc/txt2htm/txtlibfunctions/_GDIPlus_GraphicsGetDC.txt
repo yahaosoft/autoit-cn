@@ -2,7 +2,7 @@
 _GDIPlus_GraphicsGetDC
 
 ###Description###
-Gets a handle to the device context of the Graphics object
+获取图形的设备环境句柄
 
 ###Syntax###
 #Include <GDIPlus.au3>
@@ -11,18 +11,18 @@ _GDIPlus_GraphicsGetDC($hGraphics)
 ###Parameters###
 @@ParamTable@@
 $hGraphics
-	Handle to a Graphics object
+	图形对象的句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	DC of the Graphics object
-Failure:	0
+成功:	返回图形对象的设备环境句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-Each call to the _GDIPlus_GraphicsGetDC should be paired with a call to the _GDIPlus_GraphicsReleaseDC. Do not call
-any methods of the Graphics object between the calls.
+ _GDIPlus_GraphicsGetDC 必须与 _GDIPlus_GraphicsReleaseDC 成对调用.
+ 在两次调用之间不要调用该图形对象的任何方法.
 
 ###Related###
 _GDIPlus_GraphicsReleaseDC

@@ -2,7 +2,7 @@
 _GDIPlus_BitmapLockBits
 
 ###Description###
-Locks a portion of a bitmap for reading or writing
+为读/写操作锁定部分位图
 
 ###Syntax###
 #Include <GDIPlus.au3>
@@ -11,44 +11,44 @@ _GDIPlus_BitmapLockBits($hBitmap, $iLeft, $iTop, $iWidth, $iHeight [ , $iFlags =
 ###Parameters###
 @@ParamTable@@
 $hBitmap
-	Handle to a bitmap object
+	位图对象句柄
 $iLeft
-	X coordinate of the upper-left corner of the rectangle to lock
+	锁定矩形的左上角 X 坐标
 $iTop
-	Y coordinate of the upper-left corner of the rectangle to lock
+	锁定矩形的左上角 Y 坐标
 $iWidth
-	The width of the rectangle to lock
+	锁定矩形的宽度
 $iHeight
-	The height of the rectangle to lock
+	锁定矩形的高度
 $iFlags
-	[optional] Set of flags that specify whether the locked portion of the bitmap is available for reading or
-		for writing and whether the caller has already allocated a buffer. Can be a combination of the following:
-		$GDIP_ILMREAD - A portion of the image is locked for reading
-		$GDIP_ILMWRITE - A portion of the image is locked for writing
-		$GDIP_ILMUSERINPUTBUF - The buffer is allocated by the user
+	[可选参数]指定锁定类型及是否由用户分配缓冲区
+		可设标志如下:
+		$GDIP_ILMREAD - 为读取锁定
+		$GDIP_ILMWRITE - 为写入锁定
+		$GDIP_ILMUSERINPUTBUF - 由用户分配缓冲区
 $iFormat
-	[optional] Specifies the format of the pixel data in the temporary buffer. Can be one of the following:
-		$GDIP_PXF01INDEXED - 1 bpp, indexed
-		$GDIP_PXF04INDEXED - 4 bpp, indexed
-		$GDIP_PXF08INDEXED - 8 bpp, indexed
-		$GDIP_PXF16GRAYSCALE - 16 bpp, grayscale
-		$GDIP_PXF16RGB555 - 16 bpp; 5 bits for each RGB
-		$GDIP_PXF16RGB565 - 16 bpp; 5 bits red, 6 bits green, and 5 bits blue
-		$GDIP_PXF16ARGB1555 - 16 bpp; 1 bit for alpha and 5 bits for each RGB component
-		$GDIP_PXF24RGB - 24 bpp; 8 bits for each RGB
-		$GDIP_PXF32RGB - 32 bpp; 8 bits for each RGB. No alpha.
-		$GDIP_PXF32ARGB - 32 bpp; 8 bits for each RGB and alpha
-		$GDIP_PXF32PARGB - 32 bpp; 8 bits for each RGB and alpha, pre-mulitiplied
+	[可选参数] 指定在临时缓冲区中的像素数据格式.可以是下列之一:
+		$GDIP_PXF01INDEXED - 1 位, 索引
+		$GDIP_PXF04INDEXED - 4 位, 索引
+		$GDIP_PXF08INDEXED - 8 位, 索引
+		$GDIP_PXF16GRAYSCALE - 16 bpp, 灰度级
+		$GDIP_PXF16RGB555 - 16 bpp; 每个 RGB 分量 5 位
+		$GDIP_PXF16RGB565 - 16 bpp; 红色 5 位 , 绿色 6 位, 蓝色 5 位
+		$GDIP_PXF16ARGB1555 - 16 bpp; 1 位 alpha,每个 RGB 分量 5 位
+		$GDIP_PXF24RGB - 24 bpp; 每个 RGB 分量 8 位
+		$GDIP_PXF32RGB - 32 bpp; 每个 RGB 分量 8 位
+		$GDIP_PXF32ARGB - 32 bpp; 每组 RGB 分量和 alpha 8 位
+		$GDIP_PXF32PARGB - 32 bpp; 每组 RGB 分量和 alpha 8 位, pre-mulitiplied
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	$tagGDIPBITMAPDATA structure
-Failure:	@error is set
+成功:	返回 $tagGDIPBITMAPDATA 结构
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###
-When you are done with the locked portion, call _GDIPlus_BitmapUnlockBits to release the locked region
+ 当您完成部分锁定,调用 _GDIPlus_BitmapUnlockBits 释放锁定的区域
 
 ###Related###
 _WinAPI_DeleteObject, _GDIPlus_ImageGetPixelFormat

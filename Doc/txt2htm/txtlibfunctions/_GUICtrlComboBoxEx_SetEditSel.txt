@@ -2,7 +2,7 @@
 _GUICtrlComboBoxEx_SetEditSel
 
 ###Description###
-Select characters in the edit control of a ComboBox
+选择编辑框字符串
 
 ###Syntax###
 #Include <GuiComboBoxEx.au3>
@@ -11,22 +11,24 @@ _GUICtrlComboBoxEx_SetEditSel($hWnd, $iStart, $iStop)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to control
+	控件句柄
 $iStart
-	Starting position
+	起始位置.
 $iStop
-	Ending postions
+	结束位置
 @@End@@
 
 ###ReturnValue###
-成功: True
-失败: False If the message is sent to a ComboBox with the $CBS_DROPDOWN or $CBS_DROPDOWNLIST style
+@@ReturnTable@@
+成功:	返回 True
+失败:	返回 False,（消息被发送到一个具有 $CBS_DROPDOWN 或 $CBS_DROPDOWNLIST 样式的组合控件时.
+@@End@@
 
 ###Remarks###
-The positions are zero-based. The first character of the edit control is in the zero position.
-If $iStop is –1, all text from the starting position to the last character in the edit control is selected.
-
-The first character after the last selected character is in the ending position.
+ 位置从 0 开始计算. 编辑控件的第一个字符为 0 位.
+ 如果 $iStop 为 –1, 则编辑框中从开始到最后字符的所有文本均被选中.
+ 选择第一个字符后,再选择字符的结束位置.
+ 例如,要选择编辑框中前四个字符,使用 0 起始位置和 4 结束位置. 
 
 For example, to select the first four characters of the edit control, use a starting position
 of 0 and an ending position of 4.
