@@ -2,7 +2,7 @@
 _GUICtrlEdit_GetRECT
 
 ###Description###
-Retrieves the formatting rectangle of an edit control
+检索编辑控件的格式化矩形,返回坐标值数据数组.
 
 ###Syntax###
 #Include <GuiEdit.au3>
@@ -11,20 +11,21 @@ _GUICtrlEdit_GetRECT($hWnd)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 @@End@@
 
 ###ReturnValue###
-Success: Array containing the RECT in the following format:
-
-	[0] - X coordinate of the upper left corner of the rectangle
-	[1] - Y coordinate of the upper left corner of the rectangle
-	[2] - X coordinate of the lower right corner of the rectangle
-	[3] - Y coordinate of the lower right corner of the rectangle
+@@ReturnTable@@
+成功:	返回矩形的以下格式数组:
+	[0] - 矩形左上角 X 坐标
+	[1] - 矩形左上角 Y 坐标
+	[2] - 矩形右下角 X 坐标
+	[3] - 矩形右下角 Y 坐标
+@@End@@
 
 ###Remarks###
-Under certain conditions, _GUICtrlEdit_GetRECT might not return the exact values that
-_GUICtrlEdit_SetRECT set梚t will be approximately correct, but it can be off by a few pixels.
+ 在某种情况下, _GUICtrlEdit_GetRECT 可能不返回准确值.
+ _GUICtrlEdit_SetRECT 设置的是近似值,但它可以保留少许像素.
 
 ###Related###
 _GUICtrlEdit_GetRECTEx

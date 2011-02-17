@@ -11,29 +11,25 @@ _GUICtrlEdit_SetSel($hWnd, $iStart, $iEnd)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iStart
-	Specifies the starting character position of the selection.
+	指定选择字符的起始位置.
 $iEnd
-	Specifies the ending character position of the selection.
+	指定选择字符的结束位置.
 @@End@@
 
 ###ReturnValue###
 None.
 
 ###Remarks###
-The start value can be greater than the end value.
-The lower of the two values specifies the character position of the first character in the selection.
-The higher value specifies the position of the first character beyond the selection.
-
-The start value is the anchor point of the selection, and the end value is the active end.
-If the user uses the SHIFT key to adjust the size of the selection, the active end can move but the
-anchor point remains the same.
-
-If the $iStart is 0 and the $iEnd is ?1, all the text in the edit control is selected.
-If the $iStart is ?1, any current selection is deselected.
-
-The control displays a flashing caret at the $iEnd position regardless of the relative values of $iStart and $iEnd.
+ 起始值可能大于结束值.
+两个值中较小值指定选择字符的第一位置. 
+较高值指定选择字符在第一位置后的其他位置. 
+ 起始值是选择的定位点,结束值是当前最终点.
+ 如果用户使用 Shift 键来调整选区的大小,则当前结束点可以移动,但定位点仍然是相同的.
+ 如果 $iStart 为 0,$iEnd 为 -1,编辑控件中所有文本被选中.
+ 如果 $iStart 为 -1,则取消现有任何选择.
+ 无论相对值是 $iStart,还是 $iEnd,控件都将在 $iEnd 定位点显示一个闪烁的插入符号.
 
 ###Related###
 _GUICtrlEdit_GetSel, _GUICtrlEdit_ReplaceSel

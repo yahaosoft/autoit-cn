@@ -2,7 +2,7 @@
 _GUICtrlHeader_HitTest
 
 ###Description###
-Tests a point to determine which item is at the specified point
+检索指定点的项目
 
 ###Syntax###
 #Include <GuiHeader.au3>
@@ -11,26 +11,28 @@ _GUICtrlHeader_HitTest($hWnd, $iX, $iY)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to control
+	控件句柄
 $iX
-	X position to test
+	检索点的 X 位置
 $iY
-	Y position to text
+	检索点的 Y 位置
 @@End@@
 
 ###ReturnValue###
-Success: Array with the following format:
-		[ 0] - Zero based index of the item at the specified position, or -1 if no item was found
-		[ 1] - If True, position is in control's client window but not on an item
-		[ 2] - If True, position is in the control's bounding rectangle
-		[ 3] - If True, position is on the divider between two items
-		[ 4] - If True, position is on the divider of an item that has a zero width
-		[ 5] - If True, position is over the filter area
-		[ 6] - If True, position is on the filter button
-		[ 7] - If True, position is above the control's bounding rectangle
-		[ 8] - If True, position is below the control's bounding rectangle
-		[ 9] - If True, position is to the right of the control's bounding rectangle
-		[10] - If True, position is to the left of the control's bounding rectangle
+@@ReturnTable@@
+成功:	返回如下格式数组:
+	[ 0] - 指定位置项目的 0 基索引, 或没找到时为 -1
+	[ 1] - 如为 True, 则位置在控件客户窗口内,但没有项目上
+	[ 2] - 如为 True, 则位置在控件的边界矩形内
+	[ 3] - 如为 True, 则位置在两项目的分隔符上
+	[ 4] - 如为 True, 则位于一个 0 宽度项目的分隔符上
+	[ 5] - 如为 True, 则位于过滤区域上
+	[ 6] - 如为 True, 则位于过滤器按钮上
+	[ 7] - 如为 True, 则位于控件边界矩形的上方
+	[ 8] - 如为 True, 则位于控件边界矩形的下方
+	[ 9] - 如为 True, 则位于控件边界矩形的右侧
+	[10] - 如为 True, 则位于控件边界矩形的左侧
+@@End@@
 
 ###Remarks###
 None.

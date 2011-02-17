@@ -2,7 +2,7 @@
 _GUICtrlEdit_Scroll
 
 ###Description###
-Scrolls the text vertically
+垂直滚动文本
 
 ###Syntax###
 #Include <GuiEdit.au3>
@@ -11,23 +11,25 @@ _GUICtrlEdit_Scroll($hWnd, $iDirection)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iDirection
-	This parameter can be one of the following values:
-		$SB_LINEDOWN - Scrolls down one line
-		$SB_LINEUP - Scrolls up one line
-		$SB_PAGEDOWN - Scrolls down one page
-		$SB_PAGEUP - Scrolls up one page
-		$SB_SCROLLCARET - Scrolls the caret into view
+	这个参数可以是以下值之一:
+		$SB_LINEDOWN - 向下滚动一行
+		$SB_LINEUP - 向上滚动一行
+		$SB_PAGEDOWN - 向下滚动一页
+		$SB_PAGEUP - 向上滚动一页
+		$SB_SCROLLCARET - 滚动插入符号到可见
 @@End@@
 
 ###ReturnValue###
-Success: The high-order word of the return value is TRUE
-	The low-order word is the number of lines that the command scrolls
-Failure: 0
+@@ReturnTable@@
+成功:	返回值的高序位字为 TRUE
+	低序位为滚动行数
+失败:	返回 0
+@@End@@
 
 ###Remarks###
-$SB_xxxxx require include of ScrollBarConstants.au3
+ 参数 $SB_xxxxx 要求 ScrollBarConstants.au3 文件定义常量.
 
 ###Related###
 _GUICtrlEdit_LineScroll

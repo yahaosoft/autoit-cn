@@ -2,7 +2,7 @@
 _GUICtrlListBox_SetTabStops
 
 ###Description###
-Sets the tab-stop positions
+设置制表符停止位置
 
 ###Syntax###
 #Include <GuiListBox.au3>
@@ -11,24 +11,26 @@ _GUICtrlListBox_SetTabStops($hWnd, $aTabStops)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to control
+	控件句柄
 $aTabStops
-	Array with the following format:
-		[0] - Number of tab stops in the array (n)
-		[1] - First tab stop
-		[2] - Second tab stop
-		[n] - Nth tab stop
+	如下格式数组:
+		[0] - 数组中制表位数量
+		[1] - 第一制表位
+		[2] - 第二制表位
+		[n] - 第 N 制表位
 @@End@@
 
 ###ReturnValue###
-成功: True
-失败: False
+@@ReturnTable@@
+成功:	返回 True
+失败:	返回 False
+@@End@@
 
 ###Remarks###
-The integers in $aTabStops represent the number of quarters of the average character width for the font that
-is selected into the list box. For example, a tab stop of 4 is placed at 1.0 character units, and a tab stop
-of 6 is placed at 1.5 average character units. However, if the list box is part of a dialog box, the integers
-are in dialog template units. The tab stops must be sorted in ascending order; backward tabs are not allowed.
+ $aTabStops 中的整数代表被选入列表框的字体的平均字符宽度 	
+ 例如,一个 4 制表位占 1.0 字符单位;6 制表位占 1.5 字符单位.
+ 如果列表框是一个对话框的一部分时,整数值使用对话框模板单位. 
+ 制表位必须按升序排列;反序制表位是不允许的.
 
 ###Related###
 

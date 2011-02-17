@@ -2,7 +2,7 @@
 _GUICtrlListBox_SelectString
 
 ###Description###
-Searchs for an item that begins with the specified string
+搜索项目文本以指定字符串开始的项目
 
 ###Syntax###
 #Include <GuiListBox.au3>
@@ -11,24 +11,24 @@ _GUICtrlListBox_SelectString($hWnd, $sText[, $iIndex = -1])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to control
+	控件句柄
 $sText
-	String that contains the string for which to search.
+	搜索的字符串.
 $iIndex
-	[optional] Specifies the zero based index of the item before the first item to be searched. When the
-		search reaches the bottom of the list box, it continues searching from the top of the list box back to the
-		item specified by $iIndex. If $iIndex is –1, the entire list box is searched from the beginning.
+	[可选参数] 指定搜索开始的项目 0 基索引.
+		当搜索到达列表尾时,将返回顶部从新开始,继续到 $iIndex 指定位置为止.
+		如果 $iIndex 为 -1,则从列表开始位置搜索整个列表框.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The zero based index of the selected item
-Failure:	-1
+成功:	返回选中项目的 0 基索引
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
-The list box is scrolled, if necessary, to bring the selected item into view.
-Do not use this message with a list box that has the $LBS_MULTIPLESEL or the $LBS_EXTENDEDSEL styles.
+ 如果有必要,列表框将滚动匹配项,使其可见.
+ 不要对具有 $LBS_MULTIPLESEL 或 the $LBS_EXTENDEDSEL 样式的列表框使用该函数.
 
 ###Related###
 _GUICtrlListBox_FindString, _GUICtrlListBox_FindInText

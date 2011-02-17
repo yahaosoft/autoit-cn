@@ -2,7 +2,7 @@
 _GUICtrlListBox_AddString
 
 ###Description###
-Add a string
+添加字符串
 
 ###Syntax###
 #Include <GuiListBox.au3>
@@ -11,20 +11,21 @@ _GUICtrlListBox_AddString($hWnd, $sText)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to control
+	控件句柄
 $sText
-	String that is to be added
+	添加的字符串
 @@End@@
 
 ###ReturnValue###
-Success: Zero based index of string
-Failure: -1
+@@ReturnTable@@
+成功:	返回 字符串的 0 基索引
+失败:	返回 -1
+@@End@@
 
 ###Remarks###
-If there is insufficient space to store the new string, the return value is $LB_ERRSPACE.
-
-If the list box does not have the $LBS_SORT style, the string is added to the end of the list.
-Otherwise, the string is inserted into the list and the list is sorted.
+ 如果内存空间不足,则返回值为 $LB_ERRSPACE.
+ 如果列表框没有 $LBS_SORT 样式, 字符串被添加到列表框的末尾;
+ 否则,该字符串被插入到列表框自动排序位置.
 
 ###Related###
 _GUICtrlListBox_InsertString, _GUICtrlListBox_DeleteString, _GUICtrlListBox_AddFile, _GUICtrlListBox_InitStorage

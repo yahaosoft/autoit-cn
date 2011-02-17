@@ -2,7 +2,8 @@
 _GUICtrlEdit_LineFromChar
 
 ###Description###
-Retrieves the index of the line that contains the specified character index
+检索指定索引字符所在行的索引.
+(译注:此页翻译与示例运行结果不符,请自行研究或参考原文)
 
 ###Syntax###
 #Include <GuiEdit.au3>
@@ -11,18 +12,19 @@ _GUICtrlEdit_LineFromChar($hWnd[, $iIndex = -1])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iIndex
-	[optional] The character index of the character contained in the line whose number is to be retrieved
+	[可选参数] 指定含有字符的行号(译注:不定准确,请参考原文)
 @@End@@
 
 ###ReturnValue###
-Success: Zero-based line number of the line containing the character index specified by $iIndex
+@@ReturnTable@@
+成功:	返回 $iIndex 指定的 0 基行索引,该行包含索引字符.
+@@End@@
 
 ###Remarks###
-If $iIndex is –1, _GUICtrlEdit_LineFromChar retrieves either the line number of the current line
-(the line containing the caret) or, if there is a selection, the line number of the line containing
-the beginning of the selection.
+ 如果 $iIndex 为 -1,本函数将检索当前插入符号所在行.
+ 如果有选择,检索将从选择行开始. 
 
 ###Related###
 

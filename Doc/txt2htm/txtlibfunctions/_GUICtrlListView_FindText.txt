@@ -2,7 +2,7 @@
 _GUICtrlListView_FindText
 
 ###Description###
-Searches for an item with the specified text
+搜索指定文本的项目
 
 ###Syntax###
 #Include <GuiListView.au3>
@@ -11,27 +11,26 @@ _GUICtrlListView_FindText($hWnd, $sText[, $iStart = -1[, $fPartialOK = True[, $f
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $sText
-	Text to match
+	匹配文本
 $iStart
-	[optional] Zero based index of the item to begin the search with or -1 to start from the beginning. The
-		specified item is itself excluded from the search.
+	[可选参数] 搜索开始的 0 基索引,或 -1, 从头开始.
+		指定索引项自身不包括在搜索范围内.
 $fPartialOK
-	[optional] If True, a match will occur if the item text begins with the text
+	[可选参数] 如为 True, 只要项目文本开头匹配 $sText 的开头,则搜索成立
 $fWrapOK
-	[optional] If True, the search will continue with the first item if no match is found
+	[可选参数] 如为 True, 则没有找到匹配项时,从第一项继续搜索
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The zero based index of the item
-Failure:	-1
+成功:	返回项目的 0 基索引
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
-The search is case insensitive. The search is performed on the item only. Use _GUICtrlListView_FindInText if you want
-to search for the text in subitems.
+ 搜索不区分大小写. 搜索仅对主项目进行.
 
 ###Related###
 _GUICtrlListView_FindInText

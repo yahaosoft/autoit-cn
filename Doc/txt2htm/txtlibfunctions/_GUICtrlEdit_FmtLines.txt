@@ -2,7 +2,7 @@
 _GUICtrlEdit_FmtLines
 
 ###Description###
-Determines whether a edit control includes soft line-break characters
+确定编辑控件是否包括软换行字符
 
 ###Syntax###
 #Include <GuiEdit.au3>
@@ -11,26 +11,25 @@ _GUICtrlEdit_FmtLines($hWnd[, $fSoftBreak = False])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $fSoftBreak
-	[optional] Specifies whether soft line-break characters are to be inserted:
-		 True - Inserts the characters
-		False - Removes them
+	[可选参数] 指定是否插入软换行符:
+		True - 插入
+		False - 删除
 @@End@@
 
 ###ReturnValue###
-Success: Identical to the $fSoftBreak parameter
+@@ReturnTable@@
+成功:	返回 $fSoftBreak 的参数值
+@@End@@
 
 ###Remarks###
-A soft line break consists of two carriage returns and a line feed and is inserted at the
-end of a line that is broken because of wordwrapping.
-
-This function affects only the text returned by the _GUICtrlEdit_GetText function.
-
-It has no effect on the display of the text within the edit control.
-
-The _GUICtrlEdit_FmtLines function does not affect a line that ends with a hard line break.
-A hard line break consists of one carriage return and a line feed.
+ 一个软换行符是在一行的末尾插入两个回车和一个换行符,
+ 起到在行尾换行的作用.
+ 这个函数只影响 _GUICtrlEdit_GetText 函数返回的文本.
+ 软换行符在编辑控件上没有像文字样的显示效果.
+ 该函数不影响文本行用硬换行符结束.
+ 硬换行符由一个回车符和换行符组成.
 
 ###Related###
 
