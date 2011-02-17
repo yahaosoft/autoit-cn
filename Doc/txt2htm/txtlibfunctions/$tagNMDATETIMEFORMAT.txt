@@ -2,46 +2,55 @@
 $tagNMDATETIMEFORMAT
 
 ###Description###
-Contains information about a portion of the format string that defines a callback field within a date and time picker (DTP) control
+包含日期时间选择器控件(DTP)定义的回调区中格式化字符串的信息
 
 ###Syntax###
-Global Const $tagNMDATETIMEFORMAT = $tagNMHDR & ";ptr Format;short Year;short Month;short DOW;short Day;" & _
-		"short Hour;short Minute;short Second;short MSecond;ptr pDisplay;char Display[64]"
+Global Const $tagNMDATETIMEFORMAT = $tagNMHDR & ";" & _
+                                    "ptr Format;" & _
+                                    "short Year;" & _
+                                    "short Month;" & _
+                                    "short DOW;" & _
+                                    "short Day;" & _
+                                    "short Hour;" & _
+                                    "short Minute;" & _
+                                    "short Second;" & _
+                                    "short MSecond;" & _
+                                    "ptr pDisplay;" & _
+                                    "char Display[64]"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-	Contains information about a notification message
+	包含通知消息的信息
 Format
-	Pointer to a null terminated string that defines the control callback field. The string comprises
-	one or more "X" characters.
+	指向一个空结束的字符串,它定义了控件回调字段.该字符串包括一或多个“X”字符     .
 Year
-	Year
+	年
 Month
-	Month
+	月
 DOW
-	Day of week
+	周中的日
 Day
-	Day
+	日
 Hour
-	Hour
+	时
 Minute
-	Minute
+	分
 Second
-	Second
+	秒
 MSecond
-	Milliseconds
+	毫秒
 pDisplay
-	Pointer to a null terminated string that contains the display text of the control. By default, this
-	is the address of the Display member of this structure. It is acceptable to have pDisplay point to an
-	existing string. In this case, you don't need to assign a value to Display. However, the string that pDisplay
-	points to must remain valid until another $DTN_FORMAT notification is sent or until the control is destroyed.
+	指向一个空结束字符串,其中包含该控件的显示文本.
+	默认为本结构中 Display 成员的地址
+	可以接受 pDisplay 指向的现有字符串,这种情况下,无需为 Display 分配值.
+	但必须保持 pDisplay 指向的字符串有效,直到发送另一个 $DTN_FORMAT 通知或控件被销毁..
 Display
-	64 character buffer that is to receive the null terminated string that the control will display. It
-	is not necessary to fill the entire buffer.
+	控件接收空结束字符串的 64 个字符缓冲区,
+	没有必要填补整个缓冲区.
 @@End@@
 
 ###Remarks###
-It carries the string that defines the callback field and contains a buffer to receive the string that will
-be displayed in the callback field. This structure is used with the $DTN_FORMAT notification message.
+传送定义回调字段的字符串,并包含一个缓冲区用来接收将要在回调字段中显示的字符串.
+此结构用于 $DTN_FORMAT 通知消息.
 

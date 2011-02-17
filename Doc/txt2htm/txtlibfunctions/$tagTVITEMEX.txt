@@ -2,54 +2,61 @@
 $tagTVITEMEX
 
 ###Description###
-Specifies or receives attributes of a tree-view item
+指定或接收树视图项目的属性
 
 ###Syntax###
-Global Const $tagTVITEMEX = "int Mask;int hItem;int State;int StateMask;ptr Text;int TextMax;int Image;int SelectedImage;" & _
-		"int Children;int Param;int Integral"
+Global Const $tagTVITEMEX = "int Mask;" & _
+                            "int hItem;" & _
+                            "int State;" & _
+                            "int StateMask;" & _
+                            "ptr Text;" & _
+                            "int TextMax;" & _
+                            "int Image;" & _
+                            "int SelectedImage;" & _
+                            "int Children;" & _
+                            "int Param;" & _
+                            "int Integral"
 
 ###Fields###
 @@ParamTable@@
 Mask
-	Flags that indicate which of the other structure members contain valid data:
-		$TVIF_CHILDREN - The Children member is valid
-		$TVIF_DI_SETITEM - The will retain the supplied information and will not request it again
-		$TVIF_HANDLE - The hItem member is valid
-		$TVIF_IMAGE - The Image member is valid
-		$TVIF_INTEGRAL - The Integral member is valid
-		$TVIF_PARAM - The Param member is valid
-		$TVIF_SELECTEDIMAGE - The SelectedImage member is valid
-		$TVIF_STATE - The State and StateMask members are valid
-		$TVIF_TEXT - The Text and TextMax members are valid
+	说明哪些结构成员包含有效数据:
+		$TVIF_CHILDREN - Children 成员有效
+		$TVIF_DI_SETITEM - 将保留提供的信息并不再请求
+		$TVIF_HANDLE - hItem 成员有效
+		$TVIF_IMAGE - Image 成员有效
+		$TVIF_INTEGRAL - Integral 成员有效
+		$TVIF_PARAM - Param 成员有效
+		$TVIF_SELECTEDIMAGE - SelectedImage 成员有效
+		$TVIF_STATE - State 与 StateMask 成员有效
+		$TVIF_TEXT - Text 和 TextMax 成员有效
 hItem
-	Item to which this structure refers
+	本结构指向的项目
 State
-	Set of bit flags and image list indexes that indicate the item's state. When setting the state
-	of an item, the StateMask member indicates the bits of this member that are valid. When retrieving the state
-	of an item, this member returns the current state for the bits indicated in the StateMask member. Bits 0
-	through 7 of this member contain the item state flags. Bits 8 through 11 of this member specify the one based
-	overlay image index.
+	设置表明项目状态的标志和图像索引. 
+	当设置项目状态后,StateMask 成员表示该成员的有效位.
+	当检索项状态时,这个成员返回的当前状态显示在 StateMask 成员中.
+	0 至 7为项目的状态标志;8 至 11 位指定一个基于覆盖的图像索引      .
 StateMask
-	Bits of the state member that are valid. If you are retrieving an item's state, set the bits
-	of the stateMask member to indicate the bits to be returned in the state member. If you are setting an item's
-	state, set the bits of the stateMask member to indicate the bits of the state member that you want to set.
+	state 成员位有效. 
+	如果要检索项目状态,设置 stateMask 成员的位表示 state 要返回的位. 
+	如果要设置项的状态,设置 stateMask 成员的位表明 state 成员为你要设置的位.
 Text
-	Pointer to a null-terminated string that contains the item text.
+	指向一个空结束的字符串，其中包含的项目文本.
 TextMax
-	Size of the buffer pointed to by the Text member, in characters
+	Text 成员指向的缓冲区字符大小
 Image
-	Index in the image list of the icon image to use when the item is in the nonselected state
+	当项目非选择状态时使用的图标在图像列表中的索引
 SelectedImage
-	Index in the image list of the icon image to use when the item is in the selected state
+	当项目选中状态时使用的图标在图像列表中的索引
 Children
-	Flag that indicates whether the item has associated child items. This member can be one of the
-	following values:
-		0 - The item has no child items
-		1 - The item has one or more child items
+	表明项目是否有关联子项的标志     :
+		0 - 项目没有子项
+		1 - 项目有一或多个子项
 Param
-	A value to associate with the item
+	项目的关联值
 Integral
-	Height of the item
+	项目的高度
 @@End@@
 
 ###Remarks###

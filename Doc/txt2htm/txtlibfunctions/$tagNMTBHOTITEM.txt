@@ -2,33 +2,37 @@
 $tagNMTBHOTITEM
 
 ###Description###
-Contains information used with the $TBN_HOTITEMCHANGE notification
+包含使用 $TBN_HOTITEMCHANGE 通知的信息
 
 ###Syntax###
-Global Const $tagNMTBHOTITEM = $tagNMHDR & ";int idOld;int idNew;dword dwFlags"
+Global Const $tagNMTBHOTITEM = $tagNMHDR & ";" & _
+                               "int idOld;" & _
+                               "int idNew;" & _
+                               "dword dwFlags"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-	Contains information about a notification message
+	包含通知消息的信息
 idOld
-	Command identifier of the previously highlighted item
+	先前高亮项目的命令标识符
 idNew
-	Command identifier of the item about to be highlighted
+	即将高亮项目的命令标识符
 dwFlags
-	Flags that indicate why the hot item has changed. This can be one or more of the following values:
-		$HICF_ACCELERATOR - The change in the hot item was caused by a shortcut key
-		$HICF_ARROWKEYS - The change in the hot item was caused by an arrow key
-		$HICF_DUPACCEL - Modifies $HICF_ACCELERATOR. If this flag is set, more than one item has the same shortcut key character
-		$HICF_ENTERING - Modifies the other reason flags. If this flag is set, there is no previous hot item and idOld does not contain valid information
-		$HICF_LEAVING - Modifies the other reason flags. If this flag is set, there is no new hot item and idNew does not contain valid information
-		$HICF_LMOUSE - The change in the hot item resulted from a left-click mouse event
-		$HICF_MOUSE - The change in the hot item resulted from a mouse event
-		$HICF_OTHER - The change in the hot item resulted from an event that could not be determined. This will most often be due to a change in focus or the $TB_SETHOTITEM message
-		$HICF_RESELECT - The change in the hot item resulted from the user entering the shortcut key for an item that was already hot
-		$HICF_TOGGLEDROPDOWN - Version 5.80. Causes the button to switch states
+	表示项目为何改变的标志. 可为一或多个下列值:
+		$HICF_ACCELERATOR - 快捷键引起的热项改变
+		$HICF_ARROWKEYS - 箭头键引起的热项改变
+		$HICF_DUPACCEL - 修改 $HICF_ACCELERATOR. 如果这个标志被设置，多个项目具有相同的快捷键字符
+		$HICF_ENTERING - 修正其他原因标记. 如果设置此标志, 以前没有热项目, 则 idOld 不包含有效的信息
+		$HICF_LEAVING - 修正其他原因标记. 如果设置此标志, 没有新添热项目, 则 idOld 不包含有效的信息
+		$HICF_LMOUSE - 鼠标左键单击事件引起的热项改变
+		$HICF_MOUSE - 鼠标事件引起的热项改变
+		$HICF_OTHER - 无法确定引起热项改变的事件. 通常是由于焦点改变或 $TB_SETHOTITEM 消息变化
+		$HICF_RESELECT - 用户输入的快捷键项目已经是热项而引起的热项改变
+		$HICF_TOGGLEDROPDOWN - 版本 5.80. 导致按钮切换状态
 @@End@@
 
 ###Remarks###
-Needs alignment for x64
+需要调整为 x64
+	
 

@@ -2,34 +2,40 @@
 $tagNMLVGETINFOTIP
 
 ###Description###
-Contains and receives list-view item information needed to display a ToolTip for an item
+包含和接收列表视图项目显示工具提示所需的信息
 
 ###Syntax###
-Global Const $tagNMLVGETINFOTIP = $tagNMHDR & ";int Flags;ptr Text;int TextMax;int Item;int SubItem;int lParam"
+Global Const $tagNMLVGETINFOTIP = $tagNMHDR & ";" & _
+                                  "int Flags;" & _
+                                  "ptr Text;" & _
+                                  "int TextMax;" & _
+                                  "int Item;" & _
+                                  "int SubItem;" & _
+                                  "int lParam"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-	Contains information about a notification message
+	包含通知消息的信息
 Flags
-	Either zero or $LVGIT_UNFOLDED
+	0 或 $LVGIT_UNFOLDED
 Text
-	Address of a string buffer that receives any additional text information
-	If Flags is zero, this member will contain the existing item text
-	In this case, you should append any additional text onto the end of this string
+	字符串缓冲区,它接收任何额外的文本信息.
+	如果 Flags 为 0, 该会员将包含现有项目的文本,
+	这种情况下，你可以附加任何其他文本到这个字符串的末尾.
 TextMax
-	Size, in characters, of the buffer pointed to by Text
-	Although you should never assume that this buffer will be of any particular size, the $INFOTIPSIZE value can
-	be used for design purposes
+	指出文本缓冲区的字符大小
+	你可以不需设置这个缓冲区任何特定的大小,
+	而是由 $INFOTIPSIZE 的值来设置.
 Item
-	Zero-based index of the item to which this structure refers.
+	本结构指向的项目的 0 基索引.
 SubItem
-	One-based index of the subitem to which this structure refers
-	If this member is zero, the structure is referring to the item and not a subitem
-	This member is not currently used and will always be zero
+	结构指向的子项目的 1 基索引.
+	如果该成员为 0, 结构指向项目而非子项.
+	此成员尚未使用时,将永远是 0 
 lParam
-	Application-defined value associated with the item
-	This member is not currently used and will always be zero.
+	应用程序定义的项目有关值.
+	此成员尚未使用时,将永远是 0.
 @@End@@
 
 ###Remarks###

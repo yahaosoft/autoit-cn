@@ -2,45 +2,50 @@
 $tagLVFINDINFO
 
 ###Description###
-Contains information used when searching for a list-view item
+包含搜索列表视图(list-view)项目的信息
 
 ###Syntax###
-Global Const $tagLVFINDINFO = "int Flags;ptr Text;int Param;int X;int Y;int Direction"
+Global Const $tagLVFINDINFO = "int Flags;" & _
+                              "ptr Text;" & _
+                              "int Param;" & _
+                              "int X;" & _
+                              "int Y;" & _
+                              "int Direction"
 
 ###Fields###
 @@ParamTable@@
 Flags
-	Type of search to perform. This member can be set to one or more of the following values:
-		$LVFI_PARAM - Searches for a match between this structure's Param member and the Param member of an item.
-	If $LVFI_PARAM is specified, all other flags are ignored.
-		$LVFI_PARTIAL - Checks to see if the item text begins with the string pointed to by the Text member. This
-	value implies use of $LVFI_STRING.
-		$LVFI_STRING - Searches based on the item text. Unless additional values are specified, the item text of
-	the matching item must exactly match the string pointed to by the Text member.
-		$LVFI_WRAP - Continues the search at the beginning if no match is found
-		LVFI_NEARESTXY - Finds the item nearest to the position specified in the X and Y members, in the direction
-	specified by the Direction member. This flag is supported only by large icon and small icon modes.
+	搜索的类型.该成员可设置一或多个以下值:
+		$LVFI_PARAM - 在该结构的 Param 成员和项目的 Param 成员之间搜索匹配值.
+	如指定此标志,则所有其它标志被忽略.
+		$LVFI_PARTIAL - 检查项目文本开头字符串是否指向 Text 成员. 
+	这标志值意味着使用 $LVFI_STRING 标志.
+		$LVFI_STRING - 基于项目的文本搜索. 除非指定额外值,
+	否则匹配文本必须精确匹配 Text 成员指定的字符串.
+		$LVFI_WRAP - 如果没有找到匹配, 则从起点继续搜索
+		LVFI_NEARESTXY - 在 X 与 Y 成员指定的位置, 及 direction 成员指定的方向搜索项目.
+	这个标志仅支持 list-view 的大图标和小图标模式.
 Text
-	Address of a string to compare with the item text. It is valid if $LVFI_STRING or $LVFI_PARTIAL
-	is set in the Flags member.
+	进行比较的项目文本字符串地址. 
+	仅在设置了 $LVFI_STRING 或 $LVFI_PARTIALis 标志, 此标志才有效.
 Param
-	Value to compare with the Param member of an item's $LVITEM structure. It is valid only if
-	$LVFI_PARAM is set in the flags member.
+	与项目 $LVITEM 结构中 Param 成员比较的值.
+	仅在设置了 $LVFI_PARAM 标志, 此标志才有效.
 X
-	Initial X search position. It is valid only if $LVFI_NEARESTXY is set in the Flags member.
+	搜索的初始 X 位置. 仅在设置了 $LVFI_NEARESTXY 标志时有效.
 Y
-	Initial Y search position. It is valid only if $LVFI_NEARESTXY is set in the Flags member.
+	搜索的初始 Y 位置. 仅在设置了 $LVFI_NEARESTXY 标志时有效.
 Direction
-	Virtual key code that specifies the direction to search. The following codes are supported:
-		VK_LEFT
-		VK_RIGHT
-		VK_UP
-		VK_DOWN
-		VK_HOME
-		VK_END
-		VK_PRIOR
-		VK_NEXT
-		This member is valid only if $LVFI_NEARESTXY is set in the flags member.
+	虚拟键码指定的搜索方向.支持以下代码:
+		VK_LEFT	（向左） 
+		VK_RIGHT（向右） 
+		VK_UP 	（向上） 
+		VK_DOWN	（向下） 
+		VK_HOME （返回）
+		VK_END 	（末尾）
+		VK_PRIOR （上一个） 
+		VK_NEXT （下一个） 
+	仅在设置了 $LVFI_NEARESTXY 标志时有效.
 @@End@@
 
 ###Remarks###

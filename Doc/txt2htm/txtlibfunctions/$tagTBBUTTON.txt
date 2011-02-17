@@ -2,32 +2,37 @@
 $tagTBBUTTON
 
 ###Description###
-Contains information about a button in a toolbar
+包含工具栏按钮的信息
 
 ###Syntax###
-Global Const $tagTBBUTTON = "int Bitmap;int Command;byte State;byte Style;short Reserved;int Param;int String"
+Global Const $tagTBBUTTON = "int Bitmap;" & _
+                            "int Command;" & _
+                            "byte State;" & _
+                            "byte Style;" & _
+                            "short Reserved;" & _
+                            "int Param;" & _
+                            "int String"
 
 ###Fields###
 @@ParamTable@@
 Bitmap
-	Zero based index of the button image. Set this member to $I_IMAGECALLBACK, and the toolbar will
-	send the $TBN_GETDISPINFO notification to retrieve the image index when it is needed. Set this member to
-	$I_IMAGENONE to indicate that the button does not have an image. The button layout will not include any space
-	for a bitmap, only text. If the button is a separator, Bitmap determines the width of the separator, in
+	按钮图像的 0 基索引.设置此成员维 $I_IMAGECALLBACK,
+	工具栏将发送 $TBN_GETDISPINFO 通知检索图像索引时是必要的.
+	设置此成员为 $I_IMAGENONE 表明按钮没有图像.
+	按钮布局将不包括任何位图空间,只有文字.如果按钮是一个分隔符,则位图决定分隔符的像素宽度.
 	pixels.
 Command
-	Command identifier associated with the button. This identifier is used in a $WM_COMMAND message
-	when the button is chosen.
+	与按钮关联的命令标识符.当按钮被选择时,此标识符用在 $WM_COMMAND 消息中.
 State
-	Button state flags
+	按钮状态标志
 Style
-	Button style flags
+	按钮样式标志
 Reserved
-	Reserved
+	保留
 Param
-	Application defined value
+	应用程序定义的值
 String
-	Zero based index of the button string, or a pointer to a string that contains text for the button
+	按钮字符串的 0 基索引,或包含按钮文字指针的字符串
 @@End@@
 
 ###Remarks###

@@ -5,37 +5,43 @@ $tagWINDOWPOS
 WINDOWPOS 数据结构包含一个窗口的大小和坐标信息.
 
 ###Syntax###
-Global Const $tagWINDOWPOS = "hwnd hWnd;int InsertAfter;int X;int Y;int CX;int CY;int Flags"
+Global Const $tagWINDOWPOS = "hwnd hWnd;" & _
+                             "int InsertAfter;" & _
+                             "int X;" & _
+                             "int Y;" & _
+                             "int CX;" & _
+                             "int CY;" & _
+                             "int Flags"
 
 ###Fields###
 @@ParamTable@@
 hWnd
 	窗口句柄
 InsertAfter
-	指定窗口 Z 轴坐标(不明白Z轴?想象窗口总在最前?)
+	指定窗口的 Z 序位置
 X
-	指定窗口 X 轴坐标(距离左侧的坐标)
+	指定窗口左边缘的位置
 Y
-	指定窗口 Y 轴坐标(距离顶部的坐标)
+	指定窗口顶部边缘的位置
 CX
-	指定窗口宽度, 单位为像素.
+	指定窗口像素宽度
 CY
-	指定窗口高度, 单位为像素.
+	指定窗口像素高度
 Flags
-	Specifies the window position. This member can be one or more of the following values:
-		$SWP_DRAWFRAME - Draws a frame around the window
-		$SWP_FRAMECHANGED - Sends a WM_NCCALCSIZE message to the window, even if the window's size is not being changed
-		$SWP_HIDEWINDOW - Hides the window
-		$SWP_NOACTIVATE - Does not activate the window
-		$SWP_NOCOPYBITS - Discards the entire contents of the client area
-		$SWP_NOMOVE - Retains the current position (ignores the x and y parameters)
-		$SWP_ NOOWNERZORDER - Does not change the owner window's position in the Z order
-		$SWP_NOREDRAW - Does not redraw changes
-		$SWP_NOREPOSITION - Same as the SWP_NOOWNERZORDER flag
-		$SWP_NOSENDCHANGING - Prevents the window from receiving the WM_WINDOWPOSCHANGING message
-		$SWP_NOSIZE - Retains the current size (ignores the cx and cy parameters)
-		$SWP_NOZORDER - Retains the current Z order (ignores the InsertAfter parameter)
-		$SWP_SHOWWINDOW - Displays the window
+	指定窗口位置. 该成员可为一个或多个下列值:
+		$SWP_DRAWFRAME - 绘制围绕窗口的框架
+		$SWP_FRAMECHANGED - 发送 WM_NCCALCSIZE 消息到窗口, 即使窗口大小不被更改
+		$SWP_HIDEWINDOW - 隐藏窗口
+		$SWP_NOACTIVATE - 不激活窗口
+		$SWP_NOCOPYBITS - 删除客户区的全部内容
+		$SWP_NOMOVE - 保持目前的位置（忽略 x 和 y 参数)
+		$SWP_ NOOWNERZORDER - 不改变属主窗口在 Z 顺序中的位置
+		$SWP_NOREDRAW - 不重绘的变化
+		$SWP_NOREPOSITION - 相同于 SWP_NOOWNERZORDER 标志
+		$SWP_NOSENDCHANGING - 防止窗口接收 WM_WINDOWPOSCHANGING 消息
+		$SWP_NOSIZE - 保持当前大小（忽略 CX 和 CY 参数）
+		$SWP_NOZORDER - 保持目前的 Z 顺序（忽略 InsertAfter 参数）
+		$SWP_SHOWWINDOW - 显示窗口
 @@End@@
 
 ###Remarks###

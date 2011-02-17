@@ -2,35 +2,38 @@
 $tagKBDLLHOOKSTRUCT
 
 ###Description###
-Contains information about a low-level keyboard input event
+包含低位键盘输入事件信息
 
 ###Syntax###
-Global Const $tagKBDLLHOOKSTRUCT = "dword vkCode;dword scanCode;dword flags;dword time;ulong_ptr dwExtraInfo"
+Global Const $tagKBDLLHOOKSTRUCT = "dword vkCode;" & _
+                                   "dword scanCode;" & _
+                                   "dword flags;" & _
+                                   "dword time;" & _
+                                   "ulong_ptr dwExtraInfo"
 
 ###Fields###
 @@ParamTable@@
 vkCode
-	Specifies a virtual-key code. The code must be a value in the range 1 to 254
+	指定虚拟键的代码. 代码必须为 1 到 254 的值
 scanCode
-	Specifies a hardware scan code for the key
+	为键盘输入指定硬件扫描码
 flags
-	Specifies the extended-key flag, event-injected flag, context code, and transition-state flag. This member is specified as follows.
-	An application can use the following values to test the keystroke flags:
-		$LLKHF_EXTENDED - Test the extended-key flag
-		$LLKHF_INJECTED - Test the event-injected flag
-		$LLKHF_ALTDOWN - Test the context code
-		$LLKHF_UP - Test the transition-state flag
-		  0 - Specifies whether the key is an extended key, such as a function key or a key on the numeric keypad
-		    The value is 1 if the key is an extended key; otherwise, it is 0
-		  1 to 3 - Reserved
-		  4 - Specifies whether the event was injected. The value is 1 if the event was injected; otherwise, it is 0
-		  5 - Specifies the context code. The value is 1 if the ALT key is pressed; otherwise, it is 0
-		  6 - Reserved
-		  7 - Specifies the transition state. The value is 0 if the key is pressed and 1 if it is being released
+	指定扩展键标志，事件注入标志，运行环境代码，及过渡状态标志. 该成员被指定为如下，
+	应用程序可以使用下列值作为测试按键的标志:
+		$LLKHF_EXTENDED - 测试扩展键标记
+		$LLKHF_INJECTED - 测试事件注入标志
+		$LLKHF_ALTDOWN - 测试运行环境代码
+		$LLKHF_UP - 测试过渡状态标志
+		0 - 指定键码是否为扩展键, 如功能键或数字键盘键. 扩展键的值为 1，否则为 0
+		1 到 3 - 保留
+		4 - 指定事件是否注入, 是则为 1, 否则为 0
+		5 - 指定环境代码,按下 ALT 键时为 1, 否则为 0
+		6 - 保留
+		7 - 指定过渡状态,键被按下时为 0, 释放时为 1
 time
-	Specifies the time stamp for this message, equivalent to what GetMessageTime would return for this message
+	指定消息的时间戳, 相当于 GetMessageTime 将返回的消息
 dwExtraInfo
-	Specifies extra information associated with the message
+	指定与信息相关的额外信息
 @@End@@
 
 ###Remarks###

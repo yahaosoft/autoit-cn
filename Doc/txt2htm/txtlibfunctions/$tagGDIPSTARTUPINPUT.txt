@@ -2,25 +2,28 @@
 $tagGDIPSTARTUPINPUT
 
 ###Description###
-$tagGDIPSTARTUPINPUT structure
+$tagGDIPSTARTUPINPUT 结构
 
 ###Syntax###
-Global Const $tagGDIPSTARTUPINPUT = "int Version;ptr Callback;int NoThread;int NoCodecs"
+Global Const $tagGDIPSTARTUPINPUT = "int Version;" & _
+                                    "ptr Callback;" & _
+                                    "int NoThread;" & _
+                                    "int NoCodecs"
 
 ###Fields###
 @@ParamTable@@
 Version
-	Specifies the version of Microsoft Windows GDI+
+	指定 Microsoft Windows GDI+ 版本.
 Callback
-	Pointer to a callback function that GDI+ can call, on debug builds, for assertions and warnings
+	在调试中，为断言和警告调用 GDI + 的回调函数指针
 NoThread
-	Boolean value that specifies whether to suppress the GDI+ background thread. If you set this member
-	to True, GdiplusStartup returns a pointer to a hook function and a pointer to an unhook function. You must
-	call those functions appropriately to replace the background thread. If you do not want to be responsible for
-	calling the hook and unhook functions, set this member to False.
+	指定是否限制 GDI+ 后台线程，参数值为布尔值
+	如果设置为 True, GdiplusStartup 返回一个指向钩子函数和脱钩函数的指针,
+	你必须适当地调用这些函数，以取代后台线程.
+	如果不想对钩子函数和脱钩函数进行回应, 设置该成员为  False.
 NoCodecs
-	Boolean value that specifies whether you want GDI+ to suppress external image codecs. GDI+ version
-	1.0 does not support external image codecs, so this parameter is ignored.
+	指定 GDI+ 是否抑制外部图像编解码器，参数值为布尔值.
+	GDI+ 的1.0版本不支持外部图像编解码器,所以这个参数被忽略.
 @@End@@
 
 ###Remarks###

@@ -2,47 +2,60 @@
 $tagEVENTLOGRECORD
 
 ###Description###
-Contains information about an event record
+包含有关事件的记录
 
 ###Syntax###
-Global Const $tagEVENTLOGRECORD = "int Length;int Reserved;int RecordNumber;int TimeGenerated;int TimeWritten;int EventID;" & _
-		"short EventType;short NumStrings;short EventCategory;short ReservedFlags;int ClosingRecordNumber;int StringOffset;" & _
-		"int UserSidLength;int UserSidOffset;int DataLength;int DataOffset"
+Global Const $tagEVENTLOGRECORD = "int Length;" & _
+                                  "int Reserved;" & _
+                                  "int RecordNumber;" & _
+                                  "int TimeGenerated;" & _
+                                  "int TimeWritten;" & _
+                                  "int EventID;" & _
+                                  "short EventType;" & _
+                                  "short NumStrings;" & _
+                                  "short EventCategory;" & _
+                                  "short ReservedFlags;" & _
+                                  "int ClosingRecordNumber;" & _
+                                  "int StringOffset;" & _
+                                  "int UserSidLength;" & _
+                                  "int UserSidOffset;" & _
+                                  "int DataLength;" & _
+                                  "int DataOffset"
 
 ###Fields###
 @@ParamTable@@
 Length
-	The size of this event record, in bytes
+	事件记录的字节大小
 Reserved
-	Reserved
+	保留
 RecordNumber
-	The number of the record
+	记录数量
 TimeGenerated
-	The time at which this entry was submitted
+	记录提交时间
 TimeWritten
-	The time at which this entry was received by the service to be written to the log
+	由服务接收并写入日志的时间
 EventID
-	The event identifier
+	事件标识符
 EventType
-	The type of event
+	事件类型
 NumStrings
-	The number of strings present in the log
+	记录中的字符串数量
 EventCategory
-	The category for this event
+	事件类
 ReservedFlags
-	Reserved
+	保留
 ClosingRecordNumber
-	Reserved
+	保留
 StringOffset
-	The offset of the description strings within this event log record
+	事件日志记录中描述字符串的偏移量
 UserSidLength
-	The size of the UserSid member, in bytes
+	UserSid 成员的字节大小
 UserSidOffset
-	The offset of the security identifier (SID) within this event log record
+	事件日志记录中安全标识符（SID）的偏移量
 DataLength
-	The size of the event-specific data (at the position indicated by DataOffset), in bytes
+	事件数据的字节大小 (由 DataOffset 定位)
 DataOffset
-	The offset of the event-specific information within this event log record, in bytes
+	事件日志记录中事件的具体资料的偏移量(以字节为单位)
 @@End@@
 
 ###Remarks###

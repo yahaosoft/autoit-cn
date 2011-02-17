@@ -2,71 +2,83 @@
 $tagSTARTUPINFO
 
 ###Description###
-Specifies the window station, desktop, standard handles, and appearance of the main window for a process at creation time
+指定进程创建主窗体的位置, 桌面, 标准句柄及外观
 
 ###Syntax###
-Global Const $tagSTARTUPINFO = "int Size;ptr Reserved1;ptr Desktop;ptr Title;int X;int Y;int XSize;int YSize;int XCountChars;" & _
-		"int YCountChars;int FillAttribute;int Flags;short ShowWindow;short Reserved2;ptr Reserved3;int StdInput;" & _
-		"int StdOutput;int StdError"
+Global Const $tagSTARTUPINFO = "int Size;" & _
+                               "ptr Reserved1;" & _
+                               "ptr Desktop;" & _
+                               "ptr Title;" & _
+                               "int X;" & _
+                               "int Y;" & _
+                               "int XSize;" & _
+                               "int YSize;" & _
+                               "int XCountChars;" & _
+                               "int YCountChars;" & _
+                               "int FillAttribute;" & _
+                               "int Flags;" & _
+                               "short ShowWindow;" & _
+                               "short Reserved2;" & _
+                               "ptr Reserved3;" & _
+                               "int StdInput;" & _
+                               "int StdOutput;" & _
+                               "int StdError"
 
 ###Fields###
 @@ParamTable@@
 Size
-	The size of the structure, in bytes
+	结构的字节大小
 Reserved1
-	Reserved, must be zero
+	保留, 必须为 0
 Desktop
-	The name of the desktop, or the name of both the desktop and window station for this process
+	桌面名称, 或桌面名称和该进程的窗口位置
 Title
-	For console processes, the title displayed in the title bar if a new console is created
+	对于控制台程序,创建新的控制台时,标题显示在标题栏
 X
-	If Flags specifies $STARTF_USEPOSITION, this member is the x offset of the upper left corner
-	of a window if a new window is created, in pixels.
+	如果指定 $STARTF_USEPOSITION 标志, 当新建窗口时, 该成员为窗口左上角的 X 像素偏移     .
 Y
-	If Flags specifies $STARTF_USEPOSITION, this member is the y offset of the upper left corner
-	of a window if a new window is created, in pixels.
+	如果指定 $STARTF_USEPOSITION 标志, 当新建窗口时, 该成员为窗口左上角的 Y 像素偏移     .
 XSize
-	If Flags specifies $STARTF_USESIZE, this member is the height of the window, in pixels
+	如果指定 $STARTF_USESIZE 标志, 这个成员是窗口的像素高度
 YSize
-	If Flags specifies $STARTF_USESIZE, this member is the width of the window, in pixels
+	如果指定 $STARTF_USESIZE 标志, 这个成员是窗口的像素宽度
 XCountChars
-	If Flags specifies $STARTF_USECOUNTCHARS, if a new console window is created in a console
-	process, this member specifies the screen buffer width, in character columns.
+	如果指定 $STARTF_USECOUNTCHARS 标志, 当在一个控制台进程中新建控制台窗口时
+	该成员指定屏幕缓冲区的字符列宽度.
 YCountChars
-	If Flags specifies $STARTF_USECOUNTCHARS, if a new console window is created in a console
-	process, this member specifies the screen buffer height, in character rows.
+	如果指定 $STARTF_USECOUNTCHARS 标志, 当在一个控制台进程中新建控制台窗口时
+	该成员指定屏幕缓冲区的字符行高度.
 FillAttribute
-	If Flags specifies $STARTF_USEFILLATTRIBUTE, this member is the initial text and background
-	colors if a new console window is created in a console application.
+	如果指定 $STARTF_USEFILLATTRIBUTE 标志, 
+	当在一个控制台进程中新建控制台窗口时,该成员为原始文本和背景色.
 Flags
-	Determines which members are used when the process creates a window:
-		$STARTF_FORCEONFEEDBACK - The cursor is in feedback mode for two seconds after CreateProcess is called. The
-	Working in Background cursor is displayed. If during those two seconds the process makes the first GUI call,
-	the system gives five more seconds to the process. If during those five seconds the process shows a window,
-	the system gives five more seconds to the process to finish drawing the window. The system turns the feedback
-	cursor off after the first call to GetMessage, regardless of whether the process is drawing.
-		$STARTF_FORCEOFFFEEDBACK - Indicates that the feedback cursor is forced off while the process is starting.
-	The Normal Select cursor is displayed.
-		$STARTF_RUNFULLSCREEN - Indicates that the process should be run in full screen mode, rather than in
-	windowed mode. This flag is only valid for console applications running on an x86 computer.
-		$STARTF_USECOUNTCHARS - The XCountChars and YCountChars members are valid
-		$STARTF_USEFILLATTRIBUTE - The FillAttribute member is valid
-		$STARTF_USEPOSITION - The X and Y members are valid
-		$STARTF_USESHOWWINDOW - The ShowWindow member is valid
-		$STARTF_USESIZE - The XSize and YSize members are valid
-		$STARTF_USESTDHANDLES - The hStdInput, hStdOutput, and hStdError members are valid
+	确定进程创建窗口时使用的成员:
+		$STARTF_FORCEONFEEDBACK - 调用 CreateProcess 之后,光标的反馈模式为两秒.
+	显示背景工作光标.如果在2秒钟内程序调用了首个界面(GUI),
+	系统给进程5秒或更多时间.如果在这5秒的过程中显示一个窗口,
+	系统提供 5 秒钟的过程完成绘制窗口.
+	系统在首次调用 GetMessage 后释放反馈鼠标, 无论进程是否仍在绘制.
+		$STARTF_FORCEOFFFEEDBACK - 进程启动时释放反馈箭头.显示常规选取箭头.
+		$STARTF_RUNFULLSCREEN - 进程在全屏幕模式下运行,而不是在窗口模式.
+	此标志仅适用于控制台应用程序在 x86 计算机上运行时有效.
+		$STARTF_USECOUNTCHARS - XCountChars 与 YCountChars 成员有效
+		$STARTF_USEFILLATTRIBUTE - FillAttribute 成员有效
+		$STARTF_USEPOSITION -  X 与 Y 成员有效
+		$STARTF_USESHOWWINDOW - ShowWindow 成员有效
+		$STARTF_USESIZE - XSize 与 YSize 成员有效
+		$STARTF_USESTDHANDLES - hStdInput, hStdOutput, 与 hStdError 成员有效
 ShowWindow
-	If Flags specifies $STARTF_USESHOWWINDOW, this member can be any of the SW_ constants
+	如果指定 $STARTF_USESHOWWINDOW 标志, 这个成员可以是任何 SW_ 常量
 Reserved2
-	Reserved, must be zero
+	保留, 必须为 0
 Reserved3
-	Reserved, must be zero
+	保留, 必须为 0
 StdInput
-	If Flags specifies $STARTF_USESTDHANDLES, this member is the standard input handle
+	如果指定 $STARTF_USESTDHANDLES 标志, 这个成员是标准输入句柄
 StdOutput
-	If Flags specifies $STARTF_USESTDHANDLES, this member is the standard output handle
+	如果指定 $STARTF_USESTDHANDLES 标志, 这个成员是标准输出句柄
 StdError
-	If Flags specifies $STARTF_USESTDHANDLES, this member is the standard error handle
+	如果指定 $STARTF_USESTDHANDLES 标志, 这个成员是标准错误句柄
 @@End@@
 
 ###Remarks###

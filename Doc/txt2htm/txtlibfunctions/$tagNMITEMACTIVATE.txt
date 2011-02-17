@@ -2,51 +2,56 @@
 $tagNMITEMACTIVATE
 
 ###Description###
-Sent by a list-view control when the user activates an item
+控件发送列表视图项目激活信息
 
 ###Syntax###
-Global Const $tagNMITEMACTIVATE = $tagNMHDR & ";int Index;int SubItem;int NewState;int OldState;" & _
-		"int Changed;int X;int Y;int lParam;int KeyFlags"
+Global Const $tagNMITEMACTIVATE = $tagNMHDR & ";" & _
+                                  "int Index;" & _
+                                  "int SubItem;" & _
+                                  "int NewState;" & _
+                                  "int OldState;" & _
+                                  "int Changed;" & _
+                                  "int X;" & _
+                                  "int Y;" & _
+                                  "int lParam;" & _
+                                  "int KeyFlags"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-	Contains information about a notification message
+	包含通知消息的信息
 Index
-	Index of the list-view item. If the item index is not used for the notification,
-	this member will contain -1
+	列表视图的项目索引. 当项目索引未用于通知时, 该成员保持为 -1.
 SubItem
-	One-based index of the subitem. If the subitem index is not used for the notification or the
-	notification does not apply to a subitem, this member will contain zero.
+	子项的 1 基索引.如果子项索引不用于通知,
+	或通知不适用于子项,则该成员保持为 0.
 NewState
-	New item state. This member is zero for notification messages that do not use it
+	新项目状态. 通知消息不使用它时,该成员为 0.
 OldState
-	Old item state. This member is zero for notification messages that do not use it
+	原项目状态. 通知消息不使用它时,该成员为 0.
 Changed
-	Set of flags that indicate the item attributes that have changed.
-	This member is zero for notifications that do not use it.
-	This member can have one or more of the following flags set:
-		$LVIF_COLUMNS - The Columns member is valid
-		$LVIF_DI_SETITEM - The operating system should store the requested list item information
-		$LVIF_GROUPID - The GroupID member is valid
-		$LVIF_IMAGE - The Image member is valid
-		$LVIF_INDENT - The Indent member is valid
-		$LVIF_NORECOMPUTE - The control will not generate LVN_GETDISPINFO to retrieve text information
-		$LVIF_PARAM - The Param member is valid
-		$LVIF_STATE - The State member is valid
-		$LVIF_TEXT - The Text member is valid
+	设置变更项目属性的标志,不使用时为 0.
+	该成员可设置为一或多个下列值:
+		$LVIF_COLUMNS - Columns 成员有效
+		$LVIF_DI_SETITEM - 操作系统保存请求的列表箱信息
+		$LVIF_GROUPID - GroupID 成员有效
+		$LVIF_IMAGE - Image 成员有效
+		$LVIF_INDENT - Indent 成员有效
+		$LVIF_NORECOMPUTE - 控件将不会产生 LVN_GETDISPINFO 文本信息检索
+		$LVIF_PARAM - Param 成员有效
+		$LVIF_STATE - State 成员有效
+		$LVIF_TEXT - Text 成员有效
 X
-	Specifies the x-coordinate of the point
+	指定点的 X 坐标
 Y
-	Specifies the y-coordinate of the point
+	指定点的 Y 坐标
 lParam
-	Application-defined value of the item. This member is undefined for notification messages that do not use it
+	应用程序定义的项目值. 不使用它的通知消息不定义该成员
 KeyFlags
-	Modifier keys that were pressed at the time of the activation.
-	This member contains zero or a combination of the following flags:
-		$LVKF_ALT - The key is pressed.
-		$LVKF_CONTROL - The key is pressed.
-		$LVKF_SHIFT - The key is pressed.
+	修改激活时按下的键. 该成员保持为 0 或下列值的组合:
+		$LVKF_ALT - 按下 ALT 键.
+		$LVKF_CONTROL - 按下 CONTROL 键.
+		$LVKF_SHIFT - 按下 SHIFT 键.
 @@End@@
 
 ###Remarks###

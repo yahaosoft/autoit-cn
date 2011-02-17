@@ -2,93 +2,110 @@
 $tagREBARBANDINFO
 
 ###Description###
-返回 ComboBoxEx 控件中关于项目的信息
+包含 ComboBoxEx 控件项目的信息
 
 ###Syntax###
-Global Const $tagREBARBANDINFO = "uint cbSize;uint fMask;uint fStyle;dword clrFore;dword clrBack;ptr lpText;uint cch;" & _
-		"int iImage;hwnd hwndChild;uint cxMinChild;uint cyMinChild;uint cx;hwnd hbmBack;uint wID;uint cyChild;uint cyMaxChild;" & _
-		"uint cyIntegral;uint cxIdeal;int lParam;uint cxHeader"
+Global Const $tagREBARBANDINFO = "uint cbSize;" & _
+                                 "uint fMask;" & _
+                                 "uint fStyle;" & _
+                                 "dword clrFore;" & _
+                                 "dword clrBack;" & _
+                                 "ptr lpText;" & _
+                                 "uint cch;" & _
+                                 "int iImage;" & _
+                                 "hwnd hwndChild;" & _
+                                 "uint cxMinChild;" & _
+                                 "uint cyMinChild;" & _
+                                 "uint cx;" & _
+                                 "hwnd hbmBack;" & _
+                                 "uint wID;" & _
+                                 "uint cyChild;" & _
+                                 "uint cyMaxChild;" & _
+                                 "uint cyIntegral;" & _
+                                 "uint cxIdeal;" & _
+                                 "int lParam;" & _
+                                 "uint cxHeader"
 
 ###Fields###
 @@ParamTable@@
 cbSize
-	数据结构(structure)大小, 使用字节表示. Your application must fill this member before sending any messages that use the address of this structure as a parameter.
+	这个结构的字节大小.应用程序必须在发送将该结构的地址用为参数的消息前填充该成员.
 fMask
-	Flags that indicate which members of this structure are valid or must be filled. This value can be a combination of the following:;
-		$RBBIM_BACKGROUND - The hbmBack member is valid or must be set.
-		$RBBIM_CHILD - The hwndChild member is valid or must be set.
-		$RBBIM_CHILDSIZE - The cxMinChild, cyMinChild, cyChild, cyMaxChild, and cyIntegral members are valid or must be set.
-		$RBBIM_COLORS - The clrFore and clrBack members are valid or must be set.
-		$RBBIM_HEADERSIZE - Version 4.71. The cxHeader member is valid or must be set.
-		$RBBIM_IDEALSIZE - Version 4.71. The cxIdeal member is valid or must be set.
-		$RBBIM_ID - The wID member is valid or must be set.
-		$RBBIM_IMAGE - The iImage member is valid or must be set.
-		$RBBIM_LPARAM - Version 4.71. The lParam member is valid or must be set.
-		$RBBIM_SIZE - The cx member is valid or must be set.
-		$RBBIM_STYLE - The fStyle member is valid or must be set.
-		$RBBIM_TEXT - The lpText member is valid or must be set.
-		$RBBIM_CHEVRONLOCATION - The rcChevronLocation member is valid or must be set.
-		$RBBIM_CHEVRONSTATE - The uChevronState member is valid or must be set.
+	该标志表明本结构成员有效或必须填写.此值可以是以下组合:
+		$RBBIM_BACKGROUND - hbmBack 成员有效或必需设置.
+		$RBBIM_CHILD - hwndChild 成员有效或必需设置.
+		$RBBIM_CHILDSIZE - cxMinChild, cyMinChild, cyChild, cyMaxChild, 与 cyIntegral 成员有效或必需设置.
+		$RBBIM_COLORS - clrFore 与 clrBack 成员有效或必需设置.
+		$RBBIM_HEADERSIZE - 版本 4.71. cxHeader 成员有效或必需设置.
+		$RBBIM_IDEALSIZE - 版本 4.71. cxIdeal 成员有效或必需设置.
+		$RBBIM_ID - wID 成员有效或必需设置.
+		$RBBIM_IMAGE -  iImage 成员有效或必需设置.
+		$RBBIM_LPARAM - 版本 4.71. lParam 成员有效或必需设置.
+		$RBBIM_SIZE - cx 成员有效或必需设置.
+		$RBBIM_STYLE - fStyle 成员有效或必需设置.
+		$RBBIM_TEXT - lpText 成员有效或必需设置.
+		$RBBIM_CHEVRONLOCATION - rcChevronLocation 成员有效或必需设置.
+		$RBBIM_CHEVRONSTATE - uChevronState 成员有效或必需设置.
 fStyle
-	Flags that specify the band style. This value can be a combination of the following:
-		$RBBS_BREAK - The band is on a new line.
-		$RBBS_CHILDEDGE - The band has an edge at the top and bottom of the child window.
-		$RBBS_FIXEDBMP - The background bitmap does not move when the band is resized.
-		$RBBS_FIXEDSIZE - The band can't be sized. With this style, the sizing grip is not displayed on the band.
-		$RBBS_GRIPPERALWAYS - Version 4.71. The band will always have a sizing grip, even if it is the only band in the rebar.
-		$RBBS_HIDDEN - The band will not be visible.
-		$RBBS_NOGRIPPER - Version 4.71. The band will never have a sizing grip, even if there is more than one band in the rebar.
-		$RBBS_USECHEVRON - Version 5.80. Show a chevron button if the band is smaller than cxIdeal.
-		$RBBS_VARIABLEHEIGHT - Version 4.71. The band can be resized by the rebar control; cyIntegral and cyMaxChild affect how the rebar will resize the band.
-		$RBBS_NOVERT - Don't show when vertical.
-		$RBBS_USECHEVRON - Display drop-down button.
-		$RBBS_HIDETITLE - Keep band title hidden.
-		$RBBS_TOPALIGN - Keep band in top row.
+	指定区段样式. 该值可为下列值的组合:
+		$RBBS_BREAK - 区段是一个新行.
+		$RBBS_CHILDEDGE - 区段子窗体具有顶边界和底边界.
+		$RBBS_FIXEDBMP - 区段改变大小时不移动背景位图.
+		$RBBS_FIXEDSIZE - 区段不能改变大小. 在此样式下区段上不会显示尺寸柄.
+		$RBBS_GRIPPERALWAYS - 版本 4.71. 区段总是有尺寸柄, 即使伸缩条上只有一个区段.
+		$RBBS_HIDDEN - 区段不可见.
+		$RBBS_NOGRIPPER - 版本 4.71. 区段不具有尺寸柄, 即使伸缩条上具有多个区段.
+		$RBBS_USECHEVRON - 版本 5.80. 当区段小于 cxIdeal 时显示下拉按钮.
+		$RBBS_VARIABLEHEIGHT - 版本 4.71. 区段可通过伸缩条控件重置大小; cyIntegral 和 cyMaxChild 反映伸缩条如何重置区段尺寸.
+		$RBBS_NOVERT - 垂直时不显示.
+		$RBBS_USECHEVRON - 显示下拉按钮.
+		$RBBS_HIDETITLE - 隐藏区段标题.
+		$RBBS_TOPALIGN - 区段置顶.
 clrFore
-	Band foreground colors.
+	区段前景色.
 clrBack
-	Band background colors.
-		If hbmBack specifies a background bitmap, these members are ignored.
-		By default, the band will use the background color of the rebar control set with the $RB_SETBKCOLOR message.
-		If a background color is specified here, then this background color will be used instead.
+	区段背景色.
+	如果 hbmBack 指定一个背景位图,这个成员被忽略.
+	默认情况下, 区段将使用 $RB_SETBKCOLOR 消息设置伸缩条控件背景色.
+	如果在这里指定背景颜色,那么这个背景颜色将被使用.
 lpText
-	Pointer to a buffer that contains the display text for the band.
-		If band information is being requested from the control and $RBBIM_TEXT is specified in fMask,
-		this member must be initialized to the address of the buffer that will receive the text.
+	指向一个缓冲区，其中包含区段的显示文本.
+	如果区段信息来至控件请求,且 $RBBIM_TEXT 由 fMask 中指定,,
+	这个成员必须初始化收到文本的缓冲区地址.
 cch
-	Size of the buffer at lpText, in bytes. If information is not being requested from the control, this member is ignored.
+	lpText 缓冲区的字节大小. 如果信息未被控件请求, 忽略该成员.
 iImage
-	Zero-based index of any image that should be displayed in the band. The image list is set using the $RB_SETBARINFO message.
+	区段中图像的 0 基索引. 图像列表使用 $RB_SETBARINFO 消息设置.
 hwndChild
-	Handle to the child window contained in the band, if any.
+	区段中的子窗体句柄.
 cxMinChild
-	Minimum width of the child window, in pixels. The band can't be sized smaller than this value.
+	子窗体的最小像素宽度. 区段不能小于此值.
 cyMinChild
-	Minimum height of the child window, in pixels. The band can't be sized smaller than this value.
+	子窗体的最小像素高度. 区段不能小于此值.
 cx
-	Length of the band, in pixels.
+	区段的像素长度.
 hbmBack
-	Handle to a bitmap that is used as the background for this band.
+	区段背景的位图的句柄.
 wID
-	UINT value that the control uses to identify this band for custom draw notification messages.
+	控件使用的 UINT 值,以识别区段自定义绘制通知消息.
 cyChild
-	Version 4.71. Initial height of the band, in pixels. This member is ignored unless the $RBBS_VARIABLEHEIGHT style is specified.
+	版本 4.71. 区段的初始像素高度. 除非指定 $RBBS_VARIABLEHEIGHT 样式, 否则忽略该成员.
 cyMaxChild
-	Version 4.71. Maximum height of the band, in pixels. This member is ignored unless the $RBBS_VARIABLEHEIGHT style is specified.
+	版本 4.71. 区段的最大像素高度. 除非指定 $RBBS_VARIABLEHEIGHT 样式, 否则忽略该成员.
 cyIntegral
-	Version 4.71. Step value by which the band can grow or shrink, in pixels.
-		If the band is resized, it will be resized in steps specified by this value.
-		This member is ignored unless the $RBBS_VARIABLEHEIGHT style is specified.
+	版本 4.71. 区段的伸缩步长像素值.
+	如果区段调整大小, 使用由该值指定的步长.
+	除非指定 $RBBS_VARIABLEHEIGHT 样式, 否则忽略该成员.
 cxIdeal
-	Version 4.71. Ideal width of the band, in pixels.
-		If the band is maximized to the ideal width (see $RB_MAXIMIZEBAND), the rebar control will attempt to make the band this width.
+	版本 4.71. 区段的理想像素宽度.
+	如果区段最大化到理想宽度(见 $RB_MAXIMIZEBAND), 区段控件会尝试使用此宽度.
 lParam
-	Version 4.71. Application-defined value.
+	版本 4.71. 应用程序定义的值.
 cxHeader
-	Version 4.71. Size of the band's header, in pixels.
-		The band header is the area between the edge of the band and the edge of the child window.
-		This is the area where band text and images are displayed, if they are specified.
-		If this value is specified, it will override the normal header dimensions that the control calculates for the band.
+	版本 4.71. 区段头的像素大小.
+	区段头是区段边界和子窗体边界间的区域.
+	指定区段文本和图像时,则为显示的区域.
+	如果指定该值, 将覆盖控件为区段计算的正常头尺寸.
 @@End@@
 
 ###Remarks###

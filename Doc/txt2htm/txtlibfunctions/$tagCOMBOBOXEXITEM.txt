@@ -5,36 +5,43 @@ $tagCOMBOBOXEXITEM
 包含关于ComboBoxEx控件项目的信息.
 
 ###Syntax###
-Global Const $tagCOMBOBOXEXITEM = "int Mask;int Item;ptr Text;int TextMax;int Image;int SelectedImage;int OverlayImage;" & _
-		"int Indent;int Param"
+Global Const $tagCOMBOBOXEXITEM = "int Mask;" & _
+                                  "int Item;" & _
+                                  "ptr Text;" & _
+                                  "int TextMax;" & _
+                                  "int Image;" & _
+                                  "int SelectedImage;" & _
+                                  "int OverlayImage;" & _
+                                  "int Indent;" & _
+                                  "int Param"
 
 ###Fields###
 @@ParamTable@@
 Mask
-	A set of bit flags that specify attributes. Can be a combination of the following values.
-		CBEIF_DI_SETITEM - Set this flag when processing CBEN_GETDISPINFO
-		CBEIF_IMAGE - The iImage member is valid or must be filled in.
-		CBEIF_INDENT - The iIndent member is valid or must be filled in.
-		CBEIF_LPARAM - The lParam member is valid or must be filled in.
-		CBEIF_OVERLAY - The iOverlay member is valid or must be filled in.
-		CBEIF_SELECTEDIMAGE - The iSelectedImage member is valid or must be filled in.
-		CBEIF_TEXT - The pszText member is valid or must be filled in.
+	设置指定属性。可以是下列值的组合.
+		CBEIF_DI_SETITEM - 需处理 CBEN_GETDISPINFO 时设置该标记
+		CBEIF_IMAGE - iImage 成员有效还是必须填充.
+		CBEIF_INDENT - iIndent 成员有效还是必须填充.
+		CBEIF_LPARAM - lParam 成员有效还是必须填充.
+		CBEIF_OVERLAY - iOverlay 成员有效还是必须填充.
+		CBEIF_SELECTEDIMAGE - iSelectedImage 成员有效还是必须填充.
+		CBEIF_TEXT - pszText 成员有效还是必须填充.
 Item
-	The zero-based index of the item.
+	项目的 0 基索引.
 Text
-	A pointer to a character buffer that contains or receives the item's text.
+	包含或接收项目文本的字符缓冲区指针.
 TextMax
-	The length of pszText, in TCHARs. If text information is being set, this member is ignored.
+	pszText 以 TCHAR 为单位的长度. 如果设置有文本信息, 忽略该成员.
 Image
-	The zero-based index of an image within the image list.
+	图像列表中图像的 0 基索引.
 SelectedImage
-	The zero-based index of an image within the image list.
+	图像列表中被选中图像的 0 基索引.
 OverlayImage
-	The one-based index of an overlay image within the image list.
+	图像列表中覆盖图像的 1 基索引.
 Indent
-	The number of indent spaces to display for the item. Each indentation equals 10 pixels.
+	项目显示时的缩进数量. 每个缩进为10像素.
 Param
-	A value specific to the item.
+	指定项目的具体值.
 @@End@@
 
 ###Remarks###

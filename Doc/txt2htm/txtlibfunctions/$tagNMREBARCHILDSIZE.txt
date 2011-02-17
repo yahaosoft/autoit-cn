@@ -2,40 +2,49 @@
 $tagNMREBARCHILDSIZE
 
 ###Description###
-Contains information used in handling the RBN_CHILDSIZE notification message
+包含处理 RBN_CHILDSIZE 通知消息的信息
 
 ###Syntax###
-Global Const $tagNMREBARCHILDSIZE = $tagNMHDR & ";uint uBand;uint wID;int CLeft;int CTop;int CRight;int CBottom;" & _
-		"int BLeft;int BTop;int BRight;int BBottom"
+Global Const $tagNMREBARCHILDSIZE = $tagNMHDR & ";" & _
+                                    "uint uBand;" & _
+                                    "uint wID;" & _
+                                    "int CLeft;" & _
+                                    "int CTop;" & _
+                                    "int CRight;" & _
+                                    "int CBottom;" & _
+                                    "int BLeft;" & _
+                                    "int BTop;" & _
+                                    "int BRight;" & _
+                                    "int BBottom"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-	Contains information about a notification message
+	包含通知消息的信息
 uBand
-	Zero-based index of the band sending the notification
+	发送通知的区段的0基索引
 wID
-	Application-defined identifier for the band
+	应用程序定义的区段标识
 CLeft
-	Specifies the x-coordinate of the upper-left corner of the rectangle of the new size of the child window
-		This member can be changed during the notification to modify the child window's position and size
+	指定子窗体新尺寸的矩形左上角 X 坐标
+	在通知修改子窗口的位置和大小时,这个成员是可以改变的.
 CTop
-	Specifies the y-coordinate of the upper-left corner of the rectangle of the new size of the child window
-		This member can be changed during the notification to modify the child window's position and size
+	指定子窗体新尺寸的矩形左上角 Y 坐标
+	在通知修改子窗口的位置和大小时,这个成员是可以改变的.
 CRight
-	Specifies the x-coordinate of the lower-right corner of the rectangle of the new size of the child window
-		This member can be changed during the notification to modify the child window's position and size
+	指定子窗体新尺寸的矩形右下角 X 坐标
+	在通知修改子窗口的位置和大小时,这个成员是可以改变的.
 CBottom
-	Specifies the y-coordinate of the lower-right corner of the rectangle of the new size of the child window
-		This member can be changed during the notification to modify the child window's position and size
+	指定子窗体新尺寸的矩形右下角 Y 坐标
+	在通知修改子窗口的位置和大小时,这个成员是可以改变的.
 BLeft
-	Specifies the x-coordinate of the upper-left corner of the rectangle of the new size of the band
+	指定区段新尺寸的左上角 X 坐标
 BTop
-	Specifies the y-coordinate of the upper-left corner of the rectangle of the new size of the band
+	指定区段新尺寸的左上角 Y 坐标
 BRight
-	Specifies the x-coordinate of the lower-right corner of the rectangle of the new size of the band
+	指定区段新尺寸的右下角 X 坐标
 BBottom
-	Specifies the y-coordinate of the lower-right corner of the rectangle of the new size of the band
+	指定区段新尺寸的右下角 Y 坐标
 @@End@@
 
 ###Remarks###

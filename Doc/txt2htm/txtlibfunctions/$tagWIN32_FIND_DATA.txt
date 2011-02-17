@@ -2,37 +2,46 @@
 $tagWIN32_FIND_DATA
 
 ###Description###
-Contains the data found when finding a file
+包含查找到的文件数据
 
 ###Syntax###
-Global Const $tagWIN32_FIND_DATA = "dword dwFileAttributes;dword ftCreationTime[2];dword ftLastAccessTime[2];dword ftLastWriteTime[2];dword nFileSizeHigh;dword nFileSizeLow;dword dwReserved0;dword dwReserved1;wchar cFileName[260];wchar cAlternateFileName[14]"
+Global Const $tagWIN32_FIND_DATA = "dword dwFileAttributes;" & _
+                                   "dword ftCreationTime[2];" & _
+                                   "dword ftLastAccessTime[2];" & _
+                                   "dword ftLastWriteTime[2];" & _
+                                   "dword nFileSizeHigh;" & _
+                                   "dword nFileSizeLow;" & _
+                                   "dword dwReserved0;" & _
+                                   "dword dwReserved1;" & _
+                                   "wchar cFileName[260];" & _
+                                   "wchar cAlternateFileName[14]"
 
 ###Fields###
 @@ParamTable@@
 dwFileAttributes
-	The file attributes of a file.
+	文件的属性.
 ftCreationTime
-	A FILETIME structure that specifies when a file or directory was created.
+	一个 FILETIME 结构,它指定当文件或目录已创建.
 ftLastAccessTime
-	A FILETIME structure that specifies when the file was last read from, written to, or for executable files, run.
+	一个 FILETIME 结构,指定文件最后读取、写入、或可执行文件、运行等信息.
 ftLastWriteTime
-	A FILETIME structure that specifies when when the file was last written to, truncated, or overwritten.
+	一个FILETIME结构,指定文件最后写入、被删节、或覆盖等信息.
 nFileSizeHigh
-	The high-order DWORD value of the file size, in bytes.
+	文件字节大小的 DWORD 高位值.
 nFileSizeLow
-	The low-order DWORD value of the file size, in bytes.
+	文件字节大小的 DWORD 低位值.
 dwReserved0
-	If the dwFileAttributes member includes the $FILE_ATTRIBUTE_REPARSE_POINT attribute. This member specifies the reparse tag.
+	如果 dwFileAttributes 成员包含 $FILE_ATTRIBUTE_REPARSE_POINT 属性. 这个成员指定重新分析标志
 dwReserved1
-	Reserved.
+	保留.
 cFileName
-	The name of the file.
+	文件的名称.
 cAlternateFileName
-	An alternative name for the file, the classic 8.3 (filename.ext) file name format.
+	一种替代性的文件名，经典的 8.3（文件名.ext）文件名格式
 @@End@@
 
 ###Remarks###
-Unicode version must be used.
+必须使用 Unicode 版本 
 
 ###See Also###
 @@MsdnLink@@ WIN32_FIND_DATA

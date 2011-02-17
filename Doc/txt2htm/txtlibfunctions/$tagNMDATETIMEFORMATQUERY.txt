@@ -2,26 +2,29 @@
 $tagNMDATETIMEFORMATQUERY
 
 ###Description###
-Contains information about the control callback field
+包含控件回调区信息
 
 ###Syntax###
-Global Const $tagNMDATETIMEFORMATQUERY = $tagNMHDR & ";ptr Format;int SizeX;int SizeY"
+Global Const $tagNMDATETIMEFORMATQUERY = $tagNMHDR & ";" & _
+                                         "ptr Format;" & _
+                                         "int SizeX;" & _
+                                         "int SizeY"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-	Contains information about a notification message
+	包含通知消息的信息
 Format
-	Pointer to a null terminated string that defines the control callback field. The string comprises
-	one or more "X" characters.
+	指向一个空结束的字符串,它定义了控件回调字段.该字符串包括一或多个“X”字符     .
 SizeX
-	Must be filled with the maximum width of the text that will be displayed in the callback field
+	回调字段中显示文本的最大宽度
 SizeY
-	Must be filled with the maximum height of the text that will be displayed in the callback field
+	回调字段中显示文本的最大高度
 @@End@@
 
 ###Remarks###
-It contains a string (taken from the control's format string) that defines a callback field. The structure
-receives the maximum allowable size of the text that will be displayed in the callback field. This structure
-is used with the $DTN_FORMATQUERY notification message.
+包含定义回调字段的字符串(从控件的格式字符串取得).
+结构接收将要在回调字段中显示文本的最大允许大小.
+此结构用于 $DTN_FORMATQUERY 通知消息.
+  
 

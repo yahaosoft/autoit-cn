@@ -2,38 +2,44 @@
 $tagSCROLLINFO
 
 ###Description###
-Contains scroll bar parameters to be set by the $SBM_SETSCROLLINFO message, or retrieved by the $SBM_GETSCROLLINFO message
+包含由 $SBM_SETSCROLLINFO 信息设置滚动条参数,或由 $SBM_GETSCROLLINFO 检索信息
 
 ###Syntax###
-Global Const $tagSCROLLINFO = "uint cbSize;uint fMask;int  nMin;int  nMax;uint nPage;int  nPos;int  nTrackPos"
+Global Const $tagSCROLLINFO = "uint cbSize;" & _
+                              "uint fMask;" & _
+                              "intnMin;" & _
+                              "intnMax;" & _
+                              "uint nPage;" & _
+                              "intnPos;" & _
+                              "intnTrackPos"
 
 ###Fields###
 @@ParamTable@@
 cbSize
-	Specifies the size, in bytes, of this structure. The caller must set this to DllStructGetSize($tagSCROLLINFO).
+	指定这个结构的字节大小. 调用程序必须设置为 DllStructGetSize（$tagSCROLLINFO）
 fMask
-	Specifies the scroll bar parameters to set or retrieve. This member can be a combination of the following values:
-		$SIF_ALL - Combination of $SIF_PAGE, $SIF_POS, $SIF_RANGE, and $SIF_TRACKPOS.
-		$SIF_DISABLENOSCROLL - This value is used only when setting a scroll bar's parameters.
-		  If the scroll bar's new parameters make the scroll bar unnecessary, disable the scroll bar instead of removing it.
-		$SIF_PAGE - The nPage member contains the page size for a proportional scroll bar.
-		$SIF_POS - The nPos member contains the scroll box position, which is not updated while the user drags the scroll box.
-		$SIF_RANGE - The nMin and nMax members contain the minimum and maximum values for the scrolling range.
-		$SIF_TRACKPOS - The nTrackPos member contains the current position of the scroll box while the user is dragging it.
+	指定滚动条参数设置或检索.此成员可以是下列值的组合:
+		$SIF_ALL - 组合 $SIF_PAGE, $SIF_POS, $SIF_RANGE, 与 $SIF_TRACKPOS.
+		$SIF_DISABLENOSCROLL - 此值仅用于设置滚动条时的参数.如果滚动条新的参数生成多余的滚动条,请禁用它,而不是取消滚动条.
+		$SIF_PAGE - nPage 成员包含适合滚动条的页面大小.
+		$SIF_POS - nPos 成员包含滚动框的位置,用户拖动滚动框不更新..
+		$SIF_RANGE - nMin 与 nMax 成员包含滚动范围的最低和最高值.
+		$SIF_TRACKPOS - nTrackPos 成员包含用户拖动滚动框时的当前位置.
 nMin
-	Specifies the minimum scrolling position.
+	指定最小滚动位置.
 nMax
-	Specifies the maximum scrolling position.
+	指定最大滚动位置.
 nPage
-	Specifies the page size. A scroll bar uses this value to determine the appropriate size of the proportional scroll box.
+	指定页面大小.滚动条使用此值确定适当的滚动框比例大小.
 nPos
-	Specifies the position of the scroll box.
+	指定的滚动框位置.
 nTrackPos
-	Specifies the immediate position of a scroll box that the user is dragging.
-		An application can retrieve this value while processing the $SB_THUMBTRACK request code.
-		An application cannot set the immediate scroll position, the SetScrollInfo function ignores this member.
+	指定用户拖动时,滚动框的即时位置.
+	在处理 $SB_THUMBTRACK 请求代码时,应用程序可以检索此值.
+	应用程序可以不设置即时滚动的位置,SetScrollInfo 函数忽略这个成员.
 @@End@@
 
 ###Remarks###
-$SIF_xxxxx and $SB_xxxxx for scrollbar require WindowsConstants.au3
+$SIF_xxxxx 与 $SB_xxxxx 对滚动条需要常量文件 WindowsConstants.au3
+	
 

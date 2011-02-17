@@ -5,35 +5,45 @@ $tagBITMAPINFO
 这个结构定义基于Windows的设备无关位图(DIB)的尺寸和颜色信息.
 
 ###Syntax###
-Global Const $tagBITMAPINFO = "dword Size;long Width;long Height;word Planes;word BitCount;dword Compression;dword SizeImage;" & _
-		"long XPelsPerMeter;long YPelsPerMeter;dword ClrUsed;dword ClrImportant;dword RGBQuad"
+Global Const $tagBITMAPINFO = "dword Size;" & _
+                              "long Width;" & _
+                              "long Height;" & _
+                              "word Planes;" & _
+                              "word BitCount;" & _
+                              "dword Compression;" & _
+                              "dword SizeImage;" & _
+                              "long XPelsPerMeter;" & _
+                              "long YPelsPerMeter;" & _
+                              "dword ClrUsed;" & _
+                              "dword ClrImportant;" & _
+                              "dword RGBQuad"
 
 ###Fields###
 @@ParamTable@@
 Size
-	The number of bytes required by the structure, minus the size of the RGBQuad data
+	结构减去 RGBQuad 数据所需的字节数.
 Width
 	指定位图宽度, 单位为像素
 Height
 	指定位图高度, 单位为像素
 Planes
-	Specifies the number of planes for the target device. This must be set to 1
+	指定目标设备的位面,这里必须设置为 1
 BitCount
-	Specifies the number of bits-per-pixel
+	指定每像素的位数
 Compression
-	Specifies the type of compression for a compressed bottom-up bitmap
+	指定自下而上的位图压缩类型
 SizeImage
-	Specifies the size, in bytes, of the image
+	指定图像的字节大小
 XPelsPerMeter
-	Specifies the horizontal resolution, in pixels-per-meter, of the target device for the bitmap
+	指定位图水平分辨率, 每米像素值
 YPelsPerMeter
-	Specifies the vertical resolution, in pixels-per-meter, of the target device for the bitmap
+	指定位图垂直分辨率, 每米像素值
 ClrUsed
-	Specifies the number of color indexes in the color table that are actually used by the bitmap
+	指定颜色表中被位图实际使用的颜色索引数
 ClrImportant
-	Specifies the number of color indexes that are required for displaying the bitmap
+	指定显示位图颜色所需的索引数
 RGBQuad
-	An array of tagRGBQUAD structures. The elements of the array that make up the color table.
+	tagRGBQUAD 结构的数组. 数组由颜色表元素构成.
 @@End@@
 
 ###Remarks###

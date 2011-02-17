@@ -5,47 +5,51 @@ $tagNETRESOURCE
 tagNETRESOURCE 数据结构
 
 ###Syntax###
-Global Const $tagNETRESOURCE = "int Scope;int Type;int DisplayType;int Usage;ptr LocalName;ptr RemoteName;ptr Comment;ptr Provider"
+Global Const $tagNETRESOURCE = "int Scope;" & _
+                               "int Type;" & _
+                               "int DisplayType;" & _
+                               "int Usage;" & _
+                               "ptr LocalName;" & _
+                               "ptr RemoteName;" & _
+                               "ptr Comment;" & _
+                               "ptr Provider"
 
 ###Fields###
 @@ParamTable@@
 Scope
-	Scope of the enumeration:
-		$RESOURCE_CONNECTED - Enumerate currently connected resources
-		$RESOURCE_GLOBALNET - Enumerate all resources on the network
-		$RESOURCE_REMEMBERED - Enumerate remembered connections
+	枚举范围:
+		$RESOURCE_CONNECTED - 枚举当前已连接的资源
+		$RESOURCE_GLOBALNET - 枚举网络上的所有资源
+		$RESOURCE_REMEMBERED - 枚举记录的连接
 Type
-	Set of bit flags identifying the type of resource:
-		$RESOURCETYPE_ANY - All resources
-		$RESOURCETYPE_DISK - Disk resources
-		$RESOURCETYPE_PRINT - Print resources
+	确定资源类型的数位标记:
+		$RESOURCETYPE_ANY - 所有资源
+		$RESOURCETYPE_DISK - 磁盘资源
+		$RESOURCETYPE_PRINT - 打印资源
 DisplayType
-	Display options for the network object in a network browsing user interface:
-		$RESOURCEDISPLAYTYPE_DOMAIN - The object should be displayed as a domain
-		$RESOURCEDISPLAYTYPE_SERVER - The object should be displayed as a server
-		$RESOURCEDISPLAYTYPE_SHARE - The object should be displayed as a share
-		$RESOURCEDISPLAYTYPE_GENERIC - The method used to display the object does not matter
+	网络对象在网络浏览的用户界面中的显示选项:
+		$RESOURCEDISPLAYTYPE_DOMAIN - 对象显示为域
+		$RESOURCEDISPLAYTYPE_SERVER - 对象显示为服务器
+		$RESOURCEDISPLAYTYPE_SHARE - 对象显示为共享
+		$RESOURCEDISPLAYTYPE_GENERIC - 常用显示方法
 Usage
-	Set of bit flags describing how the resource can be used. Note that this member can be specified
-	only if the Scope member is equal to $RESOURCE_GLOBALNET. This member can be one of the following values:
-		$RESOURCEUSAGE_CONNECTABLE - The resource is a connectable resource; the name pointed to by RemoteName can be
-	passed to the _WNet_AddConnection function to make a network connection.
-		$RESOURCEUSAGE_CONTAINER - The resource is a container resource; the name pointed to by RemoteName can be
-	passed to the WNet_OpenEnum function to enumerate the resources in the container.
+	描述如何使用资源的数位标记. 注意该成员仅当 Scope 成员为 $RESOURCE_GLOBALNET 时方可指定.
+	该成员可下列值之一:
+		$RESOURCEUSAGE_CONNECTABLE - 可连接资源; 由 RemoteName 指定的名称可传递给 _WNet_AddConnection 函数,以创建网络连接.
+		$RESOURCEUSAGE_CONTAINER - 容器资源; 由 RemoteName 指定的名称可传递给 WNet_OpenEnum 函数,以枚举容器中的资源.
 LocalName
-	If the Scope member is equal to $RESOURCE_CONNECTED or $RESOURCE_REMEMBERED, this member is a
-	pointer to a null terminated character string that specifies the name of a local device. This member is 0 if
-	the connection does not use a device.
+	当 Scope 成员为 $RESOURCE_CONNECTED 或 $RESOURCE_REMEMBERED 时,
+	该成员为指定本地设备名称的无终止字符字符串的指针.
+	如果不使用该连接的设备,这个成员为 0.
 RemoteName
-	If the entry is a network resource, this member is a pointer to a null terminated string that
-	specifies the remote network name. If the entry is a current or persistent connection, RemoteName points to
-	the network name associated with the name pointed to by the LocalName member.
+	如果项目为网络资源, 该成员为指定远程网络名称的无终止字符字符串的指针.
+	如果项目为当前的或持续的连接, RemoteName 指向由 LocalName 成员指定的名称相关的网络名称.
 Comment
-	Pointer to a null-terminated string that contains a comment supplied by the network provider
+	包含有由网络提供者提供的注释的无终止字符字符串的指针
 Provider
-	Pointer to a null-terminated string that contains the name of the provider that owns the
-	resource. This member can be NULL if the provider name is unknown. To retrieve the provider name, you can
-	call the _WNet_GetProviderName function.
+	包含拥有资源提供者名称的无终止字符字符串的指针.
+	如果提供的名称未知,该成员可为空.
+	可调用 _WNet_GetProviderName 函数获取提供者名称.
 @@End@@
 
 ###Remarks###

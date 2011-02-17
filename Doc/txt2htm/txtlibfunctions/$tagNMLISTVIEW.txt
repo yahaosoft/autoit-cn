@@ -2,32 +2,39 @@
 $tagNMLISTVIEW
 
 ###Description###
-Contains information about a list-view notification message
+包含列表视图的通知消息
 
 ###Syntax###
-Global Const $tagNMLISTVIEW = $tagNMHDR & ";int Item;int SubItem;int NewState;int OldState;int Changed;" & _
-		"int ActionX;int ActionY;int Param"
+Global Const $tagNMLISTVIEW = $tagNMHDR & ";" & _
+                              "int Item;" & _
+                              "int SubItem;" & _
+                              "int NewState;" & _
+                              "int OldState;" & _
+                              "int Changed;" & _
+                              "int ActionX;" & _
+                              "int ActionY;" & _
+                              "int Param"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-	Contains information about a notification message
+	包含通知消息的信息
 Item
-	Identifies the item, or -1 if not used
+	项目标识符,不使用则为 -1
 SubItem
-	Identifies the subitem, or zero if none
+	子项目标识符,不使用则为 -1
 NewState
-	New item state
+	项目新状态
 OldState
-	Old item state
+	项目原状态
 Changed
-	Set of flags that indicate the item attributes that have changed
+	设置变更项目属性的标志,不使用时为 0
 ActionX
-	X position at which the event occurred
+	事件发生的 X 位置
 ActionY
-	Y position at which the event occurred
+	事件发生的 Y 位置
 Param
-	Application-defined value of the item
+	应用程序定义的项目值
 @@End@@
 
 ###Remarks###

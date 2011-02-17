@@ -2,24 +2,28 @@
 $tagNMTVGETINFOTIP
 
 ###Description###
-Contains and receives tree-view item information needed to display a ToolTip for an item
+包含和接收树视图项目显示工具提示所需的信息
 
 ###Syntax###
-Global Const $tagNMTVGETINFOTIP = $tagNMHDR & ";ptr Text;int TextMax;hwnd hItem;int lParam"
+Global Const $tagNMTVGETINFOTIP = $tagNMHDR & ";" & _
+                                  "ptr Text;" & _
+                                  "int TextMax;" & _
+                                  "hwnd hItem;" & _
+                                  "int lParam"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-	Contains information about a notification message
+	包含通知消息的信息
 Text
-	Address of a character buffer that contains the text to be displayed
+	字符的缓冲区,它包含要显示的文本地址
 TextMax
-	Size of the buffer at Text, in characters. Although you should never assume that this buffer will be
-	of any particular size, the $INFOTIPSIZE value can be used for design purposes
+	文本缓冲区字符大小, 您可以不为这个缓冲区设置任何特定的大小,
+	$INFOTIPSIZE 的值可用于设计用途 
 hItem
-	Tree handle to the item for which the ToolTip is being displayed
+	正在显示项目工具提示的树视图句柄
 lParam
-	Application-defined data associated with the item for which the ToolTip is being displayed
+	与项目正在显示的工具提示相关的应用程序定义数据
 @@End@@
 
 ###Remarks###

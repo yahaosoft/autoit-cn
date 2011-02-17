@@ -2,24 +2,28 @@
 $tagNMOBJECTNOTIFY
 
 ###Description###
-Contains information used with the $TBN_GETOBJECT, $TCN_GETOBJECT, $RBN_GETOBJECT, and $PSN_GETOBJECT notification messages
+包含用于 $TBN_GETOBJECT, $TCN_GETOBJECT, $RBN_GETOBJECT, 与 $PSN_GETOBJECT 通知消息的信息
 
 ###Syntax###
-Global Const $tagNMOBJECTNOTIFY = $tagNMHDR & ";int Item;ptr piid;ptr pObject;int Result"
+Global Const $tagNMOBJECTNOTIFY = $tagNMHDR & ";" & _
+                                  "int Item;" & _
+                                  "ptr piid;" & _
+                                  "ptr pObject;" & _
+                                  "int Result"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-	Contains information about a notification message
+	包含通知消息的信息
 Item
-	A control-specific item identifier
+	控件特定项目标识符
 piid
-	A pointer to an interface identifier of the requested object
+	被请求对象接口标识符的指针
 pObject
-	A pointer to an object provided by the window processing the notification message
-	The application processing the notification message sets this member
+	由处理通知消息窗口提供对象的指针.
+	执行通知消息的应用程序设置该成员.
 Result
-	COM success or failure flags. The application processing the notification message sets this member
+	COM 的成功或失败标志. 执行通知消息的应用程序设置该成员.
 @@End@@
 
 ###Remarks###

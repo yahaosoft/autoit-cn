@@ -2,48 +2,61 @@
 $tagNMTOOLBAR
 
 ###Description###
-Contains information used to process toolbar notification messages
+包含用于处理工具栏通知消息的信息
 
 ###Syntax###
-Global Const $tagNMTOOLBAR = $tagNMHDR & ";int iItem;int iBitmap;int idCommand;" & _
-		"byte fsState;byte fsStyle;byte bReserved1;byte bReserved2;dword dwData;int iString;int cchText;" & _
-		"ptr pszText;int Left;int Top;int Right;int Bottom"
+Global Const $tagNMTOOLBAR = $tagNMHDR & ";" & _
+                             "int iItem;" & _
+                             "int iBitmap;" & _
+                             "int idCommand;" & _
+                             "byte fsState;" & _
+                             "byte fsStyle;" & _
+                             "byte bReserved1;" & _
+                             "byte bReserved2;" & _
+                             "dword dwData;" & _
+                             "int iString;" & _
+                             "int cchText;" & _
+                             "ptr pszText;" & _
+                             "int Left;" & _
+                             "int Top;" & _
+                             "int Right;" & _
+                             "int Bottom"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-	Contains information about a notification message
+	包含通知消息的信息
 iItem
-	Command identifier of the button associated with the notification
+	与通知有关的按钮命令标识符
 iBitmap
-	Zero-based index of the button image.
-		If the button is a separator, that is, if fsStyle is set to $BTNS_SEP, iBitmap determines the width of the separator, in pixels
+	按钮图像的 0 基索引.
+	如果按钮是一个分隔符, 即如果 fsStyle 设置为 $BTNS_SEP, 则 iBitmap 决定分隔像素宽度
 idCommand
-	Command identifier associated with the button. This identifier is used in a WM_COMMAND message when the button is chosen
+	与按钮相关的命令标识符. 该标识符在按钮被选择时用在 WM_COMMAND 消息中
 fsState
-	Button state flags. This member can be a combination of the values listed in Toolbar Button States
+	按钮状态标志. 该成员可为工具栏按钮状态中列出的值的组合
 fsStyle
-	Button style. This member can be a combination of the button style values listed in Toolbar Control and Button Styles
+	按钮样式. 该成员可为工具栏控件按钮样式中列出的值的组合
 bReserved1
-	Reserved.  Do not use.
+	保留.不使用.
 bReserved2
-	Reserved.  Do not use.
+	保留.不使用.
 dwData
-	Application-defined value
+	应用程序定义的值
 iString
-	Zero-based index of the button string, or a pointer to a string buffer that contains text for the button
+	按钮字符串的 0 基索引,或一个字符串缓冲区,它包含按钮文本指针
 cchText
-	Count of characters in the button text
+	按钮文本的字符数量
 pszText
-	Address of a character buffer that contains the button text
+	地址字符缓冲区，其中包含按钮文本
 Left
-	Specifies the x-coordinate of the upper-left corner of the rectangle
+	指定矩形左上角 X 坐标
 Top
-	Specifies the y-coordinate of the upper-left corner of the rectangle
+	指定矩形左上角 Y 坐标
 Right
-	Specifies the x-coordinate of the lower-right corner of the rectangle
+	指定矩形右下角 X 坐标
 Bottom
-	Specifies the y-coordinate of the lower-right corner of the rectangle
+	指定矩形右下角 Y 坐标
 @@End@@
 
 ###Remarks###

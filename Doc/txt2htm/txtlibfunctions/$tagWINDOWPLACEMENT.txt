@@ -2,48 +2,53 @@
 $tagWINDOWPLACEMENT
 
 ###Description###
-The WINDOWPLACEMENT structure contains information about the placement of a window on the screen
+包含窗口位置在屏幕上的信息
 
 ###Syntax###
-Global Const $tagWINDOWPLACEMENT = "UINT length; UINT flags; UINT showCmd; int ptMinPosition[2]; int ptMaxPosition[2]; int rcNormalPosition[4]"
+Global Const $tagWINDOWPLACEMENT = "UINT length;" & _
+                                   " UINT flags;" & _
+                                   " UINT showCmd;" & _
+                                   " int ptMinPosition[2];" & _
+                                   " int ptMaxPosition[2];" & _
+                                   " int rcNormalPosition[4]"
 
 ###Fields###
 @@ParamTable@@
 length
-	Specifies the length, in bytes, of the structure
+	结构的字节长度
 flags
-	Specifies flags that control the position of the minimized window and the method by which the window is restored. This member can be one or more of the following values
-		$WPF_ASYNCWINDOWPLACEMENT - Windows 2000/XP: If the calling thread and the thread that owns the window are attached to different input queues, the system posts the request to the thread that owns the window.
-		$WPF_RESTORETOMAXIMIZED - Specifies that the restored window will be maximized, regardless of whether it was maximized before it was minimized.
-		  This setting is only valid the next time the window is restored. It does not change the default restoration behavior.
-		  This flag is only valid when the @SW_SHOWMINIMIZED value is specified for the showCmd member.
-		$WPF_SETMINPOSITION - Specifies that the coordinates of the minimized window may be specified.
-		  This flag must be specified if the coordinates are set in the ptMinPosition member.
+	控制最小化窗口的位置及窗口恢复方法. 这个成员可以是一或多个下列值:
+		$WPF_ASYNCWINDOWPLACEMENT - Windows 2000/XP: 如果调用的线程和连接窗口的线程为不同输入序列, 系统向窗口所属的线程传递请求.
+		$WPF_RESTORETOMAXIMIZED - 指定最大化还原窗口, 无论是最大化之前它已最小化.
+		该设置仅在下次恢复窗口时有效. 不会改变默认的恢复操作.
+		当 @SW_SHOWMINIMIZED 值是 showCmd 成员指定时,该设置有效.
+		$WPF_SETMINPOSITION - 指定最小化窗口的坐标.
+		当在 ptMinPosition 成员中设置了坐标时必须指定该标志.
 showCmd
-	Specifies the current show state of the window. This member can be one of the following values:
-		@SW_HIDE - Hides the window and activates another window.
-		@SW_MAXIMIZE - Maximizes the specified window.
-		@SW_MINIMIZE - Minimizes the specified window and activates the next top-level window in the z-order.
-		@SW_RESTORE - Activates and displays the window. If the window is minimized or maximized, the system restores it to its original size and position.
-		  An application should specify this flag when restoring a minimized window.
-		@SW_SHOW - Activates the window and displays it in its current size and position.
-		@SW_SHOWMAXIMIZED - Activates the window and displays it as a maximized window.
-		@SW_SHOWMINIMIZED - Activates the window and displays it as a minimized window.
-		@SW_SHOWMINNOACTIVE - Displays the window as a minimized window.
-		  This value is similar to @SW_SHOWMINIMIZED, except the window is not activated.
-		@SW_SHOWNA - Displays the window in its current size and position.
-		  This value is similar to @SW_SHOW, except the window is not activated.
-		@SW_SHOWNOACTIVATE - Displays a window in its most recent size and position.
-		  This value is similar to @SW_SHOWNORMAL, except the window is not actived.
-		@SW_SHOWNORMAL - Activates and displays a window.
-		  If the window is minimized or maximized, the system restores it to its original size and position.
-		  An application should specify this flag when displaying the window for the first time.
+	指定窗口的当前显示状态.这个成员可以是下列值之一:
+		@SW_HIDE - 隐藏窗口并激活另一个窗口.
+		@SW_MAXIMIZE - 最大化指定的窗口.
+		@SW_MINIMIZE - 最小化指定的窗口并激活在 Z 顺序的下一个顶层窗口.
+		@SW_RESTORE - 激活并显示窗口.如果窗口是最小化或最大化,系统恢复到其原来的大小和位置.
+		应用程序还原最小化窗口时应指定此标志.
+		@SW_SHOW - 激活窗口并显示其目前的规模和位置.
+		@SW_SHOWMAXIMIZED - 激活并显示窗口为最大化.
+		@SW_SHOWMINIMIZED - 激活并显示窗口为最小化.
+		@SW_SHOWMINNOACTIVE - 最小化显示窗口.
+		此值类似于 @SW_SHOWMINIMIZED, 但窗口未激活.
+		@SW_SHOWNA - 显示其当前大小和位置的窗口.
+		此值类似于 @SW_SHOW, 但窗口未激活.
+		@SW_SHOWNOACTIVATE - 以最近一次的尺寸和位置显示窗口.
+		此值类似于 @SW_SHOWNORMAL, 但窗口未激活.
+		@SW_SHOWNORMAL - 激活并显示窗口.
+		如果窗口是最小化或最大化，系统恢复到原来的大小和位置.
+		应用程序应在首次显示窗口时指定此标记.
 ptMinPosition
-	Specifies the coordinates of the window's upper-left corner when the window is minimized.
+	指定最小化窗口时的左上角坐标.
 ptMaxPosition
-	Specifies the coordinates of the window's upper-left corner when the window is maximized.
+	指定最大化窗口时的左上角坐标.
 rcNormalPosition
-	Specifies the window's coordinates when the window is in the restored position.
+	指定窗口还原时的位置坐标.
 @@End@@
 
 ###Remarks###

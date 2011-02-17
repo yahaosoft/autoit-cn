@@ -2,39 +2,48 @@
 $tagNMDAYSTATE
 
 ###Description###
-Carries information required to process the $MCN_GETDAYSTATE notification me
+传送处理 $MCN_GETDAYSTATE 通知所需资料
 
 ###Syntax###
-Global Const $tagNMDAYSTATE = $tagNMHDR & ";short Year;short Month;short DOW;short Day;short Hour;" & _
-		"short Minute;short Second;short MSeconds;int DayState;ptr pDayState"
+Global Const $tagNMDAYSTATE = $tagNMHDR & ";" & _
+                              "short Year;" & _
+                              "short Month;" & _
+                              "short DOW;" & _
+                              "short Day;" & _
+                              "short Hour;" & _
+                              "short Minute;" & _
+                              "short Second;" & _
+                              "short MSeconds;" & _
+                              "int DayState;" & _
+                              "ptr pDayState"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-	Contains information about a notification message
+	包含通知消息的信息
 Year
-	Year
+	年
 Month
-	Month
+	月
 DOW
-	DOW
+	周内天
 Day
-	Day
+	日
 Hour
-	Hour
+	时
 Minute
-	Minute
+	分
 Second
-	Seconds
+	秒
 MSeconds
-	Milliseconds
+	毫秒
 DayState
-	The total number of elements that must be in the array at pDayState
+	pDayState 数组中必须的元素总数
 pDayState
-	Address of an array of MONTHDAYSTATE (DWORD bit field that holds the state of each day in a month)
-	Each bit (1 through 31) represents the state of a day in a month. If a bit is on, the corresponding day will
-	be displayed in bold; otherwise it will be displayed with no emphasis.
-	The buffer at this address must be large enough to contain at least DayState elements.
+	MONTHDAYSTATE 数组的地址(DWORD 字段保留月中天的状态);
+	每个数位( 1 到 31 )代表月中的日的状态,
+	如果数位为开启状态, 相应的日期粗体显示; 否则不重点显示.
+	此地址的缓冲区必须足够大,至少应包含 DayState 指定的元素总数.
 @@End@@
 
 ###Remarks###

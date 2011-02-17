@@ -2,61 +2,71 @@
 $tagMENUITEMINFO
 
 ###Description###
-Contains information about a menu item
+包含有关菜单项信息
 
 ###Syntax###
-Global Const $tagMENUITEMINFO = "int Size;int Mask;int Type;int State;int ID;int SubMenu;int BmpChecked;int BmpUnchecked;" & _
-		"int ItemData;ptr TypeData;int CCH;int BmpItem"
+Global Const $tagMENUITEMINFO = "int Size;" & _
+                                "int Mask;" & _
+                                "int Type;" & _
+                                "int State;" & _
+                                "int ID;" & _
+                                "int SubMenu;" & _
+                                "int BmpChecked;" & _
+                                "int BmpUnchecked;" & _
+                                "int ItemData;" & _
+                                "ptr TypeData;" & _
+                                "int CCH;" & _
+                                "int BmpItem"
 
 ###Fields###
 @@ParamTable@@
 Size
-	Specifies the size, in bytes, of the structure
+	结构大小，以字节为单位
 Mask
-	Members to retrieve or set. This member can be one or more of these values:
-		$MIIM_BITMAP - Retrieves or sets the BmpItem member
-		$MIIM_CHECKMARKS - Retrieves or sets the BmpChecked and BmpUnchecked members
-		$MIIM_DATA - Retrieves or sets the ItemData member
-		$MIIM_FTYPE - Retrieves or sets the Type member
-		$MIIM_ID - Retrieves or sets the ID member
-		$MIIM_STATE - Retrieves or sets the State member
-		$MIIM_STRING - Retrieves or sets the TypeData member
-		$MIIM_SUBMENU - Retrieves or sets the SubMenu member
-		$MIIM_TYPE - Retrieves or sets the Type and TypeData members
+	获取或设置的成员. 可为一或多个下列值:
+		$MIIM_BITMAP - 检索或设置 BmpItem 成员
+		$MIIM_CHECKMARKS - 检索或设置 BmpChecked 与 BmpUnchecked 成员
+		$MIIM_DATA - 检索或设置 ItemData 成员
+		$MIIM_FTYPE - 检索或设置 Type 成员
+		$MIIM_ID - 检索或设置 ID 成员
+		$MIIM_STATE - 检索或设置  State 成员
+		$MIIM_STRING - 检索或设置  TypeData 成员
+		$MIIM_SUBMENU - 检索或设置  SubMenu 成员
+		$MIIM_TYPE - 检索或设置  Type 与 TypeData 成员
 Type
-	Menu item type. This member can be one or more of the following values:
-		$MFT_BITMAP - Displays the menu item using a bitmap
-		$MFT_MENUBARBREAK - Places the menu item on a new line or in a new column
-		$MFT_MENUBREAK - Places the menu item on a new line or in a new column
-		$MFT_OWNERDRAW - Assigns responsibility for drawing the menu item to the menu owner
-		$MFT_RADIOCHECK - Displays selected menu items using a radio button mark
-		$MFT_RIGHTJUSTIFY - Right justifies the menu item and any subsequent items
-		$MFT_RIGHTORDER - Specifies that menus cascade right to left
-		$MFT_SEPARATOR - Specifies that the menu item is a separator
+	菜单项类型. 可为一或多个下列值:
+		$MFT_BITMAP - 显示使用位图的菜单项
+		$MFT_MENUBARBREAK - 将菜单项置于新行或新列上
+		$MFT_MENUBREAK - 将菜单项置于新行或新列上
+		$MFT_OWNERDRAW - 指定由菜单宿主绘制菜单项
+		$MFT_RADIOCHECK - 显示使用单选按钮标记的选定菜单项
+		$MFT_RIGHTJUSTIFY - 右对齐菜单项及子项
+		$MFT_RIGHTORDER - 指定级联菜单从右到左
+		$MFT_SEPARATOR - 指定菜单项为分隔符
 State
-	Menu item state. This member can be one or more of these values:
-		$MFS_CHECKED - Checks the menu item
-		$MFS_DEFAULT - Specifies that the menu item is the default
-		$MFS_DISABLED - Disables the menu item and grays it so that it cannot be selected
-		$MFS_ENABLED - Enables the menu item so that it can be selected
-		$MFS_GRAYED - Disables the menu item and grays it so that it cannot be selected
-		$MFS_HILITE - Highlights the menu item
+	菜单项状态. 该成员可为一或多个下列值:
+		$MFS_CHECKED - 选中
+		$MFS_DEFAULT - 默认
+		$MFS_DISABLED - 禁用
+		$MFS_ENABLED - 启用
+		$MFS_GRAYED - 禁用
+		$MFS_HILITE - 高亮显示
 ID
-	Application-defined 16-bit value that identifies the menu item
+	应用程序定义的标识菜单项的16位值
 SubMenu
-	Handle to the drop down menu or submenu associated with the menu item
+	与菜单项相关的下拉菜单或子菜单的句柄
 BmpChecked
-	Handle to the bitmap to display next to the item if it is selected
+	项目选定时显示的位图句柄
 BmpUnchecked
-	Handle to the bitmap to display next to the item if it is not selected
+	项目未被选定时显示的位图句柄
 ItemData
-	Application-defined value associated with the menu item
+	应用程序定义的与菜单项相关的值
 TypeData
-	Content of the menu item
+	菜单项的内容
 CCH
-	Length of the menu item text
+	菜单项目文本的长度
 BmpItem
-	Handle to the bitmap to be displayed
+	显示的位图句柄
 @@End@@
 
 ###Remarks###

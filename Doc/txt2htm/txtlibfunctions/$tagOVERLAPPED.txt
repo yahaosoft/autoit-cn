@@ -2,31 +2,33 @@
 $tagOVERLAPPED
 
 ###Description###
-Contains information used in asynchronous (or overlapped) input and output (I/O).
+包含使用异步(或重叠)输入和输出(I/O)的信息
 
 ###Syntax###
-Global Const $tagOVERLAPPED = "int Internal;int InternalHigh;int Offset;int OffsetHigh;int hEvent"
+Global Const $tagOVERLAPPED = "int Internal;" & _
+                              "int InternalHigh;" & _
+                              "int Offset;" & _
+                              "int OffsetHigh;" & _
+                              "int hEvent"
 
 ###Fields###
 @@ParamTable@@
 Internal
-	Reserved for operating system use. This member, which specifies a system-dependent status, is
-	valid when the GetOverlappedResult function returns without setting the extended error information to
-	ERROR_IO_PENDING.
+	保留给操作系统使用.指定系统相关状态.
+	当 GetOverlappedResult 函数返回没有设置扩展的错误信息到 ERROR_IO_PENDING 时有效      .
 InternalHigh
-	Reserved for operating system use. This member, which specifies the length of the data
-	transferred, is valid when the GetOverlappedResult function returns True.
+	保留给操作系统使用.指定数据传输的长度
+	当 GetOverlappedResult 函数返回 True 时有效.
 Offset
-	File position at which to start the transfer. The file position is a byte offset from the start
-	of the file. The calling process must set this member before calling the ReadFile or WriteFile function. This
-	member is used only when the device is a file. Otherwise, this member must be zero.
+	开始传输的文件位置.文件位置为从文件开始处的字节偏移量.
+	调用进程设置这个成员之前,必须调用 ReadFile 或 WriteFile 函数
+	该成员仅用于设备是一个文件时,否则,该城员必须为 0.
 OffsetHigh
-	High-order word of the file position at which to start the transfer. This member is used only
-	when the device is a file. Otherwise, this member must be zero.
+	开始传输文件位置的高位字.
+	该成员仅用于设备是一个文件时,否则,该会员必须为 0.
 hEvent
-	Handle to an event that will be set to the signaled state when the operation has completed. The
-	calling process must set this member either to zero or a valid event handle before calling any overlapped
-	functions.
+	当操作完成时,将被设置为信号状态事件的句柄.
+	调用进程设置这个成员必须要么为零,或有效的事件句柄之前调用任何重叠函数      .
 @@End@@
 
 ###Remarks###

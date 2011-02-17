@@ -2,39 +2,49 @@
 $tagNMDATETIMESTRING
 
 ###Description###
-Contains information specific to an edit operation that has taken place in the control
+包含控件中发生的编辑操作信息
 
 ###Syntax###
-Global Const $tagNMDATETIMESTRING = $tagNMHDR & ";ptr UserString;short Year;short Month;short DOW;short Day;" & _
-		"short Hour;short Minute;short Second;short MSecond;int Flags"
+Global Const $tagNMDATETIMESTRING = $tagNMHDR & ";" & _
+                                    "ptr UserString;" & _
+                                    "short Year;" & _
+                                    "short Month;" & _
+                                    "short DOW;" & _
+                                    "short Day;" & _
+                                    "short Hour;" & _
+                                    "short Minute;" & _
+                                    "short Second;" & _
+                                    "short MSecond;" & _
+                                    "int Flags"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-	Contains information about a notification message
+	包含通知消息的信息
 UserString
-	Address of the null terminated string that the user entered
+	用户输入的空结束字符串地址
 Year
-	Year
+	年
 Month
-	Month
+	月
 DOW
-	Day of week
+	周中的日
 Day
-	Day
+	日
 Hour
-	Hour
+	时
 Minute
-	Minute
+	分
 Second
-	Second
+	秒
 MSecond
-	Milliseconds
+	毫秒
 Flags
-	Return field. Set this member to $GDT_VALID to indicate that the date is valid or to $GDT_NONE to
-	set the control to "no date" status ($DTS_SHOWNONE style only).
+	返回字段.设置此值为 $GDT_VALID 表示日期有效;
+	或设置为 $GDT_NONE 表示控件为"无日期"状态(仅 $DTS_SHOWNONE 样式).
 @@End@@
 
 ###Remarks###
-This message is used with the $DTN_USERSTRING notification message.
+此消息与 $DTN_USERSTRING 通知消息一起使用.
+  
 

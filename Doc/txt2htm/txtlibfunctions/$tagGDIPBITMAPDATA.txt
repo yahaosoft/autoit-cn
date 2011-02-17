@@ -5,21 +5,26 @@ $tagGDIPBITMAPDATA
 位图数据
 
 ###Syntax###
-Global Const $tagGDIPBITMAPDATA = "uint Width;uint Height;int Stride;uint Format;ptr Scan0;ptr Reserved"
+Global Const $tagGDIPBITMAPDATA = "uint Width;" & _
+                                  "uint Height;" & _
+                                  "int Stride;" & _
+                                  "uint Format;" & _
+                                  "ptr Scan0;" & _
+                                  "ptr Reserved"
 
 ###Fields###
 @@ParamTable@@
 Width
-	Number of pixels in one scan line of the bitmap
+	位图一次扫描行中的像素数量
 Height
-	Number of scan lines in the bitmap
+	位图中扫描行的数量
 Stride
-	Offset, in bytes, between consecutive scan lines of the bitmap. If the stride is positive, the
-	bitmap is top-down. If the stride is negative, the bitmap is bottom-up
+	位图的连续扫描行间的偏移(字节单位). 如果跨距为正数, 从上向下扫描;
+	如果跨距为负数, 从下向上扫描.
 Format
 	指定位图像素格式
 Scan0
-	Pointer to the first (index 0) scan line of the bitmap
+	位图首个扫描行(索引0)的指针
 Reserved
 	保留给以后使用
 @@End@@

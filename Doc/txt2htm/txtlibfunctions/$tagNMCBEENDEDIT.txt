@@ -2,29 +2,33 @@
 $tagNMCBEENDEDIT
 
 ###Description###
-Contains information about the conclusion of an edit operation within a ComboBoxEx control
+包含 ComboBoxEx 控件的编辑操作信息
 
 ###Syntax###
-Global Const $tagNMCBEENDEDIT = $tagNMHDR & ";int fChanged;int NewSelection;char Text[1024];int Why"
+Global Const $tagNMCBEENDEDIT = $tagNMHDR & ";" & _
+                                "int fChanged;" & _
+                                "int NewSelection;" & _
+                                "char Text[1024];" & _
+                                "int Why"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-	Contains information about a notification message
+	包含通知消息的信息
 fChanged
-	Indicating whether the contents of the control's edit box have changed
+	表明控件编辑框的内容是否已改变
 NewSelection
-	The zero-based index of the item that will be selected after completing the edit operation
-	This value can be $CB_ERR if no item will be selected
+	选定编辑操作的项目 0 基索引
+	如果没有项将被选中,该值为 $CB_ERR
 Text
-	A zero-terminated string that contains the text from within the control's edit box
+	一个 0 结尾的字符串,其中包含控件的编辑框文本.
 Why
-	The action that generated the $CBEN_ENDEDIT notification message
-	This value can be one of the following:
-		$CBENF_DROPDOWN - The user activated the drop-down list
-		$CBENF_ESCAPE - The user pressed ESC
-		$CBENF_KILLFOCUS - The edit box lost the keyboard focus
-		$CBENF_RETURN - The user completed the edit operation by pressing ENTER
+	操作所产生的 $CBEN_ENDEDIT 通知消息. 可为下列值之一:
+	这个值可以是下列选项之一:
+		$CBENF_DROPDOWN - 用户激活下拉列表框.
+		$CBENF_ESCAPE - 用户按下 ESC 键
+		$CBENF_KILLFOCUS - 编辑框失去键盘焦点
+		$CBENF_RETURN - 用户按下 ENTER 键完成编辑操作
 @@End@@
 
 ###Remarks###

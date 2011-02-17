@@ -2,33 +2,36 @@
 $tagTVHITTESTINFO
 
 ###Description###
-Contains information used to determine the location of a point relative to a tree-view control
+包含确定相对于树视图控件的点位置的信息
 
 ###Syntax###
-Global Const $tagTVHITTESTINFO = "int X;int Y;int Flags;int Item"
+Global Const $tagTVHITTESTINFO = "int X;" & _
+                                 "int Y;" & _
+                                 "int Flags;" & _
+                                 "int Item"
 
 ###Fields###
 @@ParamTable@@
 X
-	X position, in client coordiantes, to be tested
+	将被测试的客户区坐标的 X 位置
 Y
-	Y position, in client coordiantes, to be tested
+	将被测试的客户区坐标的 Y 位置
 Flags
-	Results of a hit test. This member can be one or more of the following values:
-		$TVHT_ABOVE - Above the client area
-		$TVHT_BELOW - Below the client area
-		$TVHT_NOWHERE - In the client area, but below the last item
-		$TVHT_ONITEM - On the bitmap or label associated with an item
-		$TVHT_ONITEMBUTTON - On the button associated with an item
-		$TVHT_ONITEMICON - On the bitmap associated with an item
-		$TVHT_ONITEMINDENT - In the indentation associated with an item
-		$TVHT_ONITEMLABEL - On the label (string) associated with an item
-		$TVHT_ONITEMRIGHT - In the area to the right of an item
-		DllStructGetData($TVHT_ONITEMSTATEICON - On the state icon for an item that is in a user-defined state, "")
-		$TVHT_TOLEFT - To the left of the client area
-		$TVHT_TORIGHT - To the right of the client area
+	点击测试结果. 该成员可为一或多个下列值:
+		$TVHT_ABOVE - 客户区上方
+		$TVHT_BELOW - 客户区下方
+		$TVHT_NOWHERE - 在客户区最末项下面
+		$TVHT_ONITEM - 项目相关的位图或标签上
+		$TVHT_ONITEMBUTTON - 项目相关的按钮上
+		$TVHT_ONITEMICON - 项目相关的位图上
+		$TVHT_ONITEMINDENT - 项目相关的缩进中
+		$TVHT_ONITEMLABEL - 项目相关的标签(字符串)上
+		$TVHT_ONITEMRIGHT - 项目的右侧区域中
+		DllStructGetData($TVHT_ONITEMSTATEICON - 在用户定义的项目状态图标, "")
+		$TVHT_TOLEFT - 客户区左侧
+		$TVHT_TORIGHT - 客户区右侧
 Item
-	Handle to the item that occupies the position
+	占用位置的项目句柄
 @@End@@
 
 ###Remarks###

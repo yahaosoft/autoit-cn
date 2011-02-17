@@ -2,26 +2,28 @@
 $tagNMHEADER
 
 ###Description###
-Contains information about control notification messages
+包含控件通知消息
 
 ###Syntax###
-Global Const $tagNMHEADER = $tagNMHDR & ";int Item;int Button;ptr pItem"
+Global Const $tagNMHEADER = $tagNMHDR & ";" & _
+                            "int Item;" & _
+                            "int Button;" & _
+                            "ptr pItem"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-	Contains information about a notification message
+	包含通知消息的信息
 Item
-	Zero based index of the control to which this structure refers
+	与该结构相关的控件 0 基索引
 Button
-	Index of the mouse button used to generate the notification message. This member can be one of the
-	following values:
-		0 - Left button
-		1 - Right button
-		2 - Middle button
+	生成通知消息的鼠标按钮索引.这个成员可以是下列值之一:
+		0 - 左键
+		1 - 右键
+		2 - 中键
 pItem
-	Optional pointer to a tagHDITEM structure containing information about the item specified by Item.
-	The mask member of the tagHDITEM structure indicates which of its members are valid.
+	可选 tagHDITEM 结构指针,它包含规定的有关项目信息.
+	tagHDITEM 的 mask 表示哪些成员是有效的.
 @@End@@
 
 ###Remarks###

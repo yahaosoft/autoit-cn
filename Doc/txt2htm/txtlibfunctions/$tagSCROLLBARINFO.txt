@@ -2,50 +2,59 @@
 $tagSCROLLBARINFO
 
 ###Description###
-Contains scroll bar information
+包含滚动条信息
 
 ###Syntax###
-Global Const $tagSCROLLBARINFO = "dword cbSize;int Left;int Top;int Right;int Bottom;int dxyLineButton;int xyThumbTop;" & _
-		"int xyThumbBottom;int reserved;dword rgstate[6]"
+Global Const $tagSCROLLBARINFO = "dword cbSize;" & _
+                                 "int Left;" & _
+                                 "int Top;" & _
+                                 "int Right;" & _
+                                 "int Bottom;" & _
+                                 "int dxyLineButton;" & _
+                                 "int xyThumbTop;" & _
+                                 "int xyThumbBottom;" & _
+                                 "int 保留;" & _
+                                 "dword rgstate[6]"
 
 ###Fields###
 @@ParamTable@@
 cbSize
-	Specifies the size, in bytes, of this structure. The caller must set this to DllStructGetSize($tagSCROLLBARINFO).
+	指定这个结构的字节大小. 调用程序必须设置为 DllStructGetSize( $tagSCROLLBARINFO ).
 Left
-	Specifies the x-coordinate of the upper-left corner of the rectangle coordinates of the scroll bar
+	指定矩形的左上角 X 坐标 滚动条
 Top
-	Specifies the y-coordinate of the upper-left corner of the rectangle coordinates of the scroll bar
+	指定矩形的左上角 Y 坐标 滚动条
 Right
-	Specifies the x-coordinate of the lower-right corner of the rectangle coordinates of the scroll bar
+	指定矩形的右下角 X 坐标 滚动条
 Bottom
-	Specifies the y-coordinate of the lower-right corner of the rectangle coordinates of the scroll bar
+	指定矩形的右下角 Y 坐标 滚动条
 dxyLineButton
-	Height or width of the thumb.
+	滚动槽的高度或宽度.
 xyThumbTop
-	Position of the top or left of the thumb.
+	滚动槽顶部或左边位置.
 xyThumbBottom
-	Position of the bottom or right of the thumb.
-reserved
-	Reserved.
+	滚动槽底部或右边位置.
+保留
+	保留.
 rgstate
-	An array of DWORD elements. Each element indicates the state of a scroll bar component.
-		The following values show the scroll bar component that corresponds to each array index:
-		  0 The scroll bar itself.
-		  1 The top or right arrow button.
-		  2 The page up or page right region.
-		  3 The scroll box (thumb).
-		  4 The page down or page left region.
-		  5 The bottom or left arrow button.
+	DWORD 元素数组,每个元素表明一个滚动条组件的状态.
+	下面的值显示滚动条组件对应数组的索引:
+		0 滚动条本身.
+		1 顶或右箭头按钮.
+		2 页上或页右侧区域.
+		3 滚动框.
+		4 页下或页左侧区域.
+		5 底或左箭头按钮.
 
-		The DWORD element for each scroll bar component can include a combination of the following bit flags.
-		  STATE_SYSTEM_INVISIBLE - For the scroll bar itself, indicates the specified vertical or horizontal scroll bar does not exist.
-		    For the page up or page down regions, indicates the thumb is positioned such that the region does not exist.
-		  STATE_SYSTEM_OFFSCREEN - For the scroll bar itself, indicates the window is sized such that the specified vertical or horizontal scroll bar is not currently displayed.
-		  STATE_SYSTEM_PRESSED - The arrow button or page region is pressed.
-		  STATE_SYSTEM_UNAVAILABLE - The component is disabled.
+	每个滚动条组件的 DWORD 元素可以包含下列位标志的组合.
+		STATE_SYSTEM_INVISIBLE - 对于滚动条本身,表明指定的垂直或水平滚动条不存在.
+		对于向上或向下翻页区域,表明滚动栏的位置不存在.
+		STATE_SYSTEM_OFFSCREEN - 对于滚动条本身，显示窗口的大小，这样指定的垂直或水平滚动条当前未显示.
+		STATE_SYSTEM_PRESSED - 箭头按钮或页面区域被按下.
+		STATE_SYSTEM_UNAVAILABLE - 组件被禁用.
 @@End@@
 
 ###Remarks###
-$SIF_xxxxx and $SB_xxxxx for scrollbar require WindowsConstants.au3
+$SIF_xxxxx 与 $SB_xxxxx 对滚动条需要常量文件 WindowsConstants.au3
+  
 

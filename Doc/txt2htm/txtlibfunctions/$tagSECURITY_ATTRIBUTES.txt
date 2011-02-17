@@ -2,19 +2,21 @@
 $tagSECURITY_ATTRIBUTES
 
 ###Description###
-Contains the security descriptor for an object and specifies whether the handle retrieved by specifying this structure is inheritable
+包含一个对象的安全描述符，并指定这个结构检索的句柄是否可继承
 
 ###Syntax###
-Global Const $tagSECURITY_ATTRIBUTES = "int Length;ptr Descriptor;int InheritHandle"
+Global Const $tagSECURITY_ATTRIBUTES = "int Length;" & _
+                                       "ptr Descriptor;" & _
+                                       "int InheritHandle"
 
 ###Fields###
 @@ParamTable@@
 Length
-	The size, in bytes, of this structure
+	这个结构的字节大小
 Descriptor
-	A pointer to a security descriptor for the object that controls the sharing of it
+	由对象控制共享的安全描述符指针
 InheritHandle
-	If True, the new process inherits the handle.
+	如果为 True,新进程继承句柄.
 @@End@@
 
 ###Remarks###

@@ -2,64 +2,76 @@
 $tagNMTVCUSTOMDRAW
 
 ###Description###
-Contains information specific to an NM_CUSTOMDRAW (tree view) notification message sent by a tree-view control
+包含由树视图控件发送的 NM_CUSTOMDRAW（tree view） 通知消息的信息
 
 ###Syntax###
-Global Const $tagNMTVCUSTOMDRAW = $tagNMHDR & ";uint DrawStage;hwnd HDC;int Left;int Top;int Right;int Bottom;" & _
-		"ptr ItemSpec;uint ItemState;int ItemParam;int ClrText;int ClrTextBk;int Level"
+Global Const $tagNMTVCUSTOMDRAW = $tagNMHDR & ";" & _
+                                  "uint DrawStage;" & _
+                                  "hwnd HDC;" & _
+                                  "int Left;" & _
+                                  "int Top;" & _
+                                  "int Right;" & _
+                                  "int Bottom;" & _
+                                  "ptr ItemSpec;" & _
+                                  "uint ItemState;" & _
+                                  "int ItemParam;" & _
+                                  "int ClrText;" & _
+                                  "int ClrTextBk;" & _
+                                  "int Level"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-	Contains information about a notification message
+	包含通知消息的信息
 DrawStage
-	Current drawing stage. This value is one of the following:
-		Global Values:
-		  $CDDS_POSTERASE - After the erasing cycle is complete
-		  $CDDS_POSTPAINT - After the painting cycle is complete
-		  $CDDS_PREERASE - Before the erasing cycle begins
-		  $CDDS_PREPAINT - Before the painting cycle begins
-		Item-specific Values:
-		  $CDDS_ITEM - Indicates that the ItemSpec, ItemState, and ItemParam members are valid
-		  $CDDS_ITEMPOSTERASE - After an item has been erased
-		  $CDDS_ITEMPOSTPAINT - After an item has been drawn
-		  $CDDS_ITEMPREERASE - Before an item is erased
-		  $CDDS_ITEMPREPAINT - Before an item is drawn
-		  $CDDS_SUBITEM - Flag combined with $CDDS_ITEMPREPAINT or $CDDS_ITEMPOSTPAINT if a subitem is being drawn
+	当前绘图阶段.该值是下列之一:
+	全程值:
+		$CDDS_POSTERASE - 擦除周期后完成
+		$CDDS_POSTPAINT - 绘制周期后完成
+		$CDDS_PREERASE - 擦除周期前开始
+		$CDDS_PREPAINT - 绘画周期前开始
+	项目特定值:
+		$CDDS_ITEM - 表示 ItemSpec, ItemState, 与 ItemParam 成员有效
+		$CDDS_ITEMPOSTERASE - 项目被擦除后
+		$CDDS_ITEMPOSTPAINT - 项目被绘制后
+		$CDDS_ITEMPREERASE - 项目被擦除前
+		$CDDS_ITEMPREPAINT - 项目被绘制前
+		$CDDS_SUBITEM - 绘制子项时与 $CDDS_ITEMPREPAINT 或 $CDDS_ITEMPOSTPAINT 结合的标志
 HDC
-	Handle to the control's device context
+	控件的设备环境句柄
 Left
-	X coordinate of upper left corner of bounding rectangle being drawn
+	正在绘制的边界矩形左上角 X 坐标
 Top
-	Y coordinate of upper left corner of bounding rectangle being drawn
+	正在绘制的边界矩形左上角 Y 坐标
 Right
-	X coordinate of lower right corner of bounding rectangle being drawn
+	正在绘制的边界矩形右下角 X 坐标
 Bottom
-	Y coordinate of lower right corner of bounding rectangle being drawn
+	正在绘制的边界矩形右下角 Y 坐标
 ItemSpec
-	Item number
+	项目号
 ItemState
-	Current item state. This value is a combination of the following:
-		  $CDIS_CHECKED - The item is checked
-		  $CDIS_DEFAULT - The item is in its default state
-		  $CDIS_DISABLED - The item is disabled
-		  $CDIS_FOCUS - The item is in focus
-		  $CDIS_GRAYED - The item is grayed
-		  $CDIS_HOT - The item is currently under the pointer
-		  $CDIS_INDETERMINATE - The item is in an indeterminate state
-		  $CDIS_MARKED - The item is marked
-		  $CDIS_SELECTED - The item is selected
-		  $CDIS_SHOWKEYBOARDCUES - The item is a keyboard cue
+	当前项目的状态。这个值是以下组合:
+		$CDIS_CHECKED - 被选中的项目
+		$CDIS_DEFAULT - 项目在其默认状态
+		$CDIS_DISABLED - 项目被禁用
+		$CDIS_FOCUS - 项目有焦点
+		$CDIS_GRAYED - 项目为灰色
+		$CDIS_HOT - 项目目前正在光标指针下
+		$CDIS_INDETERMINATE - 项目在不确定状态
+		$CDIS_MARKED - 被标记的项目
+		$CDIS_SELECTED - 被选中的项目
+		$CDIS_SHOWKEYBOARDCUES - 项目是一个键盘提示
 ItemParam
-	Application defined item data
+	应用程序定义的项目数据
 ClrText
-	The color that will be used to display text foreground in the control
+	将要用来显示控件文本的前景色
 ClrTextBk
-	The color that will be used to display text background in the control
+	将要用来显示控件文本的背景色
 Level
-	Zero based level of the item being drawn
+	正在绘制项目的 0 基层 
 @@End@@
 
 ###Remarks###
-$CDxx_ constants require WindowsConstants.au3
+$CDxx_ 常量需要 WindowsConstants.au3 文件定义.
+	
 
