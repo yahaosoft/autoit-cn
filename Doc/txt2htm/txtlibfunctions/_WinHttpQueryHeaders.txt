@@ -2,7 +2,7 @@
 _WinHttpQueryHeaders
 
 ###Description###
-Retrieves header information associated with an HTTP request.
+获取与HTTP请求相关的头部信息
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,24 +11,24 @@ _WinHttpQueryHeaders($hRequest [, $iInfoLevel = Default [, $sName = Default [, $
 ###Parameters###
 @@ParamTable@@
 $hRequest
-	Handle returned by _WinHttpOpenRequest().
+	_WinHttpOpenRequest()返回的句柄
 $iInfoLevel
-	[可选参数] A combination of attribute and modifier flags. Default is $WINHTTP_QUERY_RAW_HEADERS_CRLF.
+	[可选参数] 指定属性和修正标记的组合. 默认为$WINHTTP_QUERY_RAW_HEADERS_CRLF.
 $sName
-	[可选参数] Header name string. Default is $WINHTTP_HEADER_NAME_BY_INDEX.
+	[可选参数] 包含头部名称的字符串. 默认为$WINHTTP_HEADER_NAME_BY_INDEX.
 $iIndex
-	[可选参数] Index used to enumerate multiple headers with the same name
+	[可选参数] 枚举多个同名头部的索引.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Returns string that contains header.
-Failure	Returns empty string and sets @error:
-	1 - DllCall failed
+成功:	返回包含Http头部的字符串并设置@extended为下一头部的索引
+失败:	返回0设置@error 1 - DllCall失败
 @@End@@
 
 ###Remarks###
 None.
+
 ###Related###
 <a href="_WinHttpAddRequestHeaders.htm">_WinHttpAddRequestHeaders</a>, <a href="_WinHttpOpenRequest.htm">_WinHttpOpenRequest</a>
 

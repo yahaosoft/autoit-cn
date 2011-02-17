@@ -2,7 +2,7 @@
 _WinNet_EnumResource
 
 ###Description###
-继续枚举网络资源
+枚举网络资源
 
 ###Syntax###
 #Include <WinNet.au3>
@@ -11,20 +11,13 @@ _WinNet_EnumResource($hEnum, ByRef $iCount, $pBuffer, ByRef $iBufSize)
 ###Parameters###
 @@ParamTable@@
 $hEnum
-	枚举实例句柄标识．句柄由 _WinNet_OpenEnum 函数返回
-		function.
+	标识枚举实例的句柄. 该句柄由_WinNet_OpenEnum函数返回.
 $iCount
-	请求的条目数．如果请求数字为 -1,则函数返回尽可能多的条目．
-		如果函数成功,返回的变量包含实际读取条目数．
-		read
+	请求的元素数量. 如果不确定, 函数返回可能的数量. 如果函数成功, 返回包含实际读取的元素数量的变量.
 $pBuffer
-	接收访问结果的缓冲区指针． 返回的结果将是 $tagNETRESOURCE 数组结构
-		缓冲区必须足够大,以保证结构的需要和完整．
-		直到下一次调用 $hEnum 指定的句柄,缓冲区一直有效．
-		$tagNETRESOURCE 结构数组中的顺序是不可预测的．
+	接收枚举结果的缓冲区的指针. 返回的结果作为$tagNETRESOURCE结构的数组. 为容纳结构加上成员指向的字符串, 缓冲区必须足够大. 缓冲区可用到下次由hEnum指定的句柄调用. $tagNETRESOURCE结构的数组次序不可预料.
 $iBufSize
-	缓冲区的字节大小．如果缓冲区太小,
-		甚至无法接受一个条目,该参数按缓冲区大小接收所需的
+	缓冲区的字节大小. 如果缓冲区太小以至于无法接收一个元素, 该参数接收所需的缓冲区大小.
 @@End@@
 
 ###ReturnValue###

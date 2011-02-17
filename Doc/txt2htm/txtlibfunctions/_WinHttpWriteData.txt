@@ -20,18 +20,16 @@ $iMode
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回1
-失败:	返回0并设置@error:
-	1 - DllCall失败
+成功:	返回1设置@error 0
+	@extended 接收被写入的字节数
+失败:	返回0设置@error 且当其为1时表示DllCall失败
 @@End@@
 
 ###Remarks###
-$vData 变量是要写入的字符串或二进制数据.
-$iMode 可为下列值:
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 - 写入ANSI字符串
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 - 写入二进制数据
-###Related###
-<a href="_WinHttpSendRequest.htm">_WinHttpSendRequest</a>, <a href="_WinHttpReadData.htm">_WinHttpReadData</a>
+$data变量是要写入的字符串或二进制数据
+$iMode可为下列值:
+0 - 写入ANSI字符串
+1 - 写入二进制字符串
 
 
 ###See Also###

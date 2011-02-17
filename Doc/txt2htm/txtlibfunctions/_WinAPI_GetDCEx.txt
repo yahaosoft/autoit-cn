@@ -2,7 +2,7 @@
 _WinAPI_GetDCEx
 
 ###Description###
-Retrieves a handle to a device context (DC) for the client area of a specified window.
+获取指定窗体客户区域设备场景的句柄
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,39 +11,32 @@ _WinAPI_GetDCEx ( $hWnd, $hRgn, $iFlags )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window whose DC is to be retrieved. If this value is 0, _WinAPI_GetDCEx() retrieves the
-	DC for the entire screen. If the value of $iFlags parameter is $DCX_INTERSECTRGN or DCX_EXCLUDERGN,
-	then the operating system assumes ownership of the region and will automatically delete it when it is
-	no longer needed. In this case, the application should not use or delete the region after a successful
-	call to _WinAPI_GetDCEx().
+	要获取场景的窗体的句柄. 如果为0, 函数以全屏幕作为DC. 如果$iFlags参数为$DCX_INTERSECTRGN或$DCX_EXCLUDERGN, 系统假设一个区域的宿主并在不再需要时自动删除. 在此情况下, 应用程序在成功调用_WinAPI_GetDCEx()后不使用或删除区域
 $hRgn
-	A clipping region that may be combined with the visible region of the DC.
+	可与DC可见区域结合的剪切区域
 $iFlags
-	Flags that specifies how the DC is created. This parameter can be one or more of the following values.
-	
-	$DCX_WINDOW
-	$DCX_CACHE
-	$DCX_PARENTCLIP
-	$DCX_CLIPSIBLINGS
-	$DCX_CLIPCHILDREN
-	$DCX_NORESETATTRS
-	$DCX_LOCKWINDOWUPDATE
-	$DCX_EXCLUDERGN
-	$DCX_INTERSECTRGN
-	$DCX_INTERSECTUPDATE
-	$DCX_VALIDATE
-	
+	指定如何创建DC. 可为一个或多哥下列值:
+		$DCX_WINDOW - 返回对应于窗口矩形的DC而不是客户端的矩形
+		$DCX_CACHE - 从缓存中返回DC
+		$DCX_PARENTCLIP - 使用父窗口的可见区域
+		$DCX_CLIPSIBLINGS - 不包括由$hWnd确定的窗口的同级窗口的可见区域
+		$DCX_CLIPCHILDREN - 不包括由$hWnd确定的窗口的子窗口的可见区域
+		$DCX_NORESETATTRS - 释放DC时不将DC重置为默认设置
+		$DCX_LOCKWINDOWUPDATE - 即使调用LockWindowUpdate已生效仍然允许绘图. 用于跟踪绘制.
+		$DCX_EXCLUDERGN - 由$hRgn指定的裁剪区域排除在返回DC的可见区域外
+		$DCX_INTERSECTRGN - 由$hRgn指定的裁剪区域与返回DC的可见区域相交
+		$DCX_INTERSECTUPDATE - 保留不使用
+		$DCX_VALIDATE - 保留不使用
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle to the DC for the specified window.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回指定窗体设备场景的句柄
+失败:	返回0设置@error 标记非0
 @@End@@
 
 ###Remarks###
-Unless the display DC belongs to a window class, the _WinAPI_ReleaseDC() function must be called to release the
-DC after painting.
+除非显示DC不属于窗体类, 绘制完成后必须调用_WinAPI_ReleaseDC()释放DC.
 
 
 ###See Also###

@@ -2,34 +2,31 @@
 _WinHttpGetDefaultProxyConfiguration
 
 ###Description###
-Retrieves the default WinHttp proxy configuration.
+获取默认WinHttp代理配置
 
 ###Syntax###
 #Include <WinHttp.au3>
 _WinHttpGetDefaultProxyConfiguration()
 
 ###Parameters###
-@@ParamTable@@
 None.
-@@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Returns array with 3 elements:
-	$array[0] - Integer. Access type.
-	$array[1] - String. Proxy server list.
-	$array[2] - String. Proxy bypass list.
-Failure	Returns 0 and sets @error:
-	1 - DllCall failed
+成功:	设置@error 0 返回如下数组:
+	array[0]为包含权限类型的整数值的
+	array[1]为包含代理服务器列表的字符串值
+	array[2]为包含代理旁路列表的字符串值
+失败:	返回0设置@error
+	1 - DllCall失败
+	2 - 内部错误
 @@End@@
 
 ###Remarks###
-Access types are defined in WinHttpconstants.au3:
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$WINHTTP_ACCESS_TYPE_DEFAULT_PROXY = 0
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$WINHTTP_ACCESS_TYPE_NO_PROXY = 1
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$WINHTTP_ACCESS_TYPE_NAMED_PROXY = 3
-###Related###
-<a href="_WinHttpDetectAutoProxyConfigUrl.htm">_WinHttpDetectAutoProxyConfigUrl</a>, <a href="_WinHttpGetIEProxyConfigForCurrentUser.htm">_WinHttpGetIEProxyConfigForCurrentUser</a>, <a href="_WinHttpSetDefaultProxyConfiguration.htm">_WinHttpSetDefaultProxyConfiguration</a>
+WinHTTPconstants.au3中定义的权限类型:
+$WINHTTP_ACCESS_TYPE_DEFAULT_PROXY = 0
+$WINHTTP_ACCESS_TYPE_NO_PROXY = 1
+$WINHTTP_ACCESS_TYPE_NAMED_PROXY = 3
 
 
 ###See Also###

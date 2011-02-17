@@ -2,7 +2,7 @@
 _WinHttpOpenRequest
 
 ###Description###
-Creates an HTTP request handle.
+创建HTTP请求句柄
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,32 +11,31 @@ _WinHttpOpenRequest($hConnect [, $sVerb = Default [, $sObjectName = Default [, $
 ###Parameters###
 @@ParamTable@@
 $hConnect
-	Handle to an HTTP session returned by _WinHttpConnect().
+	由_WinHttpConnect()返回的HTTP会话的句柄
 $sVerb
-	[可选参数] HTTP verb to use in the request. Default is "GET".
+	[可选参数] 包含在请求中使用的HTTP动词的字符串. 默认为"GET"
 $sObjectName
-	[可选参数] The name of the target resource of the specified HTTP verb.
+	[可选参数] 包含指定HTTP动词的目标资源名称的字符串
 $sVersion
-	[可选参数] HTTP version. Default is "HTTP/1.1"
+	[可选参数] 包含HTTP版本的字符串. 默认为"HTTP/1.1"
 $sReferrer
-	[可选参数] URL of the document from which the URL in the request $sObjectName was obtained. Default is $WINHTTP_NO_REFERER.
+	[可选参数] 指定从其中获取所需$sObjectName的URL的文档的URL字符串. 默认为$WINHTTP_NO_REFERER.
 $sAcceptTypes
-	[可选参数] Media types accepted by the client. Default is $WINHTTP_DEFAULT_ACCEPT_TYPES
+	[可选参数] 指定客户端接受的指定媒体类型的字符串. 默认为$WINHTTP_DEFAULT_ACCEPT_TYPES.
 $iFlags
-	[可选参数] Integer that contains the Internet flag values. Default is $WINHTTP_FLAG_ESCAPE_DISABLE
+	[可选参数] 包含网络标记值的整数. 默认为$WINHTTP_FLAG_ESCAPE_DISABLE.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Returns valid session handle.
-Failure	Returns 0 and sets @error:
-	1 - DllCall failed
+成功:	返回有效的会话句柄设置@error 0
+失败:	返回0设置@error 且其为1时表示DllCall失败
 @@End@@
 
 ###Remarks###
-None.
-###Related###
-<a href="_WinHttpCloseHandle.htm">_WinHttpCloseHandle</a>, <a href="_WinHttpConnect.htm">_WinHttpConnect</a>, <a href="_WinHttpSendRequest.htm">_WinHttpSendRequest</a>
+_WinHttpCloseHandle, 
+_WinHttpConnect, 
+_WinHttpSendRequest
 
 
 ###See Also###

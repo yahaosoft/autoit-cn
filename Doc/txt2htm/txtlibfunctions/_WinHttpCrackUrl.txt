@@ -2,7 +2,7 @@
 _WinHttpCrackUrl
 
 ###Description###
-Separates a URL into its component parts such as host name and path.
+将URL拆分为主机名和路径的部分
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,30 +11,30 @@ _WinHttpCrackUrl($sURL [, $iFlag = Default ])
 ###Parameters###
 @@ParamTable@@
 $sURL
-	String. Canonical URL to separate.
-$iFlag
-	[可选参数] Flag that control the operation. Default is $ICU_ESCAPE
+	包含要被拆分为规范URL的字符串
+$dwFlag
+	[可选参数] 控制操作的标记. 默认为$ICU_ESCAPE
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Returns array with 8 elements:
-	$array[0] - is scheme name
-	$array[1] - is internet protocol scheme
-	$array[2] - is host name
-	$array[3] - is port number
-	$array[4] - is user name
-	$array[5] - is password
-	$array[6] - is URL path
-	$array[7] - is extra information
-Failure	Returns 0 and sets @error:
-	1 - DllCall failed
+成功:	设置@error 0 并返回如下数组:
+	元素[0]:方案名称
+	元素[1]:网络协议
+	元素[2]:主机名
+	元素[3]:端口名
+	元素[4]:用户名
+	元素[5]:密码
+	元素[6]:URL路径
+	元素[7]:额外信息
+失败:	返回0设置@error 1时代表DllCall失败
 @@End@@
 
 ###Remarks###
-$iFlag is defined in WinHttpConstants.au3 and can be:
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ICU_DECODE - Converts characters that are "escape encoded" (%xx) to their non-escaped form.
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ICU_ESCAPE - Escapes certain characters to their escape sequences (%xx).
+在WinHTTPConstants.au3中定义的$dwFlag可为:
+$ICU_DECODE - 转换"转义编码(%xx)"字符为非转义格式.
+$ICU_ESCAPE - 将指定字符转义至其转义序列(%xx).
+
 ###Related###
 <a href="_WinHttpCreateUrl.htm">_WinHttpCreateUrl</a>
 

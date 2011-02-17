@@ -2,7 +2,7 @@
 _WinAPI_SetWindowTheme
 
 ###Description###
-Causes a window to use a different set of visual style information than its class normally uses.
+设置窗口的视觉样式
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,28 +11,23 @@ _WinAPI_SetWindowTheme ( $hWnd [, $sName [, $sList]] )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window whose visual style information is to be changed.
+	要改变视觉样式的窗体的句柄
 $sName
-	[可选参数] A string that contains the application name. If this parameter is 0, the calling application's name is used.
+	[可选参数] 	应用程序名称字符串. 如果参数为0, 使用调用的应用程序名.
 $sList
-	[可选参数] A string that contains a semicolon-separated list of CLSID names to use in place of the actual list
-	passed by the window's class. If this parameter is 0, the ID list from the calling class is used.
+	[可选参数] 	用于替换由窗体类传递的实际列表的包含分号分隔的CLSID名称列表的字符串. 如果参数为0, 使用调用类的ID列表.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回1
+失败:	返回0设置@error:	
+非0, @extended标记可能含有COM错误代码.
 @@End@@
 
 ###Remarks###
-The theme manager retains the $sName and the $sList associations through the lifetime of the window, even
-if visual styles subsequently change.
-
-When $sName and $sList are 0, the theme manager removes the previously applied associations. To prevent visual
-styles from being applied to a specified window, pass an empty string ("") which will not match any section
-entries.
-
+主题管理器保存$sName及与窗口持续时长相关的$sList, 即使视觉样式依次改变.
+$sName及$sList为0时, 主题管理器移除以前应用的关联. 为避免视觉样式应用到指定窗口, 传递不匹配任何项的空字符串("").
 
 ###See Also###
 @@MsdnLink@@ SetWindowTheme

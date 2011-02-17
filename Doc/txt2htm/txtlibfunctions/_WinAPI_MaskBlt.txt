@@ -2,7 +2,7 @@
 _WinAPI_MaskBlt
 
 ###Description###
-Combines the color data for the source and destination bitmaps using the specified mask and raster operation.
+对源位图和目标位图使用指定光栅和遮盖操作结合颜色数据
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,45 +11,57 @@ _WinAPI_MaskBlt ( $hDestDC, $iXDest, $iYDest, $iWidth, $iHeight, $hSrcDC, $iXSrc
 ###Parameters###
 @@ParamTable@@
 $hDestDC
-	Handle to the destination device context.
+	目标场景句柄
 $iXDest
-	The x-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+	目标矩形左上角的X值
 $iYDest
-	The y-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+	目标矩形左上角的Y值
 $iWidth
-	The width, in logical units, of the destination rectangle and source bitmap.
+	源位图和目标矩形的宽度
 $iHeight
-	The height, in logical units, of the destination rectangle and source bitmap.
+	源位图和目标矩形的高度
 $hSrcDC
-	Handle to the device context from which the bitmap is to be copied.
+	被复制位图的源场景句柄
 $iXSrc
-	The x-coordinate, in logical units, of the upper-left corner of the source bitmap.
+	源位图矩形的左上角X值
 $iYSrc
-	The y-coordinate, in logical units, of the upper-left corner of the source bitmap.
+	源位图矩形的左上角Y值
 $hMask
-	Handle to the monochrome mask bitmap combined with the color bitmap in the source device context.
+	源场景中与彩色位图结合的单色遮盖位图的句柄
 $iXMask
-	The horizontal pixel offset for the mask bitmap specified by the hbmMask parameter.
+	由$hbmMask参数指定的遮盖位图的水平偏移
 $iYMask
-	The vertical pixel offset for the mask bitmap specified by the hbmMask parameter.
-$iRop
-	The raster-operation code (same as for _WinAPI_BitBlt()).
+	由$hbmMask参数指定的遮盖位图的垂直偏移
+$iROP
+	指定光栅操作代码. 这些代码定义来源矩形要结合的颜色数据使目标矩形实现最终的颜色:
+		$BLACKNESS - 使用与物理调色板的索引0相关的色彩来填充目标矩形区域
+		$CAPTUREBLT - 包括图像中任何在你的窗口上层的窗口
+		$DSTINVERT - 使目标矩形区域颜色取反
+		$MERGECOPY - 表示使用布尔型的AND操作符将源矩形区域的颜色与特定模式组合一起.
+		$MERGEPAINT - 通过使用布尔型的OR操作符将反向的源矩形区域的颜色与目标矩形区域的颜色合并.
+		$NOMIRRORBITMAP - 防止位图被镜像
+		$NOTSRCCOPY - 将源矩形区域颜色取反, 并拷贝到目标矩形区域
+		$NOTSRCERASE - 使用布尔类型的OR操作符组合源和目标矩形区域的颜色值, 然后将合成的颜色取反
+		$PATCOPY - 将特定的模式拷贝到目标位图上
+		$PATINVERT - 通过使用XOR操作符将源和目标矩形区域内的颜色合并.
+		$PATPAINT - 通过使用布尔OR操作符将源矩形区域取反后的颜色值与特定模式的颜色合并. 然后使用OR操作符将该操作的结果与目标矩形区域内的颜色合并.
+		$SRCAND - 使用AND操作符结合来源和目标矩形
+		$SRCCOPY - 直接复制来源矩形到目标矩形
+		$SRCERASE - 通过使用AND操作符将目标矩形区域颜色取反后与源矩形区域的颜色值合并.
+		$SRCINVERT - 通过使用布尔型的XOR操作符将源和目标矩形区域的颜色合并
+		$SRCPAINT - 通过使用布尔型的OR操作符将源和目标矩形区域的颜色合并
+		$WHITENESS - 使用与物理调色板中索引1有关的颜色填充目标矩形区域.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回1
+失败:	返回0设置@error 非0
 @@End@@
 
 ###Remarks###
-A value of 1 in the mask specified by $hMask indicates that the foreground raster operation code specified by
-$iRop should be applied at that location. A value of 0 in the mask indicates that the background raster operation
-code specified by $iRop should be applied at that location.
-
-If no mask bitmap is supplied, this function behaves exactly like _WinAPI_BitBlt(), using the foreground raster
-operation code.
-
+$hMask指定的遮盖位图的值为1时表示$iRop指定的前景光栅操作码用在该位置上. 遮盖中的值为0时表示$iRop指定的背景光栅操作码用在该位置上.
+如果未提供遮盖位图, 该函数与_WinAPI_BitBlt()相同, 使用前景光栅操作.	
 
 ###See Also###
 @@MsdnLink@@ MaskBlt

@@ -2,7 +2,7 @@
 _WinAPI_DuplicateHandle
 
 ###Description###
-Duplicates an object handle.
+复制对象句柄
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,37 +11,33 @@ _WinAPI_DuplicateHandle ( $hProcess, $hSource, $hTarget [, $iAccess [, $iOptions
 ###Parameters###
 @@ParamTable@@
 $hProcess
-	Handle to the process with the handle to be duplicated. The handle must have the $PROCESS_DUP_HANDLE access right.
+	句柄将被复制的进程的句柄. 该句柄必须有$PROCESS_DUP_HANDLE访问权限.
 $hSource
-	Handle to be duplicated. This is an open object handle that is valid in the context of the source process.
+	将被复制的句柄. 在源进程环境中有效的打开对象的句柄.
 $hTarget
-	Handle to the process that is to receive the duplicated handle. The handle must have the
-	$PROCESS_DUP_HANDLE access right.
+	用于接收复制句柄的进程句柄. 该句柄必须有$PROCESS_DUP_HANDLE访问权限.
 $iAccess
-	[可选参数] The access requested for the new handle.
+	[可选参数] 新句柄所需的访问权限
 $iOptions
-	[可选参数] Optional actions. This parameter can be zero, or any combination of the following values.
+	可选操作. 该参数可为0或下列值的任意组合:
 	
 	$DUPLICATE_CLOSE_SOURCE
 	$DUPLICATE_SAME_ACCESS
 	
 $fInherit
-	[可选参数] Specifies whether the handle is inheritable, valid values:
-		TRUE     - The duplicate handle can be inherited by new processes created by the target process.
-		FALSE    - The new handle cannot be inherited. (Default)
+	[可选参数] 指定句柄是否可被继承. 可用值:
+		TRUE - 复制句柄可由目标进程创建的新进程继承.
+		FALSE - 不可被继承.(默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The duplicate handle. This handle is valid in the context of the target process.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回复制的句柄. 该句柄在目标进程中有效.
+失败:	返回0设置@error 非0
 @@End@@
 
 ###Remarks###
-The duplicate handle refers to the same object as the original handle. Therefore, any changes to the object are
-reflected through both handles. For example, if you duplicate a file handle, the current file position is always
-the same for both handles. For file handles to have different file positions, use the _WinAPI_CreateFile()
-function to create file handles that share access to the same file.
+复制的句柄与源句柄指向相同的对象. 因此对象的改变会体现在两个句柄上. 如复制一个文件句柄则当前的文件位置对两个句柄是相同的. 对于不同位置的文件句柄, _WinAPI_DuplicateHandle创建共享访问文件的句柄.
 
 
 ###See Also###

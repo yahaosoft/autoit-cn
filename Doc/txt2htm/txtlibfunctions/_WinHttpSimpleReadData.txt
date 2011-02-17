@@ -2,7 +2,7 @@
 _WinHttpSimpleReadData
 
 ###Description###
-Reads data from a request
+从请求中读取数据
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,9 +11,9 @@ _WinHttpSimpleReadData($hRequest [, $iMode = Default ])
 ###Parameters###
 @@ParamTable@@
 $hRequest
-	request handle after _WinHttpReceiveResponse
+	_WinHttpReceiveResponse()返回的句柄.
 $iMode
-	[可选参数] type of data returned (default: 0)
+	[可选参数] 返回数据的类型(默认为0).
 		0 - ASCII-String
 		1 - UTF-8-String
 		2 - binary data
@@ -21,10 +21,10 @@ $iMode
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	String or binary depending on $iMode
-Failure	empty string or empty binary (mode 2) and set @error
-	1 - invalid mode
-	2 - no data availbale
+成功:	返回由$iMode指定的字符串或二进制($iMode=2)
+失败:	返回空字符串或空二进制设置@error
+	1 - 无效类型
+	2 - 无可用数据
 @@End@@
 
 ###Remarks###

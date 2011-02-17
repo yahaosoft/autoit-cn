@@ -2,7 +2,7 @@
 _WinAPI_SelectClipPath
 
 ###Description###
-Selects the current path as a clipping region, combining the new region with any existing clipping region.
+选定当前路径作为剪切区域, 并与任意已存在的剪切区域结合为新区域
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,22 +11,20 @@ _WinAPI_SelectClipPath ( $hDC [, $iMode] )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context of the path.
+	路径的设备场景句柄
 $iMode
-	[可选参数] The way to use the path. This parameter can be one of the following values.
-	
-	$RGN_AND
-	$RGN_COPY
-	$RGN_DIFF
-	$RGN_OR
-	$RGN_XOR
-	
+	[可选参数]使用路径的方式. 可为下列值之一.
+		$RGN_AND - 新的剪切区域包括当前剪切区域交集(重叠部分)和当前路径
+		$RGN_COPY - 新的剪切区域为当前路径
+		$RGN_DIFF - 新的剪切区域包括当前剪切区与当前路径排除这些区域的区域
+		$RGN_OR - 新的剪切区域包括当前剪切区和当前路径的联合区域
+		$RGN_XOR - 新的剪切区域包括当前剪切区域和当前路径联合但未重叠的区域
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回1
+失败:	返回0设置@error 非0
 @@End@@
 
 ###Remarks###

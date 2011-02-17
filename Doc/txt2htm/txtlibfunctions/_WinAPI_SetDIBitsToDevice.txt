@@ -2,7 +2,7 @@
 _WinAPI_SetDIBitsToDevice
 
 ###Description###
-Sets the pixels in the specified rectangle on the device.
+设置设备场景中指定矩形内的像素
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,40 +11,35 @@ _WinAPI_SetDIBitsToDevice ( $hDC, $iXDest, $iYDest, $iWidth, $iHeight, $iXSrc, $
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to a device context.
+	设备场景句柄
 $iXDest
-	The x-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+	目标矩形左上角逻辑单位x坐标
 $iYDest
-	The y-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+	目标矩形左上角逻辑单位y坐标
 $iWidth
-	The width, in logical units, of the image.
+	图像的逻辑单位宽度
 $iHeight
-	The height, in logical units, of the image.
+	图像的逻辑单位高度
 $iXSrc
-	The x-coordinate, in logical units, of the lower-left corner of the image.
+	图像左上角逻辑单位x坐标
 $iYSrc
-	The y-coordinate, in logical units, of the lower-left corner of the image.
+	图像左上角逻辑单位y坐标
 $iStartScan
-	The starting scan line in the image.
-$iScanLines
-	The number of DIB scan lines.
+	图像开始扫描行
 $tBITMAPINFO
-	$tagBITMAPINFO structure that contains information about the DIB.
+	包含DIB信息的$tagBITMAPINFO结构
 $iUsage
-	The type of colors used. (either logical palette indexes or literal RGB values). The following
-	values are defined.
-	
-	$DIB_PAL_COLORS
-	$DIB_RGB_COLORS
-	
+	使用的颜色类型. (逻辑调色板索引或精确RGB值). 可为以下值:
+		$DIB_PAL_COLORS
+		$DIB_RGB_COLORS
 $pBits
-	A pointer to the color data stored as an array of bytes.
+	存储为字节数组的颜色数据的指针
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The number of scan lines set.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回设置的扫描行数
+失败:	返回0设置@error 非0
 @@End@@
 
 ###Remarks###

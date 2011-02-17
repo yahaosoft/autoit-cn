@@ -2,7 +2,7 @@
 _WinAPI_IntersectClipRect
 
 ###Description###
-Creates a new clipping region from the intersection of the current clipping region and the specified rectangle.
+从当前的剪切区部分和指定矩形创建新的剪切区域
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,15 +11,18 @@ _WinAPI_IntersectClipRect ( $hDC, $tRECT )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+	设备场景句柄
 $tRECT
-	$tagRECT structure that contains the logical coordinates of the specified rectangle.
+	包含指定矩形逻辑坐标的$tagRECT结构
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The value that specifies the new clipping region's complexity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it can be one of the following values.
-Failure	0 and sets the @error flag to non-zero.
+成功:	新剪切区域复杂性的值. 可为下列值:
+	$COMPLEXREGION - 多个矩形
+	$NULLREGION - 空区
+	$SIMPLEREGION - 单一矩形
+失败:	返回0设置@error 非0
 @@End@@
 
 ###Remarks###

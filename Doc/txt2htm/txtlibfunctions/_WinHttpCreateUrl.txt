@@ -2,7 +2,7 @@
 _WinHttpCreateUrl
 
 ###Description###
-Creates a URL from array of components such as the host name and path.
+从包含主机名和路径的数组创建地址
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -10,29 +10,30 @@ _WinHttpCreateUrl($aURLArray)
 
 ###Parameters###
 @@ParamTable@@
-$aURLArray
-	Array of URL data.
+$sURL
+	包含拆分后的规范URL的字符串
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Returns created URL
-Failure	Returns empty string and sets @error:
-	1 - Invalid input.
-	2 - Initial DllCall failed
-	3 - Main DllCall failed
+成功:	返回创建的URL设置@error 0
+失败:	返回0设置@error 
+	1 - 无效输入
+	2 - 初始化DllCall失败
+	3 - 主要DllCall失败
 @@End@@
 
 ###Remarks###
-Input is one dimensional 8 elements in size array:
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- first element [0] is scheme name
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- second element [1] is internet protocol scheme
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- third element [2] is host name
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- fourth element [3] is port number
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- fifth element [4] is user name
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- sixth element [5] is password
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- seventh element [6] is URL path
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- eighth element [7] is extra information
+输入值为一维8元素数组:
+元素[0]: 方案名称
+元素[1]: 网络协议
+元素[2]: 主机名
+元素[3]: 端口名
+元素[4]: 用户名
+元素[5]: 密码
+元素[6]: URL路径
+元素[7]: 额外信息
+
 ###Related###
 <a href="_WinHttpCrackUrl.htm">_WinHttpCrackUrl</a>
 

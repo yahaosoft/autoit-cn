@@ -13,45 +13,43 @@ _WordDocFindReplace ( ByRef $o_object [, $s_FindText = "" [, $s_ReplaceWith = ""
 $o_object
 	一个有效的 Word.Application, 文档对象的对象变量
 $s_FindText
-	[可选参数] 需要查找的文本. (参考 Remarks)
-	"" = (默认) Used to search for formatting only.
+	[可选参数] 要搜索的文本(见备注)"" = (默认) 仅用于格式化搜索.
 $s_ReplaceWith
-	[可选参数] 需要替换的文本. (参考 Remarks)
-	"" = (默认) Delete the text specified by $s_FindText
+	[可选参数] 替换的文本. (见备注)"" = (默认) 删除由$s_FindText指定的文本
 $i_Replace
 	[可选参数] 指定替换次数.
-	0 = 不进行替换
-	1 = 替换第一个匹配项目
-	2 = (默认) 替换所有匹配项目
+		0 = 不进行替换
+		1 = 替换第一个匹配项目
+		2 = (默认) 替换所有匹配项目
 $v_SearchRange
 	[可选参数] 指定搜索所选或者搜索范围.
-	-1 = 搜索当前所选
-	0 = (默认) 搜索全部文档
-	任何范围的对象
+		-1 = 搜索当前所选
+		0 = (默认) 搜索全部文档
+		任何范围的对象
 $b_MatchCase
-	[可选参数] Specifies whether the find text will be case-sensitive.
-	0 = (Default) Not case-sensitive
-	1 = Case-sensitive
+	[可选参数] 指定是否区分大小写
+		0 = (默认) 不区分
+		1 = 区分
 $b_MatchWholeWord
-	[可选参数] Specifies whether to have the find operation locate only entire words, not text that's part of a larger word.
-	0 = (Default) Match partial words
-	1 = Only match entire words
+	[可选参数] 指定是全部匹配还是部分匹配.
+		0 = (默认) 部分匹配
+		1 = 全部匹配
 $b_MatchWildcards
-	[可选参数] Specifies whether to have $s_FindText be a special search operator.
-	0 = (Default) Not a special search operator
-	1 = Special search operator
+	[可选参数] 指定是否进行指定$s_FindText搜索
+		0 = (默认) 不是指定搜索
+		1 = 指定搜索
 $b_MatchSoundsLike
-	[可选参数] Specifies whether to have the find operation locate words that sound similar to $s_FindText.
-	0 = (Default) Do not find similar sounding words
-	1 = Find similar sounding words
+	[可选参数] 指定是否搜索本地发音类似$s_FindText的文字
+		0 = (默认) 不搜索
+		1 = 搜索发音类似的文字
 $b_MatchAllWordForms
-	[可选参数] Specifies whether to have the find operation locate all forms of the find text (for example, "sit" locates "sitting" and "sat").
-	0 = (Default) Do not match other word forms
-	1 = Match all word forms
+	[可选参数]指定是否搜索文本的所有格式(例如,"sit"可以是"sitting"或"sat")
+		0 = (默认) 不进行匹配
+		1 = 匹配所有格式
 $b_Forward
-	[可选参数] Specifies which direction to search.
-	0 = Search backward (toward the start of the document)
-	1 = (Default) Search forward (toward the end of the document)
+	[可选参数] 指定搜索方向.
+		0 = 向回搜索(指向文件开始)
+		1 = (默认)向后搜索(指向文件结尾)
 $i_Wrap
 	[可选参数] Controls what happens if the search begins at a point other than the beginning of the document and the end of the document is reached (or vice versa if $b_Forward is set to 0).
 	0 = The find operation ends if the beginning or end of the search range is reached
@@ -76,10 +74,11 @@ $b_Format
 
 
 ###Remarks###
-You can search for special characters by specifying appropriate character codes. For example, "^p" corresponds to a paragraph mark and "^t" corresponds to a tab character.
-
-You specify special characters and advanced search criteria just as you do for the Find argument. To specify a graphic object or other non-text item as the replacement, move the item to the Clipboard and specify "^c" for $s_ReplaceWith.
-
+你可以通过指定大概的字符码进行对特殊字符的搜索. 比如, "^p" 对应段落标记; "^t" 
+对应一个制表符.You specify special characters and advanced search criteria just 
+as you do for the Find argument. To specify a graphic object or other non-text 
+item as the replacement, move the item to the Clipboard and specify "^c" for 
+$s_ReplaceWith.
 
 ###Related###
 None

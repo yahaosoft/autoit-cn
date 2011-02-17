@@ -20,14 +20,18 @@ $iNumberOfBytesToRead
 
 ###ReturnValue###
 @@ReturnTable@@
-成功返回读取的数据.
+成功:	设置@error 0并返回读取的数据
+	@extended为接收的字节数
+	特殊情况:如果没有更多可读数据(已到终点)时设置@error -1.
+失败:	返回空字符串设置@error 1表示DllCall失败
 @@End@@
 
 ###Remarks###
 $iMode可为下列值:
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 - ANSI
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 - UTF8
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 - 二进制
+0 - ANSI
+1 - UTF8
+2 - 二进制
+
 ###Related###
 <a href="_WinHttpOpenRequest.htm">_WinHttpOpenRequest</a>, <a href="_WinHttpWriteData.htm">_WinHttpWriteData</a>
 

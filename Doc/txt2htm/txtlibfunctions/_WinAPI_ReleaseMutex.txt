@@ -2,7 +2,7 @@
 _WinAPI_ReleaseMutex
 
 ###Description###
-Releases ownership of the specified mutex object.
+释放指定互斥对象的宿主
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,17 +11,17 @@ _WinAPI_ReleaseMutex ( $hMutex )
 ###Parameters###
 @@ParamTable@@
 $hMutex
-	Handle to the mutex object. The _WinAPI_CreateMutex() or _WinAPI_OpenMutex() function returns this handle.
+	由_WinAPI_CreateMutex()或_WinAPI_OpenMutex()返回的互斥对象的句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回1
+失败:	返回0设置@error 非0
 @@End@@
 
 ###Remarks###
-The _WinAPI_ReleaseMutex() function fails if the calling thread does not own the mutex object.
+如果调用的线程没有互斥对象则函数失败
 
 
 ###See Also###

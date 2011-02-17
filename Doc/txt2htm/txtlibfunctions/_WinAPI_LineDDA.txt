@@ -2,7 +2,7 @@
 _WinAPI_LineDDA
 
 ###Description###
-Determines which pixels should be highlighted for a line.
+确定直线上的高亮像素
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,29 +11,27 @@ _WinAPI_LineDDA ( $X1, $Y1, $X2, $Y2, $pLineProc [, $pData] )
 ###Parameters###
 @@ParamTable@@
 $X1
-	Specifies the x-coordinate, in logical units, of the line's starting point.
+	直线起点的逻辑单位x坐标
 $Y1
-	Specifies the y-coordinate, in logical units, of the line's starting point.
+	直线起点的逻辑单位y坐标
 $X2
-	Specifies the x-coordinate, in logical units, of the line's ending point.
+	直线终点的逻辑单位x坐标
 $Y2
-	Specifies the y-coordinate, in logical units, of the line's ending point.
+	直线终点的逻辑单位y坐标
 $pLineProc
-	Pointer to an application-defined callback function.
+	预定义回调函数的指针
 $pData
-	[可选参数] Pointer to the application-defined data.
+	[可选参数] 应用程序定义的数据的指针
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回1
+失败:	返回0设置@error 非0
 @@End@@
 
 ###Remarks###
-The _WinAPI_LineDDA() function passes the coordinates for each point along the line, except for the line's ending
-point, to the application-defined callback function. In addition to passing the coordinates of a point, this
-function passes any existing application-defined data.
+_WinAPI_LineDDA()函数传递沿直线每个点的坐标给应用程序预定义的回调函数, 线终点除外. 除了传递点坐标, 该函数传递任何存在的应用程序定义的数据.
 
 
 ###See Also###

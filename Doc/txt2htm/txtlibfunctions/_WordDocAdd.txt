@@ -2,7 +2,7 @@
 _WordDocAdd
 
 ###Description###
-Returns an object variable representing a new empty document
+返回代表一个空白的新文件的对象变量
 
 ###Syntax###
 #include <Word.au3> 
@@ -11,32 +11,32 @@ _WordDocAdd ( ByRef $o_object [, $i_DocumentType = 0 [, $s_Template = "" [, $b_N
 ###Parameters###
 @@ParamTable@@
 $o_object
-	Object variable of a Word.Application object
+	Word.Application对象变量
 $i_DocumentType
-	[optional] specifies the new document type
-	0 = (Default) blank document
-	1 = Web page
-	2 = Email Message (Currently this is non functional)
-	3 = Frameset
-	4 = XML Document
+	[可选参数] 指定文件类型
+		0 = (默认) 空文件
+		1 = 网页
+		2 = 电子邮件(现在还没有此功能)
+		3 = 框架集
+		4 = XML 文档
 $s_Template
-	[optional] specifies name of the template to be used for the new document
-	"" = (Default) normal template is used
+	[可选参数] 指定新文件使用的模板名称
+		"" = (默认) 使用普通模板
 $b_NewTemplate
-	[optional] specifies whether to open the document as a template
-	0 = (Default) do not open as template
-	1 = open as template
+	[可选参数] 指定是否将文件作为模板打开
+		0 = (默认) 不作为模板打开
+		1 = 作为模板打开
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns an object variable pointing to a Word.Application, document object
-Failure:	Returns 0 and sets @ERROR
-@Error:	$_WordStatus_Success = No Error
-	$_WordStatus_GeneralError = General Error
-	$_WordStatus_InvalidDataType = Invalid Data Type
-	$_WordStatus_InvalidObjectType = Invalid Object Type
-@Extended:	Contains invalid parameter number
+成功:	返回指向Word.Application文档对象的变量
+失败:	返回 0设置@error	
+@error:	0 ($_WordStatus_Success) = 无错误
+	1 ($_WordStatus_GeneralError) = 一般错误
+	3 ($_WordStatus_InvalidDataType) = 无效数据类型
+	4 ($_WordStatus_InvalidObjectType) = 无效对象类型@Extended:
+	参数数量无效
 @@End@@
 
 

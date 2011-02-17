@@ -2,7 +2,7 @@
 _WordDocPropertySet
 
 ###Description###
-Set a select property of the Word Document
+设置 Word 文档的属性
 
 ###Syntax###
 #include <Word.au3> 
@@ -11,59 +11,57 @@ _WordDocPropertySet ( ByRef $o_object, $v_property, $v_newvalue )
 ###Parameters###
 @@ParamTable@@
 $o_object
-	Object variable of a Word.Application, document object
+	Word.Application文档对象
 $v_property
-	Property selection (see remarks)
+	属性	(见备注)
 $v_newvalue
-	The new value to be set into the Word Document Property
+	设置Word文档新属性
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns 1
-Failure:	Returns 0 and sets @ERROR
-@Error:	$_WordStatus_Success = No Error
-	$_WordStatus_GeneralError = General Error
-	$_WordStatus_ComError = Com Error
-	$_WordStatus_InvalidDataType = Invalid Data Type
-	$_WordStatus_InvalidObjectType = Invalid Object Type
-	$_WordStatus_InvalidValue = Invalid Value
-@Extended:	Contains invalid parameter number
+成功:	返回1
+失败:	返回 0设置@error:	
+@error:	0 ($_WordStatus_Success) = 无错误
+	1 ($_WordStatus_GeneralError) = 一般错误
+	2 ($_WordStatus_ComError) = Com 错误
+	3 ($_WordStatus_InvalidDataType) = 无效数据类型
+	4 ($_WordStatus_InvalidObjectType) = 无效对象类型
+	5 ($_WordStatus_InvalidValue) = 无效值@Extended:
+	包含无效参数数量
 @@End@@
 
 
 ###Remarks###
-You may use either the index or name as the property selection.
-
-The following tables provide a description of each property available for use.
+可以使用索引或属性名称.下表提供了可用属性的描述.Word 文档属性
 
 <b><u>Word Document Properties</u></b>
 
 @@ParamTable@@
-<b>Property Index/Name</b>
-	<b>Description</b>
+<b> 属性索引/名称</b>
+	<b>描述</b>
 (1) "title"
-	Title.
+	标题.
 (2) "subject"
-	Subject.
+	题目
 (3) "author"
-	Author.
+	作者
 (4) "keywords"
-	Keywords.
+	关键字
 (5) "comments"
-	Comments.
+	评论
 (6) "template"
-	Template name.
+	模板名称
 (9) "application name"
-	Name of application.
+	应用程序名称
 (18) "category"
-	Category.
+	分类
 (20) "manager"
-	Manager.
+	管理人
 (21) "company"
-	Company.
+	公司
 (29) "hyperlink base"
-	When a relative link is based on a path you specify (the first part of the path that is shared by the file containing the hyperlink and the destination file), that path is the hyperlink base.
+	当相关链接基于指定的路径时(路径包含超级链接和目标共享文件), 该路径为超级链接格式
 @@END@@
 
 

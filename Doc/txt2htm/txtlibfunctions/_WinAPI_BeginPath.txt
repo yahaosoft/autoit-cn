@@ -2,7 +2,7 @@
 _WinAPI_BeginPath
 
 ###Description###
-Opens a path bracket in the specified device context.
+在指定设备场景中启动一个路径分支
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,22 +11,18 @@ _WinAPI_BeginPath ( $hDC )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+	设备场景的句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回1
+失败:	返回0设置@error 非0
 @@End@@
 
 ###Remarks###
-After a path bracket is open, an application can begin calling GDI drawing functions to define the points that
-lie in the path. An application can close an open path bracket by calling the _WinAPI_EndPath() function.
-
-When an application calls _WinAPI_BeginPath() for a device context, any previous paths are discarded from that
-device context.
-
+在开启一个路径分支后, 应用程序可开始调用GDI绘图函数定义路径中的点. 通过调用_WinAPI_EndPath()函数关闭打开的路径分支.
+应用程序对设备场景调用_WinAPI_BeginPath()时, 将取消任何源自设备场景的过去的路径.
 
 ###See Also###
 @@MsdnLink@@ BeginPath

@@ -2,7 +2,7 @@
 _WinHttpOpen
 
 ###Description###
-Initializes the use of WinHttp functions and returns a WinHttp-session handle.
+初始化WinHTTP函数的使用并返回WinHTTP会话句柄
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,22 +11,21 @@ _WinHttpOpen([$sUserAgent = Default [, $iAccessType = Default [, $sProxyName = D
 ###Parameters###
 @@ParamTable@@
 $sUserAgent
-	[可选参数] The name of the application or entity calling the WinHttp functions. Default is "AutoIt/3.3".
+	[可选参数] 包含应用程序或调用WinHTTP函数的实体的名称的字符串
 $iAccessType
-	[可选参数] Type of access required. Default is $WINHTTP_ACCESS_TYPE_NO_PROXY.
+	[可选参数] 需要的权限类型
 $sProxyName
-	[可选参数] The name of the proxy server to use when proxy access is specified by setting $iAccessType to $WINHTTP_ACCESS_TYPE_NAMED_PROXY. Default is $WINHTTP_NO_PROXY_NAME.
+	[可选参数] 包含当代理权限通过设置$iAccessType被指定为$WINHTTP_ACCESS_TYPE_NAMED_PROXY时使用的代理服务器的字符串
 $sProxyBypass
-	[可选参数] An optional list of host names or IP addresses, or both, that should not be routed through the proxy when $iAccessType is set to $WINHTTP_ACCESS_TYPE_NAMED_PROXY. Default is $WINHTTP_NO_PROXY_BYPASS.
+	[可选参数] 包含代理的主机名或IP地址或两者的可选列表的字符串, 该代理无法在$iAccessType被设置为$WINHTTP_ACCESS_TYPE_NAMED_PROXY时被路由
 $iFlag
-	[可选参数] Integer that contains the flags that indicate various options affecting the behavior of this function. Default is 0.
+	[可选参数] 包含指定影响函数结果的选项的标记的整数
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Returns valid session handle.
-Failure	Returns 0 and sets @error:
-	1 - DllCall failed
+成功:	返回有效会话句柄设置@error 0
+失败:	返回0设置@error 1表示DllCall失败
 @@End@@
 
 ###Remarks###

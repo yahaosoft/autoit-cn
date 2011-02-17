@@ -2,7 +2,7 @@
 _WinAPI_SelectClipRgn
 
 ###Description###
-Selects a region as the current clipping region for the specified device context.
+选取区域作为当前设备场景的剪切区域
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,20 +11,22 @@ _WinAPI_SelectClipRgn ( $hDC, $hRgn )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+	设备场景句柄
 $hRgn
-	Handle to the region to be selected. To remove a device-context's clipping region, set this parameter to 0.
+	选定的区域句柄. 设置为0则移除设备场景的剪切区域.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The value that specifies the new clipping region's complexity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it can be one of the following values.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回指定剪切区域复杂性的值. 可为下列值:
+	$COMPLEXREGION - 多个矩形
+	$NULLREGION - 空区
+	$SIMPLEREGION - 单一矩形
+失败:	返回0设置@error 非0
 @@End@@
 
 ###Remarks###
-Only a copy of the selected region is used. The region itself can be selected for any number of other device
-contexts or it can be deleted.
+只有一个选定区域的副本可用. 区域自身可被任意数量场景选定或被删除.
 
 
 ###See Also###

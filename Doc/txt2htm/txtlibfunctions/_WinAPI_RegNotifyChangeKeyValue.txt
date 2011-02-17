@@ -2,7 +2,7 @@
 _WinAPI_RegNotifyChangeKeyValue
 
 ###Description###
-Notifies the caller about changes to the attributes or contents of a specified registry key.
+通知调用者改变指定注册表键的属性或内容
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,46 +11,38 @@ _WinAPI_RegNotifyChangeKeyValue ( $hKey, $iFilter [, $fSubtree [, $fAsync [, $hE
 ###Parameters###
 @@ParamTable@@
 $hKey
-	Handle to an open registry key. The key must have been opened with the KEY_NOTIFY access right.
-	This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey() function. It can also
-	be one of the following predefined keys.
-	
-	$HKEY_CLASSES_ROOT
-	$HKEY_CURRENT_CONFIG
-	$HKEY_CURRENT_USER
-	$HKEY_LOCAL_MACHINE
-	$HKEY_USERS
-	
+	打开的注册表键的句柄. 改建必须以KEY_NOTIFY访问权限打开. 句柄由_WinAPI_RegCreateKey()或_WinAPI_RegOpenKey()函数返回. 可为下列预定义键之一.
+		$HKEY_CLASSES_ROOT
+		$HKEY_CURRENT_CONFIG
+		$HKEY_CURRENT_USER
+		$HKEY_LOCAL_MACHINE
+		$HKEY_USERS
 $iFilter
-	Indicates the changes that should be reported. This parameter can be one or more of the following values.
-	
-	$REG_NOTIFY_CHANGE_NAME
-	$REG_NOTIFY_CHANGE_ATTRIBUTES
-	$REG_NOTIFY_CHANGE_LAST_SET
-	$REG_NOTIFY_CHANGE_SECURITY
-	
+	描述要报告的变化. 可为下列值之一.
+		$REG_NOTIFY_CHANGE_NAME
+		$REG_NOTIFY_CHANGE_ATTRIBUTES
+		$REG_NOTIFY_CHANGE_LAST_SET
+		$REG_NOTIFY_CHANGE_SECURITY
 $fSubtree
-	[可选参数] Specifies whether report changes in the subkeys of the specified key, valid values:
-		TRUE     - The function reports changes in the specified key and all its subkeys.
-		FALSE    - The function reports changes only in the specified key. (Default)
+	[可选参数]指定是否报告指定键的子建的变化, 可用值:
+		1 - 报告指定键及其所有子键的变化.
+		0 - 只报告指定键的变化. (默认)
 $fAsync
-	[可选参数] Specifies whether return immediately, valid values:
-		TRUE     - The function returns immediately and reports changes by signaling the specified event.
-		FALSE    - The function does not return until a change has occurred. (Default)
+	[可选参数]指定是否立即返回, 可用值:
+		1 - 函数立即返回并报告标志指定事件的变化.
+		0 - 直到改变发生函数才返回. (默认)
 $hEvent
-	[可选参数] Handle to an event. If the $fAsync parameter is TRUE, the function returns immediately and changes are
-	reported by signaling this event, otherwise this parameter is ignored.
+	[可选参数]事件句柄. 如果$fAsync参数为TRUE, 函数立即返回并通过标识该事件报告变化, 否则忽略该参数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+成功:	返回1
+失败:	返回0设置@error 非0, @extended标记可包含系统错误代码
 @@End@@
 
 ###Remarks###
-If the specified key is closed, the event is signaled. This means that an application should not depend on the
-key being open after returning from a wait operation on the event.
+如果指定键被关闭, 标记事件. 这意味着应用程序在等待事件操作返回后不依赖于打开的键.
 
 
 ###See Also###

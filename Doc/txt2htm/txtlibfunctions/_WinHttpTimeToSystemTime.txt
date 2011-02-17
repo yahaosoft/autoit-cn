@@ -2,7 +2,7 @@
 _WinHttpTimeToSystemTime
 
 ###Description###
-Takes an HTTP time/date string and converts it to array (SYSTEMTIME structure values).
+获取HTTP日期/时间字符串并转化为数组(SYSTEMTIME结构)
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,22 +11,21 @@ _WinHttpTimeToSystemTime($sHttpTime)
 ###Parameters###
 @@ParamTable@@
 $sHttpTime
-	Date/time string to convert.
+	要被转化的日期/时间字符串
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Returns array with 8 elements:
-	$array[0] - is Year,
-	$array[1] - is Month,
-	$array[2] - is DayOfWeek,
-	$array[3] - is Day,
-	$array[4] - is Hour,
-	$array[5] - is Minute,
-	$array[6] - is Second.,
-	$array[7] - is Milliseconds.
-Failure	Returns 0 and sets @error:
-	1 - DllCall failed
+成功:	设置@error 0并返回如下数组:
+	array[0] - 年
+	array[1] - 月
+	array[2] - 周内的日
+	array[3] - 日
+	array[4] - 时
+	array[5] - 分
+	array[6] - 秒
+	array[7] - 毫秒
+失败:	返回0设置@error 且为1时表示DllCall失败
 @@End@@
 
 ###Remarks###

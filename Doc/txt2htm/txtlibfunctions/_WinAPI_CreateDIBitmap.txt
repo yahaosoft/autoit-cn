@@ -2,7 +2,7 @@
 _WinAPI_CreateDIBitmap
 
 ###Description###
-Creates a compatible bitmap (DDB) from a DIB and, optionally, sets the bitmap bits.
+由DIB创建合适的位图(DDB)并设置合适的位图数位
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,37 +11,32 @@ _WinAPI_CreateDIBitmap ( $hDC, $tBITMAPINFOHEADER, $fInit, $pBits, ByRef $tBITMA
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to a device context.
+	设备环境句柄. 
 $tBITMAPINFOHEADER
-	A bitmap information header structure. If $fInit is TRUE, the function uses this structure
-	to obtain the desired width and height of the bitmap as well as other information. Note that
-	a positive value for the height indicates a bottom-up DIB while a negative value for the
-	height indicates a top-down DIB.
+	位图信息头部结构. 如果$fInit为TRUE, 函数使用该结构获取所需的位图的宽度和高度. 注意正数高度值表示由底至顶的DIB负数为由顶至底.
 $fInit
-	Specifies how the system initializes the bitmap bits, valid values:
-		TRUE  - The system uses the $pBits and $tBITMAPINFO parameters to initialize the bitmap bits.
-		FALSE - The data pointed to by those parameters is not used.
+	指定系统如何初始化位图数位. 可为:
+		TRUE - 系统使用$pBits及$tBITMAPINFO参数初始化位图数位
+		FALSE - 不使用由参数指定的数据
 $pBits
-	A pointer to an array of bytes containing the initial bitmap data.
+	包含初始化位图数位的数组的指针
 $tBITMAPINFO
-	$tagBITMAPINFO structure that describes the dimensions and color format of the array
-	pointed to by the $pBits parameter.
+	由$pBits参数指定的用于描述位图尺寸和颜色格式的$tagBITMAPINFO结构
 $iUsage
-	The type of colors used. This parameter must be one of the following values.
-	
-	$DIB_PAL_COLORS
-	$DIB_RGB_COLORS
+	使用的颜色格式. 可为:
+		$DIB_PAL_COLORS - 由颜色索引指定
+		$DIB_RGB_COLORS - 由RGB值指定
 	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Handle to the compatible bitmap that will be whatever bit depth your reference DC is.
-Failure	0 and sets the @error flag to non-zero.
+成功:	无论是否所参考环境的位深的兼容位图的句柄
+失败:	返回0设置@error 非0
 @@End@@
 
 ###Remarks###
-When you no longer need the bitmap, call the _WinAPI_DeleteObject() function to delete it.
+不再需要位图时, 使用_WinAPI_DeleteObject()函数销毁
 
 
 ###See Also###

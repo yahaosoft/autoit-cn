@@ -2,7 +2,7 @@
 _WinHttpSimpleSSLRequest
 
 ###Description###
-A function to send a SSL request in a simpler form
+以简单格式向HTTP服务器发送指定请求
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,21 +11,21 @@ _WinHttpSimpleSSLRequest($hConnect [, $sType [, $sPath [, $sReferrer = Default [
 ###Parameters###
 @@ParamTable@@
 $hConnect
-	Handle from _WinHttpConnect
+	_WinHttpConnect()返回的句柄.
 $sType
-	[可选参数] GET or POST (default: GET)
+	[可选参数] GET(默认)或POST.
 $sPath
-	[可选参数] request path (default: "" - empty string; meaning 'default' page on the server)
+	[可选参数] 请求路径(默认为空字符串表示服务器上的默认页).
 $sReferrer
-	[可选参数] referrer (default: $WINHTTP_NO_REFERER)
+	[可选参数] 引用(默认为$WINHTTP_NO_REFERER)
 $sData
-	[可选参数] POST-Data (default: $WINHTTP_NO_REQUEST_DATA)
+	[可选参数] POST数据(默认为$WINHTTP_NO_REQUEST_DATA)
 $sHeader
-	[可选参数] additional Headers (default: $WINHTTP_NO_ADDITIONAL_HEADERS)
+	[可选参数] 额外头部(默认为$WINHTTP_NO_ADDITIONAL_HEADERS).
 $fGetHeaders
-	[可选参数] return response headers (default: False)
+	[可选参数] 返回回复头部(默认为False)
 $iMode
-	[可选参数] reading mode of result (default: 0)
+	[可选参数] 读取结果的模式(默认为0)
 		0 - ASCII-text
 		1 - UTF-8 text
 		2 - binary data
@@ -33,14 +33,15 @@ $iMode
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	response data if $fGetHeaders = False (default)
-[0]	response headers
-[1]	response data
-Failure	0 and set @error
-	1 - could not open request
-	2 - could not send request
-	3 - could not receive response
-	4 - $iMode is not valid
+成功:	$fGetHeaders为False是返回应答数据(默认)
+	$fGetHeaders为True是返回数组
+	[0] - 应答头部
+	[1] - 应答数据
+失败:	返回0设置@error
+	1 - 无法打开请求
+	2 - 无法发送请求
+	3 - 无法接收应答
+	4 - 无效$iMode
 @@End@@
 
 ###Remarks###

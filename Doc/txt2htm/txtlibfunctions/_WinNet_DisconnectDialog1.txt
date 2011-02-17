@@ -2,7 +2,7 @@
 _WinNet_DisconnectDialog1
 
 ###Description###
-为断开网络资源启动普通浏览对话框
+断开网络资源时启动通用浏览对话框
 
 ###Syntax###
 #Include <WinNet.au3>
@@ -13,16 +13,13 @@ _WinNet_DisconnectDialog1($hWnd, $sLocalName [, $sRemoteName = "" [, $iFlags = 1
 $hWnd
 	对话框所有者窗口句柄．
 $sLocalName
-	本地设备名称，例如 "F:" or "LPT1"
+	本地设备名, 如"F:"或"LPT1"
 $sRemoteName
-	[可选参数] 被断开网络资源的名称．如果 $LocalName 已有指定，这个参数值可以是 0.
-		当 $sLocalName 指定，重定向 $sLocalName 断开连接的网络资源．
-		disconnected.
+	[可选参数] 要断开的网络资源的名称. 如果指定了$LocalName该成员可为0. 如果指定了sLocalName, 断开连接到由重定向的网络资源的连接.
 $iFlags
-	[可选参数] 描述连接的标志．可以是一个组合:
-		1 - 如果此值设置，指定的连接已经不再是一个持续的连接．
-		仅当　$sLocalName　指定有本地设备时，此标志有效期．
-		2 - 如果此值未设置，该系统强制断开
+	[可选参数] 描述连接的标志. 可为组合:
+		1 - 如果设置了该值, 指定连接不再是持续连接. 该标志仅在sLocalName被指定为一个本地设备时有效.
+		2 - 如果未设置该值, 断开连接时强制系统使用
 @@End@@
 
 ###ReturnValue###

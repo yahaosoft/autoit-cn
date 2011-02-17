@@ -2,7 +2,7 @@
 _WinAPI_GetPolyFillMode
 
 ###Description###
-Retrieves the current polygon fill mode.
+获取当前多边形的填充模式
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,13 +11,15 @@ _WinAPI_GetPolyFillMode ( $hDC )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+	设备场景句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The polygon fill mode, which can be one of the following values.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回多边形填充模式. 可为下列值之一:
+	$ALTERNATE - 交替模式(填充在每个扫描行上奇数行和偶数之间的多边形区域)
+	$WINDING - 缠绕模式(以非0缠绕值填充任意区域)
+失败:	False
 @@End@@
 
 ###Remarks###

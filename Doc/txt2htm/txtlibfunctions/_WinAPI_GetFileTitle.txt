@@ -2,7 +2,7 @@
 _WinAPI_GetFileTitle
 
 ###Description###
-Retrieves the name of the specified file.
+获取指定文件名称
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,21 +11,17 @@ _WinAPI_GetFileTitle ( $sFile )
 ###Parameters###
 @@ParamTable@@
 $sFile
-	The name and location of a file.
+	文件的位置
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The name of the file.
-Failure	Empty string and sets the @error flag to non-zero.
+成功:	包含文件名
+失败:	返回空字符串设置@error 非0
 @@End@@
 
-###Remarks###
-_WinAPI_GetFileTitle() should only be called with legal file namesusing an illegal file name has an undefined result.
-
-_WinAPI_GetFileTitle() returns the string that the system would use to display the file name to the user.
-The display name includes an extension only if that is the user's preference for displaying file names. This means
-that the returned string may not accurately identify the file if it is used in calls to file system functions.
+###Related###
+_WinAPI_GetFileTitle()只由合法文件名调用; 非法文件名将返回未定义结果._WinAPI_GetFileTitle()返回系统显示给用户的字符串.只在用户需要显示扩展名时名称包含扩展名. 这意味着返回的字符串在用于调用文件系统函数情况时不会正确标识文件.	
 
 
 ###See Also###

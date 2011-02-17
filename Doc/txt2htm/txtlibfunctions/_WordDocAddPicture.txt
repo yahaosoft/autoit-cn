@@ -2,7 +2,7 @@
 _WordDocAddPicture
 
 ###Description###
-Add a picture to the document
+向文件中添加一个图片
 
 ###Syntax###
 #include <Word.au3> 
@@ -11,34 +11,31 @@ _WordDocAddPicture ( ByRef $o_object, $s_FilePath [, $b_LinkToFile = 0 [, $b_Sav
 ###Parameters###
 @@ParamTable@@
 $o_object
-	Object variable of a Word.Application, document object
+	Word.Application文档对象
 $s_FilePath
-	The path and file name of the picture.
+	图片的路径和文件名.
 $b_LinkToFile
-	[optional] Specifies whether to link the picture to the file from which it was created.
-	0 = (Default) Make the picture an independent copy of the file
-	1 = Link the picture to the file from which it was created
+	[可选参数] 指定是否从图片创建的位置链接到文件.
+		0 = (默认) 创建独立于文件的图片备份
+		1 = 从图片创建的位置链接到文件
 $b_SaveWithDocument
-	[optional] Specifies whether to save the linked picture with the document.
-	0 = (Default) Do not save the linked picture with the document
-	1 = Save the linked picture with the document
+		[可选参数] 指定是否随文件一起保存链接的图片
+		0 = (默认) 不随文件保存链接的图片1 = 随文件保存链接的图片
 $o_Range
-	[optional] The location where the picture will be placed in the text.
-	"" = (Default) The picture is placed automatically
-	Any range object
+	[可选参数] 图片在文件中放置的位置."" = (默认) 自动放置, 任意位置
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns an object variable pointing to a Word.Application, shape object
-Failure:	Returns 0  and sets @ERROR = 1
-@Error:	$_WordStatus_Success = No Error
-	$_WordStatus_GeneralError = General Error
-	$_WordStatus_ComError = Com Error
-	$_WordStatus_InvalidDataType = Invalid Data Type
-	$_WordStatus_InvalidObjectType = Invalid Object Type
-	$_WordStatus_InvalidValue = Invalid Value
-@Extended:	Contains invalid parameter number
+成功:	返回指向 Word.Application, 图形对象的变量 
+失败:	返回0设置@error = 1
+@Error:	0 ($_WordStatus_Success) = 无错误
+	1 ($_WordStatus_GeneralError) = 一般错误
+	2 ($_WordStatus_ComError) = Com 错误
+	3 ($_WordStatus_InvalidDataType) = 无效数据类型
+	4 ($_WordStatus_InvalidObjectType) = 无效对象类型
+	5 ($_WordStatus_InvalidValue) = 无效值
+	@Extended:包含无效参数数量
 @@End@@
 
 

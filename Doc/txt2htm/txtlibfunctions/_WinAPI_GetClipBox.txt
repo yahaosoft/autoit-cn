@@ -2,7 +2,7 @@
 _WinAPI_GetClipBox
 
 ###Description###
-Retrieves the dimensions of the bounding rectangle of the visible area.
+获取可见区域绑定矩形的大小
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,15 +11,18 @@ _WinAPI_GetClipBox ( $hDC, ByRef $tRECT )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+	设备场景句柄
 $tRECT
-	$tagRECT structure that receive the rectangle dimensions, in logical units.
+	获取矩形逻辑单位大小的$tagRECT结构
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The value that specifies the new clipping region's complexity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it can be one of the following values.
-Failure	0 and sets the @error flag to non-zero.
+成功:	指定新建剪切区域复杂性的值. 可为下列值:
+	$COMPLEXREGION - 多个矩形
+	$NULLREGION - 空区
+	$SIMPLEREGION - 单一矩形
+失败:	返回0设置@error 非0
 @@End@@
 
 ###Remarks###

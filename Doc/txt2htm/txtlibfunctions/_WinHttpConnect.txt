@@ -2,7 +2,7 @@
 _WinHttpConnect
 
 ###Description###
-Specifies the initial target server of an HTTP request and returns connection handle to an HTTP session for that initial target.
+指定Http请求的原始目标服务器并返回一个指向该原始目标的http会话的连接句柄
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,22 +11,22 @@ _WinHttpConnect($hSession, $sServerName [, $iServerPort = Default ])
 ###Parameters###
 @@ParamTable@@
 $hSession
-	Valid WinHttp session handle returned by a previous call to WinHttpOpen.
+	由以前调用WinHttpOpen返回的有效的WinHTTP会话句柄
 $sServerName
-	Host name of an HTTP server.
+	包含HTTP服务器主机名的字符串
 $iServerPort
-	[可选参数] TCP/IP port on the server to which a connection is made (default is $INTERNET_DEFAULT_PORT)
+	[可选参数] 指定建立连接的服务器上的TCP/IP端口(默认为$INTERNET_DEFAULT_PORT)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Returns a valid connection handle to the HTTP session
-Failure	Returns 0 and sets @error:
-	1 - DllCall failed
+成功:	返回指向HTTP会话的有效连接句柄设置@error 0
+失败:	返回0设置@error , 为1时表示DllCall失败
 @@End@@
 
 ###Remarks###
-$iServerPort can be defined via global constants $INTERNET_DEFAULT_PORT, $INTERNET_DEFAULT_HTTP_PORT or $INTERNET_DEFAULT_HTTPS_PORT
+$nServerPort可通过全局变量$INTERNET_DEFAULT_PORT, $INTERNET_DEFAULT_HTTP_PORT或$INTERNET_DEFAULT_HTTPS_PORT定义
+
 ###Related###
 <a href="_WinHttpOpen.htm">_WinHttpOpen</a>
 

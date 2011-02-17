@@ -11,12 +11,9 @@ _WinNet_CancelConnection($sName [, $fForce = True])
 ###Parameters###
 @@ParamTable@@
 $sName
-	指定重定向本地设备的名称,或要断开的远程网络资源的名称．
-		当此参数指定一个重定向的本地设备,函数取消指定的设备重定向;
-		如果参数指定远程网络资源,只有在没有设备连接到远程网络时才被取消.
+	重定向的本地设备或要断开的远程网络资源的名称. 当该参数指定为重定向的本地设备时, 函数只取消置顶的设备重定向. 如果该参数指定为远程网络资源, 只取消没有设备的远程网络连接.
 $fForce
-	[可选参数] 如果有打开的文件或连接工作,指定是否应该发生断线．
-		如果此参数为　False,且存在打开的文件或工作,该函数失败.
+	[可选参数] 指定如果连接上有打开的文件或工作时是否断开连接. 如果该参数为否, 当有打开的文件或工作时函数将失败.
 @@End@@
 
 ###ReturnValue###
@@ -26,8 +23,7 @@ $fForce
 @@End@@
 
 ###Remarks###
- 这个函数仅提供与 Windows 16位版本兼容．
- 其他基于 Windows 的应用程序应调用 WNet_CancelConnection2 函数．
+该函数为兼容16位系统建立. 其他以Windows为基础的应用程序应调用函数WNet_CancelConnection2.
 
 ###Related###
 _WinNet_CancelConnection2

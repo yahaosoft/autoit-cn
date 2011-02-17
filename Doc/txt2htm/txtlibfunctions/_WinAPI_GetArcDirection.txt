@@ -2,7 +2,7 @@
 _WinAPI_GetArcDirection
 
 ###Description###
-Retrieves the current arc direction for the specified device context.
+获取指定设备场景中指定弧的方向
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,13 +11,15 @@ _WinAPI_GetArcDirection ( $hDC )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+	设备场景句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The current arc direction ($AD_*).
-Failure	0 and sets the @error flag to non-zero.
+成功:	当前弧的方向
+	$AD_COUNTERCLOCKWISE(1) - 逆时针
+	$AD_CLOCKWISE(2) - 顺时针
+失败:	返回0设置@error 非0
 @@End@@
 
 ###Remarks###

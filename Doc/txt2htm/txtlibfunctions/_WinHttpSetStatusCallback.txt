@@ -2,7 +2,7 @@
 _WinHttpSetStatusCallback
 
 ###Description###
-Sets up a callback function that WinHttp can call as progress is made during an operation.
+建立WinHTTP可调用的回调函数作为操作时的进度
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,22 +11,22 @@ _WinHttpSetStatusCallback($hInternet, $hInternetCallback [, $iNotificationFlags 
 ###Parameters###
 @@ParamTable@@
 $hInternet
-	Handle for which the callback is to be set.
+	将被设置为回调的句柄
 $hInternetCallback
-	Callback function to call when progress is made.
+	进度生成时调用的回调函数
 $iNotificationFlags
-	[可选参数] Flags to indicate which events activate the callback function. Default is $WINHTTP_CALLBACK_FLAG_ALL_NOTIFICATIONS.
+	[可选参数] 指定表示激活回调函数的事件的标记的整数值. 默认为$WINHTTP_CALLBACK_FLAG_ALL_NOTIFICATIONS.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	Returns a pointer to the previously defined status callback function or NULL if there was no previously defined status callback function.
-Failure	Returns 0 and sets @error:
-	1 - DllCall failed
+成功:	返回以前定义的状态回调函数的指针或当在没有定义状态回调函数时返回空值,设置@error 0.
+失败:	返回0设置@error 且当其为1时表示DllCall失败.
 @@End@@
 
 ###Remarks###
 None.
+
 ###Related###
 <a href="_WinHttpOpen.htm">_WinHttpOpen</a>
 

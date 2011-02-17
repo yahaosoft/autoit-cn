@@ -2,35 +2,33 @@
 _WinHttpSimpleSendRequest
 
 ###Description###
-A function to send a request in a simpler form, but not read the data
+以简单形式发送请求且不记录数据
 
 ###Syntax###
-#Include <WinHttp.au3>
-_WinHttpSimpleSendRequest($hConnect, $sType, $sPath [, $sReferrer = Default [, $sData = Default [, $sHeader = Default ]]])
+#Include <WinHTTP.au3>
+_WinHttpSetStatusCallback( $hConnect, $sType, $sPath [, $sReferrer = Default [, $sData = Default [, $sHeader = Default ]]] )
 
 ###Parameters###
 @@ParamTable@@
 $hConnect
-	Handle from _WinHttpConnect
+	_WinHttpConnect()返回的句柄.
 $sType
-	[optional] GET or POST (default: GET)
+	[可选参数] GET(默认)或POST.
 $sPath
-	[optional] request path (default: "" - empty string; meaning 'default' page on the server)
+	[可选参数] 请求路径(默认为空字符串表示服务器上的默认页).
 $sReferrer
-	[可选参数] referrer (default: $WINHTTP_NO_REFERER)
+	[可选参数] 引用(默认为$WINHTTP_NO_REFERER)
 $sData
-	[可选参数] POST-Data (default: $WINHTTP_NO_REQUEST_DATA)
+	[可选参数] POST数据(默认为$WINHTTP_NO_REQUEST_DATA)
 $sHeader
-	[可选参数] additional Headers (default: $WINHTTP_NO_ADDITIONAL_HEADERS)
+	[可选参数] 额外头部(默认为$WINHTTP_NO_ADDITIONAL_HEADERS).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	handle of request after _WinHttpReceiveResponse.
-Failure	0 and set @error
-	1 - could not open request
-	2 - could not send request
-	3 - could not receive response
+成功:	返回以前定义的状态回调函数的指针或当在没有定义状态回调函数时返回空值, 设置@error 0.
+失败:	返回0
+@error:	且当其为1时表示DllCall失败.
 @@End@@
 
 ###Remarks###

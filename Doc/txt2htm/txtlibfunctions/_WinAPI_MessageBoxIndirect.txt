@@ -2,7 +2,7 @@
 _WinAPI_MessageBoxIndirect
 
 ###Description###
-Creates, displays, and operates a message box.
+创建, 显示并操作消息框
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,23 +11,19 @@ _WinAPI_MessageBoxIndirect ( $tMSGBOXPARAMS )
 ###Parameters###
 @@ParamTable@@
 $tMSGBOXPARAMS
-	$tagMSGBOXPARAMS structure that contains information used to display the message box.
+	包含用于显示消息框信息的$tagMSGBOXPARAMS结构
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	One of the $ID* constants.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回$ID*常量之一
+失败:	返回0设置@error 非0
 @@End@@
 
 ###Remarks###
-When you use a system-modal message box to indicate that the system is low on memory, the strings pointed to by the
-"Text" and "Caption" members of the $tagMSGBOXPARAMS structure should not be taken from a resource file, because
-an attempt to load the resource may fail.
-
-If you create a message box while a dialog box is present, use a handle to the dialog box as the hWnd parameter.
-The hWnd parameter should not identify a child window, such as a control in a dialog box.
-
+当使用系统模式消息框描述系统内存过低时, 由$tagMSGBOXPARAMS结构的"Text"及"Caption"成员指定的字符串不应源自资源文件, 因为加载资源时可能会失败.
+如果在具有对话框时创建消息框, 使用对话框句柄作为hWnd参数.
+hWnd参数不会标识子窗体, 比如对话框中的控件.
 
 ###See Also###
 @@MsdnLink@@ MessageBoxIndirect
