@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_SetParaBorder
 
 ###Description###
-Sets the border of paragraph(s) in the current selection or, if no selection, of paragraphs inserted at the insertion point
+设置(第一)当前选择(或没有选择时的插入点所在段落)的边框
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,73 +11,71 @@ _GUICtrlRichEdit_SetParaBorder($hWnd [, $sLocation [, $vLineStyle [, $sColor [, 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $sLocation
-	[optional] a string consisting of any logical combination of:
-		   l - left border
-		   r - right border
-		   t - top border
-		   b - bottom border
-		   i - inside border
-		   o - outside border
-		or "" - no border (initial value)
+	[可选参数] 逻辑组合字符串:
+		l - 左边框
+		r - 右 边框
+		t - 顶边框
+		b - 底边框
+		i - 内边框
+		o - 外边框
+		或
+		"" - 无边框 (初始值)
 $vLineStyle
-	[optional] line style - one of:
-		   "none" - no line (initial value)
-		   .75 - 3/4 point
-		   1.5 - 1 1/2 points
-		   2.25 - 2 1/4 points
-		   3 - 3 points
-		   4.5 - 4 1/2 points
-		   6 - 6 points
-		   ".75d" - 1/2 points, double
-		   "1.5d" - 1 1/2 points, double
-		   "2.25d" - 2 1/4 points, double
-		   ".75g" - 3/4 point grey
-		   ".75gd" - 3/4 point grey dashed
+	[可选参数] 线条样式:
+		"none" - 没有线条 (初始值)
+		.75 - 3/4 磅
+		1.5 - 1 1/2 磅
+		2.25 - 2 1/4 磅
+		3 - 3 磅
+		4.5 - 4 1/2 磅
+		6 - 6 磅
+		".75d" - 1/2 磅, 双精度
+		"1.5d" - 1 1/2 磅, 双精度
+		"2.25d" - 2 1/4 磅, 双精度
+		".75g" - 3/4 磅灰
+		".75gd" - 3/4 磅 灰短划线
 $sColor
-	[optional] one of:
-		   "aut" - autocolor
-		   "blk" - black (initial value)
-		   "blu" - blue
-		   "cyn" - cyan
-		   "grn" - green
-		   "mag" - magenta
-		   "red" - red
-		   "yel" - yellow
-		   "whi" - white
-		   "dbl" - dark blue
-		   "dgn" - dark green
-		   "dmg" - dark magenta
-		   "drd" - dark red
-		   "dyl" - dark yellow
-		   "dgy" - dark grey
-		   "lgy" - light grey
+	[可选参数] one of:
+		"aut" - 自动
+		"blk" - 黑色 (初始值)
+		"blu" - 蓝色
+		"cyn" - 青色
+		"grn" - 绿色
+		"mag" - 紫色
+		"red" -红
+		"yel" -黄
+		"whi" - 白色
+		"dbl" - 暗蓝
+		"dgn" - 暗绿
+		"dmg" - 暗紫
+		"drd" - 暗红
+		"dyl" - 暗黄
+		"dgy" - 暗灰
+		"lgy" - 亮灰
 $iSpace
-	[optional] space between the border and the text (in space units) ( (initial value): 0)
+	[可选参数] 边框和文本的间距(空间单位, 初始值: 0)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and set @error
-@error:	101 - $hWnd is not a handle
-	102 - value of $sLocation is invalid
-	103 - value of $ivLineStyle is invalid
-	104 - value of $sColor is invalid
-	106 - $iSpace is neither a positive number nor zero
-	106 - $iWidth is neither a positive number nor zero
+成功:	返回 True
+失败:	返回 False,设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $sLocation 参数值无效
+	103 - $ivLineStyle 参数值无效
+	104 - $sColor 参数值无效
+	106 - $iSpace 不是正数,也不是 0, 
+	106 - $iWidth 不是正数,也不是 0, 
 @@End@@
 
 ###Remarks###
-To set "space units", call _GUICtrlRichEdit_SetSpaceUnit. Initially inches
-
-If text is selected, the defaults are the values of the first paragraph with text selected.
-If none is selected, the defaults are the values of the current paragraph.
-
-To remove a border, call with two parameters: ($hWnd, "")
-
-Borders do not show in Rich Edit, but ones created here should show in Word
+ 调用 _GUICtrlRichEdit_SetSpaceUnit 函数设置 "空间单位". 最初为英寸
+ 如果文本被选中,默认为第一选定段落的文本值.
+ 如果没有选中,默认为当前段落的值.
+ 要删除边框,调用两个参数: ($hWnd, "")
+ 边框不显示在 RichEdit 中,但在这里创建的设置,应该在 Word 中显示
 
 ###Related###
 _GUICtrlRichEdit_GetParaBorder, _GUICtrlRichEdit_SetSpaceUnit

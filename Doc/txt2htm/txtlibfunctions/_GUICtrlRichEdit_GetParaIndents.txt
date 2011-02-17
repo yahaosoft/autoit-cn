@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_GetParaIndents
 
 ###Description###
-Gets the border indent settings of (first) selected paragraph or (if no selection) of the current paragraph
+获取第一个选定段落;或者没有选择时的当前段落的边框缩进设置
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,25 +11,25 @@ _GUICtrlRichEdit_GetParaIndents($hWnd)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	settings - a string consisting of values separated by semicolons (:):
-	Value 1 - Left - indentation of left side of the body of the paragraph (of lines after the first) (in space units)
-	Value 2 - Right - indentation of right side of the paragraph (in space units)
-	Value 3 - FirstLine - indentation of the first line relative to other lines (in space units)
-	Value 4 - scope:
-	   a - all (or only) selected paragraphs have these settings
-	   f - the first selected paragraph has these settings, but other(s) don't
-	   c - the current paragraph has these settings
-Failure:	"" and sets @error
-@error:	101 - $hWnd is not a handle
+成功:	返回设置 - 由分号(:) 分隔的字符串值 :
+	值 1 - 左 - 段落的左边缩进 (在第一行) (空间单位)
+	值 2 - 右 - 段落的右侧缩进 (空间单位)
+	值 3 - 第一线 - 第一行的缩进相对于其它行（空间单位）
+	值 4 - 范围:
+	a - 所有（或使用的）选定的段落进行这些设置
+	f - 第一选定使用这些设置,但其它不使用
+	c - 当前段落使用这些设置
+失败:	返回 "" ,设置@error:	
+@error:	101 - $hWnd 参数值不是句柄
 @@End@@
 
 ###Remarks###
-Postive values of $iLeft, $iRight and $iFirstLine indent towards the center of the paragraph
+$iLeft 的整数值, $iRight 与 $iFirstLine 向段落中心缩进
 
 
 ###Related###

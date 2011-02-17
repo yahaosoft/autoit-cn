@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_SetFont
 
 ###Description###
-Sets the font attributes of selected text or, if none selected, sets those of text inserted at the insertion point
+设置选定文本(或者没有选定时,设置插入点插入文本) 的字体属性
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,13 +11,13 @@ _GUICtrlRichEdit_SetFont($hWnd [, $iPoints = Default[, $sName = Default[, $iChar
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iPoints
-	[optional] point size
+	[可选参数] 磅值(注:1 磅=1/72 英寸)大小
 $sName
-	[optional] the name of the font face, e.g. "Courier" not "Courier Bold"
+	[可选参数] 字体的名称, 例如: "Courier" not "Courier 粗体"
 $iCharSet
-	[optional] the character set - one of:
+	[可选参数] 字符集:
 		$ANSI_CHARSET - 0
 		$BALTIC_CHARSET - 186
 		$CHINESEBIG5_CHARSET - 136
@@ -34,21 +34,21 @@ $iCharSet
 		$TURKISH_CHARSET - 162
 		$VIETNAMESE_CHARSET - 163
 $iLcid
-	[optional] see http://www.microsoft.com/globaldev/reference/lcid-all.mspx
+	[可选参数] 见 http://www.microsoft.com/globaldev/reference/lcid-all.mspx
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and set @error
-@error:	101 - $hWnd is not a handle
-	102 - $iPoints is not a positive number
+成功:	返回 True
+失败:	返回 False,设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $iPoints 参数值不是正数
 	103 - $sName is not alphabetic
-	104 - $iLcid is not a number
+	104 - $iLcid 不是一个数字
 @@End@@
 
 ###Remarks###
-If a parameter is omitted (or is Default), the value is unchanged
+ 如果参数被省略（或默认）,则该值不变
 
 ###Related###
 _GUICtrlRichEdit_GetFont, _GUICtrlRichEdit_ChangeFontSize

@@ -2,7 +2,7 @@
 _GUICtrlMonthCal_GetColorArray
 
 ###Description###
-Retrieves the color for a given portion of a month calendar control
+检索控件指定部分的颜色
 
 ###Syntax###
 #Include <GuiMonthCal.au3>
@@ -11,30 +11,30 @@ _GUICtrlMonthCal_GetColorArray($hWnd, $iColor)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iColor
-	Value of type int specifying which month calendar color to retrieve
-		This value can be one of the following:
-		$MCSC_BACKGROUND - Retrieve the background color displayed between months.
-		$MCSC_MONTHBK - Retrieve the background color displayed within the month.
-		$MCSC_TEXT - Retrieve the color used to display text within a month.
-		$MCSC_TITLEBK - Retrieve the background color displayed in the calendar's title.
-		$MCSC_TITLETEXT - Retrieve the color used to display text within the calendar's title.
-		$MCSC_TRAILINGTEXT - Retrieve the color used to display header day and trailing day text.
+	int 类型值,指定检索颜色的控件部位.
+		此值可为下列之一:
+		$MCSC_BACKGROUND - 月份之间的背景颜色.
+		$MCSC_MONTHBK - 本月的背景颜色.
+		$MCSC_TEXT - 月内文本的颜色.
+		$MCSC_TITLEBK - 日历标题的背景颜色.
+		$MCSC_TITLETEXT - 日历标题的文字颜色.
+		$MCSC_TRAILINGTEXT - 上一天和下一天的文本颜色.
 @@End@@
 
 ###ReturnValue###
-Success: Array in the following format:
-
-	[0] - contains the number returned
-	[1] - contains COLORREF rgbcolor
-	[2] - contains Hex BGR color
-	[3] - contains Hex RGB color
-失败: False
+@@ReturnTable@@
+成功:	返回如下格式的数组:
+	[0] - 返回包含的数量
+	[1] - COLORREF 类型的 RGB 颜色
+	[2] - 十六位 BGR 颜色
+	[3] - 十六位 RGB 颜色
+失败:	返回 False
+@@End@@
 
 ###Remarks###
-Header and trailing days are the days from the previous and following
-months that appear on the current month calendar.
+ 标头和结尾的日历天是当前月份的日历中出现的日子 .
 
 ###Related###
 _GUICtrlMonthCal_Create

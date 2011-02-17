@@ -2,7 +2,7 @@
 _GUICtrlRebar_Create
 
 ###Description###
-Create a Rebar control
+创建伸缩条控件
 
 ###Syntax###
 #Include <GuiRebar.au3>
@@ -11,38 +11,35 @@ _GUICtrlRebar_Create($hWnd[, $iStyles = 0x513])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to parent or owner window
+	父窗口或所有者窗口的句柄
 $iStyles
-	[optional] Rebar controls support a variety of control styles in addition to standard window styles:
-		$RBS_AUTOSIZE - Version 4.71. The rebar control will automatically change the layout of the bands when
-		the size or position of the control changes. An $RBN_AUTOSIZE notification will be sent when this occurs
-		$RBS_BANDBORDERS - Version 4.71. The rebar control displays narrow lines to separate adjacent bands
-		$RBS_DBLCLKTOGGLE - Version 4.71. The rebar band will toggle its maximized or minimized state when the user
-		double-clicks the band. Without this style, the maximized or minimized state is toggled when the user
-		single-clicks on the band
-		$RBS_FIXEDORDER - Version 4.70. The rebar control always displays bands in the same order. You can move
-		bands to different rows, but the band order is static
-		$RBS_REGISTERDROP - Version 4.71. The rebar control generates $RBN_GETOBJECT notification messages when an
-		object is dragged over a band in the control
-		$RBS_TOOLTIPS - Version 4.71. Not yet supported
-		$RBS_VARHEIGHT - Version 4.71. The rebar control displays bands at the minimum required height, when
-		possible. Without this style, the rebar control displays all bands at the same height, using the height of
-		the tallest visible band to determine the height of other bands
-		$RBS_VERTICALGRIPPER - Version 4.71. The size grip will be displayed vertically instead of horizontally in a
-		vertical rebar control. This style is ignored for rebar controls that do not have the $CCS_VERT style
-		$CCS_LEFT - Version 4.70. Causes the control to be displayed vertically on the left side of the parent window
-		$CCS_NODIVIDER - Prevents a two-pixel highlight from being drawn at the top of the control
-		$CCS_RIGHT - Version 4.70. Causes the control to be displayed vertically on the right side of the parent window
-		$CCS_VERT - Version 4.70. Causes the control to be displayed vertically
-
-		Default: $CCS_TOP, $RBS_VARHEIGHT
-		Forced: $WS_CHILD, $WS_VISIBLE, $WS_CLIPCHILDREN, $WS_CLIPSIBLINGS
+	[可选参数] 除标准窗口样式之外,伸缩条控件还支持多种样式:
+		$RBS_AUTOSIZE - 版本 4.71. 当控件改变大小或位置时,伸缩条控件自动改变带区的布局
+		控件将发送 $RBN_AUTOSIZE 变化通知消息
+		$RBS_BANDBORDERS - 版本 4.71. 伸缩条控件显示细线以分隔相邻的带区
+		$RBS_DBLCLKTOGGLE - 版本 4.71. 当用户双击带区,带区将切换最大化或最小化状态
+		如果没有这种样式,用户单击带区切换最大化或最小化状态
+		$RBS_FIXEDORDER - 版本 4.70. 伸缩条控件总是以相同次序显示带区
+		可以移动带区到不同的行,但带区顺序总是不变的
+		$RBS_REGISTERDROP - 版本 4.71. 当拖动对象到带区时,生成 $RBN_GETOBJECT 通知消息
+		$RBS_TOOLTIPS - 版本 4.71. 尚不支持
+		$RBS_VARHEIGHT - 版本 4.71. 在可能的情况下,伸缩条控件显示带区最低要求的高度
+		如果没有这种风格,控制显示所有带区在同一高度;
+		利用可见带区的最高高度确定其它带区的高度
+		$RBS_VERTICALGRIPPER - 版本 4.71. 垂直伸缩条控件显示垂直尺寸控制柄,而不是水平显示
+		伸缩条控件没有 $CCS_VERT 样式时,这种样式将被忽略
+		$CCS_LEFT - 版本 4.70. 控件垂直显示在父窗体左边
+		$CCS_NODIVIDER - 禁止在控件顶部绘制两个像素高亮
+		$CCS_RIGHT - 版本 4.70. 控件垂直显示在父窗体右边
+		$CCS_VERT - 版本 4.70. 控件垂直居中显示
+	[可选参数] 默认 : $CCS_TOP, $RBS_VARHEIGHT
+		强制 : $WS_CHILD, $WS_VISIBLE, $WS_CLIPCHILDREN, $WS_CLIPSIBLINGS
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Handle to the Rebar control
-Failure:	set @error
+成功:	返回伸缩条控件句柄
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###

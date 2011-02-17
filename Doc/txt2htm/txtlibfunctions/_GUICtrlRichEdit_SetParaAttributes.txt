@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_SetParaAttributes
 
 ###Description###
-Sets attributes of paragraph(s) in the current selection or, if no selection, of paragraphs inserted at the insertion point
+设置(第一)当前选择(或没有选择时的插入点所在段落)的属性
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,37 +11,36 @@ _GUICtrlRichEdit_SetParaAttributes($hWnd, $sStatesAndAtts)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $sStatesAndAtts
-	a string consisting of groups separated by semicolons (;}.
-		Each group consists of:
-		First character - state:
-		   + - turn attribute on
-		   - - turn attribute off
-		   "fpg" - force this/these paragraphs on to new page(s) (Initially off)
-		   "hyp" - automatic hypthenation (Initially on)
-		   "kpt" - keep this/these paragraph(s) together on a page (Initially off}
-		   "kpn" - keep this/these paragraph(s) and the next together on a page (Initially off)
-		   "pwo" - prevent widows and orphans, i.e. avoid a single line of this/these paragraphs
-		on a page (Initially off)
-		   "r2l" - display text using right-to-left reading order (Initially off)
-		   "row" - paragraph(s) is/are table row(s) (Initially off)
-		   "sbs" - display paragraphs side by side (Initially off)
-		   "sln" - suppress line numbers in documents or sections with line numbers (Initially off)
+	返回由分号(;)分隔的字符串组.
+		每组包括:
+		第一个字符 - 状态:
+		+ - 打开属性
+		- - 关闭属性
+		"fpg" - 强制这个/这些段落到新页面(初始关闭)
+		"hyp" - 自动断字（最初的）
+		"kpt" - 保持这个/这些段落在同一页面上（最初关闭）
+		"kpn" - 保持这个/这些段落和下一段落同一页面上（最初关闭）
+		"pwo" - 防止半行或孤行,即避免段落页面上出现一个单行（最初关闭）
+		"r2l" - 显示文本使用从右到左的阅读顺序（刚开始关闭
+		"row" - 段落为表格行(初始关闭)
+		"sbs" - 显示段落并排（刚开始关闭）
+		"sln" - 隐藏文档中的行号或带行号的片段(初始关闭)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and sets @error
-@error:	101 - $hWnd is not a handle
-	1021 - a state character in $sStatesAndAtts is invalid. It is in @extended
-	1022 - an attribute abbreviation in $sStatesAndAtts is invalid. It is in @extended
-	1023 - length of $sStatesAndAtts is invalid
+成功:	返回 True
+失败:	返回 False设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	1021 - $sStatesAndAtts 状态字符无效. 它在 @extended
+	1022 - $sStatesAndAtts 属性缩写无效. 它在 @extended
+	1023 - $sStatesAndAtts 字符长度无效
 @@End@@
 
 ###Remarks###
-Displays results in Word but not in Rich Edit
+ 结果显示在 Word 中,在 RichEdit 中不显示
 
 ###Related###
 _GUICtrlRichEdit_GetParaAttributes

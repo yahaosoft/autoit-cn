@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_GetCharAttributes
 
 ###Description###
-Returns attributes of selected text
+返回选中文本的属性
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,39 +11,38 @@ _GUICtrlRichEdit_GetCharAttributes($hWnd)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	a string consisting of three-character groups. Each group consists of:
-	   first and second character: any of:
-	      bo - bolded
-	      di - disabled - characters displayed with a shadow [nd]
-	      em - embossed [nd]
-	      hi - hidden, i.e. not displayed
-	      im - imprinted [nd]
-	      it - italcized
-	      li - EN_LINK messages are sent when mouse is over text with this attribute
-	      ou - outlined [nd]
-	      pr - EN_PROTECT sent when user attempts to modify
-	      re - marked as revised [nd]
-	      sh - shadowed [nd]
-	      sm - small capital letters [nd]
-	      st - struck out
-	      sb - subscript [nd]
-	      sp - superscript [nd]
-	      un - underlined
-	   third character: + for on, ~ for mixed
-Failure:	"" and sets @error
-@error:	101 - $hWnd is not a handle
-	-1 - no text is selected
+成功:	返回一个 3 字符组成的字符串.
+	第一个和第二个字::
+	bo - 粗体
+	di - 禁用 - 字符带有阴影 [nd]
+	em - 凸起 [nd]
+	hi - 隐藏,即不显示
+	im - 印记 [nd]
+	it - 斜体
+	li - 鼠标在带该属性的文本上时,发送 EN_LINK 消息
+	ou - 摘要 [nd]
+	pr - 试图修改时发送 EN_PROTECT 消息
+	re - 标记为修订 [nd]
+	sh - 阴影 [nd]
+	sm - 小体大写字母 [nd]
+	st - 删除
+	sb - 注脚 [nd]
+	sp - 上标 [nd]
+	un - 下划线
+	第三个字符:+ (译注:后面的文字不知何意,从运行结果看,不汉化也没什么影响:for on, ~ for mixed)
+失败:	返回 "" ,设置@error:	
+@error:	101 - $hWnd 参数值不是句柄
+	-1 - 没有选中的文本
 @@End@@
 
 ###Remarks###
-Some attributes do not display in a Rich Edit control; they are marked with [nd] above.
-
-Returns "" if no attributes are on
+ 上面的描述中以 [nd] 标记的属性项,将不显示在 RichEdit 控件中.
+ 如果没有上面的属性,则返回 "" . 
 
 ###Related###
 _GUICtrlRichEdit_SetCharAttributes

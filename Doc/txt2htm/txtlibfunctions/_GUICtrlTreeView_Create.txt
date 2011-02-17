@@ -22,42 +22,46 @@ $iHeight
 	[可选参数] 控件高度
 $iStyle
 	[可选参数] 控件样式:
-		DllStructGetData($TVS_CHECKBOXES - Enables check boxes for items, "") A check box will be displayed only if an image is
-		associated with the item. When set to this style, the control effectively uses DrawFrameControl to create and
-		set a state image list containing two images. State image 1 is the unchecked box and state image 2 is the
-		checked box. Setting the state image to zero removes the check box. Version 5.80 displays a check box even
-		if no image is associated with the item.
-		$TVS_DISABLEDRAGDROP - Prevents the control from sending $TVN_BEGINDRAG notification messages
-		$TVS_EDITLABELS - Allows the user to edit the item labels
-		DllStructGetData($TVS_FULLROWSELECT - Enables full row selection, "") The entire row of the selected item is highlighted, and
-		clicking anywhere on an item's row causes it to be selected. This style cannot be used in conjunction with
-		the DllStructGetData($TVS_HASLINES style, "")
-		DllStructGetData($TVS_HASBUTTONS - Displays plus and minus buttons next to parent items, "") The user clicks the buttons to
-		expand or collapse a parent item's list of child items. To include buttons with items at the root, you must
-		also specify DllStructGetData($TVS_LINESATROOT, "")
-		$TVS_HASLINES - Uses lines to show the hierarchy of items
-		$TVS_INFOTIP - Obtains ToolTip information by sending the $TVN_GETINFOTIP notification
-		DllStructGetData($TVS_LINESATROOT - Uses lines to link items at the root of the control, "") This value is ignored if
-		DllStructGetData($TVS_HASLINES is not also specified, "")
-		DllStructGetData($TVS_NOHSCROLL - Disables horizontal scrolling in the control, "") The control will not display any
-		horizontal scroll bars.
-		DllStructGetData($TVS_NONEVENHEIGHT - Sets the height of the items to an odd height with the $TVM_SETITEMHEIGHT message, "") By
-		default the height of items must be an even value.
-		DllStructGetData($TVS_NOSCROLL - Disables both horizontal and vertical scrolling in the control, "") The control will not
-		display any scroll bars.
-		$TVS_NOTOOLTIPS - Disables ToolTips
-		$TVS_RTLREADING - Causes text to be displayed from right to left
-		$TVS_SHOWSELALWAYS - Causes a selected item to remain selected when the control loses focus
-		$TVS_SINGLEEXPAND - Causes the item being selected to expand and the item being unselected to collapse
-		upon selection. If the mouse is used to single-click the selected item and that item is closed, it will be
-		expanded. If the user holds down the CTRL key while selecting an item, the item being unselected will not be
-		collapsed. Version 5.80 causes the item being selected to expand and the item being unselected to collapse
-		upon selection. If the user holds down the CTRL key while selecting an item, the item being unselected will
-		not be collapsed.
-		$TVS_TRACKSELECT - Enables hot tracking
-
-		Default: $TVS_HASBUTTONS, $TVS_HASLINES, $TVS_LINESATROOT, $TVS_DISABLEDRAGDROP, $TVS_SHOWSELALWAYS
-		Forced: $WS_CHILD, $WS_VISIBLE
+		DllStructGetData($TVS_CHECKBOXES - 项目启用复选框, "") 
+		如果项目有关联的图像时显示复选框.
+		当设置为这种样式后,控件使用 DrawFrameControl
+		创建和设置包含两个图像状态的图像列表,
+		状态图像 1 为未选中复选框; 状态图像 2 为选中复选框
+		设置状态图像为 0, 则删除复选框
+		即使项目没有关联图像, 版本 5.80 也能显示复选框
+		$TVS_DISABLEDRAGDROP
+		阻止控件发送 $TVN_BEGINDRAG 通知消息
+		$TVS_EDITLABELS
+		允许用户修改该项目的标签
+		DllStructGetData($TVS_FULLROWSELECT - 允许全行选中, "")
+		选中项目的整行被突出显示
+		点击项目行的任何地方都将导致它被选中.
+		这种样式不能用于 DllStructGetData($TVS_HASLINES 样式, "")
+		DllStructGetData($TVS_HASBUTTONS - 父项目旁边显示加、减号按钮, "") 
+		按钮点击可展开或折叠父项的子项列表
+		要点击根项目,还必须指定 DllStructGetData($TVS_LINESATROOT, "")
+		$TVS_HASLINES - 使用行显示项目的层次结构
+		$TVS_INFOTIP - 发送 $TVN_GETINFOTIP 通知获取工具提示信息
+		DllStructGetData($TVS_LINESATROOT - 根项目使用连接线, "") 
+		此值被忽略,如果DllStructGetData($TVS_HASLINES 同样未指定, "")
+		DllStructGetData($TVS_NOHSCROLL - 禁用水平滚动 "")
+		控件不显示任何水平滚动条.
+		DllStructGetData($TVS_NONEVENHEIGHT - 与 $TVM_SETITEMHEIGHT 消息一起设置项目为奇数高度, "")
+		默认项目高度必须是偶数值
+		DllStructGetData($TVS_NOSCROLL - 禁用水平和垂直滚动 "")
+		控件将不显示任何滚动条.
+		$TVS_NOTOOLTIPS - 禁用工具提示
+		$TVS_RTLREADING - 由右至左显示文字
+		$TVS_SHOWSELALWAYS - 当控件失去焦点时,选中项目仍然保持选中状态
+		$TVS_SINGLEEXPAND - 项目被选中时将展开,未选择时折叠
+		如果鼠标单击处于折叠状态的项目,该项目将自动展开
+		如果按住 Ctrl 键的同时选择项目,该项目被取消选中状态不会折叠
+		版本 5.80 使项目被选中时展开,未选择时折叠
+		如果按住 Ctrl 键的同时选择项目,该项目被取消选中状态不会折叠.
+		$TVS_TRACKSELECT - 启用热跟踪
+	[可选参数] 默认 : $TVS_HASBUTTONS, $TVS_HASLINES, $TVS_LINESATROOT, 
+		$TVS_DISABLEDRAGDROP, $TVS_SHOWSELALWAYS
+		强制 : $WS_CHILD, $WS_VISIBLE
 $iExStyle
 	[可选参数] 控件扩展样式
 @@End@@
@@ -69,7 +73,7 @@ $iExStyle
 @@End@@
 
 ###Remarks###
-This function is for Advanced users and for learning how the control works.
+ 此功能为高级用户学习如何控制工程
 
 ###Related###
 _GUICtrlTreeView_Destroy

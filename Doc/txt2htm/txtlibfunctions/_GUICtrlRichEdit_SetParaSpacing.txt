@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_SetParaSpacing
 
 ###Description###
-Sets paragraph spacing of paragraphs having selected text or, if none selected, sets it for text inserted at the insertion point
+设置(第一)当前选择(或没有选择时的插入点所在段落)的段落间距
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,32 +11,33 @@ _GUICtrlRichEdit_SetParaSpacing($hWnd, [$vInter=Default [, $iBefore=Default [, $
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $vInter
-	[optional] spacing between lines:
-		either: a number - in space units
-		or: "<number> lines" - in lines
+	[可选参数] 行与行之间的间距:
+		任意: 数字 - 空间单位
+		或: "
+		lines" - 一行 
 $iBefore
-	[optional] spacing before paragraph(s) (in space units)
+	[可选参数] 段落前间距(空间单位)
 $iAfter
-	[optional] spacing after paragraph(s) (in space units)
+	[可选参数] 段落后间距 (空间单位)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and set @error
-@error:	101  - $hWnd is not a handle
-	1021 - $vInter is invalid
-	1022 - Only 1, 1.5 and 2 line spacing can be set via "<n> lines"
-	103  - $iBefore is neither a positive number nor zero
-	104  - $iAfter is neither a positive number nor zero
+成功:	返回 True
+失败:	返回 False,设置@error
+@error:	101 - $hWnd 不是句柄
+	1021 - $vInter 无效
+	1022 - 只有 1, 1.5 与 2 可以通过 "
+	lines" 设置间距
+	103 - $iBefore 不是正数,也不是 0, 
+	104 - $iAfter 不是正数,也不是 0, 
 @@End@@
 
 ###Remarks###
-Only settings which are not defaulted are set
-
-To set "space units", call _GUICtrlRichEdit_SetSpaceUnit. Initially inches
+ 只是在需要使用非默认值时才设置
+ 调用 _GUICtrlRichEdit_SetSpaceUnit 函数设置 "空间单位". 最初为英寸
 
 ###Related###
 _GUICtrlRichEdit_GetParaSpacing, _GUICtrlRichEdit_SetSpaceUnit

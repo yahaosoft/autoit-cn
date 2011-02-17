@@ -2,7 +2,7 @@
 _GUICtrlSlider_GetTicPos
 
 ###Description###
-Retrieves the current physical position of a tick mark
+检索刻度标记的当前物理位置
 
 ###Syntax###
 #Include <GuiSlider.au3>
@@ -11,25 +11,23 @@ _GUICtrlSlider_GetTicPos($hWnd, $iTic)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iTic
-	Zero-based index identifying a tick mark. The positions of the first and last tick
-		marks are not directly available via this message.
+	刻度标记的 0 基索引.
+		不能直接通过这个消息息得到第一个和最后一个刻度位置.
 @@End@@
 
 ###ReturnValue###
-Success: The following values for type of slider:
-
-	horizontal - The x-coordinate of the tick mark
-	vertical - The y-coordinate of the tick mark
-Failure: -1
+@@ReturnTable@@
+成功:	返回滑块的以下类型值
+	刻度标记水平 X 坐标
+	刻度标记水平 Y 坐标
+失败:	返回 -1
+@@End@@
 
 ###Remarks###
-Because the first and last tick marks are not available through this function, valid indexes are offset
-from their tick position on the slider. If the difference between _GUICtrlSlider_GetRangeMin and
-_GUICtrlSlider_GetRangeMax is less than two, then there is no valid index and this message will fail.
-
-###Related###
+ 因为不能直接通过这个消息息得到第一个和最后一个刻度位置, 所以有效索引值为滑块刻度位置的偏移.
+ 如果 _GUICtrlSlider_GetRangeMin 与 _GUICtrlSlider_GetRangeMax 两者之间的区别小于2, 则没有有效的索引,这个消息将失败.
 
 ###Example###
 @@IncludeExample@@

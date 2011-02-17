@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_SetSel
 
 ###Description###
-Sets the low and high character position of a selection
+设置选择字符的高、低位置
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,31 +11,30 @@ _GUICtrlRichEdit_SetSel($hWnd, $iAnchor, $iActive[, $fHideSel = False])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iAnchor
-	the character position of the first character to select
-		Special value: -1 - end of text
+	第一个选中字符的位置
+		特别值: -1 - 文本尾端
 $iActive
-	the character position of the last character to select
-		Special value: -1 - end of text
+	最后一个选中字符的位置
+		特别值: -1 - 文本尾端
 $fHideSel
-	[optional] True to hide the selection
+	[可选参数] True, 隐藏选择(标记)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and sets @error
-@error:	101 - $hWnd is not a handle
-	102 - $iAnchor is neither a positive number nor zero nor -1
-	103 - $iActive is neither a positive number nor zero nor -1
-	104 - $fHideSel must be True or False
+成功:	返回 True
+失败:	返回 False设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $iAnchor 不是正数,也不是 0, 也不是 -1
+	103 - $iActive 不是正数,也不是 0, 也不是 -1
+	104 - $fHideSel 必须是 True 或 False
 @@End@@
 
 ###Remarks###
-The first character of the text in a control is at character position 1
-
-$iActive can be less than $iAnchor
+ 控件文本的第一字符位置为 1
+ $iActive 可以低于 $iAnchor
 
 ###Related###
 _GUICtrlRichEdit_GetSel, _GUICtrlRichEdit_GetSelAA, _GUICtrlRichEdit_Deselect, _GUICtrlRichEdit_IsTextSelected, _GUICtrlRichEdit_GotoCharPos

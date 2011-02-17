@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_GetLineLength
 
 ###Description###
-Retrieves the length of a line
+检索行的字符长度
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,27 +11,26 @@ _GUICtrlRichEdit_GetLineLength($hWnd, $iLine)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to control
+	控件句柄
 $iLine
-	line number
-		Special value: -1 - return number of unselected characters on lines containing selected characters
+	行号
+		特别值: -1 - 返回值包含所选字符行的未选字符
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Multi-line control - Length of the line (in characters)
-	Single-line control - number of characters in the control
-Failure:	0 and sets @error
-@error:	101 - $hWnd is not a handle
-	102 - $iLine is neither positive nor -1
-	1022 - $iLine is greater than number of characters in the control
+成功:	多行控件:返回行的字符长度
+	单行控件:返回控件中的字符数
+失败:	返回 0,设置@error:	
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $iLine 既不是正数也不是 -1
+	1022 - $iLine 大于控件的行数
 @@End@@
 
 ###Remarks###
-A control that contains no text has one line
-The first inter-character position in a control is 0.
-
-The result does not include carriage-return characters at the end of the line.
+ 不包含任何文本的控件会有一行.
+ 控件字符区间的第一个位置为 0.
+ 结果不包括在该行末尾的回车.
 
 ###Related###
 

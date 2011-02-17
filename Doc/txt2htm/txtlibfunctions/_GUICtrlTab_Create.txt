@@ -22,47 +22,45 @@ $iHeight
 	[可选参数] 控件高度
 $iStyle
 	[可选参数] 控件样式:
-		$TCS_BOTTOM - Tabs appear at the bottom of the control
-		$TCS_BUTTONS - Tabs appear as buttons, and no border is drawn around the display area
-		$TCS_FIXEDWIDTH - All tabs are the same width
-		$TCS_FLATBUTTONS - Selected tabs appear as being indented into the background while other tabs appear
-		as being on the same plane as the background. This only affects tab controls with the $TCS_BUTTONS style.
-		$TCS_FOCUSNEVER - The control does not receive the input focus when clicked
-		$TCS_FOCUSONBUTTONDOWN - The control receives the input focus when clicked
-		$TCS_FORCEICONLEFT - Icons are aligned with the left edge of each fixed width tab. This style can only be
-		used with the $TCS_FIXEDWIDTH style.
-		$TCS_FORCELABELLEFT - Labels are aligned on the left edge of each fixed width tab. The label is displayed
-		immediately to the right of the icon instead of being centered. This style can only be used with the
-		$TCS_FIXEDWIDTH style and it implies the $TCS_FORCEICONLEFT style.
-		$TCS_HOTTRACK - Items under the pointer are automatically highlighted. You can check whether or not
-		hot tracking is enabled by calling SystemParametersInfo.
-		$TCS_MULTILINE - Multiple rows of tabs are displayed, if necessary, so all tabs are visible at once
-		$TCS_MULTISELECT - Multiple tabs can be selected by holding down the CTRL key when clicking. This style
-		must be used with the $TCS_BUTTONS style.
-		$TCS_OWNERDRAWFIXED - The parent window is responsible for drawing tabs
-		$TCS_RAGGEDRIGHT - Rows of tabs will not be stretched to fill the entire width of the control. This
-		style is the default.
-		$TCS_RIGHT - Tabs appear vertically on the right side of controls that use the $TCS_VERTICAL
-		style. This value equals $TCS_BOTTOM. This style is not supported if you use visual styles.
-		$TCS_RIGHTJUSTIFY - The width of each tab is increased, if necessary, so that each row of tabs fills the
-		entire width of the tab control. This style is ignored unless the $TCS_MULTILINE style is also specified.
-		$TCS_SCROLLOPPOSITE - Unneeded tabs scroll to the opposite side of the control when a tab is selected
-		$TCS_SINGLELINE - Only one row of tabs is displayed. The user can scroll to see more tabs, if
-		necessary. This style is the default.
-		$TCS_TABS - Tabs appear as tabs, and a border is drawn around the display area. This style is
-		the default.
-		$TCS_TOOLTIPS - The tab control has a ToolTip control associated with it
-		$TCS_VERTICAL - Tabs appear at the left side of the control with tab text displayed vertically. This
-		style is valid only when used with the $TCS_MULTILINE style. To make tabs appear on the right side of the
-		control, also use the $TCS_RIGHT style.
-
-		Default: $TCS_HOTTRACK
-		Forced: $WS_CHILD, $WS_CLIPSIBLINGS, $WS_VISIBLE
+		$TCS_BOTTOM - 标签显示在控件底部
+		$TCS_BUTTONS - 标签显示为按钮,绘制区域周围没有边界
+		$TCS_FIXEDWIDTH - 所有标签的宽度相等
+		$TCS_FLATBUTTONS - 标签选中时显示为凹下,而其它未选标签处于同一平面.
+		必须与 $TCS_BUTTONS 样式共同使用才能达到此效果.
+		$TCS_FOCUSNEVER - 点击时控件不接收输入焦点
+		$TCS_FOCUSONBUTTONDOWN - 点击时控件接收输入焦点
+		$TCS_FORCEICONLEFT - 图标与固定宽度的标签左对齐
+		需与 $TCS_FIXEDWIDTH 样式配合使用.
+		$TCS_FORCELABELLEFT - 文本与固定宽度的标签左对齐,
+		图标显示在中心,	图标显示在中心而不右边
+		需与 $TCS_FIXEDWIDTH 样式配合使用, 
+		且隐含有 $TCS_FORCEICONLEFT 样式效果.
+		$TCS_HOTTRACK - 指针下的项自动高亮,
+		通过调用 SystemParametersInfo,可以检查是否启用热跟踪.
+		$TCS_MULTILINE - 显示多行标签,如有需要,所有标签立即可见
+		$TCS_MULTISELECT - 按住 Ctrl 键时单击可以选择多个标签.
+		必须与 $TCS_BUTTONS 样式配合使用.
+		$TCS_OWNERDRAWFIXED - 父窗口负责绘制标签
+		$TCS_RAGGEDRIGHT - 标签行将不会拉伸以填补控件的整个宽度.这是默认样式.
+		$TCS_RIGHT - 标签垂直显示在使用 $TCS_VERTICAL 样式的控件右侧
+		此样式等同于 $TCS_BOTTOM. 这种样式不支持使用视觉样式.
+		$TCS_RIGHTJUSTIFY - 标签宽度将拉伸以填补控件的整个宽度
+		必须与 $TCS_MULTILINE 样式配合使用,否则该样式将被忽略.
+		$TCS_SCROLLOPPOSITE - 当一个标签被选中时,不需要的标签滚动到控件另一侧
+		$TCS_SINGLELINE - 只显示一个标签行,
+		如有必要,通过滚动可以看到更多的标签.这是默认样式.
+		$TCS_TABS - 制表符显示为标签,并在周围绘制显示边框.这是默认样式.
+		$TCS_TOOLTIPS - 标签具有与其关联的工具提示控件
+		$TCS_VERTICAL - 标签显示在控件左侧,标签文本垂直显示
+		必须与 $TCS_MULTILINE 样式配合使用.
+		要使标签出现在控件右侧, 请使用 $TCS_RIGHT 样式.
+	[可选参数] 默认 : $TCS_HOTTRACK
+		强制 : $WS_CHILD, $WS_CLIPSIBLINGS, $WS_VISIBLE
 $iExStyle
 	[可选参数] 控件扩展样式:
-		$TCS_EX_FLATSEPARATORS - The control will draw separators between the tab items
-		$TCS_EX_REGISTERDROP - The control generates $TCN_GETOBJECT notification messages to request a drop target
-		object when an object is dragged over the tab items.
+		$TCS_EX_FLATSEPARATORS - 控件标签项目之间将绘制分隔符
+		$TCS_EX_REGISTERDROP - 当一个对象被拖到标签项目,
+		控件生成 $TCN_GETOBJECT 通知消息,以请求放置目标对象.
 @@End@@
 
 ###ReturnValue###
@@ -72,7 +70,7 @@ $iExStyle
 @@End@@
 
 ###Remarks###
-This function is for Advanced users and for learning how the control works.
+ 此功能为高级用户学习如何控制工程.
 
 ###Related###
 _GUICtrlTab_Destroy

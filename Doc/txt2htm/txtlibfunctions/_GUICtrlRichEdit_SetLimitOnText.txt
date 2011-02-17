@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_SetLimitOnText
 
 ###Description###
-Change number of characters that can be typed, pasted or streamed in as Rich Text Format
+修改可以键入的字符数,粘贴或将流(streamed)作为 Rich 文本格式
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,28 +11,25 @@ _GUICtrlRichEdit_SetLimitOnText($hWnd, $iNewLimit)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iNewLimit
-	new limit
+	新的限制
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and sets @error
-@error:	101 - $hWnd is not a handle
-	102 - $iNewLimit is neither a positive number nor zero
+成功:	返回 True
+失败:	返回 False设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $iNewLimit 既不是正数或零, 
 @@End@@
 
 ###Remarks###
-This function sets the limit on the number of characters a user can type in or paste into a control.
-
-It also limits the number of characters of RTF text that can be streamed in using
-_GUICtrlRichEdit_StreamFromFile and _GUICtrlRichEdit_StreamFromVar.
-
-It does not limit the amount of plain text that can be streamed in.
-
-The initial limit is 32,767 characters.
+ 函数为控件设置用户可键入或粘贴的字符数量.
+ 这也限制了对 RTF 格式文本的字符数,以及可以由流使用的
+ _GUICtrlRichEdit_StreamFromFile and _GUICtrlRichEdit_StreamFromVar.
+ 它不限制流中的纯文本数量.
+ 初始限额为 32,767 个字符.
 
 ###Related###
 _GUICtrlRichEdit_StreamToFile, _GUICtrlRichEdit_StreamToVar

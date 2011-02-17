@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_GetParaTabStops
 
 ###Description###
-Gets the tabstops of (first) selected paragraph or (if no selection) of the current paragraph
+获取(第一)选中段落;或者没有选择时的当前段落的制表位
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -16,32 +16,33 @@ $hWnd
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	A string consisting of values separated by ; (semicolons).
-	value 1 - number of tabstops
-	values 2 to <value 1> + 1 - description of a tabstop:
-	 absolute position of a tab stop (in space units)
-	 kind of tab
-	   l - left tab
-	   c - center tab
-	   r - decimal tab
-	   b - bar tab (a vertical bar, as in Word)
-	 kind of dot leader
-	   . - dotted leader
-	   - - dashed leader
-	   _ - underline leader
-	   = - double line leader
-	   t - thick-line leader
-	   a space - no leader
-	Value <value 1> + 2 - scope:
-	   a - all (or only) selected paragraphs have these settings
-	   f - the first selected paragraph has these settings, but other(s) don't
-	   c - the current paragraph has these settings
-Failure:	"" and sets @error
-@error:	101 - $hWnd is not a handle
+成功:	返回由分号(;)分隔的字符串值:
+	值 1 - 制表符数量
+	值 2 到 
+	+ 1 - 制表符描述:
+	制表位的绝对位置 (空间单位)
+	制表符类别
+	l - 左制表符
+	c - 居中制表符
+	r - 小数制表符
+	b - 分栏制表符(在 Word 中为一竖线)
+	圆点头标类型
+	. - 点头标
+	- - 短划头标
+	_ - 下划线头标
+	= - 重叠线头标
+	t - 粗线头标
+	空格 - 没有头标
+	值 + 2 - 范围:
+	a - 所有（或使用的）选定的段落进行这些设置
+	f - 第一选定使用这些设置,但其它不使用
+	c - 当前段落使用这些设置
+失败:	返回 "" ,设置@error:	
+@error:	101 - $hWnd 参数值不是句柄
 @@End@@
 
 ###Remarks###
-To enter a tab into a control, press Ctrl_Tab
+ 要输入一个标签控件,点击 Ctrl+Tab 组合键
 
 ###Related###
 _GUICtrlRichEdit_SetParaTabStops

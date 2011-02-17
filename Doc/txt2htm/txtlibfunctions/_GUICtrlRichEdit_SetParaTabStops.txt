@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_SetParaTabStops
 
 ###Description###
-Sets tab stops of paragraphs having selected text or, if none selected, sets it for text inserted at the insertion point
+设置(第一)当前选择(或没有选择时的插入点所在段落)的制表位
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,42 +11,40 @@ _GUICtrlRichEdit_SetParaTabStops($hWnd, $sTabStops)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $sTabStops
-	A string consisting of groups separated by ; (semicolon). Format of a group:
-		 absolute position of a tab stop (in space units)
-		 kind of tab
-		   l - left tab
-		   c - center tab
-		   r - decimal tab
-		   b - bar tab
-		 kind of dot leader
-		   . - dotted leader
-		   - - dashed leader
-		   _ - underline leader
-		   = - double line leader
-		   t - thick-line leader
-		   a space - no leader
+	由(;)分隔的字符串. 格式为:
+		制表位的绝对位置 (空间单位)
+		制表符类别
+		l - 左制表符
+		c - 居中制表符
+		r - 小数制表符
+		b - bar tab
+		圆点头标类型
+		. - 点头标
+		- - 短划头标
+		_ - 下划线头标
+		= - 重叠线头标
+		t - 粗线头标
+		空格 - 没有头标
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and sets @error
-@error:	101 - $hWnd is not a handle
-	1021 - absolute position of a tab stop missing or invalid
-	1022 - kind of tab missing or invalid
-	1023 - kind of tab leader missing or invalid
-	1024 - attempt to set too many tab stops
-	   @extended contains the tab number (ref 1) in $sTabStops where the error occurred.
+成功:	返回 True
+失败:	返回 False设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	1021 - 制表位的绝对位置缺少或无效
+	1022 - 制表符类别缺少或无效
+	1023 - 制表符类别头标缺少或无效
+	1024 - 尝试设置的制表位太多
+	@extended 包含 $sTabStops 发生错误的标签号码（参考备注 1）.
 @@End@@
 
 ###Remarks###
-To reset the tab stops, do _GUICtrlRichEdit_SetParaTabStops($hWnd, "")
-
-To set "space units", call _GUICtrlRichEdit_SetSpaceUnit. Initially inches
-
-To enter a tab into a control, press Ctrl_Tab
+ 要重置制表位,请调用 _GUICtrlRichEdit_SetParaTabStops($hWnd, "")
+ 调用 _GUICtrlRichEdit_SetSpaceUnit 函数设置 "空间单位". 最初为英寸
+ 要输入一个标签控件,点击 Ctrl+Tab 组合键
 
 ###Related###
 _GUICtrlRichEdit_GetParaTabStops, _GUICtrlRichEdit_SetSpaceUnit, _GUICtrlRichEdit_SetTabStops

@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_SetModified
 
 ###Description###
-Sets or clears the modification flag
+设置或清除修改标志
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,28 +11,25 @@ _GUICtrlRichEdit_SetModified($hWnd, $fState = True)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $fState
-	Specifies the new value for the modification flag:
-		 True - Indicates that the text has been modified (default)
-		False - Indicates it has not been modified.
+	指定标志的修改新值:
+		True - 文本已被修改（默认）
+		False - 没有修改.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and sets @error
-@error:	101 - $hWnd is not a handle
-	102 - $fState must be True or False
+成功:	返回 True
+失败:	返回 False设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $fState 必须是 True 或 False
 @@End@@
 
 ###Remarks###
-The system automatically sets the modification flag to False when the control is created.
-If the control's text is changed, either by the user or programmatically, the system sets the flag to True
-Call _GUICtrlRichEdit_IsModified to retrieve the current state of the flag.
-
-###Related###
-_GUICtrlRichEdit_IsModified
+ 控件创建时,系统自动设置修改标志为 False.
+ 如果文本被用户或编程修改时,系统设置修改标志为 True.
+ 调用 _GUICtrlRichEdit_IsModified 检索标志的当前状态.
 
 ###See Also###
 @@MsdnLink@@ $EM_SETMODIFY

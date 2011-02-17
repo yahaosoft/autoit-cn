@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_SetParaIndents
 
 ###Description###
-Sets indents of paragraph(s) in the current selection or, if no selection, of paragraphs inserted at the insertion point
+设置(第一)当前选择(或没有选择时的插入点所在段落)的缩进
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,39 +11,38 @@ _GUICtrlRichEdit_SetParaIndents($hWnd [, $vLeft = Default [, $iRight = Default [
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $vLeft
-	[optional] indentation of left side of the body of the paragraph (in space units)
-		 absolute - a number
-		 relative to previous - a string - "+<number>" or "-<number>"
+	[可选参数] 段落的左边缩进 (空间单位)
+		绝对值 - 数字
+		相对于以前位置 - 字符 - "+
+		" 或 "-
+		"
 $iRight
-	[optional] indentation of right side of the paragraph (in space units)
+	[可选参数] 段落的右侧缩进 (空间单位)
 $iFirstLine
-	[optional] indentation of the first line relative to other lines (in space units)
+	[可选参数] 第一行的缩进相对于其它行（空间单位）
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and set @error
-@error:	101 - $hWnd is not a handle
-	1021 - $vLeft is neither a number nor a string consisting of a number
-	1022 - $vLeft would start body of paragrpah to left of client area
-	103 - $iRight is not a number
-	105 - $iFirstLine is not a number
-	200 - First line would be outdented beyond the client area
-	700 - Operation failed
+成功:	返回 True
+失败:	返回 False,设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	1021 - $vLeft 既不是一个数字,也不是一个数字组成的字符串
+	1022 - $vLeft 开始段落的主要部分在客户区左侧
+	103 - $iRight 不是一个数字
+	105 - $iFirstLine 不是一个数字
+	200 - 第一行凸出超出客户区
+	700 - 操作失败
 @@End@@
 
 ###Remarks###
-Postive values of $iLeft, $iRight and $iFirstLine indent towards the center of the paragraph
-
-All three values are initially zero.
-
-To set "space units", call _GUICtrlRichEdit_SetSpaceUnit. Initially inches
-
-If text is selected, the defaults are the values of the first paragraph with text selected.
-If none is selected, the defaults are the values of the current paragraph.
+ $iLeft 的整数值, $iRight 与 $iFirstLine 向段落中心缩进
+ 所有三个值的最初为 零.
+ 调用 _GUICtrlRichEdit_SetSpaceUnit 函数设置 "空间单位". 最初为英寸
+ 如果文本被选中,默认为第一选定段落的文本值.
+ 如果没有选中,默认为当前段落的值.
 
 ###Related###
 _GUICtrlRichEdit_GetParaIndents, _GUICtrlRichEdit_SetSpaceUnit

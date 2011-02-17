@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_GetFont
 
 ###Description###
-Gets the font attributes of a selection or, if no selection, at the insertion point
+获取选定字体的属性,如果没有选择,则获取插入点的字体属性
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,33 +11,49 @@ _GUICtrlRichEdit_GetFont($hWnd)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	an array containing values:
-	[0] - point size
-	   0 if sizes are mixed in selection
-	[1] - the name of the font
-	   "" if fonts are mixed in selection
-	[2] - the character set
-	   $ANSI_CHARSET - 0
-	   $BALTIC_CHARSET - 186
-	   $CHINESEBIG5_CHARSET - 136
-	   $EASTEUROPE_CHARSET - 238
-	   $GB2312_CHARSET - 134
-	   $GREEK_CHARSET - 161
-	   $HANGEUL_CHARSET - 129
-	   $MAC_CHARSET - 77
-	   $OEM_CHARSET - 255
-	   $RUSSIAN_CHARSET - 204
-	   $SHIFTJIS_CHARSET - 128
-	   $SYMBOL_CHARSET - 2
-	   $TURKISH_CHARSET - 162
-	   $VIETNAMESE_CHARSET - 163
-Failure:	sets @error
-@error:	101 - $hWnd is not a handle
+成功:	返回如下格式的数组:
+	[0] - 磅值(注:1 磅=1/72 英寸)
+	
+	如果选区内的字号是混合的,则返回 0
+	[1] - 字体名称
+	
+	如果选区内的字题是混合的,则返回 ""
+	[2] - 字符集
+	
+	$ANSI_CHARSET - 0
+	
+	$BALTIC_CHARSET - 186
+	
+	$CHINESEBIG5_CHARSET - 136
+	
+	$EASTEUROPE_CHARSET - 238
+	
+	$GB2312_CHARSET - 134
+	
+	$GREEK_CHARSET - 161
+	
+	$HANGEUL_CHARSET - 129
+	
+	$MAC_CHARSET - 77
+	
+	$OEM_CHARSET - 255
+	
+	$RUSSIAN_CHARSET - 204
+	
+	$SHIFTJIS_CHARSET - 128
+	
+	$SYMBOL_CHARSET - 2
+	
+	$TURKISH_CHARSET - 162
+	
+	$VIETNAMESE_CHARSET - 163
+失败:	设置@error:	
+@error:	101 - $hWnd 参数值不是句柄
 @@End@@
 
 ###Remarks###

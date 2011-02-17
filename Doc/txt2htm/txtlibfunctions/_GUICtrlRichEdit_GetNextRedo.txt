@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_GetNextRedo
 
 ###Description###
-Retrieves the name or type ID of the next possible redo action
+检索下一个可能的"重做"动作名称或类型 ID
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,23 +11,23 @@ _GUICtrlRichEdit_GetNextRedo($hWnd, $fName = True)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $fName
-	True (return name, default) or False (return ID number)
+	设置 True,返回名称(默认);设置 False,返回 ID.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	depends on value of $fName:
-	If $fName is True: "Unknown", "Typing", "Delete", "Drag and drop", "Cut" or "Paste"
-	If $Name is False: the corresponding number (0 to 5)
-Failure:	"" and sets @error
-@error:	101 - $hWnd is not a handle
-	102 - $fName is neither True nor False
+成功:	返回值依赖 $fName 的设置:
+	如 $fName 设置为 True, 则返回:"Unknown", "Typing", "Delete", "Drag and drop", "Cut" 或 "Paste"
+	如 $Name 设置为 False, 则返回相应的数字:0 到 5
+失败:	返回 "" ,设置@error:	
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $fName 既不是 True, 也不是 False
 @@End@@
 
 ###Remarks###
-Note that EM_GETREDONAME does not distinguish between Unknown and redo queue empty
+ 请注意, EM_GETREDONAME 不区分 Unknown 和空的重做队列
 
 ###Related###
 _GUICtrlRichEdit_Redo, _GUICtrlRichEdit_Undo, _GUICtrlRichEdit_SetUndoLimit

@@ -2,7 +2,7 @@
 _GUICtrlMenu_GetMenuBarInfo
 
 ###Description###
-Retrieves information about the specified menu bar
+检索指定菜单栏的信息
 
 ###Syntax###
 #Include <GuiMenu.au3>
@@ -11,29 +11,29 @@ _GUICtrlMenu_GetMenuBarInfo($hWnd[, $iItem = 0[, $iObject = 1]])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window whose information is to be retrieved
+	检索信息的窗口句柄
 $iItem
-	[optional] Specifies the item for which to retrieve information. If 0, the function retrieves information
-		about the menu itself. If 1, the function retrieves information about the first item on the menu, and so on.
+	[可选参数] 检索项目信息的范围.
+		如为 0, 函数检索有关菜单本身的信息;如为 1,函数检索有关菜单的第一个项目信息.
 $iObject
-	[optional] Specifies the menu object:
-		0 - The popup menu associated with the window
-		1 - The menu bar associated with the window
-		2 - The system menu associated with the window
+	[可选参数] 指定菜单对象:
+		0 - 与窗口关联的弹出菜单
+		1 - 与窗口关联的菜单栏
+		2 - 与窗口关联的系统菜单
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	[0] - X coordinate of the upper left corner of the rectangle
-	[1] - Y coordinate of the upper left corner of the rectangle
-	[2] - X coordinate of the lower right corner of the rectangle
-	[3] - Y coordinate of the lower right corner of the rectangle
-	[4] - Handle to the menu bar or popup menu
-	[5] - Handle to the submenu
-	[6] - True if the menu bar has focus, otherwise False
-	[7] - True if the menu item has focus, otherwise False
-Failure:	set @error
+成功:	返回以下格式的数组:
+	[0] - 矩形的左上角 X 坐标
+	[1] - 矩形的左上角 Y 坐标
+	[2] - 矩形的右下角 X 坐标
+	[3] - 矩形的右下角 Y 坐标
+	[4] - 菜单栏或弹出菜单的句柄
+	[5] - 子菜单的句柄
+	[6] - True, 菜单栏有焦点,否则返回 False
+	[7] - True, 菜单项有焦点,否则返回 False
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###

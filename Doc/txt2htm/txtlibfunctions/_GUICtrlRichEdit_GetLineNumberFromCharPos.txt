@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_GetLineNumberFromCharPos
 
 ###Description###
-Retrieves the line number on which an inter-character position is found
+检索字符区间位置的行数
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,27 +11,25 @@ _GUICtrlRichEdit_GetLineNumberFromCharPos($hWnd, $iCharPos)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to control
+	控件句柄
 $iCharPos
-	Inter-character position
+	字符区间位置
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Line number (one-based)
-Failure:	0 and sets @error
-@error:	101 - $hWnd is not a handle
-	102 - $iCharPos is not a positive number
+成功:	返回基于 1 的行数
+失败:	返回 0,设置@error:	
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $iCharPos 参数值不是正数
 @@End@@
 
 ###Remarks###
-A control that contains no text has one line
-The first inter-character position in a control is 0.
-
-The first line is line 1.
-
-If $iCharPos is negative or more than the number of characters in the control,
-returns the number of lines in the control
+ 不包含任何文本的控件会有一行.
+ 控件字符区间的第一个位置为 0.
+ 第一行是 1 号行.
+ 如果 $iCharPos 为负,或大于控件中的字符数,
+ 则返回控件的行数.
 
 ###Related###
 

@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_SetCharAttributes
 
 ###Description###
-Turns an attribute on or off for selected text or, if none selected, for text inserted at the insertion point
+打开或关闭选定文本,(或者没有选择时,则取插入点的文本) 的属性
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,51 +11,51 @@ _GUICtrlRichEdit_SetCharAttributes($hWnd, $sStatesAndEffects [, $fWord = False])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $sStatesAndEffects
-	a string consisting of three character groups: + (or -) for the state, and a two-letter abbreviation for the attribute
-		   first character: + for on, - for off
-		   second and third character: any of:
-		      bo - bold
-		      di - disable - displays characters with a shadow [nd]
-		      em - emboss [nd]
-		      hi - hide, i.e. don't display
-		      im - imprint [nd]
-		      it - italcize
-		      li - send EN_LINK messages when mouse is over text with this attribute
-		      ou - outline [nd]
-		      pr - send EN_PROTECT when user attempts to modify
-		      re - mark as revised [nd]
-		      sh - shadow [nd]
-		      sm - small capital letters [nd]
-		      st - strike out
-		      sb - subscript [nd]
-		      sp - superscript [nd]
-		      un - underline
+	三个字符的字符串组: + (or -) 为状态, 另两个字符为属性单词的缩写
+		第一个: + 为打开, - 为关闭
+		第二和第三个字符::
+		bo - 粗体
+		di - 禁用 - 显示字符的阴影 [nd]
+		em - 凸起 [nd]
+		hi - 隐藏, 即不显示
+		im - 印记 [nd]
+		it - 斜体
+		li - 鼠标在该属性的文本上时,发送 EN_LINK 消息
+		ou - 摘要 [nd]
+		pr - 试图修改时,发送 EN_PROTECT 消息
+		re - 标记为经过修订的 [nd]
+		sh - 阴影 [nd]
+		sm - 小体大写字母 [nd]
+		st - 删除的
+		sb - 注脚 [nd]
+		sp - 上标 [nd]
+		un - 下划线
 $fWord
-	[optional] True
-		   If text is selected, apply the attribute to whole words in the selected text
-		   If not:
-		      If the insertion point is in a word, or at the end of it, apply the attribute to the word
-		      If not, apply the attribute to text inserted at the insertion point
-		 False (Default)
-		   If text is selected, apply the attribute to the selected text
-		   If not, apply the attribute to text inserted at the insertion point
+	[可选参数] True
+		如果文本被选中,则所选文本全部应用属性
+		如果没有选的文本:
+		如果插入点在一个单词中, 或在其结尾处, 对该单词应用属性
+		如果不是, 对插入点处插入的文本应用属性
+		False (Default)
+		如果文本被选中,属性应用到选定的文本
+		如果不是, 对插入点处插入的文本应用属性
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and set @error
-@error:	101 - $hWnd is not a handle
-	1021 - length of $sStatesAndAtts is not multiple of 3
-	1022 - first character of group not + or -. The character is in @extended
-	1023 - an abbreviation for an attribute is invalid. It is in @extended
-	103 - $fWord must be True or False
+成功:	返回 True
+失败:	返回 False,设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	1021 - $sStatesAndAtts(此参数名与参数表中不同) 长度不是 3 的倍数
+	1022 - 字符组第一个字符不是 + 或 -. 字符在 @extended
+	1023 - 属性缩写无效. 它在 @extended
+	103 - $fWord 必须是 True 或 False
 @@End@@
 
 ###Remarks###
-Some attributes do not display; they are marked with [nd] above.
+ 一些属性不显示;它们已在上面的描述中以 [nd] 标记.
 
 ###Related###
 _GUICtrlRichEdit_GetCharAttributes

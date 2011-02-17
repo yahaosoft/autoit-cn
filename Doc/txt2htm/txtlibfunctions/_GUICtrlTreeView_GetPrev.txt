@@ -2,7 +2,7 @@
 _GUICtrlTreeView_GetPrev
 
 ###Description###
-Retrieves the previous item before the calling item
+检索调用项目的上一个项目
 
 ###Syntax###
 #Include <GuiTreeView.au3>
@@ -11,22 +11,21 @@ _GUICtrlTreeView_GetPrev($hWnd, $hItem)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $hItem
-	Handle to the item
+	项目句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Handle of the previous item
-Failure:	0
+成功:	返回上一项目句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-If the calling item is the first item _GUICtrlTreeView_GetPrev returns 0, otherwise it will return the previous
-item including items that aren't visible and child items. To get the previous item at the same level as the
-calling item use _GUICtrlTreeView_GetPrevChild. To get the previous visible item, use
-_GUICtrlTreeView_GetPrevVisible.
+ 如果调用项目是第一项, 本函数返回 0, 否则返回上一个项目及其子项目,(包括不可见的)
+ 要获取调用项目同级别的项目,使用 _GUICtrlTreeView_GetPrevChild 函数.
+ 要使上一项目可见,使用 _GUICtrlTreeView_GetPrevVisible 函数.
 
 ###Related###
 _GUICtrlTreeView_GetNext, _GUICtrlTreeView_GetPrevChild, _GUICtrlTreeView_GetPrevVisible

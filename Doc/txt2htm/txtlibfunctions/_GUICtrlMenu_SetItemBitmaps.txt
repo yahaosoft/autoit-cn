@@ -2,7 +2,7 @@
 _GUICtrlMenu_SetItemBitmaps
 
 ###Description###
-Associates the specified bitmap with a menu item
+关联指定位图与一个菜单项
 
 ###Syntax###
 #Include <GuiMenu.au3>
@@ -11,29 +11,28 @@ _GUICtrlMenu_SetItemBitmaps($hMenu, $iItem, $hChecked, $hUnChecked[, $fByPos = T
 ###Parameters###
 @@ParamTable@@
 $hMenu
-	Menu handle
+	菜单句柄
 $iItem
-	Identifier or position of the menu item
+	菜单项的标识符或位置,由 $fByPos 参数决定.
 $hChecked
-	Handle to the bitmap displayed when the menu item is selected
+	显示菜单项被选中的位图句柄
 $hUnChecked
-	Handle to the bitmap displayed when the menu item is not selected
+	显示菜单项未选中的位图句柄
 $fByPos
-	[optional] Menu identifier flag:
-		 True - $iItem is a zero based item position
-		False - $iItem is a menu item identifier
+	[可选参数] 菜单识别标志:
+		True - $iItem 为项目的 0 基位置
+		False - $iItem 为菜单项的标识符
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-If either the hBitmapUnchecked or hBitmapChecked parameter is 0, the system displays nothing next to the menu
-item for the corresponding check state. If both parameters are 0, the system displays the default check mark
-bitmap when the item is selected, and removes the bitmap when the item is not selected.
+ 如果任一 hBitmapUnchecked 或 hBitmapChecked 参数为 0, 系统不会显示菜单项的相应选择状态.
+ 如果这两个参数都是 0,项目选中时,系统会显示默认复选标记位图,并删除该项目的未选中位图.
 
 ###Related###
 _GUICtrlMenu_SetItemBmpChecked, _GUICtrlMenu_SetItemBmpUnchecked

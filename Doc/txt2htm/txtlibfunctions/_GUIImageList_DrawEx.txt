@@ -2,7 +2,7 @@
 _GUIImageList_DrawEx
 
 ###Description###
-Draws an image list item in the specified device context
+在指定的设备环境中绘制图像列表项目
 
 ###Syntax###
 #Include <GuiImageList.au3>
@@ -11,35 +11,35 @@ _GUIImageList_DrawEx($hWnd, $iIndex, $hDC, $iX, $iY[, $iDX = 0[, $iDY = 0[, $iRG
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iIndex
-	Zero based index of the image to draw
+	绘制图像的 0 基索引
 $hDC
-	Handle to the destination device context
+	目标设备环境句柄
 $iX
-	X coordinate where the image will be drawn
+	图像绘制位置的 X 坐标
 $iY
-	Y coordinate where the image will be drawn
+	图像绘制位置的 Y 坐标
 $iDX
-	[optional] The width of the portion of the image to draw relative to the upper-left corner of the image.
-		If $iDX and $iDY are zero, the function draws the entire image. The function does not ensure that the parameters are valid.
+	[可选参数] 图像的绘制宽度.(相对于图像左上角).
+		如 $iDX 与 $iDY 为 0, 函数绘制整个图像. 函数不保证该参数是有效的.
 $iDY
-	[optional] The height of the portion of the image to draw, relative to the upper-left corner of the image.
-		If $iDX and $iDY are zero, the function draws the entire image. The function does not ensure that the parameters are valid.
+	[可选参数] 图像的绘制高度(相对于图像左上角).
+		如 $iDX 与 $iDY 为 0, 函数绘制整个图像. 函数不保证该参数是有效的.
 $iRGBBk
-	[optional] The background color of the image. This parameter can be an application-defined RGB value or one of the following values:
-		$CLR_NONE - No background color. The image is drawn transparently.
-		$CLR_DEFAULT - The default background color. The image is drawn using the background color of the image list.
+	[可选参数] 图像的背景颜色. 参数可以是应用程序定义的 RGB 值或以下值之一:
+		返回 $CLR_NONE - 无背景颜色.绘制透明图像.
+		$CLR_DEFAULT - 默认背景颜色.使用图像列表的背景颜色.
 $iRGBFg
-	[optional] The foreground color of the image. This parameter can be an application-defined RGB value or one of the following values:
-		$CLR_NONE - No blend color. The image is blended with the color of the destination device context.
-		$CLR_DEFAULT - The default foreground color. The image is drawn using the system highlight color as the foreground color.
+	[可选参数] 图像的前景颜色.参数可以是应用程序定义的 RGB 值或以下值之一:
+		返回 $CLR_NONE - 没有混合色.图像与目标设备环境的颜色混合.
+		$CLR_DEFAULT - 默认前景色.使用系统高亮颜色作为前景色.
 $iStyle
-	[optional] Drawing style and overlay image:
-		1 - Draws the image transparently using the mask, regardless of the background color
-		2 - Draws the image, blending 25 percent with the system highlight color
-		4 - Draws the image, blending 50 percent with the system highlight color
-		8 - Draws the mask
+	[可选参数] 绘制样式和覆盖图像:
+		1 - 使用透明蒙板,不涉及背景颜色
+		2 - 混合系统高亮颜色 25%
+		4 - 混合系统高亮颜色 50%
+		8 - 绘制蒙板
 @@End@@
 
 ###ReturnValue###

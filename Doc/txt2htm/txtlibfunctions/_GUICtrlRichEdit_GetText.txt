@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_GetText
 
 ###Description###
-Get all of the text in the control
+获取控件中的全部文本
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,34 +11,33 @@ _GUICtrlRichEdit_GetText($hWnd [, $fCrToCrLf = False [, $iCodePage = 0 [, $sRepl
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to control
+	控件句柄
 $fCrToCrLf
-	[optional] Convert each CR to a CrLf
-		True - do it
-		 don't (Default)
+	[可选参数] 是否每个 CR 转换为 CRLF
+		True - 是
+		False - 否(默认)
 $iCodePage
-	[optional] code page used in translation
-		Default: use system default
-		CP_ACP for ANSI, 1200 for Unicode
+	[可选参数] 用于转换的代码页
+		默认 : 使用系统默认
+		CP_ACP 位 ANSI 代码页, 1200 为 Unicode 代码页
 $sReplChar
-	[optional] Character used if $iCodePage is not 1200 and a wide character cannot be represented in
-		specified code page
+	[可选参数] 如果 $iCodePage 不是 1200,
+		且宽字符无法以指定代码页代替时,指定使用的字符
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	the text
-Failure:	"" and sets @error:
-@error:	101 - $hWnd is not a handle
-	102 - $fCrToCrLf must be True or False
-	103 - $iCodePage is not a number
-	700 - internal error
+成功:	返回文本
+失败:	返回 "" ,设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $fCrToCrLf 必须是 True 或 False
+	103 - $iCodePage 不是一个数字
+	700 - 内部错误
 @@End@@
 
 ###Remarks###
-On success, if $sReplChar set, @extended contains whether this character was used
-
-Call _GUICtrlRichEdit_IsModified() to determine whether the text has changed
+ 成功时, 如果设置了 $sReplChar, @extended 包含字符是否被使用
+ 调用 _GUICtrlRichEdit_IsModified() 确定文本是否发生了变化
 
 ###Related###
 _GUICtrlRichEdit_SetText, _GUICtrlRichEdit_AppendText, _GUICtrlRichEdit_InsertText, _GUICtrlRichEdit_IsModified

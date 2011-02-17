@@ -2,7 +2,7 @@
 _GUICtrlMenu_RemoveMenu
 
 ###Description###
-Deletes a menu item or detaches a submenu from the specified menu
+从指定菜单删除菜单项或分离子菜单
 
 ###Syntax###
 #Include <GuiMenu.au3>
@@ -11,25 +11,24 @@ _GUICtrlMenu_RemoveMenu($hMenu, $iItem[, $fByPos = True])
 ###Parameters###
 @@ParamTable@@
 $hMenu
-	Handle to the menu to be changed
+	进行更改的菜单句柄
 $iItem
-	Identifier or position of the menu item
+	菜单项的标识符或位置,由 $fByPos 参数决定.
 $fByPos
-	[optional] Menu identifier flag:
-		 True - $iItem is a zero based item position
-		False - $iItem is a menu item identifier
+	[可选参数] 菜单识别标志:
+		True - $iItem 为项目的 0 基位置
+		False - $iItem 为菜单项的标识符
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	True
-失败:	False
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-If the menu item opens a drop down menu or submenu, _GUICtrlMenu_RemoveMenu does not destroy the menu or its handle,
-allowing the menu to be reused. Before this function is called, the _GUICtrlMenu_GetItemSubMenu function should be
-used retrieve a handle to the drop-down menu or submenu.
+ 如果菜单项打开一个下拉菜单或子菜单,本函数不破坏菜单或句柄,允许菜单被重用.
+ 在函数调用前,应该用 _GUICtrlMenu_GetItemSubMenu 函数检索下拉式菜单或子菜单句柄.
 
 ###Related###
 _GUICtrlMenu_GetItemSubMenu

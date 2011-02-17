@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_AutoDetectURL
 
 ###Description###
-Enables or disables automatic detection of URLS
+启用或禁用自动检测网址(URL)
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,30 +11,28 @@ _GUICtrlRichEdit_AutoDetectURL($hWnd, $fState)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $fState
-	True to detect URLs in text, False not to
+	设为 True, 则检测 URL 的文本, False 则不检测
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False, and sets @error
-@error:	101 - $hWnd is not a handle
-	102 - $fState is neither True nor False
-	700 - internal error, e.g. insufficient memory
+成功:	返回 True
+失败:	返回 False,设置@error:	
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $fState 参数值既不是 True 也不是 False 
+	700 - 内部错误, 例如:内存不足
 @@End@@
 
 ###Remarks###
-If enabled, any modified text is scanned for text that matches the format of a URL. It recognizes strings
-starting with the following as URLs: http:, file:, mailto:, ftp:, https:, gopher:, nntp:, prospero:,
-telnet:, news:, wais:. When a URL is detected, Windows sets the link attribute for all characters in the
-URL string, and highlights the string.
-
-When automatic URL detection is on and a URL is detected, Windows removes the link attribute of all
-characters that are not URLs.
-
-For notification to happen, call _GUICtrlRichEdit_SetEventMask with $ENM_LINK
+ 如果启用,任何修改的文本都作为扫描网址的匹配文本.
+ 并识别以下字符串开始的网址: 
+ http:, file:, mailto:, ftp:, https:, gopher:, nntp:, prospero:,telnet:, news:, wais:.
+ 当检测到一个 URL 时,Windows 设置 URL 字符串的所有字符连接属性,并高亮显示该字符串.
+ 当自动检测网址和已检测到网址时,
+ Windows 将删除没有网址的所有字符链接属性
+ 对于发生的通知,与 $ENM_LINK 一起调用 _GUICtrlRichEdit_SetEventMask $ENM_LINK
 
 ###Related###
 _GUICtrlRichEdit_SetEventMask

@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_GetParaBorder
 
 ###Description###
-Gets the border settings of (first) selected paragraph or (if no selection) of the current paragraph
+获取第一选中段落;或没有选择时的当前段落的边框设置
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,64 +11,63 @@ _GUICtrlRichEdit_GetParaBorder($hWnd)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	settings of first selected paragraph - a string consisting of values separated by semicolons (:):
-	Value 1	one or more of:
-	   l - left border
-	   r - right border
-	   t - top border
-	   b - bottom border
-	   i - inside border
-	   o - outside border
-	   or empty - no border
-	Value 2 - line style - one of:
-	   none - no line
-	   .75 - 3/4 point
-	   1.5 - 1 1/2 points
-	   2.25 - 2 1/4 points
-	   3 - 3 points
-	   4.5 - 4 1/2 points
-	   6 - 6 points
-	   .75d - 1/2 points, double
-	   1.5d - 1 1/2 points, double
-	   2.25d - 2 1/4 points, double
-	   .75g - 3/4 point grey
-	   .75gd - 3/4 point grey dashed
-	Value 3 - one of:
-	   aut - autocolor
-	   blk - black
-	   blu - blue
-	   cyn - cyan
-	   grn - green
-	   mag - magenta
-	   red - red
-	   yel - yellow
-	   whi - white
-	   dbl - dark blue
-	   dgn - dark green
-	   dmg - dark magenta
-	   drd - dark red
-	   dyl - dark yellow
-	   dgy - dark grey
-	   lgy - light grey
-	Value 4 - space between the border and the text (in space units)
-	Value 5 - scope:
-	   a - all (or only) selected paragraphs have these settings
-	   f - the first selected paragraph has these settings, but other(s) don't
-	   c - the current paragraph has these settings
-Failure:	"" and sets @error
-@error:	101 - $hWnd is not a handle
+成功:	设置第一选定段落 - 返回由分号 (:) 分隔的字符串值 :
+	值 1
+	一个或多个:
+	l - 左侧边框
+	r - 右侧边框
+	t - 顶端边框
+	b - 底部边框
+	i - 内侧边框 
+	o - 外侧边框
+	或空 - 没有边框
+	值 2 - 线条样式 - one of:
+	none - 没有线条
+	.75 - 3/4 磅
+	1.5 - 1 1/2 磅
+	2.25 - 2 1/4 磅
+	3 - 3 磅s
+	4.5 - 4 1/2 磅
+	6 - 6 磅s
+	.75d - 1/2 磅, 双精度型
+	1.5d - 1 1/2 磅, 双精度型
+	2.25d - 2 1/4 磅, 双精度型
+	.75g - 3/4 point grey
+	.75gd - 3/4 point 灰色虚线
+	值 3 - one of:
+	aut - 自动颜色
+	blk - 黑色
+	blu - 蓝色
+	cyn - 青色
+	grn - 绿色
+	mag - 紫色
+	red - 红色
+	yel - 黄色
+	whi - 白色
+	dbl - 深蓝
+	dgn - 深绿色
+	dmg - 深紫红色
+	drd - 暗红
+	dyl - 暗黄
+	dgy - 暗灰
+	lgy - 浅灰
+	值 4 - 边框与文本的间距（空间单位）
+	值 5 - 范围:
+	a - 所有（或使用的）选定段落使用这些设置
+	f - 第一选定使用这些设置,但其它则不使用
+	c - 当前段落使用这些设置
+失败:	返回 "" ,设置@error:	
+@error:	101 - $hWnd 参数值不是句柄
 @@End@@
 
 ###Remarks###
-Borders do not show in Rich Edit, but borders created here will show in Word
-
-###Related###
-_GUICtrlRichEdit_SetParaBorder
+ 边框不显示在 RichEdit 控件中,但在这里创建的边框将显示在 Word 中
+ (译注:实际运行后,在 Word 中没有看到边框)
 
 ###See Also###
 @@MsdnLink@@ EM_GETPARAFORMAT

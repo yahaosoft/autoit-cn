@@ -2,7 +2,7 @@
 _GUIImageList_Add
 
 ###Description###
-Adds an image or images to an image list
+添加图像到图像列表
 
 ###Syntax###
 #Include <GuiImageList.au3>
@@ -11,22 +11,22 @@ _GUIImageList_Add($hWnd, $hImage[, $hMask=0])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $hImage
-	Handle to the bitmap that contains the image or images. The number of images is inferred from the width of the bitmap.
+	包含图像的位图句柄,从位图宽度推断图像数量.
 $hMask
-	[optional] Handle to the bitmap that contains the mask
+	[可选参数] 包含蒙板的位图句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The index of the first new image
-Failure:	-1
+成功:	返回第一个图像的索引
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
-This function copies the bitmap to an internal data structure. Be sure to use the _WinAPI_DeleteObject function
-to delete hImage and hMask after the function returns.
+ 函数将位图拷贝到内部数据结构.
+ 函数返回后,一定要使用 _WinAPI_DeleteObject 函数删除 $hImage 和 $hMask.
 
 ###Related###
 _GUIImageList_AddMasked, _GUIImageList_AddBitmap, _GUIImageList_AddIcon

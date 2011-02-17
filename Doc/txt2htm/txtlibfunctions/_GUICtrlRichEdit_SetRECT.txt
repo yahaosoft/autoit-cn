@@ -2,7 +2,9 @@
 _GUICtrlRichEdit_SetRECT
 
 ###Description###
-Sets or clears the modification flag
+设置控件的格式化矩形 
+译注:原描述文字与 _GUICtrlRichEdit_SetModified 函数完全一样,
+参照 _GUICtrlRichEdit_GetRECT 函数汉化此函数的描述文字.
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,36 +13,36 @@ _GUICtrlRichEdit_SetRECT($hWnd [,$iLeft = Default [, $iTop = Default [, $iRight 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iLeft
-	[optional] Left position in dialog units
+	[可选参数] 对话框左侧位置
 $iTop
-	[optional] Top position in dialog units
+	[可选参数] 对话框顶部位置
 $iRight
-	[optional] Right position in dialog units
+	[可选参数] 话框右侧位置
 $iBottom
-	[optional] Bottom position in dialog unit
+	[可选参数] 对话框底部位置
 $bRedraw
-	[optional] True to force redraw
+	[可选参数] True, 则强制刷新
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and sets @error
-@error:	101 - $hWnd is not a handle
-	1021 - $iLeft is not a positive number
-	1022 - $iTop is not a positive number
-	1023 - $iRight is not a positive number
-	1024 - $iBottom is not a positive number
+成功:	返回 True
+失败:	返回 False设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	1021 - $iLeft 参数值不是正数
+	1022 - $iTop 参数值不是正数
+	1023 - $iRight 参数值不是正数
+	1024 - $iBottom 参数值不是正数
 	1025 - $iLeft >= $iRight
 	1026 - $iTop >= $iBottom
 @@End@@
 
 ###Remarks###
-The formatting rectangle is the area in which text is drawn, part of which may not be visible.
-Parameters default = no change to previous values
-If only $hWnd defined, formatting is reset as at creation time.
+ 格式化矩形是指绘制文本的区域,其中一部分可能不可见.
+ 参数的默认值 = 不改变先前值.
+ 如果只定义 $hWnd, 则被重置为创建时的状态.
 
 ###Related###
 _GUICtrlRichEdit_GetRECT

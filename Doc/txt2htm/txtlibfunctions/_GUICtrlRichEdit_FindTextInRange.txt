@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_FindTextInRange
 
 ###Description###
-Search for a text in a range of inter-character positions
+搜索字符区间范围内的文本
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,47 +11,47 @@ _GUICtrlRichEdit_FindTextInRange($hWnd, $sText [, $iStart = 0 [, $iEnd = -1 [, $
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $sText
-	Text to find
+	搜索的文本
 $iStart
-	[optional] Starting inter-character position of search
-		Default: beginning of control
+	[可选参数] 字符区间搜索的起始位置
+		默认 : 控件的起点
 $iEnd
-	[optional] Ending inter-character position of search
-		Default: end of control
+	[可选参数] 字符区间搜索的结束位置
+		默认 : 控件的结束点
 $fMatchCase
-	[optional] Search is case-sensitive
-		Default: case-insensitive
+	[可选参数] 是否区分大小写
+		默认 : 不区分大小写
 $fWholeWord
-	[optional] Search only for text as a whole word
-		Default: partial or full word
+	[可选参数] 搜索完整单词
+		默认 : 部分或全部字
 $iBehavior
-	[optional] Any BitOr combination of $FR_MATCHALEFHAMZA, $FR_MATCHDIAC and $FR_MATCHKASHIDA
-		Default: 0
+	[可选参数] 任何 BitOr 组合: $FR_MATCHALEFHAMZA, $FR_MATCHDIAC 与 $FR_MATCHKASHIDA
+		默认 : 0
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	an array[2] containing values
-	If target string found, range of inter-character positions containing the matching text, e.g. [45, 52]
-	If not found, [-1, -1]
-Failure:	0 and set @error
-@error:	101 - $hWnd is not a handle
+成功:	返回值在 array[2] 内
+	如果找到目标字符串, 返回匹配文本在字符区间范围内的位置值, 例如:[45, 52]
+	如果没有找到,则返回 [-1, -1]
+失败:	返回 0,设置@error:	
+@error:	101 - $hWnd 参数值不是句柄
 	102 - $sText = ""
-	103 - $iStart is neither a positive number nor zero nor -1
-	104 - $iEnd is neither a positive number nor zero nor -1
-	105 - $fMatchCase must be True or False
-	106 - $fwholeWord must be True or False
-	1071 - $iBehavior is not a number
-	1072 - $iBehavior is invalid
+	103 - $iStart 既不是正数或零, 也不是 -1
+	104 - $iEnd 既不是正数或零, 也不是 -1
+	105 - $fMatchCase 必须是 True 或 False
+	106 - $fwholeWord 必须是 True 或 False
+	1071 - $iBehavior 不是一个数字
+	1072 - $iBehavior 无效
 @@End@@
 
 ###Remarks###
-The inter-character position at the beginning of the control is 0.
-The default character range, 0 to -1, searches the whole text downwwards.
-Setting $iEnd to -1 searches down to the end of the control
-Setting $iStart to -1 searches up to the start of the control
+ 控件的起点为字符区间范围的 0 位置.
+ 默认字符范围,0 到 -1,搜索整个范围的文字.
+ 设置 $iEnd 为 -1,表示向下搜索到控件的尾部.
+ 设置 $iStart 为 -1,表示向上搜索到控件的起始位置.
 
 ###Related###
 _GUICtrlRichEdit_FindText

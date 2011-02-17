@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_SetEventMask
 
 ###Description###
-Specifies which notification messages are sent to the parent window
+发送通知消息到指定的父窗口
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,45 +11,53 @@ _GUICtrlRichEdit_SetEventMask($hWnd, $iEventMask)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iEventMask
-	BitOr combination of :
-		$ENM_CHANGE - Sends $EN_CHANGE notifications (user may have altered text)
-		$ENM_CORRECTTEXT - Sends $EN_CORRECTTEXT notifications (parent window can cancel correction of text)
-		$ENM_DRAGDROPDONE - Sends $EN_DRAGDROPDONE notifications (drag and drop operation completed)
-		$ENM_DROPFILES - Sends $EN_DROPFILES notifications (user is attempting to drop files into the control)
-		$ENM_KEYEVENTS - Sends $EN_MSGFILTER notifications for keyboard events
-		$ENM_LINK - Sends $EN_LINK notifications when the mouse pointer is over text having the link character
-		attribute set and when user clicks the mouse [2.0+]
-		$ENM_MOUSEEVENTS - Sends $EN_MSGFILTER notifications for mouse events to parent window
-		$ENM_OBJECTPOSITIONS - Sends $EN_OBJECTPOSITIONS notifications when the control reads in objects
-		$ENM_PROTECTED - Sends $EN_PROTECTED notifications when the user attempts to change characters having
-		the protected attribute set
-		$ENM_REQUESTRESIZE - Sends $EN_REQUESTRESIZE notifications that the control's contents are either smaller or
-		larger than the control's window size
-		$ENM_SCROLL - Sends $EN_HSCROLL and $EN_VSCROLL notifications when the user clicks the horizontal/vertical
-		scroll bar
-		$ENM_SCROLLEVENTS - Sends EN_MSGFILTER notifications for mouse wheel events
-		$ENM_SELCHANGE - Sends EN_SELCHANGE notifications when the current selection changes
-		$ENM_UPDATE - Sends EN_UPDATE notifications when a control is about to redraw itself
-		or
-		$ENM_NONE - Disables sending of notification messages to the parent window
+	BitOr 组合 :
+		$ENM_CHANGE - 发送 $EN_CHANGE 通知 
+		(用户可能已经改变了文本)
+		$ENM_CORRECTTEXT - 发送 $EN_CORRECTTEXT 通知
+		(父窗口可以取消文字修正)
+		$ENM_DRAGDROPDONE - 发送 $EN_DRAGDROPDONE 通知 
+		(拖放操作完成)
+		$ENM_DROPFILES - 发送 $EN_DROPFILES 通知 
+		(用户试图拖放文件夹到控件)
+		$ENM_KEYEVENTS - 发送 $EN_MSGFILTER 通知
+		(为键盘事件)
+		$ENM_LINK - 发送 $EN_LINK 通知
+		(当鼠标指针指向有链接属性的文字,且用户点击了该字符)[2.0+]
+		$ENM_MOUSEEVENTS - 发送 $EN_MSGFILTER 通知 
+		(为父窗口的鼠标事件)
+		$ENM_OBJECTPOSITIONS - 发送 $EN_OBJECTPOSITIONS 通知 
+		(当控件读取对象时)
+		$ENM_PROTECTED - 发送 $EN_PROTECTED 通知 
+		(当用户试图更改有保护属性的字符集时) 
+		$ENM_REQUESTRESIZE - 发送 $EN_REQUESTRESIZE 通知 
+		(当控件内容小于或大于控件的窗口大小时) 
+		$ENM_SCROLL - 发送 $EN_HSCROLL and $EN_VSCROLL 通知 
+		(当用户点击水平/垂直滚动条时) 
+		$ENM_SCROLLEVENTS - 发送 EN_MSGFILTER 通知 
+		(为鼠标滚轮事件)
+		$ENM_SELCHANGE - 发送 EN_SELCHANGE 通知
+		(当前选择发送变化时)
+		$ENM_UPDATE - 发送 EN_UPDATE 通知 
+		(当一个控件即将刷新自身时)
+		或
+		$ENM_NONE - 禁用发送通知消息到父窗口
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and sets @error
-@error:	101 - $hWnd is not a handle
-	102 - $iEventMask is not a number
+成功:	返回 True
+失败:	返回 False设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $iEventMask 不是一个数字
 @@End@@
 
 ###Remarks###
-The number in parentheses indicate which versions mask settings apply to.
-
-$ENM_IMECHANGE only applies to Asian-language versions of Windows
-
-$EN_UPDATE notifications are always sent except for when 4.0 is emulating 1.0
+ 括号中的数字表明适用设置的版本号.
+ $ENM_IMECHANGE 仅适用于 Windows 的亚洲语言版本
+ $EN_UPDATE 总是发送通知,除了 4.0 模仿 1.0
 
 ###Related###
 _GUICtrlRichEdit_AutoDetectURL

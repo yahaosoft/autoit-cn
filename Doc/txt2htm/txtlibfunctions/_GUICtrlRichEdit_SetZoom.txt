@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_SetZoom
 
 ###Description###
-Sets zoom level of the control
+设置控件缩放级别
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,24 +11,24 @@ _GUICtrlRichEdit_SetZoom($hWnd, $iPercent)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iPercent
-	percentage zoom
+	缩放比例
 		values: 100 and 200 to 6400
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and sets @error
-@error:	101 - $hWnd is not a handle
-	1021 - $iPercent is not a positive number
-	1022 - $iPercent neither 100 nor in the range 200 to 6400
+成功:	返回 True
+失败:	返回 False设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	1021 - $iPercent 参数值不是正数
+	1022 - $iPercent 既不是 100, 也不在 200 到 6400 范围内
 @@End@@
 
 ###Remarks###
-MSDN claims that EM_SETZOOM works from 1.56% (1/64) to 6400$ (64/1) but testing shows that
-it only works reliably for the values shown above
+ MSDN 声称 EM_SETZOOM 工作于 1.56% (1/64) 到 6400$ (64/1), 
+ 但测试表明,它仅适用上面显示的值
 
 ###Related###
 _GUICtrlRichEdit_GetZoom

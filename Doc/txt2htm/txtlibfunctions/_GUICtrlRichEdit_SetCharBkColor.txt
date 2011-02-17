@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_SetCharBkColor
 
 ###Description###
-Sets the background color of selected text or, if none selected, sets the background color of text inserted at the insertion point
+设置选定文本 (或没有选定时,设置插入点插入文本) 的背景颜色
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,21 +11,24 @@ _GUICtrlRichEdit_SetCharBkColor($hWnd [, $iColor])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iColor
-	[optional] one of the following:
-		a number - a COLORREF value
-		Default keyword - the system color (default)
+	[可选参数] 下列值:
+		一个数字 - COLORREF 值
+		关键字 Default - 系统颜色（默认）
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and set @error
-@error:	101 - $hWnd is not a handle
-	1021 - $vColor: not 2 semicolons
-	1022 - $vColor: value not 0 to 100
-	1023 - $vColor: invalid character
+成功:	返回 True
+失败:	返回 False,设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	1021 - $vColor:不是 2 分号 
+	(与参数表的参数名有异,不知何意!) 
+	1022 - $vColor:值不是 0 到 100 
+	(与参数表的参数名有异,不知何意!) 
+	1023 - $vColor:无效字符 
+	(与参数表的参数名有异,不知何意!) 
 @@End@@
 
 ###Remarks###

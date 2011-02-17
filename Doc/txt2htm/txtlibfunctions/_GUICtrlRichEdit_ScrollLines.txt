@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_ScrollLines
 
 ###Description###
-Scrolls the text down or up a number of lines
+滚动多行文本
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,26 +11,26 @@ _GUICtrlRichEdit_ScrollLines($hWnd, $iQlines)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iQlines
-	number of lines to scroll
+	滚动的行数
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and sets @error
-@error:	101 - $hWnd is not a handle
-	102 - $iQlines is not numeric
-	700 - attempt to scroll a single-line control
+成功:	返回 True
+失败:	返回 False设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $iQlines 不是数字
+	700 - 试图滚动一个只有行控件
 @@End@@
 
 ###Remarks###
-To scroll down, set $iQlines to a positive value; to scroll up, a negative value.
-
-_GUICtrlRichEdit_ScrollLines is well behaved: if $iQlines is more than the number of lines below
-the current line, it scrolls to show only the last line; if $iQlines is negative and specifies
-a line before the first one, it scrolls to show the first line at the top of the control window.
+ 向下滚动,设置 $iQlines为正值; 向上滚动,则设置为负值.
+ _GUICtrlRichEdit_ScrollLines 是规范的:
+ 如果 $iQlines 大于当前行行数,它滚动到显示的最后一行.
+ 如果 $iQlines 为负值,并指定为第一个行的前面行,
+ 它滚动到控件窗口显示在上方的第一行.
 
 ###Related###
 _GUICtrlRichEdit_ScrollLineOrPage, _GUICtrlRichEdit_ScrollToCaret

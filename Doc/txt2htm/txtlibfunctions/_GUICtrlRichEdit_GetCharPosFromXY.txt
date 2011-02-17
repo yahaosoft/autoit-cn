@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_GetCharPosFromXY
 
 ###Description###
-Gets inter-character position closest to a specified point in the client area
+获取最接近客户区指定点的字符区间位置
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,22 +11,22 @@ _GUICtrlRichEdit_GetCharPosFromXY($hWnd, $iX, $iY)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iX
-	horizontal screen coordinate relative to left side of control
+	相对于控件左侧的水平屏幕坐标
 $iY
-	vertical screen coordinate relative to top of control
+	相对于控件顶部的垂直屏幕坐标
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	one-based character index of the character nearest the specified point
-	(index of last character in the control if the specified point is beyond text)
-Failure:	0 and sets @error
-@error:	101 - $hWnd is not a handle
-	102 - $iX is not a number
-	103 - $iY is not a number
-	-1 - ($iX,$iY) outside client area
+成功:	返回最接近指定点的字符 0 基索引
+	(如果指定点在文字以外,则返回控件最后一个字符的索引)
+失败:	返回 0,设置@error:	
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $iX 不是一个数字
+	103 - $iY 不是一个数字
+	-1 - ($iX,$iY) 在客户区外部
 @@End@@
 
 ###Remarks###

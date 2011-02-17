@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_SetParaNumbering
 
 ###Description###
-Sets numbering of paragraph(s) in the current selection or, if no selection, of paragraph(s) inserted at the insertion point
+设置(第一)当前选择(或没有选择时的插入点所在段落)的编号方式
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,33 +11,33 @@ _GUICtrlRichEdit_SetParaNumbering($hWnd, $sStyle [, $iTextToNbrSpace = Default [
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $sStyle
-	a string specifying style and starting "number": e.g. "." (bullet), "1)","(b)", "C.", "iv", "V)"
-		   This is the "numbering" that will display for the first paragraph.
-		   Trailing spaces indicate the minimum spaces between the number and the paragraph unless iTextToNbrSpace is entered
-		   Special cases:
-		      "=" - This paragraph is an unnumbered paragraph within the preceding list element
-		       "" - removed the numbering from the selected paragraph(s)
+	指定编号字符的样式与开始的数字: 例如: "." (加重号), "1)","(b)", "C.", "iv", "V)"
+		为第一选定段落显示的编号.
+		段落与编号的间距为最小值,除非使用 $iTextToNbrSpace 的指定值
+		特殊情况:
+		"=" - 该段落前面有列表元素,为没有编号的段落
+		"" - 删除所选段落的编号
 $iTextToNbrSpace
-	[optional] space between number/bullet and paragraph (in space units)
-		Default: number of trailing spaces times point size
+	[可选参数] 编号的数字或符号与段落的间距 (空间单位)
+		默认 : 尾随空间数总是使用磅值大小(注:1 磅=1/72 英寸)大小
 $fForceRoman
-	[optional] False - i, v, x ... in $sStyle is letter i, v, x ... {Default)
+	[可选参数] False - i, v, x ... 在 $sStyle 中是字母 i, v, x ... {默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and set @error
-@error:	101 - $hWnd is not a handle
-	102 - $sStyle is invalid
-	103 - $iTextToNbrSpace is not a postive number
-	104 - $fForceRoman must be True or False
+成功:	返回 True
+失败:	返回 False,设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $sStyle 无效
+	103 - $iTextToNbrSpace 不是正数
+	104 - $fForceRoman 必须是 True 或 False
 @@End@@
 
 ###Remarks###
-To set "space units", call _GUICtrlRichEdit_SetSpaceUnit. Initially inches
+ 调用 _GUICtrlRichEdit_SetSpaceUnit 函数设置 "空间单位". 最初为英寸
 
 ###Related###
 _GUICtrlRichEdit_GetParaNumbering, _GUICtrlRichEdit_SetSpaceUnit

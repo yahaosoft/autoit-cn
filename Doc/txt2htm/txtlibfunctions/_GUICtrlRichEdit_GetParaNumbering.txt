@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_GetParaNumbering
 
 ###Description###
-Gets the numbering style of (first) selected paragraph or (if no selection) of the current paragraph
+获获取第一个选定段落; 或者没有选择时的当前段落的编号方式类型
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,26 +11,26 @@ _GUICtrlRichEdit_GetParaNumbering($hWnd)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	values separated by semicolons (;):
-	value 1 - a string showing the style and starting "number"
-	e.g. "." (bullet), "1)","(b)", "C.", "iv", "V)"
-	   Trailing spaces indicate the minimum spaces between the number and the paragraph
-	   Special cases:
-	      "=" - This paragraph is an unnumbered paragraph within the preceding list element
-	       "" - removed the numbering from the selected paragraph(s)
-	value 2 - If Roman numbers, "Roman" else ""
-	value 3 - space between number/bullet and paragraph (in space units)
-	Value 4 - scope:
-	   a - all (or only) selected paragraphs have these settings
-	   f - the first selected paragraph has these settings, but other(s) don't
-	   c - the current paragraph has these settings
-Failure:	"" and sets @error
-@error:	101 - $hWnd is not a handle
+成功:	返回由分号(;)分隔的值
+	值 1 - 字符串显示类型与启始“号码”
+	例如:"." (加重号), "1)","(b)", "C.", "iv", "V)"
+	段落尾部空间标志的最小间距数
+	特殊情况:
+	"=" - 这一段是在前面的列表未编号的段落元素
+	"" - 删除所选段落的号码
+	值 2 - 如果是罗马体数字, 则为 "Roman", 否则为 ""
+	值 3 - 段落间距数/项目符号 (空间单位)
+	值 4 - 范围:
+	a - 所有（或使用的）选定的段落进行这些设置
+	f - 第一选定使用这些设置,但其它不使用
+	c - 当前段落使用这些设置
+失败:	返回 "" ,设置@error:	
+@error:	101 - $hWnd 参数值不是句柄
 @@End@@
 
 ###Remarks###

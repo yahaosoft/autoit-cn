@@ -2,7 +2,7 @@
 _GUICtrlTreeView_GetVisibleCount
 
 ###Description###
-Returns the number of items that can be fully visible in the control
+检索控件中显示完全可见的项目最大数
 
 ###Syntax###
 #Include <GuiTreeView.au3>
@@ -11,17 +11,19 @@ _GUICtrlTreeView_GetVisibleCount($hWnd)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 @@End@@
 
 ###ReturnValue###
-Returns the Maximum number of items possibly visible in the control
+@@ReturnTable@@
+	返回控件显示可见项目的最大数
+@@End@@
 
 ###Remarks###
-The number of items that can be fully visible may be greater than the number of items in the control. The
-control calculates this value by dividing the height of the client window by the height of an item. Note that
-the return value is the number of items that can be fully visible. If you can see all of 20 items and part of
-one more item, the return value is 20 not 21.
+ 最大可见项目数可以大于控件现有项目数.
+ 最大值是控件计算客户端窗口高度除以一个项目高度的结果值.
+ 请注意,返回值是控件允许完全可见的项目数.(不是项目的实际数)
+ 如果你能看到项目 20 及其以后的一部分,返回值是 20,而不是 21
 
 ###Related###
 

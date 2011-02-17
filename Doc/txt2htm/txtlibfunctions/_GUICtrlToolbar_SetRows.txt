@@ -2,7 +2,7 @@
 _GUICtrlToolbar_SetRows
 
 ###Description###
-Sets the number of rows of buttons
+设置按钮行数
 
 ###Syntax###
 #Include <GuiToolBar.au3>
@@ -11,26 +11,28 @@ _GUICtrlToolbar_SetRows($hWnd, $iRows[, $fLarger = True])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iRows
-	Number of rows requested. The minimum number of rows is one, and the maximum number of rows is
-		equal to the total number of buttons.
+	要求的行数.最低行数为 1;
+		最大行数等于按钮总数.
 $fLarger
-	[optional] Flag that indicates whether to create more rows than requested when the system can not create
-		the number of rows specified by $iRows. If this parameter is True, the system creates more rows. If it is
-		False, the system creates fewer rows.
+	[可选参数] 当系统不能创建 $iRows 指定的行数时,指定是否创建多于请求值的行
+		如为 True,系统创建更多的行;
+		如为 False, 系统创造少于请求的行.
 @@End@@
 
 ###ReturnValue###
-Success: Array with the following format:
-		[0] - X coordinate of the upper left corner of the rectangle
-		[1] - Y coordinate of the upper left corner of the rectangle
-		[2] - X coordinate of the lower right corner of the rectangle
-		[3] - Y coordinate of the lower right corner of the rectangle
+@@ReturnTable@@
+成功:	返回数组的格式如下:
+	[0] - 矩形左上角 X 坐标
+	[1] - 矩形左上角 Y 坐标
+	[2] - 矩形右下角 X 坐标
+	[3] - 矩形右下角 Y 坐标
+@@End@@
 
 ###Remarks###
-Because the system does not break up button groups when setting the number of rows, the resulting number of
-rows might differ from the number requested.
+ 由于设定行数后,系统不会打破按钮组,
+ 因此,行的最终数可能不同于请求数
 
 ###Related###
 _GUICtrlToolbar_GetRows

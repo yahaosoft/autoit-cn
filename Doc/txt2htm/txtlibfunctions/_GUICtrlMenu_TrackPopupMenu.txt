@@ -21,19 +21,19 @@ $iY
 	[可选参数] 指定弹出快捷菜单位置的垂直坐标,如果为-1,
 		使用当前鼠标所在坐标.
 $iAlignX
-	[可选参数] Specifies how to position the menu horizontally:
-		0 - Center the menu horizontally relative to $iX
-		1 - Position the menu so that its left side is aligned with $iX
-		2 - Position the menu so that its right side is aligned with $iX
+	[可选参数] 指定如何定位菜单水平位置:
+		0 - 相对 $iX 值水平居中
+		1 - 相对 $iX 值的左侧
+		2 - 相对 $iX 值的右侧
 $iAlignY
-	[可选参数] Specifies how to position the menu vertically:
-		0 - Position the menu so that its bottom side is aligned with $iY
-		1 - Position the menu so that its top side is aligned with $iY
-		2 - Center the menu vertically relative to $iY
+	[可选参数] 指定如何定位菜单垂直位置:
+		0 - 菜单底部与 $iY 值一致
+		1 - 菜单顶部与 $iY 值一致
+		2 - 相对 $iY 值垂直居中
 $iNotify
-	[可选参数] Use to determine the selection withouta parent window:
-		1 - Do not send notification messages
-		2 - Return the menu item identifier of the user's selection
+	[可选参数] 使用无父窗口,以确定选择:
+		1 - 不发送通知消息
+		2 - 返回用户选择的菜单项标识符
 $iButtons
 	[可选参数] 鼠标选择状态:
 		0 - 用户只能使用鼠标左键选择菜单项目.
@@ -42,8 +42,10 @@ $iButtons
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	If $iNotify is set to 2, the return value is the menu item identifier of the item that the user selected. If the user cancels the menu without making a selection or if an error occurs, then the return value is zero. If $iNotify is not set to 2, the return value is 1.
-失败:	0
+成功:	如果 $iNotify 设置为 2, 则返回值是用户选择项目时的菜单项标识符;
+	如果用户取消或没有选择; 又或如果发生错误, 则返回值为 0;
+	如果 $inotify 未设置为2, 则返回值为 1.
+失败:	返回 0
 @@End@@
 
 ###Remarks###

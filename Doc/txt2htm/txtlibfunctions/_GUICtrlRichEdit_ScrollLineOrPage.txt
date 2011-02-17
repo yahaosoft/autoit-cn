@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_ScrollLineOrPage
 
 ###Description###
-Scrolls the text down or up a line or a page
+滚动一行或一页的文本
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,27 +11,27 @@ _GUICtrlRichEdit_ScrollLineOrPage($hWnd, $sAction)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $sAction
-	one of the following:
-		"ld" - line down
-		"lu" - line up
-		"pd" - page down
-		"pu" - page up
+	滚动类型:
+		"ld" - 到下一行
+		"lu" - 到上一行
+		"pd" - 到下一页
+		"pu" - 到上一页
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	the number of lines actually scrolled (positive if down)
-Failure:	0 and sets @error
-@error:	101 - $hWnd is not a handle
-	1021 - $sAction is not two characters
-	1022 - first character must be l or p
-	1023 - second character must be d or u
+成功:	返回实际滚动行数(正数表示向下)
+失败:	返回 0,设置@error
+@error:	101 - $hWnd 参数值不是句柄
+	1021 - $sAction 不是两个字符
+	1022 - 第一个字符必须是 l 或 p
+	1023 - 第二个字符必须是 d 或 u
 @@End@@
 
 ###Remarks###
-This function is well behaved: it never scrolls such that lines beyond the last one are shown.
+这个函数是规范的:它不会滚动到超越最后一个显示行.
 
 ###Related###
 _GUICtrlRichEdit_ScrollLines, _GUICtrlRichEdit_ScrollToCaret

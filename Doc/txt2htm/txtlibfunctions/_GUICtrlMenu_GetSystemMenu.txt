@@ -2,7 +2,7 @@
 _GUICtrlMenu_GetSystemMenu
 
 ###Description###
-Allows the application to access the window menu for copying and modifying
+允许应用程序访问、复制和修改窗口菜单
 
 ###Syntax###
 #Include <GuiMenu.au3>
@@ -11,26 +11,28 @@ _GUICtrlMenu_GetSystemMenu($hWnd[, $fRevert = False])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window that will own a copy of the window menu
+	拥有菜单的窗口句柄
 $fRevert
-	[optional] Specifies the action to be taken. If this parameter is False, the function returns a handle to
-		the copy of the window menu currently in use. The copy is initially identical to the window menu, but it can
-		be modified. If this parameter is True, the function resets the window menu back to the default state. The
-		previous window menu, if any, is destroyed.
+	[可选参数] 指定要采取的操作,如果此参数为 False,该函数返回当前复制的窗口菜单句柄
+		复制的副本与最初窗口菜单是相同的,但它可以被修改
+		如果这个参数为 True,函数复位窗口菜单返回到默认状态
+		如果窗口菜单有上级菜单,将被销毁.
 @@End@@
 
 ###ReturnValue###
-Returns If the $fRevert parameter is False, the return value is a handle to a copy of the window menu.
-	If the $fRevert parameter is True, the return value is 0.
+@@ReturnTable@@
+	如果 $fRevert 参数为 False, 则返回值是一个指向窗口菜单副本的句柄.
+	如果 $fRevert 参数为 True, 则返回值为 0.
+@@End@@
 
 ###Remarks###
-Any window that does not use the GetSystemMenu function to make its own copy of the window menu receives the
-standard window menu. The window menu initially contains items with various identifier values, such as
-$SC_CLOSE, $SC_MOVE, and $SC_SIZE. Menu items on the window menu send $WM_SYSCOMMAND messages. All predefined
-window menu items have identifier numbers greater than 0xF000. If an application adds commands to the window
-menu, it should use identifier numbers less than 0xF000. The system automatically grays items on the standard
-window menu, depending on the situation. The application can perform its own checking or graying by responding
-to the $WM_INITMENU message that is sent before any menu is displayed.
+ 对于任何窗口,不使用 GetSystemMenu 函数使窗口菜单副本接收标准窗口菜单.
+ 窗口菜单最初包含各种标识符的值,如 $SC_CLOSE, $SC_MOVE, 与 $SC_SIZE.
+ 窗口菜单的菜单项发送 $WM_SYSCOMMAND 消息.
+ 全部预定义窗口菜单项目标识符大于 0xF000.
+ 如果一个应用程序添加命令到窗口菜单,它使用的标识符数目应该小于 0xF000.
+ 系统对标准窗口菜单得自动灰显项目,视情况而定.
+ 应用程序可以通过回答 $WM_INITMENU 消息,在任何菜单显示前执行自己的检查或灰显.
 
 ###Related###
 

@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_SetParaAlignment
 
 ###Description###
-Sets alignment of paragraph(s) in the current selection or, if no selection, of paragraphs inserted at the insertion point
+设置当前选定段落 (或者没有选择时,设置插入点所在段落) 的对齐方式
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,26 +11,26 @@ _GUICtrlRichEdit_SetParaAlignment($hWnd, $sAlignment)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $sAlignment
-	values:
-		"l" - align with the left margin.
-		"r" - align with the right margin.
-		"c" - center between margins
-		"j" - justify between margins
-		"f" - justify between margins by only expanding spaces
+	值s:
+		"l" - 左边对齐.
+		"r" - 右边对齐.
+		"c" - 居中对齐
+		"j" - 两端对齐
+		"f" - 由扩展空格分散对齐
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False and sets @error
-@error:	101 - $hWnd is not a handle
+成功:	返回 True
+失败:	返回 False设置@error
+@error:	101 - $hWnd 参数值不是句柄
 	102 - invalid $sAlignment
 @@End@@
 
 ###Remarks###
-In Richedit 2.0, justify does not display
+ Richedit 2.0 不显示两端对齐
 
 ###Related###
 _GUICtrlRichEdit_GetParaAlignment

@@ -2,7 +2,7 @@
 _GUIImageList_AddMasked
 
 ###Description###
-Adds an image or images to an image list, generating a mask from the specified bitmap
+添加图像到图像列表, 生成指定位图的掩码
 
 ###Syntax###
 #Include <GuiImageList.au3>
@@ -11,24 +11,25 @@ _GUIImageList_AddMasked($hWnd, $hImage[, $iMask=0])
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $hImage
-	Handle to the bitmap that contains the image or images. The number of images is inferred from
-		the width of the bitmap.
+	包含图像的位图句柄,从位图宽度推断图像的数量 .
 $iMask
-	[optional] Color used to generate the mask. Each pixel of this color in the specified bitmap is changed to black, and the corresponding bit in the mask is set to 1.
+	[可选参数] 生成掩码的颜色.
+		位图中被指定的颜色像素将更改为黑色,并设置相应的掩码位为 1.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The index of the first new image
-Failure:	-1
+成功:	返回第一个图像的索引
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
-This function copies the bitmap to an internal data structure. Be sure to use the _WinAPI_DeleteObject function
-to delete hImage after the function returns. Bitmaps with color depth greater than 8 bpp are not supported.
-
+ 函数将位图拷贝到内部数据结构.
+ 函数返回后,一定要使用 _WinAPI_DeleteObject 函数删除 $hImage.
+ 不支持颜色深度大于 8 bpp 的位图.
+ 
 ###Related###
 _GUIImageList_Add
 

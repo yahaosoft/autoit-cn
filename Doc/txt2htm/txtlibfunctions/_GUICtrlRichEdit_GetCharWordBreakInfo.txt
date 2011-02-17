@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_GetCharWordBreakInfo
 
 ###Description###
-Gets inter-character position before the Previous word
+获取上一个单词之前的字符区间位置
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,30 +11,30 @@ _GUICtrlRichEdit_GetCharWordBreakInfo($hWnd, $iCp)
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $iCP
-	inter-character position to left of character of interest
+	上一个字符的字符区间位置
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	string consisting of comma-separated values:
-	value 1 - word-break flag(s):
-	  c - line may be broken after this character
-	  d - character is an end-of-word delimiter. Lines may be broken after delimiters
-	  w - character is white-space. (Trailing white-spaces are not included in line length.)
-	value 2 - character class: a number
-Failure:	"" and sets @error
-@error:	101 - $hWnd is not a handle
-	102 - $iCp is not a number
+成功:	返回用逗号分隔的字符串值:
+	值 1 - 字的断开标志:
+	c - 该字符后的行可能会被打断
+	d - 字符是结尾词定界符.行可能定界符后被打断
+	w - 字符是空白. (空白区不包含在行长度中.)
+	值 2 - 字符类别:一个数
+失败:	返回 "" ,设置@error:	
+@error:	101 - $hWnd 参数值不是句柄
+	102 - $iCp 不是一个数字
 @@End@@
 
 ###Remarks###
-Lines may be broken at delimiters or between characters od different classes.
-
-Character classes are defined in word-break procedures. The classes in the default
-procedure are: 0 = alphanumeric character, 1 = other printing character (except hyphen),
-2 = space, 3 = tab, 4 = hyphen or end-of-paragraph.
+ 行可能会打断或分隔不同类之间的字符.
+ 在文字中断程序中定义字符类别.
+ 程序中的默认类是:
+ 0 = 文字数字式字符, 1 = 其它印刷字符 (除了连字符),
+ 2 = 空格, 3 = 制表符, 4 = 连字符或段落结束.
 
 ###Related###
 _GUICtrlRichEdit_GetCharPosOfNextWord, _GUICtrlRichEdit_GetCharPosOfPreviousWord

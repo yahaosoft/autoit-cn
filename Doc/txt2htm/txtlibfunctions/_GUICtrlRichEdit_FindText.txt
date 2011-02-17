@@ -2,7 +2,7 @@
 _GUICtrlRichEdit_FindText
 
 ###Description###
-Search for a text starting at insertion point or at anchor point of selection
+搜索插入点或定位点的选择文本
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -11,34 +11,34 @@ _GUICtrlRichEdit_FindText($hWnd, $sText [, $fForward = True [, $fMatchCase = Fal
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	控件句柄
 $sText
-	Text to find
+	搜索的文本
 $fForward
-	[optional] Search direction
-		(Win 95: search is always forward)
+	[可选参数] 搜索方向
+		(Win 95: 总是向前搜索)
 $fMatchCase
-	[optional] Search is case-sensitive
-		Default: case-insensitive
+	[可选参数] 是否区分大小写
+		默认 : 不区分大小写
 $fWholeWord
-	[optional] Search only for text as a whole word
-		Default: partial or full word
+	[可选参数] 搜索完整单词
+		默认 : 部分或全部字
 $iBehavior
-	[optional] Any BitOr combination of $FR_MATCHALEFHAMZA, $FR_MATCHDIAC and $FR_MATCHKASHIDA
-		Default: 0
+	[可选参数] 任何 BitOr 组合: $FR_MATCHALEFHAMZA, $FR_MATCHDIAC 与 $FR_MATCHKASHIDA
+		默认 : 0
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	If found, inter-character position before start of matching text, else -1
-Failure:	-1 and sets @error
-@error:	101 - $hWnd is not a handle
+成功:	返回字符区间开始位置匹配的文本,否则返回 -1
+失败:	返回 -1,设置@error:	
+@error:	101 - $hWnd 参数值不是句柄
 	102 - $sText = ""
-	103 - $fForward is neither True nor False
-	104 - $fMatchCase is neither True nor False
-	105 - $fWholeWord is neither True nor False
-	1061 - $iBehavior is not a number
-	1062 - $iBehavior is invalid
+	103 - $fForward 既不是 True, 也不是 False
+	104 - $fMatchCase 既不是 True, 也不是 False
+	105 - $fWholeWord 既不是 True, 也不是 False
+	1061 - $iBehavior 不是一个数字
+	1062 - $iBehavior 无效
 @@End@@
 
 ###Remarks###
