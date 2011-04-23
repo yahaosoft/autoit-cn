@@ -1,35 +1,30 @@
-#Include <Constants.au3>
-#Include <WinAPIEx_3.1\WinAPIEx.au3>
+#Include <WinAPIEx.au3>
 
 Opt('MustDeclareVars', 1)
 
-;Global Const $PROCESS_QUERY_INFORMATION = 0x0400
-Global Const $PROCESS_QUERY_LIMITED_INFORMATION = 0x1000
+Global $PID, $hProcess
 
-Global $PID, $Name, $hProcess
-
-$PID = Run('cmd.exe /c exit 5', '', @SW_HIDE, $STDOUT_CHILD)
+; _WinAPI_CreateProcess() will be the best solution
+$PID = Run('cmd.exe /k')
 If Not $PID Then
 	Exit
 EndIf
 
-Switch @OSVersion
-	Case 'WIN_2000', 'WIN_2003', 'WIN_XP', 'WIN_XPe'
-		$hProcess = _WinAPI_OpenProcess($PROCESS_QUERY_INFORMATION, 0, $PID)
-	Case Else
-		$hProcess = _WinAPI_OpenProcess($PROCESS_QUERY_LIMITED_INFORMATION, 0, $PID)
-EndSwitch
+; Note, immediately open the process
+If _WinAPI_GetVersion() >= 6.0 Then
+	$hProcess = _WinAPI_OpenProcess(0x1000, 0, $PID) ; PROCESS_QUERY_LIMITED_INFORMATION
+Else
+	$hProcess = _WinAPI_OpenProcess(0x0400, 0, $PID) ; PROCESS_QUERY_INFORMATION
+EndIf
 If Not $hProcess Then
 	Exit
 EndIf
 
-$Name = _WinAPI_GetProcessName($PID)
+; Wait until the process exists, try enter "exit 6"
 While ProcessExists($PID)
 	Sleep(100)
 WEnd
 
-ConsoleWrite('Process: ' & $Name & @CR)
-ConsoleWrite('PID: ' & $PID & @CR)
 ConsoleWrite('Exit code: ' & _WinAPI_GetExitCodeProcess($hProcess) & @CR)
 
 _WinAPI_CloseHandle($hProcess)
