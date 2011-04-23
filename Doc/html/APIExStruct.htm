@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 	<title>数据结构常量</title>
@@ -51,35 +51,20 @@
 <tr><td>$tagEXTLOGPEN</td>
 <td>'dword PenStyle;dword Width;uint BrushStyle;dword Color;ulong_ptr Hatch;dword NumEntries' ; & 'dword StyleEntry[n];'</td>
 </tr>
+<tr><td bgcolor="#9999CC">$tagGUITHREADINFO</td>
+<td bgcolor="#9999CC">'dword Size;dword Flags;hwnd hWndActive;hwnd hWndFocus;hwnd hWndCapture;hwnd hWndMenuOwner;hwnd hWndMoveSize;hwnd hWndCaret;long rcCaret[4];'</td>
+</tr>
 <tr><td>$tagHW_PROFILE_INFO</td>
 <td>'dword DockInfo;wchar ProfileGuid[39];wchar ProfileName[80];'</td>
 </tr>
 <tr><td bgcolor="#9999CC">$tagICONINFO</td>
-<td bgcolor="#9999CC">'int Icon;dword xHotspot;dword yHotspot;ptr hMask;ptr hColor'</td>
+<td bgcolor="#9999CC">'int Icon;dword xHotspot;dword yHotspot;ptr hMask;ptr hColor;'</td>
+</tr>
+<tr><td>$tagICONINFOEX</td>
+<td>'dword Size;int Icon;dword xHotspot;dword yHotspot;ptr hMask;ptr hColor;ushort ResID;wchar ModName[260];wchar ResName[260];'</td>
 </tr>
 <tr><td>$tagIO_COUNTERS</td>
 <td>'uint64 ReadOperationCount;uint64 WriteOperationCount;uint64 OtherOperationCount;uint64 ReadTransferCount;uint64 WriteTransferCount;uint64 OtherTransferCount;'</td>
-</tr>
-<tr><td>$tagLOGBRUSH</td>
-<td>'uint Style;dword Color;ulong_ptr Hatch;'</td>
-</tr>
-<tr><td>$tagLOGPEN</td>
-<td>'uint Style;dword Width;dword Color;'</td>
-</tr>
-<tr><td>$tagLUID</td>
-<td>'dword LowPart;long HighPart;'</td>
-</tr>
-<tr><td>$tagMSGBOXPARAMS</td>
-<td>'uint Size;hwnd hOwner;ptr hInstance;int_ptr Text;int_ptr Caption;dword Style;int_ptr Icon;dword_ptr ContextHelpId;ptr MsgBoxCallback;dword LanguageId;'</td>
-</tr>
-<tr><td>$tagNOTIFYICONDATA</td>
-<td>'dword Size;hwnd hWnd;uint ID;uint Flags;uint CallbackMessage;ptr hIcon;wchar Tip[128];dword State;dword StateMask;wchar Info[256];uint Version;wchar InfoTitle[64];dword InfoFlags;'</td>
-</tr>
-<tr><td>$tagNOTIFYICONDATA_XP</td>
-<td>$tagNOTIFYICONDATA & 'uint GUID;'</td>
-</tr>
-<tr><td>$tagNOTIFYICONDATA_VISTA</td>
-<td>$tagNOTIFYICONDATA_XP & 'ptr hBalloonIcon;'</td>
 </tr>
 <tr><td>$tagJOBOBJECT_ASSOCIATE_COMPLETION_PORT</td>
 <td>'ulong_ptr CompletionKey;ptr CompletionPort;'</td>
@@ -110,6 +95,27 @@
 </tr>
 <tr><td>$tagJOBOBJECT_SECURITY_LIMIT_INFORMATION</td>
 <td>'dword SecurityLimitFlags;ptr JobToken;ptr SidsToDisable;ptr PrivilegesToDelete;ptr RestrictedSids;'</td>
+</tr>
+<tr><td>$tagLOGBRUSH</td>
+<td>'uint Style;dword Color;ulong_ptr Hatch;'</td>
+</tr>
+<tr><td>$tagLOGPEN</td>
+<td>'uint Style;dword Width;dword Color;'</td>
+</tr>
+<tr><td>$tagLUID</td>
+<td>'dword LowPart;long HighPart;'</td>
+</tr>
+<tr><td>$tagMSGBOXPARAMS</td>
+<td>'uint Size;hwnd hOwner;ptr hInstance;int_ptr Text;int_ptr Caption;dword Style;int_ptr Icon;dword_ptr ContextHelpId;ptr MsgBoxCallback;dword LanguageId;'</td>
+</tr>
+<tr><td>$tagNOTIFYICONDATA</td>
+<td>'dword Size;hwnd hWnd;uint ID;uint Flags;uint CallbackMessage;ptr hIcon;wchar Tip[128];dword State;dword StateMask;wchar Info[256];uint Version;wchar InfoTitle[64];dword InfoFlags;'</td>
+</tr>
+<tr><td>$tagNOTIFYICONDATA_XP</td>
+<td>$tagNOTIFYICONDATA & 'uint GUID;'</td>
+</tr>
+<tr><td>$tagNOTIFYICONDATA_VISTA</td>
+<td>$tagNOTIFYICONDATA_XP & 'ptr hBalloonIcon;'</td>
 </tr>
 <tr><td>$tagOSVERSIONINFO</td>
 <td>'dword OSVersionInfoSize;dword MajorVersion;dword MinorVersion;dword BuildNumber;dword PlatformId;wchar CSDVersion[128];'</td>
@@ -148,7 +154,7 @@
 <td bgcolor="#9999CC">'long tmHeight;long tmAscent;long tmDescent;long tmInternalLeading;long tmExternalLeading;long tmAveCharWidth;long tmMaxCharWidth;long tmWeight;long tmOverhang;long tmDigitizedAspectX;long tmDigitizedAspectY;wchar tmFirstChar;wchar tmLastChar;wchar tmDefaultChar;wchar tmBreakChar;byte tmItalic;byte tmUnderlined;byte tmStruckOut;byte tmPitchAndFamily;byte tmCharSet;'</td>
 </tr>
 <tr><td bgcolor="#9999CC">$tagOUTLINETEXTMETRIC</td>
-<td bgcolor="#9999CC">'uint otmSize;' & $tagTEXTMETRIC & 'byte otmFiller[4];' & $tagPANOSE & 'uint otmSelection;uint otmType;int otmCharSlopeRise;int otmCharSlopeRun;int otmItalicAngle;uint otmEMSquare;int otmAscent;int otmDescent;uint otmLineGap;uint otmCapEmHeight;uint otmXHeight;long otmFontBox[4];int otmMacAscent;int otmMacDescent;uint otmMacLineGap;uint otmMinimumPPEM;long otmSubscriptSize[2];long otmSubscriptOffset[2];long otmSuperscriptSize[2];long otmSuperscriptOffset[2];uint otmStrikeoutSize;int otmStrikeoutPosition;int otmUnderscoreSize;int otmUnderscorePosition;uint otmFamilyName;uint otmFaceName;uint otmStyleName;uint otmFullName;' ; & 'byte Data[n];'</td>
+<td bgcolor="#9999CC">'uint otmSize;' & $tagTEXTMETRIC & 'byte otmFiller[4];' & $tagPANOSE & 'uint otmSelection;uint otmType;int otmCharSlopeRise;int otmCharSlopeRun;int otmItalicAngle;uint otmEMSquare;int otmAscent;int otmDescent;uint otmLineGap;uint otmCapEmHeight;uint otmXHeight;long otmFontBox[4];int otmMacAscent;int otmMacDescent;uint otmMacLineGap;uint otmMinimumPPEM;long otmSubscriptSize[2];long otmSubscriptOffset[2];long otmSuperscriptSize[2];long otmSuperscriptOffset[2];uint otmStrikeoutSize;int otmStrikeoutPosition;int otmUnderscoreSize;int otmUnderscorePosition;uint_ptr otmFamilyName;uint_ptr otmFaceName;uint_ptr otmStyleName;uint_ptr otmFullName;' ; & 'byte Data[n];'</td>
 </tr>
 <tr><td>$tagVS_FIXEDFILEINFO</td>
 <td>'dword Signature;dword StrucVersion;dword FileVersionMS;dword FileVersionLS;dword ProductVersionMS;dword ProductVersionLS;dword FileFlagsMask;dword FileFlags;dword FileOS;dword FileType;dword FileSubtype;dword FileDateMS;dword FileDateLS;'</td>
