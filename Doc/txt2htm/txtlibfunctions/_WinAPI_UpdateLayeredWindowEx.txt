@@ -6,20 +6,24 @@ _WinAPI_UpdateLayeredWindowEx
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_UpdateLayeredWindowEx ( $hWnd, $hBitmap [, $iOpacity [, $fDelete]] )
+_WinAPI_UpdateLayeredWindowEx ( $hWnd, $hBitmap, $iX, $iY [, $iOpacity [, $fDelete]] )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
 	分层窗口句柄. 窗口创建时指定有 $WS_EX_LAYERED.
 $hBitmap
-	分层窗口中设置的位图句柄.
+	Handle to the bitmap that will be set in the layered window.
+$iX
+	The new position of the left side of the window.
+$iY
+	The new position of the top of the window.
 $iOpacity
 	[可选参数] 源位图 Alpha 透明度值.
 $fDelete
 	[可选参数] 更新窗口后是否删除位图,有效值:
-		1 - 函数成功后删除位图.
-		0 - 不删除, 当使用完位图你必须释放. (默认)
+		TRUE - 函数成功后删除位图.
+		FALSE - 不删除, 当使用完位图你必须释放. (默认)
 @@End@@
 
 ###ReturnValue###

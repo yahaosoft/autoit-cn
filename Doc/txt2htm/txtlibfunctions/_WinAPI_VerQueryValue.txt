@@ -13,37 +13,36 @@ _WinAPI_VerQueryValue ( $sFile [, $sValues] )
 $sFile
 	文件的名称.
 $sValues
-	[可选参数] 期望获取信息的字段名称.名称必须用一个“|”分隔.
+	[可选参数] 需要获取信息的字段名称.名称必须用一个"|"分隔.
 		 例如, "名称1|名称2|...|名称i". 如果某些字段不存在,
-		 相应的阵列元素是一个空字符串.
+		 相应的数组元素是一个空字符串.
 		 如果指定此参数为空,使用下列顺序保留名称(12个).
-		 "Comments" ------ 注释
-		 "CompanyName" -- 公司名称
-		 "FileDescription" -- 文件说明
-		 "FileVersion&quot; ------ 文件版本
-		 "InternalName" --- 内部名称
-		 "LegalCopyright" -- 法定版权副本
-		 "LegalTrademarks" - 法定商标
-		 "OriginalFilename" - 原始文件名
-		 "ProductName" --- 产品名称
-		 "ProductVersion" - 产品版本
-		 "PrivateBuild" ---- 私用编译 
-		 "SpecialBuild" ---- 专用编译
+	
+		 "Comments"		;注释
+		 "CompanyName"		;公司名称
+		 "FileDescription"	;文件说明
+		 "FileVersion"		;文件版本
+		 "InternalName"		;内部名称
+		 "LegalCopyright"	;法定版权副本
+		 "LegalTrademarks"	;法定商标
+		 "OriginalFilename"	;原始文件名
+		 "ProductName"		;产品名称
+		 "ProductVersion"	;产品版本
+		 "PrivateBuild"		;私用编译 
+		 "SpecialBuild"		;专用编译
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回参数 $sValues 指定值的字符串二维数组.
-	元素 [0][0] 包含了资源的语言数量.
-	数组尺寸（i）相等于指定参数 + 1 的值.
-	数组元素 [n][0] 包含语言标识符（LCID）.
-	[0][0] - 语言数量 (n)
-	[0][i] - 未使用
-	[1][0] - LCID
-	[1][i] - 值
-	[n][0] - LCID
-	[n][i] - 值
-失败:	返回 0,设置@error:标志为非 0 值.
+[0][0]	元素 [0][0] 包含了资源的语言数量.
+[0][i]	未试用
+[1][0]	LCID
+[1][i]	值
+[n][0]	LCID
+[n][i]	值
+失败:	返回 0,并设置@error标志为非 0.
 @@End@@
 
 ###Remarks###
