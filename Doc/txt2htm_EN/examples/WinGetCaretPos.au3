@@ -1,28 +1,21 @@
 $a = WinGetCaretPos()
-If Not @error Then 
-	ToolTip("第一个插入符坐标", $a[0], $a[1])
-	MouseMove($a[0],$a[1])
-EndIf
+If Not @error Then ToolTip("First Method Pos", $a[0], $a[1])
 sleep(2000)
 
 $b = _CaretPos()
-If Not @error Then 
-	ToolTip("第二个插入符坐标", $b[0], $b[1])
-	MouseMove($b[0],$b[1])
-EndIf
-
+If Not @error Then ToolTip("Second Method Pos", $b[0], $b[1])
 sleep(2000)
 
-; 得到 MDI 文本编辑器的一些可靠方法.
+; More reliable method to get caret coords in MDI text editors.
 Func _CaretPos()
 	Local $x_adjust =  5
 	Local $y_adjust = 40
 
-	Opt("CaretCoordMode", 0)              ;相对模式
-	Local $c = WinGetCaretPos()           ;相对插入符坐标
-	Local $w = WinGetPos("")              ;窗口坐标
-	Local $f = ControlGetFocus("","")     ;文本区域 "句柄"
-	Local $e = ControlGetPos("", "", $f)  ;文本区域坐标
+	Opt("CaretCoordMode", 0)              ;relative mode
+	Local $c = WinGetCaretPos()           ;relative caret coords
+	Local $w = WinGetPos("")              ;window's coords
+	Local $f = ControlGetFocus("","")     ;text region "handle"
+	Local $e = ControlGetPos("", "", $f)  ;text region coords
 
 	Local $t[2]
 	If IsArray($c) and IsArray($w) and IsArray($e) Then
