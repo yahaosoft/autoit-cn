@@ -1,0 +1,36 @@
+﻿###User Defined Function###
+_WinAPI_Create32BitHBITMAP
+
+###Description###
+Creates a 32 bits-per-pixel bitmap from the specified icon.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_Create32BitHBITMAP ( $hIcon [, $fDelete] )
+
+###Parameters###
+@@ParamTable@@
+$hIcon
+	Handle to the source icon.
+$fDelete
+	[可选参数] Specifies whether delete the icon after the function is successful, valid values:
+		TRUE    - Icon will be deleted if the function succeeds.
+		FALSE   - Don't delete, you must release the icon when you are finished using it. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the created bitmap.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+When you are finished using the bitmap, destroy it using the _WinAPI_DeleteObject() function.
+
+
+###See Also###
+None
+
+###Example###
+@@IncludeExample@@
+

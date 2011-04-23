@@ -1,0 +1,36 @@
+﻿###User Defined Function###
+_WinAPI_EndBufferedPaint
+
+###Description###
+Completes a buffered paint operation and frees the associated buffered paint handle.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_EndBufferedPaint ( $hBP [, $fUpdate] )
+
+###Parameters###
+@@ParamTable@@
+$hBP
+	Handle of the buffered paint context.
+$fUpdate
+	[可选参数] Specifies whether copy the buffer to the target DC, valid values:
+		TRUE    - The target DC will be updated from the buffer. (Default)
+		FALSE   - The target DC remains unchanged.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ EndBufferedPaint
+
+###Example###
+@@IncludeExample@@
+

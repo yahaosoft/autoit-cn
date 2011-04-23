@@ -1,0 +1,35 @@
+﻿###User Defined Function###
+_WinAPI_CreateDIB
+
+###Description###
+Creates an uncompressed device-independent bitmap (DIB).
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateDIB ( $iWidth, $iHeight [, $iBitsPerPel] )
+
+###Parameters###
+@@ParamTable@@
+$iWidth
+	The width of the bitmap, in pixels.
+$iHeight
+	The height of the bitmap, in pixels. If this value is positive, the bitmap is a bottom-up DIB
+	and its origin is the lower-left corner, otherwise, the bitmap is a top-down DIB and its origin
+	is the upper-left corner.
+$iBitsPerPel
+	[可选参数] Hhe number of bits that define each pixel and the maximum number of colors in the bitmap.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the DIB.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+When you are finished using the bitmap, destroy it using the _WinAPI_DeleteObject() function.
+
+
+###See Also###
+None
+

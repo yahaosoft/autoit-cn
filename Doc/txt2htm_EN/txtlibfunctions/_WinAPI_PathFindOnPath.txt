@@ -1,38 +1,39 @@
-###User Defined Function###
+﻿###User Defined Function###
 _WinAPI_PathFindOnPath
 
 ###Description###
-Searchs for a file in the default system paths
+Searches for a file.
 
 ###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_PathFindOnPath ( $szFile, $aExtraPaths="", $szPathDelimiter=@LF)
+#Include <WinAPIEx.au3>
+_WinAPI_PathFindOnPath ( $sFile [, $aDirs [, $iStart [, $iEnd]]] )
 
 ###Parameters###
 @@ParamTable@@
-$szFile
-	Filename to search for
-$aExtraPaths
-	Extra paths to check before any others.
-$szPathDelimiter
-	Delimiter used to split $aExtraPaths if it's an non-empty string (StringSplit with flag 2).
+$sFile
+	The file name for which to search.
+$aDirs
+	[可选参数] The array of directories to be searched first. If this parameter is not an array, function attempts to
+	find the file by searching standard directories such as System32 and the directories specified in
+	the PATH environment variable.
+$iStart
+	[可选参数] The index of array to start searching at.
+$iEnd
+	[可选参数] The index of array to stop searching at.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Full path of found file
-Failure:	Unchanged filename, @error=1
+Success	The fully qualified path.
+Failure	The original $sFile parameter and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-$aExtraPaths can contain a list of paths to be checked before any system defaults.
-It can be an array or a string. If the former, it shall not have a count in it's first element.
-If the latter, it will be split using $szPathDelimiter as the delimiter, that defaults to @LF.
+None
 
-###Related###
 
 ###See Also###
-@@MsdnLink@@ PathFindOnpath
+@@MsdnLink@@ PathFindOnPath
 
 ###Example###
 @@IncludeExample@@

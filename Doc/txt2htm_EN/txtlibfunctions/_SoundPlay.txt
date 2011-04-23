@@ -1,0 +1,38 @@
+###User Defined Function###
+_SoundPlay
+
+###Description###
+Play a sound file.
+
+###Syntax###
+#include <Sound.au3>
+_SoundPlay ( $aSnd_id [, $iWait ] )
+
+
+###Parameters###
+@@ParamTable@@
+$aSnd_id
+	Sound ID array as returned by _SoundOpen() or a file name
+$iWait
+	[optional] This flag determines if the script should wait for the sound to finish before continuing:
+	1 = wait until sound has finished
+	0 = continue script while sound is playing (default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	1
+Failure:	0 and set @error
+@error:	1 = Play Failed
+	2 = $iWait parameter is invalid
+	3 = Invalid Sound ID. Use return array from _SoundOpen() or a valid file name.
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_SoundPause, _SoundStop, _SoundSeek, _SoundOpen, _SoundResume
+
+###Example###
+@@IncludeExample@@

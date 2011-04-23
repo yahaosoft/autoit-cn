@@ -1,42 +1,44 @@
-###User Defined Function###
+﻿###User Defined Function###
 _WinAPI_SetLayeredWindowAttributes
 
 ###Description###
-Sets Layered Window Attributes
+Sets the opacity and transparency color key of a layered window.
 
 ###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_SetLayeredWindowAttributes($hWnd, $i_transcolor [, $Transparency = 255 [, $dwFlags = 0x03 [, $isColorRef = False]]])
+#Include <WinAPIEx.au3>
+_WinAPI_SetLayeredWindowAttributes ( $hWnd, $iRGB, $iAlpha, $iFlags )
 
 ###Parameters###
 @@ParamTable@@
-$hwnd
-	Handle of GUI to work on
-$i_transcolor
-	Transparent color
-$Transparency
-	[optional] Set Transparancy of GUI
-$dwFlags
-	[optional] Flags.
-$isColorRef
-	[optional] If True, $i_transcolor is a COLORREF( 0x00bbggrr ), else an RGB-Color
+$hWnd
+	Handle to the layered window.
+$iRGB
+	The transparency color key (in RGB) to be used when composing the layered window. All pixels painted
+	by the window in this color will be transparent.
+$iAlpha
+	Alpha value used to describe the opacity of the layered window. When this parameter is 0, the window
+	is completely transparent. When this parameter is 255, the window is opaque.
+$iFlags
+	This parameter specifies an action to take, and can be one or more of the following values.
+	
+	$LWA_COLORKEY
+	$LWA_ALPHA
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	1
-Failure:	0
-@error:	4 - Function did not succeed - @extended is set to _WinAPI_GetLastErrorMessage to get more information
+Success	1
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-None.
+None
 
-###Related###
-_WinAPI_GetLayeredWindowAttributes, _WinAPI_GetLastError
 
 ###See Also###
 @@MsdnLink@@ SetLayeredWindowAttributes
 
 ###Example###
 @@IncludeExample@@
+

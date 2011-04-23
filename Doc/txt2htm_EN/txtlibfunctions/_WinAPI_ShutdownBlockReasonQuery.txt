@@ -1,0 +1,35 @@
+﻿###User Defined Function###
+_WinAPI_ShutdownBlockReasonQuery
+
+###Description###
+Retrieves the reason string set by the _WinAPI_ShutdownBlockReasonCreate() function.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ShutdownBlockReasonQuery ( $hWnd )
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the main window of the application.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The reason string.
+Failure	Empty string and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function can only be called from the thread that created the window specified by the $hWnd parameter,
+otherwise, the function fails and the last error code is ERROR_ACCESS_DENIED (5).
+
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ ShutdownBlockReasonQuery
+
+###Example###
+@@IncludeExample@@
+

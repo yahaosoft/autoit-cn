@@ -1,0 +1,51 @@
+﻿###User Defined Function###
+_WinAPI_GetThemeBitmap
+
+###Description###
+Retrieves the bitmap associated with a particular theme, part, state, and property.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetThemeBitmap ( $hTheme, $iPartId, $iStateId, $iPropId [, $iFlag] )
+
+###Parameters###
+@@ParamTable@@
+$hTheme
+	Handle to a window's specified theme data.
+$iPartId
+	The part that contains the bitmap.
+$iStateId
+	The state of the part.
+$iPropId
+	The property to retrieve. Set this parameter to 0 to automatically select the first available bitmap
+	for this part and state, or use one of the following values.
+	
+	$TMT_DIBDATA
+	$TMT_GLYPHDIBDATA
+	$TMT_HBITMAP
+	
+$iFlag
+	[可选参数] This parameter can be one of the following values.
+	
+	$GBF_DIRECT
+	$GBF_COPY
+	$GBF_VALIDBITS
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the requested bitmap.
+Failure	(-1) and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+If $iFlag is set to $GBF_COPY, release the bitmap returned by this function when no longer needed by calling
+_WinAPI_DeleteObject().
+
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ GetThemeBitmap
+

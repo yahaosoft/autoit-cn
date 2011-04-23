@@ -1,0 +1,47 @@
+###User Defined Function###
+_FTP_FindFileNext
+
+###Description###
+Find Next File on an FTP server.
+
+###Syntax###
+#Include <FTPEx.au3>
+_FTP_FindFileNext($h_Handle)
+
+###Parameters###
+@@ParamTable@@
+$h_Handle
+	Handle as returned by _FTP_FindFileFirst().
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	an array, see remarks.
+Failure:	0  and sets @ERROR
+@@End@@
+
+###Remarks###
+If successfull a return array:
+[0]  - Number of elements
+[1]  - File Attributes
+[2]  - Creation Time Low
+[3]  - Creation Time Hi
+[4]  - Access Time Low
+[5]  - Access Time Hi
+[6]  - Last Write Low
+[7]  - Last Write Hi
+[8]  - File Size High
+[9]  - File Size Low
+[10] - File Name
+[11] - Altername
+
+
+###Related###
+_FTP_FindFileFirst, _FTP_FindFileClose
+
+###See Also###
+@@MsdnLink@@ InternetFindNextFile
+
+###Example###
+@@IncludeExample@@
+

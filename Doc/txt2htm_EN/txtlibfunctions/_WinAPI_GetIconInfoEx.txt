@@ -1,0 +1,35 @@
+﻿###User Defined Function###
+_WinAPI_GetIconInfoEx
+
+###Description###
+Retrieves information about the specified icon or cursor.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetIconInfoEx ( $hIcon )
+
+###Parameters###
+@@ParamTable@@
+$hIcon
+	Handle to the icon or cursor. To retrieve information about a standard icon or cursor, use $IDC_* constants.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	$tagICONINFOEX structure that contains information about an icon or a cursor.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+_WinAPI_GetIconInfoEx() creates bitmaps for the "hMask" and "hColor" members of the $tagICONINFOEX structure.
+The calling application must manage these bitmaps and delete them when they are no longer necessary.
+
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ GetIconInfoEx
+
+###Example###
+@@IncludeExample@@
+

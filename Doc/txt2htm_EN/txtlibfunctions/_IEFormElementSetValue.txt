@@ -1,0 +1,46 @@
+###User Defined Function###
+_IEFormElementSetValue
+
+###Description###
+Set the value of a specified Form Element.
+
+###Syntax###
+#include <IE.au3> 
+_IEFormElementSetValue ( ByRef $o_object, $s_newvalue [, $f_fireEvent = 1] )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	Object variable of an InternetExplorer.Application, Form Element object
+$s_newvalue
+	The new value to be set into the Form Element
+$f_fireEvent
+	[optional] specifies whether to fire an OnChange event after changing value
+	0 = Do not fire OnChange or OnClick event after setting value
+	1 = (Default) fire OnChange and OnClick event after setting value
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1
+Failure:	Returns 0 and sets @ERROR
+@Error:	0 ($_IEStatus_Success) = No Error
+	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
+	4 ($_IEStatus_InvalidObjectType) = Invalid Object Type
+@Extended:	Contains invalid parameter number
+@@End@@
+
+
+###Remarks###
+While all Form Elements have a value, only text oriented elements use their value attribute in an obvious fashion (type text, textarea, hidden, password and file).  The value of other form elements does not affect what is displayed in the user interface, but rather the value that is returned by the element when it is selected or activated.
+
+See _IEFormElementOptionSelect, _IEFormElementCheckboxSelect, _IEFormElementRadioSelect and _IEFormImageClick for more information.
+
+Note: You cannot use _IEFormElementSetValue to set the value of an INPUT TYPE=FILE element.  Browser security restrictions prevent this element from being scripted.  See the example below for a workaround.
+
+###Related###
+_IEFormElementGetValue, _IEFormElementGetCollection, _IEFormElementGetObjByName, _IEFormElementOptionSelect, _IEFormElementCheckboxSelect, _IEFormElementRadioSelect
+
+
+###Example###
+@@IncludeExample@@

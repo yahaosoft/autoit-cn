@@ -1,0 +1,34 @@
+﻿###User Defined Function###
+_WinAPI_RegDisableReflectionKey
+
+###Description###
+Disables registry reflection for the specified key.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_RegDisableReflectionKey ( $hKey )
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to an open registry key. This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey()
+	function; it cannot specify a key on a remote computer. If the key is not on the reflection list,
+	the function succeeds but has no effect.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+On WOW64, 32-bit applications view a registry tree that is separate from the registry tree that 64-bit applications
+view. Registry reflection copies specific registry keys and values between the two views.
+
+To restore registry reflection for a disabled key, use the _WinAPI_RegEnableReflectionKey().
+
+
+###See Also###
+@@MsdnLink@@ RegDisableReflectionKey
+

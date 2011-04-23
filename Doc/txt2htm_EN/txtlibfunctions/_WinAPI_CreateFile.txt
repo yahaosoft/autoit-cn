@@ -1,0 +1,59 @@
+###User Defined Function###
+_WinAPI_CreateFile
+
+###Description###
+Creates or opens a file or other device
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_CreateFile($sFileName, $iCreation [, $iAccess = 4 [, $iShare = 0 [, $iAttributes = 0 [, $pSecurity = 0]]]])
+
+###Parameters###
+@@ParamTable@@
+$sFileName
+	Name of an object to create or open
+$iCreation
+	Action to take on files that exist and do not exist:
+		0 - Creates a new file. The function fails if the file exists
+		1 - Creates a new file. If a file exists, it is overwritten
+		2 - Opens a file. The function fails if the file does not exist
+		3 - Opens a file. If the file does not exist, the function creates the file
+		4 - Opens a file and truncates it so that its size is 0 bytes. The function fails if the file does not exist.
+$iAccess
+	[optional] Access to the object:
+		1 - Execute
+		2 - Read
+		4 - Write
+$iShare
+	[optional] Sharing mode of an object:
+		1 - Delete
+		2 - Read
+		4 - Write
+$iAttributes
+	[optional] The file attributes:
+		1 - File should be archived
+		2 - File is hidden
+		4 - File is read only
+		8 - File is part of or used exclusively by an operating system.
+$pSecurity
+	[optional] Pointer to a $tagSECURITY_ATTRIBUTES structure that determines if the returned handle can be
+		inherited by child processes. If pSecurity is 0, the handle cannot be inherited.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	The open handle to a specified file
+Failure:	0
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+$tagSECURITY_ATTRIBUTES, _WinAPI_CloseHandle, _WinAPI_FlushFileBuffers, _WinAPI_GetFileSizeEx, _WinAPI_ReadFile, _WinAPI_SetEndOfFile, _WinAPI_SetFilePointer, _WinAPI_WriteFile
+
+###See Also###
+@@MsdnLink@@ CreateFile
+
+###Example###
+@@IncludeExample@@

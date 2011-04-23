@@ -1,0 +1,50 @@
+﻿###User Defined Function###
+_WinAPI_DwmSetIconicLivePreviewBitmap
+
+###Description###
+Sets a static, iconic bitmap to display a live preview (also known as a Peek preview) of a window or tab.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_DwmSetIconicLivePreviewBitmap ( $hWnd, $hBitmap [, $fFrame [, $tClient]] )
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window or tab.
+$hBitmap
+	Handle to the device-independent bitmap (DIB) to represent the specified window.
+$fFrame
+	[可选参数] Specifies whether display a frame around the provided bitmap, valid values:
+		TRUE    - Display frame.
+		FALSE   - Do not display frame. (Default)
+$tClient
+	[可选参数] $tagPOINT structure that contains The offset of a tab window's client region from the host window's
+	frame. This offset enables the tab window's contents to be drawn correctly in a live preview when
+	it is drawn without its frame.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+A window typically calls the _WinAPI_DwmSetIconicLivePreviewBitmap() function in response to a
+WM_DWMSENDICONICLIVEPREVIEWBITMAP message. The returned bitmap must not be larger than the client area of the
+window or frame and must have 32-bit color depth.
+
+The DWM uses a copy of the bitmap, but the caller retains ownership of the original bitmap and is responsible
+for freeing the resources that it uses when it is no longer needed. The DWM does not keep its copy of the
+bitmap when the DWM stops displaying the live preview representation.
+
+This function requires Windows 7 or later.
+
+
+###See Also###
+@@MsdnLink@@ DwmSetIconicLivePreviewBitmap
+
+###Example###
+@@IncludeExample@@
+

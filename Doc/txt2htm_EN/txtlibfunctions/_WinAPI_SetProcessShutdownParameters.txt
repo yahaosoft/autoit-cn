@@ -1,0 +1,47 @@
+﻿###User Defined Function###
+_WinAPI_SetProcessShutdownParameters
+
+###Description###
+Sets a shutdown order for a process relative to the other processes in the system.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SetProcessShutdownParameters ( $iLevel [, $fDialog] )
+
+###Parameters###
+@@ParamTable@@
+$iLevel
+	The shutdown priority. The system shuts down processes from high $iLevel values to low. The highest
+	and lowest shutdown priorities are reserved for system components. This parameter must be in the
+	following range of values.
+	
+	0x0000-0x00FF - System reserved last shutdown range.
+	0x0100-0x01FF - Application reserved last shutdown range.
+	0x0200-0x02FF - Application reserved "in between" shutdown range.
+	0x0300-0x03FF - Application reserved first shutdown range.
+	0x0400-0x04FF - System reserved first shutdown range.
+	
+	All processes start at shutdown level 0x0280.
+	
+$fDialog
+	[可选参数] Specifies whether display a retry dialog box for the user, valid values:
+		TRUE    - Display a retry dialog box if process takes longer than the specified timeout to shutdown.
+		FALSE   - Directly terminates the process. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ SetProcessShutdownParameters
+
+###Example###
+@@IncludeExample@@
+

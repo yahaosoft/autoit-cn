@@ -1,33 +1,38 @@
-###User Defined Function###
+﻿###User Defined Function###
 _WinAPI_SetHandleInformation
 
 ###Description###
-Sets certain properties of an object handle
+Sets certain properties of an object handle.
 
 ###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_SetHandleInformation($hObject, $iMask, $iFlags)
+#Include <WinAPIEx.au3>
+_WinAPI_SetHandleInformation ( $hObject, $iMask, $iFlags )
 
 ###Parameters###
 @@ParamTable@@
 $hObject
-	Handle to an object
+	Handle to an object whose information is to be set.
 $iMask
-	Specifies the bit flags to be changed
+	The mask that specifies the bit flags to be changed. Use the same constants as that of the $iFlags.
 $iFlags
-	Specifies properties of the object handle
+	The flags that specifies properties of the object handle. This parameter can be 0 or one or
+	more of the following values.
+	
+	$HANDLE_FLAG_INHERIT
+	$HANDLE_FLAG_PROTECT_FROM_CLOSE
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-None.
+None
 
-###Related###
 
 ###See Also###
 @@MsdnLink@@ SetHandleInformation
+

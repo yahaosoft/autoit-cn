@@ -1,0 +1,46 @@
+﻿###User Defined Function###
+_WinAPI_EnumProcessModules
+
+###Description###
+Retrieves a handle and name for each module in the specified process.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_EnumProcessModules ( [$PID] )
+
+###Parameters###
+@@ParamTable@@
+$PID
+	[可选参数] The PID of the process. Default (0) is the current process.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The array containing the following information:
+[0][0]	Number of rows in array (n)
+[0][1]	Unused
+[1][0]	Handle to the module
+[1][1]	The path to the file that contains the module
+[n][0]	Handle to the module
+[n][1]	The path to the file that contains the module
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function does not retrieve handles for modules that were loaded with the $LOAD_LIBRARY_AS_DATAFILE flag.
+For more information, see _WinAPI_LoadLibraryEx().
+
+Do not call _WinAPI_CloseHandle() on any of the handles returned by this function. The information comes
+from a snapshot, so there are no resources to be freed.
+
+If _WinAPI_EnumProcessModules() function is called from a 32-bit application running on WOW64, it can only
+enumerate the modules of a 32-bit process. If the process is a 64-bit process, this function fails and the
+last error code is ERROR_PARTIAL_COPY (299).
+
+
+###See Also###
+@@MsdnLink@@ EnumProcessModules
+
+###Example###
+@@IncludeExample@@
+

@@ -13,7 +13,8 @@ _WinAPI_ShellExtractIcon ( $sIcon, $iIndex, $iWidth, $iHeight )
 $sIcon
 	Path and name of the file from which the icon are to be extracted.
 $iIndex
-	Index of the icon to extract.
+	The zero-based index of the icon to extract. If this value is a negative number, the function extracts
+	the icon whose resource identifier is equal to the absolute value of $iIndex.
 $iWidth
 	Horizontal icon size wanted.
 $iHeight
@@ -27,9 +28,9 @@ Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-If the icon with the specified dimension is not found in the file, it will choose the nearest appropriate icon and
-change to the specified dimension. When you are finished using the icon, destroy it using the _WinAPI_DestroyIcon()
-function.
+If the icon with the specified dimension is not found in the file, it will choose the nearest appropriate icon
+and change to the specified dimension. When you are finished using the icon, destroy it using the
+_WinAPI_DestroyIcon() function.
 
 
 ###See Also###

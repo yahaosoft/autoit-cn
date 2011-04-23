@@ -29,9 +29,9 @@ Failure	0 and sets the @error flag to non-zero.
 
 ###Remarks###
 If the mutex is a named mutex and the object existed before this function call, the return value is a handle to
-the existing object, _WinAPI_GetLastError() returns ERROR_ALREADY_EXISTS, $fInitial is ignored, and the calling
+the existing object, _WinAPI_GetLastError() returns ERROR_ALREADY_EXISTS (183), $fInitial is ignored, and the calling
 thread is not granted ownership. However, if the caller has limited access rights, the function will fail with
-ERROR_ACCESS_DENIED and the caller should use the _WinAPI_OpenMutex() function.
+ERROR_ACCESS_DENIED (5) and the caller should use the _WinAPI_OpenMutex() function.
 
 Any process can specify the mutex-object handle in a call to one of the wait functions. The single-object wait
 functions return when the state of the specified object is signaled. The multiple-object wait functions can be
