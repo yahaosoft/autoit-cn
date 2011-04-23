@@ -1,0 +1,38 @@
+﻿###User Defined Function###
+_WinAPI_GetThemeBackgroundRegion
+
+###Description###
+Computes the region for a regular or partially transparent background that is bounded by a specified rectangle.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetThemeBackgroundRegion ( $hTheme, $iPartId, $iStateId, $hDC, $tRECT )
+
+###Parameters###
+@@ParamTable@@
+$hTheme
+	Handle to a window's specified theme data.
+$iPartId
+	The part that contains the region.
+$iStateId
+	The state of the part.
+$hDC
+	Handle to the device context to draw into.
+$tRECT
+	$tagRECT structure that contains the specified rectangle used to compute the region.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the computed region.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+The region handle that is returned by this function should be released when it is no longer needed,
+using _WinAPI_DeleteObject().
+
+
+###See Also###
+@@MsdnLink@@ GetThemeBackgroundRegion
+

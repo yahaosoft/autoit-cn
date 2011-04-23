@@ -1,0 +1,40 @@
+﻿###User Defined Function###
+_WinAPI_SetBoundsRect
+
+###Description###
+Controls the accumulation of bounding rectangle information for the specified device context.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SetBoundsRect ( $hDC, $iFlags [, $tRECT] )
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context for which to accumulate bounding rectangles.
+$iFlags
+	The flags that specifies how the new rectangle will be combined with the accumulated rectangle.
+	This parameter can be one of more of the following values.
+	
+	$DCB_ACCUMULATE
+	$DCB_DISABLE
+	$DCB_ENABLE
+	$DCB_RESET
+	
+$tRECT
+	[可选参数] $tagRECT structure used to set the bounding rectangle in logical coordinates.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The value specifies the previous state of the bounding rectangle ($DCB_*).
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ SetBoundsRect
+

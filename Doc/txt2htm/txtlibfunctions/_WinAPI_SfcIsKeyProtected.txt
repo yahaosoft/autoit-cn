@@ -1,0 +1,44 @@
+﻿###User Defined Function###
+_WinAPI_SfcIsKeyProtected
+
+###Description###
+Determines whether the specified registry key is protected.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SfcIsKeyProtected ( $hKey [, $sSubKey [, $iFlag]] )
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to the root registry key or one of the following predefined keys.
+	
+	$HKEY_CLASSES_ROOT
+	$HKEY_CURRENT_USER
+	$HKEY_LOCAL_MACHINE
+	$HKEY_USERS
+	
+	$sSubKey -
+$iFlag
+	[可选参数] The flag that specifies the alternate registry view that should be used by applications that run on
+	64-bit Windows. This flag is ignored on the x86 platform. It can be one of the following values.
+	
+	$KEY_WOW64_32KEY
+	$KEY_WOW64_64KEY
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1 - The key is protected
+0	Otherwise.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ SfcIsKeyProtected
+

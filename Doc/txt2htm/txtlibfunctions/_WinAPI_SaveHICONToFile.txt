@@ -1,0 +1,39 @@
+﻿###User Defined Function###
+_WinAPI_SaveHICONToFile
+
+###Description###
+Saves a 32 bits-per-pixel single or multiple icon (HICON) to the specified icon (.ico) file.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SaveHICONToFile ( $sFile, $aIcon [, $iStart [, $iEnd]] )
+
+###Parameters###
+@@ParamTable@@
+$sFile
+	The name of the icon file.
+$aIcon
+	Handle to the icon or array of the icon handles to be save.
+$iStart
+	[可选参数] The index of array to start saving at.
+$iEnd
+	[可选参数] The index of array to stop saving at.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function only works with 32 bits-per-pixel (RGB + Alpha) icons. If you do not know exactly which color
+depth is there an icon, use the _WinAPI_Create32BitHICON() function to convert its.
+
+
+###See Also###
+None
+
+###Example###
+@@IncludeExample@@
+
