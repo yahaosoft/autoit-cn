@@ -1,0 +1,36 @@
+###User Defined Function###
+_SQLite_FastEncode
+
+###Description###
+Fast encodes binary data (exclusively) for use in SQLite statements
+
+###Syntax###
+#include <SQLite.au3>
+_SQLite_FastEncode ( $vData )
+
+
+###Parameters###
+@@ParamTable@@
+$vData
+	Data To be encoded (Binary only)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns encoded binary string
+Failure:	Returns empty string and sets @error
+@error:	1 - Data is not a binary type
+@@End@@
+
+###Remarks###
+The encoded string is already wrapped with single quotes.
+For example Binary(chr(0) & chr(1)) would look like X'0001'
+The encoded string can be decoded by Sqlite and stored in binary state as a BLOB.
+For strings to be stored as TEXT, use _SQLite_Escape()
+For numeric value to be stored as such, use simple concatenation
+
+###Related###
+_SQLite_Escape
+
+###Example###
+@@IncludeExample@@
