@@ -11,9 +11,9 @@ _WinAPI_EnumDisplayDevices($sDevice, $iDevNum)
 ###Parameters###
 @@ParamTable@@
 $sDevice
-	设备名称.如果为空.函数返回 $iDevNum 指定的显示适配器信息.
+	设备名称.如果为空.函数根据 $iDevNum 返回本机显卡信息.
 $iDevNum
-	显示设备的 0 基索引值
+	基于0开始的索引值,指定显示设备信息.
 @@End@@
 
 ###ReturnValue###
@@ -29,8 +29,8 @@ $iDevNum
 	8 - 设备为 VGA 兼容
 	16 - 可移动设备;不能作为主显示
 	32 - 与支持的输出设备相比,有更多的显示模式
-	$aDevice[4] - 即插即用的标识符字符串(Windows 98/ME)
-失败:	设置@error:	
+	$aDevice[4] - 保留使用
+失败:	设置 @error
 @@End@@
 
 ###Remarks###

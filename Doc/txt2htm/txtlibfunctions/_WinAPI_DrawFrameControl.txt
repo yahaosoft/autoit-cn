@@ -11,15 +11,15 @@ _WinAPI_DrawFrameControl($hDC, $ptrRect, $nType, $nState)
 ###Parameters###
 @@ParamTable@@
 $hDC
-	设备环境句柄
+	要绘图的图标或者光标设备上下文句柄
 $ptrRect
-	$tagRECT 结构指针, 它包含矩形的逻辑坐标
+	指向一个 $tagRECT 数据结构的指针,它包含矩形的逻辑坐标
 $nType
-	指定框架控件类型平局.参数可以是以下值之一:
+	指定框架控件类型.参数可以是以下值之一:
 		$DFC_BUTTON - 标准按钮
 		$DFC_CAPTION - 标题栏
 		$DFC_MENU - 菜单栏
-		$DFC_POPUPMENU - Windows 98/Me, Windows 2000/XP: 弹出菜单项
+		$DFC_POPUPMENU - Windows 2000/XP: 弹出菜单项
 		$DFC_SCROLL - 滚动条
 $nState
 	指定框架控件的初始状态.如果 $nType 为 $DFC_BUTTON, $nState 可以是以下值之一:
@@ -37,8 +37,7 @@ $nState
 		$DFCS_CAPTIONRESTORE - 还原按钮
 		如果 $nType 为 $DFC_MENU, $nState 可以是以下值之一:
 		$DFCS_MENUARROW - 子菜单箭头
-		$DFCS_MENUARROWRIGHT - 子菜单箭头指向左边.这是用于从右到左的级联,
-		如阿拉伯语或希伯来语从右到左的使用菜单
+		$DFCS_MENUARROWRIGHT - 子菜单箭头指向左边.这是用于从右到左的级联,如阿拉伯语或希伯来语从右到左的使用菜单
 		$DFCS_MENUBULLET - 加重号
 		$DFCS_MENUCHECK - 复选标记
 		如果 $nType 为 $DFC_SCROLL, $nState 可以是以下值之一:
@@ -47,20 +46,17 @@ $nState
 		$DFCS_SCROLLLEFT - 滚动条左箭头
 		$DFCS_SCROLLRIGHT - 滚动条右箭头
 		$DFCS_SCROLLSIZEGRIP - 尺寸柄在窗口右下角
-		$DFCS_SCROLLSIZEGRIPRIGHT - 尺寸柄在窗口左下角.
-		阿拉伯语或希伯来语窗口语言从右到左
+		$DFCS_SCROLLSIZEGRIPRIGHT - 尺寸柄在窗口左下角.阿拉伯语或希伯来语窗口语言从右到左
 		$DFCS_SCROLLUP - 滚动条向上箭头
 		下面的样式可以用来调整 Push 按钮的矩形:
 		$DFCS_ADJUSTRECT - 矩形调整排除按钮周围边缘
 		一或多个下列值可用于设置控件的状态:
 		$DFCS_CHECKED - 按钮被选中
 		$DFCS_FLAT - 按钮有一个平面边框
-		$DFCS_HOT - Windows 98/Me, Windows 2000/XP: 按钮热点追踪
-		$DFCS_INACTIVE - 按钮无效（变灰）
+		$DFCS_HOT - Windows 2000/XP: 按钮热点追踪
+		$DFCS_INACTIVE - 按钮无效(变灰)
 		$DFCS_PUSHED - 按钮按下
-		$DFCS_TRANSPARENT - Windows 98/Me, Windows 2000/XP: 
-		背景保持不变. 这个标志只能结合 $DFCS_MENUARROWUP 或 $DFCS_MENUARROWDOWN
-		$DFCS_TRANSPARENT - Windows 98/Me, Windows 2000/XP: The background remains untouched. This flag can only be combined with $DFCS_MENUARROWUP or $DFCS_MENUARROWDOWN
+		$DFCS_TRANSPARENT - Windows 2000/XP: 背景保持不变. 这个标志只能结合 $DFCS_MENUARROWUP 或 $DFCS_MENUARROWDOWN
 @@End@@
 
 ###ReturnValue###

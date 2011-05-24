@@ -6,12 +6,12 @@ _WinAPI_WideCharToMultiByte
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_WideCharToMultiByte($pUnicode [, $iCodePage = 0 [, $iFlags = 0 [, $bRetString = True]]])
+_WinAPI_WideCharToMultiByte($pUnicode [, $iCodePage = 0 [, $bRetString = True]])
 
 ###Parameters###
 @@ParamTable@@
 $pUnicode
-	一个包含 Unicode 文本的数据结构数组.
+	字符串, DllStruct 或者一个包含 Unicode 文本的数据结构数组指针.
 $iCodePage
 	[可选参数] 用于转换的代码页:
 		0 - 当前系统 Windows ANSI 代码页
@@ -21,8 +21,6 @@ $iCodePage
 		42 - Symbol 代码页
 		65000 - UTF-7
 		65001 - UTF-8
-$iFlags
-	[可选参数] 转换类型, 参见 MSDN （默认 0）
 $bRetString
 	[可选参数] 指定返回字符串, 或返回 DllStruct (默认 : 字符串)
 @@End@@
