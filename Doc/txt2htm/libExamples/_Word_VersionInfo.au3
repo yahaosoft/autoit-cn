@@ -1,7 +1,8 @@
-﻿; *******************************************************
-; 示例 1 - 获取和显示 Word.au3 版本相关信息
 ; *******************************************************
-
+; Example 1 - Retrieve and display Word.au3 version information
+; *******************************************************
+;
 #include <Word.au3>
-$aVersion = _Word_VersionInfo ()
-MsgBox(0, "Word.au3 版本", $aVersion[5] & " 发布日期 " & $aVersion[4])
+
+Local $aVersion = _Word_VersionInfo()
+MsgBox(0, "Word.au3 Version", $aVersion[5] & " released " & $aVersion[4])

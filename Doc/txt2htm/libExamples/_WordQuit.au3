@@ -1,11 +1,12 @@
-ï»¿; *******************************************************
-; ç¤ºä¾‹ 1 - åˆ›å»ºä¸€ä¸ªæ–°çš„Microsoft Wordæ–‡ä»¶å¹¶æ‰“å¼€,è·å–æ–‡æœ¬å†…å®¹åé€€å‡º.
+; *******************************************************
+; Ê¾Àı 1 - ´´½¨Ò»¸öĞÂµÄMicrosoft WordÎÄ¼ş²¢´ò¿ª,»ñÈ¡ÎÄ±¾ÄÚÈİºóÍË³ö.
 ;
 ; *******************************************************
 ;
 #include <Word.au3>
-$oWordApp = _WordCreate (@ScriptDir & "\Test.doc", 0, 0)
-; æ˜¾ç¤ºè·å–çš„æ–‡æœ¬å†…å®¹
-$sText = $oWordApp.ActiveDocument.Range.Text
-MsgBox(0, "è·å–æ–‡æœ¬å†…å®¹", $sText)
-_WordQuit ($oWordApp)
+
+Local $oWordApp = _WordCreate(@ScriptDir & "\Test.doc", 0, 0)
+; ÏÔÊ¾»ñÈ¡µÄÎÄ±¾ÄÚÈİ
+Local $sText = $oWordApp.ActiveDocument.Range.Text
+MsgBox(0, "»ñÈ¡ÎÄ±¾ÄÚÈİ", $sText)
+_WordQuit($oWordApp)

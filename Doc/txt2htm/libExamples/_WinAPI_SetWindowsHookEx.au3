@@ -1,16 +1,14 @@
-﻿#AutoIt3Wrapper_Au3Check_Parameters=-d -w 1 -w 2 -w 3 -w 4 -w 5 -w 6
-
-#include <WinAPI.au3>
+﻿#include <WinAPI.au3>
 #include <WindowsConstants.au3>
 #include <StructureConstants.au3>
-
-Opt('MustDeclareVars', 1)
 
 Global $hHook, $hStub_KeyProc, $buffer = ""
 
 _Main()
 
 Func _Main()
+	OnAutoItExitRegister("Cleanup")
+
 	Local $hmod
 
 	$hStub_KeyProc = DllCallbackRegister("_KeyProc", "long", "int;wparam;lparam")
@@ -64,19 +62,19 @@ Func _KeyProc($nCode, $wParam, $lParam)
 		Local $flags = DllStructGetData($tKEYHOOKS, "flags")
 		Switch $flags
 			Case $LLKHF_ALTDOWN
-				ConsoleWrite("$LLKHF_ALTDOWN" & @LF)
+				ConsoleWrite("$LLKHF_ALTDOWN" & @CRLF)
 			Case $LLKHF_EXTENDED
-				ConsoleWrite("$LLKHF_EXTENDED" & @LF)
+				ConsoleWrite("$LLKHF_EXTENDED" & @CRLF)
 			Case $LLKHF_INJECTED
-				ConsoleWrite("$LLKHF_INJECTED" & @LF)
+				ConsoleWrite("$LLKHF_INJECTED" & @CRLF)
 			Case $LLKHF_UP
-				ConsoleWrite("$LLKHF_UP: scanCode - " & DllStructGetData($tKEYHOOKS, "scanCode") & @TAB & "vkCode - " & DllStructGetData($tKEYHOOKS, "vkCode") & @LF)
+				ConsoleWrite("$LLKHF_UP: scanCode - " & DllStructGetData($tKEYHOOKS, "scanCode") & @TAB & "vkCode - " & DllStructGetData($tKEYHOOKS, "vkCode") & @CRLF)
 		EndSwitch
 	EndIf
 	Return _WinAPI_CallNextHookEx($hHook, $nCode, $wParam, $lParam)
 EndFunc   ;==>_KeyProc
 
-Func OnAutoItExit()
+Func Cleanup()
 	_WinAPI_UnhookWindowsHookEx($hHook)
 	DllCallbackFree($hStub_KeyProc)
-EndFunc   ;==>OnAutoItExit
+EndFunc   ;==>Cleanup

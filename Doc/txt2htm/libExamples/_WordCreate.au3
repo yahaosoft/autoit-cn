@@ -3,7 +3,8 @@
 ; *******************************************************
 ;
 #include <Word.au3>
-$oWordApp = _WordCreate (@ScriptDir & "\Test.doc")
+
+Local $oWordApp = _WordCreate(@ScriptDir & "\Test.doc")
 
 ; *******************************************************
 ; 示例 2 - 尝试附加到一个已存在的word窗口
@@ -11,7 +12,7 @@ $oWordApp = _WordCreate (@ScriptDir & "\Test.doc")
 ; *******************************************************
 ;尝试附加到一个已存在的word窗口
 #include <Word.au3>
-$oWordApp = _WordCreate (@ScriptDir & "\Test.doc", 1)
+$oWordApp = _WordCreate(@ScriptDir & "\Test.doc", 1)
 ; 检查返回值 @extended 判断连接是否成功
 If @extended Then
 	MsgBox(0, "附加成功", "附加到现有的窗口")
@@ -24,7 +25,7 @@ EndIf
 ; *******************************************************
 ;
 #include <Word.au3>
-$oWordApp = _WordCreate ()
+$oWordApp = _WordCreate()
 
 ; *******************************************************
 ; 示例 4 -创建一个新的Microsoft Word文件并打开(指定窗口为隐藏状态)，
@@ -32,7 +33,7 @@ $oWordApp = _WordCreate ()
 ; *******************************************************
 ;
 #include <Word.au3>
-$oWordApp = _WordCreate (@ScriptDir & "\Test.doc", 0, 0)
-$oDoc = _WordDocGetCollection ($oWordApp, 0)
+$oWordApp = _WordCreate(@ScriptDir & "\Test.doc", 0, 0)
+Local $oDoc = _WordDocGetCollection($oWordApp, 0)
 $oDoc.Range.insertAfter ("这是追加的文本内容.")
 _WordQuit ($oWordApp, -1)

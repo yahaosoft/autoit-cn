@@ -1,11 +1,12 @@
-﻿; *******************************************************
-; 示例 1 - 创建一个新的空白文档Word窗口, 添加一个链接, 然后得到一个链接数集合.
 ; *******************************************************
-
+; Example 1 - Create a word window with a new blank document,
+;				add a link, then get a collection of links.
+; *******************************************************
+;
 #include <Word.au3>
-$oWordApp = _WordCreate ()
-$oDoc = _WordDocGetCollection ($oWordApp, 0)
-_WordDocAddLink ($oDoc, "", "www.AutoIt3.com", "", "AutoIt" & @CRLF, "Link to AutoIt")
-$oLinks = _WordDocLinkGetCollection ($oDoc)
-MsgBox(0, "链接数集合", @extended)
-_WordQuit ($oWordApp, 0)
+
+Local $oWordApp = _WordCreate()
+Local $oDoc = _WordDocGetCollection($oWordApp, 0)
+_WordDocAddLink($oDoc, "", "www.AutoIt3.com", "", "AutoIt" & @CRLF, "Link to AutoIt")
+Local $oLinks = _WordDocLinkGetCollection($oDoc)
+MsgBox(0, "Link Count", @extended)

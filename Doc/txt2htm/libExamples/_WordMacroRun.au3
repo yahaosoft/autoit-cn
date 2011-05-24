@@ -1,11 +1,10 @@
-ï»¿; *******************************************************
-; ç¤ºä¾‹ 1 - åˆ›å»ºä¸€ä¸ªæ–°çš„Microsoft Wordæ–‡ä»¶å¹¶æ‰“å¼€ï¼Œå¸¦å‚æ•° "Test" è¿è¡Œä¸€ä¸ª
-;Â Â Â Â Â Â         åä¸º "My Macro" çš„å®, ç„¶åä¸ä¿å­˜é€€å‡º.
 ; *******************************************************
-
+; Ê¾Àı 1 - ´´½¨Ò»¸öĞÂµÄMicrosoft WordÎÄ¼ş²¢´ò¿ª£¬´ø²ÎÊı "Test" ÔËĞĞÒ»¸ö
+;0„20„20„20„20„20„2        ÃûÎª "My Macro" µÄºê, È»ºó²»±£´æÍË³ö.
+; *******************************************************
+;
 #include <Word.au3>
-$oWordApp = _WordCreate (@ScriptDir & "\Test.doc")
-Sleep(2000)
-_WordMacroRun ($oWordApp, "My Macro", "Test")
-Sleep(2000)
-_WordQuit ($oWordApp, 0)
+
+Local $oWordApp = _WordCreate(@ScriptDir & "\Test.doc")
+_WordMacroRun($oWordApp, "My Macro", "Test")
+_WordQuit($oWordApp, 0)

@@ -1,11 +1,12 @@
-ï»¿; *******************************************************
-; ç¤ºä¾‹ 1 - åˆ›å»ºä¸€ä¸ªæ–°çš„ç©ºç™½æ–‡æ¡£Wordçª—å£, æ‰“å¼€ä¸€ä¸ªæ–‡æ¡£,
-;				ç„¶åè®¾ç½®æ ‡é¢˜,ä¸»é¢˜,ä½œè€…åå­—å±æ€§
+; *******************************************************
+; Ê¾Àı 1 - ´´½¨Ò»¸öĞÂµÄ¿Õ°×ÎÄµµWord´°¿Ú, ´ò¿ªÒ»¸öÎÄµµ,
+;				È»ºóÉèÖÃ±êÌâ,Ö÷Ìâ,×÷ÕßÃû×ÖÊôĞÔ
 ; *******************************************************
 ;
 #include <Word.au3>
-$oWordApp = _WordCreate (@ScriptDir & "\Test.doc")
-$oDoc = _WordDocGetCollection ($oWordApp, 0)
-_WordDocPropertySet ($oDoc, "Title", "Test Title")
-_WordDocPropertySet ($oDoc, "Subject", "Test Subject")
-_WordDocPropertySet ($oDoc, "Author", "Test Author")
+
+Local $oWordApp = _WordCreate(@ScriptDir & "\Test.doc")
+Local $oDoc = _WordDocGetCollection($oWordApp, 0)
+_WordDocPropertySet($oDoc, "Title", "Test Title")
+_WordDocPropertySet($oDoc, "Subject", "Test Subject")
+_WordDocPropertySet($oDoc, "Author", "Test Author")

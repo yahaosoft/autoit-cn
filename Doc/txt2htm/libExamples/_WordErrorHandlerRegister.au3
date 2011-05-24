@@ -1,31 +1,32 @@
-﻿; *******************************************************
-; 示例 1 - 注册一个自定义的和默认的 Word.au3 错误句柄, 然后注销
+; *******************************************************
+; Example 1 - Register and later deregister a custom and the default Word.au3 error handler
 ; *******************************************************
 ;
 #include <Word.au3>
-; 注册自定义的错误句柄
-_WordErrorHandlerRegister ("MyErrFunc")
-; 注销自定义的错误句柄
-_WordErrorHandlerDeregister ()
-
-; 注册默认的 IE.au3 COM 错误句柄
-_WordErrorHandlerRegister ()
-
+; ע���Զ���Ĵ�����
+_WordErrorHandlerRegister("MyErrFunc")
+; Do something
+; Deregister the customer error handler
+_WordErrorHandlerDeRegister()
+; Do something else
+; Register the default IE.au3 COM Error Handler
+_WordErrorHandlerRegister()
+; Do more work
 
 Exit
 
 Func MyErrFunc()
-	;重要：错误对象变量必须命名为 $oWordErrorHandler
-	$ErrorScriptline = $oWordErrorHandler.scriptline
-	$ErrorNumber = $oWordErrorHandler.number
-	$ErrorNumberHex = Hex($oWordErrorHandler.number, 8)
-	$ErrorDescription = StringStripWS($oWordErrorHandler.description, 2)
-	$ErrorWinDescription = StringStripWS($oWordErrorHandler.WinDescription, 2)
-	$ErrorSource = $oWordErrorHandler.Source
-	$ErrorHelpFile = $oWordErrorHandler.HelpFile
-	$ErrorHelpContext = $oWordErrorHandler.HelpContext
-	$ErrorLastDllError = $oWordErrorHandler.LastDllError
-	$ErrorOutput = ""
+	;��Ҫ��������������������Ϊ $oWordErrorHandler
+	Local $ErrorScriptline = $oWordErrorHandler.scriptline
+	Local $ErrorNumber = $oWordErrorHandler.number
+	Local $ErrorNumberHex = Hex($oWordErrorHandler.number, 8)
+	Local $ErrorDescription = StringStripWS($oWordErrorHandler.description, 2)
+	Local $ErrorWinDescription = StringStripWS($oWordErrorHandler.WinDescription, 2)
+	Local $ErrorSource = $oWordErrorHandler.Source
+	Local $ErrorHelpFile = $oWordErrorHandler.HelpFile
+	Local $ErrorHelpContext = $oWordErrorHandler.HelpContext
+	Local $ErrorLastDllError = $oWordErrorHandler.LastDllError
+	Local $ErrorOutput = ""
 	$ErrorOutput &= "--> COM Error Encountered in " & @ScriptName & @CR
 	$ErrorOutput &= "----> $ErrorScriptline = " & $ErrorScriptline & @CR
 	$ErrorOutput &= "----> $ErrorNumberHex = " & $ErrorNumberHex & @CR
