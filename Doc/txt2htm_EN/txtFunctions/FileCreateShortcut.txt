@@ -1,0 +1,53 @@
+###Function###
+FileCreateShortcut
+
+###Description###
+Creates a shortcut (.lnk) to a file.
+
+###Syntax###
+FileCreateShortcut ( "file", "lnk" [, "workdir" [, "args" [, "desc" [, "icon" [, "hotkey" [, icon number [, state]]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+file
+	Full path and file name of file to create shortcut to.
+lnk
+	Full path and file name of the shortcut.
+workdir
+	[optional] Working directory.
+args
+	[optional] Additional file arguments.
+desc
+	[optional] File Description.
+icon
+	[optional] Full Path/File name of icon to use.
+hotkey
+	[optional] Hotkey - same as the Send() key format.
+icon number
+	[optional] The icon instance to use (usually 0)
+state
+	[optional] The state the shortcut is launched in.  Use either @SW_SHOWNORMAL, @SW_SHOWMINNOACTIVE or @SW_SHOWMAXIMIZED
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 if lnk cannot be created.
+@@End@@
+
+
+###Remarks###
+Hotkeys for windows shortcuts are of the following form:  Ctrl+Alt+X, Ctrl+Shift+X, Shift+Alt+X, Ctrl+NumPadKey, or Alt+NumPadKey where X represents a letter, number, punctuation, or function key.  If you specify an invalid form, Windows typically defaults to Ctrl+Alt
+Note that Windows distinguishes number pad keys from regular number and punctuation keys.  FileCreateShortcut allows you to create Ctrl+X and Alt+X shortcuts (which Windows normally only allows when X is a NumPadKey); however, you should avoid these assignments as they may conflict with standard application hotkeys.
+Windows prohibits ESC, ENTER, TAB, SPACEBAR, PRINT SCREEN, SHIFT, or BACKSPACE from being used in hotkeys.  
+
+FileCreateShortcut does not require a valid target, workdir, icon, or hotkey in order to "successfully" create the LNK file; however, the destination of the LNK file must be valid!  If the hotkey you choose is already in use, your new shortcut takes precedence.  Also, if you create a shortcut with the same path\name as as a pre-existing shortcut, it gets overwritten with your new version.
+
+
+###Related###
+FileGetShortcut, FileCreateNTFSLink
+
+
+###Example###
+@@IncludeExample@@

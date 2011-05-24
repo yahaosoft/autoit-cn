@@ -1,0 +1,103 @@
+###Function###
+MsgBox
+
+###Description###
+Displays a simple message box with optional timeout.
+
+###Syntax###
+MsgBox ( flag, "title", "text" [, timeout [, hwnd]] )
+
+
+###Parameters###
+@@ParamTable@@
+flag
+	The flag indicates the type of message box and the possible button combinations.  See remarks.
+title
+	The title of the message box.
+text
+	The text of the message box.
+timeout
+	[optional] Timeout in seconds.  After the timeout has elapsed the message box will be automatically closed.  The default is 0, which is no timeout.
+hwnd
+	[optional] The window handle to use as the parent for this dialog.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the ID of the button pressed.
+Failure:	Returns -1 if the message box timed out.<br>
+@@End@@
+
+<br>
+@@ParamTable@@
+<b>Button Pressed</b>
+	<b>Return Value </b>
+OK
+	 1
+CANCEL
+	 2
+ABORT
+	 3
+RETRY
+	 4
+IGNORE
+	 5
+YES
+	 6
+NO
+	 7
+TRY AGAIN **
+	10
+CONTINUE **
+	11
+@@End@@
+
+
+###Remarks###
+The flag parameter can be a combination of the following values:
+
+@@StandardTable1@@
+<b>decimal flag</b>	<b>Button-related Result</b>	<b>hexadecimal flag</a>
+0	OK button	0x0
+1	OK and Cancel	0x1
+2	Abort, Retry, and Ignore	0x2
+3	Yes, No, and Cancel	0x3
+4	Yes and No	0x4
+5	Retry and Cancel	0x5
+6 **	Cancel, Try Again, Continue	0x6
+<b>decimal flag</b>	<b>Icon-related Result</b>	<b>hexadecimal flag</a>
+0	(No icon)	0x0
+16	Stop-sign icon	0x10
+32	Question-mark icon	0x20
+48	Exclamation-point icon	0x30
+64	Information-sign icon consisting of an 'i' in a circle	0x40
+<b>decimal flag</b>	<b>Default-related Result</b>	<b>hexadecimal flag</a>
+0	First button is default button	0x0
+256	Second button is default button	0x100
+512	Third button is default button	0x200
+<b>decimal flag</b>	<b>Modality-related Result</b>	<b>hexadecimal flag</a>
+0	Application 	0x0
+4096	System modal (dialog has an icon)	0x1000
+8192	Task modal	0x2000
+<b>decimal flag</b>	<b>Miscellaneous-related Result</b>	<b>hexadecimal flag</a>
+0	(nothing else special)	0x0
+262144	MsgBox has top-most attribute set	0x40000
+524288	title and text are right-justified	0x80000
+@@End@@
+
+** Only valid on Windows 2000/XP and above.
+
+For example, to specify a SYSTEMMODAL box with the YES/NO buttons the flag value would be 4096+4 (or 4100)  If using hexadecimal flags, that would be 0x1000+0x4 (or 0x1004).
+
+A message box appears centered on screen and resizes according to the text it contains.  However, the title could get truncated if the SYSTEMMODAL flag (4096) is used..
+
+If "title" is equal to <a href="..\keywords\Default.htm">Default keyword</a> @Scriptname is used
+
+
+###Related###
+InputBox, ToolTip, TrayTip, SplashTextOn
+
+
+###Example###
+@@IncludeExample@@

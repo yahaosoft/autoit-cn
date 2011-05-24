@@ -1,0 +1,55 @@
+###Function###
+GUICtrlCreateButton
+
+###Description###
+Creates a Button control for the GUI.
+
+###Syntax###
+GUICtrlCreateButton ( "text", left, top [, width [, height [, style [, exStyle]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+text
+	The text of the button control.
+left
+	The left side of the control. If -1 is used then left will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode.
+top
+	The top of the control. If -1 is used then top will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode.
+width
+	[optional] The width of the control (default text autofit in width).
+height
+	[optional] The height of the control (default text autofit in height).
+style
+	[optional] Defines the style of the control. See <a href="../appendix/GUIStyles.htm#Button">GUI Control Styles Appendix</a>.
+	
+	default ( -1) : none.
+	forced styles : $WS_TABSTOP
+exStyle
+	[optional] Defines the extended style of the control. See <a href="../appendix/GUIStyles.htm#Extended">Extended Style Table</a>.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the identifier (controlID) of the new control.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+To set or change information in the control see <a href="GUICtrlUpdate Management.htm">GUICtrlUpdate...</a>.
+
+A Button control can display an icon or image by using the $BS_ICON or $BS_BITMAP style. Use <a href="GUICtrlSetImage.htm">GUICtrlSetImage</a> to specify the picture to use.
+
+To combine styles with the default style use <b>BitOr</b>($GUI_SS_DEFAULT_BUTTON, newstyle,...).
+
+To use the values specified above you must #include <ButtonConstants.au3> in your script.
+
+Default resizing is $GUI_DOCKSIZE
+
+###Related###
+GUICoordMode (Option), GUICtrlUpdate..., GUIGetMsg
+
+
+###Example###
+@@IncludeExample@@

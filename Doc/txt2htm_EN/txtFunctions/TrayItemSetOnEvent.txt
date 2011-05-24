@@ -1,0 +1,41 @@
+###Function###
+TrayItemSetOnEvent
+
+###Description###
+Defines a user-defined function to be called when a tray item is clicked.
+
+###Syntax###
+TrayItemSetOnEvent ( itemID, "function" )
+
+
+###Parameters###
+@@ParamTable@@
+itemID
+	The item identifier (itemID) as returned by a <a href="../functions/TrayCreateItem.htm">TrayCreateItem</a> function.
+function
+	The name of the user function to call.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@error:	1 if the "function" is not defined.
+@@End@@
+
+
+###Remarks###
+OnEvent functions are only called when the option TrayOnEventMode is set to 1 - when in this mode TrayGetMsg is NOT used at all.
+
+Within the called user function the item identifier can be retrieved with @TRAY_ID.
+
+If the function is an empty string "" the previous user-defined is disabled.
+
+
+###Related###
+TrayCreateItem, TrayGetMsg, TrayOnEventMode (Option), TraySetOnEvent
+
+
+###Example###
+@@IncludeExample@@

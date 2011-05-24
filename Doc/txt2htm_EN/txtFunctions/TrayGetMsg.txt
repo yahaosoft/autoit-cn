@@ -1,0 +1,42 @@
+###Function###
+TrayGetMsg
+
+###Description###
+Polls the tray to see if any events have occurred.
+
+###Syntax###
+TrayGetMsg ( )
+
+
+###Parameters###
+None.
+
+###ReturnValue###
+Returns an event.
+
+The "event" returned is the control ID of the control sending the message, or it is a special event (like the mouse clicking on the tray icon). Or if there is no message, the event is 0.
+<BR>
+<b>Event IDs</b>
+@@ReturnTable@@
+0	No event
+Control ID	the ID of the control sending the message
+$TRAY_EVENT_PRIMARYDOWN	the primary mouse button was pressed
+$TRAY_EVENT_PRIMARYUP	the primary mouse button was released
+$TRAY_EVENT_SECONDARYDOWN	the secondary mouse button was pressed
+$TRAY_EVENT_SECONDARYUP	the secondary mouse button was released
+$TRAY_EVENT_PRIMARYDOUBLE	the primary mouse button was double pressed
+$TRAY_EVENT_SECONDARYDOUBLE	the secondary mouse button was double pressed
+@@End@@
+
+###Remarks###
+This function automatically idles the CPU when required so that it can be safely used in tight loops without hogging all the CPU.
+
+The above constants are defined in #include <Constants.au3>
+
+
+###Related###
+TrayCreateItem, TrayCreateMenu, TrayItemSetOnEvent
+
+
+###Example###
+@@IncludeExample@@

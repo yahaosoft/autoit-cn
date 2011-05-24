@@ -1,0 +1,43 @@
+###Function###
+FileGetAttrib
+
+###Description###
+Returns a code string representing a file's attributes.
+
+###Syntax###
+FileGetAttrib ( "filename" )
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	Filename (or directory) to check.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a code string representing a files attributes.
+Failure:	Returns "" (blank string) and sets @error to 1.
+@@End@@
+
+
+###Remarks###
+String returned could contain a combination of these letters "RASHNDOCT":
+"R" = READONLY
+"A" = ARCHIVE
+"S" = SYSTEM
+"H" = HIDDEN
+"N" = NORMAL
+"D" = DIRECTORY
+"O" = OFFLINE
+"C" = COMPRESSED (NTFS compression, not ZIP compression)
+"T" = TEMPORARY
+
+
+
+###Related###
+FileGetTime, FileSetAttrib, FileExists, FileGetSize, FileSetTime
+
+
+###Example###
+@@IncludeExample@@

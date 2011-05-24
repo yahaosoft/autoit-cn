@@ -1,0 +1,56 @@
+###Function###
+GUICtrlCreateTab
+
+###Description###
+Creates a Tab control for the GUI.
+
+###Syntax###
+GUICtrlCreateTab ( left, top [, width [, height [, style [, exStyle]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+left
+	The left side of the control. If -1 is used then left will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode.
+top
+	The top of the control. If -1 is used then top will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode.
+width
+	[optional] The width of the control (default is the previously used width).
+height
+	[optional] The height of the control (default is the previously used height).
+style
+	[optional] Defines the style of the control. See <a href="../appendix/GUIStyles.htm#Tab">GUI Control Styles Appendix</a>.
+	
+	default ( -1) : none.
+	forced styles : $WS_TABSTOP, $WS_CLIPSIBLINGS
+exStyle
+	[optional] Defines the extended style of the control. See <a href="../appendix/GUIStyles.htm#Extended">Extended Style Table</a>.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the identifier (controlID) of the new control.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+This control is just a control in which the tabitem controls will be created and after the specific control related to a specific tabitem will be created with <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a> controls.
+
+To set or change information in the control see <a href="GUICtrlUpdate Management.htm">GUICtrlUpdate...</a>.
+
+To combine styles with the default style use <b>BitOr</b>($GUI_SS_DEFAULT_TAB, newstyle,...).
+
+To use the value specified above you must #include <TabConstants.au3> in your script.
+
+Default resizing is $GUI_DOCKSIZE.
+
+ONLY one Tab control can be created by window. But a script can creates several windows having a tab in.
+
+
+###Related###
+GUICtrlCreateTabItem, GUICoordMode (Option), GUICtrlCreate..., GUICtrlUpdate..., GUIGetMsg
+
+
+###Example###
+@@IncludeExample@@

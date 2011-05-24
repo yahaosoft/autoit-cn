@@ -1,0 +1,35 @@
+###Function###
+FileFindNextFile
+
+###Description###
+Returns a filename according to a previous call to FileFindFirstFile.
+
+###Syntax###
+FileFindNextFile ( search )
+
+
+###Parameters###
+@@ParamTable@@
+search
+	The search handle, as returned by FileFindFirstFile.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a filename according to a previous call to FileFindFirstFile, @extended set to 1 if filename is a directory.
+Failure:	Sets @error to 1 if no more files/directories match the search.
+@@End@@
+
+
+###Remarks###
+A previous call to FileFindFirstFile is necessary to setup the search and get a search handle. Every subsequent call to FileFindNextFile will return the next file found according to the search string supplied to FileFindFirstFile.  When @error = 1, no more files found matching the original search string.
+
+When you have finished searching with the FileFind... functions you must call FileClose() to release the search handle.
+
+
+###Related###
+FileClose, FileFindFirstFile
+
+
+###Example###
+@@IncludeExample@@

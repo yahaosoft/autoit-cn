@@ -1,0 +1,51 @@
+###Function###
+ShellExecuteWait
+
+###Description###
+Runs an external program using the ShellExecute API and pauses script execution until it finishes.
+
+###Syntax###
+ShellExecuteWait ( "filename" [, "parameters" [, "workingdir" [, "verb" [, showflag]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	The name of the file to run (EXE, .txt, .lnk, etc).
+parameters
+	[optional] Any parameters for the program. Blank ("") uses none.
+workingdir
+	[optional] The working directory. Blank ("") uses the current working directory.
+verb
+	[optional] The "verb" to use, common verbs include:
+	  open = Opens the file specified. The file can be an executable file, a document file, or a folder
+	  edit = Launches an editor and opens the document for editing. If "filename" is not a document file, the function will fail
+	  print = Prints the document file specified. If "filename" is not a document file, the function will fail
+	  properties = Displays the file or folder's properties
+	  <b>See remarks for more information on the default behavior when a verb is not specified.</b>
+showflag
+	[optional] The "show" flag of the executed program:
+	  @SW_HIDE = Hidden window
+	  @SW_MINIMIZE = Minimized window
+	  @SW_MAXIMIZE = Maximized window
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the exit code of the program that was run.
+Failure:	Returns 0 and sets @error to non-zero.
+@@End@@
+
+
+###Remarks###
+After running the requested program the script pauses until the requested program terminates
+
+When no verb is specified the default verb is used.  The default verb is the verb configured in the registry.  If no verb is set as default in the registry then the "open" verb is used.  If the "open" verb is not present then the first verb listed in the registry is used (except on Windows 2000).
+
+###Related###
+ShellExecute, Run, RunWait, RunAs, RunAsWait
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,32 @@
+###Function###
+WinGetCaretPos
+
+###Description###
+Returns the coordinates of the caret in the foreground window
+
+###Syntax###
+WinGetCaretPos ( )
+
+
+###Parameters###
+None.
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a 2-element array containing the following information:
+	$array[0] = X coordinate
+	$array[1] = Y coordinate
+Failure:	Sets @error to 1.
+@@End@@
+
+###Remarks###
+WinGetCaretPos might not return accurate values for Multiple Document Interface (MDI) applications if absolute CaretCoordMode is used.  See example for a workaround.  Note: Some applications report static coordinates regardless of caret position!
+
+
+###Related###
+CaretCoordMode (Option)
+
+
+###Example###
+@@IncludeExample@@

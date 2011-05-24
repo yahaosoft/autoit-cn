@@ -1,0 +1,42 @@
+###Function###
+GUICtrlRecvMsg
+
+###Description###
+Send a message to a control and retrieve information in lParam.
+
+###Syntax###
+GUICtrlRecvMsg ( controlID , msg [, wParam [, lParamType]] )
+
+
+###Parameters###
+@@ParamTable@@
+controlID
+	The control identifier (controlID) as returned by a <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a> function.
+msg
+	type of message to be send to the control as defined in the Windows controls documentation.
+wParam
+	[optional] An integer first param to be send to the control.
+lParamType
+	[optional] Define the type of lParam that will be returned: 0 (default) for wParam and lParam, 1 for lParam String, 2 for lParam RECT struct.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the value returned by the SendMessage Windows API.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+This function allows the sending of special Windows messages directly to the control using the SendMessage API. It is used to enable special control features not available with the simple GUICtrlRead() and GUICtrlUpdate...() range of functions.
+
+If the wParam and lParamType parameters are not specified then an array of two elements is returned (LPwParam, LPlParam).
+
+The RECT is returned in an array of 4 elements (Left, Top, Right, Bottom).
+
+###Related###
+GUICtrlSendMsg, GUICtrlUpdate...
+
+
+###Example###
+@@IncludeExample@@

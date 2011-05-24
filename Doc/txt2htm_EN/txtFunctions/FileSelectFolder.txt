@@ -1,0 +1,46 @@
+###Function###
+FileSelectFolder
+
+###Description###
+Initiates a Browse For Folder dialog.
+
+###Syntax###
+FileSelectFolder ( "dialog text", "root dir" [, flag [, "initial dir" [, hwnd]]] )
+
+
+###Parameters###
+@@ParamTable@@
+dialog text
+	Text greeting in dialog.
+root dir
+	Root directory of GUI file tree.  Use "" for Desktop to be root.
+flag
+	[optional] 1 = Show Create Folder Button (requires IE6.0 or later)
+	 2 = Use New Dialog Style (requires IE5.0 or later)
+	 4 = Show Edit Control (to type a foldername)
+initial dir
+	[optional] Initial/start directory that will be selected if exist.  Default is blank ("").
+hwnd
+	[optional] The window handle to use as the parent for this dialog.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns full path of the folder chosen.
+Failure:	Returns "" (blank string) and sets @error to 1 if user cancels/closes the window.
+@@End@@
+
+
+###Remarks###
+The root dir will be chosen if the initial dir (if given) does not exist.
+A nonexistent root dir will also cause the Desktop folder to be root.
+The "Create Folder Button" option may require Windows XP with IE6 in order to work.
+Special Windows folders (such as "My Documents") can be set as root by using the right CLSID detailed in the Appendix.
+UNC paths are not supported.  If you think that user's may choose files on a UNC path then the path needs to be mapped as a drive first.
+
+###Related###
+FileSaveDialog, FileOpenDialog
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,43 @@
+###Function###
+FileReadLine
+
+###Description###
+Read in a line of text from a previously opened text file.
+
+###Syntax###
+FileReadLine ( "filehandle/filename" [, line] )
+
+
+###Parameters###
+@@ParamTable@@
+filehandle/filename
+	The handle of a file, as returned by a previous call to FileOpen.  Alternatively you may use a string filename as the first parameter.
+line
+	[optional] The line number to read.  The first line of a text file is line 1 (not zero), last line is -1.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a line of text.
+Special:	Sets @error to -1 if end-of-file is reached.
+Failure:	Sets @error to 1 if file not opened in read mode or other error.
+@@End@@
+
+
+###Remarks###
+Returns the text of the line read, any newline characters ( CHR(10) or @LF ) at the end of a line read in are automatically stripped.
+If no line number to read is given, the "next" line will be read.  ("Next" for a newly opened file is initially the first line.)
+If a filename is given rather than a file handle - the file will be opened and closed during the function call - for parsing large text files this will be much slower than using filehandles.
+Note: Do not mix filehandles and filenames, i.e., don't FileOpen a file and then use a filename in this function.  Use either filehandles or filenames in your routines, not both!
+
+From a performance standpoint it is a bad idea to read line by line specifying "line" parameter whose value is incrementing by one. This forces AutoIt to reread the file from the beginning until it reach the specified line.
+
+Both ANSI and UTF16/UTF8 text formats can be read - AutoIt will automatically determine the type.
+
+
+###Related###
+IniRead, FileOpen, FileRead, FileWrite, FileWriteLine, FileSetPos, FileGetPos
+
+
+###Example###
+@@IncludeExample@@

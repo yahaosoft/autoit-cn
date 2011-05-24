@@ -1,0 +1,40 @@
+###Function###
+RegEnumVal
+
+###Description###
+Reads the name of a value according to it's instance.
+
+###Syntax###
+RegEnumVal ( "keyname", instance )
+
+
+###Parameters###
+@@ParamTable@@
+keyname
+	The registry key to read.
+instance
+	The 1-based value instance to retrieve
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the requested registry value. @EXTENDED is set to the type of the value.
+Failure:	Returns an empty string and sets @error to:
+	 1 if unable to open requested key
+	 2 if unable to open requested main key
+	 3 if unable to remote connect to the registry
+	-1 if unable to retrieve requested value name (value instance out of range)
+@@End@@
+
+###Remarks###
+A registry key must start with "HKEY_LOCAL_MACHINE" ("HKLM") or "HKEY_USERS" ("HKU") or "HKEY_CURRENT_USER" ("HKCU") or "HKEY_CLASSES_ROOT" ("HKCR") or "HKEY_CURRENT_CONFIG" ("HKCC").
+
+When running on 64-bit Windows if you want to enum a value specific to the 64-bit environment you have to suffix the HK... with 64 i.e. HKLM64.
+
+###Related###
+RegEnumKey, RegDelete, RegWrite
+
+
+###Example###
+@@IncludeExample@@

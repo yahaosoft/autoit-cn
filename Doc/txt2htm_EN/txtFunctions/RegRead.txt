@@ -1,0 +1,52 @@
+###Function###
+RegRead
+
+###Description###
+Reads a value from the registry.
+
+###Syntax###
+RegRead ( "keyname", "valuename" )
+
+
+###Parameters###
+@@ParamTable@@
+keyname
+	The registry key to read.
+valuename
+	The value to read.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the requested registry value. @EXTENDED is set to the type of the value $REG_... . These types are defined in the "Constants.au3" include file.
+Failure:	Returns "" and sets the @error flag:
+	 1 if unable to open requested key
+	 2 if unable to open requested main key
+	 3 if unable to remote connect to the registry
+	-1 if unable to open requested value
+	-2 if value type not supported
+@@End@@
+
+###Remarks###
+A registry key must start with "HKEY_LOCAL_MACHINE" ("HKLM") or "HKEY_USERS" ("HKU") or "HKEY_CURRENT_USER" ("HKCU") or "HKEY_CLASSES_ROOT" ("HKCR") or "HKEY_CURRENT_CONFIG" ("HKCC").
+
+When running on 64-bit Windows if you want to read a value specific to the 64-bit environment you have to suffix the HK... with 64 i.e. HKLM64.
+
+AutoIt supports registry keys of type REG_BINARY, REG_SZ, REG_MULTI_SZ, REG_EXPAND_SZ, and REG_DWORD.
+
+To access the <b>(Default)</b> value use <b>""</b> (a blank string) for the valuename.
+
+When reading a REG_BINARY key the result is a binary datatype (in previous versions it was a string of hex characters).
+
+When reading a REG_MULTI_SZ key the multiple entries are separated by @LF - use with StringSplit(..., @LF) to get each entry.
+
+It is possible to access remote registries by using a keyname in the form "\\computername\keyname".  To use this feature you must have the correct access rights.
+
+
+###Related###
+RegDelete, RegWrite, StringSplit
+
+
+###Example###
+@@IncludeExample@@

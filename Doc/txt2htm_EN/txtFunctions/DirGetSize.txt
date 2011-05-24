@@ -1,0 +1,44 @@
+###Function###
+DirGetSize
+
+###Description###
+Returns the size in bytes of a given directory.
+
+###Syntax###
+DirGetSize ( "path" [, flag] )
+
+
+###Parameters###
+@@ParamTable@@
+path
+	The directory path to get the size from, e.g. "C:\Windows".
+flag
+	[optional] this flag determines the behaviour and result of the function,
+	and can be a combination of the following:
+	0 = (default)
+	1 = Extended mode is On -> returns an array that contains extended information (see Remarks).
+	2 = Don't get the size of files in subdirectories (recursive mode is Off)
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns >= 0 the sizes
+Failure:	Returns -1 and sets @error to 1 if the path doesn't exist.
+@@End@@
+
+
+###Remarks###
+If the script is paused then this function is paused too and will only continue when the script continues!
+
+If you use the extended mode then the array returned from this function is a single dimension array containing the following elements:
+$array[0] = Size
+$array[1] = Files count
+$array[2] = Dirs Count
+
+
+###Related###
+None.
+
+###Example###
+@@IncludeExample@@

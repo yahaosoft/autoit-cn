@@ -1,0 +1,46 @@
+###Function###
+StringSplit
+
+###Description###
+Splits up a string into substrings depending on the given delimiters.
+
+###Syntax###
+StringSplit ( "string", "delimiters" [, flag ] )
+
+
+###Parameters###
+@@ParamTable@@
+string
+	The string to evaluate.
+delimiters
+	One or more characters to use as delimiters (case sensitive).
+flag
+	[optional] Changes how the string split works, add mutliple flag values together if required:
+	  flag = 0 (default), each character in the delimiter string will mark where to split the string
+	  flag = 1, entire delimiter string is needed to mark the split
+	  flag = 2, disable the return the count in the first element - effectively makes the array 0-based (must use UBound() to get the size in this case).
+@@End@@
+
+
+###ReturnValue###
+Returns an array, by default the first element ($array[0]) contains the number of strings returned, the remaining elements ($array[1], $array[2], etc.) contain the delimited strings.  If flag = 2 then the count is not return in the first element.
+
+If no delimiters were found @error is set to 1, the count is 1 ($array[0]) and the full string is returned ($array[1]).
+
+
+###Remarks###
+If you use a blank string "" for the delimiters, each character will be returned as an element.
+
+If the delimiter you wish to use is a substring instead of individual single characters, see the example below.
+
+StringSplit is very useful as an alternative to StringInStr and as a means to populate an array.
+
+Caution if you use the macro @CRLF you are referring to a 2 character string so you will generate extra blanks lines.
+
+
+###Related###
+StringInStr, StringLeft, StringLen, StringLower, StringMid, StringRight, StringTrimLeft, StringTrimRight, StringUpper
+
+
+###Example###
+@@IncludeExample@@

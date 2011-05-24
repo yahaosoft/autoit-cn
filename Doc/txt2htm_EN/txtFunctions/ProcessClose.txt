@@ -1,0 +1,46 @@
+###Function###
+ProcessClose
+
+###Description###
+Terminates a named process.
+
+###Syntax###
+ProcessClose ( "process")
+
+
+###Parameters###
+@@ParamTable@@
+process
+	The name or PID of the process to terminate.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 and set @error to:
+	1 = OpenProcess failed
+	2 = AdjustTokenPrivileges Failed
+	3 = TerminateProcess Failed
+	4 = Cannot verify if process exists
+@extended is set to Win API GetLastError()
+@@End@@
+
+
+
+###Remarks###
+Process names are executables without the full path, e.g., "notepad.exe" or "winword.exe"
+
+If multiple processes have the same name, the one with the highest PID is terminated--regardless of how recently the process was spawned.
+
+PID is the unique number which identifies a Process.  A PID can be obtained through the ProcessExists or Run commands.
+
+The process is polled approximately every 250 milliseconds.
+
+
+###Related###
+ProcessExists, ProcessWait, ProcessWaitClose, Run, WinClose, ProcessList, RunAs, Shutdown, WinKill
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,58 @@
+###Function###
+GUICtrlCreateInput
+
+###Description###
+Creates an Input control for the GUI.
+
+###Syntax###
+GUICtrlCreateInput ( "text", left, top [, width [, height [, style [, exStyle]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+text
+	The text of the control.
+left
+	The left side of the control. If -1 is used then left will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode.
+top
+	The top of the control. If -1 is used then top will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode.
+width
+	[optional] The width of the control (default is the previously used width).
+height
+	[optional] The height of the control (default is the previously used height).
+style
+	[optional] Defines the style of the control. See <a href="../appendix/GUIStyles.htm#Edit">GUI Control Styles Appendix</a>.
+	
+	default ( -1) : $ES_LEFT, $ES_AUTOHSCROLL
+	forced styles : $WS_TABSTOP only if no $ES_READONLY. $ES_MULTILINE is always reset.  
+exStyle
+	[optional] Defines the extended style of the control. See <a href="../appendix/GUIStyles.htm#Extended">Extended Style Table</a>.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the identifier (controlID) of the new control.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+To obtain the value of the control see <a href="GUICtrlRead.htm">GUICtrlRead</a>.
+To set or change information in the control see <a href="GUICtrlUpdate Management.htm">GUICtrlUpdate...</a>.
+
+For defining an input control for entering passwords (input is hidden with an asterisk) use the $ES_PASSWORD style.
+
+If you want to drag & drop a filename onto this control just add the <a href="../appendix/GUIStyles.htm#Extended">WS_EX_ACCEPTFILES extended style</a> on the <a href="GUICreate.htm">GUICreate()</a> and set the state to $GUI_DROPACCEPTED.
+After multiple drag and drop files on this control, you can retrieve the files name which are separated by "|" with GuiCtrlRead.
+
+To use the values specified above you must #include <EditConstants.au3> in your script.
+
+Default resizing is $GUI_DOCKHEIGHT.
+
+
+###Related###
+GUICoordMode (Option), GUICtrlUpdate..., GUIGetMsg, GUICtrlRead, GUICtrlCreateUpdown, GUICtrlSetLimit
+
+
+###Example###
+@@IncludeExample@@

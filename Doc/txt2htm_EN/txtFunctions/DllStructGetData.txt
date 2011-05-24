@@ -1,0 +1,45 @@
+###Function###
+DllStructGetData
+
+###Description###
+Returns the data of an element of the struct.
+
+###Syntax###
+DllStructGetData ( Struct, Element [, index ] )
+
+
+###Parameters###
+@@ParamTable@@
+Struct
+	The struct returned by DllStructCreate.
+Element
+	Which element of the struct you want to access, starting at 1 or the elementname as defined in DllStructCreate.
+index
+	[optional] For elements that are an array this specifies the 1-based index to retrieve.  if omitted or the Default keyword then the entire array is retrieved (Useful for quickly retrieving strings).  <b>Not used for non-array elements.</b>
+@@End@@
+*char[n], byte[n] and ubyte[n] return all element data when index is omitted.
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Data in the element of the struct.
+Failure:	0.
+@Error:	0 = No Error.
+	1 = Struct not a correct struct returned by DllStructCreate.
+	2 = Element value out of range.
+	3 = index would be outside of the struct.
+	4 = Element data type is unknown
+	5 = index &lt;= 0.
+@@End@@
+
+
+###Remarks###
+When the element is char[n] and index is omitted the data returned is a String,
+when the element is byte[n] or ubyte[n] and index is omitted the data returned is a binary type,
+otherwise it always returns a number.
+
+###Related###
+DllStructCreate, DllStructSetData
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,41 @@
+###Function###
+DriveStatus
+
+###Description###
+Returns the status of the drive as a string.
+
+###Syntax###
+DriveStatus ( "path" )
+
+
+###Parameters###
+@@ParamTable@@
+path
+	Path of drive to receive information from.
+@@End@@
+
+###ReturnValue###
+@@ParamTable@@
+<b>Value</b>
+	<b>Interpretation</b>
+UNKNOWN
+	Drive may be unformatted (RAW).
+READY
+	Typical of hard drives and drives that contain removable media.
+NOTREADY
+	Typical of floppy and CD drives that do not contain media.
+INVALID
+	May indicate the drive letter does not exist or that a mapped network drive is inaccessible.
+@@End@@
+
+
+###Remarks###
+The list of possible return values may be incomplete.
+DriveStatus may even work when a complete directory path (which exists) is given.  However, a file path won't work.
+
+###Related###
+DriveGetDrive, DriveGetFileSystem, DriveGetLabel, DriveGetSerial, DriveGetType, DriveSetLabel, DriveSpaceFree, DriveSpaceTotal, CDTray, FileExists
+
+
+###Example###
+@@IncludeExample@@

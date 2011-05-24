@@ -1,0 +1,52 @@
+###Function###
+SplashImageOn
+
+###Description###
+Creates a customizable image popup window.
+
+###Syntax###
+SplashImageOn ( "title", "file" [, width [, height [, x pos [, y pos [, opt]]]]] )
+
+###Parameters###
+@@ParamTable@@
+title
+	Title for splash window.
+file
+	full path\filename of image (BMP, GIF, or JPG)
+ width
+	[optional] width of window in pixels. (default is 500)
+height
+	[optional] height of window in pixels. (default is 400)
+x pos
+	[optional] position from left (in pixels) of splash window. (default is centered)
+y pos
+	[optional] position from top (in pixels) of splash window. (default is centered)
+opt
+	[optional] Add up the options you want. Default is 'always on top/with title'
+	1 = Thin bordered titleless window
+	2 = Without "always on top" attribute
+	16 = Windows can be moved
+@@End@@
+
+###ReturnValue###
+None.
+
+
+###Remarks###
+To skip an optional parameter, leaving it's default value intact, use a value of -1.
+
+The image is scaled to specified width and height and should be a Bitmap, GIF, or JPEG image.  Icons (ICOs) will not display, though the window still appears.  PNG images throw an error message of failing to load, and so do invalid files/paths.
+
+Images are not embedded in the executable unless you use FileInstall
+
+Only one SplashImage/Text window is allowed at one time; so if you wish to cycle through multiple images/text, simply call SplashImageOn/SplashTextOn again with the new information.
+
+Splash with opt=1 cannot be moved and cannot be activated  by click.
+
+
+###Related###
+SplashOff, SplashTextOn
+
+
+###Example###
+@@IncludeExample@@

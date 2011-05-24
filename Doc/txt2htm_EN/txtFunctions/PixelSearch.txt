@@ -1,0 +1,55 @@
+###Function###
+PixelSearch
+
+###Description###
+Searches a rectangle of pixels for the pixel color provided.
+
+###Syntax###
+PixelSearch ( left, top, right, bottom, color [, shade-variation [, step [, hwnd]]] )
+
+
+###Parameters###
+@@ParamTable@@
+left
+	left coordinate of rectangle.
+top
+	top coordinate of rectangle.
+right
+	right coordinate of rectangle.
+bottom
+	bottom coordinate of rectangle.
+color
+	Colour value of pixel to find (in decimal or hex).
+shade-variation
+	[optional] A number between 0 and 255 to indicate the allowed number of shades of variation of the red, green, and blue components of the colour. Default is 0 (exact match).
+step
+	[optional] Instead of searching each pixel use a value larger than 1 to skip pixels (for speed).  E.g. A value of 2 will only check every other pixel.  Default is 1.
+hwnd
+	[optional] Window handle to be used.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a two-element array of pixel's coordinates. (Array[0] = x, Array[1] = y).
+Failure:	Sets @error to 1 if color is not found.
+@@End@@
+
+
+###Remarks###
+The search direction varies as follows:
+	Left-to-Right - left < right
+	Right-to-Left - right < left
+	Top-to-Bottom - top < bottom
+	Bottom-to-Top - bottom < top
+Changing the search direction can be a useful optimization if the color being searched for frequently appears in in a specific quandrat of the search area since less searching is done if the search starts in the most common quadrant.
+
+Remember, a typical display at 1024 x 768 has 786432 pixels. Although PixelSearch is optimized, narrowing the search area helps speed up the result.
+
+
+###Related###
+PixelChecksum, PixelGetColor, PixelCoordMode (Option)
+
+
+###Example###
+@@IncludeExample@@

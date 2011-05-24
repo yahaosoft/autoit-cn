@@ -1,0 +1,38 @@
+###Function###
+Ping
+
+###Description###
+Pings a host and returns the roundtrip-time.
+
+###Syntax###
+Ping ( "address/hostname" [, timeout] )
+
+
+###Parameters###
+@@ParamTable@@
+address/hostname
+	Can be i.e. "www.autoitscript.com" or "87.106.244.38".
+timeout
+	[optional] Is the time to wait for an answer in milliseconds (default is 4000).
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the roundtrip-time in milliseconds ( greater than 0 ).
+Failure:	Returns 0 if host is not pingable or other network errors occurred and sets @error. (See Remarks)
+@@End@@
+ 
+
+###Remarks###
+When the function fails (returns 0) @error contains extended information:
+ 1 = Host is offline
+ 2 = Host is unreachable
+ 3 = Bad destination
+ 4 = Other errors
+
+###Related###
+None.
+
+###Example###
+@@IncludeExample@@

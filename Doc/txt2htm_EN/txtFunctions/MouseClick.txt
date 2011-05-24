@@ -1,0 +1,55 @@
+###Function###
+MouseClick
+
+###Description###
+Perform a mouse click operation.
+
+###Syntax###
+MouseClick ( "button" [, x, y [, clicks [, speed ]]] )
+
+
+###Parameters###
+@@ParamTable@@
+button
+	The button to click: "left", "right", "middle", "main", "menu", "primary", "secondary".
+x, y
+	[optional] The x/y coordinates to move the mouse to.  If no x and y coords are given, the current position is used (default).
+clicks
+	[optional] The number of times to click the mouse.  Default is 1.
+speed
+	[optional] the speed to move the mouse in the range 1 (fastest) to 100 (slowest).  A speed of 0 will move the mouse instantly.  Default speed is 10.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0, the button is not in the list or invalid parameter as x without y.
+@@End@@
+
+
+###Remarks###
+<a name="remarks"></a>If the button is an empty string, the left button will be clicked.
+If x or y equal to the <a href="..\keywords\Default.htm">Default keyword</a> no move occurs in the corresponding coordinate.
+
+If the user has swapped the left and right mouse buttons in the control panel, then the behaviour of the buttons is different.  "Left" and "right" always click those buttons, whether the buttons are swapped or not.  The "primary" or "main" button will be the main click, whether or not the buttons are swapped.  The "secondary" or "menu" buttons will usually bring up the context menu, whether the buttons are swapped or not.
+
+<a name="table"></a>
+@@StandardTable1@@
+<b>Button</b>	<b>Normal</b>	<b>Swapped</b>
+""	Left	Left
+"left"	Left	Left
+"middle"	Middle	Middle
+"right"	Right	Right
+"primary"	Left	Right
+"main"	Left	Right
+"secondary"	Right	Left
+"menu"	Right	Left
+@@End@@
+
+###Related###
+MouseClickDrag, MouseGetPos, MouseMove, MouseCoordMode (Option), MouseClickDelay (Option), ControlClick, MouseDown, MouseUp, MouseWheel
+
+
+###Example###
+@@IncludeExample@@

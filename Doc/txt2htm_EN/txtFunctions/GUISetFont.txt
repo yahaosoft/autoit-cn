@@ -1,0 +1,48 @@
+###Function###
+GUISetFont
+
+###Description###
+Sets the default font for a GUI window.
+
+###Syntax###
+GUISetFont (size [, weight [, attribute [, fontname [, winhandle[, quality]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+size
+	Fontsize (default is 8.5).
+weight
+	[optional] Font weight (default 400 = normal).
+attribute
+	[optional] To define italic:2 underlined:4 strike:8 char format (add together the values of all the styles required, 2+4 = italic and underlined).
+fontname
+	[optional] Font to use. (OS default GUI font is used if the font is "" or is not found).
+winhandle
+	[optional] Windows handle as returned by GUICreate (default is the previously used window).
+quality
+	[optional] Font quality to select (default is PROOF_QUALITY=2).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+See the Appendix for a complete list of Windows fonts and Windows versions under which they are supported.
+
+Size can contain a decimal as in 8.5.
+
+For some control as label ones the default can be 8.5 instead of 9 according to Windows Theme Values.
+
+For Quality parameter check MSDN, some windows XP installation need CLEARTYPE_QUALITY=5
+
+###Related###
+GUICtrlSetFont
+
+
+###Example###
+@@IncludeExample@@

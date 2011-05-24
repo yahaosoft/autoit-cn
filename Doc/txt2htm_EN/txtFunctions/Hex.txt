@@ -1,0 +1,41 @@
+###Function###
+Hex
+
+###Description###
+Returns a string representation of an integer or of a binary type converted to hexadecimal.
+
+###Syntax###
+Hex ( expression [, length] )
+
+
+###Parameters###
+@@ParamTable@@
+expression
+	The expression to convert.
+length
+	[optional] Number of characters to be returned (up to 8) for integer.
+	Characters are truncated from the left-hand side if length is too small.
+	This parameter is ignored if the data is binary data.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a string of <i>length</i> characters, zero-padded if necessary for integer.
+	Returns the  binary type converted.
+Special:	Returns "" (blank string) if length is less than 1.
+Failure:	Returns "" (blank string) and sets @error to 1 if length is greater than 8.
+@@End@@
+
+
+###Remarks###
+The function only works with numbers that fit in a 32 bit signed integer (-2147483648 to 2147483647)
+
+The function will also set @error to 1 if not enough digits were requested - the returned string will return the least significant digits in this case.
+
+###Related###
+Dec, BitAND, BitNOT, BitOR, BitRotate, BitShift, BitXOR
+
+
+###Example###
+@@IncludeExample@@

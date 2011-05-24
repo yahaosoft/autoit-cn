@@ -1,0 +1,58 @@
+###Function###
+GUISetOnEvent
+
+###Description###
+Defines a user function to be called when a system button is clicked.
+
+###Syntax###
+GUISetOnEvent ( specialID, "function" [, winhandle] )
+
+
+###Parameters###
+@@ParamTable@@
+specialID
+	See the <a href="#SpecialIDTable">Special ID table</a> below.
+function
+	The name of the user function to call.
+winhandle
+	[optional] Windows handle as returned by GUICreate (default is the previously used window).
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+OnEvent functions are only called when the option GUIOnEventMode is set to 1 - when in this mode GUIGetMsg is NOT used at all.
+
+If the option GUIEventOptions is set to 1 the minimize, restore and maximize button will not do any action on the window just a simple notification.
+
+If the function is an empty string "" the previous user-defined is disabled.
+
+	<a name="SpecialIDTable"></a><b>Special ID table</b>
+@@StandardTable1@@
+<b>Special Id</b>	<b>Comments</b>
+$GUI_EVENT_CLOSE	dialog box being closed (either by defined button or system menu).
+$GUI_EVENT_MINIMIZE	dialog box minimized with Windows title bar button.
+$GUI_EVENT_RESTORE	dialog box restored by click on task bar icon.
+$GUI_EVENT_MAXIMIZE	dialog box maximized with Windows title bar button.
+$GUI_EVENT_MOUSEMOVE	the mouse cursor has moved.
+$GUI_EVENT_PRIMARYDOWN	the primary mouse button was pressed.
+$GUI_EVENT_PRIMARYUP	the primary mouse button was released.
+$GUI_EVENT_SECONDARYDOWN	the secondary mouse button was pressed.
+$GUI_EVENT_SECONDARYUP	the secondary mouse button was released.
+$GUI_EVENT_RESIZED	dialog box has been resized.
+$GUI_EVENT_DROPPED	End of a Drag&Drop action @GUI_DRAGID, @GUI_DRAGFILE and @GUI_DROPID will be used to retrieve the ID's/file corresponding to the involve control.
+@@End@@
+
+
+###Related###
+GUIOnEventMode (Option), GUIEventOptions (Option), GUICtrlSetOnEvent
+
+
+###Example###
+@@IncludeExample@@

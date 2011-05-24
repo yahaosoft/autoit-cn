@@ -1,0 +1,60 @@
+###Function###
+ControlClick
+
+###Description###
+Sends a mouse click command to a given control.
+
+###Syntax###
+ControlClick ( "title", "text", controlID [, button [, clicks [, x [, y ]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to access.
+text
+	The text of the window to access.
+controlID
+	The control to interact with.  See <a href="../intro/controls.htm">Controls</a>.
+button
+	[optional] The button to click, "left", "right", "middle", "main", "menu", "primary", "secondary".  Default is the left button.
+clicks
+	[optional] The number of times to click the mouse. Default is 1.
+x
+	[optional] The x position to click within the control.  Default is center.
+y
+	[optional] The y position to click within the control.  Default is center.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+Some controls will resist clicking unless they are the active window. Use the WinActivate() function to force the control's window to the top before using ControlClick().
+Using 2 for the number of clicks will send a double-click message to the control - this can even be used to launch programs from an explorer control!
+
+If the user has swapped the left and right mouse buttons in the control panel, then the behaviour of the buttons is different.  "Left" and "right" always click those buttons, whether the buttons are swapped or not.  The "primary" or "main" button will be the main click, whether or not the buttons are swapped.  The "secondary" or "menu" buttons will usually bring up the context menu, whether the buttons are swapped or not.
+
+<a name="table"></a>
+@@StandardTable1@@
+<b>Button</b>	<b>Normal</b>	<b>Swapped</b>
+""	Left	Left
+"left"	Left	Left
+"middle"	Middle	Middle
+"right"	Right	Right
+"primary"	Left	Right
+"main"	Left	Right
+"secondary"	Right	Left
+"menu"	Right	Left
+@@End@@
+
+###Related###
+ControlCommand, MouseClick, WinActivate
+
+
+###Example###
+@@IncludeExample@@

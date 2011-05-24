@@ -1,0 +1,45 @@
+###Function###
+IniWrite
+
+###Description###
+Writes a value to a standard format .ini file.
+
+###Syntax###
+IniWrite ( "filename", "section", "key", "value" )
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	The filename of the .ini file.
+section
+	The section name in the .ini file.
+key
+	The key name in the in the .ini file.
+value
+	The value to write/change.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 if file is read-only.
+@@End@@
+
+
+###Remarks###
+A standard ini file looks like:
+<i>[SectionName]
+Key=Value</i>
+If file does not exist, it is created. Any directories that do not exist, will not be created. Keys and/or sections are added to the end and are not sorted in any way."?
+When writing a value that is quoted, the quotes are stripped.  In order to write the quote marks to the value, you must double up the quoting.  For example: ""This is a test"" will produce "This is a test" in the file.
+Leading and trailing whitespace is stripped.  In order to preserve the whitespace, the string must be quoted.  For example, "    this is a test" will preserve the whitespace but per above, the quotation marks are stripped.
+Multi-line values are not possible.
+
+###Related###
+IniDelete, IniRead, IniReadSection, IniReadSectionNames, IniWriteSection, IniRenameSection
+
+
+###Example###
+@@IncludeExample@@

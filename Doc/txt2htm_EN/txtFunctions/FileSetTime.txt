@@ -1,0 +1,41 @@
+###Function###
+FileSetTime
+
+###Description###
+Sets the timestamp of one of more files.
+
+
+###Syntax###
+FileSetTime ( "file pattern", "time" [, type [, recurse] ] )
+
+
+###Parameters###
+@@ParamTable@@
+file pattern
+	File(s) to change, e.g. C:\*.au3, C:\Dir
+time
+	The new time to set in the format "YYYYMMDDHHMMSS" (Year, month, day, hours (24hr clock), seconds).  If the time is blank "" then the current time is used.
+type
+	[optional] The timestamp to change:  0 = Modified (default), 1 = Created, 2 = Accessed
+recurse
+	[optional] If this is set to 1, then directories are recursed into.  Default is 0 (no recursion).
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 if error changing timestamp(s).
+@@End@@
+
+
+###Remarks###
+Using a date earlier than 1980-01-01 will have no effect.
+Trying to change a timestamp on read-only files will result in a error.
+
+###Related###
+FileGetTime, FileGetAttrib, FileSetAttrib
+
+
+###Example###
+@@IncludeExample@@

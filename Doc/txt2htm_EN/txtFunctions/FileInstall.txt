@@ -1,0 +1,47 @@
+###Function###
+FileInstall
+
+###Description###
+Include and install a file with the compiled script.
+
+###Syntax###
+FileInstall ( "source", "dest" [, flag] )
+
+
+###Parameters###
+@@ParamTable@@
+source
+	The source path of the file to compile.  <b>This must be a literal string; it cannot be a variable or the result of a function call.</b>  It can be a relative path (using .\ or ..\ in the path) to the source file (.au3).
+dest
+	The destination path of the file with trailing backslash if only the directory is used.  This can be a variable.
+flag
+	[optional] this flag determines whether to overwrite files if they already exist:
+	  0 = (default) do not overwrite existing files
+	  1 = overwrite existing files
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+The FileInstall function is designed to include files into a compiled AutoIt script.  These included files can then be "extracted" during execution of the compiled script if the statement is executed.  Keep in mind that files such as images can greatly increase the size of a compiled script.
+The source file must be specified using a string literal and can <b>not</b> be a variable, a calculation nor function call.  The file must be able to be found during compiling, however variables, calculations and function calls do not get resolved until the script itself is running, long after compiling, making them unsuitable to define the source file.
+The source cannot contain wildcards.
+
+When this function is used from a non-compiled script, a copy operation is performed instead (to allow for easy testing pre-compilation).
+Files maintain their original creation/modification timestamps when installed.
+
+The destination directory path must already exist before this function is called, or the FileInstall will fail, returning 0 and not creating the file, nor path.  See DirCreate() for information about creating the directory path.
+
+The file attributes on an existing file may prevent the file from being overwritten.  Use FileDelete() or FileSetAttrib() to ensure the file can be installed without issue.
+
+###Related###
+DirCreate, FileDelete, FileSetAttrib
+
+###Example###
+@@IncludeExample@@

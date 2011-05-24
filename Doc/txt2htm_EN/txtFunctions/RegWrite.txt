@@ -1,0 +1,56 @@
+###Function###
+RegWrite
+
+###Description###
+Creates a key or value in the registry.
+
+###Syntax###
+RegWrite ( "keyname" [,"valuename" [, "type" [, value]]] )
+
+
+###Parameters###
+@@ParamTable@@
+keyname
+	The registry key to write to.  If no other parameters are specified this key will simply be created.
+valuename
+	[optional] The valuename to write to.
+type
+	[optional] Type of key to write: "REG_SZ", "REG_MULTI_SZ", "REG_EXPAND_SZ", "REG_DWORD", "REG_QWORD", or "REG_BINARY".
+value
+	[optional] The value to write.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 if error writing registry key or value.
+	 @error can be set to following values :
+	 1 if unable to open requested key
+	 2 if unable to open requested main key
+	 3 if unable to remote connect to the registry
+	-1 if unable to open requested value
+	-2 if value type not supported
+@@End@@
+
+
+###Remarks###
+A registry key must start with "HKEY_LOCAL_MACHINE" ("HKLM") or "HKEY_USERS" ("HKU") or "HKEY_CURRENT_USER" ("HKCU") or "HKEY_CLASSES_ROOT" ("HKCR") or "HKEY_CURRENT_CONFIG" ("HKCC").
+
+When running on 64-bit Windows if you want to write a key or value specific to the 64-bit environment you have to suffix the HK... with 64 i.e. HKLM64.
+
+AutoIt supports registry keys of type REG_BINARY, REG_SZ, REG_MULTI_SZ, REG_EXPAND_SZ, REG_QWORD, and REG_DWORD.
+
+To access the <b>(Default)</b> value use <b>""</b> (a blank string) for the valuename.
+
+When writing a REG_MULTI_SZ key you must separate each value with @LF.  The value must NOT end with @LF unless you want ant empty substring (see example).
+
+It is possible to access remote registries by using a keyname in the form "\\computername\keyname".  To use this feature you must have the correct access rights on NT/2000/XP/2003.
+
+
+###Related###
+RegDelete, RegRead, RegEnumKey, RegEnumVal
+
+
+###Example###
+@@IncludeExample@@

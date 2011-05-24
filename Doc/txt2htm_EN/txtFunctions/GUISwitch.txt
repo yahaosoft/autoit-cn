@@ -1,0 +1,37 @@
+###Function###
+GUISwitch
+
+###Description###
+Switches the current window used for GUI functions.
+
+###Syntax###
+GUISwitch ( winhandle [, tabitemID] )
+
+
+###Parameters###
+@@ParamTable@@
+winhandle
+	The handle of the window to switch to.
+tabitemID
+	[optional] controlID of the tabitem control to be selected.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the handle of the previously current.
+Failure:	Returns a NULL handle.
+@@End@@
+
+
+###Remarks###
+Many of the GUI specific functions work on the &quot;current&quot; window - this is usually the last window created with GUICreate.  This function allows you to make another window "current". That's does not mean that the referenced window will become active. You have to use WinActivate.
+
+Using the tabitemID allow to create new control in the specified tabitem control. Don't forget to close tabitem definition GuiCtrlCreateTabItem("")
+
+
+###Related###
+GUICreate, GUIDelete, GUICtrlCreateTabItem
+
+
+###Example###
+@@IncludeExample@@

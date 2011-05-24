@@ -1,0 +1,66 @@
+###Function###
+GUICtrlCreateListView
+
+###Description###
+Creates a ListView control for the GUI.
+
+###Syntax###
+GUICtrlCreateListView ( "text", left, top [, width [, height [, style [, exStyle]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+text
+	definition of columns heading. Each of them are separated with <a href="AutoItSetOption.htm#GUIDataSeparatorChar">Opt("GUIDataSeparatorChar")</a>.
+left
+	The left side of the control. If -1 is used then left will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode.
+top
+	The top of the control. If -1 is used then top will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode.
+width
+	[optional] The width of the control (default is the previously used width).
+height
+	[optional] The height of the control (default is the previously used height).
+style
+	[optional] Defines the style of the control. See <a href="../appendix/GUIStyles.htm#ListView">GUI Control Styles Appendix</a>.
+	
+	default (-1) : $LVS_SHOWSELALWAYS, $LVS_SINGLESEL
+	forced style : $LVS_REPORT
+exStyle
+	[optional] Defines the extended style of the control. See <a href="../appendix/GUIStyles.htm#Extended">Extended Style Table</a> or <a href="../appendix/GUIStyles.htm#ListViewExtended">ListView Extended Style Table</a>.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the identifier (controlID) of the new control.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+To add items to a ListView control use <a href="GUICtrlCreateListViewItem.htm">GUICtrlCreateListViewItem</a>
+
+The ListView will appear by default as in the Explorer view "Details" (LVS_REPORT style is forced).
+You can control initial column size by padding blanks to the column heading definition. The column can be extend during the GUICtrlCreateListViewItem according to item size. Size of a column will be up to around 25 characters. No resizing will be done during an update by GUICtrlSetData.
+
+To create a ListView with Icon-, SmallIcon- or List-style just use after creation:
+<a href="GUICtrlSetStyle.htm">GUICtrlSetStyle</a> with the styles $LVS_ICON, $LVS_LIST or $LVS_SMALLICON.
+
+Sorting the list by clicking the column name (as in Explorer) is not currently implemented.
+
+To have the entire line visually selected use the <a href="../appendix/GUIStyles.htm#Extended">extended style</a> LVS_EX_FULLROWSELECT.
+
+To combine styles with the default style use <b>BitOr</b>($GUI_SS_DEFAULT_LISTVIEW, newstyle,...).
+
+To use the values specified above you must #include <ListViewConstants.au3> in your script.
+
+The special flag $GUI_BKCOLOR_LV_ALTERNATE can be used with Listview control to give alternate background of the ListviewItems lines.
+The odd lines will get the color set by GUICtrlSetBkColor of the Listview control.
+The even lines will get the color set by GUICtrlSetBkColor of the ListviewItem control.
+
+
+###Related###
+GUICtrlCreateListViewItem, GUICtrlRegisterListViewSort, GUICoordMode (Option), GUICtrlSetData, GUIGetMsg, GUIDataSeparatorChar (Option)
+
+
+###Example###
+@@IncludeExample@@

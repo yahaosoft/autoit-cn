@@ -1,0 +1,46 @@
+###Function###
+WinSetState
+
+###Description###
+Shows, hides, minimizes, maximizes, or restores a window.
+
+###Syntax###
+WinSetState ( "title", "text", flag )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to show.  See <a href="../intro/windowsadvanced.htm">Title special definition</a>.
+text
+	The text of the window to show.
+flag
+	The "show" flag of the executed program:
+	@SW_HIDE = Hide window
+	@SW_SHOW = Shows a previously hidden window
+	@SW_MINIMIZE = Minimize window
+	@SW_MAXIMIZE = Maximize window
+	@SW_RESTORE = Undoes a window minimization or maximization
+	@SW_DISABLE = Disables the window
+	@SW_ENABLE = Enables the window
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1. 
+Failure:	Returns 0 if window is not found. 
+@@End@@
+
+
+###Remarks###
+If multiple windows match the criteria, the most recently active window is used.
+@SW_MINIMIZE and @SW_MAXIMIZE even work on modal dialog windows.
+
+
+###Related###
+WinActivate, WinClose, ControlHide, WinFlash, WinKill, WinMinimizeAll, WinMinimizeAllUndo, WinMove, WinSetOnTop
+
+
+###Example###
+@@IncludeExample@@

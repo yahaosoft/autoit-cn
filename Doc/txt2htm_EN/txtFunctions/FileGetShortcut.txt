@@ -1,0 +1,40 @@
+###Function###
+FileGetShortcut
+
+###Description###
+Retrieves details about a shortcut.
+
+###Syntax###
+FileGetShortcut ( "lnk" )
+
+
+###Parameters###
+@@ParamTable@@
+lnk
+	Full path and file name of the shortcut.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an array that contains the shortcut information.  See Remarks.
+Failure:	Sets @error to 1 if the shortcut could not be accessed.
+@@End@@
+
+
+###Remarks###
+The array returned from this function is a single dimension array containing the following elements:
+$array[0] = Shortcut target path
+$array[1] = Working directory
+$array[2] = Arguments
+$array[3] = Description
+$array[4] = Icon filename
+$array[5] = Icon index
+$array[6] = The shortcut state (@SW_SHOWNORMAL, @SW_SHOWMINNOACTIVE, @SW_SHOWMAXIMIZED)
+
+
+###Related###
+FileCreateShortcut
+
+
+###Example###
+@@IncludeExample@@

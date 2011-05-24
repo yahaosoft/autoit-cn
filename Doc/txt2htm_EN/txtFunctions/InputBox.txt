@@ -1,0 +1,63 @@
+###Function###
+InputBox
+
+###Description###
+Displays an input box to ask the user to enter a string.
+
+###Syntax###
+InputBox ( "title", "prompt" [, "default" [, "password char" [, width [, height [, left [, top [, timeout [, hwnd]]]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the input box.
+prompt
+	A message to the user indicating what kind of input is expected.
+default
+	[optional] The value that the input box starts with.
+password char
+	[optional] The character to replace all typed characters with in the display. If you want the actual typed character to appear, define with an empty string ("") (default) or a space for the first character.  If you provide a multi-character string, only the first character is used for character masking.  There are special meanings for the second and subsequent characters.  See Remarks.
+width
+	[optional] The width of the window.
+height
+	[optional] The height of the window.
+left
+	[optional] The left side of the input box. By default, the box is centered.
+top
+	[optional] The top of the input box. By default, the box is centered.
+timeout
+	[optional] How many seconds to wait before automatically cancelling the InputBox.
+hwnd
+	[optional] The window handle to use as the parent for this dialog.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the string that was entered.
+Failure:	Returns "" (blank string) and sets @error as follows:
+
+@Error	0 = The string returned is valid.
+	1 = The Cancel button was pushed.
+	2 = The Timeout time was reached.
+	3 = The InputBox failed to open. This is usually caused by bad arguments.
+	4 = The InputBox cannot be displayed on any monitor.
+	5 = Invalid parameters width without height or left without top.
+@@End@@
+
+
+###Remarks###
+The InputBox is user-resizable, but has a minimum size of approximately 190 x 115 pixels. Default size is approximately 250 x 190 pixels.
+
+The string returned will not exceed 254 characters and if input contains carriage returns or linefeeds, the result will be truncated at the first occurrence of those characters.
+
+The second and subsequent characters of the password field can be used to restrict input.  Use a space to fill the first character to still see the characters typed.  Putting an <B>M</b> after the first character indicates that input is <u>M</u>andatory; i.e. you must enter something.  Nothing will happen if you press the <b>Ok</b> button when there is nothing in the InputBox.  It will not close and return the string.
+
+You can also specify the maximum length at the end of the password field.  Just enter a number as the last character(s) to specify the length of the string.
+
+###Related###
+MsgBox
+
+
+###Example###
+@@IncludeExample@@

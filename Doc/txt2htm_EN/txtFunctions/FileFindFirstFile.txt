@@ -1,0 +1,41 @@
+###Function###
+FileFindFirstFile
+
+###Description###
+Returns a search "handle" according to file search string.
+
+###Syntax###
+FileFindFirstFile ( "filename" )
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	File search string. (<b>*</b> and <b>?</b> wildcards accepted)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a search "handle" for use with subsequent FileFindNextFile functions.
+Failure:	Returns -1 if error occurs. If the Folder is empty the @error is set to 1.
+@@End@@
+
+
+###Remarks###
+The search string is not case sensitive.
+Wildcards:  In general, <b>*</b> denotes zero or more characters, and <b>?</b> denotes zero or one character.  If your file search string contains only wildcards (or is "*.*"), then see the example below for the return value!
+
+You can use only one wildcard in the filename part or in the extension part i.e. a*.b?.
+?? seems equivalent to * (not described in Microsoft documentation).
+When using a 3-char extension any extension starting with those 3 chars will match, .e.g. "*.log" will match "test.log_1". (not described either in Microsoft documentation).
+
+When you have finished searching with the FileFind... functions you must call FileClose() to release the search handle.
+
+Directory name are return according to the wildcards if any.
+
+###Related###
+FileClose, FileFindNextFile
+
+
+###Example###
+@@IncludeExample@@

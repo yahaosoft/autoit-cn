@@ -1,0 +1,40 @@
+###Function###
+GUISetCursor
+
+###Description###
+Sets the mouse cursor icon for a GUI window.
+
+###Syntax###
+GUISetCursor ( [cursorID [, override [, winhandle]]] )
+
+
+###Parameters###
+@@ParamTable@@
+cursorID
+	[optional] Cursor Id (See Remarks).
+override
+	[optional] Force the requested mouse cursor even when over controls (see below).
+	0 = (default) Don't override a control's default mouse cursor.
+	1= override control's default mouse cursor.
+winhandle
+	[optional] Windows handle as returned by GUICreate (default is the previously used Window).
+@@End@@
+
+###ReturnValue###
+None.
+
+###Remarks###
+If the cursorID is invalid the standard arrow will be displayed.
+
+Usually when you move the mouse cursor over an edit control or other control the mouse cursor changes shape.  The "override" option allows you to force the requested mouse cursor to be shown at all times.  Note: If you have changed a controls mouse cursor with GUICtrlSetCursor then this control mouse cursor will always be shown.
+
+For a list of valid cursor IDs see <a href="MouseGetCursor.htm">MouseGetCursor</a>.
+CursorId = 16 will hide the mouse cursor.
+
+
+###Related###
+GUICtrlSetCursor
+
+
+###Example###
+@@IncludeExample@@

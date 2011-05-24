@@ -1,0 +1,42 @@
+###Function###
+UDPRecv
+
+###Description###
+Receives data from a opened socket
+
+###Syntax###
+UDPRecv ( socketarray, maxlen [, flag] )
+
+
+###Parameters###
+@@ParamTable@@
+socketarray
+	The socket/array as returned by a <a href="UDPBind.htm">UDPBind</a> function.
+maxlen
+	max # of characters to receive.
+flag
+	[optional] Forces the function to return binary data if set to 1 (default is 0, and will auto detect between binary/string).
+	Forces the function to return receive from IP/port if set to 2. Results are returned in an Array : [0] data, [1] from IP, [2] from Port.
+	If you want both just use 3.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns binary/string sent by the opened socket or an array if flag = 2 or 3.
+Failure:	Returns "" and set @error.
+@error:	-1, -2 or -3 invalid socketarray.
+	windows API WSAGetError return value (see <a href="http://msdn.microsoft.com/en-us/library/ms740668.aspx">MSDN</a>).
+@@End@@
+
+
+###Remarks###
+For backwards compatibility reasons this function will try to return strings by default. If null (0x00) characters are received then the return value will be a binary type.
+To force the function to always return binary data (the most sensible option) then use the "flag" parameter set to 1.
+
+
+###Related###
+BinaryLen, BinaryMid, UDPBind, UDPOpen
+
+
+###Example###
+@@IncludeExample@@

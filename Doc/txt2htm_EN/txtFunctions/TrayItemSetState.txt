@@ -1,0 +1,51 @@
+###Function###
+TrayItemSetState
+
+###Description###
+Sets the state of a tray menu/item control.
+
+###Syntax###
+TrayItemSetState ( controlID, state )
+
+
+###Parameters###
+@@ParamTable@@
+controlID
+	The control identifier (controlID) as returned by a <a href="../functions/TrayCreateItem.htm">TrayCreateItem</a> or <a href="..\functions\TrayCreateMenu.htm">TrayCreateMenu</a> function.
+state
+	See the <a href="#StateTable">State table</a> below.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+	<a name="StateTable"></a><b>State table</b>
+@@StandardTable1@@
+<b>State</b>	<b>Value</b>	<b>Comments</b>
+No Change	0
+$TRAY_CHECKED	1	Menuitem will be checked
+$TRAY_UNCHECKED	4	Menuitem will be unchecked
+$TRAY_ENABLE	64	Menuitem will be enabled
+$TRAY_DISABLE	128	Menuitem will be greyed out
+$TRAY_FOCUS	256	Menuitem will be selected
+$TRAY_DEFAULT	512	Menuitem will be set as default menuitem
+@@End@@
+
+State values can be summed up as for example $TRAY_CHECKED + $TRAY_DEFAULT sets the menuitem in an checked and default state.
+
+To reset/delete the $TRAY_DEFAULT-state for a menuitem just use this function on the item with another state, for instance with $TRAY_ENABLE.
+
+The above constants are defined in #include <Constants.au3>
+
+
+###Related###
+TrayItemGetState, TrayCreateItem, TrayCreateMenu, TraySetState
+
+
+###Example###
+@@IncludeExample@@

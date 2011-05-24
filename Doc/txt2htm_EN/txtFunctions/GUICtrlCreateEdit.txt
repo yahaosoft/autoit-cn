@@ -1,0 +1,61 @@
+###Function###
+GUICtrlCreateEdit
+
+###Description###
+Creates an Edit control for the GUI.
+
+###Syntax###
+GUICtrlCreateEdit ( "text", left, top [, width [, height [, style [, exStyle]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+text
+	The text of the control.
+left
+	The left side of the control. If -1 is used then left will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode.
+top
+	The top of the control. If -1 is used then top will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode.
+width
+	[optional] The width of the control (default is the previously used width).
+height
+	[optional] The height of the control (default is the previously used height).
+style
+	[optional] Defines the style of the control. See <a href="../appendix/GUIStyles.htm#Edit">GUI Control Styles Appendix</a>.
+	
+	default ( -1) : $ES_WANTRETURN, $WS_VSCROLL, $WS_HSCROLL, $ES_AUTOVSCROLL, $ES_AUTOHSCROLL
+	forced styles : $ES_MULTILINE, $WS_TABSTOP only if not $ES_READONLY
+exStyle
+	[optional] Defines the extended style of the control. See <a href="../appendix/GUIStyles.htm#Extended">Extended Style Table</a>.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the identifier (controlID) of the new control.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+To obtain the value of the control see <a href="GUICtrlRead.htm">GUICtrlRead</a>.
+To set or change information in the control see <a href="GUICtrlUpdate Management.htm">GUICtrlUpdate...</a>.
+
+To combine styles with the default style use <b>BitOr</b>($GUI_SS_DEFAULT_EDIT, newstyle,...).
+
+If you want to drag & drop a filename onto this control just add the <a href="../appendix/GUIStyles.htm#Extended">WS_EX_ACCEPTFILES extended style</a> on the <a href="GUICreate.htm">GUICreate()</a> and set the state to $GUI_DROPACCEPTED.
+Multiple selected files will be dropped as separate lines.
+
+To use the values specified above you must #include <EditConstants.au3> in your script.
+
+Default resizing is $GUI_DOCKAUTO size and position will occur.
+
+Creating a RichEdit control is too complex so it will not be included as a basic control.
+You have to use the GuiCtrlCreateObj. See the second example if you need to have a RichEdit control.
+
+
+###Related###
+GUICoordMode (Option), GUICtrlSetData, GUICtrlSetState, GUICtrlSetLimit, GUIGetMsg, GUICtrlRead
+
+
+###Example###
+@@IncludeExample@@

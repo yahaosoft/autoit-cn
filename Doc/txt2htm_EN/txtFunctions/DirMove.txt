@@ -1,0 +1,43 @@
+###Function###
+DirMove
+
+###Description###
+Moves a directory and all sub-directories and files.
+
+###Syntax###
+DirMove ( "source dir", "dest dir" [, flag] )
+
+
+###Parameters###
+@@ParamTable@@
+source dir
+	Path of the source directory (with no trailing backslash). e.g. "C:\Path1"
+dest dir
+	Path of the destination dir (with no trailing backslash). e.g. "C:\Path_Copy"
+flag
+	[optional] this flag determines whether to overwrite files if they already exist:
+	 0 = (default) do not overwrite existing files
+	 1 = overwrite existing files
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 if there is an error moving the directory.
+@@End@@
+
+
+###Remarks###
+If the source and destination are on different volumes or UNC paths are used then a copy/delete operation will be performed rather than a move.
+
+If the destination already exists and the overwrite flag is specified then the source directory will be moved <b>inside</b> the destination.
+
+Because AutoIt lacks a "DirRename" function, use DirMove to rename a folder!
+
+###Related###
+DirRemove, FileMove
+
+
+###Example###
+@@IncludeExample@@

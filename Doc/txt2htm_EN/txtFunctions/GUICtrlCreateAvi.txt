@@ -1,0 +1,60 @@
+###Function###
+GUICtrlCreateAvi
+
+###Description###
+Creates an AVI video control for the GUI.
+
+###Syntax###
+GUICtrlCreateAvi ( filename, subfileid, left, top [, width [, height [, style [,  exStyle]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	The filename of the video. Only .avi files are supported.
+subfileid
+	id of the subfile to be used. If the file only contains one video then use -1.
+left
+	The left side of the control. If -1 is used then left will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode.
+top
+	The top of the control. If -1 is used then top will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode.
+width
+	[optional] The width of the control (default is the previously used width).
+height
+	[optional] The height of the control (default is the previously used height).
+style
+	[optional] Defines the style of the control. See <a href="../appendix/GUIStyles.htm#Avi">GUI Control Styles Appendix</a>.
+	
+	default (-1) : $ACS_TRANSPARENT
+	$ACS_TRANSPARENT is always used unless $ACS_NONTRANSPARENT is specified.
+exStyle
+	[optional] Defines the extended style of the control. See <a href="../appendix/GUIStyles.htm#Extended">Extended Style Table</a>.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the identifier (controlID) of the new control.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+To obtain the value of the control see <a href="GUICtrlRead.htm">GUICtrlRead</a>.
+To set or change information in the control see <a href="GUICtrlUpdate Management.htm">GUICtrlUpdate...</a>.
+
+To start the video as soon as the control is created use the $ACS_AUTOPLAY style.
+You can can start and stop the animation by setting the state to 1 or 0 with <a href="GUICtrlSetState.htm">GUICtrlSetState</a>. See example.
+
+To combine styles with the default style use <b>BitOr</b>($GUI_SS_DEFAULT_AVI, newstyle,...).
+
+To use the values specified above you must #include <AVIConstants.au3> in your script.
+
+Default resizing is $GUI_DOCKSIZE.
+
+
+###Related###
+GUICoordMode (option), GUICtrlUpdate..., GUIGetMsg
+
+
+###Example###
+@@IncludeExample@@

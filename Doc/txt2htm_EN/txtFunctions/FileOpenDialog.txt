@@ -1,0 +1,56 @@
+###Function###
+FileOpenDialog
+
+###Description###
+Initiates a Open File Dialog.
+
+###Syntax###
+FileOpenDialog ( "title", "init dir", "filter" [, options [, "default name" [, hwnd]]] )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	Title text of the Dialog GUI.
+init dir
+	Initial directory selected in the GUI file tree.
+filter
+	File type single filter such as "All (*.*)" or "Text files (*.txt)" or multiple filter groups such as "All (*.*)|Text files (*.txt)" (See Remarks).
+options
+	[optional] Dialog Options:  To use more than one option, add the required values together.
+	  1 = File Must Exist (if user types a filename)
+	  2 = Path Must Exist (if user types a path, ending with a backslash)
+	  4 = Allow MultiSelect
+	  8 = Prompt to Create New File (if does not exist)
+default name
+	[optional] Suggested file name for the user to open.  Default is blank ("").
+hwnd
+	[optional] The window handle to use as the parent for this dialog.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the full path of the file(s) chosen.  Results for multiple selections are "Directory|file1|file2|..."
+Failure:	Sets @error
+@error:	1 - File selection failed.
+	2 - Bad file filter
+@@End@@
+
+
+###Remarks###
+Separate the file filters with a semicolon as shown in the example.
+Multiple groups of filters are separated by a pipe "|".
+
+If default name is given, options must also be given.  If none of the options are wanted, use 0 for options.
+
+Special Windows folders (such as "My Documents") can sometimes be set as the init dir; see Appendix.
+
+@WorkingDir is changed on successful return.
+
+
+###Related###
+FileSaveDialog, FileSelectFolder, StringSplit
+
+
+###Example###
+@@IncludeExample@@

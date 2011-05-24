@@ -1,0 +1,37 @@
+###Function###
+DllCallbackRegister
+
+###Description###
+Creates a user-defined DLL Callback function.
+
+###Syntax###
+DllCallbackRegister ( "function", "return type", "params" )
+
+
+###Parameters###
+@@ParamTable@@
+function
+	The name of the User Defined Function to call.
+return type
+	The return type and calling convention of the function (see DllCall).
+params
+	A semi-colon separated list of parameters that will be passed to this function. Uses DllCall types.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a dll "handle" to be used with DllCallbackGetPtr and DllCallbackFree functions.
+Failure:	Returns 0 if error occurs.
+@@End@@
+
+
+###Remarks###
+When finished working with a callback, call the DllCallbackFree function to close it.  AutoIt normally closes all files upon termination, but explicitly calling DllCallbackFree is still a good idea.
+
+
+###Related###
+DllCall, DllCallbackFree, DllCallbackGetPtr
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,41 @@
+###Function###
+WinGetPos
+
+###Description###
+Retrieves the position and size of a given window.
+
+###Syntax###
+WinGetPos ( "title" [, "text"] )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to read. See <a href="../intro/windowsadvanced.htm">Title special definition</a>.
+text
+	[optional] The text of the window to read.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a 4-element array containing the following information:
+	$array[0] = X position
+	$array[1] = Y position
+	$array[2] = Width
+	$array[3] = Height
+Failure:	Returns 0 and sets @error to 1 if windows is not found.
+@@End@@
+
+
+###Remarks###
+WinGetPos returns negative numbers such as -32000 for minimized windows, but works fine with (non-minimized) hidden windows.
+If the window title "Program Manager" is used, the function will return the size of the desktop.  If multiple windows match the criteria, the most recently active window is used.
+
+
+###Related###
+WinGetClientSize, WinMove, WinGetState
+
+
+###Example###
+@@IncludeExample@@

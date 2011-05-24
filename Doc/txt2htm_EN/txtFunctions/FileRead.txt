@@ -1,0 +1,41 @@
+###Function###
+FileRead
+
+###Description###
+Read in a number of characters from a previously opened text file.
+
+###Syntax###
+FileRead ( "filehandle/filename" [, count] )
+
+
+###Parameters###
+@@ParamTable@@
+filehandle/filename
+	The handle of a file, as returned by a previous call to FileOpen.  Alternatively you may use a string filename as the first parameter.
+count
+	[optional] The number of characters to read. Default read the entire file.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the binary/string read. @extended is set to the number of bytes/characters returned.
+Special:	Sets @error to -1 if end-of-file is reached.
+Failure:	Sets @error to 1 if file not opened in read mode or other error.
+@@End@@
+
+
+###Remarks###
+If a filename is given rather than a file handle - the file will be opened and closed during the function call - for parsing large text files this will be much slower than using filehandles.
+Note: Do not mix filehandles and filenames, i.e., don't FileOpen a file and then use a filename in this function.  Use either filehandles or filenames in your routines, not both!
+
+Both ANSI and UTF16/UTF8 text formats can be read - AutoIt will automatically determine the type.
+
+A file can be read as binary(byte) data by using FileOpen with the binary flag - in this case count is in bytes rather than characters.
+
+
+###Related###
+FileOpen, FileReadLine, FileWrite, FileWriteLine, String, FileSetPos, FileGetPos
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,63 @@
+###Function###
+GUICtrlCreateIcon
+
+###Description###
+Creates an Icon control for the GUI.
+
+###Syntax###
+GUICtrlCreateIcon ( filename, iconName, left, top [, width [, height [, style [, exStyle]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	filename of the icon to be loaded.
+iconName
+	Icon name if the file contain multiple icon.  Can be an ordinal name if negative number. Otherwise -1.
+left
+	The left side of the control. If -1 is used then left will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode.
+top
+	The top of the control. If -1 is used then top will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode.
+width
+	[optional] The width of the control (default is 32).
+height
+	[optional] The height of the control (default is 32).
+style
+	[optional] Defines the style of the control. See <a href="../appendix/GUIStyles.htm#Label">GUI Control Styles Appendix</a>.
+	
+	default ( -1) : $SS_NOTIFY
+	forced styles : $WS_TABSTOP, $SS_ICON
+exStyle
+	[optional] Defines the extended style of the control. See <a href="../appendix/GUIStyles.htm#Extended">Extended Style Table</a>.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the identifier (controlID) of the new control.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+To set or change information in the control see <a href="GUICtrlUpdate Management.htm">GUICtrlUpdate...</a>.
+
+To update the icon after the dialog box is displayed use <a href="GUICtrlSetImage.htm">GUICtrlSetImage</a>
+
+iconID can reference the icon group number. Use a resource hacker to know the value.
+
+To combine styles with the default style use <b>BitOr</b>($GUI_SS_DEFAULT_ICON, newstyle,...).
+
+To use the values specified above you must #include <StaticConstants.au3> in your script.
+
+Default resizing is $GUI_DOCKSIZE.
+
+Passing a positive number will reference the string equivalent icon name.
+Passing a negative number causes 1-based "index" behaviour. Some Dll can have icon extracted just with negative numbers.
+
+
+###Related###
+GUICoordMode (Option), GUICtrlSetImage, GUICtrlUpdate..., GUIGetMsg
+
+
+###Example###
+@@IncludeExample@@

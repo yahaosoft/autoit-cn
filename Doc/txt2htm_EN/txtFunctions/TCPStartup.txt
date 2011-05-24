@@ -1,0 +1,36 @@
+###Function###
+TCPStartup, UDPStartup
+
+###Description###
+Starts TCP or UDP services.
+
+
+###Syntax###
+TCPStartup ( )
+UDPStartup ( )
+
+
+###Parameters###
+None.
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 and set @error.
+@error:	windows API WSAStartup return value (see <a href="http://msdn.microsoft.com/en-us/library/ms742213.aspx">MSDN</a>).
+@@End@@
+
+
+###Remarks###
+There must be a TCPShutdown() call to avoid memory consomption.
+A script must call one TCPShutdown() call for every successful TCPStartup() call.
+UDPStartup() is just an alias of TCPStartup().
+
+
+###Related###
+TCPShutdown, TCPListen, TCPCloseSocket, UDPCloseSocket, TCPAccept, TCPConnect, TCPNameToIP, TCPRecv, TCPSend
+
+
+###Example###
+@@IncludeExample@@

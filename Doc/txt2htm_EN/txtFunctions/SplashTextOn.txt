@@ -1,0 +1,70 @@
+###Function###
+SplashTextOn
+
+###Description###
+Creates a customizable text popup window.
+
+###Syntax###
+SplashTextOn ( "title", "text" [, w [, h [, x pos [, y pos [, opt [, "fontname" [, fontsz [, fontwt ]]]]]]]] )
+
+###Parameters###
+@@ParamTable@@
+title
+	Title for splash window.
+text
+	Text for splash window.
+w
+	[optional] Width of window in pixels. (default 500)
+h
+	[optional] Height of window in pixels. (default 400)
+x pos
+	[optional] Position from left (in pixels) of splash window. (default is centered)
+y pos
+	[optional] Position from top (in pixels) of splash window. (default is centered)
+opt
+	[optional] Add them up - default is 'center justified/always on top/with title'
+	 0 = Center justified/always on top/with title (default)
+	 1 = Thin bordered titleless window
+	 2 = Without "always on top" attribute
+	 4 = Left justified text
+	 8 = Right justified text
+	16 = Windows can be moved
+	32 = Center text vertically
+fontname
+	[optional] Font to use. (OS default GUI font is used if the font is "" or is not found)
+fontsz
+	[optional] Font size. (default is 12; standard sizes are 6 8 9 10 11 12 14 16 18 20 22 24 26 28 36 48 72)
+fontwt
+	[optional] Font weight (0 - 1000, default = 400 = normal).  A value > 1000 is treated as zero.
+@@End@@
+
+
+###ReturnValue###
+Return the Handle of the splash window that can be used in ControlSetText.
+
+
+###Remarks###
+To skip an optional parameter, leaving it's default value intact, use:
+    "" for a string parameters
+    -1 for a numeric parameters
+
+Only one SplashImage/Text window is allowed at one time; so if you wish to cycle through multiple images/text, simply call SplashImageOn/SplashTextOn again with the new information.
+
+Even better is to use ControlSetText to update text without flicker...
+If the text is center and multiline, the ControlSetText will not override the number of lines created by the SplashTextOn.
+
+Splash with opt=1 cannot be moved and cannot be activated  by click.
+
+Standard font names include:
+    Arial, Comic Sans MS, Courier New, Lucida Console, Microsoft Sans Serif, System, Tahoma, Times New Roman, and WingDings
+See Appendix for a complete font list
+
+Use @LF to display several lines.
+
+
+###Related###
+SplashOff, SplashImageOn, ControlSetText, ToolTip, MsgBox
+
+
+###Example###
+@@IncludeExample@@

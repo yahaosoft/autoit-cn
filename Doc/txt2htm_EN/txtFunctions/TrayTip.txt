@@ -1,0 +1,42 @@
+###Function###
+TrayTip
+
+###Description###
+Displays a balloon tip from the AutoIt Icon. (2000/XP only)
+
+###Syntax###
+TrayTip ( "title", "text", timeout [, option] )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	Text appears in bold at the top of the balloon tip. (63 characters maximum)
+text
+	Message the balloon tip will display. (255 characters maximum)
+timeout
+	A rough estimate of the time (in seconds) the balloon tip should be displayed. (Windows has a min and max of about 10-30 seconds but does not always honor a time in that range.)
+option
+	[optional] See Remarks.  0=No icon (default),
+	1=Info icon, 2=Warning icon, 3=Error icon
+@@End@@
+
+###ReturnValue###
+None.
+
+
+###Remarks###
+TrayTip works for only Windows 2000/XP or better.
+
+A Tray tip will close if the AutoIt tray icon disappears. Consequently, the TrayTip may not appear if AutoItSetOption("TrayIconHide", 1) is set or if the user has disabled balloon tips via registry settings!
+
+Windows XP usually plays a sound when displaying a balloon tip. This sound can be disabled by adding 16 to the <i>options</i> parameter or by setting an empty title.
+
+To clear a balloon tip that is being displayed, call another tip with an empty text string (and any title).
+
+###Related###
+MsgBox, ToolTip, TrayIconHide (Option), TraySetToolTip
+
+
+###Example###
+@@IncludeExample@@

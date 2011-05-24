@@ -1,0 +1,45 @@
+###Function###
+MouseClickDrag
+
+###Description###
+Perform a mouse click and drag operation.
+
+
+###Syntax###
+MouseClickDrag ( "button", x1, y1, x2, y2 [, speed] ) 
+
+
+###Parameters###
+@@ParamTable@@
+button
+	The button to click: "left", "right", "middle", "main", "menu", "primary", "secondary".
+x1, y1
+	The x/y coords to start the drag operation from.
+x2, y2
+	The x/y coords to end the drag operation at.
+speed
+	[optional] the speed to move the mouse in the range 1 (fastest) to 100 (slowest).  A speed of 0 will move the mouse instantly.  Default speed is 10.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0, the button is not in the list.
+@@End@@
+
+
+###Remarks###
+If the button is an empty string, the left button will be clicked.
+
+If the user has swapped the left and right mouse buttons in the control panel, then the behaviour of the buttons is different.  "Left" and "right" always click those buttons, whether the buttons are swapped or not.  The "primary" or "main" button will be the main click, whether or not the buttons are swapped.  The "secondary" or "menu" buttons will usually bring up the context menu, whether the buttons are swapped or not.  See the table in <a href="MouseClick.htm#table">MouseClick</a> for more explaination
+
+
+###Related###
+MouseClick, MouseGetPos, MouseMove, MouseCoordMode (Option), , MouseClickDragDelay (Option), MouseDown, MouseUp, MouseWheel
+
+
+###Example###
+@@IncludeExample@@
+
+

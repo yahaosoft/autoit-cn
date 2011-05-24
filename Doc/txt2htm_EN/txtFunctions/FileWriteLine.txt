@@ -1,0 +1,43 @@
+###Function###
+FileWriteLine
+
+###Description###
+Append a line of text to the end of a previously opened text file.
+
+###Syntax###
+FileWriteLine ( "filehandle/filename", "line" )
+
+
+###Parameters###
+@@ParamTable@@
+filehandle/filename
+	The handle of a file, as returned by a previous call to FileOpen.  Alternatively, you may use a string filename as the first parameter.
+line
+	The line of text to write to the text file.  If the line does NOT end in @CR or @LF then a DOS linefeed (@CRLF) will be automatically added.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 if file not opened in writemode, file is read only, or file cannot otherwise be written to.
+@@End@@
+
+
+###Remarks###
+The text file must be opened in write mode or the FileWriteLine command will fail.
+
+If a filename is given rather than a file handle, the file will be opened and closed during the function call.  For parsing large text files this will be much slower than using filehandles.  However, filename will be created if it does not already exist.
+
+Note: Do not mix filehandles and filenames, i.e., don't FileOpen a file and then use a filename in this function. Either use filehandles or filenames in your routines, not both.
+
+When writing text AutoIt will write using ANSI by default. To write in Unicode mode the file must be opened with FileOpen() and the relevant flags.
+
+The text to write cannot contain Chr(0) characters as the output is truncated. FileWrite() using a file opened in binary mode must be used to write such characters.
+
+
+###Related###
+FileFlush, FileOpen, FileRead, FileReadLine, FileWrite, FileSetPos, FileGetPos
+
+
+###Example###
+@@IncludeExample@@

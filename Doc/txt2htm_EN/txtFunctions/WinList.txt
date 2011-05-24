@@ -1,0 +1,41 @@
+###Function###
+WinList
+
+###Description###
+Retrieves a list of windows.
+
+###Syntax###
+WinList ( ["title" [, "text"]] )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	[optional] The title of the window to read.
+text
+	[optional] The text of the window to read.
+@@End@@
+
+
+###ReturnValue###
+Returns an array of matching window titles and handles.
+
+
+###Remarks###
+If no title and text is given then all top-level windows are returned.
+
+The array returned is two-dimensional and is made up as follows:
+$array[0][0] = Number of windows returned
+$array[1][0] = 1st window title
+$array[1][1] = 1st window handle (HWND)
+$array[2][0] = 2nd window title
+$array[2][1] = 2nd window handle (HWND)
+...
+$array[n][0] = nth window title
+$array[n][1] = nth window handle (HWND)
+
+###Related###
+WinGetHandle
+
+###Example###
+@@IncludeExample@@

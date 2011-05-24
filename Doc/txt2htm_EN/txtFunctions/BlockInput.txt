@@ -1,0 +1,48 @@
+###Function###
+BlockInput
+
+###Description###
+Disable/enable the mouse and keyboard.
+
+###Syntax###
+BlockInput ( flag )
+
+
+###Parameters###
+@@ParamTable@@
+flag
+	1 = Disable user input
+	0 = Enable user input
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0. Already Enable or #requireAdmin not used.
+@@End@@
+
+
+###Remarks###
+The table below shows how BlockInput behavior depends on the Windows version; however, pressing <i>Ctrl+Alt+Del</i> on any platform will re-enable input due to a Windows API feature.
+<br>
+@@ParamTable@@
+<b><i>Operating System</b></i>
+	<b><i>"BlockInput" Results</b></i>
+Windows 2000
+	User input is blocked and AutoIt can simulate mouse and keyboard input.
+Windows XP
+	User input is blocked and AutoIt can simulate mouse and keyboard input.  See remarks below for an issue with Windows XP SP1.
+Windows Vista
+	User input is blocked and AutoIt can simulate mouse and keyboard if #RequireAdmin is used.
+@@End@@
+
+A Windows hotfix was released for Windows XP SP1 that contained a bug that prevents the Alt keystroke from being sent (via the Send() function) while BlocKInput() is active.  The Windows bug is fixed in Windows XP SP2 and newer.
+
+BlockInput() only affects user-input.  Input from functions like Send() or MouseMove() still work.
+
+###Related###
+Send
+
+
+###Example###
+@@IncludeExample@@

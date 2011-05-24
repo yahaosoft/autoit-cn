@@ -1,0 +1,44 @@
+###Function###
+StringReplace
+
+###Description###
+Replaces substrings in a string.
+
+###Syntax###
+StringReplace ( "string", "searchstring/start", "replacestring" [, occurrence [, casesense]] )
+
+
+###Parameters###
+@@ParamTable@@
+string
+	The string to evaluate.
+searchstring/start
+	The substring to search for or the character position to start the replacement.
+replacestring
+	The replacement string.
+occurrence
+	[optional] The number of times to replace the searchstring. Use a negative occurrence to replace from the right side.
+	0 = all searchstrings will be replaced (default)
+casesense
+	[optional] Flag to indicate if the operations should be case sensitive.
+	0 = not case sensitive, using the user's locale (default)
+	1 = case sensitive
+	2 = not case sensitive, using a basic/faster comparison
+@@End@@
+
+
+###ReturnValue###
+Returns the new string, the number of replacements performed is stored in @extended.
+
+
+###Remarks###
+By default or if count is positive the search/replace is performed left-to-right.  Thus, StringReplace("aaa", "aa", "bb") returns "bba"
+
+If the start method is used the occurrence and casesense parameters are ignored. If the replacestring cannot be stored a blank string is returned and @error is set to 1.
+
+###Related###
+StringLeft, StringLen, StringLower, StringMid, StringRight, StringTrimLeft, StringTrimRight, StringUpper, StringStripWS, StringAddCR
+
+
+###Example###
+@@IncludeExample@@

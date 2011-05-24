@@ -1,0 +1,42 @@
+###Function###
+IniRenameSection
+
+###Description###
+Renames a section in a standard format .ini file.
+
+###Syntax###
+IniRenameSection ( "filename", "section", "new section" [, flag] )
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	The filename of the .ini file.
+section
+	The section name in the .ini file.
+new section
+	The new section name.
+flag
+	[optional] 0 (Default) - Fail if "new section" already exists.
+	1 - Overwrite "new section".  This will erase any existing keys in "new section"
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Non-zero.
+Failure:	0 and may set @error if the section couldn't be overwritten (flag = 0 only).
+@@End@@
+
+
+###Remarks###
+A standard ini file looks like:
+<i>[SectionName]
+Key=Value</i>
+
+
+###Related###
+IniRead, IniDelete, IniWrite, IniReadSection, IniReadSectionNames, IniWriteSection
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,76 @@
+###Function###
+ControlListView
+
+###Description###
+Sends a command to a ListView32 control.
+
+###Syntax###
+ControlListView ( "title", "text", controlID, "command" [, option1 [, option2]] )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to access.
+text
+	The text of the window to access.
+controlID
+	The control to interact with.  See <a href="../intro/controls.htm">Controls</a>.
+command
+	The command to send to the control (see below).
+option1
+	[optional] Additional parameter required by some commands.
+option2
+	[optional] Additional parameter required by some commands.
+@@End@@
+
+
+###ReturnValue###
+Depends on command as table below shows.  In case of an error (such as an invalid command or window/control could not be found) then @error is set to 1.
+
+<br>
+@@ControlCommandTable@@
+<b>Command, Option1, Option2</b>
+	<b>Operation</b>
+"DeSelect", From [, To]
+	Deselects one or more items.
+"FindItem", "string to find" [, SubItem]
+	Returns the item index of the string.  Returns -1 if the string is not found.
+"GetItemCount"
+	Returns the number of list items.
+"GetSelected" [, option]
+	Returns a string containing the item index of selected items.  If option=0 (default) only the first selected item is returned.  If option=1 then all the selected items are returned delimited by |, e.g: &quot;0|3|4|10&quot;.  If no items are selected a blank "" string is returned.
+"GetSelectedCount"
+	Returns the number of items that are selected.
+"GetSubItemCount"
+	Returns the number of subitems.
+"GetText", Item, SubItem
+	Returns the text of a given item/subitem.
+"IsSelected", Item
+	Returns 1 if the item is selected, otherwise returns 0.
+"Select", From [, To]
+	Selects one or more items.
+"SelectAll"
+	Selects all items.
+"SelectClear"
+	Clears the selection of all items.
+"SelectInvert"
+	Inverts the current selection.
+"ViewChange", "view"
+	Changes the current view.  Valid views are "list", "details", "smallicons", "largeicons".
+@@End@@
+<br>
+All items/subitems are 0 based.  This means that the first item/subitem in a list is 0, the second is 1, and so on.
+
+In a "Details" view of a ListView32 control, the &quot;item&quot; can be thought of as the &quot;row&quot; and the &quot;subitem&quot; as the &quot;column&quot;.
+
+
+###Remarks###
+Some commands may fail when using a 32-bit AutoIt process to read from a 64-bit process.  Likewise commands may fail when using a 64-bit AutoIt process to read from a 32-bit process.
+
+###Related###
+ControlCommand
+
+
+###Example###
+@@IncludeExample@@

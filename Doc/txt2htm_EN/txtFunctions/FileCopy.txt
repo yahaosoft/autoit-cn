@@ -1,0 +1,47 @@
+###Function###
+FileCopy
+
+###Description###
+Copies one or more files.
+
+###Syntax###
+FileCopy ( "source", "dest" [, flag] )
+
+
+###Parameters###
+@@ParamTable@@
+source
+	The source path of the file(s) to copy.  Wildcards are supported.
+dest
+	The destination path of the copied file(s).
+flag
+	[optional] this flag determines whether to overwrite files if they already exist.
+	Can be a combination of the following:
+	 0 = (default) do not overwrite existing files
+	 1 = overwrite existing files
+	 8 = Create destination directory structure if it doesn't exist (See Remarks).
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+The destination directory must already exist, except using with flag value '8'.
+For instance the  combined flag '9' (1 + 8) overwrites the target file and pre-checks for the destination directory structure and if it doesn't exist creates it automatically.
+
+See <a href="FileFindFirstFile.htm">FileFindFirstFile</a> for a discussion of wildcards.
+
+Some file attributes can make the overwriting impossible.
+
+
+###Related###
+FileMove, FileDelete, DirCopy, DirCreate
+
+
+###Example###
+@@IncludeExample@@

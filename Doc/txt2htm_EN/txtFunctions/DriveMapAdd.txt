@@ -1,0 +1,54 @@
+###Function###
+DriveMapAdd
+
+###Description###
+Maps a network drive.
+
+###Syntax###
+DriveMapAdd ( "device", "remote share" [, flags [, "user" [, "password"]]] )
+
+
+###Parameters###
+@@ParamTable@@
+device
+	The device to map, for example "O:" or "LPT1:".  If you pass a blank string for this parameter a connection is made but not mapped to a specific drive.  If you specify "*" an unused drive letter will be automatically selected.
+remote share
+	The remote share to connect to in the form "\\server\share".
+flags
+	[optional] A combination of the following:
+	0 = default
+	1 = Persistent mapping
+	8 = Show authentication dialog if required
+user
+	[optional] The username to use to connect.  In the form "username" or "domain\username".
+password
+	[optional] The password to use to connect.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.  (See Remarks)
+Failure:	Returns 0 if a new mapping could not be created and sets @error (see below).  (See Remarks)
+@@End@@
+
+
+###Remarks###
+When the function fails (returns 0) @error contains extended information:
+ 1 = Undefined / Other error. @extended set with Windows API return
+ 2 = Access to the remote share was denied
+ 3 = The device is already assigned
+ 4 = Invalid device name
+ 5 = Invalid remote share
+ 6 = Invalid password
+
+Note: When using "*" for the device parameter the drive letter selected will be returned instead of 1 or 0, e.g. "U:".  If there was an error using "*" then a blank string "" will be returned.
+
+If defined the user/password will be presented to the remote computer that will validate the credential.
+
+
+###Related###
+DriveMapDel, DriveMapGet
+
+
+###Example###
+@@IncludeExample@@

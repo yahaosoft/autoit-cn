@@ -1,0 +1,47 @@
+###Function###
+Shutdown
+
+###Description###
+Shuts down the system.
+
+
+###Syntax###
+Shutdown ( code [, reason] )
+
+###Parameters###
+@@ParamTable@@
+code
+	A combination of shutdown codes.  See "remarks".
+reason
+	[optional] user shudown reason code.
+@@End@@
+
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 and @error is set to GetLastError().
+@@End@@
+
+
+###Remarks###
+The shutdown code is a combination of the following values:
+0 = Logoff
+1 = Shutdown
+2 = Reboot
+4 = Force
+8 = Power down
+16= Force if hung
+32= Standby
+64= Hibernate
+
+Add the required values together.  To shutdown and power down, for example, the code would be 9 (shutdown + power down = 1 + 8 = 9).
+
+Standby or Hibernate are ignored if other codes are set.
+
+###Related###
+ProcessClose
+
+
+###Example###
+@@IncludeExample@@

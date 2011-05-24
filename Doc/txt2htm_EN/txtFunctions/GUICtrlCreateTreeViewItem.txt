@@ -1,0 +1,42 @@
+###Function###
+GUICtrlCreateTreeViewItem
+
+###Description###
+Creates a TreeViewItem control for the GUI.
+
+###Syntax###
+GUICtrlCreateTreeViewItem ( "text", treeviewID )
+
+
+###Parameters###
+@@ParamTable@@
+text
+	The text of the control.
+treeviewID
+	treeview identifier as return by treeview or treeviewitem creation if subtree is created.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the identifier (controlID) of the new control.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+For setting more information see <a href="GUICtrlUpdate Management.htm">GUICtrlUpdate...</a>.
+
+To paint a treeview item in bold (to show as default) use GuiCtrlSetState($treeviewItem, $GUI_DEFBUTTON),
+to turn off this behaviour use GUICtrlSetState() with another value but $GUI_DEFBUTTON, for instance GuiCtrlSetState($treeviewItem, 0).
+
+To expand a treeview item use GuiCtrlSetState($treeviewItem, $GUI_EXPAND).
+
+To select a specific treeview item use GuiCtrlSetState($treeviewItem, $GUI_FOCUS).
+
+
+###Related###
+GUICtrlCreateTreeView, GUICtrlUpdate..., GUIGetMsg, GUICtrlRead, GUICtrlGetHandle
+
+
+###Example###
+@@IncludeExample@@
