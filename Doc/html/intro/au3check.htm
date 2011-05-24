@@ -7,75 +7,103 @@
   <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h1>Au3check 语法表达式工具 </h1>
-<p>Syntax checks the complete language (3.0.103+).<br>
+<h1>AutoIt 表达式检查器(Au3Check)</h1>
+<p>Syntax checks the complete language.<br>
 Checks all symbols used:<br>
 <br>
-* Macros (defined in Au3Check.dat).<br>
-Usage of non-defined macros are reported as errors.<br>
+<li><b>Macros</b> :</li><ul>
+Usage of non-defined macros are reported as errors.
+</ul>
 <br>
-* Variables: (built-in variables ($CmdLine) are defined in Au3Check.dat)<br>
+<li><b>Variables</b> :</li><ul>
 Au3Check issues warning if variables are used before they are seen. <br>
-It is possible that the program is still correct, like the following:<br>
-<br>
+It is possible that the program is still correct, like the following:
+<p class="codebox">
 For $i=1 To 2<br>
 If $i=2 Then msgbox(0, &quot;ok&quot;, $hello);<br>
 Local $hello = &quot;Goodbye&quot;<br>
-Next<br>
+Next</p>
+However, this is bad programming style, and Au3Check will issue a warning that
+$hello is possible used before it is declared.<br>
+Likewise, global variables declared in functions should best not be used in other functions.<br>
+If one is used higher up in the code, a warning is issued.<br>
+Finally, Au3Check issues an error if a variable is used, but never declared, explicitly or implicitly.
+</ul>
 <br>
-However, this is bad programming style, and Au3Check will issue a warning that 
-$hello is<br>
-possible used before it is declared. Likewise, global variables declared in 
-functions<br>
-should best not be used in other functions. If one is used higher up in the 
-code, a warning<br>
-is issued. Finally, Au3Check issues an error if a variable is used, but never 
-declared,<br>
-explicitly or implicitly.<br>
+<li><b>Functions</b> :</li><ul>
+Functions may be defined later than where they are called. Au3Check checks that
+all functions are called with the correct number of parameters.<br>
+It also checks that ByRef parameters are called with variables (not l-values, expressions).<br>
+Finally, non-defined functions are reported.
+</ul>
 <br>
-* Functions: (built-in functions are defined in Au3Check.dat).<br>
-Functions may be defined later than where they are called. Au3Check checks that 
-all<br>
-functions are called with the correct number of parameters. It also checks that 
-ByRef parameters<br>
-are called with variables (not l-values, expressions). Finally, non-defined 
-functions<br>
-are reported. <br>
+To manage some warnings/errors that can not be avoid some specific directive can be included in the script.<br>
 <br>
+<b>Directives</b><br>
+--------------
+<p class="codeheader">#ignorefunc funcname [, ...]</p>
+<ul>can be used for plugin functions, like the following:<br>
+<p class="codebox">
+#ignoreFunc PluginFunc1<br>
+Local $handle = PluginOpen("example.dll")<br>
+PluginFunc1(0.1, 0.2) ; will call the plugin function with  2 parameters<br>
+PluginClose($handle)</p></ul>
 <br>
-Usage<br>
------<br>
-Simply add as a tool in TextPad.<br>
+<p class="codeheader">#forceref $varname [, ...]</p>
+<ul>can be used for inside functions, like the following:<br>
+<p class="codebox">
+Func Test_Numparams($v1 = 0, $v2 = 0, $v3 = 0, $v4 = 0, $v5 = 0, $v6 = 0, $v7 = 0, $v8 = 0, $v9 = 0)<br>
+	#forceref $v1, $v2, $v3, $v4, $v5, $v6, $v7, $v8, $v9<br>
+	Local $val<br>
+	For $i = 1 To @NumParams<br>
+		$val &= Eval("v" & $i) & " "<br>
+	Next<br>
+	MsgBox(0, "@NumParams example", "@NumParams =" & @NumParams & @CRLF & @CRLF & $val)<br>
+EndFunc</p></ul>
 <br>
-Au3Check [-q] [-d] [-w[-] n].. [-v[-] n].. [-I include-dir].. file.au3<br>
--q : quiet (only error/warn output)<br>
+<p class="codeheader">#forcedef $varname [, ...]</p>
+<ul>can be used after Assign() functions, like the following:<br>
+<p class="codebox">
+$n = Assign("y", 3)<br>
+#forcedef $y<br>
+$n = $y ;===&gt; $y = 3</p>
+</ul>
+<br>
+This command line utility can be invoked thru editor add-on. It located in the same directory as AutoIt3.exe.<br>
+The <a href="http://www.autoitscript.com/autoit3/scite/" class="ext">SciTe4AutoIt3</a> editor provides such environment.<br>
+<br>
+
+<b>Usage</b><br>
+--------<br>
+<p class="codeheader">Au3Check [-q] [-d] [-w[-] n]... [-v[-] n]... [-I dir]... file.au3</p>
+<ul>-q : quiet (only error/warn output)<br>
 -d : as Opt(&quot;MustDeclareVars&quot;, 1)<br>
 -w 1: already included file (on)<br>
 -w 2: missing #comments-end (on)<br>
 -w 3: already declared var (off)<br>
+-w 4: local var used in global scope (off)<br>
+-w 5: local var declared but not used (off)<br>
+-w 6: warn when using Dim (off)<br>
+-w 7: warn when passing Const or expression on ByRef param(s) (on)<br>
+-I dir: additional directories for searching include files<br>
+<br>
 -v 1: show include paths/files (off)<br>
 -v 2: show lexer tokens (off)<br>
-Exit codes:<br>
+-v 3: show unreferenced UDFs and global variables (off)
+</ul>
+Exit codes:<ul>
 0: success: no errors or warnings<br>
 1: warning(s) only<br>
 2: syntax error(s)<br>
-3: usage or input error<br>
+3: usage or input error
+</ul>
 <br>
-You should set up regular expression (POSIX) like the following: <br>
-^([^(]+)\(([0-9]+),([0-9]+)\)<br>
-<br>
-Argument 3 is column.<br>
-If you do not use POSIX RegEx, you must use \ in a different way on ()'s.<br>
-<br>
-<br>
-What is not checked<br>
--------------------<br>
+<b>What is not checked</b><br>
+--------------------------<ul>
 Basically runtime information:<br>
-- No checking is made for array dimensions, or indices. This can only be done 
+- No checking is made for array dimensions, or indices. This can only be done
 runtime.<br>
 - Logical errors, illegal parameters to functions, and division on zero.<br>
-&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+</ul></p>
 </body>
 </html>

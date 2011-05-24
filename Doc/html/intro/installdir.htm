@@ -21,7 +21,7 @@
     <td colspan=2>AutoIt3.exe</td>
     <td>AutoIt 主程序,并且 <strong>只需要</strong> 这个文件就可以运行脚本!</td>
   </tr>
-  <tr> 
+  <tr>
     <td colspan=2>AutoIt3_x64.exe</td>
     <td>64 位构架的 AutoIt 版本(如果已经安装).</td>
   </tr>
@@ -29,27 +29,27 @@
     <td colspan=2>AU3Info.exe</td>
     <td>The <a href="au3spy.htm">AutoIt 窗口信息工具.</a></td>
   </tr>
-  <tr> 
+  <tr>
     <td colspan=2>AU3Info_x64.exe</td>
     <td>64位构架的 Au3Info (如果已经安装).</td>
   </tr>
-  <tr> 
+  <tr>
     <td colspan=2>AU3Check.exe</td>
     <td>AutoIt表达式检查器.</td>
   </tr>
-  <tr> 
+  <tr>
     <td colspan=2>AutoIt.chm</td>
     <td>这个帮助文件会调用 AutoIt3.chm,AutoIt3chs.chm,UDFs3.chm,UDFs3chs.chm</td>
   </tr>
-  <tr> 
+  <tr>
     <td colspan=2>Uninstall.exe</td>
     <td>AutoIt 卸载器.</td>
   </tr>
-  <tr> 
+  <tr>
     <td colspan=2>AutoIt v3 Website.url</td>
     <td>链接到 <a href="http://www.autoitscript.com/autoit3/">http://www.autoitscript.com/autoit3/</a>的快捷方式</td>
   </tr>
- 
+
   <tr bgcolor=#FFFF9C>
     <td colspan=3><strong>Aut2Exe</strong></td>
   </tr>
@@ -86,6 +86,10 @@
 	<td width="70%">包含了为Autoit写的GUI例子.</td>
   <tr>
     <td></td>
+	<td><strong>GUI\</strong></td>
+	<td>包含使用AutoIt写的GUI例子.</td>
+  <tr>
+    <td></td>
 	<td><strong>Helpfile\</strong></td>
 	<td>包含了帮助文件中引用的例子.</td>
   <tr bgcolor=#FFFF9C>
@@ -93,7 +97,7 @@
   </tr>
   <tr>
     <td width="10%"></td>
-	<td width="20%"><b>AutoUpdateIt\</b></td>
+	<td width="20%"><strong>Au3Record\</strong></td>
 	<td width="70%">包含了怎么得到最新版本的方法(一个更新器).</td>
   <tr>
     <td></td>
@@ -107,10 +111,6 @@
     <td>&nbsp;</td>
 	<td><strong>SQLite\</strong></td>
 	<td>包含了 SQLite 命令行可执行文件和帮助文件.</td>
-  <tr>
-    <td></td>
-	<td><strong>v2_to_v3_Converter\</strong></td>
-	<td>包含了一个转换Autoit v2.64 到 AutoIt v3 表达式的工具(过老,移除于汉化版).</td>
   <tr bgcolor=#FFFF9C>
     <td colspan=3><strong>Icons</strong></td>
   </tr>
@@ -138,7 +138,6 @@
   </tr>
 </table>
 <p>如果您需要重复的运行 AutoIt 脚本,只需要 <strong>AutoIt3.exe</strong>.&nbsp; 如果您编译脚本为可执行文件,则系统中不需要再安装 AutoIt.</p>
-<p><font size="-2">(另外: 在 Windows NT 4 上需要 PSAPI.dll 放置于程序目录或者系统目录. Process...() 相关函数会需要它才能工作.注意:WIN9X不再被支持.目前支持的是WIN 2K/2003/2008/VISTA/7)</font></p>
 <p>&nbsp;</p>
 <h2>注册表键值</h2>
 <p>AutoIt 安装器创建注册表键于 <em>HKEY_LOCAL_MACHINE\Software\AutoIt v3</em> 和 <em>HKEY_CURRENT_USER\Software\AutoIt v3</em>. 若没有完整安装过 AutoIt 则这些项目是不会存在的,也就是说,AutoIt 的运行对服务器而言是"干净的"(注册表里不会有垃圾信息).</p> 
@@ -146,7 +145,7 @@
 
 下面这个列表显示默认(或者可选) 注册表键.  斜体字表示这些键不是创建于安装器自己,但是第一次执行相关工具时会创建.:
 <table width="100%" border="1" cellspacing="0" cellpadding="3" bordercolor="#c0c0c0">
-  <tr bgcolor="#000099"> 
+  <tr bgcolor="#000099">
     <td colspan=4><font color="#FFFFFF"><strong>HKEY_LOCAL_MACHINE\SOFTWARE\AutoIt v3\</strong></font></td>
   </tr>
   <tr bgcolor=#FFFF9C>
@@ -170,10 +169,10 @@
     <td>REG_SZ</td>
     <td><em>版本号</em></td>
   </tr>
-  
+
   <tr><td colspan=4><td></tr>
-  
-  <tr bgcolor="#000099"> 
+
+  <tr bgcolor="#000099">
     <td colspan=4><font color="#FFFFFF"><strong>HKEY_CURRENT_USER\Software\AutoIt v3\</strong></font></td>
   </tr>
   <tr bgcolor=#FFFF9C>
@@ -221,9 +220,9 @@
     <td>REG_SZ</td>
     <td>我的文档</td>
   </tr>
-  
+
   <tr bgcolor=#FFFF9C>
-    <td colspan=4><i><strong>AutoUpdateIt</strong></i></td>
+    <td colspan=4><strong>AutoUpdateIt</strong></td>
   </tr>
   <tr>
     <td width="10%"></td>
@@ -243,31 +242,9 @@
     <td>REG_SZ</td>
     <td>C:\Downloads\ForExample\</td>
   </tr>
-  
+
   <tr bgcolor=#FFFF9C>
-    <td colspan=4><i><strong>Exe2Aut</strong></i></td>
-  </tr>
-  <tr>
-    <td width="10%"></td>
-    <td>(默认)</td>
-    <td>REG_SZ</td>
-    <td>(没有值)</td>
-  </tr>
-  <tr>
-    <td width="10%"></td>
-    <td>LastExeDir/最后脚本路径</td>
-    <td>REG_SZ</td>
-    <td>C:\ForExample\</td>
-  </tr>
-  <tr>
-    <td width="10%"></td>
-    <td>LastScriptDir</td>
-    <td>REG_SZ</td>
-    <td>&nbsp;</td>
-  </tr>
-  
-  <tr bgcolor=#FFFF9C>
-    <td colspan=4><i><strong>AU3Info</strong></i></td>
+    <td colspan=4><strong>AU3Info</strong></td>
   </tr>
   <tr>
     <td width="10%"></td>

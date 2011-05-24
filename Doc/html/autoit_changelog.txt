@@ -1,8 +1,68 @@
 AutoIt 更新日志
 ===============
 说明:正式版的更新都是基于测试版,请参考测试版更新.
+3.3.8.0 (some day, 2010) (Release)
+AutoIt:
+- Fixed #1040: _ScreenCapture_Capture(): GDI object leak with cursor capture.
+- Fixed #1599: TraySetItemText() regression for default menu item.
+- Fixed #1282: WinMove before GUICtrlSetPos during GUICreation.
+- Fixed #1397: Bad HotKeySet() not detected on keyboard as Russian one.
+- Fixed #1531: default txtcolor for iput edit list combo updown with black theme. 
+- Fixed #1617: GuiCreate failure after GuiDelete can lead to a loop on Autoit exit.
+- Fixed #1596: GUICtrlSetPos() default = no change.
+- Fixed #1485: Crash on ContinueCase.
+- Fixed #1626: TCPRecv()/TCPSend() doc about Unicode transmission.
+- Fixed #1653: Doc for WM_KEYLAST Windows 2000 message.
+- Fixed #1669: StringRegExpReplace() doc about doubling of "\" in replace string.
+- Fixed #1673: WinGetProcess() doc example.
+- Fixed #1677: Invalid ContinueLoop with multiple levels.
+- Fixed #1684: FileRead() binary read memory allocation error.
+- Fixed #1685: BitRotate() shift parameter.
+- Fixed #1734: GUICtrlCreateAVI() crash with negative subfield.
+- Fixed #1923: Memory consumption while FileOpen/FileClose.
+- Fixed #1883: IsHWnd(), Return Value. (Nitpick: Value = Bool).
 
-3.3.6.1 (xth April, 2010) (Release)
+AutoItX:
+- Fixed #1686: AU3_PixelSearch crashes.
+
+UDFs:
+- Added: _DebugSetup() can report to a Notepad Window.
+- Added #1371: Allow Default keyword in _TempFile().
+- Added #1527: Test example to have doc example working.
+- Added #1636: _Security__LookupAccountSID() for Remote Systems.
+- Added #1569: _ArraySearch() $iPartial (->$iCompare) extended to match on variables of same type.
+- Added #1557: VK_xBUTTON in Constants.au3.
+
+- Fixed #1542: _DebugSetup() closing when use with GUI handling events.
+- Fixed #1549: _SQLite_Escape() crash for strings > 64K (> 3.3.0.0).
+- Fixed #1517: _GUICtrlListView_simpleSort with checkbox.
+- Fixed #1588: AUtoIt3.exe stay active for all processes using the Window report.
+- Fixed #1615: _GUICtrlTreeView_SetStateImageIndex() with index = 0.
+- Fixed #1620: _DebugOut() or _DebugReportVar() containing '.
+- Fixed #1513: Allow _GUI...() to use notification callback (LPSTR_TEXTCALLBACK).
+- Fixed #1608: _Crypt_EncryptFile() for file >1Mb.
+- Fixed #1644: _InetMail() with Windows Live mail.
+- Fixed #1453: _Net_Share_ShareCheck return always 0.
+- Fixed #1664: _GUICtrlTab_GetItem() does not return text.
+- Fixed #1671: _WinAPI_WideCharToMultiByte() doc.
+- Fixed #1672: _WinAPI_GetObject() reference ANSI version.
+- Fixed #1665: _ScreenCapture_CaptureWnd() when running with Aero theme.
+- Fixed #1689: _Debug...() cannot be obfuscated.
+- Fixed #1712: _FileWriteFromArray() crash on array.
+- Fixed #1754: _PathFull() optional parameter doc.
+- Fixed #1756: _GDIPlus_Startup() Flaw on error.
+
+- Changed: _SQLite 3.6.22 -> 3.7.2.0
+
+Au3Check:
+- Added: #forcedef directive to force var definition as after Assign().
+- Added: -w 7 to check ByRef parameter passing.
+
+- Fixed: Const Enum wrong ERROR.
+- Fixed: Global declared in func not detected.
+- Fixed #1051: no ERROR if keyword not followed by a separator as Local$a.
+
+3.3.6.1 (16th April, 2010) (Release)
 AutoIt:
 - Fixed #1515: FileOpen still opening in exclusive mode in some situations.
 

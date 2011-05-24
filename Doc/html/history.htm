@@ -23,7 +23,7 @@
 <p style="font-size: small"><b><u>16th April, 2010  - v3.3.6.1</u></b></p>
 <p><strong>AutoIt:</strong></p>
 <ul>
-    <li>Fixed #1515: FileOpen() still opening in exclusive mode in some 
+    <li>Fixed #1515: FileOpen() still opening in exclusive mode in some
 	situations.</li>
 	</ul>
 	<p>&nbsp;</p>
@@ -31,40 +31,40 @@
 <p style="font-size: small"><b><u>7th March, 2010  - v3.3.6.0</u></b></p>
 <p><strong>AutoIt:</strong></p>
 <ul>
-    <li>Added #1376: FileOpen() mode parameter is now optional. Default 
+    <li>Added #1376: FileOpen() mode parameter is now optional. Default
 	mode is read.</li>
 	<li>Added #1054: Added FileGetEncoding().</li>
-	<li>Added: ControlCommand() &quot;SendCommandID&quot; - used to send WM_COMMAND 
-	Control ID messages. Allows the automation of ToolBarWindow32 controls 
-	(amongst others). For example, the &quot;Back&quot; button of Internet Explorer. Use 
+	<li>Added: ControlCommand() &quot;SendCommandID&quot; - used to send WM_COMMAND
+	Control ID messages. Allows the automation of ToolBarWindow32 controls
+	(amongst others). For example, the &quot;Back&quot; button of Internet Explorer. Use
 	Au3Info to get the Command ID from the ToolBar tab.</li>
 	</ul>
 	<ul>
-	<li>Fixed #1428: AdlibRegister/Unregister() were incorrectly using 
+	<li>Fixed #1428: AdlibRegister/Unregister() were incorrectly using
 	case-sensitive function names.</li>
 	<li>Fixed #1448: #OnAutoItStartRegister did not work in compiled scripts.</li>
-	<li>Fixed #961: RegDelete() was not working properly on 64bit keys when 
+	<li>Fixed #961: RegDelete() was not working properly on 64bit keys when
 	using the 32bit version of AutoIt and HKLM64.</li>
-	<li>Fixed: Regression in FileOpen() where it wasn't allowed to open files in 
+	<li>Fixed: Regression in FileOpen() where it wasn't allowed to open files in
 	read mode if they were already open in write mode.</li>
 	<li>Fixed #1449: GUICtrlDelete() not working for GUICtrlCreateDummy() types.</li>
 	<li>Fixed #1458: Inet sizes were capped to 32-bits.</li>
 	<li>Fixed #1459: Hard crash when too much recursion is used.</li>
-	<li>Fixed #1464: Regular expressions with a single character * pattern were 
+	<li>Fixed #1464: Regular expressions with a single character * pattern were
 	stopping after the first null match.</li>
-	<li>Fixed #1463: StringToASCIIArray() working incorrectly with UTF8 
+	<li>Fixed #1463: StringToASCIIArray() working incorrectly with UTF8
 	characters.</li>
-	<li>Fixed #1475: TrayItemSetState($Value, $Tray_Checked) incorrectly enables 
+	<li>Fixed #1475: TrayItemSetState($Value, $Tray_Checked) incorrectly enables
 	a disabled TrayItem.</li>
 	</ul>
 	<ul>
-	<li>Changed: Send() and ControlSend() code reworked to allow for more 
+	<li>Changed: Send() and ControlSend() code reworked to allow for more
 	Unicode characters to be used.</li>
 	<li>Changed: FileWriteLine() performance improved.</li>
 </ul>
 	<p><strong>Aut2Exe</strong></p>
 <ul>
-  <li>Fixed #1409: Ctrl+C is no longer the shortcut for Convert. It is now 
+  <li>Fixed #1409: Ctrl+C is no longer the shortcut for Convert. It is now
   Ctrl+G (Go) to avoid clashing with a Ctrl+C copy operation..</li>
 </ul>
 	<p><strong>Au3Info</strong></p>
@@ -85,12 +85,12 @@
 	<li>&nbsp;Fixed #1438: AutoIt error when using _ArrayCombinations().</li>
 	<li>Fixed #1454: StringBetween() not working correctly.</li>
 	<li>Fixed #1441: _GUICtrlRichEdit_GetText() using wrong buffer length.</li>
-	<li>Fixed #1446: _ScreenCapture_Capture() was using height/width of 1 pixel 
+	<li>Fixed #1446: _ScreenCapture_Capture() was using height/width of 1 pixel
 	less.</li>
 	<li>Fixed #1445: Documentation updated for _MemGlobalFree().</li>
 	<li>Fixed #1469: _GDIPlus_BitmapCloneArea() documentation updated.</li>
 	<li>Fixed #1466: _GUICtrlEdit_GetLine() returns an unexpected character.</li>
-	<li>Fixed #1487: _DateToDayOfWeekIso returned 0-6 but should be 1-7 where 
+	<li>Fixed #1487: _DateToDayOfWeekIso returned 0-6 but should be 1-7 where
 	Monday = 1</li>
   </ul>
 <p>&nbsp;</p>
@@ -98,27 +98,27 @@
 <p style="font-size: small"><b><u>15th January, 2010  - v3.3.4.0</u></b></p>
 <p><strong>AutoIt:</strong></p>
 <ul>
-	<li>Added: Ability to read and write UTF-8 files with no BOM including 
+	<li>Added: Ability to read and write UTF-8 files with no BOM including
 	automatic detection during reading.</li>
 	<li>Added #682: Removed the 64KB limitation for FileReadLine()</li>
-	<li>Added: AutoIt scripts using the line continuation character &quot;_&quot; are no 
+	<li>Added: AutoIt scripts using the line continuation character &quot;_&quot; are no
 	longer limited to a combined line length of 4095 characters.</li>
-	<li>Added: FileRead() returns the number of characters/bytes read in 
+	<li>Added: FileRead() returns the number of characters/bytes read in
 	@extended.</li>
 	<li>Added #1311: MouseGetCursor() returns hand cursor. </li>
 </ul>
 
 <ul>
-    <li>Fixed #384: Under certain circumstances the network credentials 
-	flag would prevent the process from starting when launched with RunAs() or 
+    <li>Fixed #384: Under certain circumstances the network credentials
+	flag would prevent the process from starting when launched with RunAs() or
 	RunAsWait().</li>
-	<li>Fixed #1370: StringInStr() would crash with a negative occurrence and 
+	<li>Fixed #1370: StringInStr() would crash with a negative occurrence and
 	start position greater than the string length.</li>
-	<li>Fixed #1367: Calling GUIDelete() from a GUIRegisterMsg() callback that 
+	<li>Fixed #1367: Calling GUIDelete() from a GUIRegisterMsg() callback that
 	returns $GUI_RUNDEFMSG would crash AutoIt.</li>
-	<li>Fixed #1363: FileSetPos() did not work when the origin was the current 
+	<li>Fixed #1363: FileSetPos() did not work when the origin was the current
 	position.</li>
-	<li>Fixed #1355: Regression in how unsigned numbers are displayed when 
+	<li>Fixed #1355: Regression in how unsigned numbers are displayed when
 	returned from DllCall().</li>
 	<li>Fixed #1396: Crash in DllCallbackGetPtr() with invalid handle.</li>
 	<li>Fixed #1352: StringSplit() hard crash with binary data.</li>
@@ -127,14 +127,14 @@
 
 <ul>
     <li>Removed: The &quot;RAW&quot; reading mode from FileOpen() has been removed.</li>
-	<li>Removed: InetGet(&quot;abort&quot;), @InetGetActive and @InetGetBytesRead have 
+	<li>Removed: InetGet(&quot;abort&quot;), @InetGetActive and @InetGetBytesRead have
 	been removed.</li>
 	<li>Removed: AdlibEnable() and AdlibDisable() have been removed.</li>
 	<li>Removed: OnAutoItStart and OnAutoItExit have been removed.</li>
 </ul>
 	<p><strong>AutoIt3Help</strong></p>
 <ul>
-  <li>&nbsp;Fixed #1327: Some keywords would fail to open correctly in rare 
+  <li>&nbsp;Fixed #1327: Some keywords would fail to open correctly in rare
   cases.</li>
 </ul>
 <p><strong>UDFs:</strong></p>
@@ -144,7 +144,7 @@
 	<li>Fixed #1362: _WinAPI_WindowFromPoint() did not work with 64-bit AutoIt.</li>
 	<li>Fixed #1389: _IEAttach() could fail if called multiple times.</li>
 	<li>Fixed #1353: _FileWriteToLine() excessively strict on input text type.</li>
-	<li>Fixed: SQLite.au3 various errors in _SQLite_FetchData, $iCharSize, _SQLite_QuerySingleRow, 
+	<li>Fixed: SQLite.au3 various errors in _SQLite_FetchData, $iCharSize, _SQLite_QuerySingleRow,
 	_SQLite_GetTable2d, _SQLite_Display2DResult by jchd.</li>
   </ul>
 <p>&nbsp;</p>
@@ -152,60 +152,60 @@
 <p style="font-size: small"><b><u>18th December, 2009  - v3.3.2.0</u></b></p>
 <p><strong>AutoIt:</strong></p>
 <ul>
-  <li>Added #529: Added the &quot;NAME&quot; property to allow direct search for 
+  <li>Added #529: Added the &quot;NAME&quot; property to allow direct search for
   .NET WinForm control names.</li>
 	<li>Added #757: Set defaults for MouseClick()'s x/y parameters.</li>
-	<li>Added #764: Return Pid on ProcessWait() and handle on WinWait(), 
+	<li>Added #764: Return Pid on ProcessWait() and handle on WinWait(),
 	WinWaitActive, WinActivate(), WinActive(), WinMove() when successful.</li>
-	<li>Added #414: better handling of OnAutoItStart/OnAutoItExit, now 
+	<li>Added #414: better handling of OnAutoItStart/OnAutoItExit, now
 	#OnAutoItStartRegister, OnAutoItExitRegister() and OnAutoItExitUnRegister().</li>
-	<li>Added: Better handling of AdlibEnable/AdlibDisable, now AdlibRegister(), 
+	<li>Added: Better handling of AdlibEnable/AdlibDisable, now AdlibRegister(),
 	AdlibUnRegister() and AdlibDisable().</li>
 	<li>Added #351: Reverse PixelSearch().</li>
 	<li>Added #769: FileFlush() function.</li>
-	<li>Added #333: #NoAutoIt3Execute Directive for disabling 
+	<li>Added #333: #NoAutoIt3Execute Directive for disabling
 	/AutoIt3ExecuteScript or /AutoIt3ExecuteLine.</li>
-	<li>Added #604: $GUI_BKCOLOR_TRANSPARENT can be used with label, group, 
+	<li>Added #604: $GUI_BKCOLOR_TRANSPARENT can be used with label, group,
 	radio, checkbox controls.</li>
-	<li>Added #135: FileSetPos(), FileGetPos() functions for moving the file 
+	<li>Added #135: FileSetPos(), FileGetPos() functions for moving the file
 	pointer around.</li>
 	<li>Added #582: GUICtrlSetTip() can be used on TabItem controls.</li>
 	<li>Added #699: Shutdown() now return @error=GetLastError() when failing.</li>
-	<li>Added #461: StringReplace() from right to left if occurrence &lt;0 as for 
+	<li>Added #461: StringReplace() from right to left if occurrence &lt;0 as for
 	StringInStr().</li>
 	<li>Added: GUICtrlSetColor() and GUICtrlSetBkColor() for Combo Controls.</li>
-	<li>Added: GUI without title bar (no $WS_CAPTION) can be moved with the 
+	<li>Added: GUI without title bar (no $WS_CAPTION) can be moved with the
 	mouse.</li>
 	<li>Added #815: Temporary variables can be passed ByRef.</li>
 	<li>Added #837: FileFindNextFile() set @extended if a directory is returned.</li>
-	<li>Added #839: Shutdown() rewritten and now works properly when run as a 
+	<li>Added #839: Shutdown() rewritten and now works properly when run as a
 	non-interactive user.</li>
 	<li>Added: Shutdown() now takes an optional reason code.</li>
-	<li>Added #846: _PathFull() now supports strange but valid syntax where 
+	<li>Added #846: _PathFull() now supports strange but valid syntax where
 	drives do not have a trailing slash.</li>
 	<li>Added #869: @MUILang macro to help MUI environment scripts.</li>
-	<li>Added #918: Added Quality parameter to GUICtrlSetFont() and 
+	<li>Added #918: Added Quality parameter to GUICtrlSetFont() and
 	GUISetFont().</li>
 	<li>Added: ProcessClose() return info on error.</li>
 	<li>Added: PixelChecksum() extra parameter to select CRC32 instead of ADLER.</li>
 	<li>Added #984: @OSVersion now returns &quot;WIN_XPe&quot; for Windows XP Embedded.</li>
 	<li>Added #938: UDPOpen() flag to allow broadcasting with 255.255.255.255.</li>
-	<li>Added: new types to DllCall and DllStruct to avoid confusion with MSDN 
+	<li>Added: new types to DllCall and DllStruct to avoid confusion with MSDN
 	description. That avoid specially X64 errors.</li>
-	<li>Added #351: PixelSearch() now supports both right-to-left and 
+	<li>Added #351: PixelSearch() now supports both right-to-left and
 	bottom-to-top searches.</li>
 	<li>Added #508: Static keyword.</li>
 	<li>Added #1056: New Inet option to by-pass forcing the connection online.</li>
-	<li>Added: DllStructSetData() and DllStructGetData() index parameter now 
+	<li>Added: DllStructSetData() and DllStructGetData() index parameter now
 	supports the Default keyword.</li>
 	<li>Added #1270: GuiSetIcon() now finds suitable large and small icons.</li>
-	<li>Added: HttpSetUserAgent(), InetClose(), 
+	<li>Added: HttpSetUserAgent(), InetClose(),
 	InetGetInfo() and InetRead() functions.</li>
-	<li>Added: Multiple background 
+	<li>Added: Multiple background
 	downloads are now supported with InetGet().</li>
-	<li>Added #408: New flag for 
+	<li>Added #408: New flag for
 	ignoring SSL errors for HTTPS connections.</li>
-	<li>Added #884: Better proxy 
+	<li>Added #884: Better proxy
 	support with mode 0.</li>
 	<li>Added #949: The user-agent can be changed.</li>
 </ul>
@@ -213,135 +213,135 @@
 <ul>
     <li>Fixed: CtrlSetStyle listview on non selected tab.</li>
 	<li>Fixed #763: GUICtrlCreateIcon() create an empty icon on error.</li>
-	<li>Fixed: no mouse move 
+	<li>Fixed: no mouse move
 	when invalid button used in MouseClick() or MouseClickDrag().</li>
-	<li>Fixed 
+	<li>Fixed
 	#779: infinite loop on Exit due to GUICreate() child badly created.</li>
 	<li>Fixed #774: GuiCtrlSetBkColor() bad label display.</li>
-	<li>Fixed #790: Windows 
+	<li>Fixed #790: Windows
 	region constant $ERROR rename in $ERRORREGION.</li>
 	<li>Fixed: StringInStr(&quot;aaa&quot;, &quot;aa&quot;, 2) does not return 0.</li>
-	<li>Fixed #802: Searching 
+	<li>Fixed #802: Searching
 	for controls by Height property.</li>
-	<li>Fixed: Checkbox or radio painting on 
+	<li>Fixed: Checkbox or radio painting on
 	tab.</li>
 	<li>Fixed #816: data for GUI date control doc clarification.</li>
 	<li>Fixed #819: Crash with EventLog functions.</li>
-	<li>Fixed #814: InetGet() 
+	<li>Fixed #814: InetGet()
 	through a proxy requiring authentication did not work.</li>
-	<li>Fixed #813: bad 
+	<li>Fixed #813: bad
 	handling of Windows advanced matching for [HANDLE:...] in X64 version.</li>
 	<li>Fixed #863: DirMove() extra dot.</li>
-	<li>Fixed #867: UDPRecv() can return from 
+	<li>Fixed #867: UDPRecv() can return from
 	IP/Port.</li>
-	<li>Fixed #886: More explicit documentation that operator == is a 
+	<li>Fixed #886: More explicit documentation that operator == is a
 	forced string comparison.</li>
-	<li>Fixed #885: Default compared to False 
+	<li>Fixed #885: Default compared to False
 	returned True instead of False.</li>
-	<li>Fixed #888: Send(&quot;{}}&quot;) Extra null 
+	<li>Fixed #888: Send(&quot;{}}&quot;) Extra null
 	char.</li>
 	<li>Fixed: DllCall() returning 64-bit int.</li>
 	<li>Fixed: GuiCtrlSetImage() after GUI resized.</li>
-	<li>Fixed: DirMove() return code wrong 
+	<li>Fixed: DirMove() return code wrong
 	under XP.</li>
 	<li>Fixed #931: bad GUICtrlSetResizing() for graphic control.</li>
 	<li>Fixed #934: MouseGetCursor() hogging mouse double click.</li>
-	<li>Fixed #615: 
+	<li>Fixed #615:
 	License updated to be less restrictive.</li>
-	<li>Fixed #919: Remarks added to ConsoleWrite(), ConsoleWriteError() and StdinWrite() regarding how those 
+	<li>Fixed #919: Remarks added to ConsoleWrite(), ConsoleWriteError() and StdinWrite() regarding how those
 	functions handle binary data and non-ANSI characters.</li>
-	<li>Fixed #897: 
-	Documented that StringToASCIIArray() does not accept binary input (convert 
+	<li>Fixed #897:
+	Documented that StringToASCIIArray() does not accept binary input (convert
 	to a string first).</li>
-	<li>Fixed #937: Bad event handling of 
+	<li>Fixed #937: Bad event handling of
 	Opt(&quot;TrayMenuMode&quot;,1)</li>
-	<li>Fixed #969: FileFindNextFile() does not set 
+	<li>Fixed #969: FileFindNextFile() does not set
 	@extended if first found is a dir.</li>
-	<li>Fixed #1006: @MSEC returned wrong 
+	<li>Fixed #1006: @MSEC returned wrong
 	value for values &lt; 100.</li>
-	<li>Fixed #1010: FileRead() UTF8 with BOM files 
+	<li>Fixed #1010: FileRead() UTF8 with BOM files
 	return too many chars.</li>
-	<li>Fixed #1013: MDI childs doesn't adjust to parent 
+	<li>Fixed #1013: MDI childs doesn't adjust to parent
 	windows client area.</li>
 	<li>Fixed #1005: TraySetClick(64) = hovering.</li>
 	<li>Fixed: ClipPut(&quot;&quot;) not emptying.</li>
 	<li>Fixed #1068: Binary to Int.</li>
 	<li>Fixed: Bad painting on double GUICtrlSetPos() for label.</li>
-	<li>Fixed #1094: 
+	<li>Fixed #1094:
 	Send(&quot;{LSHIFT UP}&quot;) stay down.</li>
-	<li>Fixed #1074: Inputbox() positionning on 
+	<li>Fixed #1074: Inputbox() positionning on
 	multi monitor.</li>
-	<li>Fixed #1105: disable colored Multiline button not 
+	<li>Fixed #1105: disable colored Multiline button not
 	properly displayed.</li>
 	<li>Fixed #1077: GUICtrlSetBkColor() bad recoloring.</li>
 	<li>Fixed #1116: GUICtrlCreateGraphic don't follow ResizeMode.</li>
-	<li>Fixed 
+	<li>Fixed
 	#1102: Better documentation of the StringInStr() count parameter.</li>
-	<li>Fixed 
+	<li>Fixed
 	#1161: Removed all documentation references to ColorMode.</li>
-	<li>Fixed #1156: AutoItSetOption()/Opt() now set @error instead of generating a fatal error 
+	<li>Fixed #1156: AutoItSetOption()/Opt() now set @error instead of generating a fatal error
 	with invalid input.</li>
 	<li>Fixed: Comparing pointers now works correctly.</li>
 	<li>Fixed #906: ActiveX controls were not told what their initial size was.</li>
 	<li>Fixed: Boolean tests on binary strings now behaves properly.</li>
-	<li>Fixed 
+	<li>Fixed
 	#1234: COM methods that modified boolean arguments could change them to ints.</li>
-	<li>Fixed #1258: System menu could display when trying to dismiss a control 
+	<li>Fixed #1258: System menu could display when trying to dismiss a control
 	menu.</li>
-	<li>Fixed #1288: Documented how DllStructSetData() and 
+	<li>Fixed #1288: Documented how DllStructSetData() and
 	DllStructGetData() work with arrays when omitting the index parameter.</li>
-	<li>Fixed #1300: DLLs could unload when calling DllCall() with an invalid 
+	<li>Fixed #1300: DLLs could unload when calling DllCall() with an invalid
 	function.</li>
-	<li>Fixed #1295: Unicode to ANSI conversion was crashing in 
+	<li>Fixed #1295: Unicode to ANSI conversion was crashing in
 	certain situations.</li>
-	<li>Fixed #1304: _GDIPlus_BitmapLockBits() now 
+	<li>Fixed #1304: _GDIPlus_BitmapLockBits() now
 	correctly takes a Width and Height parameter instead of a Right and Bottom.</li>
-	<li>Fixed #1294: Fixed AutoIt deadlock when using the following functions with 
+	<li>Fixed #1294: Fixed AutoIt deadlock when using the following functions with
 	hanged windows: WinGetTitle, WinSetTitle, WinGetText, WinFlash, WinSetOnTop</li>
-	<li>Fixed #1332: Mod() forced a conversion to floating point numbers when it 
+	<li>Fixed #1332: Mod() forced a conversion to floating point numbers when it
 	didn't need to which can cause unexpected output.</li>
-	<li>Fixed #1321: DllStructCreate() did not support _ in data names. Documented valid 
+	<li>Fixed #1321: DllStructCreate() did not support _ in data names. Documented valid
 	characters for data name.</li>
-	<li>Fixed #1322: Crash when using ControlCommand(&quot;GetSelected&quot;) 
+	<li>Fixed #1322: Crash when using ControlCommand(&quot;GetSelected&quot;)
 	on non-Edit controls.</li>
-	<li>Fixed #1325: Some date functions could attempt to 
+	<li>Fixed #1325: Some date functions could attempt to
 	access an invalid array.</li>
-	<li>Fixed #1345: Number() failed to handle numbers 
+	<li>Fixed #1345: Number() failed to handle numbers
 	with a trailing decimal point.</li>
 </ul>
 
 <ul>
-    <li>Changed: It is now possible to read 
+    <li>Changed: It is now possible to read
 	from files opened for writing.</li>
-	<li>Changed: PCRE regular expression engine 
+	<li>Changed: PCRE regular expression engine
 	updated to 8.00.</li>
-	<li>Changed #899: ShellExecute[Wait]() no longer uses 
-	&quot;open&quot; as the default verb. See remarks section for those functions for more 
+	<li>Changed #899: ShellExecute[Wait]() no longer uses
+	&quot;open&quot; as the default verb. See remarks section for those functions for more
 	information.</li>
-	<li>Changed: Inet functions rewritten with the following 
+	<li>Changed: Inet functions rewritten with the following
 	additions and changes:</li>
-	<li>Removed: Long deprecate URLDownloadToFile() 
+	<li>Removed: Long deprecate URLDownloadToFile()
 	alias for InetGet().</li>
 	<li>Changed: InetGet() returns a handle which must be closed.</li>
-	<li>Changed: @InetGetBytes, 
-	@InetGetActive and InetGet(&quot;abort&quot;) are deprecated and will be removed in 
+	<li>Changed: @InetGetBytes,
+	@InetGetActive and InetGet(&quot;abort&quot;) are deprecated and will be removed in
 	the future.</li>
-	<li>Changed #968: AutoUpdateIt updated by ProgAndy to use new 
+	<li>Changed #968: AutoUpdateIt updated by ProgAndy to use new
 	Inet features.</li>
-	<li>Changed: @YDAY now returns values in the range 001 - 366 
-	instead of 1 - 366. This makes the macro more consistent with other 
-	languages (like C/C++) and more consistent with all other date related 
-	macros which return strings with leading 0s to pad the length. THIS IS A 
+	<li>Changed: @YDAY now returns values in the range 001 - 366
+	instead of 1 - 366. This makes the macro more consistent with other
+	languages (like C/C++) and more consistent with all other date related
+	macros which return strings with leading 0s to pad the length. THIS IS A
 	SCRIPT BREAKING CHANGE.</li>
-	<li>Changed #1080: InetGet background downloads now 
+	<li>Changed #1080: InetGet background downloads now
 	return immediately instead of connecting to the remote host first.</li>
-	<li>Changed #1137: RegEnumKey() and RegEnumVal() now correctly return an empty 
+	<li>Changed #1137: RegEnumKey() and RegEnumVal() now correctly return an empty
 	string on failure instead of an error message string.</li>
-	<li>Changed: PixelChecksum() can calculate checksums from right-to-left and 
+	<li>Changed: PixelChecksum() can calculate checksums from right-to-left and
 	bottom-to-top.</li>
-	<li>Changed: InputBox() no longer requires passing both x 
+	<li>Changed: InputBox() no longer requires passing both x
 	and y or w and h.</li>
-	<li>Changed #1056: Added new Inet option to by-pass 
+	<li>Changed #1056: Added new Inet option to by-pass
 	forcing the connection online.</li>
 </ul>
 <p><strong>AutoItX:</strong></p>
@@ -350,14 +350,14 @@
 </ul>
 <p><strong>Au3info:</strong></p>
 <ul>
-  <li>Removed: ColorMode BGR option removed since AutoIt no longer supports the 
+  <li>Removed: ColorMode BGR option removed since AutoIt no longer supports the
   option to use BGR mode.</li>
 	<li>Added: Control information now includes the .NET WinForm if available.</li>
 	<li>Added #140: ToolsBar button info.</li>
 </ul>
 <p><strong>Aut2Exe:</strong></p>
 <ul>
-  <li>Fixed #1283: Added new option /x86 to force a 32-bit build and re-added /unicode 
+  <li>Fixed #1283: Added new option /x86 to force a 32-bit build and re-added /unicode
   which also forces a 32-bit build.</li>
 </ul>
 	<p><strong>Au3check</strong></p>
@@ -379,11 +379,11 @@
 	<li>Added #952: _ArrayDisplay() extra parameter for column header text.</li>
 	<li>Added #957: _Assert() in Debug.au3.</li>
 	<li>Added: _WinAPI_GetGuiResources()</li>
-	<li>Added #981: _WinAPI_WideCharToMultiByte(), _WinAPI_MultiByteToWideChar() 
+	<li>Added #981: _WinAPI_WideCharToMultiByte(), _WinAPI_MultiByteToWideChar()
 	support IN/OUT as &quot;strings&quot;</li>
 	<li>Added #1157: Encryption functions in Crypt.au3.</li>
 	<li>Added #1128: _WinAPI_PathFindOnPath() in WinAPI.au3.</li>
-	<li>Added #1228: _FTP_SetStatusCallback(), _FTP_DecodeInternetStatus() in 
+	<li>Added #1228: _FTP_SetStatusCallback(), _FTP_DecodeInternetStatus() in
 	FTPEx.au3.</li>
   </ul>
 
@@ -408,36 +408,36 @@
 	<li>Fixed: _WinAPI_GetWindowLong(), _WinAPI_SetWindowLong support X64.</li>
 	<li>Fixed #1111: Bad grammar in comments for _DateAdd().</li>
 	<li>Fixed: UDF library now uses #include &quot;&quot; instead of #include &lt;&gt;.</li>
-	<li>Fixed #1033: UDF library now has better and more consistent error 
+	<li>Fixed #1033: UDF library now has better and more consistent error
 	handling when DllCall() is used.</li>
 	<li>Fixed #1215: _ArraySearch() not searching on 2D array.</li>
-	<li>Fixed #1168: _ExcelBookOpen() now selects the first visible worksheet to 
+	<li>Fixed #1168: _ExcelBookOpen() now selects the first visible worksheet to
 	prevent a COM error.</li>
-	<li>Fixed #1247: Documented that some _GUICtrlComboBoxEx_* functions don't 
+	<li>Fixed #1247: Documented that some _GUICtrlComboBoxEx_* functions don't
 	work with certain ComboBox styles.</li>
 	<li>Fixed #1260: Potential buffer overflow in _WinAPI_GetLastErrorMessage().</li>
 	<li>Fixed #1276: _TicksToTime() incorrectly rounded seconds up.</li>
 	<li>Fixed #1277: Resource clean-up in example script for _GDIPlus_ImageGetGraphicsContext.</li>
 	<li>Fixed #1290: Invalid Left coordinate when using _GUICtrlTreeView_DisplayRectEx().</li>
-	<li>Fixed #1296: _GUICtrlTreeView_ClickItem() could click outside the 
+	<li>Fixed #1296: _GUICtrlTreeView_ClickItem() could click outside the
 	control's parent window.</li>
 	<li>Fixed #1312: Errors with _GUIImageList_BeginDrag() example.</li>
-	<li>Fixed #1320: _GUIImageList_DragMove() documentation contained a 
+	<li>Fixed #1320: _GUIImageList_DragMove() documentation contained a
 	parameter that doesn't exist.</li>
-	<li>Changed: _StringBetween removed last optional param (not needed after 
+	<li>Changed: _StringBetween removed last optional param (not needed after
 	change)(SmOke_N)</li>
   </ul>
 <ul>
-    <li>Changed: _StringToHex(), _HexToString() and _StringReverse() have been 
+    <li>Changed: _StringToHex(), _HexToString() and _StringReverse() have been
 	rewritten and are faster.</li>
-	<li>Changed: _SQLite 3.6.7 -&gt; 3.6.19 (SQL statement support UNICODE 
+	<li>Changed: _SQLite 3.6.7 -&gt; 3.6.19 (SQL statement support UNICODE
 	characters)</li>
 	<li>Changed: _InetGetSource() now uses InetRead().</li>
   </ul>
 <ul>
-    <li>Removed: _StringAddThousandsSep() has been removed. Too many opinions on 
+    <li>Removed: _StringAddThousandsSep() has been removed. Too many opinions on
 	how the function should work means nobody is happy with it.</li>
-	<li>Removed #1112: __WinAPI_Check() has been removed as have all calls to 
+	<li>Removed #1112: __WinAPI_Check() has been removed as have all calls to
 	it.</li>
   </ul>
 <p>&nbsp;</p>
@@ -607,14 +607,14 @@
 <p><strong>AutoIt:</strong></p>
 <ul>
 	<li>Fixed:
-	<a href="../../../../../branch_3.2.12/docs/autoit/english/html/functions/RunAs.htm">RunAs()</a> and
-	<a href="../../../../../branch_3.2.12/docs/autoit/english/html/functions/RunAsWait.htm">RunAsWait()</a> now use @SystemDir as the
+	<a href="functions/RunAs.htm">RunAs()</a> and
+	<a href="functions/RunAsWait.htm">RunAsWait()</a> now use @SystemDir as the
 	working directory instead of @WorkingDir when a user-supplied working
 	directory is not specified.</li>
 	<li>Fixed: Contextmenuitem not firing events.</li>
 	<li>Fixed: Icon transparency refresh when on tab regression.</li>
 	<li>Fixed:
-	<a href="../../../../../branch_3.2.12/docs/autoit/english/html/functions/RunAs.htm">RunAs()</a> under Windows
+	<a href="functions/RunAs.htm">RunAs()</a> under Windows
 	2000.</li>
 </ul>
 
