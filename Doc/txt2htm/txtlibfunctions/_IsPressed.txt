@@ -25,6 +25,11 @@ False:	0
 ###Remarks###
 如果需要反复调用这个函数, 需要打开 'user32.dll' 并传递句柄.
 确认脚本结束时有关闭语句.
+
+_IsPressed() will return 1 until the key is released.
+Even brief key presses can result in multiple returns within a loop.
+If the code called does not include a blocking function (such as MsgBox) and the user does not require multiple returns, the script should wait until _IsPressed() returns 0 before continuing.
+
 01 鼠标左键
 02 鼠标右键
 04 鼠标中键 (三键鼠标)
