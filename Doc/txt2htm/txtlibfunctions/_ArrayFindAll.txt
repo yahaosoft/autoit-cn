@@ -6,7 +6,7 @@ _ArrayFindAll
 
 ###Syntax###
 #Include <Array.au3>
-_ArrayFindAll(Const ByRef $avArray, $vValue [, $iStart = 0 [, $iEnd = 0 [, $iCase = 0 [, $iPartial = 0 [, $iSubItem = 0]]]]])
+_ArrayFindAll(Const ByRef $avArray, $vValue [, $iStart = 0 [, $iEnd = 0 [, $iCase = 0 [, $iCompare = 0 [, $iSubItem = 0]]]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -20,8 +20,10 @@ $iEnd
 	[可选参数] 搜索结束的数组索引
 $iCase
 	[可选参数] 如果设置为 1, 搜索时区分大小写
-$iPartial
-	[可选参数] 如果设置为 1, 执行部分搜索
+$iCompare
+	[可选参数] 0 AutoIt variables compare (default), "string" = 0, "" = 0  or "0" = 0 match
+		1 执行部分搜索 (StringInStr)
+		2 comparison match if variables have same type and same value
 $iSubItem
 	[可选参数] 进行二维数组搜索时的副索引
 @@End@@

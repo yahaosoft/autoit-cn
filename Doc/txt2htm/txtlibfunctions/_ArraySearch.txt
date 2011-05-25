@@ -6,26 +6,28 @@ _ArraySearch
 
 ###Syntax###
 #Include <Array.au3>
-_ArraySearch(Const ByRef $avArray, $vValue [, $iStart = 0 [, $iEnd = 0 [, $iCase = 0 [, $iPartial = 0 [, $iForward = 1 [, $iSubItem = -1]]]]]])
+_ArraySearch(Const ByRef $avArray, $vValue [, $iStart = 0 [, $iEnd = 0 [, $iCase = 0 [, $iCompare= 0 [, $iForward = 1 [, $iSubItem = -1]]]]]])
 
 ###Parameters###
 @@ParamTable@@
 $avArray
-	    要搜索的数组
+	要搜索的数组
 $vValue
-	    要搜索的值
+	要搜索的值
 $iStart
-	    [可选参数] 开始搜索的索引
+	[可选参数] 开始搜索的索引
 $iEnd
-	    [可选参数] 结束搜索的索引
+	[可选参数] 结束搜索的索引
 $iCase
-	    [可选参数] 如果设置为1, 区分大小写
-$iPartial
-	    [可选参数] 如果设置为1, 执行部分搜索
+	[可选参数] 如果设置为1, 区分大小写
+$iCompare
+	[可选参数] 0 AutoIt variables compare (default), "string" = 0, "" = 0  or "0" = 0 match
+		1 如果设置为1, 执行部分搜索 (StringInStr)
+		2 comparison match if variables have same type and same value
 $iForward
-	    [可选参数] 如果设置为0, 从结束到开始进行搜索(而不是从开始到结束)
+	[可选参数] 如果设置为0, 从结束到开始进行搜索(而不是从开始到结束)
 $iSubItem
-	    [可选参数] 对于二维数组进行搜索的副索引
+	[可选参数] 对于二维数组进行搜索的副索引
 @@End@@
 
 ###ReturnValue###
@@ -41,8 +43,8 @@ $iSubItem
 @@End@@
 
 ###Remarks###
- 此函数可能比 _ArrayBinarySearch() 搜索较慢,
- 但在数组顺序不能更改时非常有用.
+ 此函数可能比 _ArrayBinarySearch() 搜索较慢, 但在数组顺序不能更改时非常有用.
+
 ###Related###
 _ArrayBinarySearch, _ArrayFindAll
 

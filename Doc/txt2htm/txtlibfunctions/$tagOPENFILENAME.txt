@@ -5,29 +5,10 @@ $tagOPENFILENAME
 包含 GetOpenFileName 与 GetSaveFileName 函数初始化打开或保存对话框使用的信息资料
 
 ###Syntax###
-Global Const $tagOPENFILENAME = "dword StructSize;" & _
-                                "hwnd hwndOwner;" & _
-                                "hwnd hInstance;" & _
-                                "ptr lpstrFilter;" & _
-                                "ptr lpstrCustomFilter;" & _
-                                "dword nMaxCustFilter;" & _
-                                "dword nFilterIndex;" & _
-                                "ptr lpstrFile;" & _
-                                "dword nMaxFile;" & _
-                                "ptr lpstrFileTitle;" & _
-                                "int nMaxFileTitle;" & _
-                                "ptr lpstrInitialDir;" & _
-                                "ptr lpstrTitle;" & _
-                                "dword Flags;" & _
-                                "short nFileOffset;" & _
-                                "short nFileExtension;" & _
-                                "ptr lpstrDefExt;" & _
-                                "ptr lCustData;" & _
-                                "ptr lpfnHook;" & _
-                                "ptr lpTemplateName;" & _
-                                "ptr pv保留;" & _
-                                "dword dw保留;" & _
-                                "dword FlagsEx"
+Global Const $tagOPENFILENAME = "dword StructSize;hwnd hwndOwner;hwnd hInstance;ptr lpstrFilter;ptr lpstrCustomFilter;" & _
+		"dword nMaxCustFilter;dword nFilterIndex;ptr lpstrFile;dword nMaxFile;ptr lpstrFileTitle;int nMaxFileTitle;" & _
+		"ptr lpstrInitialDir;ptr lpstrTitle;dword Flags;short nFileOffset;short nFileExtension;ptr lpstrDefExt;ptr lCustData;" & _
+		"ptr lpfnHook;ptr lpTemplateName;ptr pvReserved;dword dwReserved;dword FlagsEx"
 
 ###Fields###
 @@ParamTable@@
@@ -105,7 +86,7 @@ Flags
 		$OFN_ENABLEINCLUDENOTIFY - Windows 2000/XP: 当用户打开一个文件夹时,使对话框发送 CDN_INCLUDEITEM 通知消息到您的 OFNHookProc 钩子程序.
 		该对话框发送在文件夹中打开每个项目的通知.
 		这些消息使您能够控制对话框显示的文件夹的项目清单.
-		$OFN_ENABLESIZING - Windows 2000/XP, Windows 98/Me: 使用鼠标或键盘调整资源管理器样式对话框的大小.
+		$OFN_ENABLESIZING - Windows 2000/XP: 使用鼠标或键盘调整资源管理器样式对话框的大小.
 		默认情况下,无论是否设置此标志,资源管理器样式的打开和另存为对话框都可以调整大小.
 		如果你只提供了一个钩子程序或定制模板,此标志是必要的.旧样式的对话框不允许调整大小.
 		$OFN_ENABLETEMPLATE - 表示 lpTemplateName 成员是一个对话框模板资源名称指针,模板资源由 HINSTANCE 成员确定.
@@ -132,7 +113,7 @@ Flags
 		如果没有指定此标志.或者如果设置了 $OFN_ALLOWMULTISELECT 标志,对于带有空格的文件名,旧式对话框使用短文件名（8.3格式）.
 		资源管理器样式的对话框忽略这个标志,始终显示长文件名.
 		$OFN_NOCHANGEDIR - 如果用户搜索文件改变了目录时,恢复当前目录到其原始值.
-		Windows NT 4.0/2000/XP: 对于 GetOpenFileName, 这个标志无效.
+		Windows 2000/XP: 对于 GetOpenFileName, 这个标志无效.
 		$OFN_NODEREFERENCELINKS - 指示对话框返回选定快捷方式(.LNK)文件的路径和文件名.
 		如果此值没有指定,对话框返回快捷方式引用文件的路径和文件名.
 		$OFN_NOLONGNAMES - 对于老式的对话框,此标志会导致对话框使用短文件名（8.3格式）
