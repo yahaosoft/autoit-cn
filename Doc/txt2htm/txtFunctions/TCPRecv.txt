@@ -30,10 +30,11 @@ TCPRecv ( 主套接字, 最大返回量[, 标志])
 ###Remarks###
 由于向后兼容的原因,函数将试着返回一个字符串. 默认情况下.如果是空字符(0x00)返回,返回值将是二进制类型.
 要强制函数总是返回二进位的数据(最好的选择),需要将参数 "标志" 设置为 1.
+如果要传输一个 Unicode 字符串,请使用 StringToBinary()/BinaryToString() 进行编码解码.
 
 
 ###Related###
-BinaryLen, BinaryMid, TCPStartup, TCPAccept, TCPConnect, TCPTimeout (Option)
+TCPSend, BinaryLen, BinaryMid, TCPStartup, TCPAccept, TCPConnect, TCPTimeout (Option), BinaryToString
 
 
 ###Example###
