@@ -1,6 +1,6 @@
-ï»¿$oShell = ObjCreate("shell.application")
-if not IsObj($oShell) then
-	Msgbox(0,"é”™è¯¯","$oShell ä¸æ˜¯ä¸€ä¸ªå¯¹è±¡.")
-else
-	Msgbox(0,"æˆåŠŸ","æˆåŠŸåˆ›å»ºå¯¹è±¡ $oShell.")
-endif
+Local $oShell = ObjCreate("shell.application")
+If Not IsObj($oShell) Then
+	MsgBox(0,"´íÎó","$oShell ²»ÊÇÒ»¸ö¶ÔÏó.")
+Else
+	MsgBox(0,"³É¹¦","³É¹¦´´½¨¶ÔÏó $oShell.")
+EndIf

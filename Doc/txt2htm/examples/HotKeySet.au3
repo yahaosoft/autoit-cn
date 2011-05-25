@@ -3,7 +3,7 @@
 Global $Paused
 HotKeySet("{PAUSE}", "TogglePause")
 HotKeySet("{ESC}", "Terminate")
-HotKeySet("+!d", "ShowMessage")  ;Shift-Alt-d
+HotKeySet("+!d", "ShowMessage") ;Shift-Alt-d
 
 ;;;; 下面是程序正文 ;;;;
 While 1
@@ -12,9 +12,9 @@ WEnd
 ;;;;;;;;
 
 Func TogglePause()
-	$Paused = NOT $Paused
+	$Paused = Not $Paused
 	While $Paused
-		sleep(100)
+		Sleep(100)
 		ToolTip('脚本已经"暂停"了',0,0)
 	WEnd
 	ToolTip("")
