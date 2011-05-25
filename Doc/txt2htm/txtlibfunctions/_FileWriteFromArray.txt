@@ -6,7 +6,7 @@ _FileWriteFromArray
 
 ###Syntax###
 #Include <File.au3>
-_FileWriteFromArray($File, $a_Array [, $i_Base = 0 [, $i_UBound = 0]])
+_FileWriteFromArray($File, $a_Array [, $i_Base = 0 [, $i_UBound = 0 [, $s_Delim= "|"]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -18,6 +18,8 @@ $i_Base
 	[可选参数] 开始读取的数组的索引, 一般设置为 0 或 1. 默认为 0
 $i_Ubound
 	[可选参数] 设置逆行写入文件的最后的记录. 默认为 0 - 整个数组
+$s_Delim
+	[可选参数] 二维数组分割符号. 默认="|"
 @@End@@
 
 ###ReturnValue###
@@ -27,11 +29,13 @@ $i_Ubound
 @Error:	1 = 打开指定文件出错
 	2 = 输入的不是数组
 	3 = 写入文件出错
+	4 = 数组维度大于 2
 @@End@@
 
 ###Remarks###
-如果提供了路径字符串, 文件将被覆盖和关闭.使用其他写入模式, 比如附加或Unicode格式, 
-首先使用FileOpen()打开文件并传递给文件句柄，如果文件句柄通过, 文件在写入后仍旧打开.
+如果提供了路径字符串, 文件将被覆盖和关闭.
+使用其他写入模式, 比如附加或Unicode格式, 首先使用FileOpen()打开文件并传递给文件句柄.
+如果文件句柄通过, 文件在写入后仍旧打开.
 
 ###Related###
 _FileReadToArray
