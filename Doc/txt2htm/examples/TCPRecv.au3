@@ -1,7 +1,5 @@
 ﻿#include <GUIConstantsEx.au3>
 
-Opt('MustDeclareVars', 1)
-
 ;==============================================
 ;==============================================
 ;服务端! 服务端启用后,再启用客户端(服务端为接收信息方)
@@ -13,11 +11,11 @@ Example()
 Func Example()
 	; 设置一些常用信息
 	; 在这里设置你的公共IP地址 (@IPAddress1).
-;	Local $szServerPC = @ComputerName
-;	Local $szIPADDRESS = TCPNameToIP($szServerPC)
+	;	Local $szServerPC = @ComputerName
+	;	Local $szIPADDRESS = TCPNameToIP($szServerPC)
 	Local $szIPADDRESS = @IPAddress1;你的公共IP地址
 	Local $nPORT = 33891;端口
-	Local $MainSocket, $GOOEY, $edit, $ConnectedSocket, $szIP_Accepted
+	Local $MainSocket, $edit, $ConnectedSocket, $szIP_Accepted
 	Local $msg, $recv
 
 	; 开始 TCP 服务
@@ -29,13 +27,13 @@ Func Example()
 	;==============================================
 	$MainSocket = TCPListen($szIPADDRESS, $nPORT)
 
-	; 如果套接字创建失败，退出.
+	; 如果套接字创建失败,退出.
 	If $MainSocket = -1 Then Exit
 
 
 	; 创建一个图形用户界面消息窗
 	;==============================================
-	$GOOEY = GUICreate("My Server (IP: " & $szIPADDRESS & ")", 300, 200)
+	GUICreate("My Server (IP: " & $szIPADDRESS & ")", 300, 200, 100, 100)
 	$edit = GUICtrlCreateEdit("", 10, 10, 280, 180)
 	GUISetState()
 
@@ -64,13 +62,16 @@ Func Example()
 		;--------------------
 		If $msg = $GUI_EVENT_CLOSE Then ExitLoop
 
-		; 尝试接收（最高）2048字节
+		; 尝试接收(最高)2048字节
 		;----------------------------------------------------------------
 		$recv = TCPRecv($ConnectedSocket, 2048)
 
 		; 如果接收失败(@error)将断开连接   
 		;----------------------------------------------------------------
 		If @error Then ExitLoop
+
+		; convert from UTF-8 to AutoIt native UTF-16
+		$recv = BinaryToString($recv, 4)
 
 		; Update the edit control with what we have received
 		;----------------------------------------------------------------
@@ -88,7 +89,7 @@ EndFunc   ;==>Example
 ;----------------------------------------------------------------------
 Func SocketToIP($SHOCKET)
 	Local $sockaddr, $aRet
-	
+
 	$sockaddr = DllStructCreate("short;ushort;uint;char[8]")
 
 	$aRet = DllCall("Ws2_32.dll", "int", "getpeername", "int", $SHOCKET, _

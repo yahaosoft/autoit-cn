@@ -1,8 +1,6 @@
-ï»¿#include <GUIConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 #include <ButtonConstants.au3>
-
-Opt('MustDeclareVars', 1)
 
 ;==============================================
 ;==============================================
@@ -10,7 +8,7 @@ Opt('MustDeclareVars', 1)
 ;==============================================
 ;==============================================
 
-; åˆå§‹åŒ–ä¸€ä¸ªå˜é‡æè¿°è¿žæŽ¥
+; ³õÊ¼»¯Ò»¸ö±äÁ¿ÃèÊöÁ¬½Ó
 ;==============================================
 Global $ConnectedSocket = -1
 
@@ -26,35 +24,35 @@ Func Example()
 
 	$g_IP = "127.0.0.1"
 
-	; å¼€å§‹ TCP æœåŠ¡
+	; ¿ªÊ¼ TCP ·þÎñ
 	;==============================================
 	TCPStartup()
 
-	; åˆ›å»ºä¸€ä¸ªå¥—æŽ¥å­—(socket)ç›‘å¬
+	; ´´½¨Ò»¸öÌ×½Ó×Ö(SOCKET)¼àÌý
 	;==============================================
 	$MainSocket = TCPListen($g_IP, 65432, 100)
 	If $MainSocket = -1 Then Exit
 	$RogueSocket = -1
 
-	; åˆ›å»ºä¸€ä¸ªå›¾å½¢ç”¨æˆ·ç•Œé¢æ¶ˆæ¯çª—
+	; ´´½¨Ò»¸öÍ¼ÐÎÓÃ»§½çÃæÏûÏ¢´°
 	;==============================================
-	$GOOEY = GUICreate("æˆ‘çš„æœåŠ¡ç«¯", 300, 200)
+	$GOOEY = GUICreate("ÎÒµÄ·þÎñ¶Ë", 300, 200)
 	$edit = GUICtrlCreateEdit("", 10, 40, 280, 150, $WS_DISABLED)
 	$input = GUICtrlCreateInput("", 10, 10, 200, 20)
-	$butt = GUICtrlCreateButton("å‘é€", 210, 10, 80, 20, $BS_DEFPUSHBUTTON)
+	$butt = GUICtrlCreateButton("·¢ËÍ", 210, 10, 80, 20, $BS_DEFPUSHBUTTON)
 	GUISetState()
 
 
-	; å¾ªçŽ¯å›¾å½¢ç”¨æˆ·ç•Œé¢æ¶ˆæ¯
+	; Ñ­»·Í¼ÐÎÓÃ»§½çÃæÏûÏ¢
 	;==============================================
 	While 1
 		$msg = GUIGetMsg()
 
-		; å…³é—­ç•Œé¢
+		; ¹Ø±Õ½çÃæ
 		;--------------------
 		If $msg = $GUI_EVENT_CLOSE Then ExitLoop
 
-		; ç”¨æˆ·æŒ‰ä¸‹å‘é€æŒ‰é’®
+		; ÓÃ»§°´ÏÂ·¢ËÍ°´Å¥
 		;--------------------
 		If $msg = $butt Then
 			If $ConnectedSocket > -1 Then
@@ -63,7 +61,7 @@ Func Example()
 					; ERROR OCCURRED, CLOSE SOCKET AND RESET ConnectedSocket to -1
 					;----------------------------------------------------------------
 					TCPCloseSocket($ConnectedSocket)
-					WinSetTitle($GOOEY, "", "æˆ‘çš„æœåŠ¡ç«¯ - å®¢æˆ·ç«¯æ–­å¼€è¿žæŽ¥")
+					WinSetTitle($GOOEY, "", "ÎÒµÄ·þÎñ¶Ë - ¿Í»§¶Ë¶Ï¿ªÁ¬½Ó")
 					$ConnectedSocket = -1
 				ElseIf $ret > 0 Then
 					; UPDATE EDIT CONTROL WITH DATA WE SENT
@@ -104,12 +102,12 @@ Func Example()
 
 			$recv = TCPRecv($ConnectedSocket, 512)
 
-			If $recv <> "" And $recv <> "~~bye"  Then
+			If $recv <> "" And $recv <> "~~bye" Then
 				; UPDATE EDIT CONTROL WITH DATA WE RECEIVED
 				;----------------------------------------------------------------
 				GUICtrlSetData($edit, GUICtrlRead($edit) & ">" & $recv & @CRLF)
 
-			ElseIf @error Or $recv = "~~bye"  Then
+			ElseIf @error Or $recv = "~~bye" Then
 				; ERROR OCCURRED, CLOSE SOCKET AND RESET ConnectedSocket to -1
 				;----------------------------------------------------------------
 				WinSetTitle($GOOEY, "", "my server - Client Disconnected")
