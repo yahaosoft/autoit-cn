@@ -162,10 +162,12 @@ The flag parameter can have one of 5 values (0 through 4).  0 gives a true (1) o
 	匹配任何的"单词" 字符: a-z, A-Z, 0-9 或下划线 (_).
 \W
 	匹配任何的非"单词"字符.
-\###
-	Match the ascii character whose code is given or back-reference.  Can be up to 3 octal digits.<br>Match back-reference if found. Match the prior group number given exactly.  For example, <b>([:alpha:])\1</b> would match a double letter.
-\x##
-	匹配指定的ascii字符,用字符的的十六进制表示. 只能是 2 个数字.
+\ddd
+	Match character with octal code ddd, or backreference if found. Match the prior group number given exactly. For example, <b>([:alpha:])\1</b> would match a double letter.
+\xhh
+	匹配指定的字符,用字符的的十六进制表示.hh为两位
+\x{hhh..} 
+	匹配指定的字符,用字符的的十六进制表示.hhh..至少为三位
 \z
 	只匹配字符串结束.
 \Z
@@ -225,6 +227,24 @@ The flag parameter can have one of 5 values (0 through 4).  0 gives a true (1) o
 [:xdigit:]
 	十六进制数
 @@END@@
+
+<u><b>General comments about UTF-8 mode</b></u> (use internaly by AutoIt to translate pattern) :
+
+    1. An unbraced hexadecimal escape sequence (such as \xb3) matches a two-byte UTF-8 character if the value is greater than 127.
+
+    2. Octal numbers up to \777 are recognized, and match two-byte UTF-8 characters for values greater than \177.
+
+    3. Repeat quantifiers apply to complete UTF-8 characters, not to individual bytes, for example: \x{100}{3}.
+
+    4. The dot metacharacter matches one UTF-8 character instead of a single byte.
+
+    5. The character escapes \b, \B, \d, \D, \s, \S, \w, and \W correctly test characters of any code value, but the characters that PCRE recognizes as digits, spaces, or word characters remain the same set as before, all with values less than 256. Note that this also applies to \b, because it is defined in terms of \w and \W.
+
+    6. Similarly, characters that match the POSIX named character classes are all low-valued characters.
+
+    7. However, the Perl 5.10 horizontal and vertical whitespace matching escapes (\h, \H, \v, and \V) do match all the appropriate Unicode characters.
+
+    8. Case-insensitive matching applies only to characters whose values are less than 128. PCRE supports case-insensitive matching only when there is a one-to-one mapping between a letter's cases. There are a small number of many-to-one mappings in Unicode; these are not supported by PCRE.
 
 
 ###Related###

@@ -17,7 +17,7 @@ GUICtrlSetData ( 控件ID, 数据 [, 默认值] )
 	对于 Progress (进度条): 百分比 
 	对于 Slider (滑动条): 值
 	对于 Group (群组), Label (标签), Button (按钮), Checkbox (检查框), Radio (单选框), Combo (组合框), List (列表), Input (输入框), Edit (编辑框), TabItem (标签项目), TreeViewItem(树形列表项目): 替换文本
-	对于 Date (日期): 日期或时间,具体取决于控件样式
+	对于 Date (日期): 日期或时间,具体取决于控件样式和系统区域设置
 	对于 Dummy : 值.
 默认值
 	[可选参数] 对于 Combo (组合框), List (列表): 默认值.
@@ -41,8 +41,12 @@ For ListView, ListViewItem controls :
 To update a specific column just forget about the others ie "||update" to update 3rd column.
 If "update" is empty the column/subitem will be erased. For example "|" will erase the second column/subitem, "" will erase the first.
 
-For Date, Monthcal controls :
+For Monthcal controls :
 The "data" date format is "yyyy/mm/dd".
+
+For Date controls:
+The date and time is in the format defined by the regional settings. GuiCtrlRead() use the same default format.
+
 
 ###Related###
 GUICtrlCreate..., GUICtrlUpdate..., GUICtrlRead, GUIDataSeparatorChar (Option)
