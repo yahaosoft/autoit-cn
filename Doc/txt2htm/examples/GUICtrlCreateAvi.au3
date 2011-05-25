@@ -1,7 +1,5 @@
 ﻿#include <GUIConstantsEx.au3>
 
-Opt('MustDeclareVars', 1)
-
 Example()
 
 Func Example()
@@ -15,7 +13,7 @@ Func Example()
 
 	GUISetState()
 
-	; 运行界面，直到窗口被关闭
+	; 运行界面,直到窗口被关闭
 	While 1
 		$msg = GUIGetMsg()
 
