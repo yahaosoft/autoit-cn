@@ -1,4 +1,4 @@
-﻿ProcessClose("notepad.exe")
+ProcessClose("notepad.exe")
 
-$PID = ProcessExists("notepad.exe")	; 检查指定进程是否存在,存在则返回 PID,不存在则返回 0.
+Local $PID = ProcessExists("notepad.exe") ; Will return the PID or 0 if the process isn't found.
 If $PID Then ProcessClose($PID)

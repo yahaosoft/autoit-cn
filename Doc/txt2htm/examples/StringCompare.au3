@@ -1,8 +1,8 @@
-Ôªø$result = StringCompare("MEL√ìN", "mel√≥n")
+Local $result = StringCompare("MELÅ0à7N", "mel®Æn")
 MsgBox(0, "StringCompare Result (mode 0):", $result)
 
-$result = StringCompare("MEL√ìN", "mel√≥n", 1)
+$result = StringCompare("MELÅ0à7N", "mel®Æn", 1)
 MsgBox(0, "StringCompare Result (mode 1):", $result)
 
-$result = StringCompare("MEL√ìN", "mel√≥n", 2)
+$result = StringCompare("MELÅ0à7N", "mel®Æn", 2)
 MsgBox(0, "StringCompare Result (mode 2):", $result)
