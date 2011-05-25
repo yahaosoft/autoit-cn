@@ -23,12 +23,14 @@ $FunctionToCall
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回 1
-失败:	返回 0, 并设置 @ERROR:
+失败:	返回 0, 并设置 @error:
 @error:	-1 - 无法创建本地文件
+	-2 - 不能获取远程文件大小
 	-3 - 打开远程文件失败
 	-4 - 读取远程文件失败
 	-5 - 关闭远程文件失败
 	-6 - 被调用函数返回的百分比下载失败
+	-7 - 本地文件写入失败
 @@End@@
 
 ###Remarks###
@@ -40,25 +42,24 @@ $FunctionToCall
 		所以你可进行不同的操作, 比如由用户退出, 关闭应用程序或超时
 	示例:
 		Func _UpdateProgress($Percentage)
-		ProgressSet($percent,$percent &"%")
-		If _IsPressed("77") Then Return 0 ; F8 键中止
-		Return 1 ; bei 1 Fortsetzten
+			ProgressSet($percent,$percent &"%")
+			If _IsPressed("77") Then Return 0 ; F8 键中止
+			Return 1 ; bei 1 Fortsetzten
 		Endfunc
 
 		Func _UpdateProgress($Percentage)
-		GUICtrlSetData($ProgressBarCtrl,$percent)
-		Switch GUIGetMsg()
-		Case $GUI_EVENT_CLOSE
-		Return -1 ; _FTP_DownloadProgress 中止, 所以稍后可退出应用
-		Case $Btn_Cancel
-		Return 0 ; 仅取消, 无指定返回值
-		EndSwitch
-		Return 1 ; 否则继续下载
+			GUICtrlSetData($ProgressBarCtrl,$percent)
+			Switch GUIGetMsg()
+			Case $GUI_EVENT_CLOSE
+				Return -1 ; _FTP_DownloadProgress 中止, 所以稍后可退出应用
+			Case $Btn_Cancel
+				Return 0 ; 仅取消, 无指定返回值
+			EndSwitch
+			Return 1 ; 否则继续下载
 		Endfunc
 
 
 ###Related###
-None.
 
 
 ###Example###
