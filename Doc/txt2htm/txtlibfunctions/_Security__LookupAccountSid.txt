@@ -6,12 +6,14 @@ _Security__LookupAccountSid
 
 ###Syntax###
 #Include <Security.au3>
-_Security__LookupAccountSid($vSID)
+_Security__LookupAccountSid($vSID [, $sSystem = ""])
 
 ###Parameters###
 @@ParamTable@@
 $vSID
 	任何 二进制 SID 或字符串 SID
+$sSystem
+	[可选参数] 远程计算机名称. 默认(default)为本地系统.
 @@End@@
 
 ###ReturnValue###
@@ -29,7 +31,7 @@ $vSID
 	7 - 无效 SID
 	8 - 未知类型的 SID
 	9 - 计算机的 SID
-失败:	返回 0,设置@error:	
+失败:	返回 0, 并设置 @error
 @@End@@
 
 ###Remarks###

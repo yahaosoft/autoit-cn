@@ -2,34 +2,36 @@
 _SQLite_Escape
 
 ###Description###
-换码字符串
+Escapes a string or number for use as TEXT in SQLite statements
 
 ###Syntax###
 #include <SQLite.au3>
-_SQLite_Escape ( $sString [, $iBuffSize ] )
+_SQLite_Escape ( $sString )
 
 
 ###Parameters###
 @@ParamTable@@
 $sString
 	将要换码的字符串
-$iBuffSize
-	[可选参数] 如字指定此参数, 则结果将被截断
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回字符串换码
-失败:	返回空字符串,设置@error:	
+失败:	返回空字符串,设置 @error
 @错误:	1 - 错误调用 SQLite API 'sqlite3_mprintf'
 	2 - 字符串转换为 UTF - 8 错误
 	3 - 读换码字符串错误
 @@End@@
 
 ###Remarks###
- 已换码字符串用单引号包围.
- 例如 "It's a fine day" 换码后为 "It''s a fine day"
- 二进制数据使用 _SQLite_Encode()
+已换码字符串用单引号包围.
+例如 "It's a fine day" 换码后为 "It''s a fine day"
+二进制数据使用 _SQLite_Encode()
+For numeric value to be stored as such, use simple concatenation
+
+###Related###
+_SQLite_Encode
 
 ###Example###
 @@IncludeExample@@

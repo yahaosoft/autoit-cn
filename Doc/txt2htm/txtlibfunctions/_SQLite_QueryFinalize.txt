@@ -25,12 +25,12 @@ $hQuery
 @@End@@
 
 ###Remarks###
- _SQLite_QueryFinalize 函数的调用是删除由先前调用 _SQLite_Query 而得到的 SQL 语句. 
- 如果该语句执行成功, 或者根本没有执行, 则返回 SQLITE_OK. 如果语句执行失败则返回一个错误代码.
- 所有准备好的语句必须在调用 _SQLite_Close 之前完成, 否则会失败,并结束 SQLITE_BUSY 的返回代码.
+_SQLite_QueryFinalize 函数的调用是删除由先前调用 _SQLite_Query 而得到的 SQL 语句. 如果该语句执行成功, 或者根本没有执行, 则返回 SQLITE_OK. 如果语句执行失败则返回一个错误代码.
+
+所有准备好的语句必须在调用 _SQLite_Close 之前完成, 否则会失败,并结束返回 SQLITE_BUSY 作为返回值.
 
 ###Related###
-_SQLite_Query
+_SQLite_Query, _SQLite_QueryReset
 
 ###Example###
 @@IncludeExample@@

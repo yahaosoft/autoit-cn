@@ -6,18 +6,21 @@ _PathFull
 
 ###Syntax###
 #Include <File.au3>
-_PathFull($sRelativePath)
+_PathFull($sRelativePath [, $sBasePath = @WorkingDir])
 
 ###Parameters###
 @@ParamTable@@
 $sRelativePath
-	提供的相对路径
+	要创建的相对路径
+$sBasePath
+	[可选参数] 基准路径. 默认(default) = @WorkingDir
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-	返回新创建的绝对路径.
-@@End@@
+支持 UNC 网络路径
+传递 "\" 将得到 $sBasePath 所在的驱动器根目录
+传递 "" 或者 "." 返回 $sBasePath .
+一个根据$sBasePath创建的相对路径所在的绝对路径. 要绕过这个问题,使用一个绝对路径.
 
 ###Remarks###
 None.

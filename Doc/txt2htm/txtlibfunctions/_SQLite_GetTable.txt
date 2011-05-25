@@ -6,7 +6,7 @@ _SQLite_GetTable
 
 ###Syntax###
 #include <SQLite.au3>
-_SQLite_GetTable ( $hDB, $sSQL, ByRef $aResult, ByRef $iRows, ByRef $iColumns [, $iCharSize = 64 ] )
+_SQLite_GetTable ( $hDB, $sSQL, ByRef $aResult, ByRef $iRows, ByRef $iColumns [, $iCharSize = -1 ] )
 
 
 ###Parameters###
@@ -28,21 +28,19 @@ $iCharSize
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回 $SQLITE_OK
-失败:	返回值可能违反 $SQLITE_* 常量@错误:
-	-1 - SQLite 报告错误 (检查返回值)
-	1 - 错误调用 SQLite API 'sqlite3_get_table'
-	2 - 错误调用 SQLite API 'sqlite3_free_table'
-	3 - 调用被安全模式阻止
-	4 - 转换 SQL 语句到 UTF-8 错误
+失败:	随机返回值,可与 $SQLITE_* 常量中的值进行对比
+@error:	-1 - SQLite 报告一个错误 (检查返回值)
+	1 - 调用被安全模式阻止
+     2 - Error returned by _SQLite_Query in @extended
+     3 - Error returned by _SQLite_FetchNames in @extended
+     4 - Error returned by _SQLite_FetchData in @extended
 @@End@@
 
 ###Remarks###
- 数字值插入 $aResult 将成为 (($iRows) + 1) * ($iColumns)
- 这个数字将插入 $aResult[0].
- 空值将返回数字 0
- 此函数将使用更多的内存 与 _SQlite_Query() / _SQLite_Fetch*()... 相比速度更快.
- 如果你不需要结果(或无结果)考虑使用
- _SQLite_Execute() or _SQLite_Exec().
+数值插入到 $aResult 将会 (($iRows) + 1) * ($iColumns)
+这个数字将插入到 $aResult[0].
+一个NULL(空)值将返回数字 0
+如果你不需要结果(或无结果)考虑使用 _SQLite_Execute() or _SQLite_Exec().
 
 ###Related###
 _SQLite_GetTable2d, _SQLite_Exec, _SQlite_Query

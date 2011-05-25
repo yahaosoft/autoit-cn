@@ -2,7 +2,7 @@
 _SQLite_Changes
 
 ###Description###
-返回最后执行的更改数字(不包括触发器)
+返回最后执行操作对数据库影响的行数
 
 ###Syntax###
 #include <SQLite.au3>
@@ -17,17 +17,17 @@ $hDB
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回更改的数字
+成功:	返回影响的行数
 失败:	返回 0
-@error:	1 - 错误调用 SQLite API 'sqlite3_changes'
+@error	1 - 错误调用 SQLite API 'sqlite3_changes'
 	2 - 调用被安全模式阻止
 @@End@@
 
 ###Remarks###
-None.
+Changes due to action of triggers or foreign keys are not part of this count.  See _SQLite_TotalChanges()
 
 ###Related###
-None.
+_SQLite_TotalChanges
 
 ###Example###
 @@IncludeExample@@

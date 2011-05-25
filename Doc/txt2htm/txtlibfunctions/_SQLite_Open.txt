@@ -22,15 +22,33 @@ $iEncoding
 ###ReturnValue###
 @@ReturnTable@@
 成功:	Returns 数据库句柄.
-失败:	返回 0.@错误:
-	-1 - SQLite 报告一个错误 (检查 @extended 的值)@extended:
-	值可能违反 $SQLITE_* 常数
+失败:	返回 0.
+@error:	-1 - SQLite 报告一个错误 (检查 @extended 的值)
+     1 - Error Calling SQLite API 'sqlite3_open_v2'
+     2 - Error while converting filename to UTF-8
+     3 - SQLiteStartup not yet called
+@extended:	value can be compared against $SQLITE_* constants
 @@End@@
 
 ###Remarks###
- 没有必要存储数据库句柄.
- 函数使用的句柄是上次使用默认打开的句柄.
- 要创建一个数据库中UFT16编码,使用 $iEncoding=$SQLITE_ENCODING_UTF16.
+除非您在同一会话中操作多个数据库,否则您没有必要存储数据库句柄.
+函数使用的句柄是上次使用默认打开的句柄.
+
+要创建一个数据库中UFT16编码,使用 $iEncoding=$SQLITE_ENCODING_UTF16.
+
+Memory, temporary and permanent databases can be opened:
+     $hDb = _SQLite_Open()                      ; opens a temporary private memory DB
+     $hDb = _SQLite_Open(Default, ...)          ; ditto
+     $hDb = _SQLite_Open(':memory:', ...)       ; ditto
+
+     $hDb = _SQLite_Open('', ...)               ; opens a temporary private on-disk DB
+
+     $hDb = _SQLite_Open('abc.db', ...)         ; opens or creates a permanent shareable on-disk DB named 'abc.db'
+     
+  In case you insist confusing yourself:
+     $hDb = _SQLite_Open('./:memory:', ...)     ; opens or creates a permanent shareable on-disk DB named ':memory:'
+
+Contrary to permanent disk-based DBs, memory and temporary DBs can't be shared nor be used for IPC (Inter Process Communication) and are destroyed at the end of the connection.
 
 ###Related###
 _SQLite_Close
