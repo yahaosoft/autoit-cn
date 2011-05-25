@@ -46,9 +46,9 @@ Send(&quot;This is some text.&quot;)</p>
 <p><img src="savechanges.png" width="560" height="338" border="1"> </p>
 <p>&nbsp;</p>
 <p>So, we add a line to wait for this dialog to become active (we will also use the window text to make the function more reliable and to distinguish this new window from the original Notepad window):</p>
-<p class="codebox">WinWaitActive(&quot;Notepad&quot;, &quot;Do you want to save&quot;)</p>
+<p class="codebox">WinWaitActive(&quot;Notepad&quot;, &quot;Save&quot;)</p>
 <p>&nbsp;</p>
-<p>Next we want to automatically press <strong>Alt-N</strong> to select the <strong>No/Don't 
+<p>Next we want to automatically press <strong>Alt-N</strong> to select the <strong>No/Don't
 save</strong> button (Underlined letters in windows usually indicate that you can use the ALT key and that letter as a keyboard shortcut). In the <a href="../../functions/Send.htm">Send</a> function to send an ALT key we use<b><span style="font-weight: 400">
 </span></b> <strong>!</strong><strong style="font-weight: 400"> .</strong></p>
 <p class="code">Send(&quot;!n&quot;)</p>
@@ -58,7 +58,8 @@ save</strong> button (Underlined letters in windows usually indicate that you ca
 WinWaitActive(&quot;Untitled - Notepad&quot;)<br>
 Send(&quot;This is some text.&quot;)<br>
 WinClose(&quot;Untitled - Notepad&quot;)<br>
-WinWaitActive(&quot;Notepad&quot;, &quot;Do you want to save&quot;)<br>
+WinWaitActive(&quot;Notepad&quot;, &quot;Save&quot;)<br>
+;WinWaitActive(&quot;Notepad&quot;, &quot;Do you want to save&quot;)&nbsp;; When running under Windows XP<br>
 Send(&quot;!n&quot;)</p>
 <p>&nbsp;</p>
 <p>Run the script and you will see Notepad open, some text appear, then close! You should be able to use the techniques learned in this tutorial to automate many other applications.</p>
