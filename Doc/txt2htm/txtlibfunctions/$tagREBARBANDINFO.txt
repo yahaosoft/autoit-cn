@@ -5,26 +5,9 @@ $tagREBARBANDINFO
 包含 ComboBoxEx 控件项目的信息
 
 ###Syntax###
-Global Const $tagREBARBANDINFO = "uint cbSize;" & _
-                                 "uint fMask;" & _
-                                 "uint fStyle;" & _
-                                 "dword clrFore;" & _
-                                 "dword clrBack;" & _
-                                 "ptr lpText;" & _
-                                 "uint cch;" & _
-                                 "int iImage;" & _
-                                 "hwnd hwndChild;" & _
-                                 "uint cxMinChild;" & _
-                                 "uint cyMinChild;" & _
-                                 "uint cx;" & _
-                                 "hwnd hbmBack;" & _
-                                 "uint wID;" & _
-                                 "uint cyChild;" & _
-                                 "uint cyMaxChild;" & _
-                                 "uint cyIntegral;" & _
-                                 "uint cxIdeal;" & _
-                                 "int lParam;" & _
-                                 "uint cxHeader"
+Global Const $tagREBARBANDINFO = "uint cbSize;uint fMask;uint fStyle;dword clrFore;dword clrBack;ptr lpText;uint cch;" & _
+		"int iImage;hwnd hwndChild;uint cxMinChild;uint cyMinChild;uint cx;handle hbmBack;uint wID;uint cyChild;uint cyMaxChild;" & _
+		"uint cyIntegral;uint cxIdeal;lparam lParam;uint cxHeader;" & $tagRECT & ";uint uChevronState"
 
 ###Fields###
 @@ParamTable@@
@@ -70,7 +53,7 @@ clrBack
 	如果在这里指定背景颜色,那么这个背景颜色将被使用.
 lpText
 	指向一个缓冲区，其中包含区段的显示文本.
-	如果区段信息来至控件请求,且 $RBBIM_TEXT 由 fMask 中指定,,
+	如果区段信息来至控件请求,且 $RBBIM_TEXT 由 fMask 中指定,
 	这个成员必须初始化收到文本的缓冲区地址.
 cch
 	lpText 缓冲区的字节大小. 如果信息未被控件请求, 忽略该成员.
@@ -106,6 +89,10 @@ cxHeader
 	区段头是区段边界和子窗体边界间的区域.
 	指定区段文本和图像时,则为显示的区域.
 	如果指定该值, 将覆盖控件为区段计算的正常头尺寸.
+$tagRECT
+	Version 6. Location of the chevron.
+uChevronState
+	Version 6. A combination of the Object State Constants.
 @@End@@
 
 ###Remarks###

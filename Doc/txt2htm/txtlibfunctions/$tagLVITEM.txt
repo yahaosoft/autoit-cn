@@ -5,25 +5,14 @@ $tagLVITEM
 指定或者获取一个 ListView 项目属性
 
 ###Syntax###
-Global Const $tagLVITEM = "int Mask;" & _
-                          "int Item;" & _
-                          "int SubItem;" & _
-                          "int State;" & _
-                          "int StateMask;" & _
-                          "ptr Text;" & _
-                          "int TextMax;" & _
-                          "int Image;" & _
-                          "int Param;" & _
-                          "int Indent;" & _
-                          "int GroupID;" & _
-                          "int Columns;" & _
-                          "ptr pColumns"
+Global Const $tagLVITEM = "struct; uint Mask;int Item;int SubItem;uint State;uint StateMask;ptr Text;int TextMax;int Image;lparam Param;" & _
+		"int Indent;int GroupID;uint Columns;ptr pColumns;ptr piColFmt;int iGroup; endstruct"
 
 ###Fields###
 @@ParamTable@@
 Mask
-	指定本结构成员应包含的数据，或所需的有效成员，
-	可设置一或多个下列标记:
+	指定本结构成员应包含的数据,或所需的有效成员,可设置一或多个下列标记:
+		$LVIF_COLFMT - The piColFmt member is valid or must be set. If this flag is used, the cColumns member is valid or must be set (Microsoft Windows Vista and later).
 		$LVIF_COLUMNS - 使 Columns 成员有效
 		$LVIF_DI_SETITEM - 操作系统将存储所需的列表项目信息
 		$LVIF_GROUPID - 使 GroupID 成员有效
@@ -57,6 +46,16 @@ Columns
 	项目平铺显示组的列数
 pColumns
 	数组的列索引指针
+piColFmt
+	A pointer to an array of the following flags (alone or in combination, specifying the format of each subitem in extended tile view (Windows 7 and later).
+	Value Meaning:
+		$LVCFMT_LINE_BREAK - Forces the column to wrap to the top of the next list of columns.
+		$LVCFMT_FILL Fills - the remainder of the tile area. Might have a title.
+		$LVCFMT_WRAP - Allows the column to wrap within the remaining space in its list of columns.
+		$LVCFMT_NO_TITLE - Removes the title from the subitem.
+		$LVCFMT_TILE_PLACEMENTMASK - Equivalent to a combination of $LVCFMT_LINE_BREAK and $LVCFMT_FILL.
+iGroup
+	Group index of the item. Valid only for owner data/callback (single item in multiple groups).(Windows Vista and later).
 @@End@@
 
 ###Remarks###

@@ -5,22 +5,9 @@ $tagNMTOOLBAR
 包含用于处理工具栏通知消息的信息
 
 ###Syntax###
-Global Const $tagNMTOOLBAR = $tagNMHDR & ";" & _
-                             "int iItem;" & _
-                             "int iBitmap;" & _
-                             "int idCommand;" & _
-                             "byte fsState;" & _
-                             "byte fsStyle;" & _
-                             "byte bReserved1;" & _
-                             "byte bReserved2;" & _
-                             "dword dwData;" & _
-                             "int iString;" & _
-                             "int cchText;" & _
-                             "ptr pszText;" & _
-                             "int Left;" & _
-                             "int Top;" & _
-                             "int Right;" & _
-                             "int Bottom"
+Global Const $tagNMTOOLBAR = $tagNMHDR & ";int iItem;" & _
+		"struct; int iBitmap;int idCommand;byte fsState;byte fsStyle;dword_ptr dwData;int_ptr iString; endstruct" & _
+		";int cchText;ptr pszText;" & $tagRECT
 
 ###Fields###
 @@ParamTable@@
@@ -37,10 +24,6 @@ fsState
 	按钮状态标志. 该成员可为工具栏按钮状态中列出的值的组合
 fsStyle
 	按钮样式. 该成员可为工具栏控件按钮样式中列出的值的组合
-bReserved1
-	保留.不使用.
-bReserved2
-	保留.不使用.
 dwData
 	应用程序定义的值
 iString
@@ -49,14 +32,11 @@ cchText
 	按钮文本的字符数量
 pszText
 	地址字符缓冲区，其中包含按钮文本
-Left
-	指定矩形左上角 X 坐标
-Top
-	指定矩形左上角 Y 坐标
-Right
-	指定矩形右下角 X 坐标
-Bottom
-	指定矩形右下角 Y 坐标
+$tagRECT
+	Left - 指定矩形左上角 X 坐标
+	Top - 指定矩形左上角 Y 坐标
+	Right - 指定矩形右下角 X 坐标
+	Bottom - 指定矩形右下角 Y 坐标
 @@End@@
 
 ###Remarks###

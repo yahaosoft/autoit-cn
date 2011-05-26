@@ -5,14 +5,7 @@ $tagNMLVFINDITEM
 包含控件属主需要查找虚拟列表视图控件项要求的信息
 
 ###Syntax###
-Global Const $tagNMLVFINDITEM = $tagNMHDR & ";" & _
-                                "int Start;" & _
-                                "int Flags;" & _
-                                "ptr Text;" & _
-                                "int Param;" & _
-                                "int X;" & _
-                                "int Y;" & _
-                                "int Direction"
+Global Const $tagNMLVFINDITEM = $tagNMHDR & ";int Start;" & $tagLVFINDINFO
 
 ###Fields###
 @@ParamTable@@
@@ -27,17 +20,12 @@ Flags
 		$LVFI_STRING - 基于项目文本搜索. 除非指定其他值, 匹配项的项目文本必须精确匹配由 Tex t成员指向的字符串.
 		$LVFI_WRAP - 如果未找到匹配项从开始继续搜索
 		LVFI_NEARESTXY - 查找最接近 X 和 Y 成员指定的位置的项目,由 Direction 指定查找方向. 此标志仅支持大图标，小图标模式.
-Text
-	比较项的文本字符串的地址. 
-	在  Flags 设置 $LVFI_STRING 或 $LVFI_PARTIAL 标志时有效.
-Param
-	Param 成员比较值. 在  Flags 设置  $LVFI_PARAM 标志时有效.
-X
-	初始搜索 X 位置. 在  Flags 设置   $LVFI_NEARESTXY  标志时有效.
-Y
-	初始搜索 Y 位置. 在  Flags 设置   $LVFI_NEARESTXY  标志时有效.
-Direction
-	指定搜索方向的虚拟键代码.支持下面的代码:
+$tagLVFINDINFO
+	Text - 比较项的文本字符串的地址. 在 Flags 设置 $LVFI_STRING 或 $LVFI_PARTIAL 标志时有效.
+	Param - Param 成员比较值. 在  Flags 设置  $LVFI_PARAM 标志时有效.
+	X - 初始搜索 X 位置. 在  Flags 设置   $LVFI_NEARESTXY  标志时有效.
+	Y - 初始搜索 Y 位置. 在  Flags 设置   $LVFI_NEARESTXY  标志时有效.
+	Direction - 指定搜索方向的虚拟键代码.支持下面的代码:
 		VK_LEFT 向左
 		VK_RIGHT 向右
 		VK_UP 向上
@@ -50,8 +38,8 @@ Direction
 @@End@@
 
 ###Remarks###
-此通知给应用程序（或通知接收器）定制增量搜索的机会.
-例如，如果搜索项目数字,则应用程序仅执行数值的搜索,而不是字符串搜索.
+此通知给应用程序(或通知接收器)定制增量搜索的机会.
+例如,如果搜索项目数字,则应用程序仅执行数值的搜索,而不是字符串搜索.
 应用程序设置 Param 成员的搜索结果, 或搜索失败时定义另一个应用程序如何搜索. 
   
 

@@ -5,19 +5,9 @@ $tagNMTVCUSTOMDRAW
 包含由树视图控件发送的 NM_CUSTOMDRAW（tree view） 通知消息的信息
 
 ###Syntax###
-Global Const $tagNMTVCUSTOMDRAW = $tagNMHDR & ";" & _
-                                  "uint DrawStage;" & _
-                                  "hwnd HDC;" & _
-                                  "int Left;" & _
-                                  "int Top;" & _
-                                  "int Right;" & _
-                                  "int Bottom;" & _
-                                  "ptr ItemSpec;" & _
-                                  "uint ItemState;" & _
-                                  "int ItemParam;" & _
-                                  "int ClrText;" & _
-                                  "int ClrTextBk;" & _
-                                  "int Level"
+Global Const $tagNMTVCUSTOMDRAW = "struct;" & $tagNMHDR & ";dword DrawStage;handle HDC;" & $tagRECT & _
+		";dword_ptr ItemSpec;uint ItemState;lparam ItemParam; endstruct" & _
+		";dword ClrText;dword ClrTextBk;int Level"
 
 ###Fields###
 @@ParamTable@@
@@ -39,14 +29,11 @@ DrawStage
 		$CDDS_SUBITEM - 绘制子项时与 $CDDS_ITEMPREPAINT 或 $CDDS_ITEMPOSTPAINT 结合的标志
 HDC
 	控件的设备环境句柄
-Left
-	正在绘制的边界矩形左上角 X 坐标
-Top
-	正在绘制的边界矩形左上角 Y 坐标
-Right
-	正在绘制的边界矩形右下角 X 坐标
-Bottom
-	正在绘制的边界矩形右下角 Y 坐标
+$tagRECT 
+	Left - 正在绘制的边界矩形左上角 X 坐标
+	Top - 正在绘制的边界矩形左上角 Y 坐标
+	Right - 正在绘制的边界矩形右下角 X 坐标
+	Bottom - 正在绘制的边界矩形右下角 Y 坐标
 ItemSpec
 	项目号
 ItemState
@@ -73,5 +60,4 @@ Level
 
 ###Remarks###
 $CDxx_ 常量需要 WindowsConstants.au3 文件定义.
-	
 

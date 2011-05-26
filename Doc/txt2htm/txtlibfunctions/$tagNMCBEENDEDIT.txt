@@ -5,11 +5,7 @@ $tagNMCBEENDEDIT
 包含 ComboBoxEx 控件的编辑操作信息
 
 ###Syntax###
-Global Const $tagNMCBEENDEDIT = $tagNMHDR & ";" & _
-                                "int fChanged;" & _
-                                "int NewSelection;" & _
-                                "char Text[1024];" & _
-                                "int Why"
+Global Const $tagNMCBEENDEDIT = $tagNMHDR & ";bool fChanged;int NewSelection;wchar szText[260];int Why"
 
 ###Fields###
 @@ParamTable@@
@@ -20,7 +16,7 @@ fChanged
 NewSelection
 	选定编辑操作的项目 0 基索引
 	如果没有项将被选中,该值为 $CB_ERR
-Text
+szText
 	一个 0 结尾的字符串,其中包含控件的编辑框文本.
 Why
 	操作所产生的 $CBEN_ENDEDIT 通知消息. 可为下列值之一:

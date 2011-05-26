@@ -5,27 +5,15 @@ $tagMCHITTESTINFO
 包含月历控件点击测试的特定信息
 
 ###Syntax###
-Global Const $tagMCHITTESTINFO = "int Size;" & _
-                                 "int X;" & _
-                                 "int Y;" & _
-                                 "int Hit;" & _
-                                 "short Year;" & _
-                                 "short Month;" & _
-                                 "short DOW;" & _
-                                 "short Day;" & _
-                                 "short Hour;" & _
-                                 "short Minute;" & _
-                                 "short Second;" & _
-                                 "short MSeconds"
+Global Const $tagMCHITTESTINFO = "uint Size;" & $tagPOINT & ";uint Hit;" & $tagSYSTEMTIME & _
+		";" & $tagRECT & ";int iOffset;int iRow;int iCol"
 
 ###Fields###
 @@ParamTable@@
 Size
 	结构的大小，以字节为单位
-X
-	点击测试点的 X 位置
-Y
-	点击测试点的 Y 位置
+$tagPOINT 
+	点击测试点的 X,Y 位置
 Hit
 	测试操作的结果. 此值将是下列之一:
 		$MCHT_CALENDARBK - 给定点位于月历背景
@@ -40,22 +28,23 @@ Hit
 		$MCHT_TITLEBTNPREV - 给定点位于左上角按钮
 		$MCHT_TITLEMONTH - 给定点位于月历标题栏中的月名称
 		$MCHT_TITLEYEAR - 给定点位于月历标题栏中的年值上
-Year
-	年
-Month
-	月
-DOW
-	周中日
-Day
-	日
-Hour
-	时
-Minute
-	分
-Second
-	秒
-MSeconds
-	毫秒
+$tagSYSTEMTIME 
+	Year(年)
+	Month(月)
+	DOW(周中日)
+	Day(日)
+	Hour(时)
+	Minute(分)
+	Seconds(秒)
+	MSeconds(毫秒)
+$tagRECT
+	The RECT of the hit-tested location.
+iOffset
+	When displaying more than one calendar, this is the offset of the calendar at the hit-tested point (zero-based).
+iRow
+	The row number for the calendar grid that the given hit point was over. Example: If you hit-tested the 8th of a month, which is in the second week of the month, iRow will be one since the index of the row is zero-based row index.
+iCol
+	The column number for the calendar grid that the given point was over. For example, if your week starts on Sunday and the 1st of the month is Friday, hit testing the 1st will return five (5) for iCol, since Friday is in the fifth column from the beginning of the row, using a zero-based column index.
 @@End@@
 
 ###Remarks###

@@ -5,17 +5,13 @@ $tagOVERLAPPED
 包含使用异步(或重叠)输入和输出(I/O)的信息
 
 ###Syntax###
-Global Const $tagOVERLAPPED = "int Internal;" & _
-                              "int InternalHigh;" & _
-                              "int Offset;" & _
-                              "int OffsetHigh;" & _
-                              "int hEvent"
+Global Const $tagOVERLAPPED = "ulong_ptr Internal;ulong_ptr InternalHigh;struct; dword Offset;dword OffsetHigh; endstruct;handle hEvent"
 
 ###Fields###
 @@ParamTable@@
 Internal
 	保留给操作系统使用.指定系统相关状态.
-	当 GetOverlappedResult 函数返回没有设置扩展的错误信息到 ERROR_IO_PENDING 时有效      .
+	当 GetOverlappedResult 函数返回没有设置扩展的错误信息到 ERROR_IO_PENDING 时有效.
 InternalHigh
 	保留给操作系统使用.指定数据传输的长度
 	当 GetOverlappedResult 函数返回 True 时有效.

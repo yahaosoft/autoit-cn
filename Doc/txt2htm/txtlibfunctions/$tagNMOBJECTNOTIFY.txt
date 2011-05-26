@@ -5,11 +5,7 @@ $tagNMOBJECTNOTIFY
 包含用于 $TBN_GETOBJECT, $TCN_GETOBJECT, $RBN_GETOBJECT, 与 $PSN_GETOBJECT 通知消息的信息
 
 ###Syntax###
-Global Const $tagNMOBJECTNOTIFY = $tagNMHDR & ";" & _
-                                  "int Item;" & _
-                                  "ptr piid;" & _
-                                  "ptr pObject;" & _
-                                  "int Result"
+Global Const $tagNMOBJECTNOTIFY = $tagNMHDR & ";int Item;ptr piid;ptr pObject;long Result;dword dwFlags"
 
 ###Fields###
 @@ParamTable@@
@@ -24,6 +20,8 @@ pObject
 	执行通知消息的应用程序设置该成员.
 Result
 	COM 的成功或失败标志. 执行通知消息的应用程序设置该成员.
+dwFlags
+	control specific flags (hints as to where in iItem it hit)
 @@End@@
 
 ###Remarks###

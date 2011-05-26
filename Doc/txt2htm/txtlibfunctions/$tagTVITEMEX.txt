@@ -5,17 +5,8 @@ $tagTVITEMEX
 指定或接收树视图项目的属性
 
 ###Syntax###
-Global Const $tagTVITEMEX = "int Mask;" & _
-                            "int hItem;" & _
-                            "int State;" & _
-                            "int StateMask;" & _
-                            "ptr Text;" & _
-                            "int TextMax;" & _
-                            "int Image;" & _
-                            "int SelectedImage;" & _
-                            "int Children;" & _
-                            "int Param;" & _
-                            "int Integral"
+Global Const $tagTVITEMEX = "struct; uint Mask;handle hItem;uint State;uint StateMask;ptr Text;int TextMax;int Image;int SelectedImage;int Children;lparam Param;" & _
+		"int Integral;uint uStateEx;hwnd hwnd;int iExpandedImage;int iReserved; endstruct"
 
 ###Fields###
 @@ParamTable@@
@@ -23,12 +14,14 @@ Mask
 	说明哪些结构成员包含有效数据:
 		$TVIF_CHILDREN - Children 成员有效
 		$TVIF_DI_SETITEM - 将保留提供的信息并不再请求
+		$TVIF_EXPANDEDIMAGE - The iExpandedImage member is valid (IE Version 6.00 and Windows Vista)
 		$TVIF_HANDLE - hItem 成员有效
 		$TVIF_IMAGE - Image 成员有效
 		$TVIF_INTEGRAL - Integral 成员有效
 		$TVIF_PARAM - Param 成员有效
 		$TVIF_SELECTEDIMAGE - SelectedImage 成员有效
 		$TVIF_STATE - State 与 StateMask 成员有效
+		$TVIF_STATEEX - The uStateEx member is valid (IE Version 6.00 and Windows Vista) 
 		$TVIF_TEXT - Text 和 TextMax 成员有效
 hItem
 	本结构指向的项目
@@ -50,13 +43,25 @@ Image
 SelectedImage
 	当项目选中状态时使用的图标在图像列表中的索引
 Children
-	表明项目是否有关联子项的标志     :
+	表明项目是否有关联子项的标志:
 		0 - 项目没有子项
 		1 - 项目有一或多个子项
 Param
 	项目的关联值
 Integral
 	项目的高度
+uStateEx
+	One or more (as a bitwise combination) of the following extended states.
+	Value Meaning:
+		TVIS_EX_DISABLED Windows Vista and later. Creates a control that is drawn in grey, that the user cannot interact with.
+		TVIS_EX_FLAT Creates a flat item—the item is virtual and is not visible in the tree; instead, its children take its place in the tree hierarchy.
+		TVIS_EX_HWND Creates a separate HWND for the item.
+hwnd
+	Not used; must be NULL.
+iExpandedImage
+	Index of the image in the control's image list to display when the item is in the expanded state.
+iReserved
+	Reserved member. Do not use.
 @@End@@
 
 ###Remarks###

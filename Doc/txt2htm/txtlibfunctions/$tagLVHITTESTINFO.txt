@@ -5,18 +5,12 @@ $tagLVHITTESTINFO
 包含点击测试信息
 
 ###Syntax###
-Global Const $tagLVHITTESTINFO = "int X;" & _
-                                 "int Y;" & _
-                                 "int Flags;" & _
-                                 "int Item;" & _
-                                 "int SubItem"
+Global Const $tagLVHITTESTINFO = $tagPOINT & ";uint Flags;int Item;int SubItem;int iGroup"
 
 ###Fields###
 @@ParamTable@@
-X
-	点击测试的 X 位置
-Y
-	点击测试的 Y 位置
+$tagPOINT
+	点击测试的 X,Y 位置
 Flags
 	点击测试的结果. 可为下列值的一或多个:
 		$LVHT_ABOVE - 位于控件客户区上方
@@ -27,10 +21,22 @@ Flags
 		$LVHT_ONITEMSTATEICON - 位于项目状态图像上
 		$LVHT_TOLEFT - 位于项目客户区左侧
 		$LVHT_TORIGHT - 位于项目客户区右侧
+		For Windows Vista and later:
+		$LVHT_EX_GROUP_HEADER - The point is within the group header.
+		$LVHT_EX_GROUP_FOOTER - The point is within the group footer.
+		$LVHT_EX_GROUP_COLLAPSE - The point is within the collapse/expand button of the group.
+		$LVHT_EX_GROUP_BACKGROUND - The point is within the area of the group where items are displayed.
+		$LVHT_EX_GROUP_STATEICON - The point is within the state icon of the group.
+		$LVHT_EX_GROUP_SUBSETLINK - The point is within the subset link of the group.
+		$LVHT_EX_GROUP - $LVHT_EX_GROUP_BACKGROUND | $LVHT_EX_GROUP_COLLAPSE | $LVHT_EX_GROUP_FOOTER | $LVHT_EX_GROUP_HEADER | $LVHT_EX_GROUP_STATEICON | $LVHT_EX_GROUP_SUBSETLINK.
+		$LVHT_EX_ONCONTENTS - The point is within the icon or text content of the item and not on the background.
+		$LVHT_EX_FOOTER - The point is within the footer of the list-view control.
 Item
 	接收匹配项的索引. 如果点击测试为子项时, 则该值代表子项的父项     .
 SubItem
 	接收匹配子项的索引. 如果点击测试为项目时, 该成员为 0.
+iGroup
+	Group index of the item hit (read only). Valid only for owner data. If the point is within an item that is displayed in multiple groups then iGroup will specify the group index of the item. (Windows Vista and Later)
 @@End@@
 
 ###Remarks###

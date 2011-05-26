@@ -4,12 +4,12 @@ DllStructCreate
 创建一个 C/C++ 样式的数据结构供 DllCall 使用.
 
 ###Syntax###
-DllStructCreate ( "数据结构" [,指针] )
+DllStructCreate ( Struct [,Pointer] )
 
 
 ###Parameters###
 @@ParamTable@@
-"数据结构"
+Struct
 	用字符串来表示的要创建的数据结构.(见 注释).
 指针
 	[可选参数] 如果指定的数据结构不能分配内存,则使用此指针参数.
@@ -74,6 +74,12 @@ INT_PTR, LONG_PTR, LRESULT, LPARAM
 	32/64位 带符号整数(signed integer) (依据使用的 x86 或 x64 AutoIt 的版本)
 UINT_PTR, ULONG_PTR, DWORD_PTR, WPARAM
 	32/64位 无符号整数(unsigned integer) (依据使用的 x86 或 x64 AutoIt 的版本)
+STRUCT
+	The following datatypes will be align according to C declaration rules. See below.
+ENDSTRUCT
+	end of the collection datatypes. Padding can occurs see below.
+ALIGN
+	n bytes boundary where datatype must be aligned.
 @@End@@
 
 
@@ -84,6 +90,12 @@ UINT_PTR, ULONG_PTR, DWORD_PTR, WPARAM
 
 元素名称可以添加类似C样式的声明: DllStructCreate("int n;char buffer[128]").
 这些数据名称可用于在其他 DllStruct... 函数里.  数据名称必须为英文字母或下划线.
+
+If a collection of datatypes is defined as in a "struct{}" in C declaration, the "STRUCT; ...; ENDSTRUCT;" must be used.
+This need to be done to respect alignment inside the entire structure creation. No need if all datatypes are in the defined structure as an implicit structure alignment is done.
+
+DllStructCreate(int;STRUCT;ptr;int;ENDSTRUCT;int")    ; structure is 32 bytes under a Windows 64-Bit and 16 under Windows 32-Bit
+DllStructCreate(int;ptr;int;int")    ; structure is 24 bytes under a Windows 64-Bit and 16 under Windows 32-Bit
 
 To use a different alignment prefix the structure with the align keyword.  The default value for n is 8. Valid values are 1, 2, 4, 8, and 16.  The alignment of a member will be on a boundary that is either a multiple of n or a multiple of the size of the member, <b>whichever is smaller</b>.  This is equivalent to the #pragma pack option with the Microsoft Visual C++ compiler.
 
@@ -97,6 +109,15 @@ If a change of alignment is needed "align" can be use before the first element w
 "align" or "align 8" leads to default alignment.
 
 要释放分配的内存,只需将返回的变量设置为 0.
+
+<b>The following aggregate alignment rules apply:</b>
+
+The alignment of an array is the same as the alignment of one of the elements of the array.
+
+The alignment of the beginning of a structure is the maximum alignment of any individual member.
+Each member within the structure is be placed at its proper alignment as defined in the previous table, which require implicit internal padding, depending on the previous member.
+
+Structure size is an integral multiple of its alignment, which require padding after the last member.
 
 
 ###Related###
