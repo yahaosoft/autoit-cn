@@ -1,1 +1,0 @@
-﻿FileDelete("D:\*.tmp")

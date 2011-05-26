@@ -1,1 +1,0 @@
-﻿FileRecycleEmpty("C:\")
