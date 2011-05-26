@@ -1,46 +1,43 @@
-﻿#include <GuiConstantsEx.au3>
+#include <GuiConstantsEx.au3>
 #include <GDIPlus.au3>
 #include <ScreenCapture.au3>
-
-Opt('MustDeclareVars', 1)
 
 _Main()
 
 Func _Main()
-	Local $hBitmap, $hImage, $iX, $iY, $hClone
+	Local $hBMP, $hImage, $iX, $iY, $hClone
 
 	; Initialize GDI+ library
-	_GDIPlus_Startup ()
+	_GDIPlus_Startup()
 
 	; Capture 32 bit bitmap
-	$hBitmap = _ScreenCapture_Capture ("")
-	$hImage = _GDIPlus_BitmapCreateFromHBITMAP ($hBitmap)
+	$hBMP = _ScreenCapture_Capture("")
+	$hImage = _GDIPlus_BitmapCreateFromHBITMAP($hBMP)
 
 	; Create 24 bit bitmap clone
-	$iX = _GDIPlus_ImageGetWidth ($hImage)
-	$iY = _GDIPlus_ImageGetHeight ($hImage)
-	$hClone = _GDIPlus_BitmapCloneArea ($hImage, 0, 0, $iX, $iY, $GDIP_PXF24RGB)
+	$iX = _GDIPlus_ImageGetWidth($hImage)
+	$iY = _GDIPlus_ImageGetHeight($hImage)
+	$hClone = _GDIPlus_BitmapCloneArea($hImage, 0, 0, $iX, $iY, $GDIP_PXF24RGB)
 
 	; Save bitmap to file
-	_GDIPlus_ImageSaveToFile ($hClone, @MyDocumentsDir & "\GDIPlus_Image.bmp")
+	_GDIPlus_ImageSaveToFile($hClone, @TempDir & "\GDIPlus_Image.bmp")
 
 	; Clean up resources
-	_GDIPlus_ImageDispose ($hClone)
-	_GDIPlus_ImageDispose ($hImage)
-	_WinAPI_DeleteObject ($hBitmap)
+	_GDIPlus_BitmapDispose($hClone)
+	_GDIPlus_BitmapDispose($hImage)
+	_WinAPI_DeleteObject($hBMP)
 
 	; Load image
-	$hImage = _GDIPlus_ImageLoadFromFile (@MyDocumentsDir & "\GDIPlus_Image.bmp")
-	$hBitmap = _GDIPlus_BitmapCreateHBITMAPFromBitmap ($hImage)
+	$hImage = _GDIPlus_ImageLoadFromFile(@TempDir & "\GDIPlus_Image.bmp")
+	$hBMP = _GDIPlus_BitmapCreateHBITMAPFromBitmap($hImage)
 
 	; Save bitmap to file
-	_ScreenCapture_SaveImage (@MyDocumentsDir & "\Image.bmp", $hBitmap)
+	_ScreenCapture_SaveImage(@TempDir & "\Image.bmp", $hBMP, True) ; True -> $hBMP destroyed
 
-	; Clean up resources
-	_GDIPlus_ImageDispose ($hImage)
-	_WinAPI_DeleteObject ($hBitmap)
+	; Clean up resource
+	_GDIPlus_ImageDispose($hImage)
 
 	; Shut down GDI+ library
-	_GDIPlus_ShutDown ()
+	_GDIPlus_Shutdown()
 
 EndFunc   ;==>_Main
