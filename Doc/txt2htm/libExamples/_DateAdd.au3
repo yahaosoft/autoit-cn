@@ -1,17 +1,17 @@
-ï»¿#include <Date.au3>
+#include <Date.au3>
 
-; ä»Šå¤©+5å¤©
-$sNewDate = _DateAdd( 'd',5, _NowCalcDate())
-MsgBox( 4096, "", "ä»Šå¤© + 5 å¤©:" & $sNewDate )
+; ½ñÌì+5Ìì
+Local $sNewDate = _DateAdd('d', 5, _NowCalcDate())
+MsgBox( 4096, "", "½ñÌì + 5 Ìì:" & $sNewDate )
 
-; ä»Šå¤©å‡å»ä¸¤å‘¨
-$sNewDate = _DateAdd( 'w',-2, _NowCalcDate())
-MsgBox( 4096, "", "ä»Šå¤©å‡å»ä¸¤å‘¨: " & $sNewDate )
+; ½ñÌì¼õÈ¥Á½ÖÜ
+$sNewDate = _DateAdd('w', -2, _NowCalcDate())
+MsgBox( 4096, "", "½ñÌì¼õÈ¥Á½ÖÜ: " & $sNewDate )
 
-; å½“å‰æ—¶é—´ +15 åˆ†é’Ÿ
-$sNewDate = _DateAdd( 'n',15, _NowCalc())
-MsgBox( 4096, "", "å½“å‰æ—¶é—´ +15 åˆ†é’Ÿ: " & $sNewDate )
+; µ±Ç°Ê±¼ä +15 ·ÖÖÓ
+$sNewDate = _DateAdd('n', 15, _NowCalc())
+MsgBox( 4096, "", "µ±Ç°Ê±¼ä +15 ·ÖÖÓ: " & $sNewDate )
 
-; è®¡ç®—ä» 1970/01/01 00:00:00 å¼€å§‹ ç»è¿‡ 1087497645 ç§’åçš„æ—¶é—´
-$sNewDate = _DateAdd( 's',1087497645, "1970/01/01 00:00:00")
-MsgBox( 4096, "", "è®¡ç®—æ—¶é—´: " & $sNewDate )
+; ¼ÆËã´Ó 1970/01/01 00:00:00 ¿ªÊ¼ ¾­¹ı 1087497645 ÃëºóµÄÊ±¼ä
+$sNewDate = _DateAdd('s', 1087497645, "1970/01/01 00:00:00")
+MsgBox( 4096, "", "¼ÆËãÊ±¼ä: " & $sNewDate )

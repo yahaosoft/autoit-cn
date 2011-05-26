@@ -1,3 +1,3 @@
-ï»¿#include <Debug.au3>
+#include <Debug.au3>
 
-Msgbox(4096, "è°ƒè¯•æŠ¥å‘ŠçŽ¯å¢ƒ", _DebugBugReportEnv() )
+MsgBox(4096, "µ÷ÊÔ±¨¸æ»·¾³", _DebugBugReportEnv() )

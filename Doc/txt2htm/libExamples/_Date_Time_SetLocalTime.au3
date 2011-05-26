@@ -1,16 +1,18 @@
-﻿#include <GuiConstantsEx.au3>
+#include <GuiConstantsEx.au3>
 #include <Date.au3>
 #include <WindowsConstants.au3>
+
+; Under Vista the Windows API "SetLocalTime" may be rejected due to system security
 
 Global $iMemo
 
 _Main()
 
 Func _Main()
-	Local $hGUI, $tCur, $tNew
+	Local $tCur, $tNew
 
 	; Create GUI
-	$hGUI = GUICreate("Time", 400, 300)
+	GUICreate("Time", 400, 300)
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 296, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	GUISetState()
@@ -21,7 +23,10 @@ Func _Main()
 
 	; Set new local time
 	$tNew = _Date_Time_EncodeSystemTime(8, 19, @YEAR, 3, 10, 45)
-	_Date_Time_SetLocalTime(DllStructGetPtr($tNew))
+	If Not _Date_Time_SetLocalTime(DllStructGetPtr($tNew)) Then
+		MsgBox(4096, "Error", "System clock cannot be SET" & @CRLF & @CRLF & _WinAPI_GetLastErrorMessage())
+		Exit
+	EndIf
 	$tNew = _Date_Time_GetLocalTime()
 	MemoWrite("New date/time .....: " & _Date_Time_SystemTimeToDateTimeStr($tNew))
 
@@ -35,7 +40,7 @@ Func _Main()
 	; Loop until user exits
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
-	
+
 EndFunc   ;==>_Main
 
 ; Write a line to the memo control

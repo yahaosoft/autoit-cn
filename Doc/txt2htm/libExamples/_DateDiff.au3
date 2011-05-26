@@ -1,9 +1,9 @@
-ï»¿#include <Date.au3>
+#include <Date.au3>
 
-; è®¡ç®—ä¸€ä¸ªè·¨è¶Šä¸–çºªåŽçš„ç§’æ•°,(ä»Ž1970/01/01 00:00:00) 
-$iDateCalc = _DateDiff( 's',"1970/01/01 00:00:00",_NowCalc())
-MsgBox( 4096, "", "å’ŒçŽ°åœ¨æ¯”è¾ƒç»è¿‡çš„ç§’æ•°: " & $iDateCalc )
+; ¼ÆËãÒ»¸ö¿çÔ½ÊÀ¼ÍºóµÄÃëÊý,(´Ó1970/01/01 00:00:00) 
+Local $iDateCalc = _DateDiff('s', "1970/01/01 00:00:00", _NowCalc())
+MsgBox( 4096, "", "ºÍÏÖÔÚ±È½Ï¾­¹ýµÄÃëÊý: " & $iDateCalc )
 
-; è®¡ç®—ä»Šå¹´ç»è¿‡çš„å°æ—¶æ•°
-$iDateCalc = _DateDiff( 'h',@YEAR & "/01/01 00:00:00",_NowCalc())
-MsgBox( 4096, "", "è®¡ç®—ä»Šå¹´ç»è¿‡çš„å°æ—¶æ•°: " & $iDateCalc )
+; ¼ÆËã½ñÄê¾­¹ýµÄÐ¡Ê±Êý
+$iDateCalc = _DateDiff('h', @YEAR & "/01/01 00:00:00", _NowCalc())
+MsgBox( 4096, "", "¼ÆËã½ñÄê¾­¹ýµÄÐ¡Ê±Êý: " & $iDateCalc )
