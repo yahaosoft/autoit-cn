@@ -2,8 +2,6 @@
 #include <GuiAVI.au3>
 #include <WindowsConstants.au3>
 
-Opt('MustDeclareVars', 1)
-
 $Debug_AVI = False ; Check ClassName being passed to AVI functions, set to True and use a handle to another control to see it work
 
 Global $hAVI, $iMemo

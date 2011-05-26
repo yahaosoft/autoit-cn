@@ -5,8 +5,9 @@ $tagNMTVCUSTOMDRAW
 Contains information specific to an NM_CUSTOMDRAW (tree view) notification message sent by a tree-view control
 
 ###Syntax###
-Global Const $tagNMTVCUSTOMDRAW = $tagNMHDR & ";uint DrawStage;hwnd HDC;int Left;int Top;int Right;int Bottom;" & _
-		"ptr ItemSpec;uint ItemState;int ItemParam;int ClrText;int ClrTextBk;int Level"
+Global Const $tagNMTVCUSTOMDRAW = "struct;" & $tagNMHDR & ";dword DrawStage;handle HDC;" & $tagRECT & _
+		";dword_ptr ItemSpec;uint ItemState;lparam ItemParam; endstruct" & _
+		";dword ClrText;dword ClrTextBk;int Level"
 
 ###Fields###
 @@ParamTable@@
@@ -28,14 +29,11 @@ DrawStage
 		  $CDDS_SUBITEM - Flag combined with $CDDS_ITEMPREPAINT or $CDDS_ITEMPOSTPAINT if a subitem is being drawn
 HDC
 	Handle to the control's device context
-Left
-	X coordinate of upper left corner of bounding rectangle being drawn
-Top
-	Y coordinate of upper left corner of bounding rectangle being drawn
-Right
-	X coordinate of lower right corner of bounding rectangle being drawn
-Bottom
-	Y coordinate of lower right corner of bounding rectangle being drawn
+$tagRECT 
+	Left   - X coordinate of upper left corner of bounding rectangle being drawn
+	Top    - Y coordinate of upper left corner of bounding rectangle being drawn
+	Right  - X coordinate of lower right corner of bounding rectangle being drawn
+	Bottom - Y coordinate of lower right corner of bounding rectangle being drawn
 ItemSpec
 	Item number
 ItemState

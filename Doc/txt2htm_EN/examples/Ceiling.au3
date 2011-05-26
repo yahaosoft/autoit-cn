@@ -1,4 +1,4 @@
-Dim $msg
+Local $msg
 
 $msg = ""
 $msg = $msg & "Ceiling(4.8) = " & Ceiling(4.8) & @CR

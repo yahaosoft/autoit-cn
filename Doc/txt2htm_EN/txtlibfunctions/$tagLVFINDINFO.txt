@@ -5,31 +5,26 @@ $tagLVFINDINFO
 Contains information used when searching for a list-view item
 
 ###Syntax###
-Global Const $tagLVFINDINFO = "int Flags;ptr Text;int Param;int X;int Y;int Direction"
+Global Const $tagLVFINDINFO = "struct; uint Flags;ptr Text;lparam Param;" & $tagPOINT & ";uint Direction; endstruct"
 
 ###Fields###
 @@ParamTable@@
 Flags
 	Type of search to perform. This member can be set to one or more of the following values:
-		$LVFI_PARAM - Searches for a match between this structure's Param member and the Param member of an item.
-	If $LVFI_PARAM is specified, all other flags are ignored.
-		$LVFI_PARTIAL - Checks to see if the item text begins with the string pointed to by the Text member. This
-	value implies use of $LVFI_STRING.
-		$LVFI_STRING - Searches based on the item text. Unless additional values are specified, the item text of
-	the matching item must exactly match the string pointed to by the Text member.
+		$LVFI_PARAM - Searches for a match between this structure's Param member and the Param member of an item. If $LVFI_PARAM is specified, all other flags are ignored.
+		$LVFI_PARTIAL - Checks to see if the item text begins with the string pointed to by the Text member. This value implies use of $LVFI_STRING.
+		$LVFI_STRING - Searches based on the item text. Unless additional values are specified, the item text of the matching item must exactly match the string pointed to by the Text member.
+		$LVFI_SUBSTRING - Equivalent to $LVFI_PARTIAL (Windows Vista and Later).
 		$LVFI_WRAP - Continues the search at the beginning if no match is found
-		LVFI_NEARESTXY - Finds the item nearest to the position specified in the X and Y members, in the direction
-	specified by the Direction member. This flag is supported only by large icon and small icon modes.
+		$LVFI_NEARESTXY - Finds the item nearest to the position specified in the X and Y members, in the direction specified by the Direction member. This flag is supported only by large icon and small icon modes.
 Text
 	Address of a string to compare with the item text. It is valid if $LVFI_STRING or $LVFI_PARTIAL
 	is set in the Flags member.
 Param
 	Value to compare with the Param member of an item's $LVITEM structure. It is valid only if
 	$LVFI_PARAM is set in the flags member.
-X
-	Initial X search position. It is valid only if $LVFI_NEARESTXY is set in the Flags member.
-Y
-	Initial Y search position. It is valid only if $LVFI_NEARESTXY is set in the Flags member.
+$tagPOINT
+	Initial X,Y search position. It is valid only if $LVFI_NEARESTXY is set in the Flags member.
 Direction
 	Virtual key code that specifies the direction to search. The following codes are supported:
 		VK_LEFT

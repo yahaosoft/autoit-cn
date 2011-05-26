@@ -1,4 +1,4 @@
-$file = FileOpen("test.txt", 0)
+Local $file = FileOpen("test.txt", 0)
 
 ; Check if file opened for reading OK
 If $file = -1 Then
@@ -8,7 +8,7 @@ EndIf
 
 ; Read in lines of text until the EOF is reached
 While 1
-	$line = FileReadLine($file)
+	Local $line = FileReadLine($file)
 	If @error = -1 Then ExitLoop
 	MsgBox(0, "Line read:", $line)
 Wend

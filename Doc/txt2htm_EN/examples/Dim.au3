@@ -1,5 +1,6 @@
+Local $weeklyWorkSchedule
 ; Example 1 - Declaring variables
-Dim $x, $y = 23, $z
+Local $x, $y = 23, $z
 Global $_PI = 3.14159, $RADIUS
 Local $_daysWorking = 5
 

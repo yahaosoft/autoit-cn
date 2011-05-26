@@ -1,5 +1,5 @@
 
-$x = BitNot(5)
+Local $x = BitNot(5)
 
 #cs Comments:
 	Result is -6 because for 32-bit numbers

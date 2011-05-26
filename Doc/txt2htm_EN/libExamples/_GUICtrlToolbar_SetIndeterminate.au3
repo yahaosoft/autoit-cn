@@ -3,15 +3,13 @@
 #include <WindowsConstants.au3>
 #include <Constants.au3>
 
-Opt('MustDeclareVars', 1)
-
 $Debug_TB = False ; Check ClassName being passed to functions, set to True and use a handle to another control to see it work
 
 _Main()
 
 Func _Main()
 	Local $hGUI, $hToolbar, $aStrings[4]
-	Local Enum $idNew = 1000, $idOpen, $idSave, $idHelp, $idPrint
+	Local Enum $idNew = 1000, $idOpen, $idSave, $idHelp
 
 	; Create GUI
 	$hGUI = GUICreate("Toolbar", 400, 300)

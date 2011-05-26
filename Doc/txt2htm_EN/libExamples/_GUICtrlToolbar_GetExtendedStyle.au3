@@ -4,8 +4,6 @@
 #include <WindowsConstants.au3>
 #include <Constants.au3>
 
-Opt('MustDeclareVars', 1)
-
 $Debug_TB = False ; Check ClassName being passed to functions, set to True and use a handle to another control to see it work
 Global $hGUI, $iMemo
 
@@ -57,6 +55,7 @@ EndFunc   ;==>MemoWrite
 
 ; Handle TBN_DROPDOWN message
 Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
+	#forceref $hWnd, $iMsg, $iwParam
 	Local $tNMHDR, $iCode, $hMenu
 
 	$tNMHDR = DllStructCreate($tagNMHDR, $ilParam)

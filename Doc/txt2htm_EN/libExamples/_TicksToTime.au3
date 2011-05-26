@@ -4,8 +4,6 @@
 
 Opt("TrayIconDebug", 1)
 
-Opt("MustDeclareVars", 1)
-
 Global $timer, $Secs, $Mins, $Hour, $Time
 
 _Main()
@@ -31,7 +29,7 @@ EndFunc   ;==>_Main
 ;
 Func Timer()
 	_TicksToTime(Int(TimerDiff($timer)), $Hour, $Mins, $Secs)
-	Local $sTime = $Time  ; save current time to be able to test and avoid flicker..
+	Local $sTime = $Time ; save current time to be able to test and avoid flicker..
 	$Time = StringFormat("%02i:%02i:%02i", $Hour, $Mins, $Secs)
 	If $sTime <> $Time Then ControlSetText("Timer", "", "Static1", $Time)
 EndFunc   ;==>Timer

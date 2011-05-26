@@ -1,4 +1,4 @@
-Dim $msg
+Local $msg
 
 $msg = ""
 

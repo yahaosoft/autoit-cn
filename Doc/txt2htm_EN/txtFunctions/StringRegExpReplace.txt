@@ -23,7 +23,9 @@ count
 
 ###ReturnValue###
 @@ReturnTable@@
-@Error	Meaning
+Success:	Returns an updated string based on regular expressions.
+Failure:	Set @error. 
+@Error:	Meaning
 0	Executed properly.  Check @Extended for the number of replacements performed.
 2	Pattern invalid.  @Extended = offset of error in pattern.
 @@End@@
@@ -31,6 +33,7 @@ count
 
 ###Remarks###
 To separate back-references from actual (replaced) numbers, wrap it with half-round brackets, i.e: "${1}5".
+If "\" need to be in the replaced string they must be doubled. This is a consequence of the back-references mechanism.
 
 
 ###Related###

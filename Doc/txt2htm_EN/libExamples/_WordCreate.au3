@@ -3,7 +3,8 @@
 ; *******************************************************
 ;
 #include <Word.au3>
-$oWordApp = _WordCreate (@ScriptDir & "\Test.doc")
+
+Local $oWordApp = _WordCreate(@ScriptDir & "\Test.doc")
 
 ; *******************************************************
 ; Example 2 - Attempt to attach to an existing word window with the specified document open.
@@ -11,7 +12,7 @@ $oWordApp = _WordCreate (@ScriptDir & "\Test.doc")
 ; *******************************************************
 ;
 #include <Word.au3>
-$oWordApp = _WordCreate (@ScriptDir & "\Test.doc", 1)
+$oWordApp = _WordCreate(@ScriptDir & "\Test.doc", 1)
 ; Check @extended return value to see if attach was successful
 If @extended Then
 	MsgBox(0, "", "Attached to Existing Window")
@@ -24,7 +25,7 @@ EndIf
 ; *******************************************************
 ;
 #include <Word.au3>
-$oWordApp = _WordCreate ()
+$oWordApp = _WordCreate()
 
 ; *******************************************************
 ; Example 4 - Create an invisible word window, open a document,
@@ -32,7 +33,7 @@ $oWordApp = _WordCreate ()
 ; *******************************************************
 ;
 #include <Word.au3>
-$oWordApp = _WordCreate (@ScriptDir & "\Test.doc", 0, 0)
-$oDoc = _WordDocGetCollection ($oWordApp, 0)
-$oDoc.Range.insertAfter ("This is some text to insert.")
-_WordQuit ($oWordApp, -1)
+$oWordApp = _WordCreate(@ScriptDir & "\Test.doc", 0, 0)
+Local $oDoc = _WordDocGetCollection($oWordApp, 0)
+$oDoc.Range.insertAfter("This is some text to insert.")
+_WordQuit($oWordApp, -1)

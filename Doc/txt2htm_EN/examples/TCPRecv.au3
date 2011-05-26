@@ -1,7 +1,5 @@
 #include <GUIConstantsEx.au3>
 
-Opt('MustDeclareVars', 1)
-
 ;==============================================
 ;==============================================
 ;SERVER!! Start Me First !!!!!!!!!!!!!!!
@@ -13,11 +11,11 @@ Example()
 Func Example()
 	; Set Some reusable info
 	; Set your Public IP address (@IPAddress1) here.
-;	Local $szServerPC = @ComputerName
-;	Local $szIPADDRESS = TCPNameToIP($szServerPC)
+	;	Local $szServerPC = @ComputerName
+	;	Local $szIPADDRESS = TCPNameToIP($szServerPC)
 	Local $szIPADDRESS = @IPAddress1
 	Local $nPORT = 33891
-	Local $MainSocket, $GOOEY, $edit, $ConnectedSocket, $szIP_Accepted
+	Local $MainSocket, $edit, $ConnectedSocket, $szIP_Accepted
 	Local $msg, $recv
 
 	; Start The TCP Services
@@ -35,7 +33,7 @@ Func Example()
 
 	; Create a GUI for messages
 	;==============================================
-	$GOOEY = GUICreate("My Server (IP: " & $szIPADDRESS & ")", 300, 200)
+	GUICreate("My Server (IP: " & $szIPADDRESS & ")", 300, 200, 100, 100)
 	$edit = GUICtrlCreateEdit("", 10, 10, 280, 180)
 	GUISetState()
 
@@ -72,6 +70,9 @@ Func Example()
 		;----------------------------------------------------------------
 		If @error Then ExitLoop
 
+		; convert from UTF-8 to AutoIt native UTF-16
+		$recv = BinaryToString($recv, 4)
+
 		; Update the edit control with what we have received
 		;----------------------------------------------------------------
 		If $recv <> "" Then GUICtrlSetData($edit, _
@@ -88,7 +89,7 @@ EndFunc   ;==>Example
 ;----------------------------------------------------------------------
 Func SocketToIP($SHOCKET)
 	Local $sockaddr, $aRet
-	
+
 	$sockaddr = DllStructCreate("short;ushort;uint;char[8]")
 
 	$aRet = DllCall("Ws2_32.dll", "int", "getpeername", "int", $SHOCKET, _

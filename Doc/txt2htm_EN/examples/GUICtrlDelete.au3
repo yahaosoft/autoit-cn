@@ -1,12 +1,10 @@
 #include <GUIConstantsEx.au3>
 
-Opt('MustDeclareVars', 1)
-
 Example()
 
 Func Example()
 	Local $date, $del, $msg
-	
+
 	GUICreate("My GUI delete control", 200, 200, 800, 200)
 	$date = GUICtrlCreateDate("1953/04/25", 10, 10, 185, 20)
 	$del = GUICtrlCreateButton("Delete control", 50, 50, 70, 20)

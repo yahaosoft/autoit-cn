@@ -1,5 +1,5 @@
 ; Shows the filenames of all files in the current directory
-$search = FileFindFirstFile("*.*")  
+Local $search = FileFindFirstFile("*.*")
 
 ; Check if the search was successful
 If $search = -1 Then
@@ -8,9 +8,9 @@ If $search = -1 Then
 EndIf
 
 While 1
-	$file = FileFindNextFile($search) 
+	Local $file = FileFindNextFile($search)
 	If @error Then ExitLoop
-	
+
 	MsgBox(4096, "File:", $file)
 WEnd
 

@@ -1,4 +1,4 @@
-$text = ""
+Local $text = ""
 For $i = 256 to 512
 	$text = $text & ChrW($i)
 Next

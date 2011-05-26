@@ -1,7 +1,5 @@
 #include <GUIConstantsEx.au3>
 
-Opt('MustDeclareVars', 1)
-
 Example()
 
 Func Example()

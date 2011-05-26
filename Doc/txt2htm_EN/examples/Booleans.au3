@@ -1,3 +1,2 @@
-$bool= False
-if NOT $bool = true Then Msgbox(0,"Bool comparison", "OK")
-	
+Local $bool = False
+If Not $bool = True Then MsgBox(0, "Bool comparison", "OK")

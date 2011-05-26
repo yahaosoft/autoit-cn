@@ -1,32 +1,32 @@
 ;Using an Array
-Dim $aArray[4]
+Local $aArray[4]
 
-$aArray[0]="a"
-$aArray[1]=0
-$aArray[2]=1.3434
-$aArray[3]="test"
+$aArray[0] = "a"
+$aArray[1] = 0
+$aArray[2] = 1.3434
+$aArray[3] = "test"
 
-$string = ""
-FOR $element IN $aArray
+Local $string = ""
+For $element In $aArray
 	$string = $string & $element & @CRLF
-NEXT
+Next
 
-Msgbox(0,"For..IN Arraytest","Result is: " & @CRLF & $string)
+MsgBox(0, "For..IN Arraytest", "Result is: " & @CRLF & $string)
 
 ;Using an Object Collection
 
-$oShell = ObjCreate("shell.application")
-$oShellWindows=$oShell.windows
+Local $oShell = ObjCreate("shell.application")
+Local $oShellWindows = $oShell.windows
 
-if Isobj($oShellWindows) then
-  $string=""
+If IsObj($oShellWindows) Then
+	$string = ""
 
-  for $Window in $oShellWindows
-	$String = $String & $Window.LocationName & @CRLF
-  next
+	For $Window In $oShellWindows
+		$string = $string & $Window.LocationName & @CRLF
+	Next
 
-  msgbox(0,"","You have the following windows open:" & @CRLF & $String)
-else
+	MsgBox(0, "", "You have the following windows open:" & @CRLF & $string)
+Else
 
-  msgbox(0,"","you have no open shell windows.")
-endif
+	MsgBox(0, "", "you have no open shell windows.")
+EndIf

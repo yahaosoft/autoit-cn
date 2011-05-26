@@ -2,19 +2,17 @@
 _SQLite_Escape
 
 ###Description###
-Escapes a string
+Escapes a string or number for use as TEXT in SQLite statements
 
 ###Syntax###
 #include <SQLite.au3>
-_SQLite_Escape ( $sString [, $iBuffSize ] )
+_SQLite_Escape ( $sString )
 
 
 ###Parameters###
 @@ParamTable@@
 $sString
 	string to escape
-$iBuffSize 
-	[optional] the result will be truncated if its longer
 @@End@@
 
 ###ReturnValue###
@@ -28,8 +26,9 @@ Failure:	Returns empty string and sets @error
 
 ###Remarks###
 The escaped string is already wrapped with single quotes.
-For example "It's a fine day" would look like "It''s a fine day"
+For example "It's a fine day" is turned into "'It''s a fine day'"
 For binary data use _SQLite_Encode()
+For numeric value to be stored as such, use simple concatenation
 
 ###Related###
 _SQLite_Encode

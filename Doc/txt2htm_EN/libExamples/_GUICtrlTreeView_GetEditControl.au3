@@ -1,10 +1,7 @@
-#AutoIt3Wrapper_au3check_parameters=-d -w 1 -w 2 -w 3 -w 4 -w 5 -w 6
 #include <GuiConstantsEx.au3>
 #include <GuiTreeView.au3>
 #include <GuiImageList.au3>
 #include <WindowsConstants.au3>
-
-Opt('MustDeclareVars', 1)
 
 $Debug_TV = False ; Check ClassName being passed to functions, set to True and use a handle to another control to see it work
 
@@ -14,14 +11,12 @@ _Main()
 
 Func _Main()
 
-	Local $hItem[6], $hImage
+	Local $hGui, $hItem[6], $hImage
 	Local $iStyle = BitOR($TVS_EDITLABELS, $TVS_HASBUTTONS, $TVS_HASLINES, $TVS_LINESATROOT, $TVS_DISABLEDRAGDROP, $TVS_SHOWSELALWAYS, $TVS_CHECKBOXES)
-	
-	GUICreate("TreeView Get Edit Control", 400, 300)
 
-	$hTreeView = GUICtrlCreateTreeView(2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE)
-	; turn off unicode at this time dllstruct doesn't support them
-	_GUICtrlTreeView_SetUnicodeFormat($hTreeView, False)
+	$hGui = GUICreate("TreeView Get Edit Control", 400, 300)
+
+	$hTreeView = _GUICtrlTreeView_Create($hGui, 2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE)
 	GUISetState()
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
@@ -38,7 +33,7 @@ Func _Main()
 	For $x = 0 To _GUIImageList_GetImageCount($hImage) - 1
 		$hItem[$x] = _GUICtrlTreeView_Add($hTreeView, 0, StringFormat("[%02d] New Item", $x + 1), $x, $x)
 	Next
-	
+
 	; Edit item 0 label
 	_GUICtrlTreeView_EditText($hTreeView, $hItem[0])
 	Sleep(1000)
@@ -122,7 +117,8 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 					_DebugPrint("$TVN_BEGINDRAG")
 				Case $TVN_BEGINLABELEDITA, $TVN_BEGINLABELEDITW
 					_DebugPrint("$TVN_BEGINLABELEDIT")
-					MsgBox(4160, "Information", "Edit Control Handle: " & _GUICtrlTreeView_GetEditControl($hTreeView))
+					MsgBox(4160, "Information", "Edit Control Handle: 0x" & Hex(_GUICtrlTreeView_GetEditControl($hTreeView)) & @CRLF & _
+							"IsPtr = " & IsPtr(_GUICtrlTreeView_GetEditControl($hTreeView)) & " IsHWnd = " & IsHWnd(_GUICtrlTreeView_GetEditControl($hTreeView)))
 				Case $TVN_BEGINRDRAGA, $TVN_BEGINRDRAGW
 					_DebugPrint("$TVN_BEGINRDRAG")
 				Case $TVN_DELETEITEMA, $TVN_DELETEITEMW
@@ -138,7 +134,7 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 					_DebugPrint("$TVN_GETDISPINFO")
 				Case $TVN_GETINFOTIPA, $TVN_GETINFOTIPW
 					_DebugPrint("$TVN_GETINFOTIP")
-				Case $TVN_ITEMEXPANDED, $TVN_ITEMEXPANDEDW
+				Case $TVN_ITEMEXPANDEDA, $TVN_ITEMEXPANDEDW
 					_DebugPrint("$TVN_ITEMEXPANDED")
 				Case $TVN_ITEMEXPANDINGA, $TVN_ITEMEXPANDINGW
 					_DebugPrint("$TVN_ITEMEXPANDING")

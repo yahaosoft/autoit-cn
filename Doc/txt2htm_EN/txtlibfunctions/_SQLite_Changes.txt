@@ -2,7 +2,7 @@
 _SQLite_Changes
 
 ###Description###
-Returns number of changes (excluding triggers) of the last transaction
+Returns the number of database rows that were changed by the most recently completed statement with this connection
 
 ###Syntax###
 #include <SQLite.au3>
@@ -24,10 +24,10 @@ Failure:	Returns 0
 @@End@@
 
 ###Remarks###
-None.
+Changes due to action of triggers or foreign keys are not part of this count.  See _SQLite_TotalChanges()
 
 ###Related###
-None.
+_SQLite_TotalChanges
 
 ###Example###
 @@IncludeExample@@

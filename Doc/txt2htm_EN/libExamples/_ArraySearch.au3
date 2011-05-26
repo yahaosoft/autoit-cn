@@ -4,19 +4,19 @@
 ; Example 1 (using a 1D array)
 ;===============================================================================
 Local $avArray[6] = [ _
-"String0, SubString0", _
-"String1, SubString1", _
-"String2, SubString2", _
-"String3, SubString3", _
-"String4, SubString4", _
-"String5, SubString5"]
+		"String0, SubString0", _
+		"String1, SubString1", _
+		"String2, SubString2", _
+		"String3, SubString3", _
+		"String4, SubString4", _
+		"String5, SubString5"]
 
 _ArrayDisplay($avArray, "$avArray")
 
-$sSearch = InputBox("_ArraySearch() demo", "String to find?")
+Local $sSearch = InputBox("_ArraySearch() demo", "String to find?")
 If @error Then Exit
 
-$iIndex = _ArraySearch($avArray, $sSearch, 0, 0, 0, 1)
+Local $iIndex = _ArraySearch($avArray, $sSearch, 0, 0, 0, 1)
 If @error Then
 	MsgBox(0, "Not Found", '"' & $sSearch & '" was not found in the array.')
 Else
@@ -27,19 +27,19 @@ EndIf
 ; Example 2 (using a 2D array)
 ;===============================================================================
 Local $avArray[6][2] = [ _
-["String0", "SubString0"], _
-["String1", "SubString1"], _
-["String2", "SubString2"], _
-["String3", "SubString3"], _
-["String4", "SubString4"], _
-["String5", "SubString5"]]
+		["String0", "SubString0"], _
+		["String1", "SubString1"], _
+		["String2", "SubString2"], _
+		["String3", "SubString3"], _
+		["String4", "SubString4"], _
+		["String5", "SubString5"]]
 
 _ArrayDisplay($avArray, "$avArray")
 
 $sSearch = InputBox("_ArraySearch() demo", "String to find?")
 If @error Then Exit
 
-$sColumn = InputBox("_ArraySearch() demo", "Column to search?")
+Local $sColumn = InputBox("_ArraySearch() demo", "Column to search?")
 If @error Then Exit
 $sColumn = Int($sColumn)
 

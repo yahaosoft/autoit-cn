@@ -13,7 +13,7 @@ FileRead ( "filehandle/filename" [, count] )
 filehandle/filename
 	The handle of a file, as returned by a previous call to FileOpen.  Alternatively you may use a string filename as the first parameter.
 count
-	[optional] The number of characters to read. Default read the entire file.
+	[optional] The number of characters to read. See remarks.
 @@End@@
 
 ###ReturnValue###
@@ -25,12 +25,14 @@ Failure:	Sets @error to 1 if file not opened in read mode or other error.
 
 
 ###Remarks###
+A negative or not defined count, reads the whole file from the current position.
+
 If a filename is given rather than a file handle - the file will be opened and closed during the function call - for parsing large text files this will be much slower than using filehandles.
 Note: Do not mix filehandles and filenames, i.e., don't FileOpen a file and then use a filename in this function.  Use either filehandles or filenames in your routines, not both!
 
 Both ANSI and UTF16/UTF8 text formats can be read - AutoIt will automatically determine the type.
 
-A file can be read as binary(byte) data by using FileOpen with the binary flag - in this case count is in bytes rather than characters.
+A file can be read as binary(byte) data by using FileOpen with the binary flag - in this case count is in bytes rather than characters. Too big "count" can lead to Autoit stop with memory allocation failure.
 
 
 ###Related###

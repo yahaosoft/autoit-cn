@@ -3,7 +3,7 @@
 ;===============================================================================
 ; Example 1
 ;===============================================================================
-$asControls = StringSplit(WinGetClassList("[active]", ""), @LF)
+Local $asControls = StringSplit(WinGetClassList("[active]", ""), @LF)
 _ArrayDisplay($asControls, "Class List of Active Window")
 
 ;===============================================================================
@@ -34,6 +34,6 @@ _ArrayDisplay($avArray, "$avArray as a list classes in window")
 ;===============================================================================
 ; Example 4 (a 2D array)
 ;===============================================================================
-Local $avArray[2][5] = [["JPM", "Holger", "Jon", "Larry", "Jeremy"], ["Valik", "Cyberslug", "Nutster", "JdeB", "Tylo"]]
+Local $avArray[2][5] = [["JPM", "Holger", "Jon", "Larry", "Jeremy"],["Valik", "Cyberslug", "Nutster", "JdeB", "Tylo"]]
 _ArrayDisplay($avArray, "$avArray as a 2D array")
 _ArrayDisplay($avArray, "$avArray as a 2D array, transposed", -1, 1)

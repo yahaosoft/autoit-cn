@@ -3,8 +3,6 @@
 #include <EditConstants.au3>
 #include <StaticConstants.au3>
 
-Opt('MustDeclareVars', 1)
-
 Global $oMyError
 
 Example()
@@ -13,7 +11,7 @@ RichEditExample()
 Func Example()
 	Local $myedit, $msg
 
-	GUICreate("My GUI edit")  ; will create a dialog box that when displayed is centered
+	GUICreate("My GUI edit") ; will create a dialog box that when displayed is centered
 
 	$myedit = GUICtrlCreateEdit("First line" & @CRLF, 176, 32, 121, 97, $ES_AUTOVSCROLL + $WS_VSCROLL)
 
@@ -27,7 +25,7 @@ Func Example()
 	; Run the GUI until the dialog is closed
 	While 1
 		$msg = GUIGetMsg()
-		
+
 		If $msg = $GUI_EVENT_CLOSE Then ExitLoop
 	WEnd
 	GUIDelete()
@@ -43,7 +41,7 @@ EndFunc   ;==>Example
 ; Date: 3 jul 2005
 Func RichEditExample()
 	Local $oRP, $TagsPageC, $AboutC, $PrefsC, $StatC, $GUIActiveX, $msg
-	
+
 	$oMyError = ObjEvent("AutoIt.Error", "MyErrFunc")
 
 	$oRP = ObjCreate("RICHTEXT.RichtextCtrl.1")
@@ -72,7 +70,7 @@ Func RichEditExample()
 
 	While 1
 		$msg = GUIGetMsg()
-		
+
 		Select
 			Case $msg = $GUI_EVENT_CLOSE
 				$oRP.SaveFile(@ScriptDir & "\RichText.rtf", 0)
@@ -106,9 +104,9 @@ Func MyErrFunc()
 			"err.helpcontext is: " & @TAB & $oMyError.helpcontext _
 			, 5)
 	; Will automatically continue after 5 seconds
-	
+
 	Local $err = $oMyError.number
 	If $err = 0 Then $err = -1
-	
-	SetError($err)  ; to check for after this function returns
+
+	SetError($err) ; to check for after this function returns
 EndFunc   ;==>MyErrFunc

@@ -1,1 +1,1 @@
-$var = FileSelectFolder("Choose a folder.", "")
+Local $var = FileSelectFolder("Choose a folder.", "")

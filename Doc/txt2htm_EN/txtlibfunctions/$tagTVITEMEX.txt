@@ -5,8 +5,8 @@ $tagTVITEMEX
 Specifies or receives attributes of a tree-view item
 
 ###Syntax###
-Global Const $tagTVITEMEX = "int Mask;int hItem;int State;int StateMask;ptr Text;int TextMax;int Image;int SelectedImage;" & _
-		"int Children;int Param;int Integral"
+Global Const $tagTVITEMEX = "struct; uint Mask;handle hItem;uint State;uint StateMask;ptr Text;int TextMax;int Image;int SelectedImage;int Children;lparam Param;" & _
+		"int Integral;uint uStateEx;hwnd hwnd;int iExpandedImage;int iReserved; endstruct"
 
 ###Fields###
 @@ParamTable@@
@@ -14,12 +14,14 @@ Mask
 	Flags that indicate which of the other structure members contain valid data:
 		$TVIF_CHILDREN - The Children member is valid
 		$TVIF_DI_SETITEM - The will retain the supplied information and will not request it again
+		$TVIF_EXPANDEDIMAGE - The iExpandedImage member is valid (IE Version 6.00 and Windows Vista)
 		$TVIF_HANDLE - The hItem member is valid
 		$TVIF_IMAGE - The Image member is valid
 		$TVIF_INTEGRAL - The Integral member is valid
 		$TVIF_PARAM - The Param member is valid
 		$TVIF_SELECTEDIMAGE - The SelectedImage member is valid
 		$TVIF_STATE - The State and StateMask members are valid
+		$TVIF_STATEEX - The uStateEx member is valid (IE Version 6.00 and Windows Vista) 
 		$TVIF_TEXT - The Text and TextMax members are valid
 hItem
 	Item to which this structure refers
@@ -50,6 +52,18 @@ Param
 	A value to associate with the item
 Integral
 	Height of the item
+uStateEx
+	One or more (as a bitwise combination) of the following extended states.
+	Value Meaning:
+		TVIS_EX_DISABLED Windows Vista and later. Creates a control that is drawn in grey, that the user cannot interact with.
+		TVIS_EX_FLAT Creates a flat item—the item is virtual and is not visible in the tree; instead, its children take its place in the tree hierarchy.
+		TVIS_EX_HWND Creates a separate HWND for the item.
+hwnd
+	Not used; must be NULL.
+iExpandedImage
+	Index of the image in the control's image list to display when the item is in the expanded state.
+iReserved
+	Reserved member. Do not use.
 @@End@@
 
 ###Remarks###

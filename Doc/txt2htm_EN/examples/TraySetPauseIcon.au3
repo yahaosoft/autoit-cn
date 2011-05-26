@@ -1,10 +1,10 @@
 #NoTrayIcon
 
-TraySetPauseIcon("shell32.dll",12)
+TraySetPauseIcon("shell32.dll", 12)
 TraySetState()
 
 While 1
-	$msg = TrayGetMsg()
+	Local $msg = TrayGetMsg()
 WEnd
 
 Exit

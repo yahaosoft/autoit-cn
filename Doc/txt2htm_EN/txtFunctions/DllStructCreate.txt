@@ -4,12 +4,12 @@ DllStructCreate
 Creates a C/C++ style structure to be used in DllCall.
 
 ###Syntax###
-DllStructCreate ( "Struct" [,Pointer] )
+DllStructCreate ( Struct [,Pointer] )
 
 
 ###Parameters###
 @@ParamTable@@
-"Struct"
+Struct
 	A string representing the structure to create (See Remarks).
 Pointer
 	[optional] If supplied the struct will not allocate memory but use the pointer supplied.
@@ -74,6 +74,12 @@ INT_PTR, LONG_PTR, LRESULT, LPARAM
 	32 or 64bit signed integer (depending on if the x86 or x64 version of AutoIt is used)
 UINT_PTR, ULONG_PTR, DWORD_PTR, WPARAM
 	32 or 64bit unsigned integer (depending on if the x86 or x64 version of AutoIt is used)
+STRUCT
+	The following datatypes will be align according to C declaration rules. See below.
+ENDSTRUCT
+	end of the collection datatypes. Padding can occurs see below.
+ALIGN
+	n bytes boundary where datatype must be aligned.
 @@End@@
 
 
@@ -84,6 +90,12 @@ Create arrays by adding '[size]' after the data type: DllStructCreate("int;char[
 
 An elementname can be added similar to a C-style declaration: DllStructCreate("int n;char buffer[128]").
 This dataname can be used in place of the element in other DllStruct... functions.  The dataname must be alphanumeric or an underscore.
+
+If a collection of datatypes is defined as in a "struct{}" in C declaration, the "STRUCT; ...; ENDSTRUCT;" must be used.
+This need to be done to respect alignment inside the entire structure creation. No need if all datatypes are in the defined structure as an implicit structure alignment is done.
+
+DllStructCreate(int;STRUCT;ptr;int;ENDSTRUCT;int")    ; structure is 32 bytes under a Windows 64-Bit and 16 under Windows 32-Bit
+DllStructCreate(int;ptr;int;int")    ; structure is 24 bytes under a Windows 64-Bit and 16 under Windows 32-Bit
 
 To use a different alignment prefix the structure with the align keyword.  The default value for n is 8. Valid values are 1, 2, 4, 8, and 16.  The alignment of a member will be on a boundary that is either a multiple of n or a multiple of the size of the member, <b>whichever is smaller</b>.  This is equivalent to the #pragma pack option with the Microsoft Visual C++ compiler.
 
@@ -97,6 +109,15 @@ If a change of alignment is needed "align" can be use before the first element w
 "align" or "align 8" leads to default alignment.
 
 To release allocated memory just set the returned variable to 0.
+
+<b>The following aggregate alignment rules apply:</b>
+
+The alignment of an array is the same as the alignment of one of the elements of the array.
+
+The alignment of the beginning of a structure is the maximum alignment of any individual member.
+Each member within the structure is be placed at its proper alignment as defined in the previous table, which require implicit internal padding, depending on the previous member.
+
+Structure size is an integral multiple of its alignment, which require padding after the last member.
 
 
 ###Related###

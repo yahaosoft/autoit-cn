@@ -17,7 +17,7 @@ data
 	Progress: The percentage.
 	Slider: The value.
 	Group, Label, Button, Checkbox, Radio, Combo, List, Input, Edit, TabItem, TreeViewItem: Replaces the text.
-	Date : The date or time depending the style of the control.
+	Date : The date or time depending the style of the control and the regional settings.
 	Dummy: The value.
 default
 	[optional] Combo, List: The default value.
@@ -41,8 +41,12 @@ For ListView, ListViewItem controls :
 To update a specific column just forget about the others ie "||update" to update 3rd column.
 If "update" is empty the column/subitem will be erased. For example "|" will erase the second column/subitem, "" will erase the first.
 
-For Date, Monthcal controls :
+For Monthcal controls :
 The "data" date format is "yyyy/mm/dd".
+
+For Date controls:
+The date and time is in the format defined by the regional settings. GuiCtrlRead() use the same default format.
+
 
 ###Related###
 GUICtrlCreate..., GUICtrlUpdate..., GUICtrlRead, GUIDataSeparatorChar (Option)

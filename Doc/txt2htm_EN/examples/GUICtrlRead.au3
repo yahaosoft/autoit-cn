@@ -1,12 +1,10 @@
 #include <GUIConstantsEx.au3>
 
-Opt('MustDeclareVars', 1)
-
 Example()
 
 Func Example()
 	Local $menu1, $n1, $n2, $msg, $menustate, $menutext
-	
+
 	GUICreate("My GUICtrlRead") ; will create a dialog box that when displayed is centered
 
 	$menu1 = GUICtrlCreateMenu("File")

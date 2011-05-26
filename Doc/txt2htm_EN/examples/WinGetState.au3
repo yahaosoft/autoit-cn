@@ -1,5 +1,5 @@
 ; Check if a new notepad window is minimized
-$state = WinGetState("[CLASS:Notepad]", "")
+Local $state = WinGetState("[CLASS:Notepad]", "")
 
 ; Is the "minimized" value set?
 If BitAnd($state, 16) Then

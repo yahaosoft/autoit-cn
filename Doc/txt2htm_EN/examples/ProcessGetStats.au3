@@ -1,5 +1,5 @@
 ; retrieve memory infos of the current running process
-$mem = ProcessGetStats()
+Local $mem = ProcessGetStats()
 
 ; retrieve IO infos of the current running process
-$IO = ProcessGetStats(-1, 1)
+Local $IO = ProcessGetStats(-1, 1)

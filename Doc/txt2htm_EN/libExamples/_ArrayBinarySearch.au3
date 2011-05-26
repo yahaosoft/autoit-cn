@@ -23,19 +23,19 @@ _ArraySort($avArray)
 _ArrayDisplay($avArray, "$avArray AFTER _ArraySort()")
 
 ; lookup existing entry
-$iKeyIndex = _ArrayBinarySearch($avArray, "Jon")
+Local $iKeyIndex = _ArrayBinarySearch($avArray, "Jon")
 If Not @error Then
-   MsgBox(0,'Entry found',' Index: ' & $iKeyIndex)
+	MsgBox(0, 'Entry found', ' Index: ' & $iKeyIndex)
 Else
-   MsgBox(0,'Entry Not found',' Error: ' & @error)
+	MsgBox(0, 'Entry Not found', ' Error: ' & @error)
 EndIf
 
 ; lookup non-existing entry
 $iKeyIndex = _ArrayBinarySearch($avArray, "Unknown")
 If Not @error Then
-   MsgBox(0,'Entry found',' Index: ' & $iKeyIndex)
+	MsgBox(0, 'Entry found', ' Index: ' & $iKeyIndex)
 Else
-   MsgBox(0,'Entry Not found',' Error: ' & @error)
+	MsgBox(0, 'Entry Not found', ' Error: ' & @error)
 EndIf
 
 
@@ -50,10 +50,10 @@ _ArraySort($avArray, 0, 1) ; start at index 1 to skip $avArray[0]
 ; display sorted array
 _ArrayDisplay($avArray, "$avArray AFTER _ArraySort()")
 
- ; start at index 1 to skip $avArray[0]
+; start at index 1 to skip $avArray[0]
 $iKeyIndex = _ArrayBinarySearch($avArray, "c", 1)
 If Not @error Then
-   Msgbox(0,'Entry found',' Index: ' & $iKeyIndex)
+	MsgBox(0, 'Entry found', ' Index: ' & $iKeyIndex)
 Else
-   Msgbox(0,'Entry Not found',' Error: ' & @error)
+	MsgBox(0, 'Entry Not found', ' Error: ' & @error)
 EndIf

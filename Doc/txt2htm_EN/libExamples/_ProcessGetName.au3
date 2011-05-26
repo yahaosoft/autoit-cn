@@ -2,7 +2,7 @@
 
 Run("notepad.exe")
 WinWaitActive("[CLASS:Notepad]", "")
-$pid = WinGetProcess("[CLASS:Notepad]", "")
-$name = _ProcessGetName($pid)
+Local $pid = WinGetProcess("[CLASS:Notepad]", "")
+Local $name = _ProcessGetName($pid)
 
 MsgBox(0, "Notepad - " & $pid, $name)

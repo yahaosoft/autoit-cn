@@ -5,6 +5,7 @@
 ; *******************************************************
 ;
 #include <Word.au3>
-$oWordApp = _WordCreate (@ScriptDir & "\Test.doc")
-_WordMacroRun ($oWordApp, "My Macro", "Test")
-_WordQuit ($oWordApp, 0)
+
+Local $oWordApp = _WordCreate(@ScriptDir & "\Test.doc")
+_WordMacroRun($oWordApp, "My Macro", "Test")
+_WordQuit($oWordApp, 0)

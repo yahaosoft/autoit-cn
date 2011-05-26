@@ -1,4 +1,4 @@
-$file = FileOpen("test.txt", 0)
+Local $file = FileOpen("test.txt", 0)
 
 ; Check if file opened for reading OK
 If $file = -1 Then
@@ -8,7 +8,7 @@ EndIf
 
 ; Read in 1 character at a time until the EOF is reached
 While 1
-	$chars = FileRead($file, 1)
+	Local $chars = FileRead($file, 1)
 	If @error = -1 Then ExitLoop
 	MsgBox(0, "Char read:", $chars)
 Wend

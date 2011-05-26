@@ -1,4 +1,4 @@
-$text = ""
+Local $text = ""
 For $i = 65 to 90
 	$text = $text & Chr($i)
 Next

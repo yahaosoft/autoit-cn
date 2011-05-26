@@ -4,7 +4,8 @@
 ; *******************************************************
 ;
 #include <Word.au3>
-$oWordApp = _WordCreate ("")
-$oDoc = _WordDocOpen ($oWordApp, @ScriptDir & "\Test.doc")
-_WordDocClose ($oDoc)
-_WordQuit ($oWordApp)
+
+Local $oWordApp = _WordCreate("")
+Local $oDoc = _WordDocOpen($oWordApp, @ScriptDir & "\Test.doc")
+_WordDocClose($oDoc)
+_WordQuit($oWordApp)

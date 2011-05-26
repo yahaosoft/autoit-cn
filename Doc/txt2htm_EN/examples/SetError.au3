@@ -1,6 +1,6 @@
-$result = myDiv(5, 0)
+Local $result = myDiv(5, 0)
 If @error Then
-	MsgBox(4096,"Error", "Division by Zero")
+	MsgBox(4096, "Error", "Division by Zero")
 Else
 	MsgBox(4096, "Result", $result)
 EndIf
@@ -13,4 +13,4 @@ Func myDiv($dividend, $divisor)
 		SetError(1) ;plain division by zero
 	EndIf
 	Return $dividend / $divisor
-EndFunc
+EndFunc   ;==>myDiv

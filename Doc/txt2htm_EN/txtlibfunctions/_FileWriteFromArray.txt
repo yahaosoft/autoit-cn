@@ -6,7 +6,7 @@ Writes Array records to the specified file.
 
 ###Syntax###
 #Include <File.au3>
-_FileWriteFromArray($File, $a_Array [, $i_Base = 0 [, $i_UBound = 0]])
+_FileWriteFromArray($File, $a_Array [, $i_Base = 0 [, $i_UBound = 0 [, $s_Delim= "|"]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -18,6 +18,8 @@ $i_Base
 	[optional] Start Array index to read, normally set to 0 or 1. Default=0
 $i_Ubound
 	[optional] Set to the last record you want to write to the File. default=0 - whole array.
+$s_Delim
+	[optional] Delimiter character(s) for 2-dimension arrays. default="|"
 @@End@@
 
 ###ReturnValue###
@@ -27,6 +29,7 @@ Failure:	0 and set @error
 @Error:	1 = Error opening specified file
 	2 = Input is not an Array
 	3 = Error writing to file
+	4 = Array dimensions > 2
 @@End@@
 
 ###Remarks###

@@ -1,5 +1,5 @@
-$x = ASin(0.5)
+Local $x = ASin(0.5)
 
-$pi = 3.14159265358979
-$radToDeg = 180 / $pi
-$y = ASin(1) * $radToDeg  ;arcsine of 1 returns 90°
+Local $pi = 3.14159265358979
+Local $radToDeg = 180 / $pi
+Local $y = ASin(1) * $radToDeg ;arcsine of 1 returns 90°

@@ -3,7 +3,7 @@ Sleep(3000)
 SplashOff()
 
 ;; FLICKER
-$message = ""
+Local $message = ""
 SplashTextOn("TitleFoo", $message, -1, -1, -1, -1, 4, "")
 For $x = 1 to 20
 	$message = $message & $x & @LF

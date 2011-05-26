@@ -1,2 +1,2 @@
-$old = "Notepad" & @LF & "expects" & @LF & "CRLF text."
-$new = StringAddCR($old)
+Local $old = "Notepad" & @LF & "expects" & @LF & "CRLF text."
+Local $new = StringAddCR($old)

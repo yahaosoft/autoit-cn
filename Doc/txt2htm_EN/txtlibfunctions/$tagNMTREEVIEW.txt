@@ -5,10 +5,12 @@ $tagNMTREEVIEW
 Contains information about a tree-view notification message
 
 ###Syntax###
-Global Const $tagNMTREEVIEW = $tagNMHDR & ";int Action;int OldMask;int OldhItem;int OldState;int OldStateMask;" & _
-		"ptr OldText;int OldTextMax;int OldImage;int OldSelectedImage;int OldChildren;int OldParam;int NewMask;int NewhItem;" & _
-		"int NewState;int NewStateMask;ptr NewText;int NewTextMax;int NewImage;int NewSelectedImage;int NewChildren;" & _
-		"int NewParam;int PointX; int PointY"
+Global Const $tagNMTREEVIEW = $tagNMHDR & ";uint Action;" & _
+		"struct; uint OldMask;handle OldhItem;uint OldState;uint OldStateMask;" & _
+		"ptr OldText;int OldTextMax;int OldImage;int OldSelectedImage;int OldChildren;lparam OldParam; endstruct;" & _
+		"struct; uint NewMask;handle NewhItem;uint NewState;uint NewStateMask;" & _
+		"ptr NewText;int NewTextMax;int NewImage;int NewSelectedImage;int NewChildren;lparam NewParam; endstruct;" & _
+		"struct; long PointX;long PointY; endstruct"
 
 ###Fields###
 @@ParamTable@@

@@ -2,11 +2,11 @@
 _SQLite_GetTable2d
 
 ###Description###
-Passes out a 2Dimensional array containing Column names and Data of executed Query
+Passes out a 2Dimensional array containing column names and data of executed query
 
 ###Syntax###
 #include <SQLite.au3>
-_SQLite_GetTable2d ( $hDB, $sSQL, ByRef $aResult, ByRef $iRows, ByRef $iColumns [, $iCharSize [, $fSwichDimensions = False ]] )
+_SQLite_GetTable2d ( $hDB, $sSQL, ByRef $aResult, ByRef $iRows, ByRef $iColumns [, $iCharSize = -1 [, $fSwichDimensions = False ]] )
 
 
 ###Parameters###
@@ -36,7 +36,6 @@ Failure:	Return value can be compared against $SQLITE_* constants
 	2 - Error calling SQLite API 'sqlite3_free_table'
 	3 - Call prevented by SafeMode
 	4 - Abort, Interrupt or @error set by Callback (@extended set to SQLite error)
-	5 - Error while converting SQL statement to UTF-8
 @@End@@
 
 ###Remarks###

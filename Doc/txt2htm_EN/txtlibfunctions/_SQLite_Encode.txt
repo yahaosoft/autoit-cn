@@ -2,7 +2,7 @@
 _SQLite_Encode
 
 ###Description###
-Encodes strings or binary data for use in SQLite query's
+Binary encodes a string, number or binary data for use as BLOB in SQLite statements.
 
 ###Syntax###
 #include <SQLite.au3>
@@ -24,7 +24,10 @@ Failure:	Returns empty string and sets @error to 1
 ###Remarks###
 The encoded string is already wrapped with single quotes.
 For example chr(0) & chr(1) would look like X'0001'
-The encoded string is decoded by Sqlite which stores the data in binary state.
+The encoded string can be decoded by Sqlite and stored in binary state as a BLOB.
+For strings to be stored as TEXT use _SQLite_Escape()
+For numeric value to be stored as such, use simple concatenation
+
 
 ###Related###
 _SQLite_Escape

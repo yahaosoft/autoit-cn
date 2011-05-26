@@ -1,2 +1,2 @@
 Run("notepad.exe")
-$a = ControlGetFocus("[CLASS:Notepad]")
+Local $a = ControlGetFocus("[CLASS:Notepad]")

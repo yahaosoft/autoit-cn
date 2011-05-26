@@ -5,9 +5,10 @@ $tagNMLVCUSTOMDRAW
 Contains information specific to an NM_CUSTOMDRAW (list view) notification message sent by a list-view control
 
 ###Syntax###
-Global Const $tagNMLVCUSTOMDRAW = $tagNMHDR & ";dword dwDrawStage;hwnd hdc;int Left;int Top;int Right;int Bottom;" & _
-		"dword dwItemSpec;uint uItemState;long lItemlParam;int clrText;int clrTextBk;int iSubItem;dword dwItemType;int clrFace;int iIconEffect;" & _
-		"int iIconPhase;int iPartId;int iStateId;int TextLeft;int TextTop;int TextRight;int TextBottom;uint uAlign"
+Global Const $tagNMLVCUSTOMDRAW = "struct;" & $tagNMHDR & ";dword dwDrawStage;handle hdc;" & $tagRECT & _
+		";dword_ptr dwItemSpec;uint uItemState;lparam lItemlParam;endstruct" & _
+		";dword clrText;dword clrTextBk;int iSubItem;dword dwItemType;dword clrFace;int iIconEffect;" & _
+		"int iIconPhase;int iPartId;int iStateId;struct;long TextLeft;long TextTop;long TextRight;long TextBottom;endstruct;uint uAlign"
 
 ###Fields###
 @@ParamTable@@
@@ -31,14 +32,9 @@ dwDrawStage
 hdc
 	A handle to the control's device context.
 		  Use this handle to a device context (HDC) to perform any Microsoft Windows Graphics Device Interface (GDI) functions.
-Left
-	X coordinate of the upper left corner of the rectangle of the area being drawn. This member is initialized only by the $CDDS_ITEMPREPAINT notification
-Top
-	Y coordinate of the upper left corner of the rectangle of the area being drawn. This member is initialized only by the $CDDS_ITEMPREPAINT notification
-Right
-	X coordinate of the lower right corner of the rectangle of the area being drawn. This member is initialized only by the $CDDS_ITEMPREPAINT notification
-Bottom
-	Y coordinate of the lower right corner of the rectangle of the area being drawn. This member is initialized only by the $CDDS_ITEMPREPAINT notification
+$tagRECT
+	Left,Top coordinate of the upper left corner of the rectangle of the area being drawn. This member is initialized only by the $CDDS_ITEMPREPAINT notification
+	Right,Bottom coordinate of the lower right corner of the rectangle of the area being drawn. This member is initialized only by the $CDDS_ITEMPREPAINT notification
 dwItemSpec
 	The item number
 uItemState

@@ -1,2 +1,2 @@
-$struct = DllStructCreate("char[256]")
-$x = IsDllStruct($struct)
+Local $struct = DllStructCreate("char[256]")
+Local $x = IsDllStruct($struct)

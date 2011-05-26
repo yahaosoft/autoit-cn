@@ -6,13 +6,13 @@ Passes Out a 1Dimensional Array Containing Tablenames and Data of Executed Query
 
 ###Syntax###
 #include <SQLite.au3>
-_SQLite_GetTable ( $hDB, $sSQL, ByRef $aResult, ByRef $iRows, ByRef $iColumns [, $iCharSize = 64 ] )
+_SQLite_GetTable ( $hDB, $sSQL, ByRef $aResult, ByRef $iRows, ByRef $iColumns [, $iCharSize = -1 ] )
 
 
 ###Parameters###
 @@ParamTable@@
 $hDB
-	An open database, use -1 To use last opened database
+	An open database, use -1 to use last opened database
 $sSQL
 	SQL Statement to be executed
 $aResult
@@ -30,19 +30,17 @@ $iCharSize
 Success:	Returns $SQLITE_OK
 Failure:	Return value can be compared against $SQLITE_* constants
 @error:	-1 - SQLite reported an error (Check Return value)
-	1 - Error calling SQLite API 'sqlite3_get_table'
-	2 - Error calling SQLite API 'sqlite3_free_table'
-	3 - Call prevented by SafeMode
-	4 - Error While converting SQL statement to UTF-8
+     1 - Call Prevented by SafeMode
+     2 - Error returned by _SQLite_Query in @extended
+     3 - Error returned by _SQLite_FetchNames in @extended
+     4 - Error returned by _SQLite_FetchData in @extended
 @@End@@
 
 ###Remarks###
 The number of values inserted into $aResult will be (($iRows) + 1) * ($iColumns)
 this number is inserted into $aResult[0].
 A NULL will be returned as numeric 0
-This Function uses more memory than _SQlite_Query() / _SQLite_Fetch*()... but it's faster.
-If you do not need a result (or if there will be none) consider using
-_SQLite_Execute() or _SQLite_Exec().
+If you do not need a result (or if there will be none) consider using _SQLite_Execute() or _SQLite_Exec().
 
 ###Related###
 _SQLite_GetTable2d, _SQLite_Exec, _SQlite_Query

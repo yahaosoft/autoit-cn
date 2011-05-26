@@ -6,8 +6,8 @@ Contains information about an item in a ComboBoxEx control
 
 ###Syntax###
 Global Const $tagREBARBANDINFO = "uint cbSize;uint fMask;uint fStyle;dword clrFore;dword clrBack;ptr lpText;uint cch;" & _
-		"int iImage;hwnd hwndChild;uint cxMinChild;uint cyMinChild;uint cx;hwnd hbmBack;uint wID;uint cyChild;uint cyMaxChild;" & _
-		"uint cyIntegral;uint cxIdeal;int lParam;uint cxHeader"
+		"int iImage;hwnd hwndChild;uint cxMinChild;uint cyMinChild;uint cx;handle hbmBack;uint wID;uint cyChild;uint cyMaxChild;" & _
+		"uint cyIntegral;uint cxIdeal;lparam lParam;uint cxHeader;" & $tagRECT & ";uint uChevronState"
 
 ###Fields###
 @@ParamTable@@
@@ -89,6 +89,10 @@ cxHeader
 		The band header is the area between the edge of the band and the edge of the child window.
 		This is the area where band text and images are displayed, if they are specified.
 		If this value is specified, it will override the normal header dimensions that the control calculates for the band.
+$tagRECT
+	Version 6. Location of the chevron.
+uChevronState
+	Version 6. A combination of the Object State Constants.
 @@End@@
 
 ###Remarks###

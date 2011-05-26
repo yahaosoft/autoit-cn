@@ -4,8 +4,8 @@
 
 #include <Excel.au3>
 
-$sFilePath1 = @ScriptDir & "\Test1.xls" ;This file should already exist
-$oExcel = _ExcelBookOpen($sFilePath1)
+Local $sFilePath1 = @ScriptDir & "\Test.xls" ;This file should already exist
+Local $oExcel = _ExcelBookOpen($sFilePath1)
 
 If @error = 1 Then
 	MsgBox(0, "Error!", "Unable to Create the Excel Object")

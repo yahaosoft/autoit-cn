@@ -2,7 +2,7 @@
 _SQLite_Startup
 
 ###Description###
-Loads SQLite.dll
+Loads SQLite3.dll
 
 ###Syntax###
 #include <SQLite.au3>
@@ -20,17 +20,17 @@ $bUTF8ErrorMsg
 ###ReturnValue###
 @@ReturnTable@@
 Success:	Returns path to SQLite3.dll
-Failure:	@error = 1
+Failure:	Set @error
 @@End@@
 
 ###Remarks###
-Requieres SQLite3.dll in @ScriptDir or @SystemDir.
+Requires SQLite3.dll in @ScriptDir or @SystemDir.
 
-If SQLite3.dll.au3 is included the dll will be created in @SystemDir.
+If SQLite.dll.au3 is included the dll will be created in @SystemDir.
 If not successfull a temporary file will be created that will be destroyed at _SQLite_Shutdown().
 
 If $bUTF8ErrorMsg is not zero prints UTF8 formated string prints to console.
-This allows application as SCiTE to display those characters if configures with output.code.page=65001.
+This allows applications as SCiTE to display those characters if configured with output.code.page=65001.
 This is the case when running SCiTE under a non-english version as Vista(fr).
 
 ###Related###

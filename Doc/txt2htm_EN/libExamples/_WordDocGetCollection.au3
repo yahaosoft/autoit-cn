@@ -4,8 +4,9 @@
 ; *******************************************************
 ;
 #include <Word.au3>
-$oWordApp = _WordCreate ()
-_WordDocAdd ($oWordApp)
-$oDocuments = _WordDocGetCollection ($oWordApp)
+
+Local $oWordApp = _WordCreate()
+_WordDocAdd($oWordApp)
+Local $oDocuments = _WordDocGetCollection($oWordApp)
 MsgBox(0, "Document Count", @extended)
-_WordQuit ($oWordApp)
+_WordQuit($oWordApp)

@@ -6,16 +6,21 @@ Creates a path based on the relative path you provide. The newly created absolut
 
 ###Syntax###
 #Include <File.au3>
-_PathFull($sRelativePath)
+_PathFull($sRelativePath [, $sBasePath = @WorkingDir])
 
 ###Parameters###
 @@ParamTable@@
 $sRelativePath
 	The relative path to be created
+$sBasePath
+	[optional] The base path to be used. default = @WorkingDir
 @@End@@
 
 ###ReturnValue###
-Returns the newly created absolute path.
+UNC paths are supported.
+Pass "\" to get the root drive of $sBasePath.
+Pass "" or "." to return $sBasePath.
+A relative path will be built relative to $sBasePath.  To bypass this behavior, use an absolute path.
 
 ###Remarks###
 None.

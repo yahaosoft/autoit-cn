@@ -5,7 +5,7 @@ $tagNMOBJECTNOTIFY
 Contains information used with the $TBN_GETOBJECT, $TCN_GETOBJECT, $RBN_GETOBJECT, and $PSN_GETOBJECT notification messages
 
 ###Syntax###
-Global Const $tagNMOBJECTNOTIFY = $tagNMHDR & ";int Item;ptr piid;ptr pObject;int Result"
+Global Const $tagNMOBJECTNOTIFY = $tagNMHDR & ";int Item;ptr piid;ptr pObject;long Result;dword dwFlags"
 
 ###Fields###
 @@ParamTable@@
@@ -20,6 +20,8 @@ pObject
 	The application processing the notification message sets this member
 Result
 	COM success or failure flags. The application processing the notification message sets this member
+dwFlags
+	control specific flags (hints as to where in iItem it hit)
 @@End@@
 
 ###Remarks###

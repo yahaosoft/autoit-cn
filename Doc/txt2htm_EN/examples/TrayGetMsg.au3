@@ -1,24 +1,24 @@
 #NoTrayIcon
 
-Opt("TrayMenuMode",1)	; Default tray menu items (Script Paused/Exit) will not be shown.
+Opt("TrayMenuMode", 1) ; Default tray menu items (Script Paused/Exit) will not be shown.
 
-$settingsitem	= TrayCreateMenu("Settings")
-$displayitem	= TrayCreateItem("Display", $settingsitem)
-$printeritem	= TrayCreateItem("Printer", $settingsitem)
+Local $settingsitem = TrayCreateMenu("Settings")
+TrayCreateItem("Display", $settingsitem)
+TrayCreateItem("Printer", $settingsitem)
 TrayCreateItem("")
-$aboutitem		= TrayCreateItem("About")
+Local $aboutitem = TrayCreateItem("About")
 TrayCreateItem("")
-$exititem		= TrayCreateItem("Exit")
+Local $exititem = TrayCreateItem("Exit")
 
 TraySetState()
 
 While 1
-	$msg = TrayGetMsg()
+	Local $msg = TrayGetMsg()
 	Select
 		Case $msg = 0
 			ContinueLoop
 		Case $msg = $aboutitem
-			Msgbox(64,"About:","AutoIt3-Tray-sample")
+			MsgBox(64, "About:", "AutoIt3-Tray-sample")
 		Case $msg = $exititem
 			ExitLoop
 	EndSelect

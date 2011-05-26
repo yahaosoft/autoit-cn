@@ -5,14 +5,12 @@ $tagLVHITTESTINFO
 Contains information about a hit test
 
 ###Syntax###
-Global Const $tagLVHITTESTINFO = "int X;int Y;int Flags;int Item;int SubItem"
+Global Const $tagLVHITTESTINFO = $tagPOINT & ";uint Flags;int Item;int SubItem;int iGroup"
 
 ###Fields###
 @@ParamTable@@
-X
-	X position to hit test
-Y
-	Y position to hit test
+$tagPOINT
+	X,Y position to hit test
 Flags
 	Results of a hit test. Can be one or more of the following values:
 		$LVHT_ABOVE - The position is above the control's client area
@@ -23,11 +21,22 @@ Flags
 		$LVHT_ONITEMSTATEICON - The position is over the state image of an item
 		$LVHT_TOLEFT - The position is to the left of the client area
 		$LVHT_TORIGHT - The position is to the right of the client area
+		For Windows Vista and later:
+		$LVHT_EX_GROUP_HEADER - The point is within the group header.
+		$LVHT_EX_GROUP_FOOTER - The point is within the group footer.
+		$LVHT_EX_GROUP_COLLAPSE - The point is within the collapse/expand button of the group.
+		$LVHT_EX_GROUP_BACKGROUND - The point is within the area of the group where items are displayed.
+		$LVHT_EX_GROUP_STATEICON - The point is within the state icon of the group.
+		$LVHT_EX_GROUP_SUBSETLINK - The point is within the subset link of the group.
+		$LVHT_EX_GROUP - $LVHT_EX_GROUP_BACKGROUND | $LVHT_EX_GROUP_COLLAPSE | $LVHT_EX_GROUP_FOOTER | $LVHT_EX_GROUP_HEADER | $LVHT_EX_GROUP_STATEICON | $LVHT_EX_GROUP_SUBSETLINK.
+		$LVHT_EX_ONCONTENTS - The point is within the icon or text content of the item and not on the background.
+		$LVHT_EX_FOOTER - The point is within the footer of the list-view control.
 Item
-	Receives the index of the matching item. Or if hit-testing a subitem, this value represents the
-	subitem's parent item.
+	Receives the index of the matching item. Or if hit-testing a subitem, this value represents the subitem's parent item.
 SubItem
 	Receives the index of the matching subitem. When hit-testing an item, this member will be zero.
+iGroup
+	Group index of the item hit (read only). Valid only for owner data. If the point is within an item that is displayed in multiple groups then iGroup will specify the group index of the item. (Windows Vista and Later)
 @@End@@
 
 ###Remarks###

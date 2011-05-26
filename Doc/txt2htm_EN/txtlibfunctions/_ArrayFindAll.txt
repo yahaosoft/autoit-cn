@@ -6,7 +6,7 @@ Find the indices of all ocurrences of a search query between two points in a 1D 
 
 ###Syntax###
 #Include <Array.au3>
-_ArrayFindAll(Const ByRef $avArray, $vValue [, $iStart = 0 [, $iEnd = 0 [, $iCase = 0 [, $iPartial = 0 [, $iSubItem = 0]]]]])
+_ArrayFindAll(Const ByRef $avArray, $vValue [, $iStart = 0 [, $iEnd = 0 [, $iCase = 0 [, $iCompare = 0 [, $iSubItem = 0]]]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -20,8 +20,10 @@ $iEnd
 	[optional] Index of array to stop searching at
 $iCase
 	[optional] If set to 1, search is case sensitive
-$iPartial
-	[optional] If set to 1, executes a partial search
+$iCompare
+	[optional] 0 AutoIt variables compare (default), "string" = 0, "" = 0  or "0" = 0 match
+		1 executes a partial search (StringInStr)
+		2 comparison match if variables have same type and same value
 $iSubItem
 	[optional] Sub-index to search on in 2D arrays
 @@End@@

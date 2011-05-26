@@ -1,4 +1,4 @@
-$bak = ClipGet()
+Local $bak = ClipGet()
 MsgBox(0, "Clipboard contains:", $bak)
 
 ClipPut($bak & "additional text")

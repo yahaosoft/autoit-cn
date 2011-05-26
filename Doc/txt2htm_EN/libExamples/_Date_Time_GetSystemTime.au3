@@ -9,10 +9,10 @@ Global $iMemo
 _Main()
 
 Func _Main()
-	Local $hGUI, $tCur, $tNew
+	Local $tCur, $tNew
 
 	; Create GUI
-	$hGUI = GUICreate("Time", 400, 300)
+	GUICreate("Time", 400, 300)
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 296, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	GUISetState()

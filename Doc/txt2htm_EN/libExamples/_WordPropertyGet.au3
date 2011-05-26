@@ -4,11 +4,12 @@
 ; *******************************************************
 ;
 #include <Word.au3>
-$oWordApp = _WordCreate (@ScriptDir & "\Test.doc")
-If _WordPropertyGet ($oWordApp, "statusbar") Then
+
+Local $oWordApp = _WordCreate(@ScriptDir & "\Test.doc")
+If _WordPropertyGet($oWordApp, "statusbar") Then
 	MsgBox(0, "StatusBar Status", "StatusBar Visible, turning it off.")
-	_WordPropertySet ($oWordApp, "statusbar", False)
+	_WordPropertySet($oWordApp, "statusbar", False)
 Else
 	MsgBox(0, "StatusBar Status", "StatusBar Invisible, turning it on.")
-	_WordPropertySet ($oWordApp, "statusbar", True)
+	_WordPropertySet($oWordApp, "statusbar", True)
 EndIf

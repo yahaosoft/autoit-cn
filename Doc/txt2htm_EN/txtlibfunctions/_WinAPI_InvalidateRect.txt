@@ -1,39 +1,37 @@
-﻿###User Defined Function###
+###User Defined Function###
 _WinAPI_InvalidateRect
 
 ###Description###
-Adds a rectangle to the specified window's update region.
+Adds a rectangle to the specified window's update region
 
 ###Syntax###
-#Include <WinAPIEx.au3>
-_WinAPI_InvalidateRect ( $hWnd [, $tRECT [, $fErase]] )
+#Include <WinAPI.au3>
+_WinAPI_InvalidateRect($hWnd [, $tRect = 0 [, $fErase = True]])
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window whose update region has changed. If this parameter is 0, the system invalidates
-	and redraws all windows, and sends the WM_ERASEBKGND and WM_NCPAINT messages to the window procedure
-	before the function returns.
-$tRECT
-	[可选参数] $tagRECT structure that contains the client coordinates of the rectangle to be added to the update
-	region. If this parameter is 0, the entire client area is added to the update region.
+	Handle to windows
+$tRect
+	[optional] $tagRECT structure that contains the client coordinates of the rectangle to be added to the
+		update region. If this parameter is 0 the entire client area is added to the update region.
 $fErase
-	[可选参数] Specifies whether the background within the update region is to be erased when the
-	update region is processed.
-		TRUE   - The background is erased. (Default)
-		FALSE  - The background remains unchanged.
+	[optional] Specifies whether the background within the update region is to be erased when the update
+		region is processed. If this parameter is True the background is erased when the BeginPaint function is
+		called. If this parameter is False, the background remains unchanged.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+Success:	True
+Failure:	False
 @@End@@
 
 ###Remarks###
-None
+None.
 
+###Related###
+$tagRECT
 
 ###See Also###
 @@MsdnLink@@ InvalidateRect
-

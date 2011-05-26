@@ -25,6 +25,11 @@ False:	0
 ###Remarks###
 If calling this function repeatidly, should open 'user32.dll' and pass in handle.
 Make sure to close at end of script
+
+_IsPressed() will return 1 until the key is released.
+Even brief key presses can result in multiple returns within a loop.
+If the code called does not include a blocking function (such as MsgBox) and the user does not require multiple returns, the script should wait until _IsPressed() returns 0 before continuing.
+
 01 Left mouse button
 02 Right mouse button
 04 Middle mouse button (three-button mouse)

@@ -2,8 +2,6 @@
 #include <GuiAVI.au3>
 #include <WindowsConstants.au3>
 
-Opt('MustDeclareVars', 1)
-
 $Debug_AVI = False ; Check ClassName being passed to AVI functions, set to True and use a handle to another control to see it work
 
 Global $hAVI
@@ -18,20 +16,20 @@ Func _Example1()
 
 	; Create GUI
 	$hGUI = GUICreate("(External 1) AVI Create", 300, 100)
-	$hAVI = _GUICtrlAVI_Create ($hGUI, $sFile, -1, 10, 10)
+	$hAVI = _GUICtrlAVI_Create($hGUI, $sFile, -1, 10, 10)
 	GUISetState()
 
 	GUIRegisterMsg($WM_COMMAND, "WM_COMMAND")
 
 	; Play the sample AutoIt AVI
-	_GUICtrlAVI_Play ($hAVI)
+	_GUICtrlAVI_Play($hAVI)
 
 	; Loop until user exits
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 
 	; Close AVI clip
-	_GUICtrlAVI_Close ($hAVI)
+	_GUICtrlAVI_Close($hAVI)
 
 
 	GUIDelete()
@@ -42,26 +40,27 @@ Func _Example2()
 
 	; Create GUI
 	$hGUI = GUICreate("(External 2) AVI Create", 300, 100)
-	$hAVI = _GUICtrlAVI_Create ($hGUI, @SystemDir & "\Shell32.dll", 150, 10, 10)
+	$hAVI = _GUICtrlAVI_Create($hGUI, @SystemDir & "\Shell32.dll", 150, 10, 10)
 	GUISetState()
 
 	GUIRegisterMsg($WM_COMMAND, "WM_COMMAND")
 
 	; Play the sample AutoIt AVI
-	_GUICtrlAVI_Play ($hAVI)
+	_GUICtrlAVI_Play($hAVI)
 
 	; Loop until user exits
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 
 	; Close AVI clip
-	_GUICtrlAVI_Close ($hAVI)
+	_GUICtrlAVI_Close($hAVI)
 
 
 	GUIDelete()
 EndFunc   ;==>_Example2
 
 Func WM_COMMAND($hWnd, $iMsg, $iwParam, $ilParam)
+	#forceref $hWnd, $iMsg
 	Local $hWndFrom, $iIDFrom, $iCode
 	$hWndFrom = $ilParam
 	$iIDFrom = BitAND($iwParam, 0xFFFF) ; Low Word

@@ -21,19 +21,34 @@ $iEncoding
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns database handle.
-Failure:	Returns 0.
+Success:	Returns database handle
+Failure:	Returns 0
 @error:	-1 - SQLite Reported an Error (Check @extended Value)
      1 - Error Calling SQLite API 'sqlite3_open_v2'
      2 - Error while converting filename to UTF-8
+     3 - SQLiteStartup not yet called
 @extended:	value can be compared against $SQLITE_* constants
 @@End@@
 
 ###Remarks###
-There is no need to store the database handle.
+There is no need to store the database handle, except if you use more than one database in the same session.
 Functions that use the handle are using the last opened by default.
 
 To create a database encoded in UFT16 just create it with $iEncoding=$SQLITE_ENCODING_UTF16.
+
+Memory, temporary and permanent databases can be opened:
+     $hDb = _SQLite_Open()                      ; opens a temporary private memory DB
+     $hDb = _SQLite_Open(Default, ...)          ; ditto
+     $hDb = _SQLite_Open(':memory:', ...)       ; ditto
+
+     $hDb = _SQLite_Open('', ...)               ; opens a temporary private on-disk DB
+
+     $hDb = _SQLite_Open('abc.db', ...)         ; opens or creates a permanent shareable on-disk DB named 'abc.db'
+     
+  In case you insist confusing yourself:
+     $hDb = _SQLite_Open('./:memory:', ...)     ; opens or creates a permanent shareable on-disk DB named ':memory:'
+
+Contrary to permanent disk-based DBs, memory and temporary DBs can't be shared nor be used for IPC (Inter Process Communication) and are destroyed at the end of the connection.
 
 ###Related###
 _SQLite_Close

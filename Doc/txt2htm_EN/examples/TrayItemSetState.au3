@@ -1,23 +1,23 @@
-#Include <Constants.au3>
+#include <Constants.au3>
 #NoTrayIcon
 
-Opt("TrayMenuMode",1)	; Default tray menu items (Script Paused/Exit) will not be shown.
+Opt("TrayMenuMode", 1) ; Default tray menu items (Script Paused/Exit) will not be shown.
 
-$chkitem		= TrayCreateItem("Check it")
+Local $chkitem = TrayCreateItem("Check it")
 TrayCreateItem("")
-$checkeditem	= TrayCreateItem("Checked")
+Local $checkeditem = TrayCreateItem("Checked")
 TrayCreateItem("")
-$exititem		= TrayCreateItem("Exit")
+Local $exititem = TrayCreateItem("Exit")
 
 TraySetState()
 
 While 1
-	$msg = TrayGetMsg()
+	Local $msg = TrayGetMsg()
 	Select
 		Case $msg = 0
 			ContinueLoop
 		Case $msg = $chkitem
-			TrayItemSetState($checkeditem,$TRAY_CHECKED)
+			TrayItemSetState($checkeditem, $TRAY_CHECKED)
 		Case $msg = $exititem
 			ExitLoop
 	EndSelect

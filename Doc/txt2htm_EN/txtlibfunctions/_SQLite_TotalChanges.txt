@@ -2,7 +2,7 @@
 _SQLite_TotalChanges
 
 ###Description###
-Returns number of all changes (including triggers) of all transactions
+Returns number of all changes (including via triggers and foreign keys) from start of connection
 
 ###Syntax###
 #include <SQLite.au3>
@@ -19,7 +19,7 @@ $hDB
 @@ReturnTable@@
 Success:	Returns number of changes
 Failure:	Returns 0.
-@error:	1 - Error calling SQLite API 'sqlite3_changes'
+@error:	1 - Error calling SQLite API 'sqlite3_total_changes'
 	2 - Call prevented by SafeMode
 @@End@@
 
@@ -27,7 +27,7 @@ Failure:	Returns 0.
 None.
 
 ###Related###
-None.
+_SQLite_Changes
 
 
 ###Example###

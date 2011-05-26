@@ -1,4 +1,4 @@
-$file = FileOpen("test.txt", 1)
+Local $file = FileOpen("test.txt", 1)
 
 ; Check if file opened for writing OK
 If $file = -1 Then

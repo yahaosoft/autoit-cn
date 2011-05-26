@@ -1,4 +1,4 @@
-$result = StringCompare("MELÓN", "melón")
+Local $result = StringCompare("MELÓN", "melón")
 MsgBox(0, "StringCompare Result (mode 0):", $result)
 
 $result = StringCompare("MELÓN", "melón", 1)

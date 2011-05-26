@@ -1,6 +1,7 @@
 ; ***************************************************************
 ; Example 1 - Write to a Cell using a Loop, after opening a workbook and returning its object identifier.  Insert 1 column, then Save and Close file.
 ; *****************************************************************
+
 #include <Excel.au3>
 
 Local $oExcel = _ExcelBookNew() ;Create new book, make it visible
@@ -21,9 +22,10 @@ _ExcelBookClose($oExcel) ; And finally we close out
 ; ***************************************************************
 ; Example 2 - Write to a Cell using a Loop, after opening a workbook and returning its object identifier.  Insert columns, then Save and Close file.
 ; *****************************************************************
+
 #include <Excel.au3>
 
-Local $oExcel = _ExcelBookNew() ;Create new book, make it visible
+$oExcel = _ExcelBookNew() ;Create new book, make it visible
 
 ; We can fill-up some cells using a simple loop and random Numbers
 For $i = 1 To 10

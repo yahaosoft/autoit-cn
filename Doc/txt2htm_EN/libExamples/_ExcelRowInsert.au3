@@ -1,6 +1,7 @@
 ; ***************************************************************
 ; Example 1 - Write to a Cell using a Loop, after opening a workbook and returning its object identifier.  Insert 1 row, then Save and Close file.
 ; *****************************************************************
+
 #include <Excel.au3>
 
 Local $oExcel = _ExcelBookNew() ;Create new book, make it visible
@@ -21,9 +22,10 @@ _ExcelBookClose($oExcel) ; And finally we close out
 ; ***************************************************************
 ; Example 2 - Write to a Cell using a Loop, after opening a workbook and returning its object identifier.  Insert rows, then Save and Close file.
 ; *****************************************************************
+
 #include <Excel.au3>
 
-Local $oExcel = _ExcelBookNew() ;Create new book, make it visible
+$oExcel = _ExcelBookNew() ;Create new book, make it visible
 
 For $i = 1 To 5 ;Loop
 	_ExcelWriteCell($oExcel, $i, $i, 1) ;Write to the Cell Vertically using values 1 to 5

@@ -6,7 +6,7 @@ Finds an entry within a 1D or 2D array. Similar to _ArrayBinarySearch(), except 
 
 ###Syntax###
 #Include <Array.au3>
-_ArraySearch(Const ByRef $avArray, $vValue [, $iStart = 0 [, $iEnd = 0 [, $iCase = 0 [, $iPartial = 0 [, $iForward = 1 [, $iSubItem = -1]]]]]])
+_ArraySearch(Const ByRef $avArray, $vValue [, $iStart = 0 [, $iEnd = 0 [, $iCase = 0 [, $iCompare= 0 [, $iForward = 1 [, $iSubItem = -1]]]]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -20,8 +20,10 @@ $iEnd
 	[optional] Index of array to stop searching at
 $iCase
 	[optional] If set to 1, search is case sensitive
-$iPartial
-	[optional] If set to 1, executes a partial search
+$iCompare
+	[optional] 0 AutoIt variables compare (default), "string" = 0, "" = 0  or "0" = 0 match
+		1 executes a partial search (StringInStr)
+		2 comparison match if variables have same type and same value
 $iForward
 	[optional] If set to 0, searches the array from end to beginning (instead of beginning to end)
 $iSubItem

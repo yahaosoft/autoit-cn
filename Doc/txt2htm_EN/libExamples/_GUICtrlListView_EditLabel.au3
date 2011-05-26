@@ -1,23 +1,20 @@
-#AutoIt3Wrapper_au3check_parameters=-d -w 1 -w 2 -w 3 -w 4 -w 5 -w 6
 #include <GuiConstantsEx.au3>
 #include <GuiListView.au3>
 #include <GuiImageList.au3>
 #include <WindowsConstants.au3>
 
-Opt('MustDeclareVars', 1)
-
 $Debug_LV = False ; Check ClassName being passed to ListView functions, set to True and use a handle to another control to see it work
 
-Global $hListView
+Global $hListView, $iMemo
 
 _Main()
 
 Func _Main()
-	Local $hImage
-	
-	GUICreate("ListView Edit Label", 400, 300)
-	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268, BitOR($LVS_EDITLABELS, $LVS_REPORT))
-	_GUICtrlListView_SetUnicodeFormat($hListView, False)
+	Local $hGui, $hImage
+
+	$hGui = GUICreate("ListView Edit Label", 400, 300)
+	$hListView = _GUICtrlListView_Create($hGui, "", 2, 2, 394, 1188, BitOR($LVS_EDITLABELS, $LVS_REPORT))
+	$iMemo = GUICtrlCreateEdit("", 2, 124, 396, 174, 0)
 	GUISetState()
 
 	; Load images
@@ -41,9 +38,10 @@ Func _Main()
 	_GUICtrlListView_AddItem($hListView, "Row 3: Col 1", 2)
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
-	
+
 	; Edit item 0 label with time out
-	_GUICtrlListView_EditLabel($hListView, 0)
+	Local $hEditLabel = _GUICtrlListView_EditLabel($hListView, 0)
+	MemoWrite("Edit Label Handle = 0x" & Hex($hEditLabel) & " IsPtr = " & IsPtr($hEditLabel) & " IsHWnd = " & IsHWnd($hEditLabel))
 
 	; Loop until user exits
 	Do
@@ -220,3 +218,8 @@ Func _DebugPrint($s_text, $line = @ScriptLineNumber)
 			"-->Line(" & StringFormat("%04d", $line) & "):" & @TAB & $s_text & @LF & _
 			"+======================================================" & @LF)
 EndFunc   ;==>_DebugPrint
+
+; Write a line to the memo control
+Func MemoWrite($sMessage)
+	GUICtrlSetData($iMemo, $sMessage & @CRLF, 1)
+EndFunc   ;==>MemoWrite

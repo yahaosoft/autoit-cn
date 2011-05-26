@@ -1,8 +1,6 @@
 #include <GuiConstantsEx.au3>
 #include <Misc.au3>
 
-Opt("MustDeclareVars", 1)
-
 _Main()
 
 Func _Main()

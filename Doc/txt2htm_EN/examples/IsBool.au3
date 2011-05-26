@@ -1,3 +1,2 @@
-$b = true
-If IsBool($b) Then Msgbox(0,"Success", "$b is a boolean variable")
-	
+Local $b = True
+If IsBool($b) Then MsgBox(0, "Success", "$b is a boolean variable")

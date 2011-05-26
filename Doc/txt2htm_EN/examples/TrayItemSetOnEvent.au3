@@ -1,22 +1,22 @@
 #NoTrayIcon
 
-Opt("TrayOnEventMode",1)
-Opt("TrayMenuMode",1)	; Default tray menu items (Script Paused/Exit) will not be shown.
+Opt("TrayOnEventMode", 1)
+Opt("TrayMenuMode", 1) ; Default tray menu items (Script Paused/Exit) will not be shown.
 
-TraySetClick(16)	; Only secondary mouse button will show the tray menu.
+TraySetClick(16) ; Only secondary mouse button will show the tray menu.
 
-$infoitem = TrayCreateItem("Info")
-TrayItemSetOnEvent(-1,"ShowInfo")
+TrayCreateItem("Info")
+TrayItemSetOnEvent(-1, "ShowInfo")
 
 TrayCreateItem("")
 
-$exititem = TrayCreateItem("Exit")
-TrayItemSetOnEvent(-1,"ExitScript")
+TrayCreateItem("Exit")
+TrayItemSetOnEvent(-1, "ExitScript")
 
 TraySetState()
 
 While 1
-	Sleep(10)	; Idle loop
+	Sleep(10) ; Idle loop
 WEnd
 
 Exit
@@ -24,10 +24,10 @@ Exit
 
 ; Functions
 Func ShowInfo()
-	Msgbox(0,"Info","Tray OnEvent Demo")
-EndFunc
+	MsgBox(0, "Info", "Tray OnEvent Demo")
+EndFunc   ;==>ShowInfo
 
 
 Func ExitScript()
 	Exit
-EndFunc
+EndFunc   ;==>ExitScript

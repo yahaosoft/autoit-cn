@@ -30,10 +30,11 @@ Failure:	Returns "" and set @error
 ###Remarks###
 For backwards compatibility reasons this function will try to return strings by default. If null (0x00) characters are received then the return value will be a binary type.
 To force the function to always return binary data (the most sensible option) then use the "flag" parameter set to 1.
+If Unicode strings need to be transmitted they must be encoded/decoded with StringToBinary()/BinaryToString().
 
 
 ###Related###
-BinaryLen, BinaryMid, TCPStartup, TCPAccept, TCPConnect, TCPTimeout (Option)
+TCPSend, BinaryLen, BinaryMid, TCPStartup, TCPAccept, TCPConnect, TCPTimeout (Option), BinaryToString
 
 
 ###Example###

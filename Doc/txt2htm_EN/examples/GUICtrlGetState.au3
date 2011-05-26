@@ -1,22 +1,20 @@
 #include <GUIConstantsEx.au3>
 
-Opt('MustDeclareVars', 1)
-
 Example()
 
 Func Example()
 	Local $n, $msg
-	
+
 	GUICreate("My GUI (GetControlState)")
 	$n = GUICtrlCreateCheckbox("checkbox", 10, 10)
-	GUICtrlSetState(-1, 1) 	; checked
+	GUICtrlSetState(-1, 1) ; checked
 
-	GUISetState()       ; will display an empty dialog box
+	GUISetState() ; will display an empty dialog box
 
 	; Run the GUI until the dialog is closed
 	While 1
 		$msg = GUIGetMsg()
-		
+
 		If $msg = $GUI_EVENT_CLOSE Then ExitLoop
 	WEnd
 

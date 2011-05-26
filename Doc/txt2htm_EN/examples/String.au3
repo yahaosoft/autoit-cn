@@ -1,2 +1,2 @@
-$var = String(10)
+Local $var = String(10)
 ;$var is the string "10"

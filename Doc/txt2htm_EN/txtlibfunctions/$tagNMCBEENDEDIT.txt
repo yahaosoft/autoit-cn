@@ -5,7 +5,7 @@ $tagNMCBEENDEDIT
 Contains information about the conclusion of an edit operation within a ComboBoxEx control
 
 ###Syntax###
-Global Const $tagNMCBEENDEDIT = $tagNMHDR & ";int fChanged;int NewSelection;char Text[1024];int Why"
+Global Const $tagNMCBEENDEDIT = $tagNMHDR & ";bool fChanged;int NewSelection;wchar szText[260];int Why"
 
 ###Fields###
 @@ParamTable@@
@@ -16,7 +16,7 @@ fChanged
 NewSelection
 	The zero-based index of the item that will be selected after completing the edit operation
 	This value can be $CB_ERR if no item will be selected
-Text
+szText
 	A zero-terminated string that contains the text from within the control's edit box
 Why
 	The action that generated the $CBEN_ENDEDIT notification message

@@ -15,7 +15,7 @@ For $y = 1 To 10 ;Start on Column 1
 	Next
 Next
 
-$aArray = _ExcelReadSheetToArray($oExcel) ;Using Default Parameters
+Local $aArray = _ExcelReadSheetToArray($oExcel) ;Using Default Parameters
 _ArrayDisplay($aArray, "Array using Default Parameters")
 
 $aArray = _ExcelReadSheetToArray($oExcel, 2) ;Starting on the 2nd Row

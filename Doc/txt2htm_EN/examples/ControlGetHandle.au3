@@ -1,2 +1,2 @@
 Run("notepad.exe")
-$handle = ControlGetHandle("[CLASS:Notepad]", "", "Edit1")
+Local $handle = ControlGetHandle("[CLASS:Notepad]", "", "Edit1")
