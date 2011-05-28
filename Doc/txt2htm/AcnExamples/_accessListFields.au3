@@ -4,4 +4,4 @@ $adSource = @ScriptDir & "\DB1.mdb"
 $adTable = "Computer"
 
 $yo = _accessListFields($adSource, $adTable)
-MsgBox(0, "", $yo)
+MsgBox(0, "返回", $yo)

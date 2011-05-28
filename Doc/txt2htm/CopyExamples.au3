@@ -82,9 +82,10 @@ EndFunc   ;==>Convfile
 Func isNeedConv($sSrcFile, $sDstFile)
 	If Not FileExists($sDstFile) Then Return 1
 	Local $t,$szInTime,$szOutTime
-	$t1 = FileGetTime($sSrcFile)
-	$t2 = FileGetTime($sDstFile)
+	$t1 = FileGetTime($sSrcFile,0,1)
+	$t2 = FileGetTime($sDstFile,0,1)
 	If $t1<>$t2 Then
+		ConsoleWrite('SRC FILE:' & $sSrcFile & @CRLF & 'DST FILE:' & $sDstDir & 'FILE TIME:' & $t1 & '/' & $t2 & @CRLF & @CRLF)
 		Return 1
 	Else
 		Return 0
