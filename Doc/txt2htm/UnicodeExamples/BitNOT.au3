@@ -1,5 +1,4 @@
-﻿
-Local $x = BitNot(5)
+﻿Local $x = BitNot(5)
 
 #cs 注释:
 	结果为 -6,因为 32-位数字对应的:
