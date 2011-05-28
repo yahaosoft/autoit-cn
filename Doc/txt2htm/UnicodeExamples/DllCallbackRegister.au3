@@ -1,5 +1,4 @@
-﻿
-; 创建回调函数
+﻿; 创建回调函数
 Local $handle = DllCallbackRegister("_EnumWindowsProc", "int", "hwnd;lparam")
 
 ; 调用 EnumWindows
