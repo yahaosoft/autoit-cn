@@ -6,7 +6,7 @@
 #AutoIt3Wrapper_UseUpx=y 									;使用压缩
 #AutoIt3Wrapper_Res_Comment= 								;注释
 #AutoIt3Wrapper_Res_Description=							;详细信息
-#AutoIt3Wrapper_Res_Fileversion=1.0.0.7
+#AutoIt3Wrapper_Res_Fileversion=1.0.0.8
 #AutoIt3Wrapper_Res_FileVersion_AutoIncrement=p				;自动更新版本  
 #AutoIt3Wrapper_Res_LegalCopyright= 						;版权
 #AutoIt3Wrapper_Change2CUI=y                   				;修改输出的程序为CUI(控制台程序)
@@ -94,17 +94,20 @@ EndFunc   ;==>isGreaterFileTime
 
 Func CopyFileTime($sSrcFile, $sDstFile)
 	If Not FileExists($sDstFile) Then Return 1
-	Local $hFile,$aTime,$pFile
-    ; Read file times
-    $hFile = _WinAPI_CreateFile($sSrcFile, 2)
-    if $hFile = 0 then Return 0
-    $aTime = _Date_Time_GetFileTime($hFile)
-    _WinAPI_CloseHandle($hFile)
-    ; Set file times
-    $hFile = _WinAPI_CreateFile($sDstFile, 2)
-    if $hFile = 0 then Return 0
-    $pFile = DllStructGetPtr($aTime[2])
-    _Date_Time_SetFileTime($hFile, $pFile, $pFile, $pFile)
-    _WinAPI_CloseHandle($hFile)
+	Local $sTime
+	$sTime=FileGetTime($sSrcFile,0,1)
+	FileSetTime($sDstFile,$sTime)
+;~ 	Local $hFile,$aTime,$pFile
+;~     ; Read file times
+;~     $hFile = _WinAPI_CreateFile($sSrcFile, 2)
+;~     if $hFile = 0 then Return 0
+;~     $aTime = _Date_Time_GetFileTime($hFile)
+;~     _WinAPI_CloseHandle($hFile)
+;~     ; Set file times
+;~     $hFile = _WinAPI_CreateFile($sDstFile, 2)
+;~     if $hFile = 0 then Return 0
+;~     $pFile = DllStructGetPtr($aTime[2])
+;~     _Date_Time_SetFileTime($hFile, $pFile, $pFile, $pFile)
+;~     _WinAPI_CloseHandle($hFile)
 	Return 1
 EndFunc   ;==>isGreaterFileTime

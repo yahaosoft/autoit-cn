@@ -1,4 +1,5 @@
-﻿Local $file = FileOpen("test.txt", 0)
+﻿;要打开的文件
+Local $file = FileOpen("test.txt", 0)
 
 ; 检查打开的文件是否可为读
 If $file = -1 Then
