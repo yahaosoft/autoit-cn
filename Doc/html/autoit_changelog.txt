@@ -4,7 +4,6 @@ AutoIt 更新日志
 3.3.8.0 (some day, 2010) (Release)
 AutoIt:
 - Added: Struct/EndStruct in DllStructCreate() to solve X86/X64 data alignment.
-- Added: Struct/EndStruct in DllStructCreate() to solve X86/X64 data alignment.
 
 - Changed: Compiling with VC10. Added workarounds for Win2000/XP RTM to allow execution of AutoIt, Aut2Exe, Au3Info, Au3Check and AutoItHelp.
 
@@ -17,6 +16,7 @@ AutoIt:
 - Fixed #1596: GUICtrlSetPos() default = no change.
 - Fixed #1485: Crash on ContinueCase.
 - Fixed #1626: TCPRecv()/TCPSend() doc about Unicode transmission.
+- Fixed #1633: Second AdlibRegister function starts at once when first function is too slow.
 - Fixed #1653: Doc for WM_KEYLAST Windows 2000 message.
 - Fixed #1669: StringRegExpReplace() doc about doubling of "\" in replace string.
 - Fixed #1673: WinGetProcess() doc example.
@@ -34,9 +34,16 @@ AutoIt:
 - Fixed #1929: SetMenuColor() does not work on 64bit OS.
 - Fixed #1479: X64 ListView WM_NOTIFY Message.
 - Fixed: GUICtrlCreateLabel() related text sizing bug when no height was used.
+- Fixed #1586: DllStructSetData(char, 1, string-with-NUL-character), junk data(?)
+- Fixed #1908: ObjName() returns empty string for HTMLDocument with IE9.
 
 AutoItX:
 - Fixed #1686: AU3_PixelSearch crashes.
+
+Au3Info:
+- Added: Option "Use Spy++ control detection logic" toggle added to Au3Info (this was the mode always used in recent
+	releases, but the very old method that used to be used is useful in certain applications (for example, putty.exe)
+- Fixed #1746: Option "Use Spy++ control detection logic" toggle added to Au3Info.
 
 UDFs:
 - Added: _DebugSetup() can report to a Notepad Window.
@@ -68,6 +75,7 @@ UDFs:
 - Fixed #1895: Bugs in _GUIScrollBars_Init().
 - Fixed #1891: _ArrayDisplay (......,i$iTranspose,...) wrong description.
 - Fixed #1933: _GetIP is outdated and could possibly fail.
+- Fixed: #1859: Bug in _WeekNumberISO?
 
 
 - Changed: _SQLite 3.6.22 -> 3.7.2.0
@@ -79,6 +87,7 @@ Au3Check:
 - Fixed: Const Enum wrong ERROR.
 - Fixed: Global declared in func not detected.
 - Fixed #1051: no ERROR if keyword not followed by a separator as Local$a.
+
 
 3.3.6.1 (16th April, 2010) (Release)
 AutoIt:
