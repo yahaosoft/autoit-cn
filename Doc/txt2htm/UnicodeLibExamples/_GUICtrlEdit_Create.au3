@@ -1,9 +1,9 @@
 ﻿#include <GuiEdit.au3>
-#include <WinAPI.au3> ; used for Lo/Hi word
+#include <WinAPI.au3> ; 用于低/高字
 #include <WindowsConstants.au3>
 #include <GuiConstantsEx.au3>
 
-$Debug_Ed = False ; Check ClassName being passed to Edit functions, set to True and use a handle to another control to see it work
+$Debug_Ed = False ; 检查传递给 Edit 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $hEdit
 
@@ -13,7 +13,7 @@ _Example2()
 Func _Example1()
 	Local $hGUI
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("Edit Create", 400, 300)
 	$hEdit = _GUICtrlEdit_Create($hGUI, "This is a test" & @CRLF & "Another Line", 2, 2, 394, 268)
 	GUISetState()
@@ -22,7 +22,7 @@ Func _Example1()
 
 	_GUICtrlEdit_AppendText($hEdit, @CRLF & "Append to the end?")
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()
@@ -31,7 +31,7 @@ EndFunc   ;==>_Example1
 Func _Example2()
 	Local $hGUI
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("Edit Create", 400, 300)
 	$hEdit = _GUICtrlEdit_Create($hGUI, "", 2, 2, 394, 268)
 	GUISetState()
@@ -40,7 +40,7 @@ Func _Example2()
 
 	_GUICtrlEdit_SetText($hEdit, "This is a test" & @CRLF & "Another Line")
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()
@@ -56,61 +56,61 @@ Func WM_COMMAND($hWnd, $iMsg, $iwParam, $ilParam)
 	Switch $hWndFrom
 		Case $hEdit, $hWndEdit
 			Switch $iCode
-				Case $EN_ALIGN_LTR_EC ; Sent when the user has changed the edit control direction to left-to-right
+				Case $EN_ALIGN_LTR_EC ; 当用户改变编辑控件方向为从左到右时发送
 					_DebugPrint("$EN_ALIGN_LTR_EC" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $EN_ALIGN_RTL_EC ; Sent when the user has changed the edit control direction to right-to-left
+					; 没有返回值
+				Case $EN_ALIGN_RTL_EC ; 当用户改变编辑控件方向为从右到左时发送
 					_DebugPrint("$EN_ALIGN_RTL_EC" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $EN_CHANGE ; Sent when the user has taken an action that may have altered text in an edit control
+					; 没有返回值
+				Case $EN_CHANGE ; 当用户执行的操作可能已经修改编辑控件中的文本时发送
 					_DebugPrint("$EN_CHANGE" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $EN_ERRSPACE ; Sent when an edit control cannot allocate enough memory to meet a specific request
+					; 没有返回值
+				Case $EN_ERRSPACE ; 当编辑控件无法分配足够的内存以满足特殊请求时发送
 					_DebugPrint("$EN_ERRSPACE" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $EN_HSCROLL ; Sent when the user clicks an edit control's horizontal scroll bar
+					; 没有返回值
+				Case $EN_HSCROLL ; 当用户点击编辑控件的水平滚动栏时发送
 					_DebugPrint("$EN_HSCROLL" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $EN_KILLFOCUS ; Sent when an edit control loses the keyboard focus
+					; 没有返回值
+				Case $EN_KILLFOCUS ; 当编辑控件失去键盘焦点时发送
 					_DebugPrint("$EN_KILLFOCUS" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $EN_MAXTEXT ; Sent when the current text insertion has exceeded the specified number of characters for the edit control
+					; 没有返回值
+				Case $EN_MAXTEXT ; 当当前插入的文本已经超出编辑控件的指定字符数时发送
 					_DebugPrint("$EN_MAXTEXT" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; This message is also sent when an edit control does not have the $ES_AUTOHSCROLL style and the number of characters to be
-					; inserted would exceed the width of the edit control.
-					; This message is also sent when an edit control does not have the $ES_AUTOVSCROLL style and the total number of lines resulting
-					; from a text insertion would exceed the height of the edit control
+					; 此消息也是在这样的时候发送, 当编辑控件不含有 $ES_AUTOHSCROLL 样式且插入的
+					; 字符数将超出编辑控件的宽度
+					; 此消息是在这样的时候发送, 当编辑控件不含有 $ES_AUTOVSCROLL 样式且插入的
+					; 文本的总行数将超出编辑控件的宽度
 
-					; no return value
-				Case $EN_SETFOCUS ; Sent when an edit control receives the keyboard focus
+					; 没有返回值
+				Case $EN_SETFOCUS ; 当编辑控件获取键盘焦点时发送
 					_DebugPrint("$EN_SETFOCUS" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $EN_UPDATE ; Sent when an edit control is about to redraw itself
+					; 没有返回值
+				Case $EN_UPDATE ; 当编辑控件即将重绘自己时发送
 					_DebugPrint("$EN_UPDATE" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $EN_VSCROLL ; Sent when the user clicks an edit control's vertical scroll bar or when the user scrolls the mouse wheel over the edit control
+					; 没有返回值
+				Case $EN_VSCROLL ; 当用户点击编辑控件的垂直滚动栏或用户在编辑控件上滚动鼠标滚轮时发送
 					_DebugPrint("$EN_VSCROLL" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
+					; 没有返回值
 			EndSwitch
 	EndSwitch
 	Return $GUI_RUNDEFMSG

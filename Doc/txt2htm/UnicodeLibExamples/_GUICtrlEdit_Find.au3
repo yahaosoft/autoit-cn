@@ -2,7 +2,7 @@
 #include <GuiConstantsEx.au3>
 #include <WindowsConstants.au3>
 
-$Debug_Ed = False ; Check ClassName being passed to Edit functions, set to True and use a handle to another control to see it work
+$Debug_Ed = False ; 检查传递给 Edit 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Example_Internal()
 Example_External()
@@ -45,10 +45,10 @@ Func Example_External()
 	Local $Title = "[CLASS:Notepad]"
 
 	Run("notepad", "", @SW_MAXIMIZE)
-	;Wait for the window "Untitled" to exist
+	;等待 "无标题" 窗口出现
 	WinWait($Title)
 
-	; Get the handle of a notepad window
+	; 获取记事本窗口句柄
 	$whandle = WinGetHandle($Title)
 	If @error Then
 		MsgBox(4096, "Error", "Could not find the correct window")
@@ -57,7 +57,7 @@ Func Example_External()
 		If @error Then
 			MsgBox(4096, "Error", "Could not find the correct control")
 		Else
-			; Send some text directly to this window's edit control
+			; 直接发送一些文本到此窗口的编辑控件
 			ControlSend($whandle, "", "Edit1", $s_texttest)
 			_GUICtrlEdit_Find($handle, True)
 		EndIf

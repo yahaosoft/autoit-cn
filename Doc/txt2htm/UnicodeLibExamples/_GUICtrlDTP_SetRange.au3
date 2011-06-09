@@ -1,7 +1,7 @@
 ﻿#include <GuiConstantsEx.au3>
 #include <GuiDateTimePicker.au3>
 
-$Debug_DTP = False ; Check ClassName being passed to DTP functions, set to True and use a handle to another control to see it work
+$Debug_DTP = False ; 检查传递给 DTP 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $iMemo, $aRange[14] = [True, @YEAR, 1, 1, 21, 45, 32, True, @YEAR, 12, 31, 23, 59, 59]
 
@@ -10,43 +10,43 @@ _Main()
 Func _Main()
 	Local $hDTP
 
-	; Create GUI
+	; 创建 GUI
 	GUICreate("DateTimePick Set Range", 400, 300)
 	$hDTP = GUICtrlGetHandle(GUICtrlCreateDate("", 2, 6, 190))
 	$iMemo = GUICtrlCreateEdit("", 2, 32, 396, 266, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	GUISetState()
 
-	; Set the display format
+	; 设置显示的格式
 	_GUICtrlDTP_SetFormat($hDTP, "ddd MMM dd, yyyy hh:mm ttt")
 
-	; Set date range
+	; 设置日期范围
 	_GUICtrlDTP_SetRange($hDTP, $aRange)
 
-	; Display date range
+	; 显示日期范围
 	$aRange = _GUICtrlDTP_GetRange($hDTP)
 	MemoWrite("Minimum date: " & GetDateStr(0))
 	MemoWrite("Maximum date: " & GetDateStr(7))
 	MemoWrite("Minimum time: " & GetTimeStr(4))
 	MemoWrite("Maximum time: " & GetTimeStr(11))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()
 EndFunc   ;==>_Main
 
-; Returns the date portion
+; 返回日期部分
 Func GetDateStr($iOff = 0)
 	Return StringFormat("%02d/%02d/%04d", $aRange[$iOff + 2], $aRange[$iOff + 3], $aRange[$iOff + 1])
 EndFunc   ;==>GetDateStr
 
-; Returns the time portion
+; 返回时间部分
 Func GetTimeStr($iOff = 0)
 	Return StringFormat("%02d:%02d:%02d", $aRange[$iOff], $aRange[$iOff + 1], $aRange[$iOff + 2])
 EndFunc   ;==>GetTimeStr
 
-; Write a line to the memo control
+; 写入一行到 memo 控件
 Func MemoWrite($sMessage)
 	GUICtrlSetData($iMemo, $sMessage & @CRLF, 1)
 EndFunc   ;==>MemoWrite

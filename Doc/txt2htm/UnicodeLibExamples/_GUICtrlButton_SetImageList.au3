@@ -50,7 +50,7 @@ Func _Main()
 	Exit
 EndFunc   ;==>_Main
 
-; using image list to set 1 image and have text on button
+; 使用图像列表在按钮上设置一个图像并显示文本
 Func _GetImageListHandle($sFile, $nIconID = 0, $fLarge = False)
 	Local $iSize = 16
 	If $fLarge Then $iSize = 32

@@ -1,38 +1,38 @@
 ﻿; ***************************************************************
-; Example 1 - After opening a workbook and returning its object identifier, Activate a Sheet by using the string value of the Sheet Name
+; 示例 1 - 打开工作簿并返回其对象标识符后, 使用表示工作表名称的字符串值激活相应的工作表
 ; *****************************************************************
 
 #include <Excel.au3>
 
-Local $oExcel = _ExcelBookNew() ;Create new book, make it visible
+Local $oExcel = _ExcelBookNew() ;创建新工作簿, 并使其可见
 
 _ExcelSheetActivate($oExcel, "Sheet2")
 
 MsgBox(0, "Exiting", "Notice How Sheet2 is Active and not Sheet1" & @CRLF & @CRLF & "Now Press OK to Save File and Exit")
-_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; Now we save it into the temp directory; overwrite existing file if necessary
-_ExcelBookClose($oExcel) ; And finally we close out
+_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 现在我们把它保存到临时目录; 必要时覆盖文件
+_ExcelBookClose($oExcel) ; 最后我们关闭并退出
 
 ; ***************************************************************
-; Example 2 - After opening a workbook and returning its object identifier, Activate a Sheet by using the Index Value the Sheet
+; 示例 2 - 打开工作簿并返回其对象标识符后, 使用工作表索引值激活相应的工作表
 ; *****************************************************************
 
 #include <Excel.au3>
 
-$oExcel = _ExcelBookNew() ;Create new book, make it visible
+$oExcel = _ExcelBookNew() ;创建新工作簿, 并使其可见
 
 _ExcelSheetActivate($oExcel, 2)
 
 MsgBox(0, "Exiting", "Notice How Sheet2 is Active and not Sheet1" & @CRLF & @CRLF & "Now Press OK to Save File and Exit")
-_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; Now we save it into the temp directory; overwrite existing file if necessary
-_ExcelBookClose($oExcel) ; And finally we close out
+_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 现在我们把它保存到临时目录; 必要时覆盖文件
+_ExcelBookClose($oExcel) ; 最后我们关闭并退出
 
 ; ***************************************************************
-; Example 2 - After opening a workbook and returning its object identifier, Activate a Sheet by using the Index Value the Sheet
+; 示例 2 - 打开工作簿并返回其对象标识符后, 使用工作表索引值激活相应的工作表
 ; *****************************************************************
 
 #include <Excel.au3>
 
-$oExcel = _ExcelBookNew() ;Create new book, make it visible
+$oExcel = _ExcelBookNew() ;创建新工作簿, 并使其可见
 
 Local $iNumberOfWorksheets = $oExcel.Worksheets.Count
 
@@ -40,5 +40,5 @@ MsgBox(0, "", $oExcel.Worksheets.Count)
 _ExcelSheetActivate($oExcel, 2)
 
 MsgBox(0, "Exiting", "Notice How Sheet2 is Active and not Sheet1" & @CRLF & @CRLF & "Now Press OK to Save File and Exit")
-_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; Now we save it into the temp directory; overwrite existing file if necessary
-_ExcelBookClose($oExcel) ; And finally we close out
+_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 现在我们把它保存到临时目录; 必要时覆盖文件
+_ExcelBookClose($oExcel) ; 最后我们关闭并退出

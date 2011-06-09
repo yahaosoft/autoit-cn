@@ -2,7 +2,7 @@
 #include <GuiAVI.au3>
 #include <WindowsConstants.au3>
 
-$Debug_AVI = False ; Check ClassName being passed to AVI functions, set to True and use a handle to another control to see it work
+$Debug_AVI = False ; 检查传递给 AVI 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $hAVI, $iMemo
 
@@ -14,7 +14,7 @@ Func _Main()
 	Local $hGUI, $sFile = RegRead("HKEY_LOCAL_MACHINE\SOFTWARE" & $Wow64 & "\AutoIt v3\AutoIt", "InstallDir") & "\Examples\GUI\SampleAVI.avi"
 	Local $btn_StartStop
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("(External) AVI Open", 300, 200)
 	$hAVI = _GUICtrlAVI_Create($hGUI, "", -1, 10, 10)
 	$btn_StartStop = GUICtrlCreateButton("Start", 50, 10, 75, 25)
@@ -22,10 +22,10 @@ Func _Main()
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	GUISetState()
 
-	; Play the sample AutoIt AVI
+	; 播放 AutoIt AVI 实例
 	_GUICtrlAVI_Open($hAVI, $sFile)
 
-	; Loop until user exits
+	; 循环直到用户退出
 	While 1
 		Switch GUIGetMsg()
 			Case $btn_StartStop
@@ -43,14 +43,14 @@ Func _Main()
 		EndSwitch
 	WEnd
 
-	; Close AVI clip
+	; 关闭 AVI 剪辑
 	_GUICtrlAVI_Close($hAVI)
 
 
 	GUIDelete()
 EndFunc   ;==>_Main
 
-; Write a line to the memo control
+; 写入一行到 memo 控件
 Func MemoWrite($sMessage)
 	GUICtrlSetData($iMemo, $sMessage & @CRLF, 1)
 EndFunc   ;==>MemoWrite

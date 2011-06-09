@@ -2,7 +2,7 @@
 #include <GuiImageList.au3>
 #include <GuiConstantsEx.au3>
 
-$Debug_CB = False ; Check ClassName being passed to ComboBox/ComboBoxEx functions, set to True and use a handle to another control to see it work
+$Debug_CB = False ; 检查传递给 ComboBox/ComboBoxEx 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $iMemo
 
@@ -11,7 +11,7 @@ _Main()
 Func _Main()
 	Local $hGUI, $hImage, $tItem, $sText, $iLen, $hCombo
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("ComboBoxEx Get ItemEx", 400, 300)
 	$hCombo = _GUICtrlComboBoxEx_Create($hGUI, "", 2, 2, 394, 100)
 	$iMemo = GUICtrlCreateEdit("", 2, 32, 396, 266, 0)
@@ -34,14 +34,14 @@ Func _Main()
 		_GUICtrlComboBoxEx_AddString($hCombo, StringFormat("%03d : Random string", Random(1, 100, 1)), $x, $x)
 	Next
 
-	;Set Item indent
+	;设置项目缩进
 	_GUICtrlComboBoxEx_SetItemIndent($hCombo, 1, 1)
 
-	;Create Structure
+	;创建结构
 	$tItem = DllStructCreate($tagCOMBOBOXEXITEM)
-	;Set Mask for what to retrieve
+	;为接收到的数据设置标记
 	DllStructSetData($tItem, "Mask", BitOR($CBEIF_IMAGE, $CBEIF_INDENT, $CBEIF_LPARAM, $CBEIF_SELECTEDIMAGE, $CBEIF_OVERLAY))
-	;Set Index of item to retrieve
+	;为接收到的项设置索引
 	DllStructSetData($tItem, "Item", 1)
 
 	_GUICtrlComboBoxEx_GetItemEx($hCombo, $tItem)
@@ -58,7 +58,7 @@ Func _Main()
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>_Main
 
-; Write a line to the memo control
+; 写入一行到 memo 控件
 Func MemoWrite($sMessage)
 	GUICtrlSetData($iMemo, $sMessage & @CRLF, 1)
 EndFunc   ;==>MemoWrite

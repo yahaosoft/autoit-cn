@@ -5,7 +5,7 @@
 
 Global $btn, $iMemo
 
-; Note the controlId from these button(s) can NOT be read with GuiCtrlRead
+; 注意这些按钮的控件 ID 无法使用 GuiCtrlRead 读取
 
 _Main()
 
@@ -36,7 +36,7 @@ Func _Main()
 
 EndFunc   ;==>_Main
 
-; Write a line to the memo control
+; 写入一行到 memo 控件
 Func MemoWrite($sMessage)
 	GUICtrlSetData($iMemo, $sMessage & @CRLF, 1)
 EndFunc   ;==>MemoWrite

@@ -6,11 +6,11 @@ _Main()
 Func _Main()
 	Local $hGUI, $hGraphic, $aPoints[4][2]
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("GDI+", 400, 300)
 	GUISetState()
 
-	; Draw a polygon
+	; 描绘多边形
 	_GDIPlus_Startup()
 	$hGraphic = _GDIPlus_GraphicsCreateFromHWND($hGUI)
 
@@ -24,11 +24,11 @@ Func _Main()
 
 	_GDIPlus_GraphicsDrawPolygon($hGraphic, $aPoints)
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 
-	; Clean up resources
+	; 清理资源
 	_GDIPlus_GraphicsDispose($hGraphic)
 	_GDIPlus_Shutdown()
 

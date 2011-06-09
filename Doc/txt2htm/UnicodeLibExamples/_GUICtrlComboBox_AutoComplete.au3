@@ -2,7 +2,7 @@
 #include <GuiConstantsEx.au3>
 #include <WindowsConstants.au3>
 
-$Debug_CB = False ; Check ClassName being passed to ComboBox/ComboBoxEx functions, set to True and use a handle to another control to see it work
+$Debug_CB = False ; 检查传递给 ComboBox/ComboBoxEx 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $hCombo
 
@@ -10,19 +10,19 @@ _Main()
 
 Func _Main()
 
-	; Create GUI
+	; 创建 GUI
 	GUICreate("ComboBox Auto Complete", 400, 296)
 	$hCombo = GUICtrlCreateCombo("", 2, 2, 396, 296)
 	GUISetState()
 
-	; Add files
+	; 添加文件
 	_GUICtrlComboBox_BeginUpdate($hCombo)
 	_GUICtrlComboBox_AddDir($hCombo, @WindowsDir & "\*.exe")
 	_GUICtrlComboBox_EndUpdate($hCombo)
 
 	GUIRegisterMsg($WM_COMMAND, "WM_COMMAND")
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()
@@ -37,67 +37,67 @@ Func WM_COMMAND($hWnd, $iMsg, $iwParam, $ilParam)
 	Local $hWndFrom, $iIDFrom, $iCode, $hWndCombo
 	If Not IsHWnd($hCombo) Then $hWndCombo = GUICtrlGetHandle($hCombo)
 	$hWndFrom = $ilParam
-	$iIDFrom = BitAND($iwParam, 0xFFFF) ; Low Word
-	$iCode = BitShift($iwParam, 16) ; Hi Word
+	$iIDFrom = BitAND($iwParam, 0xFFFF) ; 低位字
+	$iCode = BitShift($iwParam, 16) ; 高位字
 	Switch $hWndFrom
 		Case $hCombo, $hWndCombo
 			Switch $iCode
-				Case $CBN_CLOSEUP ; Sent when the list box of a combo box has been closed
+				Case $CBN_CLOSEUP ; 当组合框的列表框被关闭时发送
 					_DebugPrint("$CBN_CLOSEUP" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $CBN_DBLCLK ; Sent when the user double-clicks a string in the list box of a combo box
+					; 没有返回值
+				Case $CBN_DBLCLK ; 当用户双击组合框的列表框中的字符串时发送
 					_DebugPrint("$CBN_DBLCLK" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $CBN_DROPDOWN ; Sent when the list box of a combo box is about to be made visible
+					; 没有返回值
+				Case $CBN_DROPDOWN ; 当组合框的列表框即将可见时发送
 					_DebugPrint("$CBN_DROPDOWN" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $CBN_EDITCHANGE ; Sent after the user has taken an action that may have altered the text in the edit control portion of a combo box
+					; 没有返回值
+				Case $CBN_EDITCHANGE ; 在用户执行的操作可能已经修改组合框的编辑控件部分的文本后发送
 					_DebugPrint("$CBN_EDITCHANGE" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
 					_Edit_Changed()
-					; no return value
-				Case $CBN_EDITUPDATE ; Sent when the edit control portion of a combo box is about to display altered text
+					; 没有返回值
+				Case $CBN_EDITUPDATE ; 当组合框的编辑控件部分即将显示修改的文本时发送
 					_DebugPrint("$CBN_EDITUPDATE" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $CBN_ERRSPACE ; Sent when a combo box cannot allocate enough memory to meet a specific request
+					; 没有返回值
+				Case $CBN_ERRSPACE ; 当组合框无法分配足够的内存以满足特殊请求时发送
 					_DebugPrint("$CBN_ERRSPACE" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $CBN_KILLFOCUS ; Sent when a combo box loses the keyboard focus
+					; 没有返回值
+				Case $CBN_KILLFOCUS ; 当组合框失去键盘焦点时发送
 					_DebugPrint("$CBN_KILLFOCUS" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $CBN_SELCHANGE ; Sent when the user changes the current selection in the list box of a combo box
+					; 没有返回值
+				Case $CBN_SELCHANGE ; 当用户改变组合框的列表框中的当前选项时发送
 					_DebugPrint("$CBN_SELCHANGE" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $CBN_SELENDCANCEL ; Sent when the user selects an item, but then selects another control or closes the dialog box
+					; 没有返回值
+				Case $CBN_SELENDCANCEL ; 当用户选择一项, 但接着选择了另一控件或关闭对话框时发送
 					_DebugPrint("$CBN_SELENDCANCEL" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $CBN_SELENDOK ; Sent when the user selects a list item, or selects an item and then closes the list
+					; 没有返回值
+				Case $CBN_SELENDOK ; 当用户选择一个列表项或选择一项然后关闭列表时发送
 					_DebugPrint("$CBN_SELENDOK" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $CBN_SETFOCUS ; Sent when a combo box receives the keyboard focus
+					; 没有返回值
+				Case $CBN_SETFOCUS ; 当组合框获取键盘焦点时发送
 					_DebugPrint("$CBN_SETFOCUS" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
+					; 没有返回值
 			EndSwitch
 	EndSwitch
 	Return $GUI_RUNDEFMSG

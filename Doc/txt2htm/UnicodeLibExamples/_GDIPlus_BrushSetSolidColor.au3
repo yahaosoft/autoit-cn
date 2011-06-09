@@ -7,46 +7,46 @@ _Main()
 Func _Main()
 	Local $hGUI, $Label1, $label2, $hGraphic, $hBrush1, $iClr1, $iClr2
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("GDI+", 345, 150)
 	$Label1 = GUICtrlCreateLabel("", 2, 2, 150, 20)
 	$label2 = GUICtrlCreateLabel("", 202, 2, 150, 20)
 	GUISetState()
 	Sleep(100)
 
-	; Start GDIPlus
+	; 初始化 GDIPlus
 	_GDIPlus_Startup()
 	$hGraphic = _GDIPlus_GraphicsCreateFromHWND($hGUI)
 
-	; Create solid brush
+	; 创建实心画刷
 	$hBrush1 = _GDIPlus_BrushCreateSolid()
 
-	; Get solid brush original color
+	; 获取实心画刷原来的颜色
 	$iClr1 = _GDIPlus_BrushGetSolidColor($hBrush1)
 
-	; Draw some graphics with the original brush color
+	; 使用原来的画刷颜色描绘图形
 	_GDIPlus_GraphicsFillEllipse($hGraphic, 25, 25, 100, 100, $hBrush1)
 
-	; Set new brush color (0xFFFF0000 = Red)
+	; 设置新的画刷颜色 (0xFFFF0000 = 红色)
 	_GDIPlus_BrushSetSolidColor($hBrush1, 0xFFFF0000)
 
-	; Get solid brush new color
+	; 获取实心画刷的新颜色
 	$iClr2 = _GDIPlus_BrushGetSolidColor($hBrush1)
 
-	; Draw some graphics with the new brush color
+	; 使用新的画刷颜色描绘图形
 	_GDIPlus_GraphicsFillRect($hGraphic, 220, 25, 100, 100, $hBrush1)
 
-	; Write original brush color to Label1
+	; 把原来的画刷颜色写入 Label1
 	GUICtrlSetData($Label1, "Brush orignal color: " & Hex($iClr1))
 
-	; Write the new brush color to Label2
+	; 把新的画刷颜色写入 Label2
 	GUICtrlSetData($label2, "Brush new color: " & Hex($iClr2))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 
-	; Clean up resources
+	; 清理资源
 	_GDIPlus_BrushDispose($hBrush1)
 	_GDIPlus_GraphicsDispose($hGraphic)
 	_GDIPlus_Shutdown()

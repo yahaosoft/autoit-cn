@@ -2,7 +2,7 @@
 #include <GuiImageList.au3>
 #include <GuiConstantsEx.au3>
 
-$Debug_CB = False ; Check ClassName being passed to ComboBox/ComboBoxEx functions, set to True and use a handle to another control to see it work
+$Debug_CB = False ; 检查传递给 ComboBox/ComboBoxEx 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 _Main()
 
@@ -11,7 +11,7 @@ Func _Main()
 
 	Opt("GUIDataSeparatorChar", $Delimiter)
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("ComboBoxEx Find String Exact", 400, 300)
 	$hCombo = _GUICtrlComboBoxEx_Create($hGUI, "This is;mY tExT", 2, 2, 394, 100, $CBS_SIMPLE)
 	GUISetState()
@@ -34,7 +34,7 @@ Func _Main()
 	Next
 	_GUICtrlComboBoxEx_EndUpdate($hCombo)
 
-	; Find exact string
+	; 查找准确匹配的字符串
 	MsgBox(4160, "Information", "Found at: " & _GUICtrlComboBoxEx_FindStringExact($hCombo, "mY tExT"))
 
 	Do

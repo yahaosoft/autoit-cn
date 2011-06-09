@@ -1,7 +1,7 @@
 ﻿#include <GuiConstantsEx.au3>
 #include <GuiAVI.au3>
 
-$Debug_AVI = False ; Check ClassName being passed to AVI functions, set to True and use a handle to another control to see it work
+$Debug_AVI = False ; 检查传递给 AVI 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $hAVI
 
@@ -11,7 +11,7 @@ _Example_External()
 Func _Example_Internal()
 	Local $btn_start, $btn_stop, $btn_show
 
-	; Create GUI
+	; 创建 GUI
 	GUICreate("(Internal) AVI Play", 350, 200)
 	$hAVI = GUICtrlCreateAvi(@SystemDir & "\shell32.dll", 160, 10, 10)
 	$btn_start = GUICtrlCreateButton("start", 25, 150, 70, 22)
@@ -19,16 +19,16 @@ Func _Example_Internal()
 	$btn_show = GUICtrlCreateButton("hide", 225, 150, 70, 22)
 	GUISetState()
 
-	; Loop until user exits
+	; 循环直到用户退出
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE
 				ExitLoop
 			Case $btn_start
-				; Play part of the AVI clip
+				; 播放 AVI 剪辑的一部分
 				_GUICtrlAVI_Play($hAVI)
 			Case $btn_stop
-				; Stop AVI clip
+				; 停止 AVI 剪辑
 				_GUICtrlAVI_Stop($hAVI)
 			Case $btn_show
 				If GUICtrlRead($btn_show) = "hide" Then
@@ -41,7 +41,7 @@ Func _Example_Internal()
 		EndSwitch
 	WEnd
 
-	; Close AVI clip
+	; 关闭 AVI 剪辑
 	_GUICtrlAVI_Close($hAVI)
 
 	GUIDelete()
@@ -50,7 +50,7 @@ EndFunc   ;==>_Example_Internal
 Func _Example_External()
 	Local $hGUI, $btn_start, $btn_stop, $btn_show
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("(External) AVI Play", 350, 200)
 	$hAVI = _GUICtrlAVI_Create($hGUI, @SystemDir & "\Shell32.dll", 160, 10, 10)
 	$btn_start = GUICtrlCreateButton("start", 25, 150, 70, 22)
@@ -58,16 +58,16 @@ Func _Example_External()
 	$btn_show = GUICtrlCreateButton("hide", 225, 150, 70, 22)
 	GUISetState()
 
-	; Loop until user exits
+	; 循环直到用户退出
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE
 				ExitLoop
 			Case $btn_start
-				; Play part of the AVI clip
+				; 播放 AVI 剪辑的一部分
 				_GUICtrlAVI_Play($hAVI)
 			Case $btn_stop
-				; Stop AVI clip
+				; 停止 AVI 剪辑
 				_GUICtrlAVI_Stop($hAVI)
 			Case $btn_show
 				If GUICtrlRead($btn_show) = "hide" Then
@@ -80,7 +80,7 @@ Func _Example_External()
 		EndSwitch
 	WEnd
 
-	; Close AVI clip
+	; 关闭 AVI 剪辑
 	_GUICtrlAVI_Close($hAVI)
 
 	GUIDelete()

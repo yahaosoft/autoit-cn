@@ -5,7 +5,7 @@
 
 Global $btn, $iMemo, $btn2
 
-; Note the controlId from these buttons can NOT be read with GuiCtrlRead
+; 注意这些按钮的控件 ID 无法使用 GuiCtrlRead 读取
 
 _Main()
 
@@ -37,12 +37,12 @@ Func _Main()
 EndFunc   ;==>_Main
 
 
-; Write a line to the memo control
+; 写入一行到 memo 控件
 Func MemoWrite($sMessage)
 	GUICtrlSetData($iMemo, $sMessage & @CRLF, 1)
 EndFunc   ;==>MemoWrite
 
-; React on a button click
+; 响应按钮点击
 Func WM_COMMAND($hWnd, $Msg, $wParam, $lParam)
 	#forceref $hWnd, $Msg
 	Local $nNotifyCode = BitShift($wParam, 16)
@@ -82,11 +82,11 @@ Func WM_COMMAND($hWnd, $Msg, $wParam, $lParam)
 				Case $BN_KILLFOCUS
 					$sText = "$BN_KILLFOCUS" & @CRLF
 			EndSwitch
-			Return 0 ; Only workout clicking on the button
+			Return 0 ; 仅在点击按钮时才有效
 	EndSwitch
-	; Proceed the default Autoit3 internal message commands.
-	; You also can complete let the line out.
-	; !!! But only 'Return' (without any value) will not proceed
-	; the default Autoit3-message in the future !!!
+	; 处理默认的 Autoit3 内部消息命令.
+	; 您也可以把这行完全去除
+	; !!!不过只有 'Return' (不带返回值) 将无法处理
+	; 将来默认的 Autoit3消息!!!
 	Return $GUI_RUNDEFMSG
 EndFunc   ;==>WM_COMMAND

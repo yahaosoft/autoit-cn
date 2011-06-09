@@ -13,7 +13,7 @@
 _DebugSetup("Check Excel")
 For $i = 1 To 4
 	WinActivate("Microsoft Excel")
-	; interact with Excel
+	; 与 Excel 交互
 	Send("{Down}")
 	_DebugOut("Moved Mouse Down")
 Next

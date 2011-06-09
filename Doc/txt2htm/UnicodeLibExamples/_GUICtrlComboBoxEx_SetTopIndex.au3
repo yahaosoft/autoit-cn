@@ -1,14 +1,14 @@
 ﻿#include <GuiComboBoxEx.au3>
 #include <GuiConstantsEx.au3>
 
-$Debug_CB = False ; Check ClassName being passed to ComboBox/ComboBoxEx functions, set to True and use a handle to another control to see it work
+$Debug_CB = False ; 检查传递给 ComboBox/ComboBoxEx 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 _Main()
 
 Func _Main()
 	Local $hGUI, $hCombo
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("ComboBoxEx Set Top Index", 400, 300)
 	$hCombo = _GUICtrlComboBoxEx_Create($hGUI, "", 2, 2, 394, 100, $CBS_SIMPLE)
 	GUISetState()
@@ -21,7 +21,7 @@ Func _Main()
 	Next
 	_GUICtrlComboBoxEx_EndUpdate($hCombo)
 
-	;Set Top Index
+	;设置顶部索引
 	MsgBox(4160, "Information", "Set Top Index: " & _GUICtrlComboBoxEx_SetTopIndex($hCombo, Random(50, 149, 1)))
 	MsgBox(4160, "Information", "Top Index: " & _GUICtrlComboBoxEx_GetTopIndex($hCombo))
 

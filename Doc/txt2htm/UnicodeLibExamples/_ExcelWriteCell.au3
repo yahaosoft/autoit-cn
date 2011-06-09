@@ -1,49 +1,49 @@
 ﻿; ***************************************************************
-; Example 1 - Write to a Cell after opening a workbook and returning its object identifier.  Then Save and Close file
+; 示例 1 - 打开一个工作簿并返回其对象标识符后, 写入内容到单元格.  然后保存并关闭文件
 ; *****************************************************************
 
 #include <Excel.au3>
 
-Local $oExcel = _ExcelBookNew() ;Create new book, make it visible
+Local $oExcel = _ExcelBookNew() ;创建新工作簿, 并使其可见
 
-_ExcelWriteCell($oExcel, "I Wrote to This Cell", 1, 1) ;Write to the Cell
+_ExcelWriteCell($oExcel, "I Wrote to This Cell", 1, 1) ;写入内容到单元格
 
 MsgBox(0, "Exiting", "Press OK to Save File and Exit")
-_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; Now we save it into the temp directory; overwrite existing file if necessary
-_ExcelBookClose($oExcel) ; And finally we close out
+_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 现在我们把它保存到临时目录; 必要时覆盖文件
+_ExcelBookClose($oExcel) ; 最后我们关闭并退出
 
 ; ***************************************************************
-; Example 2 - Write to a Cell using a Loop, after opening a workbook and returning its object identifier.  Then Save and Close file.
+; 示例 2 - 打开一个工作簿并返回其对象标识符后, 在循环中写入内容到单元格.  Then Save and Close file.
 ; *****************************************************************
 
 #include <Excel.au3>
 
-$oExcel = _ExcelBookNew() ;Create new book, make it visible
+$oExcel = _ExcelBookNew() ;创建新工作簿, 并使其可见
 
-For $i = 1 To 20 ;Loop
-	_ExcelWriteCell($oExcel, "I Wrote to This Cell", $i, 1) ;Write to the Cell
+For $i = 1 To 20 ;循环
+	_ExcelWriteCell($oExcel, "I Wrote to This Cell", $i, 1) ;写入内容到单元格
 Next
 
 MsgBox(0, "Exiting", "Press OK to Save File and Exit")
-_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; Now we save it into the temp directory; overwrite existing file if necessary
-_ExcelBookClose($oExcel) ; And finally we close out
+_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 现在我们把它保存到临时目录; 必要时覆盖文件
+_ExcelBookClose($oExcel) ; 最后我们关闭并退出
 
 
 ; ***************************************************************
-; Example 3 - Write to a Cell using a Loop, after opening a workbook and returning its object identifier.  Then enters Forumulas using _ExcelWriteCell
+; 示例 3 - 打开一个工作簿并返回其对象标识符后, 在循环中写入内容到单元格.  然后使用 _ExcelWriteCell 写入公式
 ; *****************************************************************
 
 #include <Excel.au3>
 
-$oExcel = _ExcelBookNew() ;Create new book, make it visible
+$oExcel = _ExcelBookNew() ;创建新工作簿, 并使其可见
 
-For $i = 1 To 20 ;Loop
-	_ExcelWriteCell($oExcel, $i, $i, 1) ;Write to the Cell
+For $i = 1 To 20 ;循环
+	_ExcelWriteCell($oExcel, $i, $i, 1) ;写入内容到单元格
 Next
 
-_ExcelWriteCell($oExcel, "=Average(A:A)", 1, 2) ;Uses A1 referencing, not R1C1
-_ExcelWriteCell($oExcel, "=Average(A1:A20)", 1, 3) ;Write formula another way Uses A1 referencing, not R1C1
+_ExcelWriteCell($oExcel, "=Average(A:A)", 1, 2) ;使用 A1 引用样式, 而不是 R1C1
+_ExcelWriteCell($oExcel, "=Average(A1:A20)", 1, 3) ;写入公式的另一种方法 - 使用 A1 引用样式, 而不是 R1C1
 
 MsgBox(0, "Exiting", "Press OK to Save File and Exit")
-_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; Now we save it into the temp directory; overwrite existing file if necessary
-_ExcelBookClose($oExcel) ; And finally we close out
+_ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 现在我们把它保存到临时目录; 必要时覆盖文件
+_ExcelBookClose($oExcel) ; 最后我们关闭并退出

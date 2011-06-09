@@ -2,14 +2,14 @@
 #include <GuiImageList.au3>
 #include <GuiConstantsEx.au3>
 
-$Debug_CB = False ; Check ClassName being passed to ComboBox/ComboBoxEx functions, set to True and use a handle to another control to see it work
+$Debug_CB = False ; 检查传递给 ComboBox/ComboBoxEx 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 _Main()
 
 Func _Main()
 	Local $hGUI, $hImage, $hCombo
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("ComboBoxEx Get Combo Control", 400, 300)
 	$hCombo = _GUICtrlComboBoxEx_Create($hGUI, "", 2, 2, 394, 268)
 	GUISetState()
@@ -31,7 +31,7 @@ Func _Main()
 			"Combo Control Handle: " & _GUICtrlComboBoxEx_GetComboControl($hCombo) & @LF & _
 			"Edit Control Handle: " & _GUICtrlComboBoxEx_GetEditControl($hCombo))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>_Main

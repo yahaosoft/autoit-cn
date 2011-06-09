@@ -7,37 +7,37 @@ _Main()
 Func _Main()
 	Local $hBMP, $hImage, $iX, $iY, $hClone
 
-	; Initialize GDI+ library
+	; 初始化 GDI+ 库
 	_GDIPlus_Startup()
 
-	; Capture 32 bit bitmap
+	; 捕获到 32 位位图
 	$hBMP = _ScreenCapture_Capture("")
 	$hImage = _GDIPlus_BitmapCreateFromHBITMAP($hBMP)
 
-	; Create 24 bit bitmap clone
+	; 创建 24 位位图副本
 	$iX = _GDIPlus_ImageGetWidth($hImage)
 	$iY = _GDIPlus_ImageGetHeight($hImage)
 	$hClone = _GDIPlus_BitmapCloneArea($hImage, 0, 0, $iX, $iY, $GDIP_PXF24RGB)
 
-	; Save bitmap to file
+	; 保存位图到文件
 	_GDIPlus_ImageSaveToFile($hClone, @TempDir & "\GDIPlus_Image.bmp")
 
-	; Clean up resources
+	; 清理资源
 	_GDIPlus_BitmapDispose($hClone)
 	_GDIPlus_BitmapDispose($hImage)
 	_WinAPI_DeleteObject($hBMP)
 
-	; Load image
+	; 加载图像
 	$hImage = _GDIPlus_ImageLoadFromFile(@TempDir & "\GDIPlus_Image.bmp")
 	$hBMP = _GDIPlus_BitmapCreateHBITMAPFromBitmap($hImage)
 
-	; Save bitmap to file
-	_ScreenCapture_SaveImage(@TempDir & "\Image.bmp", $hBMP, True) ; True -> $hBMP destroyed
+	; 保存位图到文件
+	_ScreenCapture_SaveImage(@TempDir & "\Image.bmp", $hBMP, True) ; True -> 释放 $hBMP
 
-	; Clean up resource
+	; 清理资源
 	_GDIPlus_ImageDispose($hImage)
 
-	; Shut down GDI+ library
+	; 关闭 GDI+ 库
 	_GDIPlus_Shutdown()
 
 EndFunc   ;==>_Main

@@ -7,34 +7,34 @@ _Main()
 Func _Main()
 	Local $hBitmap1, $hBitmap2, $hImage1, $hImage2, $hGraphic
 
-	; Initialize GDI+ library
+	; 初始化 GDI+ 库
 	_GDIPlus_Startup()
 
-	; Capture full screen
+	; 捕获整个屏幕
 	$hBitmap1 = _ScreenCapture_Capture("")
 	$hImage1 = _GDIPlus_BitmapCreateFromHBITMAP($hBitmap1)
 
-	; Capture screen region
+	; 捕获屏幕区域
 	$hBitmap2 = _ScreenCapture_Capture("", 0, 0, 400, 300)
 	$hImage2 = _GDIPlus_BitmapCreateFromHBITMAP($hBitmap2)
 
-	; Draw one image in another
+	; 在一幅图像上描绘另一幅图像
 	$hGraphic = _GDIPlus_ImageGetGraphicsContext($hImage1)
 	_GDIPlus_GraphicsDrawImageRect($hGraphic, $hImage2, 100, 100, 400, 300)
 
-	; Draw a frame around the inserted image
+	; 在插入的图像周围描绘边框
 	_GDIPlus_GraphicsDrawRect($hGraphic, 100, 100, 400, 300)
 
-	; Save resultant image
+	; 保存由此产生的图像
 	_GDIPlus_ImageSaveToFile($hImage1, @MyDocumentsDir & "\GDIPlus_Image.jpg")
 
-	; Clean up resources
+	; 清理资源
 	_GDIPlus_ImageDispose($hImage1)
 	_GDIPlus_ImageDispose($hImage2)
 	_WinAPI_DeleteObject($hBitmap1)
 	_WinAPI_DeleteObject($hBitmap2)
 
-	; Shut down GDI+ library
+	; 关闭 GDI+ 库
 	_GDIPlus_Shutdown()
 
 EndFunc   ;==>_Main

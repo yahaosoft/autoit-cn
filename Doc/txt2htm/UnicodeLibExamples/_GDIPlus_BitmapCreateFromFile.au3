@@ -7,43 +7,43 @@ _Main()
 Func _Main()
 	Local $hGUI, $hBMP, $hBitmap, $hGraphic, $hImage, $iX, $iY, $hClone
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("GDI+", 400, 300)
 	GUISetState()
 
-	; Initialize GDI+ library
+	; 初始化 GDI+ 库
 	_GDIPlus_Startup()
 
-	; Capture 32 bit bitmap
+	; 捕获到 32 位位图
 	$hBMP = _ScreenCapture_Capture("")
 	$hImage = _GDIPlus_BitmapCreateFromHBITMAP($hBMP)
 
-	; Create 24 bit bitmap clone
+	; 创建 24 位位图副本
 	$iX = _GDIPlus_ImageGetWidth($hImage)
 	$iY = _GDIPlus_ImageGetHeight($hImage)
 	$hClone = _GDIPlus_BitmapCloneArea($hImage, 0, 0, $iX, $iY, $GDIP_PXF24RGB)
 
-	; Save bitmap to file
+	; 保存位图到文件
 	_GDIPlus_ImageSaveToFile($hClone, @MyDocumentsDir & "\GDIPlus_Image.bmp")
 
-	; Clean up resources
+	; 清理资源
 	_GDIPlus_BitmapDispose($hClone)
 	_GDIPlus_BitmapDispose($hImage)
 	_WinAPI_DeleteObject($hBMP)
 
-	; Draw bitmap to GUI
+	; 在 GUI 中描绘位图
 	$hBitmap = _GDIPlus_BitmapCreateFromFile(@MyDocumentsDir & "\GDIPlus_Image.bmp")
 	$hGraphic = _GDIPlus_GraphicsCreateFromHWND($hGUI)
 	_GDIPlus_GraphicsDrawImage($hGraphic, $hBitmap, 0, 0)
 
-	; Clean up resources
+	; 清理资源
 	_GDIPlus_GraphicsDispose($hGraphic)
 	_GDIPlus_BitmapDispose($hBitmap)
 
-	; Shut down GDI+ library
+	; 关闭 GDI+ 库
 	_GDIPlus_Shutdown()
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

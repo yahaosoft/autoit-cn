@@ -2,21 +2,21 @@
 #include <ScreenCapture.au3>
 #include <WinAPI.au3>
 
-; Create GUI
+; 创建 GUI
 Local $hWnd = GUICreate("GDI+ Example", 500, 500)
 GUISetState()
 
-; Start GDI+
+; 初始化 GDI+
 _GDIPlus_Startup()
 Local $hGraphics = _GDIPlus_GraphicsCreateFromHWND($hWnd)
 _GDIPlus_GraphicsClear($hGraphics)
 
-; Take Screenshot at bottom left of screen
+; 抓取屏幕左下角截图
 Local $hScreenCap_hBitmap = _ScreenCapture_Capture("", 0, @DesktopHeight - 500, 500, @DesktopHeight)
 Local $hScreenCap_Bitmap = _GDIPlus_BitmapCreateFromHBITMAP($hScreenCap_hBitmap)
 
 Local $hMatrix = _GDIPlus_MatrixCreate()
-; Scale the matrix by 2 (everything will get 2x larger)
+; 放大矩阵 2 倍 (所有都将变成 2 倍大小)
 _GDIPlus_MatrixScale($hMatrix, 2.0, 2.0)
 
 
@@ -26,7 +26,7 @@ _GDIPlus_GraphicsDrawImageRect($hGraphics, $hScreenCap_Bitmap, 0, 0, 500, 500)
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE
 
-; Clean up resources
+; 清理资源
 _WinAPI_DeleteObject($hScreenCap_hBitmap)
 _GDIPlus_BitmapDispose($hScreenCap_Bitmap)
 _GDIPlus_MatrixDispose($hMatrix)

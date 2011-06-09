@@ -3,7 +3,7 @@
 #include <GuiConstantsEx.au3>
 #include <WindowsConstants.au3>
 
-$Debug_CB = False ; Check ClassName being passed to ComboBox/ComboBoxEx functions, set to True and use a handle to another control to see it work
+$Debug_CB = False ; 检查传递给 ComboBox/ComboBoxEx 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $iMemo
 
@@ -12,7 +12,7 @@ _Main()
 Func _Main()
 	Local $hGUI, $hImage, $aSel, $hCombo
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("ComboBoxEx Set Edit Sel", 400, 300)
 	$hCombo = _GUICtrlComboBoxEx_Create($hGUI, "", 2, 2, 394, 70, BitOR($CBS_SIMPLE, $WS_VSCROLL, $WS_BORDER))
 	$iMemo = GUICtrlCreateEdit("", 2, 72, 396, 226, 0)
@@ -31,18 +31,18 @@ Func _Main()
 	_GUIImageList_Add($hImage, _GUICtrlComboBoxEx_CreateSolidBitMap($hCombo, 0x0000FF, 16, 16))
 	_GUICtrlComboBoxEx_SetImageList($hCombo, $hImage)
 
-	; Add strings
+	; 添加字符串
 	For $x = 0 To 8
 		_GUICtrlComboBoxEx_AddString($hCombo, StringFormat("%03d : Random string", Random(1, 100, 1)), $x, $x)
 	Next
 
-	;Set Cur Sel
+	;设置当前选择项
 	_GUICtrlComboBoxEx_SetCurSel($hCombo, Random(0, 8, 1))
 
-	;Set Edit Sel
+	;设置编辑选择项
 	_GUICtrlComboBoxEx_SetEditSel($hCombo, 0, 4)
 
-	;Get Edit Sel
+	;获取编辑选择项
 	$aSel = _GUICtrlComboBoxEx_GetEditSel($hCombo)
 	MemoWrite(StringFormat("Selected: [%d][%d]", $aSel[0], $aSel[1]))
 
@@ -50,7 +50,7 @@ Func _Main()
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>_Main
 
-; Write a line to the memo control
+; 写入一行到 memo 控件
 Func MemoWrite($sMessage)
 	GUICtrlSetData($iMemo, $sMessage & @CRLF, 1)
 EndFunc   ;==>MemoWrite

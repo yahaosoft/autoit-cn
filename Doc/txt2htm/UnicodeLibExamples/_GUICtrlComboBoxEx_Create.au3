@@ -2,7 +2,7 @@
 #include <WindowsConstants.au3>
 #include <GuiConstantsEx.au3>
 
-$Debug_CB = False ; Check ClassName being passed to ComboBox/ComboBoxEx functions, set to True and use a handle to another control to see it work
+$Debug_CB = False ; 检查传递给 ComboBox/ComboBoxEx 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $hCombo
 
@@ -11,7 +11,7 @@ _Main()
 Func _Main()
 	Local $hGUI
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("ComboBoxEx Create", 400, 300)
 	$hCombo = _GUICtrlComboBoxEx_Create($hGUI, "This is a test|Line 2", 2, 2, 394, 268)
 	GUISetState()
@@ -21,7 +21,7 @@ Func _Main()
 	_GUICtrlComboBoxEx_AddString($hCombo, "Some More Text")
 	_GUICtrlComboBoxEx_InsertString($hCombo, "Inserted Text", 1)
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>_Main
@@ -37,7 +37,7 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 	Switch $hWndFrom
 		Case $hCombo
 			Switch $iCode
-				Case $CBEN_BEGINEDIT ; Sent when the user activates the drop-down list or clicks in the control's edit box.
+				Case $CBEN_BEGINEDIT ; 当用户激活下拉列表或点击控件的编辑框时发送.
 					_DebugPrint("$CBEN_BEGINEDIT" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
@@ -53,8 +53,8 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->Code:" & @TAB & DllStructGetData($tInfo, "Code") & @LF & _
 							"-->ItemID:" & @TAB & DllStructGetData($tInfo, "ItemID") & @LF & _
 							"-->Text:" & @TAB & DllStructGetData($tInfo, "Text"))
-					; return is ignored
-				Case $CBEN_ENDEDITA, $CBEN_ENDEDITW ; Sent when the user has concluded an operation within the edit box or has selected an item from the control's drop-down list.
+					; 忽略返回值
+				Case $CBEN_ENDEDITA, $CBEN_ENDEDITW ; 当用户结束编辑框中的操作或从控件的下拉列表选择了一项时发送.
 					$tInfo = DllStructCreate($tagNMCBEENDEDIT, $ilParam)
 					_DebugPrint("$CBEN_ENDEDIT" & @LF & "--> hWndFrom:" & @TAB & DllStructGetData($tInfo, "hWndFrom") & @LF & _
 							"-->IDFrom:" & @TAB & DllStructGetData($tInfo, "IDFrom") & @LF & _
@@ -63,8 +63,8 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->NewSelection:" & @TAB & DllStructGetData($tInfo, "NewSelection") & @LF & _
 							"-->Text:" & @TAB & DllStructGetData($tInfo, "Text") & @LF & _
 							"-->Why:" & @TAB & DllStructGetData($tInfo, "Why"))
-					Return False ; accept the notification and allow the control to display the selected item
-;~ 					Return True  ; otherwise
+					Return False ; 接受通告并允许控件显示选择的项
+;~ 					Return True  ; 否则
 				Case $CBEN_GETDISPINFOA, $CBEN_GETDISPINFOW ; Sent to retrieve display information about a callback item
 					_DebugPrint("$CBEN_GETDISPINFO" & _GetComboBoxEx($ilParam))
 					Return 0

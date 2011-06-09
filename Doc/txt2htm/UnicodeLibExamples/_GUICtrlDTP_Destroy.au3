@@ -1,14 +1,14 @@
 ﻿#include <GuiConstantsEx.au3>
 #include <GuiDateTimePicker.au3>
 
-$Debug_DTP = False ; Check ClassName being passed to DTP functions, set to True and use a handle to another control to see it work
+$Debug_DTP = False ; 检查传递给 DTP 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 _Main()
 
 Func _Main()
 	Local $hGUI, $HandleBefore, $hDTP
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("(UDF Created) DateTimePick Destroy", 400, 300)
 	$hDTP = _GUICtrlDTP_Create($hGUI, 2, 6, 190)
 	GUISetState()
@@ -19,7 +19,7 @@ Func _Main()
 			"Handel Before Destroy: " & $HandleBefore & @LF & _
 			"Handle After Destroy: " & $hDTP)
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

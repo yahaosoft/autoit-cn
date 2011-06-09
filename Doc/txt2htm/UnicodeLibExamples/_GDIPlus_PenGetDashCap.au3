@@ -6,28 +6,28 @@ _Main()
 Func _Main()
 	Local $hGUI, $hGraphic, $hPen
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("GDI+", 400, 300)
 	GUISetState()
 
-	; Create resources
+	; 创建资源
 	_GDIPlus_Startup()
 	$hGraphic = _GDIPlus_GraphicsCreateFromHWND($hGUI)
 	$hPen = _GDIPlus_PenCreate(0xFF000000, 8)
 	_GDIPlus_PenSetDashStyle($hPen, $GDIP_DASHSTYLEDASHDOT)
 	_GDIPlus_PenSetDashCap($hPen, $GDIP_DASHCAPTRIANGLE)
 
-	; Show pen dash cap
+	; 显示笔短划线帽
 	MsgBox(4096, "Information", "Pen dash cap: " & _GDIPlus_PenGetDashCap($hPen))
 
-	; Draw line
+	; 描绘线条
 	_GDIPlus_GraphicsDrawLine($hGraphic, 10, 150, 390, 150, $hPen)
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 
-	; Clean up resources
+	; 清理资源
 	_GDIPlus_PenDispose($hPen)
 	_GDIPlus_GraphicsDispose($hGraphic)
 	_GDIPlus_Shutdown()

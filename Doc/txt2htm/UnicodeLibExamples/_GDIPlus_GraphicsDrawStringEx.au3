@@ -7,11 +7,11 @@ Func _Main()
 	Local $hGUI, $hGraphic, $hBrush, $hFormat, $hFamily, $hFont, $tLayout
 	Local $sString = "Hello world", $aInfo
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("GDI+", 400, 300)
 	GUISetState()
 
-	; Draw a string
+	; 描绘字符串
 	_GDIPlus_Startup()
 	$hGraphic = _GDIPlus_GraphicsCreateFromHWND($hGUI)
 	$hBrush = _GDIPlus_BrushCreateSolid(0xFF00007F)
@@ -22,11 +22,11 @@ Func _Main()
 	$aInfo = _GDIPlus_GraphicsMeasureString($hGraphic, $sString, $hFont, $tLayout, $hFormat)
 	_GDIPlus_GraphicsDrawStringEx($hGraphic, $sString, $hFont, $aInfo[0], $hFormat, $hBrush)
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 
-	; Clean up resources
+	; 清理资源
 	_GDIPlus_FontDispose($hFont)
 	_GDIPlus_FontFamilyDispose($hFamily)
 	_GDIPlus_StringFormatDispose($hFormat)
