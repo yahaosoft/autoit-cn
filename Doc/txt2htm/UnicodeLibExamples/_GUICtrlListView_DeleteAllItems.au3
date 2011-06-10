@@ -1,7 +1,7 @@
 ﻿#include <GuiConstantsEx.au3>
 #include <GuiListView.au3>
 
-$Debug_LV = False ; Check ClassName being passed to ListView functions, set to True and use a handle to another control to see it work
+$Debug_LV = False ; 检查传递给 ListView 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Example1()
 Example2()
@@ -15,16 +15,16 @@ Func Example1()
 	$hListView = GUICtrlCreateListView("col1|col2|col3", 2, 2, 394, 268)
 	GUISetState()
 
-	; 3 column load
+	; 加载三列
 	For $iI = 0 To 9
 		GUICtrlCreateListViewItem("Item " & $iI & "|Item " & $iI & "-1|Item " & $iI & "-2", $hListView)
 	Next
 
 	MsgBox(4160, "Information", "Delete All Items")
-	; Items created using built-in function, pass the control ID
+	; 用内置函数创建项目, 传递控件 ID
 	MsgBox(4160, "Deleted?", _GUICtrlListView_DeleteAllItems($hListView))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()
@@ -38,7 +38,7 @@ Func Example2()
 	$hListView = GUICtrlCreateListView("col1|col2|col3", 2, 2, 394, 268)
 	GUISetState()
 
-	; 3 column load
+	; 加载三列
 	For $iI = 0 To UBound($aItems) - 1
 		$aItems[$iI][0] = "Item " & $iI
 		$aItems[$iI][1] = "Item " & $iI & "-1"
@@ -48,10 +48,10 @@ Func Example2()
 	_GUICtrlListView_AddArray($hListView, $aItems)
 
 	MsgBox(4160, "Information", "Delete All Items")
-	; Items created using UDF function(s), pass the handle to the control
+	; 使用 UDF 创建的项目, 传递句柄给控件
 	MsgBox(4160, "Deleted?", _GUICtrlListView_DeleteAllItems(GUICtrlGetHandle($hListView)))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()
@@ -65,7 +65,7 @@ Func Example_UDF_Created()
 	$hListView = _GUICtrlListView_Create($GUI, "col1|col2|col3", 2, 2, 394, 268)
 	GUISetState()
 
-	; 3 column load
+	; 加载三列
 	For $iI = 0 To UBound($aItems) - 1
 		$aItems[$iI][0] = "Item " & $iI
 		$aItems[$iI][1] = "Item " & $iI & "-1"
@@ -75,10 +75,10 @@ Func Example_UDF_Created()
 	_GUICtrlListView_AddArray($hListView, $aItems)
 
 	MsgBox(4160, "Information", "Delete All Items")
-	; This is already a handle
+	; 这已经是个句柄
 	MsgBox(4160, "Deleted?", _GUICtrlListView_DeleteAllItems($hListView))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

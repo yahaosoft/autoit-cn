@@ -5,20 +5,20 @@ _Main()
 Func _Main()
 	Local $hWnd, $hMain
 
-	; Open Notepad
+	; 打开记事本
 	Run("Notepad.exe")
 	WinWaitActive("[CLASS:Notepad]")
 	$hWnd = WinGetHandle("[CLASS:Notepad]")
 	$hMain = _GUICtrlMenu_GetMenu($hWnd)
 
-	; Get/Set File menu item data
+	; 获取/设置文件菜单项数据
 	Writeln("File menu item data: " & _GUICtrlMenu_GetItemData($hMain, 0))
 	_GUICtrlMenu_SetItemData($hMain, 0, 1234)
 	Writeln("File menu item data: " & _GUICtrlMenu_GetItemData($hMain, 0))
 
 EndFunc   ;==>_Main
 
-; Write a line of text to Notepad
+; 写入一行文本到记事本
 Func Writeln($sText)
 	ControlSend("[CLASS:Notepad]", "", "Edit1", $sText & @CR)
 EndFunc   ;==>Writeln

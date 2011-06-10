@@ -2,19 +2,19 @@
 #include <GuiConstantsEx.au3>
 #include <WindowsConstants.au3>
 
-$Debug_LB = False ; Check ClassName being passed to ListBox functions, set to True and use a handle to another control to see it work
+$Debug_LB = False ; 检查传递给 ListBox 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 _Main()
 
 Func _Main()
 	Local $sText, $hListBox
 
-	; Create GUI
+	; 创建 GUI
 	GUICreate("List Box Sort", 400, 296)
 	$hListBox = GUICtrlCreateList("", 2, 2, 396, 296, BitOR($WS_BORDER, $WS_VSCROLL, $LBS_NOTIFY, $LBS_MULTIPLESEL, $LBS_SORT))
 	GUISetState()
 
-	; Add strings
+	; 添加字符串
 	_GUICtrlListBox_BeginUpdate($hListBox)
 	For $iI = 1 To 9
 		$sText = StringFormat("%03d : Random string ", Random(1, 100, 1))
@@ -23,14 +23,14 @@ Func _Main()
 		Next
 		_GUICtrlListBox_AddString($hListBox, $sText)
 	Next
-	_GUICtrlListBox_InsertString($hListBox, "This is a test", 0) ; doesn't auto sort when using insert
+	_GUICtrlListBox_InsertString($hListBox, "This is a test", 0) ; 使用插入时不会自动排序
 	_GUICtrlListBox_EndUpdate($hListBox)
 
-	; Sort'em
+	; 排序
 	MsgBox(4160, "Information", "Sort Data")
 	_GUICtrlListBox_Sort($hListBox)
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

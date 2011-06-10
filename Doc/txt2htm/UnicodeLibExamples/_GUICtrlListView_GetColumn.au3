@@ -1,7 +1,7 @@
 ﻿#include <GuiConstantsEx.au3>
 #include <GuiListView.au3>
 
-$Debug_LV = False ; Check ClassName being passed to ListView functions, set to True and use a handle to another control to see it work
+$Debug_LV = False ; 检查传递给 ListView 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 _Main()
 
@@ -20,14 +20,14 @@ Func _Main()
 	GUICtrlCreateListViewItem("index 3|data4|more4", $hListView)
 	GUICtrlCreateListViewItem("index 4|data5|more5", $hListView)
 
-	; Change column
+	; 改变列
 	$aInfo = _GUICtrlListView_GetColumn($hListView, 0)
 	MsgBox(4160, "Information", "Column 1 Width: " & $aInfo[4])
 	_GUICtrlListView_SetColumn($hListView, 0, "New Column 1", 150)
 	$aInfo = _GUICtrlListView_GetColumn($hListView, 0)
 	MsgBox(4160, "Information", "Column 1 Width: " & $aInfo[4])
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

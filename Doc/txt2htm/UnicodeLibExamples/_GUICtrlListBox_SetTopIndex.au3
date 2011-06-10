@@ -1,19 +1,19 @@
 ﻿#include <GUIListBox.au3>
 #include <GuiConstantsEx.au3>
 
-$Debug_LB = False ; Check ClassName being passed to ListBox functions, set to True and use a handle to another control to see it work
+$Debug_LB = False ; 检查传递给 ListBox 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 _Main()
 
 Func _Main()
 	Local $sText, $hListBox
 
-	; Create GUI
+	; 创建 GUI
 	GUICreate("List Box Set Top Index", 400, 296)
 	$hListBox = GUICtrlCreateList("", 2, 2, 396, 296)
 	GUISetState()
 
-	; Add strings
+	; 添加字符串
 	_GUICtrlListBox_BeginUpdate($hListBox)
 	For $iI = 1 To 100
 		$sText = StringFormat("%03d : Random string ", $iI)
@@ -24,16 +24,16 @@ Func _Main()
 	Next
 	_GUICtrlListBox_EndUpdate($hListBox)
 
-	; Show top index
+	; 显示顶部索引
 	MsgBox(4160, "Information", "Top Index: " & _GUICtrlListBox_GetTopIndex($hListBox))
 
-	; Set top index
+	; 设置顶部索引
 	_GUICtrlListBox_SetTopIndex($hListBox, 50)
 
-	; Show top index
+	; 显示顶部索引
 	MsgBox(4160, "Information", "Top Index: " & _GUICtrlListBox_GetTopIndex($hListBox))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

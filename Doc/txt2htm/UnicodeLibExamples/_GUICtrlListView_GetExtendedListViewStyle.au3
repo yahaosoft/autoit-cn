@@ -2,7 +2,7 @@
 #include <GuiListView.au3>
 #include <GuiImageList.au3>
 
-$Debug_LV = False ; Check ClassName being passed to ListView functions, set to True and use a handle to another control to see it work
+$Debug_LV = False ; 检查传递给 ListView 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 _Main()
 
@@ -14,14 +14,14 @@ Func _Main()
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, BitOR($LVS_EX_FULLROWSELECT, $LVS_EX_GRIDLINES, $LVS_EX_SUBITEMIMAGES))
 	GUISetState()
 
-	; Load images
+	; 加载图像
 	$hImage = _GUIImageList_Create()
 	_GUIImageList_Add($hImage, _GUICtrlListView_CreateSolidBitMap(GUICtrlGetHandle($hListView), 0xFF0000, 16, 16))
 	_GUIImageList_Add($hImage, _GUICtrlListView_CreateSolidBitMap(GUICtrlGetHandle($hListView), 0x00FF00, 16, 16))
 	_GUIImageList_Add($hImage, _GUICtrlListView_CreateSolidBitMap(GUICtrlGetHandle($hListView), 0x0000FF, 16, 16))
 	_GUICtrlListView_SetImageList($hListView, $hImage, 1)
 
-	; Add columns
+	; 添加列
 	_GUICtrlListView_AddColumn($hListView, "Column 1", 100)
 	_GUICtrlListView_AddColumn($hListView, "Column 2", 100)
 	_GUICtrlListView_AddColumn($hListView, "Column 3", 100)
@@ -36,7 +36,7 @@ Func _Main()
 	MsgBox(4160, "Information", "Extended List View Style(s): 0x" & _GUICtrlListView_GetExtendedListViewStyle($hListView) & @LF & _
 			_DisplayExtendStringList($hListView))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

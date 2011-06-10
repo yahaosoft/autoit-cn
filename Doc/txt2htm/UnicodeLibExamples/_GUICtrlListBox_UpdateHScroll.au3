@@ -2,31 +2,31 @@
 #include <GuiConstantsEx.au3>
 #include <WindowsConstants.au3>
 
-$Debug_LB = False ; Check ClassName being passed to ListBox functions, set to True and use a handle to another control to see it work
+$Debug_LB = False ; 检查传递给 ListBox 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 _Main()
 
 Func _Main()
 	Local $hListBox
 
-	; Create GUI
+	; 创建 GUI
 	GUICreate("List Box Update HScroll", 400, 296)
 	$hListBox = GUICtrlCreateList("", 2, 2, 396, 296, BitOR($LBS_NOTIFY, $LBS_SORT, $WS_HSCROLL, $WS_VSCROLL))
 	GUISetState()
 
-	; Add long string
+	; 添加长字符串
 	_GUICtrlListBox_AddString($hListBox, "AutoIt v3 is a freeware BASIC-like scripting language designed for automating the Windows GUI.")
 
-	; Show current horizontal extent
+	; 显示当前水平范围
 	MsgBox(4160, "Information", "Horizontal Extent: " & _GUICtrlListBox_GetHorizontalExtent($hListBox))
 
-	; Adjust horizontal scroll bars
+	; 调整水平滚动栏
 	_GUICtrlListBox_UpdateHScroll($hListBox)
 
-	; Show current horizontal extent
+	; 显示当前水平范围
 	MsgBox(4160, "Information", "Horizontal Extent: " & _GUICtrlListBox_GetHorizontalExtent($hListBox))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

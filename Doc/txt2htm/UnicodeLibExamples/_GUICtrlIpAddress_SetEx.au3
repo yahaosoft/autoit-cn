@@ -1,7 +1,7 @@
 ﻿#include <GuiConstantsEx.au3>
 #include <GuiIPAddress.au3>
 
-$Debug_IP = False ; Check ClassName being passed to IPAddress functions, set to True and use a handle to another control to see it work
+$Debug_IP = False ; 检查传递给 IPAddress 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $iMemo
 
@@ -28,12 +28,12 @@ Func _Main()
 		MemoWrite("Field " & $x + 1 & " .....: " & DllStructGetData($tIP, "Field" & $x + 1))
 	Next
 
-	; Wait for user to close GUI
+	; 等待用户关闭 GUI
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>_Main
 
-; Write a line to the memo control
+; 写入一行到 memo 控件
 Func MemoWrite($sMessage)
 	GUICtrlSetData($iMemo, $sMessage & @CRLF, 1)
 EndFunc   ;==>MemoWrite

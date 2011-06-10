@@ -1,7 +1,7 @@
 ﻿#include <GuiConstantsEx.au3>
 #include <GuiListView.au3>
 
-$Debug_LV = False ; Check ClassName being passed to ListView functions, set to True and use a handle to another control to see it work
+$Debug_LV = False ; 检查传递给 ListView 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 _Main()
 
@@ -15,12 +15,12 @@ Func _Main()
 	$HandleBefore = $hListView
 	GUISetState()
 
-	; Add columns
+	; 添加列
 	_GUICtrlListView_InsertColumn($hListView, 0, "Column 1", 100)
 	_GUICtrlListView_InsertColumn($hListView, 1, "Column 2", 100)
 	_GUICtrlListView_InsertColumn($hListView, 2, "Column 3", 100)
 
-	; Add items
+	; 添加项目
 	_GUICtrlListView_AddItem($hListView, "Row 1: Col 1")
 	_GUICtrlListView_AddSubItem($hListView, 0, "Row 1: Col 2", 1)
 	_GUICtrlListView_AddSubItem($hListView, 0, "Row 1: Col 3", 2)
@@ -33,7 +33,7 @@ Func _Main()
 			"Handel Before Destroy: " & $HandleBefore & @LF & _
 			"Handle After Destroy: " & $hListView)
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

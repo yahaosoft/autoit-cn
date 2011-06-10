@@ -2,7 +2,7 @@
 #include <GuiMonthCal.au3>
 #include <WindowsConstants.au3>
 
-$Debug_MC = False ; Check ClassName being passed to MonthCal functions, set to True and use a handle to another control to see it work
+$Debug_MC = False ; 检查传递给 MonthCal 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $hMonthCal, $iMemo, $hGUI
 
@@ -10,16 +10,16 @@ _Main()
 
 Func _Main()
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("Month Calendar Hit Test", 400, 300)
 	$hMonthCal = GUICtrlCreateMonthCal("", 4, 4, -1, -1, $WS_BORDER, 0x00000000)
 
-	; Create memo control
+	; 创建 memo 控件
 	$iMemo = GUICtrlCreateEdit("", 4, 168, 392, 128, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	GUISetState()
 
-	; Loop until user exits
+	; 循环直到用户退出
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_MOUSEMOVE
@@ -31,7 +31,7 @@ Func _Main()
 	GUIDelete()
 EndFunc   ;==>_Main
 
-; Perform hit test
+; 执行点击测试
 Func DoHitTest()
 	Local $tHit
 
@@ -43,7 +43,7 @@ Func DoHitTest()
 	EndIf
 EndFunc   ;==>DoHitTest
 
-; Write message to memo
+; 写入消息到 memo
 Func MemoWrite($sMessage)
 	GUICtrlSetData($iMemo, $sMessage & @CRLF, 1)
 EndFunc   ;==>MemoWrite

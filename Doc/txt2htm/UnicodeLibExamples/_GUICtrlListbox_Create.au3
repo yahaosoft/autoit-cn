@@ -3,7 +3,7 @@
 #include <WindowsConstants.au3>
 #include <Constants.au3>
 
-$Debug_LB = False ; Check ClassName being passed to ListBox functions, set to True and use a handle to another control to see it work
+$Debug_LB = False ; 检查传递给 ListBox 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $hListBox
 
@@ -12,7 +12,7 @@ _Main()
 Func _Main()
 	Local $hGUI
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("(UDF Created) List Box Create", 400, 296)
 	$hListBox = _GUICtrlListBox_Create($hGUI, "String upon creation", 2, 2, 396, 296)
 	GUISetState()
@@ -21,7 +21,7 @@ Func _Main()
 
 	GUIRegisterMsg($WM_COMMAND, "WM_COMMAND")
 
-	; Add files
+	; 添加文件
 	_GUICtrlListBox_BeginUpdate($hListBox)
 	_GUICtrlListBox_ResetContent($hListBox)
 	_GUICtrlListBox_InitStorage($hListBox, 100, 4096)
@@ -31,7 +31,7 @@ Func _Main()
 	_GUICtrlListBox_Dir($hListBox, "", $DDL_DRIVES, False)
 	_GUICtrlListBox_EndUpdate($hListBox)
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>_Main
@@ -41,48 +41,48 @@ Func WM_COMMAND($hWnd, $iMsg, $iwParam, $ilParam)
 	Local $hWndFrom, $iIDFrom, $iCode, $hWndListBox
 	If Not IsHWnd($hListBox) Then $hWndListBox = GUICtrlGetHandle($hListBox)
 	$hWndFrom = $ilParam
-	$iIDFrom = BitAND($iwParam, 0xFFFF) ; Low Word
-	$iCode = BitShift($iwParam, 16) ; Hi Word
+	$iIDFrom = BitAND($iwParam, 0xFFFF) ; 低位字
+	$iCode = BitShift($iwParam, 16) ; 高位字
 
 	Switch $hWndFrom
 		Case $hListBox, $hWndListBox
 			Switch $iCode
-				Case $LBN_DBLCLK ; Sent when the user double-clicks a string in a list box
+				Case $LBN_DBLCLK ; 当用户双击列表框中的字符串时发送
 					_DebugPrint("$LBN_DBLCLK" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $LBN_ERRSPACE ; Sent when a list box cannot allocate enough memory to meet a specific request
+					; 没有返回值
+				Case $LBN_ERRSPACE ; 当列表框无法分配足够的内存以满足特殊请求时发送
 					_DebugPrint("$LBN_ERRSPACE" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $LBN_KILLFOCUS ; Sent when a list box loses the keyboard focus
+					; 没有返回值
+				Case $LBN_KILLFOCUS ; 当列表框失去键盘焦点时发送
 					_DebugPrint("$LBN_KILLFOCUS" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $LBN_SELCANCEL ; Sent when the user cancels the selection in a list box
+					; 没有返回值
+				Case $LBN_SELCANCEL ; 当用户取消列表框中的选择项时发送
 					_DebugPrint("$LBN_SELCANCEL" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $LBN_SELCHANGE ; Sent when the selection in a list box has changed
+					; 没有返回值
+				Case $LBN_SELCHANGE ; 当列表框中的选择项已改变时发送
 					_DebugPrint("$LBN_SELCHANGE" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
-				Case $LBN_SETFOCUS ; Sent when a list box receives the keyboard focus
+					; 没有返回值
+				Case $LBN_SETFOCUS ; 当列表框接收键盘焦点时发送
 					_DebugPrint("$LBN_SETFOCUS" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; no return value
+					; 没有返回值
 			EndSwitch
 	EndSwitch
-	; Proceed the default Autoit3 internal message commands.
-	; You also can complete let the line out.
-	; !!! But only 'Return' (without any value) will not proceed
-	; the default Autoit3-message in the future !!!
+	; 处理默认的 Autoit3 内部消息命令.
+	; 您也可以把这行完全去除
+	; !!!不过只有 'Return' (不带返回值) 将无法处理
+	; 将来默认的 Autoit3消息!!!
 	Return $GUI_RUNDEFMSG
 EndFunc   ;==>WM_COMMAND
 

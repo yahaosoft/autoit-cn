@@ -5,21 +5,21 @@ _Main()
 Func _Main()
 	Local $hWnd, $hMain, $hFile
 
-	; Open Notepad
+	; 打开记事本
 	Run("Notepad.exe")
 	WinWaitActive("[CLASS:Notepad]")
 	$hWnd = WinGetHandle("[CLASS:Notepad]")
 	$hMain = _GUICtrlMenu_GetMenu($hWnd)
 	$hFile = _GUICtrlMenu_GetItemSubMenu($hMain, 0)
 
-	; Get/Set File menu default item
+	; 获取/设置文件菜单默认项
 	Writeln("File menu default item: " & _GUICtrlMenu_GetMenuDefaultItem($hFile))
 	_GUICtrlMenu_SetMenuDefaultItem($hFile, 1)
 	Writeln("File menu default item: " & _GUICtrlMenu_GetMenuDefaultItem($hFile))
 
 EndFunc   ;==>_Main
 
-; Write a line of text to Notepad
+; 写入一行文本到记事本
 Func Writeln($sText)
 	ControlSend("[CLASS:Notepad]", "", "Edit1", $sText & @CR)
 EndFunc   ;==>Writeln

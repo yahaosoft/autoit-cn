@@ -19,7 +19,7 @@ Func Main()
 		$iMsg = GUIGetMsg()
 		Select
 			Case $iMsg = $GUI_EVENT_CLOSE
-				GUIDelete() ; needed unless script crashes if DoIt as not been pushed
+				GUIDelete() ; ; 除非脚本崩溃才需要, 如果它并没有按这样被压入
 				Exit
 			Case $iMsg = $btnDoIt
 				_GUICtrlRichEdit_Destroy($hRichEdit)

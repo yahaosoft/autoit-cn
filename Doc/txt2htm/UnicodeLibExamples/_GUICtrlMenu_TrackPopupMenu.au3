@@ -8,21 +8,21 @@ Global Enum $idOpen = 1000, $idSave, $idInfo
 _Main()
 
 Func _Main()
-	; Create GUI
+	; 创建 GUI
 	GUICreate("Menu", 400, 300)
 	GUISetState()
 
-	; Register message handlers
+	; 注册消息处理程序
 	GUIRegisterMsg($WM_COMMAND, "WM_COMMAND")
 	GUIRegisterMsg($WM_CONTEXTMENU, "WM_CONTEXTMENU")
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 
 EndFunc   ;==>_Main
 
-; Handle WM_COMMAND messages
+; 处理 WM_COMMAND 消息
 Func WM_COMMAND($hWnd, $iMsg, $iwParam, $ilParam)
 	#forceref $hWnd, $iMsg, $ilParam
 	Switch $iwParam
@@ -35,7 +35,7 @@ Func WM_COMMAND($hWnd, $iMsg, $iwParam, $ilParam)
 	EndSwitch
 EndFunc   ;==>WM_COMMAND
 
-; Handle WM_CONTEXTMENU messages
+; 处理 WM_CONTEXTMENU 消息
 Func WM_CONTEXTMENU($hWnd, $iMsg, $iwParam, $ilParam)
 	#forceref $hWnd, $iMsg, $ilParam
 	Local $hMenu

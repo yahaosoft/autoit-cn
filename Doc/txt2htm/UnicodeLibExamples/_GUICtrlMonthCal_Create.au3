@@ -2,7 +2,7 @@
 #include <GuiMonthCal.au3>
 #include <WindowsConstants.au3>
 
-$Debug_MC = False ; Check ClassName being passed to MonthCal functions, set to True and use a handle to another control to see it work
+$Debug_MC = False ; 检查传递给 MonthCal 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $hMonthCal
 
@@ -11,14 +11,14 @@ _Main()
 Func _Main()
 	Local $hGUI
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("Month Calendar Create", 400, 300)
 	$hMonthCal = _GUICtrlMonthCal_Create($hGUI, 4, 4, $WS_BORDER)
 	GUISetState()
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()
@@ -35,7 +35,7 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 	Switch $hWndFrom
 		Case $hMonthCal
 			Switch $iCode
-				Case $MCN_GETDAYSTATE ; Sent by a month calendar control to request information about how individual days should be displayed
+				Case $MCN_GETDAYSTATE ; 由月历控件发送以请求关于个别日子如何显示的信息
 					$tInfo = DllStructCreate($tagNMDAYSTATE, $ilParam)
 					_DebugPrint("$MCN_GETDAYSTATE" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
@@ -50,11 +50,11 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->MSecond:" & @TAB & DllStructGetData($tInfo, "MSecond") & @LF & _
 							"-->DayState:" & @TAB & DllStructGetData($tInfo, "DayState") & @LF & _
 							"-->pDayState:" & @TAB & DllStructGetData($tInfo, "pDayState"))
-					; Address of an array of MONTHDAYSTATE (DWORD bit field that holds the state of each day in a month)
-					; Each bit (1 through 31) represents the state of a day in a month. If a bit is on, the corresponding day will
-					; be displayed in bold; otherwise it will be displayed with no emphasis.
-					; No return value
-				Case $MCN_SELCHANGE ; Sent by a month calendar control when the currently selected date or range of dates changes
+					; MONTHDAYSTATE 数组的地址 (DWORD 位字段保存了一个月份中每天的状态)
+					; 每位 (从 1 到 31) 表示一个月份中每天的状态. 如果某位是起作用的, 则相应的日子将
+					; 粗体显示; 否则显示时不进行强调.
+					; 没有返回值
+				Case $MCN_SELCHANGE ; 当当前选择了日期或日期范围改变时由月历控件发送
 					$tInfo = DllStructCreate($tagNMSELCHANGE, $ilParam)
 					_DebugPrint("$MCN_SELCHANGE" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
@@ -75,8 +75,8 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->EndMinute:" & @TAB & DllStructGetData($tInfo, "EndMinute") & @LF & _
 							"-->EndSecond:" & @TAB & DllStructGetData($tInfo, "EndSecond") & @LF & _
 							"-->EndMSeconds:" & @TAB & DllStructGetData($tInfo, "EndMSeconds"))
-					; No return value
-				Case $MCN_SELECT ; Sent by a month calendar control when the user makes an explicit date selection within a month calendar control
+					; 没有返回值
+				Case $MCN_SELECT ; 当用户在月历控件内选择了一个明确的日期时由月历控件发送
 					$tInfo = DllStructCreate($tagNMSELCHANGE, $ilParam)
 					_DebugPrint("$MCN_SELECT" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
@@ -97,7 +97,7 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->EndMinute:" & @TAB & DllStructGetData($tInfo, "EndMinute") & @LF & _
 							"-->EndSecond:" & @TAB & DllStructGetData($tInfo, "EndSecond") & @LF & _
 							"-->EndMSeconds:" & @TAB & DllStructGetData($tInfo, "EndMSeconds"))
-					; No return value
+					; 没有返回值
 			EndSwitch
 	EndSwitch
 	Return $GUI_RUNDEFMSG

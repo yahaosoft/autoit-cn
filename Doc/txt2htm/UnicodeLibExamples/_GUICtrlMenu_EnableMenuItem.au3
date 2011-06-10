@@ -10,7 +10,7 @@ Func _Main()
 	$hWnd = WinGetHandle("[CLASS:Notepad]")
 	$hMain = _GUICtrlMenu_GetMenu($hWnd)
 
-	; Disable/Gray Help menu
+	; 禁用/变灰帮助菜单
 	_GUICtrlMenu_EnableMenuItem($hMain, 4, 3)
 
 EndFunc   ;==>_Main

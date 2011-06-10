@@ -15,14 +15,14 @@ Func Main()
 	$btnDoIt = GUICtrlCreateButton("Do it", 270, 310, 40, 30)
 	GUISetState()
 
-	_GUICtrlRichEdit_SetSel($hRichEdit, 0, -1) ; select all
+	_GUICtrlRichEdit_SetSel($hRichEdit, 0, -1) ; 全选
 
 	While True
 		$iMsg = GUIGetMsg()
 		Select
 			Case $iMsg = $GUI_EVENT_CLOSE
-				_GUICtrlRichEdit_Destroy($hRichEdit) ; needed unless script crashes
-;~ 				GUIDelete() 	; is OK too
+				_GUICtrlRichEdit_Destroy($hRichEdit) ; 除非脚本崩溃才需要
+;~ 				GUIDelete() 	; 同样行
 				Exit
 			Case $iMsg = $btnDoIt
 				ChangeFontSize()

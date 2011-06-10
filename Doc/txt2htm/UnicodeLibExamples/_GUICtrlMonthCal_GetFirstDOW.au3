@@ -2,7 +2,7 @@
 #include <GuiMonthCal.au3>
 #include <WindowsConstants.au3>
 
-$Debug_MC = False ; Check ClassName being passed to MonthCal functions, set to True and use a handle to another control to see it work
+$Debug_MC = False ; 检查传递给 MonthCal 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $iMemo
 
@@ -11,26 +11,26 @@ _Main()
 Func _Main()
 	Local $hMonthCal
 
-	; Create GUI
+	; 创建 GUI
 	GUICreate("Month Calendar Get First DOW", 400, 300)
 	$hMonthCal = GUICtrlCreateMonthCal("", 4, 4, -1, -1, $WS_BORDER, 0x00000000)
 
-	; Create memo control
+	; 创建 memo 控件
 	$iMemo = GUICtrlCreateEdit("", 4, 168, 392, 128, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	GUISetState()
 
-	; Get/Set first DOW
+	; 获取/设置周中的第一天
 	_GUICtrlMonthCal_SetFirstDOW($hMonthCal, 0)
 	MemoWrite("First DOW : " & _GUICtrlMonthCal_GetFirstDOW($hMonthCal))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()
 EndFunc   ;==>_Main
 
-; Write message to memo
+; 写入消息到 memo
 Func MemoWrite($sMessage)
 	GUICtrlSetData($iMemo, $sMessage & @CRLF, 1)
 EndFunc   ;==>MemoWrite

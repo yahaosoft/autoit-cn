@@ -1,35 +1,35 @@
 ﻿#include <GUIListBox.au3>
 #include <GuiConstantsEx.au3>
 
-$Debug_LB = False ; Check ClassName being passed to ListBox functions, set to True and use a handle to another control to see it work
+$Debug_LB = False ; 检查传递给 ListBox 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
-; Warning this should not be used on items created using built-in functions
-; Item data is the ControlID for each string
+; 警告此操作不应该用于使用内置函数创建的项目上
+; 项目数据为对应于每个字符串的 ControlID
 
 _Main()
 
 Func _Main()
 	Local $hListBox
 
-	; Create GUI
+	; 创建 GUI
 	GUICreate("List Box Set Item Data", 400, 296)
 	$hListBox = GUICtrlCreateList("", 2, 2, 396, 296)
 	GUISetState()
 
-	; Add strings
+	; 添加字符串
 	_GUICtrlListBox_BeginUpdate($hListBox)
 	For $iI = 1 To 9
 		_GUICtrlListBox_AddString($hListBox, StringFormat("%03d : Random string", Random(1, 100, 1)))
 	Next
 	_GUICtrlListBox_EndUpdate($hListBox)
 
-	; Set item data
+	; 设置项目数据
 	_GUICtrlListBox_SetItemData($hListBox, 4, 1234)
 
-	; Get item data
+	; 获取项目数据
 	MsgBox(4160, "Information", "Item 5 Data: " & _GUICtrlListBox_GetItemData($hListBox, 4))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

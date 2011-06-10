@@ -7,10 +7,10 @@ Func _Main()
 	Local $hGUI, $hFile, $hEdit, $hHelp, $hMain
 	Local Enum $idNew = 1000, $idOpen, $idSave, $idExit, $idCut, $idCopy, $idPaste, $idAbout
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("Menu", 400, 300)
 
-	; Create File menu
+	; 创建文件菜单
 	$hFile = _GUICtrlMenu_CreateMenu()
 	InsertItem($hFile, 0, "&New", $idNew)
 	InsertItem($hFile, 1, "&Open", $idOpen)
@@ -18,32 +18,32 @@ Func _Main()
 	InsertItem($hFile, 3, "", 0)
 	InsertItem($hFile, 4, "E&xit", $idExit)
 
-	; Create Edit menu
+	; 创建编辑菜单
 	$hEdit = _GUICtrlMenu_CreateMenu()
 	InsertItem($hEdit, 0, "&Cut", $idCut)
 	InsertItem($hEdit, 1, "C&opy", $idCopy)
 	InsertItem($hEdit, 2, "&Paste", $idPaste)
 
-	; Create Help menu
+	; 创建帮助菜单
 	$hHelp = _GUICtrlMenu_CreateMenu()
 	InsertItem($hHelp, 0, "&About", $idAbout)
 
-	; Create Main menu
+	; 创建主菜单
 	$hMain = _GUICtrlMenu_CreateMenu()
 	InsertItem($hMain, 0, "&File", 0, $hFile)
 	InsertItem($hMain, 1, "&Edit", 0, $hEdit)
 	InsertItem($hMain, 2, "&Help", 0, $hHelp)
 
-	; Set window menu
+	; 设置窗口菜单
 	_GUICtrlMenu_SetMenu($hGUI, $hMain)
 	GUISetState()
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>_Main
 
-; Insert menu item (the hard way)
+; 插入菜单项 (详细的方式)
 Func InsertItem($hMenu, $iIndex, $sText, $iCmdID = 0, $hSubMenu = 0)
 	Local $tMenu, $tText
 

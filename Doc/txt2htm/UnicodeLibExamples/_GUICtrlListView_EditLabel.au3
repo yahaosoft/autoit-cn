@@ -3,7 +3,7 @@
 #include <GuiImageList.au3>
 #include <WindowsConstants.au3>
 
-$Debug_LV = False ; Check ClassName being passed to ListView functions, set to True and use a handle to another control to see it work
+$Debug_LV = False ; 检查传递给 ListView 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $hListView, $iMemo
 
@@ -17,19 +17,19 @@ Func _Main()
 	$iMemo = GUICtrlCreateEdit("", 2, 124, 396, 174, 0)
 	GUISetState()
 
-	; Load images
+	; 加载图像
 	$hImage = _GUIImageList_Create()
 	_GUIImageList_Add($hImage, _GUICtrlListView_CreateSolidBitMap($hListView, 0xFF0000, 16, 16))
 	_GUIImageList_Add($hImage, _GUICtrlListView_CreateSolidBitMap($hListView, 0x00FF00, 16, 16))
 	_GUIImageList_Add($hImage, _GUICtrlListView_CreateSolidBitMap($hListView, 0x0000FF, 16, 16))
 	_GUICtrlListView_SetImageList($hListView, $hImage, 1)
 
-	; Add columns
+	; 添加列
 	_GUICtrlListView_InsertColumn($hListView, 0, "Column 1", 100)
 	_GUICtrlListView_InsertColumn($hListView, 1, "Column 2", 100)
 	_GUICtrlListView_InsertColumn($hListView, 2, "Column 3", 100)
 
-	; Add items
+	; 添加项目
 	_GUICtrlListView_AddItem($hListView, "Row 1: Col 1", 0)
 	_GUICtrlListView_AddSubItem($hListView, 0, "Row 1: Col 2", 1)
 	_GUICtrlListView_AddSubItem($hListView, 0, "Row 1: Col 3", 2)
@@ -39,11 +39,11 @@ Func _Main()
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
-	; Edit item 0 label with time out
+	; 编辑第一项标签超时了
 	Local $hEditLabel = _GUICtrlListView_EditLabel($hListView, 0)
 	MemoWrite("Edit Label Handle = 0x" & Hex($hEditLabel) & " IsPtr = " & IsPtr($hEditLabel) & " IsHWnd = " & IsHWnd($hEditLabel))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()
@@ -62,7 +62,7 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 	Switch $hWndFrom
 		Case $hWndListView
 			Switch $iCode
-				Case $LVN_BEGINLABELEDITA, $LVN_BEGINLABELEDITW ; Start of label editing for an item
+				Case $LVN_BEGINLABELEDITA, $LVN_BEGINLABELEDITW ; 开始项目的标签编辑
 					$tInfo = DllStructCreate($tagNMLVDISPINFO, $ilParam)
 					_DebugPrint("$LVN_BEGINLABELEDIT" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
@@ -78,9 +78,9 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->GroupID:" & @TAB & DllStructGetData($tInfo, "GroupID") & @LF & _
 							"-->Columns:" & @TAB & DllStructGetData($tInfo, "Columns") & @LF & _
 							"-->pColumns:" & @TAB & DllStructGetData($tInfo, "pColumns"))
-					Return False ; Allow the user to edit the label
-					;Return True  ; Prevent the user from editing the label
-				Case $LVN_COLUMNCLICK ; A column was clicked
+					Return False ; 允许用户编辑标签
+					;Return True  ; 阻止用户编辑标签
+				Case $LVN_COLUMNCLICK ; 点击了一列
 					$tInfo = DllStructCreate($tagNMLISTVIEW, $ilParam)
 					_DebugPrint("$LVN_COLUMNCLICK" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
@@ -93,8 +93,8 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->ActionX:" & @TAB & DllStructGetData($tInfo, "ActionX") & @LF & _
 							"-->ActionY:" & @TAB & DllStructGetData($tInfo, "ActionY") & @LF & _
 							"-->Param:" & @TAB & DllStructGetData($tInfo, "Param"))
-					; No return value
-				Case $LVN_DELETEITEM ; An item is about to be deleted
+					; 没有返回值
+				Case $LVN_DELETEITEM ; 即将删除一项
 					$tInfo = DllStructCreate($tagNMLISTVIEW, $ilParam)
 					_DebugPrint("$LVN_DELETEITEM" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
@@ -107,8 +107,8 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->ActionX:" & @TAB & DllStructGetData($tInfo, "ActionX") & @LF & _
 							"-->ActionY:" & @TAB & DllStructGetData($tInfo, "ActionY") & @LF & _
 							"-->Param:" & @TAB & DllStructGetData($tInfo, "Param"))
-					; No return value
-				Case $LVN_ENDLABELEDITA, $LVN_ENDLABELEDITW ; The end of label editing for an item
+					; 没有返回值
+				Case $LVN_ENDLABELEDITA, $LVN_ENDLABELEDITW ; 结束编辑某项的标签
 					$tInfo = DllStructCreate($tagNMLVDISPINFO, $ilParam)
 					Local $tBuffer = DllStructCreate("char Text[" & DllStructGetData($tInfo, "TextMax") & "]", DllStructGetData($tInfo, "Text"))
 					_DebugPrint("$LVN_ENDLABELEDIT" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
@@ -127,10 +127,10 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->GroupID:" & @TAB & DllStructGetData($tInfo, "GroupID") & @LF & _
 							"-->Columns:" & @TAB & DllStructGetData($tInfo, "Columns") & @LF & _
 							"-->pColumns:" & @TAB & DllStructGetData($tInfo, "pColumns"))
-					; If Text is not empty, return True to set the item's label to the edited text, return false to reject it
-					; If Text is empty the return value is ignored
+					; 如果 Text 非空, 返回 True 则设置项目标签为编辑的文本, 而返回 false 则丢弃编辑的文本
+					; 如果 Text 为空, 则忽略返回值
 					If StringLen(DllStructGetData($tBuffer, "Text")) Then Return True
-				Case $NM_CLICK ; Sent by a list-view control when the user clicks an item with the left mouse button
+				Case $NM_CLICK ; 当用户用鼠标左键点击了一项时由列表视图控件发送
 					$tInfo = DllStructCreate($tagNMITEMACTIVATE, $ilParam)
 					_DebugPrint("$NM_CLICK" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
@@ -144,8 +144,8 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->ActionY:" & @TAB & DllStructGetData($tInfo, "ActionY") & @LF & _
 							"-->lParam:" & @TAB & DllStructGetData($tInfo, "lParam") & @LF & _
 							"-->KeyFlags:" & @TAB & DllStructGetData($tInfo, "KeyFlags"))
-					; No return value
-				Case $NM_DBLCLK ; Sent by a list-view control when the user double-clicks an item with the left mouse button
+					; 没有返回值
+				Case $NM_DBLCLK ; 当用户用鼠标左键双击了一项时由列表视图控件发送
 					$tInfo = DllStructCreate($tagNMITEMACTIVATE, $ilParam)
 					_DebugPrint("$NM_DBLCLK" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
@@ -159,13 +159,13 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->ActionY:" & @TAB & DllStructGetData($tInfo, "ActionY") & @LF & _
 							"-->lParam:" & @TAB & DllStructGetData($tInfo, "lParam") & @LF & _
 							"-->KeyFlags:" & @TAB & DllStructGetData($tInfo, "KeyFlags"))
-					; No return value
-				Case $NM_KILLFOCUS ; The control has lost the input focus
+					; 没有返回值
+				Case $NM_KILLFOCUS ; 控件失去了输入焦点
 					_DebugPrint("$NM_KILLFOCUS" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; No return value
-				Case $NM_RCLICK ; Sent by a list-view control when the user clicks an item with the right mouse button
+					; 没有返回值
+				Case $NM_RCLICK ; 当用户用鼠标右键点击了一项时由列表视图发送
 					$tInfo = DllStructCreate($tagNMITEMACTIVATE, $ilParam)
 					_DebugPrint("$NM_RCLICK" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
@@ -179,9 +179,9 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->ActionY:" & @TAB & DllStructGetData($tInfo, "ActionY") & @LF & _
 							"-->lParam:" & @TAB & DllStructGetData($tInfo, "lParam") & @LF & _
 							"-->KeyFlags:" & @TAB & DllStructGetData($tInfo, "KeyFlags"))
-					;Return 1 ; not to allow the default processing
-					Return 0 ; allow the default processing
-				Case $NM_RDBLCLK ; Sent by a list-view control when the user double-clicks an item with the right mouse button
+					;Return 1 ; 不允许进行默认处理
+					Return 0 ; 允许进行默认处理
+				Case $NM_RDBLCLK ; 当用户用鼠标右键双击了一项时由列表视图控件发送
 					$tInfo = DllStructCreate($tagNMITEMACTIVATE, $ilParam)
 					_DebugPrint("$NM_RDBLCLK" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
@@ -195,17 +195,17 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->ActionY:" & @TAB & DllStructGetData($tInfo, "ActionY") & @LF & _
 							"-->lParam:" & @TAB & DllStructGetData($tInfo, "lParam") & @LF & _
 							"-->KeyFlags:" & @TAB & DllStructGetData($tInfo, "KeyFlags"))
-					; No return value
-				Case $NM_RETURN ; The control has the input focus and that the user has pressed the ENTER key
+					; 没有返回值
+				Case $NM_RETURN ; 控件有输入焦点且用户按下了回车键
 					_DebugPrint("$NM_RETURN" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; No return value
-				Case $NM_SETFOCUS ; The control has received the input focus
+					; 没有返回值
+				Case $NM_SETFOCUS ; 控件接收到输入焦点
 					_DebugPrint("$NM_SETFOCUS" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; No return value
+					; 没有返回值
 			EndSwitch
 	EndSwitch
 	Return $GUI_RUNDEFMSG
@@ -219,7 +219,7 @@ Func _DebugPrint($s_text, $line = @ScriptLineNumber)
 			"+======================================================" & @LF)
 EndFunc   ;==>_DebugPrint
 
-; Write a line to the memo control
+; 写入一行到 memo 控件
 Func MemoWrite($sMessage)
 	GUICtrlSetData($iMemo, $sMessage & @CRLF, 1)
 EndFunc   ;==>MemoWrite

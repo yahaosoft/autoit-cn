@@ -5,12 +5,12 @@ _Main()
 Func _Main()
 	Local $hWnd, $aInfo
 
-	; Open Notepad
+	; 打开记事本
 	Run("Notepad.exe")
 	WinWaitActive("[CLASS:Notepad]")
 	$hWnd = WinGetHandle("[CLASS:Notepad]")
 
-	; Get menu bar info
+	; 获取菜单栏信息
 	$aInfo = _GUICtrlMenu_GetMenuBarInfo($hWnd)
 	Writeln("Left ............: " & $aInfo[0])
 	Writeln("Top .............: " & $aInfo[1])
@@ -23,7 +23,7 @@ Func _Main()
 
 EndFunc   ;==>_Main
 
-; Write a line of text to Notepad
+; 写入一行文本到记事本
 Func Writeln($sText)
 	ControlSend("[CLASS:Notepad]", "", "Edit1", $sText & @CR)
 EndFunc   ;==>Writeln

@@ -5,16 +5,16 @@ _Main()
 Func _Main()
 	Local $hWnd, $hMenu, $iCount, $iI
 
-	; Open Notepad
+	; 打开记事本
 	Run("Notepad.exe")
 	WinWaitActive("[CLASS:Notepad]")
 	$hWnd = WinGetHandle("[CLASS:Notepad]")
 	$hMenu = _GUICtrlMenu_GetSystemMenu($hWnd)
 
-	; Play with system menu
+	; 玩弄系统菜单
 	_GUICtrlMenu_InsertMenuItem($hMenu, 5, "&AutoIt")
 
-	; Display system menu
+	; 显示系统菜单
 	$iCount = _GUICtrlMenu_GetItemCount($hMenu)
 	Writeln("System menu handle: 0x" & Hex($hMenu))
 	Writeln("Item count .......: " & $iCount)
@@ -24,7 +24,7 @@ Func _Main()
 
 EndFunc   ;==>_Main
 
-; Write a line of text to Notepad
+; 写入一行文本到记事本
 Func Writeln($sText)
 	ControlSend("Untitled - Notepad", "", "Edit1", $sText & @CR)
 EndFunc   ;==>Writeln

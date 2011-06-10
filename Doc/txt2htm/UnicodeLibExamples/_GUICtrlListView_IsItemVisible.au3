@@ -8,7 +8,7 @@ Func Example()
 	Local $listview, $msg, $iIndex
 
 	GUICreate("listview items", 220, 250, 100, 200)
-	GUISetBkColor(0x00E0FFFF) ; will change background color
+	GUISetBkColor(0x00E0FFFF) ; 将改变背景颜色
 
 	$listview = GUICtrlCreateListView("col1  |col2|col3  ", 10, 10, 200, 150);,$LVS_SORTDESCENDING)
 	For $x = 1 To 30

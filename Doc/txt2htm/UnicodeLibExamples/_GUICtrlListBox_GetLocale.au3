@@ -1,19 +1,19 @@
 ﻿#include <GUIListBox.au3>
 #include <GuiConstantsEx.au3>
 
-$Debug_LB = False ; Check ClassName being passed to ListBox functions, set to True and use a handle to another control to see it work
+$Debug_LB = False ; 检查传递给 ListBox 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 _Main()
 
 Func _Main()
 	Local $hListBox
 
-	; Create GUI
+	; 创建 GUI
 	GUICreate("List Box Get Locale", 400, 296)
 	$hListBox = GUICtrlCreateList("", 2, 2, 396, 296)
 	GUISetState()
 
-	; Show locale, country code, language identifier, primary language id, sub-language id
+	; 显示区域设置, 国家代码, 语言标识符, 主要语言标识符和分支语言标识符
 	MsgBox(4160, "Information", _
 			"Locale .................: " & _GUICtrlListBox_GetLocale($hListBox) & @LF & _
 			"Country code ........: " & _GUICtrlListBox_GetLocaleCountry($hListBox) & @LF & _
@@ -21,7 +21,7 @@ Func _Main()
 			"Primary Language id : " & _GUICtrlListBox_GetLocalePrimLang($hListBox) & @LF & _
 			"Sub-Language id ....: " & _GUICtrlListBox_GetLocaleSubLang($hListBox))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

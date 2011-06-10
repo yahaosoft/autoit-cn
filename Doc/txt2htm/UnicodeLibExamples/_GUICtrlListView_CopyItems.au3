@@ -36,7 +36,7 @@ Func _Main()
 	GUISetOnEvent($GUI_EVENT_MINIMIZE, "SpecialEvents")
 	GUISetOnEvent($GUI_EVENT_RESTORE, "SpecialEvents")
 
-	; need the handle because UDF function(s) are used to create the items
+	; 这里需要句柄因为要使用 UDF 函数创建项目
 	$hListView = GUICtrlGetHandle(GUICtrlCreateListView("", 2, 2, $width - 100, 268, BitOR($LVS_REPORT, $LVS_SHOWSELALWAYS), $WS_EX_CLIENTEDGE))
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, $exStyles)
 
@@ -82,7 +82,7 @@ Func _Main()
 	GUISetState(@SW_SHOW, $GUI2)
 	GUISetState(@SW_SHOW, $GUI1)
 
-	; Load images
+	; 加载图像
 	$hImage = _GUIImageList_Create(16, 16, 5, 3)
 	_GUIImageList_AddIcon($hImage, @SystemDir & "\shell32.dll", 13)
 	_GUIImageList_AddIcon($hImage, @SystemDir & "\shell32.dll", 14)
@@ -93,17 +93,17 @@ Func _Main()
 	_GUICtrlListView_SetImageList($hListView, $hImage, 1)
 	_GUICtrlListView_SetImageList($hListView2, $hImage, 1)
 
-	; Add columns
+	; 添加列
 	_GUICtrlListView_AddColumn($hListView, "Column 1", 120)
 	_GUICtrlListView_AddColumn($hListView, "Column 2", 100)
 	_GUICtrlListView_AddColumn($hListView, "Column 3", 100)
 
-	; Add columns
+	; 添加列
 	_GUICtrlListView_AddColumn($hListView2, "Column 1", 120)
 	_GUICtrlListView_AddColumn($hListView2, "Column 2", 100)
 	_GUICtrlListView_AddColumn($hListView2, "Column 3", 100)
 
-	; Add items
+	; 添加项目
 	_GUICtrlListView_AddItem($hListView, "Row 1: Col 1", 0)
 	_GUICtrlListView_AddSubItem($hListView, 0, "Row 1: Col 2", 1, 1)
 	_GUICtrlListView_AddSubItem($hListView, 0, "Row 1: Col 3", 2, 2)

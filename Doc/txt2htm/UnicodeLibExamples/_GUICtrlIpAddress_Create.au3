@@ -2,7 +2,7 @@
 #include <GuiIPAddress.au3>
 #include <WindowsConstants.au3>
 
-$Debug_IP = False ; Check ClassName being passed to IPAddress functions, set to True and use a handle to another control to see it work
+$Debug_IP = False ; 检查传递给 IPAddress 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $hIPAddress
 
@@ -19,7 +19,7 @@ Func _Main()
 
 	_GUICtrlIpAddress_Set($hIPAddress, "24.168.2.128")
 
-	; Wait for user to close GUI
+	; 等待用户关闭 GUI
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>_Main
@@ -35,14 +35,14 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 	Switch $hWndFrom
 		Case $hIPAddress
 			Switch $iCode
-				Case $IPN_FIELDCHANGED ; Sent when the user changes a field in the control or moves from one field to another
+				Case $IPN_FIELDCHANGED ; 当用户改变了控件中的一个地址段或从一个地址段移动到另一个时发送
 					$tInfo = DllStructCreate($tagNMIPADDRESS, $ilParam)
 					_DebugPrint("$IPN_FIELDCHANGED" & @LF & "--> hWndFrom:" & @TAB & DllStructGetData($tInfo, "hWndFrom") & @LF & _
 							"-->IDFrom:" & @TAB & DllStructGetData($tInfo, "IDFrom") & @LF & _
 							"-->Code:" & @TAB & DllStructGetData($tInfo, "Code") & @LF & _
 							"-->Field:" & @TAB & DllStructGetData($tInfo, "Field") & @LF & _
 							"-->Value:" & @TAB & DllStructGetData($tInfo, "Value"))
-					; The return value is ignored
+					; 忽略返回值
 			EndSwitch
 	EndSwitch
 	Return $GUI_RUNDEFMSG

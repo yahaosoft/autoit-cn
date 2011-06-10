@@ -27,8 +27,8 @@ Func Main()
 		$iMsg = GUIGetMsg()
 		Select
 			Case $iMsg = $GUI_EVENT_CLOSE
-				_GUICtrlRichEdit_Destroy($hRichEdit) ; needed unless script crashes
-;~ 				GUIDelete() 	; is OK too
+				_GUICtrlRichEdit_Destroy($hRichEdit) ; 除非脚本崩溃才需要
+;~ 				GUIDelete() 	; 同样行
 				Exit
 			Case $iMsg = $btnNext
 				$iCp += 1
@@ -67,6 +67,6 @@ Func GetWord($hWnd, $iCp, $fForward, $fStartOfWord, $fClass = False)
 		EndIf
 	EndIf
 	$iRet = _SendMessage($hWnd, $EM_FINDWORDBREAK, $iWparam, $iCp)
-	ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : $iWparam = ' & $iWparam & @CRLF & '>Error code: ' & @error & @CRLF) ;### Debug Console
+	ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : $iWparam = ' & $iWparam & @CRLF & '>Error code: ' & @error & @CRLF) ;### 调试控制台
 	Return $iRet
 EndFunc   ;==>GetWord

@@ -2,9 +2,9 @@
 #include <GuiListView.au3>
 #include <GuiImageList.au3>
 
-$Debug_LV = False ; Check ClassName being passed to ListView functions, set to True and use a handle to another control to see it work
+$Debug_LV = False ; 检查传递给 ListView 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
-Example_UDF_Created() ;use UDF built listview
+Example_UDF_Created() ;使用 UDF 建立列表视图
 
 Func Example_UDF_Created()
 	Local $GUI, $hImage, $aImage, $hListView
@@ -13,22 +13,22 @@ Func Example_UDF_Created()
 	$GUI = GUICreate("(UDF Created) ListView Set Background Image", 600, 550)
 
 	;=========================================================================================================
-	$hListView = _GUICtrlListView_Create($GUI, "", 2, 2, 596, 500, -1, -1, True) ; Last option Calls CoInitializeEx
+	$hListView = _GUICtrlListView_Create($GUI, "", 2, 2, 596, 500, -1, -1, True) ; 最后一个选项表示调用 CoInitializeEx
 	;=========================================================================================================
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, $exStyles)
-	; Load images
+	; 加载图像
 	$hImage = _GUIImageList_Create()
 	_GUIImageList_Add($hImage, _GUICtrlListView_CreateSolidBitMap($hListView, 0xFF0000, 16, 16))
 	_GUIImageList_Add($hImage, _GUICtrlListView_CreateSolidBitMap($hListView, 0x00FF00, 16, 16))
 	_GUIImageList_Add($hImage, _GUICtrlListView_CreateSolidBitMap($hListView, 0x0000FF, 16, 16))
 	_GUICtrlListView_SetImageList($hListView, $hImage, 1)
 
-	; Add columns
+	; 添加列
 	_GUICtrlListView_InsertColumn($hListView, 0, "Column 1", 100)
 	_GUICtrlListView_InsertColumn($hListView, 1, "Column 2", 100)
 	_GUICtrlListView_InsertColumn($hListView, 2, "Column 3", 100)
 
-	; Add items
+	; 添加项目
 	_GUICtrlListView_AddItem($hListView, "Row 1: Col 1", 0)
 	_GUICtrlListView_AddSubItem($hListView, 0, "Row 1: Col 2", 1)
 	_GUICtrlListView_AddSubItem($hListView, 0, "Row 1: Col 3", 2)
@@ -36,7 +36,7 @@ Func Example_UDF_Created()
 	_GUICtrlListView_AddSubItem($hListView, 1, "Row 2: Col 2", 1)
 	_GUICtrlListView_AddItem($hListView, "Row 3: Col 1", 2)
 
-	; Build groups
+	; 建立组
 	_GUICtrlListView_EnableGroupView($hListView)
 	_GUICtrlListView_InsertGroup($hListView, -1, 1, "Group 1")
 	_GUICtrlListView_InsertGroup($hListView, -1, 2, "Group 2")
@@ -48,12 +48,12 @@ Func Example_UDF_Created()
 ;~ 	_GUICtrlListView_SetTextColor ($hListView, $CLR_NONE)
 ;~ 	_GUICtrlListView_SetTextBkColor ($hListView, $CLR_NONE)
 
-	; Get the Image
+	; 获取图像
 	Local $sURL = "http://www.autoitscript.com/autoit3/files/graphics/autoit9_wall_grey_800x600.jpg"
 	Local $sFilePath = @ScriptDir & "\AutoIt.jpg"
 	InetGet($sURL, $sFilePath)
 
-	; Set the Background Image
+	; 设置背景图像
 	_GUICtrlListView_SetBkImage($hListView, $sFilePath)
 	$aImage = _GUICtrlListView_GetBkImage($hListView)
 
@@ -61,11 +61,11 @@ Func Example_UDF_Created()
 
 	MsgBox(4160, "Information", "Background Image: " & $aImage[1])
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	;=========================================================================================================
-	DllCall('ole32.dll', 'long', 'CoUinitialize') ; Must call for each CoInitializeEx call made
+	DllCall('ole32.dll', 'long', 'CoUinitialize') ; 必须为每个之前的 CoInitializeEx 调用此函数
 	;=========================================================================================================
 
 	GUIDelete()

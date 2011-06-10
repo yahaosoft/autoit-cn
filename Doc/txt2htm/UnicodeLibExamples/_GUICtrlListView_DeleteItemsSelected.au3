@@ -1,7 +1,7 @@
 ﻿#include <GuiConstantsEx.au3>
 #include <GuiListView.au3>
 
-$Debug_LV = False ; Check ClassName being passed to ListView functions, set to True and use a handle to another control to see it work
+$Debug_LV = False ; 检查传递给 ListView 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Example1()
 Example2()
@@ -15,7 +15,7 @@ Func Example1()
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, BitOR($LVS_EX_GRIDLINES, $LVS_EX_FULLROWSELECT))
 	GUISetState()
 
-	; 3 column load
+	; 加载三列
 	For $iI = 0 To 9
 		GUICtrlCreateListViewItem("Item " & $iI & "|Item " & $iI & "-1|Item " & $iI & "-2", $hListView)
 	Next
@@ -23,10 +23,10 @@ Func Example1()
 	_GUICtrlListView_SetItemSelected($hListView, Random(0, UBound($aItems) - 1, 1))
 
 	MsgBox(4160, "Information", "Delete Item Selected")
-	; Items created using UDF function(s), pass the handle to the control
+	; 使用 UDF 创建的项目, 传递句柄给控件
 	MsgBox(4160, "Deleted?", _GUICtrlListView_DeleteItemsSelected($hListView))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()
@@ -40,7 +40,7 @@ Func Example2()
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, BitOR($LVS_EX_GRIDLINES, $LVS_EX_FULLROWSELECT))
 	GUISetState()
 
-	; 3 column load
+	; 加载三列
 	For $iI = 0 To UBound($aItems) - 1
 		$aItems[$iI][0] = "Item " & $iI
 		$aItems[$iI][1] = "Item " & $iI & "-1"
@@ -52,10 +52,10 @@ Func Example2()
 	_GUICtrlListView_SetItemSelected($hListView, Random(0, UBound($aItems) - 1, 1))
 
 	MsgBox(4160, "Information", "Delete Item Selected")
-	; Items created using UDF function(s), pass the handle to the control
+	; 使用 UDF 创建的项目, 传递句柄给控件
 	MsgBox(4160, "Deleted?", _GUICtrlListView_DeleteItemsSelected(GUICtrlGetHandle($hListView)))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()
@@ -69,7 +69,7 @@ Func Example_UDF_Created()
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, BitOR($LVS_EX_GRIDLINES, $LVS_EX_FULLROWSELECT))
 	GUISetState()
 
-	; 3 column load
+	; 加载三列
 	For $iI = 0 To UBound($aItems) - 1
 		$aItems[$iI][0] = "Item " & $iI
 		$aItems[$iI][1] = "Item " & $iI & "-1"
@@ -81,10 +81,10 @@ Func Example_UDF_Created()
 	_GUICtrlListView_SetItemSelected($hListView, Random(0, UBound($aItems) - 1, 1))
 
 	MsgBox(4160, "Information", "Delete Item Selected")
-	; This is already a handle
+	; 这已经是个句柄
 	MsgBox(4160, "Deleted?", _GUICtrlListView_DeleteItemsSelected($hListView))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

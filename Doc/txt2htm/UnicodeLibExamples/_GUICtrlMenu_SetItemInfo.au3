@@ -5,14 +5,14 @@ _Main()
 Func _Main()
 	Local $hWnd, $hMain, $hFile, $tInfo
 
-	; Open Notepad
+	; 打开记事本
 	Run("Notepad.exe")
 	WinWaitActive("[CLASS:Notepad]")
 	$hWnd = WinGetHandle("[CLASS:Notepad]")
 	$hMain = _GUICtrlMenu_GetMenu($hWnd)
 	$hFile = _GUICtrlMenu_GetItemSubMenu($hMain, 0)
 
-	; Get/Set Open command ID
+	; 获取/设置打开子菜单的命令 ID
 	$tInfo = _GUICtrlMenu_GetItemInfo($hFile, 1)
 	Writeln("Open command ID: " & DllStructGetData($tInfo, "ID"))
 	DllStructSetData($tInfo, "ID", 0)
@@ -22,7 +22,7 @@ Func _Main()
 
 EndFunc   ;==>_Main
 
-; Write a line of text to Notepad
+; 写入一行文本到记事本
 Func Writeln($sText)
 	ControlSend("[CLASS:Notepad]", "", "Edit1", $sText & @CR)
 EndFunc   ;==>Writeln

@@ -18,7 +18,7 @@ Func _Example1()
 	$hListView = GUICtrlCreateListView("Column1|Col2|Col3", 10, 10, 280, 180, -1, $iExWindowStyle)
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, $iExListViewStyle)
 
-	; Load images
+	; 加载图像
 	$hImage = _GUIImageList_Create(18, 18, 5, 3)
 	_GUIImageList_AddIcon($hImage, @SystemDir & "\shell32.dll", -7)
 	_GUIImageList_AddIcon($hImage, @SystemDir & "\shell32.dll", -12)
@@ -44,7 +44,7 @@ Func _Example1()
 			Case $GUI_EVENT_CLOSE
 				ExitLoop
 			Case $hListView
-				; Kick off the sort callback
+				; 启用回调进行排序
 				_GUICtrlListView_SortItems($hListView, GUICtrlGetState($hListView))
 		EndSwitch
 	WEnd
@@ -63,7 +63,7 @@ Func _Example2()
 	$hListView = GUICtrlCreateListView("Column1|Col2|Col3", 10, 10, 280, 180, -1, $iExWindowStyle)
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, $iExListViewStyle)
 
-	; Load images
+	; 加载图像
 	$hImage = _GUIImageList_Create(18, 18, 5, 3)
 	_GUIImageList_AddIcon($hImage, @SystemDir & "\shell32.dll", -7)
 	_GUIImageList_AddIcon($hImage, @SystemDir & "\shell32.dll", -12)
@@ -137,12 +137,12 @@ Func _WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 	Switch $hWndFrom
 		Case $hWndListView, $hWndListView2
 			Switch $iCode
-				Case $LVN_COLUMNCLICK ; A column was clicked
+				Case $LVN_COLUMNCLICK ; 点击了一列
 					Local $tInfo = DllStructCreate($tagNMLISTVIEW, $ilParam)
 
-					; Kick off the sort callback
+					; 启用回调进行排序
 					_GUICtrlListView_SortItems($hWndFrom, DllStructGetData($tInfo, "SubItem"))
-					; No return value
+					; 没有返回值
 			EndSwitch
 	EndSwitch
 	Return $__LISTVIEWCONSTANT_GUI_RUNDEFMSG

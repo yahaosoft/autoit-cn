@@ -5,13 +5,13 @@ _Main()
 Func _Main()
 	Local $hWnd, $hMain
 
-	; Open Notepad
+	; 打开记事本
 	Run("Notepad.exe")
 	WinWaitActive("[CLASS:Notepad]")
 	$hWnd = WinGetHandle("[CLASS:Notepad]")
 	$hMain = _GUICtrlMenu_GetMenu($hWnd)
 
-	; Remove Help menu
+	; 移除帮助菜单
 	_GUICtrlMenu_RemoveMenu($hMain, 4)
 
 EndFunc   ;==>_Main
