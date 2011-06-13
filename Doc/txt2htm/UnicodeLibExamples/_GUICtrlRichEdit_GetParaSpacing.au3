@@ -22,8 +22,8 @@ Func Main()
 		$iMsg = GUIGetMsg()
 		Select
 			Case $iMsg = $GUI_EVENT_CLOSE
-				_GUICtrlRichEdit_Destroy($hRichEdit) ; needed unless script crashes
-;~ 				GUIDelete() 	; is OK too
+				_GUICtrlRichEdit_Destroy($hRichEdit) ; 除非脚本崩溃才需要
+;~ 				GUIDelete() 	; 同样行
 				Exit
 			Case $iMsg = $btnNext
 				$iStep += 1
@@ -40,7 +40,7 @@ Func Main()
 						_GUICtrlRichEdit_SetParaSpacing($hRichEdit, Default, .1)
 						Report("3. Change spacing of both paragraphs")
 					Case 4
-						; Stream all text to the Desktop so you can look at Indents settings in Word
+						; 把所有的文本流保存到桌面这样您可以在 Word 中查看缩进设置
 						_GUICtrlRichEdit_Deselect($hRichEdit)
 						_GUICtrlRichEdit_StreamToFile($hRichEdit, @DesktopDir & "\gcre.rtf")
 						GUICtrlSetState($btnNext, $GUI_DISABLE)

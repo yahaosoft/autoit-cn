@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the basic example, read the body Text
-;				(the content with all HTML tags removed) and display it in a MsgBox
+; 示例 1 - 打开含基本示例的浏览器, 准备好文本主体
+;				(所有 HTML 标签被移除后的内容) 并显示在 MsgBox
 ; *******************************************************
 
 #include <IE.au3>

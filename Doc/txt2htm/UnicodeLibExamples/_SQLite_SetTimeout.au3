@@ -13,16 +13,16 @@ $hDB_b = _SQLite_Open($sDatabase)
 _SQLite_Exec($hDB_a, "BEGIN EXCLUSIVE;")
 _SQLite_Exec($hDB_a, "CREATE TABLE test (a,b,c);")
 _SQLite_Exec($hDB_a, "INSERT INTO test VALUES (1,2,3);")
-; Table 'test' is Busy now...
+; 'test' 现在正忙...
 
 _SQLite_SetTimeout($hDB_b, 0)
 $iTimer = TimerInit()
-$iRval = _SQLite_Exec($hDB_b, "SELECT * FROM test") ; This will fail
+$iRval = _SQLite_Exec($hDB_b, "SELECT * FROM test") ; 此操作将失败
 MsgBox(0, "_SQLite_SetTimeout Example No Timeout", "Time: " & TimerDiff($iTimer) & @CRLF _
 		 & "Error: " & _SQLite_ErrMsg($hDB_b) & @CRLF)
 _SQLite_SetTimeout($hDB_b, 5000)
 $iTimer = TimerInit()
-$iRval = _SQLite_Exec($hDB_b, "SELECT * FROM test") ; This will fail
+$iRval = _SQLite_Exec($hDB_b, "SELECT * FROM test") ; 此操作将失败
 MsgBox(0, "_SQLite_SetTimeout Example 5 Sec Timeout", "Time: " & TimerDiff($iTimer) & @CRLF _
 		 & "Error: " & _SQLite_ErrMsg($hDB_b) & @CRLF)
 _SQLite_Exec($hDB_a, "END;")

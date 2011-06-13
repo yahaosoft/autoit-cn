@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Open browser with basic example, get link collection,
-;				loop through items and display the associated link URL references
+; 示例 1 - 打开含基本示例的浏览器, 获取链接集合,
+;				循环其中的每项并显示关联的 URL 引用
 ; *******************************************************
 
 #include <IE.au3>

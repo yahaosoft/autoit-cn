@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Open frameset example, get collection of frames
-;				and loop through them displaying their source URL's
+; 示例 1 - 打开框架集示例, 获取框架的集合
+;				对集合进行循环显示它们的源 URL
 ; *******************************************************
 
 #include <IE.au3>

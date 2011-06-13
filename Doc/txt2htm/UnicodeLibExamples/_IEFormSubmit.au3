@@ -1,5 +1,5 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the form example, fill in a form field and submit the form
+; 示例 1 - 打开含表单示例的浏览器, 填写表单字段并提交表单
 ; *******************************************************
 
 #include <IE.au3>
@@ -11,8 +11,8 @@ _IEFormElementSetValue($oText, "Hey! It works!")
 _IEFormSubmit($oForm)
 
 ; *******************************************************
-; Example 2 - Get a reference to a specific form element and set its value.
-;				In this case, submit a query to the Google search engine
+; 示例 2 - 获取到指定表单元素的引用并设置它的值.
+;				这里, 提交查询到谷歌搜索引擎
 ; *******************************************************
 
 #include <IE.au3>
@@ -24,8 +24,8 @@ _IEFormElementSetValue($oQuery, "AutoIt IE.au3")
 _IEFormSubmit($oForm)
 
 ; *******************************************************
-; Example 3 - Get a reference to a specific form element and set its value.
-;				Call _IELoadWait manually if the default _IELoadWait experiences trouble.
+; 示例 3 - 获取到指定表单元素的引用并设置它的值.
+;				如果默认的 _IELoadWait 感受不佳, 那么手动调用 _IELoadWait.
 ; *******************************************************
 
 #include <IE.au3>

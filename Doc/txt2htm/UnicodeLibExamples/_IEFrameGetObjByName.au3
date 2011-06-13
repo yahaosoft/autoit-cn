@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Open iFrame example, get a reference to the iFrame
-;				with a name of "iFrameTwo" and replace its body HTML
+; 示例 1 - 打开 iFrame 示例, 根据 "iFrameTwo" 名称获取到 iFrame 的引用
+;				并替换其正文 HTML
 ; *******************************************************
 
 #include <IE.au3>

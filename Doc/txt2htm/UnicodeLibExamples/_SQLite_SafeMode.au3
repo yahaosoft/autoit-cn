@@ -4,5 +4,5 @@
 _SQLite_Startup()
 ConsoleWrite("_SQLite_LibVersion=" & _SQLite_LibVersion() & @CRLF)
 _SQLite_SafeMode(False)
-_SQLite_Exec(-1, "CREATE tblTest (a,b,c);"); No database open, this will crash due to SafeMode = false
+_SQLite_Exec(-1, "CREATE tblTest (a,b,c);"); 没有打开数据库, 由于 SafeMode = false 所以这里将使脚本崩溃
 _SQLite_Shutdown()

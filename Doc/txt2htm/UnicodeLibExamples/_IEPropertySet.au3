@@ -1,7 +1,7 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the basic example, check to see if the
-;				addressbar is visible, if it is not turn it on. Then change
-;				the text displayed in the statusbar
+; 示例 1 - 打开含基本示例的浏览器, 检查
+;				地址栏是否可见, 如果没有则让其显示. 然后改变
+;				状态栏中显示的文本
 ; *******************************************************
 
 #include <IE.au3>

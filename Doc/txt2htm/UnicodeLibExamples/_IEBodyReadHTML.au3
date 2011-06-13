@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the basic example, ready the body HTML,
-;				append new HTML to the original and write it back to the browser
+; 示例 1 - 打开含基本示例的浏览器, 准备好 HTML 主体,
+;				附加新的 HTML 代码到其中并写回浏览器中
 ; *******************************************************
 
 #include <IE.au3>

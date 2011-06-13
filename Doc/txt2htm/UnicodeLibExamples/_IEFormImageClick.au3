@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the form example, click on the
-;				<input type=image> form element with matching alt text
+; 示例 1 - 打开含表单示例的浏览器, 点击
+;				匹配 alt 文本的 <input type=image> 表单元素
 ; *******************************************************
 
 #include <IE.au3>
@@ -9,8 +9,8 @@ Local $oIE = _IE_Example("form")
 _IEFormImageClick($oIE, "AutoIt Homepage", "alt")
 
 ; *******************************************************
-; Example 2 - Open a browser with the form example, click on the <input type=image>
-;				form element with matching img source URL (sub-string)
+; 示例 2 - 打开含表单示例的浏览器, 点击匹配 img 源 URL (子字符串) 的 <input type=image>
+;				表单元素
 ; *******************************************************
 
 #include <IE.au3>
@@ -19,8 +19,8 @@ $oIE = _IE_Example("form")
 _IEFormImageClick($oIE, "autoit_6_240x100.jpg", "src")
 
 ; *******************************************************
-; Example 3 - Open a browser with the form example, click on the
-;				<input type=image> form element with matching name
+; 示例 3 - 打开含表单示例的浏览器, 点击匹配名称的
+;				<input type=image> 表单元素
 ; *******************************************************
 
 #include <IE.au3>

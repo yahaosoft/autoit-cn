@@ -4,7 +4,7 @@
 #include <EditConstants.au3>
 #include <WindowsConstants.au3>
 
-$Debug_SB = False ; Check ClassName being passed to functions, set to True and use a handle to another control to see it work
+$Debug_SB = False ; 检查传递给函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $iMemo, $MainGUI, $hStatus
 
@@ -20,16 +20,16 @@ Func Example1()
 	Local $hGUI
 	Local $aParts[3] = [75, 150, -1]
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("(Example 1) StatusBar Create", 400, 300)
 
 	;===============================================================================
-	; defaults to 1 part, no text
+	; 默认为仅一个部分, 不含文本
 	$hStatus = _GUICtrlStatusBar_Create($hGUI)
 	;===============================================================================
 	_GUICtrlStatusBar_SetParts($hStatus, $aParts)
 
-	; Create memo control
+	; 创建 memo 控件
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 274, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	GUICtrlSendMsg($iMemo, $EM_SETREADONLY, True, 0)
@@ -40,12 +40,12 @@ Func Example1()
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
-	; Get border sizes
+	; 获取边框尺寸
 	MemoWrite("Horizontal border width .: " & _GUICtrlStatusBar_GetBordersHorz($hStatus))
 	MemoWrite("Vertical border width ...: " & _GUICtrlStatusBar_GetBordersVert($hStatus))
 	MemoWrite("Width between rectangles : " & _GUICtrlStatusBar_GetBordersRect($hStatus))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUISetState(@SW_ENABLE, $MainGUI)
@@ -57,15 +57,15 @@ Func Example2()
 	Local $hGUI
 	Local $aParts[3] = [75, 150, -1]
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("(Example 2) StatusBar Create", 400, 300)
 
 	;===============================================================================
-	; sets parts with no text
+	; 设置不含文本的各部分
 	$hStatus = _GUICtrlStatusBar_Create($hGUI, $aParts)
 	;===============================================================================
 
-	; Create memo control
+	; 创建 memo 控件
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 274, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	GUICtrlSendMsg($iMemo, $EM_SETREADONLY, True, 0)
@@ -77,12 +77,12 @@ Func Example2()
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
-	; Get border sizes
+	; 获取边框尺寸
 	MemoWrite("Horizontal border width .: " & _GUICtrlStatusBar_GetBordersHorz($hStatus))
 	MemoWrite("Vertical border width ...: " & _GUICtrlStatusBar_GetBordersVert($hStatus))
 	MemoWrite("Width between rectangles : " & _GUICtrlStatusBar_GetBordersRect($hStatus))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUISetState(@SW_ENABLE, $MainGUI)
@@ -95,15 +95,15 @@ Func Example3()
 	Local $aText[3] = ["Left Justified", @TAB & "Centered", @TAB & @TAB & "Right Justified"]
 	Local $aParts[3] = [100, 175, -1]
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("(Example 3) StatusBar Create", 400, 300)
 
 	;===============================================================================
-	;sets parts and text
+	; 设置含文本的各部分
 	$hStatus = _GUICtrlStatusBar_Create($hGUI, $aParts, $aText)
 	;===============================================================================
 
-	; Create memo control
+	; 创建 memo 控件
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 274, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	GUICtrlSendMsg($iMemo, $EM_SETREADONLY, True, 0)
@@ -116,12 +116,12 @@ Func Example3()
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
-	; Get border sizes
+	; 获取边框尺寸
 	MemoWrite("Horizontal border width .: " & _GUICtrlStatusBar_GetBordersHorz($hStatus))
 	MemoWrite("Vertical border width ...: " & _GUICtrlStatusBar_GetBordersVert($hStatus))
 	MemoWrite("Width between rectangles : " & _GUICtrlStatusBar_GetBordersRect($hStatus))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUISetState(@SW_ENABLE, $MainGUI)
@@ -133,15 +133,15 @@ Func Example4()
 	Local $hGUI
 	Local $aText[3] = ["Left Justified", @TAB & "Centered", @TAB & @TAB & "Right Justified"]
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("(Example 4) StatusBar Create", 400, 300)
 
 	;===============================================================================
-	; will create part widths based on part size passed in
+	; 根据传入的尺寸创建这样宽度的部分
 	$hStatus = _GUICtrlStatusBar_Create($hGUI, 100, $aText)
 	;===============================================================================
 
-	; Create memo control
+	; 创建 memo 控件
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 274, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	GUICtrlSendMsg($iMemo, $EM_SETREADONLY, True, 0)
@@ -154,12 +154,12 @@ Func Example4()
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
-	; Get border sizes
+	; 获取边框尺寸
 	MemoWrite("Horizontal border width .: " & _GUICtrlStatusBar_GetBordersHorz($hStatus))
 	MemoWrite("Vertical border width ...: " & _GUICtrlStatusBar_GetBordersVert($hStatus))
 	MemoWrite("Width between rectangles : " & _GUICtrlStatusBar_GetBordersRect($hStatus))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUISetState(@SW_ENABLE, $MainGUI)
@@ -172,16 +172,16 @@ Func Example5()
 	Local $aText[3] = ["Left Justified", @TAB & "Centered", @TAB & @TAB & "Right Justified"]
 	Local $aParts[2] = [100, 175]
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("(Example 5) StatusBar Create", 400, 300)
 
 
 	;===============================================================================
-	; adjusts array to largest array passed in (this time the text array is the largest)
+	; 调整数组到传入的最大数组 (此时文本数组最大)
 	$hStatus = _GUICtrlStatusBar_Create($hGUI, $aParts, $aText)
 	;===============================================================================
 
-	; Create memo control
+	; 创建 memo 控件
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 274, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	GUICtrlSendMsg($iMemo, $EM_SETREADONLY, True, 0)
@@ -194,12 +194,12 @@ Func Example5()
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
-	; Get border sizes
+	; 获取边框尺寸
 	MemoWrite("Horizontal border width .: " & _GUICtrlStatusBar_GetBordersHorz($hStatus))
 	MemoWrite("Vertical border width ...: " & _GUICtrlStatusBar_GetBordersVert($hStatus))
 	MemoWrite("Width between rectangles : " & _GUICtrlStatusBar_GetBordersRect($hStatus))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUISetState(@SW_ENABLE, $MainGUI)
@@ -212,15 +212,15 @@ Func Example6()
 	Local $aText[2] = ["Left Justified", @TAB & "Centered"]
 	Local $aParts[3] = [100, 175, -1]
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("(Example 6) StatusBar Create", 400, 300)
 
 	;===============================================================================
-	; adjusts array to largest array passed in (this time the part width array)
+	; 调整数组到传入的最大数组 (此时是含各部分宽度的数组)
 	$hStatus = _GUICtrlStatusBar_Create($hGUI, $aParts, $aText)
 	;===============================================================================
 
-	; Create memo control
+	; 创建 memo 控件
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 274, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	GUICtrlSendMsg($iMemo, $EM_SETREADONLY, True, 0)
@@ -233,19 +233,19 @@ Func Example6()
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
-	; Get border sizes
+	; 获取边框尺寸
 	MemoWrite("Horizontal border width .: " & _GUICtrlStatusBar_GetBordersHorz($hStatus))
 	MemoWrite("Vertical border width ...: " & _GUICtrlStatusBar_GetBordersVert($hStatus))
 	MemoWrite("Width between rectangles : " & _GUICtrlStatusBar_GetBordersRect($hStatus))
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUISetState(@SW_ENABLE, $MainGUI)
 	GUIDelete($hGUI)
 EndFunc   ;==>Example6
 
-; Write message to memo
+; 写入消息到 memo
 Func MemoWrite($sMessage = "")
 	GUICtrlSetData($iMemo, $sMessage & @CRLF, 1)
 EndFunc   ;==>MemoWrite
@@ -262,7 +262,7 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 	Switch $hWndFrom
 		Case $hStatus
 			Switch $iCode
-				Case $NM_CLICK ; The user has clicked the left mouse button within the control
+				Case $NM_CLICK ; 用户在控件中点击了鼠标左键
 					$tinfo = DllStructCreate($tagNMMOUSE, $ilParam)
 					$hWndFrom = HWnd(DllStructGetData($tinfo, "hWndFrom"))
 					$iIDFrom = DllStructGetData($tinfo, "IDFrom")
@@ -275,9 +275,9 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->X:" & @TAB & DllStructGetData($tinfo, "X") & @LF & _
 							"-->Y:" & @TAB & DllStructGetData($tinfo, "Y") & @LF & _
 							"-->HitInfo:" & @TAB & DllStructGetData($tinfo, "HitInfo"))
-					Return True ; indicate that the mouse click was handled and suppress default processing by the system
-;~ 					Return FALSE ;to allow default processing of the click.
-				Case $NM_DBLCLK ; The user has double-clicked the left mouse button within the control
+					Return True ; 表明处理了鼠标点击且取消系统的默认处理
+;~ 					Return FALSE ;允许对点击进行默认处理
+				Case $NM_DBLCLK ; 用户在控件中双击了鼠标左键
 					$tinfo = DllStructCreate($tagNMMOUSE, $ilParam)
 					$hWndFrom = HWnd(DllStructGetData($tinfo, "hWndFrom"))
 					$iIDFrom = DllStructGetData($tinfo, "IDFrom")
@@ -290,9 +290,9 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->X:" & @TAB & DllStructGetData($tinfo, "X") & @LF & _
 							"-->Y:" & @TAB & DllStructGetData($tinfo, "Y") & @LF & _
 							"-->HitInfo:" & @TAB & DllStructGetData($tinfo, "HitInfo"))
-					Return True ; indicate that the mouse click was handled and suppress default processing by the system
-;~ 					Return FALSE ;to allow default processing of the click.
-				Case $NM_RCLICK ; The user has clicked the right mouse button within the control
+					Return True ; 表明处理了鼠标点击且取消系统的默认处理
+;~ 					Return FALSE ;允许对点击进行默认处理
+				Case $NM_RCLICK ; 用户在控件中点击了鼠标右键
 					$tinfo = DllStructCreate($tagNMMOUSE, $ilParam)
 					$hWndFrom = HWnd(DllStructGetData($tinfo, "hWndFrom"))
 					$iIDFrom = DllStructGetData($tinfo, "IDFrom")
@@ -305,9 +305,9 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->X:" & @TAB & DllStructGetData($tinfo, "X") & @LF & _
 							"-->Y:" & @TAB & DllStructGetData($tinfo, "Y") & @LF & _
 							"-->HitInfo:" & @TAB & DllStructGetData($tinfo, "HitInfo"))
-					Return True ; indicate that the mouse click was handled and suppress default processing by the system
-;~ 					Return FALSE ;to allow default processing of the click.
-				Case $NM_RDBLCLK ; The user has clicked the right mouse button within the control
+					Return True ; 表明处理了鼠标点击且取消系统的默认处理
+;~ 					Return FALSE ;允许对点击进行默认处理
+				Case $NM_RDBLCLK ; 用户在控件中点击了鼠标右键
 					$tinfo = DllStructCreate($tagNMMOUSE, $ilParam)
 					$hWndFrom = HWnd(DllStructGetData($tinfo, "hWndFrom"))
 					$iIDFrom = DllStructGetData($tinfo, "IDFrom")
@@ -320,13 +320,13 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 							"-->X:" & @TAB & DllStructGetData($tinfo, "X") & @LF & _
 							"-->Y:" & @TAB & DllStructGetData($tinfo, "Y") & @LF & _
 							"-->HitInfo:" & @TAB & DllStructGetData($tinfo, "HitInfo"))
-					Return True ; indicate that the mouse click was handled and suppress default processing by the system
-;~ 					Return FALSE ;to allow default processing of the click.
-				Case $SBN_SIMPLEMODECHANGE ; Simple mode changes
+					Return True ; 表明处理了鼠标点击且取消系统的默认处理
+;~ 					Return FALSE ;允许对点击进行默认处理
+				Case $SBN_SIMPLEMODECHANGE ; 简单模式改变
 					_DebugPrint("$SBN_SIMPLEMODECHANGE" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-					; No return value
+					; 没有返回值
 			EndSwitch
 	EndSwitch
 	Return $GUI_RUNDEFMSG

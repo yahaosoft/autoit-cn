@@ -1,7 +1,7 @@
 ﻿#include <GuiConstantsEx.au3>
 #include <GuiStatusBar.au3>
 
-$Debug_SB = False ; Check ClassName being passed to functions, set to True and use a handle to another control to see it work
+$Debug_SB = False ; 检查传递给函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 _Main()
 
@@ -10,11 +10,11 @@ Func _Main()
 	Local $hGUI, $HandleBefore, $hStatus
 	Local $aParts[3] = [75, 150, -1]
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("StatusBar Destroy", 400, 300)
 
 	;===============================================================================
-	; defaults to 1 part, no text
+	; 默认为仅一个部分, 不含文本
 	$hStatus = _GUICtrlStatusBar_Create($hGUI)
 	;===============================================================================
 	_GUICtrlStatusBar_SetParts($hStatus, $aParts)
@@ -27,7 +27,7 @@ Func _Main()
 			"Handel Before Destroy: " & $HandleBefore & @LF & _
 			"Handle After Destroy: " & $hStatus)
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

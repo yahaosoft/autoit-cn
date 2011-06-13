@@ -7,7 +7,7 @@ If @error Then
 	Exit -1
 EndIf
 ConsoleWrite("_SQLite_LibVersion=" & _SQLite_LibVersion() & @CRLF)
-_SQLite_Open() ; Open a :memory: database
+_SQLite_Open() ; 打开 :memory: 数据库
 If @error Then
 	MsgBox(16, "SQLite Error", "Can't Load Database!")
 	Exit -1

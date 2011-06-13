@@ -3,7 +3,7 @@
 #include <GuiImageList.au3>
 #include <WindowsConstants.au3>
 
-$Debug_TV = False ; Check ClassName being passed to functions, set to True and use a handle to another control to see it work
+$Debug_TV = False ; 检查传递给函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 Global $hTreeView
 
@@ -43,7 +43,7 @@ Func _Main()
 
 	_GUICtrlTreeView_ClickItem($hTreeView, $hItem, "left", False, 2)
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()
@@ -62,30 +62,30 @@ Func WM_NOTIFY($hWnd, $iMsg, $iwParam, $ilParam)
 	Switch $hWndFrom
 		Case $hWndTreeview
 			Switch $iCode
-				Case $NM_CLICK ; The user has clicked the left mouse button within the control
+				Case $NM_CLICK ; 用户在控件中点击了鼠标左键
 					_DebugPrint("$NM_CLICK" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-;~ 					Return 1 ; nonzero to not allow the default processing
-					Return 0 ; zero to allow the default processing
-				Case $NM_DBLCLK ; The user has double-clicked the left mouse button within the control
+;~ 					Return 1 ; 非零值以不允许进行默认处理
+					Return 0 ; 零则允许进行默认处理
+				Case $NM_DBLCLK ; 用户在控件中双击了鼠标左键
 					_DebugPrint("$NM_DBLCLK" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-;~ 					Return 1 ; nonzero to not allow the default processing
-					Return 0 ; zero to allow the default processing
-				Case $NM_RCLICK ; The user has clicked the right mouse button within the control
+;~ 					Return 1 ; 非零值以不允许进行默认处理
+					Return 0 ; 零则允许进行默认处理
+				Case $NM_RCLICK ; 用户在控件中点击了鼠标右键
 					_DebugPrint("$NM_RCLICK" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-;~ 					Return 1 ; nonzero to not allow the default processing
-					Return 0 ; zero to allow the default processing
-				Case $NM_RDBLCLK ; The user has clicked the right mouse button within the control
+;~ 					Return 1 ; 非零值以不允许进行默认处理
+					Return 0 ; 零则允许进行默认处理
+				Case $NM_RDBLCLK ; 用户在控件中点击了鼠标右键
 					_DebugPrint("$NM_RDBLCLK" & @LF & "--> hWndFrom:" & @TAB & $hWndFrom & @LF & _
 							"-->IDFrom:" & @TAB & $iIDFrom & @LF & _
 							"-->Code:" & @TAB & $iCode)
-;~ 					Return 1 ; nonzero to not allow the default processing
-					Return 0 ; zero to allow the default processing
+;~ 					Return 1 ; 非零值以不允许进行默认处理
+					Return 0 ; 零则允许进行默认处理
 			EndSwitch
 	EndSwitch
 	Return $GUI_RUNDEFMSG

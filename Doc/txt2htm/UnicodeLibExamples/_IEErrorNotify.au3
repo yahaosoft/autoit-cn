@@ -1,5 +1,5 @@
 ﻿; *******************************************************
-; Example 1 - Check the current status of _IEErrorNotify, turn it off if on, on if off
+; 示例 1 - 检查 _IEErrorNotify 的当前状态, 如果打开则关闭它, 反之打开它
 ; *******************************************************
 
 #include <IE.au3>

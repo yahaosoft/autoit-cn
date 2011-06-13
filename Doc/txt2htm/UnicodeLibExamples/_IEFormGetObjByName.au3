@@ -1,7 +1,7 @@
 ﻿; *******************************************************
-; Example 1 - Get a reference to a specific form by name.  In this case, submit a query
-;				to the Google search engine.  Note that the names of the form and form
-;				elements can be found by viewing the page HTML source
+; 示例 1 - 根据名称获取到指定表单的引用.  这里, 提交查询
+;				到谷歌搜索引擎.  注意表单名称和表单
+;				元素可以查看 HTML 源代码找到
 ; *******************************************************
 
 #include <IE.au3>

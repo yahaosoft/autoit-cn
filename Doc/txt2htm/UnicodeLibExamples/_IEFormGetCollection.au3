@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Get a reference to a specific form by 0-based index,
-;				in this case the first form on the page
+; 示例 1 - 根据基于 0 的索引获取到指定表单的引用,
+;				此时是页面上首个表单
 ; *******************************************************
 
 #include <IE.au3>
@@ -12,8 +12,8 @@ _IEFormElementSetValue($oQuery, "AutoIt IE.au3")
 _IEFormSubmit($oForm)
 
 ; *******************************************************
-; Example 2 - Get a reference to the collection of forms on a page,
-;				and then loop through them displaying information for each
+; 示例 2 - 获取到页面上表单集合的引用,
+;				然后对其进行循环显示其中每个的信息
 ; *******************************************************
 
 #include <IE.au3>
@@ -26,9 +26,9 @@ For $oForm In $oForms
 Next
 
 ; *******************************************************
-; Example 3 - Get a reference to the collection of forms on a page,
-;				and then loop through them displaying information for each
-;				demonstrating use of form index
+; 示例 3 - 获取到页面上表单集合的引用,
+;				然后对其进行循环显示其中每个的信息
+;				演示表单索引的使用
 ; *******************************************************
 
 #include <IE.au3>

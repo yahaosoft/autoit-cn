@@ -1,7 +1,7 @@
 ﻿; *******************************************************
-; Example 1 - Create browser windows with each of the example pages displayed.
-;				The object variable returned can be used just as the object
-;				variables returned by _IECreate or _IEAttach
+; 示例 1 - 创建显示每种示例页面的浏览器窗口.
+;				返回的对象变量可以像
+;				_IECreate 或 _IEAttach 返回的对象变量一样使用
 ; *******************************************************
 
 #include <IE.au3>

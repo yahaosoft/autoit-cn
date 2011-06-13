@@ -1,23 +1,23 @@
 ﻿; *******************************************************
-; Example 1 - Register and later deregister a custom and the default IE.au3 error handler
+; 示例 1 - 注册并在后来取消注册自定义和默认 IE.au3 错误处理程序
 ; *******************************************************
 
 #include <IE.au3>
 
-; Register a customer error handler
+; 注册自定义错误处理程序
 _IEErrorHandlerRegister("MyErrFunc")
-; Do something
-; Deregister the customer error handler
+; 执行一些操作
+; 取消注册自定义错误处理程序
 _IEErrorHandlerDeRegister()
-; Do something else
-; Register the default IE.au3 COM Error Handler
+; 执行其他操作
+; 注册默认 IE.au3 COM 错误处理程序
 _IEErrorHandlerRegister()
-; Do more work
+; 执行更多操作
 
 Exit
 
 Func MyErrFunc()
-	; Important: the error object variable MUST be named $oIEErrorHandler
+	; 重要提示: 错误对象变量名称必须为 $oIEErrorHandler
 	Local $ErrorScriptline = $oIEErrorHandler.scriptline
 	Local $ErrorNumber = $oIEErrorHandler.number
 	Local $ErrorNumberHex = Hex($oIEErrorHandler.number, 8)

@@ -1,7 +1,7 @@
 ﻿; *******************************************************
-; Example 1 - Create browser at AutoIt homepage, get a reference to
-;				the 6th Image on the page (note: the first image is index 0)
-;				and display information about it
+; 示例 1 - 创建浏览器并打开 AutoIt 主页, 获取到
+;				页面中第 6 幅图像的引用 (注意: 首幅图像索引为 0)
+;				并显示其信息
 ; *******************************************************
 
 #include <IE.au3>
@@ -16,8 +16,8 @@ $sInfo &= "Border: " & $oImg.border
 MsgBox(0, "4th Image Info", $sInfo)
 
 ; *******************************************************
-; Example 2 - Create browser at AutoIt homepage, get Img collection
-;				and display src URL for each
+; 示例 2 - 创建浏览器并打开 AutoIt 主页, 获取 Img 集合
+;				并显示其中每个的源 URL
 ; *******************************************************
 
 #include <IE.au3>

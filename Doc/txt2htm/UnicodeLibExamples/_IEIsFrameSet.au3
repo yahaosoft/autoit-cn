@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Display the frameset example, get frame collection,
-;				check number of frames, display number of frames or iFrames present
+; 示例 1 - 显示框架集示例, 获取框架集合,
+;				检查框架数目, 显示现在的框架或 iFrames 的数目
 ; *******************************************************
 
 #include <IE.au3>

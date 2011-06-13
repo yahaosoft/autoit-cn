@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Open browser with basic example, click on the 3rd
-;				link on the page (note: the first link is index 0)
+; 示例 1 - 打开含基本示例的浏览器, 点击页面上的
+;				第三个链接 (注意: 首个链接索引为 0)
 ; *******************************************************
 
 #include <IE.au3>

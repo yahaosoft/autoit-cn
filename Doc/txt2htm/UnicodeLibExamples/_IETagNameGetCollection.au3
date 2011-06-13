@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the form example, get the collection
-;				of all INPUT tags and display the formname and type of each
+; 示例 1 - 打开含表单示例的浏览器, 获取到
+;				所有 INPUT 标记的集合并显示其中每个的表单名称和类型
 ; *******************************************************
 
 #include <IE.au3>

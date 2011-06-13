@@ -3,7 +3,7 @@
 #include <WinAPI.au3>
 #include <Constants.au3>
 
-$Debug_SB = False ; Check ClassName being passed to functions, set to True and use a handle to another control to see it work
+$Debug_SB = False ; 检查传递给函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 _Main()
 
@@ -12,20 +12,20 @@ Func _Main()
 	Local $hGUI, $hStatus
 	Local $aParts[3] = [75, 150, -1]
 
-	; Create GUI
+	; 创建 GUI
 	$hGUI = GUICreate("(Example 1) StatusBar Set BkColor", 400, 300)
 	$hStatus = _GUICtrlStatusBar_Create($hGUI)
 	GUISetState()
 
-	; Set parts
+	; 设置某部分
 	_GUICtrlStatusBar_SetParts($hStatus, $aParts)
 	_GUICtrlStatusBar_SetText($hStatus, "Part 1")
 	_GUICtrlStatusBar_SetText($hStatus, "Part 2", 1)
 
-	; Set background color
+	; 设置背景颜色
 	_GUICtrlStatusBar_SetBkColor($hStatus, $CLR_MONEYGREEN)
 
-	; Loop until user exits
+	; 循环直到用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

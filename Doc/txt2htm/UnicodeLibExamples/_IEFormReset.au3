@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the form example, fill in a form field and
-;				reset the form back to default values
+; 示例 1 - 打开含表单示例的浏览器, 填写表单字段
+;				并复位表单为默认值
 ; *******************************************************
 
 #include <IE.au3>

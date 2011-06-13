@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the form example, set the value of a text
-;				form element, retrieve and display the value from the element
+; 示例 1 - 打开含表单示例的浏览器, 设置
+;				文本表单元素的值, 获取并显示元素的值
 ; *******************************************************
 
 #include <IE.au3>

@@ -1,5 +1,5 @@
 ﻿; *******************************************************
-; Example 1 - Insert HTML at the top and bottom of a document
+; 示例 1 - 插入 HTML 到 document 的顶部和底部
 ; *******************************************************
 
 #include <IE.au3>
@@ -10,8 +10,8 @@ _IEDocInsertHTML($oBody, "<h2>This HTML is inserted After Begin</h2>", "afterbeg
 _IEDocInsertHTML($oBody, "<h2>This HTML is inserted Before End</h2>", "beforeend")
 
 ; *******************************************************
-; Example 2 - Open a browser with the basic example page, insert HTML
-;		in and around the DIV tag named "IEAu3Data" and display Body HTML
+; 示例 2 - 打开含基本示例页面的浏览器, 插入 HTML
+;		到名称为 "IEAu3Data" 的 DIV 标签的内部和周围并显示 HTML 主体
 ; *******************************************************
 
 #include <IE.au3>
@@ -27,19 +27,19 @@ _IEDocInsertHTML($oDiv, "<i>(HTML afterend)</i>", "afterend")
 ConsoleWrite(_IEBodyReadHTML($oIE) & @CRLF)
 
 ; *******************************************************
-; Example 3 - Advanced example
+; 示例 3 - 高级示例
 ;		Insert a clock and a referrer string at the top of every page, even when you
-;		browse to a new location.  Uses _IEDocInsertText, _IEDocInsertHTML and
-;		_IEPropertySet features "innerhtml" and "referrer"
+;		browse to a new location.  使用 _IEDocInsertText, _IEDocInsertHTML 和
+;		_IEPropertySet 特别用在 "innerhtml" 和 "referrer" 上
 ; *******************************************************
 
 #include <IE.au3>
 
 $oIE = _IECreate("http://www.autoitscript.com")
 
-AdlibRegister("UpdateClock", 1000) ; Update clock once per second
+AdlibRegister("UpdateClock", 1000) ; 每秒更新时钟一次
 
-; idle as long as the browser window exists
+; 只有浏览器窗口还存在则空闲
 While WinExists(_IEPropertyGet($oIE, "hwnd"))
 	Sleep(10000)
 WEnd
@@ -48,13 +48,13 @@ Exit
 
 Func UpdateClock()
 	Local $curTime = "<b>Current Time is: </b>" & @HOUR & ":" & @MIN & ":" & @SEC
-	; _IEGetObjByName is expected to return a NoMatch error after navigation
-	;   (before DIV is inserted), so temporarily turn off notification
+	; 预期中在导航后 _IEGetObjByName 会返回 NoMatch 错误
+	;   (插入 DIV 之前), 所以临时关闭通告
 	_IEErrorNotify(False)
 	Local $oAutoItClock = _IEGetObjByName($oIE, "AutoItClock")
-	If Not IsObj($oAutoItClock) Then ; Insert DIV element if it wasn't found
+	If Not IsObj($oAutoItClock) Then ; 如果没有找到则插入 DIV 元素
 		;
-		; Get reference to BODY, insert DIV, get reference to DIV, update time
+		; 获取到 BODY 的引用, 插入 DIV, 获取到 DIV 的引用, 更新时间
 		Local $oBody = _IETagNameGetCollection($oIE, "body", 0)
 		_IEDocInsertHTML($oBody, "<div id='AutoItClock'></div>", "afterbegin")
 		$oAutoItClock = _IEGetObjByName($oIE, "AutoItClock")
@@ -66,7 +66,7 @@ Func UpdateClock()
 		If $sReferrer Then _IEDocInsertText($oAutoItClock, _
 				"  Referred by: " & $sReferrer, "afterend")
 	Else
-		_IEPropertySet($oAutoItClock, "innerhtml", $curTime) ; update time
+		_IEPropertySet($oAutoItClock, "innerhtml", $curTime) ; 更新时间
 	EndIf
 	_IEErrorNotify(True)
 EndFunc   ;==>UpdateClock

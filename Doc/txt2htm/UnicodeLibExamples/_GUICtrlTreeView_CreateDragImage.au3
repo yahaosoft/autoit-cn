@@ -4,7 +4,7 @@
 #include <WinAPI.au3>
 #include <WindowsConstants.au3>
 
-$Debug_TV = False ; Check ClassName being passed to functions, set to True and use a handle to another control to see it work
+$Debug_TV = False ; 检查传递给函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 
 _Main()
 
@@ -18,7 +18,7 @@ Func _Main()
 
 	GUISetState()
 
-	; Load images
+	; 加载图像
 	$hImage = _GUIImageList_Create(16, 16, 5, 3)
 	_GUIImageList_AddIcon($hImage, "shell32.dll", 110)
 	_GUIImageList_AddIcon($hImage, "shell32.dll", 131)
@@ -43,7 +43,7 @@ Func _Main()
 	_GUICtrlTreeView_EndUpdate($hTreeView)
 	_GUICtrlTreeView_SelectItem($hTreeView, 0)
 
-	; Loop until user exits
+	; 循环直到用户退出
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_MOUSEMOVE
@@ -53,7 +53,7 @@ Func _Main()
 				Local $hSelected = _GUICtrlTreeView_GetSelection($hTreeView)
 				If $hSelected Then
 					$fDragging = True
-					; Create drag image
+					; 创建拖动时的图像
 					$aDrag = _GUICtrlTreeView_CreateDragImage($hTreeView, $hSelected)
 					DrawDragImage($hTreeView, $aDrag)
 				EndIf
@@ -61,7 +61,7 @@ Func _Main()
 			Case $GUI_EVENT_PRIMARYUP
 				If $fDragging Then
 					$fDragging = False
-					; delete image list
+					; 删除图像列表
 					_GUIImageList_Destroy($aDrag)
 					_WinAPI_InvalidateRect($hTreeView)
 					_WinAPI_InvalidateRect(HWnd($GUI))
@@ -73,7 +73,7 @@ Func _Main()
 	GUIDelete()
 EndFunc   ;==>_Main
 
-; Draw drag image
+; 描绘拖动的图像
 Func DrawDragImage(ByRef $hControl, ByRef $aDrag)
 	Local $tPoint, $hDC
 	$hDC = _WinAPI_GetWindowDC($hControl)

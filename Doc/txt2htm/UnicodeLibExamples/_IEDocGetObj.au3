@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser to the AutoIt Homepage, get a reference
-;				to the document object and display a document attribute
+; 示例 1 - 打开浏览器并导航到 AutoIt 主页, 获取到
+;				document 对象的引用并显示文档属性
 ; *******************************************************
 
 #include <IE.au3>

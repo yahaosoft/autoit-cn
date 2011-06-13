@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Get a reference to a specific form element by 0-based index.
-;				In this case, submit a query to the Google search engine
+; 示例 1 - 根据基于 0 的索引获取到特定表单元素的引用.
+;				这里, 提交查询到谷歌搜索引擎
 ; *******************************************************
 
 #include <IE.au3>

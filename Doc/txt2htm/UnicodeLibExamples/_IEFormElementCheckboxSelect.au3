@@ -1,8 +1,8 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the form example, get reference to form, select and
-;				deselect the checkboxes byValue.  Since $s_Name is not specified, operate
-;				on the collection of all <input type=checkbox> elements in the form
-;				Note: You will likely need to scroll down on the page to see the changes
+; 示例 1 - 打开含表单示例的浏览器, 获取到表单的引用, 通过
+;				byValue 模式选择或取消选择复选框.  由于没有指定 $s_Name, 所以会作用于
+;				表单中所有 <input type=checkbox> 元素的集合上
+;				注意: 您可能需要往下滚动页面来查看发生的变化
 ; *******************************************************
 
 #include <IE.au3>
@@ -29,10 +29,10 @@ For $i = 1 To 5
 Next
 
 ; *******************************************************
-; Example 2 - Open a browser with the form example, get reference to form, select and
-;				deselect the checkboxes byIndex.  Since $s_Name is not specified, operate
-;				on the collection of all <input type=checkbox> elements in the form
-;				Note: You will likely need to scroll down on the page to see the changes
+; 示例 2 - 打开含表单示例的浏览器, 获取到表单的引用, 通过
+;				byIndex 模式选择或取消选择复选框.  由于没有指定 $s_Name, 所以会作用于
+;				表单中所有 <input type=checkbox> 元素的集合上
+;				注意: 您可能需要往下滚动页面来查看发生的变化
 ; *******************************************************
 
 #include <IE.au3>
@@ -59,9 +59,9 @@ For $i = 1 To 5
 Next
 
 ; *******************************************************
-; Example 3 - Open a browser with the form example, get reference to form, select and
-;				deselect the checkboxes byIndex in the group that shares the name checkboxG2Example
-;				Note: You will likely need to scroll down on the page to see the changes
+; 示例 3 - 打开含表单示例的浏览器, 获取到表单的引用, 通过
+;				byIndex 模式选择或取消选择名称为 checkboxG2Example 的组里面的复选框
+;				注意: 您可能需要往下滚动页面来查看发生的变化
 ; *******************************************************
 
 #include <IE.au3>

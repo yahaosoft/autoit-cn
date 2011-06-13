@@ -1,7 +1,7 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the form example, get reference to form, get reference
-;				to select element, cycle 10 times selecting options byValue, byText and byIndex
-;				Note: You will likely need to scroll down on the page to see the changes
+; 示例 1 - 打开含表单示例的浏览器, 获取到表单的引用, 获取
+;				到选择元素的引用, 根据 byValue, byText 和 byIndex 循环十次进行选择
+;				注意: 您可能需要往下滚动页面来查看发生的变化
 ; *******************************************************
 
 #include <IE.au3>
@@ -19,10 +19,10 @@ For $i = 1 To 10
 Next
 
 ; *******************************************************
-; Example 2 - Open a browser with the form example, get reference to form, get reference
-;				to select multiple element, cycle 5 times selecting and then deselecting
-;				options byValue, byText and byIndex.
-;				Note: You will likely need to scroll down on the page to see the changes
+; 示例 2 - 打开含表单示例的浏览器, 获取到表单的引用, 获取
+;				到选择的多个元素的引用, 循环 5 次进行选择然后取消选择
+;				选项 byValue, byText 和 byIndex.
+;				注意: 您可能需要往下滚动页面来查看发生的变化
 ; *******************************************************
 
 #include <IE.au3>
@@ -46,11 +46,11 @@ For $i = 1 To 5
 Next
 
 ; *******************************************************
-; Example 3 - Open a browser with the form example, get reference to form, get reference
-;				to select element, check to see if the option "Freepage" is selected and
-;				report result.  Repeat for the option with index 0 and for the option
-;				with value of 'midipage.html'
-;				Note: You will likely need to scroll down on the page to see the changes
+; 示例 3 - 打开含表单示例的浏览器, 获取到表单的引用, 获取
+;				到选择的元素的引用, 检查是否选择了 "Freepage" 选项并
+;				报告结果.  加上 index 0 和
+;				'midipage.html' 的选项值重复操作
+;				注意: 您可能需要往下滚动页面来查看发生的变化
 ; *******************************************************
 ;
 #include <IE.au3>

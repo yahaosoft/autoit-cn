@@ -1,15 +1,15 @@
 ﻿; *******************************************************
-; Example 1 - Register and later deregister a custom error handler
+; 示例 1 - 注册并在后来取消注册自定义错误处理程序
 ; *******************************************************
 
 #include <IE.au3>
 
-; Register a customer error handler
+; 注册自定义错误处理程序
 _IEErrorHandlerRegister("MyErrFunc")
-; Do something
-; Deregister the customer error handler
+; 执行一些操作
+; 取消注册自定义错误处理程序
 _IEErrorHandlerDeRegister()
-; Do something else
+; 执行其他操作
 
 Exit
 
@@ -18,5 +18,5 @@ Func MyErrFunc()
 	MsgBox(0, "", "We intercepted a COM Error !" & @CRLF & _
 			"Number is: " & $HexNumber & @CRLF & _
 			"Windescription is: " & $oIEErrorHandler.windescription)
-	SetError(1) ; something to check for when this function returns
+	SetError(1) ; 当此函数返回时用来检查的一些信息
 EndFunc   ;==>MyErrFunc

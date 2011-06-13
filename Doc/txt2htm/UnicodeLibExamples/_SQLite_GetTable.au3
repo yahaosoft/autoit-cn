@@ -10,14 +10,14 @@ If @error Then
 	Exit -1
 EndIf
 ConsoleWrite("_SQLite_LibVersion=" & _SQLite_LibVersion() & @CRLF)
-_SQLite_Open() ; Open a :memory: database
+_SQLite_Open() ; 打开 :memory: 数据库
 If @error Then
 	MsgBox(16, "SQLite Error", "Can't Load Database!")
 	Exit -1
 EndIf
 
-;Example Table
-; 	Name        | Age
+;示例表
+; 	名字        | 年龄
 ; 	-----------------------
 ; 	Alice       | 43
 ; 	Bob         | 28
@@ -32,7 +32,7 @@ If Not _SQLite_Exec(-1, "INSERT INTO persons VALUES ('Bob','28');") = $SQLITE_OK
 If Not _SQLite_Exec(-1, "INSERT INTO persons VALUES ('Cindy','21');") = $SQLITE_OK Then _
 		MsgBox(16, "SQLite Error", _SQLite_ErrMsg())
 
-; Query
+; 查询
 $iRval = _SQLite_GetTable(-1, "SELECT * FROM persons;", $aResult, $iRows, $iColumns)
 If $iRval = $SQLITE_OK Then
 ;~ 	$aResult Looks Like this:

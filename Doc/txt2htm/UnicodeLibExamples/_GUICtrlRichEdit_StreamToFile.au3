@@ -22,10 +22,10 @@ Func Main()
 	Sleep(1000)
 	MsgBox(4096, "", "Border settings of first paragraph in the selection are " & _GUICtrlRichEdit_GetParaBorder($hRichEdit))
 
-	; Change from outside border to left border
+	; 从外边框改变为左边框
 	_GUICtrlRichEdit_SetParaBorder($hRichEdit, "l")
 
-	; Stream all text to the Desktop so you can look at border settings in Word
+	; 把所有的文本流保存到桌面这样您可以在 Word 中查看边框设置
 	_GUICtrlRichEdit_Deselect($hRichEdit)
 	_GUICtrlRichEdit_StreamToFile($hRichEdit, @DesktopDir & "\gcre.rtf")
 
@@ -33,8 +33,8 @@ Func Main()
 		$iMsg = GUIGetMsg()
 		Select
 			Case $iMsg = $GUI_EVENT_CLOSE
-				_GUICtrlRichEdit_Destroy($hRichEdit) ; needed unless script crashes
-;~ 				GUIDelete() 	; is OK too
+				_GUICtrlRichEdit_Destroy($hRichEdit) ; 除非脚本崩溃才需要
+;~ 				GUIDelete() 	; 同样行
 				Exit
 		EndSelect
 	WEnd

@@ -4,7 +4,7 @@
 _SQLite_Startup()
 ConsoleWrite("_SQLite_LibVersion=" & _SQLite_LibVersion() & @CRLF)
 Local $sTestString, $i, $aRow
-For $i = 1 To 32 * 1024 ; a large number of characters in Unicode plane 0
+For $i = 1 To 32 * 1024 ; 大量 Unicode 平面 0 中的字符
 	$sTestString &= ChrW($i)
 Next
 _SQLite_Open()

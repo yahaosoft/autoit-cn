@@ -1,7 +1,7 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser to the basic example, get an object reference
-;				to the DIV element with the ID "line1". Display the innerText
-;				of this element to the console.
+; 示例 1 - 打开含基本示例的浏览器, 获取到
+;				ID 为 "line1" 的 DIV 元素的对象引用. 显示此元素的 innerText
+;				到控制台.
 ; *******************************************************
 
 #include <IE.au3>

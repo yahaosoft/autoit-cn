@@ -1,7 +1,7 @@
 ﻿; *******************************************************
-; Example 1 - Trap COM errors so that 'Back' and 'Forward'
-;				outside of history bounds does not abort script
-;				(expect COM errors to be sent to the console)
+; 示例 1 - 阻止 COM 错误这样
+;				在历史记录中 '后退' 和 '前进' 时不会中止脚本
+;				(预期中 COM 错误被发送到控制台)
 ; *******************************************************
 
 #include <GUIConstantsEx.au3>
@@ -20,11 +20,11 @@ Local $GUI_Button_Forward = GUICtrlCreateButton("Forward", 120, 420, 100, 30)
 Local $GUI_Button_Home = GUICtrlCreateButton("Home", 230, 420, 100, 30)
 Local $GUI_Button_Stop = GUICtrlCreateButton("Stop", 340, 420, 100, 30)
 
-GUISetState() ;Show GUI
+GUISetState() ;显示 GUI
 
 _IENavigate($oIE, "http://www.autoitscript.com")
 
-; Waiting for user to close the window
+; 等待用户关闭窗口
 While 1
 	Local $msg = GUIGetMsg()
 	Select

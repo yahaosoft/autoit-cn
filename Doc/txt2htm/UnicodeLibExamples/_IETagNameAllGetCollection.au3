@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Open a browser with the basic example, get the collection
-;				of all elements and display the tagname and innerText of each
+; 示例 1 - 打开含基本示例的浏览器, 获取到
+;				所有元素的集合并显示其中每个的 tagname 和 innerText
 ; *******************************************************
 
 #include <IE.au3>
