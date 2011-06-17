@@ -1,7 +1,7 @@
 ﻿#include <Date.au3>
 #include <WinAPI.au3>
 
-; 由于系统安全性在 Vista 中 Windows API "SetSystemTimeAdjustment" 可能被拒绝
+; 由于系统安全性,在 Vista 中 Windows API "SetSystemTimeAdjustment" 可能被拒绝
 
 _Main()
 

@@ -2,7 +2,7 @@
 #include <Date.au3>
 #include <WindowsConstants.au3>
 
-; 由于系统安全性在 Vista 中 Windows API "SetLocalTime" 可能被拒绝
+; 由于系统安全性,在 Vista 中 Windows API "SetLocalTime" 可能被拒绝
 
 Global $iMemo
 
