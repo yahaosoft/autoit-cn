@@ -9,6 +9,6 @@ _Crypt_Startup()
 MsgBox(0, "MD5", $sTest & @CRLF & _Crypt_HashData($sTest, $CALG_MD5))
 _Crypt_Shutdown()
 
-; 没有时进行测试
+; 没有初始化加密库时进行测试
 MsgBox(0, "MD5", $sTest & @CRLF & _Crypt_HashData($sTest, $CALG_MD5))
 
