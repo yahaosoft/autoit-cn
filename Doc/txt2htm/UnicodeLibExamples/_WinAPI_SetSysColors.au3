@@ -6,7 +6,7 @@ _Main()
 
 Func _Main()
 	Local $aElements[2] = [$COLOR_ACTIVECAPTION, $COLOR_GRADIENTACTIVECAPTION]
-	; Red and Yellow
+	; 红和黄
 	Local $aColors[2] = [255, 65535], $aSaveColors[2]
 
 	GUICreate("My GUI", 300, 200)

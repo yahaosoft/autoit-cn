@@ -1,4 +1,4 @@
-﻿; Example 1
+﻿; 示例 1
 
 #include <inet.au3>
 
@@ -12,7 +12,7 @@ Else
 	MsgBox(0, "hiddensoft.com realy is:", $sResult)
 EndIf
 
-; Example 2
+; 示例 2
 
 #include <array.au3>
 #include <inet.au3>

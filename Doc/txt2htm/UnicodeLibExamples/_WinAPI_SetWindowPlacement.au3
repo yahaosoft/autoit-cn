@@ -2,14 +2,14 @@
 
 Global $hWindow, $stRET, $sMsg, $pStruct, $iRET
 
-; Create an instance of notepad to play with
+; 创建记事本的实例用来玩
 Run("notepad.exe")
 WinWait("[CLASS:Notepad]")
 $hWindow = WinGetHandle("[CLASS:Notepad]")
 WinMove($hWindow, "", 256, 256, 400, 400)
 Sleep(1000)
 
-; Minimize and then check the placement values returned by _WinAPI_GetWindowPlacement()
+; 最小化然后检查由 _WinAPI_GetWindowPlacement() 返回的布局值
 WinSetState($hWindow, "", @SW_MINIMIZE)
 $stRET = _WinAPI_GetWindowPlacement($hWindow)
 If @error = 0 Then
@@ -30,12 +30,12 @@ If @error = 0 Then
 	$sMsg &= @TAB & "bottom = " & DllStructGetData($stRET, "rcNormalPosition", 4)
 	MsgBox(64, "Success", $sMsg)
 
-	; Change the normalized rectangle with _WinAPI_SetWindowPlacement() and then restore
-	DllStructSetData($stRET, "rcNormalPosition", 128, 1); left
-	DllStructSetData($stRET, "rcNormalPosition", 128, 2); top
-	DllStructSetData($stRET, "rcNormalPosition", @DesktopWidth - 128, 3); right
-	DllStructSetData($stRET, "rcNormalPosition", @DesktopHeight - 128, 4); bottom
-	$pStruct = DllStructGetPtr($stRET); Get pointer to the modified struct
+	; 用 _WinAPI_SetWindowPlacement() 改变常态时的矩形然后恢复
+	DllStructSetData($stRET, "rcNormalPosition", 128, 1); 左
+	DllStructSetData($stRET, "rcNormalPosition", 128, 2); 上
+	DllStructSetData($stRET, "rcNormalPosition", @DesktopWidth - 128, 3); 右
+	DllStructSetData($stRET, "rcNormalPosition", @DesktopHeight - 128, 4); 下
+	$pStruct = DllStructGetPtr($stRET); 获取到已修改结构的指针
 	$iRET = _WinAPI_SetWindowPlacement($hWindow, $pStruct)
 	If @error = 0 Then
 		WinSetState($hWindow, "", @SW_RESTORE)

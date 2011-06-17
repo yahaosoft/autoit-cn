@@ -2,10 +2,10 @@
 
 Local $s_TempFile, $s_FileName
 
-; generate unique filename in @TempDir
+; 生成 @TempDir 中唯一的文件名
 $s_TempFile = _TempFile()
 
-; generate unique filename in given directory and starting with tst_
+; 生成在特定目录中且以 tst_ 开始的唯一文件名
 $s_FileName = _TempFile("C:\", "tst_", ".txt", 7)
 
 MsgBox(4096, "Info", "Names suitable for new temporary file : " & @LF & $s_TempFile & @LF & $s_FileName)

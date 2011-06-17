@@ -29,7 +29,7 @@ While 1
 					Exit
 				Case $msg = $checkTrans Or $msg = $slidTrans
 					
-					; Change Attributes of Trans-Color and Window Transparency
+					; 改变透明颜色的属性和窗口透明度
 					
 					If BitAND(GUICtrlRead($checkTrans), $GUI_CHECKED) = $GUI_CHECKED Then
 						_WinAPI_SetLayeredWindowAttributes($gui, 0xABCDEF, GUICtrlRead($slidTrans))

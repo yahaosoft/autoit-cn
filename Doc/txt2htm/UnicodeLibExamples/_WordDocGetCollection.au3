@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Create a word window with a new blank document,
-;				add a second blank document, and get a collection of the documents.
+; 示例 1 - 创建含新的空文档的 word 窗口,
+;				添加第二个空文档, 并且获取文档集合.
 ; *******************************************************
 ;
 #include <Word.au3>

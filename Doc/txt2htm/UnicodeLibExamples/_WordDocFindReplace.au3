@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Create a word window, open a document, find "this",
-;				replace all occurrences with "THIS", quit without saving changes.
+; 示例 1 - 创建 word 窗口, 打开文档, 查找 "this",
+;				用 "THIS" 替换所有匹配, 不保存修改退出.
 ; *******************************************************
 ;
 #include <Word.au3>

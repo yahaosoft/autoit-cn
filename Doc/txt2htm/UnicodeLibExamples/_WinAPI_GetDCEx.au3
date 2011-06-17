@@ -19,10 +19,10 @@ If (_WinAPI_GetVersion() > '5.2') And (_WinAPI_DwmIsCompositionEnabled()) Then
 	EndIf
 EndIf
 
-; Create GUI
+; 创建 GUI
 $hForm = GUICreate('', 400, 400)
 
-; Register window proc
+; 注册窗口过程
 $hDll = DllCallbackRegister('_WinProc', 'ptr', 'hwnd;uint;long;ptr')
 $pDll = DllCallbackGetPtr($hDll)
 $hProc = _WinAPI_SetWindowLongEx($hForm, $GWL_WNDPROC, $pDll)

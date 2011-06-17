@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Create a word window, open a document, set the text,
-;				print with defaults, and quit without saving changes.
+; 示例 1 - 创建 word 窗口, 打开文档, 设置文本,
+;				按默认方式打印, 且不保存修改退出.
 ; *******************************************************
 ;
 #include <Word.au3>
@@ -12,8 +12,8 @@ _WordDocPrint($oDoc)
 _WordQuit($oWordApp, 0)
 
 ; *******************************************************
-; Example 2 - Create a word window, open a document, set the text,
-;				print using landscape, and quit without saving changes.
+; 示例 2 - 创建 word 窗口, 打开文档, 设置文本,
+;				横向打印, 且不保存修改退出.
 ; *******************************************************
 ;
 #include <Word.au3>
@@ -24,8 +24,8 @@ _WordDocPrint($oDoc, 0, 1, 1)
 _WordQuit($oWordApp, 0)
 
 ; *******************************************************
-; Example 3 - Create a word window, open a document, set the text,
-;				print to a printer named "My Printer", and quit without saving changes.
+; 示例 3 - 创建 word 窗口, 打开文档, 设置文本,
+;				使用名为 "My Printer" 的打印机打印, 且不保存修改退出.
 ; *******************************************************
 ;
 #include <Word.au3>

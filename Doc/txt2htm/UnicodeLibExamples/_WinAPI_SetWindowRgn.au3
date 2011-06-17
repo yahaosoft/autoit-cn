@@ -2,7 +2,7 @@
 #include <WindowsConstants.au3>
 #include <WinAPI.au3>
 
-; get height of window title and width of window frame - may be different when XP theme is ON/OFF
+; 获取窗口标题的高度和窗口框架的宽度 - 当 XP 主题为 ON/OFF 时可能会不同
 Global $htit = _WinAPI_GetSystemMetrics($SM_CYCAPTION)
 Global $frame = _WinAPI_GetSystemMetrics($SM_CXDLGFRAME)
 
@@ -14,7 +14,7 @@ Local $btn_transparent = GUICtrlCreateButton("Transparent region", 100, 120, 150
 Local $btn_exit = GUICtrlCreateButton("Exit", 100, 150, 150)
 GUISetState(@SW_SHOW)
 
-Local $pos = WinGetPos($gui) ; get whole window size (no client size defined in GUICreate)
+Local $pos = WinGetPos($gui) ; 获取整个窗口大小 (不包括由 GUICreate 定义的客户区大小)
 Global $width = $pos[2]
 Global $height = $pos[3]
 
@@ -34,17 +34,17 @@ While 1
 			_WinAPI_SetWindowRgn($gui, $rgn)
 
 		Case $msg = $btn_buble
-			Local $rgn1 = _WinAPI_CreateRoundRectRgn(0, 0, $width / 2, $height / 2, $width / 2, $height / 2) ; left-top
-			Local $rgn2 = _WinAPI_CreateRoundRectRgn($width / 2, 0, $width, $height / 2, $width / 2, $height / 2) ; right-top
+			Local $rgn1 = _WinAPI_CreateRoundRectRgn(0, 0, $width / 2, $height / 2, $width / 2, $height / 2) ; 左上
+			Local $rgn2 = _WinAPI_CreateRoundRectRgn($width / 2, 0, $width, $height / 2, $width / 2, $height / 2) ; 右上
 			_WinAPI_CombineRgn($rgn1, $rgn1, $rgn2, $RGN_OR)
 			_WinAPI_DeleteObject($rgn2)
-			$rgn2 = _WinAPI_CreateRoundRectRgn(0, $height / 2, $width / 2, $height, $width / 2, $height / 2) ; left-bottom
+			$rgn2 = _WinAPI_CreateRoundRectRgn(0, $height / 2, $width / 2, $height, $width / 2, $height / 2) ; 左下
 			_WinAPI_CombineRgn($rgn1, $rgn1, $rgn2, $RGN_OR)
 			_WinAPI_DeleteObject($rgn2)
-			$rgn2 = _WinAPI_CreateRoundRectRgn($width / 2, $height / 2, $width, $height, $width / 2, $height / 2) ; right-bottom
+			$rgn2 = _WinAPI_CreateRoundRectRgn($width / 2, $height / 2, $width, $height, $width / 2, $height / 2) ; 右下
 			_WinAPI_CombineRgn($rgn1, $rgn1, $rgn2, $RGN_OR)
 			_WinAPI_DeleteObject($rgn2)
-			$rgn2 = _WinAPI_CreateRoundRectRgn(10, 10, $width - 10, $height - 10, $width, $height) ; middle
+			$rgn2 = _WinAPI_CreateRoundRectRgn(10, 10, $width - 10, $height - 10, $width, $height) ; 中间
 			_WinAPI_CombineRgn($rgn1, $rgn1, $rgn2, $RGN_OR)
 			_WinAPI_DeleteObject($rgn2)
 			_WinAPI_SetWindowRgn($gui, $rgn1)
@@ -55,7 +55,7 @@ While 1
 	EndSelect
 WEnd
 
-; make inner transparent area but add controls
+; 生成内部透明区域用于添加控件
 Func _GuiHole($h_win, $i_x, $i_y, $i_sizew, $i_sizeh)
 	Local $outer_rgn, $inner_rgn, $combined_rgn
 
@@ -73,8 +73,8 @@ Func _GuiHole($h_win, $i_x, $i_y, $i_sizew, $i_sizeh)
 	_WinAPI_SetWindowRgn($h_win, $combined_rgn)
 EndFunc   ;==>_GuiHole
 
-; add control's area to given region
-; respecting also window title/frame sizes
+; 添加控件的范围到特定的区域
+; 也考虑窗口标题/框架的大小
 Func _AddCtrlRegion($full_rgn, $ctrl_id)
 	Local $ctrl_pos, $ctrl_rgn
 

@@ -44,7 +44,7 @@ Func EvaluateKey($keycode)
 		EndSwitch
 	ElseIf ($keycode > 159) And ($keycode < 164) Then
 		Return
-	ElseIf ($keycode = 27) Then ; esc key
+	ElseIf ($keycode = 27) Then ; esc 键
 		Exit
 	Else
 		$buffer = ""
@@ -52,7 +52,7 @@ Func EvaluateKey($keycode)
 EndFunc   ;==>EvaluateKey
 
 ;===========================================================
-; callback function
+; 回调函数
 ;===========================================================
 Func _KeyProc($nCode, $wParam, $lParam)
 	Local $tKEYHOOKS

@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Create a word window with a new blank document,
-;				then add some pictures to the document.
+; 示例 1 - 创建含新的空文档的 word 窗口,
+;				然后添加一些图片到文档.
 ; *******************************************************
 ;
 #include <Word.au3>
@@ -8,7 +8,7 @@
 Local $sPath = @WindowsDir & "\"
 Local $search = FileFindFirstFile($sPath & "*.bmp")
 
-; Check if the search was successful
+; 检查搜索是否成功
 If $search = -1 Then
 	MsgBox(0, "Error", "No images found")
 	Exit
@@ -24,5 +24,5 @@ While 1
 	If Not @error Then $oShape.Range.InsertAfter(@CRLF)
 WEnd
 
-; Close the search handle
+; 关闭搜索句柄
 FileClose($search)

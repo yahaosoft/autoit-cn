@@ -9,20 +9,20 @@ Global Const $STM_GETIMAGE = 0x0173
 
 Global $hForm, $Msg, $Slider, $Pic, $tSIZE, $Width, $Height, $hBitmap
 
-; Load image
+; 加载图像
 $hBitmap = _WinAPI_LoadImage(0, @ScriptDir & '\Extras\Logo.bmp', $IMAGE_BITMAP, 0, 0, $LR_LOADFROMFILE)
 $tSIZE = _WinAPI_GetBitmapDimension($hBitmap)
 $Width = DllStructGetData($tSIZE, 'X')
 $Height = DllStructGetData($tSIZE, 'Y')
 
-; Create GUI
+; 创建 GUI
 $hForm = GUICreate('MyGUI', $Width, $Height + 61)
 $Slider = GUICtrlCreateSlider(10, $Height + 18, $Width - 20, 26, BitOR($TBS_BOTH, $TBS_NOTICKS))
 GUICtrlSetLimit(-1, 255, 0)
 GUICtrlSetData(-1, 255)
 $Pic = GUICtrlCreatePic('', 0, 0, $Width, $Height)
 
-; Set bitmap to control with alpha
+; 设置位图到含透明度的控件
 _SetBitmapAlpha($Pic, $hBitmap, 255)
 
 GUISetState()

@@ -1,6 +1,6 @@
 ﻿#include <String.au3>
-;Will return : Somebody Lastnames
+;将返回 : Somebody Lastnames
 MsgBox(0, '', _StringProper("somebody lastnames"))
-;Will return : Some.Body Last(Name)
+;将返回 : Some.Body Last(Name)
 MsgBox(0, '', _StringProper("SOME.BODY LAST(NAME)"))
 Exit

@@ -5,6 +5,6 @@
 
 Opt("MustDeclareVars", 1)
 
-; Cracking URL
+; 分解 URL
 Global $aUrl = _WinHttpCrackUrl("http://www.autoitscript.com/forum/index.php?showforum=9")
 _ArrayDisplay($aUrl, "_WinHttpCrackUrl()")

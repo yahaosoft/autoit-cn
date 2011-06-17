@@ -1,5 +1,5 @@
 ﻿; *******************************************************
-; Example 1 - Retrieve and display Word.au3 version information
+; 示例 1 - 获取并显示 Word.au3 版本信息
 ; *******************************************************
 ;
 #include <Word.au3>

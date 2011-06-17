@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Create a word window with a new blank document,
-;				add a link, then get a collection of links.
+; 示例 1 - 创建含新的空文档的 word 窗口,
+;				添加链接, 然后获取链接集合.
 ; *******************************************************
 ;
 #include <Word.au3>

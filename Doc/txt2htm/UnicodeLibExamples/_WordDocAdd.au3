@@ -1,5 +1,5 @@
 ﻿; *******************************************************
-; Example 1 - Create an empty word window and add a new blank document
+; 示例 1 - 创建空的 word 窗口并添加一个新的空文档
 ; *******************************************************
 ;
 #include <Word.au3>

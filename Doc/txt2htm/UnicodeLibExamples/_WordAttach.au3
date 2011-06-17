@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Attach to a word window with an open file named "Test.doc",
-;				then display the documents full file path.
+; 示例 1 - 附加到已打开 "Test.doc" 文件的 Word 窗口,
+;				然后显示此文档的完整文件路径.
 ; *******************************************************
 ;
 #include <Word.au3>
@@ -12,8 +12,8 @@ If Not @error Then
 EndIf
 
 ; *******************************************************
-; Example 2 - Attach to a word window with "The quick brown fox"
-;               in the text of the document
+; 示例 2 - 附加到文档正文中含有 "The quick brown fox"
+;               文本的 Word 窗口
 ; *******************************************************
 ;
 #include <Word.au3>

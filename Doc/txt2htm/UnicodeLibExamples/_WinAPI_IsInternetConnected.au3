@@ -12,5 +12,5 @@ If _WinAPI_IsInternetConnected() Then
 	Exit
 EndIf
 
-; Launch the Get Connected wizard within the calling application to enable Internet connectivity
+; 在调用的应用程序中运行获取连接向导来启用因特网连接
 _WinAPI_GetConnectedDlg(1, 1 + 4)

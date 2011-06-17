@@ -5,7 +5,7 @@ Local $text = "one##two##three##four##five##six##seven##eight"
 Local $array1 = _StringExplode($text, "##", 0)
 _ArrayDisplay($array1, "StringExplode 0")
 
-;DISPLAYED
+;显示
 ;[0] = one
 ;[1] = two
 ;[2] = three
@@ -18,7 +18,7 @@ _ArrayDisplay($array1, "StringExplode 0")
 Local $array2 = _StringExplode($text, "##", 4)
 _ArrayDisplay($array2, "StringExplode 4")
 
-;DISPLAYED
+;显示
 ;[0] = one
 ;[1] = two
 ;[2] = three
@@ -28,7 +28,7 @@ _ArrayDisplay($array2, "StringExplode 4")
 Local $array3 = _StringExplode($text, "##", -3)
 _ArrayDisplay($array3, "StringExplode -3")
 
-;DISPLAYED
+;显示
 ;[0] = one
 ;[1] = two
 ;[2] = three

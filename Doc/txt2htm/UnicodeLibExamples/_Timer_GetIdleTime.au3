@@ -1,7 +1,7 @@
 ﻿#include <Timers.au3>
 
-; Mouse/Keyboard action during this 10 sec delay will change reported idle time
-Sleep(10 * 1000); 10sec
+; 在这 10 秒里鼠标/键盘的操作将改变报告的空闲时间
+Sleep(10 * 1000); 10秒
 
 Global $iIdleTime = _Timer_GetIdleTime()
 

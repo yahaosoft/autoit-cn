@@ -38,7 +38,7 @@ While 1
 		Case -3
 			_WinAPI_AnimateWindow($hForm, BitOR($AW_BLEND, $AW_HIDE))
 			ExitLoop
-		Case $Dummy ; Minimize
+		Case $Dummy ; 最小化
 			_WinAPI_DrawAnimatedRects($hForm, _WinAPI_GetWindowRect($hForm), _WinAPI_GetWindowRect($hTray))
 			GUISetState(@SW_HIDE, $hForm)
 			TraySetState(1)

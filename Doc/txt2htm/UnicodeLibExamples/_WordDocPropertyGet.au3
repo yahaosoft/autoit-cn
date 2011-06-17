@@ -1,6 +1,6 @@
 ﻿; *******************************************************
-; Example 1 - Create a word window, open a document,
-;				then read all available document properties by index
+; 示例 1 - 创建 word 窗口, 打开文档,
+;				然后根据索引读取所有有效的文档属性
 ; *******************************************************
 ;
 #include <Word.au3>
@@ -12,8 +12,8 @@ For $i = 1 To 30
 Next
 
 ; *******************************************************
-; Example 2 - Create a word window, open a document,
-;				then read the title, subject, and author properties by name.
+; 示例 2 - 创建 word 窗口, 打开文档,
+;				然后根据名称读取标题, 主题和作者属性.
 ; *******************************************************
 ;
 #include <Word.au3>
