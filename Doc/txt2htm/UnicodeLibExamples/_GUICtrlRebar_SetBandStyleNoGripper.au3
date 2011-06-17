@@ -44,10 +44,10 @@ Func _Main()
 	; 在伸缩条中创建一个输入框
 	$hInput = GUICtrlCreateInput("Input control", 0, 0, 120, 20)
 
-	;添加包含控件的带区
+	;添加包含控件的纽带
 	_GUICtrlRebar_AddBand($hReBar, GUICtrlGetHandle($hInput), 120, 200, "Name:")
 
-	; 添加包含伸缩条开始处控件的带区
+	; 添加包含控件的纽带到伸缩条开始处
 	_GUICtrlRebar_AddToolBarBand($hReBar, $hToolbar, "", 0)
 
 	$btnExit = GUICtrlCreateButton("Exit", 150, 360, 100, 25)

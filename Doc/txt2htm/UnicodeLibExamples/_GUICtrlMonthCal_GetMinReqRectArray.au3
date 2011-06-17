@@ -3,7 +3,7 @@
 #include <EditConstants.au3>
 #include <WindowsConstants.au3>
 
-$Debug_MC = False ; 检查传递给 MonthCal 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_MC = False ; 检查传递给 MonthCal 函数的类名, 设置为 True 并使用指向另一控件的句柄来检查它是否工作
 
 Global $iMemo
 
@@ -23,7 +23,7 @@ Func _Main()
 	GUICtrlSetBkColor($iMemo, 0xFFFFFF)
 	GUISetState()
 
-	; 获取最小需要的高度/宽度
+	; 获取需要的最小高度/宽度
 	MemoWrite(_FormatOutPut(_GUICtrlMonthCal_GetMinReqRectArray($hMonthCal)))
 
 	; 循环直到用户退出

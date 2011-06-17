@@ -2,7 +2,7 @@
 #include <GuiMonthCal.au3>
 #include <WindowsConstants.au3>
 
-$Debug_MC = False ; 检查传递给 MonthCal 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_MC = False ; 检查传递给 MonthCal 函数的类名, 设置为 True 并使用指向另一控件的句柄来检查它是否工作
 
 Global $iMemo
 

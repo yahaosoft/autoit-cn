@@ -30,10 +30,10 @@ Func _Main()
 	; 在伸缩条中创建一个输入框
 	$hInput = GUICtrlCreateInput("Input control", 0, 0, 120, 20)
 
-	; 添加含控件的带区
+	; 添加含控件的纽带
 	_GUICtrlRebar_AddBand($hReBar, $hCombo, 120, 200, "Dir *.exe")
 
-	; 添加并强制到第二行
+	; 添加并设置焦点到第二行
 	_GUICtrlRebar_AddBand($hReBar, $hDTP, 120)
 	_GUICtrlRebar_SetBandStyleBreak($hReBar, 1)
 
