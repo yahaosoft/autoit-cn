@@ -10,7 +10,7 @@
 
 #include <Debug.au3>
 
-_DebugSetup("Check Excel", True) ; 启动显示调试环境
+_DebugSetup("Check Excel", True) ; 开始显示调试环境
 For $i = 1 To 4
 	WinActivate("Microsoft Excel")
 	; 与 Excel 交互

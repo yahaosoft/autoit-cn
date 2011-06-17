@@ -16,7 +16,7 @@ Func _Main()
 
 	; 读取最近的事件记录
 	$hEventLog = _EventLog__Open("", "Application")
-	$aEvent = _EventLog__Read($hEventLog, True, False) ; 读取最近的事件
+	$aEvent = _EventLog__Read($hEventLog, True, False) ; 读取最后一条事件
 ;~ 	$hEventLog = _EventLog__Open("", "System")
 ;~ 	$aEvent = _EventLog__Read($hEventLog)
 ;~ 	$aEvent = _EventLog__Read($hEventLog, True, False)
