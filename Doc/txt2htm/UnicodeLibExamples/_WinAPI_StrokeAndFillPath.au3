@@ -31,7 +31,7 @@ _WinAPI_Ellipse($hMemDC, _WinAPI_CreateRectEx(70, 44, 101, 101))
 _WinAPI_Ellipse($hMemDC, _WinAPI_CreateRectEx(90, 64, 61, 61))
 _WinAPI_EndPath($hMemDC)
 
-; 画大致轮廓并填充路径内部
+; Stroke outline, and fills path's interior
 $hBrush = _WinAPI_SelectObject($hMemDC, _WinAPI_GetStockObject($DC_BRUSH))
 $hPen = _WinAPI_SelectObject($hMemDC, _WinAPI_GetStockObject($DC_PEN))
 _WinAPI_SetDCBrushColor($hMemDC, 0xFFC000)

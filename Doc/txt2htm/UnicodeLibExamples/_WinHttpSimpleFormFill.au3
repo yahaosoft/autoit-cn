@@ -11,7 +11,7 @@ Global $sRead, $hFileHTM, $sFileHTM = @ScriptDir & "\Form.htm"
 ;    1. 打开 APNIC whois 页面 (http://wq.apnic.net/apnic-bin/whois.pl)
 ;    2. 使用这些值/条件填写那个页面的表单:
 ;         - 填写默认表单
-;         - 设置 IP 地址到 4.2.2.2 to 输入框. 使用名称属性找到输入
+;         - 设置 IP 地址 4.2.2.2 到输入框. 使用名称属性定位输入
 ;         - 发送表单 (点击按钮)
 ;         - 采集返回的数据
 
@@ -26,7 +26,7 @@ _WinHttpCloseHandle($hConnect)
 ; 关闭会话句柄
 _WinHttpCloseHandle($hOpen)
 
-; 看看返回了什么 (在默认浏览器或无论其他什么的)
+; 看看返回了什么 (在默认浏览器或其他什么的)
 If $sRead Then
 	MsgBox(64 + 262144, "Done!", "Will open returned page in your default browser now." & @CRLF & _
 			"When you close that window another example will run.")

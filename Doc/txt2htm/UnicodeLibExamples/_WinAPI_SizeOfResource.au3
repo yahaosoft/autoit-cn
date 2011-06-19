@@ -38,7 +38,7 @@ $pData = _WinAPI_LockResource($hData)
 ; 添加内存中的字体到系统
 $hFont = _WinAPI_AddFontMemResourceEx($pData, $iSize)
 
-; 从 Resources.dll 库加载 SOUND 资源
+; 从 Resources.dll 库加载声音资源
 $hResource = _WinAPI_FindResource($hInstance, 'SOUND', 1)
 $iSize = _WinAPI_SizeOfResource($hInstance, $hResource)
 $hData = _WinAPI_LoadResource($hInstance, $hResource)

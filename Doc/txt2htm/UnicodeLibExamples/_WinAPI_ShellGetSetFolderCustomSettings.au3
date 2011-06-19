@@ -16,7 +16,7 @@ If Not IsArray($aIcon) Then
 	Exit
 EndIf
 
-; 设置图标到选出的文件夹
+; 设置图标到选择的文件夹
 $tIcon = DllStructCreate('wchar[260]')
 DllStructSetData($tIcon, 1, $aIcon[0])
 
