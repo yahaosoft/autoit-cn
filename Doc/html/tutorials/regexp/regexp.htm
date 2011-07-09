@@ -3,7 +3,7 @@
 <head>
   <title>Tutorial - Regular Expression</title>
   <meta http-equiv="Content-Type"
- content="text/html; charset=iso-8859-1">
+ content="text/html; charset=GB2312">
   <link href="../../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -80,9 +80,9 @@
   But SRE is much more powerful than that. As you use SRE's more and more, 
   you'll find you might know less and less about the type of pattern you are 
   looking for. There are ways to be less and less specific about each character 
-  you wish to specify in the pattern. Take, for example, a line from the chat 
-  log of a game: &quot;Gnarly Monster hits you for 18 damage.&quot; You want to find out 
-  how much damage Gnarly Monster hit you for. Well, you can't use StringInStr() 
+  you wish to specify in the pattern. Take, for example, a line from an 
+  inventory log file: &quot;There were 18 sheets left in the ream of paper.&quot; You want to find 
+  the number of remaining sheets. Well, you can't use StringInStr() 
   because you aren't looking for &quot;18&quot;, you're looking for &quot;????&quot;, where ? could 
   be any digit.<br>
   <br>
@@ -90,9 +90,8 @@
   about what you want to find:<br>
   1) You know that it will ALWAYS contain nothing but digits.<br>
   2) You know that it will SOMETIMES be 2 characters long.<br>
-  2a) You know from playing the game that the maximum damage a monster can do is 
-  999.<br>
-  2b) You know that the minimum damage a monster can do is 0.<br>
+  2a) You know that a full ream of paper is 500 sheets.<br>
+  2b) You know that the minimum number of sheets is 0.<br>
   3) You know that it will ALWAYS be between 1 and 3 characters long.<br>
   4) You know that there are no other digits in the test string.<br>
   <br>
@@ -117,10 +116,10 @@
   array. You can use multiple captures, as demonstrated by the second piece of 
   code in Example 4.<br>
   <br>
-  Ok, back to the Gnarly Monster. Now that we know how to &quot;capture&quot; text, let's 
+  Ok, back to the log file. Now that we know how to &quot;capture&quot; text, let's 
   construct our pattern: Since you know what you're looking for is digits, there 
   are 3 ways to specify &quot;match any digit&quot;: &quot;[:digit:]&quot;, &quot;[0-9]&quot;, and &quot;\d&quot;. The 
-  first is probably the easiest to understand. There are a few classes (digit, alnum, space, etc. Check the helpfile for a full list) you can use to specify 
+  first is probably the easiest to understand. There are a few classes (digit, alnum, space, etc. Check the help file for a full list) you can use to specify 
   sets of characters, one of them being digit. &quot;[0-9]&quot; just specifies a range of 
   all the digits 0 through 9. &quot;\d&quot; is just a special character that means the 
   same as the first two. There is no difference between the three, and with all SRE's there are usually at least a couple ways to construct any pattern.<br>
@@ -132,7 +131,7 @@
   indicate the end of our group: &quot;([0-9]{1,3})&quot;. Let's try it:<br>
   <br>
   <u><b>Example 5</b></u></p>
-<p class="codebox">$asResult = StringRegExp(&quot;Gnarly Monster hits you for 18 damage.&quot;, 
+<p class="codebox">$asResult = StringRegExp(&quot;There were 18 sheets left in the ream of paper.&quot;, 
 _<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '([0-9]{1,3})', 1)<br>
     If @error == 0 Then<br>
@@ -142,19 +141,19 @@ _<br>
 <p>There you go, the message box correctly displays &quot;18&quot;.<br>
   <br>
   Next we need to cover non-capturing groups. The way you indicate these groups 
-  is by opening the group with &quot;(?:&quot; instead of just &quot;(&quot;. Let's say your log 
-  says &quot;You deflect 36 of Gnarly Monster's 279 damage.&quot; Now if you run Example 
+  is by opening the group with &quot;(?:&quot; instead of just &quot;(&quot;. Let's say your 
+  log file says &quot;You used 36 of 279 pages.&quot; Now if you run Example 
   5's SRE on this, you'll come up with &quot;36&quot; instead of &quot;279&quot;. Now what I like to 
   do here is just determine what's different between the numbers. One that jumps 
   out at me is that the second number is always followed by a space and then the 
-  word &quot;damage&quot;. We could just modify our previous pattern to be &quot;([0-9]{1,3} 
-  damage)&quot;, but what if our script is just looking for the amount of damage, 
-  without &quot; damage&quot; tacked onto the end of the number? Here's where you can use 
+  word &quot;pages&quot;. We could just modify our previous pattern to be &quot;([0-9]{1,3} 
+  damage)&quot;, but what if our script is just looking for the starting amount of 
+  pages, without &quot; pages&quot; tacked onto the end of the number? Here's where you can use 
   a non-capturing group to accomplish this.<br>
   <br>
   <u><b>Example 6</b></u></p>
-<p class="codebox">$asResult = StringRegExp(&quot;You deflect 36 of Gnarly Monster's 279 damage.&quot;, 
-    '([0-9]{1,3})(?: damage)', 1)<br>
+<p class="codebox">$asResult = StringRegExp(&quot;You used 36 of 279 pages.&quot;, 
+    '([0-9]{1,3})(?: pages)', 1)<br>
     If @error == 0 Then<br>
     &nbsp;&nbsp;&nbsp;&nbsp;MsgBox(0, &quot;SRE Example 6 Result&quot;, $asResult[0])<br>
     EndIf</p>

@@ -97,17 +97,5 @@ Func CopyFileTime($sSrcFile, $sDstFile)
 	Local $sTime
 	$sTime=FileGetTime($sSrcFile,0,1)
 	FileSetTime($sDstFile,$sTime)
-;~ 	Local $hFile,$aTime,$pFile
-;~     ; Read file times
-;~     $hFile = _WinAPI_CreateFile($sSrcFile, 2)
-;~     if $hFile = 0 then Return 0
-;~     $aTime = _Date_Time_GetFileTime($hFile)
-;~     _WinAPI_CloseHandle($hFile)
-;~     ; Set file times
-;~     $hFile = _WinAPI_CreateFile($sDstFile, 2)
-;~     if $hFile = 0 then Return 0
-;~     $pFile = DllStructGetPtr($aTime[2])
-;~     _Date_Time_SetFileTime($hFile, $pFile, $pFile, $pFile)
-;~     _WinAPI_CloseHandle($hFile)
 	Return 1
 EndFunc   ;==>isGreaterFileTime
