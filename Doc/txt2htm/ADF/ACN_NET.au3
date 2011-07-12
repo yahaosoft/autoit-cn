@@ -313,3 +313,134 @@ Func _WMI_SetNetworkAdapterInfo($HostName, $IpADD, $SubMask, $GateWay, $DNS1, $D
 	$objNetworkSettings.SetIPXVirtualNetworkNumber($IPX)
 EndFunc   ;==>_WMI_SetNetworkAdapterInfo
 
+; #FUNCTION# ====================================================================================================================
+; Name...........: _NetworkGetInternetIPInfos
+; Description ...: 得到公网IP地址.
+; Syntax.........: _NetworkGetInternetIPInfos([$sIP])
+; Parameters ....: $sIP:	默认为获取本机外网ip与归属地,如输入ip则获取该ip归属地
+; Return values .: 	成功 - 返回一个数组
+;							[1]	IP
+;							[2]	归属地
+;					失败 - 返回 "",并设置@error为1 ,可能是无法连接外网或者取得信息的地址已挂.
+; Author ........: Sxd
+; Modified.......:
+; Remarks .......: 此函数是采用http://www.youdao.com的数据,不保证长期有效.
+; Related .......:
+; Link ..........;
+; Example .......; Yes
+; ===============================================================================================================================
+Func _NetworkGetInternetIPInfos($sIP = "ip")
+	Local $html
+	$html = InetRead("http://www.youdao.com/smartresult-xml/search.s?type=ip&q=" & $sIP, 1)
+	$html = BinaryToString($html)
+	$aInfo = __GetInfosFromYoudaoXML($html, "ip")
+	If @error Then
+		Return SetError(1,0,"")
+	Else
+		Return $aInfo
+	EndIf
+EndFunc   ;==>_NetworkGetInternetIPInfos
+
+; #FUNCTION# ====================================================================================================================
+; Name...........: _NetworkGetMobileInfos
+; Description ...: 手机号归属地查询.
+; Syntax.........: _NetworkGetMobileInfos($iMobile)
+; Parameters ....: $iMobile:	需要查询归属地的手机号码
+; Return values .: 	成功 - 返回一个数组
+;							[1]	手机号码
+;							[2]	归属地
+;					失败 - 返回 "",并设置@error为1 ,可能是无法连接外网或者取得信息的地址已挂.
+; Author ........: Sxd
+; Modified.......:
+; Remarks .......: 此函数是采用http://www.youdao.com的数据,不保证长期有效.
+; Related .......:
+; Link ..........;
+; Example .......; Yes
+; ===============================================================================================================================
+Func _NetworkGetMobileInfos($iMobile)
+	Local $html
+	$html = InetRead("http://www.youdao.com/smartresult-xml/search.s?type=mobile&q=" & $iMobile, 1)
+	$html = BinaryToString($html)
+	$aInfo = __GetInfosFromYoudaoXML($html, "mobile")
+	If @error Then
+		Return SetError(1,0,"")
+	Else
+		Return $aInfo
+	EndIf
+	
+EndFunc   ;==>_NetworkGetMobileInfos
+
+; #FUNCTION# ====================================================================================================================
+; Name...........: _NetworkGetIDCardInfos
+; Description ...: 身份证信息查询.
+; Syntax.........: _NetworkGetIDCardInfos($sID)
+; Parameters ....: $sID:	需要查询信息的身份证号码
+; Return values .: 	成功 - 返回一个数组
+;							[1]	身份证号码
+;							[2]	归属地
+;							[3]	生日
+;							[4]	性别
+;					失败 - 返回 "",并设置@error为1 ,可能是无法连接外网或者取得信息的地址已挂.
+; Author ........: Sxd
+; Modified.......:
+; Remarks .......: 此函数是采用http://www.youdao.com的数据,不保证长期有效.
+; Related .......:
+; Link ..........;
+; Example .......; Yes
+; ===============================================================================================================================
+Func _NetworkGetIDCardInfos($sID)
+	Local $html
+	$html = InetRead("http://www.youdao.com/smartresult-xml/search.s?type=id&q=" & $sID, 1)
+	$html = BinaryToString($html)
+	$aInfo = __GetInfosFromYoudaoXML($html, "id")
+	If @error Then
+		Return SetError(1,0,"")
+	Else
+		Return $aInfo
+	EndIf
+	
+EndFunc   ;==>_NetworkGetIDCardInfos
+
+Func __GetInfosFromYoudaoXML($sXML, $sType = "ip")
+	Local $rIP = "(?<=<ip>).*(?=</ip>)"
+	Local $rLocation = "(?<=<location>).*(?=</location>)"
+	Local $rPhonenum = "(?<=<phonenum>).*(?=</phonenum>)"
+	Local $rCode = "(?<=<code>).*(?=</code>)"
+	Local $rBirthday = "(?<=<birthday>).*(?=</birthday>)"
+	Local $rGender = "(?<=<gender>).*(?=</gender>)"
+	Local $reg
+	If $sType = "ip" Then
+		$reg = $rIP & "|" & $rLocation
+	ElseIf $sType = "mobile" Then
+		$reg = $rPhonenum & "|" & $rLocation
+	ElseIf $sType = "id" Then
+		$reg = $rCode & "|" & $rLocation & "|" & $rBirthday & "|" & $rGender
+	EndIf
+	Local $ret
+	$ret = StringRegExp($sXML, $reg, 3)
+	If @error Then
+		Return SetError(1,0,"")
+	Else
+		If $ret[1] = "$location" Then $ret[1] = "未知"
+		_ArrayInsert($ret, 0, UBound($ret))
+		Return $ret
+	EndIf
+EndFunc   ;==>__GetInfosFromYoudaoXML
+
+Func _ArrayInsert(ByRef $avArray, $iElement, $vValue = "")
+	If Not IsArray($avArray) Then Return SetError(1, 0, 0)
+	If UBound($avArray, 0) <> 1 Then Return SetError(2, 0, 0)
+
+	; Add 1 to the array
+	Local $iUBound = UBound($avArray) + 1
+	ReDim $avArray[$iUBound]
+
+	; Move all entries over til the specified element
+	For $i = $iUBound - 1 To $iElement + 1 Step -1
+		$avArray[$i] = $avArray[$i - 1]
+	Next
+
+	; Add the value in the specified element
+	$avArray[$iElement] = $vValue
+	Return $iUBound
+EndFunc   ;==>_ArrayInsert
