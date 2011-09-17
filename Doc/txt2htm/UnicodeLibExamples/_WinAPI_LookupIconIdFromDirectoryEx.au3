@@ -1,17 +1,16 @@
-﻿#Include <WinAPIEx.au3>
+﻿#Include <APIConstants.au3>
+#Include <WinAPIEx.au3>
 
 Opt('MustDeclareVars', 1)
-
-Global Const $sDll = _DllGetPath(@ScriptDir & '\Extras')
 
 Global Const $STM_SETIMAGE = 0x0172
 
 Global $hInstance, $hResource, $hData, $pData, $hIcon, $iIcon, $iSize
 
 ; 加载 Resources.dll 到内存
-$hInstance = _WinAPI_LoadLibrary($sDll)
+$hInstance = _WinAPI_LoadLibraryEx(@ScriptDir & '\Extras\Resources.dll', $LOAD_LIBRARY_AS_DATAFILE)
 If Not $hInstance Then
-	MsgBox(16, 'Error', $sDll & ' not found.')
+	MsgBox(16, 'Error', @ScriptDir & '\Extras\Resources.dll not found.')
 	Exit
 EndIf
 
@@ -43,11 +42,3 @@ GUISetState()
 
 Do
 Until GUIGetMsg() = -3
-
-Func _DllGetPath($sPath)
-	If @AutoItX64 Then
-		Return $sPath & '\Resources_x64.dll'
-	Else
-		Return $sPath & '\Resources.dll'
-	EndIf
-EndFunc   ;==>_DllGetPath
