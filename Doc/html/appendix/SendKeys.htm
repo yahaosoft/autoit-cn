@@ -7,7 +7,7 @@
   <link type="text/css" rel="stylesheet" href="../css/default.css">
 </head>
 <body>
-<h1>Send 命令的可用按键列表</h1>
+<h1>Send 函数可用的按键列表</h1>
 <p><br>
 快速了解 <b><a href="../functions/Send.htm">Send ( "按键" [, 标志] )</a></b>命令
 <b>^</b> Ctrl &nbsp;&nbsp; <b>!</b> Alt &nbsp;&nbsp;<b>+</b> Shift &nbsp;&nbsp; <b>#</b> Win(徽标键)<br>
@@ -23,9 +23,9 @@
 <p class="codebox">Send(&quot;{ASC 2709}&quot;)</p>
 <p>&nbsp;</p>
 <p>可参考下例重复发送某按键:</p>
-<p class="codebox">Send("{DEL 4}") ;连续4次按下 DEL 键<br>
+<p class="codebox">Send("{DEL 4}") ;连续按下 DEL 键4次<br>
 Send("{S 30}") ;发送30个字符"S"<br>
-Send("+{TAB 4}) ;连续4次按下 SHIFT+TAB</p>
+Send("+{TAB 4}") ;连续按下 SHIFT+TAB 4次</p>
 
 <p>&nbsp;</p>
 <p>如果要按住(保持按下状态)某个按键</p>
@@ -43,14 +43,14 @@ Send("+{TAB " & $n & "}")</p>
   Send("{" & $x & " 4}")</p>
 
 <p>&nbsp;</p>
-<p>大多数笔记本电脑的键盘上都会有一个特殊的 Fn 键,此键无法被模拟.<br>
+        <p>大多数笔记本电脑的键盘上都会有一个特殊的 Fn 键,此键无法被模拟.<br>
           <br>
-注意,若把标志参数的值设为1则"按键"参数将被原样发送.如果某些文本是从变量里拷贝而来,而您又希望完全按原样发送这些文本的话,就应该使用这一设置.<br>
+          注意,若把标志参数的值设为1则"按键"参数将被原样发送.如果某些文本是从变量里拷贝而来,而您又希望完全按原样发送这些文本的话,就应该使用这一设置.<br>
           <br>
           <br>
 <b>Send 是非常有用的一个函数,因为我们可用它来对窗口进行操作而无需使用鼠标.</b><br>
           <br>
-例如,先打开 文件夹选项窗口(位于控制面板),然后请尝试执行下面这些语句: <br>
+        例如,先打开 文件夹选项窗口(位于控制面板),然后请尝试执行下面这些语句: <br>
         <br>
         </p>
         </p>
@@ -173,7 +173,7 @@ Windows 的帮助信息(按下热键 <I>Win+F1</I>即可<I>)</I>以获得关于快捷键的完整列表.
 </tr>
 <tr>
     <td align="center">{BACKSPACE} 或 {BS}</td>
-    <td>退格</td>
+    <td>退格(BACKSPACE)</td>
 </tr>
 <tr>
   <td align="center">{DELETE} 或 {DEL}</td>
@@ -345,75 +345,75 @@ Windows 的帮助信息(按下热键 <I>Win+F1</I>即可<I>)</I>以获得关于快捷键的完整列表.
 </tr>
 <tr>
   <td align="center">{BROWSER_BACK}</td>
-    <td>仅支持2000/XP:按下浏览器中的"后退"按钮</td>
+    <td>按下浏览器中的"后退"按钮</td>
 </tr>
 <tr>
   <td align="center">{BROWSER_FORWARD}</td>
-    <td>仅支持2000/XP:按下浏览器中的"前进"按钮</td>
+    <td>按下浏览器中的"前进"按钮</td>
 </tr>
 <tr>
   <td align="center">{BROWSER_REFRESH}</td>
-    <td>仅支持2000/XP:按下浏览器中的"刷新"按钮</td>
+    <td>按下浏览器中的"刷新"按钮</td>
 </tr>
 <tr>
   <td align="center">{BROWSER_STOP}</td>
-    <td>仅支持2000/XP:按下浏览器中的"停止"按钮</td>
+    <td>按下浏览器中的"停止"按钮</td>
 </tr>
 <tr>
   <td align="center">{BROWSER_SEARCH}</td>
-    <td>仅支持2000/XP:按下浏览器中的"搜索"按钮</td>
+    <td>按下浏览器中的"搜索"按钮</td>
 </tr>
 <tr>
   <td align="center">{BROWSER_FAVORITES}</td>
-    <td>仅支持2000/XP:按下浏览器中的"收藏夹"按钮</td>
+    <td>按下浏览器中的"收藏夹"按钮</td>
 </tr>
 <tr>
   <td align="center">{BROWSER_HOME}</td>
-    <td>仅支持2000/XP:运行浏览器并转到主页</td>
+    <td>运行浏览器并转到主页</td>
 </tr>
 <tr>
   <td align="center">{VOLUME_MUTE}</td>
-    <td>仅支持2000/XP:切换系统静音状态</td>
+    <td>切换系统静音状态</td>
 </tr>
 <tr>
   <td align="center">{VOLUME_DOWN}</td>
-    <td>仅支持2000/XP:减小系统音量</td>
+    <td>减小系统音量</td>
 </tr>
 <tr>
   <td align="center">{VOLUME_UP}</td>
-    <td>仅支持2000/XP:增大系统音量</td>
+    <td>增大系统音量</td>
 </tr>
 <tr>
   <td align="center">{MEDIA_NEXT}</td>
-  <td>仅支持2000/XP:在播放器中选择播放下一个轨道(影音媒体)</td>
+  <td>在播放器中选择播放下一个轨道(影音媒体)</td>
 </tr>
 <tr>
   <td align="center">{MEDIA_PREV}</td>
-    <td>仅支持2000/XP:在播放器中选择播放上一个轨道</td>
+    <td>在播放器中选择播放上一个轨道</td>
 </tr>
 <tr>
   <td align="center">{MEDIA_STOP}</td>
-    <td>仅支持2000/XP:使播放器停止播放</td>
+    <td>使播放器停止播放</td>
 </tr>
 <tr>
   <td align="center">{MEDIA_PLAY_PAUSE}</td>
-    <td>仅支持2000/XP:使播放器播放/暂停</td>
+    <td>使播放器播放/暂停</td>
 </tr>
 <tr>
   <td align="center">{LAUNCH_MAIL}</td>
-  <td>仅支持2000/XP:运行邮件客户端程序</td>
+  <td>运行邮件客户端程序</td>
 </tr>
 <tr>
   <td align="center">{LAUNCH_MEDIA}</td>
-  <td>仅支持2000/XP:运行播放器(Media player)</td>
+  <td>运行播放器(Media player)</td>
 </tr>
 <tr>
   <td align="center">{LAUNCH_APP1}</td>
-  <td>仅支持2000/XP:运行用户程序1(我的电脑)</td>
+  <td>运行用户程序1(我的电脑)</td>
 </tr>
 <tr>
   <td align="center">{LAUNCH_APP2}</td>
-  <td>仅支持2000/XP:运行用户程序2(计算器)</td>
+  <td>运行用户程序2(计算器)</td>
 </tr>
   </tbody>
 </table>
