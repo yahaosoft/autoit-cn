@@ -2,26 +2,26 @@
 DllCallAddress
 
 ###Description###
-Dynamically calls a function at a specific memory address.
-<div class="experimental">Warning: This is an advanced function.  Incorrect use of this function may cause AutoIt to crash. Before using this function make sure <a href="DllCall.htm">DllCall()</a> doesn't do what you need.</div>
+动态调用一个指定内存地址的函数.
+<div class="experimental">警告: 这是一个高级函数. 不正确的使用将导致 AutoIt 崩溃. 开始使用这个函数前,您需要先确定 <a href="DllCall.htm">DllCall()</a> 还无法达到你的要求.</div>
 
 ###Syntax###
-DllCallAddress ( "返回类型", 地址 [, 类型1, 参数1 [, 类型 n, 参数 n]] )
+DllCallAddress ( "返回值类型", 地址 [, 类型1, 参数1 [, 类型 n, 参数 n]] )
 
 ###Parameters###
 @@ParamTable@@
-返回类型
-	The return type of the function (see below).
+返回值类型
+	函数的返回值类型(请查看下面的 注意 部分). 
 地址
-	The address of a function.  <b>If this value is invalid your script will crash!</b>
+	函数所在内存地址.  <b>如果这个值不正确将导致你的脚本崩溃!</b>
 类型1
-	[可选参数] The type of the parameter (see remarks).
+	[可选参数] 参数的数据类型(请查看下面的 注意 部分).  
 参数1
-	[可选参数] The actual parameter (see remarks).
+	[可选参数] 实参(请查看下面的 注意 部分).
 类型 n
-	[可选参数] The type of the nth parameter (see remarks).
+	[可选参数] 第n个参数的数据类型(请查看下面的 注意 部分). 
 参数 n
-	[可选参数] The actual nth parameter (see remarks).
+	[可选参数] 第n个参数的实参(请查看下面的 注意 部分).
 @@End@@
 
 <br>有效类型为:
@@ -30,61 +30,61 @@ DllCallAddress ( "返回类型", 地址 [, 类型1, 参数1 [, 类型 n, 参数 
 <b>类型</b>
 	<b>详细信息</b>
 none
-	no value (only valid for return type - equivalent to void in C)
+	没有值 (仅用作无返回值函数的返回类型,这点跟C语言中的void类似)   
 BYTE
-	an unsigned 8 bit integer
+	无符号 8 位(bit)整数
 BOOLEAN
-	an unsigned 8 bit integer
+	无符号 8 位(bit)整数
 short
-	a 16 bit integer
+	16 位整数
 USHORT
-	an unsigned 16 bit integer
+	无符号16 位整数 
 WORD
-	an unsigned 16 bit integer
+	无符号16 位整数 
 int
-	a 32 bit integer
+	32 位整数
 long
-	a 32 bit integer
+	32 位整数
 BOOL
-	a 32 bit integer
+	32 位整数
 UINT
-	an unsigned 32 bit integer
+	无符号 32 位整数
 ULONG
-	an unsigned 32 bit integer
+	无符号 32 位整数 
 DWORD
-	an unsigned 32 bit integer
+	无符号 32 位整数 
 INT64
-	a 64 bit integer
+	64 位整数
 UINT64
-	an unsigned 64 bit integer
+	无符号 64 位整数
 ptr
-	a general pointer (void *)
+	常规指针(void *)
 HWND
-	a window handle (pointer)
+	窗口句柄(指针)
 HANDLE
-	an handle (pointer)
+	一个句柄(指针)
 float
-	a single precision floating point number
+	单精度浮点数
 double
-	a double precision floating point number
+	双精度浮点数
 INT_PTR, LONG_PTR, LRESULT, LPARAM
-	an integer big enough to hold a pointer when running on x86 or x64 versions of AutoIt.
+	一个大型整数指针.(目前x86,x64版本AutoIt都可以使用).
 UINT_PTR, ULONG_PTR, DWORD_PTR, WPARAM
-	an unsigned integer big enough to hold a pointer when running on x86 or x64 versions of AutoIt.
+	一个大型无符号整数指针.(目前x86,x64版本AutoIt都可以使用).
 str
-	an ANSI string (a minimum of 65536 chars is allocated).
+	ANSI 字符串(至少将分配 65536 个字符,以保证AutoIt不会溢出).
 wstr
-	a UNICODE wide character string (a minimum of 65536 chars is allocated).
+	UNICODE 宽字符串(至少将分配 65536 个字符,以保证AutoIt不会溢出).
 *
-	Add * to the end of another type to pass it by reference.  For example "int*" passes a pointer to an "int" type.
+	传递一个其它类型(添加一个*到末尾.)  例如 "int*" 传递一个指针到 "int" 类型.
 @@End@@
 
 
-<br>Conversions from Windows API types to AutoIt types:
+<br>从 Windows API 类型转换为 AutoIt 类型: 
 
 @@ParamTable@@
-<b>WINDOWS API Type</b>
-	<b>AutoIt Type</b>
+<b>WINDOWS API 类型</b>
+	<b>AutoIt 类型</b>
 LPCSTR/LPSTR
 	str
 LPCWSTR/LPWSTR
@@ -105,29 +105,29 @@ SIZE_T
 	ULONG_PTR
 @@End@@
 
-To use nested structures inside a structure you must re-define the nested structure.  For example, a structure containing 2 POINT structures ("long;long") would be declared as "long;long;long;long".  The first two long values correspond to the first POINT structure and the second two values correspond to the second POINT structure.
+如果要使用嵌套的数据结构(数据结构中包含数据结构)你必须重新定义嵌套的数据结构.  举个例子,一个数据结构包含两个指针数据结构("long;long") ,必须声明为 "long;long;long;long".  最前面的两个 long 值相当于第一个指针数据结构,后面的两个值相当于第二个数据结构.(thesnoW:比C更复杂了...)
 
-For more Windows API types see <a href="http://msdn.microsoft.com/en-us/library/aa383751.aspx">MSDN</a>.
+了解更多的 Windows API 类型,请参考 <a href="http://msdn.microsoft.com/en-us/library/aa383751.aspx">MSDN</a>.
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	@error = 0.
-Failure:	set @error
-@error:	2 unknown "return type",
-	4 bad number of parameters.
+成功:	@error = 0.
+失败:	设置 @error
+@error:	2 未知 "返回值类型",
+	4 参数数量错误.
 @@End@@
-See remarks.
+参考注意项目.
 
 
 ###Remarks###
-By default, AutoIt uses the 'stdcall' calling method. To use the 'cdecl' method place ':cdecl' after the return type.
+默认情况下, AutoIt 使用 'stdcall' 调用方式. 要使用 'cdecl' 方式调用,请在返回值类型后面加上 ':cdecl' .
 
-If the function call fails then @error is set to non-zero.  Otherwise an array is returned that contains the function return value and a copy of all the parameters (including parameters that the function may have modified when passed by reference).
-$return[0] = function return value
-$return[1] = param1
-$return[2] = param2
+如果函数调用失败,将会设置 @error 为非0.反之将会返回一个包含函数返回值和所有参数拷贝的数组(包括可能被传递后修改的函数参数).
+$return[0] = 函数的返回值 
+$return[1] = 参数1 
+$return[2] = 参数2 
 ...
-$return[n] = paramn
+$return[n] = 参数n 
 
 
 
