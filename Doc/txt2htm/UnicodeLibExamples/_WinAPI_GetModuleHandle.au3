@@ -1,10 +1,6 @@
-﻿#AutoIt3Wrapper_Au3Check_Parameters=-d -w 1 -w 2 -w 3 -w 4 -w 5 -w 6
-
-#include <WinAPI.au3>
+﻿#include <WinAPI.au3>
 #include <WindowsConstants.au3>
 #include <StructureConstants.au3>
-
-Opt('MustDeclareVars', 1)
 
 Global $hHook, $hStub_KeyProc, $buffer = ""
 
@@ -44,7 +40,7 @@ Func EvaluateKey($keycode)
 		EndSwitch
 	ElseIf ($keycode > 159) And ($keycode < 164) Then
 		Return
-	ElseIf ($keycode = 27) Then ; esc 键
+	ElseIf ($keycode = 27) Then ; esc key
 		Exit
 	Else
 		$buffer = ""
@@ -52,7 +48,7 @@ Func EvaluateKey($keycode)
 EndFunc   ;==>EvaluateKey
 
 ;===========================================================
-; 回调函数
+; callback function
 ;===========================================================
 Func _KeyProc($nCode, $wParam, $lParam)
 	Local $tKEYHOOKS

@@ -4,37 +4,35 @@
 #include <WindowsConstants.au3>
 #include <Constants.au3>
 
-Opt('MustDeclareVars', 1)
-
 Global $iMemo
 
 _Main()
 
 Func _Main()
 	Local $hGUI, $hInput, $btn_get, $hReBar, $hInstance, $sText
-	; 创建 GUI
+	; Create GUI
 	$hGUI = GUICreate("WinAPI", 400, 396)
-	
+
 	$hInput = GUICtrlCreateInput("4209", 0, 0, 100, 20)
 
-	; 创建伸缩条控件
-	$hReBar = _GUICtrlReBar_Create($hGUI, BitOR($CCS_TOP, $WS_BORDER, $RBS_VARHEIGHT, $RBS_AUTOSIZE, $RBS_BANDBORDERS))
-	
+	; create the rebar control
+	$hReBar = _GUICtrlRebar_Create($hGUI, BitOR($CCS_TOP, $WS_BORDER, $RBS_VARHEIGHT, $RBS_AUTOSIZE, $RBS_BANDBORDERS))
+
 	$iMemo = GUICtrlCreateEdit("", 2, 55, 396, 200, BitOR($WS_VSCROLL, $WS_HSCROLL))
 	GUICtrlSetFont($iMemo, 10, 400, 0, "Courier New")
 
 
-	;添加含控件的带区
-	_GUICtrlReBar_AddBand($hReBar, GUICtrlGetHandle($hInput), 120, 200, "String ID:")
+	;add band containing the  control
+	_GUICtrlRebar_AddBand($hReBar, GUICtrlGetHandle($hInput), 120, 200, "String ID:")
 
 	$btn_get = GUICtrlCreateButton("Get String", 0, 0, 90, 20)
 
-	;添加含控件的带区
-	_GUICtrlReBar_AddBand($hReBar, GUICtrlGetHandle($btn_get), 120, 200)
-	
+	;add band containing the  control
+	_GUICtrlRebar_AddBand($hReBar, GUICtrlGetHandle($btn_get), 120, 200)
+
 
 	GUISetState()
-	
+
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE
@@ -55,7 +53,7 @@ Func _Main()
 	WEnd
 EndFunc   ;==>_Main
 
-; 写入消息到 memo
+; Write message to memo
 Func MemoWrite($sMessage = "")
 	GUICtrlSetData($iMemo, $sMessage & @CRLF, 1)
 EndFunc   ;==>MemoWrite
