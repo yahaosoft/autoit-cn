@@ -2,15 +2,15 @@
 #include <GuiListView.au3>
 #include <GuiImageList.au3>
 
-$Debug_LV = False ; 检查传递给 ListView 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_LV = False ; Check ClassName being passed to ListView functions, set to True and use a handle to another control to see it work
 
 _Main()
 
 Func _Main()
 	Local $hImage, $hListView
 
-	; 创建 GUI
-	GUICreate("ListView Add SubItem", 400, 300)
+	; 创建界面
+	GUICreate("列表中添加子项", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268, -1, BitOR($LVS_EX_FULLROWSELECT, $LVS_EX_SUBITEMIMAGES))
 	GUISetState()
 
@@ -26,7 +26,7 @@ Func _Main()
 	_GUICtrlListView_InsertColumn($hListView, 1, "Column 2", 100)
 	_GUICtrlListView_InsertColumn($hListView, 2, "Column 3", 100)
 
-	; 添加项目
+	; 添加项
 	_GUICtrlListView_AddItem($hListView, "Row 1: Col 1", 0)
 	_GUICtrlListView_AddSubItem($hListView, 0, "Row 1: Col 2", 1, 1)
 	_GUICtrlListView_AddSubItem($hListView, 0, "Row 1: Col 3", 2, 2)
@@ -34,7 +34,7 @@ Func _Main()
 	_GUICtrlListView_AddSubItem($hListView, 1, "Row 2: Col 2", 1, 2)
 	_GUICtrlListView_AddItem($hListView, "Row 3: Col 1", 2)
 
-	; 循环直到用户退出
+	; 循环至用户退出
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()
