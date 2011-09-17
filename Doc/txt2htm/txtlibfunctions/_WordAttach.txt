@@ -2,7 +2,7 @@
 _WordAttach
 
 ###Description###
-获取Microsoft Word的首个实例并按选择的搜索方式搜索匹配字符串
+使用选择的模式并使用字符串匹配的方法尝试附加到第一个存在的Microsoft Word实例(instance)
 
 ###Syntax###
 #include <Word.au3> 
@@ -11,14 +11,14 @@ _WordAttach ( $s_string [, $s_mode = "FilePath"] )
 ###Parameters###
 @@ParamTable@@
 $s_string
-	要搜索的字符串
+	要进行尝试搜索的字符串
 $s_mode
 	[可选参数] 指定搜索方式
-	FileName = 打开文件的名称
-	FilePath = (默认) 打开文件的完整路径
-	HWND = 窗口的句柄
-	Text = 来自文档正文的文字
-	Title = 窗口的标题
+	FileName = 所打开文档的名称
+	FilePath = (默认) 所打开文档的完整路径
+	HWND = word 窗口的句柄
+	Text = 来自文档正文的文本
+	Title = word窗口的标题
 @@End@@
 
 ###ReturnValue###
@@ -26,10 +26,10 @@ $s_mode
 成功:	返回指向 Word.Application 对象的对象变量
 失败:	返回 0 并设置 @ERROR
 @Error:	$_WordStatus_Success = 无错误
-	$_WordStatus_GeneralError = 一般错误
+	$_WordStatus_GeneralError = 常规错误
 	$_WordStatus_InvalidValue = 无效值
 	$_WordStatus_NoMatch = 不匹配
-@Extended:	参数数量无效
+@Extended:	包含无效参数的序号
 @@End@@
 
 
