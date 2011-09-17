@@ -33,14 +33,17 @@
 <tr><td bgcolor="#9999CC">$tagBITMAPINFO</td>
 <td bgcolor="#9999CC">$tagBITMAPINFOHEADER & 'dword bmiColors[1];'</td>
 </tr>
+<tr><td>$tagDEVMODE_DISPLAY</td>
+<td>'wchar DeviceName[32];ushort SpecVersion;ushort DriverVersion;ushort Size;ushort DriverExtra;dword Fields;' & $tagPOINT & ';dword DisplayOrientation;dword DisplayFixedOutput;short[5];wchar[32];ushort LogPixels;dword BitsPerPel;dword PelsWidth;dword PelsHeight;dword DisplayFlags;dword DisplayFrequency;'</td>
+</tr>
+<tr><td>$tagDEVMODE_PRINTER</td>
+<td>'wchar DeviceName[32];ushort SpecVersion;ushort DriverVersion;ushort Size;ushort DriverExtra;dword Fields;short Orientation;short PaperSize;short PaperLength;short PaperWidth;short Scale;short Copies;short DefaultSource;short PrintQuality;short Color;short Duplex;short YResolution;short TTOption;short Collate;wchar FormName[32];ushort;dword[3];dword Nup;dword;dword ICMMethod;dword ICMIntent;dword MediaType;dword DitherType;dword Reserved1;dword Reserved2;dword PanningWidth;dword PanningHeight;'</td>
+</tr>
+<tr><td>$tagDEVNAMES</td>
+<td>'ushort DriverOffset;ushort DeviceOffset;ushort OutputOffset;ushort Default;'</td>
+</tr>
 <tr><td>$tagDIBSECTION</td>
 <td>$tagBITMAP & $tagBITMAPINFOHEADER & 'dword dsBitfields[3];ptr dshSection;dword dsOffset;'</td>
-</tr>
-<tr><td>$tagDISK_GEOMETRY</td>
-<td>'int64 Cylinders;dword MediaType;dword TracksPerCylinder;dword SectorsPerTrack;dword BytesPerSector;'</td>
-</tr>
-<tr><td>$tagDISK_GEOMETRY_EX</td>
-<td>$tagDISK_GEOMETRY & 'int64 DiskSize;' ; & 'byte Data[n];'</td>
 </tr>
 <tr><td>$tagDTTOPTS</td>
 <td>'dword Size;dword Flags;dword clrText;dword clrBorder;dword clrShadow;int TextShadowType;' & $tagPOINT & ';int BorderSize;int FontPropId;int ColorPropId;int StateId;int ApplyOverlay;int GlowSize;ptr DrawTextCallback;lparam lParam;'</td>
@@ -51,17 +54,14 @@
 <tr><td>$tagEXTLOGPEN</td>
 <td>'dword PenStyle;dword Width;uint BrushStyle;dword Color;ulong_ptr Hatch;dword NumEntries' ; & 'dword StyleEntry[n];'</td>
 </tr>
+<tr><td>$tagFINDREPLACE</td>
+<td>'dword Size;hwnd hOwner;ptr hInstance;dword Flags;ptr FindWhat;ptr ReplaceWith;ushort FindWhatLen;ushort ReplaceWithLen;lparam lParam;ptr Hook;ptr TemplateName;'</td>
+</tr>
 <tr><td bgcolor="#9999CC">$tagGUITHREADINFO</td>
 <td bgcolor="#9999CC">'dword Size;dword Flags;hwnd hWndActive;hwnd hWndFocus;hwnd hWndCapture;hwnd hWndMenuOwner;hwnd hWndMoveSize;hwnd hWndCaret;long rcCaret[4];'</td>
 </tr>
-<tr><td>$tagHW_PROFILE_INFO</td>
-<td>'dword DockInfo;wchar ProfileGuid[39];wchar ProfileName[80];'</td>
-</tr>
 <tr><td bgcolor="#9999CC">$tagICONINFO</td>
 <td bgcolor="#9999CC">'int Icon;dword xHotspot;dword yHotspot;ptr hMask;ptr hColor;'</td>
-</tr>
-<tr><td>$tagICONINFOEX</td>
-<td>'dword Size;int Icon;dword xHotspot;dword yHotspot;ptr hMask;ptr hColor;ushort ResID;wchar ModName[260];wchar ResName[260];'</td>
 </tr>
 <tr><td>$tagIO_COUNTERS</td>
 <td>'uint64 ReadOperationCount;uint64 WriteOperationCount;uint64 OtherOperationCount;uint64 ReadTransferCount;uint64 WriteTransferCount;uint64 OtherTransferCount;'</td>
@@ -102,8 +102,8 @@
 <tr><td>$tagLOGPEN</td>
 <td>'uint Style;dword Width;dword Color;'</td>
 </tr>
-<tr><td>$tagLUID</td>
-<td>'dword LowPart;long HighPart;'</td>
+<tr><td>$tagMODULEINFO</td>
+<td>'ptr BaseOfDll;dword SizeOfImage;ptr EntryPoint;'</td>
 </tr>
 <tr><td>$tagMSGBOXPARAMS</td>
 <td>'uint Size;hwnd hOwner;ptr hInstance;int_ptr Text;int_ptr Caption;dword Style;int_ptr Icon;dword_ptr ContextHelpId;ptr MsgBoxCallback;dword LanguageId;'</td>
@@ -111,11 +111,11 @@
 <tr><td>$tagNOTIFYICONDATA</td>
 <td>'dword Size;hwnd hWnd;uint ID;uint Flags;uint CallbackMessage;ptr hIcon;wchar Tip[128];dword State;dword StateMask;wchar Info[256];uint Version;wchar InfoTitle[64];dword InfoFlags;'</td>
 </tr>
-<tr><td>$tagNOTIFYICONDATA_XP</td>
-<td>$tagNOTIFYICONDATA & 'uint GUID;'</td>
+<tr><td>$tagNOTIFYICONDATA_V3</td>
+<td>$tagNOTIFYICONDATA & $tagGUID & ';'</td>
 </tr>
-<tr><td>$tagNOTIFYICONDATA_VISTA</td>
-<td>$tagNOTIFYICONDATA_XP & 'ptr hBalloonIcon;'</td>
+<tr><td>$tagNOTIFYICONDATA_V4</td>
+<td>$tagNOTIFYICONDATA_V3 & 'ptr hBalloonIcon;'</td>
 </tr>
 <tr><td>$tagOSVERSIONINFO</td>
 <td>'dword OSVersionInfoSize;dword MajorVersion;dword MinorVersion;dword BuildNumber;dword PlatformId;wchar CSDVersion[128];'</td>
@@ -123,11 +123,23 @@
 <tr><td>$tagOSVERSIONINFOEX</td>
 <td>$tagOSVERSIONINFO & 'ushort ServicePackMajor;ushort ServicePackMinor;ushort SuiteMask;byte ProductType;byte Reserved;'</td>
 </tr>
+<tr><td>$tagPAGESETUPDLG</td>
+<td>'dword Size;hwnd hOwner;ptr hDevMode;ptr hDevNames;dword Flags;long PaperWidth;long PaperHeight;long MarginMinLeft;long MarginMinTop;long MarginMinRight;long MarginMinBottom;long MarginLeft;long MarginTop;long MarginRight;long MarginBottom;ptr hInstance;lparam lParam;ptr PageSetupHook;ptr PagePaintHook;ptr PageSetupTemplateName;ptr hPageSetupTemplate;'</td>
+</tr>
 <tr><td>$tagPAINTSTRUCT</td>
 <td>'hwnd hDC;int fErase;dword rPaint[4];int fRestore;int fIncUpdate;byte rgbReserved[32];'</td>
 </tr>
 <tr><td>$tagPANOSE</td>
 <td>'byte bFamilyType;byte bSerifStyle;byte bWeight;byte bProportion;byte bContrast;byte bStrokeVariation;byte bArmStyle;byte bLetterform;byte bMidline;byte bXHeight;'</td>
+</tr>
+<tr><td>$tagPRINTDLG</td>
+<td>'align 2;dword_ptr Size;hwnd hOwner;ptr hDevMode;ptr hDevNames;hwnd hDC;dword Flags;ushort FromPage;ushort ToPage;ushort MinPage;ushort MaxPage;' & __Iif(@AutoItX64, 'uint', 'ushort') & ' Copies;ptr hInstance;lparam lParam;ptr PrintHook;ptr SetupHook;ptr PrintTemplateName;ptr SetupTemplateName;ptr hPrintTemplate;ptr hSetupTemplate;'</td>
+</tr>
+<tr><td>$tagPRINTDLGEX</td>
+<td>'dword Size;hwnd hOwner;ptr hDevMode;ptr hDevNames;hwnd hDC;dword Flags;dword Flags2;dword ExclusionFlags;dword NumPageRanges;dword MaxPageRanges;ptr PageRanges;dword MinPage;dword MaxPage;dword Copies;ptr hInstance;ptr PrintTemplateName;lparam lParam;dword NumPropertyPages;ptr hPropertyPages;dword StartPage;dword ResultAction;'</td>
+</tr>
+<tr><td>$tagPRINTPAGERANGE</td>
+<td>'dword FromPage;dword ToPage;'</td>
 </tr>
 <tr><td>$tagRGNDATAHEADER</td>
 <td>'dword Size;dword Type;dword Count;dword RgnSize;' & $tagRECT & ';'</td>
@@ -147,14 +159,17 @@
 <tr><td>$tagSHSTOCKICONINFO</td>
 <td>'dword Size;ptr hIcon;int SysImageIndex;int iIcon;wchar Path[260];'</td>
 </tr>
-<tr><td>$tagSTORAGE_DEVICE_NUMBER</td>
-<td>'dword DeviceType;ulong DeviceNumber;ulong PartitionNumber;'</td>
+<tr><td bgcolor="#9999CC">$tagSTARTUPINFO</td>
+<td bgcolor="#9999CC">'dword Size;ptr Reserved1;ptr Desktop;ptr Title;dword X;dword Y;dword XSize;dword YSize;dword XCountChars;dword YCountChars;dword FillAttribute;dword Flags;ushort ShowWindow;ushort Reserved2;ptr Reserved3;ptr hStdInput;ptr hStdOutput;ptr hStdError;'</td>
 </tr>
 <tr><td bgcolor="#9999CC">$tagTEXTMETRIC</td>
 <td bgcolor="#9999CC">'long tmHeight;long tmAscent;long tmDescent;long tmInternalLeading;long tmExternalLeading;long tmAveCharWidth;long tmMaxCharWidth;long tmWeight;long tmOverhang;long tmDigitizedAspectX;long tmDigitizedAspectY;wchar tmFirstChar;wchar tmLastChar;wchar tmDefaultChar;wchar tmBreakChar;byte tmItalic;byte tmUnderlined;byte tmStruckOut;byte tmPitchAndFamily;byte tmCharSet;'</td>
 </tr>
 <tr><td bgcolor="#9999CC">$tagOUTLINETEXTMETRIC</td>
 <td bgcolor="#9999CC">'uint otmSize;' & $tagTEXTMETRIC & 'byte otmFiller[4];' & $tagPANOSE & 'uint otmSelection;uint otmType;int otmCharSlopeRise;int otmCharSlopeRun;int otmItalicAngle;uint otmEMSquare;int otmAscent;int otmDescent;uint otmLineGap;uint otmCapEmHeight;uint otmXHeight;long otmFontBox[4];int otmMacAscent;int otmMacDescent;uint otmMacLineGap;uint otmMinimumPPEM;long otmSubscriptSize[2];long otmSubscriptOffset[2];long otmSuperscriptSize[2];long otmSuperscriptOffset[2];uint otmStrikeoutSize;int otmStrikeoutPosition;int otmUnderscoreSize;int otmUnderscorePosition;uint_ptr otmFamilyName;uint_ptr otmFaceName;uint_ptr otmStyleName;uint_ptr otmFullName;' ; & 'byte Data[n];'</td>
+</tr>
+<tr><td>$tagUSEROBJECTFLAGS</td>
+<td>'int Inherit;int Reserved;dword Flags;'</td>
 </tr>
 <tr><td>$tagVS_FIXEDFILEINFO</td>
 <td>'dword Signature;dword StrucVersion;dword FileVersionMS;dword FileVersionLS;dword ProductVersionMS;dword ProductVersionLS;dword FileFlagsMask;dword FileFlags;dword FileOS;dword FileType;dword FileSubtype;dword FileDateMS;dword FileDateLS;'</td>
@@ -169,7 +184,7 @@
 <td>'uint Size;uint Style;ptr hWndProc;int ClsExtra;int WndExtra;ptr hInstance;ptr hIcon;ptr hCursor;ptr hBackground;ptr MenuName;ptr ClassName;ptr hIconSm;'</td>
 </tr>
 <tr><td>$tagXFORM</td>
-<td>'float eM11;float eM12;float eM21;float eM22;float eDX;float eDY;'</td>
+<td>'float eM11;float eM12;float eM21;float eM22;float eDx;float eDy;'</td>
 </tr>
 </table><BR /><BR />
 </body>
