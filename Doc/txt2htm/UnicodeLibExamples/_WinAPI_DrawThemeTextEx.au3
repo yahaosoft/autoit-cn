@@ -1,6 +1,5 @@
-﻿#Include <Constants.au3>
+﻿#Include <APIConstants.au3>
 #Include <GUIConstantsEx.au3>
-#Include <FontConstants.au3>
 #Include <WinAPIEx.au3>
 
 Opt('MustDeclareVars', 1)
