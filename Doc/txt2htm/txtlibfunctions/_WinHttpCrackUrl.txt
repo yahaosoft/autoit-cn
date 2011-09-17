@@ -12,29 +12,29 @@ _WinHttpCrackUrl($sURL [, $iFlag = Default ])
 @@ParamTable@@
 $sURL
 	包含要被拆分为规范URL的字符串
-$dwFlag
-	[可选参数] 控制操作的标记. 默认为$ICU_ESCAPE
+$iFlag
+	[可选参数] 控制操作的标志. 默认为 $ICU_ESCAPE
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	设置@error 0 并返回如下数组:
-	元素[0]:方案名称
-	元素[1]:网络协议
-	元素[2]:主机名
-	元素[3]:端口名
-	元素[4]:用户名
-	元素[5]:密码
-	元素[6]:URL路径
-	元素[7]:额外信息
-失败:	返回0设置@error 1时代表DllCall失败
+成功:	返回包含下方8个元素的数组:
+	$array[0] - 为方案名称
+	$array[1] - 为网络协议
+	$array[2] - 为主机名
+	$array[3] - 为端口
+	$array[4] - 为用户名
+	$array[5] - 为密码
+	$array[6] - 为URL路径
+	$array[7] - 为附加信息
+失败:	返回 0 并设置 @error:
+	1 - DllCall 失败
 @@End@@
 
 ###Remarks###
-在WinHTTPConstants.au3中定义的$dwFlag可为:
-$ICU_DECODE - 转换"转义编码(%xx)"字符为非转义格式.
-$ICU_ESCAPE - 将指定字符转义至其转义序列(%xx).
-
+$iFlag 定义于 WinHttpConstants.au3 并且可以是:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ICU_DECODE - 转换"转义编码(%xx)"字符为非转义格式.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ICU_ESCAPE - 将指定字符转义至其转义序列(%xx).
 ###Related###
 <a href="_WinHttpCreateUrl.htm">_WinHttpCreateUrl</a>
 

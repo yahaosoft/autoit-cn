@@ -11,22 +11,22 @@ _WinHttpAddRequestHeaders ($hRequest, $sHeaders [, $iModifiers = Default ])
 ###Parameters###
 @@ParamTable@@
 $hRequest
-	_WinHttpOpenRequest返回的句柄
+	由 _WinHttpOpenRequest 函数返回的句柄.
 $sHeader
-	[可选参数]包含附加到请求的报头的字符串
+	[可选参数] 要附加到请求的报头.
 $iModifiers
-	[可选参数] 包含用于更改该函数含义的标记. 默认为$WINHTTP_ADDREQ_FLAG_ADD_IF_NEW.
+	[可选参数] 包含用于更改该函数过程的标志. 默认为 $WINHTTP_ADDREQ_FLAG_ADD_IF_NEW.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回1设置@error 0
-失败:	返回0设置@error且为1时, dllcall失败
+成功:	返回 1
+失败:	返回 0 并设置 @error:
+	1 - DllCall 失败
 @@End@@
 
 ###Remarks###
-一次添加多个请求时, 必须使用将每个请求以@CRLF分开并应答$sHeaders和$iModifiers.
-
+一次添加多个请求时, 必须使用将每个请求以@CRLF分开每个$hRequest, 响应头 $sHeaders 和 $iModifiers.
 ###Related###
 <a href="_WinHttpOpenRequest.htm">_WinHttpOpenRequest</a>, <a href="_WinHttpQueryHeaders.htm">_WinHttpQueryHeaders</a>
 

@@ -2,7 +2,7 @@
 _WinHttpOpen
 
 ###Description###
-初始化WinHTTP函数的使用并返回WinHTTP会话句柄
+初始化 WinHttp 函数的使用并返回一个 WinHttp 会话句柄.
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,21 +11,22 @@ _WinHttpOpen([$sUserAgent = Default [, $iAccessType = Default [, $sProxyName = D
 ###Parameters###
 @@ParamTable@@
 $sUserAgent
-	[可选参数] 包含应用程序或调用WinHTTP函数的实体的名称的字符串
+	[可选参数] 调用 WinHttp 函数的应用程序完整名称.默认为 "AutoIt/3.3".
 $iAccessType
-	[可选参数] 需要的权限类型
+	[可选参数] 需要的访问类型.默认为 $WINHTTP_ACCESS_TYPE_NO_PROXY.
 $sProxyName
-	[可选参数] 包含当代理权限通过设置$iAccessType被指定为$WINHTTP_ACCESS_TYPE_NAMED_PROXY时使用的代理服务器的字符串
+	[可选参数] 当 $iAccessType 设置为 $WINHTTP_ACCESS_TYPE_NAMED_PROXY 时使用的代理服务器名称.
 $sProxyBypass
-	[可选参数] 包含代理的主机名或IP地址或两者的可选列表的字符串, 该代理无法在$iAccessType被设置为$WINHTTP_ACCESS_TYPE_NAMED_PROXY时被路由
+	[可选参数] 当 $iAccessType 设置为 $WINHTTP_ACCESS_TYPE_NAMED_PROXY 时需要绕过代理路由的可选主机名称或者IP地址的列表.
 $iFlag
-	[可选参数] 包含指定影响函数结果的选项的标记的整数
+	[可选参数] 影响函数效果的各种选项标志的一个整数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回有效会话句柄设置@error 0
-失败:	返回0设置@error 1表示DllCall失败
+成功:	返回有效会话句柄.
+失败:	返回 0 并设置 @error:
+	1 - DllCall 失败
 @@End@@
 
 ###Remarks###

@@ -2,7 +2,7 @@
 _WinHttpSimpleSendSSLRequest
 
 ###Description###
-以简单形式发送请求且不记录数据
+使用SSL请求发送一个简单的表单,但不读取数据
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,26 +11,26 @@ _WinHttpSimpleSendSSLRequest($hConnect [, $sType [, $sPath [, $sReferrer = Defau
 ###Parameters###
 @@ParamTable@@
 $hConnect
-	_WinHttpConnect()返回的句柄.
+	_WinHttpConnect 函数返回的句柄
 $sType
-	[可选参数] GET(默认)或POST.
+	[可选参数] GET 或 POST (默认: GET)
 $sPath
-	[可选参数] 请求路径(默认为空字符串表示服务器上的默认页).
+	[可选参数] 请求路径 (默认: "" - 空字符串;表示服务器上的默认页)
 $sReferrer
-	[可选参数] 引用(默认为$WINHTTP_NO_REFERER)
+	[可选参数] 引用页面 (默认: $WINHTTP_NO_REFERER)
 $sData
-	[可选参数] POST数据(默认为$WINHTTP_NO_REQUEST_DATA)
+	[可选参数] POST数据 (默认: $WINHTTP_NO_REQUEST_DATA)
 $sHeader
-	[可选参数] 额外头部(默认为$WINHTTP_NO_ADDITIONAL_HEADERS).
+	[可选参数] 附加头 (默认: $WINHTTP_NO_ADDITIONAL_HEADERS)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回WinHttpReceiveResponse之后请求的句柄.
-失败:	返回0设置@error
+成功:	返回 _WinHttpReceiveResponse 函数之后的请求句柄.
+失败:	返回 0 并设置@error
 	1 - 无法打开请求
 	2 - 无法发送请求
-	3 - 无法接收回复
+	3 - 无法接收响应
 @@End@@
 
 ###Remarks###

@@ -11,28 +11,27 @@ _WinHttpSetOption($hInternet, $iOption, $vSetting [, $iSize = Default ])
 ###Parameters###
 @@ParamTable@@
 $hInternet
-	用于设置数据的句柄
+	需要设置数据的句柄.
 $iOption
-	包含要设置的互联网选项的整数值
+	包含要设置的互联网选项的整数值.
 $vSetting
-	包含需要设置的字符串值
+	包含需要设置的字符串值.
 $iSize
-	[可选参数] $vSetting大小, 当$vSetting为内存块时需要.
+	[可选参数] $vSetting 的大小, 当 $vSetting 为一个指向内存区块的指针时需要.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回1.
-失败:	返回0设置@error
+成功:	返回 1.
+失败:	返回 0 并设置 @error:
 	1 - 无效网络选项
-	2 - 所需大小
-	3 - 数据类型与选项不匹配
-	4 - DllCall失败
+	2 - 大小选项需要进行设置
+	3 - 值的数据类型与选项不匹配
+	4 - DllCall 失败
 @@End@@
 
 ###Remarks###
 None.
-
 ###Related###
 <a href="_WinHttpQueryOption.htm">_WinHttpQueryOption</a>
 

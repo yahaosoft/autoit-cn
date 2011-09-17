@@ -2,7 +2,7 @@
 _WinHttpDetectAutoProxyConfigUrl
 
 ###Description###
-查找PAC文件的URL
+查找代理自动设置(PAC)文件的URL
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,19 +11,21 @@ _WinHttpDetectAutoProxyConfigUrl($iAutoDetectFlags)
 ###Parameters###
 @@ParamTable@@
 $iAutoDetectFlags
-	指定用于定位PAC文件的协议
+	指定用于定位PAC文件的协议.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回PAC文件的URL设置@error 0
-失败:	返回空字符串设置@error
+成功:	返回 PAC 文件的 URL.
+失败:	返回空字符串并设置@error:
 	1 - DllCall失败.
 	2 - 内部失败.
 @@End@@
 
 ###Remarks###
-$iAutoDetectFlags由WinHTTPconstants.au3定义
+$iAutoDetectFlags 定义于 WinHttpconstants.au3
+###Related###
+<a href="_WinHttpGetDefaultProxyConfiguration.htm">_WinHttpGetDefaultProxyConfiguration</a>, <a href="_WinHttpGetIEProxyConfigForCurrentUser.htm">_WinHttpGetIEProxyConfigForCurrentUser</a>, <a href="_WinHttpSetDefaultProxyConfiguration.htm">_WinHttpSetDefaultProxyConfiguration</a>
 
 
 ###See Also###

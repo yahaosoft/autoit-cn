@@ -1,0 +1,32 @@
+﻿###User Defined Function###
+_WinHttpSimpleReadDataAsync
+
+###Description###
+从 asynchronous 模式下的一个请求读取数据
+
+###Syntax###
+#Include <WinHttp.au3>
+_WinHttpSimpleReadDataAsync($hInternet, Byref $pBuffer [, $iNumberOfBytesToRead = Default ])
+
+###Parameters###
+@@ParamTable@@
+$hInternet
+	请求句柄 (第一个参数在回调函数中).
+$pBuffer
+	要读取的内存缓冲区指针.
+$iNumberOfBytesToRead
+	[可选参数] 要读取的字节数. 默认为 8192 字节.
+		0 - ASCII-字符串
+		1 - UTF-8-字符串
+		2 - 二进制数据
+@@End@@
+
+###ReturnValue###
+
+###Remarks###
+WinHttp is rentrant during asynchronous completion callback. Make sure you have only one callback running and only one request handled though it at time.
+<br>Also make sure memory buffer is at least 8192 bytes in size if $iNumberOfBytesToRead is left default.
+###Related###
+<a href="_WinHttpSimpleReadData.htm">_WinHttpSimpleReadData</a>, <a href="_WinHttpReadData.htm">_WinHttpReadData</a>
+
+

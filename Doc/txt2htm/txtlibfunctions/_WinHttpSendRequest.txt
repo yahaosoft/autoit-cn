@@ -2,7 +2,7 @@
 _WinHttpSendRequest
 
 ###Description###
-向HTTP服务器发送指定请求
+发送指定请求到HTTP服务器.
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,26 +11,26 @@ _WinHttpSendRequest($hRequest [, $sHeaders = Default [, $sOptional = Default [, 
 ###Parameters###
 @@ParamTable@@
 $hRequest
-	_WinHttpOpenRequest() 返回的句柄
+	_WinHttpOpenRequest() 函数返回的句柄.
 $sHeaders
-	[可选参数] 包含附加到请求的额外头部的字符串. 默认为 $WINHTTP_NO_ADDITIONAL_HEADERS.
+	[可选参数] 附加到请求的附加头. 默认为 $WINHTTP_NO_ADDITIONAL_HEADERS.
 $sOptional
-	[可选参数] 包含任意可选的在请求的头部之后立即发送的数据的字符串. 默认为 $WINHTTP_NO_REQUEST_DATA.
+	[可选参数] 发送请求头后需要发送的可选数据. 默认为 $WINHTTP_NO_REQUEST_DATA.
 $iTotalLength
-	[可选参数] 包含发送的全部可选数据字节长度的未签名长整值. 默认为 0.
+	[可选参数] 要发送的整个可选数据的长度,按字节计算. 默认为 0.
 $iContext
-	[可选参数] 表示写入模式的整数. 默认为0(写入ANSI字符串)
+	[可选参数] 要传递给请求句柄的应用程序定义的值,一般为一个回调函数. 默认为 0.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回1设置@error 0
-失败:	返回0设置@error 且当其为1时表示DllCall失败
+成功:	返回 1.
+失败:	返回 0并设置 @error:
+	1 - DllCall 失败
 @@End@@
 
 ###Remarks###
-指定可选数据($sOptional)将使$iTotalLength接收默认大小的数据
-
+指定的可选数据($sOptional)将使用$iTotalLength定义的大小接收数据,而不是默认值.
 ###Related###
 <a href="_WinHttpOpenRequest.htm">_WinHttpOpenRequest</a>
 

@@ -2,7 +2,7 @@
 _WinHttpReadData
 
 ###Description###
-从_WinHttpOpenRequest()函数打开的句柄读取数据
+从 _WinHttpOpenRequest() 函数打开的句柄读取数据
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,27 +11,24 @@ _WinHttpReadData($hRequest [, $iMode = Default [, $iNumberOfBytesToRead = Defaul
 ###Parameters###
 @@ParamTable@@
 $hRequest
-	_WinHttpOpenRequest()返回的有效句柄
+	_WinHttpOpenRequest() 函数返回的有效句柄.
 $iMode
-	[可选参数] 代表读取模式的整数. 默认为0(ANSI字符集)
+	[可选参数] 整数表示的读取模式. 默认为 0 (字符将使用 ANSI 字符集解码).
 $iNumberOfBytesToRead
-	[可选参数] 包含读取的字节数的整数值. 默认为8192字节
+	[可选参数] 要读取的字节数量. 默认为 8192 字节.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	设置@error 0并返回读取的数据
-	@extended为接收的字节数
-	特殊情况:如果没有更多可读数据(已到终点)时设置@error -1.
-失败:	返回空字符串设置@error 1表示DllCall失败
+成功:	返回读取的数据.
+失败:	原文档未说明.
 @@End@@
 
 ###Remarks###
-$iMode可为下列值:
-0 - ANSI
-1 - UTF8
-2 - 二进制
-
+$iMode 可以是下列值:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 - ANSI
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 - UTF8
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 - Binary
 ###Related###
 <a href="_WinHttpOpenRequest.htm">_WinHttpOpenRequest</a>, <a href="_WinHttpWriteData.htm">_WinHttpWriteData</a>
 

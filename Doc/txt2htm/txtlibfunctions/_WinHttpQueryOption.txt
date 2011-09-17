@@ -2,7 +2,7 @@
 _WinHttpQueryOption
 
 ###Description###
-查询指定句柄上的互联网选项
+查询指定句柄的互联网选项.
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,22 +11,21 @@ _WinHttpQueryOption($hInternet, $iOption)
 ###Parameters###
 @@ParamTable@@
 $hInternet
-	要查询信息的句柄
+	要查询信息的句柄.
 $iOption
-	包含要查询的互联网选项的整数值
+	要查询的互联网选项.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回包含所请求信息的字符串设置@error 0
-失败:	返回空字符串设置@error
-	1 - 初始化DllCall失败
-	2 - 主要DllCall失败
+成功:	返回包含所请求信息的数据内容.
+失败:	返回空字符串并设置 @error:
+	1 - 初始化 DllCall 失败
+	2 - 主要 DllCall 失败
 @@End@@
 
 ###Remarks###
-请求的返回数据变量的类型
-
+返回数据变量的类型根据请求的不同而不同.
 ###Related###
 <a href="_WinHttpSetOption.htm">_WinHttpSetOption</a>
 

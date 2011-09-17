@@ -2,7 +2,7 @@
 _WinHttpSetTimeouts
 
 ###Description###
-设置处理HTTP的超时
+设置 HTTP 传输超时时间.
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -11,30 +11,30 @@ _WinHttpSetTimeouts($hInternet [, $iResolveTimeout = Default [, $iConnectTimeout
 ###Parameters###
 @@ParamTable@@
 $hInternet
-	_WinHttpOpen()或_WinHttpOpenRequest()返回的句柄
+	由 _WinHttpOpen() 或者 _WinHttpOpenRequest() 函数返回的句柄.
 $iResolveTimeout
-	[可选参数] 指定用于名称解析的整数毫秒超时值
+	[可选参数] 超时值,按毫秒计算,用于域名解析的超时.默认为 0 毫秒.
 $iConnectTimeout
-	[可选参数] 指定用于服务器连接请求的整数毫秒超时值
+	[可选参数] 超时值,按毫秒计算,用于服务器连接请求的超时.默认为 60000 毫秒.
 $iSendTimeout
-	[可选参数] 指定用于发送请求的整数毫秒超时值
+	[可选参数] 超时值,按毫秒计算,用于发送请求的超时.默认为 30000 毫秒.
 $iReceiveTimeout
-	[可选参数] 指定用于接收对请求的应答的整数毫秒超时值
+	[可选参数] 超时值,按毫秒计算,用于接受请求响应的超时.默认为 30000 毫秒.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回1设置@error 0
-失败:	返回0设置@error 且当其为1时表示DllCall失败
+成功:	返回 1
+失败:	返回 0 并设置 @error:
+	1 - DllCall 失败
 @@End@@
 
 ###Remarks###
-初始值:
-$iResolveTimeout = 0
-$iConnectTimeout = 60000
-$iSendTimeout = 30000
-$iReceiveTimeout = 30000
-
+初始值为:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- $iResolveTimeout = 0
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- $iConnectTimeout = 60000
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- $iSendTimeout = 30000
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- $iReceiveTimeout = 30000
 ###Related###
 <a href="_WinHttpReceiveResponse.htm">_WinHttpReceiveResponse</a>
 

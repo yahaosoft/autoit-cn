@@ -2,7 +2,7 @@
 _WinHttpCreateUrl
 
 ###Description###
-从包含主机名和路径的数组创建地址
+从一个包含主机名和路径等的数组创建一个URL地址.
 
 ###Syntax###
 #Include <WinHttp.au3>
@@ -10,30 +10,29 @@ _WinHttpCreateUrl($aURLArray)
 
 ###Parameters###
 @@ParamTable@@
-$sURL
-	包含拆分后的规范URL的字符串
+$aURLArray
+	URL 数据数组.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回创建的URL设置@error 0
-失败:	返回0设置@error 
-	1 - 无效输入
-	2 - 初始化DllCall失败
-	3 - 主要DllCall失败
+成功:	返回创建的URL
+失败:	返回空字符串并设置 @error: 
+	1 - 无效输入.
+	2 - 初始化 DllCall 失败
+	3 - 主要 DllCall 失败
 @@End@@
 
 ###Remarks###
-输入值为一维8元素数组:
-元素[0]: 方案名称
-元素[1]: 网络协议
-元素[2]: 主机名
-元素[3]: 端口名
-元素[4]: 用户名
-元素[5]: 密码
-元素[6]: URL路径
-元素[7]: 额外信息
-
+输入值为一个一维8元素的数组:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 第一个元素 [0] 为方案名称
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 第二个元素 [1] 为网络协议
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 第三个元素 [2] 为主机名
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 第四个元素 [3] 为端口
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 第五个元素 [4] 为用户名
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 第六个元素 [5] 为密码
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 第七个元素 [6] 为URL路径
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 第八个元素 [7] 为附加信息
 ###Related###
 <a href="_WinHttpCrackUrl.htm">_WinHttpCrackUrl</a>
 
