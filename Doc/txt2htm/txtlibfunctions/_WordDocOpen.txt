@@ -2,7 +2,7 @@
 _WordDocOpen
 
 ###Description###
-打开一个存在的 Microsoft Word 文档
+打开一个已存在的 Microsoft Word 文档文件
 
 ###Syntax###
 #include <Word.au3> 
@@ -15,31 +15,33 @@ $o_object
 $s_FilePath
 	要打开文档的完整路径 (参考说明)
 $b_ConfirmConversions
-	[可选参数] 如果文件不是Microsoft Word格式指定是否显示转换文件对话框.
-		0 = (默认)不显示
-		1 = 显示
+	[可选参数] 如果文件不是Microsoft Word格式,指定是否显示转换文件对话框.
+	0 = (默认)不显示
+	1 = 显示
 $i_Format
-	[可选参数] 用于打开文件的文件转换器.
-		0 = (默认) 存在的格式
-		1 = Microsoft Word 文档格式
-		2 = Microsoft Word 模板格式
-		3 =富文本格式 (RTF)
-		4 = 未加密文本格式
-		5 = Unicode文本格式或加密文本格式
-		6 = 向下兼容的Microsoft Word 格式
-		7 = HTML 格式8 = XML 格式
+	[可选参数] 用于打开文档的文件转换器.
+	0 = (默认) 存在的格式
+	1 = Microsoft Word 文档格式
+	2 = Microsoft Word 模板格式
+	3 = 富文本格式 (RTF)
+	4 = 未编码的文本格式(纯文本文档)
+	5 = Unicode文本格式或其它编码的文本格式
+	6 = 兼容早期 Microsoft Word 版本的格式
+	7 = HTML 格式
+	8 = XML 格式
 $b_ReadOnly
-	[可选参数] 指定是否只读打开.注意: 该参数不会覆盖只读文件.
-		0 = (默认)可读写打开
-		1 = 只读打开
+	[可选参数] 指定是否以只读方式打开文档.
+	注意: 该参数不会覆盖只读文件.推荐已保存的文档使用.
+	0 = (默认)可读写方式打开文档
+	1 = 只读方式打开文档
 $b_Revert
-	[可选参数] 当$s_FilePath是一个打开文档时进行后续控制.
-		0 = (默认) 激活打开的文件
-		1 = 忽略所有未保存改变并重新打开文件
+	[可选参数] 当 $s_FilePath 已经是打开的文档时的操作.
+	0 = (默认) 激活打开的文档
+	1 = 放弃任何未保存修改并重新打开文件
 $b_AddToRecentFiles
 	[可选参数] 指定是否将文件名添加到文件菜单底部的最近使用的文件中.
-		0 = (默认) 不添加
-		1 = 添加
+	0 = (默认) 不添加
+	1 = 添加
 $s_PasswordDocument
 	[可选参数] 打开文件时使用的密码.
 $s_WritePasswordDocument
@@ -48,19 +50,18 @@ $s_WritePasswordDocument
 
 ###ReturnValue###
 @@ReturnTable@@
-	Success:
-	返回指向Word.Application文档对象的对象变量
-失败:	返回 0设置@error	
-@error:	0 ($_WordStatus_Success) = 无错误
-	1 ($_WordStatus_GeneralError) = 一般错误
-	3 ($_WordStatus_InvalidDataType) = 无效数据类型
-	4 ($_WordStatus_InvalidObjectType) = 无效对象类型@Extended:
-	包含无效参数数量
+成功:	返回一个指向 Word.Application 的文档对象的对象变量
+失败:	返回 0设置@ERROR	
+@Error:	$_WordStatus_Success = 无错误
+	$_WordStatus_GeneralError = 常规错误
+	$_WordStatus_InvalidDataType = 无效数据类型
+	$_WordStatus_InvalidObjectType = 无效对象类型
+@Extended:	包含无效参数的数量
 @@End@@
 
 
 ###Remarks###
-如果文件不存在,将被创建.
+如果文件不存在,将被自动创建.
 
 
 ###Related###
