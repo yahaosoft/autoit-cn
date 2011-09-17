@@ -1,4 +1,5 @@
-﻿#Include <WinAPIEx.au3>
+﻿#Include <APIConstants.au3>
+#Include <WinAPIEx.au3>
 
 Opt('MustDeclareVars', 1)
 
@@ -17,13 +18,10 @@ If Not IsArray($aIcon) Then
 EndIf
 
 ; 设置图标到选择的文件夹
-$tIcon = DllStructCreate('wchar[260]')
-DllStructSetData($tIcon, 1, $aIcon[0])
-
 $tSHFCS = DllStructCreate($tagSHFOLDERCUSTOMSETTINGS)
 DllStructSetData($tSHFCS, 'Size', DllStructGetSize($tSHFCS))
 DllStructSetData($tSHFCS, 'Mask', $FCSM_ICONFILE)
-DllStructSetData($tSHFCS, 'IconFile', DllStructGetPtr($tIcon))
+DllStructSetData($tSHFCS, 'IconFile', _WinAPI_CreateString($aIcon[0], $tIcon))
 DllStructSetData($tSHFCS, 'SizeIF', 260)
 DllStructSetData($tSHFCS, 'IconIndex', $aIcon[1])
 

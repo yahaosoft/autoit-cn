@@ -1,19 +1,19 @@
-﻿#Include <GUIConstantsEx.au3>
+﻿#Include <APIConstants.au3>
+#Include <GUIConstantsEx.au3>
 #Include <Memory.au3>
 #Include <StaticConstants.au3>
 #Include <WinAPIEx.au3>
 
 Opt('MustDeclareVars', 1)
 
-Global Const $sDll = _DllGetPath(@ScriptDir & '\Extras')
 Global Const $sJpg = @TempDir & '\~Tech.jpg'
 
 Global $Msg, $Button, $hFile, $hFont, $hInstance, $hResource, $hData, $pData, $tData, $hWave, $pWave, $sText, $iSize
 
 ; 加载 Resources.dll 到内存
-$hInstance = _WinAPI_LoadLibrary($sDll)
+$hInstance = _WinAPI_LoadLibraryEx(@ScriptDir & '\Extras\Resources.dll', $LOAD_LIBRARY_AS_DATAFILE)
 If Not $hInstance Then
-	MsgBox(16, 'Error', $sDll & ' not found.')
+	MsgBox(16, 'Error', @ScriptDir & '\Extras\Resources.dll not found.')
 	Exit
 EndIf
 
@@ -80,11 +80,3 @@ WEnd
 ; 释放资源
 _WinAPI_RemoveFontMemResourceEx($hFont)
 FileDelete($sJpg)
-
-Func _DllGetPath($sPath)
-	If @AutoItX64 Then
-		Return $sPath & '\Resources_x64.dll'
-	Else
-		Return $sPath & '\Resources.dll'
-	EndIf
-EndFunc   ;==>_DllGetPath

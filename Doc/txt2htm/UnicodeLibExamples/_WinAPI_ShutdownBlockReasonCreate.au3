@@ -1,4 +1,5 @@
-﻿#Include <ButtonConstants.au3>
+﻿#Include <APIConstants.au3>
+#Include <ButtonConstants.au3>
 #Include <GUIConstantsEx.au3>
 #Include <WinAPIEx.au3>
 
@@ -16,7 +17,7 @@ $Button = GUICtrlCreateButton('', 73, 62, 54, 54, $BS_ICON)
 GUICtrlSetImage(-1, @SystemDir & '\shell32.dll', 45)
 GUICtrlSetTip(-1, 'Log off ' & @UserName)
 $Check = GUICtrlCreateCheckBox('Block Windows shutdown', 10, 173, 144, 21)
-GUIRegisterMsg(0x0011, 'WM_QUERYENDSESSION')
+GUIRegisterMsg($WM_QUERYENDSESSION, 'WM_QUERYENDSESSION')
 GUISetState()
 
 ; 为当前进程设置最高的关闭优先级以防止终止其他进程.
