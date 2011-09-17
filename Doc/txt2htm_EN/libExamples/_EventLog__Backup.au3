@@ -5,7 +5,7 @@ _Main()
 Func _Main()
 	Local $hEventLog
 
-	$hEventLog = _EventLog__Open ("", "Application")
-	_EventLog__Backup ($hEventLog, "C:\EventLog.bak")
-	_EventLog__Close ($hEventLog)
+	$hEventLog = _EventLog__Open("", "Application")
+	_EventLog__Backup($hEventLog, "C:\EventLog.bak")
+	_EventLog__Close($hEventLog)
 EndFunc   ;==>_Main

@@ -1,1 +1,1 @@
-SoundPlay(@WindowsDir & "\media\tada.wav",1)
+SoundPlay(@WindowsDir & "\media\tada.wav", 1)

@@ -9,7 +9,7 @@ Func ShowCross($start_x, $start_y, $length, $width, $color, $time)
 	$hDC = _WinAPI_GetWindowDC(0) ; DC of entire screen (desktop)
 	$hPen = _WinAPI_CreatePen($PS_SOLID, $width, $color)
 	$obj_orig = _WinAPI_SelectObject($hDC, $hPen)
-	
+
 	_WinAPI_DrawLine($hDC, $start_x - $length, $start_y, $start_x - 5, $start_y) ; horizontal left
 	_WinAPI_DrawLine($hDC, $start_x + $length, $start_y, $start_x + 5, $start_y) ; horizontal right
 	_WinAPI_DrawLine($hDC, $start_x, $start_y - $length, $start_x, $start_y - 5) ; vertical up

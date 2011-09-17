@@ -1,3 +1,3 @@
 TCPStartup()
 
-msgbox(0,"IP???",TCPNameToIP("TheMachineNextToYOU"))
+MsgBox(0, "IP???", TCPNameToIP("TheMachineNextToYOU"))

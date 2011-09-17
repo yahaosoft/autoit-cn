@@ -10,6 +10,6 @@ Func _Main()
 	GUISetState()
 
 	; Capture window
-	_ScreenCapture_CaptureWnd (@MyDocumentsDir & "\GDIPlus_Image.jpg", $hGUI)
+	_ScreenCapture_CaptureWnd(@MyDocumentsDir & "\GDIPlus_Image.jpg", $hGUI)
 
 EndFunc   ;==>_Main

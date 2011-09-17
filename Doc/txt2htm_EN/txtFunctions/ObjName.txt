@@ -12,11 +12,13 @@ ObjName ( $Objectvariable [,Flag] )
 $Objectvariable
 	A variable containing an Object whose name you want to retrieve
 Flag
-	[optional] 1 = Name of the dispatch interface being used (default)
-	2 = Description of the (document) Object
+	[optional] 1 = The name of the Object
+	2 = Description string of the Object
 	3 = The ProgID of the Object
-	4 = The DLL file from with the Object was created (if supported)
-	5 = Filename and position of the toolbox icon (if supported)
+	4 = The file that is associated With the object In the Registry
+	5 = Module name In which the object runs (WIN XP And above). Marshaller For non-inproc objects.
+	6 = CLSID of the object's coclass
+	7 = IID of the object's interface
 @@End@@
 
 ###ReturnValue###
@@ -27,7 +29,7 @@ Failure:	Sets @error and Returns ""
 
 
 ###Remarks###
-Not all Objects support flags 2 to 5. Always test for @error in these cases.
+Not all Objects support flags 2 to 7. Always test for @error in these cases.
 
 ###Related###
 IsObj, ObjGet, ObjCreate

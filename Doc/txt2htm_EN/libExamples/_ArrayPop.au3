@@ -15,6 +15,6 @@ $avArray[9] = "Tylo"
 
 _ArrayDisplay($avArray, "$avArray BEFORE _ArrayPop()")
 While UBound($avArray)
-   MsgBox(0,'_ArrayPop() return value', _ArrayPop($avArray))
-   _ArrayDisplay($avArray, "$avArray AFTER _ArrayPop()")
+	MsgBox(0, '_ArrayPop() return value', _ArrayPop($avArray))
+	_ArrayDisplay($avArray, "$avArray AFTER _ArrayPop()")
 WEnd
