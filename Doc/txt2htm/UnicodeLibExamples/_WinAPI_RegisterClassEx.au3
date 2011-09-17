@@ -1,8 +1,7 @@
-﻿#Include <WinAPIEx.au3>
+﻿#Include <APIConstants.au3>
+#Include <WinAPIEx.au3>
 
 Opt('MustDeclareVars', 1)
-
-Global Const $IDC_ARROW = 32512
 
 Global Const $sClass = 'MyWindowClass'
 Global Const $sName = 'MyProg'
@@ -13,7 +12,7 @@ Global $tWCEX, $tClass, $tIcon, $hProc, $hInstance, $hCursor, $hIcon, $hIconSm, 
 $hInstance = _WinAPI_GetModuleHandle(0)
 
 ; 创建类光标
-$hCursor = _WinAPI_LoadCursor(0, $IDC_ARROW)
+$hCursor = _WinAPI_LoadCursor(0, 32512) ; IDC_ARROW
 
 ; 创建类图标 (大和小)
 $tIcon = DllStructCreate('ptr;ptr')
@@ -26,8 +25,6 @@ $hProc = DllCallbackRegister('_WndProc', 'lresult', 'hwnd;uint;wparam;lparam')
 
 ; 创建并填充 $tagWNDCLASSEX 结构
 $tWCEX = DllStructCreate($tagWNDCLASSEX)
-$tClass = DllStructCreate('wchar[' & StringLen($sClass) + 1 & ']')
-DllStructSetData($tClass, 1, $sClass)
 DllStructSetData($tWCEX, 'Size', DllStructGetSize($tWCEX))
 DllStructSetData($tWCEX, 'Style', 0)
 DllStructSetData($tWCEX, 'hWndProc', DllCallbackGetPtr($hProc))
@@ -38,7 +35,7 @@ DllStructSetData($tWCEX, 'hIcon', $hIcon)
 DllStructSetData($tWCEX, 'hCursor', $hCursor)
 DllStructSetData($tWCEX, 'hBackground', _WinAPI_CreateSolidBrush(_WinAPI_GetSysColor($COLOR_3DFACE)))
 DllStructSetData($tWCEX, 'MenuName', 0)
-DllStructSetData($tWCEX, 'ClassName', DllStructGetPtr($tClass))
+DllStructSetData($tWCEX, 'ClassName', _WinAPI_CreateString($sClass, $tClass))
 DllStructSetData($tWCEX, 'hIconSm', $hIconSm)
 
 ; 注册窗口类

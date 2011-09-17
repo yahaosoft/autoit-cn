@@ -1,4 +1,5 @@
-﻿#Include <Array.au3>
+﻿#Include <APIConstants.au3>
+#Include <Array.au3>
 #Include <WinAPIEx.au3>
 
 Opt('MustDeclareVars', 1)
@@ -31,12 +32,12 @@ $aValent[18][0] = 'Templates'
 
 $hKey = _WinAPI_RegOpenKey($HKEY_CURRENT_USER, 'Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders', $KEY_QUERY_VALUE)
 If @error Then
-	ConsoleWrite(_WinAPI_GetErrorMessage(@extended) & @CR)
+	MsgBox(16, @extended, _WinAPI_GetErrorMessage(@extended))
 	Exit
 EndIf
 _WinAPI_RegQueryMultipleValues($hKey, $aValent, $tData)
 If @error Then
-	ConsoleWrite(_WinAPI_GetErrorMessage(@extended) & @CR)
+	MsgBox(16, @extended, _WinAPI_GetErrorMessage(@extended))
 	Exit
 EndIf
 
