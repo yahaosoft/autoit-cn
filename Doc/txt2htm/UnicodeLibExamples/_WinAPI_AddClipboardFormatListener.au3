@@ -1,4 +1,5 @@
-﻿#Include <Clipboard.au3>
+﻿#Include <APIConstants.au3>
+#Include <Clipboard.au3>
 #Include <EditConstants.au3>
 #Include <WinAPIEx.au3>
 

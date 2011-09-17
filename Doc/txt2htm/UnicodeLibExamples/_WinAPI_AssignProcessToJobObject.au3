@@ -1,4 +1,5 @@
-﻿#Include <WinAPIEx.au3>
+﻿#Include <APIConstants.au3>
+#Include <WinAPIEx.au3>
 
 Opt('MustDeclareVars', 1)
 
@@ -33,7 +34,7 @@ Func _RunWaitEx($sCmd)
 		Return SetError(1, 0, 0)
 	EndIf
 	DllStructSetData($tStartup, 'Size', DllStructGetSize($tStartup))
-	If Not _WinAPI_CreateProcess('', $sCmd, 0, 0, 0, 0x01000004, 0, 0, DllStructGetPtr($tStartup), DllStructGetPtr($tProcess)) Then
+	If Not _WinAPI_CreateProcess('', $sCmd, 0, 0, 0, BitOR($CREATE_BREAKAWAY_FROM_JOB, $CREATE_SUSPENDED), 0, 0, DllStructGetPtr($tStartup), DllStructGetPtr($tProcess)) Then
 		Return SetError(1, _WinAPI_CloseHandle($hJob), 0)
 	EndIf
 	$hProcess = DllStructGetData($tProcess, 'hProcess')

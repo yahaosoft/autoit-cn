@@ -1,4 +1,5 @@
-﻿#Include <WinAPIEx.au3>
+﻿#Include <APIConstants.au3>
+#Include <WinAPIEx.au3>
 
 Opt('MustDeclareVars', 1)
 
@@ -6,7 +7,7 @@ Global Const $STM_SETIMAGE = 0x0172
 
 Global $hIcon, $hOverlay, $hResult
 
-; 创建含重合掩模 (48x48) 的图标
+; 创建带遮罩(层叠)的图标(48x48)
 $hIcon = _WinAPI_ShellExtractIcon(@SystemDir & '\shell32.dll', 1, 48, 48)
 If _WinAPI_GetVersion() >= '6.0' Then
 	$hOverlay = _WinAPI_ShellExtractIcon(@SystemDir & '\imageres.dll', 154, 48, 48)
