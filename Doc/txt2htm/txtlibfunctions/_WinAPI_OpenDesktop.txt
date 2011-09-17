@@ -1,0 +1,53 @@
+﻿###User Defined Function###
+_WinAPI_OpenDesktop
+
+###Description###
+Opens the specified desktop object.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_OpenDesktop ( $sName [, $iAccess [, $iFlags [, $fInherit]]] )
+
+###Parameters###
+@@ParamTable@@
+$sName
+	The name of the desktop to be opened. Desktop names are case-insensitive. This desktop must belong to
+	the current window station.
+$iAccess
+	[可选参数] The access to the desktop. This parameter can be one or more of the following values.
+	
+	$DESKTOP_ALL_ACCESS
+	$DESKTOP_CREATEMENU
+	$DESKTOP_CREATEWINDOW
+	$DESKTOP_ENUMERATE
+	$DESKTOP_HOOKCONTROL
+	$DESKTOP_JOURNALPLAYBACK
+	$DESKTOP_JOURNALRECORD
+	$DESKTOP_READOBJECTS
+	$DESKTOP_SWITCHDESKTOP
+	$DESKTOP_WRITEOBJECTS
+	
+$iFlags
+	[可选参数] The optional flags. It can be zero or the following value.
+	
+	$DF_ALLOWOTHERACCOUNTHOOK
+	
+$fInherit
+	[可选参数] Specifies whether inherites the handle by a processes, valid values:
+		TRUE     - The processes created by this process will inherit the handle.
+		FALSE    - The processes do not inherit this handle. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the opened desktop.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+When you are finished using the desktop, call the _WinAPI_CloseDesktop() function to close it.
+
+
+###See Also###
+@@MsdnLink@@ OpenDesktop
+

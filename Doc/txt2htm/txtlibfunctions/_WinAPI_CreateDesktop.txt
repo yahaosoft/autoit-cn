@@ -1,0 +1,62 @@
+﻿###User Defined Function###
+_WinAPI_CreateDesktop
+
+###Description###
+Creates a new desktop, associates it with the current window station of the calling process.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateDesktop ( $sName [, $iAccess [, $iFlags [, $iHeap [, $tSecurity]]]] )
+
+###Parameters###
+@@ParamTable@@
+$sName
+	The name of the desktop to be created. Desktop names are case-insensitive and may not contain backslash characters (\).
+$iAccess
+	[可选参数] The requested access to the desktop. This parameter can be one or more of the following values.
+	
+	$DESKTOP_ALL_ACCESS
+	$DESKTOP_CREATEMENU
+	$DESKTOP_CREATEWINDOW
+	$DESKTOP_ENUMERATE
+	$DESKTOP_HOOKCONTROL
+	$DESKTOP_JOURNALPLAYBACK
+	$DESKTOP_JOURNALRECORD
+	$DESKTOP_READOBJECTS
+	$DESKTOP_SWITCHDESKTOP
+	$DESKTOP_WRITEOBJECTS
+	
+$iFlags
+	[可选参数] The optional flags. It can be zero or the following value.
+	
+	$DF_ALLOWOTHERACCOUNTHOOK
+	
+$iHeap
+	[可选参数] The size of the desktop heap, in kilobytes.
+$tSecurity
+	[可选参数] $tagSECURITY_ATTRIBUTES structure that determines whether the returned handle can be inherited by
+	child processes. If this parameter is 0, the handle cannot be inherited.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the newly created desktop. If the specified desktop already exists, the function succeeds and
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The number of desktops that can be created is limited by the size of the system desktop heap. You can increase the
+number of desktops that can be created by increasing the size of the desktop heap or by reducing the default heap
+reserved for each desktop in the interactive window station. The default size of the desktop heap depends on factors
+such as hardware architecture. To retrieve the size of the heap, call the _WinAPI_GetUserObjectInformation()
+function with $UOI_HEAPSIZE.
+
+When you are finished using the desktop, call the _WinAPI_CloseDesktop() function to close it.
+
+
+###See Also###
+@@MsdnLink@@ CreateDesktopEx
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,43 @@
+﻿###User Defined Function###
+_WinAPI_RegisterPowerSettingNotification
+
+###Description###
+Registers the application to receive power setting notifications for the specific power setting event.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_RegisterPowerSettingNotification ( $hWnd, $GUID )
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window that receives the change or notification messages.
+$GUID
+	The a string that represents a GUID of the power setting for which notifications are to be sent.
+	It may be one of the following values.
+	
+	$GUID_ACDC_POWER_SOURCE
+	$GUID_BATTERY_PERCENTAGE_REMAINING
+	$GUID_IDLE_BACKGROUND_TASK
+	$GUID_MONITOR_POWER_ON
+	$GUID_POWERSCHEME_PERSONALITY
+	$GUID_SYSTEM_AWAYMODE
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	A notification handle for unregistering for power notifications.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+After calling this function, notifications are sent to the specified window using WM_POWERBROADCAST
+messages with a wParam parameter of PBT_POWERSETTINGCHANGE (see MSDN for more information).
+
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ RegisterPowerSettingNotification
+

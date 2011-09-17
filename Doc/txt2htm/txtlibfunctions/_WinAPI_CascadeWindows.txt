@@ -1,0 +1,49 @@
+﻿###User Defined Function###
+_WinAPI_CascadeWindows
+
+###Description###
+Cascades the specified child windows of the specified parent window.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CascadeWindows ( $aWnds [, $tRECT [, $hParent [, $iFlags [, $iStart [, $iEnd]]]]] )
+
+###Parameters###
+@@ParamTable@@
+$aWnds
+	The array of handles to the child windows to arrange. If a specified child window is a top-level window
+	with the style $WS_EX_TOPMOST or $WS_EX_TOOLWINDOW, the child window is not arranged. If this parameter
+	is 0, all child windows of the specified parent window (or of the desktop window) are arranged.
+$tRECT
+	[可选参数] $tagRECT structure that specifies the rectangular area, in client coordinates, within which the windows
+	are arranged. This parameter can be 0, in which case the client area of the parent window is used.
+$hParent
+	[可选参数] Handle to the parent window. If this parameter is 0, the desktop window is assumed.
+$iFlags
+	[可选参数] A cascade flag. This parameter can be one or more of the following values.
+	
+	$MDITILE_SKIPDISABLED
+	$MDITILE_ZORDER
+	
+$iStart
+	[可选参数] The index of array to start arranging at.
+$iEnd
+	[可选参数] The index of array to stop arranging at.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The value is the number of windows arranged.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ CascadeWindows
+
+###Example###
+@@IncludeExample@@
+

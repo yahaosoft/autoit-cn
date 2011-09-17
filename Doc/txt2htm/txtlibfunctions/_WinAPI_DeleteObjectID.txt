@@ -1,0 +1,30 @@
+﻿###User Defined Function###
+_WinAPI_DeleteObjectID
+
+###Description###
+Removes the object identifier from a specified file or directory.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_DeleteObjectID ( $sPath )
+
+###Parameters###
+@@ParamTable@@
+$sPath
+	Path to the file or directory from the object identifier that is to be deleted.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The calling process must have restore privilege, otherwise, the function fails, and _WinAPI_GetLastError()
+returns ERROR_ACCESS_DENIED (5).
+
+
+###See Also###
+@@MsdnLink@@ FSCTL_DELETE_OBJECT_ID
+

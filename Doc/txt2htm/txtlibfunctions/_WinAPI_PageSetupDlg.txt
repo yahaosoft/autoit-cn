@@ -1,0 +1,40 @@
+﻿###User Defined Function###
+_WinAPI_PageSetupDlg
+
+###Description###
+Creates a Page Setup dialog box that enables the user to specify the attributes of a printed page.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_PageSetupDlg ( ByRef $tPAGESETUPDLG )
+
+###Parameters###
+@@ParamTable@@
+$tPAGESETUPDLG
+	$tagPAGESETUPDLG structure that contains information used to initialize the Page Setup dialog box.
+	The structure receives information about the user's selections when the function returns.
+	
+	(See MSDN for more information)
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the dialog box error code.
+@@End@@
+
+###Remarks###
+Note that the values of "hDevMode" and "hDevNames" member in $tagPAGESETUPDLG may change when they are passed into
+_WinAPI_PageSetupDlg(). This is because these members are filled on both input and output.
+
+Starting with Windows Vista, the _WinAPI_PageSetupDlg() does not contain the "Printer" button. To switch printer
+selection, use _WinAPI_PrintDlg() or _WinAPI_PrintDlgEx().
+
+
+###See Also###
+@@MsdnLink@@ PageSetupDlg
+
+###Example###
+@@IncludeExample@@
+

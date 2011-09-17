@@ -1,0 +1,31 @@
+﻿###User Defined Function###
+_WinAPI_SetThreadDesktop
+
+###Description###
+Assigns the specified desktop to the calling thread.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SetThreadDesktop ( $hDesktop )
+
+###Parameters###
+@@ParamTable@@
+$hDesktop
+	Handle to the desktop to be assigned to the calling thread. This desktop must be associated with the
+	current window station for the process.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The _WinAPI_SetThreadDesktop() function will fail if the calling thread has any windows or hooks on its current
+desktop (unless the hDesktop parameter is a handle to the current desktop).
+
+
+###See Also###
+@@MsdnLink@@ SetThreadDesktop
+

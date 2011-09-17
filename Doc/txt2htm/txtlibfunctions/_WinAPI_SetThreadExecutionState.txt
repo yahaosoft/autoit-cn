@@ -1,0 +1,40 @@
+﻿###User Defined Function###
+_WinAPI_SetThreadExecutionState
+
+###Description###
+Prevents the system from entering sleep or turning off the display while the current application is running.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SetThreadExecutionState ( $iFlags )
+
+###Parameters###
+@@ParamTable@@
+$iFlags
+	The thread's execution requirements. This parameter can be one or more of the following values.
+	
+	$ES_AWAYMODE_REQUIRED
+	$ES_CONTINUOUS
+	$ES_DISPLAY_REQUIRED
+	$ES_SYSTEM_REQUIRED
+	$ES_USER_PRESENT
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The value is the previous thread execution state.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The _WinAPI_SetThreadExecutionState() function cannot be used to prevent the user from putting the computer to
+sleep. Applications should respect that the user expects a certain behavior when they close the lid on their
+laptop or press the power button.
+
+This function does not stop the screen saver from executing.
+
+
+###See Also###
+@@MsdnLink@@ SetThreadExecutionState
+

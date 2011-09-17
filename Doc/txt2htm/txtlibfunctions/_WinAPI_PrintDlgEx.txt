@@ -1,0 +1,37 @@
+﻿###User Defined Function###
+_WinAPI_PrintDlgEx
+
+###Description###
+Displays a Print property sheet that enables the user to specify the properties of a particular print job.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_PrintDlgEx ( ByRef $tPRINTDLGEX )
+
+###Parameters###
+@@ParamTable@@
+$tPRINTDLGEX
+	$tagPRINTDLGEX structure that contains information used to initialize the property sheet. When _WinAPI_PrintDlgEx()
+	returns, this structure contains information about the user's selections.
+	
+	(See MSDN for more information)
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1, @extended flag will contain one of the following values.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+Note that the values of "hDevMode" and "hDevNames" member in $tagPRINTDLGEX may change when they are passed into
+_WinAPI_PrintDlgEx(). This is because these members are filled on both input and output.
+
+
+###See Also###
+@@MsdnLink@@ PrintDlgEx
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,38 @@
+﻿###User Defined Function###
+_WinAPI_LZNTCompress
+
+###Description###
+Compresses an input data.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_LZNTCompress ( ByRef $tInput, ByRef $tOutput [, $fMaximum] )
+
+###Parameters###
+@@ParamTable@@
+$tInput
+	"byte[n]" or any other structure that contains the data to be compressed.
+$tOutput
+	"byte[n]" structure that receives the compressed data.
+$fMaximum
+	[可选参数] Specifies whether use a maximum data compression, valid values:
+		TRUE     - Uses an algorithm which provides maximum data compression but with relatively slower performance.
+		FALSE    - Uses an algorithm which provides a balance between data compression and performance. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The size of the compressed data, in bytes.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the NTSTATUS code.
+@@End@@
+
+###Remarks###
+The input and output buffers must be different, otherwise, the function fails.
+
+
+###See Also###
+@@MsdnLink@@ RtlCompressBuffer
+
+###Example###
+@@IncludeExample@@
+

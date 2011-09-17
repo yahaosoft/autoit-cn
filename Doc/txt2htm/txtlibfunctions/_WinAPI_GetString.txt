@@ -1,0 +1,36 @@
+﻿###User Defined Function###
+_WinAPI_GetString
+
+###Description###
+Returns a string located at the specified memory address.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetString ( $pString [, $fUnicode] )
+
+###Parameters###
+@@ParamTable@@
+$pString
+	Pointer to a null-terminated string.
+$fUnicode
+	[可选参数] Specifies whether a string is Unicode or ASCII code of a character, valid values:
+		TRUE     - Unicode. (Default)
+		FALSE    - ASCII.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	A string. @extended returns the lenght of the string, in TCHARs (not including the null-terminating character).
+Failure	Empty string and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+If the pointer is incorrect, _WinAPI_GetString() does not set @error flag but always returns an empty string.
+
+
+###See Also###
+None
+
+###Example###
+@@IncludeExample@@
+

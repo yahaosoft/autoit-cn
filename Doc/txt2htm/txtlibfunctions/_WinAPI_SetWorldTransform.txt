@@ -1,0 +1,41 @@
+﻿###User Defined Function###
+_WinAPI_SetWorldTransform
+
+###Description###
+Sets a two-dimensional linear transformation between world space and page space for the specified device context.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SetWorldTransform ( $hDC, $tXFORM )
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context.
+$tXFORM
+	$tagXFORM structure that contains the transformation data.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The _WinAPI_SetWorldTransform() will fail unless the graphics mode for the given device context has been set
+to $GM_ADVANCED by previously calling the _WinAPI_SetGraphicsMode(). Likewise, it will not be possible to reset
+the graphics mode for the device context to the default $GM_COMPATIBLE mode, unless the world transformation
+has first been reset to the default identity transformation by calling _WinAPI_SetWorldTransform().
+
+For any coordinates (x, y) in world space, the transformed coordinates in page space (x', y') can be
+determined by the following algorithm:
+
+x' = x * eM11 + y * eM21 + eDx
+y' = x * eM12 + y * eM22 + eDy
+
+
+
+###See Also###
+@@MsdnLink@@ SetWorldTransform
+

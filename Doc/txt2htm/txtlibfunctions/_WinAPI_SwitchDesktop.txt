@@ -1,0 +1,35 @@
+﻿###User Defined Function###
+_WinAPI_SwitchDesktop
+
+###Description###
+Makes the specified desktop visible and activates it.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SwitchDesktop ( $hDesktop )
+
+###Parameters###
+@@ParamTable@@
+$hDesktop
+	Handle to the desktop. This desktop must be associated with the current window station for the process.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The _WinAPI_SwitchDesktop() function fails if the desktop belongs to an invisible window station. This function
+also fails when called from a process that is associated with a secured desktop such as the WinLogon and ScreenSaver
+desktops. Processes that are associated with a secured desktop include custom UserInit processes. Such calls
+typically fail with an "access denied" error.
+
+
+###See Also###
+@@MsdnLink@@ SwitchDesktop
+
+###Example###
+@@IncludeExample@@
+

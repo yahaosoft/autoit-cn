@@ -1,0 +1,43 @@
+﻿###User Defined Function###
+_WinAPI_CreateString
+
+###Description###
+Copies a specified string to the memory and returns its pointer.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateString ( $sString, ByRef $tString [, $iLenght [, $fUnicode]] )
+
+###Parameters###
+@@ParamTable@@
+$sString
+	The source string to be copied.
+$tString
+	"wchar[n]" or "char[n]" structure that will contain a specified string. You should not use this structure
+	until the string is used. To release allocated memory just set this variable to 0.
+$iLenght
+	[可选参数] The required buffer length without null-terminating character, in TCHARs. If this parameter is omitted
+	or 0, the buffer length will be equal to the length of the source string. If $iLenght is less than
+	the source string, the string will be truncated to the specified length.
+$fUnicode
+	[可选参数] Specifies whether a string is Unicode or ASCII code of a character, valid values:
+		TRUE     - Unicode. (Default)
+		FALSE    - ASCII.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	A pointer to a specified null-terminated string. @extended returns the lenght of the string buffer,
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+To get back a string, use the _WinAPI_GetString() function.
+
+
+###See Also###
+None
+
+###Example###
+@@IncludeExample@@
+

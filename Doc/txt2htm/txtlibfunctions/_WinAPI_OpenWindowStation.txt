@@ -1,0 +1,48 @@
+﻿###User Defined Function###
+_WinAPI_OpenWindowStation
+
+###Description###
+Opens the specified window station.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_OpenWindowStation ( $sName [, $iAccess [, $fInherit]] )
+
+###Parameters###
+@@ParamTable@@
+$sName
+	The name of the window station to be opened. Window station names are case-insensitive. This window
+	station must belong to the current session.
+$iAccess
+	[可选参数] The access to the window station. This parameter can be one or more of the following values.
+	
+	$WINSTA_ALL_ACCESS
+	$WINSTA_ACCESSCLIPBOARD
+	$WINSTA_ACCESSGLOBALATOMS
+	$WINSTA_CREATEDESKTOP
+	$WINSTA_ENUMDESKTOPS
+	$WINSTA_ENUMERATE
+	$WINSTA_EXITWINDOWS
+	$WINSTA_READATTRIBUTES
+	$WINSTA_READSCREEN
+	$WINSTA_WRITEATTRIBUTES
+	
+$fInherit
+	[可选参数] Specifies whether inherites the handle by a processes, valid values:
+		TRUE     - The processes created by this process will inherit the handle.
+		FALSE    - The processes do not inherit this handle. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the specified window station.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+After you are done with the handle, you must call _WinAPI_CloseWindowStation() to free the handle.
+
+
+###See Also###
+@@MsdnLink@@ OpenWindowStation
+

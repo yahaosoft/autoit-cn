@@ -1,0 +1,36 @@
+﻿###User Defined Function###
+_WinAPI_LZNTDecompress
+
+###Description###
+Decompresses an input data.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_LZNTDecompress ( ByRef $tInput, ByRef $tOutput [, $iBufferSize] )
+
+###Parameters###
+@@ParamTable@@
+$tInput
+	"byte[n]" or any other structure that contains the data to be decompressed.
+$tOutput
+	"byte[n]" structure that receives the decompressed data.
+$iBufferSize
+	[可选参数] The size of the buffer which are used for decompressing, in bytes. Default is 8388608 (8 MB).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The size of the decompressed data, in bytes.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the NTSTATUS code.
+@@End@@
+
+###Remarks###
+The input and output buffers must be different, otherwise, the function fails.
+
+
+###See Also###
+@@MsdnLink@@ RtlDecompressBuffer
+
+###Example###
+@@IncludeExample@@
+
