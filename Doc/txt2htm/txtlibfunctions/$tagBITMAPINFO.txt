@@ -2,7 +2,7 @@
 $tagBITMAPINFO
 
 ###Description###
-这个结构定义基于Windows的设备无关位图(DIB)的尺寸和颜色信息.
+这个数据结构定义了基于Windows的设备无关位图(DIB)的尺寸和颜色信息.
 
 ###Syntax###
 Global Const $tagBITMAPINFO = "struct; dword Size;long Width;long Height;word Planes;word BitCount;dword Compression;dword SizeImage;" & _
@@ -11,29 +11,29 @@ Global Const $tagBITMAPINFO = "struct; dword Size;long Width;long Height;word Pl
 ###Fields###
 @@ParamTable@@
 Size
-	结构减去 RGBQuad 数据所需的字节数.
+	数据结构所需的字节数,减去 RGBQuad 数据的大小.
 Width
 	指定位图宽度, 单位为像素
 Height
 	指定位图高度, 单位为像素
 Planes
-	指定目标设备的位面,这里必须设置为 1
+	指定目标设备的位图平面数量,这里必须设置为 1
 BitCount
 	指定每像素的位数
 Compression
-	指定自下而上的位图压缩类型
+	指定一个使用压缩的自下而上的位图的压缩类型
 SizeImage
 	指定图像的字节大小
 XPelsPerMeter
-	指定位图水平分辨率, 每米像素值
+	指定目标设备位图水平分辨率, 每米像素值.
 YPelsPerMeter
-	指定位图垂直分辨率, 每米像素值
+	指定目标设备位图垂直分辨率, 每米像素值.
 ClrUsed
 	指定颜色表中被位图实际使用的颜色索引数
 ClrImportant
-	指定显示位图颜色所需的索引数
+	指定显示位图所需颜色的索引数
 RGBQuad
-	tagRGBQUAD 结构的数组. 数组由颜色表元素构成.
+	tagRGBQUAD 数据结构数组. 数组由颜色表元素构成.
 @@End@@
 
 ###Remarks###
