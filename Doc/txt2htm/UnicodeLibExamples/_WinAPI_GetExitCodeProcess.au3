@@ -1,4 +1,5 @@
-﻿#Include <WinAPIEx.au3>
+﻿#Include <APIConstants.au3>
+#Include <WinAPIEx.au3>
 
 Opt('MustDeclareVars', 1)
 
@@ -12,9 +13,9 @@ EndIf
 
 ; 注意, 马上打开进程
 If _WinAPI_GetVersion() >= 6.0 Then
-	$hProcess = _WinAPI_OpenProcess(0x1000, 0, $PID) ; PROCESS_QUERY_LIMITED_INFORMATION
+	$hProcess = _WinAPI_OpenProcess($PROCESS_QUERY_LIMITED_INFORMATION, 0, $PID)
 Else
-	$hProcess = _WinAPI_OpenProcess(0x0400, 0, $PID) ; PROCESS_QUERY_INFORMATION
+	$hProcess = _WinAPI_OpenProcess($PROCESS_QUERY_INFORMATION, 0, $PID)
 EndIf
 If Not $hProcess Then
 	Exit

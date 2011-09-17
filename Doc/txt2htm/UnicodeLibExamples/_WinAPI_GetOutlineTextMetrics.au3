@@ -1,4 +1,4 @@
-﻿#Include <FontConstants.au3>
+﻿#Include <APIConstants.au3>
 #Include <WinAPIEx.au3>
 
 Opt('MustDeclareVars', 1)
@@ -21,5 +21,5 @@ If IsDllStruct($tOLTM) Then
 EndIf
 
 Func _otm(ByRef $tOLTM, $sName)
-	Return DllStructGetData(DllStructCreate('wchar[' & (_WinAPI_StrLen(DllStructGetPtr($tOLTM) + DllStructGetData($tOLTM, $sName)) + 1) & ']', DllStructGetPtr($tOLTM) + DllStructGetData($tOLTM, $sName)), 1)
+	Return _WinAPI_GetString(DllStructGetPtr($tOLTM) + DllStructGetData($tOLTM, $sName))
 EndFunc   ;==>_otm

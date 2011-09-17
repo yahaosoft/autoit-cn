@@ -1,5 +1,4 @@
-﻿#Include <Constants.au3>
-#Include <FontConstants.au3>
+﻿#Include <APIConstants.au3>
 #Include <GUIConstantsEx.au3>
 #Include <WinAPIEx.au3>
 
@@ -7,8 +6,6 @@ Opt('MustDeclareVars', 1)
 
 Global $hFont = _WinAPI_CreateFont(16, 0, 0, 0, $FW_BOLD, 0, 0, 0, $DEFAULT_CHARSET, $OUT_DEFAULT_PRECIS, $CLIP_DEFAULT_PRECIS, $DEFAULT_PITCH, $ANTIALIASED_QUALITY, 'Arial')
 Global $hForm, $hDll, $pDll, $hProc, $Dwm = False
-
-OnAutoItExitRegister('OnAutoItExit')
 
 If (_WinAPI_GetVersion() > '5.2') And (_WinAPI_DwmIsCompositionEnabled()) Then
 	If MsgBox(35, 'DWM', 'This example works only if a Desktop Window Manager (DWM) composition is disabled.' & @CR & @CR & 'Do you want to disable DWM?') = 6 Then
@@ -18,6 +15,8 @@ If (_WinAPI_GetVersion() > '5.2') And (_WinAPI_DwmIsCompositionEnabled()) Then
 		Exit
 	EndIf
 EndIf
+
+OnAutoItExitRegister('OnAutoItExit')
 
 ; 创建 GUI
 $hForm = GUICreate('', 400, 400)

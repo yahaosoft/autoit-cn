@@ -1,4 +1,5 @@
-﻿#Include <Array.au3>
+﻿#Include <APIConstants.au3>
+#Include <Array.au3>
 #Include <File.au3>
 #Include <WinAPIEx.au3>
 
