@@ -1,0 +1,35 @@
+﻿###User Defined Function###
+_WinAPI_LPtoDP
+
+###Description###
+Converts a logical coordinates into device coordinates.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_LPtoDP( $hDC, $tPOINT [, $iCount = 1] )
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context.
+$tPoint
+	$tagPOINT structure or structure of points ("long x1;long y1;...long xN;long yN") containing the
+	x- and y-coordinates to be transformed.
+$iCount
+	[可选参数] The number of points.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The _WinAPI_DPtoLP() function fails if the device coordinates exceed 27 bits, or if the converted logical coordinates
+exceed 32 bits. In the case of such an overflow, the results for all the points are undefined.
+
+
+###See Also###
+@@MsdnLink@@ LPtoDP
+

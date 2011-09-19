@@ -1,0 +1,73 @@
+﻿###User Defined Function###
+_WinAPI_DisplayStruct
+
+###Description###
+Displays data from the specified structure or memory address as a list.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_DisplayStruct (ByRef $tStruct [, $sStruct [, $sTitle [, $iItem [, $iSubItem [, $iFlags [, $fTop [, $hParent]]]]]]] )
+
+###Parameters###
+@@ParamTable@@
+$tStruct
+	A structure that was created by DllStructCreate(), or memory address to be display its data.
+$sStruct
+	[可选参数] A string representing the structure. If $tStruct is a structure, This parameter can be omitted or be
+	an empty string. In this case, the structure will display as "byte[n]" structure. If $tStruct is a
+	memory address, $sStruct should be a string representing the structure, otherwise, the function
+	fail, and @error set to 1.
+$sTitle
+	[可选参数] The title of the window, deault is "Structure: ListView Display".
+$iItem
+	[可选参数] The 1-based index or name of the structure member to be selected in the list. If this parameter is 0,
+	or an incorrect index or name, the first element of the structure will be selected.
+$iSubItem
+	[可选参数] The 1-based index of the array in the structure member pointed to by the $iItem parameter to be
+	selected. If $iItem was not defined as an array in the $sStruct, or invalid array index, the
+	itself element will be selected.
+$iFlags
+	[可选参数] A set of bit flags that that specifies an additional displaying options. This parameter can be zero,
+	or any combination of the following values.
+	
+	1 - Prevent display "<struct>" and "<endstruct>" fields at the beginning and end of the list.
+	2 - Prevent display "<alignment>" fields.
+	4 - Prevent display "<unnamed>" in "Member" column of the list if the structure element has no name.
+	8 - Prevent highlighting structure elements that are defined as an array.
+	16 - Prevent perceiving structure elements named "Reserved*" as unused elements.
+	32 - Prevent using double-click to copy values of the structure elements to the clipboard.
+	64 - Forced to expand structure elements of BYTE[n] and BOOLEAN[n] types (elements of CHAR[n] and WCHAR[n] types always displays as a string).
+	128 - Forced to display the values of the structure elements as hexadecimal representation, if possibly.
+	256 - Forced to return error code instead of displaying a message box if a memory access error occurred.
+	512 - Forced to disable checking the read access memory allocated to a given structure.
+	
+$fTop
+	[可选参数] Specifies whether create a window with "Always On Top" attribute, valid values:
+		TRUE     - The window is created with the $WS_EX_TOPMOST extended style. (Default)
+		FALSE    - The window will not have the "TOPMOST" flag set.
+$hParent
+	[可选参数] Handle to a parent window.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to the one of the following values:
+1	The $sStruct parameter is not a string.
+2	There is an unknown data type in the string passed.
+3	Failed to allocate the memory needed for the structure, or invalid pointer.
+4	Unspecified error.
+5	Error accessing memory to read data.
+@@End@@
+
+###Remarks###
+This function is intended primarily for debugging and should not be used in the final script, since no useful
+information for the end user does not carry.
+
+
+###See Also###
+None
+
+###Example###
+@@IncludeExample@@
+

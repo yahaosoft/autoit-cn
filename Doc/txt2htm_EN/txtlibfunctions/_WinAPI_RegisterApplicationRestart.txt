@@ -1,0 +1,52 @@
+﻿###User Defined Function###
+_WinAPI_RegisterApplicationRestart
+
+###Description###
+Registers the active instance of an application for restart.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_RegisterApplicationRestart ( [$iFlags [, $sCmd]] )
+
+###Parameters###
+@@ParamTable@@
+$iFlags
+	[可选参数] The flags that specifies an events when application will not be restarted. This parameter can be
+	0 or one or more of the following values.
+	
+	$RESTART_NO_CRASH
+	$RESTART_NO_HANG
+	$RESTART_NO_PATCH
+	$RESTART_NO_REBOOT
+	
+$sCmd
+	[可选参数] The command-line arguments for the application when it is restarted. The maximum size of the command
+	line that you can specify is 2048 characters. If this parameter is empty string, the previously
+	registered command line is removed.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+Your initial registration for restart must occur before the application encounters an unhandled exception
+or becomes unresponsive. You could then call this function from inside your recovery callback to update the
+command line. To prevent cyclical restarts, the system will only restart the application if it has been
+running for a minimum of 60 seconds.
+
+If you register for restart and the application encounters an unhandled exception or is not responsive,
+the user is offered the opportunity to restart the applicationthe application is not automatically restarted
+without the user's consent.
+
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ RegisterApplicationRestart
+
+###Example###
+@@IncludeExample@@
+

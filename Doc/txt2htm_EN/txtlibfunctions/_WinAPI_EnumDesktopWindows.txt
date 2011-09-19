@@ -1,0 +1,41 @@
+﻿###User Defined Function###
+_WinAPI_EnumDesktopWindows
+
+###Description###
+Enumerates all top-level windows associated with the specified desktop.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_EnumDesktopWindows ( $hDesktop [, $fVisible] )
+
+###Parameters###
+@@ParamTable@@
+$hDesktop
+	Handle to the desktop whose top-level windows are to be enumerated. This handle must have the
+	$DESKTOP_READOBJECTS access right.
+$fVisible
+	[可选参数] Specifies whether enumerates the invisible window, valid values:
+		TRUE     - Enumerate only visible windows. (Default)
+		FALSE    - Enumerate all windows.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The 2D array of the handles to the window and its class associated with the specified desktop.
+[0][0]	Number of rows in array (n)
+[0][1]	Unused
+[n][0]	Window handle
+[n][1]	Window class name
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ EnumDesktopWindows
+
+###Example###
+@@IncludeExample@@
+

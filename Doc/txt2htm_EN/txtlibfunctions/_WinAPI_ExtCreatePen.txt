@@ -1,0 +1,83 @@
+﻿###User Defined Function###
+_WinAPI_ExtCreatePen
+
+###Description###
+Creates a logical cosmetic or geometric pen that has the specified style, width, and brush attributes.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ExtCreatePen ( $iPenStyle, $iWidth, $iBrushStyle, $iRGB [, $iHatch [, $aUserStyle [, $iStart [, $iEnd]]]] )
+
+###Parameters###
+@@ParamTable@@
+$iPenStyle
+	A combination of type, style, end cap, and join attributes. The values from each category are
+	combined by using the bitwise operation.
+	
+	The pen type can be one of the following values.
+	
+	$PS_GEOMETRIC
+	$PS_COSMETIC
+	
+	The pen style can be one of the following values.
+	
+	$PS_SOLID
+	$PS_DASH
+	$PS_DOT
+	$PS_DASHDOT
+	$PS_DASHDOTDOT
+	$PS_NULL
+	$PS_INSIDEFRAME
+	$PS_USERSTYLE
+	$PS_ALTERNATE
+	
+	The end cap is only specified for geometric pens and can be one of the following values.
+	
+	$PS_ENDCAP_ROUND
+	$PS_ENDCAP_SQUARE
+	$PS_ENDCAP_FLAT
+	
+	The join is only specified for geometric pens and can be one of the following values.
+	
+	$PS_JOIN_BEVEL
+	$PS_JOIN_MITER
+	$PS_JOIN_ROUND
+	
+$iWidth
+	The width of the pen. If $PS_GEOMETRIC type is specified, the width is given in logical units,
+	otherwise, the width must be set to 1.
+$iBrushStyle
+	A brush style. This parameter can be one of the $BS_* constants.
+$iRGB
+	The color of a pen, in RGB.
+$iHatch
+	[可选参数] A hatch style. For more information, see _WinAPI_CreateBrushIndirect().
+$aUserStyle
+	[可选参数] The array (dash1, space1, dash2, space2, ... dashN, spaceN) that contains the length of the dashes
+	and spaces in a user-defined style. The first value specifies the length of the first dash,
+	the second value specifies the length of the first space, and so on. This parameter must be set
+	to zero if $PS_USERSTYLE style is not specified. The style count is limited to 16.
+$iStart
+	[可选参数] The index of array to start filling at.
+$iEnd
+	[可选参数] The index of array to stop filling at.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the logical pen.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+After an application creates a pen by calling _WinAPI_ExtCreatePen(), it can select it into any device context by
+calling the _WinAPI_SelectObject() function. When an application no longer requires a specified pen, it should
+call the _WinAPI_DeleteObject() function to delete the pen.
+
+
+###See Also###
+@@MsdnLink@@ ExtCreatePen
+
+###Example###
+@@IncludeExample@@
+

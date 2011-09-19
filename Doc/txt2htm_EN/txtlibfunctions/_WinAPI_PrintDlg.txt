@@ -1,0 +1,37 @@
+﻿###User Defined Function###
+_WinAPI_PrintDlg
+
+###Description###
+Displays a Print dialog box.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_PrintDlg ( ByRef $tPRINTDLG )
+
+###Parameters###
+@@ParamTable@@
+$tPRINTDLG
+	$tagPRINTDLG structure that contains information used to initialize the dialog box. When _WinAPI_PrintDlg()
+	returns, this structure contains information about the user's selections.
+	
+	(See MSDN for more information)
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the dialog box error code.
+@@End@@
+
+###Remarks###
+Note that the values of "hDevMode" and "hDevNames" member in $tagPRINTDLG may change when they are passed into
+_WinAPI_PrintDlg(). This is because these members are filled on both input and output.
+
+
+###See Also###
+@@MsdnLink@@ PrintDlg
+
+###Example###
+@@IncludeExample@@
+

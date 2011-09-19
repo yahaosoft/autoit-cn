@@ -1,0 +1,34 @@
+﻿###User Defined Function###
+_WinAPI_SetFRBuffer
+
+###Description###
+Sets the size of the internal buffer that used the _WinAPI_FindTextDlg() and _WinAPI_ReplaceTextDlg() functions.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SetFRBuffer ( $iChars )
+
+###Parameters###
+@@ParamTable@@
+$iChars
+	The size, in TCHARs, of the internal buffer. The buffer should be at least 80 characters long.
+	The default buffer size is 8192 chars (16 KB).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function does not initialize the buffer, just sets its size. Actually, this buffer is initialized only by
+_WinAPI_FindTextDlg() and _WinAPI_ReplaceTextDlg() functions. The _WinAPI_SetFRBuffer() must be called before
+using the _WinAPI_FindTextDlg() or _WinAPI_ReplaceTextDlg().
+
+You can destroy the internal buffer by calling the _WinAPI_FlushFRBuffer() function.
+
+
+###See Also###
+None
+

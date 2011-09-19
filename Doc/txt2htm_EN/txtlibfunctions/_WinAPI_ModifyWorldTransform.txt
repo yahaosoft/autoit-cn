@@ -1,0 +1,45 @@
+﻿###User Defined Function###
+_WinAPI_ModifyWorldTransform
+
+###Description###
+Changes the world transformation for a device context using the specified mode.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ModifyWorldTransform ( $hDC, $tXFORM, $iMode )
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context.
+$tXFORM
+	$tagXFORM structure used to modify the world transformation for the given device context.
+$iMode
+	Specifies how the transformation data modifies the current world transformation.
+	This parameter must be one of the following values.
+	
+	$MWT_IDENTITY
+	$MWT_LEFTMULTIPLY
+	$MWT_RIGHTMULTIPLY
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The _WinAPI_ModifyWorldTransform() will fail unless graphics mode for the specified device context has been set
+to $GM_ADVANCED by previously calling the _WinAPI_SetGraphicsMode(). Likewise, it will not be possible to reset
+the graphics mode for the device context to the default $GM_COMPATIBLE mode, unless world transform has first
+been reset to the default identity transform by calling _WinAPI_SetWorldTransform().
+
+
+###See Also###
+@@MsdnLink@@ ModifyWorldTransform
+
+###Example###
+@@IncludeExample@@
+
