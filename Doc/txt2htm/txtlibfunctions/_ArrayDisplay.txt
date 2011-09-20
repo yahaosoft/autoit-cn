@@ -2,7 +2,7 @@
 _ArrayDisplay
 
 ###Description###
-在列表视图(listview)中显示一维或二维数组.
+在一个列表视图(listview)中显示指定的一维或二维数组.
 
 ###Syntax###
 #Include <Array.au3>
@@ -15,21 +15,21 @@ $avArray
 $sTitle
 	[可选参数] 窗口显示的标题
 $iItemLimit
-	[可选参数] 要显示的列表视图的最大的项目(行)数.
+	[可选参数] 要显示的列表视图的最大的项目(行)数
 $iTranspose
-	[可选参数] 如果不为'default', 将会像二维矩形那样将行列(长宽)互换
+	[可选参数] 如果不为 default , 将会像二维矩形那样将行列(长宽)互换
 $sSeparator
 	[可选参数] 快速设置 Opt("GUIDataSeparatorChar")
 $sReplace
 	[可选参数] 替换每个数组元素中的 $sSeparator 字符串
 $sheader
-	[可选参数] 列头名称
+	[可选参数] 列头名称(列头由"|"进行分割)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	1
-失败:	0, 设置 @error:
+成功:	返回 1
+失败:	返回 0, 并设置 @error:
 @error:	1 - $avArray 不是一个数组
 	2 - $avArray 有太多的维度 (只能支持到二维数组)
 @@End@@

@@ -74,19 +74,19 @@ Global Const $sXORBits = _
 
 Global $tANDBits, $pANDBits, $tXORBits, $pXORBits, $bData, $hIcon
 
-; 创建 AND 位屏蔽结构
+; Create AND bitmask structure
 $bData = Binary('0x' & StringStripWS($sANDBits, 8))
 $tANDBits = DllStructCreate('byte[' & BinaryLen($bData)& ']')
 $pANDBits = DllStructGetPtr($tANDBits)
 DllStructSetData($tANDBits, 1, $bData)
 
-; 创建 XOR 位屏蔽结构
+; Create XOR bitmask structure
 $bData = Binary('0x' & StringStripWS($sXORBits, 8))
 $tXORBits = DllStructCreate('byte[' & BinaryLen($bData)& ']')
 $pXORBits = DllStructGetPtr($tXORBits)
 DllStructSetData($tXORBits, 1, $bData)
 
-; 创建单色图标 (32x32)
+; Create monochrome icon (32x32)
 $hIcon = _WinAPI_CreateIcon(0, 32, 32, 1, 1, $pANDBits, $pXORBits)
 
 ; 创建 GUI
