@@ -6,7 +6,7 @@ _ChooseFont
 
 ###Syntax###
 #Include <Misc.au3>
-_ChooseFont( [$sFontName = "Courier New" [, $iPointSize = 10 [, $iColorRef = 0 [, $iFontWeight = 0 [, $iItalic = False [, $iUnderline = False [, $iStrikethru = False [, $hWndOwner = 0]]]]]]]])
+_ChooseFont([$sFontName = "Courier New" [, $iPointSize = 10 [, $iColorRef = 0 [, $iFontWeight = 0 [, $iItalic = False [, $iUnderline = False [, $iStrikethru = False [, $hWndOwner = 0]]]]]]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -15,9 +15,9 @@ $sFontName
 $iPointSize
 	[可选参数] 字体磅值大小.(注:1 磅=1/72 英寸)
 $iColorRef
-	[可选参数] COLORREF 颜色 COLORREF 是一个32位整型数值颜色结构
+	[可选参数] COLORREF RGB颜色
 $iFontWeight
-	[可选参数] 字体重度（笔划粗细）
+	[可选参数] 字体重度(笔划粗细)
 $iItalic
 	[可选参数] 斜体
 $iUnderline
@@ -25,14 +25,14 @@ $iUnderline
 $iStrikethru
 	[可选参数] 删除线
 $hWndOwner
-	[可选参数] 父窗口句柄
+	[可选参数] 本对话框的父窗口句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回下方格式的数组:
 	[0] - 数组元素总数
-	[1] - 属性 = 二进制值 或:2 - 斜体; 4 - 下划线; 8 - 删除线
+	[1] - 属性 = 斜体:2,下划线:4,删除线:8,可使用BitOr进行组合.
 	[2] - 字体名称
 	[3] - 字体大小 = 磅值 (注:1 磅=1/72 英寸)
 	[4] - 字体重度 = 0-1000
