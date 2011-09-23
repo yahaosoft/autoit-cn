@@ -15,6 +15,10 @@ $sDll_Filename
 	[optional] Dll filename
 $bUTF8ErrorMsg
 	[optional] to force ConsoleWrite to display UTF8 chars
+$bForceLocal
+	[optional] Forces SQLite to use a local DLL, otherwise the DLL will be downloaded.
+$sPrintCallback
+	[optional] The string name of a user-defined callback function that is invoked when SQLite needs to display a diagnostic message.  See Remarks for more.
 @@End@@
 
 ###ReturnValue###
@@ -32,6 +36,8 @@ If not successfull a temporary file will be created that will be destroyed at _S
 If $bUTF8ErrorMsg is not zero prints UTF8 formated string prints to console.
 This allows applications as SCiTE to display those characters if configured with output.code.page=65001.
 This is the case when running SCiTE under a non-english version as Vista(fr).
+
+The $sPrintCallback parameter specifies the name of user-defined callback function.  This function will be passed a single parameter which is the message to display.  The default callback function is __SQLite_ConsoleWrite().  See that function for an example of how to implement your own callback function.
 
 ###Related###
 _SQLite_Shutdown
