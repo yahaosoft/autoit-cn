@@ -4,22 +4,22 @@ ObjCreateInterface
 ###Experimental###
 
 ###Description###
-Coming soon
+Creates a reference to an object from the given classname/object pointer, interface identifier and description string.
 
 ###Syntax###
-ObjCreateInterface ( "CLSID" , "IID" [,"interface_description", ["something_else_i_forgot"]]] )
+ObjCreateInterface ( "CLSID" , "IID" [,"interface_description", ["flag"]]] )
 
 
 ###Parameters###
 @@ParamTable@@
 CLSID
-	Coming soon
+	Class identifier or object pointer.  If this is a class identifier it can be in either ProgID or the string representation of the CLSID.
 IID
-	Coming soon
+	String representation of interface identifier.
 interface_description
-	[optional] Coming soon
-something_else_i_forgot
-	[optional] Coming soon
+	[optional] String describing v-table of the object. Use keyword Default to access IDispatch for dual interfaces.
+flag
+	[optional] Default value is True meaning the object interface inherits from IUnknown.
 @@End@@
 
 ###ReturnValue###
@@ -30,7 +30,68 @@ Failure:	Returns 0 and sets @error to non-zero.
 
 
 ###Remarks###
-<Coming Soon>
+ObjCreateInterface creates objects with methods that are listed in inerface-description string.
+For COM objects (IUnknown based) first three methods are always QueryInterface, AddRef and Release. Don't specify them inside the description strings.
+
+<b>Methods listed inside description string must be in v-table order of the interface.  If you provide an invalid or incorrect description AutoIt may become unstable or crash.</b>
+
+Format of the description string is:
+$sTagInterface = "MethodName RetType(ParamType1;ParamType2;...);"
+
+Valid Types are:
+
+@@ParamTable@@
+<b>Type</b>
+	<b>Details</b>
+none
+	no value (only valid for return type - equivalent to void in C)
+byte
+	an unsigned 8 bit integer
+boolean
+	an unsigned 8 bit integer
+short
+	a 16 bit integer
+word, ushort
+	an unsigned 16 bit integer
+int, long
+	a 32 bit integer
+bool
+	a 32 bit integer
+dword, ulong, uint
+	an unsigned 32 bit integer
+hresult
+	a 32 bit integer
+int64
+	a 64 bit integer
+uint64
+	an unsigned 64 bit integer
+ptr
+	a general pointer (void *)
+hwnd
+	a window handle (pointer)
+handle
+	an handle (pointer)
+float
+	a single precision floating point number
+double
+	a double precision floating point number
+int_ptr, long_ptr, lresult, lparam
+	an integer big enough to hold a pointer when running on x86 or x64 versions of AutoIt.
+uint_ptr, ulong_ptr, dword_ptr, wparam
+	an unsigned integer big enough to hold a pointer when running on x86 or x64 versions of AutoIt.
+str
+	an ANSI string (a minimum of 65536 chars is allocated if passed byref).
+wstr
+	a UNICODE wide character string (a minimum of 65536 chars is allocated if passed byref).
+bstr
+	a composite data type that consists of a length prefix, a data string and a terminator
+variant
+	a tagged union that can be used to represent any other data type
+idispatch, object
+	a composite data type that represents object with IDispatch interface
+*
+	Add * to the end of another type to pass it by reference.  For example "int*" passes a pointer to an "int" type.
+@@End@@
 
 See the <a href="../intro/ComRef.htm">Obj/COM Reference</a> for more information about Objects.
 

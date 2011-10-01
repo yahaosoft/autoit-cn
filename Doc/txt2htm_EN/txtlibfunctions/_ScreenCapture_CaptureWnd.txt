@@ -27,16 +27,12 @@ $fCursor
 @@End@@
 
 ###ReturnValue###
-None.
+If $sFileName is empty then the function returns a handle to an HBITMAP.  This handle must be released using _WinAPI_DeleteObject.  If called with $sFileName then the image is saved to the file and nothing is returned.
 
 ###Remarks###
-If FileName is not blank this function will capture the screen and save it to file. If FileName is blank, this
-function will capture the screen and return a HBITMAP handle to the bitmap image. In this case, after you are
-finished with the bitmap you must call _WinAPI_DeleteObject to delete the bitmap handle. All coordinates are in
-client coordinate mode.
+All coordinates are in client coordinate mode.
 
-Requires GDI+: GDI+ requires a redistributable for applications that
-run on the Microsoft Windows 2000 operating system.
+Requires GDI+: GDI+ requires a redistributable for applications that run on the Microsoft Windows 2000 operating system.
 
 ###Related###
 _WinAPI_DeleteObject

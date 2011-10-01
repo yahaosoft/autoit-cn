@@ -13,6 +13,7 @@ ObjCreate ( "classname"  [, "servername" [,"username", ["password"]]] )
 classname
 	The class of the object in the following format:
 	"appname.objectype"
+	It can also be a string representation of the CLSID.
 servername
 	[optional] name of a remote computer from which the
 	object must be obtained.
@@ -35,7 +36,7 @@ Failure:	Returns 0 and sets @error to 1.
 Use ObjCreate() if you want to have a new instance of the referring application.
 If you want to connect to an existing process, use ObjGet() instead.
 
-Keep in mind that not all computers have the same set of Objects. So <b>always</b> check for errors after calling ObjCreate(). 
+Keep in mind that not all computers have the same set of Objects. So <b>always</b> check for errors after calling ObjCreate().
 
 The following requirements apply if you want to access objects on <i>remote</i> computers:
 -The user running the script must have the appropriate permissions.
