@@ -42,6 +42,7 @@ Failure:	Returns -1 if error occurs.
 <li>The default mode when writing text is ANSI - use the unicode flags to change this. When writing unicode files the Windows default mode (and the fastest in AutoIt due to the least conversion) is UTF16 Little Endian (mode 32).</li>
 <li>Opening a file in write mode creates the file if it does not exist.  Directories are not created unless the correct flag is used.</li>
 <li>When reading and writing via the same file handle, the <a href="FileSetPos.htm">FileSetPos()</a> function must be used to update the current file position.</li>
+<li>A file can be read as binary (byte) data by using FileOpen with the binary flag - in this case count is in bytes rather than characters. A count value that is too large can lead to Autoit stopping with a memory allocation failure.</li>
 </ul>
 
 ###Related###

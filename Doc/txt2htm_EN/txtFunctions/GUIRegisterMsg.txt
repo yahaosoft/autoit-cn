@@ -45,13 +45,13 @@ When the user function is called then these 4 parameters have the following valu
 4	lParam	The second message parameter as hex value.
 @@End@@
 
-Up to 256 user functions can be registered for message ID's.
+Up to 256 user functions can be registered for message IDs.
 
 By default after finishing the user function the AutoIt internal message handler will be proceed.
 That won't be if your <strong>Return</strong> a value (See WM_COMMAND in example) or if you use the keyword 'Return' without any value.
 By using 'Return' without any return value the AutoIt internal message handler (if there is one for this message) will NOT be proceed!
 
-!!! If you want AutoIt to run it's internal handler for a message, return the variable <strong>$GUI_RUNDEFMSG</strong> (in GUIConstantsEx.au3) from the function (see also examples) !!!
+!!! If you want AutoIt to run its internal handler for a message, return the variable <strong>$GUI_RUNDEFMSG</strong> (in GUIConstantsEx.au3) from the function (see also examples) !!!
 I.e. if you want to return earlier than the user function ends and also proceed the AutoIt internal message handler.
 
 <strong>Warning:</strong> blocking of running user functions which executes window messages with commands such as "Msgbox()" can lead to unexpected behavior, the return to the system should be as fast as possible !!!

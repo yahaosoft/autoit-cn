@@ -20,7 +20,7 @@ logon_flag
 	0 - Interactive logon with no profile.
 	1 - Interactive logon with profile.
 	2 - Network credentials only.
-	4 - Inherit the calling processes environment instead of the user's.
+	4 - Inherit the calling process's environment instead of the user's environment.
 program
 	The full path of the program (EXE, BAT, COM, or PIF) to run (see remarks).
 workingdir
@@ -32,7 +32,7 @@ show_flag
 	  @SW_MAXIMIZE = Maximized window
 opt_flag
 	[optional] Controls various options related to how the parent and child process interact.
-	  0x10000 ($RUN_CREATE_NEW_CONSOLE) = The child console process should be created with it's own window instead of using the parent's window.  This flag is only useful when the parent is compiled as a Console application.
+	  0x10000 ($RUN_CREATE_NEW_CONSOLE) = The child console process should be created with its own window instead of using the parent's window.  This flag is only useful when the parent is compiled as a Console application.
 @@End@@
 
 
@@ -58,7 +58,7 @@ Some programs will appear to return immediately even though they are still runni
 
 The "load profile" and "network credentials only" options are incompatible.  Using both will produce undefined results.
 
-There is an issue in the Windows XP generation of Windows which prevents STDIO redirection and the show flag from working.  See Microsoft Knowledge Base article KB818858 for more information about which versions are affected as well as a hotfix for the issue.  User's running Windows 2000, Windows XP SP2 or later, or Windows Vista are not affected.
+There is an issue in the Windows XP generation of Windows which prevents STDIO redirection and the show flag from working.  See Microsoft Knowledge Base article KB818858 for more information about which versions are affected as well as a hotfix for the issue.  Users running Windows 2000, Windows XP SP2 or later, or Windows Vista are not affected.
 
 ###Related###
 ProcessWait, ProcessWaitClose, Run, RunWait, ShellExecute, ShellExecuteWait, RunAs
