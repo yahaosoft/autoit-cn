@@ -1,4 +1,5 @@
-#Include <Constants.au3>
+#Include <APIConstants.au3>
+#Include <GUIConstantsEx.au3>
 #Include <SliderConstants.au3>
 #Include <WinAPIEx.au3>
 
@@ -7,39 +8,36 @@ Opt('MustDeclareVars', 1)
 Global Const $STM_SETIMAGE = 0x0172
 Global Const $STM_GETIMAGE = 0x0173
 
-Global $hForm, $Msg, $Slider, $Pic, $tSIZE, $Width, $Height, $hBitmap
+Global $hForm, $Msg, $Pic, $Slider, $tSIZE, $W, $H, $hBitmap
 
 ; Load image
 $hBitmap = _WinAPI_LoadImage(0, @ScriptDir & '\Extras\Logo.bmp', $IMAGE_BITMAP, 0, 0, $LR_LOADFROMFILE)
 $tSIZE = _WinAPI_GetBitmapDimension($hBitmap)
-$Width = DllStructGetData($tSIZE, 'X')
-$Height = DllStructGetData($tSIZE, 'Y')
+$W = DllStructGetData($tSIZE, 'X')
+$H = DllStructGetData($tSIZE, 'Y')
 
 ; Create GUI
-$hForm = GUICreate('MyGUI', $Width, $Height + 61)
-$Slider = GUICtrlCreateSlider(10, $Height + 18, $Width - 20, 26, BitOR($TBS_BOTH, $TBS_NOTICKS))
+$hForm = GUICreate('MyGUI', $W, $H + 26)
+$Pic = GUICtrlCreatePic('', 0, 0, $W, $H)
+GUICtrlCreateGraphic(0, $H, $W, 1)
+GUICtrlSetBkColor(-1, 0xDFDFDF)
+$Slider = GUICtrlCreateSlider(0, $H + 1, $W, 25, BitOR($TBS_BOTH, $TBS_NOTICKS))
 GUICtrlSetLimit(-1, 255, 0)
 GUICtrlSetData(-1, 255)
-$Pic = GUICtrlCreatePic('', 0, 0, $Width, $Height)
 
 ; Set bitmap to control with alpha
 _SetBitmapAlpha($Pic, $hBitmap, 255)
 
+; Register WM_HSCROLL message for live scrolling and show GUI
+GUIRegisterMsg($WM_HSCROLL, 'WM_HSCROLL')
 GUISetState()
 
-While 1
-	$Msg = GUIGetMsg()
-	Switch $Msg
-		Case -3
-			ExitLoop
-		Case $Slider
-			_SetBitmapAlpha($Pic, $hBitmap, GUICtrlRead($Slider))
-	EndSwitch
-WEnd
+Do
+Until GUIGetMsg() = $GUI_EVENT_CLOSE
 
 Func _SetBitmapAlpha($hWnd, $hBitmap, $iAlpha)
 
-	Local $tRECT, $tSIZE, $Width, $Height, $Result = 0, $hObj, $hBmp, $hDC, $hDestDC, $hDestSv, $hSrcDC, $hSrcSv
+	Local $tRECT, $tSIZE, $W[2], $H[2], $hDC, $hDestDC, $hDestSv, $hSrcDC, $hSrcSv, $hBmp, $hObj
 
 	If Not IsHWnd($hWnd) Then
 		$hWnd = GUICtrlGetHandle($hWnd)
@@ -49,32 +47,38 @@ Func _SetBitmapAlpha($hWnd, $hBitmap, $iAlpha)
 	EndIf
 
 	$tRECT = _WinAPI_GetClientRect($hWnd)
-	$Width = DllStructGetData($tRECT, 3) - DllStructGetData($tRECT, 1)
-	$Height = DllStructGetData($tRECT, 4) - DllStructGetData($tRECT, 2)
+	$W[0] = DllStructGetData($tRECT, 3) - DllStructGetData($tRECT, 1)
+	$H[0] = DllStructGetData($tRECT, 4) - DllStructGetData($tRECT, 2)
 	$tSIZE = _WinAPI_GetBitmapDimension($hBitmap)
+	$W[1] = DllStructGetData($tSIZE, 1)
+	$H[1] = DllStructGetData($tSIZE, 2)
 	$hDC = _WinAPI_GetDC($hWnd)
 	$hDestDC = _WinAPI_CreateCompatibleDC($hDC)
-	$hBmp = _WinAPI_CreateCompatibleBitmapEx($hDC, $Width, $Height, _WinAPI_SwitchColor(_WinAPI_GetSysColor($COLOR_3DFACE)))
+	$hBmp = _WinAPI_CreateCompatibleBitmapEx($hDC, $W[0], $H[0], 0xFFFFFF)
 	$hDestSv = _WinAPI_SelectObject($hDestDC, $hBmp)
 	$hSrcDC = _WinAPI_CreateCompatibleDC($hDC)
 	$hSrcSv = _WinAPI_SelectObject($hSrcDC, $hBitmap)
-	$Result = _WinAPI_AlphaBlend($hDestDC, 0, 0, $Width, $Height, $hSrcDC, 0, 0, DllStructGetData($tSIZE, 'X'), DllStructGetData($tSIZE, 'Y'), $iAlpha, 0)
-
-	_WinAPI_ReleaseDC($hWnd, $hDC)
+	_WinAPI_AlphaBlend($hDestDC, 0, 0, $W[0], $H[0], $hSrcDC, 0, 0, $W[1], $H[1], $iAlpha, 0)
 	_WinAPI_SelectObject($hDestDC, $hDestSv)
-	_WinAPI_SelectObject($hSrcDC, $hSrcSv)
 	_WinAPI_DeleteDC($hDestDC)
+	_WinAPI_SelectObject($hSrcDC, $hSrcSv)
 	_WinAPI_DeleteDC($hSrcDC)
-
-	If Not $Result Then
-		_WinAPI_DeleteObject($hBmp)
-	Else
-		_WinAPI_DeleteObject(_SendMessage($hWnd, $STM_SETIMAGE, 0, 0))
-		_SendMessage($hWnd, $STM_SETIMAGE, 0, $hBmp)
-		$hObj = _SendMessage($hWnd, $STM_GETIMAGE)
-		If $hObj <> $hBmp Then
-			_WinAPI_DeleteObject($hBmp)
-		EndIf
+	_WinAPI_ReleaseDC($hWnd, $hDC)
+	$hObj = _SendMessage($hWnd, $STM_SETIMAGE, $IMAGE_BITMAP, $hBmp)
+	If $hObj Then
+		_WinAPI_DeleteObject($hObj)
 	EndIf
-	Return $Result
+	$hObj = _SendMessage($hWnd, $STM_GETIMAGE)
+	If $hObj <> $hBmp Then
+		_WinAPI_DeleteObject($hBmp)
+	EndIf
+	Return 1
 EndFunc   ;==>_SetBitmapAlpha
+
+Func WM_HSCROLL($hWnd, $iMsg, $wParam, $lParam)
+	Switch _WinAPI_GetDlgCtrlID($lParam)
+		Case $Slider
+			_SetBitmapAlpha($Pic, $hBitmap, GUICtrlRead($Slider))
+	EndSwitch
+	Return $GUI_RUNDEFMSG
+EndFunc   ;==>WM_HSCROLL

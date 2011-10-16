@@ -2,11 +2,11 @@
 _WinAPI_CreateDIB
 
 ###Description###
-Creates an uncompressed device-independent bitmap (DIB).
+Creates an uncompressed device-independent bitmap (DIB) with the specified width, height, and color depth.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateDIB ( $iWidth, $iHeight [, $iBitsPerPel] )
+_WinAPI_CreateDIB ( $iWidth, $iHeight [, $iBitsPerPel [, $tColorTable [, $iColorCount]]] )
 
 ###Parameters###
 @@ParamTable@@
@@ -17,7 +17,14 @@ $iHeight
 	and its origin is the lower-left corner, otherwise, the bitmap is a top-down DIB and its origin
 	is the upper-left corner.
 $iBitsPerPel
-	[可选参数] Hhe number of bits that define each pixel and the maximum number of colors in the bitmap.
+	[可选参数] The number of bits that define each pixel and the maximum number of colors in the bitmap.
+$tColorTable
+	[可选参数] "dword[n]" structure that represents a DIB color table. The number of colors in this table
+	depends on the values of the $iBitsPerPel parameters.
+$iColorCount
+	[可选参数] The number of color indexes in the DIB color table that are actually used by the bitmap.
+	The value of this parameter should not exceed the number of colors in the color table pointed
+	to by the $pColorTable parameter.
 @@End@@
 
 ###ReturnValue###
@@ -27,9 +34,25 @@ Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+If the bitmap is monochrome (1 bits-per-pixel), the color table should contain two entries. If the color table
+is not specified, the function creates a monochrome bitmap with black and white colors. If the bitmap use 4 or
+8 bits-per-pixel, the color table should contain up to 16 or 256 entries respectively. In this case, if the
+color table is not specified, the function creates an empty color table (all colors is black) with the maximum
+possible number of entries for the specified color depth. You can fill out this color table later by using the
+_WinAPI_SetDIBColorTable() function. If the bitmap use 16, 24, or 32 bits-per-pixel, the color table is not
+used, and $tColorTable parameter is ignored.
+
+This function does not create a compressed 16, 24, or 32 bits-per-pixel bitmaps, that is the "biCompression"
+member of $tagBITMAPINFO structure is always 0 ($BI_RGB).
+
 When you are finished using the bitmap, destroy it using the _WinAPI_DeleteObject() function.
+
+Call _WinAPI_GetExtended() to retrieve a pointer to the location of the DIB bit values.
 
 
 ###See Also###
 None
+
+###Example###
+@@IncludeExample@@
 

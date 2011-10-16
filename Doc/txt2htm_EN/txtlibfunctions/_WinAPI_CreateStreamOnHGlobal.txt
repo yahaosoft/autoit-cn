@@ -6,12 +6,12 @@ Creates a stream object that uses a memory handle to store the stream contents.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateStreamOnHGlobal ( $hGlobal [, $fDeleteOnRelease] )
+_WinAPI_CreateStreamOnHGlobal ( [$hGlobal [, $fDeleteOnRelease]] )
 
 ###Parameters###
 @@ParamTable@@
 $hGlobal
-	The memory handle, or if 0 a new handle is to be allocated instead. The handle must be
+	[可选参数] The memory handle, or if 0 a new handle is to be allocated instead. The handle must be
 	allocated as moveable and nondiscardable.
 $fDeleteOnRelease
 	[可选参数] Specifies whether the underlying handle for this stream object should be automatically
@@ -34,6 +34,8 @@ creation of the new stream object.
 
 After creating the stream object with _WinAPI_CreateStreamOnHGlobal(), call _WinAPI_GetHGlobalFromStream() to
 retrieve the memory handle associated with the stream object.
+
+To release the stream object, use the _WinAPI_ReleaseStream() function.
 
 
 ###See Also###

@@ -1,0 +1,51 @@
+﻿###User Defined Function###
+_WinAPI_EnumDllProc
+
+###Description###
+Enumerates exported functions of the specified dynamic-link library (DLL).
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_EnumDllProc ( $sPath [, $sMask [, $iFlags]] )
+
+###Parameters###
+@@ParamTable@@
+$sPath
+	The path to the library. Although this function searches for a file path when it specified as the relative
+	path or the name without a path, will better to specify a fully qualified path to the library for an
+	unequivocal result.
+$sMask
+	[可选参数] A wildcard string that indicates the function names to be enumerated. This string can optionally
+	contain the wildcards, "*" and "?". If this parameter is an empty string or omitted, all the exported
+	functions will be enumerated.
+$iFlags
+	[可选参数] The optional flags. This parameter can be one or more of the following values.
+	
+	$SYMOPT_CASE_INSENSITIVE
+	$SYMOPT_UNDNAME
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The array containing the following information:
+[0][0]	Number of rows in array (n)
+[0][1]	Unused
+[n][0]	The function address relative to the library base address (UINT64).
+[n][1]	The function name.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function works with 32- and 64-bit DLLs regardless of the system (32- or 64-bit), although 64-bit executables
+cannot load 32-bit DLLs and vice-versa.
+
+Call _WinAPI_GetExtended() to retrieve a fully qualified path to the found library that was used to enumerate.
+
+
+###See Also###
+@@MsdnLink@@ SymEnumSymbols
+
+###Example###
+@@IncludeExample@@
+

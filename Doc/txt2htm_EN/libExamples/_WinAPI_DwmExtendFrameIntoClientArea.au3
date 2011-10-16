@@ -1,4 +1,4 @@
-#Include <Constants.au3>
+#Include <APIConstants.au3>
 #Include <GUITab.au3>
 #Include <WinAPIEx.au3>
 
@@ -12,7 +12,7 @@ EndIf
 
 Global Const $PRF_CLIENT = 0x04
 
-Global $hForm, $hTab, $tMARGINS, $hDll, $pDll, $hProc
+Global $hForm, $hTab, $hDll, $pDll, $hProc
 
 OnAutoItExitRegister('OnAutoItExit')
 
@@ -36,12 +36,7 @@ $pDll = DllCallbackGetPtr($hDll)
 $hProc = _WinAPI_SetWindowLongEx($hTab, $GWL_WNDPROC, $pDll)
 
 ; Create the "sheet of glass" effect for the Tab client area. You must call this function whenever DWM composition is toggled.
-$tMARGINS = DllStructCreate($tagMARGINS)
-DllStructSetData($tMARGINS, 1, 2)
-DllStructSetData($tMARGINS, 2, 2)
-DllStructSetData($tMARGINS, 3, 82)
-DllStructSetData($tMARGINS, 4, 2)
-_WinAPI_DwmExtendFrameIntoClientArea($hForm, $tMARGINS)
+_WinAPI_DwmExtendFrameIntoClientArea($hForm, _WinAPI_CreateMargins(2, 2, 82, 2))
 
 GUISetState()
 

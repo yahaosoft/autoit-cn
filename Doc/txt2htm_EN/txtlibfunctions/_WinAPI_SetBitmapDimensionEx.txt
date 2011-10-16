@@ -1,0 +1,36 @@
+﻿###User Defined Function###
+_WinAPI_SetBitmapDimensionEx
+
+###Description###
+Assigns preferred dimensions to a compatible bitmap.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SetBitmapDimensionEx ( $hBitmap, $iWidth, $iHeight )
+
+###Parameters###
+@@ParamTable@@
+$hBitmap
+	Handle to the bitmap. This bitmap cannot be a DIB-section bitmap.
+$iWidth
+	The width, in 0.1-millimeter units, of the bitmap.
+$iHeight
+	The height, in 0.1-millimeter units, of the bitmap.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The bitmap cannot be a DIB section, which is a bitmap created by the _WinAPI_CreateDIB() or _WinAPI_CreateDIBSection()
+functions. If the bitmap is a DIB section, the _WinAPI_SetBitmapDimensionEx() function fails.
+
+Call _WinAPI_GetExtended() to retrieve a $tagSIZE structure containing the previous dimensions of the bitmap.
+
+
+###See Also###
+@@MsdnLink@@ SetBitmapDimensionEx
+

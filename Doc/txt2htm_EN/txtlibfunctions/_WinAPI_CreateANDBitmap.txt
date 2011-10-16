@@ -1,0 +1,37 @@
+﻿###User Defined Function###
+_WinAPI_CreateANDBitmap
+
+###Description###
+Creates an AND bitmask device-independent bitmap (DIB) from the specified bitmap.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateANDBitmap ( $hBitmap )
+
+###Parameters###
+@@ParamTable@@
+$hBitmap
+	Handle to the bitmap from which to create an AND bitmask DIB.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the DIB.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The _WinAPI_CreateANDBitmap() creates a 1 bits-per-pixel AND bitmask DIB from the 32 bits-per-pixel DIB or DDB.
+If the source bitmap is non 32 bits-per-pixel bitmap, or is a compressed bitmap, the function fails.
+
+You can use the bitmap returned by this function to create icon by using the _WinAPI_CreateIconIndirect().
+
+When you are finished using the bitmap, destroy it using the _WinAPI_DeleteObject() function.
+
+
+###See Also###
+None
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,52 @@
+﻿###User Defined Function###
+_WinAPI_ChangeWindowMessageFilterEx
+
+###Description###
+Modifies the User Interface Privilege Isolation (UIPI) message filter for a specified window.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ChangeWindowMessageFilterEx ( $hWnd, $iMsg, $iAction )
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window whose UIPI message filter is to be modified. If this parameter is 0, the UIPI
+	message filter will be modified in a process-wide manner. Moreover, under Windows Vista this parameter
+	is not used and should be set to 0.
+$iMsg
+	The message that the message filter allows through or blocks.
+$iAction
+	The action to be performed. This parameter can be one of the following values.
+	
+	$MSGFLT_ALLOW
+	$MSGFLT_DISALLOW
+	
+	Windows 7 or later
+	
+	$MSGFLT_RESET
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1 and sets the @extended flag to 0 or one of the following values (only under Windows 7 and later).
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+UIPI is a security feature that prevents messages from being received from a lower-integrity-level sender.
+You can use this function to allow specific messages to be delivered to a window even if the message originates
+from a process at a lower integrity level.
+
+Certain messages whose value is smaller than WM_USER are required to be passed through the filter, regardless
+of the filter setting. There will be no effect when you attempt to use this function to allow or block such
+messages.
+
+This function requires Windows Vista or later.
+
+
+
+###See Also###
+@@MsdnLink@@ ChangeWindowMessageFilterEx
+

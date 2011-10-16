@@ -1,4 +1,4 @@
-#Include <Constants.au3>
+#Include <APIConstants.au3>
 #Include <GUIConstantsEx.au3>
 #Include <WinAPIEx.au3>
 
@@ -16,6 +16,14 @@ $hLabel = GUICtrlGetHandle($Label)
 GUICtrlSetBkColor(-1, 0xD3D8EF)
 GUICtrlCreateLabel('Drop here', 175, 193, 50, 14)
 GUICtrlSetBkColor(-1, $GUI_BKCOLOR_TRANSPARENT)
+
+; Allow WM_DROPFILES to be received from lower privileged processes (Windows Vista or later)
+#cs
+If IsAdmin() Then
+	_WinAPI_ChangeWindowMessageFilterEx($hLabel, $WM_COPYGLOBALDATA, $MSGFLT_ALLOW)
+	_WinAPI_ChangeWindowMessageFilterEx($hLabel, $WM_DROPFILES, $MSGFLT_ALLOW)
+EndIf
+#ce
 
 ; Register label window proc
 $hDll = DllCallbackRegister('_WinProc', 'ptr', 'hwnd;uint;wparam;lparam')

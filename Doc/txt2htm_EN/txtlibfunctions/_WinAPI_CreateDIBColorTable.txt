@@ -1,0 +1,37 @@
+﻿###User Defined Function###
+_WinAPI_CreateDIBColorTable
+
+###Description###
+Creates RGB color table from the specified array of colors.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateDIBColorTable ( Const ByRef $aColorTable [, $iStart [, $iEnd]] )
+
+###Parameters###
+@@ParamTable@@
+$aColorTable
+	The array of colors, in RGB, that to be make up the DIB color table.
+$iStart
+	[可选参数] The index of array to start creating at.
+$iEnd
+	[可选参数] The index of array to stop creating at.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	"dword[n]" structure that represents a DIB color table.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The color table created by this function is typically used in _WinAPI_CreateDIB() or _WinAPI_CreateDIBSection()
+function to create 1, 4, or 8 bits-per-pixel device-independent bitmap (DIB).
+
+
+###See Also###
+None
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,36 @@
+﻿###User Defined Function###
+_WinAPI_CreateEmptyIcon
+
+###Description###
+Creates a fully transparent icon with the specified width, height, and color depth.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateEmptyIcon ( $iWidth, $iHeight [, $iBitsPerPel] )
+
+###Parameters###
+@@ParamTable@@
+$iWidth
+	The width, in pixels, of the icon.
+$iHeight
+	The height, in pixels, of the icon.
+$iBitsPerPel
+	[可选参数] The number of bits-per-pixel in the XOR bitmask of the icon.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	Handle to the created icon.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function creates an icon with black XOR, and white AND bitmask bitmaps. This icon has no alpha channel,
+it will be displayed only by using its AND bitmask.
+
+When you are finished using the icon, destroy it using the _WinAPI_DestroyIcon() function.
+
+
+###See Also###
+None
+
