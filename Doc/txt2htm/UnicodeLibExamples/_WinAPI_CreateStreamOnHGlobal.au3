@@ -24,8 +24,8 @@ $hImage = _GDIPlus_BitmapCreateFromStream($pStream)
 $hBitmap = _GDIPlus_BitmapCreateHBITMAPFromBitmap($hImage)
 $Width = _GDIPlus_ImageGetWidth($hImage)
 $Height = _GDIPlus_ImageGetHeight($hImage)
+_WinAPI_ReleaseStream($pStream)
 _GDIPlus_ImageDispose($hImage)
-_MemGlobalFree($hData)
 _GDIPlus_Shutdown()
 
 ; 创建 GUI

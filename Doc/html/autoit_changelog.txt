@@ -8,8 +8,14 @@ AutoIt:
 - Added: Additional flags added to ObjName().
 - Added: DllCallAddress().
 - Added: ObjCreateInterface() (By trancexx).
+- Added #1947: CHM help files now have a Forward button.
+- Added #1813: Better cross referencing for Int() and Mod().
 
 - Changed: Compiling with VC10. Added workarounds for Win2000/XP RTM to allow execution of AutoIt, Aut2Exe, Au3Info, Au3Check and AutoItHelp.
+- Changed: COM Error handler passes error object as first parameter to user defined error function.
+- Changed: COM Error handler properties are read-only.
+
+- Removed: COM Error object no longer exposes methods Raise() and Clear().
 
 - Fixed #1040: _ScreenCapture_Capture(): GDI object leak with cursor capture.
 - Fixed #1599: TraySetItemText() regression for default menu item.
@@ -48,6 +54,9 @@ AutoIt:
 - Fixed: Potential memory leak in COM error event code.
 - Fixed #1660: Crash on Mod() with a divisor of 0.
 - Fixed: COM methods no longer change the type of AutoIt variables.
+- Fixed #2001: Example for _GUICtrlToolbar_SetButtonText() did not work correctly.
+- Fixed #1994: Documentation for _ScreenCapture_Capture() and _ScreenCapture_CaptureWnd() incorrectly stated the functions had no return value.  Moved information from Remarks up to Return area.
+- Fixed #1948: Documentation for _GUICtrlButton_SetImage() had the wrong description.
 
 AutoItX:
 - Fixed #1686: AU3_PixelSearch crashes.
@@ -64,6 +73,7 @@ UDFs:
 - Added #1636: _Security__LookupAccountSID() for Remote Systems.
 - Added #1569: _ArraySearch() $iPartial (->$iCompare) extended to match on variables of same type.
 - Added #1557: VK_xBUTTON in Constants.au3.
+- Added #1890: Better cross-referencing for _WinAPI_GetParent() and _WinAPI_GetAncestor().
 
 - Fixed #1542: _DebugSetup() closing when use with GUI handling events.
 - Fixed #1549: _SQLite_Escape() crash for strings > 64K (> 3.3.0.0).
@@ -88,9 +98,13 @@ UDFs:
 - Fixed #1891: _ArrayDisplay (......,i$iTranspose,...) wrong description.
 - Fixed #1933: _GetIP is outdated and could possibly fail.
 - Fixed: #1859: Bug in _WeekNumberISO?
-
+- Fixed #2009: Incorrect styles listed in _GUICtrlToolbar_Create().
+- Fixed #1009: SQLite library needs to support a user-defined callback for diagnostic messages instead of hard-coding ConsoleWrite().
+- Fixed #1985: _IECreate() now ensures focus is given to the document when an about URI is loaded (such as about:blank).  IE9 gives focus to the URL bar which can cause later issues setting focus to elements.
 
 - Changed: _SQLite 3.6.22 -> 3.7.2.0
+- Changed: _IEFormElementSetValue() examples #3 removed (login to Hotmail).
+- Changed: _IEFormElementSetValue() examples #4 and #5 (now #3 and #4) use the text input instead of the file input.  The file input is read-only on IE9 so the Send()/ControlSend() produced no results.
 
 Au3Check:
 - Added: #forcedef directive to force var definition as after Assign().

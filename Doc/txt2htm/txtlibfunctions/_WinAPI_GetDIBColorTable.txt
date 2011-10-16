@@ -1,0 +1,32 @@
+﻿###User Defined Function###
+_WinAPI_GetDIBColorTable
+
+###Description###
+Retrieves RGB color table from the DIB section bitmap.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetDIBColorTable ( $hBitmap )
+
+###Parameters###
+@@ParamTable@@
+$hBitmap
+	A DIB section bitmap from which to retrieve the color table.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	"dword[n]" structure that contains a color information from the DIB color table, @extended flag
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The _WinAPI_GetDIBColorTable() function retrieves a color table for DIB section bitmaps that use 1, 4, or
+8 bits-per-pixel. A DIB section bitmaps that use bits-per-pixel value greater than eight do not have a color
+table, but they do have associated color masks. Call the _WinAPI_GetObject() function to retrieve those
+color masks.
+
+
+###See Also###
+@@MsdnLink@@ GetDIBColorTable
+

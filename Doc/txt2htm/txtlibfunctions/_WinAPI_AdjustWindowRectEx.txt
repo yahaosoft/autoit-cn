@@ -11,21 +11,21 @@ _WinAPI_AdjustWindowRectEx ( ByRef $tRECT, $iStyle [, $iExStyle [, $fMenu] )
 ###Parameters###
 @@ParamTable@@
 $tRECT
-	包含客户区大小尺寸坐标值的 $tagRECT 结构.
+	包含客户区大小尺寸坐标值的 $tagRECT 结构.这个数据结构必须在函数调用前创建.
 $iStyle
-	窗口的样式.不能指定 $WS_OVERLAPPED 样式.
+	要被计算窗口的所使用的窗口样式.不能指定 $WS_OVERLAPPED 样式.
 $iExStyle
-	[可选参数] 窗口的扩展样式.
+	[可选参数] 要被计算窗口的所使用的窗口扩展样式.
 $fMenu
 	[可选参数] 指定窗口是否有菜单.
-		1 - 窗口有菜单.
-		0 - 窗口没有菜单. (默认值)
+		TRUE - 窗口有菜单.
+		FALSE - 窗口没有菜单. (默认值)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回 1.
-失败:	返回 0,设置@error:标志为非 0 值.
+失败:	返回 0,设置 @error 标志为非 0 值.
 @@End@@
 
 ###Remarks###

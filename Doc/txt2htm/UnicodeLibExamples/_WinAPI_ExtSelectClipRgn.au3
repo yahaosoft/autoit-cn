@@ -12,7 +12,7 @@ EndIf
 
 Global Const $PRF_CLIENT = 0x04
 
-Global $hForm, $hTab, $tMARGINS, $hDll, $pDll, $hProc
+Global $hForm, $hTab, $hDll, $pDll, $hProc
 
 OnAutoItExitRegister('OnAutoItExit')
 
@@ -36,12 +36,7 @@ $pDll = DllCallbackGetPtr($hDll)
 $hProc = _WinAPI_SetWindowLongEx($hTab, $GWL_WNDPROC, $pDll)
 
 ; 给标签页客户区创建 "玻璃片" 效果. 无论 DWM (桌面窗口管理器) 组件是否切换您必须调用此函数.
-$tMARGINS = DllStructCreate($tagMARGINS)
-DllStructSetData($tMARGINS, 1, 2)
-DllStructSetData($tMARGINS, 2, 2)
-DllStructSetData($tMARGINS, 3, 82)
-DllStructSetData($tMARGINS, 4, 2)
-_WinAPI_DwmExtendFrameIntoClientArea($hForm, $tMARGINS)
+_WinAPI_DwmExtendFrameIntoClientArea($hForm, _WinAPI_CreateMargins(2, 2, 82, 2))
 
 GUISetState()
 

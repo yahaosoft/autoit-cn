@@ -25,12 +25,15 @@ Mod ( 数值1, 数值2 )
 
 
 ###Remarks###
-<i>商 = 被除数 / 除数</i>
-此函数支持浮点数及整数.
+This function guarantes that <i>dividend = (dividend / divisor) * divisor + Mod(dividend, divisor)</i>.
+
+This function <b>does not</b> guarantee that dividend or divisor can be represented accurately, specifically with floating point numbers.
+
+If integers are passed this function does an integral modulo operation.  Otherwise it falls back to a floating point operation which per the previous remark means it may not produce the expected output.
 
 
 ###Related###
-None.
+Int
 
 
 ###Example###

@@ -1,0 +1,49 @@
+﻿###User Defined Function###
+_WinAPI_CompressBitmapBits
+
+###Description###
+Creates a compressed data block from the specified bitmap.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CompressBitmapBits ( $hBitmap, ByRef $tBuffer [, $iCompression [, $iQuality]] )
+
+###Parameters###
+@@ParamTable@@
+$hBitmap
+	Handle to the bitmap to be compressed.
+$tBuffer
+	The any valid variable that receives the compressed data. If the function succeeds, this
+	variable will contain "byte[n]" structure with compressed data, or 0 otherwise.
+$iCompression
+	[可选参数] The compression method. This parameter can be one of the following values.
+	
+	$COMPRESSION_BITMAP_PNG
+	$COMPRESSION_BITMAP_JPEG
+	
+$iQuality
+	[可选参数] The quality of JPEG image, in percent. This value is ignored for non JPEG compression.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The length of the compressed data that was stored in $tBuffer parameter, in bytes.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+In fact, the data that returns this function represent .jpeg or .png image file in binary form. You can use the
+_WinAPI_WriteFile() function to create the appropriate image file directly from this data.
+
+The returned data always represent a 24-bit color depth .jpeg image, or 32-bit color depth (with or without
+alpha chanel) .png image independent on the color depth of the source bitmap.
+
+This function internally uses the GDI+ DLL library.
+
+
+###See Also###
+None
+
+###Example###
+@@IncludeExample@@
+

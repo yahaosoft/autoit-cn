@@ -20,7 +20,7 @@ RunAsWait ( "用户名", "域", "密码", 登录标志, "程序" [, "工作目�
 	0 - 交互登录,没有 profile.
 	1 - 交互登录,有 profile.
 	2 - 只使用网络证书.
-	4 - 继承调用过程环境而非用户的.
+	4 - 继承调用程序的环境变量替换用户的环境变量.
 程序
 	程序所在的完整路径(文件格式为 EXE,BAT,COM 或 PIF).
 工作目录
@@ -32,7 +32,7 @@ RunAsWait ( "用户名", "域", "密码", 登录标志, "程序" [, "工作目�
 	  @SW_MAXIMIZE = 最大化窗口
 可选标志
 	[optional] Controls various options related to how the parent and child process interact.
-	  0x10000 ($RUN_CREATE_NEW_CONSOLE) = The child console process should be created with it's own window instead of using the parent's window.  This flag is only useful when the parent is compiled as a Console application.
+	  0x10000 ($RUN_CREATE_NEW_CONSOLE) = The child console process should be created with its own window instead of using the parent's window.  This flag is only useful when the parent is compiled as a Console application.
 @@End@@
 
 
@@ -58,7 +58,7 @@ Some programs will appear to return immediately even though they are still runni
 
 The "load profile" and "network credentials only" options are incompatible.  Using both will produce undefined results.
 
-There is an issue in the Windows XP generation of Windows which prevents STDIO redirection and the show flag from working.  See Microsoft Knowledge Base article KB818858 for more information about which versions are affected as well as a hotfix for the issue.  User's running Windows 2000, Windows XP SP2 or later, or Windows Vista are not affected.
+There is an issue in the Windows XP generation of Windows which prevents STDIO redirection and the show flag from working.  See Microsoft Knowledge Base article KB818858 for more information about which versions are affected as well as a hotfix for the issue.  Users running Windows 2000, Windows XP SP2 or later, or Windows Vista are not affected.
 
 ###Related###
 ProcessWait, ProcessWaitClose, Run, RunWait, ShellExecute, ShellExecuteWait, RunAs
