@@ -1,43 +1,38 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_AddIconTransparency
 
-###Description###
-Adds a transparency to the specified 32 bits-per-pixel icon.
+###ÃèÊö###
+Îª32Î»Í¼±êÌí¼ÓÍ¸Ã÷¶È
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_AddIconTransparency ( $hIcon [, $iPercent [, $fDelete]] )
+_WinAPI_AddIconTransparency( $hIcon [, $iPercent [, $fDelete]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $hIcon
-	Handle to the icon.
+   Í¼±ê¾ä±ú
 $iPercent
-	[å¯é€‰å‚æ•°] A value (in percent) that specifies how much to decrease the values of the alpha channel for the
-	specified icon. If this parameter is 0, the function returns a fully transparent icon.
+   Ö¸¶¨Òª½µµÍµÄÍ¼±êalphaÍ¨µÀµÄ°Ù·Ö±ÈÖµ
 $fDelete
-	[å¯é€‰å‚æ•°] Specifies whether to delete the icon after the function is successful, valid values:
-		TRUE     - Icon will be deleted if the function succeeds.
-		FALSE    - Don't delete, you must release the icon when you are finished using it. (Default)
+   Ö¸¶¨º¯Êı³É¹¦ºóÊÇ·ñÉ¾³ıÍ¼±ê. ¿ÉÑ¡:
+    True: º¯Êı³É¹¦·µ»ØºóÉ¾³ıÍ¼±ê
+    Flase: ²»É¾³ıÇÒ±ØĞëÔÚÊ¹ÓÃÍê±ÏºóÖ¸¶¨É¾³ı
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	Handle to the newly created icon.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»ØĞÂ½¨Í¼±ê¾ä±ú
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-This function only works with 32 bits-per-pixel with alpha chanel (RGB + Alpha) icons. If the source icon
-has no alpha chanel, the resulting icon will be the same as the source icon. If the source icon is non
-32 bits-per-pixel, the function fails.
+###±¸×¢###
+¸Ãº¯Êı½öÓÃÓÚÃ¿ÏñËØ32Î»µÄÍ¼±ê.
+Í¼±êÊ¹ÓÃÍê±Ïºó , Ê¹ÓÃ_WinAPI_DestroyIcon()Ïú»Ù.
 
-When you are finished using the icon, destroy it using the _WinAPI_DestroyIcon() function.
+###Ïà¹Ø###
 
+###²Î¿¼###
 
-###See Also###
-None
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

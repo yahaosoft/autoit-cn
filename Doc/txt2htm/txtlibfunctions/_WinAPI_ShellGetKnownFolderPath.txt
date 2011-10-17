@@ -1,47 +1,53 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_ShellGetKnownFolderPath
 
-###Description###
-检索已知文件夹的完整路径.
+###����###
+��ȡ��ʶ�����֪�ļ��е�����·��
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellGetKnownFolderPath ( $GUID [, $iFlags [, $hToken]] )
+_WinAPI_ShellGetKnownFolderPath( $GUID [, $iFlags [, $hToken]] )
 
-###Parameters###
+###����###
 @@ParamTable@@
-$GUID
-	系统标准文件夹的标识 GUID ($FOLDERID_*).
-$iFlags
-	[可选参数] 检索选项. 参数可以是一或多个下列值:
-		 $KF_FLAG_CREATE --- 如果该文件夹不存在,强制创建指定的文件夹
-		 $KF_FLAG_DONT_VERIFY --- 在检索路径或 IDList 之前,不验证该文件夹的存在
-		 $KF_FLAG_DONT_UNEXPAND --- 使用注册表中存储的完整路径,而不使用环境字符串
-		 $KF_FLAG_NO_ALIAS --- 获取任何别名文件夹
-		 $KF_FLAG_INIT --- 使用 Desktop.ini 初始化文件夹.此标志应始终结合 KF_FLAG_CREATE
-		 $KF_FLAG_DEFAULT_PATH --- 获取已知文件夹的默认路径
-		 $KF_FLAG_NOT_PARENT_RELATIVE --- 获取文件夹的默认路径,与父层位置无关,.必须同时设置 KF_FLAG_DEFAULT_PATH
-		 $KF_FLAG_SIMPLE_IDLIST --- 构建一个简单的 IDList (PIDL).检索期望的文件系统路径
-		 *Windows 7 或更高系统
-		 $KF_FLAG_ALIAS_ONLY --- 只返回别名 PIDL.不使用文件系统路径
-$hToken
-	[可选参数] 代表一个特定用户的访问令牌. 如果此参数为 0, 函数使用当前用户已知的文件夹
-		 指定 $hToken 参数值为 -1,表示默认用户.请注意,文件夹的默认用户需要管理员访问权限. 
+$GUID  ʶ����ϵͳע��ı�׼�ļ��е�GUID($FOLDERID_...).
+$iFlags  [��ѡ] �ñ��ָ��Ҫ��ȡ������. ��Ϊ����ֵ�����.
+$SSF_SHOWALLOBJECTS - TRUE��ʾ��ʾ���������ļ����ļ��е����ж���, ��֮ΪFALSE
+$SSF_SHOWEXTENSIONS - TRUE��ʾ��ʾ�ļ���չ��, ��֮ΪFALSE
+$SSF_SHOWCOMPCOLOR - TRUE��ʾ��ɫ��ʾ���ܻ�ѹ����NTFS�ļ�
+$SSF_SHOWSYSFILES - TRUE��ʾ��ʾϵͳ�ļ�, ��֮ΪFALSE
+$SSF_DOUBLECLICKINWEBVIEW - TRUE��ʾ����ҳ��ͼ��˫������Ŀ
+$SSF_DESKTOPHTML - TRUE��ʾ���û����, ��֮ΪFALSE
+$SSF_WIN95CLASSIC - TRUE��ʾʹ��WIN95��Ǽ�����
+$SSF_DONTPRETTYPATH - TRUE��ʾ��ֹ·��Сдת��
+$SSF_MAPNETDRVBUTTON - TRUE��ʾ��ʾ"ӳ������������"��ť
+$SSF_SHOWINFOTIP - TRUE��ʾ�����ļ����ļ��е�����
+$SSF_HIDEICONS - TRUE��ʾ��������ͼ��, FALSEΪ��ʾ
+$SSF_NOCONFIRMRECYCLE - TRUE��ʾ������Ŀɾ��������վ�ǲ���ʾȷ�϶Ի���, FALSE��ʾ��ʾ�Ի���
+$SSF_WEBVIEW - TRUE��ʾ��������ͼ��ʾ
+$SSF_SHOWSUPERHIDDEN - TRUE��ʾ��ʾ����ϵͳ�ļ�
+$SSF_SEPPROCESS - TRUE��ʾ�Ե������̴��ļ��д���, FALSE��ʾʹ��ͬһ����
+$SSF_NONETCRAWLING - TRUE��ʾ��ֹ�Զ����������ļ��кʹ�ӡ��
+*Windows Vista������:
+$SSF_AUTOCHECKSELECT - TRUE��ʾʹ��Windows Vista��ʽ�ĸ�ѡ�ļ�����ͼ, FALSE��ʾʹ�þ�����ͼ
+$SSF_ICONSONLY - TRUE��ʾ��ʾ��ͨ��ͼ��, FALSE��ʾ���ļ�������ʾ����ͼ��ʽͼ��
+$SSF_SHOWTYPEOVERLAY - ����Ŀʱ��ʾ��Ҫ���õ�Ӧ�õ�����ͼ
+$GUID  ָ���Ƿ����û����($SSF_...)����.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回已知文件夹的路径.
-失败:	返回空串,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
+�ɹ�: ����1.
+ʧ��: ����0������@error��0.
 @@End@@
 
-###Remarks###
-本函数需要 Windows Vista 或更高版本系统.
+###��ע###
+�ú�����ҪWindows Vista�����ϰ汾
 
+###���###
 
-###See Also###
-@@MsdnLink@@ SHGetKnownFolderPath
+###�ο�###
+ ����MSDN֪ʶ����SHGetKnownFolderPath�������Ϣ
 
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

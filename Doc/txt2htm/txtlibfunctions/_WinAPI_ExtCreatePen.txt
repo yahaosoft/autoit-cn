@@ -1,83 +1,69 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_ExtCreatePen
 
-###Description###
-Creates a logical cosmetic or geometric pen that has the specified style, width, and brush attributes.
+###ÃèÊö###
+´´½¨¾ßÓĞÖ¸¶¨ÑùÊ½¿í¶ÈºÍÊôĞÔµÄÂß¼­×°ÊÎ»­±Ê»ò¼¸ºÎ»­±Ê
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_ExtCreatePen ( $iPenStyle, $iWidth, $iBrushStyle, $iRGB [, $iHatch [, $aUserStyle [, $iStart [, $iEnd]]]] )
+_WinAPI_ExtCreatePen( $iPenStyle, $iWidth, $iBrushStyle, $iRGB [, $iHatch [, $aUserStyle [, $iStart [, $iEnd]]]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $iPenStyle
-	A combination of type, style, end cap, and join attributes. The values from each category are
-	combined by using the bitwise operation.
-	
-	The pen type can be one of the following values.
-	
-	$PS_GEOMETRIC
-	$PS_COSMETIC
-	
-	The pen style can be one of the following values.
-	
-	$PS_SOLID
-	$PS_DASH
-	$PS_DOT
-	$PS_DASHDOT
-	$PS_DASHDOTDOT
-	$PS_NULL
-	$PS_INSIDEFRAME
-	$PS_USERSTYLE
-	$PS_ALTERNATE
-	
-	The end cap is only specified for geometric pens and can be one of the following values.
-	
-	$PS_ENDCAP_ROUND
-	$PS_ENDCAP_SQUARE
-	$PS_ENDCAP_FLAT
-	
-	The join is only specified for geometric pens and can be one of the following values.
-	
-	$PS_JOIN_BEVEL
-	$PS_JOIN_MITER
-	$PS_JOIN_ROUND
-	
+   ÀàĞÍ, ÑùÊ½, ÖÕµãÑùÊ½¼°Á¬½ÓÊôĞÔµÄ×éºÏ. Í¨¹ıÊ¹ÓÃBit*²Ù×÷½«Ã¿Ò»¸ö¿ÆÄ¿µÄÖµ½áºÏÆğÀ´.
+    ±ÊÀàĞÍ¿ÉÎªÏÂÁĞÖµ:
+$PS_GEOMETRIC
+$PS_COSMETIC
+    ±ÊÑùÊ½¿ÉÎªÏÂÁĞÖµ:
+$PS_SOLID
+$PS_DASH
+$PS_DOT
+$PS_DASHDOT
+$PS_DASHDOTDOT
+$PS_NULL
+$PS_INSIDEFRAME
+$PS_USERSTYLE
+$PS_ALTERNATE
+    ¼¸ºÎ»­±ÊµÄÖÕµãÑùÊ½¿ÉÎªÏÂÁĞÖµ:
+$PS_ENDCAP_ROUND
+$PS_ENDCAP_SQUARE
+$PS_ENDCAP_FLAT
+    ¼¸ºÎ»­±ÊµÄÁ¬½ÓµãÑùÊ½¿ÉÎªÏÂÁĞÖµ:
+$PS_JOIN_BEVEL
+$PS_JOIN_MITER
+$PS_JOIN_ROUND
 $iWidth
-	The width of the pen. If $PS_GEOMETRIC type is specified, the width is given in logical units,
-	otherwise, the width must be set to 1.
+$PS_GEOMETRICÀàĞÍ, ¿í¶ÈÒÔÂß¼­µ¥Î»¸ø³ö, ·ñÔò¿í¶ÈÎª1.
 $iBrushStyle
-	A brush style. This parameter can be one of the $BS_* constants.
+$BS_*³£Á¿Ö®Ò»
 $iRGB
-	The color of a pen, in RGB.
+   »­±ÊµÄRGBÑÕÉ«
 $iHatch
-	[å¯é€‰å‚æ•°] A hatch style. For more information, see _WinAPI_CreateBrushIndirect().
+   [¿ÉÑ¡] ÒõÓ°ÀàĞÍ.
+
+###Ïà¹Ø###
+
+###²Î¿¼###
+    _WinAPI_CreateBrushIndirect .
 $aUserStyle
-	[å¯é€‰å‚æ•°] The array (dash1, space1, dash2, space2, ... dashN, spaceN) that contains the length of the dashes
-	and spaces in a user-defined style. The first value specifies the length of the first dash,
-	the second value specifies the length of the first space, and so on. This parameter must be set
-	to zero if $PS_USERSTYLE style is not specified. The style count is limited to 16.
+$PS_USERSTYLEÑùÊ½¸Ã²ÎÊı±ØĞëÎª0. ÑùÊ½ÊıÁ¿ÒÔ16ÎªÏŞ.
 $iStart
-	[å¯é€‰å‚æ•°] The index of array to start filling at.
+   [¿ÉÑ¡] ¿ªÊ¼½øĞĞÌî³äµÄÊı×éË÷Òı
 $iEnd
-	[å¯é€‰å‚æ•°] The index of array to stop filling at.
+   [¿ÉÑ¡] ½áÊøÌî³äµÄÊı×éË÷Òı
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	Handle to the logical pen.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»ØÂß¼­»­±Ê¾ä±ú
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-After an application creates a pen by calling _WinAPI_ExtCreatePen(), it can select it into any device context by
-calling the _WinAPI_SelectObject() function. When an application no longer requires a specified pen, it should
-call the _WinAPI_DeleteObject() function to delete the pen.
+###±¸×¢###
+Ó¦ÓÃ³ÌĞòÍ¨¹ıµ÷ÓÃ_WinAPI_ExtCreatePen()´´½¨»­±Êºó, ¿ÉÍ¨¹ıµ÷ÓÃ_WinAPI_SelectObject()º¯Êı½«ÆäÑ¡ÈëÈÎÒâÉè±¸³¡¾°ÖĞ. µ±²»ÔÙĞèÒªÊ±, µ÷ÓÃ_WinAPI_DeleteObject()É¾³ı»­±Ê.
+Õı³£ÔËĞĞÊ¾ÀıÇë½« Resources.dll ÎÄ¼ş»ò pen.bmp ÎÄ¼ş(x64ÏµÍ³Ê¹ÓÃ)±£´æµ½ÁÙÊ±ÎÄ¼ş¼ĞÖĞ
+²Î¿¼  ËÑË÷MSDNÖªÊ¶¿âÖĞExtCreatePenµÄÏà¹ØĞÅÏ¢
 
-
-###See Also###
-@@MsdnLink@@ ExtCreatePen
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

@@ -1,60 +1,55 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_SetFont
 
-###Description###
-设置选定文本(或者没有选定时,设置插入点插入文本) 的字体属性
+###描述###
+设置选中内容如果没选择时在插入点处的字体属性
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetFont($hWnd [, $iPoints = Default[, $sName = Default[, $iCharset = Default[, $iLcid = Default]]]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iPoints
-	[可选参数] 磅值(注:1 磅=1/72 英寸)大小
-$sName
-	[可选参数] 字体的名称, 例如: "Courier" not "Courier 粗体"
-$iCharSet
-	[可选参数] 字符集:
-		$ANSI_CHARSET - 0
-		$BALTIC_CHARSET - 186
-		$CHINESEBIG5_CHARSET - 136
-		$DEFAULT_CHARSET - 1
-		$EASTEUROPE_CHARSET - 238
-		$GB2312_CHARSET - 134
-		$GREEK_CHARSET - 161
-		$HANGEUL_CHARSET - 129
-		$MAC_CHARSET - 77
-		$OEM_CHARSET - 255
-		$RUSSIAN_CHARSET - 204
-		$SHIFTJIS_CHARSET - 128
-		$SYMBOL_CHARSET - 2
-		$TURKISH_CHARSET - 162
-		$VIETNAMESE_CHARSET - 163
-$iLcid
-	[可选参数] 见 http://www.microsoft.com/globaldev/reference/lcid-all.mspx
+ $hWnd  控件句柄
+ $iPoints  [可选]: 点阵字体大小
+ $sName  [可选]: 字体名称, 如, "Courier"而非"Courier Bold"
+ $iCharSet  [可选]: 字符集 - 下列之一:
+$ANSI_CHARSET - 0
+$BALTIC_CHARSET - 186
+$CHINESEBIG5_CHARSET - 136
+$DEFAULT_CHARSET - 1
+$EASTEUROPE_CHARSET - 238
+$GB2312_CHARSET - 134
+$GREEK_CHARSET - 161
+$HANGEUL_CHARSET - 129
+$MAC_CHARSET - 77
+$OEM_CHARSET - 255
+$RUSSIAN_CHARSET - 204
+$SHIFTJIS_CHARSET - 128
+$SYMBOL_CHARSET - 2
+$TURKISH_CHARSET - 162
+$VIETNAMESE_CHARSET - 163
+ $iLcid  [可选]: 见http://www.microsoft.com/globaldev/reference/lcid-all.mspx
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False,设置@error
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $iPoints 参数值不是正数
-	103 - $sName is not alphabetic
-	104 - $iLcid 不是一个数字
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  102 - $iPoints不是正数
+  103 - $sName不是字母
+  104 - $iLcid不是数字
 @@End@@
 
-###Remarks###
- 如果参数被省略（或默认）,则该值不变
+###备注###
+如果忽略参数(或为默认), 不改变值
 
-###Related###
-_GUICtrlRichEdit_GetFont, _GUICtrlRichEdit_ChangeFontSize
+###相关###
+  _GUICtrlRichEdit_GetFont , _GUICtrlRichEdit_ChangeFontSize
 
-###See Also###
-@@MsdnLink@@ EM_SETCHARFORMAT, @@MsdnLink@@ LOGFONT, http://www.hep.wisc.edu/~pinghc/books/apirefeng/l/logfont.html
+###参考###
+ http://www.hep.wisc.edu/~pinghc/books/apirefeng/l/logfont.html
 
-###Example###
+###示例###
 @@IncludeExample@@

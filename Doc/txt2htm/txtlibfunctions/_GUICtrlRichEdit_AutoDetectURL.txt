@@ -1,44 +1,40 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_AutoDetectURL
 
-###Description###
-启用或禁用自动检测网址(URL)
+###描述###
+启用或禁用网址自动搜索
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_AutoDetectURL($hWnd, $fState)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$fState
-	设为 True, 则检测 URL 的文本, False 则不检测
+ $hWnd  控件句柄
+ $fState  检查文本中的网址为真, 否则为假
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False,设置@error:	
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $fState 参数值既不是 True 也不是 False 
-	700 - 内部错误, 例如:内存不足
+成功: 真
+失败: 假并设置@error:
+    101 - $hWnd不是句柄
+    102 - $fState非真非假
+    700 - 内部错误, 比如内存不足
 @@End@@
 
-###Remarks###
- 如果启用,任何修改的文本都作为扫描网址的匹配文本.
- 并识别以下字符串开始的网址: 
- http:, file:, mailto:, ftp:, https:, gopher:, nntp:, prospero:,telnet:, news:, wais:.
- 当检测到一个 URL 时,Windows 设置 URL 字符串的所有字符连接属性,并高亮显示该字符串.
- 当自动检测网址和已检测到网址时,
- Windows 将删除没有网址的所有字符链接属性
- 对于发生的通知,与 $ENM_LINK 一起调用 _GUICtrlRichEdit_SetEventMask $ENM_LINK
+###备注###
+如果可用, 将扫描任何经过修改的与网址格式匹配的文本, 并将以http:, file:, mailto:, ftp:, https:,
+gopher:, nntp:, prospero:, telnet:, news:, wais:开始的字符串识别为网址. 当网址被探测时,
+Windows对在URL字符串中的每个字符设置连接属性, 并高亮显示字符串.
+当启动了自动URL探测且检测到URL, Windows移除不是网址的全部字符的连接属性.
+当发生警告时, 带$ENM_LINK调用_GUICtrlRichEdit_SetEventMask
 
-###Related###
-_GUICtrlRichEdit_SetEventMask
+###相关###
+ _GUICtrlRichEdit_SetEventMask
 
-###See Also###
-@@MsdnLink@@ EM_AUTOURLDETECT, @@MsdnLink@@ EN_LINK notification
+###参考###
+ 搜索MSDN知识库中EM_SETEVENTMASK的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

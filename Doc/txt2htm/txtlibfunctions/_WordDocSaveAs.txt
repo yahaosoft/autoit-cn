@@ -1,74 +1,77 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WordDocSaveAs
 
-###Description###
-保存指定的文档为一个新名称或者其它格式.
+###����###
+_WordDocSaveAs
+�������ֻ��¸�ʽ�����ĵ�
 
-###Syntax###
-#include <Word.au3> 
+###�﷨###
+#Include <Word.au3>
 _WordDocSaveAs ( ByRef $o_object [, $s_FilePath = "" [, $i_Format = 0 [, $b_ReadOnlyRecommended = 0 [, $b_AddToRecentFiles = 0 [, $b_LockComments = 0 [, $s_Password = "" [, $s_WritePassword = ""]]]]]]] )
 
-###Parameters###
+###����###
 @@ParamTable@@
-$o_object
-	Word.Application 对象变量的文档对象
-$s_FilePath
-	[可选参数] 用于保存文档的完整文件路径. (见备注)
-	"" = (默认) 如果该文档从未被保存，则使用默认的名称 (例如, Doc1.doc)
-$i_Format
-	[可选参数] 文档保存格式.
-	0 = (默认) Microsoft Word 格式
-	1 = 微软 Word 模板格式
-	2 = Microsoft Windows 文本格式
-	3 = 微软 Windows 换行的文本格式
-	4 = Microsoft DOS 文本格式
-	5 = 微软 DOS 文本换行符
-	6 = 富文本格式 (RTF)
-	7 = Unicode 文本格式或编码文本格式
-	8 = 标准 HTML 格式
-	9 = Web 存档格式
-	10 = 筛选的 HTML 格式
-	11 = 可扩展标记语言（XML）格式
-$b_ReadOnlyRecommended
-	[可选参数] 指定 Microsoft Word 被打开时是否为建议只读状态.
-	0 = (默认) 不建议只读
-	1 = 建议只读
-$b_AddToRecentFiles
-	[可选参数] 指定是否在文件菜单底部"最近使用的文件列表"添加打开的文件名.
-	0 = (默认) 不添加
-	1 = 添加
-$b_LockComments
-	[可选参数] 指定是否锁定文档的注释.
-	0 = (默认) 不锁定文档的注释
-	1 = 锁定文档的注释
-$s_Password
-	[可选参数] 打开文档的密码字符串. (见备注)
-$s_WritePassword
-	[可选参数] 保存文档更改的密码字符串. (见备注)
-@@End@@
-
-###ReturnValue###
-@@ReturnTable@@
-成功:	返回 1
-失败:	返回 0， 并设置s @ERROR
-@Error:	$_WordStatus_Success = 没有错误
-	$_WordStatus_GeneralError = 一般错误
-	$_WordStatus_InvalidDataType = 无效的数据类型
-	$_WordStatus_InvalidObjectType = 无效的对象类型
-@Extended:	包含无效的参数数目
-@@End@@
-
-
-###Remarks###
- 如果指定的文件名的文件已经存在, 该文件被覆盖并且不提示用户.
- 如果该文件不能保存时脚本将会停止，除非 WordErrorHandler 已经注册.
+$o_object 
+   Word.Application���ĵ��������
+$s_FilePath 
+   ��ѡ: �����ĵ�������·��. (����ע)
+    "" = (Ĭ��) ����ĵ���û�������, ��ʹ��Ĭ������(����,
  
- 避免在您的应用程序中使用硬编码的密码. 如果是程序需要密码，将用户密码存储在一个变量中，然后在代码中使用该变量.
+      Document1.doc)
+$i_Format 
+   ��ѡ: �ĵ�����ĸ�ʽ.
+    0 = (Ĭ��) Microsoft Word��ʽ
+    1 = Microsoft Wordģ���ʽ
+    2 = Microsoft Windows�ı���ʽ
+    3 = Microsoft Windows�������з����ı���ʽ
+    4 = Microsoft DOS�ı���ʽ
+    5 = Microsoft DOS�������е��ı���ʽ
+    6 = ���ı���ʽ (RTF)
+    7 = Unicode �ı���ʽ�������ı���ʽ
+    8 = ��׼HTML��ʽ
+    9 = ���絵����ʽ
+    10 = ���˵�HTML��ʽ
+    11 = ����չ�������(XML)��ʽ
+$b_ReadOnlyRecommended 
+   ��ѡ: ָ��Microsoft Word�Ƿ�ٶ�ֻ�������ļ��Ƿ��Ѵ�.
+    0 = (Ĭ��) ���ٶ�
+    1 =
+ 
+    �ٶ�ֻ��
+$b_AddToRecentFiles 
+   ��ѡ: ָ���Ƿ��ļ������ӵ��ļ��˵��ײ������ʹ�õ��ļ���.
+    0 = (Ĭ��)������
+    1 = ����
+$b_LockComments 
+   ��ѡ: ָ���Ƿ�������ע
+    0 = (Ĭ��) ������
+    1 = ����
+$s_Password 
+   ��ѡ: ���ļ�ʱʹ�õ����� (����ע)
+$s_WritePassword 
+   ��ѡ: �����ļ�ʱʹ�õ����� (����ע)
+@@End@@
 
+###����ֵ###
+@@ReturnTable@@
+ �ɹ�:  ����1
+ ʧ��:  ����0������ @ERROR
+ @Error:  0 ($_WordStatus_Success) = �޴���
+  1 ($_WordStatus_GeneralError) = һ�����
+  3 ($_WordStatus_InvalidDataType) = ��Ч��������
+  4 ($_WordStatus_InvalidObjectType) = ��Ч��������
+ @Extended:  ����������Ч
+@@End@@
 
-###Related###
-_WordDocAdd, _WordDocClose, _WordDocOpen, _WordDocSave
+###��ע###
+���ָ���ļ������ļ��Ѵ��� , �ļ�����û����ʾ�������±�����.
+����ļ��޷�����ű�����ͣ��ע��WordErrorHandlerΪֹ.
+���������ڳ�����ʹ��ǿ����. ���������Ҫ���� , �ɴ��û�����ȡ , �������Ϊ���� , Ȼ���ڴ�����ʹ�ñ���
 
+###���###
+ _WordDocAdd , _WordDocClose , _WordDocOpen , _WordDocSave
 
-###Example###
+###�ο�###
+
+###ʾ��###
 @@IncludeExample@@

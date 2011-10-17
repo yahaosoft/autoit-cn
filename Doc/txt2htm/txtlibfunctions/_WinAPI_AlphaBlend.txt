@@ -1,64 +1,58 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_AlphaBlend
 
-###Description###
-显示位图透明或半透明的像素.
+###����###
+͸�����͸����ʾλͼ
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_AlphaBlend ( $hDestDC, $iXDest, $iYDest, $iWidthDest, $iHeightDest, $hSrcDC, $iXSrc, $iYSrc, $iWidthSrc, $iHeightSrc, $iAlpha [, $fAlpha] )
+_WinAPI_AlphaBlend( $hDestDC, $iXDest, $iYDest, $iWidthDest, $iHeightDest, $hSrcDC, $iXSrc, $iYSrc, $iWidthSrc, $iHeightSrc, $iAlpha [, $fAlpha] )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hDestDC
-	目标设备环境句柄.
+   Ŀ���豸�������
 $iXDest
-	目标矩形左上角 x 坐标的逻辑单位值.
+   Ŀ��������Ͻǵ��߼���λx����
 $iYDest
-	目标矩形左上角 y 坐标的逻辑单位值.
+   Ŀ��������Ͻǵ��߼���λy����
 $iWidthDest
-	目标矩形宽度逻辑单位值.
+   Ŀ������߼���λ����
 $iHeightDest
-	目标矩形高度逻辑单位值.
+   Ŀ������߼���λ�߶�
 $hSrcDC
-	源设备环境句柄.
+   Դ�豸�������
 $iXSrc
-	源矩形左上角 x 坐标的逻辑单位值.
+   Դ�������Ͻǵ��߼���λx����
 $iYSrc
-	源矩形左上角 y 坐标的逻辑单位值.
+   Դ�������Ͻǵ��߼���λy����
 $iWidthSrc
-	源矩形宽度逻辑单位值.
+   Դ�����߼���λ����
 $iHeightSrc
-	源矩形高度逻辑单位值.
+   Դ�����߼���λ�߶�
 $iAlpha
-	用于整个源位图的 Alpha 透明度值. 此值为源位图每像素的 Alpha 值.
-		 如果设置 $iAlpha为 0, 则图片是透明的;
-		 当仅需使用每像素 alpha 值时, 设置 $iAlpha 值为 255(不透明). 
+   ��������Դλͼalpha͸����ֵ , ��ֵ����Դλͼÿ�����ص�alphaֵ����. ���Ϊ0 , ͼ��ȫ͸�� , ���Ϊ255 , ʹ��Դλͼ�и����ص�ԭʼ͸����.
 $fAlpha
-	[可选参数] 指定是否使用源位图的 Alpha 通道, 有效值为:
-		1 - 使用 Alpha 通道(即每像素 alpha).请注意, API 使用预乘 alpha,
-		 	即位图中的红, 绿和蓝色通道值必须与 Alpha 通道值预乘.
-		 	例如, 假设 Alpha 通道值是 x,在调用前, 红、绿和蓝色通道必须乘以 x 并除以 255.
-		0 - 不使用 Alpha 通道. (默认值)
+   ָ���Ƿ�ʹ��Դλͼ��alphaͨ�� , ����ֵ:
+    TRUE - ʹ��Alphaͨ��(ÿ����alpha). ע��: APIʹ��Ԥ�Ŵ�alpha , ��ζ��λͼ�еĺ�����ͨ��ֵ�ᱻalphaͨ��ֵԤ�Ŵ� , ���alphaͨ��ֵΪx , ������ͨ��ֵ���ȷŴ�x�����ڵ���ǰ����255.
+    FALSE - ��ʹ��Alphaͨ��.(Ĭ��)
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0,设置@error:标志为非 0 值.
+�ɹ�: ����1
+ʧ��: ����0������@errer��0
 @@End@@
 
-###Remarks###
-如果源矩形和目标矩形的大小不一样, 源位图被拉伸以匹配目标矩形.
- 如果 _WinAPI_SetStretchBltMode() 函数被使用,
- 函数自动转换拉伸模式值为 $COLORONCOLOR.
- (即, $BLACKONWHITE, $WHITEONBLACK, 与 $HALFTONE 更改为 $COLORONCOLOR).
- 如果目标和源位图的颜色格式不相同,_WinAPI_AlphaBlend() 函数转换源位图以匹配目标位图.
+###��ע###
+���Դλͼ��Ŀ��λͼ�ߴ粻ͬ , Դλͼ�����������ʺ�Ŀ��λͼ. ���ʹ��_WinAPI_SetStretchBltMode()���� , ����ģʽֵ�Զ�ת��Ϊ���ڸú�����$COLORONCOLOR($BLACKONWHITE , $WHITEONBLACK��$HALFTONE�ı�Ϊ$COLORONCOLOR).
+���Դλͼ��Ŀ��λͼ����ɫ��ʽ��ͬ , _WinAPI_AlphaBlend()�����ὫԴλͼ�ĸ�ʽת��ΪĿ��λͼ�ĸ�ʽ.
+����ʾ��ǰ�뽫 Logo.bmp �ļ���������ʱ�ļ���
 
+###���###
 
-###See Also###
-@@MsdnLink@@ GdiAlphaBlend
+###�ο�###
+ ����MSDN֪ʶ����GdiAlphaBlend�������Ϣ
 
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

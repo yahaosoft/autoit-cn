@@ -1,42 +1,39 @@
-###User Defined Function###
+###用户自定义函数###
 _IELinkGetCollection
 
-###Description###
-返回包含文档中全部链接的集合对象或按索引的单一链接.
+###描述###
+返回一个包含文档内所有链接的对象集合.
 
-###Syntax###
-#include <IE.au3> 
+###语法###
+#Include <IE.au3>
 _IELinkGetCollection ( ByRef $o_object [, $i_index = -1] )
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$o_object
-	InternetExplorer.Application, 窗体或框架对象的对象变量
-$i_index
-	[可选参数]: 指定是返回集合或是索引实例
-0或正整数返回一个索引实例
--1 = (默认)返回一个集合
+ $o_object  InternetExplorer.Application , 窗口或者框架(frame)对象的对象变量
+ 索引  可选: 指定返回一个集合还是索引对象
+0 或者正整数返回一个索引对象
+-1 = (默认) 返回一个集合
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回文档中所有链接的对象集合, @EXTENDED = 链接计数
-失败:	返回0 并且设置 @ERROR
-@Error:	0 ($_IEStatus_Success) = 无错误
-	3 ($_IEStatus_InvalidDataType) = 无效数据类型
-	5 ($_IEStatus_InvalidValue) = 无效值
-	7 ($_IEStatus_NoMatch) = 无匹配
-@Extended:	包含无效参数数量
+成功: 返回一个包含文档内所有链接的对象集合 , @EXTENDED = 链接数量
+失败: 返回0并设置@ERROR为:
+    0 ($_IEStatus_Success) = 无错误
+    3 ($_IEStatus_InvalidDataType) = 无效数据类型
+    4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+    5 ($_IEStatus_InvalidValue) = 无效数值
+    7 ($_IEStatus_NoMatch) = 没有匹配
+    @Extended: 包含无效参数数量
 @@End@@
 
+###备注###
+并非所有组件都像其显示的那样是链接 , 它们通常是通过获取Javascript在其他DOM组件的点击事件模拟点击链接的. 要激活这种组件 , 使用_IEAction的 "click" .
 
-###Remarks###
-不是所有表示为链接的元素都名副其实. 简单通过指向其他DOM元素的JS onClick事件来模拟链接行为. 激活此元素, 通过_IEAction使用"click".
+###相关###
 
+###参考###
 
-###Related###
-None.
-
-
-###Example###
+###示例###
 @@IncludeExample@@

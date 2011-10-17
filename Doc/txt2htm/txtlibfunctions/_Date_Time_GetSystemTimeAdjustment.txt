@@ -1,29 +1,32 @@
-###User Defined Function###
+###用户自定义函数###
 _Date_Time_GetSystemTimeAdjustment
 
-###Description###
+###描述###
 确定系统是否进行定期时间调整
 
-###Syntax###
+###语法###
 #Include <Date.au3>
 _Date_Time_GetSystemTimeAdjustment()
 
-###Parameters###
-None.
+###参数###
+@@ParamTable@@
+    无
+@@End@@
 
+###返回值###
+@@ReturnTable@@
+ 成功:  如下格式数组:
+  [1] - 每次定期时间调整时添加到时钟的100纳秒的数量
+  [2] - 在两次定期时间调整间的100纳秒的数量. 该间隔是系统时钟两次中断间的时长.
+  [3] - 为真表示禁用定期时间调整. 在每次时钟中断处, 系统仅在时钟中断间添加间隔. 如果为假, 定期时间调整用于校对时钟.
+@@End@@
 
-###ReturnValue###
-返回如下格式数组:
-	[1] - 每个时钟调整周期添加 100 纳秒单位
-	[2] - 定期调整的间隔的 100 纳秒单位. 间隔是指系统时钟中断一段时间.
-	[3] - 如返回 True, 表示禁用定期时间调整. 每一个时钟中断, 系统时钟中断之间的间隔是 24 小时
-	如返回 False, 表示启用定期时间调整.
+###备注###
 
-###Remarks###
-None.
+###相关###
+ _Date_Time_SetSystemTimeAdjustment
 
-###Related###
-_Date_Time_SetSystemTimeAdjustment
+###参考###
 
-###Example###
+###示例###
 @@IncludeExample@@

@@ -1,46 +1,31 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_GetThemeSysSize
 
-###Description###
-Retrieves the value of a system size metric from theme data.
+###ÃèÊö###
+»ñÈ¡ÏµÍ³ÕûĞÎ(INT)Öµ
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_GetThemeSysSize ( $hTheme, $iSizeId )
+_WinAPI_GetThemeSysInt( $hTheme, $iIntId )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $hTheme
-	Handle to the theme data.
-$iSizeId
-	The value that specifies the system size metric desired. The following values are valid.
-	
-	$SM_CXBORDER
-	$SM_CXVSCROLL
-	$SM_CXHSCROLL
-	$SM_CXSIZE
-	$SM_CYSIZE
-	$SM_CXSMSIZE
-	$SM_CYSMSIZE
-	$SM_CXMENUSIZE
-	$SM_CYMENUSIZE
-	$SM_CXPADDEDBORDER
-	
+   Ö¸¶¨´°¿ÚÖ÷ÌâÊı¾İµÄ¾ä±ú
+$iIntId
+   Ö¸¶¨ËùĞèµÄÏµÍ³µÄÕûĞÎµÄÖµ, ¿ÉÎªÏÂÁĞÖµ:
+    $TMT_MINCOLORDEPTH - ÊÊµ±ä¯ÀÀÑùÊ½Ê±ËùĞèµÄ×îĞ¡É«ÉîÊıÎ».
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	The size in pixels.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: °üº¬ÏµÍ³ÕûÊıÖµ
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0ÇÒ@extended±ê¼Ç°üº¬ÏµÍ³´íÎó´úÂë
 @@End@@
 
-###Remarks###
-If $hTheme is not 0, this function returns the size stored in the current visual style (SysMetrics section
-of the visual style) scaled to the current screen dpi. If $hTheme is 0, this function returns the global system
-metric in pixels that is scaled to the current dpi only if the application is marked as dpi-awareotherwise,
-the pixels returned are unscaled.
+###±¸×¢###
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ GetThemeSysSize
-
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞGetThemeSysIntµÄÏà¹ØĞÅÏ¢

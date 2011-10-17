@@ -1,38 +1,37 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _GUICtrlEdit_SetSel
 
-###Description###
-选择字符中的一个范围(选择一段字符串)
+###����###
+ѡ���ַ���Χ
 
-###Syntax###
+###�﷨###
 #Include <GuiEdit.au3>
-_GUICtrlEdit_SetSel($hWnd, $iStart, $iEnd)
+_GUICtrlEdit_SetSel($hWnd,$iStart, $iEnd)
 
-###Parameters###
+###����###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iStart
-	指定选择字符的起始位置.
-$iEnd
-	指定选择字符的结束位置.
+ $hWnd  �ؼ����
+ $iStart  ָ��ѡ��Ŀ�ʼ�ַ���λ��.
+ $iEnd  ָ��ѡ��Ľ����ַ���λ��.
 @@End@@
 
-###ReturnValue###
-None.
+###��ע###
+��ʼֵ���Դ��ڽ���ֵ.
+����ֵ�н�С��ָ��ѡ����׸��ַ���λ��.
+�ϴ��ֵָ���׸��ַ�����ѡ���λ��.
+��ʼֵ��ѡ���ê��,
+�������ǿɻ��.
+���û�ʹ��SHIFT������ѡ���ĳߴ�ʱ, ��յ���ƶ�����ê�㽫��������.
+��� $iStart �� 0 ��
+$iEnd �� ?, �༭�ؼ��е������ı�����ѡ��. ��� $iStart �� ?,
+�κε�ǰѡ��ǲ���ѡ���.
+�ؼ��� $iEnd λ����ʾһ����˸���ַ������� $iStart �� $iEnd
+�����λ��.
 
-###Remarks###
- 起始值可能大于结束值.
-两个值中较小值指定选择字符的第一位置. 
-较高值指定选择字符在第一位置后的其他位置. 
- 起始值是选择的定位点,结束值是当前最终点.
- 如果用户使用 Shift 键来调整选区的大小,则当前结束点可以移动,但定位点仍然是相同的.
- 如果 $iStart 为 0,$iEnd 为 -1,编辑控件中所有文本被选中.
- 如果 $iStart 为 -1,则取消现有任何选择.
- 无论相对值是 $iStart,还是 $iEnd,控件都将在 $iEnd 定位点显示一个闪烁的插入符号.
+###���###
+_GUICtrlEdit_GetSel , _GUICtrlEdit_ReplaceSel
 
-###Related###
-_GUICtrlEdit_GetSel, _GUICtrlEdit_ReplaceSel
+###�ο�###
 
-###Example###
+###ʾ��###
 @@IncludeExample@@

@@ -1,67 +1,65 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_RegCreateKey
 
-###Description###
-创建指定的注册表键.
+###����###
+����ָ����ע�����
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_RegCreateKey ( $hKey [, $sSubKey [, $iAccess [, $iOptions [, $tSecurity]]]] )
+_WinAPI_RegCreateKey( $hKey [, $sSubKey [, $iDesired [, $iOptions [, $tSecurity]]]] )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hKey
-	已打开的注册表项句柄.如果该键已经存在,函数将打开它.调用进程必须有 $KEY_CREATE_SUB_KEY 访问权.
-		 句柄由 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回,也可以是下列预定义键码之一:
-		 也可以是下列预定义键码之一:
-		 $HKEY_CLASSES_ROOT --- 定义文件类型和类型相关的属性
-		 $HKEY_CURRENT_CONFIG --- 包含本地计算机系统目前的硬件配置文件
-		 $HKEY_CURRENT_USER --- 定义当前用户的参数选择
-		 $HKEY_LOCAL_MACHINE --- 定义计算机物理状态,包括总线类型、系统内存数据、并安装的硬件和软件
-		 $HKEY_USERS --- 确定本地计算机新用户定义默认用户配置,并作为当前用户的用户配置
+$KEY_CREATE_SUB_KEYȨ��. �����_WinAPI_RegCreateKey()��_WinAPI_RegOpenKey()��������, ��Ϊ����Ԥ�����֮һ.
+$HKEY_CLASSES_ROOT
+$HKEY_CURRENT_CONFIG
+$HKEY_CURRENT_USER
+$HKEY_LOCAL_MACHINE
+$HKEY_USERS
 $sSubKey
-	[可选参数] 函数打开或创建的子项名称.
-		子项必须是由 $hKey 参数确定的键子项,可达到 32 级注册表树深.
-$iAccess
-	[可选参数] 指定键的访问权限掩码.参数可以是一或多个
-		 $KEY_ALL_ACCESS --- 综合STANDARD_RIGHTS_REQUIRED、KEY_QUERY_VALUE、KEY_SET_VALUE、KEY_CREATE_SUB_KEY、KEY_ENUMERATE_SUB_KEYS、KEY_NOTIFY 与 KEY_CREATE_LINK 访问权限
-		 $KEY_CREATE_LINK --- 保留给系统使用
-		 $KEY_CREATE_SUB_KEY --- 必须创建注册表项的子项
-		 $KEY_ENUMERATE_SUB_KEYS --- 必须枚举注册表项的子项
-		 $KEY_EXECUTE --- 相当于 KEY_READ
-		 $KEY_NOTIFY --- 必须要求注册表项或注册表项子项的更改通知
-		 $KEY_QUERY_VALUE --- 需要查询注册表项的值
-		 $KEY_READ --- 综合 STANDARD_RIGHTS_READ、KEY_QUERY_VALUE、KEY_ENUMERATE_SUB_KEYS、KEY_NOTIFY
-		 $KEY_SET_VALUE --- 需要创建、删除、或设置一个注册表值
-		 $KEY_WOW64_32KEY --- 64 位 Windows 应用程序应该运行 32 位注册表视图
-		 $KEY_WOW64_64KEY --- 64 位 Windows 应用程序运行 64 位注册表视图
-		 $KEY_WRITE --- 综合STANDARD_RIGHTS_WRITE、KEY_SET_VALUE、KEY_CREATE_SUB_KEY 访问权限
+$hKey������ʶ�ļ����Ӽ�; �ɵ�ע������ĵ�32��.
+$iDesired
+   ����ָ�����ķ���Ȩ�޵�����. �ò�����Ϊ:
+$KEY_ALL_ACCESS: $STANDARD_RIGHTS_REQUIRED + $KEY_QUERY_VALUE + $KEY_SET_VALUE + $KEY_CREATE_SUB_KEY + $KEY_ENUMERATE_SUB_KEYS, KEY_NOTIFY + $KEY_CREATE_LINK
+$KEY_CREATE_LINK: ϵͳ����
+$KEY_CREATE_SUB_KEY: ����ע��������Ӽ�
+$KEY_ENUMERATE_SUB_KEYS: ö��ע��������Ӽ�
+$KEY_EXECUTE: ��$KEY_READ��ͬ
+$KEY_NOTIFY: �������ע��������Ӽ���֪ͨ
+$KEY_QUERY_VALUE: ��ѯע�������ֵ
+$KEY_READ: $STANDARD_RIGHTS_READ + $KEY_QUERY_VALUE + $KEY_ENUMERATE_SUB_KEYS + $KEY_NOTIFY
+$KEY_SET_VALUE: ����, ɾ��������ע���ֵ
+$KEY_WOW64_32KEY: ��ʾ64λWindows������32λע�����ͼ�в���
+$KEY_WOW64_64KEY: ��ʾ64λWindows������64λע�����ͼ�в���
+$KEY_WRITE: $STANDARD_RIGHTS_WRITE + $KEY_SET_VALUE + $KEY_CREATE_SUB_KEY
 $iOptions
-	[可选参数] 参数可以是以下值之一:
-		 $REG_OPTION_BACKUP_RESTORE --- 忽略 $iDesired 参数
-		 $REG_OPTION_CREATE_LINK --- 键是一个符号链接
-		 $REG_OPTION_NON_VOLATILE --- 当系统重新启动时信息存储到文件,并保存
-		 $REG_OPTION_VOLATILE --- 函数创建的所有键不稳定
+   �ò�����Ϊ:
+$REG_OPTION_BACKUP_RESTORE: ��ʾ�����������ݺͻ�ԭ������Ȩ�޴�
+$REG_OPTION_CREATE_LINK: ��ʾ��Ϊ����������
+$REG_OPTION_NON_VOLATILE: ��ʾ����ϵͳ��������ʱ�����ı�
+$REG_OPTION_VOLATILE: ��ʾ����ϵͳ��������ʱ�������ı�
 $tSecurity
-	[可选参数] $tagSECURITY_ATTRIBUTES 结构,决定返回的句柄是否可以通过子进程继承.
-		 如果此参数为 0, 句柄不能被继承.
+$tagSECURITY_ATTRIBUTES�ṹ. Ϊ0ʱ��ʾ�޷��̳�.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回打开或创建的键项句柄,@extended 标志将包含下列配置值之一:
-	0 (FALSE) - 键项存在并简单地打开且没有被改变.
-	1 (TRUE) - 键不存在但已建立.
-失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
+�ɹ�: �򿪻򴴽��ļ��ľ��, @extended��ǿɰ���:
+    0 (FALSE): ���Ѵ����Ҳ����ı��
+    1 (TRUE): �������ڲ�����
+ʧ��: ����0������@error��0, @extended��ǿɰ�����0ϵͳ�������.
 @@End@@
 
-###Remarks###
-应用程序不能创建 HKEY_USERS 或 HKEY_LOCAL_MACHINE 的直接子项,
- 应用程序可以创建 HKEY_USERS 或 HKEY_LOCAL_MACHINE 树结构的下级子项.
- 如果该键不是预定义的注册表项 ($HKEY_*), 在句柄使用完毕后,
- 必须调用 _WinAPI_RegCloseKey() 关闭句柄.
+###��ע###
+Ӧ�ó����޷�����HKEY_USERS��HKEY_LOCAL_MACHINE��ֱ���Ӽ�. �ɴ���HKEY_USERS��HKEY_LOCAL_MACHINE�����¼��Ӽ�.
+�������һ��Ԥ����ע�����($HKEY_...)������ʹ�����������_WinAPI_RegCloseKey()����.
+����ʾ��ǰ�뽫 reg.dat �ļ���������ʱ�ļ���
 
+###���###
 
-###See Also###
-@@MsdnLink@@ RegCreateKeyEx
+###�ο�###
+ ����MSDN֪ʶ����RegCreateKey�������Ϣ
 
+###ʾ��###
+@@IncludeExample@@

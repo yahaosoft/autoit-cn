@@ -1,35 +1,34 @@
-###User Defined Function###
+###用户自定义函数###
 _GUIImageList_Add
 
-###Description###
-添加图像到图像列表
+###描述###
+向图像列表添加图像
 
-###Syntax###
+###语法###
 #Include <GuiImageList.au3>
 _GUIImageList_Add($hWnd, $hImage[, $hMask=0])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$hImage
-	包含图像的位图句柄,从位图宽度推断图像数量.
-$hMask
-	[可选参数] 包含蒙板的位图句柄
+ $hWnd  控件句柄
+ $hImage  包含图像的位图句柄. 由位图宽度推测图像的数量.
+ $hMask  包含掩码的位图句柄
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回第一个图像的索引
-失败:	返回 -1
+成功: 第一个新图像的索引
+失败: -1
 @@End@@
 
-###Remarks###
- 函数将位图拷贝到内部数据结构.
- 函数返回后,一定要使用 _WinAPI_DeleteObject 函数删除 $hImage 和 $hMask.
+###备注###
+该函数复制位图到一个内部数据结构.
+在函数使用完毕后确定使用_WinAPI_DeleteObject函数删除位图和hMask.
 
-###Related###
-_GUIImageList_AddMasked, _GUIImageList_AddBitmap, _GUIImageList_AddIcon
+###相关###
+_GUIImageList_AddMasked , _GUIImageList_AddBitmap , _GUIImageList_AddIcon
 
-###Example###
+###参考###
+
+###示例###
 @@IncludeExample@@

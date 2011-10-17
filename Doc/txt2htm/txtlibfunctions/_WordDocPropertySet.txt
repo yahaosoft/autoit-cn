@@ -1,75 +1,57 @@
-###User Defined Function###
+###用户自定义函数###
 _WordDocPropertySet
 
-###Description###
+###描述###
 设置 Word 文档的属性
 
-###Syntax###
-#include <Word.au3> 
-_WordDocPropertySet ( ByRef $o_object, $v_property, $v_newvalue )
+###语法###
+#Include <Word.au3>
+_WordDocPropertySet ( ByRef$o_object, $v_property, $v_newvalue )
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$o_object
-	Word.Application文档对象
-$v_property
-	属性(见备注)
-$v_newvalue
-	设置Word文档新属性
+$o_object 
+   Word.Application文档对象
+$v_property 
+   属性 (见备注)
+$v_newvalue 
+   设置Word文档新属性
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回1
-失败:	返回 0设置@ERROR:	
-@Error:	$_WordStatus_Success = 无错误
-	$_WordStatus_GeneralError = 一般错误
-	$_WordStatus_ComError = Com 错误
-	$_WordStatus_InvalidDataType = 无效数据类型
-	$_WordStatus_InvalidObjectType = 无效对象类型
-	$_WordStatus_InvalidValue = 无效值
-@Extended:	包含无效参数数量
+ 成功:  返回 1
+ 失败:  返回 0 并设置 @ERROR
+ @Error:  0 ($_WordStatus_Success) = 无错误
+  1 ($_WordStatus_GeneralError) = 一般错误
+  2 ($_WordStatus_ComError) = Com 错误
+  3 ($_WordStatus_InvalidDataType) = 无效数据类型
+  4 ($_WordStatus_InvalidObjectType) = 无效对象类型
+  5 ($_WordStatus_InvalidValue) = 无效值
+ @Extended:  包含无效参数数量
 @@End@@
 
+###备注###
+可以使用索引或属性名称.
+下表提供了可用属性的描述.
+Word 文档属性
+ 属性索引/名称  描述
+ (1) "title"  标题.
+ (2) "subject"  题目
+ (3) "author"  作者
+ (4) "keywords"  关键字
+ (5) "comments"  评论
+ (6) "template"  模板名称
+ (9) "application name"  应用程序名称
+ (18) "category"  分类
+ (20) "manager"  管理人
+ (21) "company"  公司
+ (29) "hyperlink base"  当相关链接基于指定的路径时(路径包含超级链接和目标共享文件), 该路径为超级链接格式
 
-###Remarks###
-You may use either the index or name as the property selection.
-
-可以使用索引或属性名称.下表提供了可用属性的描述.Word 文档属性
-
-<b><u>Word Document Properties</u></b>
-
-@@ParamTable@@
-<b> 属性索引/名称</b>
-	<b>描述</b>
-(1) "title"
-	标题.
-(2) "subject"
-	题目
-(3) "author"
-	作者
-(4) "keywords"
-	关键字
-(5) "comments"
-	评论
-(6) "template"
-	模板名称
-(9) "application name"
-	应用程序名称
-(18) "category"
-	分类
-(20) "manager"
-	管理人
-(21) "company"
-	公司
-(29) "hyperlink base"
-	当相关链接基于指定的路径时(路径包含超级链接和目标共享文件), 该路径为超级链接格式
-@@END@@
-
-
-###Related###
+###相关###
 _WordDocPropertyGet
 
+###参考###
 
-###Example###
+###示例###
 @@IncludeExample@@

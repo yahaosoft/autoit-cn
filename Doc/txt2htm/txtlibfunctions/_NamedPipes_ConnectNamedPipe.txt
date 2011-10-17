@@ -1,39 +1,33 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _NamedPipes_ConnectNamedPipe
 
-###Description###
-å…è®¸å‘½åç®¡é“æœåŠ¡å™¨è¿›ç¨‹ç­‰å¾…å®¢æˆ·ç«¯è¿žæŽ¥
+###ÃèÊö###
+Ê¹¹ÜµÀ·þÎñÆ÷¶Ë½ø³ÌµÈ´ý¿Í»§¶Ë½ø³ÌÁ¬½Ó
 
-###Syntax###
+###Óï·¨###
 #Include <NamedPipes.au3>
 _NamedPipes_ConnectNamedPipe($hNamedPipe[, $pOverlapped = 0])
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
-$hNamedPipe
-	æœåŠ¡å™¨ç«¯å‘½åç®¡é“å®žä¾‹å¥æŸ„
-$pOverlapped
-	[å¯é€‰å‚æ•°] $tagOVERLAPPED ç»“æž„æŒ‡é’ˆ. å¦‚æžœ hNamedPipe ä»¥ $FILE_FLAG_OVERLAPPED æ‰“å¼€,
-		pOverlapped å¿…é¡»ä¸ä¸º 0. å¦‚æžœ hNamedPipe ç”± $FILE_FLAG_OVERLAPPED åˆ›å»º,ä¸” pOverlapped ä¸æ˜¯ 0,
-		$tagOVERLAPPED ç»“æž„åº”åŒ…å«ä¸€ä¸ªæ‰‹åŠ¨é‡ç½®äº‹ä»¶å¯¹è±¡çš„å¥æŸ„. 
-		å¦‚æžœ hNamedPipe ä¸æ˜¯ä»¥ $FILE_FLAG_OVERLAPPED æ‰“å¼€,
-		å‡½æ•°ä¸è¿”å›ž,ç›´åˆ°å®¢æˆ·ç«¯è¿žæŽ¥æˆ–å‘ç”Ÿé”™è¯¯.
-		å¦‚æžœå®¢æˆ·ç«¯è¿žæŽ¥åŽ,è°ƒç”¨è¯¥å‡½æ•°åŒæ­¥æ“ä½œæˆåŠŸ,å‡½æ•°è¿”å›žä¸€ä¸ªéžé›¶å€¼.
+ $hNamedPipe  ÃüÃû¹ÜµÀÊµÀýµÄ·þÎñÆ÷¶Ë¾ä±ú
+ $pOverlapped  $tagOVERLAPPED½á¹¹µÄÖ¸Õë. Èç¹ûhNamedPipeÒÔ$FILE_FLAG_OVERLAPPED´ò¿ª , pOverlapped±ØÐë·Ç0. Èç¹ûhNamedPipe
+ÒÔ$FILE_FLAG_OVERLAPPEDÇÒpOverlapped·Ç0´´½¨ , $tagOVERLAPPED½á¹¹Ó¦¸Ã°üº¬Ò»¸öÊÖ¶¯ÖØÖÃÊÂ¼þ¶ÔÏóµÄ¾ä±ú.
+Èç¹ûhNamedPipe²»ÒÔ$FILE_FLAG_OVERLAPPED´ò¿ª , Ö±µ½ÒÑÁ¬½Óµ½Ò»¸ö¿Í»§¶Ë»ò²úÉú´íÎó , º¯Êý²Å»á·µ»Ø.
+Èç¹ûÔÚº¯Êý±»µ÷ÓÃºóÒÑÁ¬½Ó¿Í»§¶Ë , ³É¹¦Í¬²½²Ù×÷½«Ê¹º¯Êý·µ»ØÒ»¸ö·Ç0Öµ.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›ž True
-å¤±è´¥:	è¿”å›ž False
+³É¹¦: Õæ
+Ê§°Ü: ¼Ù
 @@End@@
 
-###Remarks###
-å¦‚æžœåœ¨å®¢æˆ·ç«¯è¿žæŽ¥ä¹‹å‰è°ƒç”¨è¯¥å‡½æ•°, å‡½æ•°è¿”å›žé›¶,å¹¶ä¸” GetLastError å°†è¿”å›ž ERROR_PIPE_CONNECTED.
-ERROR_PIPE_CONNECTED. å¦‚æžœå®¢æˆ·ç«¯çš„è¿žæŽ¥åœ¨è°ƒç”¨ CreateNamedPipe ä¸Ž ConnectNamedPipe ä¹‹é—´,å¯èƒ½å‘ç”Ÿæ—¶é—´é—´éš”
-è¿™ç§æƒ…å†µä¸‹,å³ä½¿è¯¥å‡½æ•°è¿”å›ž 0,å®¢æˆ·ç«¯å’ŒæœåŠ¡å™¨ä¹‹é—´ä¹Ÿæœ‰è‰¯å¥½è¿žæŽ¥.
+###±¸×¢###
+Èç¹ûÔÚº¯Êý±»µ÷ÓÃÇ°ÒÑÁ¬½ÓÁËÒ»¸ö¿Í»§¶Ë , º¯Êý·µ»Ø0ÇÒGetLastError½«·µ»ØERROR_PIPE_CONNECTED. ÕâÓÐ¿ÉÄÜ·¢ÉúÔÚµ÷ÓÃCreateNamedPipeºÍConnectNamedPipeµÄ¼ä¸ôÖÐÁ¬½Ó¿Í»§¶ËµÄÇé¿öÏÂ. ¶Ô´ËÇé¿ö, ¾¡¹Üº¯Êý·µ»Ø0Ò²ÊÇÒ»¸öÁ¼ºÃÁ¬½Ó.
 
-###Related###
-_NamedPipes_CreateNamedPipe, $tagOVERLAPPED
+###Ïà¹Ø###
+ _NamedPipes_CreateNamedPipe ,  $tagOVERLAPPED
 
-###See Also###
-@@MsdnLink@@ ConnectNamedPipe
+###²Î¿¼###
+ËÑË÷MSDNÖªÊ¶¿âÖÐConnectNamedPipeµÄÏà¹ØÐÅÏ¢

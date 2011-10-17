@@ -1,33 +1,28 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRebar_BeginDrag
 
-###Description###
-添加带区控件.(允许拖动操作)
+###描述###
+在伸缩条控件中添加新的区段
 
-###Syntax###
+###语法###
 #Include <GuiRebar.au3>
-_GUICtrlRebar_BeginDrag($hWnd, $iIndex[, $dwPos = -1])
+_GUICtrlRebar_BeginDrag($hWnd, $iIndex[, $dwPos =-1])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	伸缩条控件句柄
-$iIndex
-	允许拖动操作的 0 基带区索引
-$dwPos
-	[可选参数] 包含鼠标起始坐标的 DWORD 值.
-		LOWORD 包含水平坐标; HIWORD 包含垂直坐标.
-		如果传递 (DWORD) 为 -1, 伸缩条控件将使用最后一次调用 GetMessage 或 PeekMessage 线程时鼠标的位置
+ $hWnd  控件句柄
+ $iIndex  拖曳操作影响的0基索引的区段
+ $dwPos  包含开始鼠标的DWORD值.
+水平坐标包含在LOWORD中且垂直坐标包含在HIWORD中.
+如果传递(DWORD)-1, 伸缩条控件将使用最后一次控件调用GetMessage或PeekMessage线程时鼠标的位置
 @@End@@
 
-###ReturnValue###
-None.
+###备注###
 
-###Remarks###
-None.
+###相关###
+_GUICtrlRebar_DragMove , _GUICtrlRebar_EndDrag
 
-###Related###
-_GUICtrlRebar_DragMove, _GUICtrlRebar_EndDrag
+###参考###
 
-###Example###
+###示例###
 @@IncludeExample@@

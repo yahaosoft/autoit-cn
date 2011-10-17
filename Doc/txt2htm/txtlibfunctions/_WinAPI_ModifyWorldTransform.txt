@@ -1,45 +1,40 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_ModifyWorldTransform
 
-###Description###
-Changes the world transformation for a device context using the specified mode.
+###ÃèÊö###
+Ê¹ÓÃÖ¸¶¨Ä£Ê½¸Ä±äÉè±¸³¡¾°µÄÊÀ½ç×ª»»
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_ModifyWorldTransform ( $hDC, $tXFORM, $iMode )
+_WinAPI_ModifyWorldTransform( $hDC, $tXFORM, $iMode )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+   Éè±¸³¡¾°¾ä±ú
 $tXFORM
-	$tagXFORM structure used to modify the world transformation for the given device context.
+$tagXFORM½á¹¹
 $iMode
-	Specifies how the transformation data modifies the current world transformation.
-	This parameter must be one of the following values.
-	
-	$MWT_IDENTITY
-	$MWT_LEFTMULTIPLY
-	$MWT_RIGHTMULTIPLY
-	
+   Ö¸¶¨×ª»»Êı¾İÈçºÎĞŞ¸Äµ±Ç°µÄÊÀ½ç×ª»». ¿ÉÎªÏÂÁĞÖ®Ò».
+    $MWT_IDENTITY - Ê¹ÓÃµ¥Î»¾ØÕóÖØÖÃµ±Ç°ÊÀ½ç×ª»»
+    $MWT_LEFTMULTIPLY - µ±Ç°µÄ×ª»»¾ØÕó´ÓÓÒ²à³ËÒÔ$tXFORM
+    $MWT_RIGHTMULTIPLY - µ±Ç°µÄ×ª»»¾ØÕó´Ó×ó²à³ËÒÔ$tXFORM
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø1
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-The _WinAPI_ModifyWorldTransform() will fail unless graphics mode for the specified device context has been set
-to $GM_ADVANCED by previously calling the _WinAPI_SetGraphicsMode(). Likewise, it will not be possible to reset
-the graphics mode for the device context to the default $GM_COMPATIBLE mode, unless world transform has first
-been reset to the default identity transform by calling _WinAPI_SetWorldTransform().
+###±¸×¢###
+µ±Ç°Éè±¸³¡¾°µÄÍ¼ĞÎÄ£Ê½Î´Í¨¹ı_WinAPI_SetGraphicsMode()ÉèÖÃÎª$GM_ADVANCEDÊ±º¯ÊıÊ§°Ü.
+Í¬Ê±º¯ÊıÒ²²»»á½«Í¼ĞÎÄ£Ê½ÖØĞÂÉèÖÃÎªÄ¬ÈÏµÄ$GM_COMPATIBLEÄ£Ê½, ³ı·ÇÊÀ½ç×ª»»Í¨¹ıµ÷ÓÃ_WinAPI_SetWorldTransform()ÖØÖÃÎªÄ¬ÈÏµÄµ¥Î»×ª»».
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ ModifyWorldTransform
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞModifyWorldTransformµÄÏà¹ØĞÅÏ¢
 
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

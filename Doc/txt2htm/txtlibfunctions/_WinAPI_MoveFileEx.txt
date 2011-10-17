@@ -1,59 +1,52 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_MoveFileEx
 
-###Description###
-移动文件或目录,通过回调函数通知应用程序的进展.
+###����###
+��ѡ���ƶ����ڵ��ļ��������Ŀ¼��Ŀ¼
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_MoveFileEx ( $sExistingFile, $sNewFile [, $iFlags [, $pProgressProc [, $pData] )
+_WinAPI_MoveFileEx( $sSource, $sDestination [, $iFlags] )
 
-###Parameters###
+###����###
 @@ParamTable@@
-$sExistingFile
-	本地计算机上现有的文件名称或目录.
-		 如果 $iFlags 指定 $MOVE_FILE_DELAY_UNTIL_REBOOT, 文件不能为远程共享.
-		 因为在网络可用之前,延迟了操作的执行.
-$sNewFile
-	本地计算机文件或目录的新名称.
-		 移动文件时,$sNewFile 可以是不同的文件系统或卷.
-		 如果 $sNewFile 在另一个驱动器上,必须设置 $iFlags 参数为 $MOVE_FILE_COPY_ALLOWED 标志.
-		移动目录时, $sExistingFile and $sNewFile 必须在同一个驱动器.
-		 如果 $iFlags 指定为 $MOVE_FILE_DELAY_UNTIL_REBOOT 与 $sNewFile 为 0,
-		 当系统重新启动时, 本函数注册的 $sExistingFile 将被删除
-		 如果 $sExistingFile 指定为目录时, 系统重新启动后,该目录被删除.
+$sSource
+   �����ļ���Ŀ¼����
+$sDestination
+   λ�ڱ��ػ����ļ���Ŀ¼��������.
+$MOVEFILE_COPY_ALLOWED.
+    �ƶ�Ŀ¼ʱ, Ŀ����봦��ͬһ������.
+$iFlagsָ��Ϊ$MOVEFILE_DELAY_UNTIL_REBOOT��$sDestinationΪ���ַ���, _WinAPI_MoveFileEx() ע���$sSource�ļ�����ϵͳ����ʱɾ��. ���$sSourceΪĿ¼, ����Ŀ¼Ϊ��ʱϵͳ��������ʱ�ƶ�֮.
 $iFlags
-	[可选参数] 移动操作的选项. 参数可以是一或多个下列值:
-		 $MOVE_FILE_COPY_ALLOWED --- 如果该文件被移动到不同的卷,该函数使用 CopyFile 与 DeleteFile 函数的模拟移动
-		 $MOVE_FILE_CREATE_HARDLINK --- 保留供将来使用
-		 $MOVE_FILE_DELAY_UNTIL_REBOOT --- 系统不移动文件,直到操作系统重新启动
-		 $MOVE_FILE_FAIL_IF_NOT_TRACKABLE --- 如果源文件是一个链接源,但不能被跟踪移动,函数失败
-		 $MOVE_FILE_REPLACE_EXISTING --- 如果 $sNewFile 存在,函数替换为 $sExistingFile 文件的内容
-		 $MOVE_FILE_WRITE_THROUGH --- 该函数不返回,直到该文件在磁盘上完成移动
-$pProgressProc
-	[可选参数] 回调函数,每次调用该文件已复制的另一部分地址.
-		 (为了解更多信息,请参见 MSDN)
-$pData
-	[可选参数] 传递给回调函数的参数.
+   ָ���ƶ�ѡ��ı��. ��Ϊ����ֵ��һ������:
+$MOVEFILE_COPY_ALLOWED
+  - ����ļ������ƶ�����һ��, ��������ʹ��CopyFile��DeleteFile�����ƶ�. ��ֵ��������MOVEFILE_DELAY_UNTIL_REBOOT.
+$MOVEFILE_CREATE_HARDLINK
+  - ����
+$MOVEFILE_DELAY_UNTIL_REBOOT
+  - ϵͳ����ʱ���ƶ��ļ�
+$MOVEFILE_FAIL_IF_NOT_TRACKABLE
+  - ����ļ�Ϊ����Դ���ƶ����޷�����ʱ����ʧ��
+$MOVEFILE_REPLACE_EXISTING
+  - Ŀ���ļ�����ʱ�滻
+$MOVEFILE_WRITE_THROUGH
+  - ֱ���ļ���ʵ���ƶ������ŷ���
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0,设置@error:标志为非 0 值.
+�ɹ�: ����-1
+ʧ��: ����0������@error��0
 @@End@@
 
-###Remarks###
-如果 $iFlags 参数指定 $MOVE_FILE_DELAY_UNTIL_REBOOT,
-并且本函数不能访问注册表时,函数失败.
-重新启动后,函数存储的文件位置被重新命名为下面的注册表值:
- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\PendingFileRenameOperations
+###��ע###
+���$iFlags����ָ��Ϊ$MOVEFILE_DELAY_UNTIL_REBOOT, ���޷�����ע���ʱ_WinAPI_MoveFileEx()ʧ��.
+�����洢�ļ���λ�ý�������ʱʹ��ע���ֵ: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\PendingFileRenameOperations������
 
+###���###
 
+###�ο�###
+ ����MSDN֪ʶ����MoveFileEx�������Ϣ
 
-###See Also###
-@@MsdnLink@@ MoveFileWithProgress
-
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

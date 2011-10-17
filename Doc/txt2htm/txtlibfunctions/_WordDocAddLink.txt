@@ -1,53 +1,55 @@
-###User Defined Function###
+###用户自定义函数###
 _WordDocAddLink
 
-###Description###
+###描述###
 向文件添加超级链接
 
-###Syntax###
-#include <Word.au3> 
-_WordDocAddLink ( ByRef $o_object [, $o_Anchor = "" [, $s_Address = "" [, $s_SubAddress = "" [, $s_ScreenTip = "" [, $s_TextToDisplay = "" [, $s_Target = ""]]]]]] )
+###语法###
+#Include <Word.au3>
+_WordDocAddLink ( ByRef$o_object [, $o_Anchor = "" [, $s_Address = "" [, $s_SubAddress = "" [,
+$s_ScreenTip = "" [, $s_TextToDisplay = "" [, $s_Target = ""]]]]]] )
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$o_object
-	Word.Application 对象变量的文档对象
-$o_Anchor
-	[可选参数] 超链接的文本或图形
-	"" = (默认) 使用整个文档范围
-$s_Address
-	[可选参数] 指定链接地址. 该地址可以是电子邮件地址, 互联网地址或者文件名.
-	"" = (默认) 连接到指定的文件
-$s_SubAddress
-	[可选参数] 目标文件名称的位置, 如书签, 命名范围, 或幻灯片编号.
-$s_ScreenTip
-	[可选参数] 鼠标指针在指定超链接位置出现时的提示文本.
-	"" = (默认) 使用 $s_Address 的值
-$s_TextToDisplay
-	[可选参数] 指定超链接的显示文本. 这个参数的值用来替换指定的文本或图形锚.
-	"" = (默认) 使用 $s_Address 的值
-$s_Target
-	[可选参数] 指定超链接名称加载的框架或窗口.
+$o_object 
+   Word.Application文档对象
+$o_Anchor 
+   可选: 想将之变为超级链接的文字或图形.
+    "" = (默认) 使用全部文件作为范围
+$s_Address 
+   可选: 指定链接的地址. 地址可以是e-mail地址, 网址, 或文件名.
+    "" = (默认)
+ 
+  链接到使用的指定文档
+$s_SubAddress 
+   可选: 目标文件中的地址名, 如书签, 命名区间或滑动数字.
+$s_ScreenTip 
+   可选: 当鼠标指针停在特定超链接上的时候显示屏幕提示.
+    "" = (默认) 使用$s_Address的值
+$s_TextToDisplay 
+   可选: 指定超级链接的显示文本. 该参数的值将替换由锚指定的文本或图形.
+    "" = (默认) 使用 $s_Address
+ 
+      的值
+$s_Target 
+   可选: 加载指定链接的框架或窗体的名称.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 1
-失败:	返回 0 且设置 @ERROR = 1
-@Error:	$_WordStatus_Success = 无错误
-	$_WordStatus_InvalidDataType = 无效数据类型
-	$_WordStatus_InvalidObjectType = 无效对象类型
-@Extended:	包含无效参数数量
+成功: 返回1
+失败: 返回0并设置@ERROR为1
+@Error: 0 ($_WordStatus_Success) = 无错误
+     3 ($_WordStatus_InvalidDataType) = 无效数据类型
+     4 ($_WordStatus_InvalidObjectType) = 无效对象类型
+@Extended: 参数数量无效
 @@End@@
 
+###备注###
 
-###Remarks###
-None.
+###相关###
 
+###参考###
 
-###Related###
-None.
-
-
-###Example###
+###示例###
 @@IncludeExample@@

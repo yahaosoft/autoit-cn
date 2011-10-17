@@ -1,48 +1,38 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_LoadIndirectString
 
-###Description###
-Extracts the string from the specified resource when given an indirect string.
+###ÃèÊö###
+µ±¸ø¶¨¼ä½Ó×Ö·û´®Ê±´Ó×ÊÔ´ÖĞÌáÈ¡×Ö·û´®
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_LoadIndirectString ( $sStrIn )
+_WinAPI_LoadIndirectString( $sStrIn )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $sStrIn
-	The input indirect string.
+   ¸ø¶¨µÄ¼ä½Ó×Ö·û´®
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	The output string.
-Failure	Empty string and sets the @error flag to non-zero, @extended flag may contain the system error code.
+³É¹¦: Êä³öµÄ×Ö·û´®
+Ê§°Ü: ·µ»Ø¿Õ×Ö·û´®²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-If the string is an indirect string (a string beginning with the "@" symbol), it is in the following form.
+###±¸×¢###
 
-@filename,resource
+###Ïà¹Ø###
+Èç¹û×Ö·û´®ÎªÒ»¼ä½Ó×Ö·û´®(ÒÔ "@" ·ûºÅ¿ªÊ¼) , Ôò¸ñÊ½ÈçÏÂ.
+    @filename,resource
+×Ö·û´®´ÓÃüÃûµÄÎÄ¼şÖĞÌáÈ¡²¢Ê¹ÓÃ×ÊÔ´Öµ×÷Îª¶¨Î»·û. Èç¹û×ÊÔ´Öµ´óÓÚµÈÓÚ0 , ÔòÊı×Ö±äÎª×Ö·û´®ÔÚ¶ş½øÖÆÎÄ¼şÖĞµÄË÷Òı. Èç¹ûÊı×ÖÎª¸ºÊı , ÔòÎª×ÊÔ´±êÊ¶. ¼ä½Ó×Ö·û´®¿É¸½¼Ó°æ±¾ĞŞÕı·û , ÏÔÊ¾ÈçÏÂ:
+    @filename,resource;v2
+¸Ã¸ñÊ½¿ÉÓÃÓÚ×Ö·û´®ÒÑ¸Ä±äµ«ÈÔÊ¹ÓÃÓë¾É×Ö·û´®ÏàÍ¬Ë÷Òı»ò±êÊ¶µÄÇé¿ö.
+Ã»ÓĞ°æ±¾ĞŞ¶©·û , ¶àÓïÑÔÓÃ»§½çÃæ(MUI)»º´æ²»»áÊ¶±ğÒÑ¸Ä±äµÄ×Ö·û´®²¢¼ÌĞøÊ¹ÓÃÔ­Öµ. Í¨¹ı¸½¼Ó°æ±¾ĞŞ¶©·û , Öµ±»ÈÏÎªÊÇĞÂ×ÊÔ´²¢¼ÓÈë»º´æ. ×¢Òâ: ¶ÔĞÂ×Ö·û´®½¨ÒéÊ¹ÓÃĞÂ×ÊÔ´±êÊ¶»òË÷Òı²¢ÇÒÔÚ²»ÔÊĞíµÄÇé¿öÏÂÊ¹ÓÃ°æ±¾ĞŞÕı·û.
+Èç¹ûÊäÈëµÄ×Ö·û´®²»ÊÇ¼ä½Ó×Ö·û´® , º¯ÊıÔ­Ñù·µ»ØÊäÈëµÄ×Ö·û´®.
 
-The string is extracted from the file named, using the resource value as a locator. If the resource value is
-zero or greater, the number becomes the index of the string in the binary file. If the number is negative,
-it becomes a resource ID. An indirect string can be appended with a version modifier, as shown here:
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞSHLoadIndirectStringµÄÏà¹ØĞÅÏ¢
 
-@filename,resourcev2
-
-This form can be used when a string is changed but still uses the same index or resource ID as the old string.
-Without a version modifier, the Multilingual User Interface (MUI) cache would not recognize that the string had
-changed and would continue to use the old value. By appending the version modifier, the value is seen as a
-new resource and is added to the cache. Note that it is recommended that you use a new resource ID or index
-for a new string, and use a version modifier only when that is not possible.
-
-If the input string is not an indirect string, the function returns an input string unchanged.
-
-
-###See Also###
-@@MsdnLink@@ SHLoadIndirectString
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

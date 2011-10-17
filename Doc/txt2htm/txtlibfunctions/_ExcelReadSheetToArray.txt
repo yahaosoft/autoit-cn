@@ -1,49 +1,50 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _ExcelReadSheetToArray
 
-###Description###
-ç”¨æ´»åŠ¨å·¥ä½œè¡¨çš„è¡Œ/åˆ—åˆ›å»ºäºŒç»´æ•°ç»„.
+###ÃèÊö###
+ÓÃ»î¶¯¹¤×÷±íµÄĞĞ/ÁĞ´´½¨Ò»¸ö¶şÎ¬Êı×é
 
-###Syntax###
+###Óï·¨###
 #Include <Excel.au3>
-_ExcelReadSheetToArray($oExcel [, $iStartRow = 1 [, $iStartColumn = 1 [, $iRowCnt = 0 [, $iColCnt = 0 [, $iColShift = False]]]]])
+_ExcelReadSheetToArray($oExcel[, $iStartRow = 1[, $iStartColumn = 1[, $iRowCnt = 0[, $iColCnt = 0[, $iColShift = False]]]]])
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$oExcel
-	Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
-$iStartRow
-	[optional] Row number to start reading, defaults to 1 (first row)
-$iStartColumn
-	[optional] Column number to start reading, defaults to 1 (first column)
-$iRowCnt
-	[optional] Count of rows to read, defaults to 0 (all)
-$iColCnt
-	[optional] Count of columns to read, defaults to 0 (all)
-$iColShift
-	[optional] Determines if the Array returned, from Excel, will begin in the 0-index base or 1-index base Column. False by Default to match R1C1 values.
+$oExcel 
+   ÓÉÔ¤ÏÈµ÷ÓÃ_ExcelBookOpen()»ò_ExcelBookNew()´ò¿ªµÄExcel¶ÔÏó
+$iStartRow 
+   ¿ªÊ¼¶ÁÈ¡µÄĞĞ, Ä¬ÈÏÎª1(Ê×ĞĞ)
+$iStartColumn 
+   ¿ªÊ¼¶ÁÈ¡µÄÁĞ, Ä¬ÈÏÎª1(Ê×ÁĞ)
+$iRowCnt 
+   Òª¶ÁÈ¡µÄĞĞÊı, Ä¬ÈÏÎª0(È«²¿)
+$iColCnt 
+   Òª¶ÁÈ¡µÄÁĞÊı, Ä¬ÈÏÎª0(È«²¿)
+$iColShift 
+   È·¶¨ÓÉExcel·µ»ØµÄÊı×é¿ªÊ¼ÓÚ0»ù»¹ÊÇ1»ùÁĞ. Ä¬ÈÏÆ¥ÅäR1C1ÖµÊ±ÎŞĞ§.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›ç”±å‚æ•° $iRowCnt å’Œ $iColCnt æŒ‡å®šçš„å•å…ƒæ ¼å†…å®¹ç»„æˆçš„äºŒç»´æ•°ç»„
-å¤±è´¥:	è¿”å› 0, å¹¶è®¾ç½® @error:
-@error:	0 - æ— é”™è¯¯
-	1 - æŒ‡å®šçš„å¯¹è±¡ä¸å­˜åœ¨
-	2 - å¼€å§‹è¯»å–è¡Œè¶…å‡ºèŒƒå›´
-	3 - å¼€å§‹è¯»å–åˆ—è¶…å‡ºèŒƒå›´
-@extended:	0 - è¡Œè¶…å‡ºèŒƒå›´
-	1 - åˆ—è¶…å‡ºèŒƒå›´
+ ³É¹¦:  ·µ»Ø´øÓĞÓÉ[$row][$col]Ö¸¶¨µ¥Ôª¸ñÄÚÈİµÄ¶şÎ¬Êı×é
+ Ê§°Ü:  ·µ»Ø0²¢ÉèÖÃ@error
+ @error:  0 - ÎŞ´íÎó
+  1 - Ö¸¶¨¶ÔÏó²»´æÔÚ
+  2 - ¿ªÊ¼²ÎÊı³¬³ö·¶Î§
+  3 - ÊıÁ¿²ÎÊı³¬³ö·¶Î§
+ @extended:  0 - ĞĞÊı³¬³ö·¶Î§
+  1 - ÁĞÊı³¬³ö·¶Î§
 @@End@@
 
-###Remarks###
-è¿”å›çš„æ•°ç»„ä¸­, [0][0]è¡¨ç¤ºè¡Œæ•°, [0][1]è¡¨ç¤ºåˆ—æ•°.
-é™¤ä»¥ä¸Šè®¡æ•°å¤–, å½“å®é™…å•å…ƒæ ¼æ•°æ®å¼€å§‹äº[1][1]ä»¥åŒ¹é…R1C1æ•°å­—æ—¶, 
-è¿”å›æ•°ç»„çš„è¡Œ0å’Œåˆ—0ä¸ºç©º.
-é»˜è®¤æ•´ä¸ªå·¥ä½œè¡¨è¢«è¿”å›.
-å¦‚æœå·¥ä½œè¡¨ä¸ºç©ºæ—¶, åˆ™è¿”å›çš„æ•°ç»„çš„ [0][0] ä¸ [0][1] éƒ½ç­‰äº 0.
+###±¸×¢###
+·µ»ØÊı×é, [0][0]±íÊ¾ĞĞÊı, [0][1]±íÊ¾ÁĞÊı.
+³ı·Ç°´ÒÔÉÏ¼ÆÊı, µ±Êµ¼Êµ¥Ôª¸ñÊı¾İ¿ªÊ¼ÓÚ[1][1]ÒÔÆ¥ÅäR1C1Êı×ÖÊ±, ·µ»ØÊı×éµÄĞĞ0ºÍÁĞ0Îª¿Õ.
+Ä¬ÈÏ·µ»ØÈ«²¿±í¸ñ.
+±í¸ñÎª¿ÕÊ±, [0][0]ºÍ[0][1]¾ùÎª0.
 
-###Related###
+###Ïà¹Ø###
 
-###Example###
+###²Î¿¼###
+
+###Ê¾Àı###
 @@IncludeExample@@

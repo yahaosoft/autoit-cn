@@ -1,174 +1,124 @@
-﻿###Structure Name###
+###�ṹ����###
 $tagOPENFILENAME
 
-###Description###
-包含 GetOpenFileName 与 GetSaveFileName 函数初始化打开或保存对话框使用的信息资料
+###����###
+����GetOpenFileName��GetSaveFileName�������ڳ�ʼ���򿪻�����Ի�����Ϣ�Ľṹ
 
-###Syntax###
-Global Const $tagOPENFILENAME = "dword StructSize;hwnd hwndOwner;hwnd hInstance;ptr lpstrFilter;ptr lpstrCustomFilter;" & _
-		"dword nMaxCustFilter;dword nFilterIndex;ptr lpstrFile;dword nMaxFile;ptr lpstrFileTitle;int nMaxFileTitle;" & _
-		"ptr lpstrInitialDir;ptr lpstrTitle;dword Flags;short nFileOffset;short nFileExtension;ptr lpstrDefExt;ptr lCustData;" & _
-		"ptr lpfnHook;ptr lpTemplateName;ptr pvReserved;dword dwReserved;dword FlagsEx"
+###�﷨###
+Global Const $tagOPENFILENAME =  "dword StructSize;hwnd hwndOwner;hwnd hInstance;ptr lpstrFilter;ptr lpstrCustomFilter;dword nMaxCustFilter;dword nFilterIndex;ptr lpstrFile;ptr lpstrFileTitle;ptr lpstrInitialDir;ptr lpstrTitle;dword Flags;short nFileOffset;short nFileExtension;ptr lpstrDefExt;ptr lCustData;ptr lpfnHook;ptr lpTemplateName;ptr pvReserved;dword dwReserved;dword FlagsEx"
 
-###Fields###
+###��Ա###
 @@ParamTable@@
 StructSize
-	指定数据结构(structure)长度, 用字节表示.
+   �ṹ���ֽڳ���
 hwndOwner
-	指定对话框的所有者窗口句柄. 成员可以是一个有效的窗口句柄, 也可以为空(NULL)表示对话框没有所有者窗口.
+   �Ի�����������ľ��. �ó�Ա��Ϊ������Ч�Ĵ�����, ��������ʱΪ��.
 hInstance
-	如果 Flags 成员设置 $OFN_ENABLETEMPLATEHANDLE 标志,本成员指向内存句柄对象,其中包含对话框模板.
-	如果设置 $OFN_ENABLETEMPLATE 标志,本成员是一个对话框模块,名称由 lpTemplateName 成员处理 .
-	如果都没有设置,本成员将被忽略.
-	如果设置 $OFN_EXPLORER 标志,系统使用指定的模板创建对话框,默认为资源管理器样式对话框的子窗
-	如果设置 $OFN_EXPLORER 标志, 系统使用模板创建一个老式对话框，用于替换默认对话框.
+   ���Flags��Ա��������$OFN_ENABLETEMPLATEHANDLE���, hInstanceΪ�����Ի���ģ����ڴ����ľ��.
+    ���������$OFN_ENABLETEMPLATE���, hInstanceΪ��������lpTemplateName��Ա�����ĶԻ���ģ���ģ��ľ��.
+    �����Ϊ����, ���Ըó�Ա.
+    ���������$OFN_EXPLORER���, ϵͳʹ��ָ��ģ�崴��Ĭ�������ʽ�Ի����Ӵ���ĶԻ���.
+    ���������$OFN_EXPLORER���, ϵͳʹ��ģ�崴����ģʽ�Ի���ȡ��Ĭ�϶Ի���.
 lpstrFilter
-	指向含有 null 结尾字符串的过滤缓冲区,缓冲区中最后一个字符串必须有两个 NULL 终止字符
+   ����һ������ֹ�������ַ����Ļ�����ָ��. �������������ַ����������������ַ�����.
 lpstrCustomFilter
-	指向一个静态缓冲区,它包含由用户选择的空终止过滤器串对维护模式.
-	第一个字符串是显示字符串,描述自定义过滤器,第二个字符串是由用户选择得过滤模式.
-	应用程序第一次创建的对话框中,指定的第一个字符串可以是任何非空字符串.
-	当用户选择一个文件,对话框复制当前过滤模式的第二个字符串.
-	该模式可以是保存过滤器的模式之一,在 lpstrFilter 缓冲区指定,也可以是一个由用户输入的过滤器模式.
-	下一次对话框创建使,系统使用字符串初始化用户定义的文件过滤器.
-	如果 nFilterIndex 成员为 0, 对话框使用自定义过滤器.
-	如果这个成员是 NULL, 对话框不保留用户定义的过滤模式.
-	如果这个成员不是 NULL, nMaxCustFilter 成员的值必须指定 lpstrCustomFilter 缓冲区的 TCHARs 大小.
-	对于 ANSI 版本,这里是字节数; Unicode 版本,这里是字符数.
+   ����һ�����Ա����û���ѡ���˷���������ֹ�������ַ����Ĺ̶���������ָ��.
+    �׸���ʾ���ַ���Ϊ�����Զ����˾����ַ���, �ڶ����ַ���Ϊ�û�ѡȡ�Ĺ��˷���.
+    ��Ӧ�ó����״δ����Ի���ʱ, ��ָ������ǿ��ַ���Ϊ�׸��ַ���.
+    ���û�ѡȡ���ļ�ʱ, �Ի��򽫵�ǰ�Ĺ��˷������Ƹ��ڶ����ַ���.
+    ���˷�����Ϊ������lpstrFilter�������еķ���������һ��, ��Ϊ�û�����Ĺ��˷���.
+    ϵͳʹ���ַ�����ʼ���´δ����Ի���ʱ�û�������ļ��˾�.
+    ���nFilterIndex��ԱΪ0, �Ի���ʹ���Զ����˾�.
+    �����ԱΪ��, �Ի��򲻱����û�����Ĺ��˷���.
+    ����ó�Ա�ǿ�, nMaxCustFilter��Աֵ����ָ��lpstrCustomFilter��������TCHAR��С.
+    ����ANSI�汾, ��Ϊ�ֽ���; ����Unicode�汾, ��Ϊ�ַ���.
 nMaxCustFilter
-	指定 lpstrCustomFilter 确定的缓冲区的 TCHAR 大小.
-	对于 ANSI 版本,这里是字节数; Unicode 版本,这里是字符数.
-	此缓冲区应至少40个字符长,如果 lpstrCustomFilter 为 NULL,或一个空字符串点,这个成员被忽略.
+   ָ��lpstrCustomFilterָ��Ļ�������TCHAR��С.
+    ����ANSI�汾, ��Ϊ�ֽ���; ����Unicode�汾, ��Ϊ�ַ���.
+    �û�����ֵ����Ӧ����40���ַ���. ��lpstrCustomFilterΪ�ջ�ָ����ַ���ʱ���Ըó�Ա.
 nFilterIndex
-	指定当前选定过滤器的索引文件类型.
-	缓冲区所指向的 lpstrFilter 包含定义过滤器的字符串对.
-	第一对字符串的索引为 1,第二对为 2,依此类推.
-	0 索引显示自定义过滤器由 lpstrCustomFilter 指定.
-	您可以指定一个输入索引,表明对话框初始过滤器的描述和过滤模式.
-	当用户选择一个文件后,nFilterIndex 返回当前显示的过滤器索引.
-	如果 nFilterIndex 为 0,lpstrCustomFilter 为 NULL,系统将使用 lpstrFilter 缓冲区第一个过滤器.
-	如果所有三个成员都为 0 或 NULL,系统不使用任何过滤器,不显示对话框文件列表中的任何文件.
+   ָ�����ļ����Ϳؼ��е�ǰѡ�����˾�������.
+    ��lpstrFilterָ���Ļ������������Ķ����˾����ַ�����.
+    �׶��ַ���������ֵΪ1, �ڶ���Ϊ2, �Դ�����.
+    ����0��ʾ��lpstrCustomFilterָ�����Զ����˾�.
+    ��ָ������ʱ�������Ա�ʾ�Ի���ĳ�ʼ�˾����������˾�����.
+    ���û�ѡ���ļ�ʱ, nFilterIndex���ص�ǰ���˾�����.
+    ���nFilterIndexΪ0��lpstrCustomFilterΪ��, ϵͳʹ��lpstrFilter�������е��׸��˾�.
+    �������������ԱΪ0���, ϵͳ����ʹ�������˾�Ҳ�����ڶԻ�����ļ��б��ؼ�����ʾ�����ļ�.
 lpstrFile
-	指向一个缓冲区,它包含文件名编辑控件中使用的初始化文件名.
-	如果初始化没有必要,此缓冲区的第一个字符必须是 NULL.
-	当 _WinAPI_GetOpenFileName 或 _WinAPI_GetSaveFileName 函数返回成功, 这个缓冲包含驱动器指示符、路径、文件名、文件扩展名.
-	如果 $OFN_ALLOWMULTISELECT 标志被设置和用户选择多个文件, 该缓冲区包含当前目录被选定文件的文件名.
-	对于资源管理器样式的对话框,目录和文件名字符串是空分隔,最后的文件名有一个额外的 NULL 字符.
-	对于旧式对话框,字符串是空格分隔,函数使用带有空格的文件名短文件名.
-	你可以使用 FindFirstFile 函数转换长、短文件名.
-	如果用户只选择一个文件，lpstrFile 字符串在路径和文件名之间没有分隔.
-	如果缓冲区太小, 则函数返回 FALSE 与 _WinAPI_CommDlgExtendedError 函数返回 $FNERR_BUFFERTOOSMALL.
-	在这种情况下，前两个字节包含 lpstrFile 缓冲区的字节或字符所需的大小.
+   �������ڳ�ʼ���ļ����༭�ؼ��е��ļ����Ļ�������ָ��.
+    ��������ʼ����û��������׸��ַ�����Ϊ��.
+    ��_WinAPI_GetOpenFileName��_WinAPI_GetSaveFileName�����ɹ�����ʱ, �û���������ѡȡ�ļ�����������ʶ, ·��, �ļ�������չ��.
+    ���������$OFN_ALLOWMULTISELECT�����ѡȡ����ļ�, ������������ѡ�ļ����ļ���������ĵ�ǰĿ¼.
+    ���������ʽ�Ի���, Ŀ¼���ļ����ַ����������������ļ�����Ķ���Ŀ��ַ��ָ�.
+    ���ھ���ʽ�Ի���, �ַ����Կո�ָ��Һ���ʹ�ô��ո�Ķ��ļ���.
+    ��ʹ��FindFirstFile�����ڳ�/���ļ�����ת��.
+    ����û���ѡȡһ���ļ�, lpstrFile�ַ�����·�����ļ�����û�зָ��.
+    ���������̫С, ��������ʧ����_WinAPI_CommDlgExtendedError��������$FNERR_BUFFERTOOSMALL.
+    �ڴ������, lpstrFile���������׸�˫�ֽڰ���������ֽڴ�С���ַ���С.
 nMaxFile
-	指定 lpstrFile 缓冲区的 TCHAR 大小.
-	对于 ANSI 版本,这里是字节数; Unicode 版本,这里是字符数.
-	缓冲区必须足够大,以便存储路径和文件名字符串或字符串,包括 NULL 终止字符.
-	如果包含文件信息的缓冲区太小, _WinAPI_GetOpenFileName 与 _WinAPI_GetSaveFileName 函数返回 FALSE.
-	缓冲区应至少 256 个字符长.
+   ָ��lpstrFileָ��Ļ�����TCHAR��С.
+    ����ANSI�汾, ��Ϊ�ֽ���; ����Unicode�汾, ��Ϊ�ַ���.
+    ��������С�������Դ洢·�����ļ����ַ������������ֹ���ַ����ַ���.
+    ��������̫С�������޷������ļ���Ϣʱ_WinAPI_GetOpenFileName��_WinAPI_GetSaveFileName���ؼ�.
+    ������Ӧ����256���ַ���.
 lpstrFileTitle
-	指向一个缓冲区,它接收选定文件的文件名和扩展名（不带路径信息）.这个成员可以是 NULL.
+   �����ļ�����ѡ���ļ���չ��(����·��)�Ļ�������ָ��. �ó�Ա��Ϊ��.
 nMaxFileTitle
-	指定 lpstrFileTitle 缓冲区的 TCHAR 大小.
-	对于 ANSI 版本,这里是字节数; Unicode 版本,这里是字符数. 如果 lpstrFileTitle 为 NULL,这个成员被忽略.
+   ָ��lpstrFileTitleָ��Ļ�������TCHAR��С.
+    ����ANSI�汾, ��Ϊ�ֽ���; ����Unicode�汾, ��Ϊ�ַ���. lpstrFileTitleΪ��ʱ���Ըó�Ա.
 lpstrInitialDir
-	指针为 NULL 结尾的字符串,可以指定初始目录.
+   ָ����ʼĿ¼�Ŀ���ֹ�ַ�����ָ��.
 lpstrTitle
-	指向对话框的标题栏字符串.如果这个成员是 NULL,系统将使用默认标题（即另存为或打开）
+   ���ڶԻ�����������ַ�����ָ��. ����ó�ԱΪ��, ϵͳʹ��Ĭ�ϱ���(����Ϊ���).
 Flags
-	设置初始化对话框的位标志.当对话框返回时,设置这些标志指示用户的输入.此成员可以是下列标志的组合:.
-		$OFN_ALLOWMULTISELECT - 文件名列表框允许多重选择.
-		如果你还设置了 $OFN_EXPLORER 标志,对话框使用资源管理器样式的用户界面;否则,它使用旧样式的用户界面.
-		$OFN_CREATEPROMPT - 如果用户指定的文件不存在,此标志会导致对话框提示允许用户创建文件.
-		如果用户选择创建文件,对话框关闭,函数返回指定名称;否则,该对话框保持打开状态.
-		如果您使用 $OFN_ALLOWMULTISELECT 标志, 该对话框允许用户仅指定一个不存在的文件.
-		$OFN_DONTADDTORECENT - Windows 2000/XP: 防止在系统目录中加入一个选定文件的链接,其中包含用户最近使用的选定文件.
-		$OFN_ENABLEHOOK - 启用 lpfnHook 成员中指定钩子函数.
-		$OFN_ENABLEINCLUDENOTIFY - Windows 2000/XP: 当用户打开一个文件夹时,使对话框发送 CDN_INCLUDEITEM 通知消息到您的 OFNHookProc 钩子程序.
-		该对话框发送在文件夹中打开每个项目的通知.
-		这些消息使您能够控制对话框显示的文件夹的项目清单.
-		$OFN_ENABLESIZING - Windows 2000/XP: 使用鼠标或键盘调整资源管理器样式对话框的大小.
-		默认情况下,无论是否设置此标志,资源管理器样式的打开和另存为对话框都可以调整大小.
-		如果你只提供了一个钩子程序或定制模板,此标志是必要的.旧样式的对话框不允许调整大小.
-		$OFN_ENABLETEMPLATE - 表示 lpTemplateName 成员是一个对话框模板资源名称指针,模板资源由 HINSTANCE 成员确定.
-		如果设置 $OFN_EXPLORER 标志,系统使用指定的模板创建对话框,默认为资源管理器样式对话框的子窗
-		如果设置 $OFN_EXPLORER 标志, 系统使用模板创建一个老式对话框，用于替换默认对话框.
-		$OFN_ENABLETEMPLATEHANDLE - 指示 HINSTANCE 成员确定一个数据块,其中包含一个预装的对话框模板.
-		如果该标志被指定,则系统忽略 lpTemplateName.
-		如果设置 $OFN_EXPLORER 标志,系统使用指定的模板创建对话框,默认为资源管理器样式对话框的子窗
-		如果设置 $OFN_EXPLORER 标志, 系统使用模板创建一个老式对话框，用于替换默认对话框.
-		$OFN_EXPLORER - 指示任何自定义打开或保存对话框使用新的资源管理器样式的定制方法.
-		默认情况下,无论是否设置此标志,打开和另存为对话框都使用资源管理器样式的用户界面.
-		如果你只提供了一个钩子程序、或定制模板、或设置 $OFN_ALLOWMULTISELECT 标志时,此标志是必要的.
-		如果你要使用旧样式的用户界面，省略 $OFN_EXPLORER 标志,并提供替代模板或钩子程序.
-			如果你要使用旧风格,但并不需要一个自定义模板或钩子程序,只需提供一个总是返回 FALSE 的钩子程序
-		$OFN_EXTENSIONDIFFERENT - 指定用户键入一个文件扩展名,不同于由 lpstrDefExt 指定的扩展.
-		如果 lpstrDefExt 为 NULL,函数不使用此标志.
-		$OFN_FILEMUSTEXIST - 指定在文件名输入字段,用户可以键入唯一现有文件的名称.
-		如果该标志被指定,当用户输入一个无效名称时,对话框程序显示一个警告消息框.
-		如果该标志被指定, 同时使用 $OFN_PATHMUSTEXIST 标志,这个标志可以用在打开对话框,但不能用在另存为对话框.
-		$OFN_FORCESHOWHIDDEN - Windows 2000/XP: 强制显示系统文件和隐藏文件,从而覆盖用户对于显示或不显示隐藏文件的设置状态.
-		但不会显示同时标记为系统和隐藏的文件.
-		$OFN_HIDEREADONLY - 隐藏只读复选框.
-		$OFN_LONGNAMES - 对于老式对话框,此标志会导致对话框使用长文件名.
-		如果没有指定此标志.或者如果设置了 $OFN_ALLOWMULTISELECT 标志,对于带有空格的文件名,旧式对话框使用短文件名（8.3格式）.
-		资源管理器样式的对话框忽略这个标志,始终显示长文件名.
-		$OFN_NOCHANGEDIR - 如果用户搜索文件改变了目录时,恢复当前目录到其原始值.
-		Windows 2000/XP: 对于 GetOpenFileName, 这个标志无效.
-		$OFN_NODEREFERENCELINKS - 指示对话框返回选定快捷方式(.LNK)文件的路径和文件名.
-		如果此值没有指定,对话框返回快捷方式引用文件的路径和文件名.
-		$OFN_NOLONGNAMES - 对于老式的对话框,此标志会导致对话框使用短文件名（8.3格式）
-		资源管理器样式的对话框忽略这个标志,始终显示长文件名.
-		$OFN_NONETWORKBUTTON - 隐藏和禁用网络按钮.
-		$OFN_NOREADONLYRETURN - 指定返回的文件不选中只读复选框,并且不在一个写保护目录中.
-		$OFN_NOTESTFILECREATE - 指定文件在对话框关闭之前不创建.
-		此标志应注明如果应用程序保存文件不修改网络共享.
-		当一个应用程序指定此标志时,程序库不检查写保护、完整磁盘、驱动器门打开,或网络保护.
-		应用程序使用此标志必须小心执行文件操作,因为文件关闭后不能重打开.
-		$OFN_NOVALIDATE - 指定通用对话框允许返回文件名中的无效字符.
-		通常情况下,调用应用程序使用一个钩子程序,用于检查 FILEOKSTRING 消息使用的文件名.
-		如果在编辑控件中的文本框为空或是空格,文件和目录列表更新.
-		如果在编辑控件文本框中包含任何内容，nFileOffset 和 nFileExtension 被设置为通过分析文本生成的值.
-		不会给文本添加默认扩展名, 也不会把文本复制到由 lpstrFileTitle 指定的缓冲区.
-		如果 nFileOffset 指定值小于零,文件名称无效.
-		否则，文件名是有效的，如果 $OFN_NOVALIDATE 没有被指定,nFileExtension 和 nFileOffset 可作为有效标志.
-		$OFN_OVERWRITEPROMPT - 如果所选文件已经存在,另存为对话框生成一个询问消息框.
-		用户必须确认是否覆盖该文件.
-		$OFN_PATHMUSTEXIST - 指定的用户可以键入唯一有效的路径和文件名.
-		如果使用此标志,且用户输入无效的路径和文件名,对话框将显示一个警告消息框.
-		$OFN_READONLY - 当对话框创建时,只读复选框初始选中.
-		此标志指示对话框关闭时,复选框的状态.
-		$OFN_SHAREAWARE - 指定如果 OpenFile 函数调用因为网络共享冲突失败,忽视错误且返回对话框所选文件的名称.
-		如果未设置此标志，该对话框通知您的钩子程序,引起网络共享冲突的用户指定的文件名称.
-		如果您设置 $OFN_EXPLORER 标志,对话框发送 CDN_SHAREVIOLATION 消息到钩子程序.
-		如果您没有设置 $OFN_EXPLORER，对话框发送 SHAREVISTRING 注册信息到钩子程序.
-		$OFN_SHOWHELP - 使对话框显示帮助按钮.
-		当用户点击帮助按钮时,hwndOwner 成员必须指定窗口接送对话框收发的 HELPMSGSTRING 注册消息.
-		当用户点击帮助按钮时,资源管理器样式的对话框发送 CDN_HELP 通知消息到您的钩子程序.
-		$OFN_USESHELLITEM - 不使用
+   ���ڳ�ʼ���Ի������λ��Ǽ�. ���Ի��򷵻�ʱ, ������Щ����������û�������. �ó�Ա��Ϊ���б�ǵ����.
+    $OFN_ALLOWMULTISELECT - ָ���ļ����б�����������ѡ��. ���ͬʱ������$OFN_EXPLORER���, �Ի���ʹ���������ʽ���û�����; ����, ʹ�þ���ʽ���û�����.
+    $OFN_CREATEPROMPT - ����û�ָ����һ�������ڵ��ļ�, �ñ��ʹ�Ի��������û������ļ�. ����û�ѡ�񴴽��ļ�, �Ի���ر��Һ�������ָ������; ����, �Ի��򱣳ֿ���״̬. ����û���$OFN_ALLOWMULTISELECT���ͬʱʹ��, �Ի��������û���ָ��һ�������ڵ��ļ�.
+    $OFN_DONTADDTORECENT - Windows 2000/XP: ��ֹϵͳ����ָ����û������ĵ����ļ�ϵͳĿ¼��ѡȡ���ļ������� .
+    $OFN_ENABLEHOOK - ������lpfnHook��Ա��ָ���Ĺ��ӳ���.
+    $OFN_ENABLEINCLUDENOTIFY - Windows 2000/XP: ���û����ļ���ʱʹ�Ի���CDN_INCLUDEITEM֪ͨ��Ϣ���͸�OFNHookProc���ӳ���. �Ի�����ÿ���½��򿪵��ļ��з���֪ͨ. ��Щ��Ϣ�ɿ��ƶԻ������ļ�����Ŀ�б�����ʾ��Щ��Ŀ.
+    $OFN_ENABLESIZING - Windows 2000/XP, Windows 98/Me: �����������ʽ�Ի���ʹ��������̸ı�ߴ�. Ĭ��, �����Ƿ������˸ñ��, �������ʽ�Ĵ򿪼�����Ϊ�Ի��������Ի���ı�ߴ�. �����ṩ���ӳ�����Լ�����ģ��ʱ����ʹ�øñ��. ����ʽ�ĶԻ��������ı�ߴ�.
+    $OFN_ENABLETEMPLATE - ��ʾlpTemplateName��Ա��hInstance��ʶ��ģ���жԻ���ģ����Դ�����Ƶ�ָ��. ���������$OFN_EXPLORER���, ϵͳʹ��ָ��ģ�崴��Ĭ���������ʽ�Ի�����ӶԻ���. ���δ����$OFN_EXPLORER���, ϵͳʹ��ģ����������ʽ�Ի������Ĭ����ʽ.
+    $OFN_ENABLETEMPLATEHANDLE - ��ʾhInstance��Ա��ʾһ������Ԥ���ضԻ���ģ������ݿ�. ��ָ���ñ��ʱϵͳ����lpTemplateName. ���������$OFN_EXPLORER���, ϵͳʹ��ָ��ģ�崴��Ĭ���������ʽ�Ի�����ӶԻ���. ���δ����$OFN_EXPLORER���, ϵͳʹ��ģ����������ʽ�Ի������Ĭ����ʽ.
+    $OFN_EXPLORER - ��ʾ������ڽ����򿪻�����Ϊ�Ի�����Զ��廯ʹ���µ��������ʽ�Զ��巽��. Ĭ��, �����Ƿ����øñ��, �򿪼�����Ϊ�Ի���ʹ���������ʽ�û�����. �����ṩ���ӳ�����Լ�����ģ���������$OFN_ALLOWMULTISELECT���ʱ����ʹ�øñ��. ����ʹ�þ���ʽ�û�����, ʡ��$OFN_EXPLORER��ǲ��ṩ�滻����ʽ��ģ����ӳ���. ����ʹ�þ���ʽ������Ҫ�Զ���ģ����ӳ���, �ṩһ�����Ƿ����߼���ļ򵥹��ӳ���.
+    $OFN_EXTENSIONDIFFERENT - ָ���û����벻ͬ��lpstrDefExtָ������չ�����ļ�����չ. ��lpstrDefExtΪ��ʱ������ʹ�øñ��.
+    $OFN_FILEMUSTEXIST - ָ���û��������ļ��������������Ѵ��ڵ��ļ���. ���ָ���˸ñ�����û�������Ч�ļ���, �Ի����������Ϣ������ʾһ������. ���ָ���˸ñ��,$OFN_PATHMUSTEXIST���Ҳ����. �ñ�ǿ����ڴ򿪶Ի���. ������������Ϊ�Ի���.
+    $OFN_FORCESHOWHIDDEN - Windows 2000/XP: ǿ����ʾϵͳ�ļ��������ļ�, �����Ƿ���ʾ�����ļ����û�����. ��������ʾͬʱ���Ϊϵͳ�����ص��ļ�.
+    $OFN_HIDEREADONLY - ����ֻ����ѡ��.
+    $OFN_LONGNAMES - ���ھ���ʽ�ĶԻ���, �ñ��ʹ�Ի���ʹ�ó��ļ���. ���δָ���ñ��, ��������$OFN_ALLOWMULTISELECT���, ����ʽ�Ի�����ڴ��пո���ļ���ʹ�ö��ļ���(8.3��ʽ). �������ʽ�Ի�����Ըñ����������ʾ���ļ���.
+    $OFN_NOCHANGEDIR - ���û��������ļ�ʱ�ı�Ŀ¼��ǰĿ¼���ָ���ԭʼֵ. Windows NT 4.0/2000/XP: �ñ�Ƕ�GetOpenFileName��Ч.
+    $OFN_NODEREFERENCELINKS - �����Ի��򷵻�ѡȡ�Ŀ�ݷ�ʽ�ļ�(.LNK)���ļ�����·��. ���δָ����ֵ, �Ի��򷵻��ɿ�ݷ�ʽָ�����ļ����ļ�����·��.
+    $OFN_NOLONGNAMES - ���ھɸ�ʽ�Ի���, �ñ��ʹ�Ի���ʹ�ö��ļ���(8.3��ʽ). �������ʽ�Ի�����Ըñ�ǲ�������ʾ���ļ���.
+    $OFN_NONETWORKBUTTON - ���ؼ��������簴ť.
+    $OFN_NOREADONLYRETURN - ָ�����ص��ļ���ѡ��ֻ����ѡ���Ҳ�����д����Ŀ¼��.
+    $OFN_NOTESTFILECREATE - ָ���ڹرնԻ���ǰ�������ļ�. ���Ӧ�ó����ļ�������һ�����޸Ĵ��������繲����ָ���ñ��. ��Ӧ�ó���ָ���ñ��ʱ, �����д����, ��������, �򿪵������ڻ����籣��. ʹ�øñ�ǵ�Ӧ�ó������С��ִ���ļ�����, ��Ϊ�ļ�һ���رս��޷�Ӧ��.
+    $OFN_NOVALIDATE - ָ����ͨ�Ի����������ص��ļ���������Ч�ַ�. ���͵�, ���õ�Ӧ�ó���ʹ��ͨ��FILEOKSTRING��Ϣ����ļ����Ĺ��ӳ���. ����༭�����ı���Ϊ�ջ�������ո�, �ļ���Ŀ¼�б�������. ����༭�����ı���������������, nFileOffset��nFileExtension�����ø��ɽ����ı����ɵ�ֵ. ������ı�����Ĭ����չ, Ҳ������ı����Ƶ���lpstrFileTitleָ���Ļ�����. �����nFileOffsetָ����ֵС��0, �ļ�����Ч. ��֮, �ļ�����Ч, ��nFileExtension��nFileOffset���ü�ʹδָ��$OFN_NOVALIDATE���.
+    $OFN_OVERWRITEPROMPT - ���ѡ���ļ�����, ʹ����Ի�������һ����Ϣ��. �û�����ȷ���Ƿ񸲸��ļ�.
+    $OFN_PATHMUSTEXIST - ָ���û�ֻ�ɼ�����Ч·�����ļ���. ���ʹ���˸ñ�����û����ļ���������������һ����Ч��·�����ļ���, �Ի���������Ϣ������ʾ����.
+    $OFN_READONLY - ���Ի��򴴽�ʱʹֻ����ѡ���ʼѡ��. �ñ�Ǳ�ʾ�رնԻ���ʱֻ����ѡ���״̬.
+    $OFN_SHAREAWARE - ָ��OpenFile�����ĵ����Ƿ���Ϊ���繲���𻵶�ʧ��, ���Դ��󼰶Ի��򷵻�ѡ�����ļ���. ���Ϊ���øñ��, �����繲���𻵷������û�ָ�����ļ���ʱ�Ի���֪ͨ���ӳ���. ���������$OFN_EXPLORER���, �Ի������ӳ�����CDN_SHAREVIOLATION��Ϣ. ���δָ��$OFN_EXPLORER, �Ի������ӳ�����SHAREVISTRINGע����Ϣ.
+    $OFN_SHOWHELP - ʹ�Ի�����ʾ������ť. hwndOwner��Ա����ָ�����������û����������ťʱ���նԻ����͵�HELPMSGSTRINGע����Ϣ. �������ʽ�ĶԻ������û����������ťʱ���ӳ�����CDN_HELP֪ͨ��Ϣ.
+    $OFN_USESHELLITEM - δʹ��.
 nFileOffset
-	指定由 lpstrFile 字符串开始的路径文件名的 0 基 TCHAR 偏移.
-	对于 ANSI 版本,这里是字节数; Unicode 版本,这里是字符数.
+   ָ����lpstrFileָ����ַ����д�·����ʼ���ļ�����0��TCHARƫ��.
+    ����ANSI�汾, ��Ϊ�ֽ���; ����Unicode�汾, ��Ϊ�ַ���.
 nFileExtension
-	指定 lpstrFile 字符串确定的路径开始的文件扩展名的 0 基 TCHAR 偏移.
-	对于 ANSI 版本,这里是字节数; Unicode 版本,这里是字符数.
+   ָ����lpstrFileָ����ַ����д�·����ʼ���ļ���չ����0��TCHARƫ��.
+    ����ANSI�汾, ��Ϊ�ֽ���; ����Unicode�汾, ��Ϊ�ַ���.
 lpstrDefExt
-	指向一个缓冲区,其中包含默认的扩展名.
+   ����Ĭ����չ���Ļ�������ָ��.
 lCustData
-	指定应用程序定义的由系统传递给 lpfnHook 成员标识的钩子程序的数据.
+   ָ��Ӧ�ó��������ϵͳ���ݸ�lpfnHook��Ա��ʶ�Ĺ��ӳ��������.
 lpfnHook
-	指向一个钩子程序,除非 Flags 成员包含 $OFN_ENABLEHOOK 标志,否则忽略该成员.
+   ���ӽ��̵�ָ��. ����Flags��Ա����$OFN_ENABLEHOOK��Ƿ�����Ըó�Ա.
 lpTemplateName
-	指向一个空结束的字符串,它命名一个由 HINSTANCE 成员确定模块资源创建的对话框模板.
+   ������������hInstance��Ա��ʶ��ģ���еĶԻ���ģ����Դ������ֹ�ַ�����ָ��.
 pvReserved
-	保留的. 必须设置为 NULL.
+   ����. ����Ϊ��.
 dwReserved
-	保留的. 必须设置为 0.
+   ����. ����Ϊ0.
 FlagsEx
-	Windows 2000/XP: 初始化对话框的位标志设置.目前,该成员可以是 0 或以下标志:
-		$OFN_EX_NOPLACESBAR - 如果这个标志被设置,则不显示位置栏.
-		如果此标志未设置,资源管理器样式的对话框包括一个包含常用的文件夹位置栏,如收藏夹和桌面.
-@@End@@
-
-###Remarks###
-None.
-
+   Windows 2000/XP: ���ڳ�ʼ���Ի������λ��Ǽ�. ��ǰ, �ó�Ա��Ϊ0�����б��.
+    $OFN_EX_NOPLACESBAR - ��������˸ñ��, ����ʾ��ַ��. ���δ���øñ��, �������ʽ�Ի���������г����ļ��еĵ�ַ��, ���ղغ�����.
+@@end@@

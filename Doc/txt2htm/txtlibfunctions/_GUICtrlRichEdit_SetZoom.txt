@@ -1,40 +1,36 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_SetZoom
 
-###Description###
-设置控件缩放级别
+###描述###
+设置控件的缩放
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetZoom($hWnd, $iPercent)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iPercent
-	缩放比例
-		values: 100 and 200 to 6400
+ $hWnd  控件句柄
+ $iPercent  缩放百分比值: 100和200到6400
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False设置@error
-@error:	101 - $hWnd 参数值不是句柄
-	1021 - $iPercent 参数值不是正数
-	1022 - $iPercent 既不是 100, 也不在 200 到 6400 范围内
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  1021 - $iPercent不是正数
+  1022 - $iPercent不是100也不在200到6400之间
 @@End@@
 
-###Remarks###
- MSDN 声称 EM_SETZOOM 工作于 1.56% (1/64) 到 6400$ (64/1), 
- 但测试表明,它仅适用上面显示的值
+###备注###
+MSDN声称EM_SETZOOM可在1.56%(1/64)到6400$(64/1)范围内正常工作但测试显示只有上面显示的值可确保工作
 
-###Related###
-_GUICtrlRichEdit_GetZoom
+###相关###
+ _GUICtrlRichEdit_GetZoom
 
-###See Also###
-@@MsdnLink@@ EM_SETZOOM
+###参考###
+ 搜索MSDN知识库中EM_SETZOOM的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

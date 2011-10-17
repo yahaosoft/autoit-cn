@@ -1,51 +1,45 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_DwmEnableBlurBehindWindow
 
-###Description###
-Enables the blur effect on a specified window.
+###����###
+��ָ������
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
 _WinAPI_DwmEnableBlurBehindWindow ( $hWnd [, $fEnable [, $fTransition [, $hRgn]]] )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hWnd
-	窗口句柄.
+   Ӧ���𻯵Ĵ�����
 $fEnable
-	[可选参数] 指定 DWM 模糊后是否注册或注销窗口句柄.有效值:
-		1 - 注册.
-		0 - 不注册.
+   ָ���Ƿ�ע���ע��DWM�𻯺󷽵Ĵ��ھ��. ����ֵ:
+    1 - ע��
+    2 - ע��
 $fTransition
-	[可选参数] 指定匹配色是否过渡到最大化窗口.有效值:
-		1 - 窗口应该是彩色.
-		0 - 不要.
+   ָ���Ƿ���ɫ�Ĺ��ɴ��ݵ���󻯴���. ����ֵ:
+    1 - ������ɫ
+    2 - ��֮
 $hRgn
-	[可选参数] 应用到客户端模糊区域的后面.
-		0 值将应用模糊到整个客户区.
+   Ӧ�ú��𻯵Ŀͻ����е�����. 0ֵ����ȫ���ͻ�����Ӧ����.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
+�ɹ�: ����1
+ʧ��: ����0������@error��0. @extended��ǰ���COM�������
 @@End@@
 
-###Remarks###
-窗口提供 alpha 值,且顶部模糊也将使用这些 alpha 值
- 应用程序负责确保窗口中所有像素的 alpha 值的正确性
- 必须注意某些 Windows GDI 操作不保留 alpha 值,
- 因为子窗口提供的 alpha 值是不可预知的.
- 每当桌面窗口管理器（DWM）切换时,必须调用这个函数.
- WM_DWMCOMPOSITIONCHANGED 消息通知切换的变化信息.
- 本函数需要 Windows Vista 或更高版本系统.
+###��ע###
+�����ṩalphaֵ�Ҷ�����Ⱦ��ֵ��ʹ����Щalphaֵ.
+ĳЩWindowsͼ���豸�ӿ�(GDI)�������ᱣ��Alphaֵ, ���Ե��Ӵ����ṩalphaֵʱ����ע��, ��Ϊ�����ǲ���Ԥ֪��.
+�������洰�ڹ�����(DWM)����ɺ�ʱ�ı䶼��Ҫ���øó���. ������WM_DWMCOMPOSITIONCHANGED��Ϣ֪ͨ��ָı�.
+�ú�����ҪWindows Vista�����ϰ汾.
 
-This function requires Windows Vista or later.
+###���###
 
+###�ο�###
+ ����MSDN֪ʶ����DwmEnableBlurBehindWindow�������Ϣ
 
-###See Also###
-@@MsdnLink@@ DwmEnableBlurBehindWindow
-
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

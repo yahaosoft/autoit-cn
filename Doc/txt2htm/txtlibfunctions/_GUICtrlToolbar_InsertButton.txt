@@ -1,62 +1,65 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _GUICtrlToolbar_InsertButton
 
-###Description###
-插入按钮
+###����###
+���밴ť
 
-###Syntax###
-#Include <GuiToolBar.au3>
-_GUICtrlToolbar_InsertButton($hWnd, $iIndex, $iID, $iImage[, $sText = ""[, $iStyle = 0[, $iState = 4[, $iParam = 0]]]])
+###�﷨###
+#Include<GuiToolBar.au3>
+_GUICtrlToolbar_InsertButton($hWnd, $iIndex, $iID,$iImage[, $sText = ""[, $iStyle = 0[, $iState = 4[, $iParam = 0]]]])
 
-###Parameters###
+###����###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iIndex
-	按钮的 0 基索引 
-$iID
-	命令 ID
-$iImage
-	图像的 0 基索引 
-$sText
-	[可选参数] 按钮文本
-$iStyle
-	[可选参数] 按钮样式. 可以是下列值的组合:
-		$BTNS_AUTOSIZE - 工具栏控件应不分配标准宽度到按钮.按钮宽度将计算文本加上图像的宽度
-		$BTNS_BUTTON - 标准按钮
-		$BTNS_CHECK - 双状态推动按钮,在按压与非按压之间切换,按下状态具有不同的背景颜色
-		$BTNS_CHECKGROUP - 按下的按钮保持到另一组中的按钮被按下为止,类似选项按钮,相当于 $BTNS_CHECK 与 $BTNS_GROUP 的结合
-		$BTNS_DROPDOWN - 创建一个下拉式按钮,按钮被点击时,可以显示一个列表--代替使用 $WM_COMMAND 消息的按钮,下拉按钮发送 $TBN_DROPDOWN 讯息--应用程序通知处理程序显示一个选项列表
-		$BTNS_GROUP - 按下的按钮保持到另一组中的按钮被按下为止,类似选项按钮,相当于 $BTNS_CHECK 与 $BTNS_GROUP 的结合
-		$BTNS_NOPREFIX - 按钮文本没有与它相关的快捷键前缀
-		$BTNS_SEP - 创建一个分隔符,提供按钮组之间的小间隙;此样式不接受用户输入
-		$BTNS_SHOWTEXT - 按钮应显示指定的文本.所有按钮可以有文字,但只有该样式的按钮才能显示文字.必须与 $TBSTYLE_LIST 样式与 $TBSTYLE_EX_MIXEDBUTTONS 扩展样式配合使用,如果您设置文本的按钮没有这个样式,当鼠标停留时,工具栏控件将自动显示为工具提示,这个特征允许您的应用程序避免在工具栏处理 $TBN_GETINFOTIP 消息
-		$BTNS_WHOLEDROPDOWN - 指定按钮将有一个下拉箭头
-$iState
-	[可选参数] 按钮状态. 可以是下列值的组合:
-		$TBSTATE_CHECKED - 按钮有 $TBSTYLE_CHECK 样式并被点击
-		$TBSTATE_PRESSED - 按钮被点击
-		$TBSTATE_ENABLED - 按钮接受用户输入
-		$TBSTATE_HIDDEN - 按钮不可见,且不能接收用户输入
-		$TBSTATE_INDETERMINATE - 按钮呈灰色
-		$TBSTATE_WRAP - 按钮之后跟随一个换行符
-		$TBSTATE_ELLIPSES - 按钮文本被截断,并显示一个省略号
-		$TBSTATE_MARKED - 按钮被标记
-$iParam
-	[可选参数] 应用程序定义的值
+ $hWnd  �ؼ����
+ $iIndex  ��ť��0������
+ $iID  �����ʶ
+ $iImage  0����ͼ������
+ $sText  ��ť�ı�
+ $iStyle  ��ť��ʽ. ��Ϊ���е����:
+$BTNS_AUTOSIZE - �������ؼ������Ű�ť�ı�׼����
+$BTNS_BUTTON -
+      ��׼��ť
+$BTNS_CHECK - �ڰ��º�δ���¼��л�
+$BTNS_CHECKGROUP -
+      ���ְ�ť�İ���״ֱ̬��������һ��ť������
+$BTNS_DROPDOWN - ��������ʾ�б���������ʽ��ť
+$BTNS_GROUP -
+      ���ְ�ť�İ���״ֱ̬��������һ��ť������
+$BTNS_NOPREFIX - ��ť�ı�û�мӺ�ǰ׺
+$BTNS_SEP -
+      ����һ���ָ���
+$BTNS_SHOWTEXT - ָ��Ҫ��ʾ�İ�ť�ı�
+$BTNS_WHOLEDROPDOWN -
+    ָ����ť����������ͷ
+ $iState  ��ť״̬. ��Ϊ���е����:
+$TBSTATE_CHECKED -
+      ��ť��$TBSTYLE_CHECK��ʽ�ұ����
+$TBSTATE_PRESSED - ��ť�������
+$TBSTATE_ENABLED -
+      ��ť�����û�����
+$TBSTATE_HIDDEN - ��ť���ɼ����޷������û�����
+$TBSTATE_INDETERMINATE -
+      ��ť��ɫ��ʾ
+$TBSTATE_WRAP - ��ť��������жϷ�
+$TBSTATE_ELLIPSES -
+      ��ť�ı����ָ��ʾʡ�Ժ�
+$TBSTATE_MARKED - ��ť�����
+ $iParam  Ӧ�ó������ֵ
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	True
-失败:	False
+�ɹ�: ��
+ʧ��: ��
 @@End@@
 
-###Remarks###
- 插入的新按钮在参数 $iIndex 指定按钮的左边
+###��ע###
+��iIndex�İ�ť�������°�ť
 
-###Related###
+###���###
 _GUICtrlToolbar_AddButton
 
-###Example###
+###�ο�###
+
+###ʾ��###
 @@IncludeExample@@

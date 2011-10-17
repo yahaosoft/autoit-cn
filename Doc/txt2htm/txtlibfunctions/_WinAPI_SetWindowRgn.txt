@@ -1,43 +1,43 @@
-###User Defined Function###
+###用户自定义函数###
 _WinAPI_SetWindowRgn
 
-###Description###
-设置窗口的窗口区域
+###描述###
+设置窗体的窗口区域
 
-###Syntax###
+###语法###
 #Include <WinAPI.au3>
-_WinAPI_SetWindowRgn($hWnd, $hRgn [, $bRedraw])
+_WinAPI_SetWindowRgn($hWnd, $hRgn[, $bRedraw])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	窗口句柄.
-$hRgn
-	用于函数设置为窗口区域的区域句柄.
-$bRedraw
-	[可选参数] 指定区域设置后,系统是否刷新窗口.
+$hWnd  将设置其区域的窗口的句柄.
+$hRgn  区域句柄. 函数将窗体的窗体区域设置到此区域
+$bRedraw  指定在设置窗体区域后系统是否重绘窗体
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	Nonzero
-失败:	返回 0
+成功: 非0
+失败: 0
 @@End@@
 
-###Remarks###
- 系统允许在窗口区域内的窗口绘图.
- 系统不显示任何窗口的窗口区域以外的部分.
- 函数被调用时, 系统将发送 WM_WINDOWPOSCHANGING 与 WM_WINDOWPOSCHANGED 消息到窗口.
- 窗口的窗口区域坐标相对于窗口的左上角,而不是窗口的客户区.
- 函数调用成功, 系统拥有 $hRgn 指定的区域句柄.
- 系统不会创建区域的副本. 因此, 不要对此区域句柄调用其他函数.
- 特别是不要删除这个区域句柄. 当不再需要时, 该系统将删除该区域的句柄.
+###备注###
+窗体区域确定允许系统绘制的区域.
+系统不显示超出窗体边界的任何部分
+当该函数被调用时,
+系统向窗体发送WM_WINDOWPOSCHANGING和WM_WINDOWPOSCHANGED消息.
+窗体的窗口区域坐标与窗体左上角相关,
+而不是窗体的客户区.
+在成功调用SetWindowRgn后, 系统占有由区域句柄hRgn指定的区域.
+系统不会创建区域的副本. 因此,
+不用对此区域句柄调用其他函数.
+特别指出的是, 不要删除此区域句柄. 当其不再需要时系统会删除它.
 
-###Related###
-_WinAPI_CreateRectRgn, _WinAPI_CreateRoundRectRgn, _WinAPI_CombineRgn, _WinAPI_GetWindowRgn
+###相关###
+_WinAPI_CreateRectRgn , _WinAPI_CreateRoundRectRgn , _WinAPI_CombineRgn
 
-###See Also###
-@@MsdnLink@@ SetWindowRgn
+###参考###
+搜索MSDN知识库中SetWindowRgn的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

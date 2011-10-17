@@ -1,41 +1,43 @@
-###User Defined Function###
+###用户自定义函数###
 _WinAPI_CreateRectRgn
 
-###Description###
-创建矩形
+###描述###
+创建一个矩形
 
-###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_CreateRectRgn($iLeftRect, $iTopRect, $iRightRect, $iBottomRect)
+###语法###
+#Include
+<WinAPI.au3>
+_WinAPI_CreateRectRgn($iLeftRect, $iTopRect, $iRightRect,
+$iBottomRect)
 
-###Parameters###
+###参数###
 @@ParamTable@@
 $iLeftRect
-	矩形左上角 X 坐标
+   左上角 X 坐标
 $iTopRect
-	矩形左上角 Y 坐标
+   左上角 Y 坐标
 $iRightRect
-	矩形右下角 X 坐标
+   右下角 X 坐标
 $iBottomRect
-	矩形右下角 Y 坐标
+   右下角 Y 坐标
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回矩形句柄
-失败:	返回 0
+成功: 返回该区域句柄
+失败: 0
 @@End@@
 
-###Remarks###
- 当不再需要 HRGN 对象时,调用 _WinAPI_DeleteObject 函数删除它.
- 坐标值表示为 27 位有符号整数.
- 范围不包括底部与右边缘.
+###备注###
+当不再需要hRgn对象时调用_WinAPI_DeleteObject函数删除.
+区域坐标以27-位标记整数提供.
+该区域将被右边和底边裁剪
 
-###Related###
-_WinAPI_CreateRoundRectRgn, _WinAPI_SetWindowRgn, _WinAPI_DeleteObject, _WinAPI_CombineRgn, _WinAPI_GetWindowRgn
+###相关###
+_WinAPI_CreateRoundRectRgn , _WinAPI_SetWindowRgn , _WinAPI_DeleteObject
 
-###See Also###
-@@MsdnLink@@ CreateRectRgn
+###参考###
+搜索MSDN知识库中CreateRectRgn的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

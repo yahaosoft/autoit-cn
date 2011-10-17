@@ -1,47 +1,38 @@
-﻿###User Defined Function###
+###User Defined Function###
 _WinAPI_UniqueHardwareID
-
 ###Description###
-生成本地计算机唯一硬件标识符（ID）.
-
+���ɱ��ؼ����ΨһӲ����ʶ����ID��.
 ###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_UniqueHardwareID ( [$iFlags] )
-
 ###Parameters###
 @@ParamTable@@
 $iFlags
-	[可选参数] 指定用来生成 ID 的信息标志参数可以是一个或多个以下值:
-		 or more of 参数可以是以下值之一:
-		 $UHID_MB
-		 使用主板信息,此标准为默认值,无论指定与不指定.
-		 $UHID_BIOS
-		 使用 BIOS 信息.
-		 $UHID_CPU
-		 使用处理器信息.此标志将使函数减慢生成速度..
-		 $UHID_HDD
-		 使用安装的硬盘驱动器信息.任何修改磁盘配置的变化将影响函数返回的 ID.
-		 考虑两者唯一方法是非移动磁盘使用 ATA 或 SATA 接口.
-		 $UHID_All
-		 所有上述标志的总和.
+	[��ѡ����] ָ���������� ID ����Ϣ��־����������һ����������ֵ:
+		 or more of ��������������ֵ֮һ:
+$UHID_MB
+		 ʹ��������Ϣ,�˱�׼ΪĬ��ֵ,����ָ���벻ָ��.
+$UHID_BIOS
+		 ʹ�� BIOS ��Ϣ.
+$UHID_CPU
+		 ʹ�ô�������Ϣ.�˱�־��ʹ�������������ٶ�..
+$UHID_HDD
+		 ʹ�ð�װ��Ӳ����������Ϣ.�κ��޸Ĵ������õı仯��Ӱ�캯�����ص� ID.
+		 ��������Ψһ�����Ƿ��ƶ�����ʹ�� ATA �� SATA �ӿ�.
+$UHID_All
+		 ����������־���ܺ�.
 @@End@@
-
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回字符串表示的 ID. @extended 包含 $iFlags 参数指定标志的组合.
-	如果标志设置,对应信息接收成功,否则失败.
-	函数仅检查 $iFlags 参数指定的标志.
-失败:	返回空串,设置@error:	
-标志为非 0 值.
+�ɹ�:	�����ַ�����ʾ�� ID. @extended ���� $iFlags ����ָ����־�����.
+	�����־����,��Ӧ��Ϣ���ճɹ�,����ʧ��.
+	��������� $iFlags ����ָ���ı�־.
+ʧ��:	���ؿմ�,����@error:
+��־Ϊ�� 0 ֵ.
 @@End@@
-
 ###Remarks###
-此函数使用 Windows 管理规范 (WMI).
-
-
+�˺���ʹ�� Windows �����淶 (WMI).
 ###See Also###
 None
-
 ###Example###
 @@IncludeExample@@
-

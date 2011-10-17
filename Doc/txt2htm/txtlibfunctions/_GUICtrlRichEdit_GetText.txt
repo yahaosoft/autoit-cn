@@ -1,49 +1,43 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_GetText
 
-###Description###
-获取控件中的全部文本
+###描述###
+获取控件内的全部文本
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetText($hWnd [, $fCrToCrLf = False [, $iCodePage = 0 [, $sReplChar = ""]]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$fCrToCrLf
-	[可选参数] 是否每个 CR 转换为 CRLF
-		True - 是
-		False - 否(默认)
-$iCodePage
-	[可选参数] 用于转换的代码页
-		默认 : 使用系统默认
-		CP_ACP 位 ANSI 代码页, 1200 为 Unicode 代码页
-$sReplChar
-	[可选参数] 如果 $iCodePage 不是 1200,
-		且宽字符无法以指定代码页代替时,指定使用的字符
+ $hWnd  控件句柄
+ $fCrToCrLf  [可选] 将每个CR转化为CRLF
+真 - 执行
+假 - 不执行(默认)
+ $iCodePage  [可选] 翻译中使用的代码页
+默认: 使用系统默认值. 对于ANSI使用CP_ACP, 对于Unicode使用1200
+ $sReplChar  [可选] 如果$iCodePage不是1200且宽字符无法以指定代码页代替时使用的字符
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回文本
-失败:	返回 "" ,设置@error
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $fCrToCrLf 必须是 True 或 False
-	103 - $iCodePage 不是一个数字
-	700 - 内部错误
+ 成功:  文本
+ 失败:  ""且设置@error:
+ @error:  101 - $hWnd不是句柄
+  102 - $fCrToCrLf必须为真或假
+  103 - $iCodePage不是数字
+  700 - 内部错误
 @@End@@
 
-###Remarks###
- 成功时, 如果设置了 $sReplChar, @extended 包含字符是否被使用
- 调用 _GUICtrlRichEdit_IsModified() 确定文本是否发生了变化
+###备注###
+成功时, 如果设置了$sReplChar, @extended包含字符是否被使用
+调用_GUICtrlRichEdit_IsModified()确定文本是否改变
 
-###Related###
-_GUICtrlRichEdit_SetText, _GUICtrlRichEdit_AppendText, _GUICtrlRichEdit_InsertText, _GUICtrlRichEdit_IsModified
+###相关###
+ _GUICtrlRichEdit_SetText , _GUICtrlRichEdit_AppendText , _GUICtrlRichEdit_InsertText , _GUICtrlRichEdit_IsModified
 
-###See Also###
-@@MsdnLink@@ EM_GETTEXTEX
+###参考###
+ 搜索MSDN知识库中EM_GETTEXTEX的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

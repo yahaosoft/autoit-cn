@@ -1,54 +1,42 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_UpdateLayeredWindow
 
-###Description###
-æ›´æ–°åˆ†å±‚çª—å£çš„ä½ç½®,å¤§å°,å½¢çŠ¶,å†…å®¹å’ŒåŠé€æ˜Žåº¦
+###ÃèÊö###
+¸üÐÂÒ»¸ö²ãµþ´°¿ÚµÄÎ»ÖÃ, ´óÐ¡, ÐÎ×´, ÄÚÈÝ, ¼°Í¸Ã÷¶È
 
-###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_UpdateLayeredWindow($hWnd, $hDCDest, $pPTDest, $pSize, $hDCSrce, $pPTSrce, $iRGB, $pBlend, $iFlags)
+###Óï·¨###
+#Include
+<WinAPI.au3>
+_WinAPI_UpdateLayeredWindow($hWnd, $hDCDest, $pPTDest,
+$pSize, $hDCSrce, $pPTSrce, $iRGB, $pBlend, $iFlags)
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
-$hWnd
-	åˆ†å±‚çª—å£å¥æŸ„. 
-		åˆ†å±‚çª—å£æ˜¯æŒ‡å®š $WS_EX_LAYERED åˆ›å»ºçš„çª—å£.
-$hDCDest
-	å±å¹•è®¾å¤‡çŽ¯å¢ƒå¥æŸ„
-$pPTDest
-	$tagPOINT ç»“æž„æŒ‡é’ˆ, æŒ‡å®šåˆ†å±‚çª—å£åœ¨å±å¹•ä¸Šçš„æ–°ä½ç½®
-		å¦‚æžœä¸æ”¹å˜ç›®å‰çš„ä½ç½®, å¯ä»¥è®¾ç½®ä¸º 0.
-$pSize
-	$tagSIZE ç»“æž„æŒ‡é’ˆ, æŒ‡å®šåˆ†å±‚çª—å£æ–°çš„å¤§å°
-		å¦‚æžœä¸æ”¹å˜ç›®å‰çš„å¤§å°, å¯ä»¥è®¾ç½®ä¸º 0.
-$hDCSrce
-	å®šä¹‰åˆ†å±‚çª—å£å¤–è§‚çš„è®¾å¤‡çŽ¯å¢ƒå¥æŸ„
-		æ­¤å¥æŸ„å¯é€šè¿‡è°ƒç”¨ _WinAPI_CreateCompatibleDC å‡½æ•°èŽ·å–.
-$pPTSrce
-	$tagPOINT ç»“æž„æŒ‡é’ˆ, å®ƒæŒ‡å®šåˆ†å±‚åœ¨è®¾å¤‡çŽ¯å¢ƒçš„ä½ç½®
-$iRGB
-	ç”¨äºŽåˆ†å±‚çª—å£çš„ä¸»è¦é¢œè‰²
-$pBlend
-	$tagBLENDFUNCTION ç»“æž„æŒ‡é’ˆ, 
-		æŒ‡å®šåˆ†å±‚çª—å£ä½¿ç”¨çš„é€æ˜Žåº¦å€¼.
-$iFlags
-	å‚æ•°å¯ä»¥æ˜¯ä»¥ä¸‹å€¼ä¹‹ä¸€:
-		$ULW_ALPHA - ä½¿ç”¨ $tblend æ··åˆåŠŸèƒ½
-		$ULW_COLORKEY - ä½¿ç”¨ $iRGB é¢œè‰²çš„é€æ˜Žåº¦
-		$ULW_OPAQUE - åˆ†å±‚ç»˜åˆ¶ä¸é€æ˜Žçš„çª—å£
+$hWnd  ²ãµþ´°¿ÚµÄ¾ä±ú. µ±´´½¨´°ÌåÊ±Í¨¹ýÖ¸¶¨$WS_EX_LAYERED´´½¨²ãµþ´°¿Ú.
+$hDCDest  ÆÁÄ»Éè±¸³¡¾°µÄ¾ä±ú
+$pPTDest  Ö¸¶¨²ãµþ´°ÌåÐÂµÄÆÁÄ»Î»ÖÃµÄ$tagPOINT½á¹¹µÄÖ¸Õë. Èç¹û²»¸Ä±äµ±Ç°Î»ÖÃ, ¿ÉÎª0.
+$pSize  Ö¸¶¨²ãµþ´°ÌåÐÂ´óÐ¡µÄ$tagSIZE½á¹¹µÄÖ¸Õë. Èç¹û²»¸Ä±äµ±Ç°´óÐ¡, ¿ÉÎª0.
+$hDCSrce  ¶¨Òå²ãµþ´°ÌåµÄ±íÃæµÄÉè±¸³¡¾°µÄ¾ä±ú. ¸Ã¾ä±ú¿ÉÍ¨¹ýµ÷ÓÃ_WinAPI_CreateCompatibleDCº¯Êý»ñÈ¡.
+$pPTSrce  Ö¸¶¨·Ö²ãÔÚÉè±¸³¡¾°ÖÐµÄÎ»ÖÃµÄ$tagPOINT½á¹¹µÄÖ¸Õë
+$iRGB  ÓÃÓÚ¹¹³É²ãµþ´°¿ÚµÄÑÕÉ«Öµ
+$pBlend  Ö¸¶¨ÓÃÓÚ¹¹³É²ãµþ´°ÌåµÄÍ¸Ã÷¶ÈÖµµÄ$tagBLENDFUNCTION½á¹¹µÄÖ¸Õë.
+$iFlags  ¸Ã²ÎÊý¿ÉÎªÏÂÁÐÖµÖ®Ò».
+$ULW_ALPHA - Ê¹ÓÃ$tblend×÷Îª»ìºÏÉ«
+$ULW_COLORKEY -
+$iRGB×÷ÎªÍ¸Ã÷É«
+$ULW_OPAQUE - »æÖÆ²»Í¸Ã÷²ãµþ´°Ìå
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›ž True
-å¤±è´¥:	è¿”å›ž False
+³É¹¦: Õæ
+Ê§°Ü: ¼Ù
 @@End@@
 
-###Remarks###
-None.
+###±¸×¢###
 
-###Related###
-$tagBLENDFUNCTION, $tagPOINT, $tagSIZE
+###Ïà¹Ø###
+$tagBLENDFUNCTION , $tagPOINT , $tagSIZE
 
-###See Also###
-@@MsdnLink@@ UpdateLayeredWindow
+###²Î¿¼###
+ËÑË÷MSDNÖªÊ¶¿âÖÐUpdateLayeredWindowµÄÏà¹ØÐÅÏ¢

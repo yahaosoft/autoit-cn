@@ -1,41 +1,35 @@
-###User Defined Function###
+###用户自定义函数###
 _viFindGpib
 
-###Description###
-通过 VISA 卡接口(GPIB接口/ TCP协议)发送命令或查询到仪器或设备
+###描述###
+通过VISA接口(GPIB/TCP)向设备发送命令/查询
 
-###Syntax###
-#include <Visa.au3>
-_viFindGpib ( ByRef $a_descriptor_list, ByRef $a_idn_list [, $f_show_search_results = 0] )
+###语法###
+#Include <Visa.au3>
+_viFindGpib ( ByRef $a_descriptor_list, ByRef $a_idn_list, $f_show_search_results = 0 )
 
-
-###Parameters###
+###参数###
 @@ParamTable@@
-$a_descriptor_list(ByRef)
-	返回 GPIB 总线设备 VISA 资源描述的数组 (更多信息见 _viExecCommand 备注)
-$a_idn_list(ByRef)
-	返回 GPIB 总线设备 (例如复合名) IDN 数组
-$f_show_search_results
-	[可选参数] 如为 1, 则显示搜索结果消息框.
-		默认为 0, 不显示结果
+ $a_descriptor_list (ByRef)  GPIB总线中的设备的VISA资源描述数组(更多信息参考_viExecCommand的备注)
+ $a_idn_list (ByRef)  返回在GPIB总线上找到的设备的IDN数组(如名称)
+ $f_show_search_results  可选: 如果为1显示一个带有搜索结果的消息框.
+默认为0 , 表示不显示结果
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回设备数(0 或更多)
-失败:	返回一个负值,设置@error:to 1
+成功: 找到的设备数量(0或更多)
+失败: 返回一个负数并设置@error为1
 @@End@@
 
+###备注###
+要使用VISA函数必须安装有VISA库(可以检查{WINDOWS}\system32中是否存在visa32.dll)和GPIB卡(如National Instruments NI PCI-GPIB card或Agilent 82350B PCI High-Performance GPIB card)
+* 常用VISA描述符的详细描述可查看帮助中_viExecCommand函数的备注
 
-###Remarks###
-VISA 函数必须安装 VISA 库文件(您可以检查visa32.dll是否在 WINDOWS\System32 目录中)
-及 GPIB 卡(例如 National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card)
- * 常见 VISA 描述符详细介绍,见 _viExecCommand 函数备注
+###相关###
+ _viExecCommand , _viOpen , _viClose , _viGTL , _viGpibBusReset
 
+###参考###
 
-###Related###
-_viExecCommand, _viOpen, _viClose, _viGTL, _viGpibBusReset
-
-
-###Example###
+###示例###
 @@IncludeExample@@

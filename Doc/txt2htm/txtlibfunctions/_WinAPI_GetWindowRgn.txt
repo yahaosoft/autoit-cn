@@ -1,39 +1,41 @@
-###User Defined Function###
+###用户自定义函数###
 _WinAPI_GetWindowRgn
 
-###Description###
-获得窗口范围的副本
+###描述###
+获取窗口的窗口区域副本
 
-###Syntax###
-#Include <WinAPI.au3>
+###语法###
+#Include
+<WinAPI.au3>
 _WinAPI_GetWindowRgn($hWnd, $hRgn)
 
-###Parameters###
+###参数###
 @@ParamTable@@
 $hWnd
-	窗口句柄.
+   窗口区域将被获取的窗口句柄
 $hRgn
-	代表窗口区域的句柄.
+   将被修改的窗口区域的句柄
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回函数获得指定区域的类型. 它可以是以下值之一
-	$NULLREGION - 区域是空的.
-	$SIMPLEREGION - 区域是单一矩形.
-	$COMPLEXREGION - 区域是一个以上的矩形.
-失败:	返回 0. 指定的窗口没有区域或试图返回该区域时发生错误.
+成功: 指定函数获取的区域类型. 可为下列值之一:
+    NULLREGION - 空区域
+    SIMPLEREGION - 简单矩形区域
+    COMPLEXREGION - 多矩形区域
+    ERRORREGION - 指定窗口不含区域或尝试返回区域时发生错误
+失败: 返回0
 @@End@@
 
-###Remarks###
- 窗口的窗口区域是由调用 SetWindowRgn 函数设置的.
- 系统允许在窗口区域内的窗口绘图.
- 系统不显示任何窗口的窗口区域以外的部分.
- 窗口的窗口区域坐标相对于窗口的左上角,而不是窗口的客户区.
- 要设置窗口的窗口区域, 调用 SetWindowRgn 函数.
+###备注###
+窗口的窗口区域由调用的SetWindowRgn函数返回.
+窗口区域用以确定系统允许在其中进行绘制的区域.
+系统不显示窗口区域外的任何属于窗口的部分.
+窗口的窗口区域坐标与窗口左上角坐标相关而非窗口客户区.
+设置窗口的窗口区域时需调用SetWindowRgn函数.
 
-###Related###
-_WinAPI_CreateRectRgn, _WinAPI_CreateRoundRectRgn, _WinAPI_CombineRgn, _WinAPI_SetWindowRgn
+###相关###
+ _WinAPI_CreateRectRgn , _WinAPI_CreateRoundRectRgn , _WinAPI_CombineRgn , _WinAPI_SetWindowRgn
 
-###See Also###
-@@MsdnLink@@ GetWindowRgn
+###参考###
+搜索MSDN知识库中GetWindowRgn的相关信息

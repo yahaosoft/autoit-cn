@@ -1,47 +1,41 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_DwmSetIconicThumbnail
 
-###Description###
-Sets a static, iconic bitmap on a window or tab to use as a thumbnail representation.
+###ÃèÊö###
+ÉèÖÃ´°¿Ú»òµ±Ç°±êÇ©¹ÌÊµµÄÍ¼±ê»¯Î»Í¼ÒÔ´úÌæËõÂÔÍ¼
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_DwmSetIconicThumbnail ( $hWnd, $hBitmap [, $fFrame] )
+_WinAPI_DwmSetIconicThumbnail( $hWnd, $hBitmap [, $fFrame] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $hWnd
-	Handle to the window or tab.
+   ´°¿Ú»ò±êÇ©¾ä±ú
 $hBitmap
-	Handle to the device-independent bitmap (DIB) to represent the specified window.
+   ´ú±í´°¿ÚµÄÉè±¸ÎŞ¹ØµÄÎ»Í¼(DIB)µÄ¾ä±ú
 $fFrame
-	[å¯é€‰å‚æ•°] Specifies whether display a frame around the provided thumbnail, valid values:
-		TRUE    - Display frame.
-		FALSE   - Do not display frame. (Default)
+   Ö¸¶¨ÊÇ·ñÏÔÊ¾Î§ÈÆÎ»Í¼µÄ¿ò¼Ü. ¿ÉÓÃÖµ:
+    TRUE - ÏÔÊ¾¿ò¼Ü
+    FALSE - ²»ÏÔÊ¾¿ò¼Ü(Ä¬ÈÏ)
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+³É¹¦: ·µ»Ø1
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-A window typically calls the _WinAPI_DwmSetIconicThumbnail() function after it receives a WM_DWMSENDICONICTHUMBNAIL
-message. The thumbnail should not exceed the maximum x-coordinate and y-cordinate that are specified in the
-WM_DWMSENDICONICTHUMBNAIL. The thumbnail must also have a 32-bit color depth.
+###±¸×¢###
+´°¿ÚÍ¨³£ÔÚÏìÓ¦WM_DWMSENDICONICLIVEPREVIEWBITMAPÏûÏ¢Ê±µ÷ÓÃ_WinAPI_DwmSetIconicLivePreviewBitmap()º¯Êı. ·µ»ØµÄÎ»Í¼ÎŞĞè´óÓÚ´°¿Ú»ò¿ò¼ÜµÄ¿Í»§Çøµ«±ØĞëÎª32Î»É«Éî.
+DWMÊ¹ÓÃÎ»Í¼µÄ¸±±¾, µ«µ÷ÓÃ±£³ÖÔ­Î»Í¼µÄ¼Ì³Ğ¹ØÏµÇÒÔÚ²»ÔÙĞèÒªÊ±ÏìÓ¦ÊÍ·Å. µ±DWMÍ£Ö¹ÏÔÊ¾¹ıÈ¥µÄÔ¤ÀÀÊ±DWM²»»á±£´æÎ»Í¼¸±±¾.
+×îµÍÏµÍ³ÒªÇó: Windows 7
+Ê¹ÓÃÊ¾ÀıÇ°½« AutoIt.bmp ÎÄ¼şÊÍ·Åµ½ÁÙÊ±ÎÄ¼ş¼Ğ
 
-The DWM uses a copy of the bitmap, but the application can release this copy at any time because of memory
-constraints. If this occurs, the window is not notified but it might receive a subsequent WM_DWMSENDICONICTHUMBNAIL
-request when its thumbnail is needed again. The caller retains ownership of the original bitmap and is responsible
-for freeing the resources that it uses when it is no longer needed.
+###Ïà¹Ø###
 
-This function requires Windows 7 or later.
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞDwmSetIconicThumbnailµÄÏà¹ØĞÅÏ¢
 
-
-###See Also###
-@@MsdnLink@@ DwmSetIconicThumbnail
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

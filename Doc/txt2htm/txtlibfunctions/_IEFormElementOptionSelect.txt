@@ -1,55 +1,53 @@
-###User Defined Function###
+###用户自定义函数###
 _IEFormElementOptionSelect
 
-###Description###
-设置指定表单元素的值.
+###描述###
+设置指定表单元素的值
 
-###Syntax###
-#include <IE.au3> 
+###语法###
+#Include <IE.au3>
 _IEFormElementOptionSelect ( ByRef $o_object, $s_string [, $f_select = 1 [, $s_mode = "byValue" [, $f_fireEvent = 1]]] )
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$o_object
-	"Select Option"类型的表单元素对象
-$s_string
-	用于匹配元素的值 - 基于设定的模式$s_mode
-$f_select
-	[可选参数]: 指定元素是选中或未选中
-	-1 = 返回选中状态
-	0 = 不选中元素
-	1 = (默认)选中元素
-$s_mode
-	[可选参数]: 定义搜索模式
-	byValue = (默认)希望选中的选项的值
-	byText = 希望选中的选项的文本
-	byIndex = 希望选中的选项的0基索引
-$f_fireEvent
-	[可选参数]: 指定在改变值后是否激活OnChange和OnClick事件
-	0 = 设置值后不激活OnChange或OnClick事件
-	1 = (默认)设置值后激活OnChange和OnClick事件
+ $o_object  "Select Option"的表单元素对象
+ $s_string  匹配元素的值--按$s_mode设定的模式
+ $f_select  可选: 定义元素是否需要被选择或者不选择
+-1 = 返回选择的状态
+0 = 不选中元素
+1 = (默认)
+  选中元素
+ $s_mode  可选: 定义搜索模式
+byValue = (默认) 想要选择的option值
+byText =
+      想要选择option的文字
+byIndex = 想要选择option的索引值(基于 0)
+ $f_fireEvent  可选:定义在改变值时是否触发OnChange和OnClick的事件
+0 =
+      在设置值后不触发OnChange或者OnClick事件
+1 = (默认)
+  在设置值后触发OnChange或者OnClick事件
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	如果$f_select = -1, 返回当前的被选中状态, 或返回1
-失败:	返回0并设置@ERROR
-@Error:	0 ($_IEStatus_Success) = 无错误
-	3 ($_IEStatus_InvalidDataType) = 无效数据类型
-	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
-	5 ($_IEStatus_InvalidValue) = 无效值
-	7 ($_IEStatus_NoMatch) = 无匹配
-@Extended:	包含无效参数数量
+成功: 如果参数$f_select为-1 , 返回当前选择的状态 , 否则返回1
+失败: 返回0并设置@ERROR为:
+    0 ($_IEStatus_Success) = 无错误
+    3 ($_IEStatus_InvalidDataType) = 无效数据类型
+    4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+    5 ($_IEStatus_InvalidValue) = 无效值
+    7 ($_IEStatus_NoMatch) = 不匹配
+    @Extended: 包含无效参数数量
 @@End@@
 
+###备注###
+$f_fireEvent参数只有当表单元素发生了和它相关的onChange事件后才有效.
 
-###Remarks###
-仅当表单元素与onChange事件关联时, $f_fireEvent参数才有效.
+###相关###
+ _IEFormElementCheckBoxSelect , _IEFormElementRadioSelect
 
+###参考###
 
-###Related###
-_IEFormElementCheckBoxSelect, _IEFormElementRadioSelect, _IEFormElementGetValue, _IEFormElementSetValue
-
-
-###Example###
+###示例###
 @@IncludeExample@@

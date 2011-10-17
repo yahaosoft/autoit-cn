@@ -1,46 +1,44 @@
-###User Defined Function###
+###用户自定义函数###
 _MemGlobalAlloc
 
-###Description###
-从堆栈分配指定的字节数
+###描述###
+从堆栈中分配指定数量的字节
 
-###Syntax###
+###语法###
 #Include <Memory.au3>
-_MemGlobalAlloc($iBytes[, $iFlags = 0])
+_MemGlobalAlloc($iBytes[,$iFlags = 0])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$iBytes
-	分配的字节数.如果此参数为 0,$iFlags 参数指定为 $GMEM_MOVEABLE,
-		函数返回一个标记为丢弃的内存对象句柄.
-$iFlags
-	[可选参数] 内存分配属性:
-		$GMEM_FIXED - 分配固定内存.返回值是一个指针.
-		$GMEM_MOVEABLE - 分配可移动内存.并非移动物理内存,
-		而是在默认堆栈中移动,返回值是一个指向内存对象的句柄.
-		使用 _MemGlobalLock 函数将句柄翻译为一个指针.
-		这个值不能与 $GMEM_FIXED 参数值结合.
-		$GMEM_ZEROINIT - 初始化内存内容到 0
-		$GHND - $GMEM_MOVEABLE 与 $GMEM_ZEROINIT 的组合
-		$GPTR - $GMEM_FIXED 与 $GMEM_ZEROINIT 的组合
+ $iBytes  分配的字节数. 如果参数为0且$iFlags参数指定$GMEM_MOVEABLE,
+      函数返回一个标记为废弃的内存对象的句柄
+ $iFlags  内存分配属性:
+$GMEM_FIXED - 分配固定内存. 返回值是指针.
+$GMEM_MOVEABLE - 分配可移动内存.
+      物理内存并不移动, 而是在默认堆栈中移动. 返回值是内存对象的句柄. 使用_MemGlobalLock函数将句柄翻译为一个指针.
+      该值不能与$GMEM_FIXED结合.
+$GMEM_ZEROINIT - 初始化内存内容到0
+$GHND -
+      $GMEM_MOVEABLE和$GMEM_ZEROINIT的结合
+$GPTR -
+    $GMEM_FIXED和$GMEM_ZEROINIT的结合
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回分配的内存对象句柄
-失败:	返回 0
+成功: 最近分配的内存对象的句柄
+失败: 0
 @@End@@
 
-###Remarks###
- Windows	内存管理不提供单独的本地堆栈和全局堆栈.
- 如果此函数成功, 它至少会分配被请求的内存量.
- 如果实际分配量高于请求量,进程可以使用全部分配量. 
- 要确定分配的实际字节数,使用 _MemGlobalSize 函数.
- 如果堆栈没有足够的可用空间满足请求,函数将返回 NULL(空值).
- 使用此函数分配的内存保证调整在 8 字节界限内.
- 为了执行动态生成的代码, 使用 _MemVirtualAlloc 函数分配内存,
- 并使用 _Mem_VirtualProtect 函数授予 $PAGE_EXECUTE 访问权. 
- 要释放内存,使用 _MemGlobalFree 函数 .
+###备注###
+Windows 内存管理不提供分离的本地堆栈和全局堆栈. 如果函数成功, 将至少分配一定数量的所需内存.
+如果实际分配的数量高于请求的数量, 进程可以使用全部内存. 使用_MemGlobalSize函数决定分配的字节的实际数量.
+如果堆栈中没有足够的自由空间满足需要, 函数返回 NULL. 由该函数分配的内存可保证对齐在8个字节界限内. 为了执行动态生成的代码,
+使用_MemVirtualAlloc函数分配内存同时使用_Mem_VirtualProtect函数允许$PAGE_EXECUTE.
+使用_MemGlobalFree函数释放内存. 使用_Mem_LocalFree释放与_MemGlobalAlloc相关的内存不安全.
 
-###See Also###
-@@MsdnLink@@ GlobalAlloc
+###相关###
+_MemGlobalLock , _MemGlobalSize , _MemVirtualAlloc , _MemGlobalFree
+
+###参考###
+查询MSDN知识库中GlobalAlloc相关内容

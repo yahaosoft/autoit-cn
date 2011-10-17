@@ -1,42 +1,34 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_GetDeviceGammaRamp
 
-###Description###
-Gets the gamma ramp on direct color display boards that support downloadable gamma ramps in hardware.
+###ÃèÊö###
+»ñÈ¡²ÊÉ«ÏÔÊ¾ÆÁÔÚÓ²¼şÖ§³ÖÌõ¼şÏÂµÄÉ«Éî
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_GetDeviceGammaRamp ( $hDC, ByRef $aRamp )
+_WinAPI_GetDeviceGammaRamp( $hDC, ByRef $aRamp )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $hDC
-	Handle to a device context of the direct color display board in question.
+   ÏÔÊ¾ÆÁµÄ³¡¾°¾ä±ú
 $aRamp
-	The 2D array ([r1, g1, b1], [r2, g2, b2], ... [r256, g256, b256]) where the function place the current
-	gamma ramp of the color display board. Each element in this array is an integer value with a range
-	from 0 to 65535 which is a mapping between RGB values in the frame buffer and digital-analog-converter
-	(DAC) values.
-	
-	(See MSDN for more information)
-	
+   º¯ÊıÓÃÓÚ·ÅÖÃµ±Ç°ÏÔÊ¾ÆÁÉ«ÉîµÄ2DÊı×é ([r1, g1, b1], [r2, g2, b2], ... [r256, g256, b256]) . Êı×éÖĞµÄÃ¿¸öÔªËØ¾ùÎª0ÖÁ65535µÄÕûÊıÖµ , ÓÃÓÚ±íÊ¾Ö¡»º³åÖĞµÄRGBÖµºÍÊı×ÖÄ£Äâ×ª»»Æ÷(DAC)µÄÖµÖ®¼äµÄÓ³Éä.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø1
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0.
 @@End@@
 
-###Remarks###
-Direct color display modes do not use color lookup tables and are usually 16, 24, or 32 bit. Not all direct color
-video boards support loadable gamma ramps. _WinAPI_GetDeviceGammaRamp() succeeds only for devices with drivers
-that support downloadable gamma ramps in hardware.
+###±¸×¢###
+Ö±½Ó²ÊÉ«ÏÔÊ¾Ä£Ê½Í¨³£Îª16 , 24»ò32Î»¶ø²»Ê¹ÓÃÑÕÉ«²éÕÒ±í. ²¢·ÇËùÓĞµÄÖ±½ÓÖ§³Ö²ÊÉ«ÏÔÊ¾ÆÁÖ§³Ö¿É×°ÔØµÄgamma ramps. _WinAPI_GetDeviceGammaRamp() ½ö¶ÔÓ²¼şÇı¶¯Ö§³Ögamma rampsµÄÉè±¸ÓĞĞ§.
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ GetDeviceGammaRamp
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞGetDeviceGammaRampµÄÏà¹ØĞÅÏ¢
 
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

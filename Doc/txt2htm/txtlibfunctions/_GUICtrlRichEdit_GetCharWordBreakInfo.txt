@@ -1,46 +1,41 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_GetCharWordBreakInfo
 
-###Description###
-获取上一个单词之前的字符区间位置
+###描述###
+获取前一个文字前的字间位置
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetCharWordBreakInfo($hWnd, $iCp)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iCP
-	上一个字符的字符区间位置
+ $hWnd  控件句柄
+ $iCP  要获取的字符左侧的字间位置
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回用逗号分隔的字符串值:
-	值 1 - 字的断开标志:
-	c - 该字符后的行可能会被打断
-	d - 字符是结尾词定界符.行可能定界符后被打断
-	w - 字符是空白. (空白区不包含在行长度中.)
-	值 2 - 字符类别:一个数
-失败:	返回 "" ,设置@error:	
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $iCp 不是一个数字
+成功: 以逗号分割的值组成的字符串:
+    值1 - 文字分割标记:
+        c - 行在该字符后被切断
+        d - 字符是终字定界符. 行将在分界符后被切断
+        w - 字符为空白空间.(空白区不包含在行长度中.)
+    值2 - 字符类: 一个数字
+失败: 返回""并设置@error
+    101 - $hWnd不是句柄
+    102 - $iCp不是数字
 @@End@@
 
-###Remarks###
- 行可能会打断或分隔不同类之间的字符.
- 在文字中断程序中定义字符类别.
- 程序中的默认类是:
- 0 = 文字数字式字符, 1 = 其它印刷字符 (除了连字符),
- 2 = 空格, 3 = 制表符, 4 = 连字符或段落结束.
+###备注###
+行可能会在分界符处, 两字符间或不同类间被切断.
+在文字中断过程中字符类被定义. 默认过程中的类为: 0=字母字符, 1=其他打印字符(连字符除外), 2=空格, 3=换行, 4=连字符或段尾.
 
-###Related###
-_GUICtrlRichEdit_GetCharPosOfNextWord, _GUICtrlRichEdit_GetCharPosOfPreviousWord
+###相关###
+ _GUICtrlRichEdit_GetCharPosOfNextWord , _GUICtrlRichEdit_GetCharPosOfPreviousWord
 
-###See Also###
-@@MsdnLink@@ EM_FINDWORDBREAK
+###参考###
+ 搜索MSDN知识库中EM_FINDWORDBREAK的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

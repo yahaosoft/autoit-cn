@@ -1,67 +1,65 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _ClipBoard_SetDataEx
 
-###Description###
-使用一个指定的剪切板格式替换剪切板中的数据
+###����###
+ʹ��ָ���ĸ�ʽ�ڼ������Ϸ�������
 
-###Syntax###
+###�﷨###
 #Include <Clipboard.au3>
-_ClipBoard_SetDataEx(ByRef $hMemory [, $iFormat = 1])
+_ClipBoard_SetDataEx(ByRef$hMemory[, $iFormat = 1])
 
-###Parameters###
+###����###
 @@ParamTable@@
-$hMemory
-	指定格式的数据句柄. 该参数可以是 NULL(空), 表明窗口按指定的剪贴板格式要求提供数据
-		如果窗口延迟执行, 表明必须处理 $WM_RENDERFORMAT?和 $WM_RENDERALLFORMATS 信息
-		如果此函数调用成功:	$hMemory 参数确定的对象
-		一旦数据所有权已经转移到系统, 应用程序可能无法写入或释放数据, 
-		但是可以锁定和读取, 直到调用 _ClipBoard_Close 函数时为止
-		关闭剪贴板前, 内存必须解锁.
-		如果 $hMemory 参数标识为一个内存对象,
-		对象必须使用函数与 $GMEM_MOVEABLE 标记关联.
-$iFormat
-	[可选参数] 指定剪切板格式:
-		$CF_TEXT - 文本格式
-		$CF_BITMAP - 位图句柄 (HBITMAP)
-		$CF_METAFILEPICT - 图片的图元文件句柄 (METAFILEPICT)
-		$CF_SYLK - Microsoft 符号链接格式 (SYLK) 
-		$CF_DIF - 软件艺术数据( Arts' Data )交换格式
-		$CF_TIFF - 标记映像文件格式
-		$CF_OEMTEXT - OEM 字符集中包含字符的文本格式
-		$CF_DIB - 图位的 BITMAPINFO 结构
-		$CF_PALETTE - 调色板句柄
-		$CF_PENDATA - 扩展画笔计算数据
-		$CF_RIFF - 音频数据 RIFF 格式
-		$CF_WAVE - 音频数据 WAVE 格式
-		$CF_UNICODETEXT - Unicode 文本格式
-		$CF_ENHMETAFILE - 增强型图元文件句柄 (HENHMETAFILE)
-		$CF_HDROP - 识别文件列表的 HDROP 句柄
-		$CF_LOCALE - 与剪贴板文本相关的标识符句柄
-		$CF_DIBV5 - 带位图颜色和图位的 BITMAPV5HEADER 结构
-		$CF_OWNERDISPLAY - 属主显示格式
-		$CF_DSPTEXT - 与私有格式相关的文字显示格式
-		$CF_DSPBITMAP - 与私有格式相关的位图显示格式
-		$CF_DSPMETAFILEPICT - 与私有格式相关的图元显示格式
-		$CF_DSPENHMETAFILE - 与私有格式相关的增强型图元显示格式 
+$hMemory 
+   ָ����ʽ�����ݵľ��. �ò���������NULL, ����������ָ���ļ������ʽ��Ҫ�����ṩ����. ���һ�������ӳ�ִ��, �����봦��
+ 
+      $WM_RENDERFORMAT �� $WM_RENDERALLFORMATS ��Ϣ. ϵͳռ���� $hMemory ����ȷ�ϵĶ���.
+ 
+      һ������Ȩ����ϵͳӦ�ó����޷�д����ͷ�����, ���ǿ��������ʹ������ж�ȡֱ�������� _ClipBoard_Close.
+ 
+      �رռ�����ǰ�ڴ����δ������. ��� $hMemory ����ָʾһ���ڴ����, �������ʹ�ú�����$GMEM_MOVEABLE
+ 
+    ��ǹ���.
+$iFormat 
+   ָ���������ʽ:
+    $CF_TEXT - �ı���ʽ
+    $CF_BITMAP - λͼ���(HBITMAP)
+    $CF_METAFILEPICT - ͼԪ���(METAFILEPICT)
+    $CF_SYLK - Microsoft�������Ӹ�ʽ(SYLK)
+    $CF_DIF - ��������(��˾)���ݽ�����ʽ
+    $CF_TIFF - ���ͼ���ļ���ʽ
+    $CF_OEMTEXT - ����OEM�ַ����е��ַ����ı���ʽ
+    $CF_DIB - ����ͼλ��BITMAPINFO�ṹ
+    $CF_PALETTE - ��ɫ����
+    $CF_PENDATA - ������ʹ�û��ʵ���չ����
+    $CF_RIFF - ����RIFF��ʽ����������
+    $CF_WAVE - ����WAVE��ʽ����������
+    $CF_UNICODETEXT - Unicode�ı���ʽ
+    $CF_ENHMETAFILE - ��ǿ��ͼԪ���(HENHMETAFILE)
+    $CF_HDROP - ʶ���ļ��б���HDROP�ľ��
+    $CF_LOCALE - ��������ı��йصı�����֤���
+    $CF_DIBV5 - ��λͼ��ɫ��ͼλ��BITMAPV5HEADER�ṹ
+    $CF_OWNERDISPLAY - ����ʾ��ʽ
+    $CF_DSPTEXT - ��˽�и�ʽ��ص�������ʾ��ʽ
+    $CF_DSPBITMAP - ��˽�и�ʽ��ص�λͼ��ʾ��ʽ
+    $CF_DSPMETAFILEPICT - ��˽�и�ʽ��ص�ͼԪ��ʾ��ʽ
+    $CF_DSPENHMETAFILE - ��˽�и�ʽ��ص���ǿ��ͼԪ��ʾ��ʽ
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回数据句柄
-失败:	返回 0
+�ɹ�: ���ݾ��
+ʧ��: 0
 @@End@@
 
-###Remarks###
- $iFormat 参数可以是已注册剪贴板格式，也可以是标准剪贴板格式.
- 如果一个应用程序调用函数响应 $WM_RENDERFORMAT 或 $WM_RENDERALLFORMATS, 
-在此函数被调用后, 应用程序有可能不使用句柄. 
-如果一个应用程序调用 _ClipBoard_Open 函数并设置一个 NULL(空) 句柄,  同时 _ClipBoard_Empty 设置剪贴板所有者也为 NULL(空); 此时将导致此函数失败
+###��ע###
+$iFormat������ȷ����ע��ļ������ʽ, ���Ǳ�׼��ʽ֮һ. ���Ӧ�ó�������Ӧ$WM_RENDERFORMAT��$WM_RENDERALLFORMATSʱ���øú���, Ӧ�ó��򽫲�ʹ�ú������ú�ľ��. ���Ӧ�ó����NULL ���ʹ��_ClipBoard_Open, _ClipBoard_Empty����ռ����ΪNULL; �⽫���º���ʧЧ.
 
-###Related###
-_ClipBoard_Empty, _ClipBoard_GetData, _ClipBoard_Open, _ClipBoard_SetData
+###�ο�###
+ ����MSDN֪ʶ����SetClipboardData�������Ϣ
 
-###See Also###
-@@MsdnLink@@ SetClipboardData
+###���###
+_ClipBoard_Empty , _ClipBoard_GetData , _ClipBoard_Open
 
-###Example###
+###ʾ��###
 @@IncludeExample@@

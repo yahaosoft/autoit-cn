@@ -1,49 +1,47 @@
-﻿###User Defined Function###
-_WinAPI_PathRelativePathTo
+###�û��Զ��庯��###
+_WinApi_PathRelativePathTo
 
-###Description###
-创建文件或文件夹的相对路径到另一个.
+###����###
+�����ļ����ļ��е����·��
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_PathRelativePathTo ( $sPathFrom, $fDirFrom, $sPathTo, $fDirTo )
+_WinApi_PathRelativePathTo( $sPathFrom, $fDirFrom, $sPathTo, $fDirTo )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $sPathFrom
-	定义相对路径起点的文件或目录路径.
+   �������·�������ļ���Ŀ¼��·��
 $fDirFrom
-	指定 $sPathFrom 路径是否为目录,有效值:
-		1 - 目录.
-		0 - 文件.
+$sPathFrom�Ƿ�ΪĿ¼. ����ֵ:
+$sPathFromΪĿ¼
+$sPathFromΪ�ļ�
 $sPathTo
-	定义相对路径终点的文件或目录路径.
+   �������·���յ���ļ���Ŀ¼��·��
 $fDirTo
-	指定 $fDirTo 路径是否为目录,有效值:
-		1 - 目录.
-		0 - 文件.
+$sPathTo�Ƿ�ΪĿ¼. ����ֵ:
+$sPathToΪĿ¼
+$sPathToΪ�ļ�
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	原版错误.无描述!
-	
-失败:	返回 空串,设置@error:标志为非 0 值.
+�ɹ�: �������·��
+ʧ��: ���ؿ��ַ���������@error��0
 @@End@@
 
-###Remarks###
-函数接受一对路径,并产生另一个相对路径. 路径不必完全合格,
- 但他们必须有一个共同的前缀,否则,该函数将失败.
-例如, 起点参数 $sPathFrom 为 "C:\A\B\C", 终点参数 $sPathTo 为 "C:\A\D".
-_WinAPI_PathRelativePathTo() 将返回 $sPathFrom 到 $sPathTo 的相对路径 : "..\..\D\E".
-如果设置 $sPathFrom 为: "\A\B\C", 设置 $sPathTo 为: "\A\D\E" 将得到相同的结果. 
-另一方面, "C:\A\B\C" 与 "D:\A\D", 由于没有共同的前缀, 函数将失败.
-请注意,“\” 不被视为前缀且被忽略. 
-如果设置 $sPathFrom 为 "\\A\B\C", 设置 $sPathTo 为 "\\C\D", 函数将失败.
+###��ע###
+·����һ����ȫ�Ϸ� , ���������ͨ��ǰ׺ , ������ʧ��.
+�� , ������� , $sFrom, Ϊ "c:\FolderA\FolderB\FolderC", ���յ� , $sTo, Ϊ "c:\FolderA\FolderD\FolderE".
+_WinAPi_PathRelativePathTo�����ش�$sFrom��$sTo��·��Ϊ: "..\..\FolderD\FolderE".
+�������$sFromΪ "\FolderA\FolderB\FolderC" ��$sToΪ "\FolderA\FolderD\FolderE" �򽫻�ȡ��ͬ���.
+��һ���� , "c:\FolderA\FolderB" �� "a:\FolderA\FolderD" ������ͬһͨ��ǰ׺����ʧ��.
+ע�� "\\" ����ָ��ǰ׺����������. ���� , �������$sFromΪ "\\FolderA\FolderB", ��$sToΪ "\\FolderC\FolderD", ����ʧ��.
 
-###See Also###
-@@MsdnLink@@ PathRelativePathTo
+###���###
 
-###Example###
+###�ο�###
+ ����MSDN֪ʶ����PathRelativePathTo�������Ϣ
+
+###ʾ��###
 @@IncludeExample@@
-

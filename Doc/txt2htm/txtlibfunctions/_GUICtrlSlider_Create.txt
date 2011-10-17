@@ -1,63 +1,65 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlSlider_Create
 
-###Description###
-创建滑块控件
+###描述###
+创建滑动条控件
 
-###Syntax###
-#Include <GuiSlider.au3>
-_GUICtrlSlider_Create($hWnd, $iX, $iY [, $iWidth = 100 [, $iHeight = 20 [, $iStyle = 0x0001 [, $iExStyle = 0x00000000]]]])
+###语法###
+#Include<GuiSlider.au3>
+_GUICtrlSlider_Create($hWnd, $iX, $iY[, $iWidth = 100[,$iHeight = 20[, $iStyle = 0x0001[, $iExStyle = 0x00000000]]]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	父窗口或所有者窗口句柄
-$iX
-	控件水平位置
-$iY
-	控件垂直位置
-$iWidth
-	[可选参数] 控件宽度
-$iHeight
-	[可选参数] 控件高度
-$iStyle
-	[可选参数] 控件样式:
-		$TBS_AUTOTICKS - 使用 TBM_SETRANGE 消息设置滑块范围时添加刻度.
-		$TBS_BOTH - 放置首尾刻度线到滑块上方
-		$TBS_BOTTOM - 放置首尾刻度线到滑块下方.
-		$TBS_DOWNISLEFT - 下等于左与上等于右
-		$TBS_ENABLESELRANGE - 选中范围的首尾刻度线显示为三角形 (而不是垂直短划线).
-		并高亮显示选择范围
-		$TBS_FIXEDLENGTH - 允许 $TBM_SETTHUMBLENGTH 消息改变滑块的大小
-		$TBS_HORZ - 水平滑块,这是默认样式.
-		$TBS_LEFT - 放置刻度线到垂直滑块的左边.
-		$TBS_NOTHUMB - 控件没有滑块.
-		$TBS_NOTICKS - 滑块没有刻度线.
-		$TBS_REVERSED - 较小的数字表示“较高”;一个更大的数字表示“低”
-		$TBS_RIGHT - 放置刻度线到垂直滑块的右边.
-		$TBS_TOP - 放置刻度线到水平滑块顶部.
-		$TBS_TOOLTIPS - 创建一个默认的工具提示控件,显示滑块的当前位置
-		$TBS_VERT - 放置刻度线到垂直滑块的左边.
-
-		默认: $TBS_AUTOTICKS
-		强制: $WS_CHILD, $WS_TABSTOP, $WS_VISIBLE
-
-$iExStyle
-	[可选参数] 控件扩展样式.适用标准 $WS_EX_ 常量.
-		默认: $WS_EX_STATICEDGE
+ $hWnd  父窗体或主窗体句柄
+ $iX  控件水平位置
+ $iY  控件垂直位置
+ $iWidth  控件宽度
+ $iHeight  控件高度
+ $iStyle  控件样式:
+$TBS_AUTOTICKS -
+      当通过TBM_SETRANGE消息设置了滑动条范围时添加对勾标记.
+$TBS_BOTH -
+      在滑动条两边放置对勾.
+$TBS_BOTTOM - 将对勾放在水平滑动条底部.
+$TBS_DOWNISLEFT -
+      下等于左且上等于右
+$TBS_ENABLESELRANGE - 在选区开始和结束位置的对勾标记显示为三角(代替垂直线),
+      且选区高亮
+$TBS_FIXEDLENGTH - 允许滑动条尺寸被$TBM_SETTHUMBLENGTH消息改变
+$TBS_HORZ -
+      指定水平滑动条. 该项为默认.
+$TBS_LEFT - 将对勾标记放置在垂直滑动条左侧.
+$TBS_NOTHUMB -
+      Specifies that the slider has no slider.
+$TBS_NOTICKS -
+      指定在滑动条上没有对勾.
+$TBS_REVERSED - 小数字表示"高"且大数字表示"低"
+$TBS_RIGHT -
+      将对勾标记放置在垂直滑动条右侧.
+$TBS_TOP - 将对勾标记放置在水平滑动条顶部.
+$TBS_TOOLTIPS -
+      创建默认的工具提示控件以显示滑动条当前的位置
+$TBS_VERT - 将对勾标记放置在垂直滑动条左侧.
+  默认: $TBS_AUTOTICKS
+强制: $WS_CHILD, $WS_TABSTOP, $WS_VISIBLE
+ $iExStyle  控件扩展样式. 对应于标准的$WS_EX_ constants.
+默认:
+$WS_EX_STATICEDGE
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回滑块控件句柄
-失败:	返回 0
+成功: 滑动条控件句柄
+失败: 0
 @@End@@
 
-###Remarks###
-此功能为高级用户学习如何控制工程.
+###备注###
+该函数供高级用户学习控件如何工作.
 
-###Related###
+###相关###
 _GUICtrlSlider_Destroy
 
-###Example###
+###参考###
+
+###示例###
 @@IncludeExample@@

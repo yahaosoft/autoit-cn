@@ -1,88 +1,60 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _IEAction
 
-###Description###
-在浏览器中执行预定义的一些简单操作.
+###����###
+���������ִ������һ��򵥶���
 
-###Syntax###
-#include <IE.au3> 
+###�﷨###
+#Include <IE.au3>
 _IEAction ( ByRef $o_object, $s_action )
 
-###Parameters###
+###����###
 @@ParamTable@@
-$o_object
-	指向 InternetExplorer.Application 的对象变量
-$s_action
-	操作选择 (参考备注)
+ $o_object  InternetExplorer.Application�������
+ $s_action  ����ѡ��(����ע)
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1
-失败:	返回 0 并设置 @ERROR
-@Error:	0 ($_IEStatus_Success) = 没有错误
-	3 ($_IEStatus_InvalidDataType) = 无效数据类型
-	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
-	5 ($_IEStatus_InvalidValue) = 无效值
-@Extended:	包含无效参数的数量
+�ɹ�: ����1
+ʧ��: ����0 �������� @ERROR
+    0 ($_IEStatus_Success) = �޴���
+    3 ($_IEStatus_InvalidDataType) = ��Ч��������
+    4 ($_IEStatus_InvalidObjectType) = ��Ч��������
+    5 ($_IEStatus_InvalidValue) = ��Чֵ
+    @Extended: ������Ч��������
 @@End@@
 
+###��ע###
+ ����  ����
+ "back"  ��������ʷ�б��е���ҳ.
+ "blur"  ʹ�ؼ�ʧȥ����, ���ǲ��ܰѽ������tab�����е���һ���ؼ���.
+ "click"  ��ָ���ؼ���ģ�������.
+ "copy"  ���Ƶ�ǰѡ�񲿷ֵ����а�.
+ "cut"  ���Ƶ�ǰѡ�񲿷ֵ����а�Ȼ��ɾ����(����).
+ "delete"  ɾ��ѡ�񲿷�.
+ "disable"  ʹָ���ؼ�ʧЧ.
+ "enable"  ʹָ���ؼ�����.
+ "focus"  ʹ�ؼ���ý���.
+ "forward"  ��ǰ�����ʷ�б��е���ҳ.
+ "home"  �����ҳ.
+ "invisible"  ���ö���״̬Ϊ���ɼ�.
+ "paste"  �ü��а������ݸ��ǵ�ǰѡ������.
+ "print"  �򿪴�ӡ�Ի���ʹ�û����Դ�ӡ��ǰҳ��.
+ "printdefault"  ֱ�Ӵ�ӡ��Ĭ�ϴ�ӡ��(�޶Ի���)
+ "quit"  �ر������.
+ "refresh"  ˢ�µ�ǰ��ҳ.
+ "saveas"  ��һ������Ի������ڱ��浱ǰ��ҳ��һ���ļ�.
+ "search"  ���������ҳ.
+ "selectall"  ѡ�������ĵ�.
+ "stop"  ȡ����ǰ����������ز�������ֹͣ�κζ�̬ҳ��ؼ�, ���米�������Ͷ���.
+ "unselect"  ȡ����ǰѡ��.
+ "visible"  ���ö���״̬Ϊ�ɼ�.
 
-###Remarks###
-@@ParamTable@@
-<b>操作</b>
-	<b>详细信息</b>
-"back"
-	按照历史列表转到后退页.
-"blur"
-	使元素失去焦点, 但是不会设置焦点到Tab顺序的下一个元素.
-"click"
-	模拟点击指定元素.
-"copy"
-	复制当前选择内容到剪切板.
-"cut"
-	复制当前选择内容到剪切板并删除所选内容.
-"delete"
-	删除当前所选内容.
-"disable"
-	禁用指定元素.
-"enable"
-	启用指定元素.
-"focus"
-	让指定元素接受焦点.
-"forward"
-	按照历史列表转到前进页.
-"home"
-	转到当前主页或者开始页.
-"invisible"
-	设置对象状态为隐藏.
-"paste"
-	覆盖当前所选内容为剪切板中的内容.
-"print"
-	打开打印对话框使用户可以打印当前页.
-"printdefault"
-	使用默认打印机直接打印当前页(不显示对话框)
-"quit"
-	关闭对象.
-"refresh"
-	刷新当前文档.
-"saveas"
-	打开一个对话框保存当前网页为一个文件.
-"search"
-	转到当前搜索页.
-"selectall"
-	选择整个文档.
-"stop"
-	取消任何进行中的转向或者下载操作并停止任何动态页元素, 例如背景声音和动画.
-"unselect"
-	清除当前所选.
-"visible"
-	设置对象状态为可见.
-@@END@@
+###���###
+ _IEPropertySet
 
-###Related###
-_IEPropertySet, _IELoadWait
+###�ο�###
 
-
-###Example###
+###ʾ��###
 @@IncludeExample@@

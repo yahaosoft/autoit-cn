@@ -1,47 +1,41 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_CreateEvent
 
-###Description###
-创建或者打开一个命名的或者未命名的事件对象
+###����###
+�������һ�������Ļ�δ�������¼�����
 
-###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_CreateEvent( [$pAttributes = 0 [, $fManualReset = True [, $fInitialState = True [, $sName = ""]]]])
+###�﷨###
+#Include
+<WinAPI.au3>
+_WinAPI_CreateEvent([$pAttributes = 0[, $fManualReset =
+True[, $fInitialState = True[, $sName = ""]]]])
 
-###Parameters###
+###����###
 @@ParamTable@@
 $pAttributes
-	[可选参数] $tagSECURITY_ATTRIBUTES 结构指针.如果为 0,句柄不能由子进程继承.
-		结构的 Descriptor 成员指定新事件的安全描述符.
-		如果此参数为 0, 事件获得默认的安全描述符.
-		事件的默认安全描述符的 ACL 来自最初的创建者或模拟令牌.
+$tagSECURITY_ATTRIBUTES�ṹ��ָ��. ���Ϊ0, ����޷����ӽ��̼̳�.
+      lpEventAttributes�Ľṹ�еĳ�ԱΪ�µ��¼�ָ����һ����ȫ�������pEventAttributes��NULL���¼������һ��Ĭ�ϵİ�ȫ��.
 $fManualReset
-	[可选参数] 如为 True, 函数创建手动重置事件对象,
-		它需要 ResetEvent 函数设置事件为无信号状态
-		如为 False, 数创建自动重置事件对象,系统会自动重置事件的状态,
-		非单一信号后等待线程被释放
+   ���Ϊ��, ��������һ���ֶ���ԭ�¼���������Ҫʹ��ResetEvent���������¼�״̬Ϊ���ź�.
+      ���������źŵȴ��̱߳��ͷź󴴽�һ���Զ���ԭ�¼�����Ϊ���ź�״̬
 $fInitialState
-	[可选参数] 如为 True, 事件对象初始为信号状态;否则,为无信号
+   ���Ϊ��, �¼���������״̬�����ź�״̬; ����Ϊ���ź�״̬
 $sName
-	[可选参数] 事件对象的名称.名称比较区分大小写.
-		如果 $sName 匹配现有的命名事件对象的名称,这个函数要求 EVENT_ALL_ACCESS 访问权.
-		这种情况下,$fManualReset 和 $fInitialState 参数将被忽略,因为他们已经被创建进程设置
-		如果 $pAttributes 参数不为 0, 它决定句柄是否可以继承,但它的安全描述符 成员将被忽略
-		如果名称为空白,创建的事件对象没有名字.
+   �¼����������. ���ƶԱ��Ǵ�Сд���е�. ���sName��һ���Ѵ��ڵ��¼�����������ƥ��, ������Ҫ
+      EVENT_ALL_ACCESS ���Ȩ��. ʵ����, ����fManualReset��fInitialState�����ڴ�������ʱ�ѱ����ã��ʶ�����������. ���pAttributes������Ϊ0, ������������Ƿ�ɱ��̳�, ���䰲ȫ��������Ա��������.
+      �������Ϊ�ս�����һ��δ�������¼�����.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回事件对象的句柄.
-	如果命名事件对象存在, 调用该函数将返回现有对象句柄,且 GetLastError 返回 ERROR_ALREADY_EXISTS.
-失败:	返回 0
+�ɹ�: �¼�����ľ��. ����ں�������ǰ�������¼������Ѵ���, ��������һ���Ѵ��ڶ���ľ��, ��GetLastError����ERROR_ALREADY_EXISTS.
+ʧ��: 0
 @@End@@
 
-###Remarks###
-None.
+###��ע###
 
-###Related###
+###���###
 $tagSECURITY_ATTRIBUTES
 
-###See Also###
-@@MsdnLink@@ CreateEvent
+###�ο�###
+����MSDN֪ʶ�����й�CreateEvent����Ϣ

@@ -1,46 +1,43 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_ExtSelectClipRgn
 
-###Description###
-ä½¿ç”¨æŒ‡å®šæ¨¡å¼ç»„åˆæŒ‡å®šåŒºåŸŸä¸Žç›®å‰å‰ªè¾‘åŒºåŸŸ.
+###ÃèÊö###
+Ê¹ÓÃÖ¸¶¨Ä£Ê½½«Ö¸¶¨ÇøÓòÓëµ±Ç°¼ô¼­ÇøÓò½øÐÐºÏ²¢
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_ExtSelectClipRgn ( $hDC, $hRgn [, $iMode] )
+_WinAPI_ExtSelectClipRgn( $hDC, $hRgn[, $iMode] )
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
 $hDC
-	è®¾å¤‡çŽ¯å¢ƒå¥æŸ„.
+   Éè±¸³¡¾°¾ä±ú
 $hRgn
-	è¢«é€‰ä¸­åŒºåŸŸçš„å¥æŸ„. å½“ $RGN_COPY æ¨¡å¼è¢«æŒ‡å®šæ—¶, æ­¤å¥æŸ„åªèƒ½æ˜¯ 0.
+$RGN_COPYÄ£Ê½Ê±¸Ã¾ä±ú½öÄÜÎª0.
 $iMode
-	[å¯é€‰å‚æ•°] æŒ‡å®šæ‰§è¡Œçš„æ“ä½œ. å¿…é¡»æ˜¯ä»¥ä¸‹å€¼ä¹‹ä¸€:
-	
-	$RGN_AND --- ç»„åˆå½“å‰å‰ªè¾‘åŒºåŸŸçš„é‡å åŒºåŸŸå’Œ $hRgn ç¡®å®šçš„åŒºåŸŸ.
-	$RGN_COPY --- å¤åˆ¶ $hRgn ç¡®å®šçš„åŒºåŸŸ.
-	$RGN_DIFF --- æ–°ç»„åˆåŒºåŸŸä¸ºå½“å‰å‰ªè¾‘åŒºåŸŸä¸ŽæŽ’é™¤ $hRgn ç¡®å®šçš„åŒºåŸŸ.
-	$RGN_OR --- ç»„åˆå½“å‰å‰ªè¾‘åŒºåŸŸå’Œ $hRgn ç¡®å®šçš„åŒºåŸŸ
-	$RGN_XOR --- ç»„åˆå½“å‰å‰ªè¾‘åŒºåŸŸå’Œ $hRgn ç¡®å®šçš„åœ°åŒº,ä½†ä¸åŒ…æ‹¬ä»»ä½•é‡å çš„åŒºåŸŸ.
-	
+   ²Ù×÷Ä£Ê½. ¿ÉÎªÏÂÁÐÖµÖ®Ò»:
+    $RGN_AND - ºÏ²¢µ±Ç°¼ô¼­ÇøÓòµÄÖØµþ²¿·ÖºÍÓÉ$hRgnÈ·¶¨µÄÇøÓò
+    $RGN_COPY - ¸´ÖÆÓÉ$hRgnÈ·¶¨µÄÇøÓò
+    $RGN_DIFF - ºÏ²¢³ýÓÉ$hRgnÈ·¶¨µÄÇøÓòÍâµÄµ±Ç°¼ô¼­ÇøÓò
+    $RGN_OR - ºÏ²¢µ±Ç°¼ô¼­ÇøÓòºÍÓÉ$hRgnÈ·¶¨µÄÇøÓò
+    $RGN_XOR - ºÏ²¢µ±Ç°¼ô¼­ÇøÓòºÍÓÉ$hRgnÈ·¶¨µ«³ýÖØµþµÄÇøÓòÍâµÄÇøÓò
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›žæ–°å‰ªè¾‘åŒºåŸŸçŠ¶æ€çš„å€¼. å¯ä»¥æ˜¯ä»¥ä¸‹å€¼ä¹‹ä¸€:
-	$COMPLEXREGION --- åŒºåŸŸè¶…è¿‡ä¸€ä¸ªçŸ©å½¢.
-	$NULLREGION --- ç©ºåŒºåŸŸ.
-	$SIMPLEREGION --- åŒºåŸŸæ˜¯ä¸€ä¸ªå•ä¸€çŸ©å½¢
-å¤±è´¥:	è¿”å›ž 0,è®¾ç½®@error:æ ‡å¿—ä¸ºéž 0 å€¼.
+³É¹¦: Ö¸¶¨ÐÂ¼ô¼­ÇøÓò¸´ÔÓÐÔµÄÖµ; ¿ÉÎªÏÂÁÐÖµÖ®Ò».
+    $NULLREGION: ÇøÓòÎª¿Õ
+    $SIMPLEREGION: ¼òµ¥¾ØÐÎÇøÓò
+    $COMPLEXREGION: ¶à¾ØÐÎÇøÓò
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0.
 @@End@@
 
-###Remarks###
-None
+###±¸×¢###
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ ExtSelectClipRgn
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖÐExtSelectClipRgnµÄÏà¹ØÐÅÏ¢
 
-###Example###
+###Ê¾Àý###
 @@IncludeExample@@
-

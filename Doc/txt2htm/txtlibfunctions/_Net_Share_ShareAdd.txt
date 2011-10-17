@@ -1,53 +1,43 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _Net_Share_ShareAdd
 
-###Description###
-å…±äº«æœåŠ¡å™¨èµ„æº
+###ÃèÊö###
+¹²Ïí·þÎñÆ÷×ÊÔ´
 
-###Syntax###
+###Óï·¨###
 #Include <NetShare.au3>
-_Net_Share_ShareAdd($sServer, $sShare, $iType, $sPath [, $sComment = "" [, $iMaxUses = -1]])
+_Net_Share_ShareAdd($sServer, $sShare, $iType, $sPath[, $sComment = ""[, $iMaxUses = -1]])
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
-$sServer
-	æŒ‡å®š DNS æˆ– NetBIOS è¿œç¨‹æœåŠ¡å™¨ä¸Šæ‰§è¡Œå‡½æ•°çš„åç§°
-		å¦‚æžœæ­¤å‚æ•°ä¸ºç©º, åœ¨æœ¬åœ°è®¡ç®—æœºä¸Šä½¿ç”¨.
-$sShare
-	èµ„æºå…±äº«å
-$iType
-	å…±äº«èµ„æºçš„ç±»åž‹. å¯ä»¥æ˜¯ä¸€ä¸ªç»„åˆ:
-		$STYPE_ç£ç›˜TREE - ç£ç›˜é©±åŠ¨å™¨
-		$STYPE_PRINTQ - æ‰“å°é˜Ÿåˆ—
-		$STYPE_DEVICE - é€šè®¯è®¾å¤‡
-		$STYPE_IPC - IPC (å·¥æŽ§æœº)
-		$STYPE_SPECIAL - ä¸º IPC$ æˆ–æœåŠ¡å™¨çš„è¿œç¨‹ç®¡ç†ä¿ç•™çš„ä¸“ç”¨å…±äº«(é‚£ $ å·åæ²¡å,ä¸çŸ¥é“)
-		$STYPE_TEMPORARY - ä¸´æ—¶å…±äº«
-$sPath
-	å…±äº«èµ„æºçš„æœ¬åœ°è·¯å¾„. å¯¹äºŽç£ç›˜, è¿™æ˜¯è¢«å…±äº«çš„è·¯å¾„.
-		å¯¹äºŽæ‰“å°é˜Ÿåˆ—, è¿™æ˜¯è¢«å…±äº«çš„æ‰“å°é˜Ÿåˆ—åç§°.
-$sComment
-	[å¯é€‰å‚æ•°] å…±äº«èµ„æºçš„æè¿°
-$iMaxUses
-	[å¯é€‰å‚æ•°] å…±äº«èµ„æºæ‰€èƒ½å®¹çº³çš„å¹¶å‘è¿žæŽ¥æœ€å¤§æ•°.
-		å¦‚æžœæŒ‡å®šå€¼ä¸º -1, åˆ™è¿žæŽ¥æ•°æ˜¯æ— é™çš„.
+ $sServer  ÓÃÒÔÖ¸¶¨º¯Êý½«²Ù×÷µÄÔ¶³Ì·þÎñÆ÷µÄDNS»òNetBIOSÃû³ÆµÄ×Ö·û´®. Èç¹û²ÎÊýÎª¿ÕÔòÊ¹ÓÃ±¾µØ¼ÆËã»ú.
+ $sShare  ×ÊÔ´µÄ¹²ÏíÃû
+ $iType  ¹²Ïí×ÊÔ´µÄÀàÐÍ. ¿ÉÎªÏÂÁÐÖµµÄ×éºÏ:
+$STYPE_DISKTREE - ´ÅÅÌÇý¶¯Æ÷
+$STYPE_PRINTQ - ´òÓ¡¶ÓÁÐ
+$STYPE_DEVICE - ÁªÏµÉè±¸
+$STYPE_IPC - IPC
+$STYPE_SPECIAL - ÎªIPC$»ò·þÎñÆ÷µÄÔ¶³Ì¹ÜÀíÔ±±£ÁôµÄÖ¸¶¨¹²Ïí
+$STYPE_TEMPORARY - ÁÙÊ±¹²Ïí
+ $sPath  ¹²Ïí×ÊÔ´µÄ±¾µØÂ·¾¶. ¶ÔÓÚ´ÅÅÌ, Îª¹²ÏíÂ·¾¶. ¶ÔÓÚ´òÓ¡¶ÓÁÐ, Îª¹²ÏíµÄ´òÓ¡¶ÓÁÐÃû.
+ $sComment  °üº¬¹ØÓÚ¹²Ïí×ÊÔ´¿ÉÑ¡ÃèÊöµÄ×Ö·û´®
+ $iMaxUses  ¹²Ïí×ÊÔ´¿ÉÌá¹©µÄÍ¬Ê±Á¬½ÓµÄ×î´óÊýÁ¿. µ±¸ÃÖµÖ¸¶¨Îª?Ê±²»ÏÐ×ÅÁ¬½ÓÊý.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›ž True
-å¤±è´¥:	è¿”å›ž False
+³É¹¦: Õæ
+Ê§°Ü: ¼Ù
 @@End@@
 
-###Remarks###
-ç³»ç»Ÿç®¡ç†å‘˜,ç³»ç»Ÿæ“ä½œå‘˜,æˆ– Power Users æœ¬åœ°ç»„æˆå‘˜æ‰èƒ½æ·»åŠ æ–‡ä»¶
-æ‰“å°æ“ä½œå‘˜å¯ä»¥æ·»åŠ æ‰“å°æœºå…±äº«.
+###±¸×¢###
+½ö¹ÜÀíÔ±×é, ÏµÍ³²Ù×÷Ô±×é¼°¸ß¼¶ÓÃ»§×é¿ÉÍ¨¹ýµ÷ÓÃ¸Ãº¯ÊýÌí¼ÓÎÄ¼þ¹²Ïí. ´òÓ¡²Ù×÷×é³ÉÔ±¿ÉÌí¼Ó´òÓ¡»ú¹²Ïí.
 
-###Related###
-_Net_Share_ShareCheck, _Net_Share_ShareDel
+###Ïà¹Ø###
+ _Net_Share_ShareCheck , _Net_Share_ShareDel
 
-###See Also###
-@@MsdnLink@@ NetApiBufferFree
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖÐNetApiBufferFreeµÄÏà¹ØÐÅÏ¢
 
-###Example###
+###Ê¾Àý###
 @@IncludeExample@@

@@ -1,62 +1,54 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_DrawIconEx
 
-###Description###
-绘制图标或光标到指定的设备环境
+###����###
+���޶����豸�������ڵĿͻ��������ͼ��
 
-###Syntax###
+###�﷨###
 #Include <WinAPI.au3>
-_WinAPI_DrawIconEx($hDC, $iX, $iY, $hIcon [, $iWidth = 0 [, $iHeight = 0 [, $iStep = 0 [, $hBrush = 0 [, $iFlags = 3]]]]])
+_WinAPI_DrawIconEx($hDC, $iX,
+$iY, $hIcon[, $iWidth = 0[, $iHeight = 0[, $iStep = 0[, $hBrush = 0[, $iFlags =
+3]]]]])
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hDC
-	设备环境句柄
+   �����л���ͼ�������豸�����ľ��
 $iX
-	图标左上角 X 坐标
+   ͼ�����Ͻ� X ����
 $iY
-	图标左上角 Y 坐标
+   ͼ�����Ͻ� Y ����
 $hIcon
-	图标句柄
+   ���Ƶ�ͼ��ľ��
 $iWidth
-	[可选参数] 图标或光标的逻辑宽度.如果为零,则 $iFlags 参数为“默认大小”
-		函数使用 $SM_CXICON 或 $SM_CXCURSOR 系统公制值设定宽度
-		如果为 0,且不使用“默认大小”,函数使用实际资源的宽度.
+$SM_CXICON��$SM_CXCURSOR��ϵͳ����ֵ���ÿ���. �������Ϊ0��δʹ��"Ĭ�ϳߴ�", ����ʹ����Դ��ʵ�ʿ���.
 $iHeight
-	[可选参数] 图标或光标的逻辑高度.如为 0, $iFlags 参数为“默认大小”,
-		函数使用 $SM_CYICON 或 $SM_CYCURSOR 系统公制值设定宽度
-		如为 0 且不使用“默认大小”,函数将使用实际资源的高度.
+$SM_CXICON��$SM_CXCURSOR��ϵͳ����ֵ���ø߶�. �������Ϊ0��δʹ��"Ĭ�ϳߴ�", ����ʹ����Դ��ʵ�ʸ߶�.
 $iStep
-	[可选参数] 如果 $hIcon 标识为动画光标,则指定框架绘制索引.
-		如果 $hIcon 不是识别为动画光标,此参数被忽略.
+   ���ָ��hIcon��һ��������꣬�ò���ָ������֡������. ������Ǻ��Ըò���.
 $hBrush
-	[可选参数] 为系统无闪烁绘图用途的画笔句柄.如果本参数是一个有效的画笔句柄,
-		系统使用背景颜色指定的画笔创建一个屏幕外位图,
-		绘制图标或光标到位图,然后将复制位图到 $hDC 所确定的设备环境.
-		如此参数为 0 ,系统直接在设备环境中绘制图标或光标..
+   ϵͳ���ڻ��Ƶ�ˢ�ӵľ��. ��� hBrush ��һ�����õ�ˢ�Ӿ��,
+      ϵͳʹ��ָ���Ĵ�����ɫ��ˢ��, �ں�̨�������д���һ��λͼ������ͼ����껭��λͼ, Ȼ��λͼ���Ƶ���hDCȷ�����豸������. ���hBrushΪ0, ϵͳ��ͼ������ֱ�ӻ��Ƶ��豸������.
 $iFlags
-	[可选参数] 绘图标志.这个参数可以是以下值之一:
-		1 - 使用掩码绘制图标或光标
-		2 - 使用图像绘制图标或光标
-		3 - 使用掩码与图像绘制图标或光标
-		4 - 使用系统默认图像,而不是用户指定的图像绘制图标或光标
-		5 - 如果 $iWidth 和 $iHeight 参数设置为 0,
-		图标或光标宽度和高度由系统指定的指标确定.
-		如果不指定此标志,且 $iWidth 和 $iHeight 设置为 0 时,函数使用实际资源的大小.
-		6 - 绘制图标作为 unmirrored 图标
+   ָ�����Ʊ��. ����Ϊ����ֵ֮һ:
+    1 - ���������ͼ�����
+    2 - ��ͼ�����ͼ�����
+    3 - �ó��淽ʽ��ͼ(1+2)
+    4 - ϵͳ����ȱʡͼ��������û������ͼ�����ͼ��͹��
+    5 - ���iWidth��iWidth��������Ϊ��, ����ϵͳָ����ͼ��͹��ĵĹ��ƿ��Ⱥ͸߶Ȼ���ͼ��͹��. ������δ��ָ����iWidth��iWidth������Ϊ�㣬����ʹ����Դʵ�ʴ�С.
+    6 - ����ͼ��Ϊ�޾���ͼ��
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False
+�ɹ�: ��
+ʧ��: ��
 @@End@@
 
-###Remarks###
-None.
+###��ע###
 
-###Related###
+###���###
 _WinAPI_DrawIcon
 
-###See Also###
-@@MsdnLink@@ DrawIconEx
+###�ο�###
+����MSDN֪ʶ����DrawIconEx�������Ϣ

@@ -1,49 +1,43 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_CascadeWindows
 
-###Description###
-Cascades the specified child windows of the specified parent window.
+###ÃèÊö###
+²ãµşÅÅÁĞÖ¸¶¨¸¸´°ÌåµÄÖ¸¶¨×Ó´°Ìå
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_CascadeWindows ( $aWnds [, $tRECT [, $hParent [, $iFlags [, $iStart [, $iEnd]]]]] )
+_WinAPI_CascadeWindows( $aWnds [, $tRECT [, $hParent [, $iFlags [, $iStart [, $iEnd]]]]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $aWnds
-	The array of handles to the child windows to arrange. If a specified child window is a top-level window
-	with the style $WS_EX_TOPMOST or $WS_EX_TOOLWINDOW, the child window is not arranged. If this parameter
-	is 0, all child windows of the specified parent window (or of the desktop window) are arranged.
+$WS_EX_TOPMOST»ò$WS_EX_TOOLWINDOWÑùÊ½µÄ¶¥²ã´°¿ÚÔò²»»á±»ÅÅÁĞ. Èç¹û¸Ã²ÎÊıÎª0 , ½«ÅÅÁĞ¸¸´°Ìå(»ò×ÀÃæ´°¿Ú)µÄÈ«²¿×Ó´°Ìå.
 $tRECT
-	[å¯é€‰å‚æ•°] $tagRECT structure that specifies the rectangular area, in client coordinates, within which the windows
-	are arranged. This parameter can be 0, in which case the client area of the parent window is used.
+$tagRECT½á¹¹. Èç¹û¸Ã²ÎÊıÎª0 , Ê¹ÓÃ¸¸´°ÌåµÄ¿Í»§Çø.
 $hParent
-	[å¯é€‰å‚æ•°] Handle to the parent window. If this parameter is 0, the desktop window is assumed.
+   [¿ÉÑ¡] ¸¸´°Ìå¾ä±ú. Èç¹û¸Ã²ÎÊıÎª0Ê± , Ê¹ÓÃ×ÀÃæ´°Ìå.
 $iFlags
-	[å¯é€‰å‚æ•°] A cascade flag. This parameter can be one or more of the following values.
-	
-	$MDITILE_SKIPDISABLED
-	$MDITILE_ZORDER
-	
+   [¿ÉÑ¡] ²ãµş±ê¼Ç. ¿ÉÎªÒ»¸ö»ò¶à¸öÏÂÁĞ²ÎÊı:
+    $MDITILE_SKIPDISABLED - ½ûÖ¹²ãµşÅÅÁĞMDI×Ó´°Ìå
+    $MDITILE_ZORDER - ÔÚZĞòÉÏÅÅÁĞ
 $iStart
-	[å¯é€‰å‚æ•°] The index of array to start arranging at.
+   [¿ÉÑ¡] ¿ªÊ¼ÅÅĞòµÄ´°ÌåË÷Òı
 $iEnd
-	[å¯é€‰å‚æ•°] The index of array to stop arranging at.
+   [¿ÉÑ¡] ½áÊøÅÅĞòµÄ´°ÌåË÷Òı
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	The value is the number of windows arranged.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ±»ÅÅÁĞµÄ´°¿ÚÊıÁ¿
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-None
+###±¸×¢###
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ CascadeWindows
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞCascadeWindowsµÄÏà¹ØĞÅÏ¢
 
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

@@ -1,33 +1,33 @@
-###User Defined Function###
+###用户自定义函数###
 _WinAPI_GetProcessAffinityMask
 
-###Description###
-获取进程和系统的相似掩码
+###描述###
+获取运行指定进程的cpu核心
 
-###Syntax###
-#Include <WinAPI.au3>
+###语法###
+#Include
+<WinAPI.au3>
 _WinAPI_GetProcessAffinityMask($hProcess)
 
-###Parameters###
+###参数###
 @@ParamTable@@
 $hProcess
-	打开进程的句柄
+   指定进程的句柄
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回数组的格式如下:
-	$aMask[0] - 成功则返回 True; 否则返回 False
-	$aMask[1] - 进程关联掩码
-	$aMask[2] - 系统关联掩码
-失败:	设置@error:
+成功: 如下格式数组:
+$aMask[0] - 成功为真, 否则为假
+$aMask[1] - 进程的cpu核心
+$aMask[2] - 系统的cpu核心
 @@End@@
 
-###Remarks###
- 相似掩码是一个数位掩码,其中每个位代表允许处理器运行哪些进程的线程.
- 例如: 如果你传递掩码 0x05, 则允许运行进程 1 和 3.
+###备注###
+cpu核心是一个数位掩码, 每个数位提供一个允许其线程运行的进程. 例如, 如果你传递一个0x05掩码,
+则允许运行进程1和3.
 
-###Related###
+###相关###
 
-###See Also###
-@@MsdnLink@@ GetProcessAffinityMask
+###参考###
+搜索MSDN知识库中GetProcessAffinityMask的相关信息

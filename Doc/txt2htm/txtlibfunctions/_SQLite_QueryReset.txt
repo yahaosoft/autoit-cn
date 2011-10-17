@@ -1,34 +1,34 @@
-###User Defined Function###
+###用户自定义函数###
 _SQLite_QueryReset
 
-###Description###
-重置 _SQLite_Query() 查询
+###描述###
+重新设置基于_SQLite_Query()的查询
 
-###Syntax###
-#include <SQLite.au3>
+###语法###
+#Include <SQLite.au3>
 _SQLite_QueryReset ( $hQuery )
 
-
-###Parameters###
+###参数###
 @@ParamTable@@
-$hQuery
-	SQLite_Query() 产生的查询句柄
+ $hQuery  由SQLite_Query()建立的查询句柄
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 $SQLITE_OK
-失败:	返回值可能违反 $SQLITE_* 常量
-@error:	-1 - SQLite 报告错误 (检查返回值)
-	1 - 错误调用 SQLite API 'sqlite3_reset'
-	2 - 调用被安全模式阻止
+成功: 返回$SQLITE_OK
+失败: 返回可与$SQLITE_* 常量比较的值
+@error: -1 - SQLite报错(检查返回值)
+    1 - 调用SQLite API 'sqlite3_finalize'错误
+    2 - 安全模式阻止调用
 @@End@@
 
-###Remarks###
-如果你想重新使用不同的参数执行相同的查询,这将重置查询,以便它准备再次执行.
+###备注###
+如果想以不同参数重新执行相同查询, 只要使用sqlite3_reset()代替sqlite3_finalize(). 这将重新设置查询以便准备重新执行.
 
-###Related###
-_SQLite_Query, _SQLite_QueryFinalize
+###相关###
+ _SQLite_Query
 
-###Example###
+###参考###
+
+###示例###
 @@IncludeExample@@

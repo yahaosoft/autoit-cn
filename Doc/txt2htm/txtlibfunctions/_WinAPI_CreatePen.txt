@@ -1,48 +1,49 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_CreatePen
 
-###Description###
-创建指定样式,宽度和颜色得逻辑笔.
+###����###
+��������ָ�����, ����, ����ɫ���߼���.
 
-###Syntax###
+###�﷨###
 #Include <WinAPI.au3>
-_WinAPI_CreatePen($iPenStyle, $iWidth, $nColor)
+_WinAPI_CreatePen($iPenStyle,
+$iWidth, $nColor)
 
-###Parameters###
+###����###
 @@ParamTable@@
 $iPenStyle
-	指定笔的样式.可以是下值之一.
-		PS_SOLID - 实心纯色.
-		PS_DASH - 虚线笔.仅当画笔宽度为 1 或设备单位不足时,这种样式有效.
-		PS_DOT - 点线笔.. 仅当画笔宽度为 1 或设备单位不足时,这种样式有效.
-		PS_DASHDOT - 虚线与点交替. 仅当画笔宽度为 1 或设备单位不足时,这种样式有效.
-		PS_DASHDOTDOT - 虚线与双点交替. 仅当画笔宽度为 1 或设备单位不足时,这种样式有效.
-		PS_NULL - 隐形笔.
-		PS_INSIDEFRAME - 实心纯色. 当此笔用于 GDI 绘图函数时,可以使用尺寸缩小的笔宽,所以它完全适合于矩形.考虑到笔的宽度,此样式仅适用于几何笔.
+   ָ���ʷ��. ��Ϊ����ֵ֮һ.
+    PS_SOLID - ʵ��.
+    PS_DASH - ����. �ڳ����бʿ�������1����λ.
+    PS_DOT - ����. �ڳ����бʿ�������1����λ.
+    PS_DASHDOT - �㻮��. �ڳ����бʿ�������1����λ.
+    PS_DASHDOTDOT - ��㻮��, �ڳ����бʿ������� 1 ����λ.
+    PS_NULL - ���ɼ�.
+    PS_INSIDEFRAME - ʵ��. ����������Բ�����Ρ�Բ�Ǿ��Ρ���ͼ�Լ��ҵ����ɵķ�ն�����л�ͼ, ��ָ����׼ȷRGB��ɫ�����ڣ��ͽ��ж�������.
 $iWidth
-	指定笔的逻辑单位宽度.
+   ָ�����ʵ��߼�����.
 $nColor
-	指定笔的颜色 (BGR)
+   ָ�����ʵ�RGB��ɫ
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回标识逻辑笔的 HPEN 值
-失败:	返回 0
+�ɹ�: ����ʶ���߼��ʵ�hPENֵ
+ʧ��: 0
 @@End@@
 
-###Remarks###
- 创建的笔可以随后选择到设备环境和用于绘制直线和曲线.
- 应用程序创建逻辑笔后,通过调用 SelectObject 函数,可以选中到一个设备环境;以后在设备环境中选中笔,可以用来绘制直线和曲线.
- 如果 nWidth 参数指定值为 0,不管当前转型,创建笔绘制一条线始终是一个像素宽.
- 如果 nWidth 指定的值大于 1, fnPenStyle 参数必须 PS_NULL, PS_SOLID, 或 PS_INSIDEFRAME.
- 当不再需要用笔,调用 DeleteObject 函数删除它.
+###��ע###
+���ʿ�����Ϊһ���豸��ѡ�����Ի�������������.
+��Ӧ�ó��򴴽����߼��ʺ�, ������ͨ������SelectObject�������ʼ��뵽�豸����. �ڱʼ��뵽�豸������, ����������������������.
+���ָ����nWidthֵ����0, ���ܵ�ǰ�����, ʹ�øñʻ�����������һ�����ؿ�.
+���ָ����nWidthֵ����1, fnPenStyle����������PS_NULL, PS_SOLID�� PS_INSIDEFRAME.
+һ��������Ҫ���ʣ�����DeleteObject��������ɾ��
 
-###Related###
-_WinAPI_MoveTo, _WinAPI_LineTo, _WinAPI_SelectObject, _WinAPI_DeleteObject, _WinAPI_DrawLine, _WinAPI_GetBkMode, _WinAPI_SetBkMode
+###���###
+_WinAPI_MoveTo , _WinAPI_LineTo , _WinAPI_SelectObject , _WinAPI_DeleteObject
 
-###See Also###
-@@MsdnLink@@ CreatePen
+###�ο�###
+����MSDN֪ʶ�����й�CreatePen����Ϣ
 
-###Example###
+###ʾ��###
 @@IncludeExample@@

@@ -1,57 +1,63 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_GetSaveFileName
 
-###Description###
-åˆ›å»ºä¿å­˜å¯¹è¯æ¡†,è®©ç”¨æˆ·ä¿å­˜æ–‡ä»¶åˆ°æŒ‡å®šçš„é©±åŠ¨å™¨,ç›®å½•å’Œæ–‡ä»¶å
+###ÃèÊö###
+´´½¨±£´æ¶Ô»°¿òÖÐÓÃÒÔÈÃÓÃ»§ÎªÒª±£´æµÄÎÄ¼þÖ¸¶¨Çý¶¯Æ÷, Ä¿Â¼ºÍÃû³Æ
 
-###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_GetSaveFileName( [$sTitle = "" [, $sFilter = "All files (*.*)" [, $sInitalDir = "." [, $sDefaultFile = "" [, $sDefaultExt = "" [, $iFilterIndex = 1 [, $iFlags = 0 [, $iFlagsEx = 0 [, $hwndOwner = 0]]]]]]]]])
+###Óï·¨###
+#Include
+<WinAPI.au3>
+_WinAPI_GetSaveFileName([$sTitle = ""[, $sFilter = "All
+files (*.*)"[, $sInitalDir = "."[, $sDefaultFile = ""[, $sDefaultExt = ""[,
+$iFilterIndex = 1[, $iFlags = 0[, $iFlagsEx = 0[, $hwndOwner =
+0]]]]]]]]])
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
 $sTitle
-	[å¯é€‰å‚æ•°] å¯¹è¯æ¡†çš„æ ‡é¢˜æ å­—ç¬¦ä¸²
+   ¶Ô»°¿ò±êÌâÀ¸µÄ×Ö·û´®
 $sFilter
-	[å¯é€‰å‚æ•°] åŒè¿‡æ»¤å­—ç¬¦ä¸² (ä¾‹å¦‚ "æ–‡æœ¬æ–‡ä»¶ (*.txt)|å…¨éƒ¨æ–‡ä»¶ (*.*)")
-		ç¬¬ä¸€ä¸ªå­—ç¬¦ä¸²æè¿°è¿‡æ»¤å™¨æ˜¾ç¤ºå­—ç¬¦ä¸² (ä¾‹å¦‚: "æ–‡æœ¬æ–‡ä»¶")
-		ç¬¬äºŒä¸ªå­—ç¬¦ä¸²æŒ‡å®šè¿‡æ»¤æ¨¡å¼ (ä¾‹å¦‚: "*.TXT")
-		è¦æŒ‡å®šå¤šä¸ªè¿‡æ»¤å™¨æ¨¡å¼çš„æ˜¾ç¤ºå­—ç¬¦ä¸²,ä½¿ç”¨åˆ†å·åˆ†éš”(ä¾‹å¦‚: "*.TXT;*.DOC;*.BAK")
-		æ¨¡å¼ä¸²ç”±æœ‰æ•ˆæ–‡ä»¶åå’Œæ˜Ÿå·é€šé…ç¬¦ (*) ç»„åˆ
-		æ¨¡å¼ä¸²ä¸åŒ…æ‹¬ç©ºæ ¼.
+   ³É¶Ô¹ýÂË×Ö·û´®(ÀýÈç"Text Files (*.txt)|All Files (*.*)")
+    ÆäÖÐµÚÒ»¸ö×Ö·û´®ÓÃÓÚÃèÊö¹ýÂËÆ÷(ÀýÈç,
+      "Text Files")
+    µÚ¶þ¸ö×Ö·û´®Ö¸¶¨¹ýÂËÆ÷µÄ×é³É(ÀýÈç, "*.TXT")
+    ÓÃÒ»¸ö×Ö·û´®ÖÐÖ¸¶¨¶à¸ö¹ýÂË·½°¸,
+      Ê¹ÓÃ·ÖºÅ·Ö¿ª¸÷×é³É²¿·Ö(ÀýÈç,
+      "*.TXT;*.DOC;*.BAK")
+    Ò»¸ö·½°¸µÄ×Ö·û´®¿ÉÒÔÊÇÓÐÐ§ÎÄ¼þÃû×Ö·ûºÍÐÇºÅ(*)×Ö·ûµÄ×éºÏ
+    ·½°¸µÄ×Ö·û´®²»Òª°üº¬¿Õ¸ñ.
 $sInitalDir
-	[å¯é€‰å‚æ•°] æŒ‡å®šåˆå§‹ç›®å½•
+   Ö¸¶¨³õÊ¼Ä¿Â¼µÄ×Ö·û´®
 $sDefaultFile
-	[å¯é€‰å‚æ•°] ç¼–è¾‘æŽ§ä»¶ä¸­æ–‡ä»¶åä½¿ç”¨åˆå§‹åŒ–æ–‡ä»¶å
+   ÓÃÓÚ³õÊ¼»¯ÎÄ¼þÃû±à¼­¿Ø¼þµÄÎÄ¼þÃû
 $sDefaultExt
-	[å¯é€‰å‚æ•°] åŒ…å«é»˜è®¤æ‰©å±•åçš„å­—ç¬¦ä¸²
+   °üº¬Ä¬ÈÏÀ©Õ¹ÃûµÄ×Ö·û´®
 $iFilterIndex
-	[å¯é€‰å‚æ•°] æŒ‡å®šæ–‡ä»¶ç±»åž‹æŽ§ä»¶ä¸­å½“å‰é€‰å®šè¿‡æ»¤å™¨çš„ç´¢å¼•
+   Ö¸¶¨ÎÄ¼þ¼üÈë¿Ø¼þÖÐµ±Ç°Ñ¡ÖÐµÄ¹ýÂËÆ÷µÄË÷Òý
 $iFlags
-	[å¯é€‰å‚æ•°] è§ $tagOPENFILENAME ç»“æž„ä¸­ Flags çš„ä¿¡æ¯
+$tagOPENFILENAMEÐÅÏ¢ÖÐµÄFlags
 $iFlagsEx
-	[å¯é€‰å‚æ•°] è§ $tagOPENFILENAME ç»“æž„ä¸­ FlagEx ä¿¡æ¯
+$tagOPENFILENAMEÐÅÏ¢ÖÐµÄFlagEx
 $hwndOwner
-	[å¯é€‰å‚æ•°] æ‹¥æœ‰å¯¹è¯æ¡†çš„çª—å£å¥æŸ„.å¯ä»¥æ˜¯ä»»ä½•æœ‰æ•ˆçš„çª—å£å¥æŸ„;æˆ–ä¸º 0, è¡¨ç¤ºå¯¹è¯æ¡†æ²¡æœ‰å±žä¸»
+   ¶Ô»°¿òËÞÖ÷´°ÌåµÄ¾ä±ú. ¸Ã³ÉÔ±¿ÉÎªÈÎÒâ¿ÉÓÃ´°¿Ú¾ä±ú, »òÎÞËÞÖ÷Ê±Îª0
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›žæ•°ç»„æ ¼å¼å¦‚ä¸‹:
-	[0] - æ•°é‡å­—ç¬¦ä¸² (2)
-	[1] - è·¯å¾„é€‰æ‹©
-	[2] - é€‰å®šçš„æ–‡ä»¶
-å¤±è´¥:	è¿”å›žæ•°ç»„ [0] ä¸º 0 
+³É¹¦: ÈçÏÂ¸ñÊ½Êý×é:
+  [0] - °üº¬×Ö·û´®µÄÊýÁ¿(2)
+  [1] - °üº¬Ñ¡ÖÐµÄÂ·¾¶
+  [2] - °üº¬Ñ¡ÖÐµÄÎÄ¼þ
+Ê§°Ü: ·µ»Ø 0
 @@End@@
 
-###Remarks###
-None.
+###±¸×¢###
 
-###Related###
-$tagOPENFILENAME, _WinAPI_GetOpenFileName, _WinAPI_CommDlgExtendedError
+###Ïà¹Ø###
+$tagOPENFILENAME , _WinAPI_GetOpenFileName , _WinAPI_CommDlgExtendedError
 
-###See Also###
-@@MsdnLink@@ GetSaveFileName
+###²Î¿¼###
+ËÑË÷MSDNÖªÊ¶¿âÖÐGetSaveFileNameÏà¹ØÐÅÏ¢
 
-###Example###
+###Ê¾Àý###
 @@IncludeExample@@

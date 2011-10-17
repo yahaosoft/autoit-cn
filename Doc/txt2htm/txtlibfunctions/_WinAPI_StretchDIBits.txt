@@ -1,83 +1,61 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_StretchDIBits
 
-###Description###
-Copies the color data for a rectangle of pixels in a DIB, JPEG, or PNG image to the specified destination rectangle,
-;                  stretching or compressing the rows and columns by using the specified raster operation, if necessary.
+###ÃèÊö###
+½«DIB, JPEG»òPNGÍ¼ÏñÖĞµÄÏñËØ¾ØĞÎµÄÑÕÉ«Êı¾İ¸´ÖÆµ½Ä¿±ê¾ØĞÎ. ÈçÓĞ±ØÒªÊ¹ÓÃÖ¸¶¨µÄ¹âÕ¤²Ù×÷À­Éì»òÑ¹ËõĞĞÁĞ
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_StretchDIBits ( $hDestDC, $iXDest, $iYDest, $iWidthDest, $iHeightDest, $iXSrc, $iYSrc, $iWidthSrc, $iHeightSrc, ByRef $tBITMAPINFO, $iUsage, $pBits, $iRop )
+_WinAPI_StretchDIBits( $hDestDC, $iXDest, $iYDest, $iWidthDest, $iHeightDest, $iXSrc, $iYSrc, $iWidthSrc, $iHeightSrc, ByRef $tBITMAPINFO, $iUsage, $pBits, $iRop )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$hDestDC
-	Handle to the destination device context.
-$iXDest
-	The x-coordinate, in logical units, of the upper-left corner of the destination rectangle.
-$iYDest
-	The y-coordinate, in logical units, of the upper-left corner of the destination rectangle.
-$iWidthDest
-	The width, in logical units, of the destination rectangle.
-$iHeightDest
-	The height, in logical units, of the destination rectangle.
-$iXSrc
-	The x-coordinate, in pixels, of the source rectangle in the image.
-$iYSrc
-	The y-coordinate, in pixels, of the source rectangle in the image.
-$iWidthSrc
-	The width, in pixels, of the source rectangle in the image.
-$iHeightSrc
-	The height, in pixels, of the source rectangle in the image.
-$tBITMAPINFO
-	$tagBITMAPINFO structure that contains information about the DIB.
-$iUsage
-	The type of colors used. (either logical palette indexes or literal RGB values). The following
-	values are defined.
-	
-	$DIB_PAL_COLORS
-	$DIB_RGB_COLORS
-	
-$pBits
-	A pointer to the image bits, which are stored as an array of bytes.
-$iRop
-	The raster-operation code that specifies how the source pixels, the destination device context's
-	current brush, and the destination pixels are to be combined to form the new image. It must be
-	0 or one of the following values.
-	
-	$BLACKNESS
-	$CAPTUREBLT
-	$DSTINVERT
-	$MERGECOPY
-	$MERGEPAINT
-	$NOMIRRORBITMAP
-	$NOTSRCCOPY
-	$NOTSRCERASE
-	$PATCOPY
-	$PATINVERT
-	$PATPAINT
-	$SRCAND
-	$SRCCOPY
-	$SRCERASE
-	$SRCINVERT
-	$SRCPAINT
-	$WHITENESS
-	
+$hDestDC  Ä¿±ê³¡¾°¾ä±ú
+$iXDest  Ä¿±ê¾ØĞÎ×óÉÏ½Çx×ø±ê
+$iYDest  Ä¿±ê¾ØĞÎ×óÉÏ½Çy×ø±ê
+$iWidthDest  Ä¿±ê¾ØĞÎ¿í¶È
+$iHeightDest  Ä¿±ê¾ØĞÎ¸ß¶È
+$iXSrc  Ô´¾ØĞÎ×óÉÏ½Çx×ø±ê
+$iYSrc  Ô´¾ØĞÎ×óÉÏ½Çy×ø±ê
+$iWidthSrc  Ô´¾ØĞÎ¿í¶È
+$iHeightSrc  Ô´¾ØĞÎ¸ß¶È
+$tBITMAPINFO  °üº¬DIBĞÅÏ¢µÄ$tagBITMAPINFO½á¹¹
+$iUsage  Ê¹ÓÃµÄÑÕÉ«¸ñÊ½. (Âß¼­µ÷É«°åË÷Òı»òRGBÖµ). ¿ÉÓÃÏÂÁĞÖµ.
+$DIB_PAL_COLORS - °üº¬µ½Ô´³¡¾°Âß¼­µ÷É«°å16Î»Ë÷ÒıµÄÊı×é
+$DIB_RGB_COLORS - RGBÑÕÉ«Öµ
+$pBits  ´æ´¢ÎªÊıÎ»Êı×éµÄÍ¼ÏñÊıÎ»µÄÖ¸Õë
+$iRop  Ô´ÏñËØ, Ä¿±ê³¡¾°µ±Ç°µÄ»­Ë¢¼°Ä¿±êÏñËØÈçºÎ½áºÏÉú³ÉĞÂÍ¼ÏñµÄ¹âÕ¤²Ù×÷´úÂë. ±ØĞëÎª0»òÏÂÁĞÖµÖ®Ò».
+$BLACKNESS - Ê¹ÓÃÎïÀíµ÷É«°åÖĞµÄË÷Òı0Ìî³äÄ¿±ê¾ØĞÎ
+$CAPTUREBLT - ½á¹ûÍ¼Ïñ°üº¬ËùÓĞÔÚÄãµÄ´°¿ÚÉÏ²ãµÄ´°¿Ú. Ä¬ÈÏÖµ°üº¬ÄãµÄ´°¿Ú. ×¢Òâ¸ÃÖµ²»ÓÃÓÚ´òÓ¡Éè±¸.
+$DSTINVERT - ·´×ªÄ¿±ê¾ØĞÎ
+$MERGECOPY - Í¨¹ıBitAND²Ù×÷ºÏ²¢Ô´¾ØĞÎÑÕÉ«¼°Ä¿±ê³¡¾°µÄ»­Ë¢
+$MERGEPAINT - Í¨¹ıBitOR²Ù×÷ºÏ²¢Ô´¾ØĞÎ·´É«¼°Ä¿±ê³¡¾°µÄ»­Ë¢
+$NOMIRRORBITMAP - ×èÖ¹Í¼Ïñ¾µÏñ
+$NOTSRCCOPY - ½«·´×ªµÄÔ´¾ØĞÎ¸´ÖÆµ½Ä¿±ê³¡¾°
+$NOTSRCERASE - Í¨¹ıBitOR²Ù×÷ºÏ²¢Ô´¾ØĞÎ¼°Ä¿±ê¾ØĞÎµÄÑÕÉ«ºó·´×ª¶ÔÓ¦ÑÕÉ«
+$PATCOPY - ½«Ä¿±ê³¡¾°ÖĞÑ¡È¡µÄ»­Ë¢¸´ÖÆµ½Ä¿±êÎ»Í¼ÖĞ
+$PATINVERT - Í¨¹ıBitXOR²Ù×÷ºÏ²¢Ä¿±ê³¡¾°ÖĞµ±Ç°Ñ¡È¡µÄ»­Ë¢ÑÕÉ«¼°Ä¿±ê¾ØĞÎµÄÑÕÉ«
+$PATPAINT - Í¨¹ıBitOR²Ù×÷ºÏ²¢Ô´¾ØĞÎ·´É«ºÍÄ¿±ê³¡¾°ÖĞÑ¡È¡µÄ»­Ë¢É«
+$SRCAND - Í¨¹ıBitAND²Ù×÷ºÏ²¢Ô´¾ØĞÎÑÕÉ«¼°Ä¿±ê¾ØĞÎÑÕÉ«
+$SRCCOPY - ½«Ô´¾ØĞÎÖ±½Ó¸´ÖÆµ½Ä¿±ê¾ØĞÎ
+$SRCERASE - Í¨¹ıBitAND²Ù×÷ºÏ²¢Ä¿±ê¾ØĞÎµÄ·´É«¼°Ô´¾ØĞÎµÄÑÕÉ«
+$SRCINVERT - Í¨¹ıBitXOR²Ù×÷ºÏ²¢Ä¿±ê¾ØĞÎµÄÑÕÉ«¼°Ô´¾ØĞÎµÄÑÕÉ«
+$SRCPAINT - Í¨¹ıBitOR²Ù×÷ºÏ²¢Ä¿±ê¾ØĞÎµÄÑÕÉ«¼°Ô´¾ØĞÎµÄÑÕÉ«
+$WHITENESS - Ê¹ÓÃÎïÀíµ÷É«°åÖĞµÄË÷Òı1Ìî³äÄ¿±ê¾ØĞÎ
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	The number of scan lines copied. Note that this value can be negative for mirrored content.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø¸´ÖÆµÄÉ¨ÃèĞĞÊı. ¶ÔÓÚÍ¼Ïñ¸ÃÖµ¿ÉÎª¸ºÊı.
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-_WinAPI_StretchDIBits() creates a mirror image of a bitmap if the signs of the $iWidthSrc and $iWidthDest parameters,
-or if the $iHeightSrc and $iHeightDest parameters differ. If $iWidthSrc and $iWidthDest have different signs,
-the function creates a mirror image of the bitmap along the x-axis. If $iHeightSrc and $iHeightDest have different
-signs, the function creates a mirror image of the bitmap along the y-axis.
+###±¸×¢###
+µ±¸ø¶¨$iWidthSrc¼°$iWidthDest²ÎÊı»ò$iHeightSrcºÍ$iHeightDest²ÎÊıµÄ·ûºÅ²»Í¬Ê±, _WinAPI_StretchDIBits()´´½¨Î»Í¼µÄ¾µÏñÍ¼Ïñ.
+Èç¹û$iWidthSrcºÍ$iWidthDest·ûºÅ²»Í¬, º¯ÊıÑØxÖá´´½¨Î»Í¼µÄ¾µÏñÍ¼Ïñ.
+Èç¹û$iHeightSrcºÍ$iHeightDest·ûºÅ²»Í¬, º¯ÊıÑØyÖá´´½¨Î»Í¼µÄ¾µÏñÍ¼Ïñ.
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ StretchDIBits
-
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞStretchDIBitsµÄÏà¹ØĞÅÏ¢

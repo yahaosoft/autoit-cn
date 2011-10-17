@@ -1,41 +1,36 @@
-###User Defined Function###
+###用户自定义函数###
 _Assert
 
-###Description###
-插入失败时显示的信息
+###描述###
+插入显示语句错误的消息
 
-###Syntax###
-#include <Debug.au3>
+###语法###
+#Include <Debug.au3>
 _Assert($sCondition [,$bExit = True [,$nCode = 0x7FFFFFFF [,$sLine = @ScriptLineNumber]]])
 
-
-###Parameters###
+###参数###
 @@ParamTable@@
-$sCondition
-	必须判断为真的条件(表达式要求)
-$bExit
-	[可选参数]为真时脚本退出.
-$nCode
-	[可选参数]脚本退出时使用的代码
-$sLine
-	[可选参数]显示插入失败的行. 如果该值未改变, 则默认值将显示正确的行.
+$sCondition 
+   必须判断为真的条件(表达式要求)
+$bExit 
+   [可选]为真时脚本退出.
+$nCode 
+   [可选] 脚本退出时使用的代码
+$sLine 
+   [可选]显示语句错误的行号. 如果该值未改变, 则默认值将显示正确的行.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-	返回条件的结果 (仅在没有退出时有效).
+状态结果(仅当不存在时有效).
 @@End@@
 
-###Remarks###
-@error 与 @extended 返回时不会被破坏. 
-译注: 有些时候,您预期程式中应该会处于何种状态,例如某些情况下某个值必然是多少,这称之为一种断言(Assertion).
-断言有两种情况:成立或不成立. 当预期结果与实际执行相同时,断言成立,否则断言失败. 
-参见: http://www.ntsky.com/docs/java/JavaGossip-V1/JavaGossip-V1/Assertion.htm
+###备注###
+@error和@extended不会在返回时销毁.
 
+###相关###
 
-###Related###
-None.
+###参考###
 
-
-###Example###
+###示例###
 @@IncludeExample@@

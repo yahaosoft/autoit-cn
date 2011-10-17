@@ -1,39 +1,34 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_BeginPaint
 
-###Description###
-准备绘制指定的窗口.
+###����###
+׼��ָ���Ļ�ͼ����
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_BeginPaint ( $hWnd, ByRef $tPAINTSTRUCT )
+_WinAPI_BeginPaint($hWnd, ByRef $tPAINTSTRUCT)
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hWnd
-	重新绘制的窗口句柄.
+   ���ػ�Ĵ�����
 $tPAINTSTRUCT
-	将接受绘制信息的 $tagPAINTSTRUCT 结构.
+   $tagPAINTSTRUCT�ṹ
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回指定窗口显示设备环境的句柄.
-失败:	返回 0,设置@error:标志为非 0 值.
+�ɹ�: ָ�����ڵ���ʾ�豸����(DC)�ľ��
+ʧ��: ����0������@error��0
 @@End@@
 
-###Remarks###
-本函数自动设置该设备环境的剪辑区域,并排除更新区域以外的任何区域.
- 更新区域则由 _WinAPI_InvalidateRect() 或 _WinAPI_InvalidateRgn() 函数设置.
- 系统在调整大小、移动、创建、滚动或或任何其他操作以后更新客户区域.
- 如果更新区域标记为擦除, 本函数将发送 WM_ERASEBKGND 消息到窗口.
- 应用程序有可能不调用本函数, 除非响应一个 WM_PAINT 消息.
- 本函数的每次调用必须有一个对应的 _WinAPI_EndPaint() 函数调用.
+###��ע###
+�ú����Զ������豸�����ļ����������ų������ڸ�����������κ�����. ����������_WinAPI_InvalidateRect()�� _WinAPI_InvalidateRgn()�������ڴ�С�仯, �ƶ�, ����, ����, ���κ�Ӱ��ͻ���������ϵͳ����֮������. �������������Ϊ����, _WinAPI_BeginPaint()�򴰿ڷ���WM_ERASEBKGND��Ϣ.
+����Ϊ�˻�ӦWM_PAINT��ϢӦ�ó��򽫲�����_WinAPI_BeginPaint(). ÿ�ε���_WinAPI_BeginPaint() �����ж�Ӧ��_WinAPI_EndPaint()����.
 
+###���###
 
-###See Also###
-@@MsdnLink@@ BeginPaint
+###�ο�###
 
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

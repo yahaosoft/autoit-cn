@@ -1,56 +1,47 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlComboBoxEx_Create
 
-###Description###
-创建扩展组合控件
+###描述###
+创建扩展组合框控件
 
-###Syntax###
+###语法###
 #Include <GuiComboBoxEx.au3>
-_GUICtrlComboBoxEx_Create($hWnd, $sText, $iX, $iY[, $iWidth = 100[, $iHeight = 200[, $iStyle = 0x00200002[, $iExStyle = 0x00000000]]]])
+_GUICtrlComboBoxEx_Create( $hWnd, $sText, $iX, $iY[, $iWidth = 100[, $iHeight = 200[, $iStyle = 0x00200002[, $iExStyle = 0x00000000]]]] )
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	父窗或属主窗体句柄
-$sText
-	将添加到组合控件的项目文本,多项目由 "|" 分隔
-$iX
-	控件水平位置
-$iY
-	控件垂直位置
-$iWidth
-	[可选参数] 控件宽度
-$iHeight
-	[可选参数] 控件高度
-$iStyle
-	[可选参数] 控件样式:
-		$CBS_DROPDOWN - 类似 $CBS_SIMPLE，但列表框不显示,
-		只在用户点击编辑框边上的下拉按钮时才显示.
-		$CBS_DROPDOWNLIST - 类似 $CBS_DROPDOWN,编辑框通过一个静态文本项显示列表中的当前选择项.
-		$CBS_SIMPLE - 总是示列表框
-
-	[可选参数] 默认 : $CBS_DROPDOWN, $WS_VSCROLL
-		强制 : $WS_CHILD, $WS_TABSTOP, $WS_VISIBLE
-
-$iExStyle
-	[可选参数] 扩展样式:
-		$CBES_EX_CASESENSITIVE - 列表框搜索将区分大小写
-		$CBES_EX_NOEDITIMAGE - 编辑框和下拉列表框不显示项目图像
-		$CBES_EX_NOEDITIMAGEINDENT - 编辑框和下拉列表框不显示项目图像
-		$CBES_EX_NOSIZELIMIT - 允许 ComboBoxEx 控件垂直尺寸比其中的组合框控件小.
+ $hWnd  父窗体或所属窗体的句柄
+ $sText  将要添加到组合框中的分割的文本
+ $iX  控件水平位置
+ $iY  控件垂直位置
+ $iWidth  控件宽度
+ $iHeight  控件高度
+ $iStyle  控件风格:
+$CBS_DROPDOWN - 类似$CBS_SIMPLE , 不过只有当用户选择编辑框边上的按钮时才显示列表箱
+$CBS_DROPDOWNLIST - 类似$CBS_DROPDOWN , 不过编辑控件被一个固定的带一个列表箱的编辑框所替代
+$CBS_SIMPLE - 一直显示列表箱
+  默认: $CBS_DROPDOWN , $WS_VSCROLL
+强制: $WS_CHILD , $WS_TABSTOP , $WS_VISIBLE
+ $iExStyle  控件扩展风格:
+$CBES_EX_CASESENSITIVE - 在列表箱中搜索大小写敏感
+$CBES_EX_NOEDITIMAGE - 编辑框和下拉刘表不显示项目图像
+$CBES_EX_NOEDITIMAGEINDENT - 编辑框和下拉列表不显示项目图像
+$CBES_EX_NOSIZELIMIT - 允许ComboBoxEx控件垂直小于被其包含的组合框控件
+$CBES_EX_PATHWORDBREAKPROC - 仅对Microsoft Windows NT有效. 编辑框可以使用斜杠(/) , 反斜杠(\) , 点号(.)字符作为文字分隔符. 这使得键盘快捷键在路径名和网址中逐字移动光标更有效率.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 ComboBoxEx 组合控件句柄.
-失败:	返回 0
+成功: 列表箱控件句柄
+失败: 0
 @@End@@
 
-###Remarks###
-None.
+###备注###
 
-###Related###
+###相关###
 _GUICtrlComboBoxEx_Destroy
 
-###Example###
+###参考###
+
+###示例###
 @@IncludeExample@@

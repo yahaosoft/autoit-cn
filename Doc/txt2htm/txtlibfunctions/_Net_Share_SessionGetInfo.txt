@@ -1,49 +1,42 @@
-###User Defined Function###
+###用户自定义函数###
 _Net_Share_SessionGetInfo
 
-###Description###
-检索服务器和工作站之间建立会话的信息
+###描述###
+返回建立在服务器和工作站之间的一次会话的信息
 
-###Syntax###
+###语法###
 #Include <NetShare.au3>
 _Net_Share_SessionGetInfo($sServer, $sClientName, $sUserName)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$sServer
-	指定函数将操作远程服务器的 DNS 或 NetBIOS 名称字符串
-		如果参数为空, 则使用本地计算机.
-$sClientName
-	指定返回信息的计算机会话名称.
-		此参数不能为空.
-$sUserName
-	指定返回会话信息的用户名称.
-		此参数不能为空.
+ $sServer  用以指定函数将操作的远程服务器的DNS或NetBIOS名称的字符串. 如果参数为空则使用本地计算机.
+ $sClientName  指定要返回会话信息的客户端计算机名. 该参数不能为空.
+ $sUserName  指定要返回信息的用户的用户名字符串. 该参数不能为空.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回以下格式的数组:
-	[0] - 计算机确定的会话名称
-	[1] - 建立会话的用户名称
-	[2] - 文件, 设备的数量, 并在会话期间打开的管道
-	[3] - 有效会话时间的秒数
-	[4] - 会话闲置时间的秒数
-	[5] - 指定用户如何确定会话:
-	1 - 用户使用来宾帐户建立的会话
-	2 - 用户不使用密码建立的会话
-	[6] - 指定客户端建立的会话类型
-失败:	设置@error:	
+成功: 如下格式数组:
+    [0] - 建立会话的计算机名
+    [1] - 建立会话的用户名
+    [2] - 会话期间打开的文件, 设备及管道的数量
+    [3] - 会话已被激活的秒数
+    [4] - 会话已空置的秒数
+    [5] - 指定用户如何建立会话:
+     1 - 用户通过访客帐户建立会话
+     2 - 用户不使用密码加密建立会话
+    [6] - 客户端使用的的传输的名称
 @@End@@
 
-###Remarks###
-系统管理员,服务器操作员或本地组成员才能执行此功能
+###备注###
+仅本地管理组或服务器操作组可执行该函数
 
-###Related###
-_Net_Share_FileGetInfo, _Net_Share_ShareGetInfo
+###相关###
+ _Net_Share_FileGetInfo , _Net_Share_ShareGetInfo
 
-###See Also###
-@@MsdnLink@@ NetSessionGetInfo
+###参考###
+ 搜索MSDN知识库中NetSessionGetInfo的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

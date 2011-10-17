@@ -1,42 +1,41 @@
-###User Defined Function###
+###用户自定义函数###
 _Crypt_DeriveKey
 
-###Description###
-用算法和密码创建密钥
+###描述###
+由算法和密码创建密钥
 
-###Syntax###
+###语法###
 #Include <Crypt.au3>
 _Crypt_DeriveKey($vPassword, $iALG_ID [, $iHash_ALG_ID = $CALG_MD5 ] )
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$vPassword
-	要使用的密码
-$iALG_ID
-	加密算法的 ID
-$iHash_ALG_ID
-	[可选参数] hash 算法的 ID 与密码 译注:关于 Hash 见下文注意部分
+$vPassword 
+   要使用的密码
+$iALG_ID 
+   用于密钥的算法的解密标识
+$iHash_ALG_ID 
+    [可选] 用于混淆密码的算法的标识
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回密钥句柄
-	设置 @error 为 0
-失败:	返回 -1 并设置 @error:
-	1 - 无法创建 hash 对象
-	2 - 没有 hash 密码
-	3 - 无法生成密钥
+成功: 返回密钥的句柄并设置@error为0
+失败: 返回-1并设置@error为:
+    1 - 创建hash对象失败
+    2 - 创建hash密码失败
+    3 - 创建密钥失败
 @@End@@
 
-###Remarks###
- 密钥需要用 _Crypt_DestroyKey 销毁.
- AES 算法不适用于 Windows 2000.
+###备注###
+密钥需要由_Crypt_DestroyKey销毁.
+在Windows 2000中AES算法不可用.
 
-###Related###
-_Crypt_DestroyKey, _Crypt_EncryptData, _Crypt_EncryptFile, _Crypt_DecryptData, _Crypt_DecryptFile
+###相关###
+ _Crypt_DestroyKey , _Crypt_EncryptData , _Crypt_EncryptFile , _Crypt_DecryptData , _Crypt_DecryptFile
 
-###See Also###
-@@MsdnLink@@ CryptDeriveKey
+###参考###
+ 搜索MSDN知识库中CryptDeriveKey的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

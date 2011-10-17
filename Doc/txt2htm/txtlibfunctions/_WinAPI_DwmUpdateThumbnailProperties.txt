@@ -1,50 +1,47 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_DwmUpdateThumbnailProperties
 
-###Description###
-指定桌面窗口管理器（DWM）缩略图属性.
+###����###
+����DWM����ͼ����
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
 _WinAPI_DwmUpdateThumbnailProperties ( $hThumbnail [, $fVisible [, $fClientAreaOnly [, $iOpacity [, $tRectDest [, $tRectSrc]]]]] )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hThumbnail
-	检索源窗口大小的缩略图句柄.
+   �����л�ȡԴ�����С������ͼ�ľ��
 $fVisible
-	[可选参数] 指定使缩图是否可见.有效值:
-		1 - 可见.
-		0 - 不可见.
+   [��ѡ] ָ������ͼ�Ƿ�ɼ�:
+    1 - �ɼ�
+    0 - ���ɼ�
 $fClientAreaOnly
-	[可选参数] 指定使用缩略图源客户区域或整个窗口.有效值:
-		1 - 使用源客户区.
-		0 - 使用整个窗口.
+   [��ѡ] ָ������ͼʹ��Դ�ͻ���������������:
+    1 - ��ʹ��Դ�ͻ���
+    0 - ʹ����������
 $iOpacity
-	[可选参数] 缩略图的不透明度.0 为完全透明,255 为完全不透明.
+   [��ѡ] ��Ⱦ����ͼ��ʹ�õ�͸����. 0Ϊȫ͸����255Ϊ��ȫ��͸��.
 $tRectDest
-	[可选参数] $tagRECT 结构.包含将会呈现缩略图的目标窗口矩形
-		 默认矩形等于 _WinAPI_DwmQueryThumbnailSourceSize() 函数返回的源 DWM 缩略图的大小. 
+$tagRECT�ṹ. �þ��εĳߴ�Ĭ�ϵ�����_WinAPI_DwmQueryThumbnailSourceSize()�������ص�DWM����ͼ��Դ�ߴ�.
 $tRectSrc
-	[可选参数] $tagRECT 结构.包含使用缩略图的源窗口矩形区域.
-		 默认整个窗口被用作缩略图.
+$tagRECT�ṹ. Ĭ��Ϊ��������.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
+�ɹ�: ����1
+ʧ��: ����0������@error��0. @extended��ǰ���COM�������
 @@End@@
 
-###Remarks###
-_WinAPI_DwmRegisterThumbnail() 创建的缩略图关系,在函数调用前,不会被渲染到目标窗口.
- 后续调用将根据属性更新缩略图.
- 本函数需要 Windows Vista 或更高版本系统.
+###��ע###
+��_WinAPI_DwmRegisterThumbnail()����������ͼ��ϵ�ڵ��øú���ǰ������ȾĿ�괰��. �������ý��������Ը�������ͼ.
+�ú�����ҪWindows Vista�����ϰ汾.
 
+###���###
 
-###See Also###
-@@MsdnLink@@ DwmUpdateThumbnailProperties
+###�ο�###
+ ����MSDN֪ʶ����DwmUpdateThumbnailProperties�������Ϣ
 
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

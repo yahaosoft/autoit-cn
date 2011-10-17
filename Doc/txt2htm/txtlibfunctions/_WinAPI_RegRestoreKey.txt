@@ -1,43 +1,42 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_RegRestoreKey
 
-###Description###
-读取指定文件的注册表信息,并将其复制到指定键.
+###����###
+��ȡָ���ļ��е�ע�����Ϣ�����Ƶ�ָ������
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_RegRestoreKey ( $hKey, $sFile )
+_WinAPI_RegRestoreKey( $hKey, $sFile )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hKey
-	注册表项句柄. 句柄由 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回.
-		 参数也可以为下列预定义项:
-		 $HKEY_CLASSES_ROOT --- 定义文件类型和类型相关的属性
-		 $HKEY_CURRENT_CONFIG --- 包含本地计算机系统目前的硬件配置文件
-		 $HKEY_CURRENT_USER --- 定义当前用户的参数选择
-		 $HKEY_LOCAL_MACHINE --- 定义计算机物理状态,包括总线类型、系统内存数据、并安装的硬件和软件
-		 $HKEY_USERS --- 确定本地计算机新用户定义默认用户配置,并作为当前用户的用户配置
+   �򿪵�ע������ľ��. �þ����_WinAPI_RegCreateKey()��_WinAPI_RegOpenKey()��������function. ��Ϊ����Ԥ�����֮һ:
+   $HKEY_CLASSES_ROOT
+   $HKEY_CURRENT_CONFIG
+   $HKEY_CURRENT_USER
+   $HKEY_LOCAL_MACHINE
+   $HKEY_USERS
 $sFile
-	文件的名称. 通常是使用_WinAPI_RegSaveKey() 函数创建的文件.	
+   ����ע�����Ϣ���ļ�������. ���ļ�ͨ����_WinAPI_RegSaveKey()��������.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
+�ɹ�: ����1
+ʧ��: ����0������@error��0, @extended��ǿɰ�����0ϵͳ�������.
 @@End@@
 
-###Remarks###
-有两种不同的注册表配置单元文件格式.
-当前操作系统创建的注册表配置单元通常不能被早前的系统加载.
- $sFile 指定文件的新信息覆盖由 $hKey 参数指定项的内容,除键名以外.
- 如果 $hKey 参数指定的子项是打开的,_WinAPI_RegRestoreKey() 失败.
+###��ע###
+������ע������õ�Ԫ�ļ���ʽ. �ɵ�ǰ����ϵͳ������ע������õ�Ԫͨ���޷�������ϵͳ����.
+��$sFileָ�����ļ��е�����Ϣ������$hKey����ָ����������ļ�������.
+���hKey�������Ӽ��ѱ���, _WinAPI_RegRestoreKey()ʧ��.
+����ʾ��ǰ�뽫 reg.dat �ļ���������ʱ�ļ���
 
+###���###
 
-###See Also###
-@@MsdnLink@@ RegRestoreKey
+###�ο�###
+ ����MSDN֪ʶ����RegRestoreKey�������Ϣ
 
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

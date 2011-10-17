@@ -1,53 +1,50 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_SetParaAttributes
 
-###Description###
-设置(第一)当前选择(或没有选择时的插入点所在段落)的属性
+###描述###
+设置(首个)选定的或(未选择时)当前的段落的属性
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetParaAttributes($hWnd, $sStatesAndAtts)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$sStatesAndAtts
-	返回由分号";"分隔的字符串组.
-		每组包括:
-		第一个字符 - 状态:
-		   + - 打开属性
-		   - - 关闭属性
-		   "fpg" - 强制这个/这些段落到新页面(初始关闭)
-		   "hyp" - 自动断字(最初的)
-		   "kpt" - 保持这个/这些段落在同一页面上(最初关闭)
-		   "kpn" - 保持这个/这些段落和下一段落同一页面上(最初关闭)
-		   "pwo" - 防止半行或孤行,即避免段落页面上出现一个单行(最初关闭)
-
-		   "r2l" - 显示文本使用从右到左的阅读顺序(刚开始关闭)
-		   "row" - 段落为表格行(初始关闭)
-		   "sbs" - 显示段落并排(刚开始关闭)
-		   "sln" - 隐藏文档中的行号或带行号的片段(初始关闭)
+ $hWnd  控件句柄
+ $sStatesAndAtts  由分号(;)分拆的值组的字符串..
+每组组成:
+首字符 - 状态:
+   + - 开启属性
+   - - 关闭属性
+   "fpg" - 强制该/这些段落到新页(初始关闭)
+   "hyp" - 自动超界(初始开启)
+   "kpt" - 保持该(些)段在一页上(初始关闭)
+   "kpn" - 保持该(些)段和后续的在一页上(初始关闭)
+   "pwo" - 阻止窗体和独立段, 如, 避免该(些)段在页上只有单一行(初始关闭)
+   "r2l" - 按从右到左的读取顺序显示文本(初始关闭)
+   "row" - 段落为表行(初始关闭)
+   "sbs" - 从一端到另一端显示段(初始关闭)
+   "sln" - 隐藏文档中的行号或带行号的片段(初始关闭)
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False设置@error
-@error:	101 - $hWnd 参数值不是句柄
-	1021 - $sStatesAndAtts 状态字符无效. 它在 @extended
-	1022 - $sStatesAndAtts 属性缩写无效. 它在 @extended
-	1023 - $sStatesAndAtts 字符长度无效
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  1021 - $sStatesAndAtts中的一个状态字符无效. 在@extended中
+  1022 - $sStatesAndAtts中的状态缩写无效. 在@extended中
+  1023 - $sStatesAndAtts长度无效
 @@End@@
 
-###Remarks###
- 结果显示在 Word 中,在 RichEdit 中不显示
+###备注###
+在Word中显示结果而不是在富文本编辑控件中
 
-###Related###
-_GUICtrlRichEdit_GetParaAttributes
+###相关###
+ _GUICtrlRichEdit_GetParaAttributes
 
-###See Also###
-@@MsdnLink@@ EM_SETPARAFORMAT
+###参考###
+ 搜索MSDN知识库中EM_SETPARAFORMAT的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

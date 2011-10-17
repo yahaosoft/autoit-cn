@@ -1,54 +1,47 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_FindText
 
-###Description###
-搜索插入点或定位点的选择文本
+###描述###
+从插入点或选取的锚点开始搜索文本
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_FindText($hWnd, $sText [, $fForward = True [, $fMatchCase = False [, $fWholeWord = False [, $iBehavior = 0]]]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$sText
-	搜索的文本
-$fForward
-	[可选参数] 搜索方向
-		(Win 95: 总是向前搜索)
-$fMatchCase
-	[可选参数] 是否区分大小写
-		默认 : 不区分大小写
-$fWholeWord
-	[可选参数] 搜索完整单词
-		默认 : 部分或全部字
-$iBehavior
-	[可选参数] 任何 BitOr 组合: $FR_MATCHALEFHAMZA, $FR_MATCHDIAC 与 $FR_MATCHKASHIDA
-		默认 : 0
+ $hWnd  控件句柄
+ $sText  查找的文本
+ $fForward   [可选] 搜索方向
+(Win 95: 搜索总是向前)
+ $fMatchCase   [可选] 搜索为大小写敏感
+默认: 大小写不敏感
+ $fWholeWord   [可选] 全字匹配搜索
+默认: 部分或完整单词
+ $iBehavior   [可选] BitOr $FR_MATCHALEFHAMZA, $FR_MATCHDIAC及$FR_MATCHKASHIDA的组合
+默认: 0
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回字符区间开始位置匹配的文本,否则返回 -1
-失败:	返回 -1,设置@error:	
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $sText = ""
-	103 - $fForward 既不是 True, 也不是 False
-	104 - $fMatchCase 既不是 True, 也不是 False
-	105 - $fWholeWord 既不是 True, 也不是 False
-	1061 - $iBehavior 不是一个数字
-	1062 - $iBehavior 无效
+成功: 如果找到, 匹配文本开始前的内部字符位置, 或-1
+失败: 返回-1并设置@error:
+   101 - $hWnd不是句柄
+   102 - $sText = ""
+   103 - $fForward非真非假
+   104 - $fMatchCase非真非假
+   105 - $fWholeWord非真非假
+   1061 - $iBehavior不是数字
+   1062 - $iBehavior无效
 @@End@@
 
-###Remarks###
-None.
+###备注###
 
-###Related###
-_GUICtrlRichEdit_FindTextInRange
+###相关###
+ _GUICtrlRichEdit_FindTextInRange
 
-###See Also###
-@@MsdnLink@@ EM_FINDTEXT
+###参考###
+ 搜索MSDN知识库中EM_FINDTEXT的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

@@ -1,39 +1,37 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _SQLite_Exec
 
-###Description###
-执行 SQLite 查询,不处理结果.
+###����###
+ִ��SQLite��ѯ, ��Ҫ���
 
-###Syntax###
-#include <SQLite.au3>
+###�﷨###
+#Include <SQLite.au3>
 _SQLite_Exec ( $hDB, $sSQL [, $sCallBack ] )
 
-
-###Parameters###
+###����###
 @@ParamTable@@
-$hDB
-	打开的数据库,如为 -1, 则使用最后打开的数据库
-$sSQL
-	要执行的语句
-$sCallback
-	[可选参数] 如果指定此参数,则每一行都将调用函数
+ $hDB  �򿪵����ݿ�, -1Ϊ����򿪵����ݿ�
+ $sSQL  ִ�е�SQL����ʽ
+ $sCallback  [��ѡ] ָ�������ÿ�о�����ú���
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 $SQLITE_OK
-失败:	返回值可能违反 $SQLITE_* 常量@错误:
-	-1 - SQLite 报告错误 (检查返回值)
-	1 - 错误调用 SQLite API 'sqlite3_exec'
-	2 - 调用被安全模式阻止
-	3 - _SQLite_GetTable2d 内部回叫错误
-	4 - 转换 SQL 语句到 UTF-8 错误
+�ɹ�: ����$SQLITE_OK ʧ��: ���ؿ���$SQLITE_* �����Ƚϵ�ֵ
+@error: -1 - SQLite����(��鷵��ֵ)
+      1 - ����SQLite API 'sqlite3_exec'����
+      2 - ��ȫģʽ��ֹ����
+      3 - �ص����̳���
 @@End@@
 
-###Remarks###
- 回调函数必须接受 1 个参数,
- 并能返回 $SQLITE_ABORT 停止处理(见示例).
- 在回调序列的第一行为列名称.
+###��ע###
+������������� 1 �������ɷ���$SQLITE_ABORT�Խ�������(��ʾ��).
+�ص����е�����Ϊ����.
 
-###Example###
+###���###
+ _SQLite_Query , _SQLite_Gettable , _SQLite_Gettable2d
+
+###�ο�###
+
+###ʾ��###
 @@IncludeExample@@

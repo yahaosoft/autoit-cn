@@ -1,47 +1,39 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_SaveHBITMAPToFile
 
-###Description###
-Saves a specified bitmap to the specified bitmap (.bmp) file.
+###ÃèÊö###
+½«Ö¸¶¨Î»Í¼±£´æÎªÖ¸¶¨Î»Í¼(.bmp)ÎÄ¼ş
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_SaveHBITMAPToFile ( $sFile, $hBitmap [, $iXPelsPerMeter [, $iYPelsPerMeter]] )
+_WinAPI_SaveHBITMAPToFile( $sFile, $hBitmap [, $iXPelsPerMeter [, $iYPelsPerMeter]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $sFile
-	The name of the .bmp file in which to save the bitmap.
+   ±£´æÎ»Í¼µÄ.bmpÎÄ¼ş
 $hBitmap
-	Handle to the bitmap to be save.
+   Òª±£ÁôµÄÎ»Í¼µÄ¾ä±ú
 $iXPelsPerMeter
-	[å¯é€‰å‚æ•°] The horizontal resolution, in pixels-per-meter.
+   [¿ÉÑ¡] ÒÔÏñËØÃ¿Ã×±íÊ¾µÄË®Æ½·Ö±æÂÊ
 $iYPelsPerMeter
-	[å¯é€‰å‚æ•°] The vertical resolution, in pixels-per-meter.
+   [¿ÉÑ¡] ÒÔÏñËØÃ¿Ã×±íÊ¾µÄ´¹Ö±·Ö±æÂÊ
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø1
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-This function saves the specified bitmap unchanged, except when the bitmap uses 32 bits-per-pixel color depth.
-In this situation, if the bitmap contains an alpha channel, it will be saved as 32 bits-per-pixel image, and
-as 24 bits-per-pixel image otherwise.
+###±¸×¢###
+º¯Êı±£´æÖ¸¶¨Î»Í¼Ê±²»»á¸Ä±äÎ»Í¼, ³ı·ÇÎ»Í¼Ê¹ÓÃ32Î»É«Éî. ÔÚ´ËÇé¿öÏÂ, Èç¹ûÎ»Í¼¾ßÓĞalphaÍ¨µÀ, ½«±£´æÎª32Î»Í¼Ïñ,·ñÔòÒÔ24Î»Í¼Ïñ±£´æ.
+ÓÉ$iXPelsPerMeterºÍ$iYPelsPerMeter²ÎÊıÖ¸¶¨µÄË®Æ½¼°´¹Ö±·Ö±æÂÊ²»»áÓ°ÏìÍ¼ÏñÖÊÁ¿, µ«Ó¦ÓÃ³ÌĞò»áÊ¹ÓÃÕâĞ©Öµ´Ó×ÊÔ´×éÖĞÑ¡È¡×îÊÊºÏµ±Ç°Éè±¸ÌØµãµÄÎ»Í¼. Èç¹ûÎ´Ö¸¶¨·Ö±æÂÊ, º¯ÊıÊ¹ÓÃµ±Ç°ÆÁÄ»µÄ·Ö±æÂÊ, Í¨³£ÎªÃ¿Ã×2834ÏñËØ¶ÔÓ¦ÓÚ72(dpi)
+Èç¹ûÔ´Î»Í¼¾­¹ıÑ¹Ëõ»òÊ¹ÓÃÁËÑÕÉ«ÑÚÂë, º¯ÊıÊ§°Ü.
 
-The horizontal and vertical resolutions pointed by the $iXPelsPerMeter and $iYPelsPerMeter parameters has not
-affects the image quality, but application can use this value to select a bitmap from a resource group that best
-matches the characteristics of the current device. If the resolutions is not specified, the function uses the
-current screen resolutions, usually 2834 pixels-per-meter which corresponds to 72 pixels-per-inch (dpi).
+###Ïà¹Ø###
 
-If the source bitmap is compressed, or use a color masks, the function fails.
+###²Î¿¼###
 
-
-###See Also###
-None
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

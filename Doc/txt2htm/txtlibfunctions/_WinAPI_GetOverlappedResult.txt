@@ -1,43 +1,42 @@
-###User Defined Function###
+###用户自定义函数###
 _WinAPI_GetOverlappedResult
 
-###Description###
-检索重叠操作的结果
+###描述###
+获取一个重叠操作当前的状态
 
-###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_GetOverlappedResult($hFile, $pOverlapped, ByRef $iBytes [, $fWait = False])
+###语法###
+#Include
+<WinAPI.au3>
+_WinAPI_GetOverlappedResult($hFile, $pOverlapped, ByRef
+$iBytes[, $fWait = False])
 
-###Parameters###
+###参数###
 @@ParamTable@@
 $hFile
-	文件,命名管道或通信设备句柄.
-		当重叠操作是调用 ReadFile, WriteFile, ConnectNamedPipe,
-		TransactNamedPipe, DeviceIoControl, 或 WaitCommEvent 时,指定的相同句柄.
+   文件、管道或通信设备的句柄. 该句柄由当重叠操作由ReadFile, WriteFile,
+      ConnectNamedPipe,
+    TransactNamedPipe, DeviceIoControl,
+      或WaitCommEvent启动时的句柄指定.
 $pOverlapped
-	指定启动重叠操作的 $tagOVERLAPPED 结构指针
-		started.
+$tagOVERLAPPED结构的指针
 $iBytes
-	读或写操作的传输字节数.
-		对于 TransactNamedPipe 操作, 这是从管道读的字节数.
-		对于 DeviceIoControl 操作, 这是由设备驱动程序返回的输出数据字节数.
-		对于 ConnectNamedPipe 或 WaitCommEvent 操作, 该值未定义.
+   由读/写操作实际传输的字节数. 对于TransactNamedPipe操作, 为从管道读取的字节数.
+      对于DeviceIoControl操作指由设备驱动返回的输出数据的字节数. 对于ConnectNamedPipe或WaitCommEvent操作,
+      该值未定义.
 $fWait
-	[可选参数] 如为 True, 函数不返回, 直到操作已完成.
-		如为 False 与操作挂起, 函数返回 False 与 GetLastError 返回 ERROR_IO_INCOMPLETE.
+   如果为真，函数直到操作结束才返回. 如果为假且操作仍在继续,
+      函数返回假且GetLastError函数返回ERROR_IO_INCOMPLETE.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False
+成功: 通过读/写操作实际传输的字节数
 @@End@@
 
-###Remarks###
-None.
+###备注###
 
-###Related###
+###相关###
 $tagOVERLAPPED
 
-###See Also###
-@@MsdnLink@@ GetOverlappedResult
+###参考###
+搜索MSDN知识库中GetOverlappedResult的相关信息

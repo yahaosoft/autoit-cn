@@ -1,46 +1,36 @@
-###User Defined Function###
+###用户自定义函数###
 _NamedPipes_TransactNamedPipe
 
-###Description###
-在网络运行中读取和写入命名管道
+###描述###
+在一个网络操作中读取并写入命名管道
 
-###Syntax###
+###语法###
 #Include <NamedPipes.au3>
-_NamedPipes_TransactNamedPipe($hNamedPipe, $pInpBuf, $iInpSize, $pOutBuf, $iOutSize [, $pOverlapped = 0])
+_NamedPipes_TransactNamedPipe($hNamedPipe, $pInpBuf, $iInpSize, $pOutBuf, $iOutSize[, $pOverlapped = 0])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hNamedPipe
-	命名管道句柄
-$pInpBuf
-	写入管道的数据缓冲区的指针
-$iInpSize
-	写入缓冲区的字节大小
-$pOutBuf
-	接收读取管道数据的缓冲区指针
-$iOutSize
-	读取缓冲区的字节大小
-$pOverlapped
-	[可选参数] $tagOVERLAPPED 结构指针. 如果 hNamedPipe 以 $FILE_FLAG_OVERLAPPED 打开,这个结构是必需的.
-		$FILE_FLAG_OVERLAPPED. 如果 hNamedPipe 以 $FILE_FLAG_OVERLAPPED 打开, pOverlapped 必须不为 0.
-		如果 hNamedPipe 以 $FILE_FLAG_OVERLAPPED 打开,且 pOverlapped 不为 0,
-		TransactNamedPipe 执行重叠操作.
-		$tagOVERLAPPED 结构应包含一个手动重置事件对象.如果操作不能立即完成,
-		TransactNamedPipe 返回 False,而且 GetLastError 会返回 ERROR_IO_PENDING.
+ $hNamedPipe  命名管道句柄
+ $pInpBuf  包含写入管道的数据的缓冲区的指针
+ $iInpSize  写入缓冲区字节的大小
+ $pOutBuf  接收从管道读取的数据的缓冲区的指针
+ $iOutSize  读取缓冲区的字节大小
+ $pOverlapped  $tagOVERLAPPED结构的指针. 当以$FILE_FLAG_OVERLAPPED打开管道时必须使用该结构.
+当以$FILE_FLAG_OVERLAPPED打开hNamedPipe时, pOverlapped无须为0.
+当以$FILE_FLAG_OVERLAPPED且pOverlapped非0时打开hNamedPipe, TransactNamedPipe被作为重复操作.
+$tagOVERLAPPED结构应该包含手动重设事件对象. 如果操作无法立即完成, TransactNamedPipe返回False且GetLastError将返回ERROR_IO_PENDING.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回管道读取的字节数
-失败:	设置@error:	
+Success: Number of bytes read from the pipe
 @@End@@
 
-###Remarks###
-如果服务器无法创建消息类型的管道,或管道句柄不是读取消息模式,
-TransactNamedPipe 失败.
+###备注###
+如果服务器无法创建消息类型的管道或管道句柄未是读取消息模式, TransactNamedPipe失败.
 
-###Related###
-$tagOVERLAPPED, _NamedPipes_CallNamedPipe
+###相关###
+ $tagOVERLAPPED , _NamedPipes_CallNamedPipe
 
-###See Also###
-@@MsdnLink@@ TransactNamedPipe
+###参考###
+搜索MSDN知识库中TransactNamedPipe的相关信息

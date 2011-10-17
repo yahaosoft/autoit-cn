@@ -1,46 +1,42 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_EnumProcessModules
 
-###Description###
-Retrieves a handle and name for each module in the specified process.
+###ÃèÊö###
+»ñÈ¡Ö¸¶¨½ø³ÌÖĞÃ¿¸öÄ£¿éµÄ¾ä±úºÍÃû³Æ
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_EnumProcessModules ( [$PID] )
+_WinAPI_EnumProcessModules( [$PID] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $PID
-	[å¯é€‰å‚æ•°] The PID of the process. Default (0) is the current process.
+   [¿ÉÑ¡] ½ø³Ì±êÊ¶(PID). Ä¬ÈÏ(0)Îªµ±Ç°½ø³Ì
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	The array containing the following information:
-[0][0]	Number of rows in array (n)
-[0][1]	Unused
-[1][0]	Handle to the module
-[1][1]	The path to the file that contains the module
-[n][0]	Handle to the module
-[n][1]	The path to the file that contains the module
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø°üº¬ÏÂÁĞĞÅÏ¢µÄÊı×é:
+    [0][0] - Êı×éÖĞµÄÔªËØÊı(n)
+    [0][1] - Î´Ê¹ÓÃ
+    [1][0] - Ä£¿é¾ä±ú
+    [1][1] - °üº¬Ä£¿éµÄÎÄ¼şµÄÂ·¾¶
+    [n][0] - Ä£¿é¾ä±ú
+    [n][1] - °üº¬Ä£¿éµÄÎÄ¼şµÄÂ·¾¶
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-This function does not retrieve handles for modules that were loaded with the $LOAD_LIBRARY_AS_DATAFILE flag.
-For more information, see _WinAPI_LoadLibraryEx().
+###±¸×¢###
+º¯Êı²»»á»ñÈ¡ÒÔ$LOAD_LIBRARY_AS_DATAFILE±ê¼Ç¼ÓÔØµÄÄ£¿éµÄ¾ä±ú.
+¸ü¶àĞÅÏ¢Çë²Î¿¼_WinAPI_LoadLibraryEx().
+²»ÓÃ¶ÔÓÉ¸Ãº¯Êı·µ»ØµÄÈÎÒâ¾ä±úµ÷ÓÃ_WinAPI_CloseHandle(). ÓÉÓÚĞÅÏ¢À´×Ô¿ìÕÕ, ¹Ê¶ø²»»áÊÍ·Å×ÊÔ´.
+Èç¹û_WinAPI_EnumProcessModules()º¯Êı±»ÔËĞĞÓÚWOW64µÄ32Î»Ó¦ÓÃ³ÌĞòµ÷ÓÃ, Ôò½öÃ¶¾Ù32Î»½ø³ÌÄ£¿é.
+¶ÔÓÚ64Î»½ø³Ì, º¯ÊıÊ§°ÜÇÒ´íÎó´úÂëÎªERROR_PARTIAL_COPY (299).
 
-Do not call _WinAPI_CloseHandle() on any of the handles returned by this function. The information comes
-from a snapshot, so there are no resources to be freed.
+###Ïà¹Ø###
 
-If _WinAPI_EnumProcessModules() function is called from a 32-bit application running on WOW64, it can only
-enumerate the modules of a 32-bit process. If the process is a 64-bit process, this function fails and the
-last error code is ERROR_PARTIAL_COPY (299).
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞEnumProcessModulesµÄÏà¹ØĞÅÏ¢
 
-
-###See Also###
-@@MsdnLink@@ EnumProcessModules
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

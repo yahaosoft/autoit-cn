@@ -1,37 +1,35 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlMenu_GetItemStateEx
 
-###Description###
-检索关联指定菜单项的标志
+###描述###
+获取与指定菜单项相关的菜单标记
 
-###Syntax###
-#Include <GuiMenu.au3>
-_GUICtrlMenu_GetItemStateEx($hMenu, $iItem[, $fByPos = True])
+###语法###
+#Include<GuiMenu.au3>
+_GUICtrlMenu_GetItemStateEx($hMenu, $iItem[, $fByPos =True])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hMenu
-	菜单句柄
-$iItem
-	菜单项的标识符或位置,由 $fByPos 参数决定.
-$fByPos
-	[可选参数] 菜单识别标志:
-		True - $iItem 为项目的 0 基位置
-		False - $iItem 为菜单项的标识符
+ $hMenu  菜单句柄
+ $iItem  标识或菜单项位置
+ $fByPos  菜单认证标记:
+真 - $iItem为0基的菜单位置
+假 - $iItem为菜单项标识
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	如果该菜单项打开一个子菜单,返回值的低字节包含菜单与该项目有关的标志;
-	高字节包含打开的子菜单项数,否则,返回值是菜单的标志掩码.
-失败:	返回 -1
+成功: 如果菜单打开一个子菜单则返回值的低位包含与项目有关的菜单标记, 高位包含在打开的子菜单中的项目的数字. 否则,
+返回值为菜单标记的掩码.
+失败: -1
 @@End@@
 
-###Remarks###
-None.
+###备注###
 
-###Related###
-_GUICtrlMenu_SetItemState, _GUICtrlMenu_GetItemState
+###相关###
+_GUICtrlMenu_SetItemState , _GUICtrlMenu_GetItemState
 
-###Example###
+###参考###
+
+###示例###
 @@IncludeExample@@

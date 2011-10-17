@@ -1,35 +1,36 @@
-###User Defined Function###
+###用户自定义函数###
 _DebugReportVar
 
-###Description###
-将变量的结果写入调试会话
+###描述###
+将变量内容写入调试会话
 
-###Syntax###
-#include <Debug.au3>
-_DebugReportVar ($sVarname, $vVar [,$bErrExt = False])
+###语法###
+#Include <Debug.au3>
+_DebugReportVar( $sVarname, $vVar [,$bErrExt = False] )
 
-
-###Parameters###
+###参数###
 @@ParamTable@@
-$sVarname
-	变量名或注释
-$vVar
-	必须报告的变量
-$bErrExt
-	[可选参数] 设置为 True, 如出现 @error 与 @extended 必须同样显示
+$sVarname 
+   代表变量名或注释的字符串
+$vVar 
+   将被报告的变量
+$bErrExt 
+   [可选] 设置为True时表示同时显示@error及@extended
 @@End@@
 
-###ReturnValue###
-None.
+###返回值###
+@@ReturnTable@@
+无
+@@End@@
 
+###备注###
+如果未执行_DebugSetup()则函数总是返回.
+保留调用方的@error.
 
-###Remarks###
- 如果没有 _DebugSetup(), 已发布的函数总是返回.
- @error 为调用方保留.
-
-###Related###
+###相关###
 _DebugSetup
 
+###参考###
 
-###Example###
+###示例###
 @@IncludeExample@@

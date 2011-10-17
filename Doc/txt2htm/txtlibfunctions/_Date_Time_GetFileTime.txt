@@ -1,35 +1,34 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _Date_Time_GetFileTime
 
-###Description###
-è¿”å›žä¸€ä¸ªåŒ…å«æ–‡ä»¶åˆ›å»º,è®¿é—®,ä¿®æ”¹çš„æ—¥æœŸå’Œæ—¶é—´
+###ÃèÊö###
+»ñÈ¡´´½¨, ´ò¿ªºÍÐÞ¸ÄÎÄ¼þµÄÈÕÆÚºÍÊ±¼ä
 
-###Syntax###
+###Óï·¨###
 #Include <Date.au3>
 _Date_Time_GetFileTime($hFile)
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
-$hFile
-	å°†è¢«æ£€ç´¢çš„æ–‡ä»¶å¥æŸ„.
-		ä½¿ç”¨ _WinAPI_CreateFile å‡½æ•°çš„è¿”å›žå€¼,å¹¶å…·æœ‰ GENERIC_READ è®¿é—®æƒ.
+$hFile 
+   ½«±»»ñÈ¡ÈÕÆÚºÍÊ±¼äµÄÎÄ¼þµÄ¾ä±ú. ÎÄ¼þ¾ä±ú±ØÐëÓÉCreateFileº¯ÊýÒÔGENERIC_READÈ¨ÏÞ´´½¨.
 @@End@@
 
-###ReturnValue###
-è¿”å›žå¦‚ä¸‹æ ¼å¼æ•°ç»„:
-	[0] - æ–‡ä»¶åˆ›å»ºæ—¥æœŸæ—¶é—´çš„ $tagFILETIME ç»“æž„.
-	[1] - æ–‡ä»¶è®¿é—®æ—¥æœŸæ—¶é—´çš„ $tagFILETIME ç»“æž„.
-	[2] - æ–‡ä»¶ä¿®æ”¹æ—¥æœŸæ—¶é—´çš„ $tagFILETIME ç»“æž„.
+###·µ»ØÖµ###
+@@ReturnTable@@
+³É¹¦: ÈçÏÂ¸ñÊ½Êý×é:
+   [0] - ´´½¨ÎÄ¼þµÄÈÕÆÚÊ±¼äµÄ$tagFILETIME½á¹¹
+   [1] - ´ò¿ªÎÄ¼þµÄÈÕÆÚÊ±¼äµÄ$tagFILETIME½á¹¹
+   [2] - ÐÞ¸ÄÎÄ¼þµÄÈÕÆÚÊ±¼äµÄ$tagFILETIME½á¹¹
+@@End@@
 
-###Remarks###
- ä¸æ˜¯æ‰€æœ‰æ–‡ä»¶ç³»ç»Ÿå¯ä»¥è®°å½•åˆ›å»ºå’Œè®¿é—®æ—¶é—´.
- å¹¶éžæ‰€æœ‰æ–‡ä»¶ç³»ç»Ÿä»¥åŒæ ·çš„æ–¹å¼è®°å½•æ–‡ä»¶æ—¶é—´ä¿¡æ¯.
- FAT æ–‡ä»¶ç³»ç»Ÿ, åˆ›å»ºæ—¶é—´æœ‰ 10 æ¯«ç§’å»¶è¿Ÿ, ä¿®æ”¹æ—¶é—´æœ‰ 2ç§’ å»¶è¿Ÿ , è®¿é—®æ—¶é—´æœ‰ 1 å¤©å»¶è¿Ÿ(çœŸå®žçš„è®¿é—®æ—¥æœŸ)
- å› æ­¤, æœ¬å‡½æ•°è¿”å›žçš„æ–‡ä»¶æ—¶é—´ä¿¡æ¯å¯èƒ½ä¼šä¸Ž SetFileTime å‡½æ•°çš„è®¾ç½®ä¸ç›¸åŒ
- NTFS æ–‡ä»¶ç³»ç»Ÿæ›´æ–°æ–‡ä»¶æœ€è¿‘è®¿é—®æ—¶é—´, æœ€å¤šæ—¶ä¼šå»¶è¿Ÿä¸€å°æ—¶. 
+###±¸×¢###
+²¢·ÇËùÓÐÎÄ¼þÏµÍ³¶¼¿É¼ÇÂ¼Í¬Ê±Ò²²¢·ÇËùÓÐÎÄ¼þÏµÍ³¼ÇÂ¼¶¼ÒÔÏàÍ¬·½Ê½¼ÇÂ¼´´½¨ºÍ×î½ü´ò¿ªÊ±¼ä. ÀýÈç, ¶ÔÓÚFAT, ´´½¨Ê±¼äÓÐ10ºÁÃëÑÓ³Ù, Ð´ÈëÊ±¼äÓÐ2ÃëÑÓ³Ù , ¼°´ò¿ªÊ±¼äÓÐ1ÌìÑÓ³Ù(ÕæÕýµÄ´ò¿ªÈÕÆÚ). Òò´Ë, GetFileTimeº¯Êý²»»á·µ»ØÊ¹ÓÃSetFileTimeÉèÖÃµÄÏàÍ¬µÄÎÄ¼þÊ±¼äÐÅÏ¢. NTFSÔÚ×î½ü´ò¿ªÎÄ¼þºóÑÓ³ÙÒ»Ð¡Ê±¸üÐÂµ½×î½ü´ò¿ªÎÄ¼þµÄÈÕÆÚ
 
-###Related###
-_Date_Time_SetFileTime, $tagFILETIME
+###Ïà¹Ø###
+ _Date_Time_SetFileTime , $tagFILETIME
 
-###Example###
+###²Î¿¼###
+
+###Ê¾Àý###
 @@IncludeExample@@

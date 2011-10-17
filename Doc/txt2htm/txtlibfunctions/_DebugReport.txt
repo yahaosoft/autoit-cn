@@ -1,39 +1,38 @@
-###User Defined Function###
+###用户自定义函数###
 _DebugReport
 
-###Description###
-写调试会话
+###描述###
+写入调试会话
 
-###Syntax###
-#include <Debug.au3>
-_DebugReport ( $sData [,$bLastError = False [,$bExit = False]])
+###语法###
+#Include <Debug.au3>
+_DebugReport( $sData [,$bLastError = False [,$bExit = False]] )
 
-
-###Parameters###
+###参数###
 @@ParamTable@@
-$sData
-	须予报告的数据
-$bLastError
-	[可选参数] 设置为 True, 表示如有 GetLastErrorMessage() 数据必须追加到报告中
-$bExit
-	[可选参数] 设置为 True, 表示脚本必须终止
+$sData 
+   将被报告的数据
+$bLastError 
+   [可选] 为True时在报告的数据后追加GetLastErrorMessage()
+$bExit 
+   [可选] 为True时中断脚本
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0.
+成功: 返回1
+失败: 返回0
 @@End@@
 
-###Remarks###
- 如果没有 _DebugSetup(), 已发布的函数总是返回.
- @error 为调用方保留.
- 如果 $bLastError = True, @extended 可以设置为 Windows API 的 GetlastError(). 否则保留.
+###备注###
+如果未建立_DebugSetup()函数总是返回.
+保留调用方的@error.
+如果$bLastError为True则@extended可设置为Windows API GetlastError(). 否则将保留.
 
-
-###Related###
+###相关###
 _DebugSetup
 
+###参考###
 
-###Example###
+###示例###
 @@IncludeExample@@

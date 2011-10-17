@@ -1,50 +1,46 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_LookupIconIdFromDirectoryEx
 
-###Description###
-搜索适合当前显示设备的图标或光标的数据.
+###����###
+������������Դ��λ����һ��ͼ�������ͷ
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_LookupIconIdFromDirectoryEx ( $pData [, $fIcon [, $xDesired [, $yDesired [, $iFlags]]]] )
+_WinAPI_LookupIconIdFromDirectoryEx( $pData [, $fIcon [, $xDesired [, $yDesired [, $iFlags]]]] )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $pData
-	图标或光标的目录数据.此函数不会验证资源数据.
-		 如果此参数没有指向有效s的资源数据,
-		 将导致一般性保护（GP）错误或返回一个未定义值.
+$pDataδָ������������ᵼ��һ���Ա���(GP)����򷵻�һ��δ�����ֵ.
 $fIcon
-	[可选参数] 指定搜索图标或光标,有效值:
-		1 - 搜索图标. (默认)
-		0 - 搜索光标.
+   ָ������ͼ�껹�ǹ��
+    TRUE  - ����ͼ��. (Ĭ��)
+    FALSE - �������.
 $xDesired
-	[可选参数] 图标或光标的宽度像素值.
-		如果次参数为 0,函数使用系统度量值设置的宽度.
+   ͼ���������ؿ���. ����ò���Ϊ0, ����ʹ��ϵͳ����ֵ���ÿ���.
 $yDesired
-	[可选参数] 图标或光标的高度像素值.
-		如果次参数为 0,函数使用系统度量值设置的高度.
+   ͼ���������ظ߶�. ����ò���Ϊ0, ����ʹ��ϵͳ����ֵ���ø߶�.
 $iFlags
-	[可选参数] 参数可以是一或多个下列值:
-		 $LR_DEFAULTCOLOR --- 使用默认颜色格式
-		 $LR_MONOCHROME --- 创建单色图标或光标
+   �ò�����Ϊһ����������ֵ:
+    $LR_DEFAULTCOLOR - ʹ��Ĭ����ɫ��ʽ
+    $LR_MONOCHROME - ������ɫͼ�����
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回最适合当前显示设备的图标或光标的整数资源标识符.
-失败:	返回 0,设置 the @error 为非 0 值.
+�ɹ�: �뵱ǰ��ʾ�豸ƥ���ͼ�������ͷ��������Դ��ʶ
+ʧ��: ����0������@error��0
 @@End@@
 
-###Remarks###
-图标加载目录资源文件类型为 $RT_GROUP_ICON (或光标资源类型为 $RT_GROUP_CURSOR),
- 并且加载特定图标的整型资源名称. 
- 本函数返回的整数标识符, 是最适合当前显示设备的图标的资源名称.
+###��ע###
+�Ӵ���$RT_GROUP_ICON(��$RT_GROUP_CURSOR)��Դ���͵���Դ�ļ����ص�ͼ��Ŀ¼��һ���������ص�ָ��ͼ���������Դ��.
+_WinAPI_LookupIconIdFromDirectoryEx()�����������ʺϵ�ǰ��ʾ�豸��ͼ�����Դ���Ƶ�������ʶ��.
+��������ʾ���뽫 Resources.dll �ļ����浽��ʱ�ļ�����
 
+###���###
 
-###See Also###
-@@MsdnLink@@ LookupIconIdFromDirectoryEx
+###�ο�###
+ ����MSDN֪ʶ����LookupIconIdFromDirectoryEx�������Ϣ
 
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

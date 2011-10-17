@@ -1,44 +1,35 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_SetWindowSubclass
 
-###Description###
-Installs or updates a window subclass callback.
+###ÃèÊö###
+°²×°»ò¸üĞÂ´°¿Ú×ÓÀà»Øµ÷
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_SetWindowSubclass ( $hWnd, $pSubclassProc, $ID [, $pData] )
+_WinAPI_SetWindowSubclass( $hWnd, $pSubclassProc, $ID [, $pData] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$hWnd
-	Handle of the window being subclassed.
-$pSubclassProc
-	A pointer to a window procedure. This pointer and the subclass ID uniquely identify this subclass callback.
-	
-	(See MSDN for more information)
-	
-$ID
-	The subclass ID.
-$pData
-	[å¯é€‰å‚æ•°] The reference data. This value is passed to the subclass procedure. The meaning of this value is
-	determined by the calling application.
+$hWnd  ÓµÓĞ×ÓÀàµÄ´°¿ÚµÄ¾ä±ú
+$pSubclassProc  ´°¿Ú½ø³ÌµÄÖ¸Õë. ¸ÃÖ¸Õë¼°×ÓÀàµÄÎ¨Ò»ID±êÊ¶¸Ã×ÓÀàµÄ»Øµ÷.(¸ü¶àĞÅÏ¢²Î¿¼MSDN)
+$ID  ×ÓÀàID
+$pData  [¿ÉÑ¡] ÒıÓÃÊı¾İ. ¸ÃÖµ´«µİµ½×ÓÀà½ø³Ì. ¸ÃÖµµÄÒâË¼ÓÉµ÷ÓÃµÄÓ¦ÓÃ³ÌĞò¾ö¶¨.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø1
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-Subclass callbacks are identified by the combination of the callback address and the caller-defined subclass ID.
-If the callback address and ID pair have not yet been installed, then this function installs the subclass, otherwise,
-this function just updates the reference data.
+###±¸×¢###
+»Øµ÷µØÖ·ºÍµ÷ÓÃ·½¶¨ÒåµÄ×ÓÀàIDµÄ×éºÏ¶¨ÒåµÄ×ÓÀà»Øµ÷.
+Èç¹û»Øµ÷µØÖ·ºÍID¶ÔÎ´°²×°, Ôò¸Ãº¯Êı°²×°×ÓÀà, ·ñÔò, ¸Ãº¯Êı½ö¸üĞÂÒıÓÃÊı¾İ.
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ SetWindowSubclass
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞSetWindowSubclassµÄÏà¹ØĞÅÏ¢
 
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

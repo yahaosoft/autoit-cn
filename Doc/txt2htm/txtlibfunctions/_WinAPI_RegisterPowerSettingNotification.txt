@@ -1,43 +1,45 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_RegisterPowerSettingNotification
 
-###Description###
-Registers the application to receive power setting notifications for the specific power setting event.
+###ÃèÊö###
+>×¢²áÓÃÒÔ½ÓÊÕÖ¸¶¨µÄµçÔ´ÉèÖÃÍ¨ÖªµÄÓ¦ÓÃ³ÌĞò
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_RegisterPowerSettingNotification ( $hWnd, $GUID )
+_WinAPI_RegisterPowerSettingNotification( $hWnd, $GUID )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $hWnd
-	Handle to the window that receives the change or notification messages.
+   ½ÓÊÕ¸ü¸Ä»òÍ¨ÖªÏûÏ¢µÄ´°¿ÚµÄ¾ä±ú
 $GUID
-	The a string that represents a GUID of the power setting for which notifications are to be sent.
-	It may be one of the following values.
-	
-	$GUID_ACDC_POWER_SOURCE
-	$GUID_BATTERY_PERCENTAGE_REMAINING
-	$GUID_IDLE_BACKGROUND_TASK
-	$GUID_MONITOR_POWER_ON
-	$GUID_POWERSCHEME_PERSONALITY
-	$GUID_SYSTEM_AWAYMODE
-	
+   ´ú±í½«ÎªÆä·¢ËÍÍ¨ÖªµÄµçÔ´ÉèÖÃµÄGUID×Ö·û´®. ¿ÉÎªÏÂÁĞÖµÖ®Ò»:
+    $GUID_ACDC_POWER_SOURCE - [5d3e9a59-e9D5-4b00-a6bd-ff34ff516548] -
+    ÏµÍ³µçÔ´À´Ô´ÒÑ¸Ä±ä
+    $GUID_BATTERY_PERCENTAGE_REMAINING - [a7ad8041-b45a-4cae-87a3-eecbb468a9e1] -
+    µç³ØµÄÊ£ÓàµçÁ¿ÒÑ¸Ä±ä
+    $GUID_IDLE_BACKGROUND_TASK - [515c31d8-f734-163d-a0fd-11a0-8c91e8f1] -
+    ÏµÍ³Ã¦ÂµÖĞ
+    $GUID_MONITOR_POWER_ON - [02731015-4510-4526-99e6-e5a17ebd1aea] -
+    ÏµÍ³»ù±¾ÏÔÊ¾Æ÷¿ªÆô»ò¹Ø±Õ
+    $GUID_POWERSCHEME_PERSONALITY - [245d8541-3943-4422-b025-13A7-84F679B7] -
+    ¸öÈËµçÔ´¼Æ»®ÒÑ¸Ä±ä
+    $GUID_SYSTEM_AWAYMODE - [98a7f580-01f7-48aa-9c0f-44352c29e5C0] -
+    ÏµÍ³½øÈë»òÍË³öÀë¿ªÄ£Ê½
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	A notification handle for unregistering for power notifications.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø×¢ÏúµçÔ´Í¨ÖªµÄÍ¨Öª¾ä±ú
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-After calling this function, notifications are sent to the specified window using WM_POWERBROADCAST
-messages with a wParam parameter of PBT_POWERSETTINGCHANGE (see MSDN for more information).
+###±¸×¢###
+µ÷ÓÃ¸Ãº¯Êıºó, ½«·¢ËÍwParam²ÎÊıÎªPBT_POWERSETTINGCHANGEµÄWM_POWERBROADCASTÏûÏ¢µ½Ö¸¶¨Ê¹ÓÃ´°¿Ú.(¸ü¶àĞÅÏ¢Çë
 
-This function requires Windows Vista or later.
+###Ïà¹Ø###
 
-
-###See Also###
-@@MsdnLink@@ RegisterPowerSettingNotification
-
+###²Î¿¼###
+MSDN ).
+×îµÍÏµÍ³ÒªÇó: Windows Vista
+²Î¿¼  ËÑË÷MSDNÖªÊ¶¿âÖĞRegisterPowerSettingNotificationµÄÏà¹ØĞÅÏ¢

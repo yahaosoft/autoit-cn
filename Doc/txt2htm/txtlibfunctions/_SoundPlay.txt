@@ -1,38 +1,36 @@
-###User Defined Function###
+###用户自定义函数###
 _SoundPlay
 
-###Description###
-播放一个声音文件.
+###描述###
+播放声音文件
 
-###Syntax###
-#include <Sound.au3>
-_SoundPlay ( $aSnd_id [, $iWait ] )
+###语法###
+#Include <Sound.au3>
+_SoundPlay ( $aSnd_id [, $fWait ] )
 
-
-###Parameters###
+###参数###
 @@ParamTable@@
-$aSnd_id
-	声音 ID 数组为一个 _SoundOpen 返回的结果或者一个文件名.
-$iWait
-	[可选参数] 这个标志定义脚本是否等待声音播放完成后再继续运行脚本:
-	1 = 等待声音播放完成再继续运行脚本.
-	0 = 当声音开始播放,脚本继续运行.(默认)
+ $aSnd_id  由_SoundOpen或文件名返回的声音ID数组
+ $fWait  [可选]该标记确定脚本是否在继续前等待声音完成:
+1 = 等待到声音完成
+0 = 在声音播放时继续脚本(默认)
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	1
-失败:	0 并设置 @Error
-@error:	1 = 播放失败
-	2 = $iWait 参数无效
-	3 = 无效声音ID. 请从 _SoundOpen 返回一个数组或者使用一个有效的文件名.
+ 成功:  1
+ 失败:  0并设置@error
+  1 = 播放失败
+  2 = $fWait参数无效
+  3 = 无效声音ID. 使用由_SoundOpen或有效文件名返回的值.
 @@End@@
 
-###Remarks###
-None.
+###备注###
 
-###Related###
-_SoundPause, _SoundStop, _SoundSeek, _SoundOpen, _SoundResume
+###相关###
+ _SoundPause , _SoundStop , _SoundSeek , _SoundOpen , _SoundResume
 
-###Example###
+###参考###
+
+###示例###
 @@IncludeExample@@

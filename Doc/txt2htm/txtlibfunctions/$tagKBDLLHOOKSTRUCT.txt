@@ -1,37 +1,33 @@
-﻿###Structure Name###
+###�ṹ����###
 $tagKBDLLHOOKSTRUCT
 
-###Description###
-包含低位键盘输入事件信息
+###����###
+������λ���������¼���Ϣ�Ľṹ
 
-###Syntax###
-Global Const $tagKBDLLHOOKSTRUCT = "dword vkCode;dword scanCode;dword flags;dword time;ulong_ptr dwExtraInfo"
+###�﷨###
+Global Const $tagKBDLLHOOKSTRUCT =  "dword vkCode;dword scanCode;dword flags;dword time;ulong_ptr dwExtraInfo"
 
-###Fields###
+###��Ա###
 @@ParamTable@@
 vkCode
-	指定虚拟键的代码. 代码必须为 1 到 254 的值
+   ָ��������Ĵ���. �������Ϊ1��254��ֵ
 scanCode
-	为键盘输入指定硬件扫描码
+   ָ���Լ���Ӳ��ɨ��
 flags
-	指定扩展键标志,事件注入标志,运行环境代码,及过渡状态标志. 该成员被指定为如下,
-	应用程序可以使用下列值作为测试按键的标志:
-		$LLKHF_EXTENDED - 测试扩展键标记
-		$LLKHF_INJECTED - 测试事件注入标志
-		$LLKHF_ALTDOWN - 测试运行环境代码
-		$LLKHF_UP - 测试过渡状态标志
-		0 - 指定键码是否为扩展键, 如功能键或数字键盘键. 扩展键的值为 1,否则为 0
-		1 到 3 - 保留
-		4 - 指定事件是否注入, 是则为 1, 否则为 0
-		5 - 指定环境代码,按下 ALT 键时为 1, 否则为 0
-		6 - 保留
-		7 - 指定过渡状态,键被按下时为 0, 释放时为 1
+   ָ����չ�����, �����¼����, �����Ĵ���, ��״̬���ݱ��. �ó�Ա������ָ��.
+    ��ʹ������ֵ���Ի������:
+    $LLKHF_EXTENDED - ������չ�����
+    $LLKHF_INJECTED - ���Բ����¼����
+    $LLKHF_ALTDOWN - ���������Ĵ���
+    $LLKHF_UP - ���Դ���״̬���
+    0 - ָ���Ƿ�Ϊ��չ��, �繦�ܼ������ּ��̼�. ��չ����ֵΪ1����Ϊ0
+    1 �� 3 - ����
+    4 - ָ���Ƿ�����¼�. �����¼�ʱΪ1����Ϊ0
+    5 - ָ�������Ĵ���. ����ALT��ʱΪ1����Ϊ0
+    6 - ����
+    7 - ָ������״̬. ����ʱΪ0, �ͷ�ʱΪ1
 time
-	指定消息的时间戳, 相当于 GetMessageTime 将返回的消息
+   �Զ���Ϣ��ʱ���, �����Ϣ��GetMessageTime���ص����
 dwExtraInfo
-	指定与信息相关的额外信息
-@@End@@
-
-###Remarks###
-None.
-
+   �ƶ�����Ϣ��صĶ�����Ϣ
+@@end@@

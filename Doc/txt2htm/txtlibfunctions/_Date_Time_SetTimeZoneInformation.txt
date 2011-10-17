@@ -1,55 +1,43 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _Date_Time_SetTimeZoneInformation
 
-###Description###
-设置当前时区设置
+###����###
+���õ�ǰʱ������
 
-###Syntax###
+###�﷨###
 #Include <Date.au3>
 _Date_Time_SetTimeZoneInformation($iBias, $sStdName, $tStdDate, $iStdBias, $sDayName, $tDayDate, $iDayBias)
 
-###Parameters###
+###����###
 @@ParamTable@@
-$iBias
-	计算机上本地时间的当前转换误差. 误差指协调通用(UTC)和本地时间之间的分钟差异. UTC 时间和本地时间的转换公式: UTC = 本地时间 + 误差
-$sStdName
-	标准时间的说明
-$tStdDate
-	$tagSYSTEMTIME 结构,包含夏时制标准时过渡到本地的日期时间.
-$iStdBias
-	标准时间与本地时间的偏差值. 在标准时间形成偏差时该值被添加.多数时区中, 该值为0
-$sDayName
-	夏令时的说明
-$tDayDate
-	$tagSYSTEMTIME 结构.包含本地标准时间过渡到夏时制的日期时间.
-$iDayBias
-	本地时间转换夏时制时发生的偏差值.在夏时制形成偏差时该值被添加.多数时区中, 该值为 –60.
+$iBias 
+   �ڴ˼�����ϱ���ʱ��ĵ�ǰ���. ���ָ��Ӧ��ͨ��ʱ��(UTC)�ͱ���ʱ��֮��"��"�Ĳ�ͬ. ����ͨ��ʱ��ͱ���ʱ��ʹ�õĻ��빫ʽ: UTC = local time + bias
+$sStdName 
+   ��׼ʱ������
+$tStdDate 
+   �������ںͽ���ʱ�Ʒ���Ϊ��׼ʱ��ʱ�ı���ʱ���$tagSYSTEMTIME�ṹ.
+$iStdBias 
+   �����ڱ�׼ʱ���ڼ�ı���ʱ�䷭���ƫ��ֵ. ��ֵ����ƫ��ֵ�Ը�ʽ�����ڱ�׼ʱ���ڼ��ƫ��. ����ʱ����, ��ֵΪ0.
+$sDayName 
+   ��ʱ��ʱ������
+$tDayDate 
+   �������ںͽ���׼ʱ�л�����ʱ��ʱ�ı���ʱ���$tagSYSTEMTIME�ṹ.
+$iDayBias 
+   ��������ʱ���ڼ�ı���ʱ�䷭���ƫ��ֵ. ��ֵ����ƫ��ֵ�Ը�ʽ��������ʱ���ڼ��ƫ��. ����ʱ����, ��ֵΪ0.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False
+�ɹ�: ��
+ʧ��: ��
 @@End@@
 
-###Remarks###
- 要选择正确的月日：
- 	设置 wYear 项为 0
- 	wHour 与 wMinute 项代表时间 
- 	wMonth 项代表月份 
- 	wDayOfWeek 项代表星期（周）, 
- 	wDay 项代表一月内第几个星期 (取值 1 到 5, 其中 5 表示最后出现的星期).
- 举例如下：
- 指定 4 月第一个星期日 02:00 的表示法如下:
+###��ע###
 
- wHour = 2, wMonth = 4, wDayOfWeek = 0, wDay = 1.
- 指定 10 月最后一个星期四 02:00 的表示法如下:
+###���###
+ _Date_Time_GetTimeZoneInformation , $tagSYSTEMTIME
 
- wHour = 2, wMonth = 10, wDayOfWeek = 4, wDay = 5. 
+###�ο�###
 
-
-###Related###
-_Date_Time_GetTimeZoneInformation, $tagSYSTEMTIME
-
-###Example###
+###ʾ��###
 @@IncludeExample@@

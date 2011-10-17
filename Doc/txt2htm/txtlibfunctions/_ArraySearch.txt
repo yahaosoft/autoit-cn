@@ -1,52 +1,52 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _ArraySearch
 
-###Description###
-åœ¨ä¸€ç»´æˆ–äºŒç»´æ•°ç»„å†…éƒ¨è¿›è¡Œè¿›è¡Œæœç´¢. ç±»ä¼¼äº_ArrayBinarySearch(), ä½†æ•°ç»„ä¸éœ€è¦æ’åº.
+###ÃèÊö###
+ÔÚÒ»Î¬»ò¶şÎ¬Êı×éÄÚ²¿½øĞĞ½øĞĞËÑË÷. ÀàËÆÓÚ_ArrayBinarySearch() , µ«Êı×é²»ĞèÒªÅÅĞò.
 
-###Syntax###
+###Óï·¨###
 #Include <Array.au3>
-_ArraySearch(Const ByRef $avArray, $vValue [, $iStart = 0 [, $iEnd = 0 [, $iCase = 0 [, $iCompare= 0 [, $iForward = 1 [, $iSubItem = -1]]]]]])
+_ArraySearch(Const ByRef $avArray, $vValue[, $iStart = 0[, $iEnd = 0[, $iCase = 0[, $iPartial = 0[, $iForward = 1[, $iSubItem = 0]]]]]])
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$avArray
-	è¦æœç´¢çš„æ•°ç»„
-$vValue
-	è¦æœç´¢çš„å€¼
-$iStart
-	[å¯é€‰å‚æ•°] å¼€å§‹æœç´¢çš„ç´¢å¼•
-$iEnd
-	[å¯é€‰å‚æ•°] ç»“æŸæœç´¢çš„ç´¢å¼•
-$iCase
-	[å¯é€‰å‚æ•°] å¦‚æœè®¾ç½®ä¸º1, åŒºåˆ†å¤§å°å†™
-$iCompare
-	[å¯é€‰å‚æ•°] 0 AutoIt variables compare (default), "string" = 0, "" = 0  or "0" = 0 match
-		1 å¦‚æœè®¾ç½®ä¸º1, æ‰§è¡Œéƒ¨åˆ†æœç´¢ (StringInStr)
-		2 comparison match if variables have same type and same value
-$iForward
-	[å¯é€‰å‚æ•°] å¦‚æœè®¾ç½®ä¸º0, ä»ç»“æŸåˆ°å¼€å§‹è¿›è¡Œæœç´¢(è€Œä¸æ˜¯ä»å¼€å§‹åˆ°ç»“æŸ)
-$iSubItem
-	[å¯é€‰å‚æ•°] å¯¹äºäºŒç»´æ•°ç»„è¿›è¡Œæœç´¢çš„å‰¯ç´¢å¼•
+$avArray 
+   ÒªËÑË÷µÄÊı×é
+$vValue 
+   ÒªËÑË÷µÄÖµ
+$iStart 
+   [¿ÉÑ¡] ¿ªÊ¼ËÑË÷µÄË÷Òı
+$iEnd 
+   [¿ÉÑ¡] ½áÊøËÑË÷µÄË÷Òı
+$iCase 
+   [¿ÉÑ¡] Èç¹ûÉèÖÃÎª1 , Çø·Ö´óĞ¡Ğ´
+$iPartial 
+   [¿ÉÑ¡] Èç¹ûÉèÖÃÎª1 , Ö´ĞĞ²¿·ÖËÑË÷
+$iForward 
+   [¿ÉÑ¡] Èç¹ûÉèÖÃÎª0 , ´Ó½áÊøµ½¿ªÊ¼½øĞĞËÑË÷(¶ø²»ÊÇ´Ó¿ªÊ¼µ½½áÊø)
+$iSubItem 
+   [¿ÉÑ¡] ¶ÔÓÚ¶şÎ¬Êı×é½øĞĞËÑË÷µÄ¸±Ë÷Òı
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	$vValueçš„ç´¢å¼•
-å¤±è´¥:	-1å¹¶è®¾ç½®@error
-@error:	1 - $avArrayä¸æ˜¯æ•°ç»„
-	2 - $avArrayä¸æ˜¯ä¸€ç»´æ•°ç»„
-	4 - $iStart å¤§äº$iEnd
-	6 - $vValueåœ¨æ•°ç»„ä¸­æ²¡æ‰¾åˆ°
-	7 - $avArray ç»´æ•°å¤ªå¤š
-	(3, 5 - åºŸå¼ƒçš„é”™è¯¯ä»£ç )
+³É¹¦: $vValueµÄË÷Òı
+Ê§°Ü: -1²¢ÉèÖÃ@error:
+    1 - $avArray²»ÊÇÊı×é
+    2 - $avArray²»ÊÇÒ»Î¬Êı×é
+    4 - $iStart ´óÓÚ$iEnd
+    6 - $vValueÔÚÊı×éÖĞÃ»ÕÒµ½
+    7 - $avArray Î¬ÊıÌ«¶à
+    (3 , 5 - ·ÏÆúµÄ´íÎó´úÂë)
 @@End@@
 
-###Remarks###
- æ­¤å‡½æ•°å¯èƒ½æ¯” _ArrayBinarySearch() æœç´¢è¾ƒæ…¢, ä½†åœ¨æ•°ç»„é¡ºåºä¸èƒ½æ›´æ”¹æ—¶éå¸¸æœ‰ç”¨.
+###±¸×¢###
+¸Ãº¯Êı¿ÉÄÜ±È_ArrayBinarySearch()Âı , µ«ÔÚÊı×éË³Ğò²»ÄÜ¸ü¸ÄÊ±·Ç³£ÓĞÓÃ
 
-###Related###
-_ArrayBinarySearch, _ArrayFindAll
+###Ïà¹Ø###
+ _ArrayBinarySearch ,  _ArrayFindAll
 
-###Example###
+###²Î¿¼###
+
+###Ê¾Àı###
 @@IncludeExample@@

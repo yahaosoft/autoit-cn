@@ -1,40 +1,37 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_GetXYFromCharPos
 
-###Description###
-检索字符区间位置的 X、Y 坐标
+###描述###
+获取连接符位置的XY坐标
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetXYFromCharPos($hWnd, $iCharPos)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iCharPos
-	字符区间位置
+ $hWnd  控件句柄
+ $iCharPos  连接符位置
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回数组 [
-	, ] - 字符区间位置坐标值相对于客户区左上角
-失败:	设置@error
-@error:	101 - $hWnd 参数值不是句柄
-	1021 - $iCharPos 既不是正数或零, 
-	1022 - $iCharPos 超过控件中的字符数
+ 成功:  数组[<x>, <y>] - 连接符的坐标, 与客户区左上角
+
+###相关###
+ 失败:  设置@error
+ @error:  101 - $hWnd不是句柄
+  1021 - $iCharPos不是正数或0
+  1022 - $iCharPos超出控件内字符的数量
 @@End@@
 
-###Remarks###
- 第一个字符区间位置的编号为 0
- 对于多行控件,即使字符区间位置不可见,也能返回坐标.
+###备注###
+首个连接符位置编号为0
+对于多行控件, 返回的坐标包括不可见连接符的位置
+相关  _GUICtrlRichEdit_GetCharPosFromXY
 
-###Related###
-_GUICtrlRichEdit_GetCharPosFromXY
+###参考###
+ 搜索MSDN知识库中EM_POSFROMCHAR的相关信息
 
-###See Also###
-@@MsdnLink@@ EM_POSFROMCHAR
-
-###Example###
+###示例###
 @@IncludeExample@@

@@ -1,46 +1,43 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_GetParaSpacing
 
-###Description###
-获取（第一）选定段落;或者没有选择时的当前段落的间距设置
+###描述###
+获取(首个)被选段落或(无选定时的)当前段落的空隙样式
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetParaSpacing($hWnd)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
+ $hWnd  控件句柄
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回由分号(;)分隔的设置值字符串:
-	值 1 - 相互 - 行间距:
-	一个数字- 空间单位
-	或 "
-	lines" - 行 
-	值 2 - 范围值 1:
-	a - 所有（或使用得）选定段有上面的设置
-	f - 第一段落选择有此设置,其它没有
-	c - 当前段落有此设置
-	值 3 - 段前间距 (空间单位)
-	值 4 - 范围值 3 - 见上面
-	值 5 - 段后间距 (空间单位)
-	值 6 - 范围值 5 - 见上面
-失败:	返回 "" ,设置@error
-@error:	101 - $hWnd 参数值不是句柄
+ 成功:  由分号(;)分开的设置字符串:
+  值1 - 行间距:
+      数字 - 使用空隙单位
+      或行号 - 使用行
+  值2 - 值1的范围:
+      a - 全部(或仅有)选定的段落使用设置
+      f - 第一个选区的段落使用此对齐方式, 但其他不是
+      c - 当前段落使用该设置
+  值3 - 段落前的空白(使用间隔单位)
+  值4 - 值3的范围 - 见上
+  值5 - 段落后的空白(使用间隔单位)
+  值6 - 值5的范围 - 见上
+ 失败:  ""并设置@error
+ @error:  101 - $hWnd不是句柄
 @@End@@
 
-###Remarks###
+###备注###
 
+###相关###
+ _GUICtrlRichEdit_SetParaSpacing
 
-###Related###
-_GUICtrlRichEdit_SetParaSpacing
+###参考###
+ 搜索MSDN知识库中EM_SETPARAFORMAT的相关信息
 
-###See Also###
-@@MsdnLink@@ EM_SETPARAFORMAT
-
-###Example###
+###示例###
 @@IncludeExample@@

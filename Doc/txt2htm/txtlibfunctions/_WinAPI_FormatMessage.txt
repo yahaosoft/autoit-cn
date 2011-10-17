@@ -1,43 +1,42 @@
-###User Defined Function###
+###用户自定义函数###
 _WinAPI_FormatMessage
 
-###Description###
+###描述###
 格式化消息字符串
 
-###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_FormatMessage($iFlags, $pSource, $iMessageID, $iLanguageID, ByRef $pBuffer, $iSize, $vArguments)
+###语法###
+#Include
+<WinAPI.au3>
+_WinAPI_FormatMessage($iFlags, $pSource, $iMessageID,
+$iLanguageID, $pBuffer, $iSize, $vArguments)
 
-###Parameters###
+###参数###
 @@ParamTable@@
 $iFlags
-	位标志设置,以指定格式化过程特征,以及如何解释 $pSource 参数.
-		$iFlags 的低位字节指定函数如何处理输出缓冲区的换行符.
-		低字节也可以指定格式化输出行的最大宽度.
+   包含一系列数位标记, 用以指定格式化操作的形式及如何翻译pSource参数.
+$iFlags的低位字节指定函数在输出缓冲中如何断行. 低位字节也可指定格式化输出行的最大宽度.
 $pSource
-	消息源的指针
+   消息来源的指针
 $iMessageID
-	被请求的消息标识符
+   所需消息的标识
 $iLanguageID
-	被请求的消息语言识别码
+   所需消息的语言标识
 $pBuffer
-	消息缓冲区的指针或包含消息的字符串变量
+   消息缓冲区的指针
 $iSize
-	消息缓冲区的最大值
+   消息缓冲区最大值
 $vArguments
-	插入消息的地址数组
+   插入消息的数组的地址
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回消息缓冲区存储的字节数
-失败:	设置@error:	
+成功: 存储在消息缓冲区的字节数
 @@End@@
 
-###Remarks###
-None.
+###备注###
 
-###Related###
+###相关###
 
-###See Also###
-@@MsdnLink@@ FormatMessage
+###参考###
+在MSDN知识库中搜索FormatMessageA相关信息

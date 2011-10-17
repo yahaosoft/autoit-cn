@@ -1,46 +1,42 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_ChangeFontSize
 
-###Description###
-递增或递减选定文本的字体大小
+###描述###
+增大或缩小选定文本的字号
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_ChangeFontSize($hWnd, $iIncrement)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iIncrement
-	正值递增; 负值递减
+ $hWnd  控件句柄
+ $iIncrement  正为增大, 负为缩小
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True - 字体大小被改变
-失败:	返回 False, 并设置 @error
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $iIncrement 参数值不是数字
-	-1 - 没有选择文本
+成功: 真 - 字体大小被改变
+失败: 假并设置@error为:
+    101 - $hWnd不是句柄
+    102 - $iIncrement不是数字
+    -1 - 未选择文本
 @@End@@
 
-###Remarks###
- 如果选定的文本中有多个字体尺寸,将同时递增/递减
+###备注###
+如果选定文本包含多个字号, 全部增大/缩小
+$iIncrement为正时, 字号向上四舍五入; $iIncrement为负时, 向下四舍五入.
+富编辑框首先$iIncrement到存在的字号. 然后进行如下的四舍五入:
+<= 12 points: 1 如 7 + 1 => 8 points, 14 - 3 => 10 points
+12.05 to 28 points: 如20 + 2.25 => 24 points
+28.05 to 80 points: 根据28/36/48/72或80的四舍五入, 如28 + 1 => 36 points, 80 - 1 => 72 points
+> 80 points: 10, 如80 + 1 => 90
 
- 如果 $iIncrement 为正值, 字体大小只入不舍; 如果 $iIncrement 为负值, 将只入不舍.
+###相关###
+ _GUICtrlRichEdit_SetFont
 
- Rich Edit 添加 $iIncrement 值到现有字体大小.递增/递减四舍五入列举如下:
- &lt;= 12 points: 1 例如: 7 + 1 =&gt; 8 points, 14 - 3 =&gt; 10 points
- 12.05 到 28 points: 20 + 2.25 =&gt; 24 points
- 28.05 到 80 points: 四舍五入到下一个 28, 36, 48, 72 或 80, 例如: 28 + 1 =&gt; 36 points, 80 - 1 =&gt; 72 points
- &gt; 80 points: 10, 例如: 80 + 1 =&gt; 90
+###参考###
+ 搜索MSDN知识库中EM_SETFONTSIZE的相关信息
 
-###Related###
-_GUICtrlRichEdit_SetFont
-
-###See Also###
-@@MsdnLink@@ EM_SETFONTSIZE
-
-###Example###
+###示例###
 @@IncludeExample@@

@@ -1,54 +1,38 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_UpdateResource
 
-###Description###
-æ·»åŠ ,åˆ é™¤æˆ–æ›¿æ¢å¯ç§»æ¤å¯æ‰§è¡Œ(PE)æ–‡ä»¶èµ„æº.
-
-###Syntax###
-#Include <WinAPIEx.au3>
+###ÃèÊö###
+Ìí¼Ó, É¾³ý»òÌæ»»¿ÉÒÆÖ²µÄ¿ÉÖ´ÐÐÎÄ¼þ(PE)ÖÐµÄ×ÊÔ´.
 _WinAPI_UpdateResource ( $hUpdate, $sType, $sName, $iLanguage, $pData, $iSize )
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
-$hUpdate
-	_WinAPI_BeginUpdateResource() è¿”å›žçš„æ¨¡å—å¥æŸ„.
-$sType
-	æ›´æ–°çš„èµ„æºç±»åž‹. ä¸æ˜¯æŒ‡é’ˆ, å‚æ•°å¯ä»¥æ˜¯è¡¨ç¤ºèµ„æºç±»åž‹çš„é¢„å®šä¹‰æ•´æ•°å€¼.
-		 å¦‚æžœèµ„æºç±»åž‹æ ‡è¯†ç¬¦ç¬¬ä¸€å­—ç¬¦æ˜¯ç£…ç¬¦å· (#), åˆ™å‰©ä½™å­—ç¬¦è¡¨ç¤ºä¸€ä¸ªåè¿›åˆ¶æ•°çš„æ•´æ•°.
-		 ä¾‹å¦‚,å­—ç¬¦ä¸² "#258" ä»£è¡¨æ ‡è¯†ç¬¦ 258.
-		 æ­¤å¤–,å¯ä»¥ä½¿ç”¨é¢„å®šä¹‰èµ„æºç±»åž‹ ($RT_*).
-$sName
-	èµ„æºçš„åç§°. å‚æ•°å¯ä»¥æ˜¯å­—ç¬¦ä¸²æˆ–æ•´æ•°ç±»åž‹ (è§ä¸Šè¿°).
-$iLanguage
-	èµ„æºçš„è¯­è¨€ (LCID).
-$pData
-	è¢«æ’å…¥åˆ° $hUpdate èµ„æºæ–‡ä»¶çš„æ•°æ®. å¦‚æžœèµ„æºæ˜¯é¢„å®šä¹‰ç±»åž‹,
-		 æ•°æ®å¿…é¡»æœ‰æ•ˆå’Œæ­£ç¡®å¯¹é½. è¯·æ³¨æ„,è¿™æ˜¯åŽŸå§‹äºŒè¿›åˆ¶æ•°æ®,
-		 ä¸æ˜¯ç”± _WinAPI_LoadIcon(), _WinAPI_LoadString(), æˆ–å…¶å®ƒç‰¹å®šèµ„æºåŠ è½½å‡½æ•°æä¾›çš„æ•°æ®. 
-		 æ‰€æœ‰æ•°æ®,åŒ…æ‹¬å­—ç¬¦ä¸²æˆ–æ–‡æœ¬å¿…é¡» ä¸ºUnicode æ ¼å¼. 
-		 å¦‚æžœæ­¤å‚æ•°å’Œ $iSize åŒä¸º 0, åˆ™åˆ é™¤ $hUpdate æŒ‡å®šçš„èµ„æºæ–‡ä»¶.
-$iSize
-	æŒ‡å®š $pData èµ„æºæ•°æ®çš„å­—èŠ‚å¤§å°.
+$hUpdate  _WinAPI_BeginUpdateResource()·µ»ØµÄÄ£¿é¾ä±ú, Ö¸ÏòÒª¸üÐÂµÄÎÄ¼þ
+$sType  Òª¸üÐÂµÄ×ÊÔ´ÀàÐÍ. ¿ÉÑ¡µÄ, ÓÅÓÚÖ¸Õë, ¸Ã²ÎÊý¿ÉÎªÒ»¸ö´ú±íÔ¤¶¨Òå×ÊÔ´ÀàÐÍµÄÕûÊýÖµ. Èç¹û×Ö·û´®µÄÊ×¸ö×Ö·ûÎª¾®ºÅ(#)Ôò±£ÁôµÄ×Ö·û´ú±íÒ»¸öÖ¸¶¨×ÊÔ´ÀàÐÍµÄÊ®½øÖÆÕûÊýÊý×Ö. Èç, ×Ö·û´®"#258"´ú±í±êÊ¶·û258. Ò²¿ÉÊ¹ÓÃÒ»¸öÔ¤¶¨Òå×ÊÔ´ÀàÐÍ($RT_*).
+$sName  Òª¸üÐÂµÄ×ÊÔ´Ãû³Æ. ¸Ã²ÎÊý¿ÉÎª×Ö·û´®»òÕûÊýÀàÐÍ(¼ûÉÏ)
+$iLanguage  ×ÊÔ´µÄÓïÑÔ(LCID)
+$pData  ²åÈëµ½ÓÉ$hUpdate²ÎÊýÖ¸¶¨µÄÎÄ¼þµÄ×ÊÔ´Êý¾Ý. Èç¹û×ÊÔ´ÎªÔ¤¶¨ÒåÀàÐÍÖ®Ò», Êý¾Ý±ØÐëÓÐÐ§ÇÒÊÊµ±¶ÔÆë. ×¢ÒâÊÇÔ­Ê¼¶þ½øÖÆÊý¾Ý, ¶ø²»ÊÇÓÉ_WinAPI_LoadIcon(), _WinAPI_LoadString()»òÆäËû×ÊÔ´¼ÓÔØº¯ÊýÖ¸¶¨µÄÊý¾Ý. °üº¬×Ö·û´®»òÎÄ±¾µÄËùÓÐÊý¾Ý±ØÐëÊÇUnicode¸ñÊ½. Èç¹û$pDataÎª0ÇÒ$iSizeÎª0, Ö¸¶¨×ÊÔ´½«´Ó$hUpdateÖ¸¶¨µÄÎÄ¼þÖÐÉ¾³ý.
+$iSize  $pDataÖ¸¶¨µÄ×ÊÔ´Êý¾ÝµÄ×Ö½Ú´óÐ¡
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›ž 1.
-å¤±è´¥:	è¿”å›ž 0,è®¾ç½® the @error ä¸ºéž 0 å€¼.
+³É¹¦: ·µ»Ø1.
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0.
 @@End@@
 
-###Remarks###
-å»ºè®®åœ¨èµ„æºæ–‡ä»¶æ²¡æœ‰åŠ è½½ä¹‹å‰è°ƒç”¨æ­¤å‡½æ•°,
- å¦‚æžœè¯¥æ–‡ä»¶å·²ç»åŠ è½½,ä¹Ÿä¸ä¼šå¯¼è‡´è¿”å›žé”™è¯¯
- åº”ç”¨ç¨‹åºå¯ä»¥ä½¿ç”¨ _WinAPI_UpdateResource() åå¤ä¿®æ”¹èµ„æºæ•°æ®. 
- æ¯æ¬¡ _WinAPI_UpdateResource() çš„è°ƒç”¨éƒ½å°†æ·»åŠ ,åˆ é™¤å’Œæ›¿æ¢å†…éƒ¨åˆ—è¡¨, but does
- ä½†å®žé™…ä¸Šå¹¶æ²¡æœ‰å°†æ•°æ®å†™å…¥åˆ°æ–‡ä»¶. 
- åº”ç”¨ç¨‹åºå¿…é¡»ä½¿ç”¨ _WinAPI_EndUpdateResource() å‡½æ•°å†™ç´¯ç§¯çš„å˜åŒ–.
- å¦‚æžœ $pData is ä¸Ž $iSize åŒä¸º 0, åˆ™åˆ é™¤ $hUpdate æŒ‡å®šçš„èµ„æºæ–‡ä»¶.
+###±¸×¢###
+½¨ÒéÔÚµ÷ÓÃº¯ÊýÇ°²»¼ÓÔØ×ÊÔ´ÎÄ¼þ. È»¶ø, Èç¹ûÒÑ¾­¼ÓÔØÒ²²»»áµ¼ÖÂ·µ»Ø´íÎó.
+Ó¦ÓÃ³ÌÐò¿ÉÖØ¸´Ê¹ÓÃ_WinAPI_UpdateResource()¸Ä±ä×ÊÔ´Êý¾Ý. Ã¿´Îµ÷ÓÃ
+_WinAPI_UpdateResource()Ìá¹©Ò»¸öÌí¼Ó/É¾³ý¼°Ìæ»»µÄÄÚ²¿ÁÐ±íµ«²»»á½«Êý¾ÝÊµ¼ÊÐ´ÈëÎÄ¼þ.
+Ó¦ÓÃ³ÌÐò±ØÐëÊ¹ÓÃ_WinAPI_EndUpdateResource()º¯ÊýÐ´Èë±ä»¯.
+Èç¹û$pDataÎª0ÇÒ$iSizeÎª0, ´Ó$hUpdateÖ¸¶¨µÄÎÄ¼þÖÐÉ¾³ýÖ¸¶¨×ÊÔ´.
+ÔËÐÐÊ¾ÀýÇ°Çë½« Script.ico ±£´æÖÁÁÙÊ±ÎÄ¼þ¼Ð
 
-###See Also###
-@@MsdnLink@@ UpdateResource
+###Ïà¹Ø###
 
-###Example###
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖÐUpdateResourceµÄÏà¹ØÐÅÏ¢
+
+###Ê¾Àý###
 @@IncludeExample@@
-

@@ -1,39 +1,36 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_SetUndoLimit
 
-###Description###
-设置撤消队列可以存储的最大数量
+###描述###
+设置可被保存在撤销队列中的操作的最大数量
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetUndoLimit($hWnd, $iLimit)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iLimit
-	撤消队列中可以存储的最大数量
+ $hWnd  控件句柄
+ $iLimit  可被保存在撤销队列中的操作的最大数量
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False设置@error
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $iLimit 不是正数,也不是 0, 
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  102 - $iLimit不是正数或0
 @@End@@
 
-###Remarks###
- 要禁用撤消功能, 设置 $iLimit 为 0
+###备注###
+禁用撤消可设置$iLimit为0.
+$iLimit初始值为100.
 
- $iLimit 的初始值为 100.
+###相关###
+ _GUICtrlRichEdit_Undo , _GUICtrlRichEdit_CanRedo , _GUICtrlRichEdit_CanUndo , _GUICtrlRichEdit_GetNextRedo , _GUICtrlRichEdit_Redo
 
-###Related###
-_GUICtrlRichEdit_Undo, _GUICtrlRichEdit_CanRedo, _GUICtrlRichEdit_CanUndo, _GUICtrlRichEdit_GetNextRedo, _GUICtrlRichEdit_Redo
+###参考###
+ 搜索MSDN知识库中EM_SETUNDOLIMIT的相关信息
 
-###See Also###
-@@MsdnLink@@ EM_SETUNDOLIMIT
-
-###Example###
+###示例###
 @@IncludeExample@@

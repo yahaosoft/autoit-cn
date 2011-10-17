@@ -1,47 +1,40 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _Security__LookupAccountName
 
-###Description###
-æ£€ç´¢å¸æˆ·å®‰å…¨æ ‡è¯†ç¬¦ï¼ˆSIDï¼‰å’ŒåŸŸçš„åç§°
+###ÃèÊö###
+»ñÈ¡ÕÊ»§ºÍÓòÃûµÄSID
 
-###Syntax###
+###Óï·¨###
 #Include <Security.au3>
-_Security__LookupAccountName($sAccount [, $sSystem = ""])
+_Security__LookupAccountName($sAccount[, $sSystem = ""])
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
-$sAccount
-	æŒ‡å®šå¸æˆ·å. ä½¿ç”¨å¾—åŸŸå\ç”¨æˆ·åæ ¼å¼å¿…é¡»æ˜¯å®Œå…¨åˆæ ¼çš„å­—ç¬¦ä¸²,
-		ä»¥ç¡®ä¿å‡½æ•°åœ¨é¢„æœŸçš„é¢†åŸŸæŸ¥æ‰¾å¸æˆ·.
-$sSystem
-	[å¯é€‰å‚æ•°] ç³»ç»Ÿåç§°. æ­¤å­—ç¬¦ä¸²å¯ä»¥æ˜¯ä¸€ä¸ªè¿œç¨‹è®¡ç®—æœºçš„åç§°.
-		å¦‚æžœè¯¥å­—ç¬¦ä¸²ä¸ºç©º, å¸æˆ·åç§°çš„ç¿»è¯‘å¼€å§‹åœ¨æœ¬åœ°ç³»ç»Ÿä¸Š;
-		å¦‚æžœåç§°ä¸èƒ½åœ¨æœ¬åœ°ç³»ç»Ÿä¸Šè§£å†³,æœ¬å‡½æ•°å°†å°è¯•ä½¿ç”¨æœ¬åœ°ç³»ç»Ÿä¿¡ä»»çš„åŸŸæŽ§åˆ¶å™¨è§£æžåç§°.
+ $sAccount  Ö¸¶¨ÕÊ»§Ãû. Ê¹ÓÃÍêÈ«ºÏºõÓòÃû\ÓÃ»§Ãû¸ñÊ½µÄ×Ö·û´®ÒÔÈ·±£º¯ÊýÔÚÒªÇóµÄÓòÖÐ²éÕÒÕË»§.
+ $sSystem  ÏµÍ³Ãû³Æ. ¸Ã×Ö·û´®¿ÉÎªÔ¶³Ì¼ÆËã»úÃû. Èç¹ûÎª¿Õ, ´Ó±¾µØÏµÍ³ÉÏ¿ªÊ¼ÕÊ»§Ãû·­Òë. Èç¹ûÃû³ÆÎÞ·¨ÔÚ±¾µØÏµÍ³ÉÏ½â¾ö, ±¾º¯Êý½«³¢ÊÔÊ¹ÓÃ±¾µØÏµÍ³ÐÅÈÎµÄÓò¿ØÖÆÆ÷½âÎöÃû³Æ.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›žæ•°ç»„çš„æ ¼å¼å¦‚ä¸‹:
-	$aAcct[0] - SID å­—ç¬¦ä¸²
-	$aAcct[1] - åŸŸå
-	$aAcct[2] - SID çš„ç±»åž‹,å®ƒå¯ä»¥æ˜¯ä»¥ä¸‹å€¼:
-	1 - ç”¨æˆ· SID
-	2 - ç»„ SID
-	3 - åŸŸ SID
-	4 - åˆ«å SID
-	5 - ä»¥çŸ¥ç»„ SID
-	6 - å·²åˆ é™¤å¸æˆ·çš„ SID
-	7 - æ— æ•ˆ SID
-	8 - æœªçŸ¥ç±»åž‹çš„ SID
-	9 - è®¡ç®—æœºçš„ SID
-å¤±è´¥:	è®¾ç½®@error:	
+³É¹¦: ÈçÏÂ¸ñÊ½Êý×é:
+    $aAcct[0] - SID×Ö·û´®
+    $aAcct[1] - ÓòÃû
+    $aAcct[2] - SIDÀàÐÍ, ¿ÉÎªÏÂÁÐÖµÖ®Ò»:
+     1 - ±íÊ¾Ò»¸öÓÃ»§µÄSID
+     2 - ±íÊ¾Ò»¸ö×éµÄSID
+     3 - ±íÊ¾Ò»¸öÓòµÄSID
+     4 - ±íÊ¾Ò»¸ö±ðÃûµÄSID
+     5 - ±íÊ¾Ò»¸ö¾ùÖªµÀµÄ×éµÄSID
+     6 - ±íÊ¾Ò»¸öÒÑÉ¾³ýÕÊ»§µÄSID
+     7 - ±íÊ¾ÎÞÐ§SID
+     8 - ±íÊ¾Î´ÖªSIDÀàÐÍ
+     9 - ±íÊ¾¼ÆËã»úµÄSID
 @@End@@
 
-###Remarks###
-None.
+###±¸×¢###
 
-###Related###
-_Security__LookupAccountSid
+###Ïà¹Ø###
+ _Security__LookupAccountSid
 
-###See Also###
-@@MsdnLink@@ LookupAccountName
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖÐLookupAccountNameµÄÏà¹ØÐÅÏ¢

@@ -1,47 +1,45 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_CallWindowProc
 
-###Description###
-ç›®å‰é’©é“¾çš„é’©å­ä¿¡æ¯ä¼ é€’åˆ°ä¸‹ä¸€ä¸ªé’©å­ç¨‹åº
+###ÃèÊö###
+½«ÐÅÏ¢´«µÝµ½Ö¸¶¨µÄ´°¿Ú¹ý³Ì
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPI.au3>
 _WinAPI_CallWindowProc($lpPrevWndFunc, $hWnd, $Msg, $wParam, $lParam)
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
 $lpPrevWndFunc
-	å…ˆå‰çš„çª—å£è¿›ç¨‹æŒ‡é’ˆ.
-		å¦‚æžœè¿™ä¸ªå€¼æ˜¯é€šè¿‡è°ƒç”¨ _WinAPI_GetWindowLong å‡½æ•°å’Œè®¾ç½®å…¶ $iIndex å‚æ•°å€¼ä¸º $GWL_WNDPROC æˆ– $DWL_DLGPROC èŽ·å¾—,
-		å®ƒå®žé™…ä¸Šæ˜¯ä»»ä½•ä¸€ä¸ªçª—å£æˆ–å¯¹è¯æ¡†ç¨‹åºçš„åœ°å€, æˆ–å¯¹ _WinAPI_CallWindowProc æ‰æœ‰çš„ç‰¹æ®Šæ„ä¹‰å†…å€¼.
+   ÒÔÇ°´°¿Ú³ÌÐòµÄÖ¸Õë.
+$GWL_WNDPROC»ò$DWL_DLGPROCµÄ$iIndex²ÎÊýµÄGetWindowLongº¯Êý , ËüÊµ¼ÊÉÏÊÇ´°¿ÚµÄµØÖ·»ò¶Ô»°¿ò½ø³Ì , »òÒ»¸ö¶Ô_WinAPI_CallWindowProcÓÐÒâÒåµÄÖµ.
 $hWnd
-	æŽ¥æ”¶æ¶ˆæ¯çš„çª—å£ç¨‹åºå¥æŸ„
+   ½ÓÊÕÐÅÏ¢µÄ´°¿Ú³ÌÐò¾ä±ú
 $Msg
-	æŒ‡å®šæ¶ˆæ¯
+   Ö¸¶¨ÐÅÏ¢
 $wParam
-	æŒ‡å®šé™„åŠ æ¶ˆæ¯çš„ç‰¹å®šä¿¡æ¯,è¿™ä¸ªå‚æ•°çš„å†…å®¹å–å†³äºŽ $Msg å‚æ•°å€¼çš„ä¿¡æ¯
+   Ö¸¶¨¶îÍâÐÅÏ¢µÄ¾ßÌåÐÅÏ¢ÄÚÈÝ. ²ÎÊýÄÚÈÝÈ¡¾öÓÚÐÅÏ¢²ÎÊýµÄÖµ
 $lParam
-	æŒ‡å®šé™„åŠ æ¶ˆæ¯çš„ç‰¹å®šä¿¡æ¯,è¿™ä¸ªå‚æ•°çš„å†…å®¹å–å†³äºŽ $Msg å‚æ•°å€¼çš„ä¿¡æ¯
+   Ö¸¶¨¶îÍâÐÅÏ¢µÄ¾ßÌåÐÅÏ¢ÄÚÈÝ. ²ÎÊýÄÚÈÝÈ¡¾öÓÚÐÅÏ¢²ÎÊýµÄÖµ
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-	è¿”å›žæŒ‡å®šæ¶ˆæ¯å¤„ç†çš„ç»“æžœä¸”å–å†³äºŽå¯¹ä¿¡æ¯çš„å‘é€
+³É¹¦:
+·µ»ØÖµÖ¸¶¨ÐÅÏ¢´¦ÀíµÄ½á¹û£¬²¢È¡¾öÓÚ·¢³öµÄÐÅÏ¢
+Ê§°Ü: -1 ²¢ÉèÖÃ
+@error
 @@End@@
 
-###Remarks###
- å­ç±»çª—å£ä½¿ç”¨ _WinAPI_CallWindowProc å‡½æ•°. é€šå¸¸,åŒä¸€ç±»çš„æ‰€æœ‰çª—å£å…±äº«ä¸€ä¸ªçª—å£ç¨‹åº.
- å­ç±»çª—å£æ˜¯çª—å£è®¾ç½®çš„ç›¸åŒçº§,ç”±å¦ä¸€ä¸ªçª—å£(æˆ–ç¨‹åºï¼‰æ‹¦æˆªå’Œå¤„ç†ç¨‹åºçš„ä¿¡æ¯,ç„¶åŽä¼ é€’ç»™ç±»çª—å£ç¨‹åº.
- _WinAPI_SetWindowLong å‡½æ•°é€šè¿‡æ”¹å˜çª—å£è¿›ç¨‹ä¸Žç‰¹å®šçª—å£ç›¸å…³è”åˆ›å»ºå­ç±»,
- ä½¿ç³»ç»Ÿè°ƒç”¨æ–°çš„çª—å£è¿›ç¨‹è€Œä¸æ˜¯ä»¥å‰çš„çª—å£.
- åº”ç”¨ç¨‹åºé€šè¿‡è°ƒç”¨ _WinAPI_CallWindowProc ä¼ é€’ä¿¡æ¯åˆ°ä»¥å‰çš„çª—å£è¿›ç¨‹è€Œä¸æ˜¯é€šè¿‡æ–°çª—å£è¿›ç¨‹.
- è¿™å°†å…è®¸åˆ›å»ºä¸€ä¸ªçª—å£è¿›ç¨‹é“¾
+###±¸×¢###
+Õë¶Ô´°¿Ú×ÓÀàÊ¹ÓÃ_WinAPI_CallWindowProcº¯Êý. Í¨³£Çé¿öÏÂ , ËùÓÐÍ¬Àà´°¿Ú¹²ÓÃÒ»¸ö´°¿Ú¹ý³Ì. ×ÓÀàÊÇÒ»¸ö´°¿Ú»òÍ¬Àà´°¿ÚµÄ¼¯ºÏ , ¸ÃÀàµÄÐÅÏ¢±»À¹½Ø²¢ÔÚ´«µÝµ½¸Ã´°¿Ú½ø³ÌÇ°ÓÉÆäËû´°¿Ú½ø³ÌÖ´ÐÐ.
+_WinAPI_SetWindowLongº¯ÊýÍ¨¹ý¸Ä±äÏà¹ØµÄ³ÌÐòÓëÌØ¶¨´°¿Ú´´½¨×Ó´°¿Ú , Ôì³ÉÏµÍ³µ÷ÓÃ³ÌÐòµÄÐÂ´°¿Ú¶ø²»ÊÇÒÔÇ°µÄÒ»¸ö. Ó¦ÓÃ³ÌÐòÍ¨¹ýµ÷ÓÃ_WinAPI_CallWindowProc´«µÝÐÅÏ¢µ½ÒÔÇ°µÄ´°¿Ú½ø³Ì¶ø²»ÊÇÍ¨¹ýÐÂ´°¿Ú½ø³Ì. Õâ½«ÔÊÐí´´½¨Ò»¸ö´°¿Ú½ø³ÌÁ´
 
-###Related###
-DllCallbackRegister, _WinAPI_SetWindowLong
+###Ïà¹Ø###
+ _WinAPI_SetWindowLong
 
-###See Also###
-@@MsdnLink@@ CallWindowProc
+###²Î¿¼###
+ËÑË÷MSDNÖªÊ¶¿âÖÐÓÐ¹ØCallWindowProcµÄÐÅÏ¢
 
-###Example###
+###Ê¾Àý###
 @@IncludeExample@@

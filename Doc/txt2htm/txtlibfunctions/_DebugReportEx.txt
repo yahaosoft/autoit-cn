@@ -1,45 +1,43 @@
-###User Defined Function###
+###用户自定义函数###
 _DebugReportEx
 
-###Description###
-格式化写入调试会话框的信息
+###描述###
+将格式化信息写入调试会话
 
-###Syntax###
-#include <Debug.au3>
-_DebugReportEx ( $sData [,$bLastError = False [,$bExit = False]])
+###语法###
+#Include <Debug.au3>
+_DebugReportEx( $sData [,$bLastError = False [,$bExit = False]] )
 
-
-###Parameters###
+###参数###
 @@ParamTable@@
-$sData
-	须予报告的数据
-$bLastError
-	[可选参数] 设置为 True, 表示如有 GetLastErrorMessage() 数据必须追加到报告中
-$bExit
-	[可选参数] 设置为 True, 表示脚本必须终止
+$sData 
+   将被报告的数据
+$bLastError 
+   [可选] 为True时在报告的数据后追加GetLastErrorMessage()
+$bExit 
+   [可选] 为True时中断脚本
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0.
+成功: 返回1
+失败: 返回0
 @@End@@
 
-###Remarks###
-根据 @error 错误信息将被格式化如下:
-0 - 报告 "DLL 返回错误函数".
-1 - 报告 "无法打开 dll"
-3 - 报告 "无法找到 DLL 函数".
+###备注###
+消息将根据@error值格式化为:
+0 - 报告Bad return from FUNCTION in DLL(dll中的函数返回失败)
+1 - 报告unable to open a dll(无法打开dll)
+3 - 报告unable to find FUNCTION in DLL(无法在dll中找到函数)
+如果$sData不包含"|"或@error未如上指定则不会被格式化
+如果未建立_DebugSetup()函数总是返回.
+保留调用方的@error.
+如果$bLastError为True则@extended可设置为Windows API GetlastError(). 否则将保留.
 
- 如果 $sData 不包含 "|" 或 @error 不是上面所指定的报告内容, 信息将不会被格式化.
- 如果没有 _DebugSetup(), 已发布的函数总是返回.
- @error 为调用方保留.
- 如果 $bLastError = True, @extended 可以设置为 Windows API 的 GetlastError(). 否则保留.
-
-
-###Related###
+###相关###
 _DebugSetup
 
+###参考###
 
-###Example###
+###示例###
 @@IncludeExample@@

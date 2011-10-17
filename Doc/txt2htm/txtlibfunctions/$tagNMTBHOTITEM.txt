@@ -1,35 +1,30 @@
-﻿###Structure Name###
+###�ṹ����###
 $tagNMTBHOTITEM
 
-###Description###
-包含使用 $TBN_HOTITEMCHANGE 通知的信息
+###����###
+�������ڴ���$TBN_HOTITEMCHANGE֪ͨ��Ϣ����Ϣ�Ľṹ
 
-###Syntax###
+###�﷨###
 Global Const $tagNMTBHOTITEM = $tagNMHDR & ";int idOld;int idNew;dword dwFlags"
 
-###Fields###
+###��Ա###
 @@ParamTable@@
 $tagNMHDR
-	包含通知消息的信息
+   ����֪ͨ��Ϣ����Ϣ
 idOld
-	先前高亮项目的命令标识符
+   ǰһ��������������ʶ
 idNew
-	即将高亮项目的命令标识符
+   ������������Ŀ�������ʶ
 dwFlags
-	表示项目为何改变的标志. 可为一或多个下列值:
-		$HICF_ACCELERATOR - 快捷键引起的热项改变
-		$HICF_ARROWKEYS - 箭头键引起的热项改变
-		$HICF_DUPACCEL - 修改 $HICF_ACCELERATOR. 如果这个标志被设置，多个项目具有相同的快捷键字符
-		$HICF_ENTERING - 修正其他原因标记. 如果设置此标志, 以前没有热项目, 则 idOld 不包含有效的信息
-		$HICF_LEAVING - 修正其他原因标记. 如果设置此标志, 没有新添热项目, 则 idOld 不包含有效的信息
-		$HICF_LMOUSE - 鼠标左键单击事件引起的热项改变
-		$HICF_MOUSE - 鼠标事件引起的热项改变
-		$HICF_OTHER - 无法确定引起热项改变的事件. 通常是由于焦点改变或 $TB_SETHOTITEM 消息变化
-		$HICF_RESELECT - 用户输入的快捷键项目已经是热项而引起的热项改变
-		$HICF_TOGGLEDROPDOWN - 版本 5.80. 导致按钮切换状态
-@@End@@
-
-###Remarks###
-需要调整为 x64
-	
-
+   ��ʾ��ĿΪ�θı�ı��. ��Ϊһ����������ֵ:
+    $HICF_ACCELERATOR - ��ݼ����������ı�
+    $HICF_ARROWKEYS - ��ͷ�����������ı�
+    $HICF_DUPACCEL - ����$HICF_ACCELERATOR. ��������иñ��, ����һ����Ŀ������ͬ�Ŀ�ݼ�.
+    $HICF_ENTERING - ��������ԭ����. ��������иñ��, ��ǰû��������idOld��������Ч��Ϣ.
+    $HICF_LEAVING - ��������ԭ����. ��������иñ��, û���µ�������idNew��������Ч��Ϣ.
+    $HICF_LMOUSE - �����������¼����������ı�
+    $HICF_MOUSE - ����¼����������ı�
+    $HICF_OTHER - �޷�ȷ�����¼����������ı�. �������ڽ���ı��$TB_SETHOTITEM��Ϣ
+    $HICF_RESELECT - �û������Ѿ�Ϊ����Ŀ�ݼ����������ı�
+    $HICF_TOGGLEDROPDOWN - �汾5.80. ʹ��ť�л�״̬
+@@end@@

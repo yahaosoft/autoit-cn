@@ -1,41 +1,30 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_UnmapViewOfFile
 
-###Description###
-取消调用进程地址空间的文件映射视图.
-
-###Syntax###
-#Include <WinAPIEx.au3>
+###����###
+�ӵ��ý��̵ĵ�ַ�ռ�ȡ�����ļ���ӳ����ͼ
 _WinAPI_UnmapViewOfFile ( $pAddress )
 
-###Parameters###
+###����###
 @@ParamTable@@
-$pAddress
-	调用进程地址空间的基址指针
-		 此值必须与先前调用 _WinAPI_MapViewOfFile() 函数的返回值相同.
+$pAddress  ���ٱ�ӳ����ļ�ӳ����ͼ�Ļ�ַָ��. ���ֵ��������ǰ����_WinAPI_MapViewOfFile()�������ص�ֵ��ͬ
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0,设置@error 为非 0 值.
+�ɹ�: ����1
+ʧ�ܣ�����0������@error��0
 @@End@@
 
-###Remarks###
-解除文件映射视图,使视图占用的进程地址空间范围失效,并使之可用于其他分配. 
-它为进程工作集的每个虚拟页映射消除工作集条目,并降低该进程工作集的大小.
-也减了相应物理页的共享数.
-虽然应用程序可能会关闭用于创建文件映射对象的文件句柄, 
-系统仍然拥有相应的打开文件,直到文件的最后一个视图被映射. 
-最后的文件视图尚未映射时不会有共享限制.
- 为最大限度地减少数据丢失的电源故障或系统崩溃事件的风险, 
- 应该使用 _WinAPI_FlushViewOfFile() 函数明确地刷新修改页面.
+###��ע###
+���ӳ���ļ��ľ�����ͼʹ��ͼ�ڽ��̵ĵ�ַ�ռ���ռ�õķ�ΧʧЧ��ʹ֮��������������. ����Ƴ�ÿ����Ϊ������һ���ֵ�δӳ�������ҳ�����ڲ����ٽ��̵Ĺ�������С. ͬʱҲ��������Ӧ����ҳ��Ĺ�������.
+����Ӧ�ó���ɹر����ڴ����ļ����������ļ����, ϵͳ���Ƴ�����ӳ���ļ���ͼǰ�Ի�����Ӧ���ִ�. �ڽ�������ļ�����ǰ�ļ������޹������ƴ�.
+Ϊ������޶ȼ��ٵ������ݶ�ʧ�ĵ�Դ���ϻ�ϵͳ�����¼��ķ���, Ӧ��ʹ��_WinAPI_FlushViewOfFile()������ȷˢ���޸�ҳ��.
 
+###���###
 
+###�ο�###
+ ����MSDN֪ʶ����UnmapViewOfFile�������Ϣ
 
-###See Also###
-@@MsdnLink@@ UnmapViewOfFile
-
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

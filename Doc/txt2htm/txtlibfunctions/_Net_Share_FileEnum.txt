@@ -1,53 +1,46 @@
-###User Defined Function###
+###用户自定义函数###
 _Net_Share_FileEnum
 
-###Description###
-返回服务器上打开的文件信息
+###描述###
+获取服务器上打开的文件的信息
 
-###Syntax###
+###语法###
 #Include <NetShare.au3>
 _Net_Share_FileEnum([$sServer = ""[, $sBaseName = ""[, $sUserName = ""]]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$sServer
-	[可选参数] 包含服务器执行函数的名称
-		留空则指定本地计算机.
-$sBaseName
-	[可选参数] 包含返回信息的限定符. 如果为空, 则枚举所有打开的资源
-		如果不为空, 函数枚举有 $sBaseName 前缀的唯一资源.
-$sUserName
-	[可选参数] 指定用户名. 如果不为空, $sUserName 作为枚举的限定符.
+ $sServer  用以指定函数将操作的远程服务器的DNS或NetBIOS名称的字符串. 如果参数为空则使用本地计算机.
+ $sBaseName  返回信息中包含的相同字符串. 如果为空, 枚举所有打开的资源. 如果非空, 函数只枚举以$sBaseName为前缀的资源.
+ $sUserName  指定用户名的字符串. 如果非空, $sUserName服务器作为枚举的依据.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回以下格式的数组:
-	[0][0] - 数组条目数量 (n)
-	[1][0] - 资源打开时分配的 ID
-	[1][1] - 与打开的应用程序相关的权限:
-	1 - 读取和执行资源
-	2 - 写入到资源.
-	4 - 创建资源
-	8 - 执行权限
-	16 - 删除权限
-	32 - 更改属性
-	64 - 更改 ACL
-	[1][2] - 包含锁定在资源上的文件数
-	[1][3] - 指定打开资源的路径
-	[1][4] - 指定打开资源的用户或计算机
-失败:	设置@error:	
+成功: 如下格式数组:
+    [0][0] - 数组的元素数量
+    [1][0] - 资源打开时被分配的编号
+    [1][1] - 与打开的应用程序相关的权限:
+     1 - 允许读取和执行资源
+     2 - 允许写入到资源
+     4 - 允许创建资源
+     8 - 执行许可
+     16 - 删除许可
+     32 - 改变许可属性
+     64 - 改变ACL许可
+    [1][2] - 包含锁定在资源上的文件数
+    [1][3] - 指定打开资源的路径
+    [1][4] - 指定打开资源的用户或计算机
 @@End@@
 
+###备注###
+仅本地管理组或服务器操作组可执行该函数
 
-###Remarks###
-系统管理员,服务器操作员或本地组成员才能执行此功能
+###相关###
+ _Net_Share_ConnectionEnum , _Net_Share_SessionEnum , _Net_Share_ShareEnum
 
-###Related###
-_Net_Share_ConnectionEnum, _Net_Share_SessionEnum, _Net_Share_ShareEnum
+###参考###
+ 搜索MSDN知识库中NetFileEnum的相关信息
 
-###See Also###
-@@MsdnLink@@ NetFileEnum
-
-###Example###
+###示例###
 @@IncludeExample@@

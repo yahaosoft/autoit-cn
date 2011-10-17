@@ -1,54 +1,52 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinHttpSimpleSSLRequest
 
-###Description###
-ä½¿ç”¨SSLè¯·æ±‚å‘é€ä¸€ä¸ªç®€å•çš„è¡¨å•
+###ÃèÊö###
+ÒÔ¼òµ¥¸ñÊ½ÏòHTTP·şÎñÆ÷·¢ËÍÖ¸¶¨ÇëÇó
 
-###Syntax###
-#Include <WinHttp.au3>
-_WinHttpSimpleSSLRequest($hConnect [, $sType [, $sPath [, $sReferrer = Default [, $sData = Default [, $sHeader = Default [, $fGetHeaders = Default [, $iMode = Default ]]]]]]])
+###Óï·¨###
+#Include <WinHTTP.au3>
+_WinHttpSimpleSSLRequest( $hConnect [, $sType [, $sPath [, $sReferrer = Default [, $sData = Default [, $sHeader = Default [, $fGetHeaders = Default [, $iMode = Default ]]]]]]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$hConnect
-	_WinHttpConnect å‡½æ•°è¿”å›çš„å¥æŸ„
-$sType
-	[å¯é€‰å‚æ•°] GET æˆ– POST (é»˜è®¤: GET)
-$sPath
-	[å¯é€‰å‚æ•°] è¯·æ±‚è·¯å¾„ (é»˜è®¤: "" - ç©ºå­—ç¬¦ä¸²;è¡¨ç¤ºæœåŠ¡å™¨ä¸Šçš„é»˜è®¤é¡µ)
-$sReferrer
-	[å¯é€‰å‚æ•°] å¼•ç”¨é¡µé¢ (é»˜è®¤: $WINHTTP_NO_REFERER)
-$sData
-	[å¯é€‰å‚æ•°] POSTæ•°æ® (é»˜è®¤: $WINHTTP_NO_REQUEST_DATA)
-$sHeader
-	[å¯é€‰å‚æ•°] é™„åŠ å¤´ (é»˜è®¤: $WINHTTP_NO_ADDITIONAL_HEADERS)
-$fGetHeaders
-	[å¯é€‰å‚æ•°] è¿”å›å“åº”å¤´ (é»˜è®¤: False)
-$iMode
-	[å¯é€‰å‚æ•°] è¯»å–ç»“æœçš„æ¨¡å¼ (é»˜è®¤: 0)
-		0 - ASCII-æ–‡æœ¬
-		1 - UTF-8 æ–‡æœ¬
-		2 - äºŒè¿›åˆ¶æ•°æ®
+$hConnect 
+   _WinHttpConnect()·µ»ØµÄ¾ä±ú.
+$sType 
+   [¿ÉÑ¡] GET(Ä¬ÈÏ)»òPOST.
+$sPath 
+   [¿ÉÑ¡] ÇëÇóÂ·¾¶(Ä¬ÈÏÎª¿Õ×Ö·û´®±íÊ¾·şÎñÆ÷ÉÏµÄÄ¬ÈÏÒ³).
+$sReferrer 
+   [¿ÉÑ¡] ÒıÓÃ(Ä¬ÈÏÎª$WINHTTP_NO_REFERER)
+$sData 
+   [¿ÉÑ¡] POSTÊı¾İ(Ä¬ÈÏÎª$WINHTTP_NO_REQUEST_DATA)
+$sHeader 
+   [¿ÉÑ¡] ¶îÍâÍ·²¿(Ä¬ÈÏÎª$WINHTTP_NO_ADDITIONAL_HEADERS).
+$fGetHeaders 
+   [¿ÉÑ¡] ·µ»Ø»Ø¸´Í·²¿(Ä¬ÈÏÎªFalse)
+$iMode 
+   [¿ÉÑ¡] ¶ÁÈ¡½á¹ûµÄÄ£Ê½(Ä¬ÈÏÎª0)
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	å¦‚æœ $fGetHeaders = False (é»˜è®¤)è¿”å›å“åº”æ•°æ®
-[0]	å“åº”å¤´
-[1]	å“åº”æ•°æ®
-å¤±è´¥:	è¿”å› 0 å¹¶è®¾ç½® @error
-	1 - æ— æ³•æ‰“å¼€è¯·æ±‚
-	2 - æ— æ³•å‘é€è¯·æ±‚
-	3 - æ— æ³•æ¥æ”¶å“åº”
-	4 - $iMode æ— æ•ˆ
+³É¹¦: $fGetHeadersÎªFalseÊÇ·µ»ØÓ¦´ğÊı¾İ(Ä¬ÈÏ)
+    $fGetHeadersÎªTrueÊÇ·µ»ØÊı×é
+    [0] - Ó¦´ğÍ·²¿
+    [1] - Ó¦´ğÊı¾İ
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@errorÎª:
+    1 - ÎŞ·¨´ò¿ªÇëÇó
+    2 - ÎŞ·¨·¢ËÍÇëÇó
+    3 - ÎŞ·¨½ÓÊÕÓ¦´ğ
+    4 - ÎŞĞ§$iMode
 @@End@@
 
-###Remarks###
-None.
-###Related###
-<a href="_WinHttpSimpleRequest.htm">_WinHttpSimpleRequest</a>, <a href="_WinHttpSimpleSendSSLRequest.htm">_WinHttpSimpleSendSSLRequest</a>, <a href="_WinHttpSimpleSendRequest.htm">_WinHttpSimpleSendRequest</a>, <a href="_WinHttpQueryHeaders.htm">_WinHttpQueryHeaders</a>, <a href="_WinHttpSimpleReadData.htm">_WinHttpSimpleReadData</a>
+###±¸×¢###
 
+###Ïà¹Ø###
+ _WinHttpSimpleRequest ,  _WinHttpSimpleSendSSLRequest ,  _WinHttpSimpleSendRequest ,  _WinHttpQueryHeaders , _WinHttpSimpleReadData
 
-###Example###
+###²Î¿¼###
+
+###Ê¾Àı###
 @@IncludeExample@@
-

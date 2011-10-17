@@ -1,41 +1,36 @@
-﻿###Structure Name###
+###�ṹ����###
 $tagBITMAPINFO
 
-###Description###
-这个数据结构定义了基于Windows的设备无关位图(DIB)的尺寸和颜色信息.
+###����###
+�ýṹ����Windows�豸�޹�λͼ(DIB)�Ķ�������ɫ��Ϣ
 
-###Syntax###
-Global Const $tagBITMAPINFO = "struct; dword Size;long Width;long Height;word Planes;word BitCount;dword Compression;dword SizeImage;" & _
-		"long XPelsPerMeter;long YPelsPerMeter;dword ClrUsed;dword ClrImportant; endstruct;dword RGBQuad"
+###�﷨###
+Global Const $tagBITMAPINFO =  "dword Size;long Width;long Height;ushort Planes;ushort BitCount;dword Compression;dword SizeImage;long XPelsPerMeter;long YPelsPerMeter;dword ClrUsed;dword ClrImportant;dword RGBQuad"
 
-###Fields###
+###��Ա###
 @@ParamTable@@
 Size
-	数据结构所需的字节数,减去 RGBQuad 数据的大小.
+   �ṹ�����ֽ���, ��RGBQuad�����ݴ�С
 Width
-	指定位图宽度, 单位为像素
+   ָ��Ϊͼ����, ����
 Height
-	指定位图高度, 单位为像素
+   ָ��λͼ�߶�, ����
 Planes
-	指定目标设备的位图平面数量,这里必须设置为 1
+   ָ������Ŀ���豸�ĵ�ɫ������. ��������Ϊ 1
 BitCount
-	指定每像素的位数
+   ָ��ÿ���ص��ֽ���
 Compression
-	指定一个使用压缩的自下而上的位图的压缩类型
+   ���ڴӵ�����ѹ����λͼָ��ѹ������
 SizeImage
-	指定图像的字节大小
+   ָ��ͼ����ֽڴ�С
 XPelsPerMeter
-	指定目标设备位图水平分辨率, 每米像素值.
+   λͼˮƽ�ֱ���, ÿ������ֵ
 YPelsPerMeter
-	指定目标设备位图垂直分辨率, 每米像素值.
+   λͼ��ֱ�ֱ���, ÿ������ֵ
 ClrUsed
-	指定颜色表中被位图实际使用的颜色索引数
+   ָ����ɫ���б�λͼʵ��ʹ�õ���ɫ����������
 ClrImportant
-	指定显示位图所需颜色的索引数
+   �ƶ���ʵλͼ�������ɫ����������
 RGBQuad
-	tagRGBQUAD 数据结构数组. 数组由颜色表元素构成.
-@@End@@
-
-###Remarks###
-None.
-
+   tagRGBQUAD�ṹ������. ������ɫ���������Ԫ��.
+@@end@@

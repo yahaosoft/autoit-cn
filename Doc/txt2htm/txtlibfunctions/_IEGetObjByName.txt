@@ -1,43 +1,39 @@
-###User Defined Function###
+###用户自定义函数###
 _IEGetObjByName
 
-###Description###
-按名称或标识返回对象变量.
+###描述###
+返回指定名称(name)或者id的对象变量
 
-###Syntax###
-#include <IE.au3> 
+###语法###
+#Include <IE.au3>
 _IEGetObjByName ( ByRef $o_object, $s_Id [, $i_index = 0] )
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$o_object
-	InternetExplorer.Application窗体或框架对象的对象变量
-$s_Id
-	指定想要匹配的对象的名称或ID
-$i_index
-	[可选参数]: 如果id的名称不止一次出现, 由0基索引指定实例
-	0 (默认)或正整数返回一个索引的实例
-	-1 返回一个指定对象的集合
+ 对象变量  InternetExplorer.Application , 窗口或者框架(frame)对象的对象变量
+ ID  定义你想要匹配的对象的名称或者ID
+ 索引  [可选]: 如果名称或者ID出现不止一次 , 定义从0开始的具体对象.
+0 (默认)或者正整数返回对应索引号的对象
+-1 返回指定对象的集合
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回指向指定对象的对象变量, @EXTENDED = 指定对象数量
-失败:	返回0 并且设置 @ERROR
-@Error:	0 ($_IEStatus_Success) = 无错误
-	3 ($_IEStatus_InvalidDataType) = 无效数据类型
-	7 ($_IEStatus_NoMatch) = 无匹配
-@Extended:	包含无效参数数量
+成功: 返回指向指定对象的对象变量 , @EXTENDED = 指定对象数量
+失败: 返回0并设置@ERROR为:
+    0 ($_IEStatus_Success) = 无错误
+    3 ($_IEStatus_InvalidDataType) = 无效数据类型
+    7 ($_IEStatus_NoMatch) = 不匹配
+    @Extended: 包含无效参数数量
 @@End@@
 
+###备注###
+这个函数将返回指定名称或者ID的对象的对象引用. DOM组件可以有名称或者ID属性或者二者都有. 一个特殊的ID可以被分配给一个单独的元素而一个特殊的名称(name)可以被分配给多个元素. 在IE里面名称和ID是被共享的.
 
-###Remarks###
-函数将返回一个指向文档中带有指定ID或名称的任意对象的对象. DOM元素可具有名称或ID属性或两者. 当一个指定名称被分配给Internet Explorer中的多个元素时指定的ID只可被分配给单一元素, 名称和ID的命名空间是共享的.
+###相关###
+ _IEGetObjById
 
+###参考###
 
-###Related###
-_IEGetObjById
-
-
-###Example###
+###示例###
 @@IncludeExample@@

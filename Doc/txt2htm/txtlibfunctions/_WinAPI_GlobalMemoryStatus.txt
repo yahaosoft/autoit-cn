@@ -1,33 +1,31 @@
-###User Defined Function###
-_WinAPI_GlobalMemoryStatus
+    ###用户自定义函数###
+    _WinAPI_GlobalMemoryStatus
 
-###Description###
-检索当前可用内存的信息
+###描述###
+    获取当前可用内存的信息
 
-###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_GlobalMemoryStatus()
-
-###Parameters###
-None.
-
-
-###ReturnValue###
-@@ReturnTable@@
-	返回数组的格式如下:
-	$aMem[0] - 可用内存百分比
-	$aMem[1] - 物理内存:总计
-	$aMem[2] - 物理内存:可用
-	$aMem[3] - 页面文件:总计
-	$aMem[4] - 页面文件:可用
-	$aMem[5] - 用户内存:总计
-	$aMem[6] - 用户内存:可用
+###语法###
+    #Include
+    <WinAPI.au3>
+    _WinAPI_GlobalMemoryStatus()
 @@End@@
 
-###Remarks###
- 不同于 MemGetStats() 函数, 这个函数返回的值以字节为单位
+###返回值###
+@@ReturnTable@@
+成功: 如下格式数组:
+    $aMem[0] - 使用中的百分比
+    $aMem[1] - 物理内存: 总计
+    $aMem[2] - 物理内存: 自由
+    $aMem[3] - 页面文件: 总计
+    $aMem[4] - 页面文件: 自由
+    $aMem[5] - 用户内存: 总计
+    $aMem[6] - 用户内存: 自由
+@@End@@
 
-###Related###
+###备注###
+与MemGetStats()函数不同, 该函数返回字节值
 
-###See Also###
-@@MsdnLink@@ GlobalMemoryStatusEx
+###相关###
+
+###参考###
+搜索MSDN知识库中GlobalMemoryStatus的相关信息

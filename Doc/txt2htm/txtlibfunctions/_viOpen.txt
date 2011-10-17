@@ -1,41 +1,35 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _viOpen
 
-###Description###
-æ‰“å¼€ VISA è¿æ¥åˆ°ä»ªå™¨/è®¾å¤‡
+###ÃèÊö###
+´ò¿ªÓëÒÇÆ÷/Éè±¸µÄVISAÁ¬½Ó
 
-###Syntax###
-#include <Visa.au3>
-_viOpen ( $s_visa_address [, $s_visa_secondary_address = 0] )
+###Óï·¨###
+#Include <Visa.au3>
+_viOpen ( $s_visa_address, $s_visa_secondary_address = 0 )
 
-
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$s_visa_address
-	VISA èµ„æºæè¿°å­—ç¬¦ä¸²(æ›´å¤šä¿¡æ¯ _viExecCommand çš„æ³¨é‡Š)
-		ä¹Ÿå¯ä»¥ç›´æ¥ä¼ é€’ä¸€ä¸ª GPIB æ•´æ•°åœ°å€
-$s_visa_secondary_address
-	[å¯é€‰å‚æ•°] "è¾…åŠ© GPIB åœ°å€". ä»…ç”¨äºä¸»åœ°å€ä¼ é€’æ­£æ•°æ—¶.
-		ä»…ä¸€äº› GPIB ä»ªå™¨æœ‰è¾…åŠ©åœ°å€,æ­¤æ—¶å³å¯ä½¿ç”¨è¿™ä¸ªå¯é€‰å‚æ•°æŒ‡å®šæ¡ˆä¾‹
-		æ­¤å‚æ•°é»˜è®¤ä¸º 0, æ„å‘³ç€æ²¡æœ‰è¾…åŠ©åœ°å€
+ $s_visa_address  VISA×ÊÔ´ÃèÊö·û×Ö·û´®(²ÎÔÄ_viExecCommandÉÏµÄ±¸×¢) , Èç¹û×÷Îª¿ì½İ·½Ê½¿ÉÖ±½ÓÓÃÕûÊı´«µİGPIBµØÖ·
+ $s_visa_secondary_address  ¿ÉÑ¡: "´ÎÒªGPIBµØÖ·". Ö»ÓÃÓÚ»ù±¾µØÖ·ÎªÕûÊıÊ±.
+Ö»ÓĞÒ»Ğ©GPIBÒÇÆ÷¾ßÓĞ´ÎÒªµØÖ·. ÕâÖÖÇé¿öÏÂ´Ë¿ÉÑ¡²ÎÊı¿ÉÓÃÓÚÖ¸¶¨Ö®.
+¸Ã²ÎÊıÄ¬ÈÏÎª0, ±íÊ¾Ã»ÓĞ´ÎÒªµØÖ·.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å› VISA ä»ªå™¨çš„æ­£æ•°å€¼å¥æŸ„
-å¤±è´¥:	è¿”å› -1,è®¾ç½®@error:to 1
+ ³É¹¦:  ·µ»Ø VISAÒÇÆ÷¾ä±úµÄ(ÕıÊı)Öµ
+ Ê§°Ü:  ·µ»Ø-1²¢ÉèÖÃ@errorÎª1
 @@End@@
 
+###±¸×¢###
+ÒªÊ¹ÓÃVISAº¯Êı±ØĞë°²×°ÓĞVISA¿â(¿ÉÒÔ¼ì²é{WINDOWS}\system32ÖĞÊÇ·ñ´æÔÚvisa32.dll)ºÍGPIB¿¨(ÈçNational Instruments NI PCI-GPIB card»òAgilent 82350B PCI High-Performance GPIB card)
+* ³£ÓÃVISAÃèÊö·ûµÄÏêÏ¸ÃèÊö¿É²é¿´°ïÖúÖĞ_viExecCommandº¯ÊıµÄ±¸×¢
 
-###Remarks###
-VISA å‡½æ•°å¿…é¡»å®‰è£… VISA åº“æ–‡ä»¶(æ‚¨å¯ä»¥æ£€æŸ¥visa32.dllæ˜¯å¦åœ¨ WINDOWS\System32 ç›®å½•ä¸­)
-åŠ GPIB å¡(ä¾‹å¦‚ National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card)
- * å¸¸è§ VISA æè¿°ç¬¦è¯¦ç»†ä»‹ç»,è§ _viExecCommand å‡½æ•°å¤‡æ³¨
+###Ïà¹Ø###
+ _viClose , _viExecCommand , _viFindGpib , _viGpibBusReset , _viGTL , _viSetAttribute , _viSetTimeout
 
+###²Î¿¼###
 
-###Related###
-_viClose, _viExecCommand, _viFindGpib, _viGpibBusReset, _viGTL, _viSetAttribute, _viSetTimeout
-
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@

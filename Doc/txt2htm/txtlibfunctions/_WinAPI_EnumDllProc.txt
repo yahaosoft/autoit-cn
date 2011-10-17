@@ -1,51 +1,43 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_EnumDllProc
 
-###Description###
-Enumerates exported functions of the specified dynamic-link library (DLL).
+###ÃèÊö###
+Ã¶¾ÙÖ¸¶¨¶¯Ì¬Á´½Ó¿â(DLL)µÄÊä³öº¯Êı
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_EnumDllProc ( $sPath [, $sMask [, $iFlags]] )
+_WinAPI_EnumDllProc( $sPath [, $sMask [, $iFlags]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $sPath
-	The path to the library. Although this function searches for a file path when it specified as the relative
-	path or the name without a path, will better to specify a fully qualified path to the library for an
-	unequivocal result.
+   ¿âÂ·¾¶. ¾¡¹Ü¸Ãº¯ÊıÔÚÖ¸¶¨Ïà¶ÔÂ·¾¶»ò²»´øÂ·¾¶Çé¿öÏÂ»áËÑË÷ÎÄ¼şÂ·¾¶, µ«ÎªÈ·±£»ñµÃÃ÷È·µÄ½á¹û×îºÃ»¹ÊÇÖ¸¶¨Ò»¸öºÏ·¨Â·¾¶.
 $sMask
-	[å¯é€‰å‚æ•°] A wildcard string that indicates the function names to be enumerated. This string can optionally
-	contain the wildcards, "*" and "?". If this parameter is an empty string or omitted, all the exported
-	functions will be enumerated.
+   [¿ÉÑ¡] ÒªÃ¶¾ÙµÄº¯ÊıÃûµÄÍ¨Åä×Ö·û´®. ¿ÉÒÔÑ¡ÔñÍ¨Åä·û"*"ºÍ"?". Èç¹ûºöÂÔ¸Ã²ÎÊı»ò¶¨ÒåÎª¿Õ×Ö·û´®º¯Êı½«Ã¶¾ÙÈ«²¿Êä³öº¯Êı.
 $iFlags
-	[å¯é€‰å‚æ•°] The optional flags. This parameter can be one or more of the following values.
-	
-	$SYMOPT_CASE_INSENSITIVE
-	$SYMOPT_UNDNAME
-	
+   [¿ÉÑ¡] ¿ÉÑ¡±ê¼Ç. ¿ÉÎªÏÂÁĞÖµÖ®Ò»:
+$SYMOPT_CASE_INSENSITIVE
+$SYMOPT_UNDNAME
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	The array containing the following information:
-[0][0]	Number of rows in array (n)
-[0][1]	Unused
-[n][0]	The function address relative to the library base address (UINT64).
-[n][1]	The function name.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: °üº¬ÏÂÁĞĞÅÏ¢µÄÊı×é:
+    [0][0] - Êı×éĞĞÊı
+    [0][1] - Î´Ê¹ÓÃ
+    [n][0] - Ïà¶ÔÓÚ¿â»ùÖ·µÄº¯ÊıµØÖ·(UINT64).
+    [n][1] - º¯ÊıÃû.
+  Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-This function works with 32- and 64-bit DLLs regardless of the system (32- or 64-bit), although 64-bit executables
-cannot load 32-bit DLLs and vice-versa.
+###±¸×¢###
+¸Ãº¯Êı¿É¹¤×÷ÓÚ32Î»¼°64Î»dll, ÎŞÂÛÏµÍ³ÊÇ32Î»»ò64Î», ¾¡¹Ü, 64Î»Ó¦ÓÃ³ÌĞòÎŞ·¨¼ÓÔØ32Î»dll.
+µ÷ÓÃ_WinAPI_GetExtended()¿ÉÓÃÓÚ»ñÈ¡ÒªÃ¶¾Ùº¯ÊıµÄdll¿âµÄºÏ·¨Â·¾¶.
 
-Call _WinAPI_GetExtended() to retrieve a fully qualified path to the found library that was used to enumerate.
+###Ïà¹Ø###
 
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞSymEnumSymbolsµÄÏà¹ØĞÅÏ¢
 
-###See Also###
-@@MsdnLink@@ SymEnumSymbols
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

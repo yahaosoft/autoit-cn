@@ -1,70 +1,57 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_OpenFileById
 
-###Description###
-Opens the file that matches the specified object identifier.
+###ÃèÊö###
+´ò¿ªÓëÖ¸¶¨¶ÔÏó±êÊ¶·ûÏàÆ¥ÅäµÄÎÄ¼ş
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_OpenFileById ( $hFile, $tGUID, $iAccess, $iShare [, $iFlags] )
+_WinAPI_OpenFileById( $hFile, $tGUID, $iAccess, $iShare [, $iFlags] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $hFile
-	The path or handle to any file on a volume or share on which the file to be opened is stored.
+   ´æ´¢ÔÚ¾íÉÏ»ò´ò¿ªµÄ¹²ÏíÉÏµÄÈÎÒâÎÄ¼şµÄÂ·¾¶»ò¾ä±ú
 $tGUID
-	$tagGUID structure or its string representation that identifies the file to open.
+$tagGUID½á¹¹»ò±êÊ¶´ò¿ªµÄÎÄ¼şµÄ×Ö·û´®
 $iAccess
-	The access to the object. Access can be read, write, or both. If this parameter is 0, the application
-	can query file and device attributes without accessing a device.
-	
-	$GENERIC_READ
-	$GENERIC_WRITE
-	
-	(See MSDN for more information)
-	
+   ¶ÔÏóÈ¨ÏŞ. ¿ÉÎª¶Á»ò/ºÍĞ´. Èç¹û¸Ã²ÎÊıÎª0, Ó¦ÓÃ³ÌĞò¿É²»Í¨¹ı·ÃÎÊÉè±¸²éÑ¯ÎÄ¼şºÍÉè±¸ÊôĞÔ
+$GENERIC_READ
+$GENERIC_WRITE
+    ¸ü¶àĞÅÏ¢Çë
+
+###Ïà¹Ø###
+
+###²Î¿¼###
+    MSDN
 $iShare
-	The sharing mode of an object, which can be read, write, both, or none. If this parameter is 0 and
-	function succeeds, the object cannot be shared and cannot be opened again until the handle
-	is closed.
-	
-	$FILE_SHARE_DELETE
-	$FILE_SHARE_READ
-	$FILE_SHARE_WRITE
-	
+   ¶ÔÏóµÄ¹²ÏíÄ£Ê½, ¿ÉÎª¶Á, Ğ´, È«ÊÇ, È«·ñ. Èç¹û¸Ã²ÎÊıÎª0ÇÒº¯Êı³É¹¦, ¶ÔÏóÎŞ·¨±»¹²ÏíÇÒÔÚ¾ä±ú¹Ø±ÕÇ°ÎŞ·¨ÔÙ´Î´ò¿ª.
+$FILE_SHARE_DELETE
+$FILE_SHARE_READ
+$FILE_SHARE_WRITE
 $iFlags
-	[å¯é€‰å‚æ•°] The file flags. When _WinAPI_OpenFileById() opens a file, it combines the file flags with existing
-	file attributes, and ignores any supplied file attributes. This parameter can include any
-	combination of the following values.
-	
-	$FILE_FLAG_BACKUP_SEMANTICS
-	$FILE_FLAG_NO_BUFFERING
-	$FILE_FLAG_OPEN_NO_RECALL
-	$FILE_FLAG_OPEN_REPARSE_POINT
-	$FILE_FLAG_OVERLAPPED
-	$FILE_FLAG_RANDOM_ACCESS
-	$FILE_FLAG_SEQUENTIAL_SCAN
-	$FILE_FLAG_WRITE_THROUGH
-	
+   [¿ÉÑ¡] ÎÄ¼ş±ê¼Ç. µ±´ò¿ªÎÄ¼şÊ±, _WinAPI_OpenFileById()½«ÎÄ¼ş±ê¼ÇÓëÒÑ´æÔÚµÄÎÄ¼şÊôĞÔÏà½áºÏ²¢ºöÂÔÈÎºÎÌá¹©µÄÎÄ¼şÊôĞÔ. ¸Ã²ÎÊı¿ÉÎªÏÂÁĞÖµµÄÈÎÒâ×éºÏ:
+    $FILE_FLAG_BACKUP_SEMANTICS - ÎÄ¼ş±»´ò¿ªÓÃÓÚ±¸·İ»ò»¹Ô­²Ù×÷
+    $FILE_FLAG_NO_BUFFERING - ÎŞ»º´æ×´¿öÏÂ´ò¿ªÎÄ¼ş
+    $FILE_FLAG_OPEN_NO_RECALL - ÇëÇóÎÄ¼şÊı¾İ, µ«ÎÄ¼şÈÔ±£ÁôÔÚÔ¶³Ì´æ´¢Æ÷ÖĞ
+    $FILE_FLAG_OPEN_REPARSE_POINT - ²»½øĞĞ³£¹æÖØ½âÎöµã( reparse point )²Ù×÷ÇÒº¯ÊıÊÔÍ¼´ò¿ªÖØ½âÎöµã
+    $FILE_FLAG_OVERLAPPED - ´ò¿ª»ò´´½¨ÓÃÓÚÒì²½I/OµÄÎÄ¼ş
+    $FILE_FLAG_RANDOM_ACCESS - Ëæ»ú·ÃÎÊµÄÎÄ¼ş
+    $FILE_FLAG_SEQUENTIAL_SCAN - ´ÓÍ·ÖÁÎ²Ë³Ğò·ÃÎÊÎÄ¼ş
+    $FILE_FLAG_WRITE_THROUGH - Í¨¹ıÖĞ¼ä»º´æĞ´Èë´ÅÅÌ
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	Handle to a specified file.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»ØÖ¸¶¨ÎÄ¼ş¾ä±ú
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-When an application is finished using the object handle returned by this function, use the _WinAPI_CloseHandle()
-function to close the handle. This not only frees up system resources, but can have wider influence on things
-like sharing the file or device and committing data to disk.
+###±¸×¢###
+ÚÀ
+Ê¹ÓÃÍê¸Ãº¯Êı·µ»ØµÄ¾ä±úºó, Ê¹ÓÃ_WinAPI_CloseHandle()º¯Êı¹Ø±Õ¾ä±ú. ÕâÑù×ö²»½öÊÍ·ÅÏµÍ³×ÊÔ´, ²¢¿É²úÉú¸ü¹ãµÄÓ°Ïì, ±ÈÈç¹²ÏíÎÄ¼ş»òÉè±¸ºÍ½«Êı¾İÌá½»µ½´ÅÅÌ.
+×îµÍÏµÍ³ÒªÇó: Windows Vista.
+²Î¿¼  ËÑË÷MSDNÖªÊ¶¿âÖĞOpenFileByIdµÄÏà¹ØĞÅÏ¢
 
-This function requires Windows Vista or later.
-
-
-###See Also###
-@@MsdnLink@@ OpenFileById
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

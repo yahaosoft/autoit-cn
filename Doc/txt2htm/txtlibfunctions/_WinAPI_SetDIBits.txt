@@ -1,51 +1,49 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_SetDIBits
 
-###Description###
-Sets the pixels in a compatible bitmap using the color data found in a DIB
+###����###
+ʹ��ָ����DIBλͼ�з��ֵ���ɫ����������λͼ�е�����
 
-###Syntax###
+###�﷨###
 #Include <WinAPI.au3>
-_WinAPI_SetDIBits($hDC, $hBmp, $iStartScan, $iScanLines, $pBits, $pBMI [, $iColorUse = 0])
+_WinAPI_SetDIBits($hDC,
+$hBmp, $iStartScan, $iScanLines, $pBits, $pBMI[, $iColorUse = 0])
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hDC
-	设备环境句柄
+   �豸�����еľ��
 $hBmp
-	兼容的位图（DDB）句柄
+   ��ʹ��ָ��DIB�е���ɫ���ݽ��и��ĵ�λͼ�ľ��(DDB)
 $iStartScan
-	指定设备无关色彩数据扫描线的起点
-		色彩数据由 $pBits 参数数组中指定
+   ָ��Ϊ����pBitsָ��������еġ����豸�޹ص���ɫ���ݵ���ʼɨ����
 $iScanLines
-	指定设备无关色彩数据数组的扫描线数量.
+   Ϊ�������豸�޹ص���ɫ���ݵ�����ָ��ɨ������Ŀ
 $pBits
-	DIB 颜色数据指针, 颜色数据为字节数组.
-		位图格式依据 $pBMI 参数指向的 $tagBITMAPINFO 结构中 biBitCount 成员的值.
+$tagBITMAPINFO�ṹ�еĳ�ԱbiBitCount.
 $pBMI
-	包含有关 DIB 信息的 $tagBITMAPINFO 结构指针
+$tagBITMAPINFO�ṹ��ָ��
 $iColorUse
-	[可选参数] 指定 $tagBITMAPINFO 结构是否提供 iColors 成员.
-		若有,是否有明确的 iColors 红, 绿, 蓝（RGB）值或调色板索引.
-		本参数必须是以下值之一
-		0 - 提供包含 RGB 值的颜色表.
-		1 - 颜色表包含 HDC 逻辑调色板的 16 位索引数组
+$tagBITMAPINFO�ṹ�е�iColors��Ա,
+      �����, iColors�Ƿ������ȷ��RGBֵ���ɫ������. iColorUse��������������ֵ�е�һ��:
+    0 -
+      ��ɫ���ѱ��ṩ��������ȷ��RGBֵ
+    1 - ��ɫ����16λ�����鹹�ɲ���hDC���߼���ɫ������
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False
+�ɹ�: ��
+ʧ��: ��
 @@End@@
 
-###Remarks###
- 使用 $hDC 参数标识的设备环境,只有在 $iColorUse 设置为 1 时有效, 否则将被忽略.
- 函数被调用时,$hBmp 参数确定的位图不能选入设备环境.
- 扫描必须必须对齐 DWORD, 除 RLE 压缩位图.
- 设备无关点位图(DIB)自下而上的起源位于位图的左下角; 自上而下的起源位于位图的左上角.
+###��ע###
+���iColorUse ����Ϊ 1����ʹ���� hDC ����ȷ�����豸������, ���򱻺���. �� hBmp
+����ȷ����λͼ���ü����豸�����ĵ���������ʱ. ɨ���߱�����˫�ֽ��϶������ RLE ѹ��λͼ. �Ե����ϵ�
+DIBλͼ����ʼ���Ǹ�λͼ�����½Ǵ�; �Զ����µ�DIBλͼ����Դ���ڸ�λͼ�����ϽǴ�
 
-###Related###
+###���###
 $tagBITMAPINFO
 
-###See Also###
-@@MsdnLink@@ SetDIBits
+###�ο�###
+����MSDN֪ʶ����SetDIBits�������Ϣ

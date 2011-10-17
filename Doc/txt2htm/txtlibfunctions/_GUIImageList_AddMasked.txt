@@ -1,37 +1,34 @@
-###User Defined Function###
+###用户自定义函数###
 _GUIImageList_AddMasked
 
-###Description###
-添加图像到图像列表, 生成指定位图的掩码
+###描述###
+想图像列表添加图像, 从指定位图生成掩码
 
-###Syntax###
-#Include <GuiImageList.au3>
-_GUIImageList_AddMasked($hWnd, $hImage[, $iMask=0])
+###语法###
+#Include<GuiImageList.au3>
+_GUIImageList_AddMasked($hWnd, $hImage[,$iMask=0])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$hImage
-	包含图像的位图句柄,从位图宽度推断图像的数量 .
-$iMask
-	[可选参数] 生成掩码的颜色.
-		位图中被指定的颜色像素将更改为黑色,并设置相应的掩码位为 1.
+ $hWnd  控件句柄
+ $hImage  包含图像的位图句柄. 由位图宽度推测图像的数量.
+ $iMask  用于生成掩码的颜色. 指定位图中每个该颜色的像素变为黑色, 且掩码中相应的数位设置为1.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回第一个图像的索引
-失败:	返回 -1
+成功: 第一个新建图像的索引
+失败: -1
 @@End@@
 
-###Remarks###
- 函数将位图拷贝到内部数据结构.
- 函数返回后,一定要使用 _WinAPI_DeleteObject 函数删除 $hImage.
- 不支持颜色深度大于 8 bpp 的位图.
- 
-###Related###
+###备注###
+该汉江位图复制到一个内部数据结构. 在函数使用完毕后确定使用_WinAPI_DeleteObject函数删除位图和hImage.
+不支持8位以上色深的位图.
+
+###相关###
 _GUIImageList_Add
 
-###Example###
+###参考###
+
+###示例###
 @@IncludeExample@@

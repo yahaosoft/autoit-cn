@@ -1,103 +1,71 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WordDocPropertyGet
 
-###Description###
-è¿”å›Wordæ–‡æ¡£çš„æŸä¸ªå±æ€§
+###ÃèÊö###
+·µ»ØWordÎÄµµµÄÄ³¸öÊôĞÔ
 
-###Syntax###
-#include <Word.au3>
-_WordDocPropertyGet ( ByRef $o_object, $v_property )
+###Óï·¨###
+#Include <Word.au3>
+_WordDocPropertyGet ( ByRef$o_object, $v_property )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$o_object
-	Word.Applicationæ–‡æ¡£å¯¹è±¡
-$v_property
-	å±æ€§é€‰é¡¹(è§å¤‡æ³¨)
+$o_object 
+   Word.ApplicationÎÄµµ¶ÔÏó
+$v_property 
+   ÊôĞÔÑ¡Ïî(¼û±¸×¢)
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¢«é€‰å±æ€§çš„å€¼
-å¤±è´¥:	è¿”å› 0è®¾ç½®@error	
-@error:	0 ($_WordStatus_Success) = æ— é”™è¯¯
-	1 ($_WordStatus_GeneralError) = ä¸€èˆ¬é”™è¯¯
-	2 ($_WordStatus_ComError) = Com é”™è¯¯
-	3 ($_WordStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»å‹
-	4 ($_WordStatus_InvalidObjectType) = æ— æ•ˆå¯¹è±¡ç±»å‹
-	5 ($_WordStatus_InvalidValue) = æ— æ•ˆå€¼@Extended:
-	åŒ…å«æ— æ•ˆå‚æ•°
+ ³É¹¦:  ±»Ñ¡ÊôĞÔµÄÖµ
+ Ê§°Ü:  ·µ»Ø 0 ²¢ÉèÖÃ @ERROR
+ @Error:  0 ($_WordStatus_Success) = ÎŞ´íÎó
+  1 ($_WordStatus_GeneralError) = Ò»°ã´íÎó
+  2 ($_WordStatus_ComError) = Com ´íÎó
+  3 ($_WordStatus_InvalidDataType) = ÎŞĞ§Êı¾İÀàĞÍ
+  4 ($_WordStatus_InvalidObjectType) = ÎŞĞ§¶ÔÏóÀàĞÍ
+  5 ($_WordStatus_InvalidValue) = ÎŞĞ§Öµ
+ @Extended:  °üº¬ÎŞĞ§²ÎÊı
 @@End@@
 
+###±¸×¢###
+¿ÉÒÔÊ¹ÓÃË÷Òı»òÊôĞÔÃû³Æ.
+ÏÂ±íÌá¹©ÁË¿ÉÓÃÊôĞÔµÄÃèÊö.
+Word ÎÄµµÊôĞÔ
+ ÊôĞÔË÷Òı/Ãû³Æ  ÃèÊö
+ (1) "title"  ±êÌâ.
+ (2) "subject"  ÌâÄ¿
+ (3) "author"  ×÷Õß
+ (4) "keywords"  ¹Ø¼ü×Ö
+ (5) "comments"  ÆÀÂÛ
+ (6) "template"  Ä£°åÃû³Æ
+ (7) "last author"  ×îÖÕ×÷Õß
+ (8) "revision number"  Ğ£¶©Êı
+ (9) "application name"  Ó¦ÓÃ³ÌĞòÃû³Æ
+ (10) "last print date"  ×îºó´òÓ¡Ê±¼ä
+ (11) "creation date"  ´´½¨Ê±¼ä
+ (12) "last save time"  ×îºó±£´æÊ±¼ä
+ (13) "total editing time"  VBA ÏîÄ¿±à¼­µÄÊıÁ¿
+ (14) "pages"  Ò³Êı
+ (15) "words"  µ¥´ÊÊı
+ (16) "characters"  ×Ö·ûÊı
+ (17) "security"  °²È«ÉèÖÃ
+ (18) "category"  ·ÖÀà
+ (19) ""  ²»Ö§³Ö
+ (20) "manager"  ¹ÜÀíÈË
+ (21) "company"  ¹«Ë¾
+ (22) "bytes"  ×Ö½ÚÊı
+ (23) "lines"  ĞĞÊı
+ (24) "paragraphs"  ¶ÎÂäÊıÁ¿
+ (25-28) ""  ²»Ö§³Ö
+ (29) "hyperlink base"  µ±Ïà¹ØÁ´½Ó»ùÓÚÖ¸¶¨µÄÁ´½ÓÊ±(Â·¾¶°üº¬³¬¼¶Á´½ÓºÍÄ¿±ê¹²ÏíÎÄ¼ş), ¸ÃÂ·¾¶Îª³¬¼¶Á´½Ó¸ñÊ½
+ (30) "characters (with spaces)"  °üÀ¨¿Õ¸ñµÄ×Ö·ûÍ³¼Æ
 
-###Remarks###
-å¯ä»¥ä½¿ç”¨ç´¢å¼•æˆ–å±æ€§åç§°.ä¸‹è¡¨æä¾›äº†å¯ç”¨å±æ€§çš„æè¿°.Word æ–‡æ¡£å±æ€§
-
-<b><u>Word Document Properties</u></b>
-
-@@ParamTable@@
-<b> å±æ€§ç´¢å¼•/åç§°</b>
-	<b>æè¿°</b>
-(1) "title"
-	æ ‡é¢˜.
-(2) "subject"
-	é¢˜ç›®
-(3) "author"
-	ä½œè€…
-(4) "keywords"
-	å…³é”®å­—
-(5) "comments"
-	è¯„è®º
-(6) "template"
-	æ¨¡æ¿åç§°
-(7) "last author"
-	æœ€ç»ˆä½œè€…
-(8) "revision number"
-	æ ¡è®¢æ•°
-(9) "application name"
-	åº”ç”¨ç¨‹åºåç§°
-(10) "last print date"
-	æœ€åæ‰“å°æ—¶é—´
-(11) "creation date"
-	åˆ›å»ºæ—¶é—´
-(12) "last save time"
-	æœ€åä¿å­˜æ—¶é—´
-(13) "total editing time"
-	VBA é¡¹ç›®ç¼–è¾‘çš„æ•°é‡
-(14) "pages"
-	é¡µæ•°
-(15) "words"
-	å•è¯æ•°
-(16) "characters"
-	å­—ç¬¦æ•°
-(17) "security"
-	å®‰å…¨è®¾ç½®
-(18) "category"
-	åˆ†ç±»
-(19) ""
-	ä¸æ”¯æŒ
-(20) "manager"
-	ç®¡ç†äºº
-(21) "company"
-	å…¬å¸
-(22) "bytes"
-	å­—èŠ‚æ•°
-(23) "lines"
-	è¡Œæ•°
-(24) "paragraphs"
-	æ®µè½æ•°é‡
-(25-28) ""
-	ä¸æ”¯æŒ
-(29) "hyperlink base"
-	å½“ç›¸å…³é“¾æ¥åŸºäºæŒ‡å®šçš„é“¾æ¥æ—¶(è·¯å¾„åŒ…å«è¶…çº§é“¾æ¥å’Œç›®æ ‡å…±äº«æ–‡ä»¶), è¯¥è·¯å¾„ä¸ºè¶…çº§é“¾æ¥æ ¼å¼
-(30) "characters (with spaces)"
-	åŒ…æ‹¬ç©ºæ ¼çš„å­—ç¬¦ç»Ÿè®¡
-@@END@@
-
-
-###Related###
+###Ïà¹Ø###
 _WordDocPropertySet
 
+###²Î¿¼###
 
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@

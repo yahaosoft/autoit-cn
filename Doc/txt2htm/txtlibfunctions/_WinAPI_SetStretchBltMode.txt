@@ -1,41 +1,39 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_SetStretchBltMode
 
-###Description###
-è®¾ç½®æŒ‡å®šè®¾å¤‡çŽ¯å¢ƒçš„ä½å›¾æ‹‰ä¼¸æ¨¡å¼.
+###ÃèÊö###
+ÉèÖÃÖ¸¶¨Éè±¸³¡¾°ÖÐµÄÎ»Í¼À­ÉìÄ£Ê½
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_SetStretchBltMode ( $hDC, $iMode )
+_WinAPI_SetStretchBltMode( $hDC, $iMode )
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
-$hDC
-	è®¾å¤‡çŽ¯å¢ƒå¥æŸ„.
-$iMode
-	æ‹‰ä¼¸æ¨¡å¼. å‚æ•°å¯ä»¥æ˜¯ä»¥ä¸‹å€¼ä¹‹ä¸€:
-		 $BLACKONWHITE --- ä½¿ç”¨é¢œè‰²å€¼æ‰§è¡Œå¸ƒå°” AND æ“ä½œ,ä»¥æ¶ˆé™¤çŽ°æœ‰çš„åƒç´ 
-		 $COLORONCOLOR --- åˆ é™¤åƒç´ 
-		 $HALFTONE --- å¤„ç†ç›®æ ‡çŸ©å½¢çš„åƒç´ ä¸ºæºåƒç´ å—
-		 $WHITEONBLACK --- ä½¿ç”¨é¢œè‰²å€¼æ‰§è¡Œå¸ƒå°” OR æ“ä½œ,ä»¥æ¶ˆé™¤çŽ°æœ‰çš„åƒç´ 
-		 $STRETCH_ANDSCANS --- ç›¸åŒäºŽ BLACKONWHITE
-		 $STRETCH_DELETESCANS --- ç›¸åŒäºŽ COLORONCOLOR
-		 $STRETCH_HALFTONE --- ç›¸åŒäºŽ $HALFTONE
-		 $STRETCH_ORSCANS --- ç›¸åŒäºŽ WHITEONBLACK
+$hDC  Éè±¸³¡¾°¾ä±ú
+$iMode  À­ÉìÄ£Ê½. ¿ÉÎªÏÂÁÐÖµÖ®Ò»:
+$BLACKONWHITE - Ê¹ÓÃÑÕÉ«Öµ½øÐÐÂß¼­Óë(AND)²Ù×÷, Èç¹ûÎªµ¥É«Î»Í¼, ÎþÉü°×É«ÏñËØ, ±£ÁôºÚÉ«ÏñËØµã
+$COLORONCOLOR - É¾³ýÏñËØ¡£¸ÃÄ£Ê½É¾³ýËùÓÐÏñËØÇÒ²»±£ÁôÆäÐÅÏ¢
+$HALFTONE - ½«Ô´¾ØÐÎÇøÖÐµÄÏñËØÓ³Éäµ½Ä¿±ê¾ØÐÎÇøµÄÏñËØ¿éÖÐ
+$WHITEONBLACK - Ê¹ÓÃÑÕÉ«Öµ½øÐÐÂß¼­»ò(OR)²Ù×÷, Èç¹ûÎªµ¥É«Î»Í¼, ÎþÉüºÚÉ«ÏñËØ, ±£Áô°×É«ÏñËØµã
+$STRETCH_ANDSCANS - Óë$BLACKONWHITEÏàÍ¬
+$STRETCH_DELETESCANS - Óë$COLORONCOLORÏàÍ¬
+$STRETCH_HALFTONE - Óë$HALFTONEÏàÍ¬
+$STRETCH_ORSCANS - Óë$WHITEONBLACKÏàÍ¬
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›ž 1.
-å¤±è´¥:	è¿”å›ž 0,è®¾ç½®@error:æ ‡å¿—ä¸ºéž 0 å€¼.
+³É¹¦: ·µ»Ø1
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-$BLACKONWHITE ($STRETCH_ANDSCANS) ä¸Ž $WHITEONBLACK ($STRETCH_ORSCANS) æ¨¡å¼é€šå¸¸ç”¨äºŽä¿å­˜å•è‰²ä½å›¾çš„å‰æ™¯åƒç´ .
- $COLORONCOLOR ($STRETCH_DELETESCANS) æ¨¡å¼é€šå¸¸ç”¨äºŽä¿å­˜å½©è‰²ä½å›¾çš„é¢œè‰².
- $HALFTONE ($STRETCH_HALFTONE) æ¨¡å¼é€Ÿåº¦è¾ƒæ…¢,æ¯”ä¸Šè¿°ä¸‰ç§æ¨¡å¼, éœ€è¦æ›´å¤šçš„æºå›¾åƒå¤„ç†.ä½†èƒ½ç”Ÿæˆæ›´é«˜è´¨é‡çš„å›¾åƒ.
+###±¸×¢###
+$BLACKONWHITE($STRETCH_ANDSCANS)ºÍ$WHITEONBLACK($STRETCH_ORSCANS)Ä£Ê½Í¨³£ÓÃÓÚ±£Áôµ¥É«Î»Í¼µÄÇ°¾°ÏñËØ.
+$COLORONCOLOR($STRETCH_DELETESCANS)ÓÃÓÚ±£Áô²ÊÉ«Î»Í¼µÄÑÕÉ«. $HALFTONE($STRETCH_HALFTONE)Ä£Ê½ÉÔÂýÇÒÐèÒª
+¶ÔÍ¼ÏñµÄ¸ü¶à²Ù×÷µ«ÖÊÁ¿ÒªºÃ.
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ SetStretchBltMode
-
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖÐSetStretchBltModeµÄÏà¹ØÐÅÏ¢

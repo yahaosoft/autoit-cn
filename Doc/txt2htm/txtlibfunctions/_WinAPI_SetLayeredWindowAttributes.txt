@@ -1,42 +1,39 @@
-###User Defined Function###
+###用户自定义函数###
 _WinAPI_SetLayeredWindowAttributes
 
-###Description###
-设置分层窗口属性
+###描述###
+设置层叠窗口的属性
 
-###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_SetLayeredWindowAttributes($hWnd, $i_transcolor [, $Transparency = 255 [, $dwFlags = 0x03 [, $isColorRef = False]]])
+###语法###
+#Include
+<WinAPI.au3>
+_WinAPI_SetLayeredWindowAttributes($hWnd, $i_transcolor[,
+$Transparency = 255[, $dwFlages = 0x03[, $isColorRef = False]]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hwnd
-	工作 GUI 的句柄
-$i_transcolor
-	透明色
-$Transparency
-	[可选参数] 设置透明度的 GUI
-$dwFlags
-	[可选参数] Flags.
-$isColorRef
-	[可选参数] 如为 True, $i_transcolor is a COLORREF( 0x00bbggrr ), 否则为 RGB 颜色
+$hwnd  界面句柄
+$i_transcolor  透明色
+$Transparency  设置界面透明度
+$isColorRef  如果为真, $i_transcolor是一个COLORREF( 0x00bbggrr ),
+  或一个RGB-Color
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 1
-失败:	返回 0
-@error:	4 - 函数不成功 - @extended 设置为 _WinAPI_GetLastErrorMessage 以获取其它信息
+成功: 1
+失败: 返回0并设置@error为:
+    1到3 - DllCall出错
+    4 - 函数不成功 - 使用_WinAPI_GetLastErrorMessage获取更多信息
 @@End@@
 
-###Remarks###
-None.
+###备注###
 
-###Related###
-_WinAPI_GetLayeredWindowAttributes, _WinAPI_GetLastError
+###相关###
+_WinAPI_GetLayeredWindowAttributes , _WinAPI_GetLastError
 
-###See Also###
-@@MsdnLink@@ SetLayeredWindowAttributes
+###参考###
+搜索MSDN知识库中SetLayeredWindowAttributes的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

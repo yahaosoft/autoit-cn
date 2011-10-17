@@ -1,55 +1,52 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_MessageBoxCheck
 
-###Description###
-显示提供用户删除事件的选项消息框.
+###����###
+��ʾ���û���ֹ��һ����������ѡ����Ϣ����
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_MessageBoxCheck ( $iType, $sTitle, $sText, $sRegVal [, $iDefault [, $hParent]] )
+_WinAPI_MessageBoxCheck( $iType, $sTitle, $sText, $sRegVal [, $iDefault [, $hParent]] )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $iType
-	指定消息框的内容和状态.
-		 设置一个且只有一个下列标志作为消息框显示的按钮.
-		 $MB_OK --- "确定"按钮
-		 $MB_OKCANCEL --- "取消"和"确定"按钮
-		 $MB_YESNO --- "是"按钮
-		 设置一个且只有一个下列标志作为消息框的显示图标.
-		 $MB_ICONEXCLAMATION --- 感叹号图标
-		 $MB_ICONHAND --- 停止信号图标
-		 $MB_ICONINFORMATION --- 圆圈加小写“i”图标
-		 $MB_ICONQUESTION --- 问号图标
+   ָ����Ϣ�����ݺͶ����ı��.
+    ��ͨ��������һ�����б��ָ��Ҫ��ʾ�İ�ť:
+    $MB_OK - ��ʾ����OK��ť����Ϣ��
+    $MB_OKCANCEL - ��ʾ����OK��Cancel��ť����Ϣ��
+    $MB_YESNO - ��ʾ����Yes��No��ť����Ϣ��
+    ��ͨ��������һ�����б����ʾ��ѡ��ť:
+    $MB_ICONEXCLAMATION - ��ʾ��̾��ͼ��
+    $MB_ICONHAND - ��ʾֹͣͼ��
+    $MB_ICONINFORMATION - ��ʾԲȦ�ڴ���Сдi��ͼ��
+    $MB_ICONQUESTION - ��ʾ�ʺ�ͼ��
 $sTitle
-	消息框的标题字符串.
+   ������Ϣ�������ַ���
 $sText
-	显示信息的字符串.
+   ��������ʾ����Ϣ���ַ���
 $sRegVal
-	消息关联的唯一字符串值.
+   ���������Ϣ��ص�Ψһ�ַ������ַ���
 $iDefault
-	[可选参数] 指定用户选定不再显示消息框时,函数的返回值. 
-		 如果用户未选择取消消息框, 消息框将继续显示,并且函数忽略此参数值.
+$iDefault.
 $hParent
-	[可选参数] 消息框属主窗口句柄.
+   [��ѡ] ��Ϣ���������ڵľ��
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	如果用户选择取消消息框,函数立即返回 $iDefault 的参数值;
-	否则,返回 $ID_* 常量.
-失败:	返回 -1,设置@error:标志为非 0 值.
+�ɹ�: ����û���ѡ����ֹ��Ϣ�������������ط����$iDefault��ֵ; ���򷵻�һ��$ID...����
+ʧ��: ����-1������@error��0
 @@End@@
 
-###Remarks###
-用户取消消息框后,函数记录的信息写入下面的注册表项.
- HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\LowRegistry\DontShowMeThisDialogAgain
+###��ע###
+�ú�����¼�û�ѡ��������ע������µ���Ϣ��:
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\LowRegistry\DontShowMeThisDialogAgain
 
+###���###
 
+###�ο�###
+ ����MSDN֪ʶ����SHMessageBoxCheck�������Ϣ
 
-###See Also###
-@@MsdnLink@@ SHMessageBoxCheck
-
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

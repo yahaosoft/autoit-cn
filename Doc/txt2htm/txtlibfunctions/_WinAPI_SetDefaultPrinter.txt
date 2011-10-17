@@ -1,32 +1,31 @@
-###User Defined Function###
+###用户自定义函数###
 _WinAPI_SetDefaultPrinter
 
-###Description###
-设置本地计算机当前用户的默认打印机
+###描述###
+设置本地计算上当前用户的默认打印机
 
-###Syntax###
-#Include <WinAPI.au3>
+###语法###
+#Include
+<WinAPI.au3>
 _WinAPI_SetDefaultPrinter($sPrinter)
 
-###Parameters###
+###参数###
 @@ParamTable@@
 $sPrinter
-	默认打印机的名称. 对于远程打印机, 名称格式为 \\服务器\打印机名称
-		对于本地打印机, 名称格式是打印机的名称. 如果这个参数为"", 或已经有一个默认打印机, 此函数不执行任何操作.
-		如果没有默认打印机, 这个函数设置默认打印机为第一台打印机;
-		如果有, 则枚举本地计算机上安装的打印机.
+   默认打印机名称. 对于远程打印机, 名称格式为\\server\printername. 对于本地打印机,
+      名称格式是打印机名. 如果该参数为""且已有默认打印机则函数失效. 然而, 如果没有默认打印机,
+      函数将本地安装安装的打印机枚举中的第一个打印机设置为默认打印机.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False
+成功: 真
+失败: 假
 @@End@@
 
-###Remarks###
-None.
+###备注###
 
-###Related###
+###相关###
 
-###See Also###
-@@MsdnLink@@ SetDefaultPrinter
+###参考###
+搜索MSDN知识库中SetDefaultPrinter的相关信息

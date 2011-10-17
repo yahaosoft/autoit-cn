@@ -1,61 +1,47 @@
-###User Defined Function###
+###用户自定义函数###
 _INetSmtpMail
 
-###Description###
-发送一封电子邮件，不使用外部电子邮件程序.
+###描述###
+不使用外部邮件程序发送邮件.
 
-###Syntax###
-#include <INet.au3>
-_INetSmtpMail ( $s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress [,$s_Subject [,$as_Body [,$s_helo [,$s_first [,$b_trace]]]]])
+###语法###
+#Include <INet.au3>
+_INetSmtpMail ( $s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress [,$s_Subject [,$as_Body [,$s_helo, [,$s_first [,$b_trace]]]]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$s_SmtpServer
-	发送邮件的 SMTP 服务器地址. 可以是字母或数字 IP 地址. 为了打击垃圾邮件, 许多互联网服务供应商要求使用他们的服务器.
-	例如: "smtp.ispdomain.com", "mail.ispdomain.com" 或 "192.168.1.1"
-$s_FromName
-	消息发送人的名称.
-	例如: "鲍勃史密斯"
-$s_FromAddress
-	发送邮件的地址.
-	例如: "bob.smith@mydomain.com".
-$s_ToAddress
-	电子邮件接收地址.
-	例如: "jane.brown@yourdomain.com"
-$s_Subject
-	[可选参数] 电子邮件主题.
-$as_Body
-	[可选参数] 电子邮件正文.为一个单一字符串的二维数组.数组中每个值在电子邮件中以 @CRLF 终止.
-$s_helo
-	[可选参数] SMTP 服务器连接标识. 	默认为 @ComputerName(@计算机名). 如果 SMTP 服务器需要一个“EHLO” 字符串, 	则设置字符串为 "EHLO " & @ComputerName.
-$s_first
-	[可选参数] 字符串发送之前 SMTP 服务器连接的 helo (默认为 {SPACE}). 
-	不发送任何字符时，这个参数必须等于 -1, 有些 SMTP 服务器需要它.
-$b_trace
-	[可选参数] 跟踪初始窗口的对话框
+ $s_SmtpServer  发送邮件所使用的SMTP服务器地址或者是数字IP地址. 为防止垃圾信息 , 大多数ISPs要求服务器这样设置. 如 "smtp.ispdomain.com", "mail.ispdomain.com" 或 "192.168.1.1"
+ $s_FromName  你希望显示的发送人名称. 如 "Bob Smith"
+ $s_FromAddress  你希望显示的发送的邮件地址. 如 "bob.smith@mydomain.com"
+ $s_ToAddress  收件方地址. 如 "jane.brown@yourdomain.com"
+ $s_Subject  [可选] 邮件主题.
+ $as_Body  [可选] 邮件内容作为一个单一的字符串数组.数组中每个值在邮件里面会被以@CRLF结束.
+ $s_helo  [可选]
+      SMTP服务器链接的标志符(通常默认是@ComputerName).如果SMTP服务器需要一个 "EHLO" 字串 , 那就设置字符串为 "EHLO " & @ComputerName.
+ $s_first  [可选]
+      在helo之前发送给SMTP服务器的字符串(通常默认是{SPACE}).如果不发送任何对象这个参数必须设置为-1 , 某些 SMTP 服务器需要.
+ $b_trace  [可选] 在一个窗口里面跟踪对话过程
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 1
-失败:	返回 0, 并设置 @error
-@error:	1 - 参数无效
-	2 - TCP 无法启动
-	3 - 无法解析 IP
-	4 - 无法创建套接字
-	5x - 无法打开 SMTP 会话. x 代表 SMTP 服务器发出的最后命令索引号.
-	50x - 无法发送正文. x 代表 $as_Body 正文的行号 (第一行为 0).
-	5000 - 不能关闭 SMTP 会话
+成功: 返回1 失败: 返回0并且设置@ERROR为:
+    1 - 无效参数
+    2 - 无法启动TCP
+    3 - 无法解析IP
+    4 - 无法创建socket
+    5x - 无法打开SMTP会话. x显示STMP服务器处理的最后命令的索引数.
+    50x - 无法发送内容.X显示$as_Body的行号(第一行是 0).
+    5000 - 无法关闭SMTP会话
 @@End@@
 
+###备注###
+这个函数直接通过SMTP服务器发送邮件而不用第三方邮件工具.需要AutoIt3 v 3.1.1.97或者更高版本.
 
+###相关###
+ _INetMail
 
-###Remarks###
-此函数通过 SMTP 服务器直接发送电子邮件,不需使用第三方电子邮件客户端. 要求 AutoIt3 v 3.1.1.97 或更高版本.
+###参考###
 
-
-###Related###
-_INetMail
-
-###Example###
+###示例###
 @@IncludeExample@@

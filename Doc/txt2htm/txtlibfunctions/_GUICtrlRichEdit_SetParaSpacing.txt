@@ -1,49 +1,43 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_SetParaSpacing
 
-###Description###
-设置(第一)当前选择(或没有选择时的插入点所在段落)的段落间距
+###描述###
+设置被选文本的段落的空隙, 如果未选定, 为在插入点插入的文本设置空间
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetParaSpacing($hWnd, [$vInter=Default [, $iBefore=Default [, $iAfter=Default]]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$vInter
-	[可选参数] 行与行之间的间距:
-		任意: 数字 - 空间单位
-		或: "
-		lines" - 一行 
-$iBefore
-	[可选参数] 段落前间距(空间单位)
-$iAfter
-	[可选参数] 段落后间距 (空间单位)
+ $hWnd  Handle to the control
+ $vInter  [可选]: 控件句柄:
+行间距: 使用空隙单位
+或: "<数字>行" - 使用行
+ $iBefore  [可选]: 段落前的空白(使用间隔单位)
+ $iAfter  [可选]: 段落后的空白(使用间隔单位)
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False,设置@error
-@error:	101 - $hWnd 不是句柄
-	1021 - $vInter 无效
-	1022 - 只有 1, 1.5 与 2 可以通过 "
-	lines" 设置间距
-	103 - $iBefore 不是正数,也不是 0, 
-	104 - $iAfter 不是正数,也不是 0, 
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  1021 - $vInter无效
+  1022 - 仅1, 1.5和2的行间距可通过"<n>行"设置
+  103  - $iBefore不是正数或0o
+  104  - $iAfter不是正数或0
 @@End@@
 
-###Remarks###
- 只是在需要使用非默认值时才设置
- 调用 _GUICtrlRichEdit_SetSpaceUnit 函数设置 "空间单位". 最初为英寸
+###备注###
+只在非默认设置时才设置
+调用_GUICtrlRichEdit_SetSpaceUnit设置"间隔单位". 原始英寸
 
-###Related###
-_GUICtrlRichEdit_GetParaSpacing, _GUICtrlRichEdit_SetSpaceUnit
+###相关###
+ _GUICtrlRichEdit_GetParaSpacing , _GUICtrlRichEdit_SetSpaceUnit
 
-###See Also###
-@@MsdnLink@@ EM_SETPARAFORMAT
+###参考###
+ 搜索MSDN知识库中EM_SETPARAFORMAT的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

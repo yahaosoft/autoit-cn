@@ -1,39 +1,37 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_GetNextUndo
 
-###Description###
-检索下一个可能的"撤消"动作名称或类型 ID
+###描述###
+获取下一个可能撤销操作的名称或类型编号
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetNextUndo($hWnd, $fName = True)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$fName
-	设置 True,返回名称(默认);设置 False,返回 ID.
+ $hWnd  控件句柄
+ $fName  真(默认返回名称)或假(返回编号)
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回值依赖 $fName 的设置:
-	如 $fName 设置为 True, 则返回:"Unknown", "Typing", "Delete", "Drag and drop", "Cut" 或 "Paste"
-	如 $Name 设置为 False, 则返回相应的数字:0 到 5
-失败:	返回 "" ,设置@error:	
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $fName 既不是 True, 也不是 False
+成功: 依赖于$fName的值:
+    如果$fName为真: "Unknown", "Typing", "Delete", "Drag and drop", "Cut"或"Paste"
+    如果$fName为假: 相应的数字(0到5)
+失败: 返回""并设置@error:
+    101 - $hWnd不是句柄
+    102 - $fName非真非假
 @@End@@
 
-###Remarks###
- 请注意, EM_GETUNDONAME 不区分 Unknown 和空的撤消队列
+###备注###
+注意EM_GETREDONAME在未知和重做队列为空的情况下无法识别
 
-###Related###
-_GUICtrlRichEdit_Undo, _GUICtrlRichEdit_Undo
+###相关###
+ _GUICtrlRichEdit_Undo , _GUICtrlRichEdit_Undo
 
-###See Also###
-@@MsdnLink@@ EM_GETUNDONAME
+###参考###
+ 搜索MSDN知识库中EM_GETUNDONAME的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

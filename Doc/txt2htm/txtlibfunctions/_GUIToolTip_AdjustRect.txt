@@ -1,38 +1,25 @@
-###User Defined Function###
+###用户自定义函数###
 _GUIToolTip_AdjustRect
 
-###Description###
-依据窗口矩形计算文本显示的矩形
+###描述###
+由窗体矩形计算文本显示的矩形
 
-###Syntax###
+###语法###
 #Include <GuiToolTip.au3>
 _GUIToolTip_AdjustRect($hWnd, ByRef $tRect[, $fLarger = True])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$tRect
-	保存窗口或文本显示矩形的 $tagRECT 数据结构
-$fLarger
-	[可选参数] 指定执行操作的值. 
-		如为 True, $tRect 用于指定文本显示矩形,并接收相应的窗口矩形. 
-		如为 False, $tRect 用于指定窗口矩形,并接收相应的文本显示矩形.
+ $hWnd  控件句柄
+ $tRect  保存窗体或文本显示矩形的$tagRECT结构
+ $fLarger  指定要执行的操作的值. 如果真, $tRect被用于指定文本显示矩形及接收相应窗体矩形. 如果假, $tRect用于指定窗体矩形及接收相应文本显示矩形.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 $tagRECT 结构
+成功: $tagRECT 结构
 @@End@@
 
-###Remarks###
- 工具提示窗口矩形大于显示提示字符串的文本矩形.
- 窗口起点从文本显示矩形的起点向左上偏移.
- 要放置文本显示矩形,必须计算相应的窗口矩形,并使用该矩形定位工具提示,
- $TTM_ADJUSTRECT 处理这个计算过程.
- 如果设置 $fLarger 为 True, 
- $TTM_ADJUSTRECT 取得提示文本显示矩形所希望的大小和位置
- 并传递回工具提示窗口显示提示文本所需的大小和位置.
- 如果设置 $fLarger 为 False, 
- 可以为文本矩形指定工具提示矩形窗口矩形,与 $TTM_ADJUSTRECT 将返回的大小和位置.
-
+###备注###
+工具提示的窗体矩形稍大于提示字符串的文本显示矩形. 窗口边界也将从文本显示的矩形边界被抵消掉, 必须计算相应的窗体矩形并使用该矩形定位提示. $TTM_ADJUSTRECT会提供计算结果. 如果设置$fLarger为真,
+$TTM_ADJUSTRECT使用需要的提示文本的显示矩形, 并传回提示窗口在指定位置显示文本所需的大小和位置. 如果设置$fLarger为假可以指定提示窗体矩形同时$TTM_ADJUSTRECT将返回文本矩形的大小和位置.

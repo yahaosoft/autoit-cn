@@ -1,43 +1,39 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_GetTextLength
 
-###Description###
-获取控件中的整个文本的长度
+###描述###
+获取控件内全部文本的长度
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetTextLength($hWnd [, $fExact = True [, $fChars = False]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	Handle to control
-$fExact
-	[optional] True Return the exact length
-		       - = False return at least the number of characters in the control (faster)
-		Default: exact length
-$fChars
-	[optional] True - return length in characters
-		          = False - return length in bytes
-		Default: bytes
+ $hWnd  控件句柄
+ $fExact  [可选]
+真 - 返回确切长度(默认)
+假 - 返回控件中最少的字符数量(快速)
+ $fChars  [可选]
+真 - 返回字符长度
+假 - 返回字节长度(默认)
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回字符长度,或字节长度
-失败:	返回 0,设置@error	
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $fExact 必须是 True 或 False
-	103 - $fChars 必须是 True 或 False
+ 成功:  字符长度或字节长度
+ 失败:  返回0并设置@error
+ @error:  101 - $hWnd不是句柄
+  102 - $fExact必须为真或假
+  103 - $fChars必须为真或假
 @@End@@
 
-###Remarks###
-None.
+###备注###
 
-###Related###
+###相关###
 
-###See Also###
-@@MsdnLink@@ EM_GETTEXTLENGTHEX
+###参考###
+ 搜索MSDN知识库中EM_GETTEXTLENGTHEX的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

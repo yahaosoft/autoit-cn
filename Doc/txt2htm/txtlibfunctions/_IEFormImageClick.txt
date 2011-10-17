@@ -1,56 +1,52 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _IEFormImageClick
 
-###Description###
-æ¨¡æ‹Ÿå¯¹&lt;input type=image&gt;è¿›è¡Œé¼ æ ‡ç‚¹å‡». æŒ‰å­å­—ç¬¦ä¸²åŒ¹é…æ›¿æ¢æ–‡æœ¬, åç§°æº(srcæ ‡è®°).
+###ÃèÊö###
+Ä£ÄâÊó±êµã»÷Ò»¸öÍ¼ÏñÊäÈë<input type=image>. Í¼ÏñµÄÎÄ×Ö , Ãû×Ö»òÕßÔ´µØÖ·µÄ×Ó´®Æ¥ÅäÌá¹©µÄ×Ö´®.
 
-###Syntax###
-#include <IE.au3> 
+###Óï·¨###
+#Include <IE.au3>
 _IEFormImageClick ( ByRef $o_object, $s_linkText [, $s_mode = "src" [, $i_index = 0 [, $f_wait = 1]]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$o_object
-	ä»»ä½•DOMå…ƒç´ (å°†è½¬åŒ–ä¸ºå…³è”çš„æ–‡æ¡£å¯¹è±¡)çš„å¯¹è±¡å˜é‡
-$s_linkText
-	ç”¨äºåŒ¹é…å…ƒç´ çš„å€¼ - åŸºäº $s_mode è¿›è¡Œå¤„ç†
-$s_mode
-	[å¯é€‰å‚æ•°]: æŒ‡å®šæœç´¢æ¨¡å¼
-	src = (é»˜è®¤)åŒ¹é…å›¾åƒåœ°å€(url)
-	name = åŒ¹é…å›¾åƒå
-	alt = åŒ¹é…å›¾åƒçš„æ›¿ä»£æ–‡æœ¬
-$i_index
-	[å¯é€‰å‚æ•°]: å¦‚æœå›¾åƒæ–‡æœ¬ä¸æ­¢ä¸€æ¬¡å‡ºç°, æŒ‰ç…§åŸºäº0å¼€å§‹çš„ç´¢å¼•æŒ‡å®šæ‚¨æ‰€åœ¨å®ä¾‹çš„ä½ç½®
-$f_wait
-	[å¯é€‰å‚æ•°]: æŒ‡å®šæ˜¯å¦åœ¨è¿”å›å‰ç­‰å¾…é¡µé¢åŠ è½½
-	0 = ç«‹å³è¿”å›, ä¸ç­‰å¾…åŠ è½½é¡µé¢
-	1 = (é»˜è®¤)è¿”å›å‰ç­‰å¾…é¡µé¢å®ŒæˆåŠ è½½
+ $o_object  ÈÎÒâDOMÔªËØµÄ¶ÔÏó±äÁ¿ (½«±»×ª±äµ½ÓëÎÄµµÏà¹ØµÄ¶ÔÏó)
+ $s_linkText  Æ¥ÅäÔªËØµÄÖµ--°´$s_modeÉè¶¨µÄÄ£Ê½
+ $s_mode  ¿ÉÑ¡: Ö¸¶¨ËÑË÷Ä£Ê½
+src = (Ä¬ÈÏ) Æ¥ÅäÍ¼Æ¬Á´½Ó
+name = Æ¥ÅäÍ¼ÏñÃû³Æ
+alt = Æ¥ÅäÍ¼ÏñµÄ½»»¥ÎÄ×Ö
+ $i_index  ¿ÉÑ¡: Èç¹ûÍ¼ÏñÎÄ×Ö³öÏÖ³¬¹ı1´Î , ¶¨ÒåÑ¡ÔñÄÄÒ»¸ö , ´Ó0¿ªÊ¼
+ $f_wait  ¿ÉÑ¡: ¶¨ÒåÔÚ·µ»ØÇ°ÊÇ·ñµÈ´ı´°¿Ú¼ÓÔØÍê±Ï
+0 = Á¢¼´·µ»Ø , ²»µÈ´ı´°¿Ú¼ÓÔØ
+1 = (Ä¬ÈÏ)
+  µÈ´ı´°¿Ú¼ÓÔØÍê±ÏÈ»ºó·µ»Ø
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›-1
-å¤±è´¥:	è¿”å›0 å¹¶ä¸”è®¾ç½® @ERROR
-@Error:	0 ($_IEStatus_Success) = æ— é”™è¯¯
-	1 ($_IEStatus_GeneralError) = å¸¸è§„é”™è¯¯
-	3 ($_IEStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»å‹
-	4 ($_IEStatus_InvalidObjectType) = æ— æ•ˆå¯¹è±¡ç±»å‹
-	5 ($_IEStatus_InvalidValue) = æ— æ•ˆå€¼
-	6 ($_IEStatus_LoadWaitTimeout) = ç­‰å¾…åŠ è½½è¶…æ—¶
-	7 ($_IEStatus_NoMatch) = æ— åŒ¹é…
-	8 ($_IEStatus_AccessIsDenied) = æ‹’ç»è®¿é—®
-	9 ($_IEStatus_ClientDisconnected) = å®¢æˆ·ç«¯æ–­å¼€
-@Extended:	åŒ…å«æ— æ•ˆå‚æ•°æ•°é‡
+³É¹¦: ·µ»Ø-1
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@ERRORÎª:
+    0 ($_IEStatus_Success) = ÎŞ´íÎó
+    1 ($_IEStatus_GeneralError) = Ò»°ãĞÔ´íÎó
+    3 ($_IEStatus_InvalidDataType) = ÎŞĞ§Êı¾İÀàĞÍ
+    4 ($_IEStatus_InvalidObjectType) = ÎŞĞ§¶ÔÏóÀàĞÍ
+    5 ($_IEStatus_InvalidValue) = ÎŞĞ§Öµ
+    6 ($_IEStatus_LoadWaitTimeout) = ¼ÓÔØµÈ´ı³¬Ê±
+    7 ($_IEStatus_NoMatch) = ²»Æ¥Åä
+    8 ($_IEStatus_AccessIsDenied) = ·ÃÎÊ±»½ûÖ¹
+    9 ($_IEStatus_ClientDisconnected) = ¿Í»§¶Ë¶Ï¿ª
+    @Extended: °üº¬ÎŞĞ§²ÎÊıÊıÁ¿
 @@End@@
 
+###±¸×¢###
+<input type=image> ±íµ¥ÔªËØ²»Í¬ÓÚÆäËüÔªËØµÄ´¦Àí. ËüÎŞ·¨×÷Îª±íµ¥ÔªËØ¼¯µÄ³ÉÔ±±»Internet ExplorerÊ¶±ğ , Òò´Ëº¯ÊıÌá¹©ÁËÁíÒ»ÖÖÍ¨¹ıÊ¹ÓÃsrc , name»òalt×Ö·û´®»ñÈ¡ÊÂÀıµÄ·½·¨.
+²»¹Ü¶ÔÏóÊÇ·ñ´«µİ¸øº¯Êı , ¿´ÆğÀ´¶¼ÊÇ¾ßÓĞÍêÕûÉÏÏÂÎÄµÄ±íµ¥ÔªËØ.
 
-###Remarks###
-The &lt;input type=image&gt; form element is handled differently from all others. It is not recognized by Internet Explorer as a member of the form element collection and this function therefore gives you other means of getting a reference to it within the document using src, name or alt strings. Regardless of the object passed to this function, it looks for the form element within the full document context.
+###Ïà¹Ø###
+ _IEImgClick
 
+###²Î¿¼###
 
-###Related###
-_IEImgClick, _IEImgGetCollection, _IELoadWait
-
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@

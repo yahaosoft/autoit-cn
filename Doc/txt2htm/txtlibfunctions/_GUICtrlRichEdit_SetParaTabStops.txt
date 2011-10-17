@@ -1,56 +1,54 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_SetParaTabStops
 
-###Description###
-设置(第一)当前选择(或没有选择时的插入点所在段落)的制表位
+###描述###
+获取(首个)被选段落或(无选定时的)当前段落的制表终止符
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetParaTabStops($hWnd, $sTabStops)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$sTabStops
-	由(;)分隔的字符串. 格式为:
-		制表位的绝对位置 (空间单位)
-		制表符类别
-		l - 左制表符
-		c - 居中制表符
-		r - 小数制表符
-		b - bar tab
-		圆点头标类型
-		. - 点头标
-		- - 短划头标
-		_ - 下划线头标
-		= - 重叠线头标
-		t - 粗线头标
-		空格 - 没有头标
+ $hWnd  控件句柄
+ $sTabStops  用分号(;)分隔的值组成的字符串组. 分组格式:
+制表符的绝对位置(间隔单位)
+制表符类型
+  l - 左制表符
+  c - 右制表符
+  r - 小数制表符
+  b - 空格制表符
+引导符种类
+  . - 点状引导符
+  - - 横杠引导符
+  _ - 下划线引导符
+  = - 双线引导符
+  t - 粗线引导符
+  空格 - 无引导符
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False设置@error
-@error:	101 - $hWnd 参数值不是句柄
-	1021 - 制表位的绝对位置缺少或无效
-	1022 - 制表符类别缺少或无效
-	1023 - 制表符类别头标缺少或无效
-	1024 - 尝试设置的制表位太多
-	@extended 包含 $sTabStops 发生错误的标签号码（参考备注 1）.
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  1021 - 制表符的绝对位置丢失或无效
+  1022 - 制表符类型丢失或无效
+  1023 - 指标引导符丢失或无效
+  1024 - 试图设置的指标终止符过多
+ @extended:  发生错误的$sTabStops中包含的制表符数量.
 @@End@@
 
-###Remarks###
- 要重置制表位,请调用 _GUICtrlRichEdit_SetParaTabStops($hWnd, "")
- 调用 _GUICtrlRichEdit_SetSpaceUnit 函数设置 "空间单位". 最初为英寸
- 要输入一个标签控件,点击 Ctrl+Tab 组合键
+###备注###
+重设指标终止符, 使用_GUICtrlRichEdit_SetParaTabStops($hWnd, "")
+调用_GUICtrlRichEdit_SetSpaceUnit设置"空白单元". 原始英寸
+按Ctrl_Tab向控件输入制表符
 
-###Related###
-_GUICtrlRichEdit_GetParaTabStops, _GUICtrlRichEdit_SetSpaceUnit, _GUICtrlRichEdit_SetTabStops
+###相关###
+ _GUICtrlRichEdit_GetParaTabStops , _GUICtrlRichEdit_SetSpaceUnit , _GUICtrlRichEdit_SetTabStops
 
-###See Also###
-@@MsdnLink@@ EM_SETCHARFORMAT
+###参考###
+ 搜索MSDN知识库中EM_SETCHARFORMAT的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

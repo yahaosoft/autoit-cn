@@ -1,65 +1,58 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_Create
 
-###Description###
+###描述###
 创建编辑控件
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_Create($hWnd, $sText, $iLeft, $iTop[, $iWidth = 150[, $iHeight = 150[, $iStyle = -1[, $iExStyle = -1]]]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	父窗口或所有者窗口的句柄
-$sText
-	控件将显示的文本
-$iLeft
-	控件水平位置
-$iTop
-	控件垂直位置
-$iWidth
-	[可选参数] 控件宽度
-$iHeight
-	[可选参数] 控件高度
-$iStyle
-	[可选参数] 控件样式:
-		$ES_AUTOHSCROLL - 当用户在行尾键入字符,文本自动滚动右侧10个字符.
-		$ES_AUTOVSCROLL - 用户在最后一行按下 Enter 键,文本自动滚动 1 页.
-		$WS_HSCROLL - 控件具有水平滚动条
-		$WS_VSCROLL - 控件具有垂直滚动条
-		$ES_CENTER - 控件内文本居中.
-		$ES_LEFT - 文本左对齐.
-		$ES_MULTILINE - 生成多行控件（默认）
-		$ES_NOHIDESEL - 选中的文本反白显示,即使控件没有焦点也如此.
-		$ES_NUMBER - 只允许输入数字.
-		$ES_READONLY - 阻止用户输入或编辑文本.
-		$ES_RIGHT - 文本右对齐.
-		$ES_WANTRETURN - 当用户按下 Enter 键时,插入一个回车（默认）
-		$ES_PASSWORD - 键入字符显示为星号（*）
-	[可选参数] 默认 : 0
-		强制 : WS_CHILD, $WS_VISIBLE, $WS_TABSTOP unless $ES_READONLY
-$iExStyle
-	[可选参数] 控件扩展样式,适用标准的 $WS_EX_ 常量.
+ $hWnd  父窗体或宿主窗体的句柄
+ $sText  显示在控件内的文本
+ $iLeft  控件的水平位置
+ $iTop  控件的垂直位置
+ $iWidth   [可选参数] 控件宽度
+ $iHeight   [可选参数] 控件高度
+ $iStyle   [可选参数] 控件风格:
+$ES_AUTOHSCROLL - 当用户在行尾键入一个字符时文本自动向右滚动10个字符
+$ES_AUTOVSCROLL - 当用户在最后一行点击回车时文本自动向上滚动一页
+$WS_HSCROLL - 控件带有水平滚动条
+$WS_VSCROLL - 控件带有垂直滚动条
+$ES_CENTER - 编辑控件中文本居中
+$ES_LEFT - 文本与左边对齐
+$ES_MULTILINE - 生成多行控件(默认)
+$ES_NOHIDESEL - 反序选定文本, 即使控件没有焦点.
+$ES_NUMBER - 只允许将数字输入到编辑控件
+$ES_READONLY - 阻止用户在编辑控件中打字或输入文本
+$ES_RIGHT - 右对齐文本
+$ES_WANTRETURN - 指定当用户按下ENTER键时插入回车符(默认)
+$ES_PASSWORD - 将键入编辑控件的每个字符显示为星号(*)
+  默认: 0
+强制: WS_CHILD, $WS_VISIBLE, $WS_TABSTOP unless $ES_READONLY
+ $iExStyle   [可选参数] 控件扩展样式. 与标准$WS_EX_常量相对应.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 RichEdit 控件句柄
-失败:	返回 0,设置@error:	
-@error:	103 - $iLeft 不是正数或零
-	104 - $iTop 不是正数或零
-	105 - $iWidth 不是正数或 -1
-	106 - $iHeight 不是正数或 -1
-	107 - $iStyle 不是正数或零也不是 -1
-	108 - $iExStyle 不是正数或零也不是 -1
+成功: 富文本编辑控件的句柄
+失败: 返回0并设置@error为:
+    103 - $iLeft不是正数也不是0
+    104 - $iTop不是正数也不是0
+    105 - $iWidth不是正数也不是-1
+    106 - $iHeight不是正数也不是-1
+    107 - $iStyle不是正数也不是0或-1
+    108 - $iExStyle不是正数也不是0或-1
 @@End@@
 
-###Remarks###
- 脚本结束前,必须调用 _GUICtrlRichEdit_Destroy().
+###备注###
 
-###Related###
-_GUICtrlRichEdit_Destroy
+###相关###
+ _GUICtrlRichEdit_Destroy
 
-###Example###
+###参考###
+
+###示例###
 @@IncludeExample@@

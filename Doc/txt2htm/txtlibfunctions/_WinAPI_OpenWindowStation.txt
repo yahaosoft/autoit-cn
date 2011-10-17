@@ -1,48 +1,45 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_OpenWindowStation
 
-###Description###
-Opens the specified window station.
+###ÃèÊö###
+´ò¿ªÖ¸¶¨´°¿ÚÕ¾
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_OpenWindowStation ( $sName [, $iAccess [, $fInherit]] )
+_WinAPI_OpenWindowStation( $sName [, $iAccess [, $fInherit]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $sName
-	The name of the window station to be opened. Window station names are case-insensitive. This window
-	station must belong to the current session.
+   Òª´ò¿ªµÄ´°¿ÚÕ¾µÄÃû³Æ. ´°¿ÚÕ¾Ãû³Æ´óĞ¡Ğ´Ãô¸Ğ. ¸Ã´°¿ÚÕ¾ÊôÓÚµ±Ç°»á»°.
 $iAccess
-	[å¯é€‰å‚æ•°] The access to the window station. This parameter can be one or more of the following values.
-	
-	$WINSTA_ALL_ACCESS
-	$WINSTA_ACCESSCLIPBOARD
-	$WINSTA_ACCESSGLOBALATOMS
-	$WINSTA_CREATEDESKTOP
-	$WINSTA_ENUMDESKTOPS
-	$WINSTA_ENUMERATE
-	$WINSTA_EXITWINDOWS
-	$WINSTA_READATTRIBUTES
-	$WINSTA_READSCREEN
-	$WINSTA_WRITEATTRIBUTES
-	
+   [¿ÉÑ¡] ´°¿ÚÕ¾·µ»Ø¾ä±úµÄ·ÃÎÊÀàĞÍ. ¿ÉÎªÒ»¸ö»ò¶à¸öÏÂÁĞÖµ.
+    $WINSTA_ALL_ACCESS - ËùÓĞ¿ÉÄÜµÄ·ÃÎÊÈ¨ÏŞ
+    $WINSTA_ACCESSCLIPBOARD - Ê¹ÓÃ¼ôÌù°åËùĞè
+    $WINSTA_ACCESSGLOBALATOMS - ²Ù×÷È«¾ÖÔªËØËùĞè
+    $WINSTA_CREATEDESKTOP - ÔÚ´°¿ÚÕ¾ÉÏ´´½¨ĞÂµÄ×ÀÃæ¶ÔÏóËùĞè
+    $WINSTA_ENUMDESKTOPS - Ã¶¾Ù´æÔÚµÄ×ÀÃæ¶ÔÏóËùĞè
+    $WINSTA_ENUMERATE - Ã¶¾Ù´°¿ÚÕ¾ËùĞè
+    $WINSTA_EXITWINDOWS - ³É¹¦µ÷ÓÃExitWindows»òExitWindowsExº¯ÊıËùĞè. ´°¿ÚÕ¾¿ÉÓÉÓÃ»§¹²Ïí, ¸ø±ê¼Ç¿É±ÜÃâ¹²ÏíÓÃ»§´Ó´°¿ÚÕ¾×¢Ïú´°¿ÚÕ¾ËùÓĞÕß.
+    $WINSTA_READATTRIBUTES - ¶ÁÈ¡´°¿ÚÕ¾¶ÔÏóµÄÊôĞÔËùĞè. ¸ÃÊôĞÔ°üÀ¨ÑÕÉ«ÉèÖÃºÍÆäËûÈ«¾Ö´°¿ÚÕ¾ÊôĞÔ.
+    $WINSTA_READSCREEN - ·ÃÎÊÆÁÄ»ÄÚÈİËùĞè
+    $WINSTA_WRITEATTRIBUTES - ĞŞ¸Ä´°¿ÚÕ¾ÊôĞÔËùĞè. ¸ÃÊôĞÔ°üÀ¨ÑÕÉ«ÉèÖÃºÍÆäËûÈ«¾Ö´°¿ÚÕ¾ÊôĞÔ.
 $fInherit
-	[å¯é€‰å‚æ•°] Specifies whether inherites the handle by a processes, valid values:
-		TRUE     - The processes created by this process will inherit the handle.
-		FALSE    - The processes do not inherit this handle. (Default)
+   [¿ÉÑ¡] Ö¸¶¨ÊÇ·ñÓÉ½ø³Ì¼Ì³Ğ¾ä±ú, ¿ÉÓÃÖµ:
+    1 - ÓÉ¸Ã½ø³Ì´´½¨µÄ½ø³Ì¼Ì³Ğ¸Ã¾ä±ú.
+    0 - ½ø³Ì²»¼Ì³Ğ¸Ã¾ä±ú.(Ä¬ÈÏ)
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	Handle to the specified window station.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»ØÖ¸¶¨´°¿ÚÕ¾¾ä±ú
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-After you are done with the handle, you must call _WinAPI_CloseWindowStation() to free the handle.
+###±¸×¢###
+´°¿ÚÕ¾Ê¹ÓÃÍê±Ïºóµ÷ÓÃ_WinAPI_CloseWindowStation()ÊÍ·Å¾ä±ú
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ OpenWindowStation
-
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞOpenWindowStationµÄÏà¹ØĞÅÏ¢

@@ -1,30 +1,186 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_ShellRestricted
 
-###Description###
-Determines whether a specified administrator policy is in effect.
+###ÃèÊö###
+È·¶¨Ö¸¶¨¹ÜÀíÔ±ÏÞÖÆÊÇ·ñÉúÐ§
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellRestricted ( $iRestriction )
+_WinAPI_ShellRestricted( $iRestriction )
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
-$iRestriction
-	A restriction. This parameter can be one of the $REST_* constants.
+$iRestriction  ÏÞÖÆ. ¿ÉÎª$REST_*³£Á¿Ö®Ò»:
+$REST_NORUN = ½ûÖ¹·ÃÎÊ¿ªÊ¼²Ëµ¥ÉÏµÄÔËÐÐÃüÁî
+$REST_NOCLOSE = ½ûÖ¹·ÃÎÊ¿ªÊ¼²Ëµ¥ÖÐµÄ¹Ø»úÃüÁî
+$REST_NOSAVESET = Ó¦ÓÃ³ÌÐò²»»áÔÚÍË³öÊ±±£´æ×´Ì¬ÇÒ²»»áÔÚÏÂÒ»´ÎÔËÐÐÊ±»Ö¸´
+$REST_NOFILEMENU = ½ûÖ¹·ÃÎÊWindows×ÊÔ´¹ÜÀíÆ÷ÖÐµÄÎÄ¼þ²Ëµ¥
+$REST_NOSETFOLDERS = ½ûÖ¹·ÃÎÊ¿ØÖÆÃæ°å, ´òÓ¡»ú, ÍøÂçºÍ²¦ºÅÁ¬½Ó
+$REST_NOSETTASKBAR = ½ûÖ¹·ÃÎÊÈÎÎñÀ¸ÉèÖÃ
+$REST_NODESKTOP = Òþ²Ø×ÀÃæÉÏµÄËùÓÐÍ¼±ê
+$REST_NOFIND = ±íÊ¾ÓÃ»§ÎÞ·¨ËÑË÷ÎÄ¼þ
+$REST_NODRIVES = Ö¸¶¨²»ÏÔÊ¾µÄÇý¶¯Æ÷(ÒÔ32Î»Öµ±íÊ¾)
+$REST_NODRIVEAUTORUN = ½ûÖ¹×Ô¶¯ÔËÐÐµÄÇý¶¯Æ÷(ÒÔ32Î»Öµ±íÊ¾)
+$REST_NODRIVETYPEAUTORUN = ½ûÖ¹×Ô¶¯ÔËÐÐµÄÇý¶¯Æ÷ÀàÐÍ(ÒÔ32Î»Öµ±íÊ¾)
+$REST_NONETHOOD = ´ÓShellÃüÃû¿Õ¼äÖÐÉ¾³ýÍøÉÏÁÚ¾Ó
+$REST_RESTRICTRUN = ÏÞÖÆÓÃ»§¿ÉÒÔÔËÐÐµÄ³ÌÐò
+$REST_NOPRINTERDELETE = ½ûÖ¹ÓÃ»§É¾³ý´òÓ¡»ú
+$REST_NOPRINTERADD = ½ûÖ¹ÓÃ»§Ìí¼Ó´òÓ¡»ú
+$REST_NOSTARTMENUSUBFOLDERS = ²»ÏÔÊ¾¾­µä¿ªÊ¼²Ëµ¥¶¥²¿µÄ¿ªÊ¼²Ëµ¥ºÍ³ÌÐò²Ëµ¥µÄ×ÓÎÄ¼þ¼Ð
+$REST_ENFORCESHELLEXTSECURITY = ½ûÖ¹Ê¹ÓÃÎ´¾­Åú×¼µÄshellÀ©Õ¹
+$REST_LINKRESOLVEIGNORELINKINFO = ²»³¢ÊÔÖØÐÂÁ¬½ÓÓ³ÉäµÄÍøÂçÇý¶¯Æ÷
+$REST_NOCOMMONGROUPS = ½ûÖ¹·ÃÎÊ¿ªÊ¼²Ëµ¥ÉÏµÄcommonfileÎÄ¼þ¼Ð
+$REST_SEPARATEDESKTOPPROCESS = Ê¹ÓÃµ¥¶ÀµÄ½ø³Ì´ò¿ªÎÄ¼þ¼Ð
+$REST_NOWEB = ´Ó×ÀÃæÊôÐÔ¶Ô»°¿òÖÐÉ¾³ý"Web"Ñ¡Ïî¿¨
+$REST_NOTRAYCONTEXTMENU = ½ûÖ¹·ÃÎÊÈÎÎñÀ¸µÄÉÏÏÂÎÄ²Ëµ¥
+$REST_NOVIEWCONTEXTMENU = ½ûÖ¹·ÃÎÊshell¶ÔÏóµÄÉÏÏÂÎÄ²Ëµ¥
+$REST_NONETCONNECTDISCONNECT = ½ûÖ¹ÓÃ»§Ó³Éä»ò¶Ï¿ªÍøÂçÇý¶¯Æ÷
+$REST_STARTMENULOGOFF = É¾³ý¿ªÊ¼²Ëµ¥¹Ø±ÕÖÐµÄ×¢ÏúÑ¡Ïî
+$REST_NOINTERNETICON = ´Ó×ÀÃæÉ¾³ýieÍ¼±ê
+$REST_NORECENTDOCSHISTORY = ½ûÓÃ´ò¿ªÎÄ¼þÀúÊ·
+$REST_NORECENTDOCSMENU = ´Ó¿ªÊ¼²Ëµ¥ÒÆ³ý×î½ü´ò¿ªÎÄ¼þÀúÊ·
+$REST_NOACTIVEDESKTOP = ½ûÖ¹ÔÚ×ÀÃæÉÏ´´½¨ÍøÒ³ÄÚÈÝ(×îµÍWindows Vista)
+$REST_NOACTIVEDESKTOPCHANGES = ½ûÓÃ¸Ä±ä×ÀÃæÉÏµÄÍøÒ³ÄÚÈÝ(×îµÍWindows Vista)
+$REST_NOFAVORITESMENU = ´Ó¿ªÊ¼²Ëµ¥ÖÐÉ¾³ýÊÕ²Ø¼Ð²Ëµ¥
+$REST_CLEARRECENTDOCSONEXIT = ÔÚÓÃ»§×¢ÏúÊ±É¾³ý×î½üµÄÎÄµµµÄÀúÊ·¼ÇÂ¼¼°Ïà¹ØµÄÀúÊ·ÐÅÏ¢
+$REST_NOCUSTOMIZEWEBVIEW = ½ûÖ¹×Ô¶¨ÒåWindows×ÊÔ´¹ÜÀíÆ÷ÎÄ¼þ¼ÐµÄÍâ¹Û
+$REST_NOHTMLWALLPAPER = ½ûÖ¹ÉèÖÃ·ÇBMPÍ¼Ïñ×÷Îª×ÀÃæ±ÚÖ½(Windows VistaºóÎÞÐ§)
+$REST_NOCHANGINGWALLPAPER = ½ûÖ¹¸ü¸Ä×ÀÃæ±ÚÖ½
+$REST_NODESKCOMP = ½ûÓÃ×ÀÃæ×é¼þ(Windows VistaºóÎÞÐ§)
+$REST_NOADDDESKCOMP = ½ûÖ¹´´½¨×ÀÃæ×é¼þ
+$REST_NODELDESKCOMP = ½ûÖ¹É¾³ý×ÀÃæ×é¼þ
+$REST_NOCLOSEDESKCOMP = ½ûÖ¹¹Ø±Õ×ÀÃæ×é¼þ(Windows VistaºóÎÞÐ§)
+$REST_NOCLOSE_DRAGDROPBAND = ½ûÖ¹ÍÏ·Å»ò¹Ø±Õ×ÀÃæ´ø
+$REST_NOMOVINGBAND = ½ûÖ¹ÒÆ¶¯×ÀÃæ´ø
+$REST_NOEDITDESKCOMP = ½ûÖ¹ÐÞ¸Ä×ÀÃæ×é¼þ(Windows VistaºóÎÞÐ§)
+$REST_NORESOLVESEARCH = ÐÞ¸´Ëð»µµÄ¿ì½Ý·½Ê½Ê±½ûÓÃÆô·¢Ê½ÎÄ¼þËÑË÷
+$REST_NORESOLVETRACK = ÐÞ¸´Ëð»µµÄ¿ì½Ý·½Ê½Ê±½ûÓÃÁ´½Ó¸ú×Ù·þÎñ
+$REST_FORCECOPYACLWITHFILE = ¸´ÖÆÎÄ¼þÊ±Ç¿ÖÆ¸´ÖÆÎÄ¼þµÄACL¶ø²»¼Ì³ÐÄ¿±êÎÄ¼þ¼ÐµÄACL
+$REST_NOLOGO3CHANNELNOTIFY = ´¦Àí¿ì½Ý·½Ê½Ê±½ûÓÃÆµµÀ¸üÐÂ(Windows VistaºóÎÞÐ§)
+$REST_NOFORGETSOFTWAREUPDATE = ½ûÓÃÈ¡Ïû¸üÐÂÌáÐÑ
+$REST_NOSETACTIVEDESKTOP = ½ûÖ¹¸ü¸Ä×ÀÃæÉÏÍøÒ³ÄÚÈÝµÄÉèÖÃ
+$REST_NOUPDATEWINDOWS = Òþ²Ø¿ªÊ¼²Ëµ¥ÖÐµÄWindows Update
+$REST_NOCHANGESTARMENU = ½ûÖ¹ÐÞ¸Ä¿ªÊ¼²Ëµ¥
+$REST_NOFOLDEROPTIONS = ½ûÖ¹·ÃÎÊÎÄ¼þ¼ÐÑ¡Ïî¶Ô»°¿ò
+$REST_HASFINDCOMPUTERS = ½ûÖ¹ËÑË÷ÍøÂçÉÏ¼ÆËã»ú
+$REST_INTELLIMENUS = ½ûÓÃ¸öÐÔ»¯²Ëµ¥
+$REST_RUNDLGMEMCHECKBOX = ½ûÓÃÔËÐÐ¶Ô»°¿òÖÐµÄÔÚµ¥¶ÀµÄÄÚ´æ¿Õ¼äÔËÐÐÑ¡Ïî
+$REST_ARP_ShowPostSetup = ´Ó"Ìí¼Ó/É¾³ý³ÌÐò"¶Ô»°¿òµÄ"Ìí¼Ó/É¾³ýWindows×é¼þ"ÖÐÉ¾³ýµÄ²»ÍêÕûµÄ°²×°ÁÐµ¥(Windows VistaºóÎÞÐ§)
+$REST_NOCSC = É¾³ý¿ªÊ¼²Ëµ¥ÉÏµÄËùÓÐÍ¬²½
+$REST_NOCONTROLPANEL = ½ûÖ¹·ÃÎÊ¿ØÖÆÃæ°å
+$REST_ENUMWORKGROUP = ±íÊ¾ÍøÂçÁÚ¾ÓÖÐ°üÀ¨¼ÆËã»ú¹¤×÷×é
+$REST_ARP_NOARP = ½ûÖ¹·ÃÎÊµÄ"Ìí¼Ó/É¾³ý³ÌÐò"¶Ô»°¿ò(Windows VistaºóÎÞÐ§)
+$REST_ARP_NOREMOVEPAGE = ¾Ü¾ø·ÃÎÊ"Ìí¼Ó/É¾³ý³ÌÐò"¶Ô»°¿òÖÐµÄ"¸ü¸Ä»òÉ¾³ý³ÌÐò"(Windows VistaºóÎÞÐ§)
+$REST_ARP_NOADDPAGE = ¾Ü¾ø·ÃÎÊ"Ìí¼Ó/É¾³ý³ÌÐò"¶Ô»°¿òÖÐµÄ"Ìí¼Ó³ÌÐò"(Windows VistaºóÎÞÐ§)
+$REST_ARP_NOWINSETUPPAGE = ¾Ü¾ø·ÃÎÊ"Ìí¼Ó/É¾³ý³ÌÐò"¶Ô»°¿òÖÐµÄ"Ìí¼Ó/É¾³ýWindows×é¼þ"(Windows VistaºóÎÞÐ§)
+$REST_GREYMSIADS = Ö¸¶¨¿ÉÓÃµ«ÉÐÎ´°²×°µÄµÄÓ¦ÓÃ³ÌÐòÒÔ»ÒÉ«Windows InstallerÍ¼±êÏÔÊ¾ÔÚ¿ªÊ¼²Ëµ¥ÉÏ
+$REST_MAXRECENTDOCS = Ö¸¶¨±£ÁôÔÚ"×î½üÊ¹ÓÃµÄÎÄµµ"²Ëµ¥ÖÐµÄÎÄ¼þµÄ×î´óÊýÁ¿(32Î»Öµ)
+$REST_NONETWORKCONNECTIONS = É¾³ý¿ªÊ¼²Ëµ¥ÖÐµÄ"ÍøÂçÁ¬½Ó"
+$REST_FORCESTARTMENULOGOFF = Ç¿ÖÆ¿ªÊ¼²Ëµ¥ÖÐµÄ×¢ÏúÃüÁî
+$REST_NOWEBVIEW = ½ûÓÃWindows×ÊÔ´¹ÜÀíÆ÷ÖÐÎÄ¼þ¼ÐµÄHTMLÄ£°å(Windows 2000)»òÎÄ¼þ¼ÐÈÎÎñ(Windows XP)(Windows VistaºóÎÞÐ§)
+$REST_NOCUSTOMIZETHISFOLDER = ½ûÖ¹×Ô¶¨ÒåWindows×ÊÔ´¹ÜÀíÆ÷ÎÄ¼þ¼ÐµÄÍâ¹Û
+$REST_NOENCRYPTION = ½ûÖ¹¼ÓÃÜ»ò½âÃÜÎÄ¼þºÍÎÄ¼þ¼Ð
+$REST_DONTSHOWSUPERHIDDEN = ½ûÖ¹²é¿´±ê¼ÇÎªÏµÍ³ºÍÒþ²Ø(³¬¼¶Òþ²ØÎÄ¼þ)ÎÄ¼þ
+$REST_NOSHELLSEARCHBUTTON = ½ûÓÃWindows×ÊÔ´¹ÜÀíÆ÷¹¤¾ßÀ¸ÉÏµÄ"ËÑË÷"°´Å¥
+$REST_NOHARDWARETAB = ½ûÓÃÇý¶¯Æ÷, Êó±ê, ¼üÅÌºÍ¶àÃ½ÌåÊôÐÔ±íÖÐµÄ"Ó²¼þ"Ñ¡Ïî¿¨
+$REST_NORUNASINSTALLPROMPT = ½ûÖ¹°²×°Ó¦ÓÃ³ÌÐòÊ±×Ô¶¯Æ¾¾ÝµÄ×Ô¶¯ÌáÊ¾(Windows VistaºóÎÞÐ§)
+$REST_PROMPTRUNASINSTALLNETPATH = ½ûÖ¹´ÓÍøÂçÂ·¾¶°²×°Ó¦ÓÃ³ÌÐòÊ±×Ô¶¯Æ¾¾ÝµÄ×Ô¶¯ÌáÊ¾
+$REST_NOMANAGEMYCOMPUTERVERB = ´ÓÎÒµÄµçÄÔ"ÉÏÏÂÎÄ²Ëµ¥"ÖÐÉ¾³ýÏµÍ³¹ÜÀíÔ±µÄ¹ÜÀíÃüÁî
+$REST_NORECENTDOCSNETHOOD = ½ûÖ¹"ÍøÉÏÁÚ¾Ó"×î½ü·ÃÎÊµÄÍøÂç×ÊÔ´ÖÐ×Ô¶¯Ìí¼Ó¿ì½Ý·½Ê½
+$REST_DISALLOWRUN = ÏÞÖÆÓÃ»§¿ÉÒÔÔËÐÐµÄ³ÌÐò
+$REST_NOWELCOMESCREEN = ½ûÓÃ»¶Ó­Ê¹ÓÃWindowsÆÁÄ»(Windows VistaºóÎÞÐ§)
+$REST_RESTRICTCPL = ÏÞÖÆÓÃ»§¿ÉÒÔÔËÐÐ¿ØÖÆÃæ°åÓ¦ÓÃ³ÌÐò
+$REST_DISALLOWCPL = ÏÞÖÆÓÃ»§¿ÉÒÔÔËÐÐ¿ØÖÆÃæ°åÓ¦ÓÃ³ÌÐò
+$REST_NOSMBALLOONTIP = ½ûÓÃ¿ªÊ¼²Ëµ¥ÖÐÏÔÊ¾µÄÆøÇòÌáÊ¾
+$REST_NOSMHELP = É¾³ý´Ó¿ªÊ¼²Ëµ¥ÖÐµÄ"°ïÖú"
+$REST_NOWINKEYS = ½ûÓÃWindows»Õ±ê¼üµÄ¼üÅÌ¿ì½Ý¼ü
+$REST_NOENCRYPTONMOVE = Î´¼ÓÃÜµÄÎÄ¼þºÍÎÄ¼þ¼ÐÒÆ¶¯µ½¼ÓÃÜµÄÎÄ¼þ¼ÐÊ±±£³ÖÎ´¼ÓÃÜ
+$REST_NOLOCALMACHINERUN = ½ûÖ¹ÔËÐÐHKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\WINDOWS\CURRENTVERSION\Run×¢²á±í¼üÖÐÁÐ³öµÄ³ÌÐò
+$REST_NOCURRENTUSERRUN = ½ûÖ¹ÔËÐÐHKEY_CURRENT_USER\SOFTWARE\MICROSOFT\WINDOWS\CURRENTVERSION\Run×¢²á±í¼üÖÐÁÐ³öµÄ³ÌÐò
+$REST_NOLOCALMACHINERUNONCE = ½ûÖ¹ÔËÐÐHKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\WINDOWS\CURRENTVERSION\RunOnce×¢²á±í¼üÖÐÁÐ³öµÄ³ÌÐò
+$REST_NOCURRENTUSERRUNONCE = ½ûÖ¹ÔËÐÐHKEY_CURRENT_USER\SOFTWARE\MICROSOFT\WINDOWS\CURRENTVERSION\RunOnce×¢²á±í¼üÖÐÁÐ³öµÄ³ÌÐò
+$REST_FORCEACTIVEDESKTOPON = Ç¿ÖÆÆôÓÃ×ÀÃæÉÏµÄWebÄÚÈÝ
+$REST_NOCOMPUTERSNEARME = ÔÚÍøÉÏÁÚ¾Ó"ÎÄ¼þ¼ÐÖÐÒþ²Ø"ÎÒµÄµçÄÔ"µÄÍ¼±ê
+$REST_NOVIEWONDRIVE = Ö¸¶¨ÓÃ»§ÎÞ·¨´ò¿ª»òÎÄ¼þÍÏ·Åµ½µÄÇý¶¯Æ÷(32Î»Öµ)
+$REST_NONETCRAWL = ½ûÖ¹×Ô¶¯ËÑË÷ÍøÂçÎÄ¼þ¼ÐºÍ´òÓ¡»ú(Windows VistaºóÎÞÐ§)
+$REST_NOSHAREDDOCUMENTS = Òþ²Ø"ÎÒµÄµçÄÔ"ÖÐµÄ¹²ÏíÎÄ¼þÍ¼±ê(Windows VistaºóÎÞÐ§)
+$REST_NOSMMYDOCS = Òþ²Ø¿ªÊ¼²Ëµ¥ÉÏµÄ"ÎÒµÄÎÄµµ"Í¼±ê
+$REST_NOSMMYPICS = Òþ²Ø¿ªÊ¼²Ëµ¥ÉÏµÄ"ÎÒµÄÍ¼Æ¬"Í¼±ê
+$REST_ALLOWBITBUCKDRIVES = Ö¸¶¨Ç¿ÖÆÆôÓÃ»ØÊÕÕ¾µÄÇý¶¯Æ÷(32Î»Öµ)
+$REST_NONLEGACYSHELLMODE = Òþ²ØIE¹¤¾ßÀ¸ÉÏµÄ"ºóÍË"ºÍ"Ç°½ø"°´Å¥(Windows VistaºóÎÞÐ§)
+$REST_NOAUTOTRAYNOTIFY = Ç¿ÖÆËùÓÐµÄÈÎÎñÀ¸Í¼±ê¿É¼û(×îµÍWindows XP)
+$REST_NOTASKGROUPING = ½ûÓÃ·Ö×éÏàËÆÈÎÎñÀ¸°´Å¥(×îµÍWindows XP)
+$REST_NOCDBURNING = ½ûÓÃ¹âÅÌ¿ÌÂ¼(×îµÍWindows XP)
+$REST_MYCOMPNOPROP = ½ûÓÃ"ÏµÍ³ÊôÐÔ"¶Ô»°¿ò(×îµÍWindows 2003 SP3)
+$REST_MYDOCSNOPROP = ½ûÖ¹²é¿´"ÎÒµÄÎÄµµ"ÎÄ¼þ¼ÐµÄÊôÐÔ(×îµÍWindows 2003 SP3)
+$REST_NOSTARTPANEL = ½ûÓÃWindows XPµÄ¿ªÊ¼²Ëµ¥(×îµÍWindows XP)
+$REST_NODISPLAYAPPEARANCEPAGE = ½ûÓÃ"×ÀÃæ"ÊôÐÔ¶Ô»°¿òÖÐµÄÖ÷ÌâºÍÍâ¹ÛÒ³(×îµÍWindows XP)
+$REST_NOTHEMESTAB = ½ûÓÃ"×ÀÃæ"ÊôÐÔ¶Ô»°¿òÖÐµÄÖ÷ÌâÒ³(×îµÍWindows XP)
+$REST_NOVISUALSTYLECHOICE = ½ûÖ¹¸Ä±äÊÓ¾õÑùÊ½(×îµÍWindows XP)
+$REST_NOSIZECHOICE = ½ûÖ¹¸Ä±ä"×ÀÃæ"ÊôÐÔ¶Ô»°¿òµÄÍâ¹ÛÒ³ÖÐµÄ×ÖÌå´óÐ¡(×îµÍWindows XP)
+$REST_NOCOLORCHOICE = ½ûÖ¹¸Ä±ä"×ÀÃæ"ÊôÐÔ¶Ô»°¿òµÄÍâ¹ÛÒ³ÖÐµÄÏµÍ³ÑÕÉ«(×îµÍWindows XP)
+$REST_SETVISUALSTYLE = Ç¿ÖÆÖ¸¶¨µÄÊÓ¾õ·ç¸ñ(×îµÍWindows XP)
+$REST_STARTRUNNOHOMEPATH = ´Ó"ÔËÐÐ"¶Ô»°¿òÖÐÔËÐÐ³ÌÐòµÄÄ¬ÈÏ¹¤×÷Ä¿Â¼²»Ç¿ÖÆÎªÓÃ»§µÄÖ÷Ä¿Â¼(×îµÍWindows 2003)
+$REST_NOUSERNAMEINSTARTPANEL = Òþ²ØWindows XP¿ªÊ¼²Ëµ¥ÖÐµÄÓÃ»§Ãû(Windows XP/2003; Windows VistaºóÎÞÐ§)
+$REST_NOMYCOMPUTERICON = Òþ²Ø"ÎÒµÄµçÄÔ"Í¼±ê(×îµÍWindows XP)
+$REST_NOSMNETWORKPLACES = Òþ²Ø¿ªÊ¼²Ëµ¥ÉÏµÄ"ÍøÉÏÁÚ¾Ó"Í¼±ê(×îµÍWindows XP)
+$REST_NOSMPINNEDLIST = Òþ²Ø¹Ì¶¨ÔÚ¿ªÊ¼²Ëµ¥ÉÏµÄÏîÄ¿Çåµ¥(×îµÍWindows XP)
+$REST_NOSMMYMUSIC = Òþ²Ø¿ªÊ¼²Ëµ¥ÉÏµÄ"ÎÒµÄÒôÀÖ"Í¼±ê(×îµÍWindows XP)
+$REST_NOSMEJECTPC = Òþ²Ø¿ªÊ¼²Ëµ¥ÉÏµÄ"µ¯³ö"ÃüÁî(×îµÍWindows XP)
+$REST_NOSMMOREPROGRAMS = Òþ²ØWindows XP¿ªÊ¼²Ëµ¥ÖÐµÄ"ËùÓÐ³ÌÐò"Ïî(×îµÍWindows XP)
+$REST_NOSMMFUPROGRAMS = Òþ²ØWindows XP¿ªÊ¼²Ëµ¥ÖÐ×î³£Ê¹ÓÃµÄ³ÌÐòÁÐ±í(×îµÍWindows XP)
+$REST_NOTRAYITEMSDISPLAY = Òþ²ØÈÎÎñÀ¸µÄËùÓÐÍ¨ÖªÍ¼±ê(×îµÍWindows XP)
+$REST_NOTOOLBARSONTASKBAR = Òþ²ØÈÎÎñÀ¸µÄËùÓÐ¹¤¾ßÀ¸£¬Èç¿ìËÙÆô¶¯(×îµÍWindows XP)
+$REST_NOSMCONFIGUREPROGRAMS = Òþ²Ø¿ªÊ¼²Ëµ¥ÉÏµÄ"ÉèÖÃ³ÌÐò·ÃÎÊºÍÄ¬ÈÏµÄ¿ì½Ý·½Ê½"(×îµÍWindows 2000 SP3)
+$REST_HIDECLOCK = Òþ²ØÈÎÎñÀ¸ÉÏµÄÊ±ÖÓ(×îµÍWindows XP)
+$REST_NOLOWDISKSPACECHECKS = ½ûÓÃµ±´ÅÅÌ¿Õ¼äÒÑ¹ýµÍÊ±µÄÈÎÎñÀ¸¾¯¸æ(×îµÍWindows XP)
+$REST_NOENTIRENETWORK = ½ûÓÃ"ÍøÉÏÁÚ¾Ó"ÖÐ"Õû¸öÍøÂç"Í¼±ê(×îµÍWindows 2000 SP4)
+$REST_NODESKTOPCLEANUP = ½ûÓÃ×ÀÃæÇåÀí(Windows XP/2003; Windows VistaºóÎÞÐ§)
+$REST_BITBUCKNUKEONDELETE = ²»¾­¹ý»ØÊÕÕ¾Á¢¼´É¾³ýÎÄ¼þ(×îµÍWindows XP)
+$REST_BITBUCKCONFIRMDELETE = Ö¸¶¨ÎÄ¼þÒÆ¶¯µ½»ØÊÕÕ¾Ê±½ûÖ¹ÏÔÊ¾È·ÈÏ¶Ô»°¿ò(×îµÍWindows XP)
+$REST_BITBUCKNOPROP = ½ûÖ¹ÓÃ»§²é¿´»òÐÞ¸Ä»ØÊÕÕ¾ÊôÐÔ(×îµÍWindows XP)
+$REST_NODISPBACKGROUND = ½ûÖ¹²é¿´»òÐÞ¸Ä×ÀÃæ±ÚÖ½(×îµÍWindows XP)
+$REST_NODISPSCREENSAVEPG = ½ûÖ¹²é¿´»òÐÞ¸ÄÆÁÄ»±£»¤³ÌÐòÉèÖÃ(×îµÍWindows XP)
+$REST_NODISPSETTINGSPG = ½ûÖ¹²é¿´»òÐÞ¸ÄÆÁÄ»µÄÑÕÉ«Éî¶ÈºÍ·Ö±æÂÊÉèÖÃ(×îµÍWindows XP)
+$REST_NODISPLAYCPL = ½ûÓÃ¿ØÖÆÃæ°åµÄÏÔÊ¾ÊôÐÔ¶Ô»°¿ò(×îµÍWindows XP)
+$REST_HIDERUNASVERB = ½ûÓÃshell¶ÔÏóµÄ"ÔËÐÐ·½Ê½"ÃüÁî(×îµÍWindows XP)
+$REST_NOTHUMBNAILCACHE = ½ûÖ¹»º´æËõÂÔÍ¼(×îµÍWindows XP)
+$REST_NOSTRCMPLOGICAL = °´ÎÄ¼þÃûÅÅÐò(×îµÍWindows XP sp1)
+$REST_NOPUBLISHWIZARD = ½ûÓÃWindows·¢²¼Ïòµ¼(×îµÍWindows XP sp1; Windows VistaºóÎÞÐ§)
+$REST_NOONLINEPRINTSWIZARD = ½ûÓÃÁª»ú´òÓ¡Ïòµ¼(×îµÍWindows XP sp1; Windows VistaºóÎÞÐ§)
+$REST_NOWEBSERVICES = ½ûÓÃÓÉÁª»ú´òÓ¡Ïòµ¼ºÍWindows·¢²¼Ïòµ¼µÄÍøÒ³Ö¸¶¨µÄ·þÎñ(×îµÍWindows XP sp1)
+$REST_ALLOWUNHASHEDWEBVIEW = ÔÊÐíÏÔÊ¾Î´×¢²áµÄWebÊÓÍ¼Ä£°å(Windows 2000 SP3/XP/2003; Windows VistaºóÎÞÐ§)
+$REST_ALLOWLEGACYWEBVIEW = ÔÊÐí¾ÉµÄWebÊÓÍ¼Ä£°å(Windows XPÖ®Ç°µÄ)±»×ª»»³ÉWindows XPµÄÄ£°å(Windows VistaºóÎÞÐ§)
+$REST_REVERTWEBVIEWSECURITY = ½«WebÊÓÍ¼µÄ°²È«ÐÔ½µµÍµ½Windows 2000 SP2»ò¸üÔçµÄ³Ì¶È(Windows 2000 SP3/XP/2003; Windows VistaºóÎÞÐ§)
+$REST_INHERITCONSOLEHANDLES = ShellExecº¯Êý¼ì²éµ±Ç°½ø³ÌºÍÄ¿±ê½ø³ÌÊÇ·ñÎª¿É¼Ì³ÐµÄ¿ØÖÆÌ¨½ø³Ì(×îµÍWindows 2000 SP4)
+$REST_SORTMAXITEMCOUNT = ²»ÅÅÐò³¬¹ý¸Ã¼üµÄÊÓÍ¼(Windows XP sp2/sp3; Windows VistaºóÎÞÐ§)
+$REST_NOREMOTERECURSIVEEVENTS = ²»µÝ¹é×¢²áÍøÂç¸ü¸ÄÊÂ¼þÒÔÍøÂç¶ÂÈû(×îµÍWindows XP sp2)
+$REST_NOREMOTECHANGENOTIFY = ²»Í¨ÖªÔ¶³Ì¸ü¸ÄÍ¨Öª(×îµÍWindows XP sp2)
+$REST_NOSIMPLENETIDLIST = ²»¼ò»¯ÍøÂçIDList(Windows XP sp2/sp3; Windows VistaºóÎÞÐ§)
+$REST_NOENUMENTIRENETWORK = ²»Ã¶¾ÙÕû¸öÍøÂç(×îµÍWindows XP sp2)
+$REST_NOINTERNETOPENWITH = ½ûÓÃ"ÔÚÍøÂçÉÏÑ°ÕÒÊÊµ±µÄ³ÌÐò"Ñ¡Ïî(×îµÍWindows XP sp2)
+$REST_ALLOWLEGACYLMZBEHAVIOR = ÔÊÐí¸Ä±äWindows XP SP2ÖÐActiveX¶ÔÏóLMZµÄÐÐÎª(½öWindows XP sp2; Windows VistaºóÎÞÐ§)
+$REST_DONTRETRYBADNETNAME = Èç¹ûÍøÂçÁÚ¾ÓÖÐµÄÌá¹©Õß·µ»ØERROR_BAD_NET_NAME²»ÖØÊÔ(×îµÍWindows XP sp2)
+$REST_ALLOWFILECLSIDJUNCTIONS = ÏµÍ³ÎÄ¼þ¼ÐÖÐÖØÐÂÆôÓÃÖ§³Öfile.{GUID}½Ó¿Ú(×îµÍWindows XP sp2/2003)
+$REST_NOUPNPINSTALL = ½ûÖ¹ÍøÉÏÁÚ¾ÓÖÐ°²×°Í¨ÓÃ¼´²å¼´ÓÃ(UPnP)µÄÈÎÎñ(×îµÍWindows XP sp2)
+$REST_ARP_DONTGROUPPATCHES = É¾³ý"Ìí¼Ó/É¾³ý³ÌÐò"ÖÐµÄ¸ö±ðÐÞ²¹³ÌÐò(Windows VistaºóÎÞÐ§)
+$REST_ARP_NOCHOOSEPROGRAMSPAGE = É¾³ýÑ¡Ôñ³ÌÐòÒ³ÃæÉÏµÄÑ¡Ïî(Windows VistaºóÎÞÐ§)
+$REST_NODISCONNECT = É¾³ý¿ªÊ¼²Ëµ¥ºÍÈÎÎñ¹ÜÀíÆ÷ÖÐµÄ"¶Ï¿ªÁ¬½Ó"Ñ¡Ïî(Windows VistaºóÎÞÐ§)
+$REST_NOSECURITY = É¾³ý¿ªÊ¼²Ëµ¥ºÍÈÎÎñ¹ÜÀíÆ÷ÖÐµÄ"Windows°²È«"Ñ¡Ïî(Windows VistaºóÎÞÐ§)
+$REST_NOFILEASSOCIATE = ½ûÖ¹¸ü¸ÄÎÄ¼þ¹ØÁª(Windows VistaºóÎÞÐ§)
+$REST_ALLOWCOMMENTTOGGLE = ÔÊÐíÇÐ»»×¢ÊÍºÍ¼ÆËã»úÃûµÄÎ»ÖÃ(½öWindows XP sp2; Windows VistaºóÎÞÐ§)
+$REST_USEDESKTOPINICACHE = ´ÓÍøÂçÎÄ¼þ¼Ð»º´æDesktop.iniÌõÄ¿(½öWindows XP sp2/sp3; Windows VistaºóÎÞÐ§)
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	Nonzero - The specified restriction is in effect.
-0	Otherwise.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø·Ç0±íÊ¾Ö¸¶¨ÏÞÖÆÉúÐ§, ·´Ö®·µ»Ø0
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-None
+###±¸×¢###
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ SHRestricted
-
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖÐSHRestrictedµÄÏà¹ØÐÅÏ¢

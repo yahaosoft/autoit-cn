@@ -1,33 +1,58 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _GUICtrlComboBox_SetCueBanner
 
-###Description###
-è®¾ç½®ç¼–è¾‘æ¡†çš„æ˜¾ç¤ºæç¤ºæ ‡å¿—
+###ÃèÊö###
+ÉèÖÃÏÔÊ¾ÔÚ×éºÏ¿ò±à¼­¿Ø¼şÖĞµÄÌáÊ¾±êÖ¾
 
-###Syntax###
-#Include <GuiComboBox.au3>
+###Óï·¨###
+#Include<GuiComboBox.au3>
 _GUICtrlComboBox_SetCueBanner($hWnd, $sText)
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$hWnd
-	æ§ä»¶å¥æŸ„
-$sText
-	æç¤ºæ–‡æœ¬å­—ç¬¦ä¸²
+ $hWnd  ¿Ø¼ş¾ä±ú
+ $sText  °üº¬ÎÄ±¾µÄ×Ö·û´®
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å› True 
-å¤±è´¥:	è¿”å› False
+³É¹¦: Õæ
+Ê§°Ü: ¼Ù
 @@End@@
 
-###Remarks###
- æç¤ºæ ‡å¿—æ˜¯æŒ‡ç¼–è¾‘æ¡†ä¸­æ²¡æœ‰é€‰æ‹©é¡¹æ—¶çš„æç¤º.
- æœ€ä½æ“ä½œç³»ç»Ÿ: Windows Vista
+###±¸×¢###
+ÌáÊ¾±êÖ¾ÊÇÔÚÎŞÑ¡ÏîÊ±ÏÔÊ¾ÔÚ×éºÏ¿ò±à¼­¿Ø¼şÖĞµÄÎÄ±¾
+×îµÍÏµÍ³ÒªÇó: Windows Vista
 
-###Related###
+###Ïà¹Ø###
 _GUICtrlComboBox_GetCueBanner
-
-###Example###
-@@IncludeExample@@
+ #AutoIt3Wrapper_Au3Check_Parameters=-d -w 1 -w 2 -w 3 -w 4 -w 5 -w 6
+ #include <GUIComboBox.au3>
+ #include <GuiConstantsEx.au3>
+ #include <WindowsConstants.au3>
+ Opt ( ' MustDeclareVars ', 1 )
+ $Debug_CB = False ; ¼ì²é´«µİ¸øº¯ÊıµÄÀàÃû, ÉèÖÃÎªÕæ²¢Ê¹ÓÃÁíÒ»¿Ø¼ş¾ä±ú¹Û²ìÆä¹¤×÷
+ Global $iMemo
+ _Main()
+ Func _Main()
+   Local $hCombo
+   ; ´´½¨½çÃæ
+   GUICreate ( " ComboBox ", 400 , 296 )
+   $hCombo = GUICtrlCreateCombo ( Select an Item " )
+   $iMemo = GUICtrlCreateEdit ( "", 10 , 50 , 376 , 234 , $WS_VSCROLL )
+   GUICtrlSetFont ( $iMemo , 9 , 400 , 0 , " Courier New " )
+   GUISetState ()
+   ; Ìí¼ÓÎÄ¼ş
+   _GUICtrlComboBox_BeginUpdate ( $hCombo )
+   _GUICtrlComboBox_AddDir ( $hCombo , @WindowsDir & " \*.exe " )
+   _GUICtrlComboBox_EndUpdate ( $hCombo )
+   MemoWrite( " Cue Banner: " & _GUICtrlComboBox_GetCueBanner ( $hCombo ))
+   ; Ñ­»·ÖÁÓÃ»§ÍË³ö
+   Do
+   Until GUIGetMsg () = $GUI_EVENT_CLOSE
+   GUIDelete ()
+ EndFunc ;==>_Main
+ ; Ğ´Èëmemo¿Ø¼ş
+ Func MemoWrite( $sMessage )
+   GUICtrlSetData ( $iMemo , $sMessage &@crlf , 1 )
+ EndFunc ;==>MemoWrite

@@ -1,36 +1,32 @@
-###User Defined Function###
+###用户自定义函数###
 _StringBetween
 
-###Description###
-返回字符串中开始位置和结束位置中间的字符串.
+###描述###
+返回开始搜索的字符串和结束间的字符串
 
-###Syntax###
+###语法###
 #Include <String.au3>
-_StringBetween($s_String, $s_Start, $s_End [, $v_Case = -1])
+_StringBetween($s_String, $s_Start, $s_End[, $v_Case = -1])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$s_String
-	要进行搜索的字符串.
-$s_Start
-	开始位置的字符串
-$s_End
-	结束位置的字符串
-$v_Case
-	[可选参数] 区分大小写. 默认(Default) 或者 -1 为不区分大小写,其它为区分大小写.
+ $s_String  要搜索的字符串
+ $s_Start  要搜索的字符串的开始. 跳过空字符串开始的
+ $s_End  要搜索的字符串的结尾. 从$s_Start到结束跳过空字符串搜索
+ $v_Case  可选: 大小写敏感搜索. 默认或-1 不是大小写敏感亦或大小写敏感
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回一个基于0开始计算的一维数组, $array[0] 包含第一个找到的内容.
-失败:	返回 0
-@Error - 1 = 没有发现符合的字符串.
+成功: 包含首个发现的字符串的数组$array[0]
+@Error: 1 = 未找到
 @@End@@
 
-###Remarks###
-2009/05/03 脚本中断修改,移除第五个参数
+###备注###
 
-###Related###
+###相关###
 
-###Example###
+###参考###
+
+###示例###
 @@IncludeExample@@

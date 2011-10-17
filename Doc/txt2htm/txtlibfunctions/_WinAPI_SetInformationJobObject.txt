@@ -1,42 +1,37 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_SetInformationJobObject
 
-###Description###
-设置作业对象的限制.
+###����###
+���ù������������
 
-###Syntax###
-#Include <WinAPIEx.au3>
-_WinAPI_SetInformationJobObject ( $hJob, $iJobObjectInfoClass, $tJobObjectInfo )
+###�﷨###
+#Include
+<WinAPIEx.au3>
+_WinAPI_SetInformationJobObject($hJob, $iJobObjectInfoClass, ByRef $tJobObjectInfo)
 
-###Parameters###
+###����###
 @@ParamTable@@
-$hJob
-	作业对象句柄.句柄必须有
-		 $JOB_OBJECT_SET_ATTRIBUTES --- 调用 SetInformationJobObject 函数设置作业对象的属性 访问权限.
-$iJobObjectInfoClass
-	指定限制类别.此参数指定为 $tJobObjectInfo 结构类型, 有效值为:
-		 of $tJobObjectInfo structure, valid values:
-		2 - $tagJOBOBJECT_BASIC_LIMIT_INFORMATION --- JOBOBJECT_BASIC_LIMIT_INFORMATION 结构的指针
-		4 - $tagJOBOBJECT_BASIC_UI_RESTRICTIONS --- JOBOBJECT_BASIC_UI_RESTRICTIONS 结构的指针
-		5 - $tagJOBOBJECT_SECURITY_LIMIT_INFORMATION --- JOBOBJECT_SECURITY_LIMIT_INFORMATION 结构的指针
-		6 - $tagJOBOBJECT_END_OF_JOB_TIME_INFORMATION --- JOBOBJECT_END_OF_JOB_TIME_INFORMATION 结构的指针
-		7 - $tagJOBOBJECT_ASSOCIATE_COMPLETION_PORT --- JOBOBJECT_ASSOCIATE_COMPLETION_PORT 结构的指针
-		9 - $tagJOBOBJECT_EXTENDED_LIMIT_INFORMATION --- JOBOBJECT_EXTENDED_LIMIT_INFORMATION 结构的指针
-		11 - $tagJOBOBJECT_GROUP_INFORMATION --- 指向 USHORT 值的指针
-$tJobObjectInfo
-	$tagJOBOBJECT_* 结构, 指定限制和作业状态信息.
+$hJob  ������ѯ��Ϣ�Ĺ����ľ��. �þ���������$JOB_OBJECT_SET_ATTRIBUTES����Ȩ��.
+$iJobObjectInfoClass  �����õ���������. �ò���ָ��$tJobObjectInfo�ṹ������, ����ֵ:
+2  - $tagJOBOBJECT_BASIC_LIMIT_INFORMATION
+4  - $tagJOBOBJECT_BASIC_UI_RESTRICTIONS
+5  - $tagJOBOBJECT_SECURITY_LIMIT_INFORMATION
+6  - $tagJOBOBJECT_END_OF_JOB_TIME_INFORMATION
+7  - $tagJOBOBJECT_ASSOCIATE_COMPLETION_PORT
+9  - $tagJOBOBJECT_EXTENDED_LIMIT_INFORMATION
+11 - $tagJOBOBJECT_GROUP_INFORMATION
+$tJobObjectInfo  ��ȡ���ƺ͹���״̬��Ϣ��$tagJOBOBJECT_...�ṹ
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0,设置@error:标志为非 0 值.
+�ɹ�: ����1
+ʧ��: ����0������@error��0
 @@End@@
 
-###Remarks###
-None
+###��ע###
 
+###���###
 
-###See Also###
-@@MsdnLink@@ SetInformationJobObject
-
+###�ο�###
+����MSDN֪ʶ����SetInformationJobObject�������Ϣ

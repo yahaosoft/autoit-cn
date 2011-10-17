@@ -1,54 +1,46 @@
-###User Defined Function###
+###用户自定义函数###
 _Net_Share_ConnectionEnum
 
-###Description###
-列出共享资源的所有连接
+###描述###
+列举所有为共享资源建立的连接
 
-###Syntax###
+###语法###
 #Include <NetShare.au3>
 _Net_Share_ConnectionEnum($sServer, $sQualifier)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$sServer
-	指定函数将操作远程服务器的 DNS 或 NetBIOS 名称字符串
-	如果参数为空, 则使用本地计算机.
-$sQualifier
-	指定共享名或计算机名称
-	如果是共享名称,则列出共享名称的所有连接
-	如果是计算机名称, 函数列出计算机名指定服务器的所有连接.
+ $sServer  用以指定函数将操作的远程服务器的DNS或NetBIOS名称的字符串. 如果参数为空则使用本地计算机.
+ $sQualifier  指定喜好的共享名或计算机名. 如果为共享名, 则建立所有列出共享名的连接. 如果为计算机名, 函数列出所有从计算机到指定服务器的所有连接.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回以下格式的数组:
-	[0][0] - 数组中的条目数
-	[1][0] - 连接识别码
-	[1][1] - 连接类型. 可以为下列结合:
-	$STYPE_磁盘TREE - 打印队列
-	$STYPE_PRINTQ - 磁盘驱动器
-	$STYPE_DEVICE - 通讯设备
-	$STYPE_IPC - IPC (工控机)
-	$STYPE_SPECIAL - 为 IPC$ 或服务器的远程管理保留的专用共享
-	$STYPE_TEMPORARY - 临时共享
-	[1][2] - 当前连接结果打开的文件数
-	[1][3] - 连接上的用户数
-	[1][4] - 建立连接的秒数
-	[1][5] - 描述服务器共享资源, 与用户运行的安全级别
-	如果服务器是共享级安全运行, 描述用户的连接.
-	计算机接通
-	[1][6] - 指定服务器共享资源的共享名或客户端的计算机名
-失败:	设置 @error
+成功: 如下格式数组:
+    [0][0] - 数组元素数量
+    [1][0] - 连接识别数字
+    [1][1] - 连接类型. 可为下列组合:
+      $STYPE_DISKTREE - 打印队列
+      $STYPE_PRINTQ - 磁盘驱动
+      $STYPE_DEVICE - 联系设备
+      $STYPE_IPC - IPC
+      $STYPE_SPECIAL - 指定为$IPC或远程服务器管理员保留的共享
+      $STYPE_TEMPORARY - 临时共享
+    [1][2] - 当前以连接结果打开的文件数
+    [1][3] - 连接上的用户数量
+    [1][4] - 连接已建立的秒数
+    [1][5] - 如果服务器共享的资源正在以用户安全级别运行, 该成员描述哪个用户建立了连接. 如果服务器正在以共享安全级别运行, 该成员描述哪个计算机建立了连接.
+    [1][6] - 指定服务器共享资源的共享名或客户端的计算机名
 @@End@@
 
-###Remarks###
-需要系统管理员(Administrator), 服务器, 打印操作员或用户组成员执行函数
+###备注###
+需要Administrator, Server或Print Operator或Power User组成员执行函数
 
-###Related###
-_Net_Share_FileEnum, _Net_Share_SessionEnum, _Net_Share_ShareEnum
+###相关###
+ _Net_Share_FileEnum , _Net_Share_SessionEnum , _Net_Share_ShareEnum
 
-###See Also###
-@@MsdnLink@@ NetConnectionEnum
+###参考###
+ 搜索MSDN知识库中NetConnectionEnum的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

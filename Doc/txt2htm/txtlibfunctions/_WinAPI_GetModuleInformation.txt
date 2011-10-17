@@ -1,34 +1,33 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_GetModuleInformation
 
-###Description###
-Retrieves information about the specified module.
+###ÃèÊö###
+»ñÈ¡Ö¸¶¨Ä£¿éµÄÐÅÏ¢
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
 _WinAPI_GetModuleInformation( $hProcess, $hModule )
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
 $hProcess
-	Handle to the process that contains the module. The handle must have the $PROCESS_QUERY_INFORMATION or
-	$PROCESS_QUERY_LIMITED_INFORMATION access right and the $PROCESS_VM_READ access right.
+$PROCESS_QUERY_INFORMATION »ò $PROCESS_QUERY_LIMITED_INFORMATION ·ÃÎÊÈ¨ÏÞ¼° $PROCESS_VM_READ È¨ÏÞ
 $hModule
-	Handle to the module. If this parameter is 0, the function retrieves information only about the
-	executable file ("SizeOfImage" and "EntryPoint" members of the $tagMODULEINFO structure).
+$tagMODULEINFO ½á¹¹µÄ "SizeOfImage" ºÍ "EntryPoint" ³ÉÔ±).
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	$tagMODULEINFO structure that contains information about the module.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø°üº¬Ä£¿éÐÅÏ¢µÄ$tagMODULEINFO½á¹¹
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-This function does not retrieve information for modules that were loaded with the $LOAD_LIBRARY_AS_DATAFILE flag.
-For more information, see _WinAPI_LoadLibraryEx().
+###±¸×¢###
+¸Ãº¯Êý²»»á»ñÈ¡ÒÔ$LOAD_LIBRARY_AS_DATAFILE±ê¼Ç¼ÓÔØµÄÄ£¿éµÄÐÅÏ¢.
+¸ü¶àÐÅÏ¢
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ GetModuleInformation
-
+###²Î¿¼###
+_WinAPI_LoadLibraryEx() .
+²Î¿¼  ËÑË÷MSDNÖªÊ¶¿âÖÐGetModuleInformationµÄÏà¹ØÐÅÏ¢

@@ -1,65 +1,55 @@
 ###User Defined Function###
 _FTP_ProgressDownload
-
 ###Description###
-ä»¥äºŒè¿›åˆ¶æ¨¡å¼ä¸‹è½½æ–‡ä»¶,å¹¶æ˜¾ç¤º(æˆ–é€šè¿‡è°ƒç”¨ç”¨æˆ·è‡ªå®šä¹‰å‡½æ•°)è¿›åº¦çª—å£.
-
+ÒÔ¶ş½øÖÆÄ£Ê½ÏÂÔØÎÄ¼ş,²¢ÏÔÊ¾(»òÍ¨¹ıµ÷ÓÃÓÃ»§×Ô¶¨Òåº¯Êı)½ø¶È´°¿Ú.
 ###Syntax###
 #Include <FTPEx.au3>
 _FTP_ProgressDownload($l_FTPSession, $s_LocalFile, $s_RemoteFile [, $FunctionToCall = ""])
-
 ###Parameters###
 @@ParamTable@@
 $l_FTPSession
-	_FTP_Connect() è¿”å›å€¼.
+	_FTP_Connect() ·µ»ØÖµ.
 $s_LocalFile
-	åˆ›å»ºçš„æœ¬åœ°æ–‡ä»¶.
+	´´½¨µÄ±¾µØÎÄ¼ş.
 $s_RemoteFile
-	è¿œç¨‹æºæ–‡ä»¶.
+	Ô¶³ÌÔ´ÎÄ¼ş.
 $FunctionToCall
-	[å¯é€‰å‚æ•°] å¯æ›´æ–°è¿›åº¦æ¡çš„å‡½æ•°,å¹¶å¯¹ç”¨æˆ·è¾“å…¥(å¦‚ä¸­æ­¢æˆ–å…³é—­åº”ç”¨çš„ç‚¹å‡»æ“ä½œ)ä½œå‡ºååº”. (æ›´å¤šèµ„è®¯è§å¤‡æ³¨)
+	[¿ÉÑ¡²ÎÊı] ¿É¸üĞÂ½ø¶ÈÌõµÄº¯Êı,²¢¶ÔÓÃ»§ÊäÈë(ÈçÖĞÖ¹»ò¹Ø±ÕÓ¦ÓÃµÄµã»÷²Ù×÷)×÷³ö·´Ó¦. (¸ü¶à×ÊÑ¶¼û±¸×¢)
 @@End@@
-
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å› 1
-å¤±è´¥:	è¿”å› 0, å¹¶è®¾ç½® @error:
-@error:	-1 - æ— æ³•åˆ›å»ºæœ¬åœ°æ–‡ä»¶
-	-2 - ä¸èƒ½è·å–è¿œç¨‹æ–‡ä»¶å¤§å°
-	-3 - æ‰“å¼€è¿œç¨‹æ–‡ä»¶å¤±è´¥
-	-4 - è¯»å–è¿œç¨‹æ–‡ä»¶å¤±è´¥
-	-5 - å…³é—­è¿œç¨‹æ–‡ä»¶å¤±è´¥
-	-6 - è¢«è°ƒç”¨å‡½æ•°è¿”å›çš„ç™¾åˆ†æ¯”ä¸‹è½½å¤±è´¥
-	-7 - æœ¬åœ°æ–‡ä»¶å†™å…¥å¤±è´¥
+³É¹¦:	·µ»Ø 1
+Ê§°Ü:	·µ»Ø 0, ²¢ÉèÖÃ @error:
+@error:	-1 - ÎŞ·¨´´½¨±¾µØÎÄ¼ş
+	-2 - ²»ÄÜ»ñÈ¡Ô¶³ÌÎÄ¼ş´óĞ¡
+	-3 - ´ò¿ªÔ¶³ÌÎÄ¼şÊ§°Ü
+	-4 - ¶ÁÈ¡Ô¶³ÌÎÄ¼şÊ§°Ü
+	-5 - ¹Ø±ÕÔ¶³ÌÎÄ¼şÊ§°Ü
+	-6 - ±»µ÷ÓÃº¯Êı·µ»ØµÄ°Ù·Ö±ÈÏÂÔØÊ§°Ü
+	-7 - ±¾µØÎÄ¼şĞ´ÈëÊ§°Ü
 @@End@@
-
 ###Remarks###
-å…³äº $FunctionToCall çš„ä¿¡æ¯:
-	å‚æ•°: $Percentage - è¿›åº¦ç™¾åˆ†æ¯”
-	è¿”å›å€¼ï¼šç»§ç»­ä¸‹è½½ - 1
-		ä¸­æ­¢ä¸‹è½½ - 0 æˆ–è´Ÿæ•°
-		è¿™äº›å€¼ä¹Ÿå¯ç”± _FTP_ProgressDownload() è¿”å›,
-		æ‰€ä»¥ä½ å¯è¿›è¡Œä¸åŒçš„æ“ä½œ, æ¯”å¦‚ç”±ç”¨æˆ·é€€å‡º, å…³é—­åº”ç”¨ç¨‹åºæˆ–è¶…æ—¶
-	ç¤ºä¾‹:
+¹ØÓÚ $FunctionToCall µÄĞÅÏ¢:
+	²ÎÊı: $Percentage - ½ø¶È°Ù·Ö±È
+	·µ»ØÖµ£º¼ÌĞøÏÂÔØ - 1
+		ÖĞÖ¹ÏÂÔØ - 0 »ò¸ºÊı
+		ÕâĞ©ÖµÒ²¿ÉÓÉ _FTP_ProgressDownload() ·µ»Ø,
+		ËùÒÔÄã¿É½øĞĞ²»Í¬µÄ²Ù×÷, ±ÈÈçÓÉÓÃ»§ÍË³ö, ¹Ø±ÕÓ¦ÓÃ³ÌĞò»ò³¬Ê±
+	Ê¾Àı:
 		Func _UpdateProgress($Percentage)
 			ProgressSet($percent,$percent &"%")
-			If _IsPressed("77") Then Return 0 ; F8 é”®ä¸­æ­¢
+			If _IsPressed("77") Then Return 0 ; F8 ¼üÖĞÖ¹
 			Return 1 ; bei 1 Fortsetzten
 		Endfunc
-
 		Func _UpdateProgress($Percentage)
 			GUICtrlSetData($ProgressBarCtrl,$percent)
 			Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE
-				Return -1 ; _FTP_DownloadProgress ä¸­æ­¢, æ‰€ä»¥ç¨åå¯é€€å‡ºåº”ç”¨
+				Return -1 ; _FTP_DownloadProgress ÖĞÖ¹, ËùÒÔÉÔºó¿ÉÍË³öÓ¦ÓÃ
 			Case $Btn_Cancel
-				Return 0 ; ä»…å–æ¶ˆ, æ— æŒ‡å®šè¿”å›å€¼
+				Return 0 ; ½öÈ¡Ïû, ÎŞÖ¸¶¨·µ»ØÖµ
 			EndSwitch
-			Return 1 ; å¦åˆ™ç»§ç»­ä¸‹è½½
+			Return 1 ; ·ñÔò¼ÌĞøÏÂÔØ
 		Endfunc
-
-
 ###Related###
-
-
 ###Example###

@@ -1,51 +1,52 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_AddFontResourceEx
 
-###Description###
-æ·»åŠ æŒ‡å®šæ–‡ä»¶çš„å­—ä½“èµ„æºåˆ°ç³»ç»Ÿå­—ä½“è¡¨.
+###ÃèÊö###
+´ÓÖ¸¶¨ÎÄ¼þÏòÏµÍ³×ÖÌå±íÌí¼Ó×ÖÌå×ÊÔ´
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_AddFontResourceEx ( $sFont [, $iFlag [, $fNotify]] )
+_WinAPI_AddFontResourceEx($sFileName[, $iFlag = $FR_PRIVATE [, $fNotify]])
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
-$sFont
-	æœ‰æ•ˆå­—ä½“æ–‡ä»¶çš„åç§°. å¯ä»¥æŒ‡å®šä¸‹åˆ—ä»»æ„æ–‡ä»¶:
-		.fon --- å­—ä½“èµ„æºæ–‡ä»¶.
-		.fnt --- åŽŸå§‹ä½å›¾å­—ä½“æ–‡ä»¶.
-		.ttf --- åŽŸå§‹ TrueType æ–‡ä»¶(å¾®è½¯å’Œ Apple å…¬å¸å…±åŒç ”åˆ¶çš„å­—åž‹æ ‡å‡†).
-		.ttc --- ä¸œäºš Windows: TrueType å­—ä½“é›†.
-		.fot --- TrueType èµ„æºæ–‡ä»¶.
-		.otf --- OpenType é™„è¨€å­—ä½“.
-		.mmm --- Multiple master Type1 å­—ä½“èµ„æºæ–‡ä»¶. å¿…é¡»ä½¿ç”¨ .pfm ä¸Ž .pfb æ–‡ä»¶.
-		.pfb --- Type 1 å­—ä½“ä½æ–‡ä»¶. ä½¿ç”¨ .pfm æ–‡ä»¶.
-		.pfm --- Type 1 å­—ä½“è§„æ ¼æ–‡ä»¶. ä½¿ç”¨ .pfb æ–‡ä»¶.
-		 æ·»åŠ å¤šä¸ªå­—ä½“èµ„æºæ–‡ä»¶æ—¶,å¿…é¡»ä½¿ç”¨â€œ|â€åˆ†éš”. ä¾‹å¦‚, abcxxxxx.pfm|abcxxxxx.pfb.
+$sFileName
+   ½«Ìí¼ÓµÄ×ÖÌåÎÄ¼þ×ÊÔ´. ¸Ã²ÎÊý¿ÉÖ¸¶¨ÈÎÒâÒ»ÖÖÏÂÁÐÎÄ¼þ:
+    .fon - ×ÖÌåÔ´ÎÄ¼þ
+    .fnt - ±´ÊÏÀàÐÍ×ÖÌåµÄÎÄ¼þ
+    .ttf - Ô­Ê¼TrueTypeÎÄ¼þ
+    .ttc - ¶«ÑÇWindows: TrueType×ÖÌå¼¯
+    .fot - TrueTypeÔ´ÎÄ¼þ
+    .otf - PostScript OpenType×ÖÌå
+    .mmm - ¶àÖ÷¶ÈÁ¿×ÖÌå×ÊÔ´ÎÄ¼þ. ±ØÐëÊ¹ÓÃ.pfmºÍ.pfbÎÄ¼þ.
+    .pfb - ´òÓ¡»ú×ÖÌå¶þ½øÖÆÎÄ¼þ. ÐëÓë.pfmÎÄ¼þÍ¬Ê±Ê¹ÓÃ.
+    .pfm - ´òÓ¡»ú×ÖÌå¹æ¸ñÎÄ¼þ. ÐëÓë.pfbÎÄ¼þÍ¬Ê±Ê¹ÓÃ.
+    Ê¹ÓÃ·Ö¸ô·û"|"ÓÃÒÔÌí¼Ó¶à×ÊÔ´×ÖÌåµÄÐÅÏ¢. Èç , abcxxxxx.pfm | abcxxxxx.pfb.
 $iFlag
-	[å¯é€‰å‚æ•°] å­—ä½“ç‰¹å¾. å‚æ•°ä¸ºä»¥ä¸‹å€¼ä¹‹ä¸€:
-		$FR_PRIVATE ----- ä»…è°ƒç”¨æœ¬å‡½æ•°çš„è¿›ç¨‹å¯ä»¥ä½¿ç”¨æ­¤å­—ä½“,å½“å­—ä½“å­—ä½“åç§°åŒ¹é…çš„å…¬ç”¨å­—ä½“,å°†é€‰æ‹©ç§ç”¨å­—ä½“.å½“è¿›ç¨‹ç»ˆæ­¢åŽ,ç³»ç»Ÿæ¸…é™¤æœ¬å‡½æ•°ä½œç”¨è¿‡ç¨‹ä¸­å®‰è£…çš„æ‰€æœ‰å­—ä½“
-		$FR_NOT_ENUM --- è¿›ç¨‹(åŒ…æ‹¬è°ƒç”¨æœ¬å‡½æ•°çš„è¿›ç¨‹)ä¸èƒ½æžšä¸¾è¯¥å­—ä½“.
+   ¿ÉÎªÏÂÁÐÖµÖ®Ò»:
+    $FR_PRIVATE - Ö»ÓÐµ÷ÓÃº¯ÊýµÄ½ø³Ì¿ÉÊ¹ÓÃ¸Ã×ÖÌå, µ±×ÖÌåÃû³ÆÓë¹«ÓÃ×ÖÌåÏàÍ¬Ê±£¬½«Ñ¡ÔñË½ÓÐ×ÖÌå.¡¡Ò»µ©½ø³ÌÖÕÖ¹£¬ÏµÍ³½«ÊÍ·Å½ø³Ì°²×°µÄ×ÖÌå.
+    $FR_NOT_ENUM - ËùÓÐ½ø³Ì(°üÀ¨µ÷ÓÃ×ÖÌåµÄ½ø³Ì)¶¼ÎÞ·¨Ã¶¾Ù¸Ã×ÖÌå
 $fNotify
-	[å¯é€‰å‚æ•°] æŒ‡å®šæ˜¯å¦å‘é€ WM_FONTCHANGE æ¶ˆæ¯, æœ‰æ•ˆå€¼:
-		1 --- å‘é€ WM_FONTCHANGE æ¶ˆæ¯ç»™æ‰€æœ‰é¡¶å±‚çª—å£åŽ, ä¿®æ”¹å­—ä½“èµ„æºåº“.
-		0 --- ä¸å‘é€. (é»˜è®¤å€¼)
+   Ö¸¶¨ÊÇ·ñ·¢ËÍWM_FONTCHANGEÏûÏ¢, ¿ÉÓÃÖµ:
+    TRUE  - ¸Ä±ä×ÖÌå×ÊÔ´´¦³Øºó¶ÔËùÓÐ¶¥²ã´°¿Ú·¢ËÍWM_FONTCHANGEÏûÏ¢
+    FALSE - ²»·¢ËÍ(Ä¬ÈÏ)
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›žæŒ‡å®šæ·»åŠ å­—ä½“çš„æ•°é‡.
-å¤±è´¥:	è¿”å›ž 0,è®¾ç½®@error:æ ‡å¿—ä¸ºéž 0 å€¼.
+³É¹¦: Ìí¼ÓµÄ×ÖÌåµÄÊýÁ¿
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error
 @@End@@
 
-###Remarks###
-æœ¬å‡½æ•°ä»…å®‰è£…å­—ä½“åˆ°å½“å‰ä¼šè¯æœŸ, å½“ç³»ç»Ÿé‡å¯åŽ, å­—ä½“å°†ä¸å­˜åœ¨.
- è¦ç¡®ä¿æ·»åŠ çš„å­—ä½“åœ¨ç³»ç»Ÿé‡å¯åŽä»ç„¶å¯ç”¨, è¯¥å­—ä½“å¿…é¡»æ³¨å†Œåˆ°æ³¨å†Œè¡¨ä¸­.
+###±¸×¢###
+¸Ãº¯Êý°²×°µÄ×ÖÌåÖ»ÓÃÓÚµ±Ç°»á»°. ÖØÆôÏµÍ³ºó½«²»ÔÙÌá¹©. Èç¹ûÐèÒªÓÀ¾ÃÊ¹ÓÃ , Ó¦¸ÃÁÐÈë×¢²á±íÖÐ.
+Õý³£ÔËÐÐÊ¾ÀýÇë½« SF Square Head Bold.ttf ÎÄ¼þ±£´æÖÁÁÙÊ±ÎÄ¼þ¼Ð
 
+###Ïà¹Ø###
+ _WinAPI_RemoveFontResourceEx
 
-###See Also###
-@@MsdnLink@@ AddFontResourceEx
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖÐAddFontResourceµÄÏà¹ØÐÅÏ¢
 
-###Example###
+###Ê¾Àý###
 @@IncludeExample@@
-

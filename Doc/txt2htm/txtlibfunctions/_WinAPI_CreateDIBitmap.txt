@@ -1,44 +1,43 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_CreateDIBitmap
 
-###Description###
-由DIB创建合适的位图(DDB)并设置合适的位图数位
+###����###
+��DIB�������ʵ�λͼ(DDB)�����ú��ʵ�λͼ��λ
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateDIBitmap ( $hDC, $tBITMAPINFOHEADER, $fInit, $pBits, ByRef $tBITMAPINFO, $iUsage )
+_WinAPI_CreateDIBitmap( $hDC, $tBITMAPINFOHEADER, $fInit, $pBits, ByRef $tBITMAPINFO, $iUsage )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hDC
-	设备环境句柄. 
+   �豸�������.
 $tBITMAPINFOHEADER
-	位图信息头部结构. 如果$fInit为TRUE, 函数使用该结构获取所需的位图的宽度和高度. 注意正数高度值表示由底至顶的DIB负数为由顶至底.
+$fInitΪTRUE, ����ʹ�øýṹ��ȡ�����λͼ�Ŀ��Ⱥ͸߶�. ע�������߶�ֵ��ʾ�ɵ�������DIB����Ϊ�ɶ�����.
 $fInit
-	指定系统如何初始化位图数位. 可为:
-		TRUE - 系统使用$pBits及$tBITMAPINFO参数初始化位图数位
-		FALSE - 不使用由参数指定的数据
+   ָ��ϵͳ��γ�ʼ��λͼ��λ. ��Ϊ:
+    TRUE - ϵͳʹ��$pBits��$tBITMAPINFO������ʼ��λͼ��λ
+    FALSE - ��ʹ���ɲ���ָ��������
 $pBits
-	包含初始化位图数位的数组的指针
+   ������ʼ��λͼ��λ�������ָ��
 $tBITMAPINFO
-	由$pBits参数指定的用于描述位图尺寸和颜色格式的$tagBITMAPINFO结构
+$pBits����ָ������������λͼ�ߴ����ɫ��ʽ��$tagBITMAPINFO�ṹ
 $iUsage
-	使用的颜色格式. 可为:
-		$DIB_PAL_COLORS - 由颜色索引指定
-		$DIB_RGB_COLORS - 由RGB值指定
-	
+   ʹ�õ���ɫ��ʽ. ��Ϊ:
+    $DIB_PAL_COLORS - ����ɫ����ָ��
+    $DIB_RGB_COLORS - ��RGBֵָ��
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	无论是否所参考环境的位深的兼容位图的句柄
-失败:	返回0设置@error 非0
+�ɹ�: �����Ƿ����ο�������λ��ļ���λͼ�ľ��
+ʧ��: ����0������@error��0
 @@End@@
 
-###Remarks###
-不再需要位图时, 使用_WinAPI_DeleteObject()函数销毁
+###��ע###
+������Ҫλͼʱ, ʹ��_WinAPI_DeleteObject()��������
 
+###���###
 
-###See Also###
-@@MsdnLink@@ CreateDIBitmap
-
+###�ο�###
+ ����MSDN֪ʶ����CreateDIBitmap�������Ϣ

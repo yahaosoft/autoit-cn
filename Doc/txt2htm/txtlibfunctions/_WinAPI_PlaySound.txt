@@ -1,55 +1,52 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_PlaySound
 
-###Description###
-播放指定文件名、资源或系统事件的声音.
+###����###
+�����ɸ����ļ���, ��Դ��ϵͳ�¼�ָ��������
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_PlaySound ( $sSound [, $iFlags [, $hInstance]] )
+_WinAPI_PlaySound ( $sSound, $iFlags [, $hInstance] )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $sSound
-	要播放的声音.最大长度为 255 个字符.
-		 如果 $sSound 为空,则停止任何正在播放的波形声音
+$sSoundΪ����ֹͣ��ǰ���ŵ����в�������.
 $iFlags
-	[可选参数] 声音播放的标志. 参数可以是一或多个下列值:
-		 $SND_APPLICATION --- $sSound 参数是注册表中的应用特定别名.结合 SND_ALIAS 或 SND_ALIAS_ID 标志指定应用程序定义的声音别名
-		 $SND_ALIAS --- $sSound 参数是注册表或 Win.ini 文件中的系统事件别名.不要使用 SND_FILENAME 或 SND_RESOURCE
-		 $SND_ALIAS_ID --- $sSound 参数是预定义系统事件标识符的别名
-		 $SND_ASYNC --- 异步播放声音,并在播放后立即返回到声音的起点
-		 $SND_FILENAME --- $sSound 参数是一个文件名.指定如果文件无法找到,函数播放默认声音,除非 SND_NODEFAULT 标志被设置
-		 $SND_LOOP --- 反复播放声音,直到 $sSound 参数设置位空.必须同时设置 SND_ASYNC 标志
-		 $SND_MEMORY --- $sSound 参数指向加载内存中的声音
-		 $SND_NODEFAULT --- 如果声音无法找到,使用默认声音事件
-		 $SND_NOSTOP --- 指定的声音事件替换正在播放的声音事件
-		 $SND_NOWAIT --- 不支持
-		 $SND_PURGE --- 不支持
-		 $SND_RESOURCE --- $sSound 参数是一个资源标识符
-		 $SND_SYNC --- 声音同步播放
-		 $SND_ALIAS, $SND_FILENAME 与 $SND_RESOURCE 3 个标志解释名称是否为系统事件、文件名、或资源标识符的别名.
-		 如果没有指定这些标志,_WinAPI_PlaySound() 为指定的声音名搜索注册表或 WIN.INI 文件.
-		 如果发现,则播放声音事件.如果注册表中未找到,则声音名字被解释为一个文件名.
-		 如果 $iFlags 指定 $SND_ALIAS_ID,$sSound 参数必须是 $SND_ALIAS_* 值.
-		 (为了解更多信息,请参见 MSDN)
+   ���ڲ��ŵı��. �ò�����Ϊһ����������ֵ:
+    $SND_APPLICATION - ��Ӧ�ó���ָ���Ĺ�������������
+    $SND_ALIAS - ָ��ע�����WIN.INI�е�ϵͳ�¼��ı���
+    $SND_ALIAS_ID - ָ��Ԥ�����������ʶ��
+    $SND_ASYNC - ���첽��ʽ��������
+    $SND_FILENAME - ָ����WAVE�ļ���
+    $SND_LOOP - �ظ���������������SND_ASYNC��־ͬʱʹ��
+    $SND_MEMORY - �������뵽�ڴ��е�����
+    $SND_NODEFAULT - ������ȱʡ����
+    $SND_NOSTOP - �����ԭ����������������������FALSE
+    $SND_NOWAIT - �������������æ�����Ͳ�������������������
+    $SND_PURGE - ֹͣ��������������йص�����
+    $SND_RESOURCE - WAVE��Դ�ı�ʶ��
+    $SND_SYNC - ͬ����������
+$SND_ALIAS , $SND_FILENAME��$SND_RESOURCE)ȷ�������Ƿ���Ϊ��һ��ϵͳ�¼� , �ļ�������Դ��ʶ�Ĵ�����. ���δָ����Щ��� , _WinAPI_PlaySound()������ע�����WIN.INI�ļ��Զ�ָ�����������ƽ��й���. ����ҵ����� , ���������¼�. �����ע��������ҵ����� , ���ƽ�����Ϊ�ļ�����.
+$iFlags��ָ����$SND_ALIAS_ID���, $sSound�����������$SND_ALIAS_...ֵ�е�һ��.
+    (�ο�MSDN�еĸ�����Ϣ)
 $hInstance
-	[可选参数] 包含加载资源的可执行文件句柄.如果 $iFlags 不包含 $SND_RESOURCE,此参数将被忽略.	
+$iFlagsδ����$SND_RESOURCE�����.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0,设置@error:标志为非 0 值.
+�ɹ�: ����1
+ʧ��: ����0������@error��0
 @@End@@
 
-###Remarks###
-None
+###��ע###
+��������ʾ���뽫 Resources.dll �ļ��� Resources_x64.dll �ļ�(x64ϵͳʹ��)���浽��ʱ�ļ�����
 
+###���###
 
-###See Also###
-@@MsdnLink@@ PlaySound
+###�ο�###
+ ����MSDN֪ʶ����PlaySound�������Ϣ
 
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

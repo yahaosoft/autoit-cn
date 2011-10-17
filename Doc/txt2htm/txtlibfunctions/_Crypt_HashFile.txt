@@ -1,36 +1,36 @@
-###User Defined Function###
+###用户自定义函数###
 _Crypt_HashFile
 
-###Description###
-以指定算法将文件 Hash 译注:关于 Hash 见下文注意部分
+###描述###
+以指定算法将字符串散列化
 
-###Syntax###
+###语法###
 #Include <Crypt.au3>
 _Crypt_HashFile($sFile, $iALG_ID)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$sFile
-	要 Hash 文件的路径
-$iALG_ID
-	使用的 Hash 标识符
+$sFile 
+   要散列化的文件的路径
+$iALG_ID 
+   使用的散列标识
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 hash 文件
-	设置 @error 为 0
-失败:	返回 -1 并设置 @error:
-	1 - 文件无法打开
-	2 - 无法 hash 最后一部分
-	3 - 无法获取 Hash 片段
+成功: 返回文件的散列并设置@error为0
+失败: 返回-1并设置@error为:
+    1 - 打开文件失败
+    2 - 最后的片段散列化失败
+    4 - 获取散列片段失败
 @@End@@
 
-###Remarks###
-None.
+###备注###
 
-###Related###
-_Crypt_HashData
+###相关###
+ _Crypt_HashData
 
-###Example###
+###参考###
+
+###示例###
 @@IncludeExample@@

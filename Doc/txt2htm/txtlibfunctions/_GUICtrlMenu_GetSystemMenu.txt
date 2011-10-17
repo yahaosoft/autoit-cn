@@ -1,43 +1,37 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _GUICtrlMenu_GetSystemMenu
 
-###Description###
-允许应用程序访问、复制和修改窗口菜单
+###����###
+����Ӧ�ó���Դ���˵����и��ƺ��޸�
 
-###Syntax###
-#Include <GuiMenu.au3>
-_GUICtrlMenu_GetSystemMenu($hWnd[, $fRevert = False])
+###�﷨###
+#Include<GuiMenu.au3>
+_GUICtrlMenu_GetSystemMenu($hWnd[, $fRevert =False])
 
-###Parameters###
+###����###
 @@ParamTable@@
-$hWnd
-	拥有菜单的窗口句柄
-$fRevert
-	[可选参数] 指定要采取的操作,如果此参数为 False,该函数返回当前复制的窗口菜单句柄
-		复制的副本与最初窗口菜单是相同的,但它可以被修改
-		如果这个参数为 True,函数复位窗口菜单返回到默认状态
-		如果窗口菜单有上级菜单,将被销毁.
+ $hWnd  ��ӵ�д���˵������Ĵ��ھ��
+ $fRevert  ָ��ִ�еĲ���. �������Ϊ��, �������ص�ǰʹ�õĴ��ڲ˵������ľ��. ������ͬ��ԭʼ����˵�, �����Ա��޸�. ����ò���Ϊ��,
+      �������贰��˵�����Ĭ��״̬. �������, ��ǰ�Ĵ��ڲ˵�����������.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-	如果 $fRevert 参数为 False, 则返回值是一个指向窗口菜单副本的句柄.
-	如果 $fRevert 参数为 True, 则返回值为 0.
+�ɹ�: ���$fRevert����Ϊ��, ����ֵΪ����˵������ľ��. ���Ϊ��, ����0.
 @@End@@
 
-###Remarks###
- 对于任何窗口,不使用 GetSystemMenu 函数使窗口菜单副本接收标准窗口菜单.
- 窗口菜单最初包含各种标识符的值,如 $SC_CLOSE, $SC_MOVE, 与 $SC_SIZE.
- 窗口菜单的菜单项发送 $WM_SYSCOMMAND 消息.
- 全部预定义窗口菜单项目标识符大于 0xF000.
- 如果一个应用程序添加命令到窗口菜单,它使用的标识符数目应该小于 0xF000.
- 系统对标准窗口菜单得自动灰显项目,视情况而定.
- 应用程序可以通过回答 $WM_INITMENU 消息,在任何菜单显示前执行自己的检查或灰显.
+###��ע###
+���в�ʹ��GetSystemMenu�Ĵ��彫���ձ�׼���ڲ˵���Ϊ�˵�����. ԭʼ���ڲ˵�����������ֵ֤,
+��$SC_CLOSE, $SC_MOVE, ��$SC_SIZE. ���ڲ˵��Ĳ˵����$WM_SYSCOMMAND��Ϣ.
+����Ԥ����˵�����д���0xF000����֤����.
+���Ӧ�ó�������������ڲ˵�, ��ʹ��С��0xF000����֤����.
+ϵͳ���ݻ����Զ���ɫ��ʾ��׼���ڲ˵��ϵ���Ŀ.
+Ӧ�ó����ͨ����Ӧ�˵���ʾǰ���͵�$WM_INITMENU��Ϣʵ�����Լ���ѡ�л��ɫ.
 
-###Related###
+###���###
 
-###See Also###
-@@MsdnLink@@ GetSystemMenu
+###�ο�###
+����MSDN֪ʶ����GetSystemMenu�������Ϣ
 
-###Example###
+###ʾ��###
 @@IncludeExample@@

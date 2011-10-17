@@ -1,42 +1,33 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_RegConnectRegistry
 
-###Description###
-在另一台计算机上创建一个预定义的注册表项联接.
+###����###
+��������һ������ϵ�ע�����������
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_RegConnectRegistry ( $sComputer, $hKey )
+_WinAPI_RegConnectRegistry( $sComputer, $hKey )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $sComputer
-	远程计算机的名称.字符串格式为 "\\computername". 
-		 调用者必须能够访问远程计算机或函数失败.
-		 如果此参数为 0, 使用本地计算机名称.
+   Զ�̼������. ��ʽ��"\\computername". ���з�������Զ�̼����Ȩ�޷�����ʧ��. ���Ϊ0, ʹ�ñ��ؼ������.
 $hKey
-	预定义的注册表句柄.
-		参数可以是以下远程计算机预定义键项之一:
-		 $HKEY_LOCAL_MACHINE --- 定义计算机物理状态,包括总线类型、系统内存数据、并安装的硬件和软件
-		 $HKEY_PERFORMANCE_DATA --- 允许访问性能数据
-		 $HKEY_USERS --- 确定本地计算机新用户定义默认用户配置,并作为当前用户的用户配置
+   Ԥ����ע������. �ò�����ΪԶ�̼�����ϵ�����Ԥ�����:
+$HKEY_LOCAL_MACHINE
+$HKEY_PERFORMANCE_DATA
+$HKEY_USERS
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回远程计算机上的键项句柄.
-失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
+�ɹ�: ����Զ�̼������ע������ľ��
+ʧ��: ����0������@error��0, @extended��ǿɰ�����0ϵͳ�������.
 @@End@@
 
-###Remarks###
-函数需要远程计算机上运行远程注册表服务.
- 如果当前用户不能访问远程计算机 _WinAPI_RegConnectRegistry() 函数调用失败.
- 如果计算机加入到工作组,并且"强制使用本地网络登录帐户,以来宾身份验证"策略启用,函数失败.
- 请注意,如果计算机加入到工作组,这项策略是默认打开的.
- 当 _WinAPI_RegConnectRegistry() 返回的句柄不再需要时,
- 调用 _WinAPI_RegCloseKey() 将其关闭.
+###��ע###
 
+###���###
 
-###See Also###
-@@MsdnLink@@ RegConnectRegistry
-
+###�ο�###
+ ����MSDN֪ʶ����RegConnectRegistry�������Ϣ

@@ -1,39 +1,36 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_SetCharColor
 
-###Description###
-设置所选文本 (或者没有选中时,设置插入点插入文本) 的颜色
+###描述###
+设置选定文本或未选定时的插入点右侧字符的背景色
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetCharColor($hWnd [, $iColor])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iColor
-	[可选参数] 下列值:
-		一个数字 - COLORREF 值
-		关键字 Default - 系统颜色（默认）
+ $hWnd  控件句柄
+ $iColor  [可选] 下列之一:
+数字 - COLORREF值
+默认关键字 - 系统颜色(默认)
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False,设置@error
-@error:	101 - $hWnd 参数值不是句柄
-	1022 - $iColor 无效
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  1022 - $iColor无效
 @@End@@
 
-###Remarks###
-If you need to create a COLORREF value from an color array use _ColorSetCOLORREF() not _ColorSetRGB().
+###备注###
 
-###Related###
-_GUICtrlRichEdit_GetCharColor
+###相关###
+ _GUICtrlRichEdit_GetCharColor
 
-###See Also###
-@@MsdnLink@@ EM_SETCHARFORMAT
+###参考###
+ 搜索MSDN知识库中EM_SETBKGNDCOLOR的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

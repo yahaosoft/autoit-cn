@@ -1,43 +1,41 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_ScrollLineOrPage
 
-###Description###
-滚动一行或一页的文本
+###描述###
+向上或向下滚动一行或一页
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_ScrollLineOrPage($hWnd, $sAction)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$sAction
-	滚动类型:
-		"ld" - 到下一行
-		"lu" - 到上一行
-		"pd" - 到下一页
-		"pu" - 到上一页
+ $hWnd  控件句柄
+ $sAction  下列之一:
+"ld" - 行向下
+"lu" - 行向上
+"pd" - 页向下
+"pu" - 页向上
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回实际滚动行数(正数表示向下)
-失败:	返回 0,设置@error
-@error:	101 - $hWnd 参数值不是句柄
-	1021 - $sAction 不是两个字符
-	1022 - 第一个字符必须是 l 或 p
-	1023 - 第二个字符必须是 d 或 u
+ 成功:  实际滚动的行数(向下为正数)
+ 失败:  返回0并设置@error
+ @error:  101 - $hWnd不是句柄
+  1021 - $sAction不是两个字符
+  1022 - 第一个字符必须是l或p
+  1023 - 第二个字符必须是d或u
 @@End@@
 
-###Remarks###
-这个函数是规范的:它不会滚动到超越最后一个显示行.
+###备注###
+函数顺利执行时: 滚动不会超过最后一个显示的行.
 
-###Related###
-_GUICtrlRichEdit_ScrollLines, _GUICtrlRichEdit_ScrollToCaret
+###相关###
+ _GUICtrlRichEdit_ScrollLines , _GUICtrlRichEdit_ScrollToCaret
 
-###See Also###
-@@MsdnLink@@ EM_SCROLL
+###参考###
+ 搜索MSDN知识库中EM_SCROLL的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

@@ -1,44 +1,43 @@
-###User Defined Function###
+###用户自定义函数###
 _Crypt_HashData
 
-###Description###
-指定算法 Hash 数据 译注:关于 Hash 见下文注意部分
+###描述###
+以指定算法散列化数据
 
-###Syntax###
+###语法###
 #Include <Crypt.au3>
 _Crypt_HashData($vData, $iALG_ID [, $fFinal = True [, $hCryptHash = 0]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$vData
-	需要 hash 处理的数据
-$iALG_ID
-	使用的 Hash 标识符
-$fFinal
-	[可选参数] 设置为 False, 表明只是全部数据的一部分, 同时使该函数返回一个对象而不是 Hash
-$hCryptHash
-	[可选参数] 先前调用 _Crypt_HashData 函数返回的 Hash 对象
+$vData 
+   要散列化的数据
+$iALG_ID 
+   使用的散列化标识
+$fFinal 
+    [可选] 如果只是完整数据的片段则失败, 同时是函数返回散列化对象而不是散列
+$hCryptHash 
+    [可选] 由以前调用_Crypt_HashData返回的散列化对象
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 Hash , 如果设置 $fFinal = False, 则返回 Hash 对象
-	设置 @error 为 0
-失败:	返回 -1 并设置 @error:
-	1 - 无法创建 hash 对象
-	2 - 无法 Hash 数据
-	3 - 无法取得 Hash 大小
-	4 - 无法获取 Hash
+成功: 返回散列或$fFinal为假时的散列化对象并设置@error为0
+失败: 返回-1并设置@error为:
+    1 - 创建散列对象失败
+    2 - 散列化数据失败
+    3 - 获取散列大小失败
+    4 - 获取散列失败
 @@End@@
 
-###Remarks###
- hash 结果将返回一个二进制字符串,大小由算法指定. 要使用部分数据段,设置 $fFinal 标志为 False . 要使用非结尾数据段和使用所有后续数据段, 则调用 Hash 返回的对象.
+###备注###
+hash数码将以二进制字符串返回,大小由算法指定. 要想对数据碎片使用它可设置fFinal标记为假对于无结尾碎片并对于所有的顺序调用使用返回的散列化对象.
 
-###Related###
-_Crypt_HashFile
+###相关###
+ _Crypt_HashFile
 
-###See Also###
-@@MsdnLink@@ CryptHashData
+###参考###
+ 搜索MSDN知识库中CryptHashData的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

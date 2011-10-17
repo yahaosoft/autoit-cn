@@ -1,49 +1,39 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_RegEnumValue
 
-###Description###
-枚举指定打开的注册表项值.
+###����###
+ö�ٴ򿪵�ָ��ע�������ֵ
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_RegEnumValue ( $hKey, $iIndex )
+_WinAPI_RegEnumValue( $hKey, $iIndex )
 
-###Parameters###
-@@ParamTable@@
-$hKey
-	打开的注册表项句柄,该键项必须已打开且有 $KEY_QUERY_VALUE 访问权限.
-		 句柄由 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回.
-		 参数也可以为下列一预定义项:
-		 $HKEY_CLASSES_ROOT --- 定义文件类型和类型相关的属性
-		 $HKEY_CURRENT_CONFIG --- 包含本地计算机系统目前的硬件配置文件
-		 $HKEY_CURRENT_USER --- 定义当前用户的参数选择
-		 $HKEY_LOCAL_MACHINE --- 定义计算机物理状态,包括总线类型、系统内存数据、并安装的硬件和软件
-		 $HKEY_PERFORMANCE_DATA --- 允许访问性能数据
-		 $HKEY_USERS --- 确定本地计算机新用户定义默认用户配置,并作为当前用户的用户配置
+###����###
+$hKey  �򿪵ļ��ľ���Ҹü���$KEY_QUERY_VALUE����Ȩ�޴�. �þ������_WinAPI_RegCreateKey()��_WinAPI_RegOpenKey()������.��Ϊ����Ԥ�����֮һ:
+$HKEY_CLASSES_ROOT
+$HKEY_CURRENT_CONFIG
+$HKEY_CURRENT_USER
+$HKEY_LOCAL_MACHINE
+$HKEY_USERS
 $iIndex
-	值的索引.第一调用 _WinAPI_RegEnumValue() 函数时此值为 0,后续调用递增.
-		 function and then be incremented for subsequent calls.
+   Ҫ��ȡ��ֵ������. �ò������״α�����_WinAPI_RegEnumValue()����ʱΪ0������ô�������
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回值名称字符串.@extended 包含数据类型的代码($REG_*).
-	
-失败:	返回空串,设置@error:标志为非 0 值, @extended 标志可能包含非 0 值系统错误代码.
+�ɹ�: ����ֵ�����ַ���, @extended��ǰ�����ʾ�洢���ƶ�֮�е����ݵ�����($REG_...)�Ĵ���.
+ʧ��: ���ؿ��ַ���������@error��0, @extended��ǿɰ�����0ϵͳ�������.
 @@End@@
 
-###Remarks###
-枚举值,应用程序应先调用 _WinAPI_RegEnumValue() 函数, 且 $iIndex 参数设置为 0.
- 然后应用程序增加 $iIndex 参数的值,并继续调用本函数,直到没有值为止.
- (即 @extended 标志设置到 ERROR_NO_MORE_ITEMS (259)).
- 应用程序还可以设置 $iIndex 为最后值的索引,调用函数并递减索引值,直到索引值为 0.
- 调用 _WinAPI_RegQueryInfoKey() 函数检索最后子项的索引值.
- 当应用程序正在调用本函数时,不应再调用任何注册函数,这可能会改变枚举的值.
+###��ע###
+ö��ֵʱ, Ӧ�ó����ʼ�Բ���$iIndexΪ0����_WinAPI_RegEnumValue(). Ȼ������$iIndex����������_WinAPI_RegEnumValue()ֱ���Ѳ������Ӽ�(��ʾ@extended���ΪERROR_NO_MORE_ITEMS (259)).
+Ӧ�ó���Ҳ�����״ε��ú���ʱʹ�������Ӽ����������еݼ�����ֱ��ö�ٵ��Ӽ�����Ϊ0. ��ʹ��_WinAPI_RegQueryInfoKey()������ȡ�����Ӽ�����.
+��ʹ��_WinAPI_RegEnumValue()����ʱ, ��������κο��ܸı䱻ö�ٵļ��ĺ���.
 
+###���###
 
-###See Also###
-@@MsdnLink@@ RegEnumValue
+###�ο�###
+ ����MSDN֪ʶ����RegEnumValue�������Ϣ
 
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

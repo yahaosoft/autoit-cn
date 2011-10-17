@@ -1,45 +1,43 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_GetParaNumbering
 
-###Description###
-获获取第一个选定段落; 或者没有选择时的当前段落的编号方式类型
+###描述###
+获取(首个)被选段落或(未选定时)当前段落的编号样式
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetParaNumbering($hWnd)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
+ $hWnd  控件句柄
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回由分号(;)分隔的值
-	值 1 - 字符串显示类型与启始“号码”
-	例如:"." (加重号), "1)","(b)", "C.", "iv", "V)"
-	段落尾部空间标志的最小间距数
-	特殊情况:
-	"=" - 这一段是在前面的列表未编号的段落元素
-	"" - 删除所选段落的号码
-	值 2 - 如果是罗马体数字, 则为 "Roman", 否则为 ""
-	值 3 - 段落间距数/项目符号 (空间单位)
-	值 4 - 范围:
-	a - 所有（或使用的）选定的段落进行这些设置
-	f - 第一选定使用这些设置,但其它不使用
-	c - 当前段落使用这些设置
-失败:	返回 "" ,设置@error:	
-@error:	101 - $hWnd 参数值不是句柄
+ 成功:  被分号(;)分割的值:
+  值1 - 显示格式并以"数字"开始的字符串 , 如"." (点号), "1)","(b)", "C.", "iv", "V)"
+      跟随的空格表示在数字和段落间的最小空间
+      指定大小写:
+      "=" - 该段是带有前置列表元素的未编号段落
+      "" - 从选定段落移除编号
+  值2 - 如果为罗马数字, "数字" 或 ""
+  值3 - 数字/标点和段落之间的空间(用空间单位)
+  值4 - 范围:
+      a - 全部(或仅有)选定的段落使用设置
+      f - 第一个选区的段落使用此对齐方式, 但其他不是
+      c - 当前段落使用该设置
+ 失败:  ""并设置@error
+ @error:  101 - $hWnd不是句柄
 @@End@@
 
-###Remarks###
+###备注###
 
-###Related###
-_GUICtrlRichEdit_SetParaNumbering
+###相关###
+ _GUICtrlRichEdit_SetParaNumbering
 
-###See Also###
-@@MsdnLink@@ EM_GETPARAFORMAT
+###参考###
+ 搜索MSDN中EM_GETPARAFORMAT的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

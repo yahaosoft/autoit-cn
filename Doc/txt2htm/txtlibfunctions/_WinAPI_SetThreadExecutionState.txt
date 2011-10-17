@@ -1,40 +1,41 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_SetThreadExecutionState
 
-###Description###
-Prevents the system from entering sleep or turning off the display while the current application is running.
+###ÃèÊö###
+·ÀÖ¹ÏµÍ³ÔÚÓ¦ÓÃ³ÌĞòÔËĞĞÊ±½øÈëĞİÃß×´Ì¬»ò¹Ø±ÕÏÔÊ¾Æ÷
 
-###Syntax###
-#Include <WinAPIEx.au3>
-_WinAPI_SetThreadExecutionState ( $iFlags )
+###Óï·¨###
+#Include
+<WinAPIEx.au3>
+_WinAPI_SetThreadExecutionState( $iFlag )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$iFlags
-	The thread's execution requirements. This parameter can be one or more of the following values.
-	
-	$ES_AWAYMODE_REQUIRED
-	$ES_CONTINUOUS
-	$ES_DISPLAY_REQUIRED
-	$ES_SYSTEM_REQUIRED
-	$ES_USER_PRESENT
-	
+$iFlag  ¿ÉÎªÏÂÁĞÖµÖ®Ò»»ò×éºÏ:
+$ES_AWAYMODE_REQUIRED - ÆôÓÃÀë¿ªÄ£Ê½. ±ØĞëÓë$ES_CONTINUOUSÍ¬Ê±Ê¹ÓÃ. ½öÓÃÓÚ±ØĞëÖ´ĞĞºóÌ¨´¦ÀíÃ½ÌåÂ¼ÖÆºÍÃ½Ìå·Ö·¢µÄÓ¦ÓÃ³ÌĞò , ´ËÊ±¼ÆËã»úËÆºõ´¦ÓÚĞİÃß×´Ì¬.(¼û±¸×¢.)Win2003¼°WinXP/2000²»Ö§³Ö
+$ES_CONTINUOUS - Í¨ÖªÏµÍ³ÔÚÏÂÒ»´Îµ÷ÓÃ$ES_CONTINUOUSÇÒÆäËû±ê¼Ç±»Çå³ıÇ°±£³Öµ±Ç°×´Ì¬
+$ES_DISPLAY_REQUIRED - Í¨¹ıÖØÖÃ¿ÕÏĞ¼ÆÊ±Æ÷Ç¿ÖÆ¿ªÆôÏÔÊ¾Æ÷
+$ES_SYSTEM_REQUIRED - Í¨¹ıÖØÖÃÏµÍ³¿ÕÏĞ¼ÆÊ±Æ÷Ç¿ÖÆÏµÍ³´¦ÓÚ¹¤×÷×´Ì¬
+$ES_USER_PRESENT - ĞëWin2003¼°WinXP/2000. Í¨ÖªÓÃ»§ËùÔÚµÄÏµÍ³²¢ÖØÉèÖØÖÃÏµÍ³¿ÕÏĞ¼ÆÊ±Æ÷. ±ØĞëÓë$ES_CONTINUOUSÍ¬Ê±Ê¹ÓÃ.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	The value is the previous thread execution state.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø1
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@errer·Ç0
 @@End@@
 
-###Remarks###
-The _WinAPI_SetThreadExecutionState() function cannot be used to prevent the user from putting the computer to
-sleep. Applications should respect that the user expects a certain behavior when they close the lid on their
-laptop or press the power button.
+###±¸×¢###
+ÏµÍ³»á×Ô¶¯¼ì²âÈç±¾µØ¼üÅÌ»òÊó±êÊäÈë , ·şÎñÆ÷»î¶¯ , ÖØµã»î¶¯»ò´°¿Ú½¹µã±ä»¯µÈ»î¶¯. µ«²»°üÀ¨Èç´ÅÅÌ»òCPUµÄ×Ô¼ì»î¶¯ºÍÊÓÆµÏÔÊ¾.
+²»´øÓĞ$ES_CONTINUOUSµ÷ÓÃ_WinApi_SetThreadExecutionState¼òµ¥ÖØÖÃ¿ÕÏĞ¼ÆÊ±Æ÷; Òª±£³ÖÏÔÊ¾Æ÷»òÏµÍ³´¦ÓÚ¹¤×÷×´Ì¬ , Ïß³Ì±ØĞë¶¨ÆÚµ÷ÓÃ_WinApi_SetThreadExecutionState.
+ÈôÒªÕıÈ·ÔËĞĞÉèÖÃÓĞµçÔ´¹ÜÀíµÄ¼ÆËã»ú , Èç´¦Àí´«Õæ·şÎñÆ÷ , ´ğÂ¼»ú , ±¸·İ´úÀíºÍÍøÂç¹ÜÀíÓ¦ÓÃ³ÌĞòÊÂ¼şÊ±ĞëÍ¬Ê±Ê¹ÓÃ$ES_CONTINUOUSºÍ$ES_SYSTEM_REQUIRED. ¶àÃ½ÌåÓ¦ÓÃ , Èç³¤Ê±¼äÎŞĞèÓÃ»§ÊäÈëµÄÊÓÆµ²¥·ÅºÍÑİÊ¾Ó¦ÓÃ , ±ØĞëÊ¹ÓÃ$ES_DISPLAY_REQUIRED. ÎÄ×Ö´¦Àí , µç×Ó±í¸ñ , ä¯ÀÀÆ÷Ó¦ÓÃ³ÌĞòÒÔ¼°ÓÎÏ·²»ĞèÒªµ÷ÓÃ_WinApi_SetThreadExecutionState.
+$ES_AWAYMODE_REQUIRED½öÓÃÓÚĞèÒªÏµÍ³Ö´ĞĞºóÌ¨ÈÎÎñµÄÃ½ÌåÓ¦ÓÃ , Èç½«µçÊÓ»òÁ÷Ã½ÌåÄÚÈİÂ¼ÖÆµ½ÆäËûÉè±¸. ²»ĞèÒªÖ´ĞĞºóÌ¨´¦ÀíµÄ»òÔÚ±ãĞ¯Ê½¼ÆËã»úÉÏÔËĞĞµÄÓ¦ÓÃ³ÌĞòÎŞ·¨ÆôÓÃÀë¿ªÄ£Ê½ , ÒòÎªËü×èÖ¹µçÔ´½øÈëÕæÕıµÄË¯Ãß±£»¤×´Ì¬.
+Ó¦ÓÃ³ÌĞòÒªÆôÓÃÀë¿ªÄ£Ê½±ØĞëÍ¬Ê±Ê¹ÓÃ$ES_AWAYMODE_REQUIREDºÍ$ES_CONTINUOUS; ½ûÓÃÀë¿ªÄ£Ê½ , Ó¦ÓÃ³ÌĞòµ÷ÓÃ$ES_CONTINUOUS²¢Çå³ı$ES_AWAYMODE_REQUIRED.
+µ±ÆôÓÃÀë¿ªÄ£Ê½Ê± , ÈÎºÎ½«Ê¹¼ÆËã»úÖÃÓÚË¯ÃßÄ£Ê½µÄ²Ù×÷½«ÒÔÀë¿ªÄ£Ê½´úÌæ. µ±µçÄÔ´¦ÓÚĞİÃß×´Ì¬Ê±ÏµÍ³¿É¼ÌĞøÖ´ĞĞÎŞĞèÓÃ»§ÊäÈëµÄÈÎÎñ. Àë¿ªÄ£Ê½²»Ó°ÏìĞİÃß¿ÕÏĞ¼ÆÊ±Æ÷ , Îª·ÀÖ¹¼ÆÊ±Æ÷µ½ÆÚÊ±ÏµÍ³½øÈëĞİÃß , ³ÌĞò»¹±ØĞëÉèÖÃ$ES_SYSTEM_REQUIRED.
+¸Ãº¯ÊıÎŞ·¨·ÀÖ¹ÓÃ»§Ê¹µçÄÔ½øÈëĞİÃß×´Ì¬.
+¸Ãº¯ÊıÎŞ·¨Í£Ö¹Ö´ĞĞÆÁÄ»±£»¤³ÌĞò.
 
-This function does not stop the screen saver from executing.
+###Ïà¹Ø###
 
-
-###See Also###
-@@MsdnLink@@ SetThreadExecutionState
-
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞSetThreadExecutionStateµÄÏà¹ØĞÅÏ¢

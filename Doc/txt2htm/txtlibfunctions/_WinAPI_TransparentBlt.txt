@@ -1,57 +1,42 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_TransparentBlt
 
-###Description###
-传输颜色数据位块到对应的矩形像素.
+###����###
+���ݶ�Ӧ�ھ������ص���ɫ���ݿ�
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_TransparentBlt ( $hDestDC, $iXDest, $iYDest, $iWidthDest, $iHeightDest, $hSrcDC, $iXSrc, $iYSrc, $iWidthSrc, $iHeightSrc, $iRGB )
+_WinAPI_TransparentBlt( $hDestDC, $iXDest, $iYDest, $iWidthDest, $iHeightDest, $hSrcDC, $iXSrc, $iYSrc, $iWidthSrc, $iHeightSrc, $iRGB )
 
-###Parameters###
+###����###
 @@ParamTable@@
-$hDestDC
-	目标设备环境句柄.
-$iXDest
-	目标矩形左上角 X 坐标的逻辑单位
-$iYDest
-	目标矩形左上角 Y 坐标的逻辑单位.
-$iWidthDest
-	目标矩形宽度逻辑单位.
-$iHeightDest
-	目标矩形高度逻辑单位.
-$hSrcDC
-	源设备环境句柄.
-$iXSrc
-	源矩形左上角 X 坐标的逻辑单位
-$iYSrc
-	源矩形左上角 Y 坐标的逻辑单位.
-$iWidthSrc
-	源矩形宽度逻辑单位.
-$iHeightSrc
-	源矩形高度逻辑单位.
-$iRGB
-	源位图的透明 RGB 颜色值.
+$hDestDC  Ŀ���豸�����ľ��
+$iXDest  Ŀ��������Ͻ�x����
+$iYDest  Ŀ��������Ͻ�y����
+$iWidthDest  Ŀ����ο���
+$iHeightDest  Ŀ����θ߶�
+$hSrcDC  ��Դ�豸����
+$iXSrc  Դ�������Ͻ�x����
+$iYSrc  Դ�������Ͻ�y����
+$iWidthSrc  Դ���ο���
+$iHeightSrc  Դ���θ߶�
+$iRGB  ��Ϊ͸����Դλͼ��RGBɫ
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0,设置@error:标志为非 0 值.
+�ɹ�: ����1
+ʧ��: ����0������@error��0
 @@End@@
 
-###Remarks###
-如果源和目标矩形的大小不一样,源位图被拉伸以匹配目标矩形
- 当使用 _WinAPI_SetStretchBltMode() 函数时,
- $BLACKONWHITE 与 $WHITEONBLACK的拉伸模式被转化
-为适用于_WinAPI_TransparentBlt() 函数的 $COLORONCOLOR 模式.
- 本函数支持所有格式的源位图. 但对于 32 bpp 位图, 它跳过复制 alpha 值.
- 使用 _WinAPI_AlphaBlend() 指定 32 位图的每像素透明度.
+###��ע###
+���Դ���κ�Ŀ����δ�С����, Դ���ν���������ƥ��Ŀ�����. ��ʹ��_WinAPI_SetStretchBltMode()����ʱ, $BLACKONWHITE��$WHITEONBLACK������ģʽ��ת��Ϊ������_WinAPI_TransparentBlt()������$COLORONCOLORģʽ.
+�ú���֧�����и�ʽ��Դλͼ. ����, ����32bppλͼ, �����Ƴ�����alphaֵ. ʹ��_WinAPI_AlphaBlend()ָ������͸����32����λ��λͼ.
 
+###���###
 
-###See Also###
-@@MsdnLink@@ GdiTransparentBlt
+###�ο�###
+ ����MSDN֪ʶ����TransparentBlt�������Ϣ
 
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

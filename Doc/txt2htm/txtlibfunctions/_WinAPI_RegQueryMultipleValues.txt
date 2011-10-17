@@ -1,57 +1,50 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_RegQueryMultipleValues
 
-###Description###
-æ£€ç´¢æ³¨å†Œè¡¨é”®çš„ç±»åž‹å’Œåç§°å€¼åˆ—è¡¨æ•°æ®.
+###ÃèÊö###
+»ñÈ¡Óë´ò¿ªµÄ×¢²á±í¼üÏà¹ØµÄÖµÁÐ±íµÄÊý¾ÝºÍÀàÐÍ
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_RegQueryMultipleValues ( $hKey, ByRef $aValent, ByRef $tData [, $iStart [, $iEnd]] )
+_WinAPI_RegQueryMultipleValues( $hKey, ByRef $aValent, ByRef $tData [, $iStart [, $iEnd]] )
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
 $hKey
-	æ³¨å†Œè¡¨é”®å¥æŸ„.æ³¨å†Œè¡¨é”®å¿…é¡»æœ‰ KEY_QUERY_VALUE å­˜å–æƒé™.
-		 å¥æŸ„æœ‰ _WinAPI_RegCreateKey() æˆ– _WinAPI_RegOpenKey() å‡½æ•°è¿”å›ž.
-		 ä¹Ÿå¯ä»¥æ˜¯ä¸‹åˆ—é¢„å®šä¹‰é”®ä¹‹ä¸€
-		 $HKEY_CLASSES_ROOT
-		 $HKEY_CURRENT_CONFIG
-		 $HKEY_CURRENT_USER
-		 $HKEY_LOCAL_MACHINE
-		 $HKEY_PERFORMANCE_DATA
-		 $HKEY_USERS
+   ´ò¿ªµÄ×¢²á±í¼üµÄ¾ä±ú. ¸Ã¼ü±ØÐëÒÔKEY_QUERY_VALUE·ÃÎÊÈ¨ÏÞ´ò¿ª. ¸Ã¾ä±úÐëÓÉ_WinAPI_RegCreateKey()»ò_WinAPI_RegOpenKey()º¯Êý´ò¿ª. Ò²¿ÉÎªÏÂÁÐÔ¤¶¨Òå¼üÖ®Ò»:
+   $HKEY_CLASSES_ROOT
+   $HKEY_CURRENT_CONFIG
+   $HKEY_CURRENT_USER
+   $HKEY_LOCAL_MACHINE
+   $HKEY_PERFORMANCE_DATA
+   $HKEY_USERS
 $aValent
-	äºŒç»´æ•°ç»„ ([valuename1, 0, 0, 0], [valuename2, 0, 0, 0], ... [valuenameN, 0, 0, 0]),åŒ…å«è¢«æ£€ç´¢çš„åç§°å€¼.
-		 ä¸ä½¿ç”¨æ•°ç»„å…ƒç´  1, 2, ä¸Ž 3, ä½†è¯¥æ•°ç»„çš„å¤§å°åº”è¯¥æ˜¯ [n][4], å¦åˆ™, å‡½æ•°å°†å¤±è´¥.
-		 æ­¤å¤–,å¦‚æžœæŒ‡å®šé”®ä¸å­˜åœ¨ä»»ä½•æŒ‡å®šå€¼,æ­¤å‡½æ•°åŒæ ·å¤±è´¥.
+   °üº¬»ñÈ¡µÄÖµµÄÃû³ÆµÄ¶þÎ¬Êý×é([valuename1, 0, 0, 0], [valuename2, 0, 0, 0], ... [valuenameN, 0, 0, 0]). ¶ÔÓÚÊäÈë, ²»Ê¹ÓÃ1, 2ºÍ3Êý×éÔªËØ, µ«Êý×é´óÐ¡Îª[n][4], ·ñÔò, º¯ÊýÊ§°Ü. ÁíÍâ, Èç¹ûÖ¸¶¨¼üÖÐ²»º¬ÈÎÒâÖ¸¶¨Öµº¯ÊýÊ§°Ü.
 $tData
-	æŽ¥æ”¶æ•°æ®çš„ç¼“å†²åŒº. å¦‚æžœå‡½æ•°æˆåŠŸ, ç¼“å†²åŒºæ˜¯ "byte[n]" ç»“æž„, æŽ¥æ”¶æ•°æ®çš„æ¯ä¸ªå€¼
-		 ç›´åˆ°è¿™ä¸ªå‡½æ•°è¿”å›žæ•°æ®å®Œæˆå‰,ä¸åº”è¯¥æ”¹å˜è¿™ç§ç»“æž„.
-		 åœ¨æ­¤ä¹‹åŽ,å¯ä»¥é‡Šæ”¾è¿™ä¸ªç»“æž„åˆ†é…çš„å†…å­˜.
+   ½ÓÊÕÊý¾ÝµÄ»º³åÇø. Èç¹ûº¯Êý³É¹¦, »º³åÇøÎªÒ»¸ö½ÓÊÕÃ¿¸öÖµµÄÊý¾ÝµÄ"byte[n]"½á¹¹. ÔÚÊ¹ÓÃÍêº¯Êý·µ»ØµÄÊý¾ÝÇ°²»Òª¸Ä±ä´Ë½á¹¹. ÔÚÄÇÖ®ºó, ¿ÉÊÍ·ÅÓÉ¸Ã½á¹¹·ÖÅäµÄÄÚ´æ.
 $iStart
-	[å¯é€‰å‚æ•°] å¼€å§‹æ£€ç´¢çš„æ•°ç»„ç´¢å¼•.
+   ¿ªÊ¼²éÑ¯µÄÊý×éË÷Òý
 $iEnd
-	[å¯é€‰å‚æ•°] ç»“æŸæ£€ç´¢çš„æ•°ç»„ç´¢å¼•.
+   ½áÊø²éÑ¯µÄÊý×éË÷Òý
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›žå¤åˆ¶åˆ°ç¼“å†²åŒºçš„å­—èŠ‚æ•°. $aValent æ•°ç»„å°†åŒ…å«ä»¥ä¸‹æ•°æ®:
-	[n][0] - åç§°å€¼ (æœªæ”¹å˜çš„).
-	[n][1] - æ•°æ®å­—èŠ‚å¤§å°.
-	[n][2] - æŒ‡å‘ $tData å‚æ•°å€¼çš„ç¼“å†²åŒºæ•°æ®æŒ‡é’ˆ.
-	[n][3] - æ•°æ®ç±»åž‹ ($REG_*).
-	
-å¤±è´¥:	è¿”å›ž 0,è®¾ç½®@error:éž 0 å€¼, @extended å¯èƒ½åŒ…å«ç³»ç»Ÿé”™è¯¯ä»£ç .
+³É¹¦: ¸´ÖÆµ½»º³åÇøµÄ×Ö½ÚÊýÁ¿. $aValentÊý×é°üº¬ÏÂÁÐÊý¾Ý:
+    [n][0] - ÖµÃû(²»¸Ä±ä).
+    [n][1] - Êý¾ÝµÄ×Ö½Ú´óÐ¡.
+    [n][2] - ²ÎÊýÖ¸ÏòµÄ»º³åÇøÖÐµÄÊý¾ÝµÄÖ¸Õë.
+    [n][3] - Êý¾ÝÀàÐÍ($REG_*).
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0, @extended±ê¼Ç¿É°üº¬·Ç0ÏµÍ³´íÎó´úÂë.
 @@End@@
 
-###Remarks###
-ä¸ºäº†é˜²æ­¢è¿‡å¤šçš„ç³»åˆ—åŒ–, ç”±è¯¥å‡½æ•°è¿”å›žçš„æ•°æ®æ€»æ•°ä¸èƒ½è¶…è¿‡ä¸€å…†å­—èŠ‚.
+###±¸×¢###
+ÎªÁË·ÀÖ¹¹ý¶àµÄÏµÁÐ»¯, ÓÉ¸Ãº¯Êý·µ»ØµÄÊý¾Ý×ÜÊý²»ÄÜ³¬¹ýÒ»Õ××Ö½Ú
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ RegQueryMultipleValues
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖÐRegQueryMultipleValuesµÄÏà¹ØÐÅÏ¢
 
-###Example###
+###Ê¾Àý###
 @@IncludeExample@@
-

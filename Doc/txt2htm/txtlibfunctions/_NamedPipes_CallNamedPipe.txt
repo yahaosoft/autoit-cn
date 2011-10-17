@@ -1,49 +1,38 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _NamedPipes_CallNamedPipe
 
-###Description###
-æ‰§è¡Œå‘½åç®¡é“è¯»/å†™æ“ä½œ
+###ÃèÊö###
+Ö´ĞĞÃüÃû¹ÜµÀµÄ¶Á/Ğ´²Ù×÷
 
-###Syntax###
+###Óï·¨###
 #Include <NamedPipes.au3>
-_NamedPipes_CallNamedPipe($sPipeName, $pInpBuf, $iInpSize, $pOutBuf, $iOutSize, ByRef $iRead [, $iTimeOut = 0])
+_NamedPipes_CallNamedPipe($sPipeName, $pInpBuf,$iInpSize, $pOutBuf, $iOutSize, ByRef $iRead[, $iTimeOut = 0])
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$sPipeName
-	ç®¡é“åç§°
-$pInpBuf
-	åŒ…å«å†™å…¥ç®¡é“çš„æ•°æ®ç¼“å†²åŒºæŒ‡é’ˆ
-$iInpSize
-	å†™å…¥ç¼“å†²åŒºçš„å­—èŠ‚å¤§å°
-$pOutBuf
-	æ¥æ”¶è¯»å–ç®¡é“æ•°æ®çš„ç¼“å†²åŒºæŒ‡é’ˆ
-$iOutSize
-	è¯»å–ç¼“å†²åŒºçš„å­—èŠ‚å¤§å°
-$iRead
-	è¿”å›æ—¶, ä»ç¼“å†²åŒºè¯»å–çš„å­—èŠ‚æ•°
-$iTimeOut
-	[å¯é€‰å‚æ•°] å‘½åç®¡é“å¯ç”¨çš„ç­‰å¾…æ¯«ç§’æ•°.
-		é™¤æ•°å­—å€¼å¤–,å¯ä»¥æŒ‡å®šä»¥ä¸‹ç‰¹æ®Šå€¼:
-		-1 - æ— é™æœŸåœ°ç­‰å¾…
-		 0 - è°ƒç”¨ CreateNamedPipe å‡½æ•°æŒ‡å®šä½¿ç”¨çš„é»˜è®¤è¶…æ—¶å€¼
-		 1 - ä¸ç­‰å¾….å¦‚æœç®¡é“ä¸å¯ç”¨,è¿”å›ä¸€ä¸ªé”™è¯¯
+ $sPipeName  ¹ÜµÀÃû³Æ
+ $pInpBuf  °üº¬Ğ´Èë¹ÜµÀµÄÊı¾İµÄ»º³åÇøÖ¸Õë
+ $iInpSize  Ğ´Èë»º³åÇøµÄ×Ö½ÚÊıÁ¿
+ $pOutBuf  ½ÓÊÕ¹ÜµÀÊı¾İµÄ»º³åÇøÖ¸Õë
+ $iOutSize  ¶ÁÈ¡»º³åÇø´óĞ¡, ÓÃ×Ö½Ú
+ $iRead  ·µ»ØÊ±, °üº¬´Ó»º³åÇø¶ÁÈ¡µÄ×Ö½ÚÊı
+ $iTimeOut  µÈ´ı¹ÜµÀ¿ÉÓÃµÄºÁÃëÊı. ÁíÍâ , ¿ÉÒÔÖ¸¶¨ÏÂÁĞÌØÊâÖµ:
+-1 -µÈºò¹ÜµÀ¿ÉÓÃ
+0 - Ê¹ÓÃ¹ÜµÀµÄÄ¬ÈÏ³¬Ê±ÉèÖÃ , Õâ¸öÉèÖÃÓÉCreateNamedPipeº¯ÊıÖ¸¶¨
+1 - Èç¹ÜµÀ²»¿ÉÓÃÔòÁ¢¼´·µ»ØÒ»¸ö´íÎó
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å› True
-å¤±è´¥:	è¿”å› False
+³É¹¦: Õæ
+Ê§°Ü: ¼Ù
 @@End@@
 
-###Remarks###
-è°ƒç”¨ CallNamedPipe ç›¸å½“äºè°ƒç”¨ CreateFile (æˆ– WaitNamedPipe,å¦‚æœ CreateFile ä¸èƒ½ç«‹å³æ‰“å¼€ç®¡é“æ—¶)
-TransactNamedPipe, ä¸ CloseHandle å‡½æ•°. CreateFile æ˜¯ GENERIC_READ | GENERIC_WRITE çš„è°ƒç”¨è®¿é—®æ ‡å¿—,
-of GENERIC_READ | GENERIC_WRITE, å½“ä¸º False æ—¶ç»§æ‰¿æ ‡å¿—å¥æŸ„. å¦‚æœç®¡é“æ˜¯ä¸€ä¸ªå­—èŠ‚å‹ç®¡é“,CallNamedPipe å°†å¤±è´¥:	###See Also###
-åœ¨ MSDN ä¸­æœç´¢å‡½æ•°: CallNamedPipe çš„ç›¸å…³ä¿¡æ¯
+###±¸×¢###
+µ÷ÓÃCallNamedPipeµÈÍ¬ÓÚµ÷ÓÃCreateFile (»òÕßWaitNamedPipe , µ±CreateFileÎŞ·¨Á¢¼´´ò¿ª¹ÜµÀÊ±) , TransactNamedPipe , ºÍCloseHandleº¯Êı. ÒÔGENERIC_READ | GENERIC_WRITEÈ¨ÏŞ±ê¼Ç¼°Âß¼­·ñµÄ¼¯³É¾ä±ú±ê¼Çµ÷ÓÃCreateFile. µ±¹ÜµÀÊÇ×Ö½ÚĞÍµÄµÄÊ±ºòº¯ÊıÎŞĞ§.
 
-###Related###
-_NamedPipes_WaitNamedPipe, _NamedPipes_TransactNamedPipe
+###Ïà¹Ø###
+_NamedPipes_WaitNamedPipe ,  _NamedPipes_TransactNamedPipe
 
-###See Also###
-@@MsdnLink@@ CallNamedPipe
+###²Î¿¼###
+ËÑË÷MSDNÖªÊ¶¿âÖĞCallNamedPipeµÄÏà¹ØĞÅÏ¢

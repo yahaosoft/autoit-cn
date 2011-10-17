@@ -1,34 +1,31 @@
-###User Defined Function###
+###用户自定义函数###
 _SQLite_LastInsertRowID
 
-###Description###
-返回在本次连接中数据库中最新插入的列 ID
+###描述###
+返回最近插入到数据库的ROWID
 
-###Syntax###
-#include <SQLite.au3>
+###语法###
+#Include <SQLite.au3>
 _SQLite_LastInsertRowID ( [ $hDB ] )
 
-
-###Parameters###
+###参数###
 @@ParamTable@@
-$hDB
-	[可选参数] 打开的数据库,如为 -1, 则使用最后打开的数据库
+ $hDB  [可选] 打开的数据库, -1为最近打开的数据库
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回列 ID
-失败:	返回 0
-@error:	1 - 错误调用 SQLite API 'sqlite3_last_insert_rowid'
-	2 - 调用被安全模式阻止
+成功: 返回ROWID
+失败: 返回0
+@error: 1 - 调用SQLite API 'sqlite3_last_insert_rowid'错误
+   2 - 安全模式阻止调用
 @@End@@
 
-###Remarks###
-None.
+###备注###
 
+###相关###
 
-###Related###
-None.
+###参考###
 
-###Example###
+###示例###
 @@IncludeExample@@

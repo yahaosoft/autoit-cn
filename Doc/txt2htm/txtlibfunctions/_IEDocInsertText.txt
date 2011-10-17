@@ -1,46 +1,88 @@
-###User Defined Function###
+###用户自定义函数###
 _IEDocInsertText
 
-###Description###
-在元素内部或周围插入文本.
+###描述###
+在一个元素内部或者周围插入文字
 
-###Syntax###
-#include <IE.au3> 
+###语法###
+#Include <IE.au3>
 _IEDocInsertText ( ByRef $o_object, $s_string [, $s_where = "beforeend"] )
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$o_object
-	指向文档元素的对象变量.
-$s_string
-	插入的文本字符串.
-$s_where
-	[可选参数]: 定义文字插入位置
-	beforebegin = 在对象之前立即插入文字.
-	afterbegin = 在对象开始之后,但是在该对象其他内容之前插入文字.
-	beforeend = (默认) 在对象结尾之前但是在该对象其他内容之后立即插入文字.
-	afterend = 在对象结尾之后插入文字.
+ $o_object  指向文档元素的对象变量.
+ $s_string  插入的文本字符串.
+ $s_where  可选: 定义文字插入位置
+beforebegin = 在对象之前立即插入文字.
+afterbegin =
+      在对象开始之后 , 但是在该对象其他内容之前插入文字.
+beforeend = (默认) 在对象结尾之前但是在该对象其他内容之后立即插入文字.
+afterend = 在对象结尾之后插入文字.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回1
-失败:	返回0并设置@ERROR
-@Error:	0 ($_IEStatus_Success) = 无错误
-	3 ($_IEStatus_InvalidDataType) = 无效数据类型
-	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
-	5 ($_IEStatus_InvalidValue) = 无效值
-@Extended:	包含无效参数数量
+成功: 返回1
+失败: 返回0并设置@ERROR为:
+    0 ($_IEStatus_Success) = 无错误
+    3 ($_IEStatus_InvalidDataType) = 无效数据类型
+    4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+    5 ($_IEStatus_InvalidValue) = 无效值
+    @Extended: 包含无效参数数量
 @@End@@
 
+###备注###
+在将被插入文字的HTML标签内的内容,他们先被转换为可以显示的文字.通过_IEPropertySet的 innerHTML , outerHTML , innerText和outerText参数可以动态地处理插入的内容.
 
-###Remarks###
-在将被插入文字的HTML标签内的内容,他们先被转换为可以显示的文字.通过_IEPropertySet的 innerHTML, outerHTML, innerText和outerText参数可以动态地处理插入的内容.
-
-
-###Related###
-_IEDocInsertHTML, _IEPropertyGet, _IEPropertySet, _IEBodyReadHTML, _IEBodyWriteHTML, _IEDocReadHTML, _IEHeadInsertEventScript
-
-
-###Example###
-@@IncludeExample@@
+###相关###
+_IEDocInsertHTML , _IEPropertyGet , _IEPropertySet , _IEBodyReadHTML , _IEBodyWriteHTML , _IEDocReadHTML , _IEHeadInsertEventScript
+ ; *******************************************************
+ ; 示例1 - 打开带有基本示例页的浏览器, 在首个段落标记周围插入文本并显示
+ ; *******************************************************
+ $oIE = _IE_Example ( " basic " )
+ $oP = _IETagNameGetCollection ( $oIE , " p ", 0 )
+ _IEDocInsertText ( $oP , " (Text beforebegin) ", " beforebegin " )
+ _IEDocInsertText ( $oP , " (Text afterbegin) ", " afterbegin " )
+ _IEDocInsertText ( $oP , " (Text beforeend) ", " beforeend " )
+ _IEDocInsertText ( $oP , " (Text afterend) ", " afterend " )
+ MsgBox ( '', ' Html Code ', _IEBodyReadHTML ( $oIE ))
+ ; *******************************************************
+ ; 示例2 - 在文档顶部和底部插入HTML
+ ; *******************************************************
+ #include <IE.au3>
+ $oIE = _IE_Example ( " basic " )
+ $oBody = _IETagNameGetCollection ( $oIE , " body ", 0 )
+ _IEDocInsertText ( $oBody , " This HTML is inserted After Begin ", " afterbegin " )
+ _IEDocInsertText ( $oBody , " Notice that <b>Tags</b> are <encoded> before display ", " beforeend " )
+ ; *******************************************************
+ ; 示例3 - 高级示例:当浏览新地址时在每页顶部插入一个时钟及一个引用字符串,
+ ; 使用_IEDocInsertText, _IEDocInsertHTML及_IEPropertySet设置"innerhtml"及"referrer "
+ ; *******************************************************
+ #include <IE.au3>
+ $oIE = _IECreate ( " http://www.autoitscript.com " )
+ AdlibRegister ( " UpdateClock ", 1000 ) ; 每秒更新时钟
+ ; 浏览器窗口存在时空置
+ While WinExists ( _IEPropertyGet ( $oIE , " hwnd " ))
+   Sleep ( 10000 )
+ WEnd
+ Exit
+ Func UpdateClock()
+   Local $curTime = " <b>Current Time is: </b> " & @HOUR & " : " & @MIN & " : " & @SEC
+   ; 在浏览后_IEGetObjByName预期返回NoMatch错误(插入DIV前), 因而暂时关闭通知
+   _IEErrorNotify ( False )
+   Local $oAutoItClock = _IEGetObjByName ( $oIE , " AutoItClock " )
+   If Not IsObj ( $oAutoItClock ) Then ; 如果未找到DIV元素则插入
+     ; 获得BODY的引用, 插入DIV, 获得DIV引用, 更新时间
+     $oBody = _IETagNameGetCollection ( $oIE , " body ", 0 )
+     _IEDocInsertHTML ( $oBody , " <div id='AutoItClock'></div> ", " afterbegin " )
+     $oAutoItClock = _IEGetObjByName ( $oIE , " AutoItClock " )
+     _IEPropertySet ( $oAutoItClock , " innerhtml ", $curTime )
+     ; 检查引用字符串, 如果非空插入到时间后
+     _IELoadWait ( $oIE )
+     $sReferrer = _IEPropertyGet ( $oIE , " referrer " )
+     If $sReferrer Then _IEDocInsertText ( $oAutoItClock , "  Referred by:  " & $sReferrer , " afterend " )
+   Else
+     _IEPropertySet ( $oAutoItClock , " innerhtml ", $curTime ) ; 更新时间
+   EndIf
+   _IEErrorNotify ( True )
+ EndFunc

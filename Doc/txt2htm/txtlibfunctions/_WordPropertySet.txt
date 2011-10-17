@@ -1,75 +1,56 @@
-###User Defined Function###
+###用户自定义函数###
 _WordPropertySet
 
-###Description###
-设置 Word 应用程序的一个选择属性.
+###描述###
+设置Word应用的属性
 
-###Syntax###
-#include <Word.au3> 
+###语法###
+#Include <Word.au3>
 _WordPropertySet ( ByRef $o_object, $s_property, $v_newvalue )
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$o_object
-	一个 Word.Application 的对象变量
-$s_property
-	属性选择 (参考说明)
-$v_newvalue
-	要设置到 Word Application 属性的新值.
+$o_object 
+   Word.Application对象变量
+$s_property 
+   属性选择(见备注)
+$v_newvalue 
+   将被设置到Word.Application属性中的新值y
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 1
-失败:	返回 0 并设置 @ERROR
-@Error:	$_WordStatus_Success = 没错误
-	$_WordStatus_InvalidDataType = 无效数据类型
-	$_WordStatus_InvalidObjectType = 无效对象类型
-	$_WordStatus_InvalidValue = 无效值
-@Extended:	包含无效的参数数
+成功: 返回1
+失败: 返回0并设置@ERROR
+@Error: 0 ($_WordStatus_Success) = 无错误
+     3 ($_WordStatus_InvalidDataType) = 无效数据类型
+     4 ($_WordStatus_InvalidObjectType) = 无效对象类型
+     5 ($_WordStatus_InvalidValue) = 无效值
+@Extended: 包含无效参数数量
+
+###参考###
+更多信息可参考 MSDN .
+下表提供了每种可用属性的描述.
+ Word Application属性
+ 属性  描述
+ " activeprinter "  指定可用打印机名.
+ " screentips "  指定一个布尔值指示是否将批注 , 脚注 , 尾注 , 及超级链接作为提示显示.
+ " scrollbars "  指定一个布尔值指示 Word 是否在至少一个文档窗口中显示滚动条.
+ " statusbar "  指定一个布尔值指示是否显示状态栏.
+ " height "  指定活动文档的窗口的高度.
+ " left "  指定一个整数表示指定文档的水平位置.
+ " screenupdating "  返回一个布尔值指示是否已开启屏幕刷新.
+ " startuppath "  指定启动文件夹的完整路径.
+ " top "  指定活动文档的垂直点阵位置
+ " visible "  指定一个布尔值指示指定对象是否可见.
+ " width "  指定一个指定对象的点阵宽度.
+ " windowstate "  指定任务窗口或一个指定文档的窗口的状态.
 @@End@@
 
+###备注###
 
-###Remarks###
-进一步的信息可查看 <a href="http://msdn2.microsoft.com/en-us/library/kw65a0we.aspx" target="_blank">MSDN</a>.
+###相关###
+ _WordPropertyGet
 
-下表提供现有每个属性的描述.
-
-<b><u>Word 应用程序属性</u></b>
-
-@@ParamTable@@
-<b>属性</b>
-	<b>详细信息</b>
-"activeprinter"
-	指定一个活动打印机名称.
-"screentips"
- 	指定表示是否有注释,脚注,尾注和超链接显示提示的布尔值.
- "scrollbars"
-	指定是否 Word 文档窗口显示至少一个滚动条的布尔值.
- "statusbar"
-	指定表示是否显示状态栏的布尔值.
- "height"
-	指定现有文档窗口的高度.
- "left"
-	指定表示现有文档的水平位置的整数.
- "screenupdating"
-	指定表示是否打开屏幕更新的布尔值.
- "startuppath"
-	指定启动文件夹的完整路径.
- "top"
-	指定活动文档垂直位置的磅值单位.
- "visible"
-	指定表示指定对象是否是可见的布尔值.
- "width"
-	指定表示指定对象宽度的磅值单位.
- "windowstate"
-	指定文档窗口或任务窗口的状态.
-@@END@@
-
-
-###Related###
-_WordPropertyGet
-
-
-###Example###
+###示例###
 @@IncludeExample@@

@@ -1,44 +1,42 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_PolyBezier
 
-###Description###
-绘制一或多个贝塞尔曲线.
+###����###
+����һ�����������������
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_PolyBezier ( $hDC, $aPoint [, $iStart [, $iEnd]] )
+_WinAPI_PolyBezier( $hDC, $aPoint [, $iStart [, $iEnd]] )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hDC
-	设备环境句柄.
+   �豸�������
 $aPoint
-	顶点值二维数组: ([x1, y1], [x2, y2], ... [xN, yN]) 包含曲线端点和控制点的逻辑单位.
-		 该点的数目必须超过绘制曲线实际点的 3 倍,因为每个贝塞尔曲线需要两个控制点和一个终结点,
-		 曲线的初始还需要额外的出发点.
+   ���������յ㼰���Ƶ�Ķ�ά����([x1, y1, ...], [x2, y2, ...], ... [xN, yN, ...]).
 $iStart
-	[可选参数] 开始绘制的数组索引.
+   ��ʼ�ƶ�����������
 $iEnd
-	[可选参数] 结束绘制的数组索引.
+   �����ƶ�����������
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0,设置@error:标志为非 0 值.
+�ɹ�: ����1.
+ʧ��: ����0������@error��0
 @@End@@
 
-###Remarks###
-函数使用参数 $aPoint 指定的控制端点绘制三次 Bezier curves(贝济埃曲线).
- 第一条曲线来自第一点至第四点,第二个和第三个点作为控制点.
- 随后的每一个曲线正需要3个要点:前一条曲线的终点为起点,接下来的两个序列点作为控制点,第三个是终点.
- 当前位置不由 _WinAPI_PolyBezier() 函数更新.图形也不填充..
- 函数绘制使用当前画笔.
+###��ע###
+����ͨ��ʹ����$aPointָ���Ķ˵�Ϳ��Ƶ��������Bezier���ߡ���һ�����ߴӵ�һ��ͨ����Ϊ���Ƶ�ĵڶ���͵�������Ƶ����ĵ�.
+�����к����ÿһ��������Ҫ����3����: ��ǰ���ߵ��յ�Ϊ���, �������������е�������Ϊ���Ƶ�, �ҵ�������Ϊ�յ�.
+��ǰλ�üȲ���_WinAPI_PolyBezier()ʹ��Ҳ����_WinAPI_PolyBezier(). ���߲������.
+����ʹ�õ�ǰ���ʻ�����.
+����ʾ��ǰ�뽫 Pattern.bmp �ļ���������ʱ�ļ���
 
+###���###
 
-###See Also###
-@@MsdnLink@@ PolyBezier
+###�ο�###
+����MSDN֪ʶ����PolyBezier�������Ϣ
 
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

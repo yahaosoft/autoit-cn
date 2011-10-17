@@ -1,141 +1,134 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _IsPressed
 
-###Description###
-æ£€æŸ¥ä¸€ä¸ªæŒ‰é”®æ˜¯å¦è¢«æŒ‰ä¸‹
+###ÃèÊö###
+¼ì²é°´¼üÊÇ·ñ±»°´ÏÂ
 
-###Syntax###
+###Óï·¨###
 #Include <Misc.au3>
-_IsPressed($sHexKey [, $vDLL = 'user32.dll'])
+_IsPressed($sHexKey[, $vDLL ='user32.dll'])
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
-$sHexKey
-	è¦æ£€æŸ¥çš„æŒ‰é”®
-$vDLL
-	[å¯é€‰å‚æ•°] DLLå¥æŸ„,é»˜è®¤(default) ä¸º user32.dll
+ $sHexKey  Òª¼ì²éµÄ¼ü
+ $vDLL  dll ¾ä±ú»òÄ¬ÈÏ user32.dll
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-True:	1
-False:	0
+Õæ: 1
+¼Ù: 0
 @@End@@
 
-###Remarks###
-å¦‚æžœéœ€è¦åå¤è°ƒç”¨è¿™ä¸ªå‡½æ•°, éœ€è¦æ‰“å¼€ 'user32.dll' å¹¶ä¼ é€’å¥æŸ„.
-ç¡®è®¤è„šæœ¬ç»“æŸæ—¶æœ‰å…³é—­è¯­å¥.
-
-_IsPressed() will return 1 until the key is released.
-Even brief key presses can result in multiple returns within a loop.
-If the code called does not include a blocking function (such as MsgBox) and the user does not require multiple returns, the script should wait until _IsPressed() returns 0 before continuing.
-
-01 é¼ æ ‡å·¦é”®
-02 é¼ æ ‡å³é”®
-04 é¼ æ ‡ä¸­é”® (ä¸‰é”®é¼ æ ‡)
-05 Windows 2000/XP: X1 é¼ æ ‡é”®
-06 Windows 2000/XP: X2 é¼ æ ‡é”®
-08 BACKSPACE é”®
-09 TAB é”®
-0C CLEAR é”®(æ¸…é™¤é”®)
-0D ENTER é”®
-10 SHIFT é”®
-11 CTRL é”®
-12 ALT é”®
-13 PAUSE é”®
-14 CAPS LOCK é”®
-1B ESC é”®
-20 ç©ºæ ¼é”®
-21 PAGE UP é”®
-22 PAGE DOWN é”®
-23 END é”®
-24 HOME é”®
-25 å·¦æ–¹å‘é”®
-26 ä¸Šæ–¹å‘é”®
-27 å³æ–¹å‘å»º
-28 ä¸‹æ–¹å‘é”®
-29 SELECT é”®(é€‰æ‹©é”®)
-2A PRINT é”®(æ‰“å°é”®)
-2B EXECUTE é”®(æ‰§è¡Œé”®)
-2C PRINT SCREEN é”®
-2D INS é”®
-2E DEL é”®
-30 0 é”®
-31 1 é”®
-32 2 é”®
-33 3 é”®
-34 4 é”®
-35 5 é”®
-36 6 é”®
-37 7 é”®
-38 8 é”®
-39 9 é”®
-41 A é”®
-42 B é”®
-43 C é”®
-44 D é”®
-45 E é”®
-46 F é”®
-47 G é”®
-48 H é”®
-49 I é”®
-4A J é”®
-4B K é”®
-4C L é”®
-4D M é”®
-4E N é”®
-4F O é”®
-50 P é”®
-51 Q é”®
-52 R é”®
-53 S é”®
-54 T é”®
-55 U é”®
-56 V é”®
-57 W é”®
-58 X é”®
-59 Y é”®
-5A Z é”®
-5B å·¦ Windows é”®
-5C å³ Windows é”®
-60 æ•°å­—é”®ç›˜ 0 é”®
-61 æ•°å­—é”®ç›˜ 1 é”®
-62 æ•°å­—é”®ç›˜ 2 é”®
-63 æ•°å­—é”®ç›˜ 3 é”®
-64 æ•°å­—é”®ç›˜ 4 é”®
-65 æ•°å­—é”®ç›˜ 5 é”®
-66 æ•°å­—é”®ç›˜ 6 é”®
-67 æ•°å­—é”®ç›˜ 7 é”®
-68 æ•°å­—é”®ç›˜ 8 é”®
-69 æ•°å­—é”®ç›˜ 9 é”®
-6A ä¹˜ "*" é”®
-6B åŠ  "+" é”®
-6C åˆ†å· ";" é”®
-6D å‡ "-" é”®
-6E å°æ•°ç‚¹ "." é”®
-6F é™¤ "/" é”®
-70 F1 é”®
-71 F2 é”®
-72 F3 é”®
-73 F4 é”®
-74 F5 é”®
-75 F6 é”®
-76 F7 é”®
-77 F8 é”®
-78 F9 é”®
-79 F10 é”®
-7A F11 é”®
-7B F12 é”®
-7C-7F F13 é”® - F16 é”®
-80H-87H F17 é”® - F24 é”®
-90 NUM LOCK é”®
-91 SCROLL LOCK é”®
-A0 å·¦ SHIFT é”®
-A1 å³ SHIFT é”®
-A2 å·¦ CONTROL é”®
-A3 å³ CONTROL é”®
-A4 å·¦ MENU(èœå•) é”®
-A5 å³ MENU(èœå•) é”®
+###±¸×¢###
+Èç¹ûÖØ¸´µ÷ÓÃ, Ó¦¸Ã´ò¿ª'user32.dll'²¢´«µÝ¾ä±ú.
+½Å±¾½áÊøÊ±ÇëÈ·¶¨½«Ö®¹Ø±Õ
+01 Êó±ê×ó¼ü
+02 Êó±êÓÒ¼ü
+04 Êó±êÖÐ¼ü(Èý¼üÊó±ê)
+05 Windows 2000/XP: X1Êó±ê¼ü
+06 Windows 2000/XP: X2Êó±ê¼ü
+08 BACKSPACE¼ü
+09 TAB¼ü
+0C CLEAR¼ü
+0D ENTER¼ü
+10 SHIFT¼ü
+11 CTRL¼ü
+12 ALT¼ü
+13 PAUSE¼ü
+14 CAPS LOCK¼ü
+1B ESC¼ü
+20 SPACEBAR
+21 PAGEUP¼ü
+22 PAGEDOWN¼ü
+23 END¼ü
+24 HOME¼ü
+25 Ïò×ó¼ýÍ·¼ü
+26 ÏòÉÏ¼ýÍ·¼ü
+27 ÏòÓÒ¼ýÍ·¼ü
+28 ÏòÏÂ¼ýÍ·¼ü
+29 SELECT¼ü
+2A PRINT¼ü
+2B EXECUTE¼ü
+2C PRINTSCREEN¼ü
+2D INS¼ü
+2E DEL¼ü
+30 0¼ü
+31 1¼ü
+32 2¼ü
+33 3¼ü
+34 4¼ü
+35 5¼ü
+36 6¼ü
+37 7¼ü
+38 8¼ü
+39 9¼ü
+41 A¼ü
+42 B¼ü
+43 C¼ü
+44 D¼ü
+45 E¼ü
+46 F¼ü
+47 G¼ü
+48 H¼ü
+49 I¼ü
+4A J¼ü
+4B K¼ü
+4C L¼ü
+4D M¼ü
+4E N¼ü
+4F O¼ü
+50 P¼ü
+51 Q¼ü
+52 R¼ü
+53 S¼ü
+54 T¼ü
+55 U¼ü
+56 V¼ü
+57 W¼ü
+58 X¼ü
+59 Y¼ü
+5A Z¼ü
+5B ×ó²àWin¼ü
+5C ÓÒ²àWin¼ü
+60 Êý×Ö¼üÅÌ 0¼ü
+61 Êý×Ö¼üÅÌ 1¼ü
+62 Êý×Ö¼üÅÌ 2¼ü
+63 Êý×Ö¼üÅÌ 3¼ü
+64 Êý×Ö¼üÅÌ 4¼ü
+65 Êý×Ö¼üÅÌ 5¼ü
+66 Êý×Ö¼üÅÌ 6¼ü
+67 Êý×Ö¼üÅÌ 7¼ü
+68 Êý×Ö¼üÅÌ 8¼ü
+69 Êý×Ö¼üÅÌ 9¼ü
+6A ³ËºÅ¼ü
+6B ¼ÓºÅ¼ü
+6C Separator¼ü
+6D ¼õºÅ¼ü
+6E Ð¡Êýµã¼ü
+6F ³ýºÅ¼ü
+70 F1¼ü
+71 F2¼ü
+72 F3¼ü
+73 F4¼ü
+74 F5¼ü
+75 F6¼ü
+76 F7¼ü
+77 F8¼ü
+78 F9key
+79 F10¼ü
+7A F11¼ü
+7B F12¼ü
+7C-7F F13¼ü - F16¼ü
+80H-87H F17¼ü - F24¼ü
+90 NUM LOCK¼ü
+91 SCROLL LOCK¼ü
+A0 ×óSHIFT¼ü
+A1 ÓÒSHIFT¼ü
+A2 ×óCONTROL¼ü
+A3 ÓÒCONTROL¼ü
+A4 ×óMENU¼ü
+A5 ÓÒMENU¼ü
 BA ;
 BB =
 BC ,
@@ -147,7 +140,9 @@ DB [
 DC \
 DD ]
 
-###Related###
+###Ïà¹Ø###
 
-###Example###
+###²Î¿¼###
+
+###Ê¾Àý###
 @@IncludeExample@@

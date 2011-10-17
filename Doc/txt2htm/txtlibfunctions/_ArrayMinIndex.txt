@@ -1,41 +1,42 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _ArrayMinIndex
 
-###Description###
-è¿”å›æ•°ç»„ä¸­æœ€ä½å€¼çš„ç´¢å¼•.
+###ÃèÊö###
+·µ»ØÊı×éÖĞ×îĞ¡ÖµµÄË÷Òı.
+"
 
-###Syntax###
+###Óï·¨###
 #Include <Array.au3>
-_ArrayMinIndex(Const ByRef $avArray[, $iCompNumeric = 0 [, $iStart = 0 [, $iEnd = 0]]])
+_ArrayMinIndex(Const ByRef $avArray[, $iCompNumeric = 0[, $iStart = 0[, $iEnd = 0]]])
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$avArray
-	è¦æœç´¢çš„æ•°ç»„
-$iCompNumeric
-	[å¯é€‰å‚æ•°] æ¯”è¾ƒæ–¹å¼:
-		0 - æ¯”è¾ƒå­—æ¯å’Œæ•°å­—
-		1 - æ¯”è¾ƒæ•°å­—
-$iStart
-	[å¯é€‰å‚æ•°] æ•°ç»„ä¸­å¼€å§‹æœç´¢çš„ç´¢å¼•
-$iEnd
-	[å¯é€‰å‚æ•°] æ•°ç»„ä¸­ç»“æŸæœç´¢çš„ç´¢å¼•
+$avArray 
+   ÒªËÑË÷µÄÊı×é
+$iCompNumeric 
+   [¿ÉÑ¡] ±È½ÏµÄ·½·¨:
+    0 - °´×ÖÄ¸
+    1 - °´Êı×Ö
+$iStart 
+   [¿ÉÑ¡] ¿ªÊ¼ËÑË÷µÄË÷Òı
+$iEnd 
+   [¿ÉÑ¡] ½áÊøËÑË÷µÄË÷Òı
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›æ•°ç»„ä¸­æœ€å°å€¼çš„ç´¢å¼•
-å¤±è´¥:	è¿”å› -1,è®¾ç½®@error
-@error:	1 - $avArray ä¸æ˜¯ä¸€ä¸ªæ•°ç»„
-	2 - $iStart èµ·å§‹ç´¢å¼•å¤§äºç»“æŸç´¢å¼• $iEnd
-	3 - $avArray ä¸æ˜¯ä¸€ä¸ªä¸€ç»´æ•°ç»„
+³É¹¦: Êı×éÖĞ×î´óÖµµÄË÷Òı
+Ê§°Ü: ·µ»Ø-1ÉèÖÃ@errorÎª:
+    1 - $avArray ²»ÊÇÊı×é
+    2 - $iStart ´óÓÚ $iEnd
+    3 - $avArray ²»ÊÇÒ»Î¬Êı×é
 @@End@@
 
-###Remarks###
-None.
+###±¸×¢###
 
-###Related###
-_ArrayMax, _ArrayMaxIndex, _ArrayMin
-
-###Example###
-@@IncludeExample@@
+###Ïà¹Ø###
+ _ArrayMax , _ArrayMaxIndex , _ArrayMin
+ #include <Array.au3>
+ Local $avArray = StringSplit ( " 4 , 2 , 06 , 8 , 12 , 5 ", " , " )
+ MsgBox ( 0 , ' Min Index String value ', _ArrayMinIndex ( $avArray , 0 , 1 ))
+ MsgBox ( 0 , ' Min Index Numeric value ', _ArrayMinIndex ( $avArray , 1 , 1 ))

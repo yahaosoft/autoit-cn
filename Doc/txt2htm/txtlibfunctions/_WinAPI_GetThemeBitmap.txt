@@ -1,51 +1,41 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_GetThemeBitmap
 
-###Description###
-Retrieves the bitmap associated with a particular theme, part, state, and property.
+###ÃèÊö###
+»ñÈ¡ÓëÖ¸¶¨Ö÷Ìâ , ²¿·Ö , ×´Ì¬ºÍÊôĞÔÏà¹ØµÄÎ»Í¼
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_GetThemeBitmap ( $hTheme, $iPartId, $iStateId, $iPropId [, $iFlag] )
+_WinAPI_GetThemeBitmap( $hTheme, $iPartId, $iStateId, $iPropId [, $iFlag] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $hTheme
-	Handle to a window's specified theme data.
+   Ö¸¶¨´°¿ÚÖ÷ÌâÊı¾İµÄ¾ä±ú
 $iPartId
-	The part that contains the bitmap.
+   °üº¬Î»Í¼µÄ²¿·Ö
 $iStateId
-	The state of the part.
+$iPartId²¿·ÖµÄÃèÊö
 $iPropId
-	The property to retrieve. Set this parameter to 0 to automatically select the first available bitmap
-	for this part and state, or use one of the following values.
-	
-	$TMT_DIBDATA
-	$TMT_GLYPHDIBDATA
-	$TMT_HBITMAP
-	
-$iFlag
-	[å¯é€‰å‚æ•°] This parameter can be one of the following values.
-	
-	$GBF_DIRECT
-	$GBF_COPY
-	$GBF_VALIDBITS
-	
+   »ñÈ¡µÄÊôĞÔ. ÉèÖÃÎª0½«×Ô¶¯Ñ¡È¡¸Ã²¿·ÖºÍ×´Ì¬µÄÊ×¸ö¿ÉÓÃÎ»Í¼»òÊ¹ÓÃÏÂÁĞÖµÖ®Ò».
+    $TMT_DIBDATA - ±³¾°Í¼Ïñ
+    $TMT_GLYPHDIBDATA - »æÖÆÔÚ±³¾°ÉÏµÄ×ÖĞÎÍ¼Ïñ
+    $TMT_HBITMAP - Ôİ²»Ö§³Ö
+$tRECT
+$tagRECT½á¹¹
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	Handle to the requested bitmap.
-Failure	(-1) and sets the @error flag to non-zero, @extended flag may contain the system error code.
+³É¹¦: ·µ»ØËùĞèÎ»Í¼µÄ¾ä±ú
+Ê§°Ü: ·µ»Ø-1²¢ÉèÖÃ@error·Ç0ÇÒ@extended±ê¼Ç°üº¬ÏµÍ³´íÎó´úÂë
 @@End@@
 
-###Remarks###
-If $iFlag is set to $GBF_COPY, release the bitmap returned by this function when no longer needed by calling
-_WinAPI_DeleteObject().
+###±¸×¢###
+Èç¹û$iFlagÉèÖÃÎª$GBF_COPY, ²»ÔÚÊ¹ÓÃÊ±µ÷ÓÃ_WinAPI_DeleteObject()ÊÍ·Å¸Ãº¯Êı·µ»ØµÄÎ»Í¼.
+×îµÍÏµÍ³ÒªÇó: Windows Vista.
 
-This function requires Windows Vista or later.
+###Ïà¹Ø###
 
-
-###See Also###
-@@MsdnLink@@ GetThemeBitmap
-
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞGetThemeBitmapµÄÏà¹ØĞÅÏ¢

@@ -1,63 +1,63 @@
-﻿###Structure Name###
+###�ṹ����###
 $tagNMTVCUSTOMDRAW
 
-###Description###
-包含由树视图控件发送的 NM_CUSTOMDRAW（tree view） 通知消息的信息
+###����###
+����ָ����������ͼ�ؼ����͵�NM_CUSTOMDRAW(������ͼ)��֪ͨ��Ϣ����Ϣ�Ľṹ
 
-###Syntax###
-Global Const $tagNMTVCUSTOMDRAW = "struct;" & $tagNMHDR & ";dword DrawStage;handle HDC;" & $tagRECT & _
-		";dword_ptr ItemSpec;uint ItemState;lparam ItemParam; endstruct" & _
-		";dword ClrText;dword ClrTextBk;int Level"
+###�﷨###
+Global Const $tagNMTVCUSTOMDRAW =  $tagNMHDR & ";uint DrawStage;hwnd HDC;int Left;int Top;int Right;int Bottom;ptr ItemSpec;uint ItemState;int ItemParam;int ClrText;int ClrTextBk;int Level"
 
-###Fields###
+###��Ա###
 @@ParamTable@@
 $tagNMHDR
-	包含通知消息的信息
+   ����֪ͨ��Ϣ����Ϣ
 DrawStage
-	当前绘图阶段.该值是下列之一:
-	全程值:
-		$CDDS_POSTERASE - 擦除周期后完成
-		$CDDS_POSTPAINT - 绘制周期后完成
-		$CDDS_PREERASE - 擦除周期前开始
-		$CDDS_PREPAINT - 绘画周期前开始
-	项目特定值:
-		$CDDS_ITEM - 表示 ItemSpec, ItemState, 与 ItemParam 成员有效
-		$CDDS_ITEMPOSTERASE - 项目被擦除后
-		$CDDS_ITEMPOSTPAINT - 项目被绘制后
-		$CDDS_ITEMPREERASE - 项目被擦除前
-		$CDDS_ITEMPREPAINT - 项目被绘制前
-		$CDDS_SUBITEM - 绘制子项时与 $CDDS_ITEMPREPAINT 或 $CDDS_ITEMPOSTPAINT 结合的标志
+   ��ǰ���ƵĲ�. ��Ϊ����֮һ:
+    ȫ��ֵ:
+    $CDDS_POSTERASE - ��ȫ������
+    $CDDS_POSTPAINT - ��ȫ���ƺ�
+    $CDDS_PREERASE - ��ʼ����ǰ
+    $CDDS_PREPAINT - ��ʼ����ǰ
+    ָ����Ŀֵ:
+    $CDDS_ITEM - ��ʾItemSpec, ItemState��ItemParam��Ա����
+    $CDDS_ITEMPOSTERASE - ��Ŀ��������
+    $CDDS_ITEMPOSTPAINT - ��Ŀ�����ƺ�
+    $CDDS_ITEMPREERASE - ��Ŀ������ǰ
+    $CDDS_ITEMPREPAINT - ��Ŀ������ǰ
+    $CDDS_SUBITEM - ��������ʱ��$CDDS_ITEMPREPAINT��$CDDS_ITEMPOSTPAINT��ϵı��
 HDC
-	控件的设备环境句柄
-$tagRECT 
-	Left - 正在绘制的边界矩形左上角 X 坐标
-	Top - 正在绘制的边界矩形左上角 Y 坐标
-	Right - 正在绘制的边界矩形右下角 X 坐标
-	Bottom - 正在绘制的边界矩形右下角 Y 坐标
+   �ؼ����豸�����ľ��
+Left
+   �󶨾��ε����Ͻ�X����
+Top
+   �󶨾��ε����Ͻ�Y����
+Right
+   �󶨾��ε����½�X����
+Bottom
+   �󶨾��ε����½�Y����
 ItemSpec
-	项目号
+   ��Ŀ����
 ItemState
-	当前项目的状态。这个值是以下组合:
-		$CDIS_CHECKED - 被选中的项目
-		$CDIS_DEFAULT - 项目在其默认状态
-		$CDIS_DISABLED - 项目被禁用
-		$CDIS_FOCUS - 项目有焦点
-		$CDIS_GRAYED - 项目为灰色
-		$CDIS_HOT - 项目目前正在光标指针下
-		$CDIS_INDETERMINATE - 项目在不确定状态
-		$CDIS_MARKED - 被标记的项目
-		$CDIS_SELECTED - 被选中的项目
-		$CDIS_SHOWKEYBOARDCUES - 项目是一个键盘提示
+   ��ǰ��Ŀ״̬. ��ֵΪ����ֵ�����:
+    $CDIS_CHECKED - ��Ŀ��ѡ��
+    $CDIS_DEFAULT - ��Ŀ����Ĭ��״̬
+    $CDIS_DISABLED - ��Ŀ����
+    $CDIS_FOCUS - ��Ŀ���ڽ���
+    $CDIS_GRAYED - ��Ŀ��ɫ��ʾ
+    $CDIS_HOT - ��Ŀ��ǰ��ָ����
+    $CDIS_INDETERMINATE - ��Ŀ���ڲ�ȷ��״̬
+    $CDIS_MARKED - ��Ŀ�����
+    $CDIS_SELECTED - ��Ŀ��ѡ��
+    $CDIS_SHOWKEYBOARDCUES - ��ĿΪһ������ʾ
 ItemParam
-	应用程序定义的项目数据
+   Ӧ�ó��������Ŀ����
 ClrText
-	将要用来显示控件文本的前景色
+   ������ʾ�ؼ��ı���ǰ��ɫ
 ClrTextBk
-	将要用来显示控件文本的背景色
+   ������ʾ�ؼ��ı��ı���ɫ
 Level
-	正在绘制项目的 0 基层 
-@@End@@
+   �����Ƶ���Ŀ��0�����
+@@end@@
 
-###Remarks###
-$CDxx_ 常量需要 WindowsConstants.au3 文件定义.
-
+###��ע###
+$CDxx_ ������ҪWindowsConstants.au3

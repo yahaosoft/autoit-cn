@@ -1,67 +1,68 @@
-###User Defined Function###
+###用户自定义函数###
 _WinAPI_DrawEdge
 
-###Description###
-绘制一或多个矩形的边缘
+###描述###
+绘制矩形的一条或多条边
 
-###Syntax###
+###语法###
 #Include <WinAPI.au3>
-_WinAPI_DrawEdge($hDC, $ptrRect, $nEdgeType, $grfFlags)
+_WinAPI_DrawEdge($hDC,
+$ptrRect, $nEdgeType, $grfFlags)
 
-###Parameters###
+###参数###
 @@ParamTable@@
 $hDC
-	设备环境句柄
+   绘制按钮或曲线的场景的句柄
 $ptrRect
-	$tagRECT 结构指针, 它包含矩形的逻辑坐标
+$tagRECT 结构的指针
 $nEdgeType
-	内部和外部边缘类型.此参数必须是一个内部边界标志和一个外部边界标志的组合.
-		内部边界标志如下:
-		$BDR_RAISEDINNER - 凸起的内缘
-		$BDR_SUNKENINNER - 凹下的内缘
-		外部边界标志如下:
-		$BDR_RAISEDOUTER - 凸起的外缘
-		$BDR_SUNKENOUTER - 凹下的外缘
-		另外,边缘参数还`可以指定下列标志之一:
-		$EDGE_BUMP - 结合 $BDR_RAISEDOUTER and $BDR_SUNKENINNER
-		$EDGE_ETCHED - 结合 $BDR_SUNKENOUTER and $BDR_RAISEDINNER
-		$EDGE_RAISED - 结合 $BDR_RAISEDOUTER and $BDR_RAISEDINNER
-		$EDGE_SUNKEN - 结合 $BDR_SUNKENOUTER and $BDR_SUNKENINNER
+   指定矩形内外边界的风格，必须是一个内边界标志和外边界标志的组合.
+    内边界可取值:
+    $BDR_RAISEDINNER - 内边界凸出
+    $BDR_SUNKENINNER - 内边界凹下
+    外边界可取值:
+    $BDR_RAISEDOUTER - 外边界凸出
+    $BDR_SUNKENOUTER - 外边界凹下
+    另外, 边界参数可以指定下列标志之一:
+    $EDGE_BUMP - $BDR_RAISEDOUTER和$BDR_SUNKENINNER的组合
+    $EDGE_ETCHED - $BDR_SUNKENOUTER和$BDR_RAISEDINNER的组合
+    $EDGE_RAISED - $BDR_RAISEDOUTER和$BDR_RAISEDINNER的组合
+    $EDGE_SUNKEN - $BDR_SUNKENOUTER和$BDR_SUNKENINNER的组合
 $grfFlags
-	边框类型.此参数可以是下面值的结合:
-		$BF_ADJUST - 如果传递这个标志,收缩 $ptrRect 指向的矩形,排除绘制前的边缘.
-		如果不传递此标志,那么不改变 $ptrRect 指向的矩形
-		$BF_BOTTOM - 边界矩形底部
-		$BF_BOTTOMLEFT - 边界矩形的底部和左侧
-		$BF_BOTTOMRIGHT - 边界矩形的底部和右侧
-		$BF_DIAGONAL - 边框的对角线
-		$BF_DIAGONAL_ENDBOTTOMLEFT - 边框的对角线. 矩形的右上角到左下角
-		$BF_DIAGONAL_ENDBOTTOMRIGHT - 边框的对角线. 矩形的左上角到右下角
-		$BF_DIAGONAL_ENDTOPLEFT - 边框的对角线. 矩形的右下角到左上角
-		$BF_DIAGONAL_ENDTOPRIGHT - 边框的对角线. 矩形的左下角到右上角
-		$BF_FLAT - 平面边框
-		$BF_LEFT - 边界矩形的左边
-		$BF_MIDDLE - 矩形的内部
-		$BF_MONO - 一维边框
-		$BF_RECT - 整个矩形边框
-		$BF_RIGHT - 边界矩形的右侧
-		$BF_SOFT - Soft buttons instead of tiles
-		$BF_TOP - 矩形的上边
-		$BF_TOPLEFT - 边界矩形的上边和左边
-		$BF_TOPRIGHT - 边界矩形的上边和右侧
+   指定边界类型. 该参数可以是下值的组合:
+    $BF_ADJUST - 如果传递该标记, 压缩由$ptrRect参数指定的矩形以去除绘制的边界.
+$ptrRect参数指定的矩形
+    $BF_BOTTOM - 矩形底边
+    $BF_BOTTOMLEFT - 矩形的下边和左边
+    $BF_BOTTOMRIGHT - 矩形的下边和右边
+    $BF_DIAGONAL - 对角线边界
+    $BF_DIAGONAL_ENDBOTTOMLEFT - 对角线边界. 终点为矩形左下角; 起点为右上角.
+    $BF_DIAGONAL_ENDBOTTOMRIGHT - 对角线边界. 终点为矩形右下角; 起点为左上角.
+    $BF_DIAGONAL_ENDTOPLEFT - 对角线边界. 终点为矩形左上角; 起点为右下角.
+    $BF_DIAGONAL_ENDTOPRIGHT - 对角线边界. 终点为矩形右上角; 起点为左下角.
+    $BF_FLAT - 平面边界
+    $BF_LEFT - 矩形的左边
+    $BF_MIDDLE - 矩形内部填充
+    $BF_MONO - 一维边界
+    $BF_RECT - 矩形的所有四边
+    $BF_RIGHT - 矩形的右边
+    $BF_SOFT - Soft buttons instead of tiles
+    $BF_TOP - 矩形的上边
+    $BF_TOPLEFT - 矩形的上边和左边
+    $BF_TOPRIGHT - 矩形的上边和右边
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False
+成功: 真
+失败: 假
 @@End@@
 
-###Remarks###
- 需要 BorderConstants.au3 预先定义的常量
+###备注###
+需要BorderConstants.au3预定义常量
 
-###Related###
+###相关###
 $tagRECT
 
-###See Also###
-@@MsdnLink@@ DrawEdge
+###参考###
+搜索MSDN知识库中DrawEdge的相关信息

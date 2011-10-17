@@ -1,40 +1,37 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_GotoCharPos
 
-###Description###
-移动插入点到字符区间位置
+###描述###
+将插入点移动至一个连接符位置
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GotoCharPos($hWnd, $iCharPos)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iCharPos
-	字符区间位置
-		特别值: -1 - 文本结束
+ $hWnd  控件句柄
+ $iCharPos  连接符位置
+特殊值: -1 - 文本尾
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False设置@error
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $iCharPos 既不是正数或零, 也不是 -1
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  102 - $iCharPos既不是正数也不是0或-1
 @@End@@
 
-###Remarks###
- 控件文本的第一字符位置为 1
+###备注###
+控件中文本的首字符在字符位置1
+取消文本选项(任何情况)
 
- 取消文本选择（如果有）
+###相关###
+ _GUICtrlRichEdit_SetSel
 
-###Related###
-_GUICtrlRichEdit_SetSel
+###参考###
+ 搜索MSDN知识库中EM_EXSETSEL的相关信息
 
-###See Also###
-@@MsdnLink@@ EM_EXSETSEL
-
-###Example###
+###示例###
 @@IncludeExample@@

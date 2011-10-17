@@ -1,45 +1,38 @@
-﻿###Structure Name###
+###�ṹ����###
 $tagGDIPIMAGECODECINFO
 
-###Description###
-$tagGDIPIMAGECODECINFO 结构
+###����###
+$tagGDIPIMAGECODECINFO �ṹ
 
-###Syntax###
-Global Const $tagGDIPIMAGECODECINFO = "byte CLSID[16];byte FormatID[16];ptr CodecName;ptr DllName;ptr FormatDesc;ptr FileExt;" & _
-		"ptr MimeType;dword Flags;dword Version;dword SigCount;dword SigSize;ptr SigPattern;ptr SigMask"
+###�﷨###
+Global Const $tagGDIPIMAGECODECINFO =  "byte CLSID[16];byte FormatID[16];ptr CodecName;byte Params[0];ptr DllName;ptr FormatDesc;ptr FileExt;ptr MimeType;dword Flags;dword Version;dword SigCount;dword SigSize;ptr SigPattern;ptr SigMask"
 
-###Fields###
+###��Ա###
 @@ParamTable@@
 CLSID
-	编解码器标识符 (GUID 结构)
+   �˾���ʶ��(GUID�ṹ)
 FormatID
-	文件格式标识符 (GUID 结构)
+   �ļ���ʽ��ʶ��(GUID�ṹ)
 CodecName
-	Unicode 空结束的字符串指针，其中包含编解码器名称
+   �����˾����Ƶ���'\0'��β��Unicode�ַ�����ָ��
 DllName
-	Unicode 空结束的字符串指针，其中包含包含 DLL 中的编解码器所在路径名.
-	如果该编解码器不是一个 DLL，这个指针为 0.
+   �����˾�������DLL��·��������'\0'��β��Unicode�ַ�����ָ��. ����˾�����DLL��, ָ��Ϊ0.
 FormatDesc
-	Unicode 空结束的字符串指针，其中包含编解码器使用的文件格式名称.
+   �������˾�ʹ�õ��ļ���ʽ���Ƶ���'\0'��β��Unicode�ַ�����ָ��.
 FileExt
-	Unicode 空结束的字符串指针，其中包含编解码器的所有文件扩展名.
-	扩展名由分号隔开.
+   �����������˾���ص��ļ���չ������'\0'��β��Unicode�ַ�����ָ��.
 MimeType
-	以空值结尾的字符串指针，其中包含 mime 类型的编解码器.
+   �����˾���������(MIME)��'\0'��β��Unicode�ַ�����ָ��
 Flags
-	结合 $GDIP_ICF 标志.
+   $GDIP_ICF��ǵĽ��
 Version
-	显示编解码器版本.
+   �˾��汾
 SigCount
-	指示与编解码器用于签名(signature)的文件格式编号.
+   �����˾���ص��ļ���ʽ��ǩ��������
 SigSize
-	指示签名(signature)的字节数
+   ÿ��ǩ�����ֽ�����
 SigPattern
-	数组字节指针,包含每个签名(signature)模式
+   ����ÿ��ǩ���������ֽ������ָ��
 SigMask
-	数组字节指针,包含每个签字(signature)的掩码
-@@End@@
-
-###Remarks###
-None.
-
+   ����ÿ��ǩ��������ֽ������ָ��
+@@end@@

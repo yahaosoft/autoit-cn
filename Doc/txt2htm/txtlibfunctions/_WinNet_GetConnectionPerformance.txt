@@ -1,43 +1,37 @@
-###User Defined Function###
+###用户自定义函数###
 _WinNet_GetConnectionPerformance
 
-###Description###
-返回资源网络连接性能的信息
+###描述###
+返回网络连接资源的性能信息
 
-###Syntax###
+###语法###
 #Include <WinNet.au3>
 _WinNet_GetConnectionPerformance($sLocalName, $sRemoteName)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$sLocalName
-	本地设备名称,例如 "F:" 或 "LPT1",这是重定向到网络资源被查询的设备名称．
-		如果空白,网络资源是　$sRemoteName　指定．
-		如果这个参数指定本地设备,$sRemoteName　被忽略
-$sRemoteName
-	查询的网络资源名称．该资源当前必须有一个建立的连接．
-		例如,如果该资源文件服务器上的一个文件,
-		然后打开该文件后会确保该连接．
+$sLocalName 
+   被重定向到所需网络资源的本地设备名, 如"F:"或"LPT1". 如果为空, 网络资源由sRemoteName指定. 如果指定为本地设备, 忽略sRemoteName.
+$sRemoteName 
+   查询的网络资源名称. 资源必须具有已建立的连接. 例如, 如果资源是一个文件服务器上的文件, 那么打开文件将确保连接.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回数组的格式如下:
-	$aInfo[0] - 连接描述．可以是一或多个以下值:
-	1 - 返回适用于网络卡性能的信息
-	2 - 连接不存在路由
-	4 - 连接在一个媒介通常是缓慢的
-	8 - 返回的信息是动态计算
-	$aInfo[1] - 媒体网络资源的速度,在100个比特／秒
-	$aInfo[2] - 发送信息时引入单向延迟时间
-	$aInfo[3] - 应用程序的数据大小,应使用一个单一的资源请求
-失败:	设置@error	
+成功: 如下格式数组:
+    $aInfo[0] - 连接描述. 可为一个或多个下列值:
+      1 - 返回应用到网卡性能的信息
+      2 - 连接不被路由
+      4 - 连接在一个典型的慢速环境中
+      8 - 一些返回的信息被动态计算
+    $aInfo[1] - 网络资源媒介的速度, 使用100 bps
+    $aInfo[2] - 发送信息时的单路延迟时间
+    $aInfo[3] - 当建立单一资源请求时应用程序使用的数据大小
 @@End@@
 
-###Remarks###
-None.
+###备注###
 
-###Related###
+###相关###
 
-###See Also###
-@@MsdnLink@@ MultinetGetConnectionPerformance
+###参考###
+ 搜索MSDN知识库中MultinetGetConnectionPerformance的相关信息

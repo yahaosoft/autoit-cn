@@ -1,40 +1,40 @@
-###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _SoundOpen
 
-###Description###
-æ‰“å¼€ä¸€ä¸ªå£°éŸ³æ–‡ä»¶,ç”¨äºå…¶å®ƒ _Sound å‡½æ•°.
+###ÃèÊö###
+´ò¿ªÉùÒôÎÄ¼şÒÔ±ãÆäËü_Soundº¯ÊıÊ¹ÓÃ
 
-###Syntax###
-#include <Sound.au3>
-_SoundOpen ( $sFile )
+###Óï·¨###
+#Include <Sound.au3>
+_SoundOpen ( $sFile [, $sAlias ] )
 
-
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$sFile
-	å£°éŸ³æ–‡ä»¶è·¯å¾„
+ $sFile  ÉùÒôÎÄ¼şÂ·¾¶
+ $sAlias  ¿ÉÑ¡ - ¸ø¶¨ÓÃÓÚÆäËûº¯ÊıµÄÉùÒôµÄÃû³Æ
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›ä¸€ä¸ªåŒ…å«ä¸‹åˆ—ä¿¡æ¯çš„ä¸‰å…ƒç´ æ•°ç»„:
-	$array[0] = å£°éŸ³æ–‡ä»¶ ID å­—ç¬¦ä¸²
-	$array[1] = VBR é•¿åº¦ä¿®æ­£æ•°
-	$array[2] = VBR é€Ÿåº¦ä¿®æ­£æ•°
-	$array[3] = Sound ID marker
-å¤±è´¥:	è¿”å› 0 å¹¶è®¾ç½® @Error
-@error:	1 = MCI é”™è¯¯
-	2 = æ–‡ä»¶ä¸å­˜åœ¨
-@Extended:	0 = æ²¡æœ‰é”™è¯¯.
-	å¤§äº0 =  MCI é”™è¯¯.
+ ³É¹¦:  ·µ»ØÒ»¸ö°üº¬ÏÂÁĞÈı¸öĞÅÏ¢ÔªËØµÄÊı×é:
+  $array[0] = ÉùÒôID×Ö·û´®
+  $array[1] = VBR³¤¶È¾ÀÕı²¿·Ö
+  $array[2] = VBR¼ä¸ô¾ÀÕı²¿·Ö
+ Ê§°Ü:  ·µ»Ø0²¢ÉèÖÃ@error:
+  1 = MCI´íÎó
+  2 = ÎÄ¼ş²»´æÔÚ
+  3 = ´´½¨ID×Ö·û´®³ö´í
+ @Extended:  MCI³ö´í
 @@End@@
 
-###Remarks###
-Although many of the _Sound functions will accept the filename as a parameter, if there is a possibility of the file being VBR (variable bit rate) encoded it is highly recommended to use _SoundOpen initially and then use the returned array as the identity parameter in other _Sound...() functions.  This is because because the MCI DLL assumes all files are CBR (constant bit rate) encoded and produces incorrect results from those _Sound...() functions dealing with length and position when the sound file has been VBR (variable bit rate) encoded.  If using the array as the ID parameter with the _Sound...() functions which alter the VBR correction factors (_SoundStop) the ID array will be updated when needed. 
-The individual elements of the returned array have no utility outside the _Sound functions and their internal use is transparent to the user.
+###±¸×¢###
+¾¡¹ÜÒ»Ğ©_Soundº¯Êı¿É½ÓÊÜÎÄ¼şÃû, µ«²»ÅÅ³ıÊ¹ÓÃVBR±àÂëµÄ¿ÉÄÜ, ËùÒÔÍÆ¼öÊ¹ÓÃÔ­Ê¼µÄ_SoundOpenº¯Êı²¢Ê¹ÓÃ·µ»ØµÄÊı×é×÷Îª±êÊ¶²ÎÊı. ÕâÊÇÒòÎªMCI DLLÒÔCBR(¹Ì¶¨ÂëÂÊ)±àÂë²Ù×÷ÎÄ¼şÊ¹µÃµ±ÉùÒôÎÄ¼şÊ¹ÓÃVBR(¿É±äÂëÂÊ)±àÂëÊ±Í¨¹ıÄÇĞ©_Soundº¯ÊıÀ´´¦Àí³¤¶ÈºÍÎ»ÖÃ»á²úÉú²»ÕıÈ·µÄ½á¹û.
+·µ»ØÊı×éµÄµ¥Ò»ÔªËØ³¬³ö_Soundº¯Êı·¶Î§ÇÒÆä¼ä¸ô¶ÔÓÃ»§ÊÇÍ¸Ã÷µÄ.[?]
 
-###Related###
-_SoundClose, _SoundLength, _SoundPause, _SoundPlay, _SoundPos, _SoundResume, _SoundStatus, _SoundStop
+###Ïà¹Ø###
+ _SoundClose , _SoundLength , _SoundPause , _SoundPlay , _SoundPos , _SoundResume , _SoundStatus , _SoundStop
 
-###Example###
+###²Î¿¼###
+
+###Ê¾Àı###
 @@IncludeExample@@

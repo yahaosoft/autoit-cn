@@ -1,45 +1,44 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_GetParaAlignment
 
-###Description###
-获取选定段落的对齐方式,或如果没有选择,则获取当前段落
+###描述###
+获取选定段落或当前段(无选定时)的对齐方式
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetParaAlignment($hWnd)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
+ $hWnd  控件句柄
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回一个字符串值,一个分号(;), 与一个范围字符串:
-	对齐方式:
-	   l - 左对齐.
-	   r - 右对齐.
-	   c - 居中对齐
-	   j - 两端对齐
-	   f - 两端对齐
-	   w - 扩展间隔的两端对齐
-	范围:
-	   a - 所有（或使用的）选定的段落有这个对齐
-	   f - 第一个选中段落使用此对齐方式, 但其它不使用
-	   c - 当前段落有这个对齐
-失败:	返回 "" ,设置 @error
-@error:	101 - $hWnd 参数值不是句柄
+ 成功:  由值, 分号(;), 和字符范围组成的字符串:
+  对齐:
+  l - 左对齐
+  r - 右对齐
+  c - 居中对齐
+  j - 在两边界间修正
+  f - 在两边界间修正
+  w - 仅由扩展空间在两边界间修正
+  范围:
+  a - 全部(或仅有)选定的段落使用该对齐方式
+  f - 第一个选区的段落使用此对齐方式, 但其他不是
+  c - 当前段落使用该对齐方式
+ 失败:  "" 并设置@error
+ @error:  101 - $hWnd不是句柄
 @@End@@
 
-###Remarks###
- Richedit 2.0 不显示两端对齐
+###备注###
+在Richedit 2.0中不显示修正
 
-###Related###
-_GUICtrlRichEdit_SetParaAlignment
+###相关###
+ _GUICtrlRichEdit_SetParaAlignment
 
-###See Also###
-@@MsdnLink@@ EM_SETPARAFORMAT
+###参考###
+ 搜索MSDN知识库中EM_SETPARAFORMAT的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

@@ -1,40 +1,34 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_ShellNotifyIconGetRect
 
-###Description###
-Gets the screen coordinates of the bounding rectangle of a notification icon.
+###ÃèÊö###
+»ñÈ¡Í¨ÖªÍ¼±ê°ó¶¨¾ØĞÎµÄÆÁÄ»×ø±ê
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellNotifyIconGetRect ( $hWnd, $ID [, $tGUID] )
+_WinAPI_ShellNotifyIconGetRect( $hWnd, $ID [, $tGUID] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$hWnd
-	Handle to the parent window used by the notification's callback function. For more information,
-	see the "hWnd" member of the $tagNOTIFYICONDATA structure.
-$ID
-	Application-defined identifier of the notification icon. Multiple icons can be associated with a single
-	$hWnd, each with their own $ID.
-$tGUID
-	[å¯é€‰å‚æ•°] $tagGUID structure that identifies the icon.
+$hWnd  ÓÉÍ¨ÖªµÄ»Øµ÷º¯ÊıÊ¹ÓÃµÄ¸¸´°Ìå. ¸ü¶àĞÅÏ¢²é¿´ NOTIFYICONDATA ½á¹¹ÖĞ"hwnd"³ÉÔ±
+$ID  Í¨ÖªÍ¼±êµÄÓ¦ÓÃ³ÌĞò¶¨ÒåµÄ±êÊ¶·û. ¶à¸öÍ¼±ê¿ÉÒÔ²»Í¬µÄID¹ØÁªÒ»¸öµ¥¶ÀµÄ$hwnd
+$tGUID  [¿ÉÑ¡] ±êÊ¶Í¼±êµÄ$tagGUID½á¹¹
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	$tagRECT structure that contains the coordinates of the icon.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+³É¹¦: ·µ»Ø°üº¬Í¼±ê×ø±êµÄ$tagRECT½á¹¹
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0; @extended¿ÉÄÜ°üº¬ÏµÍ³´íÎó´úÂë.
 @@End@@
 
-###Remarks###
-The icon can be identified through $hWnd plus $ID, or $tGUID alone (recommended).
+###±¸×¢###
+Í¼±ê¿ÉÓÉ$hWnd + $ID»òµ¥¶ÀµÄ$tGUID(ÍÆ¼ö)±êÊ¶.
+×îµÍÏµÍ³ÒªÇó: Windows 7
 
-This function requires Windows 7 or later.
+###Ïà¹Ø###
 
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞShell_NotifyIconGetRectµÄÏà¹ØĞÅÏ¢
 
-###See Also###
-@@MsdnLink@@ Shell_NotifyIconGetRect
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

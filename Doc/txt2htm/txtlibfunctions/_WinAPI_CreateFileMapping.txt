@@ -1,70 +1,53 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_CreateFileMapping
 
-###Description###
-创建或打开指定文件的有名或无名文件映射对象.
-
-###Syntax###
-#Include <WinAPIEx.au3>
+###����###
+�������ָ���ļ�������δ�����ľ������
 _WinAPI_CreateFileMapping ( $hFile [, $iSize [, $sName [, $iProtect [, $tSecurity]]]] )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hFile
-	创建文件映射对象的文件句柄.如果此参数为 -1,
-		 则 $iSize 必须指定文件映射对象的大小.
-		 此时本函数创建的文件映射对象由系统页面文件支持,
-		 而不是由文件系统的文件支持.
+   �������������ļ��ľ��. ����ò���Ϊ-1, ���õĽ��̱�����$iSize������ָ���ļ�����Ĵ�С. �ڴ������, _WinAPI_CreateFileMapping()����ָ����С����ϵͳ��ҳ�ļ�, ������ͨ���ļ�ϵͳ���ݵ��ļ��������.
 $iSize
-	[可选参数] 文件映射对象的最大尺寸. 如果此参数为 0,
-		 文件映射对象的最大尺寸等于 $hFile 文件的当前大小
+$hFile��ʶ���ļ��ĵ�ǰ��С.
 $sName
-	[可选参数] 文件映射对象的名称.
+   �ļ������������
 $iProtect
-	[可选参数] 指定文件映射对象的页面保护,可以是以下值之一:
-		 $PAGE_EXECUTE_READ --- 允许映射为只读,复制写入或执行访问
-		 $PAGE_EXECUTE_READWRITE --- 允许映射为只读,复制写入,读/写或执行访问
-		 $PAGE_EXECUTE_WRITECOPY --- 相当于 PAGE_EXECUTE_READ
-		 $PAGE_READONLY --- 允许映射为只读,复制写入访问
-		 $PAGE_READWRITE --- 允许映射为只读,复制写入,或读/写访问
-		 $PAGE_WRITECOPY --- 相当于 PAGE_READONLY
-		 结合上面的页面保护值,为文件映射对象指定下列一或多个属性:
-		 $SEC_COMMIT --- 如果文件映射对象由操作系统分页文件支持（即 $hfile 参数为 -1）,当文件视图映射到进程地址空间,指定整个范围内的页面,而不是保留
-		 $SEC_IMAGE --- 指定 $hFile 参数值是一个可执行映像文件
-		 $SEC_LARGE_PAGES --- 对操作系统页面文件支持的文件映射对象启用大页面
-		 $SEC_NOCACHE --- 不缓存所有页面
-		 $SEC_RESERVE --- 如果文件映射对象由操作系统的分页支持,指定文件视图空间映射到进程地址,页面范围保留为以后整个过程使用
-		 $SEC_WRITECOMBINE --- 所有页写组合
+   ָ���ļ���������ҳ�汣���ҿ�Ϊ����ֵ֮һ.
+    $PAGE_EXECUTE_READ - ��������Ϊֻ��, д���ƻ�ִ��
+    $PAGE_EXECUTE_READWRITE - ��������Ϊֻ��, д����, ��/д��ִ��
+    $PAGE_EXECUTE_WRITECOPY - ��������Ϊֻ��, д���ƻ�ִ��, ��$PAGE_EXECUTE_READ��ͬ
+    $PAGE_READONLY - ��������Ϊֻ��, д����
+    $PAGE_READWRITE - ��������Ϊֻ��, д����, ��/д
+    $PAGE_WRITECOPY - ��������Ϊֻ��, д����, ��$PAGE_READONLY��ͬ
+    Ӧ�ó����Ϊͨ�����һ��Ԥ����ҳ�汣��ֵ�ļ��������ָ��һ��������������.
+    $SEC_COMMIT - ��һ���ļ���ͼ�Ŀռ�ӳ�䵽���̵ĵ�ַʱʹ������ҳ��
+    $SEC_IMAGE - $hFile����ָ�����ļ���һ����ִ��ӳ���ļ�
+    $SEC_LARGE_PAGES - ���ô�ҳ�������ļ�ӳ���ļ�����
+    $SEC_NOCACHE - ��������ҳ�治�ɻ���
+    $SEC_RESERVE - ��һ���ļ���ͼ�еĿռ�ӳ�䵽���̵ĵ�ַʱ��������ҳ��Ϊ��������ʹ��
+    $SEC_WRITECOMBINE - ��������ҳ����д�������
 $tSecurity
-	[可选参数] $tagSECURITY_ATTRIBUTES 结构,决定子进程是否可以继承返回的句柄.
-		 如果此参数为 0, 句柄不能被继承,文件映射对象得到一个默认的安全描述符.
+$tagSECURITY_ATTRIBUTES�ṹ. ����ò���Ϊ0, ������ܼ̳����ļ���������ȡĬ�ϰ�ȫ������
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回新创建的文件映射对象句柄.如果函数调用之前该对象已存在,
-	函数返回现有对象的句柄（当前的大小,而不是指定的大小）,
-	并设置 @extended 为 1.
-失败:	返回 0,设置 the @error 为非 0 值.
+�ɹ�: ����������ļ��������ľ��. ��������ں�������ǰ�Ѵ���, �������ش��ڵĶ���ľ��(�����䵱ǰ��С, ������ָ����С), ������@extended���Ϊ1
+ʧ�ܣ�����0������@error��0
 @@End@@
 
-###Remarks###
-创建文件映射对象后的文件大小不得超过文件映射对象的大小;
- 如果不是如此,则不是所有的文件内容为共享.
- 使用单一的共享文件映射对象;或创建同一文件支持的单独映射文件,
- 可使多个进程共享一个相同的文件视图. 
-通过继承句柄,复制句柄,或使用名称打开文件映射对象
- 可使一个文件映射对象共享多个进程创建的句柄.
- 文件映射对象实际上并没有映射视图到进程地址空间.
- 映射文件视图到进程的地址空间由 _WinAPI_MapViewOfFile() 函数完成.
- 映射文件映射对象视图维持内部引用的对象,在所有对它的引用被释放前,文件映射对象不会关闭.
- 因此,要完全关闭文件映射对象,应用程序必须调用 _WinAPI_UnmapViewOfFile() 函数关闭映射视图;
- 并调用 _WinAPI_CloseHandle() 关闭文件映射对象的句柄. 这些函数可以被任何顺序调用.
+###��ע###
+���ļ�������󴴽���, �ļ���С���ᳬ���������Ĵ�С; ������򲢷����е��ļ����ݿ����ڹ���.
+������̿ɹ�����ͬ�ļ�����ͼͨ��ʹ�õ�һ�����ļ���������ͨ������ͬһ�ļ��Ĳ�ͬ�������. ��һ�ļ���������ͨ���̳н��̴����ľ��, ���ƾ����ͨ�����ƴ򿪾�������ɶ�����̹���.
+�ļ�������󲻻Ὣ��ͼʵ��ӳ�䵽���̵�ַ�ռ���. ӳ��һ���ļ���ͼ�����̵�ַ�ռ���ʹ��_WinAPI_MapViewOfFile()����.
+�ļ��������ľ�����ͼ���ֶԶ�����ڲ��������ļ�������������ж���������ͷ�ǰ����ر�. ���, ��ȫ�ر��ļ��������, Ӧ�ó������ͨ������_WinAPI_UnmapViewOfFile()����ӳ�������ļ��������ľ�����ͼ��ͨ������_WinAPI_CloseHandle()�ر��ļ����������. ��Щ������������˳�����.
 
+###���###
 
-###See Also###
-@@MsdnLink@@ CreateFileMapping
+###�ο�###
+ ����MSDN֪ʶ����CreateFileMapping�������Ϣ
 
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

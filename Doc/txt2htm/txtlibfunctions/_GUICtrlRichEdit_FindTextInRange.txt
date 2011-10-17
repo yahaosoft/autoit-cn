@@ -1,63 +1,56 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_FindTextInRange
 
-###Description###
-搜索字符区间范围内的文本
+###描述###
+在一个内部字符位置范围内搜索文本
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_FindTextInRange($hWnd, $sText [, $iStart = 0 [, $iEnd = -1 [, $fMatchCase = False [, $fwholeWord = False [, $iBehavior = 0]]]]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$sText
-	搜索的文本
-$iStart
-	[可选参数] 字符区间搜索的起始位置
-		默认 : 控件的起点
-$iEnd
-	[可选参数] 字符区间搜索的结束位置
-		默认 : 控件的结束点
-$fMatchCase
-	[可选参数] 是否区分大小写
-		默认 : 不区分大小写
-$fWholeWord
-	[可选参数] 搜索完整单词
-		默认 : 部分或全部字
-$iBehavior
-	[可选参数] 任何 BitOr 组合: $FR_MATCHALEFHAMZA, $FR_MATCHDIAC 与 $FR_MATCHKASHIDA
-		默认 : 0
+ $hWnd  控件句柄
+ $sText  查找的文本
+ $iStart  [可选] 开始搜索的内部字符位置
+默认: 控件开始
+ $iEnd  [可选] 停止搜索的内部字符位置
+默认: 控件结尾
+ $fMatchCase  [可选] 搜索大小写敏感
+默认: 大小写不敏感
+ $fWholeWord  [可选] 全字匹配搜索
+默认: 部分或全部文字
+ $iBehavior  [可选] 任意BitOr $FR_MATCHALEFHAMZA, $FR_MATCHDIAC和$FR_MATCHKASHIDA的组合
+默认: 0
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回值在 array[2] 内
-	如果找到目标字符串, 返回匹配文本在字符区间范围内的位置值, 例如:[45, 52]
-	如果没有找到,则返回 [-1, -1]
-失败:	返回 0,设置@error:	
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $sText = ""
-	103 - $iStart 既不是正数或零, 也不是 -1
-	104 - $iEnd 既不是正数或零, 也不是 -1
-	105 - $fMatchCase 必须是 True 或 False
-	106 - $fwholeWord 必须是 True 或 False
-	1071 - $iBehavior 不是一个数字
-	1072 - $iBehavior 无效
+成功: 包含值的array[2]
+    如果找到目标字符串, 返回包含匹配文本的内部字符位置的范围, 如[45, 52]
+    如果未找到, 返回[-1, -1]
+失败: 返回0并设置@error:
+    101 - $hWnd不是句柄
+    102 - $sText = ""
+    103 - $iStart不是正数也不是0或-1
+    104 - $iEnd不是正数也不是0或-1
+    105 - $fMatchCase非真非假
+    106 - $fwholeWord非真非假
+    1071 - $iBehavior不是数字
+    1072 - $iBehavior无效
 @@End@@
 
-###Remarks###
- 控件的起点为字符区间范围的 0 位置.
- 默认字符范围,0 到 -1,搜索整个范围的文字.
- 设置 $iEnd 为 -1,表示向下搜索到控件的尾部.
- 设置 $iStart 为 -1,表示向上搜索到控件的起始位置.
+###备注###
+控件开始出的内部字符位置为0.
+默认字符范围, 0到-1, 向下搜索全部文本.
+向下搜索到控件尾设置$iEnd为-1.
+向上搜索到控件开始设置$iStart为-1.
 
-###Related###
-_GUICtrlRichEdit_FindText
+###相关###
+ _GUICtrlRichEdit_FindText
 
-###See Also###
-@@MsdnLink@@ EM_FINDTEXTEX
+###参考###
+ 搜索MSDN知识库中EM_FINDTEXTEX的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

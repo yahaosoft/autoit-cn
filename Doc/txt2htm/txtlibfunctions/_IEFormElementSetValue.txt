@@ -1,46 +1,41 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _IEFormElementSetValue
 
-###Description###
-è®¾ç½®æŒ‡å®šè¡¨å•å…ƒç´ çš„å€¼.
+###ÃèÊö###
+ÉèÖÃÖ¸¶¨±íµ¥ÔªËØµÄÖµ
 
-###Syntax###
-#include <IE.au3> 
+###Óï·¨###
+#Include <IE.au3>
 _IEFormElementSetValue ( ByRef $o_object, $s_newvalue [, $f_fireEvent = 1] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$o_object
-	InternetExplorer.Application, è¡¨å•å…ƒç´ å¯¹è±¡çš„å¯¹è±¡å˜é‡
-$s_newvalue
-	è®¾ç½®åˆ°è¡¨å•å…ƒç´ çš„æ–°å€¼
-$f_fireEvent
-	[å¯é€‰å‚æ•°]: æŒ‡å®šæ˜¯å¦åœ¨æ”¹å˜å€¼åæ¿€æ´» OnChange å’Œ OnClick äº‹ä»¶
-	0 = è®¾ç½®å€¼åä¸æ¿€æ´» OnChange æˆ– OnClick äº‹ä»¶
-	1 = (é»˜è®¤)è®¾ç½®å€¼åæ¿€æ´» OnChange æˆ– OnClick äº‹ä»¶
+ $o_object  InternetExplorer.Application´°¿Ú»òÕß¿ò¼Ü(frame)¶ÔÏóµÄ¶ÔÏó±äÁ¿
+ $s_newvalue  ÉèÖÃµ½±íµ¥ÔªËØÉÏµÄĞÂÖµ
+ $f_fireEvent  ¿ÉÑ¡:¶¨ÒåÔÚ¸Ä±äÖµÊ±ÊÇ·ñ´¥·¢OnChangeºÍOnClickµÄÊÂ¼ş
+0 = ÔÚÉèÖÃÖµºó²»´¥·¢OnChange»òÕßOnClickÊÂ¼ş
+1 = (Ä¬ÈÏ)ÔÚÉèÖÃÖµºó´¥·¢OnChange»òÕßOnClickÊÂ¼ş
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å› 1
-å¤±è´¥:	è¿”å› 0 å¹¶ä¸”è®¾ç½® @ERROR
-@Error:	0 ($_IEStatus_Success) = æ— é”™è¯¯
-	3 ($_IEStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»å‹
-	4 ($_IEStatus_InvalidObjectType) = æ— æ•ˆå¯¹è±¡ç±»å‹
-@Extended:	åŒ…å«æ— æ•ˆå‚æ•°çš„æ•°é‡
+³É¹¦: ·µ»Ø1
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@ERRORÎª:
+    0 ($_IEStatus_Success) = ÎŞ´íÎó
+    3 ($_IEStatus_InvalidDataType) = ÎŞĞ§Êı¾İÀàĞÍ
+    4 ($_IEStatus_InvalidObjectType) = ÎŞĞ§¶ÔÏóÀàĞÍ
+    @Extended: °üº¬ÎŞĞ§²ÎÊıÊıÁ¿
 @@End@@
 
+###±¸×¢###
+ËäÈ»ËùÓĞ±íµ¥ÔªËØÓĞÒ»¸öÖµ , Ö»ÓĞÒÔÎÄ±¾ÎªÖ÷µÄÔªËØÊ¹ÓÃÆäÃ÷ÏÔµÄÖµÊôĞÔ(¼üÈëÎÄ±¾ , ÎÄ±¾ÇøÓò , Òş²Ø , ÃÜÂëºÍÎÄ¼ş). ÆäËû±íµ¥ÔªËØµÄÖµ²¢²»Ó°ÏìÆäÈçºÎÔÚÓÃ»§½çÃæÖĞÏÔÊ¾ , ¶øÊÇÓÉÔªËØ±»Ñ¡ÖĞ»ò¼¤»î·µ»ØµÄÖµ.
+¸ü¶àĞÅÏ¢Çë²ÎÔÄ_IEFormElementOptionSelect , _IEFormElementCheckboxSelect , _IEFormElementRadioSelectºÍ_IEFormImageClick.
+×¢Òâ: Äã²»ÄÜÊ¹ÓÃ_IEFormElementSetValueÉèÖÃINPUT TYPE=FILEÔªËØµÄÖµ. ä¯ÀÀÆ÷°²È«ÏŞÖÆ»á×èÖ¹. ²é¿´ÏÂÃæµÄÊ¾Àı.
 
-###Remarks###
-å½“æ‰€æœ‰è¡¨å•å…ƒç´ å…·æœ‰ä¸€ä¸ªå€¼æ—¶, åªæœ‰é¢å‘å…ƒç´ çš„æ–‡æœ¬ä»¥ä¸€ç§æ˜æ˜¾çš„æ–¹å¼(æ‰“å°æ–‡æœ¬, æ–‡æœ¬åŒº, éšè—, å¯†ç å’Œæ–‡ä»¶)ä½¿ç”¨è‡ªå·±çš„å€¼å±æ€§. å…¶ä»–è¡¨å•å…ƒç´ çš„å€¼ä¸ä¼šå½±å“ç”¨æˆ·ç•Œé¢ä¸­è¢«æ˜¾ç¤ºçš„å€¼, æ›´ç¡®åˆ‡çš„è¯´æ˜¯å½“è¯¥å…ƒç´ è¢«é€‰å–æˆ–æ¿€æ´»æ—¶ç”±å…ƒç´ è¿”å›çš„å€¼.
+###Ïà¹Ø###
+ _IEFormElementGetValue ,  _IEFormElementGetCollection ,  _IEFormElementGetObjByName ,  _IEFormElementOptionSelect ,  _IEFormElementCheckboxSelect ,  _IEFormElementRadioSelect
 
-å‚è§_IEFormElementOptionSelect, _IEFormElementCheckboxSelect, _IEFormElementRadioSelectå’Œ_IEFormImageClickä»¥è·å–æ›´å¤šä¿¡æ¯.
+###²Î¿¼###
 
-è¯´æ˜: ä¸èƒ½ä½¿ç”¨_IEFormElementSetValueè®¾ç½®INPUT TYPE=FILEå…ƒç´ çš„å€¼. æµè§ˆå™¨å®‰å…¨é™åˆ¶é˜»æ­¢è¯¥å…ƒç´ è„šæœ¬åŒ–. å‚è§ä¸‹é¢çš„ç¤ºä¾‹.
-
-###Related###
-_IEFormElementGetValue, _IEFormElementGetCollection, _IEFormElementGetObjByName, _IEFormElementOptionSelect, _IEFormElementCheckboxSelect, _IEFormElementRadioSelect
-
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@

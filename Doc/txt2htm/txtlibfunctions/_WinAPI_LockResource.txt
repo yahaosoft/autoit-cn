@@ -1,39 +1,34 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_LockResource
 
-###Description###
-锁定内存中指定的资源.
+###����###
+�����ڴ��е�ָ����Դ
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_LockResource ( $hData )
+_WinAPI_LockResource( $hData )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hData
-	被锁定资源的句柄.句柄由 _WinAPI_LoadResource() 函数返回.
-		 除 _WinAPI_LoadResource() 函数成功的返回值外,不要传递任何其它值到这个参数.
+   ��������_WinAPI_LoadResource()���ص���Դ�ľ��. ����Ҫ�����κ���Ϊ������ֵ.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回资源第一个字节的指针.
-失败:	返回 0,设置@error:标志为非 0 值.
+�ɹ�: ��Դ���ֽڵ�ָ��
+ʧ��: ����0������@error��0
 @@End@@
 
-###Remarks###
-资源模块被卸载前, 函数返回的指针总是有效.
- 不必为资源解锁,当创建它们的进程终止时,系统会自动删除这些资源.
- 不要使用由 _WinAPI_FindResource() 或 
-_WinAPI_FindResourceEx() 函数返回的句柄锁定资源,这样的句柄是随机数据.
-注意: _WinAPI_LockResource(), 实际上并没有锁定内存,它只是用来获取内存资源的数据指针.
- 函数名称来自于 Windows XP 之前的版本,用来锁定由 _WinAPI_LoadResource() 分配的全局内存块.
+###��ע###
+ֱ��������Դ��ģ�鱻ж��, �������ص�ָ�뽫һֱ��Ч. ���������Դ, ��Ϊ��������Դ�Ľ�����ֹʱϵͳ���Զ�ɾ��.
+��Ҫ��ͼ����ʹ��_WinAPI_FindResource()��_WinAPI_FindResourceEx()���صľ������Դ, �����ľ��ָ���������.
+��������ʾ���뽫 Resources.dll �ļ��� Resources_x64.dll �ļ�(x64ϵͳʹ��)���浽��ʱ�ļ�����
 
+###���###
 
+###�ο�###
+ ����MSDN֪ʶ����LockResource�������Ϣ
 
-###See Also###
-@@MsdnLink@@ LockResource
-
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

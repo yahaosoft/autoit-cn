@@ -1,43 +1,47 @@
-###User Defined Function###
+###用户自定义函数###
 _WinAPI_GetLayeredWindowAttributes
 
-###Description###
-获取分层窗口属性
+###描述###
+获取层叠窗口属性
 
-###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_GetLayeredWindowAttributes($hWnd, ByRef $i_transcolor, ByRef $Transparency [, $asColorRef = False])
+###语法###
+#Include
+<WinAPI.au3>
+_WinAPI_GetLayeredWindowAttributes($hWnd, ByRef
+$i_transcolor, ByRef $Transparency[, $asColorRef = False])
 
-###Parameters###
+###参数###
 @@ParamTable@@
 $hwnd
-	工作 GUI 的句柄
+   工作的界面句柄
 $i_transcolor
-	返回透明的颜色 ( 双字 0x00bbggrr 或字符串 "0xRRGGBB")
+   返回透明色(dword值0x00bbggrr或字符串"0xRRGGBB")
 $Transparency
-	返回透明的 GUI
-$asColorRef
-	[可选参数] 如为 True, $i_transcolor 将是 COLORREF( 0x00bbggrr ), 否则为 RGB 颜色
+   返回界面透明度
+$isColorRef
+$i_transcolor将是COLORREF( 0x00bbggrr ),
+    或者RGB-Color
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回应用的 LWA_ALPHA 与 LWA_COLORKEY (使用 BitAnd)
-失败:	返回 0
-@error:	
-	1 到 3 - DllCall 错误
-	4 - 函数不成功@extended:
-	包含 _WinAPI_GetLastError()
+成功: LWA_ALPHA和LWA_COLORKEY的用法(使用BitAnd)
+失败:
+返回0或设置@error:
+@error: 1 至 3 - DllCall出错
+@error: 4 - 函数不成功
+@extended:
+包含_WinAPI_GetLastError
 @@End@@
 
-###Remarks###
- 最低操作系统 - Windows XP.
+###备注###
+使用_WinAPI_GetLastErrorMessage以获取更多信息
 
-###Related###
-_WinAPI_SetLayeredWindowAttributes, _WinAPI_GetLastError
+###相关###
+_WinAPI_SetLayeredWindowAttributes , _WinAPI_GetLastError
 
-###See Also###
-@@MsdnLink@@ GetLayeredWindowAttributes
+###参考###
+在MSDN知识库搜索GetLayeredWindowAttributes相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

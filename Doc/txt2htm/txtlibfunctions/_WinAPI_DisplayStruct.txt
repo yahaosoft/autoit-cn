@@ -1,73 +1,62 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_DisplayStruct
 
-###Description###
-Displays data from the specified structure or memory address as a list.
+###ÃèÊö###
+ÒÔÁĞ±íÏÔÊ¾Ô´ÓÚÖ¸¶¨½á¹¹»òÄÚ´æµØÖ·µÄÊı¾İ
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
 _WinAPI_DisplayStruct (ByRef $tStruct [, $sStruct [, $sTitle [, $iItem [, $iSubItem [, $iFlags [, $fTop [, $hParent]]]]]]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $tStruct
-	A structure that was created by DllStructCreate(), or memory address to be display its data.
+   DllStructCreate()´´½¨µÄ½á¹¹»ò±»ÏÔÊ¾Êı¾İµÄÄÚ´æµØÖ·
 $sStruct
-	[å¯é€‰å‚æ•°] A string representing the structure. If $tStruct is a structure, This parameter can be omitted or be
-	an empty string. In this case, the structure will display as "byte[n]" structure. If $tStruct is a
-	memory address, $sStruct should be a string representing the structure, otherwise, the function
-	fail, and @error set to 1.
+$tStructÊÇÒ»¸ö½á¹¹ , ¿ÉºöÂÔ¸Ã²ÎÊı»ò¿Õ´®. ÕâÖÖÇé¿öÏÂ½á¹¹½«ÏÔÊ¾Îª " byte[n] " ½á¹¹. Èç¹û$tStructÎªÄÚ´æµØÖ· , $sStruct½«Îª´ú±í½á¹¹µÄ×Ö·û´® , ·ñÔò , º¯ÊıÊ§°ÜÇÒ@errorÎª1.
 $sTitle
-	[å¯é€‰å‚æ•°] The title of the window, deault is "Structure: ListView Display".
+   [¿ÉÑ¡] ´°¿Ú±êÌâ, Ä¬ÈÏÎª " Structure: ListView Display "
 $iItem
-	[å¯é€‰å‚æ•°] The 1-based index or name of the structure member to be selected in the list. If this parameter is 0,
-	or an incorrect index or name, the first element of the structure will be selected.
+   [¿ÉÑ¡] 1»ùË÷Òı»ò±»Ñ¡ÈëÁĞ±íµÄ½á¹¹³ÉÔ±Ãû³Æ. Èç¹û¸Ã²ÎÊıÎª0»ò²»ÕıÈ·µÄË÷Òı»òÃû³Æ , ½«Ñ¡È¡½á¹¹µÄÊ×¸öÔªËØ.
 $iSubItem
-	[å¯é€‰å‚æ•°] The 1-based index of the array in the structure member pointed to by the $iItem parameter to be
-	selected. If $iItem was not defined as an array in the $sStruct, or invalid array index, the
-	itself element will be selected.
+$iItem²ÎÊıÖ¸ÏòµÄ½á¹¹³ÉÔ±µÄ1»ùË÷ÒıÊı×é. Èç¹û$iItemÎ´ÔÚ$sStructÖĞ¶¨ÒåÎªÊı×é , »òÊı×éË÷ÒıÎŞĞ§ , ½«Ñ¡È¡Æä×ÔÉíÔªËØ.
 $iFlags
-	[å¯é€‰å‚æ•°] A set of bit flags that that specifies an additional displaying options. This parameter can be zero,
-	or any combination of the following values.
-	
-	1 - Prevent display "<struct>" and "<endstruct>" fields at the beginning and end of the list.
-	2 - Prevent display "<alignment>" fields.
-	4 - Prevent display "<unnamed>" in "Member" column of the list if the structure element has no name.
-	8 - Prevent highlighting structure elements that are defined as an array.
-	16 - Prevent perceiving structure elements named "Reserved*" as unused elements.
-	32 - Prevent using double-click to copy values of the structure elements to the clipboard.
-	64 - Forced to expand structure elements of BYTE[n] and BOOLEAN[n] types (elements of CHAR[n] and WCHAR[n] types always displays as a string).
-	128 - Forced to display the values of the structure elements as hexadecimal representation, if possibly.
-	256 - Forced to return error code instead of displaying a message box if a memory access error occurred.
-	512 - Forced to disable checking the read access memory allocated to a given structure.
-	
+   [¿ÉÑ¡] Ö¸¶¨¶îÍâÏÔÊ¾Ñ¡ÏîµÄÊıÎ»±ê¼Ç. ¸Ã²ÎÊı¿ÉÎª0»òÏÂÁĞÖµµÄÈÎÒâ×éºÏ:
+   1 - ÔÚÁĞ±íÍ·Î²²»ÏÔÊ¾ " " ºÍ " " ×Ö¶Î
+   2 - ²»ÏÔÊ¾ " " ×Ö¶Î
+   4 - Èç¹û½á¹¹ÔªËØÎŞÃû³Æ²»ÔÚÁĞ±íµÄ " Member " ÁĞÖĞÏÔÊ¾ " "
+   8 - ²»¸ßÁÁÏÔÊ¾±»¶¨ÒåÎªÊı×éµÄµÄ½á¹¹ÔªËØ.
+   16 - ²»½«ÃûÎª " Reserved* " ÔªËØ¸ĞÖªÎªÎ´Ê¹ÓÃÔªËØ.
+   32 - ½ûÖ¹Ê¹ÓÃË«»÷½á¹¹ÔªËØµÄÖµ¸´ÖÆµ½¼ôÌù°å.
+   64 - Ç¿ÖÆÀ©Õ¹½á¹¹µÄBYTE[n]ºÍBOOLEAN[n]ÀàĞÍÔªËØ(CHAR[n]ºÍWCHAR[n]ÀàĞÍµÄÔªËØÍ¨³£ÏÔÊ¾Îª×Ö·û´®).
+   128 - Èç¹û¿ÉÄÜ, Ç¿ÖÆÒÔ16½øÖÆÏÔÊ¾½á¹¹ÔªËØµÄÖµ.
+   256 - Èç¹ûÄÚ´æ·ÃÎÊ³ö´íÇ¿ÖÆ·µ»Ø´íÎó´úÂëÒÔ´úÌæÏÔÊ¾ÏûÏ¢¿ò.
+   512 - Ç¿ÖÆ½ûÓÃ¼ì²é·ÖÅä¸ø½á¹¹µÄÄÚ´æµÄ¶ÁÈ¡È¨ÏŞ.
 $fTop
-	[å¯é€‰å‚æ•°] Specifies whether create a window with "Always On Top" attribute, valid values:
-		TRUE     - The window is created with the $WS_EX_TOPMOST extended style. (Default)
-		FALSE    - The window will not have the "TOPMOST" flag set.
+   [¿ÉÑ¡] Ö¸¶¨ÊÇ·ñ´´½¨¾ßÓĞ " Always On Top " ÊôĞÔµÄ´°¿Ú , ¿ÉÓÃÖµ:
+    1 - ´°¿Ú¾ßÓĞ$WS_EX_TOPMOST extendedÑùÊ½. (Ä¬ÈÏ)
+    0 - ´°¿Ú²»¾ßÓĞ " TOPMOST " ±ê¼ÇÉèÖÃ.
 $hParent
-	[å¯é€‰å‚æ•°] Handle to a parent window.
+   [¿ÉÑ¡] ¸¸´°Ìå¾ä±ú
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to the one of the following values:
-1	The $sStruct parameter is not a string.
-2	There is an unknown data type in the string passed.
-3	Failed to allocate the memory needed for the structure, or invalid pointer.
-4	Unspecified error.
-5	Error accessing memory to read data.
+³É¹¦: ·µ»Ø1
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@errorÎªÏÂÁĞÖµ:
+    1 - $sStruct²ÎÊı²»ÊÇ×Ö·û´®.
+    2 - ´«µİµÄ½á¹¹ÖĞ¾ßÓĞÎ´ÖªÀàĞÍµÄÊı¾İ.
+    3 - ·ÖÅäÄÚ´æÊ§°Ü»òÖ¸ÕëÎŞĞ§.
+    4 - Î´Ö¸¶¨´íÎó.
+    5 - ·ÃÎÊÄÚ´æ¶ÁÈ¡Êı¾İ³ö´í.
 @@End@@
 
-###Remarks###
-This function is intended primarily for debugging and should not be used in the final script, since no useful
-information for the end user does not carry.
+###±¸×¢###
+´Ëº¯ÊıÖ÷ÒªÓÃÓÚµ÷ÊÔ , ÓÉÓÚ²¢²»Ïò×îÖÕÓÃ»§´«µİÓĞÓÃµÄĞÅÏ¢ , Òò´Ë²»Ó¦¸ÃÓÃÓÚ×îÖÕ½Å±¾¡£
 
+###Ïà¹Ø###
 
-###See Also###
-None
+###²Î¿¼###
 
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

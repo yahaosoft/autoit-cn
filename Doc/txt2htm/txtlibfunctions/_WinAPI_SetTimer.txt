@@ -1,48 +1,38 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_SetTimer
 
-###Description###
-创建指定超时值的计时器.
+###����###
+��������ָ����ʱֵ�ļ�ʱ��
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_SetTimer ( $hWnd, $iTimerID, $iElapse, $pTimerFunc )
+_WinAPI_SetTimer( $hWnd, $iTimerId, $iElapse, $pTimerFunc )
 
-###Parameters###
+###����###
 @@ParamTable@@
+$hWnd  ��ʱ�������Ĵ�����. �ô���������ڵ��ý���.
+$iTimerId  ��ʱ����ʶ. ���$hWnd����Ϊ0, ��$iTimerId��ƥ����ڵļ�ʱ������Բ������µļ�
+$hWnd������Ϊ0����$hwndָ���Ĵ����Ѿ�����һ������$iTimerIdֵ�ļ�ʱ��, ���Ѵ�
+       �ڵļ�ʱ���滻�¼�ʱ��. ��_WinAPI_SetTimer()�滻��ʱ��ʱ, ��ʱ��������. ���, �ڵ�ǰ��ʱ
 $hWnd
-	计时器关联的窗口句柄.窗口必须为调用进程所拥有.
-		 如果 $hWnd 为 0, 则传递现有计时器到 $iTimerID.
-		 即计时器在相同的方式, $hWnd 现有非 0 的定时器将被替换.
-$iTimerID
-	计时器标识符.如果 $hwnd 参数为 0,且 $iTimerID 不匹配现有计时器,则被忽略,并生成新的计时器 ID.
-		 如果 $hwnd 参数不为 0, 且 $hWnd 指定的窗口已经有 $iTimerID 值的计时器,则现有计时器将被替换为新的计时器. 
-		 当 When _WinAPI_SetTimer() 替换计时器, 计时器复位.
-		 因此, 在当前超时值过去后将发送消息,但以前设定的超时值被忽略.
-		 如果调用不是替换现有计时器, 则 $hWnd 为 0 时, $iTimerId 也应为 0. 
-$iElapse
-	超时时间的毫秒值.
-$pTimerFunc
-	回调函数的地址, 当超时值过去时, 接收通知.
-		 如果此参数为 0, 系统发送 WM_TIMER 消息到应用程序队列中.
-		 (为了解更多信息,请参见 MSDN)
+$iTimerId��Ϊ0.
+$iElapse  ���볬ʱֵ.
+$pTimerFunc  ������ʱֵʱ��֪ͨ�Ļص������ĵ�ַ. ���Ϊ0, ϵͳ��Ӧ�ó�����д���WM_TIMER��Ϣ.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回计时器标识符.应用程序可以传递此值到 _WinAPI_KillTimer() 函数销毁计时器.
-	destroy the timer.
-失败:	返回 0,设置@error:标志为非 0 值.
+�ɹ�: ��ʱ����ʶ. Ӧ�ó���ɽ���ֵ���ݸ�_WinAPI_KillTimer()�����������ټ�ʱ��.
+ʧ��: ����0������@error��0
 @@End@@
 
-###Remarks###
-计时器的标识符、$iTimerID、关联到具体的窗口.
- 另一窗口可以有自己独立的计时器,计时器拥有同样的标识. 但计时器是不同的.
+###��ע###
+��ʱ����ʶ��, $iTimerId, ��ָ������������. ��һ����ɾ������Լ�����һ�����ʱ��������ͬ��ʶ���ļ�ʱ��. ��ʱ���ǲ�ͬ��.
 
+###���###
 
-###See Also###
-@@MsdnLink@@ SetTimer
+###�ο�###
+ ����MSDN֪ʶ����SetTimer�������Ϣ
 
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

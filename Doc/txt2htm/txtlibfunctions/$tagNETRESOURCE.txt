@@ -1,50 +1,41 @@
-﻿###Structure Name###
+###�ṹ����###
 $tagNETRESOURCE
 
-###Description###
-tagNETRESOURCE 数据结构
+###����###
+����������Դ��Ϣ�Ľṹ
 
-###Syntax###
-Global Const $tagNETRESOURCE = "int Scope;int Type;int DisplayType;int Usage;ptr LocalName;ptr RemoteName;ptr Comment;ptr Provider"
 
-###Fields###
+###�﷨###
+Global Const $tagNETRESOURCE =  "int Scope;int Type;int DisplayType;int Usage;ptr LocalName;ptr RemoteName;ptr Comment;ptr Provider"
+
+###��Ա###
 @@ParamTable@@
 Scope
-	枚举范围:
-		$RESOURCE_CONNECTED - 枚举当前已连接的资源
-		$RESOURCE_GLOBALNET - 枚举网络上的所有资源
-		$RESOURCE_REMEMBERED - 枚举记录的连接
+   ö�ٷ�Χ:
+    $RESOURCE_CONNECTED - ö�ٵ�ǰ�����ӵ���Դ
+    $RESOURCE_GlobalNET - ö�������ϵ�������Դ
+    $RESOURCE_REMEMBERED - ö�ټ�¼������
 Type
-	确定资源类型的数位标记:
-		$RESOURCETYPE_ANY - 所有资源
-		$RESOURCETYPE_DISK - 磁盘资源
-		$RESOURCETYPE_PRINT - 打印资源
+   ȷ����Դ���͵���λ���:
+    $RESOURCETYPE_ANY - ������Դ
+    $RESOURCETYPE_DISK - ������Դ
+    $RESOURCETYPE_PRINT - ��ӡ��Դ
 DisplayType
-	网络对象在网络浏览的用户界面中的显示选项:
-		$RESOURCEDISPLAYTYPE_DOMAIN - 对象显示为域
-		$RESOURCEDISPLAYTYPE_SERVER - 对象显示为服务器
-		$RESOURCEDISPLAYTYPE_SHARE - 对象显示为共享
-		$RESOURCEDISPLAYTYPE_GENERIC - 常用显示方法
+   �������������������û������е���ʾѡ��:
+    $RESOURCEDISPLAYTYPE_DOMAIN - ������ʾΪ��
+    $RESOURCEDISPLAYTYPE_SERVER - ������ʾΪ������
+    $RESOURCEDISPLAYTYPE_SHARE - ������ʾΪ����
+    $RESOURCEDISPLAYTYPE_GENERIC - ������ʾ����
 Usage
-	描述如何使用资源的数位标记. 注意该成员仅当 Scope 成员为 $RESOURCE_GLOBALNET 时方可指定.
-	该成员可下列值之一:
-		$RESOURCEUSAGE_CONNECTABLE - 可连接资源; 由 RemoteName 指定的名称可传递给 _WNet_AddConnection 函数,以创建网络连接.
-		$RESOURCEUSAGE_CONTAINER - 容器资源; 由 RemoteName 指定的名称可传递给 WNet_OpenEnum 函数,以枚举容器中的资源.
+   �������ʹ����Դ����λ���. ע��ó�Ա����Scope��ԱΪ$RESOURCE_GlobalNETʱ�ɱ�ָ��. �ó�Ա������ֵ֮һ:
+    $RESOURCEUSAGE_CONNECtable - ��������Դ; ��RemoteNameָ�������ƿɴ��ݸ�_WNet_AddConnection�����Դ�����������.
+    $RESOURCEUSAGE_CONTAINER - ������Դ; ��RemoteNameָ�������ƿɴ��ݸ�WNet_OpenEnum������ö�������е���Դ.
 LocalName
-	当 Scope 成员为 $RESOURCE_CONNECTED 或 $RESOURCE_REMEMBERED 时,
-	该成员为指定本地设备名称的无终止字符字符串的指针.
-	如果不使用该连接的设备,这个成员为 0.
+   ��Scope��ԱΪ$RESOURCE_CONNECTED��$RESOURCE_REMEMBEREDʱ, �ó�ԱΪָ�������豸���Ƶ�����ֹ�ַ��ַ�����ָ��. ������δʹ���豸�Ǹó�ԱΪ0.
 RemoteName
-	如果项目为网络资源, 该成员为指定远程网络名称的无终止字符字符串的指针.
-	如果项目为当前的或持续的连接, RemoteName 指向由 LocalName 成员指定的名称相关的网络名称.
+   �����ĿΪ������Դ, �ó�ԱΪָ��Զ���������Ƶ�����ֹ�ַ��ַ�����ָ��. �����ĿΪ��ǰ�Ļ����������, RemoteNameָ������LocalName��Աָ����������ص���������.
 Comment
-	包含有由网络提供者提供的注释的无终止字符字符串的指针
+   �������������ṩ���ṩ�����۵�����ֹ�ַ��ַ�����ָ��
 Provider
-	包含拥有资源提供者名称的无终止字符字符串的指针.
-	如果提供的名称未知,该成员可为空.
-	可调用 _WNet_GetProviderName 函数获取提供者名称.
-@@End@@
-
-###Remarks###
-None.
-
+   ����ӵ����Դ�ṩ�����Ƶ�����ֹ�ַ��ַ�����ָ��. ���δ֪�ó�Ա��Ϊ��. �ɵ���_WNet_GetProviderName������ȡ�ṩ������.
+@@end@@

@@ -1,42 +1,39 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_GetTextInRange
 
-###Description###
-获取字符区间位置的另一个文本
+###描述###
+获取从一个连字符位置到另一个之间的文本
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetTextInRange($hWnd, $iStart, $iEnd)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iStart
-	文本前的字符区间位置
-$iEnd
-	文本后的字符区间位置
-		特别值: -1 - 文本结束
+ $hWnd  控件句柄
+ $iStart  文本前的连字符
+ $iEnd  文本后的连字符
+特殊值: -1 - 文本尾
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回文本
-失败:	返回 False,设置@error
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $iStart 既不是正数,也不是 0
-	1031 - $iEnd 既不是正数或 0,也不是 -1
-	1032 - $iStart &lt; $iEnd 与 $iEnd &l;&gt; -1
+ 成功:  文本
+ 失败:  否且设置@error
+ @error:  101 - $hWnd不是句柄
+  102 - $iStart不是正数或0
+  1031 - $iEnd既不是正数也不是0或-1
+  1032 - $iStart > $iEnd 且 $iEnd < -1
 @@End@@
 
-###Remarks###
- 控件内的第一个字符位置为 0
+###备注###
+控件内的首个字符位置为0
 
-###Related###
-_GUICtrlRichEdit_GetTextinLine
+###相关###
+ _GUICtrlRichEdit_GetTextinLine
 
-###See Also###
-@@MsdnLink@@ EM_GETTEXTRANGE
+###参考###
+ 搜索MSDN知识库中EM_GETTEXTRANGE的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

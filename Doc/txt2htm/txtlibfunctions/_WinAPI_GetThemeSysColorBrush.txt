@@ -1,64 +1,61 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_GetThemeSysColorBrush
 
-###Description###
-Retrieves a system color brush.
+###ÃèÊö###
+»ñÈ¡ÏµÍ³ÑÕÉ«»­Ë¢
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_GetThemeSysColorBrush ( $hTheme, $iColorId )
+_WinAPI_GetThemeSysColorBrush( $hTheme, $iColorId )
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
 $hTheme
-	Handle to the theme data.
+   Ö÷ÌâÊý¾Ý¾ä±ú
 $iColorId
-	The value that specifies the number of the desired system color. It may be one of the following values.
-	
-	$TMT_SCROLLBAR
-	$TMT_BACKGROUND
-	$TMT_ACTIVECAPTION
-	$TMT_INACTIVECAPTION
-	$TMT_WINDOW
-	$TMT_WINDOWFRAME
-	$TMT_MENUTEXT
-	$TMT_WINDOWTEXT
-	$TMT_CAPTIONTEXT
-	$TMT_ACTIVEBORDER
-	$TMT_INACTIVEBORDER
-	$TMT_APPWORKSPACE
-	$TMT_HIGHLIGHT
-	$TMT_HIGHLIGHTTEXT
-	$TMT_BTNFACE
-	$TMT_BTNSHADOW
-	$TMT_GRAYTEXT
-	$TMT_BTNTEXT
-	$TMT_INACTIVECAPTIONTEXT
-	$TMT_BTNHIGHLIGHT
-	$TMT_DKSHADOW3D
-	$TMT_LIGHT3D
-	$TMT_INFOTEXT
-	$TMT_INFOBK
-	$TMT_BUTTONALTERNATEFACE
-	$TMT_HOTTRACKING
-	$TMT_GRADIENTACTIVECAPTION
-	$TMT_GRADIENTINACTIVECAPTION
-	$TMT_MENUHILIGHT
-	$TMT_MENUBAR
-	
+   Ö¸¶¨ËùÐèÏµÍ³ÑÕÉ«ÊýÁ¿µÄÖµ. ¿ÉÎªÏÂÁÐÖµÖ®Ò»:
+    $TMT_SCROLLBAR - ¹ö¶¯ÌõÑÕÉ«
+    $TMT_BACKGROUND - ±³¾°É«
+    $TMT_ACTIVECAPTION - »î¶¯´°¿Ú±êÌâÇøÑÕÉ«
+    $TMT_INACTIVECAPTION - ·Ç»î¶¯´°¿Ú±êÌâÇøÑÕÉ«
+    $TMT_WINDOW - ´°¿ÚÑÕÉ«
+    $TMT_WINDOWFRAME - Î§ÈÆ´°¿ÚµÄ¿ò¼ÜµÄÑÕÉ«
+    $TMT_MENUTEXT - ²Ëµ¥ÎÄ±¾É«
+    $TMT_WINDOWTEXT - ´°¿ÚÎÄ±¾É«
+    $TMT_CAPTIONTEXT - »î¶¯´°¿Ú±êÌâÇøÎÄ±¾É«
+    $TMT_ACTIVEBORDER - »î¶¯´°¿Ú±ß¿òÉ«
+    $TMT_INACTIVEBORDER - ·Ç»î¶¯´°¿Ú±ß¿òÉ«
+    $TMT_APPWORKSPACE - Ó¦ÓÃ³ÌÐò¹¤×÷ÇøµÄÑÕÉ«
+    $TMT_HIGHLIGHT - ¸ßÁÁÉ«
+    $TMT_HIGHLIGHTTEXT - ¸ßÁÁÎÄ±¾É«
+    $TMT_BTNFACE - °´Å¥±íÃæÑÕÉ«
+    $TMT_BTNSHADOW - °´Å¥ÒõÓ°ÑÕÉ«
+    $TMT_GRAYTEXT - ±ä°µµÄÎÄ±¾É«
+    $TMT_BTNTEXT - °üº¬ÔÚ°´Å¥ÖÐµÄÎÄ±¾É«
+    $TMT_INACTIVECAPTIONTEXT - ·Ç»î¶¯´°¿Ú±êÌâÇøÎÄ±¾É«
+    $TMT_BTNHIGHLIGHT - Î§ÈÆ°´Å¥µÄ¸ßÁÁÉ«
+    $TMT_DKSHADOW3D - 3DÒõÓ°É«
+    $TMT_LIGHT3D - 3DÁÁÇøÑÕÉ«
+    $TMT_INFOTEXT - ÐÅÏ¢ÎÄ±¾É«
+    $TMT_INFOBK - ÐÅÏ¢ÎÄ±¾±³¾°É«
+    $TMT_BUTTONALTERNATEFACE - ¶àÑ¡°´Å¥ÑÕÉ«
+    $TMT_HOTTRACKING - ¸ú×Ù¸ßÁÁÉ«
+    $TMT_GRADIENTACTIVECAPTION - »î¶¯´°¿Ú±êÌâÇøµÄÌÝ¶ÈÉ«
+    $TMT_GRADIENTINACTIVECAPTION - ·Ç»î¶¯´°¿Ú±êÌâÇøµÄÌÝ¶ÈÉ«
+    $TMT_MENUHILIGHT - ¸ßÁÁµÄ²Ëµ¥ÏîÑÕÉ«
+    $TMT_MENUBAR - ²Ëµ¥À¸ÑÕÉ«
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	Handle to the brush.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø»­Ë¢¾ä±ú
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-If the theme data handle is not 0, this function returns the brush that matches the specified color from the SysMetrics
-section of the visual style, otherwise, the function returns the brush matching the global system color.
+###±¸×¢###
+Èç¹ûÖ÷ÌâÊý¾Ý¾ä±ú²»Îª0, ¸Ãº¯Êý·µ»ØÆ¥ÅäÊÓ¾õÑùÊ½µÄSysMetrics²¿·ÖÖ¸¶¨ÑÕÉ«µÄ»­Ë¢, ·ñÔò, º¯Êý·µ»ØÆ¥ÅäÈ«¾ÖÏµÍ³ÑÕÉ«µÄÖµ.
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ GetThemeSysColorBrush
-
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖÐGetThemeSysColorBrushµÄÏà¹ØÐÅÏ¢

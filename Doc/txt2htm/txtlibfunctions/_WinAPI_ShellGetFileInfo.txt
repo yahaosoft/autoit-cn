@@ -1,61 +1,52 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_ShellGetFileInfo
 
-###Description###
-检索文件系统对象的信息.
+###����###
+��ȡ�ļ�ϵͳ��һ���������Ϣ
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellGetFileInfo ( $sPath, $iFlags, $iAttributes, ByRef $tSHFILEINFO )
+_WinAPI_ShellGetFileInfo( $sPath, $iFlags, $iAttributes, ByRef $tSHFILEINFO )
 
-###Parameters###
+###����###
 @@ParamTable@@
-$sPath
-	绝对或相对路径和文件名字符串.可以使用短(8.3格式)或长文件名.
-		 short (the 8.3 form) or long file names.
-		 如果 $iFlags 参数包括 $SHGFI_PIDL 标志,参数必须是 ITEMIDLIST(PIDL) 结构,
-		 它包含处理程序(Shell)命名空间标识项目的唯一标识符.
-		 项目标识符列表(PIDL)必须是完全合格的 PIDL 指针. 不允许相对 PIDL.
-		 如果 $iFlags 参数包括 $SHGFI_USEFILEATTRIBUTES 标志, 这个参数不必是一个有效的文件名.
-		 如果文件具有指定名称,并且 $iAttributes 参数传递文件属性,该函数将继续.
-		 这允许通过传递 $sPath 的扩展及 $iAttributes 的 $FILE_ATTRIBUTE_NORMAL 获取文件类型信息.
-$iFlags
-	文件信息检索标志. 此参数可以是以下值的组合:
-		 $SHGFI_ATTR_SPECIFIED --- 修改 SHGFI_ATTRIBUTES 以标示 $tSHFILEINFO 结构包含 $iAttributes 所期望的特定属性性.不能同时指定 $SHGFI_ICON 标志
-		 $SHGFI_ATTRIBUTES --- 检索项目的属性
-		 $SHGFI_DISPLAYNAME --- 检索该文件的显示名称
-		 $SHGFI_EXETYPE --- 如果 $sPath 标识为可执行文件,检索可执行文件的类型
-		 $SHGFI_ICON --- 检索图标的句柄
-		 $SHGFI_ICONLOCATION --- 检索文件的名称
-		 $SHGFI_LARGEICON --- 修改 SHGFI_ICON,使函数检索文件的大图标.必须同时设置 SHGFI_ICON 标志
-		 $SHGFI_LINKOVERLAY --- 修改 SHGFI_ICON,使函数将链接添加到该文件的图标.必须同时设置 SHGFI_ICON 标志
-		 $SHGFI_OPENICON --- 修改 $SHGFI_ICON,使函数检索文件的打开图标.必须同时设置 SHGFI_ICON 和/或 SHGFI_SYSICONINDEX 标志
-		 $SHGFI_OVERLAYINDEX --- 5.0 版本.返回覆盖图标的索引
-		 $SHGFI_PIDL --- 表明 $sPath 是 ITEMIDLIST 地址结构,而不是路径名称
-		 $SHGFI_SELECTED --- 修改SHGFI_ICON,使函数融合系统文件图标的高亮颜色.必须同时设置 SHGFI_ICON 标志
-		 $SHGFI_SHELLICONSIZE --- 修改SHGFI_ICON,使函数检索 Shell 大小的图标.必须同时设置 SHGFI_ICON 标志
-		 $SHGFI_SMALLICON --- 修改 SHGFI_ICON,使函数检索文件的小图标.必须同时设置 SHGFI_ICON 和/或 SHGFI_SYSICONINDEX 标志
-		 $SHGFI_SYSICONINDEX --- 检索系统图像列表的图标索引
-		 $SHGFI_TYPENAME --- 检索描述文件类型的字符串
-		 $SHGFI_USEFILEATTRIBUTES --- 函数不应该试图访问 $sPath 指定的文件,如果文件存在,则使用 $iAttributes 的文件属性
-$iAttributes
-	一或多个文件属性标志的组合 ($FILE_ATTRIBUTE_*).
-$tSHFILEINFO
-	$tagSHFILEINFO 结构,用于接收文件信息.
+$sPath  �������Ի����·�����ļ������ַ���. ��ʹ�ö��ļ���(8.3��ʽ)���ļ���.
+$iFlags��������$SHGFI_PIDL���, �ò��������ǰ�����Shell�����ռ�������Ψһ��ʶ�ļ�����Ŀ��ʶ�����б���TEMIDLIST (PIDL)�ṹ�ĵ�ַ. ��Ŀ��ʶ���б���ָ���������ȫ�Ϸ���PIDL. ������ʹ�����PIDL.
+$iFlags��������$SHGFI_USEFILEATTRIBUTES���, �ò������غ�����Ч�ļ���. ��������ִ��, ��ָͬ����������$iAttributes����ָ�����Ե��ļ�����һ��. ������ͨ������$sPath�е���չ����$iAttributes�е�$FILE_ATTRIBUTE_NORMAL������ȡ�����ļ����͵���Ϣ.
+$iFlags  �ñ��ָ��Ҫ��ȡ����Ϣ. ��Ϊ����ֵ�����.
+$SHGFI_ATTR_SPECIFIED - ��ȡ�ļ�ָ������
+$SHGFI_ATTRIBUTES - ��ȡ�ļ�����
+$SHGFI_DISPLAYNAME - ��ȡ�ļ���ʾ��
+$SHGFI_EXETYPE - ��ȡ��ִ���ļ�����
+$SHGFI_ICON - ��ȡ�ļ�ͼ��
+$SHGFI_ICONLOCATION - ��ȡ�ļ�ͼ���ַ
+$SHGFI_LARGEICON - ��ȡ�ļ���ͼ��
+$SHGFI_LINKOVERLAY - ��ȡ���ӵ�����ͼ��
+$SHGFI_OPENICON - ��ȡ��ͼ��
+$SHGFI_OVERLAYINDEX - ��ȡ���ӵ�����
+$SHGFI_PIDL - ��ʶ��
+$SHGFI_SELECTED - ѡȡ״̬��ͼ��
+$SHGFI_SHELLICONSIZE - ��ȡ�ļ�ͼ���С
+$SHGFI_SMALLICON - ��ȡ�ļ�Сͼ��
+$SHGFI_SYSICONINDEX - ��ȡϵͳͼ������
+$SHGFI_TYPENAME - ��ȡ�ļ�������
+$SHGFI_USEFILEATTRIBUTES - ���ڴ���$iAttributes
+$iAttributes  һ�������ļ����Ա�ǵĽ��($FILE_ATTRIBUTE_...).
+$iFlags������$SHGFI_USEFILEATTRIBUTES���, ���Ըò���. Ĭ��Ϊ0x80($FILE_ATTRIBUTE_NORMAL).
+$tSHFILEINFO  �����ļ���Ϣ��$tagSHFILEINFO�ṹ.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	如果 $iFlags 包含 $SHGFI_EXETYPE --- 如果 $sPath 标识为可执行文件,检索可执行文件的类型 标志, 返回可执行文件的类型;
-	如果 $iFlags 包含 $SHGFI_SYSICONINDEX --- 检索系统图像列表的图标索引 标志. 返回系统图像列表句柄. 否则返回 - 1.
-失败:	返回 0,设置@error:标志为非 0 值.
+�ɹ�: $tagSHFILEINFO�ṹ. ���$iFlags����$SHGFI_EXETYPE���, @extended���ָ����ִ���ļ�����.
+    ���$iFlags����$SHGFI_SYSICONINDEX���, @extended���ָ��ϵͳͼ���б��ľ��.
+ʧ��: ����0������@error��0.
 @@End@@
 
-###Remarks###
-如果此函数返回 $tagSHFILEINFO 结构的 hIcon 成员图标句柄,
- 当你不再需要它时, 调用 _WinAPI_DestroyIcon() 函数释放.
+###��ע###
+��������$tagSHFILEINFO�ṹ��hIcon��Ա�����ڲ�����Ҫʱ��_WinAPI_FreeIcon()�����ͷ�.
 
+###���###
 
-###See Also###
-@@MsdnLink@@ SHGetFileInfo
-
+###�ο�###
+ ����MSDN֪ʶ����SHGetFileInfo�������Ϣ

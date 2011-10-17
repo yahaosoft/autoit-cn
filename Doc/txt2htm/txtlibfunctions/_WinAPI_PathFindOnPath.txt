@@ -1,39 +1,38 @@
-###User Defined Function###
+###用户自定义函数###
 _WinAPI_PathFindOnPath
 
-###Description###
-搜索默认系统路径文件
+###描述###
+在默认系统路径中搜索文件
 
-###Syntax###
+###语法###
 #Include <WinAPI.au3>
-_WinAPI_PathFindOnPath ( $szFile, $aExtraPaths="", $szPathDelimiter=@LF)
+_WinAPI_PathFindOnPath( $szFile, $aExtraPaths="", $szPathDelimiter=@LF )
 
-###Parameters###
+###参数###
 @@ParamTable@@
 $szFile
-	搜索的文件名
+   搜索的文件名
 $aExtraPaths
-	额外的路径.
+   在另一个路径之前检查的额外路径
 $szPathDelimiter
-	如果 $aExtraPaths 为非空字符串,指定分割 $aExtraPaths 的分隔符(相同于 StringSplit 函数参数 2)
+$aExtraPaths的路径(带有参数2的StringSplit)
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回文件的完整路径
-失败:	返回无变化的文件名, @error=1
+成功: 找到的文件的全路径
+失败: 未改变的文件名, @error=1
 @@End@@
 
-###Remarks###
- $aExtraPaths 可以包含任何系统默认选中的路径清单.
- 它可以是数组或字符串. 如果是前者, 则不计算它的第一个元素.
- 如果是后者, 它会使用 $szPathDelimiter 的分隔符,而默认为 @LF.
+###备注###
+$aExtraPaths可包含一系列将被检查的在系统默认之前的路径列表.
+可为数组或字符串. 如果是表, 首个元素不是计数.
+如果是后者, 将使用$szPathDelimiter(默认为@LF)作为分隔符进行拆分.
 
-###Related###
+###相关###
 
-###See Also###
-@@MsdnLink@@ PathFindOnpath
+###参考###
+ 搜索MSDN知识库中PathFindOnpath的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@
-

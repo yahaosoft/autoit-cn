@@ -1,47 +1,55 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_SetFilePointer
 
-###Description###
-移动指定文件的指针
+###����###
+�ƶ�ָ���ļ���ָ��
 
-###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_SetFilePointer($hFile, $iPos [, $iMethod = 0])
+###�﷨###
+#Include
+<WinAPI.au3>
+_WinAPI_SetFilePointer($hFile, $iPos[, $iMethod =
+0])
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hFile
-	文件句柄
+   ��ִ�е��ļ����
 $iPos
-	移动文件指针的字节数,最大值为 2^32
-		正值向前移动文件指针, 而负数则向后移动文件指针.
+   �ļ�ָ���ƶ����ֽ���. ���ֵΪ2^32.
+    ��ֵ��ǰ�ƶ��ļ�ָ��, ��ֵ����ƶ�.
 $iMethod
-	[可选参数] 文件指针移动的起点.
-		可以预定义下列值之一:
-		$FILE_BEGIN = 0 - 起点为 0 或文件的开头
-		$FILE_CURRENT = 1 - 起点为文件指针的当前值.
-		$FILE_END = 2 - 起点为文件的目前结束位置.
-		默认值为 $FILE_BEGIN = 0
+   �ļ�ָ���ƶ��Ŀ�ʼ��. ��Ϊ����Ԥ����ֵ֮һ:
+    $FILE_BEGIN = 0 -
+      ��ʼ����0���ļ���ʼ
+    $FILE_CURRENT = 1 - ��ʼ�����ļ�ָ��ĵ�ǰλ��
+    $FILE_END = 2 -
+      ��ʼ���ǵ�ǰ�ļ�β
+$FILE_BEGIN = 0
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回新的文件指针.
-失败:	返回 INVALID_SET_FILE_POINTER (-1) 并设置 @error
-@error:	0 - 无错误
-	2 - API 返回 INVALID_SET_FILE_POINTER
+�ɹ�: �µ��ļ�ָ��
+ʧ��: ����INVALID_SET_FILE_POINTER (-1)������
+@Error:
+0 - �޴���
+1 - API����@error
+2 - API����INVALID_SET_FILE_POINTER
 @@End@@
 
-###Remarks###
- 通过 $FILE_CURRENT 指定移动方法和零距离, 函数也可以用来查询当前文件的指针位置.
- 这个函数值存储文件的长(LONG)值指针,为了与那些大于长值的文件指针一起工作,必须使用 SetFilePointerEx 函数.
- 文件指针是供 _WinAPI_ReadFile 或 _WinAPI_WriteFile 函数读写文件的位置.
+###��ע###
+�ú���Ҳ������ͨ��ָ��һ��FILE_CURRENT���ƶ�������0�����ѯ��ǰ�ļ�ָ���λ��.
++�ú���ʹ�ó�ֵ�洢�ļ�ָ��.
+�ʹ��ڵ�һ��ֵ���ļ�ָ��һͬ����,
+��������SetFilePointerEx����.
++�ļ�ָ����ͨ��_WinAPI_ReadFile/_WinAPI_WriteFile�������ļ����ж�/д
+��/�ӵ�λ��
 
-###Related###
-_WinAPI_CloseHandle, _WinAPI_CreateFile, _WinAPI_FlushFileBuffers, _WinAPI_GetFileSizeEx, _WinAPI_ReadFile, _WinAPI_SetEndOfFile, _WinAPI_WriteFile
+###���###
+_WinAPI_CloseHandle , _WinAPI_CreateFile , _WinAPI_FlushFileBuffers , _WinAPI_GetFileSizeEx , _WinAPI_ReadFile , _WinAPI_SetEndOfFile , _WinAPI_WriteFile
 
-###See Also###
-@@MsdnLink@@ SetFilePointer
+###�ο�###
+����MSDN֪ʶ����SetFilePointer�������Ϣ
 
-###Example###
+###ʾ��###
 @@IncludeExample@@

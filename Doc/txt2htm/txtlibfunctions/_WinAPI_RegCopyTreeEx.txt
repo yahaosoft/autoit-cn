@@ -1,38 +1,34 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_RegCopyTreeEx
 
-###Description###
-复制指定的注册表项及其子项到指定的目标键.
+###����###
+���������Ӽ���ֵ��ָ��ע��������Ƶ�Ŀ���
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_RegCopyTreeEx ( $hSrcKey, $sSrcSubKey, $hDestKey )
+_WinAPI_RegCopyTreeEx( $hSrcKey, $sSrcSubKey, $hDestKey )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hSrcKey
-	打开的注册表项句柄,该键项必须已打开且有 $KEY_READ 访问权限.
-		 句柄由 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回,
-		 也可以是预定义的注册表项 ($HKEY_*).
+$HKEY_...). �ü���$KEY_READȨ�޴�.
 $sSrcSubKey
-	键名称.这个键必须是由 $hSrcKey 参数确定键的子项
+$hSrcKey������ʶ��ֵ���Ӽ�.
 $hDestKey
-	目标键句柄. 调用进程必须有 $KEY_CREATE_SUB_KEY 访问权.
-		 句柄由 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回,
-		 也可以是预定义的注册表项 ($HKEY_*).
+$HKEY_...)
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
+�ɹ�: ����1
+ʧ��: ����0������@error��0, @extended��ǿɰ�����0ϵͳ�������.
 @@End@@
 
-###Remarks###
-函数能复制键的安全描述符.
- 本函数需要 Windows Vista 或更高版本系统.
+###��ע###
+�ú���ͬʱ���Ƽ���ֵ�İ�ȫ����.
+���ϵͳΪWindows Vista.
 
+###���###
 
-###See Also###
-@@MsdnLink@@ RegCopyTree
-
+###�ο�###
+ ����MSDN֪ʶ����RegCopyTree�������Ϣ

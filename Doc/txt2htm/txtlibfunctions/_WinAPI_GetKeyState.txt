@@ -1,38 +1,32 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_GetKeyState
 
-###Description###
-检索指定虚拟键的状态.
+###����###
+��ȡָ���������״̬
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_GetKeyState ( $vKey )
+_WinAPI_GetKeyState( $vkCode )
 
-###Parameters###
+###����###
 @@ParamTable@@
-$vKey
-	指定虚拟键($VK_*). 
-		虚拟键为字母或数字(A 到 Z, a 到 z 或 0 到 9)
+$vkCode
+$VK_...)
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回指定虚拟键的状态值.
-	如果高序位为 1, 键被按下, 反之为松开.
-	对于切换键,比如 CAPS LOCK 键,则打开时低序数位为 1,关闭时为 0.
-	切换键打开时键盘上的切换键指示灯(如果有)将点亮, 反之则关闭.
-失败:	返回 0,设置@error:标志为非 0 值.
+�ɹ�: ����ָ��ָ�������״̬��ֵ. �����λΪ1 , �������� , ��֮Ϊ̧��. �����λΪ1 , ��������. ��CAPS LOCK�� , ��ʾ�л�����. ��λΪ0ʱ���ر�. �����ϵ��л���ָʾ��(�����)�ڱ�����ʱ���� , δ����ʱ�ر�.
+ʧ��: ����0������@error��0.
 @@End@@
 
-###Remarks###
-进程从消息队列读取键消息时,函数返回键状态的变化.
- 不反映与硬件相关的中断级别状态.
- 调用 _WinAPI_GetAsyncKeyState() 函数获取信息
+###��ע###
+�ú������صļ�״̬�����̴���Ϣ�����ж�ȡ������Ϣʱ�ı�. ״̬����ӳ��Ӳ����ص��жϼ���, ����Ϣ��ʹ��_WinAPI_GetAsyncKeyState()������ȡ
 
+###���###
 
-###See Also###
-@@MsdnLink@@ GetKeyState
+###�ο�###
+ ����MSDN֪ʶ����GetKeyState�������Ϣ
 
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

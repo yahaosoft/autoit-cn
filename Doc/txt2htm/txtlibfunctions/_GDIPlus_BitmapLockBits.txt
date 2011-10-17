@@ -1,57 +1,56 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _GDIPlus_BitmapLockBits
 
-###Description###
-ä¸ºè¯»/å†™æ“ä½œé”å®šéƒ¨åˆ†ä½å›¾
+###ÃèÊö###
+Ëø¶¨Î»Í¼ÓÃÓÚ¶ÁÈ¡ºÍÐ´ÈëµÄ²¿·Ö
 
-###Syntax###
+###Óï·¨###
 #Include <GDIPlus.au3>
-_GDIPlus_BitmapLockBits($hBitmap, $iLeft, $iTop, $iWidth, $iHeight [ , $iFlags = $GDIP_ILMREAD [, $iFormat = $GDIP_PXF32RGB ]])
+_GDIPlus_BitmapLockBits($hBitmap, $iLeft, $iTop, $iRight, $iBottom[, $iFlags = 1[, $iFormat = 0x00022009]])
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
-$hBitmap
-	ä½å›¾å¯¹è±¡å¥æŸ„
-$iLeft
-	é”å®šçŸ©å½¢çš„å·¦ä¸Šè§’ X åæ ‡
-$iTop
-	é”å®šçŸ©å½¢çš„å·¦ä¸Šè§’ Y åæ ‡
-$iWidth
-	é”å®šçŸ©å½¢çš„å®½åº¦
-$iHeight
-	é”å®šçŸ©å½¢çš„é«˜åº¦
-$iFlags
-	[å¯é€‰å‚æ•°]æŒ‡å®šé”å®šç±»åž‹åŠæ˜¯å¦ç”±ç”¨æˆ·åˆ†é…ç¼“å†²åŒº
-		å¯è®¾æ ‡å¿—å¦‚ä¸‹:
-		$GDIP_ILMREAD - ä¸ºè¯»å–é”å®š
-		$GDIP_ILMWRITE - ä¸ºå†™å…¥é”å®š
-		$GDIP_ILMUSERINPUTBUF - ç”±ç”¨æˆ·åˆ†é…ç¼“å†²åŒº
-$iFormat
-	[å¯é€‰å‚æ•°] æŒ‡å®šåœ¨ä¸´æ—¶ç¼“å†²åŒºä¸­çš„åƒç´ æ•°æ®æ ¼å¼.å¯ä»¥æ˜¯ä¸‹åˆ—ä¹‹ä¸€:
-		$GDIP_PXF01INDEXED - 1 ä½, ç´¢å¼•
-		$GDIP_PXF04INDEXED - 4 ä½, ç´¢å¼•
-		$GDIP_PXF08INDEXED - 8 ä½, ç´¢å¼•
-		$GDIP_PXF16GRAYSCALE - 16 bpp, ç°åº¦çº§
-		$GDIP_PXF16RGB555 - 16 bpp; æ¯ä¸ª RGB åˆ†é‡ 5 ä½
-		$GDIP_PXF16RGB565 - 16 bpp; çº¢è‰² 5 ä½ , ç»¿è‰² 6 ä½, è“è‰² 5 ä½
-		$GDIP_PXF16ARGB1555 - 16 bpp; 1 ä½ alpha,æ¯ä¸ª RGB åˆ†é‡ 5 ä½
-		$GDIP_PXF24RGB - 24 bpp; æ¯ä¸ª RGB åˆ†é‡ 8 ä½
-		$GDIP_PXF32RGB - 32 bpp; æ¯ä¸ª RGB åˆ†é‡ 8 ä½
-		$GDIP_PXF32ARGB - 32 bpp; æ¯ç»„ RGB åˆ†é‡å’Œ alpha 8 ä½
-		$GDIP_PXF32PARGB - 32 bpp; æ¯ç»„ RGB åˆ†é‡å’Œ alpha 8 ä½, pre-mulitiplied
+$hBitmap 
+   Î»Í¼¶ÔÏó¾ä±ú
+$iLeft 
+   ÒªËø¶¨µÄ¾ØÐÎµÄ×óÉÏ½ÇX×ø±ê
+$iTop 
+   ÒªËø¶¨µÄ¾ØÐÎµÄ×óÉÏ½ÇY×ø±ê
+$iRight 
+   ÒªËø¶¨µÄ¾ØÐÎµÄÓÒÏÂ½ÇX×ø±ê
+$iBottom 
+   ÒªËø¶¨µÄ¾ØÐÎµÄÓÒÏÂ½ÇY×ø±ê
+$iFlags 
+   Ö¸¶¨Î»Í¼µÄËø¶¨²¿·ÖÊÇ·ñ¿ÉÓÃÓÚ¶ÁÈ¡»òÐ´Èë¼°µ÷ÓÃ·½ÊÇ·ñÒÑ·ÖÅäÓÐ»º³åµÄÉèÖÃ±ê¼Ç. ¿ÉÎªÏÂÁÐ×éºÏ:
+    $GDIP_ILMREAD - ÓÃÓÚ¶ÁÈ¡µÄÍ¼Ïñ²¿·ÖËø¶¨
+    $GDIP_ILMWRITE - ÓÃÓÚÐ´ÈëµÄÍ¼Ïñ²¿·ÖËø¶¨
+    $GDIP_ILMUSERINPUTBUF - »º³åÒÑ·ÖÅä¸øÓÃ»§
+$iFormat 
+   Ö¸¶¨ÁÙÊ±»º³åÇøÖÐÏñËØÊý¾ÝµÄ¸ñÊ½. ¿ÉÎªÏÂÁÐÖ®Ò»:
+    $GDIP_PXF01INDEXED = Ã¿ÏñËØ1Î», Ë÷ÒýµÄ
+    $GDIP_PXF04INDEXED = Ã¿ÏñËØ4Î», Ë÷ÒýµÄ
+    $GDIP_PXF08INDEXED = Ã¿ÏñËØ8Î», Ë÷ÒýµÄ
+    $GDIP_PXF16GRAYSCALE = Ã¿ÏñËØ16Î», »Ò¶È
+    $GDIP_PXF16RGB555 = Ã¿ÏñËØ16Î»; Ã¿RGB×é·Ö5Î»
+    $GDIP_PXF16RGB565 = Ã¿ÏñËØ16Î»; ºìÉ«5Î», ÂÌÉ«6Î», À¶É«5Î»
+    $GDIP_PXF16ARGB1555 = Ã¿ÏñËØ16Î»; alphaÍ¨µÀ1Î»ºÍÃ¿RGB×é·Ö5Î»
+    $GDIP_PXF24RGB = Ã¿ÏñËØ24Î»; Ã¿RGB×é·Ö8Î»
+    $GDIP_PXF32RGB = Ã¿ÏñËØ32Î»; Ã¿RGB×é·Ö8Î». ÎÞalpha×é·Ö.
+    $GDIP_PXF32ARGB = Ã¿ÏñËØ32Î»; Ã¿RGBºÍalpha×é·Ö8Î»
+    $GDIP_PXF32PARGB = Ã¿ÏñËØ32Î»; Ã¿RGBºÍalpha×é·Ö8Î», Ô¤·Å´ó
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›ž $tagGDIPBITMAPDATA ç»“æž„
-å¤±è´¥:	è®¾ç½® @error	
+³É¹¦: $tagGDIPBITMAPDATA½á¹¹
+Ê§°Ü: ÉèÖÃ@error
 @@End@@
 
-###Remarks###
-å½“æ‚¨å®Œæˆéƒ¨åˆ†é”å®š,è°ƒç”¨ _GDIPlus_BitmapUnlockBits é‡Šæ”¾é”å®šçš„åŒºåŸŸ
+###±¸×¢###
+´¦ÀíÍêËø¶¨²¿·ÖÊ±µ÷ÓÃ_GDIPlus_BitmapUnlockBitsÊÍ·Å¸Ã²¿·Ö
 
-###Related###
-_WinAPI_DeleteObject, _GDIPlus_ImageGetPixelFormat
+###Ïà¹Ø###
+ _WinAPI_DeleteObject , _GDIPlus_ImageGetPixelFormat
 
-###See Also###
-@@MsdnLink@@ GdipBitmapLockBits
+###²Î¿¼###
+ ²é¿´MSDNÖªÊ¶¿âÖÐGdipBitmapLockBitsµÄÏà¹ØÐÅÏ¢

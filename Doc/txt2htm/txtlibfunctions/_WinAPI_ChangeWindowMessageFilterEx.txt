@@ -1,52 +1,44 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_ChangeWindowMessageFilterEx
 
-###Description###
-Modifies the User Interface Privilege Isolation (UIPI) message filter for a specified window.
+###ÃèÊö###
+ĞŞ¸ÄÖ¸¶¨´°ÌåµÄÓÃ»§½çÃæÈ¨ÏŞ¸ôÀë(UIPI)ÏûÏ¢¹ıÂËÆ÷
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_ChangeWindowMessageFilterEx ( $hWnd, $iMsg, $iAction )
+_WinAPI_ChangeWindowMessageFilterEx( $hWnd, $iMsg, $iAction )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $hWnd
-	Handle to the window whose UIPI message filter is to be modified. If this parameter is 0, the UIPI
-	message filter will be modified in a process-wide manner. Moreover, under Windows Vista this parameter
-	is not used and should be set to 0.
+   ÒªĞŞ¸ÄµÄ´°¿ÚµÄ¾ä±ú. Èç¹ûÎª0½«ÒÔÈ«½ø³Ì·½Ê½ĞŞ¸ÄUIPI. ÁíÍâ, ÔÚvistaÏÂ²»Ê¹ÓÃ¸Ã²ÎÊı²¢×ÜÊÇÉèÖÃÎª0.
 $iMsg
-	The message that the message filter allows through or blocks.
+   ÏûÏ¢¹ıÂËÆ÷ÔÊĞí»ò½ûÖ¹Í¨¹ıµÄÏûÏ¢
 $iAction
-	The action to be performed. This parameter can be one of the following values.
-	
-	$MSGFLT_ALLOW
-	$MSGFLT_DISALLOW
-	
-	Windows 7 or later
-	
-	$MSGFLT_RESET
-	
+   Ö´ĞĞµÄ²Ù×÷. ¿ÉÎªÏÂÁĞÖµ:
+    $MSGFLT_ALLOW - ÔÊĞíÏûÏ¢Í¨¹ı¹ıÂËÆ÷
+    $MSGFLT_DISALLOW - ½ûÖ¹ÏûÏ¢Í¨¹ı¹ıÂËÆ÷
+    Windows 7¼°ÒÔÉÏ:
+    $MSGFLT_RESET - ½«¶ÔÓÚhwndµÄÏûÏ¢¹ıÂËÆ÷»¹Ô­ÎªÄ¬ÈÏÖµ
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	1 and sets the @extended flag to 0 or one of the following values (only under Windows 7 and later).
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø1²¢ÉèÖÃ@extended±ê¼ÇÎª0»òÏÂÁĞÖµ:
+    $MSGFLTINFO_ALLOWED_HIGHER - ²»ÔÊĞíÏûÏ¢¸ßÓÚ´°¿Ú·¶Î§
+    $MSGFLTINFO_ALREADYALLOWED_FORWND - ÔÊĞíÏûÏ¢Í¨¹ı´°¿ÚÏûÏ¢¹ıÂËÆ÷.
+    $MSGFLTINFO_ALREADYDISALLOWED_FORWND - ½ûÖ¹ÏûÏ¢Í¨¹ı´°¿ÚÏûÏ¢¹ıÂËÆ÷.
+    $MSGFLTINFO_NONE
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-UIPI is a security feature that prevents messages from being received from a lower-integrity-level sender.
-You can use this function to allow specific messages to be delivered to a window even if the message originates
-from a process at a lower integrity level.
+###±¸×¢###
+UIPIÊÇÒ»ÖÖ°²È«ÌØĞÔ, ÓÃÓÚ×èÖ¹½ÓÊÕÀ´×ÔµÍ¼¶±ğ·¢ËÍÕßµÄÏûÏ¢.
+¿ÉÒÔÊ¹ÓÃ´Ëº¯ÊıÔÊĞí´«µİÖ¸¶¨ÏûÏ¢µ½´°Ìå, ¼´Ê¹¸ÃÏûÏ¢Ô´ÓÚ½ÏµÍ¼¶±ğµÄ½ø³Ì.
+ÖµĞ¡ÓÚWM_USERµÄÌØ¶¨ÏûÏ¢ĞèÒªÍ¨¹ı¹ıÂËÆ÷´«µİ, ²»¹ÜÊÇ·ñÉèÖÃÓĞ¹ıÂËÆ÷. ¶ÔÓÚ´ËÀàÏûÏ¢Ê¹ÓÃ¸Ãº¯ÊıÔÊĞí»ò½ûÖ¹Ê±ÎŞĞ§.
+×îµÍÏµÍ³ÒªÇó: Windows Vista
 
-Certain messages whose value is smaller than WM_USER are required to be passed through the filter, regardless
-of the filter setting. There will be no effect when you attempt to use this function to allow or block such
-messages.
+###Ïà¹Ø###
 
-This function requires Windows Vista or later.
-
-
-
-###See Also###
-@@MsdnLink@@ ChangeWindowMessageFilterEx
-
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞChangeWindowMessageFilterExµÄÏà¹ØĞÅÏ¢

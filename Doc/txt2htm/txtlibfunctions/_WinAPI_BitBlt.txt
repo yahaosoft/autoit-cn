@@ -1,66 +1,62 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_BitBlt
 
-###Description###
-æ‰§è¡Œå½©è‰²æ•°æ®ä½å—ä¼ è¾“
+###ÃèÊö###
+Ö´ÐÐ²ÊÉ«Êý¾ÝµÄÎ»¿é´«Êä
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPI.au3>
-_WinAPI_BitBlt($hDestDC, $iXDest, $iYDest, $iWidth, $iHeight, $hSrcDC, $iXSrc, $iYSrc, $iROP)
+_WinAPI_BitBlt($hDestDC,
+$iXDest, $iYDest, $iWidth, $iHeight, $hSrcDC, $iXSrc, $iYSrc, $iROP)
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
 $hDestDC
-	ç›®æ ‡è®¾å¤‡çŽ¯å¢ƒå¥æŸ„
+   Ä¿±êÉè±¸ÉÏÏÂÎÄµÄ¾ä±ú
 $iXDest
-	ç›®æ ‡çŸ©å½¢å·¦ä¸Šè§’ X å€¼
+   Ä¿±ê¾ØÐÎ×óÉÏ½ÇµÄ X Öµ
 $iYDest
-	ç›®æ ‡çŸ©å½¢å·¦ä¸Šè§’ Y å€¼
+   Ä¿±ê¾ØÐÎ×óÉÏ½ÇµÄ Y Öµ
 $iWidth
-	æºå’Œç›®æ ‡çŸ©å½¢çš„å®½åº¦
+   À´Ô´ºÍÄ¿±ê¾ØÐÎµÄ¿í¶È
 $iHeight
-	æºå’Œç›®æ ‡çŸ©å½¢çš„é«˜åº¦
+   À´Ô´ºÍÄ¿±ê¾ØÐÎµÄ¸ß¶È
 $hSrcDC
-	æºè®¾å¤‡çŽ¯å¢ƒå¥æŸ„
+   À´Ô´Éè±¸ÉÏÏÂÎÄµÄ¾ä±ú
 $iXSrc
-	æºçŸ©å½¢å·¦ä¸Šè§’ X å€¼
+   À´Ô´¾ØÐÎ×óÉÏ½ÇµÄ X Öµ
 $iYSrc
-	æºçŸ©å½¢å·¦ä¸Šè§’ Y å€¼
+   À´Ô´¾ØÐÎ×óÉÏ½ÇµÄ Y Öµ
 $iROP
-	æŒ‡å®šå…‰æ …æ“ä½œä»£ç .ä»£ç å®šä¹‰æºçŸ©å½¢çš„é¢œè‰²æ•°æ®å¦‚ä½•ä¸Ž
-		ç›®æ ‡çŸ©å½¢çš„é¢œè‰²æ•°æ®ç›¸ç»“åˆ,ä»¥è¾¾åˆ°æœ€ç»ˆé¢œè‰²:
-		$BLACKNESS - ä½¿ç”¨è°ƒè‰²æ¿ç´¢å¼• 0 ç›¸å…³çš„è‰²å½©å¡«å……ç›®æ ‡çŸ©å½¢
-		$CAPTUREBLT - åŒ…æ‹¬ä»»ä½•çª—å£ä¸Šæ–¹åˆ†å±‚ç”Ÿæˆå›¾åƒçš„çª—å£
-		$DSTINVERT - åè½¬ç›®æ ‡çŸ©å½¢
-		$MERGECOPY - ä½¿ç”¨ AND è¿ç®—ç¬¦,åˆå¹¶æºçŸ©å½¢ä¸Ž hDest å½“å‰
-		é€‰å®šç”»ç¬”çš„é¢œè‰².
-		$MERGEPAINT - ä½¿ç”¨ OR æ“ä½œç¬¦åˆå¹¶æ¸è¿›å¼æºçŸ©å½¢
-		ä¸Žç›®æ ‡çŸ©å½¢çš„é¢œè‰².
-		$NOMIRRORBITMAP - é˜»æ­¢é•œåƒä½å›¾
-		$NOTSRCCOPY - å¤åˆ¶åå‘æºçŸ©å½¢åˆ°ç›®æ ‡çŸ©å½¢
-		$NOTSRCERASE - ä½¿ç”¨ OR è¿ç®—ç»“åˆæºå’Œç›®æ ‡çŸ©å½¢é¢œè‰²,ç„¶åŽåè½¬æ‰€å½¢æˆçš„é¢œè‰².
-		$PATCOPY - å¤åˆ¶ hdcDest é€‰æ‹©çš„ç”»ç¬”åˆ°ç›®æ ‡ä½å›¾
-		$PATINVERT - ä½¿ç”¨ XOR è¿ç®—ç¬¦ç»“åˆç›®å‰ hDest é€‰å®šçš„ç”»ç¬”ä¸Žç›®æ ‡çŸ©å½¢çš„é¢œè‰².
-		$PATPAINT - ä½¿ç”¨ XOR è¿ç®—ç¬¦ç»“åˆç›®å‰ hDest é€‰å®šçš„ç”»ç¬”ä¸Žç›®æ ‡çŸ©å½¢çš„é¢œè‰²
-		æ“ä½œç»“æžœæ˜¯ä½¿ç”¨ OR è¿ç®—ç»“åˆç›®æ ‡çŸ©å½¢çš„é¢œè‰².
-		$SRCAND - ä½¿ç”¨ AND è¿ç®—ç¬¦ç»“åˆæºå’Œç›®æ ‡çŸ©å½¢é¢œè‰²
-		$SRCCOPY - ç›´æŽ¥å¤åˆ¶æºçŸ©å½¢åˆ°ç›®æ ‡çŸ©å½¢
-		$SRCERASE - ä½¿ç”¨ AND è¿ç®—ç¬¦ç»“åˆæºçŸ©å½¢çš„é¢œè‰²ä¸Žåè½¬ç›®æ ‡çŸ©å½¢çš„é¢œè‰².
-		$SRCINVERT - ä½¿ç”¨ XOR è¿ç®—ç»“åˆæºå’Œç›®æ ‡çŸ©å½¢é¢œè‰²
-		$SRCPAINT - ä½¿ç”¨ OR è¿ç®—ç¬¦ç»“åˆæºå’Œç›®æ ‡çŸ©å½¢é¢œè‰²
-		$WHITENESS - ä½¿ç”¨ç´¢å¼• 1 ç›¸å…³çš„ç‰©ç†è°ƒè‰²æ¿å¡«å……ç›®æ ‡çŸ©å½¢çš„é¢œè‰².
+   Ö¸¶¨¹âÕ¤²Ù×÷´úÂë. ÕâÐ©´úÂë¶¨ÒåÀ´Ô´¾ØÐÎÒª½áºÏµÄÑÕÉ«Êý¾ÝÊ¹Ä¿±ê¾ØÐÎÊµÏÖ×îÖÕµÄÑÕÉ«:
+    $BLACKNESS - Ê¹ÓÃÓëÎïÀíµ÷É«°åµÄË÷Òý0Ïà¹ØµÄÉ«²ÊÀ´Ìî³äÄ¿±ê¾ØÐÎÇøÓò
+    $CAPTUREBLT - °üÀ¨Í¼ÏñÖÐÈÎºÎÔÚÄãµÄ´°¿ÚÉÏ²ãµÄ´°¿Ú
+    $DSTINVERT - Ê¹Ä¿±ê¾ØÐÎÇøÓòÑÕÉ«È¡·´
+    $MERGECOPY - ±íÊ¾Ê¹ÓÃ²¼¶ûÐÍµÄAND²Ù×÷·û½«Ô´¾ØÐÎÇøÓòµÄÑÕÉ«ÓëÌØ¶¨Ä£Ê½×éºÏÒ»Æð.
+    $MERGEPAINT - Í¨¹ýÊ¹ÓÃ²¼¶ûÐÍµÄOR²Ù×÷·û½«·´ÏòµÄÔ´¾ØÐÎÇøÓòµÄÑÕÉ«ÓëÄ¿±ê¾ØÐÎÇøÓòµÄÑÕÉ«ºÏ²¢.
+    $NOMIRRORBITMAP - ·ÀÖ¹Î»Í¼±»¾µÏñ
+    $NOTSRCCOPY - ½«Ô´¾ØÐÎÇøÓòÑÕÉ«È¡·´, ²¢¿½±´µ½Ä¿±ê¾ØÐÎÇøÓò
+    $NOTSRCERASE - Ê¹ÓÃ²¼¶ûÀàÐÍµÄOR²Ù×÷·û×éºÏÔ´ºÍÄ¿±ê¾ØÐÎÇøÓòµÄÑÕÉ«Öµ, È»ºó½«ºÏ³ÉµÄÑÕÉ«È¡·´
+    $PATCOPY - ½«ÌØ¶¨µÄÄ£Ê½¿½±´µ½Ä¿±êÎ»Í¼ÉÏ
+    $PATINVERT - Í¨¹ýÊ¹ÓÃXOR²Ù×÷·û½«Ô´ºÍÄ¿±ê¾ØÐÎÇøÓòÄÚµÄÑÕÉ«ºÏ²¢.
+    $PATPAINT - Í¨¹ýÊ¹ÓÃ²¼¶ûOR²Ù×÷·û½«Ô´¾ØÐÎÇøÓòÈ¡·´ºóµÄÑÕÉ«ÖµÓëÌØ¶¨Ä£Ê½µÄÑÕÉ«ºÏ²¢. È»ºóÊ¹ÓÃOR²Ù×÷·û½«¸Ã²Ù×÷µÄ½á¹ûÓëÄ¿±ê¾ØÐÎÇøÓòÄÚµÄÑÕÉ«ºÏ²¢.
+    $SRCAND - Ê¹ÓÃAND²Ù×÷·û½áºÏÀ´Ô´ºÍÄ¿±ê¾ØÐÎ
+    $SRCCOPY - Ö±½Ó¸´ÖÆÀ´Ô´¾ØÐÎµ½Ä¿±ê¾ØÐÎ
+    $SRCERASE - Í¨¹ýÊ¹ÓÃAND²Ù×÷·û½«Ä¿±ê¾ØÐÎÇøÓòÑÕÉ«È¡·´ºóÓëÔ´¾ØÐÎÇøÓòµÄÑÕÉ«ÖµºÏ²¢.
+    $SRCINVERT - Í¨¹ýÊ¹ÓÃ²¼¶ûÐÍµÄXOR²Ù×÷·û½«Ô´ºÍÄ¿±ê¾ØÐÎÇøÓòµÄÑÕÉ«ºÏ²¢
+    $SRCPAINT - Í¨¹ýÊ¹ÓÃ²¼¶ûÐÍµÄOR²Ù×÷·û½«Ô´ºÍÄ¿±ê¾ØÐÎÇøÓòµÄÑÕÉ«ºÏ²¢
+    $WHITENESS - Ê¹ÓÃÓëÎïÀíµ÷É«°åÖÐË÷Òý1ÓÐ¹ØµÄÑÕÉ«Ìî³äÄ¿±ê¾ØÐÎÇøÓò.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›ž True
-å¤±è´¥:	è¿”å›ž False
+³É¹¦: Õæ
+Ê§°Ü: ¼Ù
 @@End@@
 
-###Remarks###
-None.
+###±¸×¢###
 
-###Related###
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ BitBlt
+###²Î¿¼###
+ËÑË÷MSDNÖªÊ¶¿âÖÐÓÐ¹ØBitBltµÄÐÅÏ¢

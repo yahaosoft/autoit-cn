@@ -1,49 +1,44 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _SQLite_GetTable
 
-###Description###
-ä¼ é€’ä¸€ä¸ªä¸€ç»´æ•°ç»„,å…¶ä¸­åŒ…å«æ‰§è¡ŒæŸ¥è¯¢çš„è¡¨åå’Œæ•°æ®.
+###ÃèÊö###
+Êä³ö°üº¬±íÃûºÍËùÖ´ĞĞµÄ²éÑ¯µÄÊı¾İµÄÒ»Î¬Êı×é
 
-###Syntax###
-#include <SQLite.au3>
-_SQLite_GetTable ( $hDB, $sSQL, ByRef $aResult, ByRef $iRows, ByRef $iColumns [, $iCharSize = -1 ] )
+###Óï·¨###
+#Include <SQLite.au3>
+_SQLite_Gettable ( $hDB, $sSQL, ByRef $aResult, ByRef $iRows, ByRef $iColumns [, $iCharSize = 64 ] )
 
-
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$hDB
-	æ‰“å¼€çš„æ•°æ®åº“,å¦‚ä¸º -1, åˆ™ä½¿ç”¨æœ€åæ‰“å¼€çš„æ•°æ®åº“
-$sSQL
-	è¦æ‰§è¡Œçš„è¯­å¥
-$aResult
-	ä¼ é€’å‡ºçš„ç»“æœ
-$iRows
-	ä¼ é€’å‡ºçš„æ•°æ®è¡Œæ•°
-$iColumns
-	ä¼ é€’å‡ºçš„åˆ—æ•°
-$iCharSize
-	[å¯é€‰å‚æ•°] æŒ‡å®šæ•°æ®å­—æ®µçš„æœ€å¤§å°ºå¯¸
+ $hDB  ´ò¿ªµÄÊı¾İ¿â, -1Îª×î½ü´ò¿ªµÄÊı¾İ¿â
+ $sSQL  Òª²Ù×÷µÄSQL±í´ïÊ½
+ $aResult  Êä³ö½á¹û
+ $iRows  Êä³ö'Êı¾İ'ĞĞµÄÊıÁ¿
+ $iColumns  Êä³öÁĞÊıÁ¿
+ $iCharSize  [¿ÉÑ¡] Ö¸¶¨Êı¾İ×Ö¶ÎµÄ×î´ó³ß´ç
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å› $SQLITE_OK
-å¤±è´¥:	éšæœºè¿”å›å€¼,å¯ä¸ $SQLITE_* å¸¸é‡ä¸­çš„å€¼è¿›è¡Œå¯¹æ¯”
-@error:	-1 - SQLite æŠ¥å‘Šä¸€ä¸ªé”™è¯¯ (æ£€æŸ¥è¿”å›å€¼)
-	1 - è°ƒç”¨è¢«å®‰å…¨æ¨¡å¼é˜»æ­¢
-     2 - Error returned by _SQLite_Query in @extended
-     3 - Error returned by _SQLite_FetchNames in @extended
-     4 - Error returned by _SQLite_FetchData in @extended
+³É¹¦: ·µ»Ø$SQLITE_OK
+Ê§°Ü: ·µ»Ø¿ÉÓë$SQLITE_* ³£Á¿±È½ÏµÄÖµ
+@error: -1 - SQLite±¨´í(¼ì²é·µ»ØÖµ)
+      1 - µ÷ÓÃSQLite API 'sqlite3_get_table'´íÎó
+      2 - µ÷ÓÃSQLite API 'sqlite3_free_table'´íÎó
+      3 - °²È«Ä£Ê½×èÖ¹µ÷ÓÃ
 @@End@@
 
-###Remarks###
-æ•°å€¼æ’å…¥åˆ° $aResult å°†ä¼š (($iRows) + 1) * ($iColumns)
-è¿™ä¸ªæ•°å­—å°†æ’å…¥åˆ° $aResult[0].
-ä¸€ä¸ªNULL(ç©º)å€¼å°†è¿”å›æ•°å­— 0
-å¦‚æœä½ ä¸éœ€è¦ç»“æœ(æˆ–æ— ç»“æœ)è€ƒè™‘ä½¿ç”¨ _SQLite_Execute() or _SQLite_Exec().
+###±¸×¢###
+²åÈëµ½$aResultµÄÖµµÄÊıÁ¿Îª(($iRows) + 1) * ($iColumns)
+Êı×Ö²åÈëµ½$aResult[0]
+NULL½«·µ»ØÊı×Ö0
+¸Ãº¯Êı±È_SQlite_Query()/_SQLite_Fetch*()...ĞèÒª¸ü¶àÄÚ´æµ«ËÙ¶ÈÒª¿ì..
+Èç¹û²»ĞèÒª½á¹û(»òÈç¹ûÆäÎª¿Õ)¿É¿¼ÂÇÊ¹ÓÃ_SQLite_Execute()»ò_SQLite_Exec().
 
-###Related###
-_SQLite_GetTable2d, _SQLite_Exec, _SQlite_Query
+###Ïà¹Ø###
+ _SQLite_Gettable2d , _SQLite_Exec , _SQlite_Query
 
-###Example###
+###²Î¿¼###
+
+###Ê¾Àı###
 @@IncludeExample@@

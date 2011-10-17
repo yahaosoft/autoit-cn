@@ -1,32 +1,22 @@
-﻿###Structure Name###
+###�ṹ����###
 $tagOVERLAPPED
 
-###Description###
-包含使用异步(或重叠)输入和输出(I/O)的信息
+###����###
+�������ڷ�ͬ��(���ص���)��������(I/O)����Ϣ�Ľṹ
 
-###Syntax###
-Global Const $tagOVERLAPPED = "ulong_ptr Internal;ulong_ptr InternalHigh;struct; dword Offset;dword OffsetHigh; endstruct;handle hEvent"
+###�﷨###
+Global Const $tagOVERLAPPED = "int Internal;int InternalHigh;int Offset;int OffsetHigh;int hEvent"
 
-###Fields###
+###��Ա###
 @@ParamTable@@
 Internal
-	保留给操作系统使用.指定系统相关状态.
-	当 GetOverlappedResult 函数返回没有设置扩展的错误信息到 ERROR_IO_PENDING 时有效.
+   Ϊ����ϵͳʹ��������. ָ��ϵͳ��֧�ֵ�״̬�ĸó�Ա��Ч. ��GetOverlappedResult����δ������չ������ϢΪERROR_IO_PENDING����ʱ.
 InternalHigh
-	保留给操作系统使用.指定数据传输的长度
-	当 GetOverlappedResult 函数返回 True 时有效.
+   Ϊ����ϵͳʹ��������. ָ���������ݳ��ȵĸó�Ա��GetOverlappedResult����������ʱ��Ч.
 Offset
-	开始传输的文件位置.文件位置为从文件开始处的字节偏移量.
-	调用进程设置这个成员之前,必须调用 ReadFile 或 WriteFile 函数
-	该成员仅用于设备是一个文件时,否则,该城员必须为 0.
+   ��ʼ������ļ�λ��. �ļ�λ��Ϊ���ļ���ʼ�����ֽ�ƫ��. ���õĽ��̱����ڵ���ReadFile��WriteFile����ʱ���øó�Ա. �ó�Ա�������豸Ϊ�ļ�ʱ. ����, �ó�Ա��Ϊ0.
 OffsetHigh
-	开始传输文件位置的高位字.
-	该成员仅用于设备是一个文件时,否则,该会员必须为 0.
+   ��ʼ������ļ�λ�õĸ߽�����. �ó�Ա�������豸Ϊ�ļ�ʱ. ����, �ó�Ա����Ϊ0.
 hEvent
-	当操作完成时,将被设置为信号状态事件的句柄.
-	调用进程设置这个成员必须要么为零,或有效的事件句柄之前调用任何重叠函数      .
-@@End@@
-
-###Remarks###
-None.
-
+   �������ʱ���������ź�״̬���¼��ľ��. ���ý��̱����ڵ����κ��ص���Ϣǰ���øó�ԱΪ0����Ч�¼����.
+@@end@@

@@ -1,79 +1,61 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _GUICtrlTab_Create
 
-###Description###
-创建一个标签控件(TabControl)
+###����###
+������ǩ�ؼ�
 
-###Syntax###
+###�﷨###
 #Include <GuiTab.au3>
 _GUICtrlTab_Create($hWnd, $iX, $iY[, $iWidth=150[, $iHeight=150[, $iStyle=0x00000040[, $iExStyle=0x00000000]]]])
 
-###Parameters###
+###����###
 @@ParamTable@@
-$hWnd
-	父窗口或者所有者窗口
-$iX
-	控件水平坐标
-$iY
-	控件垂直坐标
-$iWidth
-	[可选参数] 控件宽度
-$iHeight
-	[可选参数] 控件高度
-$iStyle
-	[可选参数] 控件样式:
-		$TCS_BOTTOM - 标签显示在控件底部
-		$TCS_BUTTONS - 标签显示为按钮,绘制区域周围没有边界
-		$TCS_FIXEDWIDTH - 所有标签的宽度相等
-		$TCS_FLATBUTTONS - 标签选中时显示为凹下,而其它未选标签处于同一平面.
-		必须与 $TCS_BUTTONS 样式共同使用才能达到此效果.
-		$TCS_FOCUSNEVER - 点击时控件不接收输入焦点
-		$TCS_FOCUSONBUTTONDOWN - 点击时控件接收输入焦点
-		$TCS_FORCEICONLEFT - 图标与固定宽度的标签左对齐
-		需与 $TCS_FIXEDWIDTH 样式配合使用.
-		$TCS_FORCELABELLEFT - 文本与固定宽度的标签左对齐,
-		图标显示在中心,	图标显示在中心而不右边
-		需与 $TCS_FIXEDWIDTH 样式配合使用, 
-		且隐含有 $TCS_FORCEICONLEFT 样式效果.
-		$TCS_HOTTRACK - 指针下的项自动高亮,
-		通过调用 SystemParametersInfo,可以检查是否启用热跟踪.
-		$TCS_MULTILINE - 显示多行标签,如有需要,所有标签立即可见
-		$TCS_MULTISELECT - 按住 Ctrl 键时单击可以选择多个标签.
-		必须与 $TCS_BUTTONS 样式配合使用.
-		$TCS_OWNERDRAWFIXED - 父窗口负责绘制标签
-		$TCS_RAGGEDRIGHT - 标签行将不会拉伸以填补控件的整个宽度.这是默认样式.
-		$TCS_RIGHT - 标签垂直显示在使用 $TCS_VERTICAL 样式的控件右侧
-		此样式等同于 $TCS_BOTTOM. 这种样式不支持使用视觉样式.
-		$TCS_RIGHTJUSTIFY - 标签宽度将拉伸以填补控件的整个宽度
-		必须与 $TCS_MULTILINE 样式配合使用,否则该样式将被忽略.
-		$TCS_SCROLLOPPOSITE - 当一个标签被选中时,不需要的标签滚动到控件另一侧
-		$TCS_SINGLELINE - 只显示一个标签行,
-		如有必要,通过滚动可以看到更多的标签.这是默认样式.
-		$TCS_TABS - 制表符显示为标签,并在周围绘制显示边框.这是默认样式.
-		$TCS_TOOLTIPS - 标签具有与其关联的工具提示控件
-		$TCS_VERTICAL - 标签显示在控件左侧,标签文本垂直显示
-		必须与 $TCS_MULTILINE 样式配合使用.
-		要使标签出现在控件右侧, 请使用 $TCS_RIGHT 样式.
-	[可选参数] 默认 : $TCS_HOTTRACK
-		强制 : $WS_CHILD, $WS_CLIPSIBLINGS, $WS_VISIBLE
-$iExStyle
-	[可选参数] 控件扩展样式:
-		$TCS_EX_FLATSEPARATORS - 控件标签项目之间将绘制分隔符
-		$TCS_EX_REGISTERDROP - 当一个对象被拖到标签项目,
-		控件生成 $TCN_GETOBJECT 通知消息,以请求放置目标对象.
+ $hWnd  ���������������
+ $iX  �ؼ�ˮƽλ��
+ $iY  �ؼ���ֱλ��
+ $iWidth  �ؼ�����
+ $iHeight  �ؼ��߶�
+ $iStyle  �ؼ���ʽ:
+$TCS_BOTTOM - ��ǩҳ��ʾ�ڿؼ��ײ�
+$TCS_BUTTONS - ��ǩҳ��ʾΪ��ť, ������ʾ������Χ�ޱ߽�
+$TCS_FIXEDWIDTH - ���б�ǩҳ������ͬ
+$TCS_FLATBUTTONS - ��������ǩҳ�������뱳��ͬһƽ��ʱѡ���ı�ǩҳҳ�������뱳��. ֻӰ��$TCS_BUTTONS��ʽ�Ŀؼ�.
+$TCS_FOCUSNEVER - �ؼ��ڱ����ʱ���������뽹��
+$TCS_FOCUSONBUTTONDOWN - �ؼ��ڱ����ʱ�������뽹��
+$TCS_FORCEICONLEFT - ͼ����̶����ȵı�ǩҳ������. ����ʽֻ�ܺ�$TCS_FIXEDWIDTH��ʽʹ��.
+$TCS_FORCELABELLEFT - ��ǩ��̶����ȵı�ǩҳ������. ��������ʾ��ͼ���Ҳ��Դ������. ����ʽֻ�ܺ�$TCS_FIXEDWIDTH��ʽʹ����Ӧ��$TCS_FORCEICONLEFT��ʽ.
+$TCS_HOTTRACK - ָ���µ����Զ�����. ��ͨ������System����Info����ȸ����Ƿ����.
+$TCS_MULTILINE - ����б�Ҫ, ��ʾ���б�ǩҳ, �Ա����б�ǩҳͬʱ�ɼ�
+$TCS_MULTISELECT - ͨ�����ʱ��סCTRL����ͬʱѡ�ж����ǩ. ����ʽ������$TCS_BUTTONS��ʽʹ��.
+$TCS_OWNERDRAWFIXED - �����帺����Ʊ�ǩҳ
+$TCS_RAGGEDRIGHT - ��ǩ���в��ᱻ��������������ؼ�����. ����ʽ��Ĭ�ϵ�.
+$TCS_RIGHT - ��ǩҳ��ֱ��ʾ��ʹ��$TCS_VERTICAL��ʽ�Ŀؼ��Ҳ�. ��ֵ����$TCS_BOTTOM. ��ʹ���Ӿ�Ч��ʱ����ʽ��֧��.
+$TCS_RIGHTJUSTIFY - ����б�Ҫ��ǩҳ�Ŀ����ǵ�����, �Ա�ÿ�б�ǩ�����ؼ�ȫ��. ����ʽ�����Գ���ָ��$TCS_MULTILINE��ʽ.
+$TCS_SCROLLOPPOSITE - ��ѡ��һ����ǩʱ���õı�ǩ��ؼ��෴���򻬶�
+$TCS_SINGLELINE - ֻ��ʾһ�б�ǩ. ��Ҫʱ�û��ɻ����鿴�����ǩ. ����ʽ��Ĭ�ϵ�.
+$TCS_TABS - ��ǩҳ�����ǩҳ, ������ʾ������Χ����һ���߽�. ����ʽ��Ĭ�ϵ�.
+$TCS_TOOLTIPS - ��ǩ�ؼ�������֮��������ʾ�ؼ�
+$TCS_VERTICAL - ��ǩ�ڿؼ������ʾ�ұ�ǩ�ı���ֱ��ʾ. ����ʽֻ��ʹ��$TCS_MULTILINE��ʽʱ��Ч. ʹ��ǩҳ�����ڿؼ��Ҳ�Ҳ��ʹ��$TCS_RIGHT��ʽ.
+  Ĭ��: $TCS_HOTTRACK
+ǿ��: $WS_CHILD, $WS_CLIPSIBLINGS, $WS_VISIBLE
+ $iExStyle  �ؼ���չ��ʽ:
+$TCS_EX_FLATSEPARATORS - �ؼ��ڱ�ǩ�����Ʒָ���
+$TCS_EX_REGISTERDROP - �������ڱ�ǩ���ϱ��϶�ʱ�ؼ�����$TCN_GETOBJECT֪ͨ��Ϣ����������Ŀ�����.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回控件句柄
-失败:	0
+�ɹ�: �ؼ����
+ʧ��: 0
 @@End@@
 
-###Remarks###
- 此功能为高级用户学习如何控制工程.
+###��ע###
+�ú������߼��û�ѧϰ�ؼ���ι���.
 
-###Related###
-_GUICtrlTab_Destroy
+###���###
+ _GUICtrlTab_Destroy
 
-###Example###
+###�ο�###
+
+###ʾ��###
 @@IncludeExample@@

@@ -1,53 +1,44 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_ReplaceFile
 
-###Description###
-替换文件为另一文件,并创建原始文件的备份副本.
+###����###
+�������ļ��滻һ���ļ�������ԭʼ�ļ��ı���
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_ReplaceFile ( $sReplacedFile, $sReplacementFile [, $sBackupFile [, $iFlags]] )
+_WinAPI_ReplaceFile( $sReplacedFile, $sReplacementFile [, $sBackupFile [, $iFlags]] )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $sReplacedFile
-	被替换的文件名称.
+   �����滻���ļ���.
 $sReplacementFile
-	?将取代 $sReplacedFile 的文件名称.
+   $sReplacedFile�ļ����ļ���
 $sBackupFile
-	[可选参数] $sReplacedFile 文件的备份副本名称.
-		 如果此参数为空字符串,将不创建备份文件.
-$iFlags
-	[可选参数] 替换选项. 参数可以是一或多个下列值:
-		 $REPLACEFILE_WRITE_THROUGH --- 替换文件信息复制刷新到磁盘后函数返回
-		 $REPLACEFILE_IGNORE_MERGE_ERRORS --- 忽略合并时出现的错误信息（如属性和 ACL）
-		 $REPLACEFILE_IGNORE_ACL_ERRORS --- 忽略合并时替换文件 ACL 信息时发生的错误
+   $sReplacedFile�ļ����ݵ��ļ���. ����ò���Ϊ���ַ���, �����������ļ�.
+$iFlag
+   �滻ѡ��. �ò�����Ϊһ����������ֵ:
+    $REPLACEFILE_WRITE_THROUGH - �ں�������ǰ��֤�ļ��滻��Ϣ���Ƶ���ˢ�µ�����
+    $REPLACEFILE_IGNORE_MERGE_ERRORS - ���Ժϲ�ʱ���ֵĴ�����Ϣ
+    $REPLACEFILE_IGNORE_ACL_ERRORS - ���Ժϲ�ʱ�滻�ļ�ACL��Ϣʱ�����Ĵ���
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0,设置@error:非 0 值 (见备注).
+�ɹ�: ����1
+ʧ��: ����0������@error��0
 @@End@@
 
-###Remarks###
-如果函数失败, 调用 _WinAPI_GetLastError() 函数获取扩展的错误信息.
- 以下是这个函数可能发生的错误代码:
- ERROR_UNABLE_TO_MOVE_REPLACEMENT (1176)
-替换文件不能被重新命名. 如果 $sBackupFile 被指定, 
-替换与被替换文件保留原始文件名.
-否则,被替换的文件不再存在,替换文件已原名称存在.
- ERROR_UNABLE_TO_MOVE_REPLACEMENT_2 (1177)
- 替换文件无法移动. 替换文件仍然以原名存在; 但继承文件流及属性.
- 被替换文件仍然 $sReplacedFile 的名称存在.
- ERROR_UNABLE_TO_REMOVE_REPLACED (1175)
- 被替换的文件无法被删除. 被替换和替换文件保留其原来的文件名.
-如果返回任何其他错误,如 ERROR_INVALID_PARAMETER, 
-替换和备替换文件将保留原来的文件名.
-此时不存在备份文件,它不能保证替换文件将继承所有的属性和文件流.
+###��ע###
+�������ʧ��, ����_WinAPI_GetLastError()������ȡ��չ������Ϣ. ����Ϊ���ܵĴ������.
+ERROR_UNABLE_TO_MOVE_REPLACEMENT - 1176 (0x498)
+�滻�ļ����ܱ���������. ���lpBackupFileName��ָ��, �滻�ͱ��滻�ļ�������ԭʼ�ļ���. ����, ���滻���ļ����ٴ���, �滻�ļ���ԭ�����ƴ���.
+ERROR_UNABLE_TO_MOVE_REPLACEMENT_2 - 1177(0x499)
+�޷��ƶ��滻���ļ�. �滻�ļ���Ȼ����ԭ�������ִ���; ����, ���ӱ��滻���ļ��̳��ļ���������. ���滻���ļ���lpBackupFileNameָ�������ƴ���. �˴������lpBackupFileName����NULLʱ����.
+ERROR_UNABLE_TO_REMOVE_REPLACED - 1175(0x497)
+�޷�ɾ�����滻���ļ�. ���滻���滻�ļ�������ԭʼ�ļ���.
 
+###���###
 
-
-###See Also###
-@@MsdnLink@@ ReplaceFile
-
+###�ο�###
+ ����MSDN֪ʶ����ReplaceFile�������Ϣ

@@ -1,55 +1,50 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_ShellGetSettings
 
-###Description###
-æ£€ç´¢å¤„ç†ç¨‹åº(Shell)çš„çŠ¶æ€è®¾ç½®.
+###ÃèÊö###
+»ñÈ¡ÎÄ¼þÏµÍ³ÖÐÒ»¸ö¶ÔÏóµÄÐÅÏ¢
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellGetSettings ( $iFlags )
+_WinAPI_ShellGetSettings( $iFlags )
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
-$iFlags
-	åº”æ£€ç´¢çš„è®¾ç½®. æ­¤å‚æ•°å¯ä»¥æ˜¯ä¸€æˆ–å¤šä¸ªä¸‹åˆ—å€¼(ä»…ä½¿ç”¨æ­¤æ ‡å¿—).
-		 $SSF_SHOWALLOBJECTS --- æ˜¾ç¤ºæ‰€æœ‰æ–‡ä»¶å’Œæ–‡ä»¶å¤¹å¯¹è±¡,åŒ…æ‹¬éšè—æ–‡ä»¶å’Œæ–‡ä»¶å¤¹
-		 $SSF_SHOWEXTENSIONS --- æ˜¾ç¤ºæ–‡ä»¶æ‰©å±•å
-		 $SSF_SHOWCOMPCOLOR --- æ˜¾ç¤ºåŠ å¯†æˆ–åŽ‹ç¼© NTFS æ–‡ä»¶çš„é¢œè‰²
-		 $SSF_SHOWSYSFILES --- æ˜¾ç¤ºç³»ç»Ÿæ–‡ä»¶
-		 $SSF_DOUBLECLICKINWEBVIEW --- åŒå‡»æ‰“å¼€ Web æµè§ˆé¡¹ç›®
-		 $SSF_DESKTOPHTML --- ä½¿ç”¨æ´»åŠ¨æ¡Œé¢
-		 $SSF_WIN95CLASSIC --- æ‰§è¡Œ Windows 95 çš„ Shell è¡Œä¸ºå’Œé™åˆ¶
-		 $SSF_DONTPRETTYPATH --- é˜²æ­¢è·¯å¾„è½¬æ¢ä¸ºå°å†™å­—ç¬¦
-		 $SSF_MAPNETDRVBUTTON --- æ˜¾ç¤º"æ˜ å°„ç½‘ç»œé©±åŠ¨å™¨"æŒ‰é’®
-		 $SSF_SHOWINFOTIP --- æ˜¾ç¤ºæ–‡ä»¶å¤¹å’Œæ–‡ä»¶çš„å¼¹å‡ºè¯´æ˜Ž
-		 $SSF_HIDEICONS --- éšè—æ¡Œé¢å›¾æ ‡
-		 $SSF_NOCONFIRMRECYCLE --- åˆ é™¤é¡¹ç›®åˆ°å›žæ”¶ç«™æ—¶ä¸æ˜¾ç¤ºç¡®è®¤å¯¹è¯æ¡†
-		 $SSF_WEBVIEW --- æ˜¾ç¤ºä¸º Web è§†å›¾
-		 $SSF_SHOWSUPERHIDDEN --- æ˜¾ç¤ºæ“ä½œç³»ç»Ÿæ–‡ä»¶
-		 $SSF_SEPPROCESS --- å•ç‹¬è¿›ç¨‹å¯åŠ¨æ–‡ä»¶å¤¹çª—å£
-		 $SSF_NONETCRAWLING --- ç¦ç”¨è‡ªåŠ¨æœç´¢ç½‘ç»œæ‰“å°æœºå’Œæ–‡ä»¶å¤¹
-		 $SSF_STARTPANELON --- ä½¿ç”¨ Windows XP é£Žæ ¼çš„å¼€å§‹èœå•
-		 *Windows Vista æˆ–æ›´é«˜ç³»ç»Ÿ
-		 $SSF_AUTOCHECKSELECT --- ä½¿ç”¨ Windows Vista é£Žæ ¼çš„æ–‡ä»¶å¤¹è§†å›¾å¤é€‰æ¡†
-		 $SSF_ICONSONLY --- æ˜¾ç¤ºé€šç”¨å›¾æ ‡
-		 $SSF_SHOWTYPEOVERLAY --- æ˜¾ç¤ºç¼©ç•¥å›¾ä¾›åº”ç”¨ç¨‹åºæ‰“å¼€é¡¹ç›®æ—¶è°ƒç”¨
+$iFlags  ¸Ã±ê¼ÇÖ¸¶¨Òª»ñÈ¡µÄÉèÖÃ. ¿ÉÎªÏÂÁÐÖµµÄ×éºÏ.
+$SSF_SHOWALLOBJECTS - TRUE±íÊ¾ÏÔÊ¾°üÀ¨Òþ²ØÎÄ¼þºÍÎÄ¼þ¼ÐµÄËùÓÐ¶ÔÏó, ·´Ö®ÎªFALSE
+$SSF_SHOWEXTENSIONS - TRUE±íÊ¾ÏÔÊ¾ÎÄ¼þÀ©Õ¹Ãû, ·´Ö®ÎªFALSE
+$SSF_SHOWCOMPCOLOR - TRUE±íÊ¾²ÊÉ«ÏÔÊ¾¼ÓÃÜ»òÑ¹ËõµÄNTFSÎÄ¼þ
+$SSF_SHOWSYSFILES - TRUE±íÊ¾ÏÔÊ¾ÏµÍ³ÎÄ¼þ, ·´Ö®ÎªFALSE
+$SSF_DOUBLECLICKINWEBVIEW - TRUE±íÊ¾ÔÚÍøÒ³ÊÓÍ¼ÖÐË«»÷´ò¿ªÏîÄ¿
+$SSF_DESKTOPHTML - TRUE±íÊ¾ÆôÓÃ»î¶¯×ÀÃæ, ·´Ö®ÎªFALSE
+$SSF_WIN95CLASSIC - TRUE±íÊ¾Ê¹ÓÃWIN95Íâ¿Ç¼°ÏÞÖÆ
+$SSF_DONTPRETTYPATH - TRUE±íÊ¾½ûÖ¹Â·¾¶Ð¡Ð´×ª»»
+$SSF_MAPNETDRVBUTTON - TRUE±íÊ¾ÏÔÊ¾"Ó³ÉäÍøÂçÇý¶¯Æ÷"°´Å¥
+$SSF_SHOWINFOTIP - TRUE±íÊ¾µ¯³öÎÄ¼þ¼°ÎÄ¼þ¼ÐµÄÃèÊö
+$SSF_HIDEICONS - TRUE±íÊ¾Òþ²Ø×ÀÃæÍ¼±ê, FALSEÎªÏÔÊ¾
+$SSF_NOCONFIRMRECYCLE - TRUE±íÊ¾µ±½«ÏîÄ¿É¾³ýµ½»ØÊÕÕ¾ÊÇ²»ÏÔÊ¾È·ÈÏ¶Ô»°¿ò, FALSE±íÊ¾ÏÔÊ¾¶Ô»°¿ò
+$SSF_WEBVIEW - TRUE±íÊ¾ÒÔÍøÂçÊÓÍ¼ÏÔÊ¾
+$SSF_SHOWSUPERHIDDEN - TRUE±íÊ¾ÏÔÊ¾²Ù×÷ÏµÍ³ÎÄ¼þ
+$SSF_SEPPROCESS - TRUE±íÊ¾ÒÔµ¥¶À½ø³Ì´ò¿ªÎÄ¼þ¼Ð´°¿Ú, FALSE±íÊ¾Ê¹ÓÃÍ¬Ò»½ø³Ì
+$SSF_NONETCRAWLING - TRUE±íÊ¾½ûÖ¹×Ô¶¯ËÑË÷ÍøÂçÎÄ¼þ¼ÐºÍ´òÓ¡»ú
+*Windows Vista¼°ÒÔÉÏ:
+$SSF_AUTOCHECKSELECT - TRUE±íÊ¾Ê¹ÓÃWindows VistaÑùÊ½µÄ¸´Ñ¡ÎÄ¼þ¼ÐÊÓÍ¼, FALSE±íÊ¾Ê¹ÓÃ¾­µäÊÓÍ¼
+$SSF_ICONSONLY - TRUE±íÊ¾ÏÔÊ¾½öÍ¨ÓÃÍ¼±ê, FALSE±íÊ¾ÔÚÎÄ¼þ¼ÐÖÐÏÔÊ¾ËõÂÔÍ¼ÑùÊ½Í¼±ê
+$SSF_SHOWTYPEOVERLAY - ´ò¿ªÏîÄ¿Ê±ÏÔÊ¾½«Òªµ÷ÓÃµÄÓ¦ÓÃµÄËõÂÔÍ¼
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›ž $iFlags å‚æ•°æŒ‡å®šæ ‡å¿—çš„ç»„åˆ.
-	å¦‚æžœè®¾ç½®äº†æ ‡å¿—,åˆ™å¯ç”¨é€‚å½“çš„è®¾ç½®,å¦åˆ™ç¦ç”¨.
-	å‡½æ•°ä»…åˆ†åˆ«æ£€æŸ¥ $iFlags å‚æ•°æŒ‡å®šçš„æ ‡å¿—.
-å¤±è´¥:	è¿”å›ž 0,è®¾ç½®@error:æ ‡å¿—ä¸ºéž 0 å€¼.
+³É¹¦: °üº¬ÔÚ$iFlags²ÎÊýÖÐÖ¸¶¨µÄ±ê¼Ç×éºÏµÄÖµ. Èç¹ûÉèÖÃÁË±ê¼Ç, ÆôÓÃÏàÓ¦ÉèÖÃ, ·ñÔò½ûÓÃ. º¯ÊýÖ»¼ì²é$iFlags²ÎÊýÖÐÖ¸¶¨µÄ±ê¼Ç.
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0.
 @@End@@
 
-###Remarks###
-None
+###±¸×¢###
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ SHGetSetSettings
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖÐSHGetSetSettingsµÄÏà¹ØÐÅÏ¢
 
-###Example###
+###Ê¾Àý###
 @@IncludeExample@@
-

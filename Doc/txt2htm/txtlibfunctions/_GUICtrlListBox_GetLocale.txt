@@ -1,29 +1,48 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _GUICtrlListBox_GetLocale
 
-###Description###
-æ£€ç´¢å½“å‰åœ°åŒºä»£ç 
+###ÃèÊö###
+»ñÈ¡µ±Ç°µØÇø
 
-###Syntax###
+###Óï·¨###
 #Include <GuiListBox.au3>
-_GUICtrlListBox_GetLocale($hWnd)
+_GUICtrlListBox_GetLocale( $hWnd )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$hWnd
-	æ§ä»¶å¥æŸ„
+ $hWnd  ¿Ø¼ş¾ä±ú
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›é«˜ä½å­—åŒ…å«å›½å®¶ä»£ç ;ä½ä½å­—åŒ…å«è¯­è¨€æ ‡è¯†ç¬¦çš„å­—ç¬¦ä¸².
+³É¹¦: ¸ß¼¶±ğÎÄ×Ö°üº¬¹ú¼Ò´úÂë, µÍ¼¶±ğÎÄ×Ö°üº¬ÓïÑÔÊ¶±ğÂë.
 @@End@@
 
-###Remarks###
-None.
+###±¸×¢###
 
-###Related###
-_GUICtrlListBox_GetLocaleCountry, _GUICtrlListBox_GetLocaleLang, _GUICtrlListBox_GetLocalePrimLang, _GUICtrlListBox_GetLocaleSubLang, _GUICtrlListBox_SetLocale
-
-###Example###
-@@IncludeExample@@
+###Ïà¹Ø###
+_GUICtrlListBox_GetLocaleCountry , _GUICtrlListBox_GetLocaleLang , _GUICtrlListBox_GetLocalePrimLang , _GUICtrlListBox_GetLocaleSubLang , _GUICtrlListBox_SetLocale
+ #AutoIt3Wrapper_au3check_Parameters=-d -w 1 -w 2 -w 3 -w 4 -w 5 -w 6
+ #include <GUIListBox.au3>
+ #include <GuiConstantsEx.au3>
+ Opt ( ' MustDeclareVars ', 1 )
+ $Debug_LB = False ; ¼ì²é´«µİ¸øº¯ÊıµÄÀàÃû, ÉèÖÃÎªÕæ²¢Ê¹ÓÃÁíÒ»¿Ø¼şµÄ¾ä±ú¹Û²ìÆä¹¤×÷
+ _Main()
+ Func _Main()
+   Local $hListBox
+   ; ´´½¨½çÃæ
+   GUICreate ( " List Box Get Locale ",  400 , 296 )
+   $hListBox = GUICtrlCreateList ( "",  2 , 2 , 396 , 296 )
+   GUISetState ()
+   ; ÏÔÊ¾µØÇø, ¹ú¼Ò´úÂë, ÓïÑÔÊ¶±ğÂë, »ù±¾ÓïÑÔ±àºÅ, ×ÓÓïÑÔ±àºÅ
+   MsgBox ( 4160 , " Information ", _
+       " Locale .................: " & _GUICtrlListBox_GetLocale ( $hListBox ) & @LF & _
+       " Country code ........: " & _GUICtrlListBox_GetLocaleCountry ( $hListBox ) & @LF & _
+       " Language identifier..: " & _GUICtrlListBox_GetLocaleLang ( $hListBox ) & @LF & _
+       " Primary Language id : " & _GUICtrlListBox_GetLocalePrimLang ( $hListBox ) & @LF & _
+       " Sub-Language id ....: " & _GUICtrlListBox_GetLocaleSubLang ( $hListBox ))
+   ; Ñ­»·ÖÁÓÃ»§ÍË³ö
+   Do
+   Until GUIGetMsg () = $GUI_EVENT_CLOSE
+   GUIDelete ()
+ EndFunc ;==>_Main

@@ -1,63 +1,61 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinNet_GetResourceParent
 
-###Description###
-è¿”å›žç½‘ç»œæµè§ˆèµ„æºçš„çˆ¶å±‚æ¬¡
+###ÃèÊö###
+·µ»ØÍøÂç×ÊÔ´ÔÚÍøÂçä¯ÀÀµÄ¼Ì³Ð¹ØÏµÖÐµÄ¸¸Ïî
 
-###Syntax###
+###Óï·¨###
 #Include <WinNet.au3>
-_WinNet_GetResourceParent($sRemoteName, $sProvider [, $iType = 0])
+_WinNet_GetResourceParent($sRemoteName, $sProvider[, $iType = 0])
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
-$sRemoteName
-	è¯¥èµ„æºçš„è¿œç¨‹è·¯å¾„åç§°
-$sProvider
-	ä¾›åº”å•†æ‹¥æœ‰çš„èµ„æºåç§°
-$iType
-	[å¯é€‰å‚æ•°] èµ„æºç±»åž‹ï¼Žå¦‚æžœä¸çŸ¥é“ï¼Œè¿™ä¸ªæˆå‘˜å¯ä»¥æ˜¯ã€€0ï¼Ž
+$sRemoteName 
+   ×ÊÔ´µÄÔ¶³ÌÂ·¾¶Ãû
+$sProvider 
+   ÓµÓÐ×ÊÔ´µÄÌá¹©·½Ãû³Æ. Èç¹ûÌá¹©·½Ãû³ÆÎ´Öª, ¿ÉÎª¿Õ.
+$iType 
+   ×ÊÔ´ÀàÐÍ. Èç¹ûÎ´Öª¿ÉÎª0.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›žæ•°ç»„çš„æ ¼å¼å¦‚ä¸‹ï¼š
-	$aResource[0] - ç»Ÿè®¡èŒƒå›´ï¼š
-	0 - è¿žæŽ¥
-	1 - æ‰€æœ‰èµ„æº
-	2 - è®°å¿†ä¸­çš„
-	$aResource[1] - èµ„æºç±»åž‹ï¼š
-	0 - ç£ç›˜
-	1 - æ‰“å°
-	2 - æœªçŸ¥
-	$aResource[2] - æ˜¾ç¤ºé€‰é¡¹ï¼š
-	0 - ä¸€èˆ¬
-	1 - èŒƒå›´
-	2 - æœåŠ¡å™¨
-	3 - å…±äº«
-	4 - æ–‡ä»¶
-	5 - ç»„
-	6 - ç½‘ç»œ
-	7 - æ ¹ç›®å½•
-	8 - ç³»ç»Ÿç®¡ç†å‘˜å…±äº«
-	9 - ç›®å½•
-	10 - ç›®å½•æ ‘
-	11 - NDS å®¹å™¨
-	$aResource[3] - èµ„æºä½¿ç”¨çŽ‡ï¼Žå¯ä»¥æ˜¯ä¸€ä¸ªæˆ–å¤šä¸ªä¸‹åˆ—å€¼ï¼š
-	1 - èµ„æºæ˜¯å¯è¿žæŽ¥çš„èµ„æº
-	2 - èµ„æºæ˜¯ä¸€ä¸ªå®¹å™¨èµ„æº
-	4 - é™„åŠ èµ„æº
-	8 - é¢„ç•™èµ„æº
-	$aResource[4] - æœ¬åœ°åç§°
-	$aResource[5] - è¿œç¨‹åç§°
-	$aResource[6] - ç½‘ç»œæä¾›å•†æä¾›çš„æ³¨é‡Š
-	$aResource[7] - ä¾›åº”å•†æ‹¥æœ‰çš„èµ„æºåç§°
-å¤±è´¥:	è®¾ç½® @error
+³É¹¦: ÈçÏÂ¸ñÊ½Êý×é:
+    $aResource[0] - Ã¶¾Ù·½·¨:
+     0 - Á¬½ÓµÄ
+     1 - ËùÓÐµÄ
+     2 - ¼ÇÂ¼µÄ
+    $aResource[1] - ×ÊÔ´ÀàÐÍ:
+     0 - ´ÅÅÌ
+     1 - ´òÓ¡»ú
+     2 - Î´Öª
+    $aResource[2] - ÏÔÊ¾Ñ¡Ïî:
+     0 - Í¨ÓÃ
+     1 - Óò
+     2 - ·þÎñÆ÷
+     3 - ¹²Ïí
+     4 - ÎÄ¼þ
+     5 - ×é
+     6 - ÍøÂç
+     7 - ¸ù
+     8 - ¹ÜÀíÔ±¹²Ïí
+     9 - Ä¿Â¼
+    10 - Ê÷
+    11 - NDSÈÝÆ÷
+    $aResource[3] - ×ÊÔ´ÓÃ·¨. ¿ÉÎªÏÂÁÐÖÐµÄÒ»¸ö»ò¶à¸ö:
+     1 - ¿ÉÁ¬½ÓµÄ×ÊÔ´
+     2 - ÈÝÆ÷×ÊÔ´
+     4 - ¸½¼ÓµÄ×ÊÔ´
+     8 - ±£ÁôµÄ×ÊÔ´
+    $aResource[4] - ±¾µØÃû³Æ
+    $aResource[5] - Ô¶³ÌÃû³Æ
+    $aResource[6] - ÓÉÍøÂçÌá¹©·½Ìá¹©µÄÆÀÂÛ
+    $aResource[7] - ²¿·Ö¿ÉÍ¨¹ýÏµÍ³º¯Êý·ÃÎÊµÄ×ÊÔ´
 @@End@@
 
-###Remarks###
-None.
+###±¸×¢###
 
-###Related###
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ WNetGetResourceParent
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖÐWNetGetResourceParentµÄÏà¹ØÐÅÏ¢

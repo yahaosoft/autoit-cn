@@ -1,69 +1,66 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _GUICtrlMenu_AppendMenu
 
-###Description###
-è¿½åŠ ä¸€ä¸ªæ–°é¡¹ç›®åˆ°æŒ‡å®šèœå•æ ,ä¸‹æ‹‰èœå•,å­èœå•æˆ–å¿«æ·èœå•çš„æœ«å°¾,
+###ÃèÊö###
+×·¼ÓÒ»¸öĞÂÏîµ½Ö¸¶¨²Ëµ¥À¸, ÏÂÀ­²Ëµ¥, ×Ó²Ëµ¥, »ò¿ì½İ²Ëµ¥µÄ½áÎ²
 
-###Syntax###
-#Include <GuiMenu.au3>
-_GUICtrlMenu_AppendMenu($hMenu, $iFlags, $iNewItem, $pNewItem)
+###Óï·¨###
+#Include<GuiMenu.au3>
+_GUICtrlMenu_AppendMenu($hMenu, $iFlags, $iNewItem,$pNewItem)
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$hMenu
-	èœå•å¥æŸ„
-$iFlags
-	Specifies flags to control the appearance and behavior of the new menu item:
-		$MF_BITMAP - Uses a bitmap as the menu item
-		$MF_CHECKED - Places a check mark next to the menu item. If the application provides check-mark bitmaps,
-		this flag displays the check-mark bitmap next to the menu item.
-		$MF_DISABLED - Disables the menu item so that it cannot be selected, but the flag does not gray it.
-		$MF_ENABLED - Enables the menu item so that it can be selected, and restores it from its grayed state.
-		$MF_GRAYED - Disables the menu item and grays it so that it cannot be selected.
-		$MF_MENUBARBREAK - Functions the same as $MF_MENUBREAK for a menu bar. For a drop down menu, submenu, or
-		shortcut menu, the new column is separated from the old column by a vertical line.
-		$MF_MENUBREAK - Places the item on a new line (for a menu bar) or in a new column (for a drop down menu,
-		submenu, or shortcut menu) without separating columns.
-		$MF_OWNERDRAW - Specifies that the item is an owner drawn item. Before the menu is displayed for the first
-		time, the window that owns the menu receives a $WM_MEASUREITEM message to retrieve the width and height of
-		the menu item. The $WM_DRAWITEM message is then sent to the window procedure of the owner window whenever the
-		appearance of the menu item must be updated.
-		$MF_POPUP - Specifies that the menu item opens a drop down menu or submenu. The iNewItem parameter
-		specifies a handle to the drop down menu or submenu. This flag is used to add a menu name to a menu bar, or a
-		menu item that opens a submenu to a drop down menu, submenu, or shortcut menu.
-		$MF_SEPARATOR - Draws a horizontal dividing line. This flag is used only in a drop down menu, submenu, or
-		shortcut menu. The line cannot be grayed, disabled, or highlighted. The pNewItem and iNewItem parameters are
-		ignored.
-		$MF_STRING - Specifies that the menu item is a text string. The pNewItem parameter is a string.
-		$MF_UNCHECKED - Does not place a check mark next to the item. If the application supplies check mark
-		bitmaps, this flag displays the clear bitmap next to the menu item.
-$iNewItem
-	æŒ‡å®šä»»ä¸€æ–°èœå•é¡¹çš„æ ‡è¯†ç¬¦,å¦‚æœ $iFlags å‚æ•°è®¾ç½®ä¸ºä¸€ä¸ªå¼¹å‡ºå¼èœå•,
-		åˆ™æŒ‡å®šä¸‹æ‹‰èœå•æˆ–å­èœå•å¥æŸ„.
-$pNewItem
-	æŒ‡å®šæ–°èœå•é¡¹çš„å†…å®¹.è¯¥å‚æ•°è®¾ç½®å†…å®¹çš„è§£é‡Šå–å†³äº
-		$iFlags å‚æ•°æ˜¯å¦åŒ…æ‹¬ $MF_BITMAP, $MF_OWNERDRAW, æˆ– $MF_STRING æ ‡å¿—:
-		$MF_BITMAP - åŒ…å«ä¸€ä¸ªä½å›¾å¥æŸ„
-		$MF_OWNERDRAW - åŒ…å«åº”ç”¨ç¨‹åºæä¾›çš„å€¼,å¯ç”¨äºç»´æŠ¤ç›¸å…³èœå•é¡¹çš„å…¶ä»–æ•°æ®
-		å½“ $WM_MEASUREITEM or $WM_DRAWITEM æ¶ˆæ¯å‘é€èœå•åˆ›å»ºæˆ–æ›´æ–°å…¶å¤–è§‚æ—¶, 
-		è¯¥å€¼æ‰€åœ¨ç»“æ„çš„ ItemData æˆå‘˜æŒ‡å‘ lParam å‚æ•°.
-		$MF_STRING - åŒ…å«å­—ç¬¦ä¸²
+ $hMenu  ²Ëµ¥¾ä±ú
+ $iFlags  Ö¸¶¨¿ØÖÆĞÂ²Ëµ¥ÏîµÄÍâ¹ÛºÍ¶¯×÷µÄ±ê¼Ç:
+$MF_BITMAP - Ê¹ÓÃÎ»Í¼×÷Îª²Ëµ¥Ïî
+$MF_CHECKED -
+      ¸úËæ²Ëµ¥Ïî·ÅÖÃÑ¡ÖĞ±ê¼Ç. Èç¹ûÓ¦ÓÃ³ÌĞòÌá¹©Ñ¡ÖĞ±ê¼ÇÎ»Í¼, ¸Ã±ê¼Ç±íÃ÷¸úËæ²Ëµ¥ÏîÏÔÊ¾Ñ¡ÖĞÎ»Í¼.
+$MF_DISABLED -
+      ½ûÓÃ²Ëµ¥ÏîÒÔ±ãÆäÎŞ·¨±»Ñ¡ÖĞ, µ«²¢²»»ÒÉ«±íÊ¾.
+$MF_ENABLED - ÆôÓÃ²Ëµ¥ÏîÒÔ±ãÆä¿É±»Ñ¡ÖĞ,
+      ÇÒ´Ó»ÒÉ«ÏÔÊ¾×´Ì¬»Ö¸´.
+$MF_GRAYED - ½ûÓÃ²Ëµ¥Ïî²¢»ÒÉ«ÏÔÊ¾ÒÔ±ãÎŞ·¨Ñ¡Ôñ.
+$MF_MENUBARBREAK - ¶ÔÓÚ²Ëµ¥À¸,
+      ¹¦ÄÜÓë$MF_MENUBREAKÏàÍ¬. ¶ÔÓÚÏÂÀ­²Ëµ¥, ×Ó²Ëµ¥, »ò¿ì½İ²Ëµ¥, ½«ÓÉÒ»Ìõ´¹Ö±Ïß´Ó¾ÉÁĞÖĞ·Ö³öĞÂÁĞ
+$MF_MENUBREAK -
+      ÔÚĞÂĞĞ·ÅÖÃÏîÄ¿(¶ÔÓÚ²Ëµ¥À¸)»òÔÚĞÂÁĞÖĞ(¶ÔÓÚÏÂÀ­²Ëµ¥, ×Ó²Ëµ¥, ¿ì½İ²Ëµ¥)ÇÒ²»ÓÃ·ÖÁĞ.
+$MF_OWNERDRAW -
+      Ö¸¶¨ÏîÄ¿ÎªËŞÖ÷»æÖÆµÄÏîÄ¿. ÔÚ²Ëµ¥Ê×´ÎÏÔÊ¾Ç°, ²Ëµ¥µÄËŞÖ÷´°¿Ú½ÓÊÕ»ñÈ¡²Ëµ¥ÏîµÄ¿í¶ÈºÍ¸ß
+¶ÈµÄ$WM_MEASUREITEMÏûÏ¢.
+      ÎŞÂÛ²Ëµ¥µÄÍâ¹ÛºÎÊ±¸üĞÂ$WM_DRAWITEMÏûÏ¢½«±»·¢ËÍÖÁËŞÖ÷´°ÌåµÄ´°¿Ú½ø³Ì
+$MF_POPUP - Ö¸¶¨²Ëµ¥Ïî´ò¿ªÏÂÀ­²Ëµ¥»ò×Ó²Ëµ¥.
+      iNewItem²ÎÊıÖ¸¶¨ÏÂÀ­²Ëµ¥»ò×Ï²ËµÄ¾ä±ú. ¸Ã±ê¼ÇÓÃÓÚÏò²Ëµ¥À¸Ìí¼ÓÓÃÒÔ´ò¿ª×Ó²Ëµ¥,
+      ÏÂÀ­²Ëµ¥»ò¿ì½İ²Ëµ¥µÄ²Ëµ¥Ãû»ò²Ëµ¥Ïî.
+$MF_SEPARATOR - »æÖÆË®Æ½·Ö¸îÏß. ¸Ã±ê¼Ç½öÓÃÓÚÏÂÀ­²Ëµ¥, ×Ó²Ëµ¥, »ò¿ì½İ²Ëµ¥.
+      ¸ÃĞĞÎŞ·¨»ÒÉ«ÏÔÊ¾, ½ûÓÃ, »ò¸ßÁÁ. pNewItemºÍiNewItem²Î Êı½«±»ºöÂÔ.
+$MF_STRING - Ö¸¶¨Ò»¸ö²Ëµ¥ÏîÎª×Ö·û´®.
+      pNewItem²ÎÊıÎª×Ö·û´®.
+$MF_UNCHECKED - ²»Ëæ²Ëµ¥Ïî·ÅÖÃÑ¡ÖĞ±ê¼Ç. Èç¹ûÓ¦ÓÃ³ÌĞòÖ§³ÖÑ¡ÖĞ±ê¼ÇÎ»Í¼,
+      ¸Ã±ê¼ÇÏÔÊ¾Ëæ²Ëµ¥ÏîÏÔÊ¾Çå³ıÎ»Í¼.
+ $iNewItem  Èç¹û$iFlags²ÎÊıÉèÖÃÎªµ¯³ö, ¾ä±úÖ¸ÏòÏÂÀ­²Ëµ¥»ò×Ó²Ëµ¥ÔòÖ¸¶¨ĞÂ²Ëµ¥ÏîµÄ±êÊ¶.
+ $pNewItem  Ö¸¶¨ĞÂ²Ëµ¥ÏîµÄÄÚÈİ. pNewItem²ÎÊıµÄº¬ÒåÒÀÀµÓÚÊÇ·ñ°üÀ¨$MF_BITMAP, $MF_OWNERDRAW,
+      »ò$MF_STRING±ê¼Ç:
+$MF_BITMAP - °üº¬Î»Í¼¾ä±ú
+$MF_OWNERDRAW -
+      °üº¬Ó¦ÓÃ³ÌĞòÓÃÓÚÎ¬³ÖÓë²Ëµ¥ÏîÏà¹ØµÄ¶îÍâÊı¾İÖ§³ÖµÄÖµ.¸ÃÖµ¿ÉÎªµ±²Ëµ¥´´½¨»ò¸üĞÂÊ±Ö¸ÏòÓÉ$WM_MEASUREITEM
+»ò$WM_DRAWITEMĞÅÏ¢·¢ËÍµÄlParam²ÎÊıµÄ½á¹¹µÄItemData³ÉÔ±.
+$MF_STRING
+      - °üº¬×Ö·û´®
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å› True
-å¤±è´¥:	è¿”å› False
+³É¹¦: Õæ
+Ê§°Ü: ¼Ù
 @@End@@
 
-###Remarks###
-None.
+###±¸×¢###
 
-###Related###
+###Ïà¹Ø###
 _GUICtrlMenu_InsertMenuItem
 
-###See Also###
-@@MsdnLink@@ AppendMenu
+###²Î¿¼###
+ËÑË÷MSDNÖªÊ¶¿âÖĞAppendMenuµÄÏà¹ØĞÅÏ¢
 
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@

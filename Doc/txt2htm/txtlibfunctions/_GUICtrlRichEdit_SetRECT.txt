@@ -1,54 +1,46 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_SetRECT
 
-###Description###
-设置控件的格式化矩形 
-译注:原描述文字与 _GUICtrlRichEdit_SetModified 函数完全一样,
-参照 _GUICtrlRichEdit_GetRECT 函数汉化此函数的描述文字.
+###描述###
+设置或清除修改标记
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetRECT($hWnd [,$iLeft = Default [, $iTop = Default [, $iRight = Default [, $iBottom = Default [, $bRedraw = True]]]]]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iLeft
-	[可选参数] 对话框左侧位置
-$iTop
-	[可选参数] 对话框顶部位置
-$iRight
-	[可选参数] 话框右侧位置
-$iBottom
-	[可选参数] 对话框底部位置
-$bRedraw
-	[可选参数] True, 则强制刷新
+ $hWnd  控件句柄
+ $iLeft  [可选] 对话单元左侧位置
+ $iTop  [可选] 对话单元顶部位置
+ $iRight  [可选] 对话单元右侧位置
+ $iBottom  [可选] 对话单元底部位置
+ $bRedraw  [可选] 强制重绘时为真
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False设置@error
-@error:	101 - $hWnd 参数值不是句柄
-	1021 - $iLeft 参数值不是正数
-	1022 - $iTop 参数值不是正数
-	1023 - $iRight 参数值不是正数
-	1024 - $iBottom 参数值不是正数
-	1025 - $iLeft >= $iRight
-	1026 - $iTop >= $iBottom
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  1021 - $iLeft不是正数
+  1022 - $iTop不是正数
+  1023 - $iRight不是正数
+  1024 - $iBottom不是正数
+  1025 - $iLeft >= $iRight
+  1026 - $iTop >= $iBottom
 @@End@@
 
-###Remarks###
- 格式化矩形是指绘制文本的区域,其中一部分可能不可见.
- 参数的默认值 = 不改变先前值.
- 如果只定义 $hWnd, 则被重置为创建时的状态.
+###备注###
+格式化的矩形是绘制文本的区域, 可包含不可见部分.
+默认参数 = 不改变以前值
+如果只定义了$hWnd, 在创建时重新设置格式化.
 
-###Related###
-_GUICtrlRichEdit_GetRECT
+###相关###
+ _GUICtrlRichEdit_GetRECT
 
-###See Also###
-@@MsdnLink@@ EM_SETMODIFY
+###参考###
+ 搜索MSDN知识库中EM_SETMODIFY的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

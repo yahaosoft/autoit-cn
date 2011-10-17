@@ -1,54 +1,40 @@
-###User Defined Function###
+###用户自定义函数###
 _GUIToolTip_SetToolInfo
 
-###Description###
+###描述###
 设置工具的信息
 
-###Syntax###
-#Include <GuiToolTip.au3>
-_GUIToolTip_SetToolInfo($hWnd, $sText[, $iID = 0[, $iLeft = 0[, $iTop = 0[, $iRight = 0[, $iBottom = 0[, $iFlags = 8[, $iParam = 0]]]]]]])
+###语法###
+#Include<GuiToolTip.au3>
+_GUIToolTip_SetToolInfo($hWnd, $sText[, $iID = 0[,$iLeft = 0[, $iTop = 0[, $iRight = 0[, $iBottom = 0[, $iFlags = 8[, $iParam =0]]]]]]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	工具提示控件的窗口句柄
-$sText
-	工具提示控件文本
-$iID
-	[可选参数] 工具提示控件的标识符或窗口句柄
-$iLeft
-	[可选参数] 提示框矩形左上角 X 坐标
-$iTop
-	[可选参数] 提示框矩形左上角 Y 坐标
-$iRight
-	[可选参数] 提示框矩形右下角 X 坐标
-$iBottom
-	[可选参数] 提示框矩形右下角 Y 坐标
-$iFlags
-	[可选参数] 工具提示显示标志:
-		1 - 指定 $iID 参数值是窗口句柄, 而不是工具提示控件的 ID
-		2 - $iID 指定的提示控件在窗口下方居中
-		4 - 指定文本反方向显示
-		8 - 指定提示控件是窗口拦截消息的子类
-		16 - 提示工具位置对应有提示信息的控件旁边
-		32 - TTM_TRACKPOSITION 提供同一位置的窗口坐标
-		64 - 控件向父窗口发送鼠标信息
-		128 - 指定解析链接的提示文本
-$iParam
-	[可选参数] 应用程序定义的工具关联值
+ $hWnd  包含工具的窗体句柄
+ $sText  提示控件的文本
+ $iID  工具控件的标识或窗口句柄
+ $iLeft  矩形左上角 X 坐标
+ $iTop  矩形左上角 Y 坐标
+ $iRight  矩形右下角 X 坐标
+ $iBottom  矩形右下角 Y 坐标
+ $iFlags  控制工具显示的标记:
+  1 - 指示$iID代替ID作为工具的窗口句柄
+  2 - 在由$iID指定的工具下中心对齐放置窗体
+  4 - 指示文本将反向显示
+  8 - 指示控件是工具窗体用以截取信息的子类
+  16 - 控件的位置跟随与之相对应的工具
+  32 - 同一坐标系的窗口位置由TTM_TRACKPOSITION提供
+  64 - 使控件向父窗体发送鼠标信息
+ 128 - 指示控件文本中的链接将被解析
+ $iParam  与工具关联的应用程序定义的值
 @@End@@
 
-###ReturnValue###
-None.
+###备注###
+一些工具的内部属性在工具创建时即被设置, 且在发送$TTM_SETTOOLINFO消息时不用重新计算.
+如果简单的分配值给TOOLINFO 结构并以$TTM_SETTOOLINFO消息传递给提示控件, 这些属性可能会丢失.
+通过发送$TTM_GETTOOLINFO消息取代应用程序要求的工具当前的TOOLINFO结构. 然后,
+在必要时修改结构的成员并由$TTM_SETTOOLINFO传回到提示控件. 当调用$TTM_SETTOOLINFO时,
+指向TOOLINFO结构文本成员的字符串不能超过个80字符.
 
-###Remarks###
- 当该工具创建时,工具的一些内部属性已确定.
- 当发生 $TTM_SETTOOLINFO消息时,不重新计算属性值.
- 如果简单的分配值给 TOOLINFO 结构,并以 $TTM_SETTOOLINFO 消息传递给提示控件,这些属性可能会丢失;
- 应该要求应用程序应首先通过发送 $TTM_GETTOOLINFO 到工具目前的 TOOLINFO 结构,
- 然后修改这个结构的成员,根据需要通过 $TTM_SETTOOLINFO 返回到工具提示控件.
- 当调用 $TTM_SETTOOLINFO时,结构 TOOLINFO 的 Text 成员所指向的字符串不得超过80个字符的长度.
-
-###Related###
+###相关###
 _GUIToolTip_GetToolInfo
-

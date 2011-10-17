@@ -1,39 +1,41 @@
-###User Defined Function###
+###用户自定义函数###
 _Crypt_DecryptData
 
-###Description###
-使用密钥解密数据
+###描述###
+使用提供的密钥解密数据
 
-###Syntax###
+###语法###
 #Include <Crypt.au3>
-_Crypt_DecryptData($vData, $vCryptKey, $iALG_ID [, $fFinal = True])
+_Crypt_DecryptData($vData, $vCryptKey, $iALG_ID[, $fFinal = True])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$vData
-	要解密的数据
-$vCryptKey
-	当指定了 CALG_USERKEY 标记时，需提供的密钥密码或句柄
-$iALG_ID
-	使用的算法
-$fFinal
-	[可选参数] 设置为 False, 表明只是全部数据的一部分
+$vData 
+   要解密的数据
+$vCryptKey 
+   当提供CALG_USERKEY标记时密钥的密码或句柄
+$iALG_ID 
+   使用的算法
+$fFinal 
+    [可选] 如果只是完整数据的片段为假
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回解密后的数据
-	设置 @error 为 0
-失败:	返回 -1 并设置 @error:
-	1 - 无法创建密钥
-	2 - 无法解密数据
+成功: 返回解密后的数据, 并设置@error为0
+失败: 返回-1并设置@error为:
+    1 - 无法创建密钥
+    2 - 解密数据失败
 @@End@@
 
-###Remarks###
- 解密的数据总是返回一个二进制字符串, 即使加数据实际上是使用 BinaryToString 函数转换的字符串.
+###备注###
+解密后的数据通常以二进制字符串返回即使加密的数据实际是(由BinaryToString计算的)字符串
 
-###See Also###
-@@MsdnLink@@ CryptDecrypt
+###相关###
+ _Crypt_EncryptData , _Crypt_Derivekey
 
-###Example###
+###参考###
+ 搜索MSDN知识库中CryptDecrypt的相关信息
+
+###示例###
 @@IncludeExample@@

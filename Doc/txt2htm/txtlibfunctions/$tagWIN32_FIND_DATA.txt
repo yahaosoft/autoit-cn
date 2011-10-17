@@ -1,38 +1,49 @@
-###Structure Name###
+###结构常量###
 $tagWIN32_FIND_DATA
 
-###Description###
-包含查找到的文件数据
+###描述###
+包含查找文件时找到的数据的结构
 
-###Syntax###
-Global Const $tagWIN32_FIND_DATA = "dword dwFileAttributes;dword ftCreationTime[2];dword ftLastAccessTime[2];dword ftLastWriteTime[2];dword nFileSizeHigh;dword nFileSizeLow;dword dwReserved0;dword dwReserved1;wchar cFileName[260];wchar cAlternateFileName[14]"
+###语法###
+Global Const $tagWIN32_FIND_DATA =  "dword dwFileAttributes;dword ftCreationTime[2];dword ftLastAccessTime[2];dword ftLastWriteTime[2];dword nFileSizeHigh;dword nFileSizeLow;dword dwReserved0;dword dwReserved1;char cFileName[260];char cAlternateFileName[14];"
 
-###Fields###
+###成员###
 @@ParamTable@@
-dwFileAttributes
-	文件的属性.
-ftCreationTime
-	一个 FILETIME 结构,它指定当文件或目录已创建.
-ftLastAccessTime
-	一个 FILETIME 结构,指定文件最后读取、写入、或可执行文件、运行等信息.
-ftLastWriteTime
-	一个FILETIME结构,指定文件最后写入、被删节、或覆盖等信息.
-nFileSizeHigh
-	文件字节大小的 DWORD 高位值.
-nFileSizeLow
-	文件字节大小的 DWORD 低位值.
-dwReserved0
-	如果 dwFileAttributes 成员包含 $FILE_ATTRIBUTE_REPARSE_POINT 属性. 这个成员指定重新分析标志
-dwReserved1
-	保留.
-cFileName
-	文件的名称.
-cAlternateFileName
-	一种替代性的文件名，经典的 8.3（文件名.ext）文件名格式
-@@End@@
+    dwFileAttributes
 
-###Remarks###
-必须使用 Unicode 版本 
+   文件的文件属性
+    ftCreationTime
 
-###See Also###
-@@MsdnLink@@ WIN32_FIND_DATA
+   用于指定文件或目录创建时间的FILETIME结构
+    ftLastAccessTime
+
+   用于指定读取, 写入, 或对于可执行文件的运行的FILETIME结构
+    ftLastWriteTime
+
+   用于指定文件最后被写入, 截取, 或覆盖的FILETIME结构
+    nFileSizeHigh
+
+   文件字节大小的高位DWORD值
+    nFileSizeLow
+
+   文件字节大小的低位DWORD值
+    dwReserved0
+
+   如果dwFileAttributes成员包括$FILE_ATTRIBUTE_REPARSE_POINT属性, 该成员指定再解析标记.
+    dwReserved1
+
+   保留
+    cFileName
+
+   文件名
+    cAlternateFileName
+
+   文件的可选名, 经典8.3(文件名.扩展)文件名格式
+@@end@@
+
+###备注###
+必须使用ANSI版本
+
+###参考###
+搜索MSDN知识库中WIN32_FIND_DATA的相关信息
+搜索MSDN知识库中WIN32_FIND_ATA的相关信息

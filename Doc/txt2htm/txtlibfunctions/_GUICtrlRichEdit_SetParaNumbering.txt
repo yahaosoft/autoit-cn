@@ -1,49 +1,45 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_SetParaNumbering
 
-###Description###
-设置(第一)当前选择(或没有选择时的插入点所在段落)的编号方式
+###描述###
+设置(首个)被选段落或(无选定时的)当前段落的编号样式
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetParaNumbering($hWnd, $sStyle [, $iTextToNbrSpace = Default [, $fForceRoman=False]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$sStyle
-	指定编号字符的样式与开始的数字: 例如: "." (加重号), "1)","(b)", "C.", "iv", "V)"
-		为第一选定段落显示的编号.
-		段落与编号的间距为最小值,除非使用 $iTextToNbrSpace 的指定值
-		特殊情况:
-		"=" - 该段落前面有列表元素,为没有编号的段落
-		"" - 删除所选段落的编号
-$iTextToNbrSpace
-	[可选参数] 编号的数字或符号与段落的间距 (空间单位)
-		默认 : 尾随空间数总是使用磅值大小(注:1 磅=1/72 英寸)大小
-$fForceRoman
-	[可选参数] False - i, v, x ... 在 $sStyle 中是字母 i, v, x ... {默认)
+ $hWnd  控件句柄
+ $sStyle  指定格式并以"数字"开始的字符串: 如 "."(点号), "1)","(b)", "C.", "iv", "V)"
+"数字"将显示在首段.
+跟随的空格表示在数字和段落间的最小空间除非输入iTextToNbrSpace
+特殊情况::
+      "=" - 该段是带有前置列表元素的未编号段落
+       "" - 从选定段落移除编号(s)
+ $iTextToNbrSpace  [可选]: 数字/标点和段落之间的空间(用空间单位)
+默认: 跟随的空格次数的点大小
+ $fForceRoman  [可选]: 假 - $sStyle中的i, v, x ... 是字母i, v, x ... (默认)
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False,设置@error
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $sStyle 无效
-	103 - $iTextToNbrSpace 不是正数
-	104 - $fForceRoman 必须是 True 或 False
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  102 - $sStyle无效
+  103 - $iTextToNbrSpace不是正数
+  104 - $fForceRoman非真非假
 @@End@@
 
-###Remarks###
- 调用 _GUICtrlRichEdit_SetSpaceUnit 函数设置 "空间单位". 最初为英寸
+###备注###
+调用_GUICtrlRichEdit_SetSpaceUnit设置"空白单位". 初始英寸
 
-###Related###
-_GUICtrlRichEdit_GetParaNumbering, _GUICtrlRichEdit_SetSpaceUnit
+###相关###
+ _GUICtrlRichEdit_GetParaNumbering , _GUICtrlRichEdit_SetSpaceUnit
 
-###See Also###
-@@MsdnLink@@ EM_SETPARAFORMAT
+###参考###
+ 搜索MSDN中EM_GETPARAFORMAT的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

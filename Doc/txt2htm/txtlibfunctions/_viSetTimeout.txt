@@ -1,46 +1,39 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _viSetTimeout
 
-###Description###
-è®¾ç½® VISA è¶…æ—¶æ—¶é—´çš„æ¯«ç§’å€¼
+###ÃèÊö###
+ÉèÖÃVISAºÁÃëÑÓÊ±
 
-###Syntax###
-#include <Visa.au3>
+###Óï·¨###
+#Include <Visa.au3>
 _viSetTimeout ( $h_session, $i_timeout_ms )
 
-
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
-$h_session
-	VISA æè¿°ç¬¦ï¼ˆå­—ç¬¦ä¸²ï¼‰æˆ– VISA ä¼šè¯å¥æŸ„ï¼ˆæ•´æ•°ï¼‰.
-		æ›´å¤šä¿¡æ¯è§ _viExecCommand å¤‡æ³¨.
-$i_timeout_ms
-	VISA æ“ä½œçš„è¶…æ—¶æ¯«ç§’å€¼ (ä¸»è¦ç”¨äºŽ GPIB æŸ¥è¯¢)
-		å¦‚æžœä½ å°†å®ƒè®¾ç½®ä¸º 0,è¶…æ—¶å°†è¢«ç¦ç”¨.
-		å¦‚æžœè®¾ç½®ä¸º "INF", VISA æ“ä½œå°†æ°¸è¿œä¸ä¼šè¶…æ—¶.
-		åœ¨è¿™æ–¹é¢è¦å°å¿ƒ,å› ä¸ºå®ƒå¯ä»¥å¾ˆå®¹æ˜“åœ°æŒ‚èµ·ç¨‹åº, ä»ªå™¨ä¸ä¼šå›žåº”ä½ çš„æŸ¥è¯¢.
-		æ ¹æ®ä¸åŒçš„æ€»çº¿ç±»åž‹ (GPIB, TCP, etc) è¶…æ—¶å¯èƒ½æ— æ³•è®¾ç½®åˆ°è¦æ±‚çš„ç²¾ç¡®å€¼;
-		ç›¸å,æœ€æŽ¥è¿‘çš„æœ‰æ•ˆè¶…æ—¶å€¼å¤§äºŽä½ çš„è¯·æ±‚å€¼ the one that you requested will be used.
+ $h_session  VISAÃèÊö·û(×Ö·û´®)»òVISA½ø³Ì¾ä±ú(ÕûÊý). ¸ü¶àÐÅÏ¢²ÎÔÄ_viExecCommand±¸×¢.
+ $i_timeout_ms  VISA²Ù×÷µÄºÁÃëÑÓÊ±(Ö÷ÒªÕë¶ÔGPIB²éÑ¯)
+Èç¹ûÉèÖÃÎª0Ôò½ûÓÃÑÓÊ±.
+Èç¹ûÉèÖÃÎª"INF"ÔòVISA²Ù×÷²»»á³¬Ê±.
+Ð¡ÐÄÊ¹ÓÃÒòÎªËü¿ÉÊ¹ÒÇÆ÷ÔÚ²»»ØÓ¦²éÑ¯Ê±ÇáÒ×¹ÒÆð³ÌÐòifv.
+¸ù¾Ý×ÜÏßÀàÐÍ(GPIB , TCP , etc)ÑÓÊ±¿ÉÄÜ²»»á±»ÉèÖÃÎªÇëÇóµÄ¾«È·Öµ. È¡¶ø´úÖ®ÒÔÉÔ´óÓÚÇëÇóÇÒ×î½Ó½üÓÐÐ§ÑÓÊ±µÄÖµ.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›ž 0
-å¤±è´¥:	è¿”å›ž -1, VISA DLL æ— æ³•æ‰“å¼€; éžé›¶å€¼ä»£è¡¨ VISA é”™è¯¯ä»£ç  (è§ VISA ç¨‹åºå‘˜æŒ‡å—).
+³É¹¦: ·µ»Ø0
+Ê§°Ü: ·µ»Ø-1Èç¹ûÎÞ·¨´ò¿ªVISA DLL»ò´ú±íVIXA´íÎóµÄ·Ç0Öµ(²Î¼ûVISA³ÌÐòÔ±Ïòµ¼)
+¸Ãº¯ÊýÍ¨³£ÔÚ³ö´íÊ±ÉèÖÃ@errorÎª1.
 @@End@@
 
+###±¸×¢###
+´ó¶àÊýÇé¿öÎÞÐèµ÷ÓÃ´Ëº¯Êý , ÒòÎª_viExecCommandÓÐµÚÈý¸ö¿ÉÑ¡²ÎÊý$i_timeout_ms¿ÉÓÃÓÚÉèÖÃVISAÑÓÊ±.
+ÒªÊ¹ÓÃVISAº¯Êý±ØÐë°²×°ÓÐVISA¿â(¿ÉÒÔ¼ì²é{WINDOWS}\system32ÖÐÊÇ·ñ´æÔÚvisa32.dll)ºÍGPIB¿¨(ÈçNational Instruments NI PCI-GPIB card»òAgilent 82350B PCI High-Performance GPIB card)
+* ³£ÓÃVISAÃèÊö·ûµÄÏêÏ¸ÃèÊö¿É²é¿´°ïÖúÖÐ_viExecCommandº¯ÊýµÄ±¸×¢
 
+###Ïà¹Ø###
+ _viSetAttribute , _viExecCommand , _viOpen , _viClose
 
-###Remarks###
-å¤§éƒ¨åˆ†çš„æ—¶é—´ä¸éœ€è¦è°ƒç”¨è¿™ä¸ªå‡½æ•°, as _viExecCommand æœ‰ç¬¬ä¸‰ä¸ªå¯é€‰å‚æ•° $i_timeout_ms ä¹Ÿå¯ä»¥ç”¨æ¥è®¾ç½® VISA è¶…æ—¶.
-VISA å‡½æ•°å¿…é¡»å®‰è£… VISA åº“æ–‡ä»¶(æ‚¨å¯ä»¥æ£€æŸ¥visa32.dllæ˜¯å¦åœ¨ WINDOWS\System32 ç›®å½•ä¸­)
-åŠ GPIB å¡(ä¾‹å¦‚ National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card)
- * å¸¸è§ VISA æè¿°ç¬¦è¯¦ç»†ä»‹ç»,è§ _viExecCommand å‡½æ•°å¤‡æ³¨
+###²Î¿¼###
 
-
-###Related###
-_viSetAttribute, _viExecCommand, _viOpen, _viClose
-
-
-###Example###
+###Ê¾Àý###
 @@IncludeExample@@

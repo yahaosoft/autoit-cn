@@ -1,50 +1,49 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WordCreate
 
-###Description###
-åˆ›å»ºä¸€ä¸ª Microsoft Office Word å¯¹è±¡
+###ÃèÊö###
+´´½¨ Microsoft Office Word¶ÔÏó
 
-###Syntax###
-#include <Word.au3> 
-_WordCreate ( [ $s_FilePath = "" [, $b_tryAttach = 0 [, $b_visible = 1 [, $b_takeFocus = 1]]]] )
+###Óï·¨###
+#Include <Word.au3>
+_WordCreate ( [ $s_FilePath ="" [, $b_tryAttach = 0 [, $b_visible = 1 [, $b_takeFocus = 1]]]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$s_FilePath
-	[å¯é€‰å‚æ•°] æ–‡ä»¶è·¯å¾„,å¦‚æœè·¯å¾„å­˜åœ¨å°±æ‰“å¼€,ä¸å­˜åœ¨å°±æ–°å»º(å‚è€ƒæ³¨æ„)
-$b_tryAttach
-	[å¯é€‰å‚æ•°] æŒ‡å®šæ˜¯å¦å°è¯•é™„åŠ åˆ°ä¸€ä¸ªå·²ç»å­˜åœ¨çš„wordçª—å£
-	0 = (é»˜è®¤) ä¸å°è¯•é™„åŠ 
-	1 = å°è¯•é™„åŠ åˆ°ä¸€ä¸ªå·²å­˜åœ¨çš„wordçª—å£.
-$b_visible
-	[å¯é€‰å‚æ•°] æŒ‡å®šçª—å£æ˜¯å¦ä¸ºå¯è§çŠ¶æ€
-	0 = çª—å£ä¸ºéšè—
-	1 = (é»˜è®¤) çª—å£å¯è§
-$b_takeFocus
-	[å¯é€‰å‚æ•°] æŒ‡å®šæ˜¯å¦èµ‹äºˆé™„åŠ ä¸Šçš„çª—å£ç„¦ç‚¹
-	0 =  ä¸ç”¨ç»™é™„åŠ ä¸Šçš„çª—å£èµ‹äºˆç„¦ç‚¹
-	1 = (é»˜è®¤) ç»™é™„åŠ ä¸Šçš„çª—å£èµ‹äºˆç„¦ç‚¹
+$s_FilePath 
+   ¿ÉÑ¡: ÔÚ´´½¨»ù´¡ÉÏ´ò¿ªÖ¸¶¨ÎÄ¼ş(¼û±¸×¢)
+$b_tryAttach 
+    ¿ÉÑ¡: Ö¸¶¨ÊÇ·ñ³¢ÊÔ¸½¼Óµ½Ò»¸öÒÑ´æÔÚµÄ´°Ìå
+    0 = (Ä¬ÈÏ)²»³¢ÊÔ
+    1 = ³¢ÊÔ
+$b_visible 
+   ¿ÉÑ¡: Ö¸¶¨´°¿ÚÊÇ·ñ¿É¼û
+    0 = Òş²Ø
+    1 = (Ä¬ÈÏ)¿É¼û
+$b_takeFocus 
+   ¿ÉÑ¡: Ö¸¶¨ÊÇ·ñ½«¸½¼ÓµÄ´°¿Ú´øÈë½¹µã
+    0 = ²»´øÈë
+    1 = (Ä¬ÈÏ)´øÈë
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›ä¸€ä¸ªæŒ‡å‘ Word.Application å¯¹è±¡çš„å¯¹è±¡å˜é‡
-å¤±è´¥:	è¿”å› 0 å¹¶è®¾ç½® @ERROR
-@Error:	$_WordStatus_Success = æ²¡æœ‰é”™è¯¯
-	$_WordStatus_GeneralError = å¸¸è§„é”™è¯¯
-	$_WordStatus_InvalidDataType = æ— æ•ˆæ•°æ®ç±»å‹
-	$_WordStatus_InvalidObjectType = æ— æ•ˆå¯¹è±¡ç±»å‹
-@Extended:	è®¾ç½® true (1) æˆ–è€… false (0),ä¾èµ–äºæ˜¯å¦æˆåŠŸé™„åŠ ($f_tryAttach)
+³É¹¦: ·µ»ØÖ¸ÏòWord.Application¶ÔÏóµÄ¶ÔÏó±äÁ¿
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@ERROR
+@Error: 0 ($_WordStatus_Success) = ÎŞ´íÎó
+     1 ($_WordStatus_GeneralError) = Ò»°ã´íÎó
+     3 ($_WordStatus_InvalidDataType) = ÎŞĞ§Êı¾İÀàĞÍ
+     4 ($_WordStatus_InvalidObjectType) = ÎŞĞ§¶ÔÏóÀàĞÍ
+@Extended: »ùÓÚ$f_tryAttachÊÇ·ñ³É¹¦ÉèÖÃÕæ(1)»ò¼Ù(0)
 @@End@@
 
+###±¸×¢###
+Èç¹û²»´æÔÚÔò´´½¨ÎÄ¼ş.
 
-###Remarks###
-å¦‚æœæ–‡ä»¶ä¸å­˜åœ¨,å°†ä¼šè¢«è‡ªåŠ¨åˆ›å»º.
+###Ïà¹Ø###
+ _WordAttach , _WordQuit
 
+###²Î¿¼###
 
-###Related###
-_WordAttach, _WordQuit
-
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@

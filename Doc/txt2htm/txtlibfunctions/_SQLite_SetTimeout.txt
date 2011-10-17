@@ -1,35 +1,35 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _SQLite_SetTimeout
 
-###Description###
-为忙碌的处理程序设置超时
+###����###
+����æµ�����ʱ��
 
-###Syntax###
-#include <SQLite.au3>
+###�﷨###
+#Include <SQLite.au3>
 _SQLite_SetTimeout ( [ $hDB = -1 [, $iTimeout = 1000 ]] )
 
-
-###Parameters###
+###����###
 @@ParamTable@@
-$hDB
-	[可选参数] 打开的数据库,如为 -1, 则使用最后打开的数据库
-$iTimeout
-	[可选参数] 超时值 [毫秒]
+ $hDB  �򿪵����ݿ�, -1Ϊ����򿪵����ݿ�
+ $iTimeout  ʱ��[����]
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 $SQLITE_OK
-失败:	返回值可能违反 $SQLITE_* 常量@错误:
-	-1 - SQLite 报告错误 (检查返回值)
-	1 - 错误调用 SQLite API 'sqlite3_busy_timeout'
-	2 - 调用被安全模式阻止
+�ɹ�: ����$SQLITE_OK
+ʧ��: ���ؿ���$SQLITE_* �����Ƚϵ�ֵ
+@error: -1 - SQLite����(��鷵��ֵ)
+      1 - ����SQLite API 'sqlite3_busy_timeout'����
+      2 - ��ȫģʽ��ֹ����
 @@End@@
 
-###Remarks###
- 此例程设置一个繁忙的处理程序暂时锁定表,. 该处理程序将休眠多次,
- 至少到 “ms” 毫秒休眠时间已经完成. 休眠 "ms" 毫秒以后, 
- 处理程序返回 0, 导致 sqlite3_exec() 返回 SQLITE_BUSY.
+###��ע###
+����������һ������������ʱ��ͣ��æµ���. ���Ѿ��ﵽ��ͣ��"ms"������ǰ�������ͣ���. ����ͣ"ms"�����, ����sqlite3_exec()����SQLITE_BUSY�ľ����0.
 
-###Example###
+###���###
+ _SQLite_Query
+
+###�ο�###
+
+###ʾ��###
 @@IncludeExample@@

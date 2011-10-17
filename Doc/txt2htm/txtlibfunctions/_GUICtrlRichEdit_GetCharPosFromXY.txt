@@ -1,42 +1,37 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_GetCharPosFromXY
 
-###Description###
-获取最接近客户区指定点的字符区间位置
+###描述###
+获取客户区内距指定点最近的内部位置的字符
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetCharPosFromXY($hWnd, $iX, $iY)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iX
-	相对于控件左侧的水平屏幕坐标
-$iY
-	相对于控件顶部的垂直屏幕坐标
+ $hWnd  控件句柄
+ $iX  与控件左侧相关的水平屏幕坐标
+ $iY  与控件顶部相关的垂直屏幕坐标
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回最接近指定点的字符 0 基索引
-	(如果指定点在文字以外,则返回控件最后一个字符的索引)
-失败:	返回 0,设置@error:	
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $iX 不是一个数字
-	103 - $iY 不是一个数字
-	-1 - ($iX,$iY) 在客户区外部
+成功: 指定点最近的字符的1基索引(如果指定点超出文本返回控件中最后的字符的索引)
+失败: 返回0并设置@error:
+    101 - $hWnd不是句柄
+    102 - $iX不是数字
+    103 - $iY不是数字
+    -1 - ($iX,$iY)超出客户区
 @@End@@
 
-###Remarks###
-None.
+###备注###
 
-###Related###
-_GUICtrlRichEdit_GetXYFromCharPos
+###相关###
+ _GUICtrlRichEdit_GetXYFromCharPos
 
-###See Also###
-@@MsdnLink@@ EM_CHARFROMPOS
+###参考###
+ 搜索MSDN知识库中EM_CHARFROMPOS的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

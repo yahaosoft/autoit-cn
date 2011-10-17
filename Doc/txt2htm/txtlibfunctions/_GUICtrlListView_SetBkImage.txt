@@ -1,44 +1,39 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlListView_SetBkImage
 
-###Description###
-设置控件背景图像
+###描述###
+设置控件中的背景图像
 
-###Syntax###
-#Include <GuiListView.au3>
-_GUICtrlListView_SetBkImage($hWnd[, $sURL = ""[, $iStyle = 0[, $iXOffset = 0[, $iYOffset = 0]]]])
+###语法###
+#Include<GuiListView.au3>
+_GUICtrlListView_SetBkImage($hWnd[, $sURL = ""[,$iStyle = 0[, $iXOffset = 0[, $iYOffset = 0]]]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$sURL
-	[可选参数] 背景图像的 URL 地址. 如果空白,表示控件没有任何背景
-$iStyle
-	[可选参数] 确定背景图像的样式:
-		0 - 标准
-		1 - 平铺
-$iXOffset
-	[可选参数] 图像占控件客户区百分比的水平偏移量.
-		仅在 $iStyle 为 0 时有效.
-$iYOffset
-	[可选参数] 图像占控件客户区百分比的垂直偏移量.
-		仅在 $iStyle 为 0 时有效.
-@@End@@
+ $hWnd  控件句柄
+ $sURL  背景图像的URL 如果为空, 控件无背景
+ $iStyle  确定背景图像样式:
+0 - 普通
+1 - 平铺
+ $iXOffset  水平方向控件客户区图像偏移的百分比. 仅在$iStyle为0时有效.
+ $iYOffset  垂直方向控件客户区图像偏移的百分比. 仅在$iStyle为0时有效.
+R@@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False
+成功: 真
+失败: 假
 @@End@@
 
+###备注###
+当应用程序终止时调用CoUninitialize.
+此时函数只在_GUICtrlListView_Create或外部
+ListViews情况下工作.
 
-###Remarks###
- 当应用程序终止时调用 CoUninitialize.
- 函数只适用于 _GUICtrlListView_Create 创建的或外部的 ListViews 控件
+###相关###
+_GUICtrlListView_Create , _GUICtrlListView_GetBkImage
 
-###Related###
-_GUICtrlListView_Create, _GUICtrlListView_GetBkImage
+###参考###
 
-###Example###
+###示例###
 @@IncludeExample@@

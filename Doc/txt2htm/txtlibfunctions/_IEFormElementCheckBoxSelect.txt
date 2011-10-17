@@ -1,59 +1,56 @@
-###User Defined Function###
-_IEFormElementCheckBoxSelect
+###用户自定义函数###
+_IEFormElementCheckboxSelect
 
-###Description###
-设定指定表单元素的值.
+###描述###
+设定指定表单元素的值(复选框)
 
-###Syntax###
-#include <IE.au3> 
+###语法###
+#Include <IE.au3>
 _IEFormElementCheckBoxSelect ( ByRef $o_object, $s_string [, $s_name = "" [, $f_select = 1 [, $s_mode = "byValue" [, $f_fireEvent = 1]]]] )
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$o_object
-	InternetExplorer.Application的表单对象变量
-$s_string
-	用于匹配元素的值 - 基于$s_mode
-$s_name
-	[可选参数]: 复选框名称或编号(es)
-$f_select
-	[可选参数]: 指定元素选中或未选中
-	-1 = 返回选中状态
-	0 = 不选元素
-	1 = (默认)选中元素
-$s_mode
-	[可选参数]: 指定搜索模式
-	按值 = (默认)要选取的复选框的值
-	按索引 = 要选取的复选框的0基索引
-$f_fireEvent
-	[可选参数]: 指定是否在改变值后激活OnChange和OnClick事件
-	0 = 设置值后不激活OnChange或OnClick事件
-	1 = (默认)设置值后激活OnChange或OnClick事件
+ $o_object  InternetExplorer.Application窗口或者框架(frame)对象的对象变量
+ $s_string  匹配元素的值--按 $s_mode 模式
+ $s_name  可选: 复选框的名称或者ID
+ $f_select  可选: 定义复选框元素是否被勾选或者不勾选
+-1 = 返回勾选状态
+0 = 不勾选
+1 = (默认) 勾选
+ $s_mode  可选: 定义搜索模式
+byValue = (默认) 想要选择的复选框的值
+byIndex = 想要选择的复选框的索引值(基于
+      0)
+ $f_fireEvent  可选:定义在改变值时是否触发OnChange和OnClick的事件
+0 =
+      在设置值后不触发OnChange或者OnClick事件
+1 = (默认)
+  在设置值后触发OnChange或者OnClick事件
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	如果$f_select = -1, 返回当前的被选中状态, 或返回1
-失败:	返回0 并且设置 @ERROR
-@Error:	0 ($_IEStatus_Success) = 无错误
-	1 ($_IEStatus_GeneralError) = 一般性错误
-	3 ($_IEStatus_InvalidDataType) = 无效数据类型
-	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
-	5 ($_IEStatus_InvalidValue) = 无效值
-	7 ($_IEStatus_NoMatch) = 无匹配
-@Extended:	包含无效参数数量
+成功: 如果参数$f_select = -1 , 返回当前选择的状态 , 否则返回1
+失败: 返回0并设置@ERROR为:
+    0 ($_IEStatus_Success) = 无错误
+    1 ($_IEStatus_GeneralError) = 一般性错误
+    3 ($_IEStatus_InvalidDataType) = 无效数据类型
+    4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+    5 ($_IEStatus_InvalidValue) = 无效值
+    7 ($_IEStatus_NoMatch) = 不匹配
+    @Extended: 包含无效参数数量
 @@End@@
 
+###备注###
+$f_fireEvent参数只有当表单元素发生了和它相关的onChange事件后才有效.
+这个函数里面$s_Name是个非强制性参数. 如果忽略 , 这个函数将执行一个表单中复选框(<input
+type=checkbox>)集合中的所有元素. 如果指定了 , 函数将执行在复选框(<input
+type=checkbox>)集合中的"name"的元素.
 
-###Remarks###
-仅当表单元素与onChange事件关联时, $f_fireEvent参数才有效.
+###相关###
+_IEFormElementOptionSelect , _IEFormElementRadioSelect
 
-$s_Name对该函数是可选的. 如果忽略, 函数将操作表单中所有<input type=checkbox>元素的集合. 如果指定, 函数具有该名称的<input type=checkbox>元素的集合.
+###参考###
 
-
-###Related###
-_IEFormElementOptionSelect, _IEFormElementRadioSelect, _IEFormElementGetValue, _IEFormElementSetValue
-
-
-###Example###
+###示例###
 @@IncludeExample@@

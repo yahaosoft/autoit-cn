@@ -1,65 +1,46 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinHttpSimpleFormFill
 
-###Description###
-å¡«å†™è¡¨å•
+###ÃèÊö###
+ÌîĞ´±íµ¥
 
-###Syntax###
-#Include <WinHttp.au3>
-_WinHttpSimpleFormFill(ByRef $hInternet [, $sActionPage = Default [, $sFormId = Default [, $sFieldId1 = Default [, $sData1 = Default [, (...)]]]]])
+###Óï·¨###
+#Include <WinHTTP.au3>
+_WinHttpSimpleFormFill( ByRef $hInternet [, $sActionPage = Default [, $sFormId = Default [, $sFieldId1 = Default [, $sData1 = Default [, (...)]]]]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$hInternet
-	ç”± _WinHttpConnect å‡½æ•°è¿”å›çš„å¥æŸ„ æˆ–è€…å¸¦è¡¨å•çš„å­—ç¬¦ä¸²å˜é‡.
-$sActionPage
-	[å¯é€‰å‚æ•°] å¦‚æœ$hInternetä¸ºä¸€ä¸ªå­—ç¬¦ä¸²åˆ™æŒ‡å®šè¡¨å•é¡µé¢çš„è·¯å¾„,åä¹‹ä¸ºä¸€ä¸ªä¼šè¯å¥æŸ„.(é»˜è®¤: "" - ç©ºå­—ç¬¦ä¸²;è¡¨ç¤ºæœåŠ¡å™¨ä¸Šçš„'é»˜è®¤'é¡µ).
-$sFormId
-	[å¯é€‰å‚æ•°] è¡¨å•ID. å¯ä»¥æ˜¯ä¸€ä¸ªåç§°æˆ–è€…åŸºäº0å¼€å§‹çš„ä¸€ä¸ªç´¢å¼•(å‚è€ƒå¤‡æ³¨è¯´æ˜).
-$sFieldId1
-	[å¯é€‰å‚æ•°] è¾“å…¥æ¡†ID.
-$sData1
-	[å¯é€‰å‚æ•°] è¦è®¾ç½®åˆ°ç›¸åº”å­—æ®µçš„æ•°æ®.
-(...)
-	[å¯é€‰å‚æ•°] å…¶å®ƒéƒ¨åˆ†çš„ID/æ•°æ®. å­—æ®µæ€»æ•°ä¸èƒ½è¶…è¿‡40.
+$hInternet 
+   _WinHttpConnect()·µ»ØµÄ¾ä±ú. ÔÚ±íÒªÇóÖØ¶¨ÏòµÄÇé¿öÏÂ¸Ã¾ä±ú½«¹Ø±Õ²¢ÓÉĞÂµÄĞèÒªµÄ¾ä±úÌæ»».
+$sActionPage 
+   [¿ÉÑ¡] ±íµ¥ËùÔÚÒ³µÄÂ·¾¶(Ä¬ÈÏ: "" - ¿Õ×Ö·û´®. ±íÊ¾·şÎñÆ÷ÉÏµÄ'Ä¬ÈÏ'Ò³).
+$sFormId 
+   [¿ÉÑ¡] ±íµ¥ID. ¿ÉÎªÃû³Æ»ò0»ùË÷Òı
+$sFieldId1 
+   [¿ÉÑ¡] ÊäÈë¿òID.
+$sData1 
+   [¿ÉÑ¡] ÉèÖÃµ½ÏàÓ¦×Ö¶ÎµÄÊı¾İ
+(...) 
+   [¿ÉÑ¡] ÆäËû×Ö¶Î/Êı¾İ¶Ô. ²»³¬¹ı40
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›ç”±å·²æäº¤è¡¨å•çš„æœåŠ¡å™¨è¿”å›é¡µé¢çš„HTMLæºä»£ç .
-å¤±è´¥:	è¿”å›ç©ºå­—ç¬¦ä¸²å¹¶è®¾ç½® @error:
-	1 - é¡µé¢ä¸Šæ²¡æœ‰è¡¨å•
-	2 - æ— æ•ˆè¡¨å•
-	3 - é¡µé¢ä¸Šæ²¡æœ‰æŒ‡å®šå±æ€§çš„è¡¨å•
-	4 - è¿æ¥é—®é¢˜
-	5 - è¡¨å• "åŠ¨ä½œ" æ— æ•ˆ
-	6 - ä¼ é€’äº†ä¸€ä¸ªæ— æ•ˆä¼šè¯å¥æŸ„
+³É¹¦: ·µ»ØÓÉ±»Ìá½»±íµ¥ËùÔÚ·şÎñÆ÷·µ»ØµÄHTMLÔ´ÎÄ¼ş
+Ê§°Ü: ·µ»Ø¿Õ×Ö·û´®²¢ÉèÖÃ@errorÎª:
+   1 - Ò³ÉÏÎŞ±íµ¥
+   2 - ÎŞĞ§±íµ¥
+   3 - Ò³ÉÏÃ»ÓĞÖ¸¶¨ÊôĞÔµÄ±íµ¥
+   4 - Á¬½ÓÎÊÌâ
 @@End@@
 
-###Remarks###
-In case form requires redirection and $hInternet is internet handle, this handle will be closed and replaced with new and required one.
-<br>When $hInternet is form string, form's "action" must specify URL and $sActionPage parameter must be session handle. On succesful call this variable will be changed to connection handle of the internally made connection.
-Don't forget to close this handle after the function returns and when no longer needed.
-<br>$sFormId specifies Id of the form same as .getElementById(FormId). Aditionally you can use "index:FormIndex" to
-identify form by its zero-based index number (in case of e.g. three forms on some page first one will have index=0, second index=1, third index=2).
-Use "name:FormName" to identify form by its name like with .getElementsByName(FormName). FormName will be taken to be what's right of colon mark.
-In that case first form with that name is filled.
-<br>As for fields, If "name:FieldName" option is used all the fields except last with that name are removed from the form. Last one is filled with specified $sData data.
-<br>This function can be used to fill forms with up to 40 fields at once.
-<br>"Submit" control you want to keep (click) set to True. If no such control is set then the first one found in the form is "clicked"
-and the other removed from the submited form. "Checkbox" and "Button" input types are removed from the submitted form unless explicitly set. Same goes for "Radio" with exception that
-only one such control can be set, the rest are removed. These controls are set by their values. Wrong value makes them invalid and therefore not part of the submited data.
-<br>All other non-set fields are left default.
-<br>
-<br>If this function is used to upload multiple files then there are two available ways. Default would be to submit the form following RFC2388 specification.
-In that case every file is represented as multipart/mixed part embedded within the multipart/form-data.
-<br>If you want to upload using alternative way (to avoid certain PHP bug that could exist on server side) then prefix the file string with "PHP#50338:" string.
-<br>For example: ..."name:files[]", "PHP#50338:" & $sFile1 & ...
-<br>Muliple files are always separated with vertical line ASCII character when filling the form.
-###Related###
-<a href="_WinHttpConnect.htm">_WinHttpConnect</a>
+###±¸×¢###
+$sFormIdÖ¸¶¨±íµ¥µÄIdÈç.getElementById(FormId). ÆäËûµÄ¿ÉÊ¹ÓÃ"index:FormIndex"°´0»ùË÷ÒıµÄÊı×Ö±êÊ¶±íµ¥(ÈçÒ»Ğ©Ò³ÃæµÄÈı¸ö±íµ¥ÔòµÚÒ»¸öË÷ÒıÎª0, µÚ¶ş¸öË÷ÒıÎª1, µÚÈı¸öË÷ÒıÎª2). Ê¹ÓÃ"name:FormName"±êÊ¶±íµ¥ÓÉÆäÃû³ÆÈç.getElementsByName(FormName). ±íµ¥ÃûÎªÑÕÉ«±ê¼Ç. ÔÚ´ËÇé¿öÏÂÌî³äÊ×¸öÓĞÃû³ÆµÄ±íµ¥. ²»ÓÃÓÚ$sFieldIdÇé¿ö. Èç¹ûÊ¹ÓÃ"name:InputName"Ñ¡ÏîÔòÒÔÖ¸¶¨$sDataÊı¾İÌî³äµÄÈ«²¿¸ÃÃû³ÆµÄ×Ö¶Î. ¸Ãº¯ÊıÒ»´Î¿ÉÌî³ä40¸ö×Ö¶Î. Î´ÉèÖÃ×Ö¶Î±£ÁôÄ¬ÈÏ.
 
+###Ïà¹Ø###
+ _WinHttpConnect
 
-###Example###
+###²Î¿¼###
+
+###Ê¾Àı###
 @@IncludeExample@@
-

@@ -1,43 +1,40 @@
-###User Defined Function###
+###用户自定义函数###
 _IEFormGetObjByName
 
-###Description###
-返回指定名称的表单对象的引用.
+###描述###
+返回指定名称的表单对象
 
-###Syntax###
-#include <IE.au3> 
+###语法###
+#Include <IE.au3>
 _IEFormGetObjByName ( ByRef $o_object, $s_name [, $i_index = 0] )
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$o_object
-	InternetExplorer.Application, 窗口或者框架对象的对象变量
-$s_name
-	指定想要匹配的表单名称
-$i_index
-	[可选参数]: 如果表单名称不止出现一次, 指定0基索引的实例
-	0 (默认)或者正整数返回索引的实例
-	-1 返回指定表单的集合
+ $o_object  InternetExplorer.Application , 窗口或者框架(frame)对象的对象变量
+ $s_name  指定想要匹配的表单名称
+ $i_index  可选: 如果表单名称不止一次出现 , 定义从0开始的具体对象
+0 (默认)或者正整数返回对应索引号的对象
+-1
+    返回指定表单的集合
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回指向表单对象的对象变量, @EXTENDED = 表单数量
-失败:	返回0并设置@ERROR
-@Error:	0 ($_IEStatus_Success) = 无错误
-	3 ($_IEStatus_InvalidDataType) = 无效数据类型
-	7 ($_IEStatus_NoMatch) = 不匹配
-@Extended:	包含无效参数数量
+成功: 返回指向表单对象的对象变量 , @EXTENDED = 表单数量
+失败: 返回0并设置@ERROR为:
+    0 ($_IEStatus_Success) = 无错误
+    3 ($_IEStatus_InvalidDataType) = 无效数据类型
+    7 ($_IEStatus_NoMatch) = 不匹配
+    @Extended: 包含无效参数数量
 @@End@@
 
+###备注###
+如果需要的表单没有名称或者ID , _IEFormGetCollection通过索引得到对象
 
-###Remarks###
-如果所需表单没有名称或编号,_IEFormGetCollection获取按索引的引用
+###参考###
 
+###相关###
+ _IEFormGetCollection
 
-###Related###
-_IEFormGetCollection, _IEFormReset, _IEFormSubmit
-
-
-###Example###
+###示例###
 @@IncludeExample@@

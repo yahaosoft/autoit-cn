@@ -1,42 +1,40 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_GetParaIndents
 
-###Description###
-获取第一个选定段落;或者没有选择时的当前段落的边框缩进设置
+###描述###
+获取(首个)选段或(未选定时)当前段的边界缩进设置
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetParaIndents($hWnd)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
+ $hWnd  控件句柄
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回设置 - 由分号(:) 分隔的字符串值 :
-	值 1 - 左 - 段落的左边缩进 (在第一行) (空间单位)
-	值 2 - 右 - 段落的右侧缩进 (空间单位)
-	值 3 - 第一线 - 第一行的缩进相对于其它行（空间单位）
-	值 4 - 范围:
-	a - 所有（或使用的）选定的段落进行这些设置
-	f - 第一选定使用这些设置,但其它不使用
-	c - 当前段落使用这些设置
-失败:	返回 "" ,设置@error:	
-@error:	101 - $hWnd 参数值不是句柄
+ 成功:  设置 - 用分号(;)分隔的组成值的字符串:
+  值 1 - 左 - 段落体(首行后的行)左缩进(以空格为单位)
+  值 2 - 右 - 段落体右缩进(以空格为单位)
+  值 3 - 首行 - 相对其他行的首行缩进(以空格为单位)
+  值 4 - 范围:
+        a - 全部(或仅有)选定的段落使用设置
+        f - 第一个选区的段落使用此对齐方式, 但其他不是
+        c - 当前段落使用该设置
+ 失败:  "" 并设置@error
+ @error:  101 - $hWnd不是句柄
 @@End@@
 
-###Remarks###
-$iLeft 的整数值, $iRight 与 $iFirstLine 向段落中心缩进
+###备注###
+$iLeft的整数值, 向段落中线进行$iRight和$iFirstLine缩进
 
+###相关###
+ _GUICtrlRichEdit_SetParaIndents
 
-###Related###
-_GUICtrlRichEdit_SetParaIndents
+###参考###
+ 搜索MSDN知识库中EM_GETPARAFORMAT的相关信息
 
-###See Also###
-@@MsdnLink@@ EM_GETPARAFORMAT
-
-###Example###
+###示例###
 @@IncludeExample@@

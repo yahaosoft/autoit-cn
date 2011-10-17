@@ -1,47 +1,40 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_SetProcessShutdownParameters
 
-###Description###
-Sets a shutdown order for a process relative to the other processes in the system.
+###ÃèÊö###
+ÉèÖÃÄ³½ø³ÌÏà¶ÔÓÚÏµÍ³ÖĞÆäËû½ø³ÌµÄ¹Ø»úË³Ğò
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_SetProcessShutdownParameters ( $iLevel [, $fDialog] )
+_WinAPI_SetProcessShutdownParameters( $iLevel [, $fDialog] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$iLevel
-	The shutdown priority. The system shuts down processes from high $iLevel values to low. The highest
-	and lowest shutdown priorities are reserved for system components. This parameter must be in the
-	following range of values.
-	
-	0x0000-0x00FF - System reserved last shutdown range.
-	0x0100-0x01FF - Application reserved last shutdown range.
-	0x0200-0x02FF - Application reserved "in between" shutdown range.
-	0x0300-0x03FF - Application reserved first shutdown range.
-	0x0400-0x04FF - System reserved first shutdown range.
-	
-	All processes start at shutdown level 0x0280.
-	
-$fDialog
-	[å¯é€‰å‚æ•°] Specifies whether display a retry dialog box for the user, valid values:
-		TRUE    - Display a retry dialog box if process takes longer than the specified timeout to shutdown.
-		FALSE   - Directly terminates the process. (Default)
+$iLevel  ¹Ø±ÕÓÅÏÈ¼¶. ÏµÍ³°´$iLevelÖµ´Ó¸ßµ½µÍ¹Ø±Õ½ø³Ì. ×î¸ß¼¶ºÍ×îµÍ¼¶±£Áô¸øÏµÍ³×é¼ş. ¸Ã²ÎÊı±ØĞëÔÚÏÂÁĞ·¶Î§ÄÚ:
+0x0000-0x00FF - ÏµÍ³±£ÁôµÄ×îºó¹Ø±ÕµÄ·¶Î§.
+0x0100-0x01FF - Ó¦ÓÃ³ÌĞò±£ÁôµÄ×îºó¹Ø±ÕµÄ·¶Î§.
+0x0200-0x02FF - Ó¦ÓÃ³ÌĞò±£ÁôµÄ"in between"¹Ø±ÕµÄ·¶Î§.
+0x0300-0x03FF - Ó¦ÓÃ³ÌĞò±£ÁôµÄÊ×¸ö¹Ø±ÕµÄ·¶Î§.
+0x0400-0x04FF - ÏµÍ³±£ÁôµÄÊ×¸ö¹Ø±ÕµÄ·¶Î§.
+¹Ø±Õ¼¶±ğÎª0x0280Ê±Æô¶¯ËùÓĞ½ø³Ì.
+$fDialog  [¿ÉÑ¡] Ö¸¶¨ÊÇ·ñÏÔÊ¾ÖØÊÔ¶Ô»°¿ò, ¿ÉÓÃÖµ:
+1 - Èç¹û¹Ø±Õ½ø³Ì³¬¹ıÖ¸¶¨Ê±¼äÏÔÊ¾ÖØÊÔ¶Ô»°¿ò.
+0 - Ö±½ÓÖÕÖ¹½ø³Ì. (Ä¬ÈÏ)
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø1
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-None
+###±¸×¢###
 
+###Ïà¹Ø###
+ _WinAPI_GetProcessShutdownParameters
 
-###See Also###
-@@MsdnLink@@ SetProcessShutdownParameters
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞSetProcessShutdownParametersµÄÏà¹ØĞÅÏ¢
 
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

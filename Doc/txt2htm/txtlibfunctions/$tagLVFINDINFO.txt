@@ -1,43 +1,37 @@
-﻿###Structure Name###
+###�ṹ����###
 $tagLVFINDINFO
 
-###Description###
-包含搜索列表视图(list-view)项目的信息
+###����###
+�������������б���ͼ��Ŀ����Ϣ�Ľṹ
 
-###Syntax###
-Global Const $tagLVFINDINFO = "struct; uint Flags;ptr Text;lparam Param;" & $tagPOINT & ";uint Direction; endstruct"
+###�﷨###
+Global Const $tagLVFINDINFO =  "int Flags;ptr Text;int Param;int X;int Y;int Direction"
 
-###Fields###
+###��Ա###
 @@ParamTable@@
 Flags
-	搜索的类型.该成员可设置一或多个以下值:
-		$LVFI_PARAM - 在该结构的 Param 成员和项目的 Param 成员之间搜索匹配值.如指定此标志,则所有其它标志被忽略.
-		$LVFI_PARTIAL - 检查项目文本开头字符串是否指向 Text 成员. 这标志值意味着使用 $LVFI_STRING 标志.
-		$LVFI_STRING - 基于项目的文本搜索. 除非指定额外值,否则匹配文本必须精确匹配 Text 成员指定的字符串.
-		$LVFI_SUBSTRING - Equivalent to $LVFI_PARTIAL (Windows Vista and Later).
-		$LVFI_WRAP - 如果没有找到匹配, 则从起点继续搜索
-		$LVFI_NEARESTXY - 在 X 与 Y 成员指定的位置, 及 direction 成员指定的方向搜索项目.	这个标志仅支持 list-view 的大图标和小图标模式.
+   ִ������������. �ó�Ա������Ϊһ����������ֵ:
+    $LVFI_PARAM - �ڸýṹParam��Ա����Ŀ��Param��Ա֮������ƥ��ֵ. ָ��$LVFI_PARAMʱ, �����������б��.
+    $LVFI_PARTIAL - �����Ŀ�ı��Ƿ���Text��Աָ����ַ�����ʼ. ��ֵ����$LVFI_STRING.
+    $LVFI_STRING - ������Ŀ�ı�������. ����ָ������ֵ, ƥ����Ŀ����Ŀ�ı����뾫ȷƥ����Text��Աָ����ַ���.
+    $LVFI_WRAP - ���δ�ҵ�ƥ����ӿ�ʼ����
+    $LVFI_NEARESTXY - ��������Direction��Աָ���ķ����Ͼ�����X��Y��Աָ����λ���������Ŀ. �ñ�ǽ�����ͼ���Сͼ��ģʽ֧��.
 Text
-	进行比较的项目文本字符串地址. 
-	仅在设置了 $LVFI_STRING 或 $LVFI_PARTIALis 标志, 此标志才有效.
+   ����Ŀ�ı��Ƚϵ��ַ����ĵ�ַ. ������ǳ�Ա��������$LVFI_STRINGʱ��Ч.
 Param
-	与项目 $LVITEM 结构中 Param 成员比较的值.
-	仅在设置了 $LVFI_PARAM 标志, 此标志才有效.
-$tagPOINT
-	搜索的初始 X,Y 位置. 仅在设置了 $LVFI_NEARESTXY 标志时有效.
+   ����Ŀ��$LVITEM�ṹ��Param��Ա�Ƚϵ�ֵ. ������ǳ�Ա��������$LVFI_PARAMʱ��Ч.
+X
+   �����ĳ�ʼXλ��. ������ǳ�Ա��������$LVFI_NEARESTXYʱ��Ч.
+Y
+   �����ĳ�ʼYλ��. ������ǳ�Ա��������$LVFI_NEARESTXYʱ��Ч.
 Direction
-	虚拟键码指定的搜索方向.支持以下代码:
-		VK_LEFT	（向左） 
-		VK_RIGHT（向右） 
-		VK_UP 	（向上） 
-		VK_DOWN	（向下） 
-		VK_HOME （返回）
-		VK_END 	（末尾）
-		VK_PRIOR （上一个） 
-		VK_NEXT （下一个） 
-		仅在设置了 $LVFI_NEARESTXY 标志时有效.
-@@End@@
-
-###Remarks###
-None.
-
+   ָ��������������������. �ó�Ա������ǳ�Ա��������$LVFI_NEARESTXYʱ��Ч. ֧�����д���:
+    VK_LEFT
+    VK_RIGHT
+    VK_UP
+    VK_DOWN
+    VK_HOME
+    VK_END
+    VK_PRIOR
+    VK_NEXT
+@@end@@

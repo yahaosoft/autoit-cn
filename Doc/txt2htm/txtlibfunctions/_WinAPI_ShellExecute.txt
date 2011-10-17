@@ -1,53 +1,45 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_ShellExecute
 
-###Description###
-Performs an operation on a specified file.
+###ÃèÊö###
+¶ÔÖ¸¶¨ÎÄ¼şÖ´ĞĞ²Ù×÷
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellExecute ( $sFile [, $sArgs [, $sDir [, $sVerb [, $iShow [, $hParent]]]]] )
+_WinAPI_ShellExecute( $sFile [, $sArgs [, $sDir [, $sVerb [, $iShow [, $hParent]]]]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$sFile
-	The string that specifies the file or object on which to execute the specified verb. Note that not all
-	verbs are supported on all objects. For example, not all document types support the "print" verb.
-$sArgs
-	[å¯é€‰å‚æ•°] The string that specifies the parameters to be passed to the application.
-$sDir
-	[å¯é€‰å‚æ•°] The string that specifies the working directory for the action.
-$sVerb
-	[å¯é€‰å‚æ•°] The string, referred to as a verb, that specifies the action to be performed. The set of available verbs
-	depends on the particular file or folder. Generally, the actions available from an object's shortcut
-	menu are available verbs. The following verbs are commonly used:
-	
-	"edit"
-	"explore"
-	"find"
-	"open"
-	"edit"
-	"print"
-	
-$iShow
-	[å¯é€‰å‚æ•°] The flags that specify how an application is to be displayed when it is opened ($SW_*).
-$hParent
-	[å¯é€‰å‚æ•°] Handle to the owner window used for displaying a UI or error messages.
+$sFile  Ö¸¶¨½«ÔÚÆäÉÏÖ´ĞĞÖ¸¶¨²Ù×÷µÄÎÄ¼ş»ò¶ÔÏóµÄ×Ö·û´®. ×¢Òâ²¢·ÇËùÓĞ¶ÔÏóÖ§³ÖËùÓĞ²Ù×÷. Èç, ²¢·ÇËùÓĞÎÄµµÀàĞÍÖ§³Ö"print"²Ù×÷.
+$sArgs  Ö¸¶¨´«µİ¸øÓ¦ÓÃ³ÌĞòµÄ×Ö·û´®
+$sDir  Ö¸¶¨²Ù×÷µÄ¹¤×÷Ä¿Â¼µÄ×Ö·û´®
+$sVerb  Ö¸¶¨ÒªÖ´ĞĞµÄ²Ù×÷µÄ¶¯´Ê. ¿ÉÓÃ¶¯´ÊÒÀÀµÓÚÌØÊâÎÄ¼ş»òÎÄ¼ş¼Ğ. Í¨³£, ¶ÔÏóµÄ¿ì½İ·½Ê½ÖĞµÄ²Ù×÷Îª¿ÉÓÃ¶¯´Ê. ÒÔÏÂÎª³£ÓÃµÄ¶¯´Ê:
+ "edit" - Æô¶¯±à¼­Æ÷²¢´ò¿ª$sFileÖ¸¶¨µÄÎÄ¼ş½øĞĞ±à¼­. Èç¹û$sFile²»ÊÇÎÄµµÔòÊ§°Ü.
+ "explore" - ä¯ÀÀ$sFileÖ¸¶¨µÄÎÄ¼ş¼Ğ
+ "find" - ³õÊ¼»¯ÔÚ$sDirÖ¸¶¨µÄÎÄ¼ş¼ĞÖĞµÄËÑË÷
+ "open" - ´ò¿ª$sFileÖ¸¶¨µÄÎÄ¼ş»òÎÄ¼ş¼Ğ
+ "print" - ´òÓ¡$sFileÖ¸¶¨µÄÎÄ¼ş. Èç¹û$sFile²»ÊÇÎÄµµÔòÊ§°Ü.
+$iShow  ÓÃÓÚÖ¸¶¨Ó¦ÓÃ³ÌĞòÔÚ´ò¿ªÊ±½«ÈçºÎÏÔÊ¾µÄ±ê¼Ç($SW_*)
+$hParent  ÓÃÓÚÏÔÊ¾½çÃæ»ò´íÎóÏûÏ¢µÄËŞÖ÷´°ÌåµÄ¾ä±ú
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	A positive value greater than 32.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain an error value that indicates the
+³É¹¦: ·µ»Ø´óÓÚ32µÄÕıÊı
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0, @extended±ê¼Ç¿ÉÄÜ°üº¬ÃèÊöÊ§°ÜÔ­ÒòµÄ´íÎóÖµ. ¿ÉÎªÏÂÁĞÖµ:
+    ERROR_OUT_OF_MEM (0)
+    ERROR_FILE_NOT_FOUND (2)
+    ERROR_PATH_NOT_FOUND (3)
+    ERROR_BAD_FORMAT (11)
+    SE_ERR_*
 @@End@@
 
-###Remarks###
-None
+###±¸×¢###
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ ShellExecute
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞShellExecuteµÄÏà¹ØĞÅÏ¢
 
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

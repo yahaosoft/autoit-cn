@@ -1,40 +1,30 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_GetKeyboardState
 
-###Description###
-复制 256 个虚拟键的状态到指定缓冲区.
+###����###
+��256���������״̬���Ƶ�������
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_GetKeyboardState ( )
+_WinAPI_GetKeyboardState()
 
-###Parameters###
+###����###
 @@ParamTable@@
-None.
+    ��
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回接收每一个虚拟键状态数据的 "byte[256]" 结构.
-失败:	返回 0,设置@error:标志为非 0 值.
+�ɹ�: ����ÿ�������״̬���ݵ�byte[256]�ṹ
+ʧ��: ����0������@error��0
 @@End@@
 
-###Remarks###
-应用程序可以调用此函数检索所有虚拟键的当前状态.
-当进程从消息队列中移除键盘消息时状态被改变.
-键盘消息发布到该进程的消息队列时,不改变状态;
- 键盘消息发布到(或检索)其他进程消息队列时,状态也不改变.
- 当函数返回时,数组中的每个元素包含一个虚拟键的状态数据.
- 如果高序位为 1,键被按下来,否则键被松开.
- 如果是一个切换键,比如 CAPS LOCK 键,则打开时低序数位为 1,关闭时为 0.
- 低序位对非切换键没有意义. 切换键首次触发时被认为是打开状态.
- 切换键打开时键盘上的切换键指示灯(如果有)将点亮, 反之则关闭.
- 要检索单个键的状态信息, 调用 _WinAPI_GetKeyState() 函数.
- 要检索单个键的当前状态, 无论是否消息队列中检索到相应的键盘消息,
- 都可调用 _WinAPI_GetAsyncKeyState() 函数.
+###��ע###
+����ɵ��øú�����ȡ����������ĵ�ǰ״̬. �����̴�����Ϣ�������Ƴ�������Ϣʱ״̬�ı�. ��������Ϣ�����͵�������Ϣ���л򱻷��͵��������̻���������̽��ռ�����Ϣʱ, ״̬���ı�.
+��������ʱ, �����ÿ��Ԫ�ذ���һ���������״̬����. ����߽���λΪ1, ��ʾ������; ��֮Ϊ̧��. ������л���, ��CAPS LOCK, �򵱼���ʱ�ͽ���λΪ1, δ����ʱΪ0. �ͽ���λ�Է��л���������. ���л�������Ϊ����Ļ���ʾ�䱻��. ��������ʱ�����ϵ��л���ָʾ��(�����)����, ��֮�ر�.
+ʹ��_WinAPI_GetKeyState()������ȡ״̬��Ϣ. ʹ��_WinAPI_GetAsyncKeyState()��ȡһ���������ĵ�ǰ��Ϣ�����Ƿ����Ϣ���л�ȡ��Ӧ�ļ�����Ϣ
 
+###���###
 
-
-###See Also###
-@@MsdnLink@@ GetKeyboardState
-
+###�ο�###
+ ����MSDN֪ʶ����GetKeyboardState�������Ϣ

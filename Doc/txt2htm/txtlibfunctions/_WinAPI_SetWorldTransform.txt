@@ -1,41 +1,39 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_SetWorldTransform
 
-###Description###
-Sets a two-dimensional linear transformation between world space and page space for the specified device context.
+###ÃèÊö###
+ÉèÖÃÊÀ½ç¿Õ¼äºÍÖ¸¶¨³¡¾°µÄÒ³Ãæ¿Õ¼äÖ®¼äµÄ¶şÎ¬ÏßĞÔ±ä»»
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_SetWorldTransform ( $hDC, $tXFORM )
+_WinAPI_SetWorldTransform( $hDC, $tXFORM )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+  Éè±¸³¡¾°¾ä±ú
 $tXFORM
-	$tagXFORM structure that contains the transformation data.
+  °üº¬×ª»»Êı¾İµÄ$tagXFORM½á¹¹
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø1
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-The _WinAPI_SetWorldTransform() will fail unless the graphics mode for the given device context has been set
-to $GM_ADVANCED by previously calling the _WinAPI_SetGraphicsMode(). Likewise, it will not be possible to reset
-the graphics mode for the device context to the default $GM_COMPATIBLE mode, unless the world transformation
-has first been reset to the default identity transformation by calling _WinAPI_SetWorldTransform().
-
-For any coordinates (x, y) in world space, the transformed coordinates in page space (x', y') can be
-determined by the following algorithm:
-
+###±¸×¢###
+Èç¹ûÖ¸¶¨³¡¾°µÄÍ¼ĞÎÄ£Ê½ÒÑÓÉÒÔÇ°µÄ_WinAPI_SetGraphicsMode()ÉèÖÃÎª$GM_ADVANCEDÔò_WinAPI_SetWorldTransform()Ê§°Ü.
+Í¬ÑùµÄ, ²»»á½«³¡¾°µÄÍ¼ĞÎÄ£Ê½ÖØĞÂÉèÖÃÎªÄ¬ÈÏµÄ$GM_COMPATIBLE, ³ı·ÇÍ¨¹ı_WinAPI_SetWorldTransform()½«ÊÀ½ç±ä»»Ê×ÏÈ
+ÖØÖÃÎªÄ¬ÈÏµÄµ¥Î»±ä»».
+¶ÔÊÀ½ç¿Õ¼äÄÚµÄÈÎÒâµã(x, y), Ò³Ãæ¿Õ¼äµÄ±ä»»ºóµÄ×ø±ê(x', y')¿ÉÓÃÒÔÏÂ¹«Ê½È·¶¨:
 x' = x * eM11 + y * eM21 + eDx
 y' = x * eM12 + y * eM22 + eDy
 
+###Ïà¹Ø###
 
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞSetWorldTransformµÄÏà¹ØĞÅÏ¢
 
-###See Also###
-@@MsdnLink@@ SetWorldTransform
-
+###Ê¾Àı###
+@@IncludeExample@@

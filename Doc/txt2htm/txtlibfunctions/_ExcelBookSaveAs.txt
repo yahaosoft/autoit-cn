@@ -1,60 +1,62 @@
-###User Defined Function###
+###用户自定义函数###
 _ExcelBookSaveAs
 
-###Description###
+###描述###
 使用新文件名或格式保存指定Excel对象的活动工作簿
 
-###Syntax###
+###语法###
 #Include <Excel.au3>
-_ExcelBookSaveAs($oExcel, $sFilePath [, $sType = "xls" [, $fAlerts = 0 [, $fOverWrite = 0 [, $sPassword = "" [, $sWritePassword = "" [, $iAccessMode = 1 [, $iConflictResolution = 2]]]]]]])
+_ExcelBookSaveAs($oExcel, $sFilePath[, $sType = "xls"[, $fAlerts = 0[, $fOverWrite = 0[, $sPassword = ""[, $sWritePassword = ""[, $iAccessMode = 1[, $iConflictResolution = 2]]]]]]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$oExcel
-	由预先调用_ExcelBookOpen()或_ExcelBookNew()打开的Excel对象
-$sFilePath
-	被读取的文件的文件名和路径
-$sType
-	[可选参数] Excel可写文件类型字符串 = "xls|csv|txt|template|html", 默认"xls"
-$fAlerts
-	[可选参数] 禁用/启用Excel消息警告的标记(0=禁用(默认), 1=启用)
-$fOverWrite
-	[可选参数] 文件存在时是否覆盖的标记(0=否, 1=是)
-$sPassword
-	[可选参数] 用于保护工作表的密码字符串; 如果为空, 不使用密码(默认)
-$sWritePassword
-	[可选参数] 工作表写入保护使用的密码字符串; 如果为空, 不使用密码(默认)
-$iAccessMode
-	[可选参数] 分配给工作簿的文件共享模式:
-$xlNoChange
-	[可选参数] 保留共享模式(默认) (数字值 = 1)
-$xlExclusive
-	[可选参数] 禁止共享(数字值 = 3)
-$xlShared
-	[可选参数] 共享可用(数字值 = 2)
-$iConflictResolution
-	[可选参数] 对于共享文件, 如何解决共享冲突:
-$xlUserResolution
-	[可选参数] 弹出对话框询问用户如何解决(数字值 = 1)
-$xlLocalSessionChanges
-	[可选参数] 接受本地用户的修改(默认) (数字值 = 2)
-$xlOtherSessionChanges
-	[可选参数] 拒绝本地用户修改(数字值 = 3)
+$oExcel 
+   由预先调用_ExcelBookOpen()或_ExcelBookNew()打开的Excel对象
+$sFilePath 
+   被读取的文件的文件名和路径
+$sType 
+   Excel可写文件类型字符串 = "xls|csv|txt|template|html", 默认"xls"
+$fAlerts 
+   禁用/启用Excel消息警告的标记(0=禁用(默认), 1=启用)
+$fOverWrite 
+   文件存在时是否覆盖的标记(0=否, 1=是)
+$sPassword 
+   用于保护工作表的密码字符串; 如果为空, 不使用密码(默认)
+$sWritePassword 
+   工作表写入保护使用的密码字符串; 如果为空, 不使用密码(默认)
+$iAccessMode 
+   分配给工作簿的文件共享模式:
+$xlNoChange 
+   保留共享模式(默认) (数字值 = 1)
+$xlExclusive 
+   禁止共享(数字值 = 3)
+$xlShared 
+   共享可用(数字值 = 2)
+$iConflictResolution 
+   对于共享文件, 如何解决共享冲突:
+$xlUserResolution 
+   弹出对话框询问用户如何解决(数字值 = 1)
+$xlLocalSessionChanges 
+   接受本地用户的修改(默认) (数字值 = 2)
+$xlOtherSessionChanges 
+   拒绝本地用户修改(数字值 = 3)
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回1
-失败:	返回0并设置@error
-@error:	1 - 指定对象不存在
-	2 - 无效文件格式字符串
-	3 - 文件已存在但未设置覆写标记
+成功: 返回1
+失败: 返回0并设置@error:
+@error: 1 - 指定对象不存在
+     2 - 无效文件格式字符串
+     3 - 文件已存在但未设置覆写标记
 @@End@@
 
-###Remarks###
+###备注###
 只能在工作簿已被打开时另存回相同的工作路径(而不是新创建, 未保存的工作簿)
 
-###Related###
+###相关###
 
-###Example###
+###参考###
+
+###示例###
 @@IncludeExample@@

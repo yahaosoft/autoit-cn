@@ -1,69 +1,49 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_GetFont
 
-###Description###
-获取选定字体的属性,如果没有选择,则获取插入点的字体属性
+###描述###
+获取选中内容如果没选择时在插入点处的字体属性
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetFont($hWnd)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
+ $hWnd  控件位置
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回如下格式的数组:
-	[0] - 磅值(注:1 磅=1/72 英寸)
-	
-	如果选区内的字号是混合的,则返回 0
-	[1] - 字体名称
-	
-	如果选区内的字题是混合的,则返回 ""
-	[2] - 字符集
-	
-	$ANSI_CHARSET - 0
-	
-	$BALTIC_CHARSET - 186
-	
-	$CHINESEBIG5_CHARSET - 136
-	
-	$EASTEUROPE_CHARSET - 238
-	
-	$GB2312_CHARSET - 134
-	
-	$GREEK_CHARSET - 161
-	
-	$HANGEUL_CHARSET - 129
-	
-	$MAC_CHARSET - 77
-	
-	$OEM_CHARSET - 255
-	
-	$RUSSIAN_CHARSET - 204
-	
-	$SHIFTJIS_CHARSET - 128
-	
-	$SYMBOL_CHARSET - 2
-	
-	$TURKISH_CHARSET - 162
-	
-	$VIETNAMESE_CHARSET - 163
-失败:	设置@error:	
-@error:	101 - $hWnd 参数值不是句柄
+ 成功:  包含下列值的数组:
+  [0] - 点大小. 如果选区内的字号是混合的返回0
+  [1] - 字体名称. 如果选区内的字体是混合的返回""
+  [2] - 字符集:
+  $ANSI_CHARSET - 0
+  $BALTIC_CHARSET - 186
+  $CHINESEBIG5_CHARSET - 136
+  $EASTEUROPE_CHARSET - 238
+  $GB2312_CHARSET - 134
+  $GREEK_CHARSET - 161
+  $HANGEUL_CHARSET - 129
+  $MAC_CHARSET - 77
+  $OEM_CHARSET - 255
+  $RUSSIAN_CHARSET - 204
+  $SHIFTJIS_CHARSET - 128
+  $SYMBOL_CHARSET - 2
+  $TURKISH_CHARSET - 162
+  $VIETNAMESE_CHARSET - 163
+ 失败:  设置@error:
+  101 - $hWnd不是句柄
 @@End@@
 
-###Remarks###
-None.
+###备注###
 
-###Related###
-_GUICtrlRichEdit_SetFont
+###相关###
+  _GUICtrlRichEdit_SetFont
 
-###See Also###
-@@MsdnLink@@ EM_GETCHARFORMAT, @@MsdnLink@@ LOGFONT, http://www.hep.wisc.edu/~pinghc/books/apirefeng/l/logfont.html
+###参考###
+ http://www.hep.wisc.edu/~pinghc/books/apirefeng/l/logfont.html
 
-###Example###
+###示例###
 @@IncludeExample@@

@@ -1,34 +1,31 @@
-###User Defined Function###
+###用户自定义函数###
 _NamedPipes_GetNamedPipeInfo
 
-###Description###
-检索有关指定命名管道的信息
+###描述###
+获取指定管道的信息
 
-###Syntax###
+###语法###
 #Include <NamedPipes.au3>
 _NamedPipes_GetNamedPipeInfo($hNamedPipe)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hNamedPipe
-	命名管道实例的句柄. 句柄必须具有 GENERIC_READ 访问命名管道的权限
+ $hNamedPipe  命名管道实例的句柄. 句柄必须具有对管道的GENERIC_READ权限
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回数组的格式如下:
-	$aInfo[0] - 返回 True, 句柄指向服务器端,否则指向客户端
-	$aInfo[1] - 返回 True, 为消息管道, 否则为字节管道
-	$aInfo[2] - 输出数据缓冲区字节大小
-	$aInfo[3] - 输入数据的缓冲区字节大小
-	$aInfo[4] - 可创建管道实例的最大数
-失败:	设置@error:	
+成功: 下列格式数组:
+   $aInfo[0] - 如果为真, 句柄指向服务器终端, 否则指向客户端终端
+   $aInfo[1] - 消息管道为真, 否则为字节管道
+   $aInfo[2] - 输出数据的缓冲区字节大小
+   $aInfo[3] - 输入数据的缓冲区字节大小
+   $aInfo[4] - 可创建的管道实例的最大数量
 @@End@@
 
-###Remarks###
-None.
+###备注###
 
-###Related###
+###相关###
 
-###See Also###
-@@MsdnLink@@ GetNamedPipeInfo
+###参考###
+搜索MSDN知识库中GetNamedPipeInfo的相关信息

@@ -1,63 +1,60 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_GetThemeMetric
 
-###Description###
-Retrieves the value of a metric property.
+###ÃèÊö###
+»ñÈ¡Ö÷ÌâµÄ¶ÈÁ¿µ¥Î»ÊôÐÔ
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_GetThemeMetric ( $hTheme, $iPartId, $iStateId, $iPropId [, $hDC] )
+_WinAPI_GetThemeMetric( $hTheme, $iPartId, $iStateId, $iPropId [, $hDC] )
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
 $hTheme
-	Handle to a window's specified theme data.
+   Ö¸¶¨´°¿ÚÖ÷ÌâÊý¾ÝµÄ¾ä±ú
 $iPartId
-	The part that contains the metric property.
+   ¶ÈÁ¿µ¥Î»ÊôÐÔ²¿·Ö
 $iStateId
-	The state of the part.
+$iPartId²¿·ÖµÄÃèÊö
 $iPropId
-	The property to retrieve. It can be one of the following values.
-	
-	$TMT_ALPHALEVEL
-	$TMT_ALPHATHRESHOLD
-	$TMT_BORDERSIZE
-	$TMT_GLYPHINDEX
-	$TMT_GRADIENTRATIO1
-	$TMT_GRADIENTRATIO2
-	$TMT_GRADIENTRATIO3
-	$TMT_GRADIENTRATIO4
-	$TMT_GRADIENTRATIO5
-	$TMT_HEIGHT
-	$TMT_IMAGECOUNT
-	$TMT_MINDPI1
-	$TMT_MINDPI2
-	$TMT_MINDPI3
-	$TMT_MINDPI4
-	$TMT_MINDPI5
-	$TMT_PROGRESSCHUNKSIZE
-	$TMT_PROGRESSSPACESIZE
-	$TMT_ROUNDCORNERWIDTH
-	$TMT_ROUNDCORNERHEIGHT
-	$TMT_SATURATION
-	$TMT_TEXTBORDERSIZE
-	$TMT_TRUESIZESTRETCHMARK
-	$TMT_WIDTH
-	
+   »ñÈ¡µÄÊôÐÔ. ¿ÉÎªÏÂÁÐÖµÖ®Ò»:
+    $TMT_ALPHALEVEL - ÓÃÓÚDrawThemeIconº¯ÊýµÄAlphaÖµ
+    $TMT_ALPHATHRESHOLD - ÈÏÎª²»Í¸Ã÷µÄ×îÐ¡AlphaÖµ
+    $TMT_BORDERSIZE - ±ß¿òºñ¶È
+    $TMT_GLYPHINDEX - ÓÃÓÚ×ÖÐÎµÄ×ÖÌåµÄ×Ö·û¼¯Ë÷Òý
+    $TMT_GRADIENTRATIO1 - »æÖÆÊ±Ê¹ÓÃµÄµÚÒ»ÌÝ¶ÈÉ«µÄÊýÁ¿. ¸ÃÖµ¿ÉÈ¡0µ½255, µ«ºÍºóÐø¼¸¸öÊýÁ¿Ïà¼Óºó±ØÐëÎª255.
+    $TMT_GRADIENTRATIO2 - »æÖÆÊ±Ê¹ÓÃµÄµÚ¶þÌÝ¶ÈÉ«µÄÊýÁ¿
+    $TMT_GRADIENTRATIO3 - »æÖÆÊ±Ê¹ÓÃµÄµÚÈýÌÝ¶ÈÉ«µÄÊýÁ¿
+    $TMT_GRADIENTRATIO4 - »æÖÆÊ±Ê¹ÓÃµÄµÚËÄÌÝ¶ÈÉ«µÄÊýÁ¿
+    $TMT_GRADIENTRATIO5 - »æÖÆÊ±Ê¹ÓÃµÄµÚÎåÌÝ¶ÈÉ«µÄÊýÁ¿
+    $TMT_HEIGHT - ¸Ã²¿·Ö¸ß¶È
+    $TMT_IMAGECOUNT - Í¼ÏñÎÄ¼þÖÐÌá¹©µÄ×´Ì¬Í¼ÏñµÄÊýÁ¿
+    $TMT_MINDPI1 - Éè¼ÆÖÐµÄÊ×¸öÍ¼ÏñÎÄ¼þµÄ×îÐ¡dpi
+    $TMT_MINDPI2 - Éè¼ÆÖÐµÄµÚ¶þ¸öÍ¼ÏñÎÄ¼þµÄ×îÐ¡dpi
+    $TMT_MINDPI3 - Éè¼ÆÖÐµÄµÚÈý¸öÍ¼ÏñÎÄ¼þµÄ×îÐ¡dpi
+    $TMT_MINDPI4 - Éè¼ÆÖÐµÄµÚËÄ¸öÍ¼ÏñÎÄ¼þµÄ×îÐ¡dpi
+    $TMT_MINDPI5 - Éè¼ÆÖÐµÄµÚÎå¸öÍ¼ÏñÎÄ¼þµÄ×îÐ¡dpi
+    $TMT_PROGRESSCHUNKSIZE - ¶¨Òå²Ù×÷½ø¶ÈµÄ½ø¶È¿ØÖÆ"¿é"ÐÎ×´µÄ´óÐ¡
+    $TMT_PROGRESSSPACESIZE - ½ø¶È¿ØÖÆ"¿é"µÄ×Ü´óÐ¡
+    $TMT_ROUNDCORNERWIDTH - ¸Ã²¿·ÖÔÚ½ÇÉÏµÄ»¡¶È
+    $TMT_ROUNDCORNERHEIGHT - ¸Ã²¿·ÖÔÚ½ÇÉÏµÄ»¡¶È
+    $TMT_SATURATION - ÓÃÓÚ»æÖÆÍ¼±êÊ±µÄ±¥ºÍ¶ÈÖµ
+    $TMT_TEXTBORDERSIZE - »æÖÆÎÄ±¾×Ö·ûµÄ±ß½çºñ¶È
+    $TMT_TRUESIZESTRETCHMARK - ÒÔÕæÊµÍ¼Æ¬´óÐ¡µÄÔ­Ê¼´óÐ¡µÄ°Ù·Ö±ÈÀ­ÉìÍ¼Ïñ
+    $TMT_WIDTH - ¸Ã²¿·Ö¿í¶È
 $hDC
-	[å¯é€‰å‚æ•°] Handle to the device context.
+   Éè±¸³¡¾°¾ä±ú
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	The metric property value.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+³É¹¦: ·µ»Ø»ñÈ¡µÄ¶ÈÁ¿µ¥Î»ÊôÐÔÖµ
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0ÇÒ@extended±ê¼Ç°üº¬ÏµÍ³´íÎó´úÂë
 @@End@@
 
-###Remarks###
-None
+###±¸×¢###
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ GetThemeMetric
-
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖÐGetThemeMetricµÄÏà¹ØÐÅÏ¢

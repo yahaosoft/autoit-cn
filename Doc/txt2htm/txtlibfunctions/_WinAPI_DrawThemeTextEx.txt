@@ -1,47 +1,48 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_DrawThemeTextEx
 
-###Description###
-绘制由视觉样式定义颜色和字体的文本.(扩展)
+###����###
+ʹ�ÿ��ӻ��������������ɫ�����ı�
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_DrawThemeTextEx ( $hTheme, $iPartId, $iStateId, $hDC, $sText, $tRECT, $iFlags, $tDTTOPTS )
+_WinAPI_DrawThemeTextEx( $hTheme, $hDC, $iPartId, $iStateId, $sText, $iFlags, $pRect, $pDTTOPTS )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hTheme
-	指定主题数据的窗口句柄.
-$iPartId
-	文本的外观.
-		如果此值为 0,文本绘制为默认字体;或设备环境选择的字体.
-$iStateId
-	文本外观状态.
+   ָ����������ľ��
 $hDC
-	设备环境句柄.
+   ���ڻ��Ƶ��豸�����ľ��
+$iPartId
+   ���������ı���۵Ŀؼ�����
+$iStateId
+   ���������ı���۵Ŀؼ�״̬
 $sText
-	包含文本的字符串.
-$tRECT
-	$tagRECT 结构,包含绘制文本的矩形.
+   Ҫ���Ƶ��ַ���
 $iFlags
-	字符串的格式. 参数可以是一或多个 $DT_* 值.
-$tDTTOPTS
-	$tagDTTOPTS 结构,定义额外的格式选项.
+   �ַ�����ʽ���(����ע)
+$pRect
+$tagRECT�ṹ��ָ��
+$pDTTOPTS
+$tagDTTOPTS�ṹ��ָ��
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
+�ɹ�: ��
+ʧ��: ��
 @@End@@
 
-###Remarks###
-本函数需要 Windows Vista 或更高版本系统.
+###��ע###
+��ʽ���������_WinAPI_DrawText�ı����ͬ
+��������ʾ���뽫 Soccer.ico �ļ����浽��ʱ�ļ�����
 
+###���###
+ _WinAPI_DrawText
 
-###See Also###
-@@MsdnLink@@ DrawThemeTextEx
+###�ο�###
+ ����MSDN֪ʶ����DrawThemeTextEx�������Ϣ
 
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

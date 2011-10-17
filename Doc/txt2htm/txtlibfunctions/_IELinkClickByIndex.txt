@@ -1,48 +1,44 @@
-###User Defined Function###
+###用户自定义函数###
 _IELinkClickByIndex
 
-###Description###
+###描述###
 模拟鼠标点击一个索引链接(在源码内的顺序从0开始).
 
-###Syntax###
-#include <IE.au3> 
+###语法###
+#Include <IE.au3>
 _IELinkClickByIndex ( ByRef $o_object, $i_index [, $f_wait = 1] )
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$o_object
-	InternetExplorer.Application,窗口或者框架(frame)对象的对象变量
-$i_index
-	你想要点击的链接索引数,从0开始
-$f_wait
-	[可选参数]: 定义在返回前是否等待窗口加载完毕
-	0 = 立即返回,不等待窗口加载
-	1 = (默认) 等待窗口加载完毕然后返回
+ $o_object  InternetExplorer.Application , 窗口或者框架(frame)对象的对象变量
+ $i_index  [可选]: 你想要点击的链接索引数 , 从0开始
+ $f_wait  可选: 定义在返回前是否等待窗口加载完毕
+0 = 立即返回 , 不等待窗口加载
+1 = (默认) 等待窗口加载完毕然后返回
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回-1
-失败:	返回0 并且设置 @ERROR
-@Error:	0 ($_IEStatus_Success) = 无错误
-	1 ($_IEStatus_GeneralError) = 一般性错误
-	3 ($_IEStatus_InvalidDataType) = 无效数据类型
-	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
-	6 ($_IEStatus_LoadWaitTimeout) = 加载等待超时
-	7 ($_IEStatus_NoMatch) = 无匹配
-	8 ($_IEStatus_AccessIsDenied) = 访问被禁止
-	9 ($_IEStatus_ClientDisconnected) = 客户端断开
-@Extended:	包含无效参数数量
+成功: 返回-1
+失败: 返回0并设置@ERROR为:
+    0 ($_IEStatus_Success) = 无错误
+    1 ($_IEStatus_GeneralError) = 一般性错误
+    3 ($_IEStatus_InvalidDataType) = 无效数据类型
+    4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+    6 ($_IEStatus_LoadWaitTimeout) = 加载等待超时
+    7 ($_IEStatus_NoMatch) = 不匹配
+    8 ($_IEStatus_AccessIsDenied) = 访问被禁止
+    9 ($_IEStatus_ClientDisconnected) = 客户端断开
+    @Extended: 包含无效参数数量
 @@End@@
 
+###备注###
+并非所有组件都像其显示的那样是链接 , 它们通常是通过获取Javascript在其他DOM组件的点击事件模拟点击链接的.要激活这种组件 , 使用_IEAction的 "click" .
 
-###Remarks###
-并非所有组件都像其显示的那样是链接,它们通常是通过获取Javascript在其他DOM组件的点击事件模拟点击链接的.要激活这种组件,使用_IEAction的"click".
+###相关###
+ _IELinkClickByText , _IELoadWait
 
+###参考###
 
-###Related###
-_IELinkClickByText, _IELoadWait
-
-
-###Example###
+###示例###
 @@IncludeExample@@

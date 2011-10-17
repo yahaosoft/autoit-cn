@@ -1,48 +1,39 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_CreateSemaphore
 
-###Description###
-åˆ›å»ºæˆ–æ‰“å¼€æœ‰åæˆ–æ— åçš„ä¿¡å·é‡å¯¹è±¡.
- è¯‘æ³¨: å…³äºŽ ä¿¡å·é‡ ,ç»´åŸºç™¾ç§‘çš„æ³¨é‡Šé¡µ: 
+###ÃèÊö###
+´´½¨»ò´ò¿ª²¢·¢·ÃÎÊ¶ÔÏó
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateSemaphore ( $sSemaphore, $iInitial, $iMaximum [, $tSecurity] )
+_WinAPI_CreateSemaphore( $sSemaphore, $iInitial, $iMaximum[, $tSecurity] )
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
 $sSemaphore
-	ä¿¡å·é‡çš„åç§°. åç§°æ¯”è¾ƒåŒºåˆ†å¤§å°å†™.
+   ½«´ò¿ªµÄ²¢·¢·ÃÎÊ¶ÔÏó. Ãû³Æ±È½ÏÊÇ´óÐ¡Ð´Ãô¸ÐµÄ
 $iInitial
-	ä¿¡å·é‡å¯¹è±¡çš„åˆå§‹è®¡æ•°.
-		 è¯¥å€¼å¿…é¡»å¤§äºŽæˆ–ç­‰äºŽ 0, ä¸”å°äºŽæˆ–ç­‰äºŽ $iMaximum
 $iMaximum
-	ä¿¡å·é‡å¯¹è±¡çš„æœ€å¤§æ•°é‡. è¯¥å€¼å¿…é¡»å¤§äºŽ 0.
+$iMaximum
+   ´ò¿ªµÄ²¢·¢·ÃÎÊ¶ÔÏóµÄ×î´óÖµ. ¸ÃÖµÐè´óÓÚ0
 $tSecurity
-	[å¯é€‰å‚æ•°] $tagSECURITY_ATTRIBUTES structure that specifies a security descriptor for the new semaphore.
-	If this parameter is 0, the semaphore gets a default security descriptor.
+$tagSECURITY_ATTRIBUTES½á¹¹. ¸Ã²ÎÊýÎª0Ê±, ²¢·¢¶ÔÏó»ñÈ¡Ä¬ÈÏµÄ°²È«ÃèÊö·û.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›žä¿¡å·é‡å¯¹è±¡çš„å¥æŸ„.å¦‚å‘½åä¿¡å·é‡å¯¹è±¡åœ¨å‡½æ•°è°ƒç”¨å‰å·²å­˜åœ¨,
-	å‡½æ•°è¿”å›žçŽ°æœ‰å¯¹è±¡çš„å¥æŸ„.
-å¤±è´¥:	è¿”å›ž 0,è®¾ç½®@error:æ ‡å¿—ä¸ºéž 0 å€¼.
+³É¹¦: ·µ»Ø²¢·¢·ÃÎÊ¶ÔÏóµÄ¾ä±ú. Èç¹ûÔÚº¯Êýµ÷ÓÃÇ°ÒÑ´æÔÚÃüÃûµÄ²¢·¢·ÃÎÊ¶ÔÏó, º¯Êý·µ»Ø¸Ã¶ÔÏóµÄ¾ä±ú.
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-ä»»ä½•è¿›ç¨‹å¯ä»¥è°ƒç”¨ _WinAPI_WaitFor... å‡½æ•°æŒ‡å®šä¿¡å·é‡å¯¹è±¡å¥æŸ„.
- å•ä¸€å¯¹è±¡ç­‰å¾…å‡½æ•°è¿”å›žæŒ‡å®šå¯¹è±¡çš„çŠ¶æ€ä¿¡å·.
- å½“ä»»ä¸€å¯¹è±¡æˆ–æŒ‡å®šå¯¹è±¡éƒ½æ˜¯ä¿¡å·æ—¶, å¤šå¯¹è±¡ç­‰å¾…å‡½æ•°å¯ä»¥è¿”å›žä»»ä½•å‘½ä»¤.
- å½“ä¸€ä¸ªç­‰å¾…å‡½æ•°è¿”å›žæ—¶,è¢«é‡Šæ”¾çš„ç­‰å¾…è¿›ç¨‹ç»§ç»­æ‰§è¡Œ.
- ä¿¡å·é‡å¯¹è±¡çš„çŠ¶æ€æ˜¯ä¿¡å·æ—¶, å…¶ä¿¡å·è®¡æ•°å¤§äºŽ 0, å¦‚æžœä¸æ˜¯, å…¶è®¡æ•°ç­‰äºŽ 0.
- $iInitial å‚æ•°æŒ‡å®šåˆå§‹å€¼.æ¯ä¸ªç­‰å¾…è¿›ç¨‹å› ä¿¡å·é‡çš„ä¿¡å·çŠ¶æ€çš„é‡Šæ”¾ä½¿è®¡æ•°å‡ 1.
- ä½¿ç”¨ _WinAPI_ReleaseSemaphore() å‡½æ•°æŒ‡å®šä¿¡å·é‡çš„é€’å¢žè®¡æ•°.
- è®¡æ•°ä¸èƒ½å°äºŽ 0 æˆ–å¤§äºŽ $iMaximum å‚æ•°æŒ‡å®šçš„å€¼.
+###±¸×¢###
+ÔÚÒ»´Îµ÷ÓÃ_WinAPI_WaitFor...º¯ÊýÖÐ, ÈÎÒâ½ø³Ì¶¼¿ÉÖ¸¶¨²¢·¢¶ÔÏó¾ä±ú. µ±Ö¸¶¨¶ÔÏóµÄ×´Ì¬±»±ê¼ÇÊ±·µ»Øµ¥Ò»¶ÔÏóµÈ´ýº¯Êý. µ±ÈÎÒ»»òÈÎÒâ¶ÔÏó±»±ê¼ÇÊ±·µ»Ø¶à¶ÔÏóµÈ´ýº¯Êý. µÈ´ýº¯Êý·µ»ØÊ±, ÊÍ·ÅµÈ´ý½ø³Ì²¢¼ÌÐøÖ´ÐÐ.
+µ±²¢·¢¶ÔÏó´óÓÚ0Ê±²¢·¢¶ÔÏóµÄ×´Ì¬ÊÇ±ê¼ÇµÄµÈÓÚ0Ê±ÎªÎÞ±ê¼ÇµÄ. $iInitial²ÎÊýÖ¸¶¨³õÊ¼ÊýÁ¿. µÈ´ý½ø³ÌÃ¿´ÎÓÉÓÚ²¢·¢µÄÐÅºÅ×´Ì¬±»ÊÍ·ÅÊ±, ²¢·¢µÄÊýÁ¿¼õÒ». Ê¹ÓÃ_WinAPI_ReleaseSemaphore()º¯ÊýÒÔÒ»¸öÖ¸¶¨ÊýÁ¿Ìá¸ß²¢·¢ÊýÁ¿. ÊýÁ¿²»ÄÜÐ¡ÓÚ0»ò´óÓÚÓÉ$iMaximum²ÎÊýÖ¸¶¨µÄÖµ.
 
-###See Also###
-@@MsdnLink@@ CreateSemaphore
+###Ïà¹Ø###
 
-###Example###
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖÐCreateSemaphoreµÄÏà¹ØÐÅÏ¢
+
+###Ê¾Àý###
 @@IncludeExample@@
-

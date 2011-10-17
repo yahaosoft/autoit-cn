@@ -1,40 +1,43 @@
-###User Defined Function###
+###用户自定义函数###
 _DebugOut
 
-###Description###
-输出调试信息到 _DebugSetup() 设置的调试会话框
+###描述###
+显示由_DebugSetup()启动的调试会话的输出
 
-###Syntax###
-#include <Debug.au3>
-_DebugOut ( $sOutput [, $bActivate] )
+###语法###
+#Include <Debug.au3>
+_DebugOut ( $sOutput,
+$bActivate )
 
-
-###Parameters###
+###参数###
 @@ParamTable@@
-$sOutput
-	要输出到调试会话的字符串或其他可打印值.
-$bActivate
-	[可选参数] 忽略,保持向后兼容性.
+$sOutput 
+   输出的文本串
+$bActivate 
+   (可选)布尔标记, 如果为真在将$sOutput写到调试记事本窗口前确定调试窗口为活跃窗口. 默认为假.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 1, @Error 与 @Extended 和以前一样调用 _DebugOut().
-失败:	返回 0 , 设置 @Error :.
-@Error:	0 = 没有错误.
-	1 = $sOutput 是一个不兼容的类型.
-	3 = _DebugSetup() 没有正常运行.
+成功: 返回1, 在调用_DebugOut()前置@Error和@Extended
+失败: 设置@Error或返回0.
+@Error: 0 = 无错误.
+     1 = $sOutput类型不匹配.
+     2 = $bActivate类型不适合.
+     3 = _DebugSetup() 未正常运行.
+     4 = 调试Notepad窗口已关闭. 无法输出.
 @@End@@
 
-###Remarks###
- 每次调用 _DebugOut(), 输出都将占用各自的行.
+###备注###
+每次调用_DebugOut(), 都将输出各自占用的路线.
+第一次调用_DebugOut()前必须调用_DebugSetup(), 否则将返回@Error = 3.
+如果Notepad窗口被关闭, _DebugSetup()将被调用来启动调试Notepad会话.
+设置$bActivate为真将显著放慢调试信息的输出.
 
- _DebugSetup() 必须在第一次调用 _DebugOut() 之前, 否则将返回 @Error = 3..
-
-
-###Related###
+###相关###
 _DebugSetup
 
+###参考###
 
-###Example###
+###示例###
 @@IncludeExample@@

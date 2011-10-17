@@ -1,42 +1,34 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_MapVirtualKey
 
-###Description###
-Translates a virtual-key code into a scan code or character value, or translates a scan code into a virtual-key code.
+###ÃèÊö###
+½«ĞéÄâ¼üÂë·­ÒëÎªÉ¨ÃèÂë»ò×Ö·ûÖµ, »ò½«É¨ÃèÂë·­ÒëÎªĞéÄâ¼üÂë
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_MapVirtualKey ( $iCode, $iType )
+_WinAPI_MapVirtualKey( $iCode, $iType )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $iCode
-	The virtual key code or scan code for a key. How this value is interpreted depends on the $iType parameter.
+$iType²ÎÊı.
 $iType
-	The translation to be performed. This value depends on the value of the $iCode parameter and can be
-	one of the following values.
-	
-	$MAPVK_VK_TO_CHAR
-	$MAPVK_VK_TO_VSC
-	$MAPVK_VSC_TO_VK
-	$MAPVK_VSC_TO_VK_EX
-	
+$iCode²ÎÊıÖµÇÒ¿ÉÎªÏÂÁĞÖµÖ®Ò»:
+    $MAPVK_VK_TO_CHAR - $iCodeÎªĞéÄâ¼üÂë²¢±»·­ÒëÎª·µ»ØÖµµÄµÍÎ»ÎÄ×ÖÖĞÎ´¾­ÇĞ»»µÄ×Ö·ûÖµ. Î´¾­·­ÒëÊ±·µ»Ø0.
+    $MAPVK_VK_TO_VSC - $iCodeÎªĞéÄâ¼üÂë²¢±»·­ÒëÎªÉ¨ÃèÂë. Èç¹ûĞéÄâ¼üÂë²»Çø·Ö×óÊÖºÍÓÒÊÖÔò·µ»Ø×óÊÖÉ¨ÃèÂë. Î´¾­·­ÒëÊ±·µ»Ø0.
+    $MAPVK_VSC_TO_VK - $iCodeÎªÉ¨ÃèÂë²¢±»·­ÒëÎª²»Çø·Ö×óÓÒÊÖµÄĞéÄâ¼üÂë. Î´¾­·­ÒëÊ±·µ»Ø0.
+    $MAPVK_VSC_TO_VK_EX - $iCodeÎªÉ¨ÃèÂë²¢±»·­ÒëÎªÇø·Ö×óÓÒÊÖµÄĞéÄâ¼üÂë. Î´¾­·­ÒëÊ±·µ»Ø0.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	A scan code, a virtual-key code, or a character value, depending on the above parameters.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø¸ù¾İÉÏÊö²ÎÊıµÄÉ¨ÃèÂë, ĞéÄâ¼üÂë»ò×Ö·ûÖµ.
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-An application can use _WinAPI_MapVirtualKey() to translate scan codes to the virtual-key code constants
-$VK_SHIFT, $VK_CONTROL, and $VK_MENU, and vice versa. These translations do not distinguish between the left and
-right instances of the SHIFT, CTRL, or ALT keys.
-
-An application can get the scan code corresponding to the left or right instance of one of these keys by calling
-_WinAPI_MapVirtualKey() with uCode set to one of the following virtual-key code constants.
-
+###±¸×¢###
+Ó¦ÓÃ³ÌĞò¿ÉÊ¹ÓÃ_WinAPI_MapVirtualKey()½«É¨ÃèÂë·­ÒëÎªĞéÄâ¼ü³£Á¿$VK_SHIFT, $VK_CONTROL, $VK_MENUÒÔ¼°vice versa. ÕâĞ©·­Òë²»Çø·Ö×óÓÒÊÖµÄSHIFT, CTRL»òALT¼ü.
+Ó¦ÓÃ³ÌĞò¿ÉÍ¨¹ıµ÷ÓÃ_WinAPI_MapVirtualKey()½«uCodeÉèÖÃÎªÏÂÁĞĞéÄâ¼ü´úÂëµÄ³£Á¿Ö®Ò»»ñÈ¡É¨ÃèÂë¶ÔÓ¦µÄ×óÊÖ»òÓÒÊÖÊµÀı
 $VK_LSHIFT
 $VK_RSHIFT
 $VK_LCONTROL
@@ -44,11 +36,10 @@ $VK_RCONTROL
 $VK_LMENU
 $VK_RMENU
 
+###Ïà¹Ø###
 
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞMapVirtualKeyµÄÏà¹ØĞÅÏ¢
 
-###See Also###
-@@MsdnLink@@ MapVirtualKey
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

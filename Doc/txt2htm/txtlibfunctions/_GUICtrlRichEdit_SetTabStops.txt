@@ -1,46 +1,43 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_SetTabStops
 
-###Description###
-设置控件制表位
+###描述###
+获取控件的制表终止符
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetTabStops($hWnd, $vTabStops[, $fRedraw = True])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$VTabStops
-	设置制表符的空间单位:
-		如果一个字符串,代表分号分隔的制表位位置
-		如果是数字: 设置制表位的空间单位
-$fRedraw
-	[可选参数] 是否刷新控件 - True（默认）或 False
+ $hWnd  控件句柄
+ $VTabStops  用于设置制表终止符的空隙:
+如果是字符串, 用分号在制表终止符位置分隔
+如果是数字, 每<n>个控件单位处设置一个制表终止符
+ $fRedraw  [可选] 是否重绘控件 - 真(默认)或假
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False设置@error
-@error:	101 - $hWnd 参数值不是句柄
-	1021 - $vTabStops 不是字符串,也不是数字
-	1022 - $vTabStops 是一个字符串,但一个制表位应该是一个正数
-	1023 - $vTabStops 是一个空串
-	1024 - $vTabStops 是一个数字,但它是 0 或负数
-	103 - $fRedraw 必须是 True 或 False
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  1021 - $vTabStops不是字符串或数字
+  1022 - $vTabStops是字符串但其中的制表终止符不是正数
+  1023 - $vTabStops是空字符串
+  1024 - $vTabStops是数字但是为0或负数
+  103 - $fRedraw非真非假
 @@End@@
 
-###Remarks###
- 空间单位最初为英寸.
- 要输入一个标签控件,点击 Ctrl+Tab 组合键
+###备注###
+间隔单位初始使用英尺度量.
+点击Ctrl+Tab向控件输入制表符
 
-###Related###
-_GUICtrlRichEdit_SetParaTabStops, _GUICtrlRichEdit_SetSpaceUnit
+###相关###
+ _GUICtrlRichEdit_SetParaTabStops , _GUICtrlRichEdit_SetSpaceUnit
 
-###See Also###
-@@MsdnLink@@ EM_SETTABSTOPS
+###参考###
+ 搜索MSDN知识库中EM_SETPARAFORMAT的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

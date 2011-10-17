@@ -1,83 +1,59 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WordPropertyGet
 
-###Description###
-è¿”å› Word åº”ç”¨ç¨‹åºé€‰å®šçš„å±æ€§.
+###ÃèÊö###
+·µ»ØWordÓ¦ÓÃÑ¡ÔñµÄÊôĞÔ
 
-###Syntax###
-#include <Word.au3> 
-_WordPropertyGet ( ByRef $o_object, $s_property )
+###Óï·¨###
+#Include <Word.au3>
+_WordPropertyGet ( ByRef$o_object, $s_property )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$o_object
-	Word.Application å¯¹è±¡å˜é‡
-$s_property
-	é€‰å–å±æ€§ (è§å¤‡æ³¨)
+$o_object 
+   Word.Application¶ÔÏó±äÁ¿
+$s_property 
+   ÊôĞÔÑ¡Ôñ(¼û±¸×¢)
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›é€‰å®šçš„å±æ€§å€¼
-å¤±è´¥:	è¿”å› 0,å¹¶è®¾ç½®s @ERROR
-@Error:	$_WordStatus_Success = æ²¡æœ‰é”™è¯¯
-	$_WordStatus_InvalidDataType = æ— æ•ˆçš„æ•°æ®ç±»å‹
-	$_WordStatus_InvalidObjectType = æ— æ•ˆçš„å¯¹è±¡ç±»å‹
-	$_WordStatus_InvalidValue = æ— æ•ˆå€¼
-@Extended:	åŒ…å«æ— æ•ˆçš„å‚æ•°æ•°ç›®
+³É¹¦: ËùÑ¡ÊôĞÔµÄÖµ
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@ERROR
+@Error: 0 ($_WordStatus_Success) = ÎŞ´íÎó
+     3 ($_WordStatus_InvalidDataType) = ÎŞĞ§Êı¾İÀàĞÍ
+     4 ($_WordStatus_InvalidObjectType) = ÎŞĞ§¶ÔÏóÀàĞÍ
+     5 ($_WordStatus_InvalidValue) = ÎŞĞ§Öµ
+@Extended: °üº¬ÎŞĞ§²ÎÊıÊıÁ¿
 @@End@@
 
+###±¸×¢###
+¸ü¶àĞÅÏ¢¿É²éÔÄ MSDN .
+ÏÂ±íÌá¹©ÁËÃ¿ÖÖ¿ÉÓÃÊôĞÔµÄÃèÊö
+ Word.ApplicationÊôĞÔÁĞ±í
+ ÊôĞÔ  ÃèÊö
+ "activeprinter"  Ö¸¶¨¿ÉÓÃ´òÓ¡»úÃû.
+ "capslock"  ·µ»ØÒ»¸ö²¼¶ûÖµÖ¸Ê¾CAPS LOCK¼üÊÇ·ñÒÑ¿ªÆô.
+ "screentips"  Ö¸¶¨Ò»¸ö²¼¶ûÖµÖ¸Ê¾ÊÇ·ñ½«Åú×¢, ½Å×¢, Î²×¢, ¼°³¬¼¶Á´½Ó×÷ÎªÌáÊ¾ÏÔÊ¾.
+ "scrollbars"  Ö¸¶¨Ò»¸ö²¼¶ûÖµÖ¸Ê¾ Word ÊÇ·ñÔÚÖÁÉÙÒ»¸öÎÄµµ´°¿ÚÖĞÏÔÊ¾¹ö¶¯Ìõ.
+ "statusbar"  Ö¸¶¨Ò»¸ö²¼¶ûÖµÖ¸Ê¾ÊÇ·ñÏÔÊ¾×´Ì¬À¸.
+ "height"  ·µ»Ø»î¶¯ÎÄµµ´°¿ÚµÄ¸ß¶È
+ "language"  ·µ»Ø±íÊ¾Microsoft WordÓÃ»§½çÃæËùÊ¹ÓÃµÄÓïÑÔµÄ MsoLanguageID constant .
+ "left"  ·µ»ØÒ»¸ö´ú±í»î¶¯ÎÄµµË®Æ½Î»ÖÃµÄÕûÊı.
+ "numlock"  ·µ»Ø NUM LOCK ¼üµÄ×´Ì¬.
+ "path"  ·µ»ØÖ¸¶¨¶ÔÏóµÄ´ÅÅÌ»òÍøÂçÂ·¾¶.
+ "screenupdating"  ·µ»ØÒ»¸ö²¼¶ûÖµÖ¸Ê¾ÊÇ·ñÒÑ¿ªÆôÆÁÄ»Ë¢ĞÂ.
+ "startuppath"  Ö¸¶¨Æô¶¯ÎÄ¼ş¼ĞµÄÍêÕûÂ·¾¶, ²»°üÀ¨×îºóµÄ·Ö¸ô·û.
+ "top"  ·µ»Ø»î¶¯ÎÄµµµÄ´¹Ö±ÏñËØ¸ß¶È.
+ "version"  ·µ»ØMicrosoft Word°æ±¾.
+ "visible"  ·µ»ØÒ»¸ö²¼¶ûÖµÖ¸Ê¾Ö¸¶¨¶ÔÏóÊÇ·ñ¿É¼û.
+ "width"  ·µ»ØÖ¸¶¨¶ÔÏóµÄµãÕó¿í¶È.
+ "windowstate"  Ö¸¶¨ÈÎÎñ´°¿Ú»òÒ»¸öÖ¸¶¨ÎÄµµµÄ´°¿ÚµÄ×´Ì¬.
 
-###Remarks###
-è¿›ä¸€æ­¥çš„ä¿¡æ¯å¯æŸ¥çœ‹ <a href="http://msdn2.microsoft.com/en-us/library/kw65a0we.aspx" target="_blank">MSDN</a>.
+###Ïà¹Ø###
+ _WordPropertySet
 
-ä¸‹è¡¨æä¾›ç°æœ‰æ¯ä¸ªå±æ€§çš„æè¿°.
+###²Î¿¼###
 
-<b><u>Word Application Properties</u></b>
-
-@@ParamTable@@
-<b>Property</b>
-	<b>åŠŸ èƒ½ æ è¿°</b>
-"activeprinter"
-	è¿”å›æ´»åŠ¨æ‰“å°æœºçš„åç§°.
-"capslock"
-	è¿”å›è¡¨ç¤º Caps Lock é”®æ˜¯å¦å¤„äºæ‰“å¼€çŠ¶æ€çš„å¸ƒå°”å€¼.
-"screentips"
-	è¿”å›æ˜¯å¦æœ‰æ³¨é‡Š,è„šæ³¨, å°¾æ³¨å’Œè¶…é“¾æ¥æ˜¾ç¤ºæç¤ºçš„å¸ƒå°”å€¼.
-"scrollbars"
-	è¿”å›è¡¨ç¤º Word æ–‡æ¡£çª—å£æ˜¯å¦æ˜¾ç¤ºè‡³å°‘ä¸€ä¸ªæ»šåŠ¨æ¡çš„å¸ƒå°”å€¼.
-"statusbar"
-	è¿”å›è¡¨ç¤ºæ˜¯å¦æ˜¾ç¤ºçŠ¶æ€æ çš„å¸ƒå°”å€¼.
-"height"
-	è¿”å›æ´»åŠ¨æ–‡æ¡£çª—å£çš„é«˜åº¦.
-"language"
-	Returns an MsoLanguageID constant è¿”å›è¡¨ç¤ºå¾®è½¯ Word ç”¨æˆ·ç•Œé¢ä¸­é€‰æ‹©è¯­è¨€çš„ MsoLanguageID å¸¸é‡.
-"left"
-	è¿”å›è¡¨ç¤ºæ´»åŠ¨æ–‡æ¡£æ°´å¹³ä½ç½®çš„æ•´æ•°å€¼.
-"numlock"
-	è¿”å› NUM LOCK é”®çš„çŠ¶æ€. è¿”å› True,è¡¨ç¤ºå¯ä»¥æ’å…¥æ•°å­—é”®ç›˜ä¸Šçš„æ•°å­—é”®, False, åˆ™è¯¥é”®ç”¨äºç§»åŠ¨æ’å…¥ç‚¹.
-"path"
-	è¿”å›ç£ç›˜æˆ–ç½‘ç»œè·¯å¾„æŒ‡å®šçš„å¯¹è±¡.
-"screenupdating"
-	è¿”å›ä¸€ä¸ªå¸ƒå°”å€¼ï¼ŒæŒ‡ç¤ºæ˜¯å¦æ‰“å¼€å±å¹•æ›´æ–°.
-"startuppath"
-	è¿”å›å¯åŠ¨æ–‡ä»¶å¤¹çš„å®Œæ•´è·¯å¾„ï¼Œä¸åŒ…æ‹¬æœ€åçš„åˆ†éš”ç¬¦.
-"top"
-	è¿”å›æ´»åŠ¨æ–‡æ¡£å‚ç›´ä½ç½®çš„ç£…å€¼å•ä½.
-"version"
-	è¿”å› Microsoft Word çš„ç‰ˆæœ¬å·.
-"visible"
-	è¿”å›ä¸€ä¸ªå¸ƒå°”å€¼ï¼ŒæŒ‡ç¤ºæŒ‡å®šå¯¹è±¡æ˜¯å¦æ˜¯å¯è§çš„.
-"width"
-	è¿”å›æŒ‡å®šå¯¹è±¡å®½åº¦çš„ç£…å€¼å•ä½.
-"windowstate"
-	è¿”å›æŒ‡å®šæ–‡æ¡£çª—å£æˆ–ä»»åŠ¡çª—å£çš„çŠ¶æ€.
-@@END@@
-
-
-###Related###
-_WordPropertySet
-
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@

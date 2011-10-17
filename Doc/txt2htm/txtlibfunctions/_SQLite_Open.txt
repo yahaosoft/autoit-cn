@@ -1,57 +1,38 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _SQLite_Open
 
-###Description###
-æ‰“å¼€æˆ–åˆ›å»º SQLite æ•°æ®åº“.
+###ÃèÊö###
+´ò¿ª/´´½¨SQLiteÊı¾İ¿â
 
-###Syntax###
-#include <SQLite.au3>
+###Óï·¨###
+#Include <SQLite.au3>
 _SQLite_Open ( [ $sDatabase_Filename = ":memory:" [,$iAccessMode [,$iEncoding ]]] )
 
-
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$sDatabase_Filename
-	[å¯é€‰å‚æ•°] æ•°æ®åº“æ–‡ä»¶å,é»˜è®¤æ‰“å¼€å†…å­˜ä¸­çš„æ•°æ®åº“.
-$iAccessMode
-	[å¯é€‰å‚æ•°] è®¿é—®æ¨¡å¼æ ‡å¿—. é»˜è®¤ä¸º $SQLITE_OPEN_READWRITE + $SQLITE_OPEN_CREATE 
-$iEncoding
-	[å¯é€‰å‚æ•°] ç¼–ç æ¨¡å¼æ ‡å¿—,åªç”¨äºåˆ›å»ºæ—¶é—´.é»˜è®¤ä¸º $SQLITE_ENCODING_UTF8
+ $sDatabase_Filename  [¿ÉÑ¡] Êı¾İ¿âÃû, Ä¬ÈÏ´ò¿ªÄÚ´æÊı¾İ¿â.
+ $iAccessMode  [¿ÉÑ¡] ²Ù×÷Ä£Ê½±ê¼Ç. Ä¬ÈÏÎª$SQLITE_OPEN_READWRITE + $SQLITE_OPEN_CREATE
+ $iEncoding  [¿ÉÑ¡] ±àÂëÄ£Ê½±ê¼Ç, ½ö´´½¨Ê±Ê¹ÓÃ. Ä¬ÈÏÎª$SQLITE_ENCODING_UTF8
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	Returns æ•°æ®åº“å¥æŸ„.
-å¤±è´¥:	è¿”å› 0.
-@error:	-1 - SQLite æŠ¥å‘Šä¸€ä¸ªé”™è¯¯ (æ£€æŸ¥ @extended çš„å€¼)
-     1 - Error Calling SQLite API 'sqlite3_open_v2'
-     2 - Error while converting filename to UTF-8
-     3 - SQLiteStartup not yet called
-@extended:	value can be compared against $SQLITE_* constants
+³É¹¦: ·µ»ØÊı¾İ¿â¾ä±ú.
+Ê§°Ü: ·µ»Ø0
+@extended: ¿ÉÓë$SQLITE_* ³£Á¿±È½ÏµÄÖµ
+@error: 1 - µ÷ÓÃSQLite API 'sqlite3_open_V2'´íÎó
+    -1 - SQLite±¨´í(¼ì²é@extendedµÄÖµ)
 @@End@@
 
-###Remarks###
-é™¤éæ‚¨åœ¨åŒä¸€ä¼šè¯ä¸­æ“ä½œå¤šä¸ªæ•°æ®åº“,å¦åˆ™æ‚¨æ²¡æœ‰å¿…è¦å­˜å‚¨æ•°æ®åº“å¥æŸ„.
-å‡½æ•°ä½¿ç”¨çš„å¥æŸ„æ˜¯ä¸Šæ¬¡ä½¿ç”¨é»˜è®¤æ‰“å¼€çš„å¥æŸ„.
+###±¸×¢###
+Êı¾İ¿â¾ä±ú²»ÓÃ±£´æ.
+Ê¹ÓÃ¾ä±úµÄº¯ÊıÄ¬ÈÏÊ¹ÓÃ×î½ü´ò¿ªµÄ.
+Ê¹ÓÃUFT16±àÂë´´½¨Êı¾İ¿âÖ»ÄÜÒÔ$iEncoding=$SQLITE_ENCODING_UTF16´´½¨.
 
-è¦åˆ›å»ºä¸€ä¸ªæ•°æ®åº“ä¸­UFT16ç¼–ç ,ä½¿ç”¨ $iEncoding=$SQLITE_ENCODING_UTF16.
+###Ïà¹Ø###
+ _SQLite_Close
 
-Memory, temporary and permanent databases can be opened:
-     $hDb = _SQLite_Open()                      ; opens a temporary private memory DB
-     $hDb = _SQLite_Open(Default, ...)          ; ditto
-     $hDb = _SQLite_Open(':memory:', ...)       ; ditto
+###²Î¿¼###
 
-     $hDb = _SQLite_Open('', ...)               ; opens a temporary private on-disk DB
-
-     $hDb = _SQLite_Open('abc.db', ...)         ; opens or creates a permanent shareable on-disk DB named 'abc.db'
-     
-  In case you insist confusing yourself:
-     $hDb = _SQLite_Open('./:memory:', ...)     ; opens or creates a permanent shareable on-disk DB named ':memory:'
-
-Contrary to permanent disk-based DBs, memory and temporary DBs can't be shared nor be used for IPC (Inter Process Communication) and are destroyed at the end of the connection.
-
-###Related###
-_SQLite_Close
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@

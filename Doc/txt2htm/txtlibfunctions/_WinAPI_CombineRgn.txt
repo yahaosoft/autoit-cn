@@ -1,48 +1,49 @@
-###User Defined Function###
+###用户自定义函数###
 _WinAPI_CombineRgn
 
-###Description###
-结合两个区域,并存储结果在第三区域
+###描述###
+连接两个区域并将结果存储在第三个区域
 
-###Syntax###
+###语法###
 #Include <WinAPI.au3>
-_WinAPI_CombineRgn($hRgnDest, $hRgnSrc1, $hRgnSrc2, $iCombineMode)
+_WinAPI_CombineRgn($hRgnDest,
+$hRgnSrc1, $hRgnSrc2, $iCombineMode)
 
-###Parameters###
+###参数###
 @@ParamTable@@
 $hRgnDest
-	结合其他两个地区的新区域句柄(此区域必须在调用 CombineRgn 之前已存在)
+   由结合两区域定义的新区域的句柄. (该区域在调用CombineRgn前必须存在.)
 $hRgnSrc1
-	第一个被合并区域句柄.
+   进行连接的两个区域的第一个区域的句柄.
 $hRgnSrc2
-	第二个被合并区域句柄.
+   进行连接的两个区域的第二个区域的句柄.
 $iCombineMode
-	指定合并模式.参数可以是以下值之一.
-		$RGN_AND - 创建两个联合区域的交叉点.
-		$RGN_COPY - 创建由 $hrgnSrc1 确定区域的副本.
-		$RGN_DIFF - 结合 hrgnSrc1 不属于 hrgnSrc2 的一部分.
-		$RGN_OR - 创建两个区域结合的并集.
-		$RGN_XOR - 创建两个区域结合的并集, 排除任何重叠的地方.
+   指定了两个区域合并的模式. 此参数可为下列值之一.
+    RGN_AND - 创建交叉结合的两个区域.
+    RGN_COPY - 创建一个确定区域的副本由hrgnSrc1确定.
+    RGN_DIFF - 结合不属于hrgnSrc2部分的hrgnSrc1的部分.
+    RGN_OR - 创建两区域的结合区域.
+    RGN_XOR - 创建两个区域的结合区域但不包括重叠部分.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回生成指定类型的区域.可以是以下值之一:.
-	$NULLREGION - 区域是空的.
-	$SIMPLEREGION - 地区是一个单一矩形.
-	$COMPLEXREGION - 地区大于单一矩形.
-失败:	返回 0 - 无创建区域.
+成功: 指定生成的区域类型. 可为下列值之一.
+    NULLREGION - 空区.
+    SIMPLEREGION - 单一矩形.
+    COMPLEXREGION - 多于一个矩形
+    ERROR - 未建立.
+失败: 0
+注意 两区域根据特定模式结合的第三个地区不必不同. 例如, hrgnSrc1参数可以等于hrgnDest参数.
 @@End@@
 
-###Remarks###
- 两个地区根据指定模式相结合.
- 三个地区不必不同,例如,$hrgnSrc1 的参数可以等于 $hrgnDest 的参数.
+###备注###
 
-###Related###
-_WinAPI_CreateRectRgn, _WinAPI_CreateRoundRectRgn, _WinAPI_SetWindowRgn, _WinAPI_GetWindowRgn
+###相关###
+_WinAPI_CreateRectRgn , _WinAPI_CreateRoundRectRgn , _WinAPI_SetWindowRgn
 
-###See Also###
-@@MsdnLink@@ CombineRgn
+###参考###
+搜索MSDN知识库中有关CombineRgn的信息
 
-###Example###
+###示例###
 @@IncludeExample@@

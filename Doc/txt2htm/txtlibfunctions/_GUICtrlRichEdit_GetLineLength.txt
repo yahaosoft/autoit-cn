@@ -1,41 +1,39 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_GetLineLength
 
-###Description###
-检索行的字符长度
+###描述###
+获取行长度
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetLineLength($hWnd, $iLine)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iLine
-	行号
-		特别值: -1 - 返回值包含所选字符行的未选字符
+ $hWnd  控件句柄
+ $iLine  行数
+指定数量: -1 - 返回包含未选择字符的行上未选择字符的数量
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	多行控件:返回行的字符长度
-	单行控件:返回控件中的字符数
-失败:	返回 0,设置@error:	
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $iLine 既不是正数也不是 -1
-	1022 - $iLine 大于控件的行数
+成功: 多行控件 - 行的字符长度
+    单行控件 - 控件中的字符数量
+失败: 返回0并设置@error:
+    101 - $hWnd不是句柄
+    102 - $iLine不是正数或-1
+    1022 - $iLine大于控件中的字符数
 @@End@@
 
-###Remarks###
- 不包含任何文本的控件会有一行.
- 控件字符区间的第一个位置为 0.
- 结果不包括在该行末尾的回车.
+###备注###
+无文本控件具有一行
+控件中首个连接符为0.
+结果不包含行尾的回车符.
 
-###Related###
+###相关###
 
-###See Also###
-@@MsdnLink@@ EM_GETLINELENGTH
+###参考###
+ 搜索MSDN知识库中EM_LINELENGTH的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

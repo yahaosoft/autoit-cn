@@ -1,53 +1,64 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _GUICtrlListView_SetExtendedListViewStyle
 
-###Description###
-设置扩展样式
+###����###
+������չ���
 
-###Syntax###
-#Include <GuiListView.au3>
-_GUICtrlListView_SetExtendedListViewStyle($hWnd, $iExStyle[, $iExMask = 0])
+###�﷨###
+#Include<GuiListView.au3>
+_GUICtrlListView_SetExtendedListViewStyle($hWnd,$iExStyle[, $iExMask = 0])
 
-###Parameters###
+###����###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iExStyle
-	Extended 控件样式:
-		$LVS_EX_BORDERSELECT - 项目选定时改变边界颜色
-		$LVS_EX_CHECKBOXES - 列表视图中启用复选框
-		$LVS_EX_DOUBLEBUFFER - 双缓冲刷新控件,以减少闪烁
-		$LVS_EX_FLATSB - 列表视图中启用滚动条
-		$LVS_EX_FULLROWSELECT - 项目选中时, 该项及其所有子项高亮显示
-		$LVS_EX_GRIDLINES - 项目和子项显示网格
-		$LVS_EX_HEADERDRAGDROP - 启用列拖放操作重新排序
-		$LVS_EX_INFOTIP - 显示工具提示前,发送 $LVN_GETINFOTIP 通知信息
-		$LVS_EX_LABELTIP - 如果没有设置,在大图标视图中仅展开部分隐藏的标签
-		$LVS_EX_MULTIWORKAREAS - 定义一或多个工作区之前,控件将不会自动排列图标
-		$LVS_EX_ONECLICKACTIVATE - 点击项目时,控件发送 $LVN_ITEMACTIVATE 消息
-		$LVS_EX_REGIONAL - 控件区项目仅包含图标及文本
-		$LVS_EX_SIMPLESELECT - 在图标视图中,移动控件的状态图像到右上角
-		$LVS_EX_SUBITEMIMAGES - 允许显示子项目图像
-		$LVS_EX_TRACKSELECT - 允许控件热跟踪选择
-		$LVS_EX_TWOCLICKACTIVATE - 双击项目时,控件发送 $LVN_ITEMACTIVATE 消息
-		$LVS_EX_UNDERLINECOLD - 使被激活的下划线文本为非热项
-		$LVS_EX_UNDERLINEHOT - 使被激活的下划线文本为热项
-$iExMask
-	[可选参数] 指定 $iExStyle 中哪些样式受此设置的影响.此参数可以是扩展样式的组合
-		只有在这里设置的扩展样式将被改变,所有其他样式将维持不变
-		如果此参数为 0, $iExStyle 设置的全部样式都将受到影响.
+ $hWnd  �ؼ����
+ $iExStyle  ��չ��ʽ:
+$LVS_EX_BORDERSELECT - ����Ŀ��ѡ��ʱ�ı���Ŀ�߿���ɫ
+$LVS_EX_CHECKBOXES
+      - ʹ�б���ͼ�ؼ��ж�����Ŀ�ĸ�ѡ����Ч
+$LVS_EX_DOUBLEBUFFER -
+      ͨ��˫�����ͼ�ɼ�����˸
+$LVS_EX_FLATSB - ʹ�ؼ��е�ƽ���������Ч
+$LVS_EX_FULLROWSELECT -
+      ��һ�ѡ��ʱ����������������������ʾ
+$LVS_EX_GRIDLINES -
+      ��ʾΧ����Ŀ�������������
+$LVS_EX_HEADERDRAGDROP - ʹ��ҷ�м�¼����
+$LVS_EX_INFOTIP -
+      ����ʾ��ʾǰ���� $LVN_GETINFOTIP ֪ͨ��Ϣ
+$LVS_EX_LABELTIP - ���������, δ�۵��Ҳ������ص�
+      ��ǩֻ���ڴ�ͼ��ģʽ
+$LVS_EX_MULTIWORKAREAS -
+      �ռ䲻���Զ�����ͼ����Ƕ�����һ������������$LVS_EX_ONECLICKACTIVATE -
+      ����Ŀ�����ʱ�ؼ�����$LVN_ITEMACTIVATE��Ϣ
+$LVS_EX_REGIONAL -
+      ���ÿؼ�����ֻ������Ŀ��ͼ�������
+$LVS_EX_SIMPLESELECT -
+      ��ͼ����ͼ���ƶ��ؼ���״̬ͼ�����Ͻ�
+$LVS_EX_SUBITEMIMAGES -
+      ��������Ŀ��ʾͼ��
+$LVS_EX_TRACKSELECT -
+      ʹ�ؼ��е��ȸ���ѡ����Ч
+$LVS_EX_TWOCLICKACTIVATE - ˫����Ŀ�¿ؼ����� $LVN_ITEMACTIVATE
+      ��Ϣ
+$LVS_EX_UNDERLINECOLD - ʹ�ɱ�����ķ�������ʾΪ���»��ߵ��ı�
+$LVS_EX_UNDERLINEHOT
+       - ʹ�ɱ������������ʾΪ���»��ߵ��ı�
+ $iExMask  ָ�� $iExStyle �е���Щ�����Ч. ������������չ�������. ֻ�� $iExStyle
+      �е���չ��񽫸ı�. �������з�񽫱���ԭ״. ����ò���Ϊ 0, $iExStyle
+�е����з�񶼽���Ч.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-	返回以前的扩展样式
+�ɹ�: ��ǰ����չ���
 @@End@@
 
-###Remarks###
-None.
+###��ע###
 
-###Related###
+###���###
 _GUICtrlListView_GetExtendedListViewStyle
 
-###Example###
+###�ο�###
+
+###ʾ��###
 @@IncludeExample@@

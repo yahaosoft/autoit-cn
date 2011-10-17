@@ -1,52 +1,42 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_RegisterApplicationRestart
 
-###Description###
-Registers the active instance of an application for restart.
+###ÃèÊö###
+×¢²áÖØÆôÓ¦ÓÃ³ÌĞòµÄ»î¶¯ÊµÀı
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_RegisterApplicationRestart ( [$iFlags [, $sCmd]] )
+_WinAPI_RegisterApplicationRestart( [$iFlags [, $sCmd]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $iFlags
-	[å¯é€‰å‚æ•°] The flags that specifies an events when application will not be restarted. This parameter can be
-	0 or one or more of the following values.
-	
-	$RESTART_NO_CRASH
-	$RESTART_NO_HANG
-	$RESTART_NO_PATCH
-	$RESTART_NO_REBOOT
-	
+   [¿ÉÑ¡] Ö¸¶¨Ó¦ÓÃ³ÌĞò²»»á±»ÖØÆôÊ±µÄÊÂ¼ş¿ÉÎª0»òÏÂÁĞÖµÖĞµÄÒ»¸ö»ò¶à¸ö:
+    $RESTART_NO_CRASH - ½ø³ÌÓÉÓÚÎ´´¦ÀíÒì³£ÖÕÖ¹
+    $RESTART_NO_HANG - ½ø³ÌÓÉÓÚÎŞÏìÓ¦¶øÖÕÖ¹
+    $RESTART_NO_PATCH - ½ø³ÌÓÉÓÚ°²×°¸üĞÂ¶øÖÕÖ¹
+    $RESTART_NO_REBOOT - ¼ÆËã»úÓÉÓÚ°²×°¸üĞÂÖØÆôÊ±²»ÖØÆô½ø³Ì
 $sCmd
-	[å¯é€‰å‚æ•°] The command-line arguments for the application when it is restarted. The maximum size of the command
-	line that you can specify is 2048 characters. If this parameter is empty string, the previously
-	registered command line is removed.
+   [¿ÉÑ¡] ÖØÆôÊ±Ó¦ÓÃ³ÌĞòµÄÃüÁîĞĞ²ÎÊı. ÃüÁîĞĞµÄ³¤¶È×î³¤¿ÉÖ¸¶¨Îª2048¸ö×Ö·û. ¸Ã²ÎÊıÎª0Ê±, ÒÆ³ı×¢²áµÄÃüÁîĞĞ.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+³É¹¦: ·µ»Ø1
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0; @extended±ê¼Ç°üº¬ÏµÍ³´íÎó´úÂë.
 @@End@@
 
-###Remarks###
-Your initial registration for restart must occur before the application encounters an unhandled exception
-or becomes unresponsive. You could then call this function from inside your recovery callback to update the
-command line. To prevent cyclical restarts, the system will only restart the application if it has been
-running for a minimum of 60 seconds.
+###±¸×¢###
+ÖØÆôµÄÔ­Ê¼×¢²á±ØĞëÔÚÓ¦ÓÃ³ÌĞòÓöµ½Î´´¦ÀíÒì³£»ò±äÎªÎŞÏìÓ¦Ç°
+¿É´Ó»Øµ÷»Ö¸´ÄÚ²¿µ÷ÓÃ¸Ãº¯ÊıÀ´¸üĞÂÃüÁîĞĞ
+Îª±ÜÃâÑ­»·ÖØÆô, ÏµÍ³½öÔÚÓ¦ÓÃ³ÌĞòÒÑÔËĞĞ60ÃëºóÖØÆô.
+Èç¹û×¢²áÁËÖØÆôÇÒÓ¦ÓÃ³ÌĞòÓöµ½Î´´¦ÀíÒì³£»ò±äÎªÎŞÏìÓ¦, Ôò¸øÓÃ»§Ìá¹©ÁËÖØÆôÓ¦ÓÃ³ÌĞòµÄ»ú»á; Ó¦ÓÃ³ÌĞò²»»á×Ô¶¯ÖØÆô.
+ÏµÍ³×îµÍÒªÇóWindows Vista.
 
-If you register for restart and the application encounters an unhandled exception or is not responsive,
-the user is offered the opportunity to restart the applicationthe application is not automatically restarted
-without the user's consent.
+###Ïà¹Ø###
 
-This function requires Windows Vista or later.
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞRegisterApplicationRestartµÄÏà¹ØĞÅÏ¢
 
-
-###See Also###
-@@MsdnLink@@ RegisterApplicationRestart
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

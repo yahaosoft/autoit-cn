@@ -1,40 +1,43 @@
-###User Defined Function###
+###用户自定义函数###
 _WinAPI_MultiByteToWideCharEx
 
-###Description###
-映射字符串到宽字符（Unicode）字符串
+###描述###
+将字符型字符串映射为一个宽字符集(Unicode)字符串
 
-###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_MultiByteToWideCharEx($sText, $pText [, $iCodePage = 0 [, $iFlags = 0]])
+###语法###
+#Include
+<WinAPI.au3>
+_WinAPI_MultiByteToWideCharEx($sText, $pText[, $iCodePage
+= 0[, $iFlags = 0]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
 $sText
-	转换的文本
+   要被转换的文本
 $pText
-	字节结构指针,存储转换的字符串
+   用于存储被转换字符串的字节结构的指针
 $iCodePage
-	[可选参数] 执行转换的代码页:
-		0 - ANSI 代码页
-		1 - OEM 代码页
-		2 - Macintosh 代码页
+   指定转换时使用的编码页:
+    0 - ANSI编码页
+    1 - OEM编码页
+    2 - Macintosh编码页
 $iFlags
-	[可选参数] 是否转化为预构成或合成的宽字符:
-		$MB_PRECOMPOSED - 预构成字符
-		$MB_COMPOSITE - 合成宽字符
-		$MB_USEGLYPHCHARS - 标志符号字符代替控制字符
+   用来描述是否翻译为预构成或混合构成的宽字符集的标志:
+    $MB_PRECOMPOSED -
+      总是使用预构成字符集
+    $MB_COMPOSITE - 总是使用混合构成字符集
+    $MB_USEGLYPHCHARS -
+      使用字形字符代替控件字符
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False
+成功: 真
+失败: 假
 @@End@@
 
-###Remarks###
-The byte structure must be at least twice the length of $sText
+###备注###
+字节结构至少是$sText长度的两倍
 
-###Related###
+###相关###
 _WinAPI_MultiByteToWideChar
-

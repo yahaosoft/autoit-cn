@@ -1,42 +1,37 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_ScrollLines
 
-###Description###
-滚动多行文本
+###描述###
+文本向上或向下滚动的行数
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_ScrollLines($hWnd, $iQlines)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iQlines
-	滚动的行数
+ $hWnd  控件句柄
+ $iQlines  假并设置
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False设置@error
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $iQlines 不是数字
-	700 - 试图滚动一个只有行控件
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  102 - $iQlines不是数字
+  700 - 试图滚动单行控件
 @@End@@
 
-###Remarks###
- 向下滚动,设置 $iQlines为正值; 向上滚动,则设置为负值.
- _GUICtrlRichEdit_ScrollLines 是规范的:
- 如果 $iQlines 大于当前行行数,它滚动到显示的最后一行.
- 如果 $iQlines 为负值,并指定为第一个行的前面行,
- 它滚动到控件窗口显示在上方的第一行.
+###备注###
+设置$iQlines为正数值则向下滚动; 设置为负数值则向上滚动.
+_GUICtrlRichEdit_ScrollLines顺利执行时: 如果$iQlines多于当前行下方的行数, 则只滚动到最后一行; 如果$iQlines是负数或指定首行前的行, 将滚动到控件窗口顶部的首行.
 
-###Related###
-_GUICtrlRichEdit_ScrollLineOrPage, _GUICtrlRichEdit_ScrollToCaret
+###相关###
+ _GUICtrlRichEdit_ScrollLineOrPage , _GUICtrlRichEdit_ScrollToCaret
 
-###See Also###
-@@MsdnLink@@ EM_LINESCROLL
+###参考###
+ 搜索MSDN知识库中EM_LINESCROLL的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

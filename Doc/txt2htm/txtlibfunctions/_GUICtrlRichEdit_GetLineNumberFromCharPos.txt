@@ -1,40 +1,37 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_GetLineNumberFromCharPos
 
-###Description###
-检索字符区间位置的行数
+###描述###
+获取行的首字符前的连字符位置
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetLineNumberFromCharPos($hWnd, $iCharPos)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iCharPos
-	字符区间位置
+ $hWnd  控件句柄
+ $iCharPos  连接符位置
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回基于 1 的行数
-失败:	返回 0,设置@error:	
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $iCharPos 参数值不是正数
+成功: 行数(1-基)
+失败: 返回0并设置@error
+    101 - $hWnd不是句柄
+    102 - $iCharPos不是正数
 @@End@@
 
-###Remarks###
- 不包含任何文本的控件会有一行.
- 控件字符区间的第一个位置为 0.
- 第一行是 1 号行.
- 如果 $iCharPos 为负,或大于控件中的字符数,
- 则返回控件的行数.
+###备注###
+无文本控件有一行
+控件中首个连接符位置为0.
+首行为1.
+如果$iCharPos是负数或多于控件中的字符数量, 返回控件中的行数
 
-###Related###
+###相关###
 
-###See Also###
-@@MsdnLink@@ EM_EXLINEFROMCHAR
+###参考###
+ 搜索MSDN知识库中EM_EXLINEFROMCHAR的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

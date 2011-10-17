@@ -1,43 +1,34 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_SetCurrentProcessExplicitAppUserModelID
 
-###Description###
-Specifies a unique application-defined Application User Model ID that identifies the current process to the taskbar.
+###ÃèÊö###
+½«±êÊ¶µ±Ç°½ø³ÌµÄÎ¨Ò»µÄÓ¦ÓÃ³ÌĞò¶¨ÒåµÄÓ¦ÓÃÓÃ»§ID(AppUserModelID)Ö¸¶¨µ½ÈÎÎñÀ¸
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_SetCurrentProcessExplicitAppUserModelID ( $sAppID )
+_WinAPI_SetCurrentProcessExplicitAppUserModelID( $sAppID )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $sAppID
-	The string that represents an Application User Model ID (AppUserModelID). This identifier allows an
-	application to group its associated processes and windows under a single taskbar button. An application
-	must provide its AppUserModelID in the following form and can have no more than 128 characters and
-	cannot contain spaces.
-	
-	CompanyName.ProductName.SubProduct.VersionInformation
-	
-	(See MSDN for more information)
-	
+   ´ú±íAppUserModelIDµÄ×Ö·û´®. ¸Ã±êÊ¶·ûÔÊĞíÓ¦ÓÃ³ÌĞò·Ö×éÆäÔÚµ¥Ò»ÈÎÎñÀ¸°´Å¥ÏÂµÄÏà¹Ø½ø³ÌºÍ´°¿Ú. Ó¦ÓÃ³ÌĞò±ØĞëÒÔËæºóµÄĞÎÊ½Ìá¹©AppUserModelID²¢²»ÄÜ³¬¹ı128×Ö·ûÇÒ²»ÄÜ°üº¬¿Õ¸ñ.
+    CompanyName.ProductName.SubProduct.VersionInformation
+    (¸ü¶àĞÅÏ¢
 @@End@@
 
-###ReturnValue###
+###±¸×¢###
+
+###Ïà¹Ø###
+
+###²Î¿¼###
+MSDN )
+@@End@@
+
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
-@@End@@
+³É¹¦: ·µ»Ø1
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
+²Î¿¼  ËÑË÷MSDNÖªÊ¶¿âÖĞSetCurrentProcessExplicitAppUserModelIDµÄÏà¹ØĞÅÏ¢
 
-###Remarks###
-This method must be called during an application's initial startup routine before the application presents any
-UI or makes any manipulation of its Jump Lists.
-
-This function requires Windows 7 or later.
-
-
-###See Also###
-@@MsdnLink@@ SetCurrentProcessExplicitAppUserModelID
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

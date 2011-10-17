@@ -1,43 +1,39 @@
-###User Defined Function###
+###用户自定义函数###
 _ReplaceStringInFile
 
-###Description###
-替换文本文件的字符串（二进制文件将无法正常工作!）
+###描述###
+用另一个字符串替换给定文本文件中的字符串(二进制文件不工作!)
 
-###Syntax###
+###语法###
 #Include <File.au3>
-_ReplaceStringInFile($szFileName, $szSearchString, $szReplaceString [, $fCaseness = 0 [, $fOccurance = 1]])
+_ReplaceStringInFile($szFileName, $szSearchString, $szReplaceString[, $fCaseness = 0[, $fOccurance = 1]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$szFileName
-	打开文件的文件名. 注意!! 需要完整路径, 不仅仅是由 FileFindNextFile 函数返回的文件名
-$szSearchString
-	文件中要替换的字符串
-$szReplaceString
-	用来替换 $szSearchString 字符串的新字符串
-$fCaseness
-	[可选参数] 0 = 不区分大小写（默认）,1 = 区分大小写
-$fOccurance
-	[可选参数] 0 = 只有替换首次被发现的,1 = 所有匹配都替换（默认）
+ $szFileName  打开文件的文件名. 注意!! 需要完整路径 , 不仅仅是由类似FileFindNextFile函数返回的
+ $szSearchString  想要替换的文件中的字符串
+ $szReplaceString  用来替换$szSearchString的字符串
+ $fCaseness  0 = 大小写不敏感(默认) , 1 = 大小写敏感
+ $fOccurance  0 = 只替换第一个找到的 , 1 = 替换所有的(默认)
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回找到 $szSearchString 的数量
-失败:	返回 -1,设置@error:	
-@error:	1 - 无法打开文件
-	2 - 无法打开临时文件
-	3 - 无法写入临时文件
-	4 - 不能删除原始文件
-	5 - 不能重命名/移动临时文件
-	6 - 原文件为只读属性设置.
+成功: 返回找到$szSearchString的数量
+失败: 返回-1并设置@error:
+@error: 1 - 无法打开文件
+     2 - 无法打开临时文件
+     3 - 无法写入临时文件
+     4 - 无法删除原始文件
+     5 - 无法重命名或移动临时文件
+     6 - 只读属性.
 @@End@@
 
-###Remarks###
-None.
+###备注###
 
-###Related###
+###相关###
 
-###Example###
+###参考###
+
+###示例###
 @@IncludeExample@@

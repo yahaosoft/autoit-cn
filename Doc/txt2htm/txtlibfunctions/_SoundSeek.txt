@@ -1,41 +1,37 @@
-###User Defined Function###
+###用户自定义函数###
 _SoundSeek
 
-###Description###
-寻道指定位置的声音 
+###描述###
+搜索声音到指定位置
 
-###Syntax###
-#include <Sound.au3>
-_SoundSeek (ByRef $aSnd_id, $iHour, $iMin, $iSec )
+###语法###
+#Include <Sound.au3>
+_SoundSeek ( $aSnd_id, $iHour, $iMin, $iSec )
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$aSnd_id
-	由 _SoundOpen() 返回的声音数组 ID
-$iHour
-	寻道到小时
-$iMin
-	寻道到分钟
-$iSec
-	寻道到秒钟
+ $aSnd_id  由_SoundOpen或文件名返回的声音ID数组
+ $iHour  搜索结束点的小时
+ $iMin  搜索结束点的分
+ $iSec  搜索结束点的秒
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 1
-失败:	返回 0,设置@error:	
-@error:	1 = 失败
-	3 = 无效的声音标识. 使用 _SoundOpen()返回的数组.
+ 成功:  返回1
+ 失败:  返回0并设置@error
+  1 = 搜索失败
+  3 = 无效声音ID. 使用由_SoundOpen返回的数组.
 @@End@@
 
-###Remarks###
- 使用 _SoundSeek 的声音,必须使用 _SoundPlay 恢复播放.
- 此函数强制使用 _SoundOpen 返回的 ID 数组, 无论编码类型,确保文件都从正确位置播放.
- 该函数的时间校正因子 VBR 可能被改变时, ID 数组应该更新.
- 
-###Related###
-_SoundPlay
+###备注###
+对于声音使用_SoundSeek后, 必须使用_SoundPlay继续播放.
+强制该函数使用由_SoundOpen返回的ID数组以确保无论编码类型文件都可在正确位置播放.
 
-###Example###
+###相关###
+ _SoundPlay
+
+###参考###
+
+###示例###
 @@IncludeExample@@
-

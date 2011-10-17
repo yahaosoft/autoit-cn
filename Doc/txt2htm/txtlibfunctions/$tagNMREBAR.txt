@@ -1,32 +1,27 @@
-﻿###Structure Name###
+###�ṹ����###
 $tagNMREBAR
 
-###Description###
-包含处理各种伸缩条控件通知消息使用的信息
+###����###
+�������ڿ��ƶ��������֪ͨ��Ϣ����Ϣ�Ľṹ
 
-###Syntax###
-Global Const $tagNMREBAR = $tagNMHDR & ";dword dwMask;uint uBand;uint fStyle;uint wID;lparam lParam"
+###�﷨###
+Global Const $tagNMREBAR =  $tagNMHDR & ";dword dwMask;uint uBand;uint fStyle;uint wID;int lParam"
 
-###Fields###
+###��Ա###
 @@ParamTable@@
 $tagNMHDR
-	包含通知消息的信息
+   ����֪ͨ��Ϣ����Ϣ
 dwMask
-	定义该结构中有效成员的标志. 可为一或多个下列值:
-		$RBNM_ID - wID 成员包含有效信息.
-		$RBNM_LPARAM - lParam 成员包含有效信息.
-		$RBNM_STYLE -  fStyle 成员包含有效信息.
+   ����ýṹ�а�����Ч��Ϣ�ĳ�Ա�ı�Ǽ���. ��Ϊһ����������ֵ:
+    $RBNM_ID - wID��Ա������Ч��Ϣ.
+    $RBNM_LPARAM - lParam��Ա������Ч��Ϣ.
+    $RBNM_STYLE - fStyle��Ա������Ч��Ϣ.
 uBand
-	受通知影响的区段的 0 基索引. 没有区段受影响时为 -1.
+   ֪ͨӰ���0������������. û��������Ӱ��ʱΪ-1.
 fStyle
-	区段样式. 一个或多个在 $tagREBARBANDINFO 结构中 fStyle 成员详述的 $RBBS_ 样式.
-	仅当 dwMask 成员含有 $RBNM_STYLE 标志时有效.
+   ������ʽ. һ��������$tagREBARBANDINFO�ṹ��fStyle��Ա��������$RBBS_��ʽ. ����dwMask����$RBNM_STYLEʱ�ó�Ա��Ч.
 wID
-	应用程序定义的区段标识. 仅当 dwMask 成员含有  $RBNM_ID 标志时有效.
+   Ӧ�ó�����������εı�ʶ. ����dwMask����$RBNM_IDʱ�ó�Ա��Ч
 lParam
-	应用程序定义区段相关值. 仅当 dwMask 成员含有   $RBNM_LPARAM 标志时有效
-@@End@@
-
-###Remarks###
-None.
-
+   Ӧ�ó��������������ص�ֵ. ����dwMask����$RBNM_LPARAMʱ�ó�Ա��Ч
+@@end@@

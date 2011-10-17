@@ -1,56 +1,52 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_BeginBufferedPaint
 
-###Description###
-Begins a buffered paint operation.
+###ÃèÊö###
+Æô¶¯»º³å»æÖÆ²Ù×÷
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_BeginBufferedPaint ( $hDC, $tTarget, ByRef $hNewDC [, $iFormat [, $iFlags [, $tExclude [, $iAlpha]]]] )
+_WinAPI_BeginBufferedPaint( $hDC, $tTarget, ByRef $hNewDC [, $iFormat [, $iFlags [, $tExclude [, $iAlpha]]]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $hDC
-	Handle of the target DC on which the buffer will be painted.
+   »º³å½«»æÖÆÆäÉÏµÄÄ¿±ê³¡¾°µÄ¾ä±ú
 $tTarget
-	$tagRECT structure that specifies the area of the target DC in which to paint.
+   $tagRECT½á¹¹
 $hNewDC
-	Handle of the new device context.
+   ĞÂ³¡¾°¾ä±ú
 $iFormat
-	[å¯é€‰å‚æ•°] The format of the buffer. This parameter can be one of the following values.
-	
-	$BPBF_COMPATIBLEBITMAP
-	$BPBF_DIB
-	$BPBF_TOPDOWNDIB
-	$BPBF_TOPDOWNMONODIB
-	
+   [¿ÉÑ¡] »º³åÇø¸ñÊ½. ¸Ã²ÎÊı¿ÉÎªÏÂÁĞÖµÖ®Ò».
+    $BPBF_COMPATIBLEBITMAP - ¼æÈİÎ»Í¼. Ã¿ÏñËØÎ»ÊıÓëÓÉBeginBufferedPaint»òBeginBufferedAnimationÖ¸¶¨µÄHDCµÄÉè±¸(Í¨³£ÎªÏÔÊ¾Éè±¸)Ïà¹ØµÄÑÕÉ«¸ñÊ½.
+    $BPBF_DIB - ×ÔÏÂ¶øÉÏÇÒÓëÉè±¸ÎŞ¹ØµÄÎ»Í¼. Î»Í¼Ô­µãÎª×óÏÂ½Ç. Ã¿ÏñËØ32Î».
+    $BPBF_TOPDOWNDIB - ×ÔÉÏ¶øÏÂÇÒÓëÉè±¸ÎŞ¹ØµÄÎ»Í¼. Î»Í¼Ô­µãÎª×óÉÏ½Ç. Ã¿ÏñËØ32Î».
+    $BPBF_TOPDOWNMONODIB - ×ÔÉÏ¶øÏÂ. µ¥É«. Éè±¸ÎŞ¹ØÎ»Í¼. Ã¿ÏñËØ1Î».
 $iFlags
-	[å¯é€‰å‚æ•°] The additional flags, one or more of the following values.
-	
-	$BPPF_ERASE
-	$BPPF_NOCLIP
-	$BPPF_NONCLIENT
-	
+   [¿ÉÑ¡] ¸½¼Ó±ê¼Ç. ¿ÉÎªÒ»¸ö»ò¶à¸öÏÂÁĞÖµ.
+    $BPPF_ERASE - ³õÊ¼»¯»º³åÇøÊ±²Á³ıÔ­ÓĞÄÚÈİ
+    $BPPF_NOCLIP - Ä¿±ê³¡¾°µÄ¼ôÇĞÇøÓò²»Ê¹ÓÃË«±¶»º³å
+    $BPPF_NONCLIENT - ÓÃÓÚÎŞ¿Í»§Çø³¡¾°
 $tExclude
-	[å¯é€‰å‚æ•°] $tagRECT structure that specifies the area which is excluded from the clipping region.
+    tagRECT½á¹¹
 $iAlpha
-	[å¯é€‰å‚æ•°] The alpha transparency value to be used on the entire source bitmap. If this parameter is not
-	specified or (-1), the source buffer is copied to the destination with no blending.
+   [¿ÉÑ¡] ÍêÕûÔ´Î»Í¼ÉÏÊ¹ÓÃµÄÍ¸Ã÷¶ÈÖµ. Èç¹ûÎ´Ö¸¶¨»òÎª-1, Ô´»º³åÇø²»»á»ìºÏ¸´ÖÆµ½Ä¿±ê.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	The handle to the buffered paint context.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø»º³åÍ¼Ïñ³¡¾°µÄ¾ä±ú
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-This function requires Windows Vista or later.
+###±¸×¢###
+×îµÍÏµÍ³ÒªÇó: Windows Vista
+ÔËĞĞÊ¾ÀıÇ°Çë½« Tech.bmp ¼° NVIDIA.ico ÎÄ¼ş±£´æÖÁÁÙÊ±ÎÄ¼ş¼Ğ
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ BeginBufferedPaint
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞBeginBufferedPaintµÄÏà¹ØĞÅÏ¢
 
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

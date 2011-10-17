@@ -1,34 +1,51 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_SetText
 
-###Description###
-设置控件的文本
+###描述###
+设置控件文本
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetText($hWnd, $sText)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$sText
-	放置到控件的无格式或 RTF 格式文本
+ $hWnd  控件句柄
+ $sText  置于控件内的纯文本或富文本
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False,设置@error
-@error:	101 - $hWnd 参数值不是句柄
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
 @@End@@
 
-###Remarks###
- 设置所有文本.文本可以是普通文本或 RTF 文本.
- 保留撤消堆栈.
+###备注###
+设置所有文本. 文本可为纯文本或富文本.
+保留撤销块
 
-###Related###
-_GUICtrlRichEdit_GetText, _GUICtrlRichEdit_AppendText, _GUICtrlRichEdit_InsertText, _GUICtrlRichEdit_ReplaceText, _GUICtrlRichEdit_EmptyUndoBuffer
-
-###Example###
-@@IncludeExample@@
+###相关###
+ _GUICtrlRichEdit_GetText , _GUICtrlRichEdit_AppendText , _GUICtrlRichEdit_InsertText , _GUICtrlRichEdit_ReplaceText , _GUICtrlRichEdit_EmptyUndoBuffer
+示例/演示
+ #AutoIt3Wrapper_Au3Check_Parameters= -d -w 1 -w 2 -w 3 -w 4 -w 5 -w 6
+ #include  <GuiRichEdit.au3>
+ #include  <GUIConstantsEx.au3>
+ #include  <WindowsConstants.au3>
+ Main ()
+ Func Main ()
+     Local  $hGui ,  $iMsg ,  $hRichEdit
+     $hGui  =  GUICreate ( "Example ("  &amp;  StringTrimRight ( @ScriptName , 4 )  &amp; ")" ,  320 ,  350 ,  - 1 ,  - 1 )
+     $hRichEdit  =  _GUICtrlRichEdit_Create ( $hGui ,  "This is a test." ,  10 ,  10 ,  300 ,  220 ,  _
+             BitOR ( $ES_MULTILINE ,  $WS_VSCROLL ,  $ES_AUTOVSCROLL ))
+     GUISetState ()
+     _GuiCtrlRichEdit_SetText ( $hRichEdit ,  "First paragraph" )
+     While  True
+         $iMsg  =  GUIGetMsg ()
+         Select
+             Case  $iMsg  =  $GUI_EVENT_CLOSE
+                 GUIDelete ()
+                 Exit
+         EndSelect
+     WEnd
+ EndFunc    ;==>Main

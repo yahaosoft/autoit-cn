@@ -1,59 +1,59 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _IECreate
 
-###Description###
-创建一个 Internet Explorer 浏览器窗口.
+###����###
+����һ��IE���������.
 
-###Syntax###
-#include <IE.au3> 
+###�﷨###
+#Include <IE.au3>
 _IECreate ( [$s_Url = "about:blank" [, $f_tryAttach = 0 [, $f_visible = 1 [, $f_wait = 1 [, $f_takeFocus = 1]]]]] )
 
-###Parameters###
+###����###
 @@ParamTable@@
-$s_Url
-	[可选参数]: 定义打开浏览器的URL地址
-$f_tryAttach
-	[可选参数]: 定义是否附着在存在的窗口
-	0 = (默认) 不试图附着
-	1 = 试着附着在已存在窗口
-$f_visible
-	[可选参数]: 定义浏览器窗口是否可见
-	0 = 浏览器窗口不可见
-	1 = (默认) 浏览器窗口可见
-$f_wait
-	[可选参数]: 定义是否返回前是否等待网页加载完毕
-	0 = 立即返回, 不等待网页加载
-	1 = (默认) 在返回之前等待网页加载完毕
-$f_takeFocus
-	[可选参数]: 定义是否把聚焦在附着的窗口
-	0 = 使窗口聚焦
-	-1 = (默认)不使窗口处于聚焦
+ $s_Url  ��ѡ: ������������URL��ַ
+ $f_tryAttach  ��ѡ: �����Ƿ��ȡ�Ѵ��ڵĴ���
+0 = (Ĭ��) ����ͼ��ȡ
+1 = ��ͼ��ȡ�Ѵ��ڴ���
+ $f_visible  ��ѡ: ��������������Ƿ�ɼ�
+0 = ��������ڲ��ɼ�
+1 = (Ĭ��) ��������ڿɼ�
+ $f_wait  ��ѡ: �����Ƿ񷵻�ǰ�Ƿ�ȴ���ҳ�������
+0 = ���ȴ���ҳ������������
+1 = (Ĭ��)
+    �ڷ���֮ǰ�ȴ���ҳ�������
+ $f_takeFocus  [��ѡ]: �����Ƿ�Ѿ۽��ڸ��ŵĴ���
+0 = ʹ���ھ۽�
+-1 =
+(Ĭ��)��ʹ���ڴ��ھ۽�
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回指向InternetExplorer.Application对象的对象变量
-失败:	返回0 并且设置 @ERROR
-@Error:	0 ($_IEStatus_Success) = 无错误
-	1 ($_IEStatus_GeneralError) = 一般性错误
-	3 ($_IEStatus_InvalidDataType) = 无效数据类型
-	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
-	6 ($_IEStatus_LoadWaitTimeout) = 加载等待超时
-	8 ($_IEStatus_AccessIsDenied) = 服务被拒绝
-	9 ($_IEStatus_ClientDisconnected) = 客户端断开
-@Extended:	如果"附着"是成功设置true (1) ,反之设置为false (0)
+�ɹ�: ����ָ��InternetExplorer.Application����Ķ������
+ʧ��: ����0������@ERRORΪ:
+    0 ($_IEStatus_Success) = �޴���
+    1 ($_IEStatus_GeneralError) = һ���Դ���
+    3 ($_IEStatus_InvalidDataType) = ��Ч��������
+    4 ($_IEStatus_InvalidObjectType) = ��Ч��������
+    6 ($_IEStatus_LoadWaitTimeout) = �Ⱥ���س�ʱ
+    8 ($_IEStatus_AccessIsDenied) = ���ʱ��ܾ�
+    9 ($_IEStatus_ClientDisconnected) = �ͻ��˶Ͽ�
+    @Extended: ���"��ȡ"�ɹ�����true (1) ,��֮����Ϊfalse (0)
 @@End@@
 
+###��ע###
+��ʹ�û�ȡ����ʱ , �����ƥ�����ڿ���̨��ʾ��Ӧ�Ĵ���. �Ƿ���ʾ����ͨ��_IEErrorNotify����.
+����һ������HTA�ļ�(.hta)ʱ , IE����һ���µ���������� , ����ʱ_IECreate���صĶ�������޷����������������. Ҫ��������´��ڱ���ʹ�ò���Ϊ"embedded"��_IEAttach.
+Windows Vista�е��°�ȫ��ʹ���ڲ�ͬ�İ�ȫ������ͨ������������ַʱ�����µ����������. ��Ҳ�ᷢ����ʹ��_IECreate��ʼ���������ʱ.
+�´���Ϊһ���µ������ʵ����ǰһ����������������ָ����.
+�����¼��ֽ����ʽ: 1) �ڴ���������#RequireAdmin(��ʹ�˻�����Administrator����Ȼ��Ҫ
+���ڱ�Ҫʱ�ύ֤��) , 2) ʹ��_IEAttach�����µ���������� 3) ��Ŀ����ַ����IE�Ŀ����ε�ַ�� , 4) �ر�IE"�ܱ���ģʽ" , ��5)����UAC.
+ע������˽����IE��ȫ���ԶԷ���δ�����ε�ַ��Ӱ��.
 
-###Remarks###
-当使用附加参数时,如果不匹配则在控制台显示相应的错误.是否显示可以通过_IEErrorNotify控制. 当打开一个本地HTA文件(.hta) , IE将针对它打开一个新的浏览进程,而此时_IECreate返回的对象变量无法操作这个新的浏览窗口.要控制这个新窗口你必须用_IEAttach 参数为"embedded".
+###���###
+ _IEAttach , _IECreateEmbedded , _IEQuit , _IENavigate
 
-When opening a local HyperTextApplication (.hta) file, Internet Explorer will open a new browser process for it that will not be accessible through the object variable returned by _IECreate.  To control this new browser you must use _IEAttach with the "embedded" option.
+###�ο�###
 
-Windows Vista中新的安全性可在不同的安全区域中创建新的用以浏览URL的浏览器窗口. 这也发生在由_IECreate初始化的创建和浏览中. 新建窗口 是一个新的浏览器实例且以前的浏览器对象变量不再指向它. 有几种解决方式: 1)将#RequireAdmin添加到代码中 (这是必需的, 即使账户是管理员组的一部分, 而且在必要时会提交凭证) , 2) 使用_IEAttach链接到新的浏览器窗口 3)添加目标网址到IE受信任安全区4)关闭"保护模式", 或5)禁用UAC. 当浏览非受信地址时必须 谨慎并理解禁用IE安全特性可能带来的影响.
-###Related###
-_IEAttach, _IECreateEmbedded, _IEQuit, _IENavigate, _IELoadWait
-
-
-###Example###
+###ʾ��###
 @@IncludeExample@@

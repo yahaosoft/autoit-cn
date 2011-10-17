@@ -1,33 +1,33 @@
-###User Defined Function###
+###用户自定义函数###
 _WinAPI_GetMousePos
 
-###Description###
-返回当前鼠标位置
+###描述###
+获取当前的鼠标位置
 
-###Syntax###
+###语法###
 #Include <WinAPI.au3>
-_WinAPI_GetMousePos([$fToClient = False [, $hWnd = 0]])
+_WinAPI_GetMousePos([$fToClient = False], $hWnd = 0]])
 
-###Parameters###
+###参数###
 @@ParamTable@@
 $fToClient
-	[可选参数] 如为 True, 坐标将被转换为客户坐标
+   如果为真, 坐标将转换为客户区坐标
 $hWnd
-	[可选参数] 如 $fToClient 为 True, 则指定窗口句柄
+$fToClient为真时用于转换坐标的窗口的句柄
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回当前鼠标位置的 $tagPOINT 结构
-失败:	设置@error:	
+成功: 当前鼠标位置的$tagPOINT结构
 @@End@@
 
-###Remarks###
- 获取鼠标位置时,函数会考虑到目前 MouseCoordMode 的设置.
- 它也将传递转换屏幕坐标参数到客户端.
+###备注###
+获取鼠标位置时函数会考虑当前的MouseCoordMode设置. 同时在传递的参数基础上将屏幕坐标转化为客户坐标.
 
-###Related###
-$tagPOINT, _WinAPI_GetMousePosX, _WinAPI_GetMousePosY
+###相关###
+ $tagPOINT , _WinAPI_GetMousePosX , _WinAPI_GetMousePosY
 
-###Example###
+###参考###
+
+###示例###
 @@IncludeExample@@

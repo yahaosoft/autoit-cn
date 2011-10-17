@@ -1,41 +1,38 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_RegDeleteKeyValue
 
-###Description###
-删除指定的注册表键和子项中指定的值.
+###����###
+ɾ��ע��������Ӽ���ֵ
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_RegDeleteKeyValue ( $hKey, $sSubKey, $sValueName )
+_WinAPI_RegDeleteKeyValue( $hKey, $sSubKey, $sValueName )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hKey
-	打开的注册表项句柄,该键项必须已打开且有 $KEY_SET_VALUE 访问权限.
-		 句柄由 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回,
-		 参数为下列一个预定义项:
-		 $HKEY_CLASSES_ROOT --- 定义文件类型和类型相关的属性
-		 $HKEY_CURRENT_CONFIG --- 包含本地计算机系统目前的硬件配置文件
-		 $HKEY_CURRENT_USER --- 定义当前用户的参数选择
-		 $HKEY_LOCAL_MACHINE --- 定义计算机物理状态,包括总线类型、系统内存数据、并安装的硬件和软件
-		 $HKEY_USERS --- 确定本地计算机新用户定义默认用户配置,并作为当前用户的用户配置
+$KEY_SET_VALUEȨ��. �þ������_WinAPI_RegCreateKey()��_WinAPI_RegOpenKey()������.��Ϊ����Ԥ�����֮һ:
+$HKEY_CLASSES_ROOT
+$HKEY_CURRENT_CONFIG
+$HKEY_CURRENT_USER
+$HKEY_LOCAL_MACHINE
+$HKEY_USERS
 $sSubKey
-	被删除的注册表项名称.必须是 $hKey 参数确定的主要子项.
+$hKeyָ�����Ӽ�.
 $sValueName
-	被删除的注册表键值.
+   Ҫɾ���ļ���ֵ��.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0,设置@error:	
-标志为非 0 值, @extended 标志可能包含系统错误代码.
+�ɹ�: ����1
+ʧ��: ����0������@error��0, @extended��ǿɰ�����0ϵͳ�������.
 @@End@@
 
-###Remarks###
-本函数需要 Windows Vista 或更高版本系统.
+###��ע###
+�ú�����ҪWindows Vista�����ϰ汾.
 
+###���###
 
-###See Also###
-@@MsdnLink@@ RegDeleteKeyValue
-
+###�ο�###
+ ����MSDN֪ʶ����RegDeleteKeyValue�������Ϣ

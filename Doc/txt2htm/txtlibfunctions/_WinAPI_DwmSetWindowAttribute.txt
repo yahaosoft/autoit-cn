@@ -1,43 +1,44 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_DwmSetWindowAttribute
 
-###Description###
-设置适用于窗口的非客户端属性值.
+###����###
+����Ӧ���ڴ��ڵ�ָ��DWM����ֵ
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
 _WinAPI_DwmSetWindowAttribute ( $hWnd, $iAttribute, $iData )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hWnd
-	申请给定属性的窗口句柄.
+   Ӧ��ָ�����ԵĴ�����
 $iAttribute
-	适用于窗口的属性.参数可以是以下值之一:
-		 $DWMWA_NCRENDERING_POLICY --- 非客户端绘制策略.
-		 $DWMWA_TRANSITIONS_FORCEDISABLED --- 启用或禁用 DWM 的强制转换.
-		 $DWMWA_ALLOW_NCPAINT --- 允许非客户区呈现的内容在 DWM 的框架内可见.
-		 $DWMWA_NONCLIENT_RTL_LAYOUT --- 指定是否非客户端的内容是从右到左（RTL）的镜像
-		 $DWMWA_FORCE_ICONIC_REPRESENTATION --- 强制窗口显示图标缩略图或静态位图.
-		 $DWMWA_FLIP3D_POLICY --- 设置如何交换 3D 窗口
-		 *Windows 7 或更高系统
-		 $DWMWA_HAS_ICONIC_BITMAP --- 该窗口可提供 DWM 使用的位图作为图标缩略图或静态位图
-		 $DWMWA_DISALLOW_PEEK --- 不显示窗口静态预览
-		 $DWMWA_EXCLUDED_FROM_PEEK
+   ҪӦ�õ����ڵ�����. ��Ϊ����ֵ֮һ:
+    $DWMWA_NCRENDERING_POLICY - �ǿͻ�����Ⱦ����
+    $DWMWA_TRANSITIONS_FORCEDISABLED - ���û�ǿ�ƽ���DWMת��
+    $DWMWA_ALLOW_NCPAINT - �����ڷǿͻ�������Ⱦ����������DWM���ƵĿ���Ͽɼ�
+    $DWMWA_NONCLIENT_RTL_LAYOUT - ָ���ǿͻ������ݴ��ҵ���
+    $DWMWA_FORCE_ICONIC_REPRESENTATION - ǿ�ƴ�����ʾ��־������ͼ
+    $DWMWA_FLIP3D_POLICY - ����Flip3D��δ�������
+    Windows
+  7������:
+    $DWMWA_HAS_ICONIC_BITMAP - ����ΪDWM�ṩλͼ��Ϊ��־������ͼ
+    $DWMWA_DISALLOW_PEEK - ����ʾ����Ԥ��
+    $DWMWA_EXCLUDED_FROM_PEEK - ����Aeroʱ��ֹ���ڴӽ�����������
 $iData
-	属性的值.
+   ����ֵ
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
+�ɹ�: ����1
+ʧ��: ����0������@error��0. @extended��ǰ���COM�������
 @@End@@
 
-###Remarks###
-本函数需要 Windows Vista 或更高版本系统.
+###��ע###
+�ú�����ҪWindows Vista�����ϰ汾.
 
+###���###
 
-###See Also###
-@@MsdnLink@@ DwmSetWindowAttribute
-
+###�ο�###
+ ����MSDN֪ʶ����DwmSetWindowAttribute�������Ϣ

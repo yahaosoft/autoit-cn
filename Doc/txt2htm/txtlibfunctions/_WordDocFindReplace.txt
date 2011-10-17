@@ -1,88 +1,90 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WordDocFindReplace
 
-###Description###
-è¿è¡ŒæŒ‡å®šçš„æŸ¥æ‰¾æ›¿æ¢æ“ä½œ.
+###ÃèÊö###
+Ö´ĞĞÖ¸¶¨ËÑË÷ºÍÌæ»»²Ù×÷
 
-###Syntax###
-#include <Word.au3> 
-_WordDocFindReplace ( ByRef $o_object [, $s_FindText = "" [, $s_ReplaceWith = "" [, $i_Replace = 2 [, $v_SearchRange = 0 [, $b_MatchCase = 0 [, $b_MatchWholeWord = 0 [, $b_MatchWildcards = 0 [, $b_MatchSoundsLike = 0 [, $b_MatchAllWordForms = 0 [, $b_Forward = 1 [, $i_Wrap = 1 [, $b_Format = 0]]]]]]]]]]]] )
+###Óï·¨###
+#Include <Word.au3>
+_WordDocFindReplace ( ByRef$o_object [, $s_FindText = "" [, $s_ReplaceWith = "" [, $i_Replace = 2 [,
+$v_SearchRange = 0 [, $b_MatchCase = 0 [, $b_MatchWholeWord = 0 [,
+$b_MatchWildcards = 0 [, $b_MatchSoundsLike = 0 [, $b_MatchAllWordForms = 0 [,
+$b_Forward = 1 [, $i_Wrap = 1 [, $b_Format = 0]]]]]]]]]]]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
-$o_object
-	ä¸€ä¸ªæœ‰æ•ˆçš„ Word.Application, æ–‡æ¡£å¯¹è±¡çš„å¯¹è±¡å˜é‡
-$s_FindText
-	[å¯é€‰å‚æ•°] è¦æœç´¢çš„æ–‡æœ¬(è§å¤‡æ³¨)"" = (é»˜è®¤) ä»…ç”¨äºæ ¼å¼åŒ–æœç´¢.
-$s_ReplaceWith
-	[å¯é€‰å‚æ•°] æ›¿æ¢çš„æ–‡æœ¬. (è§å¤‡æ³¨)"" = (é»˜è®¤) åˆ é™¤ç”±$s_FindTextæŒ‡å®šçš„æ–‡æœ¬
-$i_Replace
-	[å¯é€‰å‚æ•°] æŒ‡å®šæ›¿æ¢æ¬¡æ•°.
-		0 = ä¸è¿›è¡Œæ›¿æ¢
-		1 = æ›¿æ¢ç¬¬ä¸€ä¸ªåŒ¹é…é¡¹ç›®
-		2 = (é»˜è®¤) æ›¿æ¢æ‰€æœ‰åŒ¹é…é¡¹ç›®
-$v_SearchRange
-	[å¯é€‰å‚æ•°] æŒ‡å®šæœç´¢æ‰€é€‰æˆ–è€…æœç´¢èŒƒå›´.
-		-1 = æœç´¢å½“å‰æ‰€é€‰
-		0 = (é»˜è®¤) æœç´¢å…¨éƒ¨æ–‡æ¡£
-		ä»»ä½•èŒƒå›´çš„å¯¹è±¡
-$b_MatchCase
-	[å¯é€‰å‚æ•°] æŒ‡å®šæ˜¯å¦åŒºåˆ†å¤§å°å†™
-		0 = (é»˜è®¤) ä¸åŒºåˆ†
-		1 = åŒºåˆ†
-$b_MatchWholeWord
-	[å¯é€‰å‚æ•°] æŒ‡å®šæ˜¯å…¨éƒ¨åŒ¹é…è¿˜æ˜¯éƒ¨åˆ†åŒ¹é….
-		0 = (é»˜è®¤) éƒ¨åˆ†åŒ¹é…
-		1 = å…¨éƒ¨åŒ¹é…
-$b_MatchWildcards
-	[å¯é€‰å‚æ•°] æŒ‡å®šæ˜¯å¦è¿›è¡ŒæŒ‡å®š$s_FindTextæœç´¢
-		0 = (é»˜è®¤) ä¸æ˜¯æŒ‡å®šæœç´¢
-		1 = æŒ‡å®šæœç´¢
-$b_MatchSoundsLike
-	[å¯é€‰å‚æ•°] æŒ‡å®šæ˜¯å¦æœç´¢æœ¬åœ°å‘éŸ³ç±»ä¼¼$s_FindTextçš„æ–‡å­—
-		0 = (é»˜è®¤) ä¸æœç´¢
-		1 = æœç´¢å‘éŸ³ç±»ä¼¼çš„æ–‡å­—
-$b_MatchAllWordForms
-	[å¯é€‰å‚æ•°]æŒ‡å®šæ˜¯å¦æœç´¢æ–‡æœ¬çš„æ‰€æœ‰æ ¼å¼(ä¾‹å¦‚,"sit"å¯ä»¥æ˜¯"sitting"æˆ–"sat")
-		0 = (é»˜è®¤) ä¸è¿›è¡ŒåŒ¹é…
-		1 = åŒ¹é…æ‰€æœ‰æ ¼å¼
-$b_Forward
-	[å¯é€‰å‚æ•°] æŒ‡å®šæœç´¢æ–¹å‘.
-		0 = å‘å›æœç´¢(æŒ‡å‘æ–‡ä»¶å¼€å§‹)
-		1 = (é»˜è®¤)å‘åæœç´¢(æŒ‡å‘æ–‡ä»¶ç»“å°¾)
-$i_Wrap
-	[å¯é€‰å‚æ•°] Controls what happens if the search begins at a point other than the beginning of the document and the end of the document is reached (or vice versa if $b_Forward is set to 0).
-	0 = The find operation ends if the beginning or end of the search range is reached
-	1 = (Default) The find operation continues if the beginning or end of the search range is reached
-$b_Format
-	[å¯é€‰å‚æ•°] Specifies whether to have the find operation locate formatting in addition to or instead of the find text.
-	0 = (Default) Do not locate formatting
-	1 = Locate formatting
+$o_object 
+   Word.ApplicationÎÄµµ¶ÔÏó
+$s_FindText 
+   ¿ÉÑ¡: ÒªËÑË÷µÄÎÄ±¾(¼û±¸×¢)
+    "" = (Ä¬ÈÏ) ½öÓÃÓÚ¸ñÊ½»¯ËÑË÷.
+$s_ReplaceWith 
+   ¿ÉÑ¡: Ìæ»»µÄÎÄ±¾. (¼û±¸×¢)
+    "" = (Ä¬ÈÏ) É¾³ıÓÉ$s_FindTextÖ¸¶¨µÄÎÄ±¾
+$i_Replace 
+   ¿ÉÑ¡: Ö¸¶¨Ìæ»»¶àÉÙ.
+    0 = ²»Ìæ»»
+    1 = Ìæ»»µÚÒ»¸öÆ¥ÅäµÄ
+    2 = (Ä¬ÈÏ) Ìæ»»ËùÓĞÆ¥ÅäµÄ
+$v_SearchRange 
+   ¿ÉÑ¡: Ö¸¶¨ËÑË÷µÄÑ¡Ôñ·¶Î§.
+    -1 = Ö¸¶¨µ±Ç°ËùÑ¡µÄ·¶Î§
+0 
+  = (Ä¬ÈÏ)Ö¸¶¨È«²¿ÎÄ¼ş¶ÔÏóµÄÈÎÒâ·¶Î§
+$b_MatchCase 
+   ¿ÉÑ¡: Ö¸¶¨ÊÇ·ñÇø·Ö´óĞ¡Ğ´
+    0 = (Ä¬ÈÏ)²»Çø·Ö
+    1 = Çø·Ö
+$b_MatchWholeWord 
+   ¿ÉÑ¡: Ö¸¶¨ÊÇÈ«²¿Æ¥Åä»¹ÊÇ²¿·ÖÆ¥Åä.
+    0 = (Ä¬ÈÏ) ²¿·ÖÆ¥Åä
+    1 = È«²¿Æ¥Åä
+$b_MatchWildcards 
+   ¿ÉÑ¡: Ö¸¶¨ÊÇ·ñ½øĞĞÖ¸¶¨$s_FindTextËÑË÷
+    0 = (Ä¬ÈÏ)²»ÊÇÖ¸¶¨ËÑË÷
+    1 = Ö¸¶¨ËÑË÷
+$b_MatchSoundsLike 
+   ¿ÉÑ¡: Ö¸¶¨ÊÇ·ñËÑË÷±¾µØ·¢ÒôÀàËÆ$s_FindTextµÄÎÄ×Ö
+    0 = (Ä¬ÈÏ) ²»ËÑË÷
+    1 = ËÑË÷·¢ÒôÀàËÆµÄÎÄ×Ö
+$b_MatchAllWordForms 
+   ¿ÉÑ¡: Ö¸¶¨ÊÇ·ñËÑË÷ÎÄ±¾µÄËùÓĞ¸ñÊ½(ÀıÈç,"sit"¿ÉÒÔÊÇ"sitting"»ò"sat")
+    0 = (Ä¬ÈÏ)²»½øĞĞÆ¥Åä
+    1 = Æ¥ÅäËùÓĞ¸ñÊ½
+$b_Forward 
+   ¿ÉÑ¡: Ö¸¶¨ËÑË÷·½Ïò.
+    0 = Ïò»ØËÑË÷(Ö¸ÏòÎÄ¼ş¿ªÊ¼)
+    1 = (Ä¬ÈÏ)ÏòºóËÑË÷(Ö¸ÏòÎÄ¼ş½áÎ²)
+$i_Wrap 
+   ¿ÉÑ¡: ÓÃÒÔ¿ØÖÆµ±ËÑË÷µãµ½´ïÎÄµµÆğµã»òÖÕµãÊ±²Ù×÷µÄ±ê¼Ç(»òµ±$b_ForwardÉèÖÃÎª0Ê±·´Ö®).
+    0 = µ±µ½´ïËÑË÷·¶Î§µÄ¿ªÊ¼»ò½áÊøÎ»ÖÃÊ±ÖĞÖ¹ËÑË÷²Ù×÷
+    1 = (Ä¬ÈÏ)µ±µ½´ïËÑË÷·¶Î§µÄ¿ªÊ¼»ò½áÊøÎ»ÖÃÊ±¼ÌĞøËÑË÷²Ù×÷
+$b_Format 
+   ¿ÉÑ¡: Ö¸¶¨ÊÇ·ñ½øĞĞ¸ñÊ½»¯¶¨Î»²éÕÒ²Ù×÷.
+    0 = (Ä¬ÈÏ)²»½øĞĞ¸ñÊ½»¯¶¨Î»
+    1 = ¸ñÊ½»¯¶¨Î»
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å› 1
-å¤±è´¥:	è¿”å› 0  å¹¶è®¾ç½® @ERROR = 1
-@Error:	$_WordStatus_Success = æ²¡æœ‰é”™è¯¯
-	$_WordStatus_InvalidDataType = æ— æ•ˆæ•°æ®ç±»å‹
-	$_WordStatus_InvalidObjectType = æ— æ•ˆå¯¹è±¡ç±»å‹
-	$_WordStatus_InvalidValue = æ— æ•ˆå€¼
-	$_WordStatus_NoMatch = æ²¡æœ‰åŒ¹é…é¡¹ç›®
-@Extended:	åŒ…å«æ— æ•ˆçš„å‚æ•°æ•°é‡
+³É¹¦: ·µ»Ø1
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@ERRORÎª1
+@Error: 0 ($_WordStatus_Success) = ÎŞ´íÎó
+     3 ($_WordStatus_InvalidDataType) = ÎŞĞ§Êı¾İÀàĞÍ
+     4 ($_WordStatus_InvalidObjectType) = ÎŞĞ§¶ÔÏóÀàĞÍ
+     5 ($_WordStatus_InvalidValue) = ÎŞĞ§Öµ
+     7 ($_WordStatus_NoMatch) = ÎŞÆ¥ÅäÏî
+@Extended: °üº¬²ÎÊıÊıÁ¿¹ı¶à
 @@End@@
 
+###±¸×¢###
+¿ÉÒÔÍ¨¹ıÖ¸¶¨´ó¸ÅµÄ×Ö·ûÂë½øĞĞ¶ÔÌØÊâ×Ö·ûµÄËÑË÷. ±ÈÈç, "^p" ¶ÔÓ¦¶ÎÂä±ê¼Ç; "^t"¶ÔÓ¦ÖÆ±í·û.
+½öµ±½øĞĞ²ÎÊıËÑË÷Ê±ĞèÒªÖ¸¶¨ÌØÊâ×Ö·û»ò¸ß¼¶ËÑË÷±ê×¼
+½«ÏîÄ¿ÒÆ¶¯ÖÁ¼ôÌù°å²¢Ö¸¶¨"^c"×÷Îª$s_ReplaceWithÊ±¿ÉÖ¸¶¨Í¼ĞÎ¶ÔÏó»òÆäËûÎŞÎÄ±¾ÏîÄ¿½øĞĞÌæ»».
 
-###Remarks###
-ä½ å¯ä»¥é€šè¿‡æŒ‡å®šå¤§æ¦‚çš„å­—ç¬¦ç è¿›è¡Œå¯¹ç‰¹æ®Šå­—ç¬¦çš„æœç´¢. æ¯”å¦‚, "^p" å¯¹åº”æ®µè½æ ‡è®°; "^t" 
-å¯¹åº”ä¸€ä¸ªåˆ¶è¡¨ç¬¦.You specify special characters and advanced search criteria just 
-as you do for the Find argument. To specify a graphic object or other non-text 
-item as the replacement, move the item to the Clipboard and specify "^c" for 
-$s_ReplaceWith.
+###Ïà¹Ø###
 
-###Related###
-None
+###²Î¿¼###
 
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@

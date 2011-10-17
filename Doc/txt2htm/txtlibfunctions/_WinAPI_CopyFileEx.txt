@@ -1,47 +1,42 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_CopyFileEx
 
-###Description###
-复制现有文件到一个新文件,将应用程序的进展通知回调函数.
+###����###
+�����Ѵ��ڵ��ļ�Ϊ���ļ���ͨ����ص���������֪ͨӦ�ó���
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_CopyFileEx ( $sExistingFile, $sNewFile [, $iFlags [, $pProgressProc [, $pData] )
+_WinAPI_CopyFileEx( $sSource, $sDestination, $pProgressRoutine[, $iFlags] )
 
-###Parameters###
+###����###
 @@ParamTable@@
-$sExistingFile
-	现有文件的名称.
-$sNewFile
-	新文件的名称.
+$sSource
+   ���ڵ��ļ�������
+$sDestination
+   ���ļ�����
+$pProgressRoutine
+   ���ڷ����ļ��й���Ϣ�Ļص�����. �ò�����Ϊ0.
 $iFlags
-	[可选参数] 指定如何复制文件.参数可以是以下值的组合:
-		$COPY_FILE_ALLOW_DECRYPTED_DESTINATION --- 即使目的副本不能加密,也将加密文件复制成功.不支持Window 2000.
-		$COPY_FILE_COPY_SYMLINK --- 如果源文件是符号链接,目标文件也是符号链接,并指向同一源符号链接位置.不支持 Windows Server 2003 和 Windows XP/2000
-		$COPY_FILE_FAIL_IF_EXISTS --- 如果目标文件已存在,复制操作立即失败 .
-		$COPY_FILE_NO_BUFFERING --- 复制操作使用无缓冲的 I/O,绕过系统 I/O 缓存资源.推荐传送非常大的文件.不支持 Windows Server 2003 和 Windows XP/2000
-		$COPY_FILE_OPEN_SOURCE_FOR_WRITE --- 文件被复制并打开原文件进行写访问.
-		$COPY_FILE_RESTARTABLE --- 跟踪目标文件复制进度,防止复制失败
-$pProgressProc
-	[可选参数] 回调函数,每次调用该文件已复制的另一部分地址
-		 (为了解更多信息,请参见 MSDN)
-$pData
-	[可选参数] 传递给回调函数得参数.
+   ����ָ����θ����ļ��ı��. �ò�����Ϊ����ֵ�����.
+    $COPY_FILE_ALLOW_DECRYPTED_DESTINATION - ����Ŀ���ļ��ܷ���ܶ���ɹ����Ƽ����ļ�. win2000��֧��
+    $COPY_FILE_COPY_SYMLINK - Դ�ļ�Ϊ����ʱ, Ŀ���ļ�Ϊͬһָ�������. 2003��xp/2000��֧��
+    $COPY_FILE_FAIL_IF_EXISTS - Ŀ���ļ�����ʱ�����ļ�ʧ��
+    $COPY_FILE_NO_BUFFERING - ʹ���޻���I/O����, ���д��ļ�����ʱ����ʹ��. 2003��xp/2000��֧��
+    $COPY_FILE_OPEN_SOURCE_FOR_WRITE - �����ļ�����д��Ȩ�޴�Դ�ļ�
+    $COPY_FILE_RESTARTABLE - ����ʧ�ܵ�����¸���Ŀ���ļ��Ľ���
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 1.
-失败:	返回 0,设置@error:标志为非 0 值.
+�ɹ�: ����1
+ʧ��: ����0������@errorΪ��0
 @@End@@
 
-###Remarks###
-None
+###��ע###
 
+###���###
 
-###See Also###
-@@MsdnLink@@ CopyFileEx
+###�ο�###
 
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

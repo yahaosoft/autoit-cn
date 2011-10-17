@@ -1,42 +1,40 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_SetDllDirectory
 
-###Description###
-Adds a directory to the search path used to locate DLLs for the application.
+###ÃèÊö###
+½«Ä¿Â¼¼ÓÈëÓÃÓÚ¶¨Î»Ó¦ÓÃ³ÌĞòDLLµÄËÑË÷Â·¾¶ÖĞ
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_SetDllDirectory ( $sPath )
+_WinAPI_SetDllDirectory( $sPath )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $sPath
-	The directory to be added to the search path. If this parameter is an empty string (""), the call
-	removes the current directory from the default DLL search order. If this parameter is not specified,
-	the function restores the default search order.
+   ±»ÌíÈëËÑË÷Â·¾¶µÄÄ¿Â¼. Èç¹ûÎª¿Õ×Ö·û´®(""), ´ÓÄ¬ÈÏdllËÑË÷ĞòÁĞÖĞÒÆ³ıµ±Ç°Ä¿Â¼. Èç¹ûÎ´Ö¸¶¨, º¯Êı»Ø¸´Ä¬ÈÏËÑË÷ĞòÁĞ.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø1
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-This function affects all subsequent calls to the _WinAPI_LoadLibrary() and _WinAPI_LoadLibraryEx() functions.
-It also effectively disables safe DLL search mode while the specified directory is in the search path.
+###±¸×¢###
+º¯ÊıÓ°ÏìºóĞøËùÓĞ¶ÔÓÚ_WinAPI_LoadLibrary()ºÍ_WinAPI_LoadLibraryEx()º¯ÊıµÄµ÷ÓÃ.
+Í¬Ê±µ±Ö¸¶¨Ä¿Â¼ÔÚËÑË÷Â·¾¶ÖĞÊ±Ó°Ïì°²È«DLLËÑË÷Ä£Ê½.
+_WinAPI_SetDllDirectory()µ÷ÓÃºó, DLLËÑË÷Â·¾¶Îª:
+1. ´ÓÖĞ¼ÓÔØÓ¦ÓÃ³ÌĞòµÄÄ¿Â¼.
+2. ÓÉ$sPath²ÎÊıÖ¸¶¨µÄÄ¿Â¼.
+3. ÏµÍ³Ä¿Â¼.
+4. 16Î»ÏµÍ³Ä¿Â¼.
+5. WindowsÄ¿Â¼.
+6. PATH»·¾³±äÁ¿ÁĞ±íÖĞµÄÄ¿Â¼.
 
-After calling _WinAPI_SetDllDirectory(), the DLL search path is:
+###Ïà¹Ø###
 
-1. The directory from which the application was loaded.
-2. The directory specified by the $sPath parameter.
-3. The system directory.
-4. The 16-bit system directory.
-5. The Windows directory.
-6. The directories that are listed in the PATH environment variable.
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞSetDllDirectoryµÄÏà¹ØĞÅÏ¢
 
-
-
-###See Also###
-@@MsdnLink@@ SetDllDirectory
-
+###Ê¾Àı###
+@@IncludeExample@@

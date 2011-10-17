@@ -1,49 +1,42 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_CompressBitmapBits
 
-###Description###
-Creates a compressed data block from the specified bitmap.
+###ÃèÊö###
+´ÓÖ¸¶¨Î»Í¼ÖĞ´´½¨Ñ¹ËõÊı¾İ¿é
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_CompressBitmapBits ( $hBitmap, ByRef $tBuffer [, $iCompression [, $iQuality]] )
+_WinAPI_CompressBitmapBits( $hBitmap, ByRef $tBuffer [, $iCompression [, $iQuality]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $hBitmap
-	Handle to the bitmap to be compressed.
+   Òª±»Ñ¹ËõµÄÎ»Í¼µÄ¾ä±ú
 $tBuffer
-	The any valid variable that receives the compressed data. If the function succeeds, this
-	variable will contain "byte[n]" structure with compressed data, or 0 otherwise.
+   ½ÓÊÜÑ¹ËõÊı¾İµÄÈÎÒâ±äÁ¿. Èç¹û³É¹¦, ¸Ã±äÁ¿½«°üº¬´øÓĞµÄÑ¹ËõÊı¾İµÄ"byte[n]"½á¹¹, ·´Ö®Îª0.
 $iCompression
-	[å¯é€‰å‚æ•°] The compression method. This parameter can be one of the following values.
-	
-	$COMPRESSION_BITMAP_PNG
-	$COMPRESSION_BITMAP_JPEG
-	
+   [¿ÉÑ¡] Ñ¹Ëõ·½·¨. ¿ÉÎªÏÂÁĞÖµÖ®Ò»:
+$COMPRESSION_BITMAP_PNG
+$COMPRESSION_BITMAP_JPEG
 $iQuality
-	[å¯é€‰å‚æ•°] The quality of JPEG image, in percent. This value is ignored for non JPEG compression.
+   [¿ÉÑ¡] JPEGÍ¼ÏñµÄ°Ù·Ö±ÈÖÊÁ¿. ÎŞÑ¹ËõÊ±ºöÂÔ.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	The length of the compressed data that was stored in $tBuffer parameter, in bytes.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ±£´æÔÚ$tBufferÖĞµÄÑ¹ËõÊı¾İµÄ×Ö½Ú³¤¶È.
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-In fact, the data that returns this function represent .jpeg or .png image file in binary form. You can use the
-_WinAPI_WriteFile() function to create the appropriate image file directly from this data.
+###±¸×¢###
+Êµ¼ÊÉÏ,¸Ãº¯Êı·µ»ØµÄÊı¾İÊÇÒÔ¶ş½øÖÆĞÎÊ½±íÊ¾.jpeg»ò.pngÍ¼ÏñÎÄ¼ş. ¿ÉÒÔÖ±½ÓÊ¹ÓÃÕâĞ©Êı¾İÒÔ_WinAPI_WriteFile()´´½¨½üËÆµÄÍ¼ÏñÎÄ¼ş.
+·µ»ØµÄÊı¾İÍ¨³£±íÊ¾24Î»É«ÉîµÄjpegÎÄ¼ş»ò32Î»É«ÉîµÄpng(´ø»ò²»´øalpha²ã)Í¼Ïñ¶ø²»ÒÀÀµÓÚÔ­Ê¼Î»Í¼µÄÉ«Éî.
+¸Ãº¯ÊıÄÚ²¿Ê¹ÓÃGDI+
+Õı³£ÔËĞĞÊ¾ÀıÇë½« AutoIt.bmp ÎÄ¼ş±£´æµ½ÁÙÊ±ÎÄ¼ş¼ĞÖĞ
 
-The returned data always represent a 24-bit color depth .jpeg image, or 32-bit color depth (with or without
-alpha chanel) .png image independent on the color depth of the source bitmap.
+###Ïà¹Ø###
 
-This function internally uses the GDI+ DLL library.
+###²Î¿¼###
 
-
-###See Also###
-None
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

@@ -1,75 +1,78 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_DrawFrameControl
 
-###Description###
-绘制指定类型和样式的框架控件
+###����###
+���ƴ���ָ�����ͺͷ���֡�ؼ�
 
-###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_DrawFrameControl($hDC, $ptrRect, $nType, $nState)
+###�﷨###
+#Include
+<WinAPI.au3>
+_WinAPI_DrawFrameControl($hDC, $ptrRect, $nType,
+$nState)
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hDC
-	要绘图的图标或者光标设备上下文句柄
+   ����ͼ�������豸�����ľ��
 $ptrRect
-	指向一个 $tagRECT 数据结构的指针,它包含矩形的逻辑坐标
+$tagRECT�ṹ��ָ��
 $nType
-	指定框架控件类型.参数可以是以下值之一:
-		$DFC_BUTTON - 标准按钮
-		$DFC_CAPTION - 标题栏
-		$DFC_MENU - 菜单栏
-		$DFC_POPUPMENU - Windows 2000/XP: 弹出菜单项
-		$DFC_SCROLL - 滚动条
+   ָ��֡�ؼ�����. ��Ϊ����ֵ֮һ:
+    $DFC_BUTTON - ��׼��ť
+    $DFC_CAPTION - ������
+    $DFC_MENU - �˵���
+    $DFC_POPUPMENU - Windows 98/Me, Windows 2000/XP: �����˵���
+    $DFC_SCROLL - ������
 $nState
-	指定框架控件的初始状态.如果 $nType 为 $DFC_BUTTON, $nState 可以是以下值之一:
-		$DFCS_BUTTON3STATE - 三态按钮
-		$DFCS_BUTTONCHECK - 复选框
-		$DFCS_BUTTONPUSH - Push 按钮
-		$DFCS_BUTTONRADIO - 单选按钮
-		$DFCS_BUTTONRADIOIMAGE - 单选按钮图像 (nonsquare needs image)
-		$DFCS_BUTTONRADIOMASK - 单选按钮掩码 (nonsquare needs mask)
-		如果 $nType 为 $DFC_CAPTION, $nState 可以是以下值之一:
-		$DFCS_CAPTIONCLOSE - 关闭按钮
-		$DFCS_CAPTIONHELP - 帮助按钮
-		$DFCS_CAPTIONMAX - 最大化按钮
-		$DFCS_CAPTIONMIN - 最小化按钮
-		$DFCS_CAPTIONRESTORE - 还原按钮
-		如果 $nType 为 $DFC_MENU, $nState 可以是以下值之一:
-		$DFCS_MENUARROW - 子菜单箭头
-		$DFCS_MENUARROWRIGHT - 子菜单箭头指向左边.这是用于从右到左的级联,如阿拉伯语或希伯来语从右到左的使用菜单
-		$DFCS_MENUBULLET - 加重号
-		$DFCS_MENUCHECK - 复选标记
-		如果 $nType 为 $DFC_SCROLL, $nState 可以是以下值之一:
-		$DFCS_SCROLLCOMBOBOX - 组合框滚动条
-		$DFCS_SCROLLDOWN - 滚动条向下箭头
-		$DFCS_SCROLLLEFT - 滚动条左箭头
-		$DFCS_SCROLLRIGHT - 滚动条右箭头
-		$DFCS_SCROLLSIZEGRIP - 尺寸柄在窗口右下角
-		$DFCS_SCROLLSIZEGRIPRIGHT - 尺寸柄在窗口左下角.阿拉伯语或希伯来语窗口语言从右到左
-		$DFCS_SCROLLUP - 滚动条向上箭头
-		下面的样式可以用来调整 Push 按钮的矩形:
-		$DFCS_ADJUSTRECT - 矩形调整排除按钮周围边缘
-		一或多个下列值可用于设置控件的状态:
-		$DFCS_CHECKED - 按钮被选中
-		$DFCS_FLAT - 按钮有一个平面边框
-		$DFCS_HOT - Windows 2000/XP: 按钮热点追踪
-		$DFCS_INACTIVE - 按钮无效(变灰)
-		$DFCS_PUSHED - 按钮按下
-		$DFCS_TRANSPARENT - Windows 2000/XP: 背景保持不变. 这个标志只能结合 $DFCS_MENUARROWUP 或 $DFCS_MENUARROWDOWN
+   ָ��֡�ؼ��ĳ�ʼ״̬.
+$nType��$DFC_BUTTON, $nState��Ϊ����ֵ֮һ:
+    $DFCS_BUTTON3STATE - ��̬��ť
+    $DFCS_BUTTONCHECK - ��ѡ��
+    $DFCS_BUTTONPUSH - ��ť
+    $DFCS_BUTTONRADIO - ��ѡ��ť
+    $DFCS_BUTTONRADIOIMAGE - ��ѡ��ť��ͼ��(nonsquare needs image)
+    $DFCS_BUTTONRADIOMASK - ��ѡ��ť����(nonsquare needs mask)
+$nType��$DFC_CAPTION, $nState��Ϊ����ֵ֮һ:
+    $DFCS_CAPTIONCLOSE - �رհ�ť
+    $DFCS_CAPTIONHELP - ������ť
+    $DFCS_CAPTIONMAX - ��󻯰�ť
+    $DFCS_CAPTIONMIN - ��С����ť
+    $DFCS_CAPTIONRESTORE - ��ԭ��ť
+$nType��$DFC_MENU, $nState ��Ϊ����ֵ֮һ:
+    $DFCS_MENUARROW - �Ӳ˵���ͷ
+    $DFCS_MENUARROWRIGHT - ָ����ߵ��Ӳ˵���ͷ. ����ʹ�ô����������ԵĲ���˵�
+    $DFCS_MENUBULLET - ��Ŀ����
+    $DFCS_MENUCHECK - ѡ�з���
+$nType��DFC_SCROLL, $nState��Ϊ����ֵ֮һ:
+    $DFCS_SCROLLCOMBOBOX - ��Ͽ������
+    $DFCS_SCROLLDOWN - ���������¼�ͷ
+    $DFCS_SCROLLLEFT - �����������ͷ
+    $DFCS_SCROLLRIGHT - ���������Ҽ�ͷ
+    $DFCS_SCROLLSIZEGRIP - �������½ǵĳߴ���
+    $DFCS_SCROLLSIZEGRIPRIGHT - �������½ǵĳߴ���. ���ڴ��ҵ���������簢�������ϣ������
+    $DFCS_SCROLLUP - ���������ϼ�ͷ
+    ������ʽ�����ڵ������水ť�İ󶨾���:
+    $DFCS_ADJUSTRECT - �����󶨾������ų���ť�Ļ��Ʊ߽�
+    һ��������������������ؼ���״̬:
+    $DFCS_CHECKED - ��ť����ѡ
+    $DFCS_FLAT - ��ť��ƽ��߽�
+    $DFCS_HOT - Windows 98/Me, Windows 2000/XP: ��ť���ȸ��ٵ�
+    $DFCS_INACTIVE - ��ťδ���� (��ɫ)
+    $DFCS_PUSHED - ��ť������
+    $DFCS_TRANSPARENT - Windows 98/Me, Windows 2000/XP: ���ֱ�������. �ñ�ǽ�����$DFCS_MENUARROWUP��$DFCS_MENUARROWDOWNͬʱʹ��
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False
+�ɹ�: ��
+ʧ��: ��
 @@End@@
 
-###Remarks###
- 需要 FrameConstants.au3 预先定义的常量
+###��ע###
+��ҪFrameConstants.au3Ԥ�������
 
-###Related###
+###���###
 $tagRECT
 
-###See Also###
-@@MsdnLink@@ DrawFrameControl
+###�ο�###
+����MSDN֪ʶ����DrawFrameControl�������Ϣ

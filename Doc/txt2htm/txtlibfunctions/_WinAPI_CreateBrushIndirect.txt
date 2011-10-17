@@ -1,54 +1,51 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_CreateBrushIndirect
 
-###Description###
-创建指定样式,颜色和图案的逻辑画笔.
+###����###
+��������ָ�����, ��ɫ, ����״���߼���ˢ
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateBrushIndirect ( $iStyle, $iRGB, $iHatch )
+_WinAPI_CreateBrushIndirect( $iStyle, $iRGB, $iHatch )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $iStyle
-	画笔样式. 参数可以是以下样式之一:.
-		$BS_DIBPATTERN --- 由设备无关位图（DIB）规范定义.如此参数为 $iHatch 成员,则包含压缩的 DIB 的句柄
-		$BS_DIBPATTERN8X8 --- 见 BS_DIBPATTERN
-		$BS_DIBPATTERNPT --- 由设备无关位图（DIB）规范定义,如此参数为 $iHatch 成员, 则包含一个指向压缩 DIB 的指针.
-		$BS_HATCHED --- 阴影线画笔
-		$BS_HOLLOW --- 中空画笔
-		$BS_NULL --- 与 BS_HOLLOW 相同
-		$BS_PATTERN --- 由内存位图定义的画笔样式
-		$BS_PATTERN8X8 --- 见 BS_PATTERN
-		$BS_SOLID --- 实心画笔
+   ��ˢ���. ��Ϊ���з��֮һ:
+    $BS_DIBPATTERN - ��ˢ���豸�޹ص�λͼָ��. Ϊ��ʱ, $iHatchΪ$BS_DIBPATTERN
+    $BS_DIBPATTERN8X8 - ��$BS_DIBPATTERN��ͬ
+    $BS_DIBPATTERNPT - ��ˢ���豸�޹ص�λͼָ��. Ϊ��ʱ, $iHatchΪ$BS_DIBPATTERNPT
+    $BS_HATCHED - Ӱ��ˢ
+    $BS_HOLLOW - �п�ˢ
+    $BS_NULL - ��$BS_HOLLOW��ͬ
+    $BS_PATTERN - ��ˢ���ڴ�λͼָ��
+    $BS_PATTERN8X8 - ��$BS_PATTERN��ͬ
+    $BS_SOLID - ʵ��ˢ
 $iRGB
-	画笔颜色, RGB 或以下值之一:
-		 $DIB_PAL_COLORS --- 颜色表包含当前逻辑调色板的16位索引数组.
-		 $DIB_RGB_COLORS --- 颜色表包含 RGB 值
+   ��ˢ��RGB��ɫ, ������ֵ֮һ:
+    $DIB_PAL_COLORS - ����ɫ����ָ��
+    $DIB_RGB_COLORS - ��RGBֵָ��
 $iHatch
-	影线样式. 含义取决于 $iStyle 参数定义的画笔样式.
-		 $BS_DIBPATTERN --- 包含压缩 DIB 的句柄.
-		 $BS_DIBPATTERNPT --- 包含指向压缩 DIB 的指针.
-		 $BS_HATCHED --- 阴影线画笔,指定用于创建阴影线的路线方向.它可以是常量方向 ($HS_*).
-		 $BS_PATTERN --- 包含位图句柄定义的样式. 位图不能是 DIB 位图.
-		 $BS_HOLLOW --- 中空画笔, $BS_SOLID --- 实心画笔,忽略.
+$iStyle��������Ļ�ˢ��ʽ.
+    $BS_DIBPATTERN - ����һ����װ��ͼԪ�ľ��.
+    $BS_DIBPATTERNPT - ����һ����װ��ͼԪ��ָ��.
+    $BS_HATCHED - ָ�����ڴ��������ʽ���ߵķ���. ��Ϊ������֮һ($HS_...).
+    $BS_PATTERN - ��������ͼ����λͼ�ľ��. λͼ������ͼԪҪ��λͼ.
+    $BS_HOLLOW, $BS_SOLID - ����
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回逻辑画笔的标识值.
-失败:	返回 0,设置@error:标志为非 0 值.
+�ɹ�: ��ʶ�߼���ˢ��ֵ
+ʧ��: ����0������@error��0
 @@End@@
 
-###Remarks###
-应用程序调用本函数创建逻辑画笔后, 可调用 _WinAPI_SelectObject() 函数选择任何设备环境.
- 不再需要画笔时,调用 _WinAPI_DeleteObject() 函数删除它.
- 调用 _WinAPI_DeleteObject() 函数删除它.
+###��ע###
+��Ӧ�ó���ͨ������_WinAPI_CreateBrushIndirect()����������ˢ��, ��ͨ������_WinAPI_SelectObject()��������ѡ���豸����. ��������Ҫ��ˢʱ, ����_WinAPI_DeleteObject()����ɾ��.
 
+###���###
 
-###See Also###
-@@MsdnLink@@ CreateBrushIndirect
+###�ο�###
 
-###Example###
+###ʾ��###
 @@IncludeExample@@
-

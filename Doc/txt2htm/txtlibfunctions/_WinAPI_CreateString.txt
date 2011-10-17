@@ -1,43 +1,39 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_CreateString
 
-###Description###
-Copies a specified string to the memory and returns its pointer.
+###ÃèÊö###
+½«Ö¸¶¨×Ö·û´®¸´ÖÆµ½ÄÚ´æ²¢·µ»ØÆäÖ¸Õë
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateString ( $sString, ByRef $tString [, $iLenght [, $fUnicode]] )
+_WinAPI_CreateString( $sString, ByRef $tString [, $iLenght [, $fUnicode]] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $sString
-	The source string to be copied.
+   ½«±»¸´ÖÆµÄÔ´×Ö·û´®
 $tString
-	"wchar[n]" or "char[n]" structure that will contain a specified string. You should not use this structure
-	until the string is used. To release allocated memory just set this variable to 0.
+   °üº¬Ö¸¶¨×Ö·û´®µÄ "wchar[n]" »ò "char[n]" ½á¹¹. ÔÚ×Ö·û´®Ê¹ÓÃÇ°ÎŞĞèÊ¹ÓÃ´Ë½á¹¹. ½«¸Ã±äÁ¿ÉèÖÃÎª0½«ÊÍ·ÅËùÕ¼ÄÚ´æ.
 $iLenght
-	[å¯é€‰å‚æ•°] The required buffer length without null-terminating character, in TCHARs. If this parameter is omitted
-	or 0, the buffer length will be equal to the length of the source string. If $iLenght is less than
-	the source string, the string will be truncated to the specified length.
+$iLenghtĞ¡ÓÚÔ´×Ö·û´® , ½«±»½Ø¶ÏÎªÖ¸¶¨³¤¶È.
 $fUnicode
-	[å¯é€‰å‚æ•°] Specifies whether a string is Unicode or ASCII code of a character, valid values:
-		TRUE     - Unicode. (Default)
-		FALSE    - ASCII.
+   [¿ÉÑ¡] Ö¸¶¨×Ö·û´®µÄUnicode»òASCII±àÂë¸ñÊ½, ¿ÉÓÃÖµ:
+    1 - Unicode(Ä¬ÈÏ)
+    0 - ASCII
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	A pointer to a specified null-terminated string. @extended returns the lenght of the string buffer,
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»ØÖ¸¶¨µÄÎŞÖÕÖ¹×Ö·û´®µÄÖ¸Õë. @extended·µ»Ø×Ö·û´®»º³åÇøµÄTCHAR³¤¶È(²»°üÀ¨NULLÖÕÖ¹·û).
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-To get back a string, use the _WinAPI_GetString() function.
+###±¸×¢###
+Ê¹ÓÃ_WinAPI_GetString()º¯Êı»ñÈ¡·µ»ØµÄ×Ö·û´®
 
+###Ïà¹Ø###
 
-###See Also###
-None
+###²Î¿¼###
 
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

@@ -1,70 +1,69 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_GetParaShading
 
-###Description###
-获取获取(第一)选定的;或者如果没有选择时的当前段落的明暗处理
+###描述###
+获取(首个)被选段落或(无选定时的)当前段落的阴影样式
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetParaShading($hWnd)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
+ $hWnd  控件句柄
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回第一选定段落的由分号 (;} 分隔的设置字符串值 (:):
-	值 1 - 深浅度 - 前景色的百分比, 其余为背景色
-	值 2 - 类型 - 包含下列值之一的字符串:
-	   non - 无
-	   dhz - 暗水平线
-	   dvt - 暗垂直线
-	   ddd - 暗下对角线
-	   dud - 暗上对角线
-	   dgr - 暗栅格
-	   dtr - 暗网格
-	   lhz - 亮水平线
-	   lvt - 亮垂直线
-	   ldd - 亮下对角线
-	   lud - 亮上对角线
-	   lgr - 亮栅格
-	   ltr - 亮网格
-	值 3 - 前景色 - 下列值之一:
-	   "blk" - 黑色
-	   "blu" - 蓝色
-	   "cyn" - 青色
-	   "grn" - 绿色
-	   "mag" - 紫色
-	   "red" -红
-	   "yel" -黄
-	   "whi" - 白色
-	   "dbl" - 暗蓝
-	   "dgn" - 暗绿
-	   "dmg" - 暗紫
-	   "drd" - 暗红
-	   "dyl" - 暗黄
-	   "dgy" - 暗灰
-	   "lgy" - 亮灰
-	值 4 - 背景颜色 - 使用与前景颜色相同的值
-	值 5 - 范围:
-	   a - 所有（或使用的）选定的段落进行这些设置
-	   f - 第一选定使用这些设置,但其它不使用
-	   c - 当前段落使用这些设置
-失败:	返回 "" ,设置 @error
-@error:	101 - $hWnd 参数值不是句柄
+ 成功:  首选段设置 - 用分号(;)分隔的值组成的字符串:
+  值1 - 重量 - 前景色百分比, 剩余的为背景色
+  值2 - 样式 - 包含一个下列的字符串:
+      non - 无
+      dhz - 水平黑
+      dvt - 垂直黑
+      ddd - 向下对角线黑
+      dud - 向上对角线黑
+      dgr - 网格黑
+      dtr - 框架黑
+      lhz - 水平亮
+      lvt - 垂直亮
+      ldd - 向下对角线亮
+      lud - 向上对角线亮
+      lgr - 网格亮
+      ltr - 框架亮
+  值3 - 前景色 - 下列之一:
+      "blk" - 黑
+      "blu" - 蓝
+      "cyn" - 青
+      "grn" - 绿
+      "mag" - 品红
+      "red" - 红
+      "yel" - 黄
+      "whi" - 白
+      "dbl" - 蓝黑
+      "dgn" - 墨绿
+      "dmg" - 深紫红
+      "drd" - 暗红
+      "dyl" - 暗黄
+      "dgy" - 深灰
+      "lgy" - 浅灰
+  值4 - 背景色 - 与前景色相同
+  值5 - 范围:
+      a - 全部(或仅有)选定的段落使用设置
+      f - 第一个选区的段落使用此对齐方式, 但其他不是
+      c - 当前段落使用该设置
+ 失败:  ""并设置@error
+ @error:  101 - $hWnd不是句柄
 @@End@@
 
-###Remarks###
- 明暗处理在 RichEdit 中不显示,但这里创建的阴影将显示在 Word 中
+###备注###
+在富文本编辑控件中不显示阴影, 但此处创建的阴影不会在文字中显示
 
-###Related###
-_GUICtrlRichEdit_SetParaShading
+###相关###
+ _GUICtrlRichEdit_SetParaShading
 
-###See Also###
-@@MsdnLink@@ EM_SETPARAFORMAT
+###参考###
+ 搜索MSDN知识库中EM_SETPARAFORMAT的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

@@ -1,37 +1,36 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _GUICtrlListView_GetEditControl
 
-###Description###
-检索编辑项目文本的编辑控件句柄.
+###����###
+��ȡ���ڱ༭��Ŀ�ı��ı༭�ؼ��ľ��
 
-###Syntax###
+###�﷨###
 #Include <GuiListView.au3>
 _GUICtrlListView_GetEditControl($hWnd)
 
-###Parameters###
+###����###
 @@ParamTable@@
-$hWnd
-	控件句柄
+ $hWnd  �ؼ����
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回编辑控件句柄
-失败:	返回 0
+�ɹ�: �ؼ����
+ʧ��: 0
 @@End@@
 
-###Remarks###
- 当编辑标签开始时,创建、定位并初始化一个编辑控件.
- 显示编辑控件之前,控件向父窗口发送 $LVN_BEGINLABELEDIT 通知消息.
- 如果你想自定义标签编辑,并执行 $LVN_BEGINLABELEDITA, $LVN_BEGINLABELEDITAW 处理程序,
- 自定义的标签编辑控件需允许发送 $LVM_GETEDITCONTROL 消息.
- 如果正在编辑一个标签,则返回值将是编辑控件句柄,使用此句柄自定义编辑控件发送常规 EM_XXX消息.
- 当用户完成或者取消编辑时, 编辑控件被破坏且句柄不再有效.
- 你可以继承编辑控件,但你不应该摧毁它. 要取消编辑,发送控件 $WM_CANCELMODE 消息. 
- 正在编辑的控件项目是当前焦点项目,基于状态查找项目,使用 $LVM_GETNEXTITEM 消息. 
- 
-###Related###
-_GUICtrlListView_CancelEditLabel
+###��ע###
+�Ա�ǩ��ʼ���б༭ʱ, ���Ὠ��, ��λ����ʼ��һ���༭�ؼ�. ����ʾǰ, �ؼ����򸸴��巢��$LVN_BEGINLABELEDIT��Ϣ.
+���ʹ��$LVN_BEGINLABELEDITA, $LVN_BEGINLABELEDITAW�ľ���Զ����ǩ�༭����ؼ�����$LVM_GETEDITCONTROL��Ϣ.
+�����ǩ���ڱ༭״̬, ����ֵ���Ǳ༭�ؼ��ľ��. ʹ�øþ��, ͨ�����ͳ����EM_XXX��Ϣ�Ϳɽ��б༭�ؼ����Զ���.
+���û���ɻ�ȡ���༭ʱ, �༭�ؼ���������, ���������Ч.
+����԰ѱ༭�ؼ���������, ����Ҫ��֮����. ȡ���༭, ��ؼ�����$WM_CANCELMODE message��Ϣ.
+���༭�Ŀؼ���Ŀ�ǵ�ǰ���ڽ������Ŀ. ������Ŀ״̬���в���, ʹ��$LVM_GETNEXTITEM��Ϣ.
 
-###Example###
+###���###
+ _GUICtrlListView_CancelEditLabel
+
+###�ο�###
+
+###ʾ��###
 @@IncludeExample@@

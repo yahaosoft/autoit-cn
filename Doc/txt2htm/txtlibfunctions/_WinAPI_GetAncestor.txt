@@ -1,38 +1,40 @@
-###User Defined Function###
+###用户自定义函数###
 _WinAPI_GetAncestor
 
-###Description###
-检索指定窗口的祖句柄
+###描述###
+获取指定窗体的祖窗体句柄
 
-###Syntax###
+###语法###
 #Include <WinAPI.au3>
-_WinAPI_GetAncestor($hWnd [, $iFlags = 1])
+_WinAPI_GetAncestor($hWnd[,
+$iFlags = 1])
 
-###Parameters###
+###参数###
 @@ParamTable@@
 $hWnd
-	检索的祖窗口句柄. 如果为桌面窗口, 函数返回 0.
+   要获取祖窗体的窗体句柄. 如果为桌面窗体, 函数返回0.
 $iFlags
-	[可选参数] 指定要检索的祖窗口.参数可以是以下值之一:
-		$GA_PARENT - 检索父窗口
-		$GA_ROOT - 检索父窗口活链接的根窗口
-		$GA_ROOTOWNER - 检索父窗口链拥有的根窗口与 GetParent 返回的所有者窗口.
+   指定获取的祖窗体. 该参数可为下列值之一:
+    $GA_PARENT - 获取父窗体
+    $GA_ROOT -
+      获取穿越父窗体链的根窗体
+    $GA_ROOTOWNER -
+  获取穿越父窗体链且由所属窗体的GetParent函数返回的继承的根窗体.
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回祖先窗口句柄
-失败:	返回 0
+成功: 祖窗体的句柄
+失败: 0
 @@End@@
 
-###Remarks###
-需要 WindowsConstants.au3 预先定义的常量
+###备注###
+需要WindowsConstants.au3预定义变量
 
-###Related###
-_WinAPI_GetParent
+###相关###
 
-###See Also###
-@@MsdnLink@@ GetAncestor
+###参考###
+搜索MSDN知识库中GetAncestor的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

@@ -1,37 +1,34 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_PathCanonicalize
 
-###Description###
-Removes elements of a file path according to special strings inserted into that path.
+###ÃèÊö###
+¸ù¾İ²åÈëµ½¸ÃÂ·¾¶µÄÌØÊâ×Ö·û´®µÄÉ¾³ıÎÄ¼şÂ·¾¶ÔªËØ
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_PathCanonicalize ( $sPath )
+_WinAPI_PathCanonicalize( $sPath )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $sPath
-	The path to be canonicalized.
+   ½«±»É¾³ıÔªËØµÄÂ·¾¶
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	The canonicalized path.
-Failure	The original $sPath parameter and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø¹æ·¶»¯Â·¾¶
+Ê§°Ü: ·µ»ØÔ­Ê¼Â·¾¶²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-This function allows the user to specify what to remove from a path by inserting special character sequences
-into the path. The ".." sequence indicates to remove a path segment from the current position to the previous path
-segment. The "." sequence indicates to skip over the next path segment to the following path segment. The root
-segment of the path cannot be removed.
+###±¸×¢###
+¸Ãº¯ÊıÔÊĞíÓÃ»§Í¨¹ıÏòÂ·¾¶ÖĞ²åÈëÌØÊâ×Ö·ûĞòÁĞÀ´Ö¸¶¨´ÓÂ·¾¶ÖĞÉ¾³ıµÄ²¿·Ö.
+'..'ĞòÁĞ±íÊ¾´Óµ±Ç°Â·¾¶²¿·ÖÉ¾³ıÇ°Ò»Â·¾¶²¿·Ö. '.'±íÊ¾Ìø¹ıÏÂÒ»²¿·Ö. ¸ù¶ÎÂ·¾¶²»ÄÜÉ¾³ı.
+Èç¹û'..'ĞòÁĞ¶àÓàÂ·¾¶²¿·Ö, º¯Êı·µ»Ø¸ù, '\'.
 
-If there are more ".." sequences than there are path segments, the function returns just the root, "\".
+###Ïà¹Ø###
 
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖĞPathCanonicalizeµÄÏà¹ØĞÅÏ¢
 
-###See Also###
-@@MsdnLink@@ PathCanonicalize
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

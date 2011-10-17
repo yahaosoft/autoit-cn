@@ -1,63 +1,47 @@
-ï»¿###Structure Name###
+###½á¹¹³£Á¿###
 $tagLVITEM
 
-###Description###
-æŒ‡å®šæˆ–è€…è·å–ä¸€ä¸ª ListView é¡¹ç›®å±æ€§
+###ÃèÊö###
+Ö¸¶¨»ò½ÓÊÕÒ»¸öÁĞ±íÊÓÍ¼ÏîµÄÊôĞÔ
 
-###Syntax###
-Global Const $tagLVITEM = "struct; uint Mask;int Item;int SubItem;uint State;uint StateMask;ptr Text;int TextMax;int Image;lparam Param;" & _
-		"int Indent;int GroupID;uint Columns;ptr pColumns;ptr piColFmt;int iGroup; endstruct"
+###Óï·¨###
+Global Const $tagLVITEM =  "int Mask;int Item;int SubItem;int State;int StateMask;ptr Text;int TextMax;int Image;int Param;int Indent;int GroupID;int Columns;ptr pColumns"
 
-###Fields###
+###³ÉÔ±###
 @@ParamTable@@
 Mask
-	æŒ‡å®šæœ¬ç»“æ„æˆå‘˜åº”åŒ…å«çš„æ•°æ®,æˆ–æ‰€éœ€çš„æœ‰æ•ˆæˆå‘˜,å¯è®¾ç½®ä¸€æˆ–å¤šä¸ªä¸‹åˆ—æ ‡è®°:
-		$LVIF_COLFMT - The piColFmt member is valid or must be set. If this flag is used, the cColumns member is valid or must be set (Microsoft Windows Vista and later).
-		$LVIF_COLUMNS - ä½¿ Columns æˆå‘˜æœ‰æ•ˆ
-		$LVIF_DI_SETITEM - æ“ä½œç³»ç»Ÿå°†å­˜å‚¨æ‰€éœ€çš„åˆ—è¡¨é¡¹ç›®ä¿¡æ¯
-		$LVIF_GROUPID - ä½¿ GroupID æˆå‘˜æœ‰æ•ˆ
-		$LVIF_IMAGE - ä½¿ Image æˆå‘˜æœ‰æ•ˆ
-		$LVIF_INDENT - ä½¿ Indent æˆå‘˜æœ‰æ•ˆ
-		$LVIF_NORECOMPUTE - æ§ä»¶ä¸ä¼šç”Ÿæˆ LVN_GETDISPINFO æ£€ç´¢æ–‡æœ¬ä¿¡æ¯
-		$LVIF_PARAM -  ä½¿ Param æˆå‘˜æœ‰æ•ˆ
-		$LVIF_STATE - ä½¿ State æˆå‘˜æœ‰æ•ˆ
-		$LVIF_TEXT - ä½¿ Text æˆå‘˜æœ‰æ•ˆ
+   ÉèÖÃÖ¸¶¨°üº¬Òª±»ÉèÖÃÊı¾İµÄ½á¹¹³ÉÔ±»òËùĞè³ÉÔ±µÄ±ê¼Ç. ¸Ã³ÉÔ±¿ÉÉèÖÃÒ»¸ö»ò¶à¸öÏÂÁĞ±ê¼Ç:
+    $LVIF_COLUMNS - ÁĞ³ÉÔ±¿ÉÓÃ
+    $LVIF_DI_SETITEM - ²Ù×÷ÏµÍ³½«´æ´¢ËùĞèµÄÁĞ±íÏîĞÅÏ¢
+    $LVIF_GROUPID - GroupID³ÉÔ±¿ÉÓÃ
+    $LVIF_IMAGE - Í¼Ïñ³ÉÔ±¿ÉÓÃ
+    $LVIF_INDENT - Ëõ½ø³ÉÔ±¿ÉÓÃ
+    $LVIF_NORECOMPUTE - ¿Ø¼ş²»»áÉú³ÉLVN_GETDISPINFOÒÔ»ñÈ¡ÎÄ±¾ĞÅÏ¢
+    $LVIF_PARAM - ²ÎÊı³ÉÔ±¿ÉÓÃ
+    $LVIF_STATE - ×´Ì¬³ÉÔ±¿ÉÓÃ
+    $LVIF_TEXT - ÎÄ±¾³ÉÔ±¿ÉÓÃ
 Item
-	é¡¹ç›®çš„ 0 åŸºç´¢å¼•
+   ¸Ã½á¹¹Ö¸ÏòµÄÏîÄ¿µÄ0»ùË÷Òı
 SubItem
-	å­é¡¹ç›®çš„ç´¢å¼•
+   ¸Ã½á¹¹Ö¸ÏòµÄ×ÓÏîÄ¿µÄ1»ùË÷Òı
 State
-	é¡¹ç›®çŠ¶æ€, çŠ¶æ€å›¾åƒ, åŠè¦†ç›–å›¾åƒ
+   ÏîÄ¿×´Ì¬, ×´Ì¬Í¼Ïñ, ¼°¸²¸ÇÍ¼Ïñ
 StateMask
-	state æˆå‘˜è¦è·å–æˆ–ä¿®æ”¹çš„äºŒè¿›åˆ¶æ•°å­—å€¼
+   Ö¸¶¨Òª»ñÈ¡»òĞŞ¸ÄµÄ×´Ì¬³ÉÔ±µÄÊıÎ»Öµ
 Text
-	é¡¹ç›®æ–‡æœ¬çš„å­—ç¬¦ä¸²çš„æŒ‡é’ˆ
+   °üº¬ÏîÄ¿ÎÄ±¾µÄ×Ö·û´®µÄÖ¸Õë
 TextMax
-	æ–‡æœ¬(åŒ…å«ç»ˆæ­¢ç¬¦)åœ¨ç¼“å†²åŒºçš„å­—èŠ‚æ•°
+   Ö¸ÏòÎÄ±¾(°üº¬ÖÕÖ¹·û)µÄ»º³åÇøµÄ×Ö½ÚÊı
 Image
-	é¡¹ç›®å›¾æ ‡åœ¨å›¾åƒåˆ—è¡¨ä¸­çš„ç´¢å¼•
+   ÏîÄ¿Í¼±êÔÚ¿Ø¼şµÄÍ¼ÏñÁĞ±íÖĞµÄË÷Òı
 Param
-	å…·ä½“é¡¹ç›®çš„å€¼
+   ÓÃÀ´Ö¸¶¨ÏîÄ¿µÄÖµ
 Indent
-	é¡¹ç›®å›¾åƒçš„ç¼©è¿›å®½åº¦
+   ÏîÄ¿Í¼ÏñµÄËõ½ø¿í¶È
 GroupID
-	æ¥æ”¶é¡¹ç›®å¹³é“ºæ˜¾ç¤ºç»„çš„æ ‡è¯†ç¬¦
+   ½ÓÊÕÏîÄ¿µÄÊÕËõÊÓÍ¼×éµÄ±êÊ¶·û
 Columns
-	é¡¹ç›®å¹³é“ºæ˜¾ç¤ºç»„çš„åˆ—æ•°
+   ¸ÃÏîÏÔÊ¾µÄÊÕËõÊÓÍ¼ÁĞ
 pColumns
-	æ•°ç»„çš„åˆ—ç´¢å¼•æŒ‡é’ˆ
-piColFmt
-	A pointer to an array of the following flags (alone or in combination, specifying the format of each subitem in extended tile view (Windows 7 and later).
-	Value Meaning:
-		$LVCFMT_LINE_BREAK - Forces the column to wrap to the top of the next list of columns.
-		$LVCFMT_FILL Fills - the remainder of the tile area. Might have a title.
-		$LVCFMT_WRAP - Allows the column to wrap within the remaining space in its list of columns.
-		$LVCFMT_NO_TITLE - Removes the title from the subitem.
-		$LVCFMT_TILE_PLACEMENTMASK - Equivalent to a combination of $LVCFMT_LINE_BREAK and $LVCFMT_FILL.
-iGroup
-	Group index of the item. Valid only for owner data/callback (single item in multiple groups).(Windows Vista and later).
-@@End@@
-
-###Remarks###
-None.
-
+   ÁĞË÷ÒıÊı×éµÄÖ¸Õë
+@@end@@

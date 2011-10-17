@@ -1,47 +1,40 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _Date_Time_SetFileTime
 
-###Description###
-设置文件创建,访问,修改日期与时间
+###����###
+���ô���, �򿪺��޸��ļ������ں�ʱ��
 
-###Syntax###
+###�﷨###
 #Include <Date.au3>
 _Date_Time_SetFileTime($hFile, $pCreateTime, $pLastAccess, $pLastWrite)
 
-###Parameters###
+###����###
 @@ParamTable@@
-$hFile
-	文件句柄，使用 _WinAPI_CreateFile 函数的返回值,
-		并具有 FILE_WRITE_ATTRIBUTES 访问权.
-$pCreateTime
-	$tagFILETIME 结构指针, 它包含创建文件的新日期和时间.
-		如果应用程序不需要此信息, 设置此参数为 0.
-$pLastAccess
-	$tagFILETIME 结构指针, 它包含文件的新的最后访问日期和时间,
-		包括文件上次写入,读取,或运行(可执行文件)
-		如果应用程序不需要此信息, 设置此参数为 0.
-		为了保持文件的现有上次访问时间，调用 SetFileTime 参数,
-		并设置为 -1 之前关闭文件句柄.
-$pLastWrite
-	$tagFILETIME 结构指针, 包含文件的最后写入日期和时间.
-		如果应用程序不需要此信息, 设置此参数为 0.
+$hFile 
+   ������ȡ���ں�ʱ����ļ��ľ��. �ļ����������CreateFile������GENERIC_READȨ�޴���.
+$pCreateTime 
+   �����ļ�������ʱ���$tagFILETIME�ṹ. ����������ø���Ϣ��Ϊ0.
+$pLastAccess 
+   ���ļ�������ʱ���$tagFILETIME�ṹ.
+    ���һ�η���ʱ��, ����д��, ��ȡ, ������(��ִ���ļ�).
+    ����������ø���Ϣ��Ϊ0. �ڷ����ļ��󽫱����Ѵ��ڵ��������ʱ��, �ڹر��ļ����ǰ���˲�������Ϊ-1�Ե���SetFileTime.
+$pLastWrite 
+   ���һ��д���ļ�������ʱ���$tagFILETIME�ṹ. ����������ø���Ϣ��Ϊ0.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False
+�ɹ�: ��
+ʧ��: ��
 @@End@@
 
-###Remarks###
- 不是所有文件系统可以记录创建和访问时间.
- 并非所有文件系统以同样的方式记录文件时间信息.
- 例如 FAT 文件系统, 创建时间有 10 毫秒延迟, 修改时间有 2秒 延迟 , 访问时间有 1 天延迟(真实的访问日期)
- 因此, 本函数返回的文件时间信息可能会与 SetFileTime 函数的设置不相同
- NTFS 文件系统更新文件最近访问时间, 最多时会延迟一小时. 
+###��ע###
+���������ļ�ϵͳ���ɼ�¼ͬʱҲ���������ļ�ϵͳ��¼������ͬ��ʽ��¼�����������ʱ��. ����, ����FAT, ����ʱ����10�����ӳ�, д��ʱ����2���ӳ� , ����ʱ����1���ӳ�(�����Ĵ�����). ���, GetFileTime�������᷵��ʹ��SetFileTime���õ���ͬ���ļ�ʱ����Ϣ. NTFS��������ļ����ӳ�һСʱ���µ�������ļ�������
 
-###Related###
-_Date_Time_GetFileTime, $tagFILETIME
+###���###
+ _Date_Time_GetFileTime , $tagFILETIME
 
-###Example###
+###�ο�###
+
+###ʾ��###
 @@IncludeExample@@

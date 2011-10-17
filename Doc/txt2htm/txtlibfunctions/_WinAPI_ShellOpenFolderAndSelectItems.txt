@@ -1,44 +1,37 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_ShellOpenFolderAndSelectItems
 
-###Description###
-æ‰“å¼€ Windows èµ„æºç®¡ç†å™¨çª—å£ä¸­é€‰å®šæ–‡ä»¶å¤¹æŒ‡å®šçš„ç‰¹å®šé¡¹ç›®.
+###ÃèÊö###
+´ò¿ª´øÓÐÖ¸¶¨ÏîµÄÖ¸¶¨ÎÄ¼þ¼ÐµÄWindows Explorer
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellOpenFolderAndSelectItems ( $sPath [, $aNames [, $iStart [, $iEnd [, $iFlags]]]] )
+_WinAPI_ShellOpenFolderAndSelectItems( $sPath [, $aNames [, $iStart [, $iEnd [, $iFlags]]]] )
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
-$sPath
-	æŒ‡å®šæ–‡ä»¶å¤¹æˆ–æ–‡ä»¶å®Œå…¨åˆæ ¼çš„è·¯å¾„.å¦‚æžœé€‰ç”¨ $aNames å‚æ•°,åˆ™ $sPath åªèƒ½æŒ‡å®šä¸ºæ–‡ä»¶å¤¹,
-		 å¦åˆ™,å‡½æ•°å°†å¤±è´¥.å‚æ•°å¯ä»¥æ˜¯ç©ºå­—ç¬¦ä¸²
-$aNames
-	[å¯é€‰å‚æ•°] è¢«é€‰ä¸­æ–‡ä»¶å¤¹æˆ–æ–‡ä»¶åç§°çš„æ•°ç»„.æ–‡ä»¶å¤¹å†…åº”åªæ˜¯åç§°..
-$iStart
-	[å¯é€‰å‚æ•°] å¼€å§‹é€‰æ‹©çš„æ•°ç»„ç´¢å¼•
-$iEnd
-	[å¯é€‰å‚æ•°] ç»“æŸé€‰æ‹©çš„æ•°ç»„ç´¢å¼•.
-$iFlags
-	[å¯é€‰å‚æ•°] å¯é€‰çš„æ ‡å¿—. å‚æ•°å¯ä»¥æ˜¯ä¸€æˆ–å¤šä¸ªä¸‹åˆ—å€¼:
-		 *Windows Vista æˆ–æ›´é«˜ç³»ç»Ÿ
-		 $OFASI_EDIT --- é€‰æ‹©é¡¹ç›®å¹¶å°†åç§°ç½®äºŽç¼–è¾‘æ¨¡å¼
-		 $OFASI_OPENDESKTOP --- é€‰æ‹©é¡¹ç›®æˆ–æ¡Œé¢ä¸Šçš„é¡¹ç›®,è€Œä¸æ˜¯ Windows èµ„æºç®¡ç†å™¨çª—å£
+$sPath  Ö¸¶¨ÎÄ¼þ¼Ð»òÎÄ¼þÍêÈ«ºÏ·¨µÄÂ·¾¶. Èç¹ûÊ¹ÓÃ$aNames²ÎÊý, $sPath±ØÐëÖ»Ö¸¶¨Ò»¸öÎÄ¼þ¼Ð, ·ñÔòº¯ÊýÎÞÐ§. ¸Ã²ÎÊý¿ÉÎª¿Õ×Ö·û´®.
+$aNames  [¿ÉÑ¡] ÎÄ¼þ¼Ð»òÑ¡¶¨ÎÄ¼þÃûµÄÊý×é. ±ØÐëÎªÎÄ¼þ¼ÐÄÚ²¿µÄÃû³Æ.
+$iStart  [¿ÉÑ¡] ¿ªÊ¼Ñ¡È¡µÄË÷Òý
+$iEnd  [¿ÉÑ¡] ½áÊøÑ¡È¡µÄË÷Òý
+$iFlags  [¿ÉÑ¡] ¿ÉÑ¡±ê¼Ç. ¿ÉÎªÒ»¸ö»ò¶à¸öÏÂÁÐÖµ:
+ *Windows VistaÒÔÉÏ
+$OFASI_EDIT - Ñ¡¶¨Ò»Ïî²¢½«ÆäÃû³ÆÖÃÓÚ±à¼­Ä£Ê½. ¸Ã±ê¼Ç½ö¿ÉÓÃÓÚÑ¡¶¨µ¥¶ÀÏîÄ¿Ê±. ¶àÏîÑ¡È¡Ê±ºöÂÔ.
+$OFASI_OPENDESKTOP - Ñ¡È¡×ÀÃæÉÏµÄÏîÄ¿¶ø²»ÊÇ×ÊÔ´¹ÜÀíÆ÷. ×¢Òâ, ×ÀÃæÎ»ÓÚ´ò¿ª´°ÌåµÄºóÃæ, ÕâÊ¹Æä²»¿É¼û.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›ž 1.
-å¤±è´¥:	è¿”å›ž 0,è®¾ç½®@error:æ ‡å¿—ä¸ºéž 0 å€¼, @extended æ ‡å¿—å¯èƒ½åŒ…å«ä¸€ä¸ªç³»ç»Ÿé”™è¯¯ä»£ç .
+³É¹¦: ·µ»Ø1.
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0.
 @@End@@
 
-###Remarks###
-None
+###±¸×¢###
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ SHOpenFolderAndSelectItems
+###²Î¿¼###
+ ËÑË÷MSDNÖªÊ¶¿âÖÐSHOpenFolderAndSelectItemsµÄÏà¹ØÐÅÏ¢
 
-###Example###
+###Ê¾Àý###
 @@IncludeExample@@
-

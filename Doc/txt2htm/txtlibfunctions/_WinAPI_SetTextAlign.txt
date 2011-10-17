@@ -1,47 +1,40 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_SetTextAlign
 
-###Description###
-设置指定设备环境的文本对齐标志.
+###����###
+����ָ���豸�������ı�����
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_SetTextAlign ($hDC [, $iMode] )
+_WinAPI_SetTextAlign( $hDC [, $iMode] )
 
-###Parameters###
+###����###
 @@ParamTable@@
-$hDC
-	设备环境句柄.
-$iMode
-	[可选参数] 使用下列文本对齐方式的掩码值.
-		 只有一个标志可以影响水平和垂直对齐方式.
-		 此外,只有两个标志可以改变当前位置.
-		 $TA_BASELINE --- 参考点为文本底线
-		 $TA_BOTTOM --- 参考点为矩形范围的底部边缘
-		 $TA_TOP --- 参考点为矩形范围的顶部边缘
-		 $TA_CENTER --- 对齐水平参考点为矩形的中心
-		 $TA_LEFT --- 参考点为矩形范围的左边缘
-		 $TA_RIGHT --- 参考点为矩形范围的右边缘
-		 $TA_NOUPDATECP --- 不改变文本当前位置.参考点依据文本输出操作
-		 $TA_RTLREADING --- 中东 Windows 语言版本:文本为从右到左阅读,而不是默认的左到右的顺序.仅适用于设备环境的希伯来文或阿拉伯文字体
-		 $TA_UPDATECP --- 更新文本当前位置.参考点为当前位置
-		 如果当前默认字体有一个垂直基准线,如同日本汉字,
-		 使用下列值代替 $TA_BASELINE 与 $TA_CENTER.
-		 $VTA_BASELINE --- 参考点为文本底线
-		 $VTA_CENTER --- 垂直排列参考点为矩形范围的中心
-		 默认为 $TA_LEFT, $TA_TOP 与 $TA_NOUPDATECP.
+$hDC  �豸�������
+$iMode  �����б��е�ֵ�������ʾ�Ķ�����. ����ѡ��һ��Ӱ��ˮƽ�ʹ�ֱ����ı��. ����, ֻ��ѡ��ɱ�ѡ��ĵ�ǰλ�õ��������֮һ.
+$TA_BASELINE - �ο������ı��Ļ���.
+$TA_BOTTOM - �ο����ǰ󶨾��ε��±�Ե.
+$TA_TOP - �ο����ǰ󶨾��ε��ϱ�Ե.
+$TA_CENTER - �ο������������ˮƽһ��.
+$TA_LEFT - �ο����ǰ󶨾��ε����Ե.
+$TA_RIGHT - �ο����ǰ󶨾��ε��ұ�Ե.
+$TA_RTLREADING - Windows���ж����԰汾: �ı������ҵ���˳�������Ĭ�ϵ����ҵ�˳��. ��������ڵ�ѡ���豸����������Ϊϣ�����Ļ�������.
+$TA_NOUPDATECP - ÿ���ı����ʱ���ı䵱ǰλ��.
+$TA_UPDATECP - ÿ���ı����ʱ�ı䵱ǰλ��.
+$VTA_BASELINE - �ο����ǻ����ı��ĵ���
+$VTA_CENTER - �ο����ǰ󶨾��εĴ�ֱ����
+$TA_LEFT, $TA_TOP��$TA_NOUPDATECP.
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回先前的文本对齐设置 ($TA_* and $VTA_*).
-失败:	返回 -1,设置@error:非 0 值.
+�ɹ�: ��ǰ���ı���������($TA_*��$VTA_*).
+ʧ��: ����-1������@error��0
 @@End@@
 
-###Remarks###
-None
+###��ע###
 
+###���###
 
-###See Also###
-@@MsdnLink@@ SetTextAlign
-
+###�ο�###
+ ����MSDN֪ʶ����SetTextAlign�������Ϣ

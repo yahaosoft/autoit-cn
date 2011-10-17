@@ -1,39 +1,37 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êı###
 _WinAPI_InvertANDBitmap
 
-###Description###
-Inverts the specified AND bitmask bitmap by performing a logical NOT operation.
+###ÃèÊö###
+Í¨¹ıNOTÂß¼­²Ù×÷·´×ªÖ¸¶¨µÄÂß¼­ANDÑÚÂëµÄÎ»Í¼
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_InvertANDBitmap ( $hBitmap [, $fDelete] )
+_WinAPI_InvertANDBitmap( $hBitmap [, $fDelete] )
 
-###Parameters###
+###²ÎÊı###
 @@ParamTable@@
 $hBitmap
-	Handle to the source bitmap that must be inverted.
+   Òª·´×ªµÄÔ´Î»Í¼¾ä±ú
 $fDelete
-	[å¯é€‰å‚æ•°] Specifies whether to delete the source bitmap after the function is successful, valid values:
-		TRUE    - The bitmap will be destroyed when the function succeeds.
-		FALSE   - Don't delete, you must destroy a bitmap when it no longer needed. (Default)
+   [¿ÉÑ¡] Ö¸¶¨Èç¹ûº¯Êı³É¹¦ÊÇ·ñÉ¾³ıÔ´Î»Í¼. ¿ÉÓÃÖµ:
+    1 - Èç¹ûº¯Êı³É¹¦ÔòÉ¾³ıÔ´Î»Í¼.
+    0 - ²»É¾³ı. ±ØĞëÔÚ²»ĞèÒªÊ±×ÔĞĞÏú»Ù.(Ä¬ÈÏ)
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-Success	Handle to the inverted bitmap.
-Failure	0 and sets the @error flag to non-zero.
+³É¹¦: ·µ»Ø·´×ªÎ»Í¼µÄ¾ä±ú
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-The _WinAPI_InvertANDBitmap() creates a 1 bits-per-pixel inverted bitmask DIB from the 1 bits-per-pixel AND bitmask bitmap.
-If the source bitmap is not a 1 bits-per-pixel bitmap, the function fails.
+###±¸×¢###
+_WinAPI_InvertANDBitmap()´ÓÃ¿ÏñËØ1Î»ANDÑÚÂëµÄÎ»Í¼´´½¨Ò»¸öÃ¿ÏñËØ1Î»µÄ·´×ªÑÚÂëµÄDIB. Èç¹ûÔ´Î»Í¼²»ÊÇÔòº¯ÊıÊ§°Ü.
+Î»Í¼Ê¹ÓÃÍê±Ï,Ê¹ÓÃ_WinAPI_DeleteObject()Ïú»Ù.
+Õı³£ÔËĞĞÊ¾ÀıÇë½« Soccer.ico ÎÄ¼ş±£´æµ½ÁÙÊ±ÎÄ¼ş¼ĞÖĞ
 
-When you are finished using the bitmap, destroy it using the _WinAPI_DeleteObject() function.
+###Ïà¹Ø###
 
+###²Î¿¼###
 
-###See Also###
-None
-
-###Example###
+###Ê¾Àı###
 @@IncludeExample@@
-

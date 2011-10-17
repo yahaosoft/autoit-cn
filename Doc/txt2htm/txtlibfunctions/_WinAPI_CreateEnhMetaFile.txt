@@ -1,48 +1,46 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _WinAPI_CreateEnhMetaFile
 
-###Description###
-创建增强型图元文件格式的设备环境.
+###����###
+Ϊ��ǿ��Ԫ�ļ������豸����
 
-###Syntax###
+###�﷨###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateEnhMetaFile ( [$hDC [, $tRECT [, $fPixels [, $sFile [, $sDescription]]]]] )
+_WinAPI_CreateEnhMetaFile( [$hDC [, $tRECT [, $fPixels [, $sFile [, $sDescription]]]]] )
 
-###Parameters###
+###����###
 @@ParamTable@@
 $hDC
-	[可选参数] 设备句柄.
-		 系统使用此设备环境记录设备上图片最初出现的分辨率和单位.
-		 如果此参数为 0, 则使用当前显示设备.
+   �豸�����ľ��. ϵͳʹ�ø��豸������¼ͼƬԭʼ���ֵ��豸�ķֱ��ʺ͵�λ. ���Ϊ0��ʹ�õ�ǰ����ʾ�豸.
 $tRECT
-	[可选参数] $tagRECT 结构,它指定存储到增强型图元文件的图片尺寸.
-		 如果此参数为 0, 图形设备接口计算应用程序包围图片矩形的最小尺寸. 
+$tagRECT�ṹ. ���Ϊ0ͼ���豸�ӿڼ����Χ��Ӧ�ó�����Ƶ�ͼƬ����С����.
 $fPixels
-	[可选参数] 指定 $tRECT 结构是否定义为像素单位. 有效的指定值:
-		1 - 像素逻辑单位
-		0 - .01-毫米单位 (默认)
+$tRECT�ṹ�Ƿ������ض���. ����ֵΪ:
+    TRUE: �߼���λ(����)
+    FALSE: .01���׵�λ(Ĭ��)
 $sFile
-	[可选参数] 增强型图元文件的名称.如果此参数为 0, 增强型图元文件基于内存,
-		 当使用 _WinAPI_DeleteEnhMetaFile() 函数删除时,其内容都将丢失. 
+   ��Ҫ��������ǿ��Ԫ�ļ����ļ���. ���Ϊ0���ļ������ڴ�����������ʹ��_WinAPI_DeleteEnhMetaFile()����ɾ��ʱ��ʧ.
 $sDescription
-	[可选参数] 指定应用程序创建图片的名称以及图片的标题.
-		 必须是一个空字符串或描述如下:
-		 "程序名|图片名"
+   ָ������ͼƬ��Ӧ�ó������Ƶ��ַ���. ���ַ���Ϊ�ջ����¸�ʽ:
+       "Ӧ�ó�������|ͼƬ����"
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	返回增强型图元文件设备环境句柄.
-失败:	返回 0,设置@error:标志为非 0 值.
+�ɹ�: ��ǿ��Ԫ�ļ��豸�����ľ��
+ʧ��: ����0������@error��0
 @@End@@
 
-###Remarks###
-应用程序使用本函数创建的设备环境将图形图片存储到增强型元文件中.
- 标识此设备环境的句柄可以传递给任何 GDI 函数.
- 应用程序存储图片到增强型图元文件后,调用 _WinAPI_PlayEnhMetaFile() 函数,图片可以显示在任何输出设备中.
- 显示图片时,系统采用 $tRECT 指向的矩形,参考设备的分辨率数据定位和缩放图片.
- 增强型图元文件的名称应使用 .emf 扩展名.
+###��ע###
+Ӧ�ó���ʹ���ɸú����������豸������ͼ��ͼƬ�洢����ǿ��Ԫ�ļ���. ��ʶ�ó����ľ���ɴ��ݸ��κ�GDI����.
+��Ӧ�ó���ͼƬ�洢����ǿ��Ԫ�ļ���, ��ͨ��_WinAPI_PlayEnhMetaFile()������ͼƬ��ʾ����һ����豸��. ����ʾͼƬʱ, ϵͳʹ����$tRECT���������Զ�λ������ͼƬ���豸�ķֱ���������ָ���ľ���.
+��ǿ��Ԫ�ļ����ļ���չ������Ϊ.emf
+��������ʾ���뽫 Test.emf �ļ����浽��ʱ�ļ�����
 
-###See Also###
-@@MsdnLink@@ CreateEnhMetaFile
+###���###
 
+###�ο�###
+����MSDN֪ʶ�����й�CreateEnhMetaFile����Ϣ
+
+###ʾ��###
+@@IncludeExample@@

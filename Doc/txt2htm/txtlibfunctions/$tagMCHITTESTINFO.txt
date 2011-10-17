@@ -1,52 +1,48 @@
-ï»¿###Structure Name###
+###½á¹¹³£Á¿###
 $tagMCHITTESTINFO
 
-###Description###
-åŒ…å«æœˆå†æ§ä»¶ç‚¹å‡»æµ‹è¯•çš„ç‰¹å®šä¿¡æ¯
+###ÃèÊö###
+½«Ö¸¶¨ĞÅÏ¢´«µİµ½ÔÂÀú¿Ø¼şµÄµã»÷²âÊÔµã
 
-###Syntax###
-Global Const $tagMCHITTESTINFO = "uint Size;" & $tagPOINT & ";uint Hit;" & $tagSYSTEMTIME & _
-		";" & $tagRECT & ";int iOffset;int iRow;int iCol"
+###Óï·¨###
+Global Const $tagMCHITTESTINFO =  "int Size;int X;int Y;int Hit;short Year;short Month;short DOW;short Day;short Hour;short Minute;short Second;short MSeconds"
 
-###Fields###
+###³ÉÔ±###
 @@ParamTable@@
 Size
-	ç»“æ„çš„å¤§å°ï¼Œä»¥å­—èŠ‚ä¸ºå•ä½
-$tagPOINT 
-	ç‚¹å‡»æµ‹è¯•ç‚¹çš„ X,Y ä½ç½®
+   ¸Ã½á¹¹µÄ×Ö½Ú´óĞ¡
+X
+   µã»÷²âÊÔµãµÄXÎ»ÖÃ
+Y
+   µã»÷²âÊÔµãµÄYÎ»ÖÃ
 Hit
-	æµ‹è¯•æ“ä½œçš„ç»“æœ. æ­¤å€¼å°†æ˜¯ä¸‹åˆ—ä¹‹ä¸€:
-		$MCHT_CALENDARBK - ç»™å®šç‚¹ä½äºæœˆå†èƒŒæ™¯
-		$MCHT_CALENDARDATE - ç»™å®šç‚¹ä½äºæœˆå†ä¸­æŸä¸€ç‰¹å®šæ—¥æœŸ
-		$MCHT_CALENDARDATENEXT - ç»™å®šç‚¹ä½äºä¸‹ä¸ªæœˆ
-		$MCHT_CALENDARDATEPREV - ç»™å®šç‚¹ä½äºä¸Šä¸ªæœˆ
-		$MCHT_CALENDARDAY - ç»™å®šç‚¹ä½äºå¤©çš„ç¼©å†™
-		$MCHT_CALENDARWEEKNUM - ç»™å®šç‚¹ä½äºå‘¨åºå·
-		$MCHT_NOWHERE - ç»™å®šç‚¹ä¸åœ¨æœˆå†æ§ä»¶
-		$MCHT_TITLEBK - ç»™å®šç‚¹ä½äºæœˆå†æ ‡é¢˜çš„èƒŒæ™¯
-		$MCHT_TITLEBTNNEXT - ç»™å®šç‚¹ä½äºå³ä¸Šè§’æŒ‰é’®
-		$MCHT_TITLEBTNPREV - ç»™å®šç‚¹ä½äºå·¦ä¸Šè§’æŒ‰é’®
-		$MCHT_TITLEMONTH - ç»™å®šç‚¹ä½äºæœˆå†æ ‡é¢˜æ ä¸­çš„æœˆåç§°
-		$MCHT_TITLEYEAR - ç»™å®šç‚¹ä½äºæœˆå†æ ‡é¢˜æ ä¸­çš„å¹´å€¼ä¸Š
-$tagSYSTEMTIME 
-	Year(å¹´)
-	Month(æœˆ)
-	DOW(å‘¨ä¸­æ—¥)
-	Day(æ—¥)
-	Hour(æ—¶)
-	Minute(åˆ†)
-	Seconds(ç§’)
-	MSeconds(æ¯«ç§’)
-$tagRECT
-	The RECT of the hit-tested location.
-iOffset
-	When displaying more than one calendar, this is the offset of the calendar at the hit-tested point (zero-based).
-iRow
-	The row number for the calendar grid that the given hit point was over. Example: If you hit-tested the 8th of a month, which is in the second week of the month, iRow will be one since the index of the row is zero-based row index.
-iCol
-	The column number for the calendar grid that the given point was over. For example, if your week starts on Sunday and the 1st of the month is Friday, hit testing the 1st will return five (5) for iCol, since Friday is in the fifth column from the beginning of the row, using a zero-based column index.
-@@End@@
-
-###Remarks###
-None.
-
+   µã»÷²âÊÔ²Ù×÷µÄ½á¹¹. ¿ÉÎ½ÏÂÁĞÖ®Ò»:
+    $MCHT_CALENDARBK - ¸ø¶¨µãÎ»ÓÚÔÂÀú±³¾°ÖĞ
+    $MCHT_CALENDARDATE - ¸ø¶¨µãÎ»ÓÚÔÂÀúÖĞÒ»¸öÌØÊâÈÕÆÚÉÏ
+    $MCHT_CALENDARDATENEXT - ¸ø¶¨µãÎ»ÓÚÏÂ¸öÔÂµÄÒ»¸öÈÕÆÚÉÏ
+    $MCHT_CALENDARDATEPREV - ¸ø¶¨µãÎ»ÓÚÉÏ¸öÔÂµÄÒ»¸öÈÕÆÚÉÏ
+    $MCHT_CALENDARDAY - ¸ø¶¨µãÎ»ÓÚÈÕÆÚËõĞ´ÉÏ
+    $MCHT_CALENDARWEEKNUM - ¸ø¶¨µãÎ»ÓÚÖÜÊıÉÏ
+    $MCHT_NOWHERE - ¸ø¶¨µã²»ÔÚÔÂÀú¿Ø¼şÉÏ
+    $MCHT_TITLEBK - ¸ø¶¨µãÎ»ÓÚÔÂÀú±êÌâµÄ±³¾°ÉÏ
+    $MCHT_TITLEBTNNEXT - ¸ø¶¨µãÎ»ÓÚÓÒÉÏ½Ç°´Å¥ÉÏ
+    $MCHT_TITLEBTNPREV - ¸ø¶¨µãÎ»ÓÚ×óÉÏ½Ç°´Å¥ÉÏ
+    $MCHT_TITLEMONTH - ¸ø¶¨µãÎ»ÓÚÔÂÀú±êÌâÀ¸ÖĞµÄÔÂÃû³ÆÉÏ
+    $MCHT_TITLEYEAR - ¸ø¶¨µãÎ»ÓÚÔÂÀú±êÌâÀ¸ÖĞµÄÄêÖµÉÏ
+Year
+   Äê
+Month
+   ÔÂ
+DOW
+   ÖÜÖĞÈÕ
+Day
+   ÈÕ
+Hour
+   Ê±
+Minute
+   ·Ö
+Second
+   Ãë
+MSeconds
+   ºÁÃë
+@@end@@

@@ -1,41 +1,37 @@
-###User Defined Function###
+###用户自定义函数###
 _GUICtrlRichEdit_SetLimitOnText
 
-###Description###
-修改可以键入的字符数,粘贴或将流(streamed)作为 Rich 文本格式
+###描述###
+改变可以富文本格式键入, 贴入或流入控件的字符数量
 
-###Syntax###
+###语法###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetLimitOnText($hWnd, $iNewLimit)
 
-###Parameters###
+###参数###
 @@ParamTable@@
-$hWnd
-	控件句柄
-$iNewLimit
-	新的限制
+ $hWnd  控件句柄
+ $iNewLimit  新限制
 @@End@@
 
-###ReturnValue###
+###返回值###
 @@ReturnTable@@
-成功:	返回 True
-失败:	返回 False设置@error
-@error:	101 - $hWnd 参数值不是句柄
-	102 - $iNewLimit 既不是正数或零, 
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  102 - $iNewLimit不是正数或zero
 @@End@@
 
-###Remarks###
- 函数为控件设置用户可键入或粘贴的字符数量.
- 这也限制了对 RTF 格式文本的字符数,以及可以由流使用的
- _GUICtrlRichEdit_StreamFromFile and _GUICtrlRichEdit_StreamFromVar.
- 它不限制流中的纯文本数量.
- 初始限额为 32,767 个字符.
+###备注###
+函数设置用户可键入或帖入控件的字符的数量. 同时也限制使用_GUICtrlRichEdit_StreamFromFile及_GUICtrlRichEdit_StreamFromVar流入控件的RTF文本的字符的数量.
+但并不限制可流入的平面文本的数量.
+初始限制为32,767个字符.
 
-###Related###
-_GUICtrlRichEdit_StreamToFile, _GUICtrlRichEdit_StreamToVar
+###相关###
+ _GUICtrlRichEdit_StreamToFile , _GUICtrlRichEdit_StreamToVar
 
-###See Also###
-@@MsdnLink@@ EM_EXLIMITTEXT
+###参考###
+ 搜索MSDN知识库中EM_EXLIMITTEXT的相关信息
 
-###Example###
+###示例###
 @@IncludeExample@@

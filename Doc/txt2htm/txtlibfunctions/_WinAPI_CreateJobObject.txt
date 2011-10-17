@@ -1,45 +1,36 @@
-ï»¿###User Defined Function###
+###ÓÃ»§×Ô¶¨Òåº¯Êý###
 _WinAPI_CreateJobObject
 
-###Description###
-åˆ›å»ºæˆ–æ‰“å¼€ä½œä¸šå¯¹è±¡.
+###ÃèÊö###
+´´½¨»ò´ò¿ª¹¤×÷¶ÔÏó
 
-###Syntax###
+###Óï·¨###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateJobObject ( [$sName [, $tSecurity] )
+_WinAPI_CreateJobObject([$sName [, $tSecurity])
 
-###Parameters###
+###²ÎÊý###
 @@ParamTable@@
 $sName
-	[å¯é€‰å‚æ•°] ä½œä¸šçš„åç§°. åç§°åŒºåˆ†å¤§å°å†™.
-		 å¦‚æžœæ­¤å‚æ•°ä¸º 0, åˆ™åˆ›å»ºä¸€ä¸ªæ— åç§°ä½œä¸š.
+   ¹¤×÷Ãû³Æ. Ãû³Æ´óÐ¡Ð´Ãô¸Ð. Èç¹û²ÎÊýÎª0, ¹¤×÷Ã»ÓÐÃû³Æ.
 $tSecurity
-	[å¯é€‰å‚æ•°] $tagSECURITY_ATTRIBUTES ç»“æž„
-		 æŒ‡å®šä½œä¸šå¯¹è±¡çš„å®‰å…¨æè¿°ç¬¦; å¹¶ç¡®å®šå­è¿›ç¨‹æ˜¯å¦å¯ä»¥ç»§æ‰¿è¿”å›žçš„å¥æŸ„.
-		 å¦‚æžœæ­¤å‚æ•°ä¸º 0, ä½œä¸šå¯¹è±¡èŽ·å–é»˜è®¤çš„å®‰å…¨æè¿°ç¬¦, ä¸”å¥æŸ„ä¸èƒ½è¢«ç»§æ‰¿.
+$tagSECURITY_ATTRIBUTES½á¹¹. Èç¹û²ÎÊýÎª0, ¹¤×÷¶ÔÏó»ñÈ¡Ä¬ÈÏµÄ°²È«ÃèÊö·ûÇÒ¾ä±úÎÞ·¨¼Ì³Ð.
 @@End@@
 
-###ReturnValue###
+###·µ»ØÖµ###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å›žä½œä¸šå¯¹è±¡å¥æŸ„. å¦‚æžœè¯¥å¯¹è±¡åœ¨å‡½æ•°è°ƒç”¨å‰å·²å­˜åœ¨,
-	å‡½æ•°è¿”å›žçŽ°è¡Œä½œä¸šå¯¹è±¡çš„å¥æŸ„.
-å¤±è´¥:	è¿”å›ž 0,è®¾ç½®@error:æ ‡å¿—ä¸ºéž 0 å€¼.
+³É¹¦: ·µ»Ø¹¤×÷¶ÔÏó¾ä±ú. Èç¹ûÔÚº¯Êýµ÷ÓÃÇ°¶ÔÏóÒÑ´æÔÚ, º¯Êý·µ»Ø´æÔÚµÄ¹¤×÷¶ÔÏóµÄ¾ä±ú.
+Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
 @@End@@
 
-###Remarks###
-å½“åˆ›å»ºä½œä¸šæ—¶, å…¶ç»Ÿè®¡ä¿¡æ¯åˆå§‹åŒ–ä¸º 0, æ‰€æœ‰å‚æ•°éƒ½æ— æ•ˆ, è€Œä¸”æ²¡æœ‰ç›¸å…³çš„è¿›ç¨‹.
- è¦æŒ‡å®šè¿›ç¨‹åˆ°ä½œä¸šå¯¹è±¡, ä½¿ç”¨ _WinAPI_AssignProcessToJobObject() å‡½æ•°.
- è¦ä¸ºä½œä¸šè®¾ç½®é™åˆ¶èŒƒå›´, ä½¿ç”¨ _WinAPI_SetInformationJobObject() å‡½æ•°.
- è¦æŸ¥è¯¢ç»Ÿè®¡ä¿¡æ¯,ä½¿ç”¨ _WinAPI_QueryInformationJobObject() å‡½æ•°.
- å…¨éƒ¨ä¸Žä½œä¸šå…³è”çš„è¿›ç¨‹å¿…é¡»è¿è¡ŒäºŽåŒä¸€ä¼šè¯æœŸ.
- ä½œä¸šå…³è”ç¬¬ä¸€ä¸ªè¢«åˆ†é…è¯¥ä½œä¸šçš„è¿›ç¨‹ä¼šè¯.
- è¦å…³é—­ä½œä¸šå¯¹è±¡çš„å¥æŸ„,ä½¿ç”¨ _WinAPI_CloseHandle() å‡½æ•°.
- ä½œä¸šè¢«é”€æ¯æ—¶, æœ€åŽçš„å¥æŸ„å·²ç»ç»“æŸ, æ‰€æœ‰ç›¸å…³çš„è¿›ç¨‹ä¹Ÿå·²ç»é€€å‡º.
+###±¸×¢###
+µ±¹¤×÷±»´´½¨Ê±, Æä¼ÆÊýÐÅÏ¢±»³õÊ¼»¯Îª0, ËùÓÐÏÞÖÆÎÞÐ§, ÇÒÎÞ¹ØÁª½ø³Ì. Ê¹ÓÃ_WinAPI_AssignProcessToJobObject()º¯Êý¸ø¹¤×÷·ÖÅäÒ»¸ö½ø³Ì. Ê¹ÓÃ_WinAPI_SetInformationJobObject()º¯ÊýÉèÖÃ¹¤×÷µÄÏÞÖÆ. Ê¹ÓÃ_WinAPI_QueryInformationJobObject()º¯Êý²éÑ¯¼ÆÊýÐÅÏ¢.
+¹ØÁªµ½¹¤×÷µÄËùÓÐ½ø³Ì±ØÐëÔËÐÐÓÚÏàÍ¬µÄ»á»°. ¹¤×÷±»¹ØÁªµ½ÓëÊ×¸ö·ÖÅä¸ø¹¤×÷µÄ½ø³ÌµÄ»á»°.
+Ê¹ÓÃ_WinAPI_FreeHandle()º¯Êý¹Ø±Õ¹¤×÷¶ÔÏóµÄ¾ä±ú. µ±×îºóÒ»¸ö¾ä±úÒÑ¹Ø±ÕÇÒËùÓÐ¹ØÁªµÄ½ø³ÌÒÑÍË³öÊ±Ïú»Ù¹¤×÷.
 
+###Ïà¹Ø###
 
-###See Also###
-@@MsdnLink@@ CreateJobObject
+###²Î¿¼###
+ËÑË÷MSDNÖªÊ¶¿âÖÐCreateJobObjectµÄÏà¹ØÐÅÏ¢
 
-###Example###
+###Ê¾Àý###
 @@IncludeExample@@
-

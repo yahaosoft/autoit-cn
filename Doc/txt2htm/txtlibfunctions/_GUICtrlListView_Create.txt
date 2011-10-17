@@ -1,90 +1,78 @@
-﻿###User Defined Function###
+###�û��Զ��庯��###
 _GUICtrlListView_Create
 
-###Description###
-创建一个列表查看(ListView)控件
+###����###
+�����б��鿴�ؼ�
 
-###Syntax###
+###�﷨###
 #Include <GuiListView.au3>
 _GUICtrlListView_Create($hWnd, $sHeaderText, $iX, $iY[, $iWidth = 150[, $iHeight = 150[, $iStyle = 0x0000000D[, $iExStyle = 0x00000000[, $fCoInit = False]]]]])
 
-###Parameters###
+###����###
 @@ParamTable@@
-$hWnd
-	父窗口或者所有者窗口句柄
-$sHeaderText
-	头部中显示的文本. 使用管道符 "|" 分割.
-$iX
-	控件水平坐标
-$iY
-	控件垂直坐标
-$iWidth
-	[可选参数] 控件宽度
-$iHeight
-	[可选参数] 控件高度
-$iStyle
-	[可选参数] 控件样式:
-		$LVS_ALIGNLEFT - 在（小）图标视图中，项目向左对齐
-		$LVS_ALIGNTOP - 在（小）图标视图中，项目向控件顶部对齐
-		$LVS_AUTOARRANGE - 在（小）图标视图中，图标自动排序
-		$LVS_EDITLABELS - 项目文本为可编辑状态
-		$LVS_ICON - 指定图标视图
-		$LVS_LIST - 指定列表视图
-		$LVS_NOCOLUMNHEADER - 在报告视图中不显示列头
-		$LVS_NOLABELWRAP - 图标视图中项目文本单行显示
-		$LVS_NOSCROLL - 禁止滚动条
-		$LVS_NOSORTHEADER - 列头不作为按钮
-		$LVS_OWNERDATA - 指定虚拟控制(virtual control)*
-		$LVS_OWNERDRAWFIXED - 窗口所有者可以在项目文本中输出项目
-		$LVS_REPORT - 指定报告视图
-		$LVS_SHAREIMAGELISTS - 图标列不被删除(注:使用系统图标时有用)
-		$LVS_SHOWSELALWAYS - 总是显示所选项
-		$LVS_SINGLESEL - 只允许选择一行
-		$LVS_SMALLICON - 指定小图标视图
-		$LVS_SORTASCENDING - 项目索引按升序排列
-		$LVS_SORTDESCENDING - 项目索引按降序排列
-
-		默认: $LVS_REPORT, $LVS_SINGLESEL, $LVS_SHOWSELALWAYS
-		强制 : $WS_CHILD, $WS_VISIBLE
-$iExStyle
-	[可选参数] 扩展控件样式. 可以包含下列值:
-		$LVS_EX_BORDERSELECT - 选中项目时该项目边框颜色改变
-		$LVS_EX_CHECKBOXES - 使用复选框
-		$LVS_EX_DOUBLEBUFFER - 屏幕绘制时使用双缓冲，以减少闪烁(xp有效)
-		$LVS_EX_FLATSB - 使用平面格式滚动条
-		$LVS_EX_FULLROWSELECT - 一项被选中，它的所有子项都高亮显示
-		$LVS_EX_GRIDLINES - 在项和子项周围显示网格线
-		$LVS_EX_HEADERDRAGDROP - 拖放单列排序
-		$LVS_EX_INFOTIP - 显示工具提示之前，发送由$LVN_GETINFOTIP定义的通知消息
-		$LVS_EX_LABELTIP - 在列表视图中，如果一个部分隐藏的标签缺少工具提示，控件将折叠标签*
-		$LVS_EX_MULTIWORKAREAS - 除非定义了一个或更多的工作区域，否则控件不会自动排列图标*
-		$LVS_EX_ONECLICKACTIVATE - 用户点击项目时，发送$LVN_ITEMACTIVATE消息
-		$LVS_EX_REGIONAL - 设定控件区域只包含项目图标和文本
-		$LVS_EX_SIMPLESELECT - 在图标视图，将控件状态图像移动到右上方*
-		$LVS_EX_SUBITEMIMAGES - 允许子项显示图像
-		$LVS_EX_TRACKSELECT - 允许热轨道(hot-track)选择*
-		$LVS_EX_TWOCLICKACTIVATE - 用户双击项目时发送$LVN_ITEMACTIVATE消息
-		$LVS_EX_UNDERLINECOLD - 非热点项目被激活时显示文本下划线
-		$LVS_EX_UNDERLINEHOT - 热点项目被激活时显示文本下划线
-
-$fCoInit
-	[可选参数] Initializes the COM library for use by the calling thread.
+ $hWnd  �����ڻ��������ߴ��ھ��
+ $sHeaderText  ͷ������ʾ���ı�. ʹ�ùܵ��� "|" �ָ�.
+ $iX  �ؼ�ˮƽ����
+ $iY  �ؼ���ֱ����
+ $iWidth  [��ѡ] �ؼ�����
+ $iHeight  [��ѡ] �ؼ��߶�
+ $iStyle  [��ѡ] �ؼ���ʽ:
+$LVS_ALIGNLEFT - ͼ���Сͼ����ͼ����Ŀ�����
+$LVS_ALIGNTOP - ͼ���Сͼ����ͼ����Ŀ������
+$LVS_AUTOARRANGE - ͼ���Сͼ����ͼ��ͼ���Զ�����
+$LVS_EDITLABELS - ��Ŀ�ı���ԭ�ر༭
+$LVS_ICON - ����ʽָ��ͼ����ͼ
+$LVS_LIST - ����ʽָ���б���ͼ
+$LVS_NOCOLUMNHEADER - ������ͼ�в���ʾ�б���
+$LVS_NOLABELWRAP - ͼ����ͼ����Ŀ�ı�������ʾ
+$LVS_NOSCROLL - ��ֹ����
+$LVS_NOSORTHEADER - �б��ⲻ�ǰ�ť���͹���
+$LVS_OWNERDATA - ����ʽָ��һ������ؼ�
+$LVS_OWNERDRAWFIXED - ����������ڱ�����ͼ�л�����Ŀ
+$LVS_REPORT - ����ʽָ��������ͼ
+$LVS_SHAREIMAGELISTS - ��ɾ��ͼ���б�
+$LVS_SHOWSELALWAYS - ���������ʾѡ��
+$LVS_SINGLESEL - һ�ν�ѡ��һ��
+$LVS_SMALLICON - ����ʽָ��Сͼ����ͼ
+$LVS_SORTASCENDING - ��Ŀ������������
+$LVS_SORTDESCENDING - ��Ŀ������������
+  Ĭ��: $LVS_REPORT, $LVS_SINGLESEL, $LVS_SHOWSELALWAYS
+ǿ��: $WS_CHILD, $WS_VISIBLE
+ $iExStyle  [��ѡ����] ��չ�ؼ���ʽ. ���԰�������ֵ:
+$LVS_EX_BORDERSELECT - ��Ŀѡ��ʱ�ı�߽���ɫ
+$LVS_EX_CHECKBOXES - �б���ͼ�ؼ��п��ø�ѡ��
+$LVS_EX_DOUBLEBUFFER - ʹ�ö��������Լ�����˸
+$LVS_EX_FLATSB - �б���ͼ��ƽ�����������
+$LVS_EX_FULLROWSELECT - ѡȡһ��ʱ, ������������
+$LVS_EX_GRIDLINES - ��Ŀ���������ʾ����
+$LVS_EX_HEADERDRAGDROP - ��ͨ����ҷ����������
+$LVS_EX_INFOTIP - ��ʾ������ʾǰ����$LVN_GETINFOTIP֪ͨ��Ϣ
+$LVS_EX_LABELTIP - ���Ϊ����, �ڴ�ͼ��ģʽ�н��۵����ֱ�ǩ
+$LVS_EX_MULTIWORKAREAS - ֱ������һ�������������ؼ��Ż��Զ�����ͼ��
+$LVS_EX_ONECLICKACTIVATE - �����Ŀʱ�ؼ�����$LVN_ITEMACTIVATE��Ϣ
+$LVS_EX_REGIONAL - ���ÿؼ�����������Ŀͼ�꼰�ı�
+$LVS_EX_SIMPLESELECT - ͼ����ͼ�пؼ���״̬ͼ��������
+$LVS_EX_SUBITEMIMAGES - ������ʾ����Ŀͼ��
+$LVS_EX_TRACKSELECT - �����ؼ��ȸ���ѡ��
+$LVS_EX_TWOCLICKACTIVATE - ˫����Ŀʱ�ؼ�����$LVN_ITEMACTIVATE��Ϣ
+$LVS_EX_UNDERLINECOLD - ʹ��������»����ı�Ϊ������
+$LVS_EX_UNDERLINEHOT - ʹ��������»����ı�Ϊ����
+ $fCoInit  [��ѡ]�����̳߳�ʼ��COM��
 @@End@@
 
-###ReturnValue###
+###����ֵ###
 @@ReturnTable@@
-成功:	ListView 控件句柄
-失败:	0
+ �ɹ�:  ListView �ؼ����
+ ʧ��:  0
 @@End@@
 
-###Remarks###
-该函数供高级用户使用或用于学习控件工作原理
-注:带*号的翻译仅供参考，可以参考MSDN链接：
-http://msdn.microsoft.com/zh-cn/library/bb774732%28v=vs.85%29.aspx
-http://msdn.microsoft.com/zh-cn/library/bb774735
+###��ע###
+�ú������ڹ��߼��û�ѧϰ�ؼ���ι���
 
-###Related###
-_GUICtrlListView_Destroy, _GUICtrlListView_SetBkImage
+###���###
+ _GUICtrlListView_Destroy , _GUICtrlListView_SetBkImage
 
-###Example###
+###�ο�###
+
+###ʾ��###
 @@IncludeExample@@
