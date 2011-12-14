@@ -1,52 +1,52 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êý###
+ï»¿###User Defined Function###
 _WinAPI_AdjustTokenPrivileges
 
-###ÃèÊö###
-ÆôÓÃ»ò½ûÓÃÊ¹ÓÃÖ¸¶¨·ÃÎÊÁîÅÆµÄÈ¨ÏÞ
+###Description###
+å¯ç”¨æˆ–ç¦ç”¨ä½¿ç”¨æŒ‡å®šè®¿é—®ä»¤ç‰Œçš„æƒé™
 
-###Óï·¨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_AdjustTokenPrivileges( $hToken, $aPrivileges, $iState, $aAdjust )
 
-###²ÎÊý###
+###Parameters###
 @@ParamTable@@
 $hToken
-$TOKEN_ADJUST_PRIVILEGESºÍ$TOKEN_QUERYÈ¨ÏÞ·ÃÎÊÁîÅÆ.
+$TOKEN_ADJUST_PRIVILEGESå’Œ$TOKEN_QUERYæƒé™è®¿é—®ä»¤ç‰Œ.
 $aPrivileges
-   Ö¸¶¨È¨ÏÞµÄ±äÁ¿. Èç¹û²»ÊÇ-1, º¯Êý½ûÓÃÁîÅÆÈ¨ÏÞ²¢ºöÂÔ$iState²ÎÊý. $aPrivileges¿ÉÎªÏÂÁÐÀàÐÍ:
-   µ¥Ò»È¨ÏÞ³£Á¿($SE_...).
-   $SE_...³£Á¿µÄÒ»Î¬Êý×é.
-   $SE_...³£Á¿¼°ÆäÊôÐÔ(¼û$iState)µÄ¶þÎ¬Êý×é, ¸ñÊ½ÈçÏÂ:
-    [0][0] - È¨ÏÞ
-    [0][1] - ÊôÐÔ
-    [n][0] - È¨ÏÞ
-    [n][1] - ÊôÐÔ
+   æŒ‡å®šæƒé™çš„å˜é‡. å¦‚æžœä¸æ˜¯-1, å‡½æ•°ç¦ç”¨ä»¤ç‰Œæƒé™å¹¶å¿½ç•¥$iStateå‚æ•°. $aPrivilegeså¯ä¸ºä¸‹åˆ—ç±»åž‹:
+   å•ä¸€æƒé™å¸¸é‡($SE_...).
+   $SE_...å¸¸é‡çš„ä¸€ç»´æ•°ç»„.
+   $SE_...å¸¸é‡åŠå…¶å±žæ€§(è§$iState)çš„äºŒç»´æ•°ç»„, æ ¼å¼å¦‚ä¸‹:
+    [0][0] - æƒé™
+    [0][1] - å±žæ€§
+    [n][0] - æƒé™
+    [n][1] - å±žæ€§
 $iState
-   È¨ÏÞÊôÐÔ. Èç¹û$aPrivileges²ÎÊýÎªÒ»Î¬Êý×é, $iStateÓ¦ÓÃÓÚÕû¸öÊý×é. Èç¹û$aPrivileges²ÎÊýÎª-1»ò¶þÎ¬Êý×é, º¯ÊýºöÂÔ¸Ã²ÎÊý²¢Ê¹ÓÃÊý×éÖÐÖ¸¶¨µÄÊôÐÔ. ¸Ã²ÎÊý¿ÉÎªÏÂÁÐÖµÖ®Ò»:
-    $SE_PRIVILEGE_ENABLED - È¨ÏÞÓÐÐ§.
-    $SE_PRIVILEGE_ENABLED_BY_DEFAULT - È¨ÏÞÄ¬ÈÏÓÐÐ§.
-    $SE_PRIVILEGE_REMOVED - È¨ÏÞÓÐÐ§.
-    $SE_PRIVILEGE_USED_FOR_ACCESS - È¨ÏÞÓÃÓÚ·ÃÎÊ.
+   æƒé™å±žæ€§. å¦‚æžœ$aPrivilegeså‚æ•°ä¸ºä¸€ç»´æ•°ç»„, $iStateåº”ç”¨äºŽæ•´ä¸ªæ•°ç»„. å¦‚æžœ$aPrivilegeså‚æ•°ä¸º-1æˆ–äºŒç»´æ•°ç»„, å‡½æ•°å¿½ç•¥è¯¥å‚æ•°å¹¶ä½¿ç”¨æ•°ç»„ä¸­æŒ‡å®šçš„å±žæ€§. è¯¥å‚æ•°å¯ä¸ºä¸‹åˆ—å€¼ä¹‹ä¸€:
+    $SE_PRIVILEGE_ENABLED - æƒé™æœ‰æ•ˆ.
+    $SE_PRIVILEGE_ENABLED_BY_DEFAULT - æƒé™é»˜è®¤æœ‰æ•ˆ.
+    $SE_PRIVILEGE_REMOVED - æƒé™æœ‰æ•ˆ.
+    $SE_PRIVILEGE_USED_FOR_ACCESS - æƒé™ç”¨äºŽè®¿é—®.
 $aAdjust
-   º¯ÊýÐÞ¸ÄµÄÒÔÇ°×´Ì¬µÄ2DÊý×é.
+   å‡½æ•°ä¿®æ”¹çš„ä»¥å‰çŠ¶æ€çš„2Dæ•°ç»„.
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: µ±$aPrivilegesÎªµ¥Ò»$SE_...³£Á¿Ê±, ·µ»ØÒÔÇ°µÄÈ¨ÏÞÊôÐÔ(0»ò1), ·ñÔò×ÜÊÇ·µ»Ø1.
-    È·¶¨º¯ÊýÊÇ·ñµ÷ÕûËùÓÐµÄÖ¸¶¨È¨ÏÞ, ¼ì²éº¯Êý³É¹¦Ê±·µ»ØµÄÏÂÁÐ@extended±ê¼ÇÖµ:
-    0 - µ÷ÕûËùÓÐÖ¸¶¨µÄÈ¨ÏÞ.
-    1 - ÁîÅÆÎ´Ö¸¶¨$aPrivileges²ÎÊýÖÐµÄÒ»¸ö»ò¶à¸öÈ¨ÏÞ.
-Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
+æˆåŠŸ: å½“$aPrivilegesä¸ºå•ä¸€$SE_...å¸¸é‡æ—¶, è¿”å›žä»¥å‰çš„æƒé™å±žæ€§(0æˆ–1), å¦åˆ™æ€»æ˜¯è¿”å›ž1.
+    ç¡®å®šå‡½æ•°æ˜¯å¦è°ƒæ•´æ‰€æœ‰çš„æŒ‡å®šæƒé™, æ£€æŸ¥å‡½æ•°æˆåŠŸæ—¶è¿”å›žçš„ä¸‹åˆ—@extendedæ ‡è®°å€¼:
+    0 - è°ƒæ•´æ‰€æœ‰æŒ‡å®šçš„æƒé™.
+    1 - ä»¤ç‰ŒæœªæŒ‡å®š$aPrivilegeså‚æ•°ä¸­çš„ä¸€ä¸ªæˆ–å¤šä¸ªæƒé™.
+å¤±è´¥: è¿”å›ž0å¹¶è®¾ç½®@erroréž0
 @@End@@
 
-###±¸×¢###
-¸Ãº¯ÊýÎÞ·¨Ïò·ÃÎÊÁîÅÆÌí¼ÓÐÂÈ¨ÏÞ. Ö»ÄÜ½ûÓÃ»òÆôÓÃÒÑ´æÔÚµÄÈ¨ÏÞ.
+###Remarks###
+è¯¥å‡½æ•°æ— æ³•å‘è®¿é—®ä»¤ç‰Œæ·»åŠ æ–°æƒé™. åªèƒ½ç¦ç”¨æˆ–å¯ç”¨å·²å­˜åœ¨çš„æƒé™.
 
-###Ïà¹Ø###
+###Related###
 
-###²Î¿¼###
- ËÑË÷MSDNÖªÊ¶¿âÖÐAdjustTokenPrivilegesµÄÏà¹ØÐÅÏ¢
+###See Also###
+ æœç´¢MSDNçŸ¥è¯†åº“ä¸­AdjustTokenPrivilegesçš„ç›¸å…³ä¿¡æ¯
 
-###Ê¾Àý###
+###Example###
 @@IncludeExample@@

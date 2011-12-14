@@ -1,36 +1,36 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êı###
+ï»¿###User Defined Function###
 _NamedPipes_TransactNamedPipe
 
-###ÃèÊö###
-ÔÚÒ»¸öÍøÂç²Ù×÷ÖĞ¶ÁÈ¡²¢Ğ´ÈëÃüÃû¹ÜµÀ
+###Description###
+åœ¨ä¸€ä¸ªç½‘ç»œæ“ä½œä¸­è¯»å–å¹¶å†™å…¥å‘½åç®¡é“
 
-###Óï·¨###
+###Syntax###
 #Include <NamedPipes.au3>
 _NamedPipes_TransactNamedPipe($hNamedPipe, $pInpBuf, $iInpSize, $pOutBuf, $iOutSize[, $pOverlapped = 0])
 
-###²ÎÊı###
+###Parameters###
 @@ParamTable@@
- $hNamedPipe  ÃüÃû¹ÜµÀ¾ä±ú
- $pInpBuf  °üº¬Ğ´Èë¹ÜµÀµÄÊı¾İµÄ»º³åÇøµÄÖ¸Õë
- $iInpSize  Ğ´Èë»º³åÇø×Ö½ÚµÄ´óĞ¡
- $pOutBuf  ½ÓÊÕ´Ó¹ÜµÀ¶ÁÈ¡µÄÊı¾İµÄ»º³åÇøµÄÖ¸Õë
- $iOutSize  ¶ÁÈ¡»º³åÇøµÄ×Ö½Ú´óĞ¡
- $pOverlapped  $tagOVERLAPPED½á¹¹µÄÖ¸Õë. µ±ÒÔ$FILE_FLAG_OVERLAPPED´ò¿ª¹ÜµÀÊ±±ØĞëÊ¹ÓÃ¸Ã½á¹¹.
-µ±ÒÔ$FILE_FLAG_OVERLAPPED´ò¿ªhNamedPipeÊ±, pOverlappedÎŞĞëÎª0.
-µ±ÒÔ$FILE_FLAG_OVERLAPPEDÇÒpOverlapped·Ç0Ê±´ò¿ªhNamedPipe, TransactNamedPipe±»×÷ÎªÖØ¸´²Ù×÷.
-$tagOVERLAPPED½á¹¹Ó¦¸Ã°üº¬ÊÖ¶¯ÖØÉèÊÂ¼ş¶ÔÏó. Èç¹û²Ù×÷ÎŞ·¨Á¢¼´Íê³É, TransactNamedPipe·µ»ØFalseÇÒGetLastError½«·µ»ØERROR_IO_PENDING.
+ $hNamedPipe  å‘½åç®¡é“å¥æŸ„
+ $pInpBuf  åŒ…å«å†™å…¥ç®¡é“çš„æ•°æ®çš„ç¼“å†²åŒºçš„æŒ‡é’ˆ
+ $iInpSize  å†™å…¥ç¼“å†²åŒºå­—èŠ‚çš„å¤§å°
+ $pOutBuf  æ¥æ”¶ä»ç®¡é“è¯»å–çš„æ•°æ®çš„ç¼“å†²åŒºçš„æŒ‡é’ˆ
+ $iOutSize  è¯»å–ç¼“å†²åŒºçš„å­—èŠ‚å¤§å°
+ $pOverlapped  $tagOVERLAPPEDç»“æ„çš„æŒ‡é’ˆ. å½“ä»¥$FILE_FLAG_OVERLAPPEDæ‰“å¼€ç®¡é“æ—¶å¿…é¡»ä½¿ç”¨è¯¥ç»“æ„.
+å½“ä»¥$FILE_FLAG_OVERLAPPEDæ‰“å¼€hNamedPipeæ—¶, pOverlappedæ— é¡»ä¸º0.
+å½“ä»¥$FILE_FLAG_OVERLAPPEDä¸”pOverlappedé0æ—¶æ‰“å¼€hNamedPipe, TransactNamedPipeè¢«ä½œä¸ºé‡å¤æ“ä½œ.
+$tagOVERLAPPEDç»“æ„åº”è¯¥åŒ…å«æ‰‹åŠ¨é‡è®¾äº‹ä»¶å¯¹è±¡. å¦‚æœæ“ä½œæ— æ³•ç«‹å³å®Œæˆ, TransactNamedPipeè¿”å›Falseä¸”GetLastErrorå°†è¿”å›ERROR_IO_PENDING.
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
 Success: Number of bytes read from the pipe
 @@End@@
 
-###±¸×¢###
-Èç¹û·şÎñÆ÷ÎŞ·¨´´½¨ÏûÏ¢ÀàĞÍµÄ¹ÜµÀ»ò¹ÜµÀ¾ä±úÎ´ÊÇ¶ÁÈ¡ÏûÏ¢Ä£Ê½, TransactNamedPipeÊ§°Ü.
+###Remarks###
+å¦‚æœæœåŠ¡å™¨æ— æ³•åˆ›å»ºæ¶ˆæ¯ç±»å‹çš„ç®¡é“æˆ–ç®¡é“å¥æŸ„æœªæ˜¯è¯»å–æ¶ˆæ¯æ¨¡å¼, TransactNamedPipeå¤±è´¥.
 
-###Ïà¹Ø###
+###Related###
  $tagOVERLAPPED , _NamedPipes_CallNamedPipe
 
-###²Î¿¼###
-ËÑË÷MSDNÖªÊ¶¿âÖĞTransactNamedPipeµÄÏà¹ØĞÅÏ¢
+###See Also###
+æœç´¢MSDNçŸ¥è¯†åº“ä¸­TransactNamedPipeçš„ç›¸å…³ä¿¡æ¯

@@ -1,42 +1,42 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_CopyFileEx
 
-###����###
-�����Ѵ��ڵ��ļ�Ϊ���ļ���ͨ����ص���������֪ͨӦ�ó���
+###Description###
+复制已存在的文件为新文件并通过其回调函数进程通知应用程序
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_CopyFileEx( $sSource, $sDestination, $pProgressRoutine[, $iFlags] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $sSource
-   ���ڵ��ļ�������
+   存在的文件的名称
 $sDestination
-   ���ļ�����
+   新文件名称
 $pProgressRoutine
-   ���ڷ����ļ��й���Ϣ�Ļص�����. �ò�����Ϊ0.
+   用于返回文件有关信息的回调函数. 该参数可为0.
 $iFlags
-   ����ָ����θ����ļ��ı��. �ò�����Ϊ����ֵ�����.
-    $COPY_FILE_ALLOW_DECRYPTED_DESTINATION - ����Ŀ���ļ��ܷ���ܶ���ɹ����Ƽ����ļ�. win2000��֧��
-    $COPY_FILE_COPY_SYMLINK - Դ�ļ�Ϊ����ʱ, Ŀ���ļ�Ϊͬһָ�������. 2003��xp/2000��֧��
-    $COPY_FILE_FAIL_IF_EXISTS - Ŀ���ļ�����ʱ�����ļ�ʧ��
-    $COPY_FILE_NO_BUFFERING - ʹ���޻���I/O����, ���д��ļ�����ʱ����ʹ��. 2003��xp/2000��֧��
-    $COPY_FILE_OPEN_SOURCE_FOR_WRITE - �����ļ�����д��Ȩ�޴�Դ�ļ�
-    $COPY_FILE_RESTARTABLE - ����ʧ�ܵ�����¸���Ŀ���ļ��Ľ���
+   用来指定如何复制文件的标记. 该参数可为下列值的组合.
+    $COPY_FILE_ALLOW_DECRYPTED_DESTINATION - 无论目标文件能否加密都会成功复制加密文件. win2000不支持
+    $COPY_FILE_COPY_SYMLINK - 源文件为链接时, 目标文件为同一指向的链接. 2003及xp/2000不支持
+    $COPY_FILE_FAIL_IF_EXISTS - 目标文件存在时复制文件失败
+    $COPY_FILE_NO_BUFFERING - 使用无缓冲I/O复制, 进行大文件传输时建议使用. 2003及xp/2000不支持
+    $COPY_FILE_OPEN_SOURCE_FOR_WRITE - 复制文件并以写入权限打开源文件
+    $COPY_FILE_RESTARTABLE - 复制失败的情况下跟踪目标文件的进度
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@errorΪ��0
+成功: 返回1
+失败: 返回0并设置@error为非0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
+###See Also###
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

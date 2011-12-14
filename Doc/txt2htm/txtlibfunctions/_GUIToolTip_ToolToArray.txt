@@ -1,42 +1,42 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUIToolTip_ToolToArray
 
-###����###
-��һ�����鴫��ToolInfo�ṹ
+###Description###
+向一个数组传递ToolInfo结构
 
-###�﷨###
+###Syntax###
 #Include <GuiToolTip.au3>
 _GUIToolTip_ToolToArray($hWnd, ByRef $tToolInfo, $iError)
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  �ؼ����
- $tToolInfo  $tagTOOLINFO�ṹ
- $iError  ���صĳ�������
+ $hWnd  控件句柄
+ $tToolInfo  $tagTOOLINFO结构
+ $iError  返回的出错代码
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���¸�ʽ����:
-      [0] - ������ʾ��ʾ�ı��:
-        1 - ָʾ$iID����ID��Ϊ���ߵĴ��ھ��
-        2 - ����$iIDָ���Ĺ��������Ķ�����ô���
-        4 - ָʾ�ı���������ʾ
-        8 - ָʾ�ؼ��ǹ��ߴ������Խ�ȡ��Ϣ������
-       16 - �ؼ���λ�ø�����֮���Ӧ�Ĺ���
-       32 - ͬһ����ϵ�Ĵ���λ����TTM_TRACKPOSITION�ṩ
-       64 - ʹ�ؼ��򸸴��巢�������Ϣ
-      128 - ָʾ�ؼ��ı��е����ӽ�������
-      [1] - �������ߵĴ���ľ��
-      [2] - ���ߵı�ʶ
-      [3] - �������Ͻ� X ����
-      [4] - �������Ͻ� Y ����
-      [5] - �������½� X ����
-      [6] - �������½� Y ����
-      [7] - ���������ַ�����Դ��ʵ�����
-      [8] - �����ı�
-      [9] - �빤����ص�Ӧ�ó������ֵ
+成功: 如下格式数组:
+      [0] - 控制提示显示的标记:
+        1 - 指示$iID代替ID作为工具的窗口句柄
+        2 - 在由$iID指定的工具下中心对齐放置窗体
+        4 - 指示文本将反向显示
+        8 - 指示控件是工具窗体用以截取信息的子类
+       16 - 控件的位置跟随与之相对应的工具
+       32 - 同一坐标系的窗口位置由TTM_TRACKPOSITION提供
+       64 - 使控件向父窗体发送鼠标信息
+      128 - 指示控件文本中的链接将被解析
+      [1] - 包含工具的窗体的句柄
+      [2] - 工具的标识
+      [3] - 矩形左上角 X 坐标
+      [4] - 矩形左上角 Y 坐标
+      [5] - 矩形右下角 X 坐标
+      [6] - 矩形右下角 Y 坐标
+      [7] - 包含工具字符串资源的实例句柄
+      [8] - 工具文本
+      [9] - 与工具相关的应用程序定义的值
 @@End@@
 
-###��ע###
-�����߾���$TTF_TRACK�������ʱ���뷢�͸���Ϣ. $TTM_HITTEST��ʧ�����δ����$TTF_TRACK, ���۵�����Ƿ�λ�ڹ��߾�����.
+###Remarks###
+当工具具有$TTF_TRACK标记设置时必须发送该消息. $TTM_HITTEST将失败如果未设置$TTF_TRACK, 无论点击点是否位于工具矩形中.

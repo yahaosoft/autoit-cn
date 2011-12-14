@@ -1,45 +1,45 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_DwmEnableBlurBehindWindow
 
-###����###
-��ָ������
+###Description###
+羽化指定窗口
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_DwmEnableBlurBehindWindow ( $hWnd [, $fEnable [, $fTransition [, $hRgn]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hWnd
-   Ӧ���𻯵Ĵ�����
+   应用羽化的窗体句柄
 $fEnable
-   ָ���Ƿ�ע���ע��DWM�𻯺󷽵Ĵ��ھ��. ����ֵ:
-    1 - ע��
-    2 - ע��
+   指定是否注册或注销DWM羽化后方的窗口句柄. 可用值:
+    1 - 注册
+    2 - 注销
 $fTransition
-   ָ���Ƿ���ɫ�Ĺ��ɴ��ݵ���󻯴���. ����ֵ:
-    1 - ������ɫ
-    2 - ��֮
+   指定是否将颜色的过渡传递到最大化窗口. 可用值:
+    1 - 窗口上色
+    2 - 反之
 $hRgn
-   Ӧ�ú��𻯵Ŀͻ����е�����. 0ֵ����ȫ���ͻ�����Ӧ����.
+   应用后方羽化的客户区中的区域. 0值将对全部客户区后方应用羽化.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0. @extended��ǰ���COM�������
+成功: 返回1
+失败: 返回0并设置@error非0. @extended标记包含COM错误代码
 @@End@@
 
-###��ע###
-�����ṩalphaֵ�Ҷ�����Ⱦ��ֵ��ʹ����Щalphaֵ.
-ĳЩWindowsͼ���豸�ӿ�(GDI)�������ᱣ��Alphaֵ, ���Ե��Ӵ����ṩalphaֵʱ����ע��, ��Ϊ�����ǲ���Ԥ֪��.
-�������洰�ڹ�����(DWM)����ɺ�ʱ�ı䶼��Ҫ���øó���. ������WM_DWMCOMPOSITIONCHANGED��Ϣ֪ͨ��ָı�.
-�ú�����ҪWindows Vista�����ϰ汾.
+###Remarks###
+窗口提供alpha值且顶部渲染的值将使用这些alpha值.
+某些Windows图形设备接口(GDI)操作不会保留Alpha值, 所以当子窗口提供alpha值时必须注意, 因为他们是不可预知的.
+无论桌面窗口管理器(DWM)的组成何时改变都需要调用该程序. 并发送WM_DWMCOMPOSITIONCHANGED消息通知组分改变.
+该函数需要Windows Vista或以上版本.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����DwmEnableBlurBehindWindow�������Ϣ
+###See Also###
+ 搜索MSDN知识库中DwmEnableBlurBehindWindow的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

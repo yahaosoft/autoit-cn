@@ -1,80 +1,80 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WordDocOpen
 
-###����###
-��һ�����ڵ�Microsoft Word�ĵ�
+###Description###
+打开一个存在的Microsoft Word文档
 
-###�﷨###
+###Syntax###
 #Include <Word.au3>
 _WordDocOpen ( ByRef $o_object, $s_FilePath [, $b_ConfirmConversions = 0 [, $i_Format = 0 [, $b_ReadOnly = 0
 [, $b_Revert = 0 [, $b_AddToRecentFiles = 0 [, $s_PasswordDocument = "" [,
 $s_WritePasswordDocument = ""]]]]]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $o_object 
-   һ��Word.Application�������
+   一个Word.Application对象变量
 $s_FilePath 
-   ���ļ�������·��(����ע)
+   打开文件的完整路径(见备注)
 $b_ConfirmConversions 
-   ��ѡ: ����ļ�����Microsoft Word��ʽָ���Ƿ���ʾת���ļ��Ի���.
-    0 = (Ĭ��)����ʾ
+   可选: 如果文件不是Microsoft Word格式指定是否显示转换文件对话框.
+    0 = (默认)不显示
     1 =
  
-      ��ʾ
+      显示
 $i_Format 
-   ��ѡ: ���ڴ��ļ����ļ�ת����.
-    0 = (Ĭ��) ���ڵĸ�ʽ
-    1 = Microsoft Word�ĵ���ʽ
-    2 = Microsoft Wordģ���ʽ
-    3 = ���ı���ʽ (RTF)
-    4 = δ�����ı���ʽ
-    5 = Unicode�ı���ʽ������ı���ʽ
-    6 = ���¼��ݵ�Microsoft Word��ʽ
-    7 = HTML��ʽ
-    8 = XML��ʽ
+   可选: 用于打开文件的文件转换器.
+    0 = (默认) 存在的格式
+    1 = Microsoft Word文档格式
+    2 = Microsoft Word模板格式
+    3 = 富文本格式 (RTF)
+    4 = 未加密文本格式
+    5 = Unicode文本格式或加密文本格式
+    6 = 向下兼容的Microsoft Word格式
+    7 = HTML格式
+    8 = XML格式
 $b_ReadOnly 
-   ��ѡ: ָ���Ƿ�ֻ����.
-    ע��: �ò������Ḳ��ֻ���ļ�.
-    0 = (Ĭ��)�ɶ�д��
+   可选: 指定是否只读打开.
+    注意: 该参数不会覆盖只读文件.
+    0 = (默认)可读写打开
     1 =
  
-    ֻ����
+    只读打开
 $b_Revert 
-   ��ѡ: ��$s_FilePath��һ�����ĵ�ʱ���к�������.
-    0 = (Ĭ��) ����򿪵��ļ�
+   可选: 当$s_FilePath是一个打开文档时进行后续控制.
+    0 = (默认) 激活打开的文件
     1 =
  
-      ��������δ����ı䲢���´��ļ�
+      忽略所有未保存改变并重新打开文件
 $b_AddToRecentFiles 
-    ��ѡ: ָ���Ƿ��ļ������ӵ��ļ��˵��ײ������ʹ�õ��ļ���.
-    0 = (Ĭ��) ������
+    可选: 指定是否将文件名添加到文件菜单底部的最近使用的文件中.
+    0 = (默认) 不添加
  
-      1 = ����
+      1 = 添加
 $s_PasswordDocument 
-   ��ѡ: ���ļ�ʱʹ�õ�����.
+   可选: 打开文件时使用的密码.
 $s_WritePasswordDocument 
-   ��ѡ: �����ļ�ʱʹ�õ�����.
+   可选: 保存文件时使用的密码.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
- Success:  ����ָ��Word.Application�ĵ�����Ķ������
- ʧ��:  ����0������ @ERRORΪ:
-  0 ($_WordStatus_Success) = �޴���
-  1 ($_WordStatus_GeneralError) = һ�����
-  3 ($_WordStatus_InvalidDataType) = ��Ч��������
-  4 ($_WordStatus_InvalidObjectType) = ��Ч��������
- @Extended:  ������Ч��������
+ Success:  返回指向Word.Application文档对象的对象变量
+ 失败:  返回0并设置 @ERROR为:
+  0 ($_WordStatus_Success) = 无错误
+  1 ($_WordStatus_GeneralError) = 一般错误
+  3 ($_WordStatus_InvalidDataType) = 无效数据类型
+  4 ($_WordStatus_InvalidObjectType) = 无效对象类型
+ @Extended:  包含无效参数数量
 @@End@@
 
-###��ע###
-����ļ��������򴴽�.
+###Remarks###
+如果文件不存在则创建.
 
-###���###
+###Related###
  _WordDocAdd , _WordDocClose , _WordDocSave , _WordDocSaveAs
 
-###�ο�###
+###See Also###
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

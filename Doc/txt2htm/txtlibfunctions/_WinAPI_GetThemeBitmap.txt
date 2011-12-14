@@ -1,41 +1,41 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_GetThemeBitmap
 
-###����###
-��ȡ��ָ������ , ���� , ״̬��������ص�λͼ
+###Description###
+获取与指定主题 , 部分 , 状态和属性相关的位图
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_GetThemeBitmap( $hTheme, $iPartId, $iStateId, $iPropId [, $iFlag] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hTheme
-   ָ�������������ݵľ��
+   指定窗口主题数据的句柄
 $iPartId
-   ����λͼ�Ĳ���
+   包含位图的部分
 $iStateId
-$iPartId���ֵ�����
+$iPartId部分的描述
 $iPropId
-   ��ȡ������. ����Ϊ0���Զ�ѡȡ�ò��ֺ�״̬���׸�����λͼ��ʹ������ֵ֮һ.
-    $TMT_DIBDATA - ����ͼ��
-    $TMT_GLYPHDIBDATA - �����ڱ����ϵ�����ͼ��
-    $TMT_HBITMAP - �ݲ�֧��
+   获取的属性. 设置为0将自动选取该部分和状态的首个可用位图或使用下列值之一.
+    $TMT_DIBDATA - 背景图像
+    $TMT_GLYPHDIBDATA - 绘制在背景上的字形图像
+    $TMT_HBITMAP - 暂不支持
 $tRECT
-$tagRECT�ṹ
+$tagRECT结构
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��������λͼ�ľ��
-ʧ��: ����-1������@error��0��@extended��ǰ���ϵͳ�������
+成功: 返回所需位图的句柄
+失败: 返回-1并设置@error非0且@extended标记包含系统错误代码
 @@End@@
 
-###��ע###
-���$iFlag����Ϊ$GBF_COPY, ����ʹ��ʱ����_WinAPI_DeleteObject()�ͷŸú������ص�λͼ.
-���ϵͳҪ��: Windows Vista.
+###Remarks###
+如果$iFlag设置为$GBF_COPY, 不在使用时调用_WinAPI_DeleteObject()释放该函数返回的位图.
+最低系统要求: Windows Vista.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����GetThemeBitmap�������Ϣ
+###See Also###
+ 搜索MSDN知识库中GetThemeBitmap的相关信息

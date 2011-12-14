@@ -1,65 +1,65 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êý###
+ï»¿###User Defined Function###
 _WinAPI_RegCreateKey
 
-###ÃèÊö###
-´´½¨Ö¸¶¨µÄ×¢²á±í¼ü
+###Description###
+åˆ›å»ºæŒ‡å®šçš„æ³¨å†Œè¡¨é”®
 
-###Óï·¨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_RegCreateKey( $hKey [, $sSubKey [, $iDesired [, $iOptions [, $tSecurity]]]] )
 
-###²ÎÊý###
+###Parameters###
 @@ParamTable@@
 $hKey
-$KEY_CREATE_SUB_KEYÈ¨ÏÞ. ¾ä±úÓÉ_WinAPI_RegCreateKey()»ò_WinAPI_RegOpenKey()º¯Êý·µ»Ø, »òÎªÏÂÁÐÔ¤¶¨Òå¼üÖ®Ò».
+$KEY_CREATE_SUB_KEYæƒé™. å¥æŸ„ç”±_WinAPI_RegCreateKey()æˆ–_WinAPI_RegOpenKey()å‡½æ•°è¿”å›ž, æˆ–ä¸ºä¸‹åˆ—é¢„å®šä¹‰é”®ä¹‹ä¸€.
 $HKEY_CLASSES_ROOT
 $HKEY_CURRENT_CONFIG
 $HKEY_CURRENT_USER
 $HKEY_LOCAL_MACHINE
 $HKEY_USERS
 $sSubKey
-$hKey²ÎÊý±êÊ¶µÄ¼üµÄ×Ó¼ü; ¿Éµ½×¢²á±íÊ÷µÄµÚ32²ã.
+$hKeyå‚æ•°æ ‡è¯†çš„é”®çš„å­é”®; å¯åˆ°æ³¨å†Œè¡¨æ ‘çš„ç¬¬32å±‚.
 $iDesired
-   ÓÃÓÚÖ¸¶¨¼üµÄ·ÃÎÊÈ¨ÏÞµÄÑÚÂë. ¸Ã²ÎÊý¿ÉÎª:
+   ç”¨äºŽæŒ‡å®šé”®çš„è®¿é—®æƒé™çš„æŽ©ç . è¯¥å‚æ•°å¯ä¸º:
 $KEY_ALL_ACCESS: $STANDARD_RIGHTS_REQUIRED + $KEY_QUERY_VALUE + $KEY_SET_VALUE + $KEY_CREATE_SUB_KEY + $KEY_ENUMERATE_SUB_KEYS, KEY_NOTIFY + $KEY_CREATE_LINK
-$KEY_CREATE_LINK: ÏµÍ³±£Áô
-$KEY_CREATE_SUB_KEY: ´´½¨×¢²á±í¼üµÄ×Ó¼ü
-$KEY_ENUMERATE_SUB_KEYS: Ã¶¾Ù×¢²á±í¼üµÄ×Ó¼ü
-$KEY_EXECUTE: Óë$KEY_READÏàÍ¬
-$KEY_NOTIFY: ÇëÇó¸ü¸Ä×¢²á±í¼ü»ò×Ó¼üµÄÍ¨Öª
-$KEY_QUERY_VALUE: ²éÑ¯×¢²á±í¼üµÄÖµ
+$KEY_CREATE_LINK: ç³»ç»Ÿä¿ç•™
+$KEY_CREATE_SUB_KEY: åˆ›å»ºæ³¨å†Œè¡¨é”®çš„å­é”®
+$KEY_ENUMERATE_SUB_KEYS: æžšä¸¾æ³¨å†Œè¡¨é”®çš„å­é”®
+$KEY_EXECUTE: ä¸Ž$KEY_READç›¸åŒ
+$KEY_NOTIFY: è¯·æ±‚æ›´æ”¹æ³¨å†Œè¡¨é”®æˆ–å­é”®çš„é€šçŸ¥
+$KEY_QUERY_VALUE: æŸ¥è¯¢æ³¨å†Œè¡¨é”®çš„å€¼
 $KEY_READ: $STANDARD_RIGHTS_READ + $KEY_QUERY_VALUE + $KEY_ENUMERATE_SUB_KEYS + $KEY_NOTIFY
-$KEY_SET_VALUE: ´´½¨, É¾³ý»òÉèÖÃ×¢²á±íÖµ
-$KEY_WOW64_32KEY: ±íÊ¾64Î»Windows³ÌÐòÔÚ32Î»×¢²á±íÊÓÍ¼ÖÐ²Ù×÷
-$KEY_WOW64_64KEY: ±íÊ¾64Î»Windows³ÌÐòÔÚ64Î»×¢²á±íÊÓÍ¼ÖÐ²Ù×÷
+$KEY_SET_VALUE: åˆ›å»º, åˆ é™¤æˆ–è®¾ç½®æ³¨å†Œè¡¨å€¼
+$KEY_WOW64_32KEY: è¡¨ç¤º64ä½Windowsç¨‹åºåœ¨32ä½æ³¨å†Œè¡¨è§†å›¾ä¸­æ“ä½œ
+$KEY_WOW64_64KEY: è¡¨ç¤º64ä½Windowsç¨‹åºåœ¨64ä½æ³¨å†Œè¡¨è§†å›¾ä¸­æ“ä½œ
 $KEY_WRITE: $STANDARD_RIGHTS_WRITE + $KEY_SET_VALUE + $KEY_CREATE_SUB_KEY
 $iOptions
-   ¸Ã²ÎÊý¿ÉÎª:
-$REG_OPTION_BACKUP_RESTORE: ±íÊ¾¼üÒÔÔÊÐí±¸·ÝºÍ»¹Ô­µÄÌØÊâÈ¨ÏÞ´ò¿ª
-$REG_OPTION_CREATE_LINK: ±íÊ¾¼üÎªÏóÕ÷ÐÔÁ¬½Ó
-$REG_OPTION_NON_VOLATILE: ±íÊ¾¼üÔÚÏµÍ³ÖØÐÂÆô¶¯Ê±±£Áô¸Ä±ä
-$REG_OPTION_VOLATILE: ±íÊ¾¼üÔÚÏµÍ³ÖØÐÂÆô¶¯Ê±²»±£Áô¸Ä±ä
+   è¯¥å‚æ•°å¯ä¸º:
+$REG_OPTION_BACKUP_RESTORE: è¡¨ç¤ºé”®ä»¥å…è®¸å¤‡ä»½å’Œè¿˜åŽŸçš„ç‰¹æ®Šæƒé™æ‰“å¼€
+$REG_OPTION_CREATE_LINK: è¡¨ç¤ºé”®ä¸ºè±¡å¾æ€§è¿žæŽ¥
+$REG_OPTION_NON_VOLATILE: è¡¨ç¤ºé”®åœ¨ç³»ç»Ÿé‡æ–°å¯åŠ¨æ—¶ä¿ç•™æ”¹å˜
+$REG_OPTION_VOLATILE: è¡¨ç¤ºé”®åœ¨ç³»ç»Ÿé‡æ–°å¯åŠ¨æ—¶ä¸ä¿ç•™æ”¹å˜
 $tSecurity
-$tagSECURITY_ATTRIBUTES½á¹¹. Îª0Ê±±íÊ¾ÎÞ·¨¼Ì³Ð.
+$tagSECURITY_ATTRIBUTESç»“æž„. ä¸º0æ—¶è¡¨ç¤ºæ— æ³•ç»§æ‰¿.
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: ´ò¿ª»ò´´½¨µÄ¼üµÄ¾ä±ú, @extended±ê¼Ç¿É°üº¬:
-    0 (FALSE): ¼üÒÑ´æÔÚÇÒ²»´ø¸Ä±ä´ò¿ª
-    1 (TRUE): ¼ü²»´æÔÚ²¢´´½¨
-Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0, @extended±ê¼Ç¿É°üº¬·Ç0ÏµÍ³´íÎó´úÂë.
+æˆåŠŸ: æ‰“å¼€æˆ–åˆ›å»ºçš„é”®çš„å¥æŸ„, @extendedæ ‡è®°å¯åŒ…å«:
+    0 (FALSE): é”®å·²å­˜åœ¨ä¸”ä¸å¸¦æ”¹å˜æ‰“å¼€
+    1 (TRUE): é”®ä¸å­˜åœ¨å¹¶åˆ›å»º
+å¤±è´¥: è¿”å›ž0å¹¶è®¾ç½®@erroréž0, @extendedæ ‡è®°å¯åŒ…å«éž0ç³»ç»Ÿé”™è¯¯ä»£ç .
 @@End@@
 
-###±¸×¢###
-Ó¦ÓÃ³ÌÐòÎÞ·¨´´½¨HKEY_USERS»òHKEY_LOCAL_MACHINEµÄÖ±½Ó×Ó¼ü. ¿É´´½¨HKEY_USERS»òHKEY_LOCAL_MACHINEÊ÷µÄÏÂ¼¶×Ó¼ü.
-Èç¹û²»ÊÇÒ»¸öÔ¤¶¨Òå×¢²á±í¼ü($HKEY_...)±ØÐëÔÚÊ¹ÓÃÍê¾ä±úºóµ÷ÓÃ_WinAPI_RegCloseKey()º¯Êý.
-ÔËÐÐÊ¾ÀýÇ°Çë½« reg.dat ÎÄ¼þ±£´æÖÁÁÙÊ±ÎÄ¼þ¼Ð
+###Remarks###
+åº”ç”¨ç¨‹åºæ— æ³•åˆ›å»ºHKEY_USERSæˆ–HKEY_LOCAL_MACHINEçš„ç›´æŽ¥å­é”®. å¯åˆ›å»ºHKEY_USERSæˆ–HKEY_LOCAL_MACHINEæ ‘çš„ä¸‹çº§å­é”®.
+å¦‚æžœä¸æ˜¯ä¸€ä¸ªé¢„å®šä¹‰æ³¨å†Œè¡¨é”®($HKEY_...)å¿…é¡»åœ¨ä½¿ç”¨å®Œå¥æŸ„åŽè°ƒç”¨_WinAPI_RegCloseKey()å‡½æ•°.
+è¿è¡Œç¤ºä¾‹å‰è¯·å°† reg.dat æ–‡ä»¶ä¿å­˜è‡³ä¸´æ—¶æ–‡ä»¶å¤¹
 
-###Ïà¹Ø###
+###Related###
 
-###²Î¿¼###
- ËÑË÷MSDNÖªÊ¶¿âÖÐRegCreateKeyµÄÏà¹ØÐÅÏ¢
+###See Also###
+ æœç´¢MSDNçŸ¥è¯†åº“ä¸­RegCreateKeyçš„ç›¸å…³ä¿¡æ¯
 
-###Ê¾Àý###
+###Example###
 @@IncludeExample@@

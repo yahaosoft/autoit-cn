@@ -1,36 +1,36 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_RegDeleteKey
 
-###����###
-ɾ��ע����Ӽ�����ֵ
+###Description###
+删除注册表子键及其值
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_RegDeleteKey( $hKey [, $sSubKey] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hKey
-   �򿪵ļ��ľ���Ҹü��ķ���Ȩ�޲�Ӱ��ɾ������. �þ������_WinAPI_RegCreateKey()��_WinAPI_RegOpenKey()������.��Ϊ����Ԥ�����֮һ:
+   打开的键的句柄且该键的访问权限不影响删除操作. 该句柄须由_WinAPI_RegCreateKey()或_WinAPI_RegOpenKey()函数打开.可为下列预定义键之一:
 $HKEY_CLASSES_ROOT
 $HKEY_CURRENT_CONFIG
 $HKEY_CURRENT_USER
 $HKEY_LOCAL_MACHINE
 $HKEY_USERS
 $sSubKey
-   Ҫɾ���ļ���
+   要删除的键名
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0, @extended��ǿɰ�����0ϵͳ�������.
+成功: 返回1
+失败: 返回0并设置@error非0, @extended标记可包含非0系统错误代码.
 @@End@@
 
-###��ע###
-ֱ��������ľ�����ر�ʱɾ���ļ��Żᱻ�Ƴ�.
+###Remarks###
+直到其最近的句柄被关闭时删除的键才会被移除.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����RegDeleteKey�������Ϣ
+###See Also###
+ 搜索MSDN知识库中RegDeleteKey的相关信息

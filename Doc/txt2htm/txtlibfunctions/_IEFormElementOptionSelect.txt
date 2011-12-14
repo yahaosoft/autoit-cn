@@ -1,53 +1,53 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êı###
+ï»¿###User Defined Function###
 _IEFormElementOptionSelect
 
-###ÃèÊö###
-ÉèÖÃÖ¸¶¨±íµ¥ÔªËØµÄÖµ
+###Description###
+è®¾ç½®æŒ‡å®šè¡¨å•å…ƒç´ çš„å€¼
 
-###Óï·¨###
+###Syntax###
 #Include <IE.au3>
 _IEFormElementOptionSelect ( ByRef $o_object, $s_string [, $f_select = 1 [, $s_mode = "byValue" [, $f_fireEvent = 1]]] )
 
-###²ÎÊı###
+###Parameters###
 @@ParamTable@@
- $o_object  "Select Option"µÄ±íµ¥ÔªËØ¶ÔÏó
- $s_string  Æ¥ÅäÔªËØµÄÖµ--°´$s_modeÉè¶¨µÄÄ£Ê½
- $f_select  ¿ÉÑ¡: ¶¨ÒåÔªËØÊÇ·ñĞèÒª±»Ñ¡Ôñ»òÕß²»Ñ¡Ôñ
--1 = ·µ»ØÑ¡ÔñµÄ×´Ì¬
-0 = ²»Ñ¡ÖĞÔªËØ
-1 = (Ä¬ÈÏ)
-  Ñ¡ÖĞÔªËØ
- $s_mode  ¿ÉÑ¡: ¶¨ÒåËÑË÷Ä£Ê½
-byValue = (Ä¬ÈÏ) ÏëÒªÑ¡ÔñµÄoptionÖµ
+ $o_object  "Select Option"çš„è¡¨å•å…ƒç´ å¯¹è±¡
+ $s_string  åŒ¹é…å…ƒç´ çš„å€¼--æŒ‰$s_modeè®¾å®šçš„æ¨¡å¼
+ $f_select  å¯é€‰: å®šä¹‰å…ƒç´ æ˜¯å¦éœ€è¦è¢«é€‰æ‹©æˆ–è€…ä¸é€‰æ‹©
+-1 = è¿”å›é€‰æ‹©çš„çŠ¶æ€
+0 = ä¸é€‰ä¸­å…ƒç´ 
+1 = (é»˜è®¤)
+  é€‰ä¸­å…ƒç´ 
+ $s_mode  å¯é€‰: å®šä¹‰æœç´¢æ¨¡å¼
+byValue = (é»˜è®¤) æƒ³è¦é€‰æ‹©çš„optionå€¼
 byText =
-      ÏëÒªÑ¡ÔñoptionµÄÎÄ×Ö
-byIndex = ÏëÒªÑ¡ÔñoptionµÄË÷ÒıÖµ(»ùÓÚ 0)
- $f_fireEvent  ¿ÉÑ¡:¶¨ÒåÔÚ¸Ä±äÖµÊ±ÊÇ·ñ´¥·¢OnChangeºÍOnClickµÄÊÂ¼ş
+      æƒ³è¦é€‰æ‹©optionçš„æ–‡å­—
+byIndex = æƒ³è¦é€‰æ‹©optionçš„ç´¢å¼•å€¼(åŸºäº 0)
+ $f_fireEvent  å¯é€‰:å®šä¹‰åœ¨æ”¹å˜å€¼æ—¶æ˜¯å¦è§¦å‘OnChangeå’ŒOnClickçš„äº‹ä»¶
 0 =
-      ÔÚÉèÖÃÖµºó²»´¥·¢OnChange»òÕßOnClickÊÂ¼ş
-1 = (Ä¬ÈÏ)
-  ÔÚÉèÖÃÖµºó´¥·¢OnChange»òÕßOnClickÊÂ¼ş
+      åœ¨è®¾ç½®å€¼åä¸è§¦å‘OnChangeæˆ–è€…OnClickäº‹ä»¶
+1 = (é»˜è®¤)
+  åœ¨è®¾ç½®å€¼åè§¦å‘OnChangeæˆ–è€…OnClickäº‹ä»¶
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: Èç¹û²ÎÊı$f_selectÎª-1 , ·µ»Øµ±Ç°Ñ¡ÔñµÄ×´Ì¬ , ·ñÔò·µ»Ø1
-Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@ERRORÎª:
-    0 ($_IEStatus_Success) = ÎŞ´íÎó
-    3 ($_IEStatus_InvalidDataType) = ÎŞĞ§Êı¾İÀàĞÍ
-    4 ($_IEStatus_InvalidObjectType) = ÎŞĞ§¶ÔÏóÀàĞÍ
-    5 ($_IEStatus_InvalidValue) = ÎŞĞ§Öµ
-    7 ($_IEStatus_NoMatch) = ²»Æ¥Åä
-    @Extended: °üº¬ÎŞĞ§²ÎÊıÊıÁ¿
+æˆåŠŸ: å¦‚æœå‚æ•°$f_selectä¸º-1 , è¿”å›å½“å‰é€‰æ‹©çš„çŠ¶æ€ , å¦åˆ™è¿”å›1
+å¤±è´¥: è¿”å›0å¹¶è®¾ç½®@ERRORä¸º:
+    0 ($_IEStatus_Success) = æ— é”™è¯¯
+    3 ($_IEStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»å‹
+    4 ($_IEStatus_InvalidObjectType) = æ— æ•ˆå¯¹è±¡ç±»å‹
+    5 ($_IEStatus_InvalidValue) = æ— æ•ˆå€¼
+    7 ($_IEStatus_NoMatch) = ä¸åŒ¹é…
+    @Extended: åŒ…å«æ— æ•ˆå‚æ•°æ•°é‡
 @@End@@
 
-###±¸×¢###
-$f_fireEvent²ÎÊıÖ»ÓĞµ±±íµ¥ÔªËØ·¢ÉúÁËºÍËüÏà¹ØµÄonChangeÊÂ¼şºó²ÅÓĞĞ§.
+###Remarks###
+$f_fireEventå‚æ•°åªæœ‰å½“è¡¨å•å…ƒç´ å‘ç”Ÿäº†å’Œå®ƒç›¸å…³çš„onChangeäº‹ä»¶åæ‰æœ‰æ•ˆ.
 
-###Ïà¹Ø###
+###Related###
  _IEFormElementCheckBoxSelect , _IEFormElementRadioSelect
 
-###²Î¿¼###
+###See Also###
 
-###Ê¾Àı###
+###Example###
 @@IncludeExample@@

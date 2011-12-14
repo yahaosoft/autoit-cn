@@ -1,43 +1,43 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_DwmSetIconicLivePreviewBitmap
 
-###����###
-���ù�ʵ��ͼ�껯λͼ����ʾ���ڻ��ǩ��ǰ��Ԥ��
+###Description###
+设置固实的图标化位图以显示窗口或标签当前的预览
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_DwmSetIconicLivePreviewBitmap( $hWnd, $hBitmap [, $fFrame [, $tClient]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hWnd
-   ���ڻ��ǩ���
+   窗口或标签句柄
 $hBitmap
-   �������ڵ��豸�޹ص�λͼ(DIB)�ľ��
+   代表窗口的设备无关的位图(DIB)的句柄
 $fFrame
-   ָ���Ƿ���ʾΧ��λͼ�Ŀ��. ����ֵ:
-    TRUE - ��ʾ���
-    FALSE - ����ʾ���(Ĭ��)
+   指定是否显示围绕位图的框架. 可用值:
+    TRUE - 显示框架
+    FALSE - 不显示框架(默认)
 $tClient
-$tagPOINT�ṹ. ��λ��ʹ��ǩ���������ڲ�����ܻ���ʱ�ɱ���ȷ������ʵʱԤ����.
+$tagPOINT结构. 该位移使标签窗口内容在不带框架绘制时可被正确绘制在实时预览中.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0
+成功: 返回1
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-����ͨ������ӦWM_DWMSENDICONICLIVEPREVIEWBITMAP��Ϣʱ����_WinAPI_DwmSetIconicLivePreviewBitmap()����. ���ص�λͼ������ڴ��ڻ��ܵĿͻ���������Ϊ32λɫ��.
-DWMʹ��λͼ�ĸ���, �����ñ���ԭλͼ�ļ̳й�ϵ���ڲ�����Ҫʱ��Ӧ�ͷ�. ��DWMֹͣ��ʾ��ȥ��Ԥ��ʱDWM���ᱣ��λͼ����.
-���ϵͳҪ��: Windows 7
-ʹ��ʾ��ǰ�� AutoIt.bmp �ļ��ͷŵ���ʱ�ļ���
+###Remarks###
+窗口通常在响应WM_DWMSENDICONICLIVEPREVIEWBITMAP消息时调用_WinAPI_DwmSetIconicLivePreviewBitmap()函数. 返回的位图无需大于窗口或框架的客户区但必须为32位色深.
+DWM使用位图的副本, 但调用保持原位图的继承关系且在不再需要时响应释放. 当DWM停止显示过去的预览时DWM不会保存位图副本.
+最低系统要求: Windows 7
+使用示例前将 AutoIt.bmp 文件释放到临时文件夹
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����DwmSetIconicLivePreviewBitmap�������Ϣ
+###See Also###
+ 搜索MSDN知识库中DwmSetIconicLivePreviewBitmap的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

@@ -1,29 +1,29 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _Security__OpenThreadTokenEx
 
-###����###
-�����߳���صķ�������, �����Ҫ, ģ�¿ͻ���ȫ��ϵ
+###Description###
+打开与线程相关的访问令牌, 如果需要, 模仿客户安全关系
 
-###�﷨###
+###Syntax###
 #Include <Security.au3>
 _Security__OpenThreadTokenEx($iAccess[, $hThread = 0[, $fOpenAsSelf = False]])
 
-###����###
+###Parameters###
 @@ParamTable@@
- $iAccess  ָ�������������͵ķ������Ƶķ�������. ��Щ����ķ������������ɷ��ʿ����б�(DACL)����Э����ȷ����Щ���ʱ����ɻ�ܾ�.
- $hThread  ���򿪷������Ƶ��̵߳ľ��
- $fOpenAsSelf  ��ʾ������������Ե���OpenThreadToken�������̵߳İ�ȫ������������Ե����̵߳Ľ��̵İ�ȫ��������.
-���Ϊ��, ���ʼ����ʹ�õ����̵߳İ�ȫ����ִ��.
-����߳��޷�ģ�¿ͻ�, �ð�ȫ������Ϊ��һ�ͻ����̵��߳�. ����ò���Ϊ��, ���ʼ���ɵ����̵߳Ľ��̵İ�ȫ��������.
+ $iAccess  指定访问请求类型的访问令牌的访问掩码. 这些请求的访问类型由自由访问控制列表(DACL)负责协调以确定哪些访问被许可或拒绝.
+ $hThread  被打开访问令牌的线程的句柄
+ $fOpenAsSelf  表示检查访问是由针对调用OpenThreadToken函数的线程的安全环境或是由针对调用线程的进程的安全环境创建.
+如果为假, 访问检查由使用调用线程的安全环境执行.
+如果线程无法模仿客户, 该安全环境可为另一客户进程的线程. 如果该参数为真, 访问检查由调用线程的进程的安全环境创建.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �½��򿪵ķ������Ƶľ��
-ʧ��: 0
+成功: 新近打开的访问令牌的句柄
+失败: 0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
  _Security__OpenThreadToken , _Security__ImpersonateSelf

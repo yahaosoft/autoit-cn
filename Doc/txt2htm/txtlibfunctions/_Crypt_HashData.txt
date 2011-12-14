@@ -1,43 +1,43 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _Crypt_HashData
 
-###����###
-��ָ���㷨ɢ�л�����
+###Description###
+以指定算法散列化数据
 
-###�﷨###
+###Syntax###
 #Include <Crypt.au3>
 _Crypt_HashData($vData, $iALG_ID [, $fFinal = True [, $hCryptHash = 0]])
 
-###����###
+###Parameters###
 @@ParamTable@@
 $vData 
-   Ҫɢ�л�������
+   要散列化的数据
 $iALG_ID 
-   ʹ�õ�ɢ�л���ʶ
+   使用的散列化标识
 $fFinal 
-    [��ѡ] ���ֻ���������ݵ�Ƭ����ʧ��, ͬʱ�Ǻ�������ɢ�л����������ɢ��
+    [可选] 如果只是完整数据的片段则失败, 同时是函数返回散列化对象而不是散列
 $hCryptHash 
-    [��ѡ] ����ǰ����_Crypt_HashData���ص�ɢ�л�����
+    [可选] 由以前调用_Crypt_HashData返回的散列化对象
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����ɢ�л�$fFinalΪ��ʱ��ɢ�л���������@errorΪ0
-ʧ��: ����-1������@errorΪ:
-    1 - ����ɢ�ж���ʧ��
-    2 - ɢ�л�����ʧ��
-    3 - ��ȡɢ�д�Сʧ��
-    4 - ��ȡɢ��ʧ��
+成功: 返回散列或$fFinal为假时的散列化对象并设置@error为0
+失败: 返回-1并设置@error为:
+    1 - 创建散列对象失败
+    2 - 散列化数据失败
+    3 - 获取散列大小失败
+    4 - 获取散列失败
 @@End@@
 
-###��ע###
-hash���뽫�Զ������ַ�������,��С���㷨ָ��. Ҫ���������Ƭʹ����������fFinal���Ϊ�ٶ����޽�β��Ƭ���������е�˳�����ʹ�÷��ص�ɢ�л�����.
+###Remarks###
+hash数码将以二进制字符串返回,大小由算法指定. 要想对数据碎片使用它可设置fFinal标记为假对于无结尾碎片并对于所有的顺序调用使用返回的散列化对象.
 
-###���###
+###Related###
  _Crypt_HashFile
 
-###�ο�###
- ����MSDN֪ʶ����CryptHashData�������Ϣ
+###See Also###
+ 搜索MSDN知识库中CryptHashData的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

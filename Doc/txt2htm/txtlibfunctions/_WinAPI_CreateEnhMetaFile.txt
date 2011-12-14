@@ -1,46 +1,46 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_CreateEnhMetaFile
 
-###����###
-Ϊ��ǿ��Ԫ�ļ������豸����
+###Description###
+为增强型元文件创建设备场景
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_CreateEnhMetaFile( [$hDC [, $tRECT [, $fPixels [, $sFile [, $sDescription]]]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hDC
-   �豸�����ľ��. ϵͳʹ�ø��豸������¼ͼƬԭʼ���ֵ��豸�ķֱ��ʺ͵�λ. ���Ϊ0��ʹ�õ�ǰ����ʾ�豸.
+   设备场景的句柄. 系统使用该设备场景记录图片原始出现的设备的分辨率和单位. 如果为0则使用当前的显示设备.
 $tRECT
-$tagRECT�ṹ. ���Ϊ0ͼ���豸�ӿڼ����Χ��Ӧ�ó�����Ƶ�ͼƬ����С����.
+$tagRECT结构. 如果为0图形设备接口计算包围用应用程序绘制的图片的最小矩形.
 $fPixels
-$tRECT�ṹ�Ƿ������ض���. ����ֵΪ:
-    TRUE: �߼���λ(����)
-    FALSE: .01���׵�λ(Ĭ��)
+$tRECT结构是否以像素定义. 可用值为:
+    TRUE: 逻辑单位(像素)
+    FALSE: .01毫米单位(默认)
 $sFile
-   ��Ҫ��������ǿ��Ԫ�ļ����ļ���. ���Ϊ0���ļ������ڴ�����������ʹ��_WinAPI_DeleteEnhMetaFile()����ɾ��ʱ��ʧ.
+   将要创建的增强型元文件的文件名. 如果为0则文件基于内存且其内容在使用_WinAPI_DeleteEnhMetaFile()函数删除时丢失.
 $sDescription
-   ָ������ͼƬ��Ӧ�ó������Ƶ��ַ���. ���ַ���Ϊ�ջ����¸�ʽ:
-       "Ӧ�ó�������|ͼƬ����"
+   指定创建图片的应用程序名称的字符串. 该字符串为空或如下格式:
+       "应用程序名称|图片名称"
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��ǿ��Ԫ�ļ��豸�����ľ��
-ʧ��: ����0������@error��0
+成功: 增强型元文件设备场景的句柄
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-Ӧ�ó���ʹ���ɸú����������豸������ͼ��ͼƬ�洢����ǿ��Ԫ�ļ���. ��ʶ�ó����ľ���ɴ��ݸ��κ�GDI����.
-��Ӧ�ó���ͼƬ�洢����ǿ��Ԫ�ļ���, ��ͨ��_WinAPI_PlayEnhMetaFile()������ͼƬ��ʾ����һ����豸��. ����ʾͼƬʱ, ϵͳʹ����$tRECT���������Զ�λ������ͼƬ���豸�ķֱ���������ָ���ľ���.
-��ǿ��Ԫ�ļ����ļ���չ������Ϊ.emf
-��������ʾ���뽫 Test.emf �ļ����浽��ʱ�ļ�����
+###Remarks###
+应用程序使用由该函数创建的设备场景将图形图片存储在增强型元文件中. 标识该场景的句柄可传递给任何GDI函数.
+当应用程序将图片存储在增强型元文件后, 可通过_WinAPI_PlayEnhMetaFile()函数将图片显示在任一输出设备上. 当显示图片时, 系统使用由$tRECT参数及来自定位和缩放图片的设备的分辨率数据所指定的矩形.
+增强型元文件的文件扩展名必须为.emf
+正常运行示例请将 Test.emf 文件保存到临时文件夹中
 
-###���###
+###Related###
 
-###�ο�###
-����MSDN֪ʶ�����й�CreateEnhMetaFile����Ϣ
+###See Also###
+搜索MSDN知识库中有关CreateEnhMetaFile的信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

@@ -1,65 +1,65 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_ShellChangeNotify
 
-###����###
-֪ͨϵͳ������ִ��
+###Description###
+通知系统程序已执行
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_ShellChangeNotify( $iEvent, $iFlags [, $iItem1 [, $iItem2]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
-$iEvent  �����������¼�. ͨ��һ��ֻ����һ���¼�. ���ָ������¼�, ������$iItem2�е�ֵ��$iItem2��������ֱ�������¼���ͬ. ������Ϊ����ֵ��һ������:
-$SHCNE_ALLEVENTS - �����������¼�.
-$SHCNE_ASSOCCHANGED - �ļ����͹����Ѹı�. $iFlags�б���ָ��$SHCNF_IDLIST. $iItem1��$iItem2��Ч�ұ���Ϊ0.
-$SHCNE_ATTRIBUTES - ��Ŀ���ļ��������Ѹı�. $iFlags�б���ָ��$SHCNF_IDLIST��$SHCNF_PATH. $iItem1�����Ѹı����Ŀ���ļ���. $iItem2��Ч�ұ���Ϊ0.
-$SHCNE_CREATE - �Ѵ���һ�����ļ�����Ŀ, $iFlags�б���ָ��$SHCNF_IDLIST��$SHCNF_PATH. $iItem1�����Ѵ�������Ŀ. $iItem2��Ч�ұ���Ϊ0.
-$SHCNE_DELETE - ��ɾ��һ�����ļ�����Ŀ, $iFlags�б���ָ��$SHCNF_IDLIST��$SHCNF_PATH. $iItem1������ɾ������Ŀ. $iItem2��Ч�ұ���Ϊ0.
-$SHCNE_DRIVEADD - ������һ��������. $iFlags�б���ָ��$SHCNF_IDLIST��$SHCNF_PATH. $iItem1�����������������ĸ�. $iItem2��Ч�ұ���Ϊ0.
-$SHCNE_DRIVEADDGUI - δʹ��.
-$SHCNE_DRIVEREMOVED - ���Ƴ�һ��������. $iFlags�б���ָ��$SHCNF_IDLIST��$SHCNF_PATH. $iItem1�����������������ĸ�. $iItem2��Ч�ұ���Ϊ0.
-$SHCNE_EXTENDED_EVENT - δʹ��.
-$SHCNE_FREESPACE - �������ϵĿ��ÿռ��Ѹı�. $iFlags�б���ָ��$SHCNF_IDLIST. $iItem1�������ɿռ��Ѹı���������ĸ�. $iItem2��Ч�ұ���Ϊ0.
-$SHCNE_MEDIAINSERTED - �洢ý���Ѳ���������. $iFlags�б���ָ��$SHCNF_IDLIST��$SHCNF_PATH. $iItem1������ý����������ĸ�. $iItem2��Ч�ұ���Ϊ0.
-$SHCNE_MEDIAREMOVED - �Ѵ��������Ƴ�һ���洢ý��. $iFlags�б���ָ��$SHCNF_IDLIST��$SHCNF_PATH. $iItem1�������Ƴ�ý����������ĸ�. $iItem2��Ч�ұ���Ϊ0.
-$SHCNE_MKDIR - �Ѵ���һ���ļ���. $iFlags�б���ָ��$SHCNF_IDLIST��$SHCNF_PATH. $iItem1�����������ļ���. $iItem2��Ч�ұ���Ϊ0.
-$SHCNE_NETSHARE - �����ļ�����ͨ�����繲��. $iFlags�б���ָ��$SHCNF_IDLIST��$SHCNF_PATH. $iItem1�����������ļ���. $iItem2��Ч�ұ���Ϊ0.
-$SHCNE_NETUNSHARE - �����ļ��в���ͨ�����繲��. $iFlags�б���ָ��$SHCNF_IDLIST��$SHCNF_PATH. $iItem1�������ٹ������ļ���. $iItem2��Ч�ұ���Ϊ0.
-$SHCNE_RENAMEFOLDER - �Ѹı�һ���ļ��е�����. $iFlags�б���ָ��$SHCNF_IDLIST��$SHCNF_PATH. $iItem1�����ļ�����ǰ����Ŀ�б�ָ��. $iItem2�����ļ����µ���Ŀ�б�ָ��.
-$SHCNE_RENAMEITEM - �Ѹı�һ�����ļ�����Ŀ������. $iFlags�б���ָ��$SHCNF_IDLIST��$SHCNF_PATH. $iItem1�����ļ�����ǰ����Ŀ�б�ָ��. $iItem2�����ļ����µ���Ŀ�б�ָ��.
-$SHCNE_RMDIR - ���Ƴ�һ���ļ���. $iFlags�б���ָ��$SHCNF_IDLIST��$SHCNF_PATH. $iItem1�������Ƴ����ļ���. $iItem2��Ч�ұ���Ϊ0.
-$SHCNE_SERVERDISCONNECT - ������Ͽ��������������. $iFlags�б���ָ��$SHCNF_IDLIST��$SHCNF_PATH. $iItem1�����Ͽ����ӵķ�����. $iItem2��Ч�ұ���Ϊ0.
-$SHCNE_UPDATEDIR - �ı��Ѵ����ļ��е�����, ���ļ�����Ȼ������δ��������. $iFlags�б���ָ��$SHCNF_IDLIST��$SHCNF_PATH. $iItem1�����ı���ļ���. $iItem2��Ч�ұ���Ϊ0. ���ļ��б�����, ɾ��, ��������, ʹ����Ӧ��$SHCNE_MKDIR, $SHCNE_RMDIR, ��$SHCNE_RENAMEFOLDER.
-$SHCNE_UPDATEIMAGE - ϵͳͼ���б��е�ͼ���Ѹı�. $iFlags�б���ָ��$SHCNF_DWORD. $iItem1�����Ѹı��ͼ���б�������, $iItem2��Ч�ұ���Ϊ0.
-$SHCNE_UPDATEITEM - �Ѵ�����Ŀ(�ļ��л���ļ���)�Ѹı�, ����Ŀ��Ȼ������δ��������. $iFlags�б���ָ��$SHCNF_IDLIST��$SHCNF_PATH. $iItem1�����ı����Ŀ. $iItem2��Ч�ұ���Ϊ0. �����ļ�����Ŀ������, ɾ��, ��������, ʹ����Ӧ��$SHCNE_MKDIR, $SHCNE_RMDIR, ��$SHCNE_RENAMEITEM.
-$SHCNE_DISKEVENTS - ָ��������д����¼��ı�ʶ.
-$SHCNE_GLOBALEVENTS - ָ���������ȫ���¼��ı�ʶ.
-$SHCNE_INTERRUPT - ϵͳ�ж�ʱ������ָ���¼�. ���ڸ�ֵ���޸������¼�ֵ, �����޷�����ʹ��.
-$iFlags  ����$iItem1��$iItem2������˼�ı��, ����Ϊ����ֵ֮һ:
-$SHCNF_DWORD - $iItem1��$iItem2����ΪDWORDֵ.
-$SHCNF_IDLIST - $iItem1��$iItem2����Ϊ���������ı���Ŀ��ITEMIDLIST�ṹ�ĵ�ַ. ÿ��ITEMIDLIST��������������ļ���.
-$SHCNF_PATH - $iItem1��$iItem2����Ϊ���������ı����Ŀ������·�������ַ���.
-$SHCNF_PRINTER - $iItem1��$iItem2����Ϊ���������ı�Ĵ�ӡ�������ַ���.
-$SHCNF_FLUSH - ֪ͨ�ѱ����ݸ�����Ӱ��Ĳ���ʱ��������. ���ڸñ�ǽ��޸������������ͱ��, �����޷���������.
-$SHCNF_FLUSHNOWAIT - ������ʼ������Ӱ��Ĳ��ִ���֪ͨ��������֪ͨ���̿�ʼʱ��������. ���ڸñ�ǽ��޸������������ͱ��, �����޷���������. �ñ�ǰ���$SHCNF_FLUSH���.
-$SHCNF_NOTIFYRECURSIVE - ֪ͨ�ͻ���ע����������.
-$iItem1  �¼��ṩ���׸�ֵ.
-$iItem2  �¼��ṩ�ĵڶ���ֵ.
+$iEvent  描述发生的事件. 通常一次只描述一个事件. 如果指定多个事件, 包含在$iItem2中的值和$iItem2参数必须分别对所有事件相同. 参数可为下列值的一个或多个:
+$SHCNE_ALLEVENTS - 发生的所有事件.
+$SHCNE_ASSOCCHANGED - 文件类型关联已改变. $iFlags中必须指定$SHCNF_IDLIST. $iItem1及$iItem2无效且必须为0.
+$SHCNE_ATTRIBUTES - 项目或文件夹属性已改变. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含已改变的项目或文件夹. $iItem2无效且必须为0.
+$SHCNE_CREATE - 已创建一个非文件夹项目, $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含已创建的项目. $iItem2无效且必须为0.
+$SHCNE_DELETE - 已删除一个非文件夹项目, $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含已删除的项目. $iItem2无效且必须为0.
+$SHCNE_DRIVEADD - 已添加一个驱动器. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含已添加驱动器的根. $iItem2无效且必须为0.
+$SHCNE_DRIVEADDGUI - 未使用.
+$SHCNE_DRIVEREMOVED - 已移除一个驱动器. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含已添加驱动器的根. $iItem2无效且必须为0.
+$SHCNE_EXTENDED_EVENT - 未使用.
+$SHCNE_FREESPACE - 驱动器上的可用空间已改变. $iFlags中必须指定$SHCNF_IDLIST. $iItem1包含自由空间已改变的驱动器的根. $iItem2无效且必须为0.
+$SHCNE_MEDIAINSERTED - 存储媒介已插入驱动器. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含新媒介的驱动器的根. $iItem2无效且必须为0.
+$SHCNE_MEDIAREMOVED - 已从驱动器移除一个存储媒介. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含已移除媒介的驱动器的根. $iItem2无效且必须为0.
+$SHCNE_MKDIR - 已创建一个文件夹. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含创建的文件夹. $iItem2无效且必须为0.
+$SHCNE_NETSHARE - 本地文件夹已通过网络共享. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含共享的文件夹. $iItem2无效且必须为0.
+$SHCNE_NETUNSHARE - 本地文件夹不再通过网络共享. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含不再共享的文件夹. $iItem2无效且必须为0.
+$SHCNE_RENAMEFOLDER - 已改变一个文件夹的名称. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含文件夹以前的项目列表指针. $iItem2包含文件夹新的项目列表指针.
+$SHCNE_RENAMEITEM - 已改变一个非文件夹项目的名称. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含文件夹以前的项目列表指针. $iItem2包含文件夹新的项目列表指针.
+$SHCNE_RMDIR - 已移除一个文件夹. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含已移除的文件夹. $iItem2无效且必须为0.
+$SHCNE_SERVERDISCONNECT - 计算机断开与服务器的连接. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含断开连接的服务器. $iItem2无效且必须为0.
+$SHCNE_UPDATEDIR - 改变已存在文件夹的内容, 但文件夹依然存在且未被重命名. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含改变的文件夹. $iItem2无效且必须为0. 当文件夹被创建, 删除, 或重命名, 使用相应的$SHCNE_MKDIR, $SHCNE_RMDIR, 或$SHCNE_RENAMEFOLDER.
+$SHCNE_UPDATEIMAGE - 系统图像列表中的图像已改变. $iFlags中必须指定$SHCNF_DWORD. $iItem1包含已改变的图像列表的索引, $iItem2无效且必须为0.
+$SHCNE_UPDATEITEM - 已存在项目(文件夹或非文件夹)已改变, 但项目依然存在且未被重命名. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含改变的项目. $iItem2无效且必须为0. 当非文件夹项目被创建, 删除, 或重命名, 使用相应的$SHCNE_MKDIR, $SHCNE_RMDIR, 或$SHCNE_RENAMEITEM.
+$SHCNE_DISKEVENTS - 指定结合所有磁盘事件的标识.
+$SHCNE_GLOBALEVENTS - 指定结合所有全局事件的标识.
+$SHCNE_INTERRUPT - 系统中断时发生的指定事件. 由于该值会修改其它事件值, 所以无法单独使用.
+$iFlags  描述$iItem1和$iItem2参数意思的标记, 必须为下列值之一:
+$SHCNF_DWORD - $iItem1及$iItem2参数为DWORD值.
+$SHCNF_IDLIST - $iItem1及$iItem2参数为代表发生改变项目的ITEMIDLIST结构的地址. 每个ITEMIDLIST必须相对于桌面文件夹.
+$SHCNF_PATH - $iItem1及$iItem2参数为包含发生改变的项目的完整路径名的字符串.
+$SHCNF_PRINTER - $iItem1及$iItem2参数为代表发生改变的打印机名的字符串.
+$SHCNF_FLUSH - 通知已被传递给所有影响的部分时函数返回. 由于该标记将修改其他数据类型标记, 所以无法用于自身.
+$SHCNF_FLUSHNOWAIT - 函数开始向所有影响的部分传递通知但不会在通知进程开始时立即返回. 由于该标记将修改其他数据类型标记, 所以无法用于自身. 该标记包含$SHCNF_FLUSH标记.
+$SHCNF_NOTIFYRECURSIVE - 通知客户端注册所有子项.
+$iItem1  事件提供的首个值.
+$iItem2  事件提供的第二个值.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0
+成功: 返回1
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����SHChangeNotify�������Ϣ
+###See Also###
+ 搜索MSDN知识库中SHChangeNotify的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

@@ -1,26 +1,26 @@
-###�ṹ����###
+﻿###结构常量###
 $tagNMLVGETINFOTIP
 
-###����###
-�����������Ҫ��ʾ��Ŀ��ʾ���б���ͼ�����Ϣ�Ľṹ
+###Description###
+包含或接收需要显示项目提示的列表视图项的信息的结构
 
-###�﷨###
+###Syntax###
 Global Const $tagNMLVGETINFOTIP =  $tagNMHDR & ";int Flags;ptr Text;int TextMax;int Item;int SubItem;int lParam"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 $tagNMHDR
-   ����֪ͨ��Ϣ����Ϣ
+   包含通知消息的信息
 Flags
-   0����$LVGIT_UNFOLDED
+   0或者$LVGIT_UNFOLDED
 Text
-   ������������ı���Ϣ���ַ��������ĵ�ַ. ������Ϊ0, �ó�Ա���������ڵ���Ŀ�ı�. �ڴ������, �Ὣ���������ı����ӵ��ַ���β��.
+   接收任意额外文本信息的字符缓冲区的地址. 如果标记为0, 该成员将包含存在的项目文本. 在此情况下, 会将任意额外的文本附加到字符串尾部.
 TextMax
-   ��Textָ�򻺳������ַ���С. ���ܲ����û���������Ϊ���������С, $INFOTIPSIZEֵ���������Ŀ��.
+   由Text指向缓冲区的字符大小. 尽管不将该缓冲区假设为任意特殊大小, $INFOTIPSIZE值可用于设计目的.
 Item
-   �ṹָ�����Ŀ��0������.
+   结构指向的项目的0基索引.
 SubItem
-   �ṹָ�������Ŀ��1������. ����ó�ԱΪ0, �ṹָ����Ŀ��������. ��ǰ��ʹ�øó�Ա����Ϊ0.
+   结构指向的子项目的1基索引. 如果该成员为0, 结构指向项目而非子项. 当前不使用该成员且总为0.
 lParam
-   Ӧ�ó����������Ŀ��ص�ֵ. ��ǰ��ʹ�øó�Ա����Ϊ0.
+   应用程序定义的与项目相关的值. 当前不使用该成员且总为0.
 @@end@@

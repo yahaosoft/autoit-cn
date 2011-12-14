@@ -1,24 +1,24 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_IsAlphaBitmap
 
-###����###
-ȷ��ָ��λͼ�Ƿ����alphaͨ��
+###Description###
+确定指定位图是否具有alpha通道
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_IsAlphaBitmap( $hBitmap )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hBitmap
-   ���Ե�λͼ���. λͼ����Ϊÿ����32λ.
+   测试的位图句柄. 位图必须为每像素32位.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ָ��λͼ����alphaͨ���Ƿ���1; ��֮����0
-ʧ��: ����0������@error��0
+成功: 指定位图具有alpha通道是返回1; 反之返回0
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-�ú�������32λδѹ��λͼ. ���Դλͼ����32λ�򾭹�ѹ��, ����0.
+###Remarks###
+该函仅用于32位未压缩位图. 如果源位图不是32位或经过压缩, 返回0.

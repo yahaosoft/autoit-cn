@@ -1,24 +1,24 @@
-###�ṹ����###
+﻿###结构常量###
 $tagBLENDFUNCTION
 
-###����###
-ͨ��ָ����Ϻ��������ƴ�Դλͼ��Ŀ��λͼ�Ļ��
+###Description###
+通过指定混合函数来控制从源位图到目标位图的混合
 
-###�﷨###
+###Syntax###
 Global Const $tagBLENDFUNCTION =  "byte Op;byte Flags;byte Alpha;byte Format"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 Op
-   ָ����ϲ�����Դ
+   指定混合操作的源
 Flags
-   ����Ϊ0
+   必须为0
 Alpha
-   ָ������ȫ��Դλͼ��alpha͸���ȵ�ֵ. ��ֵ����Դλͼÿ���ص�alphaֵ����. �������Ϊ0, ͼ��ȫ͸��. ����Ϊ255ʱʹ��ÿ���ص�alphaֵ(��͸��)
+   指定用于全部源位图的alpha透明度的值. 该值会与源位图每像素的alpha值相结合. 如果设置为0, 图像将全透明. 设置为255时使用每像素的alpha值(不透明)
 Format
-   �ó�Ա���ƽ���Դλͼ��Ŀ��λͼ�ķ���:
-    $AC_SRC_ALPHA - �ñ����λͼ����Alphaͨ��ʱ������(ÿ����alpha). ע�����APIʹ��Ԥ�Ŵ��alpha, ����ζ��λͼ�к�����ͨ����ֵ��alphaͨ����ֵһͬԤ�Ŵ�.
+   该成员控制解析源位图及目标位图的方法:
+    $AC_SRC_ALPHA - 该标记在位图具有Alpha通道时被设置(每像素alpha). 注意如果API使用预放大的alpha, 将意味着位图中红绿蓝通道的值随alpha通道的值一同预放大.
 
 
-    ��ע ����$tagBLENDFUNCTION��Դλͼ������32bpp
+    备注 用于$tagBLENDFUNCTION的源位图必须是32bpp
 @@end@@

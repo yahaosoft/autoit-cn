@@ -1,57 +1,57 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GDIPlus_BitmapCloneArea
 
-###����###
-����ָ�����괦ָ����ʽ��Bitmap����ĸ���
+###Description###
+创建指定坐标处指定格式的Bitmap对象的副本
 
-###�﷨###
+###Syntax###
 #Include <GDIPlus.au3>
 _GDIPlus_BitmapCloneArea($hBmp, $iLeft, $iTop, $iWidth, $iHeight[, $iFormat = 0x00021808])
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hBmp 
-   Bitmap������
+   Bitmap对象句柄
 $iLeft 
-   Ҫ�����Ƶľ������Ͻ�X����
+   要被复制的矩形左上角X坐标
 $iTop 
-   Ҫ�����Ƶľ������Ͻ�Y����
+   要被复制的矩形左上角Y坐标
 $iWidth 
-   ָ��λͼҪ�����ƵĲ��ֵľ��ο���
+   指定位图要被复制的部分的矩形宽度
 $iHeight 
-   ָ��λͼҪ�����ƵĲ��ֵľ��θ߶�
+   指定位图要被复制的部分的矩形高度
 $iFormat 
-   ��λͼ�����ظ�ʽ:
-    $GDIP_PXF01INDEXED = ÿ����1λ, ������
-    $GDIP_PXF04INDEXED = ÿ����4λ, ������
-    $GDIP_PXF08INDEXED = ÿ����8λ, ������
-    $GDIP_PXF16GRAYSCALE = ÿ����16λ, �Ҷ�
-    $GDIP_PXF16RGB555 = ÿ����16λ; ÿRGB���5λ
-    $GDIP_PXF16RGB565 = ÿ����16λ; ��ɫ5λ, ��ɫ6λ, ��ɫ5λ
-    $GDIP_PXF16ARGB1555 = ÿ����16λ; alphaͨ��1λ��ÿRGB���5λ
-    $GDIP_PXF24RGB = ÿ����24λ; ÿRGB���8λ
-    $GDIP_PXF32RGB = ÿ����32λ; ÿRGB���8λ. ��alpha���.
-    $GDIP_PXF32ARGB = ÿ����32λ; ÿRGB��alpha���8λ
-    $GDIP_PXF32PARGB = ÿ����32λ; ÿRGB��alpha���8λ, Ԥ�Ŵ�
-    $GDIP_PXF48RGB = ÿ����48λ; ÿRGB���16λ
-    $GDIP_PXF64ARGB = ÿ����64λ; ÿRGB��alpha���16λ
-    $GDIP_PXF64PARGB = ÿ����64λ; ÿRGB��alpha���16λ, Ԥ�Ŵ�
+   新位图的像素格式:
+    $GDIP_PXF01INDEXED = 每像素1位, 索引的
+    $GDIP_PXF04INDEXED = 每像素4位, 索引的
+    $GDIP_PXF08INDEXED = 每像素8位, 索引的
+    $GDIP_PXF16GRAYSCALE = 每像素16位, 灰度
+    $GDIP_PXF16RGB555 = 每像素16位; 每RGB组分5位
+    $GDIP_PXF16RGB565 = 每像素16位; 红色5位, 绿色6位, 蓝色5位
+    $GDIP_PXF16ARGB1555 = 每像素16位; alpha通道1位和每RGB组分5位
+    $GDIP_PXF24RGB = 每像素24位; 每RGB组分8位
+    $GDIP_PXF32RGB = 每像素32位; 每RGB组分8位. 无alpha组分.
+    $GDIP_PXF32ARGB = 每像素32位; 每RGB和alpha组分8位
+    $GDIP_PXF32PARGB = 每像素32位; 每RGB和alpha组分8位, 预放大
+    $GDIP_PXF48RGB = 每像素48位; 每RGB组分16位
+    $GDIP_PXF64ARGB = 每像素64位; 每RGB和alpha组分16位
+    $GDIP_PXF64PARGB = 每像素64位; 每RGB和alpha组分16位, 预放大
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �����½���Bitmap������
-ʧ��: 0
+成功: 返回新建的Bitmap对象句柄
+失败: 0
 @@End@@
 
-###��ע###
-Bitmap����ʹ����Ϻ�, ����_WinAPI_DeleteObject�ͷ���Դ
+###Remarks###
+Bitmap对象使用完毕后, 调用_WinAPI_DeleteObject释放资源
 
-###���###
+###Related###
  _WinAPI_DeleteObject , _GDIPlus_ImageGetPixelFormat
 
-###�ο�###
- �鿴MSDN֪ʶ����GdipCloneBitmapAreaI�������Ϣ
+###See Also###
+ 查看MSDN知识库中GdipCloneBitmapAreaI的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

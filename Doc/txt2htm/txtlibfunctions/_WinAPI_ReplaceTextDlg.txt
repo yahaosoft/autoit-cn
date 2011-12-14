@@ -1,23 +1,23 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_ReplaceTextDlg
 
-###����###
-����ϵͳ�������ģʽ���ҶԻ���ʹ�û���ָ��Ҫ�������ַ������滻���ַ���
+###Description###
+创建系统定义的无模式查找对话框使用户可指定要搜索的字符串和替换的字符串
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_ReplaceTextDlg( $hOwner [, $sFindWhat [, $sReplaceWith [, $iFlags [, $pFindProc [, $lParam]]]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hOwner
-   �Ի��������Ĵ��ڵľ��. ָ�����ڵĴ��ڽ��̴ӶԻ������FINDMSGSTRING��Ϣ. �ò�����Ϊ������Ч�Ĵ�����, �����벻Ϊ0.
+   对话框所属的窗口的句柄. 指定窗口的窗口进程从对话框接收FINDMSGSTRING消息. 该参数可为任意有效的窗体句柄, 但必须不为0.
 $sFindWhat
-   [��ѡ] ��ʼ���Ի���ʱ��ʾ�������ַ���
+   [可选] 初始化对话框时显示的搜索字符串
 $sReplaceWith
-   [��ѡ] ��ʼ���Ի���ʱ��ʾ���滻�ַ���
+   [可选] 初始化对话框时显示的替换字符串
 $iFlags
-  ��� [��ѡ] ��ʼ���Ի������λ���. ������FINDMSGSTRINGע�����Ϣ�Ա�ʾ�û�����ʱ�Ի���������Щ. ��Ϊһ����������ֵ:
+  标记 [可选] 初始化对话框的数位标记. 当发送FINDMSGSTRING注册的消息以表示用户输入时对话框设置这些. 可为一个或多个下列值:
    $FR_DIALOGTERM
    $FR_DOWN
    $FR_ENABLEHOOK
@@ -36,31 +36,31 @@ $iFlags
    $FR_SHOWHELP
    $FR_WHOLEWORD
    $pFindProc
-   $FR_ENABLEHOOK���ʱ�ɺ���
+   $FR_ENABLEHOOK标记时可忽略
 $lParam
-   [��ѡ] ϵͳ���ݸ����ӳ������Ӧ�ó����������
+   [可选] 系统传递给钩子程序的由应用程序定义的数据
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0
+成功: 返回1
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-_WinAPI_ReplaceTextDlg()��ִ���滻����. �Ի���ֻ����Ի����������ڵĴ��ڽ��̷�����ע���FINDMSGSTRING��Ϣ.
-�ڵ���_WinAPI_ReplaceTextDlg()ǰ, �������_WinAPI_RegisterWindowMessage()������ȡFINDMSGSTRING��Ϣ.
-���û����"Find Next", "Replace", "Replace All"��ť��رնԻ���ʱ, �Ի������ʹ�øñ�ʶ��������Ϣ.
-FINDMSGSTRING��Ϣ��"lParam"��������$tagFINDREPLACE�ṹ��ָ��.
-�ṹ��"Flags"��Ա��ʾ������Ϣ���¼�. �ṹ��������Ա��ʾ�û�������.
-_WinAPI_ReplaceTextDlg()ʹ���ڲ������������û���"Find What"��"Replace With"�༭�ؼ���������ַ���.
-��ͨ��_WinAPI_SetFRBuffer()�����������ӻ�������С.
-�����ͷŷ�����ڲ�������ڴ�, �������_WinAPI_FlushFRBuffer()�ظ�����$FR_DIALOGTERM������õ�FINDMSGSTRING messag��Ϣ.
+###Remarks###
+_WinAPI_ReplaceTextDlg()不执行替换操作. 对话框只是向对话框所属窗口的窗口进程发送已注册的FINDMSGSTRING消息.
+在调用_WinAPI_ReplaceTextDlg()前, 必须调用_WinAPI_RegisterWindowMessage()函数获取FINDMSGSTRING消息.
+当用户点击"Find Next", "Replace", "Replace All"按钮或关闭对话框时, 对话框进程使用该标识符发送消息.
+FINDMSGSTRING消息的"lParam"参数包含$tagFINDREPLACE结构的指针.
+结构的"Flags"成员表示引发消息的事件. 结构的其他成员表示用户的输入.
+_WinAPI_ReplaceTextDlg()使用内部缓冲区控制用户在"Find What"和"Replace With"编辑控件中输入的字符串.
+可通过_WinAPI_SetFRBuffer()函数增加增加缓冲区大小.
+除了释放分配给内部缓冲的内存, 还需调用_WinAPI_FlushFRBuffer()回复带有$FR_DIALOGTERM标记设置的FINDMSGSTRING messag消息.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����ReplaceText�������Ϣ
+###See Also###
+ 搜索MSDN知识库中ReplaceText的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

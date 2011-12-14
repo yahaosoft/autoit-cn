@@ -1,42 +1,42 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlRichEdit_SetSel
 
-###����###
-����ѡȡ�ĵ�λ�͸�λ�ַ�λ��
+###Description###
+设置选取的低位和高位字符位置
 
-###�﷨###
+###Syntax###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetSel($hWnd, $iAnchor, $iActive[, $fHideSel = False])
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  �ؼ����
- $iAnchor  ѡȡ�����ַ���λ��
-����ֵ: -1 - �ı�β
- $iActive  ѡȡ��β�ַ���λ��
-����ֵ: -1 - �ı�β
- $fHideSel  [��ѡ] Ϊ��ʱ����ѡ��
+ $hWnd  控件句柄
+ $iAnchor  选取的首字符的位置
+特殊值: -1 - 文本尾
+ $iActive  选取的尾字符的位置
+特殊值: -1 - 文本尾
+ $fHideSel  [可选] 为真时隐藏选区
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
- �ɹ�:  ��
- ʧ��:  �ٲ�����@error
- @error:  101 - $hWnd���Ǿ��
-  102 - $iAnchor�Ȳ�������Ҳ����0��-1
-  103 - $iActive�Ȳ�������Ҳ����0��-1
-  104 - $fHideSel����Ǽ�
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  102 - $iAnchor既不是正数也不是0或-1
+  103 - $iActive既不是正数也不是0或-1
+  104 - $fHideSel非真非假
 @@End@@
 
-###��ע###
-�ؼ��е��ı����ַ���λ��1���ַ�
-$iActive��С��$iAnchor
+###Remarks###
+控件中的文本首字符是位置1的字符
+$iActive可小于$iAnchor
 
-###���###
+###Related###
  _GUICtrlRichEdit_GetSel , _GUICtrlRichEdit_GetSelAA , _GUICtrlRichEdit_Deselect , _GUICtrlRichEdit_IsTextSelected , _GUICtrlRichEdit_GotoCharPos
 
-###�ο�###
- ����MSDN֪ʶ����EM_EXSETSEL�������Ϣ
+###See Also###
+ 搜索MSDN知识库中EM_EXSETSEL的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

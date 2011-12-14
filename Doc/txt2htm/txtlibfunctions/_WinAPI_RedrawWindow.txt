@@ -1,62 +1,62 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êý###
+ï»¿###User Defined Function###
 _WinAPI_RedrawWindow
 
-###ÃèÊö###
-ÔÚ´°¿Ú¿Í»§ÇøÖØ»­È«²¿»ò²¿·Ö´°¿Ú
+###Description###
+åœ¨çª—å£å®¢æˆ·åŒºé‡ç”»å…¨éƒ¨æˆ–éƒ¨åˆ†çª—å£
 
-###Óï·¨###
+###Syntax###
 #Include <WinAPI.au3>
 _WinAPI_RedrawWindow($hWnd[,
 $tRect = 0[, $hRegion = 0[, $iFlags = 5]]])
 
-###²ÎÊý###
+###Parameters###
 @@ParamTable@@
 $hWnd
-   ´°¿Ú¾ä±ú
+   çª—å£å¥æŸ„
 $tRect
-$tagRECT½á¹¹. µ±$hRegion²ÎÊýÈ·¶¨Ò»¸öÇøÓòÊ±¸Ã²ÎÊý¿É±»ºöÂÔ.
+$tagRECTç»“æž„. å½“$hRegionå‚æ•°ç¡®å®šä¸€ä¸ªåŒºåŸŸæ—¶è¯¥å‚æ•°å¯è¢«å¿½ç•¥.
 $hRegion
-$hRegionºÍ$tRect²ÎÊýÎª0, Õû¸ö¿Í»§Çø½«±»Ìí¼Óµ½¸üÐÂÇøÓò.
+$hRegionå’Œ$tRectå‚æ•°ä¸º0, æ•´ä¸ªå®¢æˆ·åŒºå°†è¢«æ·»åŠ åˆ°æ›´æ–°åŒºåŸŸ.
 $iFlags
-   Ö¸¶¨ÖØ»æ±ê¼Ç. ¸Ã²ÎÊý¿ÉÒÔÊÇ¿ÉÓÃ»ò½ûÓÃÒ»¸ö´°Ìå, ¿ØÖÆÖØ»æ, ¼°¿ØÖÆ´°ÌåÊÜµ½µÄÓ°ÏìµÄ½áºÏ:
+   æŒ‡å®šé‡ç»˜æ ‡è®°. è¯¥å‚æ•°å¯ä»¥æ˜¯å¯ç”¨æˆ–ç¦ç”¨ä¸€ä¸ªçª—ä½“, æŽ§åˆ¶é‡ç»˜, åŠæŽ§åˆ¶çª—ä½“å—åˆ°çš„å½±å“çš„ç»“åˆ:
     $RDW_ERASE -
-      ÖØ»æÇ°Ê¹´°Ìå½ÓÊÕWM_ERASEBKGNDÏûÏ¢
+      é‡ç»˜å‰ä½¿çª—ä½“æŽ¥æ”¶WM_ERASEBKGNDæ¶ˆæ¯
     $RDW_FRAME -
-      Ê¹µÃÓë¸üÐÂÇøÓòÏà½»µÄ´°Ìå·Ç¿Í»§ÇøµÄÈÎÒâ²¿·Ö½ÓÊÕWM_NCPAINTÏûÏ¢
+      ä½¿å¾—ä¸Žæ›´æ–°åŒºåŸŸç›¸äº¤çš„çª—ä½“éžå®¢æˆ·åŒºçš„ä»»æ„éƒ¨åˆ†æŽ¥æ”¶WM_NCPAINTæ¶ˆæ¯
     $RDW_INTERNALPAINT -
-      ½«WM_PAINTÏûÏ¢·¢ËÍµ½´°¿Ú¼´Ê¹´°¿ÚµÄÈÎÒâ²¿·Ö²¢·ÇÎÞÐ§
+      å°†WM_PAINTæ¶ˆæ¯å‘é€åˆ°çª—å£å³ä½¿çª—å£çš„ä»»æ„éƒ¨åˆ†å¹¶éžæ— æ•ˆ
     $RDW_INVALIDATE -
-$tRect»ò$hRegion, "") Èç¹û¶¼Îª0, ½ûÓÃÈ«²¿´°¿Ú
+$tRectæˆ–$hRegion, "") å¦‚æžœéƒ½ä¸º0, ç¦ç”¨å…¨éƒ¨çª—å£
     $RDW_NOERASE -
-$WM_ERASEBKGNDÏûÏ¢
+$WM_ERASEBKGNDæ¶ˆæ¯
     $RDW_NOFRAME -
-$WM_NCPAINTÏûÏ¢
+$WM_NCPAINTæ¶ˆæ¯
     $RDW_NOINTERNALPAINT -
-$WM_PAINTÏûÏ¢
-    $RDW_VALIDATE - ¼¤»î$tRect»ò$hRegion
+$WM_PAINTæ¶ˆæ¯
+    $RDW_VALIDATE - æ¿€æ´»$tRectæˆ–$hRegion
 $RDW_ERASENOW
-      - Ê¹ÊÜÓ°ÏìµÄ´°ÌåÔÚº¯Êý·µ»ØÇ°½ÓÊÕ$WM_NCPAINTºÍ$WM_ERASEBKGNDÏûÏ¢, Èç¹ûÓÐ±ØÒª
+      - ä½¿å—å½±å“çš„çª—ä½“åœ¨å‡½æ•°è¿”å›žå‰æŽ¥æ”¶$WM_NCPAINTå’Œ$WM_ERASEBKGNDæ¶ˆæ¯, å¦‚æžœæœ‰å¿…è¦
     $RDW_UPDATENOW -
-$WM_NCPAINT, $WM_ERASEBKGND, ºÍ$WM_PAINTÏûÏ¢,
-      Èç¹ûÓÐ±ØÒª
-    $RDW_ALLCHILDREN - ×Ó´°Ìå°üº¬ÔÚÖØ»æ²Ù×÷ÖÐ
+$WM_NCPAINT, $WM_ERASEBKGND, å’Œ$WM_PAINTæ¶ˆæ¯,
+      å¦‚æžœæœ‰å¿…è¦
+    $RDW_ALLCHILDREN - å­çª—ä½“åŒ…å«åœ¨é‡ç»˜æ“ä½œä¸­
     $RDW_NOCHILDREN -
-  ×Ó´°ÌåÅÅ³öÔÚÖØ»æ²Ù×÷Íâ
+  å­çª—ä½“æŽ’å‡ºåœ¨é‡ç»˜æ“ä½œå¤–
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: Õæ
-Ê§°Ü: ¼Ù
+æˆåŠŸ: çœŸ
+å¤±è´¥: å‡
 @@End@@
 
-###±¸×¢###
-µ±RedrawWindowÓÃÓÚ×ÀÃæ´°ÌåµÄ·Ç»î¶¯²¿·ÖÊ±, ×ÀÃæ´°Ìå²»»á½ÓÊÕ$WM_PAINTÏûÏ¢.
-Ó¦ÓÃ³ÌÐòÊ¹ÓÃ$RDW_ERASE±ê¼ÇÉú³É$WM_ERASEBKGNDÏûÏ¢ÖØ»æ×ÀÃæ.
-ÐèÒªWindowsConstants.au3Ô¤¶¨Òå±äÁ¿
+###Remarks###
+å½“RedrawWindowç”¨äºŽæ¡Œé¢çª—ä½“çš„éžæ´»åŠ¨éƒ¨åˆ†æ—¶, æ¡Œé¢çª—ä½“ä¸ä¼šæŽ¥æ”¶$WM_PAINTæ¶ˆæ¯.
+åº”ç”¨ç¨‹åºä½¿ç”¨$RDW_ERASEæ ‡è®°ç”Ÿæˆ$WM_ERASEBKGNDæ¶ˆæ¯é‡ç»˜æ¡Œé¢.
+éœ€è¦WindowsConstants.au3é¢„å®šä¹‰å˜é‡
 
-###Ïà¹Ø###
+###Related###
 $tagRECT
 
-###²Î¿¼###
-ËÑË÷MSDNÖªÊ¶¿âÖÐRedrawWindowµÄÏà¹ØÐÅÏ¢
+###See Also###
+æœç´¢MSDNçŸ¥è¯†åº“ä¸­RedrawWindowçš„ç›¸å…³ä¿¡æ¯

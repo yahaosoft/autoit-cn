@@ -1,52 +1,52 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_MoveFileEx
 
-###����###
-��ѡ���ƶ����ڵ��ļ��������Ŀ¼��Ŀ¼
+###Description###
+带选项移动存在的文件或包含子目录的目录
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_MoveFileEx( $sSource, $sDestination [, $iFlags] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $sSource
-   �����ļ���Ŀ¼����
+   本地文件或目录名称
 $sDestination
-   λ�ڱ��ػ����ļ���Ŀ¼��������.
+   位于本地机的文件或目录的新名称.
 $MOVEFILE_COPY_ALLOWED.
-    �ƶ�Ŀ¼ʱ, Ŀ����봦��ͬһ������.
-$iFlagsָ��Ϊ$MOVEFILE_DELAY_UNTIL_REBOOT��$sDestinationΪ���ַ���, _WinAPI_MoveFileEx() ע���$sSource�ļ�����ϵͳ����ʱɾ��. ���$sSourceΪĿ¼, ����Ŀ¼Ϊ��ʱϵͳ��������ʱ�ƶ�֮.
+    移动目录时, 目标必须处于同一驱动器.
+$iFlags指定为$MOVEFILE_DELAY_UNTIL_REBOOT且$sDestination为空字符串, _WinAPI_MoveFileEx() 注册的$sSource文件将在系统重启时删除. 如果$sSource为目录, 仅当目录为空时系统将在重启时移动之.
 $iFlags
-   ָ���ƶ�ѡ��ı��. ��Ϊ����ֵ��һ������:
+   指定移动选项的标记. 可为下列值的一个或多个:
 $MOVEFILE_COPY_ALLOWED
-  - ����ļ������ƶ�����һ��, ��������ʹ��CopyFile��DeleteFile�����ƶ�. ��ֵ��������MOVEFILE_DELAY_UNTIL_REBOOT.
+  - 如果文件将被移动至另一卷, 函数等于使用CopyFile和DeleteFile函数移动. 该值不能用于MOVEFILE_DELAY_UNTIL_REBOOT.
 $MOVEFILE_CREATE_HARDLINK
-  - ����
+  - 保留
 $MOVEFILE_DELAY_UNTIL_REBOOT
-  - ϵͳ����ʱ���ƶ��ļ�
+  - 系统重启时才移动文件
 $MOVEFILE_FAIL_IF_NOT_TRACKABLE
-  - ����ļ�Ϊ����Դ���ƶ����޷�����ʱ����ʧ��
+  - 如果文件为连接源且移动后无法跟踪时函数失败
 $MOVEFILE_REPLACE_EXISTING
-  - Ŀ���ļ�����ʱ�滻
+  - 目标文件存在时替换
 $MOVEFILE_WRITE_THROUGH
-  - ֱ���ļ���ʵ���ƶ������ŷ���
+  - 直到文件被实际移动函数才返回
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����-1
-ʧ��: ����0������@error��0
+成功: 返回-1
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-���$iFlags����ָ��Ϊ$MOVEFILE_DELAY_UNTIL_REBOOT, ���޷�����ע���ʱ_WinAPI_MoveFileEx()ʧ��.
-�����洢�ļ���λ�ý�������ʱʹ��ע���ֵ: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\PendingFileRenameOperations������
+###Remarks###
+如果$iFlags参数指定为$MOVEFILE_DELAY_UNTIL_REBOOT, 当无法进入注册表时_WinAPI_MoveFileEx()失败.
+函数存储文件的位置将在重启时使用注册表值: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\PendingFileRenameOperations重命名
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����MoveFileEx�������Ϣ
+###See Also###
+ 搜索MSDN知识库中MoveFileEx的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

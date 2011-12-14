@@ -1,47 +1,47 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_MultiByteToWideChar
 
-###����###
-���ַ����ַ���ӳ��Ϊһ�����ַ���(Unicode)�ַ���
+###Description###
+将字符型字符串映射为一个宽字符集(Unicode)字符串
 
-###�﷨###
+###Syntax###
 #Include
 <WinAPI.au3>
 _WinAPI_MultiByteToWideChar($sText[, $iCodePage = 0[,
 $iFlags = 0[, $bRetString = False]]])
 
-###����###
+###Parameters###
 @@ParamTable@@
 $sText
-   ����ת�����ı�
+   将被转换的文本
 $iCodePage
-   ָ������ת���ı���ҳ:
-    0 - ANSI����ҳ
-    1 - OEM����ҳ
-    2 - Macintosh����ҳ
-    3 - ��ǰ�̵߳�Windows ANSI����ҳ
-    42 - ���Ŵ���ҳ
+   指定用于转换的编码页:
+    0 - ANSI编码页
+    1 - OEM编码页
+    2 - Macintosh编码页
+    3 - 当前线程的Windows ANSI代码页
+    42 - 符号代码页
     65000 - UTF-7
     65001 - gb2312
 $iFlags
-   ���������Ƿ���ΪԤ���ɻ��Ϲ��ɵĿ��ַ����ı�־:
-    $MB_PRECOMPOSED - ����ʹ��Ԥ�����ַ���
-    $MB_COMPOSITE - ����ʹ�û�Ϲ����ַ���
-    $MB_USEGLYPHCHARS - ʹ�������ַ�����ؼ��ַ�
+   用来描述是否翻译为预构成或混合构成的宽字符集的标志:
+    $MB_PRECOMPOSED - 总是使用预构成字符集
+    $MB_COMPOSITE - 总是使用混合构成字符集
+    $MB_USEGLYPHCHARS - 使用字形字符代替控件字符
 $bRetString
-   [��ѡ] ���Ա�ʶ�����ַ�����ṹ�ı��, Ĭ�Ϸ��ؽṹ
+   [可选] 用以标识返回字符串或结构的标记, 默认返回结构
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����Unicode�ַ����ַ�����ṹ
-ʧ��: ����@error
+成功: 包含Unicode字符的字符串或结构
+失败: 设置@error
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 _WinAPI_WideCharToMultiByte , _WinAPI_MultiByteToWideCharEx
 
-###�ο�###
-����MSDN֪ʶ����MultiByteToWideChar�������Ϣ
+###See Also###
+搜索MSDN知识库中MultiByteToWideChar的相关信息

@@ -1,41 +1,41 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_GetTimeFormat
 
-###����###
-��ʱ���ʽ��Ϊ�ɱ�ʶ��ָ����ʶ��ʱ���ַ���
+###Description###
+将时间格式化为由标识符指定标识的时间字符串
 
-###�﷨###
+###Syntax###
 #Include <WinAPI.au3>
 _WinAPI_GetTimeFormat( [$LCID [, $tSYSTEMTIME [, $iFlag [, $sFormat]]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $LCID
-   ָ������������ʶ��(LCID����). ���Ϊ0, ����ʹ���û�Ĭ�ϵ������ʶ.
+   指定区域的区域标识符(LCID常量). 如果为0, 函数使用用户默认的区域标识.
 $tSYSTEMTIME
-$tagFILETIME�ṹ. ���Ϊ0, ����ʹ�õ�ǰ�ı���ϵͳʱ��.
+$tagFILETIME结构. 如果为0, 函数使用当前的本地系统时间.
 $iFlag
-   ָ��ʱ���ʽѡ��ı��. ��Ϊһ����������ֵ.
-    $TIME_FORCE24HOURFORMAT - ʹ��24Сʱ��ʽ
-    $TIME_NOMINUTESORSECONDS - ��ʹ�÷ֻ���
-    $TIME_NOSECONDS - ��ʹ����
-    $TIME_NOTIMEMARKER - ��ʹ��ʱ����
+   指定时间格式选项的标记. 可为一个或多个下列值.
+    $TIME_FORCE24HOURFORMAT - 使用24小时格式
+    $TIME_NOMINUTESORSECONDS - 不使用分或秒
+    $TIME_NOSECONDS - 不使用秒
+    $TIME_NOTIMEMARKER - 不使用时间标记
 $sFormat
-$LCID)��ʱ����ʽ�ַ���.
+$LCID)的时间样式字符串.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��ʽ����ʱ���ַ���
-ʧ��: ���ַ���������@error��0
+成功: 格式化的时间字符串
+失败: 空字符串并设置@error非0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����GetTimeFormat�������Ϣ
+###See Also###
+ 搜索MSDN知识库中GetTimeFormat的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

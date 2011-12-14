@@ -1,49 +1,49 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_SetDIBits
 
-###����###
-ʹ��ָ����DIBλͼ�з��ֵ���ɫ����������λͼ�е�����
+###Description###
+使用指定的DIB位图中发现的颜色数据来设置位图中的像素
 
-###�﷨###
+###Syntax###
 #Include <WinAPI.au3>
 _WinAPI_SetDIBits($hDC,
 $hBmp, $iStartScan, $iScanLines, $pBits, $pBMI[, $iColorUse = 0])
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hDC
-   �豸�����еľ��
+   设备环境中的句柄
 $hBmp
-   ��ʹ��ָ��DIB�е���ɫ���ݽ��и��ĵ�λͼ�ľ��(DDB)
+   经使用指定DIB中的颜色数据进行更改的位图的句柄(DDB)
 $iStartScan
-   ָ��Ϊ����pBitsָ��������еġ����豸�޹ص���ɫ���ݵ���ʼɨ����
+   指定为参数pBits指向的数组中的、与设备无关的颜色数据的起始扫描线
 $iScanLines
-   Ϊ�������豸�޹ص���ɫ���ݵ�����ָ��ɨ������Ŀ
+   为包含与设备无关的颜色数据的数组指定扫描线数目
 $pBits
-$tagBITMAPINFO�ṹ�еĳ�ԱbiBitCount.
+$tagBITMAPINFO结构中的成员biBitCount.
 $pBMI
-$tagBITMAPINFO�ṹ��ָ��
+$tagBITMAPINFO结构的指针
 $iColorUse
-$tagBITMAPINFO�ṹ�е�iColors��Ա,
-      �����, iColors�Ƿ������ȷ��RGBֵ���ɫ������. iColorUse��������������ֵ�е�һ��:
+$tagBITMAPINFO结构中的iColors成员,
+      如果是, iColors是否包含明确的RGB值或调色板索引. iColorUse参数必须是下列值中的一个:
     0 -
-      ��ɫ���ѱ��ṩ��������ȷ��RGBֵ
-    1 - ��ɫ����16λ�����鹹�ɲ���hDC���߼���ɫ������
+      颜色表已被提供并包含精确的RGB值
+    1 - 颜色表由16位的数组构成并由hDC的逻辑调色板索引
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��
-ʧ��: ��
+成功: 真
+失败: 假
 @@End@@
 
-###��ע###
-���iColorUse ����Ϊ 1����ʹ���� hDC ����ȷ�����豸������, ���򱻺���. �� hBmp
-����ȷ����λͼ���ü����豸�����ĵ���������ʱ. ɨ���߱�����˫�ֽ��϶������ RLE ѹ��λͼ. �Ե����ϵ�
-DIBλͼ����ʼ���Ǹ�λͼ�����½Ǵ�; �Զ����µ�DIBλͼ����Դ���ڸ�λͼ�����ϽǴ�
+###Remarks###
+如果iColorUse 设置为 1，仅使用由 hDC 参数确定的设备上下文, 否则被忽略. 由 hBmp
+参数确定的位图不用加入设备上下文当函数调用时. 扫描线必须在双字节上对齐除非 RLE 压缩位图. 自底向上的
+DIB位图的起始点是该位图的左下角处; 自顶向下的DIB位图的起源点在该位图的左上角处
 
-###���###
+###Related###
 $tagBITMAPINFO
 
-###�ο�###
-����MSDN֪ʶ����SetDIBits�������Ϣ
+###See Also###
+搜索MSDN知识库中SetDIBits的相关信息

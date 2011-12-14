@@ -1,45 +1,45 @@
-###�ṹ����###
+﻿###结构常量###
 $tagNMITEMACTIVATE
 
-###����###
-�û�������Ŀʱ���б���ͼ�ؼ�����
+###Description###
+用户激活项目时由列表视图控件发送
 
-###�﷨###
+###Syntax###
 Global Const $tagNMITEMACTIVATE =  $tagNMHDR & ";int Index;int SubItem;int NewState;int OldState;int Changed;int X;int Y;int lParamint KeyFlags"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 $tagNMHDR
-   ֪ͨ��Ϣ����Ϣ
+   通知消息的信息
 Index
-   �б���ͼ�������. ����Ŀ����δ����֪ͨʱ, �ó�Ա����Ϊ-1
+   列表视图项的索引. 当项目索引未用于通知时, 该成员保持为-1
 SubItem
-   1������������. �����������δ����֪ͨ��֪ͨΪ��������, ��ó�Ա����Ϊ0.
+   1基索引的子项. 如果子项索引未用于通知或通知为用于子项, 则该成员保持为0.
 NewState
-   ����Ŀ״̬. �Բ�ʹ������֪ͨ��Ϣ�ó�ԱΪ0.
+   新项目状态. 对不使用它的通知消息该成员为0.
 OldState
-   ԭ��Ŀ״̬. �Բ�ʹ������֪ͨ��Ϣ�ó�ԱΪ0.
+   原项目状态. 对不使用它的通知消息该成员为0.
 Changed
-   ��ʾҪ�ı����Ŀ���Եı�ǵļ���. �Բ�ʹ������֪ͨ��Ϣ�ó�ԱΪ0.
-    �ó�Ա������Ϊһ���������б��:
-    $LVIF_COLUMNS - Columns��Ա����
-    $LVIF_DI_SETITEM - ����ϵͳ����������б�����Ϣ
-    $LVIF_GROUPID - GroupID��Ա����
-    $LVIF_IMAGE - Image��Ա����
-    $LVIF_INDENT - Indent��Ա����
-    $LVIF_NORECOMPUTE - �ؼ���������ȡ�ı���Ϣ��LVN_GETDISPINFO
-    $LVIF_PARAM - Param��Ա����
-    $LVIF_STATE - State��Ա����
-    $LVIF_TEXT - Text��Ա����
+   表示要改变的项目属性的标记的集合. 对不使用它的通知消息该成员为0.
+    该成员可设置为一个或多个下列标记:
+    $LVIF_COLUMNS - Columns成员可用
+    $LVIF_DI_SETITEM - 操作系统保存请求的列表箱信息
+    $LVIF_GROUPID - GroupID成员可用
+    $LVIF_IMAGE - Image成员可用
+    $LVIF_INDENT - Indent成员可用
+    $LVIF_NORECOMPUTE - 控件不产生获取文本信息的LVN_GETDISPINFO
+    $LVIF_PARAM - Param成员可用
+    $LVIF_STATE - State成员可用
+    $LVIF_TEXT - Text成员可用
 X
-   ָ��ĳ���x����
+   指定某点的x坐标
 Y
-   ָ��ĳ���y����
+   指定某点的y坐标
 lParam
-   Ӧ�ó��������Ŀ��ֵ. �Բ�ʹ������֪ͨ��Ϣ������ó�Ա
+   应用程序定义的项目的值. 对不使用它的通知消息不定义该成员
 KeyFlags
-   �޸ļ���ʱ���µļ�. �ó�Ա����Ϊ0�����б�ǵ����:
-    $LVKF_ALT - ����ALT��.
-    $LVKF_CONTROL - ����CTRL��.
-    $LVKF_SHIFT - ����SHIFT��.
+   修改激活时按下的键. 该成员保持为0或下列标记的组合:
+    $LVKF_ALT - 按下ALT键.
+    $LVKF_CONTROL - 按下CTRL键.
+    $LVKF_SHIFT - 按下SHIFT键.
 @@end@@

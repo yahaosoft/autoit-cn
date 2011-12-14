@@ -1,43 +1,43 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlRichEdit_GetText
 
-###����###
-��ȡ�ؼ��ڵ�ȫ���ı�
+###Description###
+获取控件内的全部文本
 
-###�﷨###
+###Syntax###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetText($hWnd [, $fCrToCrLf = False [, $iCodePage = 0 [, $sReplChar = ""]]])
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  �ؼ����
- $fCrToCrLf  [��ѡ] ��ÿ��CRת��ΪCRLF
-�� - ִ��
-�� - ��ִ��(Ĭ��)
- $iCodePage  [��ѡ] ������ʹ�õĴ���ҳ
-Ĭ��: ʹ��ϵͳĬ��ֵ. ����ANSIʹ��CP_ACP, ����Unicodeʹ��1200
- $sReplChar  [��ѡ] ���$iCodePage����1200�ҿ��ַ��޷���ָ������ҳ����ʱʹ�õ��ַ�
+ $hWnd  控件句柄
+ $fCrToCrLf  [可选] 将每个CR转化为CRLF
+真 - 执行
+假 - 不执行(默认)
+ $iCodePage  [可选] 翻译中使用的代码页
+默认: 使用系统默认值. 对于ANSI使用CP_ACP, 对于Unicode使用1200
+ $sReplChar  [可选] 如果$iCodePage不是1200且宽字符无法以指定代码页代替时使用的字符
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
- �ɹ�:  �ı�
- ʧ��:  ""������@error:
- @error:  101 - $hWnd���Ǿ��
-  102 - $fCrToCrLf����Ϊ����
-  103 - $iCodePage��������
-  700 - �ڲ�����
+ 成功:  文本
+ 失败:  ""且设置@error:
+ @error:  101 - $hWnd不是句柄
+  102 - $fCrToCrLf必须为真或假
+  103 - $iCodePage不是数字
+  700 - 内部错误
 @@End@@
 
-###��ע###
-�ɹ�ʱ, ���������$sReplChar, @extended�����ַ��Ƿ�ʹ��
-����_GUICtrlRichEdit_IsModified()ȷ���ı��Ƿ�ı�
+###Remarks###
+成功时, 如果设置了$sReplChar, @extended包含字符是否被使用
+调用_GUICtrlRichEdit_IsModified()确定文本是否改变
 
-###���###
+###Related###
  _GUICtrlRichEdit_SetText , _GUICtrlRichEdit_AppendText , _GUICtrlRichEdit_InsertText , _GUICtrlRichEdit_IsModified
 
-###�ο�###
- ����MSDN֪ʶ����EM_GETTEXTEX�������Ϣ
+###See Also###
+ 搜索MSDN知识库中EM_GETTEXTEX的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

@@ -1,78 +1,78 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_DrawFrameControl
 
-###����###
-���ƴ���ָ�����ͺͷ���֡�ؼ�
+###Description###
+绘制带有指定类型和风格的帧控件
 
-###�﷨###
+###Syntax###
 #Include
 <WinAPI.au3>
 _WinAPI_DrawFrameControl($hDC, $ptrRect, $nType,
 $nState)
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hDC
-   ����ͼ�������豸�����ľ��
+   画入图标或光标的设备场景的句柄
 $ptrRect
-$tagRECT�ṹ��ָ��
+$tagRECT结构的指针
 $nType
-   ָ��֡�ؼ�����. ��Ϊ����ֵ֮һ:
-    $DFC_BUTTON - ��׼��ť
-    $DFC_CAPTION - ������
-    $DFC_MENU - �˵���
-    $DFC_POPUPMENU - Windows 98/Me, Windows 2000/XP: �����˵���
-    $DFC_SCROLL - ������
+   指定帧控件类型. 可为下列值之一:
+    $DFC_BUTTON - 标准按钮
+    $DFC_CAPTION - 标题栏
+    $DFC_MENU - 菜单栏
+    $DFC_POPUPMENU - Windows 98/Me, Windows 2000/XP: 弹出菜单项
+    $DFC_SCROLL - 滚动条
 $nState
-   ָ��֡�ؼ��ĳ�ʼ״̬.
-$nType��$DFC_BUTTON, $nState��Ϊ����ֵ֮һ:
-    $DFCS_BUTTON3STATE - ��̬��ť
-    $DFCS_BUTTONCHECK - ��ѡ��
-    $DFCS_BUTTONPUSH - ��ť
-    $DFCS_BUTTONRADIO - ��ѡ��ť
-    $DFCS_BUTTONRADIOIMAGE - ��ѡ��ť��ͼ��(nonsquare needs image)
-    $DFCS_BUTTONRADIOMASK - ��ѡ��ť����(nonsquare needs mask)
-$nType��$DFC_CAPTION, $nState��Ϊ����ֵ֮һ:
-    $DFCS_CAPTIONCLOSE - �رհ�ť
-    $DFCS_CAPTIONHELP - ������ť
-    $DFCS_CAPTIONMAX - ��󻯰�ť
-    $DFCS_CAPTIONMIN - ��С����ť
-    $DFCS_CAPTIONRESTORE - ��ԭ��ť
-$nType��$DFC_MENU, $nState ��Ϊ����ֵ֮һ:
-    $DFCS_MENUARROW - �Ӳ˵���ͷ
-    $DFCS_MENUARROWRIGHT - ָ����ߵ��Ӳ˵���ͷ. ����ʹ�ô����������ԵĲ���˵�
-    $DFCS_MENUBULLET - ��Ŀ����
-    $DFCS_MENUCHECK - ѡ�з���
-$nType��DFC_SCROLL, $nState��Ϊ����ֵ֮һ:
-    $DFCS_SCROLLCOMBOBOX - ��Ͽ������
-    $DFCS_SCROLLDOWN - ���������¼�ͷ
-    $DFCS_SCROLLLEFT - �����������ͷ
-    $DFCS_SCROLLRIGHT - ���������Ҽ�ͷ
-    $DFCS_SCROLLSIZEGRIP - �������½ǵĳߴ���
-    $DFCS_SCROLLSIZEGRIPRIGHT - �������½ǵĳߴ���. ���ڴ��ҵ���������簢�������ϣ������
-    $DFCS_SCROLLUP - ���������ϼ�ͷ
-    ������ʽ�����ڵ������水ť�İ󶨾���:
-    $DFCS_ADJUSTRECT - �����󶨾������ų���ť�Ļ��Ʊ߽�
-    һ��������������������ؼ���״̬:
-    $DFCS_CHECKED - ��ť����ѡ
-    $DFCS_FLAT - ��ť��ƽ��߽�
-    $DFCS_HOT - Windows 98/Me, Windows 2000/XP: ��ť���ȸ��ٵ�
-    $DFCS_INACTIVE - ��ťδ���� (��ɫ)
-    $DFCS_PUSHED - ��ť������
-    $DFCS_TRANSPARENT - Windows 98/Me, Windows 2000/XP: ���ֱ�������. �ñ�ǽ�����$DFCS_MENUARROWUP��$DFCS_MENUARROWDOWNͬʱʹ��
+   指定帧控件的初始状态.
+$nType是$DFC_BUTTON, $nState可为下列值之一:
+    $DFCS_BUTTON3STATE - 三态按钮
+    $DFCS_BUTTONCHECK - 复选框
+    $DFCS_BUTTONPUSH - 按钮
+    $DFCS_BUTTONRADIO - 单选按钮
+    $DFCS_BUTTONRADIOIMAGE - 单选按钮的图像(nonsquare needs image)
+    $DFCS_BUTTONRADIOMASK - 单选按钮掩码(nonsquare needs mask)
+$nType是$DFC_CAPTION, $nState可为下列值之一:
+    $DFCS_CAPTIONCLOSE - 关闭按钮
+    $DFCS_CAPTIONHELP - 帮助按钮
+    $DFCS_CAPTIONMAX - 最大化按钮
+    $DFCS_CAPTIONMIN - 最小化按钮
+    $DFCS_CAPTIONRESTORE - 还原按钮
+$nType是$DFC_MENU, $nState 可为下列值之一:
+    $DFCS_MENUARROW - 子菜单箭头
+    $DFCS_MENUARROWRIGHT - 指向左边的子菜单箭头. 用于使用从右向左语言的层叠菜单
+    $DFCS_MENUBULLET - 项目符号
+    $DFCS_MENUCHECK - 选中符号
+$nType是DFC_SCROLL, $nState可为下列值之一:
+    $DFCS_SCROLLCOMBOBOX - 组合框滚动条
+    $DFCS_SCROLLDOWN - 滚动条向下箭头
+    $DFCS_SCROLLLEFT - 滚动条向左箭头
+    $DFCS_SCROLLRIGHT - 滚动条向右箭头
+    $DFCS_SCROLLSIZEGRIP - 窗口右下角的尺寸区
+    $DFCS_SCROLLSIZEGRIPRIGHT - 窗口左下角的尺寸区. 用于从右到左的语言如阿拉伯语或希伯来语
+    $DFCS_SCROLLUP - 滚动条向上箭头
+    下列样式可用于调整常规按钮的绑定矩形:
+    $DFCS_ADJUSTRECT - 调整绑定矩形以排除按钮的环绕边界
+    一个或多个可用于设置所绘控件的状态:
+    $DFCS_CHECKED - 按钮被复选
+    $DFCS_FLAT - 按钮有平面边界
+    $DFCS_HOT - Windows 98/Me, Windows 2000/XP: 按钮是热跟踪的
+    $DFCS_INACTIVE - 按钮未激活 (灰色)
+    $DFCS_PUSHED - 按钮被按下
+    $DFCS_TRANSPARENT - Windows 98/Me, Windows 2000/XP: 保持背景不变. 该标记仅可与$DFCS_MENUARROWUP或$DFCS_MENUARROWDOWN同时使用
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��
-ʧ��: ��
+成功: 真
+失败: 假
 @@End@@
 
-###��ע###
-��ҪFrameConstants.au3Ԥ�������
+###Remarks###
+需要FrameConstants.au3预定义变量
 
-###���###
+###Related###
 $tagRECT
 
-###�ο�###
-����MSDN֪ʶ����DrawFrameControl�������Ϣ
+###See Also###
+搜索MSDN知识库中DrawFrameControl的相关信息

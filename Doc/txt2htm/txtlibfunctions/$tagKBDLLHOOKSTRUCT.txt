@@ -1,33 +1,33 @@
-###�ṹ����###
+﻿###结构常量###
 $tagKBDLLHOOKSTRUCT
 
-###����###
-������λ���������¼���Ϣ�Ľṹ
+###Description###
+包含低位键盘输入事件信息的结构
 
-###�﷨###
+###Syntax###
 Global Const $tagKBDLLHOOKSTRUCT =  "dword vkCode;dword scanCode;dword flags;dword time;ulong_ptr dwExtraInfo"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 vkCode
-   ָ��������Ĵ���. �������Ϊ1��254��ֵ
+   指定虚拟键的代码. 代码必须为1到254的值
 scanCode
-   ָ���Լ���Ӳ��ɨ��
+   指定对键的硬件扫描
 flags
-   ָ����չ�����, �����¼����, �����Ĵ���, ��״̬���ݱ��. �ó�Ա������ָ��.
-    ��ʹ������ֵ���Ի������:
-    $LLKHF_EXTENDED - ������չ�����
-    $LLKHF_INJECTED - ���Բ����¼����
-    $LLKHF_ALTDOWN - ���������Ĵ���
-    $LLKHF_UP - ���Դ���״̬���
-    0 - ָ���Ƿ�Ϊ��չ��, �繦�ܼ������ּ��̼�. ��չ����ֵΪ1����Ϊ0
-    1 �� 3 - ����
-    4 - ָ���Ƿ�����¼�. �����¼�ʱΪ1����Ϊ0
-    5 - ָ�������Ĵ���. ����ALT��ʱΪ1����Ϊ0
-    6 - ����
-    7 - ָ������״̬. ����ʱΪ0, �ͷ�ʱΪ1
+   指定扩展键标记, 插入事件标记, 上下文代码, 及状态传递标记. 该成员可如下指定.
+    可使用下列值测试击键标记:
+    $LLKHF_EXTENDED - 测试扩展键标记
+    $LLKHF_INJECTED - 测试插入事件标记
+    $LLKHF_ALTDOWN - 测试上下文代码
+    $LLKHF_UP - 测试传递状态标记
+    0 - 指定是否为扩展键, 如功能键或数字键盘键. 扩展键的值为1否则为0
+    1 到 3 - 保留
+    4 - 指定是否插入事件. 插入事件时为1否则为0
+    5 - 指定上下文代码. 按下ALT键时为1否则为0
+    6 - 保留
+    7 - 指定传递状态. 按下时为0, 释放时为1
 time
-   �Զ���Ϣ��ʱ���, �����Ϣ��GetMessageTime���ص����
+   自定信息的时间戳, 与该消息的GetMessageTime返回的相等
 dwExtraInfo
-   �ƶ�����Ϣ��صĶ�����Ϣ
+   制定与信息相关的额外信息
 @@end@@

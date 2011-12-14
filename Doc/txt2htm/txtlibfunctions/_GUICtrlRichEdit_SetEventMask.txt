@@ -1,52 +1,52 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlRichEdit_SetEventMask
 
-###����###
-ָ�����͵����������Ϣ
+###Description###
+指定发送到父窗体的消息
 
-###�﷨###
+###Syntax###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetEventMask($hWnd, $iEventMask)
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  �ؼ����
- $iEventMask  BitOr���е����:
-$ENM_CHANGE - ����$EN_CHANGE֪ͨ (�û��Ѹı��ı�)
-$ENM_CORRECTTEXT - ����$EN_CORRECTTEXT֪ͨ (�������ȡ���ı��ĸ���)
-$ENM_DRAGDROPDONE - ����$EN_DRAGDROPDONE֪ͨ (�������ҷ����)
-$ENM_DROPFILES - ����$EN_DROPFILES֪ͨ (�û���ͼ���ļ�����ؼ�)
-$ENM_KEYEVENTS - ����$EN_MSGFILTER֪ͨ (�����¼�ʱ)
-$ENM_LINK - ����$EN_LINK֪ͨ (���ָ�����������Ե��ı������û�������[2.0+])
-$ENM_MOUSEEVENTS - ����$EN_MSGFILTER֪ͨ (����������¼�)
-$ENM_OBJECTPOSITIONS - ����$EN_OBJECTPOSITIONS֪ͨ (�ؼ��ڶ����ж�ȡ)
-$ENM_PROTECTED - ����$EN_PROTECTED֪ͨ (�û���ͼ�ı���б��������Ե��ַ�ʱ)
-$ENM_REQUESTRESIZE - ����$EN_REQUESTRESIZE֪ͨ (�ؼ�����С�ڻ���ڿؼ����ڴ�С)
-$ENM_SCROLL - ����$EN_HSCROLL��$EN_VSCROLL֪ͨ (�û����ˮƽ/��ֱ������)
-$ENM_SCROLLEVENTS - ����EN_MSGFILTER֪ͨ (�������¼�)
-$ENM_SELCHANGE - ����EN_SELCHANGE֪ͨ (�ı䵱ǰѡ��ʱ)
-$ENM_UPDATE - ����EN_UPDATE֪ͨ (�ؼ����������ػ�)
-$ENM_NONE - ��ֹ�򸸴��巢��֪ͨ��Ϣ
+ $hWnd  控件句柄
+ $iEventMask  BitOr下列的组合:
+$ENM_CHANGE - 发送$EN_CHANGE通知 (用户已改变文本)
+$ENM_CORRECTTEXT - 发送$EN_CORRECTTEXT通知 (父窗体可取消文本的更正)
+$ENM_DRAGDROPDONE - 发送$EN_DRAGDROPDONE通知 (已完成拖曳操作)
+$ENM_DROPFILES - 发送$EN_DROPFILES通知 (用户试图将文件拖入控件)
+$ENM_KEYEVENTS - 发送$EN_MSGFILTER通知 (键盘事件时)
+$ENM_LINK - 发送$EN_LINK通知 (鼠标指针在链接属性的文本上且用户点击鼠标[2.0+])
+$ENM_MOUSEEVENTS - 发送$EN_MSGFILTER通知 (父窗体鼠标事件)
+$ENM_OBJECTPOSITIONS - 发送$EN_OBJECTPOSITIONS通知 (控件在对象中读取)
+$ENM_PROTECTED - 发送$EN_PROTECTED通知 (用户试图改变具有被保护属性的字符时)
+$ENM_REQUESTRESIZE - 发送$EN_REQUESTRESIZE通知 (控件内容小于或大于控件窗口大小)
+$ENM_SCROLL - 发送$EN_HSCROLL和$EN_VSCROLL通知 (用户点击水平/垂直滚动条)
+$ENM_SCROLLEVENTS - 发送EN_MSGFILTER通知 (鼠标滚轮事件)
+$ENM_SELCHANGE - 发送EN_SELCHANGE通知 (改变当前选区时)
+$ENM_UPDATE - 发送EN_UPDATE通知 (控件可能自身重绘)
+$ENM_NONE - 禁止向父窗体发送通知消息
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
- �ɹ�:  ��
- ʧ��:  �ٲ�����@error
- @error:  101 - $hWnd���Ǿ��
-  102 - $iEventMask��������
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  102 - $iEventMask不是数字
 @@End@@
 
-###��ע###
-��������ֱ�ʾ����Ӧ�õ�����İ汾.
-$ENM_IMECHANGEֻ����Windows���������԰汾
-�˵�4.0����1.0ʱ���Ƿ���$EN_UPDATE֪ͨ
+###Remarks###
+插入的数字表示设置应用的掩码的版本.
+$ENM_IMECHANGE只用于Windows的亚洲语言版本
+了当4.0超过1.0时总是发送$EN_UPDATE通知
 
-###���###
+###Related###
  _GUICtrlRichEdit_AutoDetectURL
 
-###�ο�###
- ����MSDN֪ʶ����EM_SETEVENTMASK�������Ϣ
+###See Also###
+ 搜索MSDN知识库中EM_SETEVENTMASK的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

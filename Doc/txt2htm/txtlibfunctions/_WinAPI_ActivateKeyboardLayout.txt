@@ -1,39 +1,39 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_ActivateKeyboardLayout
 
-###����###
-Ϊ���ý��̻��߳����ü��̲��ֱ��ر�ʶ
+###Description###
+为调用进程或线程设置键盘布局本地标识
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_ActivateKeyboardLayout( $hLocale [, $iFlag] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hLocale
-   ��������ı��ؼ��̲��ֱ�ʶ. ��ֵΪ���̲��ֵľ��������ֵ֮һ:
-    $HKL_NEXT - ��һ���̲��־��
-    $HKL_PREV - ��һ���̲��־��
+   将被激活的本地键盘布局标识. 该值为键盘布局的句柄或下列值之一:
+    $HKL_NEXT - 下一键盘布局句柄
+    $HKL_PREV - 上一键盘布局句柄
 $iFlag
-   ָ����μ���ؼ��̲��ֱ�ʶ�ı��. ��Ϊ����ֵ֮һ:
-    $KLF_REORDER - ��������ϵͳ���صı��ر�ʶ�б��������ر�ʶ���ڶ���
-    $KLF_RESET - ���δ����$KLF_SHIFTLOCK���ٴΰ���CAP LOCK��ʱ�ر�CAP LOCK; ���������$KLF_SHIFTLOCK����SHIFT��ʱҲ�ر�
-    $KLF_SETFORPROCESS - ��ȫ�����̼���ر�ʶ����ǰ�߳̽���򼤻�Ĵ��ڷ���WM_INPUTLANGCHANGE��Ϣ
-    $KLF_SHIFTLOCK - �ο�$KLF_RESET
+   指定如何激活本地键盘布局标识的标记. 可为下列值之一:
+    $KLF_REORDER - 重新排序系统加载的本地标识列表并将本地标识置于顶部
+    $KLF_RESET - 如果未设置$KLF_SHIFTLOCK则再次按下CAP LOCK键时关闭CAP LOCK; 如果已设置$KLF_SHIFTLOCK则按下SHIFT键时也关闭
+    $KLF_SETFORPROCESS - 对全部进程激活本地标识并向当前线程焦点或激活的窗口发送WM_INPUTLANGCHANGE消息
+    $KLF_SHIFTLOCK - 参考$KLF_RESET
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��һ���̲��ֱ�ʶ
-ʧ��: ����0������@error��0
+成功: 上一键盘布局标识
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����ActivateKeyboardLayout�������Ϣ
+###See Also###
+ 搜索MSDN知识库中ActivateKeyboardLayout的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

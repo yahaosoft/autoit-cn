@@ -1,55 +1,55 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_SetFilePointer
 
-###����###
-�ƶ�ָ���ļ���ָ��
+###Description###
+移动指定文件的指针
 
-###�﷨###
+###Syntax###
 #Include
 <WinAPI.au3>
 _WinAPI_SetFilePointer($hFile, $iPos[, $iMethod =
 0])
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hFile
-   ��ִ�е��ļ����
+   被执行的文件句柄
 $iPos
-   �ļ�ָ���ƶ����ֽ���. ���ֵΪ2^32.
-    ��ֵ��ǰ�ƶ��ļ�ָ��, ��ֵ����ƶ�.
+   文件指针移动的字节数. 最大值为2^32.
+    正值向前移动文件指针, 负值向后移动.
 $iMethod
-   �ļ�ָ���ƶ��Ŀ�ʼ��. ��Ϊ����Ԥ����ֵ֮һ:
+   文件指针移动的开始点. 可为下列预定义值之一:
     $FILE_BEGIN = 0 -
-      ��ʼ����0���ļ���ʼ
-    $FILE_CURRENT = 1 - ��ʼ�����ļ�ָ��ĵ�ǰλ��
+      开始点是0或文件开始
+    $FILE_CURRENT = 1 - 开始点是文件指针的当前位置
     $FILE_END = 2 -
-      ��ʼ���ǵ�ǰ�ļ�β
+      开始点是当前文件尾
 $FILE_BEGIN = 0
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �µ��ļ�ָ��
-ʧ��: ����INVALID_SET_FILE_POINTER (-1)������
+成功: 新的文件指针
+失败: 返回INVALID_SET_FILE_POINTER (-1)并设置
 @Error:
-0 - �޴���
-1 - API����@error
-2 - API����INVALID_SET_FILE_POINTER
+0 - 无错误
+1 - API返回@error
+2 - API返回INVALID_SET_FILE_POINTER
 @@End@@
 
-###��ע###
-�ú���Ҳ������ͨ��ָ��һ��FILE_CURRENT���ƶ�������0�����ѯ��ǰ�ļ�ָ���λ��.
-+�ú���ʹ�ó�ֵ�洢�ļ�ָ��.
-�ʹ��ڵ�һ��ֵ���ļ�ָ��һͬ����,
-��������SetFilePointerEx����.
-+�ļ�ָ����ͨ��_WinAPI_ReadFile/_WinAPI_WriteFile�������ļ����ж�/д
-��/�ӵ�λ��
+###Remarks###
+该函数也被用于通过指定一个FILE_CURRENT的移动方法和0距离查询当前文件指针的位置.
++该函数使用长值存储文件指针.
+和大于单一长值的文件指针一同工作,
+必须用于SetFilePointerEx函数.
++文件指针是通过_WinAPI_ReadFile/_WinAPI_WriteFile函数对文件进行读/写
+到/从的位置
 
-###���###
+###Related###
 _WinAPI_CloseHandle , _WinAPI_CreateFile , _WinAPI_FlushFileBuffers , _WinAPI_GetFileSizeEx , _WinAPI_ReadFile , _WinAPI_SetEndOfFile , _WinAPI_WriteFile
 
-###�ο�###
-����MSDN֪ʶ����SetFilePointer�������Ϣ
+###See Also###
+搜索MSDN知识库中SetFilePointer的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

@@ -1,62 +1,62 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_BrowseForFolderDlg
 
-###����###
-��ʾ��ʹ�û�ѡȡ�ļ��еĶԻ���
+###Description###
+显示可使用户选取文件夹的对话框
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_BrowseForFolderDlg( [$sRoot [, $sText [, $iFlags [, $pBrowseProc [, $lParam [, $hParent]]]]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $sRoot
-   [��ѡ] ��ʼ����ĸ��ļ���. ֻ���������ռ��νṹ�е��ļ��к��ļ������ڶԻ�����. �������Ϊ0 , ʹ�ø������ռ�(�����ļ���).
+   [可选] 开始浏览的根文件夹. 只有在命名空间层次结构中的文件夹和文件出现在对话框中. 如果参数为0 , 使用根命名空间(桌面文件夹).
 $sText
-   [��ѡ] �Ի����е�������ͼ����ʾ���ַ���
+   [可选] 对话框中的树形视图上显示的字符串
 $iFlags
-   [��ѡ] ����ָ���Ի���ѡ��ı��. ��Ϊ����ֵ�����:
-    $BIF_RETURNONLYFSDIRS - �������ļ�ϵͳĿ¼. ���ѡ���ļ��в����ļ�ϵͳ�Ĳ���, ȷ�ϼ�Ϊ��ɫ.
-    $BIF_DONTGOBELOWDOMAIN - ���������������µ������ļ���
-    $BIF_STATUSTEXT - �Ի����а���״̬��. �ص�������ͨ��������Ϣ��Ի�������״̬�ı�. ָ��$BIF_NEWDIALOGSTYLEʱ��֧�ִ���ʽ.
-    $BIF_RETURNFSANCESTORS - ���������ļ�ϵͳ. ���ǿ��������ռ��νṹ�еĸ��ļ��е����ļ���. ���ѡ���Ĳ����ļ�ϵͳ���ֵĸ��ļ��е���, ȷ�� ��ťΪ��ɫ.
-    $BIF_EDITBOX - 4.71�汾. ����Ի����а��������û�������Ŀ���Ƶı༭�ؼ�.
-    $BIF_VALIDATE - 4.71�汾. ����û��ڱ༭�ؼ��м�����Ч����, ϵͳ��$pBrowseProc����$BFFM_VALIDATEFAILED��Ϣ. δָ��$BIF_EDITBOXʱ�ñ�Ǻ���.
-    $BIF_NEWDIALOGSTYLE - 5.0�汾. ʹ���µ��û�����.
-    $BIF_BROWSEINCLUDEURLS - 5.0�汾. ������ʾ��ַ, ����������$BIF_USENEWUI��$BIF_BROWSEINCLUDEFILESͬʱ��������²���Ч.
-    $BIF_USENEWUI - 5.0�汾. ʹ���µİ����༭����û�����. �ñ���൱��ͬʱʹ��$BIF_EDITBOX��$BIF_NEWDIALOGSTYLE
-    $BIF_UAHINT - 6.0�汾. ����$BIF_NEWDIALOGSTYLEһ��ʹ��ʱ, �ڱ༭��λ������һ���Ի����÷���ʾ. $BIF_EDITBOX���Ǹñ��.
-    $BIF_NONEWFOLDERBUTTON - 6.0�汾. ����Ի����в����� �½��ļ��� ��ť
-    $BIF_NOTRANSLATETARGETS - 6.0�汾. ���ѡ����ĿΪ��ݷ�ʽ, �򷵻ؿ�ݷ�ʽ������PIDL������Ŀ���ļ�.
-    $BIF_BROWSEFORCOMPUTER - ֻ���ؼ����. ����û�ѡȡ�Ĳ��Ǽ����, ȷ�� ��ťΪ��ɫ.
-    $BIF_BROWSEFORPRINTER - ֻ����ѡ���ӡ��. ����û�ѡ��Ĳ��Ǵ�ӡ��, ȷ�� ��ťΪ��ɫ.
-    $BIF_BROWSEINCLUDEFILES - 4.71�汾. �����Ի�������ʾ�ļ���һ����ʾ�ļ�.
-    $BIF_SHAREABLE - 5.0�汾. ������ʾԶ�̵Ĺ�����Դ. ��ͬʱ����$BIF_NEWDIALOGSTYLE.
-    $BIF_BROWSEFILEJUNCTIONS - Win7����. ��������.zipѹ���ļ���Ϊ�ļ���·���������.
+   [可选] 用于指定对话框选项的标记. 可为下列值的组合:
+    $BIF_RETURNONLYFSDIRS - 仅返回文件系统目录. 如果选定文件夹不是文件系统的部分, 确认键为灰色.
+    $BIF_DONTGOBELOWDOMAIN - 不包含域名级别下的网络文件夹
+    $BIF_STATUSTEXT - 对话框中包含状态区. 回调函数可通过发送消息向对话框设置状态文本. 指定$BIF_NEWDIALOGSTYLE时不支持此样式.
+    $BIF_RETURNFSANCESTORS - 仅返回祖文件系统. 祖是靠近命名空间层次结构中的根文件夹的子文件夹. 如果选定的不是文件系统部分的根文件夹的祖, 确认 按钮为灰色.
+    $BIF_EDITBOX - 4.71版本. 浏览对话框中包含允许用户键入项目名称的编辑控件.
+    $BIF_VALIDATE - 4.71版本. 如果用户在编辑控件中键入无效名称, 系统向$pBrowseProc发送$BFFM_VALIDATEFAILED消息. 未指定$BIF_EDITBOX时该标记忽略.
+    $BIF_NEWDIALOGSTYLE - 5.0版本. 使用新的用户界面.
+    $BIF_BROWSEINCLUDEURLS - 5.0版本. 允许显示网址, 但必须在与$BIF_USENEWUI和$BIF_BROWSEINCLUDEFILES同时设置情况下才生效.
+    $BIF_USENEWUI - 5.0版本. 使用新的包含编辑框的用户界面. 该标记相当于同时使用$BIF_EDITBOX与$BIF_NEWDIALOGSTYLE
+    $BIF_UAHINT - 6.0版本. 当与$BIF_NEWDIALOGSTYLE一起使用时, 在编辑框位置添加一个对话框用法提示. $BIF_EDITBOX覆盖该标记.
+    $BIF_NONEWFOLDERBUTTON - 6.0版本. 浏览对话框中不包含 新建文件夹 按钮
+    $BIF_NOTRANSLATETARGETS - 6.0版本. 如果选定项目为快捷方式, 则返回快捷方式自身的PIDL而不是目标文件.
+    $BIF_BROWSEFORCOMPUTER - 只返回计算机. 如果用户选取的不是计算机, 确认 按钮为灰色.
+    $BIF_BROWSEFORPRINTER - 只允许选择打印机. 如果用户选择的不是打印机, 确认 按钮为灰色.
+    $BIF_BROWSEINCLUDEFILES - 4.71版本. 允许对话框象显示文件夹一样显示文件.
+    $BIF_SHAREABLE - 5.0版本. 允许显示远程的共享资源. 须同时设置$BIF_NEWDIALOGSTYLE.
+    $BIF_BROWSEFILEJUNCTIONS - Win7以上. 允许如库或.zip压缩文件作为文件夹路径进行浏览.
 $pBrowseProc
-   [��ѡ] �¼�����ʱ�Ի�����õĻص�������ָ��. �ú�����ȡ�����¼���Ϣ֮һ:
-    $BFFM_INITIALIZED - �Ի�������ɳ�ʼ��
-    $BFFM_IUNKNOWN - �Ի����ʹ��IUNKNOWN����
-    $BFFM_SELCHANGED - �Ի����е�ѡȡ�Ѹ���
-    $BFFM_VALIDATEFAILED - �û��ڱ༭�ؼ��м�����Ч����
+   [可选] 事件发生时对话框调用的回调函数的指针. 该函数获取下列事件信息之一:
+    $BFFM_INITIALIZED - 对话框已完成初始化
+    $BFFM_IUNKNOWN - 对话框可使用IUNKNOWN界面
+    $BFFM_SELCHANGED - 对话框中的选取已更改
+    $BFFM_VALIDATEFAILED - 用户在编辑控件中键入无效名称
 $lParam
-   [��ѡ] �Ի��򴫵ݸ��ص�������ֵ
+   [可选] 对话框传递给回调函数的值
 $hParent
-   [��ѡ] �Ի��򸸴���ľ��
+   [可选] 对话框父窗体的句柄
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����ѡ���ļ��е�����·�����û�ȡ����رնԻ���ʱ���ؿ��ַ���
-ʧ��: ���ؿ��ַ���������@error��0.
+成功: 返回选定文件夹的完整路径或当用户取消或关闭对话框时返回空字符串
+失败: 返回空字符串并设置@error非0.
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����SHBrowseForFolder�������Ϣ
+###See Also###
+ 搜索MSDN知识库中SHBrowseForFolder的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

@@ -1,37 +1,37 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_DwmGetWindowAttribute
 
-###����###
-��ȡ��ǰӦ���ڴ��ڵ�ָ��DWM����ֵ
+###Description###
+获取当前应用于窗口的指定DWM属性值
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_DwmGetWindowAttribute ( $hWnd, $iAttribute )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hWnd
-   Ҫ��ȡ���ԵĴ�����
+   要获取属性的窗体句柄
 $iAttribute
-   Ҫ��ȡֵ������. ��Ϊ����ֵ֮һ:
-    $DWMWA_NCRENDERING_ENABLED - ȷ���ǿͻ�����Ⱦ�Ƿ����
-    $DWMWA_CAPTION_BUTTON_BOUNDS - ��ȡ������Կռ��б��ⰴť���ı߽�
-    $DWMWA_EXTENDED_FRAME_BOUNDS - ��ȡ��Ļ�ռ�����չ��ܵİ󶨾���
+   要获取值的属性. 可为下列值之一:
+    $DWMWA_NCRENDERING_ENABLED - 确定非客户端渲染是否可用
+    $DWMWA_CAPTION_BUTTON_BOUNDS - 获取窗体相对空间中标题按钮区的边界
+    $DWMWA_EXTENDED_FRAME_BOUNDS - 获取屏幕空间中扩展框架的绑定矩形
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���ذ������Ե�ǰֵ��ֵ. ����ֵ���������ڲ���$iAttributeֵ
-ʧ��: ����0������@error��0. @extended��ǰ���COM�������
+成功: 返回包含属性当前值的值. 返回值类型依赖于参数$iAttribute值
+失败: 返回0并设置@error非0. @extended标记包含COM错误代码
 @@End@@
 
-###��ע###
-�ú�����ҪWindows Vista�����ϰ汾.
+###Remarks###
+该函数需要Windows Vista或以上版本.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����DwmGetWindowAttribute�������Ϣ
+###See Also###
+ 搜索MSDN知识库中DwmGetWindowAttribute的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

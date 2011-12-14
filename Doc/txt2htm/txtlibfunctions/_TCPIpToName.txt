@@ -1,51 +1,51 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êı###
+ï»¿###User Defined Function###
 _TCPIpToName
 
-###ÃèÊö###
-½«IPµØÖ·×ª»»ÎªÖ÷»úÃû
+###Description###
+å°†IPåœ°å€è½¬æ¢ä¸ºä¸»æœºå
 
-###Óï·¨###
+###Syntax###
 #Include <iNet.au3>
 _TCPIpToName ( $sIp [,$iOption= 0 [, $hDll_Ws2_32 = "Ws2_32.dll" ]] )
 
-###²ÎÊı###
+###Parameters###
 @@ParamTable@@
- $sIp  IpµØÖ·(v4)¸ñÊ½
- $iOption  ¿ÉÑ¡, Ä¬ÈÏ = 0
-0 = ·µ»ØÖ÷»úÃû×Ö·û´®
-1 = ·µ»ØÊı×é (¼û±¸×¢)
- $hDll_Ws2_32  ¿ÉÑ¡, Ws2_32.dll¾ä±ú
+ $sIp  Ipåœ°å€(v4)æ ¼å¼
+ $iOption  å¯é€‰, é»˜è®¤ = 0
+0 = è¿”å›ä¸»æœºåå­—ç¬¦ä¸²
+1 = è¿”å›æ•°ç»„ (è§å¤‡æ³¨)
+ $hDll_Ws2_32  å¯é€‰, Ws2_32.dllå¥æŸ„
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
- ³É¹¦:  Ö÷»úÃû»òÊı×é (¼û±¸×¢)
- Ê§°Ü:  ""
- @Error:  0 = ÎŞ´íÎó.
-  1 = inet_addr DllCall Ê§°Ü
-  2 = inet_addr Ê§°Ü
-  3 = gethostbyaddr DllCall Ê§°Ü
-  4 = gethostbyaddr Ê§°Ü, WSAGetLastError = @Extended
-  5 = gethostbyaddr Ê§°Ü, WSAGetLastError Ê§°Ü
-  6 = strlen/sZStringRead Ê§°Ü
-  7 = ¶ÁÈ¡AliasesÊı×é´íÎó
+ æˆåŠŸ:  ä¸»æœºåæˆ–æ•°ç»„ (è§å¤‡æ³¨)
+ å¤±è´¥:  ""
+ @Error:  0 = æ— é”™è¯¯.
+  1 = inet_addr DllCall å¤±è´¥
+  2 = inet_addr å¤±è´¥
+  3 = gethostbyaddr DllCall å¤±è´¥
+  4 = gethostbyaddr å¤±è´¥, WSAGetLastError = @Extended
+  5 = gethostbyaddr å¤±è´¥, WSAGetLastError å¤±è´¥
+  6 = strlen/sZStringRead å¤±è´¥
+  7 = è¯»å–Aliasesæ•°ç»„é”™è¯¯
 @@End@@
 
-###±¸×¢###
-³É¹¦µÄ WSAStartup(ÓÉ TCPStartup Íê³É) ÊÇ±ØĞèµÄ.
-Èç¹û $iOption = 1
-Ôò·µ»ØÈçÏÂÊı×é:
-    $aResult[0] = ÔªËØÊıÁ¿
+###Remarks###
+æˆåŠŸçš„ WSAStartup(ç”± TCPStartup å®Œæˆ) æ˜¯å¿…éœ€çš„.
+å¦‚æœ $iOption = 1
+åˆ™è¿”å›å¦‚ä¸‹æ•°ç»„:
+    $aResult[0] = å…ƒç´ æ•°é‡
 $aResult[1] = "Hostname"
     $aResult[2] = "Alias
 1"
     $aResult[3] = "Alias 2"
 ...
 
-###Ïà¹Ø###
+###Related###
 TCPStartup , TCPNameToIP
 
-###²Î¿¼###
+###See Also###
 
-###Ê¾Àı###
+###Example###
 @@IncludeExample@@

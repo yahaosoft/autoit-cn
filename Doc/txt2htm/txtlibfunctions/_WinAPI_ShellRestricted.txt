@@ -1,186 +1,186 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_ShellRestricted
 
-###����###
-ȷ��ָ������Ա�����Ƿ���Ч
+###Description###
+确定指定管理员限制是否生效
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_ShellRestricted( $iRestriction )
 
-###����###
+###Parameters###
 @@ParamTable@@
-$iRestriction  ����. ��Ϊ$REST_*����֮һ:
-$REST_NORUN = ��ֹ���ʿ�ʼ�˵��ϵ���������
-$REST_NOCLOSE = ��ֹ���ʿ�ʼ�˵��еĹػ�����
-$REST_NOSAVESET = Ӧ�ó��򲻻����˳�ʱ����״̬�Ҳ�������һ������ʱ�ָ�
-$REST_NOFILEMENU = ��ֹ����Windows��Դ�������е��ļ��˵�
-$REST_NOSETFOLDERS = ��ֹ���ʿ������, ��ӡ��, ����Ͳ�������
-$REST_NOSETTASKBAR = ��ֹ��������������
-$REST_NODESKTOP = ���������ϵ�����ͼ��
-$REST_NOFIND = ��ʾ�û��޷������ļ�
-$REST_NODRIVES = ָ������ʾ��������(��32λֵ��ʾ)
-$REST_NODRIVEAUTORUN = ��ֹ�Զ����е�������(��32λֵ��ʾ)
-$REST_NODRIVETYPEAUTORUN = ��ֹ�Զ����е�����������(��32λֵ��ʾ)
-$REST_NONETHOOD = ��Shell�����ռ���ɾ�������ھ�
-$REST_RESTRICTRUN = �����û��������еĳ���
-$REST_NOPRINTERDELETE = ��ֹ�û�ɾ����ӡ��
-$REST_NOPRINTERADD = ��ֹ�û����Ӵ�ӡ��
-$REST_NOSTARTMENUSUBFOLDERS = ����ʾ���俪ʼ�˵������Ŀ�ʼ�˵��ͳ���˵������ļ���
-$REST_ENFORCESHELLEXTSECURITY = ��ֹʹ��δ����׼��shell��չ
-$REST_LINKRESOLVEIGNORELINKINFO = ��������������ӳ�������������
-$REST_NOCOMMONGROUPS = ��ֹ���ʿ�ʼ�˵��ϵ�commonfile�ļ���
-$REST_SEPARATEDESKTOPPROCESS = ʹ�õ����Ľ��̴��ļ���
-$REST_NOWEB = ���������ԶԻ�����ɾ��"Web"ѡ�
-$REST_NOTRAYCONTEXTMENU = ��ֹ�����������������Ĳ˵�
-$REST_NOVIEWCONTEXTMENU = ��ֹ����shell����������Ĳ˵�
-$REST_NONETCONNECTDISCONNECT = ��ֹ�û�ӳ���Ͽ�����������
-$REST_STARTMENULOGOFF = ɾ����ʼ�˵��ر��е�ע��ѡ��
-$REST_NOINTERNETICON = ������ɾ��ieͼ��
-$REST_NORECENTDOCSHISTORY = ���ô��ļ���ʷ
-$REST_NORECENTDOCSMENU = �ӿ�ʼ�˵��Ƴ�������ļ���ʷ
-$REST_NOACTIVEDESKTOP = ��ֹ�������ϴ�����ҳ����(���Windows Vista)
-$REST_NOACTIVEDESKTOPCHANGES = ���øı������ϵ���ҳ����(���Windows Vista)
-$REST_NOFAVORITESMENU = �ӿ�ʼ�˵���ɾ���ղؼв˵�
-$REST_CLEARRECENTDOCSONEXIT = ���û�ע��ʱɾ��������ĵ�����ʷ��¼����ص���ʷ��Ϣ
-$REST_NOCUSTOMIZEWEBVIEW = ��ֹ�Զ���Windows��Դ�������ļ��е����
-$REST_NOHTMLWALLPAPER = ��ֹ���÷�BMPͼ����Ϊ�����ֽ(Windows Vista����Ч)
-$REST_NOCHANGINGWALLPAPER = ��ֹ���������ֽ
-$REST_NODESKCOMP = �����������(Windows Vista����Ч)
-$REST_NOADDDESKCOMP = ��ֹ�����������
-$REST_NODELDESKCOMP = ��ֹɾ���������
-$REST_NOCLOSEDESKCOMP = ��ֹ�ر��������(Windows Vista����Ч)
-$REST_NOCLOSE_DRAGDROPBAND = ��ֹ�ϷŻ�ر������
-$REST_NOMOVINGBAND = ��ֹ�ƶ������
-$REST_NOEDITDESKCOMP = ��ֹ�޸��������(Windows Vista����Ч)
-$REST_NORESOLVESEARCH = �޸��𻵵Ŀ�ݷ�ʽʱ��������ʽ�ļ�����
-$REST_NORESOLVETRACK = �޸��𻵵Ŀ�ݷ�ʽʱ�������Ӹ��ٷ���
-$REST_FORCECOPYACLWITHFILE = �����ļ�ʱǿ�Ƹ����ļ���ACL�����̳�Ŀ���ļ��е�ACL
-$REST_NOLOGO3CHANNELNOTIFY = ������ݷ�ʽʱ����Ƶ������(Windows Vista����Ч)
-$REST_NOFORGETSOFTWAREUPDATE = ����ȡ����������
-$REST_NOSETACTIVEDESKTOP = ��ֹ������������ҳ���ݵ�����
-$REST_NOUPDATEWINDOWS = ���ؿ�ʼ�˵��е�Windows Update
-$REST_NOCHANGESTARMENU = ��ֹ�޸Ŀ�ʼ�˵�
-$REST_NOFOLDEROPTIONS = ��ֹ�����ļ���ѡ��Ի���
-$REST_HASFINDCOMPUTERS = ��ֹ���������ϼ����
-$REST_INTELLIMENUS = ���ø��Ի��˵�
-$REST_RUNDLGMEMCHECKBOX = �������жԻ����е��ڵ������ڴ�ռ�����ѡ��
-$REST_ARP_ShowPostSetup = ��"����/ɾ������"�Ի����"����/ɾ��Windows���"��ɾ���Ĳ������İ�װ�е�(Windows Vista����Ч)
-$REST_NOCSC = ɾ����ʼ�˵��ϵ�����ͬ��
-$REST_NOCONTROLPANEL = ��ֹ���ʿ������
-$REST_ENUMWORKGROUP = ��ʾ�����ھ��а��������������
-$REST_ARP_NOARP = ��ֹ���ʵ�"����/ɾ������"�Ի���(Windows Vista����Ч)
-$REST_ARP_NOREMOVEPAGE = �ܾ�����"����/ɾ������"�Ի����е�"���Ļ�ɾ������"(Windows Vista����Ч)
-$REST_ARP_NOADDPAGE = �ܾ�����"����/ɾ������"�Ի����е�"���ӳ���"(Windows Vista����Ч)
-$REST_ARP_NOWINSETUPPAGE = �ܾ�����"����/ɾ������"�Ի����е�"����/ɾ��Windows���"(Windows Vista����Ч)
-$REST_GREYMSIADS = ָ�����õ���δ��װ�ĵ�Ӧ�ó����Ի�ɫWindows Installerͼ����ʾ�ڿ�ʼ�˵���
-$REST_MAXRECENTDOCS = ָ��������"���ʹ�õ��ĵ�"�˵��е��ļ����������(32λֵ)
-$REST_NONETWORKCONNECTIONS = ɾ����ʼ�˵��е�"��������"
-$REST_FORCESTARTMENULOGOFF = ǿ�ƿ�ʼ�˵��е�ע������
-$REST_NOWEBVIEW = ����Windows��Դ���������ļ��е�HTMLģ��(Windows 2000)���ļ�������(Windows XP)(Windows Vista����Ч)
-$REST_NOCUSTOMIZETHISFOLDER = ��ֹ�Զ���Windows��Դ�������ļ��е����
-$REST_NOENCRYPTION = ��ֹ���ܻ�����ļ����ļ���
-$REST_DONTSHOWSUPERHIDDEN = ��ֹ�鿴���Ϊϵͳ������(���������ļ�)�ļ�
-$REST_NOSHELLSEARCHBUTTON = ����Windows��Դ�������������ϵ�"����"��ť
-$REST_NOHARDWARETAB = ����������, ���, ���̺Ͷ�ý�����Ա��е�"Ӳ��"ѡ�
-$REST_NORUNASINSTALLPROMPT = ��ֹ��װӦ�ó���ʱ�Զ�ƾ�ݵ��Զ���ʾ(Windows Vista����Ч)
-$REST_PROMPTRUNASINSTALLNETPATH = ��ֹ������·����װӦ�ó���ʱ�Զ�ƾ�ݵ��Զ���ʾ
-$REST_NOMANAGEMYCOMPUTERVERB = ���ҵĵ���"�����Ĳ˵�"��ɾ��ϵͳ����Ա�Ĺ�������
-$REST_NORECENTDOCSNETHOOD = ��ֹ"�����ھ�"������ʵ�������Դ���Զ����ӿ�ݷ�ʽ
-$REST_DISALLOWRUN = �����û��������еĳ���
-$REST_NOWELCOMESCREEN = ���û�ӭʹ��Windows��Ļ(Windows Vista����Ч)
-$REST_RESTRICTCPL = �����û��������п������Ӧ�ó���
-$REST_DISALLOWCPL = �����û��������п������Ӧ�ó���
-$REST_NOSMBALLOONTIP = ���ÿ�ʼ�˵�����ʾ��������ʾ
-$REST_NOSMHELP = ɾ���ӿ�ʼ�˵��е�"����"
-$REST_NOWINKEYS = ����Windows�ձ���ļ��̿�ݼ�
-$REST_NOENCRYPTONMOVE = δ���ܵ��ļ����ļ����ƶ������ܵ��ļ���ʱ����δ����
-$REST_NOLOCALMACHINERUN = ��ֹ����HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\WINDOWS\CURRENTVERSION\Runע��������г��ĳ���
-$REST_NOCURRENTUSERRUN = ��ֹ����HKEY_CURRENT_USER\SOFTWARE\MICROSOFT\WINDOWS\CURRENTVERSION\Runע��������г��ĳ���
-$REST_NOLOCALMACHINERUNONCE = ��ֹ����HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\WINDOWS\CURRENTVERSION\RunOnceע��������г��ĳ���
-$REST_NOCURRENTUSERRUNONCE = ��ֹ����HKEY_CURRENT_USER\SOFTWARE\MICROSOFT\WINDOWS\CURRENTVERSION\RunOnceע��������г��ĳ���
-$REST_FORCEACTIVEDESKTOPON = ǿ�����������ϵ�Web����
-$REST_NOCOMPUTERSNEARME = �������ھ�"�ļ���������"�ҵĵ���"��ͼ��
-$REST_NOVIEWONDRIVE = ָ���û��޷��򿪻��ļ��Ϸŵ���������(32λֵ)
-$REST_NONETCRAWL = ��ֹ�Զ����������ļ��кʹ�ӡ��(Windows Vista����Ч)
-$REST_NOSHAREDDOCUMENTS = ����"�ҵĵ���"�еĹ����ļ�ͼ��(Windows Vista����Ч)
-$REST_NOSMMYDOCS = ���ؿ�ʼ�˵��ϵ�"�ҵ��ĵ�"ͼ��
-$REST_NOSMMYPICS = ���ؿ�ʼ�˵��ϵ�"�ҵ�ͼƬ"ͼ��
-$REST_ALLOWBITBUCKDRIVES = ָ��ǿ�����û���վ��������(32λֵ)
-$REST_NONLEGACYSHELLMODE = ����IE�������ϵ�"����"��"ǰ��"��ť(Windows Vista����Ч)
-$REST_NOAUTOTRAYNOTIFY = ǿ�����е�������ͼ��ɼ�(���Windows XP)
-$REST_NOTASKGROUPING = ���÷���������������ť(���Windows XP)
-$REST_NOCDBURNING = ���ù��̿�¼(���Windows XP)
-$REST_MYCOMPNOPROP = ����"ϵͳ����"�Ի���(���Windows 2003 SP3)
-$REST_MYDOCSNOPROP = ��ֹ�鿴"�ҵ��ĵ�"�ļ��е�����(���Windows 2003 SP3)
-$REST_NOSTARTPANEL = ����Windows XP�Ŀ�ʼ�˵�(���Windows XP)
-$REST_NODISPLAYAPPEARANCEPAGE = ����"����"���ԶԻ����е���������ҳ(���Windows XP)
-$REST_NOTHEMESTAB = ����"����"���ԶԻ����е�����ҳ(���Windows XP)
-$REST_NOVISUALSTYLECHOICE = ��ֹ�ı��Ӿ���ʽ(���Windows XP)
-$REST_NOSIZECHOICE = ��ֹ�ı�"����"���ԶԻ�������ҳ�е������С(���Windows XP)
-$REST_NOCOLORCHOICE = ��ֹ�ı�"����"���ԶԻ�������ҳ�е�ϵͳ��ɫ(���Windows XP)
-$REST_SETVISUALSTYLE = ǿ��ָ�����Ӿ����(���Windows XP)
-$REST_STARTRUNNOHOMEPATH = ��"����"�Ի��������г����Ĭ�Ϲ���Ŀ¼��ǿ��Ϊ�û�����Ŀ¼(���Windows 2003)
-$REST_NOUSERNAMEINSTARTPANEL = ����Windows XP��ʼ�˵��е��û���(Windows XP/2003; Windows Vista����Ч)
-$REST_NOMYCOMPUTERICON = ����"�ҵĵ���"ͼ��(���Windows XP)
-$REST_NOSMNETWORKPLACES = ���ؿ�ʼ�˵��ϵ�"�����ھ�"ͼ��(���Windows XP)
-$REST_NOSMPINNEDLIST = ���ع̶��ڿ�ʼ�˵��ϵ���Ŀ�嵥(���Windows XP)
-$REST_NOSMMYMUSIC = ���ؿ�ʼ�˵��ϵ�"�ҵ�����"ͼ��(���Windows XP)
-$REST_NOSMEJECTPC = ���ؿ�ʼ�˵��ϵ�"����"����(���Windows XP)
-$REST_NOSMMOREPROGRAMS = ����Windows XP��ʼ�˵��е�"���г���"��(���Windows XP)
-$REST_NOSMMFUPROGRAMS = ����Windows XP��ʼ�˵����ʹ�õĳ����б�(���Windows XP)
-$REST_NOTRAYITEMSDISPLAY = ����������������֪ͨͼ��(���Windows XP)
-$REST_NOTOOLBARSONTASKBAR = ���������������й����������������(���Windows XP)
-$REST_NOSMCONFIGUREPROGRAMS = ���ؿ�ʼ�˵��ϵ�"���ó�����ʺ�Ĭ�ϵĿ�ݷ�ʽ"(���Windows 2000 SP3)
-$REST_HIDECLOCK = �����������ϵ�ʱ��(���Windows XP)
-$REST_NOLOWDISKSPACECHECKS = ���õ����̿ռ��ѹ���ʱ������������(���Windows XP)
-$REST_NOENTIRENETWORK = ����"�����ھ�"��"��������"ͼ��(���Windows 2000 SP4)
-$REST_NODESKTOPCLEANUP = ������������(Windows XP/2003; Windows Vista����Ч)
-$REST_BITBUCKNUKEONDELETE = ����������վ����ɾ���ļ�(���Windows XP)
-$REST_BITBUCKCONFIRMDELETE = ָ���ļ��ƶ�������վʱ��ֹ��ʾȷ�϶Ի���(���Windows XP)
-$REST_BITBUCKNOPROP = ��ֹ�û��鿴���޸Ļ���վ����(���Windows XP)
-$REST_NODISPBACKGROUND = ��ֹ�鿴���޸������ֽ(���Windows XP)
-$REST_NODISPSCREENSAVEPG = ��ֹ�鿴���޸���Ļ������������(���Windows XP)
-$REST_NODISPSETTINGSPG = ��ֹ�鿴���޸���Ļ����ɫ��Ⱥͷֱ�������(���Windows XP)
-$REST_NODISPLAYCPL = ���ÿ���������ʾ���ԶԻ���(���Windows XP)
-$REST_HIDERUNASVERB = ����shell�����"���з�ʽ"����(���Windows XP)
-$REST_NOTHUMBNAILCACHE = ��ֹ��������ͼ(���Windows XP)
-$REST_NOSTRCMPLOGICAL = ���ļ�������(���Windows XP sp1)
-$REST_NOPUBLISHWIZARD = ����Windows������(���Windows XP sp1; Windows Vista����Ч)
-$REST_NOONLINEPRINTSWIZARD = ����������ӡ��(���Windows XP sp1; Windows Vista����Ч)
-$REST_NOWEBSERVICES = ������������ӡ�򵼺�Windows�����򵼵���ҳָ���ķ���(���Windows XP sp1)
-$REST_ALLOWUNHASHEDWEBVIEW = ������ʾδע���Web��ͼģ��(Windows 2000 SP3/XP/2003; Windows Vista����Ч)
-$REST_ALLOWLEGACYWEBVIEW = �����ɵ�Web��ͼģ��(Windows XP֮ǰ��)��ת����Windows XP��ģ��(Windows Vista����Ч)
-$REST_REVERTWEBVIEWSECURITY = ��Web��ͼ�İ�ȫ�Խ��͵�Windows 2000 SP2�����ĳ̶�(Windows 2000 SP3/XP/2003; Windows Vista����Ч)
-$REST_INHERITCONSOLEHANDLES = ShellExec������鵱ǰ���̺�Ŀ������Ƿ�Ϊ�ɼ̳еĿ���̨����(���Windows 2000 SP4)
-$REST_SORTMAXITEMCOUNT = �����򳬹��ü�����ͼ(Windows XP sp2/sp3; Windows Vista����Ч)
-$REST_NOREMOTERECURSIVEEVENTS = ���ݹ�ע����������¼����������(���Windows XP sp2)
-$REST_NOREMOTECHANGENOTIFY = ��֪ͨԶ�̸���֪ͨ(���Windows XP sp2)
-$REST_NOSIMPLENETIDLIST = ��������IDList(Windows XP sp2/sp3; Windows Vista����Ч)
-$REST_NOENUMENTIRENETWORK = ��ö����������(���Windows XP sp2)
-$REST_NOINTERNETOPENWITH = ����"��������Ѱ���ʵ��ĳ���"ѡ��(���Windows XP sp2)
-$REST_ALLOWLEGACYLMZBEHAVIOR = �����ı�Windows XP SP2��ActiveX����LMZ����Ϊ(��Windows XP sp2; Windows Vista����Ч)
-$REST_DONTRETRYBADNETNAME = ��������ھ��е��ṩ�߷���ERROR_BAD_NET_NAME������(���Windows XP sp2)
-$REST_ALLOWFILECLSIDJUNCTIONS = ϵͳ�ļ�������������֧��file.{GUID}�ӿ�(���Windows XP sp2/2003)
-$REST_NOUPNPINSTALL = ��ֹ�����ھ��а�װͨ�ü��弴��(UPnP)������(���Windows XP sp2)
-$REST_ARP_DONTGROUPPATCHES = ɾ��"����/ɾ������"�еĸ����޲�����(Windows Vista����Ч)
-$REST_ARP_NOCHOOSEPROGRAMSPAGE = ɾ��ѡ�����ҳ���ϵ�ѡ��(Windows Vista����Ч)
-$REST_NODISCONNECT = ɾ����ʼ�˵�������������е�"�Ͽ�����"ѡ��(Windows Vista����Ч)
-$REST_NOSECURITY = ɾ����ʼ�˵�������������е�"Windows��ȫ"ѡ��(Windows Vista����Ч)
-$REST_NOFILEASSOCIATE = ��ֹ�����ļ�����(Windows Vista����Ч)
-$REST_ALLOWCOMMENTTOGGLE = �����л�ע�ͺͼ��������λ��(��Windows XP sp2; Windows Vista����Ч)
-$REST_USEDESKTOPINICACHE = �������ļ��л���Desktop.ini��Ŀ(��Windows XP sp2/sp3; Windows Vista����Ч)
+$iRestriction  限制. 可为$REST_*常量之一:
+$REST_NORUN = 禁止访问开始菜单上的运行命令
+$REST_NOCLOSE = 禁止访问开始菜单中的关机命令
+$REST_NOSAVESET = 应用程序不会在退出时保存状态且不会在下一次运行时恢复
+$REST_NOFILEMENU = 禁止访问Windows资源管理器中的文件菜单
+$REST_NOSETFOLDERS = 禁止访问控制面板, 打印机, 网络和拨号连接
+$REST_NOSETTASKBAR = 禁止访问任务栏设置
+$REST_NODESKTOP = 隐藏桌面上的所有图标
+$REST_NOFIND = 表示用户无法搜索文件
+$REST_NODRIVES = 指定不显示的驱动器(以32位值表示)
+$REST_NODRIVEAUTORUN = 禁止自动运行的驱动器(以32位值表示)
+$REST_NODRIVETYPEAUTORUN = 禁止自动运行的驱动器类型(以32位值表示)
+$REST_NONETHOOD = 从Shell命名空间中删除网上邻居
+$REST_RESTRICTRUN = 限制用户可以运行的程序
+$REST_NOPRINTERDELETE = 禁止用户删除打印机
+$REST_NOPRINTERADD = 禁止用户添加打印机
+$REST_NOSTARTMENUSUBFOLDERS = 不显示经典开始菜单顶部的开始菜单和程序菜单的子文件夹
+$REST_ENFORCESHELLEXTSECURITY = 禁止使用未经批准的shell扩展
+$REST_LINKRESOLVEIGNORELINKINFO = 不尝试重新连接映射的网络驱动器
+$REST_NOCOMMONGROUPS = 禁止访问开始菜单上的commonfile文件夹
+$REST_SEPARATEDESKTOPPROCESS = 使用单独的进程打开文件夹
+$REST_NOWEB = 从桌面属性对话框中删除"Web"选项卡
+$REST_NOTRAYCONTEXTMENU = 禁止访问任务栏的上下文菜单
+$REST_NOVIEWCONTEXTMENU = 禁止访问shell对象的上下文菜单
+$REST_NONETCONNECTDISCONNECT = 禁止用户映射或断开网络驱动器
+$REST_STARTMENULOGOFF = 删除开始菜单关闭中的注销选项
+$REST_NOINTERNETICON = 从桌面删除ie图标
+$REST_NORECENTDOCSHISTORY = 禁用打开文件历史
+$REST_NORECENTDOCSMENU = 从开始菜单移除最近打开文件历史
+$REST_NOACTIVEDESKTOP = 禁止在桌面上创建网页内容(最低Windows Vista)
+$REST_NOACTIVEDESKTOPCHANGES = 禁用改变桌面上的网页内容(最低Windows Vista)
+$REST_NOFAVORITESMENU = 从开始菜单中删除收藏夹菜单
+$REST_CLEARRECENTDOCSONEXIT = 在用户注销时删除最近的文档的历史记录及相关的历史信息
+$REST_NOCUSTOMIZEWEBVIEW = 禁止自定义Windows资源管理器文件夹的外观
+$REST_NOHTMLWALLPAPER = 禁止设置非BMP图像作为桌面壁纸(Windows Vista后无效)
+$REST_NOCHANGINGWALLPAPER = 禁止更改桌面壁纸
+$REST_NODESKCOMP = 禁用桌面组件(Windows Vista后无效)
+$REST_NOADDDESKCOMP = 禁止创建桌面组件
+$REST_NODELDESKCOMP = 禁止删除桌面组件
+$REST_NOCLOSEDESKCOMP = 禁止关闭桌面组件(Windows Vista后无效)
+$REST_NOCLOSE_DRAGDROPBAND = 禁止拖放或关闭桌面带
+$REST_NOMOVINGBAND = 禁止移动桌面带
+$REST_NOEDITDESKCOMP = 禁止修改桌面组件(Windows Vista后无效)
+$REST_NORESOLVESEARCH = 修复损坏的快捷方式时禁用启发式文件搜索
+$REST_NORESOLVETRACK = 修复损坏的快捷方式时禁用链接跟踪服务
+$REST_FORCECOPYACLWITHFILE = 复制文件时强制复制文件的ACL而不继承目标文件夹的ACL
+$REST_NOLOGO3CHANNELNOTIFY = 处理快捷方式时禁用频道更新(Windows Vista后无效)
+$REST_NOFORGETSOFTWAREUPDATE = 禁用取消更新提醒
+$REST_NOSETACTIVEDESKTOP = 禁止更改桌面上网页内容的设置
+$REST_NOUPDATEWINDOWS = 隐藏开始菜单中的Windows Update
+$REST_NOCHANGESTARMENU = 禁止修改开始菜单
+$REST_NOFOLDEROPTIONS = 禁止访问文件夹选项对话框
+$REST_HASFINDCOMPUTERS = 禁止搜索网络上计算机
+$REST_INTELLIMENUS = 禁用个性化菜单
+$REST_RUNDLGMEMCHECKBOX = 禁用运行对话框中的在单独的内存空间运行选项
+$REST_ARP_ShowPostSetup = 从"添加/删除程序"对话框的"添加/删除Windows组件"中删除的不完整的安装列单(Windows Vista后无效)
+$REST_NOCSC = 删除开始菜单上的所有同步
+$REST_NOCONTROLPANEL = 禁止访问控制面板
+$REST_ENUMWORKGROUP = 表示网络邻居中包括计算机工作组
+$REST_ARP_NOARP = 禁止访问的"添加/删除程序"对话框(Windows Vista后无效)
+$REST_ARP_NOREMOVEPAGE = 拒绝访问"添加/删除程序"对话框中的"更改或删除程序"(Windows Vista后无效)
+$REST_ARP_NOADDPAGE = 拒绝访问"添加/删除程序"对话框中的"添加程序"(Windows Vista后无效)
+$REST_ARP_NOWINSETUPPAGE = 拒绝访问"添加/删除程序"对话框中的"添加/删除Windows组件"(Windows Vista后无效)
+$REST_GREYMSIADS = 指定可用但尚未安装的的应用程序以灰色Windows Installer图标显示在开始菜单上
+$REST_MAXRECENTDOCS = 指定保留在"最近使用的文档"菜单中的文件的最大数量(32位值)
+$REST_NONETWORKCONNECTIONS = 删除开始菜单中的"网络连接"
+$REST_FORCESTARTMENULOGOFF = 强制开始菜单中的注销命令
+$REST_NOWEBVIEW = 禁用Windows资源管理器中文件夹的HTML模板(Windows 2000)或文件夹任务(Windows XP)(Windows Vista后无效)
+$REST_NOCUSTOMIZETHISFOLDER = 禁止自定义Windows资源管理器文件夹的外观
+$REST_NOENCRYPTION = 禁止加密或解密文件和文件夹
+$REST_DONTSHOWSUPERHIDDEN = 禁止查看标记为系统和隐藏(超级隐藏文件)文件
+$REST_NOSHELLSEARCHBUTTON = 禁用Windows资源管理器工具栏上的"搜索"按钮
+$REST_NOHARDWARETAB = 禁用驱动器, 鼠标, 键盘和多媒体属性表中的"硬件"选项卡
+$REST_NORUNASINSTALLPROMPT = 禁止安装应用程序时自动凭据的自动提示(Windows Vista后无效)
+$REST_PROMPTRUNASINSTALLNETPATH = 禁止从网络路径安装应用程序时自动凭据的自动提示
+$REST_NOMANAGEMYCOMPUTERVERB = 从我的电脑"上下文菜单"中删除系统管理员的管理命令
+$REST_NORECENTDOCSNETHOOD = 禁止"网上邻居"最近访问的网络资源中自动添加快捷方式
+$REST_DISALLOWRUN = 限制用户可以运行的程序
+$REST_NOWELCOMESCREEN = 禁用欢迎使用Windows屏幕(Windows Vista后无效)
+$REST_RESTRICTCPL = 限制用户可以运行控制面板应用程序
+$REST_DISALLOWCPL = 限制用户可以运行控制面板应用程序
+$REST_NOSMBALLOONTIP = 禁用开始菜单中显示的气球提示
+$REST_NOSMHELP = 删除从开始菜单中的"帮助"
+$REST_NOWINKEYS = 禁用Windows徽标键的键盘快捷键
+$REST_NOENCRYPTONMOVE = 未加密的文件和文件夹移动到加密的文件夹时保持未加密
+$REST_NOLOCALMACHINERUN = 禁止运行HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\WINDOWS\CURRENTVERSION\Run注册表键中列出的程序
+$REST_NOCURRENTUSERRUN = 禁止运行HKEY_CURRENT_USER\SOFTWARE\MICROSOFT\WINDOWS\CURRENTVERSION\Run注册表键中列出的程序
+$REST_NOLOCALMACHINERUNONCE = 禁止运行HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\WINDOWS\CURRENTVERSION\RunOnce注册表键中列出的程序
+$REST_NOCURRENTUSERRUNONCE = 禁止运行HKEY_CURRENT_USER\SOFTWARE\MICROSOFT\WINDOWS\CURRENTVERSION\RunOnce注册表键中列出的程序
+$REST_FORCEACTIVEDESKTOPON = 强制启用桌面上的Web内容
+$REST_NOCOMPUTERSNEARME = 在网上邻居"文件夹中隐藏"我的电脑"的图标
+$REST_NOVIEWONDRIVE = 指定用户无法打开或文件拖放到的驱动器(32位值)
+$REST_NONETCRAWL = 禁止自动搜索网络文件夹和打印机(Windows Vista后无效)
+$REST_NOSHAREDDOCUMENTS = 隐藏"我的电脑"中的共享文件图标(Windows Vista后无效)
+$REST_NOSMMYDOCS = 隐藏开始菜单上的"我的文档"图标
+$REST_NOSMMYPICS = 隐藏开始菜单上的"我的图片"图标
+$REST_ALLOWBITBUCKDRIVES = 指定强制启用回收站的驱动器(32位值)
+$REST_NONLEGACYSHELLMODE = 隐藏IE工具栏上的"后退"和"前进"按钮(Windows Vista后无效)
+$REST_NOAUTOTRAYNOTIFY = 强制所有的任务栏图标可见(最低Windows XP)
+$REST_NOTASKGROUPING = 禁用分组相似任务栏按钮(最低Windows XP)
+$REST_NOCDBURNING = 禁用光盘刻录(最低Windows XP)
+$REST_MYCOMPNOPROP = 禁用"系统属性"对话框(最低Windows 2003 SP3)
+$REST_MYDOCSNOPROP = 禁止查看"我的文档"文件夹的属性(最低Windows 2003 SP3)
+$REST_NOSTARTPANEL = 禁用Windows XP的开始菜单(最低Windows XP)
+$REST_NODISPLAYAPPEARANCEPAGE = 禁用"桌面"属性对话框中的主题和外观页(最低Windows XP)
+$REST_NOTHEMESTAB = 禁用"桌面"属性对话框中的主题页(最低Windows XP)
+$REST_NOVISUALSTYLECHOICE = 禁止改变视觉样式(最低Windows XP)
+$REST_NOSIZECHOICE = 禁止改变"桌面"属性对话框的外观页中的字体大小(最低Windows XP)
+$REST_NOCOLORCHOICE = 禁止改变"桌面"属性对话框的外观页中的系统颜色(最低Windows XP)
+$REST_SETVISUALSTYLE = 强制指定的视觉风格(最低Windows XP)
+$REST_STARTRUNNOHOMEPATH = 从"运行"对话框中运行程序的默认工作目录不强制为用户的主目录(最低Windows 2003)
+$REST_NOUSERNAMEINSTARTPANEL = 隐藏Windows XP开始菜单中的用户名(Windows XP/2003; Windows Vista后无效)
+$REST_NOMYCOMPUTERICON = 隐藏"我的电脑"图标(最低Windows XP)
+$REST_NOSMNETWORKPLACES = 隐藏开始菜单上的"网上邻居"图标(最低Windows XP)
+$REST_NOSMPINNEDLIST = 隐藏固定在开始菜单上的项目清单(最低Windows XP)
+$REST_NOSMMYMUSIC = 隐藏开始菜单上的"我的音乐"图标(最低Windows XP)
+$REST_NOSMEJECTPC = 隐藏开始菜单上的"弹出"命令(最低Windows XP)
+$REST_NOSMMOREPROGRAMS = 隐藏Windows XP开始菜单中的"所有程序"项(最低Windows XP)
+$REST_NOSMMFUPROGRAMS = 隐藏Windows XP开始菜单中最常使用的程序列表(最低Windows XP)
+$REST_NOTRAYITEMSDISPLAY = 隐藏任务栏的所有通知图标(最低Windows XP)
+$REST_NOTOOLBARSONTASKBAR = 隐藏任务栏的所有工具栏，如快速启动(最低Windows XP)
+$REST_NOSMCONFIGUREPROGRAMS = 隐藏开始菜单上的"设置程序访问和默认的快捷方式"(最低Windows 2000 SP3)
+$REST_HIDECLOCK = 隐藏任务栏上的时钟(最低Windows XP)
+$REST_NOLOWDISKSPACECHECKS = 禁用当磁盘空间已过低时的任务栏警告(最低Windows XP)
+$REST_NOENTIRENETWORK = 禁用"网上邻居"中"整个网络"图标(最低Windows 2000 SP4)
+$REST_NODESKTOPCLEANUP = 禁用桌面清理(Windows XP/2003; Windows Vista后无效)
+$REST_BITBUCKNUKEONDELETE = 不经过回收站立即删除文件(最低Windows XP)
+$REST_BITBUCKCONFIRMDELETE = 指定文件移动到回收站时禁止显示确认对话框(最低Windows XP)
+$REST_BITBUCKNOPROP = 禁止用户查看或修改回收站属性(最低Windows XP)
+$REST_NODISPBACKGROUND = 禁止查看或修改桌面壁纸(最低Windows XP)
+$REST_NODISPSCREENSAVEPG = 禁止查看或修改屏幕保护程序设置(最低Windows XP)
+$REST_NODISPSETTINGSPG = 禁止查看或修改屏幕的颜色深度和分辨率设置(最低Windows XP)
+$REST_NODISPLAYCPL = 禁用控制面板的显示属性对话框(最低Windows XP)
+$REST_HIDERUNASVERB = 禁用shell对象的"运行方式"命令(最低Windows XP)
+$REST_NOTHUMBNAILCACHE = 禁止缓存缩略图(最低Windows XP)
+$REST_NOSTRCMPLOGICAL = 按文件名排序(最低Windows XP sp1)
+$REST_NOPUBLISHWIZARD = 禁用Windows发布向导(最低Windows XP sp1; Windows Vista后无效)
+$REST_NOONLINEPRINTSWIZARD = 禁用联机打印向导(最低Windows XP sp1; Windows Vista后无效)
+$REST_NOWEBSERVICES = 禁用由联机打印向导和Windows发布向导的网页指定的服务(最低Windows XP sp1)
+$REST_ALLOWUNHASHEDWEBVIEW = 允许显示未注册的Web视图模板(Windows 2000 SP3/XP/2003; Windows Vista后无效)
+$REST_ALLOWLEGACYWEBVIEW = 允许旧的Web视图模板(Windows XP之前的)被转换成Windows XP的模板(Windows Vista后无效)
+$REST_REVERTWEBVIEWSECURITY = 将Web视图的安全性降低到Windows 2000 SP2或更早的程度(Windows 2000 SP3/XP/2003; Windows Vista后无效)
+$REST_INHERITCONSOLEHANDLES = ShellExec函数检查当前进程和目标进程是否为可继承的控制台进程(最低Windows 2000 SP4)
+$REST_SORTMAXITEMCOUNT = 不排序超过该键的视图(Windows XP sp2/sp3; Windows Vista后无效)
+$REST_NOREMOTERECURSIVEEVENTS = 不递归注册网络更改事件以网络堵塞(最低Windows XP sp2)
+$REST_NOREMOTECHANGENOTIFY = 不通知远程更改通知(最低Windows XP sp2)
+$REST_NOSIMPLENETIDLIST = 不简化网络IDList(Windows XP sp2/sp3; Windows Vista后无效)
+$REST_NOENUMENTIRENETWORK = 不枚举整个网络(最低Windows XP sp2)
+$REST_NOINTERNETOPENWITH = 禁用"在网络上寻找适当的程序"选项(最低Windows XP sp2)
+$REST_ALLOWLEGACYLMZBEHAVIOR = 允许改变Windows XP SP2中ActiveX对象LMZ的行为(仅Windows XP sp2; Windows Vista后无效)
+$REST_DONTRETRYBADNETNAME = 如果网络邻居中的提供者返回ERROR_BAD_NET_NAME不重试(最低Windows XP sp2)
+$REST_ALLOWFILECLSIDJUNCTIONS = 系统文件夹中重新启用支持file.{GUID}接口(最低Windows XP sp2/2003)
+$REST_NOUPNPINSTALL = 禁止网上邻居中安装通用即插即用(UPnP)的任务(最低Windows XP sp2)
+$REST_ARP_DONTGROUPPATCHES = 删除"添加/删除程序"中的个别修补程序(Windows Vista后无效)
+$REST_ARP_NOCHOOSEPROGRAMSPAGE = 删除选择程序页面上的选项(Windows Vista后无效)
+$REST_NODISCONNECT = 删除开始菜单和任务管理器中的"断开连接"选项(Windows Vista后无效)
+$REST_NOSECURITY = 删除开始菜单和任务管理器中的"Windows安全"选项(Windows Vista后无效)
+$REST_NOFILEASSOCIATE = 禁止更改文件关联(Windows Vista后无效)
+$REST_ALLOWCOMMENTTOGGLE = 允许切换注释和计算机名的位置(仅Windows XP sp2; Windows Vista后无效)
+$REST_USEDESKTOPINICACHE = 从网络文件夹缓存Desktop.ini条目(仅Windows XP sp2/sp3; Windows Vista后无效)
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���ط�0��ʾָ��������Ч, ��֮����0
-ʧ��: ����0������@error��0
+成功: 返回非0表示指定限制生效, 反之返回0
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����SHRestricted�������Ϣ
+###See Also###
+ 搜索MSDN知识库中SHRestricted的相关信息

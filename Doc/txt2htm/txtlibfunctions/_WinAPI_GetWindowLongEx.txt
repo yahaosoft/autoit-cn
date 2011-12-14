@@ -1,42 +1,42 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_GetWindowLongEx
 
-###����###
-����й�ָ�����ڵ���Ϣ
+###Description###
+获得有关指定窗口的信息
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_GetWindowLongEx($hWnd,
 $iIndex)
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hWnd
-   ���ھ��
+   窗口句柄
 $iIndex
-   ָ��Ҫ�����Ļ���0�ĵ�ƫ����. ��Чֵ�ķ�Χ��0�����ڶ����ڴ�ռ���ֽ���,��СΪ4;
-      ���磬��ָ����12λ�����12λ�Ĵ�����Ķ���洢�ռ䣬��Ӧ��Ϊ������32λ����������λ8��Ҫ�����������ֵ��ָ������ֵ֮һ��
-      $GWL_EXSTYLE - �����չ���ڷ��
-    $GWL_STYLE - ��ô��ڷ��
+   指定要检索的基于0的的偏移量. 有效值的范围从0到窗口额外内存空间的字节数,最小为4;
+      例如，若指定了12位或多于12位的窗体类的额外存储空间，则应设为第三个32位整数的索引位8。要获得任意其他值，指定下列值之一：
+      $GWL_EXSTYLE - 获得扩展窗口风格
+    $GWL_STYLE - 获得窗口风格
     $GWL_WNDPROC -
-      ��ô��ڹ��̵ĵ�ַ
-    $GWL_HINSTANCE - ���Ӧ�������ľ��
+      获得窗口过程的地址
+    $GWL_HINSTANCE - 获得应用事例的句柄
     $GWL_HWNDPARENT -
-      ��������ڴ��ڣ���ø����ھ��
-    $GWL_ID - ��ô��ڱ�ʶ
+      如果父窗口存在，获得父窗口句柄
+    $GWL_ID - 获得窗口标识
     $GWL_USERDATA -
-      ����봰���йص�32λֵ
+      获得与窗口有关的32位值
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��Ҫ��ֵ
+成功: 需要的值
 @@End@@
 
-###��ע###
-���δ���ù�_WinAPI_SetWindowLong()����, _WinAPI_GetWindowLong()����0.
+###Remarks###
+如果未调用过_WinAPI_SetWindowLong()函数, _WinAPI_GetWindowLong()返回0.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����GetWindowLong�������Ϣ
+###See Also###
+ 搜索MSDN知识库中GetWindowLong的相关信息

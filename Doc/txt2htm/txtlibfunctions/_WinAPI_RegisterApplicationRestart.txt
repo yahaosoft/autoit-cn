@@ -1,42 +1,42 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_RegisterApplicationRestart
 
-###����###
-ע������Ӧ�ó���Ļʵ��
+###Description###
+注册重启应用程序的活动实例
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_RegisterApplicationRestart( [$iFlags [, $sCmd]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $iFlags
-   [��ѡ] ָ��Ӧ�ó��򲻻ᱻ����ʱ���¼���Ϊ0������ֵ�е�һ������:
-    $RESTART_NO_CRASH - ��������δ�����쳣��ֹ
-    $RESTART_NO_HANG - ������������Ӧ����ֹ
-    $RESTART_NO_PATCH - �������ڰ�װ���¶���ֹ
-    $RESTART_NO_REBOOT - ��������ڰ�װ��������ʱ����������
+   [可选] 指定应用程序不会被重启时的事件可为0或下列值中的一个或多个:
+    $RESTART_NO_CRASH - 进程由于未处理异常终止
+    $RESTART_NO_HANG - 进程由于无响应而终止
+    $RESTART_NO_PATCH - 进程由于安装更新而终止
+    $RESTART_NO_REBOOT - 计算机由于安装更新重启时不重启进程
 $sCmd
-   [��ѡ] ����ʱӦ�ó���������в���. �����еĳ������ָ��Ϊ2048���ַ�. �ò���Ϊ0ʱ, �Ƴ�ע���������.
+   [可选] 重启时应用程序的命令行参数. 命令行的长度最长可指定为2048个字符. 该参数为0时, 移除注册的命令行.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0; @extended��ǰ���ϵͳ�������.
+成功: 返回1
+失败: 返回0并设置@error非0; @extended标记包含系统错误代码.
 @@End@@
 
-###��ע###
-������ԭʼע�������Ӧ�ó�������δ�����쳣���Ϊ����Ӧǰ
-�ɴӻص��ָ��ڲ����øú���������������
-Ϊ����ѭ������, ϵͳ����Ӧ�ó���������60�������.
-���ע����������Ӧ�ó�������δ�����쳣���Ϊ����Ӧ, ����û��ṩ������Ӧ�ó���Ļ���; Ӧ�ó��򲻻��Զ�����.
-ϵͳ���Ҫ��Windows Vista.
+###Remarks###
+重启的原始注册必须在应用程序遇到未处理异常或变为无响应前
+可从回调恢复内部调用该函数来更新命令行
+为避免循环重启, 系统仅在应用程序已运行60秒后重启.
+如果注册了重启且应用程序遇到未处理异常或变为无响应, 则给用户提供了重启应用程序的机会; 应用程序不会自动重启.
+系统最低要求Windows Vista.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����RegisterApplicationRestart�������Ϣ
+###See Also###
+ 搜索MSDN知识库中RegisterApplicationRestart的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

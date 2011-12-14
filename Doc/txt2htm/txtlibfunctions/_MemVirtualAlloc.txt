@@ -1,47 +1,47 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _MemVirtualAlloc
 
-###����###
-������ָ�����ý��̵������ַ�ռ��ҳ������
+###Description###
+保留或指定调用进程的虚拟地址空间的页面区域
 
-###�﷨###
+###Syntax###
 #Include <Memory.au3>
 _MemVirtualAlloc($pAddress,$iSize, $iAllocation, $iProtect)
 
-###����###
+###Parameters###
 @@ParamTable@@
- $pAddress  Ҫ������������ʼ��ַ
- $iSize  ��������ֽڴ�С
- $iAllocation  �ڴ���������:
-$MEM_COMMIT - ��ָ��ҳ����������ڴ��е������洢������ϵ�ҳ���ļ�.
+ $pAddress  要分配的区域的起始地址
+ $iSize  该区域的字节大小
+ $iAllocation  内存分配的类型:
+$MEM_COMMIT - 给指定页面区域分配内存中的物理存储或磁盘上的页面文件.
 $MEM_RESERVE
-      - �������̵�δ�����κ������洢�������ַ�ռ�ķ�Χ.
-$MEM_TOP_DOWN - ����߿��ܵĵ�ַ�����ڴ�
- $iProtect  Ҫ�����ҳ��������ڴ汣��:
-$PAGE_READONLY - ��ҳ��ָ������Ķ�ȡȨ��
+      - 保留进程的未分配任何物理存储的虚拟地址空间的范围.
+$MEM_TOP_DOWN - 在最高可能的地址分配内存
+ $iProtect  要分配的页面区域的内存保护:
+$PAGE_READONLY - 对页面指定区域的读取权限
 $PAGE_READWRITE -
-      ��ҳ��ָ������Ķ�дȨ��
-$PAGE_EXECUTE - ��ҳ��ָ������Ĳ���Ȩ��
+      对页面指定区域的读写权限
+$PAGE_EXECUTE - 对页面指定区域的操作权限
 $PAGE_EXECUTE_READ -
-      ��ҳ��ָ������Ĳ����Ͷ�ȡȨ��
+      对页面指定区域的操作和读取权限
 $PAGE_EXECUTE_READWRITE -
-      ��ҳ��ָ������Ĳ����Ͷ�дȨ��
-$PAGE_GUARD - �����е�ҳ���Ϊ����״̬
+      对页面指定区域的操作和读写权限
+$PAGE_GUARD - 区域中的页面变为保护状态
 $PAGE_NOACCESS -
-      ����ҳ��ָ�������ȫ��Ȩ��
-$PAGE_NOCACHE - ����û��ҳ��ָ������Ļ���
+      禁用页面指定区域的全部权限
+$PAGE_NOCACHE - 允许没有页面指定区域的缓存
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �ڴ��ַָ��
-ʧ��: 0
+成功: 内存地址指针
+失败: 0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 _MemVirtualFree , _MemGlobalAlloc
 
-###�ο�###
-����MSDN֪ʶ��VirtualAlloc�������Ϣ
+###See Also###
+搜索MSDN知识库VirtualAlloc的相关信息

@@ -1,39 +1,39 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_RegEnumValue
 
-###����###
-ö�ٴ򿪵�ָ��ע�������ֵ
+###Description###
+枚举打开的指定注册表键的值
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_RegEnumValue( $hKey, $iIndex )
 
-###����###
-$hKey  �򿪵ļ��ľ���Ҹü���$KEY_QUERY_VALUE����Ȩ�޴�. �þ������_WinAPI_RegCreateKey()��_WinAPI_RegOpenKey()������.��Ϊ����Ԥ�����֮һ:
+###Parameters###
+$hKey  打开的键的句柄且该键以$KEY_QUERY_VALUE访问权限打开. 该句柄须由_WinAPI_RegCreateKey()或_WinAPI_RegOpenKey()函数打开.可为下列预定义键之一:
 $HKEY_CLASSES_ROOT
 $HKEY_CURRENT_CONFIG
 $HKEY_CURRENT_USER
 $HKEY_LOCAL_MACHINE
 $HKEY_USERS
 $iIndex
-   Ҫ��ȡ��ֵ������. �ò������״α�����_WinAPI_RegEnumValue()����ʱΪ0������ô�������
+   要获取的值的索引. 该参数在首次被函数_WinAPI_RegEnumValue()调用时为0并随调用次数递增
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����ֵ�����ַ���, @extended��ǰ�����ʾ�洢���ƶ�֮�е����ݵ�����($REG_...)�Ĵ���.
-ʧ��: ���ؿ��ַ���������@error��0, @extended��ǿɰ�����0ϵͳ�������.
+成功: 包含值名的字符串, @extended标记包含表示存储在制定之中的数据的类型($REG_...)的代码.
+失败: 返回空字符串并设置@error非0, @extended标记可包含非0系统错误代码.
 @@End@@
 
-###��ע###
-ö��ֵʱ, Ӧ�ó����ʼ�Բ���$iIndexΪ0����_WinAPI_RegEnumValue(). Ȼ������$iIndex����������_WinAPI_RegEnumValue()ֱ���Ѳ������Ӽ�(��ʾ@extended���ΪERROR_NO_MORE_ITEMS (259)).
-Ӧ�ó���Ҳ�����״ε��ú���ʱʹ�������Ӽ����������еݼ�����ֱ��ö�ٵ��Ӽ�����Ϊ0. ��ʹ��_WinAPI_RegQueryInfoKey()������ȡ�����Ӽ�����.
-��ʹ��_WinAPI_RegEnumValue()����ʱ, ��������κο��ܸı䱻ö�ٵļ��ĺ���.
+###Remarks###
+枚举值时, 应用程序初始以参数$iIndex为0调用_WinAPI_RegEnumValue(). 然后增加$iIndex参数并调用_WinAPI_RegEnumValue()直到已不存在子键(表示@extended标记为ERROR_NO_MORE_ITEMS (259)).
+应用程序也可在首次调用函数时使用最后的子键索引并进行递减操作直到枚举的子键索引为0. 可使用_WinAPI_RegQueryInfoKey()函数获取最后的子键索引.
+当使用_WinAPI_RegEnumValue()函数时, 不会调用任何可能改变被枚举的键的函数.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����RegEnumValue�������Ϣ
+###See Also###
+ 搜索MSDN知识库中RegEnumValue的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

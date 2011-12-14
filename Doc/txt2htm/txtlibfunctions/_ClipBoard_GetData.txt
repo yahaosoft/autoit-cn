@@ -1,56 +1,56 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _ClipBoard_GetData
 
-###����###
-������������ָ����ʽ������
+###Description###
+检索剪贴板上指定格式的数据
 
-###�﷨###
+###Syntax###
 #Include <Clipboard.au3>
 _ClipBoard_GetData( [$iFormat = 1] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $iFormat 
-   ָ���������ʽ:
-    $CF_TEXT - �ı���ʽ
-    $CF_BITMAP - λͼ���(HBITMAP)
-    $CF_METAFILEPICT - ͼԪ���(METAFILEPICT)
-    $CF_SYLK - Microsoft�������Ӹ�ʽ(SYLK)
-    $CF_DIF - ��������(��˾)���ݽ�����ʽ
-    $CF_TIFF - ���ͼ���ļ���ʽ
-    $CF_OEMTEXT - ����OEM�ַ����е��ַ����ı���ʽ
-    $CF_DIB - ����ͼλ��BITMAPINFO�ṹ
-    $CF_PALETTE - ��ɫ����
-    $CF_PENDATA - ������ʹ�û��ʵ���չ����
-    $CF_RIFF - ����RIFF��ʽ����������
-    $CF_WAVE - ����WAVE��ʽ����������
-    $CF_UNICODETEXT - Unicode�ı���ʽ
-    $CF_ENHMETAFILE - ��ǿ��ͼԪ���(HENHMETAFILE)
-    $CF_HDROP - ʶ���ļ��б���HDROP�ľ��
-    $CF_LOCALE - ��������ı��йصı�����֤���
-    $CF_DIBV5 - ��λͼ��ɫ��ͼλ��BITMAPV5HEADER�ṹ
-    $CF_OWNERDISPLAY - ����ʾ��ʽ
-    $CF_DSPTEXT - ��˽�и�ʽ��ص�������ʾ��ʽ
-    $CF_DSPBITMAP - ��˽�и�ʽ��ص�λͼ��ʾ��ʽ
-    $CF_DSPMETAFILEPICT - ��˽�и�ʽ��ص�ͼԪ��ʾ��ʽ
-    $CF_DSPENHMETAFILE - ��˽�и�ʽ��ص���ǿ��ͼԪ��ʾ��ʽ
+   指定剪贴板格式:
+    $CF_TEXT - 文本格式
+    $CF_BITMAP - 位图句柄(HBITMAP)
+    $CF_METAFILEPICT - 图元句柄(METAFILEPICT)
+    $CF_SYLK - Microsoft符号链接格式(SYLK)
+    $CF_DIF - 软件艺术(公司)数据交换格式
+    $CF_TIFF - 标记图像文件格式
+    $CF_OEMTEXT - 包含OEM字符集中的字符的文本格式
+    $CF_DIB - 点阵图位的BITMAPINFO结构
+    $CF_PALETTE - 调色板句柄
+    $CF_PENDATA - 计算所使用画笔的扩展数据
+    $CF_RIFF - 代表RIFF格式中声音数据
+    $CF_WAVE - 代表WAVE格式中声音数据
+    $CF_UNICODETEXT - Unicode文本格式
+    $CF_ENHMETAFILE - 增强型图元句柄(HENHMETAFILE)
+    $CF_HDROP - 识别文件列表的HDROP的句柄
+    $CF_LOCALE - 与剪贴板文本有关的本地认证句柄
+    $CF_DIBV5 - 带位图颜色和图位的BITMAPV5HEADER结构
+    $CF_OWNERDISPLAY - 主显示格式
+    $CF_DSPTEXT - 与私有格式相关的文字显示格式
+    $CF_DSPBITMAP - 与私有格式相关的位图显示格式
+    $CF_DSPMETAFILEPICT - 与私有格式相关的图元显示格式
+    $CF_DSPENHMETAFILE - 与私有格式相关的增强型图元显示格式
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �����ı���ʽ���ı���������ʽ�ľ��
-ʧ��: 0
+成功: 基于文本格式的文本或其他格式的句柄
+失败: 0
 @@End@@
 
-###��ע###
-�ú���ִ�����дӼ������ȡ���ݵı�Ҫ����:
-����ʽ�Ƿ���ô򿪼����� , �رռ����弰��������(�����Ҫת����һ���ַ���)�����Ҫ�ԴӼ�����������ݽ��и�ϸ�Ŀ��� , ����ʹ��
-_ClipBoard_GetDataEx����.
+###Remarks###
+该函数执行所有从剪贴板获取数据的必要步骤:
+检查格式是否可用打开剪贴板 , 关闭剪贴板及返回数据(如果需要转换成一个字符串)如果需要对从剪贴板检索数据进行更细的控制 , 可以使用
+_ClipBoard_GetDataEx函数.
 
-###���###
+###Related###
  _ClipBoard_GetDataEx , _ClipBoard_SetData
 
-###�ο�###
+###See Also###
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

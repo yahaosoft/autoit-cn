@@ -1,25 +1,25 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUIToolTip_AdjustRect
 
-###����###
-�ɴ�����μ����ı���ʾ�ľ���
+###Description###
+由窗体矩形计算文本显示的矩形
 
-###�﷨###
+###Syntax###
 #Include <GuiToolTip.au3>
 _GUIToolTip_AdjustRect($hWnd, ByRef $tRect[, $fLarger = True])
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  �ؼ����
- $tRect  ���洰����ı���ʾ���ε�$tagRECT�ṹ
- $fLarger  ָ��Ҫִ�еĲ�����ֵ. �����, $tRect������ָ���ı���ʾ���μ�������Ӧ�������. �����, $tRect����ָ��������μ�������Ӧ�ı���ʾ����.
+ $hWnd  控件句柄
+ $tRect  保存窗体或文本显示矩形的$tagRECT结构
+ $fLarger  指定要执行的操作的值. 如果真, $tRect被用于指定文本显示矩形及接收相应窗体矩形. 如果假, $tRect用于指定窗体矩形及接收相应文本显示矩形.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: $tagRECT �ṹ
+成功: $tagRECT 结构
 @@End@@
 
-###��ע###
-������ʾ�Ĵ�������Դ�����ʾ�ַ������ı���ʾ����. ���ڱ߽�Ҳ�����ı���ʾ�ľ��α߽类������, ���������Ӧ�Ĵ�����β�ʹ�øþ��ζ�λ��ʾ. $TTM_ADJUSTRECT���ṩ������. �������$fLargerΪ��,
-$TTM_ADJUSTRECTʹ����Ҫ����ʾ�ı�����ʾ����, ��������ʾ������ָ��λ����ʾ�ı�����Ĵ�С��λ��. �������$fLargerΪ�ٿ���ָ����ʾ�������ͬʱ$TTM_ADJUSTRECT�������ı����εĴ�С��λ��.
+###Remarks###
+工具提示的窗体矩形稍大于提示字符串的文本显示矩形. 窗口边界也将从文本显示的矩形边界被抵消掉, 必须计算相应的窗体矩形并使用该矩形定位提示. $TTM_ADJUSTRECT会提供计算结果. 如果设置$fLarger为真,
+$TTM_ADJUSTRECT使用需要的提示文本的显示矩形, 并传回提示窗口在指定位置显示文本所需的大小和位置. 如果设置$fLarger为假可以指定提示窗体矩形同时$TTM_ADJUSTRECT将返回文本矩形的大小和位置.

@@ -1,34 +1,34 @@
-###�ṹ����###
+﻿###结构常量###
 $tagNMHDDISPINFO
 
-###����###
-�������ڿ���$HDN_GETDISPINFO֪ͨ��Ϣ����Ϣ�Ľṹ
+###Description###
+包含用于控制$HDN_GETDISPINFO通知消息的信息的结构
 
-###�﷨###
+###Syntax###
 Global Const $tagNMHDDISPINFO =  "hwnd WndFrom;int IDFrom;int Code;int Item;int Mask;ptr Text;int TextMax;int Imageint lParam"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 WndFrom
-   ������Ϣ�Ŀؼ��Ĵ�����
+   发送消息的控件的窗体句柄
 IDFrom
-   ������Ϣ�Ŀؼ��ı�ʶ
+   发送消息的控件的标识
 Code
-   ֪ͨ����
+   通知代码
 Item
-   ����ؼ��е�0��������
+   标题控件中的0基索引项
 Mask
-   ָ�����ɿؼ��������Ľṹ�ĳ�Ա��λ��Ǽ�. ��Ϊ����ֵ�����:
-    $HDI_TEXT - Text�ֶ��뱻���
-    $HDI_IMAGE - Image�ֶ��뱻���
-    $HDI_LPARAM - lParam�ֶ��뱻���
-    $HDI_DI_SETITEM - ��ʾ�ؼ������治��ѯ�ʵ���Ŀ��Ϣ�ķ���ֵ.
+   指定须由控件宿主填充的结构的成员数位标记集. 可为下列值的组合:
+    $HDI_TEXT - Text字段须被填充
+    $HDI_IMAGE - Image字段须被填充
+    $HDI_LPARAM - lParam字段须被填充
+    $HDI_DI_SETITEM - 表示控件将保存不再询问的项目信息的返回值.
 Text
-   ��������Ŀ����ʾ���ı�������ֹ���ַ�����ָ��
+   标题栏项目将显示的文本的无终止符字符串的指针
 TextMax
-   �ı�ָ��Ļ������Ĵ�С
+   文本指向的缓冲区的大小
 Image
-   ͼ���б��е�ͼ���0������. ָ��ͼ�񽫺���Ŀһ����ʾ, �����滻��Ŀ��λͼ. ���iImage����Ϊ$I_IMAGECALLBACK, �ؼ�ͨ��ʹ��$HDN_GETDISPINFO֪ͨ��ϢΪ��������ͼ����Ϣ.
+   图像列表中的图像的0基索引. 指定图像将和项目一起显示, 但不替换项目的位图. 如果iImage设置为$I_IMAGECALLBACK, 控件通过使用$HDN_GETDISPINFO通知消息为该项请求图像信息.
 lParam
-   ����Ŀ��ص�Ӧ�ó������ֵ
+   与项目相关的应用程序定义的值
 @@end@@

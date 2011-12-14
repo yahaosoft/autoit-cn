@@ -1,43 +1,43 @@
-###�ṹ����###
+﻿###结构常量###
 $tagTBBUTTONINFO
 
-###����###
-��������չ�������ָ����ť��Ϣ�Ľṹ
+###Description###
+包含或接收工具栏上指定按钮信息的结构
 
-###�﷨###
+###Syntax###
 Global Const $tagTBBUTTONINFO =  "int Size;int Mask;int Command;int Image;byte State;byte Style;short CX;int Param;ptr Text;ptr TextMax"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 Size
-   �ṹ���ֽڴ�С
+   结构的字节大小
 Mask
-   �������п�����Ϣ�ĳ�Ա�ı�ǵļ���:
-    $TBIF_BYINDEX - ��$TB_GETBUTTONINFO��$TB_SETBUTTONINFO��Ϣ���͵Ĳ�����һ������
-    $TBIF_COMMAND - Command��Ա������Ч��Ϣ��������Ҫ
-    $TBIF_IMAGE - Image��Ա������Ч��Ϣ��������Ҫ
-    $TBIF_IMAGELABEL - ��ʾ��ʹ��ImageLabel
-    $TBIF_LPARAM - Param��Ա������Ч��Ϣ��������Ҫ
-    $TBIF_SIZE - CX��Ա������Ч��Ϣ��������Ҫ
-    $TBIF_STATE - State��Ա������Ч��Ϣ��������Ҫ
-    $TBIF_STYLE - Style��Ա������Ч��Ϣ��������Ҫ
-    $TBIF_TEXT - Text��Ա������Ч��Ϣ��������Ҫ
+   描述含有可用信息的成员的标记的集合:
+    $TBIF_BYINDEX - 和$TB_GETBUTTONINFO或$TB_SETBUTTONINFO消息发送的参数是一个索引
+    $TBIF_COMMAND - Command成员包含有效信息或正被需要
+    $TBIF_IMAGE - Image成员包含有效信息或正被需要
+    $TBIF_IMAGELABEL - 表示将使用ImageLabel
+    $TBIF_LPARAM - Param成员包含有效信息或正被需要
+    $TBIF_SIZE - CX成员包含有效信息或正被需要
+    $TBIF_STATE - State成员包含有效信息或正被需要
+    $TBIF_STYLE - Style成员包含有效信息或正被需要
+    $TBIF_TEXT - Text成员包含有效信息或正被需要
 Command
-   ��ť�������ʶ
+   按钮的命令标识
 Image
-   ��ť��ͼ������. ���ô˳�ԱΪ$I_IMAGECALLBACK, ���ɹ���������$TBN_GETDISPINFO֪ͨ������Ҫʱ��ȡͼ������. ���øó�ԱΪ$I_IMAGENONE��ʾ��ť������ͼ��.
+   按钮的图像索引. 设置此成员为$I_IMAGECALLBACK, 且由工具栏发送$TBN_GETDISPINFO通知以在需要时获取图像索引. 设置该成员为$I_IMAGENONE表示按钮不具有图像.
 State
-   ��ť״̬���
+   按钮状态标记
 Style
-   ��ť��ʽ���
+   按钮样式标记
 CX
-   ��ť���ؿ���
+   按钮像素宽度
 Param
-   Ӧ�ó�������밴ť��ص�ָ
+   应用程序定义的与按钮相关的指
 Text
-   ��������հ�ť�ı����ַ��������ĵ�ַ
+   包含或接收按钮文本的字符缓冲区的地址
 TextMax
-   Text�������Ĵ�С. ����趨�˰�ť��Ϣ, ���Ըó�Ա
+   Text缓冲区的大小. 如果设定了按钮信息, 忽略该成员
 ImageLabel
-   �ṩ�滻��ͼ�����Ŀ���ı���ǩ������
+   提供替换带图像的项目的文本标签的能力
 @@end@@

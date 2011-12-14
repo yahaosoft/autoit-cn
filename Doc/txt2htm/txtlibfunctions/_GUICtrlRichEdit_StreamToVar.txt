@@ -1,50 +1,50 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlRichEdit_StreamToVar
 
-###����###
-���ؼ�����д�����
+###Description###
+将控件内容写入变量
 
-###�﷨###
+###Syntax###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_StreamToVar($hWnd [, $fRtf = True [, $fIncludeCOM=True [, $iOpts=0[, $iCodePage = 0]]]])
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  �ؼ����
- $fRtf  [��ѡ] �� - д�븻�ı���ʽ(RTF) (Ĭ��)
-�� - ֻд���ı�
- $fIncludeCOM  [��ѡ]
-��(Ĭ��): ���д��.rtf�ļ�, ��������COM����(ռ�ÿռ�)
-          ���д�������ļ�, ���ı�����COM����д��
-��: д��ո����COM����
- $iOpts  [��ѡ] ����ѡ��: (Ĭ��: 0)
-$SFF_PLAINTRTF - ֻд������������ձ����õĹؼ���
-$SF_UNICODE - д��UNICODE
- $iCodePage  [��ѡ] ʹ��UTF-8����ҳ���ɵ��ı�
-Ĭ��: ��ʹ��
+ $hWnd  控件句柄
+ $fRtf  [可选] 真 - 写入富文本格式(RTF) (默认)
+假 - 只写入文本
+ $fIncludeCOM  [可选]
+真(默认): 如果写入.rtf文件, 包含任意COM对象(占用空间)
+          如果写入其他文件, 以文本代替COM对象写入
+假: 写入空格代替COM对象
+ $iOpts  [可选] 额外选项: (默认: 0)
+$SFF_PLAINTRTF - 只写入对所有语言普遍适用的关键字
+$SF_UNICODE - 写入UNICODE
+ $iCodePage  [可选] 使用UTF-8代码页生成的文本
+默认: 不使用
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
- �ɹ�:  RTF���ı�
- ʧ��:  �ٲ�����@error
- @error:  101 - $hWnd���Ǿ��
-  1041 - $SFF_PLAINRTF���ı��ļ���Ч
-  1042 - $opts: ��Чѡ��
-  1043 - $SF_UNICODE������һ���ı��ļ�
-  700 - �ڲ�����
+ 成功:  RTF或文本
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  1041 - $SFF_PLAINRTF对文本文件无效
+  1042 - $opts: 无效选项
+  1043 - $SF_UNICODE仅用于一个文本文件
+  700 - 内部错误
 @@End@@
 
-###��ע###
-���ѡ���ı�, ���滻ѡȡ���ı�, �����滻�ؼ��е������ı�
-���$sFileSpec�е���չ��Ϊ.rtf, ��д��RTF, �������ı�
-  ����_GUICtrlRichEdit_IsModified()ȷ���ı��Ƿ��Ѹı�
+###Remarks###
+如果选定文本, 仅替换选取的文本, 否则替换控件中的所有文本
+如果$sFileSpec中的扩展名为.rtf, 将写入RTF, 不仅是文本
+  调用_GUICtrlRichEdit_IsModified()确定文本是否已改变
 
-###���###
+###Related###
  _GUICtrlRichEdit_SetLimitOnText , _GUICtrlRichEdit_StreamFromVar , _GUICtrlRichEdit_StreamToFile
 
-###�ο�###
- ����MSDN֪ʶ����EM_STREAMIN�������Ϣ
+###See Also###
+ 搜索MSDN知识库中EM_STREAMIN的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

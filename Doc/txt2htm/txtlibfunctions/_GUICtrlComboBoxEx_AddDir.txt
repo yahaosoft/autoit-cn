@@ -1,46 +1,46 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlComboBoxEx_AddDir
 
-###����###
-����Ŀ¼���ļ�������
+###Description###
+添加目录和文件的名称
 
-###�﷨###
+###Syntax###
 #Include<GuiComboBoxEx.au3>
 _GUICtrlComboBoxEx_AddDir($hWnd, $sFile[,$iAttributes = 0[, $fBrackets = True]])
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  �ؼ����
- $sFile  ָ������·��, ���·��, ���ļ���
- $iAttributes  ָ��Ҫ���ӵ�Ŀ¼���ļ�������:
-$DDL_READWRITE - û���������ԵĿɶ�д�ļ�
+ $hWnd  控件句柄
+ $sFile  指定绝对路径, 相对路径, 或文件名
+ $iAttributes  指定要添加的目录或文件的属性:
+$DDL_READWRITE - 没有另外属性的可读写文件
 $DDL_READONLY -
-      ֻ���ļ�
-$DDL_HIDDEN - �����ļ�
-$DDL_SYSTEM - ϵͳ�ļ�
+      只读文件
+$DDL_HIDDEN - 隐藏文件
+$DDL_SYSTEM - 系统文件
 $DDL_DIRECTORY -
-      ��Ŀ¼
-$DDL_ARCHIVE - ѹ���ļ�
-$DDL_DRIVES - ����Ӳ��
+      子目录
+$DDL_ARCHIVE - 压缩文件
+$DDL_DRIVES - 所有硬盘
 $DDL_EXCLUSIVE -
-      ָ�����Ե��ļ�
- $fBrackets  ָ��ʹ��$DDL_DRIVESʱ�Ƿ��������
+      指定属性的文件
+ $fBrackets  指定使用$DDL_DRIVES时是否包括括号
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ������ӵ����Ƶ�(0��)����
-ʧ��: -1
+成功: 最后被添加的名称的(0基)索引
+失败: -1
 @@End@@
 
-###��ע###
-����ռ䲻���洢���ַ���, ����ֵΪ$CB_ERRSPACE
-��ҪConstants.au3Ԥ���峣��
+###Remarks###
+如果空间不够存储新字符串, 返回值为$CB_ERRSPACE
+需要Constants.au3预定义常量
 
-###���###
+###Related###
 _GUICtrlComboBox_InitStorage
 
-###�ο�###
+###See Also###
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

@@ -1,51 +1,51 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlDTP_SetFormat
 
-###����###
-���ڸ�����ʽ������ʾ�ַ���
+###Description###
+基于给定格式设置显示字符串
 
-###�﷨###
+###Syntax###
 #Include<GuiDateTimePicker.au3>
 _GUICtrlDTP_SetFormat($hWnd, $sFormat)
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  �ؼ����
- $sFormat  ���������ʽ���ַ���. ���Ϊ�� , �ؼ������õ�ǰ��ʽ��Ĭ�ϸ�ʽ. ����ʹ�����и�ʽ�ַ���:
- "d" - һλ����λ����
- "dd" - ��λ����. ����λ�ս���0����
- "ddd" - ��λ�ַ���������д
- "dddd" - ����������
- "h" - 12-Сʱ��ʽ��ʾ��һλ����λʱ
- "hh" - 12-Сʱ��ʽ��ʾ����λʱ
- "H" - 24-Сʱ��ʽ��ʾ��һλ����λʱ
- "HH" - 24-Сʱ��ʽ��ʾ����λʱ
- "m" - һλ����λ��
- "mm" - ��λ��
- "M" - һλ����λ�·�����
- "MM" - ��λ�·�����
- "MMM" - ��λ�ַ����·���д
- "MMMM" - �����·���
- "t" - һ����ĸ��AM/PM��д
- "tt" - ������ĸ��AM/PM��д
- "yy" - ��ݵĺ���λ����
- "yyyy" - �������
+ $hWnd  控件句柄
+ $sFormat  定义所需格式的字符串. 如果为空 , 控件将重置当前格式到默认格式. 可以使用下列格式字符串:
+ "d" - 一位或两位日期
+ "dd" - 两位日期. 单数位日将用0补齐
+ "ddd" - 三位字符的星期缩写
+ "dddd" - 完整星期名
+ "h" - 12-小时格式显示的一位或两位时
+ "hh" - 12-小时格式显示的两位时
+ "H" - 24-小时格式显示的一位或两位时
+ "HH" - 24-小时格式显示的两位时
+ "m" - 一位或两位分
+ "mm" - 两位分
+ "M" - 一位或两位月份数字
+ "MM" - 两位月份数字
+ "MMM" - 三位字符的月份缩写
+ "MMMM" - 完整月份名
+ "t" - 一个字母的AM/PM缩写
+ "tt" - 两个字母的AM/PM缩写
+ "yy" - 年份的后两位数字
+ "yyyy" - 完整年份
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��
-ʧ��: ��
+成功: 真
+失败: 假
 @@End@@
 
-###��ע###
-������ʽ���ַ���������������ַ�����ʾ������Ϣ. ���κηǸ�ʽ���ַ������õ���������.
-���� , ��ʽ���ַ��� "'Today is:'hh':'m':'s ddddMMMdd', 'yyy" ������� "Today is: 04:22:31 Tuesday Mar 23, 1996" .
-ע��: DTP �ؼ���ʹ��Ĭ���ַ���ʱ���汾�����ö��ı�. ���ʹ���Զ����ʽ , �����汾�����ö��ı�.
+###Remarks###
+允许格式化字符串另外包含额外字符以显示更多信息. 但任何非格式化字符必须用单引号括起.
+比如 , 格式化字符串 "'Today is:'hh':'m':'s ddddMMMdd', 'yyy" 将输出如 "Today is: 04:22:31 Tuesday Mar 23, 1996" .
+注意: DTP 控件在使用默认字符串时会随本地配置而改变. 如果使用自定义格式 , 不会随本地配置而改变.
 
-###���###
+###Related###
 
-###�ο�###
+###See Also###
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

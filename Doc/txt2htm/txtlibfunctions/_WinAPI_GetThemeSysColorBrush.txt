@@ -1,61 +1,61 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_GetThemeSysColorBrush
 
-###����###
-��ȡϵͳ��ɫ��ˢ
+###Description###
+获取系统颜色画刷
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_GetThemeSysColorBrush( $hTheme, $iColorId )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hTheme
-   �������ݾ��
+   主题数据句柄
 $iColorId
-   ָ������ϵͳ��ɫ������ֵ. ��Ϊ����ֵ֮һ:
-    $TMT_SCROLLBAR - ��������ɫ
-    $TMT_BACKGROUND - ����ɫ
-    $TMT_ACTIVECAPTION - ����ڱ�������ɫ
-    $TMT_INACTIVECAPTION - �ǻ���ڱ�������ɫ
-    $TMT_WINDOW - ������ɫ
-    $TMT_WINDOWFRAME - Χ�ƴ��ڵĿ�ܵ���ɫ
-    $TMT_MENUTEXT - �˵��ı�ɫ
-    $TMT_WINDOWTEXT - �����ı�ɫ
-    $TMT_CAPTIONTEXT - ����ڱ������ı�ɫ
-    $TMT_ACTIVEBORDER - ����ڱ߿�ɫ
-    $TMT_INACTIVEBORDER - �ǻ���ڱ߿�ɫ
-    $TMT_APPWORKSPACE - Ӧ�ó�����������ɫ
-    $TMT_HIGHLIGHT - ����ɫ
-    $TMT_HIGHLIGHTTEXT - �����ı�ɫ
-    $TMT_BTNFACE - ��ť������ɫ
-    $TMT_BTNSHADOW - ��ť��Ӱ��ɫ
-    $TMT_GRAYTEXT - �䰵���ı�ɫ
-    $TMT_BTNTEXT - �����ڰ�ť�е��ı�ɫ
-    $TMT_INACTIVECAPTIONTEXT - �ǻ���ڱ������ı�ɫ
-    $TMT_BTNHIGHLIGHT - Χ�ư�ť�ĸ���ɫ
-    $TMT_DKSHADOW3D - 3D��Ӱɫ
-    $TMT_LIGHT3D - 3D������ɫ
-    $TMT_INFOTEXT - ��Ϣ�ı�ɫ
-    $TMT_INFOBK - ��Ϣ�ı�����ɫ
-    $TMT_BUTTONALTERNATEFACE - ��ѡ��ť��ɫ
-    $TMT_HOTTRACKING - ���ٸ���ɫ
-    $TMT_GRADIENTACTIVECAPTION - ����ڱ��������ݶ�ɫ
-    $TMT_GRADIENTINACTIVECAPTION - �ǻ���ڱ��������ݶ�ɫ
-    $TMT_MENUHILIGHT - �����Ĳ˵�����ɫ
-    $TMT_MENUBAR - �˵�����ɫ
+   指定所需系统颜色数量的值. 可为下列值之一:
+    $TMT_SCROLLBAR - 滚动条颜色
+    $TMT_BACKGROUND - 背景色
+    $TMT_ACTIVECAPTION - 活动窗口标题区颜色
+    $TMT_INACTIVECAPTION - 非活动窗口标题区颜色
+    $TMT_WINDOW - 窗口颜色
+    $TMT_WINDOWFRAME - 围绕窗口的框架的颜色
+    $TMT_MENUTEXT - 菜单文本色
+    $TMT_WINDOWTEXT - 窗口文本色
+    $TMT_CAPTIONTEXT - 活动窗口标题区文本色
+    $TMT_ACTIVEBORDER - 活动窗口边框色
+    $TMT_INACTIVEBORDER - 非活动窗口边框色
+    $TMT_APPWORKSPACE - 应用程序工作区的颜色
+    $TMT_HIGHLIGHT - 高亮色
+    $TMT_HIGHLIGHTTEXT - 高亮文本色
+    $TMT_BTNFACE - 按钮表面颜色
+    $TMT_BTNSHADOW - 按钮阴影颜色
+    $TMT_GRAYTEXT - 变暗的文本色
+    $TMT_BTNTEXT - 包含在按钮中的文本色
+    $TMT_INACTIVECAPTIONTEXT - 非活动窗口标题区文本色
+    $TMT_BTNHIGHLIGHT - 围绕按钮的高亮色
+    $TMT_DKSHADOW3D - 3D阴影色
+    $TMT_LIGHT3D - 3D亮区颜色
+    $TMT_INFOTEXT - 信息文本色
+    $TMT_INFOBK - 信息文本背景色
+    $TMT_BUTTONALTERNATEFACE - 多选按钮颜色
+    $TMT_HOTTRACKING - 跟踪高亮色
+    $TMT_GRADIENTACTIVECAPTION - 活动窗口标题区的梯度色
+    $TMT_GRADIENTINACTIVECAPTION - 非活动窗口标题区的梯度色
+    $TMT_MENUHILIGHT - 高亮的菜单项颜色
+    $TMT_MENUBAR - 菜单栏颜色
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���ػ�ˢ���
-ʧ��: ����0������@error��0
+成功: 返回画刷句柄
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-����������ݾ����Ϊ0, �ú�������ƥ���Ӿ���ʽ��SysMetrics����ָ����ɫ�Ļ�ˢ, ����, ��������ƥ��ȫ��ϵͳ��ɫ��ֵ.
+###Remarks###
+如果主题数据句柄不为0, 该函数返回匹配视觉样式的SysMetrics部分指定颜色的画刷, 否则, 函数返回匹配全局系统颜色的值.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����GetThemeSysColorBrush�������Ϣ
+###See Also###
+ 搜索MSDN知识库中GetThemeSysColorBrush的相关信息

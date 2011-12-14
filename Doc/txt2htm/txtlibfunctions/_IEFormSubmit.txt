@@ -1,47 +1,47 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êı###
+ï»¿###User Defined Function###
 _IEFormSubmit
 
-###ÃèÊö###
-Ìá½»Ö¸¶¨±íµ¥.
+###Description###
+æäº¤æŒ‡å®šè¡¨å•.
 
-###Óï·¨###
+###Syntax###
 #Include <IE.au3>
 _IEFormSubmit ( ByRef $o_object [, $f_wait = 1] )
 
-###²ÎÊı###
+###Parameters###
 @@ParamTable@@
- $o_object  InternetExplorer.Application , ´°¿Ú»òÕß¿ò¼Ü(frame)¶ÔÏóµÄ¶ÔÏó±äÁ¿
- $f_wait  ¿ÉÑ¡: ¶¨ÒåÔÚ·µ»ØÇ°ÊÇ·ñµÈ´ı´°¿Ú¼ÓÔØÍê±Ï
-0 = Á¢¼´·µ»Ø , ²»µÈ´ı´°¿Ú¼ÓÔØ
-1 = (Ä¬ÈÏ)
-  µÈ´ı´°¿Ú¼ÓÔØÍê±ÏÈ»ºó·µ»Ø
+ $o_object  InternetExplorer.Application , çª—å£æˆ–è€…æ¡†æ¶(frame)å¯¹è±¡çš„å¯¹è±¡å˜é‡
+ $f_wait  å¯é€‰: å®šä¹‰åœ¨è¿”å›å‰æ˜¯å¦ç­‰å¾…çª—å£åŠ è½½å®Œæ¯•
+0 = ç«‹å³è¿”å› , ä¸ç­‰å¾…çª—å£åŠ è½½
+1 = (é»˜è®¤)
+  ç­‰å¾…çª—å£åŠ è½½å®Œæ¯•ç„¶åè¿”å›
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: ·µ»Ø-1
-Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@ERRORÎª:
-    0 ($_IEStatus_Success) = ÎŞ´íÎó
-    1 ($_IEStatus_GeneralError) = Ò»°ãĞÔ´íÎó
-    3 ($_IEStatus_InvalidDataType) = ÎŞĞ§Êı¾İÀàĞÍ
-    4 ($_IEStatus_InvalidObjectType) = ÎŞĞ§¶ÔÏóÀàĞÍ
-    6 ($_IEStatus_LoadWaitTimeout) = ¼ÓÔØµÈ´ı³¬Ê±
-    8 ($_IEStatus_AccessIsDenied) = ·ÃÎÊ±»½ûÖ¹
-    9 ($_IEStatus_ClientDisconnected) = ¿Í»§¶Ë¶Ï¿ª
-    @Extended: °üº¬ÎŞĞ§²ÎÊıÊıÁ¿
+æˆåŠŸ: è¿”å›-1
+å¤±è´¥: è¿”å›0å¹¶è®¾ç½®@ERRORä¸º:
+    0 ($_IEStatus_Success) = æ— é”™è¯¯
+    1 ($_IEStatus_GeneralError) = ä¸€èˆ¬æ€§é”™è¯¯
+    3 ($_IEStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»å‹
+    4 ($_IEStatus_InvalidObjectType) = æ— æ•ˆå¯¹è±¡ç±»å‹
+    6 ($_IEStatus_LoadWaitTimeout) = åŠ è½½ç­‰å¾…è¶…æ—¶
+    8 ($_IEStatus_AccessIsDenied) = è®¿é—®è¢«ç¦æ­¢
+    9 ($_IEStatus_ClientDisconnected) = å®¢æˆ·ç«¯æ–­å¼€
+    @Extended: åŒ…å«æ— æ•ˆå‚æ•°æ•°é‡
 @@End@@
 
-###±¸×¢###
-¶ÔÓÚĞí¶àHTML±íµ¥_IEFormSubmit()¿ÉÄÜ²»Æğ×÷ÓÃÒòÎª¾­³£ÊÇÍ¨¹ıJS½Å±¾»ñÈ¡µã»÷ÊÂ¼şÀ´µã»÷Ìá½»°´Å¥.
-ÔÚÕâÖÖÇé¿öÏÂÄãĞèÒªÄ£ÄâÒ»¸öµã»÷¶¯×÷´úÌæÊ¹ÓÃ_IEFormSubmit(). ²ÎÔÄ_IEAction()ÓĞ¹Ø "click" ¶¯×÷µÄÊ¾Àı.
-Í¬Ñù , Ä³Ğ©±íµ¥ÒÀÀµÆäËû±íµ¥ÔªËØ´«µİµÄÌá½»°´Å¥Öµ(¾­³£³öÏÖÔÚ²»Ö¹Ò»¸öÌá½»°´Å¥²¢ÇÒÓÃÓÚÌá½»²»Í¬µÄ½á¹û).
-Õâ¸öº¯ÊıÎŞ·¨½â¾ö,½â¾ö·½·¨ºÍÉÏÃæÒ»ÑùÓÃ_IEAction()ÖĞµÄ"click"¶¯×÷.
-Èç¹ûÄãÔÚÊ¹ÓÃ×Ô¶¯µÄ_IELoadWaitÓöµ½ÎÊÌâµÄÊ±ºò , ÇëÉèÖÃ"µÈ´ı"²ÎÊıÎª0 , ²¢ÇÒ´Ó½Å±¾ÀïÃæµ÷ÓÃ_IELoadWait , ´«µİµ½IE¶ÔÏó.
+###Remarks###
+å¯¹äºè®¸å¤šHTMLè¡¨å•_IEFormSubmit()å¯èƒ½ä¸èµ·ä½œç”¨å› ä¸ºç»å¸¸æ˜¯é€šè¿‡JSè„šæœ¬è·å–ç‚¹å‡»äº‹ä»¶æ¥ç‚¹å‡»æäº¤æŒ‰é’®.
+åœ¨è¿™ç§æƒ…å†µä¸‹ä½ éœ€è¦æ¨¡æ‹Ÿä¸€ä¸ªç‚¹å‡»åŠ¨ä½œä»£æ›¿ä½¿ç”¨_IEFormSubmit(). å‚é˜…_IEAction()æœ‰å…³ "click" åŠ¨ä½œçš„ç¤ºä¾‹.
+åŒæ · , æŸäº›è¡¨å•ä¾èµ–å…¶ä»–è¡¨å•å…ƒç´ ä¼ é€’çš„æäº¤æŒ‰é’®å€¼(ç»å¸¸å‡ºç°åœ¨ä¸æ­¢ä¸€ä¸ªæäº¤æŒ‰é’®å¹¶ä¸”ç”¨äºæäº¤ä¸åŒçš„ç»“æœ).
+è¿™ä¸ªå‡½æ•°æ— æ³•è§£å†³,è§£å†³æ–¹æ³•å’Œä¸Šé¢ä¸€æ ·ç”¨_IEAction()ä¸­çš„"click"åŠ¨ä½œ.
+å¦‚æœä½ åœ¨ä½¿ç”¨è‡ªåŠ¨çš„_IELoadWaité‡åˆ°é—®é¢˜çš„æ—¶å€™ , è¯·è®¾ç½®"ç­‰å¾…"å‚æ•°ä¸º0 , å¹¶ä¸”ä»è„šæœ¬é‡Œé¢è°ƒç”¨_IELoadWait , ä¼ é€’åˆ°IEå¯¹è±¡.
 
-###Ïà¹Ø###
+###Related###
 _IEFormReset , _IEFormGetObjByName , _IEFormGetCollection , _IEFormElementGetObjByName , _IEFormElementGetCollection , _IELoadWait
 
-###²Î¿¼###
+###See Also###
 
-###Ê¾Àı###
+###Example###
 @@IncludeExample@@

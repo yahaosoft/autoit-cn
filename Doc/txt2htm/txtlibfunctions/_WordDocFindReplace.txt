@@ -1,90 +1,90 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êý###
+ï»¿###User Defined Function###
 _WordDocFindReplace
 
-###ÃèÊö###
-Ö´ÐÐÖ¸¶¨ËÑË÷ºÍÌæ»»²Ù×÷
+###Description###
+æ‰§è¡ŒæŒ‡å®šæœç´¢å’Œæ›¿æ¢æ“ä½œ
 
-###Óï·¨###
+###Syntax###
 #Include <Word.au3>
 _WordDocFindReplace ( ByRef$o_object [, $s_FindText = "" [, $s_ReplaceWith = "" [, $i_Replace = 2 [,
 $v_SearchRange = 0 [, $b_MatchCase = 0 [, $b_MatchWholeWord = 0 [,
 $b_MatchWildcards = 0 [, $b_MatchSoundsLike = 0 [, $b_MatchAllWordForms = 0 [,
 $b_Forward = 1 [, $i_Wrap = 1 [, $b_Format = 0]]]]]]]]]]]] )
 
-###²ÎÊý###
+###Parameters###
 @@ParamTable@@
 $o_object 
-   Word.ApplicationÎÄµµ¶ÔÏó
+   Word.Applicationæ–‡æ¡£å¯¹è±¡
 $s_FindText 
-   ¿ÉÑ¡: ÒªËÑË÷µÄÎÄ±¾(¼û±¸×¢)
-    "" = (Ä¬ÈÏ) ½öÓÃÓÚ¸ñÊ½»¯ËÑË÷.
+   å¯é€‰: è¦æœç´¢çš„æ–‡æœ¬(è§å¤‡æ³¨)
+    "" = (é»˜è®¤) ä»…ç”¨äºŽæ ¼å¼åŒ–æœç´¢.
 $s_ReplaceWith 
-   ¿ÉÑ¡: Ìæ»»µÄÎÄ±¾. (¼û±¸×¢)
-    "" = (Ä¬ÈÏ) É¾³ýÓÉ$s_FindTextÖ¸¶¨µÄÎÄ±¾
+   å¯é€‰: æ›¿æ¢çš„æ–‡æœ¬. (è§å¤‡æ³¨)
+    "" = (é»˜è®¤) åˆ é™¤ç”±$s_FindTextæŒ‡å®šçš„æ–‡æœ¬
 $i_Replace 
-   ¿ÉÑ¡: Ö¸¶¨Ìæ»»¶àÉÙ.
-    0 = ²»Ìæ»»
-    1 = Ìæ»»µÚÒ»¸öÆ¥ÅäµÄ
-    2 = (Ä¬ÈÏ) Ìæ»»ËùÓÐÆ¥ÅäµÄ
+   å¯é€‰: æŒ‡å®šæ›¿æ¢å¤šå°‘.
+    0 = ä¸æ›¿æ¢
+    1 = æ›¿æ¢ç¬¬ä¸€ä¸ªåŒ¹é…çš„
+    2 = (é»˜è®¤) æ›¿æ¢æ‰€æœ‰åŒ¹é…çš„
 $v_SearchRange 
-   ¿ÉÑ¡: Ö¸¶¨ËÑË÷µÄÑ¡Ôñ·¶Î§.
-    -1 = Ö¸¶¨µ±Ç°ËùÑ¡µÄ·¶Î§
+   å¯é€‰: æŒ‡å®šæœç´¢çš„é€‰æ‹©èŒƒå›´.
+    -1 = æŒ‡å®šå½“å‰æ‰€é€‰çš„èŒƒå›´
 0 
-  = (Ä¬ÈÏ)Ö¸¶¨È«²¿ÎÄ¼þ¶ÔÏóµÄÈÎÒâ·¶Î§
+  = (é»˜è®¤)æŒ‡å®šå…¨éƒ¨æ–‡ä»¶å¯¹è±¡çš„ä»»æ„èŒƒå›´
 $b_MatchCase 
-   ¿ÉÑ¡: Ö¸¶¨ÊÇ·ñÇø·Ö´óÐ¡Ð´
-    0 = (Ä¬ÈÏ)²»Çø·Ö
-    1 = Çø·Ö
+   å¯é€‰: æŒ‡å®šæ˜¯å¦åŒºåˆ†å¤§å°å†™
+    0 = (é»˜è®¤)ä¸åŒºåˆ†
+    1 = åŒºåˆ†
 $b_MatchWholeWord 
-   ¿ÉÑ¡: Ö¸¶¨ÊÇÈ«²¿Æ¥Åä»¹ÊÇ²¿·ÖÆ¥Åä.
-    0 = (Ä¬ÈÏ) ²¿·ÖÆ¥Åä
-    1 = È«²¿Æ¥Åä
+   å¯é€‰: æŒ‡å®šæ˜¯å…¨éƒ¨åŒ¹é…è¿˜æ˜¯éƒ¨åˆ†åŒ¹é….
+    0 = (é»˜è®¤) éƒ¨åˆ†åŒ¹é…
+    1 = å…¨éƒ¨åŒ¹é…
 $b_MatchWildcards 
-   ¿ÉÑ¡: Ö¸¶¨ÊÇ·ñ½øÐÐÖ¸¶¨$s_FindTextËÑË÷
-    0 = (Ä¬ÈÏ)²»ÊÇÖ¸¶¨ËÑË÷
-    1 = Ö¸¶¨ËÑË÷
+   å¯é€‰: æŒ‡å®šæ˜¯å¦è¿›è¡ŒæŒ‡å®š$s_FindTextæœç´¢
+    0 = (é»˜è®¤)ä¸æ˜¯æŒ‡å®šæœç´¢
+    1 = æŒ‡å®šæœç´¢
 $b_MatchSoundsLike 
-   ¿ÉÑ¡: Ö¸¶¨ÊÇ·ñËÑË÷±¾µØ·¢ÒôÀàËÆ$s_FindTextµÄÎÄ×Ö
-    0 = (Ä¬ÈÏ) ²»ËÑË÷
-    1 = ËÑË÷·¢ÒôÀàËÆµÄÎÄ×Ö
+   å¯é€‰: æŒ‡å®šæ˜¯å¦æœç´¢æœ¬åœ°å‘éŸ³ç±»ä¼¼$s_FindTextçš„æ–‡å­—
+    0 = (é»˜è®¤) ä¸æœç´¢
+    1 = æœç´¢å‘éŸ³ç±»ä¼¼çš„æ–‡å­—
 $b_MatchAllWordForms 
-   ¿ÉÑ¡: Ö¸¶¨ÊÇ·ñËÑË÷ÎÄ±¾µÄËùÓÐ¸ñÊ½(ÀýÈç,"sit"¿ÉÒÔÊÇ"sitting"»ò"sat")
-    0 = (Ä¬ÈÏ)²»½øÐÐÆ¥Åä
-    1 = Æ¥ÅäËùÓÐ¸ñÊ½
+   å¯é€‰: æŒ‡å®šæ˜¯å¦æœç´¢æ–‡æœ¬çš„æ‰€æœ‰æ ¼å¼(ä¾‹å¦‚,"sit"å¯ä»¥æ˜¯"sitting"æˆ–"sat")
+    0 = (é»˜è®¤)ä¸è¿›è¡ŒåŒ¹é…
+    1 = åŒ¹é…æ‰€æœ‰æ ¼å¼
 $b_Forward 
-   ¿ÉÑ¡: Ö¸¶¨ËÑË÷·½Ïò.
-    0 = Ïò»ØËÑË÷(Ö¸ÏòÎÄ¼þ¿ªÊ¼)
-    1 = (Ä¬ÈÏ)ÏòºóËÑË÷(Ö¸ÏòÎÄ¼þ½áÎ²)
+   å¯é€‰: æŒ‡å®šæœç´¢æ–¹å‘.
+    0 = å‘å›žæœç´¢(æŒ‡å‘æ–‡ä»¶å¼€å§‹)
+    1 = (é»˜è®¤)å‘åŽæœç´¢(æŒ‡å‘æ–‡ä»¶ç»“å°¾)
 $i_Wrap 
-   ¿ÉÑ¡: ÓÃÒÔ¿ØÖÆµ±ËÑË÷µãµ½´ïÎÄµµÆðµã»òÖÕµãÊ±²Ù×÷µÄ±ê¼Ç(»òµ±$b_ForwardÉèÖÃÎª0Ê±·´Ö®).
-    0 = µ±µ½´ïËÑË÷·¶Î§µÄ¿ªÊ¼»ò½áÊøÎ»ÖÃÊ±ÖÐÖ¹ËÑË÷²Ù×÷
-    1 = (Ä¬ÈÏ)µ±µ½´ïËÑË÷·¶Î§µÄ¿ªÊ¼»ò½áÊøÎ»ÖÃÊ±¼ÌÐøËÑË÷²Ù×÷
+   å¯é€‰: ç”¨ä»¥æŽ§åˆ¶å½“æœç´¢ç‚¹åˆ°è¾¾æ–‡æ¡£èµ·ç‚¹æˆ–ç»ˆç‚¹æ—¶æ“ä½œçš„æ ‡è®°(æˆ–å½“$b_Forwardè®¾ç½®ä¸º0æ—¶åä¹‹).
+    0 = å½“åˆ°è¾¾æœç´¢èŒƒå›´çš„å¼€å§‹æˆ–ç»“æŸä½ç½®æ—¶ä¸­æ­¢æœç´¢æ“ä½œ
+    1 = (é»˜è®¤)å½“åˆ°è¾¾æœç´¢èŒƒå›´çš„å¼€å§‹æˆ–ç»“æŸä½ç½®æ—¶ç»§ç»­æœç´¢æ“ä½œ
 $b_Format 
-   ¿ÉÑ¡: Ö¸¶¨ÊÇ·ñ½øÐÐ¸ñÊ½»¯¶¨Î»²éÕÒ²Ù×÷.
-    0 = (Ä¬ÈÏ)²»½øÐÐ¸ñÊ½»¯¶¨Î»
-    1 = ¸ñÊ½»¯¶¨Î»
+   å¯é€‰: æŒ‡å®šæ˜¯å¦è¿›è¡Œæ ¼å¼åŒ–å®šä½æŸ¥æ‰¾æ“ä½œ.
+    0 = (é»˜è®¤)ä¸è¿›è¡Œæ ¼å¼åŒ–å®šä½
+    1 = æ ¼å¼åŒ–å®šä½
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: ·µ»Ø1
-Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@ERRORÎª1
-@Error: 0 ($_WordStatus_Success) = ÎÞ´íÎó
-     3 ($_WordStatus_InvalidDataType) = ÎÞÐ§Êý¾ÝÀàÐÍ
-     4 ($_WordStatus_InvalidObjectType) = ÎÞÐ§¶ÔÏóÀàÐÍ
-     5 ($_WordStatus_InvalidValue) = ÎÞÐ§Öµ
-     7 ($_WordStatus_NoMatch) = ÎÞÆ¥ÅäÏî
-@Extended: °üº¬²ÎÊýÊýÁ¿¹ý¶à
+æˆåŠŸ: è¿”å›ž1
+å¤±è´¥: è¿”å›ž0å¹¶è®¾ç½®@ERRORä¸º1
+@Error: 0 ($_WordStatus_Success) = æ— é”™è¯¯
+     3 ($_WordStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»åž‹
+     4 ($_WordStatus_InvalidObjectType) = æ— æ•ˆå¯¹è±¡ç±»åž‹
+     5 ($_WordStatus_InvalidValue) = æ— æ•ˆå€¼
+     7 ($_WordStatus_NoMatch) = æ— åŒ¹é…é¡¹
+@Extended: åŒ…å«å‚æ•°æ•°é‡è¿‡å¤š
 @@End@@
 
-###±¸×¢###
-¿ÉÒÔÍ¨¹ýÖ¸¶¨´ó¸ÅµÄ×Ö·ûÂë½øÐÐ¶ÔÌØÊâ×Ö·ûµÄËÑË÷. ±ÈÈç, "^p" ¶ÔÓ¦¶ÎÂä±ê¼Ç; "^t"¶ÔÓ¦ÖÆ±í·û.
-½öµ±½øÐÐ²ÎÊýËÑË÷Ê±ÐèÒªÖ¸¶¨ÌØÊâ×Ö·û»ò¸ß¼¶ËÑË÷±ê×¼
-½«ÏîÄ¿ÒÆ¶¯ÖÁ¼ôÌù°å²¢Ö¸¶¨"^c"×÷Îª$s_ReplaceWithÊ±¿ÉÖ¸¶¨Í¼ÐÎ¶ÔÏó»òÆäËûÎÞÎÄ±¾ÏîÄ¿½øÐÐÌæ»».
+###Remarks###
+å¯ä»¥é€šè¿‡æŒ‡å®šå¤§æ¦‚çš„å­—ç¬¦ç è¿›è¡Œå¯¹ç‰¹æ®Šå­—ç¬¦çš„æœç´¢. æ¯”å¦‚, "^p" å¯¹åº”æ®µè½æ ‡è®°; "^t"å¯¹åº”åˆ¶è¡¨ç¬¦.
+ä»…å½“è¿›è¡Œå‚æ•°æœç´¢æ—¶éœ€è¦æŒ‡å®šç‰¹æ®Šå­—ç¬¦æˆ–é«˜çº§æœç´¢æ ‡å‡†
+å°†é¡¹ç›®ç§»åŠ¨è‡³å‰ªè´´æ¿å¹¶æŒ‡å®š"^c"ä½œä¸º$s_ReplaceWithæ—¶å¯æŒ‡å®šå›¾å½¢å¯¹è±¡æˆ–å…¶ä»–æ— æ–‡æœ¬é¡¹ç›®è¿›è¡Œæ›¿æ¢.
 
-###Ïà¹Ø###
+###Related###
 
-###²Î¿¼###
+###See Also###
 
-###Ê¾Àý###
+###Example###
 @@IncludeExample@@

@@ -1,38 +1,38 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_CreateCompatibleBitmapEx
 
-###����###
-�����ʺ��豸�Ĳ���ָ����ɫ����λͼ
+###Description###
+创建适合设备的并以指定颜色填充的位图
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_CreateCompatibleBitmapEx( $hDC, $iWidth, $iHeight, $iRGB )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hDC
-   �豸�����ľ��
+   设备场景的句柄
 $iWidht
-   λͼ���ؿ�
+   位图像素宽
 $iHeight
-   λͼ���ظ�
+   位图像素高
 $iRGB
-   λͼRGB��ɫ
+   位图RGB颜色
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���λͼ�ľ��
-ʧ��: ����0������@error��0
+成功: 填充位图的句柄
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-��_WinAPI_CreateCompatibleBitmapEx()����������λͼ����ɫ��ʽ����hdc������ʶ���豸����ɫ��ʽ��ƥ��, ���ɱ�ѡ���κ���ԭʼ�豸���ݵ��ڴ��豸����.
-������Ҫλͼʱ, ����_WinAPI_FreeObject()����ɾ��.
+###Remarks###
+由_WinAPI_CreateCompatibleBitmapEx()函数创建的位图的颜色格式与由hdc参数标识的设备的颜色格式相匹配, 并可被选入任何与原始设备兼容的内存设备场景.
+不再需要位图时, 调用_WinAPI_FreeObject()函数删除.
 
-###���###
+###Related###
 
-###�ο�###
+###See Also###
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

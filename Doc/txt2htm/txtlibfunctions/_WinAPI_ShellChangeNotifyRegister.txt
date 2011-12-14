@@ -1,43 +1,43 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_ShellChangeNotifyRegister
 
-###����###
-ע�����ڽ��մ�ϵͳ��Shell����Ϣ�Ĵ���
+###Description###
+注册用于接收从系统到Shell的消息的窗体
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_ShellChangeNotifyRegister ( $hWnd, $iMsg, $iEvents, $iSources, $aPaths [, $fRecursive] )
 
-###����###
+###Parameters###
 @@ParamTable@@
-$hWnd  ���ոı��֪ͨ��Ϣ�Ĵ���ľ��
-$iMsg  ���͵�������̵���Ϣ
-$iEvents  ���ոı�֪ͨ���¼�. �ò�����Ϊһ������$SHCNE_...ֵ
-$iSources  ��������֪ͨ�¼����͵�һ����������ֵ:
+$hWnd  接收改变或通知消息的窗体的句柄
+$iMsg  发送到窗体进程的消息
+$iEvents  接收改变通知的事件. 该参数可为一个或多个$SHCNE_...值
+$iSources  用于描述通知事件类型的一个或多个下列值:
 $SHCNRF_INTERRUPTLEVEL
 $SHCNRF_SHELLLEVEL
 $SHCNRF_RECURSIVEINTERRUPT
 $SHCNRF_NEWDELIVERY
-$aPaths  ����֪ͨ�ĵ�һ·����·������. ��Щ��������ȫ�Ϸ��Ա���δ�ڽ��.
-$fRecursive  [��ѡ] ָ���Ƿ񴫵�����$aPaths�е���·����֪ͨ. ����ֵ:
-0 - ֪ͨ������ָ���ļ���(Ĭ��)
-1 - ֪ͨ�����ļ�����·��
+$aPaths  接收通知的单一路径或路径数组. 这些名称需完全合法以避免未期结果.
+$fRecursive  [可选] 指定是否传递来自$aPaths中的子路径的通知. 可用值:
+0 - 通知仅来自指定文件夹(默认)
+1 - 通知来自文件夹自路径
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����ע��ID
-ʧ��: ����0������@error��0
+成功: 返回注册ID
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-���ı�֪ͨ�¼�����ʱ, ��$iMsg��������Ϣ�����ݸ���$hWnd����ָ���Ĵ���. (��ʾ��)
-��������ԭ��, ���֪ͨ�ɱ����Ϊһ��֪ͨ. ��, ���ͬһ�ļ����е��ļ���������$SHCNE_UPDATEITEM֪ͨ, �ɱ����Ϊ��һ��$SHCNE_UPDATEDIR֪ͨ.
+###Remarks###
+当改变通知事件增加时, 由$iMsg描述的消息被传递给由$hWnd参数指定的窗体. (见示例)
+出于性能原因, 多个通知可被结合为一个通知. 如, 如果同一文件夹中的文件创建大量$SHCNE_UPDATEITEM通知, 可被结合为单一的$SHCNE_UPDATEDIR通知.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����SHChangeNotifyRegister�������Ϣ
+###See Also###
+ 搜索MSDN知识库中SHChangeNotifyRegister的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

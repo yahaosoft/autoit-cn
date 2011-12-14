@@ -1,36 +1,36 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_LoadKeyboardLayout
 
-###����###
-�����µ������ʶ��ϵͳ��
+###Description###
+加载新的输入标识到系统中
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_LoadKeyboardLayout( $iLanguage [, $iFlag] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $iLanguage
-   Ҫ���ص������ʶ(LCID)������
+   要加载的输入标识(LCID)的名称
 $iFlag
-   [��ѡ] ָ����μ��ر��������ʶ�ı��. �ò�����Ϊ����ֵ֮һ:
-    $KLF_ACTIVATE - �ڵ�ǰ�߳��м��ز�����������ʶ
-    $KLF_NOTELLSHELL - ���µı�ʶ������ʱ��ֹShellProc���ӽ��̽���HSHELL_LANGUAGE���Ӵ���
-    $KLF_REORDER - ��������ϵͳ���صı��ر�ʶ�б��������ر�ʶ���ڶ���
-    $KLF_REPLACELANG - ����µ������ʶ�뵱ǰ�������ʶ������ͬ�����������µ������ʶ�滻��ǰ��ʶ
-    $KLF_SUBSTITUTE_OK - ���û�ϲ�õ���һ��ʶ�滻ָ���������ʶ
-    $KLF_SETFORPROCESS - ֻ��$KLF_ACTIVATEһ��ʱ��Ч
+   [可选] 指定如何加载本地输入标识的标记. 该参数可为下列值之一:
+    $KLF_ACTIVATE - 在当前线程中加载并激活本地输入标识
+    $KLF_NOTELLSHELL - 当新的标识被加载时阻止ShellProc钩子进程接收HSHELL_LANGUAGE钩子代码
+    $KLF_REORDER - 重新排序系统加载的本地标识列表并将本地标识置于顶部
+    $KLF_REPLACELANG - 如果新的输入标识与当前的输入标识具有相同的语言则以新的输入标识替换当前标识
+    $KLF_SUBSTITUTE_OK - 用用户喜好的另一标识替换指定的输入标识
+    $KLF_SETFORPROCESS - 只和$KLF_ACTIVATE一起时有效
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����������ƥ��������ʶ
-ʧ��: ����0������@error��0
+成功: 返回与名称匹配的输入标识
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����LoadKeyboardLayout�������Ϣ
+###See Also###
+ 搜索MSDN知识库中LoadKeyboardLayout的相关信息

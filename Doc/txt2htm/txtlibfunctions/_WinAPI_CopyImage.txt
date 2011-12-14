@@ -1,46 +1,46 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_CopyImage
 
-###����###
-����ָ�����Ե���ͼ��(ͼ��, ����ͷ, ��λͼ)
+###Description###
+创建指定属性的新图像(图标, 鼠标箭头, 或位图)
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_CopyImage( $hImage[, $iType[, $xDesired[, $yDesired[, $iFlags]]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hImage
-   Ҫ�����Ƶ�ͼ��ľ��
+   要被复制的图像的句柄
 $iType
-   ָ�������Ƶ�ͼ�������. �ò�����Ϊ����ֵ֮һ
-    $IMAGE_BITMAP - ����λͼ
-    $IMAGE_CURSOR - ��������ͷ
-    $IMAGE_ICON - ����ͼ��
+   指定被复制的图像的类型. 该参数可为下列值之一
+    $IMAGE_BITMAP - 复制位图
+    $IMAGE_CURSOR - 复制鼠标箭头
+    $IMAGE_ICON - 复制图标
 $xDesired
-$hImageͬ��
+$hImage同宽
 $yDesired
-$hImageͬ��
+$hImage同高
 $iFlags
-   �ò�����Ϊ����ֵ��һ������:
-    $LR_COPYDELETEORG - ���Ƴɹ���ɾ��ԭͼ��
-    $LR_COPYFROMRESOURCE - ��ԭʼԴ�ļ����¼���ͼ����������Ǽ򵥸��Ƶ�ǰͼ��
-    $LR_COPYRETURNORG - �����׼����-��ȷ��ɫ��ɫ��-ʱ����ԭͼ��
-    $LR_CREATEDIBSECTION - ������øñ�����½�λͼ����DIB��ʽ����λͼ. �����������豸��λͼ����λͼͼ��. �ñ�ǽ���$uTypeΪ$IMAGE_BITMAP����Ч.
-    $LR_DEFAULTSIZE - ���δָ���ñ����$xDesired��$yDesiredΪ0, ����ʹ����Դ��ʵ�ʴ�С.
-    $LR_MONOCHROME - �½���ɫͼ��
+   该参数可为下列值的一个或多个:
+    $LR_COPYDELETEORG - 复制成功后删除原图像
+    $LR_COPYFROMRESOURCE - 从原始源文件重新加载图标或鼠标而不是简单复制当前图像
+    $LR_COPYRETURNORG - 满足标准副本-正确颜色及色深-时返回原图像
+    $LR_CREATEDIBSECTION - 如果设置该标记且新建位图则以DIB方式创建位图. 否则以依赖设备的位图创建位图图像. 该标记仅当$uType为$IMAGE_BITMAP是有效.
+    $LR_DEFAULTSIZE - 如果未指定该标记且$xDesired及$yDesired为0, 函数使用资源的实际大小.
+    $LR_MONOCHROME - 新建单色图像
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �½�ͼ��ľ��
-ʧ��: ����0������@error��0
+成功: 新建图像的句柄
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-��Դʹ�����ʱ, �ɵ���_WinAPI_Free�ͷ���λͼ, ���, ͼ�������ص��ڴ�. ϵͳ�ڽ�����ֹʱ���Զ�ɾ����Դ , ����, �ɵ������ƺ��������ڴ沢���ͽ��̹�������С
+###Remarks###
+资源使用完毕时, 可调用_WinAPI_Free释放与位图, 鼠标, 图标各自相关的内存. 系统在进程终止时会自动删除资源 , 但是, 可调用类似函数保存内存并降低进程工作集大小
 
-###���###
+###Related###
 
-###�ο�###
-����MSDN֪ʶ�����й�CopyImage����Ϣ
+###See Also###
+搜索MSDN知识库中有关CopyImage的信息

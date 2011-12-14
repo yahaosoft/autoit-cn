@@ -1,41 +1,41 @@
-###�ṹ����###
+﻿###结构常量###
 $tagNMTOOLBAR
 
-###����###
-��������ִ�й�����֪ͨ��Ϣ����Ϣ�Ľṹ
+###Description###
+包含用于执行工具栏通知消息的信息的结构
 
-###�﷨###
+###Syntax###
 Global Const $tagNMTOOLBAR =  $tagNMHDR & ";int iItem;int iBitmap;int idCommand;byte fsState;byte fsStyle;byte bReserved1;byte bReserved2;dword dwDataint iString;int cchText;ptr pszText;int Left;int Top;int Rightint Bottom"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 $tagNMHDR
-   ����֪ͨ��Ϣ����Ϣ
+   包含通知消息的信息
 iItem
-   ��֪ͨ��صİ�ť�������ʶ
+   与通知相关的按钮的命令标识
 iBitmap
-   ��ťͼ���0������.
-    �����ťΪ�ָ���(fsStyle������Ϊ$BTNS_SEP), iBitmapȷ���ָ��������ؿ���
+   按钮图像的0基索引.
+    如果按钮为分隔符(fsStyle被设置为$BTNS_SEP), iBitmap确定分隔符的像素宽度
 idCommand
-   �밴ť��ص������ʶ��. �ñ�ʶ���ڰ�ť��ѡ��ʱ����WM_COMMAND��Ϣ��
+   与按钮相关的命令标识符. 该标识符在按钮被选择时用在WM_COMMAND消息中
 fsState
-   ��ť״̬���. �ó�Ա��Ϊ���ڹ�������ť״̬�е�ֵ�����
+   按钮状态标记. 该成员可为列在工具栏按钮状态中的值的组合
 fsStyle
-   ��ť��ʽ. �ó�Ա��Ϊ�������ؼ��Ͱ�ť��ʽ���г��İ�ť��ʽֵ�����
+   按钮样式. 该成员可为工具栏控件和按钮样式中列出的按钮样式值的组合
 dwData
-   Ӧ�ó������ֵ
+   应用程序定义的值
 iString
-   ��ť�ַ�����0������, �������ť�ı����ַ�����������ָ��
+   按钮字符串的0基索引, 或包含按钮文本的字符串缓冲区的指针
 cchText
-   ��ť�ı����ַ�����
+   按钮文本的字符数量
 pszText
-   ������ť�ı����ַ��������ĵ�ַ
+   包含按钮文本的字符缓冲区的地址
 Left
-   ָ���������Ͻ�x����
+   指定矩形左上角x坐标
 Top
-   ָ���������Ͻ�y����
+   指定矩形左上角y坐标
 Right
-   ָ���������½�x����
+   指定矩形右下角x坐标
 Bottom
-   ָ���������½�y����
+   指定矩形右下角y坐标
 @@end@@

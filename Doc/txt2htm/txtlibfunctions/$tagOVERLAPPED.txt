@@ -1,22 +1,22 @@
-###�ṹ����###
+﻿###结构常量###
 $tagOVERLAPPED
 
-###����###
-�������ڷ�ͬ��(���ص���)��������(I/O)����Ϣ�Ľṹ
+###Description###
+包含用于非同步(或重叠的)输入和输出(I/O)的信息的结构
 
-###�﷨###
+###Syntax###
 Global Const $tagOVERLAPPED = "int Internal;int InternalHigh;int Offset;int OffsetHigh;int hEvent"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 Internal
-   Ϊ����ϵͳʹ��������. ָ��ϵͳ��֧�ֵ�״̬�ĸó�Ա��Ч. ��GetOverlappedResult����δ������չ������ϢΪERROR_IO_PENDING����ʱ.
+   为操作系统使用所保留. 指定系统所支持的状态的该成员有效. 当GetOverlappedResult函数未设置扩展错误信息为ERROR_IO_PENDING返回时.
 InternalHigh
-   Ϊ����ϵͳʹ��������. ָ���������ݳ��ȵĸó�Ա��GetOverlappedResult����������ʱ��Ч.
+   为操作系统使用所保留. 指定传输数据长度的该成员在GetOverlappedResult函数返回真时有效.
 Offset
-   ��ʼ������ļ�λ��. �ļ�λ��Ϊ���ļ���ʼ�����ֽ�ƫ��. ���õĽ��̱����ڵ���ReadFile��WriteFile����ʱ���øó�Ա. �ó�Ա�������豸Ϊ�ļ�ʱ. ����, �ó�Ա��Ϊ0.
+   开始传输的文件位置. 文件位置为从文件开始处的字节偏移. 调用的进程必须在调用ReadFile或WriteFile函数时设置该成员. 该成员仅用于设备为文件时. 否则, 该成员须为0.
 OffsetHigh
-   ��ʼ������ļ�λ�õĸ߽�����. �ó�Ա�������豸Ϊ�ļ�ʱ. ����, �ó�Ա����Ϊ0.
+   开始传输的文件位置的高阶文字. 该成员仅用于设备为文件时. 否则, 该成员必须为0.
 hEvent
-   �������ʱ���������ź�״̬���¼��ľ��. ���ý��̱����ڵ����κ��ص���Ϣǰ���øó�ԱΪ0����Ч�¼����.
+   操作完成时将被设置信号状态的事件的句柄. 调用进程必须在调用任何重叠信息前设置该成员为0或有效事件句柄.
 @@end@@

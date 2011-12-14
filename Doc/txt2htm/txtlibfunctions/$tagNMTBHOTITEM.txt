@@ -1,30 +1,30 @@
-###�ṹ����###
+﻿###结构常量###
 $tagNMTBHOTITEM
 
-###����###
-�������ڴ���$TBN_HOTITEMCHANGE֪ͨ��Ϣ����Ϣ�Ľṹ
+###Description###
+包含用于处理$TBN_HOTITEMCHANGE通知消息的信息的结构
 
-###�﷨###
+###Syntax###
 Global Const $tagNMTBHOTITEM = $tagNMHDR & ";int idOld;int idNew;dword dwFlags"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 $tagNMHDR
-   ����֪ͨ��Ϣ����Ϣ
+   包含通知消息的信息
 idOld
-   ǰһ��������������ʶ
+   前一个高亮项的命令标识
 idNew
-   ������������Ŀ�������ʶ
+   将被高亮的项目的命令标识
 dwFlags
-   ��ʾ��ĿΪ�θı�ı��. ��Ϊһ����������ֵ:
-    $HICF_ACCELERATOR - ��ݼ����������ı�
-    $HICF_ARROWKEYS - ��ͷ�����������ı�
-    $HICF_DUPACCEL - ����$HICF_ACCELERATOR. ��������иñ��, ����һ����Ŀ������ͬ�Ŀ�ݼ�.
-    $HICF_ENTERING - ��������ԭ����. ��������иñ��, ��ǰû��������idOld��������Ч��Ϣ.
-    $HICF_LEAVING - ��������ԭ����. ��������иñ��, û���µ�������idNew��������Ч��Ϣ.
-    $HICF_LMOUSE - �����������¼����������ı�
-    $HICF_MOUSE - ����¼����������ı�
-    $HICF_OTHER - �޷�ȷ�����¼����������ı�. �������ڽ���ı��$TB_SETHOTITEM��Ϣ
-    $HICF_RESELECT - �û������Ѿ�Ϊ����Ŀ�ݼ����������ı�
-    $HICF_TOGGLEDROPDOWN - �汾5.80. ʹ��ť�л�״̬
+   表示项目为何改变的标记. 可为一个或多个下列值:
+    $HICF_ACCELERATOR - 快捷键引起的热项改变
+    $HICF_ARROWKEYS - 箭头键引起的热项改变
+    $HICF_DUPACCEL - 修正$HICF_ACCELERATOR. 如果设置有该标记, 多于一个项目具有相同的快捷键.
+    $HICF_ENTERING - 修正其他原因标记. 如果设置有该标记, 以前没有热项且idOld不包含有效信息.
+    $HICF_LEAVING - 修正其他原因标记. 如果设置有该标记, 没有新的热项且idNew不包含有效信息.
+    $HICF_LMOUSE - 鼠标左键单击事件引起的热项改变
+    $HICF_MOUSE - 鼠标事件引起的热项改变
+    $HICF_OTHER - 无法确定的事件引起的热项改变. 多数由于焦点改变或$TB_SETHOTITEM消息
+    $HICF_RESELECT - 用户输入已经为热项的快捷键引起的热项改变
+    $HICF_TOGGLEDROPDOWN - 版本5.80. 使按钮切换状态
 @@end@@

@@ -1,47 +1,47 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_FlashWindowEx
 
-###����###
-��˸ָ������
+###Description###
+闪烁指定窗口
 
-###�﷨###
+###Syntax###
 #Include <WinAPI.au3>
 _WinAPI_FlashWindowEx($hWnd[,
 $iFlags = 3[, $iCount = 3[, $iTimeout = 0]]])
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hWnd
-   ����˸�Ĵ��ھ��. ���ڿ����Ǵ򿪻���С����.
+   被闪烁的窗口句柄. 窗口可以是打开或最小化的.
 $iFlags
-   ��˸״̬. ��Ϊ����ֵ��һ������:
-    0 - ֹͣ��˸. ϵͳ�ָ�����ԭʼ״̬.
-    1 - ��˸���ڱ���
+   闪烁状态. 可为下列值的一个或多个:
+    0 - 停止闪烁. 系统恢复窗口原始状态.
+    1 - 闪烁窗口标题
     2 -
-      ��˸���ڰ�ť
-    4 - ������˸֪��ֹͣ
-    8 - ������˸ֱ�����ڱ�Ϊǰ��
+      闪烁窗口按钮
+    4 - 连续闪烁知道停止
+    8 - 连续闪烁直到窗口变为前景
 $iCount
-   ��˸����
+   闪烁次数
 $iTimeout
-   ������˸�ĺ����ٶ�. ���Ϊ 0, ����ʹ��Ĭ�������˸�ٶ�.
+   窗口闪烁的毫秒速度. 如果为 0, 函数使用默认鼠标闪烁速度.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��
-ʧ��: ��
-ע�� ͨ��, ��˸������֪ͨ�û�ע�⵱ǰû�м��̽���. ��������˸ʱ, ����Ϊ�Ӳ���Ծ����Ծ״̬. ��������Ϊ�������;
-���������Ϊ���.
+成功: 真
+失败: 假
+注意 通常, 闪烁窗口以通知用户注意当前没有键盘焦点. 当窗口闪烁时, 表现为从不活跃到活跃状态. 标题栏变为活动标题栏;
+活动标题栏变为不活动.
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 _WinAPI_FlashWindow
 
-###�ο�###
-��MSDN֪ʶ��������FlashWindowEx�������Ϣ
+###See Also###
+在MSDN知识库中搜索FlashWindowEx的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

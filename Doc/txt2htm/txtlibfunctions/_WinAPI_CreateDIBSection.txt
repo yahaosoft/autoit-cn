@@ -1,44 +1,44 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_CreateDIBSection
 
-###����###
-���������ֱ��д��ĵ�ͼԪ
+###Description###
+创建程序可直接写入的的图元
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_CreateDIBSection( $hDC, $tBITMAPINFO, $iUsage, ByRef $pBits [, $hSection [, $iOffset]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hDC
-$iUsage��ֵΪ$DIB_PAL_COLORS, ����ʹ�ø��豸�������߼���ɫ���ʼ��ͼԴ��ɫ.
+$iUsage的值为$DIB_PAL_COLORS, 函数使用该设备环境的逻辑调色板初始化图源颜色.
 $tBITMAPINFO
-$tagBITMAPINFO�ṹ, ����λͼ�ߴ����ɫ
+$tagBITMAPINFO结构, 包括位图尺寸和颜色
 $iUsage
-$pBits������. (�߼���ɫ��������RGBֵ). ��Ϊ:
-    $DIB_PAL_COLORS - ����ɫ����ָ��
-    $DIB_RGB_COLORS - ��RGBֵָ��
+$pBits数组中. (逻辑调色板索引或RGB值). 可为:
+    $DIB_PAL_COLORS - 由颜色索引指定
+    $DIB_RGB_COLORS - 由RGB值指定
 $pBits
-   ������λֵλ�õ�ָ�������ָ��
+   接收数位值位置的指针变量的指针
 $hSection
-   �������ڴ���ͼԪ���ļ�ӳ�����ľ��
+   函数用于创建图元的文件映射对象的句柄
 $iOffset
-$hSectionָ�����ļ�ӳ�����ʼ˥����λ��. ��$hSectionΪ0�Ǻ��Ը�ֵ.
+$hSection指定的文件映射对象开始衰减的位置. 当$hSection为0是忽略该值.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���������DIB�ľ��, ָ��λͼ��λֵ��$pBitsָ��. ����ͨ��$pBits�����ṹ���������. ��, DllStructCreate('dword[4]', $pBits).
-ʧ��: ����0������@error��0
+成功: 最近创建的DIB的句柄, 指向位图数位值的$pBits指针. 可以通过$pBits创建结构帮助其填充. 如, DllStructCreate('dword[4]', $pBits).
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-ʹ��ͼ�����ʱ, ʹ��_WinAPI_FreeIcon()��������
+###Remarks###
+使用图标完成时, 使用_WinAPI_FreeIcon()函数销毁
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����CreateDIBSection�������Ϣ
+###See Also###
+ 搜索MSDN知识库中CreateDIBSection的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

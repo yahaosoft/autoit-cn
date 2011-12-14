@@ -1,42 +1,42 @@
-###User Defined Function###
+﻿###User Defined Function###
 _FTP_FilePut
 ###Description###
-�� FTP �������Ϸ���(�ϴ�)һ���ļ�.
+在 FTP 服务器上放置(上传)一个文件.
 ###Syntax###
 #Include <FTPEx.au3>
 _FTP_FilePut($l_FTPSession, $s_LocalFile, $s_RemoteFile [, $l_Flags = 0 [, $l_Context = 0]])
 ###Parameters###
 @@ParamTable@@
 $l_FTPSession
-	�� _FTP_Connect() ����
+	由 _FTP_Connect() 返回
 $s_LocalFile
-	�����ļ�.
+	本地文件.
 $s_RemoteFile
-	�����ļ���Զ��λ��.
+	放置文件的远程位置.
 $l_Flags
-	[��ѡ����] ָ���ں��������·�������. Ӧ�ó���Ӧѡ��һ���������ͱ�־,�������ο����ļ�����
-		<br/>�������Ϳ���������ֵ֮һ:
-			<b>$FTP_TRANSFER_TYPE_ASCII</b> - �ļ�ʹ�� FTP �� ASCII��A�ͣ����䷽ʽ. ���ƺ͸�ʽ����Ϣת��Ϊ���ص�ֵ.
-			<b>$FTP_TRANSFER_TYPE_BINARY</b> - �ļ�ʹ�� FTP ��ͼ��I�ͣ����䷽ʽ. �ļ���ȫ���䣬û�б仯. ����Ĭ�ϵĴ��䷽��.
-			<b>$FTP_TRANSFER_TYPE_UNKNOWN</b> - Ĭ��Ϊ $FTP_TRANSFER_TYPE_BINARY.
-			<b>$INTERNET_FLAG_TRANSFER_ASCII</b> - �ļ���Ϊ ASCII ����
-			<b>$INTERNET_FLAG_TRANSFER_BINARY</b> - �ļ���Ϊ�����ƴ���.
-		<br/>�����ֵ�����������ļ��Ļ���. Ӧ�ó������ʹ��һ������Щֵ:
-			<b>$INTERNET_FLAG_HYPERLINK</b> - �����ȷ���Ƿ������������Ŀʱ��������û�з��ص���ʱ��Ҳû�з�������޸�ʱ����ǿ������.
-			<b>$INTERNET_FLAG_NEED_FILE</b> - �޷������ļ�ʱ������ʱ�ļ�.
-			<b>$INTERNET_FLAG_RELOAD</b> - ǿ�ƴ�ԭʼ�����������Ǵӻ�������������ļ�, �����Ŀ¼�б�.
-			<b>$INTERNET_FLAG_RESYNCHRONIZE</b> - �����Դ���ϴ����غ��ѱ��޸�, ����HTTP��Դ. ���� FTP �� Gopher ��Դ��������.
+	[可选参数] 指明在何种条件下发生传输. 应用程序应选择一个传输类型标志,这表明如何控制文件缓存
+		<br/>传输类型可以是以下值之一:
+			<b>$FTP_TRANSFER_TYPE_ASCII</b> - 文件使用 FTP 的 ASCII（A型）传输方式. 控制和格式化信息转换为本地等值.
+			<b>$FTP_TRANSFER_TYPE_BINARY</b> - 文件使用 FTP 的图像（I型）传输方式. 文件完全传输，没有变化. 这是默认的传输方法.
+			<b>$FTP_TRANSFER_TYPE_UNKNOWN</b> - 默认为 $FTP_TRANSFER_TYPE_BINARY.
+			<b>$INTERNET_FLAG_TRANSFER_ASCII</b> - 文件作为 ASCII 传输
+			<b>$INTERNET_FLAG_TRANSFER_BINARY</b> - 文件作为二进制传输.
+		<br/>下面的值是用来控制文件的缓存. 应用程序可以使用一或多个这些值:
+			<b>$INTERNET_FLAG_HYPERLINK</b> - 如果在确定是否从网络重载项目时服务器既没有返回到期时间也没有返回最后修改时间则强制重载.
+			<b>$INTERNET_FLAG_NEED_FILE</b> - 无法缓存文件时建立临时文件.
+			<b>$INTERNET_FLAG_RELOAD</b> - 强制从原始服务器而不是从缓存下载请求的文件, 对象或目录列表.
+			<b>$INTERNET_FLAG_RESYNCHRONIZE</b> - 如果资源在上次下载后已被修改, 重载HTTP资源. 所有 FTP 及 Gopher 资源均被重载.
 $l_Context
-	[��ѡ����] һ������, ������Ӧ�ó������ֵ, ����Ӧ�ó������ݵ�����.
-	����Ӧ�ó����ѵ��� _FTP_SetStatusCallback() ʱ,����һ��״̬�ص�����.
+	[可选参数] 一个变量, 它包含应用程序定义的值, 关联应用程序数据的搜索.
+	用于应用程序已调用 _FTP_SetStatusCallback() 时,设置一个状态回调函数.
 @@End@@
 ###ReturnValue###
 @@ReturnTable@@
-�ɹ�:	���� 1
-ʧ��:	���� 0,������ @ERROR
+成功:	返回 1
+失败:	返回 0,并设置 @ERROR
 @@End@@
 ###Remarks###
- ���� $s_LocalFile �� $s_RemoteFile ����ڵ�ǰĿ¼�����ǲ��ֻ���������
+ 参数 $s_LocalFile 与 $s_RemoteFile 相对于当前目录可以是部分或完整名称
 ###Related###
 _FTP_Connect, _FTP_FileOpen, _FTP_SetStatusCallback
 ###See Also###

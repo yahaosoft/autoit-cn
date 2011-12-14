@@ -1,47 +1,47 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_SetROP2
 
-###����###
-����ָ���豸������ǰ�����ģʽ
+###Description###
+设置指定设备场景的前景混合模式
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_SetROP2( $hDC, $iMode )
 
-###����###
+###Parameters###
 @@ParamTable@@
-$hDC  �豸�������
-$iMode  ���ģʽ. �ò�����Ϊ����ֵ֮һ.
-$R2_BLACK - ������Ϊ0
-$R2_COPYPEN - ����Ϊ��ɫ
-$R2_LAST - ����Ϊ��ǰ����Ļɫ�ͻ���ɫ
-$R2_MASKNOTPEN - ����Ϊ��Ļɫ�ͻ��ʷ�ɫ�Ľ��
-$R2_MASKPEN - ����Ϊ��ɫ����Ļɫ�Ľ��
-$R2_MASKPENNOT - ����Ϊ��Ļ��ɫ�ͱ�ɫ�Ľ��
-$R2_MERGENOTPEN - ����Ϊ��Ļɫ�ͻ��ʷ�ɫ�Ľ��
-$R2_MERGEPEN - ����Ϊ��ɫ����Ļɫ�Ľ��
-$R2_MERGEPENNOT - ����Ϊ��Ļ��ɫ�ͱ�ɫ�Ľ��
-$R2_NOP - ���ر��ֲ���
-$R2_NOT - ����Ϊ��Ļ��ɫ
-$R2_NOTCOPYPEN - ����Ϊ���ʷ�ɫ
-$R2_NOTMASKPEN - ����ΪR2_MASKPEN�ķ�ɫ
-$R2_NOTMERGEPEN - ����ΪR2_MERGEPEN�ķ�ɫ
-$R2_NOTXORPEN - ����ΪR2_XORPEN�ķ�ɫ
-$R2_WHITE - ������Ϊ1
-$R2_XORPEN - ����Ϊ��ɫ����Ļɫ�Ľ��, ����ͬʱ��
+$hDC  设备场景句柄
+$iMode  混合模式. 该参数可为下列值之一.
+$R2_BLACK - 像素总为0
+$R2_COPYPEN - 像素为笔色
+$R2_LAST - 像素为以前的屏幕色和画笔色
+$R2_MASKNOTPEN - 像素为屏幕色和画笔反色的结合
+$R2_MASKPEN - 像素为笔色和屏幕色的结合
+$R2_MASKPENNOT - 像素为屏幕反色和笔色的结合
+$R2_MERGENOTPEN - 像素为屏幕色和画笔反色的结合
+$R2_MERGEPEN - 像素为笔色和屏幕色的结合
+$R2_MERGEPENNOT - 像素为屏幕反色和笔色的结合
+$R2_NOP - 像素保持不变
+$R2_NOT - 像素为屏幕反色
+$R2_NOTCOPYPEN - 像素为画笔反色
+$R2_NOTMASKPEN - 像素为R2_MASKPEN的反色
+$R2_NOTMERGEPEN - 像素为R2_MERGEPEN的反色
+$R2_NOTXORPEN - 像素为R2_XORPEN的反色
+$R2_WHITE - 像素总为1
+$R2_XORPEN - 像素为笔色和屏幕色的结合, 但不同时是
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ָ����ǰ�Ļ��ģʽ��ֵ
-ʧ��: ����0������@error��0
+成功: 指定以前的混合模式的值
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-���ģʽ������GDI�Ե�ǰ���ʻ�ͼʱ��κϲ���Դɫ��Ŀ��ɫ. ���ģʽΪ�����ƹ�դ��������, �������п��ܵĲ�������(AND, OR�� XOR(���), ��NOT)������Ԫ��.
-���ģʽֻ���ڹ�դ�豸; �������豸��Ч.
+###Remarks###
+混合模式定义了GDI以当前画笔绘图时如何合并来源色和目标色. 混合模式为二进制光栅操作代码, 代表所有可能的布尔函数(AND, OR， XOR(异或), 及NOT)的两个元素.
+混合模式只用于光栅设备; 对向量设备无效.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����SetROP2�������Ϣ
+###See Also###
+ 搜索MSDN知识库中SetROP2的相关信息

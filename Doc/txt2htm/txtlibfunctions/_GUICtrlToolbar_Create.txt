@@ -1,91 +1,91 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlToolbar_Create
 
-###����###
-�����������ؼ�
+###Description###
+创建工具栏控件
 
-###�﷨###
+###Syntax###
 #Include<GuiToolBar.au3>
 _GUICtrlToolbar_Create($hWnd[, $iStyle = 0x00000800[,$iExStyle = 0x00000000]])
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  �����������������
- $iStyle  �ؼ���ʽ:
-$BTNS_AUTOSIZE - ָ���������ؼ���Ϊ��ť�����׼����.
-      �ɻ��ڰ�ť���ı���ͼ��Ŀ��ȼ�������.
-$BTNS_BUTTON - ������׼��ť
+ $hWnd  父窗体或所属窗体句柄
+ $iStyle  控件样式:
+$BTNS_AUTOSIZE - 指定工具栏控件不为按钮分配标准宽度.
+      由基于按钮的文本加图像的宽度计算所得.
+$BTNS_BUTTON - 创建标准按钮
 $BTNS_CHECK -
-      �������ʱ�ڰ��º�δ����˫̬���л��İ�ť. ��ť�ڰ���״̬ʱ���в�ͬ����ɫ.
-$BTNS_CHECKGROUP - ��������ѡ�ť�İ�ť,
-      �ð�ťֱ��������һ��ť������һֱ���ֱ�����״̬.�൱��$BTNS_CHECK��$BTNS_GROUP�Ľ��.
+      创建点击时在按下和未按下双态间切换的按钮. 按钮在按下状态时具有不同背景色.
+$BTNS_CHECKGROUP - 创建类似选项按钮的按钮,
+      该按钮直到组中另一按钮被按下一直保持被按下状态.相当于$BTNS_CHECK和$BTNS_GROUP的结合.
 $BTNS_DROPDOWN -
-      �������ʱ��ʾ�б���������ʽ��ť. ���������ͨ��ť�� $WM_COMMAND��Ϣ, ������ť����$TBN_DROPDOWN��Ϣ.
-      ��������ʹӦ�ó���ɾ�����ʾ�б�ѡ���֪ͨ���. �����������$TBSTYLE_EX_DRAWDDARROWS��չ��ʽ,
-      ������ť�������Ҳ�ֿ��Ĳ��־���������ͷ, ������$TBN_DROPDOWN֪ͨ. ��������ذ�ť,
-      ������$WM_COMMAND��Ϣ.
-$BTNS_GROUP - ����$BTNS_CHECK���ʱ,
-      ����һ��ֱ��������һ��ť������һֱ���ֱ�����״̬�İ�ť.
+      创建点击时显示列表的下拉格式按钮. 代替对于普通按钮的 $WM_COMMAND消息, 下拉按钮发送$TBN_DROPDOWN消息.
+      如果点击箭使应用程序可具有显示列表选项的通知句柄. 如果工具栏有$TBSTYLE_EX_DRAWDDARROWS扩展样式,
+      下拉按钮将在其右侧分开的部分具有下拉箭头, 将发送$TBN_DROPDOWN通知. 如果点击相关按钮,
+      将发送$WM_COMMAND消息.
+$BTNS_GROUP - 当与$BTNS_CHECK结合时,
+      创建一个直到组中另一按钮被按下一直保持被按下状态的按钮.
 $BTNS_NOPREFIX -
-      ָ����ť�ı���������֮��صĿ��ǰ׺��ĸ.
-$BTNS_SEP - �����ָ���, �ڰ�ť�����ṩһ����϶.
-      ���и���ʽ�İ�ť�������û�����.
-$BTNS_SHOWTEXT - ָ����ʾ��ť�ı�. ���а�ť�ɾ����ı�,
-      ��ֻ�о���$BTNS_SHOWTEXT��ʽ�İ�ť����ʾ�ı�. �ð�ť��ʽ�����$TBSTYLE_LIST
-      ��ʽ��$TBSTYLE_EX_MIXEDBUTTONS��չ��ʽһ��ʹ��. ������ò�����$BTNS_SHOWTEXT��ʽ���ı�,
-      �������ؼ����Զ�������Ϊ������ʾ��������ڰ�ť��ʱ��ʾ.
-      ����������Ӧ�ó�������ȡ��������$TBN_GETINFOTIP��Ϣ.
-$BTNS_WHOLEDROPDOWN - ָ����ť������������ͷ,
-      ��������Է���Ĳ���. ��ť�Ķ�����ͬ, �����Ƿ�������$TBSTYLE_EX_DRAWDDARROWS��չ��ʽ.
-  $TBSTYLE_ALTDRAG - �����û�ͨ������ALT����ҷ���ı乤�����İ�ťλ��. �������ʽδָ��,
-      �û�����ҷ��ťʱ���밴��SHIFT��. ע��:
-      ����ָ��$CCS_ADJUStable��ʽ�ǹ�������ť�ɱ���ҷ.
+      指定按钮文本不带有与之相关的快捷前缀字母.
+$BTNS_SEP - 创建分隔符, 在按钮组中提供一个空隙.
+      具有该样式的按钮不接受用户输入.
+$BTNS_SHOWTEXT - 指定显示按钮文本. 所有按钮可具有文本,
+      但只有具有$BTNS_SHOWTEXT样式的按钮可显示文本. 该按钮样式必须和$TBSTYLE_LIST
+      样式及$TBSTYLE_EX_MIXEDBUTTONS扩展样式一起使用. 如果设置不带用$BTNS_SHOWTEXT样式的文本,
+      工具栏控件将自动将其作为工具提示在鼠标置于按钮上时显示.
+      该特性允许应用程序避免获取工具栏的$TBN_GETINFOTIP消息.
+$BTNS_WHOLEDROPDOWN - 指定按钮将具有下拉箭头,
+      但不是相对分离的部分. 按钮的动作相同, 无论是否设置了$TBSTYLE_EX_DRAWDDARROWS扩展样式.
+  $TBSTYLE_ALTDRAG - 允许用户通过按下ALT键拖曳来改变工具栏的按钮位置. 如果该样式未指定,
+      用户在拖曳按钮时必须按下SHIFT键. 注意:
+      必须指定$CCS_ADJUStable样式是工具栏按钮可被拖曳.
 $TBSTYLE_CUSTOMERASE -
-      ��������ִ��$WM_ERASEBKGND��Ϣʱ����$NM_CUSTOMDRAW��Ϣ
+      当工具栏执行$WM_ERASEBKGND消息时生成$NM_CUSTOMDRAW消息
 $TBSTYLE_FLAT -
-      ����ƽ�湤����
-$TBSTYLE_LIST - ������ť�ı���λͼ�Ҳ��ƽ�湤����
+      创建平面工具栏
+$TBSTYLE_LIST - 创建按钮文本在位图右侧的平面工具栏
 $TBSTYLE_REGISTERDROP -
-      ������ڹ�������ť��ʱ����$TBN_GETOBJECT֪ͨ��Ϣ�������¼�Ŀ�����.
+      当鼠标在工具栏按钮上时生成$TBN_GETOBJECT通知消息以请求下辑目标对象.
 $TBSTYLE_TOOLTIPS -
-      ����Ӧ�ó����������ʾ��������ť�����ı��Ĺ�����ʾ�ؼ�.
-$TBSTYLE_TRANSPARENT - ����͸��������. ��͸����������,
-      ��������͸���ĵ���ť����. ��ť�ı������ڰ�ťλͼ��. Ϊ�����ػ�����,
-      ����ʽ�ڹ������ؼ���Ϊ����ǰ����.
-$TBSTYLE_WRAPABLE - �����ɾ��ж��а�ť�Ĺ�����.
-      �����������̫���޷���ͬһ�а������а�ťʱ��������ť��"��װ"����һ��. ��
-����������װʱ,
-      �����Ҳ�ָ�����û�зָ���ʱ�����Ҳఴť�����ж�. ���������Ǵ�ֱ�����ؼ�һ����ʱ��ʾ��ֱ�������������ø���ʽ.
-  Ĭ��: $TBSTYLE_FLAT
-ǿ��: $WS_CHILD, $WS_CLIPSIBLINGS,
+      创建应用程序可用于显示工具栏按钮描述文本的工具提示控件.
+$TBSTYLE_TRANSPARENT - 创建透明工具栏. 在透明工具栏中,
+      工具栏是透明的但按钮不是. 按钮文本出现在按钮位图下. 为避免重绘问题,
+      该样式在工具栏控件变为可视前设置.
+$TBSTYLE_WRAPABLE - 创建可具有多行按钮的工具栏.
+      当工具栏变得太辑无法在同一行包含所有按钮时工具栏按钮可"封装"至下一行. 当
+工具栏被封装时,
+      在最右侧分隔符或没有分隔符时的最右侧按钮产生中断. 当工具栏是垂直伸缩控件一部分时显示垂直工具栏必须设置该样式.
+  默认: $TBSTYLE_FLAT
+强制: $WS_CHILD, $WS_CLIPSIBLINGS,
 $WS_VISIBLE
- $iExStyle  �ؼ���չ��ʽ:
+ $iExStyle  控件扩展样式:
 $TBSTYLE_EX_DRAWDDARROWS -
-      ������ť������Է����������ͷ. ����$BTNS_DROPDOWN��ʽ�İ�ť�����Ҳ���Է���Ĳ��ֻ���������ͷ.��������ͷ,
-      ����ť�ļ�ͷ���ֱ�����, �ҹ������ؼ�����$TBN_DROPDOWN֪ͨʱӦ�ó�����ʾ�����˵�. �����ť�����岿�ֱ����,
-      �������ؼ��԰�ť��ʶ����$WM_COMMAND��Ϣ.
+      允许按钮具有相对分离的下拉箭头. 具有$BTNS_DROPDOWN样式的按钮将在右侧相对分离的部分绘制下拉箭头.如果点击箭头,
+      仅按钮的箭头部分被按下, 且工具栏控件发送$TBN_DROPDOWN通知时应用程序显示下拉菜单. 如果按钮的主体部分被点击,
+      工具栏控件以按钮标识发送$WM_COMMAND消息.
 $TBSTYLE_EX_HIDECLIPPEDBUTTONS -
-      ���ز��ֱ��ü��İ�ť
+      隐藏部分被裁剪的按钮
 $TBSTYLE_EX_DOUBLEBUFFER -
-      ��Ҫ˫�����幤����
-$TBSTYLE_EX_MIXEDBUTTONS - �����������а�ť���ı�,
-      �����Ծ���$BTNS_SHOWTEXT��ʽ�İ�ť��ʾ. $TBSTYLE_LIST��ʽҲ���뱻����. ͨ��, ����ť����ʾ�ı�ʱ,
-      �������$TBN_GETINFOTIP��ʾ������ʾ. ͨ��$TBSTYLE_EX_MIXEDBUTTONS��չ��ʽ,
-      �����õ����ڰ�ť����ʾ���ı����Զ����ڰ�ť����ʾ�ı�.
-  �����ָ��������ʾ�ı�����Ҫ�����������ֻ��Ҫʹ��$TBN_GETINFOTIP��ʽ.
+      需要双倍缓冲工具栏
+$TBSTYLE_EX_MIXEDBUTTONS - 允许设置所有按钮的文本,
+      但仅对具有$BTNS_SHOWTEXT样式的按钮显示. $TBSTYLE_LIST样式也必须被设置. 通常, 当按钮不显示文本时,
+      必须具有$TBN_GETINFOTIP显示工具提示. 通过$TBSTYLE_EX_MIXEDBUTTONS扩展样式,
+      被设置但不在按钮上显示的文本将自动用于按钮的提示文本.
+  如果在指定工具提示文本中需要更大的伸缩性只需要使用$TBN_GETINFOTIP样式.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �������ؼ����
+成功: 工具栏控件句柄
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 _GUICtrlToolbar_Destroy
 
-###�ο�###
+###See Also###
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

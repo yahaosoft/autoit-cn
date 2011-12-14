@@ -1,49 +1,49 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlMenu_TrackPopupMenu
 
-###����###
-��ָ��λ����ʾ��ݲ˵�
+###Description###
+在指定位置显示快捷菜单
 
-###�﷨###
+###Syntax###
 #Include<GuiMenu.au3>
 _GUICtrlMenu_TrackPopupMenu($hMenu, $hWnd[, $iX = -1[,$iY = -1[, $iAlignX = 1[, $iAlignY = 1[, $iNotify = 0[, $iButtons =0]]]]]])
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hMenu  Ҫ��ʾ�Ŀ�ݲ˵��ľ��
- $hWnd  ��ݲ˵������Ĵ��ڵľ��
- $iX  ָ����ݲ˵�����Ļ�����е�ˮƽλ��. ���Ϊ-1, ʹ�õ�ǰ�����λ��
- $iY  Sָ����ݲ˵�����Ļ�����еĴ�ֱλ��. ���Ϊ-1, ʹ�õ�ǰ�����λ��
- $iAlignX  ָ�����ˮƽ��λ�˵�:
-0 - �����$iXˮƽ����
-1 - �����$iX����
-2 - �����$iX����
- $iAlignY  ָ����δ�ֱ��λ�˵�:
-0 - �����$iX�ӵ�
-1 - �����$iX�Ӷ�
-2 - �����$iX��ֱ����
- $iNotify  ����ȷ�������������ѡ��:
-1 - ������֪ͨ��Ϣ
-2 - �����û�ѡ��Ĳ˵����ʶ����
- $iButtons  ��ݲ˵���������:
-0 - �û�ֻ��ͨ��������ѡ����Ŀ
+ $hMenu  要显示的快捷菜单的句柄
+ $hWnd  快捷菜单所属的窗口的句柄
+ $iX  指定快捷菜单在屏幕坐标中的水平位置. 如果为-1, 使用当前的鼠标位置
+ $iY  S指定快捷菜单在屏幕坐标中的垂直位置. 如果为-1, 使用当前的鼠标位置
+ $iAlignX  指定如何水平定位菜单:
+0 - 相对于$iX水平居中
+1 - 相对于$iX居左
+2 - 相对于$iX居右
+ $iAlignY  指定如何垂直定位菜单:
+0 - 相对于$iX居底
+1 - 相对于$iX居顶
+2 - 相对于$iX垂直居中
+ $iNotify  用于确定不带父窗体的选项:
+1 - 不发送通知消息
+2 - 返回用户选择的菜单项的识别码
+ $iButtons  快捷菜单跟随鼠标键:
+0 - 用户只能通过鼠标左键选择项目
 1 -
-�û���ͨ������Ҽ�ѡ����Ŀ
+用户可通过鼠标右键选择项目
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���$iNotify����Ϊ2, ����ֵΪ�û�ѡ��Ĳ˵���Ŀ��ʶ����. ����û�δѡ��ȡ���˵��������������,
-�򷵻�0. ���$iNotify������Ϊ2, ����ֵΪ1.
-ʧ��: 0
+成功: 如果$iNotify设置为2, 返回值为用户选择的菜单项目的识别码. 如果用户未选择即取消菜单或如果发生错误,
+则返回0. 如果$iNotify被设置为2, 返回值为1.
+失败: 0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
-����MSDN֪ʶ����TrackPopupMenu�������Ϣ
+###See Also###
+搜索MSDN知识库中TrackPopupMenu的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

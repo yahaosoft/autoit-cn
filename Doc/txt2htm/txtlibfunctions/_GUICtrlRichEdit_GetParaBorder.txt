@@ -1,76 +1,76 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlRichEdit_GetParaBorder
 
-###����###
-��ȡ(�׸�)��ѡ�λ�(δѡ��ʱ)��ǰ�εı߽�����
+###Description###
+获取(首个)被选段或(未选定时)当前段的边界设置
 
-###�﷨###
+###Syntax###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetParaBorder($hWnd)
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  �ؼ����
+ $hWnd  控件句柄
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
- �ɹ�:  �׸���ѡ�ε����� - �ɷֺ�(;)�ָ��ֵ��ɵ��ַ���:
-  ֵ1 - �߽�:
-         l - ��߽�
-         r - �ұ߽�
-         t - ���߽�
-         b - �ױ߽�
-         i - �ڲ��߽�
-         o - �ⲿ�߽�
-       ��� - �ޱ߽�
-  ֵ2 - ����ʽ:
-         �� - û����
+ 成功:  首个被选段的设置 - 由分号(;)分割的值组成的字符串:
+  值1 - 边界:
+         l - 左边界
+         r - 右边界
+         t - 顶边界
+         b - 底边界
+         i - 内部边界
+         o - 外部边界
+       或空 - 无边界
+  值2 - 行样式:
+         无 - 没有行
        .75 - 3/4 point
        1.5 - 1 1/2 points
      2.25 - 2 1/4 points
          3 - 3 points
        4.5 - 4 1/2 points
          6 - 6 points
-     .75d - 1/2 points, ˫��
-     1.5d - 1 1/2 points, ˫��
-    2.25d - 2 1/4 points, ˫��
-     .75g - 3/4 point ��ɫ
-    .75gd - 3/4 point ��ɫ����
-  ֵ3 - ��ɫ:
-       aut - �Զ���ɫ
-       blk - ��ɫ
-       blu - ��ɫ
-       cyn - ��ɫ
-       grn - ��ɫ
-       mag - �Ϻ�ɫ
-       red - ��ɫ
-       yel - ��ɫ
-       whi - ��ɫ
-       dbl - ����ɫ
-       dgn - ī��ɫ
-       dmg - ���ɫ
-       drd - ����ɫ
-       dyl - ����ɫ
-       dgy - ����ɫ
-       lgy - ����ɫ
-  ֵ4 - �߽���ı���Ŀռ�
-  ֵ5 - ��Χ:
-         a - ȫ��(�����)ѡ���Ķ���ʹ�ø�����
-         f - ��һ��ѡ���Ķ���ʹ����Щ����, ����������
-         c - ��ǰ����ʹ����Щ����
- ʧ��:  "" ������@error
- @error:  101 - $hWnd���Ǿ��
+     .75d - 1/2 points, 双线
+     1.5d - 1 1/2 points, 双线
+    2.25d - 2 1/4 points, 双线
+     .75g - 3/4 point 灰色
+    .75gd - 3/4 point 灰色虚线
+  值3 - 颜色:
+       aut - 自动颜色
+       blk - 黑色
+       blu - 蓝色
+       cyn - 青色
+       grn - 绿色
+       mag - 紫红色
+       red - 红色
+       yel - 黄色
+       whi - 白色
+       dbl - 蓝黑色
+       dgn - 墨绿色
+       dmg - 深经紫色
+       drd - 暗红色
+       dyl - 暗黄色
+       dgy - 暗灰色
+       lgy - 亮灰色
+  值4 - 边界和文本间的空间
+  值5 - 范围:
+         a - 全部(或仅有)选定的段落使用该设置
+         f - 第一个选区的段落使用这些设置, 但其他不是
+         c - 当前段落使用这些设置
+ 失败:  "" 并设置@error
+ @error:  101 - $hWnd不是句柄
 @@End@@
 
-###��ע###
-���ı��༭�в�����ʾ�߽�, ���Ѵ����ı߽������������ʾ
+###Remarks###
+富文本编辑中不会显示边界, 但已创建的边界会在文字中显示
 
-###���###
+###Related###
  _GUICtrlRichEdit_SetParaBorder
 
-###�ο�###
- ����MSDN֪ʶ����EM_GETPARAFORMAT�������Ϣ
+###See Also###
+ 搜索MSDN知识库中EM_GETPARAFORMAT的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

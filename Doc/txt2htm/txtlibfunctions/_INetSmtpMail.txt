@@ -1,47 +1,47 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êý###
+ï»¿###User Defined Function###
 _INetSmtpMail
 
-###ÃèÊö###
-²»Ê¹ÓÃÍâ²¿ÓÊ¼þ³ÌÐò·¢ËÍÓÊ¼þ.
+###Description###
+ä¸ä½¿ç”¨å¤–éƒ¨é‚®ä»¶ç¨‹åºå‘é€é‚®ä»¶.
 
-###Óï·¨###
+###Syntax###
 #Include <INet.au3>
 _INetSmtpMail ( $s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress [,$s_Subject [,$as_Body [,$s_helo, [,$s_first [,$b_trace]]]]])
 
-###²ÎÊý###
+###Parameters###
 @@ParamTable@@
- $s_SmtpServer  ·¢ËÍÓÊ¼þËùÊ¹ÓÃµÄSMTP·þÎñÆ÷µØÖ·»òÕßÊÇÊý×ÖIPµØÖ·. Îª·ÀÖ¹À¬»øÐÅÏ¢ , ´ó¶àÊýISPsÒªÇó·þÎñÆ÷ÕâÑùÉèÖÃ. Èç "smtp.ispdomain.com", "mail.ispdomain.com" »ò "192.168.1.1"
- $s_FromName  ÄãÏ£ÍûÏÔÊ¾µÄ·¢ËÍÈËÃû³Æ. Èç "Bob Smith"
- $s_FromAddress  ÄãÏ£ÍûÏÔÊ¾µÄ·¢ËÍµÄÓÊ¼þµØÖ·. Èç "bob.smith@mydomain.com"
- $s_ToAddress  ÊÕ¼þ·½µØÖ·. Èç "jane.brown@yourdomain.com"
- $s_Subject  [¿ÉÑ¡] ÓÊ¼þÖ÷Ìâ.
- $as_Body  [¿ÉÑ¡] ÓÊ¼þÄÚÈÝ×÷ÎªÒ»¸öµ¥Ò»µÄ×Ö·û´®Êý×é.Êý×éÖÐÃ¿¸öÖµÔÚÓÊ¼þÀïÃæ»á±»ÒÔ@CRLF½áÊø.
- $s_helo  [¿ÉÑ¡]
-      SMTP·þÎñÆ÷Á´½ÓµÄ±êÖ¾·û(Í¨³£Ä¬ÈÏÊÇ@ComputerName).Èç¹ûSMTP·þÎñÆ÷ÐèÒªÒ»¸ö "EHLO" ×Ö´® , ÄÇ¾ÍÉèÖÃ×Ö·û´®Îª "EHLO " & @ComputerName.
- $s_first  [¿ÉÑ¡]
-      ÔÚheloÖ®Ç°·¢ËÍ¸øSMTP·þÎñÆ÷µÄ×Ö·û´®(Í¨³£Ä¬ÈÏÊÇ{SPACE}).Èç¹û²»·¢ËÍÈÎºÎ¶ÔÏóÕâ¸ö²ÎÊý±ØÐëÉèÖÃÎª-1 , Ä³Ð© SMTP ·þÎñÆ÷ÐèÒª.
- $b_trace  [¿ÉÑ¡] ÔÚÒ»¸ö´°¿ÚÀïÃæ¸ú×Ù¶Ô»°¹ý³Ì
+ $s_SmtpServer  å‘é€é‚®ä»¶æ‰€ä½¿ç”¨çš„SMTPæœåŠ¡å™¨åœ°å€æˆ–è€…æ˜¯æ•°å­—IPåœ°å€. ä¸ºé˜²æ­¢åžƒåœ¾ä¿¡æ¯ , å¤§å¤šæ•°ISPsè¦æ±‚æœåŠ¡å™¨è¿™æ ·è®¾ç½®. å¦‚ "smtp.ispdomain.com", "mail.ispdomain.com" æˆ– "192.168.1.1"
+ $s_FromName  ä½ å¸Œæœ›æ˜¾ç¤ºçš„å‘é€äººåç§°. å¦‚ "Bob Smith"
+ $s_FromAddress  ä½ å¸Œæœ›æ˜¾ç¤ºçš„å‘é€çš„é‚®ä»¶åœ°å€. å¦‚ "bob.smith@mydomain.com"
+ $s_ToAddress  æ”¶ä»¶æ–¹åœ°å€. å¦‚ "jane.brown@yourdomain.com"
+ $s_Subject  [å¯é€‰] é‚®ä»¶ä¸»é¢˜.
+ $as_Body  [å¯é€‰] é‚®ä»¶å†…å®¹ä½œä¸ºä¸€ä¸ªå•ä¸€çš„å­—ç¬¦ä¸²æ•°ç»„.æ•°ç»„ä¸­æ¯ä¸ªå€¼åœ¨é‚®ä»¶é‡Œé¢ä¼šè¢«ä»¥@CRLFç»“æŸ.
+ $s_helo  [å¯é€‰]
+      SMTPæœåŠ¡å™¨é“¾æŽ¥çš„æ ‡å¿—ç¬¦(é€šå¸¸é»˜è®¤æ˜¯@ComputerName).å¦‚æžœSMTPæœåŠ¡å™¨éœ€è¦ä¸€ä¸ª "EHLO" å­—ä¸² , é‚£å°±è®¾ç½®å­—ç¬¦ä¸²ä¸º "EHLO " & @ComputerName.
+ $s_first  [å¯é€‰]
+      åœ¨heloä¹‹å‰å‘é€ç»™SMTPæœåŠ¡å™¨çš„å­—ç¬¦ä¸²(é€šå¸¸é»˜è®¤æ˜¯{SPACE}).å¦‚æžœä¸å‘é€ä»»ä½•å¯¹è±¡è¿™ä¸ªå‚æ•°å¿…é¡»è®¾ç½®ä¸º-1 , æŸäº› SMTP æœåŠ¡å™¨éœ€è¦.
+ $b_trace  [å¯é€‰] åœ¨ä¸€ä¸ªçª—å£é‡Œé¢è·Ÿè¸ªå¯¹è¯è¿‡ç¨‹
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: ·µ»Ø1 Ê§°Ü: ·µ»Ø0²¢ÇÒÉèÖÃ@ERRORÎª:
-    1 - ÎÞÐ§²ÎÊý
-    2 - ÎÞ·¨Æô¶¯TCP
-    3 - ÎÞ·¨½âÎöIP
-    4 - ÎÞ·¨´´½¨socket
-    5x - ÎÞ·¨´ò¿ªSMTP»á»°. xÏÔÊ¾STMP·þÎñÆ÷´¦ÀíµÄ×îºóÃüÁîµÄË÷ÒýÊý.
-    50x - ÎÞ·¨·¢ËÍÄÚÈÝ.XÏÔÊ¾$as_BodyµÄÐÐºÅ(µÚÒ»ÐÐÊÇ 0).
-    5000 - ÎÞ·¨¹Ø±ÕSMTP»á»°
+æˆåŠŸ: è¿”å›ž1 å¤±è´¥: è¿”å›ž0å¹¶ä¸”è®¾ç½®@ERRORä¸º:
+    1 - æ— æ•ˆå‚æ•°
+    2 - æ— æ³•å¯åŠ¨TCP
+    3 - æ— æ³•è§£æžIP
+    4 - æ— æ³•åˆ›å»ºsocket
+    5x - æ— æ³•æ‰“å¼€SMTPä¼šè¯. xæ˜¾ç¤ºSTMPæœåŠ¡å™¨å¤„ç†çš„æœ€åŽå‘½ä»¤çš„ç´¢å¼•æ•°.
+    50x - æ— æ³•å‘é€å†…å®¹.Xæ˜¾ç¤º$as_Bodyçš„è¡Œå·(ç¬¬ä¸€è¡Œæ˜¯ 0).
+    5000 - æ— æ³•å…³é—­SMTPä¼šè¯
 @@End@@
 
-###±¸×¢###
-Õâ¸öº¯ÊýÖ±½ÓÍ¨¹ýSMTP·þÎñÆ÷·¢ËÍÓÊ¼þ¶ø²»ÓÃµÚÈý·½ÓÊ¼þ¹¤¾ß.ÐèÒªAutoIt3 v 3.1.1.97»òÕß¸ü¸ß°æ±¾.
+###Remarks###
+è¿™ä¸ªå‡½æ•°ç›´æŽ¥é€šè¿‡SMTPæœåŠ¡å™¨å‘é€é‚®ä»¶è€Œä¸ç”¨ç¬¬ä¸‰æ–¹é‚®ä»¶å·¥å…·.éœ€è¦AutoIt3 v 3.1.1.97æˆ–è€…æ›´é«˜ç‰ˆæœ¬.
 
-###Ïà¹Ø###
+###Related###
  _INetMail
 
-###²Î¿¼###
+###See Also###
 
-###Ê¾Àý###
+###Example###
 @@IncludeExample@@

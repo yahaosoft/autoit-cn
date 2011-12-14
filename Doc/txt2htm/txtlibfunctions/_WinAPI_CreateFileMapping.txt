@@ -1,53 +1,53 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_CreateFileMapping
 
-###����###
-�������ָ���ļ�������δ�����ľ������
+###Description###
+创建或打开指定文件命名或未命名的镜像对象
 _WinAPI_CreateFileMapping ( $hFile [, $iSize [, $sName [, $iProtect [, $tSecurity]]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hFile
-   �������������ļ��ľ��. ����ò���Ϊ-1, ���õĽ��̱�����$iSize������ָ���ļ�����Ĵ�С. �ڴ������, _WinAPI_CreateFileMapping()����ָ����С����ϵͳ��ҳ�ļ�, ������ͨ���ļ�ϵͳ���ݵ��ļ��������.
+   创建镜像对象的文件的句柄. 如果该参数为-1, 调用的进程必须在$iSize参数中指定文件镜像的大小. 在此情况下, _WinAPI_CreateFileMapping()创建指定大小的由系统分页文件, 而不是通过文件系统备份的文件镜像对象.
 $iSize
-$hFile��ʶ���ļ��ĵ�ǰ��С.
+$hFile标识的文件的当前大小.
 $sName
-   �ļ������������
+   文件镜像对象名称
 $iProtect
-   ָ���ļ���������ҳ�汣���ҿ�Ϊ����ֵ֮һ.
-    $PAGE_EXECUTE_READ - ��������Ϊֻ��, д���ƻ�ִ��
-    $PAGE_EXECUTE_READWRITE - ��������Ϊֻ��, д����, ��/д��ִ��
-    $PAGE_EXECUTE_WRITECOPY - ��������Ϊֻ��, д���ƻ�ִ��, ��$PAGE_EXECUTE_READ��ͬ
-    $PAGE_READONLY - ��������Ϊֻ��, д����
-    $PAGE_READWRITE - ��������Ϊֻ��, д����, ��/д
-    $PAGE_WRITECOPY - ��������Ϊֻ��, д����, ��$PAGE_READONLY��ͬ
-    Ӧ�ó����Ϊͨ�����һ��Ԥ����ҳ�汣��ֵ�ļ��������ָ��һ��������������.
-    $SEC_COMMIT - ��һ���ļ���ͼ�Ŀռ�ӳ�䵽���̵ĵ�ַʱʹ������ҳ��
-    $SEC_IMAGE - $hFile����ָ�����ļ���һ����ִ��ӳ���ļ�
-    $SEC_LARGE_PAGES - ���ô�ҳ�������ļ�ӳ���ļ�����
-    $SEC_NOCACHE - ��������ҳ�治�ɻ���
-    $SEC_RESERVE - ��һ���ļ���ͼ�еĿռ�ӳ�䵽���̵ĵ�ַʱ��������ҳ��Ϊ��������ʹ��
-    $SEC_WRITECOMBINE - ��������ҳ����д�������
+   指定文件镜像对象的页面保护且可为下列值之一.
+    $PAGE_EXECUTE_READ - 允许镜像为只读, 写复制或执行
+    $PAGE_EXECUTE_READWRITE - 允许镜像为只读, 写复制, 读/写或执行
+    $PAGE_EXECUTE_WRITECOPY - 允许镜像为只读, 写复制或执行, 与$PAGE_EXECUTE_READ相同
+    $PAGE_READONLY - 允许镜像为只读, 写复制
+    $PAGE_READWRITE - 允许镜像为只读, 写复制, 读/写
+    $PAGE_WRITECOPY - 允许镜像为只读, 写复制, 与$PAGE_READONLY相同
+    应用程序可为通过结合一个预定义页面保护值文件镜像对象指定一个或多个下列属性.
+    $SEC_COMMIT - 当一个文件视图的空间映射到进程的地址时使用整个页面
+    $SEC_IMAGE - $hFile参数指定的文件是一个可执行映像文件
+    $SEC_LARGE_PAGES - 启用大页面用于文件映射文件对象
+    $SEC_NOCACHE - 设置所有页面不可缓存
+    $SEC_RESERVE - 当一个文件视图中的空间映射到进程的地址时保留整个页面为后续进程使用
+    $SEC_WRITECOMBINE - 设置所有页面与写操作结合
 $tSecurity
-$tagSECURITY_ATTRIBUTES�ṹ. ����ò���Ϊ0, ������ܼ̳����ļ���������ȡĬ�ϰ�ȫ������
+$tagSECURITY_ATTRIBUTES结构. 如果该参数为0, 句柄不能继承且文件镜像对象获取默认安全描述符
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����������ļ��������ľ��. ��������ں�������ǰ�Ѵ���, �������ش��ڵĶ���ľ��(�����䵱ǰ��С, ������ָ����С), ������@extended���Ϊ1
-ʧ�ܣ�����0������@error��0
+成功: 最近创建的文件镜像对象的句柄. 如果对象在函数调用前已存在, 函数返回存在的对象的句柄(带有其当前大小, 而不是指定大小), 并设置@extended标记为1
+失败：返回0并设置@error非0
 @@End@@
 
-###��ע###
-���ļ�������󴴽���, �ļ���С���ᳬ���������Ĵ�С; ������򲢷����е��ļ����ݿ����ڹ���.
-������̿ɹ�����ͬ�ļ�����ͼͨ��ʹ�õ�һ�����ļ���������ͨ������ͬһ�ļ��Ĳ�ͬ�������. ��һ�ļ���������ͨ���̳н��̴����ľ��, ���ƾ����ͨ�����ƴ򿪾�������ɶ�����̹���.
-�ļ�������󲻻Ὣ��ͼʵ��ӳ�䵽���̵�ַ�ռ���. ӳ��һ���ļ���ͼ�����̵�ַ�ռ���ʹ��_WinAPI_MapViewOfFile()����.
-�ļ��������ľ�����ͼ���ֶԶ�����ڲ��������ļ�������������ж���������ͷ�ǰ����ر�. ���, ��ȫ�ر��ļ��������, Ӧ�ó������ͨ������_WinAPI_UnmapViewOfFile()����ӳ�������ļ��������ľ�����ͼ��ͨ������_WinAPI_CloseHandle()�ر��ļ����������. ��Щ������������˳�����.
+###Remarks###
+在文件镜像对象创建后, 文件大小不会超过镜像对象的大小; 如果是则并非所有的文件内容可用于共享.
+多个进程可共享相同文件的视图通过使用单一共享文件镜像对象或通过创建同一文件的不同镜像对象. 单一文件镜像对象可通过继承进程创建的句柄, 复制句柄或通过名称打开镜像对象由多个进程共享.
+文件镜像对象不会将视图实际映射到进程地址空间中. 映射一个文件视图到进程地址空间中使用_WinAPI_MapViewOfFile()函数.
+文件镜像对象的镜像视图保持对对象的内部引用且文件镜像对象在所有对其的引用释放前不会关闭. 因此, 完全关闭文件镜像对象, 应用程序必须通过调用_WinAPI_UnmapViewOfFile()不再映射所有文件镜像对象的镜像视图并通过调用_WinAPI_CloseHandle()关闭文件镜像对象句柄. 这些函数可以任意顺序调用.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����CreateFileMapping�������Ϣ
+###See Also###
+ 搜索MSDN知识库中CreateFileMapping的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

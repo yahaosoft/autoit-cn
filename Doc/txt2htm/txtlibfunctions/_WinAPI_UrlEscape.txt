@@ -1,37 +1,37 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_UrlEscape
 
-###����###
-��URL����ͨ�����紫��ʱ���ܸı�ĵ��ַ�ת��Ϊ��Ӧ��ת������
+###Description###
+将URL中在通过网络传输时可能改变的的字符转换为相应的转义序列
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_UrlEscape( $sUrl [, $iFlags] )
 
-###����###
+###Parameters###
 @@ParamTable@@
-$sUrl  ͳһ��Դ��λ��(Ҳ����ҳ��ַ)
-$iType  [��ѡ] ��ʾURL�е���Щ�ַ�����ת��Ϊ��ת�����е�(��ʽΪ "%xy" )���. ��Ϊ����ֵ�����:
+$sUrl  统一资源定位符(也称网页地址)
+$iType  [可选] 表示URL中的哪些字符将被转化为其转义序列的(格式为 "%xy" )标记. 可为下列值的组合:
 $URL_DONT_ESCAPE_EXTRA_INFO
 $URL_ESCAPE_SPACES_ONLY
 $URL_ESCAPE_PERCENT
 $URL_ESCAPE_SEGMENT_ONLY
-*Windows 7���Ժ�汾
+*Windows 7及以后版本
 $URL_ESCAPE_AS_UTF8
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����ת��URL
-ʧ��: ���ؿ��ַ���������@errorΪ��0��@extended����ϵͳ�������.
+成功: 返回转义URL
+失败: 返回空字符串并设置@error为非0且@extended包含系统错误代码.
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����UrlEscape�������Ϣ
+###See Also###
+ 搜索MSDN知识库中UrlEscape的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

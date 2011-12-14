@@ -1,40 +1,40 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_SetProcessShutdownParameters
 
-###����###
-����ĳ���������ϵͳ���������̵Ĺػ�˳��
+###Description###
+设置某进程相对于系统中其他进程的关机顺序
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_SetProcessShutdownParameters( $iLevel [, $fDialog] )
 
-###����###
+###Parameters###
 @@ParamTable@@
-$iLevel  �ر����ȼ�. ϵͳ��$iLevelֵ�Ӹߵ��͹رս���. ��߼�����ͼ�������ϵͳ���. �ò������������з�Χ��:
-0x0000-0x00FF - ϵͳ���������رյķ�Χ.
-0x0100-0x01FF - Ӧ�ó����������رյķ�Χ.
-0x0200-0x02FF - Ӧ�ó�������"in between"�رյķ�Χ.
-0x0300-0x03FF - Ӧ�ó��������׸��رյķ�Χ.
-0x0400-0x04FF - ϵͳ�������׸��رյķ�Χ.
-�رռ���Ϊ0x0280ʱ�������н���.
-$fDialog  [��ѡ] ָ���Ƿ���ʾ���ԶԻ���, ����ֵ:
-1 - ����رս��̳���ָ��ʱ����ʾ���ԶԻ���.
-0 - ֱ����ֹ����. (Ĭ��)
+$iLevel  关闭优先级. 系统按$iLevel值从高到低关闭进程. 最高级和最低级保留给系统组件. 该参数必须在下列范围内:
+0x0000-0x00FF - 系统保留的最后关闭的范围.
+0x0100-0x01FF - 应用程序保留的最后关闭的范围.
+0x0200-0x02FF - 应用程序保留的"in between"关闭的范围.
+0x0300-0x03FF - 应用程序保留的首个关闭的范围.
+0x0400-0x04FF - 系统保留的首个关闭的范围.
+关闭级别为0x0280时启动所有进程.
+$fDialog  [可选] 指定是否显示重试对话框, 可用值:
+1 - 如果关闭进程超过指定时间显示重试对话框.
+0 - 直接终止进程. (默认)
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0
+成功: 返回1
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
  _WinAPI_GetProcessShutdownParameters
 
-###�ο�###
- ����MSDN֪ʶ����SetProcessShutdownParameters�������Ϣ
+###See Also###
+ 搜索MSDN知识库中SetProcessShutdownParameters的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

@@ -1,69 +1,69 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_MaskBlt
 
-###����###
-��Դλͼ��Ŀ��λͼʹ��ָ����դ���ڸǲ��������ɫ����
+###Description###
+对源位图和目标位图使用指定光栅和遮盖操作结合颜色数据
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_MaskBlt( $hDestDC, $iXDest, $iYDest, $iWidth, $iHeight, $hSrcDC, $iXSrc, $iYSrc, $hMask, $iXMask, $iYMask, $iRop )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hDestDC
-   Ŀ�곡�����
+   目标场景句柄
 $iXDest
-   Ŀ��������Ͻǵ�Xֵ
+   目标矩形左上角的X值
 $iYDest
-   Ŀ��������Ͻǵ�Yֵ
+   目标矩形左上角的Y值
 $iWidth
-   Դλͼ��Ŀ����εĿ���
+   源位图和目标矩形的宽度
 $iHeight
-   Դλͼ��Ŀ����εĸ߶�
+   源位图和目标矩形的高度
 $hSrcDC
-   ������λͼ��Դ�������
+   被复制位图的源场景句柄
 $iXSrc
-   Դλͼ���ε����Ͻ�Xֵ
+   源位图矩形的左上角X值
 $iYSrc
-   Դλͼ���ε����Ͻ�Yֵ
+   源位图矩形的左上角Y值
 $hMask
-   Դ���������ɫλͼ��ϵĵ�ɫ�ڸ�λͼ�ľ��
+   源场景中与彩色位图结合的单色遮盖位图的句柄
 $iXMask
-$hbmMask����ָ�����ڸ�λͼ��ˮƽƫ��
+$hbmMask参数指定的遮盖位图的水平偏移
 $iYMask
-$hbmMask����ָ�����ڸ�λͼ�Ĵ�ֱƫ��
+$hbmMask参数指定的遮盖位图的垂直偏移
 $iROP
-   ָ����դ��������. ��Щ���붨����Դ����Ҫ��ϵ���ɫ����ʹĿ�����ʵ�����յ���ɫ:
-    $BLACKNESS - ʹ����������ɫ�������0��ص�ɫ�������Ŀ���������
-    $CAPTUREBLT - ����ͼ�����κ�����Ĵ����ϲ�Ĵ���
-    $DSTINVERT - ʹĿ�����������ɫȡ��
-    $MERGECOPY - ��ʾʹ�ò����͵�AND��������Դ�����������ɫ���ض�ģʽ���һ��.
-    $MERGEPAINT - ͨ��ʹ�ò����͵�OR�������������Դ�����������ɫ��Ŀ������������ɫ�ϲ�.
-    $NOMIRRORBITMAP - ��ֹλͼ������
-    $NOTSRCCOPY - ��Դ����������ɫȡ��, ��������Ŀ���������
-    $NOTSRCERASE - ʹ�ò������͵�OR���������Դ��Ŀ������������ɫֵ, Ȼ�󽫺ϳɵ���ɫȡ��
-    $PATCOPY - ���ض���ģʽ������Ŀ��λͼ��
-    $PATINVERT - ͨ��ʹ��XOR��������Դ��Ŀ����������ڵ���ɫ�ϲ�.
-    $PATPAINT - ͨ��ʹ�ò���OR��������Դ��������ȡ�������ɫֵ���ض�ģʽ����ɫ�ϲ�. Ȼ��ʹ��OR���������ò����Ľ����Ŀ����������ڵ���ɫ�ϲ�.
-    $SRCAND - ʹ��AND�����������Դ��Ŀ�����
-    $SRCCOPY - ֱ�Ӹ�����Դ���ε�Ŀ�����
-    $SRCERASE - ͨ��ʹ��AND��������Ŀ�����������ɫȡ������Դ�����������ɫֵ�ϲ�.
-    $SRCINVERT - ͨ��ʹ�ò����͵�XOR��������Դ��Ŀ������������ɫ�ϲ�
-    $SRCPAINT - ͨ��ʹ�ò����͵�OR��������Դ��Ŀ������������ɫ�ϲ�
-    $WHITENESS - ʹ����������ɫ��������1�йص���ɫ���Ŀ���������.
+   指定光栅操作代码. 这些代码定义来源矩形要结合的颜色数据使目标矩形实现最终的颜色:
+    $BLACKNESS - 使用与物理调色板的索引0相关的色彩来填充目标矩形区域
+    $CAPTUREBLT - 包括图像中任何在你的窗口上层的窗口
+    $DSTINVERT - 使目标矩形区域颜色取反
+    $MERGECOPY - 表示使用布尔型的AND操作符将源矩形区域的颜色与特定模式组合一起.
+    $MERGEPAINT - 通过使用布尔型的OR操作符将反向的源矩形区域的颜色与目标矩形区域的颜色合并.
+    $NOMIRRORBITMAP - 防止位图被镜像
+    $NOTSRCCOPY - 将源矩形区域颜色取反, 并拷贝到目标矩形区域
+    $NOTSRCERASE - 使用布尔类型的OR操作符组合源和目标矩形区域的颜色值, 然后将合成的颜色取反
+    $PATCOPY - 将特定的模式拷贝到目标位图上
+    $PATINVERT - 通过使用XOR操作符将源和目标矩形区域内的颜色合并.
+    $PATPAINT - 通过使用布尔OR操作符将源矩形区域取反后的颜色值与特定模式的颜色合并. 然后使用OR操作符将该操作的结果与目标矩形区域内的颜色合并.
+    $SRCAND - 使用AND操作符结合来源和目标矩形
+    $SRCCOPY - 直接复制来源矩形到目标矩形
+    $SRCERASE - 通过使用AND操作符将目标矩形区域颜色取反后与源矩形区域的颜色值合并.
+    $SRCINVERT - 通过使用布尔型的XOR操作符将源和目标矩形区域的颜色合并
+    $SRCPAINT - 通过使用布尔型的OR操作符将源和目标矩形区域的颜色合并
+    $WHITENESS - 使用与物理调色板中索引1有关的颜色填充目标矩形区域.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0
+成功: 返回1
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-$hMaskָ�����ڸ�λͼ��ֵΪ1ʱ��ʾ$iRopָ����ǰ����դ���������ڸ�λ����. �ڸ��е�ֵΪ0ʱ��ʾ$iRopָ���ı�����դ���������ڸ�λ����.
-���δ�ṩ�ڸ�λͼ, �ú�����_WinAPI_BitBlt()��ͬ, ʹ��ǰ����դ����.
+###Remarks###
+$hMask指定的遮盖位图的值为1时表示$iRop指定的前景光栅操作码用在该位置上. 遮盖中的值为0时表示$iRop指定的背景光栅操作码用在该位置上.
+如果未提供遮盖位图, 该函数与_WinAPI_BitBlt()相同, 使用前景光栅操作.
 
-###���###
+###Related###
 
-###�ο�###
-����MSDN֪ʶ�����й�MaskBlt����Ϣ
+###See Also###
+搜索MSDN知识库中有关MaskBlt的信息

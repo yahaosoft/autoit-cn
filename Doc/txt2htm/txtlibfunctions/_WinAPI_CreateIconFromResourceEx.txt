@@ -1,49 +1,49 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_CreateIconFromResourceEx
 
-###����###
-������������Դ��λ����һ��ͼ�������ͷ
+###Description###
+从描述光标的资源数位创建一个图标或鼠标箭头
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_CreateIconFromResourceEx( $pData, $iSize [, $fIcon [, $xDesired [, $yDesired [, $iFlags]]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $pData
-   ͼ��������Դ��λ.��Щ��λͨ���ɵ���_WinAPI_LookupIconIdFromDirectoryEx()��_WinAPI_LoadResource()��������.
+   图标或光标的资源数位.这些数位通常由调用_WinAPI_LookupIconIdFromDirectoryEx()和_WinAPI_LoadResource()函数加载.
 $iSize
-$pData����ָ������λ�����ֽڴ�С
+$pData参数指定的数位集的字节大小
 $fIcon
-   ָ��������껹��ͼ��, ����ֵ:
-    TRUE  - ����ͼ��. (Ĭ��)
-    FALSE - �������.
+   指定创建光标还是图标, 可用值:
+    TRUE  - 创建图标. (默认)
+    FALSE - 创建光标.
 $xDesired
-   ͼ���������ؿ���. ����ò���Ϊ0, ����ʹ��ϵͳ����ֵ���ÿ���.
+   图标或光标的像素宽度. 如果该参数为0, 函数使用系统计量值设置宽度.
 $yDesired
-   ͼ���������ظ߶�. ����ò���Ϊ0, ����ʹ��ϵͳ����ֵ���ø߶�.
+   图标或光标的像素高度. 如果该参数为0, 函数使用系统计量值设置高度.
 $iFlags
-   �ò�����Ϊһ����������ֵ:
-    $LR_DEFAULTCOLOR - ʹ��Ĭ����ɫ��ʽ
-    $LR_DEFAULTSIZE - ��$xDesired��$yDesired����Ϊ0ʱʹ��ϵͳ����ֵָ���Ŀ��Ȼ�߶�
-    $LR_MONOCHROME - ������ɫͼ�����
-    $LR_SHARED - ͼ����걻��δ���ʱ�������
+   该参数可为一个或多哥下列值:
+    $LR_DEFAULTCOLOR - 使用默认颜色格式
+    $LR_DEFAULTSIZE - 当$xDesired及$yDesired设置为0时使用系统计量值指定的宽度或高度
+    $LR_MONOCHROME - 创建单色图标或光标
+    $LR_SHARED - 图标或光标被多次创建时共享句柄
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ͼ�������ͷ�ľ��
-ʧ��: ����0������@error��0
+成功: 图标或鼠标箭头的句柄
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-����_WinAPI_DestroyIcon()�ͷ�_WinAPI_CreateIconFromResourceEx()������ͼ�����
-��������ʾ���뽫 Resources.dll �ļ����浽��ʱ�ļ�����
+###Remarks###
+调用_WinAPI_DestroyIcon()释放_WinAPI_CreateIconFromResourceEx()创建的图标或光标
+正常运行示例请将 Resources.dll 文件保存到临时文件夹中
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����CreateIconFromResourceEx�������Ϣ
+###See Also###
+ 搜索MSDN知识库中CreateIconFromResourceEx的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

@@ -1,39 +1,39 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êý###
+ï»¿###User Defined Function###
 _viSetTimeout
 
-###ÃèÊö###
-ÉèÖÃVISAºÁÃëÑÓÊ±
+###Description###
+è®¾ç½®VISAæ¯«ç§’å»¶æ—¶
 
-###Óï·¨###
+###Syntax###
 #Include <Visa.au3>
 _viSetTimeout ( $h_session, $i_timeout_ms )
 
-###²ÎÊý###
+###Parameters###
 @@ParamTable@@
- $h_session  VISAÃèÊö·û(×Ö·û´®)»òVISA½ø³Ì¾ä±ú(ÕûÊý). ¸ü¶àÐÅÏ¢²ÎÔÄ_viExecCommand±¸×¢.
- $i_timeout_ms  VISA²Ù×÷µÄºÁÃëÑÓÊ±(Ö÷ÒªÕë¶ÔGPIB²éÑ¯)
-Èç¹ûÉèÖÃÎª0Ôò½ûÓÃÑÓÊ±.
-Èç¹ûÉèÖÃÎª"INF"ÔòVISA²Ù×÷²»»á³¬Ê±.
-Ð¡ÐÄÊ¹ÓÃÒòÎªËü¿ÉÊ¹ÒÇÆ÷ÔÚ²»»ØÓ¦²éÑ¯Ê±ÇáÒ×¹ÒÆð³ÌÐòifv.
-¸ù¾Ý×ÜÏßÀàÐÍ(GPIB , TCP , etc)ÑÓÊ±¿ÉÄÜ²»»á±»ÉèÖÃÎªÇëÇóµÄ¾«È·Öµ. È¡¶ø´úÖ®ÒÔÉÔ´óÓÚÇëÇóÇÒ×î½Ó½üÓÐÐ§ÑÓÊ±µÄÖµ.
+ $h_session  VISAæè¿°ç¬¦(å­—ç¬¦ä¸²)æˆ–VISAè¿›ç¨‹å¥æŸ„(æ•´æ•°). æ›´å¤šä¿¡æ¯å‚é˜…_viExecCommandå¤‡æ³¨.
+ $i_timeout_ms  VISAæ“ä½œçš„æ¯«ç§’å»¶æ—¶(ä¸»è¦é’ˆå¯¹GPIBæŸ¥è¯¢)
+å¦‚æžœè®¾ç½®ä¸º0åˆ™ç¦ç”¨å»¶æ—¶.
+å¦‚æžœè®¾ç½®ä¸º"INF"åˆ™VISAæ“ä½œä¸ä¼šè¶…æ—¶.
+å°å¿ƒä½¿ç”¨å› ä¸ºå®ƒå¯ä½¿ä»ªå™¨åœ¨ä¸å›žåº”æŸ¥è¯¢æ—¶è½»æ˜“æŒ‚èµ·ç¨‹åºifv.
+æ ¹æ®æ€»çº¿ç±»åž‹(GPIB , TCP , etc)å»¶æ—¶å¯èƒ½ä¸ä¼šè¢«è®¾ç½®ä¸ºè¯·æ±‚çš„ç²¾ç¡®å€¼. å–è€Œä»£ä¹‹ä»¥ç¨å¤§äºŽè¯·æ±‚ä¸”æœ€æŽ¥è¿‘æœ‰æ•ˆå»¶æ—¶çš„å€¼.
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: ·µ»Ø0
-Ê§°Ü: ·µ»Ø-1Èç¹ûÎÞ·¨´ò¿ªVISA DLL»ò´ú±íVIXA´íÎóµÄ·Ç0Öµ(²Î¼ûVISA³ÌÐòÔ±Ïòµ¼)
-¸Ãº¯ÊýÍ¨³£ÔÚ³ö´íÊ±ÉèÖÃ@errorÎª1.
+æˆåŠŸ: è¿”å›ž0
+å¤±è´¥: è¿”å›ž-1å¦‚æžœæ— æ³•æ‰“å¼€VISA DLLæˆ–ä»£è¡¨VIXAé”™è¯¯çš„éž0å€¼(å‚è§VISAç¨‹åºå‘˜å‘å¯¼)
+è¯¥å‡½æ•°é€šå¸¸åœ¨å‡ºé”™æ—¶è®¾ç½®@errorä¸º1.
 @@End@@
 
-###±¸×¢###
-´ó¶àÊýÇé¿öÎÞÐèµ÷ÓÃ´Ëº¯Êý , ÒòÎª_viExecCommandÓÐµÚÈý¸ö¿ÉÑ¡²ÎÊý$i_timeout_ms¿ÉÓÃÓÚÉèÖÃVISAÑÓÊ±.
-ÒªÊ¹ÓÃVISAº¯Êý±ØÐë°²×°ÓÐVISA¿â(¿ÉÒÔ¼ì²é{WINDOWS}\system32ÖÐÊÇ·ñ´æÔÚvisa32.dll)ºÍGPIB¿¨(ÈçNational Instruments NI PCI-GPIB card»òAgilent 82350B PCI High-Performance GPIB card)
-* ³£ÓÃVISAÃèÊö·ûµÄÏêÏ¸ÃèÊö¿É²é¿´°ïÖúÖÐ_viExecCommandº¯ÊýµÄ±¸×¢
+###Remarks###
+å¤§å¤šæ•°æƒ…å†µæ— éœ€è°ƒç”¨æ­¤å‡½æ•° , å› ä¸º_viExecCommandæœ‰ç¬¬ä¸‰ä¸ªå¯é€‰å‚æ•°$i_timeout_mså¯ç”¨äºŽè®¾ç½®VISAå»¶æ—¶.
+è¦ä½¿ç”¨VISAå‡½æ•°å¿…é¡»å®‰è£…æœ‰VISAåº“(å¯ä»¥æ£€æŸ¥{WINDOWS}\system32ä¸­æ˜¯å¦å­˜åœ¨visa32.dll)å’ŒGPIBå¡(å¦‚National Instruments NI PCI-GPIB cardæˆ–Agilent 82350B PCI High-Performance GPIB card)
+* å¸¸ç”¨VISAæè¿°ç¬¦çš„è¯¦ç»†æè¿°å¯æŸ¥çœ‹å¸®åŠ©ä¸­_viExecCommandå‡½æ•°çš„å¤‡æ³¨
 
-###Ïà¹Ø###
+###Related###
  _viSetAttribute , _viExecCommand , _viOpen , _viClose
 
-###²Î¿¼###
+###See Also###
 
-###Ê¾Àý###
+###Example###
 @@IncludeExample@@

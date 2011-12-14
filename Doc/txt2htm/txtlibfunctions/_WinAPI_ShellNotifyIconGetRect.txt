@@ -1,34 +1,34 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_ShellNotifyIconGetRect
 
-###����###
-��ȡ֪ͨͼ��󶨾��ε���Ļ����
+###Description###
+获取通知图标绑定矩形的屏幕坐标
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_ShellNotifyIconGetRect( $hWnd, $ID [, $tGUID] )
 
-###����###
+###Parameters###
 @@ParamTable@@
-$hWnd  ��֪ͨ�Ļص�����ʹ�õĸ�����. ������Ϣ�鿴 NOTIFYICONDATA �ṹ��"hwnd"��Ա
-$ID  ֪ͨͼ���Ӧ�ó�����ı�ʶ��. ���ͼ����Բ�ͬ��ID����һ��������$hwnd
-$tGUID  [��ѡ] ��ʶͼ���$tagGUID�ṹ
+$hWnd  由通知的回调函数使用的父窗体. 更多信息查看 NOTIFYICONDATA 结构中"hwnd"成员
+$ID  通知图标的应用程序定义的标识符. 多个图标可以不同的ID关联一个单独的$hwnd
+$tGUID  [可选] 标识图标的$tagGUID结构
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���ذ���ͼ�������$tagRECT�ṹ
-ʧ��: ����0������@error��0; @extended���ܰ���ϵͳ�������.
+成功: 返回包含图标坐标的$tagRECT结构
+失败: 返回0并设置@error非0; @extended可能包含系统错误代码.
 @@End@@
 
-###��ע###
-ͼ�����$hWnd + $ID�򵥶���$tGUID(�Ƽ�)��ʶ.
-���ϵͳҪ��: Windows 7
+###Remarks###
+图标可由$hWnd + $ID或单独的$tGUID(推荐)标识.
+最低系统要求: Windows 7
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����Shell_NotifyIconGetRect�������Ϣ
+###See Also###
+ 搜索MSDN知识库中Shell_NotifyIconGetRect的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

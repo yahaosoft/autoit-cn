@@ -1,38 +1,38 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_FlashWindow
 
-###����###
-ָ��������˸һ��
+###Description###
+指定窗口闪烁一次
 
-###�﷨###
+###Syntax###
 #Include <WinAPI.au3>
 _WinAPI_FlashWindow($hWnd[,
 $fInvert = True])
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hWnd
-   ��˸���ڵľ��. ���ڿɱ��򿪻���С��.
+   闪烁窗口的句柄. 窗口可被打开或最小化.
 $fInvert
-   ���Ϊ��, ���ڴ�һ��״̬����һ��״̬��˸. ���Ϊ�ٴ��ڷ���ԭʼ״̬.
-    Ӧ�ó�����С��ʱ�ò���Ϊ��, ���������ڰ�ť��˸�����ʧЧ. ���Ϊ������Ч, ��ζ���޷��ı���ɫ.
-    �������ػ���˸ʱ, �����ṩ�Ӿ��ı���ʾ.
+   如果为真, 窗口从一个状态向另一个状态闪烁. 如果为假窗口返回原始状态.
+    应用程序被最小化时该参数为真, 任务栏窗口按钮闪烁激活或失效. 如果为假则无效, 意味着无法改变颜色.
+    当看似重绘闪烁时, 不会提供视觉改变提示.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��
-ʧ��: ��
+成功: 真
+失败: 假
 @@End@@
 
-###��ע###
-�ú������ı䴰�ڵļ���״̬. ָ��������˸����, ʹ��FlashWindowEx����.
+###Remarks###
+该函数不改变窗口的激活状态. 指定次数闪烁窗口, 使用FlashWindowEx函数.
 
-###���###
+###Related###
 _WinAPI_FlashWindowEx
 
-###�ο�###
-����MSDN֪ʶ����FlashWindow�������Ϣ
+###See Also###
+搜索MSDN知识库中FlashWindow的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

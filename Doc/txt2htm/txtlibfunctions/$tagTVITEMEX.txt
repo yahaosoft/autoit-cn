@@ -1,45 +1,45 @@
-###�ṹ����###
+﻿###结构常量###
 $tagTVITEMEX
 
-###����###
-ָ�����ȡ�����б��������
+###Description###
+指定或获取树形列表项的属性
 
-###�﷨###
+###Syntax###
 Global Const $tagTVITEMEX =  "int Mask;int hItem;int State;int StateMask;ptr Text;int TextMax;int Image;int SelectedImage;int Children;int Param;int Integral"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 Mask
-   ��ʾ������Ч���ݵĳ�Ա�ı��:
-    $TVIF_CHILDREN - �ӳ�Ա��Ч
-    $TVIF_DI_SETITEM - ά���ṩ����Ϣ����������
-    $TVIF_HANDLE - hItem��Ա��Ч
-    $TVIF_IMAGE - Image��Ա��Ч
-    $TVIF_INTEGRAL - Integral��Ա��Ч
-    $TVIF_PARAM - Param��Ա��Ч
-    $TVIF_SELECTEDIMAGE - SelectedImage��Ա��Ч
-    $TVIF_STATE - State��StateMask��Ա��Ч
-    $TVIF_TEXT - Text��TextMax��Ա��Ч
+   表示包含有效数据的成员的标记:
+    $TVIF_CHILDREN - 子成员有效
+    $TVIF_DI_SETITEM - 维持提供的信息并不再请求
+    $TVIF_HANDLE - hItem成员有效
+    $TVIF_IMAGE - Image成员有效
+    $TVIF_INTEGRAL - Integral成员有效
+    $TVIF_PARAM - Param成员有效
+    $TVIF_SELECTEDIMAGE - SelectedImage成员有效
+    $TVIF_STATE - State及StateMask成员有效
+    $TVIF_TEXT - Text及TextMax成员有效
 hItem
-   �ýṹָ�����Ŀ
+   该结构指向的项目
 State
-   ��ʾ��Ŀ״̬����λ��Ǻ�ͼ���б������ļ���. ������Ŀ״̬ʱ, StateMask��Ա��ʾ�ó�Ա����Ч��λ. ��ȡ��Ŀ״̬ʱ, �ó�Ա����StateMask��Ա�б�ʾ�ĵ�ǰ״̬����λ. �ó�Ա����λ0��7������Ŀ״̬���. �ó�Ա����λ8��11ָ��1�����ڸ�ͼ������.
+   表示项目状态的数位标记和图像列表索引的集合. 设置项目状态时, StateMask成员表示该成员的有效数位. 获取项目状态时, 该成员返回StateMask成员中表示的当前状态的数位. 该成员的数位0到7包含项目状态标记. 该成员的数位8到11指定1基的遮盖图像索引.
 StateMask
-   ���õ�State��Ա����λ. ������ڻ�ȡ��Ŀ״̬, ����StateMask��Ա����λΪState��Ա���ص���λ. �������������Ŀ״̬, ����StateMask��Ա����λ��ʾҪ���õ�State��Ա����λ.
+   可用的State成员的数位. 如果正在获取项目状态, 设置StateMask成员的数位为State成员返回的数位. 如果正在设置项目状态, 设置StateMask成员的数位表示要设置的State成员的数位.
 Text
-   ������Ŀ�ı�������ֹ���ַ�����ָ��
+   包含项目文本的无终止符字符床的指针
 TextMax
-   ʹ���ַ����ı���Աָ��Ļ�������С
+   使用字符的文本成员指向的缓冲区大小
 Image
-   ��Ŀ��δѡ��״̬ͼ����ͼ���б��е�����
+   项目的未选定状态图像在图像列表中的索引
 SelectedImage
-   ��Ŀ��ѡ��״̬ͼ����ͼ���б��е�����
+   项目的选定状态图像在图像列表中的索引
 Children
-   ��ʾ��Ŀ�Ƿ����������ı��. �ó�Ա��Ϊ����ֵ֮һ:
-    0 - ������
-    1 - ��һ����������
+   表示项目是否有相关子项的标记. 该成员可为下列值之一:
+    0 - 无子项
+    1 - 有一个或多个子项
 Param
-   ����Ŀ��ص�ֵ
+   与项目相关的值
 Integral
-   ��Ŀ�߶�
+   项目高度
 @@end@@

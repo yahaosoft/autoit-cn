@@ -1,39 +1,39 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_RestartDlg
 
-###����###
-��ʾ������ʾ��������Microsoft Windows�ĶԻ���
+###Description###
+显示用以提示重新启动Microsoft Windows的对话框
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_RestartDlg( [$sText [, $iFlags [, $hParent]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $sText
-   �Ի�������ʾ����ʾ�û����ı�
+   对话框中显示的提示用户的文本
 $iFlags
-   ָ���ػ����͵ı��. �����������ֵ֮һ:
-    $EWX_LOGOFF - �رս��̵ĵ�¼�Ự�е����н���
-    $EWX_POWEROFF - �ر�ϵͳ���رյ�Դ
-    $EWX_REBOOT - �ر�ϵͳȻ����������
-    $EWX_SHUTDOWN - �ر�ϵͳ
-    ��ѡ��������ֵ:
-    $EWX_FORCE - �ñ�ǲ���Ӱ��ɱ���ֹ�ķ���
-    $EWX_FORCEIFHUNG - ���̲���ӦWM_QUERYENDSESSION��WM_ENDSESSIONʱǿ����ֹ����
+   指定关机类型的标记. 必须包括下列值之一:
+    $EWX_LOGOFF - 关闭进程的登录会话中的所有进程
+    $EWX_POWEROFF - 关闭系统并关闭电源
+    $EWX_REBOOT - 关闭系统然后重新启动
+    $EWX_SHUTDOWN - 关闭系统
+    可选包括下列值:
+    $EWX_FORCE - 该标记不会影响可被终止的服务
+    $EWX_FORCEIFHUNG - 进程不响应WM_QUERYENDSESSION或WM_ENDSESSION时强制终止进程
 $hParent
-   ��������
+   父窗体句柄
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �رնԻ���İ�ť�ı�ʶ
-ʧ��: ����0������@error��0
+成功: 关闭对话框的按钮的标识
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����RestartDialog�������Ϣ
+###See Also###
+ 搜索MSDN知识库中RestartDialog的相关信息

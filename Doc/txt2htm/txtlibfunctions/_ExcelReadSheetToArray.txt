@@ -1,50 +1,50 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êý###
+ï»¿###User Defined Function###
 _ExcelReadSheetToArray
 
-###ÃèÊö###
-ÓÃ»î¶¯¹¤×÷±íµÄÐÐ/ÁÐ´´½¨Ò»¸ö¶þÎ¬Êý×é
+###Description###
+ç”¨æ´»åŠ¨å·¥ä½œè¡¨çš„è¡Œ/åˆ—åˆ›å»ºä¸€ä¸ªäºŒç»´æ•°ç»„
 
-###Óï·¨###
+###Syntax###
 #Include <Excel.au3>
 _ExcelReadSheetToArray($oExcel[, $iStartRow = 1[, $iStartColumn = 1[, $iRowCnt = 0[, $iColCnt = 0[, $iColShift = False]]]]])
 
-###²ÎÊý###
+###Parameters###
 @@ParamTable@@
 $oExcel 
-   ÓÉÔ¤ÏÈµ÷ÓÃ_ExcelBookOpen()»ò_ExcelBookNew()´ò¿ªµÄExcel¶ÔÏó
+   ç”±é¢„å…ˆè°ƒç”¨_ExcelBookOpen()æˆ–_ExcelBookNew()æ‰“å¼€çš„Excelå¯¹è±¡
 $iStartRow 
-   ¿ªÊ¼¶ÁÈ¡µÄÐÐ, Ä¬ÈÏÎª1(Ê×ÐÐ)
+   å¼€å§‹è¯»å–çš„è¡Œ, é»˜è®¤ä¸º1(é¦–è¡Œ)
 $iStartColumn 
-   ¿ªÊ¼¶ÁÈ¡µÄÁÐ, Ä¬ÈÏÎª1(Ê×ÁÐ)
+   å¼€å§‹è¯»å–çš„åˆ—, é»˜è®¤ä¸º1(é¦–åˆ—)
 $iRowCnt 
-   Òª¶ÁÈ¡µÄÐÐÊý, Ä¬ÈÏÎª0(È«²¿)
+   è¦è¯»å–çš„è¡Œæ•°, é»˜è®¤ä¸º0(å…¨éƒ¨)
 $iColCnt 
-   Òª¶ÁÈ¡µÄÁÐÊý, Ä¬ÈÏÎª0(È«²¿)
+   è¦è¯»å–çš„åˆ—æ•°, é»˜è®¤ä¸º0(å…¨éƒ¨)
 $iColShift 
-   È·¶¨ÓÉExcel·µ»ØµÄÊý×é¿ªÊ¼ÓÚ0»ù»¹ÊÇ1»ùÁÐ. Ä¬ÈÏÆ¥ÅäR1C1ÖµÊ±ÎÞÐ§.
+   ç¡®å®šç”±Excelè¿”å›žçš„æ•°ç»„å¼€å§‹äºŽ0åŸºè¿˜æ˜¯1åŸºåˆ—. é»˜è®¤åŒ¹é…R1C1å€¼æ—¶æ— æ•ˆ.
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
- ³É¹¦:  ·µ»Ø´øÓÐÓÉ[$row][$col]Ö¸¶¨µ¥Ôª¸ñÄÚÈÝµÄ¶þÎ¬Êý×é
- Ê§°Ü:  ·µ»Ø0²¢ÉèÖÃ@error
- @error:  0 - ÎÞ´íÎó
-  1 - Ö¸¶¨¶ÔÏó²»´æÔÚ
-  2 - ¿ªÊ¼²ÎÊý³¬³ö·¶Î§
-  3 - ÊýÁ¿²ÎÊý³¬³ö·¶Î§
- @extended:  0 - ÐÐÊý³¬³ö·¶Î§
-  1 - ÁÐÊý³¬³ö·¶Î§
+ æˆåŠŸ:  è¿”å›žå¸¦æœ‰ç”±[$row][$col]æŒ‡å®šå•å…ƒæ ¼å†…å®¹çš„äºŒç»´æ•°ç»„
+ å¤±è´¥:  è¿”å›ž0å¹¶è®¾ç½®@error
+ @error:  0 - æ— é”™è¯¯
+  1 - æŒ‡å®šå¯¹è±¡ä¸å­˜åœ¨
+  2 - å¼€å§‹å‚æ•°è¶…å‡ºèŒƒå›´
+  3 - æ•°é‡å‚æ•°è¶…å‡ºèŒƒå›´
+ @extended:  0 - è¡Œæ•°è¶…å‡ºèŒƒå›´
+  1 - åˆ—æ•°è¶…å‡ºèŒƒå›´
 @@End@@
 
-###±¸×¢###
-·µ»ØÊý×é, [0][0]±íÊ¾ÐÐÊý, [0][1]±íÊ¾ÁÐÊý.
-³ý·Ç°´ÒÔÉÏ¼ÆÊý, µ±Êµ¼Êµ¥Ôª¸ñÊý¾Ý¿ªÊ¼ÓÚ[1][1]ÒÔÆ¥ÅäR1C1Êý×ÖÊ±, ·µ»ØÊý×éµÄÐÐ0ºÍÁÐ0Îª¿Õ.
-Ä¬ÈÏ·µ»ØÈ«²¿±í¸ñ.
-±í¸ñÎª¿ÕÊ±, [0][0]ºÍ[0][1]¾ùÎª0.
+###Remarks###
+è¿”å›žæ•°ç»„, [0][0]è¡¨ç¤ºè¡Œæ•°, [0][1]è¡¨ç¤ºåˆ—æ•°.
+é™¤éžæŒ‰ä»¥ä¸Šè®¡æ•°, å½“å®žé™…å•å…ƒæ ¼æ•°æ®å¼€å§‹äºŽ[1][1]ä»¥åŒ¹é…R1C1æ•°å­—æ—¶, è¿”å›žæ•°ç»„çš„è¡Œ0å’Œåˆ—0ä¸ºç©º.
+é»˜è®¤è¿”å›žå…¨éƒ¨è¡¨æ ¼.
+è¡¨æ ¼ä¸ºç©ºæ—¶, [0][0]å’Œ[0][1]å‡ä¸º0.
 
-###Ïà¹Ø###
+###Related###
 
-###²Î¿¼###
+###See Also###
 
-###Ê¾Àý###
+###Example###
 @@IncludeExample@@

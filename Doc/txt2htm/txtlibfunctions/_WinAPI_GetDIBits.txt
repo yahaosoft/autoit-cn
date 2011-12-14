@@ -1,45 +1,45 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_GetDIBits
 
-###����###
-��ȡָ��λͼ����Ϣ��ָ����ʽ���Ƶ���������
+###Description###
+获取指定位图的信息以指定格式复制到缓冲区中
 
-###�﷨###
+###Syntax###
 #Include <WinAPI.au3>
 _WinAPI_GetDIBits($hDC,
 $hBmp, $iStartScan, $iScanLines, $pBits, $pBI, $iUsage)
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hDC
-   �豸�������
+   设备环境句柄
 $hBmp
-   λͼ���. �����Ǻ��ʵ�λͼ(DDB).
+   位图句柄. 必须是合适的位图(DDB).
 $iStartScan
-   ָ�������ĵ�һ��ɨ����
+   指定检索的第一个扫描线
 $iScanLines
-   ָ��������ɨ������
+   指定检索的扫描线数
 $pBits
-$pBI����ָ���$tagBITMAPINFO�ṹ
+$pBI参数指向的$tagBITMAPINFO结构
 $pBI
-$tagBITMAPINFO �ṹ��ָ��
+$tagBITMAPINFO 结构的指针
 $iUsage
-$tagBITMAPINFO�ṹ��bmiColors��Ա�ĸ�ʽ��������Ϊ����ȡֵ:
-    $DIB_PAL_COLORS - ��ָ��ǰ�߼���ɫ���16λ����ֵ���鹹�ɵ���ɫ��
-    $DIB_RGB_COLORS - �ɺ졢�̡�������ֵ���ɵ���ɫ��
+$tagBITMAPINFO结构的bmiColors成员的格式。它必须为下列取值:
+    $DIB_PAL_COLORS - 由指向当前逻辑调色板的16位索引值数组构成的颜色表
+    $DIB_RGB_COLORS - 由红、绿、蓝三个值构成的颜色表
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���pBits��Ϊ0�����ɹ�, ���ش�λͼ���Ƶ�ɨ������.
-���pBitsΪ0��GetDIBits�ɹ����ṹ, ������.
-ʧ��: ��
+成功: 如果pBits不为0函数成功, 返回从位图复制的扫描线数.
+如果pBits为0且GetDIBits成功填充结构, 返回真.
+失败: 否
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 $tagBITMAPINFO
 
-###�ο�###
-����MSDN֪ʶ����GetDIBits�������Ϣ
+###See Also###
+搜索MSDN知识库中GetDIBits的相关信息

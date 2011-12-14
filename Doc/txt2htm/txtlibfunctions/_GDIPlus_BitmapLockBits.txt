@@ -1,56 +1,56 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GDIPlus_BitmapLockBits
 
-###����###
-����λͼ���ڶ�ȡ��д��Ĳ���
+###Description###
+锁定位图用于读取和写入的部分
 
-###�﷨###
+###Syntax###
 #Include <GDIPlus.au3>
 _GDIPlus_BitmapLockBits($hBitmap, $iLeft, $iTop, $iRight, $iBottom[, $iFlags = 1[, $iFormat = 0x00022009]])
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hBitmap 
-   λͼ������
+   位图对象句柄
 $iLeft 
-   Ҫ�����ľ��ε����Ͻ�X����
+   要锁定的矩形的左上角X坐标
 $iTop 
-   Ҫ�����ľ��ε����Ͻ�Y����
+   要锁定的矩形的左上角Y坐标
 $iRight 
-   Ҫ�����ľ��ε����½�X����
+   要锁定的矩形的右下角X坐标
 $iBottom 
-   Ҫ�����ľ��ε����½�Y����
+   要锁定的矩形的右下角Y坐标
 $iFlags 
-   ָ��λͼ�����������Ƿ�����ڶ�ȡ��д�뼰���÷��Ƿ��ѷ����л�������ñ��. ��Ϊ�������:
-    $GDIP_ILMREAD - ���ڶ�ȡ��ͼ�񲿷�����
-    $GDIP_ILMWRITE - ����д���ͼ�񲿷�����
-    $GDIP_ILMUSERINPUTBUF - �����ѷ�����û�
+   指定位图的锁定部分是否可用于读取或写入及调用方是否已分配有缓冲的设置标记. 可为下列组合:
+    $GDIP_ILMREAD - 用于读取的图像部分锁定
+    $GDIP_ILMWRITE - 用于写入的图像部分锁定
+    $GDIP_ILMUSERINPUTBUF - 缓冲已分配给用户
 $iFormat 
-   ָ����ʱ���������������ݵĸ�ʽ. ��Ϊ����֮һ:
-    $GDIP_PXF01INDEXED = ÿ����1λ, ������
-    $GDIP_PXF04INDEXED = ÿ����4λ, ������
-    $GDIP_PXF08INDEXED = ÿ����8λ, ������
-    $GDIP_PXF16GRAYSCALE = ÿ����16λ, �Ҷ�
-    $GDIP_PXF16RGB555 = ÿ����16λ; ÿRGB���5λ
-    $GDIP_PXF16RGB565 = ÿ����16λ; ��ɫ5λ, ��ɫ6λ, ��ɫ5λ
-    $GDIP_PXF16ARGB1555 = ÿ����16λ; alphaͨ��1λ��ÿRGB���5λ
-    $GDIP_PXF24RGB = ÿ����24λ; ÿRGB���8λ
-    $GDIP_PXF32RGB = ÿ����32λ; ÿRGB���8λ. ��alpha���.
-    $GDIP_PXF32ARGB = ÿ����32λ; ÿRGB��alpha���8λ
-    $GDIP_PXF32PARGB = ÿ����32λ; ÿRGB��alpha���8λ, Ԥ�Ŵ�
+   指定临时缓冲区中像素数据的格式. 可为下列之一:
+    $GDIP_PXF01INDEXED = 每像素1位, 索引的
+    $GDIP_PXF04INDEXED = 每像素4位, 索引的
+    $GDIP_PXF08INDEXED = 每像素8位, 索引的
+    $GDIP_PXF16GRAYSCALE = 每像素16位, 灰度
+    $GDIP_PXF16RGB555 = 每像素16位; 每RGB组分5位
+    $GDIP_PXF16RGB565 = 每像素16位; 红色5位, 绿色6位, 蓝色5位
+    $GDIP_PXF16ARGB1555 = 每像素16位; alpha通道1位和每RGB组分5位
+    $GDIP_PXF24RGB = 每像素24位; 每RGB组分8位
+    $GDIP_PXF32RGB = 每像素32位; 每RGB组分8位. 无alpha组分.
+    $GDIP_PXF32ARGB = 每像素32位; 每RGB和alpha组分8位
+    $GDIP_PXF32PARGB = 每像素32位; 每RGB和alpha组分8位, 预放大
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: $tagGDIPBITMAPDATA�ṹ
-ʧ��: ����@error
+成功: $tagGDIPBITMAPDATA结构
+失败: 设置@error
 @@End@@
 
-###��ע###
-��������������ʱ����_GDIPlus_BitmapUnlockBits�ͷŸò���
+###Remarks###
+处理完锁定部分时调用_GDIPlus_BitmapUnlockBits释放该部分
 
-###���###
+###Related###
  _WinAPI_DeleteObject , _GDIPlus_ImageGetPixelFormat
 
-###�ο�###
- �鿴MSDN֪ʶ����GdipBitmapLockBits�������Ϣ
+###See Also###
+ 查看MSDN知识库中GdipBitmapLockBits的相关信息

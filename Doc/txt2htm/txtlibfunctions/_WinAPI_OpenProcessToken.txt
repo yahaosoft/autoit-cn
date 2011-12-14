@@ -1,44 +1,44 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êý###
+ï»¿###User Defined Function###
 _WinAPI_OpenProcessToken
 
-###ÃèÊö###
-´ò¿ªÓë½ø³ÌÏà¹ØµÄ·ÃÎÊÁîÅÆ
+###Description###
+æ‰“å¼€ä¸Žè¿›ç¨‹ç›¸å…³çš„è®¿é—®ä»¤ç‰Œ
 
-###Óï·¨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_OpenProcessToken( $iAccess [, $hProcess] )
 
-###²ÎÊý###
+###Parameters###
 @@ParamTable@@
 $iAccess
-   Ö¸¶¨»ñÈ¡·ÃÎÊÁîÅÆËùÐèÀàÐÍµÄ·ÃÎÊÑÚÂë . ¸Ã²ÎÊý¿ÉÎªÒ»¸ö»ò¶à¸öÏÂÁÐÖµ.
-    $TOKEN_ADJUST_DEFAULT - ÐèÒª¸Ä±äÄ¬ÈÏËÞÖ÷, »ù±¾×é»ò·ÃÎÊÁîÅÆµÄ×ÔÖ÷·ÃÎÊ¿ØÖÆÁÐ±í(DACL)
-    $TOKEN_ADJUST_GROUPS - ÐèÒª¸Ä±ä·ÃÎÊÁîÅÆÖÐµÄ×éµÄÊôÐÔ
-    $TOKEN_ADJUST_PRIVILEGES - ÐèÒªÆôÓÃ»ò½ûÓÃ·ÃÎÊÁîÅÆÖÐµÄÈ¨ÏÞ
-    $TOKEN_ADJUST_SESSIONID - ÐèÒªµ÷Õû·ÃÎÊÁîÅÆÖÐµÄ½ø³ÌID
-    $TOKEN_ASSIGN_PRIMARY - ÐèÒª½«»ù±¾ÁîÅÆÁ¬½Óµ½½ø³Ì
-    $TOKEN_DUPLICATE - ÐèÒª¸´ÖÆ·ÃÎÊÁîÅÆ
-    $TOKEN_EXECUTE - $STANDARD_RIGHTS_EXECUTEºÍ$TOKEN_IMPERSONATE½áºÏ
-    $TOKEN_IMPERSONATE - ÐèÒª½«Ä£ÄâÁîÅÆÁ¬½Óµ½½ø³Ì
-    $TOKEN_QUERY - ÐèÒª²éÑ¯·ÃÎÊÁîÅÆ
-    $TOKEN_QUERY_SOURCE - ÐèÒª²éÑ¯·ÃÎÊÁîÅÆÔ´
-    $TOKEN_READ - $STANDARD_RIGHTS_READºÍ$TOKEN_QUERY½áºÏ
-    $TOKEN_WRITE - $STANDARD_RIGHTS_WRITE, $TOKEN_ADJUST_PRIVILEGES, $TOKEN_ADJUST_GROUPSºÍ$TOKEN_ADJUST_DEFAULT½áºÏ
-    $TOKEN_ALL_ACCESS - ½áºÏËùÓÐ¿ÉÄÜµÄ·ÃÎÊÈ¨ÏÞ
+   æŒ‡å®šèŽ·å–è®¿é—®ä»¤ç‰Œæ‰€éœ€ç±»åž‹çš„è®¿é—®æŽ©ç  . è¯¥å‚æ•°å¯ä¸ºä¸€ä¸ªæˆ–å¤šä¸ªä¸‹åˆ—å€¼.
+    $TOKEN_ADJUST_DEFAULT - éœ€è¦æ”¹å˜é»˜è®¤å®¿ä¸», åŸºæœ¬ç»„æˆ–è®¿é—®ä»¤ç‰Œçš„è‡ªä¸»è®¿é—®æŽ§åˆ¶åˆ—è¡¨(DACL)
+    $TOKEN_ADJUST_GROUPS - éœ€è¦æ”¹å˜è®¿é—®ä»¤ç‰Œä¸­çš„ç»„çš„å±žæ€§
+    $TOKEN_ADJUST_PRIVILEGES - éœ€è¦å¯ç”¨æˆ–ç¦ç”¨è®¿é—®ä»¤ç‰Œä¸­çš„æƒé™
+    $TOKEN_ADJUST_SESSIONID - éœ€è¦è°ƒæ•´è®¿é—®ä»¤ç‰Œä¸­çš„è¿›ç¨‹ID
+    $TOKEN_ASSIGN_PRIMARY - éœ€è¦å°†åŸºæœ¬ä»¤ç‰Œè¿žæŽ¥åˆ°è¿›ç¨‹
+    $TOKEN_DUPLICATE - éœ€è¦å¤åˆ¶è®¿é—®ä»¤ç‰Œ
+    $TOKEN_EXECUTE - $STANDARD_RIGHTS_EXECUTEå’Œ$TOKEN_IMPERSONATEç»“åˆ
+    $TOKEN_IMPERSONATE - éœ€è¦å°†æ¨¡æ‹Ÿä»¤ç‰Œè¿žæŽ¥åˆ°è¿›ç¨‹
+    $TOKEN_QUERY - éœ€è¦æŸ¥è¯¢è®¿é—®ä»¤ç‰Œ
+    $TOKEN_QUERY_SOURCE - éœ€è¦æŸ¥è¯¢è®¿é—®ä»¤ç‰Œæº
+    $TOKEN_READ - $STANDARD_RIGHTS_READå’Œ$TOKEN_QUERYç»“åˆ
+    $TOKEN_WRITE - $STANDARD_RIGHTS_WRITE, $TOKEN_ADJUST_PRIVILEGES, $TOKEN_ADJUST_GROUPSå’Œ$TOKEN_ADJUST_DEFAULTç»“åˆ
+    $TOKEN_ALL_ACCESS - ç»“åˆæ‰€æœ‰å¯èƒ½çš„è®¿é—®æƒé™
 $hProcess
-   ÒÑ´ò¿ª·ÃÎÊÁîÅÆµÄ½ø³ÌµÄ¾ä±ú. Îª0ÊÇÊ¹ÓÃµ±Ç°½ø³Ì.
+   å·²æ‰“å¼€è®¿é—®ä»¤ç‰Œçš„è¿›ç¨‹çš„å¥æŸ„. ä¸º0æ˜¯ä½¿ç”¨å½“å‰è¿›ç¨‹.
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: ÐÂ´ò¿ªµÄ·ÃÎÊÁîÅÆµÄ¾ä±ú
-Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
+æˆåŠŸ: æ–°æ‰“å¼€çš„è®¿é—®ä»¤ç‰Œçš„å¥æŸ„
+å¤±è´¥: è¿”å›ž0å¹¶è®¾ç½®@erroréž0
 @@End@@
 
-###±¸×¢###
-µ÷ÓÃ_WinAPI_FreeHandle()¹Ø±Õ´Ëº¯Êý·µ»ØµÄ·ÃÎÊÁîÅÆµÄ¾ä±ú
+###Remarks###
+è°ƒç”¨_WinAPI_FreeHandle()å…³é—­æ­¤å‡½æ•°è¿”å›žçš„è®¿é—®ä»¤ç‰Œçš„å¥æŸ„
 
-###Ïà¹Ø###
+###Related###
 
-###²Î¿¼###
- ËÑË÷MSDNÖªÊ¶¿âÖÐOpenProcessTokenµÄÏà¹ØÐÅÏ¢
+###See Also###
+ æœç´¢MSDNçŸ¥è¯†åº“ä¸­OpenProcessTokençš„ç›¸å…³ä¿¡æ¯

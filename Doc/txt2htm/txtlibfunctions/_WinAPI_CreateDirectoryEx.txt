@@ -1,32 +1,32 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_CreateDirectoryEx
 
-###����###
-����ģ�崴���ļ���
+###Description###
+根据模板创建文件夹
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_CreateDirectoryEx( $sNewDir, $sTemplateDir [, $tSecurity] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $sNewDir
-   Ҫ������Ŀ¼·��
+   要创建的目录路径
 $sTemplateDir
-   ����Ŀ¼ʱ��Ϊģ���Ŀ¼·��
+   创建目录时作为模板的目录路径
 $tSecurity
-$tagSECURITY_ATTRIBUTES�ṹ. ����ò���Ϊ0 , Ŀ¼��ȡĬ�ϰ�ȫ������. Ŀ¼��ȫ�������е�Ȩ�޿����б�(ACL)���丸Ŀ¼�̳�.
+$tagSECURITY_ATTRIBUTES结构. 如果该参数为0 , 目录获取默认安全描述符. 目录安全描述符中的权限控制列表(ACL)从其父目录继承.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0
+成功: 返回1
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-_WinAPI_CreateDirectoryEx()��������������Ŀ¼�����̳�����Ϣ��Ŀ¼. �ú����ǳ����� , ���� , ������ʹ��MacintoshĿ¼ʱ , ������һ����Դ�� , ��Ҫ��ȷʶ��Ŀ¼������Ϊһ������.
+###Remarks###
+_WinAPI_CreateDirectoryEx()函数允许从其他目录创建继承流信息的目录. 该函数非常有用 , 比如 , 当正在使用Macintosh目录时 , 其中有一个资源流 , 需要正确识别目录内容作为一个属性.
 
-###���###
+###Related###
 
-###�ο�###
+###See Also###

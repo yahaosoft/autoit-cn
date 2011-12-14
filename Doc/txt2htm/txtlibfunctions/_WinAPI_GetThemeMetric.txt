@@ -1,60 +1,60 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_GetThemeMetric
 
-###����###
-��ȡ����Ķ�����λ����
+###Description###
+获取主题的度量单位属性
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_GetThemeMetric( $hTheme, $iPartId, $iStateId, $iPropId [, $hDC] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hTheme
-   ָ�������������ݵľ��
+   指定窗口主题数据的句柄
 $iPartId
-   ������λ���Բ���
+   度量单位属性部分
 $iStateId
-$iPartId���ֵ�����
+$iPartId部分的描述
 $iPropId
-   ��ȡ������. ��Ϊ����ֵ֮һ:
-    $TMT_ALPHALEVEL - ����DrawThemeIcon������Alphaֵ
-    $TMT_ALPHATHRESHOLD - ��Ϊ��͸������СAlphaֵ
-    $TMT_BORDERSIZE - �߿���
-    $TMT_GLYPHINDEX - �������ε�������ַ�������
-    $TMT_GRADIENTRATIO1 - ����ʱʹ�õĵ�һ�ݶ�ɫ������. ��ֵ��ȡ0��255, ���ͺ�������������Ӻ����Ϊ255.
-    $TMT_GRADIENTRATIO2 - ����ʱʹ�õĵڶ��ݶ�ɫ������
-    $TMT_GRADIENTRATIO3 - ����ʱʹ�õĵ����ݶ�ɫ������
-    $TMT_GRADIENTRATIO4 - ����ʱʹ�õĵ����ݶ�ɫ������
-    $TMT_GRADIENTRATIO5 - ����ʱʹ�õĵ����ݶ�ɫ������
-    $TMT_HEIGHT - �ò��ָ߶�
-    $TMT_IMAGECOUNT - ͼ���ļ����ṩ��״̬ͼ�������
-    $TMT_MINDPI1 - ����е��׸�ͼ���ļ�����Сdpi
-    $TMT_MINDPI2 - ����еĵڶ���ͼ���ļ�����Сdpi
-    $TMT_MINDPI3 - ����еĵ�����ͼ���ļ�����Сdpi
-    $TMT_MINDPI4 - ����еĵ��ĸ�ͼ���ļ�����Сdpi
-    $TMT_MINDPI5 - ����еĵ����ͼ���ļ�����Сdpi
-    $TMT_PROGRESSCHUNKSIZE - ����������ȵĽ��ȿ���"��"��״�Ĵ�С
-    $TMT_PROGRESSSPACESIZE - ���ȿ���"��"���ܴ�С
-    $TMT_ROUNDCORNERWIDTH - �ò����ڽ��ϵĻ���
-    $TMT_ROUNDCORNERHEIGHT - �ò����ڽ��ϵĻ���
-    $TMT_SATURATION - ���ڻ���ͼ��ʱ�ı��Ͷ�ֵ
-    $TMT_TEXTBORDERSIZE - �����ı��ַ��ı߽���
-    $TMT_TRUESIZESTRETCHMARK - ����ʵͼƬ��С��ԭʼ��С�İٷֱ�����ͼ��
-    $TMT_WIDTH - �ò��ֿ���
+   获取的属性. 可为下列值之一:
+    $TMT_ALPHALEVEL - 用于DrawThemeIcon函数的Alpha值
+    $TMT_ALPHATHRESHOLD - 认为不透明的最小Alpha值
+    $TMT_BORDERSIZE - 边框厚度
+    $TMT_GLYPHINDEX - 用于字形的字体的字符集索引
+    $TMT_GRADIENTRATIO1 - 绘制时使用的第一梯度色的数量. 该值可取0到255, 但和后续几个数量相加后必须为255.
+    $TMT_GRADIENTRATIO2 - 绘制时使用的第二梯度色的数量
+    $TMT_GRADIENTRATIO3 - 绘制时使用的第三梯度色的数量
+    $TMT_GRADIENTRATIO4 - 绘制时使用的第四梯度色的数量
+    $TMT_GRADIENTRATIO5 - 绘制时使用的第五梯度色的数量
+    $TMT_HEIGHT - 该部分高度
+    $TMT_IMAGECOUNT - 图像文件中提供的状态图像的数量
+    $TMT_MINDPI1 - 设计中的首个图像文件的最小dpi
+    $TMT_MINDPI2 - 设计中的第二个图像文件的最小dpi
+    $TMT_MINDPI3 - 设计中的第三个图像文件的最小dpi
+    $TMT_MINDPI4 - 设计中的第四个图像文件的最小dpi
+    $TMT_MINDPI5 - 设计中的第五个图像文件的最小dpi
+    $TMT_PROGRESSCHUNKSIZE - 定义操作进度的进度控制"块"形状的大小
+    $TMT_PROGRESSSPACESIZE - 进度控制"块"的总大小
+    $TMT_ROUNDCORNERWIDTH - 该部分在角上的弧度
+    $TMT_ROUNDCORNERHEIGHT - 该部分在角上的弧度
+    $TMT_SATURATION - 用于绘制图标时的饱和度值
+    $TMT_TEXTBORDERSIZE - 绘制文本字符的边界厚度
+    $TMT_TRUESIZESTRETCHMARK - 以真实图片大小的原始大小的百分比拉伸图像
+    $TMT_WIDTH - 该部分宽度
 $hDC
-   �豸�������
+   设备场景句柄
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���ػ�ȡ�Ķ�����λ����ֵ
-ʧ��: ����0������@error��0��@extended��ǰ���ϵͳ�������
+成功: 返回获取的度量单位属性值
+失败: 返回0并设置@error非0且@extended标记包含系统错误代码
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����GetThemeMetric�������Ϣ
+###See Also###
+ 搜索MSDN知识库中GetThemeMetric的相关信息

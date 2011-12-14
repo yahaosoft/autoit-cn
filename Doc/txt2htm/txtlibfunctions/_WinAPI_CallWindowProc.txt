@@ -1,45 +1,45 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êý###
+ï»¿###User Defined Function###
 _WinAPI_CallWindowProc
 
-###ÃèÊö###
-½«ÐÅÏ¢´«µÝµ½Ö¸¶¨µÄ´°¿Ú¹ý³Ì
+###Description###
+å°†ä¿¡æ¯ä¼ é€’åˆ°æŒ‡å®šçš„çª—å£è¿‡ç¨‹
 
-###Óï·¨###
+###Syntax###
 #Include <WinAPI.au3>
 _WinAPI_CallWindowProc($lpPrevWndFunc, $hWnd, $Msg, $wParam, $lParam)
 
-###²ÎÊý###
+###Parameters###
 @@ParamTable@@
 $lpPrevWndFunc
-   ÒÔÇ°´°¿Ú³ÌÐòµÄÖ¸Õë.
-$GWL_WNDPROC»ò$DWL_DLGPROCµÄ$iIndex²ÎÊýµÄGetWindowLongº¯Êý , ËüÊµ¼ÊÉÏÊÇ´°¿ÚµÄµØÖ·»ò¶Ô»°¿ò½ø³Ì , »òÒ»¸ö¶Ô_WinAPI_CallWindowProcÓÐÒâÒåµÄÖµ.
+   ä»¥å‰çª—å£ç¨‹åºçš„æŒ‡é’ˆ.
+$GWL_WNDPROCæˆ–$DWL_DLGPROCçš„$iIndexå‚æ•°çš„GetWindowLongå‡½æ•° , å®ƒå®žé™…ä¸Šæ˜¯çª—å£çš„åœ°å€æˆ–å¯¹è¯æ¡†è¿›ç¨‹ , æˆ–ä¸€ä¸ªå¯¹_WinAPI_CallWindowProcæœ‰æ„ä¹‰çš„å€¼.
 $hWnd
-   ½ÓÊÕÐÅÏ¢µÄ´°¿Ú³ÌÐò¾ä±ú
+   æŽ¥æ”¶ä¿¡æ¯çš„çª—å£ç¨‹åºå¥æŸ„
 $Msg
-   Ö¸¶¨ÐÅÏ¢
+   æŒ‡å®šä¿¡æ¯
 $wParam
-   Ö¸¶¨¶îÍâÐÅÏ¢µÄ¾ßÌåÐÅÏ¢ÄÚÈÝ. ²ÎÊýÄÚÈÝÈ¡¾öÓÚÐÅÏ¢²ÎÊýµÄÖµ
+   æŒ‡å®šé¢å¤–ä¿¡æ¯çš„å…·ä½“ä¿¡æ¯å†…å®¹. å‚æ•°å†…å®¹å–å†³äºŽä¿¡æ¯å‚æ•°çš„å€¼
 $lParam
-   Ö¸¶¨¶îÍâÐÅÏ¢µÄ¾ßÌåÐÅÏ¢ÄÚÈÝ. ²ÎÊýÄÚÈÝÈ¡¾öÓÚÐÅÏ¢²ÎÊýµÄÖµ
+   æŒ‡å®šé¢å¤–ä¿¡æ¯çš„å…·ä½“ä¿¡æ¯å†…å®¹. å‚æ•°å†…å®¹å–å†³äºŽä¿¡æ¯å‚æ•°çš„å€¼
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦:
-·µ»ØÖµÖ¸¶¨ÐÅÏ¢´¦ÀíµÄ½á¹û£¬²¢È¡¾öÓÚ·¢³öµÄÐÅÏ¢
-Ê§°Ü: -1 ²¢ÉèÖÃ
+æˆåŠŸ:
+è¿”å›žå€¼æŒ‡å®šä¿¡æ¯å¤„ç†çš„ç»“æžœï¼Œå¹¶å–å†³äºŽå‘å‡ºçš„ä¿¡æ¯
+å¤±è´¥: -1 å¹¶è®¾ç½®
 @error
 @@End@@
 
-###±¸×¢###
-Õë¶Ô´°¿Ú×ÓÀàÊ¹ÓÃ_WinAPI_CallWindowProcº¯Êý. Í¨³£Çé¿öÏÂ , ËùÓÐÍ¬Àà´°¿Ú¹²ÓÃÒ»¸ö´°¿Ú¹ý³Ì. ×ÓÀàÊÇÒ»¸ö´°¿Ú»òÍ¬Àà´°¿ÚµÄ¼¯ºÏ , ¸ÃÀàµÄÐÅÏ¢±»À¹½Ø²¢ÔÚ´«µÝµ½¸Ã´°¿Ú½ø³ÌÇ°ÓÉÆäËû´°¿Ú½ø³ÌÖ´ÐÐ.
-_WinAPI_SetWindowLongº¯ÊýÍ¨¹ý¸Ä±äÏà¹ØµÄ³ÌÐòÓëÌØ¶¨´°¿Ú´´½¨×Ó´°¿Ú , Ôì³ÉÏµÍ³µ÷ÓÃ³ÌÐòµÄÐÂ´°¿Ú¶ø²»ÊÇÒÔÇ°µÄÒ»¸ö. Ó¦ÓÃ³ÌÐòÍ¨¹ýµ÷ÓÃ_WinAPI_CallWindowProc´«µÝÐÅÏ¢µ½ÒÔÇ°µÄ´°¿Ú½ø³Ì¶ø²»ÊÇÍ¨¹ýÐÂ´°¿Ú½ø³Ì. Õâ½«ÔÊÐí´´½¨Ò»¸ö´°¿Ú½ø³ÌÁ´
+###Remarks###
+é’ˆå¯¹çª—å£å­ç±»ä½¿ç”¨_WinAPI_CallWindowProcå‡½æ•°. é€šå¸¸æƒ…å†µä¸‹ , æ‰€æœ‰åŒç±»çª—å£å…±ç”¨ä¸€ä¸ªçª—å£è¿‡ç¨‹. å­ç±»æ˜¯ä¸€ä¸ªçª—å£æˆ–åŒç±»çª—å£çš„é›†åˆ , è¯¥ç±»çš„ä¿¡æ¯è¢«æ‹¦æˆªå¹¶åœ¨ä¼ é€’åˆ°è¯¥çª—å£è¿›ç¨‹å‰ç”±å…¶ä»–çª—å£è¿›ç¨‹æ‰§è¡Œ.
+_WinAPI_SetWindowLongå‡½æ•°é€šè¿‡æ”¹å˜ç›¸å…³çš„ç¨‹åºä¸Žç‰¹å®šçª—å£åˆ›å»ºå­çª—å£ , é€ æˆç³»ç»Ÿè°ƒç”¨ç¨‹åºçš„æ–°çª—å£è€Œä¸æ˜¯ä»¥å‰çš„ä¸€ä¸ª. åº”ç”¨ç¨‹åºé€šè¿‡è°ƒç”¨_WinAPI_CallWindowProcä¼ é€’ä¿¡æ¯åˆ°ä»¥å‰çš„çª—å£è¿›ç¨‹è€Œä¸æ˜¯é€šè¿‡æ–°çª—å£è¿›ç¨‹. è¿™å°†å…è®¸åˆ›å»ºä¸€ä¸ªçª—å£è¿›ç¨‹é“¾
 
-###Ïà¹Ø###
+###Related###
  _WinAPI_SetWindowLong
 
-###²Î¿¼###
-ËÑË÷MSDNÖªÊ¶¿âÖÐÓÐ¹ØCallWindowProcµÄÐÅÏ¢
+###See Also###
+æœç´¢MSDNçŸ¥è¯†åº“ä¸­æœ‰å…³CallWindowProcçš„ä¿¡æ¯
 
-###Ê¾Àý###
+###Example###
 @@IncludeExample@@

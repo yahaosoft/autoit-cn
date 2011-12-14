@@ -1,39 +1,39 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlMenu_CheckMenuItem
 
-###����###
-����ָ���˵����ѡ�б������Ϊѡ�л����
+###Description###
+设置指定菜单项的选中标记属性为选中或清除
 
-###�﷨###
+###Syntax###
 #Include<GuiMenu.au3>
 _GUICtrlMenu_CheckMenuItem($hMenu, $iItem[, $fCheck =True[, $fByPos = True]])
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hMenu  �˵����
- $iItem  ѡ�в˵����λ�û��ʶ
- $fCheck  ���Ϊ������ѡ�б��, �����Ƴ�
- $fByPos  �˵���֤���:
-�� - $iItem Ϊ0������Ŀλ��
-�� - $iItem
-Ϊ�˵�����֤���
+ $hMenu  菜单句柄
+ $iItem  选中菜单项的位置或标识
+ $fCheck  如果为真设置选中标记, 否则移除
+ $fByPos  菜单认证标记:
+真 - $iItem 为0基的项目位置
+假 - $iItem
+为菜单项认证标记
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �˵�����ǰ��״̬($MF_CHECKED��$MF_UNCHECKED)
-ʧ��: -1
+成功: 菜单项以前的状态($MF_CHECKED或$MF_UNCHECKED)
+失败: -1
 @@End@@
 
-###��ע###
-�˵����ϵ���Ŀ�޷�����ѡ����. $iItem����ȷ�ϴ򿪵��Ӳ˵���һ���˵����һ��������Ŀ.
-����һ�����Ӳ˵�����Ŀ, $Item ��������ָ����Ŀλ��. ����������Ŀ, $Item ������ָ���˵���λ�û����ʾ.
+###Remarks###
+菜单栏上的项目无法具有选择标记. $iItem参数确认打开的子菜单的一个菜单项或一个命令项目.
+对于一个打开子菜单的项目, $Item 参数必须指定项目位置. 对于命令项目, $Item 参数可指定菜单项位置或其标示.
 
-###���###
+###Related###
 _GUICtrlMenu_CheckRadioItem
 
-###�ο�###
-����MSDN֪ʶ����CheckMenuItem�������Ϣ
+###See Also###
+搜索MSDN知识库中CheckMenuItem的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

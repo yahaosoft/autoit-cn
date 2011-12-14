@@ -1,61 +1,61 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_LoadImage
 
-###����###
-����ͼ�꣬��꣬��λͼ
+###Description###
+加载图标，光标，或位图
 
-###�﷨###
+###Syntax###
 #Include <WinAPI.au3>
 _WinAPI_LoadImage($hInstance,
 $sImage, $iType, $iXDesired, $iYDesired, $iLoad)
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hInstance
-   ����������װ��ͼ��ģ�������. ��Ҫ����OEMͼ����˲���ֵΪ��.
+   处理包含被装载图像模块的特例. 若要加载OEM图像，设此参数值为空.
 $sImage
-   ��ʶҪ���ص�ͼ��.
-$hInstance������Ϊ0��$iLoad����������$LR_LOADFROMFILE��$sImage��һ������ͼ����Դ��$hInstanceģ����ַ���.
-$hInstanceΪ0��$LR_LOADFROMFILEδ��ָ��, �ò����ĵͽ����ֱ�����Ҫ���ص�OEMͼ��ı�ʶ.
+   标识要加载的图像.
+$hInstance参数不为0且$iLoad参数不包含$LR_LOADFROMFILE则$sImage是一个包含图像资源的$hInstance模块的字符串.
+$hInstance为0且$LR_LOADFROMFILE未被指定, 该参数的低阶文字必须是要加载的OEM图像的标识.
 $iType
-   ָ��Ҫ���ص�ͼ�������. �ò�����Ϊ����ֵ֮һ:
-    $IMAGE_BITMAP - ����λͼ
+   指定要加载的图像的类型. 该参数可为下列值之一:
+    $IMAGE_BITMAP - 加载位图
     $IMAGE_CURSOR -
-      ��������ͷ
-    $IMAGE_ICON - ����ͼ��
+      加载鼠标箭头
+    $IMAGE_ICON - 加载图标
 $iXDesired
-$iLoadΪLR_DEFAULTSIZE
-      ����ʹ��SM_CXICON��SM_CXCURSORϵͳ����ֵ���ÿ���. ����˲���Ϊ0��δʹ�ò���
-      LR_DEFAULTSIZE, ����ʹ����Դ��ʵ�ʿ���.
+$iLoad为LR_DEFAULTSIZE
+      函数使用SM_CXICON或SM_CXCURSOR系统公制值设置宽度. 如果此参数为0且未使用参数
+      LR_DEFAULTSIZE, 函数使用资源的实际宽度.
 $iYDesired
-$iLoadΪLR_DEFAULTSIZE
-      ����ʹ��SM_CXICON��SM_CXCURSORϵͳ����ֵ���ø߶�. ����˲���Ϊ0��δʹ�ò���
-      LR_DEFAULTSIZE, ����ʹ����Դ��ʵ�ʸ߶�
+$iLoad为LR_DEFAULTSIZE
+      函数使用SM_CXICON或SM_CXCURSOR系统公制值设置高度. 如果此参数为0且未使用参数
+      LR_DEFAULTSIZE, 函数使用资源的实际高度
 $iLoad
-   ָ������ֵ�����:
-    $LR_DEFAULTCOLOR - Ĭ�ϱ�־
-      $LR_CREATEDIBSECTION - ������$iTypeָ��Ϊ$IMAGE_BITMAPʱ, ��������λͼ��ͼԪ����, ��������λͼ��ͼԪ����, ������һ������λͼ. �ñ�־�ڲ��ý���ɫӳ�䵽��ʾ�豸����¼���λͼ��ʱ�������
-    $LR_DEFAULTSIZE - ���$iXDesired��$iYDesired����Ϊ0, ����ͼ��ʹ��ϵͳָ���Ĺ���ֵ. ���δ���øñ�־��$iXDesired��$iYDesired������Ϊ0, ����ʹ����Դʵ�ʵĳߴ�. �����Դ�������ͼ��, ����ʹ�õ�һ��ͼ��ĳߴ�
-    $LR_LOADFROMFILE - ͨ��$sImage������ָ���ļ�����ͼ��. ���δָ�����, $sImage������Դ��
-    $LR_LOADMAP3DCOLORS - ����ͼ�����ɫ����ʹ����Ӧ�Ҷȵ�3D��ɫ���滻:
-    ���: RGB(128,128,128) COLOR_3DSHADOW
-    ��: RGB(192,192,192) COLOR_3DFACE
-    ǳ��: RGB(223,223,223) COLOR_3DLIGHT
-    $LR_LOADTRANSPARENT - ��ȡͼ���һ�����ص���ɫֵ���滻Ĭ�ϵĴ�����ɫ����ɫ���ӿ�. ͼ��������ʹ����һ�ӿڵ����ؽ���ΪĬ�ϵĴ�����ɫ. ��ֵ������ͼ��ʹ����ͬ����ɫ��. ���$iLoad����$LR_LOADTRANSPARENT��$LR_LOADMAP3DCOLORSֵ, ��$LRLOADTRANSPARENT����. Ȼ��, ��COLOR_3DFACE�滻����ɫ���ӿ�������COLOR_WINDOW.
-    $LR_MONOCHROME - ʹ�úڰ׼���ͼƬ
-    $LR_SHARED - ���ͼ�񱻶�μ�����������. ���LR_SHAREDδ����, ��ͬһ��Դ��LoadImage�Ķ��ε��ý��ٴμ���ͼ���ҷ��ز�ͬ���. ��û�б�׼��С��ͼ��Ҫʹ��$LR_SHARED, ����ͼ���ڼ��غ��ı�, ���߱����ļ�����
+   指定下列值的组合:
+    $LR_DEFAULTCOLOR - 默认标志
+      $LR_CREATEDIBSECTION - 当参数$iType指定为$IMAGE_BITMAP时, 函数返回位图的图元部分, 函数返回位图的图元部分, 而不是一个兼容位图. 该标志在不用将颜色映射到显示设备情况下加载位图的时候很有用
+    $LR_DEFAULTSIZE - 如果$iXDesired或$iYDesired设置为0, 光标或图标使用系统指定的公制值. 如果未设置该标志且$iXDesired和$iYDesired被设置为0, 函数使用资源实际的尺寸. 如果资源包含多个图像, 函数使用第一个图像的尺寸
+    $LR_LOADFROMFILE - 通过$sImage参数从指定文件夹在图像. 如果未指定标记, $sImage就是资源名
+    $LR_LOADMAP3DCOLORS - 搜索图像的颜色表并使用相应灰度的3D颜色表替换:
+    深灰: RGB(128,128,128) COLOR_3DSHADOW
+    灰: RGB(192,192,192) COLOR_3DFACE
+    浅灰: RGB(223,223,223) COLOR_3DLIGHT
+    $LR_LOADTRANSPARENT - 获取图像第一个像素的颜色值且替换默认的窗口颜色的颜色表接口. 图像中所有使用这一接口的像素将变为默认的窗口颜色. 该值仅用于图像使用相同的颜色表. 如果$iLoad包括$LR_LOADTRANSPARENT和$LR_LOADMAP3DCOLORS值, 则$LRLOADTRANSPARENT优先. 然而, 由COLOR_3DFACE替换的颜色表接口优先于COLOR_WINDOW.
+    $LR_MONOCHROME - 使用黑白加载图片
+    $LR_SHARED - 如果图像被多次加载则句柄共享. 如果LR_SHARED未设置, 对同一资源的LoadImage的二次调用将再次加载图像且返回不同句柄. 对没有标准大小的图像不要使用$LR_SHARED, 否则图像在加载后会改变, 或者被从文件加载
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ������ص�ͼ��ľ��
-ʧ��: 0
+成功: 最近加载的图像的句柄
+失败: 0
 @@End@@
 
-###��ע###
-��ҪConstants.au3Ԥ���峣��
+###Remarks###
+需要Constants.au3预定义常量
 
-###���###
+###Related###
 
-###�ο�###
-����MSDN֪ʶ����LoadImage�������Ϣ
+###See Also###
+搜索MSDN知识库中LoadImage的相关信息

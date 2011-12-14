@@ -1,42 +1,42 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_UpdateLayeredWindow
 
-###����###
-����һ��������ڵ�λ��, ��С, ��״, ����, ��͸����
+###Description###
+更新一个层叠窗口的位置, 大小, 形状, 内容, 及透明度
 
-###�﷨###
+###Syntax###
 #Include
 <WinAPI.au3>
 _WinAPI_UpdateLayeredWindow($hWnd, $hDCDest, $pPTDest,
 $pSize, $hDCSrce, $pPTSrce, $iRGB, $pBlend, $iFlags)
 
-###����###
+###Parameters###
 @@ParamTable@@
-$hWnd  ������ڵľ��. ����������ʱͨ��ָ��$WS_EX_LAYERED�����������.
-$hDCDest  ��Ļ�豸�����ľ��
-$pPTDest  ָ����������µ���Ļλ�õ�$tagPOINT�ṹ��ָ��. ������ı䵱ǰλ��, ��Ϊ0.
-$pSize  ָ����������´�С��$tagSIZE�ṹ��ָ��. ������ı䵱ǰ��С, ��Ϊ0.
-$hDCSrce  ����������ı�����豸�����ľ��. �þ����ͨ������_WinAPI_CreateCompatibleDC������ȡ.
-$pPTSrce  ָ���ֲ����豸�����е�λ�õ�$tagPOINT�ṹ��ָ��
-$iRGB  ���ڹ��ɲ�����ڵ���ɫֵ
-$pBlend  ָ�����ڹ��ɲ�������͸����ֵ��$tagBLENDFUNCTION�ṹ��ָ��.
-$iFlags  �ò�����Ϊ����ֵ֮һ.
-$ULW_ALPHA - ʹ��$tblend��Ϊ���ɫ
+$hWnd  层叠窗口的句柄. 当创建窗体时通过指定$WS_EX_LAYERED创建层叠窗口.
+$hDCDest  屏幕设备场景的句柄
+$pPTDest  指定层叠窗体新的屏幕位置的$tagPOINT结构的指针. 如果不改变当前位置, 可为0.
+$pSize  指定层叠窗体新大小的$tagSIZE结构的指针. 如果不改变当前大小, 可为0.
+$hDCSrce  定义层叠窗体的表面的设备场景的句柄. 该句柄可通过调用_WinAPI_CreateCompatibleDC函数获取.
+$pPTSrce  指定分层在设备场景中的位置的$tagPOINT结构的指针
+$iRGB  用于构成层叠窗口的颜色值
+$pBlend  指定用于构成层叠窗体的透明度值的$tagBLENDFUNCTION结构的指针.
+$iFlags  该参数可为下列值之一.
+$ULW_ALPHA - 使用$tblend作为混合色
 $ULW_COLORKEY -
-$iRGB��Ϊ͸��ɫ
-$ULW_OPAQUE - ���Ʋ�͸���������
+$iRGB作为透明色
+$ULW_OPAQUE - 绘制不透明层叠窗体
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��
-ʧ��: ��
+成功: 真
+失败: 假
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 $tagBLENDFUNCTION , $tagPOINT , $tagSIZE
 
-###�ο�###
-����MSDN֪ʶ����UpdateLayeredWindow�������Ϣ
+###See Also###
+搜索MSDN知识库中UpdateLayeredWindow的相关信息

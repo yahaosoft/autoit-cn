@@ -1,57 +1,57 @@
-###�ṹ����###
+﻿###结构常量###
 $tagSTARTUPINFO
 
-###����###
-ָ�������ڴ���ʱ�������λ��, ����, ��׼�������۵Ľṹ
+###Description###
+指定进程在创建时主窗体的位置, 桌面, 标准句柄及外观的结构
 
-###�﷨###
+###Syntax###
 Global Const $tagSTARTUPINFO =  "int Size;ptr Reserved1;ptr Desktop;ptr Title;int X;int Y;int XSize;int YSize;int XCountChars;int YCountChars;int FillAttribute;int Flags;short ShowWindow;short Reserved2;ptr Reserved3;int StdInput;int Y;int StdOutput;int StdError"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 Size
-   �ṹ���ֽڴ�С
+   结构的字节大小
 Reserved1
-   ����, ��Ϊ0
+   保留, 须为0
 Desktop
-   ��������, ���������ƺ͸ý��̵Ĵ���λ��
+   桌面名称, 或桌面名称和该进程的窗口位置
 Title
-   ���ڿ���̨����, �ó�ԱΪ�½�����̨�ı���������ʾ�ı���
+   对于控制台进程, 该成员为新建控制台的标题栏中显示的标题
 X
-   ���ָ����$STARTF_USEPOSITION���, ���½�����ʱ, �ó�ԱΪ�������Ͻǵĺ�������ƫ��.
+   如果指定了$STARTF_USEPOSITION标记, 当新建窗口时, 该成员为窗口左上角的横向像素偏移.
 Y
-   ���ָ����$STARTF_USEPOSITION���, ���½�����ʱ, �ó�ԱΪ�������Ͻǵ���������ƫ��.
+   如果指定了$STARTF_USEPOSITION标记, 当新建窗口时, 该成员为窗口左上角的纵向像素偏移.
 XSize
-   ���ָ����$STARTF_USESIZE���, �ó�ԱΪ�������ظ߶�
+   如果指定了$STARTF_USESIZE标记, 该成员为窗体像素高度
 YSize
-   ���ָ����$STARTF_USESIZE���, �ó�ԱΪ�������ؿ���
+   如果指定了$STARTF_USESIZE标记, 该成员为窗体像素宽度
 XCountChars
-   ���ָ����$STARTF_USECOUNTCHARS���, ����һ������̨�������½�����̨����ʱ, �ó�Աָ����Ļ������ַ��п���.
+   如果指定了$STARTF_USECOUNTCHARS标记, 当在一个控制台进程中新建控制台窗口时, 该成员指定屏幕缓冲的字符列宽度.
 YCountChars
-   ���ָ����$STARTF_USECOUNTCHARS���, ����һ������̨�������½�����̨����ʱ, �ó�Աָ����Ļ������ַ��и߶�.
+   如果指定了$STARTF_USECOUNTCHARS标记, 当在一个控制台进程中新建控制台窗口时, 该成员指定屏幕缓冲的字符行高度.
 FillAttribute
-   ���ָ����$STARTF_USEFILLATTRIBUTE���, ��һ������̨Ӧ���½�����̨����ʱ, �ó�ԱΪԭʼ�ı��ͱ���ɫ.
+   如果指定了$STARTF_USEFILLATTRIBUTE标记, 当一个控制台应用新建控制台窗口时, 该成员为原始文本和背景色.
 Flags
-   ȷ�����̴�������ʱʹ�õĳ�Ա:
-    $STARTF_FORCEONFEEDBACK - �ڵ���CreateProcess���ͷ���ַ���ģʽ2��. ��ʾ��̨������ͷ. �����2�����ڳ���������׸�����(GUI), ϵͳ������5������ʱ��. ����ڴ�5���ڽ�����ʾ�˴���ϵͳ�����̶���5������ɴ��ڵĻ���. ϵͳ���״ε���GetMessage���ͷŷ������, ���۽����Ƿ����ڻ���
-    $STARTF_FORCEOFFFEEDBACK - ��ʾ��������ʱ�ͷŷ�����ͷ����ʾ����ѡȡ��ͷ.
-    $STARTF_RUNFULLSCREEN - ��ʾ���̽���ȫ��Ļ����, ���Ǵ���ģʽ. �ñ�ǽ��ڿ���̨Ӧ�ó���������x86������ʱ��Ч.
-    $STARTF_USECOUNTCHARS - XCountChars��YCountChars��Ա����
-    $STARTF_USEFILLATTRIBUTE - FillAttribute��Ա����
-    $STARTF_USEPOSITION - X��Y��Ա����
-    $STARTF_USESHOWWINDOW - ShowWindow��Ա����
-    $STARTF_USESIZE - XSize��YSize��Ա����
-    $STARTF_USESTDHANDLES - hStdInput, hStdOutput��hStdError��Ա����
+   确定进程创建窗口时使用的成员:
+    $STARTF_FORCEONFEEDBACK - 在调用CreateProcess后箭头保持反馈模式2秒. 显示后台工作箭头. 如果在2秒钟内程序调用了首个界面(GUI), 系统给进程5秒或更多时间. 如果在此5秒内进程显示了窗体系统给进程多于5秒以完成窗口的绘制. 系统在首次调用GetMessage后释放反馈鼠标, 无论进程是否仍在绘制
+    $STARTF_FORCEOFFFEEDBACK - 表示进程启动时释放反馈箭头并显示常规选取箭头.
+    $STARTF_RUNFULLSCREEN - 表示进程将以全屏幕运行, 而非窗口模式. 该标记仅在控制台应用程序运行于x86电脑中时有效.
+    $STARTF_USECOUNTCHARS - XCountChars及YCountChars成员可用
+    $STARTF_USEFILLATTRIBUTE - FillAttribute成员可用
+    $STARTF_USEPOSITION - X及Y成员可用
+    $STARTF_USESHOWWINDOW - ShowWindow成员可用
+    $STARTF_USESIZE - XSize及YSize成员可用
+    $STARTF_USESTDHANDLES - hStdInput, hStdOutput及hStdError成员可用
 ShowWindow
-   ���ָ����$STARTF_USESHOWWINDOW���, �ó�Ա��Ϊ����һ��SW_����
+   如果指定了$STARTF_USESHOWWINDOW标记, 该成员可为任意一个SW_常量
 Reserved2
-   ����, ��Ϊ0
+   保留, 须为0
 Reserved3
-   ����, ��Ϊ0
+   保留, 须为0
 StdInput
-   ���ָ����$STARTF_USESTDHANDLES���, �ó�ԱΪ��׼������
+   如果指定了$STARTF_USESTDHANDLES标记, 该成员为标准输入句柄
 StdOutput
-   ���ָ����$STARTF_USESTDHANDLES���, �ó�ԱΪ��׼������
+   如果指定了$STARTF_USESTDHANDLES标记, 该成员为标准输出句柄
 StdError
-   ���ָ����$STARTF_USESTDHANDLES���, �ó�ԱΪ��׼������
+   如果指定了$STARTF_USESTDHANDLES标记, 该成员为标准错误句柄
 @@end@@

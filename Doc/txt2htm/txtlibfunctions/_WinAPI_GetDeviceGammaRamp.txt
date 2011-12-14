@@ -1,34 +1,34 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_GetDeviceGammaRamp
 
-###����###
-��ȡ��ɫ��ʾ����Ӳ��֧�������µ�ɫ��
+###Description###
+获取彩色显示屏在硬件支持条件下的色深
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_GetDeviceGammaRamp( $hDC, ByRef $aRamp )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hDC
-   ��ʾ���ĳ������
+   显示屏的场景句柄
 $aRamp
-   �������ڷ��õ�ǰ��ʾ��ɫ���2D���� ([r1, g1, b1], [r2, g2, b2], ... [r256, g256, b256]) . �����е�ÿ��Ԫ�ؾ�Ϊ0��65535������ֵ , ���ڱ�ʾ֡�����е�RGBֵ������ģ��ת����(DAC)��ֵ֮���ӳ��.
+   函数用于放置当前显示屏色深的2D数组 ([r1, g1, b1], [r2, g2, b2], ... [r256, g256, b256]) . 数组中的每个元素均为0至65535的整数值 , 用于表示帧缓冲中的RGB值和数字模拟转换器(DAC)的值之间的映射.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0.
+成功: 返回1
+失败: 返回0并设置@error非0.
 @@End@@
 
-###��ע###
-ֱ�Ӳ�ɫ��ʾģʽͨ��Ϊ16 , 24��32λ����ʹ����ɫ���ұ�. �������е�ֱ��֧�ֲ�ɫ��ʾ��֧�ֿ�װ�ص�gamma ramps. _WinAPI_GetDeviceGammaRamp() ����Ӳ������֧��gamma ramps���豸��Ч.
+###Remarks###
+直接彩色显示模式通常为16 , 24或32位而不使用颜色查找表. 并非所有的直接支持彩色显示屏支持可装载的gamma ramps. _WinAPI_GetDeviceGammaRamp() 仅对硬件驱动支持gamma ramps的设备有效.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����GetDeviceGammaRamp�������Ϣ
+###See Also###
+ 搜索MSDN知识库中GetDeviceGammaRamp的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

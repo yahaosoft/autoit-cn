@@ -1,39 +1,39 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_SaveHBITMAPToFile
 
-###����###
-��ָ��λͼ����Ϊָ��λͼ(.bmp)�ļ�
+###Description###
+将指定位图保存为指定位图(.bmp)文件
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_SaveHBITMAPToFile( $sFile, $hBitmap [, $iXPelsPerMeter [, $iYPelsPerMeter]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $sFile
-   ����λͼ��.bmp�ļ�
+   保存位图的.bmp文件
 $hBitmap
-   Ҫ������λͼ�ľ��
+   要保留的位图的句柄
 $iXPelsPerMeter
-   [��ѡ] ������ÿ�ױ�ʾ��ˮƽ�ֱ���
+   [可选] 以像素每米表示的水平分辨率
 $iYPelsPerMeter
-   [��ѡ] ������ÿ�ױ�ʾ�Ĵ�ֱ�ֱ���
+   [可选] 以像素每米表示的垂直分辨率
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0
+成功: 返回1
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-��������ָ��λͼʱ����ı�λͼ, ����λͼʹ��32λɫ��. �ڴ������, ���λͼ����alphaͨ��, ������Ϊ32λͼ��,������24λͼ�񱣴�.
-��$iXPelsPerMeter��$iYPelsPerMeter����ָ����ˮƽ����ֱ�ֱ��ʲ���Ӱ��ͼ������, ��Ӧ�ó����ʹ����Щֵ����Դ����ѡȡ���ʺϵ�ǰ�豸�ص��λͼ. ���δָ���ֱ���, ����ʹ�õ�ǰ��Ļ�ķֱ���, ͨ��Ϊÿ��2834���ض�Ӧ��72(dpi)
-���Դλͼ����ѹ����ʹ������ɫ����, ����ʧ��.
+###Remarks###
+函数保存指定位图时不会改变位图, 除非位图使用32位色深. 在此情况下, 如果位图具有alpha通道, 将保存为32位图像,否则以24位图像保存.
+由$iXPelsPerMeter和$iYPelsPerMeter参数指定的水平及垂直分辨率不会影响图像质量, 但应用程序会使用这些值从资源组中选取最适合当前设备特点的位图. 如果未指定分辨率, 函数使用当前屏幕的分辨率, 通常为每米2834像素对应于72(dpi)
+如果源位图经过压缩或使用了颜色掩码, 函数失败.
 
-###���###
+###Related###
 
-###�ο�###
+###See Also###
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

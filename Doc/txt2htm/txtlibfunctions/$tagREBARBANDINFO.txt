@@ -1,79 +1,79 @@
-###�ṹ����###
+﻿###结构常量###
 $tagREBARBANDINFO
 
-###����###
-����ComboBoxEx�ؼ��е���Ŀ��Ϣ�Ľṹ
+###Description###
+包含ComboBoxEx控件中的项目信息的结构
 
-###�﷨###
+###Syntax###
 Global Const $tagREBARBANDINFO =  "uint cbSize;uint fMask;uint fStyle;dword clrFore;dword clrBack;ptr lpText;uint cch;int iImage;hwnd hwndChild;uint cxMinChild;uint cx;hwnd hbmBack;uint wID;uint cyChild;uint cyMaxChild;uint cyIntegral;uint cxIdeal;int lParam;uint cxHeader"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 cbSize
-   �ṹ���ֽڴ�С. Ӧ�ó�������ڷ��ͽ��ýṹ�ĵ�ַ��Ϊ��������Ϣǰ���ó�Ա.
+   结构的字节大小. 应用程序必须在发送将该结构的地址用为参数的消息前填充该成员.
 fMask
-   ���������˽ṹ����Ч��Ա���뱻���ĳ�Ա�ı��. ��ֵ��Ϊ�������:
-    $RBBIM_BACKGROUND - hbmBack��Ա��Ч���������.
-    $RBBIM_CHILD - hwndChild��Ա��Ч���������.
-    $RBBIM_CHILDSIZE - cxMinChild, cyMinChild, cyChild, cyMaxChild, ��cyIntegral��Ա��Ч���������.
-    $RBBIM_COLORS - clrFore��clrBack��Ա��Ч���������.
-    $RBBIM_HEADERSIZE - �汾4.71. The cxHeader��Ա��Ч���������.
-    $RBBIM_IDEALSIZE - �汾4.71. The cxIdeal��Ա��Ч���������.
-    $RBBIM_ID - wID��Ա��Ч���������.
-    $RBBIM_IMAGE - iImage��Ա��Ч���������.
-    $RBBIM_LPARAM - �汾4.71. lParam��Ա��Ч���������.
-    $RBBIM_SIZE - cx��Ա��Ч���������.
-    $RBBIM_STYLE - fStyle��Ա��Ч���������.
-    $RBBIM_TEXT - lpText��Ա��Ч���������.
-    $RBBIM_CHEVRONLOCATION - rcChevronLocation��Ա��Ч���������.
-    $RBBIM_CHEVRONSTATE - uChevronState��Ա��Ч���������.
+   用以描述此结构的有效成员或须被填充的成员的标记. 该值可为下列组合:
+    $RBBIM_BACKGROUND - hbmBack成员有效或必须设置.
+    $RBBIM_CHILD - hwndChild成员有效或必须设置.
+    $RBBIM_CHILDSIZE - cxMinChild, cyMinChild, cyChild, cyMaxChild, 及cyIntegral成员有效或必须设置.
+    $RBBIM_COLORS - clrFore及clrBack成员有效或必须设置.
+    $RBBIM_HEADERSIZE - 版本4.71. The cxHeader成员有效或必须设置.
+    $RBBIM_IDEALSIZE - 版本4.71. The cxIdeal成员有效或必须设置.
+    $RBBIM_ID - wID成员有效或必须设置.
+    $RBBIM_IMAGE - iImage成员有效或必须设置.
+    $RBBIM_LPARAM - 版本4.71. lParam成员有效或必须设置.
+    $RBBIM_SIZE - cx成员有效或必须设置.
+    $RBBIM_STYLE - fStyle成员有效或必须设置.
+    $RBBIM_TEXT - lpText成员有效或必须设置.
+    $RBBIM_CHEVRONLOCATION - rcChevronLocation成员有效或必须设置.
+    $RBBIM_CHEVRONSTATE - uChevronState成员有效或必须设置.
 fStyle
-   ָ��������ʽ�ı��. ��ֵ��Ϊ����ֵ�����:
-    $RBBS_BREAK - ����λ��������.
-    $RBBS_CHILDEDGE - �����Ӵ�����ж��߽�͵ױ߽�.
-    $RBBS_FIXEDBMP - ���θı��Сʱ���ƶ�����λͼ.
-    $RBBS_FIXEDSIZE - ���β��ܸı��С. �ڴ���ʽ�������ϲ�����ʾ�ߴ��.
-    $RBBS_GRIPPERALWAYS - �汾4.71. ���������гߴ��, ��ʹ��������ֻ��һ������.
-    $RBBS_HIDDEN - ���β��ɼ�.
-    $RBBS_NOGRIPPER - �汾4.71. ���β����гߴ��, ��ʹ�������Ͼ��ж������.
-    $RBBS_USECHEVRON - �汾5.80. ������С��cxIdealʱ��ʾ������ť.
-    $RBBS_VARIABLEHEIGHT - �汾4.71. ���ο�ͨ���������ؼ����ô�С; cyIntegral��cyMaxChild��ӳ����������������γߴ�.
-    $RBBS_NOVERT - ��ֱʱ����ʾ.
-    $RBBS_USECHEVRON - ��ʾ������ť.
-    $RBBS_HIDETITLE - �������α���.
-    $RBBS_TOPALIGN - �����ö�.
+   指定区段样式的标记. 该值可为下列值的组合:
+    $RBBS_BREAK - 区段位于新行上.
+    $RBBS_CHILDEDGE - 区段子窗体具有顶边界和底边界.
+    $RBBS_FIXEDBMP - 区段改变大小时不移动背景位图.
+    $RBBS_FIXEDSIZE - 区段不能改变大小. 在此样式下区段上不会显示尺寸柄.
+    $RBBS_GRIPPERALWAYS - 版本4.71. 区段总是有尺寸柄, 即使伸缩条上只有一个区段.
+    $RBBS_HIDDEN - 区段不可见.
+    $RBBS_NOGRIPPER - 版本4.71. 区段不具有尺寸柄, 即使伸缩条上具有多个区段.
+    $RBBS_USECHEVRON - 版本5.80. 当区段小于cxIdeal时显示下拉按钮.
+    $RBBS_VARIABLEHEIGHT - 版本4.71. 区段可通过伸缩条控件重置大小; cyIntegral和cyMaxChild反映伸缩条如何重置区段尺寸.
+    $RBBS_NOVERT - 垂直时不显示.
+    $RBBS_USECHEVRON - 显示下拉按钮.
+    $RBBS_HIDETITLE - 隐藏区段标题.
+    $RBBS_TOPALIGN - 区段置顶.
 clrFore
-   ����ǰ��ɫ.
+   区段前景色.
 clrBack
-   ���α���ɫ. ��hbmBackָ������λͼʱ, ���Ըó�Ա. Ĭ��, ���ν�ʹ����$RB_SETBKCOLOR��Ϣ���õ��������ؼ�����ɫ. ����˴�ָ������ɫ, ��˱���ɫ�����滻.
+   区段背景色. 当hbmBack指定背景位图时, 忽略该成员. 默认, 区段将使用由$RB_SETBKCOLOR消息设置的伸缩条控件背景色. 如果此处指定背景色, 则此背景色将被替换.
 lpText
-   ������ʾ�������е��ı��Ļ�������ָ��. ����ؼ�����������Ϣ����fMask��ָ��$RBBIM_TEXT, �ó�Ա���뱻��ʼ���������ı��Ļ������ĵ�ַ.
+   包含显示在区段中的文本的缓冲区的指针. 如果控件请求区段信息且在fMask中指定$RBBIM_TEXT, 该成员必须被初始化到接收文本的缓冲区的地址.
 cch
-   lpText�����������ֽڴ�С. �����Ϣδ���ؼ�����, ���Ըó�Ա.
+   lpText处缓冲区的字节大小. 如果信息未被控件请求, 忽略该成员.
 iImage
-   ��ʾ�������е�ͼ���0������. ͼ���б�ʹ��$RB_SETBARINFO��Ϣ����.
+   显示在区段中的图像的0基索引. 图像列表使用$RB_SETBARINFO消息设置.
 hwndChild
-   �����������е��Ӵ���ľ��.
+   包含在区段中的子窗体的句柄.
 cxMinChild
-   �Ӵ������С���ؿ���. ���θ߶Ȳ���С�ڴ�ֵ.
+   子窗体的最小像素宽度. 区段高度不能小于此值.
 cyMinChild
-   �Ӵ������С���ظ߶�. ���θ߶Ȳ���С�ڴ�ֵ.
+   子窗体的最小像素高度. 区段高度不能小于此值.
 cx
-   ���ε����س���.
+   区段的像素长度.
 hbmBack
-   ������Ϊ���α�����λͼ�ľ��.
+   用于作为区段背景的位图的句柄.
 wID
-   �ؼ�����Ϊ�Զ������֪ͨ��Ϣ��ʶ�����ε�UINTֵ.
+   控件用于为自定义绘制通知消息标识该区段的UINT值.
 cyChild
-   �汾4.71. ���εĳ�ʼ���ظ߶�. ����ָ��$RBBS_VARIABLEHEIGHT��ʽ������Ըó�Ա.
+   版本4.71. 区段的初始像素高度. 除非指定$RBBS_VARIABLEHEIGHT样式否则忽略该成员.
 cyMaxChild
-   �汾4.71. ���ε�������ظ߶�. ����ָ��$RBBS_VARIABLEHEIGHT��ʽ������Ըó�Ա.
+   版本4.71. 区段的最大像素高度. 除非指定$RBBS_VARIABLEHEIGHT样式否则忽略该成员.
 cyIntegral
-   �汾4.71. �������ε����ز���ֵ. ����������ô�С, ��ʹ���ɸ�ֵָ���Ĳ���. ����ָ��$RBBS_VARIABLEHEIGHT��ʽ������Ըó�Ա.
+   版本4.71. 伸缩区段的像素步长值. 如果区段重置大小, 经使用由该值指定的步长. 除非指定$RBBS_VARIABLEHEIGHT样式否则忽略该成员.
 cxIdeal
-   �汾4.71. ���ε��������ؿ���. ���������󻯵��������(��$RB_MAXIMIZEBAND), ���οؼ��᳢��ʹ����ʹ�ô˿���.
+   版本4.71. 区段的理想像素宽度. 如果区段最大化到理想宽度(见$RB_MAXIMIZEBAND), 区段控件会尝试使区段使用此宽度.
 lParam
-   �汾4.71. Ӧ�ó������ֵ.
+   版本4.71. 应用程序定义的值.
 cxHeader
-   �汾4.71. ����ͷ�����ش�С. ����ͷ�����α߽���Ӵ���߽�������. ָ�������ı���ͼ��ʱΪ��ʾ������. ���ָ����ֵ, ������ͨ���Ŀؼ�Ϊ���μ����ͷ���ߴ�.
+   版本4.71. 区段头的像素大小. 区段头是区段边界和子窗体边界间的区域. 指定区段文本和图像时为显示的区域. 如果指定该值, 将覆盖通常的控件为区段计算的头部尺寸.
 @@end@@

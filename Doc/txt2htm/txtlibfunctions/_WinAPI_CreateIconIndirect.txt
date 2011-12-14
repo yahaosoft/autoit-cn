@@ -1,47 +1,47 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_CreateIconIndirect
 
-###����###
-��ICONINFO�ṹ����һ��ͼ�������ͷ
+###Description###
+从ICONINFO结构创建一个图标或鼠标箭头
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_CreateIconIndirect( $hBitmap, $hMask[, $XHotspot[, $YHotspot[, $fIcon]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hBitmap
-   ͼ����ɫλͼ�ľ��
+   图标颜色位图的句柄
 $hMask
-   ͼ����λ����λͼ�ľ��
+   图标数位掩码位图的句柄
 $XHotspot
-   ָ������ͷ�ȵ��x����. �������һ��ͼ��, �ȵ�ͨ����ͼ�����ĵ�, �Һ��Դ˳�Ա
+   指定鼠标箭头热点的x坐标. 如果创建一个图标, 热点通常在图标中心点, 且忽略此成员
 $YHotspot
-   ָ������ͷ�ȵ��y����. �������һ��ͼ��, �ȵ�ͨ����ͼ�����ĵ�, �Һ��Դ˳�Ա
+   指定鼠标箭头热点的y坐标. 如果创建一个图标, 热点通常在图标中心点, 且忽略此成员
 $fIcon
-   ָ���Ƿ񴴽�ͼ��������ͷ, ����ֵ:
-    ��: ����ͼ��(Ĭ��)
-    ��: ��������ͷ
+   指定是否创建图表或鼠标箭头, 可用值:
+    真: 创建图标(默认)
+    假: 创建鼠标箭头
 $hANDBits
-   ͼ�������AND��λ�����ֽ�ֵ������ľ��. ����������һ����ɫλͼ
+   图标包含的AND数位掩码字节值的数组的句柄. 该掩码描述一个单色位图
 $hXORBits
-   ͼ�������XOR��λ�����ֽ�ֵ������ľ��. ����������һ����ɫ���豸֧�ֵĶ�ɫλͼ
+   图标包含的XOR数位掩码字节值的数组的句柄. 该掩码描述一个单色或设备支持的多色位图
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ������ͼ�������ͷ�ľ��
-ʧ��: ����0������@error��0
+成功: 创建的图标或鼠标箭头的句柄
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-�ڴ���ͼ��������ͷǰϵͳ�Ḵ��λͼ. ��Ϊϵͳ����ʱѡȡ�豸�����е�λͼ, $hBitmap��$hMask���ᱻѡ���豸����.
-Ӧ�ó�����Լ�������ԭʼλͼ���ڲ���Ҫʱͨ��_WinAPI_FreeObject()ɾ��
+###Remarks###
+在创建图表或鼠标箭头前系统会复制位图. 因为系统可临时选取设备场景中的位图, $hBitmap和$hMask不会被选入设备场景.
+应用程序可以继续管理原始位图并在不需要时通过_WinAPI_FreeObject()删除
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����CreateIconIndirect�������Ϣ
+###See Also###
+ 搜索MSDN知识库中CreateIconIndirect的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

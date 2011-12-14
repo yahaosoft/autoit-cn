@@ -1,61 +1,61 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_StretchDIBits
 
-###����###
-��DIB, JPEG��PNGͼ���е����ؾ��ε���ɫ���ݸ��Ƶ�Ŀ�����. ���б�Ҫʹ��ָ���Ĺ�դ���������ѹ������
+###Description###
+将DIB, JPEG或PNG图像中的像素矩形的颜色数据复制到目标矩形. 如有必要使用指定的光栅操作拉伸或压缩行列
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_StretchDIBits( $hDestDC, $iXDest, $iYDest, $iWidthDest, $iHeightDest, $iXSrc, $iYSrc, $iWidthSrc, $iHeightSrc, ByRef $tBITMAPINFO, $iUsage, $pBits, $iRop )
 
-###����###
+###Parameters###
 @@ParamTable@@
-$hDestDC  Ŀ�곡�����
-$iXDest  Ŀ��������Ͻ�x����
-$iYDest  Ŀ��������Ͻ�y����
-$iWidthDest  Ŀ����ο���
-$iHeightDest  Ŀ����θ߶�
-$iXSrc  Դ�������Ͻ�x����
-$iYSrc  Դ�������Ͻ�y����
-$iWidthSrc  Դ���ο���
-$iHeightSrc  Դ���θ߶�
-$tBITMAPINFO  ����DIB��Ϣ��$tagBITMAPINFO�ṹ
-$iUsage  ʹ�õ���ɫ��ʽ. (�߼���ɫ��������RGBֵ). ��������ֵ.
-$DIB_PAL_COLORS - ������Դ�����߼���ɫ��16λ����������
-$DIB_RGB_COLORS - RGB��ɫֵ
-$pBits  �洢Ϊ��λ�����ͼ����λ��ָ��
-$iRop  Դ����, Ŀ�곡����ǰ�Ļ�ˢ��Ŀ��������ν��������ͼ��Ĺ�դ��������. ����Ϊ0������ֵ֮һ.
-$BLACKNESS - ʹ��������ɫ���е�����0���Ŀ�����
-$CAPTUREBLT - ���ͼ�������������Ĵ����ϲ�Ĵ���. Ĭ��ֵ������Ĵ���. ע���ֵ�����ڴ�ӡ�豸.
-$DSTINVERT - ��תĿ�����
-$MERGECOPY - ͨ��BitAND�����ϲ�Դ������ɫ��Ŀ�곡���Ļ�ˢ
-$MERGEPAINT - ͨ��BitOR�����ϲ�Դ���η�ɫ��Ŀ�곡���Ļ�ˢ
-$NOMIRRORBITMAP - ��ֹͼ����
-$NOTSRCCOPY - ����ת��Դ���θ��Ƶ�Ŀ�곡��
-$NOTSRCERASE - ͨ��BitOR�����ϲ�Դ���μ�Ŀ����ε���ɫ��ת��Ӧ��ɫ
-$PATCOPY - ��Ŀ�곡����ѡȡ�Ļ�ˢ���Ƶ�Ŀ��λͼ��
-$PATINVERT - ͨ��BitXOR�����ϲ�Ŀ�곡���е�ǰѡȡ�Ļ�ˢ��ɫ��Ŀ����ε���ɫ
-$PATPAINT - ͨ��BitOR�����ϲ�Դ���η�ɫ��Ŀ�곡����ѡȡ�Ļ�ˢɫ
-$SRCAND - ͨ��BitAND�����ϲ�Դ������ɫ��Ŀ�������ɫ
-$SRCCOPY - ��Դ����ֱ�Ӹ��Ƶ�Ŀ�����
-$SRCERASE - ͨ��BitAND�����ϲ�Ŀ����εķ�ɫ��Դ���ε���ɫ
-$SRCINVERT - ͨ��BitXOR�����ϲ�Ŀ����ε���ɫ��Դ���ε���ɫ
-$SRCPAINT - ͨ��BitOR�����ϲ�Ŀ����ε���ɫ��Դ���ε���ɫ
-$WHITENESS - ʹ��������ɫ���е�����1���Ŀ�����
+$hDestDC  目标场景句柄
+$iXDest  目标矩形左上角x坐标
+$iYDest  目标矩形左上角y坐标
+$iWidthDest  目标矩形宽度
+$iHeightDest  目标矩形高度
+$iXSrc  源矩形左上角x坐标
+$iYSrc  源矩形左上角y坐标
+$iWidthSrc  源矩形宽度
+$iHeightSrc  源矩形高度
+$tBITMAPINFO  包含DIB信息的$tagBITMAPINFO结构
+$iUsage  使用的颜色格式. (逻辑调色板索引或RGB值). 可用下列值.
+$DIB_PAL_COLORS - 包含到源场景逻辑调色板16位索引的数组
+$DIB_RGB_COLORS - RGB颜色值
+$pBits  存储为数位数组的图像数位的指针
+$iRop  源像素, 目标场景当前的画刷及目标像素如何结合生成新图像的光栅操作代码. 必须为0或下列值之一.
+$BLACKNESS - 使用物理调色板中的索引0填充目标矩形
+$CAPTUREBLT - 结果图像包含所有在你的窗口上层的窗口. 默认值包含你的窗口. 注意该值不用于打印设备.
+$DSTINVERT - 反转目标矩形
+$MERGECOPY - 通过BitAND操作合并源矩形颜色及目标场景的画刷
+$MERGEPAINT - 通过BitOR操作合并源矩形反色及目标场景的画刷
+$NOMIRRORBITMAP - 阻止图像镜像
+$NOTSRCCOPY - 将反转的源矩形复制到目标场景
+$NOTSRCERASE - 通过BitOR操作合并源矩形及目标矩形的颜色后反转对应颜色
+$PATCOPY - 将目标场景中选取的画刷复制到目标位图中
+$PATINVERT - 通过BitXOR操作合并目标场景中当前选取的画刷颜色及目标矩形的颜色
+$PATPAINT - 通过BitOR操作合并源矩形反色和目标场景中选取的画刷色
+$SRCAND - 通过BitAND操作合并源矩形颜色及目标矩形颜色
+$SRCCOPY - 将源矩形直接复制到目标矩形
+$SRCERASE - 通过BitAND操作合并目标矩形的反色及源矩形的颜色
+$SRCINVERT - 通过BitXOR操作合并目标矩形的颜色及源矩形的颜色
+$SRCPAINT - 通过BitOR操作合并目标矩形的颜色及源矩形的颜色
+$WHITENESS - 使用物理调色板中的索引1填充目标矩形
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���ظ��Ƶ�ɨ������. ����ͼ���ֵ��Ϊ����.
-ʧ��: ����0������@error��0
+成功: 返回复制的扫描行数. 对于图像该值可为负数.
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-������$iWidthSrc��$iWidthDest������$iHeightSrc��$iHeightDest�����ķ��Ų�ͬʱ, _WinAPI_StretchDIBits()����λͼ�ľ���ͼ��.
-���$iWidthSrc��$iWidthDest���Ų�ͬ, ������x�ᴴ��λͼ�ľ���ͼ��.
-���$iHeightSrc��$iHeightDest���Ų�ͬ, ������y�ᴴ��λͼ�ľ���ͼ��.
+###Remarks###
+当给定$iWidthSrc及$iWidthDest参数或$iHeightSrc和$iHeightDest参数的符号不同时, _WinAPI_StretchDIBits()创建位图的镜像图像.
+如果$iWidthSrc和$iWidthDest符号不同, 函数沿x轴创建位图的镜像图像.
+如果$iHeightSrc和$iHeightDest符号不同, 函数沿y轴创建位图的镜像图像.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����StretchDIBits�������Ϣ
+###See Also###
+ 搜索MSDN知识库中StretchDIBits的相关信息

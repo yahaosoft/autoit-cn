@@ -1,40 +1,40 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_SetTextAlign
 
-###����###
-����ָ���豸�������ı�����
+###Description###
+设置指定设备场景的文本对齐
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_SetTextAlign( $hDC [, $iMode] )
 
-###����###
+###Parameters###
 @@ParamTable@@
-$hDC  �豸�������
-$iMode  �����б��е�ֵ�������ʾ�Ķ�����. ����ѡ��һ��Ӱ��ˮƽ�ʹ�ֱ����ı��. ����, ֻ��ѡ��ɱ�ѡ��ĵ�ǰλ�õ��������֮һ.
-$TA_BASELINE - �ο������ı��Ļ���.
-$TA_BOTTOM - �ο����ǰ󶨾��ε��±�Ե.
-$TA_TOP - �ο����ǰ󶨾��ε��ϱ�Ե.
-$TA_CENTER - �ο������������ˮƽһ��.
-$TA_LEFT - �ο����ǰ󶨾��ε����Ե.
-$TA_RIGHT - �ο����ǰ󶨾��ε��ұ�Ե.
-$TA_RTLREADING - Windows���ж����԰汾: �ı������ҵ���˳�������Ĭ�ϵ����ҵ�˳��. ��������ڵ�ѡ���豸����������Ϊϣ�����Ļ�������.
-$TA_NOUPDATECP - ÿ���ı����ʱ���ı䵱ǰλ��.
-$TA_UPDATECP - ÿ���ı����ʱ�ı䵱ǰλ��.
-$VTA_BASELINE - �ο����ǻ����ı��ĵ���
-$VTA_CENTER - �ο����ǰ󶨾��εĴ�ֱ����
-$TA_LEFT, $TA_TOP��$TA_NOUPDATECP.
+$hDC  设备场景句柄
+$iMode  如下列表中的值的掩码表示的对齐标记. 仅可选择一个影响水平和垂直对齐的标记. 另外, 只能选择可被选择的当前位置的两个标记之一.
+$TA_BASELINE - 参考点是文本的基线.
+$TA_BOTTOM - 参考点是绑定矩形的下边缘.
+$TA_TOP - 参考点是绑定矩形的上边缘.
+$TA_CENTER - 参考点与矩形中心水平一致.
+$TA_LEFT - 参考点是绑定矩形的左边缘.
+$TA_RIGHT - 参考点是绑定矩形的右边缘.
+$TA_RTLREADING - Windows的中东语言版本: 文本按从右到左顺序而不是默认的左到右的顺序. 这仅适用于当选择到设备场景的字体为希伯来文或阿拉伯文.
+$TA_NOUPDATECP - 每次文本输出时不改变当前位置.
+$TA_UPDATECP - 每次文本输出时改变当前位置.
+$VTA_BASELINE - 参考点是基于文本的底线
+$VTA_CENTER - 参考点是绑定矩形的垂直中心
+$TA_LEFT, $TA_TOP及$TA_NOUPDATECP.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��ǰ���ı���������($TA_*��$VTA_*).
-ʧ��: ����-1������@error��0
+成功: 以前的文本对齐设置($TA_*和$VTA_*).
+失败: 返回-1并设置@error非0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����SetTextAlign�������Ϣ
+###See Also###
+ 搜索MSDN知识库中SetTextAlign的相关信息

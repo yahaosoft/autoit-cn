@@ -1,49 +1,49 @@
-###�ṹ����###
+﻿###结构常量###
 $tagWIN32_FIND_DATA
 
-###����###
-���������ļ�ʱ�ҵ������ݵĽṹ
+###Description###
+包含查找文件时找到的数据的结构
 
-###�﷨###
+###Syntax###
 Global Const $tagWIN32_FIND_DATA =  "dword dwFileAttributes;dword ftCreationTime[2];dword ftLastAccessTime[2];dword ftLastWriteTime[2];dword nFileSizeHigh;dword nFileSizeLow;dword dwReserved0;dword dwReserved1;char cFileName[260];char cAlternateFileName[14];"
 
-###��Ա###
+###成员###
 @@ParamTable@@
     dwFileAttributes
 
-   �ļ����ļ�����
+   文件的文件属性
     ftCreationTime
 
-   ����ָ���ļ���Ŀ¼����ʱ���FILETIME�ṹ
+   用于指定文件或目录创建时间的FILETIME结构
     ftLastAccessTime
 
-   ����ָ����ȡ, д��, ����ڿ�ִ���ļ������е�FILETIME�ṹ
+   用于指定读取, 写入, 或对于可执行文件的运行的FILETIME结构
     ftLastWriteTime
 
-   ����ָ���ļ����д��, ��ȡ, �򸲸ǵ�FILETIME�ṹ
+   用于指定文件最后被写入, 截取, 或覆盖的FILETIME结构
     nFileSizeHigh
 
-   �ļ��ֽڴ�С�ĸ�λDWORDֵ
+   文件字节大小的高位DWORD值
     nFileSizeLow
 
-   �ļ��ֽڴ�С�ĵ�λDWORDֵ
+   文件字节大小的低位DWORD值
     dwReserved0
 
-   ���dwFileAttributes��Ա����$FILE_ATTRIBUTE_REPARSE_POINT����, �ó�Աָ���ٽ������.
+   如果dwFileAttributes成员包括$FILE_ATTRIBUTE_REPARSE_POINT属性, 该成员指定再解析标记.
     dwReserved1
 
-   ����
+   保留
     cFileName
 
-   �ļ���
+   文件名
     cAlternateFileName
 
-   �ļ��Ŀ�ѡ��, ����8.3(�ļ���.��չ)�ļ�����ʽ
+   文件的可选名, 经典8.3(文件名.扩展)文件名格式
 @@end@@
 
-###��ע###
-����ʹ��ANSI�汾
+###Remarks###
+必须使用ANSI版本
 
-###�ο�###
-����MSDN֪ʶ����WIN32_FIND_DATA�������Ϣ
-����MSDN֪ʶ����WIN32_FIND_ATA�������Ϣ
+###See Also###
+搜索MSDN知识库中WIN32_FIND_DATA的相关信息
+搜索MSDN知识库中WIN32_FIND_ATA的相关信息

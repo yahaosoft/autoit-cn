@@ -1,20 +1,20 @@
-###�ṹ����###
+﻿###结构常量###
 $tagGDIPSTARTUPINPUT
 
-###����###
-���ڱ��溯��GdiplusStartup��������Ľṹ
+###Description###
+用于保存函数GdiplusStartup所需参数的结构
 
-###�﷨###
+###Syntax###
 Global Const $tagGDIPSTARTUPINPUT =  "int Version;ptr Callback;int NoThread;int NoCodecs"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 Version
-   ָ��Microsoft Windows GDI+�汾
+   指定Microsoft Windows GDI+版本
 Callback
-   �ڵ�����GDI+�ɵ������жϺ;���Ļص�������ָ��. Ĭ��Ϊ��.
+   在调试中GDI+可调用来中断和警告的回调函数的指针. 默认为空.
 NoThread
-   ָ���Ƿ�����GDI+��̨�̵߳Ĳ���ֵ. �������Ϊ��, GdiplusStartup����һ�����Ӻ�����ָ���һ��������Ӻ�����ָ��. ���������Щ���Ƶĺ����滻��̨����. �������Թ��Ӻ����ͽ�����Ӻ������л�Ӧ, ���øó�ԱΪ��.
+   指定是否限制GDI+后台线程的布尔值. 如果设置为真, GdiplusStartup返回一个钩子函数的指针和一个解除钩子函数的指针. 必须调用那些类似的函数替换后台进程. 如果不想对钩子函数和解除钩子函数进行回应, 设置该成员为假.
 NoCodecs
-   ָ���Ƿ�ϣ��GDI+��ֹ�ⲿͼ���˾��Ĳ���ֵ. GDI+�汾1.0��֧���ⲿͼ���˾�, �ʶ����Ըò���.
+   指定是否希望GDI+禁止外部图像滤镜的布尔值. GDI+版本1.0不支持外部图像滤镜, 故而忽略该参数.
 @@end@@

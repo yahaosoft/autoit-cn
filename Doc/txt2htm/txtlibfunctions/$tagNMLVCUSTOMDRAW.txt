@@ -1,93 +1,93 @@
-###�ṹ����###
+﻿###结构常量###
 $tagNMLVCUSTOMDRAW
 
-###����###
-��ָ�����б���ͼ�ؼ����͵�NM_CUSTOMDRAW(�б���ͼ)֪ͨ��Ϣ����Ϣ�Ľṹ
+###Description###
+含指定由列表视图控件发送的NM_CUSTOMDRAW(列表视图)通知消息的信息的结构
 
-###�﷨###
+###Syntax###
 Global Const $tagNMLVCUSTOMDRAW =  $tagNMHDR & ";uint DrawStage;hwnd hdc;int Left;int Top;int Right;int Bottom;ptr dwItemSpec;uint uItemState;long lItemParam;int ClrText;int ClrTextBk;int iSubItem;dword dwItemType;int clrFace;int iIconEffect;int iIconPhase;int iPartId;int iStateId;int TextLeft;int TextTop;int TextRight;int TextBottom;uint uAlign"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 $tagNMHDR
-   ����֪ͨ��Ϣ����Ϣ
+   包含通知消息的信息
 dwDrawStage
-   ��ǰ���ƵĲ�. ��Ϊ����֮һ:
-    ȫ��ֵ:
-    $CDDS_POSTERASE - ��ȫ������
-    $CDDS_POSTPAINT - ��ȫ���ƺ�
-    $CDDS_PREERASE - ��ʼ����ǰ
-    $CDDS_PREPAINT - ��ʼ����ǰ
-    ָ����Ŀֵ:
-    $CDDS_ITEM - ��ʾdwItemSpec, uItemState��lItemlParam��Ա����.
-    $CDDS_ITEMPOSTERASE - ��Ŀ��������
-    $CDDS_ITEMPOSTPAINT - ��Ŀ�����ƺ�
-    $CDDS_ITEMPREERASE - ��Ŀ������ǰ
-    $CDDS_ITEMPREPAINT - ��Ŀ������ǰ
-    $CDDS_SUBITEM - ��������ʱ��$CDDS_ITEMPREPAINT��$CDDS_ITEMPOSTPAINT��ϵı��. ����$CDDS_PREPAINT����$CDRF_NOTIFYITEMDRAWʱ��������.
+   当前绘制的层. 可为下列之一:
+    全局值:
+    $CDDS_POSTERASE - 完全擦除后
+    $CDDS_POSTPAINT - 完全绘制后
+    $CDDS_PREERASE - 开始擦除前
+    $CDDS_PREPAINT - 开始绘制前
+    指定项目值:
+    $CDDS_ITEM - 表示dwItemSpec, uItemState及lItemlParam成员可用.
+    $CDDS_ITEMPOSTERASE - 项目被擦除后
+    $CDDS_ITEMPOSTPAINT - 项目被绘制后
+    $CDDS_ITEMPREERASE - 项目被擦除前
+    $CDDS_ITEMPREPAINT - 项目被绘制前
+    $CDDS_SUBITEM - 绘制子项时与$CDDS_ITEMPREPAINT或$CDDS_ITEMPOSTPAINT结合的标记. 仅在$CDDS_PREPAINT返回$CDRF_NOTIFYITEMDRAW时可以设置.
 hdc
-   �ؼ����豸�����ľ��. ʹ�ø��豸�����ľ��ִ������Microsoft Windows Graphics Device Interface (GDI)����.
+   控件的设备场景的句柄. 使用该设备场景的句柄执行任意Microsoft Windows Graphics Device Interface (GDI)函数.
 Left
-   �����Ƶľ�����������Ͻ�X����. �ó�Ա����$CDDS_ITEMPREPAINT֪ͨ��ʼ��.
+   将绘制的矩形区域的左上角X坐标. 该成员仅由$CDDS_ITEMPREPAINT通知初始化.
 Top
-   �����Ƶľ�����������Ͻ�Y����. �ó�Ա����$CDDS_ITEMPREPAINT֪ͨ��ʼ��.
+   将绘制的矩形区域的左上角Y坐标. 该成员仅由$CDDS_ITEMPREPAINT通知初始化.
 Right
-   �����Ƶľ�����������½�X����. �ó�Ա����$CDDS_ITEMPREPAINT֪ͨ��ʼ��.
+   将绘制的矩形区域的右下角X坐标. 该成员仅由$CDDS_ITEMPREPAINT通知初始化.
 Bottom
-   �����Ƶľ�����������½�Y����. �ó�Ա����$CDDS_ITEMPREPAINT֪ͨ��ʼ��.
+   将绘制的矩形区域的右下角Y坐标. 该成员仅由$CDDS_ITEMPREPAINT通知初始化.
 dwItemSpec
-   ��Ŀ����
+   项目数量
 uItemState
-   ��ǰ����Ŀ״̬. ��ֵΪ���б������:
-    $CDIS_CHECKED - ��Ŀ��ѡ��
-    $CDIS_DEFAULT - ��Ŀ����Ĭ��״̬
-    $CDIS_DISABLED - ��Ŀ����
-    $CDIS_FOCUS - ��Ŀ���ڽ���
-    $CDIS_GRAYED - ��Ŀ��ɫ��ʾ
-    $CDIS_HOT - ��Ŀ��ǰ��ָ����
-    $CDIS_INDETERMINATE - ��Ŀ���ڲ�ȷ��״̬
-    $CDIS_MARKED - ��Ŀ�����
-    $CDIS_SELECTED - ��Ŀ��ѡ��
-    $CDIS_SHOWKEYBOARDCUES - �汾Ϊ6.0��comctl32. ��ĿΪһ������ʾ
-    $CDIS_NEARHOT - ��Ŀ�ǵ�ǰ���ָ����("��")�Ŀؼ���һ����, ����Ŀ������"��"��. �京����ִ�ж���.
-    $CDIS_OTHERSIDEHOT - ��Ŀ�ǵ�ǰ���ָ����("��")�ķ��밴ť��һ����, ����Ŀ������"��"��. �京����ִ�ж���.
-    $CDIS_DROPHILITED - ��Ŀ�ǵ�ǰ��ҷ������Ŀ��.
+   当前的项目状态. 该值为下列表的组合:
+    $CDIS_CHECKED - 项目被选定
+    $CDIS_DEFAULT - 项目处于默认状态
+    $CDIS_DISABLED - 项目禁用
+    $CDIS_FOCUS - 项目处于焦点
+    $CDIS_GRAYED - 项目灰色显示
+    $CDIS_HOT - 项目当前在指针下
+    $CDIS_INDETERMINATE - 项目处于不确定状态
+    $CDIS_MARKED - 项目被标记
+    $CDIS_SELECTED - 项目被选定
+    $CDIS_SHOWKEYBOARDCUES - 版本为6.0的comctl32. 项目为一键盘提示
+    $CDIS_NEARHOT - 项目是当前鼠标指针下("热")的控件的一部分, 但项目自身非"热"项. 其含义视执行而定.
+    $CDIS_OTHERSIDEHOT - 项目是当前鼠标指针下("热")的分离按钮的一部分, 但项目自身非"热"项. 其含义视执行而定.
+    $CDIS_DROPHILITED - 项目是当前拖曳操作的目标.
 lItemlParam
-   Ӧ�ó��������Ŀ����.
+   应用程序定义的项目数据.
 clrText
-   �����б���ͼ�ؼ���������ʾ�ı�ǰ��ɫ��COLORREFֵ.
+   代表列表视图控件中用以显示文本前景色的COLORREF值.
 clrTextBk
-   �����б���ͼ�ؼ���������ʾ�ı�����ɫ��COLORREFֵ.
+   代表列表视图控件中用以显示文本背景色的COLORREF值.
 iSubItem
-   �������Ƶ�����Ŀ������. ������ڻ�������, �ó�ԱΪ0.
+   正被绘制的子项目的索引. 如果正在绘制主项, 该成员为0.
 dwItemType
-   �汾6.0.��ʾҪ���Ƶ���Ŀ���͵�DWORD. �ó�Ա��Ϊ����ֵ֮һ:
-    $LVCDI_ITEM - ����һ����Ŀ.
-    $LVCDI_GROUP - ����һ������.
+   版本6.0.表示要绘制的项目类型的DWORD. 该成员可为下列值之一:
+    $LVCDI_ITEM - 绘制一个项目.
+    $LVCDI_GROUP - 绘制一个分组.
 clrFace
-   �汾6.0.������������ʾ��Ŀ��۵���ɫ��COLORREFֵ.
+   版本6.0.代表将用于显示项目外观的颜色的COLORREF值.
 iIconEffect
-   �汾6.0.ָ��ͼ��ʹ�õ�Ч��(�緢��, ��Ӱ, ����˸)��int����ֵ.
+   版本6.0.指定图标使用的效果(如发光, 阴影, 或闪烁)的int类型值.
 iIconPhase
-   �汾6.0.ָ��ͼ�����int����ֵ.
+   版本6.0.指定图标相的int类型值.
 iPartId
-   �汾6.0.ָ�����Ƶ���Ŀ��һ�����ֵ�״̬ID��int����ֵ.
+   版本6.0.指定绘制的项目的一个部分的状态ID的int类型值.
 iStateId
-   �汾6.0.ָ�����Ƶ���Ŀ״̬ID��int����ֵ.
+   版本6.0.指定绘制的项目状态ID的int类型值.
 TextLeft
-   �����л����ı��ľ��ε����Ͻǵ�X����
+   在其中绘制文本的矩形的左上角的X坐标
 TextTop
-   �����л����ı��ľ��ε����Ͻǵ�Y����
+   在其中绘制文本的矩形的左上角的Y坐标
 TextRight
-   �����л����ı��ľ��ε����½ǵ�X����
+   在其中绘制文本的矩形的右下角的X坐标
 TextBottom
-   �����л����ı��ľ��ε����½ǵ�Y����
+   在其中绘制文本的矩形的右下角的Y坐标
 uAlign
-   �汾6.0.ָ��һ��������ζ����UINTֵ. �ó�Ա��Ϊ����ֵ֮һ:
-    $LVGA_HEADER_CENTER - ���ж���.
-    $LVGA_HEADER_LEFT - �������.
-    $LVGA_HEADER_RIGHT - ���Ҷ���.
+   版本6.0.指定一个分组如何对齐的UINT值. 该成员可为下列值之一:
+    $LVGA_HEADER_CENTER - 居中对齐.
+    $LVGA_HEADER_LEFT - 居左对齐.
+    $LVGA_HEADER_RIGHT - 居右对齐.
 @@end@@
 
-###��ע###
-$LVxxx_ ������ҪListViewConstants.au3, $CDxx_������ҪWindowsConstants.au3
+###Remarks###
+$LVxxx_ 常量需要ListViewConstants.au3, $CDxx_常量需要WindowsConstants.au3

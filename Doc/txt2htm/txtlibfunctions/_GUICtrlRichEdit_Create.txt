@@ -1,58 +1,58 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlRichEdit_Create
 
-###����###
-�����༭�ؼ�
+###Description###
+创建编辑控件
 
-###�﷨###
+###Syntax###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_Create($hWnd, $sText, $iLeft, $iTop[, $iWidth = 150[, $iHeight = 150[, $iStyle = -1[, $iExStyle = -1]]]])
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  ���������������ľ��
- $sText  ��ʾ�ڿؼ��ڵ��ı�
- $iLeft  �ؼ���ˮƽλ��
- $iTop  �ؼ��Ĵ�ֱλ��
- $iWidth   [��ѡ����] �ؼ�����
- $iHeight   [��ѡ����] �ؼ��߶�
- $iStyle   [��ѡ����] �ؼ����:
-$ES_AUTOHSCROLL - ���û�����β����һ���ַ�ʱ�ı��Զ����ҹ���10���ַ�
-$ES_AUTOVSCROLL - ���û������һ�е���س�ʱ�ı��Զ����Ϲ���һҳ
-$WS_HSCROLL - �ؼ�����ˮƽ������
-$WS_VSCROLL - �ؼ����д�ֱ������
-$ES_CENTER - �༭�ؼ����ı�����
-$ES_LEFT - �ı�����߶���
-$ES_MULTILINE - ���ɶ��пؼ�(Ĭ��)
-$ES_NOHIDESEL - ����ѡ���ı�, ��ʹ�ؼ�û�н���.
-$ES_NUMBER - ֻ�������������뵽�༭�ؼ�
-$ES_READONLY - ��ֹ�û��ڱ༭�ؼ��д��ֻ������ı�
-$ES_RIGHT - �Ҷ����ı�
-$ES_WANTRETURN - ָ�����û�����ENTER��ʱ����س���(Ĭ��)
-$ES_PASSWORD - ������༭�ؼ���ÿ���ַ���ʾΪ�Ǻ�(*)
-  Ĭ��: 0
-ǿ��: WS_CHILD, $WS_VISIBLE, $WS_TABSTOP unless $ES_READONLY
- $iExStyle   [��ѡ����] �ؼ���չ��ʽ. ���׼$WS_EX_�������Ӧ.
+ $hWnd  父窗体或宿主窗体的句柄
+ $sText  显示在控件内的文本
+ $iLeft  控件的水平位置
+ $iTop  控件的垂直位置
+ $iWidth   [可选参数] 控件宽度
+ $iHeight   [可选参数] 控件高度
+ $iStyle   [可选参数] 控件风格:
+$ES_AUTOHSCROLL - 当用户在行尾键入一个字符时文本自动向右滚动10个字符
+$ES_AUTOVSCROLL - 当用户在最后一行点击回车时文本自动向上滚动一页
+$WS_HSCROLL - 控件带有水平滚动条
+$WS_VSCROLL - 控件带有垂直滚动条
+$ES_CENTER - 编辑控件中文本居中
+$ES_LEFT - 文本与左边对齐
+$ES_MULTILINE - 生成多行控件(默认)
+$ES_NOHIDESEL - 反序选定文本, 即使控件没有焦点.
+$ES_NUMBER - 只允许将数字输入到编辑控件
+$ES_READONLY - 阻止用户在编辑控件中打字或输入文本
+$ES_RIGHT - 右对齐文本
+$ES_WANTRETURN - 指定当用户按下ENTER键时插入回车符(默认)
+$ES_PASSWORD - 将键入编辑控件的每个字符显示为星号(*)
+  默认: 0
+强制: WS_CHILD, $WS_VISIBLE, $WS_TABSTOP unless $ES_READONLY
+ $iExStyle   [可选参数] 控件扩展样式. 与标准$WS_EX_常量相对应.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���ı��༭�ؼ��ľ��
-ʧ��: ����0������@errorΪ:
-    103 - $iLeft��������Ҳ����0
-    104 - $iTop��������Ҳ����0
-    105 - $iWidth��������Ҳ����-1
-    106 - $iHeight��������Ҳ����-1
-    107 - $iStyle��������Ҳ����0��-1
-    108 - $iExStyle��������Ҳ����0��-1
+成功: 富文本编辑控件的句柄
+失败: 返回0并设置@error为:
+    103 - $iLeft不是正数也不是0
+    104 - $iTop不是正数也不是0
+    105 - $iWidth不是正数也不是-1
+    106 - $iHeight不是正数也不是-1
+    107 - $iStyle不是正数也不是0或-1
+    108 - $iExStyle不是正数也不是0或-1
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
  _GUICtrlRichEdit_Destroy
 
-###�ο�###
+###See Also###
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

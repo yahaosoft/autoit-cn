@@ -1,34 +1,34 @@
-###�ṹ����###
+﻿###结构常量###
 $tagNMDAYSTATE
 
-###����###
-����ִ��$MCN_GETDAYSTATE֪ͨ�������Ϣ�Ľṹ
+###Description###
+搭载执行$MCN_GETDAYSTATE通知所需的信息的结构
 
-###�﷨###
+###Syntax###
 Global Const $tagNMDAYSTATE =  $tagNMHDR & ";short Year;short Month;short DOW;short Day;short Hour;short Minute;short Second;short MSecondint DayState;ptr pDayState"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 $tagNMHDR
-   ֪ͨ��Ϣ����Ϣ
+   通知消息的信息
 Year
-   ��
+   年
 Month
-   ��
+   月
 DOW
-   ���е���
+   周中的日
 Day
-   ��
+   日
 Hour
-   ʱ
+   时
 Minute
-   ��
+   分
 Second
-   ��
+   秒
 MSecond
-   ����
+   毫秒
 DayState
-   pDayState������Ԫ�ص�����
+   pDayState数组中元素的总数
 pDayState
-   MONTHDAYSTATE����ĵ�ַ(�������и���״̬��DWORD��λ��). ÿ����λ(1��31)�������е��յ�״̬. �����λΪ����״̬, ��Ӧ�����ڴ�����ʾ; �����ص���ʾ. �õ�ַ�Ļ����������㹻�������ٰ���DayStateԪ��.
+   MONTHDAYSTATE数组的地址(保留月中各天状态的DWORD数位区). 每个数位(1到31)代表月中的日的状态. 如果数位为开启状态, 相应的日期粗体显示; 否则不重点显示. 该地址的缓冲区必须足够大以至少包含DayState元素.
 @@end@@

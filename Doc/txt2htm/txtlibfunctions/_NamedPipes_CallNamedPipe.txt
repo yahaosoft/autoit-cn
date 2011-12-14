@@ -1,38 +1,38 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êı###
+ï»¿###User Defined Function###
 _NamedPipes_CallNamedPipe
 
-###ÃèÊö###
-Ö´ĞĞÃüÃû¹ÜµÀµÄ¶Á/Ğ´²Ù×÷
+###Description###
+æ‰§è¡Œå‘½åç®¡é“çš„è¯»/å†™æ“ä½œ
 
-###Óï·¨###
+###Syntax###
 #Include <NamedPipes.au3>
 _NamedPipes_CallNamedPipe($sPipeName, $pInpBuf,$iInpSize, $pOutBuf, $iOutSize, ByRef $iRead[, $iTimeOut = 0])
 
-###²ÎÊı###
+###Parameters###
 @@ParamTable@@
- $sPipeName  ¹ÜµÀÃû³Æ
- $pInpBuf  °üº¬Ğ´Èë¹ÜµÀµÄÊı¾İµÄ»º³åÇøÖ¸Õë
- $iInpSize  Ğ´Èë»º³åÇøµÄ×Ö½ÚÊıÁ¿
- $pOutBuf  ½ÓÊÕ¹ÜµÀÊı¾İµÄ»º³åÇøÖ¸Õë
- $iOutSize  ¶ÁÈ¡»º³åÇø´óĞ¡, ÓÃ×Ö½Ú
- $iRead  ·µ»ØÊ±, °üº¬´Ó»º³åÇø¶ÁÈ¡µÄ×Ö½ÚÊı
- $iTimeOut  µÈ´ı¹ÜµÀ¿ÉÓÃµÄºÁÃëÊı. ÁíÍâ , ¿ÉÒÔÖ¸¶¨ÏÂÁĞÌØÊâÖµ:
--1 -µÈºò¹ÜµÀ¿ÉÓÃ
-0 - Ê¹ÓÃ¹ÜµÀµÄÄ¬ÈÏ³¬Ê±ÉèÖÃ , Õâ¸öÉèÖÃÓÉCreateNamedPipeº¯ÊıÖ¸¶¨
-1 - Èç¹ÜµÀ²»¿ÉÓÃÔòÁ¢¼´·µ»ØÒ»¸ö´íÎó
+ $sPipeName  ç®¡é“åç§°
+ $pInpBuf  åŒ…å«å†™å…¥ç®¡é“çš„æ•°æ®çš„ç¼“å†²åŒºæŒ‡é’ˆ
+ $iInpSize  å†™å…¥ç¼“å†²åŒºçš„å­—èŠ‚æ•°é‡
+ $pOutBuf  æ¥æ”¶ç®¡é“æ•°æ®çš„ç¼“å†²åŒºæŒ‡é’ˆ
+ $iOutSize  è¯»å–ç¼“å†²åŒºå¤§å°, ç”¨å­—èŠ‚
+ $iRead  è¿”å›æ—¶, åŒ…å«ä»ç¼“å†²åŒºè¯»å–çš„å­—èŠ‚æ•°
+ $iTimeOut  ç­‰å¾…ç®¡é“å¯ç”¨çš„æ¯«ç§’æ•°. å¦å¤– , å¯ä»¥æŒ‡å®šä¸‹åˆ—ç‰¹æ®Šå€¼:
+-1 -ç­‰å€™ç®¡é“å¯ç”¨
+0 - ä½¿ç”¨ç®¡é“çš„é»˜è®¤è¶…æ—¶è®¾ç½® , è¿™ä¸ªè®¾ç½®ç”±CreateNamedPipeå‡½æ•°æŒ‡å®š
+1 - å¦‚ç®¡é“ä¸å¯ç”¨åˆ™ç«‹å³è¿”å›ä¸€ä¸ªé”™è¯¯
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: Õæ
-Ê§°Ü: ¼Ù
+æˆåŠŸ: çœŸ
+å¤±è´¥: å‡
 @@End@@
 
-###±¸×¢###
-µ÷ÓÃCallNamedPipeµÈÍ¬ÓÚµ÷ÓÃCreateFile (»òÕßWaitNamedPipe , µ±CreateFileÎŞ·¨Á¢¼´´ò¿ª¹ÜµÀÊ±) , TransactNamedPipe , ºÍCloseHandleº¯Êı. ÒÔGENERIC_READ | GENERIC_WRITEÈ¨ÏŞ±ê¼Ç¼°Âß¼­·ñµÄ¼¯³É¾ä±ú±ê¼Çµ÷ÓÃCreateFile. µ±¹ÜµÀÊÇ×Ö½ÚĞÍµÄµÄÊ±ºòº¯ÊıÎŞĞ§.
+###Remarks###
+è°ƒç”¨CallNamedPipeç­‰åŒäºè°ƒç”¨CreateFile (æˆ–è€…WaitNamedPipe , å½“CreateFileæ— æ³•ç«‹å³æ‰“å¼€ç®¡é“æ—¶) , TransactNamedPipe , å’ŒCloseHandleå‡½æ•°. ä»¥GENERIC_READ | GENERIC_WRITEæƒé™æ ‡è®°åŠé€»è¾‘å¦çš„é›†æˆå¥æŸ„æ ‡è®°è°ƒç”¨CreateFile. å½“ç®¡é“æ˜¯å­—èŠ‚å‹çš„çš„æ—¶å€™å‡½æ•°æ— æ•ˆ.
 
-###Ïà¹Ø###
+###Related###
 _NamedPipes_WaitNamedPipe ,  _NamedPipes_TransactNamedPipe
 
-###²Î¿¼###
-ËÑË÷MSDNÖªÊ¶¿âÖĞCallNamedPipeµÄÏà¹ØĞÅÏ¢
+###See Also###
+æœç´¢MSDNçŸ¥è¯†åº“ä¸­CallNamedPipeçš„ç›¸å…³ä¿¡æ¯

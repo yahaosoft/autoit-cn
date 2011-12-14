@@ -1,21 +1,21 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_SetWinEventHook
 
-###����###
-��һ����Χ���¼������¼����ӳ���
+###Description###
+对一定范围的事件设置事件钩子程序
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_SetWinEventHook( $iEventMin, $iEventMax, $pWinEventProc [, $iProcessID [, $iThreadID [, $iFlags]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
-$iEventMin  �ɹ��ӳ�����Ƶ��¼�($EVENT_*)��Χ�����ֵ
-$iEventMax  �ɹ��ӳ�����Ƶ��¼�($EVENT_*)��Χ�����ֵ
-$pWinEventProc  ����Ӧ�ɷ��ʶ��󴴽����¼���ϵͳ���õ�Ӧ�ó�����Ĺ��ӳ���ĵ�ַ.
-$iProcessID  [��ѡ] ���Ӻ��������¼��Ľ��̵�ID. ����ò���Ϊ0, ���Ӻ����뵱ǰ�����ϵ����н��������.
-$iThreadID  [��ѡ] ���Ӻ��������¼����̵߳�ID. ����ò���Ϊ0, ���Ӻ����뵱ǰ�����ϵ������߳������.
-$iFlags  [��ѡ] ָ�����Ӻ��������Ե��¼���λ�õı��. ��������ֵ��ֵ�����:
+$iEventMin  由钩子程序控制的事件($EVENT_*)范围的最低值
+$iEventMax  由钩子程序控制的事件($EVENT_*)范围的最高值
+$pWinEventProc  在响应可访问对象创建的事件中系统调用的应用程序定义的钩子程序的地址.
+$iProcessID  [可选] 钩子函数接受事件的进程的ID. 如果该参数为0, 钩子函数与当前桌面上的所有进程相关联.
+$iThreadID  [可选] 钩子函数接受事件的线程的ID. 如果该参数为0, 钩子函数与当前桌面上的所有线程相关联.
+$iFlags  [可选] 指定钩子函数及忽略的事件的位置的标记. 可用下列值或值的组合:
 $WINEVENT_INCONTEXT
 $WINEVENT_OUTOFCONTEXT
 $WINEVENT_INCONTEXT | $WINEVENT_SKIPOWNPROCESS
@@ -24,19 +24,19 @@ $WINEVENT_OUTOFCONTEXT | $WINEVENT_SKIPOWNPROCESS
 $WINEVENT_OUTOFCONTEXT | $WINEVENT_SKIPOWNTHREAD
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���ر�ʶ�¼�����ʵ����ֵ
-ʧ��: ����0������@error��0
+成功: 返回标识事件钩子实例的值
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-����ͻ���ע�����Ĺ��Ӻ��������������¼��ɶ�ε���_WinAPI_SetWinEventHook()
+###Remarks###
+如果客户想注册额外的钩子函数或监听额外的事件可多次调用_WinAPI_SetWinEventHook()
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����SetWinEventHook�������Ϣ
+###See Also###
+ 搜索MSDN知识库中SetWinEventHook的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

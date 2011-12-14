@@ -1,10 +1,10 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_CreateFont
 
-###����###
-����һ��������߼�����
+###Description###
+创建一种特殊的逻辑字体
 
-###�﷨###
+###Syntax###
 #Include <WinAPI.au3>
 _WinAPI_CreateFont($nHeight,
 $nWidth[, $nEscape = 0[, $nOrientn = 0[, $fnWeight = $FW_NORMAL[, $bItalic =
@@ -13,18 +13,18 @@ $DEFAULT_CHARSET[, $nOutputPrec = $OUT_DEFAULT_PRECIS[, $nClipPrec =
 $CLIP_DEFAULT_PRECIS[, $nQuality = $DEFAULT_QUALITY[, $nPitch = 0[, $szFace =
 'Arial']]]]]]]]]]]])
 
-###����###
+###Parameters###
 @@ParamTable@@
 $nHeight
-   ����ĸ߶�
+   字体的高度
 $nWidth
-   �ַ���ƽ������
+   字符的平均宽度
 $nEscape
-   ָ����λ�����ĽǶ�
+   指定移位向量的角度
 $nOrientn
-   ָ��ÿ���ַ��Ļ��ߵĽǶ�
+   指定每个字符的基线的角度
 $fnWeight
-   ����Ȩֵ, Ϊ���㶨�壬��ʹ������ֵ:
+   字体权值, 为方便定义，可使用如下值:
     $FW_DONTCARE - 0
     $FW_THIN - 100
     $FW_EXTRALIGHT - 200
@@ -36,13 +36,13 @@ $fnWeight
     $FW_EXTRABOLD - 800
     $FW_HEAVY - 900
 $bItalic
-   ָ��б��
+   指定斜体
 $bUnderline
-   ָ�����»���
+   指定加下划线
 $bStrikeout
-   �޳�����
+   剔除属性
 $nCharset
-   ָ���ַ���. ����ֵ��Ԥ�����:
+   指定字符集. 下列值是预定义的:
     $ANSI_CHARSET - 0
     $BALTIC_CHARSET - 186
     $CHINESEBIG5_CHARSET - 136
@@ -59,59 +59,59 @@ $nCharset
     $TURKISH_CHARSET - 162
     $VIETNAMESE_CHARSET - 163
 $nOutputPrec
-   ָ���������, ȡ����ֵ֮һ:
-    $OUT_CHARACTER_PRECIS - δ��
-    $OUT_DEFAULT_PRECIS - ָ��ȱʡ������ӳ���״̬
-    $OUT_DEVICE_PRECIS - ָʾ����ӳ����ڵ�ϵͳ���ж�������ʹ��ͬһ������ʹ��ͬһ������ʱѡ��һ���豸����
-    $OUT_OUTLINE_PRECIS - Windows NT/2000/XP: ��ֵָʾ����ӳ�����TrueType���������ڱ߿��������ѡ��
-    $OUT_PS_ONLY_PRECIS - Windows 2000/XP:  ָʾ����ӳ������ڹ�դ������ѡ��. ���ϵͳû�а�װ��դ����, ����ӳ�������Ĭ��ֵ
-    $OUT_RASTER_PRECIS - ָʾ����ӳ����ڵ�ϵͳ���ж�������ʹ��ͬһ������ʱѡ��һ�ֹ�դ����
-$OUT_STRING_PRECIS - ��ֵû�б���ȫӳ���ʹ�ã����ǵ�ɨ�����屻�о�ʱ��Ϊ@@End@@
+   指定输出精度, 取下列值之一:
+    $OUT_CHARACTER_PRECIS - 未用
+    $OUT_DEFAULT_PRECIS - 指定缺省的字体映射表状态
+    $OUT_DEVICE_PRECIS - 指示字体映射表在当系统里有多种字体使用同一个字体使用同一个名字时选择一种设备字体
+    $OUT_OUTLINE_PRECIS - Windows NT/2000/XP: 此值指示字体映射表从TrueType和其他基于边框的字体中选择
+    $OUT_PS_ONLY_PRECIS - Windows 2000/XP:  指示字体映射表仅在光栅字体中选择. 如果系统没有安装光栅字体, 字体映射表返回默认值
+    $OUT_RASTER_PRECIS - 指示字体映射表在当系统里有多种字体使用同一个名字时选择一种光栅字体
+$OUT_STRING_PRECIS - 此值没有被字全映射表使用，但是当扫描字体被列举时作为@@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-$OUT_STROKE_PRECIS - Windows NT/2000/XP:  ��ֵû�б�����ӳ���ʹ��, ���ǵ�ö��TrueType, �������ڱ߿���������������ʱ��������.
-$OUT_TT_ONLY_PRECIS - ָʾ����ӳ�������TrueType������ѡ��. ���ϵͳ��û�а�װTrueType����, ������ӳ�������ȱʡ״̬
-$OUT_TT_PRECIS - ָʾ����ӳ���ѡ��һ��TrueType���嵱ϵͳ�������ͬ������ʱ
- $nClipPrec  ָ���ü�����. ����ȡһ����������ֵ:
-$CLIP_CHARACTER_PRECIS - δ��
-$CLIP_DEFAULT_PRECIS - ָ��ȱʡ�ü�״̬
-$CLIP_EMBEDDED -  Ҫʹ��Ƕ��ʽֻ���������ʹ�ô˱�־
-$CLIP_LH_ANGLES - �����������ת����������ϵͳ�Ķ�λ�ǳ���Ļ��ǳ��ҵ�. ���δʹ�ô�ֵ���豸����������ʱ�뷽����ת, �������������ת����������ϵͳ�Ķ���.
-$CLIP_MASK - δ��
-$CLIP_STROKE_PRECIS -  δ������ӳ���ʹ��, ���ǵ�ö�ٹ�դ���塢���������TrueType����ʱ��������. Ϊ��֤������, Windows NT/2000/XP��ö������ʱ�ܷ��ظ�ֵ
-$CLIP_TT_ALWAYS -  δ��
- $fdwQuality  ָ���������, ����ȡ����ֵ֮һ:
-$ANTIALIASED_QUALITY - �������֧�������岻�ǹ�����С����з���ݻ�ƽ������.
-$DEFAULT_QUALITY - �������۲���Ҫ
-$DRAFT_QUALITY - ������۵���Ҫ�Դ���ʹ��PROOF_QUALITYʱ. ��GDI��դ����, ���ű����ǻ�ģ�����ζ�Ŷ��������С�ɹ�ѡ��, ����б�Ҫ�����塢б�塢�»��ߡ���������ɱ��ۺ�����ʹ��, ���������ܲ���
-$NONANTIALIASED_QUALITY - ���岻���з���ݴ���, ������������ƽ��
-$PROOF_QUALITY - �ַ������Ⱦ�ȷƥ���߼������������Ը���Ҫ.
-��GDIɨ�����壬���ű����ǻ�ģ���ѡ����ӽ��Ĵ�С.
-����ʹ��PROOF_QUALITYʱѡ�������С������ȫƥ��, ������������ܸ�������ϲ������.
-����б�Ҫ�����塢б�塢�»��ߡ�strikeout����ɱ��ۺ�����ʹ��
- $nPitch  ָ��������������壬�Ͷ˶�λָ��������ַ���࣬����ȡ����ֵ֮һ:
+$OUT_STROKE_PRECIS - Windows NT/2000/XP:  此值没有被字体映射表使用, 但是当枚举TrueType, 其他基于边框的字体和向量字体时将被返回.
+$OUT_TT_ONLY_PRECIS - 指示字体映射表仅从TrueType字体中选择. 如果系统中没有安装TrueType字体, 则字体映射表返回缺省状态
+$OUT_TT_PRECIS - 指示字体映射表选择一种TrueType字体当系统包含多个同名字体时
+ $nClipPrec  指定裁剪精度. 它可取一个或多个下列值:
+$CLIP_CHARACTER_PRECIS - 未用
+$CLIP_DEFAULT_PRECIS - 指定缺省裁剪状态
+$CLIP_EMBEDDED -  要使用嵌入式只读字体必须使用此标志
+$CLIP_LH_ANGLES - 所有字体的旋转依赖于坐标系统的定位是朝左的还是朝右的. 如果未使用此值，设备字体总是逆时针方向旋转, 但其他字体的旋转依赖于坐标系统的定向.
+$CLIP_MASK - 未用
+$CLIP_STROKE_PRECIS -  未被字体映射表使用, 但是当枚举光栅字体、向量字体或TrueType字体时将被返回. 为保证兼容性, Windows NT/2000/XP在枚举字体时总返回该值
+$CLIP_TT_ALWAYS -  未用
+ $fdwQuality  指定输出质量, 它可取下列值之一:
+$ANTIALIASED_QUALITY - 如果字体支持且字体不是过大或过小则进行反锯齿或平滑处理.
+$DEFAULT_QUALITY - 字体的外观不重要
+$DRAFT_QUALITY - 字体外观的重要性次于使用PROOF_QUALITY时. 对GDI光栅字体, 缩放比例是活动的，这意味着多种字体大小可供选择, 如果有必要，粗体、斜体、下划线、拉伸字体可被综合起来使用, 但质量可能不高
+$NONANTIALIASED_QUALITY - 字体不进行反锯齿处理, 即不进行字体平滑
+$PROOF_QUALITY - 字符质量比精确匹配逻辑字体字体属性更重要.
+对GDI扫描字体，缩放比例是活动的，并选择最接近的大小.
+尽管使用PROOF_QUALITY时选择字体大小并不完全匹配, 但字体的质量很高且外观上不会变形.
+如果有必要，粗体、斜体、下划线、strikeout字体可被综合起来使用
+ $nPitch  指定字体间距和字体族，低端二位指定字体的字符间距，它可取下列值之一:
 $DEFAULT_PITCH, $FIXED_PITCH, $VARIABLE_PITCH
-�߶���λָ�������壬��ȡ����ֵ֮һ:
-$FF_DECORATIVE - ��������壬����ʽӢ��
-$FF_DONTCARE - ʹ��Ĭ������
-$FF_MODERN - �ʻ����ȹ̶������壬�л����޳���. ��Pica, Elite, ��Courier New
-$FF_ROMAN - �ʻ����ȿɱ�����壬�г���. ��MS Serif
-$FF_SCRIPT - ��Ƴɿ���ȥ����д�������. ��Script��Cursive
-$FF_SWISS - �ʻ����ȿɱ����������б��. ��MS Sans Serif
- $szFace  ָ�������������
-����ֵ �ɹ�: �߼�������
-ʧ��: 0
+高端四位指定字体族，可取下列值之一:
+$FF_DECORATIVE - 新奇的字体，如老式英语
+$FF_DONTCARE - 使用默认字体
+$FF_MODERN - 笔划宽度固定的字体，有或者无衬线. 如Pica, Elite, 和Courier New
+$FF_ROMAN - 笔划宽度可变的字体，有衬线. 如MS Serif
+$FF_SCRIPT - 设计成看上去象手写体的字体. 如Script和Cursive
+$FF_SWISS - 笔划宽度可变的字体且无斜线. 如MS Sans Serif
+ $szFace  指定字体的字样名
+返回值 成功: 逻辑字体句柄
+失败: 0
 @@End@@
 
-###��ע###
-������ʹ������ʱ, ����_WinAPI_DeleteObjectɾ��
-��ҪFontConstants.au3Ԥ���峣��.
+###Remarks###
+当不再使用字体时, 可用_WinAPI_DeleteObject删除
+需要FontConstants.au3预定义常量.
 
-###���###
+###Related###
 
-###�ο�###
-����MSDN֪ʶ�����й�CreateFont����Ϣ
+###See Also###
+搜索MSDN知识库中有关CreateFont的信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

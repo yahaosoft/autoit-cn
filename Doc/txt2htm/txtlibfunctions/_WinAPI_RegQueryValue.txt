@@ -1,17 +1,17 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êý###
+ï»¿###User Defined Function###
 _WinAPI_RegQueryValue
 
-###ÃèÊö###
-»ñÈ¡Óë´ò¿ªµÄ×¢²á±í¼üÏà¹ØµÄÖ¸¶¨ÖµµÄÊý¾ÝºÍÀàÐÍ
+###Description###
+èŽ·å–ä¸Žæ‰“å¼€çš„æ³¨å†Œè¡¨é”®ç›¸å…³çš„æŒ‡å®šå€¼çš„æ•°æ®å’Œç±»åž‹
 
-###Óï·¨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_RegQueryValue( $hKey, $sValueName, ByRef $tValueData )
 
-###²ÎÊý###
+###Parameters###
 @@ParamTable@@
 $hKey
-   $KEY_QUERY_VALUEÈ¨ÏÞ´ò¿ªµÄ¼üµÄ¾ä±ú. ¸Ã¾ä±úÐëÓÉ_WinAPI_RegCreateKey()»ò_WinAPI_RegOpenKey()º¯Êý´ò¿ª.¿ÉÎªÏÂÁÐÔ¤¶¨Òå¼üÖ®Ò»:
+   $KEY_QUERY_VALUEæƒé™æ‰“å¼€çš„é”®çš„å¥æŸ„. è¯¥å¥æŸ„é¡»ç”±_WinAPI_RegCreateKey()æˆ–_WinAPI_RegOpenKey()å‡½æ•°æ‰“å¼€.å¯ä¸ºä¸‹åˆ—é¢„å®šä¹‰é”®ä¹‹ä¸€:
    $HKEY_CLASSES_ROOT
    $HKEY_CURRENT_CONFIG
    $HKEY_CURRENT_USER
@@ -21,25 +21,25 @@ $hKey
    $HKEY_PERFORMANCE_TEXT
    $HKEY_USERS
 $sValueName
-   $sValueNameÎª¿Õ×Ö·û´®, º¯Êý»ñÈ¡Î´ÃüÃû»òÄ¬ÈÏµÄ¼üµÄÊý¾ÝºÍÀàÐÍ.
+   $sValueNameä¸ºç©ºå­—ç¬¦ä¸², å‡½æ•°èŽ·å–æœªå‘½åæˆ–é»˜è®¤çš„é”®çš„æ•°æ®å’Œç±»åž‹.
 $tValueData
-   »ñÈ¡µÄÖµµÄ½á¹¹(»º³åÇø)
+   èŽ·å–çš„å€¼çš„ç»“æž„(ç¼“å†²åŒº)
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: ¸´ÖÆµ½$tValueDataµÄÊý¾ÝµÄ×Ö½Ú´óÐ¡, @extended±ê¼Ç°üº¬Êý¾ÝÀàÐÍ($REG_...).
-Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0, @extended±ê¼Ç¿É°üº¬·Ç0ÏµÍ³´íÎó´úÂë.
+æˆåŠŸ: å¤åˆ¶åˆ°$tValueDataçš„æ•°æ®çš„å­—èŠ‚å¤§å°, @extendedæ ‡è®°åŒ…å«æ•°æ®ç±»åž‹($REG_...).
+å¤±è´¥: è¿”å›ž0å¹¶è®¾ç½®@erroréž0, @extendedæ ‡è®°å¯åŒ…å«éž0ç³»ç»Ÿé”™è¯¯ä»£ç .
 @@End@@
 
-###±¸×¢###
-Èç¹ûÊý¾ÝÎªREG_SZ, REG_MULTI_SZ»òREG_EXPAND_SZÀàÐÍ, ·µ»ØµÄ´óÐ¡°üº¬ÈÎÒâµÄÖÕÖ¹×Ö·û³ý·ÇÊý¾Ý´æ´¢Ê±Ã»ÓÐ.
-Èç¹ûÓÉ$tValueData²ÎÊýÖ¸¶¨µÄ»º³åÇø²»×ãÒÔÈÝÄÉÊý¾Ý, º¯Êý·µ»ØERROR_MORE_DATA (234)²¢½«·µ»ØËùÐèµÄ»º³åÇø´óÐ¡. ÔÚ´ËÇé¿öÏÂ, »º³åÇøÄÚÈÝ²»±»¶¨Òå.
+###Remarks###
+å¦‚æžœæ•°æ®ä¸ºREG_SZ, REG_MULTI_SZæˆ–REG_EXPAND_SZç±»åž‹, è¿”å›žçš„å¤§å°åŒ…å«ä»»æ„çš„ç»ˆæ­¢å­—ç¬¦é™¤éžæ•°æ®å­˜å‚¨æ—¶æ²¡æœ‰.
+å¦‚æžœç”±$tValueDataå‚æ•°æŒ‡å®šçš„ç¼“å†²åŒºä¸è¶³ä»¥å®¹çº³æ•°æ®, å‡½æ•°è¿”å›žERROR_MORE_DATA (234)å¹¶å°†è¿”å›žæ‰€éœ€çš„ç¼“å†²åŒºå¤§å°. åœ¨æ­¤æƒ…å†µä¸‹, ç¼“å†²åŒºå†…å®¹ä¸è¢«å®šä¹‰.
 
-###Ïà¹Ø###
+###Related###
 
-###²Î¿¼###
- ËÑË÷MSDNÖªÊ¶¿âÖÐRegQueryValueExµÄÏà¹ØÐÅÏ¢
+###See Also###
+ æœç´¢MSDNçŸ¥è¯†åº“ä¸­RegQueryValueExçš„ç›¸å…³ä¿¡æ¯
 
-###Ê¾Àý###
+###Example###
 @@IncludeExample@@

@@ -1,41 +1,41 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_CreateEvent
 
-###����###
-�������һ�������Ļ�δ�������¼�����
+###Description###
+创建或打开一个命名的或未命名的事件对象
 
-###�﷨###
+###Syntax###
 #Include
 <WinAPI.au3>
 _WinAPI_CreateEvent([$pAttributes = 0[, $fManualReset =
 True[, $fInitialState = True[, $sName = ""]]]])
 
-###����###
+###Parameters###
 @@ParamTable@@
 $pAttributes
-$tagSECURITY_ATTRIBUTES�ṹ��ָ��. ���Ϊ0, ����޷����ӽ��̼̳�.
-      lpEventAttributes�Ľṹ�еĳ�ԱΪ�µ��¼�ָ����һ����ȫ�������pEventAttributes��NULL���¼������һ��Ĭ�ϵİ�ȫ��.
+$tagSECURITY_ATTRIBUTES结构的指针. 如果为0, 句柄无法由子进程继承.
+      lpEventAttributes的结构中的成员为新的事件指定了一个安全符。如果pEventAttributes是NULL，事件将获得一个默认的安全符.
 $fManualReset
-   ���Ϊ��, ��������һ���ֶ���ԭ�¼���������Ҫʹ��ResetEvent���������¼�״̬Ϊ���ź�.
-      ���������źŵȴ��̱߳��ͷź󴴽�һ���Զ���ԭ�¼�����Ϊ���ź�״̬
+   如果为真, 函数创建一个手动复原事件对象，这需要使用ResetEvent函数设置事件状态为无信号.
+      函数将在信号等待线程被释放后创建一个自动复原事件对象为无信号状态
 $fInitialState
-   ���Ϊ��, �¼���������״̬�����ź�״̬; ����Ϊ���ź�״̬
+   如果为真, 事件对象的最初状态卫有信号状态; 否则为无信号状态
 $sName
-   �¼����������. ���ƶԱ��Ǵ�Сд���е�. ���sName��һ���Ѵ��ڵ��¼�����������ƥ��, ������Ҫ
-      EVENT_ALL_ACCESS ���Ȩ��. ʵ����, ����fManualReset��fInitialState�����ڴ�������ʱ�ѱ����ã��ʶ�����������. ���pAttributes������Ϊ0, ������������Ƿ�ɱ��̳�, ���䰲ȫ��������Ա��������.
-      �������Ϊ�ս�����һ��δ�������¼�����.
+   事件对象的名称. 名称对比是大小写敏感的. 如果sName以一个已存在的事件对象名称相匹配, 函数需要
+      EVENT_ALL_ACCESS 获得权限. 实际上, 由于fManualReset和fInitialState参数在创建进程时已被设置，故而经常被忽略. 如果pAttributes参数不为0, 它将决定句柄是否可被继承, 但其安全描述符成员将被忽略.
+      如果名称为空将创建一个未命名的事件对象.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �¼�����ľ��. ����ں�������ǰ�������¼������Ѵ���, ��������һ���Ѵ��ڶ���ľ��, ��GetLastError����ERROR_ALREADY_EXISTS.
-ʧ��: 0
+成功: 事件对象的句柄. 如果在函数调用前命名的事件对象已存在, 函数返回一个已存在对象的句柄, 且GetLastError返回ERROR_ALREADY_EXISTS.
+失败: 0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 $tagSECURITY_ATTRIBUTES
 
-###�ο�###
-����MSDN֪ʶ�����й�CreateEvent����Ϣ
+###See Also###
+搜索MSDN知识库中有关CreateEvent的信息

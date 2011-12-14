@@ -1,42 +1,42 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_EnumDisplaySettings
 
-###����###
-��ȡ��ʾ�豸��ͼ����Ϣ
+###Description###
+获取显示设备的图像信息
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_EnumDisplaySettings( $sDevice, $iMode )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $sDevice
-   ����Ҫ��ȡͼ����Ϣ����ʾ�豸. ���ַ���ָ��������Ͻ������ڵ��õĵ�ǰ��ʾ�豸
+   函数要获取图像信息的显示设备. 空字符串指定计算机上进程正在调用的当前显示设备
 $iMode
-   ��ȡ����Ϣ����. ��ֵ��Ϊһ��ͼ��ģʽ����������ֵ.
-    $ENUM_CURRENT_SETTINGS - ��ȡ��ʾ�豸�ĵ�ǰ����
-    $ENUM_REGISTRY_SETTINGS - ��ȡ��ǰ������ע����е���ʾ�豸������
-$iModeΪ0 , ÿ��˳�����$iMode��1. ��������ֱ������ֵΪ0.
-$iModeΪ0ʱ����_WinAPI_EnumDisplaySettings(), ϵͳ��ʼ������ȡ��ʾ�豸��Ϣ. ��$iMode��0ʱ����_WinAPI_EnumDisplaySettings(), �����������һ��$iModeΪ0ʱ���ú������õ���Ϣ.
+   获取的信息类型. 该值可为一个图像模式索引或下列值.
+    $ENUM_CURRENT_SETTINGS - 获取显示设备的当前设置
+    $ENUM_REGISTRY_SETTINGS - 获取当前保存在注册表中的显示设备的设置
+$iMode为0 , 每次顺序调用$iMode加1. 持续调用直到返回值为0.
+$iMode为0时调用_WinAPI_EnumDisplaySettings(), 系统初始化并获取显示设备信息. 当$iMode非0时调用_WinAPI_EnumDisplaySettings(), 函数返回最后一次$iMode为0时调用函数所得的信息.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �������в���������:
-  [0] - �ɼ��豸��������ؿ���.
-  [1] - �ɼ��豸��������ظ߶�.
-  [2] - ��ʾ�豸����ɫ�ֱ���.
-  [3] - �ض�ģʽ����ʾ�豸�ĺ���Ƶ��(��ÿ��)
-  [4] - �豸��ʾģʽ($DM_...).
-ʧ��: ����0������@error��0.
+成功: 包含下列参数的数组:
+  [0] - 可见设备表面的像素宽度.
+  [1] - 可见设备表面的像素高度.
+  [2] - 显示设备的颜色分辨率.
+  [3] - 特定模式下显示设备的赫兹频率(周每秒)
+  [4] - 设备显示模式($DM_...).
+失败: 返回0并设置@error非0.
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����EnumDisplaySettings�������Ϣ
+###See Also###
+ 搜索MSDN知识库中EnumDisplaySettings的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

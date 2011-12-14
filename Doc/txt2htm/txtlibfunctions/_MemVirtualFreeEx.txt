@@ -1,34 +1,34 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _MemVirtualFreeEx
 
-###����###
-�ͷ�Ŀ����̵��ڴ�ռ�
+###Description###
+释放目标进程的内存空间
 
-###�﷨###
+###Syntax###
 #Include <Memory.au3>
 _MemVirtualFreeEx($hProcess,$pAddress, $iSize, $iFreeType)
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hProcess  ���̾��
- $pAddress  ���ͷŵ��ڴ�����Ŀ�ʼ��ַ��ָ��
- $iSize  Ҫ�ͷŵ��ڴ�������ֽڴ�С
- $iFreeType  ָ���ͷŲ���������:
-$MEM_DECOMMIT - ��ָ��ִ�в�����ҳ�������
+ $hProcess  进程句柄
+ $pAddress  被释放的内存区域的开始地址的指针
+ $iSize  要释放的内存区域的字节大小
+ $iFreeType  指定释放操作的类型:
+$MEM_DECOMMIT - 不指定执行操作的页面的区域
 $MEM_RELEASE -
-      �ͷű���ҳ���ָ������
+      释放保留页面的指定区域
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��
-ʧ��: ��
+成功: 真
+失败: 假
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 _MemVirtualAllocEx
 
-###�ο�###
-����MSDN֪ʶ��VirtualFreeEx�������Ϣ
+###See Also###
+搜索MSDN知识库VirtualFreeEx的相关信息

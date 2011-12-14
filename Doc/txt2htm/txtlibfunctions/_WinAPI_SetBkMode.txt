@@ -1,44 +1,44 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_SetBkMode
 
-###����###
-����ָ���豸�����ı�����䷽ʽ
+###Description###
+设置指定设备场景的背景填充方式
 
-###�﷨###
+###Syntax###
 #Include <WinAPI.au3>
 _WinAPI_SetBkMode($hDC,
 $iBkMode)
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hDC
-   �豸�����ľ��
+   设备场景的句柄
 $iBkMode
-   ָ��������䷽ʽ. �ò�����Ϊ����ֵ֮һ.
-    OPAQUE - �ڻ����ı�, ��Ӱˢ,
-      ���߼���ǰʹ�õ�ǰɫ��䱳��.
-    TRANSPARENT - �����������.
+   指定背景填充方式. 该参数可为下列值之一.
+    OPAQUE - 在绘制文本, 阴影刷,
+      或逻辑笔前使用当前色填充背景.
+    TRANSPARENT - 背景不作填充.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ָ��ǰһ�������ģʽ��ֵ.
-ʧ��: 0
+成功: 指定前一背景混合模式的值.
+失败: 0
 @@End@@
 
-###��ע###
-�������ģʽ���ڷ�ʵ�ߵ��ı�, ��Ӱˢ,
-���߼�����ʽ.
-SetBkMode����Ӱ����CreatePen�������߼��ʻ��Ƶ��ߵ���ʽ.
-SetBkModeӰ����ExtCreatePen�������߼��ʻ��Ƶ��ߵ���ʽ.
-$iBkMode����Ҳ�ɱ���������ָ����ֵ.
-GDI���ݴ�ֵ���豸���������.
+###Remarks###
+背景混合模式用于非实线的文本, 阴影刷,
+或逻辑笔样式.
+SetBkMode函数影响由CreatePen创建的逻辑笔绘制的线的样式.
+SetBkMode影响由ExtCreatePen创建的逻辑笔绘制的线的样式.
+$iBkMode参数也可被设置驱动指定的值.
+GDI传递此值到设备驱动或忽略.
 
-###���###
+###Related###
 _WinAPI_GetBkMode , _WinAPI_DrawText , _WinAPI_CreatePen , _WinAPI_SelectObject
 
-###�ο�###
-����MSDN֪ʶ����SetBkMode�������Ϣ
+###See Also###
+搜索MSDN知识库中SetBkMode的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

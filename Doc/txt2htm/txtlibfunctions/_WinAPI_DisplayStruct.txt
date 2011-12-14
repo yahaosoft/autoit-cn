@@ -1,62 +1,62 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_DisplayStruct
 
-###����###
-���б���ʾԴ��ָ���ṹ���ڴ��ַ������
+###Description###
+以列表显示源于指定结构或内存地址的数据
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_DisplayStruct (ByRef $tStruct [, $sStruct [, $sTitle [, $iItem [, $iSubItem [, $iFlags [, $fTop [, $hParent]]]]]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $tStruct
-   DllStructCreate()�����Ľṹ����ʾ���ݵ��ڴ��ַ
+   DllStructCreate()创建的结构或被显示数据的内存地址
 $sStruct
-$tStruct��һ���ṹ , �ɺ��Ըò�����մ�. ��������½ṹ����ʾΪ " byte[n] " �ṹ. ���$tStructΪ�ڴ��ַ , $sStruct��Ϊ�����ṹ���ַ��� , ���� , ����ʧ����@errorΪ1.
+$tStruct是一个结构 , 可忽略该参数或空串. 这种情况下结构将显示为 " byte[n] " 结构. 如果$tStruct为内存地址 , $sStruct将为代表结构的字符串 , 否则 , 函数失败且@error为1.
 $sTitle
-   [��ѡ] ���ڱ���, Ĭ��Ϊ " Structure: ListView Display "
+   [可选] 窗口标题, 默认为 " Structure: ListView Display "
 $iItem
-   [��ѡ] 1��������ѡ���б��Ľṹ��Ա����. ����ò���Ϊ0����ȷ������������ , ��ѡȡ�ṹ���׸�Ԫ��.
+   [可选] 1基索引或被选入列表的结构成员名称. 如果该参数为0或不正确的索引或名称 , 将选取结构的首个元素.
 $iSubItem
-$iItem����ָ��Ľṹ��Ա��1����������. ���$iItemδ��$sStruct�ж���Ϊ���� , ������������Ч , ��ѡȡ������Ԫ��.
+$iItem参数指向的结构成员的1基索引数组. 如果$iItem未在$sStruct中定义为数组 , 或数组索引无效 , 将选取其自身元素.
 $iFlags
-   [��ѡ] ָ��������ʾѡ�����λ���. �ò�����Ϊ0������ֵ���������:
-   1 - ���б�ͷβ����ʾ " " �� " " �ֶ�
-   2 - ����ʾ " " �ֶ�
-   4 - ����ṹԪ�������Ʋ����б��� " Member " ������ʾ " "
-   8 - ��������ʾ������Ϊ����ĵĽṹԪ��.
-   16 - ������Ϊ " Reserved* " Ԫ�ظ�֪Ϊδʹ��Ԫ��.
-   32 - ��ֹʹ��˫���ṹԪ�ص�ֵ���Ƶ�������.
-   64 - ǿ����չ�ṹ��BYTE[n]��BOOLEAN[n]����Ԫ��(CHAR[n]��WCHAR[n]���͵�Ԫ��ͨ����ʾΪ�ַ���).
-   128 - �������, ǿ����16������ʾ�ṹԪ�ص�ֵ.
-   256 - ����ڴ���ʳ���ǿ�Ʒ��ش�������Դ�����ʾ��Ϣ��.
-   512 - ǿ�ƽ��ü�������ṹ���ڴ�Ķ�ȡȨ��.
+   [可选] 指定额外显示选项的数位标记. 该参数可为0或下列值的任意组合:
+   1 - 在列表头尾不显示 " " 和 " " 字段
+   2 - 不显示 " " 字段
+   4 - 如果结构元素无名称不在列表的 " Member " 列中显示 " "
+   8 - 不高亮显示被定义为数组的的结构元素.
+   16 - 不将名为 " Reserved* " 元素感知为未使用元素.
+   32 - 禁止使用双击结构元素的值复制到剪贴板.
+   64 - 强制扩展结构的BYTE[n]和BOOLEAN[n]类型元素(CHAR[n]和WCHAR[n]类型的元素通常显示为字符串).
+   128 - 如果可能, 强制以16进制显示结构元素的值.
+   256 - 如果内存访问出错强制返回错误代码以代替显示消息框.
+   512 - 强制禁用检查分配给结构的内存的读取权限.
 $fTop
-   [��ѡ] ָ���Ƿ񴴽����� " Always On Top " ���ԵĴ��� , ����ֵ:
-    1 - ���ھ���$WS_EX_TOPMOST extended��ʽ. (Ĭ��)
-    0 - ���ڲ����� " TOPMOST " �������.
+   [可选] 指定是否创建具有 " Always On Top " 属性的窗口 , 可用值:
+    1 - 窗口具有$WS_EX_TOPMOST extended样式. (默认)
+    0 - 窗口不具有 " TOPMOST " 标记设置.
 $hParent
-   [��ѡ] ��������
+   [可选] 父窗体句柄
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@errorΪ����ֵ:
-    1 - $sStruct���������ַ���.
-    2 - ���ݵĽṹ�о���δ֪���͵�����.
-    3 - �����ڴ�ʧ�ܻ�ָ����Ч.
-    4 - δָ������.
-    5 - �����ڴ��ȡ���ݳ���.
+成功: 返回1
+失败: 返回0并设置@error为下列值:
+    1 - $sStruct参数不是字符串.
+    2 - 传递的结构中具有未知类型的数据.
+    3 - 分配内存失败或指针无效.
+    4 - 未指定错误.
+    5 - 访问内存读取数据出错.
 @@End@@
 
-###��ע###
-�˺�����Ҫ���ڵ��� , ���ڲ����������û��������õ���Ϣ , ��˲�Ӧ���������սű���
+###Remarks###
+此函数主要用于调试 , 由于并不向最终用户传递有用的信息 , 因此不应该用于最终脚本。
 
-###���###
+###Related###
 
-###�ο�###
+###See Also###
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

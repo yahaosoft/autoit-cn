@@ -1,58 +1,58 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êı###
+ï»¿###User Defined Function###
 _GUICtrlComboBox_SetCueBanner
 
-###ÃèÊö###
-ÉèÖÃÏÔÊ¾ÔÚ×éºÏ¿ò±à¼­¿Ø¼şÖĞµÄÌáÊ¾±êÖ¾
+###Description###
+è®¾ç½®æ˜¾ç¤ºåœ¨ç»„åˆæ¡†ç¼–è¾‘æ§ä»¶ä¸­çš„æç¤ºæ ‡å¿—
 
-###Óï·¨###
+###Syntax###
 #Include<GuiComboBox.au3>
 _GUICtrlComboBox_SetCueBanner($hWnd, $sText)
 
-###²ÎÊı###
+###Parameters###
 @@ParamTable@@
- $hWnd  ¿Ø¼ş¾ä±ú
- $sText  °üº¬ÎÄ±¾µÄ×Ö·û´®
+ $hWnd  æ§ä»¶å¥æŸ„
+ $sText  åŒ…å«æ–‡æœ¬çš„å­—ç¬¦ä¸²
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: Õæ
-Ê§°Ü: ¼Ù
+æˆåŠŸ: çœŸ
+å¤±è´¥: å‡
 @@End@@
 
-###±¸×¢###
-ÌáÊ¾±êÖ¾ÊÇÔÚÎŞÑ¡ÏîÊ±ÏÔÊ¾ÔÚ×éºÏ¿ò±à¼­¿Ø¼şÖĞµÄÎÄ±¾
-×îµÍÏµÍ³ÒªÇó: Windows Vista
+###Remarks###
+æç¤ºæ ‡å¿—æ˜¯åœ¨æ— é€‰é¡¹æ—¶æ˜¾ç¤ºåœ¨ç»„åˆæ¡†ç¼–è¾‘æ§ä»¶ä¸­çš„æ–‡æœ¬
+æœ€ä½ç³»ç»Ÿè¦æ±‚: Windows Vista
 
-###Ïà¹Ø###
+###Related###
 _GUICtrlComboBox_GetCueBanner
  #AutoIt3Wrapper_Au3Check_Parameters=-d -w 1 -w 2 -w 3 -w 4 -w 5 -w 6
  #include <GUIComboBox.au3>
  #include <GuiConstantsEx.au3>
  #include <WindowsConstants.au3>
  Opt ( ' MustDeclareVars ', 1 )
- $Debug_CB = False ; ¼ì²é´«µİ¸øº¯ÊıµÄÀàÃû, ÉèÖÃÎªÕæ²¢Ê¹ÓÃÁíÒ»¿Ø¼ş¾ä±ú¹Û²ìÆä¹¤×÷
+ $Debug_CB = False ; æ£€æŸ¥ä¼ é€’ç»™å‡½æ•°çš„ç±»å, è®¾ç½®ä¸ºçœŸå¹¶ä½¿ç”¨å¦ä¸€æ§ä»¶å¥æŸ„è§‚å¯Ÿå…¶å·¥ä½œ
  Global $iMemo
  _Main()
  Func _Main()
    Local $hCombo
-   ; ´´½¨½çÃæ
+   ; åˆ›å»ºç•Œé¢
    GUICreate ( " ComboBox ", 400 , 296 )
    $hCombo = GUICtrlCreateCombo ( Select an Item " )
    $iMemo = GUICtrlCreateEdit ( "", 10 , 50 , 376 , 234 , $WS_VSCROLL )
    GUICtrlSetFont ( $iMemo , 9 , 400 , 0 , " Courier New " )
    GUISetState ()
-   ; Ìí¼ÓÎÄ¼ş
+   ; æ·»åŠ æ–‡ä»¶
    _GUICtrlComboBox_BeginUpdate ( $hCombo )
    _GUICtrlComboBox_AddDir ( $hCombo , @WindowsDir & " \*.exe " )
    _GUICtrlComboBox_EndUpdate ( $hCombo )
    MemoWrite( " Cue Banner: " & _GUICtrlComboBox_GetCueBanner ( $hCombo ))
-   ; Ñ­»·ÖÁÓÃ»§ÍË³ö
+   ; å¾ªç¯è‡³ç”¨æˆ·é€€å‡º
    Do
    Until GUIGetMsg () = $GUI_EVENT_CLOSE
    GUIDelete ()
  EndFunc ;==>_Main
- ; Ğ´Èëmemo¿Ø¼ş
+ ; å†™å…¥memoæ§ä»¶
  Func MemoWrite( $sMessage )
    GUICtrlSetData ( $iMemo , $sMessage &@crlf , 1 )
  EndFunc ;==>MemoWrite

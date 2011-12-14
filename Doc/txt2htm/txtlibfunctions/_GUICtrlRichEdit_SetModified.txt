@@ -1,39 +1,39 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlRichEdit_SetModified
 
-###����###
-���û�����޸ı��
+###Description###
+设置或清除修改标记
 
-###�﷨###
+###Syntax###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetModified($hWnd, $fState = True)
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  �ؼ����
- $fState  ָ���޸ı�ǵ���ֵ:
-�� - ��ʾ�ı��ѱ��޸�(Ĭ��)
-�� - ��ʾ�ı�δ�޸�
+ $hWnd  控件句柄
+ $fState  指定修改标记的新值:
+真 - 表示文本已被修改(默认)
+假 - 表示文本未修改
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
- �ɹ�:  ��
- ʧ��:  �ٲ�����@error
- @error:  101 - $hWnd���Ǿ��
-  102 - $fState����Ǽ�
+ 成功:  真
+ 失败:  假并设置@error
+ @error:  101 - $hWnd不是句柄
+  102 - $fState非真非假
 @@End@@
 
-###��ע###
-�ؼ�����ʱϵͳ�Զ������޸ı��Ϊ��.
-����ؼ��ı����û������ı�, ϵͳ���ñ��Ϊ��.
-����_GUICtrlRichEdit_IsModified��ȡ��ǵĵ�ǰ״̬.
+###Remarks###
+控件创建时系统自动设置修改标价为假.
+如果控件文本由用户或程序改变, 系统设置标记为真.
+调用_GUICtrlRichEdit_IsModified获取标记的当前状态.
 
-###���###
+###Related###
  _GUICtrlRichEdit_IsModified
 
-###�ο�###
- ����MSDN֪ʶ����$EM_SETMODIFY�������Ϣ
+###See Also###
+ 搜索MSDN知识库中$EM_SETMODIFY的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

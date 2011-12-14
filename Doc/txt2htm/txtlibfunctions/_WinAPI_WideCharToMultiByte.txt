@@ -1,40 +1,40 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_WideCharToMultiByte
 
-###����###
-��һ��Unicode�ַ���ת��Ϊһ��ANSI�ַ���
+###Description###
+将一个Unicode字符串转化为一个ANSI字符串
 
-###�﷨###
+###Syntax###
 #Include
 <WinAPI.au3>
 _WinAPI_WideCharToMultiByte($pUnicode[, $iCodePage =  [, $iFlags = 0 [, $bRetString = True]]])
 
-###����###
+###Parameters###
 @@ParamTable@@
-$pUnicode  ����Ҫת����Unicode�ı���һά����ṹ��ָ��
-$iCodePage  ����ִ��ת���Ĵ���ҳ:
-0 - ��ǰϵͳ��Windows ANSI ����ҳ
-1 - ��ǰϵͳ��OEM����ҳ
-2 - ��ǰϵͳ��Macintosh����ҳ
-3 - ��ǰ�̵߳�Windows ANSI����ҳ
-42 - ���Ŵ���ҳ
+$pUnicode  包含要转换的Unicode文本的一维数组结构的指针
+$iCodePage  用于执行转化的代码页:
+0 - 当前系统的Windows ANSI 代码页
+1 - 当前系统的OEM代码页
+2 - 当前系统的Macintosh代码页
+3 - 当前线程的Windows ANSI代码页
+42 - 符号代码页
 65000 - UTF-7
 65001 - gb2312
-$iFlags  [��ѡ] ת�����ͱ��, �ο�MSDN
-$bRetString  [��ѡ] ���Ա�ʶ�����ַ�����ṹ�ı��, Ĭ�Ϸ��ؽṹ
+$iFlags  [可选] 转换类型标记, 参考MSDN
+$bRetString  [可选] 用以标识返回字符串或结构的标记, 默认返回结构
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��ת�����ַ�����ṹ
-ʧ��: ����@error
+成功: 已转化的字符串或结构
+失败: 设置@error
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 _WinAPI_MultiByteToWideChar
 
-###�ο�###
-����
-MSDN֪ʶ����WideCharToMultiByte�������Ϣ
+###See Also###
+搜索
+MSDN知识库中WideCharToMultiByte的相关信息

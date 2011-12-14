@@ -1,34 +1,34 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_SetWindowTheme
 
-###����###
-���ô��ڵ��Ӿ���ʽ
+###Description###
+设置窗口的视觉样式
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_SetWindowTheme ( $hWnd [, $sName [, $sList]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
-$hWnd  Ҫ�ı��Ӿ���ʽ�Ĵ���ľ��
-$sName  Ӧ�ó��������ַ���. �������Ϊ0, ʹ�õ��õ�Ӧ�ó�����.
-$sList  �����滻�ɴ����ഫ�ݵ�ʵ���б��İ����ֺŷָ���CLSID�����б����ַ���. �������Ϊ0, ʹ�õ������ID�б�.
+$hWnd  要改变视觉样式的窗体的句柄
+$sName  应用程序名称字符串. 如果参数为0, 使用调用的应用程序名.
+$sList  用于替换由窗体类传递的实际列表的包含分号分隔的CLSID名称列表的字符串. 如果参数为0, 使用调用类的ID列表.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0 , @extended��ǿ��ܺ���COM�������.
+成功: 返回1
+失败: 返回0并设置@error非0 , @extended标记可能含有COM错误代码.
 @@End@@
 
-###��ע###
-�������������$sName���봰�ڳ���ʱ����ص�$sList, ��ʹ�Ӿ���ʽ���θı�.
-$sName��$sListΪ0ʱ, ����������Ƴ���ǰӦ�õĹ���. Ϊ�����Ӿ���ʽӦ�õ�ָ������, ���ݲ�ƥ���κ���Ŀ��ַ���("").
+###Remarks###
+主题管理器保存$sName及与窗口持续时长相关的$sList, 即使视觉样式依次改变.
+$sName及$sList为0时, 主题管理器移除以前应用的关联. 为避免视觉样式应用到指定窗口, 传递不匹配任何项的空字符串("").
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����SetWindowTheme�������Ϣ
+###See Also###
+ 搜索MSDN知识库中SetWindowTheme的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

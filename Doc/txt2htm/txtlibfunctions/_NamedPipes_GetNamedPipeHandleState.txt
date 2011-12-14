@@ -1,34 +1,34 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _NamedPipes_GetNamedPipeHandleState
 
-###����###
-��ȡָ�������ܵ���״̬��Ϣ
+###Description###
+获取指定命名管道的状态信息
 
-###�﷨###
+###Syntax###
 #Include <NamedPipes.au3>
 _NamedPipes_GetNamedPipeHandleState($hNamedPipe)
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hNamedPipe  �����ܵ�ʵ���ķ������ն˾��
+ $hNamedPipe  命名管道实例的服务器终端句柄
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���и�ʽ����:
-   $aState[0] - ����ܵ����ʹ�÷ǿ�ģʽΪ��, ����ʹ�ÿ�ģʽ
-   $aState[1] - ����ܵ����ʹ����Ϣ��ȡģʽΪ��, ����ʹ���ֽڶ�ȡģʽ
-   $aState[2] - ��ǰ�ܵ�ʵ��������
-   $aState[3] - ����ǰ�ͻ��˵������ռ����ֽڵ��������
-   $aState[4] - ��Զ�������ܵ�ͨ�����紫����Ϣǰ�����ڴ��ݵ�������ʱ��
-   $aState[5] - ��ͻ���Ӧ�ó�����ص��û������ַ���. ������ֻ���ڿͻ���ʹ��SECURITY_IMPERSONATIONȨ�޴򿪹ܵ�ʱ��ȡ����Ϣ
+成功: 下列格式数组:
+   $aState[0] - 如果管道句柄使用非块模式为真, 否则使用块模式
+   $aState[1] - 如果管道句柄使用消息读取模式为真, 否则使用字节读取模式
+   $aState[2] - 当前管道实例的数量
+   $aState[3] - 传输前客户端电脑上收集的字节的最大数量
+   $aState[4] - 在远端命名管道通过网络传输信息前可用于传递的最大毫秒时间
+   $aState[5] - 与客户端应用程序相关的用户名称字符串. 服务器只能在客户端使用SECURITY_IMPERSONATION权限打开管道时获取该信息
 @@End@@
 
-###��ע###
+###Remarks###
 None.
 
-###���###
+###Related###
  _NamedPipes_SetNamedPipeHandleState
 
-###�ο�###
-����MSDN֪ʶ����GetNamedPipeHandleState�������Ϣ
+###See Also###
+搜索MSDN知识库中GetNamedPipeHandleState的相关信息

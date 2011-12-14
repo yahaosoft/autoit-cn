@@ -1,57 +1,57 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_ReOpenFile
 
-###����###
-�Բ�ͬ�ķ���Ȩ��, ����ģʽ��������´�ָ���ļ�ϵͳ����
+###Description###
+以不同的访问权限, 共享模式及标记重新打开指定文件系统对象
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_ReOpenFile($hFile, $iAccess, $iShare [, $iFlags])
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hFile
-   �������´򿪵Ķ���ľ��. ���������_WinAPI_CreateFile()��������.
+   将被重新打开的对象的句柄. 对象必须由_WinAPI_CreateFile()函数创建.
 $iAccess
-   ������Ҫ��Ȩ��. ���Ϊ0, Ӧ�ó������Ϊ��ȡ�豸ʱ��ѯ�豸����:
-    $GENERIC_READ - ֻ��
-    $GENERIC_WRITE - ��д
+   对象需要的权限. 如果为0, 应用程序可在为获取设备时查询设备属性:
+    $GENERIC_READ - 只读
+    $GENERIC_WRITE - 可写
 $iShare
-   ����Ĺ���ģʽ. ���Ϊ0, ���󲻹������ھ���ر�ǰ�������´�:
-    $FILE_SHARE_READ - ʹ����Ĵ򿪲�����ʹ�ú�����ȡ
-    $FILE_SHARE_WRITE - ʹ����Ĵ򿪲�����ʹ�ú���д��
-    $FILE_SHARE_DELETE - ʹ����Ĵ򿪲�����ʹ�ú���ɾ��
+   对象的共享模式. 如果为0, 对象不共享并在句柄关闭前不被重新打开:
+    $FILE_SHARE_READ - 使对象的打开操作可使用后续读取
+    $FILE_SHARE_WRITE - 使对象的打开操作可使用后续写入
+    $FILE_SHARE_DELETE - 使对象的打开操作可使用后续删除
 $iFlag
-   �ļ����豸���Ժͱ��. �ò�����Ϊһ����������ֵ:
-    $FILE_FLAG_BACKUP_SEMANTICS - ��ʾ�ı��򿪻򴴽����ڱ��ݻ�ָ�����
-    $FILE_FLAG_DELETE_ON_CLOSE - ��ʾ�����о���رպ����ϵͳ����ɾ���ļ�
-    $FILE_FLAG_NO_BUFFERING - ϵͳ����������ļ�
-    $FILE_FLAG_OPEN_NO_RECALL - ��ʾ�ļ����ݱ��������Դ���Զ�̴洢
-    $FILE_FLAG_OPEN_REPARSE_POINT - ��ʾ�������������ط�������ReOpenFile��ͼ���ط�����
-    $FILE_FLAG_OVERLAPPED - ��ʾϵͳ��ʼ�������Ա㴦������ʹ�ô���ʱ��ʱ����ERROR_IO_PENDING
-    $FILE_FLAG_POSIX_SEMANTICS - ��ʾ����POSIX�����ȡ�ļ�
-    $FILE_FLAG_RANDOM_ACCESS - ��ʾ�����ȡ�ļ�
-    $FILE_FLAG_SEQUENTIAL_SCAN - ��ʾ��ȡ�ļ�ʱ�ӿ�ʼ������˳�����
-    $FILE_FLAG_WRITE_THROUGH - ��ʾϵͳ����д���м仺�沢ֱ��ת������
-    $SECURITY_ANONYMOUS - ������ģ�⼶��ģ��ͻ���
-    $SECURITY_CONTEXT_TRACKING - ��̬���ٰ�ȫģʽ. ���δָ��Ϊ��̬.
-    $SECURITY_DELEGATION - ����Ȩģ�⼶��ģ��ͻ���
-    $SECURITY_EFFECTIVE_ONLY - �����ͻ����������Ȩ��. ����˿���ģ��ͻ���ʱʹ��.
-    $SECURITY_IDENTIFICATION - ����֤ģ�⼶��ģ��ͻ���
-    $SECURITY_IMPERSONATION - ��ģ�⼶��ģ��ͻ���
+   文件或设备属性和标记. 该参数可为一个或多个下列值:
+    $FILE_FLAG_BACKUP_SEMANTICS - 表示文本打开或创建用于备份或恢复操作
+    $FILE_FLAG_DELETE_ON_CLOSE - 表示在所有句柄关闭后操作系统立即删除文件
+    $FILE_FLAG_NO_BUFFERING - 系统不带缓冲打开文件
+    $FILE_FLAG_OPEN_NO_RECALL - 表示文件数据被请求但其仍处于远程存储
+    $FILE_FLAG_OPEN_REPARSE_POINT - 表示不处理正常的重分析点且ReOpenFile试图打开重分析点
+    $FILE_FLAG_OVERLAPPED - 表示系统初始化对象以便处理操作使用大量时间时返回ERROR_IO_PENDING
+    $FILE_FLAG_POSIX_SEMANTICS - 表示根据POSIX规则获取文件
+    $FILE_FLAG_RANDOM_ACCESS - 表示随机获取文件
+    $FILE_FLAG_SEQUENTIAL_SCAN - 表示获取文件时从开始到结束顺序进行
+    $FILE_FLAG_WRITE_THROUGH - 表示系统跳过写入中间缓存并直接转到磁盘
+    $SECURITY_ANONYMOUS - 以匿名模拟级别模拟客户端
+    $SECURITY_CONTEXT_TRACKING - 动态跟踪安全模式. 如果未指定为静态.
+    $SECURITY_DELEGATION - 以授权模拟级别模拟客户端
+    $SECURITY_EFFECTIVE_ONLY - 允许客户端限制组和权限. 服务端可在模拟客户端时使用.
+    $SECURITY_IDENTIFICATION - 以认证模拟级别模拟客户端
+    $SECURITY_IMPERSONATION - 以模拟级别模拟客户端
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����ָ���ļ��ľ��
-ʧ��: ����0������@error��0
+成功: 返回指定文件的句柄
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-$iFlags�������ɰ��������ļ����Ա��($FILE_ATTRIBUTE_...). ��ֻ���ļ�����ʱָ��.
-�ú�����ҪWindows Vista�����ϰ汾.
+###Remarks###
+$iFlags参数不可包含任意文件属性标记($FILE_ATTRIBUTE_...). 且只当文件创建时指定.
+该函数需要Windows Vista或以上版本.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����ReOpenFile�������Ϣ
+###See Also###
+ 搜索MSDN知识库中ReOpenFile的相关信息

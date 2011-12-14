@@ -1,53 +1,53 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUIImageList_DrawEx
 
-###����###
-��ָ�����豸�������л���ͼ���б���
+###Description###
+在指定的设备上下文中绘制图像列表项
 
-###�﷨###
+###Syntax###
 #Include<GuiImageList.au3>
 _GUIImageList_DrawEx($hWnd, $iIndex, $hDC, $iX,$iY[, $iDX = 0[, $iDY = 0[, $iRGBBk = 0xFFFFFFFF[, $iRGBFg = 0xFFFFFFFF[,$iStyle=0]]]]])
 
-###����###
+###Parameters###
 @@ParamTable@@
-����
- $hWnd  �ؼ����
- $iIndex  ����ͼ���0������
- $hDC  Ŀ���豸�����ĵľ��
- $iX  ����ͼ��� X ����
- $iY  ����ͼ��� Y ����
- $iDX  ��ͼ�����Ͻ������ͼ�񲿷ֵĿ���.
-���$iDX��$iDYΪ0, ��������ȫ��ͼ��. ��������֤������Ч.
- $iDY  ��ͼ�����Ͻ������ͼ�񲿷ֵĸ߶�.
-���$iDX��$iDYΪ0, ��������ȫ��ͼ��. ��������֤������Ч.
- $iRGBBk  ͼ�񱳾�ɫ. ������Ϊһ��Ӧ�ö����RGBֵ������ֵ֮һ:
-$CLR_NONE - �ޱ���ɫ.
-      ͼ��͸������.
-$CLR_DEFAULT - Ĭ�ϱ���ɫ. ʹ��ͼ���б�����ɫ����ͼ��.
- $iRGBFg  ͼ��ǰ��ɫ. ������Ϊһ��Ӧ�ö����RGBֵ������ֵ֮һ:
-$CLR_NONE - �޻��ɫ.
-      ͼ����Ŀ���豸��������ɫ���.
-$CLR_DEFAULT - Ĭ��ǰ��ɫ. ʹ��ͼ���б�ǰ��ɫ����ͼ��.
- $iStyle  ���Ʒ����ڸ�ͼ��:
-1 - ʹ���ɰ����͸��ͼ��, ���ܱ���ɫ
-2 - ����ͼ��, ʹ��25%͸����ϵͳ����ɫ
+参数
+ $hWnd  控件句柄
+ $iIndex  绘制图像的0基索引
+ $hDC  目标设备上下文的句柄
+ $iX  绘制图像的 X 坐标
+ $iY  绘制图像的 Y 坐标
+ $iDX  从图像左上角算起的图像部分的宽度.
+如果$iDX和$iDY为0, 函数绘制全部图像. 函数不保证参数有效.
+ $iDY  从图像左上角算起的图像部分的高度.
+如果$iDX和$iDY为0, 函数绘制全部图像. 函数不保证参数有效.
+ $iRGBBk  图像背景色. 参数可为一个应用定义的RGB值或下列值之一:
+$CLR_NONE - 无背景色.
+      图像透明绘制.
+$CLR_DEFAULT - 默认背景色. 使用图像列表背景色绘制图像.
+ $iRGBFg  图像前景色. 参数可为一个应用定义的RGB值或下列值之一:
+$CLR_NONE - 无混合色.
+      图像与目标设备上下文颜色混和.
+$CLR_DEFAULT - 默认前景色. 使用图像列表前景色绘制图像.
+ $iStyle  绘制风格和遮盖图像:
+1 - 使用蒙板绘制透明图像, 不管背景色
+2 - 绘制图像, 使用25%透明的系统高亮色
 4 -
-      ����ͼ��, ʹ��50%͸����ϵͳ����ɫ
-8 - �����ɰ�
+      绘制图像, 使用50%透明的系统高亮色
+8 - 绘制蒙板
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��
-ʧ��: ��
+成功: 真
+失败: 假
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 _GUIImageList_Draw
 
-###�ο�###
+###See Also###
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

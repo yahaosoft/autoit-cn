@@ -1,37 +1,37 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlEdit_SetSel
 
-###����###
-ѡ���ַ���Χ
+###Description###
+选择字符范围
 
-###�﷨###
+###Syntax###
 #Include <GuiEdit.au3>
 _GUICtrlEdit_SetSel($hWnd,$iStart, $iEnd)
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  �ؼ����
- $iStart  ָ��ѡ��Ŀ�ʼ�ַ���λ��.
- $iEnd  ָ��ѡ��Ľ����ַ���λ��.
+ $hWnd  控件句柄
+ $iStart  指定选择的开始字符的位置.
+ $iEnd  指定选择的结束字符的位置.
 @@End@@
 
-###��ע###
-��ʼֵ���Դ��ڽ���ֵ.
-����ֵ�н�С��ָ��ѡ����׸��ַ���λ��.
-�ϴ��ֵָ���׸��ַ�����ѡ���λ��.
-��ʼֵ��ѡ���ê��,
-�������ǿɻ��.
-���û�ʹ��SHIFT������ѡ���ĳߴ�ʱ, ��յ���ƶ�����ê�㽫��������.
-��� $iStart �� 0 ��
-$iEnd �� ?, �༭�ؼ��е������ı�����ѡ��. ��� $iStart �� ?,
-�κε�ǰѡ��ǲ���ѡ���.
-�ؼ��� $iEnd λ����ʾһ����˸���ַ������� $iStart �� $iEnd
-�����λ��.
+###Remarks###
+开始值可以大于结束值.
+两个值中较小的指定选择的首个字符的位置.
+较大的值指定首个字符超出选择的位置.
+开始值是选择的锚标,
+结束点是可活动的.
+当用户使用SHIFT键调整选区的尺寸时, 活动终点可移动但是锚点将继续保持.
+如果 $iStart 是 0 且
+$iEnd 是 ?, 编辑控件中的所有文本将被选中. 如果 $iStart 是 ?,
+任何当前选项都是不被选择的.
+控件在 $iEnd 位置显示一个闪烁的字符而不管 $iStart 和 $iEnd
+的相对位置.
 
-###���###
+###Related###
 _GUICtrlEdit_GetSel , _GUICtrlEdit_ReplaceSel
 
-###�ο�###
+###See Also###
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

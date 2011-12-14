@@ -1,54 +1,54 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _NamedPipes_CreateNamedPipe
 
-###����###
-�����ܵ�ʵ��
+###Description###
+创建管道实例
 
-###�﷨###
+###Syntax###
 #Include <NamedPipes.au3>
 _NamedPipes_CreateNamedPipe($sName[, $iAccess = 2[, $iFlags = 2[, $iACL = 0[, $iType = 1[, $iRead = 1[, $iWait = 0[, $iMaxInst = 25[, $iOutBufSize = 4096[, $iInpBufSize = 4096[, $iDefTimeout = 5000[, $pSecurity = 0]]]]]]]]]]])
 
-###����###
+###Parameters###
 @@ParamTable@@
- $sName  ��ʽ��:\\.\pipe\pipename������. ���Ƶ�pipename���ֿɰ��������ַ�������б�� , ���ֺ������ַ�. �ܵ������ַ����ɳ���256���ַ�. �ܵ����ƴ�Сд������.
- $iAccess  �ܵ�·��ģʽ. ��Ϊ����һ��:
-0 - �ܵ��е����������ӿͻ��˵�������(inbound)
-1 - �ܵ��е����������ӷ��������ͻ���(outbound)
-2 - ˫��ܵ�(duplex)
- $iFlags  �ܵ����. ��Ϊ����ֵ���������:
-1 - �����ͼ���������ǹܵ�ʵ�� , �׸������ɹ� , ��������ʵ��ʧ��.
-2 - Overlapped. �����ģʽ���� , ����ִ�лỨ�Ѵ���ʱ����ɵĶ� , д�����Ӳ�������������.
-4 - Write-through. ��ģʽֻӰ���ֽ����͹ܵ���д�����ҽ����ͻ��˺ͷ������ڲ�ͬ������ʱ.
- $iACL  ��ȫ���ʿ����б�(ACL)���. ��Ϊ�����������:
-1 - ���з����������ܵ�������ACL��д��Ȩ��
-2 - ���з����������ܵ���������д��Ȩ��
-4 - ���з����������ܵ��İ�ȫACL��д��Ȩ��
- $iType  �ܵ�����ģʽ. ����֮һ:
-0 - ���ֽ�����ܵ�д������
-1 - ����Ϣ����ܵ�д������
- $Read  �ܵ���ȡ����. ��Ϊ����ֵ֮һ:
-0 - ���ֽ����ӹܵ���ȡ����
-1 - ����Ϣ���ӹܵ���ȡ����
- $iWait  �ܵ��Ⱥ�ģʽ. ��Ϊ����ֵ֮һg:
-0 - Blocking. ���ܵ����ReadFile , WriteFile��ConnectNamedPipe��ָ��ʱ , ֱ���пɶ����� , д��ȫ�����ݻ�ͻ��˱����� , ���������
-1 - Nonblocking. ReadFile , WriteFile��ConnectNamedPipe��������.
- $iMaxInst  �ùܵ��ɴ���ʵ�����������
- $iOutBufSize  ��������������ֽ���
- $iInpBufSize  ���������뻺���ֽ���
- $iDefTimeOut  Ĭ�Ϻ���ʱ��
- $pSecurity  �����½������ܵ��İ�ȫ��������ȷ���ӽ����ܷ�̳з��ؾ����tagSECURITY_ATTRIBUTES�ṹ��ָ��. ���pSecurityΪ0 , �����ܵ���ȡһ��Ĭ�ϵİ�ȫ�������Ҿ���޷��̳�. �����ܵ�Ĭ�ϰ�ȫ�������е�ACL������ȫ���Ʊ���ϵͳadministrators��creator owner�˻�. Ҳ����Everyone��ĳ�Ա��anonymous�˻��Ķ�ȡȨ��.
+ $sName  格式如:\\.\pipe\pipename的名称. 名称的pipename部分可包含任意字符包括反斜杠 , 数字和特殊字符. 管道名称字符串可长至256个字符. 管道名称大小写不敏感.
+ $iAccess  管道路径模式. 须为下列一种:
+0 - 管道中的数据流仅从客户端到服务器(inbound)
+1 - 管道中的数据流仅从服务器到客户端(outbound)
+2 - 双向管道(duplex)
+ $iFlags  管道标记. 可为下列值的任意组合:
+1 - 如果试图创建多个标记管道实例 , 首个创建成功 , 而后续的实例失败.
+2 - Overlapped. 如果此模式可用 , 函数执行会花费大量时间完成的读 , 写和连接操作可立即返回.
+4 - Write-through. 该模式只影响字节类型管道的写操作且仅当客户端和服务器在不同电脑上时.
+ $iACL  安全访问控制列表(ACL)标记. 可为下列任意组合:
+1 - 呼叫方有向命名管道的任意ACL的写入权限
+2 - 呼叫方有向命名管道的宿主的写入权限
+4 - 呼叫方有向命名管道的安全ACL的写入权限
+ $iType  管道类型模式. 下列之一:
+0 - 以字节流向管道写入数据
+1 - 以消息流向管道写入数据
+ $Read  管道读取类型. 须为下列值之一:
+0 - 以字节流从管道读取数据
+1 - 以消息流从管道读取数据
+ $iWait  管道等候模式. 须为下列值之一g:
+0 - Blocking. 当管道句柄ReadFile , WriteFile或ConnectNamedPipe中指定时 , 直到有可读数据 , 写入全部数据或客户端被连接 , 操作才完成
+1 - Nonblocking. ReadFile , WriteFile及ConnectNamedPipe立即返回.
+ $iMaxInst  该管道可创建实例的最大数量
+ $iOutBufSize  保留的输出缓冲字节数
+ $iInpBufSize  保留的输入缓冲字节数
+ $iDefTimeOut  默认毫秒时超
+ $pSecurity  包含新建命名管道的安全描述符和确定子进程能否继承返回句柄的tagSECURITY_ATTRIBUTES结构的指针. 如果pSecurity为0 , 命名管道获取一个默认的安全描述符且句柄无法继承. 命名管道默认安全描述符中的ACL允许完全控制本地系统administrators和creator owner账户. 也允许Everyone组的成员和anonymous账户的读取权限.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �ܵ�ʵ���������˵ľ��
-ʧ��: -1
+成功: 管道实例服务器端的句柄
+失败: -1
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
  _NamedPipes_ConnectNamedPipe , _NamedPipes_CreatePipe
 
-###�ο�###
- ����MSDN֪ʶ����CreateNamedPipe�������Ϣ
+###See Also###
+ 搜索MSDN知识库中CreateNamedPipe的相关信息

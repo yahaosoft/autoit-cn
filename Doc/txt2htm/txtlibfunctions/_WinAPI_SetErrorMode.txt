@@ -1,32 +1,32 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_SetErrorMode
 
-###����###
-����ϵͳ�������δ���ָ�����͵����ش���
+###Description###
+控制系统或进程如何处理指定类型的严重错误
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_SetErrorMode( $iMode )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $iMode
-   ���̴���ģʽ. �ò�����Ϊһ����������ֵ.
-    $SEM_FAILCRITICALERRORS(0x0001) - ����ʾ�ؼ���������Ϣ��. ������ý��̷��ʹ������.
-    $SEM_NOALIGNMENTFAULTEXCEPT(0x0004) - ϵͳ�Զ��޸��ڴ�������ʹ��Գ�������. ���ڵ��ý��̺��κκ�������. �˹���ֻ֧��ĳЩ�������ܹ�.
-    $SEM_NOGPFAULTERRORBOX(0x0002) - ϵͳ����ʾWindows���󱨸�Ի���.
-    $SEM_NOOPENFILEERRORBOX(0x8000) - �޷��ҵ��ļ�ʱ����ʾ��Ϣ��. ������ý��̷��ʹ������.
+   进程错误模式. 该参数可为一个或多个下列值.
+    $SEM_FAILCRITICALERRORS(0x0001) - 不显示关键错误句柄消息框. 以向调用进程发送错误代替.
+    $SEM_NOALIGNMENTFAULTEXCEPT(0x0004) - 系统自动修复内存对齐错误并使其对程序隐藏. 用于调用进程和任何后续进程. 此功能只支持某些处理器架构.
+    $SEM_NOGPFAULTERRORBOX(0x0002) - 系统不显示Windows错误报告对话框.
+    $SEM_NOOPENFILEERRORBOX(0x8000) - 无法找到文件时不显示消息框. 以向调用进程发送错误代替.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ������ǰ�Ĵ���ģʽ��λ��Ǵ���.
-ʧ��: ����0������@error��0
+成功: 返回以前的错误模式数位标记代码.
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����SetErrorMode�������Ϣ
+###See Also###
+ 搜索MSDN知识库中SetErrorMode的相关信息

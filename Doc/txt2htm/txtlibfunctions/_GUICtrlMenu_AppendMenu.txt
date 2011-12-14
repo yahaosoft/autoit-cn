@@ -1,66 +1,66 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlMenu_AppendMenu
 
-###����###
-׷��һ�����ָ���˵���, �����˵�, �Ӳ˵�, ���ݲ˵��Ľ�β
+###Description###
+追加一个新项到指定菜单栏, 下拉菜单, 子菜单, 或快捷菜单的结尾
 
-###�﷨###
+###Syntax###
 #Include<GuiMenu.au3>
 _GUICtrlMenu_AppendMenu($hMenu, $iFlags, $iNewItem,$pNewItem)
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hMenu  �˵����
- $iFlags  ָ�������²˵������ۺͶ����ı��:
-$MF_BITMAP - ʹ��λͼ��Ϊ�˵���
+ $hMenu  菜单句柄
+ $iFlags  指定控制新菜单项的外观和动作的标记:
+$MF_BITMAP - 使用位图作为菜单项
 $MF_CHECKED -
-      ����˵������ѡ�б��. ���Ӧ�ó����ṩѡ�б��λͼ, �ñ�Ǳ�������˵�����ʾѡ��λͼ.
+      跟随菜单项放置选中标记. 如果应用程序提供选中标记位图, 该标记表明跟随菜单项显示选中位图.
 $MF_DISABLED -
-      ���ò˵����Ա����޷���ѡ��, ��������ɫ��ʾ.
-$MF_ENABLED - ���ò˵����Ա���ɱ�ѡ��,
-      �Ҵӻ�ɫ��ʾ״̬�ָ�.
-$MF_GRAYED - ���ò˵����ɫ��ʾ�Ա��޷�ѡ��.
-$MF_MENUBARBREAK - ���ڲ˵���,
-      ������$MF_MENUBREAK��ͬ. ���������˵�, �Ӳ˵�, ���ݲ˵�, ����һ����ֱ�ߴӾ����зֳ�����
+      禁用菜单项以便其无法被选中, 但并不灰色表示.
+$MF_ENABLED - 启用菜单项以便其可被选中,
+      且从灰色显示状态恢复.
+$MF_GRAYED - 禁用菜单项并灰色显示以便无法选择.
+$MF_MENUBARBREAK - 对于菜单栏,
+      功能与$MF_MENUBREAK相同. 对于下拉菜单, 子菜单, 或快捷菜单, 将由一条垂直线从旧列中分出新列
 $MF_MENUBREAK -
-      �����з�����Ŀ(���ڲ˵���)����������(���������˵�, �Ӳ˵�, ��ݲ˵�)�Ҳ��÷���.
+      在新行放置项目(对于菜单栏)或在新列中(对于下拉菜单, 子菜单, 快捷菜单)且不用分列.
 $MF_OWNERDRAW -
-      ָ����ĿΪ�������Ƶ���Ŀ. �ڲ˵��״���ʾǰ, �˵����������ڽ��ջ�ȡ�˵���Ŀ��Ⱥ͸�
-�ȵ�$WM_MEASUREITEM��Ϣ.
-      ���۲˵�����ۺ�ʱ����$WM_DRAWITEM��Ϣ������������������Ĵ��ڽ���
-$MF_POPUP - ָ���˵���������˵����Ӳ˵�.
-      iNewItem����ָ�������˵����ϲ˵ľ��. �ñ��������˵����������Դ��Ӳ˵�,
-      �����˵����ݲ˵��Ĳ˵�����˵���.
-$MF_SEPARATOR - ����ˮƽ�ָ���. �ñ�ǽ����������˵�, �Ӳ˵�, ���ݲ˵�.
-      �����޷���ɫ��ʾ, ����, �����. pNewItem��iNewItem�� ����������.
-$MF_STRING - ָ��һ���˵���Ϊ�ַ���.
-      pNewItem����Ϊ�ַ���.
-$MF_UNCHECKED - ����˵������ѡ�б��. ���Ӧ�ó���֧��ѡ�б��λͼ,
-      �ñ����ʾ��˵�����ʾ���λͼ.
- $iNewItem  ���$iFlags��������Ϊ����, ���ָ�������˵����Ӳ˵���ָ���²˵���ı�ʶ.
- $pNewItem  ָ���²˵��������. pNewItem�����ĺ����������Ƿ����$MF_BITMAP, $MF_OWNERDRAW,
-      ��$MF_STRING���:
-$MF_BITMAP - ����λͼ���
+      指定项目为宿主绘制的项目. 在菜单首次显示前, 菜单的宿主窗口接收获取菜单项的宽度和高
+度的$WM_MEASUREITEM消息.
+      无论菜单的外观何时更新$WM_DRAWITEM消息将被发送至宿主窗体的窗口进程
+$MF_POPUP - 指定菜单项打开下拉菜单或子菜单.
+      iNewItem参数指定下拉菜单或紫菜的句柄. 该标记用于向菜单栏添加用以打开子菜单,
+      下拉菜单或快捷菜单的菜单名或菜单项.
+$MF_SEPARATOR - 绘制水平分割线. 该标记仅用于下拉菜单, 子菜单, 或快捷菜单.
+      该行无法灰色显示, 禁用, 或高亮. pNewItem和iNewItem参 数将被忽略.
+$MF_STRING - 指定一个菜单项为字符串.
+      pNewItem参数为字符串.
+$MF_UNCHECKED - 不随菜单项放置选中标记. 如果应用程序支持选中标记位图,
+      该标记显示随菜单项显示清除位图.
+ $iNewItem  如果$iFlags参数设置为弹出, 句柄指向下拉菜单或子菜单则指定新菜单项的标识.
+ $pNewItem  指定新菜单项的内容. pNewItem参数的含义依赖于是否包括$MF_BITMAP, $MF_OWNERDRAW,
+      或$MF_STRING标记:
+$MF_BITMAP - 包含位图句柄
 $MF_OWNERDRAW -
-      ����Ӧ�ó�������ά����˵�����صĶ�������֧�ֵ�ֵ.��ֵ��Ϊ���˵����������ʱָ����$WM_MEASUREITEM
-��$WM_DRAWITEM��Ϣ���͵�lParam�����Ľṹ��ItemData��Ա.
+      包含应用程序用于维持与菜单项相关的额外数据支持的值.该值可为当菜单创建或更新时指向由$WM_MEASUREITEM
+或$WM_DRAWITEM信息发送的lParam参数的结构的ItemData成员.
 $MF_STRING
-      - �����ַ���
+      - 包含字符串
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��
-ʧ��: ��
+成功: 真
+失败: 假
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 _GUICtrlMenu_InsertMenuItem
 
-###�ο�###
-����MSDN֪ʶ����AppendMenu�������Ϣ
+###See Also###
+搜索MSDN知识库中AppendMenu的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

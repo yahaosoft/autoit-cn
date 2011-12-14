@@ -1,40 +1,40 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_ModifyWorldTransform
 
-###����###
-ʹ��ָ��ģʽ�ı��豸����������ת��
+###Description###
+使用指定模式改变设备场景的世界转换
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_ModifyWorldTransform( $hDC, $tXFORM, $iMode )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hDC
-   �豸�������
+   设备场景句柄
 $tXFORM
-$tagXFORM�ṹ
+$tagXFORM结构
 $iMode
-   ָ��ת����������޸ĵ�ǰ������ת��. ��Ϊ����֮һ.
-    $MWT_IDENTITY - ʹ�õ�λ�������õ�ǰ����ת��
-    $MWT_LEFTMULTIPLY - ��ǰ��ת��������Ҳ����$tXFORM
-    $MWT_RIGHTMULTIPLY - ��ǰ��ת�������������$tXFORM
+   指定转换数据如何修改当前的世界转换. 可为下列之一.
+    $MWT_IDENTITY - 使用单位矩阵重置当前世界转换
+    $MWT_LEFTMULTIPLY - 当前的转换矩阵从右侧乘以$tXFORM
+    $MWT_RIGHTMULTIPLY - 当前的转换矩阵从左侧乘以$tXFORM
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0
+成功: 返回1
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-��ǰ�豸������ͼ��ģʽδͨ��_WinAPI_SetGraphicsMode()����Ϊ$GM_ADVANCEDʱ����ʧ��.
-ͬʱ����Ҳ���Ὣͼ��ģʽ��������ΪĬ�ϵ�$GM_COMPATIBLEģʽ, ��������ת��ͨ������_WinAPI_SetWorldTransform()����ΪĬ�ϵĵ�λת��.
+###Remarks###
+当前设备场景的图形模式未通过_WinAPI_SetGraphicsMode()设置为$GM_ADVANCED时函数失败.
+同时函数也不会将图形模式重新设置为默认的$GM_COMPATIBLE模式, 除非世界转换通过调用_WinAPI_SetWorldTransform()重置为默认的单位转换.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����ModifyWorldTransform�������Ϣ
+###See Also###
+ 搜索MSDN知识库中ModifyWorldTransform的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

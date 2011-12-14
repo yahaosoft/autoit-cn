@@ -1,69 +1,69 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlRichEdit_GetParaShading
 
-###����###
-��ȡ(�׸�)��ѡ�����(��ѡ��ʱ��)��ǰ�������Ӱ��ʽ
+###Description###
+获取(首个)被选段落或(无选定时的)当前段落的阴影样式
 
-###�﷨###
+###Syntax###
 #Include <GuiRichEdit.au3>
 _GUICtrlRichEdit_GetParaShading($hWnd)
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  �ؼ����
+ $hWnd  控件句柄
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
- �ɹ�:  ��ѡ������ - �÷ֺ�(;)�ָ���ֵ��ɵ��ַ���:
-  ֵ1 - ���� - ǰ��ɫ�ٷֱ�, ʣ���Ϊ����ɫ
-  ֵ2 - ��ʽ - ����һ�����е��ַ���:
-      non - ��
-      dhz - ˮƽ��
-      dvt - ��ֱ��
-      ddd - ���¶Խ��ߺ�
-      dud - ���϶Խ��ߺ�
-      dgr - �����
-      dtr - ��ܺ�
-      lhz - ˮƽ��
-      lvt - ��ֱ��
-      ldd - ���¶Խ�����
-      lud - ���϶Խ�����
-      lgr - ������
-      ltr - �����
-  ֵ3 - ǰ��ɫ - ����֮һ:
-      "blk" - ��
-      "blu" - ��
-      "cyn" - ��
-      "grn" - ��
-      "mag" - Ʒ��
-      "red" - ��
-      "yel" - ��
-      "whi" - ��
-      "dbl" - ����
-      "dgn" - ī��
-      "dmg" - ���Ϻ�
-      "drd" - ����
-      "dyl" - ����
-      "dgy" - ���
-      "lgy" - ǳ��
-  ֵ4 - ����ɫ - ��ǰ��ɫ��ͬ
-  ֵ5 - ��Χ:
-      a - ȫ��(�����)ѡ���Ķ���ʹ������
-      f - ��һ��ѡ���Ķ���ʹ�ô˶��뷽ʽ, ����������
-      c - ��ǰ����ʹ�ø�����
- ʧ��:  ""������@error
- @error:  101 - $hWnd���Ǿ��
+ 成功:  首选段设置 - 用分号(;)分隔的值组成的字符串:
+  值1 - 重量 - 前景色百分比, 剩余的为背景色
+  值2 - 样式 - 包含一个下列的字符串:
+      non - 无
+      dhz - 水平黑
+      dvt - 垂直黑
+      ddd - 向下对角线黑
+      dud - 向上对角线黑
+      dgr - 网格黑
+      dtr - 框架黑
+      lhz - 水平亮
+      lvt - 垂直亮
+      ldd - 向下对角线亮
+      lud - 向上对角线亮
+      lgr - 网格亮
+      ltr - 框架亮
+  值3 - 前景色 - 下列之一:
+      "blk" - 黑
+      "blu" - 蓝
+      "cyn" - 青
+      "grn" - 绿
+      "mag" - 品红
+      "red" - 红
+      "yel" - 黄
+      "whi" - 白
+      "dbl" - 蓝黑
+      "dgn" - 墨绿
+      "dmg" - 深紫红
+      "drd" - 暗红
+      "dyl" - 暗黄
+      "dgy" - 深灰
+      "lgy" - 浅灰
+  值4 - 背景色 - 与前景色相同
+  值5 - 范围:
+      a - 全部(或仅有)选定的段落使用设置
+      f - 第一个选区的段落使用此对齐方式, 但其他不是
+      c - 当前段落使用该设置
+ 失败:  ""并设置@error
+ @error:  101 - $hWnd不是句柄
 @@End@@
 
-###��ע###
-�ڸ��ı��༭�ؼ��в���ʾ��Ӱ, ���˴���������Ӱ��������������ʾ
+###Remarks###
+在富文本编辑控件中不显示阴影, 但此处创建的阴影不会在文字中显示
 
-###���###
+###Related###
  _GUICtrlRichEdit_SetParaShading
 
-###�ο�###
- ����MSDN֪ʶ����EM_SETPARAFORMAT�������Ϣ
+###See Also###
+ 搜索MSDN知识库中EM_SETPARAFORMAT的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

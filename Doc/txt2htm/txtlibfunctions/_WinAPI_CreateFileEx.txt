@@ -1,80 +1,80 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_CreateFileEx
 
-###����###
-��������ļ���I/O�豸
+###Description###
+创建或打开文件或I/O设备
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_CreateFileEx( $sFile, $iCreation, $iAccess, $iShare [, $iFlagsAndAttributes [, $tSecurity [, $hTemplate]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $sFile
-   Ҫ������򿪵��ļ���I/O�豸��
+   要创建或打开的文件或I/O设备名
 $iCreation
-   ���Ѵ��ڻ򲻴��ڵ��ļ���I/O�豸ִ�еĲ���. �ò�����Ϊ����ֵ�е� һ�� :
-    $CREATE_NEW - ��������ʱ�½�
-    $CREATE_ALWAYS - �����½�
-    $OPEN_EXISTING - ������ʱ��
-    $OPEN_ALWAYS - ���Ǵ�
-    $TRUNCATE_EXISTING - �ļ�����ʱ�򿪲����
+   对已存在或不存在的文件或I/O设备执行的操作. 该参数须为下列值中的 一个 :
+    $CREATE_NEW - 仅不存在时新建
+    $CREATE_ALWAYS - 总是新建
+    $OPEN_EXISTING - 仅存在时打开
+    $OPEN_ALWAYS - 总是打开
+    $TRUNCATE_EXISTING - 文件存在时打开并清空
 $iAccess
-   ���ļ����豸����ķ���, �ɹ��Ϊ��/д/����ȫ��/����ȫ��(0)
+   对文件或设备请求的访问, 可归结为读/写/两者全是/两者全否(0)
 $GENERIC_READ
 $GENERIC_WRITE;
 $iShare
-   ���ļ����豸����Ĺ���ģʽ, �ɹ��Ϊ��/д/����ȫ��/ɾ��/ȫ������/ȫ������. ����Ϊ0��_WinAPI_CreateFileEx()�ɹ�, �ļ����豸�޷��������ھ���ر�ǰ�޷��ٴδ�. ��Ϊ����ֵ֮һ:
+   对文件或设备请求的共享模式, 可归结为读/写/两者全是/删除/全部都是/全部都否. 参数为0且_WinAPI_CreateFileEx()成功, 文件或设备无法共享且在句柄关闭前无法再次打开. 可为下列值之一:
 $FILE_SHARE_READ
 $FILE_SHARE_WRITE
 $FILE_SHARE_DELETE
 $iFlagsAndAttributes
-   �ļ����豸�����Ժͱ��. ��Ϊһ����������ֵ:
-    $FILE_ATTRIBUTE_READONLY - ֻ���ļ�
-    $FILE_ATTRIBUTE_HIDDEN - �����ļ�
-    $FILE_ATTRIBUTE_SYSTEM - ϵͳ�ļ�
-    $FILE_ATTRIBUTE_DIRECTORY - Ŀ¼
-    $FILE_ATTRIBUTE_ARCHIVE - �浵�ļ�
-    $FILE_ATTRIBUTE_DEVICE - �豸
-    $FILE_ATTRIBUTE_NORMAL - ��ͨ�ļ�
-    $FILE_ATTRIBUTE_TEMPORARY - ��ʱ�ļ�
-    $FILE_ATTRIBUTE_SPARSE_FILE - ϡ���ļ�
+   文件或设备的属性和标记. 可为一个或多个下列值:
+    $FILE_ATTRIBUTE_READONLY - 只读文件
+    $FILE_ATTRIBUTE_HIDDEN - 隐藏文件
+    $FILE_ATTRIBUTE_SYSTEM - 系统文件
+    $FILE_ATTRIBUTE_DIRECTORY - 目录
+    $FILE_ATTRIBUTE_ARCHIVE - 存档文件
+    $FILE_ATTRIBUTE_DEVICE - 设备
+    $FILE_ATTRIBUTE_NORMAL - 普通文件
+    $FILE_ATTRIBUTE_TEMPORARY - 临时文件
+    $FILE_ATTRIBUTE_SPARSE_FILE - 稀疏文件
     $FILE_ATTRIBUTE_REPARSE_POINT -
-    $FILE_ATTRIBUTE_COMPRESSED - ѹ���ļ�
-    $FILE_ATTRIBUTE_OFFLINE - �����ļ�(����Զ�̴洢)
-    $FILE_ATTRIBUTE_NOT_CONTENT_INDEXED - �����������ļ�
-    $FILE_ATTRIBUTE_ENCRYPTED - �����ļ�
-    $FILE_FLAG_BACKUP_SEMANTICS - �ļ����ڱ��ݻ�ԭ������
-    $FILE_FLAG_DELETE_ON_CLOSE - �ļ��������о�����ر�ʱ����ɾ��
-    $FILE_FLAG_NO_BUFFERING - ��д�ļ�ʱ��ʹ��ϵͳ����
-    $FILE_FLAG_OPEN_NO_RECALL - �����ļ����ݲ���Զ�̴洢����
+    $FILE_ATTRIBUTE_COMPRESSED - 压缩文件
+    $FILE_ATTRIBUTE_OFFLINE - 离线文件(用于远程存储)
+    $FILE_ATTRIBUTE_NOT_CONTENT_INDEXED - 无内容索引文件
+    $FILE_ATTRIBUTE_ENCRYPTED - 加密文件
+    $FILE_FLAG_BACKUP_SEMANTICS - 文件用于备份或还原操作打开
+    $FILE_FLAG_DELETE_ON_CLOSE - 文件在其所有句柄都关闭时立即删除
+    $FILE_FLAG_NO_BUFFERING - 读写文件时不使用系统缓存
+    $FILE_FLAG_OPEN_NO_RECALL - 所需文件数据不在远程存储器上
     $FILE_FLAG_OPEN_REPARSE_POINT -
-    $FILE_FLAG_OVERLAPPED - ���ļ����豸���ڷ�ͬ��I/O
-    $FILE_FLAG_POSIX_SEMANTICS - ��POSIX�������
-    $FILE_FLAG_RANDOM_ACCESS - �������
-    $FILE_FLAG_SEQUENTIAL_SCAN - �ӿ�ʼ���������η���
-    $FILE_FLAG_WRITE_THROUGH - д���������������
-    $SECURITY_ANONYMOUS - ���û�ģ��Ϊ����ģ�⼶��
-    $SECURITY_IDENTIFICATION - ���û�ģ��Ϊ��֤ģ�⼶��
-    $SECURITY_IMPERSONATION - ģ��ͻ���ģ�⼶��
-    $SECURITY_DELEGATION - ���û�ģ��Ϊί��ģ�⼶��
-    $SECURITY_CONTEXT_TRACKING - ��̬��ȫ����
-    $SECURITY_EFFECTIVE_ONLY - ���ڰ�ȫ�����Է�������Чʱ
+    $FILE_FLAG_OVERLAPPED - 打开文件或设备用于非同步I/O
+    $FILE_FLAG_POSIX_SEMANTICS - 按POSIX规则访问
+    $FILE_FLAG_RANDOM_ACCESS - 随机访问
+    $FILE_FLAG_SEQUENTIAL_SCAN - 从开始到结束依次访问
+    $FILE_FLAG_WRITE_THROUGH - 写入操作不经过缓存
+    $SECURITY_ANONYMOUS - 将用户模拟为匿名模拟级别
+    $SECURITY_IDENTIFICATION - 将用户模拟为认证模拟级别
+    $SECURITY_IMPERSONATION - 模拟客户端模拟级别
+    $SECURITY_DELEGATION - 将用户模拟为委托模拟级别
+    $SECURITY_CONTEXT_TRACKING - 动态安全跟踪
+    $SECURITY_EFFECTIVE_ONLY - 仅在安全环境对服务器有效时
 $tSecurity
-$tagSECURITY_ATTRIBUTES�ṹ: һ����ѡ�İ�ȫ��������һ��ȷ������Ƿ�����ӽ��̼̳еĲ���ֵ
+$tagSECURITY_ATTRIBUTES结构: 一个可选的安全描述符和一个确定句柄是否可由子进程继承的布尔值
 $hTemplate
-$GENERIC_READ����Ȩ��ģ���ļ��ľ��. ģ���ļ���Ҫ���������ļ��ṩ�ļ����Լ���չ����.
+$GENERIC_READ访问权限模板文件的句柄. 模板文件给要被创建的文件提供文件属性及扩展属性.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ָ���ļ�, �豸, �����ܵ����ŷ�ľ��.
-ʧ��: ����0������@error��0
+成功: 指定文件, 设备, 命名管道或信封的句柄.
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����CreateFile�������Ϣ
+###See Also###
+ 搜索MSDN知识库中CreateFile的相关信息

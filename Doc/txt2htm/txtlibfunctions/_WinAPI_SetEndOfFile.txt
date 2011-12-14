@@ -1,38 +1,38 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_SetEndOfFile
 
-###����###
-��ָ���ļ��������ļ���С���õ��ļ�ָ�뵱ǰ��λ��
+###Description###
+将指定文件的物理文件大小设置到文件指针当前的位置
 
-###�﷨###
+###Syntax###
 #Include
 <WinAPI.au3>
 _WinAPI_SetEndOfFile($hFile)
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hFile
-   Ҫ��չ��ضϵ��ļ��ľ��.
-$GENERIC_WRITEȨ��.
+   要扩展或截断的文件的句柄.
+$GENERIC_WRITE权限.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��
-ʧ��: ��, ʹ��GetLastError()��ȡϸ��
+成功: 真
+失败: 假, 使用GetLastError()获取细节
 @@End@@
 
-###��ע###
-�ú������ڽضϻ���չ�ļ�.
-+����ļ�����չ,
-ԭ�����ļ�β���µ��ļ�β֮����ļ����ݲ��ᱻ����.
-+���������ļ���С.
+###Remarks###
+该函数用于截断或扩展文件.
++如果文件被扩展,
+原来的文件尾和新的文件尾之间的文件内容不会被定义.
++函数设置文件大小.
 
-###���###
+###Related###
 _WinAPI_CloseHandle , _WinAPI_CreateFile , _WinAPI_FlushFileBuffers , _WinAPI_GetFileSizeEx , _WinAPI_ReadFile , _WinAPI_SetFilePointer , _WinAPI_WriteFile
 
-###�ο�###
-����MSDN֪ʶ����SetEndOfFile�������Ϣ
+###See Also###
+搜索MSDN知识库中SetEndOfFile的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

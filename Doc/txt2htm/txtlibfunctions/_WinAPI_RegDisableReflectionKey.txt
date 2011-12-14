@@ -1,31 +1,31 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_RegDisableReflectionKey
 
-###����###
-��ֹע���ӳ��ָ����
+###Description###
+禁止注册表映射指定键
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_RegDisableReflectionKey( $hKey )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hKey
-   �򿪵ļ��ľ��. �þ����_WinAPI_RegCreateKey()��_WinAPI_RegOpenKey()��������; �޷�ָ��Զ�̼�����ϵļ�. ���������ӳ���б���, �����ɹ����������κ�Ӱ��.
+   打开的键的句柄. 该句柄由_WinAPI_RegCreateKey()或_WinAPI_RegOpenKey()函数返回; 无法指定远程计算机上的键. 如果键不在映射列表上, 函数成功但不产生任何影响.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0, @extended��ǿɰ�����0ϵͳ�������.
+成功: 返回1
+失败: 返回0并设置@error非0, @extended标记可包含非0系统错误代码.
 @@End@@
 
-###��ע###
-��WOW64ϵͳ��, 32λӦ�ó���鿴��64λӦ�ó���鿴���������ע�����. ע���ӳ�������鿴���临��ָ��ע�������ֵ.
-ʹ��_WinAPI_RegEnableReflectionKey()��ԭһ�����ü���ע���ӳ��.
-���ϵͳҪ��: Windows Vista, Windows XP Professional x64 Edition
+###Remarks###
+在WOW64系统上, 32位应用程序查看从64位应用程序查看器分离出的注册表树. 注册表映射在两查看器间复制指定注册表键及值.
+使用_WinAPI_RegEnableReflectionKey()还原一个禁用键的注册表映射.
+最低系统要求: Windows Vista, Windows XP Professional x64 Edition
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����RegDisableReflectionKey�������Ϣ
+###See Also###
+ 搜索MSDN知识库中RegDisableReflectionKey的相关信息

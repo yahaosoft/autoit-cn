@@ -1,30 +1,30 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_UnmapViewOfFile
 
-###����###
-�ӵ��ý��̵ĵ�ַ�ռ�ȡ�����ļ���ӳ����ͼ
+###Description###
+从调用进程的地址空间取消对文件的映射视图
 _WinAPI_UnmapViewOfFile ( $pAddress )
 
-###����###
+###Parameters###
 @@ParamTable@@
-$pAddress  ���ٱ�ӳ����ļ�ӳ����ͼ�Ļ�ַָ��. ���ֵ��������ǰ����_WinAPI_MapViewOfFile()�������ص�ֵ��ͬ
+$pAddress  不再被映射的文件映射视图的基址指针. 这个值必须与先前调用_WinAPI_MapViewOfFile()函数返回的值相同
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ�ܣ�����0������@error��0
+成功: 返回1
+失败：返回0并设置@error非0
 @@End@@
 
-###��ע###
-���ӳ���ļ��ľ�����ͼʹ��ͼ�ڽ��̵ĵ�ַ�ռ���ռ�õķ�ΧʧЧ��ʹ֮��������������. ����Ƴ�ÿ����Ϊ������һ���ֵ�δӳ�������ҳ�����ڲ����ٽ��̵Ĺ�������С. ͬʱҲ��������Ӧ����ҳ��Ĺ�������.
-����Ӧ�ó���ɹر����ڴ����ļ����������ļ����, ϵͳ���Ƴ�����ӳ���ļ���ͼǰ�Ի�����Ӧ���ִ�. �ڽ�������ļ�����ǰ�ļ������޹������ƴ�.
-Ϊ������޶ȼ��ٵ������ݶ�ʧ�ĵ�Դ���ϻ�ϵͳ�����¼��ķ���, Ӧ��ʹ��_WinAPI_FlushViewOfFile()������ȷˢ���޸�ҳ��.
+###Remarks###
+解除映射文件的镜像视图使视图在进程的地址空间中占用的范围失效并使之可用于其他分配. 这会移除每个作为工作集一部分的未映射的虚拟页面的入口并减少进程的工作集大小. 同时也将降低相应物理页面的共享计数.
+尽管应用程序可关闭用于创建文件镜像对象的文件句柄, 系统在移除最后的映射文件视图前仍会是相应保持打开. 在解除最后的文件镜像前文件保持无共享限制打开.
+为了最大限度减少导致数据丢失的电源故障或系统崩溃事件的风险, 应该使用_WinAPI_FlushViewOfFile()函数明确刷新修改页面.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����UnmapViewOfFile�������Ϣ
+###See Also###
+ 搜索MSDN知识库中UnmapViewOfFile的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

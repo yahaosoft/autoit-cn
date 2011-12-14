@@ -1,64 +1,64 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êý###
+ï»¿###User Defined Function###
 _WinAPI_AnimateWindow
 
-###ÃèÊö###
-ÏÔÊ¾Òþ²Ø´°ÌåÊ±Ê¹ÓÃÌØÐ§
+###Description###
+æ˜¾ç¤ºéšè—çª—ä½“æ—¶ä½¿ç”¨ç‰¹æ•ˆ
 
-###Óï·¨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_AnimateWindow( $hWnd, $iFlags [, $iDuration] )
 
-###²ÎÊý###
+###Parameters###
 @@ParamTable@@
 $hWnd
-   Òª¶¯»­ÏÔÊ¾µÄ´°Ìå¾ä±ú
+   è¦åŠ¨ç”»æ˜¾ç¤ºçš„çª—ä½“å¥æŸ„
 $iFlags
-   ¸Ã±ê¼ÇÖ¸¶¨¶¯»­ÀàÐÍ. ¸Ã²ÎÊý¿ÉÎªÏÂÁÐÖµµÄÒ»¸ö»ò¶à¸ö. ×¢Òâ , Ä¬ÈÏ , ÕâÐ©±ê¼ÇÊÇÔÚÏÔÊ¾´°¿ÚÊ±ÉúÐ§. Èç¹ûÔÚÒþ²ØÊ±ÉúÐ§ , Ê¹ÓÃAW_HIDE¼°Ò»¸öÂß¼­»ò(or)²Ù×÷·û
-    $AW_ACTIVATE - ¼¤»î´°Ìå. ²»ÄÜÓë$AW_HIDEÍ¬Ê±Ê¹ÓÃ.
-    $AW_BLEND - Ê¹ÓÃ½¥ÒþÐ§¹û. ½öµ±$hWndÎª¶¥²ã´°¿ÚÊ±ÓÐÐ§.
-    $AW_CENTER - Èç¹ûÊ¹ÓÃ$AW_HIDE´°ÌåÏòÄÚÊÕËõ, Èç¹ûÎ´Ê¹ÓÃÔòÏòÍâÀ©ÕÅ. ²»Í¬·½Ïò±ê¼ÇÎÞÐ§.
-    $AW_HIDE - Òþ²Ø´°Ìå. Ä¬ÈÏ´°ÌåÎªÏÔÊ¾×´Ì¬.
-    $AW_HOR_POSITIVE - ´°Ìå´Ó×óÖÁÓÒ¶¯»­. ¸Ã±ê¼Ç¿ÉÓë¹ö¶¯»ò»¬¶¯¶¯»­Ê¹ÓÃ. Ê¹ÓÃ$AW_CENTER»ò$AW_BLENDÊ±ºöÂÔ
-    $AW_HOR_NEGATIVE - ´°Ìå´ÓÓÒÖÁ×ó¶¯»­. ¸Ã±ê¼Ç¿ÉÓë¹ö¶¯»ò»¬¶¯¶¯»­Ê¹ÓÃ. Ê¹ÓÃ$AW_CENTER»ò$AW_BLENDÊ±ºöÂÔ
-    $AW_SLIDE - Ê¹ÓÃ»¬¶¯¶¯»­. Ä¬ÈÏ, Ê¹ÓÃ¹ö¶¯¶¯»­. ¸Ã±ê¼Çµ±Ê¹ÓÃ$AW_CENTERÊ±ºöÂÔ.
-    $AW_VER_POSITIVE - ´°Ìå´Ó¶¥ÖÁµ×¶¯»­. ¸Ã±ê¼Ç¿ÉÓë¹ö¶¯»ò»¬¶¯¶¯»­Ê¹ÓÃ. Ê¹ÓÃ$AW_CENTER»ò$AW_BLENDÊ±ºöÂÔ
-    $AW_VER_NEGATIVE - ´°Ìå´Óµ×ÖÁ¶¥¶¯»­. ¸Ã±ê¼Ç¿ÉÓë¹ö¶¯»ò»¬¶¯¶¯»­Ê¹ÓÃ. Ê¹ÓÃ$AW_CENTER»ò$AW_BLENDÊ±ºöÂÔ
-    $AW_FADE_IN - ´°Ìåµ­Èë
-    $AW_FADE_OUT - ´°Ìåµ­³ö
-    $AW_SLIDE_IN_LEFT - ´Ó×ó²à»¬Èë
-    $AW_SLIDE_OUT_LEFT - »¬³öµ½×ó²à
-    $AW_SLIDE_IN_RIGHT - ´ÓÓÒ²à»¬Èë
-    $AW_SLIDE_OUT_RIGHT - »¬³öµ½ÓÒ²à
-    $AW_SLIDE_IN_TOP - ´Ó¶¥²¿»¬Èë
-    $AW_SLIDE_OUT_TOP - »¬³öµ½¶¥²¿
-    $AW_SLIDE_IN_BOTTOM - ´Óµ×²¿»¬Èë
-    $AW_SLIDE_OUT_BOTTOM - »¬³öµ½µ×²¿
-    $AW_DIAG_SLIDE_IN_TOPLEFT - ´Ó×óÉÏ½ÇÑØ¶Ô½ÇÏß»¬Èë
-    $AW_DIAG_SLIDE_OUT_TOPLEFT - ´Ó×óÉÏ½ÇÑØ¶Ô½ÇÏß»¬³ö
-    $AW_DIAG_SLIDE_IN_TOPRIGHT - ´ÓÓÒÉÏ½ÇÑØ¶Ô½ÇÏß»¬Èë
-    $AW_DIAG_SLIDE_OUT_TOPRIGHT - ´ÓÓÒÉÏ½ÇÑØ¶Ô½ÇÏß»¬³ö
-    $AW_DIAG_SLIDE_IN_BOTTOMLEFT - ´Ó×óÏÂ½ÇÑØ¶Ô½ÇÏß»¬Èë
-    $AW_DIAG_SLIDE_OUT_BOTTOMLEFT - ´Ó×óÏÂ½ÇÑØ¶Ô½ÇÏß»¬³ö
-    $AW_DIAG_SLIDE_IN_BOTTOMRIGHT - ´ÓÓÒÏÂÉÏ½ÇÑØ¶Ô½ÇÏß»¬Èë
-    $AW_DIAG_SLIDE_OUT_BOTTOMRIGHT - ´ÓÓÒÏÂÉÏ½ÇÑØ¶Ô½ÇÏß»¬³ö
-    $AW_EXPLODE - À©ÕÅ
-    $AW_IMPLODE - ËúËõ
+   è¯¥æ ‡è®°æŒ‡å®šåŠ¨ç”»ç±»åž‹. è¯¥å‚æ•°å¯ä¸ºä¸‹åˆ—å€¼çš„ä¸€ä¸ªæˆ–å¤šä¸ª. æ³¨æ„ , é»˜è®¤ , è¿™äº›æ ‡è®°æ˜¯åœ¨æ˜¾ç¤ºçª—å£æ—¶ç”Ÿæ•ˆ. å¦‚æžœåœ¨éšè—æ—¶ç”Ÿæ•ˆ , ä½¿ç”¨AW_HIDEåŠä¸€ä¸ªé€»è¾‘æˆ–(or)æ“ä½œç¬¦
+    $AW_ACTIVATE - æ¿€æ´»çª—ä½“. ä¸èƒ½ä¸Ž$AW_HIDEåŒæ—¶ä½¿ç”¨.
+    $AW_BLEND - ä½¿ç”¨æ¸éšæ•ˆæžœ. ä»…å½“$hWndä¸ºé¡¶å±‚çª—å£æ—¶æœ‰æ•ˆ.
+    $AW_CENTER - å¦‚æžœä½¿ç”¨$AW_HIDEçª—ä½“å‘å†…æ”¶ç¼©, å¦‚æžœæœªä½¿ç”¨åˆ™å‘å¤–æ‰©å¼ . ä¸åŒæ–¹å‘æ ‡è®°æ— æ•ˆ.
+    $AW_HIDE - éšè—çª—ä½“. é»˜è®¤çª—ä½“ä¸ºæ˜¾ç¤ºçŠ¶æ€.
+    $AW_HOR_POSITIVE - çª—ä½“ä»Žå·¦è‡³å³åŠ¨ç”». è¯¥æ ‡è®°å¯ä¸Žæ»šåŠ¨æˆ–æ»‘åŠ¨åŠ¨ç”»ä½¿ç”¨. ä½¿ç”¨$AW_CENTERæˆ–$AW_BLENDæ—¶å¿½ç•¥
+    $AW_HOR_NEGATIVE - çª—ä½“ä»Žå³è‡³å·¦åŠ¨ç”». è¯¥æ ‡è®°å¯ä¸Žæ»šåŠ¨æˆ–æ»‘åŠ¨åŠ¨ç”»ä½¿ç”¨. ä½¿ç”¨$AW_CENTERæˆ–$AW_BLENDæ—¶å¿½ç•¥
+    $AW_SLIDE - ä½¿ç”¨æ»‘åŠ¨åŠ¨ç”». é»˜è®¤, ä½¿ç”¨æ»šåŠ¨åŠ¨ç”». è¯¥æ ‡è®°å½“ä½¿ç”¨$AW_CENTERæ—¶å¿½ç•¥.
+    $AW_VER_POSITIVE - çª—ä½“ä»Žé¡¶è‡³åº•åŠ¨ç”». è¯¥æ ‡è®°å¯ä¸Žæ»šåŠ¨æˆ–æ»‘åŠ¨åŠ¨ç”»ä½¿ç”¨. ä½¿ç”¨$AW_CENTERæˆ–$AW_BLENDæ—¶å¿½ç•¥
+    $AW_VER_NEGATIVE - çª—ä½“ä»Žåº•è‡³é¡¶åŠ¨ç”». è¯¥æ ‡è®°å¯ä¸Žæ»šåŠ¨æˆ–æ»‘åŠ¨åŠ¨ç”»ä½¿ç”¨. ä½¿ç”¨$AW_CENTERæˆ–$AW_BLENDæ—¶å¿½ç•¥
+    $AW_FADE_IN - çª—ä½“æ·¡å…¥
+    $AW_FADE_OUT - çª—ä½“æ·¡å‡º
+    $AW_SLIDE_IN_LEFT - ä»Žå·¦ä¾§æ»‘å…¥
+    $AW_SLIDE_OUT_LEFT - æ»‘å‡ºåˆ°å·¦ä¾§
+    $AW_SLIDE_IN_RIGHT - ä»Žå³ä¾§æ»‘å…¥
+    $AW_SLIDE_OUT_RIGHT - æ»‘å‡ºåˆ°å³ä¾§
+    $AW_SLIDE_IN_TOP - ä»Žé¡¶éƒ¨æ»‘å…¥
+    $AW_SLIDE_OUT_TOP - æ»‘å‡ºåˆ°é¡¶éƒ¨
+    $AW_SLIDE_IN_BOTTOM - ä»Žåº•éƒ¨æ»‘å…¥
+    $AW_SLIDE_OUT_BOTTOM - æ»‘å‡ºåˆ°åº•éƒ¨
+    $AW_DIAG_SLIDE_IN_TOPLEFT - ä»Žå·¦ä¸Šè§’æ²¿å¯¹è§’çº¿æ»‘å…¥
+    $AW_DIAG_SLIDE_OUT_TOPLEFT - ä»Žå·¦ä¸Šè§’æ²¿å¯¹è§’çº¿æ»‘å‡º
+    $AW_DIAG_SLIDE_IN_TOPRIGHT - ä»Žå³ä¸Šè§’æ²¿å¯¹è§’çº¿æ»‘å…¥
+    $AW_DIAG_SLIDE_OUT_TOPRIGHT - ä»Žå³ä¸Šè§’æ²¿å¯¹è§’çº¿æ»‘å‡º
+    $AW_DIAG_SLIDE_IN_BOTTOMLEFT - ä»Žå·¦ä¸‹è§’æ²¿å¯¹è§’çº¿æ»‘å…¥
+    $AW_DIAG_SLIDE_OUT_BOTTOMLEFT - ä»Žå·¦ä¸‹è§’æ²¿å¯¹è§’çº¿æ»‘å‡º
+    $AW_DIAG_SLIDE_IN_BOTTOMRIGHT - ä»Žå³ä¸‹ä¸Šè§’æ²¿å¯¹è§’çº¿æ»‘å…¥
+    $AW_DIAG_SLIDE_OUT_BOTTOMRIGHT - ä»Žå³ä¸‹ä¸Šè§’æ²¿å¯¹è§’çº¿æ»‘å‡º
+    $AW_EXPLODE - æ‰©å¼ 
+    $AW_IMPLODE - å¡Œç¼©
 $iDuration
-   Ö¸¶¨²¥·Å¶¯»­µÄºÁÃëÊ±³¤ , Ä¬ÈÏÎª1000
+   æŒ‡å®šæ’­æ”¾åŠ¨ç”»çš„æ¯«ç§’æ—¶é•¿ , é»˜è®¤ä¸º1000
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: ·µ»Ø1
-Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
+æˆåŠŸ: è¿”å›ž1
+å¤±è´¥: è¿”å›ž0å¹¶è®¾ç½®@erroréž0
 @@End@@
 
-###±¸×¢###
+###Remarks###
 
-###Ïà¹Ø###
+###Related###
 
-###²Î¿¼###
- ËÑË÷MSDNÖªÊ¶¿âÖÐAnimateWindowµÄÏà¹ØÐÅÏ¢
+###See Also###
+ æœç´¢MSDNçŸ¥è¯†åº“ä¸­AnimateWindowçš„ç›¸å…³ä¿¡æ¯
 
-###Ê¾Àý###
+###Example###
 @@IncludeExample@@

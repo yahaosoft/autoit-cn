@@ -1,54 +1,54 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_DrawIconEx
 
-###����###
-���޶����豸�������ڵĿͻ��������ͼ��
+###Description###
+在限定的设备场景窗口的客户区域绘制图标
 
-###�﷨###
+###Syntax###
 #Include <WinAPI.au3>
 _WinAPI_DrawIconEx($hDC, $iX,
 $iY, $hIcon[, $iWidth = 0[, $iHeight = 0[, $iStep = 0[, $hBrush = 0[, $iFlags =
 3]]]]])
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hDC
-   �����л���ͼ�������豸�����ľ��
+   在其中绘制图标或光标的设备场景的句柄
 $iX
-   ͼ�����Ͻ� X ����
+   图标左上角 X 坐标
 $iY
-   ͼ�����Ͻ� Y ����
+   图标左上角 Y 坐标
 $hIcon
-   ���Ƶ�ͼ��ľ��
+   绘制的图标的句柄
 $iWidth
-$SM_CXICON��$SM_CXCURSOR��ϵͳ����ֵ���ÿ���. �������Ϊ0��δʹ��"Ĭ�ϳߴ�", ����ʹ����Դ��ʵ�ʿ���.
+$SM_CXICON或$SM_CXCURSOR的系统公制值设置宽度. 如果参数为0且未使用"默认尺寸", 函数使用资源的实际宽度.
 $iHeight
-$SM_CXICON��$SM_CXCURSOR��ϵͳ����ֵ���ø߶�. �������Ϊ0��δʹ��"Ĭ�ϳߴ�", ����ʹ����Դ��ʵ�ʸ߶�.
+$SM_CXICON或$SM_CXCURSOR的系统公制值设置高度. 如果参数为0且未使用"默认尺寸", 函数使用资源的实际高度.
 $iStep
-   ���ָ��hIcon��һ��������꣬�ò���ָ������֡������. ������Ǻ��Ըò���.
+   如果指定hIcon是一个动画光标，该参数指定绘制帧的索引. 如果不是忽略该参数.
 $hBrush
-   ϵͳ���ڻ��Ƶ�ˢ�ӵľ��. ��� hBrush ��һ�����õ�ˢ�Ӿ��,
-      ϵͳʹ��ָ���Ĵ�����ɫ��ˢ��, �ں�̨�������д���һ��λͼ������ͼ����껭��λͼ, Ȼ��λͼ���Ƶ���hDCȷ�����豸������. ���hBrushΪ0, ϵͳ��ͼ������ֱ�ӻ��Ƶ��豸������.
+   系统用于绘制的刷子的句柄. 如果 hBrush 是一个可用的刷子句柄,
+      系统使用指定的带背景色的刷子, 在后台缓冲区中创建一个位图，并将图标或光标画入位图, 然后将位图复制到由hDC确定的设备场景中. 如果hBrush为0, 系统将图表或光标直接绘制到设备场景中.
 $iFlags
-   ָ�����Ʊ��. ����Ϊ����ֵ֮һ:
-    1 - ���������ͼ�����
-    2 - ��ͼ�����ͼ�����
-    3 - �ó��淽ʽ��ͼ(1+2)
-    4 - ϵͳ����ȱʡͼ��������û������ͼ�����ͼ��͹��
-    5 - ���iWidth��iWidth��������Ϊ��, ����ϵͳָ����ͼ��͹��ĵĹ��ƿ��Ⱥ͸߶Ȼ���ͼ��͹��. ������δ��ָ����iWidth��iWidth������Ϊ�㣬����ʹ����Դʵ�ʴ�С.
-    6 - ����ͼ��Ϊ�޾���ͼ��
+   指定绘制标记. 参数为下列值之一:
+    1 - 用掩码绘制图标或光标
+    2 - 用图像绘制图标或光标
+    3 - 用常规方式绘图(1+2)
+    4 - 系统采用缺省图像而不是用户定义的图像绘制图标和光标
+    5 - 如果iWidth和iWidth参数被设为零, 采用系统指定的图标和光标的的公制宽度和高度绘制图标和光标. 如果标记未被指定且iWidth和iWidth参数设为零，函数使用资源实际大小.
+    6 - 绘制图标为无镜像图标
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��
-ʧ��: ��
+成功: 真
+失败: 假
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 _WinAPI_DrawIcon
 
-###�ο�###
-����MSDN֪ʶ����DrawIconEx�������Ϣ
+###See Also###
+搜索MSDN知识库中DrawIconEx的相关信息

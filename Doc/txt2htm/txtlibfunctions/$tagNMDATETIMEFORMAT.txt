@@ -1,39 +1,39 @@
-###�ṹ����###
+﻿###结构常量###
 $tagNMDATETIMEFORMAT
 
-###����###
-������������ʱ��ʰȡ���ؼ�(DTP)�ڻص����еĸ�ʽ���ַ������ֵ���Ϣ
+###Description###
+包含定义日期时间拾取器控件(DTP)内回调区中的格式化字符串部分的信息
 
-###�﷨###
+###Syntax###
 Global Const $tagNMDATETIMEFORMAT =  $tagNMHDR & ";ptr Format;short Year;short Month;short DOW;short Day;short Hour;short Minute;short Second;short MSecondptr pDisplay;char Display[64]"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 $tagNMHDR
-   ֪ͨ��Ϣ����Ϣ
+   通知消息的信息
 Format
-   ����ؼ��ص�������ֹ�ַ�����ָ��. �ַ�����һ������"X"�ַ����.
+   定义控件回调区无终止字符串的指针. 字符串有一个或多个"X"字符组成.
 Year
-   ��
+   年
 Month
-   ��
+   月
 DOW
-   ���е���
+   周中的日
 Day
-   ��
+   日
 Hour
-   ʱ
+   时
 Minute
-   ��
+   分
 Second
-   ��
+   秒
 MSecond
-   ����
+   毫秒
 pDisplay
-   �����ؼ�����ʾ�ı�������ֹ�ַ�����ָ��. Ĭ��Ϊ�ýṹDisplay��Ա�ĵ�ַ. �ɽ���ָ����ڵ��ַ�����pDisplay. �������, ����ΪDisplay����ֵ. Ȼ��, pDisplayָ����ַ������뱣����Чֱ��������һ��$DTN_FORMAT֪ͨ��ؼ�������.
+   包含控件的显示文本的无终止字符串的指针. 默认为该结构Display成员的地址. 可接受指向存在的字符串的pDisplay. 此情况下, 无需为Display分配值. 然而, pDisplay指向的字符串必须保持有效直到发送另一个$DTN_FORMAT通知或控件被销毁.
 Display
-   ���Խ��տؼ�����ʾ������ֹ�ַ�����64���ַ��Ļ�����. ��������������.
+   用以接收控件将显示的无终止字符串的64个字符的缓冲区. 无需填满缓冲区.
 @@end@@
 
-###��ע###
-�������䶨��ص��ֶμ�����������ʾ�ڻص������ַ����Ļ�����. �ýṹ��$DTN_FORMAT֪ͨ��Ϣͬʱʹ��.
+###Remarks###
+函数传输定义回调字段及包含接收显示在回调区的字符串的缓冲区. 该结构与$DTN_FORMAT通知消息同时使用.

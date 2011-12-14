@@ -1,39 +1,39 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _DebugSetup
 
-###����###
-��һ�����±�����������һ�����ԻỰ��ͨ��_DebugOut()д��
+###Description###
+打开一个记事本窗口来建立一个调试会话并通过_DebugOut()写入
 
-###�﷨###
+###Syntax###
 #Include <Debug.au3>
 _DebugSetup ( $sTitle )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $sTitle 
-   (��ѡ)����_DebugOut()�ļ��±����ڱ���
+   (可选)用于_DebugOut()的记事本窗口标题
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���� 1.
-ʧ��: ����@Error������0.
-@Error: 0 = �޴���.
-     1 = $sTitle���Ͳ�����
-     2 = ���ԻỰ�ѿ���. ʹ�������濪���»Ự.
-     3 = ��һδ�������±������Ѵ�. ������ڼ���ǰ�ر�.
+成功: 返回 1.
+失败: 设置@Error并返回0.
+@Error: 0 = 无错误.
+     1 = $sTitle类型不合适
+     2 = 调试会话已开启. 使用它代替开启新会话.
+     3 = 另一未命名记事本窗口已打开. 保存或在继续前关闭.
 @@End@@
 
-###��ע###
-�ű������ڼ�ֻ�ܿ���һ�����ԻỰ. ����һ���Լ��±��Ự���ڴ��ڼ䳢�Ե���_DebugSetup()ʱ�ᵼ��@Error = 2, ����_DebugOut()��ʹ��ԭʼ�Ự��������.  ������±����ڹر�, ��Ҫ����_DebugSetup�������Լ��±��Ự.
-����ʹ����ͬ�ļ��±��Ựͬʱ���Զ���ű�, ֻ��Ҫ�ڵ���_DebugSetup()ʱʹ����ͬ��$sTitle. ����_DebugOut()���ᵽ��ͬ�ļ��±��Ự.
-������ú���ʱһ��δ�������±��Ѿ���, �ű������޷����ּ��±��Ự���䱾����ʼ�ĻỰ, �ڴ������, �ű����˳�������@Error = 3. _DebugSetup()���غ���±��Ự���ڲ����»���״̬������.
-ָ��_DebugSetup()���ý���Ч�ؽ�������_DebugOut()�ĵ���, �����ڴ����ű�����ʽ�汾ǰӦ���Ƴ�����_Debug�����ĵ���.
+###Remarks###
+脚本运行期间只能开启一个调试会话. 在另一调试记事本会话处于打开期间尝试调用_DebugSetup()时会导致@Error = 2, 但是_DebugOut()将使用原始会话继续操作.  如果记事本窗口关闭, 需要调用_DebugSetup重启调试记事本会话.
+可以使用相同的记事本会话同时调试多个脚本, 只需要在调用_DebugSetup()时使用相同的$sTitle. 所有_DebugOut()将会到相同的记事本会话.
+如果调用函数时一个未命名记事本已经打开, 脚本可能无法区分记事本会话和其本身开始的会话, 在此情况下, 脚本会退出并返回@Error = 3. _DebugSetup()返回后记事本会话可在不导致混乱状态下启动.
+指出_DebugSetup()调用将有效地禁用所有_DebugOut()的调用, 但是在创建脚本的正式版本前应该移除所有_Debug函数的调用.
 
-###���###
+###Related###
  _DebugOut
 
-###�ο�###
+###See Also###
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

@@ -1,38 +1,38 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_CreateMutex
 
-###����###
-�������ͬ����Ԫ(ͬ��������)����
+###Description###
+创建或打开同步基元(同步互斥体)对象
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_CreateMutex( $sMutex [, $fInitial [, $tSecurity]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $sMutex
-   ͬ����Ԫ��������. ��Сд����.
+   同步基元对象名称. 大小写敏感.
 $fInitial
-   [��ѡ] ָ�����õĽ����Ƿ��ȡ��Ԫ�����ԭʼ����. ����ֵ:
-    1 - ��ȡ����(Ĭ��)
-    0 - ����ȡ����
+   [可选] 指定调用的进程是否获取基元对象的原始宿主. 可用值:
+    1 - 获取宿主(默认)
+    0 - 不获取宿主
 $tSecurity
-$tagSECURITY_ATTRIBUTES�ṹ. Ϊ0ʱʹ��Ĭ�ϵİ�ȫ������.
+$tagSECURITY_ATTRIBUTES结构. 为0时使用默认的安全描述符.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �����½���Ԫ������
-ʧ��: ����0������@error��0
+成功: 返回新建基元对象句柄
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-�����ԪΪһ�������Ļ�Ԫ���ں�������ǰ�Ѵ��� , ����ֵΪ���ڶ���ľ�� , _WinAPI_GetLastError() ���� ERROR_ALREADY_EXISTS, ���� $fInitial, �ҵ����̲߳���ȷ������Ȩ. Ȼ�� , ������þ�������Ȩ�� , �������� ERROR_ACCESS_DENIED ʧ���ҵ��÷�ʹ�� _WinAPI_OpenMutex() ����.
-�κν��̶�����һ�ε����и�һ���ȴ�����ָ����Ԫ����ľ��. ��һ����ȴ������ڵ�һ����״̬Ϊ��ֹʱ����. �����ȴ����������κ�һ��������ָ��������ֹʱ����. ���ȴ���������ʱ , �ͷŵȴ��̲߳�����ִ��.
-�����������̿�ʹ�� _WinAPI_CreateMutex() ����ͬ���Ļ�Ԫ. ʵ�����׸����̴�����Ԫ���ɾ����㹻����Ȩ�޵ĺ������̼򵥴򿪴��ڻ�Ԫ�ľ��. ������ʹ�ö�����̻�ȡ��ͬ��Ԫ�ľ�� , ͬʱ����Ϊȷ���״����������Ľ���ʱ�û�������. ʹ�øü����� , Ӧ���� $fInitial ����Ϊ FALSE; ���� , ������ȷ�����г�ʼ����Ȩ�Ľ���.
-�رվ��ʹ�� _WinAPI_CloseHandle() ����. ������ֹʱϵͳ�Զ��رվ��. ��Ԫ���������һ������ر�ʱ����.
+###Remarks###
+如果基元为一个命名的基元且在函数调用前已存在 , 返回值为存在对象的句柄 , _WinAPI_GetLastError() 返回 ERROR_ALREADY_EXISTS, 忽略 $fInitial, 且调用线程不会确保所有权. 然而 , 如果调用具有有限权限 , 函数由于 ERROR_ACCESS_DENIED 失败且调用方使用 _WinAPI_OpenMutex() 函数.
+任何进程都可在一次调用中给一个等待函数指定基元对象的句柄. 单一对象等待函数在单一对象状态为终止时返回. 多对象等待函数可在任何一个或所有指定对象终止时返回. 当等待函数返回时 , 释放等待线程并继续执行.
+两个或多个进程可使用 _WinAPI_CreateMutex() 创建同名的基元. 实际是首个进程创建基元并由具有足够访问权限的后续进程简单打开存在基元的句柄. 这样可使得多个进程获取相同基元的句柄 , 同时减轻为确保首次启动创建的进程时用户的责任. 使用该技术事 , 应设置 $fInitial 参数为 FALSE; 否则 , 将很难确定具有初始所有权的进程.
+关闭句柄使用 _WinAPI_CloseHandle() 函数. 进程终止时系统自动关闭句柄. 基元对象在最后一个句柄关闭时销毁.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����CreateMutex�������Ϣ
+###See Also###
+ 搜索MSDN知识库中CreateMutex的相关信息

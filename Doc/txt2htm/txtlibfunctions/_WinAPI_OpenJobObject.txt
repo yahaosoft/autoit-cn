@@ -1,20 +1,20 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êý###
+ï»¿###User Defined Function###
 _WinAPI_OpenJobObject
 
-###ÃèÊö###
-´ò¿ªÒÑ´æÔÚµÄ¹¤×÷¶ÔÏó
+###Description###
+æ‰“å¼€å·²å­˜åœ¨çš„å·¥ä½œå¯¹è±¡
 
-###Óï·¨###
+###Syntax###
 #Include
 <WinAPIEx.au3>
 _WinAPI_OpenJobObject($sName [, $iAccess [, $fInheritHandles])
 
-###²ÎÊý###
+###Parameters###
 @@ParamTable@@
 $sName
-   ½«Òª´ò¿ªµÄ¹¤×÷Ãû³Æ. Ãû³Æ´óÐ¡Ð´Ãô¸Ð.
+   å°†è¦æ‰“å¼€çš„å·¥ä½œåç§°. åç§°å¤§å°å†™æ•æ„Ÿ.
 $iAccess
-   ¹¤×÷¶ÔÏóµÄ·ÃÎÊÈ¨ÏÞ. ¿ÉÎªÒ»¸ö»ò¶à¸öÏÂÁÐÖµ:
+   å·¥ä½œå¯¹è±¡çš„è®¿é—®æƒé™. å¯ä¸ºä¸€ä¸ªæˆ–å¤šä¸ªä¸‹åˆ—å€¼:
 $JOB_OBJECT_ALL_ACCESS
 $JOB_OBJECT_ASSIGN_PROCESS
 $JOB_OBJECT_QUERY
@@ -22,26 +22,26 @@ $JOB_OBJECT_SET_ATTRIBUTES
 $JOB_OBJECT_SET_SECURITY_ATTRIBUTES
 $JOB_OBJECT_TERMINATE
 $fInheritHandles
-   Ö¸¶¨½ø³Ì¾ä±úÊÇ·ñ¿É¼Ì³Ð:
-    TRUE - ÓÉ¸Ã½ø³Ì´´½¨µÄ½ø³Ì½«¼Ì³Ð¾ä±ú.
-    FALSE - ½ø³Ì²»¼Ì³Ð¸Ã¾ä±ú. (Ä¬ÈÏ)
+   æŒ‡å®šè¿›ç¨‹å¥æŸ„æ˜¯å¦å¯ç»§æ‰¿:
+    TRUE - ç”±è¯¥è¿›ç¨‹åˆ›å»ºçš„è¿›ç¨‹å°†ç»§æ‰¿å¥æŸ„.
+    FALSE - è¿›ç¨‹ä¸ç»§æ‰¿è¯¥å¥æŸ„. (é»˜è®¤)
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: ·µ»Ø¹¤×÷¶ÔÏó¾ä±ú. Èç¹ûÔÚº¯Êýµ÷ÓÃÇ°¶ÔÏóÒÑ´æÔÚ, º¯Êý·µ»Ø´æÔÚµÄ¹¤×÷¶ÔÏóµÄ¾ä±ú.
-Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0
+æˆåŠŸ: è¿”å›žå·¥ä½œå¯¹è±¡å¥æŸ„. å¦‚æžœåœ¨å‡½æ•°è°ƒç”¨å‰å¯¹è±¡å·²å­˜åœ¨, å‡½æ•°è¿”å›žå­˜åœ¨çš„å·¥ä½œå¯¹è±¡çš„å¥æŸ„.
+å¤±è´¥: è¿”å›ž0å¹¶è®¾ç½®@erroréž0
 @@End@@
 
-###±¸×¢###
-µ±¹¤×÷±»´´½¨Ê±, Æä¼ÆÊýÐÅÏ¢±»³õÊ¼»¯Îª0, ËùÓÐÏÞÖÆÎÞÐ§, ÇÒÎÞ¹ØÁª½ø³Ì. Ê¹ÓÃ_WinAPI_AssignProcessToJobObject()º¯Êý¸ø¹¤×÷·ÖÅäÒ»¸ö½ø³Ì. Ê¹ÓÃ_WinAPI_SetInformationJobObject()º¯ÊýÉèÖÃ¹¤×÷µÄÏÞÖÆ. Ê¹ÓÃ_WinAPI_QueryInformationJobObject()º¯Êý²éÑ¯¼ÆÊýÐÅÏ¢.
-¹ØÁªµ½¹¤×÷µÄËùÓÐ½ø³Ì±ØÐëÔËÐÐÓÚÏàÍ¬µÄ»á»°. ¹¤×÷±»¹ØÁªµ½ÓëÊ×¸ö·ÖÅä¸ø¹¤×÷µÄ½ø³ÌµÄ»á»°.
-Ê¹ÓÃ_WinAPI_FreeHandle()º¯Êý¹Ø±Õ¹¤×÷¶ÔÏóµÄ¾ä±ú. µ±×îºóÒ»¸ö¾ä±úÒÑ¹Ø±ÕÇÒËùÓÐ¹ØÁªµÄ½ø³ÌÒÑÍË³öÊ±Ïú»Ù¹¤×÷.
+###Remarks###
+å½“å·¥ä½œè¢«åˆ›å»ºæ—¶, å…¶è®¡æ•°ä¿¡æ¯è¢«åˆå§‹åŒ–ä¸º0, æ‰€æœ‰é™åˆ¶æ— æ•ˆ, ä¸”æ— å…³è”è¿›ç¨‹. ä½¿ç”¨_WinAPI_AssignProcessToJobObject()å‡½æ•°ç»™å·¥ä½œåˆ†é…ä¸€ä¸ªè¿›ç¨‹. ä½¿ç”¨_WinAPI_SetInformationJobObject()å‡½æ•°è®¾ç½®å·¥ä½œçš„é™åˆ¶. ä½¿ç”¨_WinAPI_QueryInformationJobObject()å‡½æ•°æŸ¥è¯¢è®¡æ•°ä¿¡æ¯.
+å…³è”åˆ°å·¥ä½œçš„æ‰€æœ‰è¿›ç¨‹å¿…é¡»è¿è¡ŒäºŽç›¸åŒçš„ä¼šè¯. å·¥ä½œè¢«å…³è”åˆ°ä¸Žé¦–ä¸ªåˆ†é…ç»™å·¥ä½œçš„è¿›ç¨‹çš„ä¼šè¯.
+ä½¿ç”¨_WinAPI_FreeHandle()å‡½æ•°å…³é—­å·¥ä½œå¯¹è±¡çš„å¥æŸ„. å½“æœ€åŽä¸€ä¸ªå¥æŸ„å·²å…³é—­ä¸”æ‰€æœ‰å…³è”çš„è¿›ç¨‹å·²é€€å‡ºæ—¶é”€æ¯å·¥ä½œ.
 
-###Ïà¹Ø###
+###Related###
 
-###²Î¿¼###
-ËÑË÷MSDNÖªÊ¶¿âÖÐCreateJobObjectµÄÏà¹ØÐÅÏ¢
+###See Also###
+æœç´¢MSDNçŸ¥è¯†åº“ä¸­CreateJobObjectçš„ç›¸å…³ä¿¡æ¯
 
-###Ê¾Àý###
+###Example###
 @@IncludeExample@@

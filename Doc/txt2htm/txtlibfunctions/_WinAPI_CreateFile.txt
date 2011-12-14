@@ -1,62 +1,62 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_CreateFile
 
-###����###
-�������һ���ļ����豸
+###Description###
+创建或打开一个文件或设备
 
-###�﷨###
+###Syntax###
 #Include
 <WinAPI.au3>
 _WinAPI_CreateFile($sFileName, $iCreation[, $iAccess = 4[,
 $iShare = 0[, $iAttributes = 0[, $pSecurity = 0]]]])
 
-###����###
+###Parameters###
 @@ParamTable@@
 $sFileName
-   Ҫ�򿪻򴴽����ļ����������
+   要打开或创建的文件对象的名称
 $iCreation
-   ���ж���֮һ:
-    0 - �����ļ������ļ�����������
-    1 - �����ļ������ļ��������дǰһ���ļ�
+   下列动作之一:
+    0 - 创建文件；如文件存在则会出错
+    1 - 创建文件，如文件存在则改写前一个文件
     2 -
-      ���ļ������ļ�������������
-    3 - ���ļ������ļ��������򴴽�
-    4 - ���ھʹ�, ������ļ�����; ���ļ������ھͷ���ʧ��.
+      打开文件；如文件不存在则会出错
+    3 - 打开文件；如文件不存在则创建
+    4 - 存在就打开, 且清空文件内容; 若文件不存在就返回失败.
 $iAccess
-   ����ķ���ģʽ:
-    1 - �ɲ���
-    2 - ��
-    4 - д
+   对象的访问模式:
+    1 - 可操作
+    2 - 读
+    4 - 写
 $iShare
-   ����Ĺ���ģʽ:
+   对象的共享模式:
     1
-      - ɾ��
-    2 - ��
-    4 - д
+      - 删除
+    2 - 读
+    4 - 写
 $iAttributes
-   �ļ�����:
-    1 - �浵
-    2 - ����
-    4 - ֻ��
-    8 - �ļ��򲿷��ļ���������ϵͳʹ��.
+   文件属性:
+    1 - 存档
+    2 - 隐藏
+    4 - 只读
+    8 - 文件或部分文件正被操作系统使用.
 $pSecurity
-$tagSECURITY_ATTRIBUTES �ṹ��ָ��ýṹ���Ծ����Ƿ�ɱ��ӽ��̼̳�. ���
-      pSecurity Ϊ 0, ����޷����̳�.
+$tagSECURITY_ATTRIBUTES 结构的指针该结构用以决定是否可被子进程继承. 如果
+      pSecurity 为 0, 句柄无法被继承.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �򿪵�ָ���ļ��ľ��
-ʧ��: 0
+成功: 打开的指定文件的句柄
+失败: 0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 $tagSECURITY_ATTRIBUTES , _WinAPI_CloseHandle , _WinAPI_FlushFileBuffers , _WinAPI_GetFileSizeEx , _WinAPI_ReadFile , _WinAPI_SetEndOfFile , _WinAPI_SetFilePointer , _WinAPI_WriteFile
 
-###�ο�###
-����MSDN֪ʶ�����й�CreateFile����Ϣ
+###See Also###
+搜索MSDN知识库中有关CreateFile的信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

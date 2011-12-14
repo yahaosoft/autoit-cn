@@ -1,31 +1,31 @@
-###�ṹ����###
+﻿###结构常量###
 $tagLVFINDINFO
 
-###����###
-�������������б���ͼ��Ŀ����Ϣ�Ľṹ
+###Description###
+包含用于搜索列表视图项目的信息的结构
 
-###�﷨###
+###Syntax###
 Global Const $tagLVFINDINFO =  "int Flags;ptr Text;int Param;int X;int Y;int Direction"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 Flags
-   ִ������������. �ó�Ա������Ϊһ����������ֵ:
-    $LVFI_PARAM - �ڸýṹParam��Ա����Ŀ��Param��Ա֮������ƥ��ֵ. ָ��$LVFI_PARAMʱ, �����������б��.
-    $LVFI_PARTIAL - �����Ŀ�ı��Ƿ���Text��Աָ����ַ�����ʼ. ��ֵ����$LVFI_STRING.
-    $LVFI_STRING - ������Ŀ�ı�������. ����ָ������ֵ, ƥ����Ŀ����Ŀ�ı����뾫ȷƥ����Text��Աָ����ַ���.
-    $LVFI_WRAP - ���δ�ҵ�ƥ����ӿ�ʼ����
-    $LVFI_NEARESTXY - ��������Direction��Աָ���ķ����Ͼ�����X��Y��Աָ����λ���������Ŀ. �ñ�ǽ�����ͼ���Сͼ��ģʽ֧��.
+   执行搜索的类型. 该成员可设置为一个或多个下列值:
+    $LVFI_PARAM - 在该结构Param成员和项目的Param成员之间搜索匹配值. 指定$LVFI_PARAM时, 忽略其他所有标记.
+    $LVFI_PARTIAL - 检查项目文本是否由Text成员指向的字符串开始. 该值包含$LVFI_STRING.
+    $LVFI_STRING - 基于项目文本的搜索. 除非指定额外值, 匹配项目的项目文本必须精确匹配由Text成员指向的字符串.
+    $LVFI_WRAP - 如果未找到匹配项从开始继续
+    $LVFI_NEARESTXY - 查找在由Direction成员指定的方向上距离由X和Y成员指定的位置最近的项目. 该标记仅被大图标和小图标模式支持.
 Text
-   ����Ŀ�ı��Ƚϵ��ַ����ĵ�ַ. ������ǳ�Ա��������$LVFI_STRINGʱ��Ч.
+   与项目文本比较的字符串的地址. 仅当标记成员中设置有$LVFI_STRING时有效.
 Param
-   ����Ŀ��$LVITEM�ṹ��Param��Ա�Ƚϵ�ֵ. ������ǳ�Ա��������$LVFI_PARAMʱ��Ч.
+   与项目的$LVITEM结构的Param成员比较的值. 仅当标记成员中设置有$LVFI_PARAM时有效.
 X
-   �����ĳ�ʼXλ��. ������ǳ�Ա��������$LVFI_NEARESTXYʱ��Ч.
+   搜索的初始X位置. 仅当标记成员中设置有$LVFI_NEARESTXY时有效.
 Y
-   �����ĳ�ʼYλ��. ������ǳ�Ա��������$LVFI_NEARESTXYʱ��Ч.
+   搜索的初始Y位置. 仅当标记成员中设置有$LVFI_NEARESTXY时有效.
 Direction
-   ָ��������������������. �ó�Ա������ǳ�Ա��������$LVFI_NEARESTXYʱ��Ч. ֧�����д���:
+   指定搜索方向的虚拟键代码. 该成员仅当标记成员中设置有$LVFI_NEARESTXY时有效. 支持下列代码:
     VK_LEFT
     VK_RIGHT
     VK_UP

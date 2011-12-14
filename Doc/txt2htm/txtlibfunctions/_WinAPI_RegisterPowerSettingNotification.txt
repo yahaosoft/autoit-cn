@@ -1,45 +1,45 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_RegisterPowerSettingNotification
 
-###����###
->ע�����Խ���ָ���ĵ�Դ����֪ͨ��Ӧ�ó���
+###Description###
+>注册用以接收指定的电源设置通知的应用程序
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_RegisterPowerSettingNotification( $hWnd, $GUID )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hWnd
-   ���ո��Ļ�֪ͨ��Ϣ�Ĵ��ڵľ��
+   接收更改或通知消息的窗口的句柄
 $GUID
-   ������Ϊ�䷢��֪ͨ�ĵ�Դ���õ�GUID�ַ���. ��Ϊ����ֵ֮һ:
+   代表将为其发送通知的电源设置的GUID字符串. 可为下列值之一:
     $GUID_ACDC_POWER_SOURCE - [5d3e9a59-e9D5-4b00-a6bd-ff34ff516548] -
-    ϵͳ��Դ��Դ�Ѹı�
+    系统电源来源已改变
     $GUID_BATTERY_PERCENTAGE_REMAINING - [a7ad8041-b45a-4cae-87a3-eecbb468a9e1] -
-    ��ص�ʣ������Ѹı�
+    电池的剩余电量已改变
     $GUID_IDLE_BACKGROUND_TASK - [515c31d8-f734-163d-a0fd-11a0-8c91e8f1] -
-    ϵͳæµ��
+    系统忙碌中
     $GUID_MONITOR_POWER_ON - [02731015-4510-4526-99e6-e5a17ebd1aea] -
-    ϵͳ������ʾ��������ر�
+    系统基本显示器开启或关闭
     $GUID_POWERSCHEME_PERSONALITY - [245d8541-3943-4422-b025-13A7-84F679B7] -
-    ���˵�Դ�ƻ��Ѹı�
+    个人电源计划已改变
     $GUID_SYSTEM_AWAYMODE - [98a7f580-01f7-48aa-9c0f-44352c29e5C0] -
-    ϵͳ������˳��뿪ģʽ
+    系统进入或退出离开模式
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����ע����Դ֪ͨ��֪ͨ���
-ʧ��: ����0������@error��0
+成功: 返回注销电源通知的通知句柄
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-���øú�����, ������wParam����ΪPBT_POWERSETTINGCHANGE��WM_POWERBROADCAST��Ϣ��ָ��ʹ�ô���.(������Ϣ��
+###Remarks###
+调用该函数后, 将发送wParam参数为PBT_POWERSETTINGCHANGE的WM_POWERBROADCAST消息到指定使用窗口.(更多信息请
 
-###���###
+###Related###
 
-###�ο�###
+###See Also###
 MSDN ).
-���ϵͳҪ��: Windows Vista
-�ο�  ����MSDN֪ʶ����RegisterPowerSettingNotification�������Ϣ
+最低系统要求: Windows Vista
+参考  搜索MSDN知识库中RegisterPowerSettingNotification的相关信息

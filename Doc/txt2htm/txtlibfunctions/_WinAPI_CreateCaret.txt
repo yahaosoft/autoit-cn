@@ -1,41 +1,41 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_CreateCaret
 
-###����###
-�½�ϵͳ���������״���������ָ������
+###Description###
+新建系统插入符的形状并并分配给指定窗体
 _WinAPI_CreateCaret ( $hWnd, $hBitmap [, $iWidth [, $iHeight]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hWnd
-   �������������ľ��
+   插入符所属窗体的句柄
 $hBitmap
-   ����������״��λͼ�ľ��. ���Ϊ0��ʾ�����Ϊʵ�ĵ�.
-    ���Ϊ1 , �����Ϊ��ɫ��. ���Ϊλͼ��� , �����δָ��λͼ.
+   定义插入符形状的位图的句柄. 如果为0表示插入符为实心的.
+    如果为1 , 插入符为灰色的. 如果为位图句柄 , 插入符未指定位图.
 $iWidth
-   [��ѡ] ��������߼���λ����. ���Ϊ0 , ��������Ϊϵͳ����Ĵ���߽����Ϊλͼ��� , _WinAPI_CreateCaret()���Ըò���.
+   [可选] 插入符的逻辑单位宽度. 如果为0 , 宽度设置为系统定义的窗体边界宽度为位图句柄 , _WinAPI_CreateCaret()忽略该参数.
 $iHeight
-   [��ѡ] ��������߼���λ�߶�. ���Ϊ0 , ��������Ϊϵͳ����Ĵ���߽����Ϊλͼ��� , _WinAPI_CreateCaret()���Ըò���.
+   [可选] 插入符的逻辑单位高度. 如果为0 , 宽度设置为系统定义的窗体边界宽度为位图句柄 , _WinAPI_CreateCaret()忽略该参数.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0
+成功: 返回1
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-_WinAPI_CreateCaret()�Զ����ٴ�����ԭ�еĲ����.
-ֱ��Ӧ�ó������_WinAPI_ShowCaret()����������Ż�������״̬��Ϊ�ɼ�״̬.
-ϵͳΪÿ�������ṩһ�������. ������ھ��м��̽���򼤻�״̬�´��������.
-���彫��ʧȥ���̽�����Ϊδ����״̬ǰ���ٲ����.
-��ͨ��_WinAPI_GetSystemMetrics()����ָ����$SM_CXBORDER��$SM_CYBORDERֵ��ȡϵͳ����߽�Ŀ��Ⱥ͸߶�.
-ʹ�ô���߽�Ŀ��Ȼ�߶ȿ�ȷ��������ڸ߷ֱ�����Ļ�пɼ�.
+###Remarks###
+_WinAPI_CreateCaret()自动销毁窗体中原有的插入符.
+直到应用程序调用_WinAPI_ShowCaret()函数插入符才会由隐藏状态变为可见状态.
+系统为每个队列提供一个插入符. 窗体仅在具有键盘焦点或激活状态下创建插入符.
+窗体将在失去键盘焦点或变为未激活状态前销毁插入符.
+可通过_WinAPI_GetSystemMetrics()函数指定的$SM_CXBORDER及$SM_CYBORDER值获取系统窗体边界的宽度和高度.
+使用窗体边界的宽度或高度可确保插入符在高分辨率屏幕中可见.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����CreateCaret�������Ϣ
+###See Also###
+ 搜索MSDN知识库中CreateCaret的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

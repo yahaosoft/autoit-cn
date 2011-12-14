@@ -1,49 +1,49 @@
-###�ṹ����###
+﻿###结构常量###
 $tagNMLVDISPINFO
 
-###����###
-��������$LVN_GETDISPINFO��$LVN_SETDISPINFO֪ͨ��Ϣ����Ϣ�Ľṹ
+###Description###
+包含关于$LVN_GETDISPINFO或$LVN_SETDISPINFO通知消息的信息的结构
 
-###�﷨###
+###Syntax###
 Global Const $tagNMLVDISPINFO =  $tagNMHDR & ";int Mask;int Item;int SubItem;int State;int StateMask;ptr Text;int TextMax;int Image;int Param;int Indent;int GroupID;int Columns;ptr pColumns"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 $tagNMHDR
-   ����֪ͨ��Ϣ����Ϣ
+   包含通知消息的信息
 Mask
-   ָ�����������������ݵĽṹ��Ա����Щ��Ա��������ı�ǵļ���. �ó�Ա������һ���������б��:
-    $LVIF_COLUMNS - Columns��Ա����
-    $LVIF_DI_SETITEM - ����ϵͳ������������б�����Ϣ
-    $LVIF_GROUPID - GroupID��Ա����
-    $LVIF_IMAGE - Image��Ա����
-    $LVIF_INDENT - Indent��Ա����
-    $LVIF_NORECOMPUTE - �ؼ��������LVN_GETDISPINFO�Ի�ȡ�ı���Ϣ
-    $LVIF_PARAM - Param��Ա����
-    $LVIF_STATE - State��Ա����
-    $LVIF_TEXT - Text��Ա����
+   指定包含将被设置数据的结构成员或哪些成员将被请求的标记的集合. 该成员可设置一个或多个下列标记:
+    $LVIF_COLUMNS - Columns成员可用
+    $LVIF_DI_SETITEM - 操作系统将保存请求的列表项信息
+    $LVIF_GROUPID - GroupID成员可用
+    $LVIF_IMAGE - Image成员可用
+    $LVIF_INDENT - Indent成员可用
+    $LVIF_NORECOMPUTE - 控件不会产生LVN_GETDISPINFO以获取文本信息
+    $LVIF_PARAM - Param成员可用
+    $LVIF_STATE - State成员可用
+    $LVIF_TEXT - Text成员可用
 Item
-   �ṹָ�����Ŀ��0������
+   结构指向的项目的0基索引
 SubItem
-   �ṹָ�������Ŀ��1������
+   结构指向的子项目的1基索引
 State
-   ��ʾ��Ŀ��״̬, ״̬ͼ��, ���ص�ͼ��
+   表示项目的状态, 状态图像, 及重叠图像
 StateMask
-   ָ��������ȡ���޸ĵ�״̬��Ա����λֵ
+   指定将被获取或修改的状态成员的数位值
 Text
-   ������Ŀ�ı����ַ�����ָ��
+   包含项目文本的字符串的指针
 TextMax
-   ��Textָ���Ļ������а����ַ�����ֹ�����ֽ�����
+   由Text指定的缓冲区中包括字符串终止符的字节数量
 Image
-   ��Ŀͼ���ڿؼ�ͼ���б��е�����
+   项目图标在控件图像列表中的索引
 Param
-   ָ������Ŀ��ֵ
+   指定给项目的值
 Indent
-   ������Ŀͼ��Ŀ�������
+   缩进项目图像的宽度数量
 GroupID
-   ������Ŀ��ƽ����ͼ����ı�ʶ��
+   接收项目的平铺视图分组的标识符
 Columns
-   ��ʾ�����ƽ����ͼ������ to display for this item
+   显示该项的平铺视图的列数 to display for this item
 pColumns
-   �����������ָ��
+   列索引数组的指针
 @@end@@

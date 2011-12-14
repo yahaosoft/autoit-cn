@@ -1,54 +1,54 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlTreeView_Create
 
-###����###
-����TreeView�ؼ�
+###Description###
+创建TreeView控件
 
-###�﷨###
+###Syntax###
 #Include <GuiTreeView.au3>
 _GUICtrlTreeView_Create($hWnd, $iX, $iY[, $iWidth=150[, $iHeight=150[, $iStyle=0x00000037[, $iExStyle=0x00000000]]]])
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  �������������ľ��
- $iX  �ؼ�ˮƽλ��
- $iY  �ؼ���ֱλ��
- $iWidth  �ؼ�����
- $iHeight  �ؼ��߶�
- $iStyle  �ؼ���ʽ:
-DllStructGetData($TVS_CHECKBOXES - ʹ��Ŀ�ĸ�ѡ����Ч , "" ) ����ͼ������Ŀ����ʱ��ʾ��ѡ��. ���ø���ʽʱ , �ؼ�ʹ��DrawFrameControl���������ð�������ͼ���״̬ͼ���б�. ״̬ͼ��1Ϊδѡ�и�ѡ����״̬ͼ��2Ϊѡ�и�ѡ��. ����״̬ͼ��Ϊ0���Ƴ���ѡ��. �汾5.80��ʾ��ѡ��ʹû��ͼ������Ŀ����.
-  $TVS_DISABLEDRAGDROP - ��ֹ�ؼ�����$TVN_BEGINDRAG֪ͨ��Ϣ
-  $TVS_EDITLABELS - �����û��༭��Ŀ��ǩ
-DllStructGetData($TVS_FULLROWSELECT - ʹ����ѡȡ��Ч , "" ) ��ѡ�����и��� , �����Ŀ������λ��ʱ����ѡ��. ����ʽ���ܺ�DllStructGetData($TVS_HASLINES ��ʽ , "" )���ʹ��.
-DllStructGetData($TVS_HASBUTTONS - �ڸ������ʾ�Ӻźͼ��� , "" ) �û������ť����չ��������������б�. Ϊ��ʹ����Ŀ������ť����ָ��DllStructGetData($TVS_LINESATROOT , "" )
-  $TVS_HASLINES - ʹ��ֱ����ʾ��Ŀ�ļ̳й�ϵ
-  $TVS_INFOTIP - ͨ������$TVN_GETINFOTIP֪ͨ��ȡ��ʾ��Ϣ
-DllStructGetData($TVS_LINESATROOT - �ڿؼ�����ʹ��ֱ����ϵ��Ŀ , "" ) ��ֵ�����������DllStructGetData($TVS_HASLINESҲδָ�� , "" )
-DllStructGetData($TVS_NOHSCROLL - ����ˮƽ������ , "" ) �ؼ�����ʾ�κ�ˮƽ������.
-DllStructGetData($TVS_NONEVENHEIGHT - ʹ��$TVM_SETITEMHEIGHT��Ϣ������Ŀ�߶�Ϊ�����߶� , "" ) ��Ŀ��Ĭ�ϸ߶ȱ�����ż��ֵ.
-DllStructGetData($TVS_NOSCROLL - �ڿؼ��н���ˮƽ�ʹ�ֱ������ , "" ) �ؼ�����ʾ�κι�����.
-  $TVS_NOTOOLTIPS - ���ù�����ʾ
-  $TVS_RTLREADING - �ı�����������ʾ
-  $TVS_SHOWSELALWAYS - �Ǳ�ѡ���ڿؼ�ʧȥ����ʱ���ֱ�ѡ
-  $TVS_SINGLEEXPAND - ��չ��ѡ��ͬʱ����δѡ��. �����걻����Ϊ����ѡȡ����ĿΪ�ر�ʱ , ����չ. �����ѡȡ��Ŀʱ�û�����CTRL�� , δ��ѡ����Ŀ��������. �汾 5.80ʹ��ѡ��Ŀ��չ��δ��ѡ������.
-  $TVS_TRACKSELECT - �ȸ�����Ч
-  Ĭ��: $TVS_HASBUTTONS , $TVS_HASLINES , $TVS_LINESATROOT , $TVS_DISABLEDRAGDROP , $TVS_SHOWSELALWAYS
-ǿ��: $WS_CHILD , $WS_VISIBLE
- $iExStyle  �ؼ���չ��ʽ
+ $hWnd  父窗体或主窗体的句柄
+ $iX  控件水平位置
+ $iY  控件垂直位置
+ $iWidth  控件宽度
+ $iHeight  控件高度
+ $iStyle  控件样式:
+DllStructGetData($TVS_CHECKBOXES - 使项目的复选框有效 , "" ) 仅当图像与项目关联时显示复选框. 设置该样式时 , 控件使用DrawFrameControl创建且设置包含两个图像的状态图像列表. 状态图像1为未选中复选框且状态图像2为选中复选框. 设置状态图像为0则移除复选框. 版本5.80显示复选框即使没有图像与项目关联.
+  $TVS_DISABLEDRAGDROP - 阻止控件发送$TVN_BEGINDRAG通知消息
+  $TVS_EDITLABELS - 允许用户编辑项目标签
+DllStructGetData($TVS_FULLROWSELECT - 使整行选取有效 , "" ) 被选项整行高亮 , 点击项目行任意位置时整行选中. 该样式不能和DllStructGetData($TVS_HASLINES 样式 , "" )结合使用.
+DllStructGetData($TVS_HASBUTTONS - 在父项后显示加号和减号 , "" ) 用户点击按钮以扩展或收起父项的子项列表. 为了使根项目包含按钮必须指定DllStructGetData($TVS_LINESATROOT , "" )
+  $TVS_HASLINES - 使用直线显示项目的继承关系
+  $TVS_INFOTIP - 通过发送$TVN_GETINFOTIP通知获取提示信息
+DllStructGetData($TVS_LINESATROOT - 在控件根部使用直线联系项目 , "" ) 该值将被忽略如果DllStructGetData($TVS_HASLINES也未指定 , "" )
+DllStructGetData($TVS_NOHSCROLL - 禁用水平滚动条 , "" ) 控件不显示任何水平滚动条.
+DllStructGetData($TVS_NONEVENHEIGHT - 使用$TVM_SETITEMHEIGHT消息设置项目高度为奇数高度 , "" ) 项目的默认高度必须是偶数值.
+DllStructGetData($TVS_NOSCROLL - 在控件中禁用水平和垂直滚动条 , "" ) 控件不显示任何滚动条.
+  $TVS_NOTOOLTIPS - 禁用工具提示
+  $TVS_RTLREADING - 文本从右向左显示
+  $TVS_SHOWSELALWAYS - 是被选项在控件失去焦点时保持被选
+  $TVS_SINGLEEXPAND - 扩展被选项同时收缩未选项. 如果鼠标被设置为单击选取且项目为关闭时 , 将扩展. 如果在选取项目时用户按下CTRL键 , 未被选的项目不会收缩. 版本 5.80使被选项目扩展且未被选的收起.
+  $TVS_TRACKSELECT - 热跟踪有效
+  默认: $TVS_HASBUTTONS , $TVS_HASLINES , $TVS_LINESATROOT , $TVS_DISABLEDRAGDROP , $TVS_SHOWSELALWAYS
+强制: $WS_CHILD , $WS_VISIBLE
+ $iExStyle  控件扩展样式
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �ؼ����
+成功: 控件句柄
 @@End@@
 
-###��ע###
-�ú��������ڸ߼��û�ѧϰ�ؼ���ι���.
+###Remarks###
+该函数适用于高级用户学习控件如何工作.
 
-###���###
+###Related###
 _GUICtrlTreeView_Destroy
 
-###�ο�###
+###See Also###
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

@@ -1,32 +1,32 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _Security__ImpersonateSelf
 
-###����###
-��ȡģ�µ��ý��̰�ȫ��ϵ�ķ�������
+###Description###
+获取模仿调用进程安全关系的访问令牌
 
-###�﷨###
+###Syntax###
 #Include <Security.au3>
 _Security__ImpersonateSelf([$iLevel = 2])
 
-###����###
+###Parameters###
 @@ParamTable@@
- $iLevel  �����Ƶ�ģ�³̶�:
-0 - ����. �����������޷���ȡ���ڿͻ��ı�ʶ��Ϣ, ���޷�ģ�¿ͻ�.
-1 - ֤��. ���������̿ɻ�ȡ���ڿͻ�����Ϣ, ���簲ȫ��ʶ��Ȩ��, �����޷�ģ�¿ͻ�.
-2 - ģ��. ���������̿��ڱ���ϵͳ��ģ�¿ͻ��İ�ȫ��ϵ. ���޷���Զ��ϵͳ��ģ��.
-3 - ����. ���������̿���Զ��ϵͳ��ģ�¿ͻ��İ�ȫ��ϵ.
+ $iLevel  新令牌的模仿程度:
+0 - 匿名. 服务器进程无法获取关于客户的标识信息, 且无法模仿客户.
+1 - 证明. 服务器进程可获取关于客户的信息, 比如安全标识和权限, 但其无法模仿客户.
+2 - 模仿. 服务器进程可在本地系统上模仿客户的安全关系. 但无法在远程系统上模仿.
+3 - 代表. 服务器进程可在远程系统上模仿客户的安全关系.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��
-ʧ��: ��
+成功: 真
+失败: 假
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
  _Security__OpenThreadTokenEx
 
-###�ο�###
- ����MSDN֪ʶ����ImpersonateSelf�������Ϣ
+###See Also###
+ 搜索MSDN知识库中ImpersonateSelf的相关信息

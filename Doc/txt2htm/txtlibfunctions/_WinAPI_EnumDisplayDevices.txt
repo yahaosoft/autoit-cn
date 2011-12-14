@@ -1,44 +1,44 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_EnumDisplayDevices
 
-###����###
-��ȡϵͳ����ʾ�豸����Ϣ
+###Description###
+获取系统中显示设备的信息
 
-###�﷨###
+###Syntax###
 #Include
 <WinAPI.au3>
 _WinAPI_EnumDisplayDevices($sDevice, $iDevNum)
 
-###����###
+###Parameters###
 @@ParamTable@@
 $sDevice
-   �豸����. ���Ϊ��, ��������ϵͳ�л���iDevNum����������Ϣ
+   设备名称. 如果为空, 函数返回系统中基于iDevNum适配器的信息
 $iDevNum
-   ָ������Ȥ����ʾ�豸�Ļ���0������ֵ
+   指定感兴趣的显示设备的基于0的索引值
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �������и�ʽ������:
-  $aDevice[0] - �ɹ�Ϊ��, ����Ϊ��
-  $aDevice[1] - ������������ʾ��
-  $aDevice[2] - ������������ʾ��������
-  $aDevice[3] - �豸״̬���:
-    1 - �豸��̨ʽ��
-    2 - ��Ҫ��̨ʽ���ϵ��豸
-    4 - ��ʾһ��α�豸������Զ�̾����ͼӦ��
-    8 - ���豸VGA����
-    16 - �豸���ƶ�; ������Ϊ��Ҫ��ʾ��
-    32 - �豸���ж���������豸��֧�ֵ���ʾģʽ
-  $aDevice[4] - Plug and Play ��֤�ַ���(Windows 98/ME)
+成功: 返回下列格式的数组:
+  $aDevice[0] - 成功为真, 否则为假
+  $aDevice[1] - 适配器或者显示器
+  $aDevice[2] - 适配器或者显示器的描述
+  $aDevice[3] - 设备状态标记:
+    1 - 设备是台式机
+    2 - 主要是台式机上的设备
+    4 - 表示一个伪设备，用于远程镜像绘图应用
+    8 - 该设备VGA兼容
+    16 - 设备可移动; 不能作为主要显示器
+    32 - 设备具有多于其输出设备所支持的显示模式
+  $aDevice[4] - Plug and Play 认证字符串(Windows 98/ME)
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
-����MSDN֪ʶ����EnumDisplayDevices�������Ϣ
+###See Also###
+搜索MSDN知识库中EnumDisplayDevices的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

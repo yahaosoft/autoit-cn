@@ -1,59 +1,59 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_DeferWindowPos
 
-###����###
-����ָ�����ڵ�ָ���ര��λ�ýṹ
+###Description###
+更新指定窗口的指定多窗口位置结构
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_DeferWindowPos( $hInfo, $hWnd, $hAfter, $iX, $iY, $iWidth, $iHeight, $iFlags )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hInfo
-   ����һ���������ڳߴ��λ����Ϣ�Ķര��λ�ýṹ�ľ��. �ýṹ��_WinAPI_BeginDeferWindowPos()�������_WinAPI_DeferWindowPos()���÷���.
+   包含一个或多个窗口尺寸和位置信息的多窗口位置结构的句柄. 该结构由_WinAPI_BeginDeferWindowPos()或最近的_WinAPI_DeferWindowPos()调用返回.
 $hWnd
-   �洢�ڽṹ��Ҫ������Ϣ�Ĵ��ڵľ��. ���жര��λ�ýṹ�еĴ��ڱ��������ͬ�ĸ�����.
+   存储在结构中要更新信息的窗口的句柄. 所有多窗体位置结构中的窗口必须具有相同的父窗口.
 $hAfter
-$iFlags������������$SWP_NOZORDER���ʱ���Ըò���.
-    $HWND_BOTTOM - 	������������Z��ײ�. ���$hWnd������ʶΪһ����������, ���ڶ�ʧ�䶥��״̬�����������д��ڵײ�.
-    $HWND_NOTOPMOST - �������������зǶ��������Ϸ�(�����ж��������). ��������Ѿ��ǷǶ������ڸñ������.
-    $HWND_TOP - ������������Z�򶥲�
-    $HWND_TOPMOST - �������������зǶ��������Ϸ�. ��ʹ�����ô����Ա������ö�λ��.
+$iFlags参数中设置有$SWP_NOZORDER标记时忽略该参数.
+    $HWND_BOTTOM - 	将窗口置于在Z序底部. 如果$hWnd参数标识为一个顶部窗口, 窗口丢失其顶部状态并被置于所有窗口底部.
+    $HWND_NOTOPMOST - 将窗口置于所有非顶部窗口上方(在所有顶部窗体后). 如果窗体已经是非顶部窗口该标记无用.
+    $HWND_TOP - 将窗口置于在Z序顶部
+    $HWND_TOPMOST - 将窗口置于所有非顶部窗口上方. 即使不可用窗口仍保持其置顶位置.
 $iX
-   �������Ͻ�X����
+   窗体左上角X坐标
 $iY
-   �������Ͻ�Y����
+   窗体左上角Y坐标
 $iWidth
-   �µĴ������
+   新的窗体宽度
 $iHeight
-   �µĴ���߶�
+   新的窗体高度
 $iFlags
-   Ӱ�촰��ߴ缰λ�õ�����ֵ�����.
-    $SWP_DRAWFRAME - �ڴ�����Χ���ƿ��
-    $SWP_FRAMECHANGED - ��WM_NCCALCSIZE��Ϣ���͵�����, ��ʹ����ߴ�δ���ı�. ���δָ��, �������ڳߴ�ı�ʱ����WM_NCCALCSIZE��Ϣ.
-    $SWP_HIDEWINDOW - ���ش���
-    $SWP_NOACTIVATE - �������. ���δ���øñ��, ���屻���������߻�������Ķ���(������$hWndInsertAfter����������).
-    $SWP_NOCOPYBITS - �����ͻ�����ȫ������. ���δ���øñ��, �ͻ�������Ч���ݱ��洢���ڴ��ڱ����óߴ�����¶�λ���ƻؿͻ���.
-    $SWP_NOMOVE - ���ֵ�ǰλ��(����$iX��$iY����)
-    $SWP_NOOWNERZORDER - ���ı���������Z���е�λ��
-    $SWP_NOREDRAW - ���ػ�ı�. ��������˸ñ��, ���ػ��������. �������ڿͻ���, �ǿͻ���(�����������͹�����), ����Ϊ�ƶ���������δ���ǵ�����������ⲿ��. �������иñ��ʱ, Ӧ�ó��������ȷ�������ػ���Ҫ�ػ������������ⲿ��.
-    $SWP_NOREPOSITION - ��$SWP_NOOWNERZORDER�����ͬ
-    $SWP_NOSENDCHANGING - ��ֹ���ڽ���WM_WINDOWPOSCHANGING��Ϣ
-    $SWP_NOSIZE - ���ֵ�ǰ�ߴ�(����$iX��$iY����)
-    $SWP_NOZORDER - ���ֵ�ǰZ��(����$hWndInsertAfter����)
-    $SWP_SHOWWINDOW - ��ʾ����
+   影响窗体尺寸及位置的下列值的组合.
+    $SWP_DRAWFRAME - 在窗口周围绘制框架
+    $SWP_FRAMECHANGED - 将WM_NCCALCSIZE消息发送到窗口, 即使窗体尺寸未被改变. 如果未指定, 仅当窗口尺寸改变时发送WM_NCCALCSIZE消息.
+    $SWP_HIDEWINDOW - 隐藏窗口
+    $SWP_NOACTIVATE - 不激活窗口. 如果未设置该标记, 窗体被激活并移至最高或非最高组的顶部(依赖于$hWndInsertAfter参数的设置).
+    $SWP_NOCOPYBITS - 放弃客户区的全部内容. 如果未设置该标记, 客户区的有效内容被存储并在窗口被重置尺寸或重新定位后复制回客户区.
+    $SWP_NOMOVE - 保持当前位置(忽略$iX及$iY参数)
+    $SWP_NOOWNERZORDER - 不改变主窗口在Z序中的位置
+    $SWP_NOREDRAW - 不重绘改变. 如果设置了该标记, 不重绘任意情况. 这适用于客户区, 非客户区(包括标题栏和滚动条), 及作为移动窗体结果的未覆盖的主窗体的任意部分. 当设置有该标记时, 应用程序必须明确放弃或重绘需要重绘的主窗体的任意部分.
+    $SWP_NOREPOSITION - 与$SWP_NOOWNERZORDER标记相同
+    $SWP_NOSENDCHANGING - 阻止窗口接收WM_WINDOWPOSCHANGING消息
+    $SWP_NOSIZE - 保持当前尺寸(忽略$iX及$iY参数)
+    $SWP_NOZORDER - 保持当前Z序(忽略$hWndInsertAfter参数)
+    $SWP_SHOWWINDOW - 显示窗口
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��ʶ���µĶര��λ�ýṹ�ķ���ֵ
-ʧ��: ����0������@error��0
+成功: 标识更新的多窗体位置结构的返回值
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
-����MSDN֪ʶ�����й�DeferWindowPos����Ϣ
+###See Also###
+搜索MSDN知识库中有关DeferWindowPos的信息

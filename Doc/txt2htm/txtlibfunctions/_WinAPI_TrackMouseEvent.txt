@@ -1,34 +1,34 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_TrackMouseEvent
 
-###����###
-�����ָ���뿪�����������ͣ��ָ��ʱ��ʱ������Ϣ
+###Description###
+当鼠标指针离开窗体或在其上停留指定时长时发送消息
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_TrackMouseEvent( $hWnd, $iFlags [, $iTime] )
 
-###����###
+###Parameters###
 @@ParamTable@@
-$hWnd  Ҫ���ٵĴ�����
- $iFlags  $iFlags - ����ķ���. ��Ϊ����ֵ�����:
-$TME_CANCEL: ȡ��ǰһ����
-$TME_HOVER: ����֪ͨ
-$TME_LEAVE: �뿪֪ͨ
-$TME_NONCLIENT: �ǿͻ����뿪�򼤻�֪ͨ
-$TME_QUERY: ����Ϊ�����������ṹ
- $iTime  ͣ���ĺ��볬ʱ(���$Flagsָ������$TME_HOVER). ���Ϊ-1��ʾʹ��ϵͳĬ�ϳ�ʱ
+$hWnd  要跟踪的窗体句柄
+ $iFlags  $iFlags - 请求的服务. 可为下列值的组合:
+$TME_CANCEL: 取消前一请求
+$TME_HOVER: 激活通知
+$TME_LEAVE: 离开通知
+$TME_NONCLIENT: 非客户区离开或激活通知
+$TME_QUERY: 不作为跟踪请求填充结构
+ $iTime  停留的毫秒超时(如果$Flags指定中有$TME_HOVER). 如果为-1表示使用系统默认超时
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0
+成功: 返回1
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����TrackMouseEvent�������Ϣ
+###See Also###
+ 搜索MSDN知识库中TrackMouseEvent的相关信息

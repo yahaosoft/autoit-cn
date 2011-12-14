@@ -1,51 +1,51 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_SetWindowsHookEx
 
-###����###
-�������а�װһ��Ӧ�ó�����Ĺ��ӳ���
+###Description###
+向钩子链中安装一个应用程序定义的钩子程序
 
-###�﷨###
+###Syntax###
 #Include <WinAPI.au3>
 _WinAPI_SetWindowsHookEx($idHook, $lpfn, $hmod[, $dwThreadId = 0])
 
-###����###
+###Parameters###
 @@ParamTable@@
-$idHook  ָ����װ�Ĺ��ӳ��������. �˲�����Ϊ����ֵ֮һ:
-$WH_CALLWNDPROC - ��װ���Լ����ϵͳ�����Ǵ�����Ŀ�Ĵ��ڳ���ǰ����Ϣ�Ĺ��ӳ���
-$WH_CALLWNDPROCRET - ��װ���Լ����Ŀ�Ĵ��ڳ���ִ�к����Ϣ�Ĺ��ӳ���
-$WH_CBT - ��װ���Խ���ϵͳ����֪ͨ(CBT)�Ĺ��ӳ���
-$WH_DEBUG - ��װ���Ե����������ӳ���Ĺ��ӳ���
-$WH_FOREGROUNDIDLE - ��װ���Խ�ǰ̨Ӧ�ó����̱߳�Ϊ����ʱ���õĹ��ӳ���
-$WH_GETMESSAGE - ��װ���Լ��ӷ��͵���Ϣ���е���Ϣ�Ĺ��ӳ���
-$WH_JOURNALPLAYBACK - ��װ���Է�����ǰ��$WH_JOURNALRECORD���ӳ����¼����Ϣ�Ĺ��ӳ���
-$WH_JOURNALRECORD - ��װ���Լ�¼���͵�ϵͳ��Ϣ���е�������Ϣ�Ĺ��ӳ���
-$WH_KEYBOARD - ��װ���Լ��Ӽ��̻�����Ϣ�Ĺ��ӳ���
-$WH_KEYBOARD_LL - Windows NT/2000/XP: ��װ���Լ��Ӽ��������¼��Ĺ��ӳ���
-$WH_MOUSE - ��װ���Լ��������Ϣ�Ĺ��ӳ���
-$WH_MOUSE_LL - Windows NT/2000/XP: ��װ���Լ�����������¼��Ĺ��ӳ���
-$WH_MSGFILTER - ��װ���Լ����ɶԻ��� , ��Ϣ�� , �˵� , ��������������¼��Ľ�����ɵ���Ϣ�Ĺ��ӳ���
-$WH_SHELL - ��װ���ڽ������Ӧ��֪ͨ�Ĺ��ӳ���
-$WH_SYSMSGFILTER - ��װ���Լ����ɶԻ��� , ��Ϣ�� , �˵� , ��������������¼��Ľ�����ɵ���Ϣ�Ĺ��ӳ���
-$lpfn  ���ӳ����ָ��. ���$dwThreadId����Ϊ���ָ����ʶ�����߳��ɲ�ͬ���̴��� , $lpfn��������ָ��һ��ʹ��dll�Ĺ��ӳ���.
-$lpfn��ָ��ʹ����Ŀǰ������صĴ���Ĺ��ӳ���
-$hmod  �������ӳ�����ָ��$lpfn������DLL���.
-$dwThreadId����ָ����һ���ɵ�ǰ���̴������߳��ҹ��ӳ����뵱ǰ���̵Ĵ��������$hMod������������Ϊ
-$dwThreadId  ָ���빳�ӳ�������ص��̵߳ı�ʶ��. ����ò���Ϊ0 , ���ӳ�����Ϊ�����߳���������������ͬ�����е������߳�
+$idHook  指定安装的钩子程序的类型. 此参数可为下列值之一:
+$WH_CALLWNDPROC - 安装用以监控在系统将他们传送至目的窗口程序前的信息的钩子程序
+$WH_CALLWNDPROCRET - 安装用以监控在目的窗口程序执行后的信息的钩子程序
+$WH_CBT - 安装用以接收系统操作通知(CBT)的钩子程序
+$WH_DEBUG - 安装用以调试其他钩子程序的钩子程序
+$WH_FOREGROUNDIDLE - 安装用以将前台应用程序线程变为闲置时调用的钩子程序
+$WH_GETMESSAGE - 安装用以监视发送到消息队列的消息的钩子程序
+$WH_JOURNALPLAYBACK - 安装用以发送以前由$WH_JOURNALRECORD钩子程序记录的信息的钩子程序
+$WH_JOURNALRECORD - 安装用以记录发送到系统消息队列的输入消息的钩子程序
+$WH_KEYBOARD - 安装用以监视键盘击键信息的钩子程序
+$WH_KEYBOARD_LL - Windows NT/2000/XP: 安装用以监视键盘输入事件的钩子程序
+$WH_MOUSE - 安装用以监视鼠标消息的钩子程序
+$WH_MOUSE_LL - Windows NT/2000/XP: 安装用以监视鼠标输入事件的钩子程序
+$WH_MSGFILTER - 安装用以监视由对话框 , 消息框 , 菜单 , 或滚动条的输入事件的结果生成的消息的钩子程序
+$WH_SHELL - 安装用于接收外壳应用通知的钩子程序
+$WH_SYSMSGFILTER - 安装用以监视由对话框 , 消息框 , 菜单 , 或滚动条的输入事件的结果生成的消息的钩子程序
+$lpfn  钩子程序的指针. 如果$dwThreadId参数为零或指定标识符的线程由不同进程创建 , $lpfn参数必须指向一个使用dll的钩子程序.
+$lpfn可指向使用与目前进程相关的代码的钩子程序
+$hmod  包含钩子程序所指向$lpfn参数的DLL句柄.
+$dwThreadId参数指定了一个由当前进程创立的线程且钩子程序与当前进程的代码相关则$hMod参数必须设置为
+$dwThreadId  指定与钩子程序是相关的线程的标识符. 如果该参数为0 , 钩子程序作为调用线程与现有运行在相同桌面中的所有线程
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���ӳ���ľ��
-ʧ��: 0������@error
-��� _WinAPI_UnhookWindowsHookEx , _WinAPI_CallNextHookEx , DllCallbackRegister ,  DllCallbackGetPtr ,  DllCallbackFree
+成功: 钩子程序的句柄
+失败: 0且设置@error
+相关 _WinAPI_UnhookWindowsHookEx , _WinAPI_CallNextHookEx , DllCallbackRegister ,  DllCallbackGetPtr ,  DllCallbackFree
 
-###�ο�###
-����MSDN֪ʶ����SetWindowsHookEx�������Ϣ
+###See Also###
+搜索MSDN知识库中SetWindowsHookEx的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

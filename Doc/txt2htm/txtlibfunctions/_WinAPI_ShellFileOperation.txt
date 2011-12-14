@@ -1,82 +1,82 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_ShellFileOperation
 
-###����###
-���� , �ƶ� , ������ , ��ɾ��һ���ļ�ϵͳ����
+###Description###
+复制 , 移动 , 重命名 , 或删除一个文件系统对象
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_ShellFileOperation( $sFrom, $sTo, $iFunc, $iFlags [, $sTitle [, $hParent]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
-$sFrom  ����Դ�ļ����ĵ�һ�ַ������ַ�������. ��Щ���Ʊ�����ȫ�Ϸ��Ա���δ֪����.
-$sTo  ����Ŀ���ļ�����Ŀ¼��(���ʹ��)�ĵ�һ�ַ������ַ�������. ��Щ���Ʊ�����ȫ�Ϸ��Ա���δ֪����.
-$iFunc  ��ʾҪִ�еĲ�����ֵ. ������Ϊ����ֵ��һ������:
-$FO_COPY - �����ļ�.
-$FO_DELETE - ɾ���ļ�.
-$FO_MOVE - �ƶ��ļ�.
-$FO_RENAME - �������ļ�.
-$iFlags  �����ļ������ı��, ��Ϊ����ֵ֮һ:
-$FOF_ALLOWUNDO - ������ܱ���������Ϣ. ���Դ�ļ��������Ϸ�·�����ļ����ò�����������.
-$FOF_CONFIRMMOUSE - δʹ��.
-$FOF_FILESONLY - ���ָ��һ��ͨ���ļ���(*.*)�����ļ�(�����ļ���)ִ�в���.
-$FOF_MULTIDESTFILES - ָ����Ŀ���ļ�(ÿ��Դ�ļ�ָ��һ��), ���ָ��һ���ļ��к�.
-$FOF_NOCONFIRMATION - ��"ȫ��"��Ӧ��ʾ����һ�Ի���.
-$FOF_NOCONFIRMMKDIR - ��Ҫ�½��ļ���ʱ���ؽ���ȷ��.
-$FOF_NO_CONNECTED_ELEMENTS - ֻ�ƶ�ָ���ļ����������ƶ���ϵ���ļ�.
-$FOF_NOCOPYSECURITYATTRIBS - �������ļ��İ�ȫ����.
-$FOF_NOERRORUI - ����ʱ����ʾ�Ի���.
-$FOF_NORECURSEREPARSE - δʹ��.
-$FOF_NORECURSION - ֻ�ڵ�ǰĿ¼��ִ�в���.
-$FOF_RENAMEONCOLLISION - ���Ŀ��λ�ô���ͬ���ļ����������ļ�.
-$FOF_SILENT - ����ʾ���ȶԻ���.
-$FOF_SIMPLEPROGRESS - ����ʱ��ʾ���ȶԻ��򵫲���ʾ�����ļ���.
-$FOF_WANTMAPPINGHANDLE -���ָ��$FOF_RENAMEONCOLLISION�������ļ���������, ����һ�������¾����Ƶ�ӳ�����.
-$FOF_WANTNUKEWARNING - ���ļ���������ʱ���;���.
-$FOF_NO_UI - ��Ĭִ�в���, �������û��ṩ����. ��ֵ���� BitOr($FOF_SILENT, $FOF_NOCONFIRMATION, $FOF_NOERRORUI, $FOF_NOCONFIRMMKDIR)
-$sTitle  ���ȶԻ������. �ò�������$iFlags��ǰ���$FOF_SIMPLEPROGRESSʱʹ��.
-$hParent  ��ʾ�ļ�����״̬��Ϣ�ĶԻ���ľ��.
+$sFrom  包含源文件名的单一字符串或字符串数组. 这些名称必须完全合法以避免未知错误.
+$sTo  包含目标文件名和目录名(如果使用)的单一字符串或字符串数组. 这些名称必须完全合法以避免未知错误.
+$iFunc  表示要执行的操作的值. 参数可为下列值的一个或多个:
+$FO_COPY - 复制文件.
+$FO_DELETE - 删除文件.
+$FO_MOVE - 移动文件.
+$FO_RENAME - 重命名文件.
+$iFlags  控制文件操作的标记, 可为下列值之一:
+$FOF_ALLOWUNDO - 如果可能保留撤销信息. 如果源文件不包含合法路径和文件名该参数将被忽略.
+$FOF_CONFIRMMOUSE - 未使用.
+$FOF_FILESONLY - 如果指定一个通配文件名(*.*)仅对文件(不对文件夹)执行操作.
+$FOF_MULTIDESTFILES - 指定多目标文件(每个源文件指定一个), 这比指定一个文件夹好.
+$FOF_NOCONFIRMATION - 以"全是"回应显示的任一对话框.
+$FOF_NOCONFIRMMKDIR - 需要新建文件夹时不必进行确认.
+$FOF_NO_CONNECTED_ELEMENTS - 只移动指定文件而不以组移动联系的文件.
+$FOF_NOCOPYSECURITYATTRIBS - 不复制文件的安全属性.
+$FOF_NOERRORUI - 出错时不显示对话框.
+$FOF_NORECURSEREPARSE - 未使用.
+$FOF_NORECURSION - 只在当前目录中执行操作.
+$FOF_RENAMEONCOLLISION - 如果目标位置存在同名文件则重命名文件.
+$FOF_SILENT - 不显示进度对话框.
+$FOF_SIMPLEPROGRESS - 操作时显示进度对话框但不显示单独文件名.
+$FOF_WANTMAPPINGHANDLE -如果指定$FOF_RENAMEONCOLLISION且任意文件被重命名, 分配一个包含新旧名称的映射对象.
+$FOF_WANTNUKEWARNING - 当文件永久销毁时发送警告.
+$FOF_NO_UI - 静默执行操作, 不会向用户提供界面. 该值等于 BitOr($FOF_SILENT, $FOF_NOCONFIRMATION, $FOF_NOERRORUI, $FOF_NOCONFIRMMKDIR)
+$sTitle  进度对话框标题. 该参数仅在$iFlags标记包含$FOF_SIMPLEPROGRESS时使用.
+$hParent  显示文件操作状态信息的对话框的句柄.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���ذ���������Ϣ��$tagSHFILEOPSTRUCT�ṹ.
-ʧ��: ����0������@errorΪ����ֵ֮һ:
-    -1 - AutoIt�̳д���.
-    113 - Դ�ļ���Ŀ���ļ���ͬ.
-    114 - Դ��������ָ���˶���ļ�·��, ��ֻ��һ��Ŀ���ļ�·��.
-    115 - ָ����������������Ŀ��·��Ϊ��ͬĿ¼. ʹ���ƶ���������.
-    116 - ԴΪ�����ƶ����������ĸ�Ŀ¼.
-    117 - �������û�ȡ��, �򵱴��±���ṩ��_WinAPI_ShellFileOperation()ʱ��Ĭȡ��.
-    118 - Ŀ����Դ��һ���ӽڵ�.
-    120 - ��ȫ���þܾ�����Դ.
-    121 - Դ��Ŀ�곬���򽫳���MAX_PATH.
-    122 - �漰���Ŀ��·�����ƶ���������ʧ��.
-    124 - Դ��Ŀ������ߵ�·����Ч.
-    125 - Դ��Ŀ����ͬһ��Ŀ¼.
-    126 - Ŀ��·��Ϊһ�����ڵ��ļ�.
-    128 - Ŀ��·��Ϊһ�����ڵ��ļ���.
-    129 - �ļ�������MAX_PATH.
-    130 - Ŀ��Ϊ����δ��ʽ����ֻ��CD-ROM.
-    131 - Ŀ��Ϊ����δ��ʽ����ֻ��DVD.
-    132 - Ŀ��Ϊ����δ��ʽ���Ŀ�дCD-ROM.
-    133 - �������漰���ļ�����Ŀ��ý����ļ�ϵͳ̫��.
-    134 - ԴΪ����δ��ʽ����ֻ��CD-ROM.
-    135 - ԴΪ����δ��ʽ����ֻ��DVD.
-    136 - ԴΪ����δ��ʽ���Ŀ�дCD-ROM.
-    183 - �����ڼ䳬��MAX_PATH.
-    1026 - δ֪����. ���͵�����Դ��Ŀ������һ����Ч·��.
-    65536 - Ŀ���Ϸ���δָ������.
-    65652 - Ŀ��Ϊ��Ŀ¼�Ҳ���������.
+成功: 返回包含额外信息的$tagSHFILEOPSTRUCT结构.
+失败: 返回0并设置@error为下列值之一:
+    -1 - AutoIt继承错误.
+    113 - 源文件和目标文件相同.
+    114 - 源缓冲区中指定了多个文件路径, 但只有一个目标文件路径.
+    115 - 指定了重命名操作但目标路径为不同目录. 使用移动操作代替.
+    116 - 源为不可移动或重命名的根目录.
+    117 - 操作被用户取消, 或当大致标记提供给_WinAPI_ShellFileOperation()时静默取消.
+    118 - 目标是源的一个子节点.
+    120 - 安全设置拒绝访问源.
+    121 - 源或目标超出或将超出MAX_PATH.
+    122 - 涉及多个目标路径的移动操作可能失败.
+    124 - 源或目标或两者的路径无效.
+    125 - 源和目标有同一父目录.
+    126 - 目标路径为一个存在的文件.
+    128 - 目标路径为一个存在的文件夹.
+    129 - 文件名超出MAX_PATH.
+    130 - 目标为可能未格式化的只读CD-ROM.
+    131 - 目标为可能未格式化的只读DVD.
+    132 - 目标为可能未格式化的可写CD-ROM.
+    133 - 操作中涉及的文件对于目标媒介或文件系统太大.
+    134 - 源为可能未格式化的只读CD-ROM.
+    135 - 源为可能未格式化的只读DVD.
+    136 - 源为可能未格式化的可写CD-ROM.
+    183 - 操作期间超出MAX_PATH.
+    1026 - 未知错误. 典型的是在源或目标中有一个无效路径.
+    65536 - 目标上发生未指定错误.
+    65652 - 目标为根目录且不能重命名.
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����SHFileOperation�������Ϣ
+###See Also###
+ 搜索MSDN知识库中SHFileOperation的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

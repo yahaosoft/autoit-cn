@@ -1,26 +1,26 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êý###
+ï»¿###User Defined Function###
 _WinAPI_RegSetValue
 
-###ÃèÊö###
-ÉèÖÃ×¢²á±í¼üÏÂµÄÖ¸¶¨ÖµµÄÊý¾ÝºÍÀàÐÍ
+###Description###
+è®¾ç½®æ³¨å†Œè¡¨é”®ä¸‹çš„æŒ‡å®šå€¼çš„æ•°æ®å’Œç±»åž‹
 
-###Óï·¨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_RegSetValue( $hKey, $sValueName, $iType, ByRef $tValueData, $iBytes )
 
-###²ÎÊý###
+###Parameters###
 @@ParamTable@@
 $hKey
-   $KEY_CREATE_SUB_KEYÈ¨ÏÞ. ¾ä±úÓÉ_WinAPI_RegCreateKey()»ò_WinAPI_RegOpenKey()º¯Êý·µ»Ø, »òÎªÏÂÁÐÔ¤¶¨Òå¼üÖ®Ò».
+   $KEY_CREATE_SUB_KEYæƒé™. å¥æŸ„ç”±_WinAPI_RegCreateKey()æˆ–_WinAPI_RegOpenKey()å‡½æ•°è¿”å›ž, æˆ–ä¸ºä¸‹åˆ—é¢„å®šä¹‰é”®ä¹‹ä¸€.
    $HKEY_CLASSES_ROOT
    $HKEY_CURRENT_CONFIG
    $HKEY_CURRENT_USER
    $HKEY_LOCAL_MACHINE
    $HKEY_USERS
 $sValueName
-   $sValueNameÎª¿Õ×Ö·û´®, º¯ÊýÎª¸Ã¼üµÄÎ´ÃüÃûÖµ»òÄ¬ÈÏÖµÉèÖÃÀàÐÍºÍÊý¾Ý.
+   $sValueNameä¸ºç©ºå­—ç¬¦ä¸², å‡½æ•°ä¸ºè¯¥é”®çš„æœªå‘½åå€¼æˆ–é»˜è®¤å€¼è®¾ç½®ç±»åž‹å’Œæ•°æ®.
 $iType
-   Êý¾ÝÀàÐÍ. ¿ÉÎªÏÂÁÐÖµÖ®Ò».
+   æ•°æ®ç±»åž‹. å¯ä¸ºä¸‹åˆ—å€¼ä¹‹ä¸€.
    $REG_BINARY
    $REG_DWORD
    $REG_DWORD_BIG_ENDIAN
@@ -33,21 +33,21 @@ $iType
    $REG_QWORD_LITTLE_ENDIAN
    $REG_SZ
 $tValueData
-   °üº¬±»´æ´¢µÄÊý¾ÝµÄ½á¹¹(»º³åÇø). ¶ÔÓÚ×Ö·û´®ÀàÐÍµÄ, ÈçREG_SZ, ×Ö·û´®±ØÐëÎªÎÞÖÕÖ¹·ûµÄ. ¶ÔÓÚREG_MULTI_SZÊý¾ÝÀàÐÍ, ×Ö·û´®±ØÐëÒÔÁ½¸ö¿Õ×Ö·û½áÊø.
-        Ò»¸ö·´Ð±¸Ü±ØÐëÒÔÁíÒ»¸öÇ°ÖÃµÄ·´Ð±¸Ü×÷Îª¶¨½ç×Ö·û.ÀýÈç, Ö¸¶¨ÒÔ"C:\\mydir\\myfile"´æ´¢×Ö·û´®"C:\mydir\myfile".
+   åŒ…å«è¢«å­˜å‚¨çš„æ•°æ®çš„ç»“æž„(ç¼“å†²åŒº). å¯¹äºŽå­—ç¬¦ä¸²ç±»åž‹çš„, å¦‚REG_SZ, å­—ç¬¦ä¸²å¿…é¡»ä¸ºæ— ç»ˆæ­¢ç¬¦çš„. å¯¹äºŽREG_MULTI_SZæ•°æ®ç±»åž‹, å­—ç¬¦ä¸²å¿…é¡»ä»¥ä¸¤ä¸ªç©ºå­—ç¬¦ç»“æŸ.
+        ä¸€ä¸ªåæ–œæ å¿…é¡»ä»¥å¦ä¸€ä¸ªå‰ç½®çš„åæ–œæ ä½œä¸ºå®šç•Œå­—ç¬¦.ä¾‹å¦‚, æŒ‡å®šä»¥"C:\\mydir\\myfile"å­˜å‚¨å­—ç¬¦ä¸²"C:\mydir\myfile".
 $iBytes
-   Êý¾ÝµÄ×Ö½Ú´óÐ¡. Èç¹ûÊý¾ÝÎªREG_SZ, REG_MULTI_SZ»òREG_EXPAND_SZÀàÐÍ, Ôò°üº¬ÈÎÒâÖÕÖ¹µÄ¿Õ×Ö·û³ý·ÇÊý¾ÝÔÚ´æ´¢Ê±²»°üº¬ËûÃÇ.
+   æ•°æ®çš„å­—èŠ‚å¤§å°. å¦‚æžœæ•°æ®ä¸ºREG_SZ, REG_MULTI_SZæˆ–REG_EXPAND_SZç±»åž‹, åˆ™åŒ…å«ä»»æ„ç»ˆæ­¢çš„ç©ºå­—ç¬¦é™¤éžæ•°æ®åœ¨å­˜å‚¨æ—¶ä¸åŒ…å«ä»–ä»¬.
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: ·µ»Ø1
-Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@error·Ç0, @extended±ê¼Ç¿É°üº¬·Ç0ÏµÍ³´íÎó´úÂë.
+æˆåŠŸ: è¿”å›ž1
+å¤±è´¥: è¿”å›ž0å¹¶è®¾ç½®@erroréž0, @extendedæ ‡è®°å¯åŒ…å«éž0ç³»ç»Ÿé”™è¯¯ä»£ç .
 @@End@@
 
-###±¸×¢###
+###Remarks###
 
-###Ïà¹Ø###
+###Related###
 
-###²Î¿¼###
- ËÑË÷MSDNÖªÊ¶¿âÖÐRegSetValueµÄÏà¹ØÐÅÏ¢
+###See Also###
+ æœç´¢MSDNçŸ¥è¯†åº“ä¸­RegSetValueçš„ç›¸å…³ä¿¡æ¯

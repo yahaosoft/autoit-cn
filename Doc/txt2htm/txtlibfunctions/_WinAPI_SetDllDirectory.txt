@@ -1,40 +1,40 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_SetDllDirectory
 
-###����###
-��Ŀ¼�������ڶ�λӦ�ó���DLL������·����
+###Description###
+将目录加入用于定位应用程序DLL的搜索路径中
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_SetDllDirectory( $sPath )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $sPath
-   ����������·����Ŀ¼. ���Ϊ���ַ���(""), ��Ĭ��dll�����������Ƴ���ǰĿ¼. ���δָ��, �����ظ�Ĭ����������.
+   被添入搜索路径的目录. 如果为空字符串(""), 从默认dll搜索序列中移除当前目录. 如果未指定, 函数回复默认搜索序列.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1
-ʧ��: ����0������@error��0
+成功: 返回1
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-����Ӱ��������ж���_WinAPI_LoadLibrary()��_WinAPI_LoadLibraryEx()�����ĵ���.
-ͬʱ��ָ��Ŀ¼������·����ʱӰ�찲ȫDLL����ģʽ.
-_WinAPI_SetDllDirectory()���ú�, DLL����·��Ϊ:
-1. ���м���Ӧ�ó����Ŀ¼.
-2. ��$sPath����ָ����Ŀ¼.
-3. ϵͳĿ¼.
-4. 16λϵͳĿ¼.
-5. WindowsĿ¼.
-6. PATH���������б��е�Ŀ¼.
+###Remarks###
+函数影响后续所有对于_WinAPI_LoadLibrary()和_WinAPI_LoadLibraryEx()函数的调用.
+同时当指定目录在搜索路径中时影响安全DLL搜索模式.
+_WinAPI_SetDllDirectory()调用后, DLL搜索路径为:
+1. 从中加载应用程序的目录.
+2. 由$sPath参数指定的目录.
+3. 系统目录.
+4. 16位系统目录.
+5. Windows目录.
+6. PATH环境变量列表中的目录.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����SetDllDirectory�������Ϣ
+###See Also###
+ 搜索MSDN知识库中SetDllDirectory的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

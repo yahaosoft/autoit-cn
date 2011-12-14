@@ -1,37 +1,37 @@
-###User Defined Function###
+ï»¿###User Defined Function###
 _FTP_Open
 ###Description###
-´ò¿ªÒ»¸ö FTP »á»°.
+æ‰“å¼€ä¸€ä¸ª FTP ä¼šè¯.
 ###Syntax###
 #Include <FTPEx.au3>
 _FTP_Open($s_Agent[, $l_AccessType = 1 [, $s_ProxyName = '' [, $s_ProxyBypass = '' [, $l_Flags = 0]]]] )
 ###Parameters###
 @@ParamTable@@
 $s_Agent
-	Ëæ»úÃû³Æ. ( ÀıÈç "myftp" )
+	éšæœºåç§°. ( ä¾‹å¦‚ "myftp" )
 $l_AccessType
-	[¿ÉÑ¡²ÎÊı] ÉèÖÃ´úÀíÊÇ·ñÊ¹ÓÃ.
+	[å¯é€‰å‚æ•°] è®¾ç½®ä»£ç†æ˜¯å¦ä½¿ç”¨.
 $s_ProxyName
-	[¿ÉÑ¡²ÎÊı] ´úÀíÃû³Æ.
+	[å¯é€‰å‚æ•°] ä»£ç†åç§°.
 $s_ProxyBypass
-	[¿ÉÑ¡²ÎÊı] ´úÀíÍ¨¹ıºÏ¸ñ.
+	[å¯é€‰å‚æ•°] ä»£ç†é€šè¿‡åˆæ ¼.
 $l_Flags
-	[¿ÉÑ¡²ÎÊı] ²Î¿¼±¸×¢.
+	[å¯é€‰å‚æ•°] å‚è€ƒå¤‡æ³¨.
 @@End@@
 ###ReturnValue###
 @@ReturnTable@@
-³É¹¦:	·µ»Ø¹© _FTP_Connect() Ê¹ÓÃµÄ¾ä±ú,
-Ê§°Ü:	·µ»Ø 0 ²¢ÉèÖÃ @ERROR.
+æˆåŠŸ:	è¿”å›ä¾› _FTP_Connect() ä½¿ç”¨çš„å¥æŸ„,
+å¤±è´¥:	è¿”å› 0 å¹¶è®¾ç½® @ERROR.
 @@End@@
 ###Remarks###
-$l_AccessType µÄ²ÎÊıÖµ:
-	$INTERNET_OPEN_TYPE_DIRECT ->²»Ê¹ÓÃ´úÀí
-	$INTERNET_OPEN_TYPE_PRECONFIG ->¼ìË÷´úÀí»òÖ±½ÓÓÉ×¢²á±íÅäÖÃ.
-	$INTERNET_OPEN_TYPE_PRECONFIG_WITH_NO_AUTOPROXY ->¼ìË÷´úÀí»òÖ±½ÓÓÉ×¢²á±íÅäÖÃÇÒ½ûÖ¹ÆôÓÃ Microsoft ½Å±¾ or »¥ÁªÍøÅäÖÃ (INS) ÎÄ¼ş..
-	$INTERNET_OPEN_TYPE_PROXY ->³ı·ÇÌá¹©ÁË´úÀíÁĞ±í, ·ñÔò½«´«µİÇëÇó´úÀí, È»ºó²»Ê¹ÓÃ´úÀí.
-$l_Flags µÄ²ÎÊıÖµ:
-	$INTERNET_FLAG_ASYNC ->Ö»ÈÃÒì²½ÇëÇó´¦ÀíÕâ¸öº¯Êı·µ»ØµÄ¾ä±ú.
-	$INTERNET_FLAG_FROM_CACHE -> ²»½¨Á¢ÍøÂçÇëÇó. ÓÉ»º´æ·µ»ØËùÓĞÖµ. Èç¹ûÇëÇóµÄÏîÄ¿²»ÔÚ»º´æÖĞ, ·µ»ØÒ»¸öÊÊºÏµÄ´íÎó, Èç ERROR_FILE_NOT_FOUND.
+$l_AccessType çš„å‚æ•°å€¼:
+	$INTERNET_OPEN_TYPE_DIRECT ->ä¸ä½¿ç”¨ä»£ç†
+	$INTERNET_OPEN_TYPE_PRECONFIG ->æ£€ç´¢ä»£ç†æˆ–ç›´æ¥ç”±æ³¨å†Œè¡¨é…ç½®.
+	$INTERNET_OPEN_TYPE_PRECONFIG_WITH_NO_AUTOPROXY ->æ£€ç´¢ä»£ç†æˆ–ç›´æ¥ç”±æ³¨å†Œè¡¨é…ç½®ä¸”ç¦æ­¢å¯ç”¨ Microsoft è„šæœ¬ or äº’è”ç½‘é…ç½® (INS) æ–‡ä»¶..
+	$INTERNET_OPEN_TYPE_PROXY ->é™¤éæä¾›äº†ä»£ç†åˆ—è¡¨, å¦åˆ™å°†ä¼ é€’è¯·æ±‚ä»£ç†, ç„¶åä¸ä½¿ç”¨ä»£ç†.
+$l_Flags çš„å‚æ•°å€¼:
+	$INTERNET_FLAG_ASYNC ->åªè®©å¼‚æ­¥è¯·æ±‚å¤„ç†è¿™ä¸ªå‡½æ•°è¿”å›çš„å¥æŸ„.
+	$INTERNET_FLAG_FROM_CACHE -> ä¸å»ºç«‹ç½‘ç»œè¯·æ±‚. ç”±ç¼“å­˜è¿”å›æ‰€æœ‰å€¼. å¦‚æœè¯·æ±‚çš„é¡¹ç›®ä¸åœ¨ç¼“å­˜ä¸­, è¿”å›ä¸€ä¸ªé€‚åˆçš„é”™è¯¯, å¦‚ ERROR_FILE_NOT_FOUND.
 ###Related###
 _FTP_Connect, _FTP_Close, _FTP_SetStatusCallback
 ###See Also###

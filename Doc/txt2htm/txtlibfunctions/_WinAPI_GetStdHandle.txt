@@ -1,35 +1,35 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_GetStdHandle
 
-###����###
-��ȡ��׼����, ��׼���, ���׼�����豸�ľ��
+###Description###
+获取标准输入, 标准输出, 或标准出错设备的句柄
 
-###�﷨###
+###Syntax###
 #Include
 <WinAPI.au3>
 _WinAPI_GetStdHandle($iStdHandle)
 
-###����###
+###Parameters###
 @@ParamTable@@
 $iStdHandle
-   �������صı�׼�豸�ľ��. ��ν����ֵ֮һ:
-    0 - ����Ǳ�׼�����豸
+   将被返回的标准设备的句柄. 可谓下列值之一:
+    0 - 句柄是标准输入设备
     1 -
-      ����Ǳ�׼����豸
-    2 - ����Ǳ�׼�����豸
+      句柄是标准输出设备
+    2 - 句柄是标准出错设备
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
- �ɹ�:  ָ���豸�ľ��
- ʧ��:  -1
+ 成功:  指定设备的句柄
+ 失败:  -1
 @@End@@
 
-###��ע###
-�������GENERIC_READ��GENERIC_WRITEȨ��,
-����Ӧ�ó�����ʹ��SetStdHandle������һ�����н���Ȩ�޵ı�׼���. ��Ӧ�ó������׼����޹���ʱ, ����0.
+###Remarks###
+句柄具有GENERIC_READ和GENERIC_WRITE权限,
+除非应用程序已使用SetStdHandle设置了一个带有较少权限的标准句柄. 当应用程序与标准句柄无关联时, 返回0.
 
-###���###
+###Related###
 
-###�ο�###
-����MSDN֪ʶ����GetStdHandle�������Ϣ
+###See Also###
+搜索MSDN知识库中GetStdHandle的相关信息

@@ -1,46 +1,46 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_LookupIconIdFromDirectoryEx
 
-###����###
-������������Դ��λ����һ��ͼ�������ͷ
+###Description###
+从描述光标的资源数位创建一个图标或鼠标箭头
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_LookupIconIdFromDirectoryEx( $pData [, $fIcon [, $xDesired [, $yDesired [, $iFlags]]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $pData
-$pDataδָ������������ᵼ��һ���Ա���(GP)����򷵻�һ��δ�����ֵ.
+$pData未指向可用数据它会导致一般性保护(GP)错误或返回一个未定义的值.
 $fIcon
-   ָ������ͼ�껹�ǹ��
-    TRUE  - ����ͼ��. (Ĭ��)
-    FALSE - �������.
+   指定搜索图标还是光标
+    TRUE  - 搜索图标. (默认)
+    FALSE - 搜索光标.
 $xDesired
-   ͼ���������ؿ���. ����ò���Ϊ0, ����ʹ��ϵͳ����ֵ���ÿ���.
+   图标或光标的像素宽度. 如果该参数为0, 函数使用系统计量值设置宽度.
 $yDesired
-   ͼ���������ظ߶�. ����ò���Ϊ0, ����ʹ��ϵͳ����ֵ���ø߶�.
+   图标或光标的像素高度. 如果该参数为0, 函数使用系统计量值设置高度.
 $iFlags
-   �ò�����Ϊһ����������ֵ:
-    $LR_DEFAULTCOLOR - ʹ��Ĭ����ɫ��ʽ
-    $LR_MONOCHROME - ������ɫͼ�����
+   该参数可为一个或多个下列值:
+    $LR_DEFAULTCOLOR - 使用默认颜色格式
+    $LR_MONOCHROME - 创建单色图标或光标
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �뵱ǰ��ʾ�豸ƥ���ͼ�������ͷ��������Դ��ʶ
-ʧ��: ����0������@error��0
+成功: 与当前显示设备匹配的图标或鼠标箭头的整数资源标识
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-�Ӵ���$RT_GROUP_ICON(��$RT_GROUP_CURSOR)��Դ���͵���Դ�ļ����ص�ͼ��Ŀ¼��һ���������ص�ָ��ͼ���������Դ��.
-_WinAPI_LookupIconIdFromDirectoryEx()�����������ʺϵ�ǰ��ʾ�豸��ͼ�����Դ���Ƶ�������ʶ��.
-��������ʾ���뽫 Resources.dll �ļ����浽��ʱ�ļ�����
+###Remarks###
+从带有$RT_GROUP_ICON(或$RT_GROUP_CURSOR)资源类型的资源文件加载的图表目录及一个将被加载的指定图标的整数资源名.
+_WinAPI_LookupIconIdFromDirectoryEx()返回它是最适合当前显示设备的图标的资源名称的整数标识符.
+正常运行示例请将 Resources.dll 文件保存到临时文件夹中
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����LookupIconIdFromDirectoryEx�������Ϣ
+###See Also###
+ 搜索MSDN知识库中LookupIconIdFromDirectoryEx的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

@@ -1,42 +1,42 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _Net_Share_SessionGetInfo
 
-###����###
-���ؽ����ڷ������͹���վ֮���һ�λỰ����Ϣ
+###Description###
+返回建立在服务器和工作站之间的一次会话的信息
 
-###�﷨###
+###Syntax###
 #Include <NetShare.au3>
 _Net_Share_SessionGetInfo($sServer, $sClientName, $sUserName)
 
-###����###
+###Parameters###
 @@ParamTable@@
- $sServer  ����ָ��������������Զ�̷�������DNS��NetBIOS���Ƶ��ַ���. �������Ϊ����ʹ�ñ��ؼ����.
- $sClientName  ָ��Ҫ���ػỰ��Ϣ�Ŀͻ��˼������. �ò�������Ϊ��.
- $sUserName  ָ��Ҫ������Ϣ���û����û����ַ���. �ò�������Ϊ��.
+ $sServer  用以指定函数将操作的远程服务器的DNS或NetBIOS名称的字符串. 如果参数为空则使用本地计算机.
+ $sClientName  指定要返回会话信息的客户端计算机名. 该参数不能为空.
+ $sUserName  指定要返回信息的用户的用户名字符串. 该参数不能为空.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���¸�ʽ����:
-    [0] - �����Ự�ļ������
-    [1] - �����Ự���û���
-    [2] - �Ự�ڼ�򿪵��ļ�, �豸���ܵ�������
-    [3] - �Ự�ѱ����������
-    [4] - �Ự�ѿ��õ�����
-    [5] - ָ���û���ν����Ự:
-     1 - �û�ͨ���ÿ��ʻ������Ự
-     2 - �û���ʹ��������ܽ����Ự
-    [6] - �ͻ���ʹ�õĵĴ��������
+成功: 如下格式数组:
+    [0] - 建立会话的计算机名
+    [1] - 建立会话的用户名
+    [2] - 会话期间打开的文件, 设备及管道的数量
+    [3] - 会话已被激活的秒数
+    [4] - 会话已空置的秒数
+    [5] - 指定用户如何建立会话:
+     1 - 用户通过访客帐户建立会话
+     2 - 用户不使用密码加密建立会话
+    [6] - 客户端使用的的传输的名称
 @@End@@
 
-###��ע###
-�����ع������������������ִ�иú���
+###Remarks###
+仅本地管理组或服务器操作组可执行该函数
 
-###���###
+###Related###
  _Net_Share_FileGetInfo , _Net_Share_ShareGetInfo
 
-###�ο�###
- ����MSDN֪ʶ����NetSessionGetInfo�������Ϣ
+###See Also###
+ 搜索MSDN知识库中NetSessionGetInfo的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

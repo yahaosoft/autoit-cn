@@ -1,74 +1,74 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_DrawText
 
-###����###
-��ָ���ľ�����д���ʽ���ı�
+###Description###
+在指定的矩形里写入格式化文本
 
-###�﷨###
+###Syntax###
 #Include <WinAPI.au3>
 _WinAPI_DrawText($hDC,
 $sText, ByRef $tRect, $iFlags)
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hDC
-   �豸�������
+   设备环境句柄
 $sText
-   Ҫ���Ƶ��ַ���
+   要绘制的字符串
 $tRect
-$tagRECT�ṹ��ָ�����а������Ľ����������еľ��ε���Ϣ
+$tagRECT结构的指针其中包含正文将被置于其中的矩形的信息
 $iFlags
-   ָ����ʽ�����ĵķ���:
-    $DT_BOTTOM - �����ĵ��������εײ�
-    $DT_CALCRECT - �������εĿ��͸�
-    $DT_CENTER - ʹ�����ھ�����ˮƽ����
-    $DT_EDITCONTROL - ���ƶ��б༭�ؼ���������ʾ����
-    $DT_END_ELLIPSIS - �滻���ַ����ĸ�������
-    $DT_EXPANDTABS - ��չ�Ʊ���
-    $DT_EXTERNALLEADING - ���еĸ߶������������ⲿ��ͷ
-    $DT_HIDEPREFIX - �����ı��е�'&'ǰ׺�ַ�.
-    �������ĸû���»���,���������ڴ�ǰ׺�ַ���Ȼ��Ч.
-    $DT_INTERNAL - ��ϵͳ�������������Ķ���
-    $DT_LEFT - ���������
-    $DT_MODIFYSTRING - �޸ĸ������ַ�����ƥ����ʾ������
-    $DT_NOCLIP - �޲ü�����
-    $DT_NOFULLWIDTHCHARBREAK - DBCS(˫�ֽ��ַ��ַ���)�������, �Ա���й����ͬ��SBCS�ַ���.
-    ����, ���������ں��Ĵ���, ��ͼ���ǩ���߿ɶ���.
-$DT_WORDBREAK�����ֵ��Ч
-    $DT_NOPREFIX - �ر�ǰ׺�ַ��Ĵ���
-    $DT_PATH_ELLIPSIS - Ϊ��ʾ�ı�, ��ʡ�Ժ��滻�ַ����е��ı��Ա��ַ���ָ������ƥ��.
-    ����ַ���������б��(\), �ò��������ķ�б�ߺ��������ܶ���ı�.
-$DT_MODIFYSTRING ���
-    $DT_PREFIXONLY - ֻ��'&'ǰ׺�ַ������һ���ַ����»���. ��Ҫ���ַ����ϻ����κα��
-    $DT_RIGHT - �����Ҷ���
-    $DT_RTLREADING - Ϊ˫�����İ��Ŵ��ҵ�����Ķ�˳���Ǵ����ҵ�
-    $DT_SINGLELINE - ����ͬһ����ʾ����
-    $DT_TABSTOP - �����Ʊ�. $iFlags������15"C8λָ��ÿ���Ʊ������ַ���
-    $DT_TOP - ���Ķ��˶��루���Ե��У�
-    $DT_VCENTER - ����ˮƽ���У����Ե��У�
-    $DT_WORDBREAK - �Ͽ���
-    $DT_WORD_ELLIPSIS - �ض̲����Ͼ��ε����Ĳ�������Բ
+   指定格式化正文的方法:
+    $DT_BOTTOM - 将正文调整到矩形底部
+    $DT_CALCRECT - 决定矩形的宽和高
+    $DT_CENTER - 使正文在矩形中水平居中
+    $DT_EDITCONTROL - 复制多行编辑控件的正文显示特性
+    $DT_END_ELLIPSIS - 替换在字符串的给定部分
+    $DT_EXPANDTABS - 扩展制表符
+    $DT_EXTERNALLEADING - 在行的高度里包含字体的外部标头
+    $DT_HIDEPREFIX - 忽略文本中的'&'前缀字符.
+    跟随的字母没有下划线,但其他的内存前缀字符仍然有效.
+    $DT_INTERNAL - 用系统字体来计算正文度量
+    $DT_LEFT - 正文左对齐
+    $DT_MODIFYSTRING - 修改给定的字符串来匹配显示的正文
+    $DT_NOCLIP - 无裁剪绘制
+    $DT_NOFULLWIDTHCHARBREAK - DBCS(双字节字符字符串)不会断行, 以便断行规则等同于SBCS字符串.
+    例如, 这样可用于韩文窗体, 是图标标签更具可读性.
+$DT_WORDBREAK否则该值无效
+    $DT_NOPREFIX - 关闭前缀字符的处理
+    $DT_PATH_ELLIPSIS - 为显示文本, 用省略号替换字符串中的文本以便字符与指定矩形匹配.
+    如果字符串包含反斜杠(\), 该参数在最后的反斜线后保留尽可能多的文本.
+$DT_MODIFYSTRING 标记
+    $DT_PREFIXONLY - 只在'&'前缀字符后面的一个字符加下划线. 不要在字符串上绘制任何标记
+    $DT_RIGHT - 正文右对齐
+    $DT_RTLREADING - 为双向正文安排从右到左的阅读顺序都是从左到右的
+    $DT_SINGLELINE - 仅在同一行显示正文
+    $DT_TABSTOP - 设置制表. $iFlags参数的15"C8位指定每个制表符的字符数
+    $DT_TOP - 正文顶端对齐（仅对单行）
+    $DT_VCENTER - 正文水平居中（仅对单行）
+    $DT_WORDBREAK - 断开字
+    $DT_WORD_ELLIPSIS - 截短不符合矩形的正文并增加椭圆
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �ı��߶�
-ʧ��: 0
+成功: 文本高度
+失败: 0
 @@End@@
 
-###��ע###
-����DrawTextʹ���豸�����е�����ѡ��������ɫ�ͱ�����ɫ��д����.
-����ʹ��$DT_NOCLIP, DrawText�ü������Ա������������ָ�����ε�����.
-��DT_SINGLELINE��ʽ�⣬����ĸ�ʽ����Ϊ�����ж���. ���ѡ�������̫��,
-DrawText ������ͼȥ����һ��С����.
-��ҪWindowsConstants.au3
-Ԥ���峣��
+###Remarks###
+函数DrawText使用设备环境中的字体选择、正文颜色和背景颜色来写正文.
+除非使用$DT_NOCLIP, DrawText裁剪正文以便它不会出现在指定矩形的外面.
+除DT_SINGLELINE格式外，其余的格式都认为正文有多行. 如果选择的字体太大,
+DrawText 不会试图去换成一种小字体.
+需要WindowsConstants.au3
+预定义常量
 
-###���###
+###Related###
 $tagRECT
 
-###�ο�###
-����MSDN֪ʶ����DrawText�������Ϣ
+###See Also###
+搜索MSDN知识库中DrawText的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

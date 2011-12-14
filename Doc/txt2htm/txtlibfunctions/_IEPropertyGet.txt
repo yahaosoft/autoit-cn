@@ -1,89 +1,89 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êý###
+ï»¿###User Defined Function###
 _IEPropertyGet
 
-###ÃèÊö###
-·µ»Øä¯ÀÀÆ÷»òÕßDOMÔªËØÖ¸¶¨µÄÊôÐÔÖµ.
+###Description###
+è¿”å›žæµè§ˆå™¨æˆ–è€…DOMå…ƒç´ æŒ‡å®šçš„å±žæ€§å€¼.
 
-###Óï·¨###
+###Syntax###
 #Include <IE.au3>
 _IEPropertyGet( ByRef $o_object, $s_property )
 
-###²ÎÊý###
+###Parameters###
 @@ParamTable@@
- $o_object  InternetExplorer.Application »òÕßDOM×é¼þµÄ¶ÔÏó±äÁ¿
- $s_property  ÊôÐÔÑ¡Ïî(¼û±¸×¢)
+ $o_object  InternetExplorer.Application æˆ–è€…DOMç»„ä»¶çš„å¯¹è±¡å˜é‡
+ $s_property  å±žæ€§é€‰é¡¹(è§å¤‡æ³¨)
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
- ³É¹¦:  ·µ»ØÖ¸¶¨ÊôÐÔÖµ
- Ê§°Ü:  ·µ»Ø0 ²¢ÇÒÉèÖÃ @ERROR
- @Error:  0($_IEStatus_Success) = ÎÞ´í
-  3($_IEStatus_InvalidDataType) = ÎÞÐ§Êý¾ÝÀàÐÍ
-  4($_IEStatus_InvalidObjectType) = ÎÞÐ§¶ÔÏóÀàÐÍ
-  5($_IEStatus_InvalidValue) = ÎÞÐ§Öµ
- @Extended:  °üº¬ÎÞÐ§²ÎÊýÊýÁ¿
+ æˆåŠŸ:  è¿”å›žæŒ‡å®šå±žæ€§å€¼
+ å¤±è´¥:  è¿”å›ž0 å¹¶ä¸”è®¾ç½® @ERROR
+ @Error:  0($_IEStatus_Success) = æ— é”™
+  3($_IEStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»åž‹
+  4($_IEStatus_InvalidObjectType) = æ— æ•ˆå¯¹è±¡ç±»åž‹
+  5($_IEStatus_InvalidValue) = æ— æ•ˆå€¼
+ @Extended:  åŒ…å«æ— æ•ˆå‚æ•°æ•°é‡
 @@End@@
 
-###±¸×¢###
-¸ü¶àÐÅÏ¢¿ÉÒÔ²é¿´ MSDN .
-ÏÂÃæ±í¸ñÌá¹©ÁËÃ¿Ò»¸ö¿ÉÒÔÊ¹ÓÃµÄÊôÐÔµÄÃèÊö , ÓÐÐ©ÊôÐÔ¶ÔÓ¦DOM×é¼þ , ÓÐÐ©¶ÔÓ¦ä¯ÀÀÆ÷.
- ä¯ÀÀÆ÷ÊôÐÔ
- ÊôÐÔ  ÃèÊö
- "addressbar"  ·µ»ØÒ»¸ö²¼¶ûÖµËµÃ÷ä¯ÀÀÆ÷µØÖ·À¸ÊÇ¿É¼û»¹ÊÇÒþ²Ø.
- "browserx"  ·µ»ØÒ»¸öÎÄµµÔªËØÏà¶ÔÓÚä¯ÀÀÆ÷×ó(²à)¶¥(²¿)µÄ X ×ø±ê.
- "browsery"  ·µ»ØÒ»¸öÎÄµµÔªËØÏà¶ÔÓÚä¯ÀÀÆ÷×ó(²à)¶¥(²¿)µÄ Y ×ø±ê.
- "busy"  ·µ»ØÒ»¸ö²¼¶ûÖµËµÃ÷¶ÔÐÔÊÇ´¦ÓÚÒ»¸öä¯ÀÀµÄ²Ù×÷»¹ÊÇÏÂÔØµÄ²Ù×÷.
- "contenteditable"  ·µ»ØÒ»¸ö²¼¶ûÖµÓÃÀ´ËµÃ÷¶ÔÏóÊÇ·ñ¿ÉÒÔÓÃÊó±ê»òÕß¼üÅÌ±à¼­.
- "fullscreen"  ·µ»ØÒ»¸ö²¼¶ûÖµÓÃÀ´ËµÃ÷ä¯ÀÀÆ÷ÊÇÈ«ÆÁÄ£Ê½»¹ÊÇÕý³£Ä£Ê½.
- "height"  ·µ»Øä¯ÀÀÆ÷´°¿ÚµÄ¸ß¶È.
- "hwnd"  ·µ»ØIEÖ÷´°¿ÚµÄ¾ä±ú(HWND) , ¿ÉÒÔÓÃÔÚ´ó¶àÊýWin*º¯ÊýÖÐ.
- "innerhtml"  ¼ìË÷ËùÌá¹©µÄ²»°üÀ¨¿ªÊ¼ºÍ½áÊøÔªËØ±ê¼ÇµÄHTMLÔªËØ.
- "innertext"  ¼ìË÷Ò»¸ö×é³É²¿·ÖÌá¹©ÎÄ×Ö(µ«²»°üÀ¨ÈÎºÎ±êÇ©). Í¨³£ÓëÍâ²¿ÎÄ×ÖÏàÍ¬.
- "isdisabled"  ·µ»ØÖµËµÃ÷ÓÃ»§ÊÇ·ñ¿ÉÒÔÓ°Ïì¶ÔÏó.
- "left"  ·µ»Ø¶ÔÏóÖ÷´°¿Ú×ó±ßÔÚÆÁÄ»ÖÐµÄ×ø±ê.
- "locationname"  ·µ»Øµ±Ç°ÏÔÊ¾IEÔ´ÂëµÄÃû³Æ.
- "locationurl"  ·µ»Øµ±Ç°ÏÔÊ¾IEÔ´ÂëµÄURLµØÖ·.
- "menubar"  ·µ»ØÒ»¸ö²¼¶ûÖµËµÃ÷ä¯ÀÀÆ÷²Ëµ¥ÊÇ·ñ¿É¼û.
- "offline"  ·µ»ØÒ»¸ö²¼¶ûÖµÓÃÀ´ËµÃ÷ä¯ÀÀÆ÷·ñÊÇÖ´ÐÐÍÑ»úÄ£Ê½.
- "outertext"  ¼ìË÷Ò»¸ö×é³É²¿·ÖÌá¹©ÎÄ×Ö(µ«²»°üÀ¨ÈÎºÎ±êÇ©). Í¨³£ÓëÄÚ²¿ÎÄ×ÖÏàÍ¬.
- "outerhtml"  ¼ìË÷Ò»¸ö°üÀ¨¿ªÊ¼ºÍ½áÊø±ê¼ÇµÄÔªËØÌá¹©µÄHTML.
- "readystate"  ·µ»Ø¶ÔÏó×¼±¸(ready)×´Ì¬.
- "referrer"  »ñÈ¡µ±Ç°Ò³Ãæ¿ÉÓÉÆä·ÃÎÊµÄÒ³ÃæµÄÍøÖ·µÄ×Ö·û´®(µ«Ö»µ±Í¨¹ý¸ÃÒ³ÉÏµÄÁ´½Ó²ÅÄÜ·ÃÎÊÊ± , ·ñÔò×Ö·û´®Îª¿Õ.)
- "resizable"  ·µ»ØÒ»¸ö²¼¶ûÖµÓÃÀ´ËµÃ÷ä¯ÀÀÆ÷·ñÊÇ¿ÉÒÔ±»¸Ä±ä´óÐ¡µÄ.
- "silent"  ·µ»ØÒ»¸ö²¼¶ûÖµÓÃÀ´ËµÃ÷ä¯ÀÀÆ÷ÄÜ·ñÏÔÊ¾¶Ô»°¿ò.
- "screenx"  »ñÈ¡ÎÄµµ¶ÔÏó»òä¯ÀÀÆ÷×óÉÏ½ÇÏà¶ÔÓÚÆÁÄ»µÄx×ø±ê.
- "screeny"  »ñÈ¡ÎÄµµ¶ÔÏó»òä¯ÀÀÆ÷×óÉÏ½ÇÏà¶ÔÓÚÆÁÄ»µÄy×ø±ê.
- "statusbar"  ·µ»ØÒ»¸ö²¼¶ûÖµÓÃÀ´ËµÃ÷ä¯ÀÀÆ÷×´Ì¬À¸ÊÇ·ñ¿É¼û.
- "statustext"  ¶¨Òå·µ»Øä¯ÀÀÆ÷×´Ì¬À¸ÉÏÏÔÊ¾µÄÎÄ×Ö.
- "theatermode"  ·µ»ØÒ»¸ö²¼¶ûÖµÓÃÀ´ËµÃ÷ä¯ÀÀÆ÷ÊÇ·ñ´¦ÓÚ¾çÔºÄ£Ê½. ÔÚ¾çÔºÄ£Ê½ , ä¯ÀÀÆ÷Ö÷´°¿Ú½«³äÂúÕû¸öÆÁÄ»²¢ÇÒÏÔÊ¾Ò»¸ö°üº¬¼«ÉÙä¯ÀÀ°´Å¥µÄ¹¤¾ßÌõ.
- "title"  ·µ»ØÎÄµµ±êÌâ. ×¢ÒâÕâ¸ö²»Í¬Óë´°¿Ú±êÌâ(Í¨³£ÒÔÎÄµµ±êÌâ¿ªÊ¼) , ´°¿Ú±êÌâ»á¸½¼Ó¶îÍâµÄ×¢²áÐÅÏ¢.
- "toolbar"  ·µ»ØÒ»¸ö²¼¶ûÖµÓÃÀ´ËµÃ÷ä¯ÀÀÆ÷¹¤¾ßÀ¸¿É¼û»¹ÊÇÒþ²Ø.
- "top"  ·µ»Øä¯ÀÀÆ÷Ö÷´°¿ÚÉÏ±ßÔÚÆÁÄ»ÉÏµÄ×ø±ê.
- "visible"  ·µ»ØÒ»¸ö²¼¶ûÖµÓÃÀ´ËµÃ÷ä¯ÀÀÆ÷¿É¼û»¹ÊÇÒþ²Ø.
- "width"  ·µ»Øä¯ÀÀÆ÷Ö÷´°¿ÚµÄ¿í¶È.
- "uniqueid"  »ñÈ¡ÓÉËùÓÐÔªËØÖÐÎ¨Ò»µÄDom·ÖÅäµÄID. ¿ÉÓÃÔÚÈÎÒâÐèÒªµÄÔªËØIDµÄ»·¾³ÖÐ.
- ¿Í»§¶ËÐÅÏ¢
- ÊôÐÔ  ÃèÊö
- "appcodename"  ·µ»Øä¯ÀÀÆ÷´úÂëÃû³Æ(Õâ¸öÊôÐÔÔÚMozillaÖÐÓÐÄ¬ÈÏÖµ).
- "appminorversion"  ·µ»ØÓ¦ÓÃ³ÌÐòµÄÐ¡°æ±¾Öµ.
- "appname"  ·µ»Øä¯ÀÀÆ÷Ãû³Æ(Õâ¸öÊôÐÔÔÚMicrosoft Internet ExplorerÖÐÓÐÄ¬ÈÏÖµ).
- "appversion"  ·µ»Øä¯ÀÀÆ÷Æ½Ì¨ºÍ°æ±¾.
- "browserlanguage"  ·µ»Øµ±Ç°ä¯ÀÀÆ÷ÓïÑÔ(·µ»ØÖµ¿É²é¿´ ÓïÑÔ´úÂë ).
- "cookieenabled"  ·µ»Ø¿Í»§¶Ëä¯ÀÀÆ÷ÊÇ·ñÊÇÖ§³Öcookies. cookies±»´¢´æÔÚ¿Í»§¶ËµçÄÔÀïÃæ.
- "cpuclass"  ·µ»Ø×Ö·û´®ËµÃ÷CPUÀàÐÍ(·µ»ØÖµ¿É²é¿´ ´Ë´¦ ).
- "javaenabled"  ·µ»ØJavaÊÇ·ñ¿ÉÒÔÊ¹ÓÃ.
- "online"  ·µ»ØÖµËµÃ÷ÏµÍ³ÊÇ·ñÔÚ È«¾ÖÀëÏßÄ£Ê½ .
- "platform"  ·µ»ØÓÃ»§²Ù×÷ÏµÍ³µÄÃû³Æ(·µ»ØÖµ¿É²é¿´ ´Ë´¦ ).
- "systemlanguage"  ·µ»Ø²Ù×÷ÏµÍ³µÄÓïÑÔ(·µ»ØÖµÎª ÓïÑÔ´úÂë Ö®Ò»).
- "useragent"  Ïàµ±ÓÚÓÃ»§´úÀíÇëÇóµÄHTTPÍ·µÄ×Ö·û´®.
- "userlanguage"  ·µ»Ø²Ù×÷ÏµÍ³µÄ×ÔÈ»ÓïÑÔÉèÖÃ(·µ»ØÖµÎª ÓïÑÔ´úÂë Ö®Ò»).
- "vcard"  ·µ»Ø°üº¬ÔÚuserProfile¶ÔÏóÖÐÃ¿¸öÊôÐÔµÄÊý×é(ÊôÐÔÁÐ±í¿É²é¿´ ´Ë´¦ ). ½«·µ»Ø¶þÎ¬Êý×é, ÆäÖÐµÚÒ»Î¬ÓÐÁ½¸öÔªËØ. µÚÒ»¸öÔªËØ(0)°üº¬ÊôÐÔÃû, µÚ¶þ¸öÔªËØ(1)°üº¬ÏàÓ¦µÄÖµ. µÚ¶þÎ¬ÓÐ29¸öÔªËØ(0µ½28).
+###Remarks###
+æ›´å¤šä¿¡æ¯å¯ä»¥æŸ¥çœ‹ MSDN .
+ä¸‹é¢è¡¨æ ¼æä¾›äº†æ¯ä¸€ä¸ªå¯ä»¥ä½¿ç”¨çš„å±žæ€§çš„æè¿° , æœ‰äº›å±žæ€§å¯¹åº”DOMç»„ä»¶ , æœ‰äº›å¯¹åº”æµè§ˆå™¨.
+ æµè§ˆå™¨å±žæ€§
+ å±žæ€§  æè¿°
+ "addressbar"  è¿”å›žä¸€ä¸ªå¸ƒå°”å€¼è¯´æ˜Žæµè§ˆå™¨åœ°å€æ æ˜¯å¯è§è¿˜æ˜¯éšè—.
+ "browserx"  è¿”å›žä¸€ä¸ªæ–‡æ¡£å…ƒç´ ç›¸å¯¹äºŽæµè§ˆå™¨å·¦(ä¾§)é¡¶(éƒ¨)çš„ X åæ ‡.
+ "browsery"  è¿”å›žä¸€ä¸ªæ–‡æ¡£å…ƒç´ ç›¸å¯¹äºŽæµè§ˆå™¨å·¦(ä¾§)é¡¶(éƒ¨)çš„ Y åæ ‡.
+ "busy"  è¿”å›žä¸€ä¸ªå¸ƒå°”å€¼è¯´æ˜Žå¯¹æ€§æ˜¯å¤„äºŽä¸€ä¸ªæµè§ˆçš„æ“ä½œè¿˜æ˜¯ä¸‹è½½çš„æ“ä½œ.
+ "contenteditable"  è¿”å›žä¸€ä¸ªå¸ƒå°”å€¼ç”¨æ¥è¯´æ˜Žå¯¹è±¡æ˜¯å¦å¯ä»¥ç”¨é¼ æ ‡æˆ–è€…é”®ç›˜ç¼–è¾‘.
+ "fullscreen"  è¿”å›žä¸€ä¸ªå¸ƒå°”å€¼ç”¨æ¥è¯´æ˜Žæµè§ˆå™¨æ˜¯å…¨å±æ¨¡å¼è¿˜æ˜¯æ­£å¸¸æ¨¡å¼.
+ "height"  è¿”å›žæµè§ˆå™¨çª—å£çš„é«˜åº¦.
+ "hwnd"  è¿”å›žIEä¸»çª—å£çš„å¥æŸ„(HWND) , å¯ä»¥ç”¨åœ¨å¤§å¤šæ•°Win*å‡½æ•°ä¸­.
+ "innerhtml"  æ£€ç´¢æ‰€æä¾›çš„ä¸åŒ…æ‹¬å¼€å§‹å’Œç»“æŸå…ƒç´ æ ‡è®°çš„HTMLå…ƒç´ .
+ "innertext"  æ£€ç´¢ä¸€ä¸ªç»„æˆéƒ¨åˆ†æä¾›æ–‡å­—(ä½†ä¸åŒ…æ‹¬ä»»ä½•æ ‡ç­¾). é€šå¸¸ä¸Žå¤–éƒ¨æ–‡å­—ç›¸åŒ.
+ "isdisabled"  è¿”å›žå€¼è¯´æ˜Žç”¨æˆ·æ˜¯å¦å¯ä»¥å½±å“å¯¹è±¡.
+ "left"  è¿”å›žå¯¹è±¡ä¸»çª—å£å·¦è¾¹åœ¨å±å¹•ä¸­çš„åæ ‡.
+ "locationname"  è¿”å›žå½“å‰æ˜¾ç¤ºIEæºç çš„åç§°.
+ "locationurl"  è¿”å›žå½“å‰æ˜¾ç¤ºIEæºç çš„URLåœ°å€.
+ "menubar"  è¿”å›žä¸€ä¸ªå¸ƒå°”å€¼è¯´æ˜Žæµè§ˆå™¨èœå•æ˜¯å¦å¯è§.
+ "offline"  è¿”å›žä¸€ä¸ªå¸ƒå°”å€¼ç”¨æ¥è¯´æ˜Žæµè§ˆå™¨å¦æ˜¯æ‰§è¡Œè„±æœºæ¨¡å¼.
+ "outertext"  æ£€ç´¢ä¸€ä¸ªç»„æˆéƒ¨åˆ†æä¾›æ–‡å­—(ä½†ä¸åŒ…æ‹¬ä»»ä½•æ ‡ç­¾). é€šå¸¸ä¸Žå†…éƒ¨æ–‡å­—ç›¸åŒ.
+ "outerhtml"  æ£€ç´¢ä¸€ä¸ªåŒ…æ‹¬å¼€å§‹å’Œç»“æŸæ ‡è®°çš„å…ƒç´ æä¾›çš„HTML.
+ "readystate"  è¿”å›žå¯¹è±¡å‡†å¤‡(ready)çŠ¶æ€.
+ "referrer"  èŽ·å–å½“å‰é¡µé¢å¯ç”±å…¶è®¿é—®çš„é¡µé¢çš„ç½‘å€çš„å­—ç¬¦ä¸²(ä½†åªå½“é€šè¿‡è¯¥é¡µä¸Šçš„é“¾æŽ¥æ‰èƒ½è®¿é—®æ—¶ , å¦åˆ™å­—ç¬¦ä¸²ä¸ºç©º.)
+ "resizable"  è¿”å›žä¸€ä¸ªå¸ƒå°”å€¼ç”¨æ¥è¯´æ˜Žæµè§ˆå™¨å¦æ˜¯å¯ä»¥è¢«æ”¹å˜å¤§å°çš„.
+ "silent"  è¿”å›žä¸€ä¸ªå¸ƒå°”å€¼ç”¨æ¥è¯´æ˜Žæµè§ˆå™¨èƒ½å¦æ˜¾ç¤ºå¯¹è¯æ¡†.
+ "screenx"  èŽ·å–æ–‡æ¡£å¯¹è±¡æˆ–æµè§ˆå™¨å·¦ä¸Šè§’ç›¸å¯¹äºŽå±å¹•çš„xåæ ‡.
+ "screeny"  èŽ·å–æ–‡æ¡£å¯¹è±¡æˆ–æµè§ˆå™¨å·¦ä¸Šè§’ç›¸å¯¹äºŽå±å¹•çš„yåæ ‡.
+ "statusbar"  è¿”å›žä¸€ä¸ªå¸ƒå°”å€¼ç”¨æ¥è¯´æ˜Žæµè§ˆå™¨çŠ¶æ€æ æ˜¯å¦å¯è§.
+ "statustext"  å®šä¹‰è¿”å›žæµè§ˆå™¨çŠ¶æ€æ ä¸Šæ˜¾ç¤ºçš„æ–‡å­—.
+ "theatermode"  è¿”å›žä¸€ä¸ªå¸ƒå°”å€¼ç”¨æ¥è¯´æ˜Žæµè§ˆå™¨æ˜¯å¦å¤„äºŽå‰§é™¢æ¨¡å¼. åœ¨å‰§é™¢æ¨¡å¼ , æµè§ˆå™¨ä¸»çª—å£å°†å……æ»¡æ•´ä¸ªå±å¹•å¹¶ä¸”æ˜¾ç¤ºä¸€ä¸ªåŒ…å«æžå°‘æµè§ˆæŒ‰é’®çš„å·¥å…·æ¡.
+ "title"  è¿”å›žæ–‡æ¡£æ ‡é¢˜. æ³¨æ„è¿™ä¸ªä¸åŒä¸Žçª—å£æ ‡é¢˜(é€šå¸¸ä»¥æ–‡æ¡£æ ‡é¢˜å¼€å§‹) , çª—å£æ ‡é¢˜ä¼šé™„åŠ é¢å¤–çš„æ³¨å†Œä¿¡æ¯.
+ "toolbar"  è¿”å›žä¸€ä¸ªå¸ƒå°”å€¼ç”¨æ¥è¯´æ˜Žæµè§ˆå™¨å·¥å…·æ å¯è§è¿˜æ˜¯éšè—.
+ "top"  è¿”å›žæµè§ˆå™¨ä¸»çª—å£ä¸Šè¾¹åœ¨å±å¹•ä¸Šçš„åæ ‡.
+ "visible"  è¿”å›žä¸€ä¸ªå¸ƒå°”å€¼ç”¨æ¥è¯´æ˜Žæµè§ˆå™¨å¯è§è¿˜æ˜¯éšè—.
+ "width"  è¿”å›žæµè§ˆå™¨ä¸»çª—å£çš„å®½åº¦.
+ "uniqueid"  èŽ·å–ç”±æ‰€æœ‰å…ƒç´ ä¸­å”¯ä¸€çš„Domåˆ†é…çš„ID. å¯ç”¨åœ¨ä»»æ„éœ€è¦çš„å…ƒç´ IDçš„çŽ¯å¢ƒä¸­.
+ å®¢æˆ·ç«¯ä¿¡æ¯
+ å±žæ€§  æè¿°
+ "appcodename"  è¿”å›žæµè§ˆå™¨ä»£ç åç§°(è¿™ä¸ªå±žæ€§åœ¨Mozillaä¸­æœ‰é»˜è®¤å€¼).
+ "appminorversion"  è¿”å›žåº”ç”¨ç¨‹åºçš„å°ç‰ˆæœ¬å€¼.
+ "appname"  è¿”å›žæµè§ˆå™¨åç§°(è¿™ä¸ªå±žæ€§åœ¨Microsoft Internet Explorerä¸­æœ‰é»˜è®¤å€¼).
+ "appversion"  è¿”å›žæµè§ˆå™¨å¹³å°å’Œç‰ˆæœ¬.
+ "browserlanguage"  è¿”å›žå½“å‰æµè§ˆå™¨è¯­è¨€(è¿”å›žå€¼å¯æŸ¥çœ‹ è¯­è¨€ä»£ç  ).
+ "cookieenabled"  è¿”å›žå®¢æˆ·ç«¯æµè§ˆå™¨æ˜¯å¦æ˜¯æ”¯æŒcookies. cookiesè¢«å‚¨å­˜åœ¨å®¢æˆ·ç«¯ç”µè„‘é‡Œé¢.
+ "cpuclass"  è¿”å›žå­—ç¬¦ä¸²è¯´æ˜ŽCPUç±»åž‹(è¿”å›žå€¼å¯æŸ¥çœ‹ æ­¤å¤„ ).
+ "javaenabled"  è¿”å›žJavaæ˜¯å¦å¯ä»¥ä½¿ç”¨.
+ "online"  è¿”å›žå€¼è¯´æ˜Žç³»ç»Ÿæ˜¯å¦åœ¨ å…¨å±€ç¦»çº¿æ¨¡å¼ .
+ "platform"  è¿”å›žç”¨æˆ·æ“ä½œç³»ç»Ÿçš„åç§°(è¿”å›žå€¼å¯æŸ¥çœ‹ æ­¤å¤„ ).
+ "systemlanguage"  è¿”å›žæ“ä½œç³»ç»Ÿçš„è¯­è¨€(è¿”å›žå€¼ä¸º è¯­è¨€ä»£ç  ä¹‹ä¸€).
+ "useragent"  ç›¸å½“äºŽç”¨æˆ·ä»£ç†è¯·æ±‚çš„HTTPå¤´çš„å­—ç¬¦ä¸².
+ "userlanguage"  è¿”å›žæ“ä½œç³»ç»Ÿçš„è‡ªç„¶è¯­è¨€è®¾ç½®(è¿”å›žå€¼ä¸º è¯­è¨€ä»£ç  ä¹‹ä¸€).
+ "vcard"  è¿”å›žåŒ…å«åœ¨userProfileå¯¹è±¡ä¸­æ¯ä¸ªå±žæ€§çš„æ•°ç»„(å±žæ€§åˆ—è¡¨å¯æŸ¥çœ‹ æ­¤å¤„ ). å°†è¿”å›žäºŒç»´æ•°ç»„, å…¶ä¸­ç¬¬ä¸€ç»´æœ‰ä¸¤ä¸ªå…ƒç´ . ç¬¬ä¸€ä¸ªå…ƒç´ (0)åŒ…å«å±žæ€§å, ç¬¬äºŒä¸ªå…ƒç´ (1)åŒ…å«ç›¸åº”çš„å€¼. ç¬¬äºŒç»´æœ‰29ä¸ªå…ƒç´ (0åˆ°28).
 
-###Ïà¹Ø###
+###Related###
  _IEPropertySet
 
-###²Î¿¼###
+###See Also###
 
-###Ê¾Àý###
+###Example###
 @@IncludeExample@@

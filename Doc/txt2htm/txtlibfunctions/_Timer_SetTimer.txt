@@ -1,37 +1,37 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _Timer_SetTimer
 
-###����###
-��������ָ����ʱֵ�ļ�ʱ��
+###Description###
+创建带有指定超时值的计时器
 
-###�﷨###
+###Syntax###
 #Include <Timers.au3>
 _Timer_SetTimer($hWnd[, $iElapse = 250[, $sTimerFunc = ""[, $iTimerID = -1]]])
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  ���ʱ����صĴ�����. �ô�������ɵ��õ��̼̳߳�
- $iElapse  ָ�����볬ʱֵ
- $sTimerFunc  �ﵽ��ʱֵʱ֪ͨ�ĺ���������
- $iTimerID  ָ����ʱ����ʶ.
-���$iTimerIDΪ-1���½���ʱ��
-���$iTimerID���Ѵ��ڵļ�ʱ����ƥ�����滻��ʱ��
-���$iTimerIDΪ-1��$sTimerFuncΪ""���ʱ��ʹ��WM_TIMER�¼�
+ $hWnd  与计时器相关的窗体句柄. 该窗体必须由调用的线程继承
+ $iElapse  指定毫秒超时值
+ $sTimerFunc  达到超时值时通知的函数的名称
+ $iTimerID  指定计时器标识.
+如果$iTimerID为-1则新建计时器
+如果$iTimerID与已存在的计时器相匹配则替换计时器
+如果$iTimerID为-1且$sTimerFunc为""则计时器使用WM_TIMER事件
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �¼�ʱ�������α�ʶ
-ʧ��: 0
+成功: 新计时器的整形标识
+失败: 0
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
  _Timer_KillTimer , _Timer_KillAllTimers , _Timer_GetTimerID
 
-###�ο�###
- ����MSDN֪ʶ����SetTimer�������Ϣ
+###See Also###
+ 搜索MSDN知识库中SetTimer的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

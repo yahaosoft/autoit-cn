@@ -1,49 +1,49 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_SetWindowLong
 
-###����###
-����ָ�����ڵ�ָ����Ϣ
+###Description###
+设置指定窗口的指定信息
 
-###�﷨###
+###Syntax###
 #Include <WinAPI.au3>
 _WinAPI_SetWindowLong($hWnd,
 $iIndex, $iValue)
 
-###����###
+###Parameters###
 @@ParamTable@@
-$hWnd  ���ھ��
-$iIndex  ָ��һ����0Ϊ������ƫ���������趨��ֵ.
-      ��Чֵ�ķ�Χ��0��������Ĵ洢�ռ���ֽ���-4;
-      ������ָ����12λ�����12λ�Ķ���ռ�,
-      ��Ӧ��Ϊ������32λ����������λ8.
-      Ҫ���������κ�ֵ������ָ������ֵ֮һ:
+$hWnd  窗口句柄
+$iIndex  指定一个以0为基础的偏移量到所设定的值.
+      有效值的范围从0到额外类的存储空间的字节数-4;
+      例如若指定了12位或多于12位的额外空间,
+      则应设为第三个32位整数的索引位8.
+      要设置其他任何值，可以指定下面值之一:
 $GWL_EXSTYLE -
-      �趨һ���µ���չ���
+      设定一个新的扩展风格
 $GWL_STYLE -
-      �趨һ���µĴ��ڷ��
+      设定一个新的窗口风格
 $GWL_WNDPROC -
-      �趨һ�����ڹ��̵�ַ
+      设定一个窗口过程地址
 $GWL_HINSTANCE -
-      ����һ��Ӧ�ó����������
-$GWL_HWNDPARENT - �����������һ�������ڵ�ַ
+      设置一个应用程序事例句柄
+$GWL_HWNDPARENT - 无论如何设置一个父窗口地址
 $GWL_ID
-      -  ���ô��ڱ�ʶ��
+      -  设置窗口标识符
 $GWL_USERDATA -
-      �����봰���йص�32λֵ
-$iValue  ָ���滻ֵ
+      设置与窗口有关的32位值
+$iValue  指定替换值
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ��ǰ��ֵ
-ʧ��: 0
+成功: 以前的值
+失败: 0
 @@End@@
 
-###��ע###
-��Ҫ Constants.au3 Ԥ���峣��
+###Remarks###
+需要 Constants.au3 预定义常量
 
-###���###
+###Related###
 _WinAPI_GetWindowLong
 
-###�ο�###
-����MSDN֪ʶ����SetWindowLong�������Ϣ
+###See Also###
+搜索MSDN知识库中SetWindowLong的相关信息

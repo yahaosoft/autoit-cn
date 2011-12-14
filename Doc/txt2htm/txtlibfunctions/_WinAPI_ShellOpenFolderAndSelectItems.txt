@@ -1,37 +1,37 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_ShellOpenFolderAndSelectItems
 
-###����###
-�򿪴���ָ�����ָ���ļ��е�Windows Explorer
+###Description###
+打开带有指定项的指定文件夹的Windows Explorer
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_ShellOpenFolderAndSelectItems( $sPath [, $aNames [, $iStart [, $iEnd [, $iFlags]]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
-$sPath  ָ���ļ��л��ļ���ȫ�Ϸ���·��. ���ʹ��$aNames����, $sPath����ָֻ��һ���ļ���, ��������Ч. �ò�����Ϊ���ַ���.
-$aNames  [��ѡ] �ļ��л�ѡ���ļ���������. ����Ϊ�ļ����ڲ�������.
-$iStart  [��ѡ] ��ʼѡȡ������
-$iEnd  [��ѡ] ����ѡȡ������
-$iFlags  [��ѡ] ��ѡ���. ��Ϊһ����������ֵ:
- *Windows Vista����
-$OFASI_EDIT - ѡ��һ������������ڱ༭ģʽ. �ñ�ǽ�������ѡ��������Ŀʱ. ����ѡȡʱ����.
-$OFASI_OPENDESKTOP - ѡȡ�����ϵ���Ŀ��������Դ������. ע��, ����λ�ڴ򿪴���ĺ���, ��ʹ�䲻�ɼ�.
+$sPath  指定文件夹或文件完全合法的路径. 如果使用$aNames参数, $sPath必须只指定一个文件夹, 否则函数无效. 该参数可为空字符串.
+$aNames  [可选] 文件夹或选定文件名的数组. 必须为文件夹内部的名称.
+$iStart  [可选] 开始选取的索引
+$iEnd  [可选] 结束选取的索引
+$iFlags  [可选] 可选标记. 可为一个或多个下列值:
+ *Windows Vista以上
+$OFASI_EDIT - 选定一项并将其名称置于编辑模式. 该标记仅可用于选定单独项目时. 多项选取时忽略.
+$OFASI_OPENDESKTOP - 选取桌面上的项目而不是资源管理器. 注意, 桌面位于打开窗体的后面, 这使其不可见.
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1.
-ʧ��: ����0������@error��0.
+成功: 返回1.
+失败: 返回0并设置@error非0.
 @@End@@
 
-###��ע###
+###Remarks###
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����SHOpenFolderAndSelectItems�������Ϣ
+###See Also###
+ 搜索MSDN知识库中SHOpenFolderAndSelectItems的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

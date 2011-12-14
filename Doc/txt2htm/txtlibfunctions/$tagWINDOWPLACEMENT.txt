@@ -1,38 +1,38 @@
-###�ṹ����###
+﻿###结构常量###
 $tagWINDOWPLACEMENT
 
-###����###
-������������Ļ�ϵ�λ����Ϣ�Ľṹ
+###Description###
+包含窗体在屏幕上的位置信息的结构
 
-###�﷨###
+###Syntax###
 Global Const $tagWINDOWPLACEMENT =  "UINT length;UINT flags;UINT showCmd;int ptMinPosition[2];int ptMaxPosition[2];int rcNormalPosition[4]"
 
-###��Ա###
+###成员###
 @@ParamTable@@
 length
-   �ṹ���ֽڳ���
+   结构的字节长度
 flags
-   ָ��������С�������λ�õı�Ǽ�����ָ��ķ���. �ó�Ա��Ϊ����ֵ֮һ:
-    $WPF_ASYNCWINDOWPLACEMENT - Windows 2000/XP: ������õ��̺߳����Ӵ�����߳�Ϊ��ͬ��������, ϵͳ�����������̴߳�������.
-    $WPF_RESTORETOMAXIMIZED - ָ����󻯻ָ���Ĵ���, ��������С��ǰ�Ƿ�������. �����ý����´λָ�����ʱ��Ч. ����ı�Ĭ�ϵĻָ�����. �����ý���showCmd��Աָ��@SW_SHOWMINIMIZEDֵʱ��Ч.
-    $WPF_SETMINPOSITION - ָ���ɱ�ָ������С�����������. ����ptMinPosition��Ա������������ʱ����ָ���ñ��.
+   指定控制最小化窗体的位置的标记及窗体恢复的方法. 该成员可为下列值之一:
+    $WPF_ASYNCWINDOWPLACEMENT - Windows 2000/XP: 如果调用的线程和连接窗体的线程为不同输入序列, 系统向窗体所属的线程传递请求.
+    $WPF_RESTORETOMAXIMIZED - 指定最大化恢复后的窗体, 无论在最小化前是否是最大的. 该设置仅在下次恢复窗体时有效. 不会改变默认的恢复操作. 该设置仅在showCmd成员指定@SW_SHOWMINIMIZED值时有效.
+    $WPF_SETMINPOSITION - 指定可被指定的最小化窗体的坐标. 当在ptMinPosition成员中设置了坐标时必须指定该标记.
 showCmd
-   ָ�����嵱�ڵ���ʾ״̬. �ó�Ա��Ϊ����ֵ֮һ:
-    @SW_HIDE - ���ش��岢������һ����.
-    @SW_MAXIMIZE - ���ָ������.
-    @SW_MINIMIZE - ��С��ָ�����岢����z���е���һ�����㴰��.
-    @SW_RESTORE - �����ʾ����. ������������С��ʱ, ϵͳ�ָ���ԭʼ�ߴ��λ��. Ӧ�ó���Ӧ�ڻָ���С���Ĵ���ʱָ���˱��.
-    @SW_SHOW - ����岢�Ե�ǰ�ĳߴ��λ����ʾ.
-    @SW_SHOWMAXIMIZED - ����岢�����ʾ.
-    @SW_SHOWMINIMIZED - ����岢��С����ʾ.
-    @SW_SHOWMINNOACTIVE - ��С����ʾ����. ��ֵ��@SW_SHOWMINIMIZED����, ������δ����.
-    @SW_SHOWNA - �Ե�ǰ�ĳߴ��λ����ʾ����. ��ֵ��@SW_SHOW����, ������δ����.
-    @SW_SHOWNOACTIVATE - �����һ�εĳߴ��λ����ʾ����. ��ֵ��@SW_SHOWNORMAL����, ������δ����.
-    @SW_SHOWNORMAL - �����ʾ����. ������������С��ʱ, ϵͳ�ָ���ԭʼ�ߴ��λ��. Ӧ�ó���Ӧ���״���ʾ����ʱָ���˱��.
+   指定窗体当期的显示状态. 该成员可为下列值之一:
+    @SW_HIDE - 隐藏窗体并激活另一窗体.
+    @SW_MAXIMIZE - 最大化指定窗体.
+    @SW_MINIMIZE - 最小化指定窗体并激活z序中的下一个顶层窗体.
+    @SW_RESTORE - 激活并显示窗体. 当窗体最大或最小化时, 系统恢复其原始尺寸和位置. 应用程序应在恢复最小化的窗体时指定此标记.
+    @SW_SHOW - 激活窗体并以当前的尺寸和位置显示.
+    @SW_SHOWMAXIMIZED - 激活窗体并最大化显示.
+    @SW_SHOWMINIMIZED - 激活窗体并最小化显示.
+    @SW_SHOWMINNOACTIVE - 最小化显示窗体. 该值与@SW_SHOWMINIMIZED类似, 但窗体未激活.
+    @SW_SHOWNA - 以当前的尺寸和位置显示窗体. 该值与@SW_SHOW类似, 但窗体未激活.
+    @SW_SHOWNOACTIVATE - 以最近一次的尺寸和位置显示窗体. 该值与@SW_SHOWNORMAL类似, 但窗体未激活.
+    @SW_SHOWNORMAL - 激活并显示窗体. 当窗体最大或最小化时, 系统恢复其原始尺寸和位置. 应用程序应在首次显示窗体时指定此标记.
 ptMinPosition
-   ָ��������С��ʱ�����Ͻ�����.
+   指定窗体最小化时的左上角坐标.
 ptMaxPosition
-   ָ���������ʱ�����Ͻ�����.
+   指定窗体最大化时的左上角坐标.
 rcNormalPosition
-   ָ������ָ�ʱ�����Ͻ�����.
+   指定窗体恢复时的左上角坐标.
 @@end@@

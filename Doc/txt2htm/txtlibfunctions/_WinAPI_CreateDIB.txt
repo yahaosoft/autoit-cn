@@ -1,36 +1,36 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_CreateDIB
 
-###����###
-����δѹ�����豸�޹ص�λͼ
+###Description###
+创建未压缩且设备无关的位图
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_CreateDIB( $iWidth, $iHeight [, $iBitsPerPel] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $iWidth
-   λͼ���ؿ���
+   位图像素宽度
 $iHeight
-   λͼ���ظ߶�. ��ֵΪ����ʱλͼΪ���¶�������������½ǵ�DIB, ��֮Ϊ���϶�������������Ͻ�.
+   位图像素高度. 该值为正数时位图为自下而上且起点在左下角的DIB, 反之为自上而下且起点在左上角.
 $iBitsPerPel
-   ����û����λ����λͼ����ɫ���������
+   定义没像素位数及位图中颜色的最大数量
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����DIB���
-ʧ��: ����0������@error��0
+成功: 返回DIB句柄
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-λͼʹ����Ϻ�ʹ��_WinAPI_DeleteObject()����
-  ʹ��ʾ��ǰ�� AutoIt.bmp �ļ��ͷŵ���ʱ�ļ���
+###Remarks###
+位图使用完毕后使用_WinAPI_DeleteObject()销毁
+  使用示例前将 AutoIt.bmp 文件释放到临时文件夹
 
-###���###
+###Related###
 
-###�ο�###
+###See Also###
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

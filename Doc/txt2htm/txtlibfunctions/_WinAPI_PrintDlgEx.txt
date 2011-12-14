@@ -1,36 +1,36 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_PrintDlgEx
 
-###����###
-��ʾ��ӡ���Ա�ʹ�û�����ָ�������ӡ����������
+###Description###
+显示打印属性表使用户可以指定特殊打印工作的属性
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_PrintDlgEx( ByRef $tPRINTDLGEX )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $tPRINTDLGEX
-$tagPRINTDLGEX�ṹ. �ýṹ��_WinAPI_PrintDlgEx()����ʱ�����û�ѡ������Ϣ.������Ϣ��
+$tagPRINTDLGEX结构. 该结构在_WinAPI_PrintDlgEx()返回时包含用户选定的信息.更多信息请
 
-###���###
+###Related###
 
-###�ο�###
+###See Also###
     MSDN
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ����1; @extended��ǰ�������ֵ֮һ:
-    $PD_RESULT_APPLY - �û���� " Ӧ�� " ��ť���� " ȡ�� " ��ť. ���ʾ�û�ϣ�����������Ա��������ĸ���, ����û��Ҫ��ӡ.
-    $PD_RESULT_CANCEL - �û���� " ȡ�� " ��ť. $tPRINTDLGEX�ṹ�е���Ϣ�ǲ����.
-    $PD_RESULT_PRINT - �û���� " ��ӡ " ��ť. $tPRINTDLGEX�ṹ�������û�ָ������Ϣ.
-ʧ��: ����0������@error��0; @extended��ǰ���ϵͳ�������.
+成功: 返回1; @extended标记包含下列值之一:
+    $PD_RESULT_APPLY - 用户点击 " 应用 " 按钮后点击 " 取消 " 按钮. 这表示用户希望申请在属性表中所做的更改, 但还没有要打印.
+    $PD_RESULT_CANCEL - 用户点击 " 取消 " 按钮. $tPRINTDLGEX结构中的信息是不变的.
+    $PD_RESULT_PRINT - 用户点击 " 打印 " 按钮. $tPRINTDLGEX结构包含由用户指定的信息.
+失败: 返回0并设置@error非0; @extended标记包含系统错误代码.
 @@End@@
 
-###��ע###
-ע��$tagPRINTDLGEX�ṹ�е� " hDevMode " �� " hDevNames " ��Ա��ֵ�����ݵ�_WinAPI_PrintDlgEx()ʱ�ᷢ���ı�. ��Ϊ����������ʱ��Ҫ�����Щ��Ա.
-�ο�  ����MSDN֪ʶ����PrintDlgEx�������Ϣ
+###Remarks###
+注意$tagPRINTDLGEX结构中的 " hDevMode " 和 " hDevNames " 成员的值当传递到_WinAPI_PrintDlgEx()时会发生改变. 因为在输入和输出时都要填充这些成员.
+参考  搜索MSDN知识库中PrintDlgEx的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

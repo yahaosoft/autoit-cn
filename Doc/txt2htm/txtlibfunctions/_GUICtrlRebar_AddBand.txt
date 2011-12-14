@@ -1,58 +1,58 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êý###
+ï»¿###User Defined Function###
 _GUICtrlRebar_AddBand
 
-###ÃèÊö###
-ÔÚ¿Ø¼þÖÐÌí¼ÓÐÂµÄÇø¶Î
+###Description###
+åœ¨æŽ§ä»¶ä¸­æ·»åŠ æ–°çš„åŒºæ®µ
 
-###Óï·¨###
+###Syntax###
 #Include<GuiRebar.au3>
 _GUICtrlRebar_AddBand($hwndRebar, $hwndChild[,$iMinWidth = 100[, $iDefaultWidth = 100[, $sText = ""[, $iIndex = -1[, $fStyle =-1]]]]])
 
-###²ÎÊý###
+###Parameters###
 @@ParamTable@@
- $hwndRebar  ¿Ø¼þ¾ä±ú
- $hwndChild  ÒªÌí¼ÓµÄ¿Ø¼þ¾ä±ú
- $iMinWidth  Çø¶ÎµÄ×îÐ¡¿í¶È
- $iDefaultWidth  Çø¶ÎµÄÄ¬ÈÏÏñËØ¿í¶È
- $sText  ÏÔÊ¾Çø¶ÎµÄÎÄ±¾
- $iIndex  ²åÈëÇø¶ÎÎ»ÖÃµÄ0»ùË÷Òý. Èç¹û²ÎÊýÎª-1, ¿Ø¼þ½«ÔÚ×îºóµÄÎ»ÖÃÌí¼Ó
- $fStyle  Ö¸¶¨Çø¶ÎÑùÊ½µÄ±êÖ¾. ¸ÃÖµ¿ÉÎªÏÂÁÐ×éºÏ:
-$RBBS_BREAK - Çø¶ÎÔÚÐÂÏßÉÏ.
+ $hwndRebar  æŽ§ä»¶å¥æŸ„
+ $hwndChild  è¦æ·»åŠ çš„æŽ§ä»¶å¥æŸ„
+ $iMinWidth  åŒºæ®µçš„æœ€å°å®½åº¦
+ $iDefaultWidth  åŒºæ®µçš„é»˜è®¤åƒç´ å®½åº¦
+ $sText  æ˜¾ç¤ºåŒºæ®µçš„æ–‡æœ¬
+ $iIndex  æ’å…¥åŒºæ®µä½ç½®çš„0åŸºç´¢å¼•. å¦‚æžœå‚æ•°ä¸º-1, æŽ§ä»¶å°†åœ¨æœ€åŽçš„ä½ç½®æ·»åŠ 
+ $fStyle  æŒ‡å®šåŒºæ®µæ ·å¼çš„æ ‡å¿—. è¯¥å€¼å¯ä¸ºä¸‹åˆ—ç»„åˆ:
+$RBBS_BREAK - åŒºæ®µåœ¨æ–°çº¿ä¸Š.
 $RBBS_CHILDEDGE -
-      Çø¶ÎÔÚ×Ó´°ÌåµÄ¶¥²¿ºÍµ×²¿ÓÐ±ß½ç
-$RBBS_FIXEDBMP - µ±Çø¶Î´óÐ¡¸Ä±äÊ±²»ÒÆ¶¯±³¾°Î»Í¼
+      åŒºæ®µåœ¨å­çª—ä½“çš„é¡¶éƒ¨å’Œåº•éƒ¨æœ‰è¾¹ç•Œ
+$RBBS_FIXEDBMP - å½“åŒºæ®µå¤§å°æ”¹å˜æ—¶ä¸ç§»åŠ¨èƒŒæ™¯ä½å›¾
 $RBBS_FIXEDSIZE -
-      Çø¶Î²»ÄÜ¸Ä±ä´óÐ¡. ÔÚ´ËÑùÊ½ÖÐ, ³ß´ç¿ØÖÆ²»ÔÚÇø¶ÎÉÏÏÔÊ¾
-$RBBS_GRIPPERALWAYS - 4.71°æ±¾. Çø¶Î¾ßÓÐ³ß´ç¿ØÖÆ,
-      ¼´Ê¹ÉìËõÌõÉÏ½öÓÐÒ»¸öÇø¶Î
-$RBBS_HIDDEN - Çø¶Î²»¿É¼û
-$RBBS_NOGRIPPER - 4.71°æ±¾.
-      Çø¶ÎÃ»ÓÐ³ß´ç¿ØÖÆ, ¼´Ê¹ÉìËõÌõÉÏÓÐ¶à¸öÇø¶Î
-$RBBS_USECHEVRON - 5.80°æ±¾.
-      µ±Çø¶ÎÐ¡ÓÚcxIdealÊ±ÏÔÊ¾Ò»¸öÉÏ¼âºÅ»òÏÂ¼âºÅ
-$RBBS_VARIABLEHEIGHT - 4.71°æ±¾.
-      Çø¶Î¿ÉÓÉÉìËõÌõ¸Ä±ä´óÐ¡;
-cyIntegralºÍcyMaxChildÓ°ÏìÉìËõÌõÈçºÎ¸Ä±äÇø¶Î³ß´ç.
+      åŒºæ®µä¸èƒ½æ”¹å˜å¤§å°. åœ¨æ­¤æ ·å¼ä¸­, å°ºå¯¸æŽ§åˆ¶ä¸åœ¨åŒºæ®µä¸Šæ˜¾ç¤º
+$RBBS_GRIPPERALWAYS - 4.71ç‰ˆæœ¬. åŒºæ®µå…·æœ‰å°ºå¯¸æŽ§åˆ¶,
+      å³ä½¿ä¼¸ç¼©æ¡ä¸Šä»…æœ‰ä¸€ä¸ªåŒºæ®µ
+$RBBS_HIDDEN - åŒºæ®µä¸å¯è§
+$RBBS_NOGRIPPER - 4.71ç‰ˆæœ¬.
+      åŒºæ®µæ²¡æœ‰å°ºå¯¸æŽ§åˆ¶, å³ä½¿ä¼¸ç¼©æ¡ä¸Šæœ‰å¤šä¸ªåŒºæ®µ
+$RBBS_USECHEVRON - 5.80ç‰ˆæœ¬.
+      å½“åŒºæ®µå°äºŽcxIdealæ—¶æ˜¾ç¤ºä¸€ä¸ªä¸Šå°–å·æˆ–ä¸‹å°–å·
+$RBBS_VARIABLEHEIGHT - 4.71ç‰ˆæœ¬.
+      åŒºæ®µå¯ç”±ä¼¸ç¼©æ¡æ”¹å˜å¤§å°;
+cyIntegralå’ŒcyMaxChildå½±å“ä¼¸ç¼©æ¡å¦‚ä½•æ”¹å˜åŒºæ®µå°ºå¯¸.
 $RBBS_NOVERT -
-      ´¹Ö±Ê±²»ÏÔÊ¾
-$RBBS_USECHEVRON - ÏÔÊ¾ÏÂÀ­¼ü
+      åž‚ç›´æ—¶ä¸æ˜¾ç¤º
+$RBBS_USECHEVRON - æ˜¾ç¤ºä¸‹æ‹‰é”®
 $RBBS_HIDETITLE -
-      Çø¶Î±êÌâÒþ²Ø
-$RBBS_TOPALIGN - Çø¶Î±êÌâÖÃÓÚ¶¥ÐÐ
+      åŒºæ®µæ ‡é¢˜éšè—
+$RBBS_TOPALIGN - åŒºæ®µæ ‡é¢˜ç½®äºŽé¡¶è¡Œ
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: Õæ
-Ê§°Ü: ¼Ù
+æˆåŠŸ: çœŸ
+å¤±è´¥: å‡
 @@End@@
 
-###±¸×¢###
+###Remarks###
 
-###Ïà¹Ø###
+###Related###
 _GUICtrlRebar_AddToolBarBand , _GUICtrlRebar_DeleteBand
 
-###²Î¿¼###
+###See Also###
 
-###Ê¾Àý###
+###Example###
 @@IncludeExample@@

@@ -1,30 +1,30 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_GetWorldTransform
 
-###����###
-��ȡ��ǰ����ռ��ҳ��ռ�ı任
+###Description###
+获取当前世界空间和页面空间的变换
 
-###�﷨###
+###Syntax###
 #Include <WinAPIEx.au3>
 _WinAPI_GetWorldTransform( $hDC )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hDC
-   �豸�������
+   设备场景句柄
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���ذ�����ǰ����ռ��ҳ��ռ�任��$tagXFORM�ṹ
-ʧ��: ����0������@error��0
+成功: 返回包含当前世界空间和页面空间变换的$tagXFORM结构
+失败: 返回0并设置@error非0
 @@End@@
 
-###��ע###
-���Ӧ�ó�����_WinAPI_GetWorldTransform()ǰ����_WinAPI_ModifyWorldTransform(), ��ת���ľ����ǿ�ѡ��.
-������Ϊ�洢ת��ֵ���ڲ���ʽʹ�ñȸ���ֵ���ߵľ���
+###Remarks###
+如果应用程序在_WinAPI_GetWorldTransform()前调用_WinAPI_ModifyWorldTransform(), 则转换的精度是可选的.
+这是因为存储转换值的内部格式使用比浮点值更高的精度
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����GetWorldTransform�������Ϣ
+###See Also###
+ 搜索MSDN知识库中GetWorldTransform的相关信息

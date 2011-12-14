@@ -1,43 +1,43 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlMenu_CreateMenu
 
-###����###
-�����˵�
+###Description###
+创建菜单
 
-###�﷨###
+###Syntax###
 #Include<GuiMenu.au3>
 _GUICtrlMenu_CreateMenu([$iStyle = 8])
 
-###����###
+###Parameters###
 @@ParamTable@@
- $iStyle  �˵���ʽ. ��Ϊ����ֵ��һ������:
+ $iStyle  菜单样式. 可为下列值的一个或多个:
  1 -
-      ����ڲ˵���10���˵��Զ�����
- 2 - Ϊ��ѡ��Ǻ�λͼ����ͬ���Ŀռ�
+      鼠标在菜单外10秒后菜单自动结束
+ 2 - 为复选标记和位图保留同样的空间
  4 -
-      �˵�����OLE�µ���ҷ��Ŀ��
- 8 - �˵��Ƿ�ģʽ����
-16 - ��Ŀ��಻Ϊ��ѡ��Ǳ����ռ�
+      菜单项是OLE下的拖曳的目标
+ 8 - 菜单是非模式化的
+16 - 项目左侧不为复选标记保留空间
 32 -
-      �˵�����ʹ��ѡ���WM_MENUCOMMAND��Ϣ����WM_COMMAND��Ϣ
+      菜单宿主使用选项的WM_MENUCOMMAND消息代替WM_COMMAND消息
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �½��˵��ľ��
-ʧ��: 0
+成功: 新建菜单的句柄
+失败: 0
 @@End@@
 
-###��ע###
-��������ڵĲ˵���Դ���Զ��ͷŵ�. ����˵�δ�����������,
-Ӧ�ó����ڹر�ǰ�����ͷ���˵��йص�ϵͳ��Դ.
-Ӧ�ó���ʹ��_GUICtrlMenu_DestroyMenu�����ͷŲ˵���Դ.
+###Remarks###
+分配给窗口的菜单资源是自动释放的. 如果菜单未被分配给窗口,
+应用程序在关闭前必须释放与菜单有关的系统资源.
+应用程序使用_GUICtrlMenu_DestroyMenu函数释放菜单资源.
 
-###���###
+###Related###
 _GUICtrlMenu_CreatePopup , _GUICtrlMenu_DestroyMenu
 
-###�ο�###
-����MSDN֪ʶ����CreateMenu�������Ϣ
+###See Also###
+搜索MSDN知识库中CreateMenu的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

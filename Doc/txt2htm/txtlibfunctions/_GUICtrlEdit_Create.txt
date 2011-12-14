@@ -1,61 +1,61 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _GUICtrlEdit_Create
 
-###����###
-�����༭��ؼ�
+###Description###
+创建编辑框控件
 
-###�﷨###
+###Syntax###
 #Include <GuiEdit.au3>
 _GUICtrlEdit_Create($hWnd,$sText, $iX, $iY[, $iWidth = 150[, $iHeight = 150[, $iStyle = 0x003010C4[,$iExStyle = 0x00000200]]]])
 
-###����###
+###Parameters###
 @@ParamTable@@
- $hWnd  �����ڻ��������ڵľ��
- $sText  �ؼ���Ҫ��ʾ���ı�
- $iX  �ؼ�ˮƽλ��
- $iY  �ؼ���ֱλ��
- $iWidth  �ؼ�����
- $iHeight  �ؼ��߶�
- $iStyle  �ؼ����:
+ $hWnd  主窗口或所属窗口的句柄
+ $sText  控件中要显示的文本
+ $iX  控件水平位置
+ $iY  控件垂直位置
+ $iWidth  控件宽度
+ $iHeight  控件高度
+ $iStyle  控件风格:
 $ES_AUTOHSCROLL
-      - ���û����뵽��βʱ�Զ����ҹ���10���ַ�
-$ES_AUTOVSCROLL -  ���û������һ�а���ENTER
-      ��ʱ�Զ����Ϲ���һҳ
-$ES_CENTER - �༭�������Ķ����ı�
-$ES_LEFT - ������ı�.
+      - 当用户输入到行尾时自动向右滚动10个字符
+$ES_AUTOVSCROLL -  当用户在最后一行按下ENTER
+      键时自动向上滚动一页
+$ES_CENTER - 编辑框中中心对齐文本
+$ES_LEFT - 左对齐文本.
 $ES_LOWERCASE -
-      ���ַ�����ؼ�ʱ�Զ���ΪСд
-$ES_MULTILINE - ǿ�Ƶ�
-$ES_NOHIDESEL - �ߵ���ѡ�ı�, ��ʹ�ؼ�û�н���
-$ES_NUMBER - ֻ������������
+      当字符输入控件时自动变为小写
+$ES_MULTILINE - 强制的
+$ES_NOHIDESEL - 颠倒所选文本, 即使控件没有焦点
+$ES_NUMBER - 只允许输入数字
 $ES_OEMCONVERT -
-      �ı����뵽�༭�ؼ����ı�.
-$ES_READONLY - ��ֹ�û��ڿؼ��������༭�ı�
-$ES_RIGHT - �Ҷ����ı�
-$ES_UPPERCASE - ���ַ�����ؼ�ʱ�Զ���Ϊ��д
-$ES_WANTRETURN - ָ�����û�����ENTER��ʱ����һ���س���
+      改变输入到编辑控件的文本.
+$ES_READONLY - 禁止用户在控件中输入或编辑文本
+$ES_RIGHT - 右对齐文本
+$ES_UPPERCASE - 当字符输入控件时自动变为大写
+$ES_WANTRETURN - 指定当用户按下ENTER键时返回一个回车符
 $ES_PASSWORD -
-      ��ÿ������ؼ����ַ�ת��Ϊ�Ǻ�(*)
-  Ĭ��: $ES_MULTILINE, $ES_WANTRETURN, $WS_VSCROLL, $WS_HSCROLL,
+      将每个输入控件的字符转变为星号(*)
+  默认: $ES_MULTILINE, $ES_WANTRETURN, $WS_VSCROLL, $WS_HSCROLL,
       $ES_AUTOVSCROLL, $ES_AUTOHSCROLL
-ǿ��: WS_CHILD, $WS_VISIBLE,
-      $WS_TABSTOP����$ES_READONLY
- $iExStyle  �ؼ���չ���. ��Ӧ�ڱ�׼$WS_EX_����
+强制: WS_CHILD, $WS_VISIBLE,
+      $WS_TABSTOP除非$ES_READONLY
+ $iExStyle  控件扩展风格. 对应于标准$WS_EX_常量
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: �༭��ؼ����
-ʧ��: 0
+成功: 编辑框控件句柄
+失败: 0
 @@End@@
 
-###��ע###
-�ú������߼��û��˽�ؼ���ι���ʹ��
+###Remarks###
+该函数供高级用户了解控件如何工作使用
 
-###���###
+###Related###
 _GUICtrlEdit_Destroy
 
-###�ο�###
+###See Also###
 
-###ʾ��###
+###Example###
 @@IncludeExample@@

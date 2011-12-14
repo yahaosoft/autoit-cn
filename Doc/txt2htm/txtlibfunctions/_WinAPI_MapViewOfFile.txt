@@ -1,41 +1,41 @@
-###�û��Զ��庯��###
+﻿###User Defined Function###
 _WinAPI_MapViewOfFile
 
-###����###
-���ļ�ӳ��ӳ������ý��̵ĵ�ַ�ռ�
+###Description###
+将文件映射映射入调用进程的地址空间
 _WinAPI_MapViewOfFile ( $hMapping [, $iOffset [, $iBytes [, $iAccess]]] )
 
-###����###
+###Parameters###
 @@ParamTable@@
 $hMapping
-   �ļ�ӳ�����ľ��. _WinAPI_CreateFileMapping()��_WinAPI_OpenFileMapping()���ظþ��
+   文件映射对象的句柄. _WinAPI_CreateFileMapping()及_WinAPI_OpenFileMapping()返回该句柄
 $iOffset
-   ����ʼ���ļ�ƫ��.
+   镜像开始的文件偏移.
 $iBytes
-$iBytesΪ0, �����ָ����ƫ����չ���ļ�����β��.
+$iBytes为0, 镜像从指定的偏移扩展到文件镜像尾部.
 $iAccess
-   �ļ������Ȩ��. �ò�����Ϊ����ֵ֮һ:
-    $FILE_MAP_ALL_ACCESS - ӳ���ļ��Ķ�д��ͼ
-    $FILE_MAP_COPY - ӳ���ļ���д������ͼ
-    $FILE_MAP_READ - ӳ���ļ��Ķ�ȡ��ͼ
-    $FILE_MAP_WRITE - ӳ���ļ���д����ͼ
-    ÿ��Ԥ����ֵ������ֵ���ʹ��.
-    $FILE_MAP_EXECUTE - ӳ���ļ��Ŀ�ִ����ͼ
+   文件镜像的权限. 该参数可为下列值之一:
+    $FILE_MAP_ALL_ACCESS - 映射文件的读写视图
+    $FILE_MAP_COPY - 映射文件的写复制视图
+    $FILE_MAP_READ - 映射文件的读取视图
+    $FILE_MAP_WRITE - 映射文件的写入视图
+    每个预定义值可与下值结合使用.
+    $FILE_MAP_EXECUTE - 映射文件的可执行视图
 @@End@@
 
-###����ֵ###
+###ReturnValue###
 @@ReturnTable@@
-�ɹ�: ���ؾ���Ŀ�ʼ��ַ
-ʧ�ܣ�����0������@error��0
+成功: 返回镜像的开始地址
+失败：返回0并设置@error非0
 @@End@@
 
-###��ע###
-���ڴ��ڵ�ַ�ռ���ļ�, ����һ��ӳ���ļ���һС����. ������׸���ͼʱ, ��Ҫ���ӳ����ӳ������ͼ.
+###Remarks###
+对于大于地址空间的文件, 仅可一次映射文件的一小部分. 当完成首个视图时, 需要解除映射再映射新视图.
 
-###���###
+###Related###
 
-###�ο�###
- ����MSDN֪ʶ����MapViewOfFile�������Ϣ
+###See Also###
+ 搜索MSDN知识库中MapViewOfFile的相关信息
 
-###ʾ��###
+###Example###
 @@IncludeExample@@
