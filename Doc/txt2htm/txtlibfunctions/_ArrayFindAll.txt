@@ -2,42 +2,43 @@
 _ArrayFindAll
 
 ###Description###
-查找一维或二维数组的两个元素之间使用_ArraySearch()找到的所有匹配元素
+查找一维或二维数组的两个元素之间使用 _ArraySearch() 找到的所有匹配元素
 
 ###Syntax###
 #Include <Array.au3>
-_ArrayFindAll(Const ByRef $avArray, $vValue[, $iStart = 0[, $iEnd = 0[, $iCase = 0[, $iPartial = 0[, $iSubItem = 0]]]]])
+_ArrayFindAll(Const ByRef $avArray, $vValue [, $iStart = 0 [, $iEnd = 0 [, $iCase = 0 [, $iCompare = 0 [, $iSubItem = 0]]]]])
 
 ###Parameters###
 @@ParamTable@@
-$avArray 
-   要搜索的数组
-$vValue 
-   要搜索的值
-$iStart 
-   [可选] 搜索开始的索引
-$iEnd 
-   [可选] 搜索结束的索引
-$iCase 
-   [可选] 如果设置为1 , 搜索时区分大小写
-$iPartial 
-   [可选] 如果设置为1 , 执行部分搜索
-$iSubItem 
-   [可选] 进行二维数组搜索时的副索引
+$avArray
+	要搜索的数组
+$vValue
+	要搜索数组中的什么内容
+$iStart
+	[可选参数] 搜索开始的数组索引
+$iEnd
+	[可选参数] 搜索结束的数组索引
+$iCase
+	[可选参数] 如果设置为 1, 搜索时区分大小写
+$iCompare
+	[可选参数] 0 AutoIt 变量比较方式 (default), "string" = 0, "" = 0  or "0" = 0 match
+		1 执行部分搜索 (StringInStr)
+		2 比较变量是否是相同类型和相同值
+$iSubItem
+	[可选参数] 进行二维数组搜索时的副索引
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 原数组中所有包含$vValue值的索引的数组
-失败: -1 , 设置@error(参阅_ArraySearch()关于错误代码的描述)
+成功:	原数组中所有包含$vValue值的索引的数组
+失败:	-1, 设置@error(参阅 _ArraySearch() 关于错误代码的描述)
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
- _ArrayBinarySearch , _ArraySearch
-
-###See Also###
+_ArrayBinarySearch, _ArraySearch
 
 ###Example###
 @@IncludeExample@@

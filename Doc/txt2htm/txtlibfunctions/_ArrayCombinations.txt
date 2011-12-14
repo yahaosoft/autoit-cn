@@ -2,39 +2,39 @@
 _ArrayCombinations
 
 ###Description###
-返回与从所选数组中的元素结合的一个数组
+返回所选数组每个元素相互可能出现的组合的一个数组.
 
 ###Syntax###
 #Include <Array.au3>
-_ArrayCombinations(ByRef $avArray, $iSet[, $sDelim = ""])
+_ArrayCombinations(ByRef $avArray, $iSet [, $sDelim = ""])
 
 ###Parameters###
 @@ParamTable@@
-$sArray 
-   使用的数组
-$iSet 
-   结合集大小
-$sDelim 
-   [可选] 字符串分隔符 , 默认没有则使用 ""
+$avArray
+	要使用的数组
+$iSet
+	组合集的大小
+$sDelim
+	[可选参数] 字符串结果分割符, 默认为""(不分割)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功：返回结合后的数组
-    返回一个数组 , 第一个元素 ($array[0]) 包含返回的字符串数量.
-    结合集中包含的保留元素($array[1] , $array[2]等).
-失败: 返回0并设置@error:
-    1 - 输入的必须是数组
-    2 - $avArray不是一维数组
+成功:	返回一个包含组合后数据的数组
+	返回一个数组,第一个元素 ($array[0]) 包含返回字符串的数量.
+	其它的元素 ($array[1], $array[2], 等等.) 包含组合后的数据.
+失败:	返回 0 并且设置 @error:
+@error:	1 - $avArray 必须是一个数组
+	2 - $avArray 不是一个一维数组
 @@End@@
 
 ###Remarks###
-输入的数组必须基于0 , 即$array[0]不含计数.
+输入的数组必须是基于0开始的. 即$array[0]中不包含计数器. 本函数基于Kenneth H. Rosen的算法.
+
+http://www.merriampark.com/comb.htm
 
 ###Related###
- _ArrayPermute
-
-###See Also###
+_ArrayPermute
 
 ###Example###
 @@IncludeExample@@

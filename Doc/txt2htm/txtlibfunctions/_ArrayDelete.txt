@@ -2,36 +2,36 @@
 _ArrayDelete
 
 ###Description###
-从数组中删除指定的元素.
+从指定数组中删除指定的元素.
 
 ###Syntax###
 #Include <Array.au3>
-_ArrayDelete(ByRef $avArray,$iElement)
+_ArrayDelete(ByRef $avArray, $iElement)
 
 ###Parameters###
 @@ParamTable@@
-$avArray 
-   要变动的数组
-$iElement 
-   要删除的元素
+$avArray
+	需要修改的数组
+$iElement
+	需要删除的元素
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 新数组大小
-失败: 返回0并设置@error为:
-    1 - $avArray不是数组
-    3 - $avArray维数太多(仅支持到二维数组)
-    (2 - 不支持的错误代码)
+成功:	数组的新大小
+失败:	返回 0, 并设置 @error
+@error:	1 - $avArray 不是一个数组.
+	3 - $avArray 有太多的维度 (最高支持二维数组)
+	(2 - 忽略的错误代码)
 @@End@@
 
 ###Remarks###
-如果数组剩余一个元素(或者二维数组剩余一列) , 数组在使用_ArrayDelete()后将被设置为 "" .
+如果数组中只有一个元素(或者二维数组只有一列), _ArrayDelete()之后它将变为 ""
+
+如果 $iElement 超出数组大小,将会销毁数组的最后一个元素.
 
 ###Related###
-_ArrayAdd , _ArrayInsert , _ArrayPop ,  _ArrayPush
-
-###See Also###
+_ArrayAdd, _ArrayInsert, _ArrayPop, _ArrayPush
 
 ###Example###
 @@IncludeExample@@

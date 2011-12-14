@@ -6,32 +6,33 @@ _ArrayPermute
 
 ###Syntax###
 #Include <Array.au3>
-_ArrayPermute(ByRef $avArray[, $sDelim = ""])
+_ArrayPermute(ByRef $avArray [, $sDelim = ""])
 
 ###Parameters###
 @@ParamTable@@
-$avArray 
-   要进行改序的数组
-$sDelim 
-   [可选] 分隔符 , 没有则默认为 ""
+$avArray
+	    要进行改序的数组
+$sDelim
+	[可选参数] 分隔符, 没有则默认为 ""
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回改序后的数组
-    $array[0]为返回字符串的数量.
-    保留的元素($array[1] , $array[2] ... $array[n])包含改序后的.
-失败: 返回0并设置@error为:
-    1 - 必须输入数组
-    2 - $avArray不是一维数组
+成功:	返回改序后的数组
+	$array[0]为返回字符串的数量.
+	保留的元素 ($array[1], $array[2]... $array[n]) 包含改序后的.
+失败:	返回 0 并设置 @error:
+@error:	1 - 必须输入数组
+	2 - $avArray 不是一维数组
 @@End@@
 
 ###Remarks###
-输入数组必须从元素0开始 , 即$array[0]不含计数.
+输入数组必须从元素0开始, 即$array[0]不含计数.
+ 排列算法由 Alexander Bogomolny 设计.
+http://www.bearcave.com/random_hacks/permute.html
 
 ###Related###
-
-###See Also###
+_ArrayCombinations
 
 ###Example###
 @@IncludeExample@@

@@ -2,54 +2,50 @@
 _ChooseFont
 
 ###Description###
-创建一个字体对话框使用户可以选择一种逻辑字体的属性
+创建字体选择对话框,使用户能够选择逻辑字体属性.
 
 ###Syntax###
 #Include <Misc.au3>
-_ChooseFont([$sFontName = "Courier New"[, $iPointSize = 10[, $iColorRef = 0[, $iFontWeight = 0[, $iItalic = False[, $iUnderline = False[, $iStrikethru = False[, $hWndOwner = 0]]]]]]]])
+_ChooseFont([$sFontName = "Courier New" [, $iPointSize = 10 [, $iColorRef = 0 [, $iFontWeight = 0 [, $iItalic = False [, $iUnderline = False [, $iStrikethru = False [, $hWndOwner = 0]]]]]]]])
 
 ###Parameters###
 @@ParamTable@@
-$sFontName 
-   默认字体名
-$iPointSize 
-   字体大小
-$iColorRef 
-   字体颜色
-$iFontWeight 
-   字体重量
-$iItalic 
-   斜体
-$iUnderline 
-   下划线
-$iStrikethru 
-   可选: 删除线
-$hWndOwnder 
-   对话框所属窗体的句柄
+$sFontName
+	[可选参数] 默认字体名称
+$iPointSize
+	[可选参数] 字体磅值大小.(注:1 磅=1/72 英寸)
+$iColorRef
+	[可选参数] COLORREF RGB颜色
+$iFontWeight
+	[可选参数] 字体重度(笔划粗细)
+$iItalic
+	[可选参数] 斜体
+$iUnderline
+	[可选参数] 下划线
+$iStrikethru
+	[可选参数] 删除线
+$hWndOwner
+	[可选参数] 本对话框的父窗口句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如下数组:
-    [0] - 包含元素的数量
-    [1] - 属性, 可为下列值(使用BitOr):
-        2 - 斜体
-        4 - 下划线
-        8 - 删除线
-    [2] - 字体名称
-    [3] - 字体大小 = point size
-    [4] - 字体重量 = 0-1000
-    [5] - COLORREF rgbColors
-    [6] - 16位BGR颜色
-    [7] - 16位RGB颜色
-失败: 返回非0的@error值
+成功:	返回下方格式的数组:
+	[0] - 数组元素总数
+	[1] - 属性 = 斜体:2,下划线:4,删除线:8,可使用BitOr进行组合.
+	[2] - 字体名称
+	[3] - 字体大小 = 磅值 (注:1 磅=1/72 英寸)
+	[4] - 字体重度 = 0-1000
+	[5] - COLORREF RGB颜色
+	[6] - Hex BGR 颜色
+	[7] - Hex RGB 颜色
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@
