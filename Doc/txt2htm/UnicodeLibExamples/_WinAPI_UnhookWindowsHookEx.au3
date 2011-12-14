@@ -18,9 +18,9 @@ Func _Main()
 	MsgBox(4096, "", "Click OK, then in notepad type..." & _
 			@LF & @LF & "Jon" & @LF & "AutoIt" & @LF & @LF & "Press Esc to exit script")
 
-	Run("Notepad")
-	WinWait("Untitled -")
-	WinActivate("Untitled -")
+	Run("notepad.exe")
+	WinWait("[CLASS:Notepad]")
+	WinActivate("[CLASS:Notepad]")
 
 	While 1
 		Sleep(10)
@@ -40,7 +40,7 @@ Func EvaluateKey($keycode)
 		EndSwitch
 	ElseIf ($keycode > 159) And ($keycode < 164) Then
 		Return
-	ElseIf ($keycode = 27) Then ; esc 键
+	ElseIf ($keycode = 27) Then ; esc key
 		Exit
 	Else
 		$buffer = ""
@@ -48,7 +48,7 @@ Func EvaluateKey($keycode)
 EndFunc   ;==>EvaluateKey
 
 ;===========================================================
-; 回调函数
+; callback function
 ;===========================================================
 Func _KeyProc($nCode, $wParam, $lParam)
 	Local $tKEYHOOKS

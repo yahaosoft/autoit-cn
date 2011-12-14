@@ -3,7 +3,7 @@
 #include <GuiDateTimePicker.au3>
 #include <WindowsConstants.au3>
 #include <Constants.au3>
-#include <GuiConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 
 $Debug_RB = False
 

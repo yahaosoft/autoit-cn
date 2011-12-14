@@ -18,9 +18,9 @@ Func _Main()
 	MsgBox(4096, "", "Click OK, then in notepad type..." & _
 			@LF & @LF & "Jon" & @LF & "AutoIt" & @LF & @LF & "Press Esc to exit script")
 
-	Run("Notepad")
-	WinWait("Untitled -")
-	WinActivate("Untitled -")
+	Run("notepad.exe")
+	WinWait("[CLASS:Notepad]")
+	WinActivate("[CLASS:Notepad]")
 
 	While 1
 		Sleep(10)

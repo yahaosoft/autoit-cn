@@ -1,17 +1,16 @@
 ﻿#include <WinAPI.au3>
 
-Global $hWindow, $stRET, $sMsg, $pStruct, $iRET
+Local $hWnd, $iRET, $pStruct, $sMsg, $stRET
 
 ; Create an instance of notepad to play with
 Run("notepad.exe")
-WinWait("[CLASS:Notepad]")
-$hWindow = WinGetHandle("[CLASS:Notepad]")
-WinMove($hWindow, "", 256, 256, 400, 400)
+$hWnd = WinWait("[CLASS:Notepad]")
+WinMove($hWnd, "", 256, 256, 400, 400)
 Sleep(1000)
 
 ; Minimize and then check the placement values returned by _WinAPI_GetWindowPlacement()
-WinSetState($hWindow, "", @SW_MINIMIZE)
-$stRET = _WinAPI_GetWindowPlacement($hWindow)
+WinSetState($hWnd, "", @SW_MINIMIZE)
+$stRET = _WinAPI_GetWindowPlacement($hWnd)
 If @error = 0 Then
 	$sMsg = "$stWindowPlacement:" & @CRLF & @CRLF
 	$sMsg &= @TAB & "length = " & DllStructGetData($stRET, "length") & @CRLF
@@ -36,10 +35,10 @@ If @error = 0 Then
 	DllStructSetData($stRET, "rcNormalPosition", @DesktopWidth - 128, 3); right
 	DllStructSetData($stRET, "rcNormalPosition", @DesktopHeight - 128, 4); bottom
 	$pStruct = DllStructGetPtr($stRET); Get pointer to the modified struct
-	$iRET = _WinAPI_SetWindowPlacement($hWindow, $pStruct)
+	$iRET = _WinAPI_SetWindowPlacement($hWnd, $pStruct)
 	If @error = 0 Then
-		WinSetState($hWindow, "", @SW_RESTORE)
-		ControlSetText($hWindow, "", "Edit1", "_WinAPI_SetWindowPlacement() succeeded!")
+		WinSetState($hWnd, "", @SW_RESTORE)
+		ControlSetText($hWnd, "", "Edit1", "_WinAPI_SetWindowPlacement() succeeded!")
 	Else
 		MsgBox(16, "Error", "_WinAPI_SetWindowPlacement() failed!" & @CRLF & _
 				"$iRET = " & $iRET & @CRLF & _

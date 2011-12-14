@@ -1,6 +1,6 @@
 ﻿#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
-#include <WINAPI.au3>
+#include <WinAPI.au3>
 
 Local $gui = GUICreate("trans", 300, 400, -1, -1, -1, $WS_EX_LAYERED)
 GUICtrlCreateLabel("This is text on a transparent Layered GUI", 10, 10, 200, 20, -1, $GUI_WS_EX_PARENTDRAG)

@@ -1,4 +1,4 @@
-﻿#include <math.au3>
+﻿#include <Math.au3>
 
 Local $I_Var = InputBox('Odd or Even', 'Enter a number:')
 Local $I_Result = _MathCheckDiv($I_Var, 2)

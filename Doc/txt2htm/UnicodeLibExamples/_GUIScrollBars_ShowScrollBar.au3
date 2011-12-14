@@ -1,6 +1,6 @@
 ﻿#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
-#include <GUIScrollBars.au3>
+#include <GuiScrollBars.au3>
 #include <ScrollBarConstants.au3>
 
 _Main()

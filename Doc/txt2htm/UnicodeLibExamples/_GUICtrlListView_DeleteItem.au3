@@ -1,4 +1,4 @@
-﻿#include <GuiConstantsEx.au3>
+﻿#include <GUIConstantsEx.au3>
 #include <GuiListView.au3>
 
 $Debug_LV = False ; 检查传递给 ListView 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
@@ -20,7 +20,7 @@ Func Example1()
 
 	MsgBox(4160, "Information", "Delete Item")
 	; 用内置函数创建项目, 传递控件 ID
-	MsgBox(4160, "Deleted?", _GUICtrlListView_DeleteItem($hListView, 1))
+	MsgBox(4160, "Deleted?", _GUICtrlListView_DeleteItem(GUICtrlGetHandle($hListView), 1))
 
 	; 循环直到用户退出
 	Do

@@ -1,26 +1,24 @@
-﻿; 示例 1
+﻿#include <Array.au3>
+#include <Inet.au3>
 
-#include <inet.au3>
+Global $aResult, $sResult, $sIP
 
-Local $sResult, $sIp
+; Example 1
+
 TCPStartup()
-$sIp = TCPNameToIP("hiddensoft.com")
-$sResult = _TCPIpToName($sIp)
+$sIP = TCPNameToIP("hiddensoft.com")
+$sResult = _TCPIpToName($sIP)
 If @error Then
 	MsgBox(0, "_TCPIpToName()", "@error = " & @error & @LF & "@extended = " & @extended)
 Else
-	MsgBox(0, "hiddensoft.com realy is:", $sResult)
+	MsgBox(0, "hiddensoft.com really is:", $sResult)
 EndIf
 
-; 示例 2
+; Example 2
 
-#include <array.au3>
-#include <inet.au3>
-
-Local $aResult
 TCPStartup()
-$sIp = _GetIP()
-$aResult = _TCPIpToName($sIp, 1)
+$sIP = _GetIP()
+$aResult = _TCPIpToName($sIP, 1)
 If @error Then
 	MsgBox(0, "_TCPIpToName()", "@error = " & @error & @LF & "@extended = " & @extended)
 Else

@@ -1,6 +1,6 @@
 ﻿#include <GuiComboBoxEx.au3>
 #include <GuiImageList.au3>
-#include <GuiConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 
 $Debug_CB = False ; 检查传递给 ComboBox/ComboBoxEx 函数的类名, 设置为 True 并使用指向另一控件的句柄来检查它是否工作
 

@@ -1,4 +1,4 @@
-﻿#include<process.au3>
+﻿#include<Process.au3>
 
 Local $i_Priority_Level, $i_Notepad_PID, $i_ArrayItem
 Local $a_RunLevels[3] = [0, 2, 4] ;低, 正常, 高优先级

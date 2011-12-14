@@ -1,5 +1,5 @@
 ﻿#include <GuiEdit.au3>
-#include <GuiConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 
 $Debug_Ed = False ; 检查传递给 Edit 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
@@ -44,7 +44,7 @@ Func Example_External()
 	Local $whandle, $handle
 	Local $Title = "[CLASS:Notepad]"
 
-	Run("notepad", "", @SW_MAXIMIZE)
+	Run("notepad.exe", "", @SW_MAXIMIZE)
 	;等待 "无标题" 窗口出现
 	WinWait($Title)
 

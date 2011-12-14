@@ -6,7 +6,7 @@ Func _Main()
 	Local $hWnd, $hMenu, $iCount, $iI
 
 	; 打开记事本
-	Run("Notepad.exe")
+	Run("notepad.exe")
 	WinWaitActive("[CLASS:Notepad]")
 	$hWnd = WinGetHandle("[CLASS:Notepad]")
 	$hMenu = _GUICtrlMenu_GetSystemMenu($hWnd)
@@ -26,5 +26,5 @@ EndFunc   ;==>_Main
 
 ; 写入一行文本到记事本
 Func Writeln($sText)
-	ControlSend("Untitled - Notepad", "", "Edit1", $sText & @CR)
+	ControlSend("[CLASS:Notepad]", "", "Edit1", $sText & @CR)
 EndFunc   ;==>Writeln

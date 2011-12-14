@@ -1,26 +1,28 @@
 ﻿#include <WinAPI.au3>
 
-Global $Struct = DllStructCreate($tagPoint)
+HotKeySet("{ESC}", "Close") ; Set ESC as a hotkey to exit the script.
 
-_Main()
+Global $tStruct = DllStructCreate($tagPOINT) ; Create a structure that defines the point to be checked.
 
-Func _Main()
-	HotKeySet("{ESC}", "_Quit")
+Example()
+
+Func Example()
+	Local $hWnd
 
 	While 1
-		Sleep(100)
 		ToolTip("")
-		Pos()
-		Local $hwnd = _WinAPI_WindowFromPoint($Struct)
-		ToolTip($hwnd)
+		Position() ; Update the X and Y elements with the X and Y co-ordinates of the mouse.
+		$hWnd = _WinAPI_WindowFromPoint($tStruct) ; Retrieve the window handle.
+		ToolTip($hWnd) ; Set the tooltip with the handle under the mouse pointer.
+		Sleep(100)
 	WEnd
-EndFunc   ;==>_Main
+EndFunc   ;==>Example
 
-Func Pos()
-	DllStructSetData($Struct, "x", MouseGetPos(0))
-	DllStructSetData($Struct, "y", MouseGetPos(1))
-EndFunc   ;==>Pos
+Func Position()
+	DllStructSetData($tStruct, "x", MouseGetPos(0))
+	DllStructSetData($tStruct, "y", MouseGetPos(1))
+EndFunc   ;==>Position
 
-Func _Quit()
+Func Close()
 	Exit
-EndFunc   ;==>_Quit
+EndFunc   ;==>Close
