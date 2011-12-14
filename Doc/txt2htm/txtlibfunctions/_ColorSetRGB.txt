@@ -2,7 +2,7 @@
 _ColorSetRGB
 
 ###Description###
-由COLORREF返回RGB颜色
+返回 RGB 颜色
 
 ###Syntax###
 #Include <Color.au3>
@@ -10,22 +10,26 @@ _ColorSetRGB($aColor)
 
 ###Parameters###
 @@ParamTable@@
-$aColor 
-   0-255的值的数组.
-    [0] 红色组分
-    [1] 绿色组分
-    [2] 蓝色组分
+$aColor
+	一个包含下列值的数组,范围为 0-255:
+	[0] 红色颜色成分
+	[1] 绿色颜色成分
+	[2] 蓝色颜色成分
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回16进制的RGB颜色代码
-失败: 设置@error为:
-   1 - 无效数组
-   2 - 无效颜色值
+成功:	返回 0x00RRGGBB 格式的 RGB 颜色.
+失败:	设置 @error
+@error:	1 无效数组
+	2 无效颜色值
 @@End@@
 
 ###Remarks###
+@extended 为预先保留值.
 
 ###Related###
- _ColorSetRGB ,  _ColorGetRed ,  _ColorGetBlue ,  _ColorGetGreen
+_ColorGetRGB
+
+###Example###
+@@IncludeExample@@
