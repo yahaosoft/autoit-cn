@@ -5,13 +5,20 @@ Number
 返回某表达式的数值结果. 
 
 ###Syntax###
-Number ( 表达式 ) 
+Number ( 表达式 [, 标志 ] ) 
 
 
 ###Parameters###
 @@ParamTable@@
 表达式
 	要转换成数字的一个 表达式. 
+标志
+	[optional] Defines behavior.
+	Can be one of the following:
+	  Default = the result is auto-sized integer. See remarks.
+	  1 = the result is 32bit integer.
+	  2 = the result is 64bit integer.
+	  3 = the result is double.
 @@End@@
 
 ###ReturnValue###
@@ -20,7 +27,7 @@ Number ( 表达式 )
 
 ###Remarks###
 以字母开头的字符串将被视为数值零.以数字开头的字符串将返回被(首个)非数字字符截断后的结果.
-
+Default behavior results in auto-sized integer. If input value after conversation fits 32bit the result is 32bit integer. If not the result is 64bit integer. Both signed.
 
 ###Related###
 Int, String, Binary, Ceiling, Floor, HWnd, Ptr, Round

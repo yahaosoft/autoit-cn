@@ -21,17 +21,17 @@ Hex ( 表达式 [, 长度] )
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回指定<i>长度</i>的字符串,如有需要则自动补零.
+成功:	返回指定<i>长度</i>的(不能超过16)字符的字符串,如有需要则自动补零.
 	返回已转换的二进制类型值.
 特殊:	返回一个空字符串(""),说明指定的长度小于1.
-失败:	返回一个空字符串("")并把 @error 设为 1,说明指定的长度大于8.
 @@End@@
 
 
 ###Remarks###
-这个函数只能工作于 32 位有符号整数(signed integer) (-2147483648 到 2147483647)
+Omitting second parameter (<i>length</i>) or using keyword Default for it results in automatic sizing of the output; 8-character display for numbers that can fit in that and 16-character display for others.
+Pointer type parameter is displayed in size of pointer by default (8 characters for x86 and 16 characers for x64).
+Numbers passed as non-integers (those with decimal separator or exponent) are processed as doubles.
 
-如果程序不能计算超过计算范围的数字,将设置 @error 为 1 - 返回的字符串将是能实现的最大值.
 
 ###Related###
 Dec, BitAND, BitNOT, BitOR, BitRotate, BitShift, BitXOR
