@@ -4,9 +4,9 @@
 
 Opt("MustDeclareVars", 1)
 
-; Welcome to California. CALIFORNIA DEPARTMENT OF MOTOR VEHICLES
-Global $sDomain = "eg.dmv.ca.gov"
-Global $sPage = "foa/welcome.do"
+; Windows Live ID. JavaScript required to sign in, remember that.
+Global $sDomain = "accountservices.passport.net"
+Global $sPage = "uiresetpw.srf"
 
 ; Initialize and get session handle
 Global $hOpen = _WinHttpOpen()
