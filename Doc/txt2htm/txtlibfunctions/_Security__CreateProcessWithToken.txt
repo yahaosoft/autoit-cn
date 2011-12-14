@@ -1,0 +1,45 @@
+###User Defined Function###
+_Security__CreateProcessWithToken
+
+###Description###
+Creates a new process and its primary thread running in the security context of the specified token
+
+###Syntax###
+#include <Security.au3>
+_Security__CreateProcessWithToken($hToken, $iLogonFlags, $sCommandLine, $iCreationFlags, $sCurDir, $tSTARTUPINFO, $tPROCESS_INFORMATION)
+
+###Parameters###
+@@ParamTable@@
+$hToken
+	A handle to the primary token that represents a user
+$iLogonFlags
+	The logon option
+$sCommandLine
+	The command line to be executed
+$iCreationFlags
+	The flags that control how the process is created
+$sCurDir
+	The full path to the current directory for the process
+$tSTARTUPINFO
+	A (pointer to a) STARTUPINFO structure
+$tPROCESS_INFORMATION
+	A (pointer to a) PROCESS_INFORMATION structure that receives identification information for the new process
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+###Remarks###
+The module name must be the first white space–delimited token in the $sCommandLine parameter.
+
+###Related###
+_Security__DuplicateTokenEx
+
+###See Also###
+@@MsdnLink@@ CreateProcessWithTokenW
+
+###Example###
+@@IncludeExample@@
