@@ -1,20 +1,14 @@
 ﻿#include <Crypt.au3>
 
-; 使用 _Crypt_DeriveKey 重用密匙示例
+Local $aStringsToEncrypt[6] = ["AutoIt", "SciTE", "Crypt", ".au3", 42, "42"]
+Local $sOutput = ""
 
-Local $StringsToCrypt[6] = ["Bluth", "Sunny", "AutoIt3", "SciTe", 42, "42"]
-Local $Crypted[6]
+Local $hKey = _Crypt_DeriveKey("CryptPassword", $CALG_RC4) ; Declare a password string and algorithm to create a cryptographic key.
 
-
-; 由于 DeriveKey/DestroyKey 会内部初始化, 所以这里不需要 _Crypt_Startup
-Local $Key = _Crypt_DeriveKey("supersecretpassword", $CALG_RC4)
-
-Local $DisplayStr = ""
-
-For $Word In $StringsToCrypt
-	$DisplayStr &= $Word & @TAB & " = " & _Crypt_EncryptData($Word, $Key, $CALG_USERKEY) & @CRLF
+For $iWord In $aStringsToEncrypt
+	$sOutput &= $iWord & @TAB & " = " & _Crypt_EncryptData($iWord, $hKey, $CALG_USERKEY) & @CRLF ; Encrypt the text with the cryptographic key.
 Next
 
-MsgBox(0, "Crypt table", $DisplayStr)
+MsgBox(0, "Encrypted data", $sOutput)
 
-_Crypt_DestroyKey($Key)
+_Crypt_DestroyKey($hKey) ; Destroy the cryptographic key.

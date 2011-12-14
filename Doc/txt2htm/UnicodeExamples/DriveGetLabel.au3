@@ -1,6 +1,2 @@
-﻿Local $var = DriveGetLabel("c:\")
-If $var='' Then
-	MsgBox(4096,"错误","C 盘卷标未设置")
-Else
-	MsgBox(4096,"C 盘卷标: ",$var)
-EndIf
+﻿Local $sLabel = DriveGetLabel(@HomeDrive & "\") ; Find the volume label of the home drive, generally this is the C:\ drive.
+MsgBox(4096, "Volume Label: ", $sLabel)
