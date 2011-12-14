@@ -10,22 +10,24 @@ _EventLog__RegisterSource($sServerName, $sSourceName)
 
 ###Parameters###
 @@ParamTable@@
-$sServerName 
-   打开日志的服务器的UNC名称 , 如果为空 , 在本地机上操作.
-$sSourceName 
-   被提取句柄的事件资源名称. 资源名必须是事件日志注册表主键下的一个日志子键
+$sServerName
+	打开日志的服务器的UNC名称, 如果为空, 在本地机上操作.
+$sSourceName
+	被提取句柄的事件资源名称. 资源名必须是事件日志注册表主键下的一个日志子键
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 事件日志句柄
-失败: 0
+成功:	事件日志句柄
+失败:	0
 @@End@@
 
+
 ###Remarks###
-如果无法找到资源名称 , 事件日志服务使用应用程序日志; 但它无法创建新资源.
-事件会被报告给来源 , 然而 , 没有消息及分类消息文件会指定给所查找的资源的事件标识描述符.
+如果无法找到资源名称, 事件日志服务使用应用程序日志; 但它无法创建新资源. 
+事件会被报告给来源, 然而, 没有消息及分类消息文件会指定给所查找的资源的事件标识描述符. 
 使用DeregisterEventSource函数关闭事件日志句柄.
 
 ###Related###
- _EventLog__DeregisterSource
+_EventLog__DeregisterSource
+

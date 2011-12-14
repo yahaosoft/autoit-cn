@@ -2,7 +2,7 @@
 _Date_Time_DOSTimeToArray
 
 ###Description###
-将DOS时间解码为数组
+解码一个 DOS 时间到一个数组
 
 ###Syntax###
 #Include <Date.au3>
@@ -10,27 +10,24 @@ _Date_Time_DOSTimeToArray($iDosTime)
 
 ###Parameters###
 @@ParamTable@@
-$iDosTime 
-   MS-DOS时间, 结构如下:
-    0 - 4位为秒数除以2
-    5 - 10位为分(0-59)
-    11 - 15位为小时(24小时制中为0-23)
+$iDosTime
+	MS-DOS 日期, 封装为下方格式:
+		位 0- 4 ,按2分开的秒(Second divided by 2)
+		位 5-10 ,分钟 (0–59)
+		位 11-15 ,时钟 (0–23 于 24 小时计时)
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 如下格式数组:
-   [0] - 时
-   [1] - 分
-   [2] - 秒
-@@End@@
+返回一个下面格式的数组:
+		[0] - 时
+		[1] - 分
+		[2] - 秒
 
 ###Remarks###
+None.
 
 ###Related###
- _Date_Time_DOSDateToArray , _Date_Time_DOSDateTimeToArray
-
-###See Also###
+_Date_Time_DOSDateToArray, _Date_Time_DOSDateTimeToArray
 
 ###Example###
 @@IncludeExample@@
