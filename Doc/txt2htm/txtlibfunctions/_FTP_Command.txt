@@ -1,10 +1,13 @@
 ﻿###User Defined Function###
 _FTP_Command
+
 ###Description###
 发送一个命令到 FTP 服务器.
+
 ###Syntax###
 #Include <FTPEx.au3>
 _FTP_Command($l_FTPSession, $s_FTPCommand [, $l_Flags = 0x00000001 [, $l_ExpectResponse = 0 [, $l_Context = 0]]])
+
 ###Parameters###
 @@ParamTable@@
 $l_FTPSession
@@ -19,17 +22,23 @@ $l_Context
 	[可选参数] 一个变量, 它包含应用程序定义的值, 关联应用程序数据的搜索.
 	用于应用程序已调用 _FTP_SetStatusCallback() 时,设置一个状态回调函数.
 @@End@@
+
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回一个标识(identifier).
 失败:	返回 0 并设置 @ERROR.
 @@End@@
+
 ###Remarks###
 命令例子: 依赖于服务器的语法/
 下列命令:二进制传输, ASCII 传输, 被动传输模式 (用于防火墙) 'type I' 'type A'  'pasv'
+
 如果 $l_ExpectResponse 设置为 TRUE, 一个指针，如果是创建一个有效的数据套接字打开返回在 @extended 句柄.
+
 ###Related###
 _FTP_Connect, _FTP_SetStatusCallback
+
 ###See Also###
 @@MsdnLink@@ FtpCommand
+
 ###Example###

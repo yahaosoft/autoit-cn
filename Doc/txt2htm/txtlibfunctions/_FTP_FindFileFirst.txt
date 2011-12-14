@@ -1,10 +1,13 @@
 ﻿###User Defined Function###
 _FTP_FindFileFirst
+
 ###Description###
 查找 FTP 服务器上第一个文件.
+
 ###Syntax###
 #Include <FTPEx.au3>
 _FTP_FindFileFirst($l_FTPSession, $s_RemotePath, ByRef $h_Handle [, $l_Flags = 0 [, $l_Context = 0]])
+
 ###Parameters###
 @@ParamTable@@
 $l_FTPSession
@@ -19,11 +22,13 @@ $l_Context
 	[可选参数] 一个变量, 它包含应用程序定义的值, 关联应用程序数据的搜索.
 	用于应用程序已调用 _FTP_SetStatusCallback() 时,设置一个状态回调函数.
 @@End@@
+
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回一个数组, 参考备注.
 失败:	返回 0 并设置 @ERROR
 @@End@@
+
 ###Remarks###
 如果成功则返回一个数组:
 [0]  - 元素数量
@@ -38,10 +43,16 @@ $l_Context
 [9]  - 文件大小低位
 [10] - 文件名
 [11] - 别名
+
 $l_Flags 可以是一个组合: $INTERNET_FLAG_HYPERLINK, $INTERNET_FLAG_NEED_FILE, $INTERNET_FLAG_NO_CACHE_WRITE, $INTERNET_FLAG_RELOAD, $INTERNET_FLAG_RESYNCHRONIZE
+
+
 ###Related###
 _FTP_FindFileNext, _FTP_FindFileClose, _FTP_SetStatusCallback
+
 ###See Also###
 @@MsdnLink@@ FtpFindFirstFile
+
 ###Example###
 @@IncludeExample@@
+

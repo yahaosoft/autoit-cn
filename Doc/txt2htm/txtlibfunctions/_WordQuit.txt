@@ -5,58 +5,48 @@ _WordQuit
 关闭窗体并移除其涉及的Word对象
 
 ###Syntax###
-#Include <Word.au3>
+#Include <Word.au3> 
 _WordQuit( ByRef $o_object [, $i_SaveChanges = -2 [, $i_OriginalFormat = 1 [, $b_RouteDocument = 0]]] )
 
 ###Parameters###
 @@ParamTable@@
-    $o_object
- 
-   Word.Application的对象变量
-    $i_SaveChanges
- 
-   可选: 指定保存文档的方式
- 
-   0 = 不保存改变
- 
-   -1 = 保存改变
- 
-   -2 = (默认) 提示保存
-    $i_OriginalFormat
- 
-   可选: 指定文档保存的格式
- 
-   0 = Word 文档
- 
-   1 = (默认) 原始格式
- 
-   2 = 提示用户
-  $b_RouteDocument
- 
-   可选: 指定是否将文档传递给下一个收件人
- 
-   0 = (默认) 不传递
- 
-   1 = 传递
+$o_object
+	一个 Word.Application 对象变量
+$i_SaveChanges
+	[可选参数] 指定文档保存操作
+	0 = 不保存修改
+	-1 = 保存效果
+	-2 = (默认) 提示保存修改
+$i_OriginalFormat
+	[可选参数] 指定文档保存格式
+	0 = Word 文档
+	1 = (默认) 原始文档格式
+	2 = 提示用户
+$b_RouteDocument
+	[可选参数] 指定是否发送文档到下一个容器
+	0 = (默认) 不发送
+	1 = 发送到下一个容器
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@ERROR
-@Error: 0 ($_WordStatus_Success) = 无错误
-     1 ($_WordStatus_GeneralError) = 一般错误
-     3 ($_WordStatus_InvalidDataType) = 无效数据类型
-     4 ($_WordStatus_InvalidObjectType) = 无效对象类型
-@Extended: 包含无效参数数量
+成功:	返回 1
+失败:	返回 0 并设置 @ERROR
+@Error:	$_WordStatus_Success = 没错误
+	$_WordStatus_GeneralError = 常规错误
+	$_WordStatus_InvalidDataType = 无效数据类型
+	$_WordStatus_InvalidObjectType = 无效对象类型
+@Extended:	包含一个无效参数数字
 @@End@@
 
+
 ###Remarks###
+None.
+
 
 ###Related###
- _WordCreate , _WordAttach
+_WordCreate, _WordAttach
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

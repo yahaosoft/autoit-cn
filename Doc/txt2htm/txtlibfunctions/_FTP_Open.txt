@@ -1,10 +1,13 @@
-﻿###User Defined Function###
+###User Defined Function###
 _FTP_Open
+
 ###Description###
 打开一个 FTP 会话.
+
 ###Syntax###
 #Include <FTPEx.au3>
 _FTP_Open($s_Agent[, $l_AccessType = 1 [, $s_ProxyName = '' [, $s_ProxyBypass = '' [, $l_Flags = 0]]]] )
+
 ###Parameters###
 @@ParamTable@@
 $s_Agent
@@ -18,23 +21,30 @@ $s_ProxyBypass
 $l_Flags
 	[可选参数] 参考备注.
 @@End@@
+
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回供 _FTP_Connect() 使用的句柄,
 失败:	返回 0 并设置 @ERROR.
 @@End@@
+
 ###Remarks###
 $l_AccessType 的参数值:
 	$INTERNET_OPEN_TYPE_DIRECT ->不使用代理
 	$INTERNET_OPEN_TYPE_PRECONFIG ->检索代理或直接由注册表配置.
 	$INTERNET_OPEN_TYPE_PRECONFIG_WITH_NO_AUTOPROXY ->检索代理或直接由注册表配置且禁止启用 Microsoft 脚本 or 互联网配置 (INS) 文件..
 	$INTERNET_OPEN_TYPE_PROXY ->除非提供了代理列表, 否则将传递请求代理, 然后不使用代理.
+
 $l_Flags 的参数值:
 	$INTERNET_FLAG_ASYNC ->只让异步请求处理这个函数返回的句柄.
 	$INTERNET_FLAG_FROM_CACHE -> 不建立网络请求. 由缓存返回所有值. 如果请求的项目不在缓存中, 返回一个适合的错误, 如 ERROR_FILE_NOT_FOUND.
+
+
 ###Related###
 _FTP_Connect, _FTP_Close, _FTP_SetStatusCallback
+
 ###See Also###
 @@MsdnLink@@ InternetOpen
+
 ###Example###
 @@IncludeExample@@

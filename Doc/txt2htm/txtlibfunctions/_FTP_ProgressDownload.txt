@@ -1,10 +1,13 @@
-﻿###User Defined Function###
+###User Defined Function###
 _FTP_ProgressDownload
+
 ###Description###
 以二进制模式下载文件,并显示(或通过调用用户自定义函数)进度窗口.
+
 ###Syntax###
 #Include <FTPEx.au3>
 _FTP_ProgressDownload($l_FTPSession, $s_LocalFile, $s_RemoteFile [, $FunctionToCall = ""])
+
 ###Parameters###
 @@ParamTable@@
 $l_FTPSession
@@ -16,6 +19,7 @@ $s_RemoteFile
 $FunctionToCall
 	[可选参数] 可更新进度条的函数,并对用户输入(如中止或关闭应用的点击操作)作出反应. (更多资讯见备注)
 @@End@@
+
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回 1
@@ -28,6 +32,7 @@ $FunctionToCall
 	-6 - 被调用函数返回的百分比下载失败
 	-7 - 本地文件写入失败
 @@End@@
+
 ###Remarks###
 关于 $FunctionToCall 的信息:
 	参数: $Percentage - 进度百分比
@@ -41,6 +46,7 @@ $FunctionToCall
 			If _IsPressed("77") Then Return 0 ; F8 键中止
 			Return 1 ; bei 1 Fortsetzten
 		Endfunc
+
 		Func _UpdateProgress($Percentage)
 			GUICtrlSetData($ProgressBarCtrl,$percent)
 			Switch GUIGetMsg()
@@ -51,5 +57,9 @@ $FunctionToCall
 			EndSwitch
 			Return 1 ; 否则继续下载
 		Endfunc
+
+
 ###Related###
+
+
 ###Example###

@@ -2,7 +2,7 @@
 _DateAdd
 
 ###Description###
-计算给定日期与给定间隔相加后的日期
+计算一个指定的日期和间隔后的新日期.
 
 ###Syntax###
 #Include <Date.au3>
@@ -10,37 +10,37 @@ _DateAdd($sType, $iValToAdd, $sDate)
 
 ###Parameters###
 @@ParamTable@@
-$sType 
-   d - 加到给定日的天数
-    m - 加到给定日的月数
-    y - 加到给定日的年数
-    w - 加到给定日的周数
-    h - 加到给定日的小时数
-    n - 加到给定日的分钟数
-    s - 加到给定日的秒数
-$iValToAdd 
-   添加的数量
-$sDate 
-   输入YYYY/MM/DD[ HH:MM:SS]格式的日期
+$sType
+	下方的一个值:
+		D - 以天为单位添加到指定的日期
+		M - 以月为单位添加到指定的日期
+		Y - 以年为单位添加到指定的日期
+		w - 以周为单位添加到指定的日期
+		h - 以小时为单位添加到指定的日期
+		n - 以分钟为单位添加到指定的日期
+		s - 以秒钟为单位添加到指定的日期
+$iValToAdd
+	要添加的数量
+$sDate
+	输入一个格式为 YYYY/MM/DD[ HH:MM:SS] 的日期
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 计算得到的新日期.
-失败: 返回0并设置@ERROR为:
-    1 - $sType无效
-    2 - $iValToAdd无效
-    3 - $sDate无效
+成功:	返回计算出的新日期.
+失败:	返回 0 并设置 @ERROR 为:
+@error:	0 - 没有错误
+	1 - 无效 $sType
+	2 - 无效 $iValToAdd
+	3 - 无效 $sDate
 @@End@@
 
 ###Remarks###
-函数不会返回无效日期.
-'2004/1/31'加3月将返回2004/04/30
+这个函数不会返回一个无效的日期.
+当添加三个月到 '2004/1/31' 将返回 2004/04/30 
 
 ###Related###
- _DateDiff , _DateTimeSplit , _DateToDayOfWeek , _DateToDayOfWeekISO , _DateToDayValue , _DayValueToDate
-
-###See Also###
+_DateDiff, _DateTimeSplit, _DateToDayOfWeek, _DateToDayOfWeekISO, _DateToDayValue, _DayValueToDate
 
 ###Example###
 @@IncludeExample@@
