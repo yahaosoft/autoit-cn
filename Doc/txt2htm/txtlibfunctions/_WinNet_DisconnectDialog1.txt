@@ -6,32 +6,33 @@ _WinNet_DisconnectDialog1
 
 ###Syntax###
 #Include <WinNet.au3>
-_WinNet_DisconnectDialog1($hWnd, $sLocalName[, $sRemoteName = ""[, $iFlags = 1]])
+_WinNet_DisconnectDialog1($hWnd, $sLocalName [, $sRemoteName = "" [, $iFlags = 1]])
 
 ###Parameters###
 @@ParamTable@@
-$hWnd 
-   对话框所属窗体的句柄
-$sLocalName 
-   本地设备名, 如"F:"或"LPT1"
-$sRemoteName 
-   要断开的网络资源的名称. 如果指定了$LocalName该成员可为0. 如果指定了sLocalName, 断开连接到由重定向的网络资源的连接.
-$iFlags 
-   描述连接的标志. 可为组合:
-    1 - 如果设置了该值, 指定连接不再是持续连接. 该标志仅在sLocalName被指定为一个本地设备时有效.
-    2 - 如果未设置该值, 断开连接时强制系统使用
+$hWnd
+	对话框所有者窗口句柄．
+$sLocalName
+	本地设备名, 如"F:"或"LPT1"
+$sRemoteName
+	[可选参数] 要断开的网络资源的名称. 如果指定了$LocalName该成员可为0. 如果指定了sLocalName, 断开连接到由重定向的网络资源的连接.
+$iFlags
+	[可选参数] 描述连接的标志. 可为组合:
+		1 - 如果设置了该值, 指定连接不再是持续连接. 该标志仅在sLocalName被指定为一个本地设备时有效.
+		2 - 如果未设置该值, 断开连接时强制系统使用
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回　1.如果用户取消对话框,返回值　-1．
+失败:	返回  0. 并设置 @error.
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
- _WinNet_DisconnectDialog
+_WinNet_DisconnectDialog
 
 ###See Also###
- 搜索MSDN知识库中WNetDisconnectDialog1的相关信息
+@@MsdnLink@@ WNetDisconnectDialog1
