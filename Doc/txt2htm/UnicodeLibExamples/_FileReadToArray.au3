@@ -1,4 +1,4 @@
-﻿#include <file.au3>
+﻿#include <File.au3>
 
 Local $aRecords
 If Not _FileReadToArray("error.log", $aRecords) Then

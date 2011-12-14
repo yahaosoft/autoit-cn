@@ -121,8 +121,9 @@ $sRead = _WinHttpSimpleFormFill($hConnect, "config/login_verify2?&.src=ym", "nam
 ;关闭连接句柄
 _WinHttpCloseHandle($hConnect)
 ; 关闭会话句柄
-_WinHttpCloseHandle($hOpen);打印返回的:
+_WinHttpCloseHandle($hOpen)
 
+;打印返回的:
 ConsoleWrite($sRead & @CRLF)
 MsgBox(262144, "The End", "Source of the last example is printed to console." & @CRLF & _
  "In case valid login data was passed it will be user's mail page on yahoo.mail")
