@@ -2,51 +2,51 @@
 _ArraySearch
 
 ###Description###
-在一维或二维数组内部进行进行搜索. 类似于_ArrayBinarySearch() , 但数组不需要排序.
+在一维或二维数组内部进行进行搜索. 类似于_ArrayBinarySearch(), 但数组不需要排序.
 
 ###Syntax###
 #Include <Array.au3>
-_ArraySearch(Const ByRef $avArray, $vValue[, $iStart = 0[, $iEnd = 0[, $iCase = 0[, $iPartial = 0[, $iForward = 1[, $iSubItem = 0]]]]]])
+_ArraySearch(Const ByRef $avArray, $vValue [, $iStart = 0 [, $iEnd = 0 [, $iCase = 0 [, $iCompare= 0 [, $iForward = 1 [, $iSubItem = -1]]]]]])
 
 ###Parameters###
 @@ParamTable@@
-$avArray 
-   要搜索的数组
-$vValue 
-   要搜索的值
-$iStart 
-   [可选] 开始搜索的索引
-$iEnd 
-   [可选] 结束搜索的索引
-$iCase 
-   [可选] 如果设置为1 , 区分大小写
-$iPartial 
-   [可选] 如果设置为1 , 执行部分搜索
-$iForward 
-   [可选] 如果设置为0 , 从结束到开始进行搜索(而不是从开始到结束)
-$iSubItem 
-   [可选] 对于二维数组进行搜索的副索引
+$avArray
+	要搜索的数组
+$vValue
+	要搜索的值
+$iStart
+	[可选参数] 开始搜索的索引
+$iEnd
+	[可选参数] 结束搜索的索引
+$iCase
+	[可选参数] 如果设置为1, 区分大小写
+$iCompare
+	[可选参数] 0 AutoIt 变量比较 (默认/default), "string" = 0, "" = 0  or "0" = 0 match
+		1 如果设置为1, 执行部分搜索 (StringInStr)
+		2 比较变量是否是相同类型和相同值
+$iForward
+	[可选参数] 如果设置为0, 从结束到开始进行搜索(而不是从开始到结束)
+$iSubItem
+	[可选参数] 对于二维数组进行搜索的副索引
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: $vValue的索引
-失败: -1并设置@error:
-    1 - $avArray不是数组
-    2 - $avArray不是一维数组
-    4 - $iStart 大于$iEnd
-    6 - $vValue在数组中没找到
-    7 - $avArray 维数太多
-    (3 , 5 - 废弃的错误代码)
+成功:	$vValue的索引
+失败:	-1并设置@error
+@error:	1 - $avArray不是数组
+	2 - $avArray不是一维数组
+	4 - $iStart 大于$iEnd
+	6 - $vValue在数组中没找到
+	7 - $avArray 维数太多
+	(3, 5 - 废弃的错误代码)
 @@End@@
 
 ###Remarks###
-该函数可能比_ArrayBinarySearch()慢 , 但在数组顺序不能更改时非常有用
+ 此函数可能比 _ArrayBinarySearch() 搜索较慢, 但在数组顺序不能更改时非常有用.
 
 ###Related###
- _ArrayBinarySearch ,  _ArrayFindAll
-
-###See Also###
+_ArrayBinarySearch, _ArrayFindAll
 
 ###Example###
 @@IncludeExample@@
