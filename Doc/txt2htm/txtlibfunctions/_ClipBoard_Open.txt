@@ -5,29 +5,32 @@ _ClipBoard_Open
 打开剪切板并防止其它程序修改剪切板
 
 ###Syntax###
-#Include<Clipboard.au3>
+#Include <Clipboard.au3>
 _ClipBoard_Open($hOwner)
 
 ###Parameters###
 @@ParamTable@@
-$hOwner 
-   与打开的剪贴板关联的窗口句柄. 如果参数为0 , 打开的剪贴板和当前任务关联.
+$hOwner
+	要关联到打开的剪切板的窗口句柄. 如果这个参数为 0, 就打开剪切板
+		为关联到当前任务.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
-###Remarks###
-当其他程序打开剪贴板时函数失败. 每次成功调用次函数后调用_ClipBoard_Close. 由$hOwner参数确定的窗口不会占用剪贴板除非调用_ClipBoard_Empty函数. 如果你调用_ClipBoard_Open时把hwnd设置为0 , _ClipBoard_Empty设置剪贴板为0，这将导致_ClipBoard_SetData失效.
 
+###Remarks###
+如果其他窗口打开了剪切板,这个函数会失败. 调用 _ClipBoard_Close 函数成功后再调用这个函数.
+除非调用 _ClipBoard_Empty 函数, 否则 $hOwner 参数指定的窗口不会成为剪切板的所有者.
+如果你调用 _ClipBoard_Open 时句柄设置为0, _ClipBoard_Empty就会将剪切板的所有者设置为0,这将导致 _ClipBoard_SetData 失效.
 ###Related###
-_ClipBoard_Close , _ClipBoard_Empty
+_ClipBoard_Close, _ClipBoard_Empty, _ClipBoard_EnumFormats, _ClipBoard_GetOpenWindow, _ClipBoard_SetDataEx
 
 ###See Also###
- 搜索MSDN知识库中OpenClipboard的相关信息
+@@MsdnLink@@ OpenClipboard
 
 ###Example###
 @@IncludeExample@@

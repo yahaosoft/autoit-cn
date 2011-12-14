@@ -2,33 +2,33 @@
 _ClipBoard_EnumFormats
 
 ###Description###
-枚举当前剪贴板上的数据格式
+枚举剪切板中当前有效的数据格式
 
 ###Syntax###
 #Include <Clipboard.au3>
-_ClipBoard_EnumFormats( $iFormat )
+_ClipBoard_EnumFormats($iFormat)
 
 ###Parameters###
 @@ParamTable@@
-$iFormat 
-   指定已知可用的剪贴板格式. 如果对格式进行枚举则设置$iFormat为零则开始.
-    当$iFormat为零 , 函数检索第一个可用的剪贴板格式. 在随后的枚举调用中 , 设置$iFormat为上次结果
+$iFormat
+	指定一个已知可用的剪贴板格式. 要启动一个格式的枚举,设置 $iFormat 为 0
+		当 $iFormat 为零, 函数检索第一个可用的剪贴板格式. 
+		但在以后调用枚举过程中,设置 $iFormat 为先前调用的结果.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 指定格式的剪贴板格式
-失败: 0
+成功:	返回指定的剪贴板格式
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-枚举格式前必须打开剪贴板
-
+ 枚举格式前必须打开剪贴板
 ###Related###
- _ClipBoard_Open
+_ClipBoard_Open, _ClipBoard_CountFormats, _ClipBoard_GetPriorityFormat, _ClipBoard_RegisterFormat
 
 ###See Also###
- 搜索MSDN知识库中EnumClipboardFormats的相关信息
+@@MsdnLink@@ EnumClipboardFormats
 
 ###Example###
 @@IncludeExample@@

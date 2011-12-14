@@ -2,30 +2,32 @@
 _ClipBoard_GetOpenWindow
 
 ###Description###
-检索当前打开剪贴板的窗口的句柄
+返回当前打开剪切板的程序的窗口句柄
 
 ###Syntax###
 #Include <Clipboard.au3>
 _ClipBoard_GetOpenWindow()
 
 ###Parameters###
-@@ParamTable@@
-    无
-@@End@@
+None.
+
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 使剪贴板打开的窗口句柄
-失败: 没有窗口使剪贴板打开时为0
+成功:	返回打开了剪切板的窗口的窗口句柄
+失败:	没有任何一个窗口打开了剪切板
 @@End@@
 
+
 ###Remarks###
-如果当调用_ClipBoard_Open函数时应用程序或DLL指定一个NULL窗口句柄 , 剪贴板将被打开但不会与任何窗口联系. 在这种情况下 , _ClipBoard_GetOpenWindow返回0.
+如果一个应用程序或 DLL 调用 _ClipBoard_Open 函数时指定一个 NULL(空)窗口句柄,
+打开的剪贴板不与窗口关联,此时 _ClipBoard_GetOpenWindow 返回 0. 
 
 ###Related###
+_ClipBoard_GetOwner, _ClipBoard_Open
 
 ###See Also###
- 搜索MSDN知识库中GetOpenClipboardWindow的相关信息
+@@MsdnLink@@ GetOpenClipboardWindow
 
 ###Example###
 @@IncludeExample@@

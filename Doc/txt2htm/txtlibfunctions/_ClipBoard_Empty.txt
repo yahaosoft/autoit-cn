@@ -2,32 +2,33 @@
 _ClipBoard_Empty
 
 ###Description###
-清空剪切板并释放剪切板数据句柄
+清空剪切板并释放剪切板数据句柄.
 
 ###Syntax###
 #Include <Clipboard.au3>
 _ClipBoard_Empty()
 
 ###Parameters###
-@@ParamTable@@
-    无
-@@End@@
+没有.
+
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
+
 ###Remarks###
-调用该函数前必须使用_ClipBoard_Open函数打开剪贴板 , 并且指定打开剪贴板时返回一个空窗口句柄 , 该函数成功但是将清空剪贴板.
-注意: 这将使_ClipBoard_SetData失效.
+ 在调用这个函数之前, 您必须使用 _ClipBoard_Open 函数打开剪切板.
+ 如果你打开剪贴板时指定为 NULL(空)窗口句柄, 此函数成功, 但剪贴板属主也设置为 NULL(空).
+ 请注意,这将导致(剪贴板设置数据)函数 _ClipBoard_SetData 失败.
 
 ###Related###
- _ClipBoard_Open , _ClipBoard_SetData
+_ClipBoard_Open, _ClipBoard_SetData, _ClipBoard_GetOwner, _ClipBoard_SetDataEx
 
 ###See Also###
-搜索MSDN知识库中EmptyClipboard相关信息
+@@MsdnLink@@ EmptyClipboard
 
 ###Example###
 @@IncludeExample@@
