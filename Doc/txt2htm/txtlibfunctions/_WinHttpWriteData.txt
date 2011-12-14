@@ -1,41 +1,42 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êı###
+ï»¿###User Defined Function###
 _WinHttpWriteData
 
-###ÃèÊö###
-½«ËùĞèÊı¾İĞ´ÈëHTTP·şÎñÆ÷
+###Description###
+å†™å…¥è¯·æ±‚æ•°æ®åˆ°ä¸€ä¸ªHTTPæœåŠ¡å™¨.
 
-###Óï·¨###
-#Include <WinHTTP.au3>
-_WinHttpWriteData( $hRequest, $data [, $iMode] )
+###Syntax###
+#Include <WinHttp.au3>
+_WinHttpWriteData($hRequest, $vData [, $iMode = Default ])
 
-###²ÎÊı###
+###Parameters###
 @@ParamTable@@
-$hRequest 
-   _WinHttpSendRequest()·µ»ØµÄÓĞĞ§¾ä±ú
-$data 
-   ÒªĞ´ÈëµÄÊı¾İ
-$iMode 
-   ±íÊ¾Ğ´ÈëÄ£Ê½µÄÕûÊı. Ä¬ÈÏÎª0(Ğ´ÈëANSI×Ö·û´®)
+$hRequest
+	ç”± _WinHttpSendRequest() å‡½æ•°è¿”å›çš„æœ‰æ•ˆå¥æŸ„.
+$vData
+	è¦å†™å…¥çš„æ•°æ®.
+$iMode
+	[å¯é€‰å‚æ•°] æ•´æ•°æ–¹å¼å®šä¹‰çš„å†™å…¥æ¨¡å¼. é»˜è®¤ä¸º 0 - å†™å…¥ä¸€ä¸ª ANSI å­—ç¬¦ä¸².
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: ·µ»Ø1²¢ÉèÖÃ@errorÎª0
-    @extended ½ÓÊÕ±»Ğ´ÈëµÄ×Ö½ÚÊı
-Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@errorÇÒµ±ÆäÎª1Ê±±íÊ¾DllCallÊ§°Ü
+æˆåŠŸ:	è¿”å› 1
+å¤±è´¥:	è¿”å› 0 å¹¶è®¾ç½® @error:
+	1 - DllCall å¤±è´¥
 @@End@@
 
-###±¸×¢###
-$data±äÁ¿ÊÇÒªĞ´ÈëµÄ×Ö·û´®»ò¶ş½øÖÆÊı¾İ
-$iMode¿ÉÎªÏÂÁĞÖµ:
-0 - Ğ´ÈëANSI×Ö·û´®
-1 - Ğ´Èë¶ş½øÖÆ×Ö·û´®
+###Remarks###
+$vData å˜é‡æ˜¯è¦è¿›è¡Œå†™å…¥çš„å­—ç¬¦ä¸²æˆ–äºŒè¿›åˆ¶æ•°æ®.
+$iMode å¯ä¸ºä¸‹åˆ—å€¼:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 - å†™å…¥ANSIå­—ç¬¦ä¸²
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 - å†™å…¥äºŒè¿›åˆ¶å­—ç¬¦ä¸²
+###Related###
+<a href="_WinHttpSendRequest.htm">_WinHttpSendRequest</a>, <a href="_WinHttpReadData.htm">_WinHttpReadData</a>
 
-###Ïà¹Ø###
 
-###²Î¿¼###
- _WinHttpSendRequest  _WinHttpReadData
-²Î¿¼  ËÑË÷MSDNÖªÊ¶¿âÖĞWinHttpWriteDataµÄÏà¹ØĞÅÏ¢
+###See Also###
+http://msdn.microsoft.com/en-us/library/aa384120(VS.85).aspx
 
-###Ê¾Àı###
+###Example###
 @@IncludeExample@@
+

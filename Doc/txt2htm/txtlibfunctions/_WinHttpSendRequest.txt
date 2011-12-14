@@ -1,41 +1,43 @@
-###ÓÃ»§×Ô¶¨Òåº¯Êı###
+ï»¿###User Defined Function###
 _WinHttpSendRequest
 
-###ÃèÊö###
-ÏòHTTP·şÎñÆ÷·¢ËÍÖ¸¶¨ÇëÇó
+###Description###
+å‘é€æŒ‡å®šè¯·æ±‚åˆ°HTTPæœåŠ¡å™¨.
 
-###Óï·¨###
-#Include <WinHTTP.au3>
-_WinHttpSendRequest( $hRequest [, $sHeaders [, $sOptional [, $iTotalLength [, $iContext]]]] )
+###Syntax###
+#Include <WinHttp.au3>
+_WinHttpSendRequest($hRequest [, $sHeaders = Default [, $sOptional = Default [, $iTotalLength = Default [, $iContext = Default ]]]])
 
-###²ÎÊı###
+###Parameters###
 @@ParamTable@@
-$hRequest 
-   _WinHttpOpenRequest()·µ»ØµÄ¾ä±ú
-$sHeaders 
-   [¿ÉÑ¡] °üº¬¸½¼Óµ½ÇëÇóµÄ¶îÍâÍ·²¿µÄ×Ö·û´®. Ä¬ÈÏÎª$WINHTTP_NO_ADDITIONAL_HEADERS.
-$sOptional 
-   [¿ÉÑ¡] °üº¬ÈÎÒâ¿ÉÑ¡µÄÔÚÇëÇóµÄÍ·²¿Ö®ºóÁ¢¼´·¢ËÍµÄÊı¾İµÄ×Ö·û´®. Ä¬ÈÏÎª$WINHTTP_NO_REQUEST_DATA.
-$iTotalLength 
-   [¿ÉÑ¡] °üº¬·¢ËÍµÄÈ«²¿¿ÉÑ¡Êı¾İ×Ö½Ú³¤¶ÈµÄÎ´Ç©Ãû³¤ÕûÖµ. Ä¬ÈÏÎª0.
-$iContext 
-   [¿ÉÑ¡] ±íÊ¾Ğ´ÈëÄ£Ê½µÄÕûÊı. Ä¬ÈÏÎª0(Ğ´ÈëANSI×Ö·û´®)
+$hRequest
+	_WinHttpOpenRequest() å‡½æ•°è¿”å›çš„å¥æŸ„.
+$sHeaders
+	[å¯é€‰å‚æ•°] é™„åŠ åˆ°è¯·æ±‚çš„é™„åŠ å¤´. é»˜è®¤ä¸º $WINHTTP_NO_ADDITIONAL_HEADERS.
+$sOptional
+	[å¯é€‰å‚æ•°] å‘é€è¯·æ±‚å¤´åéœ€è¦å‘é€çš„å¯é€‰æ•°æ®. é»˜è®¤ä¸º $WINHTTP_NO_REQUEST_DATA.
+$iTotalLength
+	[å¯é€‰å‚æ•°] è¦å‘é€çš„æ•´ä¸ªå¯é€‰æ•°æ®çš„é•¿åº¦,æŒ‰å­—èŠ‚è®¡ç®—. é»˜è®¤ä¸º 0.
+$iContext
+	[å¯é€‰å‚æ•°] è¦ä¼ é€’ç»™è¯·æ±‚å¥æŸ„çš„åº”ç”¨ç¨‹åºå®šä¹‰çš„å€¼,ä¸€èˆ¬ä¸ºä¸€ä¸ªå›è°ƒå‡½æ•°. é»˜è®¤ä¸º 0.
 @@End@@
 
-###·µ»ØÖµ###
+###ReturnValue###
 @@ReturnTable@@
-³É¹¦: ·µ»Ø1²¢ÉèÖÃ@errorÎª0
-Ê§°Ü: ·µ»Ø0²¢ÉèÖÃ@errorÇÒµ±ÆäÎª1Ê±±íÊ¾DllCallÊ§°Ü
+æˆåŠŸ:	è¿”å› 1.
+å¤±è´¥:	è¿”å› 0å¹¶è®¾ç½® @error:
+	1 - DllCall å¤±è´¥
 @@End@@
 
-###±¸×¢###
-Ö¸¶¨¿ÉÑ¡Êı¾İ($sOptional)½«Ê¹$iTotalLength½ÓÊÕÄ¬ÈÏ´óĞ¡µÄÊı¾İ
+###Remarks###
+æŒ‡å®šçš„å¯é€‰æ•°æ®($sOptional)å°†ä½¿ç”¨$iTotalLengthå®šä¹‰çš„å¤§å°æ¥æ”¶æ•°æ®,è€Œä¸æ˜¯é»˜è®¤å€¼.
+###Related###
+<a href="_WinHttpOpenRequest.htm">_WinHttpOpenRequest</a>
 
-###Ïà¹Ø###
- _WinHttpOpenRequest
 
-###²Î¿¼###
- ËÑË÷MSDNÖªÊ¶¿âÖĞWinHttpSendRequestµÄÏà¹ØĞÅÏ¢
+###See Also###
+http://msdn.microsoft.com/en-us/library/aa384110(VS.85).aspx
 
-###Ê¾Àı###
+###Example###
 @@IncludeExample@@
+
