@@ -5,31 +5,29 @@ _GUICtrlEdit_GetLineCount
 获取行数
 
 ###Syntax###
-#Include<GuiEdit.au3>
+#include <GuiEdit.au3>
 _GUICtrlEdit_GetLineCount($hWnd)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
+$hWnd
+	控件的控件ID/句柄
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 文本行的总数量
-失败: 1
-@@End@@
+成功:	返回文本行总数
+失败:	返回 1
 
 ###Remarks###
-如果空间内没有文本, 返回值为 1.
-返回值不会小于
-1.
-_GUICtrlEdit_GetLineCount 获取的文本行总数,
-不仅仅是当前的可见行的数量.
-如果 Wordwrap 特性可用, 则当编辑窗口改变时行数会改变
+如果控件没有文本,返回 1.
+返回值绝不会小于 1.
+
+本函数检索文本行总数, 而不仅仅是目前可见的行数.
+
+如果启用自动换行(Wordwrap)功能,
+当编辑窗口尺寸变化时,行数可以改变. 
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

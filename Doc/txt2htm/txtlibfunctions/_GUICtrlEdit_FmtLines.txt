@@ -2,34 +2,37 @@
 _GUICtrlEdit_FmtLines
 
 ###Description###
-确定编辑框控件是否包括软断行符
+确定编辑控件是否包括软换行字符
 
 ###Syntax###
-#Include<GuiEdit.au3>
-_GUICtrlEdit_FmtLines($hWnd[, $fSoftBreak =False])
+#include <GuiEdit.au3>
+_GUICtrlEdit_FmtLines($hWnd [, $fSoftBreak = False])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $fSoftBreak  制定是否可插入软断行符:
-真 - 插入字符
-假 - 移除
+$hWnd
+	控件的控件ID/句柄
+$fSoftBreak
+	[可选参数] 指定是否插入软换行符:
+		 True - 插入
+		False - 删除
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: Identical to the $fSoftBreak parameter
-@@End@@
+成功:	返回 $fSoftBreak 的参数值
 
 ###Remarks###
-软断行由两个回车和一个换行组成并且是在行尾插入.
-函数只影像由_GUICtrlEdit_GetText函数返回的文本.
-不影响编辑控件内的文本的显示.
-_GUICtrlEdit_FmtLines函数不影响行尾硬回车.硬断行由一个回车和一个换行组成.
+一个软换行符是在一行的末尾插入两个回车和一个换行符,
+起到在行尾换行的作用.
+
+这个函数只影响 _GUICtrlEdit_GetText 函数返回的文本.
+
+软换行符在编辑控件上没有像文字样的显示效果.
+
+该函数不影响文本行用硬换行符结束.
+硬换行符由一个回车符和换行符组成.
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

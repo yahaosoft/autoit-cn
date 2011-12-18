@@ -5,27 +5,24 @@ _GUICtrlEdit_CanUndo
 确定在编辑控件的撤销队列中是否还有操作
 
 ###Syntax###
-#Include<GuiEdit.au3>
+#include <GuiEdit.au3>
 _GUICtrlEdit_CanUndo($hWnd)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
+$hWnd
+	控件的控件ID/句柄
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-真: 撤销队列中仍有操作
-假: 撤销队列为空时
-@@End@@
+True:控件的撤消队列有操作返回
+False:撤消队列为空
 
 ###Remarks###
-如果撤销队列部为空, 可以调用 _GUICtrlEdit_Undo 撤销最近的一次操作.
+ 如果撤消队列不空,可以调用 _GUICtrlEdit_Undo 撤消最近的操作.
 
 ###Related###
-_GUICtrlEdit_EmptyUndoBuffer , _GUICtrlEdit_GetModify , _GUICtrlEdit_SetModify , _GUICtrlEdit_Undo
-
-###See Also###
+_GUICtrlEdit_EmptyUndoBuffer, _GUICtrlEdit_GetModify, _GUICtrlEdit_SetModify, _GUICtrlEdit_Undo
 
 ###Example###
 @@IncludeExample@@

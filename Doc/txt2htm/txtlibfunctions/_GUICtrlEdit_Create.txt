@@ -2,51 +2,53 @@
 _GUICtrlEdit_Create
 
 ###Description###
-创建编辑框控件
+创建一个编辑框控件
 
 ###Syntax###
-#Include <GuiEdit.au3>
-_GUICtrlEdit_Create($hWnd,$sText, $iX, $iY[, $iWidth = 150[, $iHeight = 150[, $iStyle = 0x003010C4[,$iExStyle = 0x00000200]]]])
+#include <GuiEdit.au3>
+_GUICtrlEdit_Create($hWnd, $sText, $iX, $iY [, $iWidth = 150 [, $iHeight = 150 [, $iStyle = 0x003010C4 [, $iExStyle = 0x00000200]]]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  主窗口或所属窗口的句柄
- $sText  控件中要显示的文本
- $iX  控件水平位置
- $iY  控件垂直位置
- $iWidth  控件宽度
- $iHeight  控件高度
- $iStyle  控件风格:
-$ES_AUTOHSCROLL
-      - 当用户输入到行尾时自动向右滚动10个字符
-$ES_AUTOVSCROLL -  当用户在最后一行按下ENTER
-      键时自动向上滚动一页
-$ES_CENTER - 编辑框中中心对齐文本
-$ES_LEFT - 左对齐文本.
-$ES_LOWERCASE -
-      当字符输入控件时自动变为小写
-$ES_MULTILINE - 强制的
-$ES_NOHIDESEL - 颠倒所选文本, 即使控件没有焦点
-$ES_NUMBER - 只允许输入数字
-$ES_OEMCONVERT -
-      改变输入到编辑控件的文本.
-$ES_READONLY - 禁止用户在控件中输入或编辑文本
-$ES_RIGHT - 右对齐文本
-$ES_UPPERCASE - 当字符输入控件时自动变为大写
-$ES_WANTRETURN - 指定当用户按下ENTER键时返回一个回车符
-$ES_PASSWORD -
-      将每个输入控件的字符转变为星号(*)
-  默认: $ES_MULTILINE, $ES_WANTRETURN, $WS_VSCROLL, $WS_HSCROLL,
-      $ES_AUTOVSCROLL, $ES_AUTOHSCROLL
-强制: WS_CHILD, $WS_VISIBLE,
-      $WS_TABSTOP除非$ES_READONLY
- $iExStyle  控件扩展风格. 对应于标准$WS_EX_常量
+$hWnd
+	父窗口或者所有者窗口句柄
+$sText
+	控件上显示的文本
+$iX
+	控件水平坐标
+$iY
+	控件垂直坐标
+$iWidth
+	[可选参数] 控件宽度
+$iHeight
+	[可选参数] 控件高度
+$iStyle
+	[可选参数] 控件样式:
+		$ES_AUTOHSCROLL - 当用户输入到行尾时,自动滚动右侧文本 10 个字符.
+		$ES_AUTOVSCROLL - 当用户在最后一行按下 ENTER 键时,自动向上滚动一页.
+		$ES_CENTER - 编辑框控件文本居中.
+		$ES_LEFT - 文本左对齐.
+		$ES_LOWERCASE - 输入到编辑框中的字符转为小写.
+		$ES_MULTILINE - 多行,强制的
+		$ES_NOHIDESEL - 当控件失去焦点时.选择的文本是反向的.
+		$ES_NUMBER - 只允许在编辑框中输入数字.
+		$ES_OEMCONVERT - 编辑控件文本输入转换（OEM）.
+		$ES_READONLY - 禁止用户在控件中输入或编辑文本.
+		$ES_RIGHT - 文本右对齐.
+		$ES_UPPERCASE - 输入到编辑框中的字符转为大写.
+		$ES_WANTRETURN - 当用户按下 Enter 键时, 文本行插入一个回车符.
+		$ES_PASSWORD - 当输入字符时显示星号(*).
+
+		默认: $ES_MULTILINE, $ES_WANTRETURN, $WS_VSCROLL, $WS_HSCROLL, $ES_AUTOVSCROLL, $ES_AUTOHSCROLL
+		强制 : WS_CHILD, $WS_VISIBLE, $WS_TABSTOP unless $ES_READONLY
+$iExStyle
+	[可选参数] 控件扩展样式. 对应于标准 $WS_EX_ 常量.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 编辑框控件句柄
-失败: 0
+成功:	返回 编辑控件句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
@@ -54,8 +56,6 @@ $ES_PASSWORD -
 
 ###Related###
 _GUICtrlEdit_Destroy
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

@@ -5,31 +5,28 @@ _GUICtrlEdit_GetModify
 获取编辑框控件修订标记的状态
 
 ###Syntax###
-#Include<GuiEdit.au3>
+#include <GuiEdit.au3>
 _GUICtrlEdit_GetModify($hWnd)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
+$hWnd
+	控件的控件ID/句柄
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 返回值如下:
-    真 -
-编辑框控件内容已被修订
-    假 - 编辑框控件内容未被修订
-@@End@@
+成功:	返回值如下:
+
+	 True - 编辑控件的内容已被修改
+	False - 编辑控件内容没有修改
 
 ###Remarks###
-当控件创建时系统自动清除修订标记为 0.
-如果用户改变控件的文本, 系统设置标记为真
-可以调用_GUICtrlEdit_SetModify设置或清除标记
+当创建控件时,系统会自动清除修改标志为 0.
+如果用户更改控件的文本,系统设置标志为 True.
+可以调用 _GUICtrlEdit_SetModify 函数设置或清除该标志
 
 ###Related###
-_GUICtrlEdit_CanUndo , _GUICtrlEdit_SetModify , _GUICtrlEdit_Undo
-
-###See Also###
+_GUICtrlEdit_CanUndo, _GUICtrlEdit_SetModify, _GUICtrlEdit_Undo
 
 ###Example###
 @@IncludeExample@@
