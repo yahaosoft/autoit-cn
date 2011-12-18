@@ -2,40 +2,37 @@
 _GUICtrlListView_GetItemState
 
 ###Description###
-获取列表视图项目的状态
+返回 ListView 项目状态
 
 ###Syntax###
-#Include<GuiListView.au3>
-_GUICtrlListView_GetItemState($hWnd, $iIndex,$iMask)
+#include <GuiListView.au3>
+_GUICtrlListView_GetItemState($hWnd, $iIndex, $iMask)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iIndex  项目的0基索引
- $iMask  要获取的状态信息. 可以是下列项的组合:
-$LVIS_CUT - 项目被标记为剪切和粘贴操作
-$LVIS_DROPHILITED
-      - 项目作为拖曳目标被高亮显示
-$LVIS_FOCUSED - 项目具有焦点, 故而被标准焦点框环绕
-$LVIS_SELECTED -
-      项目被选中
-$LVIS_OVERLAYMASK - 使用该掩码获取项目的遮盖图像索引
-$LVIS_STATEIMAGEMASK -
-      使用该掩码获取项目的状态图像掩码
+$hWnd
+	控件的控件ID/句柄.
+$iIndex
+	基于 0 开始计算的项目索引
+$iMask
+	状态信息. 可以是下列项的组合:
+		$LVIS_CUT - 项目被标记为剪切/粘贴操作
+		$LVIS_DROPHILITED - 项目作为拖放目标高亮显示
+		$LVIS_FOCUSED - 项目具有焦点, 被标准焦点矩形包围.
+		$LVIS_SELECTED - 项目被选中
+		$LVIS_OVERLAYMASK - 使用掩码获取项目的覆盖图像索引
+		$LVIS_STATEIMAGEMASK - 使用掩码获取项目的状态图像索引
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-返回值: 指定项目的当前状态
-@@End@@
+返回指定项目的当前状态
 
 ###Remarks###
-项目状态信息包括一系列数位标记，比如指示项目的状态图标和遮盖图示的图像列索引
+项目的状态信息,包括标志设置,以及图像列表索引,
+以及表明该项目的状态图像和覆盖图像.
 
 ###Related###
 _GUICtrlListView_SetItemState
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

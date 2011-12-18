@@ -15,12 +15,8 @@ None.
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回如下错误模式:
-$SEM_FAILCRITICALERRORS - 不显示关键错误句柄消息框. 以向调用进程发送错误代替.
-$SEM_NOALIGNMENTFAULTEXCEPT - 系统自动修复内存对齐错误并使其对程序隐藏. 用于调用进程和任何后续进程. 此功能只支持某些处理器架构. 欲了解更多信息，请参阅 _WinAPI_SetErrorMode .
-$SEM_NOGPFAULTERRORBOX - 系统不显示Windows错误报告对话框.
-$SEM_NOOPENFILEERRORBOX - 无法找到文件时不显示消息框. 以向调用进程发送错误代替.
-失败: 返回0并设置@error非0
+成功:	返回进程的错误模式($SEM_*).
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###

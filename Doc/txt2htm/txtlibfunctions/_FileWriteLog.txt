@@ -2,43 +2,37 @@
 _FileWriteLog
 
 ###Description###
-写入当前时间和指定文本到一个记录文件
+写入一个当前日期,时间和一个指定文本到一个日志文件.
 
 ###Syntax###
-#Include <File.au3>
-_FileWriteLog($sLogPath,$sLogMsg[, $iFlag = -1])
+#include <File.au3>
+_FileWriteLog($sLogPath, $sLogMsg [, $iFlag = -1])
 
 ###Parameters###
 @@ParamTable@@
-$sLogPath 
-   要被写入的文件的路径和文件名
-$sLogMsg 
-   写入日志文件的信息
-$iFlag 
-   [可选] 定义$sLogMsg将被写入文件尾还是文件头.
-    为-1(默认)时将$sLogMsg
- 
-      写入文件尾. 否则将写入文件头.
+$sLogPath
+	要写入的日志文件的完整路径与文件名.或者前面调用 FileOpen() 返回的文件句柄.
+$sLogMsg
+	要写入到日志文件的消息.
+$iFlag
+	[可选参数] 标志定义 $sLogMsg 是写在文件结束还是文件开始.
+		如果 $iFlag = -1 (默认) $sLogMsg 将会写入到文件末尾.
+		如果 $iFlag &lt;&gt; -1 $sLogMsg 将会写入到文件开始.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回 1
-失败: 返回 0
-@Error: 0 =
-无错误
-      1 =
-打开指定文件出错
-      2 =
-文件无法写入
+成功:	返回 1
+失败:	返回 0 并设置 @error
+@Error:	1 = 打开指定文件错误.
+	2 = 文件不可写.
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 FileOpen
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@
