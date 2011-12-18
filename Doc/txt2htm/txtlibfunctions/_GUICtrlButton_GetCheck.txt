@@ -2,35 +2,36 @@
 _GUICtrlButton_GetCheck
 
 ###Description###
-得到单选按钮或者复选框选择状态
+得到单选按钮或者复选框选中状态
 
 ###Syntax###
-#Include <GuiButton.au3>
-_GUICtrlButton_GetCheck( $hWnd )
+#include <GuiButton.au3>
+_GUICtrlButton_GetCheck($hWnd)
 
 ###Parameters###
 @@ParamTable@@
-$hWnd 
-   控件句柄
+$hWnd
+	控件的控件ID/句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 具有$BS_AUTOCHECKBOX , $BS_AUTORADIOBUTTON , $BS_AUTO3STATE , $BS_CHECKBOX , $BS_RADIOBUTTON或$BS_3STATE风格的按钮的返回值可能是下列之一:
-    $BST_CHECKED- 按钮选中.
-    $BST_INDETERMINATE - 按钮禁用 , 显示一个不确定状态(只应用于具有$BS_3STAT或$BS_AUTO3STATE样式的按钮).
-    $BST_UNCHECKED - 按钮非选中
-失败: 0
+成功:	具有 $BS_AUTOCHECKBOX, $BS_AUTORADIOBUTTON,
+	$BS_AUTO3STATE, $BS_CHECKBOX, $BS_RADIOBUTTON, 或 $BS_3STATE 等样式按钮的返回值可以是下列项之一:
+	$BST_CHECKED - 按钮选中.
+	$BST_INDETERMINATE - 按钮成灰色,表示不确定的状态 (只应用于有 $BS_3STATE or $BS_AUTO3STATE style).
+	$BST_UNCHECKED 按钮非选中
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-如果按钮另有上面列出的那些之外的风格 , 返回数值将是零.
+如果按钮另有上面列出的那些之外的样式,返回数值将为零.
 
 ###Related###
-_GUICtrlButton_GetState , _GUICtrlButton_SetCheck
+_GUICtrlButton_GetState, _GUICtrlButton_SetCheck
 
 ###See Also###
-在MSDN知识库中搜索BM_GETCHECK相关信息
+@@MsdnLink@@ BM_GETCHECK
 
 ###Example###
 @@IncludeExample@@

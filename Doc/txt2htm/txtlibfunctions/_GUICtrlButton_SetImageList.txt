@@ -2,50 +2,58 @@
 _GUICtrlButton_SetImageList
 
 ###Description###
-分配一个图像列表到按钮控件
+分配一个图像列表到一个按钮控件
 
 ###Syntax###
-#Include <GuiButton.au3>
-_GUICtrlButton_SetImageList($hWnd, $hImage[, $nAlign =0[, $iLeft = 1[, $iTop = 1[, $iRight = 1[, $iBottom = 1]]]]])
+#include <GuiButton.au3>
+_GUICtrlButton_SetImageList($hWnd, $hImage [, $nAlign = 0 [, $iLeft = 1 [, $iTop = 1 [, $iRight = 1 [, $iBottom = 1]]]]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $hImage  图像列表句柄.
-该句柄包含所有图像的或个别图像的状态，状态值可为下列:
-1 - 常规
-2 - 激活[Hot]
-3 - 点击
-4 - 禁用
-5 - 默认
-6 - 激活指示(仅平板电脑)
- $nAlign  指定对准方法。参数可能是下列值之一:
-0 – 图像左对齐
-1 – 图像右对齐
-2 – 图像顶端对齐
-3 – 图像底部对齐
-4 – 图像居中对齐
- $iLeft  图标的左边距
- $iTop  图标的顶端边距
- $iRight  图标的右边距
- $iBottom  图标的底部边距
+$hWnd
+	控件的控件ID/句柄
+$hImage
+	图像列表句柄.
+		  包含一个单图像用于所有状态或者下方状态列出的每个状态值的图像:
+		    1 - 常规
+		    2 - 激活
+		    3 - 按下
+		    4 - 禁用
+		    5 - 默认
+		    6 - 感应笔热点(仅平板电脑)
+$nAlign
+	[可选参数] 指定对齐方式,参数可能是下列值之一:
+		  0 - 图像左对齐.
+		  1 - 图像右对齐.
+		  2 - 图像顶端对齐.
+		  3 - 图像底部对齐.
+		  4 - 图像居中对齐.
+$iLeft
+	[可选参数] 图标的左页边距
+$iTop
+	[可选参数] 图标的顶页边距
+$iRight
+	[可选参数] 图标的右页边距
+$iBottom
+	[可选参数] 图标的底页边距
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	True
+失败:	False
 @@End@@
 
 ###Remarks###
-最低操作系统: Windows XP.
-当使用主题时，含有多个图像的图像列表有只会显示除了第一个图像之外的图像.
+最低操作系统 - Windows XP.
+
+当使用主题时,含有多个图像的图像列表有只会显示除了第一个图像之外的图像.
 
 ###Related###
-_GUICtrlButton_SetImageList
+_GUICtrlButton_GetImageList
 
 ###See Also###
-在MSDN知识库中搜索BM_SETIMAGELIST相关信息
+@@MsdnLink@@ BCM_SETIMAGELIST
 
 ###Example###
 @@IncludeExample@@
