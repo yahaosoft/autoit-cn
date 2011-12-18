@@ -2,35 +2,36 @@
 _GUICtrlComboBox_FindStringExact
 
 ###Description###
-搜索字符串
+搜索字符串(完全匹配)
 
 ###Syntax###
-#Include<GuiComboBox.au3>
-_GUICtrlComboBox_FindStringExact( $hWnd, $sText[,$iIndex = -1] )
+#include <GuiComboBox.au3>
+_GUICtrlComboBox_FindStringExact($hWnd, $sText [, $iIndex = -1])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $sText  要搜索的字符串
- $iIndex  开始执行搜索的项目的0基索引
+$hWnd
+	控件的控件ID/句柄
+$sText
+	要搜索的字符串
+$iIndex
+	[可选参数] 被搜索项目的 0 基索引
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 匹配项基于0的索引
-失败: -1
-@@End@@
+成功:	返回匹配项目的 0 基索引 
+失败:	返回 -1
 
 ###Remarks###
-查找以$sText中指定的字符开始的第一个字符串.
-当搜索到列表箱底部时，将从顶部继续搜索直到返回由$iIndex指定的项目.
-如果$iIndex是
-?, 整个列表箱将从头搜索.
+返回匹配 $sText 参数的第一个字符串(完全匹配).
+
+当搜索到达列表框底部, 继续从列表框顶部开始搜索,
+直到 $iIndex 指定的位置为止.
+
+如果 $iIndex 为 -1,将从头开始搜索整个列表框.
 
 ###Related###
 _GUICtrlComboBox_SelectString
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

@@ -5,19 +5,18 @@ _GUICtrlComboBox_GetCueBanner
 获取显示在组合框编辑控件的提示标志文字
 
 ###Syntax###
-#Include <GuiComboBox.au3>
-_GUICtrlComboBox_GetCueBanner( $hWnd )
+#include <GuiComboBox.au3>
+_GUICtrlComboBox_GetCueBanner($hWnd)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
+$hWnd
+	控件的控件ID/句柄
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 提示标志文字
-失败: 空字符串 ""
-@@End@@
+成功:	返回提示文本
+失败:	返回空串 ""
 
 ###Remarks###
 提示标志是指当组合框的编辑控件中无选项时显示的文本
@@ -25,33 +24,6 @@ _GUICtrlComboBox_GetCueBanner( $hWnd )
 
 ###Related###
 _GUICtrlComboBox_SetCueBanner
- #AutoIt3Wrapper_Au3Check_Parameters=-d -w 1 -w 2 -w 3 -w 4 -w 5 -w 6
- #include <GUIComboBox.au3>
- #include <GuiConstantsEx.au3>
- #include <WindowsConstants.au3>
- Opt ( ' MustDeclareVars ', 1 )
- $Debug_CB = False ; 检查传递给函数的类名, 设置为真并使用另一控件句柄观察其工作
- Global $iMemo
- _Main()
- Func _Main()
-   Local $hCombo
-   ; 创建界面
-   GUICreate ( " ComboBox ", 400 , 296 )
-   $hCombo = GUICtrlCreateCombo ( Select an Item " )
-   $iMemo = GUICtrlCreateEdit ( "", 10 , 50 , 376 , 234 , $WS_VSCROLL )
-   GUICtrlSetFont ( $iMemo , 9 , 400 , 0 , " Courier New " )
-   GUISetState ()
-   ; 添加文件
-   _GUICtrlComboBox_BeginUpdate ( $hCombo )
-   _GUICtrlComboBox_AddDir ( $hCombo , @WindowsDir & " \*.exe " )
-   _GUICtrlComboBox_EndUpdate ( $hCombo )
-   MemoWrite( " Cue Banner: " & _GUICtrlComboBox_GetCueBanner ( $hCombo ))
-   ; 循环至用户退出
-   Do
-   Until GUIGetMsg () = $GUI_EVENT_CLOSE
-   GUIDelete ()
- EndFunc ;==>_Main
- ; 写入memo控件
- Func MemoWrite( $sMessage )
-   GUICtrlSetData ( $iMemo , $sMessage &@crlf , 1 )
- EndFunc ;==>MemoWrite
+
+###Example###
+@@IncludeExample@@

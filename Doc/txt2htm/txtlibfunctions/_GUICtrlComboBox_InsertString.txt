@@ -5,30 +5,31 @@ _GUICtrlComboBox_InsertString
 插入字符串
 
 ###Syntax###
-#Include<GuiComboBox.au3>
-_GUICtrlComboBox_InsertString($hWnd, $sText[, $iIndex= -1])
+#include <GuiComboBox.au3>
+_GUICtrlComboBox_InsertString($hWnd, $sText [, $iIndex = -1])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $sText  要插入的文本字符串
- $iIndex  指定插入位置的从0开始的索引
+$hWnd
+	控件的控件ID/句柄
+$sText
+	要插入的文本字符串
+$iIndex
+	[可选参数] 插入字符串位置的 0 基索引.
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 插入字符串的位置基于0的索引
-失败: -1
-@@End@@
+成功:	返回插入位置的 0 基索引 
+失败:	返回 -1
 
 ###Remarks###
-如果$iIndex参数为 ? , 字符串被添加到列表尾.
-如果组合框具有$WS_HSCROLL风格且添加的字符串比组合框宽 , 则应该使用_GUICtrlComboBox_SetHorizontalExtent函数使得水平滚动条出现.
+如果 $iIndex 参数为 -1,该字符串被添加到列表框的末尾.
+
+如果组合控件已具有 $WS_HSCROLL 样式,且你插入字符串位置大于组合控件,
+你应该使用 _GUICtrlComboBox_SetHorizontalExtent 函数确保控件出现水平滚动条.
 
 ###Related###
-_GUICtrlComboBox_AddString , _GUICtrlComboBox_InitStorage
-
-###See Also###
+_GUICtrlComboBox_AddString, _GUICtrlComboBox_InitStorage
 
 ###Example###
 @@IncludeExample@@

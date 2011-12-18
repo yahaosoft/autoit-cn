@@ -2,28 +2,37 @@
 _GUICtrlComboBox_LimitText
 
 ###Description###
-限制用户键入组合框编辑控件的文本长度
+限制组合控件编辑框文本输入长度
 
 ###Syntax###
-#Include<GuiComboBox.au3>
-_GUICtrlComboBox_LimitText($hWnd[, $iLimit =0])
+#include <GuiComboBox.au3>
+_GUICtrlComboBox_LimitText($hWnd [, $iLimit = 0])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iLimit  文本的限制长度
+$hWnd
+	控件的控件ID/句柄
+$iLimit
+	[可选参数] 指定文本的限制长度
 @@End@@
 
+###ReturnValue###
+None.
+
 ###Remarks###
-如果$iLimit参数为0 , 文本长度被限制在0x7FFFFFFE字符以内.
-如果组合框没有$CBS_AUTOHSCROLL风格 , 设置文本限制大于编辑框大小不产生任何影响.
-_GUICtrlComboBox_LimitText函数只限制用户能输入的文本. 它不会影响消息发送时编辑控件中已存在的任何文本 , 也不会影响复制到编辑控件的从列表箱中被选择的字符串的长度
-用户输入的默认文本长度为 30,000
-个字符
+如果 $iLimit 参数为 0,文本长度被限制为 0x7FFFFFFE 个字符.
+
+如果组合控件没有 $CBS_AUTOHSCROLL 样式,
+设置限制大于编辑框的尺寸时没有任何效果.
+
+此函数仅限制用户可以输入的文本.
+在编辑控件发送消息时,没有任何文字影响,
+也不会影响列表框选中文本复制到编辑框中的长度.
+
+默认限制用户可以在文本编辑控件中输入 30,000 个字符
+
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

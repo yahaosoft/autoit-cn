@@ -5,30 +5,29 @@ _GUICtrlComboBox_SetMinVisible
 设置组合框下拉列表可见项目的最小数量
 
 ###Syntax###
-#Include<GuiComboBox.au3>
-_GUICtrlComboBox_SetMinVisible($hWnd,$iMinimum)
+#include <GuiComboBox.au3>
+_GUICtrlComboBox_SetMinVisible($hWnd, $iMinimum)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iMinimum  指定可见项的最小数量
+$hWnd
+	控件的控件ID/句柄
+$iMinimum
+	指定可见项的最小数量
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 真
-失败: 假
-@@End@@
+成功:	返回 True 
+失败:	返回 False
 
 ###Remarks###
-当列表中的项目多于最小数量时组合框使用滚动条. 默认可见项目的最小值为 30.
-当组合框具有
-$CBS_NOINTEGRALHEIGHT.风格时 , 该消息默认忽略
+当列表中项目大于最小数目,组合框将使用滚动条.
+默认情况下,30 项是可见的最低数量.
+
+如组合控件具有 $CBS_NOINTEGRALHEIGHT 样式,则忽略此函数.
 
 ###Related###
 _GUICtrlComboBox_GetMinVisible
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

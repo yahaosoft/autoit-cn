@@ -5,29 +5,26 @@ _GUICtrlComboBox_GetMinVisible
 获取组合框下拉列表中可见项目的最小数量
 
 ###Syntax###
-#Include<GuiComboBox.au3>
+#include <GuiComboBox.au3>
 _GUICtrlComboBox_GetMinVisible($hWnd)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
+$hWnd
+	控件的控件ID/句柄
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 真
-失败: 假
-@@End@@
+成功:	返回 True
+失败:	返回 False
 
 ###Remarks###
-当下拉列表中的项目多于最小数目是组合框将使用滚动条.
-如果组合框具有 $CBS_NOINTEGRALHEIGHT
-风格 ' 该函数失效
+当列表中项目大于最小数目,组合框将使用滚动条.
+
+如组合控件具有 $CBS_NOINTEGRALHEIGHT 样式,则忽略此函数.
 
 ###Related###
 _GUICtrlComboBox_SetMinVisible
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

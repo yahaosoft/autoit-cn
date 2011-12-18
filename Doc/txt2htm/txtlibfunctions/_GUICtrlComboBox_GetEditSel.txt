@@ -5,28 +5,26 @@ _GUICtrlComboBox_GetEditSel
 获取组合框的编辑控件里当前选项开始和结束字符的位置
 
 ###Syntax###
-#Include<GuiComboBox.au3>
-_GUICtrlComboBox_GetEditSel( $hWnd )
+#include <GuiComboBox.au3>
+_GUICtrlComboBox_GetEditSel($hWnd)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
+$hWnd
+	控件的控件ID/句柄
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 如下格式数组:
-   [0] - 开始位置
-   [1] - 结束位置
-失败: -1
-@@End@@
+成功:	返回如下格式的数组: 
+	[0] - 起始位置. 
+	[1] - 结束位置. 
+失败:	返回 -1
 
 ###Remarks###
+如果消息发送到具有 $CBS_DROPDOWN 或 $CBS_DROPDOWNLIST 样式的组合框, 该函数将失败. 
 
 ###Related###
-_GUICtrlComboBox_SetEditSel , _GUICtrlComboBoxEx_SetEditSel
-
-###See Also###
+_GUICtrlComboBox_SetEditSel, _GUICtrlComboBoxEx_SetEditSel
 
 ###Example###
 @@IncludeExample@@
