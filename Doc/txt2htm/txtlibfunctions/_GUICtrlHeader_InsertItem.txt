@@ -5,37 +5,43 @@ _GUICtrlHeader_InsertItem
 插入新的标题项目
 
 ###Syntax###
-#Include<GuiHeader.au3>
-_GUICtrlHeader_InsertItem($hWnd, $iIndex, $sText[,$iWidth = 50[, $iAlign = 0[, $iImage = -1[, $fOnRight = False]]]])
+#include <GuiHeader.au3>
+_GUICtrlHeader_InsertItem($hWnd, $iIndex, $sText [, $iWidth = 50 [, $iAlign = 0 [, $iImage = -1 [, $fOnRight = False]]]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iIndex  插入新项目位置的上一个项目的索引. 当索引大于等于控件内项目数量时在控件尾插入新项目.
-  如果索引为0,
-新项目添加到控件开始.
- $sText  项目文本
- $iWidth  项目宽度
- $iAlign  文本对齐方式:
-0 - 左对齐
-1 - 右对齐
-2 - 居中对齐
- $iImage  图像列表中图像的索引
- $fOnRight  如果为真, 列图像在文字右侧
+$hWnd
+	控件句柄
+$iIndex
+	插入位置的上一个项目索引.
+		如果索引大于或等于控件项目数, 插入新的项目在控件末尾
+		如果索引为 0, 插入新的项目在控件的顶部.
+$sText
+	标题项目文本.参考备注.
+$iWidth
+	[可选参数] 项目宽度
+$iAlign
+	[可选参数] 文本对齐方式:
+		0 - 左对齐
+		1 - 右对齐
+		2 - 居中对齐
+$iImage
+	[可选参数] 图像在图像列表的 0 基索引
+$fOnRight
+	[可选参数] 如设置为 True, 列图像显示在文本右侧.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 新项目索引
-Failure: -1
+成功:	返回项目索引
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
+If a notification callback is needed, you have to specify $sText = -1 (LPSTR_TEXTCALLBACK).
 
 ###Related###
-_GUICtrlHeader_AddItem , _GUICtrlHeader_DeleteItem
-
-###See Also###
+_GUICtrlHeader_AddItem, _GUICtrlHeader_DeleteItem
 
 ###Example###
 @@IncludeExample@@
