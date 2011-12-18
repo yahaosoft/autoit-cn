@@ -5,20 +5,22 @@ _GUICtrlButton_Click
 模拟用户点击按钮
 
 ###Syntax###
-#Include <GuiButton.au3>
+#include <GuiButton.au3>
 _GUICtrlButton_Click($hWnd)
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	控件句柄
+	控件的控件ID/句柄
 @@End@@
 
 ###ReturnValue###
 None.
 
 ###Remarks###
-如果按钮处于非活动对话框中 , _GUICtrlButton_Click可能失败. 要确保成功 , 在将_GUICtrlButton_Click发送到按钮之前必须调用WinActivate函数激活对话框.
+如果这个按钮在一个对话框里,并且对话框不处于活动状态, _GUICtrlButton_Click 可能会失败.
+如果需要提高成功率, 先调用 WinActivate 函数激活对话框后再发送
+_GUICtrlButton_Click 到按钮.
 
 ###Related###
 
