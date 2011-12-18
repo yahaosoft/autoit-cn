@@ -19,7 +19,7 @@
 <p>Run the script - if all goes well then a new instance of Notepad should open. </p>
 <p>When automating applications AutoIt can check for window title so that it knows which window it should work with. With Notepad the window title is obviously <strong>Untitled - Notepad</strong>. AutoIt is case-sensitive when using window titles so you must get the title exactly right - the best way to do this is to use the AutoIt Window Information Tool. Run the Information Tool from <strong>Start Menu \ AutoIt v3 \ AutoIt Window Info</strong>.</p>
 <p>With the Info Tool open click on the newly opened Notepad window to activate it; the Info Tool will give you information about it. The information we are interested in is the window <strong>title</strong>.</p>
-<p><img src="au3spy_notepad.png" width="494" height="272" border="1"></p>
+<p><img src="au3spy_notepad.png" width="494" height="272" border="1" alt=""></p>
 <p>&nbsp;</p>
 <p>Highlight the title in the AutoIt Info Tool window and press <strong>CTRL-C</strong> to copy it to the clipboard - we can then paste the title into our script without fear of misspelling it.</p>
 <p>After <a href="../../functions/Run.htm">Run</a>ning a copy of Notepad we need to wait for it to appear and become active before we send any keystrokes. We can wait for a window using the <a href="../../functions/WinWaitActive.htm">WinWaitActive</a> function. Most window-related functions in AutoIt take a window <strong>title</strong> as a parameter.</p>
@@ -37,13 +37,13 @@ Send(&quot;This is some text.&quot;)</p>
 <p>&nbsp;</p>
 <p>Close the copy of Notepad that we previously opened (you will need to do this every time you run the script otherwise you will end up with lots of copies running!). Run the script. </p>
 <p>You should see Notepad open, and then some text will magically appear!</p>
-<p><img src="notepad1.png" width="344" height="198" border="1"></p>
+<p><img src="notepad1.png" width="344" height="198" border="1" alt=""></p>
 <p> <br>
   Next we want to close notepad, we can do this with the <a href="../../functions/WinClose.htm">WinClose</a> function.</p>
 <p class="codebox">WinClose(&quot;Untitled - Notepad&quot;)</p>
 <p>&nbsp;</p>
 <p>When Notepad tries to close you will get a message asking you to save the changes. Use the Window Info Tool to get details of the dialog that has popped up so that we can respond to it :)</p>
-<p><img src="savechanges.png" width="560" height="338" border="1"> </p>
+<p><img src="savechanges.png" width="560" height="338" border="1" alt=""> </p>
 <p>&nbsp;</p>
 <p>So, we add a line to wait for this dialog to become active (we will also use the window text to make the function more reliable and to distinguish this new window from the original Notepad window):</p>
 <p class="codebox">WinWaitActive(&quot;Notepad&quot;, &quot;Save&quot;)</p>

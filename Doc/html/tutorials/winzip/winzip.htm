@@ -13,7 +13,7 @@
 <p>The WinZip installation consists of approximately 10 dialog boxes that you must click buttons (usually <strong>Next</strong>) to continue. We are going to write a script that simply waits for these dialog boxes to appear and then clicks the appropriate buttons. As usual with these types of installations the window title of each dialog is the same (WinZip Setup) so we must use window text to tell the difference between windows. Screenshots of each dialog will be provided and you can click on the picture to see the <a href="../../intro/au3spy.htm">Information Tool</a> output for that dialog. </p>
 <p>&nbsp;</p>
 <p>First create a directory that we will use for the WinZip installer and our script file. Copy the WinZip installer to this directory and create a blank script called <strong>winzipinstall.au3</strong>. </p>
-<p><img src="folder.png" width="361" height="244" border="1"></p>
+<p><img src="folder.png" width="361" height="244" border="1" alt=""></p>
 <p>&nbsp;</p>
 <p>We will now run through the installation manually and write the script as we go. The script lines to automate each dialog will be shown after each picture (remember to click on the picture to see the AutoIt Window Information Tool output). You can also look at the <a href="script.txt">completed script</a> for reference.</p>
 <p>&nbsp;</p>
@@ -21,58 +21,58 @@
 <p class="codebox">Run(&quot;winzip90.exe&quot;)</p>
 <p>&nbsp;</p>
 <p>The first dialog will pop-up:</p>
-<p><a href="dialog1.txt"><img src="dialog1.png" width="413" height="139" border="1"></a></p>
+<p><a href="dialog1.txt"><img src="dialog1.png" width="413" height="139" border="1" alt=""></a></p>
 <p>We need to wait for this window to popup and become active, and then we need to send the keystroke <strong>ALT-s</strong> to click the <strong>Setup</strong> button. The resulting script lines are: </p>
 <p class="codebox">WinWaitActive(&quot;WinZip&reg; 9.0 SR-1 Setup&quot;, &quot;&amp;Setup&quot;)<br>
 Send(&quot;!s&quot;)</p>
 <p>(Remember to click on the picture to see the AutoIt Window Information Tool output, this is especially important as the title contains the special (R) character which would be difficult to type).</p>
 <p>&nbsp;</p>
 <p>The installation location dialog will appear next: </p>
-<p><a href="dialog2.txt"><img src="dialog2.png" width="320" height="199" border="1"></a></p>
+<p><a href="dialog2.txt"><img src="dialog2.png" width="320" height="199" border="1" alt=""></a></p>
 <p>We need to wait for this screen to be active and then click ENTER to accept the install location. The script lines are:</p>
 <p class="codebox">WinWaitActive(&quot;WinZip Setup&quot;, &quot;into the following folder&quot;)<br>
 Send(&quot;{ENTER}&quot;)</p>
 <p>&nbsp;</p>
 <p>The WinZip Features dialog will appear next: </p>
-<p><a href="dialog3.txt"><img src="dialog3.png" width="471" height="333" border="1"></a></p>
+<p><a href="dialog3.txt"><img src="dialog3.png" width="471" height="333" border="1" alt=""></a></p>
 <p>Notice that this window has exactly the same title as the first of <strong>WinZip Setup</strong> - in fact all the dialogs in the setup have this title! In order to tell the difference between these windows we must also use the window text - on each screen try to pick the most unique text you can. In this case 
 I've chosen <strong>WinZip features include</strong>. After the window has appeared we will want to press <strong>ALT-n</strong>:</p>
 <p class="codebox">WinWaitActive(&quot;WinZip Setup&quot;, &quot;WinZip features include&quot;)<br>
 Send(&quot;!n&quot;)</p>
 <p>&nbsp;</p>
 <p>The License dialog will appear next: </p>
-<p><a href="dialog4.txt"><img src="dialog4.png" width="452" height="279" border="1"></a></p>
+<p><a href="dialog4.txt"><img src="dialog4.png" width="452" height="279" border="1" alt=""></a></p>
 <p>Wait for the window to appear and then press <strong>ALT-y</strong> to accept the agreement:</p>
 <p class="codebox">WinWaitActive(&quot;License Agreement&quot;)<br>
 Send(&quot;!y&quot;)</p>
 <p>&nbsp;</p>
 <p>Setup continues in a similar fashion for a few dialogs. The picture of each dialog is shown along with the script lines needed to automate it.</p>
 <p>&nbsp;</p>
-<p><a href="dialog5.txt"><img src="dialog5.png" width="471" height="333" border="1"></a> </p>
+<p><a href="dialog5.txt"><img src="dialog5.png" width="471" height="333" border="1" alt=""></a> </p>
 <p class="codebox">WinWaitActive(&quot;WinZip Setup&quot;, &quot;Quick Start Guide&quot;)<br>
 Send(&quot;!n&quot;)</p>
 <p>&nbsp;</p>
-<p><a href="dialog6.txt"><img src="dialog6.png" width="471" height="333" border="1"></a></p>
+<p><a href="dialog6.txt"><img src="dialog6.png" width="471" height="333" border="1" alt=""></a></p>
 <p class="codebox">WinWaitActive(&quot;WinZip Setup&quot;, &quot;switch between the two interfaces&quot;)<br>
   Send(&quot;!c&quot;)<br>
 Send(&quot;!n&quot;)</p>
 <p>&nbsp;</p>
-<p><a href="dialog7.txt"><img src="dialog7.png" width="471" height="333" border="1"></a></p>
+<p><a href="dialog7.txt"><img src="dialog7.png" width="471" height="333" border="1" alt=""></a></p>
 <p class="codebox">WinWaitActive(&quot;WinZip Setup&quot;, &quot;&amp;Express setup (recommended)&quot;)<br>
   Send(&quot;!e&quot;)<br>
 Send(&quot;!n&quot;)</p>
 <p>&nbsp;</p>
-<p><a href="dialog8.txt"><img src="dialog8.png" width="471" height="333" border="1"></a></p>
+<p><a href="dialog8.txt"><img src="dialog8.png" width="471" height="333" border="1" alt=""></a></p>
 <p class="codebox">WinWaitActive(&quot;WinZip Setup&quot;, &quot;WinZip needs to associate itself with your archives&quot;)<br>
 Send(&quot;!n&quot;)</p>
 <p>&nbsp;</p>
-<p><a href="dialog9.txt"><img src="dialog9.png" width="471" height="333" border="1"></a></p>
+<p><a href="dialog9.txt"><img src="dialog9.png" width="471" height="333" border="1" alt=""></a></p>
 <p>This is the final dialog of the setup. Notice that the <strong>Finish</strong> button doesn't have a keyboard shortcut - luckily it is the default button on this dialog so we can just press ENTER to select it. If this were not the case then we would have to TAB between controls or better yet use the <a href="../../functions/ControlClick.htm">ControlClick</a> function. </p>
 <p class="codebox">WinWaitActive(&quot;WinZip Setup&quot;, &quot;Thank you for installing this evaluation version&quot;)<br>
 Send(&quot;{ENTER}&quot;)</p>
 <p>&nbsp;</p>
 <p>After installation WinZip will automatically start:</p>
-<p><a href="dialog10.txt"><img src="dialog10.png" width="566" height="347" border="1"></a></p>
+<p><a href="dialog10.txt"><img src="dialog10.png" width="566" height="347" border="1" alt=""></a></p>
 <p>We simply wait for the main WinZip window to appear and then close it with the <a href="../../functions/WinClose.htm">WinClose</a> function. </p>
 <p class="codebox">WinWaitActive(&quot;WinZip (Evaluation Version)&quot;)<br>
 WinClose(&quot;WinZip (Evaluation Version)&quot;)</p>
