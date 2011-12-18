@@ -5,30 +5,30 @@ _GUICtrlHeader_GetItem
 获取项目信息
 
 ###Syntax###
-#Include<GuiHeader.au3>
-_GUICtrlHeader_GetItem($hWnd, $iIndex, ByRef$tItem)
+#include <GuiHeader.au3>
+_GUICtrlHeader_GetItem($hWnd, $iIndex, ByRef $tItem)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iIndex  项目的0基索引
- $tItem  $tagHDITEM 结构
+$hWnd
+	控件句柄
+$iIndex
+	项目的 0 基索引
+$tItem
+	$tagHDITEM 结构
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 真
-失败: 假
-@@End@@
+成功:	返回 True
+失败:	返回 False
 
 ###Remarks###
-信息发送时, 掩码成员指示请求的信息类型. 信息返回时, 其他成员接收到请求信息. 如果掩码成员指定为0, 信息返回真,
-但不向结构复制信息.
+ 发送消息时, mask 成员表示被请求的信息类型.
+ 消息返回时,其他成员收到所要求的资料.
+ 如果 mask 成员指定为零,消息将返回 True,没有任何信息拷贝到数据结构.
 
 ###Related###
-_GUICtrlHeader_SetItem , $tagHDITEM
-
-###See Also###
+_GUICtrlHeader_SetItem, $tagHDITEM
 
 ###Example###
 @@IncludeExample@@
