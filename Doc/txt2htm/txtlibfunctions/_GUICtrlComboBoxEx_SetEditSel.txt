@@ -5,32 +5,33 @@ _GUICtrlComboBoxEx_SetEditSel
 选择组合框编辑控件中的字符
 
 ###Syntax###
-#Include<GuiComboBoxEx.au3>
-_GUICtrlComboBoxEx_SetEditSel($hWnd, $iStart,$iStop)
+#include <GuiComboBoxEx.au3>
+_GUICtrlComboBoxEx_SetEditSel($hWnd, $iStart, $iStop)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iStart  开始位置
- $iStop  结束位置
+$hWnd
+	控件句柄
+$iStart
+	起始位置.
+$iStop
+	结束位置
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 真
-失败: 如果信息发送给一个具有$CBS_DROPDOWN或$CBS_DROPDOWNLIST风格的组合框为假
-@@End@@
+成功:	返回 True
+失败:	返回 False,（消息被发送到一个具有 $CBS_DROPDOWN 或 $CBS_DROPDOWNLIST 样式的组合控件时.
 
 ###Remarks###
-位置以0为基础. 编辑控件的第一个字符是0位.
-如果$iStop为? , 编辑控件中从开始位置到最后一个字符的所有文本均被选中.
-最后被选择的字符之后的第一个字符是结束位置.
-例如 , 选择编辑框中的前四个字符 , 使用0作为开始位置且4为结束位置.
+位置从 0 开始计算. 编辑控件的第一个字符为 0 位.
+如果 $iStop 为 –1, 则编辑框中从开始到最后字符的所有文本均被选中.
+
+选择第一个字符后,再选择字符的结束位置.
+
+例如,要选择编辑框中前四个字符,使用 0 起始位置和 4 结束位置. 
 
 ###Related###
- _GUICtrlComboBox_GetEditSel , _GUICtrlComboBoxEx_GetEditSel
-
-###See Also###
+_GUICtrlComboBox_GetEditSel, _GUICtrlComboBoxEx_GetEditSel
 
 ###Example###
 @@IncludeExample@@

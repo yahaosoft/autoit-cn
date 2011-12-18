@@ -5,29 +5,31 @@ _GUICtrlComboBoxEx_SetCurSel
 从组合框列表中选择一个字符串
 
 ###Syntax###
-#Include<GuiComboBoxEx.au3>
-_GUICtrlComboBoxEx_SetCurSel($hWnd[, $iIndex = -1])
+#include <GuiComboBoxEx.au3>
+_GUICtrlComboBoxEx_SetCurSel($hWnd [, $iIndex = -1])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iIndex  指定被选的字符串以0开始的索引
+$hWnd
+	控件句柄
+$iIndex
+	[可选参数] 指定被选的字符串以0开始的索引
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 被选定项目的索引
-失败: -1
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-如果$iIndex为? , 列表中的任何当前选项被移走且编辑框被清空.
-如果$iIndex大于列表中的项目数或者$iIndex为? , 返回值为-1且选项被清除.
+如果 $iIndex 为 –1, 列表中的任何当前选项将被删除且编辑框被清空.
+
+如果 $iIndex 大于列表中的项目数量,
+或 $iIndex 为 –1, 则返回值为 -1,选中项将被清除.
 
 ###Related###
 _GUICtrlComboBoxEx_GetCurSel
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

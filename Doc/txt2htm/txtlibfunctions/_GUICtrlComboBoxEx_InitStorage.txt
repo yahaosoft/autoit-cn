@@ -2,35 +2,35 @@
 _GUICtrlComboBoxEx_InitStorage
 
 ###Description###
-给存储列表箱项目分配内存
+分配用于存储列表框项目的内存
 
 ###Syntax###
-#Include<GuiComboBoxEx.au3>
-_GUICtrlComboBoxEx_InitStorage( $hWnd, $iNum,$iBytes )
+#include <GuiComboBoxEx.au3>
+_GUICtrlComboBoxEx_InitStorage($hWnd, $iNum, $iBytes)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iNum  添加的项目数量
- $iBytes  分配给项目字符串的内存数量, 以字节为单位
+$hWnd
+	控件句柄
+$iNum
+	项目数量
+$iBytes
+	内存分配字节数
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 预先分配的内存支持的项目总数
-失败: $CB_ERRSPACE
-@@End@@
+成功:	返回预分配内存总数
+失败:	$CB_ERRSPACE
 
 ###Remarks###
-帮助加速有很多项目(超过100)的组合框的初始化.
-可以估计$iNum和$iBytes参数.
-如果超过了 , 可分配额外内存.
-如果低于 , 给超过数量的项目使用普通分配.
+有助于加快组合控件具有大量(超过 100)项目时的初始化.
+
+可以使用 $iNum 与 $iBytes 参数估计所需内存量.
+如果你估计过高,会分配多余的额外内存.
+如果你估计过低, 正常分配的内存将用于超过要求的项目数额.
 
 ###Related###
-_GUICtrlComboBoxEx_AddDir , _GUICtrlComboBoxEx_AddString , _GUICtrlComboBoxEx_InsertString
-
-###See Also###
+_GUICtrlComboBoxEx_AddDir, _GUICtrlComboBoxEx_AddString, _GUICtrlComboBoxEx_InsertString
 
 ###Example###
 @@IncludeExample@@
