@@ -5,29 +5,27 @@ _GUICtrlEdit_Undo
 撤销编辑控件撤销队列中最后的操作
 
 ###Syntax###
-#Include<GuiEdit.au3>
+#include <GuiEdit.au3>
 _GUICtrlEdit_Undo($hWnd)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
+$hWnd
+	控件的控件ID/句柄
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 真
-失败: 假
-@@End@@
+成功:	返回 True
+失败:	返回 False
 
 ###Remarks###
 撤销操作也可以被撤销.
-例如, 你可以用第一个_GUICtrlEdit_Undo保存删除的文本,
-并使用第二个_GUICtrlEdit_Undo再次删除只要没有介入编辑操作.
+例如,您可以恢复第一次 _GUICtrlEdit_Undo 操作的文本, 
+再执行第二次 _GUICtrlEdit_Undo 操作删除文本,只要两次之间没有干预编辑操作. 
+
 
 ###Related###
-_GUICtrlEdit_CanUndo , _GUICtrlEdit_EmptyUndoBuffer , _GUICtrlEdit_GetModify
-
-###See Also###
+_GUICtrlEdit_CanUndo, _GUICtrlEdit_EmptyUndoBuffer, _GUICtrlEdit_GetModify
 
 ###Example###
 @@IncludeExample@@

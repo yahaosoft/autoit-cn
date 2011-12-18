@@ -2,31 +2,43 @@
 _GUICtrlEdit_SetMargins
 
 ###Description###
-设置左右边距
+设置左、右边距的宽度
 
 ###Syntax###
-#Include<GuiEdit.au3>
-_GUICtrlEdit_SetMargins($hWnd[, $iMargin = 0x1[, $iLeft =0xFFFF[, $iRight = 0xFFFF]]])
+#include <GuiEdit.au3>
+_GUICtrlEdit_SetMargins($hWnd [, $iMargin = 0x1 [, $iLeft = 0xFFFF [, $iRight = 0xFFFF]]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iMargin  下列值得一个或多个
-$EC_LEFTMARGIN - 左边距
-$EC_RIGHTMARGIN - 右边距
-  默认: $EC_LEFTMARGIN
- $iLeft  新左边距宽
-  默认: $EC_USEFONTINFO
- $iRight  新右边距宽
-  默认: $EC_USEFONTINFO
+$hWnd
+	控件的控件ID/句柄
+$iMargin
+	[可选参数] 可以是下列一或多个值:
+		$EC_LEFTMARGIN - 设置左边距
+		$EC_RIGHTMARGIN - 设置右边距
+
+		默认: $EC_LEFTMARGIN 设置左边距
+$iLeft
+	[可选参数] 左边距宽度
+
+		默认: $EC_USEFONTINFO
+$iRight
+	[可选参数] 右边距宽度
+
+		默认: $EC_USEFONTINFO
 @@End@@
 
+###ReturnValue###
+返回如下格式的数组:
+[0] - 左边距宽度
+[1] - 右边距宽度
+
+
 ###Remarks###
+None.
 
 ###Related###
 _GUICtrlEdit_GetMargins
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

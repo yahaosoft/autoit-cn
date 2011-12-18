@@ -5,33 +5,34 @@ _GUICtrlEdit_LineScroll
 垂直滚动文本
 
 ###Syntax###
-#Include <GuiEdit.au3>
-_GUICtrlEdit_Scroll($hWnd,$iDirection)
+#include <GuiEdit.au3>
+_GUICtrlEdit_LineScroll($hWnd, $iHoriz, $iVert)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iDirection  该参数可为下列值:
-$SB_LINEDOWN - 向下滚动一行
-$SB_LINEUP - 向上滚动一行
-$SB_PAGEDOWN - 向下滚动一页
-$SB_PAGEUP - 向上滚动一页
-$SB_SCROLLCARET - 将目标滚动入视图
+$hWnd
+	控件的控件ID/句柄
+$iHoriz
+	指定水平滚动的字符数.
+$iVert
+	指定垂直滚动的行数.
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 返回值的高位文字为真. 低位文字为命令滚动的行数
-失败: 0
-@@End@@
+成功:	返回 True
+失败:	返回 False
 
 ###Remarks###
-$SB_xxxxx必须包含ScrollBarConstants.au3
+垂直滚动不超过编辑控件的最后一行.
+
+如果当前行加上 $iVert 参数指定行数超过控件总行数,
+该值调整,以便修改最后一行滚动到编辑控件窗口的顶部.
+
+_GUICtrlEdit_LineScroll 将垂直或水平滚动文本.
+_GUICtrlEdit_LineScroll 可水平滚动到任何行的最后一个字符.
 
 ###Related###
-_GUICtrlEdit_LineScroll
-
-###See Also###
+_GUICtrlEdit_Scroll
 
 ###Example###
 @@IncludeExample@@

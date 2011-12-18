@@ -5,33 +5,29 @@ _GUICtrlEdit_GetRECT
 获取一个编辑框控件的格式化矩形
 
 ###Syntax###
-#Include<GuiEdit.au3>
+#include <GuiEdit.au3>
 _GUICtrlEdit_GetRECT($hWnd)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
+$hWnd
+	控件的控件ID/句柄
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 如下格式的包含RECT的数组:
-    [0] - 矩形左上角 X
-坐标
-    [1] - 矩形左上角 Y 坐标
-    [2] - 矩形右下角 X
-坐标
-    [3] - 矩形右下角 Y 坐标
-@@End@@
+成功:	返回矩形的以下格式数组:
+
+	[0] - 矩形左上角 X 坐标
+	[1] - 矩形左上角 Y 坐标
+	[2] - 矩形右下角 X 坐标
+	[3] - 矩形右下角 Y 坐标
 
 ###Remarks###
-在特定条件下, _GUICtrlEdit_GetRECT 不会返回准确值，_GUICtrlEdit_SetRECT
-的设置可以大致更正, 但是可能释放一些像素.
+在某种情况下, _GUICtrlEdit_GetRECT 可能不返回准确值.
+_GUICtrlEdit_SetRECT 设置的是近似值,但它可以保留少许像素.
 
 ###Related###
 _GUICtrlEdit_GetRECTEx
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

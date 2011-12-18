@@ -2,28 +2,32 @@
 _GUICtrlEdit_SetLimitText
 
 ###Description###
-设置文本限制
+设置文本限制值
 
 ###Syntax###
-#Include<GuiEdit.au3>
+#include <GuiEdit.au3>
 _GUICtrlEdit_SetLimitText($hWnd, $iLimit)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iLimit  用户可输入的 TCHARs 的最大数量
+$hWnd
+	控件的控件ID/句柄
+$iLimit
+	用户可以输入的最大 TCHAR 数
 @@End@@
 
+###ReturnValue###
+None.
+
 ###Remarks###
-_GUICtrlEdit_SetLimitText 只限制用户输入的文本.
-当信息发送时不会影响任何已存在于控件中的文本, 也不会影响由_GUICtrlEdit_SetText函数复制到控件的到控件的文本的长度.
-如果希望_GUICtrlEdit_SetText函数放置比由_GUICtrlEdit_SetLimitText函数指定的数目更多的文本到编辑控件中,
-用户可编辑编辑框控件的全部内容.
+本函数仅限制用户可以输入文本的数量.
+不会影响编辑控件中用于发送消息的任何文字. 	
+也不影响 _GUICtrlEdit_SetText 函数复制到编辑控件的文本长度. 
+如果应用程序使用 _GUICtrlEdit_SetText 函数设置的字符数,大于 _GUICtrlEdit_SetLimitText 限制值,
+用户可以编辑控件内的全部内容.(译注:可能是指适当删除部分字符,以满足限制值吧!?) 
 
 ###Related###
 _GUICtrlEdit_GetLimitText
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

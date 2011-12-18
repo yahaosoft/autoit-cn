@@ -5,36 +5,32 @@ _GUICtrlEdit_Scroll
 垂直滚动文本
 
 ###Syntax###
-#Include <GuiEdit.au3>
-_GUICtrlEdit_Scroll($hWnd,$iDirection)
+#include <GuiEdit.au3>
+_GUICtrlEdit_Scroll($hWnd, $iDirection)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iDirection  参数可以是下列值之一:
-$SB_LINEDOWN - 向下滚动一行
-$SB_LINEUP -
-      向上滚动一行
-$SB_PAGEDOWN - 向下滚动一页
-$SB_PAGEUP - 向上滚动一页
-$SB_SCROLLCARET
-      - 滚动到视图中最后一个字符所在行
+$hWnd
+	控件的控件ID/句柄
+$iDirection
+	这个参数可以是以下值之一:
+		$SB_LINEDOWN - 向下滚动一行
+		$SB_LINEUP - 向上滚动一行
+		$SB_PAGEDOWN - 向下滚动一页
+		$SB_PAGEUP - 向上滚动一页
+		$SB_SCROLLCARET - 滚动插入符号到可见
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 返回值的高位文本为TRUE
-    低位文本为滚动行数
-失败: 返回0
-@@End@@
+成功:	返回值的高序位字为 TRUE
+	低序位为滚动行数
+失败:	返回 0
 
 ###Remarks###
-$SB_xxxxx需要ScrollBarConstants.au3
+参数 $SB_xxxxx 要求 ScrollBarConstants.au3 文件定义常量.
 
 ###Related###
 _GUICtrlEdit_LineScroll
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@
