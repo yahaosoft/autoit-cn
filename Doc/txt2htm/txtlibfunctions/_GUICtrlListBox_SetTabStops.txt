@@ -2,37 +2,35 @@
 _GUICtrlListBox_SetTabStops
 
 ###Description###
-设置标签中止符的位置
+设置制表符停止位置
 
 ###Syntax###
-#Include<GuiListBox.au3>
+#include <GuiListBox.au3>
 _GUICtrlListBox_SetTabStops($hWnd, $aTabStops)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $aTabStops  如下格式数组:
-[0] - 数组中标签中止符的数量
-[1] - 首个标签中止符
-[2] - 第二个标签中止符
-[n]
-      - 第N个标签中止符
+$hWnd
+	控件的控件ID/句柄
+$aTabStops
+	如下格式数组:
+		[0] - 数组中制表位数量
+		[1] - 第一制表位
+		[2] - 第二制表位
+		[n] - 第 N 制表位
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 真
-失败: 假
-@@End@@
+成功:	返回 True
+失败:	返回 False
 
 ###Remarks###
-$aTabStops中的整数代表被选入列表箱的字体的平均字符宽度的1/4的数字.
-例如, 为4的标签中止符被放置在1.0字符单位, 为6的放置在1.5个字符单位. 然而, 当列表箱是对话框的一部分时, 整数值使用对话框模板单位.
-标签中止符必须是升序; 不允许反序标签.
+ $aTabStops 中的整数代表被选入列表框的字体的平均字符宽度 	
+ 例如,一个 4 制表位占 1.0 字符单位;6 制表位占 1.5 字符单位.
+ 如果列表框是一个对话框的一部分时,整数值使用对话框模板单位. 
+ 制表位必须按升序排列;反序制表位是不允许的.
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

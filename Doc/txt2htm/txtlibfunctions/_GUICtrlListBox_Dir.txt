@@ -2,44 +2,43 @@
 _GUICtrlListBox_Dir
 
 ###Description###
-添加文件夹或文件名称
+添加目录和文件
 
 ###Syntax###
-#Include<GuiListBox.au3>
-_GUICtrlListBox_Dir($hWnd, $sFile[, $iAttributes = 0[,$fBrackets = True]])
+#include <GuiListBox.au3>
+_GUICtrlListBox_Dir($hWnd, $sFile [, $iAttributes = 0 [, $fBrackets = True]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $sFile  指定绝对路径, 相对路径, 或文件名
- $iAttributes  指定被添加文件或文件夹的属性:
-$DDL_READWRITE - 一般可读写文件, 无其他属性
-$DDL_READONLY -
-      只读文件
-$DDL_HIDDEN - 隐藏文件
-$DDL_SYSTEM - 系统文件
-$DDL_DIRECTORY -
-      子目录
-$DDL_ARCHIVE - 存档文件
-$DDL_DRIVES - 被添加到列表的所有盘符
-$DDL_EXCLUSIVE
-      - 指定属性的文件
- $fBrackets  使用$DDL_DRIVES时包括/排除括号
+$hWnd
+	控件的控件ID/句柄
+$sFile
+	指定一个绝对路径,相对路径,或文件名
+$iAttributes
+	[可选参数] 文件或目录的属性:
+		$DDL_READWRITE - 可读写文件, 无其他属性
+		$DDL_READONLY - 只读文件
+		$DDL_HIDDEN - 隐藏文件
+		$DDL_SYSTEM - 系统文件
+		$DDL_DIRECTORY - 包括子目录
+		$DDL_ARCHIVE - 存档文件
+		$DDL_DRIVES - 所有映射驱动器
+		$DDL_EXCLUSIVE - 仅指定属性的文件
+$fBrackets
+	[可选参数] 使用 $DDL_DRIVES 参数时是否包含括号
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 被添加的最后名称的0基索引
-失败: -1
+成功:	返回添加项目的 0 基索引
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
-如果空间不足, 返回值为$LB_ERRSPACE
+如果存储空间不足, 则返回值为 $LB_ERRSPACE
 
 ###Related###
 _GUICtrlListBox_InitStorage
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

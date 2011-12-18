@@ -2,31 +2,31 @@
 _GUICtrlListBox_SetCurSel
 
 ###Description###
-选择一个字符串, 如果必要将其滚动至视图中
+选择字符串,如有必要,则滚动到控件可见区.
 
 ###Syntax###
-#Include<GuiListBox.au3>
+#include <GuiListBox.au3>
 _GUICtrlListBox_SetCurSel($hWnd, $iIndex)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iIndex  指定被选的字符串的0基索引. 如果参数为-1, 列表箱将被设置为无选项.
+$hWnd
+	控件的控件ID/句柄
+$iIndex
+	指定被选字符串的 0 基索引.
+		如果为 -1, 列表框设置为没有选择.
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 真
-失败: 假
-@@End@@
+成功:	返回 True
+失败:	返回 False
 
 ###Remarks###
-该消息只适用于单选列表箱. 无法使用其设置或删除一个多选列表箱中的选项
+ 该函数只适用于单选列表框.
+ 你不能用它来建立或删除多重选择列表框中的选择项.
 
 ###Related###
 _GUICtrlListBox_GetCurSel
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

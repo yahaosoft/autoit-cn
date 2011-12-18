@@ -5,29 +5,29 @@ _GUICtrlListBox_AddString
 添加字符串
 
 ###Syntax###
-#Include<GuiListBox.au3>
+#include <GuiListBox.au3>
 _GUICtrlListBox_AddString($hWnd, $sText)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $sText  要添加的字符串
+$hWnd
+	控件的控件ID/句柄
+$sText
+	添加的字符串
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 字符串的0基索引
-失败: -1
-@@End@@
+成功:	返回 字符串的 0 基索引
+失败:	返回 -1
 
 ###Remarks###
-如果没有足够的空间保存新字符串 , 返回值为$LB_ERRSPACE.
-如果列表箱不具有$LBS_SORT样式 , 字符串将被添加至列表尾. 否则 , 字符串将被插入到列表, 且列表被重新排序.
+如果内存空间不足,则返回值为 $LB_ERRSPACE.
+
+如果列表框没有 $LBS_SORT 样式, 字符串被添加到列表框的末尾;
+否则,该字符串被插入到列表框自动排序位置.
 
 ###Related###
-_GUICtrlListBox_InsertString , _GUICtrlListBox_DeleteString , _GUICtrlListBox_AddFile , _GUICtrlListBox_InitStorage
-
-###See Also###
+_GUICtrlListBox_InsertString, _GUICtrlListBox_DeleteString, _GUICtrlListBox_AddFile, _GUICtrlListBox_InitStorage
 
 ###Example###
 @@IncludeExample@@

@@ -2,30 +2,36 @@
 _GUICtrlListBox_FindInText
 
 ###Description###
-查找包含指定文本的项
+搜索包含指定文本的项目
 
 ###Syntax###
-#Include<GuiListBox.au3>
-_GUICtrlListBox_FindInText($hWnd, $sText[, $iStart =-1[, $fWrapOK = True]])函数
+#include <GuiListBox.au3>
+_GUICtrlListBox_FindInText($hWnd, $sText [, $iStart = -1 [, $fWrapOK = True]])
 
-###See Also###
- $hWnd  控件句柄
- $sText  进行必配的文本
- $iStart  开始搜索的项的0基索引或从头开始为 -1. 指定项自身不包括在内.
- $fWrapOK  如果为真, 当没有找到匹配项时搜索从第一项继续
+###Parameters###
+@@ParamTable@@
+$hWnd
+	控件的控件ID/句柄
+$sText
+	匹配文本
+$iStart
+	[可选参数] 搜索开始的 0 基索引,或 -1, 从头开始.
+		指定索引项自身不包括在搜索范围内.
+$fWrapOK
+	[可选参数] 如为 True, 则没有找到匹配项时,从第一项继续搜索
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 项目的0基索引
-失败: -1
+成功:	返回项目的 0 基索引
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
-搜索时大小写敏感
+ 搜索不区分大小写
 
 ###Related###
-_GUICtrlListBox_FindString , _GUICtrlListBox_SelectString
+_GUICtrlListBox_FindString, _GUICtrlListBox_SelectString
 
 ###Example###
 @@IncludeExample@@

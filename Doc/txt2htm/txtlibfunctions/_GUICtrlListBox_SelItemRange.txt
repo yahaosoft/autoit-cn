@@ -2,33 +2,37 @@
 _GUICtrlListBox_SelItemRange
 
 ###Description###
-在多选列表箱中选择一个或多个连贯的项目
+在一个多选择列表框中选择一或多个连续的项目
 
 ###Syntax###
-#Include<GuiListBox.au3>
-_GUICtrlListBox_SelItemRange($hWnd, $iFirst, $iLast[,$fSelect = True])
+#include <GuiListBox.au3>
+_GUICtrlListBox_SelItemRange($hWnd, $iFirst, $iLast [, $fSelect = True])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iFirst  要选择的首项的0基索引
- $iLast  要选择的末项的0基索引
- $fSelect  指定如何设置选项. 如果为真, 字符串被选择且高亮显示; 如果为假, 去除高亮且不再被选中.
+$hWnd
+	控件的控件ID/句柄
+$iFirst
+	选择的首项 0 基索引
+$iLast
+	选择的末项 0 基索引
+$fSelect
+	[可选参数] 指定如何设置选项. 如果为 True, 字符串被选择且高亮显示;
+		如果为 False, 去除高亮且不再被选中.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-该函数只用多项选择列表箱. 该函数只能用在第一个65,536项中.
+ 只能使用于多重选择列表框.
+ 该函数最多能选择 65,536 个项目范围.
 
 ###Related###
 _GUICtrlListBox_SelItemRangeEx
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

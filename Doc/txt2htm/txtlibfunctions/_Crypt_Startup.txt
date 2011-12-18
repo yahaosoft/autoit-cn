@@ -5,31 +5,31 @@ _Crypt_Startup
 初始化加密库
 
 ###Syntax###
-#Include <Crypt.au3>
+#include <Crypt.au3>
 _Crypt_Startup()
 
 ###Parameters###
-@@ParamTable@@
-无
-@@End@@
+None.
+
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回真并设置@error为0
-失败: 返回假并设置@error为:
-    1 - 打开Advapi32.dll失败
-    2 - 无法获取加密环境
+成功:	返回 True
+	设置 @error 为 0
+失败:	返回 False 并设置 @error:
+	1 - 打开 Advapi32.dll 失败
+	2 - 无法获取加密环境
 @@End@@
 
 ###Remarks###
-此函数为可选调用.
-为提供与Windows 2000的向后兼容性, 对于Win2000使用PROV_RSA_FULL供给方对于WinXP或更高版本使用PROV_RSA_AES供给方
+ 调用这个函数是可选的.
+ 为了提供向后兼容性, 对于 Windows 2000 将使用 PROV_RSA_FULL provider  对于 Windows xp 及更高版本使用 PROV_RSA_AES
 
 ###Related###
- _Crypt_Shutdown
+_Crypt_Shutdown
 
 ###See Also###
- 搜索MSDN知识库中CryptAcquireContext的相关信息
+@@MsdnLink@@ CryptAcquireContext
 
 ###Example###
 @@IncludeExample@@
