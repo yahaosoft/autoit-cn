@@ -2,35 +2,37 @@
 _GUICtrlListView_ApproximateViewRect
 
 ###Description###
-计算显示给定数量项目所必需的近似大小
+计算显示给定数量项目所需的近似大小
 
 ###Syntax###
-#Include<GuiListView.au3>
-_GUICtrlListView_ApproximateViewRect($hWnd[, $iCount= -1[, $iCX = -1[, $iCY = -1]]])
+#include <GuiListView.au3>
+_GUICtrlListView_ApproximateViewRect($hWnd [, $iCount = -1 [, $iCX = -1 [, $iCY = -1]]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iCount  在控件内要显示的项目数量. 如果设定为 -1 使用控件内所有项目.
- $iCX  控件近似的 X 值, 使用像素值. 可以设定为 -1 以使用当前的宽度值.
- $iCY  控件近似的 Y 值, 使用像素值. 可以设定为 -1 以使用当前的高度值.
+$hWnd
+	控件的控件ID/句柄
+$iCount
+	[可选参数] 要显示的项目数量.
+		如设定为 -1, 则为控件内项目总数.
+$iCX
+	[可选参数] 控件近似的 X 像素值.
+		可以设为 -1,使用当前宽度值.
+$iCY
+	[可选参数] 控件近似的 Y 像素值. 
+		可以设为 -1, 使用当前高度值.
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 如下格式的数组:
-        [0] -
-需要显示项目的近似宽度（像素）
-        [1] - 需要显示项目的近似高度（高度）
-@@End@@
+返回如下格式数组:
+		[0] - 近似宽度像素值
+		[1] - 近似高度像素值
 
 ###Remarks###
-以这个函数提供的大小为基础设置的控件能优化刷新与减少闪烁
+ 以这个函数提供的大小为基础设置控件,能优化刷新屏幕与减少闪烁.
 
 ###Related###
-_GUICtrlListView_ApproximateViewHeight , _GUICtrlListView_ApproximateViewWidth
-
-###See Also###
+_GUICtrlListView_ApproximateViewHeight, _GUICtrlListView_ApproximateViewWidth
 
 ###Example###
 @@IncludeExample@@

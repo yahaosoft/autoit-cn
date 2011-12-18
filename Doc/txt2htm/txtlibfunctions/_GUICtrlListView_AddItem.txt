@@ -2,32 +2,35 @@
 _GUICtrlListView_AddItem
 
 ###Description###
-添加新项目
+添加项目到列表的末尾
 
 ###Syntax###
-#Include<GuiListView.au3>
-_GUICtrlListView_AddItem($hWnd, $sText[, $iImage =-1[, $iParam = 0]])
+#include <GuiListView.au3>
+_GUICtrlListView_AddItem($hWnd, $sText [, $iImage = -1 [, $iParam = 0]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $sText  项目文本. 如果设定为 -1, 项目组由 $LVN_GETDISPINFO 通知消息给定.
- $iImage  图像列内项目按钮的索引（从 0 开始）
- $iParam  应用程序已定义数据
+$hWnd
+	控件的控件ID/句柄
+$sText
+	项目文本.如果设置为 -1,该项目通过 $LVN_GETDISPINFO 通知消息设置.
+$iImage
+	[可选参数] 项目图标在图像列表中的 0 基索引
+$iParam
+	[可选参数] 应用程序定义的数据
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 新项目的索引 失败: -1
-注意 不能使用这个函数插入子项目. 插入子项目使用 _GUICtrlListView_AddSubItem.
+成功:	返回新项目的索引
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
+ 不能使用这个函数插入子项目. 插入子项目使用 _GUICtrlListView_AddSubItem 函数.
 
 ###Related###
 _GUICtrlListView_AddSubItem
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

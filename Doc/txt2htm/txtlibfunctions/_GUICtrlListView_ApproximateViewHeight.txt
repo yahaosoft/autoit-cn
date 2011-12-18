@@ -2,32 +2,35 @@
 _GUICtrlListView_ApproximateViewHeight
 
 ###Description###
-计算用以显示给定数量的项目所必需的近似高度
+计算显示给定数量项目所需的近似高度
 
 ###Syntax###
-#Include <GuiListView.au3>
-_GUICtrlListView_ApproximateViewHeight($hWnd[, $iCount = -1[, $iCX = -1[, $iCY = -1]]])
+#include <GuiListView.au3>
+_GUICtrlListView_ApproximateViewHeight($hWnd [, $iCount = -1 [, $iCX = -1 [, $iCY = -1]]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iCount  控件内将显示的项目数量. -1时使用控件内所有项目.
- $iCX  控件近似宽度的像素值. -1时使用当前的宽度值.
- $iCY  控件近似高度的像素值. -1时使用当前的高度值.
+$hWnd
+	控件的控件ID/句柄
+$iCount
+	[可选参数] 要显示的项目数量.
+		如设定为 -1, 则为控件内项目总数.
+$iCX
+	[可选参数] 控件近似的 X 像素值.
+		可以设为 -1,使用当前宽度值.
+$iCY
+	[可选参数] 控件近似的 Y 像素值. 
+		可以设为 -1, 使用当前高度值.
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 显示项目需要的近似高度, 使用像素值
-@@End@@
+返回显示项目需要的近似高度像素值
 
 ###Remarks###
-以这个函数提供的大小为基础设置的控件可优化刷新屏幕并减少闪烁
+以这个函数提供的大小为基础设置控件,能优化刷新屏幕与减少闪烁.
 
 ###Related###
- _GUICtrlListView_ApproximateViewWidth
-
-###See Also###
+_GUICtrlListView_ApproximateViewWidth, _GUICtrlListView_ApproximateViewRect
 
 ###Example###
 @@IncludeExample@@
