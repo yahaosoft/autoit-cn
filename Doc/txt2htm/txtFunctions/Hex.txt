@@ -13,7 +13,7 @@ Hex ( 表达式 [, 长度] )
 表达式
 	待转换的表达式.
 长度
-	[可选参数] 要返回的整数的十六进制数的字符数(最高为 8).
+	[可选参数] 要返回的整数的十六进制数的字符数.
 	若指定的长度过小则这些字符将被从左边开始截断.
 	当数据类型是二进制类型,此参数会被忽略.
 @@End@@
@@ -28,8 +28,9 @@ Hex ( 表达式 [, 长度] )
 
 
 ###Remarks###
-Omitting second parameter (<i>length</i>) or using keyword Default for it results in automatic sizing of the output; 8-character display for numbers that can fit in that and 16-character display for others.
-Pointer type parameter is displayed in size of pointer by default (8 characters for x86 and 16 characers for x64).
+Omitting the second parameter (<i>length</i>) or using the keyword Default results in automatic sizing of the output; 8-characters display for numbers that can fit in that and 16-characters display for others.
+A pointer type parameter is displayed in size of pointer by default (8 characters for x86 and 16 characers for x64).
+64bit integers have 16 characters displayed by default.
 Numbers passed as non-integers (those with decimal separator or exponent) are processed as doubles.
 
 

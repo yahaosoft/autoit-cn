@@ -27,7 +27,7 @@ Int ( 表达式 [, 标志 ] )
 
 
 ###Remarks###
-Default behavior is that if the result fits 32 bit then 32bit integer is returned. If not, 64bit integer is returned. All signed.
+Default behavior is that if the result is within range of 32bit integer then 32bit integer is returned. If not, 64bit integer is returned. Both signed.
 小数部分将被约去,因此 Int(1.999999) 的返回值将是 1
 Int(0/0) 的返回值将是 -9223372036854775807.令人奇怪?
 This function makes minor corrects to floating point numbers to account for the imprecise nature of floating point numbers.  For example, the floating point expression 0.7 + 0.2 + 0.1 produces a floating point number that is not quite 1.0.  Int() corrects for this anomaly, however, certain extremely rare circumstances may lead to Int() returning an unexpected value (the odds of getting an unexpected value are less than if Int() did not attempt any correction at all).
