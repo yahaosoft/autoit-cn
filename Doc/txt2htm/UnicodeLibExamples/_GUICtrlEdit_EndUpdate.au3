@@ -1,6 +1,6 @@
 ﻿#include <GuiEdit.au3>
 #include <GuiStatusBar.au3>
-#include <GuiConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 
 $Debug_Ed = False ; 检查传递给 Edit 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
 

@@ -2,37 +2,50 @@
 $tagWINDOWPLACEMENT
 
 ###Description###
-包含窗体在屏幕上的位置信息的结构
+包含窗口位置在屏幕上的信息
 
 ###Syntax###
-Global Const $tagWINDOWPLACEMENT =  "UINT length;UINT flags;UINT showCmd;int ptMinPosition[2];int ptMaxPosition[2];int rcNormalPosition[4]"
+Global Const $tagWINDOWPLACEMENT = "UINT length; UINT flags; UINT showCmd; int ptMinPosition[2]; int ptMaxPosition[2]; int rcNormalPosition[4]"
 
 ###Fields###
 @@ParamTable@@
 length
-   结构的字节长度
+	结构的字节长度
 flags
-   指定控制最小化窗体的位置的标记及窗体恢复的方法. 该成员可为下列值之一:
-    $WPF_ASYNCWINDOWPLACEMENT - Windows 2000/XP: 如果调用的线程和连接窗体的线程为不同输入序列, 系统向窗体所属的线程传递请求.
-    $WPF_RESTORETOMAXIMIZED - 指定最大化恢复后的窗体, 无论在最小化前是否是最大的. 该设置仅在下次恢复窗体时有效. 不会改变默认的恢复操作. 该设置仅在showCmd成员指定@SW_SHOWMINIMIZED值时有效.
-    $WPF_SETMINPOSITION - 指定可被指定的最小化窗体的坐标. 当在ptMinPosition成员中设置了坐标时必须指定该标记.
+	控制最小化窗口的位置及窗口恢复方法. 这个成员可以是一或多个下列值:
+		$WPF_ASYNCWINDOWPLACEMENT - Windows 2000/XP: 如果调用的线程和连接窗口的线程为不同输入序列, 系统向窗口所属的线程传递请求.
+		$WPF_RESTORETOMAXIMIZED - 指定最大化还原窗口, 无论是最大化之前它已最小化.
+		该设置仅在下次恢复窗口时有效. 不会改变默认的恢复操作.
+		当 @SW_SHOWMINIMIZED 值是 showCmd 成员指定时,该设置有效.
+		$WPF_SETMINPOSITION - 指定最小化窗口的坐标.
+		当在 ptMinPosition 成员中设置了坐标时必须指定该标志.
 showCmd
-   指定窗体当期的显示状态. 该成员可为下列值之一:
-    @SW_HIDE - 隐藏窗体并激活另一窗体.
-    @SW_MAXIMIZE - 最大化指定窗体.
-    @SW_MINIMIZE - 最小化指定窗体并激活z序中的下一个顶层窗体.
-    @SW_RESTORE - 激活并显示窗体. 当窗体最大或最小化时, 系统恢复其原始尺寸和位置. 应用程序应在恢复最小化的窗体时指定此标记.
-    @SW_SHOW - 激活窗体并以当前的尺寸和位置显示.
-    @SW_SHOWMAXIMIZED - 激活窗体并最大化显示.
-    @SW_SHOWMINIMIZED - 激活窗体并最小化显示.
-    @SW_SHOWMINNOACTIVE - 最小化显示窗体. 该值与@SW_SHOWMINIMIZED类似, 但窗体未激活.
-    @SW_SHOWNA - 以当前的尺寸和位置显示窗体. 该值与@SW_SHOW类似, 但窗体未激活.
-    @SW_SHOWNOACTIVATE - 以最近一次的尺寸和位置显示窗体. 该值与@SW_SHOWNORMAL类似, 但窗体未激活.
-    @SW_SHOWNORMAL - 激活并显示窗体. 当窗体最大或最小化时, 系统恢复其原始尺寸和位置. 应用程序应在首次显示窗体时指定此标记.
+	指定窗口的当前显示状态.这个成员可以是下列值之一:
+		@SW_HIDE - 隐藏窗口并激活另一个窗口.
+		@SW_MAXIMIZE - 最大化指定的窗口.
+		@SW_MINIMIZE - 最小化指定的窗口并激活在 Z 顺序的下一个顶层窗口.
+		@SW_RESTORE - 激活并显示窗口.如果窗口是最小化或最大化,系统恢复到其原来的大小和位置.
+		应用程序还原最小化窗口时应指定此标志.
+		@SW_SHOW - 激活窗口并显示其目前的规模和位置.
+		@SW_SHOWMAXIMIZED - 激活并显示窗口为最大化.
+		@SW_SHOWMINIMIZED - 激活并显示窗口为最小化.
+		@SW_SHOWMINNOACTIVE - 最小化显示窗口.
+		此值类似于 @SW_SHOWMINIMIZED, 但窗口未激活.
+		@SW_SHOWNA - 显示其当前大小和位置的窗口.
+		此值类似于 @SW_SHOW, 但窗口未激活.
+		@SW_SHOWNOACTIVATE - 以最近一次的尺寸和位置显示窗口.
+		此值类似于 @SW_SHOWNORMAL, 但窗口未激活.
+		@SW_SHOWNORMAL - 激活并显示窗口.
+		如果窗口是最小化或最大化，系统恢复到原来的大小和位置.
+		应用程序应在首次显示窗口时指定此标记.
 ptMinPosition
-   指定窗体最小化时的左上角坐标.
+	指定最小化窗口时的左上角坐标.
 ptMaxPosition
-   指定窗体最大化时的左上角坐标.
+	指定最大化窗口时的左上角坐标.
 rcNormalPosition
-   指定窗体恢复时的左上角坐标.
-@@end@@
+	指定窗口还原时的位置坐标.
+@@End@@
+
+###Remarks###
+None.
+

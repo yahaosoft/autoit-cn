@@ -1,4 +1,4 @@
-﻿#include <GuiConstantsEx.au3>
+﻿#include <GUIConstantsEx.au3>
 #include <GuiDateTimePicker.au3>
 
 $Debug_DTP = False ; 检查传递给 DTP 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效

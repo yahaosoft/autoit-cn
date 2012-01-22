@@ -1,49 +1,38 @@
-ï»¿###Structure Name###
+###Structure Name###
 $tagWIN32_FIND_DATA
 
 ###Description###
-åŒ…å«æŸ¥æ‰¾æ–‡ä»¶æ—¶æ‰¾åˆ°çš„æ•°æ®çš„ç»“æ„
+°üº¬²éÕÒµ½µÄÎÄ¼şÊı¾İ
 
 ###Syntax###
-Global Const $tagWIN32_FIND_DATA =  "dword dwFileAttributes;dword ftCreationTime[2];dword ftLastAccessTime[2];dword ftLastWriteTime[2];dword nFileSizeHigh;dword nFileSizeLow;dword dwReserved0;dword dwReserved1;char cFileName[260];char cAlternateFileName[14];"
+Global Const $tagWIN32_FIND_DATA = "dword dwFileAttributes;dword ftCreationTime[2];dword ftLastAccessTime[2];dword ftLastWriteTime[2];dword nFileSizeHigh;dword nFileSizeLow;dword dwReserved0;dword dwReserved1;wchar cFileName[260];wchar cAlternateFileName[14]"
 
 ###Fields###
 @@ParamTable@@
-    dwFileAttributes
-
-   æ–‡ä»¶çš„æ–‡ä»¶å±æ€§
-    ftCreationTime
-
-   ç”¨äºæŒ‡å®šæ–‡ä»¶æˆ–ç›®å½•åˆ›å»ºæ—¶é—´çš„FILETIMEç»“æ„
-    ftLastAccessTime
-
-   ç”¨äºæŒ‡å®šè¯»å–, å†™å…¥, æˆ–å¯¹äºå¯æ‰§è¡Œæ–‡ä»¶çš„è¿è¡Œçš„FILETIMEç»“æ„
-    ftLastWriteTime
-
-   ç”¨äºæŒ‡å®šæ–‡ä»¶æœ€åè¢«å†™å…¥, æˆªå–, æˆ–è¦†ç›–çš„FILETIMEç»“æ„
-    nFileSizeHigh
-
-   æ–‡ä»¶å­—èŠ‚å¤§å°çš„é«˜ä½DWORDå€¼
-    nFileSizeLow
-
-   æ–‡ä»¶å­—èŠ‚å¤§å°çš„ä½ä½DWORDå€¼
-    dwReserved0
-
-   å¦‚æœdwFileAttributesæˆå‘˜åŒ…æ‹¬$FILE_ATTRIBUTE_REPARSE_POINTå±æ€§, è¯¥æˆå‘˜æŒ‡å®šå†è§£ææ ‡è®°.
-    dwReserved1
-
-   ä¿ç•™
-    cFileName
-
-   æ–‡ä»¶å
-    cAlternateFileName
-
-   æ–‡ä»¶çš„å¯é€‰å, ç»å…¸8.3(æ–‡ä»¶å.æ‰©å±•)æ–‡ä»¶åæ ¼å¼
-@@end@@
+dwFileAttributes
+	ÎÄ¼şµÄÊôĞÔ.
+ftCreationTime
+	Ò»¸ö FILETIME ½á¹¹,ËüÖ¸¶¨µ±ÎÄ¼ş»òÄ¿Â¼ÒÑ´´½¨.
+ftLastAccessTime
+	Ò»¸ö FILETIME ½á¹¹,Ö¸¶¨ÎÄ¼ş×îºó¶ÁÈ¡¡¢Ğ´Èë¡¢»ò¿ÉÖ´ĞĞÎÄ¼ş¡¢ÔËĞĞµÈĞÅÏ¢.
+ftLastWriteTime
+	Ò»¸öFILETIME½á¹¹,Ö¸¶¨ÎÄ¼ş×îºóĞ´Èë¡¢±»É¾½Ú¡¢»ò¸²¸ÇµÈĞÅÏ¢.
+nFileSizeHigh
+	ÎÄ¼ş×Ö½Ú´óĞ¡µÄ DWORD ¸ßÎ»Öµ.
+nFileSizeLow
+	ÎÄ¼ş×Ö½Ú´óĞ¡µÄ DWORD µÍÎ»Öµ.
+dwReserved0
+	Èç¹û dwFileAttributes ³ÉÔ±°üº¬ $FILE_ATTRIBUTE_REPARSE_POINT ÊôĞÔ. Õâ¸ö³ÉÔ±Ö¸¶¨ÖØĞÂ·ÖÎö±êÖ¾
+dwReserved1
+	±£Áô.
+cFileName
+	ÎÄ¼şµÄÃû³Æ.
+cAlternateFileName
+	Ò»ÖÖÌæ´úĞÔµÄÎÄ¼şÃû£¬¾­µäµÄ 8.3£¨ÎÄ¼şÃû.ext£©ÎÄ¼şÃû¸ñÊ½
+@@End@@
 
 ###Remarks###
-å¿…é¡»ä½¿ç”¨ANSIç‰ˆæœ¬
+±ØĞëÊ¹ÓÃ Unicode °æ±¾ 
 
 ###See Also###
-æœç´¢MSDNçŸ¥è¯†åº“ä¸­WIN32_FIND_DATAçš„ç›¸å…³ä¿¡æ¯
-æœç´¢MSDNçŸ¥è¯†åº“ä¸­WIN32_FIND_ATAçš„ç›¸å…³ä¿¡æ¯
+@@MsdnLink@@ WIN32_FIND_DATA
