@@ -2,32 +2,40 @@
 _WinAPI_ShellEmptyRecycleBin
 
 ###Description###
-清空指定驱动器上的回收站
+清空指定驱动器的回收站.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellEmptyRecycleBin( $sRoot [, $iFlags [, $hParent]] )
+_WinAPI_ShellEmptyRecycleBin ( [$sRoot [, $iFlags [, $hParent]]] )
 
 ###Parameters###
 @@ParamTable@@
-$sRoot  包含根驱动器的字符串. 该字符串可被格式化为驱动器 , 文件夹 , 子文件夹. 如 " c:\windows\system\ " . 如果参数为空 , 所有驱动器的回收站将被清空.
-$iFlags  该参数可为一个或多个下列值:
-$SHERB_NOCONFIRMATION - 删除对象时不显示确认对话框
-$SHERB_NOPROGRESSUI - 不显示表示删除进度的对话框
-$SHERB_NOSOUND - 操作完成时不播放声音
-$SHERB_NO_UI -
-$hParent  操作时将显示的任意对话框的父窗体句柄.
+$sRoot
+	[可选参数] 回收站所在根驱动器的路径字符串.字符串可以被格式化为驱动器, 文件夹和子文件夹名称,
+	例如: "c:\windows\system\".
+	如果此参数为空字符串,所有驱动器上的回收站将被清空.
+$iFlags
+	[可选参数] 参数可以是一或多个下列值:
+	
+	$SHERB_NOCONFIRMATION --- 不用对话框显示确认删除的对象
+	$SHERB_NOPROGRESSUI --- 不用对话框显示进度
+	$SHERB_NOSOUND --- 操作完成不播放声音
+	$SHERB_NO_UI
+	
+$hParent
+	[可选参数] 可能显示对话框的父窗口句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SHEmptyRecycleBin的相关信息
+@@MsdnLink@@ SHEmptyRecycleBin
+

@@ -2,28 +2,32 @@
 _WinAPI_ShellQueryRecycleBin
 
 ###Description###
-获取指定驱动器的回收站大小及其中的项目数量
+检索指定驱动器回收站的大小及其项目数量.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellQueryRecycleBin( $sRoot )
+_WinAPI_ShellQueryRecycleBin ( [$sRoot] )
 
 ###Parameters###
 @@ParamTable@@
-$sRoot  包含根驱动器的字符串. 该字符串可被格式化为驱动器 , 文件夹 , 子文件夹. 如 " c:\windows\system\ " . 如果参数为空 , 获取所有驱动器的所有回收站.
+$sRoot
+	[可选参数] 回收站所在根驱动器的路径字符串.字符串可以被格式化为驱动器, 文件夹和子文件夹名称,
+	例如: "c:\windows\system\".
+	 如果此参数为空字符串,检索所有驱动器的回收站信息.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含下列信息的数组:
-    [0] - 指定回收站中所有对象的字节总大小.
-    [1] - 指定回收站中的项目总数.
-失败: 返回0并设置@error非0.
+成功:	返回含以下信息的数组.
+[0] - 回收站对象总大小的字节值
+[1] - 回收站的项目总数.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SHQueryRecycleBin的相关信息
+@@MsdnLink@@ SHQueryRecycleBin
+

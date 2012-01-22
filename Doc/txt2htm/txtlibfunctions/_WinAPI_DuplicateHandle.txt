@@ -6,41 +6,43 @@ _WinAPI_DuplicateHandle
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_DuplicateHandle( $hProcess, $hSource, $hTarget [, $iAccess [, $iOptions [, $fInherit]]] )
+_WinAPI_DuplicateHandle ( $hProcess, $hSource, $hTarget [, $iAccess [, $iOptions [, $fInherit]]] )
 
 ###Parameters###
 @@ParamTable@@
 $hProcess
-$PROCESS_DUP_HANDLE访问权限.
+	句柄将被复制的进程的句柄. 该句柄必须有$PROCESS_DUP_HANDLE访问权限.
 $hSource
-   将被复制的句柄. 在源进程环境中有效的打开对象的句柄.
+	将被复制的句柄. 在源进程环境中有效的打开对象的句柄.
 $hTarget
-$PROCESS_DUP_HANDLE访问权限.
+	用于接收复制句柄的进程句柄. 该句柄必须有$PROCESS_DUP_HANDLE访问权限.
 $iAccess
-   新句柄所需的访问权限
+	[可选参数] 新句柄所需的访问权限
 $iOptions
-   可选操作. 该参数可为0或下列值的任意组合:
-$DUPLICATE_CLOSE_SOURCE
-$DUPLICATE_SAME_ACCESS
+	[可选参数] 该参数可为0或下列值的任意组合:
+	
+	$DUPLICATE_CLOSE_SOURCE
+	$DUPLICATE_SAME_ACCESS
+	
 $fInherit
-   指定句柄是否可被继承. 可用值:
-    TRUE  - 复制句柄可由目标进程创建的新进程继承.
-    FALSE - 不可被继承.(默认)
+	[可选参数] 指定句柄是否可被继承. 可用值:
+		TRUE - 复制句柄可由目标进程创建的新进程继承.
+		FALSE - 不可被继承.(默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回复制的句柄. 该句柄在目标进程中有效.
-失败: 返回0并设置@error非0
+成功:	返回复制的句柄. 该句柄在目标进程中有效.
+失败:	返回0设置@error 非0
 @@End@@
 
 ###Remarks###
 复制的句柄与源句柄指向相同的对象. 因此对象的改变会体现在两个句柄上. 如复制一个文件句柄则当前的文件位置对两个句柄是相同的. 对于不同位置的文件句柄, _WinAPI_DuplicateHandle创建共享访问文件的句柄.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中DuplicateHandle的相关信息
+@@MsdnLink@@ DuplicateHandle
 
 ###Example###
 @@IncludeExample@@
+

@@ -2,30 +2,33 @@
 _WinAPI_SetDIBColorTable
 
 ###Description###
-设置DIB部分位图的RGB颜色表
+Sets RGB color table in the DIB section bitmap.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetDIBColorTable( $hBitmap, $tColorTable, $iColorCount )
+_WinAPI_SetDIBColorTable ( $hBitmap, $tColorTable, $iColorCount )
 
 ###Parameters###
 @@ParamTable@@
 $hBitmap
-   要设置其中颜色表的DIB位图
+	A DIB section bitmap in which to set the color table.
 $tColorTable
-   代表要设置的DIB颜色表的"dword[n]"结构
+	"dword[n]" structure that represents a DIB color table that to be set.
 $iColorCount
+	The number of color table entries to set.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回函数设置的颜色表值的数量
-失败: 返回0并设置@error非0
+Success	The number of color table entries that the function sets.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+The _WinAPI_GetDIBColorTable() function sets a color table for DIB section bitmaps that use 1, 4, or 8 bits-per-pixel.
+A DIB section bitmaps that use bits-per-pixel value greater than eight do not have a color table.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SetDIBColorTable的相关信息
+@@MsdnLink@@ SetDIBColorTable
+

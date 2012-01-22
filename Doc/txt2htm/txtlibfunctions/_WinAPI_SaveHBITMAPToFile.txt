@@ -2,38 +2,46 @@
 _WinAPI_SaveHBITMAPToFile
 
 ###Description###
-将指定位图保存为指定位图(.bmp)文件
+Saves a specified bitmap to the specified bitmap (.bmp) file.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SaveHBITMAPToFile( $sFile, $hBitmap [, $iXPelsPerMeter [, $iYPelsPerMeter]] )
+_WinAPI_SaveHBITMAPToFile ( $sFile, $hBitmap [, $iXPelsPerMeter [, $iYPelsPerMeter]] )
 
 ###Parameters###
 @@ParamTable@@
 $sFile
-   保存位图的.bmp文件
+	The name of the .bmp file in which to save the bitmap.
 $hBitmap
-   要保留的位图的句柄
+	Handle to the bitmap to be save.
 $iXPelsPerMeter
-   [可选] 以像素每米表示的水平分辨率
+	[可选参数] The horizontal resolution, in pixels-per-meter.
 $iYPelsPerMeter
-   [可选] 以像素每米表示的垂直分辨率
+	[可选参数] The vertical resolution, in pixels-per-meter.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-函数保存指定位图时不会改变位图, 除非位图使用32位色深. 在此情况下, 如果位图具有alpha通道, 将保存为32位图像,否则以24位图像保存.
-由$iXPelsPerMeter和$iYPelsPerMeter参数指定的水平及垂直分辨率不会影响图像质量, 但应用程序会使用这些值从资源组中选取最适合当前设备特点的位图. 如果未指定分辨率, 函数使用当前屏幕的分辨率, 通常为每米2834像素对应于72(dpi)
-如果源位图经过压缩或使用了颜色掩码, 函数失败.
+This function saves the specified bitmap unchanged, except when the bitmap uses 32 bits-per-pixel color depth.
+In this situation, if the bitmap contains an alpha channel, it will be saved as 32 bits-per-pixel image, and
+as 24 bits-per-pixel image otherwise.
 
-###Related###
+The horizontal and vertical resolutions pointed to by the $iXPelsPerMeter and $iYPelsPerMeter parameters has not
+affects the image quality, but application can use this value to select a bitmap from a resource group that best
+matches the characteristics of the current device. If the resolutions is not specified, the function uses the
+current screen resolutions, usually 2834 pixels-per-meter which corresponds to 72 pixels-per-inch (dpi).
+
+If the source bitmap is compressed, or use a color masks, the function fails.
+
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+

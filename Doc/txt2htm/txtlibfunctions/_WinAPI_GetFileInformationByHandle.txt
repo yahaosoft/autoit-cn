@@ -2,38 +2,39 @@
 _WinAPI_GetFileInformationByHandle
 
 ###Description###
-获取指定文件的文件信息
+Retrieves file information for the specified file.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetFileInformationByHandle( $hFile )
+_WinAPI_GetFileInformationByHandle ( $hFile )
 
 ###Parameters###
 @@ParamTable@@
 $hFile
-   包含要获取信息的文件的句柄
+	Handle to the file that contains the information to be retrieved.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回包含下列信息的句柄:
-    [0] - 文件属性(FILE_ATTRIBUTE_*).
-    [1] - 创建文件或目录的时间的$tagFILETIME结构
-    [2] - 最后一次读取或写入文件的时间的$tagFILETIME结构
-    [3] - 最后一次写入文件的时间的$tagFILETIME结构
-    [4] - 包含文件的卷的序列号
-    [5] - 文件大小
-    [6] - 该文件的链接数
-    [7] - 与文件相关的唯一标识符
-失败: 返回0并设置@error非0
+Success	The array containing the following information:
+[0]	The file attributes (FILE_ATTRIBUTE_*).
+[1]	$tagFILETIME structure that specifies when a file or directory is created.
+[2]	$tagFILETIME structure that specifies the last time that a file is read from or written to.
+[3]	$tagFILETIME structure that specifies the last time that a file is written to.
+[4]	The serial number of the volume that contains a file.
+[5]	The file size.
+[6]	The number of links to this file.
+[7]	The unique identifier that is associated with a file.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetFileInformationByHandle的相关信息
+@@MsdnLink@@ GetFileInformationByHandle
 
 ###Example###
 @@IncludeExample@@
+

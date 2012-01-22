@@ -2,41 +2,57 @@
 _WinAPI_GetDateFormat
 
 ###Description###
-将日期格式化为由区域标识符指定的当地日期字符串
+格式化指定区域的日期字符串.
 
 ###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_GetDateFormat( [$LCID [, $tSYSTEMTIME [, $iFlag [, $sFormat]]]] )
+#Include <WinAPIEx.au3>
+_WinAPI_GetDateFormat ( [$LCID [, $tSYSTEMTIME [, $iFlag [, $sFormat]]]] )
 
 ###Parameters###
 @@ParamTable@@
 $LCID
-   区域标识符(LCID). 如果为0, 使用用户默认的区域标识.
+	[可选参数] 区域设置标识符(LCID).
+	如果此参数为 0, 函数将使用用户默认区域设置.
 $tSYSTEMTIME
-$tagFILETIME结构. 如果为0, 使用当前的系统日期.
+	[可选参数] $tagSYSTEMTIME 结构, 包含日期格式信息.
+	如果此参数为 0, 函数将使用当前本地系统日期.
 $iFlag
-   指定格式选项标记. 可为下列值的一个或多个.
-    $DATE_LONGDATE - 长日期
-    $DATE_SHORTDATE (默认) - 短日期
-    $DATE_USE_ALT_CALENDAR - 使用可选日历 Windows Vista $DATE_LTRREADING - 添加从左到右读取标记
-    $DATE_RTLREADING - 添加从右到左读取标记
-    $DATE_YEARMONTH - 年/月格式 Windows 7及以后 $DATE_AUTOLAYOUT - 按区域设置和日历信息自动添加相应的从左到右或从右到左的标记
+	[可选参数] 日期格式选项.
+	参数可以是一或多个下列值:
+	
+	$DATE_LONGDATE --- 使用长日期格式
+	$DATE_SHORTDATE --- 使用短日期格式(默认)
+	$DATE_USE_ALT_CALENDAR --- 使用备用日历(如果存在)
+	
+	Windows Vista 或更高系统
+	
+	$DATE_LTRREADING --- 添加从左到右的阅读布局标志
+	$DATE_RTLREADING --- 添加从右到左的阅读布局标志
+	$DATE_YEARMONTH --- 使用年/月格式
+	
+	Windows 7 或更高系统
+	
+	$DATE_AUTOLAYOUT --- 检测从右到左、左到右的阅读布局,并添加相应标志
+	
 $sFormat
-$LCID)日期格式的字符串.
+	[可选参数] 日期格式字符串. 例如, "dddd dd, yyyy".
+	 如果此参数为 0,函数返回指定区域设置的日期格式字符串 ($LCID).
+
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 格式化的日期字符串
-失败: 空字符串并设置@error非0
+成功:	返回格式化的日期字符串.
+失败:	返回空串,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetDateFormat的相关信息
+@@MsdnLink@@ GetDateFormat
 
 ###Example###
 @@IncludeExample@@
+

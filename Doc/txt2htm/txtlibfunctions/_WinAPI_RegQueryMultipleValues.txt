@@ -2,49 +2,59 @@
 _WinAPI_RegQueryMultipleValues
 
 ###Description###
-获取与打开的注册表键相关的值列表的数据和类型
+检索注册表键的类型和名称值列表数据.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RegQueryMultipleValues( $hKey, ByRef $aValent, ByRef $tData [, $iStart [, $iEnd]] )
+_WinAPI_RegQueryMultipleValues ( $hKey, ByRef $aValent, ByRef $pBuffer [, $iStart [, $iEnd]] )
 
 ###Parameters###
 @@ParamTable@@
 $hKey
-   打开的注册表键的句柄. 该键必须以KEY_QUERY_VALUE访问权限打开. 该句柄须由_WinAPI_RegCreateKey()或_WinAPI_RegOpenKey()函数打开. 也可为下列预定义键之一:
-   $HKEY_CLASSES_ROOT
-   $HKEY_CURRENT_CONFIG
-   $HKEY_CURRENT_USER
-   $HKEY_LOCAL_MACHINE
-   $HKEY_PERFORMANCE_DATA
-   $HKEY_USERS
+	注册表键句柄.注册表键必须有 KEY_QUERY_VALUE 存取权限.
+	句柄有 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回.
+	也可以是下列预定义键之一
+	
+	$HKEY_CLASSES_ROOT
+	$HKEY_CURRENT_CONFIG
+	$HKEY_CURRENT_USER
+	$HKEY_LOCAL_MACHINE
+	$HKEY_PERFORMANCE_DATA
+	$HKEY_USERS
+	
 $aValent
-   包含获取的值的名称的二维数组([valuename1, 0, 0, 0], [valuename2, 0, 0, 0], ... [valuenameN, 0, 0, 0]). 对于输入, 不使用1, 2和3数组元素, 但数组大小为[n][4], 否则, 函数失败. 另外, 如果指定键中不含任意指定值函数失败.
-$tData
-   接收数据的缓冲区. 如果函数成功, 缓冲区为一个接收每个值的数据的"byte[n]"结构. 在使用完函数返回的数据前不要改变此结构. 在那之后, 可释放由该结构分配的内存.
+	二维数组 ([valuename1, 0, 0, 0], [valuename2, 0, 0, 0], ... [valuenameN, 0, 0, 0]),包含被检索的名称值.
+	不使用数组元素 1, 2, 与 3, 但该数组的大小应该是 [n][4], 否则, 函数将失败.
+	此外,如果指定键不存在任何指定值,此函数同样失败.
+$pBuffer
+	A pointer to a memory buffer that contains a registry data. Typically, you should not use this
+	buffer directly (see remarks).
 $iStart
-   开始查询的数组索引
+	[可选参数] 开始检索的数组索引.
 $iEnd
-   结束查询的数组索引
+	[可选参数] 结束检索的数组索引.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 复制到缓冲区的字节数量. $aValent数组包含下列数据:
-    [n][0] - 值名(不改变).
-    [n][1] - 数据的字节大小.
-    [n][2] - 参数指向的缓冲区中的数据的指针.
-    [n][3] - 数据类型($REG_*).
-失败: 返回0并设置@error非0, @extended标记可包含非0系统错误代码.
+成功:	返回复制到缓冲区的字节数. $aValent 数组将包含以下数据:
+[n][0]	名称值 (未改变的).
+[n][1]	数据字节大小.
+[n][2]	指向 $tData 参数值的缓冲区数据指针.
+[n][3]	数据类型 ($REG_*).
+失败:	返回 0,设置@error:非 0 值, @extended 可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
-为了防止过多的系列化, 由该函数返回的数据总数不能超过一兆字节
+为了防止过多的系列化, 由该函数返回的数据总数不能超过一兆字节.
 
-###Related###
+When a returned registry data are no longer needed, you must free the allocated memory pointed to by the
+$pBuffer parameter by calling the _WinAPI_FreeMemory() function.
+
 
 ###See Also###
- 搜索MSDN知识库中RegQueryMultipleValues的相关信息
+@@MsdnLink@@ RegQueryMultipleValues
 
 ###Example###
 @@IncludeExample@@
+

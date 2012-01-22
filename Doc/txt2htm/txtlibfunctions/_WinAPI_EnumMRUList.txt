@@ -1,35 +1,34 @@
-﻿    ###User Defined Function###
-    _WinAPI_EnumMRUList
+﻿###User Defined Function###
+_WinAPI_EnumMRUList
 
 ###Description###
-    枚举MRU列表的内容
+枚举最近使用（MRU）列表的内容.
 
 ###Syntax###
-    #Include <WinAPIEx.au3>
-$hMRU, $iItem [, $fBinary] )
-    Parameters
+#Include <WinAPIEx.au3>
+_WinAPI_EnumMRUList ( $hMRU, $iItem )
+
+###Parameters###
+@@ParamTable@@
 $hMRU
-   创建列表时获取的MRU列表句柄
+	MRU 列表句柄.
 $iItem
-   将返回的项目. 如果该值为-1 , 函数返回MRU列表项目总数.
-$fBinary
-   [可选] 指定是否作为二进制数据返回 , 可用值:
-    1 - 以二进制数据返回. 仅当创建MRU列表时使用了$MRU_BINARY标记.
-    0 - 返回字符串(默认)
+	返回的项目.如果此值为 -1, 则函数返回 MRU 列表的项目数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: $iItem请求的项目. 如果$iItem为-1返回列表中项目的数量.
-失败：返回0并设置@error非0
+成功:	返回 $iItem 指定的项目.如果 $iItem 为 -1, 则函数返回 MRU 列表的项目数.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中EnumMRUListW的相关信息
+@@MsdnLink@@ EnumMRUListW
 
 ###Example###
 @@IncludeExample@@
+

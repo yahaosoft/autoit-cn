@@ -2,42 +2,50 @@
 _WinAPI_EnumDllProc
 
 ###Description###
-枚举指定动态链接库(DLL)的输出函数
+Enumerates an exported functions of the specified dynamic-link library (DLL).
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_EnumDllProc( $sPath [, $sMask [, $iFlags]] )
+_WinAPI_EnumDllProc ( $sPath [, $sMask [, $iFlags]] )
 
 ###Parameters###
 @@ParamTable@@
 $sPath
-   库路径. 尽管该函数在指定相对路径或不带路径情况下会搜索文件路径, 但为确保获得明确的结果最好还是指定一个合法路径.
+	The path to the library. Although this function searches for a file path when it specified as the relative
+	path or the name without a path, will better to specify a fully qualified path to the library for an
+	unequivocal result.
 $sMask
-   [可选] 要枚举的函数名的通配字符串. 可以选择通配符"*"和"?". 如果忽略该参数或定义为空字符串函数将枚举全部输出函数.
+	[可选参数] A wildcard string that indicates the function names to be enumerated. This string can optionally
+	contain the wildcards, "*" and "?". If this parameter is an empty string or omitted, all the exported
+	functions will be enumerated.
 $iFlags
-   [可选] 可选标记. 可为下列值之一:
-$SYMOPT_CASE_INSENSITIVE
-$SYMOPT_UNDNAME
+	[可选参数] The optional flags. This parameter can be one or more of the following values.
+	
+	$SYMOPT_CASE_INSENSITIVE
+	$SYMOPT_UNDNAME
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含下列信息的数组:
-    [0][0] - 数组行数
-    [0][1] - 未使用
-    [n][0] - 相对于库基址的函数地址(UINT64).
-    [n][1] - 函数名.
-  失败: 返回0并设置@error非0
+Success	The array containing the following information:
+[0][0]	Number of rows in array (n)
+[0][1]	Unused
+[n][0]	The function address relative to the library base address (UINT64).
+[n][1]	The function name.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-该函数可工作于32位及64位dll, 无论系统是32位或64位, 尽管, 64位应用程序无法加载32位dll.
-调用_WinAPI_GetExtended()可用于获取要枚举函数的dll库的合法路径.
+This function works with 32- and 64-bit DLLs regardless of the system (32- or 64-bit), although 64-bit executables
+cannot load 32-bit DLLs and vice-versa.
 
-###Related###
+Call _WinAPI_GetExtended() to retrieve a fully qualified path to the found library that was used to enumerate.
+
 
 ###See Also###
- 搜索MSDN知识库中SymEnumSymbols的相关信息
+@@MsdnLink@@ SymEnumSymbols
 
 ###Example###
 @@IncludeExample@@
+

@@ -1,0 +1,47 @@
+﻿###User Defined Function###
+_WinAPI_CreateNumberFormatInfo
+
+###Description###
+Creates a $tagNUMBERFMT structure with the specified number formatting information.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateNumberFormatInfo ( $iNumDigits, $iLeadingZero, $iGrouping, $sDecimalSep, $sThousandSep, $iNegativeOrder )
+
+###Parameters###
+@@ParamTable@@
+$iNumDigits
+	The number of fractional digits placed after the decimal separator.
+$iLeadingZero
+	Specifier for leading zeros in decimal fields, valid values:
+		0 - No leading zeros.
+		1 - Leading zeros.
+$iGrouping
+	The number of digits in each group of numbers to the left of the decimal separator. The values
+	in the range 0 through 9 and 32 are valid. Typical examples are: 0 to group digits as in 123456789.00;
+	3 to group digits as in 123,456,789.00; and 32 to group digits as in 12,34,56,789.00.
+$sDecimalSep
+	The decimal separator string.
+$sThousandSep
+	The thousand separator string.
+$iNegativeOrder
+	The negative number mode, valid values:
+		0 - Left parenthesis, number, right parenthesis; for example, (1.1).
+		1 - Negative sign, number; for example, -1.1.
+		2 - Negative sign, space, number; for example, - 1.1.
+		3 - Number, negative sign; for example, 1.1-.
+		4 - Number, space, negative sign; for example, 1.1 -.
+@@End@@
+
+###ReturnValue###
+
+###Remarks###
+Typically, the structure returned by this function is used in the _WinAPI_GetNumberFormat() function.
+
+
+###See Also###
+@@MsdnLink@@ NUMBERFMT
+
+###Example###
+@@IncludeExample@@
+

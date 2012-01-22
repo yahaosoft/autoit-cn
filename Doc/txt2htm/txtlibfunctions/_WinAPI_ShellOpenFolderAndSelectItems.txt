@@ -2,36 +2,46 @@
 _WinAPI_ShellOpenFolderAndSelectItems
 
 ###Description###
-打开带有指定项的指定文件夹的Windows Explorer
+打开 Windows 资源管理器窗口中选定文件夹指定的特定项目.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellOpenFolderAndSelectItems( $sPath [, $aNames [, $iStart [, $iEnd [, $iFlags]]]] )
+_WinAPI_ShellOpenFolderAndSelectItems ( $sPath [, $aNames [, $iStart [, $iEnd [, $iFlags]]]] )
 
 ###Parameters###
 @@ParamTable@@
-$sPath  指定文件夹或文件完全合法的路径. 如果使用$aNames参数, $sPath必须只指定一个文件夹, 否则函数无效. 该参数可为空字符串.
-$aNames  [可选] 文件夹或选定文件名的数组. 必须为文件夹内部的名称.
-$iStart  [可选] 开始选取的索引
-$iEnd  [可选] 结束选取的索引
-$iFlags  [可选] 可选标记. 可为一个或多个下列值:
- *Windows Vista以上
-$OFASI_EDIT - 选定一项并将其名称置于编辑模式. 该标记仅可用于选定单独项目时. 多项选取时忽略.
-$OFASI_OPENDESKTOP - 选取桌面上的项目而不是资源管理器. 注意, 桌面位于打开窗体的后面, 这使其不可见.
+$sPath
+	指定文件夹或文件完全合格的路径.如果选用 $aNames 参数,则 $sPath 只能指定为文件夹,
+	否则,函数将失败.参数可以是空字符串
+$aNames
+	[可选参数] 被选中文件夹或文件名称的数组.文件夹内应只是名称.
+$iStart
+	[可选参数] 开始选择的数组索引
+$iEnd
+	[可选参数] 结束选择的数组索引.
+$iFlags
+	[可选参数] 可选的标志. 参数可以是一或多个下列值:
+	
+	Windows Vista 或更高系统
+	
+	$OFASI_EDIT --- 选择项目并将名称置于编辑模式
+	$OFASI_OPENDESKTOP --- 选择项目或桌面上的项目,而不是 Windows 资源管理器窗口.
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1.
-失败: 返回0并设置@error非0.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SHOpenFolderAndSelectItems的相关信息
+@@MsdnLink@@ SHOpenFolderAndSelectItems
 
 ###Example###
 @@IncludeExample@@
+

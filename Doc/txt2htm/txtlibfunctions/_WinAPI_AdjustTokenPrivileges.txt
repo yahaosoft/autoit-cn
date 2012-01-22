@@ -2,51 +2,58 @@
 _WinAPI_AdjustTokenPrivileges
 
 ###Description###
-启用或禁用使用指定访问令牌的权限
+启用或禁用指定的访问令牌权限.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_AdjustTokenPrivileges( $hToken, $aPrivileges, $iState, $aAdjust )
+_WinAPI_AdjustTokenPrivileges ( $hToken, $aPrivileges, $iAttributes, ByRef $aAdjust )
 
 ###Parameters###
 @@ParamTable@@
 $hToken
-$TOKEN_ADJUST_PRIVILEGES和$TOKEN_QUERY权限访问令牌.
+	Handle to the access token that contains the privileges to be modified. The handle must have
+	$TOKEN_ADJUST_PRIVILEGES and $TOKEN_QUERY accesses to the token.
 $aPrivileges
-   指定权限的变量. 如果不是-1, 函数禁用令牌权限并忽略$iState参数. $aPrivileges可为下列类型:
-   单一权限常量($SE_...).
-   $SE_...常量的一维数组.
-   $SE_...常量及其属性(见$iState)的二维数组, 格式如下:
-    [0][0] - 权限
-    [0][1] - 属性
-    [n][0] - 权限
-    [n][1] - 属性
-$iState
-   权限属性. 如果$aPrivileges参数为一维数组, $iState应用于整个数组. 如果$aPrivileges参数为-1或二维数组, 函数忽略该参数并使用数组中指定的属性. 该参数可为下列值之一:
-    $SE_PRIVILEGE_ENABLED - 权限有效.
-    $SE_PRIVILEGE_ENABLED_BY_DEFAULT - 权限默认有效.
-    $SE_PRIVILEGE_REMOVED - 权限有效.
-    $SE_PRIVILEGE_USED_FOR_ACCESS - 权限用于访问.
+	The variable that specifies a privileges. If this parameter is (-1), the function disables of the token's
+	privileges and ignores the $iAttributes parameter. $aPrivileges can be one of the following types.
+	
+	The privilege constant ($SE_*).
+	1D array of $SE_* constants.
+	2D array of $SE_* constants and their attributes (see below).
+	
+	[0][0] - Privilege
+	[0][1] - Attributes
+	[n][0] - Privilege
+	[n][1] - Attributes
+	
+$iAttributes
+	The privilege attributes. If $aPrivileges parameter is 1D array, $iAttributes applied to the entire
+	array. If $aPrivileges parameter is (-1) or 2D array, the function ignores this parameter and will
+	use the attributes that specified in this array. This parameter can be 0 (disables privilege)
+	or any combination of the following values.
+	
+	$SE_PRIVILEGE_ENABLED
+	$SE_PRIVILEGE_ENABLED_BY_DEFAULT
+	$SE_PRIVILEGE_REMOVED
+	$SE_PRIVILEGE_USED_FOR_ACCESS
+	
 $aAdjust
-   函数修改的以前状态的2D数组.
+	2D array of the previous state of any privileges that the function modifies. That is, if a privilege has
+	been modified by this function, the privilege and its previous state are contained in this array.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 当$aPrivileges为单一$SE_...常量时, 返回以前的权限属性(0或1), 否则总是返回1.
-    确定函数是否调整所有的指定权限, 检查函数成功时返回的下列@extended标记值:
-    0 - 调整所有指定的权限.
-    1 - 令牌未指定$aPrivileges参数中的一个或多个权限.
-失败: 返回0并设置@error非0
+Success	1 and sets the @extended flag to the following values.
+0	The function adjusted all specified privileges.
+1	The token does not have one or more of the privileges specified in the $aPrivileges parameter.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-该函数无法向访问令牌添加新权限. 只能禁用或启用已存在的权限.
+函数不能添加新的权限访问令牌.它只能启用或禁用该令牌的现有权限.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中AdjustTokenPrivileges的相关信息
+@@MsdnLink@@ AdjustTokenPrivileges
 
-###Example###
-@@IncludeExample@@

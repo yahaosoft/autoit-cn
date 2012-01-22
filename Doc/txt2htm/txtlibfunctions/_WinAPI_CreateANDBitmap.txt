@@ -2,33 +2,36 @@
 _WinAPI_CreateANDBitmap
 
 ###Description###
-从指定位图创建AND位掩码的设备无关的位图(DIB)
+Creates AND bitmask device-independent bitmap (DIB) from the specified bitmap.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateANDBitmap( $hBitmap )
+_WinAPI_CreateANDBitmap ( $hBitmap )
 
 ###Parameters###
 @@ParamTable@@
 $hBitmap
-   用于创建AND位掩码DIB的位图的句柄
+	Handle to the bitmap from which to create AND bitmask DIB.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回DIB句柄
-失败: 返回0并设置@error非0
+Success	Handle to the DIB.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-_WinAPI_CreateANDBitmap()从每像素32位的DIB或DDB创建每像素1位的AND位掩码的DIB. 如果源位图不是每像素32位的位图或是一个压缩位图则函数失败.
-_WinAPI_CreateIconIndirect()可以使用该函数返回的位图创建图标.
-位图使用完毕时, 调用_WinAPI_DeleteObject()销毁.
-运行示例前请将 Silverlight.png 文件保存至临时文件夹
+The _WinAPI_CreateANDBitmap() creates a 1 bits-per-pixel AND bitmask DIB from the 32 bits-per-pixel DIB or DDB.
+If the source bitmap is non 32 bits-per-pixel bitmap, or is a compressed bitmap, the function fails.
 
-###Related###
+You can use the bitmap returned by this function to create icon by using the _WinAPI_CreateIconIndirect().
+
+When you are finished using the bitmap, destroy it using the _WinAPI_DeleteObject() function.
+
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+

@@ -2,34 +2,36 @@
 _WinAPI_LZNTDecompress
 
 ###Description###
-解压缩输入数据
+Decompresses an input data.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_LZNTDecompress( ByRef $tInput, ByRef $tOutput [, $iBufferSize] )
+_WinAPI_LZNTDecompress ( $tInput, ByRef $tOutput, $iBufferSize )
 
 ###Parameters###
 @@ParamTable@@
 $tInput
-   包含将被解压缩数据的 "byte[n]" 结构
+	"byte[n]" or any other structure that contains the data to be decompressed.
 $tOutput
-   接收解压缩数据的 "byte[n]" 结构
+	"byte[n]" structure that is created by this function, and contain the decompressed data.
 $iBufferSize
-   [可选] 用于解压缩的缓冲区字节大小 , 默认为8388608(8 MB)
+	The size of the buffer which are used for decompressing, in bytes. In most cases, the buffer size
+	should be several times (not less x2) larger than the size of the input data.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回解压缩后的数据的字节大小
-失败: 返回0并设置@error非0且@extended可能含有NTSTATUS代码
+Success	The size of the decompressed data, in bytes.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the NTSTATUS code.
 @@End@@
 
 ###Remarks###
+The input and output buffers must be different, otherwise, the function fails.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中RtlDecompressBuffer的相关信息
+@@MsdnLink@@ RtlDecompressBuffer
 
 ###Example###
 @@IncludeExample@@
+

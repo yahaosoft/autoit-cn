@@ -2,39 +2,31 @@
 _WinAPI_GetFinalPathNameByHandle
 
 ###Description###
-获取指定文件的最终路径
+Retrieves the final path of the specified file.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetFinalPathNameByHandle( $hFile [, $iFlags] )
+_WinAPI_GetFinalPathNameByHandle ( $hFile )
 
 ###Parameters###
 @@ParamTable@@
 $hFile
-   文件或目录的句柄
-$iFlags
-   [可选] 返回结果的类型. 可为一个或多个下列值.
-    $FILE_NAME_NORMALIZED - (默认)返回驱动器名
-    $FILE_NAME_OPENED - 返回打开的文件名
-    $VOLUME_NAME_DOS - (默认)返回驱动器号
-    $VOLUME_NAME_GUID - 以卷的GUID路径代替驱动器名返回路径
-    $VOLUME_NAME_NONE - 返回不带驱动器信息的路径
-    $VOLUME_NAME_NT - 返回带有卷设备路径的路径
+	Handle to a file or directory whose path is to be retrieved.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回$hFile路径
-失败: 返回空字符串并设置@error非0
+Success	The path of the file.
+Failure	Empty string and sets the @error flag to non-zero, @extended flag may contain the NTSTATUS code.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
-最低系统要求: Windows Vista
 
 ###See Also###
- 搜索MSDN知识库中GetFinalPathNameByHandle的相关信息
+@@MsdnLink@@ ZwQueryInformationFile
 
 ###Example###
 @@IncludeExample@@
+

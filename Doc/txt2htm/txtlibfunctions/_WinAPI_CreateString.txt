@@ -2,38 +2,44 @@
 _WinAPI_CreateString
 
 ###Description###
-将指定字符串复制到内存并返回其指针
+Copies a specified string to the newly allocated memory block and returns its pointer.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateString( $sString, ByRef $tString [, $iLenght [, $fUnicode]] )
+_WinAPI_CreateString ( $sString [, $pString [, $iLenght [, $fUnicode [, $fAbort]]]] )
 
 ###Parameters###
 @@ParamTable@@
 $sString
-   将被复制的源字符串
-$tString
-   包含指定字符串的 "wchar[n]" 或 "char[n]" 结构. 在字符串使用前无需使用此结构. 将该变量设置为0将释放所占内存.
+	The source string to be copied.
+$pString
+	[可选参数] A pointer to a string that to be replaced by a new string. If this parameter is a valid string pointer,
+	the memory will be reallocated for a new string. However, a new memory is allocated at a different
+	location. Therefore, you should always use a pointer that returns this function. If this parameter is
+	0, omitted, or an invalid string pointer, the function just allocates a new memory.
 $iLenght
-$iLenght小于源字符串 , 将被截断为指定长度.
+	[可选参数] The required buffer length, in TCHARs, without null-terminating character. If this parameter is (-1),
+	the buffer length will be equal to the length of the source string. If $iLenght is less than
+	a source string, the string will be truncated to the specified length.
 $fUnicode
-   [可选] 指定字符串的Unicode或ASCII编码格式, 可用值:
-    1 - Unicode(默认)
-    0 - ASCII
+	[可选参数] Specifies whether a string is Unicode or ASCII code of a character, valid values:
+		TRUE     - Unicode. (Default)
+		FALSE    - ASCII.
+$fAbort
+	[可选参数] Specifies whether to exit the script if not enough memory, valid values:
+		TRUE     - Displaying an error message and exit the script with code 1. (Default)
+		FALSE    - Continue the script and return an error.
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 返回指定的无终止字符串的指针. @extended返回字符串缓冲区的TCHAR长度(不包括NULL终止符).
-失败: 返回0并设置@error非0
-@@End@@
 
 ###Remarks###
-使用_WinAPI_GetString()函数获取返回的字符串
+When a string is no longer needed, you must destroy it by calling the _WinAPI_FreeMemory() function.
 
-###Related###
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+

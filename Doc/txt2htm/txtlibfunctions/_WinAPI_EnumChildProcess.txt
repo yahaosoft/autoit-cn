@@ -2,35 +2,35 @@
 _WinAPI_EnumChildProcess
 
 ###Description###
-枚举属于指定进程的子进程
+枚举指定进程的子进程.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_EnumChildWindows( [$PID] )
+_WinAPI_EnumChildProcess ( [$PID] )
 
 ###Parameters###
 @@ParamTable@@
 $PID
-   进程标识. 默认为0表示当前进程.
+	[可选参数] 进程 PID. 默认 0, 为当前进程.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回进程标识和进程名称的二维数组.
-    [0][0] - 数组中的行数(n).
-    [0][1] - 未使用.
-    [1][0] - 进程标识.
-    [1][1] - 进程名称.
-    [n][0] - 进程标识.
-    [n][1] - 进程名称.
-失败: 返回0并设置@error非0
+成功:	返回包含进程 PID 与进程名的二维数组.
+	[0][0] - 数组的行数 (n)
+	[0][1] - 未使用
+	[n][0] - 进程 PID
+	[n][1] - 进程名
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+

@@ -2,48 +2,52 @@
 _WinAPI_CreateIconFromResourceEx
 
 ###Description###
-从描述光标的资源数位创建一个图标或鼠标箭头
+创建资源位描述的图标或光标.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateIconFromResourceEx( $pData, $iSize [, $fIcon [, $xDesired [, $yDesired [, $iFlags]]]] )
+_WinAPI_CreateIconFromResourceEx ( $pData, $iSize [, $fIcon [, $xDesired [, $yDesired [, $iFlags]]]] )
 
 ###Parameters###
 @@ParamTable@@
 $pData
-   图标或光标的资源数位.这些数位通常由调用_WinAPI_LookupIconIdFromDirectoryEx()和_WinAPI_LoadResource()函数加载.
+	图标或光标的资源位.通常调用 _WinAPI_LookupIconIdFromDirectoryEx() 与 _WinAPI_LoadResource() 函数加载
+	and _WinAPI_LoadResource() functions.
 $iSize
-$pData参数指定的数位集的字节大小
+	字节大小,位设置由 $pData 参数值指定.
 $fIcon
-   指定创建光标还是图标, 可用值:
-    TRUE  - 创建图标. (默认)
-    FALSE - 创建光标.
+	[可选参数] 确定创建图标或光标.有效值:
+		TRUE     - 创建图标. (默认)
+		FALSE    - 创建光标.
 $xDesired
-   图标或光标的像素宽度. 如果该参数为0, 函数使用系统计量值设置宽度.
+	[可选参数] 图标或光标的宽度像素值.
+	如果次参数为 0,函数使用系统度量值设置的宽度.
 $yDesired
-   图标或光标的像素高度. 如果该参数为0, 函数使用系统计量值设置高度.
+	[可选参数] 图标或光标的高度像素值.
+	如果次参数为 0,函数使用系统度量值设置的高度.
 $iFlags
-   该参数可为一个或多哥下列值:
-    $LR_DEFAULTCOLOR - 使用默认颜色格式
-    $LR_DEFAULTSIZE - 当$xDesired及$yDesired设置为0时使用系统计量值指定的宽度或高度
-    $LR_MONOCHROME - 创建单色图标或光标
-    $LR_SHARED - 图标或光标被多次创建时共享句柄
+	[可选参数] 参数可以是一或多个下列值:
+	
+	$LR_DEFAULTCOLOR --- 使用默认颜色格式
+	$LR_DEFAULTSIZE --- 如果 $xDesired 或 $yDesired 设置为 0,光标或图标得宽(高)度由系统度量值确定
+	$LR_MONOCHROME --- 创建单色图标或光标
+	$LR_SHARED --- 如果图标或光标多次创建,则共享图标或光标句柄
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 图标或鼠标箭头的句柄
-失败: 返回0并设置@error非0
+成功:	返回图标或光标的句柄.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###
-调用_WinAPI_DestroyIcon()释放_WinAPI_CreateIconFromResourceEx()创建的图标或光标
-正常运行示例请将 Resources.dll 文件保存到临时文件夹中
+调用 _WinAPI_DestroyIcon() 销毁 _WinAPI_CreateIconFromResourceEx() 创建的对象.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中CreateIconFromResourceEx的相关信息
+@@MsdnLink@@ CreateIconFromResourceEx
 
 ###Example###
 @@IncludeExample@@
+

@@ -2,30 +2,31 @@
 _WinAPI_GetPhysicallyInstalledSystemMemory
 
 ###Description###
-获取安装在系统上的物理内存大小
+Retrieves the amount of RAM that is physically installed on the computer.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetPhysicallyInstalledSystemMemory()
+_WinAPI_GetPhysicallyInstalledSystemMemory ( )
 
 ###Parameters###
 @@ParamTable@@
-    无
+None.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 物理安装的内存大小(kb)
-失败: 返回0并设置@error非0
+Success	The amount of physically installed RAM, in kilobytes.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-最低系统要求: Windows Vista with SP1
+The amount of memory available to the operating system can be less than the amount of memory physically installed
+in the computer because the BIOS and some drivers may reserve memory as I/O regions for memory-mapped devices,
+making the memory unavailable to the operating system and applications.
 
-###Related###
+This function requires Windows Vista with SP1 or later.
+
 
 ###See Also###
- 搜索MSDN知识库中GetPhysicallyInstalledSystemMemory的相关信息
+@@MsdnLink@@ GetPhysicallyInstalledSystemMemory
 
-###Example###
-@@IncludeExample@@

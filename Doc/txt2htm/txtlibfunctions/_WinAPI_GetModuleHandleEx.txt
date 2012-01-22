@@ -2,33 +2,38 @@
 _WinAPI_GetModuleHandleEx
 
 ###Description###
-获取指定模块的句柄
+检索指定模块的句柄.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetModuleHandleEx( $sModule [, $iFlags] )
+_WinAPI_GetModuleHandleEx ( $sModule [, $iFlags] )
 
 ###Parameters###
 @@ParamTable@@
 $sModule
-$GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS标记时). 如果参数为0或空字符串, 函数返回用于创建调用的进程的文件的句柄(.exe文件).
+	加载的模块(.DLL 或 .exe 文件),或模块地址的指针.
+	(如果指定 $GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS). 
+	如果此参数为 0 或空字符串 0,该函数返回创建调用进程的 .exe 文件句柄.
 $iFlags
-   该参数可为下列值的一个或多个.
-    $GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS - 从模块地址中获取句柄.
-    $GET_MODULE_HANDLE_EX_FLAG_PIN - 进程被终止时模块保持加载状态, 无论FreeLibrary被调用多少次. 该参数不能与$GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT同时使用.
-    $GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT - 不增加模块的引用计数.该选项与GetModuleHandle等效. 该参数不能与$GET_MODULE_HANDLE_EX_FLAG_PIN同时使用.
-    $GET_MODULE_HANDLE_EX_FLAG_DEFAULT - 增加引用计数. 模块使用完毕后调用FreeLibrary释放.
+	[可选参数] 参数可以是一或多个下列值:
+	
+		 $GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS --- $sModule 的参数值为模块地址
+		 $GET_MODULE_HANDLE_EX_FLAG_PIN --- 保持模块加载,直到进程终止.
+		 $GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT --- 不增加模块的引用计数
+		 $GET_MODULE_HANDLE_EX_FLAG_DEFAULT --- 引用计数
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 指定模块的句柄
-失败: 返回0并设置@error非0
+成功:	返回指定模块的句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 在MSDN知识库中搜索GetModuleHandleEx的相关信息
+@@MsdnLink@@ GetModuleHandleEx
+

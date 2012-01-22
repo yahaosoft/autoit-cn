@@ -2,28 +2,32 @@
 _WinAPI_ShowOwnedPopups
 
 ###Description###
-显示或隐藏所有属于指定窗体的弹出窗体
+显示或隐藏指定窗口拥有的所有弹出窗口.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ShowOwnedPopups( $hWnd , $fShow )
+_WinAPI_ShowOwnedPopups ( $hWnd, $fShow )
 
 ###Parameters###
 @@ParamTable@@
-$hWnd  弹出窗体所属主窗体的句柄
-$fShow  指定隐藏或显示. 为TRUE时显示所有隐藏窗体, 否则隐藏所有显示窗体.
+$hWnd
+	A handle to the window that owns the pop-up windows to be shown or hidden.
+$fShow
+	指定弹出窗口的显示或隐藏
+		1 - 显示所有隐藏的弹出窗口.
+		0 - 隐藏所有可见的弹出窗口.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error标志为非 0 值.
 @@End@@
 
 ###Remarks###
-该函数仅显示由调用_WinAPI_ShowOwnedPopups()所隐藏的窗体
+本函数只能显示先前调用本函数隐藏的窗口.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中ShowOwnedPopups的相关信息
+@@MsdnLink@@ ShowOwnedPopups
+

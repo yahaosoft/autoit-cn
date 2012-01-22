@@ -1,0 +1,38 @@
+﻿###User Defined Function###
+_WinAPI_PathAppend
+
+###Description###
+Appends one path to the end of another.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_PathAppend ( $sPath, $sMore )
+
+###Parameters###
+@@ParamTable@@
+$sPath
+	The string to which the path is appended.
+$sMore
+	The path to be appended.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The resulting path string.
+Failure	Empty string and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function automatically inserts a backslash between the two strings, if one is not already present.
+
+The first path cannot begin with "..\\" or ".\\" to produce a relative path string. If present, those periods are
+stripped from the output string. For example, appending "path3" to "..\\path1\\path2" results in an output
+of "\path1\path2\path3" rather than "..\path1\path2\path3".
+
+
+###See Also###
+@@MsdnLink@@ PathAppend
+
+###Example###
+@@IncludeExample@@
+

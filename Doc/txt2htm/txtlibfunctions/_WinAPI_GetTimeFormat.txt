@@ -2,40 +2,48 @@
 _WinAPI_GetTimeFormat
 
 ###Description###
-将时间格式化为由标识符指定标识的时间字符串
+格式化指定区域标识符的时间字符串.
 
 ###Syntax###
-#Include <WinAPI.au3>
-_WinAPI_GetTimeFormat( [$LCID [, $tSYSTEMTIME [, $iFlag [, $sFormat]]]] )
+#Include <WinAPIEx.au3>
+_WinAPI_GetTimeFormat ( [$LCID [, $tSYSTEMTIME [, $iFlag [, $sFormat]]]] )
 
 ###Parameters###
 @@ParamTable@@
 $LCID
-   指定区域的区域标识符(LCID常量). 如果为0, 函数使用用户默认的区域标识.
+	[可选参数] 区域设置标识符(LCID).
+	如果此参数为 0, 函数将使用用户默认区域设置.
 $tSYSTEMTIME
-$tagFILETIME结构. 如果为0, 函数使用当前的本地系统时间.
+	[可选参数] $tagSYSTEMTIME 结构,包含时间格式信息. 如果此参数为 0,
+	则函数使用当前本地系统时间.
 $iFlag
-   指定时间格式选项的标记. 可为一个或多个下列值.
-    $TIME_FORCE24HOURFORMAT - 使用24小时格式
-    $TIME_NOMINUTESORSECONDS - 不使用分或秒
-    $TIME_NOSECONDS - 不使用秒
-    $TIME_NOTIMEMARKER - 不使用时间标记
+	[可选参数] 时间格式选项标志.
+	参数可以是一或多个下列值:
+	
+	$TIME_FORCE24HOURFORMAT --- 始终使用24小时时间格式.
+	$TIME_NOMINUTESORSECONDS --- 不使用分钟或秒.
+	$TIME_NOSECONDS --- 不使用秒.
+	$TIME_NOTIMEMARKER --- 不使用时间标志.
+	
 $sFormat
-$LCID)的时间样式字符串.
+	[可选参数] 时间字符串. 例如, "hh:mm:ss tt". 如果此参数为 0,
+	函数返回指定区域设置的时间格式字符串 ($LCID).
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 格式化的时间字符串
-失败: 空字符串并设置@error非0
+成功:	返回格式化的时间字符串.
+失败:	返回空串,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetTimeFormat的相关信息
+@@MsdnLink@@ GetTimeFormat
 
 ###Example###
 @@IncludeExample@@
+

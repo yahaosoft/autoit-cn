@@ -2,46 +2,44 @@
 _WinAPI_CreateIconIndirect
 
 ###Description###
-从ICONINFO结构创建一个图标或鼠标箭头
+创建指定大小,颜色和位模式的图标或光标.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateIconIndirect( $hBitmap, $hMask[, $XHotspot[, $YHotspot[, $fIcon]]] )
+_WinAPI_CreateIconIndirect ( $hBitmap, $hMask [, $XHotspot [, $YHotspot [, $fIcon]]] )
 
 ###Parameters###
 @@ParamTable@@
 $hBitmap
-   图标颜色位图的句柄
+	图标的颜色位图句柄.
 $hMask
-   图标数位掩码位图的句柄
+	图标的位图掩码句柄.
 $XHotspot
-   指定鼠标箭头热点的x坐标. 如果创建一个图标, 热点通常在图标中心点, 且忽略此成员
+	[可选参数] 热点光标 X 坐标. 如果是创建图标,
+	 热点总是在图标的中心, 并忽略此参数.
 $YHotspot
-   指定鼠标箭头热点的y坐标. 如果创建一个图标, 热点通常在图标中心点, 且忽略此成员
+	[可选参数] 热点光标 Y 坐标. 如果是创建图标
+	 热点总是在图标的中心, 并忽略此参数.
 $fIcon
-   指定是否创建图表或鼠标箭头, 可用值:
-    真: 创建图标(默认)
-    假: 创建鼠标箭头
-$hANDBits
-   图标包含的AND数位掩码字节值的数组的句柄. 该掩码描述一个单色位图
-$hXORBits
-   图标包含的XOR数位掩码字节值的数组的句柄. 该掩码描述一个单色或设备支持的多色位图
+	[可选参数] 指定创建图标或光标, 有效值为:
+		TRUE     - 创建图标. (默认)
+		FALSE    - 创建光标.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 创建的图标或鼠标箭头的句柄
-失败: 返回0并设置@error非0
+成功:	返回创建的图标或光标句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-在创建图表或鼠标箭头前系统会复制位图. 因为系统可临时选取设备场景中的位图, $hBitmap和$hMask不会被选入设备场景.
-应用程序可以继续管理原始位图并在不需要时通过_WinAPI_FreeObject()删除
+创建图标或光标之前,系统复制位图.因为系统可能会暂时选择设备环境的位图,
+所以 $hBitmap 与 $hMask 不应该已被选中到设备环境.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中CreateIconIndirect的相关信息
+@@MsdnLink@@ CreateIconIndirect
 
 ###Example###
 @@IncludeExample@@
+

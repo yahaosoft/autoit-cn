@@ -2,61 +2,72 @@
 _WinAPI_DisplayStruct
 
 ###Description###
-以列表显示源于指定结构或内存地址的数据
+Displays data from the specified structure or memory address as a list.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_DisplayStruct (ByRef $tStruct [, $sStruct [, $sTitle [, $iItem [, $iSubItem [, $iFlags [, $fTop [, $hParent]]]]]]] )
+_WinAPI_DisplayStruct ($tStruct [, $sStruct [, $sTitle [, $iItem [, $iSubItem [, $iFlags [, $fTop [, $hParent]]]]]]] )
 
 ###Parameters###
 @@ParamTable@@
 $tStruct
-   DllStructCreate()创建的结构或被显示数据的内存地址
+	A structure that was created by DllStructCreate(), or memory address to be display its data.
 $sStruct
-$tStruct是一个结构 , 可忽略该参数或空串. 这种情况下结构将显示为 " byte[n] " 结构. 如果$tStruct为内存地址 , $sStruct将为代表结构的字符串 , 否则 , 函数失败且@error为1.
+	[可选参数] A string representing the structure. If $tStruct is a structure, this parameter can be omitted or be
+	an empty string. In this case, the structure will display as "byte[n]" structure. If $tStruct is a
+	memory address, $sStruct should be a string representing the structure, otherwise, the function
+	fail, and @error set to 1.
 $sTitle
-   [可选] 窗口标题, 默认为 " Structure: ListView Display "
+	[可选参数] The title of the window, deault is "Structure: ListView Display".
 $iItem
-   [可选] 1基索引或被选入列表的结构成员名称. 如果该参数为0或不正确的索引或名称 , 将选取结构的首个元素.
+	[可选参数] The 1-based index or name of the structure member to be selected in the list. If this parameter is 0,
+	or an incorrect index or name, the first element of the structure will be selected.
 $iSubItem
-$iItem参数指向的结构成员的1基索引数组. 如果$iItem未在$sStruct中定义为数组 , 或数组索引无效 , 将选取其自身元素.
+	[可选参数] The 1-based index of the array in the structure member pointed to by the $iItem parameter to be
+	selected. If $iItem was not defined as an array in the $sStruct, or invalid array index, the element
+	pointed to by the $iItem parameter will be selected.
 $iFlags
-   [可选] 指定额外显示选项的数位标记. 该参数可为0或下列值的任意组合:
-   1 - 在列表头尾不显示 " " 和 " " 字段
-   2 - 不显示 " " 字段
-   4 - 如果结构元素无名称不在列表的 " Member " 列中显示 " "
-   8 - 不高亮显示被定义为数组的的结构元素.
-   16 - 不将名为 " Reserved* " 元素感知为未使用元素.
-   32 - 禁止使用双击结构元素的值复制到剪贴板.
-   64 - 强制扩展结构的BYTE[n]和BOOLEAN[n]类型元素(CHAR[n]和WCHAR[n]类型的元素通常显示为字符串).
-   128 - 如果可能, 强制以16进制显示结构元素的值.
-   256 - 如果内存访问出错强制返回错误代码以代替显示消息框.
-   512 - 强制禁用检查分配给结构的内存的读取权限.
+	[可选参数] A set of bit flags that specifies an additional displaying options. This parameter can be 0, or any
+	combination of the following values.
+	
+	1 - Prevent displaying "<struct>" and "<endstruct>" fields at the beginning and end of the list.
+	2 - Prevent displaying "<alignment>" fields.
+	4 - Prevent displaying "<unnamed>" in "Member" column of the list if the structure element has no name.
+	8 - Prevent highlighting structure elements that are defined as an array.
+	16 - Prevent perceiving structure elements named "Reserved*" as unused elements.
+	32 - Prevent using double-click to copy values of the structure elements to the clipboard.
+	64 - Forced to expand structure elements of BYTE[n], UBYTE[n], and BOOLEAN[n] types (elements of CHAR[n] and WCHAR[n] types always displays as a string).
+	128 - Forced to display the values of the structure elements in the hexadecimal representation, if possibly.
+	256 - Forced to return error code instead of displaying a message box if a memory access error occurred.
+	512 - Forced to disable checking the read access memory allocated to a given structure.
+	
 $fTop
-   [可选] 指定是否创建具有 " Always On Top " 属性的窗口 , 可用值:
-    1 - 窗口具有$WS_EX_TOPMOST extended样式. (默认)
-    0 - 窗口不具有 " TOPMOST " 标记设置.
+	[可选参数] Specifies whether create a window with "Always On Top" attribute, valid values:
+		TRUE     - The window is created with the $WS_EX_TOPMOST extended style. (Default)
+		FALSE    - The window will not have the "TOPMOST" flag set.
 $hParent
-   [可选] 父窗体句柄
+	[可选参数] Handle to the parent window.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error为下列值:
-    1 - $sStruct参数不是字符串.
-    2 - 传递的结构中具有未知类型的数据.
-    3 - 分配内存失败或指针无效.
-    4 - 未指定错误.
-    5 - 访问内存读取数据出错.
+Success	1.
+Failure	0 and sets the @error flag to the one of the following values:
+1	The $sStruct parameter is not a string.
+2	There is an unknown data type in the string passed.
+3	Failed to allocate the memory needed for the structure, or invalid pointer.
+4	Unspecified error.
+5	Error accessing memory to read data.
 @@End@@
 
 ###Remarks###
-此函数主要用于调试 , 由于并不向最终用户传递有用的信息 , 因此不应该用于最终脚本。
+This function is intended primarily for debugging and should not be used in the final script, since no useful
+information for the end user does not carry.
 
-###Related###
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+

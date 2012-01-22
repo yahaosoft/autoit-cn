@@ -1,0 +1,46 @@
+﻿###User Defined Function###
+_WinAPI_FindFirstFile
+
+###Description###
+Searches a directory for a file or subdirectory with a name that matches a specific name.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_FindFirstFile ( $sPath, $pData )
+
+###Parameters###
+@@ParamTable@@
+$sPath
+	The directory or path, and the file name, which can include wildcard characters, for example, an asterisk
+	"*" or a question mark "?". If the string ends with a wildcard, period ".", or directory name, the user
+	must have access permissions to the root and all subdirectories on the path.
+$pData
+	A pointer to the $tagWIN32_FIND_DATA structure that receives information about a found file or directory.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The search handle, and the $tagWIN32_FIND_DATA structure contains information about the first file
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+This function opens a search handle and returns information about the first file that the file system finds with
+a name that matches the specified pattern. This may or may not be the first file or directory that appears in
+a directory-listing application when given the same file name string pattern.
+
+After the search handle is established, you can use it to search for other files that match the same pattern by
+using the _WinAPI_FindNextFile() function.
+
+If the function fails because no more matching files can be found, the @extended flag will contain
+ERROR_NO_MORE_FILES (18) system error code.
+
+When the search handle is no longer needed, close it by using the _WinAPI_FindClose() function.
+
+
+###See Also###
+@@MsdnLink@@ FindFirstFile
+
+###Example###
+@@IncludeExample@@
+

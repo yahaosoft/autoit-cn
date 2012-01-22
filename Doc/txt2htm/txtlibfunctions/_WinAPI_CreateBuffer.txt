@@ -1,0 +1,38 @@
+﻿###User Defined Function###
+_WinAPI_CreateBuffer
+
+###Description###
+Allocates a block of memory from the internal library heap.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateBuffer ( $iLenght [, $pBuffer [, $fAbort]] )
+
+###Parameters###
+@@ParamTable@@
+$iLenght
+	The required buffer length, in bytes.
+$pBuffer
+	[可选参数] A pointer to a buffer that to be replaced by a new buffer. If this parameter is a valid buffer pointer,
+	the memory will be reallocated for a new buffer. However, a new memory is allocated at a different
+	location. Therefore, you should always use a pointer that returns this function. If this parameter is
+	0, omitted, or an invalid buffer pointer, the function just allocates a new memory.
+$fAbort
+	[可选参数] Specifies whether to exit the script if not enough memory, valid values:
+		TRUE     - Displaying an error message and exit the script with code 1. (Default)
+		FALSE    - Continue the script and return an error.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	A pointer to the new buffer.
+Failure	0 and sets the @error flag to non-zero (if an exceptions is not set).
+@@End@@
+
+###Remarks###
+When a buffer is no longer needed, you must destroy it by calling the _WinAPI_FreeMemory() function.
+
+
+###See Also###
+None
+

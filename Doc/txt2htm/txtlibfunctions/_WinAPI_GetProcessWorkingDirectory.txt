@@ -2,31 +2,34 @@
 _WinAPI_GetProcessWorkingDirectory
 
 ###Description###
-获取指定进程当前的工作目录
+Retrieves the current working directory for the specified process.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetProcessWorkingDirectory( [$PID] )
+_WinAPI_GetProcessWorkingDirectory ( [$PID] )
 
 ###Parameters###
 @@ParamTable@@
 $PID
-   进程标识PID. 默认0为当前进程.
+	[可选参数] The PID of the process. Default (0) is the current process.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回工作目录路径
-失败: 返回空字符串并设置@error非0
+Success	The path to the working directory.
+Failure	Empty string and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-该函数使用未公开API函数并有可能在后续Windows版本中出错.
-对于一些进程需要完全访问权限. 调用前使用_WinAPI_AdjustTokenPrivileges()函数启用"SeDebugPrivilege"权限.
+This function uses undocumented API functions and may stop working properly in future versions of Windows.
 
-###Related###
+Using this function for some processes may require full access rights. Use _WinAPI_AdjustTokenPrivileges()
+function to enable "SeDebugPrivilege" privilege before calling this function.
+
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+

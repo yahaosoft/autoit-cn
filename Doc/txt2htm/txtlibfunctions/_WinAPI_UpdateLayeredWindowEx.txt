@@ -2,32 +2,45 @@
 _WinAPI_UpdateLayeredWindowEx
 
 ###Description###
-更新层叠窗口的位图透明度
-_WinAPI_UpdateLayeredWindowEx ( $hWnd, $hBitmap [, $iOpacity [, $fDelete]] )
+更新分层窗口半透明位图.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_UpdateLayeredWindowEx ( $hWnd, $iX, $iY, $hBitmap [, $iOpacity [, $fDelete]] )
 
 ###Parameters###
 @@ParamTable@@
-$hWnd  层叠窗体句柄. 层叠窗体通过$WS_EX_LAYERED创建.
-$hBitmap  将在层叠窗体中设置的位图句柄
-$iOpacity  [可选] 用于整个位图的alpha透明度值
-$fDelete  [optional] 指定更新窗口后是否删除位图
-1 - 如果函数成功则删除位图
-0 - 不删除, 在使用完毕后须释放位图.(默认)
+$hWnd
+	分层窗口句柄. 窗口创建时指定有 $WS_EX_LAYERED.
+$iX
+	The new position of the left side of the window.
+$iY
+	The new position of the top of the window.
+$hBitmap
+	Handle to the bitmap that will be set to the layered window.
+$iOpacity
+	[可选参数] 源位图 Alpha 透明度值.
+$fDelete
+	[可选参数] 更新窗口后是否删除位图,有效值:
+		TRUE - 函数成功后删除位图.
+		FALSE - 不删除, 当使用完位图你必须释放. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1.
-失败: 返回0并设置@error非0.
+成功:	返回 1.
+失败:	返回 0,设置@error 标志为非 0 值.
 @@End@@
 
 ###Remarks###
-通过层叠窗口和底层窗口来表现最好的画质, 层叠窗口应尽可能小.
-运行示例前请将 Torus.png 文件保存至临时文件夹
+为使分层窗口和任何底层窗口达到最佳绘图效能, 分层窗口应尽可能小.
 
-###Related###
+If $iX and $iY are both equal to (-1), the current window position will not change.
+
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+

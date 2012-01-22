@@ -2,23 +2,33 @@
 _WinAPI_SetFRBuffer
 
 ###Description###
-设置用于_WinAPI_FindTextDlg()和_WinAPI_ReplaceTextDlg()函数的内部缓冲的大小
+Sets the size of the internal buffer that used the _WinAPI_FindTextDlg() and _WinAPI_ReplaceTextDlg() functions.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetFRBuffer( $iChars )
+_WinAPI_SetFRBuffer ( $iChars )
 
 ###Parameters###
 @@ParamTable@@
-$iChars  内部缓冲的TCHAR的大小. 缓冲区至少为80字符长. 默认为8192字符(16 KB).
+$iChars
+	The size, in TCHARs, of the internal buffer. The buffer should be at least 80 characters long.
+	The default buffer size is 16384 wide characters (32 KB).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-该函数不会初始化缓冲区而只是设置大小. 实际上缓冲仅由_WinAPI_FindTextDlg()和_WinAPI_ReplaceTextDlg()函数初始化.
-在使用_WinAPI_FindTextDlg()和前_WinAPI_ReplaceTextDlg()必须调用_WinAPI_SetFRBuffer().
+This function does not initialize the buffer, just sets its size. Actually, this buffer is initialized only by
+_WinAPI_FindTextDlg() and _WinAPI_ReplaceTextDlg() functions. The _WinAPI_SetFRBuffer() must be called before
+using the _WinAPI_FindTextDlg() or _WinAPI_ReplaceTextDlg().
+
+You can destroy the internal buffer by calling the _WinAPI_FlushFRBuffer() function.
+
+
+###See Also###
+None
+

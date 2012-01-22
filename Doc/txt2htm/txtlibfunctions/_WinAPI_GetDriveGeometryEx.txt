@@ -2,35 +2,37 @@
 _WinAPI_GetDriveGeometryEx
 
 ###Description###
-获取驱动器分布的扩展信息
+检索磁盘的几何结构扩展信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetDriveGeometryEx( $iDrive )
+_WinAPI_GetDriveGeometryEx ( $iDrive )
 
 ###Parameters###
 @@ParamTable@@
 $iDrive
-   要获取信息的驱动器号, 使用格式D:, E:等.
+	驱动器号,如 D:, E:, 等等.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回如下数组:
-    [0] - 柱面数
-    [1] - 每柱面磁道数
-    [2] - 每磁道扇区数
-    [3] - 每扇区字节数
-    [4] - 总大小
-失败: 返回0并设置@error非0
+Success	The array containing the following information:
+[0]	The number of cylinders.
+[1]	The type of media.
+[2]	The number of tracks per cylinder.
+[3]	The number of sectors per track.
+[4]	The number of bytes per sector.
+[5]	The disk size, in bytes.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中IOCTL_DISK_GET_DRIVE_GEOMETRY_EX的相关信息
+@@MsdnLink@@ IOCTL_DISK_GET_DRIVE_GEOMETRY_EX
 
 ###Example###
 @@IncludeExample@@
+
