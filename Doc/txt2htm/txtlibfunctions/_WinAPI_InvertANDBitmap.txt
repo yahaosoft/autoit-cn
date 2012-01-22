@@ -6,32 +6,34 @@ _WinAPI_InvertANDBitmap
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_InvertANDBitmap( $hBitmap [, $fDelete] )
+_WinAPI_InvertANDBitmap ( $hBitmap [, $fDelete] )
 
 ###Parameters###
 @@ParamTable@@
 $hBitmap
-   要反转的源位图句柄
+	要反转的源位图句柄
 $fDelete
-   [可选] 指定如果函数成功是否删除源位图. 可用值:
-    1 - 如果函数成功则删除源位图.
-    0 - 不删除. 必须在不需要时自行销毁.(默认)
+	[可选参数] 指定如果函数成功是否删除源位图. 可用值:
+		TRUE    - 如果函数成功则删除源位图.
+		FALSE   - 不删除. 必须在不需要时自行销毁.(默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回反转位图的句柄
-失败: 返回0并设置@error非0
+成功:	返回反转位图的句柄
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###
-_WinAPI_InvertANDBitmap()从每像素1位AND掩码的位图创建一个每像素1位的反转掩码的DIB. 如果源位图不是则函数失败.
-位图使用完毕,使用_WinAPI_DeleteObject()销毁.
-正常运行示例请将 Soccer.ico 文件保存到临时文件夹中
+_WinAPI_InvertANDBitmap() 从每像素1位AND掩码的位图创建一个每像素1位的反转掩码的DIB.
+如果源位图不是则函数失败.
 
-###Related###
+位图使用完毕,使用_WinAPI_DeleteObject()销毁.
+
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+
