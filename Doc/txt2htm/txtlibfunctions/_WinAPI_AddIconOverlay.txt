@@ -6,29 +6,32 @@ _WinAPI_AddIconOverlay
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_AddIconOverlay( $hIcon, $hOverlay )
+_WinAPI_AddIconOverlay ( $hIcon, $hOverlay )
 
 ###Parameters###
 @@ParamTable@@
 $hIcon
-   原始图标句柄
+	原始图标句柄
 $hOverlay
-   用作遮盖层的图标句柄
+	用作遮盖层的图标句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 新建图标句柄
-失败: 返回0并设置@error非0
+成功:	新建图标句柄
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###
-源图标与遮盖层大小必须一致, 但可以有不同位深.
+The source and overlay icons must be the same size but can have different color depth. This function internally
+converts the specified icons to the 32 bits-per-pixel icon.
+
 图标使用完毕后, 使用_WinAPI_DestroyIcon()销毁.
 
-###Related###
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+

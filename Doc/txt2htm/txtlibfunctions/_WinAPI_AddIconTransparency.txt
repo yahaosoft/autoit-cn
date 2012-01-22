@@ -6,33 +6,38 @@ _WinAPI_AddIconTransparency
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_AddIconTransparency( $hIcon [, $iPercent [, $fDelete]] )
+_WinAPI_AddIconTransparency ( $hIcon [, $iPercent [, $fDelete]] )
 
 ###Parameters###
 @@ParamTable@@
 $hIcon
-   图标句柄
+	图标句柄
 $iPercent
-   指定要降低的图标alpha通道的百分比值
+	[可选参数] A value (in percent) that specifies how much to decrease the values of the alpha channel for the
+	specified icon. If this parameter is 0, the function returns a fully transparent icon.
 $fDelete
-   指定函数成功后是否删除图标. 可选:
-    True: 函数成功返回后删除图标
-    Flase: 不删除且必须在使用完毕后指定删除
+	[可选参数] Specifies whether to delete the icon after the function is successful, valid values:
+		TRUE     - 函数成功返回后删除图标
+		FALSE    - 不删除且必须在使用完毕后指定删除
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回新建图标句柄
-失败: 返回0并设置@error非0
+成功:	返回新建图标句柄
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###
-该函数仅用于每像素32位的图标.
-图标使用完毕后 , 使用_WinAPI_DestroyIcon()销毁.
+This function only works with 32 bits-per-pixel with alpha chanel (RGB + Alpha) icons. If the source icon
+has no alpha chanel, the resulting icon will be the same as the source icon. If the source icon is non
+32 bits-per-pixel, the function fails.
 
-###Related###
+When you are finished using the icon, destroy it using the _WinAPI_DestroyIcon() function.
+
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+

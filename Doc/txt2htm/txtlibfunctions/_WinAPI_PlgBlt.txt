@@ -6,50 +6,56 @@ _WinAPI_PlgBlt
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_PlgBlt( $hDestDC, Const ByRef $aPoint, $hSrcDC, $iXSrc, $iYSrc, $iWidth, $iHeight [, $hMask [, $iXMask [, $iYMask]]] )
+_WinAPI_PlgBlt ( $hDestDC, Const ByRef $aPoint, $hSrcDC, $iXSrc, $iYSrc, $iWidth, $iHeight [, $hMask [, $iXMask [, $iYMask]]] )
 
 ###Parameters###
 @@ParamTable@@
 $hDestDC
-   目标场景句柄
+	目标场景句柄
 $aPoint
-   确定目标平行四边形的三个顶点的2D数组([x1, y1], [x2, y2], [x3, y3]).
-    源矩形左上角被映射为数组中的首个点, 右上角位数组中第二个点, 左下角第三个点. 源矩形右下角被映射为由平行四边形推导出的第四个点.
+	确定目标平行四边形的三个顶点的2D数组([x1, y1], [x2, y2], [x3, y3]).
+	源矩形左上角被映射为数组中的首个点, 右上角位数组中第二个点, 左下角第三个点.
+	源矩形右下角被映射为由平行四边形推导出的第四个点.
 $hSrcDC
-   源设备场景句柄
+	源设备场景句柄
 $iXSrc
-   源矩形左上角逻辑单位X坐标
+	源矩形左上角逻辑单位X坐标
 $iYSrc
-   源矩形左上角逻辑单位Y坐标
+	源矩形左上角逻辑单位Y坐标
 $iWidth
-   源矩形逻辑单位宽
+	源矩形逻辑单位宽
 $iHeight
-   源矩形逻辑单位高
+	源矩形逻辑单位高
 $hMask
-   [可选] 用于遮盖源矩形颜色的单色调位图句柄
+	[可选参数] 用于遮盖源矩形颜色的单色调位图句柄
 $iXMask
-   [可选] 单色调位图左上角逻辑单位X坐标
+	[可选参数] 单色调位图左上角逻辑单位X坐标
 $iYMask
-   [可选] 单色调位图左上角逻辑单位Y坐标
+	[可选参数] 单色调位图左上角逻辑单位Y坐标
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 1
-失败: 返回0并设置@error非0
+成功:	1
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###
-_WinAPI_PlgBlt()工作于设备无关位图. 如果源或目标场景提供不匹配设备, 函数返回错误.
+_WinAPI_PlgBlt()工作于设备无关位图. 如果源或目标场景提供不匹配设备,
+函数返回错误.
+
 平行四边形的第四个顶点可用前三个点作为向量计算可得D = B + CA.
+
+
 如果指定掩码, 掩码中为1的值表示源像素颜色应复制到目标. 掩码中为0的值表示不改变目标像素颜色. 如果掩码矩形小于源矩形和目标矩形, 函数复制掩模方案.
+
 源场景中允许缩放，平移及反射变换但不允许旋转和剪切. 如果掩码位图不是单色调位图, 会产生错误. 目标场景的拉伸模式用于确定必要情况时如何拉伸或压缩像素.
 运行示例前请将 Compass.bmp 文件保存至临时文件夹
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中PlgBlt的相关信息
+@@MsdnLink@@ PlgBlt
 
 ###Example###
 @@IncludeExample@@
+
