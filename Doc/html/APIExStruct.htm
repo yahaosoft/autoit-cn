@@ -31,7 +31,7 @@
 <td>'dword bV5Size;long bV5Width;long bV5Height;ushort bV5Planes;ushort bV5BitCount;dword bV5Compression;dword bV5SizeImage;long bV5XPelsPerMeter;long bV5YPelsPerMeter;dword bV5ClrUsed;dword bV5ClrImportant;dword bV5RedMask;dword bV5GreenMask;dword bV5BlueMask;dword bV5AlphaMask;dword bV5CSType;int bV5Endpoints[3];dword bV5GammaRed;dword bV5GammaGreen;dword bV5GammaBlue;dword bV5Intent;dword bV5ProfileData;dword bV5ProfileSize;dword bV5Reserved;'</td>
 </tr>
 <tr><td bgcolor="#9999CC">$tagBITMAPINFO</td>
-<td bgcolor="#9999CC">$tagBITMAPINFOHEADER & 'dword bmiColors[1];'</td>
+<td bgcolor="#9999CC">$tagBITMAPINFOHEADER & 'dword bmiColors[n];'</td>
 </tr>
 <tr><td>$tagDEVMODE_DISPLAY</td>
 <td>'wchar DeviceName[32];ushort SpecVersion;ushort DriverVersion;ushort Size;ushort DriverExtra;dword Fields;' & $tagPOINT & ';dword DisplayOrientation;dword DisplayFixedOutput;short[5];wchar[32];ushort LogPixels;dword BitsPerPel;dword PelsWidth;dword PelsHeight;dword DisplayFlags;dword DisplayFrequency;'</td>
@@ -52,7 +52,7 @@
 <td>'dword Type;dword Size;long rcBounds[4];long rcFrame[4];dword Signature;dword Version;dword Bytes;dword Records;ushort Handles;ushort Reserved;dword Description;dword OffDescription;dword PalEntries;long Device[2];long Millimeters[2];dword PixelFormat;dword OffPixelFormat;dword OpenGL;long Micrometers[2];'</td>
 </tr>
 <tr><td>$tagEXTLOGPEN</td>
-<td>'dword PenStyle;dword Width;uint BrushStyle;dword Color;ulong_ptr Hatch;dword NumEntries' ; & 'dword StyleEntry[n];'</td>
+<td>'dword PenStyle;dword Width;uint BrushStyle;dword Color;ulong_ptr Hatch;dword NumEntries;' ; & 'dword StyleEntry[n];'</td>
 </tr>
 <tr><td>$tagFINDREPLACE</td>
 <td>'dword Size;hwnd hOwner;ptr hInstance;dword Flags;ptr FindWhat;ptr ReplaceWith;ushort FindWhatLen;ushort ReplaceWithLen;lparam lParam;ptr Hook;ptr TemplateName;'</td>
@@ -79,7 +79,7 @@
 <td>'int64 PerProcessUserTimeLimit;int64 PerJobUserTimeLimit;dword LimitFlags;ulong_ptr MinimumWorkingSetSize;ulong_ptr MaximumWorkingSetSize;dword ActiveProcessLimit;ulong_ptr Affinity;dword PriorityClass;dword SchedulingClass;'</td>
 </tr>
 <tr><td>$tagJOBOBJECT_BASIC_PROCESS_ID_LIST</td>
-<td>'dword NumberOfAssignedProcesses;dword NumberOfProcessIdsInList' ; & 'ulong_ptr ProcessIdList[n];'</td>
+<td>'dword NumberOfAssignedProcesses;dword NumberOfProcessIdsInList;' ; & 'ulong_ptr ProcessIdList[n];'</td>
 </tr>
 <tr><td>$tagJOBOBJECT_BASIC_UI_RESTRICTIONS</td>
 <td>'dword UIRestrictionsClass;'</td>
@@ -117,6 +117,9 @@
 <tr><td>$tagNOTIFYICONDATA_V4</td>
 <td>$tagNOTIFYICONDATA_V3 & 'ptr hBalloonIcon;'</td>
 </tr>
+<tr><td>$tagNUMBERFMT</td>
+<td>'uint NumDigits;uint LeadingZero;uint Grouping;ptr DecimalSep;ptr ThousandSep;uint NegativeOrder;' ; & 'wchar DecimalSepChars[n];wchar ThousandSepChars[n];'</td>
+</tr>
 <tr><td>$tagOSVERSIONINFO</td>
 <td>'dword OSVersionInfoSize;dword MajorVersion;dword MinorVersion;dword BuildNumber;dword PlatformId;wchar CSDVersion[128];'</td>
 </tr>
@@ -147,6 +150,9 @@
 <tr><td bgcolor="#9999CC">$tagRGNDATA</td>
 <td bgcolor="#9999CC">$tagRGNDATAHEADER ; & $tagRECT[n] & ';'</td>
 </tr>
+<tr><td>$tagSHELLHOOKINFO</td>
+<td>'hwnd hWnd;' & $tagRECT & ';'</td>
+</tr>
 <tr><td>$tagSHFILEINFO</td>
 <td>'ptr hIcon;int iIcon;dword Attributes;wchar DisplayName[260];wchar TypeName[80];'</td>
 </tr>
@@ -176,6 +182,9 @@
 </tr>
 <tr><td bgcolor="#9999CC">$tagVS_VERSIONINFO</td>
 <td bgcolor="#9999CC">'ushort Length;ushort ValueLength;ushort Type;wchar Key;ushort Padding1;' & $tagVS_FIXEDFILEINFO & 'ushort Padding2;ushort Children;'</td>
+</tr>
+<tr><td bgcolor="#9999CC">$tagWIN32_FIND_DATA</td>
+<td bgcolor="#9999CC">'align 4;dword FileAttributes;uint64 CreationTime;uint64 LastAccessTime;uint64 LastWriteTime;dword FileSizeHigh;dword FileSizeLow;dword Reserved0;dword Reserved1;wchar FileName[260];wchar AlternateFileName[14];'</td>
 </tr>
 <tr><td>$tagWINDOWINFO</td>
 <td>'dword Size;dword rWindow[4];dword rClient[4];dword Style;dword ExStyle;dword WindowStatus;uint cxWindowBorders;uint cyWindowBorders;ushort atomWindowType;ushort CreatorVersion;'</td>
