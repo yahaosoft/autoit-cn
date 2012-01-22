@@ -6,45 +6,50 @@ _WinAPI_SetDIBitsToDevice
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetDIBitsToDevice( $hDC, $iXDest, $iYDest, $iWidth, $iHeight, $iXSrc, $iYSrc, $iStartScan, $iScanLines, $tBITMAPINFO, $iUsage, $pBits )
+_WinAPI_SetDIBitsToDevice ( $hDC, $iXDest, $iYDest, $iWidth, $iHeight, $iXSrc, $iYSrc, $iStartScan, $iScanLines, ByRef $tBITMAPINFO, $iUsage, $pBits )
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   设备场景句柄
+	设备场景句柄
 $iXDest
-   目标矩形左上角逻辑单位x坐标
+	目标矩形左上角逻辑单位x坐标
 $iYDest
-   目标矩形左上角逻辑单位y坐标
+	目标矩形左上角逻辑单位y坐标
 $iWidth
-   图像的逻辑单位宽度
+	图像的逻辑单位宽度
 $iHeight
-   图像的逻辑单位高度
+	图像的逻辑单位高度
 $iXSrc
-   图像左上角逻辑单位x坐标
+	图像左上角逻辑单位x坐标
 $iYSrc
-   图像左上角逻辑单位y坐标
+	图像左上角逻辑单位y坐标
 $iStartScan
-   图像开始扫描行
+	图像开始扫描行
+$iScanLines
+	The number of DIB scan lines.
 $tBITMAPINFO
-$tagBITMAPINFO结构
+	包含DIB信息的$tagBITMAPINFO结构
 $iUsage
-   使用的颜色类型. (逻辑调色板索引或精确RGB值). 可为以下值:
-$DIB_PAL_COLORS
-$DIB_RGB_COLORS
+	使用的颜色类型. (逻辑调色板索引或精确RGB值). 可为以下值:
+	
+	$DIB_PAL_COLORS
+	$DIB_RGB_COLORS
+	
 $pBits
-   存储为字节数组的颜色数据的指针
+	存储为字节数组的颜色数据的指针
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回设置的扫描行数
-失败: 返回0并设置@error非0
+成功:	返回设置的扫描行数
+失败:	返回0并设置@error 非0
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SetDIBitsToDevice的相关信息
+@@MsdnLink@@ SetDIBitsToDevice
+

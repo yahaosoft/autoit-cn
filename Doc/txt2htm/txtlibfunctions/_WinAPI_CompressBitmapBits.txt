@@ -6,37 +6,42 @@ _WinAPI_CompressBitmapBits
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CompressBitmapBits( $hBitmap, ByRef $tBuffer [, $iCompression [, $iQuality]] )
+_WinAPI_CompressBitmapBits ( $hBitmap, ByRef $tBuffer [, $iCompression [, $iQuality]] )
 
 ###Parameters###
 @@ParamTable@@
 $hBitmap
-   要被压缩的位图的句柄
+	要被压缩的位图的句柄
 $tBuffer
-   接受压缩数据的任意变量. 如果成功, 该变量将包含带有的压缩数据的"byte[n]"结构, 反之为0.
+	接受压缩数据的任意变量. 如果成功, 该变量将包含带有的压缩数据的"byte[n]"结构, 反之为0.
 $iCompression
-   [可选] 压缩方法. 可为下列值之一:
-$COMPRESSION_BITMAP_PNG
-$COMPRESSION_BITMAP_JPEG
+	[可选参数] 压缩方法. 可为下列值之一:
+	
+	$COMPRESSION_BITMAP_PNG
+	$COMPRESSION_BITMAP_JPEG
+	
 $iQuality
-   [可选] JPEG图像的百分比质量. 无压缩时忽略.
+	[可选参数] JPEG图像的百分比质量. 无压缩时忽略.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 保存在$tBuffer中的压缩数据的字节长度.
-失败: 返回0并设置@error非0
+成功:	保存在$tBuffer中的压缩数据的字节长度.
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###
-实际上,该函数返回的数据是以二进制形式表示.jpeg或.png图像文件. 可以直接使用这些数据以_WinAPI_WriteFile()创建近似的图像文件.
-返回的数据通常表示24位色深的jpeg文件或32位色深的png(带或不带alpha层)图像而不依赖于原始位图的色深.
-该函数内部使用GDI+
-正常运行示例请将 AutoIt.bmp 文件保存到临时文件夹中
+实际上,该函数返回的数据是以二进制形式表示.jpeg或.png图像文件.
+可以直接使用这些数据以_WinAPI_WriteFile()创建近似的图像文件.
 
-###Related###
+返回的数据通常表示24位色深的jpeg文件或32位色深的png(带或不带alpha层)图像而不依赖于原始位图的色深.
+
+该函数内部使用GDI+
+
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+

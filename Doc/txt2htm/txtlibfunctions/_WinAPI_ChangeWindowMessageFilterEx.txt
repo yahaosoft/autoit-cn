@@ -6,39 +6,50 @@ _WinAPI_ChangeWindowMessageFilterEx
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ChangeWindowMessageFilterEx( $hWnd, $iMsg, $iAction )
+_WinAPI_ChangeWindowMessageFilterEx ( $hWnd, $iMsg, $iAction )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   要修改的窗口的句柄. 如果为0将以全进程方式修改UIPI. 另外, 在vista下不使用该参数并总是设置为0.
+	要修改的窗口的句柄.
+	如果为0将以全进程方式修改UIPI.
+	另外, 在vista下不使用该参数并总是设置为0.
 $iMsg
-   消息过滤器允许或禁止通过的消息
+	消息过滤器允许或禁止通过的消息
 $iAction
-   执行的操作. 可为下列值:
-    $MSGFLT_ALLOW - 允许消息通过过滤器
-    $MSGFLT_DISALLOW - 禁止消息通过过滤器
-    Windows 7及以上:
-    $MSGFLT_RESET - 将对于hwnd的消息过滤器还原为默认值
+	执行的操作. 可为下列值:
+	
+	$MSGFLT_ALLOW - 允许消息通过过滤器
+	$MSGFLT_DISALLOW - 禁止消息通过过滤器
+	
+	Windows 7及以上
+	
+	$MSGFLT_RESET - 将对于hwnd的消息过滤器还原为默认值
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1并设置@extended标记为0或下列值:
-    $MSGFLTINFO_ALLOWED_HIGHER - 不允许消息高于窗口范围
-    $MSGFLTINFO_ALREADYALLOWED_FORWND - 允许消息通过窗口消息过滤器.
-    $MSGFLTINFO_ALREADYDISALLOWED_FORWND - 禁止消息通过窗口消息过滤器.
-    $MSGFLTINFO_NONE
-失败: 返回0并设置@error非0
+成功:	返回1并设置@extended标记为0或下列值 (only under Windows 7 and later):
+	$MSGFLTINFO_ALLOWED_HIGHER - 不允许消息高于窗口范围
+	$MSGFLTINFO_ALREADYALLOWED_FORWND - 允许消息通过窗口消息过滤器.
+	$MSGFLTINFO_ALREADYDISALLOWED_FORWND - 禁止消息通过窗口消息过滤器.
+	$MSGFLTINFO_NONE
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###
 UIPI是一种安全特性, 用于阻止接收来自低级别发送者的消息.
 可以使用此函数允许传递指定消息到窗体, 即使该消息源于较低级别的进程.
+
 值小于WM_USER的特定消息需要通过过滤器传递, 不管是否设置有过滤器. 对于此类消息使用该函数允许或禁止时无效.
+
+
 最低系统要求: Windows Vista
 
-###Related###
+
+
 
 ###See Also###
- 搜索MSDN知识库中ChangeWindowMessageFilterEx的相关信息
+@@MsdnLink@@ ChangeWindowMessageFilterEx
+
