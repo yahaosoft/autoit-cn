@@ -6,7 +6,7 @@ Func _Main()
 	Local $hWnd, $hMain, $tRect
 
 	; 打开记事本
-	Run("Notepad.exe")
+	Run("notepad.exe")
 	WinWaitActive("[CLASS:Notepad]")
 	$hWnd = WinGetHandle("[CLASS:Notepad]")
 	$hMain = _GUICtrlMenu_GetMenu($hWnd)
