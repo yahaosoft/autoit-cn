@@ -2,42 +2,45 @@
 _WinAPI_ExtSelectClipRgn
 
 ###Description###
-使用指定模式将指定区域与当前剪辑区域进行合并
+使用指定模式组合指定区域与目前剪辑区域.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ExtSelectClipRgn( $hDC, $hRgn[, $iMode] )
+_WinAPI_ExtSelectClipRgn ( $hDC, $hRgn [, $iMode] )
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   设备场景句柄
+	设备环境句柄.
 $hRgn
-$RGN_COPY模式时该句柄仅能为0.
+	被选中区域的句柄. 当 $RGN_COPY 模式被指定时, 此句柄只能是 0.
 $iMode
-   操作模式. 可为下列值之一:
-    $RGN_AND - 合并当前剪辑区域的重叠部分和由$hRgn确定的区域
-    $RGN_COPY - 复制由$hRgn确定的区域
-    $RGN_DIFF - 合并除由$hRgn确定的区域外的当前剪辑区域
-    $RGN_OR - 合并当前剪辑区域和由$hRgn确定的区域
-    $RGN_XOR - 合并当前剪辑区域和由$hRgn确定但除重叠的区域外的区域
+	[可选参数] 指定执行的操作. 必须是以下值之一:
+	
+	$RGN_AND --- 组合当前剪辑区域的重叠区域和 $hRgn 确定的区域.
+	$RGN_COPY --- 复制 $hRgn 确定的区域.
+	$RGN_DIFF --- 新组合区域为当前剪辑区域与排除 $hRgn 确定的区域.
+	$RGN_OR --- 组合当前剪辑区域和 $hRgn 确定的区域
+	$RGN_XOR --- 组合当前剪辑区域和 $hRgn 确定的地区,但不包括任何重叠的区域.
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 指定新剪辑区域复杂性的值; 可为下列值之一.
-    $NULLREGION: 区域为空
-    $SIMPLEREGION: 简单矩形区域
-    $COMPLEXREGION: 多矩形区域
-失败: 返回0并设置@error非0.
+成功:	返回新剪辑区域状态的值. 可以是以下值之一:
+	$COMPLEXREGION --- 区域超过一个矩形.
+	$NULLREGION --- 空区域.
+	$SIMPLEREGION --- 区域是一个单一矩形
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中ExtSelectClipRgn的相关信息
+@@MsdnLink@@ ExtSelectClipRgn
 
 ###Example###
 @@IncludeExample@@
+

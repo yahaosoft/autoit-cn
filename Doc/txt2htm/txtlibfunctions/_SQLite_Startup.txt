@@ -2,32 +2,45 @@
 _SQLite_Startup
 
 ###Description###
-加载SQLite.dll
+加载 SQLite3.dll
 
 ###Syntax###
-#Include <SQLite.au3>
-_SQLite_Startup ( [ $sDll_Filename = "sqlite3.dll" ] )
+#include <SQLite.au3>
+_SQLite_Startup ( [ $sDll_Filename = "sqlite3.dll" [, $bUTF8ErrorMsg = False ]] )
+
 
 ###Parameters###
 @@ParamTable@@
- $sDll_Filename  [可选] Dll名称
+$sDll_Filename
+	[可选参数] Dll 文件名
+$bUTF8ErrorMsg
+	[可选参数] 强制 ConsoleWrite 显示 UTF8 字符
+$bForceLocal
+	[可选参数] Forces SQLite to use a local DLL, otherwise the DLL will be downloaded.
+$sPrintCallback
+	[可选参数] The string name of a user-defined callback function that is invoked when SQLite needs to display a diagnostic message.  See Remarks for more.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回SQLite3.dll的路径
-失败: @error = 1
+成功:	返回 SQLite3.dll 路径
+失败:	@error
 @@End@@
 
 ###Remarks###
-SQLite3.dll必须在@ScriptDir或@SystemDir中.
-如果包含SQLite3.dll.au3, dll将被创建到@SystemDir中.
-如果不成功则创建随_SQLite_Shutdown()销毁的临时文件.
+ 需要 @ScriptDir 或 @SystemDir 的 SQLite3.dll.
+
+ 如果 SQLite3.dll.au3 包含 dll,将被创建到 @SystemDir 中.
+ 如果不成功,则创建随 _SQLite_Shutdown() 销毁的临时文件
+
+ 如果 $bUTF8ErrorMsg 不为 0, 则 UTF8 格式字符串打印到控制台.
+ 如果设置 output.code.page = 65001,允许应用程序为 SCiTE 显示字符 .
+ 这是在 Vista 环境中运行非英语版 SCiTE 的实例(fr).
+
+The $sPrintCallback parameter specifies the name of user-defined callback function.  This function will be passed a single parameter which is the message to display.  The default callback function is __SQLite_ConsoleWrite().  See that function for an example of how to implement your own callback function.
 
 ###Related###
- _SQLite_Shutdown
-
-###See Also###
+_SQLite_Shutdown
 
 ###Example###
 @@IncludeExample@@

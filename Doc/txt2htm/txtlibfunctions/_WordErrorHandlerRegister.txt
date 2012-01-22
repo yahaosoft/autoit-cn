@@ -2,38 +2,41 @@
 _WordErrorHandlerRegister
 
 ###Description###
-注册用户COM错误句柄并使之有效
+注册并启用用户 COM 错误处理程序
 
 ###Syntax###
-#Include <Word.au3>
+#include <Word.au3> 
 _WordErrorHandlerRegister ( [$s_functionName = "__WordInternalErrorHandler"] )
 
 ###Parameters###
 @@ParamTable@@
-$s_functionName 
-   可选: 用户定义的 COM 错误句柄的名称的字符串变量 , 默认该UDF中的内部COM错误句柄
+$s_functionName
+	[可选参数] 用户定义 COM 错误处理程序名称的变量, 这个 UDF 默认为内部 COM 错误处理程序
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回 1
- 失败:  返回 0 并设置 @ERROR
- @Error:  0 ($_WordStatus_Success) = 无错误
-  1 ($_WordStatus_GeneralError) = 一般错误
- @Extended:  包含无效的参数数量
+成功:	返回 1
+失败:	返回 0, 并设置 @ERROR
+@Error:	$_WordStatus_Success = 没有错误
+	$_WordStatus_GeneralError = 一般错误
+@Extended:	包含无效的参数数目
 @@End@@
 
+
 ###Remarks###
- 重要: 当使用自己的错误句柄时 , 错误对象变量必须命名为$oWordErrorHandler(见示例).
-AutoIt 有能力捕获COM错误 , 并通过使用ObjEvent函数传递自定义错误句柄. 这对于UDF的编写这是一个问题 , 因为同一时间只能有一个COM错误句柄处于使用中. 对于使用COM错误句柄的UDF必须先将用户的句柄注销 , 安装完自己的句柄之后再将用户句柄复位. 不幸的是 , UDF默认无法再取得用户错误句柄.
-你可以使用这一规则注册你的COM错误句柄，通过该方式Word.au3可被完美移除并在需要时重新释放.
-你也可以指向你自己定义的或者一个为Word.au3(默认的)开发的错误句柄. 使用默认的Word.au3错误句柄 , 你可以获得一个被写入控制台的诊断信息和一些包含被拦截的错误的信息的全局变量.
-如果你在实例化你自己的COM错误句柄时没有使用这一规则 , Word.au3将无法拦截一些COM错误 , 其结果将导致一些突然的脚本中断.
+ 重要事项：当使用自己的错误处理，必须使用对象变量名为 $oWordErrorHandler (见示例).
+ 
+ AutoIt 有能力捕获 COM 错误，并通过 ObjEvent 函数使用自定义错误处理程序.
+  这个 UDF 有一个问题，因为它在某段时间内只能有一个 COM 错误处理程序可以使用.
+ 对于 UDF 使用 COM 错误处理程序，必须先注销用户的错误处理程序, 安装自己的错误处理程序后, 
+ 再放置用户自定义错误处理程序到适当位置. 遗憾的是，默认情况下，该 UDF 没有办法访问用户错误处理程序句柄.
+ 你可以使用这个例程注册您的COM错误处理程序, 需要时在某种程度上 Word.au3 可以正常删除并恢复它.
+ 您可能要么指向您自己的自定义错误处理程序, 或者你可以使用 Word.au3 定制的(默认).
+ 使用默认 Word.au3 错误处理您还将获得一些写入到控制台的不错的诊断信息,和一些包含有关捕获错误信息的全局变量.
+ 如果你不使用这个实例例行自己的 COM 错误处理程序, Word.au3 将无法捕捉一些 COM 错误, 
+ 并且你可能会遇到一些结果突然终止的脚本.
 
-###Related###
-_WordErrorHandlerDeRegister
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

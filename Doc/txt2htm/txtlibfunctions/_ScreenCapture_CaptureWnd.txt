@@ -2,32 +2,40 @@
 _ScreenCapture_CaptureWnd
 
 ###Description###
-捕捉一个指定窗体的屏幕快照
+捕获指定窗口或者控件ID的屏幕快照
 
 ###Syntax###
-#Include<ScreenCapture.au3>
-_ScreenCapture_CaptureWnd($sFileName, $hWnd[,$iLeft = 0[, $iTop = 0[, $iRight = -1[, $iBottom = -1[, $fCursor =True]]]]])
+#Include <ScreenCapture.au3>
+_ScreenCapture_CaptureWnd($sFileName, $hWnd [, $iLeft = 0 [, $iTop = 0 [, $iRight = -1 [, $iBottom = -1 [, $fCursor = True]]]]])
 
 ###Parameters###
 @@ParamTable@@
- $sFileName  完整路径和图像文件扩展名
- $hWnd  窗口句柄
- $iLeft  矩形左上角X坐标
- $iTop  矩形左上角Y坐标
- $iRight  矩形右下角X坐标. 如果为-1 , 适用当前屏幕宽
- $iBottom  矩形右下角Y坐标. 如果为-1 , 适用当前屏幕高
- $fCursor  如果真 , 鼠标箭头随图像一起捕捉
+$sFileName
+	保存捕获图像的文件扩展名和完整路径
+$hWnd
+	被抓获的窗口句柄
+$iLeft
+	[可选参数] 客户端矩形左上角 X 坐标
+$iTop
+	[可选参数] 客户端矩形左上角 Y 坐标
+$iRight
+	[可选参数] 矩形右下角 X 坐标
+$iBottom
+	[可选参数] 矩形右下角 Y 坐标
+$fCursor
+	[可选参数] 如为 True, 光标将被捕获为图像
 @@End@@
 
+###ReturnValue###
+如果 $sFileName 为空,函数将捕获屏幕并返回位图图像的 HBITMAP 句柄. 当您完成位图调用后,你必须调用 _WinAPI_DeleteObject 删除位图的句柄. 如果 $sFileName 不为空, 此函数将捕获屏幕并保存到文件中并不返回任何值.
+
 ###Remarks###
-如果文件名不为空 , 函数将捕捉屏幕并保存到文件. 反之 , 函数将捕捉屏幕并返回一个指向位图图像的HBITMAP句柄.
-这样的话 , 当位图完成时必须调用_WinAPI_DeleteObject删除位图句柄.
-需要GDI+: GDI+需要运行在 NT 4.0 SP6, Win 2000, Win 98, 和WinMe系统的可再发行组件
+所有坐标都是根据客户区坐标模式,而不是屏幕坐标或者窗口坐标模式.
+
+GDI+ 需求: GDI+ 当运行于 Microsoft Windows 2000 操作系统时需要一个GDI+的可再发行包.
 
 ###Related###
 _WinAPI_DeleteObject
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

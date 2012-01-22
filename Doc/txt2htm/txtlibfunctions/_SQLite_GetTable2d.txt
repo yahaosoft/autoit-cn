@@ -2,44 +2,51 @@
 _SQLite_GetTable2d
 
 ###Description###
-输出包含表名和所执行的查询的数据的二维数组
+传递一个 2 维数组,其中包含执行查询的列名称和数据
 
 ###Syntax###
-#Include <SQLite.au3>
-_SQLite_Gettable2d ( $hDB, $sSQL, ByRef $aResult, ByRef $iRows, ByRef $iColumns [, $iCharSize [, $fSwichDimensions = False ]] )
+#include <SQLite.au3>
+_SQLite_GetTable2d ( $hDB, $sSQL, ByRef $aResult, ByRef $iRows, ByRef $iColumns [, $iCharSize = -1 [, $fSwichDimensions = False ]] )
+
 
 ###Parameters###
 @@ParamTable@@
- $hDB  打开的数据库, -1为最近打开的数据库
- $sSQL  要操作的SQL表达式
- $aResult  输出结果
- $iRows  输出'数据'行的数量
- $iColumns  输出列数量
- $iCharSize  [可选] 指定数据字段的最大尺寸
- $fSwichDimensions  [可选] 切换$aResult的行列
+$hDB
+	打开的数据库,如为 -1, 则使用最后打开的数据库
+$sSQL
+	要执行的语句
+$aResult
+	传递出的结果
+$iRows
+	传递出的数据行数
+$iColumns
+	传递出的列数
+$iCharSize
+	[可选参数] 指定数据字段的最大尺寸
+$fSwichDimensions
+	[可选参数] 切换 $aResult 规模
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回 $SQLITE_OK
-失败: 返回可与$SQLITE_* 常量比较的值
-@error: -1 - SQLite报错(检查返回值)
-      1 - 调用SQLite API 'sqlite3_get_table'错误
-      2 - 调用SQLite API 'sqlite3_free_table'错误
-      3 - 安全模式阻止调用
+成功:	返回 $SQLITE_OK
+失败:	返回值可能违反 $SQLITE_* 常量
+@error:	-1 - SQLite 报告错误 (检查返回值)
+	1 - 错误调用 _SQLite_Query
+	2 - 错误调用 SQLite API 'sqlite3_free_table'
+	3 - 调用被安全模式阻止
+	4 - 中止,中断或由回调设置的 @error (@extended 设置为 SQLite 错误)
 @@End@@
 
 ###Remarks###
-插入到$aResult的值的数量为(($iRows) + 1) * ($iColumns)
-数字插入到$aResult[0]
-NULL将返回数字0
-该函数比_SQlite_Query()/_SQLite_Fetch*()...需要更多内存但速度要快..
-如果不需要结果(或如果其为空)可考虑使用_SQLite_Execute()或_SQLite_Exec().
+ 数字值插入 $aResult 将成为 (($iRows) + 1) * ($iColumns)
+ 空值将返回数字 0
+ 此函数将使用更多的内存
+ 与 _SQlite_Query() / _SQLite_Fetch*()... 相比速度更快.
+ 如果你不需要结果(或无结果)考虑使用 SQLite_Exec().
 
 ###Related###
- _SQLite_Gettable , _SQLite_Exec , _SQlite_Query , _SQLite_Display2DResult
-
-###See Also###
+_SQLite_GetTable, _SQLite_Exec, _SQlite_Query, _SQLite_Display2DResult
 
 ###Example###
 @@IncludeExample@@
