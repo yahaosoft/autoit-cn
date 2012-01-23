@@ -2,7 +2,7 @@
 _GUICtrlListView_RegisterSortCallBack
 
 ###Description###
-注册简单的排序回调函数
+注册简单排序回调函数
 
 ###Syntax###
 #Include <GuiListView.au3>
@@ -10,27 +10,27 @@ _GUICtrlListView_RegisterSortCallBack($hWnd[, $fNumbers = True[, $fArrows = True
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $fNumbers  将数字字符串作为数字
- $fArrows  在被选列绘制向上/向下箭头(Windows XP及以上)
+$hWnd
+	控件句柄
+$fNumbers
+	[可选参数] 数字字符串看作数字
+$fArrows
+	[可选参数] 绘制选定列的上/下箭头(Windows XP及更高版本)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-对于每一次调用_GUICtrlListView_RegisterSortCallBack必须在调用完成时且退出前有一个对应的_GUICtrlListView_UnRegisterSortCallBack调用
-它将提醒用户对于每个产生的_GUICtrlListView_RegisterSortCallBack调用需调用_GUICtrlListView_UnRegisterSortCallBack结束.
-_GUICtrlListView_SimpleSort是另一种选择.
-该函数可对具有图标 , 复选框 , 子项目图标的列表视图进行排序
-
-###Related###
- _GUICtrlListView_UnRegisterSortCallBack ,  _GUICtrlListView_SortItems
-
-###See Also###
+ 每个 _GUICtrlListView_RegisterSortCallBack 的调用,
+ 必须以 _GUICtrlListView_UnRegisterSortCallBack 完成 (在退出前)
+ 调用 _GUICtrlListView_RegisterSortCallBack 注册,
+ 与调用 _GUICtrlListView_UnRegisterSortCallBack 注销需成对使用.
+ 这是对 _GUICtrlListView_SimpleSort 函数的又一选择.
+ 此函数将排序具有图标、复选框的 listviews 控件及子项目图标.
 
 ###Example###
 @@IncludeExample@@

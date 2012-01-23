@@ -2,33 +2,40 @@
 _Net_Share_SessionDel
 
 ###Description###
-结束一个服务器和工作站间的网络会话
+结束服务器和工作站之间的网络会话
 
 ###Syntax###
 #Include <NetShare.au3>
-_Net_Share_SessionDel([$sServer = ""[, $sClientName = ""[, $sUserName = ""]]])
+_Net_Share_SessionDel([$sServer = "" [, $sClientName = "" [, $sUserName = ""]]])
 
 ###Parameters###
 @@ParamTable@@
- $sServer  用以指定函数将操作的远程服务器的DNS或NetBIOS名称的字符串. 如果参数为空则使用本地计算机.
- $sClientName  指定断开连接的客户端计算机名. 如果为空, 那么在由$sServer指定的服务器上的所有以用户名参数标识的用户的对话将被删除.
- $sUserName  指定要被终止会话的用户的用户名. 如果为空, 由$sClientName参数指定的客户端上的所有用户对话将被终止.
+$sServer
+	[可选参数] 指定 DNS 或 NetBIOS 远程服务器上执行函数的名称
+		如果此参数为空, 在本地计算机上使用.
+$sClientName
+	[可选参数] 指定断开连接的客户端计算机名. 如果为空,
+		删除 $sServer 参数标识的服务器上所有用户对话.
+$sUserName
+	[可选参数] 指定会话被终止的用户名称.如果此参数为空,
+		$sClientName 参数指定的客户端所有用户会话将被终止.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-仅本地管理组或服务器操作组可执行该函数. 为保证此函数工作必须传递给$sClientName或$sUserName(或两者).
+系统管理员,服务器操作员或本地组成员才能执行此功能.
+必须通过调用 $sClientName 或 $sUserName（或两者）使这个函数工作.
 
 ###Related###
- _Net_Share_ShareDel
+_Net_Share_ShareDel
 
 ###See Also###
- 搜索MSDN知识库中NetSessionDel的相关信息
+@@MsdnLink@@ NetSessionDel
 
 ###Example###
 @@IncludeExample@@

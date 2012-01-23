@@ -11,27 +11,28 @@ _WinAPI_OpenMutex( $sMutex [, $iAccess [, $fInheritHandle]] )
 ###Parameters###
 @@ParamTable@@
 $sMutex
-   将被打开的互斥对象的名称. 大小写敏感.
+	将被打开的互斥对象的名称. 大小写敏感.
 $iAccess
-   [可选] 互斥对象的权限. 如果指定对象的安全描述符不具有调用进程所需的权限则函数失败. 该参数须为下列值之一.
-$MUTEX_ALL_ACCESS
-$MUTEX_MODIFY_STATE
+	[可选参数] 互斥对象的权限. 如果指定对象的安全描述符不具有调用进程所需的权限则函数失败. 该参数须为下列值之一.
+		$MUTEX_ALL_ACCESS
+		$MUTEX_MODIFY_STATE
 $fInheritHandle
-   [可选] 指定是否由进程继承句柄, 可用值:
-    1 - 由该进程创建的进程将继承句柄.
-    0 - 进程不继承该句柄. (默认)
+	[可选参数] 指定是否由进程继承句柄, 可用值:
+		1 - 由该进程创建的进程将继承句柄.
+		0 - 进程不继承该句柄. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回互斥对象的句柄
-失败: 返回0并设置@error非0
+成功:	返回互斥对象的句柄
+失败:	返回0设置@error:	
+非0
 @@End@@
 
 ###Remarks###
 只在进程已通过_WinAPI_CreateMutex()函数创建了互斥对象时函数成功. 调用进程可在任何需要互斥对象句柄的函数中使用返回的句柄.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中OpenMutex的相关信息
+@@MsdnLink@@ OpenMutex
+

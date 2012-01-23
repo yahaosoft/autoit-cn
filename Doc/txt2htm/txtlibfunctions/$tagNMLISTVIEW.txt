@@ -2,29 +2,34 @@
 $tagNMLISTVIEW
 
 ###Description###
-包含关于列表视图通知消息的信息的结构
+包含列表视图的通知消息
 
 ###Syntax###
-Global Const $tagNMLISTVIEW =  $tagNMHDR & ";int Item;int SubItem;int NewState;int OldState;int Changed;int ActionX;int ActionY;int Param"
+Global Const $tagNMLISTVIEW = $tagNMHDR & ";int Item;int SubItem;uint NewState;uint OldState;uint Changed;" & _
+		"struct; long ActionX;long ActionY; endstruct;lparam Param"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   包含通知消息的信息
+	包含通知消息的信息
 Item
-   项目标识, 不使用时为-1
+	项目标识符,不使用则为 -1
 SubItem
-   子项目标识, 没有时为0
+	子项目标识符,不使用则为 -1
 NewState
-   新项目状态
+	项目新状态
 OldState
-   旧项目状态
+	项目原状态
 Changed
-   表示改变的项目属性的标记的集合
+	设置变更项目属性的标志,不使用时为 0
 ActionX
-   事件发生的X位置
+	事件发生的 X 位置
 ActionY
-   事件发生的Y位置
+	事件发生的 Y 位置
 Param
-   应用程序定义的项目的值
-@@end@@
+	应用程序定义的项目值
+@@End@@
+
+###Remarks###
+None.
+

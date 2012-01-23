@@ -2,39 +2,41 @@
 _WinAPI_SetDllDirectory
 
 ###Description###
-将目录加入用于定位应用程序DLL的搜索路径中
+Adds a directory to the search path used to locate DLLs for the application.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetDllDirectory( $sPath )
+_WinAPI_SetDllDirectory ( $sPath )
 
 ###Parameters###
 @@ParamTable@@
 $sPath
-   被添入搜索路径的目录. 如果为空字符串(""), 从默认dll搜索序列中移除当前目录. 如果未指定, 函数回复默认搜索序列.
+	The directory to be added to the search path. If this parameter is an empty string (""), the call
+	removes the current directory from the default DLL search order. If this parameter is not specified,
+	the function restores the default search order.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-函数影响后续所有对于_WinAPI_LoadLibrary()和_WinAPI_LoadLibraryEx()函数的调用.
-同时当指定目录在搜索路径中时影响安全DLL搜索模式.
-_WinAPI_SetDllDirectory()调用后, DLL搜索路径为:
-1. 从中加载应用程序的目录.
-2. 由$sPath参数指定的目录.
-3. 系统目录.
-4. 16位系统目录.
-5. Windows目录.
-6. PATH环境变量列表中的目录.
+This function affects all subsequent calls to the _WinAPI_LoadLibrary() and _WinAPI_LoadLibraryEx() functions.
+It also effectively disables safe DLL search mode while the specified directory is in the search path.
 
-###Related###
+After calling _WinAPI_SetDllDirectory(), the DLL search path is:
+
+1. The directory from which the application was loaded.
+2. The directory specified by the $sPath parameter.
+3. The system directory.
+4. The 16-bit system directory.
+5. The Windows directory.
+6. The directories that are listed in the PATH environment variable.
+
+
 
 ###See Also###
- 搜索MSDN知识库中SetDllDirectory的相关信息
+@@MsdnLink@@ SetDllDirectory
 
-###Example###
-@@IncludeExample@@

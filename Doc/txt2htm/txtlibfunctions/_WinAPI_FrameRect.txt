@@ -2,34 +2,34 @@
 _WinAPI_FrameRect
 
 ###Description###
-用指定的画刷为指定的矩形画边框.
+使用指定的笔刷绘制指定的矩形边框
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_FrameRect($hDC,
-$ptrRect, $hBrush)
+_WinAPI_FrameRect($hDC, $ptrRect, $hBrush)
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   将要画边框的设备环境句柄
+	将绘制边框的设备环境句柄
 $ptrRect
-$tagRECT结构的指针
+	$tagRECT 结构指针, 它包含矩形左上角和右下角的逻辑坐标
 $hBrush
-   画边框的画刷句柄
+	绘制边界的画笔句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-画刷$hBrush必须是由_WinAPI_CreateSolidBrush函数创建, 或使用_WinAPI_GetStockObject函数取得
+ $hBrush 参数确定的笔刷必须是 _WinAPI_CreateSolidBrush 函数创建的,
+ 或使用 _WinAPI_GetStockObject 函数检索
 
 ###Related###
 $tagRECT
 
 ###See Also###
-搜索MSDN知识库中FrameRect的相关信息
+@@MsdnLink@@ FrameRect

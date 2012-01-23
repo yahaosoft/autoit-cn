@@ -2,96 +2,77 @@
 _WinAPI_GetSysColor
 
 ###Description###
-获取指定显示对象的颜色
+返回指定显示元素的当前颜色
 
 ###Syntax###
-#Include
-<WinAPI.au3>
+#Include <WinAPI.au3>
 _WinAPI_GetSysColor($iIndex)
 
 ###Parameters###
 @@ParamTable@@
 $iIndex
-   要获取的显示元素的颜色. 可为下列值之一:
-    $COLOR_3DDKSHADOW -
-      三维元素的深色阴影
-    $COLOR_3DFACE - 三维元素和对话框背景的表面色
-    $COLOR_3DHIGHLIGHT -
-      三维元素的高亮色 (面向光源的边缘)
-    $COLOR_3DHILIGHT - 三维元素的高亮色
-      (面向光源的边缘)
-    $COLOR_3DLIGHT - 三维元素的浅色 (面向光源的边缘)
-    $COLOR_3DSHADOW -
-      三维元素的阴影色 (远离光源的边缘)
-    $COLOR_ACTIVEBORDER - 活动窗口边界
-$COLOR_ACTIVECAPTION
-      - 活动窗口标题栏. 当梯度效果可用时指定活动窗体标题栏的颜色梯度中左边的颜色.
-    $COLOR_APPWORKSPACE -
-      多界面(MDI)应用程序的背景色
-    $COLOR_BACKGROUND - 桌面
-    $COLOR_BTNFACE -
-      三维元素和对话框背景的表面色
-    $COLOR_BTNHIGHLIGHT - 三维元素的高亮色
-      (面向光源的边缘)
-    $COLOR_BTNHILIGHT - 三维元素的高亮色 (面向光源的边缘)
-    $COLOR_BTNSHADOW -
-      三维元素的阴影色 (远离光源的边缘)
-    $COLOR_BTNTEXT - 按键文本
-    $COLOR_CAPTIONTEXT - 标题文本,
-      尺寸箱, 及滚动条箭头箱
-    $COLOR_DESKTOP - 桌面
-    $COLOR_GRADIENTACTIVECAPTION -
-$COLOR_ACTIVECAPTION
-      指定左边颜色. 使用System参数Info
-      函数的SPI_GETGRADIENTCAPTIONS确定是否可用颜色梯度
-    $COLOR_GRADIENTINACTIVECAPTION -
-$COLOR_INACTIVECAPTION
-      指定左边颜色.
-    $COLOR_GRAYTEXT - 灰色(禁用的)文本.
-      当前显示驱动不只是填充灰色时该颜色设置为0
-    $COLOR_HIGHLIGHT -
-      控件中被选中的项目
-    $COLOR_HIGHLIGHTTEXT - 控件中被选中的项目的文本
-    $COLOR_HOTLIGHT -
-      超级链接或热跟踪项目的颜色
-    $COLOR_INACTIVEBORDER -
-      不活动窗口的边框
-    $COLOR_INACTIVECAPTION -
-      不活动窗口的标题栏色. 当梯度效果可用时指定活动窗体标题栏的颜色梯度中左边的颜色
-$COLOR_INACTIVECAPTIONTEXT
-      - 不活动窗口的标题文本色
-    $COLOR_INFOBK - 提示控件的背景色
-    $COLOR_INFOTEXT -
-      提示控件的文本色
-    $COLOR_MENU - 菜单背景
-    $COLOR_MENUHILIGHT -
-$COLOR_HIGHLIGHT突出显示. Windows 2000:
-      不支持该值
-    $COLOR_MENUBAR - 当菜单显示为平面时用于菜单项的背景颜色. 然而,
-$COLOR_MENU指定. Windows 2000: 不支持该值
-    $COLOR_MENUTEXT -
-      菜单文本.
-    $COLOR_SCROLLBAR - 滚动条灰色区域.
-    $COLOR_WINDOW -
-      窗口背景
-    $COLOR_WINDOWFRAME - 窗框
-    $COLOR_WINDOWTEXT -
-    窗口文本
+	指定显示元素的那些颜色将被返回. 可以是下方的一个值:
+		$COLOR_3DDKSHADOW - 三维显示元素的黑暗阴影.
+		$COLOR_3DFACE - 表面三维显示元素的颜色和对话框的背景.
+		$COLOR_3DHIGHLIGHT - 高亮色彩的三维显示元素(边缘离开光源)
+		$COLOR_3DHILIGHT - 高亮色彩的三维显示元素(边缘离开光源)
+		$COLOR_3DLIGHT - 浅色三维显示元素(边离开光源)
+		$COLOR_3DSHADOW - 阴影颜色的三维显示元素(边缘离开光源)
+		$COLOR_ACTIVEBORDER - 活动窗口边框.
+		$COLOR_ACTIVECAPTION - 活动窗口标题栏.
+		如果左边的梯度效应已启用,指定活动窗口标题栏的渐变颜色.
+		$COLOR_APPWORKSPACE - 应用程序多文档界面（MDI）的背景颜色.
+		$COLOR_BACKGROUND - 桌面.
+		$COLOR_BTNFACE - 表面三维显示元素的颜色和对话框的背景.
+		$COLOR_BTNHIGHLIGHT - 高亮色彩的三维显示元素(边缘离开光源)
+		$COLOR_BTNHILIGHT - 高亮色彩的三维显示元素(边缘离开光源)
+		$COLOR_BTNSHADOW - 阴影颜色的三维显示元素(边缘离开光源)
+		$COLOR_BTNTEXT - 按钮文本.
+		$COLOR_CAPTIONTEXT - 标题文本, 尺寸框, 滚动条箭头框.
+		$COLOR_DESKTOP - 桌面.
+		$COLOR_GRADIENTACTIVECAPTION - 活动窗口标题栏渐变颜色的右边颜色.
+		$COLOR_ACTIVECAPTION 指定左侧颜色.
+		使用 SPI_GETGRADIENTCAPTIONS 和 SystemParametersInfo 函数确定是否启用渐变效应.
+		$COLOR_GRADIENTINACTIVECAPTION - 非活动窗口标题栏渐变颜色的右边颜色.
+		$COLOR_INACTIVECAPTION 指定左侧颜色.
+		$COLOR_GRAYTEXT - 灰色（禁用）文本.如果当前显示驱动程序不支持了纯灰色,这种颜色设置为 0.
+		$COLOR_HIGHLIGHT - 控件的项目选中.
+		$COLOR_HIGHLIGHTTEXT - 控件中选中项目的文本.
+		$COLOR_HOTLIGHT - 超链接颜色或热跟踪项目
+		$COLOR_INACTIVEBORDER - 非活动窗口边框.
+		$COLOR_INACTIVECAPTION - 非活动窗口标题.
+		如果左边的渐变效应已启用,指定非活动窗口标题栏的渐变颜色.
+		$COLOR_INACTIVECAPTIONTEXT - 非活动标题文本颜色.
+		$COLOR_INFOBK - 工具提示(tooltip)控件背景色.
+		$COLOR_INFOTEXT - 工具提示(tooltip)控件文本颜色.
+		$COLOR_MENU - 菜单背景.
+		$COLOR_MENUHILIGHT - 当菜单显示为一个平面菜单势的菜单项高亮颜色.
+		高亮显示的菜单项边框为 $COLOR_HIGHLIGHT.
+		Windows 2000: 不支持这个值.
+		$COLOR_MENUBAR - 当菜单显示为平面菜单时的菜单栏背景颜色.
+		但相比之下, $COLOR_MENU 继续指定弹出菜单的背景颜色.
+		Windows 2000: 不支持这个值.
+		$COLOR_MENUTEXT - 菜单中的文本.
+		$COLOR_SCROLLBAR - 滚动条灰色区域.
+		$COLOR_WINDOW - 窗口背景.
+		$COLOR_WINDOWFRAME - 窗口框架.
+		$COLOR_WINDOWTEXT - 窗口中的文本.
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 指定元素的RGB颜色值
-@@End@@
+返回给定元素的红,绿,蓝（RGB）色彩值
 
 ###Remarks###
-以上变量需要WindowsConstants.au3
+ 需要 WindowsConstants.au3 预定义常量.
+ 如果 $iIndex 参数超出范围, 返回值为零. 由于零也是一个有效的 RGB 值,
+ 不能使用 GetSysColor 确定当前平台是否支持系统颜色.
+ 相反, 对于不支持的颜色, 使用 GetSysColorBrush 函数将返回空值.
 
 ###Related###
 _WinAPI_SetSysColors
 
 ###See Also###
-在MSDN知识库中搜索GetSysColor相关信息
+@@MsdnLink@@ GetSysColor
 
 ###Example###
 @@IncludeExample@@

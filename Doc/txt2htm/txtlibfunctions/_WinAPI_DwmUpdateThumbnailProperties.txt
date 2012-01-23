@@ -2,7 +2,7 @@
 _WinAPI_DwmUpdateThumbnailProperties
 
 ###Description###
-更新DWM缩略图属性
+指定桌面窗口管理器（DWM）缩略图属性.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,37 +11,40 @@ _WinAPI_DwmUpdateThumbnailProperties ( $hThumbnail [, $fVisible [, $fClientAreaO
 ###Parameters###
 @@ParamTable@@
 $hThumbnail
-   从其中获取源窗体大小的缩略图的句柄
+	检索源窗口大小的缩略图句柄.
 $fVisible
-   [可选] 指定缩略图是否可见:
-    1 - 可见
-    0 - 不可见
+	[可选参数] 指定使缩图是否可见.有效值:
+		1 - 可见.
+		0 - 不可见.
 $fClientAreaOnly
-   [可选] 指定缩略图使用源客户区还是整个窗体:
-    1 - 仅使用源客户区
-    0 - 使用整个窗体
+	[可选参数] 指定使用缩略图源客户区域或整个窗口.有效值:
+		1 - 使用源客户区.
+		0 - 使用整个窗口.
 $iOpacity
-   [可选] 渲染缩略图所使用的透明度. 0为全透明且255为完全不透明.
+	[可选参数] 缩略图的不透明度.0 为完全透明,255 为完全不透明.
 $tRectDest
-$tagRECT结构. 该矩形的尺寸默认等于由_WinAPI_DwmQueryThumbnailSourceSize()函数返回的DWM缩略图的源尺寸.
+	[可选参数] $tagRECT 结构.包含将会呈现缩略图的目标窗口矩形
+		 默认矩形等于 _WinAPI_DwmQueryThumbnailSourceSize() 函数返回的源 DWM 缩略图的大小. 
 $tRectSrc
-$tagRECT结构. 默认为整个窗体.
+	[可选参数] $tagRECT 结构.包含使用缩略图的源窗口矩形区域.
+		 默认整个窗口被用作缩略图.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0. @extended标记包含COM错误代码
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-由_WinAPI_DwmRegisterThumbnail()创建的缩略图关系在调用该函数前不会渲染目标窗口. 连续调用将根据属性更新缩略图.
-该函数需要Windows Vista或以上版本.
+_WinAPI_DwmRegisterThumbnail() 创建的缩略图关系,在函数调用前,不会被渲染到目标窗口.
+ 后续调用将根据属性更新缩略图.
+ 本函数需要 Windows Vista 或更高版本系统.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中DwmUpdateThumbnailProperties的相关信息
+@@MsdnLink@@ DwmUpdateThumbnailProperties
 
 ###Example###
 @@IncludeExample@@
+

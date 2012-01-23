@@ -2,36 +2,39 @@
 _WinAPI_GetThemeSysFont
 
 ###Description###
-获取系统字体
+Retrieves the font information of a system font.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetThemeSysFont( $hTheme, $iFontId )
+_WinAPI_GetThemeSysFont ( $hTheme, $iFontId )
 
 ###Parameters###
 @@ParamTable@@
 $hTheme
-   主题数据句柄
+	Handle to the theme data.
 $iFontId
-   指定系统字体的值. 可为下列值之一:
-    $TMT_CAPTIONFONT - 窗口标题字体
-    $TMT_SMALLCAPTIONFONT - 窗口小标题字体
-    $TMT_MENUFONT - 菜单字体
-    $TMT_STATUSFONT - 状态栏消息字体
-    $TMT_MSGBOXFONT - 用于显示消息的消息对话框字体
-    $TMT_ICONTITLEFONT - 图标字体
+	The value that specifies a system font. It may be one of the following values.
+	
+	$TMT_CAPTIONFONT
+	$TMT_SMALLCAPTIONFONT
+	$TMT_MENUFONT
+	$TMT_STATUSFONT
+	$TMT_MSGBOXFONT
+	$TMT_ICONTITLEFONT
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回包含字体信息的$tagLOGFONT结构
-失败: 返回0并设置@error非0
+Success	$tagLOGFONT structure that contains the font information.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
-如果主题数据句柄不为0, 该函数返回匹配视觉样式的SysMetrics部分的字体信息, 否则, 函数返回匹配全局系统字体的值.
+If the theme data handle is not 0, this function returns the font information from the SysMetrics section of the
+visual style, otherwise, the function returns the value of the global system metric.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetThemeSysFont的相关信息
+@@MsdnLink@@ GetThemeSysFont
+

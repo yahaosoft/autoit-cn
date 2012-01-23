@@ -2,32 +2,33 @@
 _GUICtrlListView_DeleteColumn
 
 ###Description###
-从列表查看控件中删除一列
+从List-View控件中移除某一列.
 
 ###Syntax###
-#Include<GuiListView.au3>
+#Include <GuiListView.au3>
 _GUICtrlListView_DeleteColumn($hWnd, $iCol)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iCol  删除列的索引
+$hWnd
+	控件句柄
+$iCol
+	要删除的列所在索引.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	True
+失败:	False
 @@End@@
 
 ###Remarks###
-列表查看控件中的第0列无法删除.
-如果必须删除第0列, 插入一个零宽度的虚拟0列.
+List-View控件中第0列不能被删除.
+
+如果你非要删除第0列,先插入一个0长度的列,然后删除.
 
 ###Related###
 _GUICtrlListView_InsertColumn
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

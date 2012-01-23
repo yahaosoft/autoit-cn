@@ -2,35 +2,41 @@
 _GUICtrlListView_SetItem
 
 ###Description###
-设置项目部分或全部的属性
+设置项目的部分或全部属性,使用参数.
 
 ###Syntax###
-#Include<GuiListView.au3>
-_GUICtrlListView_SetItem($hWnd, $sText[, $iIndex =0[, $iSubItem = 0[, $iImage = -1[, $iParam = -1[, $iIndent = -1]]]]])
+#Include <GuiListView.au3>
+_GUICtrlListView_SetItem($hWnd, $sText[, $iIndex = 0[, $iSubItem = 0[, $iImage = -1[, $iParam = -1[, $iIndent = -1]]]]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $sText  项目文本
- $iIndex  项目的0基索引
- $iSubItem  子项目的1基索引或指向一项时为0
- $iImage  项目图标在控件图像列表中的0基索引
- $iParam  指定给项目的值
- $iIndent  图像宽度使项目缩进的数量. 单一缩进等于图像宽.
+$hWnd
+	控件句柄
+$sText
+	项目文本.参考备注.
+$iIndex
+	[可选参数] 项目的 0 基索引
+$iSubItem
+	[可选参数] 子项索引,或 0, 表示仅应用主项
+$iImage
+	[可选参数] 项目图标在图像列表的 0 基索引
+$iParam
+	[可选参数] 项目的具体值
+$iIndent
+	[可选参数] 项目缩进的图像宽度数,一个缩进等于一个图像宽度.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
+If a notification callback is needed, you have to specify $sText = -1 (LPSTR_TEXTCALLBACK).
 
 ###Related###
-_GUICtrlListView_GetItem , _GUICtrlListView_SetItemEx
-
-###See Also###
+_GUICtrlListView_GetItem, _GUICtrlListView_SetItemEx
 
 ###Example###
 @@IncludeExample@@

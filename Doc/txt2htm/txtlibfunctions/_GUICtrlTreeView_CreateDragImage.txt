@@ -2,31 +2,32 @@
 _GUICtrlTreeView_CreateDragImage
 
 ###Description###
-给指定项目创建一个拖曳位图
+创建项目拖位图
 
 ###Syntax###
-#Include<GuiTreeView.au3>
-_GUICtrlTreeView_CreateDragImage($hWnd,$hItem)
+#Include <GuiTreeView.au3>
+_GUICtrlTreeView_CreateDragImage($hWnd, $hItem)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $hItem  项目句柄
+$hWnd
+	控件句柄
+$hItem
+	项目句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 位图被添入的图像列表的句柄
-失败: 0
+成功:	返回拖动位图在图像列表的索引
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-如果创建控件时没有与图像列表关联, 则无法使用该函数创建图像来显示拖曳操作. 必须实现自建的创建拖曳箭头的方法.
-并且在不再需要图像列表是负责销毁之.
+ 如果没有创建关联图像列表,则不能创建拖动操作图像
+ 此时必须创建自己的实现拖动光标的方法
+ 当不再需要拖动图像时,需销毁图像列表
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

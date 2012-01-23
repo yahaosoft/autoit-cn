@@ -2,7 +2,7 @@
 _WinAPI_DwmRegisterThumbnail
 
 ###Description###
-创建源窗口和目标窗口间的缩略图关系
+创建桌面窗口管理器（DWM）缩略图目标与源窗口之间的关系.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,25 +11,26 @@ _WinAPI_DwmRegisterThumbnail ( $hDestination, $hSource )
 ###Parameters###
 @@ParamTable@@
 $hDestination
-   将要使用DWM的窗体的句柄
+	将使用 DWM 缩略图的窗口句柄.
 $hSource
-   作为DWM源的窗体的句柄
+	缩略图源窗口句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回代表DWM缩略图注册的句柄
-失败: 返回0并设置@error非0. @extended标记包含COM错误代码
+成功:	返回 DWM 缩略图注册的句柄.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-由$hDestination指定的窗口必须是桌面窗口本身或由调用_WinAPI_DwmRegisterThumbnail()的进程所拥有的窗口.
-该函数需要Windows Vista或以上版本.
+$hDestination 指定的窗口必须是自己的桌面窗口;
+ 或调用 _WinAPI_DwmRegisterThumbnail() 的进程拥有的窗口.
+ 本函数需要 Windows Vista 或更高版本系统.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中DwmRegisterThumbnail的相关信息
+@@MsdnLink@@ DwmRegisterThumbnail
 
 ###Example###
 @@IncludeExample@@
+

@@ -2,36 +2,37 @@
 _WinAPI_SetCompression
 
 ###Description###
-设置文件或目录的压缩状态
+设置文件或目录的压缩状态.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetCompression( $sPath, $iCompression )
+_WinAPI_SetCompression ( $sPath, $iCompression )
 
 ###Parameters###
 @@ParamTable@@
 $sPath
-   被压缩的文件或文件夹
+	被压缩文件或目录的路径.
 $iCompression
-   下列压缩常量之一:
-    $COMPRESSION_FORMAT_NONE - 不压缩
-    $COMPRESSION_FORMAT_DEFAULT - 默认压缩格式
-    $COMPRESSION_FORMAT_LZNT1 - LZNT1算法压缩
+	下列之一的压缩常量.
+		 $COMPRESSION_FORMAT_NONE --- 解压缩文件或目录
+		 $COMPRESSION_FORMAT_DEFAULT --- 使用默认压缩格式压缩文件或目录
+		 $COMPRESSION_FORMAT_LZNT1 --- 使用 LZNT1 算法压缩文件或目录
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-如果包含指定文件或目录卷的文件系统不支持每文件或每目录压缩, 函数失败. 支持最大30G字节的文件压缩.
+如果文件或目录所在卷文件系统不支持每个文件或每个目录的压缩,函数失败.
+ 支持最高压缩为 30 千兆字节大小的文件.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中FSCTL_SET_COMPRESSION的相关信息
+@@MsdnLink@@ FSCTL_SET_COMPRESSION
 
 ###Example###
 @@IncludeExample@@
+

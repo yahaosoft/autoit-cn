@@ -1,41 +1,42 @@
-﻿    ###User Defined Function###
-    _WordDocLinkGetCollection
-    
-    
+﻿###User Defined Function###
+_WordDocLinkGetCollection
+
 ###Description###
-    返回文档中包含的所有链接的集合对象
-    
-    
+返回文档中全部链接对象的集合
+
 ###Syntax###
-    #Include <Word.au3>
-    _WordDocLinkGetCollection (    ByRef $o_object [, $i_index = -1] )
-    参数值
-$o_object 
-   Word.Application文档对象
-$i_index 
-   可选: 指定是返回集合还是带索引的实例
-    正整数返回1基索引的实例
-    -1 =
- 
-  (默认)返回集合
+#include <Word.au3> 
+_WordDocLinkGetCollection ( ByRef $o_object [, $i_index = -1] )
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	Word.Application 对象的文档对象变量
+$i_index
+	[可选参数] 指定返回集合,或链接实例
+	正整数,代表返回的索引实例 (基于 1)
+	-1 = (默认) 返回集合
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回文档中包含的所有链接的集合对象, @EXTENDED = 链接数量
- 失败:  返回 0 并设置 @ERROR
- @Error:  0 ($_WordStatus_Success) = 无错误
-  3 ($_WordStatus_InvalidDataType) = 无效数据类型
-  5 ($_WordStatus_InvalidValue) = 无效值
-  7 ($_WordStatus_NoMatch) = 不匹配
- @Extended:  包含的参数数量无效
+成功:	返回文档中所有链接对象的集合 @EXTENDED = 链接数
+失败:	返回 0, 并设置 @ERROR = 1
+@Error:	$_WordStatus_Success = 没有错误
+	$_WordStatus_InvalidDataType = 无效的数据类型
+	$_WordStatus_InvalidValue = 无效值
+	$_WordStatus_NoMatch = 无匹配
+@Extended:	包含无效的参数数目
 @@End@@
 
+
 ###Remarks###
+None.
+
 
 ###Related###
+None.
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

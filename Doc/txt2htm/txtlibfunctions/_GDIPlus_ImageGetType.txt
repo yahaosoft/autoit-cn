@@ -2,7 +2,7 @@
 _GDIPlus_ImageGetType
 
 ###Description###
-返回图像类型(位图或元文件)
+返回图像类型(位图或图元文件)
 
 ###Syntax###
 #Include <GDIPlus.au3>
@@ -10,29 +10,29 @@ _GDIPlus_ImageGetType($hImage)
 
 ###Parameters###
 @@ParamTable@@
-$hImage 
-   图像对象句柄
+$hImage
+	图形对象句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 图像类型:
-    $GDIP_IMAGETYPE_UNKNOWN - 非位图文件或未被GDI+标识为位图
-    $GDIP_IMAGETYPE_BITMAP - 位图类型: BMP, PNG, GIF, JPEG, TIFF, ICO, EXIF
-    $GDIP_IMAGETYPE_METAFILE - 元文件类型: EMF, WMF
-失败: 返回-1并设置@error为
-    0 - 无错误
-    4 - 无效图像句柄
+成功:	返回图像的整数类型
+	$GDIP_IMAGETYPE_UNKNOWN - 非位图文件或未被 GDI+ 标识为位图
+	$GDIP_IMAGETYPE_BITMAP - 位图类型:BMP, PNG, GIF, JPEG, TIFF, ICO, EXIF
+	$GDIP_IMAGETYPE_METAFILE - 图元文件类型:EMF, WMF
+失败:	返回 -1设置@error:	
+@error:	0 - 无错误.
+	10 - 无效图像句柄
 @@End@@
 
 ###Remarks###
-@error=4依赖于GDI+ UDF返回的-1或0而不是图像句柄错误
+ @error 4 依赖于 GDI+ UDF 返回的 -1 或 0, 而不是图像句柄错误.
 
 ###Related###
- _GDIPlus_ImageGetRawFormat
+_GDIPlus_ImageGetRawFormat
 
 ###See Also###
- 查看MSDN知识库中GdipGetImageType的相关信息
+@@MsdnLink@@ GdipGetImageType
 
 ###Example###
 @@IncludeExample@@

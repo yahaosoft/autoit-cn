@@ -2,38 +2,37 @@
 _WinAPI_GetThemeColor
 
 ###Description###
-获取指定窗体的颜色属性值
+检索指定窗口的颜色属性值.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetThemeColor( $hWnd, $sClass, $iPart, $iState, $iProp )
+_WinAPI_GetThemeColor ( $hTheme, $iPartId, $iStateId, $iPropId )
 
 ###Parameters###
 @@ParamTable@@
-$hWnd
-   所需主题数据的窗体的句柄
-$sClass
-   逗号分开的类列表字符串. 如"BUTTON", "TAB",等
-$iPart
-   指定包含颜色属性的部分的值
-$iState
-   指定部分的状态
-$iProp
-   指定要获取的属性
+$hTheme
+	指定主题数据的窗口句柄.
+$iPartId
+	指定包含颜色属性的部件.
+$iStateId
+	指定部件的状态值.
+$iPropId
+	指定检索的属性值.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: RGB颜色
-失败: 返回-1并设置@error非0
+成功:	返回接收的颜色 RGB 值.
+失败:	返回 -1,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetThemeColor的相关信息
+@@MsdnLink@@ GetThemeColor
 
 ###Example###
 @@IncludeExample@@
+

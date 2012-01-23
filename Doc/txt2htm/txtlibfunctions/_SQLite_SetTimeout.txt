@@ -2,34 +2,34 @@
 _SQLite_SetTimeout
 
 ###Description###
-设置忙碌句柄的时超
+为忙碌的处理程序设置超时
 
 ###Syntax###
-#Include <SQLite.au3>
+#include <SQLite.au3>
 _SQLite_SetTimeout ( [ $hDB = -1 [, $iTimeout = 1000 ]] )
+
 
 ###Parameters###
 @@ParamTable@@
- $hDB  打开的数据库, -1为最近打开的数据库
- $iTimeout  时超[毫秒]
+$hDB
+	[可选参数] 打开的数据库,如为 -1, 则使用最后打开的数据库
+$iTimeout
+	[可选参数] 超时值 [毫秒]
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回$SQLITE_OK
-失败: 返回可与$SQLITE_* 常量比较的值
-@error: -1 - SQLite报错(检查返回值)
-      1 - 调用SQLite API 'sqlite3_busy_timeout'错误
-      2 - 安全模式阻止调用
+成功:	返回 $SQLITE_OK
+失败:	返回值可能违反 $SQLITE_* 常量@错误:
+	-1 - SQLite 报告错误 (检查返回值)
+	1 - 错误调用 SQLite API 'sqlite3_busy_timeout'
+	2 - 调用被安全模式阻止
 @@End@@
 
 ###Remarks###
-该事务设置一个当表被锁定时暂停的忙碌句柄. 在已经达到暂停的"ms"毫秒数前句柄可暂停多次. 在暂停"ms"毫秒后, 导致sqlite3_exec()返回SQLITE_BUSY的句柄归0.
-
-###Related###
- _SQLite_Query
-
-###See Also###
+ 此例程设置一个繁忙的处理程序暂时锁定表,. 该处理程序将休眠多次,
+ 至少到 “ms” 毫秒休眠时间已经完成. 休眠 "ms" 毫秒以后, 
+ 处理程序返回 0, 导致 sqlite3_exec() 返回 SQLITE_BUSY.
 
 ###Example###
 @@IncludeExample@@

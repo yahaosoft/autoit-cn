@@ -2,44 +2,47 @@
 _WinAPI_OpenWindowStation
 
 ###Description###
-打开指定窗口站
+Opens the specified window station.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_OpenWindowStation( $sName [, $iAccess [, $fInherit]] )
+_WinAPI_OpenWindowStation ( $sName [, $iAccess [, $fInherit]] )
 
 ###Parameters###
 @@ParamTable@@
 $sName
-   要打开的窗口站的名称. 窗口站名称大小写敏感. 该窗口站属于当前会话.
+	The name of the window station to be opened. Window station names are case-insensitive. This window
+	station must belong to the current session.
 $iAccess
-   [可选] 窗口站返回句柄的访问类型. 可为一个或多个下列值.
-    $WINSTA_ALL_ACCESS - 所有可能的访问权限
-    $WINSTA_ACCESSCLIPBOARD - 使用剪贴板所需
-    $WINSTA_ACCESSGLOBALATOMS - 操作全局元素所需
-    $WINSTA_CREATEDESKTOP - 在窗口站上创建新的桌面对象所需
-    $WINSTA_ENUMDESKTOPS - 枚举存在的桌面对象所需
-    $WINSTA_ENUMERATE - 枚举窗口站所需
-    $WINSTA_EXITWINDOWS - 成功调用ExitWindows或ExitWindowsEx函数所需. 窗口站可由用户共享, 给标记可避免共享用户从窗口站注销窗口站所有者.
-    $WINSTA_READATTRIBUTES - 读取窗口站对象的属性所需. 该属性包括颜色设置和其他全局窗口站属性.
-    $WINSTA_READSCREEN - 访问屏幕内容所需
-    $WINSTA_WRITEATTRIBUTES - 修改窗口站属性所需. 该属性包括颜色设置和其他全局窗口站属性.
+	[可选参数] The access to the window station. This parameter can be one or more of the following values.
+	
+	$WINSTA_ALL_ACCESS
+	$WINSTA_ACCESSCLIPBOARD
+	$WINSTA_ACCESSGLOBALATOMS
+	$WINSTA_CREATEDESKTOP
+	$WINSTA_ENUMDESKTOPS
+	$WINSTA_ENUMERATE
+	$WINSTA_EXITWINDOWS
+	$WINSTA_READATTRIBUTES
+	$WINSTA_READSCREEN
+	$WINSTA_WRITEATTRIBUTES
+	
 $fInherit
-   [可选] 指定是否由进程继承句柄, 可用值:
-    1 - 由该进程创建的进程继承该句柄.
-    0 - 进程不继承该句柄.(默认)
+	[可选参数] Specifies whether inherites the handle by a processes, valid values:
+		TRUE     - The processes created by this process will inherit the handle.
+		FALSE    - The processes do not inherit this handle. (Default)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回指定窗口站句柄
-失败: 返回0并设置@error非0
+Success	Handle to the specified window station.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-窗口站使用完毕后调用_WinAPI_CloseWindowStation()释放句柄
+After you are done with the handle, you must call _WinAPI_CloseWindowStation() to free the handle.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中OpenWindowStation的相关信息
+@@MsdnLink@@ OpenWindowStation
+

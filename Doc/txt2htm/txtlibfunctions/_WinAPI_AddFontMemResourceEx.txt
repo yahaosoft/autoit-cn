@@ -2,36 +2,38 @@
 _WinAPI_AddFontMemResourceEx
 
 ###Description###
-从内存镜像将字体资源添加到系统
+添加内存映像的字体资源.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_AddFontMemResourceEx( $pData, $iSize )
+_WinAPI_AddFontMemResourceEx ( $pData, $iSize )
 
 ###Parameters###
 @@ParamTable@@
 $pData
-   字体资源的指针
+	字体资源指针.
 $iSize
-   字体资源中的字节数量
+	字体资源的字节数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 标识安装在系统上的字体的唯一句柄, @extended标记包含作为调用结果的添加到系统的字体的数量
-失败: 返回0并设置@error非0
+成功:	返回安装到系统的字体句柄,
+	@extended 包含添加到系统的字体数.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###
-该函数允许应用程序获取内嵌在文档或网页中的字体. 由它添加的字体通常由进程私有且不可枚举.
-函数成功时, 该函数的调用方可释放$pData指向的内存因为系统已建立内存自己的副本.
-调用call _WinAPI_RemoveFontMemResourceEx()移除已安装的字体. 然而, 当进程结束时系统将卸载字体.
-正常运行示例请将 Resources.dll 文件或 Resources_x64.dll 文件(x64系统使用)保存到临时文件夹中
+本函数允许应用程序获取文档或网页嵌入的字体.
+ 添加的字体始终为私有进程调用,且不枚举.
+ 当函数成功后,系统产生自己的内存副本,函数的调用者可以释放内存中 $pData 指定的指针.
+ 要删除已安装的字体,请调用 _WinAPI_RemoveFontMemResourceEx() 函数.
+ 但在进程消失时,系统将会卸载字体.
 
-###Related###
 
 ###See Also###
- 查看MSDN知识库中AddFontMemResourceEx的相关信息
+@@MsdnLink@@ AddFontMemResourceEx
 
 ###Example###
 @@IncludeExample@@
+

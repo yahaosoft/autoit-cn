@@ -2,30 +2,30 @@
 _WinAPI_IntersectRect
 
 ###Description###
-获取两矩形的交集
+创造两个矩形的交集.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_IntersectRect( $tRECT1, $tRECT2 )
+_WinAPI_IntersectRect ( $tRECT1, $tRECT2 )
 
 ###Parameters###
 @@ParamTable@@
 $tRECT1
-$tagRECT结构
+	$tagRECT 结构,包含第一个源矩形.
 $tRECT2
-$tagRECT结构
+	$tagRECT 结构,包含第二个源矩形.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含两矩形交集的$tagRECT结构
-失败: 返回0并设置@error非0
+成功:	返回 $tagRECT 结构,包含 $tRECT1 与 $tRECT2 两个矩形的交集.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-如果源矩形无交集, 将空矩形(所有坐标为0)置入目标矩形.
+如果源矩形不相交,放置一个空矩形(所有坐标设置为零)到目标矩形.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中IntersectRect的相关信息
+@@MsdnLink@@ IntersectRect
+

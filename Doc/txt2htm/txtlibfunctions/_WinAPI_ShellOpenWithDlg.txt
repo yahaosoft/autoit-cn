@@ -2,38 +2,42 @@
 _WinAPI_ShellOpenWithDlg
 
 ###Description###
-显示Open With对话框
+显示打开方式对话框.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellOpenWithDlg( $sFile [, $iFlags [, $hParent]] )
+_WinAPI_ShellOpenWithDlg ( $sFile [, $iFlags [, $hParent]] )
 
 ###Parameters###
 @@ParamTable@@
-$sFile  文件名
-$iFlags  [可选] Open With对话框的特征 , 可为一个或多个下列值:
-$OAIF_ALLOW_REGISTRATION - 启用 " 总是使用此程序 " 复选框
-$OAIF_REGISTER_EXT - 点击确定按钮后进行注册
-$OAIF_EXEC - 注册后执行文件
-$OAIF_FORCE_REGISTRATION - 强制选定 " 总是使用此程序 " 复选框
-$OAIF_HIDE_REGISTRATION - Windows Vista以上. 隐藏 " 总是使用此程序 " 复选框
-$OAIF_URL_PROTOCOL - 传递的扩展名是一个协议
-$hParent  [可选] 对话框的父窗体句柄
+$sFile
+	文件的名称.
+$iFlags
+	[可选参数] 随对话框的特点. 参数可以是一或多个下列值:
+		 $OAIF_ALLOW_REGISTRATION --- 启用“始终使用该程序”复选框
+		 $OAIF_REGISTER_EXT --- 用户注册后点击"确定"按钮
+		 $OAIF_EXEC --- 注册后执行文件
+		 $OAIF_FORCE_REGISTRATION --- 强制选中“始终使用该程序”复选框
+		 $OAIF_HIDE_REGISTRATION --- 隐藏“始终使用该程序”复选框
+		 $OAIF_URL_PROTOCOL --- 随着打开对话框显示的应用程序应注册处理该协议
+$hParent
+	[可选参数] 父窗句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0且@extended包含COM错误代码
+成功:	返回 1.
+失败:	返回 0,设置@error:	
+标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-该函数用于Windows Vista以上系统
+本函数需要 Windows Vista 或更高版本系统.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SHOpenWithDialog的相关信息
+@@MsdnLink@@ SHOpenWithDialog
 
 ###Example###
 @@IncludeExample@@
+

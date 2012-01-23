@@ -2,38 +2,41 @@
 _GUICtrlMenu_GetMenuDefaultItem
 
 ###Description###
-获取指定菜单的默认菜单项
+检索指定菜单的默认菜单项
 
 ###Syntax###
-#Include<GuiMenu.au3>
-_GUICtrlMenu_GetMenuDefaultItem($hMenu[, $fByPos = True[,$iFlags = 0]])
+#Include <GuiMenu.au3>
+_GUICtrlMenu_GetMenuDefaultItem($hMenu[, $fByPos = True[, $iFlags = 0]])
 
 ###Parameters###
 @@ParamTable@@
- $hMenu  菜单句柄
- $fByPos  确定是否获取菜单项位置的标识:
-真 - 返回菜单项位置
-假 - 返回菜单项标识
- $iFlags  指定函数如何搜索菜单项:
-0 - 无特殊的搜索参数
-1 - 指定函数函数返回默认项即使该项被禁用
-2 -
-      指定如果默认项为打开子菜单则函数重定向到相应子菜单进行搜索
+$hMenu
+	菜单句柄
+$fByPos
+	[可选参数] 确定返回菜单项位置或标识符:
+		True - 返回菜单项的位置
+		False - 返回菜单项的标识符
+$iFlags
+	[可选参数] 指定函数搜索如何菜单项:
+		0 - 没有特别的搜索参数
+		1 - 指定函数返回一个默认项目,即使它已被禁用
+		2 - 如果指定默认项是打开的子菜单,函数在相应的子菜单内递归搜索 .
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 菜单项标识或位置
-失败: -1
+成功:	返回由 $fByPos 参数决定的菜单项标识符或位置.
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 _GUICtrlMenu_SetMenuDefaultItem
 
 ###See Also###
-搜索MSDN知识库中GetMenuDefaultItem的相关信息
+@@MsdnLink@@ GetMenuDefaultItem
 
 ###Example###
 @@IncludeExample@@

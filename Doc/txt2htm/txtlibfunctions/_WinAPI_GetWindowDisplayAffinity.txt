@@ -2,29 +2,31 @@
 _WinAPI_GetWindowDisplayAffinity
 
 ###Description###
-从任意进程获取指定窗口当前的显示亲和力设置
+Retrieves the current display affinity setting, from any process, for a given window.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetWindowDisplayAffinity( $hWnd )
+_WinAPI_GetWindowDisplayAffinity ( $hWnd )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   要获取显示亲和力设置的窗体的句柄
+	Handle to the window for which display affinity setting is retrieved.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回当前窗体的显示亲和力($WDA_*)
-失败: 返回0并设置@error非0
+Success	The current window's display affinity setting ($WDA_*).
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-该函数仅当窗口是分层的和桌面窗口管理器(DWM)构成桌面时成功.
-最低系统支持: Windows 7
+This function succeeds only when the window is layered and Desktop Windows Manager (DWM) is composing the desktop.
+For more information, see _WinAPI_SetWindowDisplayAffinity().
 
-###Related###
+This function requires Windows 7 or later.
+
 
 ###See Also###
- 搜索MSDN知识库中GetWindowDisplayAffinity的相关信息
+@@MsdnLink@@ GetWindowDisplayAffinity
+

@@ -2,39 +2,37 @@
 _WinAPI_CallNextHookEx
 
 ###Description###
-将钩子信息传递到目前钩链中的下一个钩子程序
+目前钩链的钩子信息传递到下一个钩子程序
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_CallNextHookEx($hhk,
-$iCode, $wParam, $lParam)
+_WinAPI_CallNextHookEx($hhk, $iCode, $wParam, $lParam)
 
 ###Parameters###
 @@ParamTable@@
 $hhk
-   Windows 95/98/ME:当前钩子的句柄. 应用程序收到此句柄作为先前调用SetWindowsHookEx函数的结果.
-    Windows NT/XP/2003: 忽略
+	参数忽略
 $iCode
-   指定钩子代码传递到目前的钩子程序. 下一个钩子程序使用此代码, 以确定如何处理钩子信息
+	指定钩子代码传递到目前的钩子程序. 下一个钩子程序使用此代码确定如何处理钩子信息
 $wParam
-   指定传递到目前钩子程序的wParam值. 这个参数取决于钩子类型与当前钩子链
+	指定传递到当前的钩子程序的 wParam 值.
+		参数的含义取决于与当前钩子钩链相关的类型
 $lParam
-   指定传递到目前钩子程序的lParam值。这个参数取决于钩子类型与当前钩子链.
+	指定传递到当前的钩子程序的 lParam 值.
+		参数的含义取决于与当前钩子钩链相关的类型
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 该值由钩子链中的下一个钩子过程返回
-失败: -1 或设置 @error
+成功:	返回钩子链中的下一个钩子程序
+失败:	返回 -1,设置 @error	
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
-_WinAPI_SetWindowsHookEx , $tagKBDLLHOOKSTRUCT
+_WinAPI_SetWindowsHookEx, $tagKBDLLHOOKSTRUCT
 
 ###See Also###
-搜索MSDN知识库中有关CallNextHookEx的信息
-
-###Example###
-@@IncludeExample@@
+@@MsdnLink@@ CallNextHookEx

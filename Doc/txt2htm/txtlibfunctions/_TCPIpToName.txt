@@ -2,50 +2,54 @@
 _TCPIpToName
 
 ###Description###
-将IP地址转换为主机名
+解析一个IP地址到主机名称
 
 ###Syntax###
-#Include <iNet.au3>
-_TCPIpToName ( $sIp [,$iOption= 0 [, $hDll_Ws2_32 = "Ws2_32.dll" ]] )
+#include <iNet.au3>
+_TCPIpToName ( $sIp [,$iOption = 0 [, $hDll_Ws2_32 = "Ws2_32.dll" ]] )
+
 
 ###Parameters###
 @@ParamTable@@
- $sIp  Ip地址(v4)格式
- $iOption  可选, 默认 = 0
-0 = 返回主机名字符串
-1 = 返回数组 (见备注)
- $hDll_Ws2_32  可选, Ws2_32.dll句柄
+$sIp
+	带点的IP(v4)地址格式.
+$iOption
+	[可选参数] 默认(Default) = 0
+	0 = 返回一个字符串主机名称
+	1 = 返回数组 (参考说明)
+$hDll_Ws2_32
+	[可选参数] Ws2_32.dll 的句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  主机名或数组 (见备注)
- 失败:  ""
- @Error:  0 = 无错误.
-  1 = inet_addr DllCall 失败
-  2 = inet_addr 失败
-  3 = gethostbyaddr DllCall 失败
-  4 = gethostbyaddr 失败, WSAGetLastError = @Extended
-  5 = gethostbyaddr 失败, WSAGetLastError 失败
-  6 = strlen/sZStringRead 失败
-  7 = 读取Aliases数组错误
+成功:	返回主机名或数组(见备注)
+失败:	""
+@Error:	
+	0 = 无错误.
+	1 = inet_addr DllCall 失败
+	2 = inet_addr 失败
+	3 = gethostbyaddr DllCall 失败
+	4 = gethostbyaddr 失败, WSAGetLastError = @Extended
+	5 = gethostbyaddr 失败, WSAGetLastError 失败
+	6 = strlen/sZStringRead 失败
+	7 = 读别名数组错误
 @@End@@
 
+
 ###Remarks###
-成功的 WSAStartup(由 TCPStartup 完成) 是必需的.
-如果 $iOption = 1
-则返回如下数组:
-    $aResult[0] = 元素数量
-$aResult[1] = "Hostname"
-    $aResult[2] = "Alias
-1"
-    $aResult[3] = "Alias 2"
-...
+ 调用 WSAStartup（由 TCPStartup 完成）对于成功是必需的.
+ 如果 $iOption = 1 则返回如下格式的数组:
+	$aResult[0] = 元素数量
+	$aResult[1] = "主机名称"
+	$aResult[2] = "别名 1"
+	$aResult[3] = "别名 2"
+	...
+
 
 ###Related###
-TCPStartup , TCPNameToIP
+TCPStartup, TCPNameToIP
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

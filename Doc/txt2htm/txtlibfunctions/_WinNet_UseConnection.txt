@@ -1,51 +1,64 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _WinNet_UseConnection
 
 ###Description###
-å°†æœ¬åœ°è®¾å¤‡è¿žæŽ¥åˆ°ç½‘ç»œèµ„æº
+Á¬½Ó±¾µØÉè±¸µ½ÍøÂç×ÊÔ´
 
 ###Syntax###
 #Include <WinNet.au3>
-_WinNet_UseConnection($hWnd,$sLocalName, $sRemoteName[, $sUserName = 0[, $sPassword = 0[, $iType = 1[,
-$iOptions = 1]]]])
+_WinNet_UseConnection($hWnd, $sLocalName, $sRemoteName [, $sUserName = 0 [, $sPassword = 0 [, $iType = 1 [, $iOptions = 1]]]])
 
 ###Parameters###
 @@ParamTable@@
-$hWnd 
-   ç½‘ç»œèµ„æºæä¾›è€…å¯ç”¨æ¥ä½œä¸ºå¯¹è¯æ¡†ä¸»çª—ä½“çš„çª—ä½“å¥æŸ„. å½“åœ¨é€‰é¡¹å‚æ•°ä¸­è®¾ç½®äº†æ•°ä½2(äº’åŠ¨)æ—¶ä½¿ç”¨æ­¤å‚æ•°. è¯¥å‚æ•°å¯ä¸º0.
-$sLocalName 
-   è¦è¢«é‡å®šå‘çš„æœ¬åœ°è®¾å¤‡å, å¦‚"F:"æˆ–"LPT1". å­—ç¬¦ä¸²å¤§å°å†™ä¸æ•æ„Ÿ. å¦‚æžœä¸º0, ä¸å¿…é‡å®šå‘åˆ°æœ¬åœ°å³å¯è¿žæŽ¥åˆ°ç½‘ç»œèµ„æº.
-$sRemoteName 
-   è¦è¿žæŽ¥çš„ç½‘ç»œèµ„æºçš„åç§°
-$sUsername 
-   å»ºç«‹è¿žæŽ¥çš„ç”¨æˆ·å. å¦‚æžœä¸º0, å‡½æ•°ä½¿ç”¨é»˜è®¤ç”¨æˆ·å.
-$sPassword 
-   ç”¨äºŽå»ºç«‹è¿žæŽ¥çš„å¯†ç . å¦‚æžœä¸º0, ä½¿ç”¨é»˜è®¤å¯†ç . å¦‚æžœå­—ç¬¦ä¸²ä¸ºç©º, æ²¡æœ‰å¯†ç .
-$iType 
-   æŒ‡å®šè¦é“¾æŽ¥çš„ç½‘ç»œèµ„æºçš„ç±»åž‹:
-    0 - ä»»æ„(ä»…å½“$sLocalNameä¸º0æ—¶)
-    1 - ç£ç›˜
-    2 - æ‰“å°æœº
-$iOptions 
-   è¿žæŽ¥é€‰é¡¹. å¯ä¸ºä¸€ä¸ªæˆ–å¤šä¸ªä¸‹åˆ—å€¼:
-    1 - è®°ä½ç½‘ç»œèµ„æºè¿žæŽ¥
-    2 - å‡ºäºŽè®¤è¯ç›®çš„, æ“ä½œç³»ç»Ÿå¯ä¸Žç”¨æˆ·äº’åŠ¨
-    4 - ä¸ä½¿ç”¨ä»»æ„ç”¨æˆ·åæˆ–å¯†ç é»˜è®¤è®¾ç½®çš„ç³»ç»Ÿä¸è¦æ±‚ç”¨æˆ·æä¾›é€‰æ‹©çš„æœºä¼š. è¯¥æ ‡å¿—è¢«å¿½ç•¥é™¤éžé€‰é¡¹2(äº’åŠ¨)ä¹Ÿè¢«è®¾ç½®.
-    8 - å»ºç«‹è¿žæŽ¥æ—¶å¼ºåˆ¶æœ¬åœ°è®¾å¤‡é‡å®šå‘
-    16 - æ“ä½œç³»ç»Ÿå»ºè®®ä½¿ç”¨å‘½ä»¤è¡Œä»£æ›¿ç•Œé¢è¿›è¡Œç”¨æˆ·è®¤è¯. è¯¥æ ‡å¿—è¢«å¿½ç•¥é™¤éžé€‰é¡¹2(äº’åŠ¨)ä¹Ÿè¢«è®¾ç½®.
-    32 - å¦‚æžœè¯¥é¡¹è¢«è®¾ç½®, æ“ä½œç³»ç»Ÿæä¾›ä¸€ä¸ªè¯ä¹¦, è¯¥è¯ä¹¦è¢«è¯ä¹¦ç®¡ç†å™¨ä¿å­˜. å¦‚æžœè¯ä¹¦ç®¡ç†å™¨å¯¹äºŽå‘¼å«è€…çš„ç™»å½•ä¼šè¯æ— æ•ˆ, æˆ–ç½‘ç»œæä¾›è€…ä¸æ”¯æŒä¿å­˜è¯ä¹¦, åˆ™å¿½ç•¥è¯¥æ ‡å¿—. ç»™æ ‡å¿—ä¹Ÿå¯è¢«å¿½ç•¥é™¤éžè®¾ç½®äº†æ•°ä½5(ç”¨å‘½ä»¤è¡Œä»£æ›¿ç•Œé¢).
+$hWnd
+	ÍøÂç×ÊÔ´Ìá¹©Õß¿ÉÒÔ×÷Îª¶Ô»°¿òÊ¹ÓÃµÄËùÓÐÕß´°¿Ú¾ä±ú£®
+		Èç¹ûÉèÖÃ¡¡$iOptions¡¡²ÎÊýÖµÎª¡¡2£¨½»»¥Ê½£©£¬Õâ¸ö²ÎÊý¿ÉÒÔÊÇ¡¡0£®
+$sLocalName
+	±»ÖØ¶¨ÏòµÄ±¾µØÉè±¸Ãû×Ö, ÀýÈç"F:" »ò "LPT1". 
+		×Ö·û´®±»ÊÓÎª²»Çø·Ö´óÐ¡Ð´µÄ·½Ê½
+		Èç¹ûÎª 0£¬±¾µØÉè±¸²»ÖØ¶¨ÏòÁ¬½Óµ½ÍøÂç×ÊÔ´.
+$sRemoteName
+	Á¬½Óµ½µÄÍøÂç×ÊÔ´Ãû³Æ
+$sUsername
+	[¿ÉÑ¡²ÎÊý] ½¨Á¢Á¬½ÓµÄÓÃ»§Ãû. Èç¹ûÎª 0£¬¸Ãº¯ÊýÊ¹ÓÃÄ¬ÈÏÓÃ»§Ãû.
+$sPassword
+	[¿ÉÑ¡²ÎÊý] ÓÃÓÚ½¨Á¢Á¬½ÓµÄÃÜÂë. Èç¹ûÎª 0£¬Ê¹ÓÃÄ¬ÈÏÃÜÂë.
+		Èç¹û×Ö·û´®ÊÇ¿ÕµÄ, ²»Ê¹ÓÃÃÜÂë.
+$iType
+	[¿ÉÑ¡²ÎÊý] Ö¸¶¨Á¬½ÓµÄÍøÂç×ÊÔ´ÀàÐÍ:
+		0 - ÈÎÒâ£¨½öµ±¡¡$sLocalName¡¡ÊÇ¿Õ°×Ê±£©
+		1 - ´ÅÅÌ
+		2 - ´òÓ¡
+$iOptions
+	[¿ÉÑ¡²ÎÊý] Á¬½ÓÑ¡Ïî. ¿ÉÒÔÊÇÒ»»ò¶à¸öÏÂÁÐÖµ:
+		1 - ÍøÂç×ÊÔ´µÄÁ¬½ÓÓ¦¸Ã±»¼Ç×¡
+		2 - ²Ù×÷ÏµÍ³¿ÉÒÔÓëÓÃ»§Éí·ÝÑéÖ¤½»»¥
+		4 - ÏµÍ³²»Ê¹ÓÃÈÎºÎÄ¬ÈÏÉèÖÃ£¬²»Ìá¹©ÓÃ»§Ãû»òÃÜÂëµÄÑ¡Ôñ£®
+		³ý·Ç²ÎÊýÖµ 2£¨½»»¥Ê½£©³ÉÁ¢,·ñÔò´Ë±êÖ¾½«±»ºöÂÔ.
+		8 - Ç¿ÖÆ±¾µØÉè±¸Á¬½ÓÊ±ÖØ¶¨Ïò
+		16 - ²Ù×÷ÏµÍ³»áÌáÊ¾Ê¹ÓÃÃüÁîÐÐ,¶ø²»ÊÇÍ¼ÐÎ½çÃæµÄÓÃ»§ÈÏÖ¤.
+		³ý·Ç²ÎÊýÖµ 2£¨½»»¥Ê½£©³ÉÁ¢,·ñÔò´Ë±êÖ¾½«±»ºöÂÔ.
+		32 - Èç¹û´ËÎ»±»ÉèÖÃ, ÇÒ²Ù×÷ÏµÍ³ÌáÊ¾Æ¾¾Ý, ÔòÆ¾¾Ý±£´æµÄÆ¾¾Ý¹ÜÀíÆ÷.
+		Èç¹ûÆ¾¾Ý¹ÜÀíÆ÷±»½ûÖ¹µ÷ÓÃµÇÂ¼»á»°£¬»òÕßÍøÂçÌá¹©µÄ³ÌÐò²»Ö§³Ö±£´æÆ¾¾Ý£¬
+		´Ë±êÖ¾½«±»ºöÂÔ£®³ý·ÇÄãÉè¶¨ 16£¨ÃüÁîÐÐ¶ø²»ÊÇÍ¼ÐÎÓÃ»§½çÃæ£©,·ñÔòÕâ¸ö±êÖ¾Ò²±»ºöÂÔ£®
+		bit 5 (command line instead of GUI).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: è¿”å›žå¦‚ä¸‹æ ¼å¼æ•°ç»„:
-   $aInfo[0] - å¦‚æžœä¸ºçœŸ, ä½¿ç”¨æœ¬åœ°è®¾å¤‡é‡å®šå‘å»ºç«‹è¿žæŽ¥
-   $aInfo[1] - å¦‚æžœsLocalNameæŒ‡å®šä¸ºæœ¬åœ°è®¾å¤‡, åˆ™ä¸ºæœ¬åœ°è®¾å¤‡å. å¦‚æžœsLocalNameä¸æŒ‡å®šè®¾å¤‡ ä¸”ç½‘ç»œéœ€è¦æœ¬åœ°è®¾å¤‡é‡å®šå‘, è®¾ç½®äº†é€‰é¡¹4(å¼ºåˆ¶é‡å®šå‘)æ—¶, è¯¥ç¼“å†²åŒºæŽ¥æ”¶é‡å®šå‘çš„æœ¬åœ°è®¾å¤‡çš„ åç§°. å¦åˆ™, å¤åˆ¶åˆ°ç¼“å†²åŒºçš„åç§°æ˜¯ä¸€ä¸ªè¿œç¨‹èµ„æº.
+³É¹¦:	·µ»ØÊý×éµÄ¸ñÊ½ÈçÏÂ£º
+	$aInfo[0] - Èç¹ûÎª True, Á¬½ÓÁËÊ¹ÓÃ±¾µØÉè±¸ÖØ¶¨Ïò
+	$aInfo[1] - Èç¹û sLocalName Ö¸¶¨Îª±¾µØÉè±¸, ÔòÎª±¾µØÉè±¸Ãû. 
+	Èç¹û sLocalName ²»Ö¸¶¨Éè±¸, ÇÒÍøÂçÐèÒª±¾µØÉè±¸ÖØ¶¨Ïò, 
+	¶ø $iOptions ÉèÖÃÁËÑ¡Ïî 8 (Ç¿ÖÆÖØ¶¨Ïò)Ê±, ¸Ã»º³åÇø½ÓÊÕÖØ¶¨ÏòµÄ±¾µØÉè±¸µÄÃû³Æ.
+	·ñÔò, ¸´ÖÆµ½»º³åÇøµÄÃû³ÆÊÇÒ»¸öÔ¶³Ì×ÊÔ´. 
+Ê§°Ü:	ÉèÖÃ @error
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 
 ###See Also###
-æœç´¢MSDNçŸ¥è¯†åº“ä¸­WNetUseConnectionçš„ç›¸å…³ä¿¡æ¯
+@@MsdnLink@@ WNetUseConnection

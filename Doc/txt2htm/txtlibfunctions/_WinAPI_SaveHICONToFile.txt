@@ -2,36 +2,38 @@
 _WinAPI_SaveHICONToFile
 
 ###Description###
-将单个或多个(HICON)32位图标保存到指定图标文件
+Saves a 32 bits-per-pixel single or multiple icon (HICON) to the specified icon (.ico) file.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SaveHICONToFile( $sFile, $aIcon [, $iStart [, $iEnd]] )
+_WinAPI_SaveHICONToFile ( $sFile, $aIcon [, $iStart [, $iEnd]] )
 
 ###Parameters###
 @@ParamTable@@
 $sFile
-   图标文件名
+	The name of the icon file.
 $aIcon
-   要保存的图标的句柄或图标句柄的数组
+	Handle to the icon or array of the icon handles to be save.
 $iStart
-   要保存的图标数组的开始索引
+	[可选参数] The index of array to start saving at.
 $iEnd
-   要保存的图标数组的结束索引
+	[可选参数] The index of array to stop saving at.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-该函数禁用于32像素位(RGB + Alpha)图标. 如果无法确定图标色深可使用_WinAPI_Create32BitHICON()函数转换.
+This function only works with 32 bits-per-pixel (RGB + Alpha) icons. If you do not know exactly which color
+depth is there an icon, use the _WinAPI_Create32BitHICON() function to convert its.
 
-###Related###
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+

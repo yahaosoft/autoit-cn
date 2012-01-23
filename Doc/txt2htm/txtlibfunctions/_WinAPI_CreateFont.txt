@@ -2,116 +2,124 @@
 _WinAPI_CreateFont
 
 ###Description###
-创建一种特殊的逻辑字体
+创建一个带有指定字符的逻辑字体,注:characteristics有字符的意思也有特性的意思(可能翻译错误).
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_CreateFont($nHeight,
-$nWidth[, $nEscape = 0[, $nOrientn = 0[, $fnWeight = $FW_NORMAL[, $bItalic =
-False[, $bUnderline = False[, $bStrikeout = False[, $nCharset =
-$DEFAULT_CHARSET[, $nOutputPrec = $OUT_DEFAULT_PRECIS[, $nClipPrec =
-$CLIP_DEFAULT_PRECIS[, $nQuality = $DEFAULT_QUALITY[, $nPitch = 0[, $szFace =
-'Arial']]]]]]]]]]]])
+_WinAPI_CreateFont($nHeight, $nWidth[, $nEscape = 0 [, $nOrientn = 0 [, $fnWeight = $FW_NORMAL [, $bItalic = False[, $bUnderline = False [, $bStrikeout = False [, $nCharset = $DEFAULT_CHARSET [, $nOutputPrec = $OUT_DEFAULT_PRECIS [, $nClipPrec = $CLIP_DEFAULT_PRECIS [, $nQuality = $DEFAULT_QUALITY [, $nPitch = 0 [, $szFace = 'Arial']]]]]]]]]]]])
 
 ###Parameters###
 @@ParamTable@@
 $nHeight
-   字体的高度
+	字体高度
 $nWidth
-   字符的平均宽度
+	字符(特性)平均宽度
 $nEscape
-   指定移位向量的角度
+	[可选参数] 夹角
 $nOrientn
-   指定每个字符的基线的角度
+	[可选参数] 基线方向角
 $fnWeight
-   字体权值, 为方便定义，可使用如下值:
-    $FW_DONTCARE - 0
-    $FW_THIN - 100
-    $FW_EXTRALIGHT - 200
-    $FW_LIGHT - 300
-    $FW_NORMAL - 400
-    $FW_MEDIUM - 500
-    $FW_SEMIBOLD - 600
-    $FW_BOLD - 700
-    $FW_EXTRABOLD - 800
-    $FW_HEAVY - 900
+	[可选参数] 字体重度(weight), 下方是预定义的值:
+		$FW_DONTCARE - 0
+		$FW_THIN - 100
+		$FW_EXTRALIGHT - 200
+		$FW_LIGHT - 300
+		$FW_NORMAL - 400
+		$FW_MEDIUM - 500
+		$FW_SEMIBOLD - 600
+		$FW_BOLD - 700
+		$FW_EXTRABOLD - 800
+		$FW_HEAVY - 900
 $bItalic
-   指定斜体
+	[可选参数] 是否是斜体
 $bUnderline
-   指定加下划线
+	[可选参数] 是否带有下划线
 $bStrikeout
-   剔除属性
+	[可选参数] 是否带有删除线(strikeout)
 $nCharset
-   指定字符集. 下列值是预定义的:
-    $ANSI_CHARSET - 0
-    $BALTIC_CHARSET - 186
-    $CHINESEBIG5_CHARSET - 136
-    $DEFAULT_CHARSET - 1
-    $EASTEUROPE_CHARSET - 238
-    $GB2312_CHARSET - 134
-    $GREEK_CHARSET - 161
-    $HANGEUL_CHARSET - 129
-    $MAC_CHARSET - 77
-    $OEM_CHARSET - 255
-    $RUSSIAN_CHARSET - 204
-    $SHIFTJIS_CHARSET - 128
-    $SYMBOL_CHARSET - 2
-    $TURKISH_CHARSET - 162
-    $VIETNAMESE_CHARSET - 163
+	[可选参数] 指定字符集. 可以使用下方预定义的值:
+		$ANSI_CHARSET - 0
+		$BALTIC_CHARSET - 186
+		$CHINESEBIG5_CHARSET - 136
+		$DEFAULT_CHARSET - 1
+		$EASTEUROPE_CHARSET - 238
+		$GB2312_CHARSET - 134
+		$GREEK_CHARSET - 161
+		$HANGEUL_CHARSET - 129
+		$MAC_CHARSET - 77
+		$OEM_CHARSET - 255
+		$RUSSIAN_CHARSET - 204
+		$SHIFTJIS_CHARSET - 128
+		$SYMBOL_CHARSET - 2
+		$TURKISH_CHARSET - 162
+		$VIETNAMESE_CHARSET - 163
 $nOutputPrec
-   指定输出精度, 取下列值之一:
-    $OUT_CHARACTER_PRECIS - 未用
-    $OUT_DEFAULT_PRECIS - 指定缺省的字体映射表状态
-    $OUT_DEVICE_PRECIS - 指示字体映射表在当系统里有多种字体使用同一个字体使用同一个名字时选择一种设备字体
-    $OUT_OUTLINE_PRECIS - Windows NT/2000/XP: 此值指示字体映射表从TrueType和其他基于边框的字体中选择
-    $OUT_PS_ONLY_PRECIS - Windows 2000/XP:  指示字体映射表仅在光栅字体中选择. 如果系统没有安装光栅字体, 字体映射表返回默认值
-    $OUT_RASTER_PRECIS - 指示字体映射表在当系统里有多种字体使用同一个名字时选择一种光栅字体
-$OUT_STRING_PRECIS - 此值没有被字全映射表使用，但是当扫描字体被列举时作为@@End@@
+	[可选参数] 指定输出精确度, 可以是下方的一个值:
+		$OUT_CHARACTER_PRECIS - 未使用
+		$OUT_DEFAULT_PRECIS - 默认字体映射表状态
+		$OUT_DEVICE_PRECIS - 当系统包含多个相同名称的字体时,字体映射表选择设备字体
+		$OUT_OUTLINE_PRECIS - Windows 2000/XP: 字体映射表选择 TrueType 和其他轮廓字体
+		$OUT_PS_ONLY_PRECIS - Windows 2000/XP: 字体映射表只选择 PostScript 字体.
+		如果系统中没有 PostScript 字体,则字体映射表返回到默认状态
+		$OUT_RASTER_PRECIS - 当系统包含多个相同名称字体时,字体映射表选择光栅字体
+		$OUT_STRING_PRECIS - 不使用的字体映射表,但它返回光栅字体枚举
+		$OUT_STROKE_PRECIS - Windows 2000/XP: 不使用的字体映射表,
+		但它返回 TrueType,其他轮廓字体,和矢量字体得枚举
+		$OUT_TT_ONLY_PRECIS - 字体映射表选择只 TrueType 字体.
+		如果系统中没有 TrueType 字体,字体映射表返回到默认状态
+		$OUT_TT_PRECIS - 当系统包含多个相同名称的字体时,字体映射表选择 TrueType 字体
+$nClipPrec
+	[可选参数] 指定切边精确度, 可以是下方一个或多个值:
+		$CLIP_CHARACTER_PRECIS - 未使用
+		$CLIP_DEFAULT_PRECIS - 默认裁剪状态
+		$CLIP_EMBEDDED - 使用嵌入式只读字体
+		$CLIP_LH_ANGLES - 字体旋转取决是否坐标系统的左手或右手方向.
+		如果不使用此值,设备字体总是逆时针方向转动,但其他字体的旋转由坐标系方向而定.
+		$CLIP_MASK - 未使用
+		$CLIP_STROKE_PRECIS - 不使用字体映射表,但返回光栅,矢量,或 TrueType 字体枚举
+		Windows 2000/XP: 出于兼容性,此值总是返回枚举字体
+		$CLIP_TT_ALWAYS - 未使用
+$nQuality
+	[可选参数] 输出质量.可以是以下值之一:
+		$ANTIALIASED_QUALITY - Windows 2000 与更高版: 如果支持的字体尺寸不是太小或太大,字体抗锯齿,或平滑
+		此外,在进入屏幕 DC 之前,使用 DIBSection 选择 TrueType 字体,否则不会发生抗锯齿效果
+		$DEFAULT_QUALITY - 不注重字体的外观
+		$DRAFT_QUALITY - 使用 PROOF_QUALITY 值时,字体的外观很重要.
+		对于 GDI 的光栅字体,启用缩放,这意味着较大的字体大小都可用,但质量可能比较低.
+		如有必要,可以综合使用粗体,斜体,下划线和删除线字体
+		$NONANTIALIASED_QUALITY - Windows 2000 与更高版: 字体没有抗锯齿,即不做字体平滑
+		$PROOF_QUALITY - 字体质量比字体属性重要.
+		对于 GDI 光栅字体,禁用缩放,字体大小接近选择的字体.
+		当使用 PROOF_QUALITY 时,虽然选择的字体大小可能不完全映射,但字体的质量高,不会出现失真.
+		如有必要,可以综合使用粗体,斜体,下划线和删除线字体
+$nPitch
+	[可选参数] 指定字体斜度和家族. 使用两个低(序)位指定字体斜度,可以是下方的一个值:
+		$DEFAULT_PITCH, $FIXED_PITCH, $VARIABLE_PITCH
+		四个高位设置字体,可以是以下值之一:
+		$FF_DECORATIVE - 新奇字体.例如古英语
+		$FF_DONTCARE - 使用默认字体
+		$FF_MODERN - 常规笔画宽度字体,有或无衬线,例如 Pica, Elite, 与 Courier New 
+		$FF_ROMAN - 可变笔画宽度字体和衬线.例如 MS Serif
+		$FF_SCRIPT - 手写体字体.例如 Script 与 Cursive
+		$FF_SWISS - 可变笔画宽度字体;没有衬线.例如 MS Sans Serif
+$szFace
+	[可选参数] 字体名称
+@@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-$OUT_STROKE_PRECIS - Windows NT/2000/XP:  此值没有被字体映射表使用, 但是当枚举TrueType, 其他基于边框的字体和向量字体时将被返回.
-$OUT_TT_ONLY_PRECIS - 指示字体映射表仅从TrueType字体中选择. 如果系统中没有安装TrueType字体, 则字体映射表返回缺省状态
-$OUT_TT_PRECIS - 指示字体映射表选择一种TrueType字体当系统包含多个同名字体时
- $nClipPrec  指定裁剪精度. 它可取一个或多个下列值:
-$CLIP_CHARACTER_PRECIS - 未用
-$CLIP_DEFAULT_PRECIS - 指定缺省裁剪状态
-$CLIP_EMBEDDED -  要使用嵌入式只读字体必须使用此标志
-$CLIP_LH_ANGLES - 所有字体的旋转依赖于坐标系统的定位是朝左的还是朝右的. 如果未使用此值，设备字体总是逆时针方向旋转, 但其他字体的旋转依赖于坐标系统的定向.
-$CLIP_MASK - 未用
-$CLIP_STROKE_PRECIS -  未被字体映射表使用, 但是当枚举光栅字体、向量字体或TrueType字体时将被返回. 为保证兼容性, Windows NT/2000/XP在枚举字体时总返回该值
-$CLIP_TT_ALWAYS -  未用
- $fdwQuality  指定输出质量, 它可取下列值之一:
-$ANTIALIASED_QUALITY - 如果字体支持且字体不是过大或过小则进行反锯齿或平滑处理.
-$DEFAULT_QUALITY - 字体的外观不重要
-$DRAFT_QUALITY - 字体外观的重要性次于使用PROOF_QUALITY时. 对GDI光栅字体, 缩放比例是活动的，这意味着多种字体大小可供选择, 如果有必要，粗体、斜体、下划线、拉伸字体可被综合起来使用, 但质量可能不高
-$NONANTIALIASED_QUALITY - 字体不进行反锯齿处理, 即不进行字体平滑
-$PROOF_QUALITY - 字符质量比精确匹配逻辑字体字体属性更重要.
-对GDI扫描字体，缩放比例是活动的，并选择最接近的大小.
-尽管使用PROOF_QUALITY时选择字体大小并不完全匹配, 但字体的质量很高且外观上不会变形.
-如果有必要，粗体、斜体、下划线、strikeout字体可被综合起来使用
- $nPitch  指定字体间距和字体族，低端二位指定字体的字符间距，它可取下列值之一:
-$DEFAULT_PITCH, $FIXED_PITCH, $VARIABLE_PITCH
-高端四位指定字体族，可取下列值之一:
-$FF_DECORATIVE - 新奇的字体，如老式英语
-$FF_DONTCARE - 使用默认字体
-$FF_MODERN - 笔划宽度固定的字体，有或者无衬线. 如Pica, Elite, 和Courier New
-$FF_ROMAN - 笔划宽度可变的字体，有衬线. 如MS Serif
-$FF_SCRIPT - 设计成看上去象手写体的字体. 如Script和Cursive
-$FF_SWISS - 笔划宽度可变的字体且无斜线. 如MS Sans Serif
- $szFace  指定字体的字样名
-返回值 成功: 逻辑字体句柄
-失败: 0
+成功:	逻辑字体句柄
+失败:	0
 @@End@@
 
 ###Remarks###
-当不再使用字体时, 可用_WinAPI_DeleteObject删除
-需要FontConstants.au3预定义常量.
+如果你不长期使用这个字体, 请调用 _WinAPI_DeleteObject 函数删除字体
+预定义常量需要包含 FontConstants.au3
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中有关CreateFont的信息
+@@MsdnLink@@ CreateFont
 
 ###Example###
 @@IncludeExample@@

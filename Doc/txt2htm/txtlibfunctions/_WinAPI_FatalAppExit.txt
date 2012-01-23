@@ -2,25 +2,27 @@
 _WinAPI_FatalAppExit
 
 ###Description###
-显示一个消息框并终止程序
+显示消息框, 并终止应用程序
 
 ###Syntax###
-#Include
-<WinAPI.au3>
+#Include <WinAPI.au3>
 _WinAPI_FatalAppExit($sMessage)
 
 ###Parameters###
 @@ParamTable@@
 $sMessage
-   在消息框中显示的字符串
+	消息框中显示的字符串
 @@End@@
 
+###ReturnValue###
+None.
+
 ###Remarks###
-仅当程序无法中止时才会调用. FatalAppExit无法释放内存或释放文件,
-并且可能会导致系统失效.
-一个遇到未预期错误的应用程序可通过释放其全部内存中止且从主信息循环返回.
+ 仅当程序无法终止时才调用此函数.
+ 本函数比一定能释放程序内存或关闭它的文件,它可能会导致系统的一般故障.
+ 程序遇到意外错误应该终止,并释放其所有内存和从其主要消息循环中返回.
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中FatalAppExit的相关信息
+@@MsdnLink@@ FatalAppExit

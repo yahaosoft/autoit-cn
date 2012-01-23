@@ -2,65 +2,68 @@
 _GUICtrlMenu_AppendMenu
 
 ###Description###
-追加一个新项到指定菜单栏, 下拉菜单, 子菜单, 或快捷菜单的结尾
+追加一个新项目到指定菜单栏,下拉菜单,子菜单或快捷菜单的末尾,
 
 ###Syntax###
-#Include<GuiMenu.au3>
-_GUICtrlMenu_AppendMenu($hMenu, $iFlags, $iNewItem,$pNewItem)
+#Include <GuiMenu.au3>
+_GUICtrlMenu_AppendMenu($hMenu, $iFlags, $iNewItem, $pNewItem)
 
 ###Parameters###
 @@ParamTable@@
- $hMenu  菜单句柄
- $iFlags  指定控制新菜单项的外观和动作的标记:
-$MF_BITMAP - 使用位图作为菜单项
-$MF_CHECKED -
-      跟随菜单项放置选中标记. 如果应用程序提供选中标记位图, 该标记表明跟随菜单项显示选中位图.
-$MF_DISABLED -
-      禁用菜单项以便其无法被选中, 但并不灰色表示.
-$MF_ENABLED - 启用菜单项以便其可被选中,
-      且从灰色显示状态恢复.
-$MF_GRAYED - 禁用菜单项并灰色显示以便无法选择.
-$MF_MENUBARBREAK - 对于菜单栏,
-      功能与$MF_MENUBREAK相同. 对于下拉菜单, 子菜单, 或快捷菜单, 将由一条垂直线从旧列中分出新列
-$MF_MENUBREAK -
-      在新行放置项目(对于菜单栏)或在新列中(对于下拉菜单, 子菜单, 快捷菜单)且不用分列.
-$MF_OWNERDRAW -
-      指定项目为宿主绘制的项目. 在菜单首次显示前, 菜单的宿主窗口接收获取菜单项的宽度和高
-度的$WM_MEASUREITEM消息.
-      无论菜单的外观何时更新$WM_DRAWITEM消息将被发送至宿主窗体的窗口进程
-$MF_POPUP - 指定菜单项打开下拉菜单或子菜单.
-      iNewItem参数指定下拉菜单或紫菜的句柄. 该标记用于向菜单栏添加用以打开子菜单,
-      下拉菜单或快捷菜单的菜单名或菜单项.
-$MF_SEPARATOR - 绘制水平分割线. 该标记仅用于下拉菜单, 子菜单, 或快捷菜单.
-      该行无法灰色显示, 禁用, 或高亮. pNewItem和iNewItem参 数将被忽略.
-$MF_STRING - 指定一个菜单项为字符串.
-      pNewItem参数为字符串.
-$MF_UNCHECKED - 不随菜单项放置选中标记. 如果应用程序支持选中标记位图,
-      该标记显示随菜单项显示清除位图.
- $iNewItem  如果$iFlags参数设置为弹出, 句柄指向下拉菜单或子菜单则指定新菜单项的标识.
- $pNewItem  指定新菜单项的内容. pNewItem参数的含义依赖于是否包括$MF_BITMAP, $MF_OWNERDRAW,
-      或$MF_STRING标记:
-$MF_BITMAP - 包含位图句柄
-$MF_OWNERDRAW -
-      包含应用程序用于维持与菜单项相关的额外数据支持的值.该值可为当菜单创建或更新时指向由$WM_MEASUREITEM
-或$WM_DRAWITEM信息发送的lParam参数的结构的ItemData成员.
-$MF_STRING
-      - 包含字符串
+$hMenu
+	菜单句柄
+$iFlags
+	Specifies flags to control the appearance and behavior of the new menu item:
+		$MF_BITMAP - Uses a bitmap as the menu item
+		$MF_CHECKED - Places a check mark next to the menu item. If the application provides check-mark bitmaps,
+		this flag displays the check-mark bitmap next to the menu item.
+		$MF_DISABLED - Disables the menu item so that it cannot be selected, but the flag does not gray it.
+		$MF_ENABLED - Enables the menu item so that it can be selected, and restores it from its grayed state.
+		$MF_GRAYED - Disables the menu item and grays it so that it cannot be selected.
+		$MF_MENUBARBREAK - Functions the same as $MF_MENUBREAK for a menu bar. For a drop down menu, submenu, or
+		shortcut menu, the new column is separated from the old column by a vertical line.
+		$MF_MENUBREAK - Places the item on a new line (for a menu bar) or in a new column (for a drop down menu,
+		submenu, or shortcut menu) without separating columns.
+		$MF_OWNERDRAW - Specifies that the item is an owner drawn item. Before the menu is displayed for the first
+		time, the window that owns the menu receives a $WM_MEASUREITEM message to retrieve the width and height of
+		the menu item. The $WM_DRAWITEM message is then sent to the window procedure of the owner window whenever the
+		appearance of the menu item must be updated.
+		$MF_POPUP - Specifies that the menu item opens a drop down menu or submenu. The iNewItem parameter
+		specifies a handle to the drop down menu or submenu. This flag is used to add a menu name to a menu bar, or a
+		menu item that opens a submenu to a drop down menu, submenu, or shortcut menu.
+		$MF_SEPARATOR - Draws a horizontal dividing line. This flag is used only in a drop down menu, submenu, or
+		shortcut menu. The line cannot be grayed, disabled, or highlighted. The pNewItem and iNewItem parameters are
+		ignored.
+		$MF_STRING - Specifies that the menu item is a text string. The pNewItem parameter is a string.
+		$MF_UNCHECKED - Does not place a check mark next to the item. If the application supplies check mark
+		bitmaps, this flag displays the clear bitmap next to the menu item.
+$iNewItem
+	指定任一新菜单项的标识符,如果 $iFlags 参数设置为一个弹出式菜单,
+		则指定下拉菜单或子菜单句柄.
+$pNewItem
+	指定新菜单项的内容.该参数设置内容的解释取决于
+		$iFlags 参数是否包括 $MF_BITMAP, $MF_OWNERDRAW, 或 $MF_STRING 标志:
+		$MF_BITMAP - 包含一个位图句柄
+		$MF_OWNERDRAW - 包含应用程序提供的值,可用于维护相关菜单项的其他数据
+		当 $WM_MEASUREITEM or $WM_DRAWITEM 消息发送菜单创建或更新其外观时, 
+		该值所在结构的 ItemData 成员指向 lParam 参数.
+		$MF_STRING - 包含字符串
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 _GUICtrlMenu_InsertMenuItem
 
 ###See Also###
-搜索MSDN知识库中AppendMenu的相关信息
+@@MsdnLink@@ AppendMenu
 
 ###Example###
 @@IncludeExample@@

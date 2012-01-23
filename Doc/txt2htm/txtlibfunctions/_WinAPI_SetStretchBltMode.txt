@@ -2,38 +2,40 @@
 _WinAPI_SetStretchBltMode
 
 ###Description###
-设置指定设备场景中的位图拉伸模式
+设置指定设备环境的位图拉伸模式.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetStretchBltMode( $hDC, $iMode )
+_WinAPI_SetStretchBltMode ( $hDC, $iMode )
 
 ###Parameters###
 @@ParamTable@@
-$hDC  设备场景句柄
-$iMode  拉伸模式. 可为下列值之一:
-$BLACKONWHITE - 使用颜色值进行逻辑与(AND)操作, 如果为单色位图, 牺牲白色像素, 保留黑色像素点
-$COLORONCOLOR - 删除像素。该模式删除所有像素且不保留其信息
-$HALFTONE - 将源矩形区中的像素映射到目标矩形区的像素块中
-$WHITEONBLACK - 使用颜色值进行逻辑或(OR)操作, 如果为单色位图, 牺牲黑色像素, 保留白色像素点
-$STRETCH_ANDSCANS - 与$BLACKONWHITE相同
-$STRETCH_DELETESCANS - 与$COLORONCOLOR相同
-$STRETCH_HALFTONE - 与$HALFTONE相同
-$STRETCH_ORSCANS - 与$WHITEONBLACK相同
+$hDC
+	设备环境句柄.
+$iMode
+	拉伸模式. 参数可以是以下值之一:
+		 $BLACKONWHITE --- 使用颜色值执行布尔 AND 操作,以消除现有的像素
+		 $COLORONCOLOR --- 删除像素
+		 $HALFTONE --- 处理目标矩形的像素为源像素块
+		 $WHITEONBLACK --- 使用颜色值执行布尔 OR 操作,以消除现有的像素
+		 $STRETCH_ANDSCANS --- 相同于 BLACKONWHITE
+		 $STRETCH_DELETESCANS --- 相同于 COLORONCOLOR
+		 $STRETCH_HALFTONE --- 相同于 $HALFTONE
+		 $STRETCH_ORSCANS --- 相同于 WHITEONBLACK
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-$BLACKONWHITE($STRETCH_ANDSCANS)和$WHITEONBLACK($STRETCH_ORSCANS)模式通常用于保留单色位图的前景像素.
-$COLORONCOLOR($STRETCH_DELETESCANS)用于保留彩色位图的颜色. $HALFTONE($STRETCH_HALFTONE)模式稍慢且需要
-对图像的更多操作但质量要好.
+$BLACKONWHITE ($STRETCH_ANDSCANS) 与 $WHITEONBLACK ($STRETCH_ORSCANS) 模式通常用于保存单色位图的前景像素.
+ $COLORONCOLOR ($STRETCH_DELETESCANS) 模式通常用于保存彩色位图的颜色.
+ $HALFTONE ($STRETCH_HALFTONE) 模式速度较慢,比上述三种模式, 需要更多的源图像处理.但能生成更高质量的图像.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SetStretchBltMode的相关信息
+@@MsdnLink@@ SetStretchBltMode
+

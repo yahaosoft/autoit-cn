@@ -2,34 +2,35 @@
 _IEDocReadHTML
 
 ###Description###
-返回整个文档的HTML源代码
+返回整个文档的HTML源代码.
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IEDocReadHTML ( ByRef $o_object )
 
 ###Parameters###
 @@ParamTable@@
- $o_object  InternetExplorer.Application , 窗口或者框架(frame)对象的对象变量
+$o_object
+	InternetExplorer.Application, 窗口或框架(frame)对象的对象变量
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回文档<HTML>标签之内HTML代码
-失败: 返回0并设置@ERROR为:
-    0 ($_IEStatus_Success) = 无错误
-    3 ($_IEStatus_InvalidDataType) = 无效数据类型
-    @Extended: 包含无效参数数量
+成功:	返回文档<HTML>标签内HTML代码, 包括<HTML>和</HTML>标签
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+@Extended:	包含无效参数数量
 @@End@@
 
+
 ###Remarks###
-本函数返回的源代码是经过客户端改动之后的网页的源码(例如通过AutoIt或者客户端 JavaScript改动).
-因此可能和在浏览器中显示的源代码或者通过_INetGetSource得到的源码不一样.
+本函数返回的源代码是经过客户端改动之后的网页的源码(如通过AutoIt或者客户端JavaScript). 因此可能和在浏览器中显示的或通过_INetGetSource得到的源码不一样.
+
 
 ###Related###
- _IEDocWriteHTML , _IEBodyReadHTML , _INetGetSource
+_IEDocWriteHTML, _IEBodyReadHTML, _INetGetSource, _IEDocInsertHTML, _IEDocInsertText
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

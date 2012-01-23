@@ -2,32 +2,33 @@
 _WinAPI_RegCopyTree
 
 ###Description###
-将源子键的子键和值复制到目标键
+递归复制子项和子项的源值到目标键项.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RegCopyTree( $hSrcKey, $sSrcSubKey, $hDestKey )
+_WinAPI_RegCopyTree ( $hSrcKey, $sSrcSubKey, $hDestKey )
 
 ###Parameters###
 @@ParamTable@@
 $hSrcKey
-$HKEY_...)
+	源键或预定义注册表项的句柄 ($HKEY_*).
 $sSrcSubKey
-   要的复制子键和值的子键
+	待复制的子项及其子项值.
 $hDestKey
-$HKEY_...)
+	目标键项句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0, @extended标记可包含非0系统错误代码.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
-该函数不会复制键和值的安全属性. 目标键的所有安全属性为默认值.
+函数不复制安全属性键和值及它的副本.
+ 相反,目标键项的所有安全属性为默认属性.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SHCopyKey的相关信息
+@@MsdnLink@@ SHCopyKey
+

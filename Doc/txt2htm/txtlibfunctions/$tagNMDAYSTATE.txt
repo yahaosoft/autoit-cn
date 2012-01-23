@@ -2,33 +2,41 @@
 $tagNMDAYSTATE
 
 ###Description###
-搭载执行$MCN_GETDAYSTATE通知所需的信息的结构
+传送处理 $MCN_GETDAYSTATE 通知所需资料
 
 ###Syntax###
-Global Const $tagNMDAYSTATE =  $tagNMHDR & ";short Year;short Month;short DOW;short Day;short Hour;short Minute;short Second;short MSecondint DayState;ptr pDayState"
+Global Const $tagNMDAYSTATE = $tagNMHDR & ";short Year;short Month;short DOW;short Day;short Hour;" & _
+		"short Minute;short Second;short MSeconds;int DayState;ptr pDayState"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   通知消息的信息
+	包含通知消息的信息
 Year
-   年
+	年
 Month
-   月
+	月
 DOW
-   周中的日
+	周内天
 Day
-   日
+	日
 Hour
-   时
+	时
 Minute
-   分
+	分
 Second
-   秒
-MSecond
-   毫秒
+	秒
+MSeconds
+	毫秒
 DayState
-   pDayState数组中元素的总数
+	pDayState 数组中必须的元素总数
 pDayState
-   MONTHDAYSTATE数组的地址(保留月中各天状态的DWORD数位区). 每个数位(1到31)代表月中的日的状态. 如果数位为开启状态, 相应的日期粗体显示; 否则不重点显示. 该地址的缓冲区必须足够大以至少包含DayState元素.
-@@end@@
+	MONTHDAYSTATE 数组的地址(DWORD 字段保留月中天的状态);
+	每个数位( 1 到 31 )代表月中的日的状态,
+	如果数位为开启状态, 相应的日期粗体显示; 否则不重点显示.
+	此地址的缓冲区必须足够大,至少应包含 DayState 指定的元素总数.
+@@End@@
+
+###Remarks###
+None.
+

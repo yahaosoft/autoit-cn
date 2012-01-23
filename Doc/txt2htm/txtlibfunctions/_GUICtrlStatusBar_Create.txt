@@ -5,43 +5,43 @@ _GUICtrlStatusBar_Create
 创建状态栏
 
 ###Syntax###
-#Include<GuiStatusBar.au3>
-_GUICtrlStatusBar_Create($hWnd[, $vPartEdge = -1[,$vPartText = ""[, $iStyles = -1[, $iExStyles = 0x00000000]]]])
+#Include <GuiStatusBar.au3>
+_GUICtrlStatusBar_Create($hWnd[, $vPartEdge = -1[, $vPartText = ""[, $iStyles = -1[, $iExStyles = 0x00000000]]]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $vPartEdge  每部分的宽度, 不止一个部分时使用下列格式的0基数组:
-$vPartEdge[0] -
-      第一个部分的右边界
-$vPartEdge[1] - 第二个部分的右边界
-$vPartEdge[n] - 最后部分的右边界
- $vPartText  每部分的文本, 不止一个部分时使用下列格式的0基数组:
-$vPartText[0] - 第一个部分
-$vPartText[1]
-      - 第二个部分
-$vPartText[n] - 最后一个部分
- $iStyles  控件样式:
-$SBARS_SIZEGRIP - 状态栏控件在右边界包含尺寸控制的显示
-$SBARS_TOOLTIPS -
-      状态栏可以显示工具提示
-  强制: $WS_CHILD, $WS_VISIBLE
- $iExStyles  控件扩展样式
+$hWnd
+	父窗口句柄
+$vPartEdge
+	[可选参数] 部件宽度.如多于一个部件,则指定下面的数组:
+		$vPartEdge[0] - 部件 #1 右边界
+		$vPartEdge[1] - 部件 #2 右边界
+		$vPartEdge[n] - 部件 #n 右边界 
+$vPartText
+	[可选参数] 部件文本.如多于一个部件文本,则指定下面的数组:
+		$vPartText[0] - 第一部件
+		$vPartText[1] - 第二部件
+		$vPartText[n] - 最后部件
+$iStyles
+	[可选参数] 控件样式s:
+		$SBARS_SIZEGRIP - 状态栏右端包括尺寸一个柄
+		$SBARS_TOOLTIPS - 状态栏具有工具提示功能
+	[可选参数] 强制: $WS_CHILD, $WS_VISIBLE
+$iExStyles
+	[可选参数] 控件扩展样式
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 控件句柄
-失败: 0
+成功:	返回控件句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-如果使用GUICtrlCreateMenu, 则在其之后使用_GUICtrlStatusBar_Create
+If using GUICtrlCreateMenu then use _GUICtrlStatusBar_Create after GUICtrlCreateMenu
 
 ###Related###
 _GUICtrlStatusBar_Destroy
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

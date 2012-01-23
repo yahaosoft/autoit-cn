@@ -2,38 +2,39 @@
 _WinAPI_GetThemePropertyOrigin
 
 ###Description###
-获取指定属性在主题属性定义中的位置
+Retrieves the location of the theme property definition for a property.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetThemePropertyOrigin( $hTheme, $iPartId, $iStateId, $iPropId [, $hDC] )
+_WinAPI_GetThemePropertyOrigin ( $hTheme, $iPartId, $iStateId, $iPropId )
 
 ###Parameters###
 @@ParamTable@@
 $hTheme
-   指定窗口主题数据的句柄
+	Handle to a window's specified theme data.
 $iPartId
-   包含主题的部分
+	The part that contains the theme.
 $iStateId
-$iPartId部分的描述
+	The state of the part.
 $iPropId
-$TMT_*)
+	The property to retrieve ($TMT_*).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 表示找到属性的值. 可为下列值之一.
-    0 - 发现在描述部分
-    1 - 发现在分部部分
-    2 - 发现在类部分
-    3 - 发现在全局变量列表中
-    4 - 未找到属性
-失败: 返回0并设置@error非0且@extended标记包含系统错误代码
+Success	The value that indicates where the property was found. It can be one of the following values.
+0	Property was found in the state section.
+1	Property was found in the part section.
+2	Property was found in the class section.
+3	Property was found in the list of global variables.
+4	Property was not found.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetThemePropertyOrigin的相关信息
+@@MsdnLink@@ GetThemePropertyOrigin
+

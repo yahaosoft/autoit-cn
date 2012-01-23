@@ -2,7 +2,7 @@
 _GUIScrollBars_GetScrollBarInfoEx
 
 ###Description###
-获取指定滚动条的信息
+检索指定滚动控件信息
 
 ###Syntax###
 #Include <GuiScrollBars.au3>
@@ -10,26 +10,29 @@ _GUIScrollBars_GetScrollBarInfoEx($hWnd, $idObject)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  窗口句柄
- $idObject  指定滚动条对象. 参数可为下列值之一:
-  $OBJID_CLIENT - $hWnd参数为指向滚动条控件的句柄.
-  $OBJID_HSCROLL - $hWnd窗口的水平滚动条.
-  $OBJID_VSCROLL - $hWnd窗口的垂直滚动条.
+$hWnd
+	窗口句柄
+$idObject
+	指定滚动控件对象. 参数可以是以下值之一:
+		$OBJID_CLIENT - 参数 $hWnd 是滚动控件的窗口句柄.
+		$OBJID_HSCROLL - $hWnd 窗口的水平滚动控件.
+		$OBJID_VSCROLL - $hWnd 窗口的垂直滚动控件.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: $tagSCROLLBARINFO结构类型
+成功:	返回 $tagSCROLLBARINFO 类型结构
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###
-以上常数需要ScrollBarConstants.au3
+ 以上常数需要 ScrollBarConstants.au3
 
 ###Related###
- $tagSCROLLBARINFO , _GUIScrollBars_GetScrollBarRect , _GUIScrollBars_GetScrollBarRGState , _GUIScrollBars_GetScrollBarXYLineButton , _GUIScrollBars_GetScrollBarXYThumbBottom , _GUIScrollBars_GetScrollBarXYThumbTop
+$tagSCROLLBARINFO, _GUIScrollBars_GetScrollBarRect, _GUIScrollBars_GetScrollBarRGState, _GUIScrollBars_GetScrollBarXYLineButton, _GUIScrollBars_GetScrollBarXYThumbBottom, _GUIScrollBars_GetScrollBarXYThumbTop
 
 ###See Also###
- 搜索MSDN知识库中GetScrollBarInfo的相关信息
+@@MsdnLink@@ GetScrollBarInfo
 
 ###Example###
 @@IncludeExample@@

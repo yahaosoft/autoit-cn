@@ -2,36 +2,32 @@
 _GUICtrlSlider_GetTicPos
 
 ###Description###
-获取当前对勾标记的物理位置
+检索刻度标记的当前物理位置
 
 ###Syntax###
-#Include<GuiSlider.au3>
+#Include <GuiSlider.au3>
 _GUICtrlSlider_GetTicPos($hWnd, $iTic)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iTic  表示对勾标记的0基索引. 该消息无法直接用于第一个和最后一个对勾标记.
+$hWnd
+	控件句柄
+$iTic
+	刻度标记的 0 基索引.
+		不能直接通过这个消息息得到第一个和最后一个刻度位置.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 滑块类型如下:
-    水平 - 对勾标记的 x
-坐标
-    垂直 - 对勾标记的 y 坐标
-失败: -1
+成功:	返回滑块的以下类型值
+	刻度标记水平 X 坐标
+	刻度标记水平 Y 坐标
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
-因为该函数对第一个和最后一个对勾标记不可用, 可用索引将抵消滑动条上的对勾位置.
-如果_GUICtrlSlider_GetRangeMin和_GUICtrlSlider_GetRangeMax之间的不同小于2,
-那
-么将没有可用索引且消息失效.
-
-###Related###
-
-###See Also###
+ 因为不能直接通过这个消息息得到第一个和最后一个刻度位置, 所以有效索引值为滑块刻度位置的偏移.
+ 如果 _GUICtrlSlider_GetRangeMin 与 _GUICtrlSlider_GetRangeMax 两者之间的区别小于2, 则没有有效的索引,这个消息将失败.
 
 ###Example###
 @@IncludeExample@@

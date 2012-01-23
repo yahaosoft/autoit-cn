@@ -3,25 +3,31 @@ _WinAPI_StrLen
 
 ###Description###
 返回指定字符串长度
-_WinAPI_StrLen ( $hString [, $fUnicode] )
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_StrLen ( $pString [, $fUnicode] )
 
 ###Parameters###
 @@ParamTable@@
-$hString  无终止字符串句柄
-$fUnicode  [可选] 指定字符串使用的是Unicode还是ASCII字符集, 可用值:
-1 - Unicode(默认)
-0 - ASCII
+$pString
+	指向一个null(\0)终止的字符串.
+$fUnicode
+	[可选参数]指定字符串使用的是Unicode还是ASCII字符集, 可用值:
+		TRUE     - Unicode. (默认)
+		FALSE    - ASCII.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: TCHAR值的字符串长度(不包含终止空字符)
-失败: 返回0并设置@error非0
+成功:	TCHAR值的字符串长度(不包含null终止字符)
+失败:	返回0并设置@error为非0
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中lstrlen的相关信息
+@@MsdnLink@@ lstrlen
+

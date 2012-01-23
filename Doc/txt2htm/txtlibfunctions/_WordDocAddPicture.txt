@@ -5,47 +5,47 @@ _WordDocAddPicture
 向文件中添加一个图片
 
 ###Syntax###
-#Include <Word.au3>
-_WordDocAddPicture ( ByRef$o_object, $s_FilePath [, $b_LinkToFile = 0 [, $b_SaveWithDocument = 0 [,
-$o_Range = ""]]] )
+#include <Word.au3> 
+_WordDocAddPicture ( ByRef $o_object, $s_FilePath [, $b_LinkToFile = 0 [, $b_SaveWithDocument = 0 [, $o_Range = ""]]] )
 
 ###Parameters###
 @@ParamTable@@
-$o_object 
-   Word.Application文档对象
-$s_FilePath 
-   图片的路径和文件名.
-$b_LinkToFile 
-   可选: 指定是否从图片创建的位置链接到文件.
-    0 = (默认) 创建独立于文件的图片备份
-    1 = 从图片创建的位置链接到文件
-$b_SaveWithDocument 
-   可选: 指定是否随文件一起保存链接的图片
-    0 = (默认) 不随文件保存链接的图片
-    1 = 随文件保存链接的图片
-$o_Range 
-   可选: 图片在文件中放置的位置.
-    "" = (默认) 自动放置, 任意位置
+$o_object
+	Word.Application文档对象
+$s_FilePath
+	图片的路径和文件名.
+$b_LinkToFile
+	[可选参数] 指定是否从图片创建的位置链接到文件.
+		0 = (默认) 创建独立于文件的图片备份
+		1 = 从图片创建的位置链接到文件
+$b_SaveWithDocument
+		[可选参数] 指定是否随文件一起保存链接的图片
+		0 = (默认) 不随文件保存链接的图片1 = 随文件保存链接的图片
+$o_Range
+	[可选参数] 图片在文件中放置的位置."" = (默认) 自动放置, 任意位置
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回指向Word.Application图形对象的变量
-失败: 返回0且设置@ERROR
-@Error: 0 ($_WordStatus_Success) = 无错误
-      1 ($_WordStatus_GeneralError) = 一般错误
-      2 ($_WordStatus_ComError) = Com 错误
-      3 ($_WordStatus_InvalidDataType) = 无效数据类型
-      4 ($_WordStatus_InvalidObjectType) = 无效对象类型
-      5 ($_WordStatus_InvalidValue) = 无效值
-@Extended: 包含无效参数数量
+成功:	返回指向 Word.Application, 图形对象的变量 
+失败:	返回0设置@error = 1
+@Error:	0 ($_WordStatus_Success) = 无错误
+	1 ($_WordStatus_GeneralError) = 一般错误
+	2 ($_WordStatus_ComError) = Com 错误
+	3 ($_WordStatus_InvalidDataType) = 无效数据类型
+	4 ($_WordStatus_InvalidObjectType) = 无效对象类型
+	5 ($_WordStatus_InvalidValue) = 无效值
+	@Extended:包含无效参数数量
 @@End@@
 
+
 ###Remarks###
+None.
+
 
 ###Related###
+None.
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

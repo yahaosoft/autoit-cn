@@ -2,35 +2,38 @@
 _WinAPI_ShellGetSetFolderCustomSettings
 
 ###Description###
-设置或获取自定义文件夹设置
+设置或检索自定义文件夹.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellGetSetFolderCustomSettings( $sPath, $iFlag, ByRef $tSHFCS )
+_WinAPI_ShellGetSetFolderCustomSettings ( $sPath, $iFlag, ByRef $tSHFCS )
 
 ###Parameters###
 @@ParamTable@@
-$sPath  文件夹路径
-$iFlag  控制函数操作的标记. 可为下列值之一.
-$FCS_READ
-$FCS_FORCEWRITE
-$FCS_WRITE
-$tSHFCS  提供或收到自定义文件夹设置的$tagSHFOLDERCUSTOMSETTINGS结构
+$sPath
+	文件夹的路径.
+$iFlag
+	函数的控制操作. 参数可以是以下值之一:
+		 $FCS_READ --- 检索 $tSHFCS 提供的自定义文件夹设置
+		 $FCS_FORCEWRITE --- 使用 $tSHFCS 提供的自定义文件夹设置,无论其是否存在
+		 $FCS_WRITE --- 如果值不存在,使用 $tSHFCS 提供的自定义文件夹设置
+$tSHFCS
+	$tagSHFOLDERCUSTOMSETTINGS 结构,提供或接收自定义文件夹设置
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 指定1.
-失败: 返回0并设置@error非0. @extended包含COM错误代码.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-该函数读取或写入Desktop.ini
+返回函数读取和写入的 Desktop.ini
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SHGetSetFolderCustomSettings的相关信息
+@@MsdnLink@@ SHGetSetFolderCustomSettings
 
 ###Example###
 @@IncludeExample@@
+

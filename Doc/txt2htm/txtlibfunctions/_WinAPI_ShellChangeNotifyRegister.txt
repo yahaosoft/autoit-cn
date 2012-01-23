@@ -2,7 +2,7 @@
 _WinAPI_ShellChangeNotifyRegister
 
 ###Description###
-注册用于接收从系统到Shell的消息的窗体
+注册接收文件系统或 Shell 通知的窗口.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -10,34 +10,44 @@ _WinAPI_ShellChangeNotifyRegister ( $hWnd, $iMsg, $iEvents, $iSources, $aPaths [
 
 ###Parameters###
 @@ParamTable@@
-$hWnd  接收改变或通知消息的窗体的句柄
-$iMsg  发送到窗体进程的消息
-$iEvents  接收改变通知的事件. 该参数可为一个或多个$SHCNE_...值
-$iSources  用于描述通知事件类型的一个或多个下列值:
-$SHCNRF_INTERRUPTLEVEL
-$SHCNRF_SHELLLEVEL
-$SHCNRF_RECURSIVEINTERRUPT
-$SHCNRF_NEWDELIVERY
-$aPaths  接收通知的单一路径或路径数组. 这些名称需完全合法以避免未期结果.
-$fRecursive  [可选] 指定是否传递来自$aPaths中的子路径的通知. 可用值:
-0 - 通知仅来自指定文件夹(默认)
-1 - 通知来自文件夹自路径
+$hWnd
+	接收改变或通知消息的窗口句柄.
+$iMsg
+	被发送到窗口程序的消息.
+$iEvents
+	更改接收的通知事s件.此参数可以是一或多个 $SHCNE_ * 值.	
+$iSources
+	一或多个指示事件类型的通知值:
+		 notifications.
+		 $SHCNRF_INTERRUPTLEVEL
+		 $SHCNRF_SHELLLEVEL
+		 $SHCNRF_RECURSIVEINTERRUPT
+		 $SHCNRF_NEWDELIVERY
+$aPaths
+	接收通知的单一路径或路径的数组.
+		名称应该是完全合格的路径,以防止发生意外的结果.
+$fRecursive
+	[可选参数] 指定是否发送 $aPaths 参数的子路径通知.有效值:
+		1 - 发送来自子文件夹的通知.
+		0 - 仅发送来自指定文件夹的通知. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回注册ID
-失败: 返回0并设置@error非0
+成功:	The registration ID.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-当改变通知事件增加时, 由$iMsg描述的消息被传递给由$hWnd参数指定的窗体. (见示例)
-出于性能原因, 多个通知可被结合为一个通知. 如, 如果同一文件夹中的文件创建大量$SHCNE_UPDATEITEM通知, 可被结合为单一的$SHCNE_UPDATEDIR通知.
+当一个更改通知事件发生时,由 $iMsg 表示的消息发送到由 $hwnd 参数指定的窗口.(见示例)
+ 出于性能的原因,多次通知可以组合成一个单一的通知.
+ 例如, $SHCNE_UPDATEITEM 的多次通知是在同一文件夹中生成的,
+ 它们可以被加入到一个单一 $SHCNE_UPDATEDIR 通知中.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SHChangeNotifyRegister的相关信息
+@@MsdnLink@@ SHChangeNotifyRegister
 
 ###Example###
 @@IncludeExample@@
+

@@ -2,34 +2,37 @@
 _GUIScrollBars_GetScrollInfoEx
 
 ###Description###
-获取滚动条
+检索滚动控件的参数,返回数据结构.
+
+###Syntax###
+#Include <GuiScrollBars.au3>
+_GUIScrollBars_GetScrollInfoEx($hWnd, $fnBar)
 
 ###Parameters###
 @@ParamTable@@
-
-###Syntax###
-#Include<GuiScrollBars.au3>
-_GUIScrollBars_GetScrollInfoEx($hWnd,$fnBar)参数
- $hWnd  窗口句柄
- $fnBar  指定滚动条类型. 参数可为下列值之一:
-$SB_CTL - 获取滚动条控件的参数. $hWnd参数为指向滚动条控件的句柄.
-$SB_HORZ - 获取窗口标准水平滚动条参数.
-$SB_VERT - 获取窗口标准垂直滚动条参数.
+$hWnd
+	窗口句柄
+$fnBar
+	指定滚动控件的类型. 参数可以是以下值之一:
+		$SB_CTL - 检索滚动控件的参数. $hWnd 参数必须是滚动控件的窗口句柄.
+		$SB_HORZ - 检索窗口标准水平滚动控件参数.
+		$SB_VERT - 检索窗口标准垂直滚动控件参数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: $tagSCROLLINFO 结构
+成功:	$tagSCROLLINFO structure
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###
-以上常数需要 ScrollBarConstants.au3
+ 以上常数需要 ScrollBarConstants.au3
 
 ###Related###
- _GUIScrollBars_GetScrollInfo , $tagSCROLLINFO , _GUIScrollBars_GetScrollInfoMax , _GUIScrollBars_GetScrollInfoMin , _GUIScrollBars_GetScrollInfoPage , _GUIScrollBars_GetScrollInfoPos , _GUIScrollBars_GetScrollInfoTrackPos
+_GUIScrollBars_GetScrollInfo, $tagSCROLLINFO, _GUIScrollBars_GetScrollInfoMax, _GUIScrollBars_GetScrollInfoMin, _GUIScrollBars_GetScrollInfoPage, _GUIScrollBars_GetScrollInfoPos, _GUIScrollBars_GetScrollInfoTrackPos
 
 ###See Also###
-搜索MSDN知识库中GetScrollInfo的相关信息
+@@MsdnLink@@ GetScrollInfo
 
 ###Example###
 @@IncludeExample@@

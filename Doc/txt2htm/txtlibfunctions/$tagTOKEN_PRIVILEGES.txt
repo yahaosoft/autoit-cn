@@ -2,20 +2,21 @@
 $tagTOKEN_PRIVILEGES
 
 ###Description###
-权限访问令牌信息的结构
+包含特权设置为访问令牌的信息
 
 ###Syntax###
-Global Const $tagTOKEN_PRIVILEGES =  "int Count;int64 LUID;int Attributes"
+Global Const $tagTOKEN_PRIVILEGES = "dword Count;align 4;int64 LUID;dword Attributes"
 
 ###Fields###
 @@ParamTable@@
-    Count
+Count
+	指定取值的数量
+LUID
+	指定 LUID 值
+Attributes
+	指定 LUID 属性
+@@End@@
 
-   指定取值的数量
-    LUID
+###Remarks###
+None.
 
-   指定LUID值
-    Attributes
-
-   指定LUID属性
-@@end@@

@@ -2,7 +2,7 @@
 _WinAPI_ShowCaret
 
 ###Description###
-在插入符当前位置的屏幕上显示插入符
+显示屏幕插入符当前位置的插入符.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -10,23 +10,29 @@ _WinAPI_ShowCaret ( $hWnd )
 
 ###Parameters###
 @@ParamTable@@
-$hWnd  插入符所属窗体的句柄. 如果为0, _WinAPI_HideCaret()在当前任务中搜索插入符所属的窗体.
+$hWnd
+	拥有插入符号的窗口句柄. 如果此参数为 0,
+		 本函数将为拥有插入符号的窗口搜索每一当前任务. 
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:	
+标志为非 0 值.
 @@End@@
 
 ###Remarks###
-_WinAPI_ShowCaret()只显示拥有插入符的指定窗体中的具有形状且未在一行中隐藏多次的插入符. 如果指定窗体没有插入符函数返回0.
-隐藏是累积的. 如果在一行中调用五次_WinAPI_HideCaret(), 必须在显示插入符前调用五次_WinAPI_ShowCaret().
+函数仅显示拥有插入符号窗口的插入符号
+ 并且插入符号没有被连续两次或两次以上的隐藏.,
+ 如果一或多个这些条件得不到满足,本函数不执行任何操作并返回 0.
+ 隐藏是累积性的.如果应用程序连续调用 _WinAPI_HideCaret() 5 次,
+ 也必须调用本5次插入符号才会重新出现.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中ShowCaret的相关信息
+@@MsdnLink@@ ShowCaret
 
 ###Example###
 @@IncludeExample@@
+

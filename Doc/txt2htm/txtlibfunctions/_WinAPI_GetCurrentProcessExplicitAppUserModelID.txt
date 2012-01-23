@@ -2,28 +2,30 @@
 _WinAPI_GetCurrentProcessExplicitAppUserModelID
 
 ###Description###
-获取当前进程由应用程序定义的明确的应用用户ID(AppUserModelID)
+Retrieves the application-defined, explicit Application User Model ID for the current process.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetCurrentProcessExplicitAppUserModelID()
+_WinAPI_GetCurrentProcessExplicitAppUserModelID ( )
 
 ###Parameters###
 @@ParamTable@@
-    无
+None.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回代表AppUserModelID的字符串
-失败: 返回0并设置@error非0; @extended包含系统错误代码
+Success	The string that represents an Application User Model ID (AppUserModelID).
+Failure	Empty string and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
-应用程序通过使用_WinAPI_GetCurrentProcessExplicitAppUserModelID()只能获取一个具有明确设置的AppUserModelID. 无法获取默认系统分配的AppUserModelID
-最低系统要求: Windows 7
+An application can only retrieve an AppUserModelID that has been explicitly set by using the _WinAPI_SetCurrentProcessExplicitAppUserModelID()
+function. System-assigned default AppUserModelIDs cannot be retrieved.
 
-###Related###
+This function requires Windows 7 or later.
+
 
 ###See Also###
- 搜索MSDN知识库中GetCurrentProcessExplicitAppUserModelID的相关信息
+@@MsdnLink@@ GetCurrentProcessExplicitAppUserModelID
+

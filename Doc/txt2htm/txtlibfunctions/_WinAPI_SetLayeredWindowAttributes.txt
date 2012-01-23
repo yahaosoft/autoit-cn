@@ -1,39 +1,42 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _WinAPI_SetLayeredWindowAttributes
 
 ###Description###
-è®¾ç½®å±‚å çª—å£çš„å±æ€§
+ÉèÖÃ·Ö²ã´°¿ÚÊôĞÔ
 
 ###Syntax###
-#Include
-<WinAPI.au3>
-_WinAPI_SetLayeredWindowAttributes($hWnd, $i_transcolor[,
-$Transparency = 255[, $dwFlages = 0x03[, $isColorRef = False]]])
+#Include <WinAPI.au3>
+_WinAPI_SetLayeredWindowAttributes($hWnd, $i_transcolor [, $Transparency = 255 [, $dwFlags = 0x03 [, $isColorRef = False]]])
 
 ###Parameters###
 @@ParamTable@@
-$hwnd  ç•Œé¢å¥æŸ„
-$i_transcolor  é€æ˜è‰²
-$Transparency  è®¾ç½®ç•Œé¢é€æ˜åº¦
-$isColorRef  å¦‚æœä¸ºçœŸ, $i_transcoloræ˜¯ä¸€ä¸ªCOLORREF( 0x00bbggrr ),
-  æˆ–ä¸€ä¸ªRGB-Color
+$hwnd
+	¹¤×÷ GUI µÄ¾ä±ú
+$i_transcolor
+	Í¸Ã÷É«
+$Transparency
+	[¿ÉÑ¡²ÎÊı] ÉèÖÃÍ¸Ã÷¶ÈµÄ GUI
+$dwFlags
+	[¿ÉÑ¡²ÎÊı] Flags.
+$isColorRef
+	[¿ÉÑ¡²ÎÊı] ÈçÎª True, $i_transcolor is a COLORREF( 0x00bbggrr ), ·ñÔòÎª RGB ÑÕÉ«
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: 1
-å¤±è´¥: è¿”å›0å¹¶è®¾ç½®@errorä¸º:
-    1åˆ°3 - DllCallå‡ºé”™
-    4 - å‡½æ•°ä¸æˆåŠŸ - ä½¿ç”¨_WinAPI_GetLastErrorMessageè·å–æ›´å¤šä¿¡æ¯
+³É¹¦:	·µ»Ø 1
+Ê§°Ü:	·µ»Ø 0
+@error:	4 - º¯Êı²»³É¹¦ - @extended ÉèÖÃÎª _WinAPI_GetLastErrorMessage ÒÔ»ñÈ¡ÆäËüĞÅÏ¢
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
-_WinAPI_GetLayeredWindowAttributes , _WinAPI_GetLastError
+_WinAPI_GetLayeredWindowAttributes, _WinAPI_GetLastError
 
 ###See Also###
-æœç´¢MSDNçŸ¥è¯†åº“ä¸­SetLayeredWindowAttributesçš„ç›¸å…³ä¿¡æ¯
+@@MsdnLink@@ SetLayeredWindowAttributes
 
 ###Example###
 @@IncludeExample@@

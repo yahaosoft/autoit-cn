@@ -2,35 +2,38 @@
 _WinAPI_DragQueryFileEx
 
 ###Description###
-获取被成功拖曳的文件名
+检索拖放操作成功后的文件名称.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_DragQueryFileEx( $hDrop [, $iFlag] )
+_WinAPI_DragQueryFileEx ( $hDrop [, $iFlag] )
 
 ###Parameters###
 @@ParamTable@@
 $hDrop
-   描述拖曳文件的拖曳结构的句柄. 该参数由WPARAM参数传递给WM_DROPFILES消息
+	描述被拖动文件的结构句柄.
+		 此参数被传递给 WM_DROPFILES 消息中的 WPARAM 参数.
 $iFlag
-   指定是否返回文件夹的标记, 可用值:
-    0 - 返回文件夹和文件(默认)
-    1 - 仅返回文件
-    2 - 仅返回文件夹
+	[可选参数] 指定是否返回文件、文件夹或两者同时返回, 有效值为:
+		0 - 返回文件和文件夹. (默认)
+		1 - 返回文件.
+		2 - 返回文件夹.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 拖曳文件名的数组. 元素[0]包含数组中文件名的数量. 如果没有文件满足条件($iFlag), 函数失败.
-失败: 返回0并设置@error非0
+成功:	返回拖放成功后的文件名数组. 元素 [0] 包含文件名的数量.
+	如果没有满足条件（$iFlag）的文件, 函数将失败.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中DragQueryFile的相关信息
+@@MsdnLink@@ DragQueryFile
 
 ###Example###
 @@IncludeExample@@
+

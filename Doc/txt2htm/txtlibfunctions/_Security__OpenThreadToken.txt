@@ -2,31 +2,38 @@
 _Security__OpenThreadToken
 
 ###Description###
-打开与线程相关的访问令牌
+打开与线程相关访问令牌
 
 ###Syntax###
 #Include <Security.au3>
-_Security__OpenThreadToken($iAccess[, $hThread = 0[, $fOpenAsSelf = False]])
+_Security__OpenThreadToken($iAccess[, $hThread = 0 [, $fOpenAsSelf = False]])
 
 ###Parameters###
 @@ParamTable@@
- $iAccess  指定访问请求类型的访问令牌的访问掩码. 这些请求的访问类型由自由访问控制列表(DACL)负责协调以确定哪些访问被许可或拒绝.
- $hThread  [可选]被打开访问令牌的线程的句柄
- $fOpenAsSelf  [可选]表示检查访问是由针对调用OpenThreadToken函数的线程的安全环境或是由针对调用线程的进程的安全环境创建.
-如果为假, 访问检查由使用调用线程的安全环境执行.
-如果线程无法模仿客户, 该安全环境可为另一客户进程的线程. 如果该参数为真, 访问检查由调用线程的进程的安全环境创建.
+$iAccess
+	访问掩码,指定访问令牌要求的访问类型
+		请求的访问类型协调令牌的自由访问控制列表（DACL）,
+		以确定允许或拒绝访问
+$hThread
+	[可选参数] 打开访问令牌的线程句柄
+$fOpenAsSelf
+	[可选参数] 指定如何检查线程调用 OpenThreadToken 函数的访问安全环境
+		如果此参数为 False,由调用线程检查访问的安全环境.
+		如果线程模拟客户端,此安全环境可以是客户端进程.
+		如果参数为 True,由调用进程的线程检查访问的安全环境.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 新近打开的访问令牌的句柄
-失败: 0
+成功:	返回新开访问令牌的句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
- _Security__OpenThreadTokenEx , _Security__OpenProcessToken
+_Security__OpenThreadTokenEx, _Security__OpenProcessToken
 
 ###See Also###
- 搜索MSDN知识库中OpenThreadToken的相关信息
+@@MsdnLink@@ OpenThreadToken

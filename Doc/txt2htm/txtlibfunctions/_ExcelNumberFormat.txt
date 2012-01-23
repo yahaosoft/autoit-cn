@@ -2,47 +2,45 @@
 _ExcelNumberFormat
 
 ###Description###
-在指定R1C1范围的单元格中应用指定的格式
+在指定 R1C1 范围应用特定格式的单元格.
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelNumberFormat($oExcel, $sFormat, $sRangeOrRowStart[, $iColStart = 1[, $iRowEnd = 1[, $iColEnd = 1]]])
+_ExcelNumberFormat($oExcel, $sFormat, $sRangeOrRowStart [, $iColStart = 1 [, $iRowEnd = 1 [, $iColEnd = 1]]])
 
 ###Parameters###
 @@ParamTable@@
-$oExcel 
-   由预先调用_ExcelBookOpen()或_ExcelBookNew()打开的Excel对象
-$sFormat 
-   应用到指定范围的格式化字符串(见下方备注)
-$sRangeOrRowStart 
-   A1范围, 或者在使用R1C1格式时的整数行数
-$iColStart 
-   数字格式开始列(左)
-$iRowEnd 
-   数字格式结束行(底)
-$iColEnd 
-   数字格式结束列(右)
+$oExcel
+	An Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+$sFormat
+	The formatting string to apply to the specified range (see Notes below)
+$sRangeOrRowStart
+	Either an A1 range, or an integer row number to start from if using R1C1
+$iColStart
+	[optional] The starting column for the number format(left)
+$iRowEnd
+	[optional] The ending row for the number format (bottom)
+$iColEnd
+	[optional] The ending column for the number format (right)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回1
- 失败:  返回0并设置@error
- @error:  0 - 无错误
-  1 - 指定对象不存在
-  2 - 开始行或列不可用
-  3 - 结束行或列不可用
- @extended:  0 - 结束行不可用
-  1 - 结束列不可用
+成功:	返回 1
+失败:	返回 0, 并设置 @error:
+@error:	0 - 无错误
+	1 - 指定的对象不存在
+	2 - 起始行或列无效
+	3 - 结束行或列无效
+@extended:	0 - 行无效
+	1 - 列无效
 @@End@@
 
 ###Remarks###
-关于在此命令中可被使用的可能的格式化字符串, 可查阅:
-"Programming Excel With VBA and .NET," by Steven Saunders and Jeff Webb, ISBN: 978-0-59-600766-9
+关于此命令可使用的格式, 可查阅::
+"Programming Excel With VBA and .NET," by Steven Saunders and Jeff Webb, 书号: 978-0-59-600766-9
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

@@ -2,46 +2,45 @@
 _ExcelWriteSheetFromArray
 
 ###Description###
-将二维数组写入活动工作表
+写入一个二维数组到活动工作表
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelWriteSheetFromArray($oExcel, ByRef $aArray[, $iStartRow = 1[, $iStartColumn = 1[, $iRowBase = 1[, $iColBase = 1]]]])
+_ExcelWriteSheetFromArray($oExcel, ByRef $aArray [, $iStartRow = 1 [, $iStartColumn = 1 [, $iRowBase = 1 [, $iColBase = 1]]]])
 
 ###Parameters###
 @@ParamTable@@
-$oExcel 
-   由预先调用_ExcelBookOpen()或_ExcelBookNew()打开的Excel对象
-$aArray 
-   获取数据的数组(数组未被改变)
-$iStartRow 
-   开始写入数组的表行, 默认为1
-$iStartColumn 
-   开始写入数组的表列, 默认为1
-$iRowBase 
-   行的数组基数, 默认为1
-$iColBase 
-   列的数组基数, 默认为1
+$oExcel
+	由前面调用 _ExcelBookOpen() 或者 _ExcelBookNew() 函数返回的 Excel 对象
+$aArray
+	写入工作表的数组(数组未被改变)
+$iStartRow
+	[可选参数] 工作表写入开始行, 默认 1
+$iStartColumn
+	[可选参数] 工作写入表开始列, 默认 1
+$iRowBase
+	[可选参数] 数组行的索引, 默认 1
+$iColBase
+	[可选参数] 数组列的索引, 默认 1
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回1
- 失败:  返回0并设置@error
- @error:  1 - 指定对象不存在
-  2 - 参数超出范围
-  3 - 数组无效
-  4 - 基索引超出范围
- @extended:  0 - 行超出范围
-  1 - 列超出范围
+成功:	返回 1
+失败:	返回 0, 并设置 @error:
+@error:	0 - 无错误
+	1 - 指定的对象不存在
+	2 - 参数超出范围
+	3 - 数组无效
+	4 - 索引超出范围
+@extended:	0 - 行数超出范围
+	1 - 列超出范围
 @@End@@
 
 ###Remarks###
-默认索引基均为1, 以便首个单元格从$aArray[1][1]写入.
+ 默认索引为1, 首个单元格写入 $aArray[1][1] .
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

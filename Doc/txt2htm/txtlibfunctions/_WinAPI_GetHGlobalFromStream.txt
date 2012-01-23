@@ -2,28 +2,28 @@
 _WinAPI_GetHGlobalFromStream
 
 ###Description###
-获取创建的流的全局内存句柄
+检索流的全局内存句柄.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetHGlobalFromStream( $pStream )
+_WinAPI_GetHGlobalFromStream ( $hStream )
 
 ###Parameters###
 @@ParamTable@@
-$pStream
-   由_WinAPI_CreateStreamOnHGlobal创建的流对象的指针
+$hStream
+	对象调用 _WinAPI_CreateStreamOnHGlobal() 函数创建流的指针.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 指定的流对象所使用的内存句柄
-失败: 返回0
+成功:	返回指定流对象使用的当前内存句柄指针.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
+本函数仅用于内字节数组创建的同一进程调用.
 
-###Related###
- _WinAPI_CreateStreamOnHGlobal
 
 ###See Also###
- 搜索MSDN知识库中GetHGlobalFromStream的相关信息
+@@MsdnLink@@ GetHGlobalFromStream
+

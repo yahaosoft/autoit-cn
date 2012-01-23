@@ -2,32 +2,35 @@
 _ProcessGetName
 
 ###Description###
-返回指定PID的进程名
+返回包含特定进程标识符名称的字符串.
 
 ###Syntax###
-#Include <Process.au3>
+#include <Process.au3>
 _ProcessGetName ( $iPID )
+
 
 ###Parameters###
 @@ParamTable@@
- $iPID  当前运行进程的PID.
+$iPID
+	当前运行进程的 PID(进程标识符).
 @@End@@
+
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回进程名.
-失败: 返回空字符串且设置@error如下:
-    1 - 进程不存在
-    2 - 获取进程列表出错
-    3 - 未发现进程
+成功:	返回进程的名称.
+失败:	返回空字符串,设置@error:	
+@error:	1 - 过程不存在
+	2 - 获取进程列表错误
+	3 - 没有找到进程
 @@End@@
 
+
 ###Remarks###
-需要ProcessExists()支持
+ 补充 ProcessExists() 函数.
 
 ###Related###
-
-###See Also###
+ProcessExists
 
 ###Example###
 @@IncludeExample@@

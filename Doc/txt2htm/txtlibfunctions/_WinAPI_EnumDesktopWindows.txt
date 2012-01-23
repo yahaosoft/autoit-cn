@@ -2,38 +2,40 @@
 _WinAPI_EnumDesktopWindows
 
 ###Description###
-枚举与指定桌面相关的顶层窗口
+Enumerates all top-level windows associated with the specified desktop.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_EnumDesktopWindows( $hDesktop [, $fVisible] )
+_WinAPI_EnumDesktopWindows ( $hDesktop [, $fVisible] )
 
 ###Parameters###
 @@ParamTable@@
 $hDesktop
-$DESKTOP_READOBJECTS访问权限
+	Handle to the desktop whose top-level windows are to be enumerated. This handle must have the
+	$DESKTOP_READOBJECTS access right.
 $fVisible
-   [可选] 确定是否枚举不可见窗口, 可用值:
-    1 - 仅枚举可见窗口(默认)
-    0 - 枚举所有窗口
+	[可选参数] Specifies whether enumerates the invisible window, valid values:
+		TRUE     - Enumerate only visible windows. (Default)
+		FALSE    - Enumerate all windows.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回窗口句柄机器及其与指定桌面相关的类:
-    [0][0] - 数组中的行数(n)
-    [0][1] - 未使用
-    [n][0] - 窗口句柄
-    [n][1] - 窗口类名
-失败: 返回0并设置@error非0
+Success	The 2D array of the handles to the window and its class associated with the specified desktop.
+[0][0]	Number of rows in array (n)
+[0][1]	Unused
+[n][0]	Window handle
+[n][1]	Window class name
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中EnumDesktopWindows的相关信息
+@@MsdnLink@@ EnumDesktopWindows
 
 ###Example###
 @@IncludeExample@@
+

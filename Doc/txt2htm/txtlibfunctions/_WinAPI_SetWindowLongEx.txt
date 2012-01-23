@@ -2,46 +2,39 @@
 _WinAPI_SetWindowLongEx
 
 ###Description###
-设置指定窗口的指定信息
+修改指定窗口的属性.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetWindowLongEx($hWnd,
-$iIndex, $iNewLong)
+_WinAPI_SetWindowLongEx ( $hWnd, $iIndex, $iNewLong )
 
 ###Parameters###
 @@ParamTable@@
-$hWnd  窗口句柄
-$iIndex  指定一个以0为基础的偏移量到所设定的值.
-      有效值的范围从0到额外类的存储空间的字节数-4;
-      例如若指定了12位或多于12位的额外空间,
-      则应设为第三个32位整数的索引位8.
-      要设置其他任何值，可以指定下面值之一:
-$GWL_EXSTYLE -
-      设定一个新的扩展风格
-$GWL_STYLE -
-      设定一个新的窗口风格
-$GWL_WNDPROC -
-      设定一个窗口过程地址
-$GWL_HINSTANCE -
-      设置一个应用程序事例句柄
-$GWL_HWNDPARENT - 无论如何设置一个父窗口地址
-$GWL_ID
-      -  设置窗口标识符
-$GWL_USERDATA -
-      设置与窗口有关的32位值
-$iNewLong  指定替换值
+$hWnd
+	窗口句柄.
+$iIndex
+	0 基偏移值.有效值范围由 0 到窗口附加内存的字节数减去一个整数的大小.
+		 参数可以是以下值之一:
+		 $GWL_EXSTYLE --- 检索窗口扩展样式
+		 $GWL_HINSTANCE --- 检索应用程序实例句柄
+		 $GWL_ID --- 检索窗口的标识符
+		 $GWL_STYLE --- 检索窗口样式
+		 $GWL_USERDATA --- 检索窗口关联的用户数据
+		 $GWL_WNDPROC --- 检索窗口程序的地址,或代表窗口程序地址的句柄
+$iNewLong
+	重置值.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 以前的值
-失败: 返回0并设置@error非0
+成功:	返回先前的值.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None.
 
-###Related###
 
 ###See Also###
-搜索MSDN知识库中SetWindowLong的相关信息
+@@MsdnLink@@ SetWindowLong
+

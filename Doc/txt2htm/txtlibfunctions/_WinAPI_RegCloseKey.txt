@@ -2,35 +2,33 @@
 _WinAPI_RegCloseKey
 
 ###Description###
-关闭指定注册表键的句柄
+关闭指定注册表项的句柄.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RegCloseKey( $hKey [, $fFlush] )
+_WinAPI_RegCloseKey ( $hKey [, $fFlush] )
 
 ###Parameters###
 @@ParamTable@@
 $hKey
-   将要关闭的已打开的键的句柄. 该句柄须由_WinAPI_RegCreateKey()或_WinAPI_RegOpenKey()函数打开.
+	待关闭的键项句柄.
+		必须是 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数打开的句柄.
 $fFlush
-   指定是否将指定注册表键的所有属性写入注册表, 可用值:
-    TRUE: 关闭句柄前将改变写入磁盘
-    FALSE: 不写入(默认)
+	[可选参数] 指定是否所有属性写入到指定的注册表项.有效的值:
+		1 - 写变化到磁盘之前关闭句柄.
+		0 - 不写. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0, @extended标记可包含非0系统错误代码.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
-运行示例前请将 reg.dat 文件保存至临时文件夹
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中RegCloseKey的相关信息
+@@MsdnLink@@ RegCloseKey
 
-###Example###
-@@IncludeExample@@

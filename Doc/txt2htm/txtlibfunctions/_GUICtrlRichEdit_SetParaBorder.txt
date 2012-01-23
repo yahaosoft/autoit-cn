@@ -1,8 +1,8 @@
-﻿###User Defined Function###
+###User Defined Function###
 _GUICtrlRichEdit_SetParaBorder
 
 ###Description###
-设置(首个)被选段或(未选定时)当前段的边界
+����(��һ)��ǰѡ��(��û��ѡ��ʱ�Ĳ�������ڶ���)�ı߿�
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -10,71 +10,78 @@ _GUICtrlRichEdit_SetParaBorder($hWnd [, $sLocation [, $vLineStyle [, $sColor [, 
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  Handle to the control
- $sLocation  [可选] 由下列值的任意逻辑组合组成的字符串:
-  l - 左边界
-  r - 右边界
-  t - 顶边界
-  b - 底边界
-  i - 内部边界
-  o - 外部边界
-或空 - 无边界(初始值)
- $vLineStyle  [可选] 行样式 - 下列之一::
-   "无" - 没有行(初始值)
-   .75 - 3/4 point
-   1.5 - 1 1/2 points
-   2.25 - 2 1/4 points
-   3 - 3 points
-   4.5 - 4 1/2 points
-   6 - 6 points
-   ".75d" - 1/2 points, 双线
-   "1.5d" - 1 1/2 points, 双线
-   "2.25d" - 2 1/4 points, 双线
-   ".75g" - 3/4 point 灰色
-   ".75gd" - 3/4 point 灰色虚线
- $sColor  [可选] 下列之一:
-"aut" - 自动颜色
-"blk" - 黑色
-"blu" - 蓝色
-"cyn" - 青色
-"grn" - 绿色
-"mag" - 紫红色
-"red" - 红色
-"yel" - 黄色
-"whi" - 白色
-"dbl" - 蓝黑色
-"dgn" - 墨绿色
-"dmg" - 深经紫色
-"drd" - 暗红色
-"dyl" - 暗黄色
-"dgy" - 暗灰色
-"lgy" - 亮灰色
- $iSpace   [可选] 边界和文本间的空间(初始值: 0)
+$hWnd
+	�ؼ����
+$sLocation
+	[��ѡ����] �߼�����ַ���:
+		l - ��߿�
+		r - �� �߿�
+		t - ���߿�
+		b - �ױ߿�
+		i - �ڱ߿�
+		o - ��߿�
+		��
+		"" - �ޱ߿� (��ʼֵ)
+$vLineStyle
+	[��ѡ����] ������ʽ:
+		"none" - û������ (��ʼֵ)
+		.75 - 3/4 ��
+		1.5 - 1 1/2 ��
+		2.25 - 2 1/4 ��
+		3 - 3 ��
+		4.5 - 4 1/2 ��
+		6 - 6 ��
+		".75d" - 1/2 ��, ˫����
+		"1.5d" - 1 1/2 ��, ˫����
+		"2.25d" - 2 1/4 ��, ˫����
+		".75g" - 3/4 ����
+		".75gd" - 3/4 �� �Ҷ̻���
+$sColor
+	[��ѡ����] one of:
+		"aut" - �Զ�
+		"blk" - ��ɫ (��ʼֵ)
+		"blu" - ��ɫ
+		"cyn" - ��ɫ
+		"grn" - ��ɫ
+		"mag" - ��ɫ
+		"red" -��
+		"yel" -��
+		"whi" - ��ɫ
+		"dbl" - ����
+		"dgn" - ����
+		"dmg" - ����
+		"drd" - ����
+		"dyl" - ����
+		"dgy" - ����
+		"lgy" - ����
+$iSpace
+	[��ѡ����] �߿���ı��ļ��(�ռ䵥λ, ��ʼֵ: 0)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  真
- 失败:  假并设置@error
- @error:  101 - $hWnd不是句柄
-  102 - $sLocation的值无效
-  103 - $ivLineStyle的值无效
-  104 - $sColor的值无效
-  106 - $iSpace不是正数或0
-  106 - $iWidth不是正数或0
+�ɹ�:	���� True
+ʧ��:	���� False,����@error
+@error:	101 - $hWnd ����ֵ���Ǿ��
+	102 - $sLocation ����ֵ��Ч
+	103 - $ivLineStyle ����ֵ��Ч
+	104 - $sColor ����ֵ��Ч
+	106 - $iSpace ��������,Ҳ���� 0, 
+	106 - $iWidth ��������,Ҳ���� 0, 
 @@End@@
 
 ###Remarks###
-调用_GUICtrlRichEdit_SetSpaceUnit设置"空白单位". 初始英寸
-当选定文本时, 默认是第一个带有选定文本的段落的值. 如果没有选定时, 默认是当前段.
-调用($hWnd, "")两个参数可移除边界
-富文本编辑控件中不显示边界, 但被创建的将显示在Word中
+ ���� _GUICtrlRichEdit_SetSpaceUnit �������� "�ռ䵥λ". ���ΪӢ��
+ ����ı���ѡ��,Ĭ��Ϊ��һѡ��������ı�ֵ.
+ ���û��ѡ��,Ĭ��Ϊ��ǰ�����ֵ.
+ Ҫɾ���߿�,������������: ($hWnd, "")
+ �߿���ʾ�� RichEdit ��,�������ﴴ��������,Ӧ���� Word ����ʾ
 
 ###Related###
- _GUICtrlRichEdit_GetParaBorder , _GUICtrlRichEdit_SetSpaceUnit
+_GUICtrlRichEdit_GetParaBorder, _GUICtrlRichEdit_SetSpaceUnit
 
 ###See Also###
- 搜索MSDN知识库中EM_SETPARAFORMAT的相关信息
+@@MsdnLink@@ EM_SETPARAFORMAT
 
 ###Example###
 @@IncludeExample@@

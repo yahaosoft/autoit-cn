@@ -2,39 +2,41 @@
 _WinAPI_GetProcessMemoryInfo
 
 ###Description###
-获取指定进程的内存使用情况
+检索指定进程的内存使用信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetProcessMemoryInfo( [$PID] )
+_WinAPI_GetProcessMemoryInfo ( [$PID] )
 
 ###Parameters###
 @@ParamTable@@
 $PID
-   进程标识. 默认值为0表示当前进程.
+	[可选参数] 进程 PID. 默认 0, 为当前进程.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 反映当前进程内存使用情况的数组:
-    [0] - 页面集数量
-    [1] - 峰值工作集大小
-    [2] - 当前工作集大小
-    [3] - 峰值分页缓冲池使用率
-    [4] - 当前分页缓冲池使用率
-    [5] - 峰值非分页缓冲池使用率
-    [6] - 当前非分页缓冲池使用率
-    [7] - 分配给分页文件的峰值空间
-    [8] - 分配给分页文件的当前空间
-失败: 返回0并设置@error非0.
+成功:	返回下列信息数组:
+	[0] - 页面错误数.
+	[1] - 工作集峰值字节大小.
+	[2] - 当前工作集字节大小.
+	[3] - 页缓冲池峰值的字节大小.
+	[4] - 当前页缓冲池的字节大小.
+	[5] - 非分页池的字节大小.
+	[6] - 当前非分页池的字节大小.
+	[7] - 当前页面文件空间分配的字节数.
+	[8] - 页面文件空间分配的峰值字节数.
+	[9] - 当前不与其它进程共享的内存字节数.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetProcessMemoryInfo的相关信息
+@@MsdnLink@@ GetProcessMemoryInfo
 
 ###Example###
 @@IncludeExample@@
+

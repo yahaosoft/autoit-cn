@@ -1,8 +1,8 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _GUICtrlRichEdit_SetText
 
 ###Description###
-è®¾ç½®æ§ä»¶æ–‡æœ¬
+ÉèÖÃ¿Ø¼şµÄÎÄ±¾
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -10,42 +10,25 @@ _GUICtrlRichEdit_SetText($hWnd, $sText)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  æ§ä»¶å¥æŸ„
- $sText  ç½®äºæ§ä»¶å†…çš„çº¯æ–‡æœ¬æˆ–å¯Œæ–‡æœ¬
+$hWnd
+	¿Ø¼ş¾ä±ú
+$sText
+	·ÅÖÃµ½¿Ø¼şµÄÎŞ¸ñÊ½»ò RTF ¸ñÊ½ÎÄ±¾
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- æˆåŠŸ:  çœŸ
- å¤±è´¥:  å‡å¹¶è®¾ç½®@error
- @error:  101 - $hWndä¸æ˜¯å¥æŸ„
+³É¹¦:	·µ»Ø True
+Ê§°Ü:	·µ»Ø False,ÉèÖÃ@error
+@error:	101 - $hWnd ²ÎÊıÖµ²»ÊÇ¾ä±ú
 @@End@@
 
 ###Remarks###
-è®¾ç½®æ‰€æœ‰æ–‡æœ¬. æ–‡æœ¬å¯ä¸ºçº¯æ–‡æœ¬æˆ–å¯Œæ–‡æœ¬.
-ä¿ç•™æ’¤é”€å—
+ ÉèÖÃËùÓĞÎÄ±¾.ÎÄ±¾¿ÉÒÔÊÇÆÕÍ¨ÎÄ±¾»ò RTF ÎÄ±¾.
+ ±£Áô³·Ïû¶ÑÕ».
 
 ###Related###
- _GUICtrlRichEdit_GetText , _GUICtrlRichEdit_AppendText , _GUICtrlRichEdit_InsertText , _GUICtrlRichEdit_ReplaceText , _GUICtrlRichEdit_EmptyUndoBuffer
-ç¤ºä¾‹/æ¼”ç¤º
- #AutoIt3Wrapper_Au3Check_Parameters= -d -w 1 -w 2 -w 3 -w 4 -w 5 -w 6
- #include  <GuiRichEdit.au3>
- #include  <GUIConstantsEx.au3>
- #include  <WindowsConstants.au3>
- Main ()
- Func Main ()
-     Local  $hGui ,  $iMsg ,  $hRichEdit
-     $hGui  =  GUICreate ( "Example ("  &amp;  StringTrimRight ( @ScriptName , 4 )  &amp; ")" ,  320 ,  350 ,  - 1 ,  - 1 )
-     $hRichEdit  =  _GUICtrlRichEdit_Create ( $hGui ,  "This is a test." ,  10 ,  10 ,  300 ,  220 ,  _
-             BitOR ( $ES_MULTILINE ,  $WS_VSCROLL ,  $ES_AUTOVSCROLL ))
-     GUISetState ()
-     _GuiCtrlRichEdit_SetText ( $hRichEdit ,  "First paragraph" )
-     While  True
-         $iMsg  =  GUIGetMsg ()
-         Select
-             Case  $iMsg  =  $GUI_EVENT_CLOSE
-                 GUIDelete ()
-                 Exit
-         EndSelect
-     WEnd
- EndFunc    ;==>Main
+_GUICtrlRichEdit_GetText, _GUICtrlRichEdit_AppendText, _GUICtrlRichEdit_InsertText, _GUICtrlRichEdit_ReplaceText, _GUICtrlRichEdit_EmptyUndoBuffer
+
+###Example###
+@@IncludeExample@@

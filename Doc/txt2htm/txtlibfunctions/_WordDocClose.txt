@@ -2,49 +2,50 @@
 _WordDocClose
 
 ###Description###
-关闭一个以前打开的word文档
+关闭一个上次打开的 word 文档
 
 ###Syntax###
-#Include <Word.au3>
-_WordDocClose ( ByRef$o_object [, $i_SaveChanges = -2 [, $i_OriginalFormat = 2 [, $b_RouteDocument =
-0]]] )
+#include <Word.au3> 
+_WordDocClose ( ByRef $o_object [, $i_SaveChanges = -2 [, $i_OriginalFormat = 2 [, $b_RouteDocument = 0]]] )
 
 ###Parameters###
 @@ParamTable@@
-$o_object 
-   Word.Application文档对象
-$i_SaveChanges 
-   可选: 指定对于文件的保存动作
-    0 = 不保存改变
-    -1 = 保存修改
-    -2 = (默认)提示保存
-$i_OriginalFormat 
-   可选: 指定文件的保存格式
-    0 = Word文件
-    1 = 原始文档格式
-    2 = (默认)提示用户
-$b_RouteDocument 
-   可选: 指定是否将文件传递给收件人
-    0 = (默认)不传递
-    1 = 传递给下一个收信人
+$o_object
+	Word.Application文档对象
+$i_SaveChanges
+	[可选参数] 指定对于文件的保存动作
+		0 = 不保存改变-
+		1 = 保存修改-
+		2 = (默认) 提示保存
+$i_OriginalFormat
+	[可选参数] 指定文件的保存格式
+		0 = Word 文件3
+		1 = 原始文档格式
+		2 = (默认)提示用户
+$b_RouteDocument
+	[可选参数] 指定是否将文件传递给收件人
+		0 = (默认) 不传递
+		1 = 传递给下一个收信人
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0且设置@ERROR
-@Error: 0 ($_WordStatus_Success) = 无错误
-      3 ($_WordStatus_InvalidDataType) = 无效数据类型
-      4 ($_WordStatus_InvalidObjectType) = 无效对象类型
-@Extended: 包含无效参数数量
+成功:	返回1
+失败:	返回0 且设置@error = 1
+@Error:	0 ($_WordStatus_Success) = 无错误
+	3 ($_WordStatus_InvalidDataType) = 无效数据类型
+	4 ($_WordStatus_InvalidObjectType) = 无效对象类型
+	@Extended:包含无效参数数量
 @@End@@
 
+
 ###Remarks###
+None.
+
 
 ###Related###
-_WordDocAdd , _WordDocOpen , _WordDocSave , _WordDocSaveAs
+_WordDocAdd, _WordDocOpen, _WordDocSave, _WordDocSaveAs
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

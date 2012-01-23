@@ -2,34 +2,35 @@
 _WinAPI_ExtractIcon
 
 ###Description###
-从指定的可执行文件, DLL或图标文件中提取图标
+Extracts an icon from the specified executable file, DLL, or icon file.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ExtractIcon( $sIcon, $iIndex [, $fSmall] )
+_WinAPI_ExtractIcon ( $sIcon, $iIndex [, $fSmall] )
 
 ###Parameters###
 @@ParamTable@@
 $sIcon
-   从中提取图标的可执行文件, DLL或图标文件的名称
+	The name of an executable file, DLL, or icon file from which icons will be extracted.
 $iIndex
-$iIndex绝对值的图标.
+	The zero-based index of the icon to extract. If this value is a negative number, the function extracts
+	the icon whose resource identifier is equal to the absolute value of $iIndex.
 $fSmall
-   指定是否提取小图标:
-    True: 提取小图标
-    False: 提取大图标(默认)
+	[可选参数] Specifies whether extract a small icon, valid values:
+		TRUE   - Extract a small icon.
+		FALSE  - Extract a large icon. (Default)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回所提取图标的句柄
-失败: 返回0并设置@error非0
+Success	Handle to the extracted icon.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-图标使用完毕后 , 使用_WinAPI_DestroyIcon()销毁.
+When you are finished using the icon, destroy it using the _WinAPI_DestroyIcon() function.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中ExtractIconEx的相关信息
+@@MsdnLink@@ ExtractIconEx
+

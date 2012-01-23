@@ -2,36 +2,37 @@
 _WordDocSave
 
 ###Description###
-保存以前打开的文档
+保存一个已经打开的文档.
 
 ###Syntax###
-#Include <Word.au3>
+#include <Word.au3> 
 _WordDocSave ( $o_object )
 
 ###Parameters###
 @@ParamTable@@
-$o_object 
-   Word.Application文档对象
+$o_object
+	一个 Word.Application 对象变量, 文档对象.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回 1
- 失败:  返回 0 并设置 @ERROR
- @Error:  0 ($_WordStatus_Success) = 无错误
-  1 ($_WordStatus_GeneralError) = 一般错误
-  3 ($_WordStatus_InvalidDataType) = 无效数据类型
-  4 ($_WordStatus_InvalidObjectType) = 无效对象类型
- @Extended:  包含参数的数目无效
+成功:	返回 1
+失败:	返回 0 并设置 @ERROR
+@Error:	$_WordStatus_Success = 没有错误
+	$_WordStatus_GeneralError = 常规错误
+	$_WordStatus_InvalidDataType = 无效数据类型
+	$_WordStatus_InvalidObjectType = 无效对象类型
+@Extended:	包含无效参数数
 @@End@@
 
+
 ###Remarks###
-如果文档以前未被保存 , Save As对话框将提示用户一个文件名.
+ 如果文件没有被保存之前，另存为对话框会提示输入一个保存文件名.
+
 
 ###Related###
- _WordDocAdd , _WordDocClose , _WordDocOpen , _WordDocSaveAs
+_WordDocAdd, _WordDocClose, _WordDocOpen, _WordDocSaveAs
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

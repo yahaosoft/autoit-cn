@@ -2,43 +2,44 @@
 _WinAPI_EnumDisplayDevices
 
 ###Description###
-获取系统中显示设备的信息
+获取系统显示设备的信息
 
 ###Syntax###
-#Include
-<WinAPI.au3>
+#Include <WinAPI.au3>
 _WinAPI_EnumDisplayDevices($sDevice, $iDevNum)
 
 ###Parameters###
 @@ParamTable@@
 $sDevice
-   设备名称. 如果为空, 函数返回系统中基于iDevNum适配器的信息
+	设备名称.如果为空.函数根据 $iDevNum 返回本机显卡信息.
 $iDevNum
-   指定感兴趣的显示设备的基于0的索引值
+	基于0开始的索引值,指定显示设备信息.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回下列格式的数组:
-  $aDevice[0] - 成功为真, 否则为假
-  $aDevice[1] - 适配器或者显示器
-  $aDevice[2] - 适配器或者显示器的描述
-  $aDevice[3] - 设备状态标记:
-    1 - 设备是台式机
-    2 - 主要是台式机上的设备
-    4 - 表示一个伪设备，用于远程镜像绘图应用
-    8 - 该设备VGA兼容
-    16 - 设备可移动; 不能作为主要显示器
-    32 - 设备具有多于其输出设备所支持的显示模式
-  $aDevice[4] - Plug and Play 认证字符串(Windows 98/ME)
+成功:	返回数组的格式如下:
+	$aDevice[0] - True
+	$aDevice[1] - 任何适配器设备或监控装置
+	$aDevice[2] - 任何适配器或监视器的描述
+	$aDevice[3] - 设备状态标志:
+	1 - 设备是桌面的一部分
+	2 - 设备是主桌面
+	4 - 映射远程应用绘图的伪设备
+	8 - 设备为 VGA 兼容
+	16 - 可移动设备;不能作为主显示
+	32 - 与支持的输出设备相比,有更多的显示模式
+	$aDevice[4] - 保留使用
+失败:	设置 @error
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中EnumDisplayDevices的相关信息
+@@MsdnLink@@ EnumDisplayDevices
 
 ###Example###
 @@IncludeExample@@

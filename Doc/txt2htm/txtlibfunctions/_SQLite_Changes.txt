@@ -2,30 +2,32 @@
 _SQLite_Changes
 
 ###Description###
-返回最近发生改变的数量(不包含触发点)
+返回最后执行操作对数据库影响的行数
 
 ###Syntax###
-#Include <SQLite.au3>
+#include <SQLite.au3>
 _SQLite_Changes ( [ $hDB ] )
+
 
 ###Parameters###
 @@ParamTable@@
- $hDB  [可选] 打开的数据库, 默认为最近打开的数据库
+$hDB
+	[可选参数] 打开的数据库,默认为最后打开的数据库
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回改变的数量
-失败: 返回0
-@error: 1 - 调用SQLite API 'sqlite3_changes'出错
-     2 - 安全模式阻止调用
+成功:	返回影响的行数
+失败:	返回 0
+@error	1 - 错误调用 SQLite API 'sqlite3_changes'
+	2 - 调用被安全模式阻止
 @@End@@
 
 ###Remarks###
+Changes due to action of triggers or foreign keys are not part of this count.  See _SQLite_TotalChanges()
 
 ###Related###
-
-###See Also###
+_SQLite_TotalChanges
 
 ###Example###
 @@IncludeExample@@

@@ -2,31 +2,37 @@
 $tagNMRBAUTOSIZE
 
 ###Description###
-含用于控制$RBN_AUTOSIZE通知消息的信息的结构
+包含处理 $RBN_AUTOSIZE 通知消息使用的信息
 
 ###Syntax###
-Global Const $tagNMRBAUTOSIZE =  $tagNMHDR & ";int fChanged;int TargetLeft;int TargetTop;int TargetRight;int TargetBottom;int ActualLeft;int ActualTop;int ActualRight;int ActualBottom"
+Global Const $tagNMRBAUTOSIZE = $tagNMHDR & ";bool fChanged;" & _
+		"struct; long TargetLeft;long TargetTop;long TargetRight;long TargetBottom; endstruct;" & _
+		"struct; long ActualLeft;long ActualTop;long ActualRight;long ActualBottom; endstruct"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   包含通知消息的信息
+	包含通知消息的信息
 fChanged
-   表示伸缩条控件的大小或界面是否已改变(如果发生改变非0否则为0)
+	表示伸缩条控件的大小或界面是否已改变(发生改变为非 0,否则为 0)
 TargetLeft
-   指定伸缩条控件试图改变其自身大小到指定的矩形左上角x坐标
+	伸缩条控件改变自身大小时的矩形左上角 X 坐标
 TargetTop
-   指定伸缩条控件试图改变其自身大小到指定的矩形左上角y坐标
+	伸缩条控件改变自身大小时的矩形左上角 Y 坐标
 TargetRight
-   指定伸缩条控件试图改变其自身大小到指定的矩形右下角x坐标
+	伸缩条控件改变自身大小时的矩形右下角 X 坐标
 TargetBottom
-   指定伸缩条控件试图改变其自身大小到指定的矩形右下角y坐标
+	伸缩条控件改变自身大小时的矩形右下角 Y 坐标
 ActualLeft
-   指定伸缩条控件实际改变其自身大小到指定的矩形左上角x坐标
+	伸缩条控件实际大小的矩形左上角 X 坐标
 ActualTop
-   指定伸缩条控件实际改变其自身大小到指定的矩形左上角y坐标
+	伸缩条控件实际大小的矩形左上角 Y 坐标
 ActualRight
-   指定伸缩条控件实际改变其自身大小到指定的矩形右下角x坐标
+	伸缩条控件实际大小的矩形右下角 X 坐标
 ActualBottom
-   指定伸缩条控件实际改变其自身大小到指定的矩形右下角y坐标
-@@end@@
+	伸缩条控件实际大小的矩形右下角 Y 坐标
+@@End@@
+
+###Remarks###
+None.
+

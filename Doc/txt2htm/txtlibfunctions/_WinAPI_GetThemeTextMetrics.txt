@@ -2,33 +2,34 @@
 _WinAPI_GetThemeTextMetrics
 
 ###Description###
-通过特定部分的视觉样式获取字体信息
+Retrieves information about the font specified by a visual style for a particular part.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetThemeTextMetrics( $hTheme, $iPartId, $iStateId, $iPropId )
+_WinAPI_GetThemeTextMetrics ( $hTheme, $iPartId, $iStateId [, $hDC] )
 
 ###Parameters###
 @@ParamTable@@
 $hTheme
-   指定窗口主题数据的句柄
+	Handle to a window's specified theme data.
 $iPartId
-   获取其字体信息的部分
+	The part to retrieve font information about.
 $iStateId
-$iPartId部分的描述
+	The state of the part.
 $hDC
-   用于屏幕场景的设备场景的句柄
+	[可选参数] Handle to the device context to use for screen context.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回包含字体信息的$tagTEXTMETRIC结构
-失败: 返回0并设置@error非0且@extended标记包含系统错误代码
+Success	$tagTEXTMETRIC structure that contains the font information.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetThemeTextMetrics的相关信息
+@@MsdnLink@@ GetThemeTextMetrics
+

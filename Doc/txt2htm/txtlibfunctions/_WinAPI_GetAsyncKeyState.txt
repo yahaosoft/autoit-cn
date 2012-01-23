@@ -2,28 +2,29 @@
 _WinAPI_GetAsyncKeyState
 
 ###Description###
-确定函数被调用时，相应按键是处于按下状态，还是处于弹起状态
+确定函数调用时,按键是按下还是松开
 
 ###Syntax###
-#Include
-<WinAPI.au3>
+#Include <WinAPI.au3>
 _WinAPI_GetAsyncKeyState($iKey)
 
 ###Parameters###
 @@ParamTable@@
 $iKey
-   要测试的键
+	测试键
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 若最高位被置为1,则键被接下, 若最低位被置为1,则该键在前次调用GetAsyncKeystate以来一直处于被接下的状态.
-若另一进程或线程中的窗口拥有键盘焦点，则返回值为零.
+成功:	如果最高有效位确定键按下,与最低有效位被设置,
+	键是在调用 GetAsyncKeyState 之前按下.
+失败:	如果另一个线程或当前进程窗口具有键盘焦点, 则返回 0.
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中GetAsyncKeyState的相关信息
+@@MsdnLink@@ GetAsyncKeyState

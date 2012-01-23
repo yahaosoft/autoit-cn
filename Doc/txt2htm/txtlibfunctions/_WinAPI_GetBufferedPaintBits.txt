@@ -2,28 +2,28 @@
 _WinAPI_GetBufferedPaintBits
 
 ###Description###
-当缓冲为设备无关位图时获取位图句柄
+Retrieves a pointer to the buffer bitmap if the buffer is a device-independent bitmap (DIB).
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetBufferedPaintBits( $hBP )
+_WinAPI_GetBufferedPaintBits ( $hBP )
 
 ###Parameters###
 @@ParamTable@@
 $hBP
-   缓冲位图场景的句柄
+	Handle of the buffered paint context.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回缓冲位图像素的指针, @extended包含缓冲位图的像素宽度
-失败: 返回0并设置@error非0
+Success	A pointer to the address of the buffer bitmap pixels, @extended flag will contain the width, in pixels, of the buffer bitmap.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
-最低系统要求: Windows Vista
+This function requires Windows Vista or later.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetBufferedPaintBits的相关信息
+@@MsdnLink@@ GetBufferedPaintBits
+

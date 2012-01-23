@@ -1,39 +1,42 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _IELinkGetCollection
 
 ###Description###
-è¿”å›ä¸€ä¸ªåŒ…å«æ–‡æ¡£å†…æ‰€æœ‰é“¾æ¥çš„å¯¹è±¡é›†åˆ.
+·µ»Ø°üº¬ÎÄµµÖĞÈ«²¿Á´½ÓµÄ¼¯ºÏ¶ÔÏó»ò°´Ë÷ÒıµÄµ¥Ò»Á´½Ó.
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IELinkGetCollection ( ByRef $o_object [, $i_index = -1] )
 
 ###Parameters###
 @@ParamTable@@
- $o_object  InternetExplorer.Application , çª—å£æˆ–è€…æ¡†æ¶(frame)å¯¹è±¡çš„å¯¹è±¡å˜é‡
- ç´¢å¼•  å¯é€‰: æŒ‡å®šè¿”å›ä¸€ä¸ªé›†åˆè¿˜æ˜¯ç´¢å¼•å¯¹è±¡
-0 æˆ–è€…æ­£æ•´æ•°è¿”å›ä¸€ä¸ªç´¢å¼•å¯¹è±¡
--1 = (é»˜è®¤) è¿”å›ä¸€ä¸ªé›†åˆ
+$o_object
+	InternetExplorer.Application, ´°Ìå»ò¿ò¼Ü¶ÔÏóµÄ¶ÔÏó±äÁ¿
+$i_index
+	[¿ÉÑ¡²ÎÊı]: Ö¸¶¨ÊÇ·µ»Ø¼¯ºÏ»òÊÇË÷ÒıÊµÀı
+0»òÕıÕûÊı·µ»ØÒ»¸öË÷ÒıÊµÀı
+-1 = (Ä¬ÈÏ)·µ»ØÒ»¸ö¼¯ºÏ
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: è¿”å›ä¸€ä¸ªåŒ…å«æ–‡æ¡£å†…æ‰€æœ‰é“¾æ¥çš„å¯¹è±¡é›†åˆ , @EXTENDED = é“¾æ¥æ•°é‡
-å¤±è´¥: è¿”å›0å¹¶è®¾ç½®@ERRORä¸º:
-    0 ($_IEStatus_Success) = æ— é”™è¯¯
-    3 ($_IEStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»å‹
-    4 ($_IEStatus_InvalidObjectType) = æ— æ•ˆå¯¹è±¡ç±»å‹
-    5 ($_IEStatus_InvalidValue) = æ— æ•ˆæ•°å€¼
-    7 ($_IEStatus_NoMatch) = æ²¡æœ‰åŒ¹é…
-    @Extended: åŒ…å«æ— æ•ˆå‚æ•°æ•°é‡
+³É¹¦:	·µ»ØÎÄµµÖĞËùÓĞÁ´½ÓµÄ¶ÔÏó¼¯ºÏ, @EXTENDED = Á´½Ó¼ÆÊı
+Ê§°Ü:	·µ»Ø0 ²¢ÇÒÉèÖÃ @ERROR
+@Error:	0 ($_IEStatus_Success) = ÎŞ´íÎó
+	3 ($_IEStatus_InvalidDataType) = ÎŞĞ§Êı¾İÀàĞÍ
+	5 ($_IEStatus_InvalidValue) = ÎŞĞ§Öµ
+	7 ($_IEStatus_NoMatch) = ÎŞÆ¥Åä
+@Extended:	°üº¬ÎŞĞ§²ÎÊıÊıÁ¿
 @@End@@
 
+
 ###Remarks###
-å¹¶éæ‰€æœ‰ç»„ä»¶éƒ½åƒå…¶æ˜¾ç¤ºçš„é‚£æ ·æ˜¯é“¾æ¥ , å®ƒä»¬é€šå¸¸æ˜¯é€šè¿‡è·å–Javascriptåœ¨å…¶ä»–DOMç»„ä»¶çš„ç‚¹å‡»äº‹ä»¶æ¨¡æ‹Ÿç‚¹å‡»é“¾æ¥çš„. è¦æ¿€æ´»è¿™ç§ç»„ä»¶ , ä½¿ç”¨_IEActionçš„ "click" .
+²»ÊÇËùÓĞ±íÊ¾ÎªÁ´½ÓµÄÔªËØ¶¼Ãû¸±ÆäÊµ. ¼òµ¥Í¨¹ıÖ¸ÏòÆäËûDOMÔªËØµÄJS onClickÊÂ¼şÀ´Ä£ÄâÁ´½ÓĞĞÎª. ¼¤»î´ËÔªËØ, Í¨¹ı_IEActionÊ¹ÓÃ"click".
+
 
 ###Related###
+None.
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

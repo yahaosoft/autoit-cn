@@ -2,39 +2,40 @@
 _WinAPI_GetThemeTextExtent
 
 ###Description###
-计算指定文本在被可视化样式字体渲染时的大小和位置
+Calculates the size and location of the specified text when rendered in the visual style font.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetThemeTextExtent( $hTheme, $iPartId, $iStateId, $hDC, $sText, $tRECT, $iFlags )
+_WinAPI_GetThemeTextExtent ( $hTheme, $iPartId, $iStateId, $hDC, $sText, $tRECT, $iFlags )
 
 ###Parameters###
 @@ParamTable@@
 $hTheme
-   指定窗口主题数据的句柄
+	Handle to a window's specified theme data.
 $iPartId
-   获取其字体信息的部分
+	The part in which the text will be drawn.
 $iStateId
-$iPartId部分的描述
+	The state of the part.
 $hDC
-   用于屏幕场景的设备场景的句柄
+	Handle to the device context to select the font into.
 $sText
-   包含要绘制的文本的字符串
+	The string that contains the text to draw.
 $tRECT
-$tagRECT结构. 该参数可为0
+	$tagRECT structure that contains the rectangle used to control layout of the text. This parameter may be set to 0.
 $iFlags
-$DT_*)
+	The string's formatting flags ($DT_*).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含适合渲染后的文本所需的矩形逻辑坐标的$tagRECT结构
-失败: 返回0并设置@error非0且@extended标记包含系统错误代码
+Success	$tagRECT structure that contains, in logical coordinates, the rectangle required to fit the rendered text.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetThemeTextExtent的相关信息
+@@MsdnLink@@ GetThemeTextExtent
+

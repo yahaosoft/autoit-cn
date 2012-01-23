@@ -2,35 +2,35 @@
 _WinAPI_EndBufferedPaint
 
 ###Description###
-完成缓存绘制操作并释放句柄
+Completes a buffered paint operation and frees the associated buffered paint handle.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_EndBufferedPaint( $hBP [, $fUpdate] )
+_WinAPI_EndBufferedPaint ( $hBP [, $fUpdate] )
 
 ###Parameters###
 @@ParamTable@@
 $hBP
-   缓存绘制场景句柄
+	Handle of the buffered paint context.
 $fUpdate
-   指定是否将缓存复制到目标场景. 可用值:
-    TRUE - 缓存将更新目标场景(默认)
-    FALSE - 不更新目标场景
+	[可选参数] Specifies whether copy the buffer to the target DC, valid values:
+		TRUE    - The target DC will be updated from the buffer. (Default)
+		FALSE   - The target DC remains unchanged.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
-最低系统要求: Windows Vista
+This function requires Windows Vista or later.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中EndBufferedPaint的相关信息
+@@MsdnLink@@ EndBufferedPaint
 
 ###Example###
 @@IncludeExample@@
+

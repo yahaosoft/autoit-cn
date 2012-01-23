@@ -2,33 +2,37 @@
 _WinAPI_GetThemeDocumentationProperty
 
 ###Description###
-从指定主题文件获取主题属性值
+检索指定主题文件文档的属性值.
+
+###Syntax###
+#Include <WinAPIEx.au3>
 _WinAPI_GetThemeDocumentationProperty ( $sFile, $sProperty )
 
 ###Parameters###
 @@ParamTable@@
 $sFile
-   将被打开以查询属性的主题文件名
+	主题文件的名称.
 $sProperty
-   要查询的属性名. 该参数可为下列值.
-    $SZ_THDOCPROP_AUTHOR - 主题作者
-    $SZ_THDOCPROP_CANONICALNAME - 主题名称
-    $SZ_THDOCPROP_DISPLAYNAME - 主题的显示名称
-    $SZ_THDOCPROP_TOOLTIP - 与主题相关的工具提示
+	主题属性的名称.参数可以是以下值之一:
+		 $SZ_THDOCPROP_AUTHOR --- 检索主题作者的名字
+		 $SZ_THDOCPROP_CANONICALNAME --- 检索主题的名称
+		 $SZ_THDOCPROP_DISPLAYNAME --- 检索主题的显示名称
+		 $SZ_THDOCPROP_TOOLTIP --- 检索主题相关的工具提示
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 属性的字符串值
-失败: 空字符串并设置@error非0 , @extended标记可能含有COM错误代码.
+成功:	返回属性的字符串值.
+失败:	返回空串,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetThemeDocumentationProperty的相关信息
+@@MsdnLink@@ GetThemeDocumentationProperty
 
 ###Example###
 @@IncludeExample@@
+

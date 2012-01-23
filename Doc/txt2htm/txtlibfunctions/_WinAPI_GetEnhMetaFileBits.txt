@@ -2,28 +2,29 @@
 _WinAPI_GetEnhMetaFileBits
 
 ###Description###
-获取用于标识指定增强型元文件的内容并复制到缓冲区
+检索缓冲区内指定的增强型图元文件格式并复制它们的内容.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetEnhMetaFileBits( $hEmf )
+_WinAPI_GetEnhMetaFileBits ( $hEmf )
 
 ###Parameters###
 @@ParamTable@@
 $hEmf
-   增强型元文件的句柄
+	增强型图元文件的句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含元文件数据的 "byte[n]" 结构(缓冲区)
-失败: 返回0并设置@error非0
+成功:	返回 "byte[n]" 结构(缓冲器),其中包含图元文件的数据.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-当获取了增强型元文件数位后, 通过调用_WinAPI_SetEnhMetaFileBits()函数创建基于内存的元文件.
+检索增强图元文件位以后,
+可以调用 _WinAPI_SetEnhMetaFileBits() 函数创建基于内存的图元文件.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetEnhMetaFileBits的相关信息
+@@MsdnLink@@ GetEnhMetaFileBits
+

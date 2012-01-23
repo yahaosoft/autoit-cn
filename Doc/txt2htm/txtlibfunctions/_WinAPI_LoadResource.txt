@@ -2,34 +2,34 @@
 _WinAPI_LoadResource
 
 ###Description###
-将指定资源载入全局内存
+加载指定资源到全局内存.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_LoadResource( $hInstance, $hInfo )
+_WinAPI_LoadResource ( $hInstance, $hResource )
 
 ###Parameters###
 @@ParamTable@@
 $hInstance
-   包含资源的可执行文件的模块的句柄, 如果为0, 系统从用于创建当前进程的模块加载资源.
-$hInfo
-   将被加载的资源的句柄. 该参数由_WinAPI_FindResource()函数或_WinAPI_FindResourceEx()函数返回.
+	包含资源的可执行文件模块句柄.如果此参数为 0,
+		 系统加载创建当前进程的模块资源.
+$hResource
+	资源句柄. 此句柄由 _WinAPI_FindResource() 或 _WinAPI_FindResourceEx() 函数返回.	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 与资源相关的数据的句柄
-失败: 返回0并设置@error非0
+成功:	返回相关数据资源的句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-调用_WinAPI_LockResource()函数获取资源数据的指针
-正常运行示例请将 Resources.dll 文件或 Resources_x64.dll 文件(x64系统使用)保存到临时文件夹中
+调用 _WinAPI_LockResource() 函数获取资源数据指针.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中LoadResource的相关信息
+@@MsdnLink@@ LoadResource
 
 ###Example###
 @@IncludeExample@@
+

@@ -5,35 +5,32 @@ _WinAPI_EnumWindows
 枚举所有窗口
 
 ###Syntax###
-#Include
-<WinAPI.au3>
-_WinAPI_EnumWindows([$fVisible = True])
+#Include <WinAPI.au3>
+_WinAPI_EnumWindows([$fVisible = True [, $hwnd = Default]])
 
 ###Parameters###
 @@ParamTable@@
 $fVisible
-   窗口选择标记:
-    True  - 只返回可视窗口
-    False - 返回所有窗口
+	[可选参数] 窗口选择标志:
+		True - 仅返回可见窗口
+		False - 返回所有窗口
+$hwnd
+	[可选参数] 启动窗口句柄(默认桌面视窗)
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 如下格式的数组:
-    [0][0] - 窗口数量
-    [1][0] - 窗口句柄
-    [1][1] - 窗口类名
-    [n][0] - 窗口句柄
-    [n][1] - 窗口类名
-@@End@@
+返回数组的格式如下:
+	[0][0] - 数组的行数 (n)
+	[1][0] - 窗口句柄
+	[1][1] - 窗口的类名称
+	[n][0] - 窗口句柄
+	[n][1] - 窗口的类名称
 
 ###Remarks###
+None.
 
 ###Related###
-_WinAPI_EnumWindowsPopup , _WinAPI_EnumWindowsTop
-
-###See Also###
-搜索MSDN知识库中有关EnumWindows的信息
+_WinAPI_EnumWindowsPopup, _WinAPI_EnumWindowsTop
 
 ###Example###
 @@IncludeExample@@

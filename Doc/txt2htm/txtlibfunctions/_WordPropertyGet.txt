@@ -2,58 +2,82 @@
 _WordPropertyGet
 
 ###Description###
-返回Word应用选择的属性
+返回 Word 应用程序选定的属性.
 
 ###Syntax###
-#Include <Word.au3>
-_WordPropertyGet ( ByRef$o_object, $s_property )
+#include <Word.au3> 
+_WordPropertyGet ( ByRef $o_object, $s_property )
 
 ###Parameters###
 @@ParamTable@@
-$o_object 
-   Word.Application对象变量
-$s_property 
-   属性选择(见备注)
+$o_object
+	Word.Application 对象变量
+$s_property
+	选取属性 (见备注)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 所选属性的值
-失败: 返回0并设置@ERROR
-@Error: 0 ($_WordStatus_Success) = 无错误
-     3 ($_WordStatus_InvalidDataType) = 无效数据类型
-     4 ($_WordStatus_InvalidObjectType) = 无效对象类型
-     5 ($_WordStatus_InvalidValue) = 无效值
-@Extended: 包含无效参数数量
+成功:	返回选定的属性值
+失败:	返回 0,并设置s @ERROR
+@Error:	$_WordStatus_Success = 没有错误
+	$_WordStatus_InvalidDataType = 无效的数据类型
+	$_WordStatus_InvalidObjectType = 无效的对象类型
+	$_WordStatus_InvalidValue = 无效值
+@Extended:	包含无效的参数数目
 @@End@@
 
+
 ###Remarks###
-更多信息可查阅 MSDN .
-下表提供了每种可用属性的描述
- Word.Application属性列表
- 属性  描述
- "activeprinter"  指定可用打印机名.
- "capslock"  返回一个布尔值指示CAPS LOCK键是否已开启.
- "screentips"  指定一个布尔值指示是否将批注, 脚注, 尾注, 及超级链接作为提示显示.
- "scrollbars"  指定一个布尔值指示 Word 是否在至少一个文档窗口中显示滚动条.
- "statusbar"  指定一个布尔值指示是否显示状态栏.
- "height"  返回活动文档窗口的高度
- "language"  返回表示Microsoft Word用户界面所使用的语言的 MsoLanguageID constant .
- "left"  返回一个代表活动文档水平位置的整数.
- "numlock"  返回 NUM LOCK 键的状态.
- "path"  返回指定对象的磁盘或网络路径.
- "screenupdating"  返回一个布尔值指示是否已开启屏幕刷新.
- "startuppath"  指定启动文件夹的完整路径, 不包括最后的分隔符.
- "top"  返回活动文档的垂直像素高度.
- "version"  返回Microsoft Word版本.
- "visible"  返回一个布尔值指示指定对象是否可见.
- "width"  返回指定对象的点阵宽度.
- "windowstate"  指定任务窗口或一个指定文档的窗口的状态.
+进一步的信息可查看 <a href="http://msdn2.microsoft.com/en-us/library/kw65a0we.aspx" target="_blank">MSDN</a>.
+
+下表提供现有每个属性的描述.
+
+<b><u>Word Application Properties</u></b>
+
+@@ParamTable@@
+<b>Property</b>
+	<b>功 能 描 述</b>
+"activeprinter"
+	返回活动打印机的名称.
+"capslock"
+	返回表示 Caps Lock 键是否处于打开状态的布尔值.
+"screentips"
+	返回是否有注释,脚注, 尾注和超链接显示提示的布尔值.
+"scrollbars"
+	返回表示 Word 文档窗口是否显示至少一个滚动条的布尔值.
+"statusbar"
+	返回表示是否显示状态栏的布尔值.
+"height"
+	返回活动文档窗口的高度.
+"language"
+	Returns an MsoLanguageID constant 返回表示微软 Word 用户界面中选择语言的 MsoLanguageID 常量.
+"left"
+	返回表示活动文档水平位置的整数值.
+"numlock"
+	返回 NUM LOCK 键的状态. 返回 True,表示可以插入数字键盘上的数字键, False, 则该键用于移动插入点.
+"path"
+	返回磁盘或网络路径指定的对象.
+"screenupdating"
+	返回一个布尔值，指示是否打开屏幕更新.
+"startuppath"
+	返回启动文件夹的完整路径，不包括最后的分隔符.
+"top"
+	返回活动文档垂直位置的磅值单位.
+"version"
+	返回 Microsoft Word 的版本号.
+"visible"
+	返回一个布尔值，指示指定对象是否是可见的.
+"width"
+	返回指定对象宽度的磅值单位.
+"windowstate"
+	返回指定文档窗口或任务窗口的状态.
+@@END@@
+
 
 ###Related###
- _WordPropertySet
+_WordPropertySet
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

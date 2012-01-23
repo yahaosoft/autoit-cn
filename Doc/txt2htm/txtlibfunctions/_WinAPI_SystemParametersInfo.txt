@@ -1,41 +1,39 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _WinAPI_SystemParametersInfo
 
 ###Description###
-æŸ¥è¯¢æˆ–è®¾ç½®ç³»ç»Ÿçº§
+¼ìË÷»òÉèÖÃÈ«ÏµÍ³(system-wide)²ÎÊýµÄÖµ
+
+###Syntax###
+#Include <WinAPI.au3>
+_WinAPI_SystemParametersInfo($iAction [, $iParam = 0 [, $vParam = 0 [, $iWinIni = 0]]])
 
 ###Parameters###
 @@ParamTable@@
-
-###Syntax###
-#Include
-<WinAPI.au3>
-$iAction[, $iParam = 0[,
-$vParam = 0[, $iWinIni = 0]]])
-å‚æ•°
-$iAction  æŒ‡å®šè¦æŸ¥è¯¢æˆ–è®¾ç½®çš„ç³»ç»Ÿçº§å‚æ•°
-$iParam  ä¸€ä¸ªå‚æ•°ï¼Œå…¶ç”¨æ³•å’Œæ ¼å¼ä¾èµ–äºŽè¦æŸ¥è¯¢æˆ–è®¾ç½®çš„å‚æ•°
-$vParam  ä¸€ä¸ªå‚æ•°ï¼Œå…¶ç”¨æ³•å’Œæ ¼å¼ä¾èµ–äºŽè¦æŸ¥è¯¢æˆ–è®¾ç½®çš„å‚æ•°
-$iWinIni  å¦‚æžœè®¾ç½®ç³»ç»Ÿå‚æ•°, åˆ™å®ƒç”¨æ¥æŒ‡å®šæ˜¯å¦æ›´æ–°ç”¨æˆ·é…ç½®æ–‡ä»¶,
-$WM_SETTINGCHANGEæ¶ˆæ¯å¹¿æ’­ç»™æ‰€æœ‰é¡¶å±‚çª—å£. è¯¥å‚æ•°å½“ä½ ä¸æƒ³æ›´æ–°ç”¨æˆ·é…ç½®æ—¶å¯ä»¥æ˜¯ 0
-      æˆ–è€…é€‰æ‹©ä¸‹åˆ—å–å€¼:
-$SPIF_UPDATEINIFILE - æŠŠæ–°çš„ç³»ç»Ÿå‚æ•°çš„è®¾ç½®å†…å®¹å†™å…¥ç”¨æˆ·é…ç½®æ–‡ä»¶
-$SPIF_SENDCHANGE -
-$WM_SETTINGCHANGEæ¶ˆæ¯
+$iAction
+	¼ìË÷»òÉèÖÃµÄÈ«ÏµÍ³(system-wide)²ÎÊý
+$iParam
+	[¿ÉÑ¡²ÎÊý] ²ÎÊýµÄÓÃ·¨ºÍ¸ñÊ½È¡¾öÓÚ²ÎÊýµÄ²éÑ¯»òÉèÖÃ
+$vParam
+	[¿ÉÑ¡²ÎÊý] ²ÎÊýµÄÓÃ·¨ºÍ¸ñÊ½È¡¾öÓÚ²ÎÊýµÄ²éÑ¯»òÉèÖÃ
+$iWinIni
+	[¿ÉÑ¡²ÎÊý] Èç¹ûÏµÍ³²ÎÊý±»ÉèÖÃ, Ö¸¶¨ÓÃ»§ÊÇ·ñÐèÒª¸üÐÂÅäÖÃÎÄ¼þ.
+		Èç¹ûÊÇ, Ôò $WM_SETTINGCHANGE ÏûÏ¢ÊÇ·ñÒª´«²¥
+		Èç¹û²»¸üÐÂÓÃ»§ÅäÖÃÎÄ¼þ, ²ÎÊý¿ÉÒÔÎª 0 , Ò²¿ÉÒÔÊÇÒ»»ò¶à¸öÏÂÁÐÖµ:
+		$SPIF_UPDATEINIFILE - ÐÂÉèÖÃÐ´Èëµ½ÓÃ»§ÅäÖÃ
+		$SPIF_SENDCHANGE - ´«²¥ $WM_SETTINGCHANGE ÏûÏ¢ºó¸üÐÂÓÃ»§ÅäÖÃÎÄ¼þ
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: çœŸ
-å¤±è´¥: å‡
+³É¹¦:	·µ»Ø True
+Ê§°Ü:	·µ»Ø False
 @@End@@
 
 ###Remarks###
+ º¯Êý×ÜÊÇµ÷ÓÃ Unicode °æ±¾,$vParam ±ØÐëÆ¥ÅäÊ¹ÓÃµÄ×Ö·û´®.
 
 ###Related###
 
 ###See Also###
- æœç´¢MSDNçŸ¥è¯†åº“ä¸­SystemParametersInfoçš„ç›¸å…³ä¿¡æ¯
-
-###Example###
-@@IncludeExample@@
+@@MsdnLink@@ SystemParametersInfo

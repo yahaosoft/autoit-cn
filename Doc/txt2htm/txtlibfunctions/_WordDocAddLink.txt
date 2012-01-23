@@ -1,55 +1,53 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _WordDocAddLink
 
 ###Description###
-å‘æ–‡ä»¶æ·»åŠ è¶…çº§é“¾æ¥
+ÏòÎÄ¼şÌí¼Ó³¬¼¶Á´½Ó
 
 ###Syntax###
-#Include <Word.au3>
-_WordDocAddLink ( ByRef$o_object [, $o_Anchor = "" [, $s_Address = "" [, $s_SubAddress = "" [,
-$s_ScreenTip = "" [, $s_TextToDisplay = "" [, $s_Target = ""]]]]]] )
+#include <Word.au3> 
+_WordDocAddLink ( ByRef $o_object [, $o_Anchor = "" [, $s_Address = "" [, $s_SubAddress = "" [, $s_ScreenTip = "" [, $s_TextToDisplay = "" [, $s_Target = ""]]]]]] )
 
 ###Parameters###
 @@ParamTable@@
-$o_object 
-   Word.Applicationæ–‡æ¡£å¯¹è±¡
-$o_Anchor 
-   å¯é€‰: æƒ³å°†ä¹‹å˜ä¸ºè¶…çº§é“¾æ¥çš„æ–‡å­—æˆ–å›¾å½¢.
-    "" = (é»˜è®¤) ä½¿ç”¨å…¨éƒ¨æ–‡ä»¶ä½œä¸ºèŒƒå›´
-$s_Address 
-   å¯é€‰: æŒ‡å®šé“¾æ¥çš„åœ°å€. åœ°å€å¯ä»¥æ˜¯e-mailåœ°å€, ç½‘å€, æˆ–æ–‡ä»¶å.
-    "" = (é»˜è®¤)
- 
-  é“¾æ¥åˆ°ä½¿ç”¨çš„æŒ‡å®šæ–‡æ¡£
-$s_SubAddress 
-   å¯é€‰: ç›®æ ‡æ–‡ä»¶ä¸­çš„åœ°å€å, å¦‚ä¹¦ç­¾, å‘½ååŒºé—´æˆ–æ»‘åŠ¨æ•°å­—.
-$s_ScreenTip 
-   å¯é€‰: å½“é¼ æ ‡æŒ‡é’ˆåœåœ¨ç‰¹å®šè¶…é“¾æ¥ä¸Šçš„æ—¶å€™æ˜¾ç¤ºå±å¹•æç¤º.
-    "" = (é»˜è®¤) ä½¿ç”¨$s_Addressçš„å€¼
-$s_TextToDisplay 
-   å¯é€‰: æŒ‡å®šè¶…çº§é“¾æ¥çš„æ˜¾ç¤ºæ–‡æœ¬. è¯¥å‚æ•°çš„å€¼å°†æ›¿æ¢ç”±é”šæŒ‡å®šçš„æ–‡æœ¬æˆ–å›¾å½¢.
-    "" = (é»˜è®¤) ä½¿ç”¨ $s_Address
- 
-      çš„å€¼
-$s_Target 
-   å¯é€‰: åŠ è½½æŒ‡å®šé“¾æ¥çš„æ¡†æ¶æˆ–çª—ä½“çš„åç§°.
+$o_object
+	Word.Application ¶ÔÏó±äÁ¿µÄÎÄµµ¶ÔÏó
+$o_Anchor
+	[¿ÉÑ¡²ÎÊı] ³¬Á´½ÓµÄÎÄ±¾»òÍ¼ĞÎ
+	"" = (Ä¬ÈÏ) Ê¹ÓÃÕû¸öÎÄµµ·¶Î§
+$s_Address
+	[¿ÉÑ¡²ÎÊı] Ö¸¶¨Á´½ÓµØÖ·. ¸ÃµØÖ·¿ÉÒÔÊÇµç×ÓÓÊ¼şµØÖ·, »¥ÁªÍøµØÖ·»òÕßÎÄ¼şÃû.
+	"" = (Ä¬ÈÏ) Á¬½Óµ½Ö¸¶¨µÄÎÄ¼ş
+$s_SubAddress
+	[¿ÉÑ¡²ÎÊı] Ä¿±êÎÄ¼şÃû³ÆµÄÎ»ÖÃ, ÈçÊéÇ©, ÃüÃû·¶Î§, »ò»ÃµÆÆ¬±àºÅ.
+$s_ScreenTip
+	[¿ÉÑ¡²ÎÊı] Êó±êÖ¸ÕëÔÚÖ¸¶¨³¬Á´½ÓÎ»ÖÃ³öÏÖÊ±µÄÌáÊ¾ÎÄ±¾.
+	"" = (Ä¬ÈÏ) Ê¹ÓÃ $s_Address µÄÖµ
+$s_TextToDisplay
+	[¿ÉÑ¡²ÎÊı] Ö¸¶¨³¬Á´½ÓµÄÏÔÊ¾ÎÄ±¾. Õâ¸ö²ÎÊıµÄÖµÓÃÀ´Ìæ»»Ö¸¶¨µÄÎÄ±¾»òÍ¼ĞÎÃª.
+	"" = (Ä¬ÈÏ) Ê¹ÓÃ $s_Address µÄÖµ
+$s_Target
+	[¿ÉÑ¡²ÎÊı] Ö¸¶¨³¬Á´½ÓÃû³Æ¼ÓÔØµÄ¿ò¼Ü»ò´°¿Ú.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: è¿”å›1
-å¤±è´¥: è¿”å›0å¹¶è®¾ç½®@ERRORä¸º1
-@Error: 0 ($_WordStatus_Success) = æ— é”™è¯¯
-     3 ($_WordStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»å‹
-     4 ($_WordStatus_InvalidObjectType) = æ— æ•ˆå¯¹è±¡ç±»å‹
-@Extended: å‚æ•°æ•°é‡æ— æ•ˆ
+³É¹¦:	·µ»Ø 1
+Ê§°Ü:	·µ»Ø 0 ÇÒÉèÖÃ @ERROR = 1
+@Error:	$_WordStatus_Success = ÎŞ´íÎó
+	$_WordStatus_InvalidDataType = ÎŞĞ§Êı¾İÀàĞÍ
+	$_WordStatus_InvalidObjectType = ÎŞĞ§¶ÔÏóÀàĞÍ
+@Extended:	°üº¬ÎŞĞ§²ÎÊıÊıÁ¿
 @@End@@
 
+
 ###Remarks###
+None.
+
 
 ###Related###
+None.
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

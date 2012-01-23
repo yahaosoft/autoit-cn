@@ -1,44 +1,48 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _IELinkClickByIndex
 
 ###Description###
-æ¨¡æ‹Ÿé¼ æ ‡ç‚¹å‡»ä¸€ä¸ªç´¢å¼•é“¾æ¥(åœ¨æºç å†…çš„é¡ºåºä»0å¼€å§‹).
+Ä£ÄâÊó±êµã»÷Ò»¸öË÷ÒıÁ´½Ó(ÔÚÔ´ÂëÄÚµÄË³Ğò´Ó0¿ªÊ¼).
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IELinkClickByIndex ( ByRef $o_object, $i_index [, $f_wait = 1] )
 
 ###Parameters###
 @@ParamTable@@
- $o_object  InternetExplorer.Application , çª—å£æˆ–è€…æ¡†æ¶(frame)å¯¹è±¡çš„å¯¹è±¡å˜é‡
- $i_index  [å¯é€‰]: ä½ æƒ³è¦ç‚¹å‡»çš„é“¾æ¥ç´¢å¼•æ•° , ä»0å¼€å§‹
- $f_wait  å¯é€‰: å®šä¹‰åœ¨è¿”å›å‰æ˜¯å¦ç­‰å¾…çª—å£åŠ è½½å®Œæ¯•
-0 = ç«‹å³è¿”å› , ä¸ç­‰å¾…çª—å£åŠ è½½
-1 = (é»˜è®¤) ç­‰å¾…çª—å£åŠ è½½å®Œæ¯•ç„¶åè¿”å›
+$o_object
+	InternetExplorer.Application,´°¿Ú»òÕß¿ò¼Ü(frame)¶ÔÏóµÄ¶ÔÏó±äÁ¿
+$i_index
+	ÄãÏëÒªµã»÷µÄÁ´½ÓË÷ÒıÊı,´Ó0¿ªÊ¼
+$f_wait
+	[¿ÉÑ¡²ÎÊı]: ¶¨ÒåÔÚ·µ»ØÇ°ÊÇ·ñµÈ´ı´°¿Ú¼ÓÔØÍê±Ï
+	0 = Á¢¼´·µ»Ø,²»µÈ´ı´°¿Ú¼ÓÔØ
+	1 = (Ä¬ÈÏ) µÈ´ı´°¿Ú¼ÓÔØÍê±ÏÈ»ºó·µ»Ø
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: è¿”å›-1
-å¤±è´¥: è¿”å›0å¹¶è®¾ç½®@ERRORä¸º:
-    0 ($_IEStatus_Success) = æ— é”™è¯¯
-    1 ($_IEStatus_GeneralError) = ä¸€èˆ¬æ€§é”™è¯¯
-    3 ($_IEStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»å‹
-    4 ($_IEStatus_InvalidObjectType) = æ— æ•ˆå¯¹è±¡ç±»å‹
-    6 ($_IEStatus_LoadWaitTimeout) = åŠ è½½ç­‰å¾…è¶…æ—¶
-    7 ($_IEStatus_NoMatch) = ä¸åŒ¹é…
-    8 ($_IEStatus_AccessIsDenied) = è®¿é—®è¢«ç¦æ­¢
-    9 ($_IEStatus_ClientDisconnected) = å®¢æˆ·ç«¯æ–­å¼€
-    @Extended: åŒ…å«æ— æ•ˆå‚æ•°æ•°é‡
+³É¹¦:	·µ»Ø-1
+Ê§°Ü:	·µ»Ø0 ²¢ÇÒÉèÖÃ @ERROR
+@Error:	0 ($_IEStatus_Success) = ÎŞ´íÎó
+	1 ($_IEStatus_GeneralError) = Ò»°ãĞÔ´íÎó
+	3 ($_IEStatus_InvalidDataType) = ÎŞĞ§Êı¾İÀàĞÍ
+	4 ($_IEStatus_InvalidObjectType) = ÎŞĞ§¶ÔÏóÀàĞÍ
+	6 ($_IEStatus_LoadWaitTimeout) = ¼ÓÔØµÈ´ı³¬Ê±
+	7 ($_IEStatus_NoMatch) = ÎŞÆ¥Åä
+	8 ($_IEStatus_AccessIsDenied) = ·ÃÎÊ±»½ûÖ¹
+	9 ($_IEStatus_ClientDisconnected) = ¿Í»§¶Ë¶Ï¿ª
+@Extended:	°üº¬ÎŞĞ§²ÎÊıÊıÁ¿
 @@End@@
 
+
 ###Remarks###
-å¹¶éæ‰€æœ‰ç»„ä»¶éƒ½åƒå…¶æ˜¾ç¤ºçš„é‚£æ ·æ˜¯é“¾æ¥ , å®ƒä»¬é€šå¸¸æ˜¯é€šè¿‡è·å–Javascriptåœ¨å…¶ä»–DOMç»„ä»¶çš„ç‚¹å‡»äº‹ä»¶æ¨¡æ‹Ÿç‚¹å‡»é“¾æ¥çš„.è¦æ¿€æ´»è¿™ç§ç»„ä»¶ , ä½¿ç”¨_IEActionçš„ "click" .
+²¢·ÇËùÓĞ×é¼ş¶¼ÏñÆäÏÔÊ¾µÄÄÇÑùÊÇÁ´½Ó,ËüÃÇÍ¨³£ÊÇÍ¨¹ı»ñÈ¡JavascriptÔÚÆäËûDOM×é¼şµÄµã»÷ÊÂ¼şÄ£Äâµã»÷Á´½ÓµÄ.Òª¼¤»îÕâÖÖ×é¼ş,Ê¹ÓÃ_IEActionµÄ"click".
+
 
 ###Related###
- _IELinkClickByText , _IELoadWait
+_IELinkClickByText, _IELoadWait
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

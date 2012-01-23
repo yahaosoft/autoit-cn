@@ -2,46 +2,45 @@
 _WinAPI_MultiByteToWideChar
 
 ###Description###
-将字符型字符串映射为一个宽字符集(Unicode)字符串
+映射字符串到宽字符（Unicode）字符串
 
 ###Syntax###
-#Include
-<WinAPI.au3>
-_WinAPI_MultiByteToWideChar($sText[, $iCodePage = 0[,
-$iFlags = 0[, $bRetString = False]]])
+#Include <WinAPI.au3>
+_WinAPI_MultiByteToWideChar($sText [, $iCodePage = 0 [, $iFlags = 0 [, $bRetString = False]]])
 
 ###Parameters###
 @@ParamTable@@
 $sText
-   将被转换的文本
+	文本或 Dll 结构包含的多字节文本
 $iCodePage
-   指定用于转换的编码页:
-    0 - ANSI编码页
-    1 - OEM编码页
-    2 - Macintosh编码页
-    3 - 当前线程的Windows ANSI代码页
-    42 - 符号代码页
-    65000 - UTF-7
-    65001 - gb2312
+	[可选参数] 执行转换的代码页:
+		0 - ANSI 代码页
+		1 - OEM 代码页
+		2 - Macintosh 代码页
+		3 - 当前线程的 Windows ANSI 代码页
+		42 - Symbol 代码页
+		65000 - UTF-7
+		65001 - UTF-8
 $iFlags
-   用来描述是否翻译为预构成或混合构成的宽字符集的标志:
-    $MB_PRECOMPOSED - 总是使用预构成字符集
-    $MB_COMPOSITE - 总是使用混合构成字符集
-    $MB_USEGLYPHCHARS - 使用字形字符代替控件字符
+	[可选参数] 是否转化为预构成或合成的宽字符:
+		$MB_PRECOMPOSED - 预构成字符
+		$MB_COMPOSITE - 合成宽字符
+		$MB_USEGLYPHCHARS - 标志符号字符代替控制字符
 $bRetString
-   [可选] 用以标识返回字符串或结构的标记, 默认返回结构
+	[可选参数] 指定返回字符串或 DLL 结构（默认 false:结构）
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含Unicode字符的字符串或结构
-失败: 设置@error
+成功:	返回包含 Unicode 字符串的字符串或 DLL 结构字符
+失败:	设置@error	
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
-_WinAPI_WideCharToMultiByte , _WinAPI_MultiByteToWideCharEx
+_WinAPI_WideCharToMultiByte, _WinAPI_MultiByteToWideCharEx
 
 ###See Also###
-搜索MSDN知识库中MultiByteToWideChar的相关信息
+@@MsdnLink@@ MultiByteToWideChar

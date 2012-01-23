@@ -1,8 +1,8 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _GUICtrlRichEdit_SetFont
 
 ###Description###
-è®¾ç½®é€‰ä¸­å†…å®¹å¦‚æœæ²¡é€‰æ‹©æ—¶åœ¨æ’å…¥ç‚¹å¤„çš„å­—ä½“å±æ€§
+ÉèÖÃÑ¡¶¨ÎÄ±¾(»òÕßÃ»ÓĞÑ¡¶¨Ê±,ÉèÖÃ²åÈëµã²åÈëÎÄ±¾) µÄ×ÖÌåÊôĞÔ
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -10,46 +10,51 @@ _GUICtrlRichEdit_SetFont($hWnd [, $iPoints = Default[, $sName = Default[, $iChar
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  æ§ä»¶å¥æŸ„
- $iPoints  [å¯é€‰]: ç‚¹é˜µå­—ä½“å¤§å°
- $sName  [å¯é€‰]: å­—ä½“åç§°, å¦‚, "Courier"è€Œé"Courier Bold"
- $iCharSet  [å¯é€‰]: å­—ç¬¦é›† - ä¸‹åˆ—ä¹‹ä¸€:
-$ANSI_CHARSET - 0
-$BALTIC_CHARSET - 186
-$CHINESEBIG5_CHARSET - 136
-$DEFAULT_CHARSET - 1
-$EASTEUROPE_CHARSET - 238
-$GB2312_CHARSET - 134
-$GREEK_CHARSET - 161
-$HANGEUL_CHARSET - 129
-$MAC_CHARSET - 77
-$OEM_CHARSET - 255
-$RUSSIAN_CHARSET - 204
-$SHIFTJIS_CHARSET - 128
-$SYMBOL_CHARSET - 2
-$TURKISH_CHARSET - 162
-$VIETNAMESE_CHARSET - 163
- $iLcid  [å¯é€‰]: è§http://www.microsoft.com/globaldev/reference/lcid-all.mspx
+$hWnd
+	¿Ø¼ş¾ä±ú
+$iPoints
+	[¿ÉÑ¡²ÎÊı] °õÖµ(×¢:1 °õ=1/72 Ó¢´ç)´óĞ¡
+$sName
+	[¿ÉÑ¡²ÎÊı] ×ÖÌåµÄÃû³Æ, ÀıÈç: "Courier" not "Courier ´ÖÌå"
+$iCharSet
+	[¿ÉÑ¡²ÎÊı] ×Ö·û¼¯:
+		$ANSI_CHARSET - 0
+		$BALTIC_CHARSET - 186
+		$CHINESEBIG5_CHARSET - 136
+		$DEFAULT_CHARSET - 1
+		$EASTEUROPE_CHARSET - 238
+		$GB2312_CHARSET - 134
+		$GREEK_CHARSET - 161
+		$HANGEUL_CHARSET - 129
+		$MAC_CHARSET - 77
+		$OEM_CHARSET - 255
+		$RUSSIAN_CHARSET - 204
+		$SHIFTJIS_CHARSET - 128
+		$SYMBOL_CHARSET - 2
+		$TURKISH_CHARSET - 162
+		$VIETNAMESE_CHARSET - 163
+$iLcid
+	[¿ÉÑ¡²ÎÊı] ¼û http://www.microsoft.com/globaldev/reference/lcid-all.mspx
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- æˆåŠŸ:  çœŸ
- å¤±è´¥:  å‡å¹¶è®¾ç½®@error
- @error:  101 - $hWndä¸æ˜¯å¥æŸ„
-  102 - $iPointsä¸æ˜¯æ­£æ•°
-  103 - $sNameä¸æ˜¯å­—æ¯
-  104 - $iLcidä¸æ˜¯æ•°å­—
+³É¹¦:	·µ»Ø True
+Ê§°Ü:	·µ»Ø False,ÉèÖÃ@error
+@error:	101 - $hWnd ²ÎÊıÖµ²»ÊÇ¾ä±ú
+	102 - $iPoints ²ÎÊıÖµ²»ÊÇÕıÊı
+	103 - $sName is not alphabetic
+	104 - $iLcid ²»ÊÇÒ»¸öÊı×Ö
 @@End@@
 
 ###Remarks###
-å¦‚æœå¿½ç•¥å‚æ•°(æˆ–ä¸ºé»˜è®¤), ä¸æ”¹å˜å€¼
+ Èç¹û²ÎÊı±»Ê¡ÂÔ£¨»òÄ¬ÈÏ£©,Ôò¸ÃÖµ²»±ä
 
 ###Related###
-  _GUICtrlRichEdit_GetFont , _GUICtrlRichEdit_ChangeFontSize
+_GUICtrlRichEdit_GetFont, _GUICtrlRichEdit_ChangeFontSize
 
 ###See Also###
- http://www.hep.wisc.edu/~pinghc/books/apirefeng/l/logfont.html
+@@MsdnLink@@ EM_SETCHARFORMAT, @@MsdnLink@@ LOGFONT, http://www.hep.wisc.edu/~pinghc/books/apirefeng/l/logfont.html
 
 ###Example###
 @@IncludeExample@@

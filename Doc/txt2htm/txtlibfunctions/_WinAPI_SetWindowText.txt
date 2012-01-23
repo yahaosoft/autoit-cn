@@ -2,31 +2,33 @@
 _WinAPI_SetWindowText
 
 ###Description###
-改变指定窗口标题栏的文本
+更改指定窗口的标题栏文本
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_SetWindowText($hWnd,
-$sText)
+_WinAPI_SetWindowText($hWnd, $sText)
 
 ###Parameters###
 @@ParamTable@@
-$hWnd  要改变文本的窗口或控件的句柄
-$sText  将作为窗口或控件标题的新文本
+$hWnd
+	窗口或控件的句柄
+$sText
+	新的字符串
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-如果目标窗口属于当前进程, SetWindowText函数会将 $WM_SETTEXT 消息发送给指定的窗口或控件.
-然而，如果控件是一个以$WS_CAPTION风格创建的列表框控件, SetWindowText 函数将为控制设置文本,
-而不是为列表项设置文本. 在另一个进程中设置控件的文本, 直接发送$WM_SETTEXT而不用调用SetWindowText.
+ 如果目标窗口是由当前进程拥有, 本函数将导致 $WM_SETTEXT 消息被发送到指定的窗口或控件.
+ 如果控件是一个使用 $WS_CAPTION 样式创建的列表框控件,
+ 本函数设置控件的文本, 而不是为列表框中的项.
+ 设置另一进程控件的文本,直接发送 $WM_SETTEXT 消息, 而不是调用本函数.
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中SetWindowText的相关信息
+@@MsdnLink@@ SetWindowText

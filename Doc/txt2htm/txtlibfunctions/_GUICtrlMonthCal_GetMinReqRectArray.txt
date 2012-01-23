@@ -2,29 +2,35 @@
 _GUICtrlMonthCal_GetMinReqRectArray
 
 ###Description###
-获取月历控件中显示一个完整月份所需的最小尺寸
+检索显示完整月历所需的最低尺寸
 
 ###Syntax###
-#Include<GuiMonthCal.au3>
+#Include <GuiMonthCal.au3>
 _GUICtrlMonthCal_GetMinReqRectArray($hWnd)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
+$hWnd
+	控件句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真, 句柄设置为0
-失败: 假
+成功:	返回如下格式的数组:
+	[0] - 元素数量 
+	[1] - 月历左上角 X 坐标 
+	[2] - 月历左上角 Y 坐标 
+	[3] - 月历右下角 X 坐标,如[1]为 0 , 则此值可看作月历的宽度 
+	[4] - 月历右下角 Y 坐标,如[2]为 0 , 则此值可看作月历的高度
+失败:	返回 FalseSuccess:True, Handle is set to 0 (	成功:	返回 True, 句柄设置为 0 ) Failure:False (
+失败:	返回 False )
 @@End@@
 
 ###Remarks###
-日历控件所需的最小窗口尺寸依赖于当前选择的字体, 控件风格, 系统度量, 和地方设置.
+ 月日历控件所需的窗口大小取决于当前选定的字体,
+ 控件样式, 运行的系统和区域设置.
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

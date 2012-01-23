@@ -2,36 +2,37 @@
 _SetTime
 
 ###Description###
-设置当前的系统时间
+设置系统的当前时间
 
 ###Syntax###
 #Include <Date.au3>
-_SetTime($iHour, $iMinute[, $iSecond = 0])
+_SetTime($iHour, $iMinute [, $iSecond = 0])
 
 ###Parameters###
 @@ParamTable@@
- $iHour  时. 值: 0-23
- $iMinute  分. 值: 0-59
- $iSecond  可选: 秒. 值: 0-59
+$iHour
+	小时. 取值范围 0-23
+$iMinute
+	分钟. 取值范围 0-59
+$iSecond
+	[可选参数] 秒. 取值范围 0-59
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  1
- 失败:  0
- @Error:  0 - 无错误
-  1 - 失败
- @extended:  GetLastError()
-  可通过 MS681381 查询错误号
+成功:	返回 1
+失败:	返回 0,设置@error:	
+@error:	0 - 无错误
+	1 - 失败@extended:
+	GetLastError()
+	错误代码参见:http://msdn.microsoft.com/en-us/library/ms681381.aspx
 @@End@@
 
 ###Remarks###
-如果可选参数(iMonth,iYear)未被指定, 函数不会改变当前值!
+如果可选参数 (iSecond) 没有定义,该函数不会改变当前值!
 
 ###Related###
- _SetDate
-
-###See Also###
+_SetDate
 
 ###Example###
 @@IncludeExample@@

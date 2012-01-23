@@ -2,31 +2,34 @@
 _WinAPI_WaitForSingleObject
 
 ###Description###
-等待至指定对象处于标记状态
+等待, 直到指定的对象是在信号状态
 
 ###Syntax###
-#Include
-<WinAPI.au3>
-_WinAPI_WaitForSingleObject($hHandle[, $iTimeout =
--1])
+#Include <WinAPI.au3>
+_WinAPI_WaitForSingleObject($hHandle [, $iTimeout = -1])
 
 ###Parameters###
 @@ParamTable@@
-$hHandle  对象句柄
-$iTimeout  超时的毫秒间隔. 经过时间间隔时函数返回, 即由fWaitAll参数指定的环境尚未完成. 如果为0, 函数检查指定对象的状态并立即返回.
-      如果为-1, 直到相应时间事件为有信号状态才返回.
+$hHandle
+	对象的句柄
+$iTimeout
+	[可选参数] 超时时间间隔的毫秒值. 
+		如果 $fWaitAll 参数指定的条件没有得到满足, 函数在间间隔过后返回. 
+		如果为0, 函数测试指定对象的状态并立即返回.
+		如果为 -1, 函数的超时间隔永远不会消失.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 指示导致函数返回的事件
-失败: -1
+成功:	由事件导致的函数返回
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 _WinAPI_WaitForMultipleObjects
 
 ###See Also###
-搜索MSDN知识库中WaitForSingleObject的相关信息
+@@MsdnLink@@ WaitForSingleObject

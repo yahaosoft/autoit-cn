@@ -2,32 +2,33 @@
 _WinAPI_GetRgnBox
 
 ###Description###
-获取指定区域的边界矩形
+检索指定矩形区域的边界.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetRgnBox( $hRgn, ByRef $tRECT )
+_WinAPI_GetRgnBox ( $hRgn, ByRef $tRECT )
 
 ###Parameters###
 @@ParamTable@@
 $hRgn
-   区域句柄
+	矩形句柄.
 $tRECT
-$tagRECT结构
+	$tagRECT 结构, 接收矩形边界的逻辑单位.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 指定区域复杂度的值. 可谓下列值之一:
-    $NULLREGION - 空区
-    $SIMPLEREGION - 简单矩形区域
-    $COMPLEXREGION - 多个简单矩形区域
-失败: 返回0并设置@error非0
+成功:	返回指定区域的状态值. 可以是以下值之一:
+	$COMPLEXREGION --- 区域超过一个矩形.
+	$NULLREGION --- 空区域.
+	$SIMPLEREGION --- 区域是一个单一矩形
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetRgnBox的相关信息
+@@MsdnLink@@ GetRgnBox
+

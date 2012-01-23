@@ -2,51 +2,54 @@
 _WinAPI_PlaySound
 
 ###Description###
-播放由给定文件名, 资源或系统事件指定的声音
+播放指定文件名、资源或系统事件的声音.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_PlaySound ( $sSound, $iFlags [, $hInstance] )
+_WinAPI_PlaySound ( $sSound [, $iFlags [, $hInstance]] )
 
 ###Parameters###
 @@ParamTable@@
 $sSound
-$sSound为空则停止当前播放的所有波形声音.
+	要播放的声音.最大长度为 255 个字符.
+		 如果 $sSound 为空,则停止任何正在播放的波形声音
 $iFlags
-   用于播放的标记. 该参数可为一个或多个下列值:
-    $SND_APPLICATION - 用应用程序指定的关联来播放声音
-    $SND_ALIAS - 指定注册表或WIN.INI中的系统事件的别名
-    $SND_ALIAS_ID - 指定预定义的声音标识符
-    $SND_ASYNC - 用异步方式播放声音
-    $SND_FILENAME - 指定了WAVE文件名
-    $SND_LOOP - 重复播放声音必须与SND_ASYNC标志同时使用
-    $SND_MEMORY - 播放载入到内存中的声音
-    $SND_NODEFAULT - 不播放缺省声音
-    $SND_NOSTOP - 不打断原来的声音播出并立即返回FALSE
-    $SND_NOWAIT - 如果驱动程序正忙则函数就不播放声音并立即返回
-    $SND_PURGE - 停止所有与调用任务有关的声音
-    $SND_RESOURCE - WAVE资源的标识符
-    $SND_SYNC - 同步播放声音
-$SND_ALIAS , $SND_FILENAME和$SND_RESOURCE)确定名称是否被认为是一个系统事件 , 文件名或资源标识的代用名. 如果未指定这些标记 , _WinAPI_PlaySound()将搜索注册表或WIN.INI文件以对指定的声音名称进行关联. 如果找到关联 , 播放声音事件. 如果在注册表中文找到关联 , 名称将被视为文件名称.
-$iFlags中指定了$SND_ALIAS_ID标记, $sSound参数必须具有$SND_ALIAS_...值中的一个.
-    (参考MSDN中的更多信息)
+	[可选参数] 声音播放的标志. 参数可以是一或多个下列值:
+		 $SND_APPLICATION --- $sSound 参数是注册表中的应用特定别名.结合 SND_ALIAS 或 SND_ALIAS_ID 标志指定应用程序定义的声音别名
+		 $SND_ALIAS --- $sSound 参数是注册表或 Win.ini 文件中的系统事件别名.不要使用 SND_FILENAME 或 SND_RESOURCE
+		 $SND_ALIAS_ID --- $sSound 参数是预定义系统事件标识符的别名
+		 $SND_ASYNC --- 异步播放声音,并在播放后立即返回到声音的起点
+		 $SND_FILENAME --- $sSound 参数是一个文件名.指定如果文件无法找到,函数播放默认声音,除非 SND_NODEFAULT 标志被设置
+		 $SND_LOOP --- 反复播放声音,直到 $sSound 参数设置位空.必须同时设置 SND_ASYNC 标志
+		 $SND_MEMORY --- $sSound 参数指向加载内存中的声音
+		 $SND_NODEFAULT --- 如果声音无法找到,使用默认声音事件
+		 $SND_NOSTOP --- 指定的声音事件替换正在播放的声音事件
+		 $SND_NOWAIT --- 不支持
+		 $SND_PURGE --- 不支持
+		 $SND_RESOURCE --- $sSound 参数是一个资源标识符
+		 $SND_SYNC --- 声音同步播放
+		 $SND_ALIAS, $SND_FILENAME 与 $SND_RESOURCE 3 个标志解释名称是否为系统事件、文件名、或资源标识符的别名.
+		 如果没有指定这些标志,_WinAPI_PlaySound() 为指定的声音名搜索注册表或 WIN.INI 文件.
+		 如果发现,则播放声音事件.如果注册表中未找到,则声音名字被解释为一个文件名.
+		 如果 $iFlags 指定 $SND_ALIAS_ID,$sSound 参数必须是 $SND_ALIAS_* 值.
+		 (为了解更多信息,请参见 MSDN)
 $hInstance
-$iFlags未包含$SND_RESOURCE则忽略.
+	[可选参数] 包含加载资源的可执行文件句柄.如果 $iFlags 不包含 $SND_RESOURCE,此参数将被忽略.	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-正常运行示例请将 Resources.dll 文件或 Resources_x64.dll 文件(x64系统使用)保存到临时文件夹中
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中PlaySound的相关信息
+@@MsdnLink@@ PlaySound
 
 ###Example###
 @@IncludeExample@@
+

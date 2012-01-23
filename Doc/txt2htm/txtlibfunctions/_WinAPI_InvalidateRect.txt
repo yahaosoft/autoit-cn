@@ -2,35 +2,36 @@
 _WinAPI_InvalidateRect
 
 ###Description###
-将一个矩形添加到指定窗口的更新区域
+添加矩形到指定窗口的更新区域
 
 ###Syntax###
-#Include
-<WinAPI.au3>
-_WinAPI_InvalidateRect($hWnd[, $tRect = 0[, $fErase =
-True]])
+#Include <WinAPI.au3>
+_WinAPI_InvalidateRect($hWnd [, $tRect = 0 [, $fErase = True]])
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   窗体句柄
+	窗口句柄
 $tRect
-$tagRECT结构. 如果该参数为0则将全部客户区添加到更新区.
+	[可选参数] $tagRECT 结构,包含矩形添加到更新区域的客户端坐标
+		如果此参数为 0, 整个客户区被添加到更新区域.
 $fErase
-   指定更新区域的背景在更新区域被操作时是否被擦除. 如果该参数为真背景在调用BeginPaint函数时被擦除. 如果参数为假,
-    背景不改变.
+	[可选参数] 指定更新区域时是否删除背景
+		如果参数为 True ,背景被删除时, BeginPaint 函数被调用
+		如果此参数为 False, 背景保持不变
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 $tagRECT
 
 ###See Also###
-搜索MSDN知识库中InvalidateRect的相关信息
+@@MsdnLink@@ InvalidateRect

@@ -2,7 +2,7 @@
 _GDIPlus_ImageGetFlags
 
 ###Description###
-枚举包含在图像中的像素数据属性
+枚举图像的像素数据属性
 
 ###Syntax###
 #Include <GDIPlus.au3>
@@ -10,29 +10,29 @@ _GDIPlus_ImageGetFlags($hImage)
 
 ###Parameters###
 @@ParamTable@@
-$hImage 
-   图像对象句柄
+$hImage
+	图形对象句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如下格式数组:
-   [0] - 像素数据属性的整数标记设置
-   [1] - 由分隔符"|"分割的像素数据属性的字符串
-失败: 返回空字符串并设置@error, @extended设置错误原因
-    0 - 无错误
-    4 - 无效图像句柄
+成功:	返回下格式数组:
+	[0] - - 像素数据属性设置的标志
+	[1] - - 由分隔符"|"分割的像素数据属性字符串
+失败:	返回空数组设置@error:	
+, @extended 设置为错误的位置@error:
+	0 - 无错误.
 @@End@@
 
 ###Remarks###
-@error=4依赖于GDI+ UDF返回的-1或0而不是图像句柄错误
-对于以GdipGetImageFlags常量设置的整数标记使用BitAND
+ @error 4 依赖于 GDI+ UDF 返回的 -1 或 0, 而不是图像句柄错误.
+ 对于以 GdipGetImageFlags 常量设置的整数标记使用 BitAND.
 
 ###Related###
- _GDIPlus_ImageGetPixelFormat
+_GDIPlus_ImageGetPixelFormat
 
 ###See Also###
- 查看MSDN知识库中GdipGetImageFlags的相关信息
+@@MsdnLink@@ GdipGetImageFlags
 
 ###Example###
 @@IncludeExample@@

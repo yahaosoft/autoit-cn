@@ -2,33 +2,33 @@
 _WinAPI_EndPaint
 
 ###Description###
-在指定窗口标记绘图终点
+标记指定窗口的绘图终点.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_EndPaint( $hWnd, ByRef $tPAINTSTRUCT )
+_WinAPI_EndPaint ( $hWnd, ByRef $tPAINTSTRUCT )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   被重绘的窗体句柄
+	窗口句柄.
 $tPAINTSTRUCT
-$tagPAINTSTRUCT结构
+	$tagPAINTSTRUCT 结构, 它包含供 _WinAPI_BeginPaint() 检索的绘制信息.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-每次调用_WinAPI_BeginPaint()函数都需要该函数, 但只在完成绘制后.
+本函数必须在每个绘制完成后调用 _WinAPI_BeginPaint() 函数.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中EndPaint的相关信息
+@@MsdnLink@@ EndPaint
 
 ###Example###
 @@IncludeExample@@
+

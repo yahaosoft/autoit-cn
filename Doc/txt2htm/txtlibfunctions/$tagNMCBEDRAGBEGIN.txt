@@ -2,17 +2,22 @@
 $tagNMCBEDRAGBEGIN
 
 ###Description###
-包含用于$CBEN_DRAGBEGIN通知消息的信息
+包含使用 $CBEN_DRAGBEGIN 通知消息的信息
 
 ###Syntax###
-Global Const $tagNMCBEDRAGBEGIN = $tagNMHDR & ";int ItemID;char Text[1024]"
+Global Const $tagNMCBEDRAGBEGIN = $tagNMHDR & ";int ItemID;wchar szText[260]"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   包含关于通知消息的信息
+	包含通知消息的信息
 ItemID
-   将被拖曳的项目的0基索引. 该值经常为-1, 表示将被拖曳的项目为控件编辑部分显示的项目.
-Text
-   包含将被拖曳的项目的文本的字符缓冲区
-@@end@@
+	被拖动项目的 0 基索引.此值将始终是 -1,
+	表示将被拖曳的项目为编辑控件显示的项目
+szText
+	包含将被拖曳项目的文本字符缓冲区
+@@End@@
+
+###Remarks###
+None.
+

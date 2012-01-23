@@ -2,56 +2,57 @@
 _WinAPI_GetCDType
 
 ###Description###
-获取载入指定CD-ROM设备的媒体类型
+Retrieves a type of the media which is loaded into a specified CD-ROM device.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetCDType( $sDrive )
+_WinAPI_GetCDType ( $sDrive )
 
 ###Parameters###
 @@ParamTable@@
 $sDrive
-   要获取信息的CD托盘的驱动器字母, 格式如D:, E:等
+	The drive letter of the CD tray to retrieve information, in the format D:, E:, etc.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回媒体类型. 可为下列值之一:
-    0x0000 - No media
-    0x0008 - CD-ROM
-    0x0009 - CD-R
-    0x000A - CD-RW
-    0x0010 - DVD-ROM
-    0x0011 - DVD-R Sequential Recording
-    0x0012 - DVD-RAM
-    0x0013 - DVD-RW Restricted Overwrite
-    0x0014 - DVD-RW Sequential Recording
-    0x0015 - DVD-R Dual Layer
-    0x0016 - DVD-R Dual Layer Jump Recording
-    0x0017 - DVD-RW Dual Layer
-    0x0018 - DVD-Download Disc Recording
-    0x001A - DVD+RW
-    0x001B - DVD+R
-    0x0040 - BD-ROM
-    0x0041 - BD-R Sequential Recording Mode (SRM)
-    0x0042 - BD-R Random Recording Mode (RRM)
-    0x0043 - BD-RE
-    0x0050 - HD DVD-ROM
-    0x0051 - HD DVD-R
-    0x0052 - HD DVD-RAM
-    0x0053 - HD DVD-RW
-    0x0058 - HD DVD-R Dual Layer
-    0x005A - HD DVD-RW Dual Layer
-    0xFFFF - Unknown
-失败: 返回0并设置@error非0
+Success	The type of the media, it must be one of the following values.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0000	No media
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0008	CD-ROM
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0009	CD-R
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x000A	CD-RW
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0010	DVD-ROM
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0011	DVD-R Sequential Recording
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0012	DVD-RAM
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0013	DVD-RW Restricted Overwrite
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0014	DVD-RW Sequential Recording
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0015	DVD-R Dual Layer
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0016	DVD-R Dual Layer Jump Recording
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0017	DVD-RW Dual Layer
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0018	DVD-Download Disc Recording
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x001A	DVD+RW
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x001B	DVD+R
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0040	BD-ROM
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0041	BD-R Sequential Recording Mode (SRM)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0042	BD-R Random Recording Mode (RRM)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0043	BD-RE
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0050	HD DVD-ROM
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0051	HD DVD-R
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0052	HD DVD-RAM
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0053	HD DVD-RW
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0058	HD DVD-R Dual Layer
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x005A	HD DVD-RW Dual Layer
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0xFFFF	Unknown
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中IOCTL_SCSI_PASS_THROUGH的相关信息
+@@MsdnLink@@ IOCTL_SCSI_PASS_THROUGH
 
 ###Example###
 @@IncludeExample@@
+

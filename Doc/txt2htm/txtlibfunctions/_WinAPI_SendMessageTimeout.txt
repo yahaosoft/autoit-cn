@@ -2,45 +2,50 @@
 _WinAPI_SendMessageTimeout
 
 ###Description###
-向多个窗口中的一个发送指定消息
+发送指定消息到其它窗口.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SendMessageTimeout( $hWnd, $iMessage [, $wParam [, $lParam [, $iTimeout [, $iFlags]] )
+_WinAPI_SendMessageTimeout ( $hWnd, $iMessage [, $wParam [, $lParam [, $iTimeout [, $iFlags]]]] )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   接收消息的窗体进程的窗体的句柄
+	接收消息的窗口句柄.
 $iMessage
-   将被发送的信息
+	被发送的消息.
 $wParam
-   [可选] 消息指定的额外信息
+	[可选参数] 消息的其它特定信息.
 $lParam
-   [可选] 消息指定的额外信息
+	[可选参数] 消息的其它特定信息.
 $iTimeout
-   [可选] 窗口超时的毫秒值. 如果是广播消息, 窗口可使用满度超时. 默认为1000.
+	[可选参数] 持续超时时间的毫秒值. 如果该消息是通知消息,
+		每个窗口可以使用完整的超时时间.默认为 1000
 $iFlags
-   [可选] 指定如何发送消息的标记. 可为一个或多个下列值:
-    $SMTO_BLOCK - 防止调用的线程在函数返回前执行其他请求
-    $SMTO_NORMAL - 等待函数返回时不阻止调用线程处理其他请求
-    $SMTO_ABORTIFHUNG - 当接收线程看似无响应或"挂起"时函数部等待超时
-    $SMTO_NOTIMEOUTIFNOTHUNG - 在接收线程处理消息的超时期间不执行函数
-    $SMTO_ERRORONEXIT - 在接收窗口被销毁或属于其的线程在处理消息时已终止的情况下函数返回0
+	[可选参数] 指明如何发送邮消息.
+		参数可以是一或多个下列值:
+		 $SMTO_BLOCK --- 防止调用线程处理任何其他请求,直到函数返回.
+		 $SMTO_NORMAL --- 不阻止调用线程处理其它请求求,同时等待函数返回
+		 $SMTO_ABORTIFHUNG --- 如果接收线程没有回应或“挂起”,函数返回,不必等待超时时间
+		 $SMTO_NOTIMEOUTIFNOTHUNG --- 只要是接收线程处理消息,该函数不执行超时时间
+		 $SMTO_ERRORONEXIT --- 如果接收窗口被销毁或死亡,而信息正在处理中,函数应返回 0
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回消息进程依赖于所发送的消息的结果.
-失败: 返回-1并设置@error非0
+成功:	返回取决于发送消息的处理结果.
+失败:	返回 -1,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-当使用$HWND_BROADCAST时该函数不提供关于独立窗体超时的信息.
-如果超时, 函数失败. 调用_WinAPI_GetLastError()可获取扩展错误信息. 如果_WinAPI_GetLastError()返回ERROR_TIMEOUT, 则函数超时. 当五秒内无应答时该函数认为线程无响应.
-系统仅为系统消息编组(范围在0到(WM_USER-1)间). 如果发送其他消息(>= WM_USER)到另一进程, 必须自定义编组.
+如果使用 $HWND_BROADCAST, 此函数不提供个别窗口的超时信息.
+ 如果超时,函数将失败. 调用 _WinAPI_GetLastError() 获取更多的错误信息.
+ 如果 _WinAPI_GetLastError() 返回 ERROR_TIMEOUT, 则函数超时.
+ 若 5 秒内没有响应, 则函数认为是一个没有响应的线程.
+ 系统仅为系统消息编组, 范围为 0 到 (WM_USER-1).
+ 要发送其它消息( 即 >= WM_USER )到另一个进程,你必须自定义编组.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SendMessageTimeout的相关信息
+@@MsdnLink@@ SendMessageTimeout
+

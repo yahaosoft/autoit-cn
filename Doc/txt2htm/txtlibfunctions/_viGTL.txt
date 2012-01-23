@@ -2,32 +2,35 @@
 _viGTL
 
 ###Description###
-转为本地模式: 接收该命令的设备将退出"远程控制模式"并转入"本地模式". 如果设备已处于"本地模式" 将被忽略. 通常 , 如果设备不支持该命令将一直处于"远程控制模式"
+转至本地模式:仪器接受此命令将退出“远程控制模式”,进入“本地模式”. 如果仪器已在“本地模式”这将被忽略. 一般说来,如果仪器不支持此命令将仅仅停留在“远程控制模式”
 
 ###Syntax###
-#Include <Visa.au3>
+#include <Visa.au3>
 _viGTL ( $h_session )
+
 
 ###Parameters###
 @@ParamTable@@
- $h_session  VISA描述符(字符串)或VISA进程句柄(整数). 更多信息参阅_viExecCommand备注.
+$h_session
+	VISA 描述符（字符串）或 VISA 会话句柄（整数）.
+		更多信息见 _viExecCommand 备注.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回0
-失败: 返回-1如果无法打开VISA DLL或代表VIXA错误的非0值(参见VISA程序员向导)
-该函数通常在出错时设置@error为1.
+成功:	返回 0
+失败:	返回 -1, VISA DLL 无法打开; 非零值代表 VISA 错误代码 (见 VISA 程序员指南).
 @@End@@
 
 ###Remarks###
-要使用VISA函数必须安装有VISA库(可以检查{WINDOWS}\system32中是否存在visa32.dll)和GPIB卡(如National Instruments NI PCI-GPIB card或Agilent 82350B PCI High-Performance GPIB card)
-* 常用VISA描述符的详细描述可查看帮助中_viExecCommand函数的备注
+VISA 函数必须安装 VISA 库文件(您可以检查visa32.dll是否在 WINDOWS\System32 目录中)
+及 GPIB 卡(例如 National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card)
+ * 常见 VISA 描述符详细介绍,见 _viExecCommand 函数备注
+
 
 ###Related###
- _viExecCommand , _viGpibBusReset , _viFindGpib , _viOpen , _viClose
+_viExecCommand, _viGpibBusReset, _viFindGpib, _viOpen, _viClose
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

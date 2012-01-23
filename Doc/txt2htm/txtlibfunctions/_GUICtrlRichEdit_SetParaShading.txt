@@ -1,8 +1,8 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _GUICtrlRichEdit_SetParaShading
 
 ###Description###
-è®¾ç½®(é¦–ä¸ª)è¢«é€‰æ®µè½æˆ–(æ— é€‰å®šæ—¶çš„)å½“å‰æ®µè½çš„é˜´å½±æ ·å¼
+ÉèÖÃ(µÚÒ»)µ±Ç°Ñ¡Ôñ(»òÃ»ÓÐÑ¡ÔñÊ±µÄ²åÈëµãËùÔÚ¶ÎÂä)µÄÃ÷°µ´¦Àí
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -10,64 +10,69 @@ _GUICtrlRichEdit_SetParaShading($hWnd [, $iWeight = Default [, $sStyle = Default
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  æŽ§ä»¶å¥æŸ„
- $iWeight  [å¯é€‰]: å‰æ™¯è‰²çš„ç™¾åˆ†æ¯”, å‰©ä½™çš„ä¸ºèƒŒæ™¯è‰²
- $sStyle  [å¯é€‰]: é˜´å½±æ ·å¼ - åŒ…å«ä¸€ä¸ªä¸‹åˆ—çš„å­—ç¬¦ä¸²:
-non - æ— 
-dhz - æ°´å¹³é»‘
-dvt - åž‚ç›´é»‘
-ddd - å‘ä¸‹å¯¹è§’çº¿é»‘
-dud - å‘ä¸Šå¯¹è§’çº¿é»‘
-dgr - ç½‘æ ¼é»‘
-dtr - ç½‘æ ¼é»‘
-lhz - æ°´å¹³äº®
-lvt - åž‚ç›´äº®
-ldd - å‘ä¸‹å¯¹è§’çº¿äº®
-lud - å‘ä¸Šå¯¹è§’çº¿äº®
-lgr - ç½‘æ ¼äº®
-ltr - ç½‘æ ¼äº®
- $sForeColor  [å¯é€‰]: å‰æ™¯è‰² - ä¸‹åˆ—ä¹‹ä¸€:
-"blk" - é»‘(åˆå§‹å€¼)
-"blu" - è“
-"cyn" - é’
-"grn" - ç»¿
-"mag" - å“çº¢
-"red" - çº¢
-"yel" - é»„
-"whi" - ç™½
-"dbl" - è“é»‘
-"dgn" - å¢¨ç»¿
-"dmg" - æ·±ç´«çº¢
-"drd" - æš—çº¢
-"dyl" - æš—é»„
-"dgy" - æ·±ç°
-"lgy" - æµ…ç°
- $sBackColor  [å¯é€‰]: ä¸Ž$sForeColorç›¸åŒ
+$hWnd
+	¿Ø¼þ¾ä±ú
+$iWeight
+	[¿ÉÑ¡²ÎÊý] Ç°¾°É«µÄ°Ù·Ö±È,ÆäÓàÎª±³¾°É«
+$sStyle
+	[¿ÉÑ¡²ÎÊý] Ã÷°µ´¦ÀíÀàÐÍ - °üº¬ÏÂÁÐÖµÖ®Ò»µÄ×Ö·û´®:
+		non - ÎÞ
+		dhz - °µË®Æ½Ïß
+		dvt - °µ´¹Ö±Ïß
+		ddd - °µÏÂ¶Ô½ÇÏß
+		dud - °µÉÏ¶Ô½ÇÏß
+		dgr - °µÕ¤¸ñ
+		dtr - °µÍø¸ñ
+		lhz - ÁÁË®Æ½Ïß
+		lvt - ÁÁ´¹Ö±Ïß
+		ldd - ÁÁÏÂ¶Ô½ÇÏß
+		lud - ÁÁÉÏ¶Ô½ÇÏß
+		lgr - ÁÁÕ¤¸ñ
+		ltr - ÁÁÍø¸ñ
+$sForeColor
+	[¿ÉÑ¡²ÎÊý] ¹ö¶¯ÀàÐÍ:
+		"blk" - ºÚÉ« (³õÊ¼Öµ)
+		"blu" - À¶É«
+		"cyn" - ÇàÉ«
+		"grn" - ÂÌÉ«
+		"mag" - ×ÏÉ«
+		"red" -ºì
+		"yel" -»Æ
+		"whi" - °×É«
+		"dbl" - °µÀ¶
+		"dgn" - °µÂÌ
+		"dmg" - °µ×Ï
+		"drd" - °µºì
+		"dyl" - °µ»Æ
+		"dgy" - °µ»Ò
+		"lgy" - ÁÁ»Ò
+$sBackColor
+	[¿ÉÑ¡²ÎÊý] ²ÎÊýÖµÓë $sForeColor ÏàÍ¬
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- æˆåŠŸ:  çœŸ
- å¤±è´¥:  å‡å¹¶è®¾ç½®@error
- @error:  101 - $hWndä¸æ˜¯å¥æŸ„
-  1021 - $iWeightä¸æ˜¯æ­£æ•°
-  1022 - $iWeightçš„å€¼æ— æ•ˆ
-  103 - $sStyleçš„å€¼æ— æ•ˆ
-  104 - $sForeColorçš„å€¼æ— æ•ˆ
-  105 - $sBackColorçš„å€¼æ— æ•ˆ
-  700 - æ“ä½œå¤±è´¥
+³É¹¦:	·µ»Ø True
+Ê§°Ü:	·µ»Ø False,ÉèÖÃ@error
+@error:	101 - $hWnd ²ÎÊýÖµ²»ÊÇ¾ä±ú
+	1021 - $iWeight ²ÎÊýÖµ²»ÊÇÕýÊý
+	1022 - $iWeight ²ÎÊýÖµÎÞÐ§
+	103 - $sStyle ²ÎÊýÖµÎÞÐ§
+	104 - $sForeColor ²ÎÊýÖµÎÞÐ§
+	105 - $sBackColor ²ÎÊýÖµÎÞÐ§
+	700 - ²Ù×÷Ê§°Ü
 @@End@@
 
 ###Remarks###
-å½“é€‰å®šæ–‡æœ¬æ—¶, é»˜è®¤æ˜¯ç¬¬ä¸€ä¸ªå¸¦æœ‰é€‰å®šæ–‡æœ¬çš„æ®µè½çš„å€¼.
-å¦‚æžœæ²¡æœ‰é€‰å®šæ—¶, é»˜è®¤æ˜¯å½“å‰æ®µ.
-åœ¨å¯Œæ–‡æœ¬ç¼–è¾‘æŽ§ä»¶ä¸­ä¸æ˜¾ç¤ºé˜´å½±, ä½†æ­¤å¤„åˆ›å»ºçš„é˜´å½±ä¸ä¼šåœ¨æ–‡å­—ä¸­æ˜¾ç¤º
+ Èç¹ûÎÄ±¾±»Ñ¡ÖÐ,Ä¬ÈÏÎªµÚÒ»Ñ¡¶¨¶ÎÂäµÄÎÄ±¾Öµ.
+ Èç¹ûÃ»ÓÐÑ¡ÖÐ,Ä¬ÈÏÎªµ±Ç°¶ÎÂäµÄÖµ.
+ Ã÷°µ´¦ÀíÔÚ RichEdit ÖÐ²»ÏÔÊ¾,µ«ÕâÀï´´½¨µÄÒõÓ°½«ÏÔÊ¾ÔÚ Word ÖÐ
 
 ###Related###
- _GUICtrlRichEdit_GetParaShading
+_GUICtrlRichEdit_GetParaShading
 
 ###See Also###
- æœç´¢MSDNçŸ¥è¯†åº“ä¸­EM_SETPARAFORMATçš„ç›¸å…³ä¿¡æ¯
+@@MsdnLink@@ EM_SETPARAFORMAT
 
 ###Example###
 @@IncludeExample@@

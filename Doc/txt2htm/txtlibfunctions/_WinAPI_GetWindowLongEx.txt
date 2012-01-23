@@ -2,41 +2,38 @@
 _WinAPI_GetWindowLongEx
 
 ###Description###
-获得有关指定窗口的信息
+检索指定窗口的信息,返回请求的信息值.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetWindowLongEx($hWnd,
-$iIndex)
+_WinAPI_GetWindowLongEx ( $hWnd, $iIndex )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   窗口句柄
+	窗口句柄或窗口类名.
 $iIndex
-   指定要检索的基于0的的偏移量. 有效值的范围从0到窗口额外内存空间的字节数,最小为4;
-      例如，若指定了12位或多于12位的窗体类的额外存储空间，则应设为第三个32位整数的索引位8。要获得任意其他值，指定下列值之一：
-      $GWL_EXSTYLE - 获得扩展窗口风格
-    $GWL_STYLE - 获得窗口风格
-    $GWL_WNDPROC -
-      获得窗口过程的地址
-    $GWL_HINSTANCE - 获得应用事例的句柄
-    $GWL_HWNDPARENT -
-      如果父窗口存在，获得父窗口句柄
-    $GWL_ID - 获得窗口标识
-    $GWL_USERDATA -
-      获得与窗口有关的32位值
+	基于 0 的偏移值.有效值范围在 0 到窗口附加内存的字节数,减去一个整数的大小.
+		 为检索任何其他值,可指定以下值之一:
+		 $GWL_EXSTYLE --- 检索窗口扩展样式
+		 $GWL_HINSTANCE --- 检索应用程序实例句柄
+		 $GWL_HWNDPARENT --- 检索父窗口句柄(如果有的话)
+		 $GWL_ID --- 检索窗口的标识符
+		 $GWL_STYLE --- 检索窗口样式
+		 $GWL_USERDATA --- 检索窗口关联的用户数据
+		 $GWL_WNDPROC --- 检索窗口程序的地址,或代表窗口程序地址的句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 需要的值
+成功:	返回请求值.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-如果未调用过_WinAPI_SetWindowLong()函数, _WinAPI_GetWindowLong()返回0.
+If _WinAPI_SetWindowLongEx() has not been called previously, _WinAPI_GetWindowLongEx() returns 0.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetWindowLong的相关信息
+@@MsdnLink@@ GetWindowLong
+

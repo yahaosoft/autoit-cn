@@ -2,44 +2,46 @@
 _WinAPI_GetDIBits
 
 ###Description###
-获取指定位图的信息以指定格式复制到缓冲区中
+检索指定位图,并将它作为 DIB 拷贝到缓冲区
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_GetDIBits($hDC,
-$hBmp, $iStartScan, $iScanLines, $pBits, $pBI, $iUsage)
+_WinAPI_GetDIBits($hDC, $hBmp, $iStartScan, $iScanLines, $pBits, $pBI, $iUsage)
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   设备环境句柄
+	设备环境句柄
 $hBmp
-   位图句柄. 必须是合适的位图(DDB).
+	位图句柄. 必须是一个兼容的位图 (DDB).
 $iStartScan
-   指定检索的第一个扫描线
+	指定检索的第一扫描行
 $iScanLines
-   指定检索的扫描线数
+	指定检索的扫描行数目
 $pBits
-$pBI参数指向的$tagBITMAPINFO结构
+	接收位图数据的缓冲区指针.如果此参数为 0,
+		该函数传递位图的尺寸和格式到 $tagBITMAPINFO 结构的 PBI 参数.
 $pBI
-$tagBITMAPINFO 结构的指针
+	$tagBITMAPINFO 结构指针, 包含所需格式的 DIB 数据
 $iUsage
-$tagBITMAPINFO结构的bmiColors成员的格式。它必须为下列取值:
-    $DIB_PAL_COLORS - 由指向当前逻辑调色板的16位索引值数组构成的颜色表
-    $DIB_RGB_COLORS - 由红、绿、蓝三个值构成的颜色表
+	指定 $tagBITMAPINFO 结构中 bmiColors 成员的格式.
+		它必须是以下值之一:
+		$DIB_PAL_COLORS - 颜色表中应包括当前调色板 16 位索引的数组
+		$DIB_RGB_COLORS - 颜色表应包括文字红, 绿, 蓝值
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如果pBits不为0函数成功, 返回从位图复制的扫描线数.
-如果pBits为0且GetDIBits成功填充结构, 返回真.
-失败: 否
+成功:	如果 $pBits 不为 0, 且函数成功, 返回值是从位图扫描复制的线条数.
+	如果 $pBits 为 0, 且 GetDIBits 成功地填充结构, 则返回值为 True.
+失败:	返回 False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 $tagBITMAPINFO
 
 ###See Also###
-搜索MSDN知识库中GetDIBits的相关信息
+@@MsdnLink@@ GetDIBits

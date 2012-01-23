@@ -2,33 +2,39 @@
 $tagNMHDDISPINFO
 
 ###Description###
-包含用于控制$HDN_GETDISPINFO通知消息的信息的结构
+包含处理 $HDN_GETDISPINFO 通知消息使用的信息
 
 ###Syntax###
-Global Const $tagNMHDDISPINFO =  "hwnd WndFrom;int IDFrom;int Code;int Item;int Mask;ptr Text;int TextMax;int Imageint lParam"
+Global Const $tagNMHDDISPINFO = "hwnd WndFrom;int IDFrom;int Code;int Item;int Mask;ptr Text;int TextMax;int Image;int lParam"
 
 ###Fields###
 @@ParamTable@@
 WndFrom
-   发送消息的控件的窗体句柄
+	发送消息的控件窗体句柄
 IDFrom
-   发送消息的控件的标识
+	发送消息的控件标识符
 Code
-   通知代码
+	通知代码
 Item
-   标题控件中的0基索引项
+	标头控件项目的 0 基索引
 Mask
-   指定须由控件宿主填充的结构的成员数位标记集. 可为下列值的组合:
-    $HDI_TEXT - Text字段须被填充
-    $HDI_IMAGE - Image字段须被填充
-    $HDI_LPARAM - lParam字段须被填充
-    $HDI_DI_SETITEM - 表示控件将保存不再询问的项目信息的返回值.
+	指定须由控件宿主填充的结构成员标志
+	control. 此值可以是下列值的组合:
+		$HDI_TEXT - Text 字段必须填写
+		$HDI_IMAGE - Image 字段必须填写
+		$HDI_LPARAM - lParam 字段必须填写
+		$HDI_DI_SETITEM - 一个返回值.表示该控件已存储而不必再询问的项目信息      .
 Text
-   标题栏项目将显示的文本的无终止符字符串的指针
+	指向一个将用于标头控件项目中显示的空结束字符串文本
 TextMax
-   文本指向的缓冲区的大小
+	文本指向的缓冲区的大小
 Image
-   图像列表中的图像的0基索引. 指定图像将和项目一起显示, 但不替换项目的位图. 如果iImage设置为$I_IMAGECALLBACK, 控件通过使用$HDN_GETDISPINFO通知消息为该项请求图像信息.
+	图像列表中图像的 0 基索引.指定图像将和项目一起显示, 但不替换项目的位图.
+	如果 iImage 设置为 $I_IMAGECALLBACK,控件通过 $HDN_GETDISPINFO 通知消息为该项请求图像信息.
 lParam
-   与项目相关的应用程序定义的值
-@@end@@
+	应用程序定义的项目关联值
+@@End@@
+
+###Remarks###
+None.
+

@@ -2,33 +2,42 @@
 _WinAPI_SetCurrentProcessExplicitAppUserModelID
 
 ###Description###
-将标识当前进程的唯一的应用程序定义的应用用户ID(AppUserModelID)指定到任务栏
+Specifies a unique application-defined Application User Model ID that identifies the current process to the taskbar.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetCurrentProcessExplicitAppUserModelID( $sAppID )
+_WinAPI_SetCurrentProcessExplicitAppUserModelID ( $sAppID )
 
 ###Parameters###
 @@ParamTable@@
 $sAppID
-   代表AppUserModelID的字符串. 该标识符允许应用程序分组其在单一任务栏按钮下的相关进程和窗口. 应用程序必须以随后的形式提供AppUserModelID并不能超过128字符且不能包含空格.
-    CompanyName.ProductName.SubProduct.VersionInformation
-    (更多信息
-@@End@@
-
-###Remarks###
-
-###Related###
-
-###See Also###
-MSDN )
+	The string that represents an Application User Model ID (AppUserModelID). This identifier allows an
+	application to group its associated processes and windows under a single taskbar button. An application
+	must provide its AppUserModelID in the following form and can have no more than 128 characters and
+	cannot contain spaces.
+	
+	CompanyName.ProductName.SubProduct.VersionInformation
+	
+	(See MSDN for more information)
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
-参考  搜索MSDN知识库中SetCurrentProcessExplicitAppUserModelID的相关信息
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+This method must be called during an application's initial startup routine before the application presents any
+UI or makes any manipulation of its Jump Lists.
+
+This function requires Windows 7 or later.
+
+
+###See Also###
+@@MsdnLink@@ SetCurrentProcessExplicitAppUserModelID
 
 ###Example###
 @@IncludeExample@@
+

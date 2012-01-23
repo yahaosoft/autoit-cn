@@ -2,24 +2,29 @@
 $tagNMTCKEYDOWN
 
 ###Description###
-包含用于处理$LVN_KEYDOWN通知消息的信息的结构
+包含处理 $LVN_KEYDOWN 通知消息中使用的信息
 
 ###Syntax###
-Global Const $tagNMTCKEYDOWN = $tagNMHDR & ";int VKey;int Flags"
+Global Const $tagNMTCKEYDOWN = "align 1;" & $tagNMHDR & ";word VKey;uint Flags"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   包含通知消息的信息
+	包含通知消息的信息
 VKey
-   虚拟键代码
+	虚拟键码
 Flags
-   显示在下列表单中的数位:
-    0-15 - 指定当前消息的重复次数.
-    16-23 - 指定扫描代码. 该值依赖于OEM.
-    24 - 指定是否为扩展键, 比如扩展101-或102-键键盘上的右手ALT和CTRL键. 如果为扩展键值为1; 否则为0.
-    25-28 - 保留未使用.
-    29 - 指定上下文代码. 对于$WM_KEYDOWN消息通常为0.
-    30 - 指定以前的键状态. 如果消息发送前键被按下, 值为1, 反之为0.
-    31 - 指定过渡状态. 对于$WM_KEYDOWN消息该值总为0
-@@end@@
+	如下表所示位:
+		0-15 - 指定当前消息的重复计数.
+		16-23 - 指定扫描码.该值取决于 OEM 厂商.
+		24 - 指定是否为扩展键, 比如增强型 101-或 102-键盘的右手 ALT 和 CTRL 键
+	如果它是一个扩展键,该值是1,否则为0.
+		25-28 - 保留，不使用.
+		29 - 指定环境代码. 对于 $WM_KEYDOWN 消息,该值始终为 0.
+		30 - 指定前键的状态. 如果消息发送前键被按下, 值为 1; 键被松开,值为 0.
+		31 - 指定过渡状态. 对于 $WM_KEYDOWN 消息,该值始终为 0
+@@End@@
+
+###Remarks###
+None.
+

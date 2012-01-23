@@ -2,37 +2,39 @@
 _WinAPI_PolyBezierTo
 
 ###Description###
-绘制一条或多条贝塞尔曲线
+绘制一或多个贝塞尔曲线.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_PolyBezierTo( $hDC, $aPoint [, $iStart [, $iEnd]] )
+_WinAPI_PolyBezierTo ( $hDC, $aPoint [, $iStart [, $iEnd]] )
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   设备场景句柄
+	设备环境句柄.
 $aPoint
-   包含曲线终点及控制点的二维数组([x1, y1, ...], [x2, y2, ...], ... [xN, yN, ...]).
+	顶点值的二维数组: ([x1, y1], [x2, y2], ... [xN, yN]) 包含曲线端点和控制点的逻辑单位.
+		 该点的数目必须超过绘制曲线实际点的 3 倍,因为每个贝塞尔曲线需要两个控制点和一个终结点. 
 $iStart
-   开始移动的数组索引
+	[可选参数] 开始绘制的数组索引.
 $iEnd
-   结束移动的数组索引
+	[可选参数] 结束绘制的数组索引.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1.
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-函数通过使用由$aPoint指定的端点和控制点绘制三次Bezier曲线。第一条曲线从第一点通过作为控制点的第二点和第三点绘制到第四点.
-序列中后序的每一个曲线需要多于3个点: 以前曲线的终点为起点, 接下来的序列中的两个点为控制点, 且第三个点为终点.
-当前位置移动至最后一条贝塞尔曲线的终点. 曲线不被填充.
-函数使用当前画笔绘制线.
+函数使用参数 $aPoint 指定的控制端点绘制三次 Bezier curves(贝济埃曲线).
+ 第一条曲线绘制从当前位置到第三点,前两点作为控制点..
+ 以后的每条曲线,函数必须准确使用其它3个点,并使用前一条曲线的终点作为出发点.
+ 当前位置移动到最后贝塞尔曲线的终点.图形没有填充.
+ 函数绘制使用当前画笔.
 
-###Related###
 
 ###See Also###
-搜索MSDN知识库中PolyBezierTo的相关信息
+@@MsdnLink@@ PolyBezierTo
+

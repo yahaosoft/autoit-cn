@@ -2,45 +2,48 @@
 _WinAPI_ResizeBitmap
 
 ###Description###
-改变位图到指定尺寸
+改变位图的大小到指定尺寸.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ResizeBitmap( $hBitmap, $iWidth, $iHeight[, $iMode] )
+_WinAPI_ResizeBitmap ( $hBitmap, $iWidth, $iHeight [, $iMode] )
 
 ###Parameters###
 @@ParamTable@@
 $hBitmap
-   位图句柄
+	位图句柄.
 $iWidth
-   适合位图的像素宽度
+	适应位图的宽度像素值
 $iHeight
-   适合位图的像素高度
+	适应位图的高度像素值.
 $iMode
-   缩放模式. 可为下列值之一(同于_WinAPI_SetStretchBltMode()):
-   $BLACKONWHITE
-   $COLORONCOLOR
-   $HALFTONE
-   $WHITEONBLACK
-   $STRETCH_ANDSCANS
-   $STRETCH_DELETESCANS
-   $STRETCH_HALFTONE
-   $STRETCH_ORSCANS
+	[可选参数] 调整模式. 
+		此参数可以是下面的值(与 _WinAPI_SetStretchBltMode() 相同)
+		 $BLACKONWHITE
+		 $COLORONCOLOR
+		 $HALFTONE
+		 $WHITEONBLACK
+		 $STRETCH_ANDSCANS
+		 $STRETCH_DELETESCANS
+		 $STRETCH_HALFTONE
+		 $STRETCH_ORSCANS
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 新创建的位图的句柄
-失败: 返回0并设置@error非0
+成功:	返回创建的新位图句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-该函数不支持带Alpha通道的位图, 操作这些位图可使用_WinAPI_AlphaBlend().
-位图使用完毕, 使用_WinAPI_FreeObject()函数销毁对象. _WinAPI_ResizeBitmap()不会销毁原始位图, 必须自行销毁.
+函数不支持 Alpha 通道,此类位图使用 _WinAPI_AlphaBlend()..
+ 当位图使用完毕, 调用 _WinAPI_DeleteObject() 函数将其删除.
+ 此函数不破坏原有的位图,你必须摧毁它.
 
-###Related###
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+

@@ -2,33 +2,36 @@
 _WinAPI_GetFontResourceInfo
 
 ###Description###
-获取由指定字体资源文件确定的字体名文件
+检索指定字体资源文件的字体名称.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetFontResourceInfo( $sFont [, $fForce] )
+_WinAPI_GetFontResourceInfo ( $sFont [, $fForce] )
 
 ###Parameters###
 @@ParamTable@@
 $sFont
-   字体资源文件的名称字符串. 获取源于多文件的字体名, 以"|"分割. 如, abcxxxxx.pfm | abcxxxxx.pfb.
+	字体资源文件名称字符串.
+		 多个文件使用 "|" 分隔, 例如, abcxxxxx.pfm | abcxxxxx.pfb.
 $fForce
-   是否将文件添加到字体表, 可用值:
-    真: 强制将指定文件添加到系统字体表并在获取名称后删除.
-    假: 不添加也不删除(默认)
+	[可选参数] 指定是否将文件添加到字体表.有效值:
+		1 - 强制指定文件添加到系统字体表,并检索文件名后删除它.
+		0 - 不添加和删除. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 字体名
-失败: 空字符串并设置@error非0
+成功:	返回字体名称.
+失败:	返回空串,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+

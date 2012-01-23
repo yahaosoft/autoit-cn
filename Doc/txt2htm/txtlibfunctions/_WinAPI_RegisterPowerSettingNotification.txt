@@ -2,44 +2,42 @@
 _WinAPI_RegisterPowerSettingNotification
 
 ###Description###
->注册用以接收指定的电源设置通知的应用程序
+Registers the application to receive power setting notifications for the specific power setting event.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RegisterPowerSettingNotification( $hWnd, $GUID )
+_WinAPI_RegisterPowerSettingNotification ( $hWnd, $GUID )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   接收更改或通知消息的窗口的句柄
+	Handle to the window that receives the change or notification messages.
 $GUID
-   代表将为其发送通知的电源设置的GUID字符串. 可为下列值之一:
-    $GUID_ACDC_POWER_SOURCE - [5d3e9a59-e9D5-4b00-a6bd-ff34ff516548] -
-    系统电源来源已改变
-    $GUID_BATTERY_PERCENTAGE_REMAINING - [a7ad8041-b45a-4cae-87a3-eecbb468a9e1] -
-    电池的剩余电量已改变
-    $GUID_IDLE_BACKGROUND_TASK - [515c31d8-f734-163d-a0fd-11a0-8c91e8f1] -
-    系统忙碌中
-    $GUID_MONITOR_POWER_ON - [02731015-4510-4526-99e6-e5a17ebd1aea] -
-    系统基本显示器开启或关闭
-    $GUID_POWERSCHEME_PERSONALITY - [245d8541-3943-4422-b025-13A7-84F679B7] -
-    个人电源计划已改变
-    $GUID_SYSTEM_AWAYMODE - [98a7f580-01f7-48aa-9c0f-44352c29e5C0] -
-    系统进入或退出离开模式
+	The a string that represents a GUID of the power setting for which notifications are to be sent.
+	It may be one of the following values.
+	
+	$GUID_ACDC_POWER_SOURCE
+	$GUID_BATTERY_PERCENTAGE_REMAINING
+	$GUID_IDLE_BACKGROUND_TASK
+	$GUID_MONITOR_POWER_ON
+	$GUID_POWERSCHEME_PERSONALITY
+	$GUID_SYSTEM_AWAYMODE
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回注销电源通知的通知句柄
-失败: 返回0并设置@error非0
+Success	A notification handle for unregistering for power notifications.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-调用该函数后, 将发送wParam参数为PBT_POWERSETTINGCHANGE的WM_POWERBROADCAST消息到指定使用窗口.(更多信息请
+After calling this function, notifications are sent to the specified window using WM_POWERBROADCAST
+messages with a wParam parameter of PBT_POWERSETTINGCHANGE (see MSDN for more information).
 
-###Related###
+This function requires Windows Vista or later.
+
 
 ###See Also###
-MSDN ).
-最低系统要求: Windows Vista
-参考  搜索MSDN知识库中RegisterPowerSettingNotification的相关信息
+@@MsdnLink@@ RegisterPowerSettingNotification
+

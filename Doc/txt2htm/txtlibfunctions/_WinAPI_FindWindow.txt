@@ -2,30 +2,32 @@
 _WinAPI_FindWindow
 
 ###Description###
-获得一个顶层窗口的句柄，该窗口的类名和窗口名与给定的字符串相匹配
+检索类名和窗口名称相匹配的顶层窗口句柄
 
 ###Syntax###
-#Include
-<WinAPI.au3>
+#Include <WinAPI.au3>
 _WinAPI_FindWindow($sClassName, $sWindowName)
 
 ###Parameters###
 @@ParamTable@@
 $sClassName
-$sClassName的低16位，高位必须为0.
-$WindowName
-   一个指定了窗口名（窗口标题）的字符串。如果为空，则为所有窗口全匹配
+	类名字符串或类名原子(atom)标识字符串
+		如果这个参数是原子(atom),它必须是调用 GlobalAddAtom 函数创建的全局原子(atom)
+		原子(atom)为一个 16 位值,必须是 $sClassName 字符串的低位字,且高位字必须为 0.
+$sWindowName
+	窗口名称.如果此参数为空, 则匹配所有窗口.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 窗口句柄
-失败: 0
+成功:	返回窗口句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中有关FindWindows的信息
+@@MsdnLink@@ FindWindow

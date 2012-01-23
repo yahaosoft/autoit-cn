@@ -2,77 +2,74 @@
 _WinAPI_DrawFrameControl
 
 ###Description###
-绘制带有指定类型和风格的帧控件
+绘制指定类型和样式的框架控件
 
 ###Syntax###
-#Include
-<WinAPI.au3>
-_WinAPI_DrawFrameControl($hDC, $ptrRect, $nType,
-$nState)
+#Include <WinAPI.au3>
+_WinAPI_DrawFrameControl($hDC, $ptrRect, $nType, $nState)
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   画入图标或光标的设备场景的句柄
+	要绘图的图标或者光标设备上下文句柄
 $ptrRect
-$tagRECT结构的指针
+	指向一个 $tagRECT 数据结构的指针,它包含矩形的逻辑坐标
 $nType
-   指定帧控件类型. 可为下列值之一:
-    $DFC_BUTTON - 标准按钮
-    $DFC_CAPTION - 标题栏
-    $DFC_MENU - 菜单栏
-    $DFC_POPUPMENU - Windows 98/Me, Windows 2000/XP: 弹出菜单项
-    $DFC_SCROLL - 滚动条
+	指定框架控件类型.参数可以是以下值之一:
+		$DFC_BUTTON - 标准按钮
+		$DFC_CAPTION - 标题栏
+		$DFC_MENU - 菜单栏
+		$DFC_POPUPMENU - Windows 2000/XP: 弹出菜单项
+		$DFC_SCROLL - 滚动条
 $nState
-   指定帧控件的初始状态.
-$nType是$DFC_BUTTON, $nState可为下列值之一:
-    $DFCS_BUTTON3STATE - 三态按钮
-    $DFCS_BUTTONCHECK - 复选框
-    $DFCS_BUTTONPUSH - 按钮
-    $DFCS_BUTTONRADIO - 单选按钮
-    $DFCS_BUTTONRADIOIMAGE - 单选按钮的图像(nonsquare needs image)
-    $DFCS_BUTTONRADIOMASK - 单选按钮掩码(nonsquare needs mask)
-$nType是$DFC_CAPTION, $nState可为下列值之一:
-    $DFCS_CAPTIONCLOSE - 关闭按钮
-    $DFCS_CAPTIONHELP - 帮助按钮
-    $DFCS_CAPTIONMAX - 最大化按钮
-    $DFCS_CAPTIONMIN - 最小化按钮
-    $DFCS_CAPTIONRESTORE - 还原按钮
-$nType是$DFC_MENU, $nState 可为下列值之一:
-    $DFCS_MENUARROW - 子菜单箭头
-    $DFCS_MENUARROWRIGHT - 指向左边的子菜单箭头. 用于使用从右向左语言的层叠菜单
-    $DFCS_MENUBULLET - 项目符号
-    $DFCS_MENUCHECK - 选中符号
-$nType是DFC_SCROLL, $nState可为下列值之一:
-    $DFCS_SCROLLCOMBOBOX - 组合框滚动条
-    $DFCS_SCROLLDOWN - 滚动条向下箭头
-    $DFCS_SCROLLLEFT - 滚动条向左箭头
-    $DFCS_SCROLLRIGHT - 滚动条向右箭头
-    $DFCS_SCROLLSIZEGRIP - 窗口右下角的尺寸区
-    $DFCS_SCROLLSIZEGRIPRIGHT - 窗口左下角的尺寸区. 用于从右到左的语言如阿拉伯语或希伯来语
-    $DFCS_SCROLLUP - 滚动条向上箭头
-    下列样式可用于调整常规按钮的绑定矩形:
-    $DFCS_ADJUSTRECT - 调整绑定矩形以排除按钮的环绕边界
-    一个或多个可用于设置所绘控件的状态:
-    $DFCS_CHECKED - 按钮被复选
-    $DFCS_FLAT - 按钮有平面边界
-    $DFCS_HOT - Windows 98/Me, Windows 2000/XP: 按钮是热跟踪的
-    $DFCS_INACTIVE - 按钮未激活 (灰色)
-    $DFCS_PUSHED - 按钮被按下
-    $DFCS_TRANSPARENT - Windows 98/Me, Windows 2000/XP: 保持背景不变. 该标记仅可与$DFCS_MENUARROWUP或$DFCS_MENUARROWDOWN同时使用
+	指定框架控件的初始状态.如果 $nType 为 $DFC_BUTTON, $nState 可以是以下值之一:
+		$DFCS_BUTTON3STATE - 三态按钮
+		$DFCS_BUTTONCHECK - 复选框
+		$DFCS_BUTTONPUSH - Push 按钮
+		$DFCS_BUTTONRADIO - 单选按钮
+		$DFCS_BUTTONRADIOIMAGE - 单选按钮图像 (nonsquare needs image)
+		$DFCS_BUTTONRADIOMASK - 单选按钮掩码 (nonsquare needs mask)
+		如果 $nType 为 $DFC_CAPTION, $nState 可以是以下值之一:
+		$DFCS_CAPTIONCLOSE - 关闭按钮
+		$DFCS_CAPTIONHELP - 帮助按钮
+		$DFCS_CAPTIONMAX - 最大化按钮
+		$DFCS_CAPTIONMIN - 最小化按钮
+		$DFCS_CAPTIONRESTORE - 还原按钮
+		如果 $nType 为 $DFC_MENU, $nState 可以是以下值之一:
+		$DFCS_MENUARROW - 子菜单箭头
+		$DFCS_MENUARROWRIGHT - 子菜单箭头指向左边.这是用于从右到左的级联,如阿拉伯语或希伯来语从右到左的使用菜单
+		$DFCS_MENUBULLET - 加重号
+		$DFCS_MENUCHECK - 复选标记
+		如果 $nType 为 $DFC_SCROLL, $nState 可以是以下值之一:
+		$DFCS_SCROLLCOMBOBOX - 组合框滚动条
+		$DFCS_SCROLLDOWN - 滚动条向下箭头
+		$DFCS_SCROLLLEFT - 滚动条左箭头
+		$DFCS_SCROLLRIGHT - 滚动条右箭头
+		$DFCS_SCROLLSIZEGRIP - 尺寸柄在窗口右下角
+		$DFCS_SCROLLSIZEGRIPRIGHT - 尺寸柄在窗口左下角.阿拉伯语或希伯来语窗口语言从右到左
+		$DFCS_SCROLLUP - 滚动条向上箭头
+		下面的样式可以用来调整 Push 按钮的矩形:
+		$DFCS_ADJUSTRECT - 矩形调整排除按钮周围边缘
+		一或多个下列值可用于设置控件的状态:
+		$DFCS_CHECKED - 按钮被选中
+		$DFCS_FLAT - 按钮有一个平面边框
+		$DFCS_HOT - Windows 2000/XP: 按钮热点追踪
+		$DFCS_INACTIVE - 按钮无效(变灰)
+		$DFCS_PUSHED - 按钮按下
+		$DFCS_TRANSPARENT - Windows 2000/XP: 背景保持不变. 这个标志只能结合 $DFCS_MENUARROWUP 或 $DFCS_MENUARROWDOWN
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-需要FrameConstants.au3预定义变量
+ 需要 FrameConstants.au3 预先定义的常量
 
 ###Related###
 $tagRECT
 
 ###See Also###
-搜索MSDN知识库中DrawFrameControl的相关信息
+@@MsdnLink@@ DrawFrameControl

@@ -2,36 +2,41 @@
 _IETableGetCollection
 
 ###Description###
-返回一个文档内存在的所有表格的对象变量集合
+返回用以代表文档中所有表或按索引的单一表的对象变量集合.
 
 ###Syntax###
-#Include <IE.au3>
-_IEtableGetCollection ( ByRef $o_object [, $i_index = -1] )
+#include <IE.au3> 
+_IETableGetCollection ( ByRef $o_object [, $i_index = -1] )
 
 ###Parameters###
 @@ParamTable@@
- $o_object  InternetExplorer.Application或者DOM组件的对象变量
- $i_index  可选: 指定返回一个集合还是索引对象
-0 或者正整数返回一个索引对象
--1 = (默认) 返回一个集合
+$o_object
+	InternetExplorer.Application的窗体或框架对象变量
+$i_index
+	[可选参数]: 指定返回一个集合或索引的实例
+	0或正整数 返回索引实例
+	-1 = (默认)返回集合
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回文档内所有表格对象集合 , @EXTENDED = 表格数量
-失败: 返回0并设置@ERROR为:
-    0 ($_IEStatus_Success) = 无错误
-    3 ($_IEStatus_InvalidDataType) = 无效数据类型
-    5 ($_IEStatus_InvalidValue) = 无效数值
-    7 ($_IEStatus_NoMatch) = 没有匹配
-    @Extended: 包含无效参数数量
+成功:	返回文件中所有表的对象集合, @EXTENDED = 表数量
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	5 ($_IEStatus_InvalidValue) = 无效值
+	7 ($_IEStatus_NoMatch) = 无匹配
+@Extended:	包含无效参数数量
 @@End@@
 
+
 ###Remarks###
+None.
+
 
 ###Related###
+_IETableWriteToArray
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

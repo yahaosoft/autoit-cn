@@ -2,35 +2,37 @@
 _GUIImageList_BeginDrag
 
 ###Description###
-开始拖曳图像
+开始拖动图像
 
 ###Syntax###
-#Include<GuiImageList.au3>
-_GUIImageList_BeginDrag($hWnd, $iTrack, $iXHotSpot,$iYHotSpot)
+#Include <GuiImageList.au3>
+_GUIImageList_BeginDrag($hWnd, $iTrack, $iXHotSpot, $iYHotSpot)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iTrack  要拖曳的图像的句柄
- $iXHotSpot  拖曳位置相对图像左上角的 X 坐标
- $iYHotSpot  拖曳位置相对图像左上角的 Y 坐标
+$hWnd
+	控件句柄
+$iTrack
+	被拖动图像的索引
+$iXHotSpot
+	被拖动图像左上角相对位置的 X 坐标
+$iYHotSpot
+	被拖动图像左上角相对位置的 Y 坐标
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 第一个新建图像的索引
-失败: -1
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-该喊出创建一个用于拖曳临时图像列表. 为响应随后的WM_MOUSEMOVE消息,
-你可以使用
-ImageList_DragMove函数移动图像. 拖曳操作结束是可以使用ImageList_EndDrag函数.
+ 函数为拖动图像创建一个临时图像列表. 使用 _GUIImageList_DragMove 函数拖动图像,
+ 随后用 WM_MOUSEMOVE 消息响应拖动信息.
+ 要结束拖动操作,可以使用 _GUIImageList_EndDrag 函数
 
 ###Related###
-_GUIImageList_EndDrag , _GUIImageList_DragEnter
-
-###See Also###
+_GUIImageList_EndDrag, _GUIImageList_DragEnter
 
 ###Example###
 @@IncludeExample@@

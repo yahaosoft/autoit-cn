@@ -2,33 +2,31 @@
 _WinAPI_SetDCPenColor
 
 ###Description###
-设置当前设备场景(DC)的笔颜色为指定的颜色值
+设置当前设备上下文（DC）的画笔颜色为指定的颜色值.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetDCPenColor( $hDC, $iRGB )
+_WinAPI_SetDCPenColor ( $hDC, $iRGB )
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   设备场景句柄
+	设备环境句柄.
 $iRGB
-   新笔色的RGB值
+	画笔新颜色 RGB 值.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 以前的设备场景的RGB笔色
-失败: 返回-1并设置@error非0
+成功:	返回先前 DC 的画笔颜色 RGB 值.
+失败:	返回 -1,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-函数返回以前的$DC_PEN颜色 , 即使$DC_PEN未被选入设备场景 ; 然而 , 直到$DC_PEN被选入设备场景才会用于绘图操作
+函数返回以前的 $DC_PEN 颜色,即使画笔 $DC_PEN 未被 DC 选中,
+ 但不会被用于绘制操作, 直到 $DC_PEN 被 DC 选中.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SetDCPenColor的相关信息
+@@MsdnLink@@ SetDCPenColor
 
-###Example###
-@@IncludeExample@@

@@ -2,27 +2,28 @@
 _WinAPI_ShellILCreateFromPath
 
 ###Description###
-由路径创建指向项目标识列表的指针
+创建路径指针,指向项目标识符列表 (PIDL).
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellILCreateFromPath( $sPath )
+_WinAPI_ShellILCreateFromPath ( $sPath )
 
 ###Parameters###
 @@ParamTable@@
-$sPath  被转换的路径
+$sPath
+	要转换的路径.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 以PIDL描述的$sPath中的路径.
-失败: 返回0并设置@error非0. @extended包含COM错误代码.
+成功:	返回路径中 $sPath 表示的 PIDL.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-调用_WinAPI_CoTaskMemFree()函数释放返回的PIDL
+调用_WinAPI_CoTaskMemFree（）函数释放返回的 PIDL.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SHILCreateFromPath的相关信息
+@@MsdnLink@@ SHILCreateFromPath
+

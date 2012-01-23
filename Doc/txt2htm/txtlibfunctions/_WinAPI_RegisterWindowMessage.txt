@@ -2,31 +2,30 @@
 _WinAPI_RegisterWindowMessage
 
 ###Description###
-定义一个新的窗口消息并确保其在系统中是唯一的
+定义新窗口消息, 保证在整个系统中是唯一的
 
 ###Syntax###
-#Include
-<WinAPI.au3>
+#Include <WinAPI.au3>
 _WinAPI_RegisterWindowMessage($sMessage)
 
 ###Parameters###
 @@ParamTable@@
 $sMessage
-   指定将被注册的消息字符串
+	指定注册的消息字符串
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 范围从0xC000到0xFFFF的认证信息
-失败: 0
+成功:	消息标识符范围在 0xC000 到 0xFFFF
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-RegisterWindowMessage函数通常为合作应用程序间的通信注册消息.
-如果不同的应用程序注册同样的消息字符串, 应用程序返回同样的消息值.
-消息保持注册，直到会话完成.
+ 本函数用于注册两个合作程序的信息传递.
+ 如果两个不同的程序注册相同的消息字符串,应用程序返回相同的消息值.
+ 该消息仍然会注册, 直至对话结束.
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中RegisterWindowMessage的相关信息
+@@MsdnLink@@ RegisterWindowMessage

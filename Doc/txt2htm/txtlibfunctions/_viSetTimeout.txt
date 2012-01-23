@@ -2,38 +2,45 @@
 _viSetTimeout
 
 ###Description###
-设置VISA毫秒延时
+设置 VISA 超时时间的毫秒值
 
 ###Syntax###
-#Include <Visa.au3>
+#include <Visa.au3>
 _viSetTimeout ( $h_session, $i_timeout_ms )
+
 
 ###Parameters###
 @@ParamTable@@
- $h_session  VISA描述符(字符串)或VISA进程句柄(整数). 更多信息参阅_viExecCommand备注.
- $i_timeout_ms  VISA操作的毫秒延时(主要针对GPIB查询)
-如果设置为0则禁用延时.
-如果设置为"INF"则VISA操作不会超时.
-小心使用因为它可使仪器在不回应查询时轻易挂起程序ifv.
-根据总线类型(GPIB , TCP , etc)延时可能不会被设置为请求的精确值. 取而代之以稍大于请求且最接近有效延时的值.
+$h_session
+	VISA 描述符（字符串）或 VISA 会话句柄（整数）.
+		更多信息见 _viExecCommand 备注.
+$i_timeout_ms
+	VISA 操作的超时毫秒值 (主要用于 GPIB 查询)
+		如果你将它设置为 0,超时将被禁用.
+		如果设置为 "INF", VISA 操作将永远不会超时.
+		在这方面要小心,因为它可以很容易地挂起程序, 仪器不会回应你的查询.
+		根据不同的总线类型 (GPIB, TCP, etc) 超时可能无法设置到要求的精确值;
+		相反,最接近的有效超时值大于你的请求值 the one that you requested will be used.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回0
-失败: 返回-1如果无法打开VISA DLL或代表VIXA错误的非0值(参见VISA程序员向导)
-该函数通常在出错时设置@error为1.
+成功:	返回 0
+失败:	返回 -1, VISA DLL 无法打开; 非零值代表 VISA 错误代码 (见 VISA 程序员指南).
 @@End@@
 
+
+
 ###Remarks###
-大多数情况无需调用此函数 , 因为_viExecCommand有第三个可选参数$i_timeout_ms可用于设置VISA延时.
-要使用VISA函数必须安装有VISA库(可以检查{WINDOWS}\system32中是否存在visa32.dll)和GPIB卡(如National Instruments NI PCI-GPIB card或Agilent 82350B PCI High-Performance GPIB card)
-* 常用VISA描述符的详细描述可查看帮助中_viExecCommand函数的备注
+大部分的时间不需要调用这个函数, as _viExecCommand 有第三个可选参数 $i_timeout_ms 也可以用来设置 VISA 超时.
+VISA 函数必须安装 VISA 库文件(您可以检查visa32.dll是否在 WINDOWS\System32 目录中)
+及 GPIB 卡(例如 National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card)
+ * 常见 VISA 描述符详细介绍,见 _viExecCommand 函数备注
+
 
 ###Related###
- _viSetAttribute , _viExecCommand , _viOpen , _viClose
+_viSetAttribute, _viExecCommand, _viOpen, _viClose
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

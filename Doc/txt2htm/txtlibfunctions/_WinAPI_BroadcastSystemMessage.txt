@@ -2,52 +2,55 @@
 _WinAPI_BroadcastSystemMessage
 
 ###Description###
-向指定接收方发送信息
+发送消息到指定的收件人.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_BroadcastSystemMessage( $iMessage [, $wParam [, $lParam [, $iFlags [, $iRecipients]]]] )
+_WinAPI_BroadcastSystemMessage ( $iMessage [, $wParam [, $lParam [, $iFlags [, $iRecipients]]]] )
 
 ###Parameters###
 @@ParamTable@@
 $iMessage
-   要发送的消息
+	被发送的消息.
 $wParam
-   [可选] 额外的消息指定的信息
+	[可选参数] 消息的其它特定附加信息.
 $lParam
-   [可选] 额外的消息指定的信息
+	[可选参数] 消息的其它特定附加信息.
 $iFlags
-   [可选] 广播选项. 该参数可为一个或多个下列值:
-    $BSF_ALLOWSFW - 允许接收方在执行消息是设置前景窗口
-    $BSF_FLUSHDISK - 在每个接收方执行完消息后清空磁盘
-    $BSF_FORCEIFHUNG - 继续广播消息, 即使已过超时时间或接收方之一无回应.
-    $BSF_IGNORECURRENTTASK - 不向属于当前任务的窗体发送消息. 这将阻止应用程序接收自己的消息.
-    $BSF_NOHANG - 强制无应答应用程序超时. 如果一个接收方超事则不再继续广播消息.
-    $BSF_NOTIMEOUTIFNOTHUNG - 等待消息的回复直到接收方不再继续回应. 无超时.
-    $BSF_POSTMESSAGE - 递送消息. 不与$BSF_QUERY结合使用.
-    $BSF_QUERY - 一次向一个接收方发送消息, 直到当前接收方返回 TRUE 才发送给下一个接收方.
-    $BSF_SENDNOTIFYMESSAGE - 使用SendNotifyMessage函数发送消息. 不与$BSF_QUERY结合使用.
+	[可选参数] 发送选项. 此参数可以是一或多个下列值: 
+		$BSF_ALLOWSFW --- 处理消息时,允许收件人设置前台窗口
+		$BSF_FLUSHDISK --- 每个收件人消息处理完毕之后刷新磁盘.
+		$BSF_FORCEIFHUNG --- 连续发送消息, 即使已超时或接收方没有响应.
+		$BSF_IGNORECURRENTTASK --- 不向当前任务的窗口发送消息. 这将阻止应用程序接收自己的消息
+		$BSF_NOHANG --- 强制无应答应用程序超时. 如果某接收方超时,则不再继续发送消息.
+		$BSF_NOTIMEOUTIFNOTHUNG --- 等待消息的响应,直到接收方不再继续答复.不受超时限制.
+		$BSF_POSTMESSAGE --- 发送消息.不能与 BSF_QUERY 组合使用
+		$BSF_QUERY --- 每次向一个接收方发送消息, 直到当前接收方返回 TRUE 后再发送给下一个接收方.
+		$BSF_SENDNOTIFYMESSAGE --- 使用 SendNotifyMessage 函数发送消息. 不能与 $BSF_QUERY 结合使用
 $iRecipients
-   [可选] 消息接收方. 该参数可为一个或多个下列值:
-    $BSM_ALLCOMPONENTS - 广播到所有系统内容.
-    $BSM_ALLDESKTOPS - 广播到所有桌面. 需要SE_TCB_NAME权限.
-    $BSM_APPLICATIONS - 广播到应用程序
-    $BSM_INSTALLABLEDRIVERS - Windows Me/98/95 广播到可安装驱动
-    $BSM_NETDRIVER - Windows Me/98/95 广播到网络驱动
-    $BSM_VXDS - Windows Me/98/95 广播到所有系统级设备驱动
+	[可选参数] 消息的收件人. 此参数可以是一或多个下列值:
+		$BSM_ALLCOMPONENTS --- 发送到所有系统组件.
+		$BSM_ALLDESKTOPS --- 发送到所有台式机.要求有 SE_TCB_NAME 权限.
+		$BSM_APPLICATIONS --- 发送到应用程序.
+		$BSM_INSTALLABLEDRIVERS --- 未查到描述,按 netegg 的汉化描述为 Windows Me/98/95 三系统专用
+		$BSM_NETDRIVER --- 未查到描述,按 netegg 的汉化描述为 Windows Me/98/95 三系统专用
+		$BSM_VXDS --- 未查到描述,按 netegg 的汉化描述为 Windows Me/98/95 三系统专用
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1或0(见下方) , @extended用以来标记接收标识接收方实际接收的消息BSM_...值的结合.
-失败: 返回-1并设置@error非0.
+成功:	返回 1 或 0 (见备注),
+	@extended 标志接收 BSM_* 值确定收件人实际收到的消息.
+失败:	(-1)设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-如果$iFlags参数是$BSF_QUERY且至少一个接收方对相应消息返回BROADCAST_QUERY_DENY , 返回值为0.
-该系统仅为(在0到(WM_USER-1)范围内的)系统消息编组. 向另一进程发送其他消息( >= WM_USER) , 必须自定义编组.
+如果 $iFlags 参数为 BSF_QUERY,且至少一个收件人返回相应的 BROADCAST_QUERY_DENY 信息, 则返回值为 0.
+ 系统仅为系统消息编组, 范围为 0 到 (WM_USER-1).
+ 要发送其它消息( those >= WM_USER )到另一个进程,你必须自定义编组.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中BroadcastSystemMessage的相关信息
+@@MsdnLink@@ BroadcastSystemMessage
+

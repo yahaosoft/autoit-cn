@@ -2,51 +2,58 @@
 _WinAPI_MoveFileEx
 
 ###Description###
-带选项移动存在的文件或包含子目录的目录
+移动文件或目录,通过回调函数通知应用程序的进展.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_MoveFileEx( $sSource, $sDestination [, $iFlags] )
+_WinAPI_MoveFileEx ( $sExistingFile, $sNewFile [, $iFlags [, $pProgressProc [, $pData] )
 
 ###Parameters###
 @@ParamTable@@
-$sSource
-   本地文件或目录名称
-$sDestination
-   位于本地机的文件或目录的新名称.
-$MOVEFILE_COPY_ALLOWED.
-    移动目录时, 目标必须处于同一驱动器.
-$iFlags指定为$MOVEFILE_DELAY_UNTIL_REBOOT且$sDestination为空字符串, _WinAPI_MoveFileEx() 注册的$sSource文件将在系统重启时删除. 如果$sSource为目录, 仅当目录为空时系统将在重启时移动之.
+$sExistingFile
+	本地计算机上现有的文件名称或目录.
+		 如果 $iFlags 指定 $MOVE_FILE_DELAY_UNTIL_REBOOT, 文件不能为远程共享.
+		 因为在网络可用之前,延迟了操作的执行.
+$sNewFile
+	本地计算机文件或目录的新名称.
+		 移动文件时,$sNewFile 可以是不同的文件系统或卷.
+		 如果 $sNewFile 在另一个驱动器上,必须设置 $iFlags 参数为 $MOVE_FILE_COPY_ALLOWED 标志.
+		移动目录时, $sExistingFile and $sNewFile 必须在同一个驱动器.
+		 如果 $iFlags 指定为 $MOVE_FILE_DELAY_UNTIL_REBOOT 与 $sNewFile 为 0,
+		 当系统重新启动时, 本函数注册的 $sExistingFile 将被删除
+		 如果 $sExistingFile 指定为目录时, 系统重新启动后,该目录被删除.
 $iFlags
-   指定移动选项的标记. 可为下列值的一个或多个:
-$MOVEFILE_COPY_ALLOWED
-  - 如果文件将被移动至另一卷, 函数等于使用CopyFile和DeleteFile函数移动. 该值不能用于MOVEFILE_DELAY_UNTIL_REBOOT.
-$MOVEFILE_CREATE_HARDLINK
-  - 保留
-$MOVEFILE_DELAY_UNTIL_REBOOT
-  - 系统重启时才移动文件
-$MOVEFILE_FAIL_IF_NOT_TRACKABLE
-  - 如果文件为连接源且移动后无法跟踪时函数失败
-$MOVEFILE_REPLACE_EXISTING
-  - 目标文件存在时替换
-$MOVEFILE_WRITE_THROUGH
-  - 直到文件被实际移动函数才返回
+	[可选参数] 移动操作的选项. 参数可以是一或多个下列值:
+		 $MOVE_FILE_COPY_ALLOWED --- 如果该文件被移动到不同的卷,该函数使用 CopyFile 与 DeleteFile 函数的模拟移动
+		 $MOVE_FILE_CREATE_HARDLINK --- 保留供将来使用
+		 $MOVE_FILE_DELAY_UNTIL_REBOOT --- 系统不移动文件,直到操作系统重新启动
+		 $MOVE_FILE_FAIL_IF_NOT_TRACKABLE --- 如果源文件是一个链接源,但不能被跟踪移动,函数失败
+		 $MOVE_FILE_REPLACE_EXISTING --- 如果 $sNewFile 存在,函数替换为 $sExistingFile 文件的内容
+		 $MOVE_FILE_WRITE_THROUGH --- 该函数不返回,直到该文件在磁盘上完成移动
+$pProgressProc
+	[可选参数] 回调函数,每次调用该文件已复制的另一部分地址.
+		 (为了解更多信息,请参见 MSDN)
+$pData
+	[可选参数] 传递给回调函数的参数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回-1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-如果$iFlags参数指定为$MOVEFILE_DELAY_UNTIL_REBOOT, 当无法进入注册表时_WinAPI_MoveFileEx()失败.
-函数存储文件的位置将在重启时使用注册表值: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\PendingFileRenameOperations重命名
+如果 $iFlags 参数指定 $MOVE_FILE_DELAY_UNTIL_REBOOT,
+并且本函数不能访问注册表时,函数失败.
+重新启动后,函数存储的文件位置被重新命名为下面的注册表值:
+ HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\PendingFileRenameOperations
 
-###Related###
+
 
 ###See Also###
- 搜索MSDN知识库中MoveFileEx的相关信息
+@@MsdnLink@@ MoveFileWithProgress
 
 ###Example###
 @@IncludeExample@@
+

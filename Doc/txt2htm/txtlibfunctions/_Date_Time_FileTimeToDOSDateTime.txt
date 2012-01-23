@@ -2,7 +2,7 @@
 _Date_Time_FileTimeToDOSDateTime
 
 ###Description###
-将文件时间转化为DOS日期时间
+转换 MS-DOS 日期与时间值到一个文件时间
 
 ###Syntax###
 #Include <Date.au3>
@@ -10,29 +10,26 @@ _Date_Time_FileTimeToDOSDateTime($pFileTime)
 
 ###Parameters###
 @@ParamTable@@
-$pFileTime 
-   包含要转化为DOS格式的文件时间的$tagFILETIME结构的指针
+$pFileTime
+	指向一个 $tagFILETIME 数据结构的指针,包含了一个转换成MS-DOS格式的文件时间.
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 如下格式数组:
-   [0] - MS-DOS日期, 结构如下:
-    0-4位的月份日期(1-31)
-    5-8位的月份(1=January, 2=February, 等)
-    9-15位加上1980的年份(加上1980为实际年份)
-   [1] - MS-DOS时间, 结构如下:
-    0-4位被2除的秒
-    5-10位的分(0-59)
-    11-15位的时(24小时时制时钟的0-23)
-@@End@@
+返回一个下方格式的数组:
+		[0] - MS-DOS 日期, 封装为下方格式:
+		位 0- 4 ,一月中的其中一天(1–31)
+		位 5- 8 ,月份 (1 = 一月, 2 = 二月, 等等)
+		位 9-15 ,相对 1980 的偏移量(加上1980得到实际年份)
+		[1] - MS-DOS 时间, 封装为下方格式:
+		位 0- 4 ,按2分开的秒(Second divided by 2)
+		位 5-10 ,分钟 (0–59)
+		位 11-15 ,时钟 (0–23 于 24 小时计时)
 
 ###Remarks###
+None.
 
 ###Related###
- _Date_Time_FileTimeToLocalFileTime , _Date_Time_FileTimeToSystemTime , _Date_Time_DOSDateTimeToFileTime , $tagFILETIME
-
-###See Also###
+_Date_Time_FileTimeToLocalFileTime, _Date_Time_FileTimeToSystemTime, _Date_Time_DOSDateTimeToFileTime, $tagFILETIME
 
 ###Example###
 @@IncludeExample@@

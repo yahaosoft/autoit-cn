@@ -2,7 +2,7 @@
 _Net_Share_ShareCheck
 
 ###Description###
-检查服务器是否共享设备
+检查是否有服务器共享设备
 
 ###Syntax###
 #Include <NetShare.au3>
@@ -10,30 +10,33 @@ _Net_Share_ShareCheck($sServer, $sShare)
 
 ###Parameters###
 @@ParamTable@@
- $sServer  用以指定函数将操作的远程服务器的DNS或NetBIOS名称的字符串. 如果参数为空则使用本地计算机.
- $sShare  指定要检查共享权限的设备名
+$sServer
+	指定 DNS 或 NetBIOS 远程服务器上执行函数的名称
+		如果此参数为空, 在本地计算机上使用.
+$sShare
+	指定检查共享访问的设备名称.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 共享设备类型. 可为下列组合:
-    -1 - 不存在共享
-    $STYPE_DISKTREE - 打印队列
-    $STYPE_PRINTQ - 磁盘驱动
-    $STYPE_DEVICE - 联系设备
-    $STYPE_IPC - IPC
-    $STYPE_SPECIAL - 为IPC$或远程服务器管理员保留的指定共享
-    $STYPE_TEMPORARY - 临时共享
+成功:	共享的设备类型. 可以是一个组合:
+	$STYPE_磁盘TREE - 打印队列
+	$STYPE_PRINTQ - 磁盘驱动器
+	$STYPE_DEVICE - 通讯设备
+	$STYPE_IPC - IPC (工控机)
+	$STYPE_SPECIAL - 为 IPC$ 或服务器的远程管理保留的专用共享(那 $ 号反没反,不知道)
+	$STYPE_TEMPORARY - 临时共享
+失败:	返回 -1 - 共享不存在
 @@End@@
 
 ###Remarks###
-该函数的成功执行不需要指定组成员
+成功地执行这一函数不必特殊组成员
 
 ###Related###
- _Net_Share_ShareAdd , _Net_Share_ShareDel
+_Net_Share_ShareAdd, _Net_Share_ShareDel
 
 ###See Also###
- 搜索MSDN知识库中NetShareCheck的相关信息
+@@MsdnLink@@ NetShareCheck
 
 ###Example###
 @@IncludeExample@@

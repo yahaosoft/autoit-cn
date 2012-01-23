@@ -2,43 +2,46 @@
 _WinAPI_LoadLibraryEx
 
 ###Description###
-将指定的可执行模块到调用进程的地址空间
+映射指定的可执行模块到调用进程的地址空间
 
 ###Syntax###
-#Include
-<WinAPI.au3>
-_WinAPI_LoadLibraryEx($sFileName[, $iFlags = 0])
+#Include <WinAPI.au3>
+_WinAPI_LoadLibraryEx($sFileName [, $iFlags = 0])
 
 ###Parameters###
 @@ParamTable@@
 $sFileName
-   可执行模块的名称(.DLL或.EXE文件). 指定的名称是可执行模块的文件名.
+	Win32 可执行模块的名称 (任何 .DLL 或 .EXE 文件).
+		名称指定的是可执行模块名
 $iFlags
-   指定加载模块时采取的动作. 该参数可为下列值之一:
-    $DONT_RESOLVE_DLL_REFERENCES -
-      如果使用该值且可执行模块是一个DLL则系统不会为进程和线程的初始化和终止调用DllMain. 同时,
-      系统不会加载指定模块参考的额外可执行模块.
-    $LOAD_LIBRARY_AS_DATAFILE - 如果使用该值,
-      系统将文件作为数据文件映射到调用进程的地址空间.
-      不会对已经或准备执行映射的文件进行操作.
-    $LOAD_WITH_ALTERED_SEARCH_PATH -
-$FileName指定一个路径, 系统使用可选的搜索策略查找与指定模块相关的的可执行模块.
+	[可选参数] 指定加载模块时的操作
+		参数可以是以下值之一:
+		$DONT_RESOLVE_DLL_REFERENCES - 如果这个值用于可执行模块是一个 DLL,
+		系统不会为进程和线程的初始化和终止调用 DllMain
+		此外, 系统不额外加载指定模块中引用的可执行模块
+		$LOAD_LIBRARY_AS_DATAFILE - 系统映射调用进程地址空间的文件, 
+		就好像它是一个数据文件.
+		不采取任何操作来执行或准备执行映射文件
+		$LOAD_WITH_ALTERED_SEARCH_PATH - 如使用此值, 
+		且 $FileName 指定一个路径,
+		系统使用备用文件搜索策略,
+		查找并加载指定模块相关联的可执行模块
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 可执行模块的句柄
-失败: 0
+成功:	返回可执行模块的句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-需要Constants.au3预定义变量
+ 必须 Constants.au3 预先定义的常量
 
 ###Related###
-_WinAPI_LoadLibrary , _WinAPI_FreeLibrary , _WinAPI_LoadString
+_WinAPI_LoadLibrary, _WinAPI_FreeLibrary, _WinAPI_LoadString
 
 ###See Also###
-搜索MSDN知识库中LoadLibraryEx的相关信息
+@@MsdnLink@@ LoadLibraryEx
 
 ###Example###
 @@IncludeExample@@

@@ -2,32 +2,36 @@
 _GUICtrlListView_SetItemEx
 
 ###Description###
-设置项的部分或全部属性
+设置项目的部分或全部属性,使用数据结构.
 
 ###Syntax###
-#Include<GuiListView.au3>
-_GUICtrlListView_SetItemEx($hWnd, ByRef$tItem)
+#Include <GuiListView.au3>
+_GUICtrlListView_SetItemEx($hWnd, ByRef $tItem)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $tItem  $tagLVITEM 结构
+$hWnd
+	控件句柄
+$tItem
+	$tagLVITEM 结构
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-通过设置项目属性将$tagLVITEM的项目成员设置给项目索引, 并设置子项为零. 对于一个项目, 可设置状态, 文本, 图像和$tagLVITEM结构的参数成员.
-为设置子项文本, 设置项目和子项成员以描述指定子项, 并使用文本成员以指定文本. 因为子项目不具有这些属性所以无法设置子项目参数成员的状态.
+要设置项目的属性,设置 $tagLVITEM 结构的 Item 成员为该项目的索引,并设置 SubItem 成员为 0.
+对于一个项目时,您可以设置 $tagLVITEM 结构的
+ State, Text, Image, 与 Param 等成员.
+ 
+要设置一个子项的文本,设置 Item 与 SubItem 成员指向具体子项,并设置 Text 成员为指定文本.
+你不能设置子项的 State 或 Param 成员,因为子项没有这些属性.
 
 ###Related###
-_GUICtrlListView_SetItem , $tagLVITEM
-
-###See Also###
+_GUICtrlListView_SetItem, $tagLVITEM
 
 ###Example###
 @@IncludeExample@@

@@ -2,29 +2,28 @@
 _Timer_GetIdleTime
 
 ###Description###
-返回从用户最近活动以来的计时周期数(如键盘/鼠标)
+返回最后一次用户活动的标记数（即键盘/鼠标）
 
 ###Syntax###
 #Include <Timers.au3>
 _Timer_GetIdleTime()
 
 ###Parameters###
-@@ParamTable@@
-无
-@@End@@
+None.
+
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 从最近(大概的毫秒数)活动以来的计时周期数
-失败: 如果发生回滚设置@extended为1(见备注)
+成功:	返回上次活动以来的整数标记（大约毫秒）
+失败:	如果发生翻转则设置 @extended = 1 (见备注)
 @@End@@
 
 ###Remarks###
-从上次系统重启以来的当前周期是每50天回滚到0, 或者是使得回滚前的用户最近活动但在回滚后的函数运行时间回滚到0. 如果发生这种情况, @extended为1且返回值为上次回滚发生以来的周期数.
-
-###Related###
-
-###See Also###
+ 当前标记从上次系统重新启动大约 50 天后翻转到 0,
+ 这使得在翻转之前的用户活动可能成为最后一个.
+ 但这个函数是在运行时间后翻转. 
+ 如果发生这种情况, @extended = 1.
+ 返回的标记值是在翻转之后.
 
 ###Example###
 @@IncludeExample@@

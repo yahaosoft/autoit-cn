@@ -2,33 +2,34 @@
 _WinAPI_SetThemeAppProperties
 
 ###Description###
-设置当前应用程序如何使用视觉样式的标记
+设置如何在调用应用程序中实现视觉样式的标志.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetThemeAppProperties( $iFlags )
+_WinAPI_SetThemeAppProperties ( $iFlags )
 
 ###Parameters###
 @@ParamTable@@
-$iFlags  可为下列之一:
-$STAP_ALLOW_NONCLIENT - 应用程序窗体非客户区使用可视化风格
-$STAP_ALLOW_CONTROLS - 应用程序中的控件使用可视化风格
-$STAP_ALLOW_WEBCONTENT - 应用程序中的网络内容使用可视化风格
+$iFlags
+	参数可以是一或多个下列值:
+		 $STAP_ALLOW_NONCLIENT --- 应用程序窗口非客户区应用视觉样式
+		 $STAP_ALLOW_CONTROLS --- 应用程序中的控件使用视觉样式
+		 $STAP_ALLOW_WEBCONTENT --- 应用程序的网页内容应用视觉样式
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-设置标记后必须发送WM_THEMECHANGED消息以使改变生效
+设置标志后,必须发送 WM_THEMECHANGED 消息使设置生效.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SetThemeAppProperties的相关信息
+@@MsdnLink@@ SetThemeAppProperties
 
 ###Example###
 @@IncludeExample@@
+

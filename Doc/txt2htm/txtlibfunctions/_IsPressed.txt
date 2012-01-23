@@ -2,133 +2,140 @@
 _IsPressed
 
 ###Description###
-检查按键是否被按下
+检查一个按键是否被按下
 
 ###Syntax###
 #Include <Misc.au3>
-_IsPressed($sHexKey[, $vDLL ='user32.dll'])
+_IsPressed($sHexKey [, $vDLL = 'user32.dll'])
 
 ###Parameters###
 @@ParamTable@@
- $sHexKey  要检查的键
- $vDLL  dll 句柄或默认 user32.dll
+$sHexKey
+	要检查的按键
+$vDLL
+	[可选参数] DLL句柄,默认(default) 为 user32.dll
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-真: 1
-假: 0
+True:	1
+False:	0
 @@End@@
 
 ###Remarks###
-如果重复调用, 应该打开'user32.dll'并传递句柄.
-脚本结束时请确定将之关闭
+如果需要反复调用这个函数, 需要打开 'user32.dll' 并传递句柄.
+确认脚本结束时有关闭语句.
+
+_IsPressed() will return 1 until the key is released.
+Even brief key presses can result in multiple returns within a loop.
+If the code called does not include a blocking function (such as MsgBox) and the user does not require multiple returns, the script should wait until _IsPressed() returns 0 before continuing.
+
 01 鼠标左键
 02 鼠标右键
-04 鼠标中键(三键鼠标)
-05 Windows 2000/XP: X1鼠标键
-06 Windows 2000/XP: X2鼠标键
-08 BACKSPACE键
-09 TAB键
-0C CLEAR键
-0D ENTER键
-10 SHIFT键
-11 CTRL键
-12 ALT键
-13 PAUSE键
-14 CAPS LOCK键
-1B ESC键
-20 SPACEBAR
-21 PAGEUP键
-22 PAGEDOWN键
-23 END键
-24 HOME键
-25 向左箭头键
-26 向上箭头键
-27 向右箭头键
-28 向下箭头键
-29 SELECT键
-2A PRINT键
-2B EXECUTE键
-2C PRINTSCREEN键
-2D INS键
-2E DEL键
-30 0键
-31 1键
-32 2键
-33 3键
-34 4键
-35 5键
-36 6键
-37 7键
-38 8键
-39 9键
-41 A键
-42 B键
-43 C键
-44 D键
-45 E键
-46 F键
-47 G键
-48 H键
-49 I键
-4A J键
-4B K键
-4C L键
-4D M键
-4E N键
-4F O键
-50 P键
-51 Q键
-52 R键
-53 S键
-54 T键
-55 U键
-56 V键
-57 W键
-58 X键
-59 Y键
-5A Z键
-5B 左侧Win键
-5C 右侧Win键
-60 数字键盘 0键
-61 数字键盘 1键
-62 数字键盘 2键
-63 数字键盘 3键
-64 数字键盘 4键
-65 数字键盘 5键
-66 数字键盘 6键
-67 数字键盘 7键
-68 数字键盘 8键
-69 数字键盘 9键
-6A 乘号键
-6B 加号键
-6C Separator键
-6D 减号键
-6E 小数点键
-6F 除号键
-70 F1键
-71 F2键
-72 F3键
-73 F4键
-74 F5键
-75 F6键
-76 F7键
-77 F8键
-78 F9key
-79 F10键
-7A F11键
-7B F12键
-7C-7F F13键 - F16键
-80H-87H F17键 - F24键
-90 NUM LOCK键
-91 SCROLL LOCK键
-A0 左SHIFT键
-A1 右SHIFT键
-A2 左CONTROL键
-A3 右CONTROL键
-A4 左MENU键
-A5 右MENU键
+04 鼠标中键 (三键鼠标)
+05 Windows 2000/XP: X1 鼠标键
+06 Windows 2000/XP: X2 鼠标键
+08 BACKSPACE 键
+09 TAB 键
+0C CLEAR 键(清除键)
+0D ENTER 键
+10 SHIFT 键
+11 CTRL 键
+12 ALT 键
+13 PAUSE 键
+14 CAPS LOCK 键
+1B ESC 键
+20 空格键
+21 PAGE UP 键
+22 PAGE DOWN 键
+23 END 键
+24 HOME 键
+25 左方向键
+26 上方向键
+27 右方向建
+28 下方向键
+29 SELECT 键(选择键)
+2A PRINT 键(打印键)
+2B EXECUTE 键(执行键)
+2C PRINT SCREEN 键
+2D INS 键
+2E DEL 键
+30 0 键
+31 1 键
+32 2 键
+33 3 键
+34 4 键
+35 5 键
+36 6 键
+37 7 键
+38 8 键
+39 9 键
+41 A 键
+42 B 键
+43 C 键
+44 D 键
+45 E 键
+46 F 键
+47 G 键
+48 H 键
+49 I 键
+4A J 键
+4B K 键
+4C L 键
+4D M 键
+4E N 键
+4F O 键
+50 P 键
+51 Q 键
+52 R 键
+53 S 键
+54 T 键
+55 U 键
+56 V 键
+57 W 键
+58 X 键
+59 Y 键
+5A Z 键
+5B 左 Windows 键
+5C 右 Windows 键
+60 数字键盘 0 键
+61 数字键盘 1 键
+62 数字键盘 2 键
+63 数字键盘 3 键
+64 数字键盘 4 键
+65 数字键盘 5 键
+66 数字键盘 6 键
+67 数字键盘 7 键
+68 数字键盘 8 键
+69 数字键盘 9 键
+6A 乘 "*" 键
+6B 加 "+" 键
+6C 分号 ";" 键
+6D 减 "-" 键
+6E 小数点 "." 键
+6F 除 "/" 键
+70 F1 键
+71 F2 键
+72 F3 键
+73 F4 键
+74 F5 键
+75 F6 键
+76 F7 键
+77 F8 键
+78 F9 键
+79 F10 键
+7A F11 键
+7B F12 键
+7C-7F F13 键 - F16 键
+80H-87H F17 键 - F24 键
+90 NUM LOCK 键
+91 SCROLL LOCK 键
+A0 左 SHIFT 键
+A1 右 SHIFT 键
+A2 左 CONTROL 键
+A3 右 CONTROL 键
+A4 左 MENU(菜单) 键
+A5 右 MENU(菜单) 键
 BA ;
 BB =
 BC ,
@@ -141,8 +148,6 @@ DC \
 DD ]
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

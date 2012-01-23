@@ -1,8 +1,8 @@
-﻿###User Defined Function###
+###User Defined Function###
 _GUICtrlRichEdit_GetLineCount
 
 ###Description###
-获取多行编辑控件中的行数
+检索多行编辑控件的行数
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -10,25 +10,28 @@ _GUICtrlRichEdit_GetLineCount($hWnd)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
+$hWnd
+	控件句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 文本行总数
-失败: 返回0并设置@error
-    101 - $hWnd不是句柄
+成功:	控件的文本总行数
+失败:	返回 0, 并设置 @error:
+@error:	101 - $hWnd 参数值不是句柄
 @@End@@
 
 ###Remarks###
-不包含文本的控件为一行
-计数中包含不可见行
-如果文字可封装, 编辑窗口尺寸改变时行数可变.
+ 不包含任何文本的控件会有一行
+
+ 行数不包括目前的可见行
+
+ 如果启用了自动换行,当编辑窗口的尺寸变化时,行数也可以改变.
 
 ###Related###
 
 ###See Also###
- 搜索MSDN知识库中EM_GETLINECOUNT的相关信息
+@@MsdnLink@@ EM_GETLINECOUNT
 
 ###Example###
 @@IncludeExample@@

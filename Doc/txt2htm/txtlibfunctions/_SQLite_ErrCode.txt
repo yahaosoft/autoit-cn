@@ -2,30 +2,33 @@
 _SQLite_ErrCode
 
 ###Description###
-返回最近的错误号(数字)
+返回最后一个错误代码 (数字)
 
 ###Syntax###
-#Include <SQLite.au3>
+#include <SQLite.au3>
 _SQLite_ErrCode ( [ $hDB ] )
+
 
 ###Parameters###
 @@ParamTable@@
- $hDB  [可选] 打开的数据库, 默认为最近打开的.
+$hDB
+	[可选参数] 打开的数据库,默认为最后打开的数据库
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回可与$SQLITE_*常量比较的值.
-失败: 返回0.
-@error: 1 - 调用SQLite API 'sqlite3_errcode'错误
+成功:	返回值可能违反 $SQLITE_* 常量
+失败:	返回 0
+@错误:	1 - 错误调用 SQLite API 'sqlite3_errcode'
+	2 - 调用被安全模式阻止
 @@End@@
 
 ###Remarks###
+None.
+
 
 ###Related###
- _SQLite_ErrMsg
-
-###See Also###
+_SQLite_ErrMsg
 
 ###Example###
 @@IncludeExample@@

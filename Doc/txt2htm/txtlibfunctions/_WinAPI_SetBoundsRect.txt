@@ -2,38 +2,39 @@
 _WinAPI_SetBoundsRect
 
 ###Description###
-控制指定场景中的绑定矩形的累计信息
+Controls the accumulation of bounding rectangle information for the specified device context.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetBoundsRect( $hDC, $iFlags [, $tRECT] )
+_WinAPI_SetBoundsRect ( $hDC, $iFlags [, $tRECT] )
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   累计绑定矩形的场景的句柄
+	Handle to the device context for which to accumulate bounding rectangles.
 $iFlags
-   指定新矩形如何与累计矩形结合的标记. 可为下列值之一:
-    $DCB_ACCUMULATE - 将$tRECT指定的矩形添加到绑定矩形
-    $DCB_DISABLE - 禁用边界累计
-    $DCB_ENABLE - 启用边界累计
-    $DCB_RESET - 清除绑定矩形
+	The flags that specifies how the new rectangle will be combined with the accumulated rectangle.
+	This parameter can be one of more of the following values.
+	
+	$DCB_ACCUMULATE
+	$DCB_DISABLE
+	$DCB_ENABLE
+	$DCB_RESET
+	
 $tRECT
-$tagRECT结构
+	[可选参数] $tagRECT structure used to set the bounding rectangle in logical coordinates.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回指定绑定矩形原有状态的值
-失败: 返回0并设置@error非0
+Success	The value specifies the previous state of the bounding rectangle ($DCB_*).
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SetBoundsRect的相关信息
+@@MsdnLink@@ SetBoundsRect
 
-###Example###
-@@IncludeExample@@

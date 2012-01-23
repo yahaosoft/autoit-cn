@@ -2,7 +2,7 @@
 _WinAPI_DwmExtendFrameIntoClientArea
 
 ###Description###
-扩展客户区后的窗口框架
+扩展客户区背后的窗口框架.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,26 +11,28 @@ _WinAPI_DwmExtendFrameIntoClientArea ( $hWnd [, $tMARGINS] )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   框架将被扩展到客户区中的窗体句柄
+	框架范围扩展到客户端的窗口句柄.
 $tMARGINS
-$tagMARGINS结构. 负数边界用于在被渲染为无边界填充色表面的客户区上创建"玻璃板"效果.
+	[可选参数] $tagMARGINS 结构,描述延伸到客户端区域的框架边界.
+		 压缩边界用于创建玻璃效果,其中客户区域为一个没有窗口边框的固体表面.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0. @extended标记包含COM错误代码
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-无论桌面窗口管理器(DWM)的组成何时改变都需要调用该程序. 并发送WM_DWMCOMPOSITIONCHANGED消息通知组分改变.
-该函数需要Windows Vista或以上版本.
-正常运行示例请将 Soccer.ico 文件保存到临时文件夹中
+每当桌面窗口管理器（DWM）切换时,必须调用这个函数.
+ WM_DWMCOMPOSITIONCHANGED 消息通知切换的变化信息.
+ 本函数需要 Windows Vista 或更高版本系统.
+This function requires Windows Vista or later.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中DwmExtendFrameIntoClientArea的相关信息
+@@MsdnLink@@ DwmExtendFrameIntoClientArea
 
 ###Example###
 @@IncludeExample@@
+

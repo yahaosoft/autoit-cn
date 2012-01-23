@@ -2,17 +2,22 @@
 $tagNMIPADDRESS
 
 ###Description###
-包含$IPN_FIELDCHANGED通知消息的信息的结构
+包含 $IPN_FIELDCHANGED 通知消息
 
 ###Syntax###
-Global Const $tagNMIPADDRESS =  $tagNMHDR & ";int Field;int Value"
+Global Const $tagNMIPADDRESS = $tagNMHDR & ";int Field;int Value"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   通知消息的信息
+	包含通知消息的信息
 Field
-   改变的0基数量的区域.
+	字段变化从 0 开始的数字.
 Value
-   iField成员中指定的区域的新值. 当执行$IPN_FIELDCHANGED通知时, 该成员可设置为区域范围内的任意值且控件将把新值置于区域中.
-@@end@@
+	iField 成员中指定的字段新值.
+	处理 $IPN_FIELDCHANGED 通知时, 这个成员可以设置控制范围为任何值,控件将把新值置于这个范围中.
+@@End@@
+
+###Remarks###
+None.
+

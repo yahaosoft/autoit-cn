@@ -2,37 +2,40 @@
 _GDIPlus_ArrowCapSetMiddleInset
 
 ###Description###
-设置插入点的值
+获取插入值
 
 ###Syntax###
 #Include <GDIPlus.au3>
-_GDIPlus_ArrowCapSetMiddleInset($hArrowCap, $nInset)
+_GDIPlus_ArrowCapSetMiddleInset($hArrowCap, $fInset)
 
 ###Parameters###
 @@ParamTable@@
-$hArrowCap 
-   ArrowCap对象句柄
-$nInset 
-   插入点的值
+$hArrowCap
+	箭头帽对象句柄
+$fInset
+	返回插入值
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-中间插入值是基线中点向顶点移动的数量单位. 为0的中间插入值不会产生移动(基线为直线, 给定箭头为三角形).
-正的(大于0)的插入值产生向顶点的指定数量单位的移动(基线为指向顶点的箭头形状, 给定线帽为V形).
-负的(小于0)的插入值产生远离顶点的指定数量单位的移动(基线变为指向远离顶点的箭头形状, 给定线帽为钻石形(如果中间插入值的绝对值等于高度)或斜菱形).
-如果中间插入值等于或大于线帽高度, 不显示线帽. 中间插入值的值只影响填充的箭头线帽.
+ 中间插入值是箭头基线中点向顶点移动的数量单位.
+ 等于 0 的中间插入值不会产生移动(基线为直线, 箭头帽为正三角形)
+ 正的(大于0)的插入值使基线中点向顶点方向按指定数量单位移动, 箭头帽形成 ＞ 形
+ 负的(小于0)的插入值使基线中点按指定数量单位向远离顶点的方向移动, 形成基线中点远离顶点的箭头形状;
+ 如果负中间插入值的绝对值等于(或大于)箭头线帽的高度, 则箭头线帽为形如 ◆ 的菱形或变异菱形.
+ 如果中间插入值等于或大于箭头线帽的高度, 则不显示箭头线帽. 
+ 注意:中间插入值只影响填充状态的箭头线帽. 
 
 ###Related###
- _GDIPlus_ArrowCapGetMiddleInset
+_GDIPlus_ArrowCapGetMiddleInset
 
 ###See Also###
- 查看MSDN知识库中GdipSetAdjustableArrowCapMiddleInset的相关信息
+@@MsdnLink@@ GdipSetAdjustableArrowCapMiddleInset
 
 ###Example###
 @@IncludeExample@@

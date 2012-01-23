@@ -2,7 +2,7 @@
 _GUICtrlTreeView_Create
 
 ###Description###
-创建TreeView控件
+创建一个树形查看(TreeView)控件
 
 ###Syntax###
 #Include <GuiTreeView.au3>
@@ -10,45 +10,73 @@ _GUICtrlTreeView_Create($hWnd, $iX, $iY[, $iWidth=150[, $iHeight=150[, $iStyle=0
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  父窗体或主窗体的句柄
- $iX  控件水平位置
- $iY  控件垂直位置
- $iWidth  控件宽度
- $iHeight  控件高度
- $iStyle  控件样式:
-DllStructGetData($TVS_CHECKBOXES - 使项目的复选框有效 , "" ) 仅当图像与项目关联时显示复选框. 设置该样式时 , 控件使用DrawFrameControl创建且设置包含两个图像的状态图像列表. 状态图像1为未选中复选框且状态图像2为选中复选框. 设置状态图像为0则移除复选框. 版本5.80显示复选框即使没有图像与项目关联.
-  $TVS_DISABLEDRAGDROP - 阻止控件发送$TVN_BEGINDRAG通知消息
-  $TVS_EDITLABELS - 允许用户编辑项目标签
-DllStructGetData($TVS_FULLROWSELECT - 使整行选取有效 , "" ) 被选项整行高亮 , 点击项目行任意位置时整行选中. 该样式不能和DllStructGetData($TVS_HASLINES 样式 , "" )结合使用.
-DllStructGetData($TVS_HASBUTTONS - 在父项后显示加号和减号 , "" ) 用户点击按钮以扩展或收起父项的子项列表. 为了使根项目包含按钮必须指定DllStructGetData($TVS_LINESATROOT , "" )
-  $TVS_HASLINES - 使用直线显示项目的继承关系
-  $TVS_INFOTIP - 通过发送$TVN_GETINFOTIP通知获取提示信息
-DllStructGetData($TVS_LINESATROOT - 在控件根部使用直线联系项目 , "" ) 该值将被忽略如果DllStructGetData($TVS_HASLINES也未指定 , "" )
-DllStructGetData($TVS_NOHSCROLL - 禁用水平滚动条 , "" ) 控件不显示任何水平滚动条.
-DllStructGetData($TVS_NONEVENHEIGHT - 使用$TVM_SETITEMHEIGHT消息设置项目高度为奇数高度 , "" ) 项目的默认高度必须是偶数值.
-DllStructGetData($TVS_NOSCROLL - 在控件中禁用水平和垂直滚动条 , "" ) 控件不显示任何滚动条.
-  $TVS_NOTOOLTIPS - 禁用工具提示
-  $TVS_RTLREADING - 文本从右向左显示
-  $TVS_SHOWSELALWAYS - 是被选项在控件失去焦点时保持被选
-  $TVS_SINGLEEXPAND - 扩展被选项同时收缩未选项. 如果鼠标被设置为单击选取且项目为关闭时 , 将扩展. 如果在选取项目时用户按下CTRL键 , 未被选的项目不会收缩. 版本 5.80使被选项目扩展且未被选的收起.
-  $TVS_TRACKSELECT - 热跟踪有效
-  默认: $TVS_HASBUTTONS , $TVS_HASLINES , $TVS_LINESATROOT , $TVS_DISABLEDRAGDROP , $TVS_SHOWSELALWAYS
-强制: $WS_CHILD , $WS_VISIBLE
- $iExStyle  控件扩展样式
+$hWnd
+	父窗口或者所有者窗口
+$iX
+	控件水平坐标
+$iY
+	控件垂直坐标
+$iWidth
+	[可选参数] 控件宽度
+$iHeight
+	[可选参数] 控件高度
+$iStyle
+	[可选参数] 控件样式:
+		DllStructGetData($TVS_CHECKBOXES - 项目启用复选框, "") 
+		如果项目有关联的图像时显示复选框.
+		当设置为这种样式后,控件使用 DrawFrameControl
+		创建和设置包含两个图像状态的图像列表,
+		状态图像 1 为未选中复选框; 状态图像 2 为选中复选框
+		设置状态图像为 0, 则删除复选框
+		即使项目没有关联图像, 版本 5.80 也能显示复选框
+		$TVS_DISABLEDRAGDROP
+		阻止控件发送 $TVN_BEGINDRAG 通知消息
+		$TVS_EDITLABELS
+		允许用户修改该项目的标签
+		DllStructGetData($TVS_FULLROWSELECT - 允许全行选中, "")
+		选中项目的整行被突出显示
+		点击项目行的任何地方都将导致它被选中.
+		这种样式不能用于 DllStructGetData($TVS_HASLINES 样式, "")
+		DllStructGetData($TVS_HASBUTTONS - 父项目旁边显示加、减号按钮, "") 
+		按钮点击可展开或折叠父项的子项列表
+		要点击根项目,还必须指定 DllStructGetData($TVS_LINESATROOT, "")
+		$TVS_HASLINES - 使用行显示项目的层次结构
+		$TVS_INFOTIP - 发送 $TVN_GETINFOTIP 通知获取工具提示信息
+		DllStructGetData($TVS_LINESATROOT - 根项目使用连接线, "") 
+		此值被忽略,如果DllStructGetData($TVS_HASLINES 同样未指定, "")
+		DllStructGetData($TVS_NOHSCROLL - 禁用水平滚动 "")
+		控件不显示任何水平滚动条.
+		DllStructGetData($TVS_NONEVENHEIGHT - 与 $TVM_SETITEMHEIGHT 消息一起设置项目为奇数高度, "")
+		默认项目高度必须是偶数值
+		DllStructGetData($TVS_NOSCROLL - 禁用水平和垂直滚动 "")
+		控件将不显示任何滚动条.
+		$TVS_NOTOOLTIPS - 禁用工具提示
+		$TVS_RTLREADING - 由右至左显示文字
+		$TVS_SHOWSELALWAYS - 当控件失去焦点时,选中项目仍然保持选中状态
+		$TVS_SINGLEEXPAND - 项目被选中时将展开,未选择时折叠
+		如果鼠标单击处于折叠状态的项目,该项目将自动展开
+		如果按住 Ctrl 键的同时选择项目,该项目被取消选中状态不会折叠
+		版本 5.80 使项目被选中时展开,未选择时折叠
+		如果按住 Ctrl 键的同时选择项目,该项目被取消选中状态不会折叠.
+		$TVS_TRACKSELECT - 启用热跟踪
+	[可选参数] 默认 : $TVS_HASBUTTONS, $TVS_HASLINES, $TVS_LINESATROOT, 
+		$TVS_DISABLEDRAGDROP, $TVS_SHOWSELALWAYS
+		强制 : $WS_CHILD, $WS_VISIBLE
+$iExStyle
+	[可选参数] 控件扩展样式
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 控件句柄
+成功:	控件句柄
+失败:	0
 @@End@@
 
 ###Remarks###
-该函数适用于高级用户学习控件如何工作.
+ 此功能为高级用户学习如何控制工程
 
 ###Related###
 _GUICtrlTreeView_Destroy
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

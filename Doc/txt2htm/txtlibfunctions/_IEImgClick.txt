@@ -1,48 +1,56 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _IEImgClick
 
 ###Description###
-æ¨¡æ‹Ÿé¼ æ ‡ç‚¹å‡»ä¸€ä¸ªå›¾åƒ. åŒ¹é…å›¾ç‰‡çš„æ–‡å­— , åå­—æˆ–è€…æºåœ°å€çš„å­ä¸²ç›¸ç¬¦çš„å­—ä¸².
+Ä£ÄâÊó±êµã»÷Ò»¸öÍ¼Ïñ. ÓÉÆ¥Åä¿ÉÑ¡ÎÄ±¾, Ãû³Æ»òÔ´µÄ×Ó´®Æ¥Åä.
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IEImgClick ( ByRef $o_object, $s_linkText [, $s_mode = "src" [, $i_index = 0 [, $f_wait = 1]]] )
 
 ###Parameters###
 @@ParamTable@@
- $o_object  InternetExplorer.Application , çª—å£æˆ–è€…æ¡†æ¶(frame)å¯¹è±¡çš„å¯¹è±¡å˜é‡
- $s_linkText  ä¾æ®è®¾å®šæ¨¡å¼ä¸­éœ€è¦åŒ¹é…çš„æ–‡å­—æˆ–å†…å®¹
- $s_mode  [å¯é€‰]: æŒ‡å®šæœç´¢æ¨¡å¼
-src = (é»˜è®¤) åŒ¹é…å›¾ç‰‡é“¾æ¥
-name = åŒ¹é…å›¾åƒåç§°
-alt = åŒ¹é…å›¾åƒæˆ–æ–‡å­—
- $i_index  [å¯é€‰]: å¦‚æœå›¾åƒæ–‡å­—å‡ºç°è¶…è¿‡1æ¬¡ , å®šä¹‰é€‰æ‹©å“ªä¸€ä¸ª , ä»0å¼€å§‹
- $f_wait  [å¯é€‰]: å®šä¹‰åœ¨è¿”å›å‰æ˜¯å¦ç­‰å¾…çª—å£åŠ è½½å®Œæ¯•
-0 = ç«‹å³è¿”å› , ä¸ç­‰å¾…çª—å£åŠ è½½
-1 = (é»˜è®¤)ç­‰å¾…çª—å£åŠ è½½å®Œæ¯•ç„¶åè¿”å›
+$o_object
+	InternetExplorer.Application´°Ìå»ò¿ò¼Ü¶ÔÏóµÄ¶ÔÏó±äÁ¿
+$s_linkText
+	Æ¥Åä$s_modeÖĞÖ¸¶¨µÄÊôĞÔµÄÄÚÈİµÄÎÄ±¾
+$s_mode
+	[¿ÉÑ¡²ÎÊı]: Ö¸¶¨ËÑË÷Ä£Ê½
+	src = (Ä¬ÈÏ)Æ¥ÅäÍ¼ÏñµØÖ·
+	name = Æ¥ÅäÍ¼ÏñÃû
+	alt = Æ¥ÅäÍ¼ÏñµÄ¿ÉÑ¡ÎÄ±¾
+$i_index
+	[¿ÉÑ¡²ÎÊı]: Èç¹ûÍ¼ÏñÎÄ±¾²»Ö¹Ò»´Î³öÏÖ, Ö¸¶¨ÏëÒªµÄ0»ùË÷ÒıµÄÊµÀı
+$f_wait
+	[¿ÉÑ¡²ÎÊı]: Ö¸¶¨ÊÇ·ñÔÚ·µ»ØÇ°µÈ´ıÒ³Ãæ¼ÓÔØ
+	0 = Á¢¼´·µ»Ø, ²»µÈ´ı¼ÓÔØÒ³Ãæ
+	1 = (Ä¬ÈÏ)·µ»ØÇ°µÈ´ıÒ³ÃæÍê³É¼ÓÔØ
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: è¿”å›-1 å¤±è´¥: è¿”å›0å¹¶è®¾ç½®@ERRORä¸º:
-    0 ($_IEStatus_Success) = æ— é”™è¯¯
-    1 ($_IEStatus_GeneralError) = ä¸€èˆ¬æ€§é”™è¯¯
-    3 ($_IEStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»å‹
-    4 ($_IEStatus_InvalidObjectType) = æ— æ•ˆå¯¹è±¡ç±»å‹
-    5 ($_IEStatus_InvalidValue) = æ— æ•ˆå€¼
-    6 ($_IEStatus_LoadWaitTimeout) = è½½å…¥ç­‰å¾…è¶…æ—¶
-    7 ($_IEStatus_NoMatch) = æ— åŒ¹é…
-    8 ($_IEStatus_AccessIsDenied) = è®¿é—®è¢«æ‹’ç»
-    9 ($_IEStatus_ClientDisconnected) = å®¢æˆ·ç«¯æ–­å¼€
-    @Extended: åŒ…å«æ— æ•ˆå‚æ•°æ•°é‡
+³É¹¦:	·µ»Ø-1
+Ê§°Ü:	·µ»Ø0 ²¢ÇÒÉèÖÃ @ERROR
+@Error:	0 ($_IEStatus_Success) = ÎŞ´íÎó
+	1 ($_IEStatus_GeneralError) = Ò»°ãĞÔ´íÎó
+	3 ($_IEStatus_InvalidDataType) = ÎŞĞ§Êı¾İÀàĞÍ
+	4 ($_IEStatus_InvalidObjectType) = ÎŞĞ§¶ÔÏóÀàĞÍ
+	5 ($_IEStatus_InvalidValue) = ÎŞĞ§Öµ
+	6 ($_IEStatus_LoadWaitTimeout) = ¼ÓÔØµÈ´ı³¬Ê±
+	7 ($_IEStatus_NoMatch) = ÎŞÆ¥Åä
+	8 ($_IEStatus_AccessIsDenied) = ¾Ü¾ø·ÃÎÊ
+	9 ($_IEStatus_ClientDisconnected) = ¿Í»§¶Ë¶Ï¿ª
+@Extended:	°üº¬ÎŞĞ§²ÎÊıÊıÁ¿
 @@End@@
 
+
 ###Remarks###
+None.
+
 
 ###Related###
- _IEImgGetCollection , _IEFormImageClick
+_IEImgGetCollection, _IEFormImageClick, _IELoadWait
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

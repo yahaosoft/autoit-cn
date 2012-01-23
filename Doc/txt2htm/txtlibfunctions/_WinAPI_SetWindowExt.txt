@@ -2,29 +2,33 @@
 _WinAPI_SetWindowExt
 
 ###Description###
-使用指定值设置窗口对设备场景的水平和垂直扩展
+Sets the horizontal and vertical extents of the window for a device context by using the specified values.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetWindowExt( $hDC, $iXExtent, $iYExtent )
+_WinAPI_SetWindowExt ( $hDC, $iXExtent, $iYExtent )
 
 ###Parameters###
 @@ParamTable@@
-$hDC  设备场景句柄
-$iXExtent  窗口的水平扩展
-$iYExtent  窗口的垂直扩展
+$hDC
+	Handle to the device context.
+$iXExtent
+	The window's horizontal extent in logical units.
+$iYExtent
+	The window's vertical extent in logical units.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-_WinAPI_SetWindowExt()仅在设置为$MM_ANISOTROPIC或$MM_ISOTROPIC映射模式时工作, 否则忽略对该函数的调用.
+The _WinAPI_SetWindowExt() works only if $MM_ANISOTROPIC or $MM_ISOTROPIC mapping modes are set,  otherwise,
+calls to this function are ignored.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SetWindowExtEx的相关信息
+@@MsdnLink@@ SetWindowExtEx
+

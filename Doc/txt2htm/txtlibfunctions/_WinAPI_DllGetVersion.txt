@@ -2,34 +2,37 @@
 _WinAPI_DllGetVersion
 
 ###Description###
-获取指定的DLL版本信息
+Retrieves a DLL-specific version information.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_DllGetVersion( $sPath )
+_WinAPI_DllGetVersion ( $sPath )
 
 ###Parameters###
 @@ParamTable@@
 $sPath
-   要获取版本信息的Dll文件的路径
+	The path to the DLL file from which information is retrieved.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回包含下列信息的数组:
-    [0] - 主要版本.
-    [1] - 次要版本.
-    [2] - 构建数字.
-    [3] - 创建dll的平台(DLLVER_PLATFORM_*).
-失败: 返回0并设置@error非0, @extended标记包含系统错误代码.
+Success	The array containing the following information:
+[0]	The major version.
+[1]	The minor version.
+[2]	The build number.
+[3]	The platform for which the DLL was built ($DLLVER_PLATFORM_*).
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
+This function is not an API. It is exported by name from each DLL that implements it. Currently, most of the Windows Shell
+and common controls DLLs implement DllGetVersion. These include, but are not limited to, shell32.dll, comctl32.dll,
+shdocvw.dll, and shlwapi.dll.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中DllGetVersion的相关信息
+@@MsdnLink@@ DllGetVersion
 
 ###Example###
 @@IncludeExample@@
+

@@ -2,30 +2,36 @@
 _NamedPipes_CreatePipe
 
 ###Description###
-创建匿名管道
+创建一个匿名管道
 
 ###Syntax###
 #Include <NamedPipes.au3>
-_NamedPipes_CreatePipe(ByRef $hReadPipe, ByRef $hWritePipe[, $tSecurity = 0[, $iSize = 0]])
+_NamedPipes_CreatePipe(ByRef $hReadPipe, ByRef $hWritePipe [, $tSecurity = 0 [, $iSize = 0]])
 
 ###Parameters###
 @@ParamTable@@
- $hReadPipe  接收管道读取句柄的变量
- $hWritePipe  接收管道写入句柄的变量
- $tSecurity  确定返回句柄可否被子进程继承的tagSECURITY_ATTRIBUTES结构. 如果为0 , 句柄无法被继承.
- $iSize  管道缓冲区的字节大小. 如果为0 , 系统使用默认缓冲区大小.
+$hReadPipe
+	接收管道读取句柄的变量
+$hWritePipe
+	接收管道写入句柄的变量
+$tSecurity
+	[可选参数] tagSECURITY_ATTRIBUTES 结构, 决定是否返回的句柄可以通过子进程继承
+		如果为 0,句柄不能被继承.
+$iSize
+	[可选参数] 管道缓冲区大小的字节指.如果为 0,系统将使用默认的缓冲区大小.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
- _NamedPipes_CreateNamedPipe
+_NamedPipes_CreateNamedPipe
 
 ###See Also###
-搜索MSDN知识库中CreatePipe的相关信息
+@@MsdnLink@@ CreatePipe

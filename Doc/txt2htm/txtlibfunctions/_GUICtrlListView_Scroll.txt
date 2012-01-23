@@ -5,31 +5,33 @@ _GUICtrlListView_Scroll
 滚动列表视图的内容
 
 ###Syntax###
-#Include<GuiListView.au3>
+#Include <GuiListView.au3>
 _GUICtrlListView_Scroll($hWnd, $iDX, $iDY)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iDX  用于指定水平滚动的像素数量的整数类型的值. 如果控件使用列表视图, 该值指定滚动的列数.
- $iDY  用于指定垂直滚动的像素数量的整数类型的值.
+$hWnd
+	控件句柄
+$iDX
+	值的类型为 int,指定水平滚动的像素数量.
+		如果控件是列表视图, 该值指定滚动的列数
+$iDY
+	值的类型为 int,指定垂直滚动的像素数量.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-当列表视图控件采用报告视图时, 控件只能在增加全部行时垂直滚动. 因此, $iDY参数应该设置在接近增加整行的范围中. 例如,
-如果行高是16像素且$iDY取值为8，则列表将滚动16像素(1行). 如果$iDY为7列表将滚动0像素(0行).
-[译注]: 这段没看明白,
-按原文的意思大概应该是, 大于等于8时，滚动整行，小于8时，不滚动
+ 当控件为报表视图时, 控件只能按整行的增量垂直滚动.
+ 因此,$iDY 参数的像素量将四舍五入,形成最接近整行的数量递增.
+ 例如,如果一个行的高度是 16 像素,而 $iDY 指定为 8,列表将滚动 16 像素（1行）;
+ 如果 $iDY 指定为7,列表将滚动 0 像素(0 行). 
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

@@ -2,33 +2,38 @@
 _WinAPI_LockResource
 
 ###Description###
-锁定内存中的指定资源
+锁定内存中指定的资源.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_LockResource( $hData )
+_WinAPI_LockResource ( $hData )
 
 ###Parameters###
 @@ParamTable@@
 $hData
-   锁定的由_WinAPI_LoadResource()返回的资源的句柄. 不需要传递任何作为参数的值.
+	被锁定资源的句柄.句柄由 _WinAPI_LoadResource() 函数返回.
+		 除 _WinAPI_LoadResource() 函数成功的返回值外,不要传递任何其它值到这个参数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 资源首字节的指针
-失败: 返回0并设置@error非0
+成功:	返回资源第一个字节的指针.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-直到包含资源的模块被卸载, 函数返回的指针将一直有效. 无需解锁资源, 因为当创建资源的进程终止时系统会自动删除.
-不要试图锁定使用_WinAPI_FindResource()或_WinAPI_FindResourceEx()返回的句柄的资源, 那样的句柄指针是随机的.
-正常运行示例请将 Resources.dll 文件或 Resources_x64.dll 文件(x64系统使用)保存到临时文件夹中
+资源模块被卸载前, 函数返回的指针总是有效.
+ 不必为资源解锁,当创建它们的进程终止时,系统会自动删除这些资源.
+ 不要使用由 _WinAPI_FindResource() 或 
+_WinAPI_FindResourceEx() 函数返回的句柄锁定资源,这样的句柄是随机数据.
+注意: _WinAPI_LockResource(), 实际上并没有锁定内存,它只是用来获取内存资源的数据指针.
+ 函数名称来自于 Windows XP 之前的版本,用来锁定由 _WinAPI_LoadResource() 分配的全局内存块.
 
-###Related###
+
 
 ###See Also###
- 搜索MSDN知识库中LockResource的相关信息
+@@MsdnLink@@ LockResource
 
 ###Example###
 @@IncludeExample@@
+

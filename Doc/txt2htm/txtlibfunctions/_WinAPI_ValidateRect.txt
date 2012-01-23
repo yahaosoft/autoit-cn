@@ -2,29 +2,32 @@
 _WinAPI_ValidateRect
 
 ###Description###
-从指定窗体更新区域移除一个矩形
+删除窗口当前更新区域的指定矩形.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ValidateRect( $hWnd [, $tRECT] )
+_WinAPI_ValidateRect ( $hWnd [, $tRECT] )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-  更新区域的窗体句柄. 如果为0, 系统禁用并重绘所有窗体及在函数返回前向窗体发送WM_ERASEBKGND和WM_NCPAINT消息
+	将更新的窗口句柄. 如果此参数为 0,系统失效和刷新所有窗口,
+		 并在函数返回之前发送 WM_ERASEBKGND 与 WM_NCPAINT 消息给窗口程序. 
 $tRECT
-  包含要从更新区域移除的矩形的客户区坐标的$tagRECT结构. 如果为0, 移除全部客户区.
+	[可选参数] $tagRECT 结构,包含更新区域中删除矩形的客户端坐标.
+		 如果此参数为 0,删除整个客户区.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中ValidateRect的相关信息
+@@MsdnLink@@ ValidateRect
+

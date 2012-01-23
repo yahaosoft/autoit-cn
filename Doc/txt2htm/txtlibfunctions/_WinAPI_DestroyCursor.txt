@@ -2,28 +2,29 @@
 _WinAPI_DestroyCursor
 
 ###Description###
-销毁光标并释放其占用的内存
+销毁光标并释放任何内存占用的光标.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_DestoryCursor( $hCursor )
+_WinAPI_DestroyCursor ( $hCursor )
 
 ###Parameters###
 @@ParamTable@@
 $hCursor
-   要销毁的光标句柄. 光标必须未在使用中.
+	被销毁的光标句柄.必须是不再使用的光标.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-该函数销毁非共享光标. 共享光标在加载的模块仍在内存中时一直可用.
+函数仅销毁非共享的光标.不要使用此函数摧毁共享的光标.
+ 共享光标从模块加载到它仍然在内存中将一直有效.
 
-###Related###
 
 ###See Also###
-搜索MSDN知识库中DestroyCursor的相关信息
+@@MsdnLink@@ DestroyCursor
+

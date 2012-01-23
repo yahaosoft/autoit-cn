@@ -2,34 +2,35 @@
 _WinAPI_GetModuleHandle
 
 ###Description###
-获取指定模块的句柄
+返回指定的模块句柄
 
 ###Syntax###
-#Include
-<WinAPI.au3>
+#Include <WinAPI.au3>
 _WinAPI_GetModuleHandle($sModuleName)
 
 ###Parameters###
 @@ParamTable@@
 $sModuleName
-   Win32模块名称(.DLL或.EXE文件). 如果忽略扩展名, 添加默认库扩展名.DLL.
-      文件名可包含一个跟随的点字符(.)以表示模块名没有扩展名. 字符串不必指定路径.
-      名称(大小写无关)将与当前映射到调用进程的地址空间的模块的名称进行比较. 如果参数为0,
-  函数返回用于创建调用进程的文件的句柄.
+	Win32 模块名称 (任何 .DLL 或 .EXE 文件). 如果文件扩展名被省略,默认追加 DLL.
+		文件名字符串可以包含一个尾随点字符 (.),表示该模块的名称没有扩展名.
+		该字符串不必指定路径.
+		该名称是相对于当前模块名称在调用进程地址空间的映射（案例独立）
+		如果此参数为 0, 函数返回一个用于创建调用进程文件的句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 模块句柄
-失败: 0
+成功:	返回指定模块的句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 
 ###See Also###
-在MSDN知识库中搜索GetModuleHandle的相关信息
+@@MsdnLink@@ GetModuleHandle
 
 ###Example###
 @@IncludeExample@@

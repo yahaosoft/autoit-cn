@@ -2,31 +2,34 @@
 _WinAPI_PathFindNextComponent
 
 ###Description###
-解析路径并返回斜杠后的路径部分
+解析路径,并返回路径中第一个反斜杠后面的部分.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_PathFindNextComponent( $sPath )
+_WinAPI_PathFindNextComponent ( $sPath )
 
 ###Parameters###
 @@ParamTable@@
 $sPath
-   要解析的路径. 路径部分被斜杠分割. 比如 , 路径 "c:\path1\path2\file.txt" 有四部分 : c:, path1, path2 及 file.txt.
+	解析的路径. 路径组件由反斜线分隔, 例如
+		 "c:\path1\path2\file.txt" 有四个组成部分: c:, 路径1, 路径2, 与 file.txt.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 截断的路径
-失败: 返回空字符串并设置@error非0
+成功:	返回截断的路径.
+失败:	返回空串,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-函数遍历字符串直到遇到斜杠 ("\"), 忽略在其之前的所有元素 , 并返回路径的剩余部分. 因此 , 如果路径由斜杠开始(如 \path1\path2) , 函数简单移除初始斜杠并返回剩余部分(path1\path2).
+函数遍历路径字符串, 直到遇到一个反斜杠("\"), 忽略在其之前的所有元素, 并返回路径的剩余部分.
+ 如果路径以反斜杠开始(例如 \路径1\路径2),
+ 函数简单移除初始反斜杠并返回剩余部分(路径1\路径2)
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中PathFindNextComponent的相关信息
+@@MsdnLink@@ PathFindNextComponent
 
 ###Example###
 @@IncludeExample@@
+

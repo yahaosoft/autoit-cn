@@ -1,8 +1,8 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _GUICtrlRichEdit_GetText
 
 ###Description###
-è·å–æ§ä»¶å†…çš„å…¨éƒ¨æ–‡æœ¬
+»ñÈ¡¿Ø¼şÖĞµÄÈ«²¿ÎÄ±¾
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -10,34 +10,40 @@ _GUICtrlRichEdit_GetText($hWnd [, $fCrToCrLf = False [, $iCodePage = 0 [, $sRepl
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  æ§ä»¶å¥æŸ„
- $fCrToCrLf  [å¯é€‰] å°†æ¯ä¸ªCRè½¬åŒ–ä¸ºCRLF
-çœŸ - æ‰§è¡Œ
-å‡ - ä¸æ‰§è¡Œ(é»˜è®¤)
- $iCodePage  [å¯é€‰] ç¿»è¯‘ä¸­ä½¿ç”¨çš„ä»£ç é¡µ
-é»˜è®¤: ä½¿ç”¨ç³»ç»Ÿé»˜è®¤å€¼. å¯¹äºANSIä½¿ç”¨CP_ACP, å¯¹äºUnicodeä½¿ç”¨1200
- $sReplChar  [å¯é€‰] å¦‚æœ$iCodePageä¸æ˜¯1200ä¸”å®½å­—ç¬¦æ— æ³•ä»¥æŒ‡å®šä»£ç é¡µä»£æ›¿æ—¶ä½¿ç”¨çš„å­—ç¬¦
+$hWnd
+	¿Ø¼ş¾ä±ú
+$fCrToCrLf
+	[¿ÉÑ¡²ÎÊı] ÊÇ·ñÃ¿¸ö CR ×ª»»Îª CRLF
+		True - ÊÇ
+		False - ·ñ(Ä¬ÈÏ)
+$iCodePage
+	[¿ÉÑ¡²ÎÊı] ÓÃÓÚ×ª»»µÄ´úÂëÒ³
+		Ä¬ÈÏ : Ê¹ÓÃÏµÍ³Ä¬ÈÏ
+		CP_ACP Î» ANSI ´úÂëÒ³, 1200 Îª Unicode ´úÂëÒ³
+$sReplChar
+	[¿ÉÑ¡²ÎÊı] Èç¹û $iCodePage ²»ÊÇ 1200,
+		ÇÒ¿í×Ö·ûÎŞ·¨ÒÔÖ¸¶¨´úÂëÒ³´úÌæÊ±,Ö¸¶¨Ê¹ÓÃµÄ×Ö·û
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- æˆåŠŸ:  æ–‡æœ¬
- å¤±è´¥:  ""ä¸”è®¾ç½®@error:
- @error:  101 - $hWndä¸æ˜¯å¥æŸ„
-  102 - $fCrToCrLfå¿…é¡»ä¸ºçœŸæˆ–å‡
-  103 - $iCodePageä¸æ˜¯æ•°å­—
-  700 - å†…éƒ¨é”™è¯¯
+³É¹¦:	·µ»ØÎÄ±¾
+Ê§°Ü:	·µ»Ø "" ,ÉèÖÃ@error
+@error:	101 - $hWnd ²ÎÊıÖµ²»ÊÇ¾ä±ú
+	102 - $fCrToCrLf ±ØĞëÊÇ True »ò False
+	103 - $iCodePage ²»ÊÇÒ»¸öÊı×Ö
+	700 - ÄÚ²¿´íÎó
 @@End@@
 
 ###Remarks###
-æˆåŠŸæ—¶, å¦‚æœè®¾ç½®äº†$sReplChar, @extendedåŒ…å«å­—ç¬¦æ˜¯å¦è¢«ä½¿ç”¨
-è°ƒç”¨_GUICtrlRichEdit_IsModified()ç¡®å®šæ–‡æœ¬æ˜¯å¦æ”¹å˜
+ ³É¹¦Ê±, Èç¹ûÉèÖÃÁË $sReplChar, @extended °üº¬×Ö·ûÊÇ·ñ±»Ê¹ÓÃ
+ µ÷ÓÃ _GUICtrlRichEdit_IsModified() È·¶¨ÎÄ±¾ÊÇ·ñ·¢ÉúÁË±ä»¯
 
 ###Related###
- _GUICtrlRichEdit_SetText , _GUICtrlRichEdit_AppendText , _GUICtrlRichEdit_InsertText , _GUICtrlRichEdit_IsModified
+_GUICtrlRichEdit_SetText, _GUICtrlRichEdit_AppendText, _GUICtrlRichEdit_InsertText, _GUICtrlRichEdit_IsModified
 
 ###See Also###
- æœç´¢MSDNçŸ¥è¯†åº“ä¸­EM_GETTEXTEXçš„ç›¸å…³ä¿¡æ¯
+@@MsdnLink@@ EM_GETTEXTEX
 
 ###Example###
 @@IncludeExample@@

@@ -2,45 +2,47 @@
 _WinAPI_CreateEnhMetaFile
 
 ###Description###
-为增强型元文件创建设备场景
+创建增强型图元文件格式的设备环境.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateEnhMetaFile( [$hDC [, $tRECT [, $fPixels [, $sFile [, $sDescription]]]]] )
+_WinAPI_CreateEnhMetaFile ( [$hDC [, $tRECT [, $fPixels [, $sFile [, $sDescription]]]]] )
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   设备场景的句柄. 系统使用该设备场景记录图片原始出现的设备的分辨率和单位. 如果为0则使用当前的显示设备.
+	[可选参数] 设备句柄.
+		 系统使用此设备环境记录设备上图片最初出现的分辨率和单位.
+		 如果此参数为 0, 则使用当前显示设备.
 $tRECT
-$tagRECT结构. 如果为0图形设备接口计算包围用应用程序绘制的图片的最小矩形.
+	[可选参数] $tagRECT 结构,它指定存储到增强型图元文件的图片尺寸.
+		 如果此参数为 0, 图形设备接口计算应用程序包围图片矩形的最小尺寸. 
 $fPixels
-$tRECT结构是否以像素定义. 可用值为:
-    TRUE: 逻辑单位(像素)
-    FALSE: .01毫米单位(默认)
+	[可选参数] 指定 $tRECT 结构是否定义为像素单位. 有效的指定值:
+		1 - 像素逻辑单位
+		0 - .01-毫米单位 (默认)
 $sFile
-   将要创建的增强型元文件的文件名. 如果为0则文件基于内存且其内容在使用_WinAPI_DeleteEnhMetaFile()函数删除时丢失.
+	[可选参数] 增强型图元文件的名称.如果此参数为 0, 增强型图元文件基于内存,
+		 当使用 _WinAPI_DeleteEnhMetaFile() 函数删除时,其内容都将丢失. 
 $sDescription
-   指定创建图片的应用程序名称的字符串. 该字符串为空或如下格式:
-       "应用程序名称|图片名称"
+	[可选参数] 指定应用程序创建图片的名称以及图片的标题.
+		 必须是一个空字符串或描述如下:
+		 "程序名|图片名"
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 增强型元文件设备场景的句柄
-失败: 返回0并设置@error非0
+成功:	返回增强型图元文件设备环境句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-应用程序使用由该函数创建的设备场景将图形图片存储在增强型元文件中. 标识该场景的句柄可传递给任何GDI函数.
-当应用程序将图片存储在增强型元文件后, 可通过_WinAPI_PlayEnhMetaFile()函数将图片显示在任一输出设备上. 当显示图片时, 系统使用由$tRECT参数及来自定位和缩放图片的设备的分辨率数据所指定的矩形.
-增强型元文件的文件扩展名必须为.emf
-正常运行示例请将 Test.emf 文件保存到临时文件夹中
-
-###Related###
+应用程序使用本函数创建的设备环境将图形图片存储到增强型元文件中.
+ 标识此设备环境的句柄可以传递给任何 GDI 函数.
+ 应用程序存储图片到增强型图元文件后,调用 _WinAPI_PlayEnhMetaFile() 函数,图片可以显示在任何输出设备中.
+ 显示图片时,系统采用 $tRECT 指向的矩形,参考设备的分辨率数据定位和缩放图片.
+ 增强型图元文件的名称应使用 .emf 扩展名.
 
 ###See Also###
-搜索MSDN知识库中有关CreateEnhMetaFile的信息
+@@MsdnLink@@ CreateEnhMetaFile
 
-###Example###
-@@IncludeExample@@

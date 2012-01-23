@@ -2,34 +2,38 @@
 _SQLite_Query
 
 ###Description###
-准备SQLite查询
+准备 SQLite 查询
 
 ###Syntax###
-#Include <SQLite.au3>
+#include <SQLite.au3>
 _SQLite_Query ( $hDB, $sSQL, ByRef $hQuery )
+
 
 ###Parameters###
 @@ParamTable@@
- $hDB  打开的数据库, -1为最近打开的数据库
- $sSQL  将被执行的SQL表达式
- $hQuery  传递查询句柄
+$hDB
+	打开的数据库,如为 -1, 则使用最后打开的数据库
+$sSQL
+	要执行的语句
+$hQuery
+	传递出的查询句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回$SQLITE_OK
-失败: 返回可与$SQLITE_* 常量比较的值
-@error: -1 - SQLite报错(检查返回值)
-      1 - 调用SQLite API 'sqlite3_prepare16_v2'错误
-      2 - 安全模式阻止调用
+成功:	返回 $SQLITE_OK
+失败:	返回值可能违反 $SQLITE_* 常量@错误:
+	-1 - SQLite 报告错误 (检查返回值)
+	1 - 错误调用 SQLite API 'sqlite3_prepare16_v2'
+	2 - 调用被安全模式阻止
 @@End@@
 
 ###Remarks###
+None.
+
 
 ###Related###
- _SQLite_FetchData , _SQLite_FetchNames , _SQLite_Exec , _SQLite_Gettable , _SQLite_Gettable2d , _SQLite_QueryFinalize , _SQLite_QueryReset , _SQLite_QuerySingleRow , _SQLite_SetTimeout
-
-###See Also###
+_SQLite_FetchData, _SQLite_FetchNames, _SQLite_Exec, _SQLite_GetTable, _SQLite_GetTable2d, _SQLite_QueryFinalize, _SQLite_QueryReset, _SQLite_QuerySingleRow, _SQLite_SetTimeout
 
 ###Example###
 @@IncludeExample@@

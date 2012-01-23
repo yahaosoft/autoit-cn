@@ -2,7 +2,7 @@
 _WinAPI_DwmSetWindowAttribute
 
 ###Description###
-设置应用于窗口的指定DWM属性值
+设置适用于窗口的非客户端属性值.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,34 +11,33 @@ _WinAPI_DwmSetWindowAttribute ( $hWnd, $iAttribute, $iData )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   应用指定属性的窗体句柄
+	申请给定属性的窗口句柄.
 $iAttribute
-   要应用到窗口的属性. 可为下列值之一:
-    $DWMWA_NCRENDERING_POLICY - 非客户区渲染规则
-    $DWMWA_TRANSITIONS_FORCEDISABLED - 启用或强制禁用DWM转换
-    $DWMWA_ALLOW_NCPAINT - 允许在非客户区中渲染的内容在由DWM绘制的框架上可见
-    $DWMWA_NONCLIENT_RTL_LAYOUT - 指定非客户区内容从右到左
-    $DWMWA_FORCE_ICONIC_REPRESENTATION - 强制窗体显示标志性缩略图
-    $DWMWA_FLIP3D_POLICY - 设置Flip3D如何处理窗口
-    Windows
-  7及以上:
-    $DWMWA_HAS_ICONIC_BITMAP - 窗口为DWM提供位图作为标志性缩略图
-    $DWMWA_DISALLOW_PEEK - 不显示窗口预览
-    $DWMWA_EXCLUDED_FROM_PEEK - 调用Aero时阻止窗口从渐隐到玻璃板
+	适用于窗口的属性.参数可以是以下值之一:
+		 $DWMWA_NCRENDERING_POLICY --- 非客户端绘制策略.
+		 $DWMWA_TRANSITIONS_FORCEDISABLED --- 启用或禁用 DWM 的强制转换.
+		 $DWMWA_ALLOW_NCPAINT --- 允许非客户区呈现的内容在 DWM 的框架内可见.
+		 $DWMWA_NONCLIENT_RTL_LAYOUT --- 指定是否非客户端的内容是从右到左（RTL）的镜像
+		 $DWMWA_FORCE_ICONIC_REPRESENTATION --- 强制窗口显示图标缩略图或静态位图.
+		 $DWMWA_FLIP3D_POLICY --- 设置如何交换 3D 窗口
+		 *Windows 7 或更高系统
+		 $DWMWA_HAS_ICONIC_BITMAP --- 该窗口可提供 DWM 使用的位图作为图标缩略图或静态位图
+		 $DWMWA_DISALLOW_PEEK --- 不显示窗口静态预览
+		 $DWMWA_EXCLUDED_FROM_PEEK
 $iData
-   属性值
+	属性的值.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0. @extended标记包含COM错误代码
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-该函数需要Windows Vista或以上版本.
+本函数需要 Windows Vista 或更高版本系统.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中DwmSetWindowAttribute的相关信息
+@@MsdnLink@@ DwmSetWindowAttribute
+

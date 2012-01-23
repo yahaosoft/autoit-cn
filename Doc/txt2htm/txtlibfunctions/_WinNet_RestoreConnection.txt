@@ -2,32 +2,34 @@
 _WinNet_RestoreConnection
 
 ###Description###
-恢复到一个网络资源的连接
+还原网络资源的连接
 
 ###Syntax###
-#Include<WinNet.au3>
-_WinNet_RestoreConnection([$sDevice = ""[, $hWnd = 0[,$fUseUI = True]]])
+#Include <WinNet.au3>
+_WinNet_RestoreConnection([$sDevice = "" [, $hWnd = 0 [, $fUseUI = True]]])
 
 ###Parameters###
 @@ParamTable@@
-$sDevice 
-   要连接的驱动器的本地名称, 如"Z:". 如果为空, 函数重新连接所有存在的并保存在当前用户注册表中的驱动器.
-$hWnd 
-   用于显示用户建立网络连接时输入名称和密码的界面的父窗体的句柄
-    如果为0, 没有主界面.
-$fUseUI 
-   如果为真, 显示提供给呼叫者的用户名/密码
+$sDevice
+	[可选参数] 连接到本地的驱动器名称，例如 "Z:". 如果留空，
+		函数重新连接所有存储在当前用户注册表的持久驱动器
+$hWnd
+	[可选参数] 函数用来显示用户界面的父窗口句柄，网络连接时，提示用户输入名称和密码．
+		如果为　0，则没有所有者窗口．
+$fUseUI
+	[可选参数] 如果为 True，提示调用程序显示用户名/密码
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	True
+失败:	False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 
 ###See Also###
- 搜索MSDN知识库中WNetRestoreConnection的相关信息
+@@MsdnLink@@ WNetRestoreConnection

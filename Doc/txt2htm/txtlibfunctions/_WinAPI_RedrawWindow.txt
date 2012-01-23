@@ -2,61 +2,54 @@
 _WinAPI_RedrawWindow
 
 ###Description###
-在窗口客户区重画全部或部分窗口
+更新指定矩形或窗口客户区域
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_RedrawWindow($hWnd[,
-$tRect = 0[, $hRegion = 0[, $iFlags = 5]]])
+_WinAPI_RedrawWindow($hWnd [, $tRect = 0 [, $hRegion = 0 [, $iFlags = 5]]])
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   窗口句柄
+	窗口句柄
 $tRect
-$tagRECT结构. 当$hRegion参数确定一个区域时该参数可被忽略.
+	[可选参数] 包含更新矩形坐标的 $tagRECT 结构
+		如果 $hRegion 参数标识为区域,此参数被忽略.
 $hRegion
-$hRegion和$tRect参数为0, 整个客户区将被添加到更新区域.
+	[可选参数] 标识更新区域.如果 $hRegion 与 @tRect参数为 0,
+		整个客户区被添加到更新区域.
 $iFlags
-   指定重绘标记. 该参数可以是可用或禁用一个窗体, 控制重绘, 及控制窗体受到的影响的结合:
-    $RDW_ERASE -
-      重绘前使窗体接收WM_ERASEBKGND消息
-    $RDW_FRAME -
-      使得与更新区域相交的窗体非客户区的任意部分接收WM_NCPAINT消息
-    $RDW_INTERNALPAINT -
-      将WM_PAINT消息发送到窗口即使窗口的任意部分并非无效
-    $RDW_INVALIDATE -
-$tRect或$hRegion, "") 如果都为0, 禁用全部窗口
-    $RDW_NOERASE -
-$WM_ERASEBKGND消息
-    $RDW_NOFRAME -
-$WM_NCPAINT消息
-    $RDW_NOINTERNALPAINT -
-$WM_PAINT消息
-    $RDW_VALIDATE - 激活$tRect或$hRegion
-$RDW_ERASENOW
-      - 使受影响的窗体在函数返回前接收$WM_NCPAINT和$WM_ERASEBKGND消息, 如果有必要
-    $RDW_UPDATENOW -
-$WM_NCPAINT, $WM_ERASEBKGND, 和$WM_PAINT消息,
-      如果有必要
-    $RDW_ALLCHILDREN - 子窗体包含在重绘操作中
-    $RDW_NOCHILDREN -
-  子窗体排出在重绘操作外
+	[可选参数] 指定重绘标志.此参数可以是使窗口无效或有效的组合标志,
+		以便控制重绘,并控制受影响的窗口:
+		$RDW_ERASE - 窗口重绘时,接收 WM_ERASEBKGND 消息
+		$RDW_FRAME - 使得与更新区域相交的窗口非客户区任意部分接收 WM_NCPAINT 消息.
+		$RDW_INTERNALPAINT - 若任何窗口的部分无效,将导致 WM_PAINT 消息被发布到窗口.
+		$RDW_INVALIDATE - DllStructGetData($tRect 或 $hRegion, "") 无效; 如果两个都为 0, 则整个窗口失效.
+		$RDW_NOERASE - 取消任何挂起的 $WM_ERASEBKGND 消息
+		$RDW_NOFRAME - 取消任何挂起的 $WM_NCPAINT 消息
+		$RDW_NOINTERNALPAINT - 取消任何挂起的内部 $WM_PAINT 消息
+		$RDW_VALIDATE - $tRect 或 $hRegion 有效
+		$RDW_ERASENOW - 如有必要, 在函数返回之前,
+		使受影响的窗口接收 $WM_NCPAINT and $WM_ERASEBKGND 消息
+		$RDW_UPDATENOW - 如有必要, 在函数返回之前,
+		使受影响的窗口接收 $WM_NCPAINT, $WM_ERASEBKGND, 与 $WM_PAINT 消息.
+		$RDW_ALLCHILDREN - 重绘操作包括子窗口
+		$RDW_NOCHILDREN - 重绘操作排除子窗口
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-当RedrawWindow用于桌面窗体的非活动部分时, 桌面窗体不会接收$WM_PAINT消息.
-应用程序使用$RDW_ERASE标记生成$WM_ERASEBKGND消息重绘桌面.
-需要WindowsConstants.au3预定义变量
+ 当 RedrawWindow 用于无效的桌面窗口的一部分, 桌面窗口不会收到 $WM_PAINT 消息.
+ 要重新绘制桌面, 应用程序使用 $RDW_ERASE 标志生成 $WM_ERASEBKGND 消息.
+ 需要 WindowsConstants.au3 预先定义的常量
 
 ###Related###
 $tagRECT
 
 ###See Also###
-搜索MSDN知识库中RedrawWindow的相关信息
+@@MsdnLink@@ RedrawWindow

@@ -2,31 +2,35 @@
 _SQLite_Encode
 
 ###Description###
-对在SQLite查询中使用的字符串和二进制数据进行编码
+二进制编码一个字符串,数字或二进制数据作为用于 SQLite 查询的BLOB来源.
 
 ###Syntax###
-#Include <SQLite.au3>
+#include <SQLite.au3>
 _SQLite_Encode ( $vData )
+
 
 ###Parameters###
 @@ParamTable@@
- $vData  要编码的数据(字符串, 数字或二进制)
+$vData
+	要进行编码的数据 (字符串, 数字或二进制)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回编码的字符串
-失败: 返回空字符串并设置@error为1
+成功:	返回编码后的字符串
+失败:	返回空字符串 并设置 @error 到 1
 @@End@@
 
 ###Remarks###
-编码后的字符串和简单查询一起封装. 如chr(0)和chr(1)将看似X'0001'.
-编码后的字符串由以二进制格式存储数据的Sqlite解码.
+已编码的字符串使用单引号包围.
+例如 chr(0) & chr(1) 编码后为 X'0001'
+编码后的字符串可以使用 Sqlite 解码,并作为BLOB存储为二进制状态.
+一个字符串可以使用_SQLite_Escape()储存为文本(TEXT) 
+一个数值同样可以这样存储,使用简单的链接
+
 
 ###Related###
- _SQLite_Escape
-
-###See Also###
+_SQLite_Escape
 
 ###Example###
 @@IncludeExample@@

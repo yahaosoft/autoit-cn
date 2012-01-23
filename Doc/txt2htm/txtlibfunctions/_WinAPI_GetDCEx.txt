@@ -6,42 +6,42 @@ _WinAPI_GetDCEx
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetDCEx( $hWnd, $hRgn, $iFlags )
+_WinAPI_GetDCEx ( $hWnd, $hRgn, $iFlags )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-$iFlags参数为$DCX_INTERSECTRGN或$DCX_EXCLUDERGN , 系统假设一个区域的宿主并在不再需要时自动删除. 在此情况下 , 应用程序在成功调用_WinAPI_GetDCEx()后不使用或删除区域
+	要获取场景的窗体的句柄. 如果为0, 函数以全屏幕作为DC. 如果$iFlags参数为$DCX_INTERSECTRGN或$DCX_EXCLUDERGN, 系统假设一个区域的宿主并在不再需要时自动删除. 在此情况下, 应用程序在成功调用_WinAPI_GetDCEx()后不使用或删除区域
 $hRgn
-   可与DC可见区域结合的剪切区域
+	可与DC可见区域结合的剪切区域
 $iFlags
-   指定如何创建DC. 可为一个或多哥下列值:
-    $DCX_WINDOW - 返回对应于窗口矩形的DC而不是客户端的矩形
-    $DCX_CACHE - 从缓存中返回DC
-    $DCX_PARENTCLIP - 使用父窗口的可见区域
-    $DCX_CLIPSIBLINGS - 不包括由$hWnd确定的窗口的同级窗口的可见区域
-    $DCX_CLIPCHILDREN - 不包括由$hWnd确定的窗口的子窗口的可见区域
-    $DCX_NORESETATTRS - 释放DC时不将DC重置为默认设置
-    $DCX_LOCKWINDOWUPDATE - 即使调用LockWindowUpdate已生效仍然允许绘图. 用于跟踪绘制.
-    $DCX_EXCLUDERGN - 由$hRgn指定的裁剪区域排除在返回DC的可见区域外
-    $DCX_INTERSECTRGN - 由$hRgn指定的裁剪区域与返回DC的可见区域相交
-    $DCX_INTERSECTUPDATE - 保留不使用
-    $DCX_VALIDATE - 保留不使用
+	指定如何创建DC. 可为一个或多哥下列值:
+		$DCX_WINDOW - 返回对应于窗口矩形的DC而不是客户端的矩形
+		$DCX_CACHE - 从缓存中返回DC
+		$DCX_PARENTCLIP - 使用父窗口的可见区域
+		$DCX_CLIPSIBLINGS - 不包括由$hWnd确定的窗口的同级窗口的可见区域
+		$DCX_CLIPCHILDREN - 不包括由$hWnd确定的窗口的子窗口的可见区域
+		$DCX_NORESETATTRS - 释放DC时不将DC重置为默认设置
+		$DCX_LOCKWINDOWUPDATE - 即使调用LockWindowUpdate已生效仍然允许绘图. 用于跟踪绘制.
+		$DCX_EXCLUDERGN - 由$hRgn指定的裁剪区域排除在返回DC的可见区域外
+		$DCX_INTERSECTRGN - 由$hRgn指定的裁剪区域与返回DC的可见区域相交
+		$DCX_INTERSECTUPDATE - 保留不使用
+		$DCX_VALIDATE - 保留不使用
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回指定窗体设备场景的句柄
-失败: 返回0并设置@error标记非0
+成功:	返回指定窗体设备场景的句柄
+失败:	返回0设置@error 标记非0
 @@End@@
 
 ###Remarks###
-除非显示DC不属于窗体类 , 绘制完成后必须调用_WinAPI_ReleaseDC()释放DC.
+除非显示DC不属于窗体类, 绘制完成后必须调用_WinAPI_ReleaseDC()释放DC.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetDCEx的相关信息
+@@MsdnLink@@ GetDCEx
 
 ###Example###
 @@IncludeExample@@
+

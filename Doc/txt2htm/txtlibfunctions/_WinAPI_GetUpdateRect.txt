@@ -2,30 +2,34 @@
 _WinAPI_GetUpdateRect
 
 ###Description###
-获取可完全容纳指定窗体更新区域的矩形坐标
+检索指定窗口包围更新区域的矩形坐标.
+
+###Syntax###
+#Include <WinAPIEx.au3>
 _WinAPI_GetUpdateRect ( $hWnd [, $fErase] )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   更新区域所在窗体的句柄
+	窗口句柄.
 $fErase
-   [可选] 指定是否擦除更新区域的背景 , 可用值:
-    1 - 擦除背景(默认)
-    0 - 保留背景不变
+	[可选参数] 指定是否删除更新区域背景.有效值:
+		1 - 背景删除. (默认)
+		0 - 背景不变.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含封装矩形设备单位坐标的$tagRECT结构
-失败: 返回0并设置@error非0
+成功:	返回 $tagRECT 结构,包含了矩形坐标的设备单位.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-由_WinAPI_BeginPaint()函数获取的更新矩形与通过_WinAPI_GetUpdateRect()获取的相同.
-_WinAPI_BeginPaint()自动激活更新区域, 任意在对_WinAPI_BeginPaint()的调用后对_WinAPI_GetUpdateRgn()的调用都会获取一个空的更新区域.
+更新的矩形由 _WinAPI_BeginPaint() 或 _WinAPI_GetUpdateRect() 函数检索,结果一样.
+ _WinAPI_BeginPaint() 自动验证更新地区, 因此任何 _WinAPI_GetUpdateRect() 后立即
+ 调用 _WinAPI_BeginPaint() 检索一个空更新区域.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetUpdateRect的相关信息
+@@MsdnLink@@ GetUpdateRect
+

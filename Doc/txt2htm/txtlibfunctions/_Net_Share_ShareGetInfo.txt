@@ -2,7 +2,7 @@
 _Net_Share_ShareGetInfo
 
 ###Description###
-获取关于服务器上指定的一个资源的信息
+检索特定服务器上共享资源的信息
 
 ###Syntax###
 #Include <NetShare.au3>
@@ -10,45 +10,49 @@ _Net_Share_ShareGetInfo($sServer, $sShare)
 
 ###Parameters###
 @@ParamTable@@
- $sServer  用以指定函数将操作的远程服务器的DNS或NetBIOS名称的字符串. 如果参数为空则使用本地计算机.
- $sShare  要返回信息的共享的名称
+$sServer
+	指定函数将操作远程服务器的 DNS 或 NetBIOS 名称字符串
+		如果参数为空, 则使用本地计算机.
+$sShare
+	返回信息的共享名称
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如下格式数组:
-    [0] - 数组的元素数量
-    [0] - 资源共享名
-    [1] - 连接类型. 可为下列组合:
-     $STYPE_DISKTREE - 打印队列
-     $STYPE_PRINTQ - 磁盘驱动
-     $STYPE_DEVICE - 联系设备
-     $STYPE_IPC - IPC
-     $STYPE_SPECIAL - 指定为$IPC或远程服务器管理员保留的共享
-     $STYPE_TEMPORARY - 临时共享
-    [2] - 包含可选的共享资源的描述
-    [3] - 与打开的应用程序相关的权限:
-     1 - 允许读取和执行资源
-     2 - 允许写入到资源
-     4 - 允许创建资源
-     8 - 执行许可
-     16 - 删除许可
-     32 - 改变许可属性
-     64 - 改变分配给资源的许可
-    [4] - 资源同时连接的最大数量
-    [5] - 当前连接到资源的数量
-    [6] - 指定共享资源的本地路径
-    [7] - 指定共享密码
+成功:	返回以下格式的数组:
+	[0] - 资源共享名
+	[1] - 共享资源类型．可以是一个组合:
+	$STYPE_磁盘TREE - 打印队列
+	$STYPE_PRINTQ - 磁盘驱动器
+	$STYPE_DEVICE - 通讯设备
+	$STYPE_IPC - IPC (工控机)
+	$STYPE_SPECIAL - 为 IPC$ 或服务器的远程管理保留的专用共享(那 $ 号反没反,不知道)
+	$STYPE_TEMPORARY - 临时共享
+	[2] - 共享资源的可选注释
+	[3] - 共享资源的权限:
+	1 - 读取数据, 并执行资源
+	2 - 将数据写入到资源
+	4 - 创建资源实例
+	8 - 执行资源
+	16 - 删除资源
+	32 - 修改资源的属性
+	64 - 修改分配给资源的权限
+	[4] - 显示资源可以连接的最大数
+	[5] - 当前资源连接数
+	[6] - 共享资源本地路径
+	[7] - 共享资源的使用密码
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###
-仅管理组, 服务器操作组, 或本地高级用户组, 或打印组成员可成功执行该函数.
+系统管理员,服务器操作员,或Power Users本地组成员,
+或打印操作员,或服务器操作员组的成员,可以成功地执行这个函数.
 
 ###Related###
- _Net_Share_FileGetInfo , _Net_Share_SessionGetInfo , _Net_Share_ShareSetInfo
+_Net_Share_FileGetInfo, _Net_Share_SessionGetInfo, _Net_Share_ShareSetInfo
 
 ###See Also###
- 搜索MSDN知识库中NetShareGetInfo的相关信息
+@@MsdnLink@@ NetShareGetInfo
 
 ###Example###
 @@IncludeExample@@

@@ -2,7 +2,7 @@
 _EventLog__Report
 
 ###Description###
-在指定事件日志结尾写入一个数据
+事件写入指定事件日志的末端
 
 ###Syntax###
 #Include <EventLog.au3>
@@ -10,45 +10,43 @@ _EventLog__Report($hEventLog, $iType, $iCategory, $iEventID, $sUserName, $sDesc,
 
 ###Parameters###
 @@ParamTable@@
-$hEventLog 
-   事件日志句柄. 对于Windows XP SP2 , 不能是一个指向安全日志的句柄.
-$iType 
-   事件类型. 可为下列值之一:
-    0 - 成功事件
-    1 - 错误事件
-    2 - 警告事件
-    4 - 通知事件
-    8 - 审查成功事件
-    16 - 审查失败事件
-$iCategory 
-   事件目录.
-$iEventID 
-   事件认证. 事件认证指定信息文件的数据与事件来源相关联.
-$sUserName 
-   事件的用户名. 可以为空表示不需要名称
-$sDesc 
-   事件描述
-$aData 
-   下列格式的数据数组:
-    [0] - 数组中的字节数
-    [1] - Byte 1
-    [2] - Byte 2
-    [n] - Byte n
+$hEventLog
+	事件日志句柄. 对于Windows XP SP2, 不能是一个指向安全日志的句柄.
+$iType
+	事件类型. 可为下列值之一:
+		0 - 成功事件
+		1 - 错误事件
+		2 - 警告事件
+		4 - 通知事件
+		8 - 审查成功事件
+		16 - 审查失败事件
+$iCategory
+	事件目录.
+$iEventID
+	事件认证. 事件认证指定信息文件的数据与事件来源相关联.
+$sUserName
+	事件的用户名. 可以为空表示不需要名称
+$sDesc
+	事件描述
+$aData
+	下列格式的数据数组:
+		[0] - 数组中的字节数
+		[1] - 字节 1
+		[2] - 字节 2
+		[n] - 字节 n
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	True
+失败:	False
 @@End@@
 
 ###Remarks###
-该函数用于记录一个事件. 数据将被写到已定义的日志结尾 , 该日志由通过hEventLog参数认证的资源来配置. 函数添加时间 , 数据长度 , 以及在将数据存入日志前的偏移.(译注：这段文字似乎有点问题，总感觉不舒服)
+该函数用于记录一个事件. 数据将被写到已定义的日志结尾, 该日志由通过hEventLog参数认证的资源来配置. 函数添加时间, 数据长度, 以及在将数据存入日志前的偏移.(译注：这段文字似乎有点问题，总感觉不舒服)
 
 ###Related###
- _EventLog__Close ,  _EventLog__Open
-
-###See Also###
+_EventLog__Close, _EventLog__Open
 
 ###Example###
 @@IncludeExample@@

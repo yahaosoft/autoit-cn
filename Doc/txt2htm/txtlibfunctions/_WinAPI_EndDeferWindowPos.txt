@@ -2,28 +2,31 @@
 _WinAPI_EndDeferWindowPos
 
 ###Description###
-在一次屏幕刷新中同时更新一个或多个窗体的位置和尺寸
+同时更新屏幕刷新周期内一或多个窗口的位置和大小.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_EndDeferWindowPos( $hInfo )
+_WinAPI_EndDeferWindowPos ( $hInfo )
 
 ###Parameters###
 @@ParamTable@@
 $hInfo
-   包含一个或多个窗体尺寸和位置的多窗体位置结构的句柄. 该内部结构由_WinAPI_BeginDeferWindowPos()函数或最近调用的_WinAPI_DeferWindowPos()函数返回.
+	多窗口位置结构句柄.结构包含一或多个窗口大小和位置的信息. or
+		 结构由 _WinAPI_BeginDeferWindowPos() 函数;
+		 或最近调用 _WinAPI_DeferWindowPos() 函数返回.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-_WinAPI_EndDeferWindowPos()函数向内部结构中标识的每个窗体发送WM_WINDOWPOSCHANGING和WM_WINDOWPOSCHANGED消息.
+本函数发送 WM_WINDOWPOSCHANGING 
+与 WM_WINDOWPOSCHANGED 通知消息确认结构内的每个窗口.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中EndDeferWindowPos的相关信息
+@@MsdnLink@@ EndDeferWindowPos
+

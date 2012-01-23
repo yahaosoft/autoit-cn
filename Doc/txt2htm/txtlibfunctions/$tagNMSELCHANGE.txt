@@ -2,45 +2,51 @@
 $tagNMSELCHANGE
 
 ###Description###
-搭载处理$MCN_SELCHANGE通知消息所需的信息的结构
+传送处理 $MCN_SELCHANGE 通知消息所需资料
 
 ###Syntax###
-Global Const $tagNMSELCHANGE =  $tagNMHDR & ";short BegYear;short BegMonth;short BegDOW;short BegDay;short BegHour;short BegMinute;short BegSecond;short BegMSecondshort EndYear;short EndMonth;short EndDOW;short EndDay;short EndHour;short EndMinute;short EndSecond;short EndMSecond"
+Global Const $tagNMSELCHANGE = $tagNMHDR & _
+		";struct ;word BegYear;word BegMonth;word BegDOW;word BegDay;word BegHour;word BegMinute;word BegSecond;word BegMSeconds; endstruct;" & _
+		"struct; word EndYear;word EndMonth;word EndDOW;word EndDay;word EndHour;word EndMinute;word EndSecond;word EndMSeconds; endstruct"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   通知消息的信息
+	包含通知消息的信息
 BegYear
-   年
+	年
 BegMonth
-   月
+	月
 BegDOW
-   周中的日
+	周中天
 BegDay
-   日
+	日
 BegHour
-   时
+	时
 BegMinute
-   分
+	分
 BegSecond
-   秒
+	秒
 BegMSeconds
-   毫秒
+	毫秒
 EndYear
-   年
+	年
 EndMonth
-   月
+	月
 EndDOW
-   周中的日
+	周中日
 EndDay
-   日
+	日
 EndHour
-   时
+	时
 EndMinute
-   分
+	分
 EndSecond
-   秒
+	秒
 EndMSeconds
-   毫秒
-@@end@@
+	毫秒
+@@End@@
+
+###Remarks###
+None.
+

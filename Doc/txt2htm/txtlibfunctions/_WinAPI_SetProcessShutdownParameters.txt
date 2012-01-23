@@ -2,39 +2,46 @@
 _WinAPI_SetProcessShutdownParameters
 
 ###Description###
-设置某进程相对于系统中其他进程的关机顺序
+Sets a shutdown order for a process relative to the other processes in the system.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetProcessShutdownParameters( $iLevel [, $fDialog] )
+_WinAPI_SetProcessShutdownParameters ( $iLevel [, $fDialog] )
 
 ###Parameters###
 @@ParamTable@@
-$iLevel  关闭优先级. 系统按$iLevel值从高到低关闭进程. 最高级和最低级保留给系统组件. 该参数必须在下列范围内:
-0x0000-0x00FF - 系统保留的最后关闭的范围.
-0x0100-0x01FF - 应用程序保留的最后关闭的范围.
-0x0200-0x02FF - 应用程序保留的"in between"关闭的范围.
-0x0300-0x03FF - 应用程序保留的首个关闭的范围.
-0x0400-0x04FF - 系统保留的首个关闭的范围.
-关闭级别为0x0280时启动所有进程.
-$fDialog  [可选] 指定是否显示重试对话框, 可用值:
-1 - 如果关闭进程超过指定时间显示重试对话框.
-0 - 直接终止进程. (默认)
+$iLevel
+	The shutdown priority. The system shuts down processes from high $iLevel values to low. The highest
+	and lowest shutdown priorities are reserved for system components. This parameter must be in the
+	following range of values.
+	
+	0x0000-0x00FF - System reserved last shutdown range.
+	0x0100-0x01FF - Application reserved last shutdown range.
+	0x0200-0x02FF - Application reserved "in between" shutdown range.
+	0x0300-0x03FF - Application reserved first shutdown range.
+	0x0400-0x04FF - System reserved first shutdown range.
+	
+	All processes start at shutdown level 0x0280.
+	
+$fDialog
+	[可选参数] Specifies whether display a retry dialog box for the user, valid values:
+		TRUE    - Display a retry dialog box if process takes longer than the specified timeout to shutdown.
+		FALSE   - Directly terminates the process. (Default)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
- _WinAPI_GetProcessShutdownParameters
 
 ###See Also###
- 搜索MSDN知识库中SetProcessShutdownParameters的相关信息
+@@MsdnLink@@ SetProcessShutdownParameters
 
 ###Example###
 @@IncludeExample@@
+

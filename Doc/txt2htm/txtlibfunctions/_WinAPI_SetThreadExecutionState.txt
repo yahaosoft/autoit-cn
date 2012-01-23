@@ -2,40 +2,39 @@
 _WinAPI_SetThreadExecutionState
 
 ###Description###
-防止系统在应用程序运行时进入休眠状态或关闭显示器
+Prevents the system from entering sleep or turning off the display while the current application is running.
 
 ###Syntax###
-#Include
-<WinAPIEx.au3>
-_WinAPI_SetThreadExecutionState( $iFlag )
+#Include <WinAPIEx.au3>
+_WinAPI_SetThreadExecutionState ( $iFlags )
 
 ###Parameters###
 @@ParamTable@@
-$iFlag  可为下列值之一或组合:
-$ES_AWAYMODE_REQUIRED - 启用离开模式. 必须与$ES_CONTINUOUS同时使用. 仅用于必须执行后台处理媒体录制和媒体分发的应用程序 , 此时计算机似乎处于休眠状态.(见备注.)Win2003及WinXP/2000不支持
-$ES_CONTINUOUS - 通知系统在下一次调用$ES_CONTINUOUS且其他标记被清除前保持当前状态
-$ES_DISPLAY_REQUIRED - 通过重置空闲计时器强制开启显示器
-$ES_SYSTEM_REQUIRED - 通过重置系统空闲计时器强制系统处于工作状态
-$ES_USER_PRESENT - 须Win2003及WinXP/2000. 通知用户所在的系统并重设重置系统空闲计时器. 必须与$ES_CONTINUOUS同时使用.
+$iFlags
+	The thread's execution requirements. This parameter can be one or more of the following values.
+	
+	$ES_AWAYMODE_REQUIRED
+	$ES_CONTINUOUS
+	$ES_DISPLAY_REQUIRED
+	$ES_SYSTEM_REQUIRED
+	$ES_USER_PRESENT
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@errer非0
+Success	The value is the previous thread execution state.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-系统会自动检测如本地键盘或鼠标输入 , 服务器活动 , 重点活动或窗口焦点变化等活动. 但不包括如磁盘或CPU的自检活动和视频显示.
-不带有$ES_CONTINUOUS调用_WinApi_SetThreadExecutionState简单重置空闲计时器; 要保持显示器或系统处于工作状态 , 线程必须定期调用_WinApi_SetThreadExecutionState.
-若要正确运行设置有电源管理的计算机 , 如处理传真服务器 , 答录机 , 备份代理和网络管理应用程序事件时须同时使用$ES_CONTINUOUS和$ES_SYSTEM_REQUIRED. 多媒体应用 , 如长时间无需用户输入的视频播放和演示应用 , 必须使用$ES_DISPLAY_REQUIRED. 文字处理 , 电子表格 , 浏览器应用程序以及游戏不需要调用_WinApi_SetThreadExecutionState.
-$ES_AWAYMODE_REQUIRED仅用于需要系统执行后台任务的媒体应用 , 如将电视或流媒体内容录制到其他设备. 不需要执行后台处理的或在便携式计算机上运行的应用程序无法启用离开模式 , 因为它阻止电源进入真正的睡眠保护状态.
-应用程序要启用离开模式必须同时使用$ES_AWAYMODE_REQUIRED和$ES_CONTINUOUS; 禁用离开模式 , 应用程序调用$ES_CONTINUOUS并清除$ES_AWAYMODE_REQUIRED.
-当启用离开模式时 , 任何将使计算机置于睡眠模式的操作将以离开模式代替. 当电脑处于休眠状态时系统可继续执行无需用户输入的任务. 离开模式不影响休眠空闲计时器 , 为防止计时器到期时系统进入休眠 , 程序还必须设置$ES_SYSTEM_REQUIRED.
-该函数无法防止用户使电脑进入休眠状态.
-该函数无法停止执行屏幕保护程序.
+The _WinAPI_SetThreadExecutionState() function cannot be used to prevent the user from putting the computer to
+sleep. Applications should respect that the user expects a certain behavior when they close the lid on their
+laptop or press the power button.
 
-###Related###
+This function does not stop the screen saver from executing.
+
 
 ###See Also###
- 搜索MSDN知识库中SetThreadExecutionState的相关信息
+@@MsdnLink@@ SetThreadExecutionState
+

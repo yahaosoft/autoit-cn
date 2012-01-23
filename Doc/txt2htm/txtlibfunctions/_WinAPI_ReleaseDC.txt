@@ -2,36 +2,35 @@
 _WinAPI_ReleaseDC
 
 ###Description###
-释放指定的设备场景
+释放设备环境
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_ReleaseDC($hWnd,
-$hDC)
+_WinAPI_ReleaseDC($hWnd, $hDC)
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   窗口句柄
+	窗口句柄
 $hDC
-   要释放的设备场景句柄
+	设备环境的标识
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-应用程序必须对每个_WinAPI_GetWindowDC函数且每个获取普通场景的_WinAPI_GetDC函数的调用使用_WinAPI_ReleaseDC函数
-for
+ 应用程序必须为每个调用 _WinAPI_GetWindowDC 函数的操作调用 _WinAPI_ReleaseDC 函数,
+ 并为每个操作调用 _WinAPI_GetDC 函数检索设备环境
 
 ###Related###
-_WinAPI_GetDC , _WinAPI_GetWindowDC , _WinAPI_DeleteDC
+_WinAPI_GetDC, _WinAPI_GetWindowDC, _WinAPI_DeleteDC
 
 ###See Also###
-搜索MSDN知识库中ReleaseDC的相关信息
+@@MsdnLink@@ ReleaseDC
 
 ###Example###
 @@IncludeExample@@

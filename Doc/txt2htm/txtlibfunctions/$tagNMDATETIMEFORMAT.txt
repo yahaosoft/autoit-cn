@@ -2,38 +2,45 @@
 $tagNMDATETIMEFORMAT
 
 ###Description###
-包含定义日期时间拾取器控件(DTP)内回调区中的格式化字符串部分的信息
+包含日期时间选择器控件(DTP)定义的回调区中格式化字符串的信息
 
 ###Syntax###
-Global Const $tagNMDATETIMEFORMAT =  $tagNMHDR & ";ptr Format;short Year;short Month;short DOW;short Day;short Hour;short Minute;short Second;short MSecondptr pDisplay;char Display[64]"
+Global Const $tagNMDATETIMEFORMAT = $tagNMHDR & ";ptr Format;short Year;short Month;short DOW;short Day;" & _
+		"short Hour;short Minute;short Second;short MSecond;ptr pDisplay;char Display[64]"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   通知消息的信息
+	包含通知消息的信息
 Format
-   定义控件回调区无终止字符串的指针. 字符串有一个或多个"X"字符组成.
+	指向一个空结束的字符串,它定义了控件回调字段.该字符串包括一或多个“X”字符     .
 Year
-   年
+	年
 Month
-   月
+	月
 DOW
-   周中的日
+	周中的日
 Day
-   日
+	日
 Hour
-   时
+	时
 Minute
-   分
+	分
 Second
-   秒
+	秒
 MSecond
-   毫秒
+	毫秒
 pDisplay
-   包含控件的显示文本的无终止字符串的指针. 默认为该结构Display成员的地址. 可接受指向存在的字符串的pDisplay. 此情况下, 无需为Display分配值. 然而, pDisplay指向的字符串必须保持有效直到发送另一个$DTN_FORMAT通知或控件被销毁.
+	指向一个空结束字符串,其中包含该控件的显示文本.
+	默认为本结构中 Display 成员的地址
+	可以接受 pDisplay 指向的现有字符串,这种情况下,无需为 Display 分配值.
+	但必须保持 pDisplay 指向的字符串有效,直到发送另一个 $DTN_FORMAT 通知或控件被销毁..
 Display
-   用以接收控件将显示的无终止字符串的64个字符的缓冲区. 无需填满缓冲区.
-@@end@@
+	控件接收空结束字符串的 64 个字符缓冲区,
+	没有必要填补整个缓冲区.
+@@End@@
 
 ###Remarks###
-函数传输定义回调字段及包含接收显示在回调区的字符串的缓冲区. 该结构与$DTN_FORMAT通知消息同时使用.
+传送定义回调字段的字符串,并包含一个缓冲区用来接收将要在回调字段中显示的字符串.
+此结构用于 $DTN_FORMAT 通知消息.
+

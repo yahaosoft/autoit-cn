@@ -1,44 +1,51 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _IELoadWait
 
 ###Description###
-åœ¨ç½‘é¡µå†…å®¹åŠ è½½å®Œå…¨ä¹‹åè¿”å›.
+ÔÚÍøÒ³ÄÚÈİ¼ÓÔØÍêÈ«Ö®ºó·µ»Ø.
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IELoadWait ( ByRef $o_object [, $i_delay = 0 [, $i_timeout = -1]] )
 
 ###Parameters###
 @@ParamTable@@
- $o_object  ternetExplorer.Applicationæˆ–è€…DOMç»„ä»¶çš„å¯¹è±¡å˜é‡
- $i_delay  [å¯é€‰]: åœ¨æ£€æŸ¥çŠ¶æ€ä¹‹å‰ç­‰å¾…çš„æ¯«ç§’æ•°å€¼
- $i_timeout  [å¯é€‰]: åœ¨é€€å‡ºç¨‹åºä¹‹å‰ç­‰å¾…çš„æ—¶é—´(é»˜è®¤ = 300000æ¯«ç§’)
+$o_object
+	InternetExplorer.Application»òDOM×é¼şµÄ¶ÔÏó±äÁ¿
+$i_delay
+	[¿ÉÑ¡²ÎÊı]: ¼ì²é×´Ì¬Ç°µÈ´ıµÄºÁÃëÖµ
+$i_timeout
+	[¿ÉÑ¡²ÎÊı]: ÍË³ö³ÌĞòÇ°µÈ´ıµÄÊ±¼ä(Ä¬ÈÏ = 300000ºÁÃë;5·ÖÖÓ)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: è¿”å›1
-å¤±è´¥: è¿”å›0å¹¶è®¾ç½®@ERRORä¸º:
-    0 ($_IEStatus_Success) = æ— é”™è¯¯
-    1 ($_IEStatus_GeneralError) = ä¸€èˆ¬æ€§é”™è¯¯
-    3 ($_IEStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»å‹
-    4 ($_IEStatus_InvalidObjectType) = æ— æ•ˆå¯¹è±¡ç±»å‹
-    6 ($_IEStatus_LoadWaitTimeout) = ç­‰å¾…åŠ è½½è¶…æ—¶
-    8 ($_IEStatus_AccessIsDenied) = è®¿é—®è¢«æ‹’ç»
-    9 ($_IEStatus_ClientDisconnected) = å®¢æˆ·ç«¯æ–­å¼€
-    @Extended: åŒ…å«æ— æ•ˆå‚æ•°æ•°é‡
+³É¹¦:	·µ»Ø1
+Ê§°Ü:	·µ»Ø0²¢ÉèÖÃ@ERROR
+@Error:	0 ($_IEStatus_Success) = ÎŞ´íÎó
+	1 ($_IEStatus_GeneralError) = Ò»°ã´íÎó
+	3 ($_IEStatus_InvalidDataType) = ÎŞĞ§Êı¾İÀàĞÍ
+	4 ($_IEStatus_InvalidObjectType) = ÎŞĞ§¶ÔÏóÀàĞÍ
+	6 ($_IEStatus_LoadWaitTimeout) = µÈ´ı¼ÓÔØ³¬Ê±
+	8 ($_IEStatus_AccessIsDenied) = ·ÃÎÊ±»¾Ü¾ø
+	9 ($_IEStatus_ClientDisconnected) = ¿Í»§¶Ë¶Ï¿ª
+@Extended:	°üº¬ÎŞĞ§²ÎÊıÊıÁ¿
 @@End@@
 
+
 ###Remarks###
-æœ‰å‡ ä¸ªIE.au3ç¨‹åºè‡ªåŠ¨è°ƒç”¨_IELoadWait()å‡½æ•°(ä¾‹å¦‚ _IECreate() , _IENavigate()ç­‰ç­‰). å¤§å¤šæ•°å‡½æ•°ä¹Ÿå…è®¸ä½ å…³é—­è¿™ä¸ªç­‰å¾…å‚æ•°å½“ä½ ä¸éœ€è¦ç­‰å¾…æˆ–è€…ä½ è‡ªå·±è°ƒç”¨.
-å½“æ–‡æ¡£å¯¹è±¡æˆ–è€…DOMç»„ä»¶è¢«åº”ç”¨åˆ°_IELoadWait , å®ƒå°†æ£€æµ‹ç»„ä»¶å¹¶ä¸”åŒ…æ‹¬çˆ¶çª—å£çŠ¶æ€.
-æµè§ˆå™¨è„šæœ¬å®‰å…¨é™åˆ¶æœ‰æ—¶ä¼šé˜»æ­¢_IELoadWaitå®Œå…¨åŠ è½½é¡µä¸”å¶å°”ä¼šå¯¼è‡´ä¸è¢«æ•è·çš„é”™è¯¯. åœ¨æ­¤ç±»æƒ…å†µä¸­å¯èƒ½éœ€è¦é¿å…è°ƒç”¨_IELoadWaitå’Œè¯•å›¾ä½¿ç”¨å…¶ä»–æ–¹æ³•ç¡®ä¿é¡µé¢å®ŒæˆåŠ è½½. è¿™äº›æ–¹æ³•åŒ…æ‹¬ä½¿ç”¨ä¼‘çœ å‘½ä»¤ , æ£€æŸ¥æµè§ˆå™¨çŠ¶æ€æ æ–‡æœ¬å’Œå…¶ä»–æ–¹æ³•. å½“ä½¿ç”¨é’ˆå¯¹é™¤InternetExplorer (browser)å¤–çš„å¯¹è±¡æ‰€è°ƒç”¨çš„_IELoadWaitå‡½æ•° , æˆ–è®¸é’ˆå¯¹æµè§ˆå™¨è‡ªèº«è°ƒç”¨_IELoadWaitä¹Ÿå¯æˆåŠŸ(å¦‚_IELoadWait($oIE)).
-æœ€å¸¸è§çš„éº»çƒ¦æ˜¯é¡µé¢é‡å®šå‘å’Œä¸æ¡†æ¶ç›¸å…³çš„è·¨ç«™ç‚¹è„šæœ¬çš„å®‰å…¨é™åˆ¶. ä¸€äº›åº”ç”¨ç¨‹åº(å¦‚Gmail)é‡‡ç”¨çš„é¡µé¢é‡å†™æŠ€æœ¯ä¹Ÿå¯èƒ½å¸¦æ¥éº»çƒ¦.
+Ğí¶àIE.au3³ÌĞò×Ô¶¯µ÷ÓÃ_IELoadWait()(Èç_IECreate(), _IENavigate()µÈ). ´ó¶àÊıÔËĞĞËüµÄº¯ÊıÒ²ÔÊĞíÄãÍ¨¹ı$f_wait²ÎÊı¹Ø±ÕËüÈç¹ûÄã²»ÏëµÈºò»òÈç¹ûÄãÏë×Ô¼ºµ÷ÓÃËü.
+
+µ±ÎÄµµ¶ÔÏó»òDOM×é¼ş±»´«µİµ½_IELoadWait, ½«¼ì²éÈİÆ÷ÔªËØµÄ×¼±¸×´Ì¬²¢ÇÒ°üÀ¨¸¸´°¿Ú×´Ì¬.
+
+ä¯ÀÀÆ÷½Å±¾°²È«ÏŞÖÆÓĞÊ±»á×èÖ¹_IELoadWaitÍêÈ«¼ÓÔØÒ³ÇÒÅ¼¶û»áµ¼ÖÂ²»±»²¶»ñµÄ´íÎó. ÔÚ´ËÀàÇé¿öÖĞ¿ÉÄÜĞèÒª±ÜÃâµ÷ÓÃ_IELoadWaitºÍÊÔÍ¼Ê¹ÓÃÆäËû·½·¨È·±£Ò³ÃæÍê³É¼ÓÔØ. ÕâĞ©·½·¨°üÀ¨Ê¹ÓÃĞİÃßÃüÁî, ¼ì²éä¯ÀÀÆ÷×´Ì¬À¸ÎÄ±¾ºÍÆäËû·½·¨. µ±Ê¹ÓÃÕë¶Ô³ıInternetExplorer (browser)ÍâµÄ¶ÔÏóËùµ÷ÓÃµÄ_IELoadWaitº¯Êı, »òĞíÕë¶Ôä¯ÀÀÆ÷×ÔÉíµ÷ÓÃ_IELoadWaitÒ²¿É³É¹¦(Èç_IELoadWait($oIE)).
+
+×î³£¼ûµÄÂé·³ÊÇÒ³ÃæÖØ¶¨ÏòºÍÓë¿ò¼ÜÏà¹ØµÄ¿çÕ¾µã½Å±¾µÄ°²È«ÏŞÖÆ. Ò»Ğ©Ó¦ÓÃ³ÌĞò(ÈçGmail)²ÉÓÃµÄÒ³ÃæÖØĞ´¼¼ÊõÒ²¿ÉÄÜ´øÀ´Âé·³.
+
 
 ###Related###
- _IELoadWaitTimeout , _IECreate , _IENavigate ,  _IEFormSubmit , _IELinkClickByText , _IELinkClickByIndex , _IEImgClick , _IEFormImageClick , _IEBodyWriteHTML , _IEDocWriteHTML , _IEAction
+_IELoadWaitTimeout, _IECreate, _IENavigate, _IEFormSubmit, _IELinkClickByText, _IELinkClickByIndex, _IEImgClick, _IEFormImageClick, _IEBodyWriteHTML, _IEDocWriteHTML, _IEAction
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

@@ -1,8 +1,8 @@
-﻿###User Defined Function###
+###User Defined Function###
 _GUICtrlRichEdit_SetParaNumbering
 
 ###Description###
-设置(首个)被选段落或(无选定时的)当前段落的编号样式
+����(��һ)��ǰѡ��(��û��ѡ��ʱ�Ĳ�������ڶ���)�ı�ŷ�ʽ
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -10,36 +10,40 @@ _GUICtrlRichEdit_SetParaNumbering($hWnd, $sStyle [, $iTextToNbrSpace = Default [
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $sStyle  指定格式并以"数字"开始的字符串: 如 "."(点号), "1)","(b)", "C.", "iv", "V)"
-"数字"将显示在首段.
-跟随的空格表示在数字和段落间的最小空间除非输入iTextToNbrSpace
-特殊情况::
-      "=" - 该段是带有前置列表元素的未编号段落
-       "" - 从选定段落移除编号(s)
- $iTextToNbrSpace  [可选]: 数字/标点和段落之间的空间(用空间单位)
-默认: 跟随的空格次数的点大小
- $fForceRoman  [可选]: 假 - $sStyle中的i, v, x ... 是字母i, v, x ... (默认)
+$hWnd
+	�ؼ����
+$sStyle
+	ָ������ַ�����ʽ�뿪ʼ������: ����: "." (���غ�), "1)","(b)", "C.", "iv", "V)"
+		Ϊ��һѡ��������ʾ�ı��.
+		�������ŵļ��Ϊ��Сֵ,����ʹ�� $iTextToNbrSpace ��ָ��ֵ
+		�������:
+		"=" - �ö���ǰ�����б�Ԫ��,Ϊû�б�ŵĶ���
+		"" - ɾ����ѡ����ı��
+$iTextToNbrSpace
+	[��ѡ����] ��ŵ����ֻ���������ļ�� (�ռ䵥λ)
+		Ĭ�� : β��ռ�������ʹ�ð�ֵ��С(ע:1 ��=1/72 Ӣ��)��С
+$fForceRoman
+	[��ѡ����] False - i, v, x ... �� $sStyle ������ĸ i, v, x ... {Ĭ��)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  真
- 失败:  假并设置@error
- @error:  101 - $hWnd不是句柄
-  102 - $sStyle无效
-  103 - $iTextToNbrSpace不是正数
-  104 - $fForceRoman非真非假
+�ɹ�:	���� True
+ʧ��:	���� False,����@error
+@error:	101 - $hWnd ����ֵ���Ǿ��
+	102 - $sStyle ��Ч
+	103 - $iTextToNbrSpace ��������
+	104 - $fForceRoman ������ True �� False
 @@End@@
 
 ###Remarks###
-调用_GUICtrlRichEdit_SetSpaceUnit设置"空白单位". 初始英寸
+ ���� _GUICtrlRichEdit_SetSpaceUnit �������� "�ռ䵥λ". ���ΪӢ��
 
 ###Related###
- _GUICtrlRichEdit_GetParaNumbering , _GUICtrlRichEdit_SetSpaceUnit
+_GUICtrlRichEdit_GetParaNumbering, _GUICtrlRichEdit_SetSpaceUnit
 
 ###See Also###
- 搜索MSDN中EM_GETPARAFORMAT的相关信息
+@@MsdnLink@@ EM_SETPARAFORMAT
 
 ###Example###
 @@IncludeExample@@

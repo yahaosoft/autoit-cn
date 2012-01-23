@@ -2,44 +2,52 @@
 _WinAPI_RegQueryValue
 
 ###Description###
-获取与打开的注册表键相关的指定值的数据和类型
+检索注册表项指定值名称的类型和数据.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RegQueryValue( $hKey, $sValueName, ByRef $tValueData )
+_WinAPI_RegQueryValue ( $hKey, $sValueName, ByRef $tValueData, $iBytes )
 
 ###Parameters###
 @@ParamTable@@
 $hKey
-   $KEY_QUERY_VALUE权限打开的键的句柄. 该句柄须由_WinAPI_RegCreateKey()或_WinAPI_RegOpenKey()函数打开.可为下列预定义键之一:
-   $HKEY_CLASSES_ROOT
-   $HKEY_CURRENT_CONFIG
-   $HKEY_CURRENT_USER
-   $HKEY_LOCAL_MACHINE
-   $HKEY_PERFORMANCE_DATA
-   $HKEY_PERFORMANCE_NLSTEXT
-   $HKEY_PERFORMANCE_TEXT
-   $HKEY_USERS
+	打开的注册表项句柄,该键项必须已打开且有 KEY_QUERY_VALUE 访问权限.
+		 句柄由 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回.
+		 参数也可以为下列预定义项:
+		 $HKEY_CLASSES_ROOT --- 定义文件类型和类型相关的属性
+		 $HKEY_CURRENT_CONFIG --- 包含本地计算机系统目前的硬件配置文件
+		 $HKEY_CURRENT_USER --- 定义当前用户的参数选择
+		 $HKEY_LOCAL_MACHINE --- 定义计算机物理状态,包括总线类型、系统内存数据、并安装的硬件和软件
+		 $HKEY_PERFORMANCE_DATA --- 允许访问性能数据
+		 $HKEY_PERFORMANCE_NLSTEXT --- 注册表项附属参考文本字符串,描述计算机系统正在运行的本地语言
+		 $HKEY_PERFORMANCE_TEXT --- 注册表项附属参考文本字符串,描述语言为英语
+		 $HKEY_USERS --- 确定本地计算机新用户定义默认用户配置,并作为当前用户的用户配置
 $sValueName
-   $sValueName为空字符串, 函数获取未命名或默认的键的数据和类型.
+	注册表值的名称. 
+		如为空,函数检索无名键或默认值的类型和数据(如果存在)
 $tValueData
-   获取的值的结构(缓冲区)
+	接收值数据的结构(缓冲区)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 复制到$tValueData的数据的字节大小, @extended标记包含数据类型($REG_...).
-失败: 返回0并设置@error非0, @extended标记可包含非0系统错误代码.
+成功:	返回复制到 $tValueData 的数据字节大小,
+	@extended 包含表示数据类型的代码($REG_*).
+	
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
-如果数据为REG_SZ, REG_MULTI_SZ或REG_EXPAND_SZ类型, 返回的大小包含任意的终止字符除非数据存储时没有.
-如果由$tValueData参数指定的缓冲区不足以容纳数据, 函数返回ERROR_MORE_DATA (234)并将返回所需的缓冲区大小. 在此情况下, 缓冲区内容不被定义.
+如果数据是 REG_SZ, REG_MULTI_SZ 或 REG_EXPAND_SZ 类型, 
+返回的大小包括任何终止空字符,除非数据没有终止字符.
+ 如果 $tValueData 指定的缓冲区不足以容纳数据,
+ 函数返回 ERROR_MORE_DATA(234),并返回所需缓冲区大小,
+ 此时缓冲区中的内容是不确定的.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中RegQueryValueEx的相关信息
+@@MsdnLink@@ RegQueryValueEx
 
 ###Example###
 @@IncludeExample@@
+

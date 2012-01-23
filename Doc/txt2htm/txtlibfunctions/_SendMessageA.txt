@@ -2,37 +2,47 @@
 _SendMessageA
 
 ###Description###
-通常封装后以便Dll调用(强制Ansi调用)
+包装常用 DLL 调用 (强制 Ansi 调用)
 
 ###Syntax###
 #Include <SendMessage.au3>
-_SendMessageA($hWnd, $iMsg[, $wParam = 0[, $lParam = 0[, $iReturn = 0[, $wParamType = "wparam"[, $lParamType = "lparam"[, $sReturnType = "lparam"]]]]]])
+_SendMessageA($hWnd, $iMsg [, $wParam = 0 [, $lParam = 0 [, $iReturn = 0 [, $wParamType = "wparam" [, $lParamType = "lparam" [, $sReturnType = "lparam"]]]]]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  窗体/控件句柄
- $iMsg  发送到控件(数字)的消息
- $wParam  指定额外的由消息指定的信息
- $lParam  指定额外的由消息指定的信息
- $iReturn  要返回的:
-0 - 返回自dll调用的值
-1 - $ihWnd
-2 - $iMsg
-3 - $wParam
-4 - $lParam
- 4 - 与dllcall相同的数组
- $wParamType  参考相关的DllCall
- $lParamType  参考相关的DllCall
- $sReturnType  参考相关的DllCall
+$hWnd
+	窗口或控件句柄
+$iMsg
+	发送到控件的消息(数字)
+$wParam
+	[可选参数] 指定附加消息的特定信息
+$lParam
+	[可选参数] 指定附加消息的特定信息
+$iReturn
+	[可选参数] 返回什么:
+		0 - 从 DLL 调用返回值
+		1 - $ihWnd
+		2 - $iMsg
+		3 - $wParam
+		4 - $lParam
+		4 - 与 dllcall 相同的数组
+$wParamType
+	[可选参数] 查看相关的 DllCall
+$lParamType
+	[可选参数] 查看相关的 DllCall
+$sReturnType
+	[可选参数] 查看相关的 DllCall
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 用户选定的来自DllCall()结果的值
-失败: 设置@error
+成功:	返回用户选择 DllCall（） 结果的值
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
- _SendMessage , DllCall
+_SendMessage, DllCall
+

@@ -2,42 +2,48 @@
 _WinAPI_CascadeWindows
 
 ###Description###
-层叠排列指定父窗体的指定子窗体
+Cascades the specified child windows of the specified parent window.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CascadeWindows( $aWnds [, $tRECT [, $hParent [, $iFlags [, $iStart [, $iEnd]]]]] )
+_WinAPI_CascadeWindows ( $aWnds [, $tRECT [, $hParent [, $iFlags [, $iStart [, $iEnd]]]]] )
 
 ###Parameters###
 @@ParamTable@@
 $aWnds
-$WS_EX_TOPMOST或$WS_EX_TOOLWINDOW样式的顶层窗口则不会被排列. 如果该参数为0 , 将排列父窗体(或桌面窗口)的全部子窗体.
+	The array of handles to the child windows to arrange. If a specified child window is a top-level window
+	with the style $WS_EX_TOPMOST or $WS_EX_TOOLWINDOW, the child window is not arranged. If this parameter
+	is 0, all child windows of the specified parent window (or of the desktop window) are arranged.
 $tRECT
-$tagRECT结构. 如果该参数为0 , 使用父窗体的客户区.
+	[可选参数] $tagRECT structure that specifies the rectangular area, in client coordinates, within which the windows
+	are arranged. This parameter can be 0, in which case the client area of the parent window is used.
 $hParent
-   [可选] 父窗体句柄. 如果该参数为0时 , 使用桌面窗体.
+	[可选参数] Handle to the parent window. If this parameter is 0, the desktop window is assumed.
 $iFlags
-   [可选] 层叠标记. 可为一个或多个下列参数:
-    $MDITILE_SKIPDISABLED - 禁止层叠排列MDI子窗体
-    $MDITILE_ZORDER - 在Z序上排列
+	[可选参数] A cascade flag. This parameter can be one or more of the following values.
+	
+	$MDITILE_SKIPDISABLED
+	$MDITILE_ZORDER
+	
 $iStart
-   [可选] 开始排序的窗体索引
+	[可选参数] The index of array to start arranging at.
 $iEnd
-   [可选] 结束排序的窗体索引
+	[可选参数] The index of array to stop arranging at.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 被排列的窗口数量
-失败: 返回0并设置@error非0
+Success	The value is the number of windows arranged.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中CascadeWindows的相关信息
+@@MsdnLink@@ CascadeWindows
 
 ###Example###
 @@IncludeExample@@
+

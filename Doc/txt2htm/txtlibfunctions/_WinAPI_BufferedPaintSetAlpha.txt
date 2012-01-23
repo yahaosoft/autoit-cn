@@ -2,32 +2,33 @@
 _WinAPI_BufferedPaintSetAlpha
 
 ###Description###
-将给定矩形中的Alpha值设置为指定值
+Sets the alpha to a specified value in a given rectangle.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_BufferedPaintSetAlpha( $hBP [, $iAlpha [, $tRECT]] )
+_WinAPI_BufferedPaintSetAlpha ( $hBP [, $iAlpha [, $tRECT]] )
 
 ###Parameters###
 @@ParamTable@@
 $hBP
-   缓冲绘制场景的句柄
+	Handle of the buffered paint context.
 $iAlpha
-   将要设置的Alpha值. 范围在0(完全透明)-225(完全不透明)之间
+	[可选参数] The alpha value to set. The alpha value can range from zero (fully transparent) to 255 (fully opaque).
 $tRECT
-$tagRECT结构. 为0时表示清除整个矩形.
+	[可选参数] $tagRECT structure that specifies the rectangle in which to set the alpha. If this parameter is 0,
+	the entire buffer is used.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
-最低系统要求: Windows Vista
+This function requires Windows Vista or later.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中BufferedPaintSetAlpha的相关信息
+@@MsdnLink@@ BufferedPaintSetAlpha
+

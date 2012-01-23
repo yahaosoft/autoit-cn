@@ -2,40 +2,46 @@
 _WinAPI_DwmSetIconicThumbnail
 
 ###Description###
-设置窗口或当前标签固实的图标化位图以代替缩略图
+Sets a static, iconic bitmap on a window or tab to use as a thumbnail representation.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_DwmSetIconicThumbnail( $hWnd, $hBitmap [, $fFrame] )
+_WinAPI_DwmSetIconicThumbnail ( $hWnd, $hBitmap [, $fFrame] )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   窗口或标签句柄
+	Handle to the window or tab.
 $hBitmap
-   代表窗口的设备无关的位图(DIB)的句柄
+	Handle to the device-independent bitmap (DIB) to represent the specified window.
 $fFrame
-   指定是否显示围绕位图的框架. 可用值:
-    TRUE - 显示框架
-    FALSE - 不显示框架(默认)
+	[可选参数] Specifies whether display a frame around the provided thumbnail, valid values:
+		TRUE    - Display frame.
+		FALSE   - Do not display frame. (Default)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
-窗口通常在响应WM_DWMSENDICONICLIVEPREVIEWBITMAP消息时调用_WinAPI_DwmSetIconicLivePreviewBitmap()函数. 返回的位图无需大于窗口或框架的客户区但必须为32位色深.
-DWM使用位图的副本, 但调用保持原位图的继承关系且在不再需要时响应释放. 当DWM停止显示过去的预览时DWM不会保存位图副本.
-最低系统要求: Windows 7
-使用示例前将 AutoIt.bmp 文件释放到临时文件夹
+A window typically calls the _WinAPI_DwmSetIconicThumbnail() function after it receives a WM_DWMSENDICONICTHUMBNAIL
+message. The thumbnail should not exceed the maximum x-coordinate and y-cordinate that are specified in the
+WM_DWMSENDICONICTHUMBNAIL. The thumbnail must also have a 32-bit color depth.
 
-###Related###
+The DWM uses a copy of the bitmap, but the application can release this copy at any time because of memory
+constraints. If this occurs, the window is not notified but it might receive a subsequent WM_DWMSENDICONICTHUMBNAIL
+request when its thumbnail is needed again. The caller retains ownership of the original bitmap and is responsible
+for freeing the resources that it uses when it is no longer needed.
+
+This function requires Windows 7 or later.
+
 
 ###See Also###
- 搜索MSDN知识库中DwmSetIconicThumbnail的相关信息
+@@MsdnLink@@ DwmSetIconicThumbnail
 
 ###Example###
 @@IncludeExample@@
+

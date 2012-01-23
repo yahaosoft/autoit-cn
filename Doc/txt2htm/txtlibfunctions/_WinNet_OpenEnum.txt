@@ -6,45 +6,45 @@ _WinNet_OpenEnum
 
 ###Syntax###
 #Include <WinNet.au3>
-_WinNet_OpenEnum($iScope,$iType, $iUsage, $pResource, ByRef $hEnum)
+_WinNet_OpenEnum($iScope, $iType, $iUsage, $pResource, ByRef $hEnum)
 
 ###Parameters###
 @@ParamTable@@
-$iScope 
-   枚举的范围:
-    0 - 枚举已连接的资源
-    1 - 枚举所有资源
-    2 - 枚举所有推荐的(存在的)连接
-    3 - 只枚举在网络上使用的资源
-$iType 
-   资源类型:
-    0 - 所有资源
-    1 - 磁盘资源
- 
-    2 - 打印资源
-$iUsage 
-   资源的用法:
-    0 - 所有资源
-    1 - 所有可连接资源
-    2 - 所有包含其他资源的资源
- 
-    4 - 如果用户不被认证强制函数失败
-$pResource 
-   $tagNETRESOURCE结构的指针，该结构指定了一个容器资源. 如果iScope不是1, 则必须是0. 如果为0, 则采用顶级网络资源.
-$hEnum 
-   指定一个变量用来装载由WNet_EnumResource使用的句柄
+$iScope
+	枚举的范围:
+		0 - 枚举已连接的资源
+		1 - 枚举所有资源
+		2 - 枚举所有推荐的(存在的)连接
+		3 - 只枚举在网络上使用的资源
+$iType
+	资源类型:
+		0 - 所有资源
+		1 - 磁盘资源
+		2 - 打印资源
+$iUsage
+	资源的用法:
+		0 - 所有资源
+		1 - 所有可连接资源
+		2 - 所有包含其他资源的资源
+		4 - 如果用户不被认证强制函数失败
+$pResource
+	$tagNETRESOURCE结构的指针，该结构指定了一个容器资源. 如果iScope不是1, 则必须是0. 
+		如果为0, 则采用顶级网络资源.
+$hEnum
+	指定一个变量用来装载由WNet_EnumResource使用的句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	True
+失败:	False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
-_WinNet_EnumResource , _WinNet_CloseEnum , $tagNETRESOURCE
+_WinNet_EnumResource, _WinNet_CloseEnum, $tagNETRESOURCE
 
 ###See Also###
- 搜索MSDN知识库中WNetOpenEnum的相关信息
+@@MsdnLink@@ WNetOpenEnum

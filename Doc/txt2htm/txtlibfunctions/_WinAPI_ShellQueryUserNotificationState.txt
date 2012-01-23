@@ -2,33 +2,28 @@
 _WinAPI_ShellQueryUserNotificationState
 
 ###Description###
-检查当前用户的计算机状态
+检查当前用户的计算机状态.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellQueryUserNotificationState( )
+_WinAPI_ShellQueryUserNotificationState ( )
 
 ###Parameters###
 @@ParamTable@@
-无
+None.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回当前计算机状态. 可为下列值:
-    $QUNS_NOT_PRESENT               = 1 - 显示屏保, 锁定机器或进程中非活动快速用户切换对话
-    $QUNS_BUSY                      = 2 - 正在运行全屏程序或演示
-    $QUNS_RUNNING_D3D_FULL_SCREEN   = 3 - 全屏运行Direct3D程序中
-    $QUNS_PRESENTATION_MODE         = 4 - 启动Windows图像设置屏蔽通知或弹出信息
-    $QUNS_ACCEPTS_NOTIFICATIONS     = 5 - 未发现其它状态, 通知可自由发送
-    $QUNS_QUIET_TIME                = 6 - Windows7以上, 当前用户处于'安静时间'
-失败: 返回0并设置@error非0. @extended包含COM错误代码.
+成功:	返回目前计算机的状态 (QUNS_*).
+失败:	返回 0,设置@error:	
+标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-最小系统支持Windows Vista
+本函数需要 Windows Vista 或更高版本系统.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SHQueryUserNotificationState的相关信息
+@@MsdnLink@@ SHQueryUserNotificationState
+

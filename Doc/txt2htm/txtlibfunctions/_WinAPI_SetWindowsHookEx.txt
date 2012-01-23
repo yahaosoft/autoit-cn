@@ -2,50 +2,58 @@
 _WinAPI_SetWindowsHookEx
 
 ###Description###
-向钩子链中安装一个应用程序定义的钩子程序
+安装应用程序定义的钩子程序到钩链
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_SetWindowsHookEx($idHook, $lpfn, $hmod[, $dwThreadId = 0])
+_WinAPI_SetWindowsHookEx($idHook, $lpfn, $hmod [, $dwThreadId = 0])
 
 ###Parameters###
 @@ParamTable@@
-$idHook  指定安装的钩子程序的类型. 此参数可为下列值之一:
-$WH_CALLWNDPROC - 安装用以监控在系统将他们传送至目的窗口程序前的信息的钩子程序
-$WH_CALLWNDPROCRET - 安装用以监控在目的窗口程序执行后的信息的钩子程序
-$WH_CBT - 安装用以接收系统操作通知(CBT)的钩子程序
-$WH_DEBUG - 安装用以调试其他钩子程序的钩子程序
-$WH_FOREGROUNDIDLE - 安装用以将前台应用程序线程变为闲置时调用的钩子程序
-$WH_GETMESSAGE - 安装用以监视发送到消息队列的消息的钩子程序
-$WH_JOURNALPLAYBACK - 安装用以发送以前由$WH_JOURNALRECORD钩子程序记录的信息的钩子程序
-$WH_JOURNALRECORD - 安装用以记录发送到系统消息队列的输入消息的钩子程序
-$WH_KEYBOARD - 安装用以监视键盘击键信息的钩子程序
-$WH_KEYBOARD_LL - Windows NT/2000/XP: 安装用以监视键盘输入事件的钩子程序
-$WH_MOUSE - 安装用以监视鼠标消息的钩子程序
-$WH_MOUSE_LL - Windows NT/2000/XP: 安装用以监视鼠标输入事件的钩子程序
-$WH_MSGFILTER - 安装用以监视由对话框 , 消息框 , 菜单 , 或滚动条的输入事件的结果生成的消息的钩子程序
-$WH_SHELL - 安装用于接收外壳应用通知的钩子程序
-$WH_SYSMSGFILTER - 安装用以监视由对话框 , 消息框 , 菜单 , 或滚动条的输入事件的结果生成的消息的钩子程序
-$lpfn  钩子程序的指针. 如果$dwThreadId参数为零或指定标识符的线程由不同进程创建 , $lpfn参数必须指向一个使用dll的钩子程序.
-$lpfn可指向使用与目前进程相关的代码的钩子程序
-$hmod  包含钩子程序所指向$lpfn参数的DLL句柄.
-$dwThreadId参数指定了一个由当前进程创立的线程且钩子程序与当前进程的代码相关则$hMod参数必须设置为
-$dwThreadId  指定与钩子程序是相关的线程的标识符. 如果该参数为0 , 钩子程序作为调用线程与现有运行在相同桌面中的所有线程
-@@End@@
-
-###Remarks###
-
-###Related###
+$idHook
+	指定钩子程序类型的. 这个参数可以是以下值之一:
+		$WH_CALLWNDPROC - 安装钩子程序在消息监控之前,系统将它们发送到目标窗口程序
+		$WH_CALLWNDPROCRET - 安装钩子程序在消息监控之后,由目标窗口程序处理
+		$WH_CBT - Installs a hook procedure that receives notifications useful to a computer-based training (CBT) application
+		$WH_DEBUG - 安装一个钩子程序调试其他有用的钩子程序
+		$WH_FOREGROUNDIDLE - 安装一个钩子程序被调用时,将应用程序的前台线程设置为闲置
+		$WH_GETMESSAGE - 安装一个钩子程序, 监视消息队列的消息
+		$WH_JOURNALPLAYBACK - 安装一个钩子程序, 记录 $WH_JOURNALRECORD 挂钩程序以前发布的消息
+		$WH_JOURNALRECORD - 安装一个钩子程序, 记录发送到系统消息队列的输入信息
+		$WH_KEYBOARD - 安装一个钩子程序,监控击键消息
+		$WH_KEYBOARD_LL - Windows NT/2000/XP: 安装一个钩子程序, 可以监测低级别的键盘输入事件
+		$WH_MOUSE - 安装一个钩子程序, 监控鼠标消息
+		$WH_MOUSE_LL - Windows NT/2000/XP: 安装一个钩子程序, 监控低级别鼠标输入事件
+		$WH_MSGFILTER - 安装一个钩子程序, 监控输入事件产生对话框, 消息框, 菜单或滚动条消息
+		$WH_SHELL - 安装一个钩子程序接收有用的通知到外壳应用
+		$WH_SYSMSGFILTER - 安装一个钩子程序, 监控输入事件产生对话框, 消息框, 菜单或滚动条消息
+$lpfn
+	钩子程序指针. 如果 $dwThreadId 参数为 0, 或指定一个不同的进程创建的线程标识符,
+		$lpfn 参数必须指向一个在 DLL 中的钩子程序.
+		否则, $lpfn 可以指向当前进程中相关的钩子程序代码
+$hmod
+	$lpfn 参数指向的, 包含钩子程序的 DLL 句柄.
+		如果 $dwThreadId 参数指定由当前进程创的一个线程, 且钩子程序与当前进程的代码相关,
+		$hMod 参数必须设置为 NULL
+$dwThreadId
+	[可选参数] 指定与钩子过程相关联的线程标识符.
+		如果此参数为 0, 钩子程序与调用线程是在同一桌面运行的所有现有线程
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 钩子程序的句柄
-失败: 0且设置@error
-相关 _WinAPI_UnhookWindowsHookEx , _WinAPI_CallNextHookEx , DllCallbackRegister ,  DllCallbackGetPtr ,  DllCallbackFree
+成功:	返回钩子程序句柄
+失败:	返回 0, 并设置 @error
+@@End@@
+
+###Remarks###
+None.
+
+###Related###
+_WinAPI_UnhookWindowsHookEx, _WinAPI_CallNextHookEx, DllCallbackRegister, DllCallbackGetPtr, DllCallbackFree
 
 ###See Also###
-搜索MSDN知识库中SetWindowsHookEx的相关信息
+@@MsdnLink@@ SetWindowsHookEx
 
 ###Example###
 @@IncludeExample@@

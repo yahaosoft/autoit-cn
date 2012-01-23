@@ -2,38 +2,47 @@
 _WinAPI_CreateSemaphore
 
 ###Description###
-创建或打开并发访问对象
+创建或打开有名或无名的信号量对象.
+ 译注: 关于 信号量 ,维基百科的注释页: 
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateSemaphore( $sSemaphore, $iInitial, $iMaximum[, $tSecurity] )
+_WinAPI_CreateSemaphore ( $sSemaphore, $iInitial, $iMaximum [, $tSecurity] )
 
 ###Parameters###
 @@ParamTable@@
 $sSemaphore
-   将打开的并发访问对象. 名称比较是大小写敏感的
+	信号量的名称. 名称比较区分大小写.
 $iInitial
+	信号量对象的初始计数.
+		 该值必须大于或等于 0, 且小于或等于 $iMaximum
 $iMaximum
-$iMaximum
-   打开的并发访问对象的最大值. 该值需大于0
+	信号量对象的最大数量. 该值必须大于 0.
 $tSecurity
-$tagSECURITY_ATTRIBUTES结构. 该参数为0时, 并发对象获取默认的安全描述符.
+	[可选参数] $tagSECURITY_ATTRIBUTES structure that specifies a security descriptor for the new semaphore.
+	If this parameter is 0, the semaphore gets a default security descriptor.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回并发访问对象的句柄. 如果在函数调用前已存在命名的并发访问对象, 函数返回该对象的句柄.
-失败: 返回0并设置@error非0
+成功:	返回信号量对象的句柄.如命名信号量对象在函数调用前已存在,
+	函数返回现有对象的句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-在一次调用_WinAPI_WaitFor...函数中, 任意进程都可指定并发对象句柄. 当指定对象的状态被标记时返回单一对象等待函数. 当任一或任意对象被标记时返回多对象等待函数. 等待函数返回时, 释放等待进程并继续执行.
-当并发对象大于0时并发对象的状态是标记的等于0时为无标记的. $iInitial参数指定初始数量. 等待进程每次由于并发的信号状态被释放时, 并发的数量减一. 使用_WinAPI_ReleaseSemaphore()函数以一个指定数量提高并发数量. 数量不能小于0或大于由$iMaximum参数指定的值.
-
-###Related###
+任何进程可以调用 _WinAPI_WaitFor... 函数指定信号量对象句柄.
+ 单一对象等待函数返回指定对象的状态信号.
+ 当任一对象或指定对象都是信号时, 多对象等待函数可以返回任何命令.
+ 当一个等待函数返回时,被释放的等待进程继续执行.
+ 信号量对象的状态是信号时, 其信号计数大于 0, 如果不是, 其计数等于 0.
+ $iInitial 参数指定初始值.每个等待进程因信号量的信号状态的释放使计数减 1.
+ 使用 _WinAPI_ReleaseSemaphore() 函数指定信号量的递增计数.
+ 计数不能小于 0 或大于 $iMaximum 参数指定的值.
 
 ###See Also###
- 搜索MSDN知识库中CreateSemaphore的相关信息
+@@MsdnLink@@ CreateSemaphore
 
 ###Example###
 @@IncludeExample@@
+

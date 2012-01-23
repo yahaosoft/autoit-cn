@@ -2,36 +2,35 @@
 _WinAPI_FillRect
 
 ###Description###
-使用指定的刷子填充矩形
+使用指定的笔刷填充矩形
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_FillRect($hDC,
-$ptrRect, $hBrush)
+_WinAPI_FillRect($hDC, $ptrRect, $hBrush)
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   设备上下文句柄
+	设备环境句柄
 $ptrRect
-$tagRECT 结构的指针
+	$tagRECT 结构指针, 它包含被填充矩形的逻辑坐标
 $hBrush
-   用于填充矩形的刷子的句柄
+	画笔句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-由 $hBrush 参数确定的刷子或者是逻辑刷子的句柄或者是颜色值.
-如果指定了逻辑刷子的句柄, 调用_WinAPI_CreateSolidBrush.
-另外, 你可以使用_WinAPI_GetStockObject函数检索一个到库存刷子的句柄.
-如果指定$hBrush颜色参数，必须是标准系统颜色(所选择的颜色必须加1)
+ $hBrush 参数可以是逻辑笔刷句柄或颜色值.
+ 如果 $hBrush 指定逻辑笔刷句柄, 则调用 _WinAPI_CreateSolidBrush 函数.
+ 此外,可以使用 _WinAPI_GetStockObject 函数检索笔刷句柄.
+ 如果 $hBrush 参数为颜色值,它必须是标准得系统颜色（值 1 必须添加到所选择的颜色中）
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中FillRect的相关信息
+@@MsdnLink@@ FillRect

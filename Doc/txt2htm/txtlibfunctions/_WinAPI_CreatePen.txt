@@ -2,48 +2,47 @@
 _WinAPI_CreatePen
 
 ###Description###
-创建具有指定风格, 宽度, 和颜色的逻辑笔.
+创建指定样式,宽度和颜色得逻辑笔.
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_CreatePen($iPenStyle,
-$iWidth, $nColor)
+_WinAPI_CreatePen($iPenStyle, $iWidth, $nColor)
 
 ###Parameters###
 @@ParamTable@@
 $iPenStyle
-   指定笔风格. 可为下列值之一.
-    PS_SOLID - 实线.
-    PS_DASH - 虚线. 在场景中笔宽不大于1个单位.
-    PS_DOT - 点线. 在场景中笔宽不大于1个单位.
-    PS_DASHDOT - 点划线. 在场景中笔宽不大于1个单位.
-    PS_DASHDOTDOT - 点点划线, 在场景中笔宽不大于 1 个单位.
-    PS_NULL - 不可见.
-    PS_INSIDEFRAME - 实线. 画笔在由椭圆、矩形、圆角矩形、饼图以及弦等生成的封闭对象框中画图, 如指定的准确RGB颜色不存在，就进行抖动处理.
+	指定笔的样式.可以是下值之一.
+		PS_SOLID - 实心纯色.
+		PS_DASH - 虚线笔.仅当画笔宽度为 1 或设备单位不足时,这种样式有效.
+		PS_DOT - 点线笔.. 仅当画笔宽度为 1 或设备单位不足时,这种样式有效.
+		PS_DASHDOT - 虚线与点交替. 仅当画笔宽度为 1 或设备单位不足时,这种样式有效.
+		PS_DASHDOTDOT - 虚线与双点交替. 仅当画笔宽度为 1 或设备单位不足时,这种样式有效.
+		PS_NULL - 隐形笔.
+		PS_INSIDEFRAME - 实心纯色. 当此笔用于 GDI 绘图函数时,可以使用尺寸缩小的笔宽,所以它完全适合于矩形.考虑到笔的宽度,此样式仅适用于几何笔.
 $iWidth
-   指定画笔的逻辑宽度.
+	指定笔的逻辑单位宽度.
 $nColor
-   指定画笔的RGB颜色
+	指定笔的颜色 (BGR)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 用来识别逻辑笔的hPEN值
-失败: 0
+成功:	返回标识逻辑笔的 HPEN 值
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-随后笔可以作为一个设备被选择用以绘制线条和曲线.
-在应用程序创建了逻辑笔后, 它可以通过调用SelectObject函数将笔加入到设备场景. 在笔加入到设备场景后, 可以用来绘制线条和曲线.
-如果指定的nWidth值等于0, 不管当前的外观, 使用该笔划出的线总是一个像素宽.
-如果指定的nWidth值大于1, fnPenStyle参数必须是PS_NULL, PS_SOLID或 PS_INSIDEFRAME.
-一旦不再需要画笔，调用DeleteObject函数将其删除
+ 创建的笔可以随后选择到设备环境和用于绘制直线和曲线.
+ 应用程序创建逻辑笔后,通过调用 SelectObject 函数,可以选中到一个设备环境;以后在设备环境中选中笔,可以用来绘制直线和曲线.
+ 如果 nWidth 参数指定值为 0,不管当前转型,创建笔绘制一条线始终是一个像素宽.
+ 如果 nWidth 指定的值大于 1, fnPenStyle 参数必须 PS_NULL, PS_SOLID, 或 PS_INSIDEFRAME.
+ 当不再需要用笔,调用 DeleteObject 函数删除它.
 
 ###Related###
-_WinAPI_MoveTo , _WinAPI_LineTo , _WinAPI_SelectObject , _WinAPI_DeleteObject
+_WinAPI_MoveTo, _WinAPI_LineTo, _WinAPI_SelectObject, _WinAPI_DeleteObject, _WinAPI_DrawLine, _WinAPI_GetBkMode, _WinAPI_SetBkMode
 
 ###See Also###
-搜索MSDN知识库中有关CreatePen的信息
+@@MsdnLink@@ CreatePen
 
 ###Example###
 @@IncludeExample@@

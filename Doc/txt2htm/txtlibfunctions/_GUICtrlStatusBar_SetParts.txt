@@ -2,38 +2,39 @@
 _GUICtrlStatusBar_SetParts
 
 ###Description###
-设置部分的数量和宽度
+设置部件数量与边框
 
 ###Syntax###
-#Include<GuiStatusBar.au3>
-_GUICtrlStatusBar_SetParts($hWnd[, $iaParts = -1[,$iaPartWidth = 25]])
+#Include <GuiStatusBar.au3>
+_GUICtrlStatusBar_SetParts($hWnd[, $iaParts = -1[, $iaPartWidth = 25]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iaParts  部分的数量, 0基的整数数组:
-$iaParts[0] - 部分#1的右边界
-$iaParts[1] - 部分#2的右边界
-$iaParts[n] - 部分n+1的右边界
- $iaPartWidth  部分的大小, 0基的整数数组:
-$iaPartWidth[0] - 部分#1的宽度
-$iaPartWidth[1] - 部分#2的宽度
-$iaPartWidth[n] - 部分n+1的宽度
+$hWnd
+	控件句柄
+$iaParts
+	[可选参数] 部件数量, 可以是一个 0 的数组,格式如下:
+		$iaParts[0] - 部件 #1 右边界
+		$iaParts[1] - 部件 #2 右边界
+		$iaParts[n] - 部件 #n 右边界
+$iaPartWidth
+	[可选参数] Size of parts, 可以是一个 0 的数组,格式如下:
+		$iaPartWidth[0] - 部件 #1 宽度
+		$iaPartWidth[1] - 部件 #2 宽度
+		$iaPartWidth[n] - 部件 #n 宽度
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-如果一个元素为-1, 对应部分的右边界延伸至窗口边界.
+ 如果某个元素为 -1,相应部件右边缘扩展到窗口的边界.
 
 ###Related###
 _GUICtrlStatusBar_GetParts
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

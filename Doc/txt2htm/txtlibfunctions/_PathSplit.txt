@@ -2,7 +2,7 @@
 _PathSplit
 
 ###Description###
-将路径分拆为驱动器 , 目录 , 文件名和文件扩展名部分. 缺少的部分由一个空字符串代替.
+完整路径拆分为驱动器、目录、文件名和扩展名. 缺少部分由空字符串代替.
 
 ###Syntax###
 #Include <File.au3>
@@ -10,30 +10,33 @@ _PathSplit($szPath, ByRef $szDrive, ByRef $szDir, ByRef $szFName, ByRef $szExt)
 
 ###Parameters###
 @@ParamTable@@
- $szPath  要拆分的路径(可包含UNC服务器或驱动器标识)
- $szDrive  驱动器字符串
- $szDir  目录字符串
- $szFName  文件名字符串
- $szExt  扩展名字符串
+$szPath
+	要拆分的路径 (可以包含 UNC 服务器或驱动器名)
+$szDrive
+	保留的驱动器名
+$szDir
+	保留的目录名
+$szFName
+	保留的文件名
+$szExt
+	保留的文件扩展名
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回如下数组:
-     0 - 原始路径
-     1 - 驱动器
-     2 - 目录
-     3 - 文件名
-     4 - 扩展名
+	返回五个元素的数组 
+	0 = 原始路径, 
+	1 = 驱动器, 
+	2 = 目录, 
+	3 = 文件名, 
+	4 = 扩展名
 @@End@@
 
 ###Remarks###
-函数不能获得一个命令行字符串. 它只对路径有效 , 不能带参数.
+函数不接受命令行字符串.它适用于不带参数的路径.
 
 ###Related###
- _PathFull ,  _PathMake
-
-###See Also###
+_PathFull, _PathMake
 
 ###Example###
 @@IncludeExample@@

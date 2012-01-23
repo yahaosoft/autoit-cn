@@ -2,28 +2,29 @@
 _WinAPI_GetObjectID
 
 ###Description###
-获取指定文件或目录的对象标识符
+Retrieves the object identifier for the specified file or directory.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetObjectID( $sPath )
+_WinAPI_GetObjectID ( $sPath )
 
 ###Parameters###
 @@ParamTable@@
 $sPath
-   要获取对象标识符的文件或目录的路径
+	Path to the file or directory from which the object identifier is to be retrieved.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回包含卷上的文件或目录的标识符的$tagGUID结构
-失败: 返回0并设置@error非0
+Success	$tagGUID structure that contains the object identifier for the file or directory within the volume on which it resides.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-与_WinAPI_CreateObjectID()不同, 该函数仅返回对象标识符. 如果文件或目录没有对象标识符则函数失败.
+Unlike _WinAPI_CreateObjectID(), this function only returns the object identifier. If a file or directory does not
+have an object identifier, the function fails.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中FSCTL_GET_OBJECT_ID的相关信息
+@@MsdnLink@@ FSCTL_GET_OBJECT_ID
+

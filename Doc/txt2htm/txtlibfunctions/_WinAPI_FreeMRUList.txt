@@ -2,28 +2,28 @@
 _WinAPI_FreeMRUList
 
 ###Description###
-释放MRU句柄并将缓冲数据写入注册表
+释放最近使用(MRU)列表h和写缓存数据到注册表相关的句柄.
+
+###Syntax###
+#Include <WinAPIEx.au3>
 _WinAPI_FreeMRUList ( $hMRU )
 
 ###Parameters###
 @@ParamTable@@
 $hMRU
-   MRU列表句柄
+	MRU 列表句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败：返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-如果创建MRU列表时使用$MRU_CACHEWRITE标记, 调用_WinAPI_FreeMRUList()在本次被写入前不会改变注册表中已存储的MRU列表.
-
-###Related###
+如果 MRU 列表使用 $MRU_CACHEWRITE 标志, 
+调用 _WinAPI_FreeMRUList() 函数会导致列表变化的数据不会写入注册表.
 
 ###See Also###
- 搜索MSDN知识库中FreeMRUList的相关信息
+@@MsdnLink@@ FreeMRUList
 
-###Example###
-@@IncludeExample@@

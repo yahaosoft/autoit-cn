@@ -2,35 +2,41 @@
 _WinAPI_ShellNotifyIcon
 
 ###Description###
-将消息发送到任务栏的状态区
+发送消息到任务栏的状态区域.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellNotifyIcon( $iMessage, $tNOTIFYICONDATA )
+_WinAPI_ShellNotifyIcon ( $iMessage, $tNOTIFYICONDATA )
 
 ###Parameters###
 @@ParamTable@@
-$iMessage  指定要执行的操作变量. 可为下列值之一:
-$NIM_ADD - 向状态区添加图标
-$NIM_MODIFY - 修改状态区图标
-$NIM_DELETE - 删除状态区图标
-$NIM_SETFOCUS - shell32.dll版本5.0以上, 返回任务栏通知区的焦点
-$NIM_SETVERSION - 根据版本构建通知区操作
-$tNOTIFYICONDATA  $tagNOTIFYICONDATA结构. 该结构的内容和大小依赖于$iMessage和操作系统版本.
+$iMessage
+	指定操作类型. 参数可以是以下值之一:
+	
+	$NIM_ADD		;添加一个图标到状态区域
+	$NIM_MODIFY		;修改状态区的图标
+	$NIM_DELETE		;删除状态区图标
+	$NIM_SETFOCUS		;Shell32.dll 版本5.0 或更高版本.返回任务栏通知区域焦点
+	$NIM_SETVERSION		;Shell32.dll 版本5.0 或更高版本.指示通知区域的行为依照结构 lpData 中 uVersion 成员规定的版本号
+	
+$tNOTIFYICONDATA
+	$tagNOTIFYICONDATA 结构.结构的内容和规模依赖于
+	操作系统的 $iMessage 和版本.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中Shell_NotifyIcon的相关信息
+@@MsdnLink@@ Shell_NotifyIcon
 
 ###Example###
 @@IncludeExample@@
+

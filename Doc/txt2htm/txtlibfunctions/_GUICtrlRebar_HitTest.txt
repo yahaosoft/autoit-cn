@@ -2,35 +2,38 @@
 _GUICtrlRebar_HitTest
 
 ###Description###
-确定项目是否位于指定位置
+确定指定位置的项目
 
 ###Syntax###
 #Include <GuiRebar.au3>
-_GUICtrlRebar_HitTest($hWnd[, $iX = -1[, $iY = -1]])
+_GUICtrlRebar_HitTest($hWnd [, $iX = -1 [, $iY = -1]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  伸缩条控件句柄
- $iX  客户坐标系中被检验的X位置或者使用-1(当前鼠标位置)
- $iY  客户坐标系中被检验的Y位置或者使用-1(当前鼠标位置)
+$hWnd
+	控件句柄
+$iX
+	[可选参数] 客户区测试点 X 位置坐标;或 -1,使用当前鼠标位置
+$iY
+	[可选参数] 客户区测试点 Y 位置坐标;或 -1,使用当前鼠标位置
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如下格式数组:
-    [0] - 指定位置区段的0基索引, 或者-1
-    [1] - 如果真, 位于控件客户窗口但不在区段上
-    [2] - 如果真, 位于控件客户窗口
-    [3] - 如果真, 位于伸缩条区段标题上方
-    [4] - 如果真, 位于伸缩条区段"V"标段上(版本5.80或更高)
-    [5] - 如果真, 位于伸缩条区段尺寸控制点上
+成功:	返回数组的格式如下:
+	[0] - 指定位置带区的 0 基索引,或 -1
+	[1] - 如为 True,则表示位置在控件的客户端窗口,但不是带区
+	[2] - 如为 True,则表示位置在控件的客户端窗口
+	[3] - 如为 True,则表示位置是带区的标题
+	[4] - 如为 True,则表示位置在带区的人字纹(chevron)标志（版本5.80及更高）
+	[5] - 如为 True,则表示位置是带区的夹子(gripper)
+失败:	设置 @error
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

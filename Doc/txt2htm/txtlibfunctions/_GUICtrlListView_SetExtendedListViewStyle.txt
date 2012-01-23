@@ -2,63 +2,52 @@
 _GUICtrlListView_SetExtendedListViewStyle
 
 ###Description###
-设置扩展风格
+设置扩展样式
 
 ###Syntax###
-#Include<GuiListView.au3>
-_GUICtrlListView_SetExtendedListViewStyle($hWnd,$iExStyle[, $iExMask = 0])
+#Include <GuiListView.au3>
+_GUICtrlListView_SetExtendedListViewStyle($hWnd, $iExStyle[, $iExMask = 0])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iExStyle  扩展样式:
-$LVS_EX_BORDERSELECT - 当项目被选中时改变项目边框颜色
-$LVS_EX_CHECKBOXES
-      - 使列表视图控件中对于项目的复选框有效
-$LVS_EX_DOUBLEBUFFER -
-      通过双缓冲绘图可减少闪烁
-$LVS_EX_FLATSB - 使控件中的平面滚动条有效
-$LVS_EX_FULLROWSELECT -
-      当一项被选中时，该项和其所有子项被高亮显示
-$LVS_EX_GRIDLINES -
-      显示围绕项目和子项的网格线
-$LVS_EX_HEADERDRAGDROP - 使拖曳列记录可用
-$LVS_EX_INFOTIP -
-      在显示提示前发送 $LVN_GETINFOTIP 通知消息
-$LVS_EX_LABELTIP - 如果不设置, 未折叠且部分隐藏的
-      标签只用于大图标模式
-$LVS_EX_MULTIWORKAREAS -
-      空间不会自动排列图标除非定义了一个或多个工作区$LVS_EX_ONECLICKACTIVATE -
-      当项目被点击时控件发送$LVN_ITEMACTIVATE消息
-$LVS_EX_REGIONAL -
-      设置控件区域只包括项目的图标和文字
-$LVS_EX_SIMPLESELECT -
-      在图标视图中移动控件的状态图像到右上角
-$LVS_EX_SUBITEMIMAGES -
-      允许子项目显示图像
-$LVS_EX_TRACKSELECT -
-      使控件中的热跟踪选择有效
-$LVS_EX_TWOCLICKACTIVATE - 双击项目事控件发送 $LVN_ITEMACTIVATE
-      信息
-$LVS_EX_UNDERLINECOLD - 使可被激活的非热项显示为带下划线的文本
-$LVS_EX_UNDERLINEHOT
-       - 使可被激活的热项显示为带下划线的文本
- $iExMask  指定 $iExStyle 中的哪些风格将生效. 参数可以是扩展风格的组合. 只有 $iExStyle
-      中的扩展风格将改变. 其他所有风格将保持原状. 如果该参数为 0, $iExStyle
-中的所有风格都将有效.
+$hWnd
+	控件句柄
+$iExStyle
+	Extended 控件样式:
+		$LVS_EX_BORDERSELECT - 项目选定时改变边界颜色
+		$LVS_EX_CHECKBOXES - 列表视图中启用复选框
+		$LVS_EX_DOUBLEBUFFER - 双缓冲刷新控件,以减少闪烁
+		$LVS_EX_FLATSB - 列表视图中启用滚动条
+		$LVS_EX_FULLROWSELECT - 项目选中时, 该项及其所有子项高亮显示
+		$LVS_EX_GRIDLINES - 项目和子项显示网格
+		$LVS_EX_HEADERDRAGDROP - 启用列拖放操作重新排序
+		$LVS_EX_INFOTIP - 显示工具提示前,发送 $LVN_GETINFOTIP 通知信息
+		$LVS_EX_LABELTIP - 如果没有设置,在大图标视图中仅展开部分隐藏的标签
+		$LVS_EX_MULTIWORKAREAS - 定义一或多个工作区之前,控件将不会自动排列图标
+		$LVS_EX_ONECLICKACTIVATE - 点击项目时,控件发送 $LVN_ITEMACTIVATE 消息
+		$LVS_EX_REGIONAL - 控件区项目仅包含图标及文本
+		$LVS_EX_SIMPLESELECT - 在图标视图中,移动控件的状态图像到右上角
+		$LVS_EX_SUBITEMIMAGES - 允许显示子项目图像
+		$LVS_EX_TRACKSELECT - 允许控件热跟踪选择
+		$LVS_EX_TWOCLICKACTIVATE - 双击项目时,控件发送 $LVN_ITEMACTIVATE 消息
+		$LVS_EX_UNDERLINECOLD - 使被激活的下划线文本为非热项
+		$LVS_EX_UNDERLINEHOT - 使被激活的下划线文本为热项
+$iExMask
+	[可选参数] 指定 $iExStyle 中哪些样式受此设置的影响.此参数可以是扩展样式的组合
+		只有在这里设置的扩展样式将被改变,所有其他样式将维持不变
+		如果此参数为 0, $iExStyle 设置的全部样式都将受到影响.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 以前的扩展风格
+	返回以前的扩展样式
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 _GUICtrlListView_GetExtendedListViewStyle
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

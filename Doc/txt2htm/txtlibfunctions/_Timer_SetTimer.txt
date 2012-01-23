@@ -2,36 +2,44 @@
 _Timer_SetTimer
 
 ###Description###
-创建带有指定超时值的计时器
+创建具有指定超时值的计时器
 
 ###Syntax###
 #Include <Timers.au3>
-_Timer_SetTimer($hWnd[, $iElapse = 250[, $sTimerFunc = ""[, $iTimerID = -1]]])
+_Timer_SetTimer($hWnd [, $iElapse = 250 [, $sTimerFunc = "" [, $iTimerID = -1]]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  与计时器相关的窗体句柄. 该窗体必须由调用的线程继承
- $iElapse  指定毫秒超时值
- $sTimerFunc  达到超时值时通知的函数的名称
- $iTimerID  指定计时器标识.
-如果$iTimerID为-1则新建计时器
-如果$iTimerID与已存在的计时器相匹配则替换计时器
-如果$iTimerID为-1且$sTimerFunc为""则计时器使用WM_TIMER事件
+$hWnd
+	与计时器相关的窗口句柄.
+		这个窗口必须为调用线程所拥有
+$iElapse
+	[可选参数] 指定超时值,以毫秒为单位
+$sTimerFunc
+	[可选参数] 通知超时值流逝的函数名称
+$iTimerID
+	[可选参数] 指定计时器标识符.
+		如果 $iTimerID = -1 创建新的计时器
+		如果 $iTimerID 匹配现有的计时器, 则替换计时器
+		如果 $iTimerID = -1 and $sTimerFunc = "" 那么将使用计时器 WM_TIMER 事件
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 新计时器的整形标识
-失败: 0
+成功:	返回新计时器的整数标识
+失败:	返回 0
 @@End@@
 
 ###Remarks###
+The callback function is called with the following parameters:
+$hWnd, $Msg, $iIDTimer, $dwTime
+
 
 ###Related###
- _Timer_KillTimer , _Timer_KillAllTimers , _Timer_GetTimerID
+_Timer_KillTimer, _Timer_KillAllTimers, _Timer_GetTimerID
 
 ###See Also###
- 搜索MSDN知识库中SetTimer的相关信息
+@@MsdnLink@@ SetTimer
 
 ###Example###
 @@IncludeExample@@

@@ -2,22 +2,25 @@
 $tagNMDATETIMEFORMATQUERY
 
 ###Description###
-包含控件回调区信息的结构
+包含控件回调区信息
 
 ###Syntax###
-Global Const $tagNMDATETIMEFORMATQUERY =  $tagNMHDR & ";ptr Format;int SizeX;int SizeY"
+Global Const $tagNMDATETIMEFORMATQUERY = $tagNMHDR & ";ptr Format;struct ;long SizeX;long SizeY; endstruct"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   通知消息的信息
+	包含通知消息的信息
 Format
-   定义控件回调区无终止字符串的指针. 字符串有一个或多个"X"字符组成.
+	指向一个空结束的字符串,它定义了控件回调字段.该字符串包括一或多个“X”字符     .
 SizeX
-   回调区显示的文本的最大宽度
+	回调字段中显示文本的最大宽度
 SizeY
-   回调区显示的文本的最大高度
-@@end@@
+	回调字段中显示文本的最大高度
+@@End@@
 
 ###Remarks###
-包含定义回调区的字符串(来自控件的格式化字符串). 结构可接收回调区中显示的文本的最大允许的尺寸. 该结构以$DTN_FORMATQUERY通知消息使用.
+包含定义回调字段的字符串(从控件的格式字符串取得).
+结构接收将要在回调字段中显示文本的最大允许大小.
+此结构用于 $DTN_FORMATQUERY 通知消息.
+

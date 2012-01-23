@@ -2,23 +2,28 @@
 _WinAPI_CopyBitmap
 
 ###Description###
-创建指定位图的副本
+创建设备无关位图（DIB）指定的位图区段副本.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CopyBitmap( $hBitmap )
+_WinAPI_CopyBitmap ( $hBitmap )
 
 ###Parameters###
 @@ParamTable@@
 $hBitmap
-   将被复制的位图的句柄
+	被复制的位图句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 创建的新位图的句柄
-失败: 返回0并设置@error非0
+成功:	返回创建的新位图句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-当位图使用完毕时, 使用_WinAPI_FreeObject()函数销毁
+当位图使用完毕, 调用 _WinAPI_DeleteObject() 函数将其删除.
+
+
+###See Also###
+@@MsdnLink@@ CopyImage
+

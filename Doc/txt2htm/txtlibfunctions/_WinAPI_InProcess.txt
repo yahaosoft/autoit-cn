@@ -2,27 +2,30 @@
 _WinAPI_InProcess
 
 ###Description###
-确定窗体是否属于当前进程
+确定窗口是否属于当前进程
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_InProcess($hWnd,
-ByRef $hLastWnd)
+_WinAPI_InProcess($hWnd, ByRef $hLastWnd)
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   要测试的窗体句柄
+	窗口句柄
 $hLastWnd
-$hWnd = $hLastWnd, 该进程立即返回真. 否则, 将调用_WinAPI_InProcess.
-$hWnd在进程中, $hLastWnd在返回时被设置到$hWnd.
+	最后测试窗口.如 $hWnd = $hLastWnd, 进程将立即返回 True.
+		否则, 将调用 _WinAPI_InProcess. 如果 $hWnd 在进程中, $hLastWnd 将设置为返回 $hWnd.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-真: 窗口句柄属于当前进程
-假: 窗口句柄不属于当前进程
+	True:	窗口句柄属于当前进程
+	False:	窗口句柄不属于当前进程
 @@End@@
 
 ###Remarks###
-这是一个控制内存映射技术的关键函数. 它检查窗口的进程标识以确定它是否属于目前的进程，这意味着它可以不通过映射控件内存获取.
+ 这是关键函数之一,控制内存映射技术.
+ 检查窗口进程 ID, 确定是否属于当前进程, 这意味着可以不映射控制内存访问.
+
+###Related###
+

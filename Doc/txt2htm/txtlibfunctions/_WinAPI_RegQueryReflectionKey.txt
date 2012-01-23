@@ -2,29 +2,32 @@
 _WinAPI_RegQueryReflectionKey
 
 ###Description###
-确定注册表指定键的映射的启用或禁用状态
+Determines whether reflection has been disabled or enabled for the specified key.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RegQueryReflectionKey( $hKey )
+_WinAPI_RegQueryReflectionKey ( $hKey )
 
 ###Parameters###
 @@ParamTable@@
 $hKey
-   打开的键的句柄. 该句柄由_WinAPI_RegCreateKey()或_WinAPI_RegOpenKey()函数返回; 无法指定远程计算机上的键. 如果键不在映射列表上, 函数成功但不产生任何影响.
+	Handle to an open registry key. This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey()
+	function; it cannot specify a key on a remote computer. If the key is not on the reflection list,
+	the function succeeds but has no effect.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0, @extended标记可包含非0系统错误代码.
+Success	1 - The reflection has been enabled.
+0	Otherwise.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
-在WOW64系统上, 32位应用程序查看从64位应用程序查看器分离出的注册表树. 注册表映射在两查看器间复制指定注册表键及值.
-最低系统要求: Windows Vista, Windows XP Professional x64 Edition
+On WOW64, 32-bit applications view a registry tree that is separate from the registry tree that 64-bit applications
+view. Registry reflection copies specific registry keys and values between the two views.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中RegQueryReflectionKey的相关信息
+@@MsdnLink@@ RegQueryReflectionKey
+

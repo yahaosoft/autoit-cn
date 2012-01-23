@@ -2,31 +2,33 @@
 _WinAPI_EnumDesktops
 
 ###Description###
-枚举与所调用进程指定窗口站相关的所有桌面
+Enumerates all desktops associated with the specified window station of the calling process.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_EnumDesktops( $hStation )
+_WinAPI_EnumDesktops ( $hStation )
 
 ###Parameters###
 @@ParamTable@@
 $hStation
-$WINSTA_ENUMDESKTOPS访问权限
+	Handle to the window station whose desktops are to be enumerated. This handle must have the
+	$WINSTA_ENUMDESKTOPS access right.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回桌面名称数组. 索引0为桌面数量.
-失败: 返回0并设置@error非0
+Success	The array of the desktop names. The zeroth array element contains the number of desktop.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-_WinAPI_EnumDesktops()仅枚举调用进程对其具有$DESKTOP_ENUMERATE访问权限的桌面
+The _WinAPI_EnumDesktops() enumerates only those desktops for which the calling process has the
+$DESKTOP_ENUMERATE access right.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中EnumDesktops的相关信息
+@@MsdnLink@@ EnumDesktops
 
 ###Example###
 @@IncludeExample@@
+

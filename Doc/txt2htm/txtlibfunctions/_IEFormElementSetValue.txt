@@ -2,40 +2,45 @@
 _IEFormElementSetValue
 
 ###Description###
-设置指定表单元素的值
+设置指定表单元素的值.
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IEFormElementSetValue ( ByRef $o_object, $s_newvalue [, $f_fireEvent = 1] )
 
 ###Parameters###
 @@ParamTable@@
- $o_object  InternetExplorer.Application窗口或者框架(frame)对象的对象变量
- $s_newvalue  设置到表单元素上的新值
- $f_fireEvent  可选:定义在改变值时是否触发OnChange和OnClick的事件
-0 = 在设置值后不触发OnChange或者OnClick事件
-1 = (默认)在设置值后触发OnChange或者OnClick事件
+$o_object
+	InternetExplorer.Application, 表单元素对象的对象变量
+$s_newvalue
+	设置到表单元素的新值
+$f_fireEvent
+	[可选参数]: 指定是否在改变值后激活 OnChange 和 OnClick 事件
+	0 = 设置值后不激活 OnChange 或 OnClick 事件
+	1 = (默认)设置值后激活 OnChange 或 OnClick 事件
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@ERROR为:
-    0 ($_IEStatus_Success) = 无错误
-    3 ($_IEStatus_InvalidDataType) = 无效数据类型
-    4 ($_IEStatus_InvalidObjectType) = 无效对象类型
-    @Extended: 包含无效参数数量
+成功:	返回 1
+失败:	返回 0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+@Extended:	包含无效参数的数量
 @@End@@
 
+
 ###Remarks###
-虽然所有表单元素有一个值 , 只有以文本为主的元素使用其明显的值属性(键入文本 , 文本区域 , 隐藏 , 密码和文件). 其他表单元素的值并不影响其如何在用户界面中显示 , 而是由元素被选中或激活返回的值.
-更多信息请参阅_IEFormElementOptionSelect , _IEFormElementCheckboxSelect , _IEFormElementRadioSelect和_IEFormImageClick.
-注意: 你不能使用_IEFormElementSetValue设置INPUT TYPE=FILE元素的值. 浏览器安全限制会阻止. 查看下面的示例.
+当所有表单元素具有一个值时, 只有面向元素的文本以一种明显的方式(打印文本, 文本区, 隐藏, 密码和文件)使用自己的值属性. 其他表单元素的值不会影响用户界面中被显示的值, 更确切的说是当该元素被选取或激活时由元素返回的值.
+
+参见_IEFormElementOptionSelect, _IEFormElementCheckboxSelect, _IEFormElementRadioSelect和_IEFormImageClick以获取更多信息.
+
+说明: 不能使用_IEFormElementSetValue设置INPUT TYPE=FILE元素的值. 浏览器安全限制阻止该元素脚本化. 参见下面的示例.
 
 ###Related###
- _IEFormElementGetValue ,  _IEFormElementGetCollection ,  _IEFormElementGetObjByName ,  _IEFormElementOptionSelect ,  _IEFormElementCheckboxSelect ,  _IEFormElementRadioSelect
+_IEFormElementGetValue, _IEFormElementGetCollection, _IEFormElementGetObjByName, _IEFormElementOptionSelect, _IEFormElementCheckboxSelect, _IEFormElementRadioSelect
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

@@ -2,27 +2,29 @@
 _WinAPI_GetCompressedFileSize
 
 ###Description###
-获取用于存储指定文件的磁盘存储的字节实际数
+Retrieves the actual number of bytes of disk storage used to store a specified file.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetCompressedFileSize( $sFile )
+_WinAPI_GetCompressedFileSize ( $sFile )
 
 ###Parameters###
 @@ParamTable@@
 $sFile
-   文件名
+	The name of the file.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+If the file is not located on a volume that supports compression or sparse files, or if the file is not compressed
+or a sparse file, the value obtained is the actual file size.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetCompressedFileSize的相关信息
+@@MsdnLink@@ GetCompressedFileSize
+

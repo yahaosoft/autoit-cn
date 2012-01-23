@@ -2,31 +2,37 @@
 _WinAPI_SetVolumeMountPoint
 
 ###Description###
-设置卷的驱动器号或另一个卷上的目录
+驱动器号关联到卷或另一个卷的目录.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetVolumeMountPoint( $sPath, $GUID )
+_WinAPI_SetVolumeMountPoint ( $sPath, $GUID )
 
 ###Parameters###
 @@ParamTable@@
-$sPath  被关联到卷的用户模式路径. 可能是驱动器号(如, X:\)或另一卷上的目录(如, Y:\MountX)
-$GUID  卷的GUID路径. 该字符串格式必须为"\\?\Volume{GUID}\", 其中GUID为标识卷的GUID. \\?\表示关闭路径解析并忽视路径部分
+$sPath
+	卷的用户模式路径. 这可能是一个驱动器号 (例如, X:\),
+		 或另一个卷目录(例如, Y:\MountX).
+$GUID
+	卷的 GUID 路径.此字符串必须形如 "\\?\Volume{GUID}\",其中 GUID 是卷 GUID 标识,
+		 \\?\ 是分析关闭的路径,并作为路径的一部分被忽略.
+		 of the path.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-将卷与一个具有系统或隐藏属性的文件或子目录的目录相关联会发生错误
+关联同一文件或子目录的卷将发生错误.
+ 此错误发生在系统和隐藏目录以及其他目录,以及系统和隐藏文件.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SetVolumeMountPoint的相关信息
+@@MsdnLink@@ SetVolumeMountPoint
 
 ###Example###
 @@IncludeExample@@
+

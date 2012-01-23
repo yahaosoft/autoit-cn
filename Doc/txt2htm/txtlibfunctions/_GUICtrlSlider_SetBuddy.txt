@@ -2,7 +2,7 @@
 _GUICtrlSlider_SetBuddy
 
 ###Description###
-给滑动条控件分配一个窗体作为滑块窗体
+指定滑块控件合作窗口
 
 ###Syntax###
 #Include <GuiSlider.au3>
@@ -10,24 +10,28 @@ _GUICtrlSlider_SetBuddy($hWnd, $fLocation, $hBuddy)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $fLocation  下列值:
-真 - 当控件使用$TBS_HORZ样式时滑块在滑动条左侧显示, 当控件使用$TBS_VERT样式时滑块在滑动条顶端显示
-假 - 当控件使用$TBS_HORZ样式时滑块在滑动条右侧显示, 当控件使用$TBS_VERT样式时滑块在滑动条底端显示
- $hBuddy  滑块控件句柄
+$hWnd
+	控件句柄
+$fLocation
+	以下值:
+		True - 如果控件使用 $TBS_HORZ 样式,合作窗口在控件左边. 
+		如果控件使用 $TBS_VERT 样式,合作窗口在控件上方
+		False - 如果控件使用 $TBS_HORZ 样式,合作窗口在空间右边. 
+		如果控件使用 $TBS_VERT 样式,合作窗口在控件下方
+$hBuddy
+	合作窗口句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 以前配置给该位置控件的窗体的句柄
+成功:	返回先前合作窗口句柄
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
- _GUICtrlSlider_GetBuddy
-
-###See Also###
+_GUICtrlSlider_GetBuddy
 
 ###Example###
 @@IncludeExample@@

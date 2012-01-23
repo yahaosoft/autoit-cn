@@ -5,32 +5,36 @@ _GUICtrlListView_FindInText
 搜索包含指定文本的项目
 
 ###Syntax###
-#Include<GuiListView.au3>
-_GUICtrlListView_FindInText($hWnd, $sText[, $iStart =-1[, $fWrapOK = True[, $fReverse = False]]])
+#Include <GuiListView.au3>
+_GUICtrlListView_FindInText($hWnd, $sText[, $iStart = -1[, $fWrapOK = True[, $fReverse = False]]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $sText  匹配文本
- $iStart  开始进行搜索的项目索引(基于 0 ) 或者设置为 -1 从开始进行搜索. 指定项目排除在搜索之外..
- $fWrapOK  如果为真, 且未找到匹配项, 搜索将从第一项继续
- $fReverse  如果为真, 搜索将从 $iStart - 1 开始到 0. 如果 $fWrapOK = True
-  搜索将继续
+$hWnd
+	控件句柄
+$sText
+	匹配文本
+$iStart
+	[可选参数] 搜索开始的 0 基索引,或 -1, 从头开始.
+		指定索引项自身不包括在搜索范围内.
+$fWrapOK
+	[可选参数] 如为 True, 则没有找到匹配项时,从第一项继续搜索
+$fReverse
+	[可选参数] 如为 True, 则搜索将从 $iStart - 1 开始到 0. 如果 $fWrapOK = True 搜索将继续
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 项目索引（基于 0）
-失败: -1
+成功:	返回项目的 0 基索引
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
-搜索是大小写不敏感的. 不像 _GUICtrlListView_FindText, 该函数在子项中也进行搜索l.
+ 搜索不区分大小写. 
+不像 _GUICtrlListView_FindText,这个函数将搜索所有的文字,包括子项. 
 
 ###Related###
 _GUICtrlListView_FindText
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

@@ -2,29 +2,31 @@
 _WinAPI_CombineTransform
 
 ###Description###
-驱动世界转换
+Concatenates two world-space to page-space transformations.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CombineTransform( $tXFORM1, $tXFORM2 )
+_WinAPI_CombineTransform ( $tXFORM1, $tXFORM2 )
 
 ###Parameters###
 @@ParamTable@@
 $tXFORM1
-$tagXFORM结构
+	$tagXFORM structure that specifies the first transformation.
 $tXFORM2
-$tagXFORM结构
+	$tagXFORM structure that specifies the second transformation.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回包含组合转换的$tagXFORM结构.
-失败: 返回0并设置@error非0
+Success	$tagXFORM structure that contains the combined transformation.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-运用组合转换相当于依顺序进行两次转换
+Applying the combined transformation has the same effect as applying the first transformation and then
+applying the second transformation.
 
-###Related###
 
 ###See Also###
+@@MsdnLink@@ CombineTransform
+

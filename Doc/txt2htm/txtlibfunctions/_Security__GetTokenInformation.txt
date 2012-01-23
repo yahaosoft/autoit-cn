@@ -2,7 +2,7 @@
 _Security__GetTokenInformation
 
 ###Description###
-获取指定类型的访问令牌的信息
+检索访问令牌信息指定的类型
 
 ###Syntax###
 #Include <Security.au3>
@@ -10,19 +10,24 @@ _Security__GetTokenInformation($hToken, $iClass)
 
 ###Parameters###
 @@ParamTable@@
- $hToken  获取信息的访问令牌的句柄. 如果$iClass指定了$sTokenSource, 句柄必须具有$TOKEN_QUERY_SOURCE权限. 对于所有其他的$iClass值, 句柄必须具有$TOKEN_QUERY权限.
- $iClass  指定一个值标识函数所获取的信息的类型
+$hToken
+	资料检索的访问令牌句柄.
+		如果 $iClass 指定为 $sTokenSource, 句柄必须 $TOKEN_QUERY_SOURCE 访问.
+		对于所有其他 $iCLASS 值,句柄必须有 $TOKEN_QUERY 访问.
+$iClass
+	指定一个值, 以标识函数检索信息的类型
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 用所需信息填充的数位结构
-失败: 0
+成功:	返回所要求资料的字节结构
+失败:	返回 0
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetTokenInformation的相关信息
+@@MsdnLink@@ GetTokenInformation

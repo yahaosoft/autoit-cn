@@ -2,39 +2,44 @@
 _GUICtrlListView_InsertColumn
 
 ###Description###
-在控件中插入新列
+插入列
 
 ###Syntax###
-#Include<GuiListView.au3>
-_GUICtrlListView_InsertColumn($hWnd, $iIndex,$sText[, $iWidth = 50[, $iAlign = -1[, $iImage = -1[, $fOnRight =False]]]])
+#Include <GuiListView.au3>
+_GUICtrlListView_InsertColumn($hWnd, $iIndex, $sText [, $iWidth = 50 [, $iAlign = -1 [, $iImage = -1 [, $fOnRight = False]]]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iIndex  新列的0基索引
- $sText  列头文本
- $iWidth  列的像素宽
- $iAlign  列头和列中子项文本的对齐方式:
-0 - 文本左对齐
-1 - 文本右对齐
-2 - 文本居中
- $iImage  图像列中的图像的0基索引
- $fOnRight  如果真, 列图像在文本右侧
+$hWnd
+	控件句柄
+$iIndex
+	列的 0 基索引
+$sText
+	列标题文本
+$iWidth
+	[可选参数] 列像素宽度
+$iAlign
+	[可选参数] 列标题和列项目文本对齐方式:
+		0 - 文本左对齐
+		1 - 文本右对齐
+		2 - 文本居中
+$iImage
+	[可选参数] 图像列表中的图像 0 基索引
+$fOnRight
+	[可选参数] 如为 True, 则列图像显示在文字右侧
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 新列索引
-失败: -1
+成功:	返回新列的索引
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
-最左列的对齐方式是左定义的; 无法改变
+ 最左边的列始终左对齐,它不能被更改.
 
 ###Related###
 _GUICtrlListView_DeleteColumn
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

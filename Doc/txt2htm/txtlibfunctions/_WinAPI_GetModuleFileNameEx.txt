@@ -2,30 +2,33 @@
 _WinAPI_GetModuleFileNameEx
 
 ###Description###
-获取与进程相关的文件的完全合格的路径
+Retrieves the fully-qualified path for the file containing the specified module.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetModuleFileNameEx( [$PID] )
+_WinAPI_GetModuleFileNameEx( $hProcess [, $hModule] )
 
 ###Parameters###
 @@ParamTable@@
-$PID
-   进程PID, 默认0时为当前进程.
+$hProcess
+	Handle to the process that contains the module. The handle must have the $PROCESS_QUERY_INFORMATION or
+	$PROCESS_QUERY_LIMITED_INFORMATION access right and the $PROCESS_VM_READ access right.
+$hModule
+	[可选参数] Handle to the module. If this parameter is 0, the function retrieves the path of the executable
+	file of the process.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回文件的合格路径
-失败: 返回空字符串并设置@error非0
+Success	The fully-qualified path to the module.
+Failure	Empty string and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+This function does not retrieve the path for modules that were loaded using the $LOAD_LIBRARY_AS_DATAFILE flag.
+For more information, see _WinAPI_LoadLibraryEx().
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetModuleFileNameEx的相关信息
+@@MsdnLink@@ GetModuleFileNameEx
 
-###Example###
-@@IncludeExample@@

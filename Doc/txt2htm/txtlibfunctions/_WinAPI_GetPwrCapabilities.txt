@@ -2,54 +2,55 @@
 _WinAPI_GetPwrCapabilities
 
 ###Description###
-获取系统电源的信息
+Retrieves information about the system power capabilities.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetPwrCapabilities( )
+_WinAPI_GetPwrCapabilities ( )
 
 ###Parameters###
 @@ParamTable@@
-    无
+None.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回包含下列信息的数组:
-    [0 ] - 系统有电源键为真
-    [1 ] - 系统有睡眠键为真
-    [2 ] - 系统有开关时为真
-    [3 ] - 系统支持睡眠状态s1为真
-    [4 ] - 系统支持睡眠状态S2为真
-    [5 ] - 系统支持睡眠状态S3为真
-    [6 ] - 系统支持睡眠状态S4 (休眠)为真
-    [7 ] - 系统支持关机状态s5 (软关机)为真
-    [8 ] - 系统具有休眠文件为真
-    [9 ] - 系统具有唤醒功能为真
-    [10] - 系统支持视频显示调光功能为真
-    [11] - 系统支持APM BIOS的电源管理功能为真
-    [12] - 系统具有不间断电源(UPS)为真
-    [13] - 系统支持温度区为真
-    [14] - 系统支持处理器节能为真
-    [15] - 系统处理器节能的最低水平, 以百分比表示
-    [16] - 系统处理器节能的最高水平, 以百分比表示
-    [17] - 系统支持混合睡眠状态为真
-    [18] - 系统支持允许断电的固定磁盘设备为真
-    [19] - 系统有一个或多个电池为真
-    [20] - 系统有短期电池为真. 短期电池用于不间断电源(UPS)
-    [21] - 通过AC电源产生唤醒事件的最低系统睡眠状态(Sx)
-    [22] - 通过开关产生唤醒事件的最低系统睡眠状态(Sx)
-    [23] - 由通过RTC产生唤醒事件的硬件支持的最低系统睡眠状态(Sx)
-    [24] - 支持唤醒事件允许的最小系统电源状态
-失败: 返回0并设置@error非0
+Success	The array that contains the following information:
+]	If TRUE, there is a system power button.
+]	If TRUE, there is a system sleep button.
+]	If TRUE, there is a lid switch.
+]	If TRUE, the operating system supports sleep state S1.
+]	If TRUE, the operating system supports sleep state S2.
+]	If TRUE, the operating system supports sleep state S3.
+]	If TRUE, the operating system supports sleep state S4 (hibernation).
+]	If TRUE, the operating system supports power off state S5 (soft off).
+]	If TRUE, the system hibernation file is present.
+]	If TRUE, the system supports wake capabilities.
+[10]	If TRUE, the system supports video display dimming capabilities.
+[11]	If TRUE, the system supports APM BIOS power management features.
+[12]	If TRUE, there is an uninterruptible power supply (UPS).
+[13]	If TRUE, the system supports thermal zones.
+[14]	If TRUE, the system supports processor throttling.
+[15]	The minimum level of system processor throttling supported, expressed as a percentage.
+[16]	The maximum level of system processor throttling supported, expressed as a percentage.
+[17]	If TRUE, the system supports the hybrid sleep state.
+[18]	If TRUE, the system supports allowing the removal of power to fixed disk devices.
+[19]	If TRUE, there are one or more batteries in the system.
+[20]	If TRUE, the system batteries are short-term. Short-term batteries are used in uninterruptible power supplies (UPS).
+[21]	The lowest system sleep state (Sx) that will generate a wake event when the system is on AC power.
+[22]	The lowest system sleep state (Sx) that will generate a wake event via the lid switch.
+[23]	The lowest system sleep state (Sx) supported by hardware that will generate a wake event via the RTC.
+[24]	The minimum allowable system power state supporting wake events.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetPwrCapabilities的相关信息
+@@MsdnLink@@ GetPwrCapabilities
 
 ###Example###
 @@IncludeExample@@
+

@@ -2,30 +2,32 @@
 _WinAPI_UnregisterApplicationRestart
 
 ###Description###
-获取为指定进程注册的重启信息
+Removes the active instance of an application from the restart list.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_UnregisterApplicationRestart( )
+_WinAPI_UnregisterApplicationRestart ( )
 
 ###Parameters###
 @@ParamTable@@
-无
+None.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含以下信息的数组:
-    [0] - 重启命令行
-    [1] - 标记
-失败：返回0并设置@error非0. , @extended标记可能包含系统错误代码.
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
-无须在退出前调用该函数. 仅当选择不重启应用程序时移除注册. 例如 , 你可移除注册当应用程序在将来可能重启失败并进入中断状态的地方. 在程序非正常失败前时必须调用_WinAPI_UnregisterApplicationRestart().
-最低系统要求: Windows Vista.
+You do not need to call this function before exiting. You need to remove the registration only if you choose to
+not restart the application. For example, you could remove the registration if your application entered a corrupted
+state where a future restart would also fail. You must call _WinAPI_UnregisterApplicationRestart() before the
+application fails abnormally.
 
-###Related###
+This function requires Windows Vista or later.
+
 
 ###See Also###
- 搜索MSDN知识库中UnregisterApplicationRestart的相关信息
+@@MsdnLink@@ UnregisterApplicationRestart
+

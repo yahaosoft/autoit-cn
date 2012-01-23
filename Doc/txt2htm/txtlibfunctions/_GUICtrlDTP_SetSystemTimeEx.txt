@@ -2,33 +2,36 @@
 _GUICtrlDTP_SetSystemTimeEx
 
 ###Description###
-设置当前选择的日期和时间
+设置当前选定的日期和时间,使用数据结构.
 
 ###Syntax###
-#Include<GuiDateTimePicker.au3>
-_GUICtrlDTP_SetSystemTimeEx($hWnd, ByRef$tDate[, $fFlag = False])
+#Include <GuiDateTimePicker.au3>
+_GUICtrlDTP_SetSystemTimeEx($hWnd, ByRef $tDate[, $fFlag = False])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $tDate  $tagDTPTIME 结构
- $fFlag  无日期设置:
-真 - 控件将被设置为"无日期"
-假 - 控件被设置日期和时间值
+$hWnd
+	控件句柄
+$tDate
+	$tagSYSTEMTIME 结构
+$fFlag
+	[可选参数]是否设置日期:
+		
+		True - 控件将被设置为“无日期”
+		False - 设置为日期 + 时间
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
-_GUICtrlDTP_GetSystemTimeEx , $tagDTPTIME
-
-###See Also###
+_GUICtrlDTP_GetSystemTimeEx, $tagSYSTEMTIME
 
 ###Example###
 @@IncludeExample@@

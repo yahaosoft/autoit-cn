@@ -2,45 +2,48 @@
 _WinAPI_CopyImage
 
 ###Description###
-创建指定属性的新图像(图标, 鼠标箭头, 或位图)
+创建新图像(图标,光标或位图), 并复制指定图像的新属性.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CopyImage( $hImage[, $iType[, $xDesired[, $yDesired[, $iFlags]]]] )
+_WinAPI_CopyImage ( $hImage [, $iType [, $xDesired [, $yDesired [, $iFlags]]]] )
 
 ###Parameters###
 @@ParamTable@@
 $hImage
-   要被复制的图像的句柄
+	被复制图像的句柄.
 $iType
-   指定被复制的图像的类型. 该参数可为下列值之一
-    $IMAGE_BITMAP - 复制位图
-    $IMAGE_CURSOR - 复制鼠标箭头
-    $IMAGE_ICON - 复制图标
+	[可选参数] 指定复制图像的类型. 参数可以是以下值之一:.
+		 $IMAGE_BITMAP ---- 复制位图.
+		 $IMAGE_CURSOR --- 复制光标
+		 $IMAGE_ICON ------ 复制图标
 $xDesired
-$hImage同宽
+	[可选参数] 指定图像所需宽度的像素值.
+		 如果为 0, 则使用参数 $hImage 指定的图像原始宽度.
 $yDesired
-$hImage同高
+	[可选参数] 指定图像所需高度的像素值.
+		 如果为 0, 则使用参数 $hImage 指定的图像原始高度.
 $iFlags
-   该参数可为下列值的一个或多个:
-    $LR_COPYDELETEORG - 复制成功后删除原图像
-    $LR_COPYFROMRESOURCE - 从原始源文件重新加载图标或鼠标而不是简单复制当前图像
-    $LR_COPYRETURNORG - 满足标准副本-正确颜色及色深-时返回原图像
-    $LR_CREATEDIBSECTION - 如果设置该标记且新建位图则以DIB方式创建位图. 否则以依赖设备的位图创建位图图像. 该标记仅当$uType为$IMAGE_BITMAP是有效.
-    $LR_DEFAULTSIZE - 如果未指定该标记且$xDesired及$yDesired为0, 函数使用资源的实际大小.
-    $LR_MONOCHROME - 新建单色图像
+	[可选参数] 参数可以是一或多个下列值:
+		$LR_COPYDELETEORG --- 创建副本以后删除原始图像.
+		$LR_COPYFROMRESOURCE --- 从原始资源加载图标或光标资源文件,而不是简单地复制当前图像.当资源文件包含多个不同大小的资源时,创建一个不同大小的副本是非常有用的.如果没有这个标志,函数将延伸原始图像到新的大小.如果设置此标志,函数使用资源文件中最接近所需的大小的资源.
+		$LR_COPYRETURNORG --- 如果 $hImage 指定的图像满足复制条件,则返回原图像正确的尺寸和颜色深度.这将忽略 LR_COPYDELETEORG 标志
+		$LR_CREATEDIBSECTION --- 如果是设置和创建新位图,位图将创建为一个 DIB 区域.否则,位图将创建为一个依赖于设备的位图.如果 $iType 参数为 $IMAGE_BITMAP,此标志是唯一有效的.
+		$LR_DEFAULTSIZE --- 如果 $xDesired 或 $yDesired 设置为 0,光标或图标得宽(高)度由系统度量值确定 --- 如果 $xDesired 或 $yDesired 参数值为 0,使用系统指定宽度或高度为光标或图标的度量值.如果 $xDesired 和 $yDesired 参数值为 0,且不设置此标志,函数使用实际资源的大小.如果资源包含多个图像,函数使用第一个图像的大小.
+		$LR_MONOCHROME --- 创建单色图标或光标 --- 创建一个新的黑白图像.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 新建图像的句柄
-失败: 返回0并设置@error非0
+成功:	返回新创建图像的句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-资源使用完毕时, 可调用_WinAPI_Free释放与位图, 鼠标, 图标各自相关的内存. 系统在进程终止时会自动删除资源 , 但是, 可调用类似函数保存内存并降低进程工作集大小
+当您使用完资源, 你可以调用 _WinAPI_DeleteObject() 函数分别释放位图, 光标, 或图标相关的占有内存.
+ 当其进程终止时, 系统将自动删除该资源.但是调用相应函数可以节省内存, 并降低进程工作集的大小. 
 
-###Related###
 
 ###See Also###
-搜索MSDN知识库中有关CopyImage的信息
+@@MsdnLink@@ CopyImage
+

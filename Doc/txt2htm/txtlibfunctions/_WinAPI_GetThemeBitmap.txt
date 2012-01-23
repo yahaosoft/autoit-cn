@@ -2,40 +2,50 @@
 _WinAPI_GetThemeBitmap
 
 ###Description###
-获取与指定主题 , 部分 , 状态和属性相关的位图
+Retrieves the bitmap associated with a particular theme, part, state, and property.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetThemeBitmap( $hTheme, $iPartId, $iStateId, $iPropId [, $iFlag] )
+_WinAPI_GetThemeBitmap ( $hTheme, $iPartId, $iStateId, $iPropId [, $iFlag] )
 
 ###Parameters###
 @@ParamTable@@
 $hTheme
-   指定窗口主题数据的句柄
+	Handle to a window's specified theme data.
 $iPartId
-   包含位图的部分
+	The part that contains the bitmap.
 $iStateId
-$iPartId部分的描述
+	The state of the part.
 $iPropId
-   获取的属性. 设置为0将自动选取该部分和状态的首个可用位图或使用下列值之一.
-    $TMT_DIBDATA - 背景图像
-    $TMT_GLYPHDIBDATA - 绘制在背景上的字形图像
-    $TMT_HBITMAP - 暂不支持
-$tRECT
-$tagRECT结构
+	The property to retrieve. Set this parameter to 0 to automatically select the first available bitmap
+	for this part and state, or use one of the following values.
+	
+	$TMT_DIBDATA
+	$TMT_GLYPHDIBDATA
+	$TMT_HBITMAP
+	
+$iFlag
+	[可选参数] This parameter can be one of the following values.
+	
+	$GBF_DIRECT
+	$GBF_COPY
+	$GBF_VALIDBITS
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回所需位图的句柄
-失败: 返回-1并设置@error非0且@extended标记包含系统错误代码
+Success	Handle to the requested bitmap.
+Failure	(-1) and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
-如果$iFlag设置为$GBF_COPY, 不在使用时调用_WinAPI_DeleteObject()释放该函数返回的位图.
-最低系统要求: Windows Vista.
+If $iFlag is set to $GBF_COPY, release the bitmap returned by this function when no longer needed by calling
+_WinAPI_DeleteObject().
 
-###Related###
+This function requires Windows Vista or later.
+
 
 ###See Also###
- 搜索MSDN知识库中GetThemeBitmap的相关信息
+@@MsdnLink@@ GetThemeBitmap
+

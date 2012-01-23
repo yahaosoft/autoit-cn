@@ -2,50 +2,50 @@
 _GDIPlus_FontCreate
 
 ###Description###
-创建字体对象
+创建一个字体对象
 
 ###Syntax###
 #Include <GDIPlus.au3>
-_GDIPlus_FontCreate($hFamily, $nSize[, $iStyle = 0[, $iUnit = 3]])
+_GDIPlus_FontCreate($hFamily, $fSize[, $iStyle = 0[, $iUnit = 3]])
 
 ###Parameters###
 @@ParamTable@@
-$hFamily 
-   字样对象的句柄
-$nSize 
-   由$iUnit参数指定的单位衡量的字体大小
-$iStyle 
-   字体样式. 可为下列组合:
-    0 - 普通或字体重量
-    1 - 粗体
-    2 - 斜体
-    4 - 下划线
-    8 - 删除线
-$iUnit 
-   字体大小的度量单位:
-    0 - 通用大小, 无物理单位
-    1 - 显示单位
-    2 - 1像素
-    3 - 1点或1/72英寸
-    4 - 1英寸
-    5 - 1/300英寸
-    6 - 1毫米
+$hFamily
+	字体家族对象句柄
+$fSize
+	字体的大小,测量单位可在下方 $iUnit 参数指定.
+$iStyle
+	[可选参数] 字体样式. 可以结合下面的值:
+		0 - 正常重度或者浓度
+		1 - 粗体
+		2 - 斜体
+		4 - 下划线
+		8 - 删除线
+$iUnit
+	[可选参数] 字体的单位测量方法:
+		0 - 世界坐标, 非物理单位.
+		1 - 显示单位
+		2 - 单位为 1 像素
+		3 - 单位为 1 点或者 1/72 英寸
+		4 - 单位为 1 英寸
+		5 - 单位为 1/300 英寸
+		6 - 单位为毫米
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 字体对象的句柄
-失败: 0
+成功:	返回字体对象句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-处理完字体对象后, 调用_GDIPlus_FontDispose释放资源
+如果您完成了字体对象, 调用 _GDIPlus_FontDispose 释放资源.
 
 ###Related###
- _GDIPlus_FontDispose
+_GDIPlus_FontDispose
 
 ###See Also###
- 搜索MSDN知识库中GdipCreateFont的相关信息
+@@MsdnLink@@ GdipCreateFont
 
 ###Example###
 @@IncludeExample@@

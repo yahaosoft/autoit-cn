@@ -2,39 +2,40 @@
 _WinAPI_CreatePolygonRgn
 
 ###Description###
-创建多边形
+创建一个多边形区域.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CreatePolygonRgn( $aPoint [, $iStart [, $iEnd [, $iMode]]] )
+_WinAPI_CreatePolygonRgn ( $aPoint [, $iStart [, $iEnd [, $iMode]]] )
 
 ###Parameters###
 @@ParamTable@@
 $aPoint
-   包含多边形顶点逻辑单位的二维数组([x1, y1], [x2, y2], ... [xN, yN]), 多边形预设为密闭的. 每个顶点只可被指定一次.
+	包含多边形的顶点逻辑单位的二维数组: ([x1, y1], [x2, y2], ... [xN, yN]).
+		 假定多边形是封闭的.每个顶点可以只需指定一次.
 $iStart
-   起始点在数组中的索引
+	[可选参数] 多边形开始点的数组索引.
 $iEnd
-   结束点在数组中的索引
+	[可选参数] 多边形结束点的数组索引.
 $iMode
-   用于确定区域中像素被填充的模式. 该参数可为下列值之一:
-    $ALTERNATE - 填充奇数边和偶数边.
-    $WINDING - 填充所有的边
+	[可选参数] 填充模式.参数可以是以下值之一: 
+		 $ALTERNATE --- 交替填充奇数和偶数之间的扫描线.
+		 $WINDING --- 填充任何曲折值非零的地区
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 区域句柄
-失败: 返回0并设置@error非0
+成功:	返回多边形区域的句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-不再需要多边形时, 调用_WinAPI_FreeObject()函数删除.
+不再需要 HRGN(区域句柄) 对象时, 调用 _WinAPI_DeleteObject() 函数删除它.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中CreatePolygonRgn的相关信息
+@@MsdnLink@@ CreatePolygonRgn
 
 ###Example###
 @@IncludeExample@@
+

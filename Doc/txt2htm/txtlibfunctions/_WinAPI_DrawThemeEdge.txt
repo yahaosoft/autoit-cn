@@ -2,41 +2,43 @@
 _WinAPI_DrawThemeEdge
 
 ###Description###
-绘制一个或多个由矩形可视化风格定义的边界
+Draws one or more edges defined by the visual style of a rectangle.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_DrawThemeEdge( $hTheme, $iPartId, $iStateId, $hDC, $tRECT, $iEdge, $iFlags [, $tAREA] )
+_WinAPI_DrawThemeEdge ( $hTheme, $iPartId, $iStateId, $hDC, $tRECT, $iEdge, $iFlags [, $tAREA] )
 
 ###Parameters###
 @@ParamTable@@
 $hTheme
-   指定数据的窗口样式的句柄
+	Handle to a window's specified theme data.
 $iPartId
-   包含矩形的部分
+	The part that contains the rectangle.
 $iStateId
-$iPartId部分的状态
+	The state of the part.
 $hDC
-   设备场景句柄
+	Handle to the device context.
 $tRECT
-$tagRECT结构
+	$tagRECT structure that contains the rectangle.
 $iEdge
-$BDR_*)的组合或一个组合标记($EDGE_*)
+	The type of inner and outer edges to draw. This parameter must be a combination of one inner-border
+	flag and one outer-border flag ($BDR_*), or one of the combination flags ($EDGE_*).
 $iFlags
-   将绘制的边界类型. 必须为BF_*常量的组合
+	The type of border to draw. It can be a combination of the BF_* constants.
 $tAREA
-$BF_ADJUST , 该参数为包含在内部的矩形的$tagRECT结构.
+	[可选参数] $tagRECT structure that contains the rectangle that receives the interior rectangle, if $BF_ADJUST is used.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中DrawThemeEdge的相关信息
+@@MsdnLink@@ DrawThemeEdge
+

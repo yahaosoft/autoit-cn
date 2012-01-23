@@ -2,34 +2,39 @@
 _GUICtrlListView_InsertItem
 
 ###Description###
-在控件中插入新项
+插入项目
 
 ###Syntax###
-#Include<GuiListView.au3>
-_GUICtrlListView_InsertItem($hWnd, $sText[, $iIndex =-1[, $iImage = -1[, $iParam = 0]]])
+#Include <GuiListView.au3>
+_GUICtrlListView_InsertItem($hWnd, $sText[, $iIndex = -1[, $iImage = -1[, $iParam = 0]]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $sText  项目文本. 如果设置为-1, 项目文本通过$LVN_GETDISPINFO通知消息设定.
- $iIndex  新项插入点的0基索引. 如果该值大于现有包含在控件中的项目数量, 新项目将被附加到列表尾且分配正确的索引.
- $iImage  项目图标在控件图像列表中的0基索引
- $iParam  应用程序定义数据
+$hWnd
+	控件句柄
+$sText
+	项目文本. 如设为 -1, 则项目文本通过 $LVN_GETDISPINFO 通知消息设置.
+$iIndex
+	[可选参数] 插入项目的 0 基索引.
+		如果这个值大于目前控件所含的项目数量,
+		项目追加到列表末尾,并指派正确的索引
+$iImage
+	[可选参数] 项目图标在图像列表中的 0 基索引
+$iParam
+	[可选参数] 应用程序定义的数据
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 新项目索引
-失败: -1
+成功:	返回新项目索引
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
-无法使用此函数插入子项. 插入子项需使用 _GUICtrlListView_SetItemText
+ 不能使用此函数插入子项. 插入子项使用 _GUICtrlListView_SetItemText 函数.
 
 ###Related###
 _GUICtrlListView_SetItemText
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

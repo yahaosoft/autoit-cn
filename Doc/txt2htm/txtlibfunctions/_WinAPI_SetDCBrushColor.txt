@@ -2,33 +2,31 @@
 _WinAPI_SetDCBrushColor
 
 ###Description###
-设置当前设备场景(DC)的画刷颜色为指定的颜色值
+设置当前设备环境（DC）画刷颜色为指定的颜色值.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetDCBrushColor( $hDC, $iRGB )
+_WinAPI_SetDCBrushColor ( $hDC, $iRGB )
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   设备场景句柄
+	设备环境句柄.
 $iRGB
-   新画刷色的RGB值
+	画刷新颜色 RGB 值.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 以前的设备场景的RGB画刷色
-失败: 返回-1并设置@error非0
+成功:	返回先前画刷颜色 RGB 值.
+失败:	返回 -1,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-函数返回以前的$DC_BRUSH颜色, 即使$DC_BRUSH未被选入设备场景; 然而, 直到$DC_BRUSH被选入设备场景才会用于绘图操作
+函数返回以前的 $DC_BRUSH 颜色,即使画刷 $DC_BRUSH 未被 DC 选中,
+ 但不会被用于绘制操作, 直到 $DC_BRUSH 被 DC 选中
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SetDCBrushColor的相关信息
+@@MsdnLink@@ SetDCBrushColor
 
-###Example###
-@@IncludeExample@@

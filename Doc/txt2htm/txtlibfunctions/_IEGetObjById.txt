@@ -2,36 +2,37 @@
 _IEGetObjById
 
 ###Description###
-返回指定id或者名称(name)的对象变量
+按标识或名称返回对象变量.
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IEGetObjById ( ByRef $o_object, $s_Id)
 
 ###Parameters###
 @@ParamTable@@
- $o_object  InternetExplorer.Application , 窗口或者框架(frame)对象的对象变量
- ID  定义你想要匹配的对象的名称或者ID
+$o_object
+	InternetExplorer.Application窗体或框架对象的对象变量
+$s_Id
+	指定想要匹配的对象的名称或ID
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回指向指定对象的对象变量 , @EXTENDED = 指定对象数量 失败: 返回0并设置@ERROR为:
-    0 ($_IEStatus_Success) = 无错误
-    3 ($_IEStatus_InvalidDataType) = 无效数据类型
-    7 ($_IEStatus_NoMatch) = 不匹配
+成功:	返回指向指定对象的对象变量
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	7 ($_IEStatus_NoMatch) = 无匹配
 @@End@@
 
+
 ###Remarks###
-这个函数将返回指定名称或者ID的对象的对象引用.
-DOM组件可以有名称或者ID属性或者二者都有.
-一个特殊的ID可以被分配给一个单独的元素而一个特殊的名称(name)可以被分配给多个元素.
-在IE里面名称和ID是被共享的.
+函数将返回一个指向文档中带有指定ID或名称的任意对象的对象. DOM元素可具有名称或ID属性或两者. 当一个指定名称被分配给Internet Explorer中的多个元素时指定的ID只可被分配给单一元素, 名称和ID的命名空间是共享的.
+
 
 ###Related###
- _IEGetObjByName
+_IEGetObjByName
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

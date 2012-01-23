@@ -2,44 +2,47 @@
 _WinAPI_DrawShadowText
 
 ###Description###
-在指定矩形中绘制带有阴影的格式化文本
+绘制指定矩形内带有阴影的格式化文本.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_DrawShadowText( $hDC, $sText, $rgbText, $rgbShadow [, $iXOffset [, $iYOffset [, $tRECT [, $iFlags]]]] )
+_WinAPI_DrawShadowText ( $hDC, $sText, $rgbText, $rgbShadow [, $iXOffset [, $iYOffset [, $tRECT [, $iFlags]]]] )
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   设备场景句柄
+	设备环境句柄.
 $sText
-   包含要被绘制的文本的字符串
+	文本字符串.
 $rgbText
-   文本的rgb颜色
+	文本的 RGB 颜色.
 $rgbShadow
-   阴影的rgb颜色
+	阴影的 RGB 颜色.
 $iXOffset
-   文本开始的x坐标
+	[可选参数] 文字开始位置的 x 坐标.
 $iYOffset
-   文本开始的y坐标
+	[可选参数] 文字开始位置的 y 坐标.
 $tRECT
-$tagRECT结构
+	[可选参数] $tagRECT 结构,包含被绘制文本的逻辑坐标
+		 如果此参数为 0, 将与设备环境（$hDC）同等大小.
 $iFlags
-$DT_...).
+	[可选参数] 此标志指定如何绘制文本.
+		 此参数可以是格式文本常量 ($DT_*) 的组合
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中DrawShadowText的相关信息
+@@MsdnLink@@ DrawShadowText
 
 ###Example###
 @@IncludeExample@@
+

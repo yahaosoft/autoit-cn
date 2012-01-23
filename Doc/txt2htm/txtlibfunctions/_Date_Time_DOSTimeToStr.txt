@@ -2,7 +2,7 @@
 _Date_Time_DOSTimeToStr
 
 ###Description###
-将DOS时间解码为字符串
+解码一个 DOS 时间到字符串
 
 ###Syntax###
 #Include <Date.au3>
@@ -10,24 +10,21 @@ _Date_Time_DOSTimeToStr($iDosTime)
 
 ###Parameters###
 @@ParamTable@@
-$iDosTime 
-   如下封装的MS-DOS时间:
-    0-4位被2除的秒
-    5-10位的分(0-59)
-    11-15位的时(24小时时制时钟的0-23)
+$iDosTime
+	MS-DOS 时间, 封装为下方格式:
+		位 0- 4 ,按2分开的秒(Second divided by 2)
+		位 5-10 ,分钟 (0–59)
+		位 11-15 ,时钟 (0–23 于 24 小时计时)
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: hh:mm:ss格式的时间字符串
-@@End@@
+返回一个时间字符串,格式为 hh:mm:ss
 
 ###Remarks###
+None.
 
 ###Related###
- _Date_Time_DOSDateToStr , _Date_Time_DOSDateTimeToStr
-
-###See Also###
+_Date_Time_DOSDateToStr, _Date_Time_DOSDateTimeToStr
 
 ###Example###
 @@IncludeExample@@

@@ -2,60 +2,62 @@
 _WinNet_GetResourceParent
 
 ###Description###
-返回网络资源在网络浏览的继承关系中的父项
+返回网络浏览资源的父层次
 
 ###Syntax###
 #Include <WinNet.au3>
-_WinNet_GetResourceParent($sRemoteName, $sProvider[, $iType = 0])
+_WinNet_GetResourceParent($sRemoteName, $sProvider [, $iType = 0])
 
 ###Parameters###
 @@ParamTable@@
-$sRemoteName 
-   资源的远程路径名
-$sProvider 
-   拥有资源的提供方名称. 如果提供方名称未知, 可为空.
-$iType 
-   资源类型. 如果未知可为0.
+$sRemoteName
+	该资源的远程路径名称
+$sProvider
+	供应商拥有的资源名称
+$iType
+	[可选参数] 资源类型．如果不知道，这个成员可以是　0．
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如下格式数组:
-    $aResource[0] - 枚举方法:
-     0 - 连接的
-     1 - 所有的
-     2 - 记录的
-    $aResource[1] - 资源类型:
-     0 - 磁盘
-     1 - 打印机
-     2 - 未知
-    $aResource[2] - 显示选项:
-     0 - 通用
-     1 - 域
-     2 - 服务器
-     3 - 共享
-     4 - 文件
-     5 - 组
-     6 - 网络
-     7 - 根
-     8 - 管理员共享
-     9 - 目录
-    10 - 树
-    11 - NDS容器
-    $aResource[3] - 资源用法. 可为下列中的一个或多个:
-     1 - 可连接的资源
-     2 - 容器资源
-     4 - 附加的资源
-     8 - 保留的资源
-    $aResource[4] - 本地名称
-    $aResource[5] - 远程名称
-    $aResource[6] - 由网络提供方提供的评论
-    $aResource[7] - 部分可通过系统函数访问的资源
+成功:	返回数组的格式如下：
+	$aResource[0] - 统计范围：
+	0 - 连接
+	1 - 所有资源
+	2 - 记忆中的
+	$aResource[1] - 资源类型：
+	0 - 磁盘
+	1 - 打印
+	2 - 未知
+	$aResource[2] - 显示选项：
+	0 - 一般
+	1 - 范围
+	2 - 服务器
+	3 - 共享
+	4 - 文件
+	5 - 组
+	6 - 网络
+	7 - 根目录
+	8 - 系统管理员共享
+	9 - 目录
+	10 - 目录树
+	11 - NDS 容器
+	$aResource[3] - 资源使用率．可以是一个或多个下列值：
+	1 - 资源是可连接的资源
+	2 - 资源是一个容器资源
+	4 - 附加资源
+	8 - 预留资源
+	$aResource[4] - 本地名称
+	$aResource[5] - 远程名称
+	$aResource[6] - 网络提供商提供的注释
+	$aResource[7] - 供应商拥有的资源名称
+失败:	设置 @error
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 
 ###See Also###
- 搜索MSDN知识库中WNetGetResourceParent的相关信息
+@@MsdnLink@@ WNetGetResourceParent

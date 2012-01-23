@@ -2,39 +2,38 @@
 _ExcelReadCell
 
 ###Description###
-从指定Excel对象的活动工作表中读取信息
+从一个指定Excel对象的活动工作表读取(单元格)信息.
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelReadCell($oExcel, $sRangeOrRow[, $iColumn = 1])
+_ExcelReadCell($oExcel, $sRangeOrRow [, $iColumn = 1])
 
 ###Parameters###
 @@ParamTable@@
-$oExcel 
-   由预先调用_ExcelBookOpen()或_ExcelBookNew()打开的Excel对象
-$sRangeOrRow 
-   要读取的A1范围, 或如果使用R1C1情况下的整数行数
-$iColumn 
-   如果使用R1C1方式读取的列(默认为1)
+$oExcel
+	Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+$sRangeOrRow
+	Either an A1 range, or an integer row number to read from if using R1C1
+$iColumn
+	[optional] The column to read from if using R1C1 (default = 1)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回指定单元格的数据
- 失败:  返回0并设置@error
- @error:  0 - 无错误
-  1 - 指定对象不存在
-  2 - 指定参数不正确
- @extended:  0 - 行数超出范围
-  1 - 列数超出范围
+成功:	返回指定单元格中的数据
+失败:	返回 0, 并设置 @error:
+@error:	0 _ 无错误
+	1 - 指定的对象不存在
+	2 - 参数不正确
+@extended:	0 - 行超出有效范围
+	1 - 列超出有效范围
 @@End@@
 
 ###Remarks###
-每次调用函数只读取一个单元格 - 如果指定范围含有多个单元格, 只返回左上角单元格的内容
+调用函数每次只读取一个单元格
+如果指定范围含有多个单元格, 只返回左上角单元格的内容
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

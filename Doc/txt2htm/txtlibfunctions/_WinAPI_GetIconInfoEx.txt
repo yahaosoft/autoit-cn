@@ -2,34 +2,34 @@
 _WinAPI_GetIconInfoEx
 
 ###Description###
-获取指定图标或光标的信息
+Retrieves information about the specified icon or cursor.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetIconInfoEx( $hIcon )
+_WinAPI_GetIconInfoEx ( $hIcon )
 
 ###Parameters###
 @@ParamTable@@
 $hIcon
-$IDC_*常量可获取标准图标或光标的信息.
+	Handle to the icon or cursor. To retrieve information about a standard icon or cursor, use $IDC_* constants.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回下列信息的数组:
-    [0] - 路径
-    [1] - 标识
-    [2] - 资源名称
-失败: 返回0并设置@error非0
-
-###Related###
-
-###See Also###
- 搜索MSDN知识库中GetIconInfoEx的相关信息
+Success	$tagICONINFOEX structure that contains information about an icon or a cursor.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-最低系统要求: Vista
+_WinAPI_GetIconInfoEx() creates bitmaps for the "hMask" and "hColor" members of the $tagICONINFOEX structure.
+The calling application must manage these bitmaps and delete them when they are no longer necessary.
+
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ GetIconInfoEx
 
 ###Example###
 @@IncludeExample@@
+

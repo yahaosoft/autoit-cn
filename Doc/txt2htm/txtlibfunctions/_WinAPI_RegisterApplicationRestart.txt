@@ -2,41 +2,51 @@
 _WinAPI_RegisterApplicationRestart
 
 ###Description###
-注册重启应用程序的活动实例
+Registers the active instance of an application for restart.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RegisterApplicationRestart( [$iFlags [, $sCmd]] )
+_WinAPI_RegisterApplicationRestart ( [$iFlags [, $sCmd]] )
 
 ###Parameters###
 @@ParamTable@@
 $iFlags
-   [可选] 指定应用程序不会被重启时的事件可为0或下列值中的一个或多个:
-    $RESTART_NO_CRASH - 进程由于未处理异常终止
-    $RESTART_NO_HANG - 进程由于无响应而终止
-    $RESTART_NO_PATCH - 进程由于安装更新而终止
-    $RESTART_NO_REBOOT - 计算机由于安装更新重启时不重启进程
+	[可选参数] The flags that specifies an events when application will not be restarted. This parameter can be
+	0 or one or more of the following values.
+	
+	$RESTART_NO_CRASH
+	$RESTART_NO_HANG
+	$RESTART_NO_PATCH
+	$RESTART_NO_REBOOT
+	
 $sCmd
-   [可选] 重启时应用程序的命令行参数. 命令行的长度最长可指定为2048个字符. 该参数为0时, 移除注册的命令行.
+	[可选参数] The command-line arguments for the application when it is restarted. The maximum size of the command
+	line that you can specify is 2048 characters. If this parameter is empty string, the previously
+	registered command line is removed.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0; @extended标记包含系统错误代码.
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
-重启的原始注册必须在应用程序遇到未处理异常或变为无响应前
-可从回调恢复内部调用该函数来更新命令行
-为避免循环重启, 系统仅在应用程序已运行60秒后重启.
-如果注册了重启且应用程序遇到未处理异常或变为无响应, 则给用户提供了重启应用程序的机会; 应用程序不会自动重启.
-系统最低要求Windows Vista.
+Your initial registration for restart must occur before the application encounters an unhandled exception
+or becomes unresponsive. You could then call this function from inside your recovery callback to update the
+command line. To prevent cyclical restarts, the system will only restart the application if it has been
+running for a minimum of 60 seconds.
 
-###Related###
+If you register for restart and the application encounters an unhandled exception or is not responsive,
+the user is offered the opportunity to restart the applicationthe application is not automatically restarted
+without the user's consent.
+
+This function requires Windows Vista or later.
+
 
 ###See Also###
- 搜索MSDN知识库中RegisterApplicationRestart的相关信息
+@@MsdnLink@@ RegisterApplicationRestart
 
 ###Example###
 @@IncludeExample@@
+

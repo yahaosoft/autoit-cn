@@ -2,59 +2,68 @@
 $tagNMTREEVIEW
 
 ###Description###
-包含树形视图通知消息的信息的结构
+包含有关 tree-view 树视图通知消息
 
 ###Syntax###
-Global Const $tagNMTREEVIEW =  $tagNMHDR & ";int Action;int iBitmap;int OldMask;int OldhItem;int OldState;int OldStateMask;ptr OldText;int OldTextMax;int OldImage;int OldSelectedImage;int OldChildren;int OldParam;int NewMask;int NewhItem;int NewState;int NewStateMask;ptr NewText;int NewTextMax;int NewImage;int NewSelectedImage;int NewChildren;int NewParam;int PointX;int PointY"
+Global Const $tagNMTREEVIEW = $tagNMHDR & ";uint Action;" & _
+		"struct; uint OldMask;handle OldhItem;uint OldState;uint OldStateMask;" & _
+		"ptr OldText;int OldTextMax;int OldImage;int OldSelectedImage;int OldChildren;lparam OldParam; endstruct;" & _
+		"struct; uint NewMask;handle NewhItem;uint NewState;uint NewStateMask;" & _
+		"ptr NewText;int NewTextMax;int NewImage;int NewSelectedImage;int NewChildren;lparam NewParam; endstruct;" & _
+		"struct; long PointX;long PointY; endstruct"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   包含通知消息的信息
+	包含通知消息的信息
 Action
-   通知指定的操作标记
+	通知的具体操作标志
 OldMask
-   表示其他结构成员是否包含有效数据的标记
+	说明哪些其它结构成员包含有效的数据.
 OldhItem
-   结构指向的项目
+	本结构指向的项目
 OldState
-   表示项目状态的图像列表和数位标记的集合
+	设置位标志和图像列表索引,表明项目的状态
 OldStateMask
-   可用的State成员的数位
+	state 成员位有效
 OldText
-   包含项目文本的无终止字符串的指针
+	指向一个空结束的字符串，其中包含的项目文本.
 OldTextMax
-   由Text成员指向的缓冲区的字符大小
+	Text 成员指向的缓冲区字符大小
 OldImage
-   项目处于未选定状态时使用的图标图像在图像列表中的索引
+	当项目非选择状态时使用的图标在图像列表中的索引
 OldSelectedImage
-   项目处于选定状态时使用的图标图像在图像列表中的索引
+	当项目选中状态时使用的图标在图像列表中的索引
 OldChildren
-   表示项目是否有关联的子项的标记
+	表明项目是否有关联子项
 OldParam
-   与项目相关的值
+	项目的关联值
 NewMask
-   表示其他结构成员是否包含有效数据的标记
+	说明哪些其它结构成员包含有效数据
 NewhItem
-   该结构指向的项目
+	本结构指向的项目
 NewState
-   表示项目状态的图像列表和数位标记的集合
+	设置位标志和图像列表索引，表明项目的状态
 NewStateMask
-   可用的State成员的数位
+	state 成员位有效
 NewText
-   包含项目文本的无终止字符串的指针
+	指向一个空结束的字符串，其中包含的项目文本.
 NewTextMax
-   由Text成员指向的缓冲区的字符大小
+	Text 成员指向的缓冲区字符大小
 NewImage
-   项目处于未选定状态时使用的图标图像在图像列表中的索引
+	当项目非选择状态时使用的图标在图像列表中的索引
 NewSelectedImage
-   项目处于选定状态时使用的图标图像在图像列表中的索引
+	当项目选中状态时使用的图标在图像列表中的索引
 NewChildren
-   表示项目是否有关联的子项的标记
+	表明项目是否有关联子项
 NewParam
-   与项目相关的值
+	项目的关联值
 PointX
-   事件发生时鼠标的X位置
+	事件发生时鼠标所在 X 位置
 PointY
-   事件发生时鼠标的Y位置
-@@end@@
+	事件发生时鼠标所在 Y 位置
+@@End@@
+
+###Remarks###
+None.
+

@@ -2,30 +2,31 @@
 _WinAPI_SetParent
 
 ###Description###
-改变指定子窗口的父窗口
+修改子窗口的父窗口.
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_SetParent($hWndChild,
-$hWndParent)
+_WinAPI_SetParent($hWndChild, $hWndParent)
 
 ###Parameters###
 @@ParamTable@@
-$hWndChild  子窗口句柄
-$hNewParent  新的父窗口句柄. 如果为0, 则桌面窗口就成为新的父窗口.
+$hWndChild
+	子窗口窗口句柄.
+$hWndParent
+	新父窗口句柄. 如果为 0, 桌面窗口将作为新的父窗口.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 以前的父窗体的句柄
-失败: 0
+成功	返回 以前父窗口的句柄.
+失败	返回 0
 @@End@@
 
 ###Remarks###
-应用程序可以使用SetParent函数设置弹出式窗口, 层叠窗口, 或子窗口.
+应用程序可以使用 SetParent函数设置弹出式窗口, 层叠窗口, 或子窗口. 
 新的父窗口与子窗口必须属于同一应用程序.
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中SetParent的相关信息
+@@MsdnLink@@ SetParent

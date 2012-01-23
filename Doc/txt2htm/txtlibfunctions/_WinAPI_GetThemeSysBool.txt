@@ -2,31 +2,34 @@
 _WinAPI_GetThemeSysBool
 
 ###Description###
-获取系统度量的布尔值
+Retrieves the Boolean value of a system metric.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetThemeSysBool( $hTheme, $iBoolId )
+_WinAPI_GetThemeSysBool ( $hTheme, $iBoolId )
 
 ###Parameters###
 @@ParamTable@@
 $hTheme
-   主题数据句柄
+	Handle to the theme data.
 $iBoolId
-   指定所需的系统布尔度量值. 可为下列值:
-    $TMT_FLATMENUS - 指定如何绘制菜单. 为真时不带阴影. 反之菜单带有阴影.
+	The value that specifies the system Boolean metric desired. It may be the following value.
+	
+	$TMT_FLATMENUS
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回系统度量值
-失败: 返回0并设置@error非0且@extended标记包含系统错误代码
+Success	The value of desired system metric.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-如果主题数据句柄不为0, 该函数从视觉样式的SysMetrics部分返回所需的BOOL值, 否则, 函数返回指定系统布尔变量值.
+If the theme data handle is not 0, this function returns the desired BOOL from the SysMetrics section of the
+visual style, otherwise, the function returns the value of the specified system Boolean.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetThemeSysBool的相关信息
+@@MsdnLink@@ GetThemeSysBool
+

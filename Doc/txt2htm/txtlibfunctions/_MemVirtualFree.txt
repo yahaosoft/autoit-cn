@@ -2,32 +2,35 @@
 _MemVirtualFree
 
 ###Description###
-释放进程的虚拟地址空间中的页面区域
+在进程的虚拟地址空间释放页面区域
 
 ###Syntax###
 #Include <Memory.au3>
-_MemVirtualFree($pAddress,$iSize, $iFreeType)
+_MemVirtualFree($pAddress, $iSize, $iFreeType)
 
 ###Parameters###
 @@ParamTable@@
- $pAddress  要释放的页面区域的基址的指针
- $iSize  S指定要释放的区域的字节大小
- $iFreeType  指定释放操作的类型:
-$MEM_DECOMMIT - 不指定执行操作的页面的区域
-$MEM_RELEASE -
-      释放保留页面的指定区域
+$pAddress
+	被释放的页面区域基址点
+$iSize
+	被释放区域大小的字节数
+$iFreeType
+	指定释放操作的类型:
+		$MEM_DECOMMIT - 承諾頁面可以收回的指定区域
+		$MEM_RELEASE - 释放保留页面的指定区域
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	True
+失败:	False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 _MemVirtualAlloc
 
 ###See Also###
-搜索MSDN知识库VirtualFree的相关信息
+@@MsdnLink@@ VirtualFree

@@ -2,56 +2,69 @@
 _WinAPI_OpenFileById
 
 ###Description###
-打开与指定对象标识符相匹配的文件
+Opens the file that matches the specified object identifier.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_OpenFileById( $hFile, $tGUID, $iAccess, $iShare [, $iFlags] )
+_WinAPI_OpenFileById ( $hFile, $tGUID, $iAccess, $iShare [, $iFlags] )
 
 ###Parameters###
 @@ParamTable@@
 $hFile
-   存储在卷上或打开的共享上的任意文件的路径或句柄
+	The path or handle to any file on a volume or share on which the file to be opened is stored.
 $tGUID
-$tagGUID结构或标识打开的文件的字符串
+	$tagGUID structure or its string representation that identifies the file to open.
 $iAccess
-   对象权限. 可为读或/和写. 如果该参数为0, 应用程序可不通过访问设备查询文件和设备属性
-$GENERIC_READ
-$GENERIC_WRITE
-    更多信息请
-
-###Related###
-
-###See Also###
-    MSDN
+	The access to the object. Access can be read, write, or both. If this parameter is 0, the application
+	can query file and device attributes without accessing a device.
+	
+	$GENERIC_READ
+	$GENERIC_WRITE
+	
+	(See MSDN for more information)
+	
 $iShare
-   对象的共享模式, 可为读, 写, 全是, 全否. 如果该参数为0且函数成功, 对象无法被共享且在句柄关闭前无法再次打开.
-$FILE_SHARE_DELETE
-$FILE_SHARE_READ
-$FILE_SHARE_WRITE
+	The sharing mode of an object, which can be read, write, both, or none. If this parameter is 0 and
+	function succeeds, the object cannot be shared and cannot be opened again until the handle
+	is closed.
+	
+	$FILE_SHARE_DELETE
+	$FILE_SHARE_READ
+	$FILE_SHARE_WRITE
+	
 $iFlags
-   [可选] 文件标记. 当打开文件时, _WinAPI_OpenFileById()将文件标记与已存在的文件属性相结合并忽略任何提供的文件属性. 该参数可为下列值的任意组合:
-    $FILE_FLAG_BACKUP_SEMANTICS - 文件被打开用于备份或还原操作
-    $FILE_FLAG_NO_BUFFERING - 无缓存状况下打开文件
-    $FILE_FLAG_OPEN_NO_RECALL - 请求文件数据, 但文件仍保留在远程存储器中
-    $FILE_FLAG_OPEN_REPARSE_POINT - 不进行常规重解析点( reparse point )操作且函数试图打开重解析点
-    $FILE_FLAG_OVERLAPPED - 打开或创建用于异步I/O的文件
-    $FILE_FLAG_RANDOM_ACCESS - 随机访问的文件
-    $FILE_FLAG_SEQUENTIAL_SCAN - 从头至尾顺序访问文件
-    $FILE_FLAG_WRITE_THROUGH - 通过中间缓存写入磁盘
+	[可选参数] The file flags. When _WinAPI_OpenFileById() opens a file, it combines the file flags with existing
+	file attributes, and ignores any supplied file attributes. This parameter can include any
+	combination of the following values.
+	
+	$FILE_FLAG_BACKUP_SEMANTICS
+	$FILE_FLAG_NO_BUFFERING
+	$FILE_FLAG_OPEN_NO_RECALL
+	$FILE_FLAG_OPEN_REPARSE_POINT
+	$FILE_FLAG_OVERLAPPED
+	$FILE_FLAG_RANDOM_ACCESS
+	$FILE_FLAG_SEQUENTIAL_SCAN
+	$FILE_FLAG_WRITE_THROUGH
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回指定文件句柄
-失败: 返回0并设置@error非0
+Success	Handle to a specified file.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-诶
-使用完该函数返回的句柄后, 使用_WinAPI_CloseHandle()函数关闭句柄. 这样做不仅释放系统资源, 并可产生更广的影响, 比如共享文件或设备和将数据提交到磁盘.
-最低系统要求: Windows Vista.
-参考  搜索MSDN知识库中OpenFileById的相关信息
+When an application is finished using the object handle returned by this function, use the _WinAPI_CloseHandle()
+function to close the handle. This not only frees up system resources, but can have wider influence on things
+like sharing the file or device and committing data to disk.
+
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ OpenFileById
 
 ###Example###
 @@IncludeExample@@
+

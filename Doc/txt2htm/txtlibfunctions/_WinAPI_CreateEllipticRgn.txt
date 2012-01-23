@@ -2,29 +2,31 @@
 _WinAPI_CreateEllipticRgn
 
 ###Description###
-创建一个椭圆区域
+创建椭圆区域.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateEllipticRgn( $tRECT )
+_WinAPI_CreateEllipticRgn ( $tRECT )
 
 ###Parameters###
 @@ParamTable@@
 $tRECT
-$tagRECT结构
+	$tagRECT 结构, 包含椭圆区域边缘矩形左上角和右下角坐标的逻辑单位值.	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 区域句柄
-失败: 返回0并设置@error非0
+成功:	返回椭圆区域的句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-绑定矩形定义尺寸, 形状, 及区域的方向: 矩形长边定义椭圆主轴长度; 短边定义椭圆短轴长度; 并且矩形中点定义长短轴的交点.
-当不再需要hRgn对象时, 调用_WinAPI_FreeObject()函数删除.
+边缘矩形定义区域的大小,形状,以及方向:
+ 矩形的长边定义椭圆的长轴长度; 短边定义椭圆的短轴长度;
+ 长轴和短轴相交点确定矩形的中心.
+ 不再需要 HRGN(区域句柄) 对象时, 调用 _WinAPI_DeleteObject() 函数删除它.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中CreateEllipticRgn的相关信息
+@@MsdnLink@@ CreateEllipticRgnIndirect
+

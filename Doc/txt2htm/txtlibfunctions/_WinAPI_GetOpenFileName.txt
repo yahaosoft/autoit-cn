@@ -2,63 +2,57 @@
 _WinAPI_GetOpenFileName
 
 ###Description###
-创建让用户指定驱动器, 目录, 和打开的文件名或文件集的打开对话框
+创建打开对话框,让用户能打开指定的驱动器,目录和文件的名称或设置文件为打开
 
 ###Syntax###
-#Include
-<WinAPI.au3>
-_WinAPI_GetOpenFileName([$sTitle = ""[, $sFilter = "All
-files (*.*)"[, $sInitalDir = "."[, $sDefaultFile = ""[, $sDefaultExt = ""[,
-$iFilterIndex = 1[, $iFlags = 0[, $iFlagsEx = 0[, $hwndOwner =
-0]]]]]]]]])
+#Include <WinAPI.au3>
+_WinAPI_GetOpenFileName([$sTitle = "" [, $sFilter = "All files (*.*)" [, $sInitalDir = "." [, $sDefaultFile = "" [, $sDefaultExt = "" [, $iFilterIndex = 1 [, $iFlags = 0 [, $iFlagsEx = 0 [, $hwndOwner = 0]]]]]]]]])
 
 ###Parameters###
 @@ParamTable@@
 $sTitle
-   对话框标题栏字符串
+	[可选参数] 对话框的标题栏字符串
 $sFilter
-   成堆的过滤器字符串(如 "Text Files (*.txt)|All Files
-      (*.*)")
-    每对字符串中的第一个显示用于描述过滤器的字符串 (如, "Text Files")
-    第二个字符串指定过滤方案 (如,
-      "*.TXT")
-    在一个字符串中指定多个过滤方案, 使用分号将方案隔开 (如,
-      "*.TXT;*.DOC;*.BAK")
-    方案字符串可以是有效文件名的字符和星号(*)通配符的组合
-    不要在方案字符串中包含空格
+	[可选参数] 双过滤字符串 (例如 "文本文件 (*.txt)|全部文件 (*.*)")
+		第一个字符串描述过滤器显示字符串 (例如: "文本文件")
+		第二个字符串指定过滤模式 (例如: "*.TXT")
+		要指定多个过滤器模式的显示字符串,使用分号分隔(例如: "*.TXT;*.DOC;*.BAK")
+		模式串由有效文件名和星号通配符 (*) 组合
+		模式串不包括空格.
 $sInitalDir
-   用于指定初始目录的字符串
+	[可选参数] 指定初始目录
 $sDefaultFile
-   用于初始化文件名编辑控件的文件名
+	[可选参数] 编辑控件中文件名使用初始化文件名
 $sDefaultExt
-   包含默认扩展名的字符床
+	[可选参数] 包含默认扩展名的字符串
 $iFilterIndex
-   指定当前选定的过滤器在文件类型控件中的索引
+	[可选参数] 指定文件类型控件中当前选定过滤器的索引
 $iFlags
-$tagOPENFILENAME信息中的Flags
+	[可选参数] 见 $tagOPENFILENAME 结构中 Flags 的信息
 $iFlagsEx
-$tagOPENFILENAME信息中的FlagsEx
+	[可选参数] 见 $tagOPENFILENAME 结构中 FlagEx 信息
 $hwndOwner
-   对话框所属窗体的句柄. 该成员可以是任意有效的窗体句柄, 或当对话框无宿主时刻为0
+	[可选参数] 拥有对话框的窗口句柄.可以是任何有效的窗口句柄;或为 0, 表示对话框没有属主
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如下格式数组:
-   [0] - 包含的字符串数量
-   [1] - 包含选定路径
-   [2] - 包含选定文件
-   [n] - 包含选定文件
-失败: 数组的第一项设置为0
+成功:	返回数组格式如下:
+	[0] - 数量字符串
+	[1] - 路径选择
+	[2] - 选定的文件
+	[n] - 选定的文件
+失败:	返回数组 [0] 为 0 
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
-$tagOPENFILENAME , _WinAPI_GetSaveFileName , _WinAPI_CommDlgExtendedError
+$tagOPENFILENAME, _WinAPI_GetSaveFileName, _WinAPI_CommDlgExtendedError
 
 ###See Also###
-搜索MSDN知识库中GetOpenFileName的相关信息
+@@MsdnLink@@ GetOpenFileName
 
 ###Example###
 @@IncludeExample@@

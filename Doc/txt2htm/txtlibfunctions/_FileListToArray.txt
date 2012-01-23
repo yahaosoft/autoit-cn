@@ -2,45 +2,44 @@
 _FileListToArray
 
 ###Description###
-列举一个指定路径的文件和\或文件夹(类似于使用Dir加/B参数)
+列出指定路径下的文件和/或文件夹 (类似使用 Dir /B命令)
 
 ###Syntax###
 #Include <File.au3>
-_FileListToArray($sPath[, $sFilter = "*"[, $iFlag = 0]])
+_FileListToArray($sPath [, $sFilter = "*" [, $iFlag = 0]])
 
 ###Parameters###
 @@ParamTable@@
-$sPath 
-   要创建文件列表的路径
-$sFilter 
-   要使用的可选过滤器 , 默认是*. 搜索 Autoit3 帮助文件中的 "WildCards" 关键字查看细节
-$iFlag 
-   可选: 指定返回文件还是返回文件夹或者都要
-    0 - (默认)返回文件和文件夹
-    1 - 只返回文件
-    2 - 只返回文件夹
+$sPath
+	要生成文件列表的路径.
+$sFilter
+	[可选参数] 要使用的可选过滤器, 默认是 *. 搜索 Autoit3 帮助文件中的 "WildCards" 关键字查看细节
+$iFlag
+	[可选参数] 指定是否返回文件的文件夹或者都要
+		$iFlag=0(默认) 文件和文件夹都返回
+		$iFlag=1 只返回文件
+		$iFlag=2 只返回文件夹
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回一个数组, , 参考@@End@@
+成功:	返回一个数组, 参考备注
+失败:	0
+@Error:	1 = 路径未找到或者无效
+	2 = 无效 $sFilter
+	3 = 无效 $iFlag
+	4 = 未找到任何文件
+@@End@@
 
 ###Remarks###
-失败: 返回0并设置@Error为:
-     1 = 路径未找到或路径无效
-     2 = $sFilter不可用
-     3 = $iFlag不可用
-     4 = 未找到文件
-备注 返回一位数组且格式如下:
-$array[0] = 返回的文件\文件夹的数量
-$array[1] = 1st文件\文件夹
-$array[2] = 2nd文件\文件夹
-$array[3] = 3rd文件\文件夹
-$array[n] = nth文件\文件夹
+返回下方格式的一维数组:
+$array[0] = 所有的文件\文件夹数量
+$array[1] = 第一个文件\文件夹
+$array[2] = 第二个文件\文件夹
+$array[3] = 第三个文件\文件夹
+$array[n] = 第 N个文件\文件夹
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

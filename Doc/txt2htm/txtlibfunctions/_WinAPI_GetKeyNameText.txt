@@ -2,31 +2,35 @@
 _WinAPI_GetKeyNameText
 
 ###Description###
-获取代表键名的字符串
+检索键名称的字符串.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetKeyNameText( $lParam )
+_WinAPI_GetKeyNameText ( $lParam )
 
 ###Parameters###
 @@ParamTable@@
 $lParam
-   指定执行的键盘消息(如WM_KEYDOWN)的第二个参数
+	指定处理键盘消息(例如 WM_KEYDOWN)的第二个参数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含键名的字符串
-失败: 空字符串并设置@error非0
+成功:	返回键名称字符串.
+失败:	返回空串,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-键名字符串的格式依赖于当前的键盘布局. 键盘驱动以长于单个字符的的字符串格式保持键的名称列表. 键名根据当前安装的键盘布局翻译, 因此函数可能对不同输入区域设置给出不同结果. 字符键名称是字符本身. 语音键名称被完全频出.
+键名字符串格式取决于当前的键盘布局.
+ 键盘驱动以长于单个字符的字符串格式保留键名称列表.
+ 键名称的翻译是根据当前安装的键盘布局,
+ 因此函数可能会给出不同输入区域设置的不同结果.
+ 字符键名称是字符本身,死键(如换档键)则拼写出完整名称.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetKeyNameText的相关信息
+@@MsdnLink@@ GetKeyNameText
 
 ###Example###
 @@IncludeExample@@
+

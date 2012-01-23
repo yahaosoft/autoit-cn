@@ -1,56 +1,75 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _WordPropertySet
 
 ###Description###
-è®¾ç½®Wordåº”ç”¨çš„å±æ€§
+ÉèÖÃ Word Ó¦ÓÃ³ÌĞòµÄÒ»¸öÑ¡ÔñÊôĞÔ.
 
 ###Syntax###
-#Include <Word.au3>
+#include <Word.au3> 
 _WordPropertySet ( ByRef $o_object, $s_property, $v_newvalue )
 
 ###Parameters###
 @@ParamTable@@
-$o_object 
-   Word.Applicationå¯¹è±¡å˜é‡
-$s_property 
-   å±æ€§é€‰æ‹©(è§å¤‡æ³¨)
-$v_newvalue 
-   å°†è¢«è®¾ç½®åˆ°Word.Applicationå±æ€§ä¸­çš„æ–°å€¼y
+$o_object
+	Ò»¸ö Word.Application µÄ¶ÔÏó±äÁ¿
+$s_property
+	ÊôĞÔÑ¡Ôñ (²Î¿¼ËµÃ÷)
+$v_newvalue
+	ÒªÉèÖÃµ½ Word Application ÊôĞÔµÄĞÂÖµ.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: è¿”å›1
-å¤±è´¥: è¿”å›0å¹¶è®¾ç½®@ERROR
-@Error: 0 ($_WordStatus_Success) = æ— é”™è¯¯
-     3 ($_WordStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»å‹
-     4 ($_WordStatus_InvalidObjectType) = æ— æ•ˆå¯¹è±¡ç±»å‹
-     5 ($_WordStatus_InvalidValue) = æ— æ•ˆå€¼
-@Extended: åŒ…å«æ— æ•ˆå‚æ•°æ•°é‡
-
-###See Also###
-æ›´å¤šä¿¡æ¯å¯å‚è€ƒ MSDN .
-ä¸‹è¡¨æä¾›äº†æ¯ç§å¯ç”¨å±æ€§çš„æè¿°.
- Word Applicationå±æ€§
- å±æ€§  æè¿°
- " activeprinter "  æŒ‡å®šå¯ç”¨æ‰“å°æœºå.
- " screentips "  æŒ‡å®šä¸€ä¸ªå¸ƒå°”å€¼æŒ‡ç¤ºæ˜¯å¦å°†æ‰¹æ³¨ , è„šæ³¨ , å°¾æ³¨ , åŠè¶…çº§é“¾æ¥ä½œä¸ºæç¤ºæ˜¾ç¤º.
- " scrollbars "  æŒ‡å®šä¸€ä¸ªå¸ƒå°”å€¼æŒ‡ç¤º Word æ˜¯å¦åœ¨è‡³å°‘ä¸€ä¸ªæ–‡æ¡£çª—å£ä¸­æ˜¾ç¤ºæ»šåŠ¨æ¡.
- " statusbar "  æŒ‡å®šä¸€ä¸ªå¸ƒå°”å€¼æŒ‡ç¤ºæ˜¯å¦æ˜¾ç¤ºçŠ¶æ€æ .
- " height "  æŒ‡å®šæ´»åŠ¨æ–‡æ¡£çš„çª—å£çš„é«˜åº¦.
- " left "  æŒ‡å®šä¸€ä¸ªæ•´æ•°è¡¨ç¤ºæŒ‡å®šæ–‡æ¡£çš„æ°´å¹³ä½ç½®.
- " screenupdating "  è¿”å›ä¸€ä¸ªå¸ƒå°”å€¼æŒ‡ç¤ºæ˜¯å¦å·²å¼€å¯å±å¹•åˆ·æ–°.
- " startuppath "  æŒ‡å®šå¯åŠ¨æ–‡ä»¶å¤¹çš„å®Œæ•´è·¯å¾„.
- " top "  æŒ‡å®šæ´»åŠ¨æ–‡æ¡£çš„å‚ç›´ç‚¹é˜µä½ç½®
- " visible "  æŒ‡å®šä¸€ä¸ªå¸ƒå°”å€¼æŒ‡ç¤ºæŒ‡å®šå¯¹è±¡æ˜¯å¦å¯è§.
- " width "  æŒ‡å®šä¸€ä¸ªæŒ‡å®šå¯¹è±¡çš„ç‚¹é˜µå®½åº¦.
- " windowstate "  æŒ‡å®šä»»åŠ¡çª—å£æˆ–ä¸€ä¸ªæŒ‡å®šæ–‡æ¡£çš„çª—å£çš„çŠ¶æ€.
+³É¹¦:	·µ»Ø 1
+Ê§°Ü:	·µ»Ø 0 ²¢ÉèÖÃ @ERROR
+@Error:	$_WordStatus_Success = Ã»´íÎó
+	$_WordStatus_InvalidDataType = ÎŞĞ§Êı¾İÀàĞÍ
+	$_WordStatus_InvalidObjectType = ÎŞĞ§¶ÔÏóÀàĞÍ
+	$_WordStatus_InvalidValue = ÎŞĞ§Öµ
+@Extended:	°üº¬ÎŞĞ§µÄ²ÎÊıÊı
 @@End@@
 
+
 ###Remarks###
+½øÒ»²½µÄĞÅÏ¢¿É²é¿´ <a href="http://msdn2.microsoft.com/en-us/library/kw65a0we.aspx" target="_blank">MSDN</a>.
+
+ÏÂ±íÌá¹©ÏÖÓĞÃ¿¸öÊôĞÔµÄÃèÊö.
+
+<b><u>Word Ó¦ÓÃ³ÌĞòÊôĞÔ</u></b>
+
+@@ParamTable@@
+<b>ÊôĞÔ</b>
+	<b>ÏêÏ¸ĞÅÏ¢</b>
+"activeprinter"
+	Ö¸¶¨Ò»¸ö»î¶¯´òÓ¡»úÃû³Æ.
+"screentips"
+ 	Ö¸¶¨±íÊ¾ÊÇ·ñÓĞ×¢ÊÍ,½Å×¢,Î²×¢ºÍ³¬Á´½ÓÏÔÊ¾ÌáÊ¾µÄ²¼¶ûÖµ.
+ "scrollbars"
+	Ö¸¶¨ÊÇ·ñ Word ÎÄµµ´°¿ÚÏÔÊ¾ÖÁÉÙÒ»¸ö¹ö¶¯ÌõµÄ²¼¶ûÖµ.
+ "statusbar"
+	Ö¸¶¨±íÊ¾ÊÇ·ñÏÔÊ¾×´Ì¬À¸µÄ²¼¶ûÖµ.
+ "height"
+	Ö¸¶¨ÏÖÓĞÎÄµµ´°¿ÚµÄ¸ß¶È.
+ "left"
+	Ö¸¶¨±íÊ¾ÏÖÓĞÎÄµµµÄË®Æ½Î»ÖÃµÄÕûÊı.
+ "screenupdating"
+	Ö¸¶¨±íÊ¾ÊÇ·ñ´ò¿ªÆÁÄ»¸üĞÂµÄ²¼¶ûÖµ.
+ "startuppath"
+	Ö¸¶¨Æô¶¯ÎÄ¼ş¼ĞµÄÍêÕûÂ·¾¶.
+ "top"
+	Ö¸¶¨»î¶¯ÎÄµµ´¹Ö±Î»ÖÃµÄ°õÖµµ¥Î».
+ "visible"
+	Ö¸¶¨±íÊ¾Ö¸¶¨¶ÔÏóÊÇ·ñÊÇ¿É¼ûµÄ²¼¶ûÖµ.
+ "width"
+	Ö¸¶¨±íÊ¾Ö¸¶¨¶ÔÏó¿í¶ÈµÄ°õÖµµ¥Î».
+ "windowstate"
+	Ö¸¶¨ÎÄµµ´°¿Ú»òÈÎÎñ´°¿ÚµÄ×´Ì¬.
+@@END@@
+
 
 ###Related###
- _WordPropertyGet
+_WordPropertyGet
+
 
 ###Example###
 @@IncludeExample@@

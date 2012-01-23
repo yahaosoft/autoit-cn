@@ -2,41 +2,41 @@
 _WinAPI_GetObject
 
 ###Description###
-获取指定图形对象的信息
+检索指定图形对象的信息
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_GetObject($hObject,
-$iSize, $pObject)
+_WinAPI_GetObject($hObject, $iSize, $pObject)
 
 ###Parameters###
 @@ParamTable@@
 $hObject
-   逻辑笔, 刷子, 字体, 位图, 区域, 或调色板的句柄
+	标识逻辑笔,画笔,字体,位图,区域或调色板
 $iSize
-   指定写入缓冲区的信息的字节数
+	指定写入到缓冲区的字节数
 $pObject
-   接收信息的缓冲区的指针. 下面显示了信息类型缓冲区收到的每种类型的图形对象:
-    HBITMAP -
-      位图或图元部分
-    HPALETTE - 逻辑调色板取值数量的计数
-    HPEN - 逻辑笔
-    HBRUSH - 逻辑画刷
-    HFONT
-      - 逻辑字体
-  如果lpvObject参数为0，函数返回值是存储指定图形对象信息到缓冲区所需的字节数.
+	接收信息的缓冲区指针.
+		可以为每个类型对象指定接收信息的缓冲区类型:
+		HBITMAP - BITMAP 或 DIBSECTION
+		HPALETTE - 逻辑调色板条目计数
+		HPEN - EXTLOGPEN 或 LOGPEN
+		HBRUSH - LOGBRUSH
+		HFONT - LOGFONT
+	[可选参数] 如 $pObject 为 0, 函数返回值是所需的字节数,
+		字节存储的信息将写入到指定的图形对象缓冲区.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如果$pObject为有效指针，返回值是存入缓冲区的字节数. 如果函数成功, 且$pObject为0,
-返回值是函数保留到缓冲区的信息所需的字节数.
-失败: 0
+成功:	如 $pObject 是一个有效的指针, 返回值是缓冲区中的字节数.
+	如果函数成功, 与 $pObject 为 0, 则返回值是需要的字节数,此字节用来保存将存储到缓冲区的信息.
+失败:	返回 0
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中GetObject的相关信息
+@@MsdnLink@@ GetObject

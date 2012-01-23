@@ -2,35 +2,38 @@
 _WinAPI_GetThemeMargins
 
 ###Description###
-获取主题的边界属性
-_WinAPI_GetThemeMargins ( $hTheme, $iPart, $iState, $iProp, $hDC, $tRECT)
+检索 MARGINS(页边空白) 的属性值.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetThemeMargins ( $hTheme, $iPartId, $iStateId, $iPropId, $hDC, $tRECT)
 
 ###Parameters###
 @@ParamTable@@
 $hTheme
-   指定主题数据的窗体的句柄
-$iPart
-   包含字体属性的部分
-$iState
-   该部分的状态
-$iProp
-   获取的属性
+	指定主题数据的窗口句柄.
+$iPartId
+	包含 MARGINS(页边空白) 属性的部件.
+$iStateId
+	指定部件的状态值.
+$iPropId
+	指定检索的属性值.
 $hDC
-   选取字体的设备场景的句柄
+	设备环境句柄.
 $tRECT
-$tagRECT结构
+	$tagRECT 结构,包含指定的矩形区域.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含边界值的$tagMARGINS结构
-失败: 返回0并设置@error非0 , @extended标记可能含有COM错误代码.
+成功:	返回 $tagMARGINS 结构,包含页边空白值.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-关于$iPart , $iState及$iProp参数的更多信息参阅MSDN
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetThemeMargins的相关信息
+@@MsdnLink@@ GetThemeMargins
+

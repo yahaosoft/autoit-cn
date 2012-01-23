@@ -2,42 +2,40 @@
 _GUICtrlListView_GetItemRect
 
 ###Description###
-获取绑定一个项目部分或全部的矩形
+检索项目的全部或部分矩形,返回数据数组.
 
 ###Syntax###
-#Include<GuiListView.au3>
-_GUICtrlListView_GetItemRect($hWnd, $iIndex[, $iPart= 3])
+#Include <GuiListView.au3>
+_GUICtrlListView_GetItemRect($hWnd, $iIndex[, $iPart = 3])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iIndex  项目 0 基索引
- $iPart  要获取的项目的部分:
-0 - 全部项目绑定矩形
-1 - 图标或小图标的矩形
-2 - 项目文本的矩形
-3 -
-      1和2的结合, 打报告视图的列除外
+$hWnd
+	控件句柄
+$iIndex
+	项目的 0 基索引
+$iPart
+	[可选参数] 项目检索部分:
+		0 - 整个项目的边界矩形
+		1 - 图标或小图标的边界矩形
+		2 - 项目文本的边界矩形
+		3 - 1 和 2 的结合,但不包括报表视图
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success: 如下格式的数组:
-        [0]
-- 矩形左上角横坐标
-        [1] -
-矩形左上角纵坐标
-        [2] -
-矩形右下角横坐标
-        [3] - 矩形右下角纵坐标
+	返回如下格式数组:
+	[0] - 矩形左上角 X 坐标
+	[1] - 矩形左上角 Y 坐标
+	[2] - 矩形右下角 X 坐标
+	[3] - 矩形右下角 Y 坐标
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 _GUICtrlListView_GetItemRectEx
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

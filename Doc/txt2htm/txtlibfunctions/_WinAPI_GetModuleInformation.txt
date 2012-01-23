@@ -2,7 +2,7 @@
 _WinAPI_GetModuleInformation
 
 ###Description###
-获取指定模块的信息
+Retrieves information about the specified module.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,23 +11,24 @@ _WinAPI_GetModuleInformation( $hProcess, $hModule )
 ###Parameters###
 @@ParamTable@@
 $hProcess
-$PROCESS_QUERY_INFORMATION 或 $PROCESS_QUERY_LIMITED_INFORMATION 访问权限及 $PROCESS_VM_READ 权限
+	Handle to the process that contains the module. The handle must have the $PROCESS_QUERY_INFORMATION or
+	$PROCESS_QUERY_LIMITED_INFORMATION access right and the $PROCESS_VM_READ access right.
 $hModule
-$tagMODULEINFO 结构的 "SizeOfImage" 和 "EntryPoint" 成员).
+	Handle to the module. If this parameter is 0, the function retrieves information only about the
+	executable file ("SizeOfImage" and "EntryPoint" members of the $tagMODULEINFO structure).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回包含模块信息的$tagMODULEINFO结构
-失败: 返回0并设置@error非0
+Success	$tagMODULEINFO structure that contains information about the module.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-该函数不会获取以$LOAD_LIBRARY_AS_DATAFILE标记加载的模块的信息.
-更多信息
+This function does not retrieve information for modules that were loaded with the $LOAD_LIBRARY_AS_DATAFILE flag.
+For more information, see _WinAPI_LoadLibraryEx().
 
-###Related###
 
 ###See Also###
-_WinAPI_LoadLibraryEx() .
-参考  搜索MSDN知识库中GetModuleInformation的相关信息
+@@MsdnLink@@ GetModuleInformation
+

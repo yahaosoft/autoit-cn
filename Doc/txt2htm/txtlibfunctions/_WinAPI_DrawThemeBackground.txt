@@ -2,38 +2,41 @@
 _WinAPI_DrawThemeBackground
 
 ###Description###
-由指定控制部分的可视化风格绘制边界及填充
-_WinAPI_DrawThemeBackground ( $hTheme, $iPart, $iState, $hDC, $tRECT [, $tCLIP] )
+绘制指定控件的部分边界,并依据视觉样式的定义填充.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_DrawThemeBackground ( $hTheme, $iPartId, $iStateId, $hDC, $tRECT [, $tCLIP] )
 
 ###Parameters###
 @@ParamTable@@
 $hTheme
-   窗体指定的主题数据的句柄
-$iPart
-   绘制的部分
-$iState
-   绘制部分的状态
+	指定主题数据的窗口句柄.
+$iPartId
+	提请绘制的部分.
+$iStateId
+	提请绘制部分的状态.
 $hDC
-   用于绘制主题定义的背景图像的设备场景句柄
+	设备环境句柄.
 $tRECT
-$tagRECT结构
+	$tagRECT 结构,包含绘制背景图像的矩形.
 $tCLIP
-$tagRECT结构
+	[可选参数] $tagRECT 结构,包含一个剪辑矩形.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0. @extended标记包含COM错误代码
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-$iPart及$iState参数的更多信息请参阅MSDN
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中DrawThemeBackground的相关信息
+@@MsdnLink@@ DrawThemeBackground
 
 ###Example###
 @@IncludeExample@@
+

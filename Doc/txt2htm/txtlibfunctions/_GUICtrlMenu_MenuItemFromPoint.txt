@@ -2,33 +2,38 @@
 _GUICtrlMenu_MenuItemFromPoint
 
 ###Description###
-确定指定位置的菜单项.
+确定哪个菜单项在指定的位置.
 
 ###Syntax###
-#Include<GuiMenu.au3>
-_GUICtrlMenu_MenuItemFromPoint($hWnd, $hMenu[, $iX = -1[,$iY = -1]])
+#Include <GuiMenu.au3>
+_GUICtrlMenu_MenuItemFromPoint($hWnd, $hMenu [, $iX = -1 [, $iY = -1]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  包含菜单的窗体句柄. 如果为0且$hMenu代表弹出菜单, 函数将返回菜单窗体.
- $hMenu  包含被点击测试项目的菜单的句柄
- $iX  测试的X位置. 如果为-1, 使用当前鼠标的X位置.
- $iY  测试的X位置. 如果为-1, 使用当前鼠标的Y位置.
+$hWnd
+	菜单窗口的句柄. 如此值为 0,且 $hMenu 表示一个弹出菜单,
+		函数将查找菜单窗口.
+$hMenu
+	包含测试菜单项的菜单句柄
+$iX
+	[可选参数] 测试位置的 X 值.如为 -1, 则使用当前鼠标的 X 位置.
+$iY
+	[可选参数] 测试位置的 Y 值.如为 -1, 则使用当前鼠标的 Y 位置.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 指定位置菜单项目的0基索引
-失败: -1
+成功:	返回指定位置菜单项目的 0 基位置
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
-如果$hMenu指定一个菜单条, 坐标为窗体坐标. 否则为客户区坐标.
+ 如 $hMenu 指定一个菜单栏,则匹配窗口坐标;否则,为客户端坐标.
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中MenuItemFromPoint的相关信息
+@@MsdnLink@@ MenuItemFromPoint
 
 ###Example###
 @@IncludeExample@@

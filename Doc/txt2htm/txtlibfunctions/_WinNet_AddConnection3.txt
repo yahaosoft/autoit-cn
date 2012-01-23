@@ -2,49 +2,50 @@
 _WinNet_AddConnection3
 
 ###Description###
-将本地设备连接到网络资源
+连接本地设备到网络资源
 
 ###Syntax###
 #Include <WinNet.au3>
-_WinNet_AddConnection3($hWnd, $sLocalName, $sRemoteName[, $sUserName = 0[, $sPassword = 0[, $iType = 1[, $iOptions = 1]]]])
+_WinNet_AddConnection3($hWnd, $sLocalName, $sRemoteName [, $sUserName = 0 [, $sPassword = 0 [, $iType = 1 [, $iOptions = 1]]]])
 
 ###Parameters###
 @@ParamTable@@
-$hWnd 
-   网络资源提供者可用来作为对话框主窗体的窗体句柄. 当在选项参数中设置了数位2(互动)时使用此参数. 该参数可为0.
-$sLocalName 
-   要被重定向的本地设备名, 如"F:"或"LPT1". 字符串大小写不敏感. 如果为0, 不必重定向到本地即可连接到网络资源.
-$sRemoteName 
-   要连接的网络资源的名称
-$sUsername 
-   生成连接的用户名. 如果为0, 函数使用默认用户名.
-$sPassword 
-   生成连接使用的密码. 如果为0, 使用默认密码. 如果字符串为空, 没有密码.
-$iType 
-   指定要链接的网络资源的类型:
-    0 - 任意(仅当$sLocalName为0时)
-    1 - 磁盘
-    2 - 2 - 打印机
-$iOptions 
-   连接选项. 可为一个或多个下列值:
-    1 - 记住网络资源连接
-    2 - 出于认证目的, 操作系统可与用户互动
-    4 - 不使用任意用户名或密码默认设置的系统不要求用户提供选择的机会. 该标志被忽略除非选项2(互动)也被设置.
-    8 - 建立连接时强制本地设备重定向
-    16 - 操作系统建议使用命令行代替界面进行用户认证. 该标志被忽略除非选项2(互动)也被设置.
-    32 - 如果该项被设置, 操作系统提供一个证书, 该证书被证书管理器保存. 如果证书管理器对于呼叫者的登录会话无效, 或网络提供者不支持保存证书, 则忽略该标志. 给标志也可被忽略除非设置了数位5(用命令行代替界面).
+$hWnd
+	网络资源提供者可以作为对话框使用的所有者窗口句柄．如果设置　$iOptions　参数值为　2（交互式）,这个参数可以是　0．
+$sLocalName
+	被重定向的本地设备名字, 例如"F:" or "LPT1".字符串被视为不区分大小写的方式,如果为 0,本地设备不重定向连接到网络资源.
+$sRemoteName
+	连接到的网络资源名称
+$sUsername
+	[可选参数] 建立连接的用户名. 如果为 0,该函数使用默认用户名.
+$sPassword
+	[可选参数] 用于建立连接的密码. 如果为 0,使用默认密码.如果字符串是空的, 不使用密码.
+$iType
+	[可选参数] 指定连接的网络资源类型:
+		0 - 任意 (仅当 $sLocalName 为 0 时)
+		1 - 磁盘
+		2 - 打印
+$iOptions
+	[可选参数] 连接选项. 可以是一或多个下列值:
+		1 - 网络资源的连接应该被记住
+		2 - 操作系统可以与用户身份验证交互
+		4 - 系统不使用任何默认设置,不提供用户名或密码的选择.除非参数值 2（交互式）成立,否则此标志将被忽略.
+		8 - 强制本地设备连接时重定向
+		16 - 操作系统会提示使用命令行,而不是图形界面的用户认证.除非参数值 2（交互式）成立,否则此标志将被忽略.
+		32 - 如果此位被设置, 且操作系统提示凭据, 则凭据保存的凭据管理器.如果凭据管理器被禁止调用登录会话,或者网络提供的程序不支持保存凭据,此标志将被忽略．除非你设定 16（命令行而不是图形用户界面）,否则这个标志也被忽略．
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	True
+失败:	False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
- _WinNet_AddConnection , _WinNet_AddConnection2
+_WinNet_AddConnection, _WinNet_AddConnection2
 
 ###See Also###
- 搜索MSDN知识库中WNetAddConnection3的相关信息
+@@MsdnLink@@ WNetAddConnection3

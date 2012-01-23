@@ -2,46 +2,49 @@
 _MemVirtualAllocEx
 
 ###Description###
-在指定进程的虚拟空间保留或提交内存区域
+在一个指定进程的虚拟地址空间储备内存区域
 
 ###Syntax###
 #Include <Memory.au3>
-_MemVirtualAllocEx($hProcess,$pAddress, $iSize, $iAllocation, $iProtect)
+_MemVirtualAllocEx($hProcess, $pAddress, $iSize, $iAllocation, $iProtect)
 
 ###Parameters###
 @@ParamTable@@
- $hProcess  进程句柄
- $pAddress  指定保留页面的内存地址
- $iSize  指定分配的内存的字节大小，
- $iAllocation  内存分配的类型:
-$MEM_COMMIT - 给指定页面区域分配内存中的物理存储或磁盘上的页面文件.
-$MEM_RESERVE
-      - 保留进程的未分配任何物理存储的虚拟地址空间的范围.
-$MEM_TOP_DOWN - 在最高可能的地址分配内存
- $iProtect  要分配的页面区域的内存保护:
-$PAGE_READONLY - 对页面指定区域的读取权限
-$PAGE_READWRITE -
-      对页面指定区域的读写权限
-$PAGE_EXECUTE - 对页面指定区域的操作权限
-$PAGE_EXECUTE_READ -
-      对页面指定区域的操作和读取权限
-$PAGE_EXECUTE_READWRITE -
-      对页面指定区域的操作和读写权限
-$PAGE_GUARD - 区域中的页面变为保护状态
-$PAGE_NOACCESS -
-      禁用页面指定区域的全部权限
-$PAGE_NOCACHE - 允许没有页面指定区域的缓存
+$hProcess
+	进程句柄
+$pAddress
+	指定区域分配的起始地址
+$iSize
+	指定区域大小的字节单位
+$iAllocation
+	指定分配类型:
+		$MEM_COMMIT - 为页面指定区域分配物理存储区,或磁盘上的分页文件
+		of pages.
+		$MEM_RESERVE - 储备进程的虚拟地址空间范围,不分配任何物理存储
+		storage.
+		$MEM_TOP_DOWN - 为最高的可能地址分配内存
+$iProtect
+	访问保护类型:
+		$PAGE_READONLY - 允许页面承诺区域的读访问
+		$PAGE_READWRITE - 允许读写承诺区域
+		$PAGE_EXECUTE - 允许运行承诺区域的操作
+		$PAGE_EXECUTE_READ - 允许运行与读承诺区域
+		$PAGE_EXECUTE_READWRITE - 允许运行,读,写页面承诺区域
+		$PAGE_GUARD - 区域中的页面变为保护页面
+		$PAGE_NOACCESS - 禁用页面承诺区域的全部权限
+		$PAGE_NOCACHE - 允许没有页面承诺区域的缓存
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 内存地址指针
+	返回存储器地址指针
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 _MemVirtualFreeEx
 
 ###See Also###
-搜索MSDN知识库VirtualAllocEx的相关信息
+@@MsdnLink@@ VirtualAllocEx

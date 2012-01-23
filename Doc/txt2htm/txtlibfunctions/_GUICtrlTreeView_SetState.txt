@@ -2,43 +2,42 @@
 _GUICtrlTreeView_SetState
 
 ###Description###
-设置指定项的状态
+设置项目的状态
 
 ###Syntax###
-#Include<GuiTreeView.au3>
-_GUICtrlTreeView_SetState($hWnd, $hItem[, $iState =0[, $iSetState = 0]])
+#Include <GuiTreeView.au3>
+_GUICtrlTreeView_SetState($hWnd, $hItem[, $iState = 0[, $iSetState = 0]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $hItem  项目编号/设置图标的句柄
- $iState  新的项目状态, 可为一个或多个下列值:
-$TVIS_SELECTED - 设置项目被选中
-$TVIS_CUT -
-      设置项目为剪切/粘帖操作的一部分
-$TVIS_DROPHILITED - 设置项目为拖曳对象
-$TVIS_BOLD -
-      设置项目粗体显示
-$TVIS_EXPANDED - 展开项目
-$TVIS_EXPANDEDONCE -
-      设置子项目的项目列表已被展开
-$TVIS_EXPANDPARTIAL - 设置项目部分展开
- $iSetState  项目状态将被设置时为真, 移除项目状态为假
+$hWnd
+	控件句柄
+$hItem
+	项目 ID或句柄
+$iState
+	[可选参数] 项目的状态,可以是一或多个下列值:
+		$TVIS_SELECTED - 项目选中
+		$TVIS_CUT - 作为剪切和粘贴操作的一部分
+		$TVIS_DROPHILITED - 项目作为拖放目标
+		$TVIS_BOLD - 项目文本粗体
+		$TVIS_EXPANDED - 项目展开
+		$TVIS_EXPANDEDONCE - 项目的子项列表已展开至少一次
+		$TVIS_EXPANDPARTIAL - 项目为展开部分
+$iSetState
+	[可选参数] 如为 True,项目设置状态, 如为 False,删除项目的状态
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-状态值可用BitOr连用, 如BitOr($TVIS_SELECTED, $TVIS_BOLD).
+ 状态值可以用 BitOr 组合,例如: BitOr($TVIS_SELECTED, $TVIS_BOLD).
 
 ###Related###
 _GUICtrlTreeView_GetState
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

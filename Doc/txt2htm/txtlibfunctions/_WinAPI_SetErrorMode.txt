@@ -2,31 +2,32 @@
 _WinAPI_SetErrorMode
 
 ###Description###
-控制系统或进程如何处理指定类型的严重错误
+确定控制系统或进程是否处理指定类型的严重错误.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetErrorMode( $iMode )
+_WinAPI_SetErrorMode ( $iMode )
 
 ###Parameters###
 @@ParamTable@@
 $iMode
-   进程错误模式. 该参数可为一个或多个下列值.
-    $SEM_FAILCRITICALERRORS(0x0001) - 不显示关键错误句柄消息框. 以向调用进程发送错误代替.
-    $SEM_NOALIGNMENTFAULTEXCEPT(0x0004) - 系统自动修复内存对齐错误并使其对程序隐藏. 用于调用进程和任何后续进程. 此功能只支持某些处理器架构.
-    $SEM_NOGPFAULTERRORBOX(0x0002) - 系统不显示Windows错误报告对话框.
-    $SEM_NOOPENFILEERRORBOX(0x8000) - 无法找到文件时不显示消息框. 以向调用进程发送错误代替.
+	进程的错误模式. 参数可以是一或多个下列值:
+		 $SEM_FAILCRITICALERRORS --- 系统不显示关键错误处理程序的消息框.相反,系统发送错误给调用进程
+		 $SEM_NOALIGNMENTFAULTEXCEPT --- 该系统自动修复内存调整错误
+		 $SEM_NOGPFAULTERRORBOX --- 系统不显示 Windows 错误报告对话框
+		 $SEM_NOOPENFILEERRORBOX --- 当无法找到文件时,系统不显示消息框,错误被返回到调用进程
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回以前的错误模式数位标记代码.
-失败: 返回0并设置@error非0
+成功:	返回先前错误模式的状态位标志 ($SEM_*).
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SetErrorMode的相关信息
+@@MsdnLink@@ SetErrorMode
+

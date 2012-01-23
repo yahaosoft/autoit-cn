@@ -2,38 +2,39 @@
 _GUICtrlToolbar_GetButtonState
 
 ###Description###
-获取指定按钮的状态信息
+检索指定按钮的状态信息
 
 ###Syntax###
-#Include<GuiToolBar.au3>
-_GUICtrlToolbar_GetButtonState($hWnd,$iCommandID)
+#Include <GuiToolBar.au3>
+_GUICtrlToolbar_GetButtonState($hWnd, $iCommandID)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iCommandID  按钮命令标识
+$hWnd
+	控件句柄
+$iCommandID
+	按钮命令 ID
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 按钮状态. 可为一个或多个下列值
-$TBSTATE_CHECKED - 按钮将被点击
-$TBSTATE_PRESSED - 按钮被点击
-$TBSTATE_ENABLED - 按钮接受用户输入
-$TBSTATE_HIDDEN - 按钮不可见
-$TBSTATE_INDETERMINATE - 按钮灰色显示
-$TBSTATE_WRAP - 按钮跟随行中断符
-$TBSTATE_ELLIPSES - 按钮文本被分割
-$TBSTATE_MARKED - 按钮被标记
-失败: -1
+成功:	返回按钮的状态.可以是一或多个下列值:
+	$TBSTATE_CHECKED - 按钮有 $TBSTYLE_CHECK 样式并被点击
+	$TBSTATE_PRESSED - 按钮被点击
+	$TBSTATE_ENABLED - 按钮接受用户输入
+	$TBSTATE_HIDDEN - 按钮不可见,且不能接收用户输入
+	$TBSTATE_INDETERMINATE - 按钮呈灰色
+	$TBSTATE_WRAP - 按钮之后跟随一个换行符
+	$TBSTATE_ELLIPSES - 按钮文本被截断,并显示一个省略号
+	$TBSTATE_MARKED - 按钮被标记
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 _GUICtrlToolbar_SetButtonState
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

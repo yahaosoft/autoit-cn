@@ -2,31 +2,33 @@
 _WinAPI_GetApplicationRestartSettings
 
 ###Description###
-获取为指定进程注册的重启信息
+Retrieves the restart information registered for the specified process.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetApplicationRestartSettings( [$PID] )
+_WinAPI_GetApplicationRestartSettings ( [$PID] )
 
 ###Parameters###
 @@ParamTable@@
 $PID
-   [可选] 进程标识. 默认(0)为当前进程
+	[可选参数] The PID of the process. Default (0) is the current process.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含以下信息的数组:
-    [0] - 重启命令行
-    [1] - 标记
-失败：返回0并设置@error非0. , @extended标记可能包含系统错误代码.
+Success	The array that contains the following information:
+[0]	The restart command line.
+[1]	The flags.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
-该信息仅可用于当前进程; 当程序重启后无法调用_WinAPI_GetApplicationRestartSettings()获取重启命令行.
-最低系统要求: Windows Vista.
+This information is available only for the current processyou cannot call _WinAPI_GetApplicationRestartSettings()
+function after your program is restarted to get the restart command line.
 
-###Related###
+This function requires Windows Vista or later.
+
 
 ###See Also###
- 搜索MSDN知识库中GetApplicationRestartSettings的相关信息
+@@MsdnLink@@ GetApplicationRestartSettings
+

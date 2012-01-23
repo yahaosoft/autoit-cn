@@ -2,35 +2,40 @@
 _WinAPI_SetMapMode
 
 ###Description###
-设置是指定场景的映射模式
+Sets the mapping mode of the specified device context.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetMapMode( $hDC, $iMode )
+_WinAPI_SetMapMode ( $hDC, $iMode )
 
 ###Parameters###
 @@ParamTable@@
-$hDC  设备场景句柄
-$iMode  新的映射模式. 可为下列值之一:
-$MM_ANISOTROPIC - 将逻辑单元映射为任意缩放轴的任意单位. 使用_WinAPI_SetWindowExt()和_WinAPI_SetViewportExt()函数来指定单位, 方向和缩放.
-$MM_HIENGLISH - 映射每个逻辑单位为0.001英寸. 正X向右; 正Y向上.
-$MM_HIMETRIC - 映射每个逻辑单位为0.01毫米. 正X向右; 正Y向上.
-$MM_ISOTROPIC - 映射每个逻辑单位为任意等轴的任意单位. 即x轴一单位等于Y轴一单位. 使用_WinAPI_SetWindowExt和_WinAPI_SetViewportExt函数指定单位和轴的方向. GDI进行必要的调整以确保在x和y单位保持相同(设置窗口范围时, 将调整视图以保持单位各向同性).
-$MM_LOENGLISH - 映射每个逻辑单位为0.01英寸. 正X向右; 正Y向上.
-$MM_LOMETRIC - 映射每个逻辑单位为0.1毫米. 正X向右; 正Y向上.
-$MM_TEXT - 映射每个逻辑单位为1个逻辑像素. 正X向右; 正Y向上.
-$MM_TWIPS - 映射每个逻辑单位为1缇(1/1440英寸). 正X向右; 正Y向上.
+$hDC
+	Handle to the device context.
+$iMode
+	The new mapping mode. This parameter can be one of the following values.
+	
+	$MM_ANISOTROPIC
+	$MM_HIENGLISH
+	$MM_HIMETRIC
+	$MM_ISOTROPIC
+	$MM_LOENGLISH
+	$MM_LOMETRIC
+	$MM_TEXT
+	$MM_TWIPS
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回过去的映射模式
-失败: 返回0并设置@error非0
+Success	The previous mapping mode.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SetMapMode的相关信息
+@@MsdnLink@@ SetMapMode
+

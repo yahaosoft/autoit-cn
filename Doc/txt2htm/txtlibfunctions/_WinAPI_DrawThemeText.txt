@@ -2,40 +2,44 @@
 _WinAPI_DrawThemeText
 
 ###Description###
-使用可视化风格指定的颜色和字体绘制文本
-_WinAPI_DrawThemeText ( $hTheme, $iPart, $iState, $hDC, $sText, $tRECT, $iFlags )
+绘制由视觉样式定义颜色和字体的文本.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_DrawThemeText ( $hTheme, $iPartId, $iStateId, $hDC, $sText, $tRECT, $iFlags )
 
 ###Parameters###
 @@ParamTable@@
 $hTheme
-   窗体指定的主题数据的句柄
-$iPart
-   需要显示文本的部分. 如果该参数为0则以默认字体绘制否则使用选入场景的字体绘制.
-$iState
-   字体外形的描述
+	指定主题数据的窗口句柄.
+$iPartId
+	文本的外观.
+		如果此值为 0,文本绘制为默认字体;或设备环境选择的字体.
+$iStateId
+	文本外观状态.
 $hDC
-   用于绘制的设备场景句柄
+	设备环境句柄.
 $sText
-   包含要绘制的文本的字符串/td>
+	包含文本的字符串.
 $tRECT
-$tagRECT结构
+	$tagRECT 结构,包含绘制文本的矩形.
 $iFlags
-$DT_...值
+	字符串的格式. 参数可以是一或多个 $DT_* 值.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0. @extended标记包含COM错误代码
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-$iPart及$iState参数的更多信息请参阅MSDN
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中DrawThemeText的相关信息
+@@MsdnLink@@ DrawThemeText
 
 ###Example###
 @@IncludeExample@@
+

@@ -2,33 +2,38 @@
 $tagNMDATETIMEKEYDOWN
 
 ###Description###
-搭载用于描述及控制$DTN_WMKEYDOWN通知消息的信息
+传送描述及处理 $DTN_WMKEYDOWN 通知消息的信息
 
 ###Syntax###
-Global Const $tagNMDATETIMEKEYDOWN =  $tagNMHDR & ";int VirtKey;ptr Format;short Year;short Month;short DOW;short Day;short Hour;short ute;short Second;short MSeconds"
+Global Const $tagNMDATETIMEKEYDOWN = $tagNMHDR & ";int VirtKey;ptr Format;short Year;short Month;short DOW;" & _
+		"short Day;short Hour;short Minute;short Second;short MSecond"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   通知消息的信息
+	包含通知消息的信息
 VirtKey
-   代表用户按下的键的虚拟键代码
+	表示用户按键的虚拟键码
 Format
-   定义控件回调区无终止字符串的指针. 字符串有一个或多个"X"字符组成.
+	指向一个空结束的字符串,它定义了控件回调字段.该字符串包括一或多个“X”字符     .
 Year
-   年
+	年
 Month
-   月
+	月
 DOW
-   周中日
+	周中的日
 Day
-   日
+	日
 Hour
-   时
-ute
-   分
+	时
+Minute
+	分
 Second
-   秒
-MSeconds
-   毫秒
-@@end@@
+	秒
+MSecond
+	毫秒
+@@End@@
+
+###Remarks###
+None.
+

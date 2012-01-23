@@ -1,62 +1,60 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _ExcelBookSaveAs
 
 ###Description###
-ä½¿ç”¨æ–°æ–‡ä»¶åæˆ–æ ¼å¼ä¿å­˜æŒ‡å®šExcelå¯¹è±¡çš„æ´»åŠ¨å·¥ä½œç°¿
+Ê¹ÓÃÐÂÎÄ¼þÃû»ò¸ñÊ½±£´æÖ¸¶¨Excel¶ÔÏóµÄ»î¶¯¹¤×÷²¾
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelBookSaveAs($oExcel, $sFilePath[, $sType = "xls"[, $fAlerts = 0[, $fOverWrite = 0[, $sPassword = ""[, $sWritePassword = ""[, $iAccessMode = 1[, $iConflictResolution = 2]]]]]]])
+_ExcelBookSaveAs($oExcel, $sFilePath [, $sType = "xls" [, $fAlerts = 0 [, $fOverWrite = 0 [, $sPassword = "" [, $sWritePassword = "" [, $iAccessMode = 1 [, $iConflictResolution = 2]]]]]]])
 
 ###Parameters###
 @@ParamTable@@
-$oExcel 
-   ç”±é¢„å…ˆè°ƒç”¨_ExcelBookOpen()æˆ–_ExcelBookNew()æ‰“å¼€çš„Excelå¯¹è±¡
-$sFilePath 
-   è¢«è¯»å–çš„æ–‡ä»¶çš„æ–‡ä»¶åå’Œè·¯å¾„
-$sType 
-   Excelå¯å†™æ–‡ä»¶ç±»åž‹å­—ç¬¦ä¸² = "xls|csv|txt|template|html", é»˜è®¤"xls"
-$fAlerts 
-   ç¦ç”¨/å¯ç”¨Excelæ¶ˆæ¯è­¦å‘Šçš„æ ‡è®°(0=ç¦ç”¨(é»˜è®¤), 1=å¯ç”¨)
-$fOverWrite 
-   æ–‡ä»¶å­˜åœ¨æ—¶æ˜¯å¦è¦†ç›–çš„æ ‡è®°(0=å¦, 1=æ˜¯)
-$sPassword 
-   ç”¨äºŽä¿æŠ¤å·¥ä½œè¡¨çš„å¯†ç å­—ç¬¦ä¸²; å¦‚æžœä¸ºç©º, ä¸ä½¿ç”¨å¯†ç (é»˜è®¤)
-$sWritePassword 
-   å·¥ä½œè¡¨å†™å…¥ä¿æŠ¤ä½¿ç”¨çš„å¯†ç å­—ç¬¦ä¸²; å¦‚æžœä¸ºç©º, ä¸ä½¿ç”¨å¯†ç (é»˜è®¤)
-$iAccessMode 
-   åˆ†é…ç»™å·¥ä½œç°¿çš„æ–‡ä»¶å…±äº«æ¨¡å¼:
-$xlNoChange 
-   ä¿ç•™å…±äº«æ¨¡å¼(é»˜è®¤) (æ•°å­—å€¼ = 1)
-$xlExclusive 
-   ç¦æ­¢å…±äº«(æ•°å­—å€¼ = 3)
-$xlShared 
-   å…±äº«å¯ç”¨(æ•°å­—å€¼ = 2)
-$iConflictResolution 
-   å¯¹äºŽå…±äº«æ–‡ä»¶, å¦‚ä½•è§£å†³å…±äº«å†²çª:
-$xlUserResolution 
-   å¼¹å‡ºå¯¹è¯æ¡†è¯¢é—®ç”¨æˆ·å¦‚ä½•è§£å†³(æ•°å­—å€¼ = 1)
-$xlLocalSessionChanges 
-   æŽ¥å—æœ¬åœ°ç”¨æˆ·çš„ä¿®æ”¹(é»˜è®¤) (æ•°å­—å€¼ = 2)
-$xlOtherSessionChanges 
-   æ‹’ç»æœ¬åœ°ç”¨æˆ·ä¿®æ”¹(æ•°å­—å€¼ = 3)
+$oExcel
+	ÓÉÔ¤ÏÈµ÷ÓÃ_ExcelBookOpen()»ò_ExcelBookNew()´ò¿ªµÄExcel¶ÔÏó
+$sFilePath
+	±»¶ÁÈ¡µÄÎÄ¼þµÄÎÄ¼þÃûºÍÂ·¾¶
+$sType
+	[¿ÉÑ¡²ÎÊý] Excel¿ÉÐ´ÎÄ¼þÀàÐÍ×Ö·û´® = "xls|csv|txt|template|html", Ä¬ÈÏ"xls"
+$fAlerts
+	[¿ÉÑ¡²ÎÊý] ½ûÓÃ/ÆôÓÃExcelÏûÏ¢¾¯¸æµÄ±ê¼Ç(0=½ûÓÃ(Ä¬ÈÏ), 1=ÆôÓÃ)
+$fOverWrite
+	[¿ÉÑ¡²ÎÊý] ÎÄ¼þ´æÔÚÊ±ÊÇ·ñ¸²¸ÇµÄ±ê¼Ç(0=·ñ, 1=ÊÇ)
+$sPassword
+	[¿ÉÑ¡²ÎÊý] ÓÃÓÚ±£»¤¹¤×÷±íµÄÃÜÂë×Ö·û´®; Èç¹ûÎª¿Õ, ²»Ê¹ÓÃÃÜÂë(Ä¬ÈÏ)
+$sWritePassword
+	[¿ÉÑ¡²ÎÊý] ¹¤×÷±íÐ´Èë±£»¤Ê¹ÓÃµÄÃÜÂë×Ö·û´®; Èç¹ûÎª¿Õ, ²»Ê¹ÓÃÃÜÂë(Ä¬ÈÏ)
+$iAccessMode
+	[¿ÉÑ¡²ÎÊý] ·ÖÅä¸ø¹¤×÷²¾µÄÎÄ¼þ¹²ÏíÄ£Ê½:
+$xlNoChange
+	[¿ÉÑ¡²ÎÊý] ±£Áô¹²ÏíÄ£Ê½(Ä¬ÈÏ) (Êý×ÖÖµ = 1)
+$xlExclusive
+	[¿ÉÑ¡²ÎÊý] ½ûÖ¹¹²Ïí(Êý×ÖÖµ = 3)
+$xlShared
+	[¿ÉÑ¡²ÎÊý] ¹²Ïí¿ÉÓÃ(Êý×ÖÖµ = 2)
+$iConflictResolution
+	[¿ÉÑ¡²ÎÊý] ¶ÔÓÚ¹²ÏíÎÄ¼þ, ÈçºÎ½â¾ö¹²Ïí³åÍ»:
+$xlUserResolution
+	[¿ÉÑ¡²ÎÊý] µ¯³ö¶Ô»°¿òÑ¯ÎÊÓÃ»§ÈçºÎ½â¾ö(Êý×ÖÖµ = 1)
+$xlLocalSessionChanges
+	[¿ÉÑ¡²ÎÊý] ½ÓÊÜ±¾µØÓÃ»§µÄÐÞ¸Ä(Ä¬ÈÏ) (Êý×ÖÖµ = 2)
+$xlOtherSessionChanges
+	[¿ÉÑ¡²ÎÊý] ¾Ü¾ø±¾µØÓÃ»§ÐÞ¸Ä(Êý×ÖÖµ = 3)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: è¿”å›ž1
-å¤±è´¥: è¿”å›ž0å¹¶è®¾ç½®@error:
-@error: 1 - æŒ‡å®šå¯¹è±¡ä¸å­˜åœ¨
-     2 - æ— æ•ˆæ–‡ä»¶æ ¼å¼å­—ç¬¦ä¸²
-     3 - æ–‡ä»¶å·²å­˜åœ¨ä½†æœªè®¾ç½®è¦†å†™æ ‡è®°
+³É¹¦:	·µ»Ø1
+Ê§°Ü:	·µ»Ø0²¢ÉèÖÃ@error
+@error:	1 - Ö¸¶¨¶ÔÏó²»´æÔÚ
+	2 - ÎÞÐ§ÎÄ¼þ¸ñÊ½×Ö·û´®
+	3 - ÎÄ¼þÒÑ´æÔÚµ«Î´ÉèÖÃ¸²Ð´±ê¼Ç
 @@End@@
 
 ###Remarks###
-åªèƒ½åœ¨å·¥ä½œç°¿å·²è¢«æ‰“å¼€æ—¶å¦å­˜å›žç›¸åŒçš„å·¥ä½œè·¯å¾„(è€Œä¸æ˜¯æ–°åˆ›å»º, æœªä¿å­˜çš„å·¥ä½œç°¿)
+Ö»ÄÜÔÚ¹¤×÷²¾ÒÑ±»´ò¿ªÊ±Áí´æ»ØÏàÍ¬µÄ¹¤×÷Â·¾¶(¶ø²»ÊÇÐÂ´´½¨, Î´±£´æµÄ¹¤×÷²¾)
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

@@ -2,32 +2,35 @@
 _IEBodyReadText
 
 ###Description###
-返回文档<body>标签内的文字
+返回文档中 &lt;body&gt; 标记中的文本.
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IEBodyReadText ( ByRef $o_object )
 
 ###Parameters###
 @@ParamTable@@
- $o_object  InternetExplorer.Application , 窗口或者框架(frame)对象的对象变量
+$o_object
+	一个 InternetExplorer.Application 对象变量, 窗口或者框架(Frame)对象
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回文档<body>内包含的文字
-失败: 返回0并设置@ERROR为:
-    0 ($_IEStatus_Success) = 无错误
-    3 ($_IEStatus_InvalidDataType) = 无效数据类型
-    @Extended: 包含无效参数数量
+成功:	返回文档中 &lt;body&gt; 标记中包含的文本.
+失败:	返回 0 并设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 没有错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+@Extended:	包含错误参数的数量
 @@End@@
 
+
 ###Remarks###
+本函数使用文档正文(Body)的 .innerText 属性.  .innerText is available for nearly all DOM elements and is a fast convenient method of parsing out just the text in a document using _IEPropertyGet.
+
 
 ###Related###
- _IEBodyReadHTML , _IEBodyWriteHTML , _IEPropertyGet
+_IEBodyReadHTML, _IEBodyWriteHTML, _IEPropertyGet
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

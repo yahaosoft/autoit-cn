@@ -2,31 +2,32 @@
 _viClose
 
 ###Description###
-断开到设备/装置的VISA连接
+关闭连接到装置/设备的 VISA
 
 ###Syntax###
-#Include <Visa.au3>
+#include <Visa.au3>
 _viClose ( $h_session )
+
 
 ###Parameters###
 @@ParamTable@@
- $h_session  VISA会话句柄(由_viOpen返回)
+$h_session
+	VISA 会话句柄(由 _viOpen 返回)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回0
-失败: 返回-1 如果无法打开VISA DLL或代表VISA错误的非0值(参阅VISA程序员向导)
-该函数通常在出错时设置@error为1.
+成功:	返回 0.
+失败:	返回 -1, VISA DLL 无法打开; 非零值代表 VISA 错误代码 (见 VISA 程序员指南).
 @@End@@
 
 ###Remarks###
-要使用VISA函数必须安装有VISA库(可以检查{WINDOWS}\system32中是否存在visa32.dll)和GPIB卡(如National Instruments NI PCI-GPIB card或Agilent 82350B PCI High-Performance GPIB card)
+VISA 函数必须安装 VISA 库文件(您可以检查visa32.dll是否在 WINDOWS\System32 目录中)
+及 GPIB 卡(例如 National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card)
 
 ###Related###
- _viClose , _viExecCommand , _viFindGpib , _viGpibBusReset , _viGTL , _viOpen , _viSetAttribute , _viSetTimeout
+_viExecCommand, _viFindGpib, _viGpibBusReset, _viGTL, _viOpen, _viSetAttribute, _viSetTimeout
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

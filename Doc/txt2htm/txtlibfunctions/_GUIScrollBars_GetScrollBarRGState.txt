@@ -2,45 +2,40 @@
 _GUIScrollBars_GetScrollBarRGState
 
 ###Description###
-获取一个滚动条组件的状态
+检索滚动控件组件的状态
 
 ###Syntax###
-#Include<GuiScrollBars.au3>
-_GUIScrollBars_GetScrollBarRGState($hWnd,$idObject)
+#Include <GuiScrollBars.au3>
+_GUIScrollBars_GetScrollBarRGState($hWnd, $idObject)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  窗口句柄
- $idObject  指定滚动条对象. 参数可为下列值之一:
-  $OBJID_CLIENT -
-      $hWnd参数为指向滚动条控件的句柄.
-  $OBJID_HSCROLL -
-      $hWnd窗口的水平滚动条.
-  $OBJID_VSCROLL -
-$hWnd窗口的垂直滚动条.
+$hWnd
+	窗口句柄
+$idObject
+	指定滚动控件对象. 参数可以是以下值之一:
+		$OBJID_CLIENT - 参数 $hWnd 是滚动控件的窗口句柄.
+		$OBJID_HSCROLL - $hWnd 窗口的水平滚动控件.
+		$OBJID_VSCROLL - $hWnd 窗口的垂直滚动控件.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如下格式数组:
-    [0] -
-滚动条自身.
-    [1] - 顶部或右侧箭头.
-    [2] -
-向上或向右翻页.
-    [3] - 滚动箱(示意图).
-    [4] -
-向下或向左翻页.
-    [5] - 底部或左侧箭头.
+成功:	返回数组格式如下:
+	[0] - 滚动控件本身.
+	[1] - 顶部或右侧箭头按钮.
+	[2] - 上部或右侧页面区域.
+	[3] - 滚动框.
+	[4] - 底部或左侧页面区域.
+	[5] - 底部或左侧箭头按钮.
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###
-以上常数需要 ScrollBarConstants.au3
+ 以上常数需要 ScrollBarConstants.au3
 
 ###Related###
 _GUIScrollBars_GetScrollBarInfoEx
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

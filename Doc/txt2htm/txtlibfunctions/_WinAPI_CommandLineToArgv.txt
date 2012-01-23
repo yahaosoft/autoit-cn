@@ -2,30 +2,32 @@
 _WinAPI_CommandLineToArgv
 
 ###Description###
-解析命令行字符串并返回参数数组
+解析命令行字符串,并返回命令行参数数组.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CommandLineToArgv( $sCmd )
+_WinAPI_CommandLineToArgv ( $sCmd )
 
 ###Parameters###
 @@ParamTable@@
 $sCmd
-   包含完整命令行的字符串. 如果为空串则返回空数组.
+	包含完整命令行的字符串.
+		如果参数是一个空字符串,函数将返回一个空数组（[0] 元素为0）
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回参数数组. 元素0为参数数量
-失败: 返回0并设置@error非0
+成功:	返回命令行参数的数组.数组的 [0] 元素包含参数的个数.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中CommandLineToArgvW的相关信息
+@@MsdnLink@@ CommandLineToArgvW
 
 ###Example###
 @@IncludeExample@@
+

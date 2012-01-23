@@ -2,33 +2,34 @@
 _WinAPI_AssocGetPerceivedType
 
 ###Description###
-获取文件基于其扩展名的感知类型
+根据文件扩展名检索文件的理解(perceived)类型.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_AssocGetPerceivedType( $sExt )
+_WinAPI_AssocGetPerceivedType ( $sExt )
 
 ###Parameters###
 @@ParamTable@@
 $sExt
-   包括前置点号的文件扩展名 , 如 ".txt"
+	文件的扩展名.必须包括前导句点,例如 ".txt".
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回包含下列参数的数组:
-    [0] - 感知类型($PERCEIVED_TYPE_...).
-    [1] - 感知类型的资源信息($PERCEIVEDFLAG_...).
-    [2] - 感知类型字符串 , 如 " 文本 " 或 " 视频 "
-失败: 返回0并设置@errer非0
+成功:	返回包含以下参数的数组:
+	[0] - 理解(perceived)类型 ($PERCEIVED_TYPE_*).
+	[1] - 理解(perceived)类型源信息($PERCEIVEDFLAG_*).
+	[2] - 理解(perceived)类型字符串 "text" or "video".
+失败:	返回 0,设置@error:非 0, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中AssocGetPerceivedType的相关信息
+@@MsdnLink@@ AssocGetPerceivedType
 
 ###Example###
 @@IncludeExample@@
+

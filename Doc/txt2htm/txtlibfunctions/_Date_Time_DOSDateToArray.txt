@@ -2,7 +2,7 @@
 _Date_Time_DOSDateToArray
 
 ###Description###
-将DOS日期解码为数组
+解码一个 DOS 日期到一个数组
 
 ###Syntax###
 #Include <Date.au3>
@@ -10,27 +10,24 @@ _Date_Time_DOSDateToArray($iDosDate)
 
 ###Parameters###
 @@ParamTable@@
-$iDosDate 
-   MS-DOS日期, 结构如下:
-    0 - 4位为日期(1-31)
-    5 - 8位为月份(1=January, 2=February, 等)
-    9 - 15位为自1980年来的年份(加1980获取实际年份)
+$iDosDate
+	MS-DOS 日期, 封装为下方格式:
+		位 0- 4 ,一月中的其中一天(1–31)
+		位 5- 8 ,月份 (1 = 一月, 2 = 二月, 等等)
+		位 9-15 ,相对 1980 的偏移量(加上1980得到实际年份)
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 如下格式数组:
-   [0] - 月
-   [1] - 日
-   [2] - 年
-@@End@@
+返回一个下方格式的数组:
+		[0] - 月
+		[1] - 日
+		[2] - 年
 
 ###Remarks###
+None.
 
 ###Related###
- _Date_Time_DOSTimeToArray , _Date_Time_DOSDateTimeToArray
-
-###See Also###
+_Date_Time_DOSTimeToArray, _Date_Time_DOSDateTimeToArray
 
 ###Example###
 @@IncludeExample@@

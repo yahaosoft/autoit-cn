@@ -2,7 +2,7 @@
 _NamedPipes_ConnectNamedPipe
 
 ###Description###
-使管道服务器端进程等待客户端进程连接
+允许命名管道服务器进程等待客户端连接
 
 ###Syntax###
 #Include <NamedPipes.au3>
@@ -10,24 +10,30 @@ _NamedPipes_ConnectNamedPipe($hNamedPipe[, $pOverlapped = 0])
 
 ###Parameters###
 @@ParamTable@@
- $hNamedPipe  命名管道实例的服务器端句柄
- $pOverlapped  $tagOVERLAPPED结构的指针. 如果hNamedPipe以$FILE_FLAG_OVERLAPPED打开 , pOverlapped必须非0. 如果hNamedPipe
-以$FILE_FLAG_OVERLAPPED且pOverlapped非0创建 , $tagOVERLAPPED结构应该包含一个手动重置事件对象的句柄.
-如果hNamedPipe不以$FILE_FLAG_OVERLAPPED打开 , 直到已连接到一个客户端或产生错误 , 函数才会返回.
-如果在函数被调用后已连接客户端 , 成功同步操作将使函数返回一个非0值.
+$hNamedPipe
+	服务器端命名管道实例句柄
+$pOverlapped
+	[可选参数] $tagOVERLAPPED 结构指针. 如果 hNamedPipe 以 $FILE_FLAG_OVERLAPPED 打开,
+		pOverlapped 必须不为 0. 如果 hNamedPipe 由 $FILE_FLAG_OVERLAPPED 创建,且 pOverlapped 不是 0,
+		$tagOVERLAPPED 结构应包含一个手动重置事件对象的句柄. 
+		如果 hNamedPipe 不是以 $FILE_FLAG_OVERLAPPED 打开,
+		函数不返回,直到客户端连接或发生错误.
+		如果客户端连接后,调用该函数同步操作成功,函数返回一个非零值.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-如果在函数被调用前已连接了一个客户端 , 函数返回0且GetLastError将返回ERROR_PIPE_CONNECTED. 这有可能发生在调用CreateNamedPipe和ConnectNamedPipe的间隔中连接客户端的情况下. 对此情况, 尽管函数返回0也是一个良好连接.
+如果在客户端连接之前调用该函数, 函数返回零,并且 GetLastError 将返回 ERROR_PIPE_CONNECTED.
+ERROR_PIPE_CONNECTED. 如果客户端的连接在调用 CreateNamedPipe 与 ConnectNamedPipe 之间,可能发生时间间隔
+这种情况下,即使该函数返回 0,客户端和服务器之间也有良好连接.
 
 ###Related###
- _NamedPipes_CreateNamedPipe ,  $tagOVERLAPPED
+_NamedPipes_CreateNamedPipe, $tagOVERLAPPED
 
 ###See Also###
-搜索MSDN知识库中ConnectNamedPipe的相关信息
+@@MsdnLink@@ ConnectNamedPipe

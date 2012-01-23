@@ -2,32 +2,35 @@
 _WinAPI_HideCaret
 
 ###Description###
-隐藏插入符
+移除屏幕插入符号.隐藏但不破坏插入符号目前形状或无效的插入点.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_HideCaret( $hWnd )
+_WinAPI_HideCaret ( $hWnd )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   插入符所属窗体的句柄. 如果为0, _WinAPI_HideCaret()在当前任务中搜索插入符所属的窗体.
+	拥有插入符号的窗口句柄.如果此参数为 0,
+		 本函数将为拥有插入符号的窗口搜索每一当前任务. 
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-_WinAPI_HideCaret()只隐藏拥有插入符的指定窗体中的插入符. 如果指定窗体没有插入符函数返回0.
-隐藏是累积的. 如果在一行中调用五次_WinAPI_HideCaret(), 必须在显示插入符前调用五次_WinAPI_ShowCaret().
+如果指定窗口拥有插入符号,函数仅隐藏插入符号.
+ 如果指定窗口没有自己的插入符号,函数不执行任何操作并返回 0.
+ 隐藏是累积性的.如果应用程序连续调用本函数 5 次,
+ 显示插入符号显示也必须 5 次调用 _WinAPI_ShowCaret().
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中HideCaret的相关信息
+@@MsdnLink@@ HideCaret
 
 ###Example###
 @@IncludeExample@@
+

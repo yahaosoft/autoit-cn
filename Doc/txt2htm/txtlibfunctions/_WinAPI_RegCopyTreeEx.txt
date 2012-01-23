@@ -2,33 +2,37 @@
 _WinAPI_RegCopyTreeEx
 
 ###Description###
-将包含其子键和值的指定注册表键复制到目标键
+复制指定的注册表项及其子项到指定的目标键.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RegCopyTreeEx( $hSrcKey, $sSrcSubKey, $hDestKey )
+_WinAPI_RegCopyTreeEx ( $hSrcKey, $sSrcSubKey, $hDestKey )
 
 ###Parameters###
 @@ParamTable@@
 $hSrcKey
-$HKEY_...). 该键以$KEY_READ权限打开.
+	打开的注册表项句柄,该键项必须已打开且有 $KEY_READ 访问权限.
+		 句柄由 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回,
+		 也可以是预定义的注册表项 ($HKEY_*).
 $sSrcSubKey
-$hSrcKey参数标识的值的子键.
+	键名称.这个键必须是由 $hSrcKey 参数确定键的子项
 $hDestKey
-$HKEY_...)
+	目标键句柄. 调用进程必须有 $KEY_CREATE_SUB_KEY 访问权.
+		 句柄由 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回,
+		 也可以是预定义的注册表项 ($HKEY_*).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0, @extended标记可包含非0系统错误代码.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
-该函数同时复制键和值的安全属性.
-最低系统为Windows Vista.
+函数能复制键的安全描述符.
+ 本函数需要 Windows Vista 或更高版本系统.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中RegCopyTree的相关信息
+@@MsdnLink@@ RegCopyTree
+

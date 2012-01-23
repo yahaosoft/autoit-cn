@@ -2,30 +2,32 @@
 _WinAPI_IsBadStringPtr
 
 ###Description###
-确定调用进程是否对指定范围的内存具有读取权限
+Verifies that the calling process has read access to the specified range of memory.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_IsBadStringPtr( $pAddress, $iLenght )
+_WinAPI_IsBadStringPtr ( $pAddress, $iLenght )
 
 ###Parameters###
 @@ParamTable@@
 $pAddress
-   NUL结尾的字符串的指针(UNICODE或ASCII)
+	A pointer to a null-terminated string, either Unicode or ASCII.
 $iLenght
-   TCHAR表示的字符串的最大数量
+	The maximum size of the string, in TCHARs.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1时表示调用进程不具有读取到NUL终止字符前的全部字符或指定字符数量的字符的权限; 反之返回0
-失败: 返回0并设置@error非0
+Success	1 - The calling process does not have read access to all characters up to the string's terminating null
+0	Otherwise.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-该函数检查到NUL终止字符前的全部字符或任意小于由$iLenght参数指定的字符数量的读取权限
+This function checks for read access in all characters up to the string's terminating null character or up to the
+number of characters specified by this parameter, whichever is smaller.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中IsBadStringPtr的相关信息
+@@MsdnLink@@ IsBadStringPtr
+

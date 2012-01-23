@@ -2,44 +2,46 @@
 _WordMacroRun
 
 ###Description###
-运行一个VB宏
+运行 Visual Basic 宏
 
 ###Syntax###
-#Include <Word.au3>
-_WordMacroRun ( $o_object, $s_MacroName [, $v_Arg1, [, ... [, $v_Arg30]]] )
+#include <Word.au3>
+_WordMacroRun ( $o_object, $s_MacroName [, $v_Arg1 [, $v_Arg<i>n</i> [, $v_Arg30]]] )
 
 ###Parameters###
 @@ParamTable@@
-$o_object 
-   Word.Application对象变量
-$s_MacroName 
-   宏名称. 可以是模板, 模块, 和宏名的任意组合. (见备注)
-$v_Arg1 
-   可选:  传递给宏的第一个参数
-... 
-   ...
-$v_Arg30 
-   可选: 传递给宏的第三十个参数
+$o_object
+	Word.Application 对象的对象变量
+$s_MacroName
+	宏名称. 可以是任何模板, 模块组合, 和宏名称本身. (见备注)
+$v_Arg1
+	[可选参数] 传递给宏的第一个参数
+$v_Arg<i>n</i>
+	[可选参数] ...
+$v_Arg30
+	[可选参数] 传递给宏的第三十个参数
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回 1
- 失败:  返回 0 并设置 @ERROR
- @Error:  0 ($_WordStatus_Success) = 无错误
-  1 ($_WordStatus_GeneralError) = 一般错误
-  2 ($_WordStatus_ComError) = Com 错误
-  3 ($_WordStatus_InvalidDataType) = 无效数据类型
-  4 ($_WordStatus_InvalidObjectType) = 无效对象类型
- @Extended:  包含无效参数个数
+成功:	返回 1
+失败:	返回 0, 并设置 @ERROR
+@Error:	$_WordStatus_Success = 没有错误
+	$_WordStatus_GeneralError = 常规错误
+	$_WordStatus_ComError = Com 错误
+	$_WordStatus_InvalidDataType = 无效的数据类型
+	$_WordStatus_InvalidObjectType = 无效的对象类型
+@Extended:	包含无效的参数的序号
 @@End@@
 
+
 ###Remarks###
-如果指定文档名, 宏代码只能作用于当前文档有联系的上下文中 ?不是任意文档的任意宏.
+如果指定文档名称,您的代码只能运行当前文档相关的上下文中的宏 - 而不是运行任何宏于任何文档.
+
 
 ###Related###
+None.
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

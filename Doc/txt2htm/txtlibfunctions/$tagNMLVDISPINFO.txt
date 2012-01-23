@@ -2,48 +2,54 @@
 $tagNMLVDISPINFO
 
 ###Description###
-包含关于$LVN_GETDISPINFO或$LVN_SETDISPINFO通知消息的信息的结构
+包含 $LVN_GETDISPINFO 或 $LVN_SETDISPINFO 通知消息
 
 ###Syntax###
-Global Const $tagNMLVDISPINFO =  $tagNMHDR & ";int Mask;int Item;int SubItem;int State;int StateMask;ptr Text;int TextMax;int Image;int Param;int Indent;int GroupID;int Columns;ptr pColumns"
+Global Const $tagNMLVDISPINFO = $tagNMHDR & ";int Mask;int Item;int SubItem;int State;int StateMask;" & _
+		"ptr Text;int TextMax;int Image;int Param;int Indent;int GroupID;int Columns;ptr pColumns"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   包含通知消息的信息
+	包含通知消息的信息
 Mask
-   指定包含将被设置数据的结构成员或哪些成员将被请求的标记的集合. 该成员可设置一个或多个下列标记:
-    $LVIF_COLUMNS - Columns成员可用
-    $LVIF_DI_SETITEM - 操作系统将保存请求的列表项信息
-    $LVIF_GROUPID - GroupID成员可用
-    $LVIF_IMAGE - Image成员可用
-    $LVIF_INDENT - Indent成员可用
-    $LVIF_NORECOMPUTE - 控件不会产生LVN_GETDISPINFO以获取文本信息
-    $LVIF_PARAM - Param成员可用
-    $LVIF_STATE - State成员可用
-    $LVIF_TEXT - Text成员可用
+	Set of flags that specify which members of this structure contain data to be set or which members
+	are being requested. 该成员可设置为一或多个下列值:
+		$LVIF_COLUMNS - Columns 成员有效
+		$LVIF_DI_SETITEM - 操作系统保存请求的列表箱信息
+		$LVIF_GROUPID - GroupID 成员有效
+		$LVIF_IMAGE - Image 成员有效
+		$LVIF_INDENT - Indent 成员有效
+		$LVIF_NORECOMPUTE - 控件将不会产生 LVN_GETDISPINFO 文本信息检索
+		$LVIF_PARAM - Param 成员有效
+		$LVIF_STATE - State 成员有效
+		$LVIF_TEXT - Text 成员有效
 Item
-   结构指向的项目的0基索引
+	项目的 0 基索引
 SubItem
-   结构指向的子项目的1基索引
+	子项目的 1 基索引
 State
-   表示项目的状态, 状态图像, 及重叠图像
+	项目的状态, 状态图像, 及覆盖图像
 StateMask
-   指定将被获取或修改的状态成员的数位值
+	指定将被获取或修改 state 成员的值
 Text
-   包含项目文本的字符串的指针
+	项目文本字符串
 TextMax
-   由Text指定的缓冲区中包括字符串终止符的字节数量
+	缓冲区中包括结束符字符串文本的字节数量
 Image
-   项目图标在控件图像列表中的索引
+	项目图标在图像列表中的索引
 Param
-   指定给项目的值
+	项目的具体值
 Indent
-   缩进项目图像的宽度数量
+	项目数缩进的图像宽度数
 GroupID
-   接收项目的平铺视图分组的标识符
+	项目平铺视图组的标识符
 Columns
-   显示该项的平铺视图的列数 to display for this item
+	显示项目的平铺视图中列的数量
 pColumns
-   列索引数组的指针
-@@end@@
+	列索引数组的指针
+@@End@@
+
+###Remarks###
+None.
+

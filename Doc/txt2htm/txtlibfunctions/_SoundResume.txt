@@ -2,32 +2,33 @@
 _SoundResume
 
 ###Description###
-继续一个暂停的声音
+恢复暂停的声音
 
 ###Syntax###
-#Include <Sound.au3>
+#include <Sound.au3>
 _SoundResume ( $aSnd_id )
+
 
 ###Parameters###
 @@ParamTable@@
- $aSnd_id  由_SoundOpen或文件名返回的声音ID数组
+$aSnd_id
+	由 _SoundOpen() 返回的声音数组 ID 或文件名称
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  1
- 失败:  0并设置@error
-  1 = 暂停失败
-  3 = 无效声音ID. 使用由_SoundOpen返回的数组.
+成功:	返回 1
+失败:	返回 0,设置@error:	
+@error:	1 = Pause 失败
+	3 = 无效的声音标识. 使用 _SoundOpen()返回的数组或有效文件名.
 @@End@@
 
 ###Remarks###
-当声音在某种情况下被暂停后_SoundPlay将继续播放.
+ _SoundPlay() 恢复播放声音后,某些情况下也可以暂停.
 
 ###Related###
- _SoundPause , _SoundPlay , _SoundOpen
-
-###See Also###
+_SoundPause, _SoundPlay, _SoundOpen
 
 ###Example###
 @@IncludeExample@@
+

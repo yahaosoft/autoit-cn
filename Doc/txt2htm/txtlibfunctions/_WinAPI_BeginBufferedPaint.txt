@@ -2,51 +2,55 @@
 _WinAPI_BeginBufferedPaint
 
 ###Description###
-启动缓冲绘制操作
+Begins a buffered paint operation.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_BeginBufferedPaint( $hDC, $tTarget, ByRef $hNewDC [, $iFormat [, $iFlags [, $tExclude [, $iAlpha]]]] )
+_WinAPI_BeginBufferedPaint ( $hDC, $tTarget, ByRef $hNewDC [, $iFormat [, $iFlags [, $tExclude [, $iAlpha]]]] )
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   缓冲将绘制其上的目标场景的句柄
+	Handle of the target DC on which the buffer will be painted.
 $tTarget
-   $tagRECT结构
+	$tagRECT structure that specifies the area of the target DC in which to paint.
 $hNewDC
-   新场景句柄
+	Handle of the new device context.
 $iFormat
-   [可选] 缓冲区格式. 该参数可为下列值之一.
-    $BPBF_COMPATIBLEBITMAP - 兼容位图. 每像素位数与由BeginBufferedPaint或BeginBufferedAnimation指定的HDC的设备(通常为显示设备)相关的颜色格式.
-    $BPBF_DIB - 自下而上且与设备无关的位图. 位图原点为左下角. 每像素32位.
-    $BPBF_TOPDOWNDIB - 自上而下且与设备无关的位图. 位图原点为左上角. 每像素32位.
-    $BPBF_TOPDOWNMONODIB - 自上而下. 单色. 设备无关位图. 每像素1位.
+	[可选参数] The format of the buffer. This parameter can be one of the following values.
+	
+	$BPBF_COMPATIBLEBITMAP
+	$BPBF_DIB
+	$BPBF_TOPDOWNDIB
+	$BPBF_TOPDOWNMONODIB
+	
 $iFlags
-   [可选] 附加标记. 可为一个或多个下列值.
-    $BPPF_ERASE - 初始化缓冲区时擦除原有内容
-    $BPPF_NOCLIP - 目标场景的剪切区域不使用双倍缓冲
-    $BPPF_NONCLIENT - 用于无客户区场景
+	[可选参数] The additional flags, one or more of the following values.
+	
+	$BPPF_ERASE
+	$BPPF_NOCLIP
+	$BPPF_NONCLIENT
+	
 $tExclude
-    tagRECT结构
+	[可选参数] $tagRECT structure that specifies the area which is excluded from the clipping region.
 $iAlpha
-   [可选] 完整源位图上使用的透明度值. 如果未指定或为-1, 源缓冲区不会混合复制到目标.
+	[可选参数] The alpha transparency value to be used on the entire source bitmap. If this parameter is not
+	specified or (-1), the source buffer is copied to the destination with no blending.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回缓冲图像场景的句柄
-失败: 返回0并设置@error非0
+Success	The handle to the buffered paint context.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-最低系统要求: Windows Vista
-运行示例前请将 Tech.bmp 及 NVIDIA.ico 文件保存至临时文件夹
+This function requires Windows Vista or later.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中BeginBufferedPaint的相关信息
+@@MsdnLink@@ BeginBufferedPaint
 
 ###Example###
 @@IncludeExample@@
+

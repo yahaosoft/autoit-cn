@@ -6,22 +6,29 @@ _WinAPI_WidenPath
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_WidenPath( $hDC )
+_WinAPI_WidenPath ( $hDC )
 
 ###Parameters###
 @@ParamTable@@
-$hDC  包含封闭路径的设备场景的句柄
+$hDC
+	包含封闭路径的设备场景的句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回1
+失败:	返回0设置@error 非0
 @@End@@
 
 ###Remarks###
+The device context identified by the $hDC parameter must contain a closed path.
 
-###Related###
+The _WinAPI_WidenPath() function is successful only if the current pen has a width, in device units, of more than one.
+
+Any Bezier curves in the path are converted to sequences of straight lines approximating the widened curves.
+As such, no Bezier curves remain in the path after _WinAPI_WidenPath() is called.
+
 
 ###See Also###
- 搜索MSDN知识库中WidenPath的相关信息
+@@MsdnLink@@ WidenPath
+

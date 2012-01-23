@@ -1,39 +1,43 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _IEGetObjByName
 
 ###Description###
-è¿”å›žæŒ‡å®šåç§°(name)æˆ–è€…idçš„å¯¹è±¡å˜é‡
+°´Ãû³Æ»ò±êÊ¶·µ»Ø¶ÔÏó±äÁ¿.
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IEGetObjByName ( ByRef $o_object, $s_Id [, $i_index = 0] )
 
 ###Parameters###
 @@ParamTable@@
- å¯¹è±¡å˜é‡  InternetExplorer.Application , çª—å£æˆ–è€…æ¡†æž¶(frame)å¯¹è±¡çš„å¯¹è±¡å˜é‡
- ID  å®šä¹‰ä½ æƒ³è¦åŒ¹é…çš„å¯¹è±¡çš„åç§°æˆ–è€…ID
- ç´¢å¼•  [å¯é€‰]: å¦‚æžœåç§°æˆ–è€…IDå‡ºçŽ°ä¸æ­¢ä¸€æ¬¡ , å®šä¹‰ä»Ž0å¼€å§‹çš„å…·ä½“å¯¹è±¡.
-0 (é»˜è®¤)æˆ–è€…æ­£æ•´æ•°è¿”å›žå¯¹åº”ç´¢å¼•å·çš„å¯¹è±¡
--1 è¿”å›žæŒ‡å®šå¯¹è±¡çš„é›†åˆ
+$o_object
+	InternetExplorer.Application´°Ìå»ò¿ò¼Ü¶ÔÏóµÄ¶ÔÏó±äÁ¿
+$s_Id
+	Ö¸¶¨ÏëÒªÆ¥ÅäµÄ¶ÔÏóµÄÃû³Æ»òID
+$i_index
+	[¿ÉÑ¡²ÎÊý]: Èç¹ûidµÄÃû³Æ²»Ö¹Ò»´Î³öÏÖ, ÓÉ0»ùË÷ÒýÖ¸¶¨ÊµÀý
+	0 (Ä¬ÈÏ)»òÕýÕûÊý·µ»ØÒ»¸öË÷ÒýµÄÊµÀý
+	-1 ·µ»ØÒ»¸öÖ¸¶¨¶ÔÏóµÄ¼¯ºÏ
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: è¿”å›žæŒ‡å‘æŒ‡å®šå¯¹è±¡çš„å¯¹è±¡å˜é‡ , @EXTENDED = æŒ‡å®šå¯¹è±¡æ•°é‡
-å¤±è´¥: è¿”å›ž0å¹¶è®¾ç½®@ERRORä¸º:
-    0 ($_IEStatus_Success) = æ— é”™è¯¯
-    3 ($_IEStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»åž‹
-    7 ($_IEStatus_NoMatch) = ä¸åŒ¹é…
-    @Extended: åŒ…å«æ— æ•ˆå‚æ•°æ•°é‡
+³É¹¦:	·µ»ØÖ¸ÏòÖ¸¶¨¶ÔÏóµÄ¶ÔÏó±äÁ¿, @EXTENDED = Ö¸¶¨¶ÔÏóÊýÁ¿
+Ê§°Ü:	·µ»Ø0 ²¢ÇÒÉèÖÃ @ERROR
+@Error:	0 ($_IEStatus_Success) = ÎÞ´íÎó
+	3 ($_IEStatus_InvalidDataType) = ÎÞÐ§Êý¾ÝÀàÐÍ
+	7 ($_IEStatus_NoMatch) = ÎÞÆ¥Åä
+@Extended:	°üº¬ÎÞÐ§²ÎÊýÊýÁ¿
 @@End@@
 
+
 ###Remarks###
-è¿™ä¸ªå‡½æ•°å°†è¿”å›žæŒ‡å®šåç§°æˆ–è€…IDçš„å¯¹è±¡çš„å¯¹è±¡å¼•ç”¨. DOMç»„ä»¶å¯ä»¥æœ‰åç§°æˆ–è€…IDå±žæ€§æˆ–è€…äºŒè€…éƒ½æœ‰. ä¸€ä¸ªç‰¹æ®Šçš„IDå¯ä»¥è¢«åˆ†é…ç»™ä¸€ä¸ªå•ç‹¬çš„å…ƒç´ è€Œä¸€ä¸ªç‰¹æ®Šçš„åç§°(name)å¯ä»¥è¢«åˆ†é…ç»™å¤šä¸ªå…ƒç´ . åœ¨IEé‡Œé¢åç§°å’ŒIDæ˜¯è¢«å…±äº«çš„.
+º¯Êý½«·µ»ØÒ»¸öÖ¸ÏòÎÄµµÖÐ´øÓÐÖ¸¶¨ID»òÃû³ÆµÄÈÎÒâ¶ÔÏóµÄ¶ÔÏó. DOMÔªËØ¿É¾ßÓÐÃû³Æ»òIDÊôÐÔ»òÁ½Õß. µ±Ò»¸öÖ¸¶¨Ãû³Æ±»·ÖÅä¸øInternet ExplorerÖÐµÄ¶à¸öÔªËØÊ±Ö¸¶¨µÄIDÖ»¿É±»·ÖÅä¸øµ¥Ò»ÔªËØ, Ãû³ÆºÍIDµÄÃüÃû¿Õ¼äÊÇ¹²ÏíµÄ.
+
 
 ###Related###
- _IEGetObjById
+_IEGetObjById
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

@@ -2,43 +2,45 @@
 _IEDocInsertHTML
 
 ###Description###
-在一个元素(element)内部或者周围插入HTML代码.
+在一个元素内部或者周围插入HTML代码.
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IEDocInsertHTML ( ByRef $o_object, $s_string [, $s_where = "beforeend"] )
 
 ###Parameters###
 @@ParamTable@@
- $o_object  指向文档元素的对象变量.
- $s_string  插入的HTML代码.
- $s_where  可选: 定义代码插入位置
-beforebegin = 在对象之前立即插入代码.
-afterbegin =
-      在对象开始之后,但是在该对象其他内容之前插入代码.
-beforeend = (默认) 在对象结尾之前但是在该对象其他内容之后立即插入代码.
-afterend = 在对象结尾之后插入代码.
+$o_object
+	指向文档元素的对象变量.
+$s_string
+	插入的HTML代码.
+$s_where
+	[可选参数]: 定义代码插入位置
+	beforebegin = 在对象之前立即插入代码.
+	afterbegin = 在对象开始之后,但是在该对象其他内容之前插入代码.
+	beforeend = (默认) 在对象结尾之前但是在该对象其他内容之后立即插入代码.
+	afterend = 在对象结尾之后插入代码.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@ERROR为:
-    0 ($_IEStatus_Success) = 无错误
-    1 ($_IEStatus_GeneralError) = 一般性错误
-    3 ($_IEStatus_InvalidDataType) = 无效数据类型
-    4 ($_IEStatus_InvalidObjectType) = 无效对象类型
-    5 ($_IEStatus_InvalidValue) = 无效值
-    @Extended: 包含无效参数数量
+成功:	返回1
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) =无错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+	5 ($_IEStatus_InvalidValue) = 无效值
+@Extended:	包含无效参数数量
 @@End@@
 
+
 ###Remarks###
-通过_IEPropertySet的 innerHTML , outerHTML , innerText和outerText参数可以动态地处理插入的内容.
+通过_IEPropertySet的innerHTML, outerHTML, innerText和outerText参数可以动态地处理插入的内容.
+
 
 ###Related###
- _IEDocInsertText , _IEPropertyGet , _IEPropertySet , _IEBodyReadHTML , _IEBodyWriteHTML , _IEDocReadHTML , _IEHeadInsertEventScript
+_IEDocInsertText, _IEPropertyGet, _IEPropertySet, _IEBodyReadHTML, _IEBodyWriteHTML, _IEDocReadHTML, _IEHeadInsertEventScript
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

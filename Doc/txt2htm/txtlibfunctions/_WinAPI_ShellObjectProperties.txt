@@ -2,35 +2,40 @@
 _WinAPI_ShellObjectProperties
 
 ###Description###
-调用Shell对象的上下文菜单中的属性命令
+调用 Shell 对象属性上下文菜单命令.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellObjectProperties( $sPath [, $iType [, $sProperty [, $hParent]]] )
+_WinAPI_ShellObjectProperties ( $sPath [, $iType [, $sProperty [, $hParent]]] )
 
 ###Parameters###
 @@ParamTable@@
-$sPath  对象名称
-$iType  [可选] 指定对象类型的值:
-$SHOP_PRINTERNAME - 打印机名
-$SHOP_FILEPATH - 文件路径
-$SHOP_VOLUMEGUID - 卷的GUID
-$sProperty  [可选] 缺省打开的属性页的名称
-$hParent  [可选] 对话框的父窗体句柄
+$sPath
+	对象名称.
+$iType
+	[可选参数] 指定对象的类型.
+		 $SHOP_PRINTERNAME --- $sPath 包含一个打印机名称
+		 $SHOP_FILEPATH --- $sPath 包含一个完全限定的文件名
+		 $SHOP_VOLUMEGUID --- $sPath 包含 [1]: "\\?\Volume{GUID}\" 形式的卷名,其中（GUID）是一个全局唯一标识符,（例如 "\\?\Volume\{2eca078d-5cbc-43d3-aff8-7e8511f60d0e}\)" ; 或 [2]:一个驱动器的路径（例如,"C:\") 
+$sProperty
+	[可选参数] 首先打开的属性表页的名称.
+$hParent
+	[可选参数] 对话框的父窗句柄 box.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SHObjectProperties的相关信息
+@@MsdnLink@@ SHObjectProperties
 
 ###Example###
 @@IncludeExample@@
+

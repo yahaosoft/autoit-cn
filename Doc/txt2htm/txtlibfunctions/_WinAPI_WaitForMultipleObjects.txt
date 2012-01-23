@@ -2,35 +2,40 @@
 _WinAPI_WaitForMultipleObjects
 
 ###Description###
-等待至指定对象的一个或全部处于有信号状态
+等待,直到一或多个指定对象中处于信号状态
 
 ###Syntax###
-#Include
-<WinAPI.au3>
-_WinAPI_WaitForMultipleObjects($iCount, $pHandles[,
-$fWaitAll = False[, $iTimeout = -1]])
+#Include <WinAPI.au3>
+_WinAPI_WaitForMultipleObjects($iCount, $pHandles [, $fWaitAll = False [, $iTimeout = -1]])
 
 ###Parameters###
 @@ParamTable@@
-$iCount  在由pHandles指向的数组中的对象句柄的数量
-$pHandles  对象句柄的数组的指针
-$fWaitAll  如果为真, 函数在pHandles数组中的全部对象的状态有信号时返回.
-如果为假, 函数在任意一个对象的状态被设置为有信号时返回.
-      在后一种情况下, 返回值表示其状态导致函数返回的对象.
-$iTimeout  超时的毫秒间隔. 经过时间间隔时函数返回, 即由fWaitAll参数指定的环境尚未完成. 如果为0, 函数检查指定对象的状态并立即返回.
-      如果为-1, 直到相应时间事件为有信号状态才返回.
+$iCount
+	$pHandles 指向的对象句柄数组的数目
+$pHandles
+	对象句柄数组指针
+$fWaitAll
+	[可选参数] 如为 True, 函数返回 $pHandles 数组中所有对象的状态信号.
+		如为 False, 任何一个对象被设置为信号状态时, 函数返回
+		在后一种情况下, 返回值表示由对象状态所造成的函数返回.
+$iTimeout
+	[可选参数] 超时时间间隔的毫秒值. 
+		如果 $fWaitAll 参数指定的条件没有得到满足, 函数在间间隔过后返回. 
+		如果为0, 函数测试指定对象的状态并立即返回.
+		如果为 -1, 函数的超时间隔永远不会消失.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 导致函数返回的事件
-失败: -1
+成功:	由事件导致的函数返回
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 _WinAPI_WaitForSingleObject
 
 ###See Also###
-搜索MSDN知识库中WaitForMultipleObjects的相关信息
+@@MsdnLink@@ WaitForMultipleObjects

@@ -2,31 +2,33 @@
 _WinAPI_GetWindowDC
 
 ###Description###
-获取整个窗口的设备环境
+检索整个窗口的设备环境（DC）
 
 ###Syntax###
-#Include
-<WinAPI.au3>
+#Include <WinAPI.au3>
 _WinAPI_GetWindowDC($hWnd)
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   窗口句柄
+	窗口句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 对指定窗口的设备环境的句柄
-失败: 0
+成功:	返回指定窗口设备环境的句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-GetWindowDC专注于在窗口的非客户区的特殊绘画效果. 一般不建议在窗口的非客户区绘图.
-GetSystemMetrics函数可被用于获取非客户区不同部分的空间, 如标题栏, 菜单, 和滚动条.
-当绘制完成后, 必须调用_WinAPI_ReleaseDC函数以释放设备场景. 不释放窗口设备场景会严重影响应用程序的绘制请求.
+ 本函数用于在窗口非客户区的特殊绘画效果,
+ 通常不推荐在任何窗口非客户区绘画.
+ GetSystemMetrics 函数可用于检索非客户区的各部分尺寸, 如标题栏, 菜单, 滚动条.
+ 绘画完成后, 必须调用 _WinAPI_ReleaseDC 函数以释放设备环境.
+ 没有释放的窗口设备环境对绘画的应用要求有严重影响.
 
 ###Related###
+_WinAPI_ReleaseDC
 
 ###See Also###
-搜索MSDN知识库中GetWindowDC的相关信息
+@@MsdnLink@@ GetWindowDC

@@ -2,29 +2,129 @@
 _WinAPI_Keybd_Event
 
 ###Description###
-模拟击键
+合成按键.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_Keybd_Event( $vkCode, $iFlags [, $iScanCode [, $iExtraInfo]] )
+_WinAPI_Keybd_Event ( $vKey, $iFlags [, $iScanCode [, $iExtraInfo]] )
 
 ###Parameters###
 @@ParamTable@@
-$vkCode  虚拟键代码($VK_...)。可为1到254范围中的一个值.见@@End@@
-
-###Remarks###
- iFlags  指定函数操作方式. 可谓下列值之一:
-$KEYEVENTF_EXTENDEDKEY - 代码以0xE0为前缀
-$KEYEVENTF_KEYUP - 正在释放键, 反之, 正被按下.
- $iScanCode  指定该键的硬件扫描代码  $iExtraInfo  指定与击键相关的额外值
+$vKey
+	虚拟键码 ($VK_...). 代码值必须在 1 到 254 范围内.
+		 0x01 - 鼠标左键
+		 0x02 - 鼠标右键
+		 0x03 - 控制中断处理
+		 0x04 - 鼠标中键（三键鼠标）
+		 0x05 - X1 鼠标按键
+		 0x06 - X2 鼠标按键
+		 0x08 - BACKSPACE 退格键
+		 0x09 - TAB 键
+		 0x0C - 清除键
+		 0x0D - 回车键
+		 0x10 - SHIFT 键
+		 0x11 - CTRL 键
+		 0x12 - ALT 键
+		 0x13 - PAUSE 键
+		 0x14 - CAPS LOCK 键
+		 0x1B - ESC 键
+		 0x20 - 空格键
+		 0x21 - PAGE UP 键
+		 0x22 - PAGE DOWN 键
+		 0x23 - END 键
+		 0x24 - HOME 键
+		 0x25 - 向左箭头键
+		 0x26 - 向上箭头键
+		 0x27 - 向右箭头键
+		 0x28 - 向下箭头键
+		 0x29 - SELECT 键
+		 0x2A - PRINT 键
+		 0x2B - EXECUTE 键
+		 0x2C - PRINT SCREEN 键
+		 0x2D - INS 键
+		 0x2E - DEL 键
+		 0x2F - HELP 键
+		 0x30 - 0x39 - (0 - 9) 键
+		 0x41 - 0x5A - (A - Z) 键
+		 0x5B - 左微软徽标键
+		 0x5C - 右微软徽标键
+		 0x5D - Applications 键
+		 0x5F - 电脑休眠键
+		 0x60 - 0x69 - 数字键盘 (0 - 9) 键
+		 0x6A - 乘号键
+		 0x6B - 加号键
+		 0x6C - Separator 键
+		 0x6D - ?减号键
+		 0x6E - 小数点键
+		 0x6F - 除号键
+		 0x70 - 0x87 - (F1 - F24) 键
+		 0x90 - NUM LOCK 键
+		 0x91 - SCROLL LOCK 键
+		 0xA0 - 左 SHIFT 键
+		 0xA1 - 右 SHIFT 键
+		 0xA2 - 左 CONTROL 键
+		 0xA3 - 右 CONTROL 键
+		 0xA4 - 左 MENU 键
+		 0xA5 - 右 MENU 键
+		 0xA6 - 浏览器返回键
+		 0xA7 - 浏览器向前键
+		 0xA8 - 浏览器刷新键
+		 0xA9 - 浏览器停止键
+		 0xAA - 浏览器搜索键
+		 0xAB - 浏览器收藏夹键
+		 0xAC - 浏览器启动与 Home 键
+		 0xAD - 音量静音键
+		 0xAE - 音量 - 键
+		 0xAF - 音量 + 键
+		 0xB0 - 下一曲目键
+		 0xB1 - 上一首曲目键
+		 0xB2 - 停止媒体键
+		 0xB3 - 播放/暂停媒体键
+		 0xB4 - 启动邮件键
+		 0xB5 - 选择媒体键
+		 0xB6 - 启动应用程序 1 键
+		 0xB7 - 启动应用程序 2 键
+		 0xBA - ';:' 键
+		 0xBB - '+' 键
+		 0xBC - ',' 键
+		 0xBD - '-' 键
+		 0xBE - '.' 键
+		 0xBF - '/?' 键
+		 0xC0 - '`~' 键
+		 0xDB - '[{' 键
+		 0xDC - '\|' 键
+		 0xDD - ']}' 键
+		 0xDE - 单引号/双引号键
+		 0xE2 - RT 102 键键盘尖括号键或反斜杠键
+		 0xE7 - 用于传递 Unicode 字符,好像它们是按键
+		 0xF6 - Attn 键
+		 0xF7 - CrSel 键
+		 0xF8 - ExSel 键
+		 0xF9 - 擦除 EOF 键
+		 0xFA - 播放键
+		 0xFB - 缩放键
+		 0xFD - PA1 键
+		 0xFE - 清除键
+$iFlags
+	[可选参数] 	此参数可以是一更多个下列值.
+		 $KEYEVENTF_EXTENDEDKEY --- 扫描码具有 0xE0(224) 前缀字节
+		 $KEYEVENTF_KEYUP --- 如指定此值,则函数控制键的释放动作,否则控制键的按下动作
+$iScanCode
+	[可选参数] 键的硬件扫描码.
+$iExtraInfo
+	[可选参数] 按键相关的附加值.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:非 0.
+@@End@@
 
-###Related###
+###Remarks###
+None
+
 
 ###See Also###
- 搜索MSDN知识库中Keybd_Event的相关信息
+@@MsdnLink@@ keybd_event
+

@@ -2,40 +2,41 @@
 _WinAPI_GetKeyboardType
 
 ###Description###
-获取当前键盘的信息
+检索当前键盘信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetKeyboardType( $iType )
+_WinAPI_GetKeyboardType ( $iType )
 
 ###Parameters###
 @@ParamTable@@
 $iType
-   要获取的键盘信息的类型. 可用值:
-    0 - 键盘类型
-    1 - 键盘子类型(原始设备制造商(OEM)支持的值)
-    2 - 键盘上的功能键数量
+	指定检索键盘信息类型, 有效值为:
+		0 - 键盘类型
+		1 - 键盘子类型 (原始设备制造商(OEM)的依赖值).
+		2 - 键盘上功能键的数量
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 指定信息的值. 如果$iType为0 , 可为下列值之一:
-    1 - IBM PC/XT或兼容键盘(83-键)
-    2 - Olivetti " ICO " 键盘(102-键)
-    3 - IBM PC/AT(84-键)或类似键盘
-    4 - IBM 增强型键盘(101-或102-键)
-    5 - Nokia 1050及类似键盘
-    6 - Nokia 9140及类似键盘
-    7 - 日文键盘
-失败: 返回0并设置@error非0
+成功:	返回要求的信息值. 如果 $iType 为 0,返回值可能是以下值之一.
+	1 - IBM 的 PC/XT, 或兼容 (83键) 键盘.
+	2 - Olivetti "ICO" (102-键) 键盘.
+	3 - IBM PC/AT (84-键) 或类似键盘.
+	4 - IBM 增强型 (101- 或 102-键) 键盘.
+	5 - 与诺基亚 1050 类似键盘.
+	6 - 与诺基亚 9140 类似键盘.
+	7 - 日语键盘.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+当 USB 键盘连接到电脑时,这函数返回代码 81.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetKeyboardType的相关信息
+@@MsdnLink@@ GetKeyboardType
 
 ###Example###
 @@IncludeExample@@
+

@@ -2,46 +2,48 @@
 _WinAPI_RadialGradientFill
 
 ###Description###
-径向梯度填充
+径向渐变填充.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RadialGradientFill( $hDC, $iX, $iY, $iRadius, $iRGB1, $iRGB2 [, $iAngleStart [, $iAngleEnd [, $iStep]]]  )
+_WinAPI_RadialGradientFill($hDC, $iX, $iY, $iRadius, $iRGB1, $iRGB2 [, $iAngleStart [, $iAngleEnd [, $iStep]]] )
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   目标设备场景句柄
+	设备环境句柄.
 $iX
-   中心点的逻辑单位x坐标
+	中心点 x 坐标逻辑单位.
 $iY
-   中心点的逻辑单位y坐标
+	中心点 y 坐标逻辑单位.
 $iRadius
-   填充的弧度
+	渐变填充的圆半径.
 $iRGB1
-   中心点颜色信息
+	中心点的颜色.
 $iRGB2
-   圆环边界的颜色信息
+	圆的边缘颜色.
 $iAngleStart
-   开始填充的角的度数
+	[可选参数] 开始填充的角度值.
 $iAngleEnd
-   结束填充的角的度数
+	[可选参数] 结束填充的角度值.
 $iStep
-   梯度填充的步进角度. 该参数使用较大的值可使梯度更好但需要更多时间
+	[可选参数] 渐变填充步进值.此参数的值越大,渐变效果会更好.
+		 但它需要更多的时间,反之值小用时少效果差.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@errer非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-该函数无法填充透明梯度及反锯齿.
+这个函数不填充透明度梯度,并且不使用抗锯齿.
 
-###Related###
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+

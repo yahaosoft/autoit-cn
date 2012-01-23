@@ -2,28 +2,33 @@
 _WinAPI_UnionRect
 
 ###Description###
-合并两矩形
+创建两个矩形的并集.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_UnionRect( $tRECT1, $tRECT2 )
+_WinAPI_UnionRect ( $tRECT1, $tRECT2 )
 
 ###Parameters###
 @@ParamTable@@
-$tRECT1  第一个矩形的$tagRECT结构
-$tRECT2  第二个矩形的$tagRECT结构
+$tRECT1
+	$tagRECT 结构,包含第一个源矩形.
+$tRECT2
+	$tagRECT 结构,包含第二个源矩形.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含$tRECT1和$tRECT2连接的$tagRECT结构
-失败: 返回0并设置@error非0
+成功:	返回 $tagRECT 结构, 包含 $tRECT1 与 $tRECT2 两个矩形的并集.
+失败:	返回 0,设置@error:	
+标志为非 0 值.
 @@End@@
 
 ###Remarks###
-连接形为包含两个源矩形的最小矩形. 系统忽视所有坐标均为0(没有宽度和高度)的空矩形的尺寸.
+并集是最小的矩形,它包含两个源矩形.
+ 系统忽略空尺寸的矩形, 
+ 即所有坐标设置为 0 的矩形,所以,它没有任何高度或宽度.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中UnionRect的相关信息
+@@MsdnLink@@ UnionRect
+

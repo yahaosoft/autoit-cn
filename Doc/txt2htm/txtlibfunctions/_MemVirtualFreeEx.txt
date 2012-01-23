@@ -2,33 +2,37 @@
 _MemVirtualFreeEx
 
 ###Description###
-释放目标进程的内存空间
+在进程的虚拟地址空间释放页面区域
 
 ###Syntax###
 #Include <Memory.au3>
-_MemVirtualFreeEx($hProcess,$pAddress, $iSize, $iFreeType)
+_MemVirtualFreeEx($hProcess, $pAddress, $iSize, $iFreeType)
 
 ###Parameters###
 @@ParamTable@@
- $hProcess  进程句柄
- $pAddress  被释放的内存区域的开始地址的指针
- $iSize  要释放的内存区域的字节大小
- $iFreeType  指定释放操作的类型:
-$MEM_DECOMMIT - 不指定执行操作的页面的区域
-$MEM_RELEASE -
-      释放保留页面的指定区域
+$hProcess
+	进程句柄
+$pAddress
+	被释放内存的区域起始地址指针
+$iSize
+	被释放内存的区域大小字节值
+$iFreeType
+	指定释放操作的类型:
+		$MEM_DECOMMIT - 承諾頁面可以收回的指定区域
+		$MEM_RELEASE - 释放保留页面的指定区域
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 _MemVirtualAllocEx
 
 ###See Also###
-搜索MSDN知识库VirtualFreeEx的相关信息
+@@MsdnLink@@ VirtualFreeEx

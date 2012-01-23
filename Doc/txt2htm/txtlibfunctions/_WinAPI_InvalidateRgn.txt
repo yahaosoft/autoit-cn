@@ -2,33 +2,35 @@
 _WinAPI_InvalidateRgn
 
 ###Description###
-向指定窗体的更新区域添加区域
+增加区域到指定窗口的更新区域.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_InvalidateRgn( $hWnd [, $hRgn [, $fErase]] )
+_WinAPI_InvalidateRgn ( $hWnd [, $hRgn [, $fErase]] )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   要修改的更新区域所在的窗体的句柄
+	窗口句柄.
 $hRgn
-   被加入更新区域的区域的句柄. 假设该区域具有客户区坐标. 如果该参数为0, 将整个客户区添加到更新区域.
+	[可选参数] 矩形句柄, 假定该区域为客户坐标.
+		 如果此参数为 0, 整个客户区被添加到更新区域.
 $fErase
-   指定操作更新区域时是否将擦除更新区域内的背景. 可为下列值:
-       TRUE - 擦除背景(默认)
-       FALSE  - 保留背景
+	[可选参数] 指定更新进程是否删除更新区域的背景.
+		1 - 背景删除. (默认)
+		0 - 背景不变.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中InvalidateRgn的相关信息
+@@MsdnLink@@ InvalidateRgn
+

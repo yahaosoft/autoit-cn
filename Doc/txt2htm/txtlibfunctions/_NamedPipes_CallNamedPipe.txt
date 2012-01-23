@@ -2,37 +2,48 @@
 _NamedPipes_CallNamedPipe
 
 ###Description###
-执行命名管道的读/写操作
+执行命名管道读/写操作
 
 ###Syntax###
 #Include <NamedPipes.au3>
-_NamedPipes_CallNamedPipe($sPipeName, $pInpBuf,$iInpSize, $pOutBuf, $iOutSize, ByRef $iRead[, $iTimeOut = 0])
+_NamedPipes_CallNamedPipe($sPipeName, $pInpBuf, $iInpSize, $pOutBuf, $iOutSize, ByRef $iRead [, $iTimeOut = 0])
 
 ###Parameters###
 @@ParamTable@@
- $sPipeName  管道名称
- $pInpBuf  包含写入管道的数据的缓冲区指针
- $iInpSize  写入缓冲区的字节数量
- $pOutBuf  接收管道数据的缓冲区指针
- $iOutSize  读取缓冲区大小, 用字节
- $iRead  返回时, 包含从缓冲区读取的字节数
- $iTimeOut  等待管道可用的毫秒数. 另外 , 可以指定下列特殊值:
--1 -等候管道可用
-0 - 使用管道的默认超时设置 , 这个设置由CreateNamedPipe函数指定
-1 - 如管道不可用则立即返回一个错误
+$sPipeName
+	管道名称
+$pInpBuf
+	包含写入管道的数据缓冲区指针
+$iInpSize
+	写入缓冲区的字节大小
+$pOutBuf
+	接收读取管道数据的缓冲区指针
+$iOutSize
+	读取缓冲区的字节大小
+$iRead
+	返回时, 从缓冲区读取的字节数
+$iTimeOut
+	[可选参数] 命名管道可用的等待毫秒数.
+		除数字值外,可以指定以下特殊值:
+		-1 - 无限期地等待
+		 0 - 调用 CreateNamedPipe 函数指定使用的默认超时值
+		 1 - 不等待.如果管道不可用,返回一个错误
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-调用CallNamedPipe等同于调用CreateFile (或者WaitNamedPipe , 当CreateFile无法立即打开管道时) , TransactNamedPipe , 和CloseHandle函数. 以GENERIC_READ | GENERIC_WRITE权限标记及逻辑否的集成句柄标记调用CreateFile. 当管道是字节型的的时候函数无效.
+调用 CallNamedPipe 相当于调用 CreateFile (或 WaitNamedPipe,如果 CreateFile 不能立即打开管道时)
+TransactNamedPipe, 与 CloseHandle 函数. CreateFile 是 GENERIC_READ | GENERIC_WRITE 的调用访问标志,
+of GENERIC_READ | GENERIC_WRITE, 当为 False 时继承标志句柄. 如果管道是一个字节型管道,CallNamedPipe 将失败:	###See Also###
+在 MSDN 中搜索函数: CallNamedPipe 的相关信息
 
 ###Related###
-_NamedPipes_WaitNamedPipe ,  _NamedPipes_TransactNamedPipe
+_NamedPipes_WaitNamedPipe, _NamedPipes_TransactNamedPipe
 
 ###See Also###
-搜索MSDN知识库中CallNamedPipe的相关信息
+@@MsdnLink@@ CallNamedPipe

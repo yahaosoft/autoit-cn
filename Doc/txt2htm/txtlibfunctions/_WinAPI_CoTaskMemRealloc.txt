@@ -2,32 +2,33 @@
 _WinAPI_CoTaskMemRealloc
 
 ###Description###
-改变以前分配的任务内存块的大小
+修改任务存储块的大小.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CoTaskMemRealloc( $hMemory, $iSize )
+_WinAPI_CoTaskMemRealloc ( $hMemory, $iSize )
 
 ###Parameters###
 @@ParamTable@@
 $hMemory
-   要重新分配的内存块的指针
+	被重新分配的内存块指针.
 $iSize
-   重新分配的内存块的字节大小
+	重新分配内存块大小的字节数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 重新分配的内存块
-失败: 返回0并设置@error非0
+成功:	返回重分配的内存块.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-如果$hMemory为0 , 函数以与_WinAPI_CoTaskMemAlloc()函数的相同方式分配新的内存块.
-如果$hMemory非0 , 将会是由以前调用_WinAPI_CoTaskMemAlloc()返回的指针.
-虽然新块可以在不同的位置但新旧块的较短的内容不会改变. 如果$hMemory不为0且$iSize为0 , 则通过$hMemory指向的内容将被释放.
+如果 $hMemory 为 0, 函数分配与 _WinAPI_CoTaskMemAlloc() 函数相同方式的新内存块.
+ 如果 $hMemory 不为 0, 应先调用 _WinAPI_CoTaskMemAlloc() 返回一个指针.
+ 新块可以在不同的位置,块的内容不变, 直至新尺寸短于旧尺寸.
+ 如果 $hMemory 不为 0 但 $iSize 为 0, 则 $hMemory 所指向的内存被释放.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中CoTaskMemRealloc的相关信息
+@@MsdnLink@@ CoTaskMemRealloc
+

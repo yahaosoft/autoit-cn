@@ -2,30 +2,30 @@
 _GUICtrlDTP_GetSystemTimeEx
 
 ###Description###
-获取当前选择的日期和时间
+检索当前选定的日期/时间,返回相关值的数据结构.
 
 ###Syntax###
-#Include<GuiDateTimePicker.au3>
+#Include <GuiDateTimePicker.au3>
 _GUICtrlDTP_GetSystemTimeEx($hWnd)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
+$hWnd
+	控件句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: $tagDTPTIME结构
+成功:	返回 $tagSYSTEMTIME 结构
 @@End@@
 
 ###Remarks###
-如果时间信息成功返回@Error被设置为$GDT_VALID,
-如果控件被设置为$DTS_SHOWNONE风格且控件复选框未被选择或当出错$GDT_ERROR时返回$GDT_NONE.
-
+ 如果时间信息已成功返回,@Error 设置为 $GDT_VALID;
+ 如果控件设置为 $DTS_SHOWNONE 样式和控件复选框未被选中,@Error 设置为 $GDT_NONE; 
+ 如果出现错误,@Error 设置为 $GDT_ERROR.
+ 
 ###Related###
-_GUICtrlDTP_GetSystemTime , _GUICtrlDTP_SetSystemTimeEx , $tagDTPTIME
-
-###See Also###
+_GUICtrlDTP_GetSystemTime, _GUICtrlDTP_SetSystemTimeEx, $tagSYSTEMTIME
 
 ###Example###
 @@IncludeExample@@

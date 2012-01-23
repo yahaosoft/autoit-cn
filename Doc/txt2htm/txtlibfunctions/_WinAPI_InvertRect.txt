@@ -2,35 +2,32 @@
 _WinAPI_InvertRect
 
 ###Description###
-通过每像素的逻辑否操作反色窗口中的矩形
+对每个像素颜色值执行逻辑 NOT 运算, 使窗口矩形反转.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_InvertRect( $hDC, $tRECT )
+_WinAPI_InvertRect ( $hDC, $tRECT )
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   设备场景句柄
+	设备环境句柄.
 $tRECT
-$tagRECT结构
+	$tagRECT 结构,包含矩形的逻辑坐标.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-对于单色屏幕 , _WinAPI_InvertRgn()函数使白色像素变为黑色同时黑色像素变为白色.
-对于彩色屏幕 , 该转换依赖于用于制造屏幕颜色的技术的类型.
-对于同一矩形的两次操作将恢复以前的颜色显示.
+对于单色屏幕, 本函数反转黑白象素(黑反转为白,或反之).
+ 对于彩色屏幕, 反转取决于屏幕生成的颜色.
+ 调用本函数两次, 可恢复矩形到以前显示的颜色.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中InvertRect的相关信息
+@@MsdnLink@@ InvertRect
 
-###Example###
-@@IncludeExample@@

@@ -2,123 +2,173 @@
 $tagOPENFILENAME
 
 ###Description###
-包含GetOpenFileName及GetSaveFileName函数用于初始化打开或另存对话框信息的结构
+包含 GetOpenFileName 与 GetSaveFileName 函数初始化打开或保存对话框使用的信息资料
 
 ###Syntax###
-Global Const $tagOPENFILENAME =  "dword StructSize;hwnd hwndOwner;hwnd hInstance;ptr lpstrFilter;ptr lpstrCustomFilter;dword nMaxCustFilter;dword nFilterIndex;ptr lpstrFile;ptr lpstrFileTitle;ptr lpstrInitialDir;ptr lpstrTitle;dword Flags;short nFileOffset;short nFileExtension;ptr lpstrDefExt;ptr lCustData;ptr lpfnHook;ptr lpTemplateName;ptr pvReserved;dword dwReserved;dword FlagsEx"
+Global Const $tagOPENFILENAME = "dword StructSize;hwnd hwndOwner;hwnd hInstance;ptr lpstrFilter;ptr lpstrCustomFilter;" & _
+		"dword nMaxCustFilter;dword nFilterIndex;ptr lpstrFile;dword nMaxFile;ptr lpstrFileTitle;int nMaxFileTitle;" & _
+		"ptr lpstrInitialDir;ptr lpstrTitle;dword Flags;short nFileOffset;short nFileExtension;ptr lpstrDefExt;ptr lCustData;" & _
+		"ptr lpfnHook;ptr lpTemplateName;ptr pvReserved;dword dwReserved;dword FlagsEx"
 
 ###Fields###
 @@ParamTable@@
 StructSize
-   结构的字节长度
+	指定数据结构(structure)长度, 用字节表示.
 hwndOwner
-   对话框所属窗体的句柄. 该成员可为任意有效的窗体句柄, 或当无宿主时为空.
+	指定对话框的所有者窗口句柄. 成员可以是一个有效的窗口句柄, 也可以为空(NULL)表示对话框没有所有者窗口.
 hInstance
-   如果Flags成员中设置有$OFN_ENABLETEMPLATEHANDLE标记, hInstance为包含对话框模板的内存对象的句柄.
-    如果设置有$OFN_ENABLETEMPLATE标记, hInstance为包含有由lpTemplateName成员命名的对话框模板的模块的句柄.
-    如果均为设置, 忽略该成员.
-    如果设置有$OFN_EXPLORER标记, 系统使用指定模板创建默认浏览样式对话框子窗体的对话框.
-    如果设置有$OFN_EXPLORER标记, 系统使用模板创建旧模式对话框取代默认对话框.
+	如果 Flags 成员设置 $OFN_ENABLETEMPLATEHANDLE 标志,本成员指向内存句柄对象,其中包含对话框模板.
+	如果设置 $OFN_ENABLETEMPLATE 标志,本成员是一个对话框模块,名称由 lpTemplateName 成员处理 .
+	如果都没有设置,本成员将被忽略.
+	如果设置 $OFN_EXPLORER 标志,系统使用指定的模板创建对话框,默认为资源管理器样式对话框的子窗
+	如果设置 $OFN_EXPLORER 标志, 系统使用模板创建一个老式对话框，用于替换默认对话框.
 lpstrFilter
-   包含一对无终止符过滤字符串的缓冲区指针. 缓冲区中最后的字符串必须以两个空字符结束.
+	指向含有 null 结尾字符串的过滤缓冲区,缓冲区中最后一个字符串必须有两个 NULL 终止字符
 lpstrCustomFilter
-   包含一对用以保存用户所选过滤方案的无终止符过滤字符串的固定缓冲区的指针.
-    首个显示的字符串为描述自定义滤镜的字符串, 第二个字符串为用户选取的过滤方案.
-    当应用程序首次创建对话框时, 可指定任意非空字符串为首个字符串.
-    当用户选取了文件时, 对话框将当前的过滤方案复制给第二个字符串.
-    过滤方案可为保留在lpstrFilter缓冲区中的方案的其中一个, 或为用户键入的过滤方案.
-    系统使用字符串初始化下次创建对话框时用户定义的文件滤镜.
-    如果nFilterIndex成员为0, 对话框使用自定义滤镜.
-    如果成员为空, 对话框不保留用户定义的过滤方案.
-    如果该成员非空, nMaxCustFilter成员值必须指定lpstrCustomFilter缓冲区的TCHAR大小.
-    对于ANSI版本, 其为字节数; 对于Unicode版本, 其为字符数.
+	指向一个静态缓冲区,它包含由用户选择的空终止过滤器串对维护模式.
+	第一个字符串是显示字符串,描述自定义过滤器,第二个字符串是由用户选择得过滤模式.
+	应用程序第一次创建的对话框中,指定的第一个字符串可以是任何非空字符串.
+	当用户选择一个文件,对话框复制当前过滤模式的第二个字符串.
+	该模式可以是保存过滤器的模式之一,在 lpstrFilter 缓冲区指定,也可以是一个由用户输入的过滤器模式.
+	下一次对话框创建使,系统使用字符串初始化用户定义的文件过滤器.
+	如果 nFilterIndex 成员为 0, 对话框使用自定义过滤器.
+	如果这个成员是 NULL, 对话框不保留用户定义的过滤模式.
+	如果这个成员不是 NULL, nMaxCustFilter 成员的值必须指定 lpstrCustomFilter 缓冲区的 TCHARs 大小.
+	对于 ANSI 版本,这里是字节数; Unicode 版本,这里是字符数.
 nMaxCustFilter
-   指定lpstrCustomFilter指向的缓冲区的TCHAR大小.
-    对于ANSI版本, 其为字节数; 对于Unicode版本, 其为字符数.
-    该缓冲区值至少应该有40个字符长. 当lpstrCustomFilter为空或指向空字符串时忽略该成员.
+	指定 lpstrCustomFilter 确定的缓冲区的 TCHAR 大小.
+	对于 ANSI 版本,这里是字节数; Unicode 版本,这里是字符数.
+	此缓冲区应至少40个字符长,如果 lpstrCustomFilter 为 NULL,或一个空字符串点,这个成员被忽略.
 nFilterIndex
-   指定在文件类型控件中当前选区的滤镜的索引.
-    由lpstrFilter指定的缓冲区所包含的定义滤镜的字符串对.
-    首对字符串的索引值为1, 第二对为2, 以此类推.
-    索引0表示由lpstrCustomFilter指定的自定义滤镜.
-    可指定输入时的索引以表示对话框的初始滤镜描述符及滤镜方案.
-    当用户选定文件时, nFilterIndex返回当前的滤镜索引.
-    如果nFilterIndex为0且lpstrCustomFilter为空, 系统使用lpstrFilter缓冲区中的首个滤镜.
-    如果所有三个成员为0或空, 系统不会使用任意滤镜也不会在对话框的文件列表控件中显示任意文件.
+	指定当前选定过滤器的索引文件类型.
+	缓冲区所指向的 lpstrFilter 包含定义过滤器的字符串对.
+	第一对字符串的索引为 1,第二对为 2,依此类推.
+	0 索引显示自定义过滤器由 lpstrCustomFilter 指定.
+	您可以指定一个输入索引,表明对话框初始过滤器的描述和过滤模式.
+	当用户选择一个文件后,nFilterIndex 返回当前显示的过滤器索引.
+	如果 nFilterIndex 为 0,lpstrCustomFilter 为 NULL,系统将使用 lpstrFilter 缓冲区第一个过滤器.
+	如果所有三个成员都为 0 或 NULL,系统不使用任何过滤器,不显示对话框文件列表中的任何文件.
 lpstrFile
-   包含用于初始化文件名编辑控件中的文件名的缓冲区的指针.
-    如果无需初始化则该缓冲区的首个字符必须为空.
-    当_WinAPI_GetOpenFileName或_WinAPI_GetSaveFileName函数成功返回时, 该缓冲区包含选取文件的驱动器标识, 路径, 文件名及扩展名.
-    如果设置有$OFN_ALLOWMULTISELECT标记且选取多个文件, 缓冲区包含所选文件的文件名所跟随的当前目录.
-    对于浏览样式对话框, 目录和文件名字符串被添加在最后的文件名后的额外的空字符分割.
-    对于就样式对话框, 字符串以空格分割且函数使用带空格的短文件名.
-    可使用FindFirstFile函数在长/短文件名间转换.
-    如果用户仅选取一个文件, lpstrFile字符串在路径和文件名间没有分割符.
-    如果缓冲区太小, 函数返回失败且_WinAPI_CommDlgExtendedError函数返回$FNERR_BUFFERTOOSMALL.
-    在此情况下, lpstrFile缓冲区的首个双字节包含所需的字节大小或字符大小.
+	指向一个缓冲区,它包含文件名编辑控件中使用的初始化文件名.
+	如果初始化没有必要,此缓冲区的第一个字符必须是 NULL.
+	当 _WinAPI_GetOpenFileName 或 _WinAPI_GetSaveFileName 函数返回成功, 这个缓冲包含驱动器指示符、路径、文件名、文件扩展名.
+	如果 $OFN_ALLOWMULTISELECT 标志被设置和用户选择多个文件, 该缓冲区包含当前目录被选定文件的文件名.
+	对于资源管理器样式的对话框,目录和文件名字符串是空分隔,最后的文件名有一个额外的 NULL 字符.
+	对于旧式对话框,字符串是空格分隔,函数使用带有空格的文件名短文件名.
+	你可以使用 FindFirstFile 函数转换长、短文件名.
+	如果用户只选择一个文件，lpstrFile 字符串在路径和文件名之间没有分隔.
+	如果缓冲区太小, 则函数返回 FALSE 与 _WinAPI_CommDlgExtendedError 函数返回 $FNERR_BUFFERTOOSMALL.
+	在这种情况下，前两个字节包含 lpstrFile 缓冲区的字节或字符所需的大小.
 nMaxFile
-   指定lpstrFile指向的缓冲区TCHAR大小.
-    对于ANSI版本, 其为字节数; 对于Unicode版本, 其为字符数.
-    缓冲区大小必须足以存储路径及文件名字符串或包含无终止空字符的字符串.
-    当缓冲区太小以至于无法包含文件信息时_WinAPI_GetOpenFileName及_WinAPI_GetSaveFileName返回假.
-    缓冲区应至少256个字符长.
+	指定 lpstrFile 缓冲区的 TCHAR 大小.
+	对于 ANSI 版本,这里是字节数; Unicode 版本,这里是字符数.
+	缓冲区必须足够大,以便存储路径和文件名字符串或字符串,包括 NULL 终止字符.
+	如果包含文件信息的缓冲区太小, _WinAPI_GetOpenFileName 与 _WinAPI_GetSaveFileName 函数返回 FALSE.
+	缓冲区应至少 256 个字符长.
 lpstrFileTitle
-   接收文件名及选定文件扩展名(不带路径)的缓冲区的指针. 该成员可为空.
+	指向一个缓冲区,它接收选定文件的文件名和扩展名（不带路径信息）.这个成员可以是 NULL.
 nMaxFileTitle
-   指定lpstrFileTitle指向的缓冲区的TCHAR大小.
-    对于ANSI版本, 其为字节数; 对于Unicode版本, 其为字符数. lpstrFileTitle为空时忽略该成员.
+	指定 lpstrFileTitle 缓冲区的 TCHAR 大小.
+	对于 ANSI 版本,这里是字节数; Unicode 版本,这里是字符数. 如果 lpstrFileTitle 为 NULL,这个成员被忽略.
 lpstrInitialDir
-   指定初始目录的空终止字符串的指针.
+	指针为 NULL 结尾的字符串,可以指定初始目录.
 lpstrTitle
-   置于对话框标题栏的字符串的指针. 如果该成员为空, 系统使用默认标题(另存为或打开).
+	指向对话框的标题栏字符串.如果这个成员是 NULL,系统将使用默认标题（即另存为或打开）
 Flags
-   用于初始化对话框的数位标记集. 当对话框返回时, 设置这些标记以描述用户的输入. 该成员可为下列标记的组合.
-    $OFN_ALLOWMULTISELECT - 指定文件名列表箱允许多项选择. 如果同时设置有$OFN_EXPLORER标记, 对话框使用浏览器样式的用户界面; 否则, 使用旧样式的用户界面.
-    $OFN_CREATEPROMPT - 如果用户指定了一个不存在的文件, 该标记使对话框提醒用户创建文件. 如果用户选择创建文件, 对话框关闭且函数返回指定名称; 否则, 对话框保持开启状态. 如果用户与$OFN_ALLOWMULTISELECT标记同时使用, 对话框允许用户仅指定一个不存在的文件.
-    $OFN_DONTADDTORECENT - Windows 2000/XP: 禁止系统添加指向从用户常用文档的文件系统目录中选取的文件的连接 .
-    $OFN_ENABLEHOOK - 启用在lpfnHook成员中指定的钩子程序.
-    $OFN_ENABLEINCLUDENOTIFY - Windows 2000/XP: 当用户打开文件夹时使对话框将CDN_INCLUDEITEM通知消息发送给OFNHookProc钩子程序. 对话框向每个新近打开的文件夹发送通知. 这些消息可控制对话框在文件夹项目列表中显示哪些项目.
-    $OFN_ENABLESIZING - Windows 2000/XP, Windows 98/Me: 启用浏览器样式对话框并使用鼠标或键盘改变尺寸. 默认, 不管是否设置了该标记, 浏览器样式的打开及另存为对话框允许对话框改变尺寸. 仅当提供钩子程序或自己定义模板时必须使用该标记. 旧样式的对话框不允许改变尺寸.
-    $OFN_ENABLETEMPLATE - 表示lpTemplateName成员是hInstance标识的模块中对话框模板资源的名称的指针. 如果设置有$OFN_EXPLORER标记, 系统使用指定模板创建默认浏览器样式对话框的子对话框. 如果未设置$OFN_EXPLORER标记, 系统使用模本创建旧样式对话框代替默认样式.
-    $OFN_ENABLETEMPLATEHANDLE - 表示hInstance成员表示一个含有预加载对话框模板的数据块. 当指定该标记时系统忽略lpTemplateName. 如果设置有$OFN_EXPLORER标记, 系统使用指定模板创建默认浏览器样式对话框的子对话框. 如果未设置$OFN_EXPLORER标记, 系统使用模本创建旧样式对话框代替默认样式.
-    $OFN_EXPLORER - 表示任意对于建立打开或另存为对话框的自定义化使用新的浏览器样式自定义方法. 默认, 无论是否设置该标记, 打开及另存为对话框使用浏览器样式用户界面. 仅当提供钩子程序或自己定义模板或设置有$OFN_ALLOWMULTISELECT标记时必须使用该标记. 如想使用旧样式用户界面, 省略$OFN_EXPLORER标记并提供替换旧样式的模板或钩子程序. 如想使用旧样式但不需要自定义模板或钩子程序, 提供一个总是返回逻辑否的简单钩子程序.
-    $OFN_EXTENSIONDIFFERENT - 指定用户键入不同于lpstrDefExt指定的扩展名的文件名扩展. 当lpstrDefExt为空时函数不使用该标记.
-    $OFN_FILEMUSTEXIST - 指定用户仅可在文件名输入区键入已存在的文件名. 如果指定了该标记且用户输入有效文件名, 对话框程序在消息框中显示一条警告. 如果指定了该标记,$OFN_PATHMUSTEXIST标记也可用. 该标记可用于打开对话框. 不能用于另存为对话框.
-    $OFN_FORCESHOWHIDDEN - Windows 2000/XP: 强制显示系统文件和隐藏文件, 覆盖是否显示隐藏文件的用户设置. 但不会显示同时标记为系统和隐藏的文件.
-    $OFN_HIDEREADONLY - 隐藏只读复选框.
-    $OFN_LONGNAMES - 对于旧样式的对话框, 该标记使对话框使用长文件名. 如果未指定该标记, 或设置有$OFN_ALLOWMULTISELECT标记, 旧样式对话框对于带有空格的文件名使用短文件名(8.3格式). 浏览器样式对话框忽略该标记且总是显示长文件名.
-    $OFN_NOCHANGEDIR - 当用户在搜索文件时改变目录则当前目录将恢复到原始值. Windows NT 4.0/2000/XP: 该标记对GetOpenFileName无效.
-    $OFN_NODEREFERENCELINKS - 引导对话框返回选取的快捷方式文件(.LNK)的文件名和路径. 如果未指定该值, 对话框返回由快捷方式指定的文件的文件名和路径.
-    $OFN_NOLONGNAMES - 对于旧格式对话框, 该标记使对话框使用短文件名(8.3格式). 浏览器样式对话框忽略该标记并总是显示长文件名.
-    $OFN_NONETWORKBUTTON - 隐藏及禁用网络按钮.
-    $OFN_NOREADONLYRETURN - 指定返回的文件不选定只读复选框且不处于写保护目录中.
-    $OFN_NOTESTFILECREATE - 指定在关闭对话框前不创建文件. 如果应用程序将文件保存在一个无修改创建的网络共享中指定该标记. 当应用程序指定该标记时, 不检查写保护, 完整磁盘, 打开的驱动口或网络保护. 使用该标记的应用程序必须小心执行文件操作, 因为文件一旦关闭将无法应答.
-    $OFN_NOVALIDATE - 指定普通对话框允许返回的文件名中有无效字符. 典型的, 调用的应用程序使用通过FILEOKSTRING消息检查文件名的钩子程序. 如果编辑区的文本框为空或仅包含空格, 文件和目录列表被更新. 如果编辑区的文本框包含其他任意的, nFileOffset及nFileExtension被设置给由解析文本生成的值. 不会给文本添加默认扩展, 也不会把文本复制到由lpstrFileTitle指定的缓冲区. 如果由nFileOffset指定的值小于0, 文件名无效. 反之, 文件名有效, 且nFileExtension及nFileOffset可用即使未指定$OFN_NOVALIDATE标记.
-    $OFN_OVERWRITEPROMPT - 如果选定文件存在, 使另存对话框生成一个消息框. 用户必须确认是否覆盖文件.
-    $OFN_PATHMUSTEXIST - 指定用户只可键入有效路径和文件名. 如果使用了该标记且用户在文件名输入区键入了一个无效的路径和文件名, 对话框函数在消息框中显示警告.
-    $OFN_READONLY - 当对话框创建时使只读复选框初始选定. 该标记表示关闭对话框时只读复选框的状态.
-    $OFN_SHAREAWARE - 指定OpenFile函数的调用是否因为网络共享损坏而失败, 忽略错误及对话框返回选定的文件名. 如果为设置该标记, 当网络共享损坏发生在用户指定的文件名时对话框通知钩子程序. 如果设置了$OFN_EXPLORER标记, 对话框向钩子程序发送CDN_SHAREVIOLATION消息. 如果未指定$OFN_EXPLORER, 对话框向钩子程序发送SHAREVISTRING注册消息.
-    $OFN_SHOWHELP - 使对话框显示帮助按钮. hwndOwner成员必须指定窗体以在用户点击帮助按钮时接收对话框发送的HELPMSGSTRING注册消息. 浏览器样式的对话框在用户点击帮助按钮时向钩子程序发送CDN_HELP通知消息.
-    $OFN_USESHELLITEM - 未使用.
+	设置初始化对话框的位标志.当对话框返回时,设置这些标志指示用户的输入.此成员可以是下列标志的组合:.
+		$OFN_ALLOWMULTISELECT - 文件名列表框允许多重选择.
+		如果你还设置了 $OFN_EXPLORER 标志,对话框使用资源管理器样式的用户界面;否则,它使用旧样式的用户界面.
+		$OFN_CREATEPROMPT - 如果用户指定的文件不存在,此标志会导致对话框提示允许用户创建文件.
+		如果用户选择创建文件,对话框关闭,函数返回指定名称;否则,该对话框保持打开状态.
+		如果您使用 $OFN_ALLOWMULTISELECT 标志, 该对话框允许用户仅指定一个不存在的文件.
+		$OFN_DONTADDTORECENT - Windows 2000/XP: 防止在系统目录中加入一个选定文件的链接,其中包含用户最近使用的选定文件.
+		$OFN_ENABLEHOOK - 启用 lpfnHook 成员中指定钩子函数.
+		$OFN_ENABLEINCLUDENOTIFY - Windows 2000/XP: 当用户打开一个文件夹时,使对话框发送 CDN_INCLUDEITEM 通知消息到您的 OFNHookProc 钩子程序.
+		该对话框发送在文件夹中打开每个项目的通知.
+		这些消息使您能够控制对话框显示的文件夹的项目清单.
+		$OFN_ENABLESIZING - Windows 2000/XP: 使用鼠标或键盘调整资源管理器样式对话框的大小.
+		默认情况下,无论是否设置此标志,资源管理器样式的打开和另存为对话框都可以调整大小.
+		如果你只提供了一个钩子程序或定制模板,此标志是必要的.旧样式的对话框不允许调整大小.
+		$OFN_ENABLETEMPLATE - 表示 lpTemplateName 成员是一个对话框模板资源名称指针,模板资源由 HINSTANCE 成员确定.
+		如果设置 $OFN_EXPLORER 标志,系统使用指定的模板创建对话框,默认为资源管理器样式对话框的子窗
+		如果设置 $OFN_EXPLORER 标志, 系统使用模板创建一个老式对话框，用于替换默认对话框.
+		$OFN_ENABLETEMPLATEHANDLE - 指示 HINSTANCE 成员确定一个数据块,其中包含一个预装的对话框模板.
+		如果该标志被指定,则系统忽略 lpTemplateName.
+		如果设置 $OFN_EXPLORER 标志,系统使用指定的模板创建对话框,默认为资源管理器样式对话框的子窗
+		如果设置 $OFN_EXPLORER 标志, 系统使用模板创建一个老式对话框，用于替换默认对话框.
+		$OFN_EXPLORER - 指示任何自定义打开或保存对话框使用新的资源管理器样式的定制方法.
+		默认情况下,无论是否设置此标志,打开和另存为对话框都使用资源管理器样式的用户界面.
+		如果你只提供了一个钩子程序、或定制模板、或设置 $OFN_ALLOWMULTISELECT 标志时,此标志是必要的.
+		如果你要使用旧样式的用户界面，省略 $OFN_EXPLORER 标志,并提供替代模板或钩子程序.
+			如果你要使用旧风格,但并不需要一个自定义模板或钩子程序,只需提供一个总是返回 FALSE 的钩子程序
+		$OFN_EXTENSIONDIFFERENT - 指定用户键入一个文件扩展名,不同于由 lpstrDefExt 指定的扩展.
+		如果 lpstrDefExt 为 NULL,函数不使用此标志.
+		$OFN_FILEMUSTEXIST - 指定在文件名输入字段,用户可以键入唯一现有文件的名称.
+		如果该标志被指定,当用户输入一个无效名称时,对话框程序显示一个警告消息框.
+		如果该标志被指定, 同时使用 $OFN_PATHMUSTEXIST 标志,这个标志可以用在打开对话框,但不能用在另存为对话框.
+		$OFN_FORCESHOWHIDDEN - Windows 2000/XP: 强制显示系统文件和隐藏文件,从而覆盖用户对于显示或不显示隐藏文件的设置状态.
+		但不会显示同时标记为系统和隐藏的文件.
+		$OFN_HIDEREADONLY - 隐藏只读复选框.
+		$OFN_LONGNAMES - 对于老式对话框,此标志会导致对话框使用长文件名.
+		如果没有指定此标志.或者如果设置了 $OFN_ALLOWMULTISELECT 标志,对于带有空格的文件名,旧式对话框使用短文件名（8.3格式）.
+		资源管理器样式的对话框忽略这个标志,始终显示长文件名.
+		$OFN_NOCHANGEDIR - 如果用户搜索文件改变了目录时,恢复当前目录到其原始值.
+		Windows 2000/XP: 对于 GetOpenFileName, 这个标志无效.
+		$OFN_NODEREFERENCELINKS - 指示对话框返回选定快捷方式(.LNK)文件的路径和文件名.
+		如果此值没有指定,对话框返回快捷方式引用文件的路径和文件名.
+		$OFN_NOLONGNAMES - 对于老式的对话框,此标志会导致对话框使用短文件名（8.3格式）
+		资源管理器样式的对话框忽略这个标志,始终显示长文件名.
+		$OFN_NONETWORKBUTTON - 隐藏和禁用网络按钮.
+		$OFN_NOREADONLYRETURN - 指定返回的文件不选中只读复选框,并且不在一个写保护目录中.
+		$OFN_NOTESTFILECREATE - 指定文件在对话框关闭之前不创建.
+		此标志应注明如果应用程序保存文件不修改网络共享.
+		当一个应用程序指定此标志时,程序库不检查写保护、完整磁盘、驱动器门打开,或网络保护.
+		应用程序使用此标志必须小心执行文件操作,因为文件关闭后不能重打开.
+		$OFN_NOVALIDATE - 指定通用对话框允许返回文件名中的无效字符.
+		通常情况下,调用应用程序使用一个钩子程序,用于检查 FILEOKSTRING 消息使用的文件名.
+		如果在编辑控件中的文本框为空或是空格,文件和目录列表更新.
+		如果在编辑控件文本框中包含任何内容，nFileOffset 和 nFileExtension 被设置为通过分析文本生成的值.
+		不会给文本添加默认扩展名, 也不会把文本复制到由 lpstrFileTitle 指定的缓冲区.
+		如果 nFileOffset 指定值小于零,文件名称无效.
+		否则，文件名是有效的，如果 $OFN_NOVALIDATE 没有被指定,nFileExtension 和 nFileOffset 可作为有效标志.
+		$OFN_OVERWRITEPROMPT - 如果所选文件已经存在,另存为对话框生成一个询问消息框.
+		用户必须确认是否覆盖该文件.
+		$OFN_PATHMUSTEXIST - 指定的用户可以键入唯一有效的路径和文件名.
+		如果使用此标志,且用户输入无效的路径和文件名,对话框将显示一个警告消息框.
+		$OFN_READONLY - 当对话框创建时,只读复选框初始选中.
+		此标志指示对话框关闭时,复选框的状态.
+		$OFN_SHAREAWARE - 指定如果 OpenFile 函数调用因为网络共享冲突失败,忽视错误且返回对话框所选文件的名称.
+		如果未设置此标志，该对话框通知您的钩子程序,引起网络共享冲突的用户指定的文件名称.
+		如果您设置 $OFN_EXPLORER 标志,对话框发送 CDN_SHAREVIOLATION 消息到钩子程序.
+		如果您没有设置 $OFN_EXPLORER，对话框发送 SHAREVISTRING 注册信息到钩子程序.
+		$OFN_SHOWHELP - 使对话框显示帮助按钮.
+		当用户点击帮助按钮时,hwndOwner 成员必须指定窗口接送对话框收发的 HELPMSGSTRING 注册消息.
+		当用户点击帮助按钮时,资源管理器样式的对话框发送 CDN_HELP 通知消息到您的钩子程序.
+		$OFN_USESHELLITEM - 不使用
 nFileOffset
-   指定在lpstrFile指向的字符串中从路径开始到文件名的0基TCHAR偏移.
-    对于ANSI版本, 其为字节数; 对于Unicode版本, 其为字符数.
+	指定由 lpstrFile 字符串开始的路径文件名的 0 基 TCHAR 偏移.
+	对于 ANSI 版本,这里是字节数; Unicode 版本,这里是字符数.
 nFileExtension
-   指定在lpstrFile指向的字符串中从路径开始到文件扩展名的0基TCHAR偏移.
-    对于ANSI版本, 其为字节数; 对于Unicode版本, 其为字符数.
+	指定 lpstrFile 字符串确定的路径开始的文件扩展名的 0 基 TCHAR 偏移.
+	对于 ANSI 版本,这里是字节数; Unicode 版本,这里是字符数.
 lpstrDefExt
-   包含默认扩展名的缓冲区的指针.
+	指向一个缓冲区,其中包含默认的扩展名.
 lCustData
-   指定应用程序定义的由系统传递给lpfnHook成员标识的钩子程序的数据.
+	指定应用程序定义的由系统传递给 lpfnHook 成员标识的钩子程序的数据.
 lpfnHook
-   钩子进程的指针. 除非Flags成员包含$OFN_ENABLEHOOK标记否则忽略该成员.
+	指向一个钩子程序,除非 Flags 成员包含 $OFN_ENABLEHOOK 标志,否则忽略该成员.
 lpTemplateName
-   用以命名在由hInstance成员标识的模块中的对话框模板资源的无终止字符串的指针.
+	指向一个空结束的字符串,它命名一个由 HINSTANCE 成员确定模块资源创建的对话框模板.
 pvReserved
-   保留. 必须为空.
+	保留的. 必须设置为 NULL.
 dwReserved
-   保留. 必须为0.
+	保留的. 必须设置为 0.
 FlagsEx
-   Windows 2000/XP: 用于初始化对话框的数位标记集. 当前, 该成员可为0或下列标记.
-    $OFN_EX_NOPLACESBAR - 如果设置了该标记, 不显示地址栏. 如果未设置该标记, 浏览器样式对话框包括含有常用文件夹的地址栏, 如收藏和桌面.
-@@end@@
+	Windows 2000/XP: 初始化对话框的位标志设置.目前,该成员可以是 0 或以下标志:
+		$OFN_EX_NOPLACESBAR - 如果这个标志被设置,则不显示位置栏.
+		如果此标志未设置,资源管理器样式的对话框包括一个包含常用的文件夹位置栏,如收藏夹和桌面.
+@@End@@
+
+###Remarks###
+None.
+

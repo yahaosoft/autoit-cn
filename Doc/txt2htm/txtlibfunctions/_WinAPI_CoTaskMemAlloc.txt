@@ -2,29 +2,29 @@
 _WinAPI_CoTaskMemAlloc
 
 ###Description###
-分配任务内存块
+指定任务存储块.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CoTaskMemAlloc( $iSize )
+_WinAPI_CoTaskMemAlloc ( $iSize )
 
 ###Parameters###
 @@ParamTable@@
 $iSize
-   被分配的内存块的字节数
+	内存块大小的字节单位数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 分配的内存块
-失败: 返回0并设置@error非0
+成功:	返回分配的内存块.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-如果$iSize为0, _WinAPI_CoTaskMemAlloc()分配零长度的项目并返回项目的有效指针.
-由于内存空间和保留信息需要对齐分配的内存块可能大于$iSize字节.
+如果 $iSize 为 0, _WinAPI_CoTaskMemAlloc() 分配一个零长度的项目,并返回有效项目的指针.
+ 由于对齐和维护信息所需的空间的原因, 分配的块可能会大于 $iSize 指定的字节数.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中CoTaskMemAlloc的相关信息
+@@MsdnLink@@ CoTaskMemAlloc
+

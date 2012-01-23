@@ -2,38 +2,35 @@
 _WinAPI_OpenSemaphore
 
 ###Description###
-打开已命名的并发访问对象
+打开现有命名的信号量对象.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_OpenSemaphore( $sSemaphore [, $iAccess [, $fInherit]] )
+_WinAPI_OpenSemaphore ( $sSemaphore [, $iAccess [, $fInherit]] )
 
 ###Parameters###
 @@ParamTable@@
 $sSemaphore
-   要打开的并发访问对象名. 该名称大小写敏感.
+	信号量的名称. 名称比较区分大小写.
 $iAccess
-   并发访问对象的权限. 如果指定对象的安全描述符不允许调用进程要求的权限函数失败. 该参数可为:
-$SEMAPHORE_ALL_ACCESS
-  - 并发访问对象所有可能的权限
-$SEMAPHORE_MODIFY_STATE
-  - 修改状态权限
-$fInherit
-   指定是否集成进程句柄. 该参数可为:
-    TRUE: 由该进程创建的进程将继承句柄
-    FALSE: 进程不继承该句柄(默认)
+	[可选参数] 信号量对象的访问.
+		 如果指定对象的安全描述符不允许调用进程的请求访问, 该函数失败.
+		 参数可以是以下值之一:
+		 $SEMAPHORE_ALL_ACCESS --- 信号量对象所有可能的访问权限
+		 $SEMAPHORE_MODIFY_STATE --- 修改访问状态
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 并发访问对象句柄
-失败: 返回0并设置@error非0
+成功:	返回信号量对象的句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-仅当进程已通过_WinAPI_CreateSemaphore()函数创建并发访问时函数成功. 调用进程可在任意需要并发访问对象的函数中使用返回的句柄.
+仅当某些进程使用 _WinAPI_CreateSemaphore() 函数创建了信号量时, 该函数成功.
+ 任何函数需要信号量对象句柄的进程, 都可以使用这个返回的句柄.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中OpenSemaphore的相关信息
+@@MsdnLink@@ OpenSemaphore
+

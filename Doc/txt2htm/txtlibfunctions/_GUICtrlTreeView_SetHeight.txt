@@ -2,29 +2,30 @@
 _GUICtrlTreeView_SetHeight
 
 ###Description###
-设置各项高度
+设置每个项目的高度
 
 ###Syntax###
-#Include<GuiTreeView.au3>
+#Include <GuiTreeView.au3>
 _GUICtrlTreeView_SetHeight($hWnd, $iHeight)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  Handle to the control
- $iHeight  各项的像素高度. 高度小于1时设置为1. 如果不是偶数且控件不具有DllStructGetData($TVS_NONEVENHEIGHT样式该值表示离偶数最近的值, "")如果为-1, 控件将使用默认项目高度.
+$hWnd
+	控件句柄
+$iHeight
+	项目的新高度像素值.高度不到 1 的将被设置为 1
+		如果不是偶数,调用 DllStructGetData($TVS_NONEVENHEIGHT 此样式将将向下调整至最接近的偶数值 "")
+		如为 -1,控件将恢复使用默认项目高度.
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 以前的项目像素高度
-@@End@@
+返回先前项目的高度,使用像素表示.
 
 ###Remarks###
+None.
 
 ###Related###
 _GUICtrlTreeView_GetHeight
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

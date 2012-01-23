@@ -2,29 +2,30 @@
 _WinAPI_DeleteEnhMetaFile
 
 ###Description###
-删除增强型图元文件或增强型图元文件句柄
+删除增强型图元文件格式或增强型图元文件格式句柄.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_DeleteEnhMetaFile( $hEmf )
+_WinAPI_DeleteEnhMetaFile ( $hEmf )
 
 ###Parameters###
 @@ParamTable@@
 $hEmf
-   增强型图元文件句柄
+	返回增强型图元文件句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-如果$hEmf参数标识一个存储于内存的增强型元文件, _WinAPI_DeleteEnhMetaFile()函数删除元文件.
-如果$hEmf参数标识一个存储于磁盘的增强型元文件, 函数删除元文件句柄但并不实际销毁元文件. 应用程序可通过调用_WinAPI_GetEnhMetaFile()函数获取文件.
+如果 $hEmf 参数标识的增强型图元文件存储在内存中 _WinAPI_DeleteEnhMetaFile() 函数删除图元文件.
+ 如果 $hEmf 标识的一个图元文件存储在磁盘,函数删除图元文件句柄,但不破坏实际的图元文件.
+ 应用程序可以调用 _WinAPI_GetEnhMetaFile() 函数检索文件.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中DeleteEnhMetaFile的相关信息
+@@MsdnLink@@ DeleteEnhMetaFile
+

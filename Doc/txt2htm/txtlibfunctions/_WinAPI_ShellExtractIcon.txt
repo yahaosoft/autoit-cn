@@ -2,33 +2,38 @@
 _WinAPI_ShellExtractIcon
 
 ###Description###
-从指定文件中提取指定大小的图标
+提取指定文件中指定尺寸的图标.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellExtractIcon( $sIcon, $iIndex, $iWidth, $iHeight )
+_WinAPI_ShellExtractIcon ( $sIcon, $iIndex, $iWidth, $iHeight )
 
 ###Parameters###
 @@ParamTable@@
-$sIcon  用于提取图标的文件的文件名和目录
-$iIndex  提取的图标索引
-$iWidth  所需图标的水平大小
-$iHeight  所需图标的垂直大小
+$sIcon
+	路径和文件名.
+$iIndex
+	图标的索引.
+$iWidth
+	图标水平尺寸.
+$iHeight
+	图标垂直尺寸.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回被提取的图标的句柄
-失败: 返回0并设置@error非0
+成功:	返回提取图标的句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-如果文件中找不到指定大小的图标, 函数选取大体最接近的图标并改变未指定尺寸. 图标使用完毕, 使用_WinAPI_FreeIcon()函数销毁.
+如果文件中找不到指定尺寸的图标,函数将就近选择适当的图标,并变换到指定的尺寸.
+ 当您使用完图标,调用 _WinAPI_DestroyIcon() 函数销毁.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SHExtractIcons的相关信息
+@@MsdnLink@@ SHExtractIcons
 
 ###Example###
 @@IncludeExample@@
+

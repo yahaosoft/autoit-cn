@@ -5,67 +5,99 @@ _WordDocPropertyGet
 返回Word文档的某个属性
 
 ###Syntax###
-#Include <Word.au3>
-_WordDocPropertyGet ( ByRef$o_object, $v_property )
+#include <Word.au3>
+_WordDocPropertyGet ( ByRef $o_object, $v_property )
 
 ###Parameters###
 @@ParamTable@@
-$o_object 
-   Word.Application文档对象
-$v_property 
-   属性选项(见备注)
+$o_object
+	Word.Application文档对象
+$v_property
+	属性选项(见备注)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  被选属性的值
- 失败:  返回 0 并设置 @ERROR
- @Error:  0 ($_WordStatus_Success) = 无错误
-  1 ($_WordStatus_GeneralError) = 一般错误
-  2 ($_WordStatus_ComError) = Com 错误
-  3 ($_WordStatus_InvalidDataType) = 无效数据类型
-  4 ($_WordStatus_InvalidObjectType) = 无效对象类型
-  5 ($_WordStatus_InvalidValue) = 无效值
- @Extended:  包含无效参数
+成功:	被选属性的值
+失败:	返回 0设置@error	
+@error:	0 ($_WordStatus_Success) = 无错误
+	1 ($_WordStatus_GeneralError) = 一般错误
+	2 ($_WordStatus_ComError) = Com 错误
+	3 ($_WordStatus_InvalidDataType) = 无效数据类型
+	4 ($_WordStatus_InvalidObjectType) = 无效对象类型
+	5 ($_WordStatus_InvalidValue) = 无效值@Extended:
+	包含无效参数
 @@End@@
 
+
 ###Remarks###
-可以使用索引或属性名称.
-下表提供了可用属性的描述.
-Word 文档属性
- 属性索引/名称  描述
- (1) "title"  标题.
- (2) "subject"  题目
- (3) "author"  作者
- (4) "keywords"  关键字
- (5) "comments"  评论
- (6) "template"  模板名称
- (7) "last author"  最终作者
- (8) "revision number"  校订数
- (9) "application name"  应用程序名称
- (10) "last print date"  最后打印时间
- (11) "creation date"  创建时间
- (12) "last save time"  最后保存时间
- (13) "total editing time"  VBA 项目编辑的数量
- (14) "pages"  页数
- (15) "words"  单词数
- (16) "characters"  字符数
- (17) "security"  安全设置
- (18) "category"  分类
- (19) ""  不支持
- (20) "manager"  管理人
- (21) "company"  公司
- (22) "bytes"  字节数
- (23) "lines"  行数
- (24) "paragraphs"  段落数量
- (25-28) ""  不支持
- (29) "hyperlink base"  当相关链接基于指定的链接时(路径包含超级链接和目标共享文件), 该路径为超级链接格式
- (30) "characters (with spaces)"  包括空格的字符统计
+可以使用索引或属性名称.下表提供了可用属性的描述.Word 文档属性
+
+<b><u>Word Document Properties</u></b>
+
+@@ParamTable@@
+<b> 属性索引/名称</b>
+	<b>描述</b>
+(1) "title"
+	标题.
+(2) "subject"
+	题目
+(3) "author"
+	作者
+(4) "keywords"
+	关键字
+(5) "comments"
+	评论
+(6) "template"
+	模板名称
+(7) "last author"
+	最终作者
+(8) "revision number"
+	校订数
+(9) "application name"
+	应用程序名称
+(10) "last print date"
+	最后打印时间
+(11) "creation date"
+	创建时间
+(12) "last save time"
+	最后保存时间
+(13) "total editing time"
+	VBA 项目编辑的数量
+(14) "pages"
+	页数
+(15) "words"
+	单词数
+(16) "characters"
+	字符数
+(17) "security"
+	安全设置
+(18) "category"
+	分类
+(19) ""
+	不支持
+(20) "manager"
+	管理人
+(21) "company"
+	公司
+(22) "bytes"
+	字节数
+(23) "lines"
+	行数
+(24) "paragraphs"
+	段落数量
+(25-28) ""
+	不支持
+(29) "hyperlink base"
+	当相关链接基于指定的链接时(路径包含超级链接和目标共享文件), 该路径为超级链接格式
+(30) "characters (with spaces)"
+	包括空格的字符统计
+@@END@@
+
 
 ###Related###
 _WordDocPropertySet
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

@@ -2,38 +2,67 @@
 _WinAPI_StretchBlt
 
 ###Description###
-缩放复制位图到目标矩形
+复制源矩形位图到目标矩形,如有必要,
+ 拉伸或压缩位图以适应目标矩形的尺寸.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_StretchBlt( $hDestDC, $iXDest, $iYDest, $iWidthDest, $iHeightDest, $hSrcDC, $iXSrc, $iYSrc, $iWidthSrc, $iHeightSrc, $iRop )
+_WinAPI_StretchBlt ( $hDestDC, $iXDest, $iYDest, $iWidthDest, $iHeightDest, $hSrcDC, $iXSrc, $iYSrc, $iWidthSrc, $iHeightSrc, $iRop )
 
 ###Parameters###
 @@ParamTable@@
-$hDestDC  目标场景句柄
-$iXDest  目标矩形的左上角x坐标
-$iYDest  目标矩形的左上角y坐标
-$iWidthDest  目标矩形宽度
-$iHeightDest  目标矩形高度
-$hSrcDC  源场景句柄
-$iXSrc  源矩形的左上角x坐标
-$iYSrc  源矩形的左上角y坐标
-$iWidthSrc  源矩形宽度
-$iHeightSrc  源矩形高度
-$iRop  光栅操作代码.
-
-###Related###
-
-###See Also###
-_WinAPI_BitBlt 相应值
+$hDestDC
+	目标设备环境句柄.
+$iXDest
+	目标矩形左上角 X 坐标的逻辑单位
+$iYDest
+	目标矩形左上角 Y 坐标的逻辑单位.
+$iWidthDest
+	目标矩形宽度逻辑单位.
+$iHeightDest
+	目标矩形高度逻辑单位.
+$hSrcDC
+	源设备环境句柄.
+$iXSrc
+	源矩形左上角 X 坐标的逻辑单位
+$iYSrc
+	源矩形左上角 Y 坐标的逻辑单位.
+$iWidthSrc
+	源矩形宽度逻辑单位.
+$iHeightSrc
+	源矩形高度逻辑单位.
+$iRop
+	光栅操作代码.代码定义源矩形与目标矩形的颜色数据组合以达到最终颜色.
+		 此参数必须为 0 或下面值之一:
+		 $BLACKNESS --- 使用索引 0 相关的物理调色板颜色填充目标矩形
+		 $CAPTUREBLT --- 包括任何分层窗口生成的窗口图象
+		 $DSTINVERT --- 反转目标矩形
+		 $MERGECOPY --- 使用布尔 AND 运算合并源矩形与目前选定画笔的颜色
+		 $MERGEPAINT --- 使用布尔 OR 操作渐进式合并源与目标矩形的颜色
+		 $NOMIRRORBITMAP --- 阻止位图被镜像
+		 $NOTSRCCOPY --- 反转复制源矩形到目标矩形
+		 $NOTSRCERASE --- 使用布尔 OR 操作源和目标矩形颜色,然后反转合并的颜色
+		 $PATCOPY --- 复制指定模式到目标位图
+		 $PATINVERT --- 使用布尔 XOR 运算组合颜色指定模式与目标矩形的颜色
+		 $PATPAINT --- 结合 $hDestDC 当前选定的画笔,使用布尔 OR 操作反转源矩形颜色
+		 $SRCAND --- 使用布尔 AND 操作源和目标矩形颜色
+		 $SRCCOPY --- 直接复制源矩形到目标矩形
+		 $SRCERASE --- 使用布尔 AND 操作反转目标矩形的颜色后与源矩形颜色合并
+		 $SRCINVERT --- 使用布尔 XOR 运算结合源和目标矩形颜色
+		 $SRCPAINT --- 使用布尔 OR 操作结合源和目标矩形颜色
+		 $WHITENESS --- 使用索引 1 相关的物理调色板颜色填充目标矩形
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-系统根据当前用于目标场景的拉伸模式拉伸或压缩位图.
-参考  搜索MSDN知识库中StretchBlt的相关信息
+当前目标设备环境设置系统拉伸或压缩位图的模式.
+
+
+###See Also###
+@@MsdnLink@@ StretchBlt
+

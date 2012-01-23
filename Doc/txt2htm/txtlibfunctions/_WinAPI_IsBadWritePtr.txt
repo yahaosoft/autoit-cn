@@ -2,29 +2,31 @@
 _WinAPI_IsBadWritePtr
 
 ###Description###
-确定调用进程对指定范围的内存具有写入权限
+Verifies that the calling process has write access to the specified range of memory.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_IsBadWritePtr( $pAddress, $iLenght )
+_WinAPI_IsBadWritePtr ( $pAddress, $iLenght )
 
 ###Parameters###
 @@ParamTable@@
 $pAddress
-   内存块首字节的指针
+	A pointer to the first byte of the memory block.
 $iLenght
-   内存块字节大小
+	The size of the memory block, in bytes.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 调用进程无法写入指定内存范围的全部字节时返回1; 反之返回0.
-失败: 返回0并设置@error非0
+Success	1 - The calling process does not have write access to all bytes in the specified memory range.
+0	Otherwise.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中IsBadWritePtr的相关信息
+@@MsdnLink@@ IsBadWritePtr
+

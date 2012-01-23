@@ -2,7 +2,7 @@
 _WinAPI_Create32BitHBITMAP
 
 ###Description###
-从指定的图标创建每像素32位的位图
+Creates a 32 bits-per-pixel bitmap from the specified icon.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,26 +11,26 @@ _WinAPI_Create32BitHBITMAP ( $hIcon [, $fDelete] )
 ###Parameters###
 @@ParamTable@@
 $hIcon
-   源图标句柄
+	Handle to the source icon.
 $fDelete
-   制定函数成功后是否删除图标:
-    TRUE    - 函数成功时删除图标.
-    FALSE   - 不删除 , 使用完毕后需手动删除. (默认)
+	[可选参数] Specifies whether delete the icon after the function is successful, valid values:
+		TRUE    - Icon will be deleted if the function succeeds.
+		FALSE   - Don't delete, you must release the icon when you are finished using it. (Default)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回创建的位图句柄
-失败: 返回0并设置@error非0. @extended标记包含COM错误代码
+Success	Handle to the created bitmap.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-该函数需要Windows Vista或以上版本.
+When you are finished using the bitmap, destroy it using the _WinAPI_DeleteObject() function.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中Visual Style Menus的相关信息
+None
 
 ###Example###
 @@IncludeExample@@
+

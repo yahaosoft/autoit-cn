@@ -2,35 +2,40 @@
 _GUICtrlMenu_InsertMenuItemEx
 
 ###Description###
-在指定位置插入一个新的菜单项
+插入一个新菜单项到指定位置(Ex)
 
 ###Syntax###
-#Include<GuiMenu.au3>
-_GUICtrlMenu_InsertMenuItemEx($hMenu, $iIndex, ByRef$tMenu[, $fByPos = True])
+#Include <GuiMenu.au3>
+_GUICtrlMenu_InsertMenuItemEx($hMenu, $iIndex, ByRef $tMenu[, $fByPos = True])
 
 ###Parameters###
 @@ParamTable@@
- $hMenu  菜单句柄
- $iIndex  菜单项在新项插入前的位置
- $tMenu  $tagMENUITEMINFO 结构
- $fByPos  菜单标识标记:
-真 - $iItem为0基的项目位置
-假 - $iItem为菜单项目标示
+$hMenu
+	菜单句柄
+$iIndex
+	项目位置,函数将在此位置之前插入新项目
+$tMenu
+	$tagMENUITEMINFO 结构
+$fByPos
+	[可选参数] 菜单识别标志:
+		True - 限定 $iIndex 参数指定项目的 0 基位置
+		False - 限定 $iIndex 参数指定项目的标识符
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
-_GUICtrlMenu_InsertMenuItem , $tagMENUITEMINFO
+_GUICtrlMenu_InsertMenuItem, $tagMENUITEMINFO
 
 ###See Also###
-搜索MSDN知识库中InsertMenuItem的相关信息
+@@MsdnLink@@ InsertMenuItem
 
 ###Example###
 @@IncludeExample@@

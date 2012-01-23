@@ -1,35 +1,41 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _viFindGpib
 
 ###Description###
-é€šè¿‡VISAæ¥å£(GPIB/TCP)å‘è®¾å¤‡å‘é€å‘½ä»¤/æŸ¥è¯¢
+Í¨¹ı VISA ¿¨½Ó¿Ú(GPIB½Ó¿Ú/ TCPĞ­Òé)·¢ËÍÃüÁî»ò²éÑ¯µ½ÒÇÆ÷»òÉè±¸
 
 ###Syntax###
-#Include <Visa.au3>
-_viFindGpib ( ByRef $a_descriptor_list, ByRef $a_idn_list, $f_show_search_results = 0 )
+#include <Visa.au3>
+_viFindGpib ( ByRef $a_descriptor_list, ByRef $a_idn_list [, $f_show_search_results = 0] )
+
 
 ###Parameters###
 @@ParamTable@@
- $a_descriptor_list (ByRef)  GPIBæ€»çº¿ä¸­çš„è®¾å¤‡çš„VISAèµ„æºæè¿°æ•°ç»„(æ›´å¤šä¿¡æ¯å‚è€ƒ_viExecCommandçš„å¤‡æ³¨)
- $a_idn_list (ByRef)  è¿”å›åœ¨GPIBæ€»çº¿ä¸Šæ‰¾åˆ°çš„è®¾å¤‡çš„IDNæ•°ç»„(å¦‚åç§°)
- $f_show_search_results  å¯é€‰: å¦‚æœä¸º1æ˜¾ç¤ºä¸€ä¸ªå¸¦æœ‰æœç´¢ç»“æœçš„æ¶ˆæ¯æ¡†.
-é»˜è®¤ä¸º0 , è¡¨ç¤ºä¸æ˜¾ç¤ºç»“æœ
+$a_descriptor_list(ByRef)
+	·µ»Ø GPIB ×ÜÏßÉè±¸ VISA ×ÊÔ´ÃèÊöµÄÊı×é (¸ü¶àĞÅÏ¢¼û _viExecCommand ±¸×¢)
+$a_idn_list(ByRef)
+	·µ»Ø GPIB ×ÜÏßÉè±¸ (ÀıÈç¸´ºÏÃû) IDN Êı×é
+$f_show_search_results
+	[¿ÉÑ¡²ÎÊı] ÈçÎª 1, ÔòÏÔÊ¾ËÑË÷½á¹ûÏûÏ¢¿ò.
+		Ä¬ÈÏÎª 0, ²»ÏÔÊ¾½á¹û
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: æ‰¾åˆ°çš„è®¾å¤‡æ•°é‡(0æˆ–æ›´å¤š)
-å¤±è´¥: è¿”å›ä¸€ä¸ªè´Ÿæ•°å¹¶è®¾ç½®@errorä¸º1
+³É¹¦:	·µ»ØÉè±¸Êı(0 »ò¸ü¶à)
+Ê§°Ü:	·µ»ØÒ»¸ö¸ºÖµ,ÉèÖÃ@error:to 1
 @@End@@
 
+
 ###Remarks###
-è¦ä½¿ç”¨VISAå‡½æ•°å¿…é¡»å®‰è£…æœ‰VISAåº“(å¯ä»¥æ£€æŸ¥{WINDOWS}\system32ä¸­æ˜¯å¦å­˜åœ¨visa32.dll)å’ŒGPIBå¡(å¦‚National Instruments NI PCI-GPIB cardæˆ–Agilent 82350B PCI High-Performance GPIB card)
-* å¸¸ç”¨VISAæè¿°ç¬¦çš„è¯¦ç»†æè¿°å¯æŸ¥çœ‹å¸®åŠ©ä¸­_viExecCommandå‡½æ•°çš„å¤‡æ³¨
+VISA º¯Êı±ØĞë°²×° VISA ¿âÎÄ¼ş(Äú¿ÉÒÔ¼ì²évisa32.dllÊÇ·ñÔÚ WINDOWS\System32 Ä¿Â¼ÖĞ)
+¼° GPIB ¿¨(ÀıÈç National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card)
+ * ³£¼û VISA ÃèÊö·ûÏêÏ¸½éÉÜ,¼û _viExecCommand º¯Êı±¸×¢
+
 
 ###Related###
- _viExecCommand , _viOpen , _viClose , _viGTL , _viGpibBusReset
+_viExecCommand, _viOpen, _viClose, _viGTL, _viGpibBusReset
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

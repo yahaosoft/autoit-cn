@@ -2,32 +2,32 @@
 _WinAPI_GetMousePosY
 
 ###Description###
-获取鼠标当前的Y位置
+返回当前鼠标的 Y 位置
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_GetMousePosY([$fToClient = False[, $hWnd = 0]])
+_WinAPI_GetMousePosY([$fToClient = False [, $hWnd = 0]])
 
 ###Parameters###
 @@ParamTable@@
 $fToClient
-   如果为真 , 坐标将转化为客户坐标
+	[可选参数] 如为 True, 坐标将被转换为客户坐标
 $hWnd
-$fToClient为真指用于转化坐标窗口句柄
+	[可选参数] 如 $fToClient 为 True, 则指定窗口句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 鼠标 Y 位置
+成功:	返回鼠标的 Y 位置
+失败:	设置 @error
 @@End@@
 
 ###Remarks###
-获取鼠标位置时函数会考虑当前的MouseCoordMode设置. 同时在传递的参数基础上将屏幕坐标转化为客户坐标.
+ 获取鼠标位置时,函数会考虑到目前 MouseCoordMode 的设置.
+ 它也将传递转换屏幕坐标参数到客户端.
 
 ###Related###
- _WinAPI_GetMousePos
-
-###See Also###
+_WinAPI_GetMousePos
 
 ###Example###
 @@IncludeExample@@

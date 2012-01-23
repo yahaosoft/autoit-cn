@@ -2,35 +2,43 @@
 _WinAPI_FindResource
 
 ###Description###
-确定指定类型和名称的资源在指定模块中的位置
+确定模块内指定资源类型和名称的位置.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_FindResource( $hInstance, $sType, $sName )
+_WinAPI_FindResource ( $hInstance, $sType, $sName )
 
 ###Parameters###
 @@ParamTable@@
 $hInstance
-   包含资源的可执行文件的模块的句柄. 如果为0表示指定与操作系统用于创建当前进程的镜像文件关联的模块的句柄.
+	可执行文件中资源的模块句柄.
+		 值为 0, 表示模块句柄关联操作系统用于创建当前进程的图像文件.
 $sType
-   资源类型. 该参数可以是字符串或整数类型
+	资源的类型. 参数可以是字符串或整数类型.
 $sName
-   资源名称. 该参数可以是字符串或整数类型
+	资源的名称. 参数可以是字符串或整数类型.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 指定信息块的句柄. 获取资源句柄并传递给_WinAPI_LoadResource()函数.
-失败: 返回0并设置@error非0.
+成功:	返回指定资源的信息块句柄. 要获得这个句柄的资源,
+	传递这个句柄到 _WinAPI_LoadResource() 函数.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-正常运行示例请将 Resources.dll 文件或 Resources_x64.dll 文件(x64系统使用)保存到临时文件夹中
+如果 $sName 或 $sType 参数字符串的第一个字符为英磅符号(#),
+ 其余的字符为十进制数, 则为指定资源名称或类型的整数标识符.
+ 例如, 字符串 "#258" 代表整数标识符 258.
+ 为减少资源所需的内存量, 应用程序应使用整数标识符而不是名称.
+ 应用程序可以使用 _WinAPI_FindResource() 寻找任何类型的资源,
+ 但这个函数应只用于应用程序必须访问二进制资源数据时, 随后调用 _WinAPI_LockResource().
 
-###Related###
+
 
 ###See Also###
- 搜索MSDN知识库中FindResource的相关信息
+@@MsdnLink@@ FindResource
 
 ###Example###
 @@IncludeExample@@
+

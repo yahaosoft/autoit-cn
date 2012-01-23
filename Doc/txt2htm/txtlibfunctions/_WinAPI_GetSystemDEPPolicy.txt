@@ -2,30 +2,31 @@
 _WinAPI_GetSystemDEPPolicy
 
 ###Description###
-获取系统的数据执行保护策略(DEP)设置
+Gets the data execution prevention (DEP) policy setting for the system.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetSystemDEPPolicy( )
+_WinAPI_GetSystemDEPPolicy ( )
 
 ###Parameters###
 @@ParamTable@@
-    无
+None.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回系统的数据执行保护策略(DEP)设置. 可为下列值之一:
-    0 - 禁用系统各部分的数据执行保护, 无论硬件是否支持.
-    1 - 对系统各部分启用数据执行保护, 所有进程均运行在DEP启用状态下. DEP不能被明确选定的应用程序禁用. 系统兼容性修补程序将被忽略.
-    2 - 对运行于可硬件实现DEP功能的处理器上的系统, DEP只对操作系统组件自动启用. Windows客户端版本的默认设置. DEP可对选定的应用程序或当前进程启用.
-    3 - 对操作系统组件和所有进程自动启用DEP. Windows Server版本的默认设置.
-失败: 返回0并设置@error非0
+Success	The DEP policy setting, which can be one of the following values.
+0	AlwaysOff
+1	AlwaysOn
+2	OptIn
+3	OptOut
+Failure	(-1) and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+This function requires Windows XP with SP3, Windows Vista with SP1 or later.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetSystemDEPPolicy的相关信息
+@@MsdnLink@@ GetSystemDEPPolicy
+

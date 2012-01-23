@@ -10,25 +10,28 @@ _WinAPI_SetWindowTheme ( $hWnd [, $sName [, $sList]] )
 
 ###Parameters###
 @@ParamTable@@
-$hWnd  要改变视觉样式的窗体的句柄
-$sName  应用程序名称字符串. 如果参数为0, 使用调用的应用程序名.
-$sList  用于替换由窗体类传递的实际列表的包含分号分隔的CLSID名称列表的字符串. 如果参数为0, 使用调用类的ID列表.
+$hWnd
+	要改变视觉样式的窗体的句柄
+$sName
+	[可选参数] 	应用程序名称字符串. 如果参数为0, 使用调用的应用程序名.
+$sList
+	[可选参数] 	用于替换由窗体类传递的实际列表的包含分号分隔的CLSID名称列表的字符串. 如果参数为0, 使用调用类的ID列表.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0 , @extended标记可能含有COM错误代码.
+成功:	返回1
+失败:	返回0设置@error:	
+非0, @extended标记可能含有COM错误代码.
 @@End@@
 
 ###Remarks###
 主题管理器保存$sName及与窗口持续时长相关的$sList, 即使视觉样式依次改变.
 $sName及$sList为0时, 主题管理器移除以前应用的关联. 为避免视觉样式应用到指定窗口, 传递不匹配任何项的空字符串("").
 
-###Related###
-
 ###See Also###
- 搜索MSDN知识库中SetWindowTheme的相关信息
+@@MsdnLink@@ SetWindowTheme
 
 ###Example###
 @@IncludeExample@@
+

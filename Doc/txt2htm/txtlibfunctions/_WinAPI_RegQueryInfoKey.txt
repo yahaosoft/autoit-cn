@@ -2,38 +2,42 @@
 _WinAPI_RegQueryInfoKey
 
 ###Description###
-获取指定注册表键的信息
+检索指定注册表键的信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RegQueryInfoKey( $hKey )
+_WinAPI_RegQueryInfoKey ( $hKey )
 
 ###Parameters###
 @@ParamTable@@
 $hKey
-   $KEY_QUERY_VALUE权限打开的键的句柄. 该句柄须由_WinAPI_RegCreateKey()或_WinAPI_RegOpenKey()函数打开.可为下列预定义键之一:
-   $HKEY_CLASSES_ROOT
-   $HKEY_CURRENT_CONFIG
-   $HKEY_CURRENT_USER
-   $HKEY_LOCAL_MACHINE
-   $HKEY_PERFORMANCE_DATA
-   $HKEY_USERS
+	打开的注册表项句柄,该键项必须已打开且有 $KEY_QUERY_VALUE 访问权限.
+		 句柄由 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回.
+		 参数也可以为下列预定义项:
+		 $HKEY_CLASSES_ROOT --- 定义文件类型和类型相关的属性
+		 $HKEY_CURRENT_CONFIG --- 包含本地计算机系统目前的硬件配置文件
+		 $HKEY_CURRENT_USER --- 定义当前用户的参数选择
+		 $HKEY_LOCAL_MACHINE --- 定义计算机物理状态,包括总线类型、系统内存数据、并安装的硬件和软件
+		 $HKEY_PERFORMANCE_DATA --- 允许访问性能数据
+		 $HKEY_USERS --- 确定本地计算机新用户定义默认用户配置,并作为当前用户的用户配置
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回包含下列参数的数组:
-    [0] - 指定键包含的子键数量.
-    [1] - 键的名称最长的子键的字符大小, 不包含终止符.
-    [2] - 与键相关的值的数量.
-    [3] - 键的名称最长的值的字符大小. 不包含终止符.
-    [4] - 键值中字节符的字节最长的数据内容.
-失败: 返回0并设置@error非0, @extended标记可包含非0系统错误代码.
+成功:	返回以下参数的数组:
+	[0] - 指定键包含的子健数量.
+	[1] - 键子项的最长名称字符大小,不包括终止空字符.
+	[2] - 键关联值的数量.
+	[3] - 键值名称的最长字符大小,不包括终止空字符.
+	[4] - 键值中最长数据的字节大小.
+失败:	返回 0,设置@error:	
+标志为非 0 值, @extended 标志可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中RegQueryInfoKey的相关信息
+@@MsdnLink@@ RegQueryInfoKey
+

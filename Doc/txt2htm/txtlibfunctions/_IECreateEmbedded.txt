@@ -2,35 +2,38 @@
 _IECreateEmbedded
 
 ###Description###
-创建一个适合于嵌入AutoIt图形化界面 (GUI)的web浏览器对象 , 此图形化界面由GuiCtrlCreateObj()生成
+创建一个适合于嵌入AutoIt图形化界面 (GUI)的web浏览器对象,此图形化界面由GuiCtrlCreateObj()生成.
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IECreateEmbedded ( )
 
 ###Parameters###
-@@ParamTable@@
-无
-@@End@@
+None.
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回web浏览器的对象引用
-失败: 返回0并设置@ERROR为:
-    0 ($_IEStatus_Success) = 无错误
-    1 ($_IEStatus_GeneralError) = 一般性错误
+成功:	返回web浏览器的对象引用
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	1 ($_IEStatus_GeneralError) = 一般性错误
 @@End@@
 
+
 ###Remarks###
-任何操作都无法在此对象被嵌入到父层图形化界面(比如执行_IENavigate)前执行. 因为此限制 , 浏览器不会在由_IECreate创建时自动载入 'about:blank' . 因此在浏览器被嵌入父应用程序后必须使用_IENavigate使之浏览 'about:blank' 并在试图操作前加载一个相应的文档(如_IEBodyWriteHTML).
-有几个IE对象的属性(通过_IECreate返回)不能应用到这个对象 , 包括状态文字 , 地址栏和其他可以在一个浏览器存在但不能在嵌入控制对象中存在的属性.
-除非在GUICreate()中使用$WS_CLIPCHILDREN窗体样式否则可能将发生对象是否可见的问题.
-_IEQuit不能于在这个对象.这个对象会随着其父层图形化界面(GUI)关闭而关闭.
+除非这个对象已被嵌入到父层界面否则无法对此对象执行任何操作(如, 你可以执行一个 _IENavigate). 由于此限制, 在_IECreate创建时浏览器不会自动打开'about:blank'. 因此必须在被内嵌入父应用程序后且在试图进行任何依赖于所加载文件的操作(如_IEBodyWriteHTML)前使用_IENavigate浏览'about:blank'.
+
+有几个IE对象的属性(例如通过_IECreate返回)不能应用到这个对象,包括状态文字,地址栏和其他可以在一个浏览器存在但不能在嵌入控件对象中存在的属性.
+
+除非在GUICreate()中使用$WS_CLIPCHILDREN风格的窗体否则可能会有对象可见的问题.
+
+_IEQuit不能用于此对象.且该对象会随着其父层界面(GUI)关闭而关闭.
+
+
 
 ###Related###
-GUICreate , GUICtrlCreateObj ,  _IEAttach , _IECreate
+GUICreate, GUICtrlCreateObj, _IEAttach, _IECreate, _IENavigate
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

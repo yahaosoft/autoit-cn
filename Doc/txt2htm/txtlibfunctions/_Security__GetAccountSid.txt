@@ -2,25 +2,32 @@
 _Security__GetAccountSid
 
 ###Description###
-获取账户的安全标识符(SID)
+检索帐户的安全标识符（SID）
 
 ###Syntax###
 #Include <Security.au3>
-_Security__GetAccountSid($sAccount[, $sSystem = ""])
+_Security__GetAccountSid($sAccount [, $sSystem = ""])
 
 ###Parameters###
 @@ParamTable@@
- $sAccount  指定帐户名. 使用完全合乎域名\用户名格式的字符串以使函数在所需的域中查找帐户.
- $sSystem  系统名称. 该字符串可为远程计算机名. 如果为空, 从本地系统上开始帐户名翻译. 如果名称无法在本地系统上解决, 本函数将尝试使用本地系统信任的域控制器解析名称.
+$sAccount
+	指定帐户名. 使用得域名\用户名格式必须是完全合格的字符串,
+		以确保函数在预期的领域查找帐户.
+$sSystem
+	[可选参数] 系统名称. 此字符串可以是一个远程计算机的名称.
+		如果该字符串为空, 帐户名称的翻译开始在本地系统上;
+		如果名称不能在本地系统上解决,本函数将尝试使用本地系统信任的域控制器解析名称.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 使用数位结构返回二进制SID
-失败: 0
+成功:	返回二进制字节结构的 SID
+失败:	返回 0
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
- _Security__LookupAccountSid
+_Security__LookupAccountSid
+

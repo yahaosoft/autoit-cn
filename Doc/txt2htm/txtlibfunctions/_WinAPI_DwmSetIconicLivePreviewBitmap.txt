@@ -2,42 +2,49 @@
 _WinAPI_DwmSetIconicLivePreviewBitmap
 
 ###Description###
-设置固实的图标化位图以显示窗口或标签当前的预览
+Sets a static, iconic bitmap to display a live preview (also known as a Peek preview) of a window or tab.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_DwmSetIconicLivePreviewBitmap( $hWnd, $hBitmap [, $fFrame [, $tClient]] )
+_WinAPI_DwmSetIconicLivePreviewBitmap ( $hWnd, $hBitmap [, $fFrame [, $tClient]] )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   窗口或标签句柄
+	Handle to the window or tab.
 $hBitmap
-   代表窗口的设备无关的位图(DIB)的句柄
+	Handle to the device-independent bitmap (DIB) to represent the specified window.
 $fFrame
-   指定是否显示围绕位图的框架. 可用值:
-    TRUE - 显示框架
-    FALSE - 不显示框架(默认)
+	[可选参数] Specifies whether display a frame around the provided bitmap, valid values:
+		TRUE    - Display frame.
+		FALSE   - Do not display frame. (Default)
 $tClient
-$tagPOINT结构. 该位移使标签窗口内容在不带框架绘制时可被正确绘制在实时预览中.
+	[可选参数] $tagPOINT structure that contains The offset of a tab window's client region from the host window's
+	frame. This offset enables the tab window's contents to be drawn correctly in a live preview when
+	it is drawn without its frame.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
-窗口通常在响应WM_DWMSENDICONICLIVEPREVIEWBITMAP消息时调用_WinAPI_DwmSetIconicLivePreviewBitmap()函数. 返回的位图无需大于窗口或框架的客户区但必须为32位色深.
-DWM使用位图的副本, 但调用保持原位图的继承关系且在不再需要时响应释放. 当DWM停止显示过去的预览时DWM不会保存位图副本.
-最低系统要求: Windows 7
-使用示例前将 AutoIt.bmp 文件释放到临时文件夹
+A window typically calls the _WinAPI_DwmSetIconicLivePreviewBitmap() function in response to a
+WM_DWMSENDICONICLIVEPREVIEWBITMAP message. The returned bitmap must not be larger than the client area of the
+window or frame and must have 32-bit color depth.
 
-###Related###
+The DWM uses a copy of the bitmap, but the caller retains ownership of the original bitmap and is responsible
+for freeing the resources that it uses when it is no longer needed. The DWM does not keep its copy of the
+bitmap when the DWM stops displaying the live preview representation.
+
+This function requires Windows 7 or later.
+
 
 ###See Also###
- 搜索MSDN知识库中DwmSetIconicLivePreviewBitmap的相关信息
+@@MsdnLink@@ DwmSetIconicLivePreviewBitmap
 
 ###Example###
 @@IncludeExample@@
+

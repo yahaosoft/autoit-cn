@@ -2,41 +2,53 @@
 _WinAPI_UpdateLayeredWindow
 
 ###Description###
-更新一个层叠窗口的位置, 大小, 形状, 内容, 及透明度
+更新分层窗口的位置,大小,形状,内容和半透明度
 
 ###Syntax###
-#Include
-<WinAPI.au3>
-_WinAPI_UpdateLayeredWindow($hWnd, $hDCDest, $pPTDest,
-$pSize, $hDCSrce, $pPTSrce, $iRGB, $pBlend, $iFlags)
+#Include <WinAPI.au3>
+_WinAPI_UpdateLayeredWindow($hWnd, $hDCDest, $pPTDest, $pSize, $hDCSrce, $pPTSrce, $iRGB, $pBlend, $iFlags)
 
 ###Parameters###
 @@ParamTable@@
-$hWnd  层叠窗口的句柄. 当创建窗体时通过指定$WS_EX_LAYERED创建层叠窗口.
-$hDCDest  屏幕设备场景的句柄
-$pPTDest  指定层叠窗体新的屏幕位置的$tagPOINT结构的指针. 如果不改变当前位置, 可为0.
-$pSize  指定层叠窗体新大小的$tagSIZE结构的指针. 如果不改变当前大小, 可为0.
-$hDCSrce  定义层叠窗体的表面的设备场景的句柄. 该句柄可通过调用_WinAPI_CreateCompatibleDC函数获取.
-$pPTSrce  指定分层在设备场景中的位置的$tagPOINT结构的指针
-$iRGB  用于构成层叠窗口的颜色值
-$pBlend  指定用于构成层叠窗体的透明度值的$tagBLENDFUNCTION结构的指针.
-$iFlags  该参数可为下列值之一.
-$ULW_ALPHA - 使用$tblend作为混合色
-$ULW_COLORKEY -
-$iRGB作为透明色
-$ULW_OPAQUE - 绘制不透明层叠窗体
+$hWnd
+	分层窗口句柄. 
+		分层窗口是指定 $WS_EX_LAYERED 创建的窗口.
+$hDCDest
+	屏幕设备环境句柄
+$pPTDest
+	$tagPOINT 结构指针, 指定分层窗口在屏幕上的新位置
+		如果不改变目前的位置, 可以设置为 0.
+$pSize
+	$tagSIZE 结构指针, 指定分层窗口新的大小
+		如果不改变目前的大小, 可以设置为 0.
+$hDCSrce
+	定义分层窗口外观的设备环境句柄
+		此句柄可通过调用 _WinAPI_CreateCompatibleDC 函数获取.
+$pPTSrce
+	$tagPOINT 结构指针, 它指定分层在设备环境的位置
+$iRGB
+	用于分层窗口的主要颜色
+$pBlend
+	$tagBLENDFUNCTION 结构指针, 
+		指定分层窗口使用的透明度值.
+$iFlags
+	参数可以是以下值之一:
+		$ULW_ALPHA - 使用 $tblend 混合功能
+		$ULW_COLORKEY - 使用 $iRGB 颜色的透明度
+		$ULW_OPAQUE - 分层绘制不透明的窗口
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
-$tagBLENDFUNCTION , $tagPOINT , $tagSIZE
+$tagBLENDFUNCTION, $tagPOINT, $tagSIZE
 
 ###See Also###
-搜索MSDN知识库中UpdateLayeredWindow的相关信息
+@@MsdnLink@@ UpdateLayeredWindow

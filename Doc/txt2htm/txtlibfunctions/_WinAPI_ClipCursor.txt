@@ -2,31 +2,33 @@
 _WinAPI_ClipCursor
 
 ###Description###
-定义鼠标箭头在屏幕上的矩形
+限制光标在屏幕内移动的区域(Confines the cursor to a rectangular area on the screen).
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ClipCursor( $tRECT )
+_WinAPI_ClipCursor ( $tRECT )
 
 ###Parameters###
 @@ParamTable@@
 $tRECT
-$tagRECT结构. 如果该参数为0, 鼠标被释放并移动到屏幕上的任意位置
+	$tagRECT 结构,包含屏幕坐标的限制矩形范围. 如果此参数为 0,
+		 光标将随意移动到屏幕上的任意地方.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###
-鼠标箭头为共享资源. 如果应用程序定义光标则在放弃另一应用程序控制前必须通过使用_WinAPI_ClipCursor()释放光标.
+光标为共享资源,如果应用程序限制光标的移动范围,
+ 在使用 _WinAPI_ClipCursor() 之前,必须释放另一个应用程序控制的光标.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中ClipCursor的相关信息
+@@MsdnLink@@ ClipCursor
 
 ###Example###
 @@IncludeExample@@
+

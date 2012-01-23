@@ -1,43 +1,45 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _DebugReportEx
 
 ###Description###
-å°†æ ¼å¼åŒ–ä¿¡æ¯å†™å…¥è°ƒè¯•ä¼šè¯
+¸ñÊ½»¯Ğ´Èëµ÷ÊÔ»á»°¿òµÄĞÅÏ¢
 
 ###Syntax###
-#Include <Debug.au3>
-_DebugReportEx( $sData [,$bLastError = False [,$bExit = False]] )
+#include <Debug.au3>
+_DebugReportEx ( $sData [,$bLastError = False [,$bExit = False]])
+
 
 ###Parameters###
 @@ParamTable@@
-$sData 
-   å°†è¢«æŠ¥å‘Šçš„æ•°æ®
-$bLastError 
-   [å¯é€‰] ä¸ºTrueæ—¶åœ¨æŠ¥å‘Šçš„æ•°æ®åè¿½åŠ GetLastErrorMessage()
-$bExit 
-   [å¯é€‰] ä¸ºTrueæ—¶ä¸­æ–­è„šæœ¬
+$sData
+	ĞëÓè±¨¸æµÄÊı¾İ
+$bLastError
+	[¿ÉÑ¡²ÎÊı] ÉèÖÃÎª True, ±íÊ¾ÈçÓĞ GetLastErrorMessage() Êı¾İ±ØĞë×·¼Óµ½±¨¸æÖĞ
+$bExit
+	[¿ÉÑ¡²ÎÊı] ÉèÖÃÎª True, ±íÊ¾½Å±¾±ØĞëÖÕÖ¹
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: è¿”å›1
-å¤±è´¥: è¿”å›0
+³É¹¦:	·µ»Ø 1.
+Ê§°Ü:	·µ»Ø 0.
 @@End@@
 
 ###Remarks###
-æ¶ˆæ¯å°†æ ¹æ®@errorå€¼æ ¼å¼åŒ–ä¸º:
-0 - æŠ¥å‘ŠBad return from FUNCTION in DLL(dllä¸­çš„å‡½æ•°è¿”å›å¤±è´¥)
-1 - æŠ¥å‘Šunable to open a dll(æ— æ³•æ‰“å¼€dll)
-3 - æŠ¥å‘Šunable to find FUNCTION in DLL(æ— æ³•åœ¨dllä¸­æ‰¾åˆ°å‡½æ•°)
-å¦‚æœ$sDataä¸åŒ…å«"|"æˆ–@erroræœªå¦‚ä¸ŠæŒ‡å®šåˆ™ä¸ä¼šè¢«æ ¼å¼åŒ–
-å¦‚æœæœªå»ºç«‹_DebugSetup()å‡½æ•°æ€»æ˜¯è¿”å›.
-ä¿ç•™è°ƒç”¨æ–¹çš„@error.
-å¦‚æœ$bLastErrorä¸ºTrueåˆ™@extendedå¯è®¾ç½®ä¸ºWindows API GetlastError(). å¦åˆ™å°†ä¿ç•™.
+¸ù¾İ @error ´íÎóĞÅÏ¢½«±»¸ñÊ½»¯ÈçÏÂ:
+0 - ±¨¸æ "DLL ·µ»Ø´íÎóº¯Êı".
+1 - ±¨¸æ "ÎŞ·¨´ò¿ª dll"
+3 - ±¨¸æ "ÎŞ·¨ÕÒµ½ DLL º¯Êı".
+
+ Èç¹û $sData ²»°üº¬ "|" »ò @error ²»ÊÇÉÏÃæËùÖ¸¶¨µÄ±¨¸æÄÚÈİ, ĞÅÏ¢½«²»»á±»¸ñÊ½»¯.
+ Èç¹ûÃ»ÓĞ _DebugSetup(), ÒÑ·¢²¼µÄº¯Êı×ÜÊÇ·µ»Ø.
+ @error Îªµ÷ÓÃ·½±£Áô.
+ Èç¹û $bLastError = True, @extended ¿ÉÒÔÉèÖÃÎª Windows API µÄ GetlastError(). ·ñÔò±£Áô.
+
 
 ###Related###
 _DebugSetup
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

@@ -2,35 +2,41 @@
 _NamedPipes_SetNamedPipeHandleState
 
 ###Description###
-设置指定命名管道的读取模式及屏蔽模式
+设置指定的命名管道读模式和阻塞模式
 
 ###Syntax###
 #Include <NamedPipes.au3>
-_NamedPipes_SetNamedPipeHandleState($hNamedPipe, $iRead, $iWait[, $iBytes = 0[, $iTimeOut = 0]])
+_NamedPipes_SetNamedPipeHandleState($hNamedPipe, $iRead, $iWait [, $iBytes = 0 [, $iTimeOut = 0]])
 
 ###Parameters###
 @@ParamTable@@
- $hNamedPipe  命名管道实例的句柄
- $iRead  管道读取模式. 需为下列之一:
-0 - 以字节流从管道读取数据
-1 - 以消息流从管道读取数据
- $iWait  管道等候模式. 需为下列之一:
-0 - 屏蔽模式生效
-1 - 非屏蔽模式生效
- $iBytes  传输到服务器前客户端收集的最大字节数
- $iTimeout  远程命名管道传递信息前用于传递的最大毫秒时间
+$hNamedPipe
+	命名管道实例的句柄
+$iRead
+	管道读模式.必须是下列之一
+		0 - 以字节流从管道读取数据
+		1 - 以消息流从管道读取数据
+$iWait
+	管道等待模式.必须是下列之一
+		0 - 阻塞模式启用
+		1 - 非阻塞模式被激活
+$iBytes
+	[可选参数] 传输到服务器前客户端收集的最大字节数
+$iTimeout
+	[可选参数] 命名管道的远程传输信息可以通过前的最大时间毫秒值
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	True
+失败:	False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
- _NamedPipes_GetNamedPipeHandleState
+_NamedPipes_GetNamedPipeHandleState
 
 ###See Also###
-搜索MSDN知识库中SetNamedPipeHandleState的相关信息
+@@MsdnLink@@ SetNamedPipeHandleState

@@ -2,7 +2,7 @@
 _GUIToolTip_SetMaxTipWidth
 
 ###Description###
-设置提示窗体的最大宽度
+设置工具提示(ToolTip)窗口最大宽度
 
 ###Syntax###
 #Include <GuiToolTip.au3>
@@ -10,18 +10,21 @@ _GUIToolTip_SetMaxTipWidth($hWnd, $iWidth)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iWidth  将用于设置的提示窗体的最大宽度
+$hWnd
+	控件句柄
+$iWidth
+	需要设置工具提示的最大宽度值
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 以前提示窗体的最大宽度
-@@End@@
-
+成功: 返回原先的工具提示最大宽度值
+失败: 原文档未说明
 ###Remarks###
-最大的提示宽度值不代表提示窗体的实际宽度. 事实上, 如果提示字符串超过最大宽度, 控件将把文本断为多行, 并使用空格确定断行.
-如果文本无法断为多行, 将单行显示. 该行可能超过最大提示宽度.
+The maximum ToolTip width value does not indicate a ToolTip window's actual width. Rather, if a ToolTip string
+exceeds the maximum width, the control breaks the text into multiple lines, using spaces to determine line
+breaks. If the text cannot be segmented into multiple lines, it will be displayed on a single line. The length
+of this line may exceed the maximum ToolTip width.
 
 ###Related###
- _GUIToolTip_GetMaxTipWidth
+_GUIToolTip_GetMaxTipWidth
+

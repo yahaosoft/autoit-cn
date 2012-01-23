@@ -2,41 +2,44 @@
 _WinAPI_GetConnectedDlg
 
 ###Description###
-通过调用连接向导启用网络连接
+启动连接向导,便于调用应用程序启用网络连接.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetConnectedDlg( $iDlg [, $iFlags [, $hParent]] )
+_WinAPI_GetConnectedDlg ( $iDlg [, $iFlags [, $hParent]] )
 
 ###Parameters###
 @@ParamTable@@
 $iDlg
-   指定要打开的对话框, 可用值:
-    0 - 本地连接.
-    1 - 网络连接.
-    2 - 虚拟私有网络连接(VPN).
+	指定要打开的对话框, 可用值:
+		0 - 局域网络连接.
+		1 - 互联网连接.
+		2 - 虚拟专用网络 (VPN) 连接.
 $iFlags
-   指定额外选项. 可为一个或多个下列值:
-    0 - 默认.
-    1 - 不显示显示该用户是否有工作或活动的互联网连接的连接向导页面.
-    2 - 不显示显示有现有互联网连接列表的获取连接向导页.
-    4 - 隐藏的连接向导完成页.
+	[可选参数] 指定附加选项. 参数可以是一或多个下列值:
+		0 - 默认.
+		1 - 不显示 “提示用户是否有工作或活动的互联网连接” 的连接向导页面.
+		2 - 不显示 “现有互联网连接列表” 的连接向导页.
+		4 - 隐藏连接向导完成页.
 $hParent
-   调用该API的父窗体的句柄
+	[可选参数] 父窗口句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1表示网络可连接反之返回0.
-失败: 返回0并设置@error非0
+成功:	返回 1 - 已连接.
+	返回 返回 0 - 未连接.
+	
+失败:	返回 0,设置@error:非 0 值, @extended 可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
-至少Windows Vista
+此函数需要 Windows Vista 或更高版本.
 
-###Related###
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+

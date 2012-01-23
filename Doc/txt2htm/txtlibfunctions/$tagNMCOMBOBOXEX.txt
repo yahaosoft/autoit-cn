@@ -2,38 +2,43 @@
 $tagNMCOMBOBOXEX
 
 ###Description###
-包含使用通知消息指定给ComboBoxEx项目的信息的结构
+包含通知消息使用的 ComboBoxEx 项目特定信息
 
 ###Syntax###
-Global Const $tagNMCOMBOBOXEX =  $tagNMHDR & ";int Mask;int Item;ptr Text;int TextMax;int Image;int SelectedImage;int OverlayImage;int Indent;int Param"
+Global Const $tagNMCOMBOBOXEX = $tagNMHDR & ";int Mask;int Item;ptr Text;int TextMax;int Image;" & _
+		"int SelectedImage;int OverlayImage;int Indent;int Param"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   一个通知信息
+	包含通知消息的信息
 Mask
-   指定属性的数位标记集. 可为下列值的组合.
-    CBEIF_DI_SETITEM - 执行CBEN_GETDISPINFO时设置该标记
-    CBEIF_IMAGE - iImage成员可用或须被填充.
-    CBEIF_INDENT - iIndent成员可用或须被填充.
-    CBEIF_LPARAM - lParam成员可用或须被填充.
-    CBEIF_OVERLAY - iOverlay成员可用或须被填充.
-    CBEIF_SELECTEDIMAGE - iSelectedImage成员可用或须被填充.
-    CBEIF_TEXT - pszText成员可用或须被填充.
+	指定属性标志设置,可以是以下值的组合.
+		CBEIF_DI_SETITEM - 设置此标志处理 CBEN_GETDISPINFO.
+		CBEIF_IMAGE - iImage 成员是有效还是必须填写.
+		CBEIF_INDENT - iIndent 成员是有效或必须填写.
+		CBEIF_LPARAM - lParam 成员是有效或必须填写.
+		CBEIF_OVERLAY - iOverlay 成员是有效或必须填写.
+		CBEIF_SELECTEDIMAGE - iSelectedImage 成员是有效或必须填写.
+		CBEIF_TEXT - pszText 成员是有效或必须填写.
 Item
-   项目的0基索引.
-pszText
-   包含或接收项目文本的字符缓冲区的指针.
+	项目的 0 基索引.
+Text
+	字符缓冲区，其中包含或接收该项目的文本指针.
 TextMax
-   pszText的TCHAR长度. 已设置文本信息时忽略该成员.
+	pszText 的 TCHAR 长度. 已设置文本信息时忽略该成员.
 Image
-   图像列表中0基索引的图像.
+	图像列表中图像的 0 基索引.
 SelectedImage
-   图像列表中0基索引的选定图像.
+	图像列表中图像的 0 基索引.
 OverlayImage
-   图像列表中1基索引的重叠图像.
+	图像列表中覆盖图像的 1 基索引.
 Indent
-   用以显示羡慕的缩进空间量. 每个缩进等于10像素.
+	项目缩进空格数,一个缩进等于 10 像素.
 Param
-   指定给项目的值
-@@end@@
+	项目的具体值.
+@@End@@
+
+###Remarks###
+None.
+

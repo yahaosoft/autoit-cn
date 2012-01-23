@@ -2,35 +2,38 @@
 _SoundLength
 
 ###Description###
-返回声音文件的长度
+返回声音文件的长度.
 
 ###Syntax###
-#Include <Sound.au3>
+#include <Sound.au3>
 _SoundLength ( $aSnd_id [, $iMode ] )
+
 
 ###Parameters###
 @@ParamTable@@
- $aSnd_id  由_SoundOpen或文件名返回的声音ID数组
- $iMode  [可选]该标记确定返回的声音长度的格式
-1 = hh:mm:ss(h=小时, m=分, s=秒)
-2 = 毫秒
+$aSnd_id
+	由 _SoundOpen() 返回的声音 ID 数组或者一个文件名
+$iMode
+	[可选参数] 这个标志决定返回的声音长度
+	1 = hh:mm:ss 这里 h = 小时, m = 分钟 s = 秒
+	2 = 毫秒
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  声音长度
- 失败:  返回0并设置@error
-  1 = $iMode无效
-  3 = 无效声音ID. 使用由_SoundOpen或有效文件名返回的值
+成功:	声音长度
+失败:	返回 0 并设置 @error
+@error:	1 = $iMode 无效
+	3 = 无效声音 ID. 请使用 _SoundOpen() 函数返回的数组或者一个有效的文件名.
 @@End@@
 
 ###Remarks###
-建议在此函数中使用_SoundOpen打开声音文件并传递ID数组, 比使用文件名好. 如果使用文件名直接传递给函数, VBR(多码率)编码的文件常常无法返回正确长度.
+This function will return the best available value for the length of the file regardless of encoding method or parameter type.
+
 
 ###Related###
- _SoundPos , _SoundOpen
-
-###See Also###
+_SoundPos, _SoundOpen
 
 ###Example###
 @@IncludeExample@@
+

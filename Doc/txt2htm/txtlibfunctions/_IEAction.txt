@@ -2,59 +2,87 @@
 _IEAction
 
 ###Description###
-在浏览器上执行任意一组简单动作
+在浏览器中执行预定义的一些简单操作.
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IEAction ( ByRef $o_object, $s_action )
 
 ###Parameters###
 @@ParamTable@@
- $o_object  InternetExplorer.Application对象变量
- $s_action  动作选项(见备注)
+$o_object
+	指向 InternetExplorer.Application 的对象变量
+$s_action
+	操作选择 (参考备注)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0 并且设置 @ERROR
-    0 ($_IEStatus_Success) = 无错误
-    3 ($_IEStatus_InvalidDataType) = 无效数据类型
-    4 ($_IEStatus_InvalidObjectType) = 无效对象类型
-    5 ($_IEStatus_InvalidValue) = 无效值
-    @Extended: 包含无效参数数量
+成功:	返回 1
+失败:	返回 0 并设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 没有错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+	5 ($_IEStatus_InvalidValue) = 无效值
+@Extended:	包含无效参数的数量
 @@End@@
 
+
 ###Remarks###
- 动作  描述
- "back"  向后浏览历史列表中的网页.
- "blur"  使控件失去焦点, 但是不能把焦点放在tab命令中的下一个控件上.
- "click"  在指定控件上模拟鼠标点击.
- "copy"  复制当前选择部分到剪切板.
- "cut"  复制当前选择部分到剪切板然后删除它(剪切).
- "delete"  删除选择部分.
- "disable"  使指定控件失效.
- "enable"  使指定控件可用.
- "focus"  使控件获得焦点.
- "forward"  向前浏览历史列表中的网页.
- "home"  浏览主页.
- "invisible"  设置对象状态为不可见.
- "paste"  用剪切板中内容覆盖当前选择内容.
- "print"  打开打印对话框使用户可以打印当前页面.
- "printdefault"  直接打印到默认打印机(无对话框)
- "quit"  关闭浏览器.
- "refresh"  刷新当前网页.
- "saveas"  打开一个保存对话框用于保存当前网页到一个文件.
- "search"  浏览搜索网页.
- "selectall"  选择整个文档.
- "stop"  取消当前浏览或者下载操作并且停止任何动态页面控件, 例如背景声音和动画.
- "unselect"  取消当前选择.
- "visible"  设置对象状态为可见.
+@@ParamTable@@
+<b>操作</b>
+	<b>详细信息</b>
+"back"
+	按照历史列表转到后退页.
+"blur"
+	使元素失去焦点, 但是不会设置焦点到Tab顺序的下一个元素.
+"click"
+	模拟点击指定元素.
+"copy"
+	复制当前选择内容到剪切板.
+"cut"
+	复制当前选择内容到剪切板并删除所选内容.
+"delete"
+	删除当前所选内容.
+"disable"
+	禁用指定元素.
+"enable"
+	启用指定元素.
+"focus"
+	让指定元素接受焦点.
+"forward"
+	按照历史列表转到前进页.
+"home"
+	转到当前主页或者开始页.
+"invisible"
+	设置对象状态为隐藏.
+"paste"
+	覆盖当前所选内容为剪切板中的内容.
+"print"
+	打开打印对话框使用户可以打印当前页.
+"printdefault"
+	使用默认打印机直接打印当前页(不显示对话框)
+"quit"
+	关闭对象.
+"refresh"
+	刷新当前文档.
+"saveas"
+	打开一个对话框保存当前网页为一个文件.
+"search"
+	转到当前搜索页.
+"selectall"
+	选择整个文档.
+"stop"
+	取消任何进行中的转向或者下载操作并停止任何动态页元素, 例如背景声音和动画.
+"unselect"
+	清除当前所选.
+"visible"
+	设置对象状态为可见.
+@@END@@
 
 ###Related###
- _IEPropertySet
+_IEPropertySet, _IELoadWait
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

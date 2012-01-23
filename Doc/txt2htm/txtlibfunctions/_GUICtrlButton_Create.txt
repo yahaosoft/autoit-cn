@@ -2,7 +2,7 @@
 _GUICtrlButton_Create
 
 ###Description###
-创建按钮控件
+创建一个按钮控件
 
 ###Syntax###
 #Include <GuiButton.au3>
@@ -10,63 +10,66 @@ _GUICtrlButton_Create($hWnd, $sText, $iX, $iY, $iWidth, $iHeight[, $iStyle = -1[
 
 ###Parameters###
 @@ParamTable@@
-$hWnd 
-   父类或属主窗口句柄
-$sText 
-   按钮文本
-$iX 
-   水平位置
-$iY 
-   垂直位置
-$iWidth 
-   宽度
-$iHeight 
-   高度
-$iStyle 
-   控件样式:
-    $BS_AUTO3STATE - 按选中/不确定/移除选中循环的三态复选框.
-    $BS_AUTOCHECKBOX - 选中和非选中二状态复选框.
-    $BS_AUTORADIOBUTTON - 相同于单选按钮 , 当被选择时 , 按钮自动地高亮显示 , 并移除同组中其它相同样式按钮的选中状态.
-    $BS_BITMAP - 按钮能显示一个bmp位图.
-    $BS_BOTTOM - 文本在按钮底部居中对齐.
-    $BS_CENTER - 文本在按钮中心居中对齐.
-    $BS_FLAT - 二维按钮; 不使用默认明暗处理产生的3D图像.
-    $BS_DEFPUSHBUTTON - 创建带有粗边框的按钮. 当按钮在一个对话框中时 , 即使没有输入焦点 , 用户也能通过回车换行键很快地选择它 , 或使它成为默认选中按钮.
-    $BS_GROUPBOX - 创建一个对其它按钮进行分组的矩形框 , 左上角显示按钮文本.
-    $BS_ICON - 按钮能显示一个ico图标.将
-    $BS_LEFT - 文本在按钮中左对齐.
-    $BS_MULTILINE - 超长文本自动换行.
-    $BS_NOTIFY - 允许按钮向父窗口发送BN_KILLFOCUS和BN_SETFOCUS消息. 注意: 不论按钮是否有这个样式 , 都能发送BN_CLICKED通知消息 , 要获取BN_DBLCLK消息 , 按钮必须有BS_RADIOBUTTON或BS_OWNERDRAW样式.
-    $BS_PUSHLIKE - 生成的按钮(如复选框 , 三状态复选框 , 或单选按钮)外观与动作 , 类似按钮开关.
-    $BS_RIGHT - 文本在按钮中右对齐.
-    $BS_RIGHTBUTTON - 将复选按钮的复选框或单选按钮的单选框定位在按钮矩形右侧. 与
-    $BS_TOP - 文本在按钮顶部居中对齐.
-    $BS_VCENTER - 文本在按钮垂直中心.
-    Windows Vista 样式:
-    $BS_SPLITBUTTON - 创建带有下拉箭头的拆分按钮
-    $BS_DEFSPLITBUTTON - 创建具有独特外观的拆分按钮 , 操作类似$BS_PUSHBUTTON样式 , 如果分割按钮在一个对话框中 , 用户可以通过按回车键选取按钮 , 即使按钮没有输入焦点. 适合用于快速选取最有可能(或默认)的选项.
-    $BS_COMMANDLINK - 创建命令链接按钮 , 操作类似$BS_PUSHBUTTON样式 , 但命令按钮上有一个在左侧指向文本的绿色箭头. 可通过向按钮发送BCM_SETNOTE消息设置按钮文本.
-    $BS_DEFCOMMANDLINK - 创建命令链接按钮 , 操作类似$BS_PUSHBUTTON样式 , 可通过回车选取按钮 , 即使按钮没有输入焦点 , 适合用于快速选取最有可能(或默认)的选项.
- 
-  默认: -1
-    强制: $WS_CHILD , $WS_TABSTOP , $WS_VISIBLE , $BS_NOTIFY
-$iExStyle 
-   控件扩展样式. 这些符合标准$WS_EX_常量.
+$hWnd
+	父窗口或所有者窗口的句柄
+$sText
+	按钮文本
+$iX
+	水平位置
+$iY
+	垂直位置
+$iWidth
+	宽度
+$iHeight
+	高度
+$iStyle
+	[可选参数] 控件样式:
+		$BS_AUTO3STATE - 创建三态复选框,当用户选择复选框,其状态在选中、不可用、移除选中 3 状态中循环.
+		$BS_AUTOCHECKBOX - 创建一个复选框,当用户选择复选框,其状态在选中和移除选中之间切换.
+		$BS_AUTORADIOBUTTON - 相当于单选按钮,被选择时,按钮自动高亮显示,并移除同组中其它同等样式按钮的选中状态.
+		$BS_FLAT - 二维按钮; 不使用默认明暗处理产生 3D 图像.
+		$BS_GROUPBOX - 创建一个矩形,其他按钮可以在其中进行分组,矩形左上角显示按钮文本.
+		$BS_PUSHLIKE - 生成的按钮 (如复选框, 三状态复选框, 或单选按钮)外表与动作类似按钮开关,当其不忙碌或未选中时,呈凸起状态;反之则呈凹下状态.(译注:反复推敲原文才如此翻译,但实际上却不知如何实现这个效果)
+	[可选参数] 	$BS_DEFPUSHBUTTON - 创建一个重黑色边框按钮. 如果按钮在对话框中, 即使按钮不具有输入焦点, 用户也可以通过按 Enter 键选中它.对于用户的快速选择或设置默认状态,这个样式是非常有用的.
+	[可选参数] 	
+		$BS_BOTTOM - 文本在按钮底部.
+		$BS_CENTER - 文本在按钮内水平居中.
+		$BS_LEFT - 左对齐按钮文本.
+		$BS_MULTILINE - 超长文本自动换行.
+		$BS_RIGHT - 右对齐按钮文本.
+		$BS_RIGHTBUTTON - 复选按钮的勾选方块定位到按钮矩形区右侧.
+		$BS_TOP - 文本在按钮顶部.
+		$BS_VCENTER - 文本在按钮矩形的垂直中心.
+	[可选参数] 	
+		$BS_ICON - 按钮显示 ico 图标. 
+		$BS_BITMAP - 按钮显示 bmp 位图.
+	[可选参数] 	
+		$BS_NOTIFY - 允许按钮发送 BN_KILLFOCUS 与 BN_SETFOCUS 通知消息到它的父窗口. 
+		注意不论按钮是否有这个样式,都能发送 the BN_CLICKED 通知消息. 
+		要获取 BN_DBLCLK 通知消息, 按钮必须有 BS_RADIOBUTTON 或 BS_OWNERDRAW 样式.
+	[可选参数] 	Vista 样式:
+		$BS_SPLITBUTTON - 有拆分标志 " l " 的按钮, 配合一个下拉菜单箭头
+		$BS_DEFSPLITBUTTON - 类似 $BS_PUSHBUTTON 样式的色边框（初始启动时）按钮, 也有拆分标志 " l ", 配合一个下拉菜单箭头.
+		$BS_COMMANDLINK - 创建命令链接按钮
+		$BS_DEFCOMMANDLINK - 创建命令链接按钮, 类似 $BS_PUSHBUTTON 样式.
+	[可选参数] 默认 : ( -1) : 无 
+		强制 : $WS_CHILD, $WS_TABSTOP, $WS_VISIBLE, $BS_NOTIFY
+$iExStyle
+	[可选参数] 控件扩展样式. 对应于标准 $WS_EX_ 常量.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回按钮句柄
-失败: 0
+成功:	返回按钮控件句柄
+失败:	返回0
 @@End@@
 
 ###Remarks###
-需要ButtonConstants.au3定义常量. 这个函数帮助高级用户学习如何做控制工作.
+ 上述常量要求包含文件 ButtonConstants.au3.
+ 此功能是为高级用户学习如何控制工程控件工作
 
 ###Related###
 _GUICtrlButton_Destroy
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

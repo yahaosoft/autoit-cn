@@ -2,29 +2,39 @@
 _WinAPI_RotatePoints
 
 ###Description###
-将点的数组旋转指定角度
+旋转数组指定的角度点.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RotatePoints( ByRef $aPoint, $iXC, $iYC, $iAngle [, $iStart [, $iEnd]] )
+_WinAPI_RotatePoints ( ByRef $aPoint, $iXC, $iYC, $iAngle [, $iStart [, $iEnd]] )
 
 ###Parameters###
 @@ParamTable@@
 $aPoint
-   二维数组([x1, y1, ...], [x2, y2, ...], ... [xN, yN, ...]). 该数组的前两个元素指定旋转的点. 其他数组元素不变.
+	包含多边形顶点逻辑单位的二维数组: ([x1, y1, ...], [x2, y2, ...], ... [xN, yN, ...]).
+		 数组必须指定一个旋转点,其他数组元素(如果有的话)保持不变.
 $iXC
-   旋转的点的X逻辑单位坐标
+	旋转点 x 坐标逻辑单位.
 $iYC
-   旋转的点的Y逻辑单位坐标
+	旋转点 y 坐标逻辑单位.
 $iAngle
-   旋转的角度
+	旋转角度的度数.
 $iStart
-   开始旋转的数组索引
+	[可选参数] 开始旋转的数组索引.
 $iEnd
-   结束旋转的数组索引
+	[可选参数] 停止旋转的数组索引.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+None
+

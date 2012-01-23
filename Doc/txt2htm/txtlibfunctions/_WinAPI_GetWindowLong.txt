@@ -2,41 +2,41 @@
 _WinAPI_GetWindowLong
 
 ###Description###
-获得有关指定窗口的信息
+检索指定窗口的信息
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_GetWindowLong($hWnd,
-$iIndex)
+_WinAPI_GetWindowLong($hWnd, $iIndex)
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   窗口句柄
+	窗口句柄
 $iIndex
-   指定要检索的基于0的的偏移量. 有效值的范围从0到窗口额外内存空间的字节数,最小为4;
-      例如，若指定了12位或多于12位的窗体类的额外存储空间，则应设为第三个32位整数的索引位8。要获得任意其他值，指定下列值之一：
-      $GWL_EXSTYLE - 获得扩展窗口风格
-    $GWL_STYLE - 获得窗口风格
-    $GWL_WNDPROC -
-      获得窗口过程的地址
-    $GWL_HINSTANCE - 获得应用事例的句柄
-    $GWL_HWNDPARENT -
-      如果父窗口存在，获得父窗口句柄
-    $GWL_ID - 获得窗口标识
-    $GWL_USERDATA -
-      获得与窗口有关的32位值
+	指定检索的 0 基偏移值
+		有效值范围在 0 到窗口附加内存的字节数,再减去4;
+		例如:如果指定 12 或更多的额外内存. 8 将是第三个 32 位字节的整数索引值
+		指定以下值之一:
+		$GWL_EXSTYLE - 检索扩展窗口样式
+		$GWL_STYLE - 检索窗口样式
+		$GWL_WNDPROC - 检索窗口程序的地址
+		$GWL_HINSTANCE - 检索应用实例的句柄
+		$GWL_HWNDPARENT - 检索父窗口句柄, 如果有的话
+		$GWL_ID - 检索窗口标识符
+		$GWL_USERDATA - 检索与窗口关联的 32 位值
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 需要的值
+成功:	返回所要求的值
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###
-需要Constants.au3预定义常量
+ 必须 Constants.au3 预先定义的常量
 
 ###Related###
+_WinAPI_SetWindowLong
 
 ###See Also###
-搜索MSDN知识库中GetWindowLong的相关信息
+@@MsdnLink@@ GetWindowLongPtr

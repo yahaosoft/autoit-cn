@@ -2,7 +2,7 @@
 _Date_Time_GetFileTime
 
 ###Description###
-获取创建, 打开和修改文件的日期和时间
+返回一个包含文件创建,访问,修改的日期和时间
 
 ###Syntax###
 #Include <Date.au3>
@@ -10,25 +10,26 @@ _Date_Time_GetFileTime($hFile)
 
 ###Parameters###
 @@ParamTable@@
-$hFile 
-   将被获取日期和时间的文件的句柄. 文件句柄必须由CreateFile函数以GENERIC_READ权限创建.
+$hFile
+	将被检索的文件句柄.
+		使用 _WinAPI_CreateFile 函数的返回值,并具有 GENERIC_READ 访问权.
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 如下格式数组:
-   [0] - 创建文件的日期时间的$tagFILETIME结构
-   [1] - 打开文件的日期时间的$tagFILETIME结构
-   [2] - 修改文件的日期时间的$tagFILETIME结构
-@@End@@
+返回如下格式数组:
+	[0] - 文件创建日期时间的 $tagFILETIME 结构.
+	[1] - 文件访问日期时间的 $tagFILETIME 结构.
+	[2] - 文件修改日期时间的 $tagFILETIME 结构.
 
 ###Remarks###
-并非所有文件系统都可记录同时也并非所有文件系统记录都以相同方式记录创建和最近打开时间. 例如, 对于FAT, 创建时间有10毫秒延迟, 写入时间有2秒延迟 , 及打开时间有1天延迟(真正的打开日期). 因此, GetFileTime函数不会返回使用SetFileTime设置的相同的文件时间信息. NTFS在最近打开文件后延迟一小时更新到最近打开文件的日期
+ 不是所有文件系统可以记录创建和访问时间.
+ 并非所有文件系统以同样的方式记录文件时间信息.
+ FAT 文件系统, 创建时间有 10 毫秒延迟, 修改时间有 2秒 延迟 , 访问时间有 1 天延迟(真实的访问日期)
+ 因此, 本函数返回的文件时间信息可能会与 SetFileTime 函数的设置不相同
+ NTFS 文件系统更新文件最近访问时间, 最多时会延迟一小时. 
 
 ###Related###
- _Date_Time_SetFileTime , $tagFILETIME
-
-###See Also###
+_Date_Time_SetFileTime, $tagFILETIME
 
 ###Example###
 @@IncludeExample@@

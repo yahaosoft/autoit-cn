@@ -2,46 +2,45 @@
 _ExcelReadArray
 
 ###Description###
-从活动工作表的行或列创建一个数组
+使用活动工作表的 1 行或 1 列数据创建数组.
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelReadArray($oExcel, $iStartRow, $iStartColumn, $iNumCells[, $iDirection = 0[, $iIndexBase = 0]])
+_ExcelReadArray($oExcel, $iStartRow, $iStartColumn, $iNumCells [, $iDirection = 0 [, $iIndexBase = 0]])
 
 ###Parameters###
 @@ParamTable@@
-$oExcel 
-   由预先调用_ExcelBookOpen()或_ExcelBookNew()打开的Excel对象
-$iStartRow 
-   开始读入数组的表的行
-$iStartColumn 
-   开始读入数组的表的列
-$iNumCells 
-   读入数组的单元格数量
-$iDirection 
-   读入数组的单元格的方向(0=右, 1=下)
-$fIndexBase 
-   指定创建的数组的索引基于0还是基于1
+$oExcel
+	由前面调用 _ExcelBookOpen() 或者 _ExcelBookNew() 函数返回的 Excel 对象
+$iStartRow
+	开始读取行
+$iStartColumn
+	开始读取列
+$iNumCells
+	读取单元格数量
+$iDirection
+	[可选参数] 单元格的读入方向 (0 = 水平向右, 1 = 垂直向下)
+$iIndexBase
+	[可选参数] 数组索引基于 0 还是基于 1
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回带有指定单元格内容的数组
- 失败:  返回0并设置@error
- @error:  0 - 无错误
-  1 - 指定对象不存在
-  2 - 指定参数不正确
-  3 - 无效单元格数量
-  4 - 无效方向参数
- @extended:  0 - 行数超出范围
-  1 - 列数超出范围
+成功:	返回包含指定单元格内容的数组
+失败:	返回 0, 并设置 @error:
+@error:	0 - 无错误
+	1 - 指定的对象不存在
+	2 - 参数超出范围
+	3 - 无效单元格数量
+	4 - 无效方向参数
+@extended:	0 - 行数超出范围
+	1 - 列数超出范围
 @@End@@
 
 ###Remarks###
+None
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

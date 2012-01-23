@@ -2,32 +2,34 @@
 _WinAPI_GetProcessUser
 
 ###Description###
-获取指定进程的用户名和域名
+Retrieves the user and domain name for the specified process.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetProcessUser( [$PID] )
+_WinAPI_GetProcessUser ( [$PID] )
 
 ###Parameters###
 @@ParamTable@@
 $PID
-   进程标识. 默认0为当前进程.
+	[可选参数] The PID of the process. Default (0) is the current process.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含下列信息的数组:
-    [0] - 用户(账户)名
-    [1] - 域名
-失败: 返回0并设置@error非0
+Success	The array that contains the following information.
+[0]	The user (account) name.
+[1]	The domain name.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-对一些进程使用该函数需要完全访问权限. 在使用_WinAPI_GetProcessUser()函数前可使用_WinAPI_AdjustTokenPrivileges()函数开启SeDebugPrivilege权限.
+Using this function for some processes may require full access rights. Use _WinAPI_AdjustTokenPrivileges()
+function to enable SeDebugPrivilege privilege before calling _WinAPI_GetProcessUser().
 
-###Related###
 
 ###See Also###
+None
 
 ###Example###
 @@IncludeExample@@
+

@@ -2,54 +2,75 @@
 _viSetAttribute
 
 ###Description###
-设置任意VISA属性. 由_viSetTimeout调用的该函数也可用于设置其他VISA指定的属性. 用过VISA说明可获取更多信息 , 包括VISA属性列表和它们相应的值.
+设置任意 VISA 属性,也可以由 _viSetTimeout 调用来设置其他 VISA 的具体属性. 欲了解更多信息,请阅读 VISA 文档及 VISA 属性列表及其相应值 values.
 
 ###Syntax###
-#Include <Visa.au3>
+#include <Visa.au3>
 _viSetAttribute ( $h_session, $i_attribute, $i_value )
+
 
 ###Parameters###
 @@ParamTable@@
- $h_session  VISA描述符(字符串)或VISA进程句柄(整数). 更多信息参阅_viExecCommand备注.
- $i_attribute  要改变的属性的索引.
-属性被定义在VISA库中.
-该AutoIt库仅为超时属性定义了一个常量($VI_ATTR_TMO_VALUE)及串口属性及值(见备注)但也可通过其他有效索引(作为整数).
- $i_value  属性值. 必须是基于属性类型且在VISA说明中定义的正整数
+$h_session
+	VISA 描述符（字符串）或 VISA 会话句柄（整数）.
+		更多信息见 _viExecCommand 备注.
+$i_attribute
+	被修改属性的索引.
+		属性被定义在 VISA 库中.
+		这个 AutoIt 库只定义了超时属性的常数($VI_ATTR_TMO_VALUE) 和串行接口的属性值
+		(见备注), 但也可以传递任何其他有效的整数索引值.
+$i_value
+	属性值.必须是一个整数,可能的值取决于属性的类型以及在 VISA 文档中的定义.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回0
-失败: 返回-1如果无法打开VISA DLL或代表VIXA错误的非0值(参见VISA程序员向导)
-该函数通常在出错时设置@error为1.
+成功:	返回 0
+失败:	返回 -1, VISA DLL 无法打开; 非零值代表 VISA 错误代码 (见 VISA 程序员指南).
 @@End@@
+This function always sets @error to 1 in case of error.
+
 
 ###Remarks###
-下为预定义属性和值的列表. 你可使用通过将相应的整数索引(参见VISA程序员向导)到该函数的其他有效属性/值.
- 属性  值
- $VI_ATTR_TMO_VALUE(设置延时)  毫秒延时
-  立即返回$VI_TMO_IMMEDIATE(或0)
-无延时$VI_TMO_INFINITE (或"INF")
- $VI_ATTR_ASRL_BAUD  任意有效波特率(9600, 115200等)
- $VI_ATTR_ASRL_DATA_BITS  5到8
- $VI_ATTR_ASRL_PARITY  $VI_ASRL_PAR_NONE
-  $VI_ASRL_PAR_ODD
-$VI_ASRL_PAR_EVEN
-$VI_ASRL_PAR_MARK
-$VI_ASRL_PAR_SPACE
- $VI_ATTR_ASRL_STOP_BITS  $VI_ASRL_STOP_ONE
-  $VI_ASRL_STOP_ONE5
-$VI_ASRL_STOP_TWO
- $VI_ATTR_ASRL_FLOW_CNTRL  $VI_ASRL_FLOW_NONE
-  $VI_ASRL_FLOW_XON_XOFF
-$VI_ASRL_FLOW_RTS_CTS
-$VI_ASRL_FLOW_DTR_DSR   要使用VISA函数必须安装有VISA库(可以检查{WINDOWS}\system32中是否存在visa32.dll)和GPIB卡(如National Instruments NI PCI-GPIB card或Agilent 82350B PCI High-Performance GPIB card)
-* 常用VISA描述符的详细描述可查看帮助中_viExecCommand函数的备注
+这是一个预定义的属性和值列表. 记住,你可以使用任何其他有效属性或值的整数索引(如 VISA 程序员指南中定义的)传递给这个函数.
+ * 属性: $VI_ATTR_TMO_VALUE -> 设置超时
+* 值:
+	A timeout in MILLISECONDS or
+	$VI_TMO_IMMEDIATE (or 0) for "Return immediatly"
+	VI_TMO_INFINITE (or "INF") for "No timeout"
+* 属性: $VI_ATTR_ASRL_BAUD
+* 值:
+	Any valid baudrate (9600, 115200, etc)
+* 属性: $VI_ATTR_ASRL_DATA_BITS
+* 值: 
+	From 5 to 8
+* 属性: $VI_ATTR_ASRL_PARITY
+* 值:
+	$VI_ASRL_PAR_NONE
+	$VI_ASRL_PAR_ODD
+	$VI_ASRL_PAR_EVEN
+	$VI_ASRL_PAR_MARK
+	$VI_ASRL_PAR_SPACE
+* 属性: $VI_ATTR_ASRL_STOP_BITS
+* 值:
+	$VI_ASRL_STOP_ONE 
+	$VI_ASRL_STOP_ONE5
+	$VI_ASRL_STOP_TWO 
+* 属性: $VI_ATTR_ASRL_FLOW_CNTRL
+* 值:
+	$VI_ASRL_FLOW_NONE
+	$VI_ASRL_FLOW_XON_XOFF
+	$VI_ASRL_FLOW_RTS_CTS
+	$VI_ASRL_FLOW_DTR_DSR
+VISA 函数必须安装 VISA 库文件(您可以检查visa32.dll是否在 WINDOWS\System32 目录中).
+如果您使用 GPIB 相关的函数,必须安装 GPIB 卡
+(例如 National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card).
+ * 常见 VISA 描述符详细介绍,见 _viExecCommand 函数备注
+
 
 ###Related###
- _viSetTimeout , _viExecCommand , _viOpen , _viClose
+_viSetTimeout, _viExecCommand, _viOpen, _viClose
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

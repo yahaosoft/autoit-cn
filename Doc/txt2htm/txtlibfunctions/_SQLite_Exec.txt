@@ -2,36 +2,38 @@
 _SQLite_Exec
 
 ###Description###
-执行SQLite查询, 不要结果
+执行 SQLite 查询,不处理结果.
 
 ###Syntax###
-#Include <SQLite.au3>
+#include <SQLite.au3>
 _SQLite_Exec ( $hDB, $sSQL [, $sCallBack ] )
+
 
 ###Parameters###
 @@ParamTable@@
- $hDB  打开的数据库, -1为最近打开的数据库
- $sSQL  执行的SQL表达式
- $sCallback  [可选] 指定情况下每行均会调用函数
+$hDB
+	打开的数据库,如为 -1, 则使用最后打开的数据库
+$sSQL
+	要执行的语句
+$sCallback
+	[可选参数] 如果指定此参数,则每一行都将调用函数
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回$SQLITE_OK 失败: 返回可与$SQLITE_* 常量比较的值
-@error: -1 - SQLite报错(检查返回值)
-      1 - 调用SQLite API 'sqlite3_exec'错误
-      2 - 安全模式阻止调用
-      3 - 回调过程出错
+成功:	返回 $SQLITE_OK
+失败:	返回值可能违反 $SQLITE_* 常量@错误:
+	-1 - SQLite 报告错误 (检查返回值)
+	1 - 错误调用 SQLite API 'sqlite3_exec'
+	2 - 调用被安全模式阻止
+	3 - _SQLite_GetTable2d 内部回叫错误
+	4 - 转换 SQL 语句到 UTF-8 错误
 @@End@@
 
 ###Remarks###
-调函数必须接受 1 参数并可返回$SQLITE_ABORT以结束操作(见示例).
-回调序列的首行为列名.
-
-###Related###
- _SQLite_Query , _SQLite_Gettable , _SQLite_Gettable2d
-
-###See Also###
+ 回调函数必须接受 1 个参数,
+ 并能返回 $SQLITE_ABORT 停止处理(见示例).
+ 在回调序列的第一行为列名称.
 
 ###Example###
 @@IncludeExample@@

@@ -2,43 +2,45 @@
 _WinAPI_CreateIcon
 
 ###Description###
-创建一个指定大小, 颜色, 数位格式的图标
+创建指定大小,颜色,位模式的图标.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateIcon( $hInstance, $iWidth, $iHeight, $iPlanes, $iBitsPixel, $pANDBits, $pXORBits )
+_WinAPI_CreateIcon ( $hInstance, $iWidth, $iHeight, $iPlanes, $iBitsPixel, $pANDBits, $pXORBits )
 
 ###Parameters###
 @@ParamTable@@
 $hInstance
-   创建图标的模块的实例的句柄
+	创建图标的模块句柄.
 $iWidth
-   指定图标像素宽度
+	图标宽度像素值.
 $iHeight
-   指定图标像素高度
+	图标高度像素值.
 $iPlanes
-   指定图标的异或数位掩码中平面的数量
+	图标的 XOR 掩码平面位数.
 $iBitsPixel
-   指定图标的异或数位掩码中每像素的数位数量
+	图标的 XOR 掩码每像素数.
 $pANDBits
-   图标包含的AND数位掩码字节值的数组. 该掩码描述一个单色位图
+	包含图标 AND 掩码位值的字节数组.
+		这个位掩码描述一个单色位图.
 $pXORBits
-   图标包含的XOR数位掩码字节值的数组. 该掩码描述一个单色或设备支持的多色位图
+	包含图标 XOR 掩码位值的字节数组.
+		这个位掩码描述一个单色或依赖于设备的彩色位图.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 图标句柄
-失败: 返回0并设置@error非0
+成功:	返回创建的图标句柄.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###
-使用完图标时使用_WinAPI_DestroyIcon()函数销毁
+使用完的图标,调用 _WinAPI_DestroyIcon() 函数销毁.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中CreateIcon的相关信息
+@@MsdnLink@@ CreateIcon
 
 ###Example###
 @@IncludeExample@@
+

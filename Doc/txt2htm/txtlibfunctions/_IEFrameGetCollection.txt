@@ -1,39 +1,42 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _IEFrameGetCollection
 
 ###Description###
-è¿”å›ä¸€ä¸ªå¯¹è±¡é›†åˆ , åŒ…æ‹¬é¡µé¢å†…æ¡†æ¶é›†(FrameSet)æˆ–è€…æµ®åŠ¨æ¡†æ¶(iframe)çš„æ¡†æ¶
+·µ»Ø°üº¬¿ò¼Ü¼¯ÖĞµÄ¿ò¼Ü»òÆÕÍ¨Ò³ÃæÉÏµÄ¸¡¶¯¿ò¼Ü»ò°´Ë÷ÒıµÄµ¥Ò»¿ò¼Ü»ò¸¡¶¯¿ò¼ÜµÄ¶ÔÏó¼¯ºÏ.
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IEFrameGetCollection ( ByRef $o_object [, $i_index = -1] )
 
 ###Parameters###
 @@ParamTable@@
- $o_object  InternetExplorer.Application , çª—å£æˆ–è€…æ¡†æ¶(frame)å¯¹è±¡çš„å¯¹è±¡å˜é‡
- $i_index  å¯é€‰: å¦‚æœåç§°æˆ–è€…IDå‡ºç°ä¸æ­¢ä¸€æ¬¡,å®šä¹‰ä»0å¼€å§‹çš„å…·ä½“å¯¹è±¡.
-0æˆ–è€…æ­£æ•´æ•°è¿”å›å¯¹åº”ç´¢å¼•å·çš„å¯¹è±¡
--1(é»˜è®¤)è¿”å›æŒ‡å®šå¯¹è±¡çš„é›†åˆ
+$o_object
+	InternetExplorer.Application, ´°¿Ú»ò¿ò¼Ü¶ÔÏóµÄ¶ÔÏó±äÁ¿
+$i_index
+	[¿ÉÑ¡²ÎÊı]: Ö¸¶¨·µ»ØµÄÊÇÒ»¸ö¼¯ºÏ»òÒ»¸öË÷ÒıÊµÀı
+	0»òÕıÕûÊı·µ»ØÒ»¸öË÷ÒıµÄÊµÀı
+	-1 = (Ä¬ÈÏ)·µ»ØÒ»¸ö¼¯ºÏ
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: è¿”å›åŒ…å«æ¡†æ¶(frame)é›†åˆçš„å¯¹è±¡å˜é‡ , @EXTENDED = æ¡†æ¶(Frame)æ•°é‡
-å¤±è´¥: è¿”å›0å¹¶è®¾ç½®@ERRORä¸º:
-    0 ($_IEStatus_Success) = æ— é”™è¯¯
-    3 ($_IEStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»å‹
-    5 ($_IEStatus_InvalidValue) = æ— æ•ˆå€¼
-    7 ($_IEStatus_NoMatch) = ä¸åŒ¹é…
-    @Extended: åŒ…å«æ— æ•ˆå‚æ•°æ•°é‡
+³É¹¦:	·µ»Ø°üº¬¿ò¼Ü¼¯µÄ¶ÔÏó±äÁ¿, @EXTENDED = ¿ò¼ÜÊıÁ¿
+Ê§°Ü:	·µ»Ø0²¢ÉèÖÃ@ERROR
+@Error:	0 ($_IEStatus_Success) = ÎŞ´íÎó
+	3 ($_IEStatus_InvalidDataType) = ÎŞĞ§Êı¾İÀàĞÍ
+	5 ($_IEStatus_InvalidValue) = ÎŞĞ§Öµ
+	7 ($_IEStatus_NoMatch) = ÎŞÆ¥Åä
+@Extended:	°üº¬ÎŞĞ§²ÎÊıÊıÁ¿
 @@End@@
 
+
 ###Remarks###
-å°½ç®¡MSDNæ–‡æ¡£ä¸­æ­¤å‡½æ•°è¿”å›å€¼æ˜¯ä¸€ä¸ªé›†åˆå¯¹è±¡ , ä½†æ˜¯å®ƒä¸èƒ½åƒä¸€ä¸ªæ ‡å‡†çš„é›†åˆå¯¹è±¡é‚£æ ·é€šè¿‡For...Nextå¾ªç¯. ä½ å¿…é¡»åƒç¤ºä¾‹ä¸­é‚£æ ·ç”¨ç´¢å¼•æ›¿ä»£.
+¾¡¹ÜMSDNÎÄµµ±íÃ÷¸Ãº¯ÊıµÄ·µ»ØÖµÊÇÒ»¸ö¼¯ºÏ¶ÔÏó, µ«Ëü²»ÄÜÏñÒ»¸ö±ê×¼¼¯ºÏ¶ÔÏóÒ»ÑùÊ¹ÓÃFor...NextÑ­»·ä¯ÀÀ. ±ØĞëÒÔ¼¯ºÏµÄË÷Òı´úÌæ²½³¤ - ¼ûÊ¾Àı.
+
 
 ###Related###
- _IEIsFrameSet , _IEFrameGetObjByName
+_IEIsFrameSet, _IEFrameGetObjByName
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

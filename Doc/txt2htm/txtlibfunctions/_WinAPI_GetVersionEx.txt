@@ -2,50 +2,29 @@
 _WinAPI_GetVersionEx
 
 ###Description###
-获取当前操作系统的版本信息
+检索当前操作系统信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetVersionEx()
+_WinAPI_GetVersionEx ( )
 
 ###Parameters###
 @@ParamTable@@
-    无
+None.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回当前系统的版本信息:
-    [0] - 操作系统的主要版本号(见备注)
-    [1] - 操作系统的次要版本号(见备注)
-    [2] - 该版本操作系统的架构次数
-    [3] - 操作系统平台
-    [4] - 表示是否安装有最新服务包的字符串, 未安装时为空.
-    [5] - 安装在系统上的最新服务包的主要版本号
-    [6] - 安装在系统上的最新服务包的次要版本号
-    [7] - 标识可用于系统的产品套件的数位掩码.
-
-###Related###
-
-###See Also###
-MSDN
-    [8] - 有关系统的其他信息
-     1 - 操作系统为Windows Vista, Windows XP Pro, Windows XP Home或Windows 2000 Pro
-     2 - 系统为域控制器且操作系统为Windows Server 2008, Windows Server 2003或Windows 2000 Server
-     3 - 操作系统为Windows Server 2008, Windows Server 2003或Windows 2000 Server
-失败: 返回0并设置@error非0.
+成功:	返回 $tagOSVERSIONINFOEX 结构,包含有关当前操作系统的信息.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-系统版本信息([0]:[1]):
-Windows 7/Windows Server 2008 R2: 6.1
-Windows Server 2008/Windows Vista: 6.0
-Windows Serber 2003 R2/Windows Home Server/Windows Server 2003/Windows XP Pro x64: 5.2
-Windows XP: 5.1
-Windows 2000: 5.0
-使用GetVersionEx函数确定应用程序是否运行于指定操作系统版本上时, 检查版本是否大于或等于所需的版本数字.
-以确保测试对于最新版本的操作系统成功.
-参考  搜索MSDN知识库中GetVersionEx的相关信息
+使用本函数确定应用程序能运行的特定操作系统版本,
+ 检查的版本号应大于或等于所需的版本号.
+ 确保成功测试更高版本的操作系统.
 
-###Example###
-@@IncludeExample@@
+
+###See Also###
+@@MsdnLink@@ GetVersionEx
+

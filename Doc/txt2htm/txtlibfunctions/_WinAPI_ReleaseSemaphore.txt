@@ -2,33 +2,35 @@
 _WinAPI_ReleaseSemaphore
 
 ###Description###
-增加一定数量的并发访问对象
+增加信号量对象指定数量的计数.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ReleaseSemaphore( $hSemaphore [, $iCount] )
+_WinAPI_ReleaseSemaphore ( $hSemaphore [, $iIncrease] )
 
 ###Parameters###
 @@ParamTable@@
 $hSemaphore
-   由_WinAPI_CreateSemaphore()或_WinAPI_OpenSemaphore()函数返回的并发访问对象的句柄
+	由 _WinAPI_CreateSemaphore() 或 	
+		_WinAPI_OpenSemaphore() 函数返回的信号量对象句柄.
 $iIncrease
-   要增加的数量. 必须大于0. 如果指定数量导致并发计数超过创建是指定的最大值, 不改变数量并返回0.
+	[可选参数] 信号量对象的当前数量.该值必须大于 0.
+		 如果指定的数量导致信号量的计数超过被指定的最大计数,
+		 被创建的信号量计数不改变,该函数返回 0
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 并发对象以前的数量.
-失败: 返回0并设置@error非0
+成功:	以前的信号量计数.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-数量大于0时标记并发对象的状态且在等于0时不标记. 调用_WinAPI_CreateSemaphore()函数的进程指定并发对象的初始数量. 每个出于并发标记状态释放的等候进程, 将减少一个并发数量.
+信号量对象的状态为信号时,其信号计数大于 0;无信号时,其计数等于 0.
+ 进程调用 _WinAPI_CreateSemaphore() 函数指定信号量的初始值.
+ 每一等待过程为信号的信号状态释放时间,信号量计数递减 1.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中ReleaseSemaphore的相关信息
+@@MsdnLink@@ ReleaseSemaphore
 
-###Example###
-@@IncludeExample@@

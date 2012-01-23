@@ -2,39 +2,43 @@
 _Security__LookupAccountSid
 
 ###Description###
-获取SID的帐户名
+检索帐户的 SID 名称
 
 ###Syntax###
 #Include <Security.au3>
-_Security__LookupAccountSid($vSID)
+_Security__LookupAccountSid($vSID [, $sSystem = ""])
 
 ###Parameters###
 @@ParamTable@@
- $vSID  二进制SID或字符串SID
+$vSID
+	任何 二进制 SID 或字符串 SID
+$sSystem
+	[可选参数] 远程计算机名称. 默认(default)为本地系统.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如下格式数组:
-    $aAcct[0] - SID字符串
-    $aAcct[1] - 域名
-    $aAcct[2] - SID类型, 可为下列值之一:
-     1 - 表示一个用户的SID
-     2 - 表示一个组的SID
-     3 - 表示一个域的SID
-     4 - 表示一个别名的SID
-     5 - 表示一个均知道的组的SID
-     6 - 表示一个已删除帐户的SID
-     7 - 表示无效SID
-     8 - 表示未知SID类型
-     9 - 表示计算机的SID
-失败: 0
+成功:	返回数组的格式如下:
+	$aAcct[0] - 帐户名称
+	$aAcct[1] - 域名
+	$aAcct[2] - SID 的类型,它可以是以下值:
+	1 - 用户 SID
+	2 - 组 SID
+	3 - 域 SID
+	4 - 别名 SID
+	5 - 以知组 SID
+	6 - 已删除帐户的 SID
+	7 - 无效 SID
+	8 - 未知类型的 SID
+	9 - 计算机的 SID
+失败:	返回 0, 并设置 @error
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
- _Security__LookupAccountName , _Security__GetAccountSid
+_Security__LookupAccountName, _Security__GetAccountSid
 
 ###See Also###
- 搜索MSDN知识库中LookupAccountSid的相关信息
+@@MsdnLink@@ LookupAccountSid

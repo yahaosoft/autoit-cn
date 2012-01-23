@@ -2,30 +2,45 @@
 _WinAPI_GetThemeSysSize
 
 ###Description###
-获取系统整形(INT)值
+Retrieves the value of a system size metric from theme data.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetThemeSysInt( $hTheme, $iIntId )
+_WinAPI_GetThemeSysSize ( $hTheme, $iSizeId )
 
 ###Parameters###
 @@ParamTable@@
 $hTheme
-   指定窗口主题数据的句柄
-$iIntId
-   指定所需的系统的整形的值, 可为下列值:
-    $TMT_MINCOLORDEPTH - 适当浏览样式时所需的最小色深数位.
+	Handle to the theme data.
+$iSizeId
+	The value that specifies the system size metric desired. The following values are valid.
+	
+	$SM_CXBORDER
+	$SM_CXVSCROLL
+	$SM_CXHSCROLL
+	$SM_CXSIZE
+	$SM_CYSIZE
+	$SM_CXSMSIZE
+	$SM_CYSMSIZE
+	$SM_CXMENUSIZE
+	$SM_CYMENUSIZE
+	$SM_CXPADDEDBORDER
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含系统整数值
-失败: 返回0并设置@error非0且@extended标记包含系统错误代码
+Success	The size in pixels.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+If $hTheme is not 0, this function returns the size stored in the current visual style (SysMetrics section
+of the visual style) scaled to the current screen dpi. If $hTheme is 0, this function returns the global system
+metric in pixels that is scaled to the current dpi only if the application is marked as dpi-awareotherwise,
+the pixels returned are unscaled.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetThemeSysInt的相关信息
+@@MsdnLink@@ GetThemeSysSize
+

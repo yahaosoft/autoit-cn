@@ -1,40 +1,40 @@
-﻿###User Defined Function###
+###User Defined Function###
 _SoundOpen
 
 ###Description###
-打开声音文件以便其它_Sound函数使用
+打开一个声音文件,用于其它 _Sound 函数.
 
 ###Syntax###
-#Include <Sound.au3>
-_SoundOpen ( $sFile [, $sAlias ] )
+#include <Sound.au3>
+_SoundOpen ( $sFile )
+
 
 ###Parameters###
 @@ParamTable@@
- $sFile  声音文件路径
- $sAlias  可选 - 给定用于其他函数的声音的名称
+$sFile
+	声音文件路径
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回一个包含下列三个信息元素的数组:
-  $array[0] = 声音ID字符串
-  $array[1] = VBR长度纠正部分
-  $array[2] = VBR间隔纠正部分
- 失败:  返回0并设置@error:
-  1 = MCI错误
-  2 = 文件不存在
-  3 = 创建ID字符串出错
- @Extended:  MCI出错
+成功:	返回一个包含下列信息的三元素数组:
+	$array[0] = 声音文件 ID 字符串
+	$array[1] = VBR 长度修正数
+	$array[2] = VBR 速度修正数
+	$array[3] = Sound ID marker
+失败:	返回 0 并设置 @Error
+@error:	1 = MCI 错误
+	2 = 文件不存在
+@Extended:	0 = 没有错误.
+	大于0 =  MCI 错误.
 @@End@@
 
 ###Remarks###
-尽管一些_Sound函数可接受文件名, 但不排除使用VBR编码的可能, 所以推荐使用原始的_SoundOpen函数并使用返回的数组作为标识参数. 这是因为MCI DLL以CBR(固定码率)编码操作文件使得当声音文件使用VBR(可变码率)编码时通过那些_Sound函数来处理长度和位置会产生不正确的结果.
-返回数组的单一元素超出_Sound函数范围且其间隔对用户是透明的.[?]
+Although many of the _Sound functions will accept the filename as a parameter, if there is a possibility of the file being VBR (variable bit rate) encoded it is highly recommended to use _SoundOpen initially and then use the returned array as the identity parameter in other _Sound...() functions.  This is because because the MCI DLL assumes all files are CBR (constant bit rate) encoded and produces incorrect results from those _Sound...() functions dealing with length and position when the sound file has been VBR (variable bit rate) encoded.  If using the array as the ID parameter with the _Sound...() functions which alter the VBR correction factors (_SoundStop) the ID array will be updated when needed. 
+The individual elements of the returned array have no utility outside the _Sound functions and their internal use is transparent to the user.
 
 ###Related###
- _SoundClose , _SoundLength , _SoundPause , _SoundPlay , _SoundPos , _SoundResume , _SoundStatus , _SoundStop
-
-###See Also###
+_SoundClose, _SoundLength, _SoundPause, _SoundPlay, _SoundPos, _SoundResume, _SoundStatus, _SoundStop
 
 ###Example###
 @@IncludeExample@@

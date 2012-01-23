@@ -2,31 +2,36 @@
 _WinAPI_CreateDirectoryEx
 
 ###Description###
-根据模板创建文件夹
+Creates a new directory with the attributes of a specified template directory.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateDirectoryEx( $sNewDir, $sTemplateDir [, $tSecurity] )
+_WinAPI_CreateDirectoryEx ( $sNewDir, $sTemplateDir [, $tSecurity] )
 
 ###Parameters###
 @@ParamTable@@
 $sNewDir
-   要创建的目录路径
+	The path of the directory to be created.
 $sTemplateDir
-   创建目录时作为模板的目录路径
+	The path of the directory to use as a template when creating the new directory.
 $tSecurity
-$tagSECURITY_ATTRIBUTES结构. 如果该参数为0 , 目录获取默认安全描述符. 目录安全描述符中的权限控制列表(ACL)从其父目录继承.
+	[可选参数] $tagSECURITY_ATTRIBUTES structure that specifies a security descriptor for the new directory.
+	If this parameter is 0, the directory gets a default security descriptor. The access control lists
+	(ACL) in the default security descriptor for a directory are inherited from its parent directory.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-_WinAPI_CreateDirectoryEx()函数允许从其他目录创建继承流信息的目录. 该函数非常有用 , 比如 , 当正在使用Macintosh目录时 , 其中有一个资源流 , 需要正确识别目录内容作为一个属性.
+The _WinAPI_CreateDirectoryEx() function allows you to create directories that inherit stream information
+from other directories. This function is useful, for example, when you are using Macintosh directories, which have
+a resource stream that is needed to properly identify directory contents as an attribute.
 
-###Related###
 
 ###See Also###
+@@MsdnLink@@ CreateDirectoryEx
+

@@ -2,40 +2,43 @@
 _WinAPI_OpenFileMapping
 
 ###Description###
-打开已命名的文件映射对象
-_WinAPI_OpenFileMapping ( $sName [, $iAccess [, $fInheritHandle]]  )
+打开命名的文件映射对象.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_OpenFileMapping ( $sName [, $iAccess [, $fInherit]] )
 
 ###Parameters###
 @@ParamTable@@
 $sName
-   打开的文件映射对象的名称.
+	文件映射对象的名称.
 $iAccess
-   文件镜像的权限. 该参数可为下列值之一:
-    $FILE_MAP_ALL_ACCESS - 映射文件的读写视图
-    $FILE_MAP_COPY - 映射文件的写复制视图
-    $FILE_MAP_READ - 映射文件的读取视图
-    $FILE_MAP_WRITE - 映射文件的写入视图
-    每个预定义值可与下值结合使用.
-    $FILE_MAP_EXECUTE - 映射文件的可执行视图
+	[可选参数] 文件映射的访问类型. 可以是以下值之一:
+		 $FILE_MAP_ALL_ACCESS --- 映射文件的读/写视图
+		 $FILE_MAP_COPY --- 映射文件的写入复制视图
+		 $FILE_MAP_READ --- 映射文件的只读视图
+		 $FILE_MAP_WRITE --- 映射文件的读/写视图
+		 每个值的前面可以组合下面值:
+		 $FILE_MAP_EXECUTE --- 映射可执行文件的视图(映射内存可以运行的代码)
 $fInheritHandle
-   指定是否可由进程继承句柄, 可用之:
-    TRUE  - 该进程创建的进程将继承句柄.
-    FALSE - 进程不继承该句柄(默认).
+	[可选参数] 指定是否继承进程的句柄,有效值:
+		1 - 进程继承该进程创建的句柄.
+		0 - 进程不继承这个句柄. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回指定文件镜像的句柄
-失败：返回0并设置@error非0
+成功:	返回指定的文件映射对象句柄.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###
-对于大于地址空间的文件, 仅可一次映射文件的一小部分. 当完成首个视图时, 需要解除映射再映射新视图.
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中OpenFileMapping的相关信息
+@@MsdnLink@@ OpenFileMapping
 
 ###Example###
 @@IncludeExample@@
+

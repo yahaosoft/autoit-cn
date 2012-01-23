@@ -2,30 +2,31 @@
 _WinAPI_KillTimer
 
 ###Description###
-销毁指定计时器
+销毁指定的计时器.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_KillTimer( $hWnd, $hWnd )
+_WinAPI_KillTimer ( $hWnd, $iTimerID )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-$hWnd相同.
-$iTimerId
-   指定要被销毁的计时器的标识
+	定时器关联的窗口句柄.
+		 此值必须与传递给 _WinAPI_SetTimer() 函数创建计时器的 $hWnd 值相同.
+$iTimerID
+	计时器标识符.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-该函数不会移除已传递到消息队列的WM_TIMER消息
+函数不会删除已经传递到消息队列的 WM_TIMER 消息.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中KillTimer的相关信息
+@@MsdnLink@@ KillTimer
+

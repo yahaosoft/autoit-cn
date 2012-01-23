@@ -2,7 +2,7 @@
 _Date_Time_DOSDateTimeToStr
 
 ###Description###
-将DOS日期时间解码为字符串
+解码一个 DOS 日期到一个字符串
 
 ###Syntax###
 #Include <Date.au3>
@@ -10,29 +10,26 @@ _Date_Time_DOSDateTimeToStr($iDosDate, $iDosTime)
 
 ###Parameters###
 @@ParamTable@@
-$iDosDate 
-   如下结构的MS-DOS日期:
-    0-4位的月份日期(1-31)
-    5-8位的月份(1=January, 2=February, 等)
-    9-15位加上1980的年份(加上1980为实际年份)
-$iDosTime 
-   如下结构的MS-DOS时间:
-    0-4位被2除的秒
-    5-10位的分(0-59)
-    11-15位的时(24小时时制时钟的0-23)
+$iDosDate
+	MS-DOS 日期, 封装为下方格式:
+		位 0- 4 ,一月中的其中一天(1–31)
+		位 5- 8 ,月份 (1 = 一月, 2 = 二月, 等等)
+		位 9-15 ,相对 1980 的偏移量(加上1980得到实际年份)
+$iDosTime
+	MS-DOS 时间, 封装为下方格式:
+		位 0- 4 ,按2分开的秒(Second divided by 2)
+		位 5-10 ,分钟 (0–59)
+		位 11-15 ,时钟 (0–23 于 24 小时计时)
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: mm/dd/yyyy hh:mm:ss格式的日期/时间字符串
-@@End@@
+返回一个日期/时间字符串,格式为 mm/dd/yyyy hh:mm:ss
 
 ###Remarks###
+None.
 
 ###Related###
- _Date_Time_DOSDateToStr , _Date_Time_DOSTimeToStr
-
-###See Also###
+_Date_Time_DOSDateToStr, _Date_Time_DOSTimeToStr
 
 ###Example###
 @@IncludeExample@@

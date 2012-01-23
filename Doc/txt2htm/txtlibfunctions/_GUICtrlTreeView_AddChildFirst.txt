@@ -2,7 +2,7 @@
 _GUICtrlTreeView_AddChildFirst
 
 ###Description###
-添加新项目
+添加第一子项目
 
 ###Syntax###
 #Include <GuiTreeView.au3>
@@ -10,26 +10,29 @@ _GUICtrlTreeView_AddChildFirst($hWnd, $hParent, $sText[, $iImage = -1[, $iSelIma
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $hParent  父项
- $sText  项目文本
- $iImage  控件图像列表中0基索引的项目图标
- $iSelImage  控件图像列表中0基索引的项目图标
+$hWnd
+	控件句柄
+$hParent
+	父项目
+$sText
+	新项目文本
+$iImage
+	[可选参数] 项目图标在图像列表中的 0 基索引
+$iSelImage
+	[可选参数] 子项目图标在图像列表中的 0 基索引
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 新项目句柄
-失败: 0
+成功:	返回新项目句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-以$hParent的首个子项添加项目. 新项后的项目在添加后下移.
+ 新项目作为 $hParent 的首子项添加到 $hParent 子项列表的第一位置,原子项顺次下移.
 
 ###Related###
 _GUICtrlTreeView_AddChild
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

@@ -1,8 +1,8 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _GUICtrlRichEdit_FindTextInRange
 
 ###Description###
-åœ¨ä¸€ä¸ªå†…éƒ¨å­—ç¬¦ä½ç½®èŒƒå›´å†…æœç´¢æ–‡æœ¬
+ËÑË÷×Ö·ûÇø¼ä·¶Î§ÄÚµÄÎÄ±¾
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -10,47 +10,54 @@ _GUICtrlRichEdit_FindTextInRange($hWnd, $sText [, $iStart = 0 [, $iEnd = -1 [, $
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  æŽ§ä»¶å¥æŸ„
- $sText  æŸ¥æ‰¾çš„æ–‡æœ¬
- $iStart  [å¯é€‰] å¼€å§‹æœç´¢çš„å†…éƒ¨å­—ç¬¦ä½ç½®
-é»˜è®¤: æŽ§ä»¶å¼€å§‹
- $iEnd  [å¯é€‰] åœæ­¢æœç´¢çš„å†…éƒ¨å­—ç¬¦ä½ç½®
-é»˜è®¤: æŽ§ä»¶ç»“å°¾
- $fMatchCase  [å¯é€‰] æœç´¢å¤§å°å†™æ•æ„Ÿ
-é»˜è®¤: å¤§å°å†™ä¸æ•æ„Ÿ
- $fWholeWord  [å¯é€‰] å…¨å­—åŒ¹é…æœç´¢
-é»˜è®¤: éƒ¨åˆ†æˆ–å…¨éƒ¨æ–‡å­—
- $iBehavior  [å¯é€‰] ä»»æ„BitOr $FR_MATCHALEFHAMZA, $FR_MATCHDIACå’Œ$FR_MATCHKASHIDAçš„ç»„åˆ
-é»˜è®¤: 0
+$hWnd
+	¿Ø¼þ¾ä±ú
+$sText
+	ËÑË÷µÄÎÄ±¾
+$iStart
+	[¿ÉÑ¡²ÎÊý] ×Ö·ûÇø¼äËÑË÷µÄÆðÊ¼Î»ÖÃ
+		Ä¬ÈÏ : ¿Ø¼þµÄÆðµã
+$iEnd
+	[¿ÉÑ¡²ÎÊý] ×Ö·ûÇø¼äËÑË÷µÄ½áÊøÎ»ÖÃ
+		Ä¬ÈÏ : ¿Ø¼þµÄ½áÊøµã
+$fMatchCase
+	[¿ÉÑ¡²ÎÊý] ÊÇ·ñÇø·Ö´óÐ¡Ð´
+		Ä¬ÈÏ : ²»Çø·Ö´óÐ¡Ð´
+$fWholeWord
+	[¿ÉÑ¡²ÎÊý] ËÑË÷ÍêÕûµ¥´Ê
+		Ä¬ÈÏ : ²¿·Ö»òÈ«²¿×Ö
+$iBehavior
+	[¿ÉÑ¡²ÎÊý] ÈÎºÎ BitOr ×éºÏ: $FR_MATCHALEFHAMZA, $FR_MATCHDIAC Óë $FR_MATCHKASHIDA
+		Ä¬ÈÏ : 0
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: åŒ…å«å€¼çš„array[2]
-    å¦‚æžœæ‰¾åˆ°ç›®æ ‡å­—ç¬¦ä¸², è¿”å›žåŒ…å«åŒ¹é…æ–‡æœ¬çš„å†…éƒ¨å­—ç¬¦ä½ç½®çš„èŒƒå›´, å¦‚[45, 52]
-    å¦‚æžœæœªæ‰¾åˆ°, è¿”å›ž[-1, -1]
-å¤±è´¥: è¿”å›ž0å¹¶è®¾ç½®@error:
-    101 - $hWndä¸æ˜¯å¥æŸ„
-    102 - $sText = ""
-    103 - $iStartä¸æ˜¯æ­£æ•°ä¹Ÿä¸æ˜¯0æˆ–-1
-    104 - $iEndä¸æ˜¯æ­£æ•°ä¹Ÿä¸æ˜¯0æˆ–-1
-    105 - $fMatchCaseéžçœŸéžå‡
-    106 - $fwholeWordéžçœŸéžå‡
-    1071 - $iBehaviorä¸æ˜¯æ•°å­—
-    1072 - $iBehavioræ— æ•ˆ
+³É¹¦:	·µ»ØÖµÔÚ array[2] ÄÚ
+	Èç¹ûÕÒµ½Ä¿±ê×Ö·û´®, ·µ»ØÆ¥ÅäÎÄ±¾ÔÚ×Ö·ûÇø¼ä·¶Î§ÄÚµÄÎ»ÖÃÖµ, ÀýÈç:[45, 52]
+	Èç¹ûÃ»ÓÐÕÒµ½,Ôò·µ»Ø [-1, -1]
+Ê§°Ü:	·µ»Ø 0,ÉèÖÃ@error:	
+@error:	101 - $hWnd ²ÎÊýÖµ²»ÊÇ¾ä±ú
+	102 - $sText = ""
+	103 - $iStart ¼È²»ÊÇÕýÊý»òÁã, Ò²²»ÊÇ -1
+	104 - $iEnd ¼È²»ÊÇÕýÊý»òÁã, Ò²²»ÊÇ -1
+	105 - $fMatchCase ±ØÐëÊÇ True »ò False
+	106 - $fwholeWord ±ØÐëÊÇ True »ò False
+	1071 - $iBehavior ²»ÊÇÒ»¸öÊý×Ö
+	1072 - $iBehavior ÎÞÐ§
 @@End@@
 
 ###Remarks###
-æŽ§ä»¶å¼€å§‹å‡ºçš„å†…éƒ¨å­—ç¬¦ä½ç½®ä¸º0.
-é»˜è®¤å­—ç¬¦èŒƒå›´, 0åˆ°-1, å‘ä¸‹æœç´¢å…¨éƒ¨æ–‡æœ¬.
-å‘ä¸‹æœç´¢åˆ°æŽ§ä»¶å°¾è®¾ç½®$iEndä¸º-1.
-å‘ä¸Šæœç´¢åˆ°æŽ§ä»¶å¼€å§‹è®¾ç½®$iStartä¸º-1.
+ ¿Ø¼þµÄÆðµãÎª×Ö·ûÇø¼ä·¶Î§µÄ 0 Î»ÖÃ.
+ Ä¬ÈÏ×Ö·û·¶Î§,0 µ½ -1,ËÑË÷Õû¸ö·¶Î§µÄÎÄ×Ö.
+ ÉèÖÃ $iEnd Îª -1,±íÊ¾ÏòÏÂËÑË÷µ½¿Ø¼þµÄÎ²²¿.
+ ÉèÖÃ $iStart Îª -1,±íÊ¾ÏòÉÏËÑË÷µ½¿Ø¼þµÄÆðÊ¼Î»ÖÃ.
 
 ###Related###
- _GUICtrlRichEdit_FindText
+_GUICtrlRichEdit_FindText
 
 ###See Also###
- æœç´¢MSDNçŸ¥è¯†åº“ä¸­EM_FINDTEXTEXçš„ç›¸å…³ä¿¡æ¯
+@@MsdnLink@@ EM_FINDTEXTEX
 
 ###Example###
 @@IncludeExample@@

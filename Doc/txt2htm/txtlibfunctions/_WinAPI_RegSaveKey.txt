@@ -2,36 +2,37 @@
 _WinAPI_RegSaveKey
 
 ###Description###
-以标准格式将指定键及其子键和值保存为新文件
+以标准格式保存指定键及其子项和值到新文件.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RegSaveKey( $hKey, $sFile [, $tSecurity] )
+_WinAPI_RegSaveKey ( $hKey, $sFile [, $tSecurity] )
 
 ###Parameters###
 @@ParamTable@@
 $hKey
-   打开的注册表键的句柄
+	注册表项句柄.
 $sFile
-   保存指定键及子键的文件的名称. 如果文件存在则替换. 新文件为存档属性.
+	文件的名称. 
+		如果该文件已经存在,函数替换它.新文件具有存档属性.
 $tSecurity
-   $tagSECURITY_ATTRIBUTES结构. 如果为0, 文件获取默认安全描述符.
+	[可选参数] $tagSECURITY_ATTRIBUTES 结构,
+		指定新文件的安全描述符.如果此参数为 0,该文件使用默认的安全描述符.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0, @extended标记可包含非0系统错误代码.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
-可在后续调用_WinAPI_RegRestoreKey()函数中使用此函数创建的文件
-运行示例前请将 reg.dat 文件保存至临时文件夹
+可以用这个函数创建的文件供随后的 _WinAPI_RegRestoreKey() 函数调用.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中RegSaveKey的相关信息
+@@MsdnLink@@ RegSaveKey
 
 ###Example###
 @@IncludeExample@@
+

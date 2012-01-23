@@ -2,43 +2,52 @@
 _WinAPI_ReplaceFile
 
 ###Description###
-以其他文件替换一个文件并创建原始文件的备份
+替换文件为另一文件,并创建原始文件的备份副本.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ReplaceFile( $sReplacedFile, $sReplacementFile [, $sBackupFile [, $iFlags]] )
+_WinAPI_ReplaceFile ( $sReplacedFile, $sReplacementFile [, $sBackupFile [, $iFlags]] )
 
 ###Parameters###
 @@ParamTable@@
 $sReplacedFile
-   将被替换的文件名.
+	被替换的文件名称.
 $sReplacementFile
-   $sReplacedFile文件的文件名
+	?将取代 $sReplacedFile 的文件名称.
 $sBackupFile
-   $sReplacedFile文件备份的文件名. 如果该参数为空字符串, 不创建备份文件.
-$iFlag
-   替换选项. 该参数可为一个或多个下列值:
-    $REPLACEFILE_WRITE_THROUGH - 在函数返回前保证文件替换信息复制到被刷新到磁盘
-    $REPLACEFILE_IGNORE_MERGE_ERRORS - 忽略合并时出现的错误信息
-    $REPLACEFILE_IGNORE_ACL_ERRORS - 忽略合并时替换文件ACL信息时发生的错误
+	[可选参数] $sReplacedFile 文件的备份副本名称.
+		 如果此参数为空字符串,将不创建备份文件.
+$iFlags
+	[可选参数] 替换选项. 参数可以是一或多个下列值:
+		 $REPLACEFILE_WRITE_THROUGH --- 替换文件信息复制刷新到磁盘后函数返回
+		 $REPLACEFILE_IGNORE_MERGE_ERRORS --- 忽略合并时出现的错误信息（如属性和 ACL）
+		 $REPLACEFILE_IGNORE_ACL_ERRORS --- 忽略合并时替换文件 ACL 信息时发生的错误
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:非 0 值 (见备注).
 @@End@@
 
 ###Remarks###
-如果函数失败, 调用_WinAPI_GetLastError()函数获取扩展错误信息. 下述为可能的错误代码.
-ERROR_UNABLE_TO_MOVE_REPLACEMENT - 1176 (0x498)
-替换文件不能被重新命名. 如果lpBackupFileName被指定, 替换和被替换文件保留其原始文件名. 否则, 被替换的文件不再存在, 替换文件按原有名称存在.
-ERROR_UNABLE_TO_MOVE_REPLACEMENT_2 - 1177(0x499)
-无法移动替换的文件. 替换文件仍然以其原来的名字存在; 但是, 它从被替换的文件继承文件流及属性. 被替换的文件以lpBackupFileName指定的名称存在. 此错误仅在lpBackupFileName不是NULL时发生.
-ERROR_UNABLE_TO_REMOVE_REPLACED - 1175(0x497)
-无法删除被替换的文件. 被替换和替换文件保留其原始文件名.
+如果函数失败, 调用 _WinAPI_GetLastError() 函数获取扩展的错误信息.
+ 以下是这个函数可能发生的错误代码:
+ ERROR_UNABLE_TO_MOVE_REPLACEMENT (1176)
+替换文件不能被重新命名. 如果 $sBackupFile 被指定, 
+替换与被替换文件保留原始文件名.
+否则,被替换的文件不再存在,替换文件已原名称存在.
+ ERROR_UNABLE_TO_MOVE_REPLACEMENT_2 (1177)
+ 替换文件无法移动. 替换文件仍然以原名存在; 但继承文件流及属性.
+ 被替换文件仍然 $sReplacedFile 的名称存在.
+ ERROR_UNABLE_TO_REMOVE_REPLACED (1175)
+ 被替换的文件无法被删除. 被替换和替换文件保留其原来的文件名.
+如果返回任何其他错误,如 ERROR_INVALID_PARAMETER, 
+替换和备替换文件将保留原来的文件名.
+此时不存在备份文件,它不能保证替换文件将继承所有的属性和文件流.
 
-###Related###
+
 
 ###See Also###
- 搜索MSDN知识库中ReplaceFile的相关信息
+@@MsdnLink@@ ReplaceFile
+

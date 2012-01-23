@@ -2,33 +2,43 @@
 _Security__AdjustTokenPrivileges
 
 ###Description###
-启用或禁用指定访问令牌的权限
+启用或禁用指定的访问令牌权限
 
 ###Syntax###
 #Include <Security.au3>
-_Security__AdjustTokenPrivileges($hToken, $fDisableAll, $pNewState, $iBufferLen[, $pPrevState = 0[, $pRequired = 0]])
+_Security__AdjustTokenPrivileges($hToken, $fDisableAll, $pNewState, $iBufferLen [, $pPrevState = 0 [, $pRequired = 0]])
 
 ###Parameters###
 @@ParamTable@@
- $hToken  包含将修改权限的访问令牌的句柄
- $fDisableAll  如果为真, 函数禁用所有权限并忽略NewState参数. 如果为假, 函数修改基于由$pNewState参数指向的权限信息.
- $pNewState  包含权限和其属性的$tagTOKEN_PRIVILEGES结构的指针
- $iBufferLen  $pNewState指定的缓冲区的字节大小
- $pPrevState  指定要修改的权限的以前状态的$tagTOKEN_PRIVILEGES结构的指针. 可为0
- $pRequired  接收由$pPrevState指定的缓冲区所需的字节大小变量的指针. 如果$pPrevState为0该参数可为0.
+$hToken
+	访问令牌的句柄，它包含要修改的权限
+$fDisableAll
+	如果为 True,该函数禁用所有特权,并且忽略 $pNewState 参数.
+	如果为 False,该函数依据 $pNewState 参数的指向修改权限信息.
+$pNewState
+	$tagTOKEN_PRIVILEGES 结构指针，它包含特权及其属性.
+$iBufferLen
+	$pNewState 指向的缓冲区字节大小
+$pPrevState
+	[可选参数] $tagTOKEN_PRIVILEGES 结构指针，
+		指定在函数修改前的特权状态. 可以为 0
+$pRequired
+	[可选参数] 变量指针, 用于接收 $pPrevState 指定的缓冲区数据,
+		大小以字节为单位. 如果 $pPrevState 为 0, 这个参数可以是 0.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-该函数无法向访问令牌添加新权限. 只能启用或禁用令牌已存在的权限.
+ 函数不能为访问令牌添加新的权限.
+只是启用或禁用令牌的现行特权. 
 
 ###Related###
- $tagTOKEN_PRIVILEGES
+$tagTOKEN_PRIVILEGES
 
 ###See Also###
- 搜索MSDN知识库中AdjustTokenPrivileges的相关信息
+@@MsdnLink@@ AdjustTokenPrivileges

@@ -2,32 +2,34 @@
 _WinAPI_PathGetCharType
 
 ###Description###
-确定路径中相关字符的类型
+确定路径相关的字符类型.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_PathGetCharType( $sChar )
+_WinAPI_PathGetCharType ( $sChar )
 
 ###Parameters###
 @@ParamTable@@
 $sChar
-   要确定类型的字符
+	确定类型的字符.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 确定字符类型的一个或多个下列值:
-   $GCT_INVALID - 字符不用于路径
-   $GCT_LFNCHAR - 字符在长文件名中有效
-   $GCT_SEPARATOR - 字符为路径分隔符
-   $GCT_SHORTCHAR - 字符在短文件名(8.3)中有效
-   $GCT_WILD - 字符为通配符
-失败: 返回-1并设置@error非0
+成功:	返回一或多个确定字符类型的下列值.
+	$GCT_INVALID --- 字符是无效的路径
+	$GCT_LFNCHAR --- 字符是有效的长文件名
+	$GCT_SEPARATOR --- 字符是路径分隔符
+	$GCT_SHORTCHAR --- 字符是无效的（8.3）短文件名
+	$GCT_WILD --- 字符是一个通配符
+失败:	返回 -1,设置@error:	
+标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中PathGetCharType的相关信息
+@@MsdnLink@@ PathGetCharType
+

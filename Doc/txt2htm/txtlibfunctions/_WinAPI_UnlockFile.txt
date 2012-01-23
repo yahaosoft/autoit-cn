@@ -1,30 +1,35 @@
 ﻿###User Defined Function###
-_WinAPI_UnLockFile
+_WinAPI_UnlockFile
 
 ###Description###
-解锁打开文件的一个区域
+解锁打开文件的区域.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_UnlockFile( $hFile, $iOffset, $iLenght )
+_WinAPI_UnlockFile ( $hFile, $iOffset, $iLenght )
 
 ###Parameters###
 @@ParamTable@@
-$hFile  文件句柄
-$iOffset  锁定开始处在文件中对于起点的字节偏移
-$iLenght  锁定范围的字节长度
+$hFile
+	文件句柄,包含 _WinAPI_LockFile() 函数锁定的区域.
+$iOffset
+	文件锁定区域开始位置的起始字节偏移.
+$iLenght
+	解锁范围字节长度.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:	
+标志为非 0 值.
 @@End@@
 
 ###Remarks###
-解锁文件的一个区域将释放一个以前获得的对于文件的锁定. 解锁区域必须精确对应已存在的锁定区域. 文件的两个邻近区域不能分开锁定后使用跨越两锁定的区域的单一区域解锁.
+解锁文件区域释放该文件先前的锁定.解锁区域必须与现有锁定区域完全一致.
+ 文件的两个相邻区域不能分开锁定;跨越两个锁定区域的解锁时不能只使用一个区域.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中UnLockFile的相关信息
+@@MsdnLink@@ UnlockFile
+

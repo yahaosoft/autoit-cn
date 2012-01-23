@@ -2,7 +2,7 @@
 _NowTime
 
 ###Description###
-返回PC格式的当前时间
+按PC格式返回当前日期.
 
 ###Syntax###
 #Include <Date.au3>
@@ -10,23 +10,22 @@ _NowTime([$sType = 3])
 
 ###Parameters###
 @@ParamTable@@
- $sType  默认: 3 = 使用在电脑区域设置中指定的时间格式显示时间
-4 - 使用24-小时(hh:mm)格式显示时间
-5 - 使用24-小时(hh:mm:ss)格式显示时间
+$sType
+	[可选参数] Default: 3 = 显示计算机区域设置中指定的时间格式(默认)
+		4 - 显示 24 小时时间格式 (hh:mm).
+		5 - 显示 24 小时时间格式 (hh:mm:ss).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回PC格式的当前日期
+	返回指定时间格式的当前时间.
 @@End@@
 
 ###Remarks###
-如果无法在注册表中找到日期格式则返回mm/dd/yyyy格式的日期
+ 如果您的计算机区域设置不能访问,则返回 "h:mm:ss tt" 格式.
 
 ###Related###
- _DateTimeFormat , _Now , _NowCalc , _NowCalcDate , _NowDate
-
-###See Also###
+_DateTimeFormat, _Now, _NowCalc, _NowCalcDate, _NowDate
 
 ###Example###
 @@IncludeExample@@

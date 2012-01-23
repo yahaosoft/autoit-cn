@@ -2,37 +2,39 @@
 _GUICtrlMenu_RemoveMenu
 
 ###Description###
-删除一个菜单项或从指定菜单中分离出子菜单
+从指定菜单删除菜单项或分离子菜单
 
 ###Syntax###
-#Include<GuiMenu.au3>
-_GUICtrlMenu_RemoveMenu($hMenu, $iItem[, $fByPos =True])
+#Include <GuiMenu.au3>
+_GUICtrlMenu_RemoveMenu($hMenu, $iItem[, $fByPos = True])
 
 ###Parameters###
 @@ParamTable@@
- $hMenu  要修改的菜单的句柄
- $iItem  标识或菜单项位置
- $fByPos  菜单标识标记:
-真 - $iItem为0基的项目位置
-假 - $iItem为菜单项标识
+$hMenu
+	进行更改的菜单句柄
+$iItem
+	菜单项的标识符或位置,由 $fByPos 参数决定.
+$fByPos
+	[可选参数] 菜单识别标志:
+		True - $iItem 为项目的 0 基位置
+		False - $iItem 为菜单项的标识符
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-如果菜单项打开下拉菜单或子菜单, _GUICtrlMenu_RemoveMenu不会销毁菜单或其句柄,
-并允许菜单再次使用.
-在调用该函数前, _GUICtrlMenu_GetItemSubMenu函数将用于获取下拉菜单或子菜单的句柄.
+ 如果菜单项打开一个下拉菜单或子菜单,本函数不破坏菜单或句柄,允许菜单被重用.
+ 在函数调用前,应该用 _GUICtrlMenu_GetItemSubMenu 函数检索下拉式菜单或子菜单句柄.
 
 ###Related###
 _GUICtrlMenu_GetItemSubMenu
 
 ###See Also###
-搜索MSDN知识库中RemoveMenu的相关信息
+@@MsdnLink@@ RemoveMenu
 
 ###Example###
 @@IncludeExample@@

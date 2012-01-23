@@ -2,30 +2,31 @@
 _WinAPI_GetTempFileName
 
 ###Description###
-命名临时文件
+创建临时文件的名称.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetTempFileName( $sPath [, $sPrefix] )
+_WinAPI_GetTempFileName ( $sPath [, $sPrefix] )
 
 ###Parameters###
 @@ParamTable@@
 $sPath
-   文件名的目录路径. 应用程序通常将当前的目录指定为点(.)
+	文件名的目录路径. 通常应用程序为当前目录指定一个句点（.）.
 $sPrefix
-   前缀字符串. 函数将该字符穿的前三个字符作为文件名的前缀
+	[可选参数] 前缀字符串.函数最多使用前 3 个字符串作为文件名的前缀字符
+		 file name.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 临时文件名
-失败: 空字符串并设置@error非0
+成功:	返回临时文件的名称.
+失败:	返回空串,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-该函数创建名称的临时文件不会自动删除.
+本函数创建的临时文件名称不会自动删除.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetTempFileName的相关信息
+@@MsdnLink@@ GetTempFileName
+

@@ -1,8 +1,8 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _Net_Share_ConnectionEnum
 
 ###Description###
-åˆ—ä¸¾æ‰€æœ‰ä¸ºå…±äº«èµ„æºå»ºç«‹çš„è¿žæŽ¥
+ÁÐ³ö¹²Ïí×ÊÔ´µÄËùÓÐÁ¬½Ó
 
 ###Syntax###
 #Include <NetShare.au3>
@@ -10,37 +10,45 @@ _Net_Share_ConnectionEnum($sServer, $sQualifier)
 
 ###Parameters###
 @@ParamTable@@
- $sServer  ç”¨ä»¥æŒ‡å®šå‡½æ•°å°†æ“ä½œçš„è¿œç¨‹æœåŠ¡å™¨çš„DNSæˆ–NetBIOSåç§°çš„å­—ç¬¦ä¸². å¦‚æžœå‚æ•°ä¸ºç©ºåˆ™ä½¿ç”¨æœ¬åœ°è®¡ç®—æœº.
- $sQualifier  æŒ‡å®šå–œå¥½çš„å…±äº«åæˆ–è®¡ç®—æœºå. å¦‚æžœä¸ºå…±äº«å, åˆ™å»ºç«‹æ‰€æœ‰åˆ—å‡ºå…±äº«åçš„è¿žæŽ¥. å¦‚æžœä¸ºè®¡ç®—æœºå, å‡½æ•°åˆ—å‡ºæ‰€æœ‰ä»Žè®¡ç®—æœºåˆ°æŒ‡å®šæœåŠ¡å™¨çš„æ‰€æœ‰è¿žæŽ¥.
+$sServer
+	Ö¸¶¨º¯Êý½«²Ù×÷Ô¶³Ì·þÎñÆ÷µÄ DNS »ò NetBIOS Ãû³Æ×Ö·û´®
+	Èç¹û²ÎÊýÎª¿Õ, ÔòÊ¹ÓÃ±¾µØ¼ÆËã»ú.
+$sQualifier
+	Ö¸¶¨¹²ÏíÃû»ò¼ÆËã»úÃû³Æ
+	Èç¹ûÊÇ¹²ÏíÃû³Æ,ÔòÁÐ³ö¹²ÏíÃû³ÆµÄËùÓÐÁ¬½Ó
+	Èç¹ûÊÇ¼ÆËã»úÃû³Æ, º¯ÊýÁÐ³ö¼ÆËã»úÃûÖ¸¶¨·þÎñÆ÷µÄËùÓÐÁ¬½Ó.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: å¦‚ä¸‹æ ¼å¼æ•°ç»„:
-    [0][0] - æ•°ç»„å…ƒç´ æ•°é‡
-    [1][0] - è¿žæŽ¥è¯†åˆ«æ•°å­—
-    [1][1] - è¿žæŽ¥ç±»åž‹. å¯ä¸ºä¸‹åˆ—ç»„åˆ:
-      $STYPE_DISKTREE - æ‰“å°é˜Ÿåˆ—
-      $STYPE_PRINTQ - ç£ç›˜é©±åŠ¨
-      $STYPE_DEVICE - è”ç³»è®¾å¤‡
-      $STYPE_IPC - IPC
-      $STYPE_SPECIAL - æŒ‡å®šä¸º$IPCæˆ–è¿œç¨‹æœåŠ¡å™¨ç®¡ç†å‘˜ä¿ç•™çš„å…±äº«
-      $STYPE_TEMPORARY - ä¸´æ—¶å…±äº«
-    [1][2] - å½“å‰ä»¥è¿žæŽ¥ç»“æžœæ‰“å¼€çš„æ–‡ä»¶æ•°
-    [1][3] - è¿žæŽ¥ä¸Šçš„ç”¨æˆ·æ•°é‡
-    [1][4] - è¿žæŽ¥å·²å»ºç«‹çš„ç§’æ•°
-    [1][5] - å¦‚æžœæœåŠ¡å™¨å…±äº«çš„èµ„æºæ­£åœ¨ä»¥ç”¨æˆ·å®‰å…¨çº§åˆ«è¿è¡Œ, è¯¥æˆå‘˜æè¿°å“ªä¸ªç”¨æˆ·å»ºç«‹äº†è¿žæŽ¥. å¦‚æžœæœåŠ¡å™¨æ­£åœ¨ä»¥å…±äº«å®‰å…¨çº§åˆ«è¿è¡Œ, è¯¥æˆå‘˜æè¿°å“ªä¸ªè®¡ç®—æœºå»ºç«‹äº†è¿žæŽ¥.
-    [1][6] - æŒ‡å®šæœåŠ¡å™¨å…±äº«èµ„æºçš„å…±äº«åæˆ–å®¢æˆ·ç«¯çš„è®¡ç®—æœºå
+³É¹¦:	·µ»ØÒÔÏÂ¸ñÊ½µÄÊý×é:
+	[0][0] - Êý×éÖÐµÄÌõÄ¿Êý
+	[1][0] - Á¬½ÓÊ¶±ðÂë
+	[1][1] - Á¬½ÓÀàÐÍ. ¿ÉÒÔÎªÏÂÁÐ½áºÏ:
+	$STYPE_´ÅÅÌTREE - ´òÓ¡¶ÓÁÐ
+	$STYPE_PRINTQ - ´ÅÅÌÇý¶¯Æ÷
+	$STYPE_DEVICE - Í¨Ñ¶Éè±¸
+	$STYPE_IPC - IPC (¹¤¿Ø»ú)
+	$STYPE_SPECIAL - Îª IPC$ »ò·þÎñÆ÷µÄÔ¶³Ì¹ÜÀí±£ÁôµÄ×¨ÓÃ¹²Ïí
+	$STYPE_TEMPORARY - ÁÙÊ±¹²Ïí
+	[1][2] - µ±Ç°Á¬½Ó½á¹û´ò¿ªµÄÎÄ¼þÊý
+	[1][3] - Á¬½ÓÉÏµÄÓÃ»§Êý
+	[1][4] - ½¨Á¢Á¬½ÓµÄÃëÊý
+	[1][5] - ÃèÊö·þÎñÆ÷¹²Ïí×ÊÔ´, ÓëÓÃ»§ÔËÐÐµÄ°²È«¼¶±ð
+	Èç¹û·þÎñÆ÷ÊÇ¹²Ïí¼¶°²È«ÔËÐÐ, ÃèÊöÓÃ»§µÄÁ¬½Ó.
+	¼ÆËã»ú½ÓÍ¨
+	[1][6] - Ö¸¶¨·þÎñÆ÷¹²Ïí×ÊÔ´µÄ¹²ÏíÃû»ò¿Í»§¶ËµÄ¼ÆËã»úÃû
+Ê§°Ü:	ÉèÖÃ @error
 @@End@@
 
 ###Remarks###
-éœ€è¦Administrator, Serveræˆ–Print Operatoræˆ–Power Userç»„æˆå‘˜æ‰§è¡Œå‡½æ•°
+ÐèÒªÏµÍ³¹ÜÀíÔ±(Administrator), ·þÎñÆ÷, ´òÓ¡²Ù×÷Ô±»òÓÃ»§×é³ÉÔ±Ö´ÐÐº¯Êý
 
 ###Related###
- _Net_Share_FileEnum , _Net_Share_SessionEnum , _Net_Share_ShareEnum
+_Net_Share_FileEnum, _Net_Share_SessionEnum, _Net_Share_ShareEnum
 
 ###See Also###
- æœç´¢MSDNçŸ¥è¯†åº“ä¸­NetConnectionEnumçš„ç›¸å…³ä¿¡æ¯
+@@MsdnLink@@ NetConnectionEnum
 
 ###Example###
 @@IncludeExample@@

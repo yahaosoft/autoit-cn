@@ -2,49 +2,48 @@
 _ExcelReadSheetToArray
 
 ###Description###
-用活动工作表的行/列创建一个二维数组
+用活动工作表的行/列创建二维数组.
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelReadSheetToArray($oExcel[, $iStartRow = 1[, $iStartColumn = 1[, $iRowCnt = 0[, $iColCnt = 0[, $iColShift = False]]]]])
+_ExcelReadSheetToArray($oExcel [, $iStartRow = 1 [, $iStartColumn = 1 [, $iRowCnt = 0 [, $iColCnt = 0 [, $iColShift = False]]]]])
 
 ###Parameters###
 @@ParamTable@@
-$oExcel 
-   由预先调用_ExcelBookOpen()或_ExcelBookNew()打开的Excel对象
-$iStartRow 
-   开始读取的行, 默认为1(首行)
-$iStartColumn 
-   开始读取的列, 默认为1(首列)
-$iRowCnt 
-   要读取的行数, 默认为0(全部)
-$iColCnt 
-   要读取的列数, 默认为0(全部)
-$iColShift 
-   确定由Excel返回的数组开始于0基还是1基列. 默认匹配R1C1值时无效.
+$oExcel
+	Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+$iStartRow
+	[optional] Row number to start reading, defaults to 1 (first row)
+$iStartColumn
+	[optional] Column number to start reading, defaults to 1 (first column)
+$iRowCnt
+	[optional] Count of rows to read, defaults to 0 (all)
+$iColCnt
+	[optional] Count of columns to read, defaults to 0 (all)
+$iColShift
+	[optional] Determines if the Array returned, from Excel, will begin in the 0-index base or 1-index base Column. False by Default to match R1C1 values.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回带有由[$row][$col]指定单元格内容的二维数组
- 失败:  返回0并设置@error
- @error:  0 - 无错误
-  1 - 指定对象不存在
-  2 - 开始参数超出范围
-  3 - 数量参数超出范围
- @extended:  0 - 行数超出范围
-  1 - 列数超出范围
+成功:	返回由参数 $iRowCnt 和 $iColCnt 指定的单元格内容组成的二维数组
+失败:	返回 0, 并设置 @error:
+@error:	0 - 无错误
+	1 - 指定的对象不存在
+	2 - 开始读取行超出范围
+	3 - 开始读取列超出范围
+@extended:	0 - 行超出范围
+	1 - 列超出范围
 @@End@@
 
 ###Remarks###
-返回数组, [0][0]表示行数, [0][1]表示列数.
-除非按以上计数, 当实际单元格数据开始于[1][1]以匹配R1C1数字时, 返回数组的行0和列0为空.
-默认返回全部表格.
-表格为空时, [0][0]和[0][1]均为0.
+返回的数组中, [0][0]表示行数, [0][1]表示列数.
+除以上计数外, 当实际单元格数据开始于[1][1]以匹配R1C1数字时, 
+返回数组的行0和列0为空.
+默认整个工作表被返回.
+如果工作表为空时, 则返回的数组的 [0][0] 与 [0][1] 都等于 0.
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

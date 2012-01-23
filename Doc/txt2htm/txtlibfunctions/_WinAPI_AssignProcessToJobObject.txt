@@ -2,35 +2,37 @@
 _WinAPI_AssignProcessToJobObject
 
 ###Description###
-将进程安排给一个已存在的工作对象
+分配进程到现有作业对象.
 
 ###Syntax###
-#Include
-<WinAPIEx.au3>
-_WinAPI_AssignProcessToJobObject($hJob, $hProcess)
+#Include <WinAPIEx.au3>
+_WinAPI_AssignProcessToJobObject ( $hJob, $hProcess )
 
 ###Parameters###
 @@ParamTable@@
 $hJob
-   进程将被关联到的工作对象的句柄
+	进程相关的作业对象句柄.
+		 句柄必须具有 $JOB_OBJECT_ASSIGN_PROCESS 访问权限.
 $hProcess
-   与工作对象关联的进程的句柄
+	作业对象关联进程句柄.该进程必须尚未被分配到作业对象.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-在将进程关联到工作后, 进程被附属到工作的有限集. 使用_WinAPI_SetInformationJobObject()函数 设置工作的限制.
-进程可被关联到单一工作. 进程继承所关联的工作的限制且向工作添加计数信息. 如果进程被关联到工作, 所有由它创建的进程默认也关联到工作.
+当进程关联到作业对象以后,该进程受作业设置的限制.
+ 要为作业设置限制, 使用 _WinAPI_SetInformationJobObject() 函数.
+ 进程可以只与一个单一作业关联.进程继承所关联作业的限制并向作业添加计数信息.
+ 如果进程关联到作业, 它创建的所有进程都默认与该作业相关.
 
-###Related###
 
 ###See Also###
-搜索MSDN知识库中AssignProcessToJobObject的相关信息
+@@MsdnLink@@ AssignProcessToJobObject
 
 ###Example###
 @@IncludeExample@@
+

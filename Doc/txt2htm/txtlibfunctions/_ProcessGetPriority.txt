@@ -2,36 +2,40 @@
 _ProcessGetPriority
 
 ###Description###
-获取打开进程的优先权
+获取打开进程的优先级
 
 ###Syntax###
-#Include <Process.au3>
+#include <Process.au3>
 _ProcessGetPriority ($i_PID)
+
 
 ###Parameters###
 @@ParamTable@@
- $i_PID  被检查的进程的ID.
+$i_PID
+	要获取优先级的进程 ID.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回与进程优先权相应的整数:
-  0 - 空闲/低
-  1 - 一般以下(不支持Windows 95/98/ME)
-  2 - 一般
-  3 - 高于一般(不支持Windows 95/98/ME)
-  4 - 高
-  5 - 实时
- 失败:  返回 -1 且设置 @Error 为 1
+成功:	返回对应进程优先级的整数:
+	0 - 空闲/低
+	1 - 低于标准级
+	2 - 标准级
+	3 - 高于标准级
+	4 - 高
+	5 - 即时
+
+失败:	返回 -1,设置 @Error 到 1
 @@End@@
+
 
 ###Remarks###
 None.
 
-###Related###
- ProcessSetPriority
 
-###See Also###
+###Related###
+.ProcessSetPriority
+
 
 ###Example###
 @@IncludeExample@@

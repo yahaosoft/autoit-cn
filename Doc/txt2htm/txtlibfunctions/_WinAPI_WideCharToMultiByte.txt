@@ -2,39 +2,37 @@
 _WinAPI_WideCharToMultiByte
 
 ###Description###
-将一个Unicode字符串转化为一个ANSI字符串
+转换一个 Unicode 字符串到一个多字节字符串.
 
 ###Syntax###
-#Include
-<WinAPI.au3>
-_WinAPI_WideCharToMultiByte($pUnicode[, $iCodePage =  [, $iFlags = 0 [, $bRetString = True]]])
+#Include <WinAPI.au3>
+_WinAPI_WideCharToMultiByte($pUnicode [, $iCodePage = 0 [, $bRetString = True]])
 
 ###Parameters###
 @@ParamTable@@
-$pUnicode  包含要转换的Unicode文本的一维数组结构的指针
-$iCodePage  用于执行转化的代码页:
-0 - 当前系统的Windows ANSI 代码页
-1 - 当前系统的OEM代码页
-2 - 当前系统的Macintosh代码页
-3 - 当前线程的Windows ANSI代码页
-42 - 符号代码页
-65000 - UTF-7
-65001 - gb2312
-$iFlags  [可选] 转换类型标记, 参考MSDN
-$bRetString  [可选] 用以标识返回字符串或结构的标记, 默认返回结构
+$pUnicode
+	字符串, DllStruct 或者一个包含 Unicode 文本的数据结构数组指针.
+$iCodePage
+	[可选参数] 用于转换的代码页:
+		0 - 当前系统 Windows ANSI 代码页
+		1 - 当前系统 OEM 代码页
+		2 - 当前系统 Macintosh 代码页
+		3 - 当前线程 Windows ANSI 代码页
+		42 - Symbol 代码页
+		65000 - UTF-7
+		65001 - UTF-8
+$bRetString
+	[可选参数] 指定返回字符串, 或返回 DllStruct (默认 : 字符串)
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 已转化的字符串或结构
-失败: 设置@error
-@@End@@
+返回字符串或包含多字节字符串的 DllStruct
 
 ###Remarks###
+None.
 
 ###Related###
 _WinAPI_MultiByteToWideChar
 
 ###See Also###
-搜索
-MSDN知识库中WideCharToMultiByte的相关信息
+@@MsdnLink@@ WideCharToMultiByte

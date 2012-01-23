@@ -1,47 +1,49 @@
 ﻿###User Defined Function###
-_WinApi_PathRelativePathTo
+_WinAPI_PathRelativePathTo
 
 ###Description###
-创建文件或文件夹的相对路径
+创建文件或文件夹的相对路径到另一个.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinApi_PathRelativePathTo( $sPathFrom, $fDirFrom, $sPathTo, $fDirTo )
+_WinAPI_PathRelativePathTo ( $sPathFrom, $fDirFrom, $sPathTo, $fDirTo )
 
 ###Parameters###
 @@ParamTable@@
 $sPathFrom
-   定义相对路径起点的文件或目录的路径
+	定义相对路径起点的文件或目录路径.
 $fDirFrom
-$sPathFrom是否为目录. 可用值:
-$sPathFrom为目录
-$sPathFrom为文件
+	指定 $sPathFrom 路径是否为目录,有效值:
+		1 - 目录.
+		0 - 文件.
 $sPathTo
-   定义相对路径终点的文件或目录的路径
+	定义相对路径终点的文件或目录路径.
 $fDirTo
-$sPathTo是否为目录. 可用值:
-$sPathTo为目录
-$sPathTo为文件
+	指定 $fDirTo 路径是否为目录,有效值:
+		1 - 目录.
+		0 - 文件.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回相对路径
-失败: 返回空字符串并设置@error非0
+成功:	原版错误.无描述!
+	
+失败:	返回 空串,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-路径不一定完全合法 , 但必须具有通用前缀 , 否则函数失败.
-如 , 对于起点 , $sFrom, 为 "c:\FolderA\FolderB\FolderC", 且终点 , $sTo, 为 "c:\FolderA\FolderD\FolderE".
-_WinAPi_PathRelativePathTo将返回从$sFrom到$sTo的路径为: "..\..\FolderD\FolderE".
-如果设置$sFrom为 "\FolderA\FolderB\FolderC" 且$sTo为 "\FolderA\FolderD\FolderE" 则将获取相同结果.
-另一方面 , "c:\FolderA\FolderB" 和 "a:\FolderA\FolderD" 不共享同一通用前缀则函数失败.
-注意 "\\" 不会指定前缀并将被忽略. 例如 , 如果设置$sFrom为 "\\FolderA\FolderB", 且$sTo为 "\\FolderC\FolderD", 函数失败.
-
-###Related###
+函数接受一对路径,并产生另一个相对路径. 路径不必完全合格,
+ 但他们必须有一个共同的前缀,否则,该函数将失败.
+例如, 起点参数 $sPathFrom 为 "C:\A\B\C", 终点参数 $sPathTo 为 "C:\A\D".
+_WinAPI_PathRelativePathTo() 将返回 $sPathFrom 到 $sPathTo 的相对路径 : "..\..\D\E".
+如果设置 $sPathFrom 为: "\A\B\C", 设置 $sPathTo 为: "\A\D\E" 将得到相同的结果. 
+另一方面, "C:\A\B\C" 与 "D:\A\D", 由于没有共同的前缀, 函数将失败.
+请注意,“\” 不被视为前缀且被忽略. 
+如果设置 $sPathFrom 为 "\\A\B\C", 设置 $sPathTo 为 "\\C\D", 函数将失败.
 
 ###See Also###
- 搜索MSDN知识库中PathRelativePathTo的相关信息
+@@MsdnLink@@ PathRelativePathTo
 
 ###Example###
 @@IncludeExample@@
+

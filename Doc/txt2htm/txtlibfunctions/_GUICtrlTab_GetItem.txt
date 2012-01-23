@@ -2,7 +2,7 @@
 _GUICtrlTab_GetItem
 
 ###Description###
-获取标签页信息
+返回一个Tab标签信息
 
 ###Syntax###
 #Include <GuiTab.au3>
@@ -10,27 +10,26 @@ _GUICtrlTab_GetItem($hWnd, $iIndex)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iIndex  项目的0基索引
+$hWnd
+	控件句柄
+$iIndex
+	基于0开始的项目索引
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 如下格式数组:
-    [0] - 项目状态标记:
-        $TCIS_BUTTONPRESSED - 标签控件项被选中
-        $TCIS_HIGHLIGHTED - 标签控件项被高亮
-    [1] - 项目文本
-    [2] - 项目图像的0基索引或无图像时-1
-    [3] - 应用程序定义的值
-@@End@@
+成功: 一个包含下列信息的数组:
+		[0] - 项目状态标志:
+		 $TCIS_BUTTONPRESSED - 标签控件被选定
+		 $TCIS_HIGHLIGHTED - 标签控件项目为高亮
+		[1] - 项目文本
+		[2] - 基于0开始的项目图像索引或者-1(项目没图像)
+		[3] - 应用程序定义的值
 
 ###Remarks###
+None.
 
 ###Related###
- _GUICtrlTab_SetItem
-
-###See Also###
+_GUICtrlTab_SetItem
 
 ###Example###
 @@IncludeExample@@

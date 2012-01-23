@@ -2,41 +2,42 @@
 _WinAPI_GetGUIThreadInfo
 
 ###Description###
-获取活动窗口或指定GUI线程的信息
+Retrieves information about the active window or a specified GUI thread.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetGUIThreadInfo( $iThreadID )
+_WinAPI_GetGUIThreadInfo ( $iThreadID )
 
 ###Parameters###
 @@ParamTable@@
 $iThreadID
-   要获取信息的线程的标识符
+	The identifier for the thread for which information is to be retrieved.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回包含下列信息的数组.
-    [0 ] - 线程状态. 可为一个或多个$GUI_*值.
-    [1 ] - 线程中活动窗口的句柄.
-    [2 ] - 具有键盘焦点的窗口的句柄.
-    [3 ] - 捕捉鼠标的窗口的句柄.
-    [4 ] - 具有活动菜单的窗口的句柄.
-    [5 ] - 处于移动或缩放中的窗口的句柄.
-    [6 ] - 显示插入符的窗口的句柄.
-    [7 ] - 客户区坐标中插入符绑定矩形的左上角x坐标
-    [8 ] - 客户区坐标中插入符绑定矩形的左上角y坐标
-    [9 ] - 插入符绑定矩形的宽度
-    [10] - 插入符绑定矩形的高度
-失败: 返回0并设置@error非0
+Success	The array that contains the following information.
+]	The thread state. It can be one or more of the $GUI_* values.
+]	A handle to the active window within the thread.
+]	A handle to the window that has the keyboard focus.
+]	A handle to the window that has captured the mouse.
+]	A handle to the window that owns any active menus.
+]	A handle to the window in a move or size loop.
+]	A handle to the window that is displaying the caret.
+]	The x-coordinate of the upper-left corner of the caret's bounding rectangle, in client coordinates.
+]	The y-coordinate of the upper-left corner of the caret's bounding rectangle, in client coordinates.
+]	The width of the caret's bounding rectangle.
+[10]	The height of the caret's bounding rectangle.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetGUIThreadInfo的相关信息
+@@MsdnLink@@ GetGUIThreadInfo
 
 ###Example###
 @@IncludeExample@@
+

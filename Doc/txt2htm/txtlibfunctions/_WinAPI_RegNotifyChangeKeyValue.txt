@@ -6,48 +6,48 @@ _WinAPI_RegNotifyChangeKeyValue
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RegNotifyChangeKeyValue( $hKey, $iFilter [, $fSubtree [, $fAsync [, $hEvent]]] )
+_WinAPI_RegNotifyChangeKeyValue ( $hKey, $iFilter [, $fSubtree [, $fAsync [, $hEvent]]] )
 
 ###Parameters###
 @@ParamTable@@
 $hKey
-   打开的注册表键的句柄. 改建必须以KEY_NOTIFY访问权限打开. 句柄由_WinAPI_RegCreateKey()或_WinAPI_RegOpenKey()函数返回. 可为下列预定义键之一.
-   $HKEY_CLASSES_ROOT
-   $HKEY_CURRENT_CONFIG
-   $HKEY_CURRENT_USER
-   $HKEY_LOCAL_MACHINE
-   $HKEY_USERS
+	打开的注册表键的句柄. 改建必须以KEY_NOTIFY访问权限打开. 句柄由_WinAPI_RegCreateKey()或_WinAPI_RegOpenKey()函数返回. 可为下列预定义键之一.
+		$HKEY_CLASSES_ROOT
+		$HKEY_CURRENT_CONFIG
+		$HKEY_CURRENT_USER
+		$HKEY_LOCAL_MACHINE
+		$HKEY_USERS
 $iFilter
-   描述要报告的变化. 可为下列值之一.
-   $REG_NOTIFY_CHANGE_NAME
-   $REG_NOTIFY_CHANGE_ATTRIBUTES
-   $REG_NOTIFY_CHANGE_LAST_SET
-   $REG_NOTIFY_CHANGE_SECURITY
+	描述要报告的变化. 可为下列值之一.
+		$REG_NOTIFY_CHANGE_NAME
+		$REG_NOTIFY_CHANGE_ATTRIBUTES
+		$REG_NOTIFY_CHANGE_LAST_SET
+		$REG_NOTIFY_CHANGE_SECURITY
 $fSubtree
-   [可选] 指定是否报告指定键的子建的变化, 可用值:
-    1 - 报告指定键及其所有子键的变化.
-    0 - 只报告指定键的变化. (默认)
+	[可选参数]指定是否报告指定键的子建的变化, 可用值:
+		1 - 报告指定键及其所有子键的变化.
+		0 - 只报告指定键的变化. (默认)
 $fAsync
-   [可选] 指定是否立即返回, 可用值:
-    1 - 函数立即返回并报告标志指定事件的变化.
-    0 - 直到改变发生函数才返回. (默认)
+	[可选参数]指定是否立即返回, 可用值:
+		1 - 函数立即返回并报告标志指定事件的变化.
+		0 - 直到改变发生函数才返回. (默认)
 $hEvent
-$fAsync参数为TRUE, 函数立即返回并通过标识该事件报告变化, 否则忽略该参数.
+	[可选参数]事件句柄. 如果$fAsync参数为TRUE, 函数立即返回并通过标识该事件报告变化, 否则忽略该参数.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0, @extended标记可包含系统错误代码
+成功:	返回1
+失败:	返回0设置@error 非0, @extended标记可包含系统错误代码
 @@End@@
 
 ###Remarks###
 如果指定键被关闭, 标记事件. 这意味着应用程序在等待事件操作返回后不依赖于打开的键.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中RegNotifyChangeKeyValue的相关信息
+@@MsdnLink@@ RegNotifyChangeKeyValue
 
 ###Example###
 @@IncludeExample@@
+

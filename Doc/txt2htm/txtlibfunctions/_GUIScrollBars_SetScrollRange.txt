@@ -2,7 +2,7 @@
 _GUIScrollBars_SetScrollRange
 
 ###Description###
-设置指定滚动条滑块的最大和最小的位置
+设置滚动条的最小和最大位置
 
 ###Syntax###
 #Include <GuiScrollBars.au3>
@@ -10,29 +10,33 @@ _GUIScrollBars_SetScrollRange($hWnd, $nBar, $nMinPos, $nMaxPos)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  窗口句柄
- $nBar  指定滚动条类型. 参数可为下列值之一:
-  $SB_CTL - 设置滚动条控件的参数. $hWnd参数为指向滚动条控件的句柄.
-  $SB_HORZ - 设置窗口标准水平滚动条参数.
-  $SB_VERT - 设置窗口标准垂直滚动条参数.
- $nMinPos  指定最小滑动位置
- $nMaxPos  指定最大滑动位置
+$hWnd
+	窗口句柄
+$nBar
+	指定滚动控件的类型. 参数可以是以下值之一:
+		$SB_CTL - 设置滚动条范围. $hWnd 参数值必须是滚动控件的窗口句柄.
+		$SB_HORZ - 设置窗口标准水平滚动条范围.
+		$SB_VERT - 设置窗口标准垂直滚动条范围.
+$nMinPos
+	指定最小滚动位置
+$nMaxPos
+	指定最大滚动位置
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-以上常数需要 ScrollBarConstants.au3
+ 以上常数需要 ScrollBarConstants.au3
 
 ###Related###
- _GUIScrollBars_SetScrollInfoMin , _GUIScrollBars_SetScrollInfoMax , _GUIScrollBars_GetScrollRange
-   参考MSDN知识库中SetScrollRange条目
+_GUIScrollBars_SetScrollInfoMin, _GUIScrollBars_SetScrollInfoMax, _GUIScrollBars_GetScrollRange
 
 ###See Also###
+@@MsdnLink@@ SetScrollRange
 
 ###Example###
 @@IncludeExample@@

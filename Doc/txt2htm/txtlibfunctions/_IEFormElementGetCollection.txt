@@ -1,38 +1,44 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _IEFormElementGetCollection
 
 ###Description###
-è¿”å›æ–‡æ¡£å†…æè¿°è¡¨å•å…ƒç´ çš„å¯¹è±¡å˜é‡åˆé›†
+·µ»ØÖ¸¶¨±íµ¥ÖĞËùÓĞ±íµ¥ÔªËØµÄ¼¯ºÏ¶ÔÏó±äÁ¿.
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IEFormElementGetCollection ( ByRef $o_object [, $i_index = -1] )
 
 ###Parameters###
 @@ParamTable@@
- $o_object  InternetExplorer.Application , çª—å£æˆ–è€…æ¡†æ¶(frame)å¯¹è±¡çš„å¯¹è±¡å˜é‡
- $i_index  å¯é€‰: æŒ‡å®šè¿”å›ä¸€ä¸ªé›†åˆè¿˜æ˜¯ç´¢å¼•å¯¹è±¡
-0 æˆ–è€…æ­£æ•´æ•°è¿”å›ä¸€ä¸ªç´¢å¼•å¯¹è±¡
--1 = (é»˜è®¤) è¿”å›ä¸€ä¸ªé›†åˆ
+$o_object
+	InternetExplorer.ApplicationµÄ±íµ¥¶ÔÏó±äÁ¿
+$i_index
+	[¿ÉÑ¡²ÎÊı]: Ö¸¶¨·µ»ØÒ»¸ö¼¯ºÏ»òË÷ÒıµÄÊµÀı
+	0»òÕıÕûÊı = ·µ»ØË÷ÒıµÄÊµÀı
+	-1 = (Ä¬ÈÏ)·µ»Ø¼¯ºÏ
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: è¿”å›æŒ‡å‘è¡¨å•å…ƒç´ å¯¹è±¡çš„å¯¹è±¡å˜é‡ , @EXTENDED = è¡¨å•å…ƒç´ æ•°é‡
-å¤±è´¥: è¿”å›0å¹¶è®¾ç½®@ERRORä¸º:
-    0 ($_IEStatus_Success) = æ— é”™è¯¯
-    3 ($_IEStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»å‹
-    4 ($_IEStatus_InvalidObjectType) = æ— æ•ˆå¯¹è±¡ç±»å‹
-    5 ($_IEStatus_InvalidValue) = æ— æ•ˆå€¼
-    7 ($_IEStatus_NoMatch) = ä¸åŒ¹é…
-    @Extended: åŒ…å«æ— æ•ˆå‚æ•°æ•°é‡
+³É¹¦:	·µ»Ø°üº¬±íµ¥ÔªËØ¼¯ºÏµÄ¶ÔÏó±äÁ¿, @EXTENDED = ±íµ¥ÔªËØ¼ÆÊı
+	Èç¹û$f_select = -1, ·µ»Øµ±Ç°µÄ±»Ñ¡ÖĞ×´Ì¬, »ò·µ»Ø1
+Ê§°Ü:	·µ»Ø0²¢ÉèÖÃ@ERROR
+@Error:	0 ($_IEStatus_Success) = ÎŞ´íÎó
+	3 ($_IEStatus_InvalidDataType) = ÎŞĞ§Êı¾İÀàĞÍ
+	4 ($_IEStatus_InvalidObjectType) = ÎŞĞ§¶ÔÏóÀàĞÍ
+	5 ($_IEStatus_InvalidValue) = ÎŞĞ§Öµ
+	7 ($_IEStatus_NoMatch) = ÎŞÆ¥Åä
+@Extended:	°üº¬ÎŞĞ§²ÎÊıÊıÁ¿
 @@End@@
 
+
 ###Remarks###
+None.
+
 
 ###Related###
+_IEFormElementGetObjByName, _IEFormElementGetValue, _IEFormElementSetValue, _IEFormSubmit
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

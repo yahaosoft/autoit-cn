@@ -2,7 +2,7 @@
 _NamedPipes_CreateNamedPipe
 
 ###Description###
-创建管道实例
+创建一个命名管道接口(instance)
 
 ###Syntax###
 #Include <NamedPipes.au3>
@@ -10,45 +10,68 @@ _NamedPipes_CreateNamedPipe($sName[, $iAccess = 2[, $iFlags = 2[, $iACL = 0[, $i
 
 ###Parameters###
 @@ParamTable@@
- $sName  格式如:\\.\pipe\pipename的名称. 名称的pipename部分可包含任意字符包括反斜杠 , 数字和特殊字符. 管道名称字符串可长至256个字符. 管道名称大小写不敏感.
- $iAccess  管道路径模式. 须为下列一种:
-0 - 管道中的数据流仅从客户端到服务器(inbound)
-1 - 管道中的数据流仅从服务器到客户端(outbound)
-2 - 双向管道(duplex)
- $iFlags  管道标记. 可为下列值的任意组合:
-1 - 如果试图创建多个标记管道实例 , 首个创建成功 , 而后续的实例失败.
-2 - Overlapped. 如果此模式可用 , 函数执行会花费大量时间完成的读 , 写和连接操作可立即返回.
-4 - Write-through. 该模式只影响字节类型管道的写操作且仅当客户端和服务器在不同电脑上时.
- $iACL  安全访问控制列表(ACL)标记. 可为下列任意组合:
-1 - 呼叫方有向命名管道的任意ACL的写入权限
-2 - 呼叫方有向命名管道的宿主的写入权限
-4 - 呼叫方有向命名管道的安全ACL的写入权限
- $iType  管道类型模式. 下列之一:
-0 - 以字节流向管道写入数据
-1 - 以消息流向管道写入数据
- $Read  管道读取类型. 须为下列值之一:
-0 - 以字节流从管道读取数据
-1 - 以消息流从管道读取数据
- $iWait  管道等候模式. 须为下列值之一g:
-0 - Blocking. 当管道句柄ReadFile , WriteFile或ConnectNamedPipe中指定时 , 直到有可读数据 , 写入全部数据或客户端被连接 , 操作才完成
-1 - Nonblocking. ReadFile , WriteFile及ConnectNamedPipe立即返回.
- $iMaxInst  该管道可创建实例的最大数量
- $iOutBufSize  保留的输出缓冲字节数
- $iInpBufSize  保留的输入缓冲字节数
- $iDefTimeOut  默认毫秒时超
- $pSecurity  包含新建命名管道的安全描述符和确定子进程能否继承返回句柄的tagSECURITY_ATTRIBUTES结构的指针. 如果pSecurity为0 , 命名管道获取一个默认的安全描述符且句柄无法继承. 命名管道默认安全描述符中的ACL允许完全控制本地系统administrators和creator owner账户. 也允许Everyone组的成员和anonymous账户的读取权限.
+$sName
+	管道名称有下列格式: \\.\pipe\pipename. The pipename part of the name can
+		该名称的管道名称部分除反斜杠外,可以包含任何字符, 包括数字和特殊字符.
+		管道名称字符串最多可以有 256 个字符. 管道名称不区分大小写.
+$iAccess
+	[可选参数] 管道接入方式. 必须是下列值之一:
+		0 - 管道中的数据流仅从客户端到服务器(入站)
+		1 - 管道中的数据流仅从服务器到客户端(出站)
+		2 - 管道是双向的（双工）
+$iFlags
+	[可选参数] 管道标志.可以是任何以下组合:
+		1 - 如果您尝试创建此标志管道的多个实例,
+		第一个实例创建成功,但下一个实例创建将失败.
+		2 - 启用重叠模式.如果这个模式被激活,函数履行读,写与连接操作,
+		这可能需要大量的时间才能完成(可以立即返回).
+		4 - 启用连续写入模式.该模式只影响字节类型管道的写操作,
+		且仅当客户端和服务器在不同计算机上.
+$iACL
+	[可选参数] 安全 ACL 标志.可以是任何以下值得组合:
+		1 - 调用方将具有写访问命名管道自由裁量的 ACL
+		2 - 调用方将具有写访问命名管道的所有者
+		4 - 调用方将具有写访问命名管道的安全的ACL
+$iType
+	[可选参数] 管道类型模式.必须是下列之一:
+		0 - 以字节流向管道写入数据
+		1 - 以消息流向管道写入数据
+$iRead
+	[可选参数] 管道读模式.必须是下列之一
+		0 - 以字节流从管道读取数据
+		1 - 以消息流从管道读取数据
+$iWait
+	[可选参数] 管道等待模式.必须是下列之一
+		0 - 启用阻塞模式.当管道句柄由 ReadFile, WriteFile, 或 ConnectNamedPipe 指定时,
+		操作未完成,直到有数据读取,写入所有数据,或者一个客户端连接.
+		1 - 启用非阻塞模式.ReadFile,WriteFile 与 ConnectNamedPipe 总是立即返回.
+$iMaxInst
+	[可选参数] 管道可创建实例的最大数量
+$iOutBufSize
+	[可选参数] 输出缓冲区保留的字节数
+$iInpBufSize
+	[可选参数] 输入缓冲区保留的字节数
+$iDefTimeOut
+	[可选参数] 默认的超时值,以毫秒为单位
+$pSecurity
+	[可选参数] tagSECURITY_ATTRIBUTES 结构指针,它指定新命名管道的安全描述符,并确定是否可以继承子进程返回的句柄
+		如果 pSecurity 为0,命名管道获取默的安全描述符,且句柄不能被继承
+		命名管道授予 LocalSystem 帐户管理员与创建者属主默认完全控制的安全描述符的 ACL 
+		命名管道授予 LocalSystem 帐户管理员与创建者属主默认完全控制的安全描述符的 ACL
+		还授予读取访问 Everyone 组成员和匿名帐户.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 管道实例服务器端的句柄
-失败: -1
+成功:	服务器端命名管道实例句柄
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
- _NamedPipes_ConnectNamedPipe , _NamedPipes_CreatePipe
+_NamedPipes_ConnectNamedPipe, _NamedPipes_CreatePipe
 
 ###See Also###
- 搜索MSDN知识库中CreateNamedPipe的相关信息
+@@MsdnLink@@ CreateNamedPipe

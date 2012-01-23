@@ -2,95 +2,87 @@
 _WordDocPrint
 
 ###Description###
-打印文件的部分或全部
+打印指定文档的全部或者一部分.
 
 ###Syntax###
-#Include <Word.au3>
-_WordDocPrint ( ByRef$o_object [, $b_Background = 0 [, $i_Copies = 1 [, $i_Orientation = -1 [,
-$b_Collate = 1 [, $s_Printer = "" [, $i_Range = 0 [, $i_From = "" [, $i_To = ""
-[, $s_Pages = "" [, $i_PageType = 0 [, $i_Item = 0]]]]]]]]]]] )
+#include <Word.au3> 
+_WordDocPrint ( ByRef $o_object [, $b_Background = 0 [, $i_Copies = 1 [, $i_Orientation = -1 [, $b_Collate = 1 [, $s_Printer = "" [, $i_Range = 0 [, $i_From = "" [, $i_To = "" [, $s_Pages = "" [, $i_PageType = 0 [, $i_Item = 0]]]]]]]]]]] )
 
 ###Parameters###
 @@ParamTable@@
-$o_object 
-   Word.Application文档对象
-$b_Background 
-   可选: 指定打印文档时脚本是否继续 (见备注)
-    0 = (默认) 暂停脚本等待
-    1 = 不等待
-$i_Copies 
-   可选: 打印份数
-$i_Orientation 
-   可选: 设置打印方向
-    -1 = (默认) 当前文件方向
-    0 = 细节
-    1 = 大纲
-$b_Collate 
-    可选: 指定打印下一个副本前是否打印全部文档
-    0 = 不核对
- 
-      1 = (默认) 核对
-$s_Printer 
-   可选: 设置打印机名 (见备注)
-$i_Range 
-   可选: 指定页码范围
-    0 = (默认) 全部
-    1 = 当前选择的
-    2 = 当前页
-    3 =
- 
-      指定范围(必须指定$i_From和$i_To)
-    4 = 指定页码范围(必须指定$s_Pages)
-$i_From 
-   可选: 开始页码当$i_Range设置为3时
-$i_To 
-   可选: 结束页码当$i_Range设置为3时
-$s_Pages 
-   可选: 要打印的页码和页范围 , 用逗号分开 , 当$i_Range设置为4时. 例如 , " 2 , 6-10 " 打印第2页和第6-10页
-$i_PageType 
-    可选: 打印的页类型
- 
-      0 = (默认) 所有页
- 
-      1 = 仅奇数页
- 
-      2 = 仅偶数页
-$i_Item 
-    可选: 打印的项目
-    0 = (默认)当前文档内容
-    1 = 当前文档的属性
-    2 = 当前文档的批注
-    3
- 
-      = 当前文档的样式
-    4 = 当前文档的自动录入文本
- 
-      5 = 当前文档的关键字
-    6 = 信封
-    7 = 当前文档内容和批注
+$o_object
+	Word.Application文档对象
+$b_Background
+	[可选参数] 指定打印文档时脚本是否继续 (见备注)
+		0 = (默认) 暂停脚本等待
+		1 = 不等待
+$i_Copies
+	[可选参数] 打印份数
+$i_Orientation
+	[可选参数] 设置打印方向
+		-1 = (默认) 当前文件方向
+		0 = 细节
+		1 = 大纲
+$b_Collate
+	[可选参数] 指定打印下一个副本前是否打印全部文档
+		0 = 不核对
+		1 = (默认) 核对
+$s_Printer
+	[可选参数] 设置打印机名 (见备注)
+$i_Range
+	[可选参数] 指定页码范围
+		0 = (默认) 全部
+		1 = 当前选择的
+		2 = 当前页
+		3 = 指定范围(必须指定$i_From和$i_To)
+		4 = 指定页码范围(必须指定$s_Pages)
+$i_From
+	[可选参数] 开始页码当$i_Range设置为3时
+$i_To
+	[可选参数] 结束页码当$i_Range设置为3时
+$s_Pages
+	[可选参数] 要打印的页码和页范围, 用逗号分开, 当$i_Range设置为4时. 例如, "2, 6-10" 
+		打印第2页和第6-10页
+$i_PageType
+	[可选参数] 打印的页类型
+	0 = (默认) 所有页
+	1 = 仅奇数页
+	2 = 仅偶数页
+$i_Item
+	[可选参数] 打印的项目
+		0 = (默认)当前文档内容
+		1 = 当前文档的属性
+		2 = 当前文档的批注
+		3 = 当前文档的样式
+		4 = 当前文档的自动录入文本
+		5 = 当前文档的关键字
+		6 = 信封
+		7 = 当前文档内容和批注
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回1
- 失败:  返回0并设置@ERROR为:
-  0 ($_WordStatus_Success) = 无错误
-  1 ($_WordStatus_GeneralError) = 一般错误
-  2 ($_WordStatus_ComError) = Com 错误
-  3 ($_WordStatus_InvalidDataType) = 无效数据类型
-  4 ($_WordStatus_InvalidObjectType) = 无效对象类型
-  5 ($_WordStatus_InvalidValue) = 无效值
- @Extended:  包含无效参数数量
+成功:	返回1
+失败:	返回 0设置@error
+@error:	0 ($_WordStatus_Success) = 无错误
+	1 ($_WordStatus_GeneralError) = 一般错误
+	2 ($_WordStatus_ComError) = Com 错误
+	3 ($_WordStatus_InvalidDataType) = 无效数据类型
+	4 ($_WordStatus_InvalidObjectType) = 无效对象类型
+	5 ($_WordStatus_InvalidValue) = 无效值@Extended:
+	包含无效参数数量
 @@End@@
 
+
 ###Remarks###
-如果指定$b_Background在文件打印完成前不暂停脚本 , 只在文件被完全发送到打印机前暂停.
-如果执行后台打印时执行_WordQuit() , 文档将没有时间打印.
-使用 \\Server\Printer 格式指定网络打印机
+如果指定$b_Background在文件打印完成前不暂停脚本, 只在文件被完全发送到打印机前暂停. 
+如果执行后台打印时执行_WordQuit(), 文档将没有时间打印.使用 <a 
+href="file://\\Server\Printer">\\Server\Printer 格式指定网络打印机
+
 
 ###Related###
+None
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

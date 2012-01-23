@@ -6,27 +6,31 @@ _NamedPipes_WaitNamedPipe
 
 ###Syntax###
 #Include <NamedPipes.au3>
-_NamedPipes_WaitNamedPipe($sPipeName[, $iTimeOut = 0])
+_NamedPipes_WaitNamedPipe($sPipeName [, $iTimeOut = 0])
 
 ###Parameters###
 @@ParamTable@@
- $sPipeName  命名管道名称. 字符串必须包含正在执行服务器进程的计算机名. 如果管道是私有的, 服务器名将会被使用一段时间.
- $iTimeout  函数等候命名管道可用时所用的毫秒数. 须为下列值之一:
--1 - 函数直到一个命名管道实例可用才返回
-0 - 用服务器进程指定的超市默认值
+$sPipeName
+	命名管道名字.名字字符串必须包括计算机上的服务器进程执行名称.
+		如果管道是私有的, 服务器名将会被使用一段时间.
+$iTimeout
+	[可选参数] 等待命名管道可用的时间毫秒数.
+		可以使用以下值之一:
+		-1 - 函数直到命名管道实例可用时才返回
+		0 - 超时时间间隔默认值由服务器进程中指定
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	True
+失败:	False
 @@End@@
 
 ###Remarks###
-如果没有指定的命名管道的实例退出, WaitNamedPipe函数立即返回
+如果没有指定命名管道实例存在 ,则 WaitNamedPipe 函数立即返回
 
 ###Related###
- _NamedPipes_CallNamedPipe
+_NamedPipes_CallNamedPipe
 
 ###See Also###
-搜索MSDN知识库中WaitNamedPipe的相关信息
+@@MsdnLink@@ WaitNamedPipe

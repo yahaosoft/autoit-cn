@@ -2,7 +2,7 @@
 _WinAPI_SetWindowPos
 
 ###Description###
-改变子窗体, 弹出窗体或顶层窗体的大小, 位置, 和Z序
+变动子窗口, 弹出窗口, 或顶层窗口的大小, 位置和 Z 序
 
 ###Syntax###
 #Include <WinAPI.au3>
@@ -10,42 +10,50 @@ _WinAPI_SetWindowPos($hWnd, $hAfter, $iX, $iY, $iCX, $iCY, $iFlags)
 
 ###Parameters###
 @@ParamTable@@
-$hWnd  窗口句柄
-$hAfter  确定窗体在Z序中定位的窗体之前. 该参数必须是窗体句柄或下列值之一:
-$HWND_BOTTOM - 将窗体置于Z序底部
-$HWND_NOTOPMOST - 将窗体置于所有非指定窗口上方
-$HWND_TOP - 将窗体置于Z序顶部
-$HWND_TOPMOST - 将窗体置于所有非指定窗口上方
-$iX  指定窗口左边的新位置
-$iY  指定窗口顶部的新位置
-$iCX  指定窗口新的像素宽度
-$iCY  指定窗口新的像素高度
-$iFlags  指定窗体的大小和位置标记:
-$SWP_DRAWFRAME - 绘制环绕窗体的框架
-$SWP_FRAMECHANGED - 向窗体发送$WM_NCCALCSIZE消息, 即使窗体大小未改变
-$SWP_HIDEWINDOW - 隐藏窗体
-$SWP_NOACTIVATE - 不激活窗体
-$SWP_NOCOPYBITS - 放弃客户区的全部内容
-$SWP_NOMOVE - 保留当前位置
-$SWP_NOOWNERZORDER - 不改变主窗体在Z序中的位置
-$SWP_NOREDRAW - 不重绘
-$SWP_NOREPOSITION - 与$SWP_NOOWNERZORDER标记相同
-$SWP_NOSENDCHANGING - 阻止窗体接收$WM_WINDOWPOSCHANGING
-$SWP_NOSIZE - 保留当前尺寸
-$SWP_NOZORDER - 保留当前Z序
-$SWP_SHOWWINDOW - 显示窗体
+$hWnd
+	窗口句柄
+$hAfter
+	Z 顺序定位之前的窗口标识
+		此参数必须是窗口句柄或下列值之一:
+		$HWND_BOTTOM - 放置窗口带 Z 顺序的底部
+		$HWND_NOTOPMOST - 放置窗口到所有非顶层窗口上方
+		$HWND_TOP - 放置窗口到 Z 序顶部
+		$HWND_TOPMOST - 放置窗口到所有非顶层窗口上方
+$iX
+	新位置的窗口左侧
+$iY
+	新位置的窗口顶部
+$iCX
+	新窗口的宽度的象素值
+$iCY
+	新窗口的高度的象素值
+$iFlags
+	指定窗口大小调整和定位标志:
+		$SWP_DRAWFRAME - 绘制窗口的围绕框
+		$SWP_FRAMECHANGED - 发生 $WM_NCCALCSIZE message 消息到窗口, 即使窗口的大小没有改变
+		$SWP_HIDEWINDOW - 隐藏窗口
+		$SWP_NOACTIVATE - 不激活窗口
+		$SWP_NOCOPYBITS - 丢弃客户区的全部内容
+		$SWP_NOMOVE - 保持目前的位置
+		$SWP_NOOWNERZORDER - 不改变所有者窗口的 Z 顺序位置
+		$SWP_NOREDRAW - 不重绘变化的
+		$SWP_NOREPOSITION - 等同于 $SWP_NOOWNERZORDER 标志
+		$SWP_NOSENDCHANGING - 防止窗口接收 $WM_WINDOWPOSCHANGING
+		$SWP_NOSIZE - 保留了目前的大小
+		$SWP_NOZORDER - 保持目前的 Z 顺序
+		$SWP_SHOWWINDOW - 显示窗口
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-需要Constants.au3预定义常量
+Needs Constants.au3 for pre-defined constants
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中SetWindowPos的相关信息
+@@MsdnLink@@ SetWindowPos

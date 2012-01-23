@@ -2,31 +2,33 @@
 _WinAPI_IsValidLocale
 
 ###Description###
-确定当前操作系统是否已安装或支持指定语言环境
+确定操作系统安装或支持的指定区域.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_IsValidLocale( $LCID [, $iFlag] )
+_WinAPI_IsValidLocale ( $LCID [, $iFlag] )
 
 ###Parameters###
 @@ParamTable@@
 $LCID
-   指定的语言环境标识
+	区域标识符.
 $iFlag
-   指定用于设置语言环境标识有效性的标记. 该参数可为:
-    $LCID_INSTALLED - 确定语言环境是否被支持及已安装
-    $LCID_SUPPORTED - 确定语言环境是否被支持
+	[可选参数] 区域标识符的有效测试标志.参数可以为以下值之一:
+		 $LCID_INSTALLED --- 枚举已安装的区域设置标识符
+		 $LCID_SUPPORTED --- 枚举支持的区域设置标识符
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1时表示语言环境标识通过指定有效性测试. 反之为0.
-失败: 返回0并设置@error为非0
+成功:	返回 1 - 区域设置标识符通过指定的有效性测试
+	返回 0 - 未通过.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中IsValidLocale的相关信息
+@@MsdnLink@@ IsValidLocale
+

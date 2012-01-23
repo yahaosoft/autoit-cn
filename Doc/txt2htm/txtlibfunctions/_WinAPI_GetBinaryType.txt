@@ -2,30 +2,33 @@
 _WinAPI_GetBinaryType
 
 ###Description###
-确定文件是否为可执行文件且可在何种子系统中运行
+确定文件是否为可执行(.exe)文件,如果是,则子系统运行这个可执行文件.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetBinaryType( $sPath )
+_WinAPI_GetBinaryType ( $sPath )
 
 ###Parameters###
 @@ParamTable@@
 $sPath
-   将被确定的可执行文件的路径
+	文件的完整路径.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1表示文件为可执行的 , @extended标记将包含描述文件可执行类型的$SCS_...常量之一. 反之返回0.
-失败: 返回0并设置@error非0
+成功:	返回 1 - 文件为可执行文件,
+	@extended 标志包含文件为可执行文件类型的 $SCS_* 常数
+	返回 0 - 不是.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetBinaryType的相关信息
+@@MsdnLink@@ GetBinaryType
 
 ###Example###
 @@IncludeExample@@
+

@@ -2,40 +2,46 @@
 _WinAPI_CreateEvent
 
 ###Description###
-创建或打开一个命名的或未命名的事件对象
+创建或者打开一个命名的或者未命名的事件对象
 
 ###Syntax###
-#Include
-<WinAPI.au3>
-_WinAPI_CreateEvent([$pAttributes = 0[, $fManualReset =
-True[, $fInitialState = True[, $sName = ""]]]])
+#Include <WinAPI.au3>
+_WinAPI_CreateEvent( [$pAttributes = 0 [, $fManualReset = True [, $fInitialState = True [, $sName = ""]]]])
 
 ###Parameters###
 @@ParamTable@@
 $pAttributes
-$tagSECURITY_ATTRIBUTES结构的指针. 如果为0, 句柄无法由子进程继承.
-      lpEventAttributes的结构中的成员为新的事件指定了一个安全符。如果pEventAttributes是NULL，事件将获得一个默认的安全符.
+	[可选参数] $tagSECURITY_ATTRIBUTES 结构指针.如果为 0,句柄不能由子进程继承.
+		结构的 Descriptor 成员指定新事件的安全描述符.
+		如果此参数为 0, 事件获得默认的安全描述符.
+		事件的默认安全描述符的 ACL 来自最初的创建者或模拟令牌.
 $fManualReset
-   如果为真, 函数创建一个手动复原事件对象，这需要使用ResetEvent函数设置事件状态为无信号.
-      函数将在信号等待线程被释放后创建一个自动复原事件对象为无信号状态
+	[可选参数] 如为 True, 函数创建手动重置事件对象,
+		它需要 ResetEvent 函数设置事件为无信号状态
+		如为 False, 数创建自动重置事件对象,系统会自动重置事件的状态,
+		非单一信号后等待线程被释放
 $fInitialState
-   如果为真, 事件对象的最初状态卫有信号状态; 否则为无信号状态
+	[可选参数] 如为 True, 事件对象初始为信号状态;否则,为无信号
 $sName
-   事件对象的名称. 名称对比是大小写敏感的. 如果sName以一个已存在的事件对象名称相匹配, 函数需要
-      EVENT_ALL_ACCESS 获得权限. 实际上, 由于fManualReset和fInitialState参数在创建进程时已被设置，故而经常被忽略. 如果pAttributes参数不为0, 它将决定句柄是否可被继承, 但其安全描述符成员将被忽略.
-      如果名称为空将创建一个未命名的事件对象.
+	[可选参数] 事件对象的名称.名称比较区分大小写.
+		如果 $sName 匹配现有的命名事件对象的名称,这个函数要求 EVENT_ALL_ACCESS 访问权.
+		这种情况下,$fManualReset 和 $fInitialState 参数将被忽略,因为他们已经被创建进程设置
+		如果 $pAttributes 参数不为 0, 它决定句柄是否可以继承,但它的安全描述符 成员将被忽略
+		如果名称为空白,创建的事件对象没有名字.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 事件对象的句柄. 如果在函数调用前命名的事件对象已存在, 函数返回一个已存在对象的句柄, 且GetLastError返回ERROR_ALREADY_EXISTS.
-失败: 0
+成功:	返回事件对象的句柄.
+	如果命名事件对象存在, 调用该函数将返回现有对象句柄,且 GetLastError 返回 ERROR_ALREADY_EXISTS.
+失败:	返回 0
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 $tagSECURITY_ATTRIBUTES
 
 ###See Also###
-搜索MSDN知识库中有关CreateEvent的信息
+@@MsdnLink@@ CreateEvent

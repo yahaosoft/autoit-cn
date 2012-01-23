@@ -2,40 +2,40 @@
 _ExcelSheetMove
 
 ###Description###
-移动另一表前的指定表
+移动工作表
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelSheetMove($oExcel, $vMoveSheet[, $vRelativeSheet = 1[, $fBefore = True]])
+_ExcelSheetMove($oExcel, $vMoveSheet [, $vRelativeSheet = 1 [, $fBefore = True]])
 
 ###Parameters###
 @@ParamTable@@
-$oExcel 
-   由预先调用_ExcelBookOpen()或_ExcelBookNew()打开的Excel对象
-$vMoveSheet 
-   要移动的表名或编号(字符串或整数)
-$vRelativeSheet 
-   被移动的表将放置在该表前或后(字符串或整数, 默认为第一张表)
-$fBefore 
-   如果为真被移动的表放置在相关表之前, 为假放置在之后(真或假) (默认为真)
+$oExcel
+	由前面调用 _ExcelBookOpen() 或者 _ExcelBookNew() 函数返回的 Excel 对象
+$vMoveSheet
+	移动的工作表名称或编号 (字符串或整数)
+$vRelativeSheet
+	[可选参数] 参照位的表名称或编号 (字符串或整数, 默认到第一位置)
+$fBefore
+	[可选参数] 如设置为 True, 则移动到参照位之前；如设置为 False，则移动到参照位之后 (默认 = True)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回1
- 失败:  返回0并设置@error
- @error:  1 - 指定对象不存在
-  2 - 指定要移动的表的编号不存在
-  3 - 指定要移动的表的名称不存在
-  4 - 指定相关表的编号不存在
-  5 - 指定相关表的名称不存在
+成功:	返回 1
+失败:	返回 0, 并设置 @error:
+@error:	0 - 无错误
+	1 - 指定的对象不存在
+	2 - 指定表编号不存在
+	3 - 指定表名称不存在
+	4 - 指定参照位表号码不存在
+	5 - 指定参照位表名称不存在
 @@End@@
 
 ###Remarks###
+None
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

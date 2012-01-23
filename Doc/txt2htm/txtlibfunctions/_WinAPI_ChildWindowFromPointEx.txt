@@ -2,38 +2,41 @@
 _WinAPI_ChildWindowFromPointEx
 
 ###Description###
-确定子窗体所属的父窗体是否包含指定点
+确定子窗口(如果存在)是否属于包含指定点的父窗口.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ChildWindowFromPointEx( $hWnd, $tPOINT [, $iFlags] )
+_WinAPI_ChildWindowFromPointEx ( $hWnd, $tPOINT [, $iFlags] )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   父窗体句柄
+	父窗口句柄.
 $tPOINT
-$tagPOINT结构
+	$tagPOINT 结构, 定义客户端检查点的坐标[相对于 hwndParent(父句柄)].	
 $iFlags
-   指定浏览子窗体的标记. 该参数可为一个或多个下列值:
-    $CWP_ALL - 不忽略任意子窗口
-    $CWP_SKIPINVISIBLE - 忽略隐藏的窗口
-    $CWP_SKIPDISABLED - 忽略禁用的窗口
-    $CWP_SKIPTRANSPARENT - 忽略透明窗口
+	[可选参数] 指定忽略的子窗口.参数可以是一或多个下列值:
+		 $CWP_ALL ----------------- 不忽略任何的子窗口.
+		 $CWP_SKIPINVISIBLE ------- 忽略屏蔽的子窗口.
+		 $CWP_SKIPDISABLED ------- 忽略不可见的子窗口
+		 $CWP_SKIPTRANSPARENT --- 忽略透明子窗口
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 首个子窗体句柄.
-   当点在父窗体内但不在任何符合标准的子窗体内时, 返回值为父窗体句柄.
-   当点在父窗体外部时, 返回值为0.
-失败: 返回0并设置@error非0
+成功:	返回第一个子窗口句柄.
+	如果检查点是在父窗口, 但不属于任何符合条件的子窗口, 返回父窗口的句柄.
+	如果检查点在父窗口外面或函数失败, 则返回值为 0.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-系统会保留一个包含与父窗体相关的子窗体的句柄的内部列表，列表中句柄的顺序取决于子窗体Z序. 如果多个子窗体包含指定点, 系统返回首个包含指定点且符合$iFlags指定标准的子窗体.
+系统保留一个内部列表, 其中包含了与父窗口关联的子窗口句柄.
+列表中多个子窗句柄的顺序取决于该子窗口的 Z 顺序.
+ 如果有一个以上的子窗口包含指定点,
+ 系统返回列表中包含的,并符合 $iFlags 参数规定的第一个子窗口句柄.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中ChildWindowFromPointEx的相关信息
+@@MsdnLink@@ ChildWindowFromPointEx
+

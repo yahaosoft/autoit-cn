@@ -2,7 +2,7 @@
 _GDIPlus_BitmapUnlockBits
 
 ###Description###
-解除对由_GDIPlus_BitmapLockBits锁定的位图部分的锁定
+解锁 _GDIPlus_BitmapLockBits 锁定的部分位图
 
 ###Syntax###
 #Include <GDIPlus.au3>
@@ -10,26 +10,23 @@ _GDIPlus_BitmapUnlockBits($hBitmap, $tBitmapData)
 
 ###Parameters###
 @@ParamTable@@
-$hBitmap 
-   位图对象句柄
-$tBitmapData 
-   以前传递给_GDIPlus_BitmapLockBits的$tagGDIPBITMAPDATA结构
+$hBitmap
+	位图对象句柄
+$tBitmapData
+	先前传递給 _GDIPlus_BitmapLockBits 的 $tagGDIPBITMAPDATA 结构
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-处理完锁定部分时调用_GDIPlus_BitmapUnlockBits释放该部分
+ 当您完成部分锁定,调用 _GDIPlus_BitmapUnlockBits 释放锁定的区域
 
 ###Related###
- _WinAPI_DeleteObject
+_WinAPI_DeleteObject
 
 ###See Also###
- 查看MSDN知识库中GdipBitmapUnLockBits的相关信息
-
-###Example###
-@@IncludeExample@@
+@@MsdnLink@@ GdipBitmapUnlockBits

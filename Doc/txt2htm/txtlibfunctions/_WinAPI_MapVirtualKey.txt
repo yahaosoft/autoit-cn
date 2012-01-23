@@ -2,33 +2,41 @@
 _WinAPI_MapVirtualKey
 
 ###Description###
-将虚拟键码翻译为扫描码或字符值, 或将扫描码翻译为虚拟键码
+Translates a virtual-key code into a scan code or character value, or translates a scan code into a virtual-key code.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_MapVirtualKey( $iCode, $iType )
+_WinAPI_MapVirtualKey ( $iCode, $iType )
 
 ###Parameters###
 @@ParamTable@@
 $iCode
-$iType参数.
+	The virtual key code or scan code for a key. How this value is interpreted depends on the $iType parameter.
 $iType
-$iCode参数值且可为下列值之一:
-    $MAPVK_VK_TO_CHAR - $iCode为虚拟键码并被翻译为返回值的低位文字中未经切换的字符值. 未经翻译时返回0.
-    $MAPVK_VK_TO_VSC - $iCode为虚拟键码并被翻译为扫描码. 如果虚拟键码不区分左手和右手则返回左手扫描码. 未经翻译时返回0.
-    $MAPVK_VSC_TO_VK - $iCode为扫描码并被翻译为不区分左右手的虚拟键码. 未经翻译时返回0.
-    $MAPVK_VSC_TO_VK_EX - $iCode为扫描码并被翻译为区分左右手的虚拟键码. 未经翻译时返回0.
+	The translation to be performed. This value depends on the value of the $iCode parameter and can be
+	one of the following values.
+	
+	$MAPVK_VK_TO_CHAR
+	$MAPVK_VK_TO_VSC
+	$MAPVK_VSC_TO_VK
+	$MAPVK_VSC_TO_VK_EX
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回根据上述参数的扫描码, 虚拟键码或字符值.
-失败: 返回0并设置@error非0
+Success	A scan code, a virtual-key code, or a character value, depending on the above parameters.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-应用程序可使用_WinAPI_MapVirtualKey()将扫描码翻译为虚拟键常量$VK_SHIFT, $VK_CONTROL, $VK_MENU以及vice versa. 这些翻译不区分左右手的SHIFT, CTRL或ALT键.
-应用程序可通过调用_WinAPI_MapVirtualKey()将uCode设置为下列虚拟键代码的常量之一获取扫描码对应的左手或右手实例
+An application can use _WinAPI_MapVirtualKey() to translate scan codes to the virtual-key code constants
+$VK_SHIFT, $VK_CONTROL, and $VK_MENU, and vice versa. These translations do not distinguish between the left and
+right instances of the SHIFT, CTRL, or ALT keys.
+
+An application can get the scan code corresponding to the left or right instance of one of these keys by calling
+_WinAPI_MapVirtualKey() with uCode set to one of the following virtual-key code constants.
+
 $VK_LSHIFT
 $VK_RSHIFT
 $VK_LCONTROL
@@ -36,10 +44,11 @@ $VK_RCONTROL
 $VK_LMENU
 $VK_RMENU
 
-###Related###
+
 
 ###See Also###
- 搜索MSDN知识库中MapVirtualKey的相关信息
+@@MsdnLink@@ MapVirtualKey
 
 ###Example###
 @@IncludeExample@@
+

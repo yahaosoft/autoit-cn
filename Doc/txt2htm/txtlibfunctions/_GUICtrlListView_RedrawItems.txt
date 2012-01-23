@@ -2,31 +2,32 @@
 _GUICtrlListView_RedrawItems
 
 ###Description###
-强制控件重回项目的一个范围
+强制刷新控件范围内的项目
 
 ###Syntax###
-#Include<GuiListView.au3>
-_GUICtrlListView_RedrawItems($hWnd, $iFirst,$iLast)
+#Include <GuiListView.au3>
+_GUICtrlListView_RedrawItems($hWnd, $iFirst, $iLast)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iFirst  要重绘的首项的0基索引
- $iLast  要重绘的末项的0基索引
+$hWnd
+	控件句柄
+$iFirst
+	刷新范围的第一项目 0 基索引
+$iLast
+	刷新范围的最后项目 0 基索引
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-在控件收到重绘的$WM_PAINT消息前，指定项不会被实际重回.
+ 指定的项目,在控件接收 $WM_PAINT 消息前,实际上并没有刷新.
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

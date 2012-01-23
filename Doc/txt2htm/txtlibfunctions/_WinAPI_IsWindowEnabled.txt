@@ -2,27 +2,29 @@
 _WinAPI_IsWindowEnabled
 
 ###Description###
-确定指定窗体是否可接受鼠标或键盘输入
+确定指定窗口是否启用鼠标和键盘输入.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_IsWindowEnabled( $hWnd )
+_WinAPI_IsWindowEnabled ( $hWnd )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   要测试的窗体句柄
+	窗口句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1时可接受鼠标或键盘输入, 反之返回0.
-失败: 返回0并设置@error非0
+成功:	返回 1 - 已启用.
+	返回 0 - 未启用.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+如果启用和可见子窗口,则子窗口只接收输入.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中IsWindowEnabled的相关信息
+@@MsdnLink@@ IsWindowEnabled
+

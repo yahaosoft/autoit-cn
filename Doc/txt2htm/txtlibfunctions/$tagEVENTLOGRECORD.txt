@@ -2,43 +2,49 @@
 $tagEVENTLOGRECORD
 
 ###Description###
-包含关于事件记录的信息的结构
+包含有关事件的记录
 
 ###Syntax###
-Global Const $tagEVENTLOGRECORD =  "int Length;int Reserved;int RecordNumber;int TimeGenerated;int TimeWritten;int EventID;short EventType;short NumStrings;short EventCategory;short ReservedFlags;int ClosingRecordNumber;int UserSidLength;int DataLength;int StringOffset;int UserSidOffset;int DataOffset"
+Global Const $tagEVENTLOGRECORD = "int Length;int Reserved;int RecordNumber;int TimeGenerated;int TimeWritten;int EventID;" & _
+		"short EventType;short NumStrings;short EventCategory;short ReservedFlags;int ClosingRecordNumber;int StringOffset;" & _
+		"int UserSidLength;int UserSidOffset;int DataLength;int DataOffset"
 
 ###Fields###
 @@ParamTable@@
 Length
-   事件记录的字节大小
+	事件记录的字节大小
 Reserved
-   保留
+	保留
 RecordNumber
-   记录数量
+	记录数量
 TimeGenerated
-   该记录提交时间
+	记录提交时间
 TimeWritten
-   服务收到记录并写入日志的时间
+	由服务接收并写入日志的时间
 EventID
-   事件标识
+	事件标识符
 EventType
-   事件类型
+	事件类型
 NumStrings
-   记录中的字符串数量
+	记录中的字符串数量
 EventCategory
-   事件类别
+	事件类
 ReservedFlags
-   保留
+	保留
 ClosingRecordNumber
-   保留
+	保留
 StringOffset
-   该事件日志记录中描述字符串的长度
+	事件日志记录中描述字符串的偏移量
 UserSidLength
-   UserSid成员的字节大小
+	UserSid 成员的字节大小
 UserSidOffset
-   该事件日志记录中安全标识符(SID)的长度
+	事件日志记录中安全标识符（SID）的偏移量
 DataLength
-   事件指定的(由DataOffset表示的位置的)数据的字节大小
+	事件数据的字节大小 (由 DataOffset 定位)
 DataOffset
-   事件日志记录中时间指定的信息的字节长度
-@@end@@
+	事件日志记录中事件的具体资料的偏移量(以字节为单位)
+@@End@@
+
+###Remarks###
+None.
+

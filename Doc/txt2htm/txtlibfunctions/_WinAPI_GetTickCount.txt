@@ -2,29 +2,28 @@
 _WinAPI_GetTickCount
 
 ###Description###
-获取系统启动后经过的毫秒数
+检索系统已启动以来运行的毫秒数.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetTickCount()
+_WinAPI_GetTickCount ( )
 
 ###Parameters###
 @@ParamTable@@
-    无
+None.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 系统启动后经过的毫秒数
-失败: 返回0并设置@error非0
+成功:	返回系统启动以来运行的毫秒数.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+如果系统连续运行 49.7 天后, 时间将复位到 0.比较时间应该总是检查溢出条件
+ 要获取计算机启动以来的时间计数器数据, 见注册表键 HKEY_PERFORMANCE_DATA.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetTickCount的相关信息
+@@MsdnLink@@ GetTickCount
 
-###Example###
-@@IncludeExample@@

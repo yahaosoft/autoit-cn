@@ -2,33 +2,35 @@
 _SQLite_Close
 
 ###Description###
-关闭SQLite数据库
+关闭一个打开的 SQLite 数据库.
 
 ###Syntax###
-#Include <SQLite.au3>
+#include <SQLite.au3>
 _SQLite_Close ( [ $hDB ] )
+
 
 ###Parameters###
 @@ParamTable@@
- $hDB  [可选] 数据库句柄
+$hDB
+	[可选参数] 数据库句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回 $SQLITE_OK.
-失败: 返回值可与$SQLITE_*常量比较.
-@error: -1 - SQLite报告错误(检查返回值)
-      1 - 调用SQLite API 'sqlite3_close'错误
-      2 - 安全模式阻止调用
+成功:	返回 $SQLITE_OK.
+失败:	随机返回值,您可以和 $SQLITE_* 常量中的值进行对照.
+@error:	-1 - SQLite 报告错误 (检查返回值)
+	1 - 错误调用 SQLite API 'sqlite3_close'
+	2 - 调用被安全模式阻止
 @@End@@
 
 ###Remarks###
-如果没有给定数据库句柄, 将关闭最近打开的数据库.
+It waits for SQLite &lt;&gt; $SQLITE_BUSY until 'global Timeout' has elapsed.
+如果没有数据库句柄, 最后打开的数据库将被关闭.
+Prior to calling _SQLite_Close, the application must invoke _SQLite_QueryFinalize for each query explicitely left unfinalized.
 
 ###Related###
- _SQLite_Open
-
-###See Also###
+_SQLite_Open
 
 ###Example###
 @@IncludeExample@@

@@ -2,51 +2,54 @@
 _WinAPI_MessageBoxCheck
 
 ###Description###
-显示供用户阻止进一步事务发生的选项消息窗口
+显示提供用户删除事件的选项消息框.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_MessageBoxCheck( $iType, $sTitle, $sText, $sRegVal [, $iDefault [, $hParent]] )
+_WinAPI_MessageBoxCheck ( $iType, $sTitle, $sText, $sRegVal [, $iDefault [, $hParent]] )
 
 ###Parameters###
 @@ParamTable@@
 $iType
-   指定消息框内容和动作的标记.
-    可通过仅设置一个下列标记指定要显示的按钮:
-    $MB_OK - 显示带有OK按钮的消息框
-    $MB_OKCANCEL - 显示带有OK及Cancel按钮的消息框
-    $MB_YESNO - 显示带有Yes及No按钮的消息框
-    可通过仅设置一个下列标记显示可选按钮:
-    $MB_ICONEXCLAMATION - 显示惊叹号图标
-    $MB_ICONHAND - 显示停止图标
-    $MB_ICONINFORMATION - 显示圆圈内带有小写i的图标
-    $MB_ICONQUESTION - 显示问号图标
+	指定消息框的内容和状态.
+		 设置一个且只有一个下列标志作为消息框显示的按钮.
+		 $MB_OK --- "确定"按钮
+		 $MB_OKCANCEL --- "取消"和"确定"按钮
+		 $MB_YESNO --- "是"按钮
+		 设置一个且只有一个下列标志作为消息框的显示图标.
+		 $MB_ICONEXCLAMATION --- 感叹号图标
+		 $MB_ICONHAND --- 停止信号图标
+		 $MB_ICONINFORMATION --- 圆圈加小写“i”图标
+		 $MB_ICONQUESTION --- 问号图标
 $sTitle
-   包含消息框标题的字符串
+	消息框的标题字符串.
 $sText
-   包含将显示的消息的字符串
+	显示信息的字符串.
 $sRegVal
-   包含与该消息相关的唯一字符串的字符串
+	消息关联的唯一字符串值.
 $iDefault
-$iDefault.
+	[可选参数] 指定用户选定不再显示消息框时,函数的返回值. 
+		 如果用户未选择取消消息框, 消息框将继续显示,并且函数忽略此参数值.
 $hParent
-   [可选] 消息框宿主窗口的句柄
+	[可选参数] 消息框属主窗口句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如果用户已选定阻止消息框则函数立即返回分配给$iDefault的值; 否则返回一个$ID...常量
-失败: 返回-1并设置@error非0
+成功:	如果用户选择取消消息框,函数立即返回 $iDefault 的参数值;
+	否则,返回 $ID_* 常量.
+失败:	返回 -1,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-该函数记录用户选择按下下述注册表项下的消息框:
-HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\LowRegistry\DontShowMeThisDialogAgain
+用户取消消息框后,函数记录的信息写入下面的注册表项.
+ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\LowRegistry\DontShowMeThisDialogAgain
 
-###Related###
+
 
 ###See Also###
- 搜索MSDN知识库中SHMessageBoxCheck的相关信息
+@@MsdnLink@@ SHMessageBoxCheck
 
 ###Example###
 @@IncludeExample@@
+

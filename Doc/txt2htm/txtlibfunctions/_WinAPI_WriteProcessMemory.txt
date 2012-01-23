@@ -2,34 +2,39 @@
 _WinAPI_WriteProcessMemory
 
 ###Description###
-使用指定进程写内存
+写入数据到指定进程的内存
 
 ###Syntax###
-#Include
-<WinAPI.au3>
-_WinAPI_WriteProcessMemory($hProcess, $pBaseAddress,
-$pBuffer, $iSize, ByRef $iWritten[, $sBuffer = "ptr"])
+#Include <WinAPI.au3>
+_WinAPI_WriteProcessMemory($hProcess, $pBaseAddress, $pBuffer, $iSize, ByRef $iWritten [, $sBuffer = "ptr"])
 
 ###Parameters###
 @@ParamTable@@
-$hProcess  内存将被写入的进程的句柄的标识
-$pBaseAddress  指向指定被写入的进程的基址
-$pBuffer  指向提供被写入地址空间的数据的缓冲区
-$iSize  指定写入指定进程的字节数
-$iWritten  传送到指定进程的实际字节数
-$sBuffer  包含$pBuffer提供的数据类型
+$hProcess
+	打开的进程句柄
+$pBaseAddress
+	被写入的进程基地址
+$pBuffer
+	提供写入数据的缓冲区
+$iSize
+	写入到指定进程的字节数
+$iWritten
+	传输到指定进程的实际字节数
+$sBuffer
+	[可选参数] 包含的数据类型
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 _WinAPI_ReadProcessMemory
 
 ###See Also###
-搜索MSDN知识库中WriteProcessMemory的相关信息
+@@MsdnLink@@ WriteProcessMemory

@@ -2,52 +2,57 @@
 _GUIImageList_DrawEx
 
 ###Description###
-在指定的设备上下文中绘制图像列表项
+在指定的设备环境中绘制图像列表项目
 
 ###Syntax###
-#Include<GuiImageList.au3>
-_GUIImageList_DrawEx($hWnd, $iIndex, $hDC, $iX,$iY[, $iDX = 0[, $iDY = 0[, $iRGBBk = 0xFFFFFFFF[, $iRGBFg = 0xFFFFFFFF[,$iStyle=0]]]]])
+#Include <GuiImageList.au3>
+_GUIImageList_DrawEx($hWnd, $iIndex, $hDC, $iX, $iY[, $iDX = 0[, $iDY = 0[, $iRGBBk = 0xFFFFFFFF[, $iRGBFg = 0xFFFFFFFF[, $iStyle=0]]]]])
 
 ###Parameters###
 @@ParamTable@@
-参数
- $hWnd  控件句柄
- $iIndex  绘制图像的0基索引
- $hDC  目标设备上下文的句柄
- $iX  绘制图像的 X 坐标
- $iY  绘制图像的 Y 坐标
- $iDX  从图像左上角算起的图像部分的宽度.
-如果$iDX和$iDY为0, 函数绘制全部图像. 函数不保证参数有效.
- $iDY  从图像左上角算起的图像部分的高度.
-如果$iDX和$iDY为0, 函数绘制全部图像. 函数不保证参数有效.
- $iRGBBk  图像背景色. 参数可为一个应用定义的RGB值或下列值之一:
-$CLR_NONE - 无背景色.
-      图像透明绘制.
-$CLR_DEFAULT - 默认背景色. 使用图像列表背景色绘制图像.
- $iRGBFg  图像前景色. 参数可为一个应用定义的RGB值或下列值之一:
-$CLR_NONE - 无混合色.
-      图像与目标设备上下文颜色混和.
-$CLR_DEFAULT - 默认前景色. 使用图像列表前景色绘制图像.
- $iStyle  绘制风格和遮盖图像:
-1 - 使用蒙板绘制透明图像, 不管背景色
-2 - 绘制图像, 使用25%透明的系统高亮色
-4 -
-      绘制图像, 使用50%透明的系统高亮色
-8 - 绘制蒙板
+$hWnd
+	控件句柄
+$iIndex
+	绘制图像的 0 基索引
+$hDC
+	目标设备环境句柄
+$iX
+	图像绘制位置的 X 坐标
+$iY
+	图像绘制位置的 Y 坐标
+$iDX
+	[可选参数] 图像的绘制宽度.(相对于图像左上角).
+		如 $iDX 与 $iDY 为 0, 函数绘制整个图像. 函数不保证该参数是有效的.
+$iDY
+	[可选参数] 图像的绘制高度(相对于图像左上角).
+		如 $iDX 与 $iDY 为 0, 函数绘制整个图像. 函数不保证该参数是有效的.
+$iRGBBk
+	[可选参数] 图像的背景颜色. 参数可以是应用程序定义的 RGB 值或以下值之一:
+		返回 $CLR_NONE - 无背景颜色.绘制透明图像.
+		$CLR_DEFAULT - 默认背景颜色.使用图像列表的背景颜色.
+$iRGBFg
+	[可选参数] 图像的前景颜色.参数可以是应用程序定义的 RGB 值或以下值之一:
+		返回 $CLR_NONE - 没有混合色.图像与目标设备环境的颜色混合.
+		$CLR_DEFAULT - 默认前景色.使用系统高亮颜色作为前景色.
+$iStyle
+	[可选参数] 绘制样式和覆盖图像:
+		1 - 使用透明蒙板,不涉及背景颜色
+		2 - 混合系统高亮颜色 25%
+		4 - 混合系统高亮颜色 50%
+		8 - 绘制蒙板
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	True
+失败:	False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 _GUIImageList_Draw
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

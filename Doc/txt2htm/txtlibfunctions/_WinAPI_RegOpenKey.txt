@@ -6,37 +6,40 @@ _WinAPI_RegOpenKey
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RegOpenKey( $hKey [, $sSubKey [, $iDesired]] )
+_WinAPI_RegOpenKey ( $hKey [, $sSubKey [, $iAccess]] )
 
 ###Parameters###
 @@ParamTable@@
 $hKey
-   打开的键的句柄. 该句柄须由_WinAPI_RegCreateKey()或_WinAPI_RegOpenKey()函数打开.可为下列预定义键之一:
-   $HKEY_CLASSES_ROOT
-   $HKEY_CURRENT_USER
-   $HKEY_LOCAL_MACHINE
-   $HKEY_USERS
+	打开的键的句柄. 该句柄须由_WinAPI_RegCreateKey()或_WinAPI_RegOpenKey()函数打开.
+	可为下列预定义键之一:
+		 $HKEY_CLASSES_ROOT --- 定义文件类型和类型相关的属性
+		 $HKEY_CURRENT_USER --- 定义当前用户的参数选择
+		 $HKEY_LOCAL_MACHINE --- 定义计算机物理状态,包括总线类型、系统内存数据、并安装的硬件和软件
+		 $HKEY_USERS --- 确定本地计算机新用户定义默认用户配置,并作为当前用户的用户配置
+	
 $sSubKey
-   打开的子键名
-$iDesired
-$KEY_...常量.
+	[可选参数] 打开的子键名
+$iAccess
+	[可选参数]指定访问键所需权限的掩码. 
+	当安全描述符不允许调用进程的所需权限时函数失败.
+	该参数可为一个或多个$KEY_...常量.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回打开的键的句柄
-失败: 返回0并设置@error非0, @extended标记可包含非0系统错误代码.
+成功:	返回打开的键的句柄
+失败:	返回0并设置@error非0, @extended标记可包含非0系统错误代码.
 @@End@@
 
 ###Remarks###
-与_WinAPI_RegCreateKey()函数不同, 当指定键不存在时_WinAPI_RegOpenKey()函数不会创建.
-如果不是一个预定义的注册表键($HKEY_...), 在句柄使用完毕后必须调用_WinAPI_RegCloseKey()函数关闭.
-运行示例前请将 reg.dat 文件保存至临时文件夹
+与_WinAPI_RegCreateKey()函数不同, 
+当指定键不存在时_WinAPI_RegOpenKey()函数不会创建.
 
-###Related###
+如果不是一个预定义的注册表键($HKEY_...), 
+在句柄使用完毕后必须调用_WinAPI_RegCloseKey()函数关闭.
+
 
 ###See Also###
- 搜索MSDN知识库中RegOpenKey的相关信息
+@@MsdnLink@@ RegOpenKeyEx
 
-###Example###
-@@IncludeExample@@

@@ -2,34 +2,35 @@
 _WinAPI_RegDeleteEmptyKey
 
 ###Description###
-删除空键
+删除一个空键.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RegDeleteEmptyKey( $hKey [, $sSubKey] )
+_WinAPI_RegDeleteEmptyKey ( $hKey [, $sSubKey] )
 
 ###Parameters###
 @@ParamTable@@
 $hKey
-   打开的键的句柄. 或下列预定义键之一:
-$HKEY_CLASSES_ROOT
-$HKEY_CURRENT_USER
-$HKEY_CURRENT_CONFIG
-$HKEY_LOCAL_MACHINE
-$HKEY_USERS
+	打开的注册表项句柄,或任何下列预定义项:
+		 $HKEY_CLASSES_ROOT --- 定义文件类型和类型相关的属性
+		 $HKEY_CURRENT_CONFIG --- 包含本地计算机系统目前的硬件配置文件
+		 $HKEY_CURRENT_USER --- 定义当前用户的参数选择
+		 $HKEY_LOCAL_MACHINE --- 定义计算机物理状态,包括总线类型、系统内存数据、并安装的硬件和软件
+		 $HKEY_USERS --- 确定本地计算机新用户定义默认用户配置,并作为当前用户的用户配置
 $sSubKey
-   要删除的键名
+	[可选参数] 被删除的键名称.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0, @extended标记可包含非0系统错误代码.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SHDeleteEmptyKey的相关信息
+@@MsdnLink@@ SHDeleteEmptyKey
+

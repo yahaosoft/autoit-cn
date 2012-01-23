@@ -2,62 +2,56 @@
 _WinAPI_GetSaveFileName
 
 ###Description###
-创建保存对话框中用以让用户为要保存的文件指定驱动器, 目录和名称
+创建保存对话框,让用户保存文件到指定的驱动器,目录和文件名
 
 ###Syntax###
-#Include
-<WinAPI.au3>
-_WinAPI_GetSaveFileName([$sTitle = ""[, $sFilter = "All
-files (*.*)"[, $sInitalDir = "."[, $sDefaultFile = ""[, $sDefaultExt = ""[,
-$iFilterIndex = 1[, $iFlags = 0[, $iFlagsEx = 0[, $hwndOwner =
-0]]]]]]]]])
+#Include <WinAPI.au3>
+_WinAPI_GetSaveFileName( [$sTitle = "" [, $sFilter = "All files (*.*)" [, $sInitalDir = "." [, $sDefaultFile = "" [, $sDefaultExt = "" [, $iFilterIndex = 1 [, $iFlags = 0 [, $iFlagsEx = 0 [, $hwndOwner = 0]]]]]]]]])
 
 ###Parameters###
 @@ParamTable@@
 $sTitle
-   对话框标题栏的字符串
+	[可选参数] 对话框的标题栏字符串
 $sFilter
-   成对过滤字符串(例如"Text Files (*.txt)|All Files (*.*)")
-    其中第一个字符串用于描述过滤器(例如,
-      "Text Files")
-    第二个字符串指定过滤器的组成(例如, "*.TXT")
-    用一个字符串中指定多个过滤方案,
-      使用分号分开各组成部分(例如,
-      "*.TXT;*.DOC;*.BAK")
-    一个方案的字符串可以是有效文件名字符和星号(*)字符的组合
-    方案的字符串不要包含空格.
+	[可选参数] 双过滤字符串 (例如 "文本文件 (*.txt)|全部文件 (*.*)")
+		第一个字符串描述过滤器显示字符串 (例如: "文本文件")
+		第二个字符串指定过滤模式 (例如: "*.TXT")
+		要指定多个过滤器模式的显示字符串,使用分号分隔(例如: "*.TXT;*.DOC;*.BAK")
+		模式串由有效文件名和星号通配符 (*) 组合
+		模式串不包括空格.
 $sInitalDir
-   指定初始目录的字符串
+	[可选参数] 指定初始目录
 $sDefaultFile
-   用于初始化文件名编辑控件的文件名
+	[可选参数] 编辑控件中文件名使用初始化文件名
 $sDefaultExt
-   包含默认扩展名的字符串
+	[可选参数] 包含默认扩展名的字符串
 $iFilterIndex
-   指定文件键入控件中当前选中的过滤器的索引
+	[可选参数] 指定文件类型控件中当前选定过滤器的索引
 $iFlags
-$tagOPENFILENAME信息中的Flags
+	[可选参数] 见 $tagOPENFILENAME 结构中 Flags 的信息
 $iFlagsEx
-$tagOPENFILENAME信息中的FlagEx
+	[可选参数] 见 $tagOPENFILENAME 结构中 FlagEx 信息
 $hwndOwner
-   对话框宿主窗体的句柄. 该成员可为任意可用窗口句柄, 或无宿主时为0
+	[可选参数] 拥有对话框的窗口句柄.可以是任何有效的窗口句柄;或为 0, 表示对话框没有属主
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如下格式数组:
-  [0] - 包含字符串的数量(2)
-  [1] - 包含选中的路径
-  [2] - 包含选中的文件
-失败: 返回 0
+成功:	返回数组格式如下:
+	[0] - 数量字符串 (2)
+	[1] - 路径选择
+	[2] - 选定的文件
+失败:	返回数组 [0] 为 0 
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
-$tagOPENFILENAME , _WinAPI_GetOpenFileName , _WinAPI_CommDlgExtendedError
+$tagOPENFILENAME, _WinAPI_GetOpenFileName, _WinAPI_CommDlgExtendedError
 
 ###See Also###
-搜索MSDN知识库中GetSaveFileName相关信息
+@@MsdnLink@@ GetSaveFileName
 
 ###Example###
 @@IncludeExample@@

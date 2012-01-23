@@ -2,35 +2,40 @@
 _SQLite_QuerySingleRow
 
 ###Description###
-读取指定查询中的首行结果
+读出指定查询结果的第一行.
 
 ###Syntax###
-#Include <SQLite.au3>
+#include <SQLite.au3>
 _SQLite_QuerySingleRow ( $hDB, $sSQL, ByRef $aRow )
+
 
 ###Parameters###
 @@ParamTable@@
- $hDB  打开的数据库, -1为最近打开的数据库
- $sSQL  要执行的SQL表达式
- $aRow  输出'数据'行的数量
+$hDB
+	打开的数据库,如为 -1, 则使用最后打开的数据库
+$sSQL
+	要执行的语句
+$aRow
+	传递出的数据行数
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回$SQLITE_OK
-失败: 返回可与$SQLITE_* 常量比较的值
-@error: -1 - SQLite报错(检查返回值)
-      1 - 调用SQLite API 'sqlite3_get_table'错误
-      2 - 调用SQLite API 'sqlite3_free_table'错误
-      3 - 安全模式阻止调用
+成功:	返回 $SQLITE_OK
+失败:	返回值可能违反 $SQLITE_* 常量@错误:
+	-1 - SQLite 报告错误 (检查返回值)
+	1 - 错误调用 _SQLite_Query
+	2 - 调用被安全模式阻止
+	3 - 错误调用 _SQLite_FetchData
+	4 - 错误调用 _SQLite_QueryFinalize
 @@End@@
 
 ###Remarks###
+None.
+
 
 ###Related###
- _SQLite_Query
-
-###See Also###
+_SQLite_Query
 
 ###Example###
 @@IncludeExample@@

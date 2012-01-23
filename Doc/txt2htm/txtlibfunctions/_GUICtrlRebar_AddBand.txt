@@ -2,57 +2,55 @@
 _GUICtrlRebar_AddBand
 
 ###Description###
-在控件中添加新的区段
+添加带区控件
 
 ###Syntax###
-#Include<GuiRebar.au3>
-_GUICtrlRebar_AddBand($hwndRebar, $hwndChild[,$iMinWidth = 100[, $iDefaultWidth = 100[, $sText = ""[, $iIndex = -1[, $fStyle =-1]]]]])
+#Include <GuiRebar.au3>
+_GUICtrlRebar_AddBand($hwndRebar, $hwndChild[, $iMinWidth = 100[, $iDefaultWidth = 100[, $sText = ""[, $iIndex = -1[, $fStyle = -1]]]]])
 
 ###Parameters###
 @@ParamTable@@
- $hwndRebar  控件句柄
- $hwndChild  要添加的控件句柄
- $iMinWidth  区段的最小宽度
- $iDefaultWidth  区段的默认像素宽度
- $sText  显示区段的文本
- $iIndex  插入区段位置的0基索引. 如果参数为-1, 控件将在最后的位置添加
- $fStyle  指定区段样式的标志. 该值可为下列组合:
-$RBBS_BREAK - 区段在新线上.
-$RBBS_CHILDEDGE -
-      区段在子窗体的顶部和底部有边界
-$RBBS_FIXEDBMP - 当区段大小改变时不移动背景位图
-$RBBS_FIXEDSIZE -
-      区段不能改变大小. 在此样式中, 尺寸控制不在区段上显示
-$RBBS_GRIPPERALWAYS - 4.71版本. 区段具有尺寸控制,
-      即使伸缩条上仅有一个区段
-$RBBS_HIDDEN - 区段不可见
-$RBBS_NOGRIPPER - 4.71版本.
-      区段没有尺寸控制, 即使伸缩条上有多个区段
-$RBBS_USECHEVRON - 5.80版本.
-      当区段小于cxIdeal时显示一个上尖号或下尖号
-$RBBS_VARIABLEHEIGHT - 4.71版本.
-      区段可由伸缩条改变大小;
-cyIntegral和cyMaxChild影响伸缩条如何改变区段尺寸.
-$RBBS_NOVERT -
-      垂直时不显示
-$RBBS_USECHEVRON - 显示下拉键
-$RBBS_HIDETITLE -
-      区段标题隐藏
-$RBBS_TOPALIGN - 区段标题置于顶行
+$hwndRebar
+	伸缩条控件句柄
+$hwndChild
+	添加带区的控件句柄
+$iMinWidth
+	[可选参数] 带区最小宽度
+$iDefaultWidth
+	[可选参数] 带区像素长度
+$sText
+	[可选参数] 带区文本
+$iIndex
+	[可选参数] 带区插入的 0 索引位置
+		如果此参数设置为 -1,带区将添加到最后位置
+$fStyle
+	[可选参数] 带区样式标志.此值可以是以下组合:
+		$RBBS_BREAK - 带区在新行.
+		$RBBS_CHILDEDGE - 带区是一个有顶部和底部边缘的子窗口.
+		$RBBS_FIXEDBMP - 带区调整大小时,不移动背景位图.
+		$RBBS_FIXEDSIZE - 带区不能调整大小. 在此样式中, 带区不显示控制尺寸
+		$RBBS_GRIPPERALWAYS - 版本 4.71. 带区具有尺寸控制, 即使伸缩条上仅有一个带区.
+		$RBBS_HIDDEN - 带区不可见.
+		$RBBS_NOGRIPPER - 版本 4.71. 带区没有尺寸控制, 即使伸缩条上有多个带区.
+		$RBBS_USECHEVRON - 版本 5.80. 当带区小于 cxIdeal 时显示一个 （∧） 上尖号或下尖号 （∨）.
+		$RBBS_VARIABLEHEIGHT - 版本 4.71. 带区可由伸缩条改变大小;cyIntegral 与 cyMaxChild 将影响伸缩条如何调整带区.
+		$RBBS_NOVERT - 垂直时不显示.
+		$RBBS_USECHEVRON - 显示下拉按钮.
+		$RBBS_HIDETITLE - 阻止带区标题隐藏.
+		$RBBS_TOPALIGN - 带区置于顶行.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
-_GUICtrlRebar_AddToolBarBand , _GUICtrlRebar_DeleteBand
-
-###See Also###
+_GUICtrlRebar_AddToolBarBand, _GUICtrlRebar_DeleteBand
 
 ###Example###
 @@IncludeExample@@

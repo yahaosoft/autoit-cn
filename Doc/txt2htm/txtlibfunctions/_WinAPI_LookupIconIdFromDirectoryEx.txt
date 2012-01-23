@@ -2,45 +2,49 @@
 _WinAPI_LookupIconIdFromDirectoryEx
 
 ###Description###
-从描述光标的资源数位创建一个图标或鼠标箭头
+搜索适合当前显示设备的图标或光标的数据.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_LookupIconIdFromDirectoryEx( $pData [, $fIcon [, $xDesired [, $yDesired [, $iFlags]]]] )
+_WinAPI_LookupIconIdFromDirectoryEx ( $pData [, $fIcon [, $xDesired [, $yDesired [, $iFlags]]]] )
 
 ###Parameters###
 @@ParamTable@@
 $pData
-$pData未指向可用数据它会导致一般性保护(GP)错误或返回一个未定义的值.
+	图标或光标的目录数据.此函数不会验证资源数据.
+		 如果此参数没有指向有效s的资源数据,
+		 将导致一般性保护（GP）错误或返回一个未定义值.
 $fIcon
-   指定搜索图标还是光标
-    TRUE  - 搜索图标. (默认)
-    FALSE - 搜索光标.
+	[可选参数] 指定搜索图标或光标,有效值:
+		1 - 搜索图标. (默认)
+		0 - 搜索光标.
 $xDesired
-   图标或光标的像素宽度. 如果该参数为0, 函数使用系统计量值设置宽度.
+	[可选参数] 图标或光标的宽度像素值.
+		如果次参数为 0,函数使用系统度量值设置的宽度.
 $yDesired
-   图标或光标的像素高度. 如果该参数为0, 函数使用系统计量值设置高度.
+	[可选参数] 图标或光标的高度像素值.
+		如果次参数为 0,函数使用系统度量值设置的高度.
 $iFlags
-   该参数可为一个或多个下列值:
-    $LR_DEFAULTCOLOR - 使用默认颜色格式
-    $LR_MONOCHROME - 创建单色图标或光标
+	[可选参数] 参数可以是一或多个下列值:
+		 $LR_DEFAULTCOLOR --- 使用默认颜色格式
+		 $LR_MONOCHROME --- 创建单色图标或光标
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 与当前显示设备匹配的图标或鼠标箭头的整数资源标识
-失败: 返回0并设置@error非0
+成功:	返回最适合当前显示设备的图标或光标的整数资源标识符.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###
-从带有$RT_GROUP_ICON(或$RT_GROUP_CURSOR)资源类型的资源文件加载的图表目录及一个将被加载的指定图标的整数资源名.
-_WinAPI_LookupIconIdFromDirectoryEx()返回它是最适合当前显示设备的图标的资源名称的整数标识符.
-正常运行示例请将 Resources.dll 文件保存到临时文件夹中
+图标加载目录资源文件类型为 $RT_GROUP_ICON (或光标资源类型为 $RT_GROUP_CURSOR),
+ 并且加载特定图标的整型资源名称. 
+ 本函数返回的整数标识符, 是最适合当前显示设备的图标的资源名称.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中LookupIconIdFromDirectoryEx的相关信息
+@@MsdnLink@@ LookupIconIdFromDirectoryEx
 
 ###Example###
 @@IncludeExample@@
+

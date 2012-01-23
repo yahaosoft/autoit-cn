@@ -2,7 +2,7 @@
 _Net_Share_FileGetInfo
 
 ###Description###
-获取特定的已打开服务器的资源的信息
+检索服务器特定资源的信息
 
 ###Syntax###
 #Include <NetShare.au3>
@@ -10,35 +10,41 @@ _Net_Share_FileGetInfo($sServer, $iFileID)
 
 ###Parameters###
 @@ParamTable@@
- $sServer  用以指定函数将操作的远程服务器的DNS或NetBIOS名称的字符串. 如果参数为空则使用本地计算机.
- $iFileID  要返回信息的资源的文件标识. 此参数值必须在以前的枚举调用中返回.
+$sServer
+	指定 DNS 或 NetBIOS 远程服务器上执行函数的名称
+		如果此参数为空, 在本地计算机上使用.
+$iFileID
+	返回信息的文件资源标识符
+		此参数值必须在以前的枚举调用中已返回.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如下格式数组:
-    [0] - 资源打开时被分配的编号
-    [1] - 与打开的应用程序相关的权限:
-     1 - 允许读取和执行资源
-     2 - 允许写入到资源
-     4 - 允许创建资源
-     8 - 执行许可
-     16 - 删除许可
-     32 - 改变许可属性
-     64 - 改变ACL许可
-    [2] - 包含锁定在资源上的文件数
-    [3] - 指定打开资源的路径
-    [4] - 指定打开资源的用户或计算机
+成功:	返回以下格式的数组:
+	[0] - 资源打开时分配的 ID
+	[1] - 与打开的应用程序相关的权限:
+	1 - 读取和执行资源
+	2 - 写入到资源.
+	4 - 创建资源
+	8 - 执行权限
+	16 - 删除权限
+	32 - 更改属性
+	64 - 更改 ACL
+	[2] - 包含锁定在资源上的文件数
+	[3] - 指定打开资源的路径
+	[4] - 指定打开资源的用户或计算机
+失败:	设置@error:	
 @@End@@
 
+
 ###Remarks###
-管理组, 服务器组, 打印操作组或高级用户组的成员可执行此函数
+需要系统管理员(Administrator), 服务器, 打印操作员或用户组成员执行函数
 
 ###Related###
- _Net_Share_SessionGetInfo , _Net_Share_ShareGetInfo
+_Net_Share_SessionGetInfo, _Net_Share_ShareGetInfo
 
 ###See Also###
- 搜索MSDN知识库中NetFileGetInfo的相关信息
+@@MsdnLink@@ NetFileGetInfo
 
 ###Example###
 @@IncludeExample@@

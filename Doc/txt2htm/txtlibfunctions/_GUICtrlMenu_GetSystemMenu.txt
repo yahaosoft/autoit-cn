@@ -2,36 +2,42 @@
 _GUICtrlMenu_GetSystemMenu
 
 ###Description###
-允许应用程序对窗体菜单进行复制和修改
+允许应用程序访问、复制和修改窗口菜单
 
 ###Syntax###
-#Include<GuiMenu.au3>
-_GUICtrlMenu_GetSystemMenu($hWnd[, $fRevert =False])
+#Include <GuiMenu.au3>
+_GUICtrlMenu_GetSystemMenu($hWnd[, $fRevert = False])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  将拥有窗体菜单副本的窗口句柄
- $fRevert  指定执行的操作. 如果参数为假, 函数返回当前使用的窗口菜单副本的句柄. 副本等同于原始窗体菜单, 但可以被修改. 如果该参数为真,
-      函数重设窗体菜单返回默认状态. 无论如何, 以前的窗口菜单都将被销毁.
+$hWnd
+	拥有菜单的窗口句柄
+$fRevert
+	[可选参数] 指定要采取的操作,如果此参数为 False,该函数返回当前复制的窗口菜单句柄
+		复制的副本与最初窗口菜单是相同的,但它可以被修改
+		如果这个参数为 True,函数复位窗口菜单返回到默认状态
+		如果窗口菜单有上级菜单,将被销毁.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如果$fRevert参数为假, 返回值为窗体菜单副本的句柄. 如果为真, 返回0.
+	如果 $fRevert 参数为 False, 则返回值是一个指向窗口菜单副本的句柄.
+	如果 $fRevert 参数为 True, 则返回值为 0.
 @@End@@
 
 ###Remarks###
-所有不使用GetSystemMenu的窗体将接收标准窗口菜单作为菜单副本. 原始窗口菜单包含多种认证值,
-如$SC_CLOSE, $SC_MOVE, 和$SC_SIZE. 窗口菜单的菜单项发送$WM_SYSCOMMAND信息.
-所有预定义菜单项都具有大于0xF000的认证数字.
-如果应用程序添加命令到窗口菜单, 将使用小于0xF000的认证数字.
-系统根据环境自动灰色显示标准窗口菜单上的项目.
-应用程序可通过回应菜单显示前发送的$WM_INITMENU消息实现它自己的选中或灰色.
+ 对于任何窗口,不使用 GetSystemMenu 函数使窗口菜单副本接收标准窗口菜单.
+ 窗口菜单最初包含各种标识符的值,如 $SC_CLOSE, $SC_MOVE, 与 $SC_SIZE.
+ 窗口菜单的菜单项发送 $WM_SYSCOMMAND 消息.
+ 全部预定义窗口菜单项目标识符大于 0xF000.
+ 如果一个应用程序添加命令到窗口菜单,它使用的标识符数目应该小于 0xF000.
+ 系统对标准窗口菜单得自动灰显项目,视情况而定.
+ 应用程序可以通过回答 $WM_INITMENU 消息,在任何菜单显示前执行自己的检查或灰显.
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中GetSystemMenu的相关信息
+@@MsdnLink@@ GetSystemMenu
 
 ###Example###
 @@IncludeExample@@

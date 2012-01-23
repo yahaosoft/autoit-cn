@@ -2,44 +2,41 @@
 _FileWriteToLine
 
 ###Description###
-将文本写入到指定文件指定行
+写入文本到一个文件的指定行.
 
 ###Syntax###
 #Include <File.au3>
-_FileWriteToLine($sFile, $iLine, $sText[, $fOverWrite = 0])
+_FileWriteToLine($sFile, $iLine, $sText [, $fOverWrite = 0])
 
 ###Parameters###
 @@ParamTable@@
-$sFile 
-   要写入的文件
-$iLine 
-   要写入的行
-$sText 
-   要写入的文本
-$fOverWrite 
-   设置为1覆盖旧行
-    设置为0不覆盖
+$sFile
+	要写入的文件
+$iLine
+	要写入的行
+$sText
+	要写入的文本
+$fOverWrite
+	[可选参数] 如果设置为1将覆盖旧行
+		如果设置为0将不覆盖
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error为:
-    0 = 无错误
-    1 = 文件行数小于$iLine
-    2 = 文件不存在
-    3 = 打开文件出错
-    4 = $iLine无效
-    5 = $fOverWrite无效
-    6 = $sText无效
+成功:	1
+失败:	0 并设置 @error
+@Error:	1 = 文件行数小于 $iLine
+	2 = 文件不存在
+	3 = 打开文件出错
+	4 = $iLine 无效
+	5 = $fOverWrite 无效
+	6 = $sText 无效
 @@End@@
 
 ###Remarks###
-当$fOverWrite为1且$sText为 "" 时删除行.
+当$fOverWrite为1且$sText为""时删除行.
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

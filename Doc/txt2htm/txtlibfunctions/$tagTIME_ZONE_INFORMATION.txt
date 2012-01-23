@@ -2,32 +2,29 @@
 $tagTIME_ZONE_INFORMATION
 
 ###Description###
-指定指定时区的信息
+指定特定时区信息
 
 ###Syntax###
-Global Const $tagTIME_ZONE_INFORMATION =  "long Bias;byte StdName[64];ushort StdDate[8];long StdBias;byte DayName[64];ushort DayDate[8];long DayBias"
+Global Const $tagTIME_ZONE_INFORMATION = "struct; long Bias;wchar StdName[32];word StdDate[8];long StdBias;wchar DayName[32];word DayDate[8];long DayBias; endstruct"
 
 ###Fields###
 @@ParamTable@@
-    Bias
+Bias
+	计算机本地时间转换的当前偏差,以分钟计算.
+StdName
+	描述一个标准时间
+StdDate
+	一个 SYSTEMTIME 结构,包含操作系统由夏时制转换为标准时间时的日期和本地时间     .
+StdBias
+	当地的时间转换标准时间的偏差值
+DayName
+	夏时制描述
+DayDate
+	一个 SYSTEMTIME 结构,包含操作系统由标准时间时转换为夏时制的日期和本地时间.
+DayBias
+	当地的时间转换夏令时的偏差值
+@@End@@
 
-   本机上当前用于解释本地时间的分的偏差
-    StdName
+###Remarks###
+None.
 
-   标准时间的描述
-    StdDate
-
-   当此操作系统由夏时制时间转换为标准时间时包含日期和本地时间的SYSTEMTIME结构.
-    StdBias
-
-   标准时中用于解释本地时间的偏差值
-    DayName
-
-   夏时制描述
-    DayDate
-
-   当此操作系统由标准时间转换为夏时制时间时包含日期和本地时间的SYSTEMTIME结构.
-    DayBias
-
-   夏时制中用于解释本地时间的偏差值
-@@end@@

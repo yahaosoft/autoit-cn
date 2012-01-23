@@ -2,32 +2,36 @@
 _WinAPI_PathMatchSpec
 
 ###Description###
-使用MSDOS通配符搜索字符串
+搜索匹配 MS-DOS 通配符的字符串.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_PathMatchSpec( $sPath, $sSpec )
+_WinAPI_PathMatchSpec ( $sPath, $sSpec )
 
 ###Parameters###
 @@ParamTable@@
 $sPath
-   搜索的路径
+	要搜索的路径.
 $sSpec
-$sPath是否为.doc文件应将$sSpec设置为*.doc
+	搜索的文件类型. 例如, 要测试 $sPath 是否为 .doc 文件,
+		 则 $sSpec 应设置为 "*.doc".
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 字符串匹配
-失败: 返回0并设置@error非0
+成功:	返回 1 - 字符串匹配.
+	返回 0 - 不匹配.
+	
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中PathMatchSpec的相关信息
+@@MsdnLink@@ PathMatchSpec
 
 ###Example###
 @@IncludeExample@@
+

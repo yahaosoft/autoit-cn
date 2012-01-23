@@ -1,68 +1,67 @@
-﻿###User Defined Function###
+###User Defined Function###
 _WinAPI_DrawEdge
 
 ###Description###
-绘制矩形的一条或多条边
+����һ�������εı�Ե
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_DrawEdge($hDC,
-$ptrRect, $nEdgeType, $grfFlags)
+_WinAPI_DrawEdge($hDC, $ptrRect, $nEdgeType, $grfFlags)
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   绘制按钮或曲线的场景的句柄
+	�豸�������
 $ptrRect
-$tagRECT 结构的指针
+	$tagRECT �ṹָ��, ���������ε��߼�����
 $nEdgeType
-   指定矩形内外边界的风格，必须是一个内边界标志和外边界标志的组合.
-    内边界可取值:
-    $BDR_RAISEDINNER - 内边界凸出
-    $BDR_SUNKENINNER - 内边界凹下
-    外边界可取值:
-    $BDR_RAISEDOUTER - 外边界凸出
-    $BDR_SUNKENOUTER - 外边界凹下
-    另外, 边界参数可以指定下列标志之一:
-    $EDGE_BUMP - $BDR_RAISEDOUTER和$BDR_SUNKENINNER的组合
-    $EDGE_ETCHED - $BDR_SUNKENOUTER和$BDR_RAISEDINNER的组合
-    $EDGE_RAISED - $BDR_RAISEDOUTER和$BDR_RAISEDINNER的组合
-    $EDGE_SUNKEN - $BDR_SUNKENOUTER和$BDR_SUNKENINNER的组合
+	�ڲ����ⲿ��Ե����.�˲���������һ���ڲ��߽��־��һ���ⲿ�߽��־�����.
+		�ڲ��߽��־����:
+		$BDR_RAISEDINNER - ͹�����Ե
+		$BDR_SUNKENINNER - ���µ���Ե
+		�ⲿ�߽��־����:
+		$BDR_RAISEDOUTER - ͹�����Ե
+		$BDR_SUNKENOUTER - ���µ���Ե
+		����,��Ե������`����ָ�����б�־֮һ:
+		$EDGE_BUMP - ��� $BDR_RAISEDOUTER and $BDR_SUNKENINNER
+		$EDGE_ETCHED - ��� $BDR_SUNKENOUTER and $BDR_RAISEDINNER
+		$EDGE_RAISED - ��� $BDR_RAISEDOUTER and $BDR_RAISEDINNER
+		$EDGE_SUNKEN - ��� $BDR_SUNKENOUTER and $BDR_SUNKENINNER
 $grfFlags
-   指定边界类型. 该参数可以是下值的组合:
-    $BF_ADJUST - 如果传递该标记, 压缩由$ptrRect参数指定的矩形以去除绘制的边界.
-$ptrRect参数指定的矩形
-    $BF_BOTTOM - 矩形底边
-    $BF_BOTTOMLEFT - 矩形的下边和左边
-    $BF_BOTTOMRIGHT - 矩形的下边和右边
-    $BF_DIAGONAL - 对角线边界
-    $BF_DIAGONAL_ENDBOTTOMLEFT - 对角线边界. 终点为矩形左下角; 起点为右上角.
-    $BF_DIAGONAL_ENDBOTTOMRIGHT - 对角线边界. 终点为矩形右下角; 起点为左上角.
-    $BF_DIAGONAL_ENDTOPLEFT - 对角线边界. 终点为矩形左上角; 起点为右下角.
-    $BF_DIAGONAL_ENDTOPRIGHT - 对角线边界. 终点为矩形右上角; 起点为左下角.
-    $BF_FLAT - 平面边界
-    $BF_LEFT - 矩形的左边
-    $BF_MIDDLE - 矩形内部填充
-    $BF_MONO - 一维边界
-    $BF_RECT - 矩形的所有四边
-    $BF_RIGHT - 矩形的右边
-    $BF_SOFT - Soft buttons instead of tiles
-    $BF_TOP - 矩形的上边
-    $BF_TOPLEFT - 矩形的上边和左边
-    $BF_TOPRIGHT - 矩形的上边和右边
+	�߿�����.�˲�������������ֵ�Ľ��:
+		$BF_ADJUST - ������������־,���� $ptrRect ָ��ľ���,�ų�����ǰ�ı�Ե.
+		��������ݴ˱�־,��ô���ı� $ptrRect ָ��ľ���
+		$BF_BOTTOM - �߽���εײ�
+		$BF_BOTTOMLEFT - �߽���εĵײ������
+		$BF_BOTTOMRIGHT - �߽���εĵײ����Ҳ�
+		$BF_DIAGONAL - �߿�ĶԽ���
+		$BF_DIAGONAL_ENDBOTTOMLEFT - �߿�ĶԽ���. ���ε����Ͻǵ����½�
+		$BF_DIAGONAL_ENDBOTTOMRIGHT - �߿�ĶԽ���. ���ε����Ͻǵ����½�
+		$BF_DIAGONAL_ENDTOPLEFT - �߿�ĶԽ���. ���ε����½ǵ����Ͻ�
+		$BF_DIAGONAL_ENDTOPRIGHT - �߿�ĶԽ���. ���ε����½ǵ����Ͻ�
+		$BF_FLAT - ƽ��߿�
+		$BF_LEFT - �߽���ε����
+		$BF_MIDDLE - ���ε��ڲ�
+		$BF_MONO - һά�߿�
+		$BF_RECT - �������α߿�
+		$BF_RIGHT - �߽���ε��Ҳ�
+		$BF_SOFT - Soft buttons instead of tiles
+		$BF_TOP - ���ε��ϱ�
+		$BF_TOPLEFT - �߽���ε��ϱߺ����
+		$BF_TOPRIGHT - �߽���ε��ϱߺ��Ҳ�
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+�ɹ�:	���� True
+ʧ��:	���� False
 @@End@@
 
 ###Remarks###
-需要BorderConstants.au3预定义常量
+ ��Ҫ BorderConstants.au3 Ԥ�ȶ���ĳ���
 
 ###Related###
 $tagRECT
 
 ###See Also###
-搜索MSDN知识库中DrawEdge的相关信息
+@@MsdnLink@@ DrawEdge

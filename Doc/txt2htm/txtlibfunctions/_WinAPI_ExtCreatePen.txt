@@ -2,68 +2,82 @@
 _WinAPI_ExtCreatePen
 
 ###Description###
-创建具有指定样式宽度和属性的逻辑装饰画笔或几何画笔
+Creates a logical cosmetic or geometric pen that has the specified style, width, and brush attributes.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ExtCreatePen( $iPenStyle, $iWidth, $iBrushStyle, $iRGB [, $iHatch [, $aUserStyle [, $iStart [, $iEnd]]]] )
+_WinAPI_ExtCreatePen ( $iPenStyle, $iWidth, $iBrushStyle, $iRGB [, $iHatch [, $aUserStyle [, $iStart [, $iEnd]]]] )
 
 ###Parameters###
 @@ParamTable@@
 $iPenStyle
-   类型, 样式, 终点样式及连接属性的组合. 通过使用Bit*操作将每一个科目的值结合起来.
-    笔类型可为下列值:
-$PS_GEOMETRIC
-$PS_COSMETIC
-    笔样式可为下列值:
-$PS_SOLID
-$PS_DASH
-$PS_DOT
-$PS_DASHDOT
-$PS_DASHDOTDOT
-$PS_NULL
-$PS_INSIDEFRAME
-$PS_USERSTYLE
-$PS_ALTERNATE
-    几何画笔的终点样式可为下列值:
-$PS_ENDCAP_ROUND
-$PS_ENDCAP_SQUARE
-$PS_ENDCAP_FLAT
-    几何画笔的连接点样式可为下列值:
-$PS_JOIN_BEVEL
-$PS_JOIN_MITER
-$PS_JOIN_ROUND
+	A combination of type, style, end cap, and join attributes. The values from each category are
+	combined by using the bitwise operation.
+	
+	The pen type can be one of the following values.
+	
+	$PS_GEOMETRIC
+	$PS_COSMETIC
+	
+	The pen style can be one of the following values.
+	
+	$PS_SOLID
+	$PS_DASH
+	$PS_DOT
+	$PS_DASHDOT
+	$PS_DASHDOTDOT
+	$PS_NULL
+	$PS_INSIDEFRAME
+	$PS_USERSTYLE
+	$PS_ALTERNATE
+	
+	The end cap is only specified for geometric pens and can be one of the following values.
+	
+	$PS_ENDCAP_ROUND
+	$PS_ENDCAP_SQUARE
+	$PS_ENDCAP_FLAT
+	
+	The join is only specified for geometric pens and can be one of the following values.
+	
+	$PS_JOIN_BEVEL
+	$PS_JOIN_MITER
+	$PS_JOIN_ROUND
+	
 $iWidth
-$PS_GEOMETRIC类型, 宽度以逻辑单位给出, 否则宽度为1.
+	The width of the pen. If $PS_GEOMETRIC type is specified, the width is given in logical units,
+	otherwise, the width must be set to 1.
 $iBrushStyle
-$BS_*常量之一
+	A brush style. This parameter can be one of the $BS_* constants.
 $iRGB
-   画笔的RGB颜色
+	The color of a pen, in RGB.
 $iHatch
-   [可选] 阴影类型.
-
-###Related###
-
-###See Also###
-    _WinAPI_CreateBrushIndirect .
+	[可选参数] A hatch style. For more information, see _WinAPI_CreateBrushIndirect().
 $aUserStyle
-$PS_USERSTYLE样式该参数必须为0. 样式数量以16为限.
+	[可选参数] The array (dash1, space1, dash2, space2, ... dashN, spaceN) that contains the length of the dashes
+	and spaces in a user-defined style. The first value specifies the length of the first dash,
+	the second value specifies the length of the first space, and so on. This parameter must be set
+	to zero if $PS_USERSTYLE style is not specified. The style count is limited to 16.
 $iStart
-   [可选] 开始进行填充的数组索引
+	[可选参数] The index of array to start filling at.
 $iEnd
-   [可选] 结束填充的数组索引
+	[可选参数] The index of array to stop filling at.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回逻辑画笔句柄
-失败: 返回0并设置@error非0
+Success	Handle to the logical pen.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-应用程序通过调用_WinAPI_ExtCreatePen()创建画笔后, 可通过调用_WinAPI_SelectObject()函数将其选入任意设备场景中. 当不再需要时, 调用_WinAPI_DeleteObject()删除画笔.
-正常运行示例请将 Resources.dll 文件或 pen.bmp 文件(x64系统使用)保存到临时文件夹中
-参考  搜索MSDN知识库中ExtCreatePen的相关信息
+After an application creates a pen by calling _WinAPI_ExtCreatePen(), it can select it into any device context by
+calling the _WinAPI_SelectObject() function. When an application no longer requires a specified pen, it should
+call the _WinAPI_DeleteObject() function to delete the pen.
+
+
+###See Also###
+@@MsdnLink@@ ExtCreatePen
 
 ###Example###
 @@IncludeExample@@
+

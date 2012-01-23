@@ -2,37 +2,38 @@
 _WinAPI_DefSubclassProc
 
 ###Description###
-调用窗口子类链中的下一个句柄
+Calls the next handler in a window's subclass chain.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_DefSubclassProc( $hWnd, $iMsg, $wParam, $lParam )
+_WinAPI_DefSubclassProc ( $hWnd, $iMsg, $wParam, $lParam )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   子类窗口句柄
+	Handle to the window being subclassed.
 $iMsg
-   要发送的消息
+	The message to be sent.
 $wParam
-   消息指定信息
+	The message-specific information.
 $lParam
-   消息指定信息
+	The message-specific information.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回特定发送的消息
-失败: 返回0并设置@error非0
+Success	The returned value is specific to the message sent.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-子类链中的最后一个句柄是指定窗口的原始窗口进程. 无需调用默认的窗口进程 , 该函数会自动调用.
+The last handler in the subclass chain is the original window procedure for the specified window. You do not
+need  to call the default window procedurethis function calls it automatically.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中DefSubclassProc的相关信息
+@@MsdnLink@@ DefSubclassProc
 
 ###Example###
 @@IncludeExample@@
+

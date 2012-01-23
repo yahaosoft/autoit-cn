@@ -2,49 +2,43 @@
 _GUICtrlListView_HitTest
 
 ###Description###
-确定项目是否在一个指定位置
+确定指定位置的项目
 
 ###Syntax###
-#Include<GuiListView.au3>
-_GUICtrlListView_HitTest($hWnd[, $iX = -1[, $iY =-1]])
+#Include <GuiListView.au3>
+_GUICtrlListView_HitTest($hWnd[, $iX = -1[, $iY = -1]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iX  客户区坐标中被测试的 X 位置或-1 使用当前鼠标位置
- $iY  客户区坐标中被测试的 Y 位置或-1 使用当前鼠标位置
+$hWnd
+	控件句柄
+$iX
+	[可选参数] 客户端测试点 X 坐标位. 或 -1, 使用当前鼠标位置.
+$iY
+	[可选参数] 客户端测试点 Y 坐标位. 或 -1, 使用当前鼠标位置.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如下格式数组:
-        [0] - 指定 0
-基索引项的位置或 -1
-        [1] - 如果真,
-位置位于控件客户区窗口但不在项目上
-        [2] - 如果真,
-位置位于项目图标上
-        [3] - 如果真,
-位置位于项目文本上
-        [4] - 如果真,
-位置位于项目状态图像上
-        [5] - 如果真,
-位置位于项目其他位置上
-        [6] - 如果真,
-位置位于控件客户区上
-        [7] - 如果真,
-位置位于控件客户区下
-        [8] - 如果真,
-位置位于控件客户区左
-        [9] - 如果真, 位置位于控件客户区右
+成功:	返回如下格式数组:
+	[0] - 指定位置的项目 0 基索引, 或 -1(指定位置无项目)
+	[1] - 如果为 True, 位置在控件的客户窗口,但没有项目
+	[2] - 如果为 True, 指定位置是项目图标
+	[3] - 如果为 True, 指定位置是项目文本
+	[4] - 如果为 True, 指定位置是项目状态图像
+	[5] - 如果为 True, 指定位置是项目
+	[6] - 如果为 True, 指定位置在客户区上方
+	[7] - 如果为 True, 指定位置在客户区下方
+	[8] - 如果为 True, 指定位置在客户区左边
+	[9] - 如果为 True, 指定位置在客户区右边
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 _GUICtrlListView_SubItemHitTest
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

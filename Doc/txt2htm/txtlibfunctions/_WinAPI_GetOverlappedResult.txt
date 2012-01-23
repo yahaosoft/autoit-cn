@@ -1,42 +1,43 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _WinAPI_GetOverlappedResult
 
 ###Description###
-è·å–ä¸€ä¸ªé‡å æ“ä½œå½“å‰çš„çŠ¶æ€
+¼ìË÷ÖØµş²Ù×÷µÄ½á¹û
 
 ###Syntax###
-#Include
-<WinAPI.au3>
-_WinAPI_GetOverlappedResult($hFile, $pOverlapped, ByRef
-$iBytes[, $fWait = False])
+#Include <WinAPI.au3>
+_WinAPI_GetOverlappedResult($hFile, $pOverlapped, ByRef $iBytes [, $fWait = False])
 
 ###Parameters###
 @@ParamTable@@
 $hFile
-   æ–‡ä»¶ã€ç®¡é“æˆ–é€šä¿¡è®¾å¤‡çš„å¥æŸ„. è¯¥å¥æŸ„ç”±å½“é‡å æ“ä½œç”±ReadFile, WriteFile,
-      ConnectNamedPipe,
-    TransactNamedPipe, DeviceIoControl,
-      æˆ–WaitCommEventå¯åŠ¨æ—¶çš„å¥æŸ„æŒ‡å®š.
+	ÎÄ¼ş,ÃüÃû¹ÜµÀ»òÍ¨ĞÅÉè±¸¾ä±ú.
+		µ±ÖØµş²Ù×÷ÊÇµ÷ÓÃ ReadFile, WriteFile, ConnectNamedPipe,
+		TransactNamedPipe, DeviceIoControl, »ò WaitCommEvent Ê±,Ö¸¶¨µÄÏàÍ¬¾ä±ú.
 $pOverlapped
-$tagOVERLAPPEDç»“æ„çš„æŒ‡é’ˆ
+	Ö¸¶¨Æô¶¯ÖØµş²Ù×÷µÄ $tagOVERLAPPED ½á¹¹Ö¸Õë
+		started.
 $iBytes
-   ç”±è¯»/å†™æ“ä½œå®é™…ä¼ è¾“çš„å­—èŠ‚æ•°. å¯¹äºTransactNamedPipeæ“ä½œ, ä¸ºä»ç®¡é“è¯»å–çš„å­—èŠ‚æ•°.
-      å¯¹äºDeviceIoControlæ“ä½œæŒ‡ç”±è®¾å¤‡é©±åŠ¨è¿”å›çš„è¾“å‡ºæ•°æ®çš„å­—èŠ‚æ•°. å¯¹äºConnectNamedPipeæˆ–WaitCommEventæ“ä½œ,
-      è¯¥å€¼æœªå®šä¹‰.
+	¶Á»òĞ´²Ù×÷µÄ´«Êä×Ö½ÚÊı.
+		¶ÔÓÚ TransactNamedPipe ²Ù×÷, ÕâÊÇ´Ó¹ÜµÀ¶ÁµÄ×Ö½ÚÊı.
+		¶ÔÓÚ DeviceIoControl ²Ù×÷, ÕâÊÇÓÉÉè±¸Çı¶¯³ÌĞò·µ»ØµÄÊä³öÊı¾İ×Ö½ÚÊı.
+		¶ÔÓÚ ConnectNamedPipe »ò WaitCommEvent ²Ù×÷, ¸ÃÖµÎ´¶¨Òå.
 $fWait
-   å¦‚æœä¸ºçœŸï¼Œå‡½æ•°ç›´åˆ°æ“ä½œç»“æŸæ‰è¿”å›. å¦‚æœä¸ºå‡ä¸”æ“ä½œä»åœ¨ç»§ç»­,
-      å‡½æ•°è¿”å›å‡ä¸”GetLastErrorå‡½æ•°è¿”å›ERROR_IO_INCOMPLETE.
+	[¿ÉÑ¡²ÎÊı] ÈçÎª True, º¯Êı²»·µ»Ø, Ö±µ½²Ù×÷ÒÑÍê³É.
+		ÈçÎª False Óë²Ù×÷¹ÒÆğ, º¯Êı·µ»Ø False Óë GetLastError ·µ»Ø ERROR_IO_INCOMPLETE.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: é€šè¿‡è¯»/å†™æ“ä½œå®é™…ä¼ è¾“çš„å­—èŠ‚æ•°
+³É¹¦:	·µ»Ø True
+Ê§°Ü:	·µ»Ø False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 $tagOVERLAPPED
 
 ###See Also###
-æœç´¢MSDNçŸ¥è¯†åº“ä¸­GetOverlappedResultçš„ç›¸å…³ä¿¡æ¯
+@@MsdnLink@@ GetOverlappedResult

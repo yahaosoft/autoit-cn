@@ -2,29 +2,33 @@
 _WinAPI_GetBoundsRect
 
 ###Description###
-获取指定场景中的累计绑定矩形
+Obtains the current accumulated bounding rectangle for a specified device context.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetBoundsRect( $hDC [, $iFlags] )
+_WinAPI_GetBoundsRect ( $hDC [, $iFlags] )
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   要返回绑定矩形的场景的句柄
+	Handle to the device context whose bounding rectangle the function will return.
 $iFlags
-$DCB_RESET.
+	[可选参数] The flags that specifies how the function will behave. This parameter can be the following value.
+	
+	$DCB_RESET
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含当前绑定矩形的$tagRECT结构, @extended标记包含指定累计的绑定矩形的状态值($DCB_*).
-失败: 返回0并设置@error非0
+Success	$tagRECT structure that contains the current bounding rectangle, @extended flag will contain the
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetBoundsRect的相关信息
+@@MsdnLink@@ GetBoundsRect
+

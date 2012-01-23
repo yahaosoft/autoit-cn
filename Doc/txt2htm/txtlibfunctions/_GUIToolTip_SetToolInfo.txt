@@ -1,40 +1,54 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _GUIToolTip_SetToolInfo
 
 ###Description###
-è®¾ç½®å·¥å…·çš„ä¿¡æ¯
+ÉèÖÃ¹¤¾ßµÄÐÅÏ¢
 
 ###Syntax###
-#Include<GuiToolTip.au3>
-_GUIToolTip_SetToolInfo($hWnd, $sText[, $iID = 0[,$iLeft = 0[, $iTop = 0[, $iRight = 0[, $iBottom = 0[, $iFlags = 8[, $iParam =0]]]]]]])
+#Include <GuiToolTip.au3>
+_GUIToolTip_SetToolInfo($hWnd, $sText[, $iID = 0[, $iLeft = 0[, $iTop = 0[, $iRight = 0[, $iBottom = 0[, $iFlags = 8[, $iParam = 0]]]]]]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  åŒ…å«å·¥å…·çš„çª—ä½“å¥æŸ„
- $sText  æç¤ºæŽ§ä»¶çš„æ–‡æœ¬
- $iID  å·¥å…·æŽ§ä»¶çš„æ ‡è¯†æˆ–çª—å£å¥æŸ„
- $iLeft  çŸ©å½¢å·¦ä¸Šè§’ X åæ ‡
- $iTop  çŸ©å½¢å·¦ä¸Šè§’ Y åæ ‡
- $iRight  çŸ©å½¢å³ä¸‹è§’ X åæ ‡
- $iBottom  çŸ©å½¢å³ä¸‹è§’ Y åæ ‡
- $iFlags  æŽ§åˆ¶å·¥å…·æ˜¾ç¤ºçš„æ ‡è®°:
-  1 - æŒ‡ç¤º$iIDä»£æ›¿IDä½œä¸ºå·¥å…·çš„çª—å£å¥æŸ„
-  2 - åœ¨ç”±$iIDæŒ‡å®šçš„å·¥å…·ä¸‹ä¸­å¿ƒå¯¹é½æ”¾ç½®çª—ä½“
-  4 - æŒ‡ç¤ºæ–‡æœ¬å°†åå‘æ˜¾ç¤º
-  8 - æŒ‡ç¤ºæŽ§ä»¶æ˜¯å·¥å…·çª—ä½“ç”¨ä»¥æˆªå–ä¿¡æ¯çš„å­ç±»
-  16 - æŽ§ä»¶çš„ä½ç½®è·Ÿéšä¸Žä¹‹ç›¸å¯¹åº”çš„å·¥å…·
-  32 - åŒä¸€åæ ‡ç³»çš„çª—å£ä½ç½®ç”±TTM_TRACKPOSITIONæä¾›
-  64 - ä½¿æŽ§ä»¶å‘çˆ¶çª—ä½“å‘é€é¼ æ ‡ä¿¡æ¯
- 128 - æŒ‡ç¤ºæŽ§ä»¶æ–‡æœ¬ä¸­çš„é“¾æŽ¥å°†è¢«è§£æž
- $iParam  ä¸Žå·¥å…·å…³è”çš„åº”ç”¨ç¨‹åºå®šä¹‰çš„å€¼
+$hWnd
+	¹¤¾ßÌáÊ¾¿Ø¼þµÄ´°¿Ú¾ä±ú
+$sText
+	¹¤¾ßÌáÊ¾¿Ø¼þÎÄ±¾
+$iID
+	[¿ÉÑ¡²ÎÊý] ¹¤¾ßÌáÊ¾¿Ø¼þµÄ±êÊ¶·û»ò´°¿Ú¾ä±ú
+$iLeft
+	[¿ÉÑ¡²ÎÊý] ÌáÊ¾¿ò¾ØÐÎ×óÉÏ½Ç X ×ø±ê
+$iTop
+	[¿ÉÑ¡²ÎÊý] ÌáÊ¾¿ò¾ØÐÎ×óÉÏ½Ç Y ×ø±ê
+$iRight
+	[¿ÉÑ¡²ÎÊý] ÌáÊ¾¿ò¾ØÐÎÓÒÏÂ½Ç X ×ø±ê
+$iBottom
+	[¿ÉÑ¡²ÎÊý] ÌáÊ¾¿ò¾ØÐÎÓÒÏÂ½Ç Y ×ø±ê
+$iFlags
+	[¿ÉÑ¡²ÎÊý] ¹¤¾ßÌáÊ¾ÏÔÊ¾±êÖ¾:
+		1 - Ö¸¶¨ $iID ²ÎÊýÖµÊÇ´°¿Ú¾ä±ú, ¶ø²»ÊÇ¹¤¾ßÌáÊ¾¿Ø¼þµÄ ID
+		2 - $iID Ö¸¶¨µÄÌáÊ¾¿Ø¼þÔÚ´°¿ÚÏÂ·½¾ÓÖÐ
+		4 - Ö¸¶¨ÎÄ±¾·´·½ÏòÏÔÊ¾
+		8 - Ö¸¶¨ÌáÊ¾¿Ø¼þÊÇ´°¿ÚÀ¹½ØÏûÏ¢µÄ×ÓÀà
+		16 - ÌáÊ¾¹¤¾ßÎ»ÖÃ¶ÔÓ¦ÓÐÌáÊ¾ÐÅÏ¢µÄ¿Ø¼þÅÔ±ß
+		32 - TTM_TRACKPOSITION Ìá¹©Í¬Ò»Î»ÖÃµÄ´°¿Ú×ø±ê
+		64 - ¿Ø¼þÏò¸¸´°¿Ú·¢ËÍÊó±êÐÅÏ¢
+		128 - Ö¸¶¨½âÎöÁ´½ÓµÄÌáÊ¾ÎÄ±¾
+$iParam
+	[¿ÉÑ¡²ÎÊý] Ó¦ÓÃ³ÌÐò¶¨ÒåµÄ¹¤¾ß¹ØÁªÖµ
 @@End@@
 
+###ReturnValue###
+None.
+
 ###Remarks###
-ä¸€äº›å·¥å…·çš„å†…éƒ¨å±žæ€§åœ¨å·¥å…·åˆ›å»ºæ—¶å³è¢«è®¾ç½®, ä¸”åœ¨å‘é€$TTM_SETTOOLINFOæ¶ˆæ¯æ—¶ä¸ç”¨é‡æ–°è®¡ç®—.
-å¦‚æžœç®€å•çš„åˆ†é…å€¼ç»™TOOLINFO ç»“æž„å¹¶ä»¥$TTM_SETTOOLINFOæ¶ˆæ¯ä¼ é€’ç»™æç¤ºæŽ§ä»¶, è¿™äº›å±žæ€§å¯èƒ½ä¼šä¸¢å¤±.
-é€šè¿‡å‘é€$TTM_GETTOOLINFOæ¶ˆæ¯å–ä»£åº”ç”¨ç¨‹åºè¦æ±‚çš„å·¥å…·å½“å‰çš„TOOLINFOç»“æž„. ç„¶åŽ,
-åœ¨å¿…è¦æ—¶ä¿®æ”¹ç»“æž„çš„æˆå‘˜å¹¶ç”±$TTM_SETTOOLINFOä¼ å›žåˆ°æç¤ºæŽ§ä»¶. å½“è°ƒç”¨$TTM_SETTOOLINFOæ—¶,
-æŒ‡å‘TOOLINFOç»“æž„æ–‡æœ¬æˆå‘˜çš„å­—ç¬¦ä¸²ä¸èƒ½è¶…è¿‡ä¸ª80å­—ç¬¦.
+ µ±¸Ã¹¤¾ß´´½¨Ê±,¹¤¾ßµÄÒ»Ð©ÄÚ²¿ÊôÐÔÒÑÈ·¶¨.
+ µ±·¢Éú $TTM_SETTOOLINFOÏûÏ¢Ê±,²»ÖØÐÂ¼ÆËãÊôÐÔÖµ.
+ Èç¹û¼òµ¥µÄ·ÖÅäÖµ¸ø TOOLINFO ½á¹¹,²¢ÒÔ $TTM_SETTOOLINFO ÏûÏ¢´«µÝ¸øÌáÊ¾¿Ø¼þ,ÕâÐ©ÊôÐÔ¿ÉÄÜ»á¶ªÊ§;
+ Ó¦¸ÃÒªÇóÓ¦ÓÃ³ÌÐòÓ¦Ê×ÏÈÍ¨¹ý·¢ËÍ $TTM_GETTOOLINFO µ½¹¤¾ßÄ¿Ç°µÄ TOOLINFO ½á¹¹,
+ È»ºóÐÞ¸ÄÕâ¸ö½á¹¹µÄ³ÉÔ±,¸ù¾ÝÐèÒªÍ¨¹ý $TTM_SETTOOLINFO ·µ»Øµ½¹¤¾ßÌáÊ¾¿Ø¼þ.
+ µ±µ÷ÓÃ $TTM_SETTOOLINFOÊ±,½á¹¹ TOOLINFO µÄ Text ³ÉÔ±ËùÖ¸ÏòµÄ×Ö·û´®²»µÃ³¬¹ý80¸ö×Ö·ûµÄ³¤¶È.
 
 ###Related###
 _GUIToolTip_GetToolInfo
+

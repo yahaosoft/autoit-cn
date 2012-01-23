@@ -2,7 +2,7 @@
 _Net_Share_ShareDel
 
 ###Description###
-从共享资源的服务器列表中删除共享名
+删除服务器共享资源列表的共享名
 
 ###Syntax###
 #Include <NetShare.au3>
@@ -10,24 +10,29 @@ _Net_Share_ShareDel($sServer, $sShare)
 
 ###Parameters###
 @@ParamTable@@
- $sServer  用以指定函数将操作的远程服务器的DNS或NetBIOS名称的字符串. 如果参数为空则使用本地计算机.
- $sShare  指定要删除的共享名
+$sServer
+	指定 DNS 或 NetBIOS 远程服务器上执行函数的名称
+		如果此参数为空, 在本地计算机上使用.
+$sShare
+	指定删除的共享名
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	True
+失败:	False
 @@End@@
 
 ###Remarks###
-仅管理组, 服务器操作组, 或本地高级用户组, 或服务器操作成员组的成员可使用该函数成功删除共享文件执行. 打印操作组只能删除打印共享.
+系统管理员,服务器操作员,或　Power Users　本地组成员,
+或服务器操作员组可以成功地删除这个文件共享．
+ 打印操作员可以删除打印机共享．
 
 ###Related###
- _Net_Share_ShareAdd , _Net_Share_ShareCheck , _Net_Share_SessionDel
+_Net_Share_ShareAdd, _Net_Share_ShareCheck, _Net_Share_SessionDel
 
 ###See Also###
- 搜索MSDN知识库中NetShareDel的相关信息
+@@MsdnLink@@ NetShareDel
 
 ###Example###
 @@IncludeExample@@

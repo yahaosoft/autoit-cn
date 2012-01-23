@@ -2,46 +2,40 @@
 _WinAPI_OpenJobObject
 
 ###Description###
-打开已存在的工作对象
+打开现有的作业对象.
 
 ###Syntax###
-#Include
-<WinAPIEx.au3>
-_WinAPI_OpenJobObject($sName [, $iAccess [, $fInheritHandles])
+#Include <WinAPIEx.au3>
+_WinAPI_OpenJobObject ( $sName [, $iAccess [, $fInherit] )
 
 ###Parameters###
 @@ParamTable@@
 $sName
-   将要打开的工作名称. 名称大小写敏感.
+	作业名称. 名称比较区分大小写.
 $iAccess
-   工作对象的访问权限. 可为一个或多个下列值:
-$JOB_OBJECT_ALL_ACCESS
-$JOB_OBJECT_ASSIGN_PROCESS
-$JOB_OBJECT_QUERY
-$JOB_OBJECT_SET_ATTRIBUTES
-$JOB_OBJECT_SET_SECURITY_ATTRIBUTES
-$JOB_OBJECT_TERMINATE
+	[可选参数] 作业对象的访问. 参数可以是一或多个下列值:
+		 $JOB_OBJECT_ALL_ACCESS --- 组合作业对象所有有效的访问权限
+		 $JOB_OBJECT_ASSIGN_PROCESS --- 调用 AssignProcessToJobObject 函数分配进程到作业对象
+		 $JOB_OBJECT_QUERY --- 检索工作对象某些需要的信息,如属性和统计信息
+		 $JOB_OBJECT_SET_ATTRIBUTES --- 调用 SetInformationJobObject 函数设置作业对象的属性
+		 $JOB_OBJECT_SET_SECURITY_ATTRIBUTES --- 不支持
+		 $JOB_OBJECT_TERMINATE --- 调用 TerminateJobObject 函数终止作业对象的所有进程
 $fInheritHandles
-   指定进程句柄是否可继承:
-    TRUE - 由该进程创建的进程将继承句柄.
-    FALSE - 进程不继承该句柄. (默认)
+	[可选参数] 指定进程是否继承句柄, 有效值为:
+		1 - 此过程创建的进程将继承句柄.
+		0 - 进程不继承这个句柄. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回工作对象句柄. 如果在函数调用前对象已存在, 函数返回存在的工作对象的句柄.
-失败: 返回0并设置@error非0
+成功:	返回作业对象句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-当工作被创建时, 其计数信息被初始化为0, 所有限制无效, 且无关联进程. 使用_WinAPI_AssignProcessToJobObject()函数给工作分配一个进程. 使用_WinAPI_SetInformationJobObject()函数设置工作的限制. 使用_WinAPI_QueryInformationJobObject()函数查询计数信息.
-关联到工作的所有进程必须运行于相同的会话. 工作被关联到与首个分配给工作的进程的会话.
-使用_WinAPI_FreeHandle()函数关闭工作对象的句柄. 当最后一个句柄已关闭且所有关联的进程已退出时销毁工作.
+None
 
-###Related###
 
 ###See Also###
-搜索MSDN知识库中CreateJobObject的相关信息
+@@MsdnLink@@ OpenJobObject
 
-###Example###
-@@IncludeExample@@

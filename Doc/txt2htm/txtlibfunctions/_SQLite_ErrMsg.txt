@@ -2,29 +2,32 @@
 _SQLite_ErrMsg
 
 ###Description###
-返回用英语描述的包含最近调用sqlite3_* API出错状态的字符串
+返回最近调用 sqlite3_* API 的英文错误条件描述的字符串
 
 ###Syntax###
-#Include <SQLite.au3>
+#include <SQLite.au3>
 _SQLite_ErrMsg ( [ $hDB ] )
+
 
 ###Parameters###
 @@ParamTable@@
- $hDB  [可选] 打开的数据库, 默认为最近打开的数据库
+$hDB
+	[可选参数] 打开的数据库,默认为最后打开的数据库
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回出错消息
-失败: @error = 1 - 调用SQLite API 'sqlite3_errmsg16'出错
+成功:	返回错误信息
+失败:	@error = 1 - 错误调用 SQLite API 'sqlite3_errmsg16'
+	2 - 调用被安全模式阻止
 @@End@@
 
 ###Remarks###
+None.
+
 
 ###Related###
- _SQLite_ErrCode
-
-###See Also###
+_SQLite_ErrCode
 
 ###Example###
 @@IncludeExample@@

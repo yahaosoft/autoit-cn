@@ -2,25 +2,31 @@
 $tagNMCBEENDEDIT
 
 ###Description###
-包含ComboBoxEx控件中的编辑操作结果信息的结构
+包含 ComboBoxEx 控件的编辑操作信息
 
 ###Syntax###
-Global Const $tagNMCBEENDEDIT =  $tagNMHDR & ";int fChanged;int NewSelection;char Text[1024];int Why"
+Global Const $tagNMCBEENDEDIT = $tagNMHDR & ";bool fChanged;int NewSelection;wchar szText[260];int Why"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   通知消息的信息
+	包含通知消息的信息
 fChanged
-   表明控件的编辑框是否已改变
+	表明控件编辑框的内容是否已改变
 NewSelection
-   完成编辑操作后选定的0基索引的项目. 如果无选定项目该值为$CB_ERR.
-Text
-   包含在控件编辑框中的文本的以0为终止符的字符串
+	选定编辑操作的项目 0 基索引
+	如果没有项将被选中,该值为 $CB_ERR
+szText
+	一个 0 结尾的字符串,其中包含控件的编辑框文本.
 Why
-   创建$CBEN_ENDEDIT通知消息的操作. 可为下列值之一:
-    $CBENF_DROPDOWN - 用户激活下拉菜单
-    $CBENF_ESCAPE - 用户按下ESC键
-    $CBENF_KILLFOCUS - 编辑框失去键盘焦点
-    $CBENF_RETURN - 用户通过按下ENTER键结束输入操作
-@@end@@
+	操作所产生的 $CBEN_ENDEDIT 通知消息. 可为下列值之一:
+	这个值可以是下列选项之一:
+		$CBENF_DROPDOWN - 用户激活下拉列表框.
+		$CBENF_ESCAPE - 用户按下 ESC 键
+		$CBENF_KILLFOCUS - 编辑框失去键盘焦点
+		$CBENF_RETURN - 用户按下 ENTER 键完成编辑操作
+@@End@@
+
+###Remarks###
+None.
+

@@ -2,35 +2,37 @@
 _WinAPI_BeginUpdateResource
 
 ###Description###
-获取可用于添加 , 删除或替换二进制模块中的资源的句柄
+获取用于添加,删除或替换二进制模块资源的句柄.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_BeginUpdateResource( $sFile [, $fDelete] )
+_WinAPI_BeginUpdateResource ( $sFile [, $fDelete] )
 
 ###Parameters###
 @@ParamTable@@
 $sFile
-$sFile指定的文件当前不在执行中.
+	被更新的二进制文件资源.应用程序必须能够写访问此文件;
+		 $sFile 引用的文件当前还未运行.
 $fDelete
-   指定是否删除存在的资源, 可用值为:
-    TRUE  - 资源被删除且更新的文件仅包含由_WinAPI_UpdateResource()添加的资源.
-    FALSE - 更新的文件包含存在的资源. (默认)
+	[可选参数] 指定是否删除现有资源,有效值:
+		1 - 删除资源.更新后的文件仅包含 _WinAPI_UpdateResource() 添加的资源.
+		0 - 更新后的文件包括现有资源. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回可由_WinAPI_UpdateResource()及_WinAPI_EndUpdateResource()函数使用的句柄
-失败: 返回0并设置@error非0.
+成功:	返回可供 _WinAPI_UpdateResource() 与 _WinAPI_EndUpdateResource() 函数使用的句柄.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###
-运行示例前请将 Script.ico 保存至临时文件夹
+建议在资源文件没有加载之前调用此函数,
+ 如果该文件已经加载,也不会导致返回错误
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中BeginUpdateResource的相关信息
+@@MsdnLink@@ BeginUpdateResource
 
 ###Example###
 @@IncludeExample@@
+

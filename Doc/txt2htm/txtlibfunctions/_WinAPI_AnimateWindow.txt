@@ -2,63 +2,46 @@
 _WinAPI_AnimateWindow
 
 ###Description###
-显示隐藏窗体时使用特效
+启用窗口显示或隐藏时生成的特殊效果.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_AnimateWindow( $hWnd, $iFlags [, $iDuration] )
+_WinAPI_AnimateWindow ( $hWnd, $iFlags [, $iDuration] )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   要动画显示的窗体句柄
+	动画窗口句柄.
 $iFlags
-   该标记指定动画类型. 该参数可为下列值的一个或多个. 注意 , 默认 , 这些标记是在显示窗口时生效. 如果在隐藏时生效 , 使用AW_HIDE及一个逻辑或(or)操作符
-    $AW_ACTIVATE - 激活窗体. 不能与$AW_HIDE同时使用.
-    $AW_BLEND - 使用渐隐效果. 仅当$hWnd为顶层窗口时有效.
-    $AW_CENTER - 如果使用$AW_HIDE窗体向内收缩, 如果未使用则向外扩张. 不同方向标记无效.
-    $AW_HIDE - 隐藏窗体. 默认窗体为显示状态.
-    $AW_HOR_POSITIVE - 窗体从左至右动画. 该标记可与滚动或滑动动画使用. 使用$AW_CENTER或$AW_BLEND时忽略
-    $AW_HOR_NEGATIVE - 窗体从右至左动画. 该标记可与滚动或滑动动画使用. 使用$AW_CENTER或$AW_BLEND时忽略
-    $AW_SLIDE - 使用滑动动画. 默认, 使用滚动动画. 该标记当使用$AW_CENTER时忽略.
-    $AW_VER_POSITIVE - 窗体从顶至底动画. 该标记可与滚动或滑动动画使用. 使用$AW_CENTER或$AW_BLEND时忽略
-    $AW_VER_NEGATIVE - 窗体从底至顶动画. 该标记可与滚动或滑动动画使用. 使用$AW_CENTER或$AW_BLEND时忽略
-    $AW_FADE_IN - 窗体淡入
-    $AW_FADE_OUT - 窗体淡出
-    $AW_SLIDE_IN_LEFT - 从左侧滑入
-    $AW_SLIDE_OUT_LEFT - 滑出到左侧
-    $AW_SLIDE_IN_RIGHT - 从右侧滑入
-    $AW_SLIDE_OUT_RIGHT - 滑出到右侧
-    $AW_SLIDE_IN_TOP - 从顶部滑入
-    $AW_SLIDE_OUT_TOP - 滑出到顶部
-    $AW_SLIDE_IN_BOTTOM - 从底部滑入
-    $AW_SLIDE_OUT_BOTTOM - 滑出到底部
-    $AW_DIAG_SLIDE_IN_TOPLEFT - 从左上角沿对角线滑入
-    $AW_DIAG_SLIDE_OUT_TOPLEFT - 从左上角沿对角线滑出
-    $AW_DIAG_SLIDE_IN_TOPRIGHT - 从右上角沿对角线滑入
-    $AW_DIAG_SLIDE_OUT_TOPRIGHT - 从右上角沿对角线滑出
-    $AW_DIAG_SLIDE_IN_BOTTOMLEFT - 从左下角沿对角线滑入
-    $AW_DIAG_SLIDE_OUT_BOTTOMLEFT - 从左下角沿对角线滑出
-    $AW_DIAG_SLIDE_IN_BOTTOMRIGHT - 从右下上角沿对角线滑入
-    $AW_DIAG_SLIDE_OUT_BOTTOMRIGHT - 从右下上角沿对角线滑出
-    $AW_EXPLODE - 扩张
-    $AW_IMPLODE - 塌缩
+	指定动画效果类型. 此参数可以是一或多个下列值:
+		 注意, 默认时, 这些标志生效会显示窗口;
+		 要使生效时隐藏窗口, 使用 AW_HIDE 与 逻辑 OR 运算结合适当的标志.
+		$AW_SLIDE --- 使用幻灯片动画效果.默认情况下,使用动画滚动.当使用 AW_CENTER 时,此标志将被忽略.
+		$AW_ACTIVATE --- 激活窗口.不要和 AW_HIDE 值同时使用.
+		$AW_BLEND --- 使用逐渐消失效果.这个标志只能使用于顶层窗口.
+		$AW_HIDE -- 隐藏窗口.默认情况下,窗口是显示的.
+		$AW_CENTER -- 如使用 AW_HIDE,窗口向内折叠;如不使用 AW_HIDE,窗口向外扩展.方向标志无效.
+		$AW_HOR_POSITIVE -- 由左向右滚动或滑动窗口.如使用 AW_CENTER 或 AW_BLEND,此标志被忽略.
+		$AW_HOR_NEGATIVE -- 由右向左滚动或滑动窗口.如使用 AW_CENTER 或 AW_BLEND,此标志被忽略.
+		$AW_VER_POSITIVE -- 由上向下滚动或滑动窗口.如使用 AW_CENTER 或 AW_BLEND,此标志被忽略.
+		$AW_VER_NEGATIVE -- 由下向上滚动或滑动窗口.如使用 AW_CENTER 或 AW_BLEND,此标志被忽略.
 $iDuration
-   指定播放动画的毫秒时长 , 默认为1000
+	[可选参数] 指定动画动作的时间毫秒值.默认为 1000.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中AnimateWindow的相关信息
+@@MsdnLink@@ AnimateWindow
 
 ###Example###
 @@IncludeExample@@
+

@@ -2,34 +2,37 @@
 _SQLite_FetchNames
 
 ###Description###
-由基于_SQLite_Query()的查询读取列名
+读出 _SQLite_Query() 查询的列名
 
 ###Syntax###
-#Include <SQLite.au3>
+#include <SQLite.au3>
 _SQLite_FetchNames ( $hQuery, ByRef $aNames )
+
 
 ###Parameters###
 @@ParamTable@@
- $hQuery  由_SQLite_Query()建立的查询句柄
- $aNames  包含列名的一维数组
+$hQuery
+	SQLite_Query() 产生的查询句柄
+$aNames
+	包含列名的一维数组
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回$SQLITE_OK
-失败: 返回可与$SQLITE_* 常量比较的值
-@error: -1 - SQLite报错(检查返回值)
-      1 - 调用SQLite API 'sqlite3_data_count'错误
-      2 - 调用SQLite API 'sqlite3_column_text16'错误
-      3 - 安全模式阻止调用
+成功:	返回 $SQLITE_OK
+失败:	返回值可能违反 $SQLITE_* 常量@错误:
+	-1 - SQLite 报告错误 (检查返回值)
+	1 - 错误调用 SQLite API 'sqlite3_data_count'
+	2 - 错误调用 SQLite API 'sqlite3_column_name16'
+	3 - 调用被安全模式阻止
 @@End@@
 
 ###Remarks###
+None.
+
 
 ###Related###
- _SQLite_Query
-
-###See Also###
+_SQLite_Query
 
 ###Example###
 @@IncludeExample@@

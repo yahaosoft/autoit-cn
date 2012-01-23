@@ -2,27 +2,28 @@
 _WinAPI_ShellGetSpecialFolderLocation
 
 ###Description###
-获取指定文件夹的PIDL结构
+检索特殊文件夹的 PIDL 结构.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellGetSpecialFolderLocation( $CSIDL )
+_WinAPI_ShellGetSpecialFolderLocation ( $CSIDL )
 
 ###Parameters###
 @@ParamTable@@
-$CSIDL  表示所需文件夹的CSIDL ($CSIDL_...)
+$CSIDL
+	文件夹的标识 CSIDL ($CSIDL_*).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 指定文件夹相对于根命名空间(桌面)的位置的PIDL.
-失败: 返回0并设置@error非0. @extended包含COM错误代码.
+成功:	返回 PIDL 指定文件夹相对于命名空间（桌面）的根位置
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-调用_WinAPI_CoTaskMemFree()函数释放返回的PIDL
+调用_WinAPI_CoTaskMemFree（）函数释放返回的 PIDL.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SHGetSpecialFolderLocation的相关信息
+@@MsdnLink@@ SHGetSpecialFolderLocation
+

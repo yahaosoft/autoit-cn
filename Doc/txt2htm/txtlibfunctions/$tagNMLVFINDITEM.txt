@@ -2,45 +2,44 @@
 $tagNMLVFINDITEM
 
 ###Description###
-含宿主查找有虚拟列表视图控件请求的项目所需的信息的结构
+包含控件属主需要查找虚拟列表视图控件项要求的信息
 
 ###Syntax###
-Global Const $tagNMLVFINDITEM =  $tagNMHDR & ";int Start;int Flags;ptr Text;int Param;int X;int Y;int Direction"
+Global Const $tagNMLVFINDITEM = $tagNMHDR & ";int Start;" & $tagLVFINDINFO
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   包含通知消息的信息
+	包含通知消息的信息
 Start
-   开始搜索的项目的索引
+	开始搜索的项目索引
 Flags
-   执行搜索的类型. 该成员可设置为一个或多个下列值:
-    $LVFI_PARAM - 搜索结构的Param成员和项目的Param成员之间的匹配项. 如果指定, 忽略其他标记.
-    $LVFI_PARTIAL - 查看项目文本是否开始于由Text成员指向的字符串. 该值包含$LVFI_STRING的用法.
-    $LVFI_STRING - 基于项目文本进行搜索. 除非指定额外值, 匹配项的项目文本必须精确匹配由Text成员指向的字符串.
-    $LVFI_WRAP - 如果未找到匹配项从开始继续搜索
-    $LVFI_NEARESTXY - 查找的在由Direction成员指定的方向上最靠近在X和Y成员中指定位置的项目. 该标记仅支持大图标或小图标模式.
-Text
-   与项目文本比较的字符串的地址. 仅当Flags成员中设置有$LVFI_STRING或$LVFI_PARTIAL时可用.
-Param
-   与项目$LVITEM结构的Param成员相比较的值. 仅当Flags成员中设置有$LVFI_PARAM时可用.
-X
-   搜索的初始X位置. 仅当Flags成员中设置有$LVFI_NEARESTXY时可用.
-Y
-   搜索的初始Y位置. 仅当Flags成员中设置有$LVFI_NEARESTXY时可用.
-Direction
-   指定搜索方向的虚拟键代码. 仅当Flags成员中设置有$LVFI_NEARESTXY时可用. 支持下列代码:
-    VK_LEFT
-    VK_RIGHT
-    VK_UP
-    VK_DOWN
-    VK_HOME
-    VK_END
-    VK_PRIOR
-    VK_NEXT
-@@end@@
+	执行搜索的类型. 这个成员可以设置为一或多个下列值:
+		$LVFI_PARAM - 搜索结构的 Param 成员与项目的 Param 成员的匹配项.如果此标志被指定,所有其他标志将被忽略.
+		$LVFI_PARTIAL - 查看项目文本是否开始于由 Text 成员指向的字符串.该值包含使用 $LVFI_STRING.
+		$LVFI_STRING - 基于项目文本搜索. 除非指定其他值, 匹配项的项目文本必须精确匹配由 Tex t成员指向的字符串.
+		$LVFI_WRAP - 如果未找到匹配项从开始继续搜索
+		LVFI_NEARESTXY - 查找最接近 X 和 Y 成员指定的位置的项目,由 Direction 指定查找方向. 此标志仅支持大图标，小图标模式.
+$tagLVFINDINFO
+	Text - 比较项的文本字符串的地址. 在 Flags 设置 $LVFI_STRING 或 $LVFI_PARTIAL 标志时有效.
+	Param - Param 成员比较值. 在  Flags 设置  $LVFI_PARAM 标志时有效.
+	X - 初始搜索 X 位置. 在  Flags 设置   $LVFI_NEARESTXY  标志时有效.
+	Y - 初始搜索 Y 位置. 在  Flags 设置   $LVFI_NEARESTXY  标志时有效.
+	Direction - 指定搜索方向的虚拟键代码.支持下面的代码:
+		VK_LEFT 向左
+		VK_RIGHT 向右
+		VK_UP 向上
+		VK_DOWN 向下
+		VK_HOME 从头部 
+		VK_END 从尾部 
+		VK_PRIOR 前一项 
+		VK_NEXT 后一项
+		在  Flags 设置 $LVFI_NEARESTXY 标志时有效.
+@@End@@
 
 ###Remarks###
-该通知使应用程序有机会(或接收通知方)自定义增量搜索.
-例如, 如果搜索项目是数字, 应用程序会执行数字搜索代替字符串搜索.
-应用程序将Param成员设置给搜索的结果, 或另一个应用程序定义的搜索失败时描述控件如何执行的值.
+此通知给应用程序(或通知接收器)定制增量搜索的机会.
+例如,如果搜索项目数字,则应用程序仅执行数值的搜索,而不是字符串搜索.
+应用程序设置 Param 成员的搜索结果, 或搜索失败时定义另一个应用程序如何搜索. 
+  
+

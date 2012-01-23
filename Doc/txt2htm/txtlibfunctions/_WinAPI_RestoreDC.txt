@@ -2,29 +2,31 @@
 _WinAPI_RestoreDC
 
 ###Description###
-将设备场景恢复到指定状态
+还原设备环境(DC)到指定的状态.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RestoreDC( $hDC, $ID )
+_WinAPI_RestoreDC ( $hDC, $ID )
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   设备场景句柄
+	DC 句柄.
 $ID
-   要恢复的已保存的状态. 如果为正数, $DC代表指定要恢复的状态的实例. 如果为负数, 代表与当前状态相关的实例, -1时恢复到最近保存的状态.
+	已保存的状态.如果这个参数是正值,$DC 代表一个待恢复的具体状态实例.
+		 如果此参数为负,$DC 代表一个相对于当前的状态实例,例如 -1 恢复到最近保存的状态. 
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中RestoreDC的相关信息
+@@MsdnLink@@ RestoreDC
+

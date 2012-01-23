@@ -2,40 +2,43 @@
 _WinAPI_FormatDriveDlg
 
 ###Description###
-打开带外观的格式化对话框
+打开格式化命令解释程序(Shell)对话框.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_FormatDriveDlg( $sDrive [, $iOption [, $hParent]] )
+_WinAPI_FormatDriveDlg ( $sDrive [, $iOption [, $hParent]] )
 
 ###Parameters###
 @@ParamTable@@
 $sDrive
-   要格式化的驱动器, 格式如D:, E:, 等.
+	被格式化的驱动器名, 如 D:, E:, 等等.
 $iOption
-   该参数必须为0, 或在对话框中的默认格式化选项, 可为下列值之一:
-$SHFMT_OPT_FULL
-$SHFMT_OPT_QUICKFORMAT
-$SHFMT_OPT_SYSONLY
+	[可选参数] 修改对话框中默认格式化选项. 此参数必须为 0 或下列值之一:.
+		 $SHFMT_OPT_FULL --- 选择"快速格式化"选项
+		 $SHFMT_OPT_QUICKFORMAT
+		 $SHFMT_OPT_SYSONLY --- 选择"创建一个MS - DOS启动磁盘"选项,创建一个系统引导盘.
 $hParent
-   对话框所属父窗体的句柄
+	[可选参数] 对话框的父窗句柄.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并将@error设置为下列常量之一.
-    $SHFMT_ERROR
-    $SHFMT_CANCEL
-    $SHFMT_NOFORMAT
+成功:	返回 1.
+失败:	返回 0,设置@error:	
+@error:	
+	$SHFMT_ERROR --- 格式化错误
+	$SHFMT_CANCEL --- 格式化被取消
+	$SHFMT_NOFORMAT --- 驱动器不能被格式化
 @@End@@
 
 ###Remarks###
-格式化用对话框界面控制. 在用户必须点击OK按钮前格式化不会实际进行.
+格式化受对话框控制.用户必须单击"确定"按钮开始实际的格式化操作.
+ 不能编程启动实际的格式化操作.
 
-###Related###
 
 ###See Also###
+@@MsdnLink@@ SHFormatDrive
 
 ###Example###
 @@IncludeExample@@
+

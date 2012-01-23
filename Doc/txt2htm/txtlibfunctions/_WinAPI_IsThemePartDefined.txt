@@ -2,21 +2,31 @@
 _WinAPI_IsThemePartDefined
 
 ###Description###
-检查指定部分的参数中是否已定义了可视化风格
+检索视觉样式是否为指定的部件参数定义的.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_IsThemePartDefined ( $hTheme, $iPart )
+_WinAPI_IsThemePartDefined ( $hTheme, $iPartId )
 
 ###Parameters###
 @@ParamTable@@
 $hTheme
-   窗体的指定主题数据的句柄.
-$iPart
-   部分. 可在MSDN中获取更多信息
+	指定主题数据的窗口句柄.
+$iPartId
+	部件.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 主题具有指定$iPart的已定义参数返回1 , 否则返回0.
-失败: 返回0并设置@error非0
+成功:	返回 1 - 主题由参数 $iPartId 指定.
+	返回 0 - 不相同.
+失败:	返回 0,设置@error:标志为非 0 值.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ IsThemePartDefined
+

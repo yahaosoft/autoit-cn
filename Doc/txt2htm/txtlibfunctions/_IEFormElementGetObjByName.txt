@@ -1,41 +1,44 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _IEFormElementGetObjByName
 
 ###Description###
-è¿”å›æŒ‡å®šåç§°(name)æˆ–è€…idçš„å¯¹è±¡å˜é‡.
+·µ»ØÖ¸¶¨Ãû³ÆµÄ±íµ¥ÔªËØµÄ¶ÔÏó.
 
 ###Syntax###
-#Include <IE.au3>
-_IEGetObjByName ( å¯¹è±¡å˜é‡, ID [, ç´¢å¼•
-= 0] )
+#include <IE.au3> 
+_IEFormElementGetObjByName ( ByRef $o_object, $s_name [, $i_index = 0] )
 
 ###Parameters###
 @@ParamTable@@
- å¯¹è±¡å˜é‡  InternetExplorer.Application,çª—å£æˆ–è€…æ¡†æ¶(frame)å¯¹è±¡çš„å¯¹è±¡å˜é‡
- ID  å®šä¹‰ä½ æƒ³è¦åŒ¹é…çš„å¯¹è±¡çš„åç§°æˆ–è€…ID
- ç´¢å¼•  [å¯é€‰]: å¦‚æœåç§°æˆ–è€…IDå‡ºç°ä¸æ­¢ä¸€æ¬¡,å®šä¹‰ä»0å¼€å§‹çš„å…·ä½“å¯¹è±¡.
-0 (é»˜è®¤)æˆ–è€…æ­£æ•´æ•°è¿”å›å¯¹åº”ç´¢å¼•å·çš„å¯¹è±¡
--1
-      è¿”å›æŒ‡å®šå¯¹è±¡çš„é›†åˆ
+$o_object
+	InternetExplorer.ApplicationµÄ±íµ¥¶ÔÏó±äÁ¿
+$s_name
+	Ö¸¶¨ÏëÒªÆ¥ÅäµÄ±íµ¥ÔªËØÃû³Æ
+$i_index
+	[¿ÉÑ¡²ÎÊı]: Èç¹û±íµ¥ÔªËØÃû³Æ²»Ö¹Ò»´Î³öÏÖ, Ö¸¶¨0»ùË÷ÒıµÄÊµÀı
+	0(Ä¬ÈÏ)»òÕıÕûÊı·µ»ØÒ»¸ö±»Ë÷ÒıµÄÊµÀı
+	-1·µ»ØÖ¸¶¨±íµ¥ÔªËØµÄ¼¯ºÏ
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- æˆåŠŸ:  è¿”å›æŒ‡å‘æŒ‡å®šå¯¹è±¡çš„å¯¹è±¡å˜é‡, @EXTENDED = æŒ‡å®šå¯¹è±¡æ•°é‡
- å¤±è´¥:  è¿”å›0 å¹¶ä¸”è®¾ç½®@ERROR
- @Error:  0 ($_IEStatus_Success) = æ— é”™è¯¯
-  3 ($_IEStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»å‹
-  7 ($_IEStatus_NoMatch) = æ— åŒ¹é…
- @Extended:  åŒ…å«æ— æ•ˆå‚æ•°æ•°é‡
+³É¹¦:	·µ»ØÖ¸Ïò±íµ¥ÔªËØ¶ÔÏóµÄ¶ÔÏó±äÁ¿, @EXTENDED = ±íµ¥¼ÆÊı
+Ê§°Ü:	·µ»Ø0²¢ÉèÖÃ@ERROR
+@Error:	0 ($_IEStatus_Success) = ÎŞ´íÎó
+	3 ($_IEStatus_InvalidDataType) = ÎŞĞ§Êı¾İÀàĞÍ
+	4 ($_IEStatus_InvalidObjectType) = ÎŞĞ§¶ÔÏóÀàĞÍ
+	7 ($_IEStatus_NoMatch) = ÎŞÆ¥Åä
+@Extended:	°üº¬ÎŞĞ§²ÎÊıÊıÁ¿
 @@End@@
 
+
 ###Remarks###
-è¿™ä¸ªå‡½æ•°å°†è¿”å›æŒ‡å®šåç§°æˆ–è€…IDçš„å¯¹è±¡çš„å¯¹è±¡å¼•ç”¨.DOMç»„ä»¶å¯ä»¥æœ‰åç§°æˆ–è€…IDå±æ€§æˆ–è€…äºŒè€…éƒ½æœ‰.ä¸€ä¸ªç‰¹æ®Šçš„IDå¯ä»¥è¢«åˆ†é…ç»™ä¸€ä¸ªå•ç‹¬çš„å…ƒç´ è€Œä¸€ä¸ªç‰¹æ®Šçš„åç§°(name)å¯ä»¥è¢«åˆ†é…ç»™å¤šä¸ªå…ƒç´ .åœ¨IEé‡Œé¢åç§°å’ŒIDæ˜¯è¢«å…±äº«çš„.
+Èç¹ûĞèÒªµÄ±íµ¥ÔªËØÃ»ÓĞÃû³Æ»òÕßID, _IEFormElementGetCollectionÍ¨¹ıË÷Òı»ñÈ¡ÒıÓÃ
+
 
 ###Related###
-_IEGetObjById
+_IEFormElementGetCollection, _IEFormElementGetValue, _IEFormElementSetValue, _IEFormSubmit
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

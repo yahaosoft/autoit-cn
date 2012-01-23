@@ -2,32 +2,31 @@
 _WinAPI_CopyIcon
 
 ###Description###
-从另外的模块向当前模块复制指定的图标
+从其它模块复制指定的图标
 
 ###Syntax###
-#Include
-<WinAPI.au3>
+#Include <WinAPI.au3>
 _WinAPI_CopyIcon($hIcon)
 
 ###Parameters###
 @@ParamTable@@
 $hIcon
-   被复制图标的句柄
+	要复制的图标句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 图标副本的句柄
-失败: 0
+成功:	返回副本图标的句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-CopyIcon 函数使应用程序或动态链接库(DLL)能获得另一个模块上自己拥有图标的句柄.
-如果这个模块被释放, 应用程序图标将仍然能使用这个图标. 在关闭之前, 调用 _WinAPI_DestroyIcon
-函数释放任何与该图表相关的系统资源.
+ 本函数使应用程序或 DLL 由另一个模块获得自己拥有的图标句柄.
+ 如果其他模块被释放,应用程序的图标副本将仍然能够使用.
+ 在结束之前，调用 _WinAPI_DestroyIcon 函数释放任何系统图标相关资源.
 
 ###Related###
 _WinAPI_DestroyIcon
 
 ###See Also###
-搜索MSDN知识库中有关CopyIcon的信息
+@@MsdnLink@@ CopyIcon

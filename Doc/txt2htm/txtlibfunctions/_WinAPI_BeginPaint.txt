@@ -2,33 +2,38 @@
 _WinAPI_BeginPaint
 
 ###Description###
-准备指定的绘图窗口
+准备绘制指定的窗口.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_BeginPaint($hWnd, ByRef $tPAINTSTRUCT)
+_WinAPI_BeginPaint ( $hWnd, ByRef $tPAINTSTRUCT )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   被重绘的窗体句柄
+	重新绘制的窗口句柄.
 $tPAINTSTRUCT
-   $tagPAINTSTRUCT结构
+	将接受绘制信息的 $tagPAINTSTRUCT 结构.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 指定窗口的显示设备环境(DC)的句柄
-失败: 返回0并设置@error非0
+成功:	返回指定窗口显示设备环境的句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-该函数自动设置设备环境的剪辑区域以排除其他在更新区域外的任何区域. 更新区域由_WinAPI_InvalidateRect()或 _WinAPI_InvalidateRgn()函数并在大小变化, 移动, 创建, 滚动, 或任何影响客户区的其他系统操作之后设置. 如果更新区域标记为擦除, _WinAPI_BeginPaint()向窗口发送WM_ERASEBKGND消息.
-除非为了回应WM_PAINT消息应用程序将不调用_WinAPI_BeginPaint(). 每次调用_WinAPI_BeginPaint() 必须有对应的_WinAPI_EndPaint()函数.
+本函数自动设置该设备环境的剪辑区域,并排除更新区域以外的任何区域.
+ 更新区域则由 _WinAPI_InvalidateRect() 或 _WinAPI_InvalidateRgn() 函数设置.
+ 系统在调整大小、移动、创建、滚动或或任何其他操作以后更新客户区域.
+ 如果更新区域标记为擦除, 本函数将发送 WM_ERASEBKGND 消息到窗口.
+ 应用程序有可能不调用本函数, 除非响应一个 WM_PAINT 消息.
+ 本函数的每次调用必须有一个对应的 _WinAPI_EndPaint() 函数调用.
 
-###Related###
 
 ###See Also###
+@@MsdnLink@@ BeginPaint
 
 ###Example###
 @@IncludeExample@@
+

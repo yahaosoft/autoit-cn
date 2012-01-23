@@ -2,38 +2,42 @@
 _WinAPI_ExtractIconEx
 
 ###Description###
-创建一个从文件中提取的大/小图标的句柄数组
+创建文件中提取的大或小图标的句柄数组
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_ExtractIconEx($sFile,
-$iIndex, $pLarge, $pSmall, $iIcons)
+_WinAPI_ExtractIconEx($sFile, $iIndex, $pLarge, $pSmall, $iIcons)
 
 ###Parameters###
 @@ParamTable@@
 $sFile
-   定义可获取图标的可执行文件, DLL, 或者图标文件的名字
+	可执行文件,DLL或图标文件的名称
 $iIndex
-   指定提取的第一个图标基于零的索引
+	第一个图标的 0 基索引
 $pLarge
-   图标句柄数组的指针，它可接收从文件获取的大图标的句柄. 如果参数为0, 则不提取.
+	接收大图标句柄的数组指针.
+		如果此参数为 0,则不提取大图标.
 $pSmall
-   图标句柄数组的指针，它可接收从文件获取的小图标的句柄. 如果参数为0, 则不提取.
+	接收小图标句柄的数组指针.
+		如果此参数为 0, 则不提取小图标.
 $iIcons
-   指定从文件中提取图标的数量
+	提取图标的数量
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如果iIndex为-1, pLarge参数为0, 且pSmall为0, 那么返回的值是包含在指定文件中的包含在指定文件中的图标的数量. 否则, 返回值是成功从文件中提取的图表的数量.
+	如果 $iIndex 为 -1,$pLarge 与 $pSmall 参数均为 0, 
+	则返回指定文件中包含的图标数量.
+	否则,返回值为成功提取图标的数量.
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中ExtractIconEx的相关信息
+@@MsdnLink@@ ExtractIconEx
 
 ###Example###
 @@IncludeExample@@

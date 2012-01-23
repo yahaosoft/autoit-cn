@@ -2,27 +2,29 @@
 _WinAPI_CloseDesktop
 
 ###Description###
-关闭桌面对象的句柄
+Closes an open handle to a desktop object.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CloseDesktop( $hDesktop )
+_WinAPI_CloseDesktop ( $hDesktop )
 
 ###Parameters###
 @@ParamTable@@
 $hDesktop
-   将被关闭的桌面的句柄
+	Handle to the desktop to be closed.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-当调用进程中的任意线程正在使用指定桌面句柄或该句柄指向调用进程的原始桌面时_WinAPI_CloseDesktop()失败.
+The _WinAPI_CloseDesktop() function will fail if any thread in the calling process is using the specified desktop
+handle or if the handle refers to the initial desktop of the calling process.
 
-###Related###
 
 ###See Also###
+@@MsdnLink@@ CloseDesktop
+

@@ -2,34 +2,37 @@
 _ScreenCapture_SaveImage
 
 ###Description###
-保存图像
+保存一个图像到文件
 
 ###Syntax###
 #Include <ScreenCapture.au3>
-_ScreenCapture_SaveImage($sFileName, $hBitmap[, $fFreeBmp = True])
+_ScreenCapture_SaveImage($sFileName, $hBitmap [, $fFreeBmp = True])
 
 ###Parameters###
 @@ParamTable@@
- $sFileName  要保存的位图的完整路径和扩展名
- $hBitmap  HBITMAP 句柄
- $fFreeBmp  如果真 , hBitmap 在成功保存后被释放
+$sFileName
+	保存位图的文件扩展名和完整路径
+$hBitmap
+	HBITMAP(位图)句柄
+$fFreeBmp
+	[可选参数] 如为 True, 成功保存侯, hBitmap 句柄将被释放
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	True
+失败:	False
 @@End@@
 
 ###Remarks###
-函数保存位图到文件 , 并根据文件的扩展名转化格式.
-对于 WinXP, 可用扩展名包括 BMP, GIF, JPEG, PNG和TIF.
-需要GDI+: GDI+需要运行在 NT 4.0 SP6, Win 2000, Win 98 和 WinMe 系统的可再发行组件
+ 函数保存位图文件,将其转换为指定文件扩展名的图像格式.
+ 对于 Windows XP, 有效的扩展为 BMP, GIF, JPEG, PNG 与 TIF.
+
+GDI+ 需求: GDI+ 当运行于 Microsoft Windows 2000 操作系统时需要一个GDI+的可再发行包.
+
 
 ###Related###
- _ScreenCapture_Capture
-
-###See Also###
+_ScreenCapture_Capture
 
 ###Example###
 @@IncludeExample@@

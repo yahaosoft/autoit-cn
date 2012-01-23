@@ -2,7 +2,7 @@
 _Date_Time_SetSystemTimeAdjustment
 
 ###Description###
-启用或禁用系统时钟的定期时间调整
+启用或禁用系统时钟定期调整
 
 ###Syntax###
 #Include <Date.au3>
@@ -10,26 +10,29 @@ _Date_Time_SetSystemTimeAdjustment($iAdjustment, $fDisabled)
 
 ###Parameters###
 @@ParamTable@@
-$iAdjustment 
-   定期时间调整可用时时每次添加到时钟的100纳秒的数量.
-$fDisabled 
-   为真表示禁用定期时间调整. 系统使用自己的内部机制调整每天的时间. 系统内部调整机制在进行调整时可使时钟产生可注意到的跳跃.
-    为假的值指定定期时间调整可用, 且将用于调整每日时钟的时间. 系统将不干涉时间调整方案, 且不会试图将每日的时间与其自身同步.
-    系统在每个时钟中断处添加iAdjustment值.
+$iAdjustment
+	如果周期时间的调整已启用,
+		24小时内每个时钟中断增加 100 纳秒单位时间.
+$fDisabled
+	设置为 返回 True,禁用时间周期调整. 
+		系统使用内部机制调整一天的时间;
+		系统内部调整机制可能导致时间时钟明显跳转. 
+		设置为 返回 False, 启用时间周期调整. 将用于调整一天钟的时间, 
+		系统将不会干扰时间调整计划,也不会尝试同步时间,
+		系统将在每个时钟中断加入 $iAdjustment 指定的值.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
- _Date_Time_GetSystemTimeAdjustment
-
-###See Also###
+_Date_Time_GetSystemTimeAdjustment
 
 ###Example###
 @@IncludeExample@@

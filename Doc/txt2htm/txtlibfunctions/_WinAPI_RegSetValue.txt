@@ -2,52 +2,61 @@
 _WinAPI_RegSetValue
 
 ###Description###
-设置注册表键下的指定值的数据和类型
+设置下一个注册表项指定值的数据和类型.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RegSetValue( $hKey, $sValueName, $iType, ByRef $tValueData, $iBytes )
+_WinAPI_RegSetValue ($hKey, $sValueName, $iType, ByRef $tValueData, $iBytes)
 
 ###Parameters###
 @@ParamTable@@
 $hKey
-   $KEY_CREATE_SUB_KEY权限. 句柄由_WinAPI_RegCreateKey()或_WinAPI_RegOpenKey()函数返回, 或为下列预定义键之一.
-   $HKEY_CLASSES_ROOT
-   $HKEY_CURRENT_CONFIG
-   $HKEY_CURRENT_USER
-   $HKEY_LOCAL_MACHINE
-   $HKEY_USERS
+	打开的注册表项句柄,该键项必须已打开且有 $KEY_SET_VALUE 访问权限.
+		 句柄由 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回.
+		 参数也可以为下列预定义项:
+		 $HKEY_CLASSES_ROOT --- 定义文件类型和类型相关的属性
+		 $HKEY_CURRENT_CONFIG --- 包含本地计算机系统目前的硬件配置文件
+		 $HKEY_CURRENT_USER --- 定义当前用户的参数选择
+		 $HKEY_LOCAL_MACHINE --- 定义计算机物理状态,包括总线类型、系统内存数据、并安装的硬件和软件
+		 $HKEY_PERFORMANCE_DATA --- 允许访问性能数据
+		 $HKEY_USERS --- 确定本地计算机新用户定义默认用户配置,并作为当前用户的用户配置
 $sValueName
-   $sValueName为空字符串, 函数为该键的未命名值或默认值设置类型和数据.
+	被设置的值名称.如果此名称的值不在目前键,函数将添加;
+		如果为空字符串,函数设置数据类型为无名键或默认值.	
 $iType
-   数据类型. 可为下列值之一.
-   $REG_BINARY
-   $REG_DWORD
-   $REG_DWORD_BIG_ENDIAN
-   $REG_DWORD_LITTLE_ENDIAN
-   $REG_EXPAND_SZ
-   $REG_LINK
-   $REG_MULTI_SZ
-   $REG_NONE
-   $REG_QWORD
-   $REG_QWORD_LITTLE_ENDIAN
-   $REG_SZ
+	数据类型. 参数可以是以下值之一:
+		 $REG_BINARY --- 任何形式的二进制数据
+		 $REG_DWORD --- 32 位数字
+		 $REG_DWORD_BIG_ENDIAN --- big - endian 格式的32位数字
+		 $REG_DWORD_LITTLE_ENDIAN --- little-endian 格式的32位数字
+		 $REG_EXPAND_SZ --- 空结束字符串.包含未扩展的引用环境变量(例如: &quot;%PATH%&quot;)
+		 $REG_LINK --- 空终止的 Unicode 字符串
+		 $REG_MULTI_SZ --- 空结束字符串. 例如 :字符串1 \0 字符串2 \0 字符串3 \0 结尾字符串 \0\0
+		 $REG_NONE --- 未定义的值类型
+		 $REG_QWORD --- 64位数字
+		 $REG_QWORD_LITTLE_ENDIAN --- little-endian 格式的64位数字
+		 $REG_SZ --- 空结束字符串.将是任何 Unicode 或 ANSI 字符串,取决于你使用的 Unicode 或 ANSI 函数
 $tValueData
-   包含被存储的数据的结构(缓冲区). 对于字符串类型的, 如REG_SZ, 字符串必须为无终止符的. 对于REG_MULTI_SZ数据类型, 字符串必须以两个空字符结束.
-        一个反斜杠必须以另一个前置的反斜杠作为定界字符.例如, 指定以"C:\\mydir\\myfile"存储字符串"C:\mydir\myfile".
+	存储数据的结构(缓冲区).对于基本字符串类型,如 REG_SZ,该字符串必须是空终止.
+		 REG_MULTI_SZ 数据类型,字符串必须有两个空终止字符.
+		 反斜杠前面必须由另一个反斜杠作为转义字符.
+		 例如指定 "C:\\mydir\\myfile" 存储 "C:\mydir\myfile" 的字符串.
 $iBytes
-   数据的字节大小. 如果数据为REG_SZ, REG_MULTI_SZ或REG_EXPAND_SZ类型, 则包含任意终止的空字符除非数据在存储时不包含他们.
+	数据的字节大小.
+		如果数据是 REG_SZ、REG_MULTI_SZ 或 REG_EXPAND_SZ 类型,
+		 这个尺寸包括任何终止空字符,或除非数据没有终止符
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0, @extended标记可包含非0系统错误代码.
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中RegSetValue的相关信息
+@@MsdnLink@@ RegSetValueEx
+

@@ -2,7 +2,7 @@
 _WinAPI_LPtoDP
 
 ###Description###
-将逻辑坐标转化为设备场景坐标
+Converts a logical coordinates into device coordinates.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,25 +11,25 @@ _WinAPI_LPtoDP( $hDC, $tPOINT [, $iCount = 1] )
 ###Parameters###
 @@ParamTable@@
 $hDC
-   设备场景的句柄
+	Handle to the device context.
 $tPoint
-   $tagPOINT结构或包含要转换的x- 和y-坐标的点( "long x1;long y1;...long xN;long yN" ) 的结构的指针
+	$tagPOINT structure or structure of points ("long x1;long y1;...long xN;long yN") containing the
+	x- and y-coordinates to be transformed.
 $iCount
-   [可选] 点数量
+	[可选参数] The number of points.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
-  成功: 返回1
-失败: 返回0并设置@error非0
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-如果设备坐标超过27位或转换的逻辑坐标超过32位则_WinAPI_DPtoLP()函数失败. 在此类溢出情况下 , 不会定义任何点.
+The _WinAPI_DPtoLP() function fails if the device coordinates exceed 27 bits, or if the converted logical coordinates
+exceed 32 bits. In the case of such an overflow, the results for all the points are undefined.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中LPtoDP的相关信息
+@@MsdnLink@@ LPtoDP
+

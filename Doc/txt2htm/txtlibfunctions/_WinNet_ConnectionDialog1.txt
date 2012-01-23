@@ -2,36 +2,38 @@
 _WinNet_ConnectionDialog1
 
 ###Description###
-打开一个用以连接到网络资源的通用浏览对话框
+启动普通浏览对话框,用于连接网络资源．
 
 ###Syntax###
 #Include <WinNet.au3>
-_WinNet_ConnectionDialog1($hWnd[, $sRemoteName = ""[, $iFlags = 2]])
+_WinNet_ConnectionDialog1($hWnd [, $sRemoteName = "" [, $iFlags = 2]])
 
 ###Parameters###
 @@ParamTable@@
-$hWnd 
-   对话框所属窗体的句柄
-$sRemoteName 
-   要连接到的网络资源的名称
-$iFlags 
-   对话框选项. 可为下列值的一个或多个:
-    1 - 显示只读路径代替允许用户键入路径
-    2 - 将最常用的路径置入组合框
-    4 - 在登录复选框中不显示恢复连接
-    8 - 登录时恢复连接
-    16 - 登录时不恢复连接
+$hWnd
+	对话框所有者窗口句柄．
+$sRemoteName
+	[可选参数] 连接到的网络资源名称
+$iFlags
+	[可选参数] 对话框选项．可以是一或多个下列值:
+		1 - 显示一个只读的路径,而不是让用户输入一个路径．
+		2 - 输入最近使用的路径到组合框
+		4 - 不显示登录时恢复连接复选框
+		8 - 登录时还原连接
+		16 - Do not 登录时还原连接
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 连接设备的数量. 值为1赋予A:, 2赋予B:, 3赋予C:, 以此类推. 如果建立无设备连接, 值为 ?.
+成功:	返回数字的连接设备．该值是 1 为 A:, 2 为 B:, 3 为 C:等等．如果用户提出设备的连接,该值是　-1．
+失败:	设置@error
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
- _WinNet_ConnectionDialog
+_WinNet_ConnectionDialog
 
 ###See Also###
- 搜索MSDN知识库中WNetConnectionDialog1的相关信息
+@@MsdnLink@@ WNetConnectionDialog1

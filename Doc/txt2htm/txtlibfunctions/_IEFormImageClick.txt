@@ -2,51 +2,55 @@
 _IEFormImageClick
 
 ###Description###
-模拟鼠标点击一个图像输入<input type=image>. 图像的文字 , 名字或者源地址的子串匹配提供的字串.
+模拟对&lt;input type=image&gt;进行鼠标点击. 按子字符串匹配替换文本, 名称源(src标记).
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IEFormImageClick ( ByRef $o_object, $s_linkText [, $s_mode = "src" [, $i_index = 0 [, $f_wait = 1]]] )
 
 ###Parameters###
 @@ParamTable@@
- $o_object  任意DOM元素的对象变量 (将被转变到与文档相关的对象)
- $s_linkText  匹配元素的值--按$s_mode设定的模式
- $s_mode  可选: 指定搜索模式
-src = (默认) 匹配图片链接
-name = 匹配图像名称
-alt = 匹配图像的交互文字
- $i_index  可选: 如果图像文字出现超过1次 , 定义选择哪一个 , 从0开始
- $f_wait  可选: 定义在返回前是否等待窗口加载完毕
-0 = 立即返回 , 不等待窗口加载
-1 = (默认)
-  等待窗口加载完毕然后返回
+$o_object
+	任何DOM元素(将转化为关联的文档对象)的对象变量
+$s_linkText
+	用于匹配元素的值 - 基于 $s_mode 进行处理
+$s_mode
+	[可选参数]: 指定搜索模式
+	src = (默认)匹配图像地址(url)
+	name = 匹配图像名
+	alt = 匹配图像的替代文本
+$i_index
+	[可选参数]: 如果图像文本不止一次出现, 按照基于0开始的索引指定您所在实例的位置
+$f_wait
+	[可选参数]: 指定是否在返回前等待页面加载
+	0 = 立即返回, 不等待加载页面
+	1 = (默认)返回前等待页面完成加载
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回-1
-失败: 返回0并设置@ERROR为:
-    0 ($_IEStatus_Success) = 无错误
-    1 ($_IEStatus_GeneralError) = 一般性错误
-    3 ($_IEStatus_InvalidDataType) = 无效数据类型
-    4 ($_IEStatus_InvalidObjectType) = 无效对象类型
-    5 ($_IEStatus_InvalidValue) = 无效值
-    6 ($_IEStatus_LoadWaitTimeout) = 加载等待超时
-    7 ($_IEStatus_NoMatch) = 不匹配
-    8 ($_IEStatus_AccessIsDenied) = 访问被禁止
-    9 ($_IEStatus_ClientDisconnected) = 客户端断开
-    @Extended: 包含无效参数数量
+成功:	返回-1
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	1 ($_IEStatus_GeneralError) = 常规错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+	5 ($_IEStatus_InvalidValue) = 无效值
+	6 ($_IEStatus_LoadWaitTimeout) = 等待加载超时
+	7 ($_IEStatus_NoMatch) = 无匹配
+	8 ($_IEStatus_AccessIsDenied) = 拒绝访问
+	9 ($_IEStatus_ClientDisconnected) = 客户端断开
+@Extended:	包含无效参数数量
 @@End@@
 
+
 ###Remarks###
-<input type=image> 表单元素不同于其它元素的处理. 它无法作为表单元素集的成员被Internet Explorer识别 , 因此函数提供了另一种通过使用src , name或alt字符串获取事例的方法.
-不管对象是否传递给函数 , 看起来都是具有完整上下文的表单元素.
+The &lt;input type=image&gt; form element is handled differently from all others. It is not recognized by Internet Explorer as a member of the form element collection and this function therefore gives you other means of getting a reference to it within the document using src, name or alt strings. Regardless of the object passed to this function, it looks for the form element within the full document context.
+
 
 ###Related###
- _IEImgClick
+_IEImgClick, _IEImgGetCollection, _IELoadWait
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

@@ -2,38 +2,51 @@
 _DebugSetup
 
 ###Description###
-打开一个记事本窗口来建立一个调试会话并通过_DebugOut()写入
+使用指定的报告设置调试会话
 
 ###Syntax###
-#Include <Debug.au3>
-_DebugSetup ( $sTitle )
+#include <Debug.au3>
+_DebugSetup ( $sTitle = Default, $bBugReportInfos = False, $vReportType = 1, $sLogFile = "" )
+
 
 ###Parameters###
 @@ParamTable@@
-$sTitle 
-   (可选)用于_DebugOut()的记事本窗口标题
+$sTitle
+	调试会话框标题. 默认为 "AutoIt 调试报告".
+$bBugReportInfos
+	显示故障报告. 默认为 返回 False.
+$vReportType
+	1 - 写入报告记录窗口 (默认).
+	2 - 写入控制台.
+	3 - MsgBox 消息提示框.
+	4 - 调试信息写入 $sLogFile 参数定义的文件.
+	5 - 报告到记事本窗口.
+	字符串 - 具体报告所用的名字.
+$sLogFile
+	如果 $vReportType = 4 ,则定义存储调试信息的文件名
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回 1.
-失败: 设置@Error并返回0.
-@Error: 0 = 无错误.
-     1 = $sTitle类型不合适
-     2 = 调试会话已开启. 使用它代替开启新会话.
-     3 = 另一未命名记事本窗口已打开. 保存或在继续前关闭.
-@@End@@
+成功:	返回报告类型
+失败:	设置 @error
+@error:	1 已经调用
+	2 报告类型无效
+	3 回调函数无效
+@@END@@
 
 ###Remarks###
-脚本运行期间只能开启一个调试会话. 在另一调试记事本会话处于打开期间尝试调用_DebugSetup()时会导致@Error = 2, 但是_DebugOut()将使用原始会话继续操作.  如果记事本窗口关闭, 需要调用_DebugSetup重启调试记事本会话.
-可以使用相同的记事本会话同时调试多个脚本, 只需要在调用_DebugSetup()时使用相同的$sTitle. 所有_DebugOut()将会到相同的记事本会话.
-如果调用函数时一个未命名记事本已经打开, 脚本可能无法区分记事本会话和其本身开始的会话, 在此情况下, 脚本会退出并返回@Error = 3. _DebugSetup()返回后记事本会话可在不导致混乱状态下启动.
-指出_DebugSetup()调用将有效地禁用所有_DebugOut()的调用, 但是在创建脚本的正式版本前应该移除所有_Debug函数的调用.
+如果函数注册一个特定的报告,但打开 AutoIt 即退出,表明该函数无参数.
+
+在运行脚本期间,您只能启动一个调试会话框.
+您可以使用相同的调试会话框调试多个并发脚本,只要在调用 _DebugSetup() 时使用相同的 $sTitle(调试会话框标题) 即可;所有 _DebugOut() 将定位到同一调试会话框.
+
+注释掉 _DebugSetup() 语句, 将有效地禁用所有 _Debug...() 类函数的要求.在生成脚本的发布版本之前, 您可能需要删除所有调用的 _Debug 函数.
+
 
 ###Related###
- _DebugOut
+_DebugOut, _DebugReport, _DebugReportEx, _DebugReportVar
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

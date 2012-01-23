@@ -2,25 +2,32 @@
 _WinAPI_Create32BitHICON
 
 ###Description###
-将图标转换为32位格式并复制为新图标
+Converts an icon to 32 bits-per-pixel format and copies to the new icon.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_Create32BitHICON( $hIcon [, $fDelete] )
+_WinAPI_Create32BitHICON ( $hIcon [, $fDelete] )
 
 ###Parameters###
 @@ParamTable@@
 $hIcon
-$fDelete  指定函数成功后是否删除图标. 可选:
-    True: 函数成功返回后删除图标
-    Flase: 不删除且必须在使用完毕后指定删除
+	Handle to the icon to convert.
+$fDelete
+	[可选参数] Specifies whether delete the icon after the function is successful, valid values:
+		TRUE    - Icon will be deleted if the function succeeds.
+		FALSE   - Don't delete, you must release the icon when you are finished using it. (Default)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回新建图标的句柄
-失败: 返回0并设置@error非0
+Success	Handle to the newly created icon.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-图标使用完毕后 , 使用_WinAPI_DestroyIcon()销毁.
+When you are finished using the icon, destroy it using the _WinAPI_DestroyIcon() function.
+
+
+###See Also###
+None
+

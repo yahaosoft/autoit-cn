@@ -2,7 +2,7 @@
 _Timer_KillTimer
 
 ###Description###
-销毁指定计时器
+销毁指定的计时器
 
 ###Syntax###
 #Include <Timers.au3>
@@ -10,24 +10,27 @@ _Timer_KillTimer($hWnd, $iTimerID)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  与指定计时器相关的窗体句柄. 该值必须与传递到创建计时器的_Timer_SetTimer函数的hWnd值相同.
- $iTimerID  指定要销毁的计时器
+$hWnd
+	与指定定时器相关的窗口句柄.
+		此值必须与传递给 _Timer_SetTimer 函数创建计时器的 hWnd 值相同
+$iTimerID
+	指定被销毁的计时器
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-_Timer_KillAllTimers函数不会移除已发送到消息队列的WM_TIMER消息
+ 本函数不会删除 WM_TIMER 已经传递到消息队列的消息
 
 ###Related###
- _Timer_KillAllTimers , _Timer_SetTimer
+_Timer_KillAllTimers, _Timer_SetTimer
 
 ###See Also###
- 搜索MSDN知识库中KillTimer的相关信息
+@@MsdnLink@@ KillTimer
 
 ###Example###
 @@IncludeExample@@

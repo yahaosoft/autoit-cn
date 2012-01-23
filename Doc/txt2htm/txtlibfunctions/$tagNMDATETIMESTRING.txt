@@ -2,36 +2,40 @@
 $tagNMDATETIMESTRING
 
 ###Description###
-包含控件中发生的编辑操作信息的结构
+包含控件中发生的编辑操作信息
 
 ###Syntax###
-Global Const $tagNMDATETIMEKEYDOWN =  $tagNMHDR & ";ptr UserString;short Year;short Month;short DOW;short Day;short Hour;short ute;short Second;short MSeconds;int Flags"
+Global Const $tagNMDATETIMESTRING = $tagNMHDR & ";ptr UserString;short Year;short Month;short DOW;short Day;" & _
+		"short Hour;short Minute;short Second;short MSecond;int Flags"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   通知消息的信息
+	包含通知消息的信息
 UserString
-   用户输入的无终止字符串的地址
+	用户输入的空结束字符串地址
 Year
-   年
+	年
 Month
-   月
+	月
 DOW
-   周中日
+	周中的日
 Day
-   日
+	日
 Hour
-   时
-ute
-   分
+	时
+Minute
+	分
 Second
-   秒
-MSeconds
-   毫秒
+	秒
+MSecond
+	毫秒
 Flags
-   返回区. 设置该成员为$GDT_VALID以表示日期有效或设置为$GDT_NONE以设置控件为"无日期"状态(仅$DTS_SHOWNONE样式).
-@@end@@
+	返回字段.设置此值为 $GDT_VALID 表示日期有效;
+	或设置为 $GDT_NONE 表示控件为"无日期"状态(仅 $DTS_SHOWNONE 样式).
+@@End@@
 
 ###Remarks###
-该信息与$DTN_USERSTRING通知消息一起使用.
+此消息与 $DTN_USERSTRING 通知消息一起使用.
+  
+

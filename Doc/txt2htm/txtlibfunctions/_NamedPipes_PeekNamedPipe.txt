@@ -2,7 +2,7 @@
 _NamedPipes_PeekNamedPipe
 
 ###Description###
-从管道复制数据到缓冲区但不从管道中删除该数据
+从管道复制数据到缓冲区,且不从管道中删除该数据
 
 ###Syntax###
 #Include <NamedPipes.au3>
@@ -10,21 +10,24 @@ _NamedPipes_PeekNamedPipe($hNamedPipe)
 
 ###Parameters###
 @@ParamTable@@
- $hNamedPipe  管道句柄
+$hNamedPipe
+	管道句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 下列格式数组:
-   $aInfo[0] - 从管道读取的数据
-   $aInfo[1] - 从管道读取的字节
-   $aInfo[2] - 可用于读取的总字节数
-   $aInfo[3] - 为读取该消息保留的字节数
+成功:	返回数组的格式如下:
+	$aInfo[0] - 从管道读取的数据
+	$aInfo[1] - 从管道读取的字节
+	$aInfo[2] - 读取有效的总字节
+	$aInfo[3] - 读取该消息剩余的字节数
+失败:	设置@error:	
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中PeekNamedPipe的相关信息
+@@MsdnLink@@ PeekNamedPipe

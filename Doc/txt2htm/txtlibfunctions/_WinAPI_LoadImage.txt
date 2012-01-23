@@ -2,60 +2,80 @@
 _WinAPI_LoadImage
 
 ###Description###
-加载图标，光标，或位图
+载入一个图标,光标,或者位图.
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_LoadImage($hInstance,
-$sImage, $iType, $iXDesired, $iYDesired, $iLoad)
+_WinAPI_LoadImage($hInstance, $sImage, $iType, $iXDesired, $iYDesired, $iLoad)
 
 ###Parameters###
 @@ParamTable@@
 $hInstance
-   处理包含被装载图像模块的特例. 若要加载OEM图像，设此参数值为空.
+	包含被加载图像实例的模块标识
+		要加载 OEM 图片, 设置此参数为 0
 $sImage
-   标识要加载的图像.
-$hInstance参数不为0且$iLoad参数不包含$LR_LOADFROMFILE则$sImage是一个包含图像资源的$hInstance模块的字符串.
-$hInstance为0且$LR_LOADFROMFILE未被指定, 该参数的低阶文字必须是要加载的OEM图像的标识.
+	图像标识. 如果 $hInstance 参数不是 0 与 $iLoad 参数不包含 $LR_LOADFROMFILE, 
+		则 $sImage 是 $hInstance 模块的图像资源的名称字符串.
+		如果 $hInstance 为 0,且未指定 $LR_LOADFROMFILE,
+		这个参数的低位字必须是 OEM 图像的标识.
 $iType
-   指定要加载的图像的类型. 该参数可为下列值之一:
-    $IMAGE_BITMAP - 加载位图
-    $IMAGE_CURSOR -
-      加载鼠标箭头
-    $IMAGE_ICON - 加载图标
+	加载图片的类型.为以下值之一
+		$IMAGE_BITMAP - 装载位图
+		$IMAGE_CURSOR - 装载光标
+		$IMAGE_ICON - 加载图标
 $iXDesired
-$iLoad为LR_DEFAULTSIZE
-      函数使用SM_CXICON或SM_CXCURSOR系统公制值设置宽度. 如果此参数为0且未使用参数
-      LR_DEFAULTSIZE, 函数使用资源的实际宽度.
+	图标或光标宽度的像素值.
+		如设为 0 与 $iLoad 为 LR_DEFAULTSIZE, 
+		函数使用 SM_CXICON 或 SM_CXCURSOR 系统公制值设定宽度
+		如果此参数为 0 且不使用 LR_DEFAULTSIZE,
+		则函数使用资源的实际宽度.
 $iYDesired
-$iLoad为LR_DEFAULTSIZE
-      函数使用SM_CXICON或SM_CXCURSOR系统公制值设置高度. 如果此参数为0且未使用参数
-      LR_DEFAULTSIZE, 函数使用资源的实际高度
+	图标或光标高度的像素值
+		如此参数为 0 与 $iLoad 为 LR_DEFAULTSIZE, 
+		函数使用 SM_CYICON 或 SM_CYCURSOR 系统公制值设置高度
+		如果此参数为 0 且不使用 LR_DEFAULTSIZE,
+		函数使用实际资源的高度
 $iLoad
-   指定下列值的组合:
-    $LR_DEFAULTCOLOR - 默认标志
-      $LR_CREATEDIBSECTION - 当参数$iType指定为$IMAGE_BITMAP时, 函数返回位图的图元部分, 函数返回位图的图元部分, 而不是一个兼容位图. 该标志在不用将颜色映射到显示设备情况下加载位图的时候很有用
-    $LR_DEFAULTSIZE - 如果$iXDesired或$iYDesired设置为0, 光标或图标使用系统指定的公制值. 如果未设置该标志且$iXDesired和$iYDesired被设置为0, 函数使用资源实际的尺寸. 如果资源包含多个图像, 函数使用第一个图像的尺寸
-    $LR_LOADFROMFILE - 通过$sImage参数从指定文件夹在图像. 如果未指定标记, $sImage就是资源名
-    $LR_LOADMAP3DCOLORS - 搜索图像的颜色表并使用相应灰度的3D颜色表替换:
-    深灰: RGB(128,128,128) COLOR_3DSHADOW
-    灰: RGB(192,192,192) COLOR_3DFACE
-    浅灰: RGB(223,223,223) COLOR_3DLIGHT
-    $LR_LOADTRANSPARENT - 获取图像第一个像素的颜色值且替换默认的窗口颜色的颜色表接口. 图像中所有使用这一接口的像素将变为默认的窗口颜色. 该值仅用于图像使用相同的颜色表. 如果$iLoad包括$LR_LOADTRANSPARENT和$LR_LOADMAP3DCOLORS值, 则$LRLOADTRANSPARENT优先. 然而, 由COLOR_3DFACE替换的颜色表接口优先于COLOR_WINDOW.
-    $LR_MONOCHROME - 使用黑白加载图片
-    $LR_SHARED - 如果图像被多次加载则句柄共享. 如果LR_SHARED未设置, 对同一资源的LoadImage的二次调用将再次加载图像且返回不同句柄. 对没有标准大小的图像不要使用$LR_SHARED, 否则图像在加载后会改变, 或者被从文件加载
+	指定下列值的组合:
+		$LR_DEFAULTCOLOR - 默认标志
+		$LR_CREATEDIBSECTION - 当 $iType 参数指定 $IMAGE_BITMAP,
+		函数返回 DIB 部分位图, 而不是兼容的位图.
+		用于加载没有映射到显示设备的颜色位图..
+		$LR_DEFAULTSIZE - 如果参数 $iXDesired 或 $iYDesired 的值设置为 0
+		光标或图标的宽度或高度使用系统指定度量值
+		如果不指定此标志,且 $iXDesired 及 $iYDesired 设置为 0 时, 函数使用实际资源的大小
+		如果资源包含多个图像,函数使用第一个图像的大小.
+		$LR_LOADFROMFILE - 加载 $sImage 参数指定文件的图像.
+		如果不指定此标志, $sImage 是资源的名称.
+		$LR_LOADMAP3DCOLORS - 搜索图像的颜色表,
+		并取代下列深浅灰色相应的3D彩色:
+		Dk 灰色: RGB(128,128,128) COLOR_3DSHADOW
+		灰色 : RGB(192,192,192) COLOR_3DFACE
+		Lt 灰色: RGB(223,223,223) COLOR_3DLIGHT
+		$LR_LOADTRANSPARENT - 获取图像中第一个像素颜色值,
+		并取代使用默认窗口颜色表中的相应项
+		使用该项目成为默认窗口图像所有像素的颜色
+		此值仅适用于具有相应色表的图像.
+		如果 $iLoad 包括 $LR_LOADTRANSPARENT 和 $LR_LOADMAP3DCOLORS 值, 
+		则 $LRLOADTRANSPARENT 捕捉先后次序.
+		但颜色表项被 COLOR_3DFACE 替换, 而不是 COLOR_WINDOW.
+		$LR_MONOCHROME - 加载图像的黑色和白色
+		$LR_SHARED - 如果图像被加载多次,则共享图像句柄
+		如果 LR_SHARED 没有设置, 为同一资源第二次调用 LoadImage 时,
+		加载的图像再返回一个不同的句柄.
+		对非标准大小的图像,不要使用 $LR_SHARED, 加载后可能改变, 或者直接从文件中加载.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 最近加载的图像的句柄
-失败: 0
+成功:	最新载入的图像的句柄.
+失败:	返回0
 @@End@@
 
 ###Remarks###
-需要Constants.au3预定义常量
+预定义的常量需要包含 Constants.au3
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中LoadImage的相关信息
+@@MsdnLink@@ LoadImage

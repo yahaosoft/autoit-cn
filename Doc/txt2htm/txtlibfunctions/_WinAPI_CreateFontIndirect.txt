@@ -2,33 +2,32 @@
 _WinAPI_CreateFontIndirect
 
 ###Description###
-创建有指定字符集的逻辑字体
+创建有具体参数的逻辑字体
 
 ###Syntax###
-#Include
-<WinAPI.au3>
+#Include <WinAPI.au3>
 _WinAPI_CreateFontIndirect($tLogFont)
 
 ###Parameters###
 @@ParamTable@@
 $tLogFont
-$tagLOGFONT结构
+	定义逻辑字体特征的 $tagLOGFONT 结构
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 逻辑字体句柄
-失败: 0
+成功:	返回逻辑字体句柄
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-该函数创建一种在结构$tagLOGFONT中定义特性的逻辑字体.
-当这种字体被SelectObject函数选择时GDI的字体映射表会努力将此逻辑字体与现有物理字体相匹配.
-如果不能找到精确匹配，将会提供另一种选择，其特性与所要求的特性尽可能地匹配
+ 函数创建 $tagLOGFONT 结构中指定特点的逻辑字体.
+ 当此字体选择使用 SelectObject 函数时,
+ GDI 字体映射表尝试匹配逻辑字体与现有物理字体;
+ 如果没有完全匹配的,则提供尽可能多的替代匹配特征.
 
 ###Related###
 $tagLOGFONT
 
 ###See Also###
-搜索MSDN知识库中有关
-CreatFontIndirecte的信息
+@@MsdnLink@@ CreateFontIndirect

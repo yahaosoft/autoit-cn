@@ -2,34 +2,34 @@
 _WinAPI_GetProcessIoCounters
 
 ###Description###
-获取由指定进程执行的所有I/O操作的计数信息
+检索指定进程所有执行 I/O 操作的统计信息.
 
 ###Syntax###
-#Include
-<WinAPIEx.au3>
-_WinAPI_GetProcessIoCounters([$PID])
+#Include <WinAPIEx.au3>
+_WinAPI_GetProcessIoCounters ( [$PID] )
 
 ###Parameters###
 @@ParamTable@@
 $PID
-   进程ID. 默认为(0)为当前进程.
+	[可选参数] 进程 PID. 默认 0, 为当前进程.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含进程I/O计数信息的数组:
-    [0] - 执行读取操作的次数
-    [1] - 执行写入操作的次数
-    [2] - 执行除读写的其它操作的次数
-    [3] - 读取的字节数
-    [4] - 写入的字节数
-    [5] - 除读写外的其它操作传输的字节数
-失败: 返回0并设置@error非0.
+成功:	返回下列信息的数组:
+	[0] - 完成读操作数.
+	[1] - 完成写操作数.
+	[2] - 完成 I/O 操作数, 不含读写操作.
+	[3] - 读取的字节数.
+	[4] - 写入的字节数.
+	[5] - 操作过程传输的字节数, 不含读写操作.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
-搜索MSDN知识库中GetProcessIoCounters的相关信息
+@@MsdnLink@@ GetProcessIoCounters
+

@@ -2,27 +2,30 @@
 _WinAPI_SetThreadDesktop
 
 ###Description###
-将指定桌面分配给调用线程
+Assigns the specified desktop to the calling thread.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetThreadDesktop( $hDesktop )
+_WinAPI_SetThreadDesktop ( $hDesktop )
 
 ###Parameters###
 @@ParamTable@@
-$hDesktop  分配给调用线程的桌面的句柄.桌面必须与当前进程的窗口站相关.
+$hDesktop
+	Handle to the desktop to be assigned to the calling thread. This desktop must be associated with the
+	current window station for the process.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-如果调用的线程有任意窗口或与当前的桌面相关(除非hDesktop参数是当前桌面的句柄)则_WinAPI_SetThreadDesktop()函数失败.
+The _WinAPI_SetThreadDesktop() function will fail if the calling thread has any windows or hooks on its current
+desktop (unless the hDesktop parameter is a handle to the current desktop).
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SetThreadDesktop的相关信息
+@@MsdnLink@@ SetThreadDesktop
+

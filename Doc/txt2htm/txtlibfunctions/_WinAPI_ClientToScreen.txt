@@ -2,34 +2,35 @@
 _WinAPI_ClientToScreen
 
 ###Description###
-将指定点的用户坐标转换成屏幕坐标
+转换客户区窗口指定点的坐标到一个屏幕坐标
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_ClientToScreen($hWnd,
-ByRef $tPoint)
+_WinAPI_ClientToScreen($hWnd, ByRef $tPoint)
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   用于转换的窗口句柄
+	被转换为使用的窗口的标识符
 $tPoint
-$tagPOINT结构的指针
+	包含客户端转换坐标的 $tagPOINT 结构
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: $tagPOINT结构
+成功:	返回 $tagPOINT 结构
+失败:	set @error
 @@End@@
 
 ###Remarks###
-函数用屏幕坐标取代$tagPOINT结构. 屏幕坐标与屏幕左上角相关联.
+ 函数替换 $tagPOINT 结构内客户坐标为屏幕坐标.
+ 屏幕坐标相对于屏幕的左上角.
 
 ###Related###
-_WinAPI_ScreenToClient , $tagPOINT
+_WinAPI_ScreenToClient, $tagPOINT
 
 ###See Also###
-搜索MSDN知识库中有关ClientToScreen的信息
+@@MsdnLink@@ ClientToScreen
 
 ###Example###
 @@IncludeExample@@

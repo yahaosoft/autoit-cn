@@ -2,92 +2,94 @@
 $tagNMLVCUSTOMDRAW
 
 ###Description###
-含指定由列表视图控件发送的NM_CUSTOMDRAW(列表视图)通知消息的信息的结构
+包含 NM_CUSTOMDRAW（列表视图）通知消息发送列表视图控件的信息
 
 ###Syntax###
-Global Const $tagNMLVCUSTOMDRAW =  $tagNMHDR & ";uint DrawStage;hwnd hdc;int Left;int Top;int Right;int Bottom;ptr dwItemSpec;uint uItemState;long lItemParam;int ClrText;int ClrTextBk;int iSubItem;dword dwItemType;int clrFace;int iIconEffect;int iIconPhase;int iPartId;int iStateId;int TextLeft;int TextTop;int TextRight;int TextBottom;uint uAlign"
+Global Const $tagNMLVCUSTOMDRAW = "struct;" & $tagNMHDR & ";dword dwDrawStage;handle hdc;" & $tagRECT & _
+		";dword_ptr dwItemSpec;uint uItemState;lparam lItemlParam;endstruct" & _
+		";dword clrText;dword clrTextBk;int iSubItem;dword dwItemType;dword clrFace;int iIconEffect;" & _
+		"int iIconPhase;int iPartId;int iStateId;struct;long TextLeft;long TextTop;long TextRight;long TextBottom;endstruct;uint uAlign"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   包含通知消息的信息
+	包含通知消息的信息
 dwDrawStage
-   当前绘制的层. 可为下列之一:
-    全局值:
-    $CDDS_POSTERASE - 完全擦除后
-    $CDDS_POSTPAINT - 完全绘制后
-    $CDDS_PREERASE - 开始擦除前
-    $CDDS_PREPAINT - 开始绘制前
-    指定项目值:
-    $CDDS_ITEM - 表示dwItemSpec, uItemState及lItemlParam成员可用.
-    $CDDS_ITEMPOSTERASE - 项目被擦除后
-    $CDDS_ITEMPOSTPAINT - 项目被绘制后
-    $CDDS_ITEMPREERASE - 项目被擦除前
-    $CDDS_ITEMPREPAINT - 项目被绘制前
-    $CDDS_SUBITEM - 绘制子项时与$CDDS_ITEMPREPAINT或$CDDS_ITEMPOSTPAINT结合的标记. 仅在$CDDS_PREPAINT返回$CDRF_NOTIFYITEMDRAW时可以设置.
+	当前绘图阶段.这是以下值之一:
+	全程值:
+		$CDDS_POSTERASE - 擦除周期后完成.
+		$CDDS_POSTPAINT - 绘制周期后完成.
+		$CDDS_PREERASE - 擦除周期前开始.
+		$CDDS_PREPAINT - 绘画周期前开始.
+	项目特定值:
+		$CDDS_ITEM - 表示 dwItemSpec, uItemState 及 lItemlParam 成员有效.
+		$CDDS_ITEMPOSTERASE - 项目被擦除后.
+		$CDDS_ITEMPOSTPAINT - 项目被绘制后.
+		$CDDS_ITEMPREERASE - 项目被擦除前.
+		$CDDS_ITEMPREPAINT - 项目被绘制前.
+		$CDDS_SUBITEM - 绘制子项时与 $CDDS_ITEMPREPAINT 或 $CDDS_ITEMPOSTPAINT 结合的标志.
+		仅在 $CDDS_PREPAINT 返回 $CDRF_NOTIFYITEMDRAW 时设置.
 hdc
-   控件的设备场景的句柄. 使用该设备场景的句柄执行任意Microsoft Windows Graphics Device Interface (GDI)函数.
-Left
-   将绘制的矩形区域的左上角X坐标. 该成员仅由$CDDS_ITEMPREPAINT通知初始化.
-Top
-   将绘制的矩形区域的左上角Y坐标. 该成员仅由$CDDS_ITEMPREPAINT通知初始化.
-Right
-   将绘制的矩形区域的右下角X坐标. 该成员仅由$CDDS_ITEMPREPAINT通知初始化.
-Bottom
-   将绘制的矩形区域的右下角Y坐标. 该成员仅由$CDDS_ITEMPREPAINT通知初始化.
+	控件的设备环境句柄.
+		使用此设备上下文句柄(HDC)执行任何 Microsoft Windows 图形设备接口（GDI）函数.
+$tagRECT
+	将绘制的矩形区域的坐标. 该成员仅由 $CDDS_ITEMPREPAINT 通知初始化
 dwItemSpec
-   项目数量
+	项目数
 uItemState
-   当前的项目状态. 该值为下列表的组合:
-    $CDIS_CHECKED - 项目被选定
-    $CDIS_DEFAULT - 项目处于默认状态
-    $CDIS_DISABLED - 项目禁用
-    $CDIS_FOCUS - 项目处于焦点
-    $CDIS_GRAYED - 项目灰色显示
-    $CDIS_HOT - 项目当前在指针下
-    $CDIS_INDETERMINATE - 项目处于不确定状态
-    $CDIS_MARKED - 项目被标记
-    $CDIS_SELECTED - 项目被选定
-    $CDIS_SHOWKEYBOARDCUES - 版本为6.0的comctl32. 项目为一键盘提示
-    $CDIS_NEARHOT - 项目是当前鼠标指针下("热")的控件的一部分, 但项目自身非"热"项. 其含义视执行而定.
-    $CDIS_OTHERSIDEHOT - 项目是当前鼠标指针下("热")的分离按钮的一部分, 但项目自身非"热"项. 其含义视执行而定.
-    $CDIS_DROPHILITED - 项目是当前拖曳操作的目标.
+	当前的项目状态. 该值为下列表的组合:
+		$CDIS_CHECKED - 项目被选定.
+		$CDIS_DEFAULT - 项目处于默认状态.
+		$CDIS_DISABLED - 项目禁用.
+		$CDIS_FOCUS - 项目处于焦点.
+		$CDIS_GRAYED - 项目灰色显示.
+		$CDIS_HOT - 项目当前在指针下 ("热").
+		$CDIS_INDETERMINATE - 项目处于不确定状态.
+		$CDIS_MARKED - 该项目被标记. 视设备而定.
+		$CDIS_SELECTED - 该项目被选中.
+		$CDIS_SHOWKEYBOARDCUES - 版本 6.0 Comctl32. 项目为键盘提示.
+		$CDIS_NEARHOT - 项目是当前鼠标指针下控件的一部分 (&quot;热&quot;), 
+								但项目自身非&quot;热&quot;项.视设备而定.
+		$CDIS_OTHERSIDEHOT - 项目是当前鼠标指针下的一个拆分按钮  (&quot;热&quot;), 
+										但项目自身非&quot;热&quot;项.视设备而定.
+		$CDIS_DROPHILITED - 项目是当前拖放操作的目标.
 lItemlParam
-   应用程序定义的项目数据.
+	应用程序定义的项目数据.
 clrText
-   代表列表视图控件中用以显示文本前景色的COLORREF值.
+	COLORREF 值,代表将被用来显示列表视图控件文本的前景色.
 clrTextBk
-   代表列表视图控件中用以显示文本背景色的COLORREF值.
+	COLORREF 值,代表将被用来显示列表视图控件文本的背景色.
 iSubItem
-   正被绘制的子项目的索引. 如果正在绘制主项, 该成员为0.
+	正被绘制的子项目索引. 如果正在绘制主项, 该成员为 0.
 dwItemType
-   版本6.0.表示要绘制的项目类型的DWORD. 该成员可为下列值之一:
-    $LVCDI_ITEM - 绘制一个项目.
-    $LVCDI_GROUP - 绘制一个分组.
+	版本 6.0. DWORD 值，它包含项目的绘制类型。这个成员可以是下列值之一:
+		$LVCDI_ITEM - 绘制项目.
+		$LVCDI_GROUP - 绘制组.
 clrFace
-   版本6.0.代表将用于显示项目外观的颜色的COLORREF值.
+	版本 6.0. COLORREF 值,代表将被用于显示项目的外观颜色.
 iIconEffect
-   版本6.0.指定图标使用的效果(如发光, 阴影, 或闪烁)的int类型值.
+	版本 6.0. int 类型的值, 指定图标应用一个如发光，阴影，或闪烁效果.
 iIconPhase
-   版本6.0.指定图标相的int类型值.
+	版本 6.0. int 类型的值, 指定一个图标相位.
 iPartId
-   版本6.0.指定绘制的项目的一个部分的状态ID的int类型值.
+	版本 6.0. int 类型的值, 指定项目绘制部分的 ID.
 iStateId
-   版本6.0.指定绘制的项目状态ID的int类型值.
+	版本 6.0. int 类型的值, 指定项目绘制部分状态的 ID.
 TextLeft
-   在其中绘制文本的矩形的左上角的X坐标
+	绘制文本的矩形左上角 X 坐标.
 TextTop
-   在其中绘制文本的矩形的左上角的Y坐标
+	绘制文本的矩形左上角 Y 坐标.
 TextRight
-   在其中绘制文本的矩形的右下角的X坐标
+	绘制文本的矩形右下角 X 坐标.
 TextBottom
-   在其中绘制文本的矩形的右下角的Y坐标
+	绘制文本的矩形右下角 Y 坐标.
 uAlign
-   版本6.0.指定一个分组如何对齐的UINT值. 该成员可为下列值之一:
-    $LVGA_HEADER_CENTER - 居中对齐.
-    $LVGA_HEADER_LEFT - 居左对齐.
-    $LVGA_HEADER_RIGHT - 居右对齐.
-@@end@@
+	版本 6.0. 指定组的 UINT 值. 该成员可为下列值之一:
+		$LVGA_HEADER_CENTER - 组居中对齐.
+		$LVGA_HEADER_LEFT - 组左对齐.
+		$LVGA_HEADER_RIGHT - 组右对齐.
+@@End@@
 
 ###Remarks###
-$LVxxx_ 常量需要ListViewConstants.au3, $CDxx_常量需要WindowsConstants.au3
+$LVxxx_ 常量需要由 ListViewConstants.au3 文件定义, $CDxx_ 常量需要由 WindowsConstants.au3 文件定义.
+

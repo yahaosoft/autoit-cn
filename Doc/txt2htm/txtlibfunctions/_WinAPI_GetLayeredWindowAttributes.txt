@@ -1,47 +1,43 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _WinAPI_GetLayeredWindowAttributes
 
 ###Description###
-è·å–å±‚å çª—å£å±æ€§
+»ñÈ¡·Ö²ã´°¿ÚÊôĞÔ
 
 ###Syntax###
-#Include
-<WinAPI.au3>
-_WinAPI_GetLayeredWindowAttributes($hWnd, ByRef
-$i_transcolor, ByRef $Transparency[, $asColorRef = False])
+#Include <WinAPI.au3>
+_WinAPI_GetLayeredWindowAttributes($hWnd, ByRef $i_transcolor, ByRef $Transparency [, $asColorRef = False])
 
 ###Parameters###
 @@ParamTable@@
 $hwnd
-   å·¥ä½œçš„ç•Œé¢å¥æŸ„
+	¹¤×÷ GUI µÄ¾ä±ú
 $i_transcolor
-   è¿”å›é€æ˜è‰²(dwordå€¼0x00bbggrræˆ–å­—ç¬¦ä¸²"0xRRGGBB")
+	·µ»ØÍ¸Ã÷µÄÑÕÉ« ( Ë«×Ö 0x00bbggrr »ò×Ö·û´® "0xRRGGBB")
 $Transparency
-   è¿”å›ç•Œé¢é€æ˜åº¦
-$isColorRef
-$i_transcolorå°†æ˜¯COLORREF( 0x00bbggrr ),
-    æˆ–è€…RGB-Color
+	·µ»ØÍ¸Ã÷µÄ GUI
+$asColorRef
+	[¿ÉÑ¡²ÎÊı] ÈçÎª True, $i_transcolor ½«ÊÇ COLORREF( 0x00bbggrr ), ·ñÔòÎª RGB ÑÕÉ«
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: LWA_ALPHAå’ŒLWA_COLORKEYçš„ç”¨æ³•(ä½¿ç”¨BitAnd)
-å¤±è´¥:
-è¿”å›0æˆ–è®¾ç½®@error:
-@error: 1 è‡³ 3 - DllCallå‡ºé”™
-@error: 4 - å‡½æ•°ä¸æˆåŠŸ
-@extended:
-åŒ…å«_WinAPI_GetLastError
+³É¹¦:	·µ»ØÓ¦ÓÃµÄ LWA_ALPHA Óë LWA_COLORKEY (Ê¹ÓÃ BitAnd)
+Ê§°Ü:	·µ»Ø 0
+@error:	
+	1 µ½ 3 - DllCall ´íÎó
+	4 - º¯Êı²»³É¹¦@extended:
+	°üº¬ _WinAPI_GetLastError()
 @@End@@
 
 ###Remarks###
-ä½¿ç”¨_WinAPI_GetLastErrorMessageä»¥è·å–æ›´å¤šä¿¡æ¯
+ ×îµÍ²Ù×÷ÏµÍ³ - Windows XP.
 
 ###Related###
-_WinAPI_SetLayeredWindowAttributes , _WinAPI_GetLastError
+_WinAPI_SetLayeredWindowAttributes, _WinAPI_GetLastError
 
 ###See Also###
-åœ¨MSDNçŸ¥è¯†åº“æœç´¢GetLayeredWindowAttributesç›¸å…³ä¿¡æ¯
+@@MsdnLink@@ GetLayeredWindowAttributes
 
 ###Example###
 @@IncludeExample@@

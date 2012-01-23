@@ -2,45 +2,53 @@
 _WinAPI_RegisterHotKey
 
 ###Description###
-定义系统范围热键
+定义一个系统范围的热键.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RegisterHotKey( $hWnd, $ID, $iModifiers, $vkCode )
+_WinAPI_RegisterHotKey ( $hWnd, $ID, $iModifiers, $vKey )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   接收热键产生的WM_HOTKEY消息的窗体句柄. 该参数为0时, WM_HOTKEY消息传递给调用线程的消息队列且必须在消息循环中执行.
+	接收 WM_HOTKEY 热键消息的窗口句柄, 
+		如果此参数为 0,WM_HOTKEY 消息传递到调用线程的消息队列,
+		且进程必须在消息循环内.
 $ID
-   指定热键标识. 应用程序须指定一个从0x0000到0xBFFF的id值
+	热键的标识符.
+		 应用程序必须指定 id 值范围为 0x0000 到 0xBFFF.
 $iModifiers
-   $vkCode参数指定的键的结合. $iModifiers参数可为下列值组合:
-    $MOD_ALT - 同时按下Alt键
-    $MOD_CONTROL - 同时按下Ctrl键
-    $MOD_SHIFT - 同时按下Shift键
-    $MOD_WIN - 同时按下Win键
-    $MOD_NOREPEAT - 改变热键操作以便键盘自动回复不会产生多个热键通知(需要Windows 7以上)
-$vkCode
-   指定热键的虚拟键代码($VK_...)
+	指定 $vKey 参数特定键的点击辅助键,用以产生 WM_HOTKEY 消息.
+		 参数可以是以下值的组合:
+		 $MOD_ALT --- + ALT 键
+		 $MOD_CONTROL --- + 任一 Ctri 键 
+		 $MOD_SHIFT --- + Shift 键 
+		 $MOD_WIN --- + 任一微软徽标键
+		 *Windows 7 或更高系统
+		 $MOD_NOREPEAT --- 更改热键状态,使键盘不会自动重复产生多个热键通知
+$vKey
+	指定热键的虚拟键代码 ($VK_*).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功：返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-当按下键时, 系统会查找所有热键以匹配. 发现匹配时, 系统将发送WM_HOTKEY消息到热键关联的窗体的消息队列. 如果热键未关联窗体, 则将WM_HOTKEY消息发送到热键关联的线程.
-当指定击键的热键已注册给另一热键时_WinAPI_RegisterHotKey()失败.
-在Windows XP及以前版本中, 如果具有相同$hWnd和$ID参数的热键已存在, 将由新热键替换.
-在Windows Vista及后续版本中, 如果具有相同$hWnd和$ID参数的热键已存在, 仍将随新热键保持. 在这些版本中, 应用程序必须调用_WinAPI_UnregisterHotKey()注销旧的热键.
+当一个键被按下时,系统会寻找匹配的热键.
+当找到一个匹配时,系统传递 WM_HOTKEY 热键消息到关联窗口的消息队列.
+ 如果热键不是相关窗口, WM_HOTKEY 消息传递到相关的热键线程.
+ 如果点击的键已被注册为其它热键, _WinAPI_RegisterHotKey() 失败.
+在 Windows XP 及其早期版本中,如果具有相同 $hWnd 和 $ID 参数的热键存在,则由新热键替代.
+ 在 Windows Vista 及其后续版本中, 如果具有相同 $hWnd 和 $ID 参数的热键存在,
+ 将随着新热键继续维持, 应用程序必须明确调用 _WinAPI_UnregisterHotKey() 注销旧的热键.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中RegisterHotKey的相关信息
+@@MsdnLink@@ RegisterHotKey
 
 ###Example###
 @@IncludeExample@@
+

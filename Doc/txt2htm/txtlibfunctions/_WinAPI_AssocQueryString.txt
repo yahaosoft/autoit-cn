@@ -2,68 +2,74 @@
 _WinAPI_AssocQueryString
 
 ###Description###
-搜索注册表并获取与文件或协议相关的字符串
+从注册表搜索并获取文件或协议关联的字符串.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_AssocQueryString($sAssoc, $iType [, $iFlags [, $sExtra]])
+_WinAPI_AssocQueryString ( $sAssoc, $iType [, $iFlags [, $sExtra]] )
 
 ###Parameters###
 @@ParamTable@@
 $sAssoc
-   用于确定根键的字符串. 可使用下列四种类型的字符串:
-    文件扩展名, 如 .txt
-    标准"{GUID}"格式的类标识符(CLSID) GUID
-    应用程序ProgID, 如Word.Document.8
-$ASSOCF_OPEN_BYEXENAME标记
+	用于确定根键的字符串.可以使用以下四种类型的字符串:
+		1 . 文件扩展名,例如 ".txt".
+		2 . 标准 "{GUID}" 格式 GUID 的类标识符（CLSID）.
+		 3 . 应用程序的 ProgID,例如 Word.Document.8.
+		 4 . 应用程序 .exe 的文件名.必须设置 $ASSOCF_OPEN_BYEXENAME 标志.
+		GUID概念:	Globally Unique Identifier（全球唯一标识符） 也称作 UUID(Universally Unique IDentifier) 
+		引自百度百科: http://baike.baidu.com/view/185358.htm 
+		CLSID 也见百度百科: http://baike.baidu.com/view/150219.html?tp=0_11
 $iType
-   用于指定返回字符串类型的值. 可为下列值之一.
-    $ASSOCSTR_COMMAND - 与Shell动作相关的字符串
-    $ASSOCSTR_EXECUTABLE - 来自与Shell动作相关的字符串的可执行文件
-    $ASSOCSTR_FRIENDLYDOCNAME - 文档类型的名称
-    $ASSOCSTR_FRIENDLYAPPNAME - 可执行文件的名称
-    $ASSOCSTR_NOOPEN - 忽略与打开的子键关联的信息
-    $ASSOCSTR_SHELLNEWVALUE - 在ShellNew子键下搜索
-    $ASSOCSTR_DDECOMMAND - DDE命令模板
-    $ASSOCSTR_DDEIFEXEC -  用来创建进程的DDE命令
-    $ASSOCSTR_DDEAPPLICATION -  DDE广播中的应用程序名称
-    $ASSOCSTR_DDETOPIC - DDE广播中的标题名称
-    $ASSOCSTR_INFOTIP - 对应的信息提示注册表值
-    $ASSOCSTR_QUICKTIP - IE6或更高版本. 对应的QUICKTIP注册表值.
-    $ASSOCSTR_TILEINFO - IE6或更高版本. 对应的TILEINFO注册表值.
-    $ASSOCSTR_CONTENTTYPE - IE6或更高版本. 描述MIME的关联.
-    $ASSOCSTR_DEFAULTICON - IE6或更高版本. 返回使用此关联的图标资源默认的路径. 正数表示DLL的资源表的索引而负数表示资源ID.
-    $ASSOCSTR_SHELLEXTENSION - IE6或更高版本. 对于与Shell扩展名相关的对象, 用字符串代替CLSID
+	指定返回字符串值的类型.参数可以是以下值之一:
+		 $ASSOCSTR_COMMAND --- 与 Shell 动词相关联的命令字符串
+		 $ASSOCSTR_EXECUTABLE --- Shell 动词命令的可执行文件字符串
+		 $ASSOCSTR_FRIENDLYDOCNAME --- 文档类型名称
+		 $ASSOCSTR_FRIENDLYAPPNAME --- 可执行文件名称
+		 $ASSOCSTR_NOOPEN --- 忽略打开子键项相关的信息
+		 $ASSOCSTR_SHELLNEWVALUE --- 新 Shell 的子键项
+		 $ASSOCSTR_DDECOMMAND --- DDE 命令模板
+		 $ASSOCSTR_DDEIFEXEC --- 用于创建进程的 DDE 命令
+		 $ASSOCSTR_DDEAPPLICATION --- 传递 DDE 应用程序的名称
+		 $ASSOCSTR_DDETOPIC --- 传递 DDE 的主题名称
+		 $ASSOCSTR_INFOTIP --- 提示注册表值信息
+		 $ASSOCSTR_QUICKTIP --- Internet Explorer 版本6或更高版本.快速提示注册表值
+		 $ASSOCSTR_TILEINFO --- Internet Explorer版本6或更高版本.并列显示注册表值
+		 $ASSOCSTR_CONTENTTYPE --- Internet Explorer版本6或更高版本. 描述 MIME 文件关联类型 
+		 $ASSOCSTR_DEFAULTICON --- Internet Explorer版本6或更高版本. 返回图标资源路径
+		 $ASSOCSTR_SHELLEXTENSION --- Internet Explorer版本6或更高版本. Shell 对象关联的扩展
 $iFlags
-$ASSOCF_INIT_...值.
-    $ASSOCF_INIT_BYEXENAME - 作为可执行文件的名称初始化
-    $ASSOCF_INIT_DEFAULTTOFOLDER - 尝试从FOLDER子项获取可比值
-    $ASSOCF_INIT_DEFAULTTOSTAR - 尝试从*子项获取可比值
-    $ASSOCF_INIT_NOREMAPCLSID - 不将CLSID值映射到ProgID值
-    $ASSOCF_NOUSERSETTINGS - 仅搜索HKEY_CLASSES_ROOT
-    $ASSOCF_NOTRUNCATE - 不截断字符串
-    $ASSOCF_OPEN_BYEXENAME - 同$ASSOCF_INIT_BYEXENAME
-    $ASSOCF_VERIFY - 读取用户硬盘数据进行验证, 该标志通常会降低有效性.
-    $ASSOCF_REMAPRUNDLL - 忽略Rundll.exe并返回目标信息
-    $ASSOCF_NOFIXUPS - 不修复注册表中的错误
-    $ASSOCF_IGNOREBASECLASS - 忽略基类值
-    $ASSOCF_INIT_IGNOREUNKNOWN -  忽略"未知"的ProgID
+	[可选参数] 用于控制搜索的标志.可以是以下任意值的组合,
+		 但只有一个 $ASSOCF_INIT_ * 值可以被包含在内:
+		$ASSOCF_INIT_NOREMAPCLSID --- $sAssoc 不是映射的 CLSID 值的 ProgID 值
+		$ASSOCF_INIT_BYEXENAME --- 初始化参数 $sAssoc 标识值为一个可执行文件的名称
+		$ASSOCF_OPEN_BYEXENAME --- 相同于 ASSOCF_INIT_BYEXENAME
+		$ASSOCF_INIT_DEFAULTTOSTAR --- $sAssoc 不搜索根键下所要求的价值,它应尝试检索*子项的可比值
+		$ASSOCF_INIT_DEFAULTTOFOLDER --- $sAssoc 不搜索根键下所要求的价值,它应尝试检索文件夹的子项的可比值
+		$ASSOCF_NOUSERSETTINGS --- 指定仅搜索 HKEY_CLASSES_ROOT,忽略 HKey_Current_User
+		$ASSOCF_NOTRUNCATE --- 不截断返回得字符串
+		$ASSOCF_VERIFY --- 验证数据准确的方法
+		$ASSOCF_REMAPRUNDLL --- 忽略 Rundll.exe 回报的信息
+		$ASSOCF_NOFIXUPS --- 不能修复不匹配的错误注册表
+		$ASSOCF_IGNOREBASECLASS --- 忽略 BaseClass 的值
+		$ASSOCF_INIT_IGNOREUNKNOWN --- 忽略“未知”的 ProgID
 $sExtra
-   关于字符串位置额外信息的可选字符串. 通常设置为一个外壳动词如打开
+	[可选参数] 可供选择的字符串位置的附加信息.
+		 通常设置为命令解释程序(Shell)的动词,如open.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含所需($ASSOCSTR_...)信息的字符串.
-失败: 空字符串并设置@error标记非0
+成功:	返回包含被请求的 ($ASSOCSTR_*) 信息字符串.
+失败:	返回空串,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中AssocQueryString的相关信息
+@@MsdnLink@@ AssocQueryString
 
 ###Example###
 @@IncludeExample@@
+

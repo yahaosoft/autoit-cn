@@ -2,46 +2,46 @@
 _WinAPI_FlashWindowEx
 
 ###Description###
-闪烁指定窗口
+闪烁指定的窗口
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_FlashWindowEx($hWnd[,
-$iFlags = 3[, $iCount = 3[, $iTimeout = 0]]])
+_WinAPI_FlashWindowEx($hWnd [, $iFlags = 3 [, $iCount = 3 [, $iTimeout = 0]]])
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   被闪烁的窗口句柄. 窗口可以是打开或最小化的.
+	窗口句柄.窗口可以是打开的或最小化的
 $iFlags
-   闪烁状态. 可为下列值的一个或多个:
-    0 - 停止闪烁. 系统恢复窗口原始状态.
-    1 - 闪烁窗口标题
-    2 -
-      闪烁窗口按钮
-    4 - 连续闪烁知道停止
-    8 - 连续闪烁直到窗口变为前景
+	[可选参数] 闪烁状态.可以是一或多个下列值:
+		0 - 停止闪烁.系统恢复其原始状态窗口.
+		1 - 闪烁窗口标题
+		2 - 闪烁任务栏按钮
+		4 - 连续闪烁,直到停止
+		8 - 连续闪烁, 直至窗口出现在前台
 $iCount
-   闪烁次数
+	[可选参数] 窗口闪烁次数
 $iTimeout
-   窗口闪烁的毫秒速度. 如果为 0, 函数使用默认鼠标闪烁速度.
+	[可选参数] 闪烁速度得毫秒值.如果为 0,
+		函数使用默认闪烁速率
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
-注意 通常, 闪烁窗口以通知用户注意当前没有键盘焦点. 当窗口闪烁时, 表现为从不活跃到活跃状态. 标题栏变为活动标题栏;
-活动标题栏变为不活动.
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
+ 通常情况下, 闪烁窗口是通知用户该窗口目前还没有键盘焦点.
+ 当一个窗口闪烁时,表现为非活跃到活跃的状态.
+ 不活跃的标题栏更改为活跃的标题栏;活跃的标题栏更改为不活跃的标题栏.
 
 ###Related###
 _WinAPI_FlashWindow
 
 ###See Also###
-在MSDN知识库中搜索FlashWindowEx的相关信息
+@@MsdnLink@@ FlashWindowEx
 
 ###Example###
 @@IncludeExample@@

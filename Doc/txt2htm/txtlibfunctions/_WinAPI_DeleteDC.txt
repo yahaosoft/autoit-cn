@@ -2,31 +2,30 @@
 _WinAPI_DeleteDC
 
 ###Description###
-删除指定的设备上下文环境
+删除指定的设备环境
 
 ###Syntax###
-#Include
-<WinAPI.au3>
+#Include <WinAPI.au3>
 _WinAPI_DeleteDC($hDC)
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   设备上下文环境的句柄
+	设备环境标识
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
-注意 应用程序不必删除通过调用_WinAPI_GetDC函数取得句柄的上下文环境.
-取而代之,  应该调用_WinAPI_ReleaseDC函数来释放该设备上下文环境.
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
+ 应用程序不能删除调用 _WinAPI_GetDC 函数获得的 DC 句柄.
+ 相反,它必须调用 _WinAPI_ReleaseDC 函数来释放该 DC.
 
 ###Related###
-_WinAPI_GetDC , _WinAPI_ReleaseDC
+_WinAPI_GetDC, _WinAPI_ReleaseDC, _WinAPI_CreateCompatibleDC
 
 ###See Also###
-搜索MSDN知识库中有关DeleteDC的信息
+@@MsdnLink@@ DeleteDC

@@ -2,36 +2,41 @@
 $tagCOMBOBOXEXITEM
 
 ###Description###
-包含ComboBoxEx控件中项目的信息
+包含关于ComboBoxEx控件项目的信息.
 
 ###Syntax###
-Global Const $tagCOMBOBOXEXITEM =  "int Mask;int Item;ptr Text;int TextMax;int Image;int SelectedImage;int OverlayImage;int Indent;int Param"
+Global Const $tagCOMBOBOXEXITEM = "int Mask;int Item;ptr Text;int TextMax;int Image;int SelectedImage;int OverlayImage;" & _
+		"int Indent;int Param"
 
 ###Fields###
 @@ParamTable@@
 Mask
-   指定属性的数位标记. 可为下列值的组合.
-    CBEIF_DI_SETITEM - 执行CBEN_GETDISPINFO时设置该标记
-    CBEIF_IMAGE - iImage成员可用或必须填充
-    CBEIF_INDENT - iIndent成员可用或必须填充
-    CBEIF_LPARAM - lParam成员可用或必须填充
-    CBEIF_OVERLAY - iOverlay成员可用或必须填充
-    CBEIF_SELECTEDIMAGE - iSelectedImage成员可用或必须填充
-    CBEIF_TEXT - pszText成员可用或必须填充
+	设置指定属性。可以是下列值的组合.
+		CBEIF_DI_SETITEM - 需处理 CBEN_GETDISPINFO 时设置该标记
+		CBEIF_IMAGE - iImage 成员有效还是必须填充.
+		CBEIF_INDENT - iIndent 成员有效还是必须填充.
+		CBEIF_LPARAM - lParam 成员有效还是必须填充.
+		CBEIF_OVERLAY - iOverlay 成员有效还是必须填充.
+		CBEIF_SELECTEDIMAGE - iSelectedImage 成员有效还是必须填充.
+		CBEIF_TEXT - pszText 成员有效还是必须填充.
 Item
-   项目的0基索引
-pszText
-   包含或接收项目文本的字符缓冲区的指针
+	项目的 0 基索引.
+Text
+	包含或接收项目文本的字符缓冲区指针.
 TextMax
-   pszText的以TCHAR为单位的长度. 如果设置有文本信息, 忽略该成员.
+	pszText 以 TCHAR 为单位的长度. 如果设置有文本信息, 忽略该成员.
 Image
-   图像在列表中的0基索引
+	图像列表中图像的 0 基索引.
 SelectedImage
-   图像在列表中的0基索引
+	图像列表中被选中图像的 0 基索引.
 OverlayImage
-   图像在列表中的1基索引
+	图像列表中覆盖图像的 1 基索引.
 Indent
-   项目显示时的缩进数量. 每个缩进为10像素.
+	项目显示时的缩进数量. 每个缩进为10像素.
 Param
-   用于指定项目的值
-@@end@@
+	指定项目的具体值.
+@@End@@
+
+###Remarks###
+None.
+

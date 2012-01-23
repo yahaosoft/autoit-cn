@@ -2,44 +2,50 @@
 $tagNMITEMACTIVATE
 
 ###Description###
-用户激活项目时由列表视图控件发送
+控件发送列表视图项目激活信息
 
 ###Syntax###
-Global Const $tagNMITEMACTIVATE =  $tagNMHDR & ";int Index;int SubItem;int NewState;int OldState;int Changed;int X;int Y;int lParamint KeyFlags"
+Global Const $tagNMITEMACTIVATE = $tagNMHDR & ";int Index;int SubItem;int NewState;int OldState;" & _
+		"int Changed;int X;int Y;int lParam;int KeyFlags"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   通知消息的信息
+	包含通知消息的信息
 Index
-   列表视图项的索引. 当项目索引未用于通知时, 该成员保持为-1
+	列表视图的项目索引. 当项目索引未用于通知时, 该成员保持为 -1.
 SubItem
-   1基索引的子项. 如果子项索引未用于通知或通知为用于子项, 则该成员保持为0.
+	子项的 1 基索引.如果子项索引不用于通知,
+	或通知不适用于子项,则该成员保持为 0.
 NewState
-   新项目状态. 对不使用它的通知消息该成员为0.
+	新项目状态. 通知消息不使用它时,该成员为 0.
 OldState
-   原项目状态. 对不使用它的通知消息该成员为0.
+	原项目状态. 通知消息不使用它时,该成员为 0.
 Changed
-   表示要改变的项目属性的标记的集合. 对不使用它的通知消息该成员为0.
-    该成员可设置为一个或多个下列标记:
-    $LVIF_COLUMNS - Columns成员可用
-    $LVIF_DI_SETITEM - 操作系统保存请求的列表箱信息
-    $LVIF_GROUPID - GroupID成员可用
-    $LVIF_IMAGE - Image成员可用
-    $LVIF_INDENT - Indent成员可用
-    $LVIF_NORECOMPUTE - 控件不产生获取文本信息的LVN_GETDISPINFO
-    $LVIF_PARAM - Param成员可用
-    $LVIF_STATE - State成员可用
-    $LVIF_TEXT - Text成员可用
+	设置变更项目属性的标志,不使用时为 0.
+	该成员可设置为一或多个下列值:
+		$LVIF_COLUMNS - Columns 成员有效
+		$LVIF_DI_SETITEM - 操作系统保存请求的列表箱信息
+		$LVIF_GROUPID - GroupID 成员有效
+		$LVIF_IMAGE - Image 成员有效
+		$LVIF_INDENT - Indent 成员有效
+		$LVIF_NORECOMPUTE - 控件将不会产生 LVN_GETDISPINFO 文本信息检索
+		$LVIF_PARAM - Param 成员有效
+		$LVIF_STATE - State 成员有效
+		$LVIF_TEXT - Text 成员有效
 X
-   指定某点的x坐标
+	指定点的 X 坐标
 Y
-   指定某点的y坐标
+	指定点的 Y 坐标
 lParam
-   应用程序定义的项目的值. 对不使用它的通知消息不定义该成员
+	应用程序定义的项目值. 不使用它的通知消息不定义该成员
 KeyFlags
-   修改激活时按下的键. 该成员保持为0或下列标记的组合:
-    $LVKF_ALT - 按下ALT键.
-    $LVKF_CONTROL - 按下CTRL键.
-    $LVKF_SHIFT - 按下SHIFT键.
-@@end@@
+	修改激活时按下的键. 该成员保持为 0 或下列值的组合:
+		$LVKF_ALT - 按下 ALT 键.
+		$LVKF_CONTROL - 按下 CONTROL 键.
+		$LVKF_SHIFT - 按下 SHIFT 键.
+@@End@@
+
+###Remarks###
+None.
+

@@ -2,38 +2,52 @@
 _WinAPI_GetUserObjectInformation
 
 ###Description###
-获取关于指定窗口站或桌面对象的信息
+Retrieves information about the specified window station or desktop object.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetUserObjectInformation( $hObject, $iIndex )
+_WinAPI_GetUserObjectInformation ( $hObject, $iIndex )
 
 ###Parameters###
 @@ParamTable@@
 $hObject
-   窗口站或桌面对象的句柄
+	Handle to the window station or desktop object.
 $iIndex
-   要获取的信息. 可为下列值之一.
-    $UOI_FLAGS - 包含窗口站或桌面句柄的$tagUSEROBJECTFLAGS结构.
-    $UOI_HEAPSIZE - 桌面堆栈的大小(KB)
-    $UOI_IO - 如果对象是接收用户的输入的桌面的句柄为1; 否则为0.
-    $UOI_NAME - 对象名称字符串.
-    $UOI_TYPE - 对性类型字符串.
-    $UOI_USER_SID - 格式为"byte[n]"的安全描述符(SID)结构.
+	The information to be retrieved. The parameter can be one of the following values.
+	
+	$UOI_FLAGS
+	$tagUSEROBJECTFLAGS structure containing information about a window station or desktop handle.
+	
+	$UOI_HEAPSIZE
+	The size of the desktop heap, in KB.
+	
+	$UOI_IO
+	1 if the object is a handle to the desktop that is receiving input from the user, 0 otherwise.
+	
+	$UOI_NAME
+	The name of the object, as a string.
+	
+	$UOI_TYPE
+	The type of the object, as a string.
+	
+	$UOI_USER_SID
+	The security identifier (SID) structure as "byte[n]".
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回对象信息. 返回类型依赖于信息类型(见上方)
-失败: 返回0并设置@error非0
+Success	The object information. Return type depends on the information type (see above).
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetUserObjectInformation的相关信息
+@@MsdnLink@@ GetUserObjectInformation
 
 ###Example###
 @@IncludeExample@@
+

@@ -2,32 +2,36 @@
 _WinAPI_SubtractRect
 
 ###Description###
-确定从一个矩形中减去另一矩形所得的矩形坐标
+计算矩形减去另一个矩形后,余下矩形的坐标.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SubtractRect( $tRECT1, $tRECT2 )
+_WinAPI_SubtractRect ( $tRECT1, $tRECT2 )
 
 ###Parameters###
 @@ParamTable@@
 $tRECT1
-  从其中减去由$tRECT2确定的矩形的矩形的$tagRECT结构
+	$tagRECT 结构, 包含将减去 $tRECT2 的矩形.
 $tRECT2
-  要被减去的矩形的$tagRECT结构
+	$tagRECT 结构, 包含将被 $tRECT1 减去的矩形.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含由从$tRECT1减去$tRECT2所确定的矩形的$tagRECT结构
-失败: 返回0并设置@error非0
+成功:	返回 $tagRECT 结构, 包含 $tRECT1 减去 $tRECT2 后的矩形.
+	
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-只在x方向或y方向上完全相交时 , 函数才可从$tRECT1中减去$tRECT2. 例如 , 如果$tRECT1坐标为 (10, 10, 100, 100) 且$tRECT2坐标为 (50, 50, 150, 150), 函数将返回坐标为 (10, 10, 100, 100) 的矩形.
-如果$tRECT1坐标为 (10, 10, 100, 100) 而$tRECT2坐标为 (50, 10, 150, 150), 则返回坐标为 (10, 10, 50, 100) 的矩形.
-换言之 , 所得矩形是不同之处的几何边界框.
+函数只能从 $tRECT1 减去 $tRECT2, 形成在 x 或 y 方向完全相交的矩形.
+ 例如, 如果 $tRECT1 有坐标(10, 10, 100, 100);$tRECT2 有坐标(50, 50, 150, 150),
+ 函数返回的矩形坐标(10, 10, 100, 100).
+ 又如, $tRECT1 有坐标(10, 10, 100, 100); $tRECT2 有坐标(50, 10, 150, 150),
+ 函数返回的矩形坐标(10, 10, 50, 100).
+ 换言之,由此产生矩形的几何差异边界框.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SubtractRect的相关信息
+@@MsdnLink@@ SubtractRect
+

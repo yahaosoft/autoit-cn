@@ -5,25 +5,27 @@ _WinAPI_ShowCursor
 显示或隐藏光标
 
 ###Syntax###
-#Include
-<WinAPI.au3>
+#Include <WinAPI.au3>
 _WinAPI_ShowCursor($fShow)
 
 ###Parameters###
 @@ParamTable@@
-$fShow  如果真, 显示光标, 否则隐藏
+$fShow
+	如为 True, 光标显示, 否则为隐藏
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 新的显示计数器
+成功:	返回新的显示计数Failed:
+	返回 0
 @@End@@
 
 ###Remarks###
-该函数建立了一个内部显示计数器用以确定是否应显示光标. 仅当计数器大于等于0时才显示光标. 如果鼠标已安装, 初步显示计数为0.
-如果没安装, 显示计数为-1.
+ 这个函数设置一个内部显示计数, 决定是否应显示光标.
+ 如果显示计数是大于或等于0, 仅显示光标.
+ 如果安装有鼠标, 初始显示计数为 0, 如果没有鼠标安装, 显示计数为 -1.
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中ShowCursor的相关信息
+@@MsdnLink@@ ShowCursor

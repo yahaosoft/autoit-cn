@@ -2,34 +2,40 @@
 _viOpen
 
 ###Description###
-打开与仪器/设备的VISA连接
+打开 VISA 连接到仪器/设备
 
 ###Syntax###
-#Include <Visa.au3>
-_viOpen ( $s_visa_address, $s_visa_secondary_address = 0 )
+#include <Visa.au3>
+_viOpen ( $s_visa_address [, $s_visa_secondary_address = 0] )
+
 
 ###Parameters###
 @@ParamTable@@
- $s_visa_address  VISA资源描述符字符串(参阅_viExecCommand上的备注) , 如果作为快捷方式可直接用整数传递GPIB地址
- $s_visa_secondary_address  可选: "次要GPIB地址". 只用于基本地址为整数时.
-只有一些GPIB仪器具有次要地址. 这种情况下此可选参数可用于指定之.
-该参数默认为0, 表示没有次要地址.
+$s_visa_address
+	VISA 资源描述字符串(更多信息 _viExecCommand 的注释)
+		也可以直接传递一个 GPIB 整数地址
+$s_visa_secondary_address
+	[可选参数] "辅助 GPIB 地址". 仅用于主地址传递正数时.
+		仅一些 GPIB 仪器有辅助地址,此时即可使用这个可选参数指定案例
+		此参数默认为 0, 意味着没有辅助地址
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回 VISA仪器句柄的(正数)值
- 失败:  返回-1并设置@error为1
+成功:	返回 VISA 仪器的正数值句柄
+失败:	返回 -1,设置@error:to 1
 @@End@@
 
+
 ###Remarks###
-要使用VISA函数必须安装有VISA库(可以检查{WINDOWS}\system32中是否存在visa32.dll)和GPIB卡(如National Instruments NI PCI-GPIB card或Agilent 82350B PCI High-Performance GPIB card)
-* 常用VISA描述符的详细描述可查看帮助中_viExecCommand函数的备注
+VISA 函数必须安装 VISA 库文件(您可以检查visa32.dll是否在 WINDOWS\System32 目录中)
+及 GPIB 卡(例如 National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card)
+ * 常见 VISA 描述符详细介绍,见 _viExecCommand 函数备注
+
 
 ###Related###
- _viClose , _viExecCommand , _viFindGpib , _viGpibBusReset , _viGTL , _viSetAttribute , _viSetTimeout
+_viClose, _viExecCommand, _viFindGpib, _viGpibBusReset, _viGTL, _viSetAttribute, _viSetTimeout
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

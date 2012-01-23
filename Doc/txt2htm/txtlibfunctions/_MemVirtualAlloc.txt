@@ -1,47 +1,49 @@
-﻿###User Defined Function###
+###User Defined Function###
 _MemVirtualAlloc
 
 ###Description###
-保留或指定调用进程的虚拟地址空间的页面区域
+�������ύ���ý��̵������ַ�ռ�ҳ������
 
 ###Syntax###
 #Include <Memory.au3>
-_MemVirtualAlloc($pAddress,$iSize, $iAllocation, $iProtect)
+_MemVirtualAlloc($pAddress, $iSize, $iAllocation, $iProtect)
 
 ###Parameters###
 @@ParamTable@@
- $pAddress  要分配的区域的起始地址
- $iSize  该区域的字节大小
- $iAllocation  内存分配的类型:
-$MEM_COMMIT - 给指定页面区域分配内存中的物理存储或磁盘上的页面文件.
-$MEM_RESERVE
-      - 保留进程的未分配任何物理存储的虚拟地址空间的范围.
-$MEM_TOP_DOWN - 在最高可能的地址分配内存
- $iProtect  要分配的页面区域的内存保护:
-$PAGE_READONLY - 对页面指定区域的读取权限
-$PAGE_READWRITE -
-      对页面指定区域的读写权限
-$PAGE_EXECUTE - 对页面指定区域的操作权限
-$PAGE_EXECUTE_READ -
-      对页面指定区域的操作和读取权限
-$PAGE_EXECUTE_READWRITE -
-      对页面指定区域的操作和读写权限
-$PAGE_GUARD - 区域中的页面变为保护状态
-$PAGE_NOACCESS -
-      禁用页面指定区域的全部权限
-$PAGE_NOCACHE - 允许没有页面指定区域的缓存
+$pAddress
+	ָ������������ʼ��ַ
+$iSize
+	ָ�������С���ֽڵ�λ
+$iAllocation
+	ָ����������:
+		$MEM_COMMIT - Ϊҳ��ָ��������������洢��,������ϵķ�ҳ�ļ�
+		of pages.
+		$MEM_RESERVE - �������̵������ַ�ռ䷶Χ,�������κ������洢
+		storage.
+		$MEM_TOP_DOWN - Ϊ��ߵĿ��ܵ�ַ�����ڴ�
+$iProtect
+	���ʱ�������:
+		$PAGE_READONLY - ���Զ�ȡҳ��ĳ�ŵ����
+		$PAGE_READWRITE - ������д��ŵ����
+		$PAGE_EXECUTE - �������г�ŵ����Ĳ���
+		$PAGE_EXECUTE_READ - �������������ŵ����
+		$PAGE_EXECUTE_READWRITE - ��������,��,дҳ���ŵ����
+		$PAGE_GUARD - �����е�ҳ���Ϊ����ҳ��
+		$PAGE_NOACCESS - ����ҳ���ŵ�����ȫ��Ȩ��
+		$PAGE_NOCACHE - ����û��ҳ���ŵ����Ļ���
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 内存地址指针
-失败: 0
+�ɹ�:	���ش洢����ַָ��
+ʧ��:	���� 0
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
-_MemVirtualFree , _MemGlobalAlloc
+_MemVirtualFree, _MemGlobalAlloc
 
 ###See Also###
-搜索MSDN知识库VirtualAlloc的相关信息
+@@MsdnLink@@ VirtualAlloc

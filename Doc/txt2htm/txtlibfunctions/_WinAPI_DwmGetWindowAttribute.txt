@@ -2,7 +2,7 @@
 _WinAPI_DwmGetWindowAttribute
 
 ###Description###
-获取当前应用于窗口的指定DWM属性值
+检索指定窗口应用属性的当前值.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,27 +11,27 @@ _WinAPI_DwmGetWindowAttribute ( $hWnd, $iAttribute )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   要获取属性的窗体句柄
+	窗口句柄.
 $iAttribute
-   要获取值的属性. 可为下列值之一:
-    $DWMWA_NCRENDERING_ENABLED - 确定非客户端渲染是否可用
-    $DWMWA_CAPTION_BUTTON_BOUNDS - 获取窗体相对空间中标题按钮区的边界
-    $DWMWA_EXTENDED_FRAME_BOUNDS - 获取屏幕空间中扩展框架的绑定矩形
+	属性.参数可以是以下值之一:
+		 $DWMWA_NCRENDERING_ENABLED --- 确定是否启用非客户端绘制
+		 $DWMWA_CAPTION_BUTTON_BOUNDS --- 检索窗口相对空间标题按钮区域的边界.
+		 $DWMWA_EXTENDED_FRAME_BOUNDS --- 检索屏幕空间矩形扩展帧
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回包含属性当前值的值. 返回值类型依赖于参数$iAttribute值
-失败: 返回0并设置@error非0. @extended标记包含COM错误代码
+成功:	返回属性的当前值.值的类型取决于 $iAttribute 的参数值.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-该函数需要Windows Vista或以上版本.
+本函数需要 Windows Vista 或更高版本系统.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中DwmGetWindowAttribute的相关信息
+@@MsdnLink@@ DwmGetWindowAttribute
 
 ###Example###
 @@IncludeExample@@
+

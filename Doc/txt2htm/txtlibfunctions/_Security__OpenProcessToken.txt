@@ -2,7 +2,7 @@
 _Security__OpenProcessToken
 
 ###Description###
-返回所调用进程的句柄
+返回调用进程的进程句柄
 
 ###Syntax###
 #Include <Security.au3>
@@ -10,21 +10,24 @@ _Security__OpenProcessToken($hProcess, $iAccess)
 
 ###Parameters###
 @@ParamTable@@
- $hProcess  被打开访问令牌的进程的句柄. 进程必须被赋以$PROCESS_QUERY_INFORMATION访问许可.
- $iAccess  指定访问掩码指定访问令牌请求的类型.
+$hProcess
+	其访问令牌已打开得进程句柄.
+		进程必须被赋予 $PROCESS_QUERY_INFORMATION 访问权限.
+$iAccess
+	指定访问掩码,指定有权使用访问令牌的类型.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 新打开的访问令牌的标识的句柄的指针.
-失败: 0
+成功:	返回标识新开访问令牌的句柄.
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-关闭由_WinAPI_CloseHandle返回的访问令牌句柄
+调用 _WinAPI_CloseHandle 关闭返回的访问令牌句柄
 
 ###Related###
- _Security__OpenThreadToken
+_Security__OpenThreadToken
 
 ###See Also###
- 搜索MSDN知识库中OpenProcessToken的相关信息
+@@MsdnLink@@ OpenProcessToken

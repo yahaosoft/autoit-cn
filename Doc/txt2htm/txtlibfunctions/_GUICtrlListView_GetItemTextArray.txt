@@ -2,36 +2,36 @@
 _GUICtrlListView_GetItemTextArray
 
 ###Description###
-获取全部列表视图项
+添加所有列表视图控件项目的文本到一个数组
 
 ###Syntax###
-#Include<GuiListView.au3>
-_GUICtrlListView_GetItemTextArray($hWnd[, $iItem =-1])
+#Include <GuiListView.au3>
+_GUICtrlListView_GetItemTextArray($hWnd[, $iItem = -1])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iItem  获取的项目的0基索引
+$hWnd
+	控件句柄
+$iItem
+	[可选参数] 要获取的项目的基于0开始的项目索引
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如下格式数组:
-   [0] - 数组的列数(n)
-   [1] - 第一列索引
-   [2] - 第二列索引
-   [n] - 最后一列索引
-失败: 如下格式数组:
-   [0] - 数组的列数(0)
+成功:	返回如下格式数组:
+	[0] - 控件中列数 (n)
+	[1] - 第一列的文本字符串(主项文本)
+	[2] - 第二列的文本字符串(主项第一子项文本)
+	[n] - 最后列的文本字符串(主项的末项文本)
+失败:	返回如下格式数组:
+	[0] - 控件中列数 (0)
 @@End@@
 
 ###Remarks###
-如果$iItem为-1那么将尝试获取当前被选项.
+ 如 $iItem = -1, 则获取当前选定项目的文本.
 
 ###Related###
-_GUICtrlListView_SetItemText , _GUICtrlListView_GetItemText , _GUICtrlListView_GetItemTextString
-
-###See Also###
+_GUICtrlListView_SetItemText, _GUICtrlListView_GetItemText, _GUICtrlListView_GetItemTextString
 
 ###Example###
 @@IncludeExample@@

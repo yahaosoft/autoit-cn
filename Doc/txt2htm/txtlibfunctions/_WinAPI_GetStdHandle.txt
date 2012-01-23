@@ -2,34 +2,33 @@
 _WinAPI_GetStdHandle
 
 ###Description###
-获取标准输入, 标准输出, 或标准出错设备的句柄
+检索标准输入,标准输出,或标准错误设备的句柄
 
 ###Syntax###
-#Include
-<WinAPI.au3>
+#Include <WinAPI.au3>
 _WinAPI_GetStdHandle($iStdHandle)
 
 ###Parameters###
 @@ParamTable@@
 $iStdHandle
-   将被返回的标准设备的句柄. 可谓下列值之一:
-    0 - 句柄是标准输入设备
-    1 -
-      句柄是标准输出设备
-    2 - 句柄是标准出错设备
+	被返回标准设备句柄. 它必须是以下值之一:
+		0 - 标准输入设备句柄
+		1 - 标准输出设备句柄
+		2 - 标准错误设备句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  指定设备的句柄
- 失败:  -1
+成功:	返回指定设备的句柄
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
-句柄具有GENERIC_READ和GENERIC_WRITE权限,
-除非应用程序已使用SetStdHandle设置了一个带有较少权限的标准句柄. 当应用程序与标准句柄无关联时, 返回0.
+ 句柄具有 GENERIC_READ 与 GENERIC_WRITE 存取访问权,
+ 除非应用程序使用 SetStdHandle 设置有较少访问的标准句柄.
+ 如果应用程序没有相关的标准句柄, 则返回值为 0.
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中GetStdHandle的相关信息
+@@MsdnLink@@ GetStdHandle

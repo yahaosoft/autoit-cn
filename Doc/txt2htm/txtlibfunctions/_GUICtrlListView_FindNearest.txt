@@ -2,44 +2,48 @@
 _GUICtrlListView_FindNearest
 
 ###Description###
-查找到指定位置最近的项目
+查找最接近指定位置的项目
 
 ###Syntax###
-#Include<GuiListView.au3>
-_GUICtrlListView_FindNearest($hWnd, $iX, $iY[, $iDir= 0[, $iStart = -1[, $fWrapOK = True]]])
+#Include <GuiListView.au3>
+_GUICtrlListView_FindNearest($hWnd, $iX, $iY[, $iDir = 0[, $iStart = -1[, $fWrapOK = True]]])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iX  X 位置
- $iY  Y 位置
- $iDir  指定搜索方向:
-0 - 左
-1 - 右
-2 - 上
-3 - 下
-4 - 从开始
-5 - 从结尾
-6
-      - 从前一项
-7 - 从下一项
- $iStart  开始搜索的基于 0 的项目索引 或设置为 -1, 从开始进行. 指定项目自身排除在外.
- $fWrapOK  如果为真, 且未找到匹配项, 搜索将从第一项继续
+$hWnd
+	控件句柄
+$iX
+	X 位置
+$iY
+	Y 位置
+$iDir
+	[可选参数]指定搜索方向:
+		0 - 左
+		1 - 右
+		2 - 上 
+		3 - 下 
+		4 - 开头
+		5 - 结尾
+		6 - 从前一项
+		7 - 从下一项 
+$iStart
+	[可选参数] 搜索开始的 0 基索引,或 -1, 从头开始.
+		指定索引项自身不包括在搜索范围内.
+$fWrapOK
+	[可选参数] 如为 True, 则没有找到匹配项时,从第一项继续搜索
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 项目基于 0 的索引
-失败: -1
+成功:	返回项目的 0 基索引
+失败:	返回 -1
 @@End@@
 
 ###Remarks###
-函数只支持大图标和小图标
+ 函数只支持大图标和小图标模式.
 
 ###Related###
 _GUICtrlListView_FindItem
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

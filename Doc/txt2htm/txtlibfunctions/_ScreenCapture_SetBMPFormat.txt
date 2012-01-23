@@ -2,7 +2,7 @@
 _ScreenCapture_SetBMPFormat
 
 ###Description###
-设置用于BMP屏幕捕捉的位格式
+设置BMP屏幕截图位(bit)格式
 
 ###Syntax###
 #Include <ScreenCapture.au3>
@@ -10,20 +10,22 @@ _ScreenCapture_SetBMPFormat($iFormat)
 
 ###Parameters###
 @@ParamTable@@
- $iFormat  图像每像素位设置(bpp):
-0 = 16bpp; 5bits对每个RGB成分
-1 = 16bpp; 5bits对红色, 6bits对绿色, 5bits对蓝色
-2 = 24bpp; 8bits对每个RGB成分
-3 = 32bpp; 8bits对每个RGB成分. 无alpha成分
-4 = 32bpp; 8bits对每个RGB和alpha成分
+$iFormat
+	图像位每像素(Image bits per pixel)(bpp) 设置:
+		0 = 16 bpp; 每个RGB元素 5 位
+		1 = 16 bpp; 红色5位,绿色6位,蓝色5位
+		2 = 24 bpp; 每个RGB元素 8 位
+		3 = 32 bpp; 每个RGB元素 8 位. 不带透明元素.
+		4 = 32 bpp; 每个RGB元素 8 位. 带透明元素.
 @@End@@
 
+###ReturnValue###
+None.
+
 ###Remarks###
-如果不详细设置, BMP屏幕捕捉默认使用24bpp
+如果没有特殊要求,BMP屏幕截图默认使用24 bpp.
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

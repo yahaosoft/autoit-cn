@@ -2,32 +2,34 @@
 _WinAPI_GetProcessCommandLine
 
 ###Description###
-获取指定进程的命令行字符串
+检索指定进程的命令行字符串.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetProcessCommandLine( [$PID] )
+_WinAPI_GetProcessCommandLine ( [$PID] )
 
 ###Parameters###
 @@ParamTable@@
 $PID
-   进程的PID. 默认(0)为当前进程.
+	[可选参数] 进程 PID. 默认 0, 为当前进程.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回命令行字符串
-失败: 返回0并设置@error非0
+成功:	命令行字符串.
+失败:	返回空串,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-此函数使用了未公开API函数, 可能无法在后续Windows版本正常工作.
-对某些进程使用此函数时可能需要完全访问权限. 在调用_WinAPI_GetProcessCommandLine()前使用_WinAPI_AdjustTokenPrivileges()函数启用SeDebugPrivilege权限
+此函数使用未公开的 API 函数,并可能会在 Windows 未来版本中停止工作.
+使用此函数的一些进程可能需要完全访问权限. 
+使用 _WinAPI_AdjustTokenPrivileges() 函数启用 SeDebug 特权之前,
+ 调用 _WinAPI_GetProcessCommandLine() 函数.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中NtQueryInformationProcess的相关信息
+None
 
 ###Example###
 @@IncludeExample@@
+

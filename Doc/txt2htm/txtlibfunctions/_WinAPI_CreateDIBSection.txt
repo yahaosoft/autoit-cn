@@ -2,43 +2,48 @@
 _WinAPI_CreateDIBSection
 
 ###Description###
-创建程序可直接写入的的图元
+创建应用程序可以直接写入的 DIB(设备无关位图文件).
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateDIBSection( $hDC, $tBITMAPINFO, $iUsage, ByRef $pBits [, $hSection [, $iOffset]] )
+_WinAPI_CreateDIBSection ( $hDC, ByRef $tBITMAPINFO, $iUsage, ByRef $pBits [, $hSection [, $iOffset]] )
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-$iUsage的值为$DIB_PAL_COLORS, 函数使用该设备环境的逻辑调色板初始化图源颜色.
+	设备环境句柄. 如果 $iUsage 为 $DIB_PAL_COLORS,
+		 函数使用设备环境的逻辑调色板初始 DIB 颜色.
 $tBITMAPINFO
-$tagBITMAPINFO结构, 包括位图尺寸和颜色
+	$tagBITMAPINFO 结构, 指定 DIB 的各种属性,包括位图的尺寸和颜色.	
 $iUsage
-$pBits数组中. (逻辑调色板索引或RGB值). 可为:
-    $DIB_PAL_COLORS - 由颜色索引指定
-    $DIB_RGB_COLORS - 由RGB值指定
+	$pBits 数据的类型.(逻辑调色板的索引或 RGB 值).
+		 有下列定义值:
+		 $DIB_PAL_COLORS --- 颜色表包含当前逻辑调色板的16位索引数组.
+		 $DIB_RGB_COLORS --- 颜色表包含 RGB 值
 $pBits
-   接收数位值位置的指针变量的指针
+	指向 DIB 位值的定位指针.
 $hSection
-   函数用于创建图元的文件映射对象的句柄
+	[可选参数] 函数用于创建 DIB 文件映射对象的句柄.
 $iOffset
-$hSection指定的文件映射对象开始衰减的位置. 当$hSection为0是忽略该值.
+	[可选参数] $hSection 文件映射对象位图存储开始位值的偏移量.
+		 如果 $hSection 为 0, 此值将被忽略.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 最近创建的DIB的句柄, 指向位图数位值的$pBits指针. 可以通过$pBits创建结构帮助其填充. 如, DllStructCreate('dword[4]', $pBits).
-失败: 返回0并设置@error非0
+成功:	返回新创建 DIB 的句柄, $pBits 指向位图的位值.
+	可以使用 $pBits 指针创建结构, 以便进一步填充 DIB,
+	例如:DllStructCreate('dword[4]', $pBits).
+失败:	返回 0,设置@error:标志为非 0 值, $pBits 也为 0.
 @@End@@
 
 ###Remarks###
-使用图标完成时, 使用_WinAPI_FreeIcon()函数销毁
+使用完图标, 调用 _WinAPI_DestroyIcon() 函数将其销毁.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中CreateDIBSection的相关信息
+@@MsdnLink@@ CreateDIBSection
 
 ###Example###
 @@IncludeExample@@
+

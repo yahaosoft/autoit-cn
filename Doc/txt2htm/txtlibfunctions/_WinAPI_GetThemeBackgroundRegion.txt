@@ -2,36 +2,37 @@
 _WinAPI_GetThemeBackgroundRegion
 
 ###Description###
-计算与指定矩形绑定的常规或部分透明背景的区域
+Computes the region for a regular or partially transparent background that is bounded by a specified rectangle.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetThemeBackgroundRegion( $hTheme, $iPartId, $iStateId, $hDC, $tRECT )
+_WinAPI_GetThemeBackgroundRegion ( $hTheme, $iPartId, $iStateId, $hDC, $tRECT )
 
 ###Parameters###
 @@ParamTable@@
 $hTheme
-   指定窗口主题数据的句柄
+	Handle to a window's specified theme data.
 $iPartId
-   包含矩形的部分
+	The part that contains the region.
 $iStateId
-$iPartId部分的描述
+	The state of the part.
 $hDC
-   绘制时的设备场景句柄
+	Handle to the device context to draw into.
 $tRECT
-$tagRECT结构
+	$tagRECT structure that contains the specified rectangle used to compute the region.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回计算区域的句柄
-失败: 返回0并设置@error非0
+Success	Handle to the computed region.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
-当不再需要时使用_WinAPI_DeleteObject()释放该函数返回的区域句柄.
+The region handle that is returned by this function should be released when it is no longer needed,
+using _WinAPI_DeleteObject().
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetThemeBackgroundRegion的相关信息
+@@MsdnLink@@ GetThemeBackgroundRegion
+

@@ -2,33 +2,37 @@
 _WinAPI_UrlUnescape
 
 ###Description###
-将转义序列转换回原始字符
+Converts escape sequences back into ordinary characters.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_UrlUnescape( $sUrl [, $iFlags] )
+_WinAPI_UrlUnescape ( $sUrl [, $iFlags] )
 
 ###Parameters###
 @@ParamTable@@
 $sUrl
-  统一资源定位符(也称网页地址)
-$iType
-  [可选] 控制URL中的将被转化的转义序列的(格式为 "%xy" )标记. 可为下列值的组合:
-   $URL_DONT_UNESCAPE_EXTRA_INFO
+	The URL.
+$iFlags
+	[可选参数] The flags that control which characters in the URL should be unescaped (an escape sequence has the form "%xy").
+	It can be a combination of the following values.
+	
+	$URL_DONT_UNESCAPE_EXTRA_INFO
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回未转义URL
-失败: 返回空字符串并设置@error为非0且@extended包含系统错误代码.
+Success	The unescaped URL.
+Failure	Empty string and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中UrlUnescape的相关信息
+@@MsdnLink@@ UrlUnescape
 
 ###Example###
 @@IncludeExample@@
+

@@ -1,8 +1,8 @@
-﻿###User Defined Function###
+###User Defined Function###
 _Net_Share_FileEnum
 
 ###Description###
-获取服务器上打开的文件的信息
+���ط������ϴ򿪵��ļ���Ϣ
 
 ###Syntax###
 #Include <NetShare.au3>
@@ -10,37 +10,44 @@ _Net_Share_FileEnum([$sServer = ""[, $sBaseName = ""[, $sUserName = ""]]])
 
 ###Parameters###
 @@ParamTable@@
- $sServer  用以指定函数将操作的远程服务器的DNS或NetBIOS名称的字符串. 如果参数为空则使用本地计算机.
- $sBaseName  返回信息中包含的相同字符串. 如果为空, 枚举所有打开的资源. 如果非空, 函数只枚举以$sBaseName为前缀的资源.
- $sUserName  指定用户名的字符串. 如果非空, $sUserName服务器作为枚举的依据.
+$sServer
+	[��ѡ����] ����������ִ�к���������
+		������ָ�����ؼ����.
+$sBaseName
+	[��ѡ����] ����������Ϣ���޶���. ���Ϊ��, ��ö�����д򿪵���Դ
+		�����Ϊ��, ����ö���� $sBaseName ǰ׺��Ψһ��Դ.
+$sUserName
+	[��ѡ����] ָ���û���. �����Ϊ��, $sUserName ��Ϊö�ٵ��޶���.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 如下格式数组:
-    [0][0] - 数组的元素数量
-    [1][0] - 资源打开时被分配的编号
-    [1][1] - 与打开的应用程序相关的权限:
-     1 - 允许读取和执行资源
-     2 - 允许写入到资源
-     4 - 允许创建资源
-     8 - 执行许可
-     16 - 删除许可
-     32 - 改变许可属性
-     64 - 改变ACL许可
-    [1][2] - 包含锁定在资源上的文件数
-    [1][3] - 指定打开资源的路径
-    [1][4] - 指定打开资源的用户或计算机
+�ɹ�:	�������¸�ʽ������:
+	[0][0] - ������Ŀ���� (n)
+	[1][0] - ��Դ��ʱ����� ID
+	[1][1] - ��򿪵�Ӧ�ó�����ص�Ȩ��:
+	1 - ��ȡ��ִ����Դ
+	2 - д�뵽��Դ.
+	4 - ������Դ
+	8 - ִ��Ȩ��
+	16 - ɾ��Ȩ��
+	32 - ��������
+	64 - ���� ACL
+	[1][2] - ������������Դ�ϵ��ļ���
+	[1][3] - ָ������Դ��·��
+	[1][4] - ָ������Դ���û�������
+ʧ��:	����@error:	
 @@End@@
 
+
 ###Remarks###
-仅本地管理组或服务器操作组可执行该函数
+ϵͳ����Ա,����������Ա�򱾵����Ա����ִ�д˹���
 
 ###Related###
- _Net_Share_ConnectionEnum , _Net_Share_SessionEnum , _Net_Share_ShareEnum
+_Net_Share_ConnectionEnum, _Net_Share_SessionEnum, _Net_Share_ShareEnum
 
 ###See Also###
- 搜索MSDN知识库中NetFileEnum的相关信息
+@@MsdnLink@@ NetFileEnum
 
 ###Example###
 @@IncludeExample@@

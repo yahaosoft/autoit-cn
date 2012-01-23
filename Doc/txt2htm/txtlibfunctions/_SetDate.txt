@@ -2,36 +2,37 @@
 _SetDate
 
 ###Description###
-设置当前的系统日期
+设置系统的当前日期
 
 ###Syntax###
 #Include <Date.au3>
-_SetDate($iDay[, $iMonth = 0[, $iYear = 0]])
+_SetDate($iDay [, $iMonth = 0 [, $iYear = 0]])
 
 ###Parameters###
 @@ParamTable@@
- $iDay  月份中的日. 值: 1-31
- $iMonth  可选: 月. 值: 1-12
- $iYear  可选: 年. 值: > 0 (windows可能会限制更多!!)
+$iDay
+	月份天数.取值范围: 1-31
+$iMonth
+	[可选参数] 月份. 取值范围: 1-12
+$iYear
+	[可选参数] 年份. 取值范围: > 0 (windows 可能有某些限制!!)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  1
- 失败:  0
- @Error:  0 - 无错误
-  1 - 失败
- @extended:  GetLastError()
-  可通过 MS681381 查询错误号
+成功:	返回 1
+失败:	返回 0,设置@error:	
+@error:	0 - 无错误
+	1 - 失败@extended:
+	GetLastError()
+	错误代码参见:http://msdn.microsoft.com/en-us/library/ms681381.aspx
 @@End@@
 
 ###Remarks###
-如果可选参数(iMonth,iYear)未被指定, 函数不会改变当前值!
+如果可选参数 (iMonth,iYear) 没有定义, 函数不会改变目前的值!
 
 ###Related###
- _SetTime
-
-###See Also###
+_SetTime
 
 ###Example###
 @@IncludeExample@@

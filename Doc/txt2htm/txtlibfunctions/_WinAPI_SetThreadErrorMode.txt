@@ -2,30 +2,33 @@
 _WinAPI_SetThreadErrorMode
 
 ###Description###
-控制系统如何处理指定类型的严重错误或调用线程是否处理
+Controls whether the system will handle the specified types of serious errors or whether the calling thread will handle them.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_SetThreadErrorMode( $iMode )
+_WinAPI_SetThreadErrorMode ( $iMode )
 
 ###Parameters###
 @@ParamTable@@
-$iMode  线程错误模式. 该参数可为一个或多个下列值:
-    $SEM_FAILCRITICALERRORS - 不显示所有严重错误控制器的消息框
-$SEM_NOGPFAULTERRORBOX - 不显示windows错误报告对话框
-$SEM_NOOPENFILEERRORBOX - 查找文件失败时不显示消息框
+$iMode
+	The thread error mode. This parameter can be one or more of the following values.
+	
+	$SEM_FAILCRITICALERRORS
+	$SEM_NOGPFAULTERRORBOX
+	$SEM_NOOPENFILEERRORBOX
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回线程的错误模式($SEM_*)
-失败: 返回0并设置@error非0
+Success	The thread's previous error mode ($SEM_*).
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-最低系统要求: Windows 7
+This function requires Windows 7 or later.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SetThreadErrorMode的相关信息
+@@MsdnLink@@ SetThreadErrorMode
+

@@ -2,37 +2,39 @@
 _IEFrameGetObjByName
 
 ###Description###
-返回一个指定名称的框架(Frame)或者浮动框架(iFrame)的引用
+按名称返回框架或浮动框架对象的引用.
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IEFrameGetObjByName ( ByRef $o_object, $s_name )
 
 ###Parameters###
 @@ParamTable@@
- $o_object  InternetExplorer.Application , 窗口或者框架(frame)对象的对象变量
- $s_name  你想要匹配的框架(Frame)名称
+$o_object
+	InternetExplorer.Application, 窗口或框架对象的对象变量
+$s_name
+	想要匹配的框架名称
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回指向一个框架(Frame)的对象变量 , @EXTENDED = Frame数量
-失败: 返回0并设置@ERROR为:
-    0 ($_IEStatus_Success) = 无错误
-    3 ($_IEStatus_InvalidDataType) = 无效数据类型
-    4 ($_IEStatus_InvalidObjectType) = 无效对象类型
-    7 ($_IEStatus_NoMatch) = 不匹配
-    @Extended: 包含无效参数数量
+成功:	返回指向框架中窗体对象的对象变量, @EXTENDED = Frame count
+失败:	返回0 并且设置 @ERROR
+@Error:	0 ($_IEStatus_Success) = 无错误
+	3 ($_IEStatus_InvalidDataType) = 无效数据类型
+	4 ($_IEStatus_InvalidObjectType) = 无效对象类型
+	7 ($_IEStatus_NoMatch) = 无匹配
+@Extended:	包含无效参数数量
 @@End@@
 
+
 ###Remarks###
-这个函数返回的对象是一个窗口对象 , 这个窗口对象允许访问被包含在内的文档. 你可能也希望得到框架(Frame)或者浮动框架(iFrame)的标签和属性 -
-要想这样做 , 可以用_IETagNameGetCollection.
+该函数返回的对象是一个允许访问所包含文档的窗口对象. 你可能还想访问框架或者浮动框架的标签和属性 - 要想这样做, 可使用_IETagNameGetCollection.
+
 
 ###Related###
- _IEFrameGetCollection
+_IEFrameGetCollection
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

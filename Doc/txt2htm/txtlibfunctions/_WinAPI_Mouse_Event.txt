@@ -2,54 +2,58 @@
 _WinAPI_Mouse_Event
 
 ###Description###
-综合鼠标击键和鼠标动作
+综合鼠标运动轨迹与按键点击
 
 ###Syntax###
 #Include <WinAPI.au3>
-_WinAPI_Mouse_Event($iFlags[,
-$iX = 0[, $iY = 0[, $iData = 0[, $iExtraInfo = 0]]]])
+_WinAPI_Mouse_Event($iFlags [, $iX = 0 [, $iY = 0 [, $iData = 0 [, $iExtraInfo = 0]]]])
 
 ###Parameters###
 @@ParamTable@@
 $iFlags
-   标志位集, 用以指定点击按钮和鼠标动作的多种情况. 此参数里的各数位可以是下列值的任何合理组合:
-    $MOUSEEVENTF_ABSOLUTE - 表明参数$iX和$iY含有规范化的绝对坐标. 如果不设置, 参数含有相对数据. 相对于上次位置的改动位置. 此标志可被设置, 也可不设置, 无论什么样的鼠标或鼠标类设备，如果有的话，是连接到系统的.
-    $MOUSEEVENTF_MOVE - 表明发生移动
-    $MOUSEEVENTF_LEFTDOWN - 表明按下鼠标左键
-    $MOUSEEVENTF_LEFTUP - 表明松开鼠标左键
-    $MOUSEEVENTF_RIGHTDOWN - 表明按下鼠标右键
-    $MOUSEEVENTF_RIGHTUP - 表明松开鼠标右键
-    $MOUSEEVENTF_MIDDLEDOWN - 表明按下鼠标中键
-    $MOUSEEVENTF_MIDDLEUP - 表明松开鼠标中键
-    $MOUSEEVENTF_WHEEL - 如果鼠标有滚轮，表明鼠标轮被移动
-    $MOUSEEVENTF_XDOWN - 表明X键被按下
-    $MOUSEEVENTF_XUP - 表明 X 键被松开
+	指定鼠标移动和按钮点击的标志.
+		此参数可以是任何以下值的合理结合:
+		$MOUSEEVENTF_ABSOLUTE - 指定 $iX 与 $iY 参数包含普通(normal)绝对坐标.
+		如果不设置,这些参数包含相关数据. 变化的地位引自上次报告的位置..
+		这个标志可以设置或不设置,无论什么样的鼠标或类似装置,如果有的话,
+		要连接到系统.
+		$MOUSEEVENTF_ABSOLUTE - 指定 dx 与 dy 参数包含规范化的(normalized)绝对坐标.
+		如果不设置, 这些参数包含相关数据：变化的地位引自上次报告的位置.
+		这个标志可以设置或不设置,无论什么样的鼠标或类似装置,如果有的话,要连接到系统.
+		$MOUSEEVENTF_MOVE - 出现移动
+		$MOUSEEVENTF_LEFTDOWN - 左按钮改为按下
+		$MOUSEEVENTF_LEFTUP - 左边的按钮改为松开
+		$MOUSEEVENTF_RIGHTDOWN - 右按钮改为按下
+		$MOUSEEVENTF_RIGHTUP - 右按钮改为松开
+		$MOUSEEVENTF_MIDDLEDOWN - 中间按钮改为按下
+		$MOUSEEVENTF_MIDDLEUP - 中间按钮改为松开
+		$MOUSEEVENTF_WHEEL - 滚轮已被移动, 如果鼠标有一个滚轮
+		$MOUSEEVENTF_XDOWN - X 按钮被按下
+		$MOUSEEVENTF_XUP - X 按钮被释放
 $iX
-   指定鼠标沿 X
-$MOUSEEVENTF_ABSOLUTE.
-      给出的绝对数据作为鼠标的实际 X 坐标,
-      给出的相对数据作为移动的mickeys数.
+	[可选参数] 鼠标沿 X 轴绝对位置或上次鼠标事件产生以来移动的数量,
+		这取决 $MOUSEEVENTF_ABSOLUTE 的设置.
+		给出的绝对数据作为鼠标的实际 X 坐标; 相对数据作为 mickeys 移动数
 $iY
-   指定鼠标沿 Y
-$MOUSEEVENTF_ABSOLUTE.
-      给出的绝对数据作为鼠标的实际 Y 坐标,
-      给出的相对数据作为移动的mickeys数.
+	[可选参数] 鼠标沿 Y 轴绝对位置或上次鼠标事件产生以来移动的数量
+		这取决 $MOUSEEVENTF_ABSOLUTE 的设置. Absolute data is given as
+		给出的绝对数据作为鼠标的实际 Y 坐标; 相对数据作为 mickeys 移动数.
 $iData
-$MOUSEEVENTF_WHEEL, 则iData指定鼠标轮移动的数量. 正值表明鼠标轮向前转动, 即远离用户的方向. 负值表明鼠标轮向后转动,
-$WHEEL_DELTA, 即120. 如果iFlags不是$MOUSEEVENTF_WHEEL, 那么$iData应为零.
+	[可选参数] 如果 iFlags 是 $MOUSEEVENTF_WHEEL, 则 iData 指定滚轮移动次数.
+		正值表明滚轮向前旋转. 负值表明滚轮向后旋转
+		一个轮击定义为 $WHEEL_DELTA, 即 120.
+		如果 iFlags 不是 $MOUSEEVENTF_WHEEL, 则 $iData 应为0.
 $iExtraInfo
-   指定一个 32 位的值与鼠标事件关联
+	[可选参数] 指定与鼠标事件相关联的 32 位值
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-无
-@@End@@
+None.
 
 ###Remarks###
-需要Constants.au3预定义常量
+ 必须 Constants.au3 预先定义的常量
 
 ###Related###
 
 ###See Also###
-搜索MSDN知识库中mouse_event的相关信息
+@@MsdnLink@@ mouse_event

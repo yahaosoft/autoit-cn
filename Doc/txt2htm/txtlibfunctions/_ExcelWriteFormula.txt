@@ -2,39 +2,39 @@
 _ExcelWriteFormula
 
 ###Description###
-将公式写入指定Excel对象活动工作表中的一个单元格中
+将公式写入指定 Excel 对象活动工作表单元格中.
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelWriteFormula($oExcel, $sFormula, $sRangeOrRow[, $iColumn = 1])
+_ExcelWriteFormula($oExcel, $sFormula, $sRangeOrRow [, $iColumn = 1])
 
 ###Parameters###
 @@ParamTable@@
-$oExcel 
-   由预先调用_ExcelBookOpen()或_ExcelBookNew()打开的Excel对象
-$sFormula 
-   被写入的公式
-$sRangeOrRow 
-   A1范围, 或使用R1C1时写入的整数行数
-$iColumn 
-   使用R1C1时写入的列 (默认为1)
+$oExcel
+	Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+$sFormula
+	Formula to be written
+$sRangeOrRow
+	Either an A1 range, or an integer row number to write to if using R1C1
+$iColumn
+	[optional] The column to write to if using R1C1 (default = 1)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回1
- 失败:  返回0并设置@error
- @error:  1 - 指定对象不存在
-  2 - 参数超出范围
- @extended:  0 - 行超出范围
-  1 - 列超出范围
+成功:	返回 1
+失败:	返回 0, 并设置 @error:
+@error:	0 - 无错误
+	1 - 指定的对象不存在
+	2 - 参数超出范围
+@extended:	0 - 行数超出范围
+	1 - 列数超出范围
 @@End@@
 
 ###Remarks###
+None
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

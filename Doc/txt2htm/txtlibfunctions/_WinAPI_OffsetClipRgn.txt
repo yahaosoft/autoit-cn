@@ -2,34 +2,35 @@
 _WinAPI_OffsetClipRgn
 
 ###Description###
-将指定设备场景的剪切区域移动指定量
+依据指定的偏移量移动设备环境剪辑区域.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_OffsetClipRgn( $hDC, $iXOffset, $iYOffset )
+_WinAPI_OffsetClipRgn ( $hDC, $iXOffset, $iYOffset )
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   设备场景的句柄
+	设备环境句柄.
 $iXOffset
-   左右移动的逻辑单位量
+	向左或向右移动的逻辑单位数量.
 $iYOffset
-   上下移动的逻辑单位量
+	向上或向下移动的逻辑单位数量.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 用于指定新剪切区的复杂度的值. 可为下列值:
-    $NULLREGION - 空区
-    $SIMPLEREGION -简单区域
-    $COMPLEXREGION - 复杂区域
-失败: 返回0并设置@error非0
+成功:	返回新剪辑区域状态的值. 可以是以下值之一:
+	$COMPLEXREGION --- 区域超过一个矩形.
+	$NULLREGION --- 空区域.
+	$SIMPLEREGION --- 区域是一个单一矩形
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中OffsetClipRgn的相关信息
+@@MsdnLink@@ OffsetClipRgn
+

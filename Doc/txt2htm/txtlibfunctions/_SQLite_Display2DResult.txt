@@ -2,34 +2,35 @@
 _SQLite_Display2DResult
 
 ###Description###
-将一个二维格式数组返回或打印到控制台
+返回或打印一个格式化后的二维数组视图到控制台
 
 ###Syntax###
-#Include <SQLite.au3>
-_SQLite_Display2DResult ( $aResult [, $iCellWidth = 0 [, $nReturn = 0 ]] )
+#include <SQLite.au3>
+_SQLite_Display2DResult ( $aResult [, $iCellWidth = 0 [, $bReturn = 0 ]] )
+
 
 ###Parameters###
 @@ParamTable@@
- $aResult  要显示的数组
- $iCellWidth  [可选] 指定数据字段大小
- $nReturn  [可选] 如果为真则返回格式化字符串, 否则不显示.
+$aResult
+	要操作的数组
+$iCellWidth
+	[可选参数] 指定数据字段的大小
+$bReturn
+	[可选参数] 如果为 True, 返回格式化字符串,但不显示
+	如果为 False, 格式化的字符串发将发送到 StdOut[标准输出设备(默认为控制台)]
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 无返回或返回格式化字符串
-失败: @error = 1 - $aResult不是数组或维度错误
+成功:	无返回或返回格式化字符串
+失败:	@error = 1 - $aResult 没有数组或有错误尺寸
 @@End@@
 
 ###Remarks###
-如果$nReturn不是1而是0, 则将UTF8格式的字符串打印到控制台.
-在配置了output.code.page=65001的情况下允许如SCITE的应用程序显示这些字符.
-通常发生在非英版本系统中运行SCiTE情况下.
+None.
 
 ###Related###
- _SQLite_Gettable2d
-
-###See Also###
+_SQLite_GetTable2d
 
 ###Example###
 @@IncludeExample@@

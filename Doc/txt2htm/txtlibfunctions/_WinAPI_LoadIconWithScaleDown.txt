@@ -2,48 +2,48 @@
 _WinAPI_LoadIconWithScaleDown
 
 ###Description###
-加载图标并缩小大图像
+加载了图标并按比例缩减较大图像;而不是按比例放大小图像.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_LoadIconWithScaleDown( $hInstance, $sName, $iWidth, $iHeight )
+_WinAPI_LoadIconWithScaleDown ( $hInstance, $sName, $iWidth, $iHeight )
 
 ###Parameters###
 @@ParamTable@@
 $hInstance
-   包含所加载的图标的DLL或可执行(.exe)文件的模块的句柄
+	包含图标模块的 DLL 或可执行(.exe)文件句柄.
 $sName
-$hInstance不为0 , $sName指定图标资源的名称或坐标 , 否则 , $sName指定单独图标(.ico)的文件名或加载的预定义图标的标识符.
-    $IDI_APPLICATION - 默认应用程序图标
-    $IDI_ASTERISK - 与$IDI_INFORMATION相同
-    $IDI_ERROR - 手型图标
-    $IDI_EXCLAMATION - 与$IDI_WARNING相同
-    $IDI_HAND - 与$IDI_ERROR相同
-    $IDI_INFORMATION - 星标
-    $IDI_QUESTION - 问号图标
-    $IDI_SHIELD - 安全盾牌图标
-    $IDI_WARNING - 感叹号图标
-    $IDI_WINLOGO - Windows商标图标. WindowsXP为默认应用程序图标
+	被加载图标的信息.如果 $hInstance 不为 0,$sName 使用名称或序号指定图标资源,
+		 否则,$sName 指定图标文件(.ico)的名称或预定义图标标识符.
+		 $IDI_APPLICATION --- 默认的应用程序图标
+		 $IDI_ASTERISK --- 相同于 IDI_INFORMATION
+		 $IDI_ERROR --- 手形图标
+		 $IDI_EXCLAMATION --- 相同于 IDI_WARNING
+		 $IDI_HAND --- 相同于 IDI_ERROR
+		 $IDI_INFORMATION --- 星号图标
+		 $IDI_QUESTION --- 问号图标
+		 $IDI_SHIELD --- 安全盾牌图标
+		 $IDI_WARNING --- 感叹号图标
+		 $IDI_WINLOGO --- Windows 徽标图标,Windows XP中为默认应用程序图标
 $iWidth
-   所需图标的像素宽度
+	图标宽度的像素值.
 $iHeight
-   所需图标的像素高度
+	图标高度的像素值.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回图标句柄
-失败: 返回0并设置@error非0同时@extentded标记包含COM错误代码
+成功:	返回图标的句柄.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-最低系统要求: Windows Vista
-正常运行示例请将 Soccer.ico 文件保存到临时文件夹中
+本函数需要 Windows Vista 或更高版本系统.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中LoadIconWithScaleDown的相关信息
+@@MsdnLink@@ LoadIconWithScaleDown
 
 ###Example###
 @@IncludeExample@@
+

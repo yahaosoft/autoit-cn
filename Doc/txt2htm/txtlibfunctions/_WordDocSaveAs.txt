@@ -2,76 +2,73 @@
 _WordDocSaveAs
 
 ###Description###
-_WordDocSaveAs
-用新名字或新格式保存文档
+保存指定的文档为一个新名称或者其它格式.
 
 ###Syntax###
-#Include <Word.au3>
+#include <Word.au3> 
 _WordDocSaveAs ( ByRef $o_object [, $s_FilePath = "" [, $i_Format = 0 [, $b_ReadOnlyRecommended = 0 [, $b_AddToRecentFiles = 0 [, $b_LockComments = 0 [, $s_Password = "" [, $s_WritePassword = ""]]]]]]] )
 
 ###Parameters###
 @@ParamTable@@
-$o_object 
-   Word.Application的文档对象变量
-$s_FilePath 
-   可选: 保存文档的完整路径. (见备注)
-    "" = (默认) 如果文档从没被保存过, 可使用默认名称(例如,
- 
-      Document1.doc)
-$i_Format 
-   可选: 文档保存的格式.
-    0 = (默认) Microsoft Word格式
-    1 = Microsoft Word模板格式
-    2 = Microsoft Windows文本格式
-    3 = Microsoft Windows保留断行符的文本格式
-    4 = Microsoft DOS文本格式
-    5 = Microsoft DOS保留断行的文本格式
-    6 = 富文本格式 (RTF)
-    7 = Unicode 文本格式或编码的文本格式
-    8 = 标准HTML格式
-    9 = 网络档案格式
-    10 = 过滤的HTML格式
-    11 = 可扩展标记语言(XML)格式
-$b_ReadOnlyRecommended 
-   可选: 指定Microsoft Word是否假定只读无论文件是否已打开.
-    0 = (默认) 不假定
-    1 =
- 
-    假定只读
-$b_AddToRecentFiles 
-   可选: 指定是否将文件名添加到文件菜单底部的最近使用的文件中.
-    0 = (默认)不添加
-    1 = 添加
-$b_LockComments 
-   可选: 指定是否锁定批注
-    0 = (默认) 不锁定
-    1 = 锁定
-$s_Password 
-   可选: 打开文件时使用的密码 (见备注)
-$s_WritePassword 
-   可选: 保存文件时使用的密码 (见备注)
+$o_object
+	Word.Application 对象变量的文档对象
+$s_FilePath
+	[可选参数] 用于保存文档的完整文件路径. (见备注)
+	"" = (默认) 如果该文档从未被保存，则使用默认的名称 (例如, Doc1.doc)
+$i_Format
+	[可选参数] 文档保存格式.
+	0 = (默认) Microsoft Word 格式
+	1 = 微软 Word 模板格式
+	2 = Microsoft Windows 文本格式
+	3 = 微软 Windows 换行的文本格式
+	4 = Microsoft DOS 文本格式
+	5 = 微软 DOS 文本换行符
+	6 = 富文本格式 (RTF)
+	7 = Unicode 文本格式或编码文本格式
+	8 = 标准 HTML 格式
+	9 = Web 存档格式
+	10 = 筛选的 HTML 格式
+	11 = 可扩展标记语言（XML）格式
+$b_ReadOnlyRecommended
+	[可选参数] 指定 Microsoft Word 被打开时是否为建议只读状态.
+	0 = (默认) 不建议只读
+	1 = 建议只读
+$b_AddToRecentFiles
+	[可选参数] 指定是否在文件菜单底部"最近使用的文件列表"添加打开的文件名.
+	0 = (默认) 不添加
+	1 = 添加
+$b_LockComments
+	[可选参数] 指定是否锁定文档的注释.
+	0 = (默认) 不锁定文档的注释
+	1 = 锁定文档的注释
+$s_Password
+	[可选参数] 打开文档的密码字符串. (见备注)
+$s_WritePassword
+	[可选参数] 保存文档更改的密码字符串. (见备注)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回1
- 失败:  返回0并设置 @ERROR
- @Error:  0 ($_WordStatus_Success) = 无错误
-  1 ($_WordStatus_GeneralError) = 一般错误
-  3 ($_WordStatus_InvalidDataType) = 无效数据类型
-  4 ($_WordStatus_InvalidObjectType) = 无效对象类型
- @Extended:  参数数量无效
+成功:	返回 1
+失败:	返回 0， 并设置s @ERROR
+@Error:	$_WordStatus_Success = 没有错误
+	$_WordStatus_GeneralError = 一般错误
+	$_WordStatus_InvalidDataType = 无效的数据类型
+	$_WordStatus_InvalidObjectType = 无效的对象类型
+@Extended:	包含无效的参数数目
 @@End@@
 
+
 ###Remarks###
-如果指定文件名的文件已存在 , 文件将在没有提示的条件下被覆盖.
-如果文件无法保存脚本将暂停至注册WordErrorHandler为止.
-尽量避免在程序中使用强密码. 如果进程需要密码 , 可从用户处获取 , 将密码存为变量 , 然后在代码中使用变量
+ 如果指定的文件名的文件已经存在, 该文件被覆盖并且不提示用户.
+ 如果该文件不能保存时脚本将会停止，除非 WordErrorHandler 已经注册.
+ 
+ 避免在您的应用程序中使用硬编码的密码. 如果是程序需要密码，将用户密码存储在一个变量中，然后在代码中使用该变量.
+
 
 ###Related###
- _WordDocAdd , _WordDocClose , _WordDocOpen , _WordDocSave
+_WordDocAdd, _WordDocClose, _WordDocOpen, _WordDocSave
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

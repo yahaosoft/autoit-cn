@@ -2,30 +2,31 @@
 _WinAPI_CopyEnhMetaFile
 
 ###Description###
-将增强型元文件内容复制到指定文件
+复制增强型图元文件格式到指定的文件.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CopyEnhMetaFile( $hEmf [, $sFile] )
+_WinAPI_CopyEnhMetaFile ( $hEmf [, $sFile] )
 
 ###Parameters###
 @@ParamTable@@
 $hEmf
-   将被复制的增强型元文件的句柄
+	被复制的增强型图元文件句柄.
 $sFile
-   目标文件名(.emf). 如果为0则将源文件复制到内存.
+	[可选参数] 结果文件名称(.emf). 如果参数为 0, 源图元文件复制到内存.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 增强型元文件副本的句柄
-失败: 返回0并设置@error非0
+成功:	返回增强型元文件副本的句柄.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-当应用程序不再需要增强型元文件时, 调用_WinAPI_DeleteEnhMetaFile()函数删除元文件句柄.
+当应用程序不再需要增强型元文件句柄时,
+调用 _WinAPI_DeleteEnhMetaFile() 函数删除该句柄.
 
-###Related###
 
 ###See Also###
-搜索MSDN知识库中有关CopyEnhMetaFile的信息
+@@MsdnLink@@ CopyEnhMetaFile
+

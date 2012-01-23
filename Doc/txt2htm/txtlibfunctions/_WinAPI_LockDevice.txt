@@ -2,35 +2,35 @@
 _WinAPI_LockDevice
 
 ###Description###
-根据设备锁定进程启用或禁用弹出媒体功能
+启用或禁用具有锁定功能的设备的弹出媒体机制.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_LockDevice( $sDrive, $fLock )
+_WinAPI_LockDevice ( $sDrive, $fLock )
 
 ###Parameters###
 @@ParamTable@@
 $sDrive
-   要被启用或禁用的设备, 格式如D:, E:等
+	设备驱动器号. 如 D:, E:, 等等.
 $fLock
-   指定是否禁用设备, 可为下列值:
-    TRUE - 禁用设备
-    FALSE - 启用设备
+	指定设备的启用或禁用, 有效值为:
+		1 - 禁用.
+		0 - 启用.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-该函数仅对支持可移动媒介的设备有效
+此函数仅适用于可移动媒体设备.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中IOCTL_STORAGE_MEDIA_REMOVAL的相关信息
+@@MsdnLink@@ IOCTL_STORAGE_MEDIA_REMOVAL
 
 ###Example###
 @@IncludeExample@@
+

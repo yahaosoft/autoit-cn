@@ -1,44 +1,46 @@
-﻿###User Defined Function###
+###User Defined Function###
 _MemGlobalAlloc
 
 ###Description###
-从堆栈中分配指定数量的字节
+�Ӷ�ջ����ָ�����ֽ���
 
 ###Syntax###
 #Include <Memory.au3>
-_MemGlobalAlloc($iBytes[,$iFlags = 0])
+_MemGlobalAlloc($iBytes[, $iFlags = 0])
 
 ###Parameters###
 @@ParamTable@@
- $iBytes  分配的字节数. 如果参数为0且$iFlags参数指定$GMEM_MOVEABLE,
-      函数返回一个标记为废弃的内存对象的句柄
- $iFlags  内存分配属性:
-$GMEM_FIXED - 分配固定内存. 返回值是指针.
-$GMEM_MOVEABLE - 分配可移动内存.
-      物理内存并不移动, 而是在默认堆栈中移动. 返回值是内存对象的句柄. 使用_MemGlobalLock函数将句柄翻译为一个指针.
-      该值不能与$GMEM_FIXED结合.
-$GMEM_ZEROINIT - 初始化内存内容到0
-$GHND -
-      $GMEM_MOVEABLE和$GMEM_ZEROINIT的结合
-$GPTR -
-    $GMEM_FIXED和$GMEM_ZEROINIT的结合
+$iBytes
+	������ֽ���.����˲���Ϊ 0,$iFlags ����ָ��Ϊ $GMEM_MOVEABLE,
+		��������һ�����Ϊ�������ڴ������.
+$iFlags
+	[��ѡ����] �ڴ��������:
+		$GMEM_FIXED - ����̶��ڴ�.����ֵ��һ��ָ��.
+		$GMEM_MOVEABLE - ������ƶ��ڴ�.�����ƶ������ڴ�,
+		������Ĭ�϶�ջ���ƶ�,����ֵ��һ��ָ���ڴ����ľ��.
+		ʹ�� _MemGlobalLock �������������Ϊһ��ָ��.
+		���ֵ������ $GMEM_FIXED ����ֵ���.
+		$GMEM_ZEROINIT - ��ʼ���ڴ����ݵ� 0
+		$GHND - $GMEM_MOVEABLE �� $GMEM_ZEROINIT �����
+		$GPTR - $GMEM_FIXED �� $GMEM_ZEROINIT �����
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 最近分配的内存对象的句柄
-失败: 0
+�ɹ�:	���ط�����ڴ������
+ʧ��:	���� 0
 @@End@@
 
 ###Remarks###
-Windows 内存管理不提供分离的本地堆栈和全局堆栈. 如果函数成功, 将至少分配一定数量的所需内存.
-如果实际分配的数量高于请求的数量, 进程可以使用全部内存. 使用_MemGlobalSize函数决定分配的字节的实际数量.
-如果堆栈中没有足够的自由空间满足需要, 函数返回 NULL. 由该函数分配的内存可保证对齐在8个字节界限内. 为了执行动态生成的代码,
-使用_MemVirtualAlloc函数分配内存同时使用_Mem_VirtualProtect函数允许$PAGE_EXECUTE.
-使用_MemGlobalFree函数释放内存. 使用_Mem_LocalFree释放与_MemGlobalAlloc相关的内存不安全.
-
-###Related###
-_MemGlobalLock , _MemGlobalSize , _MemVirtualAlloc , _MemGlobalFree
+ Windows	�ڴ�������ṩ�����ı��ض�ջ��ȫ�ֶ�ջ.
+ ����˺����ɹ�, �����ٻ���䱻������ڴ���.
+ ���ʵ�ʷ���������������,���̿���ʹ��ȫ��������. 
+ Ҫȷ�������ʵ���ֽ���,ʹ�� _MemGlobalSize ����.
+ �����ջû���㹻�Ŀ��ÿռ���������,���������� NULL(��ֵ).
+ ʹ�ô˺���������ڴ汣֤������ 8 �ֽڽ�����.
+ Ϊ��ִ�ж�̬���ɵĴ���, ʹ�� _MemVirtualAlloc ���������ڴ�,
+ ��ʹ�� _Mem_VirtualProtect �������� $PAGE_EXECUTE ����Ȩ. 
+ Ҫ�ͷ��ڴ�,ʹ�� _MemGlobalFree ���� .
 
 ###See Also###
-查询MSDN知识库中GlobalAlloc相关内容
+@@MsdnLink@@ GlobalAlloc

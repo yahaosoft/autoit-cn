@@ -2,28 +2,30 @@
 _WinAPI_UnloadKeyboardLayout
 
 ###Description###
-卸载本地输入标识
+卸载一个输入区域设置标识符.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_UnloadKeyboardLayout( $hLocale )
+_WinAPI_UnloadKeyboardLayout ( $hLocale )
 
 ###Parameters###
 @@ParamTable@@
-$hLocale  将被卸载的本地输入标识
+$hLocale
+	待删除的输入法区域标识符.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:	
+标志为非 0 值.
 @@End@@
 
 ###Remarks###
-_WinAPI_UnloadKeyboardLayout()无法卸载系统默认的本地输入标识当其为唯一加载的键盘布局时.
-在卸载默认输入标识前必须首先加载另一输入标识.
+本函数不能卸载系统默认输入法区域设置标识符,如果它是唯一的键盘布局被加载时.
+ 在卸载默认输入法区域设置标识符之前,应先加载其他输入法区域设置标识符.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中UnloadKeyboardLayout的相关信息
+@@MsdnLink@@ UnloadKeyboardLayout
+

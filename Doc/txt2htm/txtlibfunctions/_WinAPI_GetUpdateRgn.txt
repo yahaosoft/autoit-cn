@@ -2,7 +2,7 @@
 _WinAPI_GetUpdateRgn
 
 ###Description###
-通过将其复制到指定区域获取窗体的的更新区域
+通过复制指定区域检索窗口的更新区域.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,28 +11,30 @@ _WinAPI_GetUpdateRgn ( $hWnd, $hRgn [, $fErase] )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   更新区域所在窗体的句柄
+	窗口句柄.
 $hRgn
-   用于接收更新区域的区域的句柄
+	矩形句柄.
 $fErase
-   [可选] 指定是否擦除更新区域的背景 , 可用值:
-    1 - 擦除背景(默认)
-    0 - 保留背景不变
+	[可选参数] 指定是否删除更新区域背景.有效值:
+		1 - 背景删除. (默认)
+		0 - 背景不变.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回描述结果区域复杂性的值. 可为下列值之一:
-    $COMPLEXREGION - 区域包含多个矩形
-    $NULLREGION - 空区域
-    $SIMPLEREGION - 简单矩形
-失败: 返回0并设置@error非0
+成功:	返回结果区域的状态.可以是以下值之一:
+	$COMPLEXREGION --- 区域超过一个矩形.
+	$NULLREGION --- 空区域.
+	$SIMPLEREGION --- 区域是一个单一矩形
+失败:	返回 0,设置@error:	
+标志为非 0 值.
 @@End@@
 
 ###Remarks###
-_WinAPI_BeginPaint()自动激活更新区域, 任意在对_WinAPI_BeginPaint()的调用后对_WinAPI_GetUpdateRgn()的调用都会获取一个空的更新区域.
+_WinAPI_BeginPaint() 自动验证更新区域.因此任何 _WinAPI_GetUpdateRect() 后立即
+ 调用 _WinAPI_BeginPaint() 检索一个空更新区域.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetUpdateRgn的相关信息
+@@MsdnLink@@ GetUpdateRgn
+

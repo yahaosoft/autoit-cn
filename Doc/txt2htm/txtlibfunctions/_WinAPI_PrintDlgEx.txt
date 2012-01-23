@@ -2,35 +2,36 @@
 _WinAPI_PrintDlgEx
 
 ###Description###
-显示打印属性表使用户可以指定特殊打印工作的属性
+Displays a Print property sheet that enables the user to specify the properties of a particular print job.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_PrintDlgEx( ByRef $tPRINTDLGEX )
+_WinAPI_PrintDlgEx ( ByRef $tPRINTDLGEX )
 
 ###Parameters###
 @@ParamTable@@
 $tPRINTDLGEX
-$tagPRINTDLGEX结构. 该结构在_WinAPI_PrintDlgEx()返回时包含用户选定的信息.更多信息请
-
-###Related###
-
-###See Also###
-    MSDN
+	$tagPRINTDLGEX structure that contains information used to initialize the property sheet. When _WinAPI_PrintDlgEx()
+	returns, this structure contains information about the user's selections.
+	
+	(See MSDN for more information)
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1; @extended标记包含下列值之一:
-    $PD_RESULT_APPLY - 用户点击 " 应用 " 按钮后点击 " 取消 " 按钮. 这表示用户希望申请在属性表中所做的更改, 但还没有要打印.
-    $PD_RESULT_CANCEL - 用户点击 " 取消 " 按钮. $tPRINTDLGEX结构中的信息是不变的.
-    $PD_RESULT_PRINT - 用户点击 " 打印 " 按钮. $tPRINTDLGEX结构包含由用户指定的信息.
-失败: 返回0并设置@error非0; @extended标记包含系统错误代码.
+Success	1, @extended flag will contain one of the following values.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
-注意$tagPRINTDLGEX结构中的 " hDevMode " 和 " hDevNames " 成员的值当传递到_WinAPI_PrintDlgEx()时会发生改变. 因为在输入和输出时都要填充这些成员.
-参考  搜索MSDN知识库中PrintDlgEx的相关信息
+Note that the values of "hDevMode" and "hDevNames" member in $tagPRINTDLGEX may change when they are passed into
+_WinAPI_PrintDlgEx(). This is because these members are filled on both input and output.
+
+
+###See Also###
+@@MsdnLink@@ PrintDlgEx
 
 ###Example###
 @@IncludeExample@@
+

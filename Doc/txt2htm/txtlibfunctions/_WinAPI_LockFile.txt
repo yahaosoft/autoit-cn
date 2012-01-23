@@ -2,32 +2,34 @@
 _WinAPI_LockFile
 
 ###Description###
-调用进程为独占访问锁定指定文件
+锁定由调用进程独占访问指定的文件.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_LockFile( $hFile, $iOffset, $iLenght )
+_WinAPI_LockFile ( $hFile, $iOffset, $iLenght )
 
 ###Parameters###
 @@ParamTable@@
 $hFile
-   文件句柄
+	文件句柄.
 $iOffset
-   锁定开始处在文件中对于起点的字节偏移
+	开始锁定的起始字节偏移量.
 $iLenght
-   锁定范围的字节长度
+	锁定范围的字节长度.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-如果带有一个锁定文件部分的进程终止或关闭带有额外锁定的文件, 锁定将被系统解锁. 然而, 解锁这些锁定要耗费可用的系统资源, 因此建议你在终止进程时解锁所有锁定的文件.
+如果进程终止,文件锁定的部分或关闭未解决的锁定文件由操作系统解锁.
+ 然而,操作系统解开这些锁定的所需时间取决于系统的可用资源,
+ 因此,建议你在进程终止后释放所有已锁定文件.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中LockFile的相关信息
+@@MsdnLink@@ LockFile
+

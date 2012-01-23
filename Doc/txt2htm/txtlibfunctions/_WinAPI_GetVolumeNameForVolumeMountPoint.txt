@@ -2,30 +2,33 @@
 _WinAPI_GetVolumeNameForVolumeMountPoint
 
 ###Description###
-获取挂载点目标卷的卷名
+检索指定装入点的卷 GUID 路径.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetVolumeNameForVolumeMountPoint( $sPath )
+_WinAPI_GetVolumeNameForVolumeMountPoint ( $sPath )
 
 ###Parameters###
 @@ParamTable@@
 $sPath
-   挂载文件夹路径(如, Y:\MountX\)或一个驱动器字母(如, X:\).
+	安装文件夹的路径(例如, Y:\MountX\) 或驱动器名 (例如, X:\)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 卷名. 该路径格式如"\\?\Volume{GUID}\". 如果卷中包含多个GUID路径, 只返回第一个.
-失败: 空字符串并设置@error非0
+成功:	返回卷的 GUID 路径.
+	路径形式为 "\\?\Volume{GUID}\",其中的 GUID 是 GUID 卷的标识.
+	如果有一个以上的卷 GUID 路径,仅返回装入管理缓存中的第一个卷 GUID 路径.
+失败:	返回空串,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GetVolumeNameForVolumeMountPoint的相关信息
+@@MsdnLink@@ GetVolumeNameForVolumeMountPoint
 
 ###Example###
 @@IncludeExample@@
+

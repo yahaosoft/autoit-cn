@@ -2,44 +2,42 @@
 _ExcelHyperlinkInsert
 
 ###Description###
-在活动页中插入超链接
+活动页面中插入一个超链接.
 
 ###Syntax###
 #Include <Excel.au3>
-_ExcelHyperlinkInsert($oExcel, $sLinkText, $sAddress, $sScreenTip, $sRangeOrRow[, $iColumn = 1])
+_ExcelHyperlinkInsert($oExcel, $sLinkText, $sAddress, $sScreenTip, $sRangeOrRow [, $iColumn = 1])
 
 ###Parameters###
 @@ParamTable@@
-$oExcel 
-   由预先调用_ExcelBookOpen()或_ExcelBookNew()打开的Excel对象
-$sLinkText 
-   超链接文本
-$sAddress 
-   连接到的URL文本
-$sScreenTip 
-   弹出文本屏幕提示
-$sRangeOrRow 
-   A1格式范围, 或者R1C1格式的整数行数
-$iColumn 
-   R1C1格式的指定列数(默认为1)
+$oExcel
+	An Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+$sLinkText
+	The text to display the hyperlink as
+$sAddress
+	The URL to link to, as a string
+$sScreenTip
+	The popup screen tip, as a string
+$sRangeOrRow
+	The range in A1 format, or a row number for R1C1 format
+$iColumn
+	[optional] The specified column number for R1C1 format (default = 1)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  返回1
- 失败:  返回0并设置@error
- @error:  0 - 无错误
-  1 - 指定对象不存在
-  2 - 行或列不可用
- @extended:  0 - 行不可用
-  1 - 列不可用
+成功:	返回 1
+失败:	返回 0, 并设置 @error:
+@error:	1 - 指定的对象不存在
+	2 - 行或列无效
+@extended:	0 - 行无效
+	1 - 列无效
 @@End@@
 
 ###Remarks###
+None
 
 ###Related###
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

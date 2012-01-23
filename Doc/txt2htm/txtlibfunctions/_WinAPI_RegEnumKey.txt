@@ -2,40 +2,49 @@
 _WinAPI_RegEnumKey
 
 ###Description###
-枚举打开的指定注册表键的子键
+枚举指定的并已打开的注册表键子项.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RegEnumKey( $hKey, $iIndex )
+_WinAPI_RegEnumKey ( $hKey, $iIndex )
 
 ###Parameters###
 @@ParamTable@@
 $hKey
-$KEY_ENUMERATE_SUB_KEYS访问权限打开. 该句柄须由_WinAPI_RegCreateKey()或_WinAPI_RegOpenKey()函数打开.可为下列预定义键之一:
-$HKEY_CLASSES_ROOT
-$HKEY_CURRENT_CONFIG
-$HKEY_CURRENT_USER
-$HKEY_LOCAL_MACHINE
-$HKEY_USERS
+	打开的注册表项句柄,该键项必须已打开且有 $KEY_ENUMERATE_SUB_KEYS 访问权限.
+		 句柄由 _WinAPI_RegCreateKey() 或 _WinAPI_RegOpenKey() 函数返回.
+		 参数也可以为下列一预定义项:
+		 $HKEY_CLASSES_ROOT --- 定义文件类型和类型相关的属性
+		 $HKEY_CURRENT_CONFIG --- 包含本地计算机系统目前的硬件配置文件
+		 $HKEY_CURRENT_USER --- 定义当前用户的参数选择
+		 $HKEY_LOCAL_MACHINE --- 定义计算机物理状态,包括总线类型、系统内存数据、并安装的硬件和软件
+		 $HKEY_PERFORMANCE_DATA --- 允许访问性能数据
+		 $HKEY_USERS --- 确定本地计算机新用户定义默认用户配置,并作为当前用户的用户配置
 $iIndex
-   要获取的子键的索引. 该参数在首次被函数_WinAPI_RegEnumKey()调用时为0并随调用次数递增
+	子项的索引.第一次调用本函数时,这个参数应为 0,后续调用则递增.	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回包含子键名称的字符串
-失败: 返回空字符串并设置@error非0, @extended标记可包含非0系统错误代码.
+成功:	返回子项名称字符串
+失败:	返回空串,设置@error:标志为非 0 值, @extended 标志可能包含系统错误代码.
 @@End@@
 
 ###Remarks###
-枚举子键时, 应用程序初始以参数$iIndex为0调用_WinAPI_RegEnumKey(). 然后增加$iIndex参数并调用_WinAPI_RegEnumKey()直到已不存在子键(表示@extended标记为ERROR_NO_MORE_ITEMS (259)).
-应用程序也可在首次调用函数时使用最后的子键索引并进行递减操作直到枚举的子键索引为0. 可使用_WinAPI_RegQueryInfoKey()函数获取最后的子键索引.
-当使用_WinAPI_RegEnumKey()函数时, 不会调用任何可能改变被枚举的键的函数.
+枚举子项,应用程序应先调用 _WinAPI_RegEnumKey() 函数, 且 $iIndex 参数设置为 0.
+ 然后应用程序增加 $iIndex 参数的值,并继续调用本函数,直到没有子项为止.
+ (即 @extended 标志设置到 ERROR_NO_MORE_ITEMS (259)).
+ 应用程序还可以设置 $iIndex 为最后子项的索引,调用函数并递减索引值,直到索引值为 0.
+ 调用 _WinAPI_RegQueryInfoKey() 函数检索最后子项的索引值.
+ 当应用程序正在调用本函数时,不应再调用任何注册函数,这可能会改变枚举的键.
 
-###Related###
+While an application is using the _WinAPI_RegEnumKey() function, it should not make calls to any registration
+functions that might change the key being enumerated.
+
 
 ###See Also###
- 搜索MSDN知识库中RegEnumKeyEx的相关信息
+@@MsdnLink@@ RegEnumKeyEx
 
 ###Example###
 @@IncludeExample@@
+

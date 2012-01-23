@@ -2,29 +2,32 @@
 _WinAPI_DwmInvalidateIconicBitmaps
 
 ###Description###
-刷新窗口中之前提供的所有图标化位图(包括缩略图及表征峰值?)
+Indicates that all previously provided iconic bitmaps from a window, both thumbnails and peek representations, should be refreshed.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_DwmInvalidateIconicBitmaps( $hWnd )
+_WinAPI_DwmInvalidateIconicBitmaps ( $hWnd )
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-   其上位图将被禁用的窗口或标签的句柄
+	Handle to the window or tab whose bitmaps are being invalidated through this call.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+Success	1.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 ###Remarks###
-调用该函数是桌面窗口管理器(DWM)使窗口的当前位图无效并从窗口请求下一个所需的新位图. _WinAPI_DwmInvalidateIconicBitmaps()不会被经常调用. 因为当创建或获取新位图时会导致性能下降.
-最低系统要求: Windows 7
+Calling this function causes the Desktop Window Manager (DWM) to invalidate its current bitmaps for the window
+and request new bitmaps from the window when they are next needed. _WinAPI_DwmInvalidateIconicBitmaps() should
+not be called frequently. Doing so can lead to poor performance as new bitmaps are created and retrieved.
 
-###Related###
+This function requires Windows 7 or later.
+
 
 ###See Also###
- 搜索MSDN知识库中DwmInvalidateIconicBitmaps的相关信息
+@@MsdnLink@@ DwmInvalidateIconicBitmaps
+

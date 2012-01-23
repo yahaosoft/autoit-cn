@@ -2,47 +2,46 @@
 _WinAPI_DrawThemeTextEx
 
 ###Description###
-使用可视化风格定义的字体和颜色绘制文本
+绘制由视觉样式定义颜色和字体的文本.(扩展)
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_DrawThemeTextEx( $hTheme, $hDC, $iPartId, $iStateId, $sText, $iFlags, $pRect, $pDTTOPTS )
+_WinAPI_DrawThemeTextEx ( $hTheme, $iPartId, $iStateId, $hDC, $sText, $tRECT, $iFlags, $tDTTOPTS )
 
 ###Parameters###
 @@ParamTable@@
 $hTheme
-   指定窗口主题的句柄
-$hDC
-   用于绘制的设备场景的句柄
+	指定主题数据的窗口句柄.
 $iPartId
-   具有所需文本外观的控件部分
+	文本的外观.
+		如果此值为 0,文本绘制为默认字体;或设备环境选择的字体.
 $iStateId
-   具有所需文本外观的控件状态
+	文本外观状态.
+$hDC
+	设备环境句柄.
 $sText
-   要绘制的字符串
+	包含文本的字符串.
+$tRECT
+	$tagRECT 结构,包含绘制文本的矩形.
 $iFlags
-   字符串格式标记(见备注)
-$pRect
-$tagRECT结构的指针
-$pDTTOPTS
-$tagDTTOPTS结构的指针
+	字符串的格式. 参数可以是一或多个 $DT_* 值.
+$tDTTOPTS
+	$tagDTTOPTS 结构,定义额外的格式选项.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
 ###Remarks###
-格式标记与用于_WinAPI_DrawText的标记相同
-正常运行示例请将 Soccer.ico 文件保存到临时文件夹中
+本函数需要 Windows Vista 或更高版本系统.
 
-###Related###
- _WinAPI_DrawText
 
 ###See Also###
- 搜索MSDN知识库中DrawThemeTextEx的相关信息
+@@MsdnLink@@ DrawThemeTextEx
 
 ###Example###
 @@IncludeExample@@
+

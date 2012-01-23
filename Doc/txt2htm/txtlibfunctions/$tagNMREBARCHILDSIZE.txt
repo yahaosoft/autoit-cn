@@ -2,33 +2,43 @@
 $tagNMREBARCHILDSIZE
 
 ###Description###
-包含用于处理$RBN_CHILDSIZE通知的信息的结构
+包含处理 RBN_CHILDSIZE 通知消息的信息
 
 ###Syntax###
-Global Const $tagNMREBARCHEVRON =  $tagNMHDR & ";uint uBand;uint wID;int CLeft;int CTop;int CRight;int CBottom;int BLeft;int BTop;int BRight;int BBottom"
+Global Const $tagNMREBARCHILDSIZE = $tagNMHDR & ";uint uBand;uint wID;" & _
+		"struct; long CLeft;long CTop;long CRight;long CBottom; endstruct;" & _
+		"struct; long BLeft;long BTop;long BRight;long BBottom; endstruct"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   包含通知消息的信息
+	包含通知消息的信息
 uBand
-   发送通知的区段的0基索引
+	发送通知的区段的0基索引
 wID
-   应用程序定义的区段标识
+	应用程序定义的区段标识
 CLeft
-   指定子窗体新尺寸的矩形左上角x坐标. 当通知修改子窗体位置和尺寸时可改变该成员
+	指定子窗体新尺寸的矩形左上角 X 坐标
+	在通知修改子窗口的位置和大小时,这个成员是可以改变的.
 CTop
-   指定子窗体新尺寸的矩形左上角y坐标. 当通知修改子窗体位置和尺寸时可改变该成员
+	指定子窗体新尺寸的矩形左上角 Y 坐标
+	在通知修改子窗口的位置和大小时,这个成员是可以改变的.
 CRight
-   指定子窗体新尺寸的矩形右下角x坐标. 当通知修改子窗体位置和尺寸时可改变该成员
+	指定子窗体新尺寸的矩形右下角 X 坐标
+	在通知修改子窗口的位置和大小时,这个成员是可以改变的.
 CBottom
-   指定子窗体新尺寸的矩形右下角y坐标. 当通知修改子窗体位置和尺寸时可改变该成员
+	指定子窗体新尺寸的矩形右下角 Y 坐标
+	在通知修改子窗口的位置和大小时,这个成员是可以改变的.
 BLeft
-   指定新尺寸的区段的左上角x坐标
+	指定区段新尺寸的左上角 X 坐标
 BTop
-   指定新尺寸的区段的左上角y坐标
+	指定区段新尺寸的左上角 Y 坐标
 BRight
-   指定新尺寸的区段的右下角x坐标
+	指定区段新尺寸的右下角 X 坐标
 BBottom
-   指定新尺寸的区段的右下角y坐标
-@@end@@
+	指定区段新尺寸的右下角 Y 坐标
+@@End@@
+
+###Remarks###
+None.
+

@@ -1,8 +1,8 @@
-﻿###User Defined Function###
+###User Defined Function###
 _GUICtrlRichEdit_StreamToFile
 
 ###Description###
-将控件内容写入文件
+�ؼ�������д�뵽�ļ�
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -10,40 +10,45 @@ _GUICtrlRichEdit_StreamToFile($hWnd, $sFilespec [, $fIncludeCOM=True [, $iOpts=0
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $sFileSpec  文件规范
- $fIncludeCOM  [可选]
-真(默认): 如果写入.rtf文件, 包含任意COM对象(占用空间)
-          如果写入其他文件, 以文本代替COM对象写入
-假: 写入空格代替COM对象
- $iOpts  [可选] 额外选项: (默认: 0)
-$SFF_PLAINTRTF - 只写入对所有语言普遍适用的关键字
-$SF_UNICODE - 写入UNICODE
- $iCodePage  [可选] 使用UTF-8代码页生成的文本
-默认: 不使用
+$hWnd
+	�ؼ����
+$sFileSpec
+	�ļ�˵��
+$fIncludeCOM
+	[��ѡ����] True (default):
+		���д�� .rtf �ļ�,�����κ� COM �������Ŀռ䣩
+		���д���κ������ļ�, ���ı�������� COM ����д��
+		False: д��ո���� COM ����
+$iOpts
+	[��ѡ����] ����ѡ��: (Ĭ�� : 0)
+		$SFF_PLAINTRTF - ֻд������������ձ����õĹؼ���
+		$SF_UNICODE - д�� Unicode
+$iCodePage
+	[��ѡ����] ���� UTF-8 ������ʹ�õĴ���ҳ
+		Ĭ�� : û��
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  真
- 失败:  假并设置@error
- @error:  101 - $hWnd不是句柄
-  102 - 无法创建$sFilespec
-  1041 - $SFF_PLAINRTF对文本文件无效
-  1042 - $opts: 无效选项
-  1043 - $SF_UNICODE仅用于一个文本文件
-  700 - 内部错误
+�ɹ�:	���� True
+ʧ��:	���� False,����@error:	
+@error:	101 - $hWnd ����ֵ���Ǿ��
+	102 - ���ܴ��� $sFilespec
+	1041 - $SFF_PLAINRTF ����Ч���ı��ļ�
+	1042 - $opts:����Ч��ѡ��
+	1043 - $SF_UNICODE �����ı��ļ���Ч
+	700 - �ڲ�����
 @@End@@
 
 ###Remarks###
-如果选定文本, 仅替换选取的文本, 否则替换控件中的所有文本
-如果$sFileSpec中的扩展名为.rtf, 将写入RTF, 不仅是文本
+ ����ı���ѡ��,ֻдѡ���,����ȫ���ı�д�뵽�ؼ�
+ ��� $sFileSpec ָ����չ��Ϊ .rtf, ��д�� RTF, ����д���ı�
 
 ###Related###
- _GUICtrlRichEdit_SetLimitOnText , _GUICtrlRichEdit_StreamFromVar , _GUICtrlRichEdit_StreamToVar , _GUICtrlRichEdit_StreamFromFile
+_GUICtrlRichEdit_SetLimitOnText, _GUICtrlRichEdit_StreamFromVar, _GUICtrlRichEdit_StreamToVar, _GUICtrlRichEdit_StreamFromFile
 
 ###See Also###
- 搜索MSDN知识库中EM_STREAMIN的相关信息
+@@MsdnLink@@ EM_STREAMIN
 
 ###Example###
 @@IncludeExample@@

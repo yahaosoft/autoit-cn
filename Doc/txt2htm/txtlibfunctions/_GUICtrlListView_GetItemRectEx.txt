@@ -2,36 +2,37 @@
 _GUICtrlListView_GetItemRectEx
 
 ###Description###
-获取绑定项目全部或部分的矩形
+检索项目的全部或部分矩形,返回数据结构.
 
 ###Syntax###
-#Include<GuiListView.au3>
-_GUICtrlListView_GetItemRectEx($hWnd, $iIndex[,$iPart = 3])
+#Include <GuiListView.au3>
+_GUICtrlListView_GetItemRectEx($hWnd, $iIndex[, $iPart = 3])
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $iIndex  项目的0基索引
- $iPart  获取的项目的部分:
-$LVIR_BOUNDS - 获取整个项目的绑定矩形 包括图标和标签
-$LVIR_ICON -
-      返回绑定矩形的图标或小图标
-$LVIR_LABEL - 返回绑定矩形的项目文本
-$LVIR_SELECTBOUNDS - 返回
-      $LVIR_ICON 和 $LVIR_LABEL 的结合的矩形, 但不包括报告视图中的列
+$hWnd
+	控件句柄
+$iIndex
+	项目的 0 基索引
+$iPart
+	[可选参数] 项目检索部分:
+		$LVIR_BOUNDS - 整个项目的边界矩形, 包括图标和标签
+		$LVIR_ICON - 图标或小图标的边界矩形
+		$LVIR_LABEL - 项目文本的边界矩形
+		$LVIR_SELECTBOUNDS - 1 和 2 的结合,但不包括报表视图的列
+		report view.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: $tagRECT 结构
+	返回 $tagRECT 结构
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
-_GUICtrlListView_GetItemRect , $tagRECT
-
-###See Also###
+_GUICtrlListView_GetItemRect, $tagRECT
 
 ###Example###
 @@IncludeExample@@

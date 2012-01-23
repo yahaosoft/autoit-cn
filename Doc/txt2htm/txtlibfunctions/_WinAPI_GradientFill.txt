@@ -2,44 +2,52 @@
 _WinAPI_GradientFill
 
 ###Description###
-填充矩形或三角梯形
+渐变填充矩形或三角形.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GradientFill( $hDC, $aVertex [, $iStart [, $iEnd [, $fRotate]]] )
+_WinAPI_GradientFill ($hDC, $aVertex [, $iStart [, $iEnd [, $fRotate]]] )
 
 ###Parameters###
 @@ParamTable@@
 $hDC
-   目标设备场景
+	设备环境句柄.
 $aVertex
-$rgb1], [x2, y2, $rgb2], ... [xN, yN, $rgbN]). 其中:
-    x   - 逻辑单位的x坐标
-    y   - 逻辑单位的y坐标
-    rgb - 点(x, y)处的颜色
+	包含多边形的顶点逻辑单位的二维数组: ([x1, y1, $rgb1], [x2, y2, $rgb2], ... [xN, yN, $rgbN]).
+		 其中包含必要的渐变梯度顶点.数组中的每个顶点包含以下参数:.
+		 x - X 坐标的逻辑单位.
+		 y - Y 坐标的逻辑单位
+		 rgb - X,Y 点的颜色信息.
 $iStart
-   填充开始的数组索引
+	[可选参数] 填充开始的数组索引.
 $iEnd
-   填充结束的数组索引
+	[可选参数] 填充结束的数组索引.
 $fRotate
-$fRotate仅用于矩形倾斜, 三角形忽略该参数. 该参数为TRUE时表示从左到右填充, 为默认值FALSE时表示从顶至底填充
+	[可选参数] 指定是否从左至右填充矩形(水平渐变梯度).
+		 此参数仅用于矩形渐变,将忽略三角渐变梯度,有效值为:
+		1 - 从左至右填充矩形.
+		0 - 从顶部向底部填充矩形. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-如果由$iStart和$iEnd参数定义的顶点数量为2, _WinAPI_GradientFill()函数填充矩形. 如果为3, 填充三角形, 顶点须指定左上和右下角.
-注意, $aVertex数组须包含任意的梯度的顶点数量, 但只有2或3个顶点可同时使用. 否则函数失败.
-_WinAPI_GradientFill()函数一次仅可填充矩形或三角形. 多次调用可填充复杂形状.
+如果 $iStart 与 $iEnd 参数定义的顶点数量为 2, 则函数填充矩形;
+ 如果顶点的数目是 3,则函数填充三角形.
+ 对于矩形,其顶点必须指定左上角和右下角.
+ 注意:$aVertex 数组可能包含任意数量的梯度顶点,
+ 但只有 2 个或 3 个顶点可同时使用,否则,该函数失败.
+ 函数一次调用只能填充一个矩形或三角形.
+ 使用多次函数调用,以填补一个复杂的梯度.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中GdiGradientFill的相关信息
+@@MsdnLink@@ GdiGradientFill
 
 ###Example###
 @@IncludeExample@@
+

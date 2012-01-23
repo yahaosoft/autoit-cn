@@ -2,32 +2,32 @@
 _WinAPI_CreateObjectID
 
 ###Description###
-创建或获取指定文件或目录对象标识符
+Creates or retrieves the object identifier for the specified file or directory.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_CreateObjectID( $sPath )
+_WinAPI_CreateObjectID ( $sPath )
 
 ###Parameters###
 @@ParamTable@@
 $sPath
-   要创建或获取对象标识符的文件或目录的路径
+	Path to the file or directory to create or retrieve object identifier.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回包含驻留在卷上的文件或目录的对象标识符的$tagGUID结构
-失败: 返回0并设置@error非0
+Success	$tagGUID structure that contains the object identifier for the file or directory within the volume on which it resides.
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-如果文件或目录的对象标识符不存在 , _WinAPI_CreateObjectID()将创建.
-如果文件或目录的对象标识符存在 , 则返回.
+If the object identifier of a file or directory does not already have one, the _WinAPI_CreateObjectID() creates it.
+If the object identifier already exists, the function just returns it.
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中FSCTL_CREATE_OR_GET_OBJECT_ID的相关信息
+@@MsdnLink@@ FSCTL_CREATE_OR_GET_OBJECT_ID
 
 ###Example###
 @@IncludeExample@@
+

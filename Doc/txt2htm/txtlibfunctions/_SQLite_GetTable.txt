@@ -2,43 +2,48 @@
 _SQLite_GetTable
 
 ###Description###
-输出包含表名和所执行的查询的数据的一维数组
+传递一个一维数组,其中包含执行查询的表名和数据.
 
 ###Syntax###
-#Include <SQLite.au3>
-_SQLite_Gettable ( $hDB, $sSQL, ByRef $aResult, ByRef $iRows, ByRef $iColumns [, $iCharSize = 64 ] )
+#include <SQLite.au3>
+_SQLite_GetTable ( $hDB, $sSQL, ByRef $aResult, ByRef $iRows, ByRef $iColumns [, $iCharSize = -1 ] )
+
 
 ###Parameters###
 @@ParamTable@@
- $hDB  打开的数据库, -1为最近打开的数据库
- $sSQL  要操作的SQL表达式
- $aResult  输出结果
- $iRows  输出'数据'行的数量
- $iColumns  输出列数量
- $iCharSize  [可选] 指定数据字段的最大尺寸
+$hDB
+	打开的数据库,如为 -1, 则使用最后打开的数据库
+$sSQL
+	要执行的语句
+$aResult
+	传递出的结果
+$iRows
+	传递出的数据行数
+$iColumns
+	传递出的列数
+$iCharSize
+	[可选参数] 指定数据字段的最大尺寸
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回$SQLITE_OK
-失败: 返回可与$SQLITE_* 常量比较的值
-@error: -1 - SQLite报错(检查返回值)
-      1 - 调用SQLite API 'sqlite3_get_table'错误
-      2 - 调用SQLite API 'sqlite3_free_table'错误
-      3 - 安全模式阻止调用
+成功:	返回 $SQLITE_OK
+失败:	随机返回值,可与 $SQLITE_* 常量中的值进行对比
+@error:	-1 - SQLite 报告一个错误 (检查返回值)
+	1 - 调用被安全模式阻止
+     2 - Error returned by _SQLite_Query in @extended
+     3 - Error returned by _SQLite_FetchNames in @extended
+     4 - Error returned by _SQLite_FetchData in @extended
 @@End@@
 
 ###Remarks###
-插入到$aResult的值的数量为(($iRows) + 1) * ($iColumns)
-数字插入到$aResult[0]
-NULL将返回数字0
-该函数比_SQlite_Query()/_SQLite_Fetch*()...需要更多内存但速度要快..
-如果不需要结果(或如果其为空)可考虑使用_SQLite_Execute()或_SQLite_Exec().
+数值插入到 $aResult 将会 (($iRows) + 1) * ($iColumns)
+这个数字将插入到 $aResult[0].
+一个NULL(空)值将返回数字 0
+如果你不需要结果(或无结果)考虑使用 _SQLite_Execute() or _SQLite_Exec().
 
 ###Related###
- _SQLite_Gettable2d , _SQLite_Exec , _SQlite_Query
-
-###See Also###
+_SQLite_GetTable2d, _SQLite_Exec, _SQlite_Query
 
 ###Example###
 @@IncludeExample@@

@@ -2,7 +2,7 @@
 _Date_Time_LocalFileTimeToFileTime
 
 ###Description###
-将本地文件时间转变为基于相应通用时间的文件时间
+转换一个本地文件时间到一个文件时间(基于UTC)
 
 ###Syntax###
 #Include <Date.au3>
@@ -10,22 +10,18 @@ _Date_Time_LocalFileTimeToFileTime($pLocalTime)
 
 ###Parameters###
 @@ParamTable@@
-$pLocalTime 
-   要被转化为基于通用时间的文件时间的本地文件时间的$tagFILETIME结构的指针.
+$pLocalTime
+	要被转化为基于通用时间的文件时间的本地文件时间的$tagFILETIME结构的指针.
 @@End@@
 
 ###ReturnValue###
-@@ReturnTable@@
-成功: 转化后的基于文件时间的通用时间的$tagFILETIME结构
-@@End@@
+返回转化后的基于文件时间的通用时间的$tagFILETIME结构
 
 ###Remarks###
 该函数使用当前的时区和夏时制设置. 因此, 如果是夏时制, 函数在计算中使用夏时制时间, 即使已将时间转为标准时间.
 
 ###Related###
- _Date_Time_FileTimeToLocalFileTime , $tagFILETIME
-
-###See Also###
+_Date_Time_FileTimeToLocalFileTime, $tagFILETIME
 
 ###Example###
 @@IncludeExample@@

@@ -2,38 +2,42 @@
 _SQLite_SQLiteExe
 
 ###Description###
-使用SQLite.exe执行命令
+在 SQLite3.exe 中执行命令
 
 ###Syntax###
-#Include <SQLite.au3>
+#include <SQLite.au3>
 _SQLite_SQLiteExe ( $sDatabaseFile, $sInput, ByRef $sOutput [, $sSQLiteExeFilename = "SQLite3.exe" ] )
+
 
 ###Parameters###
 @@ParamTable@@
- $sDatabaseFile  数据库文件名
- $sInput  SQLite.exe命令
- $sOutput  SQLite.exe输出
- $sSQLiteExeFilename  [可选] SQlite.exe的路径
+$sDatabaseFile
+	数据库文件名
+$sInput
+	SQLite3.exe 命令
+$sOutput
+	SQLite3.exe 原输出
+$sSQLiteExeFilename
+	[可选参数] SQLite3.exe 路径
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回$SQLITE_OK
-失败: 返回可与$SQLITE_* 常量比较的值
-@error: 1 - 无法创建新数据库
-     2 - 没找到SQLite3.exe
-     3 - SQL错误/未完成的SQL
-     4 - 无法打开输入的文件
+成功:	返回 $SQLITE_OK
+失败:	返回值可能违反 $SQLITE_* 常量
+@error:	1 - 不能创建新的数据库
+	2 - SQLite3.exe 未找到
+	3 - SQL 错误 / 未完成 SQL
+	4 - 无法打开输入文件
 @@End@@
 
 ###Remarks###
-运行SQLite.exe, 按下Enter并键入.Help获取与SQLite3.exe命令有关的更多信息.
-SQLite3.exe可从SQLite Web网址找到. 可在AutoIt3\Extras\SQLite目录中找到帮助文件的副本.
+欲了解更多有关 SQLite3.exe 命令信息,运行 SQLite.exe, 输入" .Help "并按下回车键.
+
+SQLite3.exe 可在 SQLite 网站查找. 在 AutoIt3 \Extras\ SQLite 目录中有一个帮助文档.
 
 ###Related###
 None.
-
-###See Also###
 
 ###Example###
 @@IncludeExample@@

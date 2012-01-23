@@ -2,28 +2,36 @@
 _WinAPI_RemoveFontResourceEx
 
 ###Description###
-从系统字体表移除指定文件中的字体
+删除系统字体表中指定文件的字体.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_RemoveFontResourceEx($sFileName[, $iFlag = $FR_PRIVATE])
+_WinAPI_RemoveFontResourceEx ( $sFont [, $iFlag [, $fNotify]] )
 
 ###Parameters###
 @@ParamTable@@
-$sFileName
-   将移除资源的字体文件
+$sFont
+	字体资源文件名称.要删除多个资源文件的字体,
+		 必须使用 "|" 分隔. 例如, abcxxxxx.pfm|abcxxxxx.pfb.
 $iFlag
-   与由 _WinAPI_AddFontResourceEx 定义的相同
+	[可选参数] 被删除字体的特征.为使字体要被删除,
+		必须使用与 _WinAPI_AddFontResourceEx() 函数添加字体时相同的标志.
+$fNotify
+	[可选参数] 指定是否发送 WM_FONTCHANGE 信息.有效值:
+		1 - 发送 WM_FONTCHANGE 信息到所有顶级窗口后,改变字体资源库.
+		0 - 不发送. (默认)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 1
-失败: 0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
-该函数只用于删除由_WinAPI_AddFontResourceEx函数添加且具有相同标记的字体.
+None
 
-###Related###
- _WinAPI_AddFontResourceEx
+
+###See Also###
+@@MsdnLink@@ RemoveFontResourceEx
+

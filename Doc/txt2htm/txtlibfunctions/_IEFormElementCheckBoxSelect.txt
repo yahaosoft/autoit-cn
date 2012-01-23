@@ -1,56 +1,59 @@
-ï»¿###User Defined Function###
-_IEFormElementCheckboxSelect
+###User Defined Function###
+_IEFormElementCheckBoxSelect
 
 ###Description###
-è®¾å®šæŒ‡å®šè¡¨å•å…ƒç´ çš„å€¼(å¤é€‰æ¡†)
+Éè¶¨Ö¸¶¨±íµ¥ÔªËØµÄÖµ.
 
 ###Syntax###
-#Include <IE.au3>
+#include <IE.au3> 
 _IEFormElementCheckBoxSelect ( ByRef $o_object, $s_string [, $s_name = "" [, $f_select = 1 [, $s_mode = "byValue" [, $f_fireEvent = 1]]]] )
 
 ###Parameters###
 @@ParamTable@@
- $o_object  InternetExplorer.Applicationçª—å£æˆ–è€…æ¡†æ¶(frame)å¯¹è±¡çš„å¯¹è±¡å˜é‡
- $s_string  åŒ¹é…å…ƒç´ çš„å€¼--æŒ‰ $s_mode æ¨¡å¼
- $s_name  å¯é€‰: å¤é€‰æ¡†çš„åç§°æˆ–è€…ID
- $f_select  å¯é€‰: å®šä¹‰å¤é€‰æ¡†å…ƒç´ æ˜¯å¦è¢«å‹¾é€‰æˆ–è€…ä¸å‹¾é€‰
--1 = è¿”å›å‹¾é€‰çŠ¶æ€
-0 = ä¸å‹¾é€‰
-1 = (é»˜è®¤) å‹¾é€‰
- $s_mode  å¯é€‰: å®šä¹‰æœç´¢æ¨¡å¼
-byValue = (é»˜è®¤) æƒ³è¦é€‰æ‹©çš„å¤é€‰æ¡†çš„å€¼
-byIndex = æƒ³è¦é€‰æ‹©çš„å¤é€‰æ¡†çš„ç´¢å¼•å€¼(åŸºäº
-      0)
- $f_fireEvent  å¯é€‰:å®šä¹‰åœ¨æ”¹å˜å€¼æ—¶æ˜¯å¦è§¦å‘OnChangeå’ŒOnClickçš„äº‹ä»¶
-0 =
-      åœ¨è®¾ç½®å€¼åä¸è§¦å‘OnChangeæˆ–è€…OnClickäº‹ä»¶
-1 = (é»˜è®¤)
-  åœ¨è®¾ç½®å€¼åè§¦å‘OnChangeæˆ–è€…OnClickäº‹ä»¶
+$o_object
+	InternetExplorer.ApplicationµÄ±íµ¥¶ÔÏó±äÁ¿
+$s_string
+	ÓÃÓÚÆ¥ÅäÔªËØµÄÖµ - »ùÓÚ$s_mode
+$s_name
+	[¿ÉÑ¡²ÎÊı]: ¸´Ñ¡¿òÃû³Æ»ò±àºÅ(es)
+$f_select
+	[¿ÉÑ¡²ÎÊı]: Ö¸¶¨ÔªËØÑ¡ÖĞ»òÎ´Ñ¡ÖĞ
+	-1 = ·µ»ØÑ¡ÖĞ×´Ì¬
+	0 = ²»Ñ¡ÔªËØ
+	1 = (Ä¬ÈÏ)Ñ¡ÖĞÔªËØ
+$s_mode
+	[¿ÉÑ¡²ÎÊı]: Ö¸¶¨ËÑË÷Ä£Ê½
+	°´Öµ = (Ä¬ÈÏ)ÒªÑ¡È¡µÄ¸´Ñ¡¿òµÄÖµ
+	°´Ë÷Òı = ÒªÑ¡È¡µÄ¸´Ñ¡¿òµÄ0»ùË÷Òı
+$f_fireEvent
+	[¿ÉÑ¡²ÎÊı]: Ö¸¶¨ÊÇ·ñÔÚ¸Ä±äÖµºó¼¤»îOnChangeºÍOnClickÊÂ¼ş
+	0 = ÉèÖÃÖµºó²»¼¤»îOnChange»òOnClickÊÂ¼ş
+	1 = (Ä¬ÈÏ)ÉèÖÃÖµºó¼¤»îOnChange»òOnClickÊÂ¼ş
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ: å¦‚æœå‚æ•°$f_select = -1 , è¿”å›å½“å‰é€‰æ‹©çš„çŠ¶æ€ , å¦åˆ™è¿”å›1
-å¤±è´¥: è¿”å›0å¹¶è®¾ç½®@ERRORä¸º:
-    0 ($_IEStatus_Success) = æ— é”™è¯¯
-    1 ($_IEStatus_GeneralError) = ä¸€èˆ¬æ€§é”™è¯¯
-    3 ($_IEStatus_InvalidDataType) = æ— æ•ˆæ•°æ®ç±»å‹
-    4 ($_IEStatus_InvalidObjectType) = æ— æ•ˆå¯¹è±¡ç±»å‹
-    5 ($_IEStatus_InvalidValue) = æ— æ•ˆå€¼
-    7 ($_IEStatus_NoMatch) = ä¸åŒ¹é…
-    @Extended: åŒ…å«æ— æ•ˆå‚æ•°æ•°é‡
+³É¹¦:	Èç¹û$f_select = -1, ·µ»Øµ±Ç°µÄ±»Ñ¡ÖĞ×´Ì¬, »ò·µ»Ø1
+Ê§°Ü:	·µ»Ø0 ²¢ÇÒÉèÖÃ @ERROR
+@Error:	0 ($_IEStatus_Success) = ÎŞ´íÎó
+	1 ($_IEStatus_GeneralError) = Ò»°ãĞÔ´íÎó
+	3 ($_IEStatus_InvalidDataType) = ÎŞĞ§Êı¾İÀàĞÍ
+	4 ($_IEStatus_InvalidObjectType) = ÎŞĞ§¶ÔÏóÀàĞÍ
+	5 ($_IEStatus_InvalidValue) = ÎŞĞ§Öµ
+	7 ($_IEStatus_NoMatch) = ÎŞÆ¥Åä
+@Extended:	°üº¬ÎŞĞ§²ÎÊıÊıÁ¿
 @@End@@
 
+
 ###Remarks###
-$f_fireEventå‚æ•°åªæœ‰å½“è¡¨å•å…ƒç´ å‘ç”Ÿäº†å’Œå®ƒç›¸å…³çš„onChangeäº‹ä»¶åæ‰æœ‰æ•ˆ.
-è¿™ä¸ªå‡½æ•°é‡Œé¢$s_Nameæ˜¯ä¸ªéå¼ºåˆ¶æ€§å‚æ•°. å¦‚æœå¿½ç•¥ , è¿™ä¸ªå‡½æ•°å°†æ‰§è¡Œä¸€ä¸ªè¡¨å•ä¸­å¤é€‰æ¡†(<input
-type=checkbox>)é›†åˆä¸­çš„æ‰€æœ‰å…ƒç´ . å¦‚æœæŒ‡å®šäº† , å‡½æ•°å°†æ‰§è¡Œåœ¨å¤é€‰æ¡†(<input
-type=checkbox>)é›†åˆä¸­çš„"name"çš„å…ƒç´ .
+½öµ±±íµ¥ÔªËØÓëonChangeÊÂ¼ş¹ØÁªÊ±, $f_fireEvent²ÎÊı²ÅÓĞĞ§.
+
+$s_Name¶Ô¸Ãº¯ÊıÊÇ¿ÉÑ¡µÄ. Èç¹ûºöÂÔ, º¯Êı½«²Ù×÷±íµ¥ÖĞËùÓĞ<input type=checkbox>ÔªËØµÄ¼¯ºÏ. Èç¹ûÖ¸¶¨, º¯Êı¾ßÓĞ¸ÃÃû³ÆµÄ<input type=checkbox>ÔªËØµÄ¼¯ºÏ.
+
 
 ###Related###
-_IEFormElementOptionSelect , _IEFormElementRadioSelect
+_IEFormElementOptionSelect, _IEFormElementRadioSelect, _IEFormElementGetValue, _IEFormElementSetValue
 
-###See Also###
 
 ###Example###
 @@IncludeExample@@

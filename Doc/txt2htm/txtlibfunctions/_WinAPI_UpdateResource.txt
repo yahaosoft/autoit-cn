@@ -2,37 +2,53 @@
 _WinAPI_UpdateResource
 
 ###Description###
-添加, 删除或替换可移植的可执行文件(PE)中的资源.
+添加,删除或替换可移植可执行(PE)文件资源.
+
+###Syntax###
+#Include <WinAPIEx.au3>
 _WinAPI_UpdateResource ( $hUpdate, $sType, $sName, $iLanguage, $pData, $iSize )
 
 ###Parameters###
 @@ParamTable@@
-$hUpdate  _WinAPI_BeginUpdateResource()返回的模块句柄, 指向要更新的文件
-$sType  要更新的资源类型. 可选的, 优于指针, 该参数可为一个代表预定义资源类型的整数值. 如果字符串的首个字符为井号(#)则保留的字符代表一个指定资源类型的十进制整数数字. 如, 字符串"#258"代表标识符258. 也可使用一个预定义资源类型($RT_*).
-$sName  要更新的资源名称. 该参数可为字符串或整数类型(见上)
-$iLanguage  资源的语言(LCID)
-$pData  插入到由$hUpdate参数指定的文件的资源数据. 如果资源为预定义类型之一, 数据必须有效且适当对齐. 注意是原始二进制数据, 而不是由_WinAPI_LoadIcon(), _WinAPI_LoadString()或其他资源加载函数指定的数据. 包含字符串或文本的所有数据必须是Unicode格式. 如果$pData为0且$iSize为0, 指定资源将从$hUpdate指定的文件中删除.
-$iSize  $pData指定的资源数据的字节大小
+$hUpdate
+	_WinAPI_BeginUpdateResource() 返回的模块句柄.
+$sType
+	更新的资源类型. 不是指针, 参数可以是表示资源类型的预定义整数值.
+		 如果资源类型标识符第一字符是磅符号 (#), 则剩余字符表示一个十进制数的整数.
+		 例如,字符串 "#258" 代表标识符 258.
+		 此外,可以使用预定义资源类型 ($RT_*).
+$sName
+	资源的名称. 参数可以是字符串或整数类型 (见上述).
+$iLanguage
+	资源的语言 (LCID).
+$pData
+	被插入到 $hUpdate 资源文件的数据. 如果资源是预定义类型,
+		 数据必须有效和正确对齐. 请注意,这是原始二进制数据,
+		 不是由 _WinAPI_LoadIcon(), _WinAPI_LoadString(), 或其它特定资源加载函数提供的数据. 
+		 所有数据,包括字符串或文本必须 为Unicode 格式. 
+		 如果此参数和 $iSize 同为 0, 则删除 $hUpdate 指定的资源文件.
+$iSize
+	指定 $pData 资源数据的字节大小.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1.
-失败: 返回0并设置@error非0.
+成功:	返回 1.
+失败:	返回 0,设置 the @error 为非 0 值.
 @@End@@
 
 ###Remarks###
-建议在调用函数前不加载资源文件. 然而, 如果已经加载也不会导致返回错误.
-应用程序可重复使用_WinAPI_UpdateResource()改变资源数据. 每次调用
-_WinAPI_UpdateResource()提供一个添加/删除及替换的内部列表但不会将数据实际写入文件.
-应用程序必须使用_WinAPI_EndUpdateResource()函数写入变化.
-如果$pData为0且$iSize为0, 从$hUpdate指定的文件中删除指定资源.
-运行示例前请将 Script.ico 保存至临时文件夹
-
-###Related###
+建议在资源文件没有加载之前调用此函数,
+ 如果该文件已经加载,也不会导致返回错误
+ 应用程序可以使用 _WinAPI_UpdateResource() 反复修改资源数据. 
+ 每次 _WinAPI_UpdateResource() 的调用都将添加,删除和替换内部列表, but does
+ 但实际上并没有将数据写入到文件. 
+ 应用程序必须使用 _WinAPI_EndUpdateResource() 函数写累积的变化.
+ 如果 $pData is 与 $iSize 同为 0, 则删除 $hUpdate 指定的资源文件.
 
 ###See Also###
- 搜索MSDN知识库中UpdateResource的相关信息
+@@MsdnLink@@ UpdateResource
 
 ###Example###
 @@IncludeExample@@
+

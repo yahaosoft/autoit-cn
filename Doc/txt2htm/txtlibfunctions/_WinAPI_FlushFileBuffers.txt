@@ -2,29 +2,32 @@
 _WinAPI_FlushFileBuffers
 
 ###Description###
-清理指定文件缓存并复写全部缓存数据
+刷新缓冲区的指定文件, 并写入所有缓冲数据
 
 ###Syntax###
-#Include
-<WinAPI.au3>
+#Include <WinAPI.au3>
 _WinAPI_FlushFileBuffers($hFile)
 
 ###Parameters###
 @@ParamTable@@
 $hFile
-$GENERIC_WRITE权限. 如果hFile是联系设备的句柄, 数仅清理传递缓存. 如果hFile是一个亿命名管道的服务器终端, 函数在客户端读取来自管道的全部缓冲数据后才返回.
+	被打开文件的句柄.该文件句柄必须具有 $GENERIC_WRITE 的写访问权限.
+		如果 $hFile 是通信设备句柄,该函数只刷新发送缓冲区.
+		如果 $hFile 是服务器端命名管道的句柄,函数不返回, 
+		直到客户端从管道读取全部缓冲数据.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
+None.
 
 ###Related###
-_WinAPI_CloseHandle , _WinAPI_CreateFile , _WinAPI_GetFileSizeEx , _WinAPI_ReadFile , _WinAPI_SetEndOfFile , _WinAPI_SetFilePointer , _WinAPI_WriteFile
+_WinAPI_CloseHandle, _WinAPI_CreateFile, _WinAPI_GetFileSizeEx, _WinAPI_ReadFile, _WinAPI_SetEndOfFile, _WinAPI_SetFilePointer, _WinAPI_WriteFile
 
 ###See Also###
-在MSDN知识库中搜索FlushFileBuffers相关信息
+@@MsdnLink@@ FlushFileBuffers

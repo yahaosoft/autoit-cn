@@ -2,40 +2,44 @@
 _GUICtrlMenu_CheckRadioItem
 
 ###Description###
-检查指定的菜单项并将其作为单选项
+选中指定菜单项,并使其成为单选项目
 
 ###Syntax###
-#Include<GuiMenu.au3>
-_GUICtrlMenu_CheckRadioItem($hMenu, $iFirst, $iLast,$iCheck[, $fByPos = True])
+#Include <GuiMenu.au3>
+_GUICtrlMenu_CheckRadioItem($hMenu, $iFirst, $iLast, $iCheck [, $fByPos = True])
 
 ###Parameters###
 @@ParamTable@@
- $hMenu  菜单句柄
- $iFirst  组中第一个菜单项的位置或标识
- $iLast  组中最后一个菜单项的位置或标识
- $iCheck  被选菜单项的位置或标识
- $fByPos  Menu identifier flag:
-真 - $iFirst, $iLast和$iCheck是0基的项目位置
-假 -
-      $iFirst, $iLast和$iCheck是菜单项标识
+$hMenu
+	菜单句柄
+$iFirst
+	菜单组第一菜单项的标识符或位置,由 $fByPos 参数决定.
+$iLast
+	菜单组最后菜单项的标识符或位置.
+$iCheck
+	菜单项目的标识符或位置,
+$fByPos
+	[可选参数] 菜单识别标志:
+		True - 对于 $iFirst(首个菜单项), $iLast 与 $iCheck 是项目的 0 基位置
+		False - 对于 $iFirst(首个菜单项), $iLast 与 $iCheck 是项目的标识符
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 真
-失败: 假
+成功:	返回 True
+失败:	返回 False
 @@End@@
 
 ###Remarks###
-函数给由$iCheck指定的项目设置$MFT_RADIOCHECK类型标记且$MFS_CHECKED状态, 同时,
-清除阻中所有其他项的标记. 被选的
-项目使用子弹(?)位图显示以代替选中标记位图.
+ 这个函数为 $iCheck 指定的项目设置 $MFT_RADIOCHECK (单选)类型标志和 $MFS_CHECKED (选中)状态,
+ 同时清除同组中所有其他项目的这两个标志.
+ 选中项目的旁边会显示项目加重号 ● 位图,而不是复选标记位图
 
 ###Related###
 _GUICtrlMenu_CheckMenuItem
 
 ###See Also###
-搜索MSDN知识库中CheckMenuRadioItem的相关信息
+@@MsdnLink@@ CheckMenuRadioItem
 
 ###Example###
 @@IncludeExample@@

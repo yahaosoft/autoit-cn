@@ -1,8 +1,8 @@
-﻿###User Defined Function###
+###User Defined Function###
 _GUICtrlRichEdit_GetParaTabStops
 
 ###Description###
-获取(首个)被选段落或(无选定时的)当前段落的制表终止符
+获取(第一)选中段落;或者没有选择时的当前段落的制表位
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -10,43 +10,45 @@ _GUICtrlRichEdit_GetParaTabStops($hWnd)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
+$hWnd
+	控件句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  用分号(;)分隔的值组成的字符串:
-  值1 - 制表符数量
-  值2<值1> + 1 - 制表符描述:
-  制表符的绝对位置(间隔单位)
-  制表符类型
-      l - 左制表符
-      c - 右制表符
-      r - 小数制表符
-      b - 空格制表符(类似Word中的垂直条)
-  引导符种类
-      . - 点状引导符
-      - - 横杠引导符
-      _ - 下划线引导符
-      = - 双线引导符
-      t - 粗线引导符
-      空格 - 无引导符
-  值<值1> + 2 - 范围:
-      a - 全部(或仅有)选定的段落使用设置
-      f - 第一个选区的段落使用此对齐方式, 但其他不是
-      c - 当前段落使用该设置
- 失败:  ""并设置@error
- @error:  101 - $hWnd不是句柄
+成功:	返回由分号(;)分隔的字符串值:
+	值 1 - 制表符数量
+	值 2 到 
+	+ 1 - 制表符描述:
+	制表位的绝对位置 (空间单位)
+	制表符类别
+	l - 左制表符
+	c - 居中制表符
+	r - 小数制表符
+	b - 分栏制表符(在 Word 中为一竖线)
+	圆点头标类型
+	. - 点头标
+	- - 短划头标
+	_ - 下划线头标
+	= - 重叠线头标
+	t - 粗线头标
+	空格 - 没有头标
+	值 + 2 - 范围:
+	a - 所有（或使用的）选定的段落进行这些设置
+	f - 第一选定使用这些设置,但其它不使用
+	c - 当前段落使用这些设置
+失败:	返回 "" ,设置@error:	
+@error:	101 - $hWnd 参数值不是句柄
 @@End@@
 
 ###Remarks###
-调用_GUICtrlRichEdit_SetSpaceUnit设置"间隔单位". 原始英寸
+ 要输入一个标签控件,点击 Ctrl+Tab 组合键
 
 ###Related###
- _GUICtrlRichEdit_SetParaTabStops
+_GUICtrlRichEdit_SetParaTabStops
 
 ###See Also###
- 搜索MSDN知识库中EM_GETPARAFORMAT的相关信息
+@@MsdnLink@@ EM_GETPARAFORMAT
 
 ###Example###
 @@IncludeExample@@

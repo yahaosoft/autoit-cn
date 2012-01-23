@@ -1,8 +1,8 @@
-﻿###User Defined Function###
+###User Defined Function###
 _GUICtrlRichEdit_SetParaAttributes
 
 ###Description###
-设置(首个)选定的或(未选择时)当前的段落的属性
+����(��һ)��ǰѡ��(��û��ѡ��ʱ�Ĳ�������ڶ���)������
 
 ###Syntax###
 #Include <GuiRichEdit.au3>
@@ -10,41 +10,44 @@ _GUICtrlRichEdit_SetParaAttributes($hWnd, $sStatesAndAtts)
 
 ###Parameters###
 @@ParamTable@@
- $hWnd  控件句柄
- $sStatesAndAtts  由分号(;)分拆的值组的字符串..
-每组组成:
-首字符 - 状态:
-   + - 开启属性
-   - - 关闭属性
-   "fpg" - 强制该/这些段落到新页(初始关闭)
-   "hyp" - 自动超界(初始开启)
-   "kpt" - 保持该(些)段在一页上(初始关闭)
-   "kpn" - 保持该(些)段和后续的在一页上(初始关闭)
-   "pwo" - 阻止窗体和独立段, 如, 避免该(些)段在页上只有单一行(初始关闭)
-   "r2l" - 按从右到左的读取顺序显示文本(初始关闭)
-   "row" - 段落为表行(初始关闭)
-   "sbs" - 从一端到另一端显示段(初始关闭)
-   "sln" - 隐藏文档中的行号或带行号的片段(初始关闭)
+$hWnd
+	�ؼ����
+$sStatesAndAtts
+	�����ɷֺ�";"�ָ����ַ�����.
+		ÿ�����:
+		��һ���ַ� - ״̬:
+		   + - ������
+		   - - �ر�����
+		   "fpg" - ǿ�����/��Щ���䵽��ҳ��(��ʼ�ر�)
+		   "hyp" - �Զ�����(�����)
+		   "kpt" - �������/��Щ������ͬһҳ����(����ر�)
+		   "kpn" - �������/��Щ�������һ����ͬһҳ����(����ر�)
+		   "pwo" - ��ֹ���л����,���������ҳ���ϳ���һ������(����ر�)
+
+		   "r2l" - ��ʾ�ı�ʹ�ô��ҵ�����Ķ�˳��(�տ�ʼ�ر�)
+		   "row" - ����Ϊ������(��ʼ�ر�)
+		   "sbs" - ��ʾ���䲢��(�տ�ʼ�ر�)
+		   "sln" - �����ĵ��е��кŻ���кŵ�Ƭ��(��ʼ�ر�)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
- 成功:  真
- 失败:  假并设置@error
- @error:  101 - $hWnd不是句柄
-  1021 - $sStatesAndAtts中的一个状态字符无效. 在@extended中
-  1022 - $sStatesAndAtts中的状态缩写无效. 在@extended中
-  1023 - $sStatesAndAtts长度无效
+�ɹ�:	���� True
+ʧ��:	���� False����@error
+@error:	101 - $hWnd ����ֵ���Ǿ��
+	1021 - $sStatesAndAtts ״̬�ַ���Ч. ���� @extended
+	1022 - $sStatesAndAtts ������д��Ч. ���� @extended
+	1023 - $sStatesAndAtts �ַ�������Ч
 @@End@@
 
 ###Remarks###
-在Word中显示结果而不是在富文本编辑控件中
+ �����ʾ�� Word ��,�� RichEdit �в���ʾ
 
 ###Related###
- _GUICtrlRichEdit_GetParaAttributes
+_GUICtrlRichEdit_GetParaAttributes
 
 ###See Also###
- 搜索MSDN知识库中EM_SETPARAFORMAT的相关信息
+@@MsdnLink@@ EM_SETPARAFORMAT
 
 ###Example###
 @@IncludeExample@@

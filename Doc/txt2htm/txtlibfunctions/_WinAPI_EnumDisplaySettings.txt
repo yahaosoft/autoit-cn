@@ -2,41 +2,47 @@
 _WinAPI_EnumDisplaySettings
 
 ###Description###
-获取显示设备的图像信息
+检索显示设备图形模式信息.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_EnumDisplaySettings( $sDevice, $iMode )
+_WinAPI_EnumDisplaySettings ( $sDevice, $iMode )
 
 ###Parameters###
 @@ParamTable@@
 $sDevice
-   函数要获取图像信息的显示设备. 空字符串指定计算机上进程正在调用的当前显示设备
+	显示设备.
+		 空字符串指定正在运行调用进程的当前显示设备
 $iMode
-   获取的信息类型. 该值可为一个图像模式索引或下列值.
-    $ENUM_CURRENT_SETTINGS - 获取显示设备的当前设置
-    $ENUM_REGISTRY_SETTINGS - 获取当前保存在注册表中的显示设备的设置
-$iMode为0 , 每次顺序调用$iMode加1. 持续调用直到返回值为0.
-$iMode为0时调用_WinAPI_EnumDisplaySettings(), 系统初始化并获取显示设备信息. 当$iMode非0时调用_WinAPI_EnumDisplaySettings(), 函数返回最后一次$iMode为0时调用函数所得的信息.
+	信息类型.可以是图形模式索引或以下值之一:
+		 $ENUM_CURRENT_SETTINGS --- 检索显示设备的当前设置
+		 $ENUM_REGISTRY_SETTINGS --- 检索显示设备在注册表中的设置
+		 图形模式索引从 0 开始.
+		 循环调用 _WinAPI_EnumDisplaySettings() 函数获取显示设备图形模式的所有资料,列举如下:
+		 首次调用时设置 $iMode 为 0; 后续每次调用 $iMode 增量 1.
+		 如此循环调用, 直到函数返回值为 0.
+		 调用本函数并设置 $iMode 为 0 时, 操作系统初始化显示设备有关信息的缓存;
+		调用本函数并设置 $iMode 为非 0 时,函数返回缓存中上次保存的信息,同时复位 $iMode 为 0.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 包含下列参数的数组:
-  [0] - 可见设备表面的像素宽度.
-  [1] - 可见设备表面的像素高度.
-  [2] - 显示设备的颜色分辨率.
-  [3] - 特定模式下显示设备的赫兹频率(周每秒)
-  [4] - 设备显示模式($DM_...).
-失败: 返回0并设置@error非0.
+成功:	返回以下参数的数组:
+	[0] - 显示设备可见面宽度的象素值.
+	[1] - 显示设备可见面高度的象素值.
+	[2] - 显示设备分辨率的像素值.
+	[3] - 显示设备特定模式刷新频率的赫兹值(每秒周期).
+	[4] - 设备的显示模式 ($DM_*).
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中EnumDisplaySettings的相关信息
+@@MsdnLink@@ EnumDisplaySettings
 
 ###Example###
 @@IncludeExample@@
+

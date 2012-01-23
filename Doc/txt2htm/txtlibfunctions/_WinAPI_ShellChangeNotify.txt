@@ -2,64 +2,135 @@
 _WinAPI_ShellChangeNotify
 
 ###Description###
-通知系统程序已执行
+通知系统应用程序已完成的事件.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_ShellChangeNotify( $iEvent, $iFlags [, $iItem1 [, $iItem2]] )
+_WinAPI_ShellChangeNotify ( $iEvent, $iFlags [, $iItem1 [, $iItem2]] )
 
 ###Parameters###
 @@ParamTable@@
-$iEvent  描述发生的事件. 通常一次只描述一个事件. 如果指定多个事件, 包含在$iItem2中的值和$iItem2参数必须分别对所有事件相同. 参数可为下列值的一个或多个:
-$SHCNE_ALLEVENTS - 发生的所有事件.
-$SHCNE_ASSOCCHANGED - 文件类型关联已改变. $iFlags中必须指定$SHCNF_IDLIST. $iItem1及$iItem2无效且必须为0.
-$SHCNE_ATTRIBUTES - 项目或文件夹属性已改变. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含已改变的项目或文件夹. $iItem2无效且必须为0.
-$SHCNE_CREATE - 已创建一个非文件夹项目, $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含已创建的项目. $iItem2无效且必须为0.
-$SHCNE_DELETE - 已删除一个非文件夹项目, $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含已删除的项目. $iItem2无效且必须为0.
-$SHCNE_DRIVEADD - 已添加一个驱动器. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含已添加驱动器的根. $iItem2无效且必须为0.
-$SHCNE_DRIVEADDGUI - 未使用.
-$SHCNE_DRIVEREMOVED - 已移除一个驱动器. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含已添加驱动器的根. $iItem2无效且必须为0.
-$SHCNE_EXTENDED_EVENT - 未使用.
-$SHCNE_FREESPACE - 驱动器上的可用空间已改变. $iFlags中必须指定$SHCNF_IDLIST. $iItem1包含自由空间已改变的驱动器的根. $iItem2无效且必须为0.
-$SHCNE_MEDIAINSERTED - 存储媒介已插入驱动器. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含新媒介的驱动器的根. $iItem2无效且必须为0.
-$SHCNE_MEDIAREMOVED - 已从驱动器移除一个存储媒介. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含已移除媒介的驱动器的根. $iItem2无效且必须为0.
-$SHCNE_MKDIR - 已创建一个文件夹. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含创建的文件夹. $iItem2无效且必须为0.
-$SHCNE_NETSHARE - 本地文件夹已通过网络共享. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含共享的文件夹. $iItem2无效且必须为0.
-$SHCNE_NETUNSHARE - 本地文件夹不再通过网络共享. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含不再共享的文件夹. $iItem2无效且必须为0.
-$SHCNE_RENAMEFOLDER - 已改变一个文件夹的名称. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含文件夹以前的项目列表指针. $iItem2包含文件夹新的项目列表指针.
-$SHCNE_RENAMEITEM - 已改变一个非文件夹项目的名称. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含文件夹以前的项目列表指针. $iItem2包含文件夹新的项目列表指针.
-$SHCNE_RMDIR - 已移除一个文件夹. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含已移除的文件夹. $iItem2无效且必须为0.
-$SHCNE_SERVERDISCONNECT - 计算机断开与服务器的连接. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含断开连接的服务器. $iItem2无效且必须为0.
-$SHCNE_UPDATEDIR - 改变已存在文件夹的内容, 但文件夹依然存在且未被重命名. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含改变的文件夹. $iItem2无效且必须为0. 当文件夹被创建, 删除, 或重命名, 使用相应的$SHCNE_MKDIR, $SHCNE_RMDIR, 或$SHCNE_RENAMEFOLDER.
-$SHCNE_UPDATEIMAGE - 系统图像列表中的图像已改变. $iFlags中必须指定$SHCNF_DWORD. $iItem1包含已改变的图像列表的索引, $iItem2无效且必须为0.
-$SHCNE_UPDATEITEM - 已存在项目(文件夹或非文件夹)已改变, 但项目依然存在且未被重命名. $iFlags中必须指定$SHCNF_IDLIST或$SHCNF_PATH. $iItem1包含改变的项目. $iItem2无效且必须为0. 当非文件夹项目被创建, 删除, 或重命名, 使用相应的$SHCNE_MKDIR, $SHCNE_RMDIR, 或$SHCNE_RENAMEITEM.
-$SHCNE_DISKEVENTS - 指定结合所有磁盘事件的标识.
-$SHCNE_GLOBALEVENTS - 指定结合所有全局事件的标识.
-$SHCNE_INTERRUPT - 系统中断时发生的指定事件. 由于该值会修改其它事件值, 所以无法单独使用.
-$iFlags  描述$iItem1和$iItem2参数意思的标记, 必须为下列值之一:
-$SHCNF_DWORD - $iItem1及$iItem2参数为DWORD值.
-$SHCNF_IDLIST - $iItem1及$iItem2参数为代表发生改变项目的ITEMIDLIST结构的地址. 每个ITEMIDLIST必须相对于桌面文件夹.
-$SHCNF_PATH - $iItem1及$iItem2参数为包含发生改变的项目的完整路径名的字符串.
-$SHCNF_PRINTER - $iItem1及$iItem2参数为代表发生改变的打印机名的字符串.
-$SHCNF_FLUSH - 通知已被传递给所有影响的部分时函数返回. 由于该标记将修改其他数据类型标记, 所以无法用于自身.
-$SHCNF_FLUSHNOWAIT - 函数开始向所有影响的部分传递通知但不会在通知进程开始时立即返回. 由于该标记将修改其他数据类型标记, 所以无法用于自身. 该标记包含$SHCNF_FLUSH标记.
-$SHCNF_NOTIFYRECURSIVE - 通知客户端注册所有子项.
-$iItem1  事件提供的首个值.
-$iItem2  事件提供的第二个值.
+$iEvent
+	事件描述. 通常在指定的时间只能有一个事件.
+		 如果超过一个指定事件, $iItem2 包含的值必须与 $iItem2 的参数值一样,分别为所有指定的事件.
+		 参数可以是一或多个下列值:
+		 $SHCNE_ALLEVENTS
+		 所有发生的事件.
+		 $SHCNE_ASSOCCHANGED
+		 文件类型关联发生变化. $iFlags 参数必须指定 $SHCNF_IDLIST.
+		 不使用 $iItem1 与 $iItem2 且必须为 0.
+		 $SHCNE_ATTRIBUTES
+		 项目或文件夹的属性发生了变化.$iFlags 必须指定 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含已改变的项目或文件夹. $iItem2 不必使用且必须为 0.
+		 $SHCNE_CREATE
+		 已创建一个非文件夹项目.$iFlags 参数必须指定为 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含已创建项目.$iItem2 不必使用且必须为 0.
+		 $SHCNE_DELETE
+		 已删除一个非文件夹项目. $iFlags 必须指定为 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含已删除的项目.$iItem2 不必使用且必须为 0.
+		 $SHCNE_DRIVEADD
+		 已添加一个驱动器. $iFlags 必须指定为 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含已添加驱动器的根目录.$iItem2 不必使用且必须为 0.
+		 $SHCNE_DRIVEADDGUI
+		 未使用.
+		 $SHCNE_DRIVEREMOVED
+		 驱动器已被删除. $iFlags 必须指定为 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含已删除驱动器的根目录.$iItem2 不必使用且必须为 0.
+		 $SHCNE_EXTENDED_EVENT
+		 未使用.
+		 $SHCNE_FREESPACE
+		 驱动器上的可用空间量已更改. $iFlags 必须指定为 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含已更改可用空间驱动器的根.$iItem2 不必使用且必须为 0.
+		 $SHCNE_MEDIAINSERTED
+		 存储媒体已被插入到驱动器. $iFlags 必须指定为 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含插入新媒体驱动器的根.$iItem2 不必使用且必须为 0.
+		 $SHCNE_MEDIAREMOVED
+		 驱动器存储媒体已被删除. $iFlags 必须指定为 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含删除媒体的驱动器的根.$iItem2 不必使用且必须为 0.
+		 $SHCNE_MKDIR
+		 已创建一个文件夹. $iFlags 必须指定为 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含已创建的文件夹.$iItem2 不必使用且必须为 0.
+		 $SHCNE_NETSHARE
+		 本地共享文件夹已传递到网络. $iFlags 必须指定为 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含被共享文件夹.$iItem2 不必使用且必须为 0.
+		 $SHCNE_NETUNSHARE
+		 本地共享文件夹不再传递给网络. $iFlags 必须指定为 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含不再被共享的文件夹.$iItem2 不必使用且必须为 0.
+		 $SHCNE_RENAMEFOLDER
+		 文件夹的名称已更改. $iFlags 必须指定为 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含以前指向项目标识符列表(PIDL)或文件夹名称的指针. $iItem2 包含新 PIDL 或文件夹的名称.
+		 $SHCNE_RENAMEITEM
+		 非文件夹的项目名称已更改. $iFlags 必须指定为 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含以前 PIDL 或项目的名称. $iItem2 包含新 PIDL 或项目的名称.
+		 $SHCNE_RMDIR
+		 文件夹已被删除. $iFlags 必须指定为 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含已删除的文件夹.$iItem2 不必使用且必须为 0.
+		 $SHCNE_SERVERDISCONNECT
+		 计算机已从服务器断开. $iFlags 必须指定为 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含计算机已断开的服务器.$iItem2 不必使用且必须为 0.
+		 $SHCNE_UPDATEDIR
+		 现有文件夹内容发生了变化,但文件夹仍然存在,并且没有被重命名.
+		 $iFlags 必须指定为 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含已更改的文件夹.$iItem2 不必使用且必须为 0. If a folder has been
+		 如果创建,删除,或重命名文件夹, 分别使用 $SHCNE_MKDIR, $SHCNE_RMDIR, 或 $SHCNE_RENAMEFOLDER.
+		 $SHCNE_UPDATEIMAGE
+		 系统图像列表的图象发生了变化. $iFlags 必须指定为 $SHCNF_DWORD.
+		 $iItem1 包含已更改图像在图像列表中的索引.$iItem2 不必使用且必须为 0.
+		 $SHCNE_UPDATEITEM
+		 现有项目(文件夹或非文件夹)已经改变,但该项目仍然存在,并且没有被重命名.
+		 $iFlags 必须指定为 $SHCNF_IDLIST 或 $SHCNF_PATH.
+		 $iItem1 包含已更改的项目.$iItem2 不必使用且必须为 0. If a nonfolder item has been
+		 如果创建,删除,或重命名非文件夹项目,分别使用 $SHCNE_CREATE, $SHCNE_DELETE, 或 $SHCNE_RENAMEITEM.
+		 $SHCNE_DISKEVENTS
+		 指定所有磁盘事件标识符的组合.
+		 $SHCNE_GLOBALEVENTS
+		 指定组合所有全局事件标识符.
+		 $SHCNE_INTERRUPT
+		 指定事件发生一个系统中断. 由于此值修改其他事件值,它已不能单独使用.
+		(其它信息见 MSDN)
+$iFlags
+	表示 $iItem1 与 $iItem2 参数含义的标志
+		 参数可以是以下值之一:
+		 $SHCNF_DWORD
+		 $iItem1 与 $iItem2 参数是 DWORD 值.
+		 $SHCNF_IDLIST
+		 $iItem1 与 $iItem2 参数为 ITEMIDLIST 结构,代表受变化影响的项目地址.
+		 每个 ITEMIDLIST 必须相对于桌面的文件夹.
+		 $SHCNF_PATH
+		 $iItem1 与 $iItem2 参数为字符串,包含受变更影响的项目完整路径名称.
+		 affected by the change.
+		 $SHCNF_PRINTER
+		 $iItem1 与 $iItem2 参数为字符串,代表受变更影响的打印机名称.
+		 affected by the change.
+		 $SHCNF_FLUSH
+		 当通知已被传递给所有影响的组件时, 函数才有返回值.
+		 由于此标志会修改其他数据类型的标志,因此它不能单独使用.
+		 $SHCNF_FLUSHNOWAIT
+		 函数开始传递通知到所有受影响的组件时,应尽快返回通知到已经开始的进程.
+		 由于此标志会修改其他数据类型的标志,因此它不能单独使用.
+		 此标志包含 $SHCNF_FLUSH 标志.
+		 $SHCNF_NOTIFYRECURSIVE
+		 通知客户注册所有子项.
+		(其它信息见 MSDN)
+$iItem1
+	[可选参数] 第一个事件相关值.
+$iItem2
+	[可选参数] 第二个事件相关值.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1
-失败: 返回0并设置@error非0
+成功:	返回 1.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中SHChangeNotify的相关信息
+@@MsdnLink@@ SHChangeNotify
 
 ###Example###
 @@IncludeExample@@
+

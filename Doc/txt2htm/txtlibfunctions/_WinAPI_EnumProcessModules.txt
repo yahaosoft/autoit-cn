@@ -2,41 +2,45 @@
 _WinAPI_EnumProcessModules
 
 ###Description###
-获取指定进程中每个模块的句柄和名称
+Retrieves a handle and name for each module in the specified process.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_EnumProcessModules( [$PID] )
+_WinAPI_EnumProcessModules ( [$PID] )
 
 ###Parameters###
 @@ParamTable@@
 $PID
-   [可选] 进程标识(PID). 默认(0)为当前进程
+	[可选参数] The PID of the process. Default (0) is the current process.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回包含下列信息的数组:
-    [0][0] - 数组中的元素数(n)
-    [0][1] - 未使用
-    [1][0] - 模块句柄
-    [1][1] - 包含模块的文件的路径
-    [n][0] - 模块句柄
-    [n][1] - 包含模块的文件的路径
-失败: 返回0并设置@error非0
+Success	The array containing the following information:
+[0][0]	Number of rows in array (n)
+[0][1]	Unused
+[1][0]	Handle to the module
+[1][1]	The path to the file that contains the module
+[n][0]	Handle to the module
+[n][1]	The path to the file that contains the module
+Failure	0 and sets the @error flag to non-zero.
 @@End@@
 
 ###Remarks###
-函数不会获取以$LOAD_LIBRARY_AS_DATAFILE标记加载的模块的句柄.
-更多信息请参考_WinAPI_LoadLibraryEx().
-不用对由该函数返回的任意句柄调用_WinAPI_CloseHandle(). 由于信息来自快照, 故而不会释放资源.
-如果_WinAPI_EnumProcessModules()函数被运行于WOW64的32位应用程序调用, 则仅枚举32位进程模块.
-对于64位进程, 函数失败且错误代码为ERROR_PARTIAL_COPY (299).
+This function does not retrieve handles for modules that were loaded with the $LOAD_LIBRARY_AS_DATAFILE flag.
+For more information, see _WinAPI_LoadLibraryEx().
 
-###Related###
+Do not call _WinAPI_CloseHandle() on any of the handles returned by this function. The information comes
+from a snapshot, so there are no resources to be freed.
+
+If _WinAPI_EnumProcessModules() function is called from a 32-bit application running on WOW64, it can only
+enumerate the modules of a 32-bit process. If the process is a 64-bit process, this function fails and the
+last error code is ERROR_PARTIAL_COPY (299).
+
 
 ###See Also###
- 搜索MSDN知识库中EnumProcessModules的相关信息
+@@MsdnLink@@ EnumProcessModules
 
 ###Example###
 @@IncludeExample@@
+

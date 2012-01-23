@@ -2,37 +2,42 @@
 _WinAPI_DeviceIoControl
 
 ###Description###
-将控制代码直接发送到指定设备驱动
+发送控制代码到指定的设备驱动程序.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_DeviceIoControl( $hDevice, $iControlCode [, $pInBuffer [, $iInBufferSize [, $pOutBuffer [, $iOutBufferSize]]]] )
+_WinAPI_DeviceIoControl ( $hDevice, $iControlCode [, $pInBuffer [, $iInBufferSize [, $pOutBuffer [, $iOutBufferSize]]]] )
 
 ###Parameters###
 @@ParamTable@@
 $hDevice
-   将在其上执行操作的设备句柄. 设备通常为卷 , 目录 , 文件或流. 使用_WinAPI_CreateFileEx函数获取设备句柄. 使用_WinAPI_CreateFileEx("\\.\DeviceName" , ...)格式指定设备名.
+	设备句柄.设备可以是一个卷、目录、文件或流
+		 要检索设备句柄,可使用 _WinAPI_CreateFileEx 函数.
+		 使用下面的格式指定设备名称:
+		 _WinAPI_CreateFileEx("\\.\设备名称", ...)
 $iControlCode
-   操作控制代码. 该值标识将执行的指定操作及执行之的设备类型.
+	用于操作的控制代码.
+		 此值确定操作和执行的类型
 $pInBuffer
-   包含将执行操作的数据的输入缓冲区指针
+	[可选参数] 包含需要执行操作数据的输入缓冲区指针.
 $iInBufferSize
-   输入缓冲区的字节大小
+	[可选参数] 输入缓冲区的字节大小.
 $pOutBuffer
-   接收操作返回的数据的输出缓冲区指针
+	[可选参数] 接收操作返回数据的输出缓冲区指针..
 $iOutBufferSize
-   输出缓冲区的字节大小
+	[可选参数] 输出缓冲区的字节大小.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功: 返回1且@extended标记包含存储在输出缓冲区中的数据的字节大小
-失败: 返回空字符串并设置@error非0
+成功:	返回 1. @extended 标志包含输出缓冲区中存储数据的字节大小.
+失败:	返回 0,设置@error:标志为非 0 值.
 @@End@@
 
 ###Remarks###
+None
 
-###Related###
 
 ###See Also###
- 搜索MSDN知识库中DeviceIoControl的相关信息
+@@MsdnLink@@ DeviceIoControl
+
