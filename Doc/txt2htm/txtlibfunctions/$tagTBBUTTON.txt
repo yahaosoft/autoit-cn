@@ -2,25 +2,33 @@
 $tagTBBUTTON
 
 ###Description###
-包含工具栏上的按钮信息的结构
+包含工具栏按钮的信息
 
 ###Syntax###
-Global Const $tagTBBUTTON =  "int Bitmap;int Command;byte State;byte Style;short Reserved;int Param;int String"
+Global Const $tagTBBUTTON = "int Bitmap;int Command;byte State;byte Style;short Reserved;int Param;int String"
 
 ###Fields###
 @@ParamTable@@
 Bitmap
-   0基索引的按钮图像. 设置该成员为$I_IMAGECALLBACK, 且工具栏将发送$TBN_GETDISPINFO通知以在需要时获取图像索引. 设置该成员为$I_IMAGENONE表示按钮无图像. 按钮表面将只有文本且不包括任何留给图像的空间. 如果按钮是一个分隔符, 位图确定分隔符的像素宽度.
+	按钮图像的 0 基索引.设置此成员维 $I_IMAGECALLBACK,
+	工具栏将发送 $TBN_GETDISPINFO 通知检索图像索引时是必要的.
+	设置此成员为 $I_IMAGENONE 表明按钮没有图像.
+	按钮布局将不包括任何位图空间,只有文字.如果按钮是一个分隔符,则位图决定分隔符的像素宽度.
+	pixels.
 Command
-   与按钮相关的命令标识符. 该标识符用于按钮被选定时的$WM_COMMAND消息.
+	与按钮关联的命令标识符.当按钮被选择时,此标识符用在 $WM_COMMAND 消息中.
 State
-   按钮状态标记
+	按钮状态标志
 Style
-   按钮样式标记
+	按钮样式标志
 Reserved
-   保留
+	保留
 Param
-   应用程序定义的值
+	应用程序定义的值
 String
-   按钮字符串的0基索引, 或包含按钮文本的字符串的指针
-@@end@@
+	按钮字符串的 0 基索引,或包含按钮文字指针的字符串
+@@End@@
+
+###Remarks###
+None.
+

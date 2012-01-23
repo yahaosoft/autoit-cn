@@ -2,39 +2,49 @@
 $tagNMTVDISPINFO
 
 ###Description###
-包含及接收树形视图项显示信息的结构
+包含和接收树视图项目的显示信息
 
 ###Syntax###
-Global Const $tagNMTVDISPINFO =  $tagNMHDR & ";int Mask;int hItem;int State;int StateMask;ptr Text;int TextMax;int SelectedImage;int Children;int Param"
+Global Const $tagNMTVDISPINFO = $tagNMHDR & ";int Mask;int hItem;int State;int StateMask;" & _
+		"ptr Text;int TextMax;int Image;int SelectedImage;int Children;int Param"
 
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   包含通知消息的信息
+	包含通知消息的信息
 Mask
-   指定要获取或设置的信息. 可为一个或多个下列值:
-    $TVIF_CHILDREN - Children成员可用
-    $TVIF_IMAGE - Image成员可用
-    $TVIF_SELECTEDIMAGE - SelectedImage成员可用
-    $TVIF_TEXT - Text及TextMax成员可用
+	设置或检索指定信息. 可以是一或多个下列值:
+		$TVIF_CHILDREN - Children 成员有效
+		$TVIF_IMAGE - Image 成员有效
+		$TVIF_SELECTEDIMAGE - SelectedImage 成员有效
+		$TVIF_TEXT - Text 和 TextMax 成员有效
 hItem
-   该结构指向的项目
+	本结构指向的项目
 State
-   数位标记和表示项目状态的图像列表索引的集合. 当设置项目状态时, StateMask成员表示该成员的数位可用. 当获取项目状态时, 该成员返回StateMask成员中表示当前状态的数位. 该成员的数位0到7包含项目标记. 数位8到11指定1基的重叠图像索引.
+	设置表明项目状态的标志和图像索引. 
+	当设置项目状态后,StateMask 成员表示该成员的有效位.
+	当检索项状态时,这个成员返回的当前状态显示在 StateMask 成员中. 
+	0 至 7为项目的状态标志;8 至 11 位指定一个基于覆盖的图像索引      .
 StateMask
-   可用的状态成员的数位. 当获取一个项目的状态时, 设置StateMask成员的数位为state成员返回的数位. 当设置项目状态时, 设置stateMask成员为表示想设置的state成员的数位.
+	state 成员位有效. 
+	如果要检索项目状态,设置 stateMask 成员的位表示 state 要返回的位. 
+	如果要设置项的状态,设置 stateMask 成员的位表明 state 成员为你要设置的位.
 Text
-   包含项目文本的无终止符字符串的指针.
+	指向一个空结束的字符串，其中包含的项目文本.
 TextMax
-   由Text成员指向的缓冲区的字符大小
+	Text 成员指向的缓冲区字符大小
 Image
-   项目为未选定状态时的图标图像在图像列表中的索引
+	当项目非选择状态时使用的图标在图像列表中的索引
 SelectedImage
-   项目为选定状态时的图标图像在图像列表中的索引
+	当项目选中状态时使用的图标在图像列表中的索引
 Children
-   表示项目是否有相关子项的标记. 该成员可为下列值之一:
-    0 - 项目无子项
-    1 - 项目有一个或多个子项
+	表明项目是否有关联子项的标志     :
+		0 - 项目没有子项
+		1 - 项目有一或多个子项
 Param
-   与项目相关的值
-@@end@@
+	项目的关联值
+@@End@@
+
+###Remarks###
+None.
+

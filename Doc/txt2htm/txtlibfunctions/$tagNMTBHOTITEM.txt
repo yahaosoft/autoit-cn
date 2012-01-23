@@ -2,7 +2,7 @@
 $tagNMTBHOTITEM
 
 ###Description###
-包含用于处理$TBN_HOTITEMCHANGE通知消息的信息的结构
+包含使用 $TBN_HOTITEMCHANGE 通知的信息
 
 ###Syntax###
 Global Const $tagNMTBHOTITEM = $tagNMHDR & ";int idOld;int idNew;dword dwFlags"
@@ -10,21 +10,26 @@ Global Const $tagNMTBHOTITEM = $tagNMHDR & ";int idOld;int idNew;dword dwFlags"
 ###Fields###
 @@ParamTable@@
 $tagNMHDR
-   包含通知消息的信息
+	包含通知消息的信息
 idOld
-   前一个高亮项的命令标识
+	先前高亮项目的命令标识符
 idNew
-   将被高亮的项目的命令标识
+	即将高亮项目的命令标识符
 dwFlags
-   表示项目为何改变的标记. 可为一个或多个下列值:
-    $HICF_ACCELERATOR - 快捷键引起的热项改变
-    $HICF_ARROWKEYS - 箭头键引起的热项改变
-    $HICF_DUPACCEL - 修正$HICF_ACCELERATOR. 如果设置有该标记, 多于一个项目具有相同的快捷键.
-    $HICF_ENTERING - 修正其他原因标记. 如果设置有该标记, 以前没有热项且idOld不包含有效信息.
-    $HICF_LEAVING - 修正其他原因标记. 如果设置有该标记, 没有新的热项且idNew不包含有效信息.
-    $HICF_LMOUSE - 鼠标左键单击事件引起的热项改变
-    $HICF_MOUSE - 鼠标事件引起的热项改变
-    $HICF_OTHER - 无法确定的事件引起的热项改变. 多数由于焦点改变或$TB_SETHOTITEM消息
-    $HICF_RESELECT - 用户输入已经为热项的快捷键引起的热项改变
-    $HICF_TOGGLEDROPDOWN - 版本5.80. 使按钮切换状态
-@@end@@
+	表示项目为何改变的标志. 可为一或多个下列值:
+		$HICF_ACCELERATOR - 快捷键引起的热项改变
+		$HICF_ARROWKEYS - 箭头键引起的热项改变
+		$HICF_DUPACCEL - 修改 $HICF_ACCELERATOR. 如果这个标志被设置，多个项目具有相同的快捷键字符
+		$HICF_ENTERING - 修正其他原因标记. 如果设置此标志, 以前没有热项目, 则 idOld 不包含有效的信息
+		$HICF_LEAVING - 修正其他原因标记. 如果设置此标志, 没有新添热项目, 则 idOld 不包含有效的信息
+		$HICF_LMOUSE - 鼠标左键单击事件引起的热项改变
+		$HICF_MOUSE - 鼠标事件引起的热项改变
+		$HICF_OTHER - 无法确定引起热项改变的事件. 通常是由于焦点改变或 $TB_SETHOTITEM 消息变化
+		$HICF_RESELECT - 用户输入的快捷键项目已经是热项而引起的热项改变
+		$HICF_TOGGLEDROPDOWN - 版本 5.80. 导致按钮切换状态
+@@End@@
+
+###Remarks###
+需要调整为 x64
+	
+

@@ -2,46 +2,51 @@
 $tagSCROLLBARINFO
 
 ###Description###
-包含滚动条信息的结构
+包含滚动条信息
 
 ###Syntax###
-Global Const $tagSCROLLBARINFO =  "dword cbSize;int Left;int Top;int Right;int Bottom;int dxyLineButton;int xyThumbTop;int xyThumbBottom;int reserved;dword rgstate[6]"
+Global Const $tagSCROLLBARINFO = "dword cbSize;int Left;int Top;int Right;int Bottom;int dxyLineButton;int xyThumbTop;" & _
+		"int xyThumbBottom;int reserved;dword rgstate[6]"
 
 ###Fields###
 @@ParamTable@@
 cbSize
-   指定结构的字节大小. 调用者必须将其设定为DllStructGetSize($tagSCROLLBARINFO).
+	指定这个结构的字节大小. 调用程序必须设置为 DllStructGetSize( $tagSCROLLBARINFO ).
 Left
-   指定滚动条的矩形的左上角x坐标
+	指定矩形的左上角 X 坐标 滚动条
 Top
-   指定滚动条的矩形的左上角y坐标
+	指定矩形的左上角 Y 坐标 滚动条
 Right
-   指定滚动条的矩形的右下角x坐标
+	指定矩形的右下角 X 坐标 滚动条
 Bottom
-   指定滚动条的矩形的右下角y坐标
+	指定矩形的右下角 Y 坐标 滚动条
 dxyLineButton
-   浏览按钮的高度或宽度
+	滚动槽的高度或宽度.
 xyThumbTop
-   浏览按钮左边或顶部的位置
+	滚动槽顶部或左边位置.
 xyThumbBottom
-   浏览按钮右边或底部的位置
+	滚动槽底部或右边位置.
 reserved
-   保留
+	保留.
 rgstate
-   DWORD元素数组. 每个元素表示滚动条组件的一个状态.
-    下列值显示与数组每个索引相对应的滚动条组件:
-    0 滚动条本身.
-    1 顶部或右箭头按钮.
-    2 页面向上或页面向右区域.
-    3 滚动箱(浏览).
-    4 页面向下或页面向左区域.
-    5 底部或左箭头按钮.
-    每个滚动条组件DWORD元素可包括下列标记的组合.
-    STATE_SYSTEM_INVISIBLE - 对滚动条本身, 表示不存在指定的垂直或水平滚动条. 对于翻页区, 表示不存在放置浏览按钮的区域.
-    STATE_SYSTEM_OFFSCREEN - 对滚动条本身, 窗体可改变大小以不显示当前指定的垂直或水平滚动条.
-    STATE_SYSTEM_PRESSED - 箭头按钮或页面区被按下.
-    STATE_SYSTEM_UNAVAILABLE - 禁用组件.
-@@end@@
+	DWORD 元素数组,每个元素表明一个滚动条组件的状态.
+	下面的值显示滚动条组件对应数组的索引:
+		0 滚动条本身.
+		1 顶或右箭头按钮.
+		2 页上或页右侧区域.
+		3 滚动框.
+		4 页下或页左侧区域.
+		5 底或左箭头按钮.
+
+	每个滚动条组件的 DWORD 元素可以包含下列位标志的组合.
+		STATE_SYSTEM_INVISIBLE - 对于滚动条本身,表明指定的垂直或水平滚动条不存在.
+		对于向上或向下翻页区域,表明滚动栏的位置不存在.
+		STATE_SYSTEM_OFFSCREEN - 对于滚动条本身，显示窗口的大小，这样指定的垂直或水平滚动条当前未显示.
+		STATE_SYSTEM_PRESSED - 箭头按钮或页面区域被按下.
+		STATE_SYSTEM_UNAVAILABLE - 组件被禁用.
+@@End@@
 
 ###Remarks###
-滚动条的$SIF_xxxxx及$SB_xxxxx需要WindowsConstants.au3
+$SIF_xxxxx 与 $SB_xxxxx 对滚动条需要常量文件 WindowsConstants.au3
+  
+

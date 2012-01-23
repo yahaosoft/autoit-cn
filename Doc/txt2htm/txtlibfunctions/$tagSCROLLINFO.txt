@@ -2,38 +2,38 @@
 $tagSCROLLINFO
 
 ###Description###
-包含由$SBM_SETSCROLLINFO消息设置或由$SBM_GETSCROLLINFO消息获取的滚动条信息的结构
+包含由 $SBM_SETSCROLLINFO 信息设置滚动条参数,或由 $SBM_GETSCROLLINFO 检索信息
 
 ###Syntax###
-Global Const $tagSCROLLINFO =  "uint cbSize;uint fMask;int  nMin;int  nMax;uint nPage;int  nPos;int  nTrackPos"
+Global Const $tagSCROLLINFO = "uint cbSize;uint fMask;int  nMin;int  nMax;uint nPage;int  nPos;int  nTrackPos"
 
 ###Fields###
 @@ParamTable@@
 cbSize
-   指定结构的字节大小. 调用者必须将其设定为DllStructGetSize($tagSCROLLINFO).
+	指定这个结构的字节大小. 调用程序必须设置为 DllStructGetSize（$tagSCROLLINFO）
 fMask
-   指定将设置或获取的滚动条参数. 该成员可为下列值的组合:
-    $SIF_ALL - $SIF_PAGE, $SIF_POS, $SIF_RANGE和$SIF_TRACKPOS的组合.
-    $SIF_DISABLENOSCROLL - 该值仅在设置滚动条参数时使用.
-
-   如果新参数使得无需滚动条, 则禁用之而非移除.
-    $SIF_PAGE - nPage成员包含适合滚动条的页面大小.
-    $SIF_POS - nPos成员包含用户拖曳而无法更新的滚动箱的位置.
-    $SIF_RANGE - nMin和nMax成员包含滚动范围的最大值及最小值.
-    $SIF_TRACKPOS - nTrackPos成员包含用户拖曳时滚动箱的当前位置.
+	指定滚动条参数设置或检索.此成员可以是下列值的组合:
+		$SIF_ALL - 组合 $SIF_PAGE, $SIF_POS, $SIF_RANGE, 与 $SIF_TRACKPOS.
+		$SIF_DISABLENOSCROLL - 此值仅用于设置滚动条时的参数.如果滚动条新的参数生成多余的滚动条,请禁用它,而不是取消滚动条.
+		$SIF_PAGE - nPage 成员包含适合滚动条的页面大小.
+		$SIF_POS - nPos 成员包含滚动框的位置,用户拖动滚动框不更新..
+		$SIF_RANGE - nMin 与 nMax 成员包含滚动范围的最低和最高值.
+		$SIF_TRACKPOS - nTrackPos 成员包含用户拖动滚动框时的当前位置.
 nMin
-   指定最小滚动位置.
+	指定最小滚动位置.
 nMax
-   指定最大滚动位置.
+	指定最大滚动位置.
 nPage
-   指定页面大小. 滚动条使用该值以确定合适的滚动箱的大概尺寸.
+	指定页面大小.滚动条使用此值确定适当的滚动框比例大小.
 nPos
-   指定滚动箱的位置.
+	指定的滚动框位置.
 nTrackPos
-   指定用户拖曳时滚动箱的即时位置.
-    当执行$SB_THUMBTRACK请求代码时应用程序可获取该值.
-    应用无法设置即时滚动位置, SetScrollInfo函数忽略该成员.
-@@end@@
+	指定用户拖动时,滚动框的即时位置.
+	在处理 $SB_THUMBTRACK 请求代码时,应用程序可以检索此值.
+	应用程序可以不设置即时滚动的位置,SetScrollInfo 函数忽略这个成员.
+@@End@@
 
 ###Remarks###
-滚动条的$SIF_xxxxx及$SB_xxxxx需要WindowsConstants.au3
+$SIF_xxxxx 与 $SB_xxxxx 对滚动条需要常量文件 WindowsConstants.au3
+	
+

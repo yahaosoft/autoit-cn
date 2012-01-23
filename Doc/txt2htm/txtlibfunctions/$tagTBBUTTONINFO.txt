@@ -2,42 +2,48 @@
 $tagTBBUTTONINFO
 
 ###Description###
-包含或接收工具栏上指定按钮信息的结构
+包含或接收工具栏特定按钮的信息
 
 ###Syntax###
-Global Const $tagTBBUTTONINFO =  "int Size;int Mask;int Command;int Image;byte State;byte Style;short CX;int Param;ptr Text;ptr TextMax"
+Global Const $tagTBBUTTONINFO = "int Size;int Mask;int Command;int Image;byte State;byte Style;short CX;int Param;ptr Text;int TextMax"
 
 ###Fields###
 @@ParamTable@@
 Size
-   结构的字节大小
+	结构的字节大小
 Mask
-   描述含有可用信息的成员的标记的集合:
-    $TBIF_BYINDEX - 和$TB_GETBUTTONINFO或$TB_SETBUTTONINFO消息发送的参数是一个索引
-    $TBIF_COMMAND - Command成员包含有效信息或正被需要
-    $TBIF_IMAGE - Image成员包含有效信息或正被需要
-    $TBIF_IMAGELABEL - 表示将使用ImageLabel
-    $TBIF_LPARAM - Param成员包含有效信息或正被需要
-    $TBIF_SIZE - CX成员包含有效信息或正被需要
-    $TBIF_STATE - State成员包含有效信息或正被需要
-    $TBIF_STYLE - Style成员包含有效信息或正被需要
-    $TBIF_TEXT - Text成员包含有效信息或正被需要
+	设置表明哪些成员包含有效信息的标志:
+		$TBIF_BYINDEX - 发送 $TB_GETBUTTONINFO 或 $TB_SETBUTTONINFO 消息的参数是一个索引
+		$TBIF_COMMAND - Command 成员包含有效信息, 或正被请求.
+		$TBIF_IMAGE - Image 成员包含有效信息, 或正被请求.
+		$TBIF_IMAGELABEL - 指示应使用 ImageLabel 成员
+		$TBIF_LPARAM - Param 成员包含有效信息, 或正被请求.
+		$TBIF_SIZE - CX 成员包含有效信息, 或正被请求.
+		$TBIF_STATE - State 成员包含有效信息, 或正被请求.
+		$TBIF_STYLE -  Style 成员包含有效信息, 或正被请求.
+		$TBIF_TEXT - Text 成员包含有效信息, 或正被请求.
 Command
-   按钮的命令标识
+	按钮命令标识符
 Image
-   按钮的图像索引. 设置此成员为$I_IMAGECALLBACK, 且由工具栏发送$TBN_GETDISPINFO通知以在需要时获取图像索引. 设置该成员为$I_IMAGENONE表示按钮不具有图像.
+	按钮图像索引.设置此成员为 $I_IMAGECALLBACK,
+	工具栏将发送 $TBN_GETDISPINFO 检索图像索引时是必要的.
+	设置此成员为 $I_IMAGENONE 表明按钮没有图像.
 State
-   按钮状态标记
+	按钮状态标志
 Style
-   按钮样式标记
+	按钮的样式标志
 CX
-   按钮像素宽度
+	按钮的像素宽度
 Param
-   应用程序定义的与按钮相关的指
+	应用程序定义按钮的相关值
 Text
-   包含或接收按钮文本的字符缓冲区的地址
+	包含字符缓冲区或接收按钮文本的弟地址
 TextMax
-   Text缓冲区的大小. 如果设定了按钮信息, 忽略该成员
+	文本缓冲区大小.如果正在设置按钮信息,该成员将被忽略
 ImageLabel
-   提供替换带图像的项目的文本标签的能力
-@@end@@
+	提供替换图像项目的文本标签的能力
+@@End@@
+
+###Remarks###
+None.
+

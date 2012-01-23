@@ -2,20 +2,21 @@
 $tagSECURITY_ATTRIBUTES
 
 ###Description###
-包含对象的安全描述符及指定通过指定该结构获取的句柄是否可继承的结构
+包含一个对象的安全描述符，并指定这个结构检索的句柄是否可继承
 
 ###Syntax###
 Global Const $tagSECURITY_ATTRIBUTES = "int Length;ptr Descriptor;int InheritHandle"
 
 ###Fields###
 @@ParamTable@@
-    Length
+Length
+	这个结构的字节大小
+Descriptor
+	由对象控制共享的安全描述符指针
+InheritHandle
+	如果为 True,新进程继承句柄.
+@@End@@
 
-   结构的字节大小
-    Descriptor
+###Remarks###
+None.
 
-   由对象控制共享的安全描述符的指针
-    InheritHandle
-
-   如果为真, 新进程继承句柄.
-@@end@@
