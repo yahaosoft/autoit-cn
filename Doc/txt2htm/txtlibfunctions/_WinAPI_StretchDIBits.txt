@@ -2,8 +2,7 @@
 _WinAPI_StretchDIBits
 
 ###Description###
-Copies the color data for a rectangle of pixels in a DIB, JPEG, or PNG image to the specified destination rectangle,
-;                  stretching or compressing the rows and columns by using the specified raster operation, if necessary.
+将DIB, JPEG或PNG图像中的像素矩形的颜色数据复制到目标矩形. 如有必要使用指定的光栅操作拉伸或压缩行列
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -12,70 +11,67 @@ _WinAPI_StretchDIBits ( $hDestDC, $iXDest, $iYDest, $iWidthDest, $iHeightDest, $
 ###Parameters###
 @@ParamTable@@
 $hDestDC
-	Handle to the destination device context.
+	目标场景句柄
 $iXDest
-	The x-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+	目标矩形左上角x坐标
 $iYDest
-	The y-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+	目标矩形左上角y坐标
 $iWidthDest
-	The width, in logical units, of the destination rectangle.
+	目标矩形宽度
 $iHeightDest
-	The height, in logical units, of the destination rectangle.
+	目标矩形高度
 $iXSrc
-	The x-coordinate, in pixels, of the source rectangle in the image.
+	源矩形左上角x坐标
 $iYSrc
-	The y-coordinate, in pixels, of the source rectangle in the image.
+	源矩形左上角y坐标
 $iWidthSrc
-	The width, in pixels, of the source rectangle in the image.
+	源矩形宽度
 $iHeightSrc
-	The height, in pixels, of the source rectangle in the image.
+	源矩形高度
 $tBITMAPINFO
-	$tagBITMAPINFO structure that contains information about the DIB.
+	包含DIB信息的$tagBITMAPINFO 结构
 $iUsage
-	The type of colors used. (either logical palette indexes or literal RGB values). The following
-	values are defined.
+	使用的颜色格式. (逻辑调色板索引或RGB值). 
+	可用下列值:
 	
-	$DIB_PAL_COLORS
-	$DIB_RGB_COLORS
+	$DIB_PAL_COLORS - 包含到源场景逻辑调色板16位索引的数组
+	$DIB_RGB_COLORS - RGB颜色值
 	
 $pBits
-	A pointer to the image bits, which are stored as an array of bytes.
+	存储为数位数组的图像数位的指针
 $iRop
-	The raster-operation code that specifies how the source pixels, the destination device context's
-	current brush, and the destination pixels are to be combined to form the new image. It must be
-	0 or one of the following values.
+	源像素, 目标场景当前的画刷及目标像素如何结合生成新图像的光栅操作代码.
+	必须为0或下列值之一.
 	
-	$BLACKNESS
-	$CAPTUREBLT
-	$DSTINVERT
-	$MERGECOPY
-	$MERGEPAINT
-	$NOMIRRORBITMAP
-	$NOTSRCCOPY
-	$NOTSRCERASE
-	$PATCOPY
-	$PATINVERT
-	$PATPAINT
-	$SRCAND
-	$SRCCOPY
-	$SRCERASE
-	$SRCINVERT
-	$SRCPAINT
-	$WHITENESS
-	
+	$BLACKNESS - 使用物理调色板中的索引0填充目标矩形
+	$CAPTUREBLT - 结果图像包含所有在你的窗口上层的窗口. 默认值包含你的窗口. 注意该值不用于打印设备.
+	$DSTINVERT - 反转目标矩形
+	$MERGECOPY - 通过BitAND操作合并源矩形颜色及目标场景的画刷
+	$MERGEPAINT - 通过BitOR操作合并源矩形反色及目标场景的画刷
+	$NOMIRRORBITMAP - 阻止图像镜像
+	$NOTSRCCOPY - 将反转的源矩形复制到目标场景
+	$NOTSRCERASE - 通过BitOR操作合并源矩形及目标矩形的颜色后反转对应颜色
+	$PATCOPY - 将目标场景中选取的画刷复制到目标位图中
+	$PATINVERT - 通过BitXOR操作合并目标场景中当前选取的画刷颜色及目标矩形的颜色
+	$PATPAINT - 通过BitOR操作合并源矩形反色和目标场景中选取的画刷色
+	$SRCAND - 通过BitAND操作合并源矩形颜色及目标矩形颜色
+	$SRCCOPY - 将源矩形直接复制到目标矩形
+	$SRCERASE - 通过BitAND操作合并目标矩形的反色及源矩形的颜色
+	$SRCINVERT - 通过BitXOR操作合并目标矩形的颜色及源矩形的颜色
+	$SRCPAINT - 通过BitOR操作合并目标矩形的颜色及源矩形的颜色
+	$WHITENESS - 使用物理调色板中的索引1填充目标矩形
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The number of scan lines copied. Note that this value can be negative for mirrored content.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回复制的扫描行数. 对于图像该值可为负数.
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###
-_WinAPI_StretchDIBits() creates a mirror image of a bitmap if the signs of the $iWidthSrc and $iWidthDest parameters,
-or if the $iHeightSrc and $iHeightDest parameters differ. If $iWidthSrc and $iWidthDest have different signs,
-the function creates a mirror image of the bitmap along the x-axis. If $iHeightSrc and $iHeightDest have different
-signs, the function creates a mirror image of the bitmap along the y-axis.
+当给定$iWidthSrc及$iWidthDest参数或$iHeightSrc和$iHeightDest参数的符号不同时, _WinAPI_StretchDIBits()创建位图的镜像图像.
+如果$iWidthSrc和$iWidthDest符号不同, 函数沿x轴创建位图的镜像图像.
+如果$iHeightSrc和$iHeightDest符号不同, 函数沿y轴创建位图的镜像图像.
 
 
 ###See Also###

@@ -2,7 +2,7 @@
 _WinAPI_ShutdownBlockReasonDestroy
 
 ###Description###
-Indicates that the system can be shut down and frees the reason string.
+系统将被关闭且释放原因字符串
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,20 +11,20 @@ _WinAPI_ShutdownBlockReasonDestroy ( $hWnd )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the main window of the application.
+	应用程序主窗口句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回1
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###
-This function can only be called from the thread that created the window specified by the $hWnd parameter,
-otherwise, the function fails and the last error code is ERROR_ACCESS_DENIED (5).
+函数只能被由$hWnd参数指定的窗口创建的线程所调用,
+否则, 函数失败且错误代码为ERROR_ACCESS_DENIED (5).
 
-This function requires Windows Vista or later.
+最低系统要求: Windows Vista.
 
 
 ###See Also###

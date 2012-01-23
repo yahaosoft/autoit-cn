@@ -2,7 +2,7 @@
 _WinAPI_ShutdownBlockReasonCreate
 
 ###Description###
-Indicates that the system cannot be shut down and sets a reason string to be displayed to the user if system shutdown is initiated.
+表示系统无法关闭并设置字符串在执行系统关机时显示给用户以说明理由
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,26 +11,25 @@ _WinAPI_ShutdownBlockReasonCreate ( $hWnd, $sText )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the main window of the application.
+	应用程序主窗口的句柄
 $sText
-	The string which explaining the reason the application must block system shutdown.
+	用于解释应用程序必须阻止系统关闭的字符串
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回1
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###
-This function can only be called from the thread that created the window specified by the $hWnd parameter,
-otherwise, the function fails and the last error code is ERROR_ACCESS_DENIED (5).
+函数只能被由$hWnd参数指定的窗口创建的线程所调用,
+否则, 函数失败且错误代码为ERROR_ACCESS_DENIED (5).
 
-Applications should call this function as they begin an operation that cannot be interrupted, such as burning
-a CD or DVD. When the operation has completed, call the _WinAPI_ShutdownBlockReasonDestroy() function to
-indicate that the system can be shut down.
+当执行一个无法中断的操作时应用程序将调用该函数, 如烧录CD/DVD.
+当操作完成时,调用_WinAPI_ShutdownBlockReasonDestroy()函数以表示系统可被关闭.
 
-This function requires Windows Vista or later.
+最低系统要求: Windows Vista.
 
 
 ###See Also###
