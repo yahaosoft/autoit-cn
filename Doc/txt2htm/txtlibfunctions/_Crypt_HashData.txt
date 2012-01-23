@@ -2,7 +2,7 @@
 _Crypt_HashData
 
 ###Description###
-指定算法 Hash 数据 译注:关于 Hash 见下文注意部分
+以指定算法散列化数据
 
 ###Syntax###
 #Include <Crypt.au3>
@@ -11,9 +11,9 @@ _Crypt_HashData($vData, $iALG_ID [, $fFinal = True [, $hCryptHash = 0]])
 ###Parameters###
 @@ParamTable@@
 $vData
-	需要 hash 处理的数据
+	要散列化的数据
 $iALG_ID
-	使用的 Hash 标识符
+	使用的散列化标识
 $fFinal
 	[可选参数] 设置为 False, 表明只是全部数据的一部分, 同时使该函数返回一个对象而不是 Hash
 $hCryptHash
@@ -32,7 +32,7 @@ $hCryptHash
 @@End@@
 
 ###Remarks###
- hash 结果将返回一个二进制字符串,大小由算法指定. 要使用部分数据段,设置 $fFinal 标志为 False . 要使用非结尾数据段和使用所有后续数据段, 则调用 Hash 返回的对象.
+hash 结果将返回一个二进制字符串,大小由算法指定. 要使用部分数据段,设置 $fFinal 标志为 False . 要使用非结尾数据段和使用所有后续数据段, 则调用 Hash 返回的对象.
 
 ###Related###
 _Crypt_HashFile
