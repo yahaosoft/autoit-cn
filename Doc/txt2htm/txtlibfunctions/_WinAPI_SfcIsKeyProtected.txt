@@ -2,7 +2,7 @@
 _WinAPI_SfcIsKeyProtected
 
 ###Description###
-Determines whether the specified registry key is protected.
+确定指定注册表是否处于保护
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,17 +11,18 @@ _WinAPI_SfcIsKeyProtected ( $hKey [, $sSubKey [, $iFlag]] )
 ###Parameters###
 @@ParamTable@@
 $hKey
-	Handle to the root registry key or one of the following predefined keys.
+	注册表根键句柄或下列预定义值:
 	
 	$HKEY_CLASSES_ROOT
 	$HKEY_CURRENT_USER
 	$HKEY_LOCAL_MACHINE
 	$HKEY_USERS
 	
-	$sSubKey -
+$sSubKey
+	[可选参数] 子键
 $iFlag
-	[可选参数] The flag that specifies the alternate registry view that should be used by applications that run on
-	64-bit Windows. This flag is ignored on the x86 platform. It can be one of the following values.
+	[可选参数] 指定运行于64位Windows中的可选注册表视图的标记. x86平台忽略.
+	可为下列值.
 	
 	$KEY_WOW64_32KEY
 	$KEY_WOW64_64KEY
@@ -30,13 +31,13 @@ $iFlag
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1 - The key is protected
-0	Otherwise.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回1 表示文件处于保护
+0	其它
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###
-This function requires Windows Vista or later.
+最低系统要求: Windows Vista
 
 
 ###See Also###

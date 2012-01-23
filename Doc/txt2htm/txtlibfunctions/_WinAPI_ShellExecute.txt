@@ -2,7 +2,7 @@
 _WinAPI_ShellExecute
 
 ###Description###
-Performs an operation on a specified file.
+对指定文件执行操作
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,34 +11,32 @@ _WinAPI_ShellExecute ( $sFile [, $sArgs [, $sDir [, $sVerb [, $iShow [, $hParent
 ###Parameters###
 @@ParamTable@@
 $sFile
-	The string that specifies the file or object on which to execute the specified verb. Note that not all
-	verbs are supported on all objects. For example, not all document types support the "print" verb.
+	指定将在其上执行指定操作的文件或对象的字符串. 注意并非所有对象支持所有操作. 
+	如, 并非所有文档类型支持"print"操作.
 $sArgs
-	[可选参数] The string that specifies the parameters to be passed to the application.
+	[可选参数] 指定传递给应用程序的字符串
 $sDir
-	[可选参数] The string that specifies the working directory for the action.
+	[可选参数] 指定操作的工作目录的字符串
 $sVerb
-	[可选参数] The string, referred to as a verb, that specifies the action to be performed. The set of available verbs
-	depends on the particular file or folder. Generally, the actions available from an object's shortcut
-	menu are available verbs. The following verbs are commonly used:
+	[可选参数] 指定要执行的操作的动词. 可用动词依赖于特殊文件或文件夹.
+	通常, 对象的快捷方式中的操作为可用动词.
+	以下为常用的动词:
 	
-	"edit"
-	"explore"
-	"find"
-	"open"
-	"edit"
-	"print"
-	
+	"edit" - 启动编辑器并打开$sFile 指定的文件进行编辑. 如果$sFile 不是文档则失败.
+	"explore" - 浏览$sFile 指定的文件夹
+	"find" - 初始化在$sDir 指定的文件夹中的搜索
+	"open" - 打开$sFile 指定的文件或文件夹
+	"print" - 打印$sFile 指定的文件. 如果$sFile 不是文档则失败.
 $iShow
-	[可选参数] The flags that specify how an application is to be displayed when it is opened ($SW_*).
+	[可选参数] 用于指定应用程序在打开时将如何显示的标记($SW_*)
 $hParent
-	[可选参数] Handle to the owner window used for displaying a UI or error messages.
+	[可选参数] 用于显示界面或错误消息的宿主窗体的句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	A positive value greater than 32.
-Failure	0 and sets the @error flag to non-zero, @extended flag may contain an error value that indicates the
+成功:	返回大于32的正数
+失败:	返回0并设置@error非0, @extended标记可能包含描述失败原因的错误值.
 @@End@@
 
 ###Remarks###
