@@ -2,7 +2,7 @@
 _WinAPI_SetWorldTransform
 
 ###Description###
-Sets a two-dimensional linear transformation between world space and page space for the specified device context.
+设置世界空间和指定场景的页面空间之间的二维线性变换
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,25 +11,24 @@ _WinAPI_SetWorldTransform ( $hDC, $tXFORM )
 ###Parameters###
 @@ParamTable@@
 $hDC
-	Handle to the device context.
+	设备场景句柄
 $tXFORM
-	$tagXFORM structure that contains the transformation data.
+	包含转换数据的$tagXFORM 结构
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回1
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###
-The _WinAPI_SetWorldTransform() will fail unless the graphics mode for the given device context has been set
-to $GM_ADVANCED by previously calling the _WinAPI_SetGraphicsMode(). Likewise, it will not be possible to reset
-the graphics mode for the device context to the default $GM_COMPATIBLE mode, unless the world transformation
-has first been reset to the default identity transformation by calling _WinAPI_SetWorldTransform().
+如果指定场景的图形模式已由以前的_WinAPI_SetGraphicsMode()设置为$GM_ADVANCED则_WinAPI_SetWorldTransform()失败.
+同样的, 不会将场景的图形模式重新设置为默认的$GM_COMPATIBLE, 除非通过_WinAPI_SetWorldTransform()将世界变换首先
+重置为默认的单位变换.
 
-For any coordinates (x, y) in world space, the transformed coordinates in page space (x', y') can be
-determined by the following algorithm:
+对世界空间内的任意点(x, y), 页面空间的变换后的坐标(x', y')可用
+以下公式确定:
 
 x' = x * eM11 + y * eM21 + eDx
 y' = x * eM12 + y * eM22 + eDy

@@ -2,7 +2,7 @@
 _WinAPI_SetWindowSubclass
 
 ###Description###
-Installs or updates a window subclass callback.
+安装或更新窗口子类回调
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,29 +11,28 @@ _WinAPI_SetWindowSubclass ( $hWnd, $pSubclassProc, $ID [, $pData] )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle of the window being subclassed.
+	拥有子类的窗口的句柄
 $pSubclassProc
-	A pointer to a window procedure. This pointer and the subclass ID uniquely identify this subclass callback.
+	窗口进程的指针. 该指针及子类的唯一ID标识该子类的回调.
 	
-	(See MSDN for more information)
+	 (更多信息参考MSDN)
 	
 $ID
-	The subclass ID.
+	子类ID
 $pData
-	[可选参数] The reference data. This value is passed to the subclass procedure. The meaning of this value is
-	determined by the calling application.
+	[可选参数] 引用数据. 该值传递到子类进程.
+	该值的意思由调用的应用程序决定.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回1.
+失败:	返回0并设置@error非0.
 @@End@@
 
 ###Remarks###
-Subclass callbacks are identified by the combination of the callback address and the caller-defined subclass ID.
-If the callback address and ID pair have not yet been installed, then this function installs the subclass, otherwise,
-this function just updates the reference data.
+回调地址和调用方定义的子类ID的组合定义的子类回调.
+如果回调地址和ID对未安装, 则该函数安装子类, 否则, 该函数仅更新引用数据.
 
 
 ###See Also###
