@@ -2,26 +2,27 @@
 _WinAPI_GetEnhMetaFileDimension
 
 ###Description###
-检索指定增强型图元文件格式的尺寸.
+获取指定增强型元文件的尺寸
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_GetEnhMetaFileHeader ( $hEmf )
+_WinAPI_GetEnhMetaFileDimension( $hEmf )
 
 ###Parameters###
 @@ParamTable@@
 $hEmf
-	增强型图元文件的句柄.
+	增强型元文件的句柄
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回包含增强型图元尺寸的 $tagSIZE 结构.
-失败:	返回 0,设置@error:标志为非 0 值.
+成功:	包含增强型元文件尺寸信息的$tagSIZE结构
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###
-None
+当获取了增强型元文件数位后, 通过调用_WinAPI_SetEnhMetaFileBits()函数创建基于内存的元文件.
+正常运行示例请将 Text.emf 文件保存到临时文件夹中
 
 
 ###See Also###
