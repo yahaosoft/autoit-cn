@@ -26,7 +26,7 @@ $variable
 ###Remarks###
 The Static keyword can appear on the line before the optional scope specifier, or after. e.g.  <b>Local Static</b> or <b>Static Local</b> are both acceptable.
 
-If the scope modifier <b>Local</b> is used, then the static variable is visible and usable only in the function in which it is declared.  If the scope modifier <b>Global</b> is used, then the static variable is visible and usable in all parts of the script; in this regard, a Global Static has very little difference from a Global variable.  If the scope modifier is not used, then the static variable will be created in the local scope; in this way, Static is similar to Dim.
+If the scope specifier <b>Local</b> is used, then the static variable is visible and usable only in the function in which it is declared and it's resolved in the environment of execution (logical scope).  This means that conditionally declared variable is visible only when declaraion condition is met.  If the scope specifier <b>Global</b> is used, then the static variable is visible and usable in all parts of the script; in this regard, a Global Static has very little difference from a Global variable.  If the scope specifier is not used, then the static variable will be created in the local scope; in this way, Static is similar to Dim.
 
 The difference between Local and Static is variable lifetime.  Local variables are only stored while the function is called and are visible only within the function in which they are declared; when the function returns, all its local variables are released.  Static variables are likewise visible only in the function in which they are declared, but they continue to exist, retaining their last value, after the function finishes execution.  When looking for variables, the local scope is checked first and then the global scope second.
 
@@ -48,7 +48,7 @@ See <a href="Dim.htm">Local</a> for more information about using arrays, which h
 <li>Changing the size of a Static array is treated like a ReDim.</li>
 <li>You can not change a static variable to a local or global variable nor vice-versa.</li></ol>
 
-If you want to resize an array, always use Static to do so, not Redim.
+If you want to resize an array use ReDim.
 
 ###Related###
 <a href="Dim.htm">Local</a>, UBound, ReDim, <a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption</a></b>
