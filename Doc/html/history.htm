@@ -18,6 +18,204 @@
 请单击 <a href="autoit_changelog.txt">这里</a>. 要查看
 <b>每个测试版</b>的之间完整的更新,请单击 <a href="autoit_changelog_complete.txt">这里</a>.</p>
 <p>&nbsp;</p>
+<p style="font-size: small"><b><u>23rd December, 2011  - v3.3.8.0</u></b></p>
+<p><strong>AutoIt:</strong></p>
+<ul>
+    <li>Added: Struct/EndStruct in DllStructCreate() to solve X86/X64 data 
+	alignment.</li>
+	<li>Added: COM support for pure &quot;OUT&quot; parameters.</li>
+	<li>Added: Additional flags added to ObjName().</li>
+	<li>Added: DllCallAddress().</li>
+	<li>Added: ObjCreateInterface().</li>
+	<li>Added #1947: CHM help files now have a Forward button.</li>
+	<li>Added #1813: Better cross referencing for Int() and Mod().</li>
+	<li>Added: &quot;struct&quot; as DllCall and InterfaceDispatch data type.</li>
+	<li>Added #2042: @OSVersion returns &quot;Win_8&quot; on Windows 8.</li>
+	</ul>
+
+<ul>
+    <li>Changed: Compiling with VC10. Added workarounds for Win2000/XP RTM 
+	to allow execution of AutoIt, Aut2Exe, Au3Info, Au3Check and AutoItHelp.</li>
+	<li>Changed: COM Error handler passes error object as first parameter to 
+	user defined error function.</li>
+	<li>Changed: COM Error handler properties are read-only.</li>
+	<li>Changed: Dec() and Hex() work with 64bit integers.</li>
+	<li>Changed: Parentheses are required when invoking objects after all 
+	method names in order to have correct internal handling.</li>
+	<li>Changed: Dec(), Int(), Number() have second optional parameter 
+	defining non-default behavior.</li>
+	<li>Changed: Hex() detects doubles internally and processes them 
+	respecting binary format.</li>
+	<li>Changed: New visual style for the documetnation.</li>
+	<li>Changed: 64bit integers have 16 characters display by default.</li>
+	</ul>
+
+<ul>
+    <li>Removed: COM Error object no longer exposes methods Raise() and 
+	Clear().</li>
+	<li>Removed: Int() and Hex() no longer set @error.</li>
+	</ul>
+
+<ul>
+    <li>Fixed #1040: _ScreenCapture_Capture(): GDI object leak with cursor 
+	capture.</li>
+	<li>Fixed #1599: TraySetItemText() regression for default menu item.</li>
+	<li>Fixed #1282: WinMove before GUICtrlSetPos during GUICreation.</li>
+	<li>Fixed #1397: Bad HotKeySet() not detected on keyboard as Russian 
+	one.</li>
+	<li>Fixed #1531: default txtcolor for iput edit list combo updown with 
+	black theme.</li>
+	<li>Fixed #1617: GuiCreate failure after GuiDelete can lead to a loop 
+	on Autoit exit.</li>
+	<li>Fixed #1596: GUICtrlSetPos() default = no change.</li>
+	<li>Fixed #1626: TCPRecv()/TCPSend() doc about Unicode transmission.</li>
+	<li>Fixed #1633: Second AdlibRegister function starts at once when 
+	first function is too slow.</li>
+	<li>Fixed #1653: Doc for WM_KEYLAST Windows 2000 message.</li>
+	<li>Fixed #1669: StringRegExpReplace() doc about doubling of &quot;\&quot; in 
+	replace string.</li>
+	<li>Fixed #1673: WinGetProcess() doc example.</li>
+	<li>Fixed #1677: Invalid ContinueLoop with multiple levels.</li>
+	<li>Fixed #1684: FileRead() binary read memory allocation error.</li>
+	<li>Fixed #1685: BitRotate() shift parameter.</li>
+	<li>Fixed #1734: GUICtrlCreateAVI() crash with negative subfield.</li>
+	<li>Fixed #1923: Memory consumption while FileOpen/FileClose.</li>
+	<li>Fixed #1883: IsHWnd(), Return Value. (Nitpick: Value = Bool).</li>
+	<li>Fixed #1860: DriveStatus Returns Ready with blank value.</li>
+	<li>Fixed #1854: StringIsFloat returns 1 on non float numbers.</li>
+	<li>Fixed #1910: Please change $TTN_GETDISPINFO to $TTN_GETDISPINFOW.</li>
+	<li>Fixed #1844: SplashTextOn crops variable when used with opt 32 and 
+	@CRLF / @LF.</li>
+	<li>Fixed #1932: Uninstaller, windows-register, App Paths. (+beta).</li>
+	<li>Fixed #1929: SetMenuColor() does not work on 64bit OS.</li>
+	<li>Fixed #1479: X64 ListView WM_NOTIFY Message.</li>
+	<li>Fixed: GUICtrlCreateLabel() related text sizing bug when no height 
+	was used.</li>
+	<li>Fixed #1586: DllStructSetData(char, 1, string-with-NUL-character), 
+	junk data(?)</li>
+	<li>Fixed #1908: ObjName() returns empty string for HTMLDocument with 
+	IE9.</li>
+	<li>Fixed #1658: COM / OLE object access causes error code 80020003 - 
+	member not found.</li>
+	<li>Fixed #1410: Using Pointer type with COM-object throws error.</li>
+	<li>Fixed #1565: Arrays as object properties; memory leak.</li>
+	<li>Fixed: ObjCreate() memory leak when using a remote computer.</li>
+	<li>Fixed #865: winhttp.winhttprequest.5.1 ObjEvent unhandled 
+	exception.</li>
+	<li>Fixed: Remote COM bug caused by incorrect CoCreateInstanceEx() 
+	parameter.</li>
+	<li>Fixed: Potential memory leak in COM error event code.</li>
+	<li>Fixed #1660: Crash on Mod() with a divisor of 0.</li>
+	<li>Fixed: COM methods no longer change the type of AutoIt variables.</li>
+	<li>Fixed #2001: Example for _GUICtrlToolbar_SetButtonText() did not 
+	work correctly.</li>
+	<li>Fixed #1994: Documentation for _ScreenCapture_Capture() and 
+	_ScreenCapture_CaptureWnd() incorrectly stated the functions had no return 
+	value. Moved information from Remarks up to Return area.</li>
+	<li>Fixed #1948: Documentation for _GUICtrlButton_SetImage() had the wrong 
+	description.</li>
+	<li>Fixed #1519, #1694: Int() and Number() returning wrong.</li>
+	<li>Fixed: Various documentation typos and grammatical errors.</li>
+	<li>Fixed #1982: Crash in FileGetShortName() and FileGetLongName().</li>
+	<li>Fixed #2046: DirGetSize(&quot;&quot;) was returning the size of the working 
+	directory root instead of -1 and setting @error.</li>
+	</ul>
+<p><strong>AutoItX:</strong></p>
+<ul>
+	<li>Fixed #1686: AU3_PixelSearch crashes.<br></li>
+</ul>
+<p><strong>Au3Info:</strong></p>
+<ul>
+	<li>Added: Option &quot;Use Spy++ control detection logic&quot; toggle added to 
+	Au3Info (this was the mode always used in recent releases, but the very old 
+	method that used to be used is useful in certain applications (for example, 
+	putty.exe)</li>
+	<li>Fixed #1746: Option &quot;Use Spy++ control detection logic&quot; toggle 
+	added to Au3Info.<br></li>
+</ul>
+<p><strong>UDFs:</strong></p>
+<ul>
+	<li>Added: _DebugSetup() can report to a Notepad Window.</li>
+	<li>Added #1371: Allow Default keyword in _TempFile().</li>
+	<li>Added #1527: Test example to have doc example working.</li>
+	<li>Added #1636: _Security__LookupAccountSID() for Remote Systems.</li>
+	<li>Added #1569: _ArraySearch() $iPartial (-&gt;$iCompare) extended to 
+	match on variables of same type.</li>
+	<li>Added #1557: VK_xBUTTON in Constants.au3.</li>
+	<li>Added #1890: Better cross-referencing for _WinAPI_GetParent() and 
+	_WinAPI_GetAncestor().</li>
+	<li>Added #1925: $WS_EX_LAYOUTRTL control style to the documentation.</li>
+	<li>Added #2049: Missing windows message codes to 
+	WindowsConstants.au3.</li>
+	<li>Added: _WinAPI_StringLenA() and _WinAPI_StringLenW() functions.</li>
+	<li>Added: _WinAPI_DuplicateHandle() function.</li>
+	<li>Added: _Security__CreateProcessWithToken(), 
+	_Security__DuplicateTokenEx and _Security__SetTokenInformation functions.</li>
+	<li>Fixed #1542: _DebugSetup() closing when use with GUI handling 
+	events.</li>
+	<li>Fixed #1549: _SQLite_Escape() crash for strings &gt; 64K (&gt; 3.3.0.0).</li>
+	<li>Fixed #1517: _GUICtrlListView_simpleSort with checkbox.</li>
+	<li>Fixed #1588: AUtoIt3.exe stay active for all processes using the 
+	Window report.</li>
+	<li>Fixed #1615: _GUICtrlTreeView_SetStateImageIndex() with index = 0.</li>
+	<li>Fixed #1620: _DebugOut() or _DebugReportVar() containing '.</li>
+	<li>Fixed #1513: Allow _GUI...() to use notification callback 
+	(LPSTR_TEXTCALLBACK).</li>
+	<li>Fixed #1608: _Crypt_EncryptFile() for file &gt;1Mb.</li>
+	<li>Fixed #1644: _InetMail() with Windows Live mail.</li>
+	<li>Fixed #1453: _Net_Share_ShareCheck return always 0.</li>
+	<li>Fixed #1664: _GUICtrlTab_GetItem() does not return text.</li>
+	<li>Fixed #1671: _WinAPI_WideCharToMultiByte() doc.</li>
+	<li>Fixed #1672: _WinAPI_GetObject() reference ANSI version.</li>
+	<li>Fixed #1665: _ScreenCapture_CaptureWnd() when running with Aero 
+	theme.</li>
+	<li>Fixed #1689: _Debug...() cannot be obfuscated.</li>
+	<li>Fixed #1712: _FileWriteFromArray() crash on array.</li>
+	<li>Fixed #1754: _PathFull() optional parameter doc.</li>
+	<li>Fixed #1756: _GDIPlus_Startup() Flaw on error.</li>
+	<li>Fixed #1920: Script crashes with error reported in Security.au3 at 
+	line 85.</li>
+	<li>Fixed #1895: Bugs in _GUIScrollBars_Init().</li>
+	<li>Fixed #1891: _ArrayDisplay (......,i$iTranspose,...) wrong 
+	description.</li>
+	<li>Fixed #1933: _GetIP is outdated and could possibly fail.</li>
+	<li>Fixed #1859: Bug in _WeekNumberISO?</li>
+	<li>Fixed #2009: Incorrect styles listed in _GUICtrlToolbar_Create().</li>
+	<li>Fixed #1009: SQLite library needs to support a user-defined 
+	callback for diagnostic messages instead of hard-coding ConsoleWrite().</li>
+	<li>Fixed #1985: _IECreate() now ensures focus is given to the 
+	document when an about URI is loaded (such as about:blank). IE9 gives focus 
+	to the URL bar which can cause later issues setting focus to elements.</li>
+	<li>Fixed #2004: Functions that accept Control ID/Handle were not 
+	correctly documented.</li>
+	<li>Fixed #1951: Missing parameter in documentation for 
+	_SQLite_SQLiteExe().</li>
+	<li>Fixed #1442: File handle can now be passed to _FileWriteLog().</li>
+	<li>Fixed #1777: Issues with Security.au3.</li>
+	<li>Fixed #2055: replaced DllStructGetPtr with &quot;struct*&quot; throughout 
+	UDFs.</li>
+	<li>Fixed #2048: Windows constants $WM_RBUTTONDBLCLK and 
+	$WM_MBUTTONDBLCLK were named incorrectly.</li>
+	<li>Fixed #2034: _GUICtrlMenu_AppendMenu dllcall type set wrong.</li>
+	<li>Fixed #2060: Various documentation errors.</li>
+	<li>Changed: _SQLite 3.6.22 -&gt; 3.7.2.0</li>
+	<li>Changed: _IEFormElementSetValue() examples #3 removed (login to 
+	Hotmail).</li>
+	<li>Changed: _IEFormElementSetValue() examples #4 and #5 (now #3 and 
+	#4) use the text input instead of the file input. The file input is 
+	read-only on IE9 so the Send()/ControlSend() produced no results.</li>
+</ul>
+<p><strong>Au3Check:</strong></p>
+<ul>
+	<li>Added: #forcedef directive to force var definition as after 
+	Assign().</li>
+	<li>Added: -w 7 to check ByRef parameter passing.</li>
+	<li>Fixed: Const Enum wrong ERROR.</li>
+	<li>Fixed: Global declared in func not detected.</li>
+	<li>Fixed #1051: no ERROR if keyword not followed by a separator as 
+	Local$a.<br></li>
+</ul>
+<p>&nbsp;</p>
 <p style="font-size: small"><b><u>16th April, 2010  - v3.3.6.1</u></b></p>
 <p><strong>AutoIt:</strong></p>
 <ul>
@@ -76,11 +274,11 @@
 </ul>
 	<p><strong>AutoItX</strong></p>
 <ul>
-  <li>&nbsp;Fixed: Missing .lib files readded.</li>
+  <li>Fixed: Missing .lib files readded.</li>
 </ul>
 <p><strong>UDFs:</strong></p>
 <ul>
-	<li>&nbsp;Fixed #1438: AutoIt error when using _ArrayCombinations().</li>
+	<li>Fixed #1438: AutoIt error when using _ArrayCombinations().</li>
 	<li>Fixed #1454: StringBetween() not working correctly.</li>
 	<li>Fixed #1441: _GUICtrlRichEdit_GetText() using wrong buffer length.</li>
 	<li>Fixed #1446: _ScreenCapture_Capture() was using height/width of 1 pixel
@@ -132,7 +330,7 @@
 </ul>
 	<p><strong>AutoIt3Help</strong></p>
 <ul>
-  <li>&nbsp;Fixed #1327: Some keywords would fail to open correctly in rare
+  <li>Fixed #1327: Some keywords would fail to open correctly in rare
   cases.</li>
 </ul>
 <p><strong>UDFs:</strong></p>
