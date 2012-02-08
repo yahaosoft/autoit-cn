@@ -1,421 +1,402 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Send �����б�</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+<title>Send 按键列表</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h1>Send �������õİ����б�</h1>
-<p><br>
-�����˽� <b><a href="../functions/Send.htm">Send ( "����" [, ��־] )</a></b>����
-<b>^</b> Ctrl &nbsp;&nbsp; <b>!</b> Alt &nbsp;&nbsp;<b>+</b> Shift &nbsp;&nbsp; <b>#</b> Win(�ձ��)<br>
-</p>
-<p>AutoIt �ɷ������е� ASCII �뼰��չ ASCII ���ַ�(0-255),��Ҫ���� UNICODE ������ַ������ʹ��"ASC"ѡ�������Ҫ���͵��ַ�����(������� {ASC}).</p>
-<p><br>
+  <h1>Send 函数可用的按键列表</h1>
+  <p><br>
+  快速了解 <strong><a href="../functions/Send.htm">Send ( "按键" [, 标志] )</a></strong>命令<strong>^</strong> Ctrl &nbsp;&nbsp; <strong>!</strong> Alt &nbsp;&nbsp;<strong>+</strong> Shift &nbsp;&nbsp; 
+  <strong>#</strong> Win(徽标键)<br></p>
+  <p>AutoIt 可发送所有的 ASCII 码及扩展 ASCII 码字符(0-255),若要发送 UNICODE 编码的字符则必须使用"ASC"选项加上您要发送的字符代码(见下面的 {ASC}).</p>
+  <p><br>
   <br>
-���Ҫ���� ASCII �ַ� A ��ο�����(�൱�� ALT+065,��סALT���������ּ�����˳����065)</p>
-<p class="codebox">Send(&quot;{ASC 065}&quot;)</p>
-<p>(��ʹ����λ���� ASCII ��ʱ������ǰ���һ�� 0,����ʹ�� 437�Ŵ���ҳ).</p>
-<p>&nbsp;</p>
-<p>���Ҫ���� UNICODE �ַ���������ַ�����,��������������һ�������ַ�.</p>
-<p class="codebox">Send(&quot;{ASC 2709}&quot;)</p>
-<p>&nbsp;</p>
-<p>�ɲο������ظ�����ĳ����:</p>
-<p class="codebox">Send("{DEL 4}") ;�������� DEL ��4��<br>
-Send("{S 30}") ;����30���ַ�"S"<br>
-Send("+{TAB 4}") ;�������� SHIFT+TAB 4��</p>
-
-<p>&nbsp;</p>
-<p>���Ҫ��ס(���ְ���״̬)ĳ������</p>
-<p class="codebox">Send("{a down}") ;��ס���� A<br>
-Send("{a up}") ;�ɿ����� A</p>
-
-<p>&nbsp;</p>
-<p>���Ҫ�ñ�����ָ���ظ����͵Ĵ���,�ο�����: 
-<p class="codebox">$n = 4<br>
-Send("+{TAB " & $n & "}")</p>
-
-<p>&nbsp;</p>
-<p>���Ҫ�ñ�����ָ��Ҫ�ظ����͵� ASCII �ַ�(���� A),�ο�����: 
-<p class="codebox">$x = Chr(65)<br>
-  Send("{" & $x & " 4}")</p>
-
-<p>&nbsp;</p>
-        <p>������ʼǱ����Եļ����϶�����һ������� Fn ��,�˼��޷���ģ��.<br>
-          <br>
-          ע��,���ѱ�־������ֵ��Ϊ1��"����"��������ԭ������.���ĳЩ�ı��Ǵӱ�����������,������ϣ����ȫ��ԭ��������Щ�ı��Ļ�,��Ӧ��ʹ����һ����.<br>
-          <br>
-          <br>
-<b>Send �Ƿǳ����õ�һ������,��Ϊ���ǿ��������Դ��ڽ��в���������ʹ�����.</b><br>
-          <br>
-        ����,�ȴ� �ļ���ѡ���(λ�ڿ������),Ȼ���볢��ִ��������Щ���: <br>
-        <br>
-        </p>
-<table border="1" width="100%" cellspacing="0" cellpadding="3" bordercolor="#c0c0c0">
-<tr>
-  <td>Send("{TAB}")</td>
-    <td>�л���(�����л�)��һ���ؼ�(��ť����ѡ���)</td>
-</tr>
-<tr>
-  <td>Send("+{TAB}")</td>
-    <td>�л�����һ���ؼ�</td>
-</tr>
-<tr>
-  <td>Send("^{TAB}")</td>
-    <td>�л�����һ�����ڱ�ǩ</td>
-</tr>
-<tr>
-  <td>Send("^+{TAB}")</td>
-    <td>�л�����һ�����ڱ�ǩ</td>
-</tr>
-<tr>
-  <td>Send("{SPACE}")</td>
-    <td>�������л���ѡ���ѡ��״̬����ĳ����ť</td>
-</tr>
-<tr>
-  <td>Send("{+}")</td>
-    <td>ͨ������ѡ��ĳ����ѡ��(�����"ȷʵ��"��ѡ��Ļ�)</td>
-</tr>
-<tr>
-  <td>Send("{-}")</td>
-    <td>ͨ������ȡ��ѡ��ĳ����ѡ��</td>
-</tr>
-<tr>
-  <td>Send("{NumPadMult}")</td>
-    <td>��ȫչ�� SysTreeView32 �ؼ�����ʾ���ļ��� 
-</tr>
-</table>
-<br>
-<br>
-��� Alt ��ʹ�ÿɷ��ʲ˵���,��򿪼��±�����Ȼ����ִ��������Щ���:
-<br>
-<br>
-<table bordercolor="#c0c0c0" cellpadding="3" cellspacing="0" width="100%" border="1">
-  <tbody>
+  如果要发送 ASCII 字符 A 则参考下例(相当于 ALT+065,按住ALT键并在数字键盘上顺序按下065)</p>
+  <p class="codebox"><span><span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{ASC 065}</span><span class="S7">"</span><span class="S8">)</span><br></span></p>
+  <p>(在使用两位数的 ASCII 码时必须在前面加一个 0,否则将使用 437号代码页).</p>
+  <p>&nbsp;</p>
+  <p>如果要发送 UNICODE 字符则输入该字符代码,例如下例将发送一个中文字符.</p>
+  <p class="codebox"><span><span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{ASC 2709}</span><span class="S7">"</span><span class="S8">)</span><br></span></p>
+  <p>可参考下例重复发送某按键:</p>
+  <p class="codebox"><span><span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{DEL 4}</span><span class="S7">"</span><span class="S8">)</span> <span class="S1">; 连续按下 DEL 键4次</span><br>
+  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{S 30}</span><span class="S7">"</span><span class="S8">)</span> <span class="S1">; 发送30个字符"S"</span><br>
+  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">+{TAB 4}</span><span class="S7">"</span><span class="S8">)</span> <span class="S1">; 连续按下 SHIFT+TAB 4次</span><br></span></p>
+  <p>&nbsp;</p>
+  <p>如果要按住(保持按下状态)某个按键</p>
+  <p class="codebox"><span><span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{a down}</span><span class="S7">"</span><span class="S8">)</span> <span class="S1">; 按住按键 A</span><br>
+  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{a up}</span><span class="S7">"</span><span class="S8">)</span> <span class="S1">; 松开按键 A</span><br></span></p>
+  <p>&nbsp;</p>
+  <p>如果要用变量来指定重复发送的次数,参考下例:</p>
+  <p class="codebox"><span><span class="S5">Local</span> <span class="S9">$iCount</span> <span class="S8">=</span> <span class="S3">4</span><br>
+  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"+{TAB "</span> <span class="S8">&amp;</span> <span class="S9">$iCount</span> <span class="S8">&amp;</span> <span class="S7">"}"</span><span class="S8">)</span><br></span></p>
+  <p>&nbsp;</p>
+<p>如果要用变量来指定要重复发送的 ASCII 字符(比如 A),参考下例:</p>
+  <p class="codebox"><span><span class="S5">Local</span> <span class="S9">$iChr</span> <span class="S8">=</span> <span class="S4">Chr</span><span class="S8">(</span><span class="S3">65</span><span class="S8">)</span><br>
+  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"{"</span> <span class="S8">&amp;</span> <span class="S9">$iChr</span> <span class="S8">&amp;</span> <span class="S7">" 4}"</span><span class="S8">)</span><br></span></p>
+  <p>&nbsp;</p>
+  <p>大多数笔记本电脑的键盘上都会有一个特殊的 Fn 键,此键无法被模拟.<br>
+  <br>
+  注意,若把标志参数的值设为1则"按键"参数将被原样发送.如果某些文本是从变量里拷贝而来,而您又希望完全按原样发送这些文本的话,就应该使用这一设置.<br>
+  <br>
+  <br>
+  <strong>Send 是非常有用的一个函数,因为我们可用它来对窗口进行操作而无需使用鼠标.</strong><br>
+  <br>
+  例如,先打开文件夹选项窗口(位于控制面板),然后请尝试执行下面这些语句: <br>
+  <br></p>
+  <table summary="">
+    <tr>
+      <td>Send("{TAB}")</td>
+      <td>切换到(焦点切换)下一个控件(按钮,复选框等)</td>
+    </tr>
+    <tr>
+      <td>Send("+{TAB}")</td>
+      <td>切换到上一个控件</td>
+    </tr>
+    <tr>
+      <td>Send("^{TAB}")</td>
+      <td>切换到下一个窗口标签</td>
+    </tr>
+    <tr>
+      <td>Send("^+{TAB}")</td>
+      <td>切换到上一个窗口标签</td>
+    </tr>
+    <tr>
+      <td>Send("{SPACE}")</td>
+      <td>可用来切换复选框的选中状态或点击某个按钮</td>
+    </tr>
+    <tr>
+      <td>Send("{+}")</td>
+      <td>通常用来选中某个复选框(如果它"确实是"复选框的话)</td>
+    </tr>
+    <tr>
+      <td>Send("{-}")</td>
+      <td>通常用来取消选中某个复选框</td>
+    </tr>
+    <tr>
+      <td>Send("{NumPadMult}")</td>
+      <td>完全展开 SysTreeView32 控件内显示的文件夹 
+    </tr>
+  </table><br>
+  <br>
+  组合 Alt 键使用可访问菜单项,请打开记事本窗口然后尝试执行下面这些语句:<br>
+  <br>
+  <table summary="">
     <tr>
       <td>Send("!f")</td>
-    <td>���� Alt+f,���Ǵ򿪼��±����ļ��˵��Ŀ�ݼ�,������������������!<br>
-      </td>
+      <td>发送 Alt+f,这是打开记事本的文件菜单的快捷键.<em>您还可以试试其它的!</em><br></td>
     </tr>
     <tr>
       <td>Send("{DOWN}")</td>
-    <td>�ƶ����㵽��һ���˵���</td>
+      <td>移动焦点到下一个菜单项</td>
     </tr>
     <tr>
       <td>Send("{UP}")</td>
-    <td>�ƶ����㵽��һ���˵���</td>
+      <td>移动焦点到上一个菜单项</td>
     </tr>
     <tr>
       <td>Send("{LEFT}")</td>
-    <td>�л�����ߵĲ˵��������Ӳ˵�</td>
+      <td>切换到左边的菜单或收缩子菜单</td>
     </tr>
     <tr>
       <td>Send("{RIGHT}")</td>
-    <td>�л����ұߵĲ˵���չ���Ӳ˵�</td>
+      <td>切换到右边的菜单或展开子菜单</td>
     </tr>
-  </tbody>
-</table>
-<br>
-<br>
-������Կ�ݼ�(Alt+F4,PrintScreen,Ctrl+C�ȵ�)����Ҫ�Ի���̫�˽�,��鿴 
-Windows �İ�����Ϣ(�����ȼ� <I>Win+F1</I>����<I>)</I>�Ի�ù��ڿ�ݼ��������б�.<br>
-<br>
-<br>
-<table bordercolor="#c0c0c0" cellpadding="3" cellspacing="0" width="100%" border="1">
-  <tbody>
-<tr>
-  <td align="center"><b>Send ����(�ޱ�־����)</b></td>
-  <td>
-      <p align="center"><b>�������</b></p>
-  </td>
-</tr>
-<tr>
-  <td align="center">{!}</td>
-  <td>!</td>
-</tr>
-<tr>
-  <td align="center">{#}</td>
-  <td>#</td>
-</tr>
-<tr>
-  <td align="center">{+}</td>
-  <td>+</td>
-</tr>
-<tr>
-  <td align="center">{^}</td>
-  <td>^</td>
-</tr>
-<tr>
-  <td align="center">{{}</td>
-  <td>{</td>
-</tr>
-<tr>
-  <td align="center">{}}</td>
-  <td>}</td>
-</tr>
-<tr>
-  <td align="center">{SPACE}</td>
-    <td>�ո�</td>
-</tr>
-<tr>
-  <td align="center">{ENTER}</td>
-    <td>���������� �س���</td>
-</tr>
-<tr>
-  <td align="center">{ALT}</td>
-  <td>ALT</td>
-</tr>
-<tr>
-    <td align="center">{BACKSPACE} �� {BS}</td>
-    <td>�˸�(BACKSPACE)</td>
-</tr>
-<tr>
-  <td align="center">{DELETE} �� {DEL}</td>
-    <td>ɾ��(DELETE)</td>
-</tr>
-<tr>
-  <td align="center">{UP}</td>
-    <td>���ϼ�ͷ</td>
-</tr>
-<tr>
-  <td align="center">{DOWN}</td>
-    <td>���¼�ͷ</td>
-</tr>
-<tr>
-  <td align="center">{LEFT}</td>
-    <td>�����ͷ</td>
-</tr>
-<tr>
-  <td align="center">{RIGHT}</td>
-    <td>���Ҽ�ͷ</td>
-</tr>
-<tr>
-  <td align="center">{HOME}</td>
-  <td>HOME</td>
-</tr>
-<tr>
-  <td align="center">{END}</td>
-  <td>END</td>
-</tr>
-<tr>
-  <td align="center">{ESCAPE} �� {ESC}</td>
-    <td>ESC��</td>
-</tr>
-<tr>
-    <td align="center">{INSERT} �� {INS}</td>
-    <td>INS(Insert)</td>
-</tr>
-<tr>
-  <td align="center">{PGUP}</td>
-    <td>PGUP(PageUp)</td>
-</tr>
-<tr>
-  <td align="center">{PGDN}</td>
-    <td>PGDN(PageDown)</td>
-</tr>
-<tr>
-  <td align="center">{F1} - {F12}</td>
-    <td>���ܼ�</td>
-</tr>
-<tr>
-  <td align="center">{TAB}</td>
-  <td>TAB</td>
-</tr>
-<tr>
-  <td align="center">{PRINTSCREEN}</td>
-    <td>PRINT SCREEN</td>
-</tr>
-<tr>
-  <td align="center">{LWIN}</td>
-    <td>��ձ��</td>
-</tr>
-<tr>
-  <td align="center"">{RWIN}</td>
-    <td>�һձ��</td>
-</tr>
-<tr>
-  <td align="center">{NUMLOCK}</td>
-  <td>NUMLOCK</td>
-</tr>
-<tr>
-  <td align="center">{CAPSLOCK}</td>
-  <td>CAPSLOCK</td>
-</tr>
-<tr>
-  <td align="center">{SCROLLLOCK}</td>
-  <td>SCROLLLOCK</td>
-</tr>
-<tr>
-  <td align="center">{BREAK}</td>
-    <td>Ctrl+Break</td>
-</tr>
-<tr>
-  <td align="center">{PAUSE}</td>
-  <td>PAUSE</td>
-</tr>
-<tr>
-  <td align="center">{NUMPAD0} - {NUMPAD9}</td>
-    <td>���ּ����ϵ� ���ּ�</td>
-</tr>
-<tr>
-  <td align="center">{NUMPADMULT}</td>
-    <td>���ּ����ϵ� �˺�</td>
-</tr>
-<tr>
-  <td align="center">{NUMPADADD}</td>
-    <td>���ּ����ϵ� �Ӻ�</td>
-</tr>
-<tr>
-  <td align="center">{NUMPADSUB}</td>
-    <td>���ּ����ϵ� ����</td>
-</tr>
-<tr>
-  <td align="center">{NUMPADDIV}</td>
-    <td>���ּ����ϵ� ����</td>
-</tr>
-<tr>
-  <td align="center">{NUMPADDOT}</td>
-    <td>���ּ����ϵ� ���</td>
-</tr>
-<tr>
-  <td align="center">{NUMPADENTER}</td>
-    <td>���ּ����ϵ� �س���</td>
-</tr>
-<tr>
-  <td align="center">{APPSKEY}</td>
-    <td>Windows Ӧ�ó����</td>
-</tr>
-<tr>
-  <td align="center">{LALT}</td>
-    <td>�� ALT ��</td>
-</tr>
-<tr>
-  <td align="center">{RALT}</td>
-    <td>�� ALT ��</td>
-</tr>
-<tr>
-  <td align="center">{LCTRL}</td>
-    <td>�� CTRL ��</td>
-</tr>
-<tr>
-  <td align="center">{RCTRL}</td>
-    <td>�� CTRL ��</td>
-</tr>
-<tr>
-  <td align="center">{LSHIFT}</td>
-    <td>�� Shift ��</td>
-</tr>
-<tr>
-  <td align="center">{RSHIFT}</td>
-    <td>�� Shift ��</td>
-</tr>
-<tr>
-  <td align="center">{SLEEP}</td>
-    <td>ϵͳ����(SLEEP)��</td>
-</tr>
-<tr>
-  <td align="center">{ALTDOWN}</td>
-    <td>��ס ALT ��ֱ������ {ALTUP} Ϊֹ</td>
-</tr>
-<tr>
-  <td align="center">{SHIFTDOWN}</td>
-    <td>��ס SHIFT ��ֱ������ {SHIFTUP} Ϊֹ</td>
-</tr>
-<tr>
-  <td align="center">{CTRLDOWN}</td>
-    <td>��ס CTRL ��ֱ������ {CTRLUP} Ϊֹ</td>
-</tr>
-<tr>
-  <td align="center">{LWINDOWN}</td>
-    <td>��ס��ձ��ֱ������ {LWINUP} Ϊֹ</td>
-</tr>
-<tr>
-  <td align="center">{RWINDOWN}</td>
-    <td>��ס�һձ��ֱ������ {RWINUP} Ϊֹ</td>
-</tr>
-<tr>
-  <td align="center">{ASC nnnn}</td>
-    <td>���� ALT+nnnn ��ϼ�</td>
-</tr>
-<tr>
-  <td align="center">&nbsp;</td>
-  <td>&nbsp;</td>
-</tr>
-<tr>
-  <td align="center">{BROWSER_BACK}</td>
-    <td>����������е�"����"��ť</td>
-</tr>
-<tr>
-  <td align="center">{BROWSER_FORWARD}</td>
-    <td>����������е�"ǰ��"��ť</td>
-</tr>
-<tr>
-  <td align="center">{BROWSER_REFRESH}</td>
-    <td>����������е�"ˢ��"��ť</td>
-</tr>
-<tr>
-  <td align="center">{BROWSER_STOP}</td>
-    <td>����������е�"ֹͣ"��ť</td>
-</tr>
-<tr>
-  <td align="center">{BROWSER_SEARCH}</td>
-    <td>����������е�"����"��ť</td>
-</tr>
-<tr>
-  <td align="center">{BROWSER_FAVORITES}</td>
-    <td>����������е�"�ղؼ�"��ť</td>
-</tr>
-<tr>
-  <td align="center">{BROWSER_HOME}</td>
-    <td>�����������ת����ҳ</td>
-</tr>
-<tr>
-  <td align="center">{VOLUME_MUTE}</td>
-    <td>�л�ϵͳ����״̬</td>
-</tr>
-<tr>
-  <td align="center">{VOLUME_DOWN}</td>
-    <td>��Сϵͳ����</td>
-</tr>
-<tr>
-  <td align="center">{VOLUME_UP}</td>
-    <td>����ϵͳ����</td>
-</tr>
-<tr>
-  <td align="center">{MEDIA_NEXT}</td>
-  <td>�ڲ�������ѡ�񲥷���һ�����(Ӱ��ý��)</td>
-</tr>
-<tr>
-  <td align="center">{MEDIA_PREV}</td>
-    <td>�ڲ�������ѡ�񲥷���һ�����</td>
-</tr>
-<tr>
-  <td align="center">{MEDIA_STOP}</td>
-    <td>ʹ������ֹͣ����</td>
-</tr>
-<tr>
-  <td align="center">{MEDIA_PLAY_PAUSE}</td>
-    <td>ʹ����������/��ͣ</td>
-</tr>
-<tr>
-  <td align="center">{LAUNCH_MAIL}</td>
-  <td>�����ʼ��ͻ��˳���</td>
-</tr>
-<tr>
-  <td align="center">{LAUNCH_MEDIA}</td>
-  <td>���в�����(Media player)</td>
-</tr>
-<tr>
-  <td align="center">{LAUNCH_APP1}</td>
-  <td>�����û�����1(�ҵĵ���)</td>
-</tr>
-<tr>
-  <td align="center">{LAUNCH_APP2}</td>
-  <td>�����û�����2(������)</td>
-</tr>
-  </tbody>
-</table>
-<br>
+  </table><br>
+  <br>
+  如果您对快捷键(Alt+F4,PrintScreen,Ctrl+C等等)的重要性还不太了解,请查看 Windows 的帮助信息(按下热键 <I>Win+F1</I>即可<I>)</I>以获得关于快捷键的完整列表.<br>
+  <br>
+  <br>
+  <table summary="">
+    <tr>
+      <th>Send 命令(无标志参数)</th>
+      <th>按键结果</th>
+    </tr>
+    <tr>
+      <td class="center">{!}</td>
+      <td>!</td>
+    </tr>
+    <tr>
+      <td class="center">{#}</td>
+      <td>#</td>
+    </tr>
+    <tr>
+      <td class="center">{+}</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <td class="center">{^}</td>
+      <td>^</td>
+    </tr>
+    <tr>
+      <td class="center">{{}</td>
+      <td>{</td>
+    </tr>
+    <tr>
+      <td class="center">{}}</td>
+      <td>}</td>
+    </tr>
+    <tr>
+      <td class="center">{SPACE}</td>
+      <td>空格</td>
+    </tr>
+    <tr>
+      <td class="center">{ENTER}</td>
+      <td>主键盘的 回车键</td>
+    </tr>
+    <tr>
+      <td class="center">{ALT}</td>
+      <td>ALT</td>
+    </tr>
+    <tr>
+      <td class="center">{BACKSPACE} 或 {BS}</td>
+      <td>退格(BACKSPACE)</td>
+    </tr>
+    <tr>
+      <td class="center">{DELETE} 或 {DEL}</td>
+      <td>删除(DELETE)</td>
+    </tr>
+    <tr>
+      <td class="center">{UP}</td>
+      <td>向上箭头</td>
+    </tr>
+    <tr>
+      <td class="center">{DOWN}</td>
+      <td>向下箭头</td>
+    </tr>
+    <tr>
+      <td class="center">{LEFT}</td>
+      <td>向左箭头</td>
+    </tr>
+    <tr>
+      <td class="center">{RIGHT}</td>
+      <td>向右箭头</td>
+    </tr>
+    <tr>
+      <td class="center">{HOME}</td>
+      <td>HOME</td>
+    </tr>
+    <tr>
+      <td class="center">{END}</td>
+      <td>END</td>
+    </tr>
+    <tr>
+      <td class="center">{ESCAPE} 或 {ESC}</td>
+      <td>ESC键(ESCAPE)</td>
+    </tr>
+    <tr>
+      <td class="center">{INSERT} or {INS}</td>
+      <td>INS</td>
+    </tr>
+    <tr>
+      <td class="center">{PGUP}</td>
+      <td>PGUP</td>
+    </tr>
+    <tr>
+      <td class="center">{PGDN}</td>
+      <td>PGDN</td>
+    </tr>
+    <tr>
+      <td class="center">{F1} - {F12}</td>
+      <td>功能键</td>
+    </tr>
+    <tr>
+      <td class="center">{TAB}</td>
+      <td>TAB</td>
+    </tr>
+    <tr>
+      <td class="center">{PRINTSCREEN}</td>
+      <td>PRINTSCR</td>
+    </tr>
+    <tr>
+      <td class="center">{LWIN}</td>
+      <td>左Windows徽标键</td>
+    </tr>
+    <tr>
+      <td class="center">{RWIN}</td>
+      <td>右Windows徽标键</td>
+    </tr>
+    <tr>
+      <td class="center">{NUMLOCK}</td>
+      <td>NUMLOCK</td>
+    </tr>
+    <tr>
+      <td class="center">{CAPSLOCK}</td>
+      <td>CAPSLOCK</td>
+    </tr>
+    <tr>
+      <td class="center">{SCROLLLOCK}</td>
+      <td>SCROLLLOCK</td>
+    </tr>
+    <tr>
+      <td class="center">{BREAK}</td>
+      <td>for Ctrl+Break processing</td>
+    </tr>
+    <tr>
+      <td class="center">{PAUSE}</td>
+      <td>PAUSE</td>
+    </tr>
+    <tr>
+      <td class="center">{NUMPAD0} - {NUMPAD9}</td>
+      <td>数字键盘上的 数字键</td>
+    </tr>
+    <tr>
+      <td class="center">{NUMPADMULT}</td>
+      <td>数字键盘上的 乘号</td>
+    </tr>
+    <tr>
+      <td class="center">{NUMPADADD}</td>
+      <td>数字键盘上的 加号</td>
+    </tr>
+    <tr>
+      <td class="center">{NUMPADSUB}</td>
+      <td>数字键盘上的 减号</td>
+    </tr>
+    <tr>
+      <td class="center">{NUMPADDIV}</td>
+      <td>数字键盘上的 除号</td>
+    </tr>
+    <tr>
+      <td class="center">{NUMPADDOT}</td>
+      <td>数字键盘上的 点号</td>
+    </tr>
+    <tr>
+      <td class="center">{NUMPADENTER}</td>
+      <td>数字键盘上的 回车键</td>
+    </tr>
+    <tr>
+      <td class="center">{APPSKEY}</td>
+      <td>Windows 应用程序键</td>
+    </tr>
+    <tr>
+      <td class="center">{LALT}</td>
+      <td>左 ALT 键</td>
+    </tr>
+    <tr>
+      <td class="center">{RALT}</td>
+      <td>右 ALT 键</td>
+    </tr>
+    <tr>
+      <td class="center">{LCTRL}</td>
+      <td>左 CTRL 键</td>
+    </tr>
+    <tr>
+      <td class="center">{RCTRL}</td>
+      <td>右 CTRL 键</td>
+    </tr>
+    <tr>
+      <td class="center">{LSHIFT}</td>
+      <td>左 Shift 键</td>
+    </tr>
+    <tr>
+      <td class="center">{RSHIFT}</td>
+      <td>右 Shift 键</td>
+    </tr>
+    <tr>
+      <td class="center">{SLEEP}</td>
+      <td>系统休眠(SLEEP)键</td>
+    </tr>
+    <tr>
+      <td class="center">{ALTDOWN}</td>
+      <td>按住 ALT 键直到发送 {ALTUP} 为止</td>
+    </tr>
+    <tr>
+      <td class="center">{SHIFTDOWN}</td>
+      <td>按住 SHIFT 键直到发送 {SHIFTUP} 为止</td>
+    </tr>
+    <tr>
+      <td class="center">{CTRLDOWN}</td>
+      <td>按住 CTRL 键直到发送 {CTRLUP} 为止</td>
+    </tr>
+    <tr>
+      <td class="center">{LWINDOWN}</td>
+      <td>按住左徽标键直到发送 {LWINUP} 为止</td>
+    </tr>
+    <tr>
+      <td class="center">{RWINDOWN}</td>
+      <td>按住右徽标键直到发送 {RWINUP} 为止</td>
+    </tr>
+    <tr>
+      <td class="center">{ASC nnnn}</td>
+      <td>发送 ALT+nnnn 组合键</td>
+    </tr>
+    <tr>
+      <td class="center">&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="center">{BROWSER_BACK}</td>
+      <td>按下浏览器中的"后退"按钮</td>
+    </tr>
+    <tr>
+      <td class="center">{BROWSER_FORWARD}</td>
+      <td>按下浏览器中的"前进"按钮</td>
+    </tr>
+    <tr>
+      <td class="center">{BROWSER_REFRESH}</td>
+      <td>按下浏览器中的"刷新"按钮</td>
+    </tr>
+    <tr>
+      <td class="center">{BROWSER_STOP}</td>
+      <td>按下浏览器中的"停止"按钮</td>
+    </tr>
+    <tr>
+      <td class="center">{BROWSER_SEARCH}</td>
+      <td>按下浏览器中的"搜索"按钮</td>
+    </tr>
+    <tr>
+      <td class="center">{BROWSER_FAVORITES}</td>
+      <td>按下浏览器中的"收藏夹"按钮</td>
+    </tr>
+    <tr>
+      <td class="center">{BROWSER_HOME}</td>
+      <td>运行浏览器并转到主页</td>
+    </tr>
+    <tr>
+      <td class="center">{VOLUME_MUTE}</td>
+      <td>切换系统静音状态</td>
+    </tr>
+    <tr>
+      <td class="center">{VOLUME_DOWN}</td>
+      <td>减小系统音量</td>
+    </tr>
+    <tr>
+      <td class="center">{VOLUME_UP}</td>
+      <td>增大系统音量</td>
+    </tr>
+    <tr>
+      <td class="center">{MEDIA_NEXT}</td>
+      <td>在播放器中选择播放下一个轨道(影音媒体)</td>
+    </tr>
+    <tr>
+      <td class="center">{MEDIA_PREV}</td>
+      <td>在播放器中选择播放上一个轨道</td>
+    </tr>
+    <tr>
+      <td class="center">{MEDIA_STOP}</td>
+      <td>使播放器停止播放</td>
+    </tr>
+    <tr>
+      <td class="center">{MEDIA_PLAY_PAUSE}</td>
+      <td>使播放器播放/暂停</td>
+    </tr>
+    <tr>
+      <td class="center">{LAUNCH_MAIL}</td>
+      <td>运行邮件客户端程序</td>
+    </tr>
+    <tr>
+      <td class="center">{LAUNCH_MEDIA}</td>
+      <td>运行播放器(Media player)</td>
+    </tr>
+    <tr>
+      <td class="center">{LAUNCH_APP1}</td>
+      <td>运行用户程序1(我的电脑)</td>
+    </tr>
+    <tr>
+      <td class="center">{LAUNCH_APP2}</td>
+      <td>运行用户程序2(计算器)</td>
+    </tr>
+  </table>
 </body>
 </html>
