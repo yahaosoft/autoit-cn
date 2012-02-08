@@ -1,6 +1,51 @@
 AutoIt 更新日志
 ===============
 说明:正式版的更新都是基于测试版,请参考测试版更新.
+3.3.10.0 (?? ????, 2012) (Release)
+AutoIt:
+- Added: Interpreter accepts 64bit hex numbers.
+- Added: Keyword Null.
+- Added #488: Third parameter for ObjGet() function to specify object instance.
+
+- Changed: upx.exe from 3.07 -> 3.08.
+- Changed: ReDim works on arrays declared as static.
+- Changed: Run-time errors on objects no longer fatal (execution of the script is not halted).
+
+- Fixed #2067: -2147483648 not stored as int32.
+- Fixed #2003: ProcessWaitClose() using too much CPU.
+- Fixed #2076: COM VARIANT not correctly set for boolean True.
+- Fixed #2015: DllCallbackRegister() mangles floating point numbers under x64.
+- Fixed: x64 DllCall not setting double type parameters correctly.
+- Fixed: DllCallbackRegister() not returning floating point types correctly.
+- Fixed: Different issues with Static keyword.
+- Fixed #2078: Error in com expression.
+- Fixed #2073: Unexpected termination with ContinueLoop.
+- Fixed #1485: Unexpected termination with ContinueCase.
+- Fixed: Crash in ObjEvent() for byref object parameters.
+- Fixed #2068: Repeated calls to Acos() no longer produce strange results.  NOTE: This fix increases the size of AutoIt by approximately 60KB.
+- Fixed: ObjGet() fails validating class identifier properly when first parameter for the function is specified.
+- Fixed #2111: RunAs() could fail even if a user had the correct permissions to use it.
+
+UDFs:
+- Added: _WinAPI_GetProcAddress() function.
+
+- Fixed #2077: hwnd safety check in _GUICtrlRichEdit_Create()
+- Fixed #2088: _ArrayDisplay not handling Default parameters correctly.
+- Fixed #2112: "Report Log Window" unresponsive when the script is closed.
+- Fixed: _GUICtrlRichEdit_* documentation error return codes.
+- Fixed #1970: _FTP_ListToArray() fails to retrieve Dir or File only.
+
+Au3Check:
+- Fixed #2113: Object's properties in names of keywords treated as keywords.
+- Added: Generating error for hex numbers longer than 16 characters.
+- Changed: Message case changed to support SciTE inline errors.
+- Changed: An error is now generated for non-supported file encodings (Previous behavior was to silently pass the script).
+
+Au3Record:
+- Fixed #2083: There is no longer an error about a missing DLL.
+
+3.3.8.1 (29th January, 2012) (Release)
+
 3.3.8.0 (23rd December, 2011) (Release)
 AutoIt:
 - Added: Struct/EndStruct in DllStructCreate() to solve X86/X64 data alignment.

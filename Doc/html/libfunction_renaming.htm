@@ -1,409 +1,391 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+ï»¿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
   <title>UDFs renaming</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link href="css/default.css" rel="stylesheet" type="text/css">
 </head>
-
 <body>
-<h1>ÓÃ»§×Ô¶¨Òåº¯ÊıÖØÃüÃû</h1>
-´Ó v3.2.9.3 ¿ªÊ¼&nbsp; _GUICtrlXXXYYY() ±»ÖØÃüÃûÎª
-_GUICtrlXXX_YYY() ³ıÁËÁĞ±íÖĞµÄÍâ,Ã»ÓĞÈÎºÎ¹¦ÄÜĞŞ¸Ä.
-<p>XXX µÈÓÚ &quot;Combo&quot; ºÍ &quot;List&quot;&nbsp; 
-ËüÃÇ±»ĞŞ¸ÄÎª &quot;ComboBox&quot;
-ºÍ &quot;ListBox&quot;. ËüÃÇ¿ÉÒÔÔÚ GuiComboBox.au3 ºÍ GuiListBox.au3ÖĞÕÒµ½. Òò´Ë
-#include °üº¬ÎÄ¼şÒ²½«±»ĞŞ¸Ä.</p>
-<p><br>
-</p>
-<table border="1" style="width: 830;" cellspacing="0" cellpadding="3" bordercolor="#c0c0c0">
-  <tr style="color: rgb(255, 255, 255);">
-    <th style="background-color: rgb(0, 0, 153); width: 193;">¾ÉµÄº¯Êı</th>
-    <th style="background-color: rgb(0, 0, 153); width: 226;">ĞÂµÄº¯Êı</th>
-    <th style="background-color: rgb(0, 0, 153);" width="385">ÏêÏ¸ĞÅÏ¢</th>
-  </tr>
-  <tr>
-    <td>_GUICtrlComboAddDir</td>
-    <td>_GUICtrlComboBox_AddDir</td>
-    <td>²ÎÊıÎ»ÖÃ¸Ä±ä²¢ĞŞ¸ÄÀàĞÍ $vAttrib-&gt;$iAttrib.</td>
-  </tr>
-  <tr>
-    <td>_GUICtrlComboAutoComplete</td>
-    <td>_GUICtrlComboBox_AutoComplete</td>
-    <td>$sText, $s_WTitle, $s_WText ²ÎÊı±»ºöÂÔ.</td>
-  </tr>
-  <tr>
-    <td>_GUICtrlComboFindString</td>
-    <td>_GUICtrlComboBox_FindString</td>
-    <td>or _GUICtrlComboBox_FindStringExact if $fexact was&nbsp;
-    used.</td>
-  </tr>
-  <tr>
-    <td>_GUICtrlComboGetList</td>
-    <td>_GUICtrlComboBox_GetList</td>
-    <td>$sDelimiter suppress use Opt(&quot;GUIDataSeparatorChar&quot;).</td>
-  </tr>
-  <tr>
-    <td>_GUICtrlComboInsertString</td>
-    <td>_GUICtrlComboBox_InsertString</td>
-    <td>²ÎÊıÎ»ÖÃ¸Ä±ä.</td>
-  </tr>
-  <tr>
-    <td>_GUICtrlComboSelectString</td>
-    <td>_GUICtrlComboBox_SelectString</td>
-    <td>²ÎÊıÎ»ÖÃ¸Ä±ä.</td>
-  </tr>
-  <tr>
-    <td>_GUICtrlComboSetItemHeight</td>
-    <td>_GUICtrlComboBox_SetItemHeight</td>
-    <td >²ÎÊıÎ»ÖÃ¸Ä±ä.</td>
-  </tr>
+  <h1>ç”¨æˆ·è‡ªå®šä¹‰å‡½æ•°é‡å‘½å</h1>ä» v3.2.9.3 å¼€å§‹ _GUICtrlXXXYYY() è¢«é‡å‘½åä¸º _GUICtrlXXX_YYY() é™¤äº†åˆ—è¡¨ä¸­çš„å¤–,æ²¡æœ‰ä»»ä½•åŠŸèƒ½ä¿®æ”¹.
+  <p>XXX ç­‰äº "Combo" å’Œ "List" ,å®ƒä»¬è¢«ä¿®æ”¹ä¸º "ComboBox" å’Œ "ListBox". å®ƒä»¬å¯ä»¥åœ¨ GuiComboBox.au3 å’Œ GuiListBox.au3ä¸­æ‰¾åˆ°. å› æ­¤#include åŒ…å«æ–‡ä»¶ä¹Ÿå°†è¢«ä¿®æ”¹.</p>
+  <p><br></p>
+  <table summary="">
+    <tr>
+      <th class="old">æ—§çš„å‡½æ•°</th>
+      <th class="new">æ–°çš„å‡½æ•°</th>
+      <th>è¯¦ç»†ä¿¡æ¯</th>
+    </tr>
+    <tr>
+      <td>_GUICtrlComboAddDir</td>
+      <td>_GUICtrlComboBox_AddDir</td>
+      <td>å‚æ•°ä½ç½®æ”¹å˜å¹¶ä¿®æ”¹ç±»å‹ $vAttrib-&gt;$iAttrib.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlComboAutoComplete</td>
+      <td>_GUICtrlComboBox_AutoComplete</td>
+      <td>$sText, $s_WTitle, $s_WText å‚æ•°è¢«å¿½ç•¥.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlComboFindString</td>
+      <td>_GUICtrlComboBox_FindString</td>
+      <td>or _GUICtrlComboBox_FindStringExact if $fexact was used.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlComboGetList</td>
+      <td>_GUICtrlComboBox_GetList</td>
+      <td>$sDelimiter suppress use Opt("GUIDataSeparatorChar").</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlComboInsertString</td>
+      <td>_GUICtrlComboBox_InsertString</td>
+      <td>å‚æ•°ä½ç½®æ”¹å˜.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlComboSelectString</td>
+      <td>_GUICtrlComboBox_SelectString</td>
+      <td>å‚æ•°ä½ç½®æ”¹å˜.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlComboSetItemHeight</td>
+      <td>_GUICtrlComboBox_SetItemHeight</td>
+    <td >å‚æ•°ä½ç½®æ”¹å˜.</td>
+    </tr>
+  </table><br>
+  <table summary="">
+    <tr>
+      <th class="old">æ—§çš„å‡½æ•°</th>
+      <th class="new">æ–°çš„å‡½æ•°</th>
+      <th>è¯¦ç»†ä¿¡æ¯</th>
+    </tr>
+    <tr>
+      <td>_GUICtrlEditFind</td>
+      <td>_GUICtrlEdit_Find</td>
+      <td>$hGui å‚æ•°ç§»é™¤</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlEditFindText</td>
+      <td>&nbsp;</td>
+      <td>å·²ç»ç§»é™¤</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlEditGetRECT</td>
+      <td>_GUICtrlEdit_GetRECT</td>
+      <td>è¿”å›å€¼ä¿®æ”¹.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlEditGetSel</td>
+      <td>_GUICtrlEdit_GetSel</td>
+      <td>è¿”å›å€¼ä¿®æ”¹.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlEditSetRECT</td>
+      <td>_GUICtrlEdit_SetRECT</td>
+      <td>è¿”å›å€¼ä¿®æ”¹.</td>
+    </tr>
+  </table><br>
+  <table summary="">
+    <tr>
+      <th class="old">æ—§çš„å‡½æ•°</th>
+      <th class="new">æ–°çš„å‡½æ•°</th>
+      <th>è¯¦ç»†ä¿¡æ¯</th>
+    </tr>
+    <tr>
+      <td>_GUICtrlIpAddressClear</td>
+      <td>_GUICtrlIpAddress_ClearAddress</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlIpAddressDelete</td>
+      <td>_GUICtrlIpAddress_Destroy</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+  </table><br>
+  <table summary="">
+    <tr>
+      <th class="old">æ—§çš„å‡½æ•°</th>
+      <th class="new">æ–°çš„å‡½æ•°</th>
+      <th>è¯¦ç»†ä¿¡æ¯</th>
+    </tr>
+    <tr>
+      <td>_GUICtrlListAddDir</td>
+      <td>_GUICtrlListBox_Dir</td>
+      <td>å‚æ•°ä½ç½®æ”¹å˜ and $vAttrib-&gt;$iAttrib.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListAddItem</td>
+      <td>_GUICtrlListBox_AddString</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListClear</td>
+      <td>_GUICtrlListBox_ResetContent</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListCount</td>
+      <td>_GUICtrlListBox_GetCount</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListDeleteItem</td>
+      <td>_GUICtrlListBox_DeleteString</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListGetInfo</td>
+      <td>_GUICtrlListBox_GetListBoxInfo</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListGetItemRect</td>
+      <td>_GUICtrlListBox_GetItemRect</td>
+      <td>è¿”å›å€¼ä¿®æ”¹.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListGetLocale</td>
+      <td>_GUICtrlListBox_GetLocale</td>
+      <td>$fDec å¿½ç•¥.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListGetSelState</td>
+      <td>_GUICtrlListBox_GetSel</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListInsertItem</td>
+      <td>_GUICtrlListBox_InsertString</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListSelectedIndex</td>
+      <td>_GUICtrlListBox_GetCurSel</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListSelectIndex</td>
+      <td>_GUICtrlListBox_SetCurSel</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListSelItemRange</td>
+      <td>_GUICtrlListBox_SelItemRange</td>
+      <td>å‚æ•°ä½ç½®æ”¹å˜.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListSetSel</td>
+      <td>_GUICtrlListBox_SetSel</td>
+      <td>å‚æ•°ä½ç½®æ”¹å˜.</td>
+    </tr>
+  </table><br>
+  <table summary="">
+    <tr>
+      <th class="old">æ—§çš„å‡½æ•°</th>
+      <th class="new">æ–°çš„å‡½æ•°</th>
+      <th>è¯¦ç»†ä¿¡æ¯</th>
+    </tr>
+    <tr>
+      <td>_GUICtrlListViewFindItem</td>
+      <td>_GUICtrlListView_FindInText</td>
+      <td>_GUICtrlListView_FindItem, _GUICtrlListView_FindNearest, _GUICtrlListView_FindParam, _GUICtrlListView_FindText</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListViewGetBackColor</td>
+      <td>_GUICtrlListView_GetBkColor</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListViewGetCheckedState</td>
+      <td>_GUICtrlListView_GetItemChecked</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListViewGetCurSel</td>
+      <td>_GUICtrlListView_GetNextItem</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListViewGetItemText</td>
+      <td>_GUICtrlListView_GetItemText</td>
+      <td>item is mandatory or _GUICtrlListView_GetItemTextString</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListViewGetNextItem</td>
+      <td>_GUICtrlListView_GetNextItem</td>
+      <td>$i_direction å‚æ•°ä¿®æ”¹.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListViewGetSubItemsCount</td>
+      <td>_GUICtrlListView_GetColumnCount</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListViewInsertColumn</td>
+      <td>_GUICtrlListView_InsertColumn</td>
+      <td>å¯é€‰å‚æ•°ä½ç½®æ”¹å˜.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListViewInsertItem</td>
+      <td>_GUICtrlListView_InsertItem</td>
+      <td>_GUICtrlListView_SetItemText for column &gt;1</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListViewSetColumnHeaderText</td>
+      <td>_GUICtrlListView_SetColumn</td>
+      <td>å‚æ•°ä½ç½®æ”¹å˜.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListViewSetColumnOrder</td>
+      <td>_GUICtrlListView_SetColumnOrder</td>
+      <td>$order must be split.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListViewSetCheckState</td>
+      <td>_GUICtrlListView_SetItemChecked</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListViewSetItemSelState</td>
+      <td>_GUICtrlListView_SetItemSelected</td>
+      <td>or _GUICtrlListView_SetItemFocused.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListViewSetItemText</td>
+      <td>_GUICtrlListView_SetItemText</td>
+      <td>å‚æ•°ä½ç½®æ”¹å˜.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlListViewSort</td>
+      <td>_GUICtrlListView_SimpleSort</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+  </table><br>
+  <table summary="">
+    <tr>
+      <th class="old">æ—§çš„å‡½æ•°</th>
+      <th class="new">æ–°çš„å‡½æ•°</th>
+      <th>è¯¦ç»†ä¿¡æ¯</th>
+    </tr>
+    <tr>
+      <td>_GUICtrlMonthCalGet1stDOW</td>
+      <td>_GUICtrlMonthCal_GetFirstDOWStr</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlMonthCalGetColor</td>
+      <td>_GUICtrlMonthCal_GetColorArray</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlMonthCalGetMinReqRECT</td>
+      <td>_GUICtrlMonthCalGetMinReqRECT</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlMonthCalSetColor</td>
+      <td>_GUICtrlMonthCal_SetColor</td>
+      <td>è¿”å›å€¼ä¿®æ”¹.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlMonthCalSet1stDOW</td>
+      <td>_GUICtrlMonthCal_SetFirstDOW</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlMonthCalSetDelta</td>
+      <td>_GUICtrlMonthCal_SetMonthDelta</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+  </table><br>
+  <table summary="">
+    <tr>
+      <th class="old">æ—§çš„å‡½æ•°</th>
+      <th class="new">æ–°çš„å‡½æ•°</th>
+      <th>è¯¦ç»†ä¿¡æ¯</th>
+    </tr>
+    <tr>
+      <td>_GUICtrlStatusBarCreateProgress</td>
+      <td>&nbsp;</td>
+      <td>å·²ç»ç§»é™¤</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlStatusBarDelete</td>
+      <td>_GUICtrlStatusBar_Destroy</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlStatusBarGetParts</td>
+      <td>_GUICtrlStatusBar_GetCount</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlStatusBarGetTip</td>
+      <td>_GUICtrlStatusBar_GetTipText</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlStatusBarGetUnicode</td>
+      <td>_GUICtrlStatusBar_GetUnicodeFormat</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlStatusBarSetIcon</td>
+      <td>_GUICtrlStatusBar_SetIcon</td>
+      <td>å¯é€‰å‚æ•°ä½ç½®æ”¹å˜.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlStatusBarSetParts</td>
+      <td>_GUICtrlStatusBar_SetParts</td>
+      <td>$hGUI parameter suppression.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlStatusBarSetUnicode</td>
+      <td>_GUICtrlStatusBar_SetUnicodeFormat</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+  </table><br>
+  <table summary="">
+    <tr>
+      <th class="old">æ—§çš„å‡½æ•°</th>
+      <th class="new">æ–°çš„å‡½æ•°</th>
+      <th>è¯¦ç»†ä¿¡æ¯</th>
+    </tr>
+    <tr>
+      <td>_GUICtrlTabGetItemRECT</td>
+      <td>_GUICtrlTab_GetItemRect</td>
+      <td>è¿”å›å€¼ä¿®æ”¹.</td>
+    </tr>
+  </table><br>
+  <table summary="">
+    <tr>
+      <th class="old">æ—§çš„å‡½æ•°</th>
+      <th class="new">æ–°çš„å‡½æ•°</th>
+      <th>è¯¦ç»†ä¿¡æ¯</th>
+    </tr>
+    <tr>
+      <td>_GUICtrlTreeViewDeleteAllItems</td>
+      <td>_GUICtrlTreeView_DeleteAll</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlTreeViewDeleteItem</td>
+      <td>_GUICtrlTreeView_Delete</td>
+      <td>$hGUI å‚æ•°ç§»é™¤.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlTreeViewExpand</td>
+      <td>_GUICtrlTreeView_Expand</td>
+      <td>å¯é€‰å‚æ•°ä½ç½®æ”¹å˜.</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlTreeViewGetParentID</td>
+      <td>_GUICtrlTreeView_GetParentParam</td>
+      <td>é‡æ–°å‘½å</td>
+    </tr>
+    <tr>
+      <td>_GUICtrlTreeViewGetTree</td>
+      <td>_GUICtrlTreeView_GetTree</td>
+      <td>$sSeparator suppress use Opt("GUIDataSeparatorChar").</td>
+    </tr>
   </table>
-<br>
-<table border="1" style="width: 831;" cellspacing="0" cellpadding="3" bordercolor="#c0c0c0">
-<tr style="color: rgb(255, 255, 255);">
-  <th style="background-color: rgb(0, 0, 153); width: 193;">¾ÉµÄº¯Êı</th>
-  <th style="background-color: rgb(0, 0, 153); width: 226;">ĞÂµÄº¯Êı</th>
-  <th style="background-color: rgb(0, 0, 153);" width="386">ÏêÏ¸ĞÅÏ¢</th>
-</tr>
-<tr>
-    <td>_GUICtrlEditFind</td>
-    <td>_GUICtrlEdit_Find</td>
-    <td>$hGui ²ÎÊıÒÆ³ı</td>
-  </tr>
-<tr>
-    <td>_GUICtrlEditFindText</td>
-    <td>&nbsp;</td>
-    <td>ÒÑ¾­ÒÆ³ı</td>
-  </tr>
-<tr>
-    <td>_GUICtrlEditGetRECT</td>
-    <td>_GUICtrlEdit_GetRECT</td>
-    <td>·µ»ØÖµĞŞ¸Ä.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlEditGetSel</td>
-    <td>_GUICtrlEdit_GetSel</td>
-    <td>·µ»ØÖµĞŞ¸Ä.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlEditSetRECT</td>
-    <td>_GUICtrlEdit_SetRECT</td>
-    <td>·µ»ØÖµĞŞ¸Ä.</td>
-  </tr>
-</table>
-<br>
-<table border="1" style="width: 831;" cellspacing="0" cellpadding="3" bordercolor="#c0c0c0">
-<tr style="color: rgb(255, 255, 255);">
-  <th style="background-color: rgb(0, 0, 153); width: 193;">¾ÉµÄº¯Êı</th>
-  <th style="background-color: rgb(0, 0, 153); width: 226;">ĞÂµÄº¯Êı</th>
-  <th style="background-color: rgb(0, 0, 153);" width="386">ÏêÏ¸ĞÅÏ¢</th>
-</tr>
-<tr>
-    <td>_GUICtrlIpAddressClear</td>
-    <td>_GUICtrlIpAddress_ClearAddress</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlIpAddressDelete</td>
-    <td>_GUICtrlIpAddress_Destroy</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-</table>
-<br>
-<table border="1" style="width: 831;" cellspacing="0" cellpadding="3" bordercolor="#c0c0c0">
-<tr style="color: rgb(255, 255, 255);">
-  <th style="background-color: rgb(0, 0, 153); width: 193;">¾ÉµÄº¯Êı</th>
-  <th style="background-color: rgb(0, 0, 153); width: 226;">ĞÂµÄº¯Êı</th>
-  <th style="background-color: rgb(0, 0, 153);" width="386">ÏêÏ¸ĞÅÏ¢</th>
-</tr>
-<tr>
-    <td>_GUICtrlListAddDir</td>
-    <td>_GUICtrlListBox_Dir</td>
-    <td>²ÎÊıÎ»ÖÃ¸Ä±ä and $vAttrib-&gt;$iAttrib.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListAddItem</td>
-    <td>_GUICtrlListBox_AddString</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListClear</td>
-    <td>_GUICtrlListBox_ResetContent</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListCount</td>
-    <td>_GUICtrlListBox_GetCount</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListDeleteItem</td>
-    <td>_GUICtrlListBox_DeleteString</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListGetInfo</td>
-    <td>_GUICtrlListBox_GetListBoxInfo</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListGetItemRect</td>
-    <td>_GUICtrlListBox_GetItemRect</td>
-    <td>·µ»ØÖµĞŞ¸Ä.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListGetLocale</td>
-    <td>_GUICtrlListBox_GetLocale</td>
-    <td>$fDec ºöÂÔ.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListGetSelState</td>
-    <td>_GUICtrlListBox_GetSel</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListInsertItem</td>
-    <td>_GUICtrlListBox_InsertString</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListSelectedIndex</td>
-    <td>_GUICtrlListBox_GetCurSel</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListSelectIndex</td>
-    <td>_GUICtrlListBox_SetCurSel</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListSelItemRange</td>
-    <td>_GUICtrlListBox_SelItemRange</td>
-    <td>²ÎÊıÎ»ÖÃ¸Ä±ä.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListSetSel</td>
-    <td>_GUICtrlListBox_SetSel</td>
-    <td>²ÎÊıÎ»ÖÃ¸Ä±ä.</td>
-  </tr>
-</table>
-<br>
-<table border="1" style="width: 831;" cellspacing="0" cellpadding="3" bordercolor="#c0c0c0" height="315">
-<tr style="color: rgb(255, 255, 255);">
-  <th style="background-color: rgb(0, 0, 153); width: 193;" height="19">¾ÉµÄº¯Êı</th>
-  <th style="background-color: rgb(0, 0, 153); width: 226;" height="19">ĞÂµÄº¯Êı</th>
-  <th style="background-color: rgb(0, 0, 153);" width="386" height="19">ÏêÏ¸ĞÅÏ¢</th>
-</tr>
-<tr>
-    <td>_GUICtrlListViewFindItem</td>
-    <td>_GUICtrlListView_FindInText</td>
-    <td>_GUICtrlListView_FindItem,
-    _GUICtrlListView_FindNearest, _GUICtrlListView_FindParam,
-    _GUICtrlListView_FindText</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListViewGetBackColor </td>
-    <td>_GUICtrlListView_GetBkColor</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListViewGetCheckedState</td>
-    <td>_GUICtrlListView_GetItemChecked</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListViewGetCurSel</td>
-    <td>_GUICtrlListView_GetNextItem</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListViewGetItemText</td>
-    <td>_GUICtrlListView_GetItemText</td>
-    <td>item is mandatory or
-    _GUICtrlListView_GetItemTextString</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListViewGetNextItem</td>
-    <td>_GUICtrlListView_GetNextItem</td>
-    <td>$i_direction ²ÎÊıĞŞ¸Ä.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListViewGetSubItemsCount</td>
-    <td>_GUICtrlListView_GetColumnCount</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListViewInsertColumn</td>
-    <td>_GUICtrlListView_InsertColumn</td>
-    <td>¿ÉÑ¡²ÎÊıÎ»ÖÃ¸Ä±ä.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListViewInsertItem</td>
-    <td>_GUICtrlListView_InsertItem</td>
-    <td>_GUICtrlListView_SetItemText&nbsp; for column &gt;1</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListViewSetColumnHeaderText</td>
-    <td>_GUICtrlListView_SetColumn</td>
-    <td>²ÎÊıÎ»ÖÃ¸Ä±ä.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListViewSetColumnOrder</td>
-    <td>_GUICtrlListView_SetColumnOrder</td>
-    <td>$order must be split.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListViewSetCheckState</td>
-    <td>_GUICtrlListView_SetItemChecked</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListViewSetItemSelState</td>
-    <td>_GUICtrlListView_SetItemSelected</td>
-    <td>&nbsp;or _GUICtrlListView_SetItemFocused.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListViewSetItemText</td>
-    <td>_GUICtrlListView_SetItemText</td>
-    <td>²ÎÊıÎ»ÖÃ¸Ä±ä.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlListViewSort</td>
-    <td>_GUICtrlListView_SimpleSort</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-</table>
-<br>
-<table border="1" style="width: 831;" cellspacing="0" cellpadding="3" bordercolor="#c0c0c0">
-<tr style="color: rgb(255, 255, 255);">
-  <th style="background-color: rgb(0, 0, 153); width: 193;">¾ÉµÄº¯Êı</th>
-  <th style="background-color: rgb(0, 0, 153); width: 226;">ĞÂµÄº¯Êı</th>
-  <th style="background-color: rgb(0, 0, 153);" width="386">ÏêÏ¸ĞÅÏ¢</th>
-</tr>
-<tr>
-    <td>_GUICtrlMonthCalGet1stDOW</td>
-    <td>_GUICtrlMonthCal_GetFirstDOWStr</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlMonthCalGetColor</td>
-    <td>_GUICtrlMonthCal_GetColorArray</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlMonthCalGetMinReqRECT</td>
-    <td>_GUICtrlMonthCalGetMinReqRECT</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlMonthCalSetColor</td>
-    <td>_GUICtrlMonthCal_SetColor</td>
-    <td>·µ»ØÖµĞŞ¸Ä.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlMonthCalSet1stDOW</td>
-    <td>_GUICtrlMonthCal_SetFirstDOW</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlMonthCalSetDelta</td>
-    <td>_GUICtrlMonthCal_SetMonthDelta</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-</table>
-<br>
-<table border="1" style="width: 832;" cellspacing="0" cellpadding="3" bordercolor="#c0c0c0">
-<tr style="color: rgb(255, 255, 255);">
-  <th style="background-color: rgb(0, 0, 153); width: 229;">¾ÉµÄº¯Êı</th>
-  <th style="background-color: rgb(0, 0, 153); width: 235;">ĞÂµÄº¯Êı</th>
-  <th style="background-color: rgb(0, 0, 153);" width="342">ÏêÏ¸ĞÅÏ¢</th>
-</tr>
-<tr>
-    <td>_GUICtrlStatusBarCreateProgress</td>
-    <td>&nbsp;</td>
-    <td>ÒÑ¾­ÒÆ³ı</td>
-  </tr>
-<tr>
-    <td>_GUICtrlStatusBarDelete</td>
-    <td>_GUICtrlStatusBar_Destroy</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlStatusBarGetParts</td>
-    <td>_GUICtrlStatusBar_GetCount</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlStatusBarGetTip</td>
-    <td>_GUICtrlStatusBar_GetTipText</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlStatusBarGetUnicode</td>
-    <td>_GUICtrlStatusBar_GetUnicodeFormat</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlStatusBarSetIcon</td>
-    <td>_GUICtrlStatusBar_SetIcon</td>
-    <td>¿ÉÑ¡²ÎÊıÎ»ÖÃ¸Ä±ä.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlStatusBarSetParts</td>
-    <td>_GUICtrlStatusBar_SetParts</td>
-    <td>$hGUI parameter suppression.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlStatusBarSetUnicode</td>
-    <td>_GUICtrlStatusBar_SetUnicodeFormat</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-</table>
-<br>
-<table border="1" style="width: 831;" cellspacing="0" cellpadding="3" bordercolor="#c0c0c0">
-<tr style="color: rgb(255, 255, 255);">
-  <th style="background-color: rgb(0, 0, 153); width: 228;">¾ÉµÄº¯Êı</th>
-  <th style="background-color: rgb(0, 0, 153); width: 241;">ĞÂµÄº¯Êı</th>
-  <th style="background-color: rgb(0, 0, 153);" width="336">ÏêÏ¸ĞÅÏ¢</th>
-</tr>
-<tr>
-    <td>_GUICtrlTabGetItemRECT</td>
-    <td>_GUICtrlTab_GetItemRect</td>
-    <td>·µ»ØÖµĞŞ¸Ä.</td>
-  </tr>
-</table>
-<br>
-<table border="1" style="width: 832;" cellspacing="0" cellpadding="3" bordercolor="#c0c0c0" height="162">
-<tr style="color: rgb(255, 255, 255);">
-  <th style="background-color: rgb(0, 0, 153); width: 217;" height="19">¾ÉµÄº¯Êı</th>
-  <th style="background-color: rgb(0, 0, 153); width: 251;" height="19">ĞÂµÄº¯Êı</th>
-  <th style="background-color: rgb(0, 0, 153);" width="338" height="19">ÏêÏ¸ĞÅÏ¢</th>
-</tr>
-<tr>
-    <td>_GUICtrlTreeViewDeleteAllItems</td>
-    <td>_GUICtrlTreeView_DeleteAll</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlTreeViewDeleteItem</td>
-    <td>_GUICtrlTreeView_Delete</td>
-    <td>$hGUI ²ÎÊıÒÆ³ı.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlTreeViewExpand</td>
-    <td>_GUICtrlTreeView_Expand</td>
-    <td>¿ÉÑ¡²ÎÊıÎ»ÖÃ¸Ä±ä.</td>
-  </tr>
-<tr>
-    <td>_GUICtrlTreeViewGetParentID</td>
-    <td>_GUICtrlTreeView_GetParentParam</td>
-    <td>ÖØĞÂÃüÃû</td>
-  </tr>
-<tr>
-    <td>_GUICtrlTreeViewGetTree</td>
-    <td>_GUICtrlTreeView_GetTree</td>
-    <td>$sSeparator suppress use Opt(&quot;GUIDataSeparatorChar&quot;).</td>
-  </tr>
-</table>
-&nbsp;</body></html>
+</body>
+</html>
