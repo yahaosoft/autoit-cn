@@ -1,108 +1,120 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+锘�<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
   <title>Au3check syntax Tool</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h1>AutoIt 表达式检查器(Au3Check)</h1>
-<p>Syntax checks the complete language.<br>
-Checks all symbols used:<br>
-<br>
-<li><b>Macros</b> :</li><ul>
-Usage of non-defined macros are reported as errors.
-</ul>
-<br>
-<li><b>Variables</b> :</li><ul>
-Au3Check issues warning if variables are used before they are seen. <br>
-It is possible that the program is still correct, like the following:
-<p class="codebox">
-For $i=1 To 2<br>
-If $i=2 Then msgbox(0, &quot;ok&quot;, $hello);<br>
-Local $hello = &quot;Goodbye&quot;<br>
-Next</p>
-However, this is bad programming style, and Au3Check will issue a warning that
-$hello is possible used before it is declared.<br>
-Likewise, global variables declared in functions should best not be used in other functions.<br>
-If one is used higher up in the code, a warning is issued.<br>
-Finally, Au3Check issues an error if a variable is used, but never declared, explicitly or implicitly.
-</ul>
-<br>
-<li><b>Functions</b> :</li><ul>
-Functions may be defined later than where they are called. Au3Check checks that
-all functions are called with the correct number of parameters.<br>
-It also checks that ByRef parameters are called with variables (not l-values, expressions).<br>
-Finally, non-defined functions are reported.
-</ul>
-<br>
-To manage some warnings/errors that can not be avoid some specific directive can be included in the script.<br>
-<br>
-<b>Directives</b><br>
---------------
-<p class="codeheader">#ignorefunc funcname [, ...]</p>
-<ul>can be used for plugin functions, like the following:<br>
-<p class="codebox">
-#ignoreFunc PluginFunc1<br>
-Local $handle = PluginOpen("example.dll")<br>
-PluginFunc1(0.1, 0.2) ; will call the plugin function with  2 parameters<br>
-PluginClose($handle)</p></ul>
-<br>
-<p class="codeheader">#forceref $varname [, ...]</p>
-<ul>can be used for inside functions, like the following:<br>
-<p class="codebox">
-Func Test_Numparams($v1 = 0, $v2 = 0, $v3 = 0, $v4 = 0, $v5 = 0, $v6 = 0, $v7 = 0, $v8 = 0, $v9 = 0)<br>
-	#forceref $v1, $v2, $v3, $v4, $v5, $v6, $v7, $v8, $v9<br>
-	Local $val<br>
-	For $i = 1 To @NumParams<br>
-		$val &= Eval("v" & $i) & " "<br>
-	Next<br>
-	MsgBox(0, "@NumParams example", "@NumParams =" & @NumParams & @CRLF & @CRLF & $val)<br>
-EndFunc</p></ul>
-<br>
-<p class="codeheader">#forcedef $varname [, ...]</p>
-<ul>can be used after Assign() functions, like the following:<br>
-<p class="codebox">
-$n = Assign("y", 3)<br>
-#forcedef $y<br>
-$n = $y ;===&gt; $y = 3</p>
-</ul>
-<br>
-This command line utility can be invoked thru editor add-on. It located in the same directory as AutoIt3.exe.<br>
-The <a href="http://www.autoitscript.com/autoit3/scite/" class="ext">SciTE4AutoIt3</a> editor provides such environment.<br>
-<br>
-
-<b>Usage</b><br>
---------<br>
-<p class="codeheader">Au3Check [-q] [-d] [-w[-] n]... [-v[-] n]... [-I dir]... file.au3</p>
-<ul>-q : quiet (only error/warn output)<br>
--d : as Opt(&quot;MustDeclareVars&quot;, 1)<br>
--w 1: already included file (on)<br>
--w 2: missing #comments-end (on)<br>
--w 3: already declared var (off)<br>
--w 4: local var used in global scope (off)<br>
--w 5: local var declared but not used (off)<br>
--w 6: warn when using Dim (off)<br>
--w 7: warn when passing Const or expression on ByRef param(s) (on)<br>
--I dir: additional directories for searching include files<br>
-<br>
--v 1: show include paths/files (off)<br>
--v 2: show lexer tokens (off)<br>
--v 3: show unreferenced UDFs and global variables (off)
-</ul>
-Exit codes:<ul>
-0: success: no errors or warnings<br>
-1: warning(s) only<br>
-2: syntax error(s)<br>
-3: usage or input error
-</ul>
-<br>
-<b>What is not checked</b><br>
---------------------------<ul>
-Basically runtime information:<br>
-- No checking is made for array dimensions, or indices. This can only be done
-runtime.<br>
-- Logical errors, illegal parameters to functions, and division on zero.<br>
-</ul></p>
+  <h1>AutoIt 琛ㄨ揪寮忔鏌ュ櫒(Au3Check)</h1>
+  <p>Syntax checks the complete language.<br>
+  Checks all symbols used:<br>
+  <br></p>
+  <ul>
+    <li><strong>Macros</strong> :</li>
+  </ul>
+  <div class="indent">
+    Usage of non-defined macros are reported as errors.
+  </div><br>
+  <ul>
+    <li><strong>Variables</strong> :</li>
+  </ul>
+  <div class="indent">
+    Au3Check issues warning if variables are used before they are declared.<br>
+    It is possible that the program is still correct, like the following:
+    <p class="codebox"><span><span class="S5">For</span> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S5">To</span> <span class="S3">2</span><br>
+    <span class="S0">&nbsp; &nbsp;</span> <span class="S5">If</span> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">2</span> <span class="S5">Then</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class=
+    "S3">0</span><span class="S8">,</span> <span class="S7">"OK"</span><span class="S8">,</span> <span class="S9">$sHello</span><span class="S8">)</span><br>
+    <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Global</span> <span class="S9">$sHello</span> <span class="S8">=</span> <span class="S7">"Goodbye"</span><br>
+    <span class="S5">Next</span><br></span></p>However, this is bad programming style, and Au3Check will issue a warning that $hello is possibly used before it is declared.<br>
+    Likewise, Global variables should never be declared within functions and always declared at the top of the script.<br>
+    If one is used higher up in the code, a warning is issued.<br>
+    Finally, Au3Check issues an error if a variable is used but is never either explicitly or implicitly declared.
+  </div><br>
+  <ul>
+    <li><strong>Functions</strong> :</li>
+  </ul>
+  <div class="indent">
+    Functions may be defined later than where they are called. Au3Check checks that all functions are called with the correct number of parameters.<br>
+    It also checks that ByRef parameters are called with variables (not l-values, expressions).<br>
+    Finally, non-defined functions are reported.
+  </div><br>
+  Specific directives can be included in the script to manage some warnings/errors that can not be avoided.<br>
+  <br>
+  <strong>Directives</strong><br>
+  --------------
+  <p class="codeheader">#ignorefunc funcname [, ...]</p>
+  <div class="indent">
+    Can be used inside functions, like the following:<br>
+    <p class="codebox"><span><span class="S0">#ignoreFunc PluginFunc1</span><br>
+    <span class="S5">Local</span> <span class="S9">$hWnd</span> <span class="S8">=</span> <span class="S4">PluginOpen</span><span class="S8">(</span><span class="S7">"example.dll"</span><span class="S8">)</span><br>
+    <span class="S0">PluginFunc1</span><span class="S8">(</span><span class="S3">0.1</span><span class="S8">,</span> <span class="S3">0.2</span><span class="S8">)</span> <span class="S1">; Will call the user defined function "PluginFunc1" with 2
+    parameters</span><br>
+    <span class="S4">PluginClose</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span></span></p>
+  </div><br>
+  <p class="codeheader">#forceref $varname [, ...]</p>
+  <div class="indent">
+    Can be used inside functions, like the following:<br>
+    <p class="codebox"><span><span class="S5">Func</span> <span class="S0">Test_NumParams</span><span class="S8">(</span><span class="S9">$v1</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$v2</span>
+    <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$v3</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$v4</span> <span class="S8">=</span> <span class=
+    "S3">0</span><span class="S8">,</span> <span class="S9">$v5</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$v6</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span>
+    <span class="S9">$v7</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$v8</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$v9</span> <span class=
+    "S8">=</span> <span class="S3">0</span><span class="S8">)</span><br>
+    <span class="S0">&nbsp; &nbsp;</span> <span class="S12">#forceref $v1, $v2, $v3, $v4, $v5, $v6, $v7, $v8, $v9</span><br>
+    <br>
+    <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Local</span> <span class="S9">$iVal</span> <span class="S8">=</span> <span class="S3">0</span><br>
+    <br>
+    <span class="S0">&nbsp; &nbsp;</span> <span class="S5">For</span> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S5">To</span> <span class="S6">@NumParams</span><br>
+    <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S9">$iVal</span> <span class="S8">&amp;=</span> <span class="S4">Eval</span><span class="S8">(</span><span class="S7">"v"</span> <span class="S8">&amp;</span> <span class=
+    "S9">$i</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">" "</span><br>
+    <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Next</span><br>
+    <span class="S0">&nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"@NumParams example"</span><span class="S8">,</span> <span class="S7">"@NumParams =
+    "</span> <span class="S8">&amp;</span> <span class="S6">@NumParams</span> <span class="S8">&amp;</span> <span class="S6">@CRLF</span> <span class="S8">&amp;</span> <span class="S6">@CRLF</span> <span class="S8">&amp;</span> <span class=
+    "S9">$iVal</span><span class="S8">)</span><br>
+    <span class="S5">EndFunc</span> <span class="S0">&nbsp;&nbsp;</span><span class="S1">;==&gt;Test_NumParams</span><br></span></p>
+  </div><br>
+  <p class="codeheader">#forcedef $varname [, ...]</p>
+  <div class="indent">
+    can be used after Assign() functions, like the following:<br>
+    <p class="codebox"><span><span class="S5">Local</span> <span class="S9">$n</span> <span class="S8">=</span> <span class="S4">Assign</span><span class="S8">(</span><span class="S7">"y"</span><span class="S8">,</span> <span class=
+    "S3">3</span><span class="S8">)</span><br>
+    <span class="S12">#forcedef $y</span><br>
+    <span class="S9">$n</span> <span class="S8">=</span> <span class="S9">$y</span> <span class="S1">;===&gt; $y = 3</span><br></span></p>
+  </div><br>
+  This command line utility can be invoked though an editor add-on. It is located in the same directory as AutoIt3.exe.<br>
+  The <a href="http://www.autoitscript.com/site/autoit-script-editor/" class="ext">SciTE4AutoIt3</a> editor provides such an environment.<br>
+  <br>
+  <strong>Usage</strong><br>
+  --------<br>
+  <p class="codeheader">Au3Check [-q] [-d] [-w[-] n]... [-v[-] n]... [-I dir]... file.au3</p>
+  <div class="indent">
+    -q : quiet (only error/warn output)<br>
+    -d : as Opt("MustDeclareVars", 1)<br>
+    -w 1: already included file (on)<br>
+    -w 2: missing #comments-end (on)<br>
+    -w 3: already declared var (off)<br>
+    -w 4: local var used in global scope (off)<br>
+    -w 5: local var declared but not used (off)<br>
+    -w 6: warn when using Dim (off)<br>
+    -w 7: warn when passing Const or expression on ByRef param(s) (on)<br>
+    -I dir: additional directories for searching include files<br>
+    <br>
+    -v 1: show include paths/files (off)<br>
+    -v 2: show lexer tokens (off)<br>
+    -v 3: show unreferenced UDFs and global variables (off)
+  </div>Exit codes:
+  <div class="indent">
+    0: success: no errors or warnings<br>
+    1: warning(s) only<br>
+    2: syntax error(s)<br>
+    3: usage or input error
+  </div><br>
+  <strong>What is not checked</strong><br>
+  --------------------------
+  <div class="indent">
+    Basically runtime information:<br>
+    - No checks are made for array dimensions or indices. This can only be done during runtime.<br>
+    - Logical errors, illegal parameters to functions and division by zero.<br>
+  </div>
 </body>
 </html>
