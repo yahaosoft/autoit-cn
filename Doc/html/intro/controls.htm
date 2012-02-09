@@ -1,73 +1,68 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <title>�ؼ�</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=GB2312">
-  <link href="../css/default.css" rel="stylesheet" type="text/css"></head>
+  <title>控件</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
 <body>
-<h1>�ؼ�</h1>
-<p>AutoIt v3 ������һ����������¹��ܾ����ṩ��ֱ��
-  ����ĳЩ����<em>�ؼ�</em>��֧��.&nbsp;ͨ�������ڴ�����
-  �ܿ����Ķ�����඼�����¿ؼ���һ��:��ť,�б���,�ı��༭��,
-  ��̬�ı���.&nbsp;����˵ϵͳ�Դ��ļ��±������������Ҳ����ֻ��һ����Զ��ԱȽϴ�һ���&quot;�༭��(Edit)&quot;
-  �ؼ�����!����Ϊ AutoIt �ṩ��ֱ�ӶԿؼ�������;��,������Ҳ����Ҫ(Ҳ��Ӧ��)ʹ��ģ������ȵͼ��ķ���������������,
-  ��ʹ����Ҫʵ�ִ��ڲ����Ľű����ӿɿ�.</p>
-<p>&nbsp;</p>
-<p><strong><em>ע��</em></strong><em>: AutoIt ��֧�ֱ�׼�� Microsoft
-  �ؼ� - ��ЩӦ�ó���(������)�Լ�д���Զ���ؼ������������Ǳ�׼�� MS �ؼ�,
-  ��ȴ�޷����ű�����ʶ��,�Ǿ�ֻ�ܿ����ľ����ж���,�Լ�����!</em></p>
-<p>&nbsp;</p>
-<p>���� <a href="au3spy.htm">AutoIt ������Ϣ����(AutoIt Window Info) </a>
-  ֮�����������Ű�����ƶ����Լ�����Ȥ�Ĵ�����,
-  �� Window Info �Ĵ��ھͻ���ʾ��ǰ��꾭���Ŀؼ�����Ϣ.</p>
-<p>��ʹ��&nbsp;<a href="../functions/ControlClick.htm">Control...()</a> ����ʱ,��һЩ�ؼ���������ʹ��<strong>ControlID</strong>. ͨ����Щ����������ȷ��ʶ��.��Щ��������:</p>
-<ul>
-  <li><strong>ID - </strong>�ڲ��ؼ� ID. The Control ID is the internal numeric identifier that windows gives to each control. It is generally the best method of 
-identifying controls. In addition to the AutoIt Window Info Tool, other applications such as screenreaders for the blind and Microsoft tools/APIs may allow you to get this Control ID</li>
-  <li><strong>TEXT - </strong>�ؼ��ϵ��ı�,����: ��ť����ʾ�� &quot;��һ��(&amp;N)&quot;</li>
-  <li><strong>CLASS -</strong>�ڲ��ؼ���&quot;��&quot;����,�� &quot;Edit&quot; ���� &quot;Button&quot; </li>
-  <li><strong>CLASSNN -</strong> �����, ��: &quot;Edit1&quot; </li>
-	<li><b>NAME</b> - �ڲ� .NET Framework WinForms ���� (�����Ч)</li>
-	<li><strong>REGEXPCLASS -</strong> �ؼ�����ʹ�� <a href="../functions/StringRegExp.htm">�������ʽ</a> </li>
-	<li><strong>X</strong>(����) \ <strong>Y</strong>(����) \ <strong>W</strong>(����) \ <strong>H</strong>(�߶�) 
-	- �ؼ��������С.</li>
-	<li><strong>INSTANCE - </strong>����1��ʼ�Ľӿ�(instance,ԭ����Ϊö��) �ɳ����Զ������Ψһ��ʶ.</li>
-</ul>
-<p>һ���ؼ��е�һ�����߶��<em> controlID </em>,ʹ�����и�ʽ</p>
-<p class="codebox"> [����1:ֵ1; ����2:ֵ2]</p>
-<p><strong>ע��: </strong>If this special format is <strong>not</strong> used then the parameter is taken to be a control ID (if numeric) or the ClassnameNN/text of the control (if a string). Although the special format is more longwinded than these methods it is much less ambiguous. </p>
-<p>���һ��ֵ�а�����һ�� &quot;;&quot; �������ǳɶԵ�(it must be doubled).</p>
-<p>&nbsp;</p>
-<p>���� ����һЩ�ı������±�����</p>
-<p class="codebox"> ControlSend(&quot;�ޱ��� - ���±�&quot;, &quot;&quot;, &quot;[CLASS:Edit; INSTANCE:1]&quot;, &quot;This is some text&quot;)</p>
-<p>����</p>
-<p class="codebox"> ControlSend(&quot;�ޱ��� - ���±�&quot;, &quot;&quot;, &quot;[CLASSNN:Edit1]&quot;, &quot;This is some text&quot;)</p>
-<p>����</p>
-<p class="codebox"> ControlSend(&quot;�ޱ��� - ���±�&quot;, &quot;&quot;, &quot;Edit1&quot;, &quot;This is some text&quot;)</p>
-<p>&nbsp;</p>
-<p>���� ��� &quot;�ҵĴ���&quot; �пؼ�IDΪ254�Ŀؼ�</p>
-<p class="codebox"> ControlClick(&quot;�ҵĴ���&quot;, &quot;&quot;, &quot;[ID:254]&quot;)</p>
-<p>����  </p>
-<p class="codebox">ControlClick(&quot;�ҵĴ���&quot;, &quot;&quot;, 254)</p>
-<p>&nbsp;</p>
-<p>���� ���� .NET Winforms &quot;textBoxFolder&quot; �ؼ��ı�Ϊ &quot;C:\Some\Folder&quot; </p>
-<p class="codebox">ControlSetText(&quot;�ҵĴ���&quot;, &quot;&quot;, &quot;[NAME:textBoxFolder]&quot;, 
-&quot;C:\Some\Folder&quot;)</p>
-<p>&nbsp;</p>
-<p>����. �����ڶ�������&quot;���&quot;�ı���&quot;��ť&quot;</p>
-<p class="codebox">ControlClick(&quot;�ҵĴ���&quot;, &quot;&quot;, &quot;[CLASS:Button; TEXT:���; INSTANCE:2]&quot;)</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<h2>�ؼ���� (HWND)</h2>
-<p>ʹ�� <a href="../functions/ControlGetHandle.htm">ControlGetHandle</a> ���������ȷ���ؼ��� <em>Handle(���)</em> ���� <em>HWND(���ھ��)</em>. һ������� Windows ����ؼ���Ψһ��ʶ��. ������ÿ���ؼ� <em>���в�ͬ�ľ��</em>. ʹ��������������ʿؼ�һ����Ϊ����ôʹ��
-����������ʶ���û�׼����.</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>�뵽���� <strong><a href="../functions/ControlCommand.htm">�����ο�\
- ���ڹ���\�ؼ����</a></strong>
- �鿴�ؼ������б���˵��.</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+  <h1>控件</h1>
+  <p>AutoIt v3 的其中一个最优秀的新功能就是提供了直接操作某些窗口<em>控件</em>的支持.&nbsp;通常我们在窗口上能看到的东西大多都是以下控件的一种:按钮,列表框,文本编辑框,静态文本等.&nbsp;比如说系统自带的记事本程序的主窗口也不过只是一个相对而言比较大一点的"编辑框(Edit)"
+  控件罢了!正因为 AutoIt 提供了直接对控件操作的途径,我们再也不需要(也不应该)使用模拟键击等低级的方法来操作窗口了,这使得需要实现窗口操作的脚本更加可靠.</p>
+  <p>&nbsp;</p>
+  <p><strong><em>注意</em></strong><em>: AutoIt 仅支持标准的 Microsoft 控件 - 有些应用程序(的作者)自己写的自定义控件看起来很像是标准的 MS 控件,但却无法被脚本程序识别,那就只能靠您的经验判断了,自己试试!</em></p>
+  <p>&nbsp;</p>
+  <p>运行 <a href="au3spy.htm">AutoIt 窗口信息工具(AutoIt Window Info)</a> 之后您可以试着把鼠标移动到自己感兴趣的窗口上,在 Window Info 的窗口就会显示当前鼠标经过的控件的信息.</p>
+  <p>在使用 <a href="../functions/ControlClick.htm">Control...()</a> 函数时,有一些控件描述可以使用<strong>ControlID</strong>. 通过这些描述才能正确的识别.这些描述包括下列
+  <em>属性</em>:</p>
+  <ul>
+    <li><strong>ID - </strong>内部控件 ID. The Control ID is the internal numeric identifier that windows gives to each control. It is generally the best method of identifying controls. In addition to the AutoIt Window Info Tool, other
+    applications such as screenreaders for the blind and Microsoft tools/APIs may allow you to get this Control ID</li>
+    <li><strong>TEXT - </strong>控件上的文本,例如: 按钮上显示的 "下一步(&amp;N)"</li>
+    <li><strong>CLASS -</strong>内部控件的"类"名称,如 "Edit" 或者 "Button" </li>
+    <li><strong>CLASSNN -</strong> 类别名, 如: "Edit1" </li>
+	<li><strong>NAME</strong> - 内部 .NET Framework WinForms 名称 (如果有效)</li>
+	<li><strong>REGEXPCLASS -</strong> 控件类名使用 <a href="../functions/StringRegExp.htm">正则表达式</a> </li>
+	<li><strong>X</strong>(坐标) \ <strong>Y</strong>(坐标) \ <strong>W</strong>(宽度) \ <strong>H</strong>(高度) - 控件坐标与大小.</li>
+	<li><strong>INSTANCE - </strong>基于1开始的实例(instance) 由程序自动分配的唯一标识.</li>
+  </ul>
+  <p>一个控件中的一个或者多个<em> controlID </em>,使用下列格式</p>
+  <p class="codebox"><span class="S7">[属性1:值1; 属2:值2]</span></p>
+  <p><strong>注意: </strong>If this special format is <strong>not</strong> used then the parameter is taken to be a control ID (if numeric) or the ClassnameNN/text of the control (if a string). Although the special format is more longwinded than these
+  methods it is much less ambiguous.</p>
+  <p>如果一个值中包含了一个 ";" 它必须是成对出现的.</p>
+  <p>&nbsp;</p>
+  <p>例如 发送一些文本到记事本窗口</p>
+  <p class="codebox"><span><span class="S4">ControlSend</span><span class="S8">(</span><span class="S7">"无标题 - 记事本"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"[CLASS:Edit;
+  INSTANCE:1]"</span><span class="S8">,</span> <span class="S7">"This is some text"</span><span class="S8">)</span><br></span></p>
+  <p>或者</p>
+  <p class="codebox"><span class="S4">ControlSend</span><span class="S8">(</span><span class="S7">"无标题 - 记事本"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class=
+  "S7">"[CLASSNN:Edit1]"</span><span class="S8">,</span> <span class="S7">"This is some text"</span><span class="S8">)</span><br></p>
+  <p>或者</p>
+  <p class="codebox"><span class="S4">ControlSend</span><span class="S8">(</span><span class="S7">"无标题 - 记事本"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"Edit1"</span><span class=
+  "S8">,</span> <span class="S7">"This is some text"</span><span class="S8">)</span><br></p>
+  <p>&nbsp;</p>
+  <p>例如 点击 "我的窗口" 中控件ID为254的控件</p>
+  <p class="codebox"><span class="S4">ControlClick</span><span class="S8">(</span><span class="S7">"我的窗口"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"[ID:254]"</span><span class=
+  "S8">)</span><br></p>
+  <p>或者</p>
+  <p class="codebox"><span class="S4">ControlClick</span><span class="S8">(</span><span class="S7">"我的窗口"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S3">254</span><span class=
+  "S8">)</span><br></p>
+  <p>&nbsp;</p>
+  <p>例如 设置 .NET Winforms "textBoxFolder" 控件文本为 "C:\Some\Folder" </p>
+  <p class="codebox"><span class="S4">ControlSetText</span><span class="S8">(</span><span class="S7">"我的窗口"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class=
+  "S7">"[NAME:textBoxFolder]"</span><span class="S8">,</span> <span class="S7">"C:\Some\Folder"</span><span class="S8">)</span><br></p>
+  <p>&nbsp;</p>
+  <p>例如. 单击第二个包含"完成"文本的"按钮"</p>
+  <p class="codebox"><span class="S4">ControlClick</span><span class="S8">(</span><span class="S7">"我的窗口"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"[CLASS:Button; TEXT:完成;
+  INSTANCE:2]"</span><span class="S8">)</span></p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <h2>控件句柄 (HWND)</h2>
+  <p>使用 <a href="../functions/ControlGetHandle.htm">ControlGetHandle</a> 函数里可以确定控件的 <em>Handle(句柄)</em> 或者 <em>HWND(窗口句柄)</em>. 一个句柄是 Windows 赋予控件的唯一标识符. 创建的每个控件 <em>都有不同的句柄</em>. 使用这个方法来访问控件一般是为对怎么使用
+  句柄有深刻认识的用户准备的.</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>请到这里 <strong><a href="../functions/ControlCommand.htm">函数参考\窗口管理\控件相关</a></strong> 查看控件函数列表及说明.</p>
 </body>
 </html>
