@@ -1,105 +1,95 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+ï»¿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
   <title>Language Reference - Conditional Statements</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link href="../css/default.css" rel="stylesheet" type="text/css">
 </head>
-
 <body>
-<h1>ÓïÑÔÏà¹Ø - Ìõ¼şÑ¡ÔñÓï¾ä</h1>
-
-  
-<p>ÔÚÎÒÃÇĞ´½Å±¾³ÌĞòµÄ¹ı³ÌÖĞ×Ü»áĞèÒª¸ù¾İÄ³¸ö<em>Ìõ¼ş</em>
-»òÒ»×éÌõ¼şµÄ³ÉÁ¢Çé¿öÀ´¿ØÖÆ³ÌĞòµÄÁ÷³Ì,ÎÒÃÇ¿ÉÄÜÒªÅĞ¶ÏÄ³¸öÊıÖµÊÇ·ñ´óÓÚÁíÍâÒ»¸ö&nbsp;,
-ÓÖ»òÕßÊÇÅĞ¶ÏÄ³¸ö×Ö·û´®ÀïÊÇ·ñº¬ÓĞÖ¸¶¨µÄ×Ó´®µÈµÈ.&nbsp; </p>
-<p>¶ÔÏµÍ³¶øÑÔËùÓĞµÄÌõ¼şÅĞ¶ÏÖ»ÓĞ <strong>true</strong> (·ÇÁã,Õæ) »òÕß <strong>false</strong> 
-  (Áã,¼Ù)Á½ÖÖ¿ÉÄÜ½á¹û.Í¨³£ÎÒÃÇÀûÓÃ<strong> ==, </strong><strong>&lt;&gt;,</strong> <strong>&gt;=</strong>µÈ±È½Ï <a href="lang_operators.htm">ÔËËã·û</a> 
-  À´¶Ô¸÷ÖÖ¶ÔÏó½øĞĞ±È½Ï´Ó¶ø½¨Á¢Ìõ¼ş. </p>
-<p>&nbsp;</p>
-<p>ÔÚ AutoIt ¿ÉÓÃÏÂÃæÁ½ÖÖÌõ¼şÓï¾ä:</p>
-<ul>
-  <li>&nbsp;<a href="../keywords/IfElseEndIf.htm">If...Then...Else</a></li>
-  <br>(×ÖÃæÒâË¼:Èç¹û(Ä³¸öÌõ¼ş³ÉÁ¢)¡­ÄÇÃ´(Ö´ĞĞÄ³Ğ©²Ù×÷)¡­·ñÔò(Ö´ĞĞÁíÍâÒ»Ğ©²»Í¬µÄ²Ù×÷) 
-  <li>&nbsp;<a href="../keywords/Select.htm">Select...Case</a></li>
-  <br>(ÕâÊÇ¿ª¹ØÓï¾ä,¸ù¾İÄ³¸ö±í´ïÊ½µÄ¶àÖÖ²»Í¬µÄÖµÀ´Ñ¡ÔñÖ´ĞĞ²»Í¬µÄÓï¾ä) 
-  <li>&nbsp;<a href="../keywords/Switch.htm">Switch...Case</a></li>
-  <br>(Í¬ÉÏ)
-</ul>
-<p>ÕâÈıÖÖÓï¾äµÄ¹¦ÄÜ²î²»¶à,¾ßÌåÒªÓÃÄÄÒ»ÖÖ¾ö¶¨ÓÚ¸ø¶¨µÄÌõ¼ş.
-ÏÂÃæÊÇÒ»¸öÊ¹ÓÃ<a href="../keywords/IfElseEndIf.htm">If</a> 
-  Óï¾äµÄÀı×Ó,¸ù¾İ±äÁ¿µÄÖµµ¯³öÒ»¸ö <a href="../functions/MsgBox.htm">¶Ô»°¿ò(Message Box)</a> .</p>
-<p class="codebox">$var = -20<br>
+  <h1>è¯­è¨€ç›¸å…³ - æ¡ä»¶é€‰æ‹©è¯­å¥</h1>
+  <p>åœ¨æˆ‘ä»¬å†™è„šæœ¬ç¨‹åºçš„è¿‡ç¨‹ä¸­æ€»ä¼šéœ€è¦æ ¹æ®æŸä¸ª<em>æ¡ä»¶</em>æˆ–ä¸€ç»„æ¡ä»¶çš„æˆç«‹æƒ…å†µæ¥æ§åˆ¶ç¨‹åºçš„æµç¨‹,æˆ‘ä»¬å¯èƒ½è¦åˆ¤æ–­æŸä¸ªæ•°å€¼æ˜¯å¦å¤§äºå¦å¤–ä¸€ä¸ª,åˆæˆ–è€…æ˜¯åˆ¤æ–­æŸä¸ªå­—ç¬¦ä¸²é‡Œæ˜¯å¦å«æœ‰æŒ‡å®šçš„å­ä¸²ç­‰ç­‰.</p>
+  <p>å¯¹ç³»ç»Ÿè€Œè¨€æ‰€æœ‰çš„æ¡ä»¶åˆ¤æ–­åªæœ‰ <strong>true</strong> (éé›¶,çœŸ) æˆ–è€… <strong>false</strong>(é›¶,å‡)ä¸¤ç§å¯èƒ½ç»“æœ.é€šå¸¸æˆ‘ä»¬åˆ©ç”¨<strong> ==, </strong><strong>&lt;&gt;,</strong> <strong>&gt;=</strong>ç­‰æ¯”è¾ƒ <a href="lang_operators.htm">è¿ç®—ç¬¦</a> æ¥å¯¹å„ç§å¯¹è±¡è¿›è¡Œæ¯”è¾ƒä»è€Œå»ºç«‹æ¡ä»¶. </p>
+  <p>&nbsp;</p>
+  <p>åœ¨ AutoIt å¯ç”¨ä¸‹é¢ä¸¤ç§æ¡ä»¶è¯­å¥:</p>
+  <ul>
+    <li><a href="../keywords/IfElseEndIf.htm">If...Then...Else</a></li>
+  <br>(å­—é¢æ„æ€:å¦‚æœ(æŸä¸ªæ¡ä»¶æˆç«‹)â€¦é‚£ä¹ˆ(æ‰§è¡ŒæŸäº›æ“ä½œ)â€¦å¦åˆ™(æ‰§è¡Œå¦å¤–ä¸€äº›ä¸åŒçš„æ“ä½œ) 
+    <li><a href="../keywords/Select.htm">Select...Case</a></li>
+  <br>(è¿™æ˜¯é€‰æ‹©è¯­å¥,æ ¹æ®æŸä¸ªè¡¨è¾¾å¼çš„å¤šç§ä¸åŒçš„å€¼æ¥é€‰æ‹©æ‰§è¡Œä¸åŒçš„è¯­å¥) 
+    <li><a href="../keywords/Switch.htm">Switch...Case</a></li>
+  <br>(åŒä¸Š)
+  </ul>
+  <p>è¿™ä¸‰ç§è¯­å¥çš„åŠŸèƒ½å·®ä¸å¤š,å…·ä½“è¦ç”¨å“ªä¸€ç§å†³å®šäºç»™å®šçš„æ¡ä»¶.ä¸‹é¢æ˜¯ä¸€ä¸ªä½¿ç”¨<a href="../keywords/IfElseEndIf.htm">If</a> 
+  è¯­å¥çš„ä¾‹å­,æ ¹æ®å˜é‡çš„å€¼å¼¹å‡ºä¸€ä¸ª <a href="../functions/MsgBox.htm">å¯¹è¯æ¡†(Message Box)</a> .</p>
+  <p class="codebox"><span><span class="S5">Local</span> <span class="S9">$iNumber</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">20</span><br>
   <br>
-  If $var &gt; 0 Then<br>
-&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;Àı×Ó&quot;, &quot;$var ÎªÕıÊı!&quot;)<br>
-  ElseIf $var &lt; 0 Then<br>
-&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;Àı×Ó&quot;, &quot;$var Îª¸ºÊı!&quot;)<br>
-  Else<br>
-&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;Àı×Ó&quot;, &quot;$var ÎªÁã!&quot;)<br>
-EndIf</p>
-<p>&nbsp;</p>
-<p>ÔÚÉÏÃæµÄÀı×ÓÖĞ, ±í´ïÊ½ <strong>$var &gt; 0</strong> µÄÖµÎª 
-  <strong>false</strong> ÒòÎª±äÁ¿Ğ¡ÓÚÁã.&nbsp; Òò´ËµÚÒ»¸öÌõ¼ş²»³ÉÁ¢, ¿ªÊ¼ÅĞ¶ÏµÚ¶ş¸öÌõ¼ş.  ±í´ïÊ½ <strong>$var &lt; 0</strong> µÄÖµÎª <strong>true</strong>. ÕâÑù if Óï¾ä½«»áÈ¥Ö´ĞĞµÚ¶ş¸ö MsgBox ĞĞ,²¢ÏÔÊ¾ <strong>&quot;$var 
-Îª¸ºÊı!&quot;</strong>.</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p><a href="../keywords/Select.htm">Ñ¡Ôñ(Select)</a> Ñ¡ÔñÓï¾äµÄÊ¹ÓÃÒ²ÊÇÀàËÆµÄ,
-µ«Í¨³£ÓÃÓÚÅĞ¶Ï½Ï¶àÌõ¼ş,ÕâÑù±È If/Else µÄÓï¾äÍùÍùÒª¸üÇåÎú.&nbsp;<br>
-ÀıÈç:</p>
-<p class="codebox">$var = 30<br>
+  <span class="S5">If</span> <span class="S9">$iNumber</span> <span class="S8">&gt;</span> <span class="S3">0</span> <span class="S5">Then</span><br>
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"ä¾‹å­"</span><span class="S8">,</span> <span class="S7">"$iNumber
+  ä¸ºæ­£æ•°!"</span><span class="S8">)</span><br>
+  <span class="S5">ElseIf</span> <span class="S9">$iNumber</span> <span class="S8">&lt;</span> <span class="S3">0</span> <span class="S5">Then</span><br>
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"ä¾‹å­"</span><span class="S8">,</span> <span class="S7">"$iNumber
+  ä¸ºè´Ÿæ•°!"</span><span class="S8">)</span><br>
+  <span class="S5">Else</span><br>
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"ä¾‹å­"</span><span class="S8">,</span> <span class="S7">"$iNumber
+  ä¸ºé›¶."</span><span class="S8">)</span><br>
+  <span class="S5">EndIf</span><br></span></p>
+  <p>&nbsp;</p>
+  <p>åœ¨ä¸Šé¢çš„ä¾‹å­ä¸­, è¡¨è¾¾å¼ <strong>$var &gt; 0</strong> çš„å€¼ä¸º <strong>false</strong> å› ä¸ºå˜é‡å°äºé›¶.å› æ­¤ç¬¬ä¸€ä¸ªæ¡ä»¶ä¸æˆç«‹, å¼€å§‹åˆ¤æ–­ç¬¬äºŒä¸ªæ¡ä»¶.  è¡¨è¾¾å¼ <strong>$var &lt; 0</strong> çš„å€¼ä¸º <strong>true</strong>. è¿™æ · if è¯­å¥å°†ä¼šå»æ‰§è¡Œç¬¬äºŒä¸ª MsgBox è¡Œ,å¹¶æ˜¾ç¤º <strong>"$var ä¸ºè´Ÿæ•°!"</strong>.</p>
+  <p>&nbsp;</p>
+  <p><a href="../keywords/Select.htm">é€‰æ‹©(Select)</a> é€‰æ‹©è¯­å¥çš„ä½¿ç”¨ä¹Ÿæ˜¯ç±»ä¼¼çš„,ä½†é€šå¸¸ç”¨äºåˆ¤æ–­è¾ƒå¤šæ¡ä»¶,è¿™æ ·æ¯” If/Else çš„è¯­å¥å¾€å¾€è¦æ›´æ¸…æ™°.&nbsp;<br>ä¾‹å¦‚:</p>
+  <p class="codebox"><span class="S5">Local</span> <span class="S9">$iNumber</span> <span class="S8">=</span> <span class="S3">30</span><br>
   <br>
-  Select<br>
-&nbsp;&nbsp;&nbsp;&nbsp; Case $var &gt; 1 AND $var &lt;= 10<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;Ê¾Àı&quot;, 
-  &quot;$var ´óÓÚ 1&quot;)<br>
+  <span class="S5">Select</span><br>
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$iNumber</span> <span class="S8">&gt;</span> <span class="S3">1</span> <span class="S5">And</span> <span class="S9">$iNumber</span> <span class="S8">&lt;=</span>
+  <span class="S3">10</span><br>
+  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"ç¤ºä¾‹"</span><span class="S8">,</span> <span class="S7">"$iNumber
+  å¤§äº 1"</span><span class="S8">)</span><br>
   <br>
-&nbsp;&nbsp;&nbsp;&nbsp; Case $var &gt; 10 AND $var &lt;= 20<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, "Ê¾Àı", 
-  "$var ´óÓÚ 10")<br>
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$iNumber</span> <span class="S8">&gt;</span> <span class="S3">10</span> <span class="S5">And</span> <span class="S9">$iNumber</span> <span class="S8">&lt;=</span>
+  <span class="S3">20</span><br>
+  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"ç¤ºä¾‹"</span><span class="S8">,</span> <span class="S7">"$iNumber
+  å¤§äº 10"</span><span class="S8">)</span><br>
   <br>
-&nbsp;&nbsp;&nbsp;&nbsp; Case $var &gt; 20 AND $var &lt;= 30<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;Ê¾Àı&quot;, 
-  &quot;$var ´óÓÚ 20&quot;)<br>
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$iNumber</span> <span class="S8">&gt;</span> <span class="S3">20</span> <span class="S5">And</span> <span class="S9">$iNumber</span> <span class="S8">&lt;=</span>
+  <span class="S3">30</span><br>
+  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"ç¤ºä¾‹"</span><span class="S8">,</span> <span class="S7">"$iNumber
+  å¤§äº 20"</span><span class="S8">)</span><br>
   <br>
-&nbsp;&nbsp;&nbsp;&nbsp; Case $var &gt; 30 AND $var &lt;= 40<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;Ê¾Àı&quot;, 
-  &quot;$var ´óÓÚ 30&quot;)<br>
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$iNumber</span> <span class="S8">&gt;</span> <span class="S3">30</span> <span class="S5">And</span> <span class="S9">$iNumber</span> <span class="S8">&lt;=</span>
+  <span class="S3">40</span><br>
+  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"ç¤ºä¾‹"</span><span class="S8">,</span> <span class="S7">"$iNumber
+  å¤§äº 30"</span><span class="S8">)</span><br>
   <br>
-&nbsp;&nbsp;&nbsp;&nbsp; Case $var &gt; 40<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;Ê¾Àı&quot;, 
-  &quot;$var ´óÓÚ 40&quot;)<br>
-  EndSelect
-</p>
-<p>&nbsp;</p>
-<p><a href="../keywords/Switch.htm">Switch</a> Ñ¡ÔñÓï¾äºÍ Select 
-·Ç³£ÏàÏñ,µ«ÊÇËüÖ÷ÒªÓÃÓÚ²âÊÔÒ»¸ö±äÁ¿µÄ²»Í¬·¶Î§.Çë¿´Àı×Ó:</p>
-
-<p class="codebox">$var = 30<br>
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$iNumber</span> <span class="S8">&gt;</span> <span class="S3">40</span><br>
+  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"ç¤ºä¾‹"</span><span class="S8">,</span> <span class="S7">"$iNumber
+  å¤§äº 40"</span><span class="S8">)</span><br>
+  <span class="S5">EndSelect</span><br></p>
+  <p>&nbsp;</p>
+  <p><a href="../keywords/Switch.htm">Switch</a> é€‰æ‹©è¯­å¥å’Œ Select éå¸¸ç›¸åƒ,ä½†æ˜¯å®ƒä¸»è¦ç”¨äºæµ‹è¯•ä¸€ä¸ªå˜é‡çš„ä¸åŒèŒƒå›´.è¯·çœ‹ä¾‹å­:</p>
+  <p class="codebox"><span class="S5">Local</span> <span class="S9">$iNumber</span> <span class="S8">=</span> <span class="S3">30</span><br>
   <br>
-  Switch Int($var)<br>
-&nbsp;&nbsp;&nbsp;&nbsp; Case 1 To 10<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;Àı×Ó&quot;, 
-&quot;$var Îª 1 ~ 10µÄ·¶Î§Ö®¼ä&quot;)<br>
+  <span class="S5">Switch</span> <span class="S4">Int</span><span class="S8">(</span><span class="S9">$iNumber</span><span class="S8">)</span><br>
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S3">1</span> <span class="S5">To</span> <span class="S3">10</span><br>
+  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"ä¾‹å­"</span><span class="S8">,</span> <span class="S7">"$iNumber
+  å¤§äº 1"</span><span class="S8">)</span><br>
   <br>
-&nbsp;&nbsp;&nbsp;&nbsp; Case 11 To 20<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;Àı×Ó&quot;, 
-&quot;$var Îª 11 ~ 20µÄ·¶Î§Ö®¼ä&quot;)<br>
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S3">11</span> <span class="S5">To</span> <span class="S3">20</span><br>
+  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"ä¾‹å­"</span><span class="S8">,</span> <span class="S7">"$iNumber
+  å¤§äº 10"</span><span class="S8">)</span><br>
   <br>
-&nbsp;&nbsp;&nbsp;&nbsp; Case 21 To 30<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;Àı×Ó&quot;, 
-&quot;$var Îª 21 ~ 30µÄ·¶Î§Ö®¼ä&quot;)<br>
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S3">21</span> <span class="S5">To</span> <span class="S3">30</span><br>
+  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"ä¾‹å­"</span><span class="S8">,</span> <span class="S7">"$iNumber
+  å¤§äº 20"</span><span class="S8">)</span><br>
   <br>
-&nbsp;&nbsp;&nbsp;&nbsp; Case 31 To 40<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;Àı×Ó&quot;,
-  &quot;$var Îª 31 ~ 40µÄ·¶Î§Ö®¼ä&quot;)<br>
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S3">31</span> <span class="S5">To</span> <span class="S3">40</span><br>
+  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"ä¾‹å­"</span><span class="S8">,</span> <span class="S7">"$iNumber
+  å¤§äº 30"</span><span class="S8">)</span><br>
   <br>
-&nbsp;&nbsp;&nbsp;&nbsp; Case Else<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MsgBox(0, &quot;Àı×Ó&quot;, 
-&quot;$var ²»ÔÚ 0 ~ 40µÄ·¶Î§ÀïÃæ&quot;)<br>
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S5">Else</span><br>
+  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"ä¾‹å­"</span><span class="S8">,</span> <span class="S7">"$iNumber
+  å¤§äº 40 æˆ–è€…å°äºç­‰äº 0"</span><span class="S8">)</span><br>
   <br>
-  EndSwitch
-</p>
-<p>With each of these structures, the first condition that is true controls which group of statements get executed.  All subsequent conditions and their associated statements get ignored.</p>
+  <span class="S5">EndSwitch</span><br></p>
+  <p>With each of these structures, the first condition that is true controls which group of statements get executed. All subsequent conditions and their associated statements get ignored.</p>
 </body>
 </html>
