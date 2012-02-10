@@ -1,6 +1,4 @@
-﻿Opt('MustDeclareVars', 1)
-
-Example1()
+﻿Example1()
 Example2()
 
 Func Example1()
@@ -12,7 +10,7 @@ Func Example1()
 
 	; 检查文件是否已打开
 	If $hFile = -1 Then
-		MsgBox(0, "错误", "无法打开文件.")
+		MsgBox(4096, "错误", "无法打开文件.")
 		Exit
 	EndIf
 
