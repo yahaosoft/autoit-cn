@@ -1,4 +1,14 @@
 ﻿#NoTrayIcon
-MsgBox(4096,"点击OK","显示托盘图标5秒...")
-Opt("TrayIconHide", 0) ;不隐藏图标
-Sleep(5000)
+
+Example()
+
+Func Example()
+	; Display a message box about the tray icon appearing once the OK button is selected.
+	MsgBox(4096, "", "The tray icon will display once OK is selected.")
+
+	; Display the tray icon.
+	Opt("TrayIconHide", 0)
+
+	; Wait 5 seconds before closing the script.
+	Sleep(5000)
+EndFunc   ;==>Example
