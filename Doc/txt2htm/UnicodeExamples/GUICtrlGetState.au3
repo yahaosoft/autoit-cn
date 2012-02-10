@@ -18,5 +18,5 @@ Func Example()
 		If $msg = $GUI_EVENT_CLOSE Then ExitLoop
 	WEnd
 
-	MsgBox(0, "状态", StringFormat("GUICtrlRead=%d\nGUICtrlGetState=%d", GUICtrlRead($n), GUICtrlGetState($n)))
+	MsgBox(4096, "状态", StringFormat("GUICtrlRead=%d\nGUICtrlGetState=%d", GUICtrlRead($n), GUICtrlGetState($n)))
 EndFunc   ;==>Example
