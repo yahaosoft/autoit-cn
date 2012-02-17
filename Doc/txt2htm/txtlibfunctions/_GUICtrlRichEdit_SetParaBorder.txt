@@ -5,7 +5,7 @@ _GUICtrlRichEdit_SetParaBorder
 设置(第一)当前选择(或没有选择时的插入点所在段落)的边框
 
 ###Syntax###
-#Include <GuiRichEdit.au3>
+#include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetParaBorder($hWnd [, $sLocation [, $vLineStyle [, $sColor [, $iSpace]]]])
 
 ###Parameters###
@@ -14,46 +14,45 @@ $hWnd
 	控件句柄
 $sLocation
 	[可选参数] 逻辑组合字符串:
-		l - 左边框
-		r - 右 边框
-		t - 顶边框
-		b - 底边框
-		i - 内边框
-		o - 外边框
-		或
-		"" - 无边框 (初始值)
+		   l - 左边框
+		   r - 右 边框
+		   t - 顶边框
+		   b - 底边框
+		   i - 内边框
+		   o - 外边框
+		或 "" - 无边框 (初始值)
 $vLineStyle
 	[可选参数] 线条样式:
-		"none" - 没有线条 (初始值)
-		.75 - 3/4 磅
-		1.5 - 1 1/2 磅
-		2.25 - 2 1/4 磅
-		3 - 3 磅
-		4.5 - 4 1/2 磅
-		6 - 6 磅
-		".75d" - 1/2 磅, 双精度
-		"1.5d" - 1 1/2 磅, 双精度
-		"2.25d" - 2 1/4 磅, 双精度
-		".75g" - 3/4 磅灰
-		".75gd" - 3/4 磅 灰短划线
+		   "none" - 没有线条 (初始值)
+		   .75 - 3/4 磅
+		   1.5 - 1 1/2 磅
+		   2.25 - 2 1/4 磅
+		   3 - 3 磅
+		   4.5 - 4 1/2 磅
+		   6 - 6 磅
+		   ".75d" - 1/2 磅, 双精度
+		   "1.5d" - 1 1/2 磅, 双精度
+		   "2.25d" - 2 1/4 磅, 双精度
+		   ".75g" - 3/4 磅灰
+		   ".75gd" - 3/4 磅 灰短划线
 $sColor
-	[可选参数] one of:
-		"aut" - 自动
-		"blk" - 黑色 (初始值)
-		"blu" - 蓝色
-		"cyn" - 青色
-		"grn" - 绿色
-		"mag" - 紫色
-		"red" -红
-		"yel" -黄
-		"whi" - 白色
-		"dbl" - 暗蓝
-		"dgn" - 暗绿
-		"dmg" - 暗紫
-		"drd" - 暗红
-		"dyl" - 暗黄
-		"dgy" - 暗灰
-		"lgy" - 亮灰
+	[可选参数] 下列值:
+		   "aut" - 自动
+		   "blk" - 黑色 (初始值)
+		   "blu" - 蓝色
+		   "cyn" - 青色
+		   "grn" - 绿色
+		   "mag" - 紫色
+		   "red" -红
+		   "yel" -黄
+		   "whi" - 白色
+		   "dbl" - 暗蓝
+		   "dgn" - 暗绿
+		   "dmg" - 暗紫
+		   "drd" - 暗红
+		   "dyl" - 暗黄
+		   "dgy" - 暗灰
+		   "lgy" - 亮灰
 $iSpace
 	[可选参数] 边框和文本的间距(空间单位, 初始值: 0)
 @@End@@
@@ -66,16 +65,18 @@ $iSpace
 	102 - $sLocation 参数值无效
 	103 - $ivLineStyle 参数值无效
 	104 - $sColor 参数值无效
-	106 - $iSpace 不是正数,也不是 0, 
-	106 - $iWidth 不是正数,也不是 0, 
+	105 - $iSpace 不是正数,也不是 0
 @@End@@
 
 ###Remarks###
- 调用 _GUICtrlRichEdit_SetSpaceUnit 函数设置 "空间单位". 最初为英寸
- 如果文本被选中,默认为第一选定段落的文本值.
- 如果没有选中,默认为当前段落的值.
- 要删除边框,调用两个参数: ($hWnd, "")
- 边框不显示在 RichEdit 中,但在这里创建的设置,应该在 Word 中显示
+调用 _GUICtrlRichEdit_SetSpaceUnit 函数设置 "空间单位". 最初为英寸
+
+如果文本被选中,默认为第一选定段落的文本值.
+如果没有选中,默认为当前段落的值.
+
+要删除边框,调用两个参数: ($hWnd, "")
+
+边框不显示在 RichEdit 中,但在这里创建的设置,应该在 Word 中显示
 
 ###Related###
 _GUICtrlRichEdit_GetParaBorder, _GUICtrlRichEdit_SetSpaceUnit

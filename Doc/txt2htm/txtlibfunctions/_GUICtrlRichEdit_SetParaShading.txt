@@ -5,7 +5,7 @@ _GUICtrlRichEdit_SetParaShading
 设置(第一)当前选择(或没有选择时的插入点所在段落)的明暗处理
 
 ###Syntax###
-#Include <GuiRichEdit.au3>
+#include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetParaShading($hWnd [, $iWeight = Default [, $sStyle = Default [, $sForeColor = Default [, $sBackColor = Default]]]])
 
 ###Parameters###
@@ -16,36 +16,36 @@ $iWeight
 	[可选参数] 前景色的百分比,其余为背景色
 $sStyle
 	[可选参数] 明暗处理类型 - 包含下列值之一的字符串:
-		non - 无
-		dhz - 暗水平线
-		dvt - 暗垂直线
-		ddd - 暗下对角线
-		dud - 暗上对角线
-		dgr - 暗栅格
-		dtr - 暗网格
-		lhz - 亮水平线
-		lvt - 亮垂直线
-		ldd - 亮下对角线
-		lud - 亮上对角线
-		lgr - 亮栅格
-		ltr - 亮网格
+		   non - 无
+		   dhz - 暗水平线
+		   dvt - 暗垂直线
+		   ddd - 暗下对角线
+		   dud - 暗上对角线
+		   dgr - 暗栅格
+		   dtr - 暗网格
+		   lhz - 亮水平线
+		   lvt - 亮垂直线
+		   ldd - 亮下对角线
+		   lud - 亮上对角线
+		   lgr - 亮栅格
+		   ltr - 亮网格
 $sForeColor
-	[可选参数] 滚动类型:
-		"blk" - 黑色 (初始值)
-		"blu" - 蓝色
-		"cyn" - 青色
-		"grn" - 绿色
-		"mag" - 紫色
-		"red" -红
-		"yel" -黄
-		"whi" - 白色
-		"dbl" - 暗蓝
-		"dgn" - 暗绿
-		"dmg" - 暗紫
-		"drd" - 暗红
-		"dyl" - 暗黄
-		"dgy" - 暗灰
-		"lgy" - 亮灰
+	[可选参数] 下方一个值:
+		   "blk" - 黑色 (初始值)
+		   "blu" - 蓝色
+		   "cyn" - 青色
+		   "grn" - 绿色
+		   "mag" - 紫色
+		   "red" -红
+		   "yel" -黄
+		   "whi" - 白色
+		   "dbl" - 暗蓝
+		   "dgn" - 暗绿
+		   "dmg" - 暗紫
+		   "drd" - 暗红
+		   "dyl" - 暗黄
+		   "dgy" - 暗灰
+		   "lgy" - 亮灰
 $sBackColor
 	[可选参数] 参数值与 $sForeColor 相同
 @@End@@
@@ -53,20 +53,21 @@ $sBackColor
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回 True
-失败:	返回 False,设置@error
+失败:	返回 False,并设置@error
 @error:	101 - $hWnd 参数值不是句柄
-	1021 - $iWeight 参数值不是正数
-	1022 - $iWeight 参数值无效
 	103 - $sStyle 参数值无效
 	104 - $sForeColor 参数值无效
 	105 - $sBackColor 参数值无效
+	1021 - $iWeight 参数值不是正数
+	1022 - $iWeight 参数值无效
 	700 - 操作失败
 @@End@@
 
 ###Remarks###
- 如果文本被选中,默认为第一选定段落的文本值.
- 如果没有选中,默认为当前段落的值.
- 明暗处理在 RichEdit 中不显示,但这里创建的阴影将显示在 Word 中
+如果文本被选中,默认为第一选定段落的文本值.
+如果没有选中,默认为当前段落的值.
+
+明暗处理在 RichEdit 中不显示,但这里创建的阴影将显示在 Word 中
 
 ###Related###
 _GUICtrlRichEdit_GetParaShading

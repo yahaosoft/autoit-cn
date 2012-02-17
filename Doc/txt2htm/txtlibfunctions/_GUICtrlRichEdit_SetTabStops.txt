@@ -5,8 +5,8 @@ _GUICtrlRichEdit_SetTabStops
 设置控件制表位
 
 ###Syntax###
-#Include <GuiRichEdit.au3>
-_GUICtrlRichEdit_SetTabStops($hWnd, $vTabStops[, $fRedraw = True])
+#include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetTabStops($hWnd, $vTabStops [, $fRedraw = True])
 
 ###Parameters###
 @@ParamTable@@
@@ -17,7 +17,7 @@ $VTabStops
 		如果一个字符串,代表分号分隔的制表位位置
 		如果是数字: 设置制表位的空间单位
 $fRedraw
-	[可选参数] 是否刷新控件 - True（默认）或 False
+	[可选参数] 是否刷新控件 - True(默认)或 False
 @@End@@
 
 ###ReturnValue###
@@ -25,16 +25,16 @@ $fRedraw
 成功:	返回 True
 失败:	返回 False设置@error
 @error:	101 - $hWnd 参数值不是句柄
+	103 - $fRedraw 必须是 True 或 False
 	1021 - $vTabStops 不是字符串,也不是数字
 	1022 - $vTabStops 是一个字符串,但一个制表位应该是一个正数
 	1023 - $vTabStops 是一个空串
 	1024 - $vTabStops 是一个数字,但它是 0 或负数
-	103 - $fRedraw 必须是 True 或 False
 @@End@@
 
 ###Remarks###
- 空间单位最初为英寸.
- 要输入一个标签控件,点击 Ctrl+Tab 组合键
+空间单位最初为英寸.
+要输入一个标签控件,点击 Ctrl+Tab 组合键
 
 ###Related###
 _GUICtrlRichEdit_SetParaTabStops, _GUICtrlRichEdit_SetSpaceUnit

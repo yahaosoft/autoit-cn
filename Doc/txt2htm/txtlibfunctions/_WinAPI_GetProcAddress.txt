@@ -2,30 +2,33 @@
 _WinAPI_GetProcAddress
 
 ###Description###
-检索指定动态链接库(DLL)中函数的地址.
+返回指定动态链接库(DLL)中函数的地址.
 
 ###Syntax###
-#Include <WinAPIEx.au3>
-_WinAPI_GetProcAddress ( $hModule, $sProc )
+#include <WinAPI.au3>
+_WinAPI_GetProcAddress($hModule, $vName)
 
 ###Parameters###
 @@ParamTable@@
 $hModule
 	包含函数的 DLL 模块句柄.
-$sProc
-	函数的名称.
+$vName
+	导出函数或者导出变量的名称,或者一个函数的顺序值
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-成功:	返回函数的地址.
-失败:	返回 0,设置@error:标志为非 0 值.
+成功:	返回导出函数/变量的地址.
+失败:	返回 0
 @@End@@
 
 ###Remarks###
-None
 
+###Related###
+_WinAPI_LoadLibrary, _WinAPI_LoadLibraryEx, _WinAPI_GetModuleHandle
 
 ###See Also###
 @@MsdnLink@@ GetProcAddress
 
+###Example###
+@@IncludeExample@@

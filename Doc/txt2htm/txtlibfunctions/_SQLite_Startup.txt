@@ -1,41 +1,41 @@
-ï»¿###User Defined Function###
+###User Defined Function###
 _SQLite_Startup
 
 ###Description###
-åŠ è½½ SQLite3.dll
+¼ÓÔØ SQLite3.dll
 
 ###Syntax###
 #include <SQLite.au3>
-_SQLite_Startup ( [ $sDll_Filename = "sqlite3.dll" [, $bUTF8ErrorMsg = False ]] )
+_SQLite_Startup([$sDll_Filename = "sqlite3.dll" [, $bUTF8ErrorMsg = False [, $bForceLocal = 0 [, $sPrintCallback = __SQLite_ConsoleWrite()]]]])
 
 
 ###Parameters###
 @@ParamTable@@
 $sDll_Filename
-	[å¯é€‰å‚æ•°] Dll æ–‡ä»¶å
+	[¿ÉÑ¡²ÎÊı] Dll ÎÄ¼şÃû
 $bUTF8ErrorMsg
-	[å¯é€‰å‚æ•°] å¼ºåˆ¶ ConsoleWrite æ˜¾ç¤º UTF8 å­—ç¬¦
+	[¿ÉÑ¡²ÎÊı] Ç¿ÖÆ ConsoleWrite ÏÔÊ¾ UTF8 ×Ö·û
 $bForceLocal
-	[å¯é€‰å‚æ•°] Forces SQLite to use a local DLL, otherwise the DLL will be downloaded.
+	[¿ÉÑ¡²ÎÊı] Forces SQLite to use a local DLL, otherwise the DLL will be downloaded.
 $sPrintCallback
-	[å¯é€‰å‚æ•°] The string name of a user-defined callback function that is invoked when SQLite needs to display a diagnostic message.  See Remarks for more.
+	[¿ÉÑ¡²ÎÊı] The string name of a user-defined callback function that is invoked when SQLite needs to display a diagnostic message.  See Remarks for more.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-æˆåŠŸ:	è¿”å› SQLite3.dll è·¯å¾„
-å¤±è´¥:	@error
+³É¹¦:	·µ»Ø SQLite3.dll Â·¾¶
+Ê§°Ü:	ÉèÖÃ @error
 @@End@@
 
 ###Remarks###
- éœ€è¦ @ScriptDir æˆ– @SystemDir çš„ SQLite3.dll.
+ĞèÒª @ScriptDir »ò @SystemDir µÄ SQLite3.dll.
 
- å¦‚æœ SQLite3.dll.au3 åŒ…å« dll,å°†è¢«åˆ›å»ºåˆ° @SystemDir ä¸­.
- å¦‚æœä¸æˆåŠŸ,åˆ™åˆ›å»ºéš _SQLite_Shutdown() é”€æ¯çš„ä¸´æ—¶æ–‡ä»¶
+Èç¹û SQLite3.dll.au3 °üº¬ dll,½«±»´´½¨µ½ @SystemDir ÖĞ.
+Èç¹û²»³É¹¦,Ôò´´½¨Ëæ _SQLite_Shutdown() Ïú»ÙµÄÁÙÊ±ÎÄ¼ş
 
- å¦‚æœ $bUTF8ErrorMsg ä¸ä¸º 0, åˆ™ UTF8 æ ¼å¼å­—ç¬¦ä¸²æ‰“å°åˆ°æ§åˆ¶å°.
- å¦‚æœè®¾ç½® output.code.page = 65001,å…è®¸åº”ç”¨ç¨‹åºä¸º SCiTE æ˜¾ç¤ºå­—ç¬¦ .
- è¿™æ˜¯åœ¨ Vista ç¯å¢ƒä¸­è¿è¡Œéè‹±è¯­ç‰ˆ SCiTE çš„å®ä¾‹(fr).
+Èç¹û $bUTF8ErrorMsg ²»Îª 0, Ôò UTF8 ¸ñÊ½×Ö·û´®´òÓ¡µ½¿ØÖÆÌ¨.
+Èç¹ûÉèÖÃ output.code.page = 65001,ÔÊĞíÓ¦ÓÃ³ÌĞòÎª SCiTE ÏÔÊ¾×Ö·û .
+ÕâÊÇÔÚ Vista »·¾³ÖĞÔËĞĞ·ÇÓ¢Óï°æ SCiTE µÄÊµÀı(fr).
 
 The $sPrintCallback parameter specifies the name of user-defined callback function.  This function will be passed a single parameter which is the message to display.  The default callback function is __SQLite_ConsoleWrite().  See that function for an example of how to implement your own callback function.
 

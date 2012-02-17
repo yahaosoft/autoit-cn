@@ -5,7 +5,7 @@ _GUICtrlRichEdit_SetParaSpacing
 设置(第一)当前选择(或没有选择时的插入点所在段落)的段落间距
 
 ###Syntax###
-#Include <GuiRichEdit.au3>
+#include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetParaSpacing($hWnd, [$vInter=Default [, $iBefore=Default [, $iAfter=Default]]])
 
 ###Parameters###
@@ -15,8 +15,7 @@ $hWnd
 $vInter
 	[可选参数] 行与行之间的间距:
 		任意: 数字 - 空间单位
-		或: "
-		lines" - 一行 
+		或: "<数字>行" - 一行
 $iBefore
 	[可选参数] 段落前间距(空间单位)
 $iAfter
@@ -26,18 +25,18 @@ $iAfter
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回 True
-失败:	返回 False,设置@error
-@error:	101 - $hWnd 不是句柄
+失败:	返回 False,并设置@error
+@error:	101 - $hWnd 不是一个句柄.
+	103 - $iBefore 不是正数,也不是 0.
+	104 - $iAfter 不是正数,也不是 0.
 	1021 - $vInter 无效
-	1022 - 只有 1, 1.5 与 2 可以通过 "
-	lines" 设置间距
-	103 - $iBefore 不是正数,也不是 0, 
-	104 - $iAfter 不是正数,也不是 0, 
+	1022 - 只有 1, 1.5 与 2 可以通过 "<n>行" 设置间距
 @@End@@
 
 ###Remarks###
- 只是在需要使用非默认值时才设置
- 调用 _GUICtrlRichEdit_SetSpaceUnit 函数设置 "空间单位". 最初为英寸
+只是在需要使用非默认值时才设置
+
+调用 _GUICtrlRichEdit_SetSpaceUnit 函数设置 "空间单位". 最初为英寸
 
 ###Related###
 _GUICtrlRichEdit_GetParaSpacing, _GUICtrlRichEdit_SetSpaceUnit

@@ -2,7 +2,7 @@
 _WinAPI_SetWindowDisplayAffinity
 
 ###Description###
-Stores the display affinity setting in kernel mode on the specified window.
+以内核模式存储指定窗口的亲和力设置
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,10 +11,9 @@ _WinAPI_SetWindowDisplayAffinity ( $hWnd, $iAffinity )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window.
+	窗口句柄
 $iAffinity
-	The display affinity setting. This setting specifies where the window's contents are allowed
-	to be displayed. This parameter can be a combination of the following values.
+	显示亲和力设置. 该设置指定窗口内容显示的位置. 可为下列值:
 	
 	$WDA_MONITOR
 	
@@ -22,17 +21,14 @@ $iAffinity
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	1.
-Failure	0 and sets the @error flag to non-zero.
+成功:	返回1
+失败:	返回0并设置@error非0
 @@End@@
 
 ###Remarks###
-_WinAPI_SetWindowDisplayAffinity() are designed to support the window content protection. This functions
-enables applications to protect their own onscreen window content from being captured or copied through a specific
-set of public operating system features and APIs. However, it works only when the Desktop Window Manager(DWM)
-is composing the desktop.
+设计_WinAPI_SetWindowDisplayAffinity()用以支持windows的内容保护特性. 该函数是应用程序可保护自己在屏幕上的窗口内容通过一系列指定的公共操作系统特性和API来捕捉或复制. 然而, 仅当桌面窗口管理器(DWM)组成桌面时工作.
 
-This function requires Windows 7 or later.
+最低系统支持: Windows 7
 
 
 ###See Also###

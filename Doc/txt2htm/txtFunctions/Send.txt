@@ -49,11 +49,11 @@ None.
 但是,如果在 Send 函数开始执行的时候用户就按住 Shift 键,那么发送的文本可能会是小写字符.
 一个解决办法是在每次执行其它 Send 操作前使用语句 Send("{SHIFTDOWN}{SHIFTUP}").
 
-某些键盘(如捷克语)发送按下SHIFT键时或者CAP LOCK(大写锁定)开启时发送不同的字符(大小写时)可能不工作.
+某些键盘(如捷克语)发送按下SHIFT键时或者CAP LOCK(大写锁定)开启时发送不同的字符(大小写时)可能不工作.因为AUTOIT在 CAPS LOCK(大写锁定)开启时发送小写字符得到的却是大写(这是常识):
+某些特殊组合键不能被正确发送:
 
-因为AUTOIT在 CAPS LOCK(大写锁定)开启时发送小写字符得到的却是大写(这是常识):
+例如: Windows 不允许模拟 "CTRL-ALT-DEL" 组合键
 
-Windows 不允许模拟 "CTRL-ALT-DEL" 组合键
 @@StandardTable1@@
 <b>Send 命令(无标志参数)</b>	<b>键击结果</b>
 {!}	!
@@ -168,6 +168,7 @@ The key will be send at least once even if the count is zero.
 
 
 例如,先打开 文件夹选项窗口(位于控制面板),然后请尝试执行下面这些语句:
+
 @@StandardTable1@@
 Send("{TAB}")	切换到(焦点切换)下一个控件(按钮、复选框等)
 Send("+{TAB}")	切换到上一个控件. 

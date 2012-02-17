@@ -5,8 +5,8 @@ _GUICtrlRichEdit_SetFont
 设置选定文本(或者没有选定时,设置插入点插入文本) 的字体属性
 
 ###Syntax###
-#Include <GuiRichEdit.au3>
-_GUICtrlRichEdit_SetFont($hWnd [, $iPoints = Default[, $sName = Default[, $iCharset = Default[, $iLcid = Default]]]])
+#include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetFont($hWnd [, $iPoints = Default [, $sName = Default [, $iCharset = Default [, $iLcid = Default]]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -15,7 +15,7 @@ $hWnd
 $iPoints
 	[可选参数] 磅值(注:1 磅=1/72 英寸)大小
 $sName
-	[可选参数] 字体的名称, 例如: "Courier" not "Courier 粗体"
+	[可选参数] 字体的名称, 例如: "Courier" not "Courier Bold"
 $iCharSet
 	[可选参数] 字符集:
 		$ANSI_CHARSET - 0
@@ -43,12 +43,13 @@ $iLcid
 失败:	返回 False,设置@error
 @error:	101 - $hWnd 参数值不是句柄
 	102 - $iPoints 参数值不是正数
-	103 - $sName is not alphabetic
-	104 - $iLcid 不是一个数字
+	103 - $sName 不是一个文本
+	104 - $iCharSet 不是一个数字
+	105 - $iLcid 不是一个数字
 @@End@@
 
 ###Remarks###
- 如果参数被省略（或默认）,则该值不变
+如果参数被省略(或着Default),则该值不变
 
 ###Related###
 _GUICtrlRichEdit_GetFont, _GUICtrlRichEdit_ChangeFontSize

@@ -5,7 +5,7 @@ _GUICtrlRichEdit_SetParaNumbering
 设置(第一)当前选择(或没有选择时的插入点所在段落)的编号方式
 
 ###Syntax###
-#Include <GuiRichEdit.au3>
+#include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetParaNumbering($hWnd, $sStyle [, $iTextToNbrSpace = Default [, $fForceRoman=False]])
 
 ###Parameters###
@@ -14,11 +14,11 @@ $hWnd
 	控件句柄
 $sStyle
 	指定编号字符的样式与开始的数字: 例如: "." (加重号), "1)","(b)", "C.", "iv", "V)"
-		为第一选定段落显示的编号.
-		段落与编号的间距为最小值,除非使用 $iTextToNbrSpace 的指定值
-		特殊情况:
-		"=" - 该段落前面有列表元素,为没有编号的段落
-		"" - 删除所选段落的编号
+		   为第一选定段落显示的编号.
+		   段落与编号的间距为最小值,除非使用 $iTextToNbrSpace 的指定值
+		   特殊情况:
+		      "=" - 该段落前面有列表元素,为没有编号的段落
+		      "" - 删除所选段落的编号
 $iTextToNbrSpace
 	[可选参数] 编号的数字或符号与段落的间距 (空间单位)
 		默认 : 尾随空间数总是使用磅值大小(注:1 磅=1/72 英寸)大小
@@ -31,13 +31,12 @@ $fForceRoman
 成功:	返回 True
 失败:	返回 False,设置@error
 @error:	101 - $hWnd 参数值不是句柄
-	102 - $sStyle 无效
 	103 - $iTextToNbrSpace 不是正数
 	104 - $fForceRoman 必须是 True 或 False
 @@End@@
 
 ###Remarks###
- 调用 _GUICtrlRichEdit_SetSpaceUnit 函数设置 "空间单位". 最初为英寸
+调用 _GUICtrlRichEdit_SetSpaceUnit 函数设置 "空间单位". 最初为英寸
 
 ###Related###
 _GUICtrlRichEdit_GetParaNumbering, _GUICtrlRichEdit_SetSpaceUnit

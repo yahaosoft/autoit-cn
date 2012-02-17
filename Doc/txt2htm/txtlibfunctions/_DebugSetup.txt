@@ -6,7 +6,7 @@ _DebugSetup
 
 ###Syntax###
 #include <Debug.au3>
-_DebugSetup ( $sTitle = Default, $bBugReportInfos = False, $vReportType = 1, $sLogFile = "" )
+_DebugSetup($sTitle = Default, $bBugReportInfos = False, $vReportType = 1, $sLogFile = "")
 
 
 ###Parameters###
@@ -42,6 +42,8 @@ $sLogFile
 您可以使用相同的调试会话框调试多个并发脚本,只要在调用 _DebugSetup() 时使用相同的 $sTitle(调试会话框标题) 即可;所有 _DebugOut() 将定位到同一调试会话框.
 
 注释掉 _DebugSetup() 语句, 将有效地禁用所有 _Debug...() 类函数的要求.在生成脚本的发布版本之前, 您可能需要删除所有调用的 _Debug 函数.
+
+If the "Report Log Window" type is used then the script will end only when closing the report window.
 
 
 ###Related###

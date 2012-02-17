@@ -5,7 +5,7 @@ ObjGet
 对 COM 对象从现有的进程或文件名检索一个参考.
 
 ###Syntax###
-ObjGet ( "文件名" [, "类名"] )
+ObjGet ( "filename" [, "classname" [, instance]])
 
 
 ###Parameters###
@@ -13,8 +13,9 @@ ObjGet ( "文件名" [, "类名"] )
 文件名
 	包含对象的文件的完整路径和名称(参考备注).
 类名
-	[可选参数] 按下列格式的对象的类名:
-	"appname.objectype"
+	[可选参数] 类标识. Can be in either ProgID or the string representation of the CLSID.
+instance
+	[可选参数] Instance of the object for ROT objects of the same (co)class.
 @@End@@
 
 ###ReturnValue###
@@ -26,11 +27,9 @@ ObjGet ( "文件名" [, "类名"] )
 
 ###Remarks###
 如果你只想使用类名,文件名则是可选的,但参数不能被省略.
-你可以使用一个空字符串来代替. 
-就像: $Object = ObjGet("","Excel.Application")
+你可以使用一个空字符串来代替. 就像: $Object = ObjGet("","Excel.Application")
 
-如果你想使用一个文件名,类名则是可选的. 它只需要当多个类被定义到相同的文件类型,
-并且你指定了去访问一个特定的类.
+如果你想使用一个文件名,类名则是可选的. 它只需要当多个类被定义到相同的文件类型,并且你指定了去访问一个特定的类.
 
 保持警惕,不是所有计算机都拥有相同的对象集合. 因此 <b>一定要</b> 在调用 ObjCreate() 后检查错误. 
 

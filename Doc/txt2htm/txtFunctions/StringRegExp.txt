@@ -92,6 +92,8 @@ The flag parameter can have one of 5 values (0 through 4).  0 gives a true (1) o
 	Match any character <b>not</b> in the class, but only if the first character.
 ( ... )
 	Group. The elements in the group are treated in order and can be repeated together.  e.g. <b>(ab)+</b> will match "ab" or "abab", but not "aba".  A group will also store the text matched for use in back-references and in the array returned by the function, depending on flag value.
+(?#....)
+	comment (not nestable).
 (?i)
 	Case-insensitivity flag.  This does not operate as a group.  It tells the regular expression engine to do case-insensitive matching from that point on.
 (?-i)
@@ -102,14 +104,18 @@ The flag parameter can have one of 5 values (0 through 4).  0 gives a true (1) o
 	Case-insensitive non-capturing group.  Behaves just like a non-capturing group, but performs case-insensitive matches within the group.
 (?-i: ... )
 	Case-sensitive non-capturing group.  Behaves just like a non-capturing group, but performs case-sensitive matches within the group.
+(?J)
+	allow duplicate names.
 (?m)
 	^ and $ match newlines within data.
 (?s)
 	. 匹配任意字符,包括换行. (默认 "." 不匹配换行)
-(?x)
-	忽略空白区域和 # 注释.
 (?U)
 	Invert greediness of quantifiers.
+(?x)
+	忽略空白区域和 # 注释.
+(?-...)
+	unset option(s).
 <b>.</b>
 	匹配任何的单字符 (除换行以外)..
 |
@@ -138,16 +144,24 @@ The flag parameter can have one of 5 values (0 through 4).  0 gives a true (1) o
 	end case modification.
 \f
 	匹配进纸符 (chr(12)).
+\G
+	first matching position in subject.
 \h
 	任何的水平空白字符.
 \H
 	任何不是水平的空白字符.
 \n
 	匹配换行符 (@LF, chr(10)).
+\K
+	reset start of match.
+\N
+	a character that is not a newline
 \Q
 	quote (disable) pattern metacharacters till \E.
 \r
 	匹配一个回车符 (@CR, chr(13)).
+\R
+	a newline sequence.
 \s
 	匹配任何的空白字符: Chr(9) 到 Chr(13).包括:水平制表符,换行,垂直列表符,换页,回车以及标准空格 ( Chr(32) ).
 \S

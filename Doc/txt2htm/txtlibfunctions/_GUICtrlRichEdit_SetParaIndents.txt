@@ -5,7 +5,7 @@ _GUICtrlRichEdit_SetParaIndents
 设置(第一)当前选择(或没有选择时的插入点所在段落)的缩进
 
 ###Syntax###
-#Include <GuiRichEdit.au3>
+#include <GuiRichEdit.au3>
 _GUICtrlRichEdit_SetParaIndents($hWnd [, $vLeft = Default [, $iRight = Default [, $iFirstLine = Default]]])
 
 ###Parameters###
@@ -14,35 +14,36 @@ $hWnd
 	控件句柄
 $vLeft
 	[可选参数] 段落的左边缩进 (空间单位)
-		绝对值 - 数字
-		相对于以前位置 - 字符 - "+
-		" 或 "-
-		"
+		 绝对值 - 数字
+		 相对于以前位置 - 字符串 - "+<数字>" 或 "-<数字>"
 $iRight
 	[可选参数] 段落的右侧缩进 (空间单位)
 $iFirstLine
-	[可选参数] 第一行的缩进相对于其它行（空间单位）
+	[可选参数] 第一行的缩进相对于其它行(空间单位)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回 True
-失败:	返回 False,设置@error
+失败:	返回 False,并设置@error
 @error:	101 - $hWnd 参数值不是句柄
+	103 - $iRight 不是一个数字
+	104 - $iFirstLine 不是一个数字	
 	1021 - $vLeft 既不是一个数字,也不是一个数字组成的字符串
 	1022 - $vLeft 开始段落的主要部分在客户区左侧
-	103 - $iRight 不是一个数字
-	105 - $iFirstLine 不是一个数字
 	200 - 第一行凸出超出客户区
 	700 - 操作失败
 @@End@@
 
 ###Remarks###
- $iLeft 的整数值, $iRight 与 $iFirstLine 向段落中心缩进
- 所有三个值的最初为 零.
- 调用 _GUICtrlRichEdit_SetSpaceUnit 函数设置 "空间单位". 最初为英寸
- 如果文本被选中,默认为第一选定段落的文本值.
- 如果没有选中,默认为当前段落的值.
+$iLeft 的整数值, $iRight 与 $iFirstLine 向段落中心缩进
+
+所有三个值的最初为 零.
+
+调用 _GUICtrlRichEdit_SetSpaceUnit 函数设置 "空间单位". 最初为英寸
+
+如果文本被选中,默认为第一选定段落的文本值.
+如果没有选中,默认为当前段落的值.
 
 ###Related###
 _GUICtrlRichEdit_GetParaIndents, _GUICtrlRichEdit_SetSpaceUnit
