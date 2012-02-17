@@ -12,16 +12,16 @@ $msg &= $find
 
 FileWrite($filename, $msg)
 
-MsgBox(0, "BEFORE", $msg)
+MsgBox(4096, "BEFORE", $msg)
 
 Local $retval = _ReplaceStringInFile($filename, $find, $replace)
 If $retval = -1 Then
-	MsgBox(0, "ERROR", "The pattern could not be replaced in file: " & $filename & " Error: " & @error)
+	MsgBox(4096, "ERROR", "The pattern could not be replaced in file: " & $filename & " Error: " & @error)
 	Exit
 Else
-	MsgBox(0, "INFO", "Found " & $retval & " occurances of the pattern: " & $find & " in the file: " & $filename)
+	MsgBox(4096, "INFO", "Found " & $retval & " occurances of the pattern: " & $find & " in the file: " & $filename)
 EndIf
 
 $msg = FileRead($filename, 1000)
-MsgBox(0, "AFTER", $msg)
+MsgBox(4096, "AFTER", $msg)
 FileDelete($filename)

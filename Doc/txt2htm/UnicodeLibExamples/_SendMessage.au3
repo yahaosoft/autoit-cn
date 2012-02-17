@@ -17,7 +17,7 @@ Func _ToggleMonitor($hwnd, $OnOff)
 	Local Const $SC_MONITORPOWER = 61808
 	_SendMessage($hwnd, $WM_SYSCOMMAND, $SC_MONITORPOWER, $OnOff)
 	If @error Then
-		MsgBox(0, "_ToggleMonitor", "_SendMessage Error: " & @error)
+		MsgBox(4096, "_ToggleMonitor", "_SendMessage Error: " & @error)
 		Exit
 	EndIf
 EndFunc   ;==>_ToggleMonitor
