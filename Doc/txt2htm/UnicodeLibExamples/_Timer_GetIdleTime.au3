@@ -5,4 +5,4 @@ Sleep(10 * 1000); 10秒
 
 Global $iIdleTime = _Timer_GetIdleTime()
 
-MsgBox(64, "_Timer_GetIdleTime", "Idle time = " & $iIdleTime & "ms")
+MsgBox(4160, "_Timer_GetIdleTime", "Idle time = " & $iIdleTime & "ms")

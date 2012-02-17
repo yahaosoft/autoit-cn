@@ -1,5 +1,6 @@
 ﻿#include <SQLite.au3>
 #include <SQLite.dll.au3>
+
 _SQLite_Startup()
 If @error Then
 	MsgBox(16, "SQLite Error", "SQLite3.dll Can't be Loaded!")

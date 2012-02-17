@@ -14,7 +14,7 @@ While _SQLite_FetchData($hQuery, $aRow) = $SQLITE_OK
 	$sMsg &= $aRow[0]
 WEnd
 _SQLite_Exec(-1, "DROP TABLE aTest;") ; 移除表
-MsgBox(0, "SQLite", "Get Data using a Query : " & $sMsg)
+MsgBox(4096, "SQLite", "Get Data using a Query : " & $sMsg)
 _SQLite_Close()
 _SQLite_Shutdown()
 

@@ -18,12 +18,12 @@ _SQLite_Exec($hDB_a, "INSERT INTO test VALUES (1,2,3);")
 _SQLite_SetTimeout($hDB_b, 0)
 $iTimer = TimerInit()
 $iRval = _SQLite_Exec($hDB_b, "SELECT * FROM test") ; 此操作将失败
-MsgBox(0, "_SQLite_SetTimeout Example No Timeout", "Time: " & TimerDiff($iTimer) & @CRLF _
+MsgBox(4096, "_SQLite_SetTimeout Example No Timeout", "Time: " & TimerDiff($iTimer) & @CRLF _
 		 & "Error: " & _SQLite_ErrMsg($hDB_b) & @CRLF)
 _SQLite_SetTimeout($hDB_b, 5000)
 $iTimer = TimerInit()
 $iRval = _SQLite_Exec($hDB_b, "SELECT * FROM test") ; 此操作将失败
-MsgBox(0, "_SQLite_SetTimeout Example 5 Sec Timeout", "Time: " & TimerDiff($iTimer) & @CRLF _
+MsgBox(4096, "_SQLite_SetTimeout Example 5 Sec Timeout", "Time: " & TimerDiff($iTimer) & @CRLF _
 		 & "Error: " & _SQLite_ErrMsg($hDB_b) & @CRLF)
 _SQLite_Exec($hDB_a, "END;")
 _SQLite_Close($hDB_a)

@@ -11,9 +11,9 @@ _SQLite_Exec(-1, "INSERT INTO aTest(a,b,c) VALUES ('b','3',' ');")
 _SQLite_Exec(-1, "INSERT INTO aTest(a,b,c) VALUES ('a','1','Hello');")
 _SQLite_Query(-1, "SELECT ROWID,* FROM aTest ORDER BY a;", $hQuery)
 _SQLite_FetchNames($hQuery, $aNames) ; 读出表名
-MsgBox(0, "SQLite", "Row ID is : " & StringFormat(" %-10s  %-10s  %-10s  %-10s ", $aNames[0], $aNames[1], $aNames[2], $aNames[3]) & @CRLF)
+MsgBox(4096, "SQLite", "Row ID is : " & StringFormat(" %-10s  %-10s  %-10s  %-10s ", $aNames[0], $aNames[1], $aNames[2], $aNames[3]) & @CRLF)
 While _SQLite_FetchData($hQuery, $aRow) = $SQLITE_OK ; 这里每次获取一行
-	MsgBox(0, "SQLite", "Get Data using FetchData : " & StringFormat(" %-10s  %-10s  %-10s  %-10s ", $aRow[0], $aRow[1], $aRow[2], $aRow[3]) & @CRLF)
+	MsgBox(4096, "SQLite", "Get Data using FetchData : " & StringFormat(" %-10s  %-10s  %-10s  %-10s ", $aRow[0], $aRow[1], $aRow[2], $aRow[3]) & @CRLF)
 	_SQLite_QueryFinalize($hQuery) ; 这里将停止查询, 获取更多行
 WEnd
 _SQLite_Exec(-1, "DROP TABLE aTest;")

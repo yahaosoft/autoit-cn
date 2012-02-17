@@ -10,34 +10,34 @@
 Local $h_session = 0
 
 ; 查询在 GPIB 地址 3 的仪器 ID
-MsgBox(0, "Step 1", "Simple GPIB query using a VISA Descriptor")
+MsgBox(4096, "Step 1", "Simple GPIB query using a VISA Descriptor")
 Local $s_answer = _viExecCommand("GPIB::3::0", "*IDN?", 10000) ; 超时为 10 秒
-MsgBox(0, "GPIB QUERY result", $s_answer) ; 显示应答
+MsgBox(4096, "GPIB QUERY result", $s_answer) ; 显示应答
 
-MsgBox(0, "Step 2", "Go to LOCAL using VISA Descriptor")
+MsgBox(4096, "Step 2", "Go to LOCAL using VISA Descriptor")
 _viGTL("GPIB::1::0") ; 到本地 (退出远程控制模式)
 
-MsgBox(0, "Step 3", "Simple GPIB query using a VISA address shortcut")
+MsgBox(4096, "Step 3", "Simple GPIB query using a VISA address shortcut")
 $s_answer = _viExecCommand("1", "*IDN?") ; 此地址必须是字符串
-MsgBox(0, "GPIB QUERY result", $s_answer) ; 显示应答
-MsgBox(0, "Info", "Now let's use _viOpen and _viClose")
+MsgBox(4096, "GPIB QUERY result", $s_answer) ; 显示应答
+MsgBox(4096, "Info", "Now let's use _viOpen and _viClose")
 
-MsgBox(0, "Step 4", "Open the instrument connection with _viOpen")
+MsgBox(4096, "Step 4", "Open the instrument connection with _viOpen")
 Local $h_instr = _viOpen(3)
-MsgBox(0, "Instrument Handle obtained", "$h_instr = " & $h_instr) ; 显示会话句柄
+MsgBox(4096, "Instrument Handle obtained", "$h_instr = " & $h_instr) ; 显示会话句柄
 ; 查询仪器
 
-MsgBox(0, "Step 5", "Query the instrument using the VISA instrument handle")
+MsgBox(4096, "Step 5", "Query the instrument using the VISA instrument handle")
 $s_answer = _viExecCommand($h_instr, "*IDN?") ; $h_instr 现在不是字符串!
-MsgBox(0, "GPIB QUERY result", $s_answer) ; 显示应答
+MsgBox(4096, "GPIB QUERY result", $s_answer) ; 显示应答
 ; 再次查询. 不需要再次打开连接
 
-MsgBox(0, "Step 6", "Query again. There is no need to OPEN the link again")
+MsgBox(4096, "Step 6", "Query again. There is no need to OPEN the link again")
 $s_answer = _viExecCommand($h_instr, "*IDN?")
-MsgBox(0, "GPIB QUERY result", $s_answer) ; 显示应答
+MsgBox(4096, "GPIB QUERY result", $s_answer) ; 显示应答
 
-MsgBox(0, "Step 7", "Go to LOCAL using VISA instrument handle")
+MsgBox(4096, "Step 7", "Go to LOCAL using VISA instrument handle")
 _viGTL($h_instr); 到本地 (这是可选的)
 
-MsgBox(0, "Step 8", "Close the Instrument connection using _viClose")
+MsgBox(4096, "Step 8", "Close the Instrument connection using _viClose")
 _viClose($h_instr) ; 关闭仪器连接

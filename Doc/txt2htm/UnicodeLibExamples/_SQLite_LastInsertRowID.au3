@@ -34,7 +34,7 @@ If Not _SQLite_Exec(-1, "INSERT INTO persons VALUES ('Cindy','21');") = $SQLITE_
 		MsgBox(16, "SQLite Error", _SQLite_ErrMsg())
 
 ; _SQLite_LastInsertRowID() 会告知我们 Cindy 所在的行
-MsgBox(0, "_SQLite_LastInsertRowID()", _SQLite_LastInsertRowID())
+MsgBox(4096, "_SQLite_LastInsertRowID()", _SQLite_LastInsertRowID())
 
 ; 查询
 $iRval = _SQLite_GetTable(-1, "SELECT * FROM persons;", $aResult, $iRows, $iColumns)
