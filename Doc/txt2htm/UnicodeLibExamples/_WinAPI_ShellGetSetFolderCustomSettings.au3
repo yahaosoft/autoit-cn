@@ -18,11 +18,12 @@ If Not IsArray($aIcon) Then
 EndIf
 
 ; 设置图标到选择的文件夹
-$tSHFCS = DllStructCreate($tagSHFOLDERCUSTOMSETTINGS)
-DllStructSetData($tSHFCS, 'Size', DllStructGetSize($tSHFCS))
+$tSHFCS = DllStructCreate($tagSHFOLDERCUSTOMSETTINGS & 'wchar[' & (StringLen($aIcon[0]) + 1) & ']')
+DllStructSetData($tSHFCS, 'Size', DllStructGetPtr($tSHFCS, 16) - DllStructGetPtr($tSHFCS))
 DllStructSetData($tSHFCS, 'Mask', $FCSM_ICONFILE)
-DllStructSetData($tSHFCS, 'IconFile', _WinAPI_CreateString($aIcon[0], $tIcon))
+DllStructSetData($tSHFCS, 'IconFile', DllStructGetPtr($tSHFCS, 16))
 DllStructSetData($tSHFCS, 'SizeIF', 260)
 DllStructSetData($tSHFCS, 'IconIndex', $aIcon[1])
+DllStructSetData($tSHFCS, 16, $aIcon[0])
 
 _WinAPI_ShellGetSetFolderCustomSettings($sPath, $FCS_FORCEWRITE, $tSHFCS)

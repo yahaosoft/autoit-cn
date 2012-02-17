@@ -30,12 +30,14 @@ $aValent[16][0] = 'Start Menu'
 $aValent[17][0] = 'Startup'
 $aValent[18][0] = 'Templates'
 
+_ArrayDisplay($aValent, '_WinAPI_RegQueryMultipleValues')
+
 $hKey = _WinAPI_RegOpenKey($HKEY_CURRENT_USER, 'Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders', $KEY_QUERY_VALUE)
 If @error Then
 	MsgBox(16, @extended, _WinAPI_GetErrorMessage(@extended))
 	Exit
 EndIf
-_WinAPI_RegQueryMultipleValues($hKey, $aValent, $tData)
+_WinAPI_RegQueryMultipleValues($hKey, $aValent, $pBuffer)
 If @error Then
 	MsgBox(16, @extended, _WinAPI_GetErrorMessage(@extended))
 	Exit
@@ -49,6 +51,6 @@ For $i = 0 To UBound($aValent) - 1
 	$aValent[$i][2] = DllStructGetData(DllStructCreate('wchar[' & $aValent[$i][1] & ']', $aValent[$i][2]), 1)
 Next
 
-$tData = 0
+_WinAPI_FreeMemory($pBuffer)
 
 _ArrayDisplay($aValent, '_WinAPI_RegQueryMultipleValues')

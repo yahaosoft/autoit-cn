@@ -45,7 +45,7 @@ Func WM_NOTIFY($hWnd, $iMsg, $iWparam, $iLparam)
 						$tEnLink = DllStructCreate($tagENLINK, $iLparam)
 						$cpMin = DllStructGetData($tEnLink, "cpMin")
 						$cpMax = DllStructGetData($tEnLink, "cpMax")
-						MsgBox(0, "", "Invoke your web browser here and point it to " & _
+						MsgBox(4096, "", "Invoke your web browser here and point it to " & _
 								_GUICtrlRichEdit_GetTextInRange($hRichEdit, $cpMin, $cpMax))
 					EndIf
 			EndSelect

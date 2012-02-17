@@ -4,7 +4,7 @@ Opt('MustDeclareVars', 1)
 
 Run(@SystemDir & '\taskmgr.exe')
 
-MsgBox(64 + 262144, '', 'Look at the memory used by the "' & _WinAPI_PathStripPath(FileGetLongName(@AutoItExe)) & '" process.')
+MsgBox(64 + 262144, '', 'Look at the memory used by the "' & _WinAPI_PathStripPath(FileGetLongName(@AutoItExe)) & '" (' & @AutoItPID & ') process.')
 
 ; 分配内存来创建数组
 Dim $Data[1000000]

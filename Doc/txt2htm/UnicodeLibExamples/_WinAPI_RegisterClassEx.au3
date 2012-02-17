@@ -24,8 +24,8 @@ $hIconSm = DllStructGetData($tIcon, 2)
 $hProc = DllCallbackRegister('_WndProc', 'lresult', 'hwnd;uint;wparam;lparam')
 
 ; 创建并填充 $tagWNDCLASSEX 结构
-$tWCEX = DllStructCreate($tagWNDCLASSEX)
-DllStructSetData($tWCEX, 'Size', DllStructGetSize($tWCEX))
+$tWCEX = DllStructCreate($tagWNDCLASSEX & 'wchar[' & (StringLen($sClass) + 1) & ']')
+DllStructSetData($tWCEX, 'Size', DllStructGetPtr($tWCEX, 13) - DllStructGetPtr($tWCEX))
 DllStructSetData($tWCEX, 'Style', 0)
 DllStructSetData($tWCEX, 'hWndProc', DllCallbackGetPtr($hProc))
 DllStructSetData($tWCEX, 'ClsExtra', 0)
@@ -35,8 +35,9 @@ DllStructSetData($tWCEX, 'hIcon', $hIcon)
 DllStructSetData($tWCEX, 'hCursor', $hCursor)
 DllStructSetData($tWCEX, 'hBackground', _WinAPI_CreateSolidBrush(_WinAPI_GetSysColor($COLOR_3DFACE)))
 DllStructSetData($tWCEX, 'MenuName', 0)
-DllStructSetData($tWCEX, 'ClassName', _WinAPI_CreateString($sClass, $tClass))
+DllStructSetData($tWCEX, 'ClassName', DllStructGetPtr($tWCEX, 13))
 DllStructSetData($tWCEX, 'hIconSm', $hIconSm)
+DllStructSetData($tWCEX, 13, $sClass)
 
 ; 注册窗口类
 _WinAPI_RegisterClassEx($tWCEX)
@@ -56,6 +57,7 @@ _WinAPI_UnregisterClass($sClass, $hInstance)
 _WinAPI_DestroyCursor($hCursor)
 _WinAPI_DestroyIcon($hIcon)
 _WinAPI_DestroyIcon($hIconSm)
+
 DllCallbackFree($hProc)
 
 Func _WinAPI_DefWindowProcW($hWnd, $iMsg, $wParam, $lParam)
