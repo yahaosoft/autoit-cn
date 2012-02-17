@@ -2,9 +2,9 @@
 Local $fTest
 $fTest = _ClipPutFile(@ScriptFullPath & "|" & @ScriptDir & "|" & @SystemDir)
 If Not $fTest Then
-	MsgBox(0,"_ClipPutFile() 调用失败","错误代码存放于 @error = " & @error)
+	MsgBox(4096,"_ClipPutFile() 调用失败","错误代码存放于 @error = " & @error)
 Else
-	MsgBox(0,"_ClipPutFile()","内容已经放到剪切板了:" & ClipGet())
+	MsgBox(4096,"_ClipPutFile()","内容已经放到剪切板了:" & @CRLF & ClipGet())
 EndIf
 
 

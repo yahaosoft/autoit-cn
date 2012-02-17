@@ -13,14 +13,14 @@ Local $avArray[6] = [ _
 
 _ArrayDisplay($avArray, "一维数组")
 
-Local $sSearch = InputBox("一维数组搜索演示", "请输入要搜索的值。")
+Local $sSearch = InputBox("一维数组搜索演示", "请输入要搜索的值.")
 If @error Then Exit
 
 Local $iIndex = _ArraySearch($avArray, $sSearch, 0, 0, 0, 1)
 If @error Then
-	MsgBox(0, "没有找到匹配结果", "“" & $sSearch & "”搜索完毕，没有结果可显示。")
+	MsgBox(4096, "没有找到匹配结果", "“" & $sSearch & "”搜索完毕，没有结果可显示。")
 Else
-	MsgBox(0, "搜索成功", "“" & $sSearch & "”搜索完毕，位于数组中第“" & $iIndex & "”个索引中。")
+	MsgBox(4096, "搜索成功", "“" & $sSearch & "”搜索完毕，位于数组中第“" & $iIndex & "”个索引中。")
 EndIf
 
 ;===============================================================================
@@ -45,7 +45,7 @@ $sColumn = Int($sColumn)
 
 $iIndex = _ArraySearch($avArray, $sSearch, 0, 0, 0, 1, 1, $sColumn)
 If @error Then
-    MsgBox(0, "没有找到匹配结果", "“" & $sSearch & "”搜索完毕，没有结果可显示。")
+    MsgBox(4096, "没有找到匹配结果", "“" & $sSearch & "”搜索完毕，没有结果可显示。")
 Else
-	MsgBox(0, "搜索成功", "“" & $sSearch & "”搜索完毕，位于数组中第“" & $iIndex & "”个索引中。")
+	MsgBox(4096, "搜索成功", "“" & $sSearch & "”搜索完毕，位于数组中第“" & $iIndex & "”个索引中。")
 EndIf

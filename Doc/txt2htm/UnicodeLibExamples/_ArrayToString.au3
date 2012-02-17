@@ -9,4 +9,4 @@ Next
 
 _ArrayDisplay($avArray, "$avArray")
 
-MsgBox(0, "_ArrayToString() getting $avArray items 1 to 7", _ArrayToString($avArray, @TAB, 1, 7))
+MsgBox(4096, "_ArrayToString() getting $avArray items 1 to 7", _ArrayToString($avArray, @TAB, 1, 7))
