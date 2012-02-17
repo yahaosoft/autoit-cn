@@ -7,9 +7,9 @@
 
 Local $oWordApp = _WordCreate(@ScriptDir & "\Test.doc")
 If _WordPropertyGet($oWordApp, "statusbar") Then
-	MsgBox(0, "状态栏状态", "状态栏可见, 将其关闭.")
+	MsgBox(4096, "状态栏状态", "状态栏可见, 将其关闭.")
 	_WordPropertySet($oWordApp, "statusbar", False)
 Else
-	MsgBox(0, "状态栏状态", "状态栏不可见, 将其打开.")
+	MsgBox(4096, "状态栏状态", "状态栏不可见, 将其打开.")
 	_WordPropertySet($oWordApp, "statusbar", True)
 EndIf

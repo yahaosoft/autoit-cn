@@ -19,7 +19,7 @@ Func _Main()
 		If BitAND($aDevice[3], 1) Then $text &= @TAB & "- The device is part of the desktop" & @LF
 
 		$text &= "Plug and Play identifier string: " & $aDevice[4] & @LF
-		MsgBox(0, "", $text)
+		MsgBox(4096, "", $text)
 		$i += 1
 	WEnd
 EndFunc   ;==>_Main

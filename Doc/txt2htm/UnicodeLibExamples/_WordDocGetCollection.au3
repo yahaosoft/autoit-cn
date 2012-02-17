@@ -8,5 +8,5 @@
 Local $oWordApp = _WordCreate()
 _WordDocAdd($oWordApp)
 Local $oDocuments = _WordDocGetCollection($oWordApp)
-MsgBox(0, "Document Count", @extended)
+MsgBox(4096, "Document Count", @extended)
 _WordQuit($oWordApp)

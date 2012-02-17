@@ -8,7 +8,7 @@
 Local $oWordApp = _WordAttach(@ScriptDir & "\Test.doc", "FileName")
 If Not @error Then
 	Local $oDoc = _WordDocGetCollection($oWordApp, 0)
-	MsgBox(64, "Document FileName", $oDoc.FullName)
+	MsgBox(4160, "Document FileName", $oDoc.FullName)
 EndIf
 
 ; *******************************************************

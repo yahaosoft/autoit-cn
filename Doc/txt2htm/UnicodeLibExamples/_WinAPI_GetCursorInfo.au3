@@ -10,5 +10,5 @@ Func _Main()
 	$text &= "Cursor Handle: " & $cursor[2] & @LF
 	$text &= "X Coordinate: " & $cursor[3] & @LF
 	$text &= "Y Coordinate: " & $cursor[4]
-	MsgBox(0, "_WinApi_GetCursorInfo Example", $text)
+	MsgBox(4096, "_WinApi_GetCursorInfo Example", $text)
 EndFunc   ;==>_Main

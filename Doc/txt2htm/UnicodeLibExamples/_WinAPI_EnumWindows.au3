@@ -10,6 +10,6 @@ Func _Main()
 		$text &= "Window Title: " & WinGetTitle($aWindows[$i][0]) & @LF
 		$text &= "Window Text: " & WinGetText($aWindows[$i][0]) & @LF
 		$text &= "Window Process: " & WinGetProcess($aWindows[$i][0])
-		MsgBox(0, "Item " & $i & " of " & $aWindows[0][0], $text)
+		MsgBox(4096, "Item " & $i & " of " & $aWindows[0][0], $text)
 	Next
 EndFunc   ;==>_Main

@@ -9,8 +9,8 @@ Local $oWordApp = _WordCreate(@ScriptDir & "\Test.doc")
 Local $oDoc = _WordDocGetCollection($oWordApp, 0)
 Local $oFind = _WordDocFindReplace($oDoc, "this", "THIS")
 If $oFind Then
-	MsgBox(0, "FindReplace", "Found and replaced.")
+	MsgBox(4096, "FindReplace", "Found and replaced.")
 Else
-	MsgBox(0, "FindReplace", "Not Found")
+	MsgBox(4096, "FindReplace", "Not Found")
 EndIf
 _WordQuit($oWordApp, 0)

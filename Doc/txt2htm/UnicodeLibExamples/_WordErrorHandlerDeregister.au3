@@ -15,7 +15,7 @@ Exit
 
 Func MyErrFunc()
 	Local $HexNumber = Hex($oWordErrorHandler.number, 8)
-	MsgBox(0, "", "We intercepted a COM Error !" & @CRLF & _
+	MsgBox(4096, "", "We intercepted a COM Error !" & @CRLF & _
 			"Number is: " & $HexNumber & @CRLF & _
 			"Windescription is: " & $oWordErrorHandler.windescription)
 	SetError(1) ; 当此函数返回时用来检查的一些信息

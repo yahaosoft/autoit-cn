@@ -5,4 +5,4 @@
 #include <Word.au3>
 
 Local $aVersion = _Word_VersionInfo()
-MsgBox(0, "Word.au3 Version", $aVersion[5] & " released " & $aVersion[4])
+MsgBox(4096, "Word.au3 Version", $aVersion[5] & " released " & $aVersion[4])

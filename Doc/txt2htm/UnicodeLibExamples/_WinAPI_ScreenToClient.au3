@@ -9,7 +9,7 @@ Func _Main()
 	GUISetState(@SW_SHOW)
 	Sleep(1000)
 	_WinAPI_ScreenToClient($hwnd, $tpoint)
-	MsgBox(0, "_WINAPI_ClientToScreen Example", "Screen Cordinates of 641,459 is x,y position of client: " & @LF & _
+	MsgBox(4096, "_WINAPI_ClientToScreen Example", "Screen Cordinates of 641,459 is x,y position of client: " & @LF & _
 			"X: " & DllStructGetData($tpoint, "X") & @LF & _
 			"Y: " & DllStructGetData($tpoint, "Y") & @LF)
 EndFunc   ;==>_Main

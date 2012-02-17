@@ -8,16 +8,16 @@ Local $oWordApp = _WordCreate(@ScriptDir & "\Test.doc")
 
 ; *******************************************************
 ; 示例 2 - 尝试附加到一个已存在的word窗口
-;               如果文件不存在，创建一个新的Microsoft Word文件并打开.
+;               如果文件不存在,创建一个新的Microsoft Word文件并打开.
 ; *******************************************************
 ;尝试附加到一个已存在的word窗口
 #include <Word.au3>
 $oWordApp = _WordCreate(@ScriptDir & "\Test.doc", 1)
 ; 检查返回值 @extended 判断连接是否成功
 If @extended Then
-	MsgBox(0, "附加成功", "附加到现有的窗口")
+	MsgBox(4096, "附加成功", "附加到现有的窗口")
 Else
-	MsgBox(0, "附加失败", "创建新窗口")
+	MsgBox(4096, "附加失败", "创建新窗口")
 EndIf
 
 ; *******************************************************

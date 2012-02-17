@@ -4,6 +4,6 @@ _Main()
 
 Func _Main()
 	Local $win = _WinAPI_GetDesktopWindow()
-	MsgBox(0, "", WinGetTitle($win))
-	MsgBox(0, "", $win)
+	MsgBox(4096, "", WinGetTitle($win))
+	MsgBox(4096, "", $win)
 EndFunc   ;==>_Main

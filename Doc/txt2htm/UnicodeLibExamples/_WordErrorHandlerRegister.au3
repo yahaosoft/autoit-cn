@@ -3,6 +3,7 @@
 ; *******************************************************
 ;
 #include <Word.au3>
+
 ; 注册自定义的错误句柄
 _WordErrorHandlerRegister("MyErrFunc")
 ; 执行一些操作
@@ -16,7 +17,7 @@ _WordErrorHandlerRegister()
 Exit
 
 Func MyErrFunc()
-	;重要：错误对象变量必须命名为 $oWordErrorHandler
+	; 重要:错误对象变量必须命名为 $oWordErrorHandler
 	Local $ErrorScriptline = $oWordErrorHandler.scriptline
 	Local $ErrorNumber = $oWordErrorHandler.number
 	Local $ErrorNumberHex = Hex($oWordErrorHandler.number, 8)
@@ -37,7 +38,7 @@ Func MyErrFunc()
 	$ErrorOutput &= "----> $ErrorHelpFile = " & $ErrorHelpFile & @CR
 	$ErrorOutput &= "----> $ErrorHelpContext = " & $ErrorHelpContext & @CR
 	$ErrorOutput &= "----> $ErrorLastDllError = " & $ErrorLastDllError
-	MsgBox(0, "COM Error", $ErrorOutput)
+	MsgBox(4096, "COM Error", $ErrorOutput)
 	SetError(1)
 	Return
 EndFunc   ;==>MyErrFunc

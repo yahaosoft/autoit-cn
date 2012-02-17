@@ -8,5 +8,5 @@
 Local $oWordApp = _WordCreate(@ScriptDir & "\Test.doc", 0, 0)
 ; 显示获取的文本内容
 Local $sText = $oWordApp.ActiveDocument.Range.Text
-MsgBox(0, "获取文本内容", $sText)
+MsgBox(4096, "获取文本内容", $sText)
 _WordQuit($oWordApp)

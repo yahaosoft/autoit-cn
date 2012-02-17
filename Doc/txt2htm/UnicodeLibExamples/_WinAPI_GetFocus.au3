@@ -19,7 +19,7 @@ Func _Main()
 				$text &= "Full Text: " & WinGetText($win) & @LF
 				$text &= "Handle: " & WinGetHandle($win) & @LF
 				$text &= "Process: " & WinGetProcess($win) & @LF
-				MsgBox(0, "", $text)
+				MsgBox(4096, "", $text)
 		EndSelect
 	WEnd
 EndFunc   ;==>_Main
