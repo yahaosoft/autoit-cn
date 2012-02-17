@@ -5,8 +5,8 @@ _TCPIpToName
 解析一个IP地址到主机名称
 
 ###Syntax###
-#include <iNet.au3>
-_TCPIpToName ( $sIp [,$iOption = 0 [, $hDll_Ws2_32 = "Ws2_32.dll" ]] )
+#include <Inet.au3>
+_TCPIpToName($sIp [,$iOption = 0 [, $hDll_Ws2_32 = "Ws2_32.dll"]])
 
 
 ###Parameters###
@@ -25,21 +25,20 @@ $hDll_Ws2_32
 @@ReturnTable@@
 成功:	返回主机名或数组(见备注)
 失败:	""
-@Error:	
-	0 = 无错误.
+@Error:		0 = 无错误.
 	1 = inet_addr DllCall 失败
 	2 = inet_addr 失败
 	3 = gethostbyaddr DllCall 失败
 	4 = gethostbyaddr 失败, WSAGetLastError = @Extended
 	5 = gethostbyaddr 失败, WSAGetLastError 失败
 	6 = strlen/sZStringRead 失败
-	7 = 读别名数组错误
+	7 = 读取别名数组时错误
 @@End@@
 
 
 ###Remarks###
- 调用 WSAStartup（由 TCPStartup 完成）对于成功是必需的.
- 如果 $iOption = 1 则返回如下格式的数组:
+成功调用 WSAStartup (由 TCPStartup 完成) 是必需的.
+如果 $iOption = 1 则返回如下格式的数组:
 	$aResult[0] = 元素数量
 	$aResult[1] = "主机名称"
 	$aResult[2] = "别名 1"

@@ -5,8 +5,8 @@ _INetSmtpMail
 发送一封电子邮件，不使用外部电子邮件程序.
 
 ###Syntax###
-#include <INet.au3>
-_INetSmtpMail ( $s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress [,$s_Subject [,$as_Body [,$s_helo [,$s_first [,$b_trace]]]]])
+#include <Inet.au3>
+_INetSmtpMail($s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress [,$s_Subject [,$as_Body [,$s_helo [,$s_first [,$b_trace]]]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -30,7 +30,6 @@ $s_helo
 	[可选参数] SMTP 服务器连接标识. 	默认为 @ComputerName(@计算机名). 如果 SMTP 服务器需要一个“EHLO” 字符串, 	则设置字符串为 "EHLO " & @ComputerName.
 $s_first
 	[可选参数] 字符串发送之前 SMTP 服务器连接的 helo (默认为 {SPACE}). 
-	不发送任何字符时，这个参数必须等于 -1, 有些 SMTP 服务器需要它.
 $b_trace
 	[可选参数] 跟踪初始窗口的对话框
 @@End@@
@@ -38,7 +37,7 @@ $b_trace
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回 1
-失败:	返回 0, 并设置 @error
+失败:	返回 0 并设置 @error
 @error:	1 - 参数无效
 	2 - TCP 无法启动
 	3 - 无法解析 IP

@@ -5,20 +5,20 @@ _Security__ImpersonateSelf
 获取访问令牌模拟调用进程的安全环境
 
 ###Syntax###
-#Include <Security.au3>
-_Security__ImpersonateSelf([$iLevel = 2])
+#include <Security.au3>
+_Security__ImpersonateSelf([$iLevel = $SECURITYIMPERSONATION])
 
 ###Parameters###
 @@ParamTable@@
 $iLevel
 	[可选参数] 新令牌模拟级别:
-		0 - 匿名的.服务器进程不能获取有关客户身份信息,
+		$SECURITYANONYMOUS - 匿名的.服务器进程不能获取有关客户身份信息,
 		不能模拟客户端
-		1 - 身份识别.服务器进程可取得安全标识符和特权的有关客户信息,
+		$SECURITYIDENTIFICATION - 身份识别.服务器进程可取得安全标识符和特权的有关客户信息,
 		但不能模拟客户端
-		2 - 模拟. 服务器进程可以模拟客户本地系统安全环境,
+		$SECURITYIMPERSONATION - 模拟. 服务器进程可以模拟客户本地系统安全环境,
 		服务器无法模拟远程系统的客户端.
-		3 - 授权.服务器进程可以模拟远程系统的客户端安全环境.
+		$SECURITYDELEGATION - 授权.服务器进程可以模拟远程系统的客户端安全环境.
 @@End@@
 
 ###ReturnValue###
@@ -35,3 +35,6 @@ _Security__OpenThreadTokenEx
 
 ###See Also###
 @@MsdnLink@@ ImpersonateSelf
+
+###Example###
+@@IncludeExample@@
