@@ -10,7 +10,7 @@ Local $oExcel = _ExcelBookNew() ;创建新工作簿, 并使其可见
 Local $aArray = _ExcelSheetList($oExcel)
 _ArrayDisplay($aArray, "All The WorkSheets In this WorkBook")
 
-MsgBox(0, "Exiting", "Press OK to Save File and Exit")
+MsgBox(4096, "Exiting", "Press OK to Save File and Exit")
 _ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 现在我们把它保存到临时目录; 必要时覆盖文件
 _ExcelBookClose($oExcel) ; 最后我们关闭并退出
 
@@ -27,10 +27,10 @@ $aArray = _ExcelSheetList($oExcel)
 
 For $i = $aArray[0] To 1 Step -1 ;倒序循环
 	_ExcelSheetActivate($oExcel, $aArray[$i]) ;使用数组元素返回的字符串
-	MsgBox(0, "ActiveSheet", "The Active Sheet should be:" & @CRLF & $aArray[$i])
+	MsgBox(4096, "ActiveSheet", "The Active Sheet should be:" & @CRLF & $aArray[$i])
 Next
 
-MsgBox(0, "Exiting", "Press OK to Save File and Exit")
+MsgBox(4096, "Exiting", "Press OK to Save File and Exit")
 _ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 现在我们把它保存到临时目录; 必要时覆盖文件
 _ExcelBookClose($oExcel) ; 最后我们关闭并退出
 
@@ -47,10 +47,10 @@ $aArray = _ExcelSheetList($oExcel)
 
 For $i = $aArray[0] To 1 Step -1 ;倒序循环
 	_ExcelSheetActivate($oExcel, $i) ;使用数组索引
-	MsgBox(0, "ActiveSheet", "The Active Sheet should be:" & @CRLF & $aArray[$i])
+	MsgBox(4096, "ActiveSheet", "The Active Sheet should be:" & @CRLF & $aArray[$i])
 Next
 
-MsgBox(0, "Exiting", "Press OK to Save File and Exit")
+MsgBox(4096, "Exiting", "Press OK to Save File and Exit")
 _ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 现在我们把它保存到临时目录; 必要时覆盖文件
 _ExcelBookClose($oExcel) ; 最后我们关闭并退出
 
@@ -74,9 +74,9 @@ For $i = $aArray[0] To 1 Step -1 ;倒序循环
 			_ExcelWriteCell($oExcel, Round(Random(1000, 10000), 0), $x, $y) ;写入到文件的一些随机数
 		Next
 	Next
-	MsgBox(0, "ActiveSheet", "The Active Sheet should be:" & @CRLF & $aArray[$i])
+	MsgBox(4096, "ActiveSheet", "The Active Sheet should be:" & @CRLF & $aArray[$i])
 Next
 
-MsgBox(0, "Exiting", "Press OK to Save File and Exit")
+MsgBox(4096, "Exiting", "Press OK to Save File and Exit")
 _ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 现在我们把它保存到临时目录; 必要时覆盖文件
 _ExcelBookClose($oExcel) ; 最后我们关闭并退出

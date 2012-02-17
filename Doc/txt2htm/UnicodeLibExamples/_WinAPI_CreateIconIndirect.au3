@@ -7,7 +7,7 @@ Global Const $STM_SETIMAGE = 0x0172
 
 Global $tRECT, $hXOR, $hAND, $hIcon, $hBrush, $hDC, $hMemDC, $hSv
 
-; Create XOR bitmap
+; 创建彩色位图
 $hDC = _WinAPI_GetDC(0)
 $hMemDC = _WinAPI_CreateCompatibleDC($hDC)
 $hXOR = _WinAPI_CreateCompatibleBitmapEx($hDC, 32, 32, 0)
@@ -27,7 +27,7 @@ _WinAPI_ReleaseDC(0, $hDC)
 _WinAPI_SelectObject($hMemDC, $hSv)
 _WinAPI_DeleteDC($hMemDC)
 
-; Create AND bitmap
+; 创建位码位图
 $hDC = _WinAPI_GetDC(0)
 $hMemDC = _WinAPI_CreateCompatibleDC($hDC)
 $hAND = _WinAPI_CreateBitmap(32, 32, 1, 1)

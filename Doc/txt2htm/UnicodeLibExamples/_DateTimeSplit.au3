@@ -4,8 +4,8 @@ Local $MyDate, $MyTime
 _DateTimeSplit("2005/01/01 14:30", $MyDate, $MyTime)
 
 For $x = 1 To $MyDate[0]
-	MsgBox(0, $x, $MyDate[$x])
+	MsgBox(4096, $x, $MyDate[$x])
 Next
 For $x = 1 To $MyTime[0]
-	MsgBox(0, $x, $MyTime[$x])
+	MsgBox(4096, $x, $MyTime[$x])
 Next

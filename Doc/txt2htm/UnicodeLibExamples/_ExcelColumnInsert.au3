@@ -16,7 +16,7 @@ Sleep(3500) ; 暂停让用户观察操作
 
 _ExcelColumnInsert($oExcel, 1, 1) ;在指定的列插入(在第1列位置插入1列)
 
-MsgBox(0, "退出", "按[确定]保存文件并退出")
+MsgBox(4096, "退出", "按[确定]保存文件并退出")
 _ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 在临时目录保存文件, 如果文件已存在则覆盖原文件
 _ExcelBookClose($oExcel) ; 关闭工作表, 退出
 
@@ -41,6 +41,6 @@ Sleep(3500) ; 暂停让用户观察操作
 
 _ExcelColumnInsert($oExcel, 2, 3) ;在指定的列插入(在第2列位置插入3列)
 
-MsgBox(0, "退出", "按[确定]保存文件并退出")
+MsgBox(4096, "退出", "按[确定]保存文件并退出")
 _ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1)  ; 在临时目录保存文件, 如果文件已存在则覆盖原文件
 _ExcelBookClose($oExcel) ; 关闭工作表, 退出

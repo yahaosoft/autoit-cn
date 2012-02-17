@@ -16,7 +16,7 @@ Next
 Local $sFormat = "$#,##0.00" ;格式字符串告知 _ExcelNumberFormat 把它格式化成美元 ($) 货币
 _ExcelNumberFormat($oExcel, $sFormat, 1, 1, 5, 5) ;从第 1 行, 第一列开始到第 5 行第 5 列结束
 
-MsgBox(0, "Exiting", "Press OK to Save File and Exit")
+MsgBox(4096, "Exiting", "Press OK to Save File and Exit")
 _ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 现在我们把它保存到临时目录; 必要时覆盖文件
 _ExcelBookClose($oExcel) ; 最后我们关闭并退出
 
@@ -52,6 +52,6 @@ Next
 $oExcel.Columns.AutoFit ;自动调整列以获得更佳视图
 $oExcel.Rows.AutoFit ;自动调整行以获得更佳视图
 
-MsgBox(0, "Exiting", "Press OK to Save File and Exit")
+MsgBox(4096, "Exiting", "Press OK to Save File and Exit")
 _ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 现在我们把它保存到临时目录; 必要时覆盖文件
 _ExcelBookClose($oExcel) ; 最后我们关闭并退出

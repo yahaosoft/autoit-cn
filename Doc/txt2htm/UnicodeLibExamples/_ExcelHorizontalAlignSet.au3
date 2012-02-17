@@ -14,19 +14,19 @@ For $i = 1 To 10
 	Next
 Next
 
-MsgBox(0, "提示", "在一个范围内设置每个单元格的水平对齐方式" & @CRLF & "按[确定]开始")
+MsgBox(4096, "提示", "在一个范围内设置每个单元格的水平对齐方式" & @CRLF & "按[确定]开始")
 
 _ExcelHorizontalAlignSet($oExcel, $sRangeOrRowStart, $iColStart, $iRowEnd, $iColEnd, $sHorizAlign)
-MsgBox(0, "提示", "水平对齐方式 '左对齐'")
+MsgBox(4096, "提示", "水平对齐方式 '左对齐'")
 
 $sHorizAlign = "center"
 _ExcelHorizontalAlignSet($oExcel, $sRangeOrRowStart, $iColStart, $iRowEnd, $iColEnd, $sHorizAlign)
-MsgBox(0, "提示", "水平对齐方式 '居中'")
+MsgBox(4096, "提示", "水平对齐方式 '居中'")
 
 $sHorizAlign = "right"
 _ExcelHorizontalAlignSet($oExcel, $sRangeOrRowStart, $iColStart, $iRowEnd, $iColEnd, $sHorizAlign)
-MsgBox(0, "提示", "水平对齐方式 '右对齐'")
+MsgBox(4096, "提示", "水平对齐方式 '右对齐'")
 
-MsgBox(0, "退出", "按[确定]保存文件并退出")
+MsgBox(4096, "退出", "按[确定]保存文件并退出")
 _ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ;保存至临时目录中,如果文件已存在将覆盖原文件
 _ExcelBookClose($oExcel)  ;关闭工作表.

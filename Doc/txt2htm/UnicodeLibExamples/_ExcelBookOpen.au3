@@ -4,13 +4,13 @@
 
 #include <Excel.au3>
 
-Local $sFilePath1 = @ScriptDir & "\Test1.xls" ;这个文件应该已经存在
+Local $sFilePath1 = @ScriptDir & "\Test.xls" ;这个文件应该已经存在
 Local $oExcel = _ExcelBookOpen($sFilePath1)
 
 If @error = 1 Then
-	MsgBox(0, "错误!", "无法创建对象!")
+	MsgBox(4096, "错误!", "无法创建对象!")
 	Exit
 ElseIf @error = 2 Then
-	MsgBox(0, "错误!", "文件不存在!")
+	MsgBox(4096, "错误!", "文件不存在!")
 	Exit
 EndIf

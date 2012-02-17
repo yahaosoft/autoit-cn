@@ -15,7 +15,7 @@ Sleep(3500)
 
 _ExcelRowDelete($oExcel, 1, 1) ;删除第一行并且仅删除一行
 
-MsgBox(0, "Exiting", "Press OK to Save File and Exit")
+MsgBox(4096, "Exiting", "Press OK to Save File and Exit")
 _ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 现在我们把它保存到临时目录; 必要时覆盖文件
 _ExcelBookClose($oExcel) ; 最后我们关闭并退出
 
@@ -36,6 +36,6 @@ Sleep(3500)
 
 _ExcelRowDelete($oExcel, 3, 2) ;从第三行开始删除, 并且删除两行
 
-MsgBox(0, "Exiting", "Press OK to Save File and Exit")
+MsgBox(4096, "Exiting", "Press OK to Save File and Exit")
 _ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; 现在我们把它保存到临时目录; 必要时覆盖文件
 _ExcelBookClose($oExcel) ; 最后我们关闭并退出
