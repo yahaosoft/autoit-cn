@@ -19,4 +19,4 @@ Local $aTableData = _IETableWriteToArray($oTable)
 $oIE = _IE_Example("table")
 $oTable = _IETableGetCollection($oIE)
 Local $iNumTables = @extended
-MsgBox(0, "Table Info", "There are " & $iNumTables & " tables on the page")
+MsgBox(4096, "Table Info", "There are " & $iNumTables & " tables on the page")

@@ -58,17 +58,17 @@ $oIE = _IE_Example("form")
 $oForm = _IEFormGetObjByName($oIE, "ExampleForm")
 $oSelect = _IEFormElementGetObjByName($oForm, "selectExample")
 If _IEFormElementOptionSelect($oSelect, "Freepage", -1, "byText") Then
-	MsgBox(0, "Option Selected", "Option Freepage is selected")
+	MsgBox(4096, "Option Selected", "Option Freepage is selected")
 Else
-	MsgBox(0, "Option Selected", "Option Freepage is Not selected")
+	MsgBox(4096, "Option Selected", "Option Freepage is Not selected")
 EndIf
 If _IEFormElementOptionSelect($oSelect, 0, -1, "byIndex") Then
-	MsgBox(0, "Option Selected", "The First (index 0) option is selected")
+	MsgBox(4096, "Option Selected", "The First (index 0) option is selected")
 Else
-	MsgBox(0, "Option Selected", "The First (index 0) option is Not selected")
+	MsgBox(4096, "Option Selected", "The First (index 0) option is Not selected")
 EndIf
 If _IEFormElementOptionSelect($oSelect, "midipage.html", -1, "byValue") Then
-	MsgBox(0, "Option Selected", "The option with value 'midipage.html' is selected")
+	MsgBox(4096, "Option Selected", "The option with value 'midipage.html' is selected")
 Else
-	MsgBox(0, "Option Selected", "The option with value 'midipage.html' is NOT selected")
+	MsgBox(4096, "Option Selected", "The option with value 'midipage.html' is NOT selected")
 EndIf

@@ -20,4 +20,4 @@ _IENavigate($oIE, "http://www.autoitscript.com/forum/index.php?showforum=9")
 #include <IE.au3>
 
 $oIE = _IECreate("www.autoitscript.com", 0)
-MsgBox(0, "_IENavigate()", "This code executes immediately")
+MsgBox(4096, "_IENavigate()", "This code executes immediately")

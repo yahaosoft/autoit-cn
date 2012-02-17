@@ -13,7 +13,7 @@ $sInfo &= "FileName: " & $oImg.nameProp & @CR
 $sInfo &= "Height: " & $oImg.height & @CR
 $sInfo &= "Width: " & $oImg.width & @CR
 $sInfo &= "Border: " & $oImg.border
-MsgBox(0, "4th Image Info", $sInfo)
+MsgBox(4096, "4th Image Info", $sInfo)
 
 ; *******************************************************
 ; 示例 2 - 创建浏览器并打开 AutoIt 主页, 获取 Img 集合
@@ -25,7 +25,7 @@ MsgBox(0, "4th Image Info", $sInfo)
 $oIE = _IECreate("http://www.autoitscript.com/")
 Local $oImgs = _IEImgGetCollection($oIE)
 Local $iNumImg = @extended
-MsgBox(0, "Img Info", "There are " & $iNumImg & " images on the page")
+MsgBox(4096, "Img Info", "There are " & $iNumImg & " images on the page")
 For $oImg In $oImgs
-	MsgBox(0, "Img Info", "src=" & $oImg.src)
+	MsgBox(4096, "Img Info", "src=" & $oImg.src)
 Next

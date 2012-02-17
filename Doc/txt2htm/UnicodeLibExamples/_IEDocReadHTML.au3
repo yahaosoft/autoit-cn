@@ -7,4 +7,4 @@
 
 Local $oIE = _IE_Example("basic")
 Local $sHTML = _IEDocReadHTML($oIE)
-MsgBox(0, "Document Source", $sHTML)
+MsgBox(4096, "Document Source", $sHTML)

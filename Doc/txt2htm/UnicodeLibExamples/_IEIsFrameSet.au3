@@ -10,10 +10,10 @@ Local $oFrames = _IEFrameGetCollection($oIE)
 Local $iNumFrames = @extended
 If $iNumFrames > 0 Then
 	If _IEIsFrameSet($oIE) Then
-		MsgBox(0, "Frame Info", "Page contains " & $iNumFrames & " frames in a FrameSet")
+		MsgBox(4096, "Frame Info", "Page contains " & $iNumFrames & " frames in a FrameSet")
 	Else
-		MsgBox(0, "Frame Info", "Page contains " & $iNumFrames & " iFrames")
+		MsgBox(4096, "Frame Info", "Page contains " & $iNumFrames & " iFrames")
 	EndIf
 Else
-	MsgBox(0, "Frame Info", "Page contains no frames")
+	MsgBox(4096, "Frame Info", "Page contains no frames")
 EndIf

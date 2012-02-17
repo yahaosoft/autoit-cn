@@ -38,7 +38,7 @@ Func MyErrFunc()
 	$ErrorOutput &= "----> $ErrorHelpFile = " & $ErrorHelpFile & @CR
 	$ErrorOutput &= "----> $ErrorHelpContext = " & $ErrorHelpContext & @CR
 	$ErrorOutput &= "----> $ErrorLastDllError = " & $ErrorLastDllError
-	MsgBox(0, "COM Error", $ErrorOutput)
+	MsgBox(4096, "COM Error", $ErrorOutput)
 	SetError(1)
 	Return
 EndFunc   ;==>MyErrFunc

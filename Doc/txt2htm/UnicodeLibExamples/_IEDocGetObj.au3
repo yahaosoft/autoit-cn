@@ -7,4 +7,4 @@
 
 Local $oIE = _IECreate("http://www.autoitscript.com")
 Local $oDoc = _IEDocGetObj($oIE)
-MsgBox(0, "Document Created Date", $oDoc.fileCreatedDate)
+MsgBox(4096, "Document Created Date", $oDoc.fileCreatedDate)

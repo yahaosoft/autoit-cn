@@ -8,7 +8,7 @@
 Local $oIE = _IE_Example("basic")
 Local $oLinks = _IELinkGetCollection($oIE)
 Local $iNumLinks = @extended
-MsgBox(0, "Link Info", $iNumLinks & " links found")
+MsgBox(4096, "Link Info", $iNumLinks & " links found")
 For $oLink In $oLinks
-	MsgBox(0, "Link Info", $oLink.href)
+	MsgBox(4096, "Link Info", $oLink.href)
 Next

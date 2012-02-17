@@ -23,46 +23,25 @@ _IEFormElementSetValue($oQuery, "AutoIt IE.au3")
 _IEFormSubmit($oForm)
 
 ; *******************************************************
-; 示例 3 - 登录 Hotmail
-; *******************************************************
-
-#include <IE.au3>
-
-; 创建浏览器窗口并导航到 hotmail
-$oIE = _IECreate("http://www.hotmail.com")
-
-; 获取到登录表单和用户名, 密码和登录字段的指针
-Local $o_form = _IEFormGetObjByName($oIE, "f1")
-Local $o_login = _IEFormElementGetObjByName($o_form, "login")
-Local $o_password = _IEFormElementGetObjByName($o_form, "passwd")
-Local $o_signin = _IEFormElementGetObjByName($o_form, "SI")
-
-Local $username = "your username here"
-Local $password = "your password here"
-
-; 设置字段值并提交表单
-_IEFormElementSetValue($o_login, $username)
-_IEFormElementSetValue($o_password, $password)
-_IEAction($o_signin, "click")
-
-; *******************************************************
-; 示例 4 - 设置 INPUT TYPE=FILE 元素的值
-;				(由于安全限制而阻止使用 _IEFormElementSetValue)
+; Example 3 - Set the value of an INPUT TYPE=TEXT element using Send()
 ; *******************************************************
 
 #include <IE.au3>
 
 $oIE = _IE_Example("form")
 $oForm = _IEFormGetObjByName($oIE, "ExampleForm")
-Local $oInputFile = _IEFormElementGetObjByName($oForm, "fileExample")
+Local $oInputFile = _IEFormElementGetObjByName($oForm, "textExample")
 
 ; 把输入焦点定位到这个字段然后发送文本字符串
 _IEAction($oInputFile, "focus")
-Send("C:\myfile.txt")
+
+; Select existing content so it will be overwritten.
+_IEAction($oInputFile, "selectall")
+
+Send("This works")
 
 ; *******************************************************
-; 示例 5 - 设置 INPUT TYPE=FILE 元素的值
-;				和前一个示例相同, 不过这里操作于不可见窗口
+; 示例 4 - 设置 INPUT TYPE=TEXT 元素的值
 ;				(由于安全限制而阻止使用 _IEFormElementSetValue)
 ; *******************************************************
 ;
@@ -74,12 +53,17 @@ $oIE = _IE_Example("form")
 _IEAction($oIE, "invisible")
 
 $oForm = _IEFormGetObjByName($oIE, "ExampleForm")
-$oInputFile = _IEFormElementGetObjByName($oForm, "fileExample")
+$oInputFile = _IEFormElementGetObjByName($oForm, "textExample")
 
 ; 把输入焦点定位到这个字段然后发送文本字符串
 _IEAction($oInputFile, "focus")
-Local $hIE = _IEPropertyGet($oIE, "hwnd")
-ControlSend($hIE, "", "[CLASS:Internet Explorer_Server; INSTANCE:1]", "C:\myfile.txt")
 
-MsgBox(0, "Success", "Value set to C:\myfile.txt")
+; Select existing content so it will be overwritten.
+_IEAction($oInputFile, "selectall")
+
+; Get a handle to the IE window.
+Local $hIE = _IEPropertyGet($oIE, "hwnd")
+ControlSend($hIE, "", "[CLASS:Internet Explorer_Server; INSTANCE:1]", "This works")
+
+MsgBox(4096, "Success", "Value set to 'This works'")
 _IEAction($oIE, "visible")

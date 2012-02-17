@@ -5,7 +5,7 @@
 #include <IE.au3>
 
 Local $oIE = _IEAttach("AutoIt")
-MsgBox(0, "The URL", _IEPropertyGet($oIE, "locationurl"))
+MsgBox(4096, "The URL", _IEPropertyGet($oIE, "locationurl"))
 
 ; *******************************************************
 ; 示例 2 - 附加到顶级文档的文本中含 "The quick brown fox"
@@ -54,4 +54,4 @@ While 1
 	$i += 1
 WEnd
 
-MsgBox(0, "Browsers Found", "Number of browser instances in the array: " & $aIE[0])
+MsgBox(4096, "Browsers Found", "Number of browser instances in the array: " & $aIE[0])

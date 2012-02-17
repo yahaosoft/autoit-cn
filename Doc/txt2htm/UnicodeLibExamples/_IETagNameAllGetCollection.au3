@@ -8,5 +8,5 @@
 Local $oIE = _IE_Example("basic")
 Local $oElements = _IETagNameAllGetCollection($oIE)
 For $oElement In $oElements
-	MsgBox(0, "Element Info", "Tagname: " & $oElement.tagname & @CR & "innerText: " & $oElement.innerText)
+	MsgBox(4096, "Element Info", "Tagname: " & $oElement.tagname & @CR & "innerText: " & $oElement.innerText)
 Next

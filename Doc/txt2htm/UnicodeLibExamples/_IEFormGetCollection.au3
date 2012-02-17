@@ -20,9 +20,9 @@ _IEFormSubmit($oForm)
 
 $oIE = _IECreate("http://www.autoitscript.com")
 Local $oForms = _IEFormGetCollection($oIE)
-MsgBox(0, "Forms Info", "There are " & @extended & " forms on this page")
+MsgBox(4096, "Forms Info", "There are " & @extended & " forms on this page")
 For $oForm In $oForms
-	MsgBox(0, "Form Info", $oForm.name)
+	MsgBox(4096, "Form Info", $oForm.name)
 Next
 
 ; *******************************************************
@@ -36,8 +36,8 @@ Next
 $oIE = _IECreate("http://www.autoitscript.com")
 $oForms = _IEFormGetCollection($oIE)
 Local $iNumForms = @extended
-MsgBox(0, "Forms Info", "There are " & $iNumForms & " forms on this page")
+MsgBox(4096, "Forms Info", "There are " & $iNumForms & " forms on this page")
 For $i = 0 To $iNumForms - 1
 	$oForm = _IEFormGetCollection($oIE, $i)
-	MsgBox(0, "Form Info", $oForm.name)
+	MsgBox(4096, "Form Info", $oForm.name)
 Next

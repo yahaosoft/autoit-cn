@@ -7,4 +7,4 @@
 
 Local $oIE = _IE_Example("basic")
 Local $sText = _IEBodyReadText($oIE)
-MsgBox(0, "Body Text", $sText)
+MsgBox(4096, "Body Text", $sText)
