@@ -1,7 +1,7 @@
 ﻿; *******************************************************
-; 示例 1 - 阻止 COM 错误这样
-;				在历史记录中 '后退' 和 '前进' 时不会中止脚本
-;				(预期中 COM 错误被发送到控制台)
+; 示例1 - 获取COM错误以便外部历史集的'Back'及'Forward'不使脚本退出
+;    (COM错误将送至控制台)
+;
 ; *******************************************************
 
 #include <GUIConstantsEx.au3>
@@ -20,7 +20,7 @@ Local $GUI_Button_Forward = GUICtrlCreateButton("Forward", 120, 420, 100, 30)
 Local $GUI_Button_Home = GUICtrlCreateButton("Home", 230, 420, 100, 30)
 Local $GUI_Button_Stop = GUICtrlCreateButton("Stop", 340, 420, 100, 30)
 
-GUISetState() ;显示 GUI
+GUISetState() ;显示GUI
 
 _IENavigate($oIE, "http://www.autoitscript.com")
 

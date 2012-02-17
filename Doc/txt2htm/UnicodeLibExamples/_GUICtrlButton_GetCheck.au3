@@ -39,7 +39,7 @@ Func _Main()
 	Exit
 EndFunc   ;==>_Main
 
-; 写入一行到 memo 控件
+; 自定义函数 MemoWrite 功能动作: 向编辑框写入当前按钮信息
 Func MemoWrite($sMessage)
 	GUICtrlSetData($iMemo, $sMessage & @CRLF, 1)
 EndFunc   ;==>MemoWrite

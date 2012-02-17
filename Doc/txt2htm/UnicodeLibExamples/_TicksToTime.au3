@@ -9,11 +9,11 @@ Global $timer, $Secs, $Mins, $Hour, $Time
 _Main()
 
 Func _Main()
-	;创建 GUI
+	;创建界面
 	GUICreate("Timer", 120, 50)
 	GUICtrlCreateLabel("00:00:00", 10, 10)
 	GUISetState()
-	;开始计时
+	;启动计时器
 	$timer = TimerInit()
 	AdlibRegister("Timer", 50)
 	;

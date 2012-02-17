@@ -29,9 +29,9 @@ _IEDocInsertText($oBody, "Notice that <b>Tags</b> are <encoded> before display",
 
 ; *******************************************************
 ; 示例 3 - 高级示例
-;		Insert a clock and a referrer string at the top of every page, even when you
-;		browse to a new location.  使用 _IEDocInsertText, _IEDocInsertHTML 和
-;		_IEPropertySet 特别用在 "innerhtml" 和 "referrer" 上
+;		当浏览新地址时在每页顶部插入一个时钟及一个引用字符串,
+;		使用_IEDocInsertText, _IEDocInsertHTML及
+;		_IEPropertySet设置"innerhtml"及"referrer"
 ; *******************************************************
 
 #include <IE.au3>
@@ -61,13 +61,13 @@ Func UpdateClock()
 		$oAutoItClock = _IEGetObjByName($oIE, "AutoItClock")
 		_IEPropertySet($oAutoItClock, "innerhtml", $curTime)
 		;
-		; Check referrer string, if not blank insert after clock
+		; 检查引用字符串, 如果非空插入到时间后
 		_IELoadWait($oIE)
 		Local $sReferrer = _IEPropertyGet($oIE, "referrer")
 		If $sReferrer Then _IEDocInsertText($oAutoItClock, _
 				"  Referred by: " & $sReferrer, "afterend")
 	Else
-		_IEPropertySet($oAutoItClock, "innerhtml", $curTime) ; 更新时间
+		_IEPropertySet($oAutoItClock, "innerhtml ", $curTime) ; 更新时间
 	EndIf
 	_IEErrorNotify(True)
 EndFunc   ;==>UpdateClock

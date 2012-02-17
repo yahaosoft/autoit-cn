@@ -2,7 +2,7 @@
 #include <WindowsConstants.au3>
 #include <WinAPI.au3>
 
-; 获取窗口标题的高度和窗口框架的宽度 - 当 XP 主题为 ON/OFF 时可能会不同
+; 获取窗口标题高度及窗口框架宽度 - 开启/关闭主题时可能不同
 Global $htit = _WinAPI_GetSystemMetrics($SM_CYCAPTION)
 Global $frame = _WinAPI_GetSystemMetrics($SM_CXDLGFRAME)
 
@@ -14,7 +14,7 @@ Local $btn_transparent = GUICtrlCreateButton("Transparent region", 100, 120, 150
 Local $btn_exit = GUICtrlCreateButton("Exit", 100, 150, 150)
 GUISetState(@SW_SHOW)
 
-Local $pos = WinGetPos($gui) ; 获取整个窗口大小 (不包括由 GUICreate 定义的客户区大小)
+Local $pos = WinGetPos($gui) ; 获取整个窗口大小(GUICreate定义的窗口不包含客户区)
 Global $width = $pos[2]
 Global $height = $pos[3]
 
@@ -55,7 +55,7 @@ While 1
 	EndSelect
 WEnd
 
-; 生成内部透明区域用于添加控件
+; 将内部区域透明并添加控件
 Func _GuiHole($h_win, $i_x, $i_y, $i_sizew, $i_sizeh)
 	Local $outer_rgn, $inner_rgn, $combined_rgn
 

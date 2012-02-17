@@ -59,7 +59,7 @@ Func _Main()
 	Exit
 EndFunc   ;==>_Main
 
-; 写入一行到 memo 控件
+; 写入Memo控件
 Func MemoWrite($sMessage)
 	GUICtrlSetData($iMemo, $sMessage & @CRLF, 1)
 EndFunc   ;==>MemoWrite
@@ -67,18 +67,18 @@ EndFunc   ;==>MemoWrite
 Func _ExplainState($iState, $fPushButton = False)
 	Local $sText = ""
 	If Not $fPushButton And Not $iState Then Return _
-			@CRLF & "Indicates the button is cleared. Same as a return value of zero." & @CRLF
+			@CRLF & "Indicates the button is cleared. Same as a return value of zero." & @CRLF ;按钮已被清除. 等同于返回0
 	If BitAND($iState, $BST_CHECKED) = $BST_CHECKED Then _
-			$sText &= @CRLF & "Indicates the button is checked." & @CRLF
+			$sText &= @CRLF & "Indicates the button is checked." & @CRLF ;按钮已选中
 	If BitAND($iState, $BST_FOCUS) = $BST_FOCUS Then _
-			$sText &= @CRLF & "Specifies the focus state. A nonzero value indicates that the button has the keyboard focus." & @CRLF
+			$sText &= @CRLF & "Specifies the focus state. A nonzero value indicates that the button has the keyboard focus." & @CRLF ;按钮具有焦点. 非0值表示有键盘焦点
 	If BitAND($iState, $BST_INDETERMINATE) = $BST_INDETERMINATE Then _
-			$sText &= @CRLF & "Indicates the button is grayed because the state of the button is indeterminate." & @CRLF
+			$sText &= @CRLF & "Indicates the button is grayed because the state of the button is indeterminate." & @CRLF ;按钮处于灰色状态
 	If $fPushButton Then
 		If BitAND($iState, $BST_PUSHED) = $BST_PUSHED Then
-			$sText &= @CRLF & "Specifies the highlight state." & @CRLF
+			$sText &= @CRLF & "Specifies the highlight state." & @CRLF ;按钮处于高亮状态
 		Else
-			$sText &= @CRLF & "Specifies not highlighted state." & @CRLF
+			$sText &= @CRLF & "Specifies not highlighted state." & @CRLF ;按钮未处于高亮状态
 		EndIf
 	EndIf
 	Return $sText
