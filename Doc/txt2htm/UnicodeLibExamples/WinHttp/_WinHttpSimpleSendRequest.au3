@@ -16,7 +16,7 @@ If $hRequest Then
 	ConsoleWrite(_WinHttpSimpleReadData($hRequest) & @CRLF)
 	MsgBox(64, "Okey do!", "Returned source is print to concole. Check it.")
 Else
-	MsgBox(48, "Error", "Error ocurred for _WinHttpSimpleSendRequest, Error number is " & @error)
+	MsgBox(48, "错误", "Error ocurred for _WinHttpSimpleSendRequest, Error number is " & @error)
 EndIf
 
 ; 关闭句柄

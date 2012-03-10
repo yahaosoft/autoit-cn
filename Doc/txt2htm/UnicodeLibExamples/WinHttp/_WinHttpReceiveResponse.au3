@@ -16,7 +16,7 @@ _WinHttpSendRequest($hRequest)
 ; 等待响应
 _WinHttpReceiveResponse($hRequest)
 If @error Then
-	MsgBox(48, "Error", "Error ocurred for WinHttpReceiveResponse, Error number is " & @error)
+	MsgBox(48, "错误", "Error ocurred for WinHttpReceiveResponse, Error number is " & @error)
 Else
 	MsgBox(64, "All right!", "Server at 'en.wikipedia.org' processed the request.")
 EndIf

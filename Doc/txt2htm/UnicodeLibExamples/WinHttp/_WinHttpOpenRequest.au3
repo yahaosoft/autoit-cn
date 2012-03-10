@@ -46,7 +46,7 @@ If _WinHttpQueryDataAvailable($hRequest) Then
 		MsgBox(0, "", "Login failed")
 	EndIf
 Else
-	MsgBox(48, "Error", "Site is experiencing problems.")
+	MsgBox(48, "错误", "Site is experiencing problems.")
 EndIf
 
 

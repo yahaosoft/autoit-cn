@@ -7,7 +7,7 @@ Opt("MustDeclareVars", 1)
 ; 初始化并获取会话句柄
 Global $hOpen = _WinHttpOpen()
 If @error Then
-	MsgBox(48, "Error", "Error initializing the usage of WinHTTP functions.")
+	MsgBox(48, "错误", "Error initializing the usage of WinHTTP functions.")
 	Exit 1
 EndIf
 

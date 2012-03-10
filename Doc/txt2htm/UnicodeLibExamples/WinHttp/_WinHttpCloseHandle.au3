@@ -7,7 +7,7 @@ Opt("MustDeclareVars", 1)
 ; 初始化并获取会话句柄
 Global $hOpen = _WinHttpOpen()
 If @error Then
-	MsgBox(48, "Error", "Error initializing the usage of WinHTTP functions.")
+	MsgBox(48, "错误", "Error initializing the usage of WinHTTP functions.")
 	Exit 1
 EndIf
 
@@ -15,7 +15,7 @@ EndIf
 _WinHttpCloseHandle($hOpen)
 If @error Then
 	ConsoleWriteError("!Error closing the handle. @error = " & @error & @CRLF)
-	MsgBox(48, "Error", "Error closing the handle." & @CRLF & "Error number is " & @error)
+	MsgBox(48, "错误", "Error closing the handle." & @CRLF & "Error number is " & @error)
 Else
 	ConsoleWrite("+ Handle is succesfully closed." & @CRLF)
 	MsgBox(64, "Closed", "Handle is succesfully closed.")

@@ -8,14 +8,14 @@ Opt("MustDeclareVars", 1)
 Global $hOpen = _WinHttpOpen()
 
 If @error Then
-	MsgBox(48, "Error", "Error initializing the usage of WinHTTP functions.")
+	MsgBox(48, "错误", "Error initializing the usage of WinHTTP functions.")
 	Exit 1
 EndIf
 
 ; 指明连接到哪里
 Global $hConnect = _WinHttpConnect($hOpen, "yahoo.com") ; <- 这儿您的目标
 If @error Then
-	MsgBox(48, "Error", "Error specifying the initial target server of an HTTP request.")
+	MsgBox(48, "错误", "Error specifying the initial target server of an HTTP request.")
 	_WinHttpCloseHandle($hOpen)
 	Exit 2
 EndIf
@@ -23,7 +23,7 @@ EndIf
 ; 创建请求
 Global $hRequest = _WinHttpOpenRequest($hConnect)
 If @error Then
-	MsgBox(48, "Error", "Error creating an HTTP request handle.")
+	MsgBox(48, "错误", "Error creating an HTTP request handle.")
 	_WinHttpCloseHandle($hConnect)
 	_WinHttpCloseHandle($hOpen)
 	Exit 3
@@ -32,7 +32,7 @@ EndIf
 ; 发送它
 _WinHttpSendRequest($hRequest)
 If @error Then
-	MsgBox(48, "Error", "Error sending specified request.")
+	MsgBox(48, "错误", "Error sending specified request.")
 	_WinHttpCloseHandle($hRequest)
 	_WinHttpCloseHandle($hConnect)
 	_WinHttpCloseHandle($hOpen)
@@ -42,7 +42,7 @@ EndIf
 ; 等待响应
 _WinHttpReceiveResponse($hRequest)
 If @error Then
-	MsgBox(48, "Error", "Error waiting for the response from the server.")
+	MsgBox(48, "错误", "Error waiting for the response from the server.")
 	_WinHttpCloseHandle($hRequest)
 	_WinHttpCloseHandle($hConnect)
 	_WinHttpCloseHandle($hOpen)
@@ -60,7 +60,7 @@ If _WinHttpQueryDataAvailable($hRequest) Then
 	WEnd
 	ConsoleWrite($sData & @CRLF) ; 打印到控制台
 Else
-	MsgBox(48, "Error", "Site is experiencing problems.")
+	MsgBox(48, "错误", "Site is experiencing problems.")
 EndIf
 
 ; 不再需要那些句柄时关闭它们

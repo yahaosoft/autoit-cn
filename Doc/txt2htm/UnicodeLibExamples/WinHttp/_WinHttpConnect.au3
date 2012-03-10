@@ -10,7 +10,7 @@ Global $hOpen = _WinHttpOpen()
 ; 获取连接句柄
 Global $hConnect = _WinHttpConnect($hOpen, "www.pravda.ru")
 If @error Then
-	MsgBox(48, "Error", "Error getting connection handle." & @CRLF & "Error number is " & @error)
+	MsgBox(48, "错误", "Error getting connection handle." & @CRLF & "Error number is " & @error)
 Else
 	ConsoleWrite("+ Connection handle $hConnect = " & $hConnect & @CRLF)
 	MsgBox(64, "Yes!", "Handle is get! $hConnect = " & $hConnect)

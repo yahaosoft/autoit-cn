@@ -25,7 +25,7 @@ _WinHttpReceiveResponse($hRequest)
 If _WinHttpQueryDataAvailable($hRequest) Then
 	MsgBox(64, "OK", _WinHttpReadData($hRequest))
 Else
-	MsgBox(48, "Error", "Site is experiencing problems (or you).")
+	MsgBox(48, "错误", "Site is experiencing problems (or you).")
 EndIf
 
 ; 关闭句柄
