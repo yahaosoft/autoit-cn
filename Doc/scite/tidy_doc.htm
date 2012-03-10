@@ -1,413 +1,436 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head>
-  <meta name="generator" content="HTML Tidy for Windows (vers 1 September 2005), see www.w3.org">
-  <meta name="generator" content="Microsoft FrontPage 6.0">
-  <meta name="generator" content="Microsoft FrontPage 6.0">
-  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii"><title>Tidy for AutoIt3</title>
 
-  
-  <title>Tidy for AutoIt3</title><link rel="stylesheet" href="css/default.css" type="text/css"></head>
-
-
+<link rel="stylesheet" href="css/default.css" type="text/css">
+</head>
 <body lang="EN-US" link="blue" vlink="purple">
-  <h1>Description of Tidy.exe</h1>
-
-  <h2>What can Tidy do for you:</h2>
-
-  <ol>
-    <li>Clean up the indentation with spaces or Tabs.</li>
-
-    <li>Change all Functions/Keywords/Macros to proper case as defined in the files
-
-      <ol>
-        <li>au3.api</li>
-
-        <li>UserFunctions.txt</li>
-      </ol>
-    </li>
-
-    <li>All
+<h1>Description of Tidy.exe</h1>
+<h2>What can Tidy do for you:</h2>
+<ol>
+<li>Clean up the indentation with spaces or Tabs.</li>
+<li>Change all Functions/Keywords/Macros to proper case as
+defined in the files
+<ol>
+<li>au3.api</li>
+<li>UserFunctions.txt</li>
+</ol>
+</li>
+<li>All
 user functions from Userfunctions.txt and all FUNC in the script are
 loaded into the Functions table. This option only works in combination
 with the previous option.</li>
-
-    <li>Change all Variables to Uppercase or Lowercase or "as Dim/Global/Local or First occurrence"</li>
-
-    <li>Add spaces around operators and remove extra spaces around operators/keywords/function.</li>
-
-    <li>Remove empty lines.</li>
-
-    <li>Remove trailing spaces.</li>
-
-    <li>Add a comment after EndFunc to easily identity which Func end with this EndFunc<br>
-    e.g. "EndFunc<span style="">&nbsp;</span> ; ==&gt; FunctionName"</li>
-
-    <li>Generate a Documentation file with program logic and Xref reports for Variables and UDF's.</li>
-
-    <li>check for coding errors like missing EndIF/Wend or Func inside and IF/DO/FOR loop.</li>
-	<li>Sort all Func-Endfunc Blocks in sequence and when #Region-#EndRegion is 
-	used sort them within that scope.</li>
-  </ol>
-
-  <p><b><u>Example 1:</u></b></p>
-
-  <table border="1" width="75%">
-    <tbody><tr>
-      <td><b><u>Before</u></b></td>
-
-      <td><b><u>After</u></b></td>
-    </tr>
-
-    <tr>
-      <td class="code"><img src="tidy_doc_files/before.png" height="465" width="459"></td>
-
-      <td class="code"><img src="tidy_doc_files/after.png" height="464" width="462"></td>
-    </tr>
-  </tbody></table>
-
-  <p><b><u><br>
-  Example 2:</u></b></p>
-
-  <p>When
+<li>Change all Variables to Uppercase or Lowercase or "as
+Dim/Global/Local or First occurrence"</li>
+<li>Add spaces around operators and remove extra spaces around
+operators/keywords/function.</li>
+<li>Remove empty lines.</li>
+<li>Remove trailing spaces.</li>
+<li>Add a comment after EndFunc to easily identity which Func
+end with this EndFunc<br>
+e.g. "EndFunc<span style="">&nbsp;</span> ;
+==&gt; FunctionName"</li>
+<li>Generate a Documentation file with program logic and Xref
+reports for Variables and UDF's.</li>
+<li>check for coding errors like missing EndIF/Wend or Func
+inside and IF/DO/FOR loop.</li>
+<li>Sort all Func-Endfunc Blocks in sequence and when
+#Region-#EndRegion is used sort them within that scope.</li>
+</ol>
+<p><b><u>Example 1:</u></b></p>
+<table border="1" width="75%">
+<tbody>
+<tr>
+<td><b><u>Before</u></b></td>
+<td><b><u>After</u></b></td>
+</tr>
+<tr>
+<td class="code"><img src="tidy_doc_files/before.png" height="465" width="459"></td>
+<td class="code"><img src="tidy_doc_files/after.png" height="464" width="462"></td>
+</tr>
+</tbody>
+</table>
+<p><b><u><br>
+Example 2:</u></b></p>
+<p>When
 there is a syntax issue, Tidy will insert warning comments as shown in
 the below example and indicate the number of errors found. In this case
-the <b><font color="#0000ff">End if</font></b> is wrong so doesn't close the <b><font color="#0000ff">If</font></b> before the <b><font color="#0000ff">Func</font></b> starts. Just fix the coding issue and run Tidy again. All previous inserted Tidy error lines will be removed by Tidy.</p>
-
-  <p>&nbsp;</p>
-
-  <table border="1" width="75%">
-    <tbody><tr>
-      <td><b><u>Before</u></b></td>
-
-      <td><b><u>After</u></b></td>
-    </tr>
-
-    <tr>
-      <td class="code" valign="top"><img src="tidy_doc_files/before2.png" height="162" width="223"></td>
-
-      <td class="code"><img src="tidy_doc_files/after2.png" height="220" width="711"></td>
-    </tr>
-  </tbody></table>
-
-  <p>&nbsp;</p>
-
-  <h2>Running Tidy:</h2>
-
-  <p>Your can run Tidy in 3 ways:</p>
-
-  <ol>
-    <li>Run it from within SciTE by pressing Ctrl+T.</li>
-
-    <li>Just start the program Tidy.exe and you will be prompted for the filename.</li>
-
-    <li>Right Mouse Click on your AU3 script and select Tidy. This is only available when you have used the SciTE4AutoIt3 installer.</li>
-  </ol>
-
-  <p>When Tidy is run without any parameter you will be prompted for the input file.<br>
-  <br>
-  <img src="tidy_doc_files/SelectFile.png" v:shapes="_x0000_i1026" border="0" height="419" width="563"></p>
-
-  <p>&nbsp;</p>
-
-  <p>After you specified the input file Tidy will start the process and show the result in the SciTE Output pane or Command window:</p>
-
-  <table id="table1" border="1" width="87%">
-    <tbody><tr>
-      <td>Tidy AutoIt3 v2.0.0.0 Copyright (c) Jos van der Zande August 19, 2006<br>
-      <font color="#008080">+&gt; Tidy AutoIt3 finished. Original copied to:"C:\Development\winutil\AutoIt3\programs\test\BackUp\test_old5.au3"<br>
-      &nbsp;</font></td>
-    </tr>
-  </tbody></table>
-
-  <h2>Setting Tidy's options (Tidy.ini):</h2>
-
-  <p><font face="Courier New" size="2"><b>[ProgramSettings]<br></b> *** (tabchar)Indent setting: 0=Tabs &gt;0=Number of Space <br>
-  <b>tabchar=0</b><br>
-  *** Update Functions/Keywords/Macros/UDFs to Proper case<br>
-  <b>proper=1</b><br>
-*** Update Variables to: 1=UpperCase; 2=LowerCase; 3=First
+the <b><font color="#0000ff">End if</font></b>
+is wrong so doesn't close the <b><font color="#0000ff">If</font></b>
+before the <b><font color="#0000ff">Func</font></b>
+starts. Just fix the coding issue and run Tidy again. All previous
+inserted Tidy error lines will be removed by Tidy.</p>
+<p>&nbsp;</p>
+<table border="1" width="75%">
+<tbody>
+<tr>
+<td><b><u>Before</u></b></td>
+<td><b><u>After</u></b></td>
+</tr>
+<tr>
+<td class="code" valign="top"><img src="tidy_doc_files/before2.png" height="162" width="223"></td>
+<td class="code"><img src="tidy_doc_files/after2.png" height="220" width="711"></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2>Running Tidy:</h2>
+<p>Your can run Tidy in 3 ways:</p>
+<ol>
+<li>Run it from within SciTE by pressing Ctrl+T.</li>
+<li>Just start the program Tidy.exe and you will be prompted
+for the filename.</li>
+<li>Right Mouse Click on your AU3 script and select Tidy. This
+is only available when you have used the SciTE4AutoIt3 installer.</li>
+</ol>
+<p>When Tidy is run without any parameter you will be prompted
+for the input file.<br>
+<br>
+<img src="tidy_doc_files/SelectFile.png" v:shapes="_x0000_i1026" border="0" height="419" width="563"></p>
+<p>&nbsp;</p>
+<p>After you specified the input file Tidy will start the process
+and show the result in the SciTE Output pane or Command window:</p>
+<table id="table1" border="1" width="87%">
+<tbody>
+<tr>
+<td>Tidy AutoIt3 v2.0.0.0 Copyright (c) Jos van der Zande
+August 19, 2006<br>
+<font color="#008080">+&gt; Tidy AutoIt3
+finished. Original copied
+to:"C:\Development\winutil\AutoIt3\programs\test\BackUp\test_old5.au3"<br>
+&nbsp;</font></td>
+</tr>
+</tbody>
+</table>
+<h2>Setting Tidy's options (Tidy.ini):</h2>
+<p><font face="Courier New" size="2"><b>[ProgramSettings]<br>
+</b> *** (tabchar)Indent setting: 0=Tabs &gt;0=Number of
+Space <br>
+<b>tabchar=0</b><br>
+</font></p>
+<p><font face="Courier New" size="2"> ***
+Update Functions/Keywords/Macros/UDFs to Proper case<br>
+<b>proper=1</b><br>
+</font></p>
+<p><font face="Courier New" size="2">***
+Update Variables to: 1=UpperCase; 2=LowerCase; 3=First
 Dim/Local/Global or "First_Seen" Case (Only in combination with
 Proper=1)<br>
-  <b>vars=3</b><br>
-  *** Update Spaces around Delimiters<br>
-  <b>delim=1</b><br>
-  *** Generate Documentation file for the Program With Func and Variable X-ref report<br>
-  *** and optionally Display it with Notepad at the end of the Tidy run.<br>
-  <b>Gen_Doc=0<br>
-  Gen_Doc_Show=0</b><br>
-  *** Keep x Version of the File before the Tidy run and store them in SubDirectory "\Backup". 
-	0 means keep all backups.<br>
-  <b>KeepNVersions=5<br>
-	*** Target backup directory which defaults to Scriptdir\Backup. Any other 
-	directory needs to exist or else it will use the default directory!<br>
-  backupDir=<i>Directory=</i></b><br>
-  *** Remove Empty lines from Script Source. 1=Remove all 2=Remove all more then 
-	1<br>
-  <b>Remove_Empty_Lines=1<br>
-	Remove_Empty_Lines=2 <br></b>*** 1=Show Tidy Errors in Console 9=Debug Output<br>
-  <b>ShowConsoleInfo=1<br></b>*** Run DIFF program at the end of the Tidy run to show the difference between original and new program.<br>
-  <b>ShowDiffPgm=C:\Progra~1\WinMerge\winmerge.exe "%new%" "%old%"<br>
-  </b>*** Add comment to EndFunc statement e.g. "EndFunc ;==&gt;UDF_Name".<br>
-  S<b>kip_EndFunc_Comment=1</b><br></font><font face="Courier New" size="2">
-  *** Remove comments from EndFunc statement.<br>
-	<span style="font-weight: bold;">Remove</span><b>_EndFunc_Comment=1<br>
-	</b></font><font face="Courier New" size="2">
-  *** Copy the comment from the Region statement and add that to the EndRegion 
-	statement.<br>
-	S<b>kip_EndRegion_Comment=1<br>
-	</b></font><font face="Courier New" size="2">
-  *** Remove comments from EndRegion statement.<br>
-	<span style="font-weight: bold;">Remove</span><b>_EndRegion_Comment=1<br>
-	</b></font><font face="Courier New" size="2">
-  *** Copy the comment from the Region statement and add that to the EndRegion 
-	statement.<br></font><font face="Courier New" size="2"><b>Sort_Funcs=1<br>
-	</b>*** Sort all Func-Endfunc Blocks in sequence 
-	of the Comment at the end of the Func() statement and then FuncName.<br>
-&nbsp;&nbsp;&nbsp; When #Region-#EndRegion 
-	is used sort them within that scope. <br>
-	<b>Sort_Funcs_Comments=1<br>
-	</b>*** Skip indenting commentblocks: 0=Indent comment blocks (default) 
-	1=Don't Indent comment blocks<br>
-	<b>Skip_CommentBlock=1</b></font></p>
-	<p>&nbsp;</p>
-	<p>These settings can be overridden by specifying the below parameters on the Tidy commandline or&nbsp; <font color="#a00ff0">#Tidy_Parameters</font> Directive in the script:</p>
-
-  <p><b><font face="Courier New">/proper <span style="font-weight: 400;">or</span> 
-	/pr=0/1<br>
-  /updatevars or /uv=1/2/3</font></b>
-  <br>
-	<b><font face="Courier New">/tabchar <span style="font-weight: 400;">or</span> /tc=0<br>
-  /gen_doc <span style="font-weight: 400;">or</span> /gd<br>
-  /r_empty_lines <span style="font-weight: 400;">or</span> /rel&nbsp;<br>
-  /r_extra_empty_lines <span style="font-weight: 400;">or</span> /reel&nbsp;<br>
-  /showconsoleinfo=0/1/9 <span style="font-weight: 400;">or</span> /sci=0/1/9<br>
-  /gen_doc_show <span style="font-weight: 400;">or</span> /gds<br>
-  /showdiffpgm=xyz.exe</font></b><font face="Courier New" size="2"><b>"%new%" "%old%"</b></font> <b><font face="Courier New"><span style="font-weight: 400;">or</span> /sdp=xyz.exe</font></b><font face="Courier New" size="2"><b>"%new%" "%old%"</b></font><b><font face="Courier New"><br>
-  /noshowdiffpgm <span style="font-weight: 400;">or</span> /nsdp<br>
-  /keepnversions=<span style="font-weight: 400;"><i>n</i></span> <span style="font-weight: 400;">or</span> /kv=<span style="font-weight: 400;"><i>n<br>
-	</i></span>/backupdir=</font><span style="font-weight: 400; background-color: rgb(255, 255, 255); background-position: 0%;"><i>directory</i></span><font face="Courier New"> <span style="font-weight: 400;">or</span> /bdir=</font><span style="font-weight: 400;"><i>directory</i></span><font face="Courier New"><i><span style="font-weight: 400;"><br>
-	</span>
-	</i>/Skip_commentblock <span style="font-weight: 400;">or </span>/scb<br>
-	/Skip_EndFunc_Comment<span style="font-weight: 400;"> or </span>/sefc<br></font></b><b><font face="Courier New">
-	/Remove_EndFun_comment&nbsp;or&nbsp;/refc<br></font></b><b><font face="Courier New">
-	/Skip_EndRegion_Comment <span style="font-weight: 400;">or </span>/serc<br>
-	/remove_endregion_comment&nbsp;or&nbsp;/rerc<br>/sort_funcs <span style="font-weight: 400;">or </span>/sf<br>
-	/sort_funcs_Comment <span style="font-weight: 400;">or </span>/sfc</font></b></p>
-
-	<p>&nbsp;</p>
-
-  <p>Example
+<b>vars=3</b><br>
+</font></p>
+<p><font face="Courier New" size="2"> ***
+Update Spaces around Delimiters<br>
+<b>delim=1</b><br>
+</font></p>
+<p><font face="Courier New" size="2"> ***
+Generate Documentation file for the Program With Func and Variable
+X-ref report<br>
+*** and optionally Display it with Notepad at the end of the Tidy run.<br>
+<b>Gen_Doc=0<br>
+Gen_Doc_Show=0</b><br>
+</font></p>
+<p><font face="Courier New" size="2"> ***
+Keep x Version of the File before the Tidy run and store them in
+SubDirectory "\Backup". 0 means keep all backups.<br>
+<b>KeepNVersions=5<br>
+</b></font></p>
+<p><font face="Courier New" size="2"><b>
+*** Target backup directory which defaults to Scriptdir\Backup. Any
+other directory needs to exist or else it will use the default
+directory!<br>
+backupDir=<i>Directory=</i></b><br>
+</font></p>
+<p><font face="Courier New" size="2"> ***
+Remove Empty lines from Script Source. 1=Remove all 2=Remove all more
+then 1<br>
+<b>Remove_Empty_Lines=1<br>
+Remove_Empty_Lines=2 <br>
+</b></font></p>
+<p><font face="Courier New" size="2">***
+1=Show Tidy Errors in Console 9=Debug Output<br>
+<b>ShowConsoleInfo=1<br>
+</b></font></p>
+<p><font face="Courier New" size="2">*** Run
+DIFF program at the end of the Tidy run to show the difference between
+original and new program.<br>
+<b>ShowDiffPgm=C:\Progra~1\WinMerge\winmerge.exe "%new%" "%old%"<br>
+</b></font></p>
+<p><font face="Courier New" size="2">*** Add
+comment to EndFunc statement e.g. "EndFunc ;==&gt;UDF_Name".<br>
+S<b>kip_EndFunc_Comment=1</b><br>
+</font></p>
+<p><font face="Courier New" size="2"> ***
+Remove comments from EndFunc statement.<br>
+<span style="font-weight: bold;">Remove</span><b>_EndFunc_Comment=1<br>
+</b></font></p>
+<p><font face="Courier New" size="2"> ***
+Copy the comment from the Region statement and add that to the
+EndRegion statement.<br>
+S<b>kip_EndRegion_Comment=1<br>
+</b></font></p>
+<p><font face="Courier New" size="2"> ***
+Remove comments from EndRegion statement.<br>
+<span style="font-weight: bold;">Remove</span><b>_EndRegion_Comment=1<br>
+</b></font></p>
+<p><font face="Courier New" size="2"> ***
+Copy the comment from the Region statement and add that to the
+EndRegion statement.</font></p>
+<p><font face="Courier New" size="2"><b>Sort_Funcs=1<br>
+</b>*** Sort all Func-Endfunc Blocks in sequence of the Comment
+at the end of the Func() statement and then FuncName.<br>
+&nbsp;&nbsp;&nbsp; When #Region-#EndRegion is used sort
+them within that scope. <br>
+</font></p>
+<p><font face="Courier New" size="2"><b>Sort_Funcs_Comments=1<br>
+</b></font></p>
+<p><font face="Courier New" size="2">*** Skip
+indenting commentblocks: 0=Indent comment blocks (default) 1=Don't
+Indent comment blocks<br>
+<b>Skip_CommentBlock=1</b></font></p>
+<p>&nbsp;</p>
+<p>These settings can be overridden by specifying the below
+parameters on the Tidy commandline or&nbsp; <font color="#a00ff0">#Tidy_Parameters</font> Directive in
+the script:</p>
+<p><b><font face="Courier New">/proper <span style="font-weight: 400;">or</span> /pr=0/1<br>
+/updatevars or /uv=1/2/3</font></b> <br>
+<b><font face="Courier New">/tabchar <span style="font-weight: 400;">or</span> /tc=0<br>
+/gen_doc <span style="font-weight: 400;">or</span>
+/gd<br>
+/r_empty_lines <span style="font-weight: 400;">or</span>
+/rel&nbsp;<br>
+/r_extra_empty_lines <span style="font-weight: 400;">or</span>
+/reel&nbsp;<br>
+/showconsoleinfo=0/1/9 <span style="font-weight: 400;">or</span>
+/sci=0/1/9<br>
+/gen_doc_show <span style="font-weight: 400;">or</span>
+/gds<br>
+/showdiffpgm=xyz.exe</font></b><font face="Courier New" size="2"><b>"%new%" "%old%"</b></font> <b><font face="Courier New"><span style="font-weight: 400;">or</span>
+/sdp=xyz.exe</font></b><font face="Courier New" size="2"><b>"%new%" "%old%"</b></font><b><font face="Courier New"><br>
+/noshowdiffpgm <span style="font-weight: 400;">or</span>
+/nsdp<br>
+/keepnversions=<span style="font-weight: 400;"><i>n</i></span>
+<span style="font-weight: 400;">or</span> /kv=<span style="font-weight: 400;"><i>n<br>
+</i></span>/backupdir=</font><span style="font-weight: 400; background-color: rgb(255, 255, 255); background-position: 0% 50%;"><i>directory</i></span><font face="Courier New"> <span style="font-weight: 400;">or</span>
+/bdir=</font><span style="font-weight: 400;"><i>directory</i></span><font face="Courier New"><i><span style="font-weight: 400;"><br>
+</span> </i>/Skip_commentblock <span style="font-weight: 400;">or </span>/scb<br>
+/Skip_EndFunc_Comment<span style="font-weight: 400;"> or </span>/sefc<br>
+</font></b><b><font face="Courier New">
+/Remove_EndFun_comment&nbsp;or&nbsp;/refc<br>
+</font></b><b><font face="Courier New">
+/Skip_EndRegion_Comment <span style="font-weight: 400;">or
+</span>/serc<br>
+/remove_endregion_comment&nbsp;or&nbsp;/rerc<br>
+/sort_funcs <span style="font-weight: 400;">or </span>/sf<br>
+/sort_funcs_Comment <span style="font-weight: 400;">or </span>/sfc</font></b></p>
+<p>&nbsp;</p>
+<p>Example
 this will override the Generate Document-file to generate it, Remove
 the empty lines from the script and will not start Windif to show the
 difference at the end of the Tidy process:</p>
-
-  <p><font color="#a00ff0">#Tidy_Parameters= /gd 1&nbsp; /rel 1 /nsdp</font></p>
-
-  <p>&nbsp;</p>
-</body></html><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head>
-  <meta name="generator" content="HTML Tidy for Windows (vers 1 September 2005), see www.w3.org">
-  <meta name="generator" content="Microsoft FrontPage 6.0">
-  <meta name="generator" content="Microsoft FrontPage 6.0">
-  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-
-  
-  <title>Tidy for AutoIt3</title><link rel="stylesheet" href="css/default.css" type="text/css"></head>
-
-
-<body lang="EN-US" link="blue" vlink="purple">
-  <h1>Description of Tidy.exe</h1>
-
-  <h2>What can Tidy do for you:</h2>
-
-  <ol>
-    <li>Clean up the indentation with spaces or Tabs.</li>
-
-    <li>Change all Functions/Keywords/Macros to proper case as defined in the files
-
-      <ol>
-        <li>au3.api</li>
-
-        <li>UserFunctions.txt</li>
-      </ol>
-    </li>
-
-    <li>All
+<p><font color="#a00ff0">#Tidy_Parameters= /gd
+1&nbsp; /rel 1 /nsdp</font></p>
+<p>&nbsp;</p>
+<h1>Description of Tidy.exe</h1>
+<h2>What can Tidy do for you:</h2>
+<ol>
+<li>Clean up the indentation with spaces or Tabs.</li>
+<li>Change all Functions/Keywords/Macros to proper case as
+defined in the files
+<ol>
+<li>au3.api</li>
+<li>UserFunctions.txt</li>
+</ol>
+</li>
+<li>All
 user functions from Userfunctions.txt and all FUNC in the script are
 loaded into the Functions table. This option only works in combination
 with the previous option.</li>
-
-    <li>Change all Variables to Uppercase or Lowercase or "as Dim/Global/Local or First occurrence"</li>
-
-    <li>Add spaces around operators and remove extra spaces around operators/keywords/function.</li>
-
-    <li>Remove empty lines.</li>
-
-    <li>Remove trailing spaces.</li>
-
-    <li>Add a comment after EndFunc to easily identity which Func end with this EndFunc<br>
-    e.g. "EndFunc<span style="">&nbsp;</span> ; ==&gt; FunctionName"</li>
-
-    <li>Generate a Documentation file with program logic and Xref reports for Variables and UDF's.</li>
-
-    <li>check for coding errors like missing EndIF/Wend or Func inside and IF/DO/FOR loop.</li>
-	<li>Sort all Func-Endfunc Blocks in sequence and when #Region-#EndRegion is 
-	used sort them within that scope.</li>
-  </ol>
-
-  <p><b><u>Example 1:</u></b></p>
-
-  <table border="1" width="75%">
-    <tbody><tr>
-      <td><b><u>Before</u></b></td>
-
-      <td><b><u>After</u></b></td>
-    </tr>
-
-    <tr>
-      <td class="code"><img src="tidy_doc_files/before.png" height="465" width="459"></td>
-
-      <td class="code"><img src="tidy_doc_files/after.png" height="464" width="462"></td>
-    </tr>
-  </tbody></table>
-
-  <p><b><u><br>
-  Example 2:</u></b></p>
-
-  <p>When
+<li>Change all Variables to Uppercase or Lowercase or "as
+Dim/Global/Local or First occurrence"</li>
+<li>Add spaces around operators and remove extra spaces around
+operators/keywords/function.</li>
+<li>Remove empty lines.</li>
+<li>Remove trailing spaces.</li>
+<li>Add a comment after EndFunc to easily identity which Func
+end with this EndFunc<br>
+e.g. "EndFunc<span style="">&nbsp;</span> ;
+==&gt; FunctionName"</li>
+<li>Generate a Documentation file with program logic and Xref
+reports for Variables and UDF's.</li>
+<li>check for coding errors like missing EndIF/Wend or Func
+inside and IF/DO/FOR loop.</li>
+<li>Sort all Func-Endfunc Blocks in sequence and when
+#Region-#EndRegion is used sort them within that scope.</li>
+</ol>
+<p><b><u>Example 1:</u></b></p>
+<table border="1" width="75%">
+<tbody>
+<tr>
+<td><b><u>Before</u></b></td>
+<td><b><u>After</u></b></td>
+</tr>
+<tr>
+<td class="code"><img src="tidy_doc_files/before.png" height="465" width="459"></td>
+<td class="code"><img src="tidy_doc_files/after.png" height="464" width="462"></td>
+</tr>
+</tbody>
+</table>
+<p><b><u><br>
+Example 2:</u></b></p>
+<p>When
 there is a syntax issue, Tidy will insert warning comments as shown in
 the below example and indicate the number of errors found. In this case
-the <b><font color="#0000ff">End if</font></b> is wrong so doesn't close the <b><font color="#0000ff">If</font></b> before the <b><font color="#0000ff">Func</font></b> starts. Just fix the coding issue and run Tidy again. All previous inserted Tidy error lines will be removed by Tidy.</p>
-
-  <p>&nbsp;</p>
-
-  <table border="1" width="75%">
-    <tbody><tr>
-      <td><b><u>Before</u></b></td>
-
-      <td><b><u>After</u></b></td>
-    </tr>
-
-    <tr>
-      <td class="code" valign="top"><img src="tidy_doc_files/before2.png" height="162" width="223"></td>
-
-      <td class="code"><img src="tidy_doc_files/after2.png" height="220" width="711"></td>
-    </tr>
-  </tbody></table>
-
-  <p>&nbsp;</p>
-
-  <h2>Running Tidy:</h2>
-
-  <p>Your can run Tidy in 3 ways:</p>
-
-  <ol>
-    <li>Run it from within SciTE by pressing Ctrl+T.</li>
-
-    <li>Just start the program Tidy.exe and you will be prompted for the filename.</li>
-
-    <li>Right Mouse Click on your AU3 script and select Tidy. This is only available when you have used the SciTE4AutoIt3 installer.</li>
-  </ol>
-
-  <p>When Tidy is run without any parameter you will be prompted for the input file.<br>
-  <br>
-  <img src="tidy_doc_files/SelectFile.png" v:shapes="_x0000_i1026" border="0" height="419" width="563"></p>
-
-  <p>&nbsp;</p>
-
-  <p>After you specified the input file Tidy will start the process and show the result in the SciTE Output pane or Command window:</p>
-
-  <table id="table1" border="1" width="87%">
-    <tbody><tr>
-      <td>Tidy AutoIt3 v2.0.0.0 Copyright (c) Jos van der Zande August 19, 2006<br>
-      <font color="#008080">+&gt; Tidy AutoIt3 finished. Original copied to:"C:\Development\winutil\AutoIt3\programs\test\BackUp\test_old5.au3"<br>
-      &nbsp;</font></td>
-    </tr>
-  </tbody></table>
-
-  <h2>Setting Tidy's options (Tidy.ini):</h2>
-
-  <p><font face="Courier New" size="2"><b>[ProgramSettings]<br></b> *** (tabchar)Indent setting: 0=Tabs &gt;0=Number of Space <br>
-  <b>tabchar=0</b><br>
-  *** Update Functions/Keywords/Macros/UDFs to Proper case<br>
-  <b>proper=1</b><br>
-*** Update Variables to: 1=UpperCase; 2=LowerCase; 3=First
+the <b><font color="#0000ff">End if</font></b>
+is wrong so doesn't close the <b><font color="#0000ff">If</font></b>
+before the <b><font color="#0000ff">Func</font></b>
+starts. Just fix the coding issue and run Tidy again. All previous
+inserted Tidy error lines will be removed by Tidy.</p>
+<p>&nbsp;</p>
+<table border="1" width="75%">
+<tbody>
+<tr>
+<td><b><u>Before</u></b></td>
+<td><b><u>After</u></b></td>
+</tr>
+<tr>
+<td class="code" valign="top"><img src="tidy_doc_files/before2.png" height="162" width="223"></td>
+<td class="code"><img src="tidy_doc_files/after2.png" height="220" width="711"></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2>Running Tidy:</h2>
+<p>Your can run Tidy in 3 ways:</p>
+<ol>
+<li>Run it from within SciTE by pressing Ctrl+T.</li>
+<li>Just start the program Tidy.exe and you will be prompted
+for the filename.</li>
+<li>Right Mouse Click on your AU3 script and select Tidy. This
+is only available when you have used the SciTE4AutoIt3 installer.</li>
+</ol>
+<p>When Tidy is run without any parameter you will be prompted
+for the input file.<br>
+<br>
+<img src="tidy_doc_files/SelectFile.png" v:shapes="_x0000_i1026" border="0" height="419" width="563"></p>
+<p>&nbsp;</p>
+<p>After you specified the input file Tidy will start the process
+and show the result in the SciTE Output pane or Command window:</p>
+<table id="table1" border="1" width="87%">
+<tbody>
+<tr>
+<td>Tidy AutoIt3 v2.0.0.0 Copyright (c) Jos van der Zande
+August 19, 2006<br>
+<font color="#008080">+&gt; Tidy AutoIt3
+finished. Original copied
+to:"C:\Development\winutil\AutoIt3\programs\test\BackUp\test_old5.au3"<br>
+&nbsp;</font></td>
+</tr>
+</tbody>
+</table>
+<h2>Setting Tidy's options (Tidy.ini):</h2>
+<p style="font-weight: bold;" class="code"><font face="Courier New" size="2">[ProgramSettings]<br>
+*** (tabchar)Indent setting: 0=Tabs &gt;0=Number of Space <br>
+tabchar=0</font></p>
+<p style="font-weight: bold;" class="code"><font face="Courier New" size="2">*** Update
+Functions/Keywords/Macros/UDFs to Proper case<br>
+proper=1<br>
+</font></p>
+<p style="font-weight: bold;" class="code"><font face="Courier New" size="2">*** Update Variables to:
+1=UpperCase; 2=LowerCase; 3=First
 Dim/Local/Global or "First_Seen" Case (Only in combination with
 Proper=1)<br>
-  <b>vars=3</b><br>
-  *** Update Spaces around Delimiters<br>
-  <b>delim=1</b><br>
-  *** Generate Documentation file for the Program With Func and Variable X-ref report<br>
-  *** and optionally Display it with Notepad at the end of the Tidy run.<br>
-  <b>Gen_Doc=0<br>
-  Gen_Doc_Show=0</b><br>
-  *** Keep x Version of the File before the Tidy run and store them in SubDirectory "\Backup". 
-	0 means keep all backups.<br>
-  <b>KeepNVersions=5<br>
-	*** Target backup directory which defaults to Scriptdir\Backup. Any other 
-	directory needs to exist or else it will use the default directory!<br>
-  backupDir=<i>Directory=</i></b><br>
-  *** Remove Empty lines from Script Source. 1=Remove all 2=Remove all more then 
-	1<br>
-  <b>Remove_Empty_Lines=1<br>
-	Remove_Empty_Lines=2 <br></b>*** 1=Show Tidy Errors in Console 9=Debug Output<br>
-  <b>ShowConsoleInfo=1<br></b>*** Run DIFF program at the end of the Tidy run to show the difference between original and new program.<br>
-  <b>ShowDiffPgm=C:\Progra~1\WinMerge\winmerge.exe "%new%" "%old%"<br>
-  </b>*** Add comment to EndFunc statement e.g. "EndFunc ;==&gt;UDF_Name".<br>
-  S<b>kip_EndFunc_Comment=1</b><br></font><font face="Courier New" size="2">
-  *** Remove comments from EndFunc statement.<br>
-	<span style="font-weight: bold;">Remove</span><b>_EndFunc_Comment=1<br>
-	</b></font><font face="Courier New" size="2">
-  *** Copy the comment from the Region statement and add that to the EndRegion 
-	statement.<br>
-	S<b>kip_EndRegion_Comment=1<br>
-	</b></font><font face="Courier New" size="2">
-  *** Remove comments from EndRegion statement.<br>
-	<span style="font-weight: bold;">Remove</span><b>_EndRegion_Comment=1<br>
-	</b></font><font face="Courier New" size="2">
-  *** Copy the comment from the Region statement and add that to the EndRegion 
-	statement.<br></font><font face="Courier New" size="2"><b>Sort_Funcs=1<br>
-	</b>*** Sort all Func-Endfunc Blocks in sequence 
-	of the Comment at the end of the Func() statement and then FuncName.<br>
-&nbsp;&nbsp;&nbsp; When #Region-#EndRegion 
-	is used sort them within that scope. <br>
-	<b>Sort_Funcs_Comments=1<br>
-	</b>*** Skip indenting commentblocks: 0=Indent comment blocks (default) 
-	1=Don't Indent comment blocks<br>
-	<b>Skip_CommentBlock=1</b></font></p>
-	<p>&nbsp;</p>
-	<p>These settings can be overridden by specifying the below parameters on the Tidy commandline or&nbsp; <font color="#a00ff0">#Tidy_Parameters</font> Directive in the script:</p>
-
-  <p><b><font face="Courier New">/proper <span style="font-weight: 400;">or</span> 
-	/pr=0/1<br>
-  /updatevars or /uv=1/2/3</font></b>
-  <br>
-	<b><font face="Courier New">/tabchar <span style="font-weight: 400;">or</span> /tc=0<br>
-  /gen_doc <span style="font-weight: 400;">or</span> /gd<br>
-  /r_empty_lines <span style="font-weight: 400;">or</span> /rel&nbsp;<br>
-  /r_extra_empty_lines <span style="font-weight: 400;">or</span> /reel&nbsp;<br>
-  /showconsoleinfo=0/1/9 <span style="font-weight: 400;">or</span> /sci=0/1/9<br>
-  /gen_doc_show <span style="font-weight: 400;">or</span> /gds<br>
-  /showdiffpgm=xyz.exe</font></b><font face="Courier New" size="2"><b>"%new%" "%old%"</b></font> <b><font face="Courier New"><span style="font-weight: 400;">or</span> /sdp=xyz.exe</font></b><font face="Courier New" size="2"><b>"%new%" "%old%"</b></font><b><font face="Courier New"><br>
-  /noshowdiffpgm <span style="font-weight: 400;">or</span> /nsdp<br>
-  /keepnversions=<span style="font-weight: 400;"><i>n</i></span> <span style="font-weight: 400;">or</span> /kv=<span style="font-weight: 400;"><i>n<br>
-	</i></span>/backupdir=</font><span style="font-weight: 400; background-color: rgb(255, 255, 255); background-position: 0%;"><i>directory</i></span><font face="Courier New"> <span style="font-weight: 400;">or</span> /bdir=</font><span style="font-weight: 400;"><i>directory</i></span><font face="Courier New"><i><span style="font-weight: 400;"><br>
-	</span>
-	</i>/Skip_commentblock <span style="font-weight: 400;">or </span>/scb<br>
-	/Skip_EndFunc_Comment<span style="font-weight: 400;"> or </span>/sefc<br></font></b><b><font face="Courier New">
-	/Remove_EndFun_comment&nbsp;or&nbsp;/refc<br></font></b><b><font face="Courier New">
-	/Skip_EndRegion_Comment <span style="font-weight: 400;">or </span>/serc<br>
-	/remove_endregion_comment&nbsp;or&nbsp;/rerc<br>/sort_funcs <span style="font-weight: 400;">or </span>/sf<br>
-	/sort_funcs_Comment <span style="font-weight: 400;">or </span>/sfc</font></b></p>
-
-	<p>&nbsp;</p>
-
-  <p>Example
+vars=3<br>
+</font></p>
+<p style="font-weight: bold;" class="code"><font face="Courier New" size="2">*** Tidy Spaces around
+Delimiters<br>
+delim=1<br>
+*** Generate Documentation file for the Program With Func and Variable
+X-ref report<br>
+*** and optionally Display it with Notepad at the end of the Tidy run.<br>
+Gen_Doc=0<br>
+Gen_Doc_Show=0<br>
+*** Keep x Version of the File before the Tidy run and store them in
+SubDirectory "\Backup". 0 means keep all backups.<br>
+KeepNVersions=5<br>
+*** Target backup directory which defaults to Scriptdir\Backup. Any
+other directory needs to exist or else it will use the default
+directory!<br>
+backupDir=<i>Directory=</i><br>
+*** Remove Empty lines from Script Source. 1=Remove all 2=Remove all
+more then 1<br>
+Remove_Empty_Lines=1<br>
+Remove_Empty_Lines=2 <br>
+*** 1=Show Tidy Errors in Console 9=Debug Output<br>
+ShowConsoleInfo=1<br>
+*** Run DIFF program at the end of the Tidy run to show the difference
+between original and new program.<br>
+ShowDiffPgm=C:\Progra~1\WinMerge\winmerge.exe "%new%" "%old%"<br>
+*** Add comment to EndFunc statement e.g. "EndFunc ;==&gt;UDF_Name".<br>
+Skip_EndFunc_Comment=1<br>
+</font><font face="Courier New" size="2"> ***
+Remove comments from EndFunc statement.<br>
+Remove_EndFunc_Comment=1<br>
+</font><font face="Courier New" size="2"> ***
+Copy the comment from the Region statement and add that to the
+EndRegion statement.<br>
+Skip_EndRegion_Comment=1<br>
+</font><font face="Courier New" size="2"> ***
+Remove comments from EndRegion statement.<br>
+Remove_EndRegion_Comment=1<br>
+</font><font face="Courier New" size="2"> ***
+Copy the comment from the Region statement and add that to the
+EndRegion statement.<br>
+</font><font face="Courier New" size="2">Sort_Funcs=1<br>
+*** Sort all Func-Endfunc Blocks in sequence of the Comment at the end
+of the Func() statement and then FuncName.<br>
+*** When #Region-#EndRegion is used sort them within that scope. <br>
+Sort_Funcs_Comments=1<br>
+*** Skip indenting commentblocks: 0=Indent comment blocks (default)
+1=Don't Indent comment blocks<br>
+Skip_CommentBlock=1</font></p>
+<p>&nbsp;</p>
+<p>These settings can be overridden by specifying the below
+parameters on the Tidy commandline or&nbsp; <font color="#a00ff0">#Tidy_Parameters</font> Directive in
+the script:</p>
+<p style="font-family: Courier New,Courier,monospace; font-weight: bold;" class="code"><big>/proper <span style="font-weight: 400;">or</span> /pr=0/1<br>
+/updatevars or /uv=1/2/3 <br>
+/delim <span style="font-weight: 400;">or</span>
+/dl=0/1<br>
+/tabchar <span style="font-weight: 400;">or</span>
+/tc=0<br>
+/gen_doc <span style="font-weight: 400;">or</span>
+/gd<br>
+/r_empty_lines <span style="font-weight: 400;">or</span>
+/rel&nbsp;<br>
+/r_extra_empty_lines <span style="font-weight: 400;">or</span>
+/reel&nbsp;<br>
+/showconsoleinfo=0/1/9 <span style="font-weight: 400;">or</span>
+/sci=0/1/9<br>
+/gen_doc_show <span style="font-weight: 400;">or</span>
+/gds<br>
+/showdiffpgm=xyz.exe<font size="2"><big>"%new%"
+"%old%"</big></font> <span style="font-weight: 400;">or</span>
+/sdp=xyz.exe<font size="2"><big>"%new%" "%old%"</big></font><br>
+/noshowdiffpgm <span style="font-weight: 400;">or</span>
+/nsdp<br>
+/keepnversions=<span style="font-weight: 400;"><i>n</i></span>
+<span style="font-weight: 400;">or</span> /kv=<span style="font-weight: 400;"><i>n<br>
+</i></span>/backupdir=<span style="font-weight: 400; background-color: rgb(255, 255, 255); background-position: 0% 50%;"><i>directory</i></span>
+<span style="font-weight: 400;">or</span> /bdir=<span style="font-weight: 400;"><i>directory</i></span><i><span style="font-weight: 400;"><br>
+</span> </i>/Skip_commentblock <span style="font-weight: 400;">or </span>/scb<br>
+/Skip_EndFunc_Comment<span style="font-weight: 400;"> or </span>/sefc<br>
+/Remove_EndFun_comment&nbsp;or&nbsp;/refc<br>
+/Skip_EndRegion_Comment <span style="font-weight: 400;">or
+</span>/serc<br>
+/remove_endregion_comment&nbsp;or&nbsp;/rerc<br>
+/sort_funcs <span style="font-weight: 400;">or </span>/sf<br>
+/sort_funcs_Comment <span style="font-weight: 400;">or </span>/sfc</big></p>
+<p>&nbsp;</p>
+<p>Example
 this will override the Generate Document-file to generate it, Remove
 the empty lines from the script and will not start Windif to show the
 difference at the end of the Tidy process:</p>
-
-  <p><font color="#a00ff0">#Tidy_Parameters= /gd 1&nbsp; /rel 1 /nsdp</font></p>
-
-  <p>&nbsp;</p>
+<p><font color="#a00ff0">#Tidy_Parameters= /gd
+1&nbsp; /rel 1 /nsdp</font></p>
+<p>&nbsp;</p>
 </body></html>

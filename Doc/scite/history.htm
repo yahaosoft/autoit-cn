@@ -1,14 +1,113 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head>
-
 <style type="text/css">
 <!--
 .style2 {color: #339900}
 -->
 </style></head>
-<body>
-
-<pre>--------------------------------------------------------------------------------------------------
+<body><pre>
+--------------------------------------------------------------------------------------------------
+1/XX/2012
+*** Updated SciTE Output error lexer to allow filenames with (x86) in the filename and jump to column now also works.
+*** Updated Tidy to generate errors with Quoted filenames.
+*** Updated SciTEConfig v1.6.8.1
+    - Fixed bug with "Check for Updates" button showing a color picking window.
+--------------------------------------------------------------------------------------------------
+12/29/2011
+*** Merged the updates of SciTE v 2.28 by Neil Hodgson with our own version of SciTE. (Jos)
+*** Updated the default color scheme to the new scheme matching the helpfile.
+    Anybody that set their personal scheme will have to manuall change it when they want with SciTEConfig.
+*** Updated AutoIt3Wrapper_Gui/AutoIt3Wrapper v2.1.0.7 (Jos)
+    - Made it portable (independent  of the registry).
+    - Added AU3Check support for UTF encoded by copying the file to a ANSI file and running au3check against that.
+      The filename is updated in the generated output to the original script filename.
+    - added /x86 to the commandline options.
+*** Updated Tidy.exe v2.2.1.6 (Jos)
+    - Added support for inline deactivation of Tidy through these directives:
+        #Tidy_Off ;Stop the Tidy process below this line
+        #Tidy_On ;Start the Tidy process below this line
+    - Added the process to restore Bookmarks and Fold in the Tidied script by doing the following steps through the SciTE Director Interface:
+        1. savesession: to %temp%\tidyscite.session
+        2. replace the original file with the tidied file
+        3. SciTE Revert command to force the reload of the file.
+        4. Read the saved bookmarks and Fold of the current File and add these back.
+    Two limitation remarks about this feature:
+    1. When there are multiple instances of SciTE then the commands will be send to the first found SciTE director window which could mean the bookmarks get lost.
+    2. when lines are removed by tidy due to the /REM option, the bookmarks/Fold will be on the wrong line for those bookmarks located after the removed lines.
+*** Updated Obfuscator.exe v1.0.29.5 (Jos)
+    - Fixed bug with /StripOnly when the Last lines are a CommentBlock
+    - Fixed bug with 2 double Quotes withing a doublequoted string
+*** Added SciTEJump (Ctrl+Alt+J) to the Installer.
+    Thanks: guinness for finalising it, Ashalshaikh for starting the project and Melba23 for all input/updates.
+*** Updated abbrev.properties. (Jos)
+    - Removed the au3abbrev information from abbrev.properties and replaced that with "import au3abbrev".
+    - The installer will rename your current abbrev.properties to abbrev_save.properties.
+--------------------------------------------------------------------------------------------------
+7/03/2011
+*** Merged the updates of SciTE v 2.27 by Neil Hodgson with our own version of SciTE. (Jos)
+    - Fixed AutoItTools.lua to remove CR & LF from selected variable for debug statements.
+    - Fixed AutoItTools.lua to ensure the PROPER funct is only ran when one of these characters is typed: "[ =(]".
+    - Fixed Jump-to-Func in AutoItGotoDefinition.lua so it aloso works when there is a comment after the #include statement.
+*** Updated AutoIt3Wrapper_Gui/AutoIt3Wrapper v2.0.3.0 (Jos)
+    - Added support for UTF files. (jchd)
+    - Added #Autoit3Wrapper_compile_both to compile both version of an EXE (x86&x64).
+    - Added #Autoit3Wrapper_outfile_x64.
+    - Added %outx64% to the replace variables.
+    - Added #AutoIt3Wrapper_run_debug=Off/On
+    - Added #AutoIt3Wrapper_res_compatibility=Windows7,Vista
+    - Updated AutoIt3Wrapper to properly support RT_STRING resource input via INI file input. (Wraithdu)
+    - Fixed a GUI change counter when cvsWrapper isn't installed resulting in updates of the sourcecode.
+    - Fixed regex for handling multiple spaces infront of Directives
+    - Updated the generated directives section to better remove old lines.
+    - Change stringreplace to regex for header and footer of Autoit3wrapper gui.
+*** Updated Tidy.exe v2.2.1.0 (Jos)
+    - Removed the 4096 record limit.
+    - Added support for UTF8 with BOM files.
+    - Added option /region_indent or /ri which will indent #region-#endregion sections.
+    - Set variable name case for variables as defined in the Constants included files.
+       Parameter /prc or /properconstants support is added for this function because it will slow down the Tidy process and by default it is off.
+       e.g.: #Tidy_Parameters=/prc=1
+       Tidy.ini:
+        [ProgramSettings]
+        * * * (tabchar) Indent setting: 0 = Tabs > 0 = Number of Space
+        tabchar = 0
+        * * * Update Functions / Keywords / Macros / UDFs To Proper Case
+        proper = 1
+        * * * Update Constants defined in the "constant Include files"
+        properconstants = 0
+    - Fixed proper casing Keywords when they "look like a Function" e.g. switch ($a=1)
+    - Fixed space removal after ( when /Delim=0
+    - Fixed space addition Between sting and closing brace in case of a Dot after the Brace.
+*** Updated Obfuscator.exe v1.0.29.0 (Jos)
+    - Fixed assign/execute warnings in case parameter /sf=1 is specified.
+    - Fixed multi layer #CS / #CE
+    - Added support for #OnAutoItStartRegister
+    - Added skip for #noautoit3execute to ensure it stays in the obfuscated script
+    - Fixed mem corruption when long records are used in Func's
+    - Fixed made the variables in the decode funcs random to avoid false positives.
+    - Added Check for #Obfuscation_Off & On when scanning for FUNC names to avoid Obfuscation of this func
+*** Updated SciTEConfig v1.6.8.0
+    - Updated Run/Edit option to also update the beta hive in the registry. (Jos)
+    - Added option to modify the selected line fore/background and opage settings. (Melba23)
+*** Updated Koda v 1.7.3.0 (lazycat)
+   - Release 1.7.3.0 build 252 (2010-07-30)
+*** Updated csnippet 1.0.5.13 (GeoSoft)
+    - Updated the source to ensure it works again in the current release.
+*** Added Get_AU3_RegistrySettings.au3 which will list the current reg settings and can be used to find issue.
+--------------------------------------------------------------------------------------------------
+2/28/2010
+*** Updated AutoIt3Wrapper_Gui/AutoIt3Wrapper v2.0.1.24 (Jos)
+    - Made changes to support installation that didn't use installer
+    - Fixed autocomplete for #autoit3wrapper directives by adding au3.autoit3wrapper.api file and updating au3.properties
+--------------------------------------------------------------------------------------------------
+2/4/2010
+*** Updated AutoIt3Wrapper_Gui/AutoIt3Wrapper v2.0.1.23 (Jos)
+    - Fixed /beta/beta warning for Obfuscator when from Ctrl+F7 Beta was selected
+    - Re-Actived support for the following directives to be able to override the defaukts for a particular script:
+      #AutoIt3Wrapper_Autoit3Dir=    ;Optionally override the base AutoIt3 install directory.
+      #AutoIt3Wrapper_Aut2exe=       ;Optionally override the Aut2exe.exe to use for this script
+      #AutoIt3Wrapper_AutoIt3=       ;Optionally override the Autoit3.exe to use for this script
+--------------------------------------------------------------------------------------------------
 2/6/2010
 *** SciTE General installation. (Jos)
     - Added missing autoit3wrapper.keywords.properties to installer.
@@ -1132,4 +1231,4 @@ This program is located in the Scitedir\defs and makes it possible to change the
 *** Updated AUT2EXE wrapper script which allows you to compile with options.
 *** Fixed Tidy issue with IF/Else ....
 --------------------------------------------------------------------------------------------------
-</ahref></udf_p></udf></func-list></pre></pre></body></html>
+</pre></body></html>

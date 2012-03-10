@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Directive_Example.au3</title>
+<meta name="Generator" content="SciTE - www.Scintilla.org" />
+<style type="text/css">
+.S0 {
+	color: #000000;
+}
+.S1 {
+	font-style: italic;
+	color: #009933;
+}
+.S3 {
+	font-style: italic;
+	font-weight: bold;
+	color: #AC00A9;
+}
+.S4 {
+	font-style: italic;
+	font-weight: bold;
+	color: #000090;
+}
+.S5 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.S6 {
+	font-weight: bold;
+	color: #FF33FF;
+}
+.S7 {
+	font-weight: bold;
+	color: #9999CC;
+}
+.S8 {
+	font-weight: bold;
+	color: #FF0000;
+}
+.S9 {
+	font-weight: bold;
+	color: #AA0000;
+}
+.S11 {
+	font-style: italic;
+	color: #F000FF;
+}
+.S12 {
+	font-style: italic;
+	color: #A00FF0;
+}
+span {
+	font-family: 'Consolas';
+	color: #000000;
+	font-size: 10pt;
+}
+</style>
+</head>
+<body bgcolor="#F0F4F9">
+<span><span class="S1">; Example 1</span><br />
+<span class="S12">#AutoIt3Wrapper_Res_Icon_Add=C:\Program Files\AutoIt3\Icons\au3.ico</span><br />
+<span class="S12">#AutoIt3Wrapper_Res_Icon_Add=C:\Program Files\AutoIt3\Icons\filetype1.ico</span><br />
+<span class="S12">#AutoIt3Wrapper_Res_Icon_Add=C:\Program Files\AutoIt3\Icons\filetype2.ico</span><br />
+<span class="S12">#AutoIt3Wrapper_Res_Icon_Add=C:\Program Files\AutoIt3\Icons\filetype3.ico</span><br />
+<span class="S12">#AutoIt3Wrapper_Res_Icon_Add=C:\Program Files\AutoIt3\Icons\filetype-blank.ico</span><br />
+<span class="S11">#include</span><span class="S0"> </span><span class="S7">&lt;ButtonConstants.au3&gt;</span><br />
+<span class="S4">GUICreate</span><span class="S8">(</span><span class="S7">"Demo resource ICO's"</span><span class="S8">)</span><br />
+<span class="S9">$h_Button1</span><span class="S0"> </span><span class="S8">=</span><span class="S0"> </span><span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"my picture button"</span><span class="S8">,</span><span class="S0"> </span><span class="S3">10</span><span class="S8">,</span><span class="S0"> </span><span class="S3">20</span><span class="S8">,</span><span class="S0"> </span><span class="S3">40</span><span class="S8">,</span><span class="S0"> </span><span class="S3">40</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$BS_ICON</span><span class="S8">)</span><br />
+<span class="S4">GUISetState</span><span class="S8">()</span><br />
+<span class="S5">For</span><span class="S0"> </span><span class="S9">$x</span><span class="S0"> </span><span class="S8">=</span><span class="S0"> </span><span class="S3">0</span><span class="S0"> </span><span class="S5">To</span><span class="S0"> </span><span class="S3">9</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S9">$rc</span><span class="S0"> </span><span class="S8">=</span><span class="S0"> </span><span class="S4">TraySetIcon</span><span class="S8">(</span><span class="S6">@ScriptFullPath</span><span class="S8">,</span><span class="S0"> </span><span class="S8">-</span><span class="S9">$x</span><span class="S8">)</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S9">$rc2</span><span class="S0"> </span><span class="S8">=</span><span class="S0"> </span><span class="S4">GUICtrlSetImage</span><span class="S8">(</span><span class="S9">$h_Button1</span><span class="S8">,</span><span class="S0"> </span><span class="S6">@ScriptFullPath</span><span class="S8">,</span><span class="S0"> </span><span class="S8">-</span><span class="S9">$x</span><span class="S8">)</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S5">If</span><span class="S0"> </span><span class="S9">$x</span><span class="S0"> </span><span class="S8">&lt;</span><span class="S0"> </span><span class="S3">5</span><span class="S0"> </span><span class="S5">Then</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">TrayTip</span><span class="S8">(</span><span class="S7">"Default ico:"</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$x</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"TraySetIcon rc:"</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$rc</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S6">@LF</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">"GUICtrlSetImage rc:"</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$rc2</span><span class="S8">,</span><span class="S0"> </span><span class="S3">3</span><span class="S8">)</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S5">Else</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">TrayTip</span><span class="S8">(</span><span class="S7">"New ico:"</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$x</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"TraySetIcon rc:"</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$rc</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S6">@LF</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">"GUICtrlSetImage rc:"</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$rc2</span><span class="S8">,</span><span class="S0"> </span><span class="S3">3</span><span class="S8">)</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S5">EndIf</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;</span><span class="S4">Sleep</span><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br />
+<span class="S5">Next</span><br />
+<span class="S4">GUIDelete</span><span class="S8">()</span><br />
+<br />
+<span class="S1">; Example 2</span><br />
+<span class="S12">#AutoIt3Wrapper_Res_File_Add=C:\WINDOWS\Media\tada.wav, SOUND, MYWAV</span><br />
+<span class="S5">Global</span><span class="S0"> </span><span class="S5">Const</span><span class="S0"> </span><span class="S9">$SND_RESOURCE</span><span class="S0"> </span><span class="S8">=</span><span class="S0"> </span><span class="S3">0x00040004</span><br />
+<span class="S5">Global</span><span class="S0"> </span><span class="S5">Const</span><span class="S0"> </span><span class="S9">$SND_ASYNC</span><span class="S0"> </span><span class="S8">=</span><span class="S0"> </span><span class="S3">1</span><br />
+<span class="S4">DllCall</span><span class="S8">(</span><span class="S7">"winmm.dll"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"int"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"PlaySound"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"str"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"MYWAV"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"hwnd"</span><span class="S8">,</span><span class="S0"> </span><span class="S3">0</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"int"</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$SND_RESOURCE</span><span class="S8">)</span><br />
+<span class="S4">DllCall</span><span class="S8">(</span><span class="S7">"winmm.dll"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"int"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"PlaySound"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"str"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"MYWAV"</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"hwnd"</span><span class="S8">,</span><span class="S0"> </span><span class="S3">0</span><span class="S8">,</span><span class="S0"> </span><span class="S7">"int"</span><span class="S8">,</span><span class="S0"> </span><span class="S4">BitOR</span><span class="S8">(</span><span class="S9">$SND_RESOURCE</span><span class="S8">,</span><span class="S0"> </span><span class="S9">$SND_ASYNC</span><span class="S8">))</span><br />
+<span class="S5">For</span><span class="S0"> </span><span class="S9">$n</span><span class="S0"> </span><span class="S8">=</span><span class="S0"> </span><span class="S3">1</span><span class="S0"> </span><span class="S5">To</span><span class="S0"> </span><span class="S3">100</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">Sleep</span><span class="S8">(</span><span class="S3">15</span><span class="S8">)</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">ToolTip</span><span class="S8">(</span><span class="S7">"Asynch! "</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$n</span><span class="S8">)</span><br />
+<span class="S5">Next</span></span>
+</body>
+</html>

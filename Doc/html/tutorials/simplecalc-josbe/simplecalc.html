@@ -2,187 +2,143 @@
 <html>
 <head>
   <title>Tutorial - Simple calculator (Part I)</title>
-  <meta http-equiv="Content-Type"
- content="text/html; charset=iso-8859-1">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <link href="../../css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h1>Tutorial - Creating to GUI Calculator - (Part I: Dialog Creation)</h1>
-<p>In this tutorial we will try to guide him to create a basic calculator, just
-as that of MS-Windows. Using the <a href="../../guiref/GUIRef.htm">GUI's AutoIt</a>
-features.<br>
-It is assumed that you are already familiar with creating and running AutoIt
-scripts as shown in the
-<a href="../guimsgbox/guimsgbox.htm">GUI MsgBox</a> tutorial.</p>
-</p>
-<p><br>
-<b>Creation of the GUI dialog - Parte I (Design)<br>
-</b>
-<br>
-In this part we will begin with the creation of GUI dialog. It's good to have
-the idea of the design based on the utility of our program.<br>
-That is to say, how many and that type of controls will need. In this case we
-will use the same design that Windows Calc.<br>
-In the <b><i>Fig. 1</i></b>, we can see how our calculator will be finished in this part.</p>
-<p><b>Fig. 1</b><img border="0" src="dialog1.png" width="266" height="262" align="center" alt=""></p>
-<p>To begin the creation of our dialog, we will begin including some libraries which declare constants we use in our dialog box. These constants
-contain numeric values of
-<a href="../../appendix/GUIStyles.htm">styles</a> and parameters that define the
-appearance of each <a href="../../intro/controls.htm">control</a>, as well as
-you value for
-<a href="../../functions/GUIGetMsg.htm">events</a> and
-<a href="../../functions/GUICtrlSetState.htm#StateTable">states</a>. (Usually, <i>
-&quot;GUIConstantsEx.au3&quot; </i>already comes included and it resides in the
-<a href="../../intro/installdir.htm">AutoIt's folder installer</a>.).
-Later on we will see how to apply them, for the time being we will make the
-inclusion of this library writing in our script the following lines: &nbsp;<p class="codeIB">
-#include &lt;GUIConstantsEx.au3&gt;<br>
-#include &lt;StaticConstants.au3&gt;<br>
-#include &lt;EditConstants.au3&gt;<br>
-#include &lt;WindowsConstants.au3&gt;</p>
-How it could it turns in the <a href="../guimsgbox/guimsgbox.htm">basic tutorial</a>,
-to begin the creation of our dialog we begin defining the window, as the title,
-size and position with
-<a href="../../functions/GUICreate.htm">GUICreate</a>. The values of the window
-will be the following ones:<br>
-<b>Title</b> = &quot;Calculator&quot;<br>
-<b>Width</b> = <font color="#0000FF">260</font><br>
-<b>Height</b> = <font color="#0000FF">230</font><br>
-Therefore, the following lines of our code would be:
-<p class="codeIB">GUICreate (&quot;Calculator&quot;, 260, 230)</p><BR>
-<b>To store the identifier(ID) of each control</b><br>
-In the definition part, we will be ahead to the assignment of variables for each
-button that we make. When making this assignment, the variable&nbsp;&nbsp;
-stores the
-<a href="../../intro/controls.htm">control ID</a>
-that it allows us to use it to be able to to manipulate &quot;their action&quot; in
-run-time. This will do it with clarity in the Part II of this tutorial.<br>
-<i>Variable naming</i><br>
-The naming of each variable is a personal matter, but it's important to be clear
-to the one to assign name for the easy understanding of what represents in the
-certain code control. As it looks in the next example, this syntax
-used:
-<font color="#990000">$CTRL_btn1</font> that means &quot;<i>TO GUI Control - It's a&nbsp;
-button, Digit #1&quot;</i>, the parameters for this button's example are the
-following ones:<br>
-<b>Text</b> =&quot; 1&quot;<font color="#0000FF"></font>, <b>Left</b> =
-<font color="#0000FF">54</font>, <b>Top</b> = <font color="#0000FF">138</font>, <b>
-Width</b> =
-<font color="#0000FF">36</font>,
-<b>Heigth</b> = <font color="#0000FF">29</font><br>
-</p><p class="codeIB">$CTRL_btn1 = GUICtrlCreateButton (&quot; 1&quot;, 54, 138, 36, 29)</p>
-As I mentioned before, this makes that the code to be clearer.<br><br>
-<b>Creation of each control</b><br>
-As we can it looks in the
-<b><i>Fig.1</i></b>, we needs to create several buttons, which we will define
-with
-<a href="../../functions/GUICtrlCreateButton.htm">GUICtrlCreateButton</a>. The
-buttons that we will define will be: The digits of 0 up to 9, the operators,
-memory's buttons as such Memory Clear (&quot;MC&quot;), Memory Restore (&quot;MR&quot;), etc. You
-can copy the code shown below and to <u><i>add to your script</i></u>:<p class="codeIB">
-; Digit's buttons<br>
-$CTRL_btn0 = GUICtrlCreateButton(&quot;0&quot;, 54, 171, 36, 29)<br>
-$CTRL_btn1 = GUICtrlCreateButton(&quot;1&quot;, 54, 138, 36, 29)<br>
-$CTRL_btn2 = GUICtrlCreateButton(&quot;2&quot;, 93, 138, 36, 29)<br>
-$CTRL_btn3 = GUICtrlCreateButton(&quot;3&quot;, 132, 138, 36, 29)<br>
-$CTRL_btn4 = GUICtrlCreateButton(&quot;4&quot;, 54, 106, 36, 29)<br>
-$CTRL_btn5 = GUICtrlCreateButton(&quot;5&quot;, 93, 106, 36, 29)<br>
-$CTRL_btn6 = GUICtrlCreateButton(&quot;6&quot;, 132, 106, 36, 29)<br>
-$CTRL_btn7 = GUICtrlCreateButton(&quot;7&quot;, 54, 73, 36, 29)<br>
-$CTRL_btn8 = GUICtrlCreateButton(&quot;8&quot;, 93, 73, 36, 29)<br>
-$CTRL_btn9 = GUICtrlCreateButton(&quot;9&quot;, 132, 73, 36, 29)<br>
-$CTRL_btnPeriod = GUICtrlCreateButton(&quot;.&quot;, 132, 171, 36, 29)<br>
-<br>
-; Memory's buttons<br>
-$CTRL_btnMClear = GUICtrlCreateButton(&quot;MC&quot;, 8, 73, 36, 29)<br>
-$CTRL_btnMRestore = GUICtrlCreateButton(&quot;MR&quot;, 8, 106, 36, 29)<br>
-$CTRL_btnMStore = GUICtrlCreateButton(&quot;MS&quot;, 8, 138, 36, 29)<br>
-$CTRL_btnMAdd = GUICtrlCreateButton(&quot;M+&quot;, 8, 171, 36, 29)<br>
-<br>
-; Operators<br>
-$CTRL_btnChangeSign = GUICtrlCreateButton(&quot;+/-&quot;, 93, 171, 36, 29)<br>
-$CTRL_btnDivision = GUICtrlCreateButton(&quot;/&quot;, 171, 73, 36, 29)<br>
-$CTRL_btnMultiplication = GUICtrlCreateButton(&quot;*&quot;, 171, 106, 36, 29)<br>
-$CTRL_btnSubtract = GUICtrlCreateButton(&quot;-&quot;, 171, 138, 36, 29)<br>
-$CTRL_btnAdd = GUICtrlCreateButton(&quot;+&quot;, 171, 171, 36, 29)<br>
-$CTRL_btnAnswer = GUICtrlCreateButton(&quot;=&quot;, 210, 171, 36, 29)<br>
-$CTRL_btnInverse = GUICtrlCreateButton(&quot;1/x&quot;, 210, 138, 36, 29)<br>
-$CTRL_btnSqrt = GUICtrlCreateButton(&quot;sqrt&quot;, 210, 73, 36, 29)<br>
-$CTRL_btnPercentage = GUICtrlCreateButton(&quot;%&quot;, 210, 106, 36, 29)<br>
-$CTRL_btnBackspace = GUICtrlCreateButton(&quot;Backspace&quot;, 54, 37, 63, 29)<br>
-$CTRL_btnClearE = GUICtrlCreateButton(&quot;CE&quot;, 120, 37, 62, 29)<br>
-$CTRL_btnClear = GUICtrlCreateButton(&quot;C&quot;, 185, 37, 62, 29)<br><br>
-$CTRL_LblMemory = GUICtrlCreateLabel(&quot;&quot;, 12, 39, 27, 26)<br>
-$CTRL_EdtScreen = GUICtrlCreateEdit(&quot;0.&quot;, 8, 2, 239, 23)<br>
-</p>
-Already defined the creation of each control, is important to <i>add the line
-following</i> to show our dialog box, using
-<a href="../../functions/GUISetState.htm">GUISetState</a>.<p class="codeIB">
-GUISetState()</p>
-<br><b>Messages loop</b><br> As he/she could it turns in the one
-<a href="../guimsgbox/guimsgbox.htm">tutorial of Msgbox</a>, the function
-<a href="../../functions/GUIGetMsg.htm">GUIGetMsg</a> gives as output a value of
-an event in the dialog box, and this it is received by the variable in this
-case, <font color="#990000">$msg</font> that is evaluated every time that
-<a href="../../keywords/Do.htm">Do.. Until</a> loop, repeats. For this part we
-will only add the one simpler event, which repeats in an infinite cycle until
-the event similar to the constant
-<font color="#990000">$GUI_EVENT_CLOSE</font>(equal to -3) it's presented, and
-it will make that close the window and finish the script. So the following lines
-for our script will be:<p class="codeIB">Do<br>
-&nbsp; $msg = GUIGetMsg()<br>
-<br>
-Until $msg = $GUI_EVENT_CLOSE</p>
-<br><b>Application of styles</b><br>
-Until this point, we have already been able to conclude the design of our dialog
-box. You can already execute the script and it will see almost
-ended the calculator, now observe that the calculator
-shows something not foreseen in the design. The control &quot;EDIT that
-represents the screen of digits not displayed correctly, which needs that we apply
-certain styles of appearance (to see the <b><i>Fig. 2</i><span style="font-weight: 400"></span></b>).
-For to correct this appearance, we will make use of
-<a href="../../appendix/GUIStyles.htm#Edit">EDIT styles</a>:</p>
-<p><b>Fig. 2 </b>
-<img border="1" src="dialog2.png" width="246" height="83" align="center" alt=""></p>
-</p>
-<p>For this part, we only need to modidy two lines of our code.<BR><b>First
-modification:</b> In the first addition, we will add in the line of the variable
-<font color="#880000">$CTRL_EdtScreen</font>,
-a definition for the control(Edit) that is of reading (<font color="#990000">$ES_READONLY</font>)
-and that it is justified to the derecha(<font color="#990000">$ES_RIGHT</font>),
-for we join these two variables with the function
-<a href="../../functions/BitOR.htm">BitOR</a> like it is presented in the line
-of code below. We will also add <b><font color="#880000">
-<span style="font-weight: 400">$WS_EX_STATICEDGE</span></font></b>
-to the parameter of <a href="../../functions/GUICreate.htm#Extended Style Table">
-extended style</a> (exStyle) to give the sunken appearance to the border. For
-more
-reference of the styles table for EDIT control,
-<a href="../../appendix/GUIStyles.htm#Edit">
-click here.</a> (for a detailed explanation of each style).</p>
-<p class="codeIB">$CTRL_EdtScreen = GUICtrlCreateEdit (&quot; 0.&quot;, 8, 2, 239, 23, <b>
-<font color="#000088"></font><font color="#FF0000"></font><font color="#880000">
-BitOR($ES_READONLY</font>,
-<font color="#880000">$ES_RIGHT</font><font color="#FF0000">), $WS_EX_STATICEDGE</font><font color="#880000"></font></b>
-)</p>
-<b>Second modification:</b> The second addition we will add to the line of the
-variable <font color="#880000">$CTRL_LblMemory</font>, that it contains a
-control type LABEL in which will show us the state of storage in memory that we
-will see in the second part. We will define that this control (Label) will have a
-sunken(<font color="#990000">$SS_SUNKEN</font>) like it is presented in the line of the code. For
-reference of styles table for LABEL control,
-<a href="../../appendix/GUIStyles.htm#Label">
-click here.</a><BR>
-<p class="codeIB">$CTRL_LblMemory = GUICtrlCreateLabel (&quot;&quot;, 12, 39, 27, 26,
-<b><font color="#880000">$SS_SUNKEN</font></b>)</p>
-<p>After making these changes try to execute the script. The changes affects the appearance shown in the <b><i>Fig. 3</i></b>, now our
-calculator it looks as the <i>
-<b>Fig. 1</b></i>, shown at the beginning. You can also look at the
-<a href="script1.txt">completed script</a> for reference.</p>
-<p><b>Fig. 3 </b>
-<img border="1" src="dialog3.png" width="246" height="84" align="center"alt=""></p>
-<p>&nbsp;</p>
-<p>As an exercise for the reader, try adding <font color="#880000">$BS_FLAT</font>
-to style parameter in some button, you will look a flat style in the apperance. </p>
+  <h1>Tutorial - Creating to GUI Calculator - (Part I: Dialog Creation)</h1>
+  <p>In this tutorial we will try to guide him to create a basic calculator, just as that of MS-Windows. Using the <a href="../../guiref/GUIRef.htm">GUI's AutoIt</a> features.<br>
+  It is assumed that you are already familiar with creating and running AutoIt scripts as shown in the <a href="../guimsgbox/guimsgbox.htm">GUI MsgBox</a> tutorial.</p>
+  <p><br>
+  <strong>Creation of the GUI dialog - Parte I (Design)<br></strong><br>
+  In this part we will begin with the creation of GUI dialog. It's good to have the idea of the design based on the utility of our program.<br>
+  That is to say, how many and that type of controls will need. In this case we will use the same design that Windows Calc.<br>
+  In the <strong><em>Fig. 1</em></strong>, we can see how our calculator will be finished in this part.</p>
+  <p><strong>Fig. 1</strong> <img border="0" src="dialog1.png" width="266" height="262" align="center" alt=""></p>
+  <p>To begin the creation of our dialog, we will begin including some libraries which declare constants we use in our dialog box. These constants contain numeric values of <a href="../../appendix/GUIStyles.htm">styles</a> and parameters that define the
+  appearance of each <a href="../../intro/controls.htm">control</a>, as well as you value for <a href="../../functions/GUIGetMsg.htm">events</a> and <a href="../../functions/GUICtrlSetState.htm#StateTable">states</a>. (Usually,
+  <em>"GUIConstantsEx.au3"</em> already comes included and it resides in the <a href="../../intro/installdir.htm">AutoIt's folder installer</a>.). Later on we will see how to apply them, for the time being we will make the inclusion of this library
+  writing in our script the following lines:</p>
+  <p class="codebox"><span><span class="S11">#include</span> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
+  <span class="S11">#include</span> <span class="S7">&lt;StaticConstants.au3&gt;</span><br>
+  <span class="S11">#include</span> <span class="S7">&lt;EditConstants.au3&gt;</span><br>
+  <span class="S11">#include</span> <span class="S7">&lt;WindowsConstants.au3&gt;</span></span><br></p><br>
+  How it could it turns in the <a href="../guimsgbox/guimsgbox.htm">basic tutorial</a>, to begin the creation of our dialog we begin defining the window, as the title, size and position with <a href="../../functions/GUICreate.htm">GUICreate</a>. The
+  values of the window will be the following ones:<br>
+  <strong>Title</strong> = "Calculator"<br>
+  <strong>Width</strong> = 260<br>
+  <strong>Height</strong> = 230<br>
+  Therefore, the following lines of our code would be:
+  <p class="codebox"><span><span class="S4">GUICreate</span> <span class="S8">(</span><span class="S7">"Calculator"</span><span class="S8">,</span> <span class="S3">260</span><span class="S8">,</span> <span class="S3">230</span><span class=
+  "S8">)</span></span><br></p><br>
+  <strong>To store the identifier(ID) of each control</strong><br>
+  In the definition part, we will be ahead to the assignment of variables for each button that we make. When making this assignment, the variable stores the <a href="../../intro/controls.htm">control ID</a> that it allows us to use it to be able to to
+  manipulate "their action" in run-time. This will do it with clarity in the Part II of this tutorial.<br>
+  <em>Variable naming</em><br>
+  The naming of each variable is a personal matter, but it's important to be clear to the one to assign name for the easy understanding of what represents in the certain code control. As it looks in the next example, this syntax used: $CTRL_btn1 that
+  means "<em>TO GUI Control - It's a button, Digit #1"</em>, the parameters for this button's example are the following ones:<br>
+  <strong>Text</strong> =" 1", <strong>Left</strong> = 54, <strong>Top</strong> = 138, <strong>Width</strong> = 36, <strong>Heigth</strong> = 29<br>
+  <p class="codebox"><span><span class="S9">$CTRL_btn1</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span> <span class="S8">(</span><span class="S7">" 1"</span><span class="S8">,</span> <span class="S3">54</span><span class=
+  "S8">,</span> <span class="S3">138</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span></span><br></p>As I mentioned before, this makes that the code to be clearer.<br>
+  <br>
+  <strong>Creation of each control</strong><br>
+  As we can it looks in the <strong><em>Fig.1</em></strong>, we needs to create several buttons, which we will define with <a href="../../functions/GUICtrlCreateButton.htm">GUICtrlCreateButton</a>. The buttons that we will define will be: The digits of 0
+  up to 9, the operators, memory's buttons as such Memory Clear ("MC"), Memory Restore ("MR"), etc. You can copy the code shown below and to <span class="emphasis"><em>add to your script</em></span>:
+  <p class="codebox"><span><span class="S1">; Digit's buttons</span><br>
+  <span class="S9">$CTRL_btn0</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"0"</span><span class="S8">,</span> <span class="S3">54</span><span class="S8">,</span> <span class=
+  "S3">171</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btn1</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"1"</span><span class="S8">,</span> <span class="S3">54</span><span class="S8">,</span> <span class=
+  "S3">138</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btn2</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"2"</span><span class="S8">,</span> <span class="S3">93</span><span class="S8">,</span> <span class=
+  "S3">138</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btn3</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"3"</span><span class="S8">,</span> <span class="S3">132</span><span class="S8">,</span> <span class=
+  "S3">138</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btn4</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"4"</span><span class="S8">,</span> <span class="S3">54</span><span class="S8">,</span> <span class=
+  "S3">106</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btn5</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"5"</span><span class="S8">,</span> <span class="S3">93</span><span class="S8">,</span> <span class=
+  "S3">106</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btn6</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"6"</span><span class="S8">,</span> <span class="S3">132</span><span class="S8">,</span> <span class=
+  "S3">106</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btn7</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"7"</span><span class="S8">,</span> <span class="S3">54</span><span class="S8">,</span> <span class=
+  "S3">73</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btn8</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"8"</span><span class="S8">,</span> <span class="S3">93</span><span class="S8">,</span> <span class=
+  "S3">73</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btn9</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"9"</span><span class="S8">,</span> <span class="S3">132</span><span class="S8">,</span> <span class=
+  "S3">73</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btnPeriod</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"."</span><span class="S8">,</span> <span class="S3">132</span><span class="S8">,</span> <span class=
+  "S3">171</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <br>
+  <span class="S1">; Memory's buttons</span><br>
+  <span class="S9">$CTRL_btnMClear</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"MC"</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">,</span> <span class=
+  "S3">73</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btnMRestore</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"MR"</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">,</span>
+  <span class="S3">106</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btnMStore</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"MS"</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">,</span> <span class=
+  "S3">138</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btnMAdd</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"M+"</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">,</span> <span class=
+  "S3">171</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <br>
+  <span class="S1">; Operators</span><br>
+  <span class="S9">$CTRL_btnChangeSign</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"+/-"</span><span class="S8">,</span> <span class="S3">93</span><span class="S8">,</span>
+  <span class="S3">171</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btnDivision</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"/"</span><span class="S8">,</span> <span class="S3">171</span><span class="S8">,</span>
+  <span class="S3">73</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btnMultiplication</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"*"</span><span class="S8">,</span> <span class="S3">171</span><span class="S8">,</span>
+  <span class="S3">106</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btnSubtract</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"-"</span><span class="S8">,</span> <span class="S3">171</span><span class="S8">,</span>
+  <span class="S3">138</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btnAdd</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"+"</span><span class="S8">,</span> <span class="S3">171</span><span class="S8">,</span> <span class=
+  "S3">171</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btnAnswer</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"="</span><span class="S8">,</span> <span class="S3">210</span><span class="S8">,</span> <span class=
+  "S3">171</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btnInverse</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"1/x"</span><span class="S8">,</span> <span class="S3">210</span><span class="S8">,</span>
+  <span class="S3">138</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btnSqrt</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"sqrt"</span><span class="S8">,</span> <span class="S3">210</span><span class="S8">,</span>
+  <span class="S3">73</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btnPercentage</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"%"</span><span class="S8">,</span> <span class="S3">210</span><span class="S8">,</span>
+  <span class="S3">106</span><span class="S8">,</span> <span class="S3">36</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btnBackspace</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"Backspace"</span><span class="S8">,</span> <span class="S3">54</span><span class="S8">,</span>
+  <span class="S3">37</span><span class="S8">,</span> <span class="S3">63</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btnClearE</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"CE"</span><span class="S8">,</span> <span class="S3">120</span><span class="S8">,</span>
+  <span class="S3">37</span><span class="S8">,</span> <span class="S3">62</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_btnClear</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"C"</span><span class="S8">,</span> <span class="S3">185</span><span class="S8">,</span> <span class=
+  "S3">37</span><span class="S8">,</span> <span class="S3">62</span><span class="S8">,</span> <span class="S3">29</span><span class="S8">)</span><br>
+  <br>
+  <span class="S9">$CTRL_LblMemory</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateLabel</span><span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">12</span><span class="S8">,</span> <span class=
+  "S3">39</span><span class="S8">,</span> <span class="S3">27</span><span class="S8">,</span> <span class="S3">26</span><span class="S8">)</span><br>
+  <span class="S9">$CTRL_EdtScreen</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateEdit</span><span class="S8">(</span><span class="S7">"0."</span><span class="S8">,</span> <span class="S3">8</span><span class="S8">,</span> <span class=
+  "S3">2</span><span class="S8">,</span> <span class="S3">239</span><span class="S8">,</span> <span class="S3">23</span><span class="S8">)</span></span><br></p><br>
+  Already defined the creation of each control, is important to <em>add the line following</em> to show our dialog box, using <a href="../../functions/GUISetState.htm">GUISetState</a>.
+  <p class="codebox"><span><span class="S4">GUISetState</span><span class="S8">()</span></span><br></p><br>
+  <strong>Messages loop</strong><br>
+  As he/she could it turns in the one <a href="../guimsgbox/guimsgbox.htm">tutorial of Msgbox</a>, the function <a href="../../functions/GUIGetMsg.htm">GUIGetMsg</a> gives as output a value of an event in the dialog box, and this it is received by the
+  variable in this case, $msg that is evaluated every time that <a href="../../keywords/Do.htm">Do.. Until</a> loop, repeats. For this part we will only add the one simpler event, which repeats in an infinite cycle until the event similar to the constant
+  $GUI_EVENT_CLOSE(equal to -3) it's presented, and it will make that close the window and finish the script. So the following lines for our script will be:
+  <p class="codebox"><span><span class="S5">Do</span><br>
+  <span class="S0">&nbsp;&nbsp;</span><span class="S9">$msg</span> <span class="S8">=</span> <span class="S4">GUIGetMsg</span><span class="S8">()</span><br>
+  <br>
+  <span class="S5">Until</span> <span class="S9">$msg</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span></span><br></p><br>
+  <strong>Application of styles</strong><br>
+  Until this point, we have already been able to conclude the design of our dialog box. You can already execute the script and it will see almost ended the calculator, now observe that the calculator shows something not foreseen in the design. The
+  control "EDIT that represents the screen of digits not displayed correctly, which needs that we apply certain styles of appearance (to see the <strong><em>Fig. 2</em></strong>). For to correct this appearance, we will make use of <a href=
+  "../../appendix/GUIStyles.htm#Edit">EDIT styles</a>:
+  <p><strong>Fig. 2</strong> <img border="1" src="dialog2.png" width="246" height="83" align="center" alt=""></p>
+  <p>For this part, we only need to modidy two lines of our code.<br>
+  <strong>First modification:</strong> In the first addition, we will add in the line of the variable $CTRL_EdtScreen, a definition for the control(Edit) that is of reading ($ES_READONLY) and that it is justified to the derecha($ES_RIGHT), for we join
+  these two variables with the function <a href="../../functions/BitOR.htm">BitOR</a> like it is presented in the line of code below. We will also add <strong><span>$WS_EX_STATICEDGE</span></strong> to the parameter of <a href=
+  "../../functions/GUICreate.htm#Extended%20Style%20Table">extended style</a> (exStyle) to give the sunken appearance to the border. For more reference of the styles table for EDIT control, <a href="../../appendix/GUIStyles.htm#Edit">click here.</a> (for
+  a detailed explanation of each style).</p>
+  <p class="codebox"><span><span class="S9">$CTRL_EdtScreen</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateEdit</span> <span class="S8">(</span><span class="S7">" 0."</span><span class="S8">,</span> <span class="S3">8</span><span class=
+  "S8">,</span> <span class="S3">2</span><span class="S8">,</span> <span class="S3">239</span><span class="S8">,</span> <span class="S3">23</span><span class="S8">,</span> <span class="S4">BitOR</span><span class="S8">(</span><span class=
+  "S9">$ES_READONLY</span><span class="S8">,</span> <span class="S9">$ES_RIGHT</span><span class="S8">),</span> <span class="S9">$WS_EX_STATICEDGE</span> <span class="S8">)</span></span><br></p><br>
+  <strong>Second modification:</strong> The second addition we will add to the line of the variable $CTRL_LblMemory, that it contains a control type LABEL in which will show us the state of storage in memory that we will see in the second part. We will
+  define that this control (Label) will have a sunken($SS_SUNKEN) like it is presented in the line of the code. For reference of styles table for LABEL control, <a href="../../appendix/GUIStyles.htm#Label">click here.</a><br>
+  <p class="codebox"><span><span class="S9">$CTRL_LblMemory</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateLabel</span> <span class="S8">(</span><span class="S7">""</span><span class="S8">,</span> <span class="S3">12</span><span class=
+  "S8">,</span> <span class="S3">39</span><span class="S8">,</span> <span class="S3">27</span><span class="S8">,</span> <span class="S3">26</span><span class="S8">,</span> <span class="S9">$SS_SUNKEN</span><span class="S8">)</span></span><br></p><br>
+  <p>After making these changes try to execute the script. The changes affects the appearance shown in the <strong><em>Fig. 3</em></strong>, now our calculator it looks as the <em><strong>Fig. 1</strong></em>, shown at the beginning. You can also look at
+  the <a href="script1.txt">completed script</a> for reference.</p>
+  <p><strong>Fig. 3</strong> <img border="1" src="dialog3.png" width="246" height="84" align="center" alt=""></p>
+  <p>&nbsp;</p>
+  <p>As an exercise for the reader, try adding $BS_FLAT to style parameter in some button, you will look a flat style in the apperance.</p>
 </body>
 </html>

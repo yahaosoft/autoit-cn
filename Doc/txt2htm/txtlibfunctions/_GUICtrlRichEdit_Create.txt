@@ -5,8 +5,8 @@ _GUICtrlRichEdit_Create
 创建编辑控件
 
 ###Syntax###
-#Include <GuiRichEdit.au3>
-_GUICtrlRichEdit_Create($hWnd, $sText, $iLeft, $iTop[, $iWidth = 150[, $iHeight = 150[, $iStyle = -1[, $iExStyle = -1]]]])
+#include <GuiRichEdit.au3>
+_GUICtrlRichEdit_Create($hWnd, $sText, $iLeft, $iTop [, $iWidth = 150 [, $iHeight = 150 [, $iStyle = -1 [, $iExStyle = -1]]]])
 
 ###Parameters###
 @@ParamTable@@
@@ -30,15 +30,16 @@ $iStyle
 		$WS_VSCROLL - 控件具有垂直滚动条
 		$ES_CENTER - 控件内文本居中.
 		$ES_LEFT - 文本左对齐.
-		$ES_MULTILINE - 生成多行控件（默认）
+		$ES_MULTILINE - 生成多行控件(默认)
 		$ES_NOHIDESEL - 选中的文本反白显示,即使控件没有焦点也如此.
 		$ES_NUMBER - 只允许输入数字.
 		$ES_READONLY - 阻止用户输入或编辑文本.
 		$ES_RIGHT - 文本右对齐.
-		$ES_WANTRETURN - 当用户按下 Enter 键时,插入一个回车（默认）
-		$ES_PASSWORD - 键入字符显示为星号（*）
-	[可选参数] 默认 : 0
-		强制 : WS_CHILD, $WS_VISIBLE, $WS_TABSTOP unless $ES_READONLY
+		$ES_WANTRETURN - 当用户按下 Enter 键时,插入一个回车(默认)
+		$ES_PASSWORD - 键入字符显示为星号(*)
+
+		默认: 0
+		强制: WS_CHILD, $WS_VISIBLE, $WS_TABSTOP unless $ES_READONLY
 $iExStyle
 	[可选参数] 控件扩展样式,适用标准的 $WS_EX_ 常量.
 @@End@@
@@ -46,7 +47,7 @@ $iExStyle
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回 RichEdit 控件句柄
-失败:	返回 0,设置@error:	
+失败:	返回 0 并设置@error
 @error:	103 - $iLeft 不是正数或零
 	104 - $iTop 不是正数或零
 	105 - $iWidth 不是正数或 -1
@@ -56,7 +57,7 @@ $iExStyle
 @@End@@
 
 ###Remarks###
- 脚本结束前,必须调用 _GUICtrlRichEdit_Destroy().
+None.
 
 ###Related###
 _GUICtrlRichEdit_Destroy

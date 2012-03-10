@@ -6,6 +6,7 @@ AutoIt:
 - Added: Interpreter accepts 64bit hex numbers.
 - Added: Keyword Null.
 - Added #488: Third parameter for ObjGet() function to specify object instance.
+- Added: Compound assignment operators for object properties.
 
 - Changed: upx.exe from 3.07 -> 3.08.
 - Changed: ReDim works on arrays declared as static.
@@ -25,26 +26,42 @@ AutoIt:
 - Fixed #2068: Repeated calls to Acos() no longer produce strange results.  NOTE: This fix increases the size of AutoIt by approximately 60KB.
 - Fixed: ObjGet() fails validating class identifier properly when first parameter for the function is specified.
 - Fixed #2111: RunAs() could fail even if a user had the correct permissions to use it.
+- Fixed #1395: DLLCallbacks on Exit.
+- Fixed: Ptr() returns null pointer for objects.
+- Fixed #1319: Hang at exit for RichEdit user controls.
+- Fixed #2138: Fixed GUICtrlRead() on dummy controls was corrupting strings and possibly crashing AutoIt.
+- Fixed #1760: #OnAutoItStartRegister ignores single quoted function names.
 
 UDFs:
 - Added: _WinAPI_GetProcAddress() function.
+- Added #2126: Documentation remark about _ArrayDisplay being able to display a maximum of 65530 items.
 
 - Fixed #2077: hwnd safety check in _GUICtrlRichEdit_Create()
 - Fixed #2088: _ArrayDisplay not handling Default parameters correctly.
 - Fixed #2112: "Report Log Window" unresponsive when the script is closed.
 - Fixed: _GUICtrlRichEdit_* documentation error return codes.
 - Fixed #1970: _FTP_ListToArray() fails to retrieve Dir or File only.
+- Fixed #2084: Clipboard not being closed if an error occurred with _ClipBoard_SetDataEx.
+- Fixed #2125: Writing a 2-dimensional array would only write the first two columns of the array.
+- Fixed #2070: Unexpected crash on certain systems when using _GUICtrlStatusBar_GetText.
+- Fixed #2132: Documentation of _WinAPI_GetModuleHandle and the parameter to return the handle of the calling process. (Use the Null keyword, not 0.)
 
 Au3Check:
-- Fixed #2113: Object's properties in names of keywords treated as keywords.
 - Added: Generating error for hex numbers longer than 16 characters.
+
+- Fixed #2113: Object's properties in names of keywords treated as keywords.
+- Fixed #2141: #IgnoreFunc was generating an incorrect error.
+
 - Changed: Message case changed to support SciTE inline errors.
 - Changed: An error is now generated for non-supported file encodings (Previous behavior was to silently pass the script).
+- Changed: Au3Check version numbers now match AutoIt's.
 
 Au3Record:
 - Fixed #2083: There is no longer an error about a missing DLL.
 
 3.3.8.1 (29th January, 2012) (Release)
+AutoIt:
+- Fixed: Built-in editor would not compile/go when installed on x64 or in a non-standard location.
 
 3.3.8.0 (23rd December, 2011) (Release)
 AutoIt:
