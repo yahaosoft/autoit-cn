@@ -1,5 +1,5 @@
 ﻿#Include <APIConstants.au3>
-#Include <GUIConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 #Include <SliderConstants.au3>
 #Include <StaticConstants.au3>
 #Include <WinAPIEx.au3>
@@ -9,7 +9,7 @@ Opt('TrayAutoPause', 0)
 
 Global $hForm, $Graphic, $Label, $Slider, $hSlider
 
-; Create GUI
+; 创建 GUI
 $hForm = GUICreate('MyGUI', 300, 327)
 GUISetBkColor(0x808080)
 $Graphic = GUICtrlCreateGraphic(0, 0, 150, 300)

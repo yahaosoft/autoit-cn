@@ -3,7 +3,7 @@
 #Include <EditConstants.au3>
 #Include <GDIPlus.au3>
 #Include <GUIComboBox.au3>
-#Include <GUIConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 #Include <SliderConstants.au3>
 #Include <StaticConstants.au3>
 #Include <WinAPIEx.au3>

@@ -1,10 +1,10 @@
 ﻿#include <GuiToolbar.au3>
 #include <GuiImageList.au3>
 #include <WinAPI.au3>
-#include <GuiConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 
-$Debug_TB = False ; 检查传递给函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_TB = False ; 检查传递给函数的类名, 设置为True并输出到一个控件的句柄,用于检查它是否工作
 Global $iMemo
 
 _Main()
@@ -30,7 +30,7 @@ Func _Main()
 	MemoWrite("Previous Image list handle .: 0x" & Hex($hPrevImageList))
 	MemoWrite("IsPtr = " & IsPtr($hPrevImageList) & " IsHWnd = " & IsHWnd($hPrevImageList))
 
-	; 创建禁用时的图像列表
+	; 创建已禁用的图像列表
 	$hDisabled = _GUIImageList_Create(32, 24)
 	_GUIImageList_Add($hDisabled, _WinAPI_CreateSolidBitmap($hGUI, 0xCCCCCC, 32, 24))
 	_GUIImageList_Add($hDisabled, _WinAPI_CreateSolidBitmap($hGUI, 0xCCCCCC, 32, 24))

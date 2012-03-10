@@ -1,5 +1,5 @@
 ﻿#Include <APIConstants.au3>
-#Include <GUIConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 #Include <WinAPIEx.au3>
 
 Opt('MustDeclareVars', 1)
@@ -7,7 +7,7 @@ Opt('MustDeclareVars', 1)
 Global $hForm, $Button, $hRgn
 Global $aPoint[10][2] = [[0, 180], [190, 180], [250, 0], [308, 180], [500, 180], [344, 294], [404, 475], [250, 362], [94, 475], [154, 294]]
 
-; Create GUI
+; 创建 GUI
 $hForm = GUICreate('MyGUI', 500, 475, -1, -1, $WS_POPUP, $WS_EX_TOPMOST)
 $Button = GUICtrlCreateButton('Exit', 215, 255, 70, 23)
 GUIRegisterMsg($WM_NCHITTEST, 'WM_NCHITTEST')

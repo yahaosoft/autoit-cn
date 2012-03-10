@@ -9,7 +9,7 @@ Global Const $STM_GETIMAGE = 0x0173
 Global $hForm, $Pic, $hPic, $hObj, $hBitmap, $hPen, $hSv, $hPattern, $hDC, $hMemDC, $hMemSv
 Global $aStyle[6] = [1, 7, 1, 7, 1, 25]
 
-; Create GUI
+; 创建 GUI
 $hForm = GUICreate('MyGUI', 310, 300)
 $Pic = GUICtrlCreatePic('', 0, 0, 310, 300)
 $hPic = GUICtrlGetHandle($Pic)

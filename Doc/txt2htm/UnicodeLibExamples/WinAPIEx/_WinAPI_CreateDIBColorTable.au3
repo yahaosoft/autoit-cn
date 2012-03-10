@@ -27,7 +27,7 @@ For $i = 0 To 255
 	_WinAPI_FillMemory($pBits + 256 * $i, 256, $i)
 Next
 
-; Create GUI
+; 创建 GUI
 $hForm = GUICreate('MyGUI', 256, 256)
 $Pic = GUICtrlCreatePic('', 0, 0, 256, 256)
 $hPic = GUICtrlGetHandle($Pic)

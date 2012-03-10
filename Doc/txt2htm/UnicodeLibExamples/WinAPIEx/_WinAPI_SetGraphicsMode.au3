@@ -11,7 +11,7 @@ Global Const $Pi = 4 * ATan(1)
 Global $hForm, $Pic, $hPic, $tRECT, $tXFORM, $hObj, $hBitmap, $hBrush, $hPen, $hDC, $hMemDC, $hMemSv
 Global $nM11, $nM12, $nM21, $nM22, $nDx, $nDy, $iXc, $iYc, $nAngle
 
-; Create GUI
+; 创建 GUI
 $hForm = GUICreate('MyGUI', 340, 340)
 $Pic = GUICtrlCreatePic('', 0, 0, 320, 320)
 $hPic = GUICtrlGetHandle($Pic)

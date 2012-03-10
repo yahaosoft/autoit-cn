@@ -1,5 +1,5 @@
 ﻿#Include <APIConstants.au3>
-#Include <GUIConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 #Include <GUIRichEdit.au3>
 #Include <WinAPIEx.au3>
 
@@ -10,7 +10,7 @@ Global Const $sText = 'AutoIt v3 is a freeware BASIC-like scripting language des
 
 Global $hForm, $hDlg, $hRichEdit, $hFont, $Msg, $Menu, $ExitItem, $FindItem, $ReplaceItem, $Text
 
-; Create GUI
+; 创建 GUI
 $hForm = GUICreate('MyGUI', 800, 600)
 
 ; Create main menu

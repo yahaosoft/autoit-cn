@@ -33,7 +33,7 @@ _WinAPI_DeleteObject($hBmp)
 _WinAPI_FreeMemory($pData)
 _WinAPI_DeleteDC($hDC)
 
-; Create GUI
+; 创建 GUI
 $hForm = GUICreate('MyGUI', $W, $H)
 $Pic = GUICtrlCreatePic('', 0, 0, $W, $H)
 $hPic = GUICtrlGetHandle($Pic)

@@ -1,6 +1,6 @@
 ﻿#include <SQLite.au3>
 #include <SQLite.dll.au3>
-#include <file.au3>
+#include <File.au3>
 
 ;文件名
 Local $sTsvFile = FileGetShortName(_TempFile(@ScriptDir, "~", ".tsv"))
@@ -29,7 +29,7 @@ If @error = 0 Then
 	ConsoleWrite("_SQLite_LibVersion=" & _SQLite_LibVersion() & @CRLF)
 	_SQLite_Open($sDbFile)
 	_SQLite_GetTable2d(-1, "SELECT ROWID,* FROM TblImport;", $aRes, $iRows, $iColumns)
-	_SQLite_Display2DResult($aRes) ; 输出到控制太
+	_SQLite_Display2DResult($aRes) ; 输出到控制台
 	_SQLite_Close()
 	_SQLite_Shutdown()
 Else

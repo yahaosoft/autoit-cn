@@ -1,5 +1,5 @@
-﻿#include <sqlite.au3>
-#include <sqlite.dll.au3>
+﻿#include <SQLite.au3>
+#include <SQLite.dll.au3>
 
 Local $hQuery, $aRow
 _SQLite_Startup()

@@ -1,6 +1,6 @@
 ﻿#include <GuiReBar.au3>
 #include <WinAPI.au3>
-#include <GuiConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 #include <Constants.au3>
 

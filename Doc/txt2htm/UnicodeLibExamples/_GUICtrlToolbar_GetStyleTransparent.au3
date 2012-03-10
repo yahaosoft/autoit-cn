@@ -1,9 +1,9 @@
 ﻿#include <GuiToolbar.au3>
-#include <GuiConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 #include <Constants.au3>
 
-$Debug_TB = False ; 检查传递给函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_TB = False ; 检查传递给函数的类名, 设置为True并输出到一个控件的句柄,用于检查它是否工作
 
 _Main()
 
@@ -32,7 +32,7 @@ Func _Main()
 	_GUICtrlToolbar_AddButtonSep($hToolbar)
 	_GUICtrlToolbar_AddButton($hToolbar, $idHelp, $STD_HELP)
 
-	; 改变控件样式
+	; 修改控件样式
 	$fStyle = _GUICtrlToolbar_GetStyleTransparent($hToolbar)
 	MsgBox(4096, "Information", "Toolbar has transparent style .: " & $fStyle)
 	GUISetState(@SW_LOCK)

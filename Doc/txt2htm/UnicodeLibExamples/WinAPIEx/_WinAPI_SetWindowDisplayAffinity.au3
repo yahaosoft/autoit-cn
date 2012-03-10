@@ -1,5 +1,5 @@
 ﻿#Include <APIConstants.au3>
-#Include <GUIConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 #Include <ScreenCapture.au3>
 #Include <WinAPIEx.au3>
 

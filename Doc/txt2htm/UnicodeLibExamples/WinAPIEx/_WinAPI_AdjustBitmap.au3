@@ -16,7 +16,7 @@ $H = 2 * DllStructGetData($tSIZE, 'Y')
 $hResize = _WinAPI_AdjustBitmap($hBitmap, $W, $H)
 _WinAPI_DeleteObject($hBitmap)
 
-; Create GUI
+; 创建 GUI
 $hForm = GUICreate('MyGUI', $W, $H)
 $Pic = GUICtrlCreatePic('', 0, 0, $W, $H)
 $hPic = GUICtrlGetHandle($Pic)

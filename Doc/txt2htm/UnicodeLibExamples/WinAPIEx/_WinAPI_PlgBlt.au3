@@ -1,5 +1,5 @@
 ﻿#Include <APIConstants.au3>
-#Include <GUIConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 #Include <SliderConstants.au3>
 #Include <WinAPIEx.au3>
 
@@ -17,7 +17,7 @@ $tSIZE = _WinAPI_GetBitmapDimension($hBitmap)
 $W = DllStructGetData($tSIZE, 'X')
 $H = DllStructGetData($tSIZE, 'Y')
 
-; Create GUI
+; 创建 GUI
 $hForm = GUICreate('MyGUI', $W, $H + 26)
 $Pic = GUICtrlCreatePic('', 0, 0, $W, $H)
 GUICtrlCreateGraphic(0, $H, $W, 1)

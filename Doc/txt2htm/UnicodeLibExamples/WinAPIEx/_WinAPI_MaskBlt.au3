@@ -20,7 +20,7 @@ $aInfo[5] = _WinAPI_InvertANDBitmap($aInfo[4])
 ; Load pattern bitmap
 $hPattern = _WinAPI_LoadImage(0, @ScriptDir & '\Extras\Pattern.bmp', $IMAGE_BITMAP, 0, 0, $LR_LOADFROMFILE)
 
-; Create GUI
+; 创建 GUI
 $hForm = GUICreate('MyGUI', 320, 64)
 GUICtrlCreateIcon(@ScriptDir & '\Extras\Arrow.ico', 0, 0, 0, 64, 64)
 GUICtrlCreatePic(@ScriptDir & '\Extras\Pattern.bmp', 192, 0, 64, 64)

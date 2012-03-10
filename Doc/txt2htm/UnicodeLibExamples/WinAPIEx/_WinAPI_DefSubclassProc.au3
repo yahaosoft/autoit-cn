@@ -7,7 +7,7 @@ Global $hForm, $hDll, $pDll
 
 OnAutoItExitRegister('OnAutoItExit')
 
-; Create GUI
+; 创建 GUI
 $hForm = GUICreate('MyGUI')
 
 ; Register DLL callback that will be used as window subclass procedure

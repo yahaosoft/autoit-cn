@@ -9,7 +9,7 @@ Global Const $STM_GETIMAGE = 0x0173
 
 Global $hForm, $hPic, $hObj, $hBitmap, $hPen, $hDC, $hMemDC, $hSv1, $hSv2, $Ramp, $Rgb = 0xFF0000
 
-; Create GUI
+; 创建 GUI
 $hForm = GUICreate('Lookup Table', 256, 256)
 GUICtrlCreatePic('', 0, 0, 256, 256)
 $hPic = GUICtrlGetHandle(-1)

@@ -16,7 +16,7 @@ _WinAPI_DestroyIcon($hIcon)
 ; Create inverted bitmask bitmap
 $aInfo[5] = _WinAPI_InvertANDBitmap($aInfo[4])
 
-; Create GUI
+; 创建 GUI
 $hForm = GUICreate('MyGUI', 256, 128)
 $Pic[0] = GUICtrlCreatePic('', 0, 0, 128, 128)
 $Pic[1] = GUICtrlCreatePic('', 128, 0, 128, 128)

@@ -21,7 +21,7 @@ _GDIPlus_Shutdown()
 ; Create 1 bits-per-pixel AND bitmask bitmap
 $hBitmap[1] = _WinAPI_CreateANDBitmap($hBitmap[0])
 
-; Create GUI
+; 创建 GUI
 $hForm = GUICreate('MyGUI', $Width * 2, $Height)
 $Pic[0] = GUICtrlCreatePic('', 0, 0, $Width, $Height)
 $Pic[1] = GUICtrlCreatePic('', $Width, 0, $Width, $Height)
