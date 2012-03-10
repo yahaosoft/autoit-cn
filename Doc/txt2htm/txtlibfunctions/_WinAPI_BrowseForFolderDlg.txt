@@ -19,12 +19,12 @@ $iFlags
 	[可选参数] 指定对话框选项的标志.参数可以是下列值的组合:
 	
 	$BIF_BROWSEFORCOMPUTER --- 只返回计算机. 如果用户选取的不是计算机, &quot;确认&quot;按钮将不可用.
-	$BIF_BROWSEFORPRINTER --- 只允许选择打印机.否则&quot;确认&quot;按钮将不可用.对于 Windows XP和更高版本的系统,最好的做法是使用 Windows XP 样式对话框,设置对话框的根为打印机和传真文件夹（CSIDL_PRINTERS）.
+	$BIF_BROWSEFORPRINTER --- 只允许选择打印机.否则&quot;确认&quot;按钮将不可用.对于 Windows XP和更高版本的系统,最好的做法是使用 Windows XP 样式对话框,设置对话框的根为打印机和传真文件夹(CSIDL_PRINTERS).
 	$BIF_BROWSEINCLUDEFILES --- Dll 版本4.71 对话框显示文件以及文件夹.
 	$BIF_BROWSEINCLUDEURLS --- Dll 版本5.0 对话框可以显示网址.但必须同时设置 BIF_USENEWUI 与 BIF_BROWSEINCLUDEFILES 标志,并且文件夹包含所选项目的支持网址,当该文件夹的IShellFolder::GetAttributesOf方法被调用,要求有所选项目的属性,文件夹的属性必须设置 SFGAO_FOLDER 标志.否则对话框不显示网址.
 	$BIF_DONTGOBELOWDOMAIN --- 不包括对话框树视图下面域级别的网络文件夹.
 	$BIF_EDITBOX --- Dll 版本4.71 浏览对话框包含一个编辑控件,允许用户输入一个项目名称.
-	$BIF_NEWDIALOGSTYLE --- Dll 版本5.0 提供用户可调大小的更大对话框界面,具有拖放、重排序、新建文件夹、删除与其它快捷菜单命令等功能.注意:如果组件对象模型（COM）是通过 CoInitializeEx 初始化与 COINIT_MULTITHREADED 标志被设置,函数将失败.
+	$BIF_NEWDIALOGSTYLE --- Dll 版本5.0 提供用户可调大小的更大对话框界面,具有拖放、重排序、新建文件夹、删除与其它快捷菜单命令等功能.注意:如果组件对象模型(COM)是通过 CoInitializeEx 初始化与 COINIT_MULTITHREADED 标志被设置,函数将失败.
 	$BIF_NONEWFOLDERBUTTON --- Dll 版本6.0 对话框中不包含&quot;新建文件夹&quot;按钮.
 	$BIF_NOTRANSLATETARGETS --- Dll 版本6.0 如果选定项目为快捷方式, 则返回快捷方式自身的 PIDL 而不是目标文件.
 	$BIF_RETURNFSANCESTORS --- 只返回文件系统的祖. 祖是层次结构中根文件夹下方的子文件夹. 如用户选择根文件夹下的祖不属于文件系统,则&quot;确定&quot;按钮不可用.
@@ -59,7 +59,7 @@ $hParent
 ###ReturnValue###
 @@ReturnTable@@
 成功:	返回选定文件夹的完整路径; 如果用户取消或关闭对话框, 则返回空字符串.
-失败:	返回空串,设置@error:标志为非 0 值.
+失败:	返回空字符串,设置 @error 标志为非 0 值.
 @@End@@
 
 ###Remarks###
