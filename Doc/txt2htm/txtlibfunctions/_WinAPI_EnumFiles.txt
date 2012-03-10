@@ -1,0 +1,56 @@
+﻿###User Defined Function###
+_WinAPI_EnumFiles
+
+###Description###
+Enumerates the files and subdirectories for the specified directory with a name that matches the template.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_EnumFiles ( $sDir [, $iFlag [, $sTemplate [, $fExclude]]] )
+
+###Parameters###
+@@ParamTable@@
+$sDir
+	The path to the directory.
+$iFlag
+	[可选参数] The flag that specifies whether to enumerate files, subdirectories, or both. This parameter can be
+	one of the following values.
+	
+	0 - Enumerate both files and subdirectories. (Default)
+	1 - Enumerate files only.
+	2 - Enumerate subdirectories only.
+	
+$sTemplate
+	[可选参数] A template that using to enumerating files and directories. For example, "*.jpe;*.jpeg;*.jpg".
+$fExclude
+	[可选参数] Specifies whether the specified template is used to exclude files, valid values:
+		TRUE  - The files matching the template will not be enumerated.
+		FALSE - The only those files that match the template will be enumerated. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The 2D array containing the following information:
+[0][0]	Number of rows in array (n)
+[0][i]	Unused
+[n][0]	The name of the file.
+[n][1]	The time (UTC) when the file was created.
+[n][2]	The time (UTC) when the file was last accessed.
+[n][3]	The time (UTC) when the file was last changed.
+[n][4]	The size of the file, in bytes.
+[n][5]	The allocation size of the file, in bytes.
+[n][6]	The file attributes ($FILE_ATTRIBUTE_*).
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the NTSTATUS code.
+@@End@@
+
+###Remarks###
+If the target directory is empty or no files matched the specified criteria, the function still returns an array
+where zeroth array element set to 0.
+
+
+###See Also###
+@@MsdnLink@@ ZwQueryDirectoryFile
+
+###Example###
+@@IncludeExample@@
+

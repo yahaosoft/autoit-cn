@@ -3,7 +3,7 @@
 
 Opt('MustDeclareVars', 1)
 
-Dim $OnOff[2] = ['OFF', 'ON']
+Global $OnOff[2] = ['OFF', 'ON']
 
 ConsoleWrite('NumLock: ' & $OnOff[BitAND(_WinAPI_GetKeyState($VK_NUMLOCK), 1)] & @CR)
 Sleep(1500)

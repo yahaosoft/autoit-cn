@@ -1,8 +1,6 @@
 ﻿#Include <APIConstants.au3>
 #Include <WinAPIEx.au3>
 
-Opt('MustDeclareVars', 1)
-
 Run(@SystemDir & '\taskmgr.exe')
 
 _WinAPI_SetPriorityClass($HIGH_PRIORITY_CLASS)

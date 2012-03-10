@@ -1,0 +1,42 @@
+﻿###User Defined Function###
+_WinAPI_CreateHardLink
+
+###Description###
+Establishes a hard link between an existing file and a new file.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_CreateHardLink ( $sNewFile, $sExistingFile )
+
+###Parameters###
+@@ParamTable@@
+$sNewFile
+	The name of the new file.
+$sExistingFile
+	The name of the existing file.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The _WinAPI_CreateHardLink() is only supported on the NTFS file system, and only for files, not directories.
+
+The security descriptor belongs to the file to which a hard link points. The link itself is only a directory entry,
+and does not have a security descriptor. Therefore, when you change the security descriptor of a hard link, you
+a change the security descriptor of the underlying file, and all hard links that point to the file allow the newly
+specified access. You cannot give a file different security descriptors on a per-hard-link basis.
+
+Use _WinAPI_DeleteFile() function to delete hard links. You can delete them in any order regardless of the
+order in which they are created.
+
+
+###See Also###
+@@MsdnLink@@ CreateHardLink
+
+###Example###
+@@IncludeExample@@
+

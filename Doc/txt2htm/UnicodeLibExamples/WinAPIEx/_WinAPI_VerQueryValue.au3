@@ -3,6 +3,14 @@
 
 Opt('MustDeclareVars', 1)
 
-Global $Data = _WinAPI_VerQueryValue(@SystemDir & '\shell32.dll')
+Global $aData, $pData = 0
 
-_ArrayDisplay($Data, '_WinAPI_VerQueryValue')
+If Not _WinAPI_GetFileVersionInfo(@SystemDir & '\shell32.dll', $pData) Then
+	Exit
+EndIf
+
+$aData = _WinAPI_VerQueryValue($pData)
+
+_ArrayDisplay($aData, '_WinAPI_VerQueryValue')
+
+_WinAPI_FreeMemory($pData)

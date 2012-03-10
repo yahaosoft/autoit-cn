@@ -6,12 +6,12 @@
 Opt('MustDeclareVars', 1)
 Opt('TrayMenuMode', 3)
 
-Global $hMenu, $Options, $Exit
-
 If _WinAPI_GetVersion() < '6.0' Then
 	MsgBox(16, 'Error', 'Require Windows Vista or later.')
 	Exit
 EndIf
+
+Global $hMenu, $Options, $Exit
 
 $hMenu = TrayItemGetHandle(0)
 $Options = TrayCreateItem('Options')

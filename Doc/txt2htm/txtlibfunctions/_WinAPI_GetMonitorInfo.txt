@@ -1,0 +1,36 @@
+﻿###User Defined Function###
+_WinAPI_GetMonitorInfo
+
+###Description###
+Retrieves information about a display monitor.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_GetMonitorInfo ( $hMonitor )
+
+###Parameters###
+@@ParamTable@@
+$hMonitor
+	A handle to the display monitor of interest.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The array containing the following information:
+[0]	$tagRECT structure that specifies the display monitor rectangle, in virtual-screen coordinates.
+[1]	$tagRECT structure that specifies the work area rectangle of the display monitor that can be used by applications, in virtual-screen coordinates.
+[2]	1 (True) for the primary display monitor, or 0 (False) otherwise.
+[3]	The device name of the monitor being used, e.g. "\\.\DISPLAY1".
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ GetMonitorInfo
+
+###Example###
+@@IncludeExample@@
+

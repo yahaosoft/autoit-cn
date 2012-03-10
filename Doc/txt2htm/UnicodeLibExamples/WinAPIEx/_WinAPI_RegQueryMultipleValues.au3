@@ -4,7 +4,7 @@
 
 Opt('MustDeclareVars', 1)
 
-Global $aValent[19][4], $hKey, $tData
+Global $aValent[19][4], $hKey, $pBuffer
 
 ; 注意如果下列值名称有一个没有在指定的注册表键中找到, 函数会失败!
 

@@ -1,0 +1,59 @@
+﻿###User Defined Function###
+_WinAPI_BackupRead
+
+###Description###
+Backs up a file or directory, including the security information.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_BackupRead ( $hFile, $pBuffer, $iLength, ByRef $iBytes, ByRef $pContext [, $fSecurity] )
+
+###Parameters###
+@@ParamTable@@
+$hFile
+	Handle to the file or directory to be backed up. To obtain the handle, call the _WinAPI_CreateFileEx()
+	function. The SACLs are not read unless the file handle was created with the $ACCESS_SYSTEM_SECURITY
+	access right.
+$pBuffer
+	A pointer to a buffer that receives the data.
+$iLength
+	The size of the buffer, in bytes. The buffer size must be greater than the size of the
+	$tagWIN32_STREAM_ID structure (see MSDN for more information).
+$iBytes
+	The number of bytes read.
+$pContext
+	A pointer to an internal data structure used by this function to maintain context information during
+	a backup operation. You must set this variable to 0 before the first call to _WinAPI_BackupRead()
+	for the specified file or directory. The function allocates memory for the data structure, and then
+	sets the variable to point to that structure. You must not change this variable or the variable
+	that it points to between calls to _WinAPI_BackupRead().
+$fSecurity
+	[可选参数] Specifies whether the function will backup the access-control list (ACL) data, valid values:
+		TRUE      - The ACL data will be backed up.
+		FALSE     - The ACL data will be omitted. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The _WinAPI_BackupRead() is not intended for use in backing up files encrypted under the Encrypted File System (EFS).
+
+If an error occurs during the data reading, the calling process can skip the bad data by calling the
+_WinAPI_BackupSeek() function.
+
+When you are done using _WinAPI_BackupRead(), you must call _WinAPI_BackupReadAbort() function with the appropriate
+parameter to release the memory used by the internal data structure.
+
+The file or directory should be restored using the _WinAPI_BackupWrite() function.
+
+
+###See Also###
+@@MsdnLink@@ BackupRead
+
+###Example###
+@@IncludeExample@@
+

@@ -1,0 +1,61 @@
+﻿###User Defined Function###
+_WinAPI_VerQueryValueEx
+
+###Description###
+Retrieves the text information from the version-information resource of the specified binary module.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_VerQueryValueEx ( $hModule [, $sValues [, $iLanguage]] )
+
+###Parameters###
+@@ParamTable@@
+$hModule
+	The handle to a module to retrieve information. Also, this parameter can specify the name of the
+	module to load, it must be a full or relative path. If this parameter is 0 or an empty string, that is
+	equivalent to passing in a handle to the module used to create the current process.
+$sValues
+	[可选参数] The string containing the field names for which you want to get values. The names must be separated
+	by a "|". For example, "name1|name2|...|namei". If some fields do not exist, the corresponding array
+	elements is an empty string. If this parameter is not specified (empty string), uses the reserved
+	names (12) in the following sequence.
+	
+	"Comments"
+	"CompanyName"
+	"FileDescription"
+	"FileVersion'
+	"InternalName"
+	"LegalCopyright"
+	"LegalTrademarks"
+	"OriginalFilename"
+	"ProductName"
+	"ProductVersion"
+	"PrivateBuild"
+	"SpecialBuild"
+	
+$iLanguage
+	[可选参数] The language identifier of the version-information resource of interest. To retrieve information for
+	user default language set this parameter to $LOCALE_USER_DEFAULT. To retrieve information for all
+	languages that are located in the resource set this parameter to (-1).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The 2D array of the string values that specified by $sValues parameter for each language. The zeroth
+[0][0]	Number of languages (n)
+[0][i]	Unused
+[n][0]	ID
+[n][i]	Value
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The identifier (ID) of the version-information resource should be equal to 1, otherwise the function fails.
+
+
+###See Also###
+None
+
+###Example###
+@@IncludeExample@@
+

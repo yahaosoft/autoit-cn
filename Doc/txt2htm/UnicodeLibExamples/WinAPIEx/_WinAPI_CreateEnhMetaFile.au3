@@ -6,8 +6,7 @@ Opt('MustDeclareVars', 1)
 Global Const $sEmf = @ScriptDir & '\Test.emf'
 
 Global $hDC, $tRECT, $hPen, $hBrush, $hPen, $hRgn, $hEmf
-
-Dim $aPoint[10][2] = [[0, 90], [95, 90], [125, 0], [154, 90], [250, 90], [172, 147], [202, 238], [125, 181], [47, 238], [77, 147]]
+Global $aPoint[10][2] = [[0, 90], [95, 90], [125, 0], [154, 90], [250, 90], [172, 147], [202, 238], [125, 181], [47, 238], [77, 147]]
 
 If FileExists($sEmf) Then
 	If MsgBox(3 + 32 + 256, 'Create Enhanced Metafile', $sEmf & ' is already exists.' & @CR & @CR & 'Do you want to replace it?') <> 6 Then

@@ -1,0 +1,59 @@
+﻿###User Defined Function###
+_WinAPI_AdjustBitmap
+
+###Description###
+Creates a new device-depended bitmap (DDB) from the source bitmap with new dimensions and color adjustment.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_AdjustBitmap ( $hBitmap, $iWidth, $iHeight [, $iMode [, $tAdjustment]] )
+
+###Parameters###
+@@ParamTable@@
+$hBitmap
+	A handle to the source bitmap.
+$iWidth
+	The width of the new bitmap, in pixels. If this parameter is (-1), the width will be the same
+	as in the source bitmap.
+$iHeight
+	The height of the new bitmap, in pixels. If this parameter is (-1), the height will be the same
+	as in the source bitmap.
+$iMode
+	[可选参数] The stretching mode. This parameter can be one of the following values.
+	
+	$BLACKONWHITE
+	$COLORONCOLOR
+	$HALFTONE
+	$WHITEONBLACK
+	$STRETCH_ANDSCANS
+	$STRETCH_DELETESCANS
+	$STRETCH_HALFTONE
+	$STRETCH_ORSCANS
+	
+$tAdjustment
+	[可选参数] $tagCOLORADJUSTMENT structure containing the color adjustment values. This color adjustment is
+	used only if $HALFTONE ($STRETCH_HALFTONE) stretching mode are set.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	A handle to the newly created bitmap (DDB).
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The _WinAPI_AdjustBitmap() creates a device-depended bitmaps compatible with the application's current screen.
+
+This function does not support bitmaps with alpha channel, you can use the _WinAPI_AlphaBlend() function to work
+with these bitmaps.
+
+When you are finished using the bitmap, destroy it using the _WinAPI_DeleteObject() function. The function
+does not destroy the original bitmap, you must to destroy it yourself.
+
+
+###See Also###
+None
+
+###Example###
+@@IncludeExample@@
+

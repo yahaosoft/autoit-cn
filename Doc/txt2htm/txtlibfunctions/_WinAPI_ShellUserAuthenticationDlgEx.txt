@@ -1,0 +1,71 @@
+﻿###User Defined Function###
+_WinAPI_ShellUserAuthenticationDlgEx
+
+###Description###
+Creates and displays a configurable dialog box that accepts credentials information from a user.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ShellUserAuthenticationDlgEx ( $sCaption, $sMessage, $sUser, $sPassword [, $iFlags [, $iError [, $fSave [, $iPackage [, $hParent]]]]] )
+
+###Parameters###
+@@ParamTable@@
+$sCaption
+	The title for the dialog box.
+$sMessage
+	A brief message to display in the dialog box.
+$sUser
+	The user name to populate the credential fields in the dialog box. For domain users, the string must
+	be in the following format:
+	
+	DomainName\UserName
+	
+$sPassword
+	The initial password.
+$iFlags
+	[可选参数] The flags that specifies behavior for this function. It can be a combination of the following values.
+	
+	$CREDUIWIN_AUTHPACKAGE_ONLY
+	$CREDUIWIN_CHECKBOX
+	$CREDUIWIN_ENUMERATE_ADMINS
+	$CREDUIWIN_ENUMERATE_CURRENT_USER
+	$CREDUIWIN_GENERIC
+	$CREDUIWIN_IN_CRED_ONLY
+	$CREDUIWIN_SECURE_PROMPT
+	$CREDUIWIN_PACK_32_WOW
+	$CREDUIWIN_PREPROMPTING
+	
+$iError
+	[可选参数] The system error code that is displayed in the dialog box.
+$fSave
+	[可选参数] Specifies whether the "Save" check box is selected in the dialog box (it makes sense only if the
+	$CREDUIWIN_CHECKBOX flag is used), valid values:
+		TRUE      - Selected.
+		FALSE     - Deselected. (Default)
+$iPackage
+	[可选参数] The authentication package for which the credentials are serialized.
+$hParent
+	[可选参数] The dialog box is modal with respect to the parent window. If this parameter is 0, the desktop
+	is the parent window of the dialog box.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The array containing the following information:
+[0]	The user name, including domain name (if necessary).
+[1]	The password.
+[2]	The state of the "Save" check box.
+[3]	The authentication package.
+Failure	0 and sets the @error flag to non-zero. If the function is canceled by the user, @extended flag will
+@@End@@
+
+###Remarks###
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ CredUIPromptForWindowsCredentials
+
+###Example###
+@@IncludeExample@@
+

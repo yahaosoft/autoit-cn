@@ -1,0 +1,40 @@
+﻿###User Defined Function###
+_WinAPI_EnumDisplayMonitors
+
+###Description###
+Enumerates display monitors (including invisible pseudo-monitors associated with the mirroring drivers).
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_EnumDisplayMonitors ( [$hDC [, $tRECT]] )
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	[可选参数] Handle to a display device context that defines the visible region of interest. If it's 0, the visible
+	region of interest is the virtual screen that encompasses all the displays on the desktop.
+$tRECT
+	[可选参数] $tagRECT structure that specifies a clipping rectangle. This parameter can be 0 if you don't want to
+	clip the specified region.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The 2D array containing the following information:
+[0][0]	Number of rows in array (n)
+[0][1]	Unused
+[n][0]	A handle to the display monitor.
+[n][1]	$tagRECT structure defining a display monitor rectangle or the clipping area.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ EnumDisplayMonitors
+
+###Example###
+@@IncludeExample@@
+

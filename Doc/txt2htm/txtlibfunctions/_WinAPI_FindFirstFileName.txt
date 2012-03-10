@@ -1,0 +1,39 @@
+﻿###User Defined Function###
+_WinAPI_FindFirstFileName
+
+###Description###
+Creates an enumeration of all the hard links to the specified file.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_FindFirstFileName ( $sPath, ByRef $sLink )
+
+###Parameters###
+@@ParamTable@@
+$sPath
+	The name of the file.
+$sLink
+	The first link name found for the specified file.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The search handle.
+Failure	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+###Remarks###
+After the search handle has been established, use it in the _WinAPI_FindNextFileName() function to search for
+other hard links to the specified file.
+
+When the search handle is no longer needed, it should be closed using the _WinAPI_FindClose() function.
+
+This function requires Windows Vista or later.
+
+
+###See Also###
+@@MsdnLink@@ FindFirstFileNameW
+
+###Example###
+@@IncludeExample@@
+

@@ -7,8 +7,7 @@ Opt('MustDeclareVars', 1)
 
 Global $hForm, $Msg, $Button, $ListView, $hImageList, $hIcon, $Key, $Count = 1, $First = False
 Global $tSHFILEINFO = DllStructCreate($tagSHFILEINFO)
-
-Dim $Ext[101] = [0]
+Global $Ext[101] = [0]
 
 RegRead('HKCR\.x', '')
 

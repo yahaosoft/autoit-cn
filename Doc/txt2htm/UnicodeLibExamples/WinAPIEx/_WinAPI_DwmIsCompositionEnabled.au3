@@ -7,6 +7,6 @@ If _WinAPI_GetVersion() < '6.0' Then
 	Exit
 EndIf
 
-Dim $State[2] = ['Disabled', 'Enabled']
+Global $State[2] = ['Disabled', 'Enabled']
 
 ConsoleWrite('Aero is: ' & $State[_WinAPI_DwmIsCompositionEnabled()] & @CR)

@@ -8,14 +8,14 @@ Opt('MustDeclareVars', 1)
 Global Const $STM_SETIMAGE = 0x0172
 Global Const $STM_GETIMAGE = 0x0173
 
-Global $hForm, $Pic, $hPic, $hBitmap, $hObj, $hImage, $pStream, $bData, $hData, $pData, $tData, $Width, $Height, $Lenght
+Global $hForm, $Pic, $hPic, $hBitmap, $hObj, $hImage, $pStream, $bData, $hData, $pData, $tData, $Width, $Height, $Length
 
 ; 创建位图 (MSDNLogo.png)
 $bData = _Image_MSDNLogo()
-$Lenght = BinaryLen($bData)
-$hData = _MemGlobalAlloc($Lenght, $GMEM_MOVEABLE)
+$Length = BinaryLen($bData)
+$hData = _MemGlobalAlloc($Length, $GMEM_MOVEABLE)
 $pData = _MemGlobalLock($hData)
-$tData = DllStructCreate('byte[' & $Lenght & ']', $pData)
+$tData = DllStructCreate('byte[' & $Length & ']', $pData)
 DllStructSetData($tData, 1, $bData)
 _MemGlobalUnlock($hData)
 $pStream = _WinAPI_CreateStreamOnHGlobal($hData)

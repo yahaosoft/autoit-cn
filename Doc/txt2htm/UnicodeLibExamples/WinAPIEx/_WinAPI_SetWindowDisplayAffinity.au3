@@ -5,13 +5,13 @@
 
 Opt('MustDeclareVars', 1)
 
+Global Const $STM_SETIMAGE = 0x0172
+Global Const $STM_GETIMAGE = 0x0173
+
 If (_WinAPI_GetVersion() < '6.1') Or (Not _WinAPI_DwmIsCompositionEnabled()) Then
 	MsgBox(16, 'Error', 'Require Windows 7 or later with enabled Aero theme.')
 	Exit
 EndIf
-
-Global Const $STM_SETIMAGE = 0x0172
-Global Const $STM_GETIMAGE = 0x0173
 
 Global $Widht = @DesktopWidth / 2, $Height = @DesktopHeight / 2
 Global $hForm, $hPic, $Msg, $Button, $Check

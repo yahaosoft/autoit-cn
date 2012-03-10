@@ -9,8 +9,7 @@ Global Const $STM_SETIMAGE = 0x0172
 Global Const $STM_GETIMAGE = 0x0173
 
 Global $hForm, $Msg, $Pic, $hPic, $Label, $hLabel, $Count = 0, $Pos, $hObj, $hBitmap, $hIcon, $hDll, $pDll, $hProc, $hDC, $hDestDC, $hDestSv
-
-Dim $aVertex[2][3] = [[0, 0, 0xAA00FF], [400, 400, 0x33004D]]
+Global $aVertex[2][3] = [[0, 0, 0xAA00FF], [400, 400, 0x33004D]]
 
 OnAutoItExitRegister('OnAutoItExit')
 

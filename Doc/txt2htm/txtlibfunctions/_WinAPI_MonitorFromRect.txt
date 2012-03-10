@@ -1,0 +1,37 @@
+﻿###User Defined Function###
+_WinAPI_MonitorFromRect
+
+###Description###
+Retrieves a handle to the display monitor that has the largest area of intersection with a specified rectangle.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_MonitorFromRect ( $tRECT [, $iFlag] )
+
+###Parameters###
+@@ParamTable@@
+$tRECT
+	$tagRECT structure that specifies the rectangle of interest in virtual-screen coordinates.
+$iFlag
+	[可选参数] The flag that specifies the function's return value if the rectangle does not intersect any display
+	monitor. This parameter can be one of the following values.
+	
+	$MONITOR_DEFAULTTONEAREST
+	$MONITOR_DEFAULTTONULL
+	$MONITOR_DEFAULTTOPRIMARY
+	
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The handle to the monitor that has the largest area of intersection with the rectangle,
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+None
+
+
+###See Also###
+@@MsdnLink@@ MonitorFromRect
+

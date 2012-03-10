@@ -4,14 +4,15 @@
 #Include <WinAPIEx.au3>
 
 Opt('MustDeclareVars', 1)
+Opt('TrayAutoPause', 0)
 
 Global Const $STM_SETIMAGE = 0x0172
 Global Const $STM_GETIMAGE = 0x0173
 
-Global $hForm, $Msg, $Pic, $Slider, $tSIZE, $W, $H, $hBitmap
+Global $hForm, $Msg, $Pic, $Slider, $hSlider, $tSIZE, $W, $H, $hBitmap
 
 ; Load image
-$hBitmap = _WinAPI_LoadImage(0, @ScriptDir & '\Extras\Logo.bmp', $IMAGE_BITMAP, 0, 0, $LR_LOADFROMFILE)
+$hBitmap = _WinAPI_LoadImage(0, @ScriptDir & '\Extras\AutoIt.bmp', $IMAGE_BITMAP, 0, 0, $LR_LOADFROMFILE)
 $tSIZE = _WinAPI_GetBitmapDimension($hBitmap)
 $W = DllStructGetData($tSIZE, 'X')
 $H = DllStructGetData($tSIZE, 'Y')
@@ -22,6 +23,7 @@ $Pic = GUICtrlCreatePic('', 0, 0, $W, $H)
 GUICtrlCreateGraphic(0, $H, $W, 1)
 GUICtrlSetBkColor(-1, 0xDFDFDF)
 $Slider = GUICtrlCreateSlider(0, $H + 1, $W, 25, BitOR($TBS_BOTH, $TBS_NOTICKS))
+$hSlider = GUICtrlGetHandle(-1)
 GUICtrlSetLimit(-1, 255, 0)
 GUICtrlSetData(-1, 255)
 
@@ -76,9 +78,12 @@ Func _SetBitmapAlpha($hWnd, $hBitmap, $iAlpha)
 EndFunc   ;==>_SetBitmapAlpha
 
 Func WM_HSCROLL($hWnd, $iMsg, $wParam, $lParam)
-	Switch _WinAPI_GetDlgCtrlID($lParam)
-		Case $Slider
-			_SetBitmapAlpha($Pic, $hBitmap, GUICtrlRead($Slider))
+	Switch $hWnd
+		Case $hForm
+			Switch $lParam
+				Case $hSlider
+					_SetBitmapAlpha($Pic, $hBitmap, GUICtrlRead($Slider))
+			EndSwitch
 	EndSwitch
 	Return $GUI_RUNDEFMSG
 EndFunc   ;==>WM_HSCROLL

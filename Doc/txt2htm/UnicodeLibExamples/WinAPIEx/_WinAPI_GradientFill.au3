@@ -6,9 +6,7 @@ Global Const $STM_SETIMAGE = 0x0172
 Global Const $STM_GETIMAGE = 0x0173
 
 Global $hForm, $Pic, $hPic, $hObj, $hBitmap, $hDC, $hDestDC, $hDestSv
-
-Dim $aVertex[6][3] = [[0, 0, 0xFF0000], [400, 400, 0x00FF00], [  0, 400, 0x0000FF], _
-                      [0, 0, 0xFF0000], [400,   0, 0xFFFF00], [400, 400, 0x00FF00]]
+Global $aVertex[6][3] = [[0, 0, 0xFF0000], [400, 400, 0x00FF00], [  0, 400, 0x0000FF], [0, 0, 0xFF0000], [400,   0, 0xFFFF00], [400, 400, 0x00FF00]]
 
 ; 创建 GUI
 $hForm = GUICreate('MyGUI', 400, 400)

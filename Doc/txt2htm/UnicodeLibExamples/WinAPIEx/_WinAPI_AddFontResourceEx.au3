@@ -2,8 +2,6 @@
 #Include <StaticConstants.au3>
 #Include <WinAPIEx.au3>
 
-Opt('MustDeclareVars', 1)
-
 _WinAPI_AddFontResourceEx(@ScriptDir & '\Extras\SF Square Head Bold.ttf', $FR_PRIVATE)
 
 GUICreate('MyGUI', 400, 100)

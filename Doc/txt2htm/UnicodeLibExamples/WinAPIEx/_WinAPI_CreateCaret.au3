@@ -46,7 +46,7 @@ EndFunc   ;==>WM_COMMAND
 
 Func OnAutoItExit()
 	_WinAPI_DeleteObject($hBitmap)
-	If $Duration <> Default Then
+	If Not IsKeyword($Duration) Then
 		_WinAPI_SetCaretBlinkTime($Duration)
 	EndIf
 EndFunc   ;==>OnAutoItExit

@@ -1,0 +1,69 @@
+﻿###User Defined Function###
+_WinAPI_ReadDirectoryChanges
+
+###Description###
+Retrieves information that describes the changes within the specified directory.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_ReadDirectoryChanges ( $hDirectory, $iFilter, $pBuffer, $iLength [, $fSubtree] )
+
+###Parameters###
+@@ParamTable@@
+$hDirectory
+	A handle to the directory to be monitored. This directory must be opened with the
+	$FILE_LIST_DIRECTORY access right.
+$iFilter
+	The filter criteria that the function checks to determine if the wait operation has completed.
+	This parameter can be one or more of the following values.
+	
+	$FILE_NOTIFY_CHANGE_FILE_NAME
+	$FILE_NOTIFY_CHANGE_DIR_NAME
+	$FILE_NOTIFY_CHANGE_ATTRIBUTES
+	$FILE_NOTIFY_CHANGE_SIZE
+	$FILE_NOTIFY_CHANGE_LAST_WRITE
+	$FILE_NOTIFY_CHANGE_LAST_ACCESS
+	$FILE_NOTIFY_CHANGE_CREATION
+	$FILE_NOTIFY_CHANGE_SECURITY
+	
+$pBuffer
+	A pointer to the DWORD-aligned formatted buffer that internally used by this function to retrieve the
+	data. To create a buffer, you can use _WinAPI_CreateBuffer() function. To prevent the crash of the script,
+	use the buffer at least not less than 64 KB. If the buffer is greater than 64 KB and the application is
+	monitoring a directory over the network, the function fails. This is due to a packet size limitation
+	with the underlying file sharing protocols.
+$iLength
+	The size of the buffer, in bytes.
+$fSubtree
+	[可选参数] Specifies whether to monitor the subdirectories of the specified directory, valid values:
+		TRUE     - Monitor the directory tree rooted at the specified directory.
+		FALSE    - Monitor only the specified directory. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	The 2D array containing the following information:
+[0][0]	Number of rows in array (n)
+[0][1]	Unused
+[n][0]	The file name relative to the directory handle.
+[n][1]	The type of change that has occurred (one of the $FILE_ACTION_* constants).
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+When you first call _WinAPI_ReadDirectoryChanges() function, the system allocates a buffer to store change
+information. This buffer is associated with the directory handle until it is closed and its size does not change
+during its lifetime. Directory changes that occur between calls to this function are added to the buffer
+and then returned with the next call. If the buffer overflows, the entire contents are discarded.
+
+To obtain a handle to a directory, use _WinAPI_CreateFileEx() function with $FILE_FLAG_BACKUP_SEMANTICS flag.
+
+The _WinAPI_ReadDirectoryChanges() function works only in synchronous mode.
+
+
+###See Also###
+@@MsdnLink@@ ReadDirectoryChangesW
+
+###Example###
+@@IncludeExample@@
+

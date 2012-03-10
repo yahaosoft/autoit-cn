@@ -5,8 +5,9 @@
 #Include <WinAPIEx.au3>
 
 Opt('MustDeclareVars', 1)
+Opt('TrayAutoPause', 0)
 
-Global $hForm, $Graphic, $Label, $hSlider, $Slider
+Global $hForm, $Graphic, $Label, $Slider, $hSlider
 
 ; Create GUI
 $hForm = GUICreate('MyGUI', 300, 327)

@@ -2,9 +2,8 @@
 
 Opt('MustDeclareVars', 1)
 
-Local $File
+Global $File = InputBox('Run', 'Type the name of a program, folder, document, or Internet resource to open it', '', '', 368, 152)
 
-$File = InputBox('Run', 'Type the name of a program, folder, document, or Internet resource to open it', '', '', 368, 152)
 If $File Then
 	_WinAPI_ShellExecute($File, '', '', 'open')
 	If @error Then

@@ -1,0 +1,37 @@
+﻿###User Defined Function###
+_WinAPI_SetFileShortName
+
+###Description###
+Sets the short name for the specified file.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SetFileShortName ( $hFile, $sShortName )
+
+###Parameters###
+@@ParamTable@@
+$hFile
+	A handle to the file. The file must be on an NTFS file system volume. Also, the file must be
+	opened with either the $GENERIC_ALL access right or $GENERIC_WRITE|$DELETE, and with the
+	$FILE_FLAG_BACKUP_SEMANTICS file attribute.
+$sShortName
+	The valid short name for the file. If the specified short name already exists, the function
+	fails and the last error code is ERROR_ALREADY_EXISTS (183).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The caller of this function must have the $SE_RESTORE_NAME privilege.
+
+
+###See Also###
+@@MsdnLink@@ SetFileShortName
+
+###Example###
+@@IncludeExample@@
+

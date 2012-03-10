@@ -33,11 +33,14 @@
 <tr><td bgcolor="#9999CC">$tagBITMAPINFO</td>
 <td bgcolor="#9999CC">$tagBITMAPINFOHEADER & 'dword bmiColors[n];'</td>
 </tr>
+<tr><td>$tagCOLORADJUSTMENT</td>
+<td>'ushort Size;ushort Flags;ushort IlluminantIndex;ushort RedGamma;ushort GreenGamma;ushort BlueGamma;ushort ReferenceBlack;ushort ReferenceWhite;short Contrast;short Brightness;short Colorfulness;short RedGreenTint;'</td>
+</tr>
 <tr><td>$tagDEVMODE_DISPLAY</td>
-<td>'wchar DeviceName[32];ushort SpecVersion;ushort DriverVersion;ushort Size;ushort DriverExtra;dword Fields;' & $tagPOINT & ';dword DisplayOrientation;dword DisplayFixedOutput;short[5];wchar[32];ushort LogPixels;dword BitsPerPel;dword PelsWidth;dword PelsHeight;dword DisplayFlags;dword DisplayFrequency;'</td>
+<td>'wchar DeviceName[32];ushort SpecVersion;ushort DriverVersion;ushort Size;ushort DriverExtra;dword Fields;' & $tagPOINT & ';dword DisplayOrientation;dword DisplayFixedOutput;short Unused1[5];wchar Unused2[32];ushort LogPixels;dword BitsPerPel;dword PelsWidth;dword PelsHeight;dword DisplayFlags;dword DisplayFrequency;'</td>
 </tr>
 <tr><td>$tagDEVMODE_PRINTER</td>
-<td>'wchar DeviceName[32];ushort SpecVersion;ushort DriverVersion;ushort Size;ushort DriverExtra;dword Fields;short Orientation;short PaperSize;short PaperLength;short PaperWidth;short Scale;short Copies;short DefaultSource;short PrintQuality;short Color;short Duplex;short YResolution;short TTOption;short Collate;wchar FormName[32];ushort;dword[3];dword Nup;dword;dword ICMMethod;dword ICMIntent;dword MediaType;dword DitherType;dword Reserved1;dword Reserved2;dword PanningWidth;dword PanningHeight;'</td>
+<td>'wchar DeviceName[32];ushort SpecVersion;ushort DriverVersion;ushort Size;ushort DriverExtra;dword Fields;short Orientation;short PaperSize;short PaperLength;short PaperWidth;short Scale;short Copies;short DefaultSource;short PrintQuality;short Color;short Duplex;short YResolution;short TTOption;short Collate;wchar FormName[32];ushort Unused1;dword Unused2[3];dword Nup;dword Unused3;dword ICMMethod;dword ICMIntent;dword MediaType;dword DitherType;dword Reserved1;dword Reserved2;dword PanningWidth;dword PanningHeight;'</td>
 </tr>
 <tr><td>$tagDEVNAMES</td>
 <td>'ushort DriverOffset;ushort DeviceOffset;ushort OutputOffset;ushort Default;'</td>
@@ -54,8 +57,14 @@
 <tr><td>$tagEXTLOGPEN</td>
 <td>'dword PenStyle;dword Width;uint BrushStyle;dword Color;ulong_ptr Hatch;dword NumEntries;' ; & 'dword StyleEntry[n];'</td>
 </tr>
+<tr><td>$tagFILE_ID_DESCRIPTOR</td>
+<td>'dword Size;uint Type;' & $tagGUID & ';'</td>
+</tr>
 <tr><td>$tagFINDREPLACE</td>
 <td>'dword Size;hwnd hOwner;ptr hInstance;dword Flags;ptr FindWhat;ptr ReplaceWith;ushort FindWhatLen;ushort ReplaceWithLen;lparam lParam;ptr Hook;ptr TemplateName;'</td>
+</tr>
+<tr><td>$tagGLYPHMETRICS</td>
+<td>'uint BlackBoxX;uint BlackBoxY;' & $tagPOINT & ';short CellIncX;short CellIncY;'</td>
 </tr>
 <tr><td bgcolor="#9999CC">$tagGUITHREADINFO</td>
 <td bgcolor="#9999CC">'dword Size;dword Flags;hwnd hWndActive;hwnd hWndFocus;hwnd hWndCapture;hwnd hWndMenuOwner;hwnd hWndMoveSize;hwnd hWndCaret;long rcCaret[4];'</td>
@@ -101,6 +110,9 @@
 </tr>
 <tr><td>$tagLOGPEN</td>
 <td>'uint Style;dword Width;dword Color;'</td>
+</tr>
+<tr><td>$tagMAT2</td>
+<td>'short eM11[2];short eM12[2];short eM21[2];short eM22[2];'</td>
 </tr>
 <tr><td>$tagMODULEINFO</td>
 <td>'ptr BaseOfDll;dword SizeOfImage;ptr EntryPoint;'</td>
@@ -185,6 +197,12 @@
 </tr>
 <tr><td bgcolor="#9999CC">$tagWIN32_FIND_DATA</td>
 <td bgcolor="#9999CC">'align 4;dword FileAttributes;uint64 CreationTime;uint64 LastAccessTime;uint64 LastWriteTime;dword FileSizeHigh;dword FileSizeLow;dword Reserved0;dword Reserved1;wchar FileName[260];wchar AlternateFileName[14];'</td>
+</tr>
+<tr><td>$tagWIN32_FIND_STREAM_DATA</td>
+<td>'int64 StreamSize;wchar StreamName[296];'</td>
+</tr>
+<tr><td bgcolor="#9999CC">$tagWIN32_STREAM_ID</td>
+<td bgcolor="#9999CC">'dword StreamId;dword StreamAttributes;int64 Size;dword StreamNameSize;' ; & 'wchar StreamName[n];'</td>
 </tr>
 <tr><td>$tagWINDOWINFO</td>
 <td>'dword Size;dword rWindow[4];dword rClient[4];dword Style;dword ExStyle;dword WindowStatus;uint cxWindowBorders;uint cyWindowBorders;ushort atomWindowType;ushort CreatorVersion;'</td>

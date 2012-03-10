@@ -9,14 +9,14 @@ Global $hForm
 OnAutoItExitRegister('OnAutoItExit')
 
 $hForm = GUICreate('')
-GUIRegisterMsg(_WinAPI_RegisterWindowMessage('SHELLHOOK'), '_ShellHookProc')
+GUIRegisterMsg(_WinAPI_RegisterWindowMessage('SHELLHOOK'), 'WM_SHELLHOOK')
 _WinAPI_RegisterShellHookWindow($hForm)
 
 While 1
 	Sleep(1000)
 WEnd
 
-Func _ShellHookProc($hWnd, $iMsg, $wParam, $lParam)
+Func WM_SHELLHOOK($hWnd, $iMsg, $wParam, $lParam)
 	Switch $hWnd
 		Case $hForm
 			Switch $wParam
@@ -29,7 +29,7 @@ Func _ShellHookProc($hWnd, $iMsg, $wParam, $lParam)
 					EndIf
 			EndSwitch
 	EndSwitch
-EndFunc   ;==>_ShellHookProc
+EndFunc   ;==>WM_SHELLHOOK
 
 Func OnAutoItExit()
 	_WinAPI_DeregisterShellHookWindow($hForm)

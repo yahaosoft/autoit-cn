@@ -1,8 +1,6 @@
 ﻿#Include <APIConstants.au3>
 #Include <WinAPIEx.au3>
 
-Opt('MustDeclareVars', 1)
-
 ConsoleWrite('Windows => ' & _WinAPI_ShellGetSpecialFolderPath($CSIDL_WINDOWS) & @CR)
 ConsoleWrite('System => ' & _WinAPI_ShellGetSpecialFolderPath($CSIDL_SYSTEM) & @CR)
 ConsoleWrite('Fonts => ' & _WinAPI_ShellGetSpecialFolderPath($CSIDL_FONTS) & @CR)

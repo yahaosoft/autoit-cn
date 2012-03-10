@@ -4,11 +4,12 @@
 #Include <WinAPIEx.au3>
 
 Opt('MustDeclareVars', 1)
+Opt('TrayAutoPause', 0)
 
 Global Const $STM_SETIMAGE = 0x0172
 Global Const $STM_GETIMAGE = 0x0173
 
-Global $hForm, $Msg, $Pic, $hSlider, $Slider, $tSIZE, $W, $H, $hBitmap
+Global $hForm, $Msg, $Pic, $Slider, $hSlider, $tSIZE, $W, $H, $hBitmap
 
 ; Load image
 $hBitmap = _WinAPI_LoadImage(0, @ScriptDir & '\Extras\Compass.bmp', $IMAGE_BITMAP, 0, 0, $LR_LOADFROMFILE)

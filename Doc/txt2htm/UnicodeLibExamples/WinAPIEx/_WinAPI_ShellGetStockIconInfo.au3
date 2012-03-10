@@ -5,12 +5,12 @@
 
 Opt('MustDeclareVars', 1)
 
+Global Const $STM_SETIMAGE = 0x0172
+
 If _WinAPI_GetVersion() < '6.0' Then
 	MsgBox(16, 'Error', 'Require Windows Vista or later.')
 	Exit
 EndIf
-
-Global Const $STM_SETIMAGE = 0x0172
 
 Global $Msg, $Icon, $Label, $Prev, $Next, $tSHSTOCKICONINFO, $hIcon, $hOld, $Count = 0, $Update = True
 

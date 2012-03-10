@@ -1,0 +1,37 @@
+﻿###User Defined Function###
+_WinAPI_BackupSeek
+
+###Description###
+Seeks forward in a data stream initially accessed by using the _WinAPI_BackupRead() or _WinAPI_BackupWrite() function.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_BackupSeek ( $hFile, $iSeek, ByRef $iBytes, ByRef $pContext )
+
+###Parameters###
+@@ParamTable@@
+$hFile
+	Handle to the file or directory.
+$iSeek
+	The number of bytes to seek.
+$iBytes
+	The number of bytes the function actually seeks.
+$pContext
+	A pointer to an internal data structure. This structure must be the same structure that was initialized
+	by the _WinAPI_BackupRead(). An application must not touch the contents of this structure.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+Applications use the _WinAPI_BackupSeek() to skip portions of a data stream that cause errors. This function does
+not seek across stream headers.
+
+
+###See Also###
+@@MsdnLink@@ BackupSeek
+

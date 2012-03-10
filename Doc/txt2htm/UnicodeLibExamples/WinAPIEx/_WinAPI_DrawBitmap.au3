@@ -9,23 +9,25 @@ Global Const $STM_GETIMAGE = 0x0173
 Global $hForm, $Pic, $hPic, $tSIZE, $W, $H, $hObj, $hBitmap, $hSource, $hDC, $hDestDC, $hDestSv
 
 ; 加载图像
-$hSource = _WinAPI_LoadImage(0, @ScriptDir & '\Extras\Logo.bmp', $IMAGE_BITMAP, 0, 0, $LR_LOADFROMFILE)
+$hSource = _WinAPI_LoadImage(0, @ScriptDir & '\Extras\Hatch.bmp', $IMAGE_BITMAP, 0, 0, $LR_LOADFROMFILE)
 $tSIZE = _WinAPI_GetBitmapDimension($hSource)
 $W = DllStructGetData($tSIZE, 'X')
 $H = DllStructGetData($tSIZE, 'Y')
 
 ; 创建 GUI
-$hForm = GUICreate('MyGUI', $W, 4 * $H)
-$Pic = GUICtrlCreatePic('', 0, 0, $W, 4 * $H)
+$hForm = GUICreate('MyGUI', @DesktopWidth, @DesktopHeight, 0, 0, $WS_POPUP, $WS_EX_TOPMOST)
+$Pic = GUICtrlCreatePic('', 0, 0, @DesktopWidth, @DesktopHeight)
 $hPic = GUICtrlGetHandle($Pic)
 
 ; 创建位图
 $hDC = _WinAPI_GetDC($hPic)
 $hDestDC = _WinAPI_CreateCompatibleDC($hDC)
-$hBitmap = _WinAPI_CreateCompatibleBitmap($hDC, $W, 4 * $H)
+$hBitmap = _WinAPI_CreateCompatibleBitmap($hDC, @DesktopWidth, @DesktopHeight)
 $hDestSv = _WinAPI_SelectObject($hDestDC, $hBitmap)
-For $i = 0 To 3
-	_WinAPI_DrawBitmap($hDestDC, 0, $i * $H, $hSource)
+For $i = 0 To Ceiling(@DesktopWidth / $W) - 1
+	For $j = 0 To Ceiling(@DesktopHeight / $W) - 1
+		_WinAPI_DrawBitmap($hDestDC, $i * $W, $j * $H, $hSource)
+	Next
 Next
 
 _WinAPI_ReleaseDC($hPic, $hDC)

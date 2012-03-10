@@ -4,7 +4,7 @@
 
 Opt('MustDeclareVars', 1)
 
-Global $hKey, $Count
+Global $hKey, $aKey, $Count
 
 $hKey = _WinAPI_RegOpenKey($HKEY_CURRENT_USER, 'Software\Microsoft\Windows\CurrentVersion\Run', $KEY_READ)
 If @error Then

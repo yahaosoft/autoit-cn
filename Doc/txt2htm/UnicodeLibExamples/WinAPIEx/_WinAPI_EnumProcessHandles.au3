@@ -15,7 +15,7 @@ If IsArray($Data) Then
 	$hSource = _WinAPI_OpenProcess($PROCESS_DUP_HANDLE, 0, $PID)
 	If $hSource Then
 		For $i = 1 To $Data[0][0]
-			$hObject = _WinAPI_DuplicateHandle($hSource, $Data[$i][0], $hTarget)
+			$hObject = _WinAPI_DuplicateHandle($hSource, $Data[$i][0], $hTarget, 0, 0, 2)
 			If Not @error Then
 				$Data[$i][1] = _WinAPI_GetObjectNameByHandle($hObject)
 				_WinAPI_CloseHandle($hObject)

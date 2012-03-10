@@ -4,7 +4,7 @@
 
 Opt('MustDeclareVars', 1)
 
-Global $Data, $Lenght
+Global $Data
 
 $Data = _WinAPI_EnumDllProc('ntdll.dll', 'Rtl*', $SYMOPT_CASE_INSENSITIVE)
 

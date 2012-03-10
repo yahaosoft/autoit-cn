@@ -2,6 +2,7 @@
 #Include <Memory.au3>
 #Include <WinAPIEx.au3>
 
+Opt('MustDeclareVars', 1)
 Opt('WinTitleMatchMode', 3)
 
 Global $tPRINTDLGEX, $tPRINTPAGERANGE, $tDEVNAMES, $hDevNames, $pDevNames

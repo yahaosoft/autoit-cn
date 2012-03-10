@@ -20,10 +20,10 @@ ConsoleWrite('GUID: ' & _WinAPI_StringFromGUID(DllStructGetPtr($tGUID)) & @CR)
 
 ; Open file by object ID and retrieve its full path
 $hFile = _WinAPI_OpenFileById(_WinAPI_PathStripToRoot(@TempDir), $tGUID, 0, BitOR($FILE_SHARE_DELETE, $FILE_SHARE_READ, $FILE_SHARE_WRITE))
-$sFile = _WinAPI_GetFinalPathNameByHandle($hFile)
+$sFile = _WinAPI_GetFinalPathNameByHandleEx($hFile)
 _WinAPI_CloseHandle($hFile)
 
-ConsoleWrite('Path: ' & StringReplace($sFile, '\\?\', '', 1) & @CR)
+ConsoleWrite('Path: ' & StringRegExpReplace($sFile, '\\+.\\', '') & @CR)
 
 ; Delete file
 FileDelete($sFile)

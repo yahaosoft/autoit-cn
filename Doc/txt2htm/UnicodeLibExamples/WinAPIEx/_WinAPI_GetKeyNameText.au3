@@ -2,8 +2,6 @@
 #Include <GUIConstantsEx.au3>
 #Include <WinAPIEx.au3>
 
-Opt('MustDeclareVars', 1)
-
 GUICreate('MyGUI')
 GUIRegisterMsg($WM_KEYDOWN, 'WM_KEYDOWN')
 GUISetState()

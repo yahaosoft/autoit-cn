@@ -1,0 +1,31 @@
+﻿###User Defined Function###
+_WinAPI_SetUserGeoID
+
+###Description###
+Sets the geographical location identifier for the user.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_SetUserGeoID ( $GEOID )
+
+###Parameters###
+@@ParamTable@@
+$GEOID
+	The identifier for the geographical location of the user (GEOID).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	1.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+This function writes to the registry the geographical location for a particular user instead of an application.
+This action affects the behavior of other applications run by the user. As a rule, the application should call this
+function only when the user has explicitly requested changes, but not for purely application-specific reasons.
+
+
+###See Also###
+@@MsdnLink@@ SetUserGeoID
+

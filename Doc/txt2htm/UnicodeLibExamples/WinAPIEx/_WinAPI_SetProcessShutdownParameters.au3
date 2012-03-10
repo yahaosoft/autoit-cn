@@ -5,12 +5,12 @@
 
 Opt('MustDeclareVars', 1)
 
-Global $hForm, $Msg, $Button, $Check
-
 If _WinAPI_GetVersion() < '6.0' Then
 	MsgBox(16, 'Error', 'Require Windows Vista or later.')
 	Exit
 EndIf
+
+Global $hForm, $Msg, $Button, $Check
 
 $hForm = GUICreate('MyGUI', 200, 200)
 $Button = GUICtrlCreateButton('', 73, 62, 54, 54, $BS_ICON)

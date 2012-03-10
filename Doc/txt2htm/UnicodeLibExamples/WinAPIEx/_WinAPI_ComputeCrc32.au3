@@ -2,15 +2,15 @@
 
 Opt('MustDeclareVars', 1)
 
-Global $tStruct = DllStructCreate('byte[4096]')
-Global $pStruct = DllStructGetPtr($tStruct)
+Global $tData = DllStructCreate('byte[4096]')
+Global $pData = DllStructGetPtr($tData)
 
-ConsoleWrite(Hex(_WinAPI_ComputeCrc32($pStruct, 4096)) & @CR)
+ConsoleWrite(Hex(_WinAPI_ComputeCrc32($pData, 4096)) & @CR)
 
-_WinAPI_FillMemory($pStruct, 4096, Random(0, 255, 1))
+_WinAPI_FillMemory($pData, 4096, Random(0, 255, 1))
 
-ConsoleWrite(Hex(_WinAPI_ComputeCrc32($pStruct, 4096)) & @CR)
+ConsoleWrite(Hex(_WinAPI_ComputeCrc32($pData, 4096)) & @CR)
 
-_WinAPI_ZeroMemory($pStruct, 4096)
+_WinAPI_ZeroMemory($pData, 4096)
 
-ConsoleWrite(Hex(_WinAPI_ComputeCrc32($pStruct, 4096)) & @CR)
+ConsoleWrite(Hex(_WinAPI_ComputeCrc32($pData, 4096)) & @CR)

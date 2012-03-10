@@ -1,0 +1,54 @@
+﻿###User Defined Function###
+_WinAPI_FindFirstChangeNotification
+
+###Description###
+Creates a change notification handle and sets up initial change notification filter conditions.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_FindFirstChangeNotification ( $sDirectory, $iFlags [, $fSubtree] )
+
+###Parameters###
+@@ParamTable@@
+$sDirectory
+	The full path of the directory to be watched.
+$iFilter
+	The filter conditions that satisfy a change notification wait. This parameter can be one or more of the
+	following values.
+	
+	$FILE_NOTIFY_CHANGE_FILE_NAME
+	$FILE_NOTIFY_CHANGE_DIR_NAME
+	$FILE_NOTIFY_CHANGE_ATTRIBUTES
+	$FILE_NOTIFY_CHANGE_SIZE
+	$FILE_NOTIFY_CHANGE_LAST_WRITE
+	$FILE_NOTIFY_CHANGE_SECURITY
+	
+$fSubtree
+	[可选参数] Specifies whether to monitor the subdirectories of the specified directory, valid values:
+		TRUE  - Monitor the directory tree rooted at the specified directory.
+		FALSE - Monitor only the specified directory. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	A handle to a find change notification object.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+The _WinAPI_Wait... functions can monitor the specified directory or subtree by using the handle returned by this
+function. A wait is satisfied when one of the filter conditions occurs in the monitored directory or subtree.
+
+After the wait has been satisfied, the application can respond to this condition and continue monitoring the directory
+by calling the _WinAPI_FindNextChangeNotification() function and the appropriate wait function. When the handle is
+no longer needed, it can be closed by using the _WinAPI_FindCloseChangeNotification() function.
+
+Notifications may not be returned when calling _WinAPI_FindFirstChangeNotification() for a remote file system.
+
+
+###See Also###
+@@MsdnLink@@ FindFirstChangeNotification
+
+###Example###
+@@IncludeExample@@
+

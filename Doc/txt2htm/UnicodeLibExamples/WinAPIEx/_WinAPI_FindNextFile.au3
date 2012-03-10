@@ -4,8 +4,7 @@
 Opt('MustDeclareVars', 1)
 
 Global $tData, $pData, $hSearch, $File
-
-Dim $List[101][2] = [[0]]
+Global $List[101][2] = [[0]]
 
 $tData = DllStructCreate($tagWIN32_FIND_DATA)
 $pData = DllStructGetPtr($tData)

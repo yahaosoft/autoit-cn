@@ -1,0 +1,40 @@
+﻿###User Defined Function###
+_WinAPI_UrlCompare
+
+###Description###
+Makes a case-sensitive comparison of two URL strings.
+
+###Syntax###
+#Include <WinAPIEx.au3>
+_WinAPI_UrlCompare ( $sUrl1, $sUrl2 [, $fIgnoreSlash] )
+
+###Parameters###
+@@ParamTable@@
+$sUrl
+	The first URL.
+$sPart
+	The second URL.
+$fIgnoreSlash
+	[可选参数] Specifies whether to ignore a trailing '/' character on either or both URLs, valid values:
+		TRUE  - The function ignores a trailing characters.
+		FALSE - The function takes into account the trailing characters. (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success	0 - The URLs are equal.
+1	The first URL is greater than the second URL.
+Failure	0 and sets the @error flag to non-zero.
+@@End@@
+
+###Remarks###
+For best results, you should first canonicalize the URLs with _WinAPI_UrlCanonicalize(). Then, compare the
+canonicalized URLs with _WinAPI_UrlCompare().
+
+
+###See Also###
+@@MsdnLink@@ UrlCompare
+
+###Example###
+@@IncludeExample@@
+

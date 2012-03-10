@@ -1,7 +1,5 @@
 ﻿#Include <WinAPIEx.au3>
 
-Opt('MustDeclareVars', 1)
-
 GUICreate('MyGUI', 310, 360)
 GUICtrlCreateGroup('Group', 10, 10, 140, 95)
 GUICtrlCreateCheckbox('Check1', 22, 26, 120, 23)
