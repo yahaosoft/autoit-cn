@@ -6,17 +6,18 @@ Opens the file that matches the specified object identifier.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_OpenFileById ( $hFile, $tGUID, $iAccess, $iShare [, $iFlags] )
+_WinAPI_OpenFileById ( $hFile, $ID [, $iAccess [, $iShare [, $iFlags]]] )
 
 ###Parameters###
 @@ParamTable@@
 $hFile
 	The path or handle to any file on a volume or share on which the file to be opened is stored.
-$tGUID
-	$tagGUID structure or its string representation that identifies the file to open.
+$ID
+	The file identifier (FileID), or $tagGUID structure (ObjectID), or GUID's string representation in the
+	form "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}" that identifies the file to open.
 $iAccess
-	The access to the object. Access can be read, write, or both. If this parameter is 0, the application
-	can query file and device attributes without accessing a device.
+	[可选参数] The access to the object. Access can be read, write, or both. If this parameter is 0, the
+	application can query file and device attributes without accessing a device.
 	
 	$GENERIC_READ
 	$GENERIC_WRITE
@@ -24,7 +25,7 @@ $iAccess
 	(查看MSDN得到更多信息)
 	
 $iShare
-	The sharing mode of an object, which can be read, write, both, or none. If this parameter is 0 and
+	[可选参数] The sharing mode of an object, which can be read, write, both, or none. If this parameter is 0 and
 	function succeeds, the object cannot be shared and cannot be opened again until the handle
 	is closed.
 	

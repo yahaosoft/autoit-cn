@@ -1,9 +1,9 @@
-﻿#include <GuiConstantsEx.au3>
+﻿#include <GUIConstantsEx.au3>
 #include <GuiTreeView.au3>
 #include <GuiImageList.au3>
 #include <WindowsConstants.au3>
 
-$Debug_TV = False ; 检查传递给函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_TV = False ; 检查传递给函数的类名, 设置为True并输出到一个控件的句柄,用于检查它是否工作
 
 Global $hImage, $hStateImage
 
@@ -42,7 +42,7 @@ Func _Main()
 
 	$iRand = Random(0, 9, 1)
 	_GUICtrlTreeView_SetText($hTreeView, $hItem[$iRand], "This text has been Set")
-	MsgBox(4160, "Information", StringFormat("Text for Item %d: %s", $iRand, _GUICtrlTreeView_GetText($hTreeView, $hItem[$iRand])))
+	MsgBox(4160, "信息", StringFormat("Text for Item %d: %s", $iRand, _GUICtrlTreeView_GetText($hTreeView, $hItem[$iRand])))
 	_GUICtrlTreeView_SelectItem($hTreeView, $hItem[$iRand])
 
 	; 循环直到用户退出

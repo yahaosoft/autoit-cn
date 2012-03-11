@@ -1,4 +1,4 @@
-﻿#include <GuiConstantsEx.au3>
+﻿#include <GUIConstantsEx.au3>
 #include <GuiListView.au3>
 #include <GuiImageList.au3>
 #include <WindowsConstants.au3>
@@ -44,7 +44,7 @@ Func _Main()
 	_GUICtrlListView_AddSubItem($listview, 5, "Row 6: Col 3", 2, 3)
 
 	GUISetState(@SW_LOCK)
-	MsgBox(4096, "Information", "Swapping 1st and Last Images")
+	MsgBox(4096, "信息", "Swapping 1st and Last Images")
 	_GUIImageList_Swap($hImage, 0, 5)
 	GUISetState(@SW_UNLOCK)
 

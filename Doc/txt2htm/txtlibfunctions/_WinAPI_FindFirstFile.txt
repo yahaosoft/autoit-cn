@@ -20,7 +20,7 @@ $pData
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The search handle, and the $tagWIN32_FIND_DATA structure contains information about the first file
+Success	The search handle.
 失败:	返回 0 并设置 @error 标志为非 0 值, @extended 标志可能包含一个系统错误代码.
 @@End@@
 
@@ -32,8 +32,8 @@ a directory-listing application when given the same file name string pattern.
 After the search handle is established, you can use it to search for other files that match the same pattern by
 using the _WinAPI_FindNextFile() function.
 
-If the function fails because no more matching files can be found, the @extended flag will contain
-ERROR_NO_MORE_FILES (18) system error code.
+If the function fails because no matching files can be found, the @extended flag will contain ERROR_FILE_NOT_FOUND (2)
+system error code.
 
 When the search handle is no longer needed, close it by using the _WinAPI_FindClose() function.
 

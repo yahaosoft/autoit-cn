@@ -1,7 +1,7 @@
-﻿#include <GuiConstantsEx.au3>
+﻿#include <GUIConstantsEx.au3>
 #include <GuiDateTimePicker.au3>
 
-$Debug_DTP = False ; 检查传递给 DTP 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_DTP = False 检查传递给 DTP 函数的类名, 设置为True并输出到一个控件的句柄,用于检查它是否工作
 
 Global $iMemo, $aRange[14] = [True, @YEAR, 1, 1, 21, 45, 32, True, @YEAR, 12, 31, 23, 59, 59]
 

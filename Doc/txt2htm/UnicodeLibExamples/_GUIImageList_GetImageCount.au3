@@ -1,4 +1,4 @@
-﻿#include <GuiConstantsEx.au3>
+﻿#include <GUIConstantsEx.au3>
 #include <GuiListView.au3>
 #include <GuiImageList.au3>
 #include <WindowsConstants.au3>
@@ -41,7 +41,7 @@ Func _Main()
 	_GUICtrlListView_AddSubItem($listview, 5, "Row 6: Col 2", 1, 4)
 	_GUICtrlListView_AddSubItem($listview, 5, "Row 6: Col 3", 2, 3)
 
-	MsgBox(4096, "Information", "Image Count: " & _GUIImageList_GetImageCount($hImage))
+	MsgBox(4096, "信息", "Image Count: " & _GUIImageList_GetImageCount($hImage))
 
 	; 循环直到用户退出
 	Do

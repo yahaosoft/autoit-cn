@@ -1,4 +1,4 @@
-﻿#include <GuiConstantsEx.au3>
+﻿#include <GUIConstantsEx.au3>
 #include <WinAPI.au3>
 #include <GuiListView.au3>
 #include <GuiImageList.au3>
@@ -30,7 +30,7 @@ Func _Main()
 	_GUICtrlListView_AddItem($listview, "Item 2", 1)
 	_GUICtrlListView_AddItem($listview, "Item 3", 2)
 
-	MsgBox(4160, "Information", "Creating new image list")
+	MsgBox(4160, "信息", "Creating new image list")
 
 	; 创建新的图像列表
 	$hImage2 = _GUIImageList_Create(11, 11)
@@ -39,7 +39,7 @@ Func _Main()
 	_GUIImageList_Add($hImage2, _WinAPI_CreateSolidBitmap(GUICtrlGetHandle($listview), 0xFF0000, 11, 11))
 	_GUICtrlListView_SetImageList($listview, $hImage2, 1)
 
-	MsgBox(4160, "Information", "Destroying 1st image list")
+	MsgBox(4160, "信息", "Destroying 1st image list")
 
 	; 释放首个图像列表
 	_GUIImageList_Destroy($hImage1)

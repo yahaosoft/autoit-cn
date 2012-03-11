@@ -6,7 +6,7 @@ _WinAPI_PolyDraw
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_PolyDraw ( $hDC, $aPoint [, $iStart [, $iEnd]] )
+_WinAPI_PolyDraw ( $hDC, Const ByRef $aPoint [, $iStart [, $iEnd]] )
 
 ###Parameters###
 @@ParamTable@@
@@ -14,15 +14,19 @@ $hDC
 	设备环境句柄.
 $aPoint
 	顶点值的二维数组: ([x1, y1, type1], [x2, y2, type2], ... [xN, yN, typeN]).
-		 包含线段的端点和贝塞尔曲线的控制点的逻辑单位.
-		 此外,数组还包含一个指定每个点是如何使用的参数.
-		 数组的第三个参数可以是以下值之一:
-		 $PT_BEZIERTO --- 指定点是贝塞尔曲线的控制点或结束点
-		 $PT_LINETO --- 指定绘制的线要从当前位置到这一点,这一点成为新的当前位置
-		 $PT_MOVETO --- 指定从这一点开始的图形不相交.这一点成为新的当前位置
-		 $PT_BEZIERTO 或 $PT_LINETO 可以与下面标志值合并使用,
-		 相应的点是图形上次的最后一点,并且图形是封闭的.
-		 $PT_CLOSEFIGURE --- $PT_BEZIERTO 或 $PT_LINETO 的点自动闭合图形 
+	包含线段的端点和贝塞尔曲线的控制点的逻辑单位.
+	此外,数组还包含一个指定每个点是如何使用的参数.
+	数组的第三个参数可以是以下值之一:
+	
+	$PT_BEZIERTO --- 指定点是贝塞尔曲线的控制点或结束点
+	$PT_LINETO --- 指定绘制的线要从当前位置到这一点,这一点成为新的当前位置
+	$PT_MOVETO --- 指定从这一点开始的图形不相交.这一点成为新的当前位置
+	
+	$PT_BEZIERTO 或 $PT_LINETO 可以与下面标志值合并使用,
+	相应的点是图形上次的最后一点,并且图形是封闭的.
+	
+	$PT_CLOSEFIGURE --- $PT_BEZIERTO 或 $PT_LINETO 的点自动闭合图形
+	
 $iStart
 	[可选参数] 开始绘制的数组索引.
 $iEnd
@@ -37,9 +41,10 @@ $iEnd
 
 ###Remarks###
 函数可以连续调用 _WinAPI_MoveToEx(), _WinAPI_LineTo(), 与 _WinAPI_PolyBezierTo() 函数绘制不相交的图形.
- 直线和曲线绘制使用当前的画笔,且不填充图形.
- 如果当前路径是调用 _WinAPI_BeginPath() 启动的, _WinAPI_PolyDraw() 添加到路径.
- 这个函数更新当前位置.
+直线和曲线绘制使用当前的画笔,且不填充图形.
+如果当前路径是调用 _WinAPI_BeginPath() 启动的, _WinAPI_PolyDraw() 添加到路径.
+
+这个函数更新当前位置.
 
 
 ###See Also###

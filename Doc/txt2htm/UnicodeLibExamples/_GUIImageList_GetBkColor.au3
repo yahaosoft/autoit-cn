@@ -1,4 +1,4 @@
-﻿#include <GuiConstantsEx.au3>
+﻿#include <GUIConstantsEx.au3>
 #include <GuiListView.au3>
 #include <GuiImageList.au3>
 #include <WindowsConstants.au3>
@@ -24,9 +24,9 @@ Func _Main()
 	_GUIImageList_AddIcon($hImage, @SystemDir & "\shell32.dll", 146)
 	_GUICtrlListView_SetImageList($listview, $hImage, 1)
 
-	MsgBox(4160, "Information", "BackColor: " & _GUIImageList_GetBkColor($hImage))
+	MsgBox(4160, "信息", "BackColor: " & _GUIImageList_GetBkColor($hImage))
 	_GUIImageList_SetBkColor($hImage, 0x0000FF)
-	MsgBox(4160, "Information", "BackColor: " & _GUIImageList_GetBkColor($hImage))
+	MsgBox(4160, "信息", "BackColor: " & _GUIImageList_GetBkColor($hImage))
 
 	; 添加列
 	_GUICtrlListView_AddColumn($listview, "Column 1", 120)

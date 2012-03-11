@@ -1,8 +1,8 @@
-﻿#include <GuiConstantsEx.au3>
+﻿#include <GUIConstantsEx.au3>
 #include <GuiTreeView.au3>
 #include <WindowsConstants.au3>
 
-$Debug_TV = False ; 检查传递给函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_TV = False ; 检查传递给函数的类名, 设置为True并输出到一个控件的句柄,用于检查它是否工作
 
 _Main()
 
@@ -25,9 +25,9 @@ Func _Main()
 	Next
 	_GUICtrlTreeView_EndUpdate($hTreeView)
 
-	MsgBox(4160, "Information", "Scroll Time: " & _GUICtrlTreeView_GetScrollTime($hTreeView) & " milliseconds")
+	MsgBox(4160, "信息", "Scroll Time: " & _GUICtrlTreeView_GetScrollTime($hTreeView) & " milliseconds")
 	_GUICtrlTreeView_SetScrollTime($hTreeView, 2)
-	MsgBox(4160, "Information", "Scroll Time: " & _GUICtrlTreeView_GetScrollTime($hTreeView) & " milliseconds")
+	MsgBox(4160, "信息", "Scroll Time: " & _GUICtrlTreeView_GetScrollTime($hTreeView) & " milliseconds")
 
 	; 循环直到用户退出
 	Do
