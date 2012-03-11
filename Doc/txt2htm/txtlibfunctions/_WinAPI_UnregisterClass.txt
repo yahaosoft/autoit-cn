@@ -11,9 +11,12 @@ _WinAPI_UnregisterClass ( $sClass [, $hInstance] )
 ###Parameters###
 @@ParamTable@@
 $sClass
-	无终止字符串或类要素. 如果$sClass为字符串, 指定窗体类名. 该类名由前面调用_WinAPI_RegisterClass()或_WinAPI_RegisterClassEx()函数返回. 如果为类要素, 必须为$sClass的低位文本; 高位文字必须为0.
+	无终止字符串或类要素. 如果$sClass为字符串, 指定窗体类名.
+	该类名由前面调用_WinAPI_RegisterClass()或_WinAPI_RegisterClassEx()函数返回.
+	如果为类要素, 必须为$sClass的低位word;
+	高位word必须为0.
 $hInstance
-	[可选参数] 创建类的模块实例的句柄
+	[可选参数] 创建类的模块实例的句柄.
 @@End@@
 
 ###ReturnValue###
@@ -23,12 +26,10 @@ $hInstance
 @@End@@
 
 ###Remarks###
-调用该函数前, 应用程序必须销毁由指定类创建的所有窗口. 中断时应用程序注册的所有窗体类被注销.
+调用该函数前, 应用程序必须销毁由指定类创建的所有窗口. 
+应用程序终止时应用程序注册的所有窗体类将被反注册.
 
 
 ###See Also###
 @@MsdnLink@@ UnregisterClass
-
-###Example###
-@@IncludeExample@@
 

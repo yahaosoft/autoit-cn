@@ -2,7 +2,7 @@
 _WinAPI_Create32BitHICON
 
 ###Description###
-Converts an icon to 32 bits-per-pixel format and copies to the new icon.
+Converts an icon to a 32 bits-per-pixel format and copies to the new icon.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
@@ -11,11 +11,11 @@ _WinAPI_Create32BitHICON ( $hIcon [, $fDelete] )
 ###Parameters###
 @@ParamTable@@
 $hIcon
-	Handle to the icon to convert.
+	Handle to the icon to be converted.
 $fDelete
-	[可选参数] Specifies whether delete the icon after the function is successful, valid values:
+	[可选参数] Specifies whether to delete the icon after the function is successful, valid values:
 		TRUE    - Icon will be deleted if the function succeeds.
-		FALSE   - Don't delete, you must release the icon when you are finished using it. (Default)
+		FALSE   - Do not delete, you must release the icon themselves when you are finished using it. (Default)
 @@End@@
 
 ###ReturnValue###
@@ -25,6 +25,17 @@ Success	Handle to the newly created icon.
 @@End@@
 
 ###Remarks###
+This function converts an icon with any color depth into an icon with 32 bits-per-pixel (RGB + Alpha) format.
+If the source icon already is a 32 bits-per-pixel icon, and has an alpha chanel, the function generates the new
+AND bitmask bitmap, and copies it to a new icon. If the source icon has a 32 bits-per-pixel color depth, and
+do not have an alpha chanel, the function creates an alpha chanel from its AND bitmask. If the source icon is
+non 32 bits-per-pixel icon, it will be converted into a 32 bits-per-pixel format with alpha chanel.
+The _WinAPI_Create32BitHICON() always creates an icon with alpha channel and AND bitmask, although it
+is not used to display icons that contain an alpha channel.
+
+Note that to display the fully transparent icons used only its AND bitmask, not the alpha channel. Therefore,
+its XOR and AND bitmasks will remain unchanged.
+
 When you are finished using the icon, destroy it using the _WinAPI_DestroyIcon() function.
 
 

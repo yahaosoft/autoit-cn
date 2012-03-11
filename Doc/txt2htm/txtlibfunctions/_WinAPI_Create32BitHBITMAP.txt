@@ -6,16 +6,20 @@ Creates a 32 bits-per-pixel bitmap from the specified icon.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_Create32BitHBITMAP ( $hIcon [, $fDelete] )
+_WinAPI_Create32BitHBITMAP ( $hIcon [, $fDib [, $fDelete]] )
 
 ###Parameters###
 @@ParamTable@@
 $hIcon
 	Handle to the source icon.
+$fDib
+	[可选参数] Specifies whether to create device-independent (DIB) or device-dependent (DDB) bitmap, valid values:
+		TRUE    - Creates DIB.
+		FALSE   - Creates DDB. (Default)
 $fDelete
-	[可选参数] Specifies whether delete the icon after the function is successful, valid values:
+	[可选参数] Specifies whether to delete the icon after the function is successful, valid values:
 		TRUE    - Icon will be deleted if the function succeeds.
-		FALSE   - Don't delete, you must release the icon when you are finished using it. (Default)
+		FALSE   - Do not delete, you must release the icon when you are finished using it. (Default)
 @@End@@
 
 ###ReturnValue###
@@ -25,6 +29,9 @@ Success	Handle to the created bitmap.
 @@End@@
 
 ###Remarks###
+The _WinAPI_Create32BitHBITMAP() creates a 32 bits-per-pixel bitmap with alpha chanel (if possible) from the icons
+with any color depth. The function internally converts the specified icon to the 32 bits-per-pixel icon.
+
 When you are finished using the bitmap, destroy it using the _WinAPI_DeleteObject() function.
 
 

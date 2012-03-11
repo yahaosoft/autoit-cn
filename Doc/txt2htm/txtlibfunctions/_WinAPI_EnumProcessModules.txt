@@ -6,23 +6,30 @@ Retrieves a handle and name for each module in the specified process.
 
 ###Syntax###
 #Include <WinAPIEx.au3>
-_WinAPI_EnumProcessModules ( [$PID] )
+_WinAPI_EnumProcessModules ( [$PID [, $iFlag]] )
 
 ###Parameters###
 @@ParamTable@@
 $PID
 	[可选参数] The PID of the process. Default (0) is the current process.
+$iFlag
+	[可选参数] The filter criteria. This parameter is valid only for Windows Vista and later, and can be one of the
+	following values.
+	
+	$LIST_MODULES_32BIT
+	$LIST_MODULES_64BIT
+	$LIST_MODULES_ALL
+	$LIST_MODULES_DEFAULT
+	
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success	The array containing the following information:
+Success	The 2D array containing the following information:
 [0][0]	Number of rows in array (n)
 [0][1]	Unused
-[1][0]	Handle to the module
-[1][1]	The path to the file that contains the module
-[n][0]	Handle to the module
-[n][1]	The path to the file that contains the module
+[n][0]	Handle to the module.
+[n][1]	The path to the file that contains the module.
 失败:	返回 0 并设置 @error 标志为非 0 值.
 @@End@@
 
@@ -33,13 +40,10 @@ For more information, see _WinAPI_LoadLibraryEx().
 Do not call _WinAPI_CloseHandle() on any of the handles returned by this function. The information comes
 from a snapshot, so there are no resources to be freed.
 
-If _WinAPI_EnumProcessModules() function is called from a 32-bit application running on WOW64, it can only
-enumerate the modules of a 32-bit process. If the process is a 64-bit process, this function fails and the
-last error code is ERROR_PARTIAL_COPY (299).
 
 
 ###See Also###
-@@MsdnLink@@ EnumProcessModules
+@@MsdnLink@@ EnumProcessModulesEx
 
 ###Example###
 @@IncludeExample@@
