@@ -1,4 +1,4 @@
-﻿#include <GuiConstantsEx.au3>
+﻿#include <GUIConstantsEx.au3>
 #include <GuiTreeView.au3>
 #include <GuiImageList.au3>
 #include <WindowsConstants.au3>
@@ -7,7 +7,7 @@
 Global Const $Turquoise = 0x40e0d0
 Global Const $Crimson = 0xDC143C
 
-$Debug_TV = False ; 检查传递给函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_TV = False ; 检查传递给函数的类名, 设置为True并输出到一个控件的句柄,用于检查它是否工作
 
 _Main()
 
@@ -40,7 +40,7 @@ Func _Main()
 	Next
 	_GUICtrlTreeView_EndUpdate($hTreeView)
 
-	MsgBox(4160, "Information", "Back Color: " & _GUICtrlTreeView_GetBkColor($hTreeView) & @LF & _
+	MsgBox(4160, "信息", "Back Color: " & _GUICtrlTreeView_GetBkColor($hTreeView) & @LF & _
 			"Text Color: " & _GUICtrlTreeView_GetTextColor($hTreeView) & @LF & _
 			"Line Color: " & _GUICtrlTreeView_GetLineColor($hTreeView))
 

@@ -1,9 +1,9 @@
-﻿#include <GUIListBox.au3>
-#include <GuiConstantsEx.au3>
+﻿#include <GuiListBox.au3>
+#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 #include <Constants.au3>
 
-$Debug_LB = False ; 检查传递给 ListBox 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_LB = False ;检查传递给 ListBox 函数的类名, 设置为True并输出到一个控件的句柄,用于检查它是否工作
 
 Global $hListBox
 
@@ -17,7 +17,7 @@ Func _Main()
 	$hListBox = _GUICtrlListBox_Create($hGUI, "String upon creation", 2, 2, 396, 296)
 	GUISetState()
 
-	MsgBox(4160, "Information", "Adding Items")
+	MsgBox(4160, "信息", "Adding Items")
 
 	GUIRegisterMsg($WM_COMMAND, "WM_COMMAND")
 
@@ -26,7 +26,7 @@ Func _Main()
 	_GUICtrlListBox_ResetContent($hListBox)
 	_GUICtrlListBox_InitStorage($hListBox, 100, 4096)
 	_GUICtrlListBox_Dir($hListBox, @WindowsDir & "\win*.exe")
-	_GUICtrlListBox_AddFile($hListBox, @WindowsDir & "\Notepad.exe")
+	_GUICtrlListBox_AddFile($hListBox, @WindowsDir & "\notepad.exe")
 	_GUICtrlListBox_Dir($hListBox, "", $DDL_DRIVES)
 	_GUICtrlListBox_Dir($hListBox, "", $DDL_DRIVES, False)
 	_GUICtrlListBox_EndUpdate($hListBox)

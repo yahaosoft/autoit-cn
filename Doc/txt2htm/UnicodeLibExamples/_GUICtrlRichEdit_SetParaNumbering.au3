@@ -45,7 +45,7 @@ Func Main()
 						_GUICtrlRichEdit_SetParaNumbering($hRichEdit, "2.  ", Default, True)
 						Report("Changed settings for both paragraphs")
 					Case 5
-						; 把所有的文本流保存到桌面这样您可以在 Word 中查看设置
+						; 把所有的文本流保存到桌面,这样您可以在 Word 中查看设置.
 						_GUICtrlRichEdit_Deselect($hRichEdit)
 						_GUICtrlRichEdit_StreamToFile($hRichEdit, @DesktopDir & "\gcre.rtf")
 						GUICtrlSetState($btnNext, $GUI_DISABLE)

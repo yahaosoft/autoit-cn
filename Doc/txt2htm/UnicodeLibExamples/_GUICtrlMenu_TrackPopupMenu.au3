@@ -1,5 +1,5 @@
 ﻿#include <GuiMenu.au3>
-#include <GuiConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 #include <WinAPI.au3>
 #include <WindowsConstants.au3>
 

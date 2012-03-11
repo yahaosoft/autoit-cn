@@ -1,7 +1,7 @@
-﻿#include <GUIComboBox.au3>
-#include <GuiConstantsEx.au3>
+﻿#include <GuiComboBox.au3>
+#include <GUIConstantsEx.au3>
 
-$Debug_CB = False ; 检查传递给 ComboBox/ComboBoxEx 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_CB = False ;检查传递给 ComboBox/ComboBoxEx 函数的类名, 设置为True并输出到一个控件的句柄,用于检查它是否工作
 
 _Main()
 
@@ -13,7 +13,7 @@ Func _Main()
 	$hCombo = GUICtrlCreateCombo("", 2, 2, 396, 296)
 	GUISetState()
 
-	; 设置编辑的文本
+	; 设置编辑框控件显示的文本
 	_GUICtrlComboBox_SetEditText($hCombo, "Old Edit Text")
 
 	; 添加文件

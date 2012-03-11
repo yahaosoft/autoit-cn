@@ -25,7 +25,7 @@ Func Main()
 	; 从外边框改变为左边框
 	_GUICtrlRichEdit_SetParaBorder($hRichEdit, "l")
 
-	; 把所有的文本流保存到桌面这样您可以在 Word 中查看边框设置
+	; 把所有的文本流保存到桌面,这样您可以在 Word 中查看边框设置.
 	_GUICtrlRichEdit_Deselect($hRichEdit)
 	_GUICtrlRichEdit_StreamToFile($hRichEdit, @DesktopDir & "\gcre.rtf")
 

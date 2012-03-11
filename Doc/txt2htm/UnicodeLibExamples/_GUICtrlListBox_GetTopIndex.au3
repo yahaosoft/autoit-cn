@@ -1,7 +1,7 @@
-﻿#include <GUIListBox.au3>
-#include <GuiConstantsEx.au3>
+﻿#include <GuiListBox.au3>
+#include <GUIConstantsEx.au3>
 
-$Debug_LB = False ; 检查传递给 ListBox 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_LB = False ;检查传递给 ListBox 函数的类名, 设置为True并输出到一个控件的句柄,用于检查它是否工作
 
 _Main()
 
@@ -25,13 +25,13 @@ Func _Main()
 	_GUICtrlListBox_EndUpdate($hListBox)
 
 	; 显示顶部索引
-	MsgBox(4160, "Information", "Top Index: " & _GUICtrlListBox_GetTopIndex($hListBox))
+	MsgBox(4160, "信息", "Top Index: " & _GUICtrlListBox_GetTopIndex($hListBox))
 
 	; 设置顶部索引
 	_GUICtrlListBox_SetTopIndex($hListBox, 50)
 
 	; 显示顶部索引
-	MsgBox(4160, "Information", "Top Index: " & _GUICtrlListBox_GetTopIndex($hListBox))
+	MsgBox(4160, "信息", "Top Index: " & _GUICtrlListBox_GetTopIndex($hListBox))
 
 	; 循环直到用户退出
 	Do

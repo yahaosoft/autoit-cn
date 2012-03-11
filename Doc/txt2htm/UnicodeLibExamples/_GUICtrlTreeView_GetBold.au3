@@ -1,9 +1,9 @@
-﻿#include <GuiConstantsEx.au3>
+﻿#include <GUIConstantsEx.au3>
 #include <GuiTreeView.au3>
 #include <GuiImageList.au3>
 #include <WindowsConstants.au3>
 
-$Debug_TV = False ; 检查传递给函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_TV = False ; 检查传递给函数的类名, 设置为True并输出到一个控件的句柄,用于检查它是否工作
 
 _Main()
 
@@ -24,9 +24,9 @@ Func _Main()
 	_GUICtrlTreeView_EndUpdate($hTreeView)
 
 	$hRandomItem = Random(0, UBound($hItem) - 1, 1)
-	MsgBox(4160, "Information", StringFormat("Item %d Bold? %s", $hRandomItem, _GUICtrlTreeView_GetBold($hTreeView, $hItem[$hRandomItem])))
+	MsgBox(4160, "信息", StringFormat("Item %d Bold? %s", $hRandomItem, _GUICtrlTreeView_GetBold($hTreeView, $hItem[$hRandomItem])))
 	_GUICtrlTreeView_SetBold($hTreeView, $hItem[$hRandomItem])
-	MsgBox(4160, "Information", StringFormat("Item %d Bold? %s", $hRandomItem, _GUICtrlTreeView_GetBold($hTreeView, $hItem[$hRandomItem])))
+	MsgBox(4160, "信息", StringFormat("Item %d Bold? %s", $hRandomItem, _GUICtrlTreeView_GetBold($hTreeView, $hItem[$hRandomItem])))
 
 	; 循环直到用户退出
 	Do

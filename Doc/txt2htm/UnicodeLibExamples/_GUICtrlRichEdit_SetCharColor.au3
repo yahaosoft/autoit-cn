@@ -38,7 +38,7 @@ Func Main()
 						Report("3. Background of a few characters changed")
 					Case 4
 						_GUICtrlRichEdit_SetSel($hRichEdit, 6, -1)
-						; 把所有的文本流保存到桌面这样您可以在 Word 中查看设置
+						; 把所有的文本流保存到桌面,这样您可以在 Word 中查看设置.
 						_GUICtrlRichEdit_Deselect($hRichEdit)
 						_GUICtrlRichEdit_StreamToFile($hRichEdit, @DesktopDir & "\gcre.rtf")
 						Report("4. Saved to File")
