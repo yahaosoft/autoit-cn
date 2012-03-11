@@ -1,8 +1,8 @@
 ﻿#include <GuiComboBoxEx.au3>
 #include <GuiImageList.au3>
-#include <GuiConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 
-$Debug_CB = False ; 检查传递给 ComboBox/ComboBoxEx 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_CB = False ;检查传递给 ComboBox/ComboBoxEx 函数的类名, 设置为True并输出到一个控件的句柄,用于检查它是否工作
 
 _Main()
 
@@ -35,9 +35,9 @@ Func _Main()
 	Next
 	_GUICtrlComboBoxEx_EndUpdate($hCombo)
 
-	MsgBox(4160, "Information", "Min Vis.: " & _GUICtrlComboBoxEx_GetMinVisible($hCombo))
-	MsgBox(4160, "Information", "Set Min Vis: " & _GUICtrlComboBoxEx_SetMinVisible($hCombo, 50))
-	MsgBox(4160, "Information", "Min Vis.: " & _GUICtrlComboBoxEx_GetMinVisible($hCombo))
+	MsgBox(4160, "信息", "Min Vis.: " & _GUICtrlComboBoxEx_GetMinVisible($hCombo))
+	MsgBox(4160, "信息", "Set Min Vis: " & _GUICtrlComboBoxEx_SetMinVisible($hCombo, 50))
+	MsgBox(4160, "信息", "Min Vis.: " & _GUICtrlComboBoxEx_GetMinVisible($hCombo))
 
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE

@@ -1,7 +1,7 @@
-﻿#include <GUIListBox.au3>
-#include <GuiConstantsEx.au3>
+﻿#include <GuiListBox.au3>
+#include <GUIConstantsEx.au3>
 
-$Debug_LB = False ; 检查传递给 ListBox 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_LB = False ;检查传递给 ListBox 函数的类名, 设置为True并输出到一个控件的句柄,用于检查它是否工作
 
 _Main()
 
@@ -20,10 +20,10 @@ Func _Main()
 	Next
 	_GUICtrlListBox_EndUpdate($hListBox)
 
-	; 选择一项
+	; 选择一个项目
 	_GUICtrlListBox_SetCurSel($hListBox, 4)
 
-	; 获取当前选择项
+	; 得到当前所选项目
 	_WinAPI_ShowMsg("Current selction: " & _GUICtrlListBox_GetCurSel($hListBox))
 
 	; 循环直到用户退出

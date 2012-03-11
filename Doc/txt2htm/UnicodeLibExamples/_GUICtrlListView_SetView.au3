@@ -22,10 +22,10 @@ Func _Main()
 	Next
 	_GUICtrlListView_EndUpdate($hListView)
 
-	; 设置视图
-	MsgBox(4160, "Information", "View: " & _GUICtrlListView_GetView($hListView))
+	; Set view
+	MsgBox(4160, "信息", "View: " & _GUICtrlListView_GetView($hListView))
 	_GUICtrlListView_SetView($hListView, 4)
-	MsgBox(4160, "Information", "View: " & _GUICtrlListView_GetView($hListView))
+	MsgBox(4160, "信息", "View: " & _GUICtrlListView_GetView($hListView))
 
 	; 循环直到用户退出
 	Do

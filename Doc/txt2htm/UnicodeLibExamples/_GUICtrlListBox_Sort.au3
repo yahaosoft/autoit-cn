@@ -1,8 +1,8 @@
-﻿#include <GUIListBox.au3>
-#include <GuiConstantsEx.au3>
+﻿#include <GuiListBox.au3>
+#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 
-$Debug_LB = False ; 检查传递给 ListBox 函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_LB = False ;检查传递给 ListBox 函数的类名, 设置为True并输出到一个控件的句柄,用于检查它是否工作
 
 _Main()
 
@@ -27,7 +27,7 @@ Func _Main()
 	_GUICtrlListBox_EndUpdate($hListBox)
 
 	; 排序
-	MsgBox(4160, "Information", "Sort Data")
+	MsgBox(4160, "信息", "Sort Data")
 	_GUICtrlListBox_Sort($hListBox)
 
 	; 循环直到用户退出

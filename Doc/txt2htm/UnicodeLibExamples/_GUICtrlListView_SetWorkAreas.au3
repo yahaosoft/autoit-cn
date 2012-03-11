@@ -29,9 +29,9 @@ Func _Main()
 	_GUICtrlListView_AddItem($hListView, "Item 2", 1)
 	_GUICtrlListView_AddItem($hListView, "Item 3", 2)
 
-	; 创建工作区
+	; Create work area
 	_GUICtrlListView_SetWorkAreas($hListView, 0, 0, 100, 100)
-	MsgBox(4160, "Information", "Work Areas: " & _GUICtrlListView_GetNumberOfWorkAreas($hListView))
+	MsgBox(4160, "信息", "Work Areas: " & _GUICtrlListView_GetNumberOfWorkAreas($hListView))
 
 	; 循环直到用户退出
 	Do

@@ -1,9 +1,9 @@
-﻿#include <GuiConstantsEx.au3>
+﻿#include <GUIConstantsEx.au3>
 #include <GuiTreeView.au3>
 #include <GuiImageList.au3>
 #include <WindowsConstants.au3>
 
-$Debug_TV = False ; 检查传递给函数的类名, 设置为真并使用另一控件的句柄可以看出它是否有效
+$Debug_TV = False ; 检查传递给函数的类名, 设置为True并输出到一个控件的句柄,用于检查它是否工作
 
 Global $hImage, $hStateImage
 
@@ -37,9 +37,9 @@ Func _Main()
 	Next
 	_GUICtrlTreeView_EndUpdate($hTreeView)
 
-	MsgBox(4160, "Information", "Unicode Format: " & _GUICtrlTreeView_GetUnicodeFormat($hTreeView))
+	MsgBox(4160, "信息", "Unicode Format: " & _GUICtrlTreeView_GetUnicodeFormat($hTreeView))
 	_GUICtrlTreeView_SetUnicodeFormat($hTreeView)
-	MsgBox(4160, "Information", "Unicode Format: " & _GUICtrlTreeView_GetUnicodeFormat($hTreeView))
+	MsgBox(4160, "信息", "Unicode Format: " & _GUICtrlTreeView_GetUnicodeFormat($hTreeView))
 
 	; 循环直到用户退出
 	Do

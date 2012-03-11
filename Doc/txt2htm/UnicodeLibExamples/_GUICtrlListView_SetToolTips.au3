@@ -21,11 +21,11 @@ Func _Main()
 	_GUICtrlListView_AddItem($hListView, "Item 2")
 	_GUICtrlListView_AddItem($hListView, "Item 3")
 
-	; 显示工具提示句柄
+	; Show tooltip handle
 	$hToolTip = _GUICtrlListView_GetToolTips($hListView)
-	MsgBox(4160, "Information", "ToolTip Handle: 0x" & Hex($hToolTip))
+	MsgBox(4160, "信息", "ToolTip Handle: 0x" & Hex($hToolTip))
 	Local $hPrevTooltips = _GUICtrlListView_SetToolTips($hListView, $hToolTip)
-	MsgBox(4160, "Information", "Previous ToolTip Handle: 0x" & Hex($hPrevTooltips) & @CRLF & _
+	MsgBox(4160, "信息", "Previous ToolTip Handle: 0x" & Hex($hPrevTooltips) & @CRLF & _
 			"IsPtr = " & IsPtr($hPrevTooltips) & " IsHWnd = " & IsHWnd($hPrevTooltips))
 
 	; 循环直到用户退出
