@@ -7,6 +7,9 @@ AutoIt:
 - Added: Keyword Null.
 - Added #488: Third parameter for ObjGet() function to specify object instance.
 - Added: Compound assignment operators for object properties.
+- Added #1191: Explicit size of arrays optional for explicit initialization.
+- Added: Array access on expression: StringSplit("a,b", ",")[1]
+- Added: Dot access on expression: ObjCreate("Shell.Application").GetSystemInformation("DirectoryServiceAvailable")
 
 - Changed: upx.exe from 3.07 -> 3.08.
 - Changed: ReDim works on arrays declared as static.
@@ -34,10 +37,13 @@ AutoIt:
 - Fixed #2146: Crash when closing AutoIt when started from a console window.
 - Fixed: DLLStruct type forgotten in comparison operations.
 - Fixed: "struct" type parameter in DllCall overwrites possibly following parameters.
+- Fixed #1566: Array as its own element issue.
+- Fixed #1551: Crash the script when changing array.
 
 UDFs:
 - Added: _WinAPI_GetProcAddress() function.
 - Added #2126: Documentation remark about _ArrayDisplay being able to display a maximum of 65530 items.
+- Added #1158: WinAPIEx integrated.
 
 - Fixed #2077: hwnd safety check in _GUICtrlRichEdit_Create()
 - Fixed #2088: _ArrayDisplay not handling Default parameters correctly.
@@ -48,9 +54,15 @@ UDFs:
 - Fixed #2125: Writing a 2-dimensional array would only write the first two columns of the array.
 - Fixed #2070: Unexpected crash on certain systems when using _GUICtrlStatusBar_GetText.
 - Fixed #2132: Documentation of _WinAPI_GetModuleHandle and the parameter to return the handle of the calling process. (Use the Null keyword, not 0.)
+- Fixed #2162: Documentation link in the IE Management section was broken for _IEFormElementCheckBoxSelect.
+- Fixed #2170: _ArrayDisplay fails handling arrays with no elements.
+- Fixed: _PathMake not appending backslash to the root path.
 
 Au3Check:
 - Added: Generating error for hex numbers longer than 16 characters.
+- Added: Compound assignment operators for object properties.
+- Added: Array access on expression
+- Added: Dot access on expression
 
 - Fixed #2113: Object's properties in names of keywords treated as keywords.
 - Fixed #2141: #IgnoreFunc was generating an incorrect error.
@@ -58,6 +70,7 @@ Au3Check:
 - Changed: Message case changed to support SciTE inline errors.
 - Changed: An error is now generated for non-supported file encodings (Previous behavior was to silently pass the script).
 - Changed: Au3Check version numbers now match AutoIt's.
+- Changed: Explicit size of arrays optional for explicit initialization.
 
 Au3Record:
 - Fixed #2083: There is no longer an error about a missing DLL.
