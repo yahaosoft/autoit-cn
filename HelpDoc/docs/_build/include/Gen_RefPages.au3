@@ -98,7 +98,7 @@ Func genFile()
 	put('<html>')
 	put('<head>')
 	put('  <title>' & $RefType & "s" & '</title>')
-	put('  <meta charset="ISO-8859-1">')
+	put('  <meta charset="gb2312">')
 	If $ReGen_AutoItX Then
 		put('  <link href="../css/default.css" rel="stylesheet" type="text/css">')
 	Else

@@ -73,7 +73,7 @@ Func _Main()
 		FileChangeDir($gBuildDir)
 		FileDelete("install\AutoIt3.chm") ; Delete AutoIt3.chm as it's now merged into AutoIt.chm. This can be removed in later versions of AutoIt.
 		FileDelete("install\UDFs3.chm") ; Delete UDFs3.chm as it's now merged into AutoIt.chm. This can be removed in later versions of AutoIt.
-		FileMove($g_sProjectDir & "\" & $g_sProjectLang & "\AutoIt3.chm", "install\AutoIt.chm", $FC_OVERWRITE) ; Move AutoIt3.chm to the install folder as AutoIt.chm.
+		FileMove($g_sProjectDir & "\" & $g_sProjectLang & "\AutoIt3.chm", "install\AutoItCHS.chm", $FC_OVERWRITE) ; Move AutoIt3.chm to the install folder as AutoIt.chm.
 
 		; Delete all temp files ready for source code packaging
 		FileDelete($g_sProjectDir & "\" & $g_sProjectLang & "\Debug.log")
@@ -102,13 +102,13 @@ Func _Main()
 		; Copy the files install
 		FileChangeDir($gBuildDir)
 		FileMove($g_sProjectDir & "\" & $g_sProjectLang & "\AutoIt3.chm", "install\AutoIt3.chm", 1)
-		
+
 		; Delete all temp files ready for source code packaging
 		FileDelete($g_sProjectDir & "\" & $g_sProjectLang & "\Debug.log")
 		FileDelete($g_sProjectDir & "\" & $g_sProjectLang & "\_errorlog3.txt")
 		FileDelete($g_sProjectDir & "\" & $g_sProjectLang & "\fileList.tmp")
 		FileDelete($g_sProjectDir & "\" & $g_sProjectLang & "\genindex.log")
-		
+
 		; Write closing message and wait for close (if applicable).
 		_OutputProgressWrite("Finished." & @CRLF & @CRLF) ; Two CRLF's in case of chained output.
 		EndIf

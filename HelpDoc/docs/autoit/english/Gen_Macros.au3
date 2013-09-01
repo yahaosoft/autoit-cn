@@ -39,7 +39,7 @@ Func HTMLMacro($sMacroPath, $sHTMLOutPath)
 	$sHTML &= '<html>' & @CRLF
 	$sHTML &= '<head>' & @CRLF
 	$sHTML &= @TAB & '<title>Macros</title>' & @CRLF
-	$sHTML &= @TAB & '<meta charset="ISO-8859-1">' & @CRLF
+	$sHTML &= @TAB & '<meta charset="gb2312">' & @CRLF
 	$sHTML &= @TAB & '<link href="css/default.css" rel="stylesheet" type="text/css">' & @CRLF
 	$sHTML &= '</head>' & @CRLF
 	$sHTML &= '<body>' & @CRLF

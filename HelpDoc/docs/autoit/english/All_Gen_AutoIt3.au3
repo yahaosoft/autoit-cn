@@ -82,7 +82,7 @@ Func Main()
 				$NAME = ""
 			Case StringInStr(StringLower($LINE), '<param name="name"') > 0
 				$NAME = StringReplace($LINE, Chr(09), "")
-				If StringInStr($LINE, ' Macros"') > 0 Then
+				If StringInStr($LINE, ' Macros"') > 0 Or StringInStr($LINE, 'ºê"') > 0 Then
 					$MACROSECTION = 1
 				Else
 					$MACROSECTION = 0

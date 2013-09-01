@@ -55,7 +55,7 @@ Func _Main()
 	Else
 		; Copy the files install
 		FileChangeDir($gBuildDir)
-		FileMove($g_sProjectDir & "\" & $g_sProjectLang & "\AutoIt.chm", "install\AutoIt.chm", 1)
+		FileMove($g_sProjectDir & "\" & $g_sProjectLang & "\AutoIt.chm", "install\AutoItCHS.chm", 1)
 
 		; Delete all temp files ready for source code packaging
 		FileDelete($g_sProjectDir & "\" & $g_sProjectLang & "\Debug.log")

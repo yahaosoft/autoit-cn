@@ -93,7 +93,7 @@ Func putHeader()
 	put('<html>')
 	put('<head>')
 	put('  <title>' & $RefType & "s" & '</title>')
-	put('  <meta charset="ISO-8859-1">')
+	put('  <meta charset="gb2312">')
 	If $ReGen_AutoItX Then
 		put('  <link href="..\..\css\default.css" rel="stylesheet" type="text/css">')
 	Else
@@ -217,9 +217,10 @@ Func GetFirstManagement()
 		$line = FileReadLine($hIn)
 		If @error Then Return SetError(@error, 0, 0) ; invalid TOC.hhc
 		If StringInStr($line, '<param name="Name" value="' & $RefTypeS & " Reference") Then ExitLoop
+		If StringInStr($line, '<param name="Name" value="' & $RefTypeS & "²Î¿¼") Then ExitLoop
 	WEnd
 
-	While @error = 0 And StringInStr($FNAME, " Management") = 0
+	While @error = 0 And StringInStr($FNAME, " Management") = 0 And StringInStr($FNAME, "¹ÜÀí") = 0 
 		GetFileName()
 	WEnd
 
@@ -230,7 +231,7 @@ EndFunc   ;==>GetFirstManagement
 
 Func GetNextManagement()
 	If $ReGen_UDFs Then
-		While @error = 0 And StringInStr($FNAME, " Management") = 0
+		While @error = 0 And StringInStr($FNAME, " Management") = 0 And StringInStr($FNAME, "¹ÜÀí") = 0 
 			GetFileName()
 		WEnd
 
@@ -240,14 +241,15 @@ Func GetNextManagement()
 	EndIf
 
 	If StringInStr($FNAME, " Management") = 0 Then GetFileName()
+	If StringInStr($FNAME, "¹ÜÀí") = 0 Then GetFileName()
 	$FTOC = $FNAME
-	Return StringInStr($FNAME, " Management") Or StringInStr($NAME, " Reference")
+	Return StringInStr($FNAME, " Management") Or StringInStr($NAME, " Reference") Or StringInStr($FNAME, "¹ÜÀí") Or StringInStr($NAME, "²Î¿¼")
 EndFunc   ;==>GetNextManagement
 
 Func GetNextEntry()
 	GetFileName()
 
-	If StringInStr($FNAME, " Management") And Not $ReGen_UDFs Then
+	If (StringInStr($FNAME, " Management") Or StringInStr($FNAME, "¹ÜÀí")) And Not $ReGen_UDFs Then
 		; ignore previous entry as it is a sublevel has been defined
 		$FTOC = $FNAME
 		genFiles()
