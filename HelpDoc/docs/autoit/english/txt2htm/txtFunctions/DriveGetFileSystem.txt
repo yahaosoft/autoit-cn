@@ -1,0 +1,53 @@
+###Function###
+DriveGetFileSystem
+
+###Description###
+Returns File System Type of a drive.
+
+###Syntax###
+DriveGetFileSystem ( "path" )
+
+
+###Parameters###
+@@ParamTable@@
+path
+	Path of drive to receive information from.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the File System Type of the drive as a string; see table below.
+Failure:	Sets @error to 1.
+@@End@@
+
+<br>
+@@ParamTable@@
+<b>Return Value</b>
+	<b>Interpretation</b>
+1 <i>(numeric)</i>
+	Drive does NOT contain media (CD, Floppy, Zip) or media is unformatted (RAW).
+"FAT"
+	Typical file system for drives under ~500 MB such as Floppy, RAM disks, USB "pen" drives, etc.
+"FAT32"
+	Typical file system for Windows 9x/Me hard drives.
+"NTFS"
+	Typical file system for Windows hard drives.
+"NWFS"
+	Typical file system for Novell Netware file servers.
+"CDFS"
+	Typically indicates a CD (or an ISO image mounted as a virtual CD drive).
+"UDF"
+	Typically indicates a DVD.
+@@End@@
+
+
+###Remarks###
+The list of possible return values might be incomplete.
+
+
+###Related###
+DriveGetDrive, DriveGetLabel, DriveGetSerial, DriveGetType, DriveSetLabel, DriveSpaceFree, DriveSpaceTotal, DriveStatus
+
+
+###Example###
+@@IncludeExample@@

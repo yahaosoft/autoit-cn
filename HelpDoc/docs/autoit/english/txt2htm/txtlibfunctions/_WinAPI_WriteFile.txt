@@ -1,0 +1,46 @@
+###User Defined Function###
+_WinAPI_WriteFile
+
+###Description###
+Writes data to a file at the position specified by the file pointer
+
+###Syntax###
+#include <WinAPI.au3>
+_WinAPI_WriteFile ( $hFile, $pBuffer, $iToWrite, ByRef $iWritten [, $pOverlapped = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hFile
+	Handle to the file to be written
+$pBuffer
+	Pointer to the buffer containing the data to be written
+$iToWrite
+	Number of bytes to be written to the file
+$iWritten
+	The number of bytes written
+$pOverlapped
+	[optional] Pointer to a $tagOVERLAPPED structure
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False, call _WinAPI_GetLastError() to get extended error information
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+$tagOVERLAPPED, _WinAPI_CloseHandle, _WinAPI_CreateFile, _WinAPI_FlushFileBuffers, _WinAPI_GetFileSizeEx, _WinAPI_ReadFile, _WinAPI_SetEndOfFile, _WinAPI_SetFilePointer
+
+
+###See Also###
+@@MsdnLink@@ WriteFile
+
+
+###Example###
+@@IncludeExample@@

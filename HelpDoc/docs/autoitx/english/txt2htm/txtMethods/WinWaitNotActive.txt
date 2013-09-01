@@ -1,0 +1,40 @@
+###Method###
+WinWaitNotActive
+
+###Description###
+Pauses execution of the script until the requested window is not active.
+
+###Syntax###
+WinWaitNotActive "title" [, "text" [, timeout]]
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to check.
+text
+	<b>Optional:</b> The text of the window to check.
+timeout
+	<b>Optional:</b> Timeout in seconds
+@@End@@
+
+###ReturnValue###
+Returns 0 if the timeout occurred, otherwise returns 1.
+
+
+###Remarks###
+The script polls for a window match every 250 milliseconds or so.
+
+
+###Related###
+WinActive, WinExists, WinWait, WinWaitActive, WinWaitClose, WinWaitDelay (Option)
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+
+'Wait for the window "Untitled" to not be active
+oAutoIt.WinWaitNotActive "Untitled"
+
+' Wait a maximum of 5 seconds for "Untitled" to not be active
+oAutoIt.WinWaitNotActive "Untitled", "", 5

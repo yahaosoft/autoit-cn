@@ -1,0 +1,71 @@
+###User Defined Function###
+_WinAPI_PlgBlt
+
+###Description###
+Performs a bit-block transfer of color data from the specified rectangle in the source DC to the specified parallelogram in the DC context.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_PlgBlt ( $hDestDC, Const ByRef $aPoint, $hSrcDC, $iXSrc, $iYSrc, $iWidth, $iHeight [, $hMask = 0 [, $iXMask = 0 [, $iYMask = 0]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hDestDC
+	Handle to the destination device context.
+$aPoint
+	The 2D array ([x1, y1], [x2, y2], [x3, y3]) that identify three corners of the destination parallelogram.
+	The upper-left corner of the source rectangle is mapped to the first point in this array, the upper-right
+	corner to the second point in this array, and the lower-left corner to the third point. The lower-right
+	corner of the source rectangle is mapped to the implicit fourth point in the parallelogram.
+$hSrcDC
+	Handle to the source device context.
+$iXSrc
+	The x-coordinate, in logical units, of the upper-left corner of the source rectangle.
+$iYSrc
+	The y-coordinate, in logical units, of the upper-left corner of the source rectangle.
+$iWidth
+	The width, in logical units, of the source rectangle.
+$iHeight
+	The height, in logical units, of the source rectangle.
+$hMask
+	[optional] Handle to the monochrome bitmap that is used to mask the colors of the source rectangle.
+$iXMask
+	[optional] The x-coordinate, in logical units, of the upper-left corner of the monochrome bitmap. Default is 0.
+$iYMask
+	[optional] The y-coordinate, in logical units, of the upper-left corner of the monochrome bitmap. Default is 0.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True
+Failure 	False
+@@End@@
+
+
+###Remarks###
+The _WinAPI_PlgBlt() works with device-dependent bitmaps. If the source and destination device contexts represent
+incompatible devices, the function returns an error.
+
+The fourth vertex of the parallelogram (D) is defined by treating the first three points (A, B, and C) as vectors
+and computing D = B + CA.
+
+If the bitmask is specified, a value of 1 in the mask indicates that the source pixel color should be copied to the
+destination. A value of 0 in the mask indicates that the destination pixel color is not to be changed. If the mask
+rectangle is smaller than the source and destination rectangles, the function replicates the mask pattern.
+
+Scaling, translation, and reflection transformations are allowed in the source device context; however, rotation
+and shear transformations are not. If the mask bitmap is not a monochrome bitmap, an error occurs. The stretching
+mode for the destination device context is used to determine how to stretch or compress the pixels, if that is
+necessary.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ PlgBlt
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,33 @@
+###Method###
+WinActivate
+
+###Description###
+Activates (gives focus to) a window.
+
+###Syntax###
+WinActivate "title" [, "text"]
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to activate.
+text
+	<b>Optional:</b> The text of the window to activate.
+@@End@@
+
+###ReturnValue###
+None.
+
+
+###Remarks###
+You can use the WinActive function to check if WinActivate succeeded.  If multiple windows match the criteria, the window that was most recently active is the one activated.  WinActivate works on minimized windows.  However, a window that is "Always On Top" could still cover up a window you Activated.
+
+
+###Related###
+WinClose, WinSetState, WinTitleMatchMode (Option)
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oAutoIt.WinActivate "Untitled - Notepad", ""

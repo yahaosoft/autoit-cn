@@ -1,0 +1,38 @@
+###User Defined Function###
+_WinAPI_WidenPath
+
+###Description###
+Redefines the current path as the area that would be painted if the path were stroked.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_WidenPath ( $hDC )
+
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to a device context that contains a closed path.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True
+Failure 	False
+@@End@@
+
+
+###Remarks###
+The device context identified by the $hDC parameter must contain a closed path.
+
+The _WinAPI_WidenPath() function is successful only if the current pen has a width, in device units, of more than one.
+
+Any Bezier curves in the path are converted to sequences of straight lines approximating the widened curves.
+As such, no Bezier curves remain in the path after _WinAPI_WidenPath() is called.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ WidenPath

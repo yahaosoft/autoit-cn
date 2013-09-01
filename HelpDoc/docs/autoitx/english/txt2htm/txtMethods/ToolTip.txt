@@ -1,0 +1,37 @@
+###Method###
+ToolTip
+
+###Description###
+Creates a tooltip anywhere on the screen.
+
+###Syntax###
+ToolTip "text" [, x, y]
+
+
+###Parameters###
+@@ParamTable@@
+text
+	The text of the tooltip.  (An empty string clears a displaying tooltip)
+x, y
+	The x,y position of the tooltip.
+@@End@@
+
+###ReturnValue###
+None.
+
+
+###Remarks###
+If the x and y coordinates are omitted the, tip is placed near the mouse cursor.  If the coords would cause the tooltip to run off screen, it is repositioned to visible.
+Tooltip appears until it is cleared, until script terminates, or sometimes until it is clicked upon.  You may use a linefeed character to create multi-line tooltips.
+
+
+###Related###
+None.
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+
+' This will create a tooltip in the upper left of the screen
+oAutoIt.ToolTip "This is a tooltip", 0, 0
+oAutoIt.Sleep 2000 	' Sleep to give tooltip time to display

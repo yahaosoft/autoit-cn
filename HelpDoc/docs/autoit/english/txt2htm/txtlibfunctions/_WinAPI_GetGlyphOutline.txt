@@ -1,0 +1,71 @@
+###User Defined Function###
+_WinAPI_GetGlyphOutline
+
+###Description###
+Retrieves the outline or bitmap for a character in the TrueType font.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_GetGlyphOutline ( $hDC, $sChar, $iFormat, ByRef $pBuffer [, $tMAT2 = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	A handle to the device context which font is selected.
+$sChar
+	The character for which data is to be returned.
+$iFormat
+	The format of the data that the function retrieves. This parameter can be one of the following values.
+	$GGO_BEZIER
+	$GGO_BITMAP
+	$GGO_GLYPH_INDEX
+	$GGO_GRAY2_BITMAP
+	$GGO_GRAY4_BITMAP
+	$GGO_GRAY8_BITMAP
+	$GGO_METRICS
+	$GGO_NATIVE
+	$GGO_UNHINTED
+$pBuffer
+	Returns a pointer to a memory block (buffer) that receives the outline or bitmap data. Optionaly, you can
+	set this parameter to 0 before function call, then the function will allocate the required memory block
+	itself. Otherwise, it must be a valid memory pointer returned by the _WinAPI_CreateBuffer()
+	function, or by previously calling this function. If the $GGO_METRICS is specified, this parameter is
+	ignored, and function only returns the information about a glyph (see below).
+$tMAT2
+	[optional] $tagMAT2 structure specifying a transformation matrix for the character. If this parameter is
+	0 (Default), the transformation will not be used (it is identity matrix).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	$tagGLYPHMETRICS structure containing information about the placement and orientation of a glyph,
+	@extended flag returns a number of bytes copied to the buffer (if used), in bytes.
+Failure 	Sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+Note that, for the $GGO_GRAY... values, the function retrieves a glyph bitmap that contains n^2+1 (n squared plus
+one) levels of gray.
+
+The glyph bitmap returned by _WinAPI_GetGlyphOutline() when $GGO_BITMAP is specified is a DWORD-aligned, row-oriented,
+monochrome bitmap. When $GGO_GRAY2_BITMAP is specified, the bitmap returned is a DWORD-aligned, row-oriented array
+of bytes whose values range from 0 to 4. When $GGO_GRAY4_BITMAP is specified, the bitmap returned is a DWORD-aligned,
+row-oriented array of bytes whose values range from 0 to 16. When $GGO_GRAY8_BITMAP is specified, the bitmap
+returned is a DWORD-aligned, row-oriented array of bytes whose values range from 0 to 64.
+
+When you no longer need the buffer allocated by this function, you must call the _WinAPI_FreeMemory() function
+(do not use any other memory routines) to release occupied memory.
+
+
+###Related###
+_WinAPI_FreeMemory, _WinAPI_CreateBuffer
+
+
+###See Also###
+@@MsdnLink@@ GetGlyphOutline
+
+
+###Example###
+@@IncludeExample@@

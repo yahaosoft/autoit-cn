@@ -1,0 +1,42 @@
+###User Defined Function###
+_WinAPI_ShellUpdateImage
+
+###Description###
+Notifies the Shell that an image in the system image list has changed.
+
+###Syntax###
+#include <WinAPIShellEx.au3>
+_WinAPI_ShellUpdateImage ( $sIcon, $iIndex, $iImage [, $iFlags = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$sIcon
+	The fully qualified path of the file that contains the icon.
+$iIndex
+	The zero-based index of the icon.
+$iImage
+	The zero-based index in the system image list of the icon that is being updated.
+$iFlags
+	[optional] The flags that determine the icon attributes. It can be 0 or a combination of the following values.
+	$GIL_NOTFILENAME
+	$GIL_SIMULATEDOC
+@@End@@
+
+###ReturnValue###
+None
+
+
+###Remarks###
+If you do not know the index in the system image list of the icon that you want to update, use the
+_WinAPI_ShellGetFileInfo() function with the $SHGFI_SYSICONINDEX flag set.
+
+To use this function, you must call _WinAPI_FileIconInit() at application launch.
+
+
+###Related###
+_WinAPI_ShellGetFileInfo, _WinAPI_FileIconInit
+
+
+###See Also###
+@@MsdnLink@@ SHUpdateImage

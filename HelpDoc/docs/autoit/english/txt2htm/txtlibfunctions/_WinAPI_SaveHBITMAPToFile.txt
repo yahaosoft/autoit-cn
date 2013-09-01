@@ -1,0 +1,48 @@
+###User Defined Function###
+_WinAPI_SaveHBITMAPToFile
+
+###Description###
+Saves a specified bitmap to the specified bitmap (.bmp) file.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_SaveHBITMAPToFile ( $sFile, $hBitmap [, $iXPelsPerMeter = Default [, $iYPelsPerMeter = Default]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sFile
+	The name of the .bmp file in which to save the bitmap.
+$hBitmap
+	Handle to the bitmap to be save.
+$iXPelsPerMeter
+	[optional] The horizontal resolution, in pixels-per-meter.
+$iYPelsPerMeter
+	[optional] The vertical resolution, in pixels-per-meter.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1.
+Failure 	0 and sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+This function saves the specified bitmap unchanged, except when the bitmap uses 32 bits-per-pixel color depth.
+In this situation, if the bitmap contains an alpha channel, it will be saved as 32 bits-per-pixel image, and
+as 24 bits-per-pixel image otherwise.
+
+The horizontal and vertical resolutions pointed to by the $iXPelsPerMeter and $iYPelsPerMeter parameters has not
+affects the image quality, but application can use this value to select a bitmap from a resource group that best
+matches the characteristics of the current device. If the resolutions is not specified, the function uses the
+current screen resolutions, usually 2834 pixels-per-meter which corresponds to 72 pixels-per-inch (dpi).
+
+If the source bitmap is compressed, or use a color masks, the function fails.
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

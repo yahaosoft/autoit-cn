@@ -1,0 +1,53 @@
+###User Defined Function###
+_WinAPI_CreateJobObject
+
+###Description###
+Creates or opens a job object.
+
+###Syntax###
+#include <WinAPIProc.au3>
+_WinAPI_CreateJobObject ( [$sName = '' [, $tSecurity = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sName
+	[optional] The name of the job. Name comparison is case-sensitive. If this parameter is '', the job is
+	created without a name.
+$tSecurity
+	[optional] $tagSECURITY_ATTRIBUTES structure that specifies the security descriptor for the job object
+	and determines whether child processes can inherit the returned handle. If this parameter is 0 (Default),
+	the job object gets a default security descriptor and the handle cannot be inherited.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	[optional] Handle to the job object. If the object existed before the function call, the function
+	returns a handle to the existing job object.
+Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+When a job is created, its accounting information is initialized to zero, all limits are inactive, and there
+are no associated processes. To assign a process to a job object, use the _WinAPI_AssignProcessToJobObject()
+function. To set limits for a job, use the _WinAPI_SetInformationJobObject() function. To query accounting
+information, use the _WinAPI_QueryInformationJobObject() function.
+
+All processes associated with a job must run in the same session. A job is associated with the session of the
+first process to be assigned to the job.
+
+To close a job object handle, use the _WinAPI_CloseHandle() function. The job is destroyed when its last
+handle has been closed and all associated processes have exited.
+
+
+###Related###
+_WinAPI_AssignProcessToJobObject, _WinAPI_SetInformationJobObject, _WinAPI_QueryInformationJobObject, _WinAPI_CloseHandle
+
+
+###See Also###
+@@MsdnLink@@ CreateJobObject
+
+
+###Example###
+@@IncludeExample@@

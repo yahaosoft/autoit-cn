@@ -1,0 +1,59 @@
+###User Defined Function###
+_Word_DocOpen
+
+###Description###
+Opens a Word document.
+
+###Syntax###
+#include <Word.au3>
+_Word_DocOpen ( $oAppl, $sFile [, $bConfirmConversions = False [, $iFormat = $WdOpenFormatAuto [, $bReadOnly = False [, $bRevert = False [, $bAddToRecentFiles = False [, $sOpenPassword = "" [, $sWritePassword = ""]]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$oAppl
+	Word object returned by a preceding call to _Word_Create()
+$sFile
+	The name or full path of the document to open
+$bConfirmConversions
+	[optional] True displays the Convert File dialog if the file isn't in Word format (default = False)
+$iFormat
+	[optional] Specifies the format to use when opening the document.
+	Can be any of the WdOpenFormat enumeration (default = $WdOpenFormatAuto = the existing format)
+$bReadOnly
+	[optional] True to open the document as read-only (default = False).
+	Note: This argument doesn't override the read-only recommended setting on a saved document.
+$bRevert
+	[optional] Controls what happens if $sFile is the name of an open document.
+	True to discard any unsaved changes to the open document and reopen the file.
+	False to activate the open document (default = False)
+$bAddToRecentFiles
+	[optional] True adds the file name to the list of recently used files at the bottom of the File menu (default = False)
+$sOpenPassword
+	[optional] The password for opening the document
+$sWritePassword
+	[optional] The password for saving changes to the document
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a variable pointing to the document object
+Failure:	Returns 0 and sets @error
+@error:	1 - $oAppl is not an object
+	2 - The specified document does not exist
+	3 - Error occurred when opening specified document. @extended is set to the COM error code
+Failure:	Returns workbook object identifier and sets @error
+@error:	4 - Readwrite access could not be granted. Workbook might be open by another users/task.
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_Word_DocClose, _Word_DocSave, _Word_DocSaveAs
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,43 @@
+###Method###
+IniWrite
+
+###Description###
+Writes a value to a standard format .ini file.
+
+###Syntax###
+IniWrite "filename", "section", "key", "value"
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	The filename of the .ini file.
+section
+	The section name in the .ini file.
+key
+	The key name in the in the .ini file.
+value
+	The value to write/change.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 if file is read-only.
+@@End@@
+
+
+###Remarks###
+A standard ini file looks like:
+<i>[SectionName]
+Key=Value</i>
+If file does not exist, it is created.  Keys and/or sections are added to the end and are not sorted in any way.
+
+
+###Related###
+IniDelete, IniRead
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oAutoIt.IniWrite "C:\Temp\myfile.ini", "section2", "key", "this is a new value"

@@ -1,0 +1,57 @@
+###User Defined Function###
+_GUIToolTip_SetToolInfo
+
+###Description###
+Sets the information for a tool
+
+###Syntax###
+#include <GuiToolTip.au3>
+_GUIToolTip_SetToolInfo ( $hWnd, $sText [, $iID = 0 [, $iLeft = 0 [, $iTop = 0 [, $iRight = 0 [, $iBottom = 0 [, $iFlags = 8 [, $iParam = 0]]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window that contains the tool
+$sText
+	Text for the ToolTip control
+$iID
+	[optional] Identifier or window handle of the tool
+$iLeft
+	[optional] X coordinate of the upper left corner of the rectangle
+$iTop
+	[optional] Y coordinate of the upper left corner of the rectangle
+$iRight
+	[optional] X coordinate of the lower right corner of the rectangle
+$iBottom
+	[optional] Y coordinate of the lower right corner of the rectangle
+$iFlags
+	[optional] Flags that control the ToolTip display:
+	1 - Indicates that $iID is the window handle to the tool instead of the ID
+	2 - Centers the window below the tool specified by $iID
+	4 - Indicates that text will be displayed in the opposite direction
+	8 - Indicates that the control should subclass the tool's window to intercept messages
+	16 - Positions the control next to the tool to which it corresponds
+	32 - Positions the window at the same coordinates provided by TTM_TRACKPOSITION
+	64 - Causes the control to forward mouse messages to the parent window
+	128 - Indicates that links in the control text should be parsed
+$iParam
+	[optional] Application-defined value that is associated with the tool
+@@End@@
+
+###ReturnValue###
+None.
+
+
+###Remarks###
+Some internal properties of a tool are established when the tool is created, and are not recomputed when a
+$TTM_SETTOOLINFO message is sent. If you simply assign values to a TOOLINFO structure and pass it to the
+ToolTip control with a $TTM_SETTOOLINFO message, these properties may be lost. Instead your application should
+first request the tool's current TOOLINFO structure by sending a $TTM_GETTOOLINFO message. Then, modify the
+members of this structure as needed and pass it back to the ToolTip control with $TTM_SETTOOLINFO. When
+calling $TTM_SETTOOLINFO, the string pointed to by the Text member of the TOOLINFO structure must not exceed
+80 characters in length.
+
+
+###Related###
+_GUIToolTip_GetToolInfo

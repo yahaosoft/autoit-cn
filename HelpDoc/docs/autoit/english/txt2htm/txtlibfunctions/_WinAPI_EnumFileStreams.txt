@@ -1,0 +1,41 @@
+###User Defined Function###
+_WinAPI_EnumFileStreams
+
+###Description###
+Enumerates all streams with a ::$DATA stream type in the specified file or directory.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_EnumFileStreams ( $sFile )
+
+
+###Parameters###
+@@ParamTable@@
+$sFile
+	The path to the file or directory. The file must be located on volume with NTFS file system.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The 2D array of the stream names and its sizes.
+	[0][0] - Number of rows in array (n)
+	[0][1] - Unused
+	[n][0] - Stream name.
+	[n][1] - Stream size, in bytes.
+Failure 	Sets the @error flag to non-zero, @extended flag may contain the NTSTATUS error code.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ ZwQueryInformationFile
+
+
+###Example###
+@@IncludeExample@@

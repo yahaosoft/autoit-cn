@@ -1,0 +1,58 @@
+###User Defined Function###
+_WinAPI_MapVirtualKey
+
+###Description###
+Translates a virtual-key code into a scan code or character value, or translates a scan code into a virtual-key code.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_MapVirtualKey ( $iCode, $iType [, $hLocale = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$iCode
+	The virtual key code or scan code for a key. How this value is interpreted depends on the $iType parameter.
+$iType
+	The translation to be performed. This value depends on the value of the $iCode parameter and can be
+	one of the following values.
+	$MAPVK_VK_TO_CHAR
+	$MAPVK_VK_TO_VSC
+	$MAPVK_VK_TO_VSC_EX
+	$MAPVK_VSC_TO_VK
+	$MAPVK_VSC_TO_VK_EX
+$hLocale
+	[optional] The input locale identifier to use for translating the specified code.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	A scan code, a virtual-key code, or a character value, depending on the above parameters.
+Failure 	0.
+@@End@@
+
+
+###Remarks###
+An application can use _WinAPI_MapVirtualKey() to translate scan codes to the virtual-key code constants
+$VK_SHIFT, $VK_CONTROL, and $VK_MENU, and vice versa. These translations do not distinguish between the left and
+right instances of the SHIFT, CTRL, or ALT keys.
+
+An application can get the scan code corresponding to the left or right instance of one of these keys by calling
+_WinAPI_MapVirtualKey() with $iCode set to one of the following virtual-key code constants.
+	$VK_LSHIFT
+	$VK_RSHIFT
+	$VK_LCONTROL
+	$VK_RCONTROL
+	$VK_LMENU
+	$VK_RMENU
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ MapVirtualKey
+
+
+###Example###
+@@IncludeExample@@

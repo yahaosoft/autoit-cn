@@ -1,0 +1,43 @@
+###User Defined Function###
+_WinAPI_TerminateProcess
+
+###Description###
+Terminates the specified process and all of its threads.
+
+###Syntax###
+#include <WinAPIProc.au3>
+_WinAPI_TerminateProcess ( $hProcess [, $iExitCode = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hProcess
+	A handle to the process to be terminated. The handle must have the $PROCESS_TERMINATE access right.
+$iExitCode
+	[optional] The exit code to be used by the process and threads terminated as a result of this call.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True
+Failure 	False
+@@End@@
+
+
+###Remarks###
+This function stops execution of all threads within the process and requests cancellation of all pending I/O.
+The terminated process cannot exit until all pending I/O has been completed or canceled. When a process terminates,
+its kernel object is not destroyed until all processes released their open handles.
+
+This function is asynchronous; it initiates termination and returns immediately. If you need to be sure the
+process has terminated, call the _WinAPI_WaitForSingleObject() function with a handle to the process.
+
+A process cannot prevent itself from being terminated.
+
+
+###Related###
+_WinAPI_WaitForSingleObject
+
+
+###See Also###
+@@MsdnLink@@ TerminateProcess

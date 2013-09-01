@@ -1,0 +1,40 @@
+###Function###
+TCPListen
+
+###Description###
+Creates a socket listening for an incoming connection.
+
+###Syntax###
+TCPListen ( IPAddr, port [, MaxPendingConnection] )
+
+
+###Parameters###
+@@ParamTable@@
+IPAddr
+	Internet Protocol dotted address(IpV4) as "192.162.1.1".
+port
+	port on which the created socket will be connected.
+MaxPendingConnection
+	[optional] Maximum length of the queue of pending connections. By default the maximum reasonable value will be set.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns main socket identifier.
+Failure:	Returns -1 or 0 and set @error.
+@error:	1 IPAddr is incorrect.
+	2 port  is incorrect.
+	windows API WSAGetError return value (see <a href="http://msdn.microsoft.com/en-us/library/ms740668.aspx">MSDN</a>).
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+TCPStartup, TCPConnect, TCPAccept, TCPTimeout (Option), TCPCloseSocket, TCPSend, TCPShutdown
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,57 @@
+###User Defined Function###
+_DebugSetup
+
+###Description###
+Setup up a debug session using a specific reporting type
+
+###Syntax###
+#include <Debug.au3>
+_DebugSetup ( [$sTitle = Default [, $bBugReportInfos = False [, $vReportType = 1 [, $sLogFile = "" [, $bTimeStamp = False]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sTitle
+	[optional] Title to be displayed on the report window.  Default value is "AutoIt Debug Report".
+$bBugReportInfos
+	[optional] Display BugReport infos.  Default value is False.
+$vReportType
+	[optional] 1 - Report Log Window (Default).
+	2 - ConsoleWrite.
+	3 - MsgBox.
+	4 - FileWrite into $sLogFile defines the filename.
+	5 - Report Notepad Window.
+	string - name of specific report function to be used.
+$sLogFile
+	[optional] Name of the file  if $vReportType = 4
+$bTimeStamp
+	[optional] True if every message must be prefixed with a timeStamp "YYYY/MM/DD HH:MM:SS"
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	the report type.
+Failure:	sets the @error flag to non-zero.
+@error:	1 - if already called
+	2 - invalid report type
+	3 - invalid CallBack function
+@@End@@
+
+
+###Remarks###
+If a specific reporting function is registered then on AutoIt exit it is called without parameters.
+
+You can only start one debug session at a time in the running script.
+You can debug several concurrent scripts using the same debugging session, just use the same $sTitle when calling _DebugSetup(). All _DebugOut() will go to the same debugging session.
+
+Commenting out the _DebugSetup() call will effectively disable all the calls to _Debug...(), but you may want to remove the calls to all _Debug functions before making a release version of your script.
+
+If the "Report Log Window" type is used then the script will end only when closing the report window.
+
+
+###Related###
+_DebugOut, _DebugReport, _DebugReportEx, _DebugReportVar
+
+
+###Example###
+@@IncludeExample@@

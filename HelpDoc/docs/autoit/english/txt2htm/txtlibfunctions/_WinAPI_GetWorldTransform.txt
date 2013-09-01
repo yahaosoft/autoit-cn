@@ -1,0 +1,36 @@
+###User Defined Function###
+_WinAPI_GetWorldTransform
+
+###Description###
+Retrieves the current world-space to page-space transformation.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_GetWorldTransform ( $hDC )
+
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	$tagXFORM structure that contains the current world-space to page-space transformation.
+Failure 	Sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+The precision of the transformation may be altered if an application calls the _WinAPI_ModifyWorldTransform()
+prior to calling _WinAPI_GetWorldTransform(). This is because the internal format for storing transformation
+values uses a higher precision than a FLOAT value.
+
+
+###Related###
+_WinAPI_ModifyWorldTransform
+
+
+###See Also###
+@@MsdnLink@@ GetWorldTransform

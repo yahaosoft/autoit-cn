@@ -1,0 +1,45 @@
+###Function###
+StringRegExpReplace
+
+###Description###
+Replace text in a string based on regular expressions.
+
+###Syntax###
+StringRegExpReplace ( "test", "pattern", "replace" [, count = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+test
+	The string to check
+pattern
+	The regular expression to compare.  See <A href="StringRegExp.htm">StringRegExp</a> for pattern definition characters.
+replace
+	The text to replace the regular expression matching text with.  To insert matched group text, \0 - \9 (or $0 - $9) can be used as back-references.
+count
+	[optional] The number of times to execute the replacement in the string.  The default is 0.  Use 0 for global replacement.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an updated string based on regular expressions.
+Failure:	Set @error.
+@error:	Meaning
+0	Executed properly.  Check @extended for the number of replacements performed.
+2	Pattern invalid.  @extended = offset of error in pattern.
+@@End@@
+
+
+###Remarks###
+To separate back-references from actual (replaced) numbers, wrap it with half-round brackets, i.e: "${1}5".
+If "\" need to be in the replaced string they must be doubled. This is a consequence of the back-references mechanism.
+
+See also the <a href="../tutorials/regexp/regexp.htm">Regular Expression</a> tutorial, in which you can run a script to test your regular expression(s).
+
+
+###Related###
+StringRegExp, StringReplace
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,40 @@
+###Structure Name###
+$tagBITMAPINFOHEADER
+
+###Description###
+This structure defines the dimensions information of a Windows-based device-independent bitmap (DIB).
+
+###Syntax###
+Global Const $tagBITMAPINFOHEADER = "struct; dword biSize;long biWidth;long biHeight;word biPlanes;word biBitCount;" & _
+	"dword biCompression;dword biSizeImage;long biXPelsPerMeter;long biYPelsPerMeter;" & _
+	"dword biClrUsed;dword biClrImportant; endstruct"
+
+
+###Fields###
+@@ParamTable@@
+biSize
+	The number of bytes required by the structure, minus the size of the RGBQuad data
+biWidth
+	Specifies the width of the bitmap, in pixels
+biHeight
+	Specifies the height of the bitmap, in pixels
+biPlanes
+	Specifies the number of planes for the target device. This must be set to 1
+biBitCount
+	Specifies the number of bits-per-pixel
+biCompression
+	Specifies the type of compression for a compressed bottom-up bitmap
+biSizeImage
+	Specifies the size, in bytes, of the image
+biXPelsPerMeter
+	Specifies the horizontal resolution, in pixels-per-meter, of the target device for the bitmap
+biYPelsPerMeter
+	Specifies the vertical resolution, in pixels-per-meter, of the target device for the bitmap
+biClrUsed
+	Specifies the number of color indexes in the color table that are actually used by the bitmap
+biClrImportant
+	Specifies the number of color indexes that are required for displaying the bitmap
+@@End@@
+
+###Remarks###
+None.

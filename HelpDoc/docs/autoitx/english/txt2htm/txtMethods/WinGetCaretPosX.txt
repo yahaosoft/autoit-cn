@@ -1,0 +1,32 @@
+###Method###
+WinGetCaretPosX
+
+###Description###
+Returns the coordinates of the caret in the foreground window
+
+###Syntax###
+WinGetCaretPosX
+
+
+###Parameters###
+None.
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the X coordinate of the caret.
+Failure:	Sets oAutoIt.error to 1.
+@@End@@
+
+
+###Remarks###
+WinGetCaretPos might not return accurate values for Multiple Document Interface (MDI) applications if absolute CaretCoordMode is used.  See example for a workaround.  Note: Some applications report static coordinates regardless of caret position!
+
+
+###Related###
+CaretCoordMode (Option)
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+x = oAutoIt.WinGetCaretPosX()
+y = oAutoIt.WinGetCaretPosY()

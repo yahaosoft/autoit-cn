@@ -1,0 +1,38 @@
+###Method###
+ControlGetHandle
+
+###Description###
+Retrieves the internal handle of a control.
+
+###Syntax###
+ControlGetHandle "title", "text", "controlID"
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to read.
+text
+	The text of the window to read.
+controlID
+	The control to interact with.  See <a href="../../intro/controls.htm">Controls</a>.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a string containing the control handle value.
+Failure:	Returns "" (blank string) and sets oAutoIt.error to 1 if no window matches the criteria.
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+WinTitleMatchMode (Option)
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+handle = oAutoIt.ControlGetHandle("Untitled - Notepad", "", "Edit1")

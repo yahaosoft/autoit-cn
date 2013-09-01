@@ -1,0 +1,63 @@
+###Structure Name###
+$tagLVITEM
+
+###Description###
+Specifies or receives the attributes of a list-view item
+
+###Syntax###
+Global Const $tagLVITEM = "struct; uint Mask;int Item;int SubItem;uint State;uint StateMask;ptr Text;int TextMax;int Image;lparam Param;" & _
+	"int Indent;int GroupID;uint Columns;ptr pColumns;ptr piColFmt;int iGroup; endstruct"
+
+
+###Fields###
+@@ParamTable@@
+Mask
+	Set of flags that specify which members of this structure contain data to be set or which members are being requested. This member can have one or more of the following flags set:
+	$LVIF_COLFMT - The piColFmt member is valid or must be set. If this flag is used, the cColumns member is valid or must be set (Microsoft Windows Vista and later).
+	$LVIF_COLUMNS - The Columns member is valid
+	$LVIF_DI_SETITEM - The operating system should store the requested list item information
+	$LVIF_GROUPID - The GroupID member is valid
+	$LVIF_IMAGE - The Image member is valid
+	$LVIF_INDENT - The Indent member is valid
+	$LVIF_NORECOMPUTE - The control will not generate LVN_GETDISPINFO to retrieve text information
+	$LVIF_PARAM - The Param member is valid
+	$LVIF_STATE - The State member is valid
+	$LVIF_TEXT - The Text member is valid
+Item
+	Zero based index of the item to which this structure refers
+SubItem
+	One based index of the subitem to which this structure refers
+State
+	Indicates the item's state, state image, and overlay image
+StateMask
+	Value specifying which bits of the state member will be retrieved or modified
+Text
+	Pointer to a string containing the item text
+TextMax
+	Number of bytes in the buffer pointed to by Text, including the string terminator
+Image
+	Index of the item's icon in the control's image list
+Param
+	Value specific to the item
+Indent
+	Number of image widths to indent the item
+GroupID
+	Identifier of the tile view group that receives the item
+Columns
+	Number of tile view columns to display for this item
+pColumns
+	Pointer to the array of column indices
+piColFmt
+	A pointer to an array of the following flags (alone or in combination, specifying the format of each subitem in extended tile view (Windows 7 and later).
+	Value Meaning:
+	$LVCFMT_LINE_BREAK - Forces the column to wrap to the top of the next list of columns.
+	$LVCFMT_FILL Fills - the remainder of the tile area. Might have a title.
+	$LVCFMT_WRAP - Allows the column to wrap within the remaining space in its list of columns.
+	$LVCFMT_NO_TITLE - Removes the title from the subitem.
+	$LVCFMT_TILE_PLACEMENTMASK - Equivalent to a combination of $LVCFMT_LINE_BREAK and $LVCFMT_FILL.
+iGroup
+	Group index of the item. Valid only for owner data/callback (single item in multiple groups).(Windows Vista and later).
+@@End@@
+
+###Remarks###
+None.

@@ -1,0 +1,47 @@
+###User Defined Function###
+_WinAPI_BeginPaint
+
+###Description###
+Prepares the specified window for painting.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_BeginPaint ( $hWnd, ByRef $tPAINTSTRUCT )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window to be repainted.
+$tPAINTSTRUCT
+	$tagPAINTSTRUCT structure that will receive painting information. When the function call, this
+	parameter should be any valid variable, the function creates this structure itself.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	Handle to a display device context for the specified window.
+Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+This function automatically sets the clipping region of the device context to exclude any area outside the
+update region. The update region is set by the _WinAPI_InvalidateRect() or _WinAPI_InvalidateRgn() function and
+by the system after sizing, moving, creating, scrolling, or any other operation that affects the client area.
+If the update region is marked for erasing, _WinAPI_BeginPaint() sends a WM_ERASEBKGND message to the window.
+
+An application should not call _WinAPI_BeginPaint() except in response to a WM_PAINT message. Each call to
+_WinAPI_BeginPaint() must have a corresponding call to the _WinAPI_EndPaint() function.
+
+
+###Related###
+_WinAPI_InvalidateRect, _WinAPI_InvalidateRgn
+
+
+###See Also###
+@@MsdnLink@@ BeginPaint
+
+
+###Example###
+@@IncludeExample@@

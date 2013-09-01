@@ -1,0 +1,47 @@
+###User Defined Function###
+_GDIPlus_RegionCombineRegion
+
+###Description###
+Updates a region to the portion of itself that intersects another region
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_RegionCombineRegion ( $hRegionDst, $hRegionSrc [, $iCombineMode = 2] )
+
+
+###Parameters###
+@@ParamTable@@
+$hRegionDst
+	Pointer to a Region object
+$hRegionSrc
+	Pointer to a Region object to use to update the $hRegionDst Region object
+$iCombineMode
+	[optional] Combine mode that specifies how the regions are combined:
+	0 - The existing region is replaced by the new region
+	1 - The existing region is replaced by the intersection of itself and the new region
+	2 - The existing region is replaced by the union of itself and the new region
+	3 - The existing region is replaced by the result of performing an XOR on the two regions.
+	A point is in the XOR of two regions if it is in one region or the other but not in both regions
+	4 - The existing region is replaced by the portion of itself that is outside of the new region
+	5 - The existing region is replaced by the portion of the new region that is outside of the existing region
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False
+
+
+###Remarks###
+None
+
+
+###Related###
+_GDIPlus_RegionCombinePath, _GDIPlus_RegionCombineRect
+
+
+###See Also###
+@@MsdnLink@@ GdipCombineRegionRegion
+
+
+###Example###
+@@IncludeExample@@

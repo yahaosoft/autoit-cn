@@ -1,0 +1,84 @@
+###User Defined Function###
+_GUICtrlRichEdit_SetParaShading
+
+###Description###
+Sets the shading of paragraph(s) in the current selection or, if no selection, of paragraphs inserted at the insertion point
+
+###Syntax###
+#include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetParaShading ( $hWnd [, $iWeight = Default [, $sStyle = Default [, $sForeColor = Default [, $sBackColor = Default]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iWeight
+	[optional] percent of foreground color, the rest being background color
+$sStyle
+	[optional] shading style - a string containing one of the following:
+	non - none
+	dhz - dark horizontal
+	dvt - dark vertical
+	ddd - dark down diagonal
+	dud - dark up diagonal
+	dgr - dark grid
+	dtr - dark trellis
+	lhz - light horizontal
+	lvt - light vertical
+	ldd - light down diagonal
+	lud - light up diagonal
+	lgr - light grid
+	ltr - light trellis
+$sForeColor
+	[optional] one of the following:
+	"blk" - black (initial value)
+	"blu" - blue
+	"cyn" - cyan
+	"grn" - green
+	"mag" - magenta
+	"red" - red
+	"yel" - yellow
+	"whi" - white
+	"dbl" - dark blue
+	"dgn" - dark green
+	"dmg" - dark magenta
+	"drd" - dark red
+	"dyl" - dark yellow
+	"dgy" - dark grey
+	"lgy" - light grey
+$sBackColor
+	[optional] same values as for $sForeColor
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and set @error
+@error:	101 - $hWnd is not a handle
+	103 - value of $sStyle is invalid
+	104 - value of $sForeColor is invalid
+	105 - value of $sBackColor is invalid
+	1021 - $iWeight is not a positive number
+	1022 - value of $iWeight is invalid
+	700  -  operation failed
+@@End@@
+
+
+###Remarks###
+If text is selected, the defaults are the values of the first paragraph with text selected.
+If none is selected, the defaults are the values of the current paragraph.
+
+Shading does not show in Rich Edit, but shading created here will show in Word
+
+
+###Related###
+_GUICtrlRichEdit_GetParaShading
+
+
+###See Also###
+@@MsdnLink@@ EM_SETPARAFORMAT
+
+
+###Example###
+@@IncludeExample@@

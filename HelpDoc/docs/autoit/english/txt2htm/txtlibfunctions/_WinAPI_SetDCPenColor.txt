@@ -1,0 +1,36 @@
+###User Defined Function###
+_WinAPI_SetDCPenColor
+
+###Description###
+Sets the current device context (DC) pen color to the specified color value.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_SetDCPenColor ( $hDC, $iRGB )
+
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context.
+$iRGB
+	The new pen color, in RGB.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The value that specifies the previous DC pen color, in RGB.
+Failure 	(-1).
+@@End@@
+
+
+###Remarks###
+The function returns the previous $DC_PEN color, even if the stock pen $DC_PEN is not selected in the DC;
+however, this will not be used in drawing operations until the stock $DC_PEN is selected in the DC.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ SetDCPenColor

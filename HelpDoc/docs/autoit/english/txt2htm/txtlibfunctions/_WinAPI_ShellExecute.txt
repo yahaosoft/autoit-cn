@@ -1,0 +1,64 @@
+###User Defined Function###
+_WinAPI_ShellExecute
+
+###Description###
+Performs an operation on a specified file.
+
+###Syntax###
+#include <WinAPIShellEx.au3>
+_WinAPI_ShellExecute ( $sFile [, $sArgs = '' [, $sDir = '' [, $sVerb = '' [, $iShow = 1 [, $hParent = 0]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sFile
+	The string that specifies the file or object on which to execute the specified verb. Note that not all
+	verbs are supported on all objects. For example, not all document types support the "print" verb.
+$sArgs
+	[optional] The string that specifies the parameters to be passed to the application.
+$sDir
+	[optional] The string that specifies the working directory for the action.
+$sVerb
+	[optional] The string, referred to as a verb, that specifies the action to be performed. The set of available verbs
+	depends on the particular file or folder. Generally, the actions available from an object's shortcut
+	menu are available verbs. The following verbs are commonly used:
+
+	"edit"
+	"explore"
+	"find"
+	"open"
+	"edit"
+	"print"
+$iShow
+	[optional] The flags that specify how an application is to be displayed when it is opened ($SW_*).
+$hParent
+	[optional] Handle to the owner window used for displaying a UI or error messages.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True.
+Failure 	False, @extended flag may contain an error value that indicates the
+	cause of the failure. It can be one of the following values (excluding (-1)).
+
+	The operating system is out of memory or resources (0)
+	ERROR_FILE_NOT_FOUND (2)
+	ERROR_PATH_NOT_FOUND (3)
+	ERROR_BAD_FORMAT (11)
+	SE_ERR_*
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ ShellExecute
+
+
+###Example###
+@@IncludeExample@@

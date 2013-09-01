@@ -1,0 +1,63 @@
+###Function###
+GUICtrlSetResizing
+
+###Description###
+Defines the resizing method used by a control.
+
+###Syntax###
+GUICtrlSetResizing ( controlID, resizing )
+
+
+###Parameters###
+@@ParamTable@@
+controlID
+	The control identifier (controlID) as returned by a <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a> function, or -1 for the last created control.
+resizing
+	See the <a href="#DockingValues">Docking Values table</a> below for values that can be used (add together multiple values if required).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+When a GUI window is resized the controls within react - how they react is determined by this function. To be able to resize a GUI window it needs to have been created with the $WS_SIZEBOX and $WS_SYSMENU styles.  See <a href="GUICreate.htm">GUICreate()</a>.
+
+	<a name="DockingValues"></a><b>Docking Values Table</b>
+
+@@StandardTable1@@
+<b>Resizing</b>	<b>Value</b>	<b>No displacement of</b>
+$GUI_DOCKAUTO	1	resize and reposition according to new window size
+$GUI_DOCKLEFT	2	Left side
+$GUI_DOCKRIGHT	4	Right side
+$GUI_DOCKHCENTER	8	Position will not move relative to horizontal center
+
+$GUI_DOCKTOP	32	Top side
+$GUI_DOCKBOTTOM	64	Bottom side
+$GUI_DOCKVCENTER	128	Position will not move relative to vertical center
+
+$GUI_DOCKWIDTH	256	Width will not change
+$GUI_DOCKHEIGHT	512	Height will not change
+	Composite resizing
+$GUI_DOCKSIZE	768	(256+512) Size will not change
+$GUI_DOCKMENUBAR	544	(512+32) so the control will stay at the top of window with no change in Height
+$GUI_DOCKSTATEBAR	576	(512+64) so  the control stay at the bottom of the window with no change in Height
+$GUI_DOCKALL	802	(2+32+256+512) so the control will not move during resizing
+$GUI_DOCKBORDERS	102	(2+4+32+64) so the control will grow as the window
+@@End@@
+
+The default resizing for a given control is control dependent see the control doc.
+A default value for any control can be set with GUIResizeMode (Option).
+
+The automatic resizing event can be disabled if GUIEventOptions (Option) is set to 1.
+
+
+###Related###
+GUIResizeMode (Option), GUIEventOptions (Option), GUICtrlCreate...
+
+
+###Example###
+@@IncludeExample@@

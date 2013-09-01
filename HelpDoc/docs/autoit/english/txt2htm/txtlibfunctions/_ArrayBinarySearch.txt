@@ -1,0 +1,47 @@
+###User Defined Function###
+_ArrayBinarySearch
+
+###Description###
+Uses the binary search algorithm to search through a 1-dimensional array.
+
+###Syntax###
+#include <Array.au3>
+_ArrayBinarySearch ( Const ByRef $avArray, $vValue [, $iStart = 0 [, $iEnd = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$avArray
+	Array to search
+$vValue
+	Value to find
+$iStart
+	[optional] Index of array to start searching at
+$iEnd
+	[optional] Index of array to stop searching at
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Index that value was found at
+Failure:	-1 and sets @error
+@error:	1 - $avArray is not an array
+	2 - $vValue outside of array's min/max values
+	3 - $vValue was not found in array
+	4 - $iStart is greater than $iEnd
+	5 - $avArray is not a 1 dimensional array
+	6 - $avArray is empty
+@@End@@
+
+
+###Remarks###
+When performing a binary search on an array of items, the contents MUST be sorted before the search is done.
+Otherwise undefined results will be returned.
+
+
+###Related###
+_ArrayFindAll, _ArraySearch
+
+
+###Example###
+@@IncludeExample@@

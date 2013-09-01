@@ -1,0 +1,35 @@
+###User Defined Function###
+_WinAPI_GetObjectID
+
+###Description###
+Retrieves the object identifier for the specified file or directory.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_GetObjectID ( $sPath )
+
+
+###Parameters###
+@@ParamTable@@
+$sPath
+	Path to the file or directory from which the object identifier is to be retrieved.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	$tagGUID structure that contains the object identifier for the file or directory within the volume on which it resides.
+Failure 	Sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+Unlike _WinAPI_CreateObjectID(), this function only returns the object identifier. If a file or directory does not
+have an object identifier, the function fails.
+
+
+###Related###
+_WinAPI_CreateObjectID
+
+
+###See Also###
+@@MsdnLink@@ FSCTL_GET_OBJECT_ID

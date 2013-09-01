@@ -1,0 +1,34 @@
+###Function###
+FileFlush
+
+###Description###
+Flushes the file's buffer to disk.
+
+###Syntax###
+FileFlush ( "filehandle" )
+
+
+###Parameters###
+@@ParamTable@@
+filehandle
+	The handle of a file, as returned by a previous call to FileOpen.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns True if the buffer was flushed (or did not need to be flushed).
+Failure:	Returns False.
+@@End@@
+
+
+###Remarks###
+A file is flushed when its handle is closed or when Windows internal buffer is full. This function forces an immediate flushing of the buffer.
+This function can only be used with file handles returned from <a href="FileOpen.htm">FileOpen()</a>.
+
+
+###Related###
+FileClose, FileOpen, FileWrite, FileWriteLine, FileSetPos
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,50 @@
+###User Defined Function###
+_WinAPI_GetRawInputDeviceInfo
+
+###Description###
+Retrieves information about the raw input device.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_GetRawInputDeviceInfo ( $hDevice, $pBuffer, $iLength, $iFlag )
+
+
+###Parameters###
+@@ParamTable@@
+$hDevice
+	A handle to the raw input device. This comes from the "lParam" of the WM_INPUT message, from the
+	"hDevice" member of the $tagRAWINPUTHEADER structure, or from the _WinAPI_EnumRawInputDevices() function.
+$pBuffer
+	A pointer to the buffer that receives an information specified by a command flag (see below).
+	If this parameter is 0, the function returns the required size of the buffer, in bytes or characters.
+$iLength
+	The size of the buffer, in bytes. For $RIDI_DEVICENAME only, this value is the character count,
+	including null-terminating character (not the byte count).
+$iFlag
+	The command flag that specifies what information will be returned.
+	This parameter can be one of the following values.
+	$RIDI_DEVICENAME
+	$RIDI_DEVICEINFO
+	$RIDI_PREPARSEDDATA
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The number of bytes or characters required or copied into the buffer.
+Failure 	0 and sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetRawInputDeviceInfo
+
+
+###Example###
+@@IncludeExample@@

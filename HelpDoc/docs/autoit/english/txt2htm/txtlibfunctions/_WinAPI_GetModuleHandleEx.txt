@@ -1,0 +1,41 @@
+###User Defined Function###
+_WinAPI_GetModuleHandleEx
+
+###Description###
+Retrieves a module handle for the specified module.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_GetModuleHandleEx ( $sModule [, $iFlags = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$sModule
+	The name of the loaded module (either a .dll or .exe file), or a pointer to an address in the module
+	(if the $GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS flag is specified). If this parameter is 0 or an empty
+	string, the function returns a handle to the file used to create the calling process (.exe file).
+$iFlags
+	[optional] This parameter can be one or more of the following values.
+	$GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS
+	$GET_MODULE_HANDLE_EX_FLAG_PIN
+	$GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT
+	$GET_MODULE_HANDLE_EX_FLAG_DEFAULT (Default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	Handle to the specified module.
+Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetModuleHandleEx

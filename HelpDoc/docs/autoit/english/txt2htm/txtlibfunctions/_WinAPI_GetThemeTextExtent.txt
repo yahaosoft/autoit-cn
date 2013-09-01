@@ -1,0 +1,45 @@
+###User Defined Function###
+_WinAPI_GetThemeTextExtent
+
+###Description###
+Calculates the size and location of the specified text when rendered in the visual style font.
+
+###Syntax###
+#include <WinAPITheme.au3>
+_WinAPI_GetThemeTextExtent ( $hTheme, $iPartId, $iStateId, $hDC, $sText, $tRECT, $iFlags )
+
+
+###Parameters###
+@@ParamTable@@
+$hTheme
+	Handle to a window's specified theme data.
+$iPartId
+	The part in which the text will be drawn.
+$iStateId
+	The state of the part.
+$hDC
+	Handle to the device context to select the font into.
+$sText
+	The string that contains the text to draw.
+$tRECT
+	$tagRECT structure that contains the rectangle used to control layout of the text. This parameter may be set to 0.
+$iFlags
+	The string's formatting flags ($DT_*).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	$tagRECT structure that contains, in logical coordinates, the rectangle required to fit the rendered text.
+Failure 	Sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetThemeTextExtent

@@ -1,0 +1,36 @@
+###User Defined Function###
+_WinAPI_PathToRegion
+
+###Description###
+Creates a region from the path that is selected into the specified device context.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_PathToRegion ( $hDC )
+
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to a device context that contains a closed path.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The handle to the region.
+Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+The device context identified by the $hDC parameter must contain a closed path.
+
+After _WinAPI_PathToRegion() converts a path into a region, the system discards the closed path from the specified
+device context.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ PathToRegion

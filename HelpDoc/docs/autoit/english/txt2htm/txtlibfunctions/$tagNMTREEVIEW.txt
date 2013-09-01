@@ -1,0 +1,69 @@
+###Structure Name###
+$tagNMTREEVIEW
+
+###Description###
+Contains information about a tree-view notification message
+
+###Syntax###
+Global Const $tagNMTREEVIEW = $tagNMHDR & ";uint Action;" & _
+	"struct; uint OldMask;handle OldhItem;uint OldState;uint OldStateMask;" & _
+	"ptr OldText;int OldTextMax;int OldImage;int OldSelectedImage;int OldChildren;lparam OldParam; endstruct;" & _
+	"struct; uint NewMask;handle NewhItem;uint NewState;uint NewStateMask;" & _
+	"ptr NewText;int NewTextMax;int NewImage;int NewSelectedImage;int NewChildren;lparam NewParam; endstruct;" & _
+	"struct; long PointX;long PointY; endstruct"
+
+
+###Fields###
+@@ParamTable@@
+$tagNMHDR
+	Contains information about a notification message
+Action
+	Notification-specific action flag
+OldMask
+	Flags that indicate which of the other structure members contain valid data.
+OldhItem
+	Item to which this structure refers
+OldState
+	Set of bit flags and image list indexes that indicate the item's state
+OldStateMask
+	Bits of the state member that are valid
+OldText
+	Pointer to a null-terminated string that contains the item text.
+OldTextMax
+	Size of the buffer pointed to by the Text member, in characters
+OldImage
+	Index in the image list of the icon image to use when the item is in the nonselected state
+OldSelectedImage
+	Index in the image list of the icon image to use when the item is in the selected state
+OldChildren
+	Flag that indicates whether the item has associated child items
+OldParam
+	A value to associate with the item
+NewMask
+	Flags that indicate which of the other structure members contain valid data.
+NewhItem
+	Item to which this structure refers
+NewState
+	Set of bit flags and image list indexes that indicate the item's state
+NewStateMask
+	Bits of the state member that are valid
+NewText
+	Pointer to a null-terminated string that contains the item text.
+NewTextMax
+	Size of the buffer pointed to by the Text member, in characters
+NewImage
+	Index in the image list of the icon image to use when the item is in the nonselected state
+NewSelectedImage
+	Index in the image list of the icon image to use when the item is in the selected state
+NewChildren
+	Flag that indicates whether the item has associated child items
+NewParam
+	A value to associate with the item
+PointX
+	X position that of the mouse at the time the event occurred
+PointY
+	Y position that of the mouse at the time the event occurred
+@@End@@
+
+###Remarks###
+None.

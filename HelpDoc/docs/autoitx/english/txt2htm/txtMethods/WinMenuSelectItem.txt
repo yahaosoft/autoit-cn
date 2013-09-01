@@ -1,0 +1,54 @@
+###Method###
+WinMenuSelectItem
+
+###Description###
+Invokes a menu item of a window.
+
+###Syntax###
+WinMenuSelectItem "title", "text", "item" [, "item" [, "item" [, "item" [, "item" [, "item" [, "item"]]]]]]
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to read.
+text
+	The text of the window to read.
+item
+	Text of Menu Item
+item
+	<b>Optional:</b>  Text of SubMenu item
+item
+	<b>Optional:</b>  Text of SubMenu item
+item
+	<b>Optional:</b>  Text of SubMenu item
+item
+	<b>Optional:</b>  Text of SubMenu item
+item
+	<b>Optional:</b>  Text of SubMenu item
+item
+	<b>Optional:</b>  Text of SubMenu item
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 if the menu could not be found.
+@@End@@
+
+
+###Remarks###
+You should note that underlined menu items actually contain a & character to indicate the underlining.  Thus, the menu item <b><u>F</u>ile</b> would actually require the text "&File", and <b>Con<u>v</u>ert</b> would require "Con&vert"  You can access menu items up to six levels deep; and the window can be inactive, minimized, and/or even hidden.
+
+WinMenuSelectItem will only work on standard menus.  Unfortunately, many menus in use today are actually custom written or toolbars "pretending" to be menus.  This is true for most Microsoft applications.
+
+
+###Related###
+ControlCommand, Send
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+
+' This will select File, Page Setup in notepad
+oAutoIt.WinMenuSelectItem "Untitled - ", "", "&File", "Page Set&up..."

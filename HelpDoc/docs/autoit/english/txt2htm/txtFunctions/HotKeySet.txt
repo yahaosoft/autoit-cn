@@ -1,0 +1,75 @@
+###Function###
+HotKeySet
+
+###Description###
+Sets a hotkey that calls a user function.
+
+###Syntax###
+HotKeySet ( "key" [, "function"] )
+
+
+###Parameters###
+@@ParamTable@@
+key
+	The key combination to use as the hotkey. <b>Same format as <a href="Send.htm">Send()</a>.</b>
+function
+	[optional] The name of the function to call when the key is pressed. Not specifying this parameter will unset a previous hotkey.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+It is better to use the lower keyboard key as for keyboard as Russian one, the unshifted key is not the lower value. I.E. "D" is not the upper case of "B". The Hotkey will not be set and a failure will occur.
+
+If two AutoIt scripts set the same HotKeys, you should avoid running those scripts simultaneously.  (The second script cannot capture the hotkey unless the first script terminates or unregisters the key prior to the second script setting the hotkey.)
+
+A hotkey-press *typically* interrupts the active AutoIt function/statement and runs its user function until it completes or is interrupted.  Exceptions are as follows:
+1)  If the current function is a "blocking" function, then the key-presses are buffered and execute as soon as the blocking function completes.  <a href="MsgBox.htm">MsgBox()</a> and <a href="FileSelectFolder.htm">FileSelectFolder()</a> are examples of blocking functions.  Try the behavior of Shift-Alt-d in the Example.
+2)  If you have paused the script by clicking on the AutoIt Tray icon, any hotkeys pressed during this paused state are ignored.
+
+<b>The following hotkeys cannot be set:</b>
+
+@@ParamTable@@
+Ctrl+Alt+Delete
+	It is reserved by Windows
+F12
+	It is also reserved by Windows, according to its API.
+NumPad's Enter Key
+	Instead, use {Enter} which captures both Enter keys on the keyboard.
+Win+B,D,E,F,L,M,R,U; and Win+Shift+M
+	These are built-in Windows shortcuts.  Note:  Win+B and Win+L might only be reserved on Windows XP and above.
+Alt, Ctrl, Shift, Win
+	These are the modifier keys themselves!
+Other
+	Any global hotkeys a user has defined using third-party software,  any combos of two or more "base keys" such as '{F1}{F2}', and any keys of the form '{LALT}' or '{ALTDOWN}'.
+@@End@@
+
+When you set a hotkey, AutoIt captures the key-press and does not pass it on to the active application, with one exception:  the Lock keys (NumLock, CapsLock, and ScrollLock) still toggle their respective state!
+To <a href="Send.htm">Send()</a> a key combination which will trigger a <a href="HotKeySet.htm">HotKeySet()</a> event, either use <a href="ControlSend.htm">ControlSend()</a> or unregister the <a href="HotKeySet.htm">HotKeySet()</a> event, otherwise, the <a href="Send.htm">Send()</a> event may trigger an infinite loop.
+
+; capture and pass along a keypress
+<i><a href="HotKeySet.htm">HotKeySet</a>("{Esc}", "captureEsc")
+Func captureEsc()
+	; ... can do stuff here
+	<a href="HotKeySet.htm">HotKeySet</a>("{Esc}")
+	<a href="Send.htm">Send</a>("{Esc}")
+	<a href="HotKeySet.htm">HotKeySet</a>("{Esc}", "captureEsc")
+EndFunc
+</i>
+
+The called function can <b>not</b> be given parameters. They will be ignored.
+
+@HotKeyPressed macro can be used inside the function to handle several keys in the same function.
+
+
+###Related###
+Send, GUISetAccelerators
+
+
+###Example###
+@@IncludeExample@@

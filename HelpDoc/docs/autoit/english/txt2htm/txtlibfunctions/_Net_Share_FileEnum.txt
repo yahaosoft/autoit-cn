@@ -1,0 +1,58 @@
+###User Defined Function###
+_Net_Share_FileEnum
+
+###Description###
+Returns information about open files on a server
+
+###Syntax###
+#include <NetShare.au3>
+_Net_Share_FileEnum ( [$sServer = "" [, $sBaseName = "" [, $sUserName = ""]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sServer
+	[optional] String that contains the name of the server on which the function is to execute. A blank
+	specifies the local computer.
+$sBaseName
+	[optional] String containing a qualifier for the returned information. If blank all open resources are
+	enumerated. If not blank, the function enumerates only resources that have $sBaseName as a prefix.
+$sUserName
+	[optional] String that specifies the name of the user. If not blank $sUserName serves as a qualifier to
+	the enumeration.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Array with the following format:
+	[0][0] - Number of entries in the array (n)
+	[1][0] - ID number assigned to the resource when it is opened
+	[1][1] - Access permissions associated with the opening application:
+	1 - Permission to read a resource and execute the resource
+	2 - Permission to write to a resource.
+	4 - Permission to create a resource
+	8 - Execute permission
+	16 - Delete permission
+	32 - Change attribute permission
+	64 - Change ACL permission
+	[1][2] - Contains the number of file locks on the resource
+	[1][3] - Specifies the path of the opened resource
+	[1][4] - Specifies which user or which computer opened the resource
+Failure:	Sets @error
+@@End@@
+
+
+###Remarks###
+Only members of the Administrators or Server Operators local group can execute this function
+
+
+###Related###
+_Net_Share_ConnectionEnum, _Net_Share_SessionEnum, _Net_Share_ShareEnum
+
+
+###See Also###
+@@MsdnLink@@ NetFileEnum
+
+
+###Example###
+@@IncludeExample@@

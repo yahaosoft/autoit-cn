@@ -1,0 +1,38 @@
+###User Defined Function###
+_WinAPI_IsElevated
+
+###Description###
+Determines whether the current process is elevated.
+
+###Syntax###
+#include <WinAPIProc.au3>
+_WinAPI_IsElevated (  )
+
+
+###Parameters###
+None
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True - The current process is elevated.
+	False - Otherwise.
+
+	Additionally, the function always sets the @extended flag to one of the following values (any other value
+	indicates an unexpected error).
+
+	0 - Indicates that either the User Account Control (UAC) is disabled, or the process is started by a standard
+	user (not a member of the Administrators group).
+
+	The following two values can be returned only if both the UAC is enabled and the user is a member
+	of the Administrators group (that is, the user has a "split" token).
+	1 - Indicates that the process is running elevated.
+	2 - Indicates that the process is not running elevated.
+Failure 	Sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+This function requires Windows Vista or later.
+
+
+###Related###

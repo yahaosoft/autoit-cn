@@ -1,0 +1,44 @@
+###User Defined Function###
+_WinAPI_GetFileID
+
+###Description###
+Retrieves the file system's 8-byte file reference number for a file.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_GetFileID ( $hFile )
+
+
+###Parameters###
+@@ParamTable@@
+$hFile
+	A handle to the file or directory whose reference number is to be retrieved.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The 8-byte file reference number for the file.
+Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the NTSTATUS error code.
+@@End@@
+
+
+###Remarks###
+The file reference number is assigned by the file system and is file-system-specific. (Note that this is not the same
+as the 16-byte "file object ID" that was added to NTFS.)
+
+The file reference numbers, also called file IDs, are guaranteed to be unique only within a static file system.
+They are not guaranteed to be unique over time, because file systems are free to reuse them. Nor are they guaranteed to
+remain constant. For example, the FAT file system generates the file reference number for a file from the byte offset
+of the file's directory entry record (DIRENT) on the disk. Defragmentation can change this byte offset. Thus a FAT
+file reference number can change over time.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ ZwQueryInformationFile
+
+
+###Example###
+@@IncludeExample@@

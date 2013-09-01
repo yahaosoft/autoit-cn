@@ -1,0 +1,45 @@
+###User Defined Function###
+_Word_DocTableRead
+
+###Description###
+Reads a Word table and returns the content as a two-dimensional array.
+
+###Syntax###
+#include <Word.au3>
+_Word_DocTableRead ( $oDoc, $vTable [, $iIndexBase = Default [, $sSeparator = Default]] )
+
+
+###Parameters###
+@@ParamTable@@
+$oDoc
+	Word document object
+$vTable
+	Table object or index of the table in the table collection
+$iIndexBase
+	[optional] Can be 0 or 1 and specifies if the array starts with row 0 or 1 (default = 1)
+$sSeparator
+	[optional] Specifies the character used to separate text into cells (default = @TAB)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Two-dimensional array with the content of the Word table
+Failure:	Returns "" and sets @error
+@error:	1 - $oDoc is not an object
+	2 - Error occurred when accessing the specified table index in the table collection. @extended is set to the COM error code
+	3 - Error occurred when accessing the specified table. @extended is set to the COM error code
+	4 - Error occurred when converting the text to a table. @extended is set to the COM error code
+@@End@@
+
+
+###Remarks###
+Nested tables are ignored.
+If $iIndexBase is set to 1 then row 0 of the array contains the row and column count.
+
+
+###Related###
+_Word_DocTableWrite
+
+
+###Example###
+@@IncludeExample@@

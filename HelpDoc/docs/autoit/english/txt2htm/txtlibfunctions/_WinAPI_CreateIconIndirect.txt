@@ -1,0 +1,53 @@
+###User Defined Function###
+_WinAPI_CreateIconIndirect
+
+###Description###
+Creates an icon or cursor that has the specified size, colors, and bit patterns.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_CreateIconIndirect ( $hBitmap, $hMask [, $XHotspot = 0 [, $YHotspot = 0 [, $fIcon = 1]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hBitmap
+	Handle to the icon color bitmap.
+$hMask
+	Handle to the icon bitmask bitmap.
+$XHotspot
+	[optional] Specifies the x-coordinate of a cursor's hot spot. If creates an icon, the hot spot is always in the
+	center of the icon, and this parameter is ignored. Default is 0.
+$YHotspot
+	[optional] Specifies the y-coordinate of a cursor's hot spot. If creates an icon, the hot spot is always in the
+	center of the icon, and this parameter is ignored. Default is 0.
+$fIcon
+	[optional] Specifies whether creates an icon or a cursor, valid values:
+	True     - Creates an icon (Default).
+	False    - Creates a cursor.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	Handle to the icon or cursor that is created.
+Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+The system copies the bitmaps before creating the icon or cursor. Because the system may temporarily select this
+bitmaps in a device context, $hBitmap and $hMask should not already be selected into a device context.
+The application must continue to manage the original bitmaps and delete them by using _WinAPI_DeleteObject()
+when they are no longer necessary.
+
+
+###Related###
+_WinAPI_DeleteObject
+
+
+###See Also###
+@@MsdnLink@@ CreateIconIndirect
+
+
+###Example###
+@@IncludeExample@@

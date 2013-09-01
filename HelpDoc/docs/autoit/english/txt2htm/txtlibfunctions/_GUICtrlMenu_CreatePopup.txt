@@ -1,0 +1,46 @@
+###User Defined Function###
+_GUICtrlMenu_CreatePopup
+
+###Description###
+Creates a drop down menu, submenu, or shortcut menu
+
+###Syntax###
+#include <GuiMenu.au3>
+_GUICtrlMenu_CreatePopup ( [$iStyle = 8] )
+
+
+###Parameters###
+@@ParamTable@@
+$iStyle
+	[optional] Style of the menu. It can be one or more of the following values:
+	1 - Menu automatically ends when mouse is outside the menu for 10 seconds
+	2 - The same space is reserved for the check mark and the bitmap
+	4 - Menu items are OLE drop targets or drag sources
+	8 - Menu is modeless
+	16 - No space is reserved to the left of an item for a check mark
+	32 - Menu owner receives a WM_MENUCOMMAND message instead of a WM_COMMAND message for selections
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Handle to the newly created menu
+Failure:	0
+@@End@@
+
+
+###Remarks###
+Menu resources that are assigned to a window are freed automatically. If the menu is not assigned to a window,
+an application must free system resources associated with the menu before closing. An application frees menu
+resources by calling the _GUICtrlMenu_DestroyMenu function.
+
+
+###Related###
+_GUICtrlMenu_CreateMenu, _GUICtrlMenu_DestroyMenu
+
+
+###See Also###
+@@MsdnLink@@ CreatePopupMenu
+
+
+###Example###
+@@IncludeExample@@

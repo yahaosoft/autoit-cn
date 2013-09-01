@@ -1,0 +1,27 @@
+###Structure Name###
+$tagNMDATETIMEFORMATQUERY
+
+###Description###
+Contains information about the control callback field
+
+###Syntax###
+Global Const $tagNMDATETIMEFORMATQUERY = $tagNMHDR & ";ptr Format;struct ;long SizeX;long SizeY; endstruct"
+
+
+###Fields###
+@@ParamTable@@
+$tagNMHDR
+	Contains information about a notification message
+Format
+	Pointer to a null terminated string that defines the control callback field. The string comprises
+	one or more "X" characters.
+SizeX
+	Must be filled with the maximum width of the text that will be displayed in the callback field
+SizeY
+	Must be filled with the maximum height of the text that will be displayed in the callback field
+@@End@@
+
+###Remarks###
+It contains a string (taken from the control's format string) that defines a callback field. The structure
+receives the maximum allowable size of the text that will be displayed in the callback field. This structure
+is used with the $DTN_FORMATQUERY notification message.

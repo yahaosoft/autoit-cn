@@ -1,0 +1,50 @@
+###User Defined Function###
+_GUICtrlListView_SimpleSort
+
+###Description###
+Sorts a list-view control (limited)
+
+###Syntax###
+#include <GuiListView.au3>
+_GUICtrlListView_SimpleSort ( $hWnd, ByRef $vSortSense, $iCol [, $fToggleSense = True] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$vSortSense
+	Sets the defined sort order
+	True - Sort Descending
+	False - Sort Ascending
+	Use a simple variable for a single column ListView
+	Use an array for multicolumn ListViews:
+	$aArray[0] - Order for first Column
+	$aArray[1] - Order for second Column
+	$aArray[n] - Order for last Column
+$iCol
+	Column number
+$fToggleSense
+	[optional] Toggle sort sense
+	True  - Toggle sort sense after sort (default)
+	False - Sort sense unchanged after sort
+@@End@@
+
+###ReturnValue###
+None.
+
+
+###Remarks###
+This is a basic sort fuction, for advanced sort see GUICtrlRegisterListViewSort
+
+Toggling sort sense is normal behaviour when sorting is initiated by a click on the column header.  The user can prevent this toggle by setting $fToggleSense to False when calling the function from elsewhere.
+
+If the function is called from within several functions and the sort sense is to be toggled, it is important that $vSortSense be Global in scope.  Otherwise the sense will be reset each time that $vSortSense is created and toggling will be ineffective.
+
+
+###Related###
+None.
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,37 @@
+###Function###
+WinActivate
+
+###Description###
+Activates (gives focus to) a window.
+
+###Syntax###
+WinActivate ( "title" [, "text"] )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title/hWnd/class of the window to activate. See <a href="../intro/windowsadvanced.htm">Title special definition</a>.
+text
+	[optional] The text of the window to activate.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the handle of the window.
+Failure:	Returns 0 if window is not found or cannot be activated.
+@@End@@
+
+
+###Remarks###
+You can use the <a href="WinActive.htm">WinActive()</a> function to check if <a href="WinActivate.htm">WinActivate()</a> succeeded.  If multiple windows match the criteria, the window that was most recently active is the one activated.  <a href="WinActivate.htm">WinActivate()</a> works on minimized windows.  However, a window that is "Always On Top" could still cover up a window you Activated.
+
+@extended contains additional info about how the activated process was done.
+
+
+###Related###
+WinClose, WinSetState, WinTitleMatchMode (Option), WinKill, WinMove
+
+
+###Example###
+@@IncludeExample@@

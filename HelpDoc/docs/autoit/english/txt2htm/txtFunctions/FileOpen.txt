@@ -1,0 +1,55 @@
+###Function###
+FileOpen
+
+###Description###
+Opens a file for reading or writing.
+
+###Syntax###
+FileOpen ( "filename" [, mode = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	Filename of the file to open.
+mode
+	[optional] Mode to open the file in.
+	Can be a combination of the following:
+	$FO_READ (0) = Read mode (default)
+	$FO_APPEND (1) = Write mode (append to end of file)
+	$FO_OVERWRITE (2) = Write mode (erase previous contents)
+	$FO_CREATEPATH (8) = Create directory structure if it doesn't exist (See Remarks).
+	$FO_BINARY (16) = Force binary mode (See Remarks).
+	$FO_UNICODE or $FO_UTF16_LE (32) = Use Unicode UTF16 Little Endian reading and writing mode. Reading does not override existing BOM.
+	$FO_UTF16_BE (64) = Use Unicode UTF16 Big Endian reading and writing mode. Reading does not override existing BOM.
+	$FO_UTF8 (128) = Use Unicode UTF8 (with BOM) reading and writing mode. Reading does not override existing BOM.
+	$FO_UTF8_NOBOM (256) = Use Unicode UTF8 (without BOM) reading and writing mode.
+	$FO_UTF8_FULL (16384) = When opening for reading and no BOM is present, use full file UTF8 detection. If this is not used then only the initial part of the file is checked for UTF8.
+	The folder path must already exist (except using $FO_CREATEPATH mode - See Remarks).
+	Constants are defined in FileConstants.au3
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a file "handle" for use with subsequent file functions.
+Failure:	Returns -1 if error occurs.
+@@End@@
+
+
+###Remarks###
+<ul>
+<li>The file handle must be closed with the <a href="FileClose.htm">FileClose()</a> function.</li>
+<li>A file may fail to open due to access rights or attributes.</li>
+<li>The default mode when writing text is ANSI - use the unicode flags to change this. When writing unicode files the Windows default mode (and the fastest in AutoIt due to the least conversion) is UTF16 Little Endian (mode 32).</li>
+<li>Opening a file in write mode creates the file if it does not exist.  Directories are not created unless the correct flag is used.</li>
+<li>When reading and writing via the same file handle, the <a href="FileSetPos.htm">FileSetPos()</a> function must be used to update the current file position.</li>
+<li>A file can be read as binary (byte) data by using <a href="FileOpen.htm">FileOpen()</a> with the binary flag.</li>
+</ul>
+
+
+###Related###
+FileClose, FileFlush, FileRead, FileReadLine, FileWrite, FileWriteLine, FileGetPos, FileSetPos
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,42 @@
+###User Defined Function###
+_WinAPI_DecryptFile
+
+###Description###
+Decrypts an encrypted file or directory.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_DecryptFile ( $sFile )
+
+
+###Parameters###
+@@ParamTable@@
+$sFile
+	The name of the file or directory to be decrypted. If $sFile specifies a read-only file, the function
+	fails and the last error code is ERROR_FILE_READ_ONLY (6009). If $sFile specifies a directory that
+	contains a read-only file, the functions succeeds but the directory is not decrypted.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True.
+Failure 	False, call _WinAPI_GetLastError() to get extended error information
+@@End@@
+
+
+###Remarks###
+The _WinAPI_DecryptFile() function requires exclusive access to the file being decrypted, and will fail
+if another process is using the file.
+
+If the file is not encrypted, the function simply returns a nonzero value, which indicates success.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ DecryptFile
+
+
+###Example###
+@@IncludeExample@@

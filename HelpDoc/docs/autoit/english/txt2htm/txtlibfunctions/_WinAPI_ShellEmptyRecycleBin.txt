@@ -1,0 +1,43 @@
+###User Defined Function###
+_WinAPI_ShellEmptyRecycleBin
+
+###Description###
+Empties the Recycle Bin on the specified drive.
+
+###Syntax###
+#include <WinAPIShellEx.au3>
+_WinAPI_ShellEmptyRecycleBin ( [$sRoot = '' [, $iFlags = 0 [, $hParent = 0]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sRoot
+	[optional] The string that contains the path of the root drive on which the Recycle Bin is located. This string
+	can be formatted with the drive, folder, and subfolder names, for example "c:\windows\system\".
+	If this parameter is empty string (Default), all Recycle Bins on all drives will be emptied.
+$iFlags
+	[optional] This parameter can be one or more of the following values.
+	$SHERB_NOCONFIRMATION
+	$SHERB_NOPROGRESSUI
+	$SHERB_NOSOUND
+	$SHERB_NO_UI
+$hParent
+	[optional] Handle to the parent window of any dialog boxes that might be displayed during the operation.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1.
+Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ SHEmptyRecycleBin

@@ -1,0 +1,37 @@
+###User Defined Function###
+_WinAPI_GetProcessCommandLine
+
+###Description###
+Retrieves the command-line string for the specified process.
+
+###Syntax###
+#include <WinAPIProc.au3>
+_WinAPI_GetProcessCommandLine ( [$PID = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$PID
+	[optional] The PID of the process. Default (0) is the current process.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The command-line string.
+Failure 	Empty string and sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+This function uses undocumented API functions and may stop working properly in future versions of Windows.
+
+Using this function for some processes may require full access rights. Use _WinAPI_AdjustTokenPrivileges()
+function to enable $SE_DEBUG_NAME privilege before calling this function.
+
+
+###Related###
+_WinAPI_AdjustTokenPrivileges
+
+
+###Example###
+@@IncludeExample@@

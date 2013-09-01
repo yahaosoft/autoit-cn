@@ -1,0 +1,44 @@
+###Function###
+DllStructSetData
+
+###Description###
+Sets the data of an element in the struct.
+
+###Syntax###
+DllStructSetData ( Struct, Element, value [, index] )
+
+
+###Parameters###
+@@ParamTable@@
+Struct
+	The struct returned by DllStructCreate.
+Element
+	Which element of the struct you want to access, starting at 1 or the element name as defined in DllStructCreate.
+value
+	The new value to place in the struct.
+index
+	[optional] For elements that are an array this specifies the 1-based index to set.  if omitted or the Default keyword then as much of the value as possible will be set in element starting at index 1 (Useful for quickly setting strings).  <b>Not used for non-array elements.</b>
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	value, which is read back from the struct.
+Failure:	0.
+@error:	1 = Struct not a correct struct returned by DllStructCreate.
+	2 = Element value out of range.
+	3 = Index would be outside of the struct.
+	4 = Element data type is unknown
+	5 = Index = 0.
+@@End@@
+
+
+###Remarks###
+When the element is char[n], byte[n] or ubyte[n] the data can be a string otherwise it has to be a number.
+
+
+###Related###
+DllStructCreate, DllStructGetData, DllStructGetSize
+
+
+###Example###
+@@IncludeExample@@

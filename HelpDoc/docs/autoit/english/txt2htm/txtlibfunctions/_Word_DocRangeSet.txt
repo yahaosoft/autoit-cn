@@ -1,0 +1,60 @@
+###User Defined Function###
+_Word_DocRangeSet
+
+###Description###
+Sets or modifies a range in a document.
+
+###Syntax###
+#include <Word.au3>
+_Word_DocRangeSet ( $oDoc, $vRange [, $iStartUnit = Default [, $iStartCount = Default [, $iEndUnit = Default [, $iEndCount = Default]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$oDoc
+	Word document object
+$vRange
+	Range to set or extend. You can pass an existing range which then is extended. Also valid is:
+	0 - uses the current selection as range
+	-1 - sets the range start/end at the start of the document
+	-2 - sets the range start/end at the end of the dcoument
+$iStartUnit
+	[optional] Unit by/to which the start position of the range is to be moved/set.
+	Can be any of the WdUnit enumeration (default = $WdWord).
+	When set to -1 the range is collapsed to the start of the range
+$iStartCount
+	[optional] Number of units by/to which the start of range is moved/set.
+	Positive numbers move the range forward in the document.
+	If the position is moved forward to a position beyond the end position of the range, the range is collapsed
+	and both the start and end positions are moved together(default = don't move the start position)
+$iEndUnit
+	[optional] Unit by/to which the end position of the range is to be moved/set.
+	Can be any of the WdUnit enumeration (default = $WdWord).
+	When set to -1 the range is collapsed to the end of the range
+$iEndCount
+	[optional] Number of units by/to which the end of the range is moved/set.
+	If this number is negative, the end is moved backward.
+	If the ending position overtakes the starting position, the range
+	collapses and both positions move together (default = don't move the end position)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1
+Failure:	Returns 0 and sets @error
+@error:	1 - $oDoc is not an object
+	2 - $vRange has to be a range object, 0 or -1
+	3 - Error occurred when setting the start of the range. @extended is set to the COM error code
+	4 - Error occurred when setting the end of the range. @extended is set to the COM error code
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

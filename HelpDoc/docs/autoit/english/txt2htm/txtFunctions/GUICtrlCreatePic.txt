@@ -1,0 +1,68 @@
+###Function###
+GUICtrlCreatePic
+
+###Description###
+Creates a Picture control for the GUI.
+
+###Syntax###
+GUICtrlCreatePic ( filename, left, top [, width [, height [, style = -1 [, exStyle = -1]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	filename of the picture to be loaded : supported types BMP, JPG, GIF(but not animated).
+left
+	The left side of the control. If -1 is used then left will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a>.
+top
+	The top of the control. If -1 is used then top will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a>.
+width
+	[optional] The width of the control (default is the previously used width).
+height
+	[optional] The height of the control (default is the previously used height).
+style
+	[optional] Defines the style of the control. See <a href="../appendix/GUIStyles.htm#Label">GUI Control Styles Appendix</a>.
+
+	default (-1) : $SS_NOTIFY
+	forced style : $SS_BITMAP
+exStyle
+	[optional] Defines the extended style of the control. See <a href="../appendix/GUIStyles.htm#Extended">Extended Style Table</a>.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the identifier (controlID) of the new control.
+Failure:	Returns 0 if picture cannot be created.
+@@End@@
+
+
+###Remarks###
+To set or change information in the control see <a href="GUICtrlUpdate Management.htm">GUICtrlUpdate...</a>.
+
+To update the picture after the dialog box is displayed just use <a href="GUICtrlSetImage.htm">GUICtrlSetImage()</a>.
+
+To set the picture control to the same size as the file content set width and height to 0.
+
+To have a transparent picture create the GUI with the WS_EX_LAYERED extended style. The left-top pixel will be used as the transparency color. If several pictures are created the last picture defines the transparent color. See example 2.
+
+To combine styles with the default style use <b><a href="BitOR.htm">BitOR()</a></b>($GUI_SS_DEFAULT_PIC, newstyle,...).
+
+To use the values specified above you must #include <StaticConstants.au3> in your script.
+
+Default resizing is $GUI_DOCKSIZE.
+
+If a picture is set as a background picture the other controls will overlap, so it is important to disable the pic control: <a href="GUICtrlSetState.htm">GUICtrlSetState</a>(-1, $GUI_DISABLE).
+
+The extended style $GUI_WS_EX_PARENTDRAG can be used to allow the dragging of the parent window for windows that do not have a titlebar (no $WS_CAPTION style in <a href="GUICreate.htm">GUICreate()</a>).
+
+The background is always set to transparent. <a href="GUICtrlSetBkColor.htm">GUICtrlSetBkColor()</a> has no effect on pic control.
+
+PNG images can be used with GDI+. See example 3.
+
+
+###Related###
+GUICoordMode (Option), GUICtrlSetImage, GUICtrlUpdate..., GUIGetMsg
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,51 @@
+###Method###
+BlockInput
+
+###Description###
+Disable/enable the mouse and keyboard.
+
+###Syntax###
+BlockInput flag
+
+
+###Parameters###
+@@ParamTable@@
+flag
+	1 = Disable user input
+	0 = Enable user input
+@@End@@
+
+###ReturnValue###
+None.
+
+
+###Remarks###
+If BlockInput is enabled, the Alt keypress cannot be sent!
+The table below shows how BlockInput behavior depends on Windows' version; however, pressing <i>Ctrl+Alt+Del</i> on any platform will re-enable input due to a Windows API feature.
+
+@@ParamTable@@
+<b><i>Operating System</b></i>
+	<b><i>"BlockInput" Results</b></i>
+Windows XP
+	User input is blocked and AutoIt can simulate mouse and keyboard input.  See remarks below for an issue with Windows XP SP1.
+Windows Vista
+	User input is blocked and AutoIt can simulate mouse and keyboard if #RequireAdmin is used.
+@@End@@
+
+Note that functions such as WinMove() will still work.
+
+
+###Related###
+Send
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+
+oAutoIt.BlockInput 1
+
+oAutoIt.Run "notepad.exe"
+oAutoIt.WinWaitActive "Untitled - Notepad"
+oAutoIt.Send "{F5}"
+
+oAutoIt.BlockInput 0

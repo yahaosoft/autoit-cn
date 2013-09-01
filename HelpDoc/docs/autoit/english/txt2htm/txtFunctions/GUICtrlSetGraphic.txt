@@ -1,0 +1,60 @@
+###Function###
+GUICtrlSetGraphic
+
+###Description###
+Modifies the data for a control.
+
+###Syntax###
+GUICtrlSetGraphic ( controlID, type [, par1 [, ... par6]] )
+
+
+###Parameters###
+@@ParamTable@@
+controlID
+	The control identifier (controlID) as returned by a <a href="GUICtrlCreateGraphic.htm">GUICtrlCreateGraphic</a> function.
+type
+	type of drawing : dot, line, bezier, rect, ellipse, pie.
+par1...par6
+	See the <a href="GUICtrlSetGraphic.htm#Graphic Type table">Graphic Type table</a> below.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+	Returns -1 in case of invalid data
+@@End@@
+
+
+###Remarks###
+The point position (x,y) is relative to the <a href="GUICtrlCreateGraphic.htm">GUICtrlCreateGraphic()</a> coordinates. It can be outside the graphic control but inside of the GUI window.
+
+<a name="Graphic Type table"></a><b>Graphic Type table</b>
+
+@@StandardTable1@@
+<b>Type</b>	<b>Parameters</b>	<b>result</b>
+$GUI_GR_COLOR	Color [,BkColor]	Define the color of the next drawings. When BkColor is equal to $GUI_GR_NOBKCOLOR the drawing will not be filled. It is the default. For Color the default line color is black.
+$GUI_GR_MOVE	x,y	Move the current position without drawing.
+$GUI_GR_DOT	x,y	Draw a point(smallest square around the point), the next drawing will start from previous position.
+$GUI_GR_PIXEL	x,y	Draw a pixel, the next drawing will start from previous position.
+$GUI_GR_LINE	x,y	Draw a line.
+$GUI_GR_BEZIER	x,y,x1,y1,x2,y2	Draw a bezier curve with 2 control points.
+$GUI_GR_RECT	x,y,w,h	Draw a rectangle. If w=h it will be a square.
+$GUI_GR_ELLIPSE	x,y,w,h	Draw an ellipse. If w=h it will be a circle.
+$GUI_GR_PIE	x,y,r,sa,wa	Draw a pie radius=r startangle=sa sweepangle=wa. Angles are in degrees.
+$GUI_GR_CLOSE	&nbsp;	to close the current drawing. It has to be added to $GUI_GR_LINE or $GUI_GR_BEZIER to close current drawing. Use alone will be ignored.
+$GUI_GR_REFRESH	&nbsp;	to force refresh after dynamic update of graphics.
+$GUI_GR_HINT	&nbsp;	to display control point and end point of bezier/line curve.
+$GUI_GR_PENSIZE	n	set pensize for the next drawings. It has to be defined before $GUI_GR_COLOR to be taken in account.
+$GUI_GR_NOBKCOLOR	&nbsp;	is a dummy BkColor to force closed drawing not to be filled. Just line drawings.
+@@End@@
+
+Due to design constraints RECT, ELLIPSE and PIE graphics are drawn first.  For example, a LINE will always be drawn over a RECT.  If the drawing order is important to the look of the graphic, then it is recommended that multiple graphic controls be used instead of using a single control to do all the drawing.
+
+
+###Related###
+GUICtrlCreateGraphic
+
+
+###Example###
+@@IncludeExample@@

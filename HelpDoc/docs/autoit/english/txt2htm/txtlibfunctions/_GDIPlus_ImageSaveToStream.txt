@@ -1,0 +1,44 @@
+###User Defined Function###
+_GDIPlus_ImageSaveToStream
+
+###Description###
+Saves an Image object to a stream
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_ImageSaveToStream ( $hImage, $pStream, $pEncoder [, $pParams = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hImage
+	Pointer to an Image object
+$pStream
+	Pointer to an IStream interface
+$pEncoder
+	Pointer to a $tagGUID structure that defines the image encoder GUID
+$pParams
+	[optional] Pointer to a $tagGDIPPENCODERPARAMS structure
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False and either:
+
+	@error and @extended are set if DllCall failed
+
+
+###Remarks###
+Use this Function to save selected frames from a multiple-frame image to another multiple-frame image
+
+
+###Related###
+_GDIPlus_EncodersGetCLSID, _GDIPlus_ImageLoadFromStream, _GDIPlus_ImageSaveToFile, $tagGDIPPENCODERPARAMS
+
+
+###See Also###
+@@MsdnLink@@ GdipSaveImageToStream
+
+
+###Example###
+@@IncludeExample@@

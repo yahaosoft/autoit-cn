@@ -1,0 +1,71 @@
+###User Defined Function###
+_WinAPI_CreateBrushIndirect
+
+###Description###
+Creates a logical brush that has the specified style, color, and pattern.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_CreateBrushIndirect ( $iStyle, $iRGB [, $iHatch = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$iStyle
+	The brush style. This parameter can be one of the following styles.
+	$BS_DIBPATTERN
+	$BS_DIBPATTERN8X8
+	$BS_DIBPATTERNPT
+	$BS_HATCHED
+	$BS_HOLLOW
+	$BS_NULL
+	$BS_PATTERN
+	$BS_PATTERN8X8
+	$BS_SOLID
+$iRGB
+	The color of a brush, in RGB, or one of the following values.
+	$DIB_PAL_COLORS
+	$DIB_RGB_COLORS
+$iHatch
+	[optional] A hatch style. The meaning depends on the brush style defined by $iStyle parameter.
+	$BS_DIBPATTERN
+	Contains a handle to a packed DIB.
+
+	$BS_DIBPATTERNPT
+	Contains a pointer to a packed DIB.
+
+	$BS_HATCHED
+	Specifies the orientation of the lines used to create the hatch. It can be one of the orientation constants ($HS_*).
+
+	$BS_PATTERN
+	Contains a handle to the bitmap that defines the pattern. The bitmap cannot be a DIB section bitmap.
+
+	$BS_HOLLOW
+	$BS_SOLID (Default)
+	Ignored.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	Handle to the brush.
+Failure 	0.
+@@End@@
+
+
+###Remarks###
+After an application creates a brush by calling _WinAPI_CreateBrushIndirect(), it can select it into any
+device context by calling the _WinAPI_SelectObject() function.
+
+When you no longer need the brush, call the _WinAPI_DeleteObject() function to delete it.
+
+
+###Related###
+_WinAPI_DeleteObject
+
+
+###See Also###
+@@MsdnLink@@ CreateBrushIndirect
+
+
+###Example###
+@@IncludeExample@@

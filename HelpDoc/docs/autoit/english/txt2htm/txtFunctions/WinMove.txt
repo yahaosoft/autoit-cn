@@ -1,0 +1,52 @@
+###Function###
+WinMove
+
+###Description###
+Moves and/or resizes a window.
+
+###Syntax###
+WinMove ( "title", "text", x, y [, width [, height [, speed]]] )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title/hWnd/class of the window to move/resize. See <a href="../intro/windowsadvanced.htm">Title special definition</a>.
+text
+	The text of the window to move/resize.
+x
+	X coordinate to move to.
+y
+	Y coordinate to move to.
+width
+	[optional] New width of the window.
+height
+	[optional] New height of the window.
+speed
+	[optional] the speed to move the windows in the range 1 (fastest) to 100 (slowest). If not defined the move is instantaneous.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns handle to the window.
+Failure:	Returns 0 if window is not found.
+@@End@@
+
+
+###Remarks###
+<a href="WinMove.htm">WinMove()</a> has no effect on minimized windows, but <a href="WinMove.htm">WinMove()</a> works on hidden windows.
+If the width and height are small (or negative), the window will go no smaller than 112 x 27 pixels.  If width and height are large, the window will go no larger than approximately [12+@DesktopWidth] x [12+@DesktopHeight] pixels.
+Negative values are allowed for the x and y coordinates.  In fact, you can move a window off screen; and if the window's program is one that remembers its last window position, the window will appear in the corner (but fully on-screen) the next time you launch the program.
+If multiple windows match the criteria, the most recently active window is used.
+
+If x and y equal to the <a href="../keywords/Default.htm">Default keyword</a> no move occurs, just resizing.
+
+When speed is used the move is done with the new size.
+
+
+###Related###
+WinActivate, WinClose, WinGetClientSize, WinGetPos, WinSetState
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,53 @@
+###User Defined Function###
+_GUICtrlRichEdit_SetParaSpacing
+
+###Description###
+Sets paragraph spacing of paragraphs having selected text or, if none selected, sets it for text inserted at the insertion point
+
+###Syntax###
+#include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetParaSpacing ( $hWnd,[$vInter=Default [, $iBefore=Default [, $iAfter=Default]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$vInter
+	[optional] spacing between lines:
+	either: a number - in space units
+	or: "<number> lines" - in lines
+$iBefore
+	[optional] spacing before paragraph(s) (in space units)
+$iAfter
+	[optional] spacing after paragraph(s) (in space units)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and set @error
+@error:	101  - $hWnd is not a handle
+	103  - $iBefore is neither a positive number nor zero
+	104  - $iAfter is neither a positive number nor zero
+	1021 - $vInter is invalid
+	1022 - Only 1, 1.5 and 2 line spacing can be set via "<n> lines"
+@@End@@
+
+
+###Remarks###
+Only settings which are not defaulted are set
+
+To set "space units", call _GUICtrlRichEdit_SetSpaceUnit. Initially inches
+
+
+###Related###
+_GUICtrlRichEdit_GetParaSpacing, _GUICtrlRichEdit_SetSpaceUnit
+
+
+###See Also###
+@@MsdnLink@@ EM_SETPARAFORMAT
+
+
+###Example###
+@@IncludeExample@@

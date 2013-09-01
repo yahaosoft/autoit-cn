@@ -1,0 +1,57 @@
+###User Defined Function###
+_WinAPI_SearchPath
+
+###Description###
+Searches for a specified file in a specified path.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_SearchPath ( $sFile [, $sPath = ''] )
+
+
+###Parameters###
+@@ParamTable@@
+$sFile
+	The name of the file for which to search.
+$sPath
+	[optional] The path to be searched for the file. If this parameter is omitted or an empty string (Default), the function
+	searches for a matching file using a registry-dependent system search path (see below).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The path of the file found.
+Failure 	Sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+If the path is an empty string, _WinAPI_SearchPath() searches for a matching file based on the current value
+of the following registry value:
+
+	HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\SafeProcessSearchMode
+
+When the value of this registry value is set to 1, _WinAPI_SearchPath() first searches the folders that are
+specified in the system path, and then searches the current working folder. When the value of this registry value
+is set to 0, the computer first searches the current working folder, and then searches the folders that are
+specified in the system path. The system default value for this registry key is 0.
+
+This function is not recommended as a method of locating a .dll file if the intended use of the output is in
+a call to the _WinAPI_LoadLibrary() function. This can result in locating the wrong .dll file because the search
+order of the _WinAPI_SearchPath() function differs from the search order used by the _WinAPI_LoadLibrary()
+function. If you need to locate and load a .dll file, use the _WinAPI_LoadLibrary() function.
+
+The search mode used by the _WinAPI_SearchPath() function can also be set per-process by calling the
+_WinAPI_SetSearchPathMode() function.
+
+
+###Related###
+_WinAPI_SetSearchPathMode, _WinAPI_LoadLibrary
+
+
+###See Also###
+@@MsdnLink@@ SearchPath
+
+
+###Example###
+@@IncludeExample@@

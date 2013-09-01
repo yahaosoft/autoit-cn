@@ -1,0 +1,54 @@
+###User Defined Function###
+_Net_Share_SessionGetInfo
+
+###Description###
+Retrieves information about a session established between a server and workstation
+
+###Syntax###
+#include <NetShare.au3>
+_Net_Share_SessionGetInfo ( $sServer, $sClientName, $sUserName )
+
+
+###Parameters###
+@@ParamTable@@
+$sServer
+	String that specifies the DNS or NetBIOS name of the remote server on which the function is to
+	execute. If this parameter is blank the local computer is used.
+$sClientName
+	Specifies the name of the computer session for which information is to be returned. This
+	parameter cannot be blank.
+$sUserName
+	String that specifies the name of the user whose session information is to be returned. This
+	parameter cannot be blank.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Array with the following format:
+	[0] - Name of the computer that established the session
+	[1] - Name of the user who established the session
+	[2] - Number of files, devices, and pipes opened during the session
+	[3] - Number of seconds the session has been active
+	[4] - Number of seconds the session has been idle
+	[5] - Specifies how the user established the session:
+	1 - User established session using a guest account
+	2 - User established session without using password encryption
+	[6] - Specifies the type of client that established the session
+Failure:	Sets @error
+@@End@@
+
+
+###Remarks###
+Only members of the Administrators or Server Operators local group can execute this function
+
+
+###Related###
+_Net_Share_FileGetInfo, _Net_Share_ShareGetInfo
+
+
+###See Also###
+@@MsdnLink@@ NetSessionGetInfo
+
+
+###Example###
+@@IncludeExample@@

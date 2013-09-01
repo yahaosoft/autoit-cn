@@ -1,0 +1,41 @@
+###User Defined Function###
+_WinAPI_SetWindowExt
+
+###Description###
+Sets the horizontal and vertical extents of the window for a device context by using the specified values.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_SetWindowExt ( $hDC, $iXExtent, $iYExtent )
+
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context.
+$iXExtent
+	The window's horizontal extent in logical units.
+$iYExtent
+	The window's vertical extent in logical units.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True
+Failure 	False
+@@End@@
+
+
+###Remarks###
+The _WinAPI_SetWindowExt() works only if $MM_ANISOTROPIC or $MM_ISOTROPIC mapping modes are set,  otherwise,
+calls to this function are ignored.
+
+Call _WinAPI_GetExtended() to retrieve a $tagSIZE structure containing the previous window extents.
+
+
+###Related###
+_WinAPI_GetExtended
+
+
+###See Also###
+@@MsdnLink@@ SetWindowExtEx

@@ -1,0 +1,109 @@
+###Function###
+MsgBox
+
+###Description###
+Displays a simple message box with optional timeout.
+
+###Syntax###
+MsgBox ( flag, "title", "text" [, timeout = 0 [, hwnd]] )
+
+
+###Parameters###
+@@ParamTable@@
+flag
+	The flag indicates the type of message box and the possible button combinations.  See remarks.
+title
+	The title of the message box.
+text
+	The text of the message box.
+timeout
+	[optional] Timeout in seconds.  After the timeout has elapsed the message box will be automatically closed.  The default is 0, which is no timeout.
+hwnd
+	[optional] The window handle to use as the parent for this dialog.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the ID of the button pressed.
+Failure:	Returns $IDTIMEOUT (-1) if the message box timed out.
+@@End@@
+
+<br>
+@@ParamTable@@
+<b>Button Pressed</b>
+	<b>Return Value </b>
+OK
+	$IDOK (1)
+CANCEL
+	$IDCANCEL (2)
+ABORT
+	$IDABORT (3)
+RETRY
+	$IDRETRY (4)
+IGNORE
+	$IDIGNORE (5)
+YES
+	$IDYES (6)
+NO
+	$IDNO (7)
+TRY AGAIN **
+	$IDTRYAGAIN (10)
+CONTINUE **
+	$IDCONTINUE (11)
+@@End@@
+Constants are defined in MsgBoxConstants.au3
+
+
+###Remarks###
+The flag parameter can be a combination of the following values:
+
+@@StandardTable1@@
+<b>Constant Name</b>	<b>Decimal flag</b>	<b>Button-related result</b>	<b>Hexadecimal flag</a>
+$MB_OK	0	OK button	0x0
+$MB_OKCANCEL	1	OK and Cancel	0x1
+$MB_ABORTRETRYIGNORE	2	Abort, Retry, and Ignore	0x2
+$MB_YESNOCANCEL	3	Yes, No, and Cancel	0x3
+$MB_YESNO	4	Yes and No	0x4
+$MB_RETRYCANCEL	5	Retry and Cancel	0x5
+$MB_CANCELTRYCONTINUE	6 	Cancel, Try Again, Continue	0x6
+$MB_HELP	16384	Adds a Help button to the message box. When the user clicks the Help button or presses F1, the system sends a WM_HELP message to the owner.	0x4000
+<b>Constant Name</b>	<b>decimal flag</b>	<b>Icon-related Result</b>	<b>hexadecimal flag</a>
+	0	(No icon)	0x0
+$MB_ICONERROR	16	Stop-sign icon	0x10
+$MB_ICONQUESTION	32	Question-mark icon	0x20
+$MB_ICONWARNING	48	Exclamation-point icon	0x30
+$MB_ICONINFORMATION	64	Information-sign icon consisting of an 'i' in a circle	0x40
+<b>Constant Name</b>	<b>decimal flag</b>	<b>Default-related Result</b>	<b>hexadecimal flag</a>
+$MB_DEFBUTTON1	0	First button is default button	0x0
+$MB_DEFBUTTON2	256	Second button is default button	0x100
+$MB_DEFBUTTON3	512	Third button is default button	0x200
+$MB_DEFBUTTON4	768	Fourth button is default button	0x300
+<b>Constant Name</b>	<b>decimal flag</b>	<b>Modality-related Result</b>	<b>hexadecimal flag</a>
+$MB_APPLMODAL	0	Application 	0x0
+$MB_SYSTEMMODAL	4096	System modal (dialog has an icon)	0x1000
+$MB_TASKMODAL	8192	Task modal	0x2000
+<b>Constant Name</b>	<b>decimal flag</b>	<b>Miscellaneous-related Result</b>	<b>hexadecimal flag</a>
+	0	(nothing else special)	0x0
+$MB_DEFAULT_DESKTOP_ONLY	131072	<a href="MsgBox.htm">MsgBox()</a> shows on the desktop of the interactive window station.	0x20000
+$MB_RIGHT	524288	title and text are right-justified	0x80000
+$MB_RTLREADING	1048576	Displays message and caption text using right-to-left reading order on Hebrew and Arabic systems.	0x100000
+$MB_SETFOREGROUND	65536	The message box becomes the foreground window.	0x10000
+$MB_TOPMOST	262144	<a href="MsgBox.htm">MsgBox()</a> has top-most attribute set	0x40000
+$MB_SERVICE_NOTIFICATION	2097152	The function displays a message box on the current active desktop, even if there is no user logged on to the computer.	0x200000
+@@End@@
+
+For example, to specify a SYSTEMMODAL box with the YES/NO buttons the flag value would be 4096+4 (or 4100)  If using hexadecimal flags, that would be 0x1000+0x4 (or 0x1004).
+
+A message box appears centered on screen and resizes according to the text it contains.  However, the title could get truncated if the SYSTEMMODAL flag (4096) is used..
+
+If "title" is equal to <a href="../keywords/Default.htm">Default keyword</a> @Scriptname is used
+
+Constants are defined in MsgBoxConstants.au3
+
+
+###Related###
+InputBox, ToolTip, TrayTip, SplashTextOn
+
+
+###Example###
+@@IncludeExample@@

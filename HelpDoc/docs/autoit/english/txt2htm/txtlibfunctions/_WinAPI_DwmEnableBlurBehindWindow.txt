@@ -1,0 +1,56 @@
+###User Defined Function###
+_WinAPI_DwmEnableBlurBehindWindow
+
+###Description###
+Enables the blur effect on a specified window.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_DwmEnableBlurBehindWindow ( $hWnd [, $fEnable = 1 [, $fTransition = 0 [, $hRgn = 0]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window on which the blur behind data is applied.
+$fEnable
+	[optional] Specifies whether register or unregister the window handle to DWM blur behind, valid values:
+	True        - Register (Default).
+	False       - Unregister.
+$fTransition
+	[optional] Specifies whether colorize transition to match the maximized windows, valid values:
+	True        - The window's should be colorized.
+	False       - Otherwise (Default).
+$hRgn
+	[optional] The region within the client area to apply the blur behind. A zeroth value (Default) will apply the blur
+	behind the entire client area).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1.
+Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+@@End@@
+
+
+###Remarks###
+The alpha values in the window are honored and the rendering atop the blur will use these alpha values.
+It is the application's responsibility for ensuring that the alpha values of all pixels in the window are correct.
+Some Windows Graphics Device Interface (GDI) operations do not preserve alpha values, so care must be taken when
+presenting child windows because the alpha values they contribute are unpredictable.
+
+This function must be called whenever Desktop Window Manager (DWM) composition is toggled. Handle the
+WM_DWMCOMPOSITIONCHANGED message for composition change notification.
+
+This function requires Windows Vista or later.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ DwmEnableBlurBehindWindow
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,37 @@
+###Function###
+SetError
+
+###Description###
+Manually set the value of the @error (and optionally @extended) macro.
+
+###Syntax###
+SetError ( code [, extended = 0 [, return value]] )
+
+
+###Parameters###
+@@ParamTable@@
+code
+	The required value (integer) to set into the @error macro.
+extended
+	[optional] The required value (integer) to set into the @extended macro.  This sets the same macro as the SetExtended() function.
+return value
+	[optional] The value to be returned by the function - if no parameter used the return value is undefined.
+@@End@@
+
+###ReturnValue###
+The return value parameter (undefined if the parameter is not used) @error and @extended will be set to the values set in the function call (both default = 0)
+
+
+###Remarks###
+When entering a function @error is set to 0.  Unless <a href="SetError.htm">SetError()</a> is called, then @error will remain 0 when the function ends.  This means that in order for @error to be set after a function, it must be explicitly set. This also means you may need to backup the status of @error in a variable if you are testing it in a While-WEnd loop.
+The extended parameter is optional. It is provided as a way to set both @error and @extended at the same time. If only @extended needs set, then it is recommended to use the <a href="SetExtended.htm">SetExtended()</a> function instead.
+
+@error is limited between the values of -2147483647 to 2147483647.
+
+
+###Related###
+SetExtended
+
+
+###Example###
+@@IncludeExample@@

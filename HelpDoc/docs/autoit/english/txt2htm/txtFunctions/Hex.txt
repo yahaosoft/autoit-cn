@@ -1,0 +1,41 @@
+###Function###
+Hex
+
+###Description###
+Returns a string representation of an integer or of a binary type converted to hexadecimal.
+
+###Syntax###
+Hex ( expression [, length] )
+
+
+###Parameters###
+@@ParamTable@@
+expression
+	The expression to convert.
+length
+	[optional] Number of characters to be returned for integer.
+	Characters are truncated from the left-hand side if length is too small.
+	This parameter is ignored if the data is binary data.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a string of <i>length</i> (never more than 16) characters, zero-padded if necessary for integer.
+	Returns the  binary type converted.
+Special:	Returns "" (empty string) if length is less than 1.
+@@End@@
+
+
+###Remarks###
+Omitting the second parameter (<i>length</i>) or using the keyword Default results in automatic sizing of the output; 8-characters display for numbers that can fit in that and 16-characters display for others.
+A pointer type parameter is displayed in size of pointer by default (8 characters for x86 and 16 characters for x64).
+64bit integers have 16 characters displayed by default.
+Numbers passed as non-integers (those with decimal separator or exponent) are processed as doubles.
+
+
+###Related###
+Dec, BitAND, BitNOT, BitOR, BitRotate, BitShift, BitXOR
+
+
+###Example###
+@@IncludeExample@@

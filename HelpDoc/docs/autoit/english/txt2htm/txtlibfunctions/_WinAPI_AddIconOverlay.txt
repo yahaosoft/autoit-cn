@@ -1,0 +1,39 @@
+###User Defined Function###
+_WinAPI_AddIconOverlay
+
+###Description###
+Creates an icon by merging the source icon and overlay mask.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_AddIconOverlay ( $hIcon, $hOverlay )
+
+
+###Parameters###
+@@ParamTable@@
+$hIcon
+	Handle to the source icon.
+$hOverlay
+	Handle to the icon to use as an overlay mask.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	Handle to the newly created icon.
+Failure 	0 and sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+The source and overlay icons must be the same size but can have different color depth. This function internally
+converts the specified icons to the 32 bits-per-pixel icon.
+
+When you are finished using the icon, destroy it using the _WinAPI_DestroyIcon() function.
+
+
+###Related###
+_WinAPI_DestroyIcon
+
+
+###Example###
+@@IncludeExample@@

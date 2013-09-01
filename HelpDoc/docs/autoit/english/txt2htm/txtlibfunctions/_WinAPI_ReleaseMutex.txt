@@ -1,0 +1,34 @@
+###User Defined Function###
+_WinAPI_ReleaseMutex
+
+###Description###
+Releases ownership of the specified mutex object.
+
+###Syntax###
+#include <WinAPIProc.au3>
+_WinAPI_ReleaseMutex ( $hMutex )
+
+
+###Parameters###
+@@ParamTable@@
+$hMutex
+	Handle to the mutex object. The _WinAPI_CreateMutex() or _WinAPI_OpenMutex() function returns this handle.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True.
+Failure 	False, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+The _WinAPI_ReleaseMutex() function fails if the calling thread does not own the mutex object.
+
+
+###Related###
+_WinAPI_CreateMutex, _WinAPI_OpenMutex
+
+
+###See Also###
+@@MsdnLink@@ ReleaseMutex

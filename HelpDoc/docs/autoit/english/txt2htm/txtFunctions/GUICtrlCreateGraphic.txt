@@ -1,0 +1,49 @@
+###Function###
+GUICtrlCreateGraphic
+
+###Description###
+Creates a Graphic control for the GUI.
+
+###Syntax###
+GUICtrlCreateGraphic ( left, top [, width [, height [, style]]] )
+
+
+###Parameters###
+@@ParamTable@@
+left
+	The left side of the control. If -1 is used then left will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a>.
+top
+	The top of the control. If -1 is used then top will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a>.
+width
+	[optional] The width of the control (default is the previously used width).
+height
+	[optional] The height of the control (default is the previously used height).
+style
+	[optional] Defines the style of the control. See <a href="../appendix/GUIStyles.htm#Label">GUI Control Styles Appendix</a>.
+
+	default ( -1) : $SS_NOTIFY.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the identifier (controlID) of the new control.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+To draw in the control see <a href="GUICtrlSetGraphic.htm">GUICtrlSetGraphic()</a>.
+
+The border and background color can be set with <a href="GUICtrlSetBkColor.htm">GUICtrlSetBkColor()</a> and <a href="GUICtrlSetColor.htm">GUICtrlSetColor()</a>.
+
+Graphic control can be clicked so they should not overlap with other controls. If overlap is needed  it is important to disable the graphic control : <a href="GUICtrlSetState.htm">GUICtrlSetState</a>(-1,$GUI_DISABLE).
+
+This control cannot be resized due to fix graphic relative addressing creation but can be dock with <a href="GUICtrlSetResizing.htm">GUICtrlSetResizing()</a>.
+
+
+###Related###
+GUICtrlSetGraphic, GUICtrlSetBkColor, GUICtrlSetColor, GUICtrlDelete, GUICoordMode (Option), GUICtrlSetStyle, GUICtrlSetResizing, GUIGetMsg
+
+
+###Example###
+@@IncludeExample@@

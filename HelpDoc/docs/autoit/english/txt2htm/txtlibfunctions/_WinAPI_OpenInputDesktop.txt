@@ -1,0 +1,51 @@
+###User Defined Function###
+_WinAPI_OpenInputDesktop
+
+###Description###
+Opens the desktop that receives user input.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_OpenInputDesktop ( [$iAccess = 0 [, $iFlags = 0 [, $fInherit = 0]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$iAccess
+	[optional] The access to the desktop. This parameter can be one or more of the following values.
+	$DESKTOP_ALL_ACCESS
+	$DESKTOP_CREATEMENU
+	$DESKTOP_CREATEWINDOW
+	$DESKTOP_ENUMERATE
+	$DESKTOP_HOOKCONTROL
+	$DESKTOP_JOURNALPLAYBACK
+	$DESKTOP_JOURNALRECORD
+	$DESKTOP_READOBJECTS
+	$DESKTOP_SWITCHDESKTOP
+	$DESKTOP_WRITEOBJECTS
+$iFlags
+	[optional] The optional flags. It can be zero or the following value.
+	$DF_ALLOWOTHERACCOUNTHOOK
+$fInherit
+	[optional] Specifies whether inherites the handle by a processes, valid values:
+	True     - The processes created by this process will inherit the handle.
+	False    - The processes do not inherit this handle (Default).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	Handle to the opened desktop.
+Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+When you are finished using the desktop, call the _WinAPI_CloseDesktop() function to close it.
+
+
+###Related###
+_WinAPI_CloseDesktop
+
+
+###See Also###
+@@MsdnLink@@ OpenInputDesktop

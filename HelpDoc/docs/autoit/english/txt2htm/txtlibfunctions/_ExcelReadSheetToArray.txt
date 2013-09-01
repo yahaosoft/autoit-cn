@@ -1,0 +1,52 @@
+###User Defined Function###
+_ExcelReadSheetToArray
+
+###Description###
+Create a 2D array from the rows/columns of the active worksheet.
+
+###Syntax###
+#include <Excel.au3>
+_ExcelReadSheetToArray ( $oExcel [, $iStartRow = 1 [, $iStartColumn = 1 [, $iRowCnt = 0 [, $iColCnt = 0 [, $iColShift = False]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$oExcel
+	Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+$iStartRow
+	[optional] Row number to start reading, defaults to 1 (first row)
+$iStartColumn
+	[optional] Column number to start reading, defaults to 1 (first column)
+$iRowCnt
+	[optional] Count of rows to read, defaults to 0 (all)
+$iColCnt
+	[optional] Count of columns to read, defaults to 0 (all)
+$iColShift
+	[optional] Determines if the Array returned, from Excel, will begin in the 0-index base or 1-index base Column. False by Default to match R1C1 values.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	a 2D array with the specified cell contents by [$row][$col]
+Failure:	sets @error
+@error:	1 - Specified object does not exist
+	2 - Start parameter out of range
+	3 - Count parameter out of range
+@extended:	0 - Row count out of range
+	1 - Column count out of range
+@@End@@
+
+
+###Remarks###
+Returned array has row count in [0][0] and column count in [0][1].
+Except for the counts above, row 0 and col 0 of the returned array are empty, as actual
+cell data starts at [1][1] to match R1C1 numbers.
+By default the entire sheet is returned.
+If the sheet is empty [0][0] and [0][1] both = 0.
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

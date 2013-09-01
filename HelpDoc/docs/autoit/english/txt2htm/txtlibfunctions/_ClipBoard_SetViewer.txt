@@ -1,0 +1,41 @@
+###User Defined Function###
+_ClipBoard_SetViewer
+
+###Description###
+Adds the specified window to the chain of clipboard viewers
+
+###Syntax###
+#include <Clipboard.au3>
+_ClipBoard_SetViewer ( $hViewer )
+
+
+###Parameters###
+@@ParamTable@@
+$hViewer
+	Handle to the window to be added to the clipboard chain
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	The handle to the next window in the clipboard viewer chain
+Failure:	0 if there is no clipboard viewer
+@@End@@
+
+
+###Remarks###
+The windows that are part of the clipboard viewer chain must process the clipboard messages $WM_CHANGECBCHAIN
+and $WM_DRAWCLIPBOARD. Each clipboard viewer window calls the _SendMessage() function to pass these messages
+to the next window in the clipboard viewer chain. A clipboard viewer window must eventually remove itself from
+the clipboard viewer chain by calling the _ClipBoard_ChangeChain() function.
+
+
+###Related###
+_ClipBoard_ChangeChain, _ClipBoard_GetViewer
+
+
+###See Also###
+@@MsdnLink@@ SetClipboardViewer
+
+
+###Example###
+@@IncludeExample@@

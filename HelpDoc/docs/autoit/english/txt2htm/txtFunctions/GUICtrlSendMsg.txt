@@ -1,0 +1,43 @@
+###Function###
+GUICtrlSendMsg
+
+###Description###
+Send a message to a control.
+
+###Syntax###
+GUICtrlSendMsg ( controlID, msg , wParam, lParam )
+
+
+###Parameters###
+@@ParamTable@@
+controlID
+	The control identifier (controlID) as returned by a <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a> function, or -1 for the last created control.
+msg
+	type of message to be send to the control as defined in the Windows control documentation.
+wParam
+	The first param to send to the control.
+lParam
+	The second param to send to the control.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the value returned by the SendMessage Windows API.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+This function allows the sending of special Windows messages directly to the control using the SendMessage API. It is used to enable special control features not available with the simple <a href="GUICtrlRead.htm">GUICtrlRead()</a> and <a href="GUICtrlUpdate Management.htm">GUICtrlUpdate...</a>. range of functions.
+
+The parameters (wParam and lParam) can be an integer or a string.
+
+<a href="GUICtrlSendMsg.htm">GUICtrlSendMsg()</a> should be used for messages that have no special return types.  For more advanced messages where you must be able to receive extra data you must use <a href="GUICtrlRecvMsg.htm">GUICtrlRecvMsg()</a>.
+
+
+###Related###
+GUICtrlRecvMsg, GUICtrlCreate..., GUICtrlUpdate..., GUIGetMsg, GUICtrlRead
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,49 @@
+###User Defined Function###
+_GDIPlus_LineBrushSetBlend
+
+###Description###
+Sets the blend factors and the blend positions of a linear gradient brush to create a custom blend
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_LineBrushSetBlend ( $hLineGradientBrush, $aBlends )
+
+
+###Parameters###
+@@ParamTable@@
+$hLineGradientBrush
+	Pointer to a LinearGradientBrush object
+$aBlends
+	Array of blend factors and blend positions:
+	[0][0] - Number of blend factors and blend positions, must be at least 2
+	[1][0] - Factor 1
+	[1][1] - Position 1
+	[2][0] - Factor 2
+	[2][1] - Position 2
+	[n][0] - Factor n
+	[n][1] - Position n
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False and either:
+
+	@error and @extended are set if DllCall failed
+
+
+###Remarks###
+Each factor in the array specifies a percentage of the ending color and should be in the range 0.0 to 1.0.
+Each position in the array indicates a percentage of the distance between the starting boundary and the ending
+boundary and is in the range 0.0 to 1.0, where 0.0 indicates the starting boundary of the gradient and 1.0
+indicates the ending boundary
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GdipSetLineBlend
+
+
+###Example###
+@@IncludeExample@@

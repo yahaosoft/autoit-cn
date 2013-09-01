@@ -1,0 +1,54 @@
+###User Defined Function###
+_Word_DocLinkAdd
+
+###Description###
+Adds a hyperlink to the document.
+
+###Syntax###
+#include <Word.au3>
+_Word_DocLinkAdd ( $oDoc [, $oAnchor = Default [, $sAddress = Default [, $sSubAddress = Default [, $sScreenTip = Default [, $sTextToDisplay = Default [, $sTarget = Default]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$oDoc
+	Word document object
+$oAnchor
+	[optional] Range object for the text or graphic to be turned into a hyperlink
+	(default = Use entire document as range)
+$sAddress
+	[optional] The address for the specified link. The address can be an E-mail address, an Internet
+	address or a file name (default = link to the specified document is used)
+$sSubAddress
+	[optional] The name of a location within the destination file, such as a bookmark, named range
+	or slide number (default = None)
+$sScreenTip
+	[optional] The text that appears as a ScreenTip when the mouse pointer is positioned over the
+	specified hyperlink (default = Uses value of $sAddress)
+$sTextToDisplay
+	[optional] The display text of the specified hyperlink. The value of this argument replaces
+	the text or graphic specified by $oAnchor (default = Uses value of $sAddress)
+$sTarget
+	[optional] The name of the frame or window in which you want to load the specified hyperlink
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1
+Failure:	Returns 0 and sets @error
+@error:	1 - $oDoc is not an object
+	2 - Error occurred when adding the link. @extended is set to the COM error code
+	3 - $oAnchor is not 0 but is not a range object
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_Word_DocLinkGet
+
+
+###Example###
+@@IncludeExample@@

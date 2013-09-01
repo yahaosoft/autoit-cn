@@ -1,0 +1,64 @@
+###Function###
+GUIGetMsg
+
+###Description###
+Polls the GUI to see if any events have occurred.
+
+###Syntax###
+GUIGetMsg ( [advanced = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+advanced
+	[optional] return extended information in an array.
+	0 = (default) Returns a single event.
+	1 = returns an array containing the event and extended information.
+@@End@@
+
+###ReturnValue###
+Returns an event, or an array depending on the "advanced" parameter.
+
+The "event" returned is the control ID of the control sending the message, or it is a special event (like the window is closing, minimizing).  Or if there is no message, the event is 0.
+<br>
+@@ReturnTable@@
+<b>Event ID</b>	<b>the ID of the control sending the message</b>
+0	No event
+$GUI_EVENT_CLOSE	dialog box being closed (either by defined button or system menu).
+$GUI_EVENT_MINIMIZE	dialog box minimized with Windows title bar button.
+$GUI_EVENT_RESTORE	dialog box restored by click on task bar icon.
+$GUI_EVENT_MAXIMIZE	dialog box maximized with Windows title bar button.
+$GUI_EVENT_MOUSEMOVE	the mouse cursor has moved.
+$GUI_EVENT_PRIMARYDOWN	the primary mouse button was pressed.
+$GUI_EVENT_PRIMARYUP	the primary mouse button was released.
+$GUI_EVENT_SECONDARYDOWN	the secondary mouse button was pressed.
+$GUI_EVENT_SECONDARYUP	the secondary mouse button was released.
+$GUI_EVENT_RESIZED	dialog box has been resized.
+$GUI_EVENT_DROPPED	End of a Drag&Drop action @GUI_DragId, @GUI_DragFile and @GUI_DropId will be used to retrieve the ID's/file corresponding to the involve control.
+@@End@@
+<br>
+When using the "advanced" parameter the information is returned in an array with extended information:
+
+$aArray[0] = 0 or Event ID or Control ID
+$aArray[1] = The window handle the event is from
+$aArray[2] = The control handle the event is from (if applicable)
+$aArray[3] = The current X position of the mouse cursor (relative to the GUI window)
+$aArray[4] = The current Y position of the mouse cursor (relative to the GUI window)
+<br>
+If the GUIOnEventMode option is set to 1 then the return from GUIGetMsg is always 0 and the @error is set to 1.
+
+If the option GUIEventOptions is set to 1 the minimize, restore and maximize button will not do any action on the window just a simple notification.
+
+
+###Remarks###
+This function automatically idles the CPU when required so that it can be safely used in tight loops without hogging all the CPU.
+
+Information about the mouse position and the hovering control can be retrieved with <a href="GUIGetCursorInfo.htm">GUIGetCursorInfo()</a>. No event is fired when the mouse is over a control so <a href="GUIGetCursorInfo.htm">GUIGetCursorInfo()</a> must be called to retrieve the ControlID.
+
+
+###Related###
+GUICreate, GUICtrlCreate..., GUICtrlRead, GUIOnEventMode (Option), GUIEventOptions (Option), GUIGetCursorInfo, GUICtrlSendMsg, GUICtrlSetOnEvent
+
+
+###Example###
+@@IncludeExample@@

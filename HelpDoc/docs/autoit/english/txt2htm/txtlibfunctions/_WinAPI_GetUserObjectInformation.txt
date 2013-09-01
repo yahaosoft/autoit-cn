@@ -1,0 +1,57 @@
+###User Defined Function###
+_WinAPI_GetUserObjectInformation
+
+###Description###
+Retrieves information about the specified window station or desktop object.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_GetUserObjectInformation ( $hObject, $iIndex )
+
+
+###Parameters###
+@@ParamTable@@
+$hObject
+	Handle to the window station or desktop object.
+$iIndex
+	The information to be retrieved. The parameter can be one of the following values.
+
+	$UOI_FLAGS
+	$tagUSEROBJECTFLAGS structure containing information about a window station or desktop handle.
+
+	$UOI_HEAPSIZE
+	The size of the desktop heap, in KB.
+
+	$UOI_IO
+	1 if the object is a handle to the desktop that is receiving input from the user, 0 otherwise.
+
+	$UOI_NAME
+	The name of the object, as a string.
+
+	$UOI_TYPE
+	The type of the object, as a string.
+
+	$UOI_USER_SID
+	The security identifier (SID) structure as "byte[n]".
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The object information. Return type depends on the information type (see above).
+Failure 	Sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetUserObjectInformation
+
+
+###Example###
+@@IncludeExample@@

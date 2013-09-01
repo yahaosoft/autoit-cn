@@ -1,0 +1,44 @@
+###User Defined Function###
+_GUICtrlListView_FindText
+
+###Description###
+Searches for an item with the specified text
+
+###Syntax###
+#include <GuiListView.au3>
+_GUICtrlListView_FindText ( $hWnd, $sText [, $iStart = -1 [, $fPartialOK = True [, $fWrapOK = True]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Control ID/Handle to the control
+$sText
+	Text to match
+$iStart
+	[optional] Zero based index of the item to begin the search with or -1 to start from the beginning. The
+	specified item is itself excluded from the search.
+$fPartialOK
+	[optional] If True, a match will occur if the item text begins with the text
+$fWrapOK
+	[optional] If True, the search will continue with the first item if no match is found
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	The zero based index of the item
+Failure:	-1
+@@End@@
+
+
+###Remarks###
+The search is case insensitive. The search is performed on the item only. Use _GUICtrlListView_FindInText if you want
+to search for the text in subitems.
+
+
+###Related###
+_GUICtrlListView_FindInText
+
+
+###Example###
+@@IncludeExample@@

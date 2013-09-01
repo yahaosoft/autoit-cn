@@ -1,0 +1,33 @@
+###Method###
+WinClose
+
+###Description###
+Closes a window.
+
+###Syntax###
+WinClose "title" [, "text"]
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to close.
+text
+	<b>Optional:</b> The text of the window to close.
+@@End@@
+
+###ReturnValue###
+None.
+
+
+###Remarks###
+This function sends a close message to a window, the result depends on the window (it may ask to save data, etc.).  To force a window to close, use the WinKill function.  If multiple windows match the criteria, the window that was most recently active is closed.
+
+
+###Related###
+WinActivate, WinExists, WinKill, WinSetState, WinTitleMatchMode (Option)
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oAutoIt.WinClose "Untitled - Notepad", ""

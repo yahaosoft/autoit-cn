@@ -1,0 +1,48 @@
+###User Defined Function###
+_Crypt_HashData
+
+###Description###
+Hash data with specified algorithm
+
+###Syntax###
+#include <Crypt.au3>
+_Crypt_HashData ( $vData, $iALG_ID [, $fFinal = True [, $hCryptHash = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$vData
+	Data to hash
+$iALG_ID
+	Hash ID to use
+$fFinal
+	[optional] False if this is only a segment of the full data, also makes the function return a hash object instead of hash
+$hCryptHash
+	[optional] Hash object returned from a previous call to _Crypt_HashData()
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	 a hash or hash object if $fFinal=False.
+Failure:	-1 and sets the @error flag to non-zero.
+@error:	10 - Failed to create hash object
+	20 - Failed to hash data
+	30 - Failed to get hash size
+	40 - Failed to get hash
+@@End@@
+
+
+###Remarks###
+The hash digest will be returned as a binary string, the size is specified by the algorithm. To use this with segments of data set the fFinal flag to False for all non ending segments and use the returned hash object with all subsequent calls.
+
+
+###Related###
+_Crypt_HashFile
+
+
+###See Also###
+@@MsdnLink@@ CryptHashData
+
+
+###Example###
+@@IncludeExample@@

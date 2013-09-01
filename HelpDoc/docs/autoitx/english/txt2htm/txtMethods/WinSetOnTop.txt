@@ -1,0 +1,36 @@
+###Method###
+WinSetOnTop
+
+###Description###
+Change a window's "Always On Top" attribute.
+
+###Syntax###
+WinSetOnTop "title", "text", flag
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to affect.
+text
+	The text of the window to affect.
+flag
+	Determines whether the window should have the "TOPMOST" flag set.
+	1=set on top flag, 0 = remove on top flag
+@@End@@
+
+###ReturnValue###
+None.
+
+
+###Remarks###
+Third-party programs which add an "Always On Top" context menu entry might not update their menu entry to reflect the AutoIt-induced change in TOPMOST status.
+
+
+###Related###
+WinSetState
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oAutoIt.WinSetOnTop "Untitled -", "", 1

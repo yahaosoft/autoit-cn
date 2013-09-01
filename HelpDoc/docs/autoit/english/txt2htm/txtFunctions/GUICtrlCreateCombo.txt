@@ -1,0 +1,59 @@
+###Function###
+GUICtrlCreateCombo
+
+###Description###
+Creates a ComboBox control for the GUI.
+
+###Syntax###
+GUICtrlCreateCombo ( "text", left, top [, width [, height [, style = -1 [, exStyle = -1]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+text
+	The text which will appear in the combo control.
+left
+	The left side of the control. If -1 is used then left will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a>.
+top
+	The top of the control. If -1 is used then top will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a>.
+width
+	[optional] The width of the control (default is the previously used width).
+height
+	[optional] The height of the control (default is the previously used height).
+style
+	[optional] Defines the style of the control. See <a href="../appendix/GUIStyles.htm#Combo">GUI Control Styles Appendix</a>.
+
+	default (-1) : $CBS_DROPDOWN, $CBS_AUTOHSCROLL, $WS_VSCROLL
+	forced style : $WS_TABSTOP
+exStyle
+	[optional] Defines the extended style of the control. See <a href="../appendix/GUIStyles.htm#Extended">Extended Style Table</a>.
+
+	default ( -1) : $WS_EX_CLIENTEDGE
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the identifier (controlID) of the new control.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+To obtain the value of the control see <a href="GUICtrlRead.htm">GUICtrlRead()</a>.
+To set or change information in the control see <a href="GUICtrlUpdate Management.htm">GUICtrlUpdate...</a>.
+
+Under Windows XP/2003 Windows will adjust the size of the opened combo. On other Windows versions you can define this size with the "height" parameter if the default value is not BIG enough to contain at least one line.
+
+To combine styles with the default style use <b><a href="BitOR.htm">BitOR()</a></b>($GUI_SS_DEFAULT_COMBO, newstyle,...).
+
+To use the values specified above you must #include <ComboConstants.au3> in your script.
+
+Default resizing is $GUI_DOCKHEIGHT.
+
+
+###Related###
+GUICoordMode (Option), GUICtrlSetData, GUICtrlUpdate..., GUIGetMsg
+
+
+###Example###
+@@IncludeExample@@

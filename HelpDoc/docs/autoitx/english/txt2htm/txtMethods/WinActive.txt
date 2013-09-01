@@ -1,0 +1,39 @@
+###Method###
+WinActive
+
+###Description###
+Checks to see if a specified window exists and is currently active.
+
+###Syntax###
+WinActive "title" [, "text"]
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to activate.
+text
+	<b>Optional:</b> The text of the window to activate.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 if window is not active.
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+WinExists, WinWait, WinWaitActive, WinWaitClose, WinWaitNotActive, WinTitleMatchMode (Option)
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+
+If oAutoIt.WinActive("Untitled -") Then
+	WScript.Echo "Window was active"
+End If

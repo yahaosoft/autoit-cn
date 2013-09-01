@@ -1,0 +1,50 @@
+###Method###
+RegRead
+
+###Description###
+Reads a value from the registry.
+
+###Syntax###
+RegRead "keyname", "valuename"
+
+
+###Parameters###
+@@ParamTable@@
+keyname
+	The registry key to read.
+valuename
+	The value to read.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the requested registry value value.
+Failure:	Returns numeric 1 and sets the oAutoIt.error flag:
+	1 if unable to open requested key
+	-1 if unable to open requested value
+	-2 if value type not supported
+@@End@@
+
+
+###Remarks###
+A registry key must start with "HKEY_LOCAL_MACHINE" ("HKLM") or "HKEY_USERS" ("HKU") or "HKEY_CURRENT_USER" ("HKCU") or "HKEY_CLASSES_ROOT" ("HKCR") or "HKEY_CURRENT_CONFIG" ("HKCC").
+
+AutoIt supports registry keys of type REG_BINARY, REG_SZ, REG_MULTI_SZ, REG_EXPAND_SZ, REG_QWORD, and REG_DWORD.
+
+To access the <b>(Default)</b> value use <b>""</b> (a blank string) for the valuename.
+
+When reading a REG_BINARY key the result is a string of hex characters, e.g. the REG_BINARY value of 01,a9,ff,77 will be read as the string "01A9FF77".
+
+When reading a REG_MULTI_SZ key the multiple entries are seperated by a linefeed character.
+
+It is possible to access remote registries by using a keyname in the form "\\computername\keyname".  To use this feature you must have the correct access rights on XP/2003.
+
+
+###Related###
+RegDeleteKey, RegDeleteVal, RegWrite
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+var = oAutoIt.RegRead("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion", "ProgramFilesDir")
+WScript.Echo "Program files are in:" & var

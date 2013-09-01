@@ -1,0 +1,48 @@
+###User Defined Function###
+_WinAPI_GetIconInfoEx
+
+###Description###
+Retrieves information about the specified icon or cursor.
+
+###Syntax###
+#include <WinAPIRes.au3>
+_WinAPI_GetIconInfoEx ( $hIcon )
+
+
+###Parameters###
+@@ParamTable@@
+$hIcon
+	Handle to the icon or cursor. To retrieve information about a standard icon or cursor, use $IDC_* constants.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The array that contains the following information:
+	[0] - A value of 1 specifies an icon; 0 specifies a cursor.
+	[1] - The x-coordinate of the cursor's hot spot.
+	[2] - The y-coordinate of the cursor's hot spot.
+	[3] - A handle to the icon bitmask bitmap.
+	[4] - A handle to the icon color bitmap.
+	[5] - The icon or cursor resource bits.
+	[6] - The fully qualified path of the module.
+	[7] - The fully qualified path of the resource.
+Failure 	Sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+The _WinAPI_GetIconInfoEx() creates bitmaps [3] and [4]. The calling application must manage these bitmaps and
+delete them when they are no longer necessary.
+
+This function requires Windows Vista or later.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetIconInfoEx
+
+
+###Example###
+@@IncludeExample@@

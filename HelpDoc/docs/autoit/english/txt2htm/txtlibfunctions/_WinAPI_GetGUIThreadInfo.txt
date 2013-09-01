@@ -1,0 +1,48 @@
+###User Defined Function###
+_WinAPI_GetGUIThreadInfo
+
+###Description###
+Retrieves information about the active window or a specified GUI thread.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_GetGUIThreadInfo ( $iThreadID )
+
+
+###Parameters###
+@@ParamTable@@
+$iThreadID
+	The identifier for the thread for which information is to be retrieved.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The array that contains the following information:
+	[0] - The thread state. It can be one or more of the $GUI_* values.
+	[1] - A handle to the active window within the thread.
+	[2] - A handle to the window that has the keyboard focus.
+	[3] - A handle to the window that has captured the mouse.
+	[4] - A handle to the window that owns any active menus.
+	[5] - A handle to the window in a move or size loop.
+	[6] - A handle to the window that is displaying the caret.
+	[7] - The x-coordinate of the upper-left corner of the caret's bounding rectangle, in client coordinates.
+	[8] - The y-coordinate of the upper-left corner of the caret's bounding rectangle, in client coordinates.
+	[9] - The width of the caret's bounding rectangle.
+	[10] - The height of the caret's bounding rectangle.
+Failure 	Sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetGUIThreadInfo
+
+
+###Example###
+@@IncludeExample@@

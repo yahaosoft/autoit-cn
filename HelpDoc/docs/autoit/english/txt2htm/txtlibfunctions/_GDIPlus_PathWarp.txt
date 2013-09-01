@@ -1,0 +1,65 @@
+###User Defined Function###
+_GDIPlus_PathWarp
+
+###Description###
+Applies a warp transformation to a path. The function also flattens (converts to a sequence of straight lines) the path
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_PathWarp ( $hPath, $hMatrix, $aPoints, $fX, $fY, $fWidth, $fHeight [, $iWarpMode = 0 [, $fFlatness = 0.25]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hPath
+	Pointer to a GraphicsPath object
+$hMatrix
+	Pointer to a Matrix object that represents a transformation to be applied along with the warp.
+$aPoints
+	Array of parallelogram points that, along with the rectangle parameters, define the wrap mode:
+	[0][0] - Number of points. This number must be 3 or 4
+	[1][0] - Point 1 X coordinate
+	[1][1] - Point 1 Y coordinate
+	[2][0] - Point 2 X coordinate
+	[2][1] - Point 2 Y coordinate
+	[n][0] - Point n X coordinate
+	[n][1] - Point n Y coordinate
+$fX
+	X coordinate of the upper left corner of the rectangle to be transformed into a parallelogram
+	defined by $aPoints
+$fY
+	Y coordinate of the upper left corner of the rectangle to be transformed into a parallelogram
+	defined by $aPoints
+$fWidth
+	Width of the rectangle to be transformed into a parallelogram defined by $aPoints
+$fHeight
+	Height of the rectangle to be transformed into a parallelogram defined by $aPoints
+$iWarpMode
+	[optional] Kind of warp to be applied:
+	0 - Specifies the perspective warp mode
+	1 - Specifies the bilinear warp mode
+$fFlatness
+	[optional] Real number that influences the number of line segments that are used to approximate the original
+	path. Small values specify that many line segments are used, and large values specify that few line segments
+	are used
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False
+
+
+###Remarks###
+None
+
+
+###Related###
+_GDIPlus_PathFlatten
+
+
+###See Also###
+@@MsdnLink@@ GdipWarpPath
+
+
+###Example###
+@@IncludeExample@@

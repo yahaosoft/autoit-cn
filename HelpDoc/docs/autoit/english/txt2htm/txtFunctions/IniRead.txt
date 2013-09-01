@@ -1,0 +1,43 @@
+###Function###
+IniRead
+
+###Description###
+Reads a value from a standard format .ini file.
+
+###Syntax###
+IniRead ( "filename", "section", "key", "default" )
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	The filename of the .ini file.
+section
+	The section name in the .ini file.
+key
+	The key name in the .ini file.
+default
+	The default value to return if the requested key is not found.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the requested key value as a string.
+Failure:	Returns the <i>default</i> string if requested key not found.
+@@End@@
+
+
+###Remarks###
+A standard ini file looks like:
+<p class="codeheader" style="width:103px;padding:6px;background-color:#FCFCFC;">[SectionName]
+Key=Value</p>
+
+All values returned are converted as a string. Therefore if you wish an integer e.g. 1000 to be a number use either <a href="Int.htm">Int()</a> or <a href="Number.htm">Number()</a>, like-wise if you want a hwnd to be a ptr, the use <a href="Ptr.htm">Ptr()</a> or <a href="HWnd.htm">HWnd()</a>.
+
+
+###Related###
+IniDelete, IniWrite, FileReadLine, IniReadSection, IniReadSectionNames, IniRenameSection, IniWriteSection
+
+
+###Example###
+@@IncludeExample@@

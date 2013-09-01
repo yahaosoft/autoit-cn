@@ -1,0 +1,206 @@
+###Function###
+Send
+
+###Description###
+Sends simulated keystrokes to the active window.
+
+###Syntax###
+Send ( "keys" [, flag = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+keys
+	The sequence of keys to send.
+flag
+	[optional] Changes how "keys" is processed:
+	flag = 0 (default), Text contains special characters like + and ! to indicate SHIFT and ALT key-presses.
+	flag = 1, keys are sent raw.
+@@End@@
+
+###ReturnValue###
+None.
+
+
+###Remarks###
+See the <a href="../appendix/SendKeys.htm">Appendix</a> for some tips on using <a href="Send.htm">Send()</a>. AutoIt can send all ASCII and Extended ASCII characters (0-255). To send UNICODE characters you must use the "ASC" option and the code of the character you wish to send (see {ASC} at the bottom of the table below).
+
+The "<a href="Send.htm">Send()</a>" command syntax is similar to that of ScriptIt and the Visual Basic "SendKeys" command. Characters are sent as written with the exception of the following characters:
+
+'!'
+This tells AutoIt to send an ALT keystroke, therefore <a href="Send.htm">Send</a>("This is text!a") would send the keys "This is text" and then press "ALT+a".
+
+N.B. Some programs are very choosy about capital letters and ALT keys, i.e., "!A" is different from "!a". The first says ALT+SHIFT+A, the second is ALT+a. If in doubt, use lowercase!
+
+'+'
+This tells AutoIt to send a SHIFT keystroke; therefore, <a href="Send.htm">Send</a>("Hell+o") would send the text "HellO". <a href="Send.htm">Send</a>("!+a") would send "ALT+SHIFT+a".
+
+'^'
+This tells AutoIt to send a CONTROL keystroke; therefore, <a href="Send.htm">Send</a>("^!a") would send "CTRL+ALT+a".
+
+N.B. Some programs are very choosy about capital letters and CTRL keys, i.e., "^A" is different from "^a". The first says CTRL+SHIFT+A, the second is CTRL+a. If in doubt, use lowercase!
+
+'#'
+The hash now sends a Windows keystroke; therefore, <a href="Send.htm">Send</a>("#r") would send Win+r which launches the <a href="Run.htm">Run()</a> dialog box.
+
+
+You can set SendCapslockMode to make CAPS LOCK disabled at the start of a <a href="Send.htm">Send()</a> operation and restored upon completion.
+However, if a user is holding down the Shift key when a <a href="Send.htm">Send()</a> function begins, text may be sent in uppercase.
+One workaround is to <a href="Send.htm">Send</a>("{SHIFTDOWN}{SHIFTUP}")  before the other <a href="Send.htm">Send()</a> operations.
+
+Certain keyboards as the Czech keyboard sends different characters when using the Shift Key or with CAPS LOCK enabled while sending a character. Due to the send AutoIt implementation the CAPS LOCKed character will be sent as a Shifted character so <b>it will not work.</b>
+Certain special keys can be sent and should be enclosed in braces:
+
+N.B. Windows does not allow the simulation of the "CTRL-ALT-DEL" combination!
+
+@@StandardTable1@@
+<b><a href="Send.htm">Send()</a> Command (if zero flag)</b>	<b>Resulting Keypress</b>
+{!}	!
+{#}	#
+{+}	+
+{^}	^
+{{}	{
+{}}	}
+{SPACE}	SPACE
+{ENTER}	ENTER key on the main keyboard
+{ALT}	ALT
+{BACKSPACE} or {BS}	BACKSPACE
+{DELETE} or {DEL}	DELETE
+{UP}	Up arrow
+{DOWN}	Down arrow
+{LEFT}	Left arrow
+{RIGHT}	Right arrow
+{HOME}	HOME
+{END}	END
+{ESCAPE} or {ESC}	ESCAPE
+{INSERT} or {INS}	INS
+{PGUP}	PageUp
+{PGDN}	PageDown
+{F1} - {F12}	Function keys
+{TAB}	TAB
+{PRINTSCREEN}	Print Screen key
+{LWIN}	Left Windows key
+{RWIN}	Right Windows key
+{NUMLOCK on}	NUMLOCK (on/off/toggle)
+{CAPSLOCK off}	CAPSLOCK (on/off/toggle)
+{SCROLLLOCK toggle}	SCROLLLOCK (on/off/toggle)
+{BREAK}	for Ctrl+<a href="Break.htm">Break()</a> processing
+{PAUSE}	PAUSE
+
+{NUMPAD0} - {NUMPAD9}	Numpad digits
+{NUMPADMULT}	Numpad Multiply
+{NUMPADADD}	Numpad Add
+{NUMPADSUB}	Numpad Subtract
+{NUMPADDIV}	Numpad Divide
+{NUMPADDOT}	Numpad period
+{NUMPADENTER}	Enter key on the numpad
+{APPSKEY}	Windows App key
+{LALT}	Left ALT key
+{RALT}	Right ALT key
+{LCTRL}	Left CTRL key
+{RCTRL}	Right CTRL key
+{LSHIFT}	Left Shift key
+{RSHIFT}	Right Shift key
+{SLEEP}	Computer SLEEP key
+{ALTDOWN}	Holds the ALT key down until {ALTUP} is sent
+{SHIFTDOWN}	Holds the SHIFT key down until {SHIFTUP} is sent
+{CTRLDOWN}	Holds the CTRL key down until {CTRLUP} is sent
+{LWINDOWN}	Holds the left Windows key down until {LWINUP} is sent
+{RWINDOWN}	Holds the right Windows key down until {RWINUP} is sent
+{ASC nnnn}	<a href="Send.htm">Send()</a> the ALT+nnnn key combination
+{BROWSER_BACK}	Select the browser "back" button
+{BROWSER_FORWARD}	Select the browser "forward" button
+{BROWSER_REFRESH}	Select the browser "refresh" button
+{BROWSER_STOP}	Select the browser "stop" button
+{BROWSER_SEARCH}	Select the browser "search" button
+{BROWSER_FAVORITES}	Select the browser "favorites" button
+{BROWSER_HOME}	Launch the browser and go to the home page
+{VOLUME_MUTE}	Mute the volume
+{VOLUME_DOWN}	Reduce the volume
+{VOLUME_UP}	Increase the volume
+{MEDIA_NEXT}	Select next track in media player
+{MEDIA_PREV}	Select previous track in media player
+{MEDIA_STOP}	Stop media player
+{MEDIA_PLAY_PAUSE}	Play/pause media player
+{LAUNCH_MAIL}	Launch the email application
+{LAUNCH_MEDIA}	Launch media player
+{LAUNCH_APP1}	Launch user app1
+{LAUNCH_APP2}	Launch user app2
+@@End@@
+
+To send the ASCII value A (same as pressing ALT+065 on the numeric keypad)
+	<a href="Send.htm">Send</a>("{ASC 065}")
+
+(When using 2 digit ASCII codes you must use a leading 0, otherwise an obsolete 437 code page is used).
+
+To send UNICODE characters enter the character code (decimal or hex), for example this sends a Chinese character
+	<a href="Send.htm">Send</a>("{ASC 2709}") or <a href="Send.htm">Send</a>("{ASC 0xA95}")
+
+
+Single keys can also be repeated, e.g.
+	<a href="Send.htm">Send</a>("{DEL 4}")    ;Presses the DEL key 4 times
+	<a href="Send.htm">Send</a>("{S 30}")      ;Sends 30 'S' characters
+	<a href="Send.htm">Send</a>("+{TAB 4}")   ;Presses SHIFT+TAB 4 times
+
+The key will be send at least once even if the count is zero.
+
+To hold a key down
+	<a href="Send.htm">Send</a>("{a down}")    ;Holds the A key down
+	<a href="Send.htm">Send</a>("{a up}")        ;Releases the A key
+
+To set the state of the capslock, numlock and scrolllock keys
+	<a href="Send.htm">Send</a>("{NumLock on}")        ;Turns the NumLock key on
+	<a href="Send.htm">Send</a>("{CapsLock off}")      ;Turns the CapsLock key off
+	<a href="Send.htm">Send</a>("{ScrollLock toggle}") ;Toggles the state of ScrollLock
+
+If you wish to use a variable for the count, try
+	$n = 4
+	<a href="Send.htm">Send</a>("+{TAB " & $n & "}")
+
+If you wish to send the ASCII value A four times, then try
+	$x = <a href="Chr.htm">Chr</a>(65)
+	<a href="Send.htm">Send</a>("{" & $x & " 4}")
+
+Most laptop computer keyboards have a special Fn key.  This key cannot be simulated.
+
+Note, by setting the flag parameter to 1 the above "special" processing will be disabled.  This is useful when you want to send some text copied from a variable and you want the text sent exactly as written.
+
+
+For example, open Folder Options (in the control panel) and try the following:
+
+@@StandardTable1@@
+<a href="Send.htm">Send</a>("{TAB}")	Navigate to next control (button, checkbox, etc)
+<a href="Send.htm">Send</a>("+{TAB}")	Navigate to previous control.
+<a href="Send.htm">Send</a>("^{TAB}")	Navigate to next WindowTab (on a Tabbed dialog window)
+<a href="Send.htm">Send</a>("^+{TAB}")	Navigate to previous WindowTab.
+<a href="Send.htm">Send</a>("{SPACE}")	Can be used to toggle a checkbox or click a button.
+<a href="Send.htm">Send</a>("{+}")	Usually checks a checkbox (if it's a "real" checkbox.)
+<a href="Send.htm">Send</a>("{-}")	Usually unchecks a checkbox.
+<a href="Send.htm">Send</a>("{NumPadMult}")	Recursively expands folders in a SysTreeView32.
+@@End@@
+
+Use Alt-key combos to access menu items.  Also, open Notepad and try the following:
+<a href="Send.htm">Send</a>("!f") <a href="Send.htm">Send()</a> Alt+f, the access key for Notepad's file menu. Try other letters!
+
+@@StandardTable1@@
+<a href="Send.htm">Send</a>("{DOWN}")	Move down a menu.
+<a href="Send.htm">Send</a>("{UP}")	Move up a menu.
+<a href="Send.htm">Send</a>("{LEFT}")	Move leftward to new menu or expand a submenu.
+<a href="Send.htm">Send</a>("{RIGHT}")	Move rightward to new menu or collapse a submenu.
+@@End@@
+See Windows' Help--press Win+F1--for a complete list of keyboard shortcuts if you don't know the importance of Alt+F4, PrintScreen, Ctrl+C, and so on.
+
+When running a script on a remote computer through a program as psexec (www.sysinternals.com) or beyondexec (www.beyondlogic.org) it is necessary, specially when sending strokes to a program launch by the script with a <a href="Run.htm">Run()</a> function, to use <b><a href="ControlSend.htm">ControlSend()</a></b> or other ControlXXX functions to directly communicate with the control. <a href="Send.htm">Send()</a> even with <a href="AutoItSetOption.htm">Opt</a>("SendAttachMode", 1) will not work.
+Using the -s mode when submitting can help to have better rights on the remote computer.
+
+<a href="AutoItSetOption.htm">Opt</a>("SendKeyDelay",...) alters the the length of the brief pause in between sent keystrokes.
+<a href="AutoItSetOption.htm">Opt</a>("SendKeyDownDelay",...) alters the length of time a key is held down before being released during a keystroke.
+Set both "SendKeyDelay" and "SendKeyDownDelay" to 0 to remove all delays when sending keystrokes.  This may be required under certain circumstances, for example, when locking the system ("#l") it may be necessary to remove the delays in order to prevent the WIN key from being stuck down.
+
+
+###Related###
+SendAttachMode (Option), SendKeepActive, SendKeyDelay (Option), SendKeyDownDelay (Option), ControlSend, BlockInput, HotKeySet, WinMenuSelectItem
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,51 @@
+###User Defined Function###
+_WinAPI_SaveHICONToFile
+
+###Description###
+Saves a specified single or multiple icon (HICON) to the specified icon (.ico) file.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_SaveHICONToFile ( $sFile, Const ByRef $aIcon [, $fCompress = 0 [, $iStart = 0 [, $iEnd = -1]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sFile
+	The name of the .ico file in which to save the icon.
+$aIcon
+	Handle to the icon or array of the icon handles to be save.
+$fCompress
+	[optional] Specifies whether to use PNG compression for the 32 bits-per-pixel icons if its size exceed or
+	equal to 256x256 pixels (262144 bytes), valid values:
+	True  - The icon will be saved as a PNG image.
+	False - The icon will be saved directly (Default).
+$iStart
+	[optional] The index of array to start saving at.
+$iEnd
+	[optional] The index of array to stop saving at.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1.
+Failure 	0 and sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+This function works with 16, 24, and 32 bits-per-pixel icons. Since the icon handles always contains a device-depended
+XOR bitmap (DDB), the resulting image that saved in .ico file may differ from the source image.
+
+If the specified icon is a 32 bits-per-pixel icon, and uses the AND bitmask bitmap instead of alpha channel,
+it will be converted to an icon with alpha channel (RGB + Alpha).
+
+Note that the icons with PNG compression are supported starting only with Windows Vista. In addition,
+not all applications can work with such icons.
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

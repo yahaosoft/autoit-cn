@@ -1,0 +1,48 @@
+###User Defined Function###
+_DateDiff
+
+###Description###
+Returns the difference between 2 dates, expressed in the type requested
+
+###Syntax###
+#include <Date.au3>
+_DateDiff ( $sType, $sStartDate, $sEndDate )
+
+
+###Parameters###
+@@ParamTable@@
+$sType
+	One of the following:
+	D = Difference in days between the given dates
+	M = Difference in months between the given dates
+	Y = Difference in years between the given dates
+	w = Difference in Weeks between the given dates
+	h = Difference in hours between the given dates
+	n = Difference in minutes between the given dates
+	s = Difference in seconds between the given dates
+$sStartDate
+	Input Start date in the format "YYYY/MM/DD[ HH:MM:SS]"
+$sEndDate
+	Input End date in the format "YYYY/MM/DD[ HH:MM:SS]"
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Difference between the 2 dates.
+Failure:	0 and sets the @error flag to non-zero.
+@error:	1 - Invalid $sType
+	2 - Invalid $sStartDate
+	3 - Invalid $sEndDate
+@@End@@
+
+
+###Remarks###
+See _DateTimeSplit for other possible variations of the start and end date formats.
+
+
+###Related###
+_DateAdd, _DateTimeSplit, _DateToDayOfWeek, _DateToDayOfWeekISO, _DateToDayValue, _DayValueToDate, _NowCalc
+
+
+###Example###
+@@IncludeExample@@

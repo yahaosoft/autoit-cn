@@ -1,0 +1,52 @@
+###User Defined Function###
+_GUICtrlRichEdit_SetSel
+
+###Description###
+Sets the low and high character position of a selection
+
+###Syntax###
+#include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetSel ( $hWnd, $iAnchor, $iActive [, $fHideSel = False] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iAnchor
+	the character position of the first character to select
+	Special value: -1 - end of text
+$iActive
+	the character position of the last character to select
+	Special value: -1 - end of text
+$fHideSel
+	[optional] True to hide the selection
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and sets @error
+@error:	101 - $hWnd is not a handle
+	102 - $iAnchor is neither a positive number nor zero nor -1
+	103 - $iActive is neither a positive number nor zero nor -1
+	104 - $fHideSel must be True or False
+@@End@@
+
+
+###Remarks###
+The first character of the text in a control is at character position 0
+
+$iActive can be less than $iAnchor
+
+
+###Related###
+_GUICtrlRichEdit_GetSel, _GUICtrlRichEdit_GetSelAA, _GUICtrlRichEdit_Deselect, _GUICtrlRichEdit_IsTextSelected, _GUICtrlRichEdit_GotoCharPos
+
+
+###See Also###
+@@MsdnLink@@ EM_EXSETSEL
+
+
+###Example###
+@@IncludeExample@@

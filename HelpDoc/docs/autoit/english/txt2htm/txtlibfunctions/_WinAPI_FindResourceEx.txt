@@ -1,0 +1,50 @@
+###User Defined Function###
+_WinAPI_FindResourceEx
+
+###Description###
+Determines the location of the resource with the specified type, name, and language in the specified module.
+
+###Syntax###
+#include <WinAPIRes.au3>
+_WinAPI_FindResourceEx ( $hInstance, $sType, $sName, $iLanguage )
+
+
+###Parameters###
+@@ParamTable@@
+$hInstance
+	Handle to the module whose executable file contains the resource. A value of 0 specifies the module
+	handle associated with the image file that the operating system used to create the current process.
+$sType
+	The type of the resource. This parameter can be string or integer value.
+$sName
+	The name of the resource. This parameter can be string or integer value.
+$iLanguage
+	The language of the resource.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	Handle to the specified resource's information block. To obtain a handle to the resource, pass this
+	handle to the _WinAPI_LoadResource() function.
+Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+If the first character of the string of the $sName or $sType parameter is a pound sign (#), the remaining
+characters represent a decimal number that specifies the integer identifier of the resource's name or type.
+For example, the string "#258" represents the integer identifier 258.
+
+To reduce the amount of memory required for a resource, an application should refer to it by integer identifier
+instead of by name.
+
+An application can use _WinAPI_FindResource() to find any type of resource, but this function should be used
+only if the application must access the binary resource data when making subsequent calls to _WinAPI_LockResource().
+
+
+###Related###
+_WinAPI_LoadResource, _WinAPI_FindResource, _WinAPI_LockResource
+
+
+###See Also###
+@@MsdnLink@@ FindResourceEx

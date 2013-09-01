@@ -1,0 +1,46 @@
+###User Defined Function###
+_Crypt_DecryptData
+
+###Description###
+Decrypts data using the supplied key
+
+###Syntax###
+#include <Crypt.au3>
+_Crypt_DecryptData ( $vData, $vCryptKey, $iALG_ID [, $fFinal = True] )
+
+
+###Parameters###
+@@ParamTable@@
+$vData
+	Data to decrypt
+$vCryptKey
+	Password or handle to a key if the CALG_USERKEY flag is specified
+$iALG_ID
+	The algorithm to use
+$fFinal
+	[optional] False if this is only a segment of the full data
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	a binary string containing decrypted data.
+Failure:	sets the @error flag to non-zero.
+@error:	100+ - Cannot create key
+	20 - Failed to decrypt data
+@@End@@
+
+
+###Remarks###
+The decrypted data is always returned as a binary string even if the encrypted data is in fact a string (cast with BinaryToString()).
+
+
+###Related###
+_Crypt_EncryptData, _Crypt_DeriveKey
+
+
+###See Also###
+@@MsdnLink@@ CryptDecrypt
+
+
+###Example###
+@@IncludeExample@@

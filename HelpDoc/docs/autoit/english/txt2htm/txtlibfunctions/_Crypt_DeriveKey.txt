@@ -1,0 +1,45 @@
+###User Defined Function###
+_Crypt_DeriveKey
+
+###Description###
+Creates a key from algorithm and password
+
+###Syntax###
+#include <Crypt.au3>
+_Crypt_DeriveKey ( $vPassword, $iALG_ID [, $iHash_ALG_ID = $CALG_MD5] )
+
+
+###Parameters###
+@@ParamTable@@
+$vPassword
+	Password to use
+$iALG_ID
+	Encryption ID of algorithm to be used with the key
+$iHash_ALG_ID
+	[optional] Id of the algo to hash the password with
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	a handle to a cryptographic key.
+Failure:	-1 and sets the @error flag to non-zero.
+@error:	10 - Failed to create hash object
+	20 - Failed to hash password
+	30 - Failed to generate key
+@@End@@
+
+
+###Remarks###
+The key needs to be destroyed with _Crypt_DestroyKey().
+
+
+###Related###
+_Crypt_DestroyKey, _Crypt_EncryptData, _Crypt_EncryptFile, _Crypt_DecryptData, _Crypt_DecryptFile
+
+
+###See Also###
+@@MsdnLink@@ CryptDeriveKey
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,40 @@
+###Function###
+GUICtrlCreateContextMenu
+
+###Description###
+Creates a context menu for a control or entire GUI window.
+
+###Syntax###
+GUICtrlCreateContextMenu ( [controlID] )
+
+
+###Parameters###
+@@ParamTable@@
+controlID
+	[optional] Control identifier as returned by <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a>
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the identifier (controlID) of the new control.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+After creating the context menu main control with this function, each menu item can be created by using <a href="GUICtrlCreateMenuItem.htm">GUICtrlCreateMenuItem()</a>.
+Sub-menus can be created using <a href="GUICtrlCreateMenu.htm">GUICtrlCreateMenu()</a>.
+
+If you use no parameters or -1 in this function then the context menu that is created is associated with the entire GUI window rather than an individual control.
+
+Only one context menu per control is possible.  If you wish to create a new context menu one you have to delete the existing menu first.
+
+Note: You can't create context menus for controls that already have <b>system</b> context menus, i.e. edit or input controls.
+
+
+###Related###
+GUICtrlCreateMenuItem, GUICtrlCreateMenu, GUICtrlGetHandle, GUICtrlSetState, GUICtrlDelete
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,42 @@
+###Method###
+ControlGetPosY
+
+###Description###
+Retrieves the position and size of a control relative to it's window.
+
+###Syntax###
+ControlGetPosY "title", "text", "controlID"
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to access.
+text
+	The text of the window to access.
+controlID
+	The control to interact with.  See <a href="../../intro/controls.htm">Controls</a>.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the Y coordinate of the control.
+Failure:	Sets oAutoIt.error to 1.
+@@End@@
+
+
+###Remarks###
+When using a control name in the Control functions, you need to add a number to the end of the name to indicate which control.  For example, if there two controls listed called "MDIClient", you would refer to these as "MDIClient1" and "MDIClient2".
+
+
+###Related###
+ControlCommand, ControlGetPosHeight, ControlGetPosWidth, ControlGetPosX, ControlMove, WinMove
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+
+posx = ControlGetPosX("Untitled - Notepad", "", "Edit1")
+posy = ControlGetPosY("Untitled - Notepad", "", "Edit1")
+poswidth = ControlGetPosWidth("Untitled - Notepad", "", "Edit1")
+posheight = ControlGetPosHeight("Untitled - Notepad", "", "Edit1")

@@ -1,0 +1,51 @@
+###Function###
+FileMove
+
+###Description###
+Moves one or more files
+
+###Syntax###
+FileMove ( "source", "dest" [, flag = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+source
+	The source path and filename of the file to move. (* wildcards accepted - See Remarks)
+dest
+	The destination path and filename of the moved file. (* wildcards accepted - See Remarks)
+flag
+	[optional] this flag determines whether to overwrite files if they already exist:
+	Can be a combination of the following:
+	$FC_NOOVERWRITE (0) = (default) do not overwrite existing files
+	$FC_OVERWRITE (1) = overwrite existing files
+	$FC_CREATEPATH (8) = Create destination directory structure if it doesn't exist (See Remarks).
+	Constants are defined in FileConstants.au3
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 if <i>source</i> cannot be moved or if <i>dest</i> already exists and flag=0.
+@@End@@
+
+
+###Remarks###
+See <a href="FileFindFirstFile.htm">FileFindFirstFile()</a> for a discussion about wildcards.
+
+If the source and destination paths are on different volumes a copy and delete operation is performed rather than a move.
+
+Because AutoIt lacks a "FileRename" function, use <a href="FileMove.htm">FileMove()</a> to rename a file!
+
+The destination directory must already exist, except using with flag value $FC_CREATEPATH (8).
+For instance the  combined flag $FC_OVERWRITE (1) + $FC_CREATEPATH (8) overwrites the target file and prechecks for the destination directory structure and if it doesn't exist creates it automatically.
+
+Some file attributes can make the overwriting impossible, if this is the case look at <a href="FileSetAttrib.htm">FileSetAttrib()</a> to change the attributes of a file.
+
+
+###Related###
+FileCopy, FileDelete, FileRecycle, DirMove
+
+
+###Example###
+@@IncludeExample@@

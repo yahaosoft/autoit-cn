@@ -1,0 +1,50 @@
+###User Defined Function###
+_Word_DocPictureAdd
+
+###Description###
+Adds a picture to the document.
+
+###Syntax###
+#include <Word.au3>
+_Word_DocPictureAdd ( $oDoc, $sFilePath [, $bLinkToFile = False [, $bSaveWithDocument = False [, $oRange = 0]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$oDoc
+	Word document object
+$sFilePath
+	The path and file name of the picture
+$bLinkToFile
+	[optional] Specifies whether to link the picture to the file from which it was created.
+	True - Link the picture to the file from which it was created
+	False - Make the picture an independent copy of the file (default)
+$bSaveWithDocument
+	[optional] Specifies whether to save the linked picture with the document.
+	True - Save the linked picture with the document
+	False - Do not save the linked picture with the document (default)
+$oRange
+	[optional] The location where the picture will be placed in the text.
+	Can be 0 (the picture is placed automatically) or any range object (default = 0)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a variable pointing to the shape object
+Failure:	Returns 0 and sets @error
+@error:	1 - $oDoc is not an object
+	2 - The specified picture does not exist
+	3 - Error occurred when adding the specified picture. @extended is set to the COM error code
+	4 - $oRange is not 0 but is not a range object
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

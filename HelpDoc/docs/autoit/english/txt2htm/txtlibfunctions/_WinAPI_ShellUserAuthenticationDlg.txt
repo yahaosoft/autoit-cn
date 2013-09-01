@@ -1,0 +1,90 @@
+###User Defined Function###
+_WinAPI_ShellUserAuthenticationDlg
+
+###Description###
+Creates and displays a configurable dialog box that accepts credentials information from a user.
+
+###Syntax###
+#include <WinAPIDlg.au3>
+_WinAPI_ShellUserAuthenticationDlg ( $sCaption, $sMessage, $sUser, $sPassword, $sTarget [, $iFlags = 0 [, $iError = 0 [, $fSave = 0 [, $hBitmap = 0 [, $hParent = 0]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sCaption
+	The title for the dialog box.
+$sMessage
+	A brief message to display in the dialog box.
+$sUser
+	The user name to populate the credential fields in the dialog box. For domain users, the string must
+	be in the following format (if domain is not specified, the trget string is used as the domain):
+
+	DomainName\UserName
+$sPassword
+	The initial password.
+$sTarget
+	The name of the target, typically a server name. This parameter is used to identify target information
+	when storing and retrieving credentials.
+$iFlags
+	[optional] The flags that specifies behavior for this function. It can be a bitwise-OR combination of zero
+	or more of the following values.
+	$CREDUI_FLAGS_ALWAYS_SHOW_UI
+	$CREDUI_FLAGS_COMPLETE_USERNAME
+	$CREDUI_FLAGS_DO_NOT_PERSIST
+	$CREDUI_FLAGS_EXCLUDE_CERTIFICATES
+	$CREDUI_FLAGS_EXPECT_CONFIRMATION
+	$CREDUI_FLAGS_GENERIC_CREDENTIALS
+	$CREDUI_FLAGS_INCORRECT_PASSWORD
+	$CREDUI_FLAGS_KEEP_USERNAME
+	$CREDUI_FLAGS_PASSWORD_ONLY_OK
+	$CREDUI_FLAGS_PERSIST
+	$CREDUI_FLAGS_REQUEST_ADMINISTRATOR
+	$CREDUI_FLAGS_REQUIRE_CERTIFICATE
+	$CREDUI_FLAGS_REQUIRE_SMARTCARD
+	$CREDUI_FLAGS_SERVER_CREDENTIAL
+	$CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX
+	$CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS
+	$CREDUI_FLAGS_VALIDATE_USERNAME
+$iError
+	[optional] The system error code that specifies why the credential dialog box is needed.
+$fSave
+	[optional] Specifies whether the "Save" check box is selected in the dialog box (it makes sense only if the
+	$CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX flag is used), valid values:
+	True      - Selected.
+	False     - Deselected (Default).
+$hBitmap
+	[optional] A bitmap handle to display in the dialog box. If this parameter is 0, the default bitmap is used.
+	The bitmap size is limited to 320x60 pixels.
+$hParent
+	[optional] The dialog box is modal with respect to the parent window. If this parameter is 0, the desktop
+	is the parent window of the dialog box.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The array containing the following information:
+	[0] - The user name, including domain name (if necessary).
+	[1] - The password.
+	[2] - The state of the "Save" check box.
+Failure 	Sets the @error flag to non-zero. If the function is canceled by the user, @extended flag will
+	contain the ERROR_CANCELLED (1223) system error code. Any other value indicates that the function
+	failed to load.
+@@End@@
+
+
+###Remarks###
+Credentials are stored in the credential manager based on target name. Each target name is stored as generally as
+possible without colliding with credentials already stored in the credential manager. Because credentials are stored
+by target name, a particular user can only have one credential per target stored in the credential manager.
+
+
+###Related###
+_WinAPI_ConfirmCredentials
+
+
+###See Also###
+@@MsdnLink@@ CredUIPromptForCredentials
+
+
+###Example###
+@@IncludeExample@@

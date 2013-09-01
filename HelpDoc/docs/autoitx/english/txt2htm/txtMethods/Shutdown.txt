@@ -1,0 +1,44 @@
+###Method###
+Shutdown
+
+###Description###
+Shuts down the system.
+
+###Syntax###
+Shutdown ( code )
+
+
+###Parameters###
+@@ParamTable@@
+code
+	A combination of shutdown codes.  See "remarks".
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+The shutdown code is a combination of the following values:
+0 = Logoff
+1 = Shutdown
+2 = Reboot
+4 = Force
+8 = Power down
+
+Add the required values together.  To shutdown and power down, for example, the code would be 9 (shutdown + power down = 1 + 8 = 9).
+
+Standby or hibernate can be achieved with third-party software such as http://grc.com/wizmo/wizmo.htm
+
+
+###Related###
+ProcessClose
+
+
+###Example###
+' Force a reboot
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oAutoIt.Shutdown 6

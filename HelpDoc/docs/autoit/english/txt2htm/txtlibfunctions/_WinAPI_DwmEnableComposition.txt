@@ -1,0 +1,39 @@
+###User Defined Function###
+_WinAPI_DwmEnableComposition
+
+###Description###
+Enables or disables Desktop Window Manager (DWM) composition.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_DwmEnableComposition ( $fEnable )
+
+
+###Parameters###
+@@ParamTable@@
+$fEnable
+	Specifies whether enable or disable DWM composition, valid values:
+	True     - Enable.
+	False    - Disable.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1.
+Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+@@End@@
+
+
+###Remarks###
+Disabling DWM composition disables it for the entire desktop. DWM composition will be automatically enabled
+when all processes that have disabled composition have called _WinAPI_DwmEnableComposition() to enable it or have
+been terminated. The WM_DWMCOMPOSITIONCHANGED notification is sent when DWM composition has enabled or disabled.
+
+This function requires Windows Vista or later.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ DwmEnableComposition

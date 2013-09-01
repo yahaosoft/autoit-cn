@@ -1,0 +1,51 @@
+###User Defined Function###
+_Word_DocAttach
+
+###Description###
+Attaches to the first instance of a Word document where the search string matches based on the selected mode.
+
+###Syntax###
+#include <Word.au3>
+_Word_DocAttach ( $oAppl, $sString [, $sMode = "FilePath" [, $iCase = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$oAppl
+	Word object returned by a preceding call to _Word_Create()
+$sString
+	String to search for
+$sMode
+	[optional] Search mode to use. Valid modes are:
+	"FileName" - Name of the open document
+	"FilePath" - Full path to the open document (default)
+	"Text" - Text in the body of the document
+$iCase
+	[optional] Specifies case-sensitivity of function StringInStr() used for search mode "Text":
+	0 - not case-sensitive, using the user's locale (default)
+	1 - case sensitive
+	2 - not case sensitive, using a basic/faster comparison
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a variable pointing to the document object
+Failure:	Returns 0 and sets @error
+@error:	1 - $oAppl is not an object
+	2 - $sString is empty
+	3 - $sMode is invalid. Must be "FilePath", "FileName" or "Text"
+	4 - No match could be found
+@@End@@
+
+
+###Remarks###
+This function only returns the object of the found document.
+To access the corresponding Word application use: $oAppl = $oDoc.Application
+
+
+###Related###
+_Word_DocGet, _Word_DocClose
+
+
+###Example###
+@@IncludeExample@@

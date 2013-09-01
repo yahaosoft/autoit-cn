@@ -1,0 +1,67 @@
+###User Defined Function###
+_WinAPI_GetFontName
+
+###Description###
+Retrieves the unique name of the font based on its typeface name, character set, and style.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_GetFontName ( $sFaceName [, $iStyle = 0 [, $iCharSet = 1]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sFaceName
+	The typeface name of the font (not including style). For example, "Arial", "Tahoma", etc.
+$iStyle
+	[optional] The style of the font. It can be one or more of the following values.
+	$FS_REGULAR
+	$FS_BOLD
+	$FS_ITALIC
+$iCharSet
+	[optional] The character set. It can be one of the following values.
+	$ANSI_CHARSET
+	$BALTIC_CHARSET
+	$CHINESEBIG5_CHARSET
+	$DEFAULT_CHARSET (Default)
+	$EASTEUROPE_CHARSET
+	$GB2312_CHARSET
+	$GREEK_CHARSET
+	$HANGEUL_CHARSET
+	$MAC_CHARSET
+	$OEM_CHARSET
+	$RUSSIAN_CHARSET
+	$SHIFTJIS_CHARSET
+	$SYMBOL_CHARSET
+	$TURKISH_CHARSET
+	$VIETNAMESE_CHARSET
+
+	Korean language edition of Windows:
+	$JOHAB_CHARSET
+
+	Middle East language edition of Windows:
+	$ARABIC_CHARSET
+	$HEBREW_CHARSET
+
+	Thai language edition of Windows:
+	$THAI_CHARSET
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The unique name of the font.
+Failure 	Empty string and sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+This function can be used to get the appropriate font name on different language versions of the OS. For example,
+in the english version you can write "Arial Bold", however, for the russian version this font must be specified
+as "Arial Полужирный". Nevertheless, most fonts use only english names and must be specified explicitly.
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

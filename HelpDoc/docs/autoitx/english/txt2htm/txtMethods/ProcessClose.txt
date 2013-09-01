@@ -1,0 +1,38 @@
+###Method###
+ProcessClose
+
+###Description###
+Terminates a named process.
+
+###Syntax###
+ProcessClose "process"
+
+
+###Parameters###
+@@ParamTable@@
+process
+	The title or PID of the process to terminate.
+@@End@@
+
+###ReturnValue###
+None.  (Returns 1 regardless of success/failure.)
+
+
+###Remarks###
+Process names are executables without the full path, e.g., "notepad.exe" or "winword.exe"
+If multiple processes have the same name, the one with the highest PID is terminated--regardless of how recently the process was spawned.
+PID is the unique number which identifies a Process.  A PID can be obtained through the ProcessExists or Run commands.
+In order to work under Windows NT 4.0, ProcessClose requires the file PSAPI.DLL (included in the AutoIt installation directory).
+The process is polled approximately every 250 milliseconds.
+
+
+###Related###
+ProcessExists, ProcessWait, ProcessWaitClose, Run, WinClose
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oAutoIt.ProcessClose "notepad.exe"
+
+PID = oAutoIt.ProcessExists("notepad.exe")
+oAutoIt.ProcessClose(PID)

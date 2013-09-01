@@ -1,0 +1,70 @@
+###User Defined Function###
+_Word_DocPrint
+
+###Description###
+Prints all or parts of the specified document.
+
+###Syntax###
+#include <Word.au3>
+_Word_DocPrint ( $oDoc [, $bBackground = False [, $iCopies = 1 [, $iOrientation = -1 [, $bCollate = True [, $sPrinter = "" [, $iRange = $WdPrintAllDocument [, $vFrom = 0 [, $vTo = 0 [, $sPages = "" [, $iPageType = $WdPrintAllPages [, $iItem = $WdPrintDocumentContent]]]]]]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$oDoc
+	Word document object
+$bBackground
+	[optional] True lets the script continue while the document is printed (default = False)
+$iCopies
+	[optional] The number of copies to be printed (default = 1)
+$iOrientation
+	[optional] Sets the orientation of the page:
+	-1 - Use current document orientation (default)
+	0 - Portrait ($WdOrientPortrait of the WdOrientation enumeration)
+	1 - Landscape ($WdOrientLandscape of the WdOrientation enumeration)
+$bCollate
+	[optional] True prints all pages of the document before printing the next copy (default = True)
+$sPrinter
+	[optional] Sets the name of the printer (default = "" = Active printer)
+$iRange
+	[optional] Specifies the page range to print.
+	Can be any of the WdPrintOutRange enumeration.
+	(default = $WdPrintAllDocument = print the entire document)
+$vFrom
+	[optional] The starting page number (integer) when $iRange is set to $WdPrintFromTo
+$vTo
+	[optional] The ending page number (integer) when $iRange is set to $WdPrintFromTo
+$sPages
+	[optional] The page numbers and page ranges to be printed, separated by commas when $iRange is
+	set to 4. For example, "2, 6-10" prints page 2 and pages 6 through 10 (default = "")
+$iPageType
+	[optional] The type of pages to be printed. Can be any of the WdPrintOutPages enumeration
+	(default = $WdPrintAllPages = print all pages)
+$iItem
+	[optional] The item to be printed. Can be any of the WdPrintOutItem enumeration
+	(default = $WdPrintDocumentContent = document content)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1
+Failure:	Returns 0 and sets @error
+@error:	1 - $oDoc is not an object
+	2 - Error setting page orientation
+	3 - @error returned when setting the active printer to $sPrinter
+	4 - Error occurred when printing the file. @extended is set to the COM error code
+@@End@@
+
+
+###Remarks###
+Specifying $bBackground does NOT pause the script until the document is finished printing, it only pauses
+until Microsoft Word finishes sending the document to the printer.
+If you specify a printer note that the \\servername\printer seems to be case sensitive.
+
+
+###Related###
+_Word_DocExport
+
+
+###Example###
+@@IncludeExample@@

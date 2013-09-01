@@ -1,0 +1,41 @@
+###User Defined Function###
+_WinAPI_EnumProcessWindows
+
+###Description###
+Enumerates a windows that belong to the specified process.
+
+###Syntax###
+#include <WinAPIProc.au3>
+_WinAPI_EnumProcessWindows ( [$PID = 0 [, $fVisible = 1]] )
+
+
+###Parameters###
+@@ParamTable@@
+$PID
+	[optional] The PID of the process. Default (0) is the current process.
+$fVisible
+	[optional] Specifies whether enumerates the invisible window, valid values:
+	True     - Enumerate only visible windows (Default).
+	False    - Enumerate all windows.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The 2D array of the handles to the window and class for the specified process.
+	[0][0] - Number of rows in array (n)
+	[0][1] - Unused
+	[n][0] - Window handle
+	[n][1] - Window class name
+Failure 	Sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,49 @@
+###User Defined Function###
+_WinAPI_TextOut
+
+###Description###
+Writes a string at the specified location, using the currently selected font, background color, and text color.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_TextOut ( $hDC, $iX, $iY, $sText )
+
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context.
+$iX
+	The x-coordinate, in logical coordinates, of the reference point that the system uses to align the string.
+$iY
+	The y-coordinate, in logical coordinates, of the reference point that the system uses to align the string.
+$sText
+	The string to be drawn.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True
+Failure 	False
+@@End@@
+
+
+###Remarks###
+This function using the currently selected font, background color, and text color.
+
+By default, the current position is not used or updated by this function. If an application needs to update the
+current position when it calls the function, the application can call _WinAPI_SetTextAlign() with the $TA_UPDATECP
+flag set. Then the system ignores the X and Y parameters on subsequent calls to the _WinAPI_TextOut()
+function, using the current position instead.
+
+
+###Related###
+_WinAPI_SetTextAlign
+
+
+###See Also###
+@@MsdnLink@@ TextOut
+
+
+###Example###
+@@IncludeExample@@

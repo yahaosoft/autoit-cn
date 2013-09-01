@@ -1,0 +1,50 @@
+###Function###
+ProcessGetStats
+
+###Description###
+Returns an array about Memory or IO infos of a running process.
+
+###Syntax###
+ProcessGetStats ( ["process" [, type = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+process
+	[optional] The name or PID of the process to get infos from. Default (-1) is the current process.
+type
+	[optional] 0 = (default) memory infos, 1 = IO infos.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	An array of infos data (See Remarks).
+Failure:	0.
+@@End@@
+
+
+###Remarks###
+The array returned is mono-dimensional and is made up as follows:
+
+Type = 0 : Memory Stats
+
+$aArray[0] = WorkingSetSize
+$aArray[1] = PeakWorkingSetSize
+
+
+Type = 1 : IO Stats
+
+$aArray[0] = number of read operations performed.
+$aArray[1] = number of write operations performed.
+$aArray[2] = number of I/O operations performed, other than read and write operations.
+$aArray[3] = number of bytes read.
+$aArray[4] = number of bytes write.
+$aArray[5] = number of bytes transferred during operations other than read and write operations.
+
+
+###Related###
+ProcessList
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,67 @@
+###User Defined Function###
+_GUICtrlToolbar_SetButtonInfo
+
+###Description###
+Sets information for a button
+
+###Syntax###
+#include <GuiToolbar.au3>
+_GUICtrlToolbar_SetButtonInfo ( $hWnd, $iCommandID [, $iImage = -3 [, $iState = -1 [, $iStyle = -1 [, $iWidth = -1 [, $iParam = -1]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iCommandID
+	Button command ID
+$iImage
+	[optional] Zero based index of the button image. Set this parameter to -1 and the control will send the
+	$TBN_GETDISPINFO notification to retrieve the image index when it is needed. Set this to -2 to indicate that
+	the button does not have an image. The button layout will only include space for the text. If the button is
+	a separator, this is the width of the separator, in pixels.
+$iState
+	[optional] Button state. Can be a combination of the following:
+	$TBSTATE_CHECKED - The button being clicked
+	$TBSTATE_PRESSED - The button is being clicked
+	$TBSTATE_ENABLED - The button accepts user input
+	$TBSTATE_HIDDEN - The button is not visible
+	$TBSTATE_INDETERMINATE - The button is grayed
+	$TBSTATE_WRAP - The button is followed by a line break
+	$TBSTATE_ELLIPSES - The button's text is cut off
+	$TBSTATE_MARKED - The button is marked
+$iStyle
+	[optional] Button style. Can be a combination of the following:
+	$BTNS_AUTOSIZE - The control should not assign the standard width
+	$BTNS_BUTTON - Standard button
+	$BTNS_CHECK - Toggles between the pressed and nonpressed
+	$BTNS_CHECKGROUP - Button that stays pressed until another button is pressed
+	$BTNS_DROPDOWN - Creates a drop-down style button that can display a list
+	$BTNS_GROUP - Button that stays pressed until another button is pressed
+	$BTNS_NOPREFIX - The button text will not have an accelerator prefix
+	$BTNS_SEP - Creates a separator
+	$BTNS_SHOWTEXT - Specifies that button text should be displayed
+	$BTNS_WHOLEDROPDOWN - Specifies that the button will have a drop-down arrow
+$iWidth
+	[optional] Button width
+$iParam
+	[optional] Application-defined value
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_GUICtrlToolbar_GetButtonInfo, $tagTBBUTTONINFO
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,47 @@
+###User Defined Function###
+_WinAPI_ShutdownBlockReasonCreate
+
+###Description###
+Indicates that the system cannot be shut down and sets a reason string to be displayed to the user if system shutdown is initiated.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_ShutdownBlockReasonCreate ( $hWnd, $sText )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the main window of the application.
+$sText
+	The string which explaining the reason the application must block system shutdown.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True
+Failure 	False
+@@End@@
+
+
+###Remarks###
+This function can only be called from the thread that created the window specified by the $hWnd parameter,
+otherwise, the function fails and the last error code is ERROR_ACCESS_DENIED (5).
+
+Applications should call this function as they begin an operation that cannot be interrupted, such as burning
+a CD or DVD. When the operation has completed, call the _WinAPI_ShutdownBlockReasonDestroy() function to
+indicate that the system can be shut down.
+
+This function requires Windows Vista or later.
+
+
+###Related###
+_WinAPI_ShutdownBlockReasonDestroy
+
+
+###See Also###
+@@MsdnLink@@ ShutdownBlockReasonCreate
+
+
+###Example###
+@@IncludeExample@@

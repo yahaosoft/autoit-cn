@@ -1,0 +1,43 @@
+###User Defined Function###
+_WinAPI_AdjustWindowRectEx
+
+###Description###
+Calculates the required size of the window rectangle, based on the desired size of the client rectangle.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_AdjustWindowRectEx ( ByRef $tRECT, $iStyle [, $iExStyle = 0 [, $fMenu = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$tRECT
+	$tagRECT structure that contains the coordinates of the desired client area. This structure must be
+	created before function call.
+$iStyle
+	The window style of the window whose required size is to be calculated. Note that you cannot
+	specify the $WS_OVERLAPPED style.
+$iExStyle
+	[optional] The extended window style of the window whose required size is to be calculated.
+$fMenu
+	[optional] Specifies whether the window has a menu, valid values:
+	True     - The window has a menu.
+	False    - The window does not has a menu (Default).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True.
+Failure 	False, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ AdjustWindowRectEx

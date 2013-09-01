@@ -1,0 +1,53 @@
+###User Defined Function###
+_GDIPlus_RegionCombineRect
+
+###Description###
+Updates a region to the portion of itself that intersects the specified rectangle's interior
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_RegionCombineRect ( $hRegion, $fX, $fY, $fWidth, $fHeight [, $iCombineMode = 2] )
+
+
+###Parameters###
+@@ParamTable@@
+$hRegion
+	Pointer to a Region object
+$fX
+	The X coordinate of the upper left corner of the rectangle
+$fY
+	The Y coordinate of the upper left corner of the rectangle
+$fWidth
+	The width of the rectangle
+$fHeight
+	The height of the rectangle
+$iCombineMode
+	[optional] Combine mode that specifies how the region is combined with the rectangle:
+	0 - The existing region is replaced by the new region
+	1 - The existing region is replaced by the intersection of itself and the new region
+	2 - The existing region is replaced by the union of itself and the new region
+	3 - The existing region is replaced by the result of performing an XOR on the two regions.
+	A point is in the XOR of two regions if it is in one region or the other but not in both regions
+	4 - The existing region is replaced by the portion of itself that is outside of the new region
+	5 - The existing region is replaced by the portion of the new region that is outside of the existing region
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False
+
+
+###Remarks###
+None
+
+
+###Related###
+_GDIPlus_RegionCombinePath, _GDIPlus_RegionCombineRegion
+
+
+###See Also###
+@@MsdnLink@@ GdipCombineRegionRect
+
+
+###Example###
+@@IncludeExample@@

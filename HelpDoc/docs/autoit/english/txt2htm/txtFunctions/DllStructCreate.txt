@@ -1,0 +1,127 @@
+###Function###
+DllStructCreate
+
+###Description###
+Creates a C/C++ style structure to be used in DllCall.
+
+###Syntax###
+DllStructCreate ( Struct [, Pointer] )
+
+
+###Parameters###
+@@ParamTable@@
+Struct
+	A string representing the structure to create (See Remarks).
+Pointer
+	[optional] If supplied the struct will not allocate memory but use the pointer supplied.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	A variable for use with DllStruct calls.
+Failure:	Sets @error
+@error:	1 = Variable passed to DllStructCreate was not a string.
+	2 = There is an unknown Data Type in the string passed.
+	3 = Failed to allocate the memory needed for the struct, or Pointer = 0.
+	4 = Error allocating memory for the passed string.
+@@End@@
+
+@@ParamTable@@
+<b>Type</b>
+	<b>Details</b>
+BYTE
+	8bit(1byte) unsigned char
+BOOLEAN
+	8bit(1byte) unsigned char
+CHAR
+	8bit(1byte) ASCII char
+WCHAR
+	16bit(2byte) UNICODE wide char
+short
+	16bit(2bytes) signed integer
+USHORT
+	16bit(2bytes) unsigned integer
+WORD
+	16bit(2bytes) unsigned integer
+int
+	32bit(4bytes) signed integer
+long
+	32bit(4bytes) signed integer
+BOOL
+	32bit(4bytes) signed integer
+UINT
+	32bit(4bytes) unsigned integer
+ULONG
+	32bit(4bytes) unsigned integer
+DWORD
+	32bit(4bytes) unsigned integer
+INT64
+	64bit(8bytes) signed integer
+UINT64
+	64bit(8bytes) unsigned integer
+ptr
+	32 or 64bit unsigned integer (depending on if the x86 or x64 version of AutoIt is used)
+HWND
+	32bit(4bytes) integer
+HANDLE
+	32bit(4bytes) integer
+float
+	32bit(4bytes) floating point
+double
+	64bit(8bytes) floating point
+INT_PTR, LONG_PTR, LRESULT, LPARAM
+	32 or 64bit signed integer (depending on if the x86 or x64 version of AutoIt is used)
+UINT_PTR, ULONG_PTR, DWORD_PTR, WPARAM
+	32 or 64bit unsigned integer (depending on if the x86 or x64 version of AutoIt is used)
+STRUCT
+	The following datatypes will be align according to C declaration rules. See below.
+ENDSTRUCT
+	end of the collection datatypes. Padding can occurs see below.
+ALIGN
+	n bytes boundary where datatype must be aligned.
+@@End@@
+
+
+###Remarks###
+Each data type must be separated by a semi-colon ';'.
+
+Create arrays by adding '[size]' after the data type: <a href="DllStructCreate.htm">DllStructCreate</a>("int;char[128]")
+
+An elementname can be added similar to a C-style declaration: <a href="DllStructCreate.htm">DllStructCreate</a>("int n;char buffer[128]").
+This dataname can be used in place of the element in other DllStruct... functions.  The dataname must be alphanumeric or an underscore.
+
+If a collection of datatypes is defined as in a "struct{}" in C declaration, the "STRUCT; ...; ENDSTRUCT;" must be used.
+This needs to be done to respect alignment inside the entire structure creation. No need if all datatypes are in the defined structure as an implicit structure alignment is done.
+
+<a href="DllStructCreate.htm">DllStructCreate</a>("int;STRUCT;ptr;int;ENDSTRUCT;int")    ; structure is 32 bytes under a Windows 64-Bit and 16 under Windows 32-Bit
+<a href="DllStructCreate.htm">DllStructCreate</a>("int;ptr;int;int")    ; structure is 24 bytes under a Windows 64-Bit and 16 under Windows 32-Bit
+
+To use a different alignment prefix the structure with the align keyword.  The default value for n is 8. Valid values are 1, 2, 4, 8, and 16.  The alignment of a member will be on a boundary that is either a multiple of n or a multiple of the size of the member, <b>whichever is smaller</b>.  This is equivalent to the #pragma pack option with the Microsoft Visual C++ compiler.
+
+<a href="DllStructCreate.htm">DllStructCreate</a>("short;int")     ; structure is 8 bytes, the "int" is at offset 4
+<a href="DllStructCreate.htm">DllStructCreate</a>("align 2;short;int")     ; structure is 6 bytes, the "int" is at offset 2
+
+<a href="DllStructCreate.htm">DllStructCreate</a>("byte;double")     ; structure is 16 bytes, the "double" is at offset 8
+<a href="DllStructCreate.htm">DllStructCreate</a>("align 4;byte;double")     ; structure is 12 bytes, the "double" is at offset 4
+
+If a change of alignment is needed "align" can be use before the first element which need to be changed.
+"align" or "align 8" leads to default alignment.
+
+To release allocated memory just set the returned variable to 0.
+
+<b>The following aggregate alignment rules apply:</b>
+
+The alignment of an array is the same as the alignment of one of the elements of the array.
+
+The alignment of the beginning of a structure is the maximum alignment of any individual member.
+Each member within the structure is be placed at its proper alignment as defined in the previous table, which require implicit internal padding, depending on the previous member.
+
+Structure size is an integral multiple of its alignment, which requires padding after the last member.
+
+
+###Related###
+DllCall, DllStructGetData, DllStructSetData, DllStructGetPtr, DllStructGetSize, IsDllStruct
+
+
+###Example###
+@@IncludeExample@@

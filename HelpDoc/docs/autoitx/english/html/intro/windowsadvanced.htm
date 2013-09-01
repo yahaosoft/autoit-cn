@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Window Titles and Text (Advanced)</title>
+  <meta charset="ISO-8859-1">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h1>Window Titles and Text (Advanced)</h1>
+  <p>AutoIt operates in one of three "Window matching" modes. The modes are set with the <a href="../com_interface/methods/AutoItSetOption.htm">AutoItSetOption</a> function using the <a href=
+  "../com_interface/methods/AutoItSetOption.htm#WinTitleMatchMode">WinTitleMatchMode</a> option.</p>
+  <p>&nbsp;</p>
+  <p><strong>Mode 1 (default)</strong></p>
+  <p>Matches partial titles from the start.</p>
+  <p>In this mode the a window titled <strong>Untitled - Notepad</strong> would be matched by "Untitled - Notepad", "Untitled", "Un", etc.</p>
+  <p>eg.</p>
+  <p class="codebox">&nbsp;&nbsp;&nbsp; oAutoIt.WinWait "Untitled"</p>
+  <p>&nbsp;</p>
+  <p><strong>Mode 2</strong></p>
+  <p>Matches any substring in the title.</p>
+  <p>In this mode a window titled <strong>Untitled - Notepad</strong> would be matched by "Untitled - Notepad", "Untitled", "Notepad", "pad", etc.</p>
+  <p>eg.</p>
+  <p class="codebox">&nbsp;&nbsp;&nbsp; oAutoIt.WinWait "Notepad"</p>
+  <p>&nbsp;</p>
+  <p><strong>Mode 3</strong></p>
+  <p>Exact title match.</p>
+  <p>In this mode a window titled <strong>Untitled - Notepad</strong> would only be matched by "Untitled - Notepad"</p>
+  <p>&nbsp;</p>
+  <p><strong>Mode 4</strong> (Kept for backward compatibility)</p>
+  <p>Advanced mode</p>
+  <p>Must be replaced with Advanced Window Descriptions which does not need any mode to be set.</p>
+  <p>&nbsp;</p>
+  <p><strong>Mode -1 to -4</strong></p>
+  <p>Force lower case match according to other type of match.</p>
+  <h2>Advanced Window Descriptions</h2>
+  <p>A special description can be used as the window <strong>title</strong> parameter. This description can be used to identify a window by the following <em>properties</em>:</p>
+  <ul>
+    <li><strong>TITLE -</strong> Window title</li>
+    <li><strong>CLASS -</strong> The internal window classname</li>
+    <li><strong>REGEXPTITLE -</strong> Window title using a regular expression</li>
+    <li><strong>REGEXPCLASS -</strong> Window classname using a regular expression</li>
+    <li><strong>LAST -</strong> Last window used in a previous AutoIt command</li>
+    <li><strong>ACTIVE -</strong> Currently active window</li>
+    <li><strong>X</strong> \ <strong>Y</strong> \ <strong>W</strong> \ <strong>H</strong> - The position and size of a window</li>
+    <li><strong>INSTANCE -</strong> The 1-based instance when all given properties match</li>
+    <li><strong>HANDLE</strong> - The handle address as returned by a method like <a href="../com_interface/methods/WinGetHandle.htm">WinGetHandle</a></li>
+  </ul>
+  <p>One or more properties are used in the <em>title</em> parameter of a window command in the format:</p>
+  <p class="codebox">[PROPERTY1:Value1; PROPERTY2:Value2]</p>
+  <p><strong>Note</strong> : if a Value must contain a ";" it must be doubled.</p>
+  <p>&nbsp;</p>
+  <p>e.g. Wait a window of classname "Notepad"</p>
+  <p class="codebox">oAutoIt.WinWaitActive "[CLASS:Notepad]", ""</p>
+  <p>&nbsp;</p>
+  <p>e.g. Close the currently active window</p>
+  <p class="codebox">oAutoIt.WinClose "[ACTIVE]", ""</p>
+  <p>&nbsp;</p>
+  <p>e.g. Wait for the 2nd instance of a window with title "My Window" <strong>and</strong> classname "My Class"</p>
+  <p class="codebox">oAutoIt.WinWaitActive "[TITLE:My Window; CLASS:My Class; INSTANCE:2]", ""</p>
+  <p>&nbsp;</p>
+  <p><strong>Note</strong> : if a Value must contain a ";" it must be doubled.</p>
+</body>
+</html>

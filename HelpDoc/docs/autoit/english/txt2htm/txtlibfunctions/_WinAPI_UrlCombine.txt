@@ -1,0 +1,58 @@
+###User Defined Function###
+_WinAPI_UrlCombine
+
+###Description###
+Combines the base an relative URLs in canonical form.
+
+###Syntax###
+#include <WinAPIShPath.au3>
+_WinAPI_UrlCombine ( $sUrl, $sPart [, $iFlags = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$sUrl
+	The base URL.
+$sPart
+	The relative URL.
+$iFlags
+	[optional] The flags that specify how the URL is to be converted. It can be a combination of the following values.
+	$URL_DONT_SIMPLIFY
+	$URL_ESCAPE_PERCENT
+	$URL_ESCAPE_SPACES_ONLY
+	$URL_ESCAPE_UNSAFE
+	$URL_NO_META
+	$URL_PLUGGABLE_PROTOCOL
+	$URL_UNESCAPE
+
+	Windows 7 or later
+	$URL_ESCAPE_AS_UTF8
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The combined URL.
+Failure 	Sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+@@End@@
+
+
+###Remarks###
+Items between slashes are treated as hierarchical identifiers; the last item specifies the document itself.
+You must enter a slash ("/" ) after the document name to append more items; otherwise, the function exchanges
+one document for another.
+
+If a URL string contains "/../" or "/./", _WinAPI_UrlCombine() usually treats the characters as if they
+indicated navigation in the URL hierarchy. The function simplifies the URLs before combining them. For instance,
+"/hello/cruel/../world" is simplified to "/hello/world". If the $URL_DONT_SIMPLIFY flag is set, the function
+does not simplify URLs. In this case, "/hello/cruel/../world" is left as it is.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ UrlCombine
+
+
+###Example###
+@@IncludeExample@@

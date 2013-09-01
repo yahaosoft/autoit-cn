@@ -1,0 +1,44 @@
+###User Defined Function###
+_WinAPI_GetKeyboardState
+
+###Description###
+Copies the status of the 256 virtual keys to the specified buffer.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_GetKeyboardState (  )
+
+
+###Parameters###
+None
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The structure of "byte[256]" that receives the status data for each virtual key.
+Failure 	Sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+An application can call this function to retrieve the current status of all the virtual keys. The status changes
+as a process removes keyboard messages from its message queue. The status does not change as keyboard messages are
+posted to the process's message queue, nor does it change as keyboard messages are posted to or retrieved from
+message queues of other processes.
+
+When the function returns, each member of the array contains status data for a virtual key. If the high-order
+bit is 1, the key is down; otherwise, it is up. If the key is a toggle key, for example CAPS LOCK, then the
+low-order bit is 1 when the key is toggled and is 0 if the key is untoggled. The low-order bit is meaningless for
+non-toggle keys. A toggle key is said to be toggled when it is turned on. A toggle key's indicator light (if any)
+on the keyboard will be on when the key is toggled, and off when the key is untoggled.
+
+To retrieve status information for an individual key, use the _WinAPI_GetKeyState() function. To retrieve the
+current state for an individual key regardless of whether the corresponding keyboard message has been retrieved
+from the message queue, use the _WinAPI_GetAsyncKeyState() function.
+
+
+###Related###
+_WinAPI_GetKeyState, _WinAPI_GetAsyncKeyState
+
+
+###See Also###
+@@MsdnLink@@ GetKeyboardState

@@ -1,0 +1,43 @@
+###Function###
+FileSetPos
+
+###Description###
+Sets the current file position.
+
+###Syntax###
+FileSetPos ( "filehandle", offset, origin )
+
+
+###Parameters###
+@@ParamTable@@
+filehandle
+	The handle of a file, as returned by a previous call to FileOpen.
+offset
+	The offset to move from the origin.  This value may be positive or negative.  Negative values move backwards from the origin.
+origin
+	Must be one of the following:
+	$FILE_BEGIN (0) = Beginning of the file.
+	$FILE_CURRENT (1) = Current position.
+	$FILE_END (2) = End of the file.
+	Constants are defined in FileConstants.au3
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True if the operation succeeded.
+Failure:	False.
+@@End@@
+
+
+###Remarks###
+Include Constants.au3 in your script to use the symbolic name in parentheses to specify the origin.
+Using <a href="FileSetPos.htm">FileSetPos()</a> it is possible to both read and write to the same file.  When attempting to read and write to the same file, always call <a href="FileFlush.htm">FileFlush()</a> between each write and read operation.
+Moving the pointer to the middle of the data can be used to overwrite data.
+
+
+###Related###
+FileGetPos, FileFlush, FileRead, FileReadLine, FileWrite, FileWriteLine, FileOpen
+
+
+###Example###
+@@IncludeExample@@

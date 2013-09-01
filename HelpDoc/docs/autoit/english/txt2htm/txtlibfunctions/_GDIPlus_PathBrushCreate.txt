@@ -1,0 +1,50 @@
+###User Defined Function###
+_GDIPlus_PathBrushCreate
+
+###Description###
+Creates a PathGradientBrush object based on an array of points and initializes the wrap mode of the brush
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_PathBrushCreate ( $aPoints [, $iWrapMode = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$aPoints
+	Array of points that specify the boundary path of the path gradient brush
+	[0][0] - Number of points
+	[1][0] - Point 1 X coordinate
+	[1][1] - Point 1 Y coordinate
+	[2][0] - Point 2 X coordinate
+	[2][1] - Point 2 Y coordinate
+	[n][0] - Point n X coordinate
+	[n][1] - Point n Y coordinate
+$iWrapMode
+	[optional] Wrap mode that specifies how areas filled with the brush are tiled:
+	0 - Tiling without flipping
+	1 - Tiles are flipped horizontally as you move from one tile to the next in a row
+	2 - Tiles are flipped vertically as you move from one tile to the next in a column
+	3 - Tiles are flipped horizontally as you move along a row and flipped vertically as you move along a column
+	4 - No tiling takes place
+@@End@@
+
+###ReturnValue###
+Success: Pointer to a new PathGradientBrush object
+Failure: 0
+
+
+###Remarks###
+After you are done with the object, call _GDIPlus_BrushDispose to release the object resources
+
+
+###Related###
+_GDIPlus_BrushDispose
+
+
+###See Also###
+@@MsdnLink@@ GdipCreatePathGradient
+
+
+###Example###
+@@IncludeExample@@

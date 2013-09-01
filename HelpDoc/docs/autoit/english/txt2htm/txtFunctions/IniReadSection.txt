@@ -1,0 +1,49 @@
+###Function###
+IniReadSection
+
+###Description###
+Reads all key/value pairs from a section in a standard format .ini file.
+
+###Syntax###
+IniReadSection ( "filename", "section" )
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	The filename of the .ini file.
+section
+	The section name in the .ini file.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a 2 dimensional array where element[n][0] is the key and element[n][1] is the value.
+Failure:	Sets @error to non-zero if unable to read the section (The INI file may not exist or the section may not exist)
+@@End@@
+
+
+###Remarks###
+A standard ini file looks like:
+<i>[SectionName]
+Key=Value</i>
+
+The number of elements returned will be in $aArray[0][0]. If an @error occurs, no array is created.
+$aArray[0][0] = Number
+$aArray[1][0] = 1st Key
+$aArray[1][1] = 1st Value
+$aArray[2][0] = 2nd Key
+$aArray[2][1] = 2nd Value
+...
+$aArray[n][0] = nth Key
+$aArray[n][1] = nth Value
+
+Only the first 32767 chars are read for legacy reasons.
+
+
+###Related###
+IniDelete, IniWrite, IniRead, IniReadSectionNames, IniRenameSection, IniWriteSection
+
+
+###Example###
+@@IncludeExample@@

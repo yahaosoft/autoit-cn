@@ -1,0 +1,194 @@
+###Method###
+Send
+
+###Description###
+Sends simulated keystrokes to the active window.
+
+###Syntax###
+Send "keys" [, flag]
+
+
+###Parameters###
+@@ParamTable@@
+keys
+	The sequence of keys to send.
+flag
+	<b>Optional:</b> Changes how "keys" is processed:
+	flag = 0 (default), Text contains special characters like + and ! to indicate SHIFT and ALT key presses.
+	flag = 1, keys are sent raw.
+@@End@@
+
+###ReturnValue###
+None.
+
+
+###Remarks###
+See the Appendix for some tips.
+
+The "Send" command syntax is similar to that of ScriptIt and the Visual Basic "SendKeys" command. Characters are sent as written with the exception of the following characters:
+
+'!'
+This tells AutoIt to send an ALT keystroke, therefore Send("This is text!a") would send the keys "This is text" and then press "ALT+a".
+
+N.B. Some programs are very choosy about capital letters and ALT keys, i.e. "!A" is different to "!a". The first says ALT+SHIFT+A, the second is ALT+a. If in doubt, use lowercase!
+
+'+'
+This tells AutoIt to send a SHIFT keystroke, therefore Send("Hell+o") would send the text "HellO". Send("!+a") would send "ALT+SHIFT+a".
+
+'^'
+This tells AutoIt to send a CONTROL keystroke, therefore Send("^!a") would send "CTRL+ALT+a".
+
+N.B. Some programs are very choosy about capital letters and CTRL keys, i.e. "^A" is different to "^a". The first says CTRL+SHIFT+A, the second is CTRL+a.  If in doubt, use lowercase!
+
+'#'
+The hash now sends a Windows keystroke; therefore, Send("#r") would send Win+r which launches the Run dialog box.
+
+
+You can set SendCapslockMode to make CAPS LOCK disabled at the start of a Send operation and restored upon completion.
+However, if a user is holding down the Shift key when a Send function begins, text may be sent in uppercase.
+One workaround is to Send("{SHIFTDOWN}{SHIFTUP}")  before the other Send operations.
+
+
+Certain special keys can be sent and should be enclosed in braces:
+
+N.B.  Windows does not allow the simulation of the "CTRL-ALT-DEL" combination!
+@@StandardTable@@
+<b>Send Command (if zero flag)</b>	<b>Resulting Keypress</b>
+{!}	!
+{#}	#
+{+}	+
+{^}	^
+{{}	{
+{}}	}
+{SPACE}	SPACE
+{ENTER}	ENTER key on the main keyboard
+{ALT}	ALT
+{BACKSPACE} or {BS}	BACKSPACE
+{DELETE} or {DEL}	DELETE
+{UP}	Cursor up
+{DOWN}	Cursor down
+{LEFT}	Cursor left
+{RIGHT}	Cursor right
+{HOME}	HOME
+{END}	END
+{ESCAPE} or {ESC}	ESCAPE
+{INSERT} or {INS}	INS
+{PGUP}	PageUp
+{PGDN}	PageDown
+{F1} - {F12}	Function keys
+{TAB}	TAB
+{PRINTSCREEN}	Print Screen key
+{LWIN}	Left Windows key
+{RWIN}	Right Windows key
+{NUMLOCK on}	NUMLOCK (on/off/toggle)
+{CAPSLOCK off}	CAPSLOCK (on/off/toggle)
+{SCROLLLOCK toggle}	SCROLLLOCK (on/off/toggle)
+{BREAK}	for Ctrl+Break processing
+{PAUSE}	PAUSE
+
+{NUMPAD0} - {NUMPAD9}	Numpad digits
+{NUMPADMULT}	Numpad Multiply
+{NUMPADADD}	Numpad Add
+{NUMPADSUB}	Numpad Subtract
+{NUMPADDIV}	Numpad Divide
+{NUMPADDOT}	Numpad period
+{NUMPADENTER}	Enter key on the numpad
+{APPSKEY}	Windows App key
+{LALT}	Left ALT key
+{RALT}	Right ALT key
+{LCTRL}	Left CTRL key
+{RCTRL}	Right CTRL key
+{LSHIFT}	Left Shift key
+{RSHIFT}	Right Shift key
+{SLEEP}	Computer SLEEP key
+{ALTDOWN}	Holds the ALT key down until {ALTUP} is sent
+{SHIFTDOWN}	Holds the SHIFT key down until {SHIFTUP} is sent
+{CTRLDOWN}	Holds the CTRL key down until {CTRLUP} is sent
+{LWINDOWN}	Holds the left Windows key down until {LWINUP} is sent
+{RWINDOWN}	Holds the right Windows key down until {RWINUP} is sent
+{ASC nnnn}	Send the ALT+nnnn key combination
+{BROWSER_BACK}	XP Only: Select the browser "back" button
+{BROWSER_FORWARD}	XP Only: Select the browser "forward" button
+{BROWSER_REFRESH}	XP Only: Select the browser "refresh" button
+{BROWSER_STOP}	XP Only: Select the browser "stop" button
+{BROWSER_SEARCH}	XP Only: Select the browser "search" button
+{BROWSER_FAVORITES}	XP Only: Select the browser "favorites" button
+{BROWSER_HOME}	XP Only: Launch the browser and go to the home page
+{VOLUME_MUTE}	XP Only: Mute the volume
+{VOLUME_DOWN}	XP Only: Reduce the volume
+{VOLUME_UP}	XP Only: Increase the volume
+{MEDIA_NEXT}	XP Only: Select next track in media player
+{MEDIA_PREV}	XP Only: Select previous track in media player
+{MEDIA_STOP}	XP Only: Stop media player
+{MEDIA_PLAY_PAUSE}	XP Only: Play/pause media player
+{LAUNCH_MAIL}	XP Only: Launch the email application
+{LAUNCH_MEDIA}	XP Only: Launch media player
+{LAUNCH_APP1}	XP Only: Launch user app1
+{LAUNCH_APP2}	XP Only: Launch user app2
+@@End@@
+
+To send the ASCII value A (same as pressing ALT+065 on the numeric keypad)
+	Send("{ASC 65}")
+
+Single keys can also be repeated, e.g.
+	Send("{DEL 4}")    ;Presses the DEL key 4 times
+	Send("{S 30}")      ;Sends 30 'S' characters
+	Send("+{TAB 4})   ;Presses SHIFT+TAB 4 times
+
+To hold a key down (generally only useful for games)
+	Send("{a down}")    ;Holds the A key down
+	Send("{a up}")        ;Releases the A key
+
+To set the state of the capslock, numlock and scrolllock keys
+	Send("{NumLock on}")        ;Turns the NumLock key on
+	Send("{CapsLock off}")      ;Turns the CapsLock key off
+	Send("{ScrollLock toggle}") ;Toggles the state of ScrollLock
+
+If you with to use a variable for the count, try
+	$n = 4
+	Send("+{TAB " & $n & "}")
+
+If you wish to send the ASCII value A four times, then try
+	$x = Chr(65)
+	Send("{" & $x & " 4}")
+
+Most laptop computer keyboards have a special Fn key.  This key cannot be simulated.
+
+Note, by setting the flag parameter to 1 the above "special" processing will be disabled.  This is useful when you want to send some text copied from a variable and you want the text sent exactly as written.
+
+
+For example, open Folder Options (in the control panel) and try the following:
+@@StandardTable@@
+Send("{TAB}")	Navigate to next control (button, checkbox, etc)
+Send("+{TAB}")	Navigate to previous control.
+Send("^{TAB}")	Navigate to next WindowTab (on a Tabbed dialog window)
+Send("^+{TAB}")	Navigate to previous WindowTab.
+Send("{SPACE}")	Can be used to toggle a checkbox or click a button.
+Send("{+}")	Usually checks a checkbox (if it's a "real" checkbox.)
+Send("{-}")	Usually unchecks a checkbox.
+Send("{NumPadMult}")	Recursively expands folders in a SysTreeView32.
+@@End@@
+
+Use Alt-key combos to access menu items.  Also, open Notepad and try the following:
+Send("!f") Send Alt+f, the access key for Notepad's file menu. Try other letters!
+
+@@StandardTable@@
+Send("{DOWN}")	Move down a menu.
+Send("{UP}")	Move up a menu.
+Send("{LEFT}")	Move leftward to new menu or expand a submenu.
+Send("{RIGHT}")	Move rightward to new menu or collapse a submenu.
+@@End@@
+See Windows' Help--press Win+F1--for a complete list of keyboard shortcuts if you don't know the importance of Alt+F4, PrintScreen, Ctrl+C, and so on.
+
+
+###Related###
+SendAttachmode (Option), SendKeyDelay (Option), SendKeyDownDelay (Option), ControlSend
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oAutoIt.Send "#r"
+oAutoIt.WinWaitActive "Run"
+oAutoIt.Send "notepad.exe{Enter}"
+oAutoIt.WinWaitActive "Untitled -"
+oAutoIt.Send "Today's time/date is {F5}"

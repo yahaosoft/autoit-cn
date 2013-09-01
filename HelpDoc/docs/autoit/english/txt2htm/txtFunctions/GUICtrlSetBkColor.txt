@@ -1,0 +1,46 @@
+###Function###
+GUICtrlSetBkColor
+
+###Description###
+Sets the background color of a control.
+
+###Syntax###
+GUICtrlSetBkColor ( controlID, backgroundcolor )
+
+
+###Parameters###
+@@ParamTable@@
+controlID
+	The control identifier (controlID) as returned by a <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a> function, or -1 for the last created control.
+backgroundcolor
+	The RGB color to use.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+Only Button, Label, Checkbox, Group, Radio, Edit, Input, List, Listview, ListviewItem, Treeview, TreeviewItem, Graphic, Progress, Slider and Combo controls can currently be colored.
+
+Progress controls cannot be painted if the "Windows XP style" is used.
+Checkbox, Radio, Group Progress, Combo controls cannot be painted if the "Windows XP/Vista style" is used.
+
+Button controls are always painted in "Windows Classic style". They cannot have the $BS_ICON style.
+
+The special flag $GUI_BKCOLOR_TRANSPARENT can be used with Label, Group, Radio, Checkbox controls to give them a transparent background.
+
+The special flag $GUI_BKCOLOR_LV_ALTERNATE can be used with Listview control to give alternate background of the ListviewItems lines.
+The odd lines will get the color set by <a href="GUICtrlSetBkColor.htm">GUICtrlSetBkColor()</a> of the Listview control.
+The even lines will get the color set by <a href="GUICtrlSetBkColor.htm">GUICtrlSetBkColor()</a> of the ListviewItem control.
+
+
+###Related###
+GUICtrlCreate..., GUICtrlSetColor, GUICtrlSetDefBkColor
+
+
+###Example###
+@@IncludeExample@@

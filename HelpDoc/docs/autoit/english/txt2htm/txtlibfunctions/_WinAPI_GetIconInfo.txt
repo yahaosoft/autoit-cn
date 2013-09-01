@@ -1,0 +1,65 @@
+###User Defined Function###
+_WinAPI_GetIconInfo
+
+###Description###
+Retrieves information about the specified icon or cursor
+
+###Syntax###
+#include <WinAPI.au3>
+_WinAPI_GetIconInfo ( $hIcon )
+
+
+###Parameters###
+@@ParamTable@@
+$hIcon
+	Handle to the icon or cursor. To retrieve information on a standard icon or cursor, specify one
+	of the following values:
+	$IDC_APPSTARTING - Standard arrow and small hourglass cursor
+	$IDC_ARROW - Standard arrow cursor
+	$IDC_CROSS - Crosshair cursor
+	$IDC_HAND - Hand cursor
+	$IDC_HELP - Arrow and question mark cursor
+	$IDC_IBEAM - I-beam cursor
+	$IDC_NO - Slashed circle cursor
+	$IDC_SIZEALL - Four-pointed arrow cursor
+	$IDC_SIZENESW - Double-pointed arrow cursor pointing NE and SW
+	$IDC_SIZENS - Double-pointed arrow cursor pointing N and S
+	$IDC_SIZENWSE - Double-pointed arrow cursor pointing NW and SE
+	$IDC_SIZEWE - Double-pointed arrow cursor pointing W and E
+	$IDC_UPARROW - Vertical arrow cursor
+	$IDC_WAIT - Hourglass cursor
+	$IDI_APPLICATION - Application icon
+	$IDI_ASTERISK - Asterisk icon
+	$IDI_EXCLAMATION - Exclamation point icon
+	$IDI_HAND - Stop sign icon
+	$IDI_QUESTION - Question-mark icon
+	$IDI_WINLOGO - Windows logo icon
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Array with the following format:
+	$aIcon[0] - True
+	$aIcon[1] - True specifies an icon, False specifies a cursor
+	$aIcon[2] - Specifies the X coordinate of a cursor's hot spot
+	$aIcon[3] - Specifies the Y coordinate of a cursor's hot spot
+	$aIcon[4] - Specifies the icon bitmask bitmap
+	$aIcon[5] - Handle to the icon color bitmap
+Failure:	Sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information
+@@End@@
+
+
+###Remarks###
+This function creates bitmaps for the bitmask and color members. You must manage these bitmaps and delete
+them when they are no longer necessary.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetIconInfo
+
+
+###Example###
+@@IncludeExample@@

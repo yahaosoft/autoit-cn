@@ -1,0 +1,59 @@
+###User Defined Function###
+_WinAPI_GetTimeFormat
+
+###Description###
+Formats time as a time string for a locale specified by identifier.
+
+###Syntax###
+#include <WinAPILocale.au3>
+_WinAPI_GetTimeFormat ( [$LCID = 0 [, $tSYSTEMTIME = 0 [, $iFlag = 0 [, $sFormat = '']]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$LCID
+	[optional] The locale identifier (LCID) that specifies the locale or one of the following predefined values.
+	$LOCALE_INVARIANT
+	$LOCALE_SYSTEM_DEFAULT
+	$LOCALE_USER_DEFAULT
+
+	Windows Vista or later
+	$LOCALE_CUSTOM_DEFAULT
+	$LOCALE_CUSTOM_UI_DEFAULT
+	$LOCALE_CUSTOM_UNSPECIFIED
+$tSYSTEMTIME
+	[optional] $tagSYSTEMTIME structure that contains the time information to format. If this parameter is 0 (Default),
+	the function will use the current local system time.
+$iFlag
+	[optional] The flags that specifies the time format options.
+	This parameter can be one or more of the following values.
+	$TIME_FORCE24HOURFORMAT
+	$TIME_NOMINUTESORSECONDS
+	$TIME_NOSECONDS
+	$TIME_NOTIMEMARKER
+$sFormat
+	[optional] The string that is used to form the time. For example, "hh:mm:ss tt". If this parameter is
+	omitted or an empty string (Default), the function returns the string according to the time format
+	for the specified locale.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The formatted time string.
+Failure 	Sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetTimeFormat
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,47 @@
+###User Defined Function###
+_WinAPI_GetProcessMemoryInfo
+
+###Description###
+Retrieves information about the memory usage of the specified process.
+
+###Syntax###
+#include <WinAPIProc.au3>
+_WinAPI_GetProcessMemoryInfo ( [$PID = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$PID
+	[optional] The PID of the process. Default (0) is the current process.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The array that contains the following information:
+	[0] - The number of page faults.
+	[1] - The peak working set size, in bytes.
+	[2] - The current working set size, in bytes.
+	[3] - The peak paged pool usage, in bytes.
+	[4] - The current paged pool usage, in bytes.
+	[5] - The peak nonpaged pool usage, in bytes.
+	[6] - The current nonpaged pool usage, in bytes.
+	[7] - The current space allocated for the pagefile, in bytes.
+	[8] - The peak space allocated for the pagefile, in bytes.
+	[9] - The current amount of memory that cannot be shared with other processes, in bytes.
+Failure 	Sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetProcessMemoryInfo
+
+
+###Example###
+@@IncludeExample@@

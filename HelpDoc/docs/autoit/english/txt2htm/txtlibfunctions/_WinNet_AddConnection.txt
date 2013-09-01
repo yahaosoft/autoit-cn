@@ -1,0 +1,43 @@
+###User Defined Function###
+_WinNet_AddConnection
+
+###Description###
+Connects a local device to a network resource
+
+###Syntax###
+#include <WinNet.au3>
+_WinNet_AddConnection ( $sLocalName, $sRemoteName [, $sPassword = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$sLocalName
+	Name of a local device to be redirected, such as "F:" or "LPT1". The string is treated in a
+	case-insensitive manner. If the Null keyword or an empty, a connection to the network resource is made without redirecting the local
+	device.
+$sRemoteName
+	Name of the network resource to connect to
+$sPassword
+	[optional] Password to be used to make a connection. This parameter is usually the password associated
+	with the current user. If 0, the default password is used. If the string is empty, no password is used.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False
+@@End@@
+
+
+###Remarks###
+This function is provided only for compatibility with 16-bit versions of Windows. Applications should call the
+WNet_AddConnection2 or the WNet_AddConnection3 function. A successful connection is persistent meaning that
+the system automatically restores the connection during subsequent logon operations.
+
+
+###Related###
+_WinNet_AddConnection2, _WinNet_AddConnection3
+
+
+###See Also###
+@@MsdnLink@@ WNetAddConnection

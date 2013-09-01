@@ -1,0 +1,49 @@
+###Function###
+RunWait
+
+###Description###
+Runs an external program and pauses script execution until the program finishes.
+
+###Syntax###
+RunWait ( "program" [, "workingdir" [, show_flag [, opt_flag]]] )
+
+
+###Parameters###
+@@ParamTable@@
+program
+	The full path of the program (EXE, BAT, COM, or PIF) to run (see remarks).
+workingdir
+	[optional] The working directory. Blank ("") uses the current working directory.  This is not the path to the program.
+show_flag
+	[optional] The "show" flag of the executed program:
+	@SW_HIDE = Hidden window (or Default keyword)
+	@SW_MINIMIZE = Minimized window
+	@SW_MAXIMIZE = Maximized window
+opt_flag
+	[optional] Controls various options related to how the parent and child process interact.
+	0x10000 ($RUN_CREATE_NEW_CONSOLE) = The child console process should be created with its own window instead of using the parents window.  This flag is only useful when the parent is compiled as a Console application.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the exit code of the program that was run.
+Failure:	Returns 0 and sets @error to non-zero.
+@@End@@
+
+
+###Remarks###
+Paths with spaces need to be enclosed in quotation marks.
+
+To run DOS commands, try <i><a href="RunWait.htm">RunWait</a>(@ComSpec & " /c " & "commandName")	; don't forget " " before "/c"</i>
+
+After running the requested program the script pauses until the program terminates.  To run a program and then immediately continue script execution use the <a href="Run.htm">Run()</a> function instead.
+
+Some programs will appear to return immediately even though they are still running; these programs spawn another process - you may be able to use the <a href="ProcessWaitClose.htm">ProcessWaitClose()</a> function to handle these cases.
+
+
+###Related###
+ProcessWait, ProcessWaitClose, Run, ShellExecute, ShellExecuteWait, RunAs, RunAsWait
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,51 @@
+###User Defined Function###
+_GUICtrlRichEdit_SetTabStops
+
+###Description###
+Sets tab stops for the control
+
+###Syntax###
+#include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetTabStops ( $hWnd, $vTabStops [, $fRedraw = True] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	handle of control
+$VTabStops
+	tab stop(s) to set in space units:
+	If a string, semicolon-separated tab stop positions
+	If numeric: set a tab stop every <n> space units
+$fRedraw
+	[optional] whether to redraw the control - True (default) or False
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and sets @error
+@error:	101 - $hWnd is not a handle
+	103 - $fRedraw must be True or False
+	1021 - $vTabStops is neither a string nor a number
+	1022 - $vTabStops is a string but a tab stop in it is not a positive number
+	1023 - $vTabStops is an empty string
+	1024 - $vTabStops is a number but it is zero or negative
+@@End@@
+
+
+###Remarks###
+Space units are initially inches.
+To enter a tab into a control, press Ctrl_Tab
+
+
+###Related###
+_GUICtrlRichEdit_SetParaTabStops, _GUICtrlRichEdit_SetSpaceUnit
+
+
+###See Also###
+@@MsdnLink@@ EM_SETTABSTOPS
+
+
+###Example###
+@@IncludeExample@@

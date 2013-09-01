@@ -1,0 +1,150 @@
+###User Defined Function###
+_IEPropertyGet
+
+###Description###
+Returns a select property of the Browser or DOM element.
+
+###Syntax###
+#include <IE.au3>
+_IEPropertyGet ( ByRef $o_object, $s_property )
+
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	Object variable of an InternetExplorer.Application or DOM element
+$s_property
+	Property selection (see remarks)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Value of selected Property
+Failure:	Returns 0 and sets @error
+@error:	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
+	4 ($_IEStatus_InvalidObjectType) = Invalid Object Type
+	5 ($_IEStatus_InvalidValue) = Invalid Value
+@extended:	Contains invalid parameter number
+@@End@@
+
+
+###Remarks###
+Further information can be found at <a href="http://msdn2.microsoft.com/en-us/library/aa752084.aspx" target="_blank">MSDN</a>.
+
+The following tables provide a description of each property available for use.  Some properties to DOM elements, others to the browser.
+
+<b><u>Browser Properties</u></b>
+
+@@ParamTable@@
+<b>Property</b>
+	<b>Description</b>
+"addressbar"
+	Retrieves a Boolean value indicating whether the browser address bar is visible or hidden.
+"browserx"
+	Retrieves the x-coordinate of the top left corner of a document element, relative to the browser.
+"browsery"
+	Retrieves the y-coordinate of the top left corner of a document element, relative to the browser.
+"busy"
+	Retrieves a Boolean value indicating whether the object is engaged in a navigation or downloading operation.
+"contenteditable"
+	Retrieves a Boolean value that indicates whether the object can be edited with mouse and keyboard.
+"fullscreen"
+	Retrieves a Boolean value that indicates whether the browser is in full-screen or normal window mode.
+"height"
+	Retrieves the height of the browser main window or a document element.
+"hwnd"
+	Retrieves the handle of the Internet Explorer main window.  Can be used in most AutoIt Win* functions.
+"innerhtml"
+	Retrieves the rendered HTML of an element excluding the beginning and ending element tags.
+"innertext"
+	Retrieves the rendered Text (but not any tags) of an element.  Typically identical to outertext.
+"isdisabled"
+	Retrieves the value indicating whether the user can interact with the object.
+"left"
+	Retrieves the screen coordinate of the left edge of the main window of the object.
+"locationname"
+	Retrieves the name of the resource that Internet Explorer is currently displaying.
+"locationurl"
+	Retrieves the URL of the resource that Internet Explorer is currently displaying.
+"menubar"
+	Retrieves a Boolean value that indicates whether the browser menu bar is visible.
+"offline"
+	Retrieves a Boolean value that indicates whether the browser is currently operating in offline mode.
+"outertext"
+	Retrieves the rendered Text (but not any tags) of an element.  Typically identical to innertext.
+"outerhtml"
+	Retrieves the rendered HTML of an element including the beginning and ending element tags.
+"readystate"
+	Retrieves the ready state of the object.
+"referrer"
+	Retrieves a string of the URL of the page from which the current page was accessed (but only if accessed via a link on that page, else the string is null).
+"resizable"
+	Retrieves a value that indicates whether the object can be resized.
+"screenx"
+	Retrieves the x-coordinate of the top left corner of a document object or the browser, relative to the screen.
+"screeny"
+	Retrieves the y-coordinate of the top left corner of a document object or the browser, relative to the screen.
+"silent"
+	Retrieves a value that indicates whether the browser can show dialog boxes.
+"statusbar"
+	Retrieves a value that indicates whether the status bar for the object is visible.
+"statustext"
+	Retrieves the text in the status bar for the object.
+"theatermode"
+	Retrieves a Boolean value indicating whether the browser is in Theater Mode.  In theater mode, the browser main window fills the entire screen and displays a toolbar with a minimal set of navigational buttons.
+"title"
+	Retrieves the document title.  Note that this is different than the window title which typically starts with the document title, but has additional text specified in the windows registry appended to it.
+"toolbar"
+	Retrieves a Boolean value indicating whether the tool bar of the browser is visible or hidden.
+"top"
+	Retrieves the screen coordinate of the top edge of the main window of the object.
+"visible"
+	Retrieves a value that indicates whether the object is visible or hidden.
+"width"
+	Retrieves the width of the browser main window or a document element.
+"uniqueid"
+	Retrieves an ID assigned by the DOM that is unique among all elements.  This can be used in any context that requires an element ID.
+@@END@@
+
+<b><u>ClientInfo Properties</u></b>
+
+@@ParamTable@@
+<b>Property</b>
+	<b>Description</b>
+"appcodename"
+	Retrieves the code name of the browser (the property has a default value of Mozilla).
+"appminorversion"
+	Retrieves the application's minor version value.
+"appname"
+	Retrieves the name of the browser (the property has a default value of Microsoft Internet Explorer).
+"appversion"
+	Retrieves the platform and version of the browser.
+"browserlanguage"
+	Retrieves the current browser language (the value will be one of these <a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/language_codes.asp" target="_blank">Language Codes</a>).
+"cookieenabled"
+	Retrieves whether client-side persistent cookies are enabled in the browser. Persistent cookies are those that are stored on the client-side computer.
+"cpuclass"
+	Retrieves a string denoting the CPU class (the return values can be found <a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/cpuclass.asp" target="_blank">here</a>).
+"javaenabled"
+	Returns whether Java is enabled.
+"online"
+	Retrieves a value indicating whether the system is in <a href="http://msdn.microsoft.com/workshop/components/offline/offline.asp" target="_blank">global offline mode</a>.
+"platform"
+	Retrieves the name of the user's operating system (the return values can be found <a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/platform.asp" target="_blank">here</a>).
+"systemlanguage"
+	Retrieves the default language used by the operating system (the value will be one of these <a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/language_codes.asp" target="_blank">Language Codes</a>).
+"useragent"
+	Retrieves a string equivalent to the HTTP user-agent request header.
+"userlanguage"
+	Retrieves the operating system's natural language setting (the value will be one of these <a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/language_codes.asp" target="_blank">Language Codes</a>).
+"vcard"
+	Returns an array containing each attribute in the userProfile object (a list of attributes can be found <a href="http://msdn.microsoft.com/workshop/author/dhtml/reference/methods/getattribute_1.asp" target="_blank">here</a>). The return is a two dimentional array, where the first dimention has two elements. The first element (0) contains the attribute names, the second element (1) contains the corresponding values. The second dimention has 29 elements (0 to 28).
+@@END@@
+
+
+###Related###
+_IEPropertySet, _IEBodyReadHTML, _IEBodyReadText, _IEBodyWriteHTML, _IEDocInsertHTML, _IEDocInsertText, _IEHeadInsertEventScript
+
+
+###Example###
+@@IncludeExample@@

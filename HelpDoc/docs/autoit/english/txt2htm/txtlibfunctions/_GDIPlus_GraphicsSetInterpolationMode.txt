@@ -1,0 +1,48 @@
+###User Defined Function###
+_GDIPlus_GraphicsSetInterpolationMode
+
+###Description###
+Sets the interpolation mode of a Graphics object
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_GraphicsSetInterpolationMode ( $hGraphics, $iInterpolationMode )
+
+
+###Parameters###
+@@ParamTable@@
+$hGraphics
+	Pointer to a Graphics object
+$iInterpolationMode
+	Interpolation mode:
+	0 - Default interpolation mode
+	1 - Low-quality mode
+	2 - High-quality mode
+	3 - Bilinear interpolation. No prefiltering is done
+	4 - Bicubic interpolation. No prefiltering is done
+	5 - Nearest-neighbor interpolation
+	6 - High-quality, bilinear interpolation. Prefiltering is performed to ensure high-quality shrinking
+	7 - High-quality, bicubic interpolation. Prefiltering is performed to ensure high-quality shrinking
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False and either:
+
+	@error and @extended are set if DllCall failed
+
+
+###Remarks###
+The interpolation mode determines the algorithm that is used when images are scaled or rotated
+
+
+###Related###
+_GDIPlus_GraphicsGetInterpolationMode
+
+
+###See Also###
+@@MsdnLink@@ GdipSetInterpolationMode
+
+
+###Example###
+@@IncludeExample@@

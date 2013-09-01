@@ -1,0 +1,50 @@
+###Function###
+RegDelete
+
+###Description###
+Deletes a key or value from the registry.
+
+###Syntax###
+RegDelete ( "keyname" [, "valuename"] )
+
+
+###Parameters###
+@@ParamTable@@
+keyname
+	The registry key to delete.
+valuename
+	[optional] The valuename to delete.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Special:	Returns 0 if the key/value does not exist.
+Failure:	Returns 2 if error deleting key/value.
+	@error can be set to following values :
+	1 if unable to open requested key
+	2 if unable to open requested main key
+	3 if unable to remote connect to the registry
+	-1 if unable to delete requested value
+	-2 if unable to delete requested key/value
+@@End@@
+
+
+###Remarks###
+A registry key must start with "HKEY_LOCAL_MACHINE" ("HKLM") or "HKEY_USERS" ("HKU") or "HKEY_CURRENT_USER" ("HKCU") or "HKEY_CLASSES_ROOT" ("HKCR") or "HKEY_CURRENT_CONFIG" ("HKCC").
+
+When running on 64-bit Windows if you want to delete a key or value specific to the 64-bit environment you have to suffix the HK... with 64 i.e. HKLM64.
+
+To access the <b>(Default)</b> value use <b>""</b> (an empty string) for the valuename.
+
+Deleting from the registry is potentially dangerous--please exercise caution!
+
+It is possible to access remote registries by using a keyname in the form "\\computername\keyname".  To use this feature you must have the correct access rights.
+
+
+###Related###
+RegRead, RegWrite, RegEnumKey, RegEnumVal
+
+
+###Example###
+@@IncludeExample@@

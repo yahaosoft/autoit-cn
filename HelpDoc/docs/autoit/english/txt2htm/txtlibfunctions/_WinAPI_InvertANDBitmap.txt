@@ -1,0 +1,41 @@
+###User Defined Function###
+_WinAPI_InvertANDBitmap
+
+###Description###
+Inverts the specified AND bitmask bitmap by performing a logical NOT operation.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_InvertANDBitmap ( $hBitmap [, $fDelete = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hBitmap
+	Handle to the source bitmap that must be inverted.
+$fDelete
+	[optional] Specifies whether to delete the source bitmap after the function is successful, valid values:
+	True    - The bitmap will be destroyed when the function succeeds.
+	False   - Do not delete, you must destroy a bitmap when it no longer needed (Default).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	Handle to the inverted bitmap.
+Failure 	0.
+@@End@@
+
+
+###Remarks###
+The _WinAPI_InvertANDBitmap() creates a 1 bits-per-pixel inverted bitmask DIB from the 1 bits-per-pixel AND bitmask bitmap.
+If the source bitmap is not a 1 bits-per-pixel bitmap, the function fails.
+
+When you are finished using the bitmap, destroy it using the _WinAPI_DeleteObject() function.
+
+
+###Related###
+_WinAPI_DeleteObject
+
+
+###Example###
+@@IncludeExample@@

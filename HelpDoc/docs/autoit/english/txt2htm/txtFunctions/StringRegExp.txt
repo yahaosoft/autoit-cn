@@ -1,0 +1,281 @@
+###Function###
+StringRegExp
+
+###Description###
+Check if a string fits a given regular expression pattern.
+
+###Syntax###
+StringRegExp ( "test", "pattern" [, flag = 0 [, offset = 1]] )
+
+
+###Parameters###
+@@ParamTable@@
+test
+	The string to check
+pattern
+	The regular expression to compare.
+flag
+	[optional] A number to indicate how the function behaves.  See below for details.  The default is 0.
+offset
+	[optional] The string position to start the match (starts at 1)  The default is 1.
+@@End@@
+<br>
+@@ParamTable@@
+<b>Flag</b>
+	<b>Values</b>
+0
+	Returns 1 (matched) or 0 (no match)
+1
+	Return array of matches.
+2
+	Return array of matches including the full match (Perl / PHP style).
+3
+	Return array of global matches.
+4
+	Return an array of arrays containing global matches including the full match (Perl / PHP style).
+@@End@@
+
+###ReturnValue###
+<i>Flag = 0 :</i>
+
+@@ReturnTable@@
+@error	Meaning
+2 	Bad pattern. @extended = offset of error in pattern.
+@@End@@
+
+<br>
+<i>Flag = 1 or 2 :</i>
+
+@@ReturnTable@@
+@error	Meaning
+0	Array is valid.  Check @extended for next offset
+1	Array is invalid.  No matches.
+2	Bad pattern, array is invalid.  @extended = offset of error in pattern.
+@@End@@
+
+<br>
+<i>Flag = 3 or 4 :</i>
+
+@@ReturnTable@@
+@error	Meaning
+0	Array is valid.
+1	Array is invalid.  No matches.
+2	Bad pattern, array is invalid.  @extended = offset of error in pattern.
+@@End@@
+
+
+###Remarks###
+The flag parameter can have one of 5 values (0 through 4).  0 gives a true (1) or false (0) as to whether the pattern was found or not.  1 and 2 find the first match and returns it in an array.  3 and 4 find multiple hits and fills the array with all the matching text.  2 and 4 include the full matching text as the first record, not just the capturing groups, which is all you get with flag 1 and 3.
+
+Regular expression notation is a compact way of specifying a pattern for strings that can be searched.  Regular expressions are character strings in which plain text characters indicate what text should exist in the target string, and a some characters are given special meanings to indicate what variability is allowed in the target string.  AutoIt regular expressions are normally case-sensitive.
+
+Regular expressions are constructed of one or more of the following simple regular expression specifiers.  If the character is not in the following table, then it will match only itself.
+
+Repeating characters (*, +, ?, {...} ) will try to match the largest set possible, which allows the following characters to match as well, unless followed immediately by a question mark; then it will find the smallest pattern that allows the following characters to match as well.
+
+Nested groups are allowed, but keep in mind that all the groups, except non-capturing groups, assign to the returned array, with the outer groups assigning after the inner groups.
+
+Complete description can be found <b><a href="http://www.autoitscript.com/autoit3/pcrepattern.html" target="_blank">here</a></b>
+
+<b>Caution</b>: bad regular expressions can produce a quasi-infinite loop hogging the CPU, and can even cause a crash.
+
+<b><u>Matching Characters</u></b>
+
+@@ParamTable@@
+[ ... ]
+	Match any character in the set.  e.g. <b>[aeiou]</b> matches any lower-case vowel.  A contiguous set can be defined using a dash between the starting and ending characters.  e.g. <b>[a-z]</b> matches any lower case character.  To include a dash (<b>-</b>) in a set, use it as the first or last character of the set.  To include a closing bracket in a set, use it as the first character of the set.  e.g. <b>[][]</b> will match either [ or ].  Note that special characters <b>do not</b> retain their special meanings inside a set, with the exception of <b>\\</b>,  <b>\^</b>, <b>\-</b>,<b>\[</b> and <b>\]</b> match the escaped character inside a set.
+[^ ... ]
+	Match any character <b>not</b> in the set.  e.g. <b>[^0-9]</b> matches any non-digit.  To include a caret (<b>^</b>) in a set, put it after the beginning of the set or escape it (\^).
+[:class:]
+	Match a character in the given class of characters.  Valid classes are: alpha (any alphabetic character), alnum (any alphanumeric character), lower (any lower-case letter), upper (any upper-case letter), digit (any decimal digit 0-9), xdigit (any hexadecimal digit, 0-9, A-F, a-f), space (any whitespace character), blank (only a space or tab), print (any printable character), graph (any printable character except spaces), cntrl (any control character [ascii 127 or <32]) or punct (any punctuation character). So [0-9] is equivalent to [[:digit:]].
+[^:class:]
+	Match any character <b>not</b> in the class, but only if the first character.
+( ... )
+	Group. The elements in the group are treated in order and can be repeated together.  e.g. <b>(ab)+</b> will match "ab" or "abab", but not "aba".  A group will also store the text matched for use in back-references and in the array returned by the function, depending on flag value.
+(?#....)
+	comment (not nestable).
+(?i)
+	Case-insensitivity flag.  This does not operate as a group.  It tells the regular expression engine to do case-insensitive matching from that point on.
+(?-i)
+	(default) Case-sensitivity flag.  This does not operate as a group.  It tells the regular expression engine to do case-sensitive matching from that point on.
+(?: ... )
+	Non-capturing group.  Behaves just like a normal group, but does not record the matching characters in the array nor can the matched text be used for back-referencing.
+(?i: ... )
+	Case-insensitive non-capturing group.  Behaves just like a non-capturing group, but performs case-insensitive matches within the group.
+(?-i: ... )
+	Case-sensitive non-capturing group.  Behaves just like a non-capturing group, but performs case-sensitive matches within the group.
+(?J)
+	allow duplicate names.
+(?m)
+	^ and $ match newlines within data.
+(?s)
+	. matches anything including newline. (by default "." don't match newline)
+(?U)
+	Invert greediness of quantifiers.
+(?x)
+	Ignore whitespace and # comments.
+(?-...)
+	unset option(s).
+<b>.</b>
+	Match any single character (except newline).
+|
+	Or.  The expression on one side <b>or</b> the other can be matched.
+\
+	<i>Escape</i> a special character (have it match the actual character) or introduce a special character type (see below).
+\\
+	Match an actual backslash (\).
+\a
+	Alarm, that is, the BEL character (<a href="Chr.htm">Chr</a>(7)).
+\A
+	Match only at beginning of string.
+\b
+	Matches at a word boundary.
+\B
+	Matches when not at a word boundary.
+\c
+	Match a control character, based on the next character.  For example, <b>\cM</b> matches ctrl-M.
+\d
+	Match any digit (0-9).
+\D
+	Match any non-digit.
+\e
+	Match an escape character (<a href="Chr.htm">Chr</a>(27)).
+\E
+	end case modification.
+\f
+	Match an formfeed character (<a href="Chr.htm">Chr</a>(12)).
+\G
+	first matching position in subject.
+\h
+	any horizontal whitespace character.
+\H
+	any character that is not a horizontal whitespace character.
+\n
+	Match a linefeed (@LF, <a href="Chr.htm">Chr</a>(10)).
+\K
+	reset start of match.
+\N
+	a character that is not a newline
+\Q
+	quote (disable) pattern metacharacters till \E.
+\r
+	Match a carriage return (@CR, <a href="Chr.htm">Chr</a>(13)).
+\R
+	a newline sequence.
+\s
+	Match any whitespace character: <a href="Chr.htm">Chr</a>(9) through <a href="Chr.htm">Chr</a>(13) which are Horizontal Tab, Line Feed, Vertical Tab, Form Feed, and Carriage Return, and the standard space ( <a href="Chr.htm">Chr</a>(32) ).
+\S
+	Match any non-whitespace character.
+\t
+	Match a tab character (<a href="Chr.htm">Chr</a>(9)).
+\v
+	any vertical whitespace character.
+\V
+	any character that is not a vertical whitespace character.
+\w
+	Match any "word" character: a-z, A-Z, 0-9 or underscore (_).
+\W
+	Match any non-word character.
+\X
+	A Unicode extended grapheme cluster, that is an unbreakable sequence of codepoints which represent a single character for the user.
+\ddd
+	Match character with octal code ddd, or backreference if found. Match the prior group number given exactly. For example, <b>([:alpha:])\1</b> would match a double letter.
+\xhh
+	character with hex code hh.
+\x{hhh..}
+	Match character with hex code hhh..
+\z
+	Match only at end of string.
+\Z
+	Match only at end of string, or before newline at the end.
+(?= ... )
+	Positive look ahead.
+(?&lt;= ... )
+	Positive look behind.
+(?! ... )
+	Negative look ahead.
+(?&lt;! ... )
+	Negative look behind.
+@@End@@
+
+<u><b>Repeating Characters</u></b>
+
+@@ParamTable@@
+{<i>x</i>}
+	Repeat the previous character, set or group exactly <i>x</i> times.
+{<i>x</i>,}
+	Repeat the previous character, set or group at least <i>x</i> times.
+{0,<i>x</i>}
+	Repeat the previous character, set or group at most <i>x</i> times.
+{<i>x</i>, <i>y</i>}
+	Repeat the previous character, set or group between <i>x</i> and <i>y</i> times, inclusive.
+*
+	Repeat the previous character, set or group 0 or more times.  Equivalent to {0,}
++
+	Repeat the previous character, set or group 1 or more times.  Equivalent to {1,}
+?
+	The previous character, set or group may or may not appear.  Equivalent to {0, 1}
+? (after a repeating character)
+	Find the smallest match instead of the largest.
+@@End@@
+
+<u><b>Character Classes</u></b>
+
+@@ParamTable@@
+[:alnum:]
+	letters and digits (same as [0-9A-Za-z])
+[:alpha:]
+	letters (same as [A-Za-z])
+[:ascii:]
+	character codes (same as <a href="Chr.htm">Chr</a>(0) ... <a href="Chr.htm">Chr</a>(127))
+[:blank:]
+	space or tab only (same as <a href="Chr.htm">Chr</a>(9) and <a href="Chr.htm">Chr</a>(32))
+[:cntrl:]
+	control characters (same as <a href="Chr.htm">Chr</a>(0) ... <a href="Chr.htm">Chr</a>(31) and <a href="Chr.htm">Chr</a>(127))
+[:digit:]
+	decimal digits (same as \d or [0-9])
+[:graph:]
+	printing characters, excluding space (same as <a href="Chr.htm">Chr</a>(33) ... <a href="Chr.htm">Chr</a>(126))
+[:lower:]
+	lower case letters (same as [a-z])
+[:print:]
+	printing characters, including space (same as <a href="Chr.htm">Chr</a>(32) ... <a href="Chr.htm">Chr</a>(126))
+[:punct:]
+	printing characters, excluding [:alnum:] and [:cntrl:], (33-47, 58-64, 91-96, 123-126)
+[:space:]
+	white space (not quite the same as \s, it includes VT: <a href="Chr.htm">Chr</a>(11)) (same as [\f\n\r\t\v ])
+[:upper:]
+	upper case letters (same as [A-Z])
+[:word:]
+	"word" characters (same as \w)
+[:xdigit:]
+	hexadecimal digits (same as [0-9A-Fa-f])
+@@End@@
+
+<u><b>General comments about UTF-8 mode</b></u> (use internaly by AutoIt to translate pattern) :
+
+	1. An unbraced hexadecimal escape sequence (such as \xb3) matches a two-byte UTF-8 character if the value is greater than 127.
+
+	2. Octal numbers up to \777 are recognized, and match two-byte UTF-8 characters for values greater than \177.
+
+	3. Repeat quantifiers apply to complete UTF-8 characters, not to individual bytes, for example: \x{100}{3}.
+
+	4. The dot metacharacter matches one UTF-8 character instead of a single byte.
+
+	5. The character escapes \b, \B, \d, \D, \s, \S, \w, and \W correctly test characters of any code value, but the characters that PCRE recognizes as digits, spaces, or word characters remain the same set as before, all with values less than 256. Note that this also applies to \b, because it is defined in terms of \w and \W.
+
+	6. Similarly, characters that match the POSIX named character classes are all low-valued characters.
+
+	7. However, the Perl 5.10 horizontal and vertical whitespace matching escapes (\h, \H, \v, and \V) do match all the appropriate Unicode characters.
+
+	8. Case-insensitive matching applies only to characters whose values are less than 128. PCRE supports case-insensitive matching only when there is a one-to-one mapping between a letter's cases. There are a small number of many-to-one mappings in Unicode; these are not supported by PCRE.
+
+See also the <a href="../tutorials/regexp/regexp.htm">Regular Expression</a> tutorial, in which you can run a script to test your regular expression(s).
+
+
+###Related###
+StringInStr, StringRegExpReplace
+
+
+###Example###
+@@IncludeExample@@

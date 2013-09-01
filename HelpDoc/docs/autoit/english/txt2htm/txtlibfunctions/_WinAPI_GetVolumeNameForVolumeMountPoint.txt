@@ -1,0 +1,39 @@
+###User Defined Function###
+_WinAPI_GetVolumeNameForVolumeMountPoint
+
+###Description###
+Retrieves a volume GUID path for the volume that is associated with the specified volume mount point.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_GetVolumeNameForVolumeMountPoint ( $sPath )
+
+
+###Parameters###
+@@ParamTable@@
+$sPath
+	The path of a mounted folder (for example, Y:\MountX\) or a drive letter (for example, X:\).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The volume GUID path. This path is of the form "\\?\Volume{GUID}\" where GUID is a GUID that
+	identifies the volume. If there is more than one volume GUID path for the volume, only the first one
+	in the mount manager's cache is returned.
+Failure 	Sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetVolumeNameForVolumeMountPoint
+
+
+###Example###
+@@IncludeExample@@

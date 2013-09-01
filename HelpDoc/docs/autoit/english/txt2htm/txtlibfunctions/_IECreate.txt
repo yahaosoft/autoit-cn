@@ -1,0 +1,67 @@
+###User Defined Function###
+_IECreate
+
+###Description###
+Create an Internet Explorer Browser Window.
+
+###Syntax###
+#include <IE.au3>
+_IECreate ( [$s_Url = "about:blank" [, $f_tryAttach = 0 [, $f_visible = 1 [, $f_wait = 1 [, $f_takeFocus = 1]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$s_Url
+	[optional] specifies the Url to navigate to upon creation
+$f_tryAttach
+	[optional] specifies whether to try to attach to an existing window
+	0 = (Default) do not try to attach
+	1 = Try to attach to an existing window
+$f_visible
+	[optional] specifies whether the browser window will be visible
+	0 = Browser Window is hidden
+	1 = (Default) Browser Window is visible
+$f_wait
+	[optional] specifies whether to wait for page to load before returning
+	0 = Return immediately, not waiting for page to load
+	1 = (Default) Wait for page load to complete before returning
+$f_takeFocus
+	[optional] specifies whether to bring the attached window to focus
+	0 =  Do not bring window into focus
+	1 = (Default) bring window into focus
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an object variable pointing to an InternetExplorer.Application object
+Failure:	Returns 0 and sets @error
+@error:	1 ($_IEStatus_GeneralError) = General Error
+	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
+	4 ($_IEStatus_InvalidObjectType) = Invalid Object Type
+	6 ($_IEStatus_LoadWaitTimeout) = Load Wait Timeout
+	8 ($_IEStatus_AccessIsDenied) = Access Is Denied
+	9 ($_IEStatus_ClientDisconnected) = Client Disconnected
+@extended:	Set to true (1) or false (0) depending on the success of $f_tryAttach
+@@End@@
+
+
+###Remarks###
+When using tryAttach, a No Match error will be displayed to the console from _IEAttach(). This can be controlled with _IEErrorNotify().
+
+When opening a local HyperTextApplication (.hta) file, Internet Explorer will open a new browser process for it that will not be accessible through the object variable returned by _IECreate(). To control this new browser you must use _IEAttach() with the "embedded" option.
+
+New security in Windows Vista causes a new browser window to be created when a browser is instructed to navigate to a URL in a different security zone. This occurs as well with the initial creation and navigation initiated with _IECreate(). The new window is a new browser instance and the previous browser object variable no longer points to it.
+There are several workarounds:
+1) add #RequireAdmin to your code (this is required even if the account is part of the Administrator's Group and will prompt for credentials if necessary),
+2) use _IEAttach() to connect to the new browser window
+3) add the target website to the Trusted Sites security zone in IE,
+4) turn off "Protected Mode" in IE,
+or 5) disable UAC. Care must be taken to understand the implications of disabling IE security features when accessing untrusted sites.
+
+
+###Related###
+_IEAttach, _IECreateEmbedded, _IEQuit, _IENavigate, _IELoadWait
+
+
+###Example###
+@@IncludeExample@@

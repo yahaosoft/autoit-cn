@@ -1,0 +1,49 @@
+###Structure Name###
+$tagNMLVFINDITEM
+
+###Description###
+Contains information the owner needs to find items requested by a virtual list view control
+
+###Syntax###
+Global Const $tagNMLVFINDITEM = $tagNMHDR & ";int Start;" & $tagLVFINDINFO
+
+
+###Fields###
+@@ParamTable@@
+$tagNMHDR
+	Contains information about a notification message
+Start
+	Index of the item at which the search will start
+Flags
+	Type of search to perform. This member can be set to one or more of the following values:
+	$LVFI_PARAM - Searches for a match between this structure's Param member and the Param member of an item.
+	If $LVFI_PARAM is specified, all other flags are ignored.
+	$LVFI_PARTIAL - Checks to see if the item text begins with the string pointed to by the Text member. This
+	value implies use of $LVFI_STRING.
+	$LVFI_STRING - Searches based on the item text. Unless additional values are specified, the item text of
+	the matching item must exactly match the string pointed to by the Text member.
+	$LVFI_WRAP - Continues the search at the beginning if no match is found
+	LVFI_NEARESTXY - Finds the item nearest to the position specified in the X and Y members, in the direction
+	specified by the Direction member. This flag is supported only by large icon and small icon modes.
+$tagLVFINDINFO
+	Text - Address of a string to compare with the item text. It is valid if $LVFI_STRING or $LVFI_PARTIAL is set in the Flags member.
+	Param - Value to compare with the Param member of an item's $LVITEM structure. It is valid only if $LVFI_PARAM is set in the flags member.
+	X - Initial X search position. It is valid only if $LVFI_NEARESTXY is set in the Flags member.
+	Y - Initial Y search position. It is valid only if $LVFI_NEARESTXY is set in the Flags member.
+	Direction - Virtual key code that specifies the direction to search. The following codes are supported:
+	VK_LEFT
+	VK_RIGHT
+	VK_UP
+	VK_DOWN
+	VK_HOME
+	VK_END
+	VK_PRIOR
+	VK_NEXT
+	This member is valid only if $LVFI_NEARESTXY is set in the flags member.
+@@End@@
+
+###Remarks###
+This notification gives an application (or the notification receiver) the opportunity to customize an incremental search.
+For example, if the search items are numeric, the application can perform a numerical search instead of a string search.
+The application sets the Param member to the result of the search, or to another application defined value to fail the
+search and indicate to the control how to proceed

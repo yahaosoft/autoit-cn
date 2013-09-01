@@ -1,0 +1,74 @@
+###Function###
+GUICtrlSetState
+
+###Description###
+Changes the state of a control.
+
+###Syntax###
+GUICtrlSetState ( controlID, state )
+
+
+###Parameters###
+@@ParamTable@@
+controlID
+	The control identifier (controlID) as returned by a <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a> function, or -1 for the last created control.
+state
+	See the <a href="#StateTable">State table</a> below.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+
+	<a name="StateTable"></a><b>State table</b>
+
+@@StandardTable1@@
+<b>State</b>	<b>Comments</b>
+No Change	0
+$GUI_UNCHECKED	Radio, Checkbox or ListViewItem will be unchecked.
+$GUI_CHECKED	Radio, Checkbox or ListViewItem will be checked.
+$GUI_INDETERMINATE	Checkbox having the tristate attribute will be greyed.
+$GUI_AVISTART	Avi control will start playing.
+$GUI_AVISTOP	Avi control will stop playing.
+$GUI_AVICLOSE	Avi control will stop playing and release resource.
+$GUI_DROPACCEPTED	Control will accept drop action : from file or from a drag of another control. See remarks.
+$GUI_NODROPACCEPTED	Control will  not accept drop action.
+$GUI_SHOW	Control will be visible. On Tabitem control will select the first tab to be displayed.
+$GUI_HIDE	Control will not be visible.
+$GUI_ENABLE	Control will be enabled.
+$GUI_DISABLE	Control will be greyed out.
+$GUI_FOCUS	Control will be given input/selected focus.
+$GUI_NOFOCUS	Listview control will loose focus.
+$GUI_DEFBUTTON	Control will be set as the default button on the window. See remark about TreeviewItems.
+$GUI_EXPAND	TreeViewItem will expand its child items.
+$GUI_ONTOP	Control will be have the ontop attribute for the window (zOrdering).
+@@End@@
+
+State values can be summed up as for example $GUI_DISABLE + $GUI_HIDE sets the control in an disabled and hidden state.
+
+If an AVI control has to be hidden with $GUI_HIDE it should be closed with $GUI_AVICLOSE.
+
+State of a "contextmenu" control <b>cannot be changed.</b>
+State of a "listviewitem" control can be changed if the associated "listview" control has been created with an extended style $LVS_EX_CHECKBOXES. $GUI_FOCUS and $GUI_NOFOCUS can be used on specific listviewitem provided listview control style allows to display it : $LVS_SHOWSELALWAYS.
+State of a "menu or a ""menuitem" control <b>cannot be hidden.</b>
+
+! Important information for $GUI_EXPAND: this state is only used for TreeViewItems. If you want to use this 'action' then at least 1 Sub-TreeViewItem has to exist/created under this item !
+If you want to select another item in a TreeView then you can use $GUI_FOCUS - the parent TreeView gets the window focus and the specified item is marked as selected.
+If you want to set a treeview item as a default item which means painting it bold you can use $GUI_DEFBUTTON - to turn it off just use another value but $GUI_DEFBUTTON, for instance 0. This state will not be returned by <a href="GUICtrlGetState.htm">GUICtrlGetState()</a>.
+
+If $GUI_DROPACCEPTED is set to a visible control a drag & drop can be taken in account. The edit/input control will be set with the filename.
+For other controls on reception of $GUI_EVENT_DROPPED, @GUI_DragId will return the controlID from where the drag start (-1 if from a file, @GUI_DragFile contain the filename being dropped) and @GUI_DropId returns the controlID of the dropped control.
+Only dragging a ListviewItem will start the drag & drop process. The @GUI_DragId will be the ListView controlID.
+
+
+###Related###
+GUICtrlCreate..., GUICtrlGetState
+
+
+###Example###
+@@IncludeExample@@

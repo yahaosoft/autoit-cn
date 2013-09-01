@@ -1,0 +1,96 @@
+###User Defined Function###
+_WinAPI_ShellFileOperation
+
+###Description###
+Copies, moves, renames, or deletes a file system object.
+
+###Syntax###
+#include <WinAPIShellEx.au3>
+_WinAPI_ShellFileOperation ( $sFrom, $sTo, $iFunc, $iFlags [, $sTitle = '' [, $hParent = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sFrom
+	Single string or array of string that contains the source file name(s). These names should be
+	fully-qualified paths to prevent unexpected results.
+$sTo
+	Single string or array of string that contains the destination file or directory name(s) (if used).
+	These names should be fully-qualified paths to prevent unexpected results.
+$iFunc
+	A value that indicates which operation to perform. This parameter can be one of the following values.
+	$FO_COPY
+	$FO_DELETE
+	$FO_MOVE
+	$FO_RENAME
+$iFlags
+	Flags that control the file operation. This parameter can be one of the following values.
+	$FOF_ALLOWUNDO
+	$FOF_CONFIRMMOUSE
+	$FOF_FILESONLY
+	$FOF_MULTIDESTFILES
+	$FOF_NOCONFIRMATION
+	$FOF_NOCONFIRMMKDIR
+	$FOF_NO_CONNECTED_ELEMENTS
+	$FOF_NOCOPYSECURITYATTRIBS
+	$FOF_NOERRORUI
+	$FOF_NORECURSEREPARSE
+	$FOF_NORECURSION
+	$FOF_RENAMEONCOLLISION
+	$FOF_SILENT
+	$FOF_SIMPLEPROGRESS
+	$FOF_WANTMAPPINGHANDLE
+	$FOF_WANTNUKEWARNING
+	$FOF_NO_UI
+$sTitle
+	[optional] The title of a progress dialog box. This parameter is used only if $iFlags includes the $FOF_SIMPLEPROGRESS flag.
+$hParent
+	[optional] Handle to the dialog box to display information about the status of the file operation.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	$tagSHFILEOPSTRUCT structure that contains the additional information.
+Failure 	Sets the @error flag, @extended may be set to the one of the following values.
+
+	113 - The source and destination files are the same file.
+	114 - Multiple file paths were specified in the source buffer, but only one destination file path.
+	115 - Rename operation was specified but the destination path is a different directory. Use the move operation instead.
+	116 - The source is a root directory, which cannot be moved or renamed.
+	117 - The operation was cancelled by the user, or silently cancelled if the appropriate flags were supplied to _WinAPI_ShellFileOperation().
+	118 - The destination is a subtree of the source.
+	120 - Security settings denied access to the source.
+	121 - The source or destination path exceeded or would exceed MAX_PATH.
+	122 - The operation involved multiple destination paths, which can fail in the case of a move operation.
+	124 - The path in the source or destination or both was invalid.
+	125 - The source and destination have the same parent folder.
+	126 - The destination path is an existing file.
+	128 - The destination path is an existing folder.
+	129 - The name of the file exceeds MAX_PATH.
+	130 - The destination is a read-only CD-ROM, possibly unformatted.
+	131 - The destination is a read-only DVD, possibly unformatted.
+	132 - The destination is a writable CD-ROM, possibly unformatted.
+	133 - The file involved in the operation is too large for the destination media or file system.
+	134 - The source is a read-only CD-ROM, possibly unformatted.
+	135 - The source is a read-only DVD, possibly unformatted.
+	136 - The source is a writable CD-ROM, possibly unformatted.
+	183 - MAX_PATH was exceeded during the operation.
+	026 - An unknown error occurred. This is typically due to an invalid path in the source or destination.
+	536 - An unspecified error occurred on the destination.
+	652 - Destination is a root directory and cannot be renamed.
+@@End@@
+
+
+###Remarks###
+You should use fully-qualified path names with this function. Using it with relative path names is not thread safe.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ SHFileOperation
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,44 @@
+###User Defined Function###
+_WinAPI_SetCompression
+
+###Description###
+Sets the compression state of a file or directory.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_SetCompression ( $sPath, $iCompression )
+
+
+###Parameters###
+@@ParamTable@@
+$sPath
+	The path to the file or directory to be compressed.
+$iCompression
+	The compression state. This parameter can be one of the following values.
+	$COMPRESSION_FORMAT_NONE
+	$COMPRESSION_FORMAT_DEFAULT
+	$COMPRESSION_FORMAT_LZNT1
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1.
+Failure 	0 and sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+If the file system of the volume containing the specified file or directory does not support per-file or
+per-directory compression, the function fails. File compression is supported for files of a maximum uncompressed
+size of 30 gigabytes.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ FSCTL_SET_COMPRESSION
+
+
+###Example###
+@@IncludeExample@@

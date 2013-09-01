@@ -1,0 +1,55 @@
+###Function###
+FileSaveDialog
+
+###Description###
+Initiates a Save File Dialog.
+
+###Syntax###
+FileSaveDialog ( "title", "init dir", "filter" [, options = 0 [, "default name" [, hwnd]]] )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	Title text of the Dialog GUI.
+init dir
+	Initial directory selected in the GUI file tree.
+filter
+	File type single filter such as "All (*.*)" or "Text files (*.txt)" or multiple filter groups such as "All (*.*)|Text files (*.txt)" (See Remarks).
+options
+	[optional] Dialog Options:  To use more than one option, BitOR the required values together.
+	$FD_PATHMUSTEXIST (2) = Path Must Exist (if user types a path, ending with a backslash)
+	$FD_PROMPTOVERWRITE (16) = Prompt to OverWrite File
+	Constants are defined in FileConstants.au3
+default name
+	[optional] File name to suggest to the user to save the file with.  Default is blank ("").
+hwnd
+	[optional] The window handle to use as the parent for this dialog.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the full path of the file chosen.  Results for multiple selections are "Directory|file1|file2|..."
+Failure:	Sets @error
+@error:	1 - File selection failed.
+	2 - Bad file filter
+@@End@@
+
+
+###Remarks###
+Separate the file filters with a semicolon as shown in the example.
+Multiple groups of filters are separated by a pipe "|".
+
+If default name is given, options must also be given.  If none of the options are wanted, use 0 for options.
+
+Special Windows folders (such as "My Documents") can be set as root by using the right CLSID detailed in the <a href="../appendix/clsid.htm">Appendix</a>.
+
+@WorkingDir is changed on successful return.
+
+
+###Related###
+FileOpenDialog, FileSelectFolder
+
+
+###Example###
+@@IncludeExample@@

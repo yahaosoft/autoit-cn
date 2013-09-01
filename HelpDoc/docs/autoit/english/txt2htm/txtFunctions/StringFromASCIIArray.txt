@@ -1,0 +1,46 @@
+###Function###
+StringFromASCIIArray
+
+###Description###
+Converts an array of ASCII codes to a string.
+
+###Syntax###
+StringFromASCIIArray ( array,[start = 0 [, end = -1 [, encoding = 0]]] )
+
+
+###Parameters###
+@@ParamTable@@
+array
+	The array of ASCII codes to convert to characters.
+start
+	[optional] The 0-based index to start processing from (Default: 0).
+end
+	[optional] The 0-based index to end processing at (Default: UBound($aArray) - 1).
+encoding
+	[optional] The array contains values in the specified character set:
+	0 - UTF-16 (Default)
+	1 - ANSI
+	2 - UTF-8
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	A string with character representations of the ASCII codes.
+Failure:	Returns an empty string and sets @error to non-zero.  @error can be:
+	1 - Input is not an array.
+	2 - Invalid start index.
+@@End@@
+
+
+###Remarks###
+The returned string may contain embedded <a href="Chr.htm">Chr</a>(0) but will still be a string type.  Most string functions will stop at the first <a href="Chr.htm">Chr</a>(0) found, however, if access to the entire contents of the string is required then the <a href="StringToBinary.htm">StringToBinary()</a> function can convert it into a BinaryString preserving all the data.
+
+If you attempt to create an array manually (As opposed to using an array returned from <a href="StringToASCIIArray.htm">StringToASCIIArray()</a>) then the codes in the array must be specified in UNICODE.
+
+
+###Related###
+StringToASCIIArray
+
+
+###Example###
+@@IncludeExample@@

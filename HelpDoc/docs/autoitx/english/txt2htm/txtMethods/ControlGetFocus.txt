@@ -1,0 +1,36 @@
+###Method###
+ControlGetFocus
+
+###Description###
+Returns the ControlRef# of the control that has keyboard focus within a specified window.
+
+###Syntax###
+ControlGetFocus "title" [, "text"]
+
+
+###Parameters###
+@@ParamTable@@
+title
+	Title of window to check.
+text
+	<b>Optional:</b> Text from window to check.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns ControlRef# of the control that has keyboard focus within a specified window.
+Failure:	Returns a blank string and sets oAutoIt.error to 1 if window is not found.
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+ControlFocus, ControlCommand, WinActive
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+a = oAutoIt.ControlGetFocus("Untitled - Notepad")

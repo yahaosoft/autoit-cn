@@ -1,0 +1,50 @@
+###User Defined Function###
+_WinAPI_RegRestoreKey
+
+###Description###
+Reads the registry information in a specified file and copies it over the specified key.
+
+###Syntax###
+#include <WinAPIReg.au3>
+_WinAPI_RegRestoreKey ( $hKey, $sFile )
+
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to an open registry key. This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey()
+	function. It can also be one of the following predefined keys.
+	$HKEY_CLASSES_ROOT
+	$HKEY_CURRENT_CONFIG
+	$HKEY_CURRENT_USER
+	$HKEY_LOCAL_MACHINE
+	$HKEY_USERS
+$sFile
+	The name of the file with the registry information. This file is typically created by
+	using the _WinAPI_RegSaveKey() function.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1.
+Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+
+###Remarks###
+The calling process must have $SE_RESTORE_NAME privilege, otherwise, the function fails, and _WinAPI_GetLastError()
+returns ERROR_PRIVILEGE_NOT_HELD (1314).
+
+If any subkeys of the specified registry key are open, the _WinAPI_RegRestoreKey() fails.
+
+
+###Related###
+_WinAPI_RegCreateKey, _WinAPI_RegOpenKey, _WinAPI_RegSaveKey
+
+
+###See Also###
+@@MsdnLink@@ RegRestoreKey
+
+
+###Example###
+@@IncludeExample@@

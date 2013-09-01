@@ -1,0 +1,49 @@
+###User Defined Function###
+_GDIPlus_PathGetData
+
+###Description###
+Gets an array of points and types from a path
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_PathGetData ( $hPath )
+
+
+###Parameters###
+@@ParamTable@@
+$hPath
+	Pointer to a GraphicsPath object
+@@End@@
+
+###ReturnValue###
+Success: Array of points and types that specifies the endpoints and control points of the lines and
+	bezier splines that are used to draw the path and the points types:
+	[0][0] - Number of points and types
+	[1][0] - Point 1 X position
+	[1][1] - Point 1 Y position
+	[1][2] - Point 1 type
+	[n][0] - Point n X position
+	[n][1] - Point n Y position
+	[1][2] - Point n type	Each point type is one of the following values:
+	0x00 - The point is the start of a figure
+	0x01 - The point is one of the two endpoints of a line
+	0x03 - The point is an endpoint or control point of a cubic bezier spline
+	0x20 - The point is a marker
+	0x80 - The point is the last point in a closed subpath (figure)
+Failure: -1
+
+
+###Remarks###
+None
+
+
+###Related###
+_GDIPlus_PathCreate2
+
+
+###See Also###
+@@MsdnLink@@ GdipGetPathData
+
+
+###Example###
+@@IncludeExample@@

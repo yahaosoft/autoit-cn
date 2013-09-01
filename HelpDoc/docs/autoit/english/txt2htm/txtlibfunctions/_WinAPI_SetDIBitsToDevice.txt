@@ -1,0 +1,60 @@
+###User Defined Function###
+_WinAPI_SetDIBitsToDevice
+
+###Description###
+Sets the pixels in the specified rectangle on the device.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_SetDIBitsToDevice ( $hDC, $iXDest, $iYDest, $iWidth, $iHeight, $iXSrc, $iYSrc, $iStartScan, $iScanLines, $tBITMAPINFO, $iUsage, $pBits )
+
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to a device context.
+$iXDest
+	The x-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+$iYDest
+	The y-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+$iWidth
+	The width, in logical units, of the image.
+$iHeight
+	The height, in logical units, of the image.
+$iXSrc
+	The x-coordinate, in logical units, of the lower-left corner of the image.
+$iYSrc
+	The y-coordinate, in logical units, of the lower-left corner of the image.
+$iStartScan
+	The starting scan line in the image.
+$iScanLines
+	The number of DIB scan lines.
+$tBITMAPINFO
+	$tagBITMAPINFO structure that contains information about the DIB.
+$iUsage
+	The type of colors used. (either logical palette indexes or literal RGB values). The following
+	values are defined.
+	$DIB_PAL_COLORS
+	$DIB_RGB_COLORS
+$pBits
+	A pointer to the color data stored as an array of bytes.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The number of scan lines set.
+	0 - Otherwise.
+Failure 	Sets the @error flag to non-zero (GDI_ERROR).
+@@End@@
+
+
+###Remarks###
+If the driver cannot support the JPEG or PNG file image passed to SetDIBitsToDevice,
+the function will fail and return GDI_ERROR.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ SetDIBitsToDevice

@@ -1,0 +1,38 @@
+###Function###
+UDPBind
+
+###Description###
+Create a socket bound to an incoming connection.
+
+###Syntax###
+UDPBind ( IPAddr, port )
+
+
+###Parameters###
+@@ParamTable@@
+IPAddr
+	Internet Protocol dotted address(IpV4) as "192.162.1.1".
+port
+	port on which the created socket will be bound.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an array : $aArray[1] contains the real socket, $aArray[2] contains the specified IP address and $aArray[3] contains the port. We need this information in subsequent calls to UDPSend(), where we pass this socket structure/array.
+Failure:	Set @error
+@error:	1 IPAddr is incorrect.
+	2 port  is incorrect.
+	windows API WSAGetError return value (see <a href="http://msdn.microsoft.com/en-us/library/ms740668.aspx">MSDN</a>).
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+UDPRecv, UDPOpen, UDPCloseSocket, UDPSend
+
+
+###Example###
+@@IncludeExample@@

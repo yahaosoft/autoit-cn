@@ -1,0 +1,40 @@
+###User Defined Function###
+_WinAPI_FileIconInit
+
+###Description###
+Initializes or reinitializes the system image list.
+
+###Syntax###
+#include <WinAPIRes.au3>
+_WinAPI_FileIconInit ( [$fRestore = 1] )
+
+
+###Parameters###
+@@ParamTable@@
+$fRestore
+	[optional] Specifies whether to restore the system image cache, valid values:
+	True     - Restore the system image cache from disk (Default).
+	False    - Don't restore.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1.
+Failure 	0 and sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+If you are using system image lists in your own process, you must call this function at application launch,
+and in response to a WM_SETTINGCHANGE message when the $SPI_SETNONCLIENTMETRICS flag is set.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ FileIconInit
+
+
+###Example###
+@@IncludeExample@@

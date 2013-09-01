@@ -1,0 +1,40 @@
+###Method###
+WinGetPosHeight
+
+###Description###
+Retrieves the position and size of a given window.
+
+###Syntax###
+WinGetPosHeight "title" [, "text"]
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to read.
+text
+	<b>Optional:</b> The text of the window to read.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the height of the window.
+Failure:	Returns numeric 1 and sets oAutoIt.error to 1 if windows is not found.
+@@End@@
+
+
+###Remarks###
+WinGetPos returns negative numbers such as -32000 for minimized windows, but works fine with (non-minimized) hidden windows.
+If the window title "Program Manager" is used, the function will return the size of the desktop.  If multiple windows match the criteria, the most recently active window is used.
+
+
+###Related###
+WinGetClientSizeHeight, WinGetClientSizeWidth, WinMove
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+x = oAutoIt.WinGetPosX("")
+y = oAutoIt.WinGetPosY("")
+width = oAutoIt.WinGetPosWidth("")
+height = oAutoIt.WinGetPosHeight("")

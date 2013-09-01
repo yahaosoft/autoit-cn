@@ -1,0 +1,45 @@
+###User Defined Function###
+_WinAPI_ShellNotifyIconGetRect
+
+###Description###
+Gets the screen coordinates of the bounding rectangle of a notification icon.
+
+###Syntax###
+#include <WinAPIShellEx.au3>
+_WinAPI_ShellNotifyIconGetRect ( $hWnd, $ID [, $tGUID = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the parent window used by the notification's callback function. For more information,
+	see the "hWnd" member of the $tagNOTIFYICONDATA structure.
+$ID
+	Application-defined identifier of the notification icon. Multiple icons can be associated with a single
+	$hWnd, each with their own $ID.
+$tGUID
+	[optional] $tagGUID structure that identifies the icon.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	$tagRECT structure that contains the coordinates of the icon.
+Failure 	Sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+@@End@@
+
+
+###Remarks###
+The icon can be identified through $hWnd plus $ID, or $tGUID alone (recommended).
+
+This function requires Windows 7 or later.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ Shell_NotifyIconGetRect
+
+
+###Example###
+@@IncludeExample@@

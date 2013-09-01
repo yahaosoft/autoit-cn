@@ -1,0 +1,46 @@
+###User Defined Function###
+_GUICtrlRichEdit_StreamFromFile
+
+###Description###
+Sets text in a control from a file
+
+###Syntax###
+#include <GuiRichEdit.au3>
+_GUICtrlRichEdit_StreamFromFile ( $hWnd, $sFileSpec )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$sFileSpec
+	file specification
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and sets @error
+@error:	101 - $hWnd is not a handle
+	1021 - unable to open $sFileSpec
+	1022 - file is empty
+	700 - attempt to stream in too many characters
+@@End@@
+
+
+###Remarks###
+If text is selected, replaces selection, else replaces all text in the control
+
+Call _GUICtrlRichEdit_SetLimitOnText to increase the number of characters the control can contain
+
+
+###Related###
+_GUICtrlRichEdit_SetLimitOnText, _GUICtrlRichEdit_StreamFromVar, _GUICtrlRichEdit_StreamToFile
+
+
+###See Also###
+@@MsdnLink@@ EM_STREAMIN
+
+
+###Example###
+@@IncludeExample@@

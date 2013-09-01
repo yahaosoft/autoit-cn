@@ -1,0 +1,40 @@
+###User Defined Function###
+_FileReadToArray
+
+###Description###
+Reads the specified file into an array.
+
+###Syntax###
+#include <File.au3>
+_FileReadToArray ( $sFilePath, ByRef $aArray [, $iFlag = 1] )
+
+
+###Parameters###
+@@ParamTable@@
+$sFilePath
+	Path and filename of the file to be read.
+$aArray
+	The array to store the contents of the file.
+$iFlag
+	[optional] $iFlag = 0, disable the return count in the first element - effectively makes the array 0-based (must use <a href="../functions/UBound.htm">UBound()</a> to get the size of the array in this case).
+	$iFlag = 1, (default), return the array count in the first element.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	1
+Failure:	0 and set @error
+@error:	1 = Error opening specified file
+	2 = Unable to Split the file
+@@End@@
+
+
+###Remarks###
+
+
+###Related###
+_FileWriteFromArray
+
+
+###Example###
+@@IncludeExample@@

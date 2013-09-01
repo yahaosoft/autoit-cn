@@ -1,0 +1,59 @@
+###User Defined Function###
+_WinAPI_GetPwrCapabilities
+
+###Description###
+Retrieves information about the system power capabilities.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_GetPwrCapabilities (  )
+
+
+###Parameters###
+None
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The array that contains the following information:
+	[0] - If True, there is a system power button.
+	[1] - If True, there is a system sleep button.
+	[2] - If True, there is a lid switch.
+	[3] - If True, the operating system supports sleep state S1.
+	[4] - If True, the operating system supports sleep state S2.
+	[5] - If True, the operating system supports sleep state S3.
+	[6] - If True, the operating system supports sleep state S4 (hibernation).
+	[7] - If True, the operating system supports power off state S5 (soft off).
+	[8] - If True, the system hibernation file is present.
+	[9] - If True, the system supports wake capabilities.
+	[10] - If True, the system supports video display dimming capabilities.
+	[11] - If True, the system supports APM BIOS power management features.
+	[12] - If True, there is an uninterruptible power supply (UPS).
+	[13] - If True, the system supports thermal zones.
+	[14] - If True, the system supports processor throttling.
+	[15] - The minimum level of system processor throttling supported, expressed as a percentage.
+	[16] - The maximum level of system processor throttling supported, expressed as a percentage.
+	[17] - If True, the system supports the hybrid sleep state.
+	[18] - If True, the system supports allowing the removal of power to fixed disk devices.
+	[19] - If True, there are one or more batteries in the system.
+	[20] - If True, the system batteries are short-term. Short-term batteries are used in uninterruptible power supplies (UPS).
+	[21] - The lowest system sleep state (Sx) that will generate a wake event when the system is on AC power.
+	[22] - The lowest system sleep state (Sx) that will generate a wake event via the lid switch.
+	[23] - The lowest system sleep state (Sx) supported by hardware that will generate a wake event via the RTC.
+	[24] - The minimum allowable system power state supporting wake events.
+Failure 	Sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetPwrCapabilities
+
+
+###Example###
+@@IncludeExample@@

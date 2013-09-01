@@ -1,0 +1,70 @@
+###User Defined Function###
+_WinAPI_OpenFileById
+
+###Description###
+Opens the file that matches the specified object identifier.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_OpenFileById ( $hFile, $ID [, $iAccess = 0 [, $iShare = 0 [, $iFlags = 0]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hFile
+	The path or handle to any file on a volume or share on which the file to be opened is stored.
+$ID
+	The file identifier (FileID), or $tagGUID structure (ObjectID), or GUID's string representation in the
+	form "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}" that identifies the file to open.
+$iAccess
+	[optional] The access to the object. Access can be read, write, or both. If this parameter is 0 (Default), the
+	application can query file and device attributes without accessing a device.
+	$GENERIC_READ
+	$GENERIC_WRITE
+
+	(See MSDN for more information)
+$iShare
+	[optional] The sharing mode of an object, which can be read, write, both, or none. If this parameter is 0 (Default) and
+	function succeeds, the object cannot be shared and cannot be opened again until the handle is closed.
+	$FILE_SHARE_DELETE
+	$FILE_SHARE_READ
+	$FILE_SHARE_WRITE
+$iFlags
+	[optional] The file flags. When _WinAPI_OpenFileById() opens a file, it combines the file flags with existing
+	file attributes, and ignores any supplied file attributes. This parameter can include any
+	combination of the following values.
+	$FILE_FLAG_BACKUP_SEMANTICS
+	$FILE_FLAG_NO_BUFFERING
+	$FILE_FLAG_OPEN_NO_RECALL
+	$FILE_FLAG_OPEN_REPARSE_POINT
+	$FILE_FLAG_OVERLAPPED
+	$FILE_FLAG_RANDOM_ACCESS
+	$FILE_FLAG_SEQUENTIAL_SCAN
+	$FILE_FLAG_WRITE_THROUGH
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	Handle to a specified file.
+Failure 	0 and sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+When an application is finished using the object handle returned by this function, use the _WinAPI_CloseHandle()
+function to close the handle. This not only frees up system resources, but can have wider influence on things
+like sharing the file or device and committing data to disk.
+
+This function requires Windows Vista or later.
+
+
+###Related###
+_WinAPI_CloseHandle
+
+
+###See Also###
+@@MsdnLink@@ OpenFileById
+
+
+###Example###
+@@IncludeExample@@

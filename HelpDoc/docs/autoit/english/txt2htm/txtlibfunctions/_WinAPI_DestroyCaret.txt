@@ -1,0 +1,33 @@
+###User Defined Function###
+_WinAPI_DestroyCaret
+
+###Description###
+Destroys the caret's current shape, frees the caret from the window, and removes the caret from the screen.
+
+###Syntax###
+#include <WinAPIRes.au3>
+_WinAPI_DestroyCaret (  )
+
+
+###Parameters###
+None
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True.
+Failure 	False, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+_WinAPI_DestroyCaret() destroys the caret only if a window in the current task owns the caret. If a window that
+is not in the current task owns the caret, _WinAPI_DestroyCaret() does nothing and returns 0.
+
+The window should destroy the caret before losing the keyboard focus or becoming inactive.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ DestroyCaret

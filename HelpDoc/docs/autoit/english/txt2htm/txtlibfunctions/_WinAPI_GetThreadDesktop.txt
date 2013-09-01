@@ -1,0 +1,38 @@
+###User Defined Function###
+_WinAPI_GetThreadDesktop
+
+###Description###
+Retrieves a handle to the desktop assigned to the specified thread.
+
+###Syntax###
+#include <WinAPIProc.au3>
+_WinAPI_GetThreadDesktop ( $iThreadID )
+
+
+###Parameters###
+@@ParamTable@@
+$iThreadID
+	The thread identifier. The _WinAPI_CreateProcess() and _WinAPI_GetCurrentThreadId() return thread identifiers.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	Handle to the desktop associated with the specified thread.
+Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+You do not need to call the _WinAPI_CloseDesktop() function to close the returned handle.
+
+
+###Related###
+_WinAPI_CreateProcess, _WinAPI_GetCurrentThreadID
+
+
+###See Also###
+@@MsdnLink@@ GetThreadDesktop
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,47 @@
+###User Defined Function###
+_GDIPlus_PenCreate2
+
+###Description###
+Creates a Pen object that uses the attributes of a brush
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_PenCreate2 ( $hBrush [, $fWidth = 1 [, $iUnit = 2]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hBrush
+	Pointer to a brush object to base this pen on
+$fWidth
+	[optional] The width of the pen measured in the units specified in the $iUnit parameter
+$iUnit
+	[optional] Unit of measurement for the pen size:
+	0 - World coordinates, a nonphysical unit
+	1 - Display units
+	2 - A unit is 1 pixel
+	3 - A unit is 1 point or 1/72 inch
+	4 - A unit is 1 inch
+	5 - A unit is 1/300 inch
+	6 - A unit is 1 millimeter
+@@End@@
+
+###ReturnValue###
+Success: Pointer to a new Pen object
+Failure: 0
+
+
+###Remarks###
+After you are done with the object, call _GDIPlus_PenDispose to release the object resources
+
+
+###Related###
+_GDIPlus_PenDispose
+
+
+###See Also###
+@@MsdnLink@@ GdipCreatePen2
+
+
+###Example###
+@@IncludeExample@@

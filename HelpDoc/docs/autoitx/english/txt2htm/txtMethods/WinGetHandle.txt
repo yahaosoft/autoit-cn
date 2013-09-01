@@ -1,0 +1,37 @@
+###Method###
+WinGetHandle
+
+###Description###
+Retrieves the internal handle of a window.
+
+###Syntax###
+WinGetHandle "title" [, "text"]
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to read.
+text
+	<b>Optional:</b> The text of the window to read.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a string containing the window handle value.
+Failure:	Returns "" (blank string) and sets oAutoIt.error to 1 if no window matches the criteria.
+@@End@@
+
+
+###Remarks###
+This function is for use with the advanced WinTitleMatchMode options that allow you to use classnames and handles to specify windows rather than "title" and "text".
+Once you have obtained the handle you can access the required window even if its title changes.
+
+
+###Related###
+WinTitleMatchMode (Option)
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+handle = oAutoIt.WinGetHandle("[CLASS:Notepad]", "")

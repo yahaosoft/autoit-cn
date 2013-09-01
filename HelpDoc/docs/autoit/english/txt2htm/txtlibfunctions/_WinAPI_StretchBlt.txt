@@ -1,0 +1,73 @@
+###User Defined Function###
+_WinAPI_StretchBlt
+
+###Description###
+Copies a bitmap from a source rectangle into a destination rectangle, stretching or compressing the bitmap to fit the dimensions of the destination rectangle.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_StretchBlt ( $hDestDC, $iXDest, $iYDest, $iWidthDest, $iHeightDest, $hSrcDC, $iXSrc, $iYSrc, $iWidthSrc, $iHeightSrc, $iRop )
+
+
+###Parameters###
+@@ParamTable@@
+$hDestDC
+	Handle to the destination device context.
+$iXDest
+	The x-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+$iYDest
+	The y-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+$iWidthDest
+	The width, in logical units, of the destination rectangle.
+$iHeightDest
+	The height, in logical units, of the destination rectangle.
+$hSrcDC
+	Handle to the source device context.
+$iXSrc
+	The x-coordinate, in logical units, of the upper-left corner of the source rectangle.
+$iYSrc
+	The y-coordinate, in logical units, of the upper-left corner of the source rectangle.
+$iWidthSrc
+	The width, in logical units, of the source rectangle.
+$iHeightSrc
+	The height, in logical units, of the source rectangle.
+$iRop
+	The raster-operation code. These codes define how the color data for the source rectangle is
+	to be combined with the color data for the destination rectangle to achieve the final color.
+	This parameter must be 0 or one of the following values.
+	$BLACKNESS
+	$CAPTUREBLT
+	$DSTINVERT
+	$MERGECOPY
+	$MERGEPAINT
+	$NOMIRRORBITMAP
+	$NOTSRCCOPY
+	$NOTSRCERASE
+	$PATCOPY
+	$PATINVERT
+	$PATPAINT
+	$SRCAND
+	$SRCCOPY
+	$SRCERASE
+	$SRCINVERT
+	$SRCPAINT
+	$WHITENESS
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True
+Failure 	False
+@@End@@
+
+
+###Remarks###
+The system stretches or compresses the bitmap according to the stretching mode currently set in the
+destination device context.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ StretchBlt

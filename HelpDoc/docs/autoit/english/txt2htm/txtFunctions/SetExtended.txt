@@ -1,0 +1,35 @@
+###Function###
+SetExtended
+
+###Description###
+Manually set the value of the @extended macro.
+
+###Syntax###
+SetExtended ( code [, return value] )
+
+
+###Parameters###
+@@ParamTable@@
+code
+	The required value (integer) to set into the @extended macro.
+return value
+	[optional] The value to be returned by the function - if no parameter used the return value is undefined.
+@@End@@
+
+###ReturnValue###
+The return value parameter (undefined if the parameter is not used)
+@extended will be set to the values set in the function call (default = 0)
+
+
+###Remarks###
+When entering a function @extended is set to 0. Unless <a href="SetExtended.htm">SetExtended()</a> is called, then @extended will remain 0 when the function ends. This means that in order for @extended to be set after a function returns, it must be explicitly set in the function. This also means you may need to backup the status of @extended in a variable if you are testing it in a While-WEnd loop.
+
+@extended is limited between the values of -2147483647 to 2147483647.
+
+
+###Related###
+SetError
+
+
+###Example###
+@@IncludeExample@@

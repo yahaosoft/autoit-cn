@@ -1,0 +1,44 @@
+###User Defined Function###
+_GDIPlus_BitmapCreateFromMemory
+
+###Description###
+Loads an image (JPG, BMP, PNG, etc.) which is saved as a binary string and converts it to a bitmap (GDI+) or hbitmap (GDI)
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_BitmapCreateFromMemory ( $bImage [, $hHBITMAP = False] )
+
+
+###Parameters###
+@@ParamTable@@
+$bImage
+	Handle to an instance of a module whose executable file contains a bitmap resource
+$hHBITMAP
+	[optional] The resource name string or identifier
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	handle to bitmap (GDI+ bitmap format) or hbitmap (WinAPI bitmap format)
+Failure:	0 and sets the @error flag to the following values,
+@error:	1 - $bImage is not a binary string
+	2 - unable to create stream on HGlobal
+	3 - unable to create bitmap from stream
+	4 - unable to allocate moveable memory block
+	5 - unable to lock moveable memory block
+	6 - unable to unlock locked moveable memory block
+@@End@@
+
+###Remarks###
+After you are done with the object, call _GDIPlus_ImageDispose() to release the object resources
+
+###Related###
+_GDIPlus_BitmapCreateFromStream, _GDIPlus_BitmapDispose, _WinAPI_DeleteObject
+
+
+###See Also###
+@@MsdnLink@@ CreateDIBSection
+
+
+###Example###
+@@IncludeExample@@

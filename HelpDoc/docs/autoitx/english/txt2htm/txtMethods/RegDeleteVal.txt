@@ -1,0 +1,43 @@
+###Method###
+RegDeleteVal
+
+###Description###
+Deletes a value from the registry.
+
+###Syntax###
+RegDeleteVal "keyname", "valuename"
+
+
+###Parameters###
+@@ParamTable@@
+keyname
+	The registry key to write to.
+valuename
+	The value name to delete.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Special:	Returns 0 if the key/value does not exist.
+Failure:	Returns 2 if error deleting key/value.
+@@End@@
+
+
+###Remarks###
+A registry key must start with "HKEY_LOCAL_MACHINE" ("HKLM") or "HKEY_USERS" ("HKU") or "HKEY_CURRENT_USER" ("HKCU") or "HKEY_CLASSES_ROOT" ("HKCR") or "HKEY_CURRENT_CONFIG" ("HKCC").
+
+To access the <b>(Default)</b> value use <b>""</b> (a blank string) for the valuename.
+
+Deleting from the registry is potentially dangerous--please exercise caution!
+
+It is possible to access remote registries by using a keyname in the form "\\computername\keyname".  To use this feature you must have the correct access rights on XP/2003.
+
+
+###Related###
+RegDeleteKey, RegRead, RegWrite
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oAutoIt.RegDeleteVal "HKEY_LOCAL_MACHINE\SOFTWARE", "TestValue"

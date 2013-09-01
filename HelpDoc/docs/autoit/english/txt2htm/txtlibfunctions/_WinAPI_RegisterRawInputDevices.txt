@@ -1,0 +1,43 @@
+###User Defined Function###
+_WinAPI_RegisterRawInputDevices
+
+###Description###
+Registers the devices that supply the raw input data.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_RegisterRawInputDevices ( $pDevice [, $iCount = 1] )
+
+
+###Parameters###
+@@ParamTable@@
+$pDevice
+	A pointer to an array of $tagRAWINPUTDEVICE structures that represent the devices that supply the raw input.
+$iCount
+	[optional] The number of entries in the array. Default is 1.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True.
+Failure 	False, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+To receive WM_INPUT messages, an application must first register the raw input devices using the
+_WinAPI_RegisterRawInputDevices() function.
+
+To receive WM_INPUT_DEVICE_CHANGE messages, an application must specify the $RIDEV_DEVNOTIFY flag for each device
+class that is specified by the "UsagePage" and "Usage" fields of the $tagRAWINPUTDEVICE structure.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ RegisterRawInputDevices
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,38 @@
+###User Defined Function###
+_Word_DocSave
+
+###Description###
+Saves the specified Word document.
+
+###Syntax###
+#include <Word.au3>
+_Word_DocSave ( $oDoc )
+
+
+###Parameters###
+@@ParamTable@@
+$oDoc
+	Word document object
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1
+Failure:	Returns 0 and sets @error
+@error:	1 - $oDoc is not an object
+	2 - The specified document has not been saved before, please use _Word_DocSaveAs() first
+	3 - Error occurred when saving the specified document. @extended is set to the COM error code
+@@End@@
+
+
+###Remarks###
+If the document hasn't been saved before or has been opened read-only, the Save As dialog box prompts the user
+for a file name.
+
+
+###Related###
+_Word_DocSaveAs
+
+
+###Example###
+@@IncludeExample@@

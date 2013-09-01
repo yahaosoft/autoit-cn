@@ -1,0 +1,40 @@
+###User Defined Function###
+_WinAPI_LockFile
+
+###Description###
+Locks the specified file for exclusive access by the calling process.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_LockFile ( $hFile, $iOffset, $iLength )
+
+
+###Parameters###
+@@ParamTable@@
+$hFile
+	Handle to the file.
+$iOffset
+	The starting byte offset in the file where the lock should begin.
+$iLength
+	The length of the byte range to be locked.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True.
+Failure 	False, call _WinAPI_GetLastError() to get extended error information
+@@End@@
+
+
+###Remarks###
+If a process terminates with a portion of a file locked or closes a file that has outstanding locks, the locks are
+unlocked by the operating system. However, the time it takes for the operating system to unlock these locks depends
+upon available system resources. Therefore, it is recommended that your process explicitly unlock all files it
+has locked when it terminates.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ LockFile

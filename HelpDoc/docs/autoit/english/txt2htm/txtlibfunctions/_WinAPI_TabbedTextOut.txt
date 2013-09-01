@@ -1,0 +1,65 @@
+###User Defined Function###
+_WinAPI_TabbedTextOut
+
+###Description###
+Writes a character string at a specified location and expanding tabs to the specified tab-stop positions.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_TabbedTextOut ( $hDC, $iX, $iY, $sText [, $aTab = 0 [, $iStart = 0 [, $iEnd = -1 [, $iOrigin = 0]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	A handle to the device context.
+$iX
+	The x-coordinate of the starting point of the string, in logical units.
+$iY
+	The y-coordinate of the starting point of the string, in logical units.
+$sText
+	The character string to draw.
+$aTab
+	[optional] The array containing the tab-stop positions, in logical units. The tab stops must be sorted in increasing
+	order; the smallest x-value should be the first item in the array. Also, it can be an integer value that is
+	one tab-stop position. In this case, the tab stops are separated by the distance specified by this value.
+	If this parameter is 0, tabs are expanded to eight times the average character width.
+$iStart
+	[optional] The index of array element that contains the first tab-stop position.
+$iEnd
+	[optional] The index of array element that contains the last tab-stop position.
+$iOrigin
+	[optional] The x-coordinate of the starting position from which tabs are expanded, in logical units. This allows
+	an application to call the function several times for a single line. If the application calls the function
+	more than once with the starting position set to the same value each time, the function expands
+	all tabs relative to the position specified by this parameter.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1.
+Failure 	0.
+@@End@@
+
+
+###Remarks###
+The string is written in the currently selected font, background color, and text color.
+
+By default, the current position is not used or updated by this function. If an application needs to update the
+current position when it calls the function, the application can call _WinAPI_SetTextAlign() with the $TA_UPDATECP
+flag set. Then the system ignores the X and Y parameters on subsequent calls to the _WinAPI_TabbedTextOut()
+function, using the current position instead.
+
+Call _WinAPI_GetExtended() to retrieve a $tagSIZE structure containing the dimensions of the string.
+
+
+###Related###
+_WinAPI_GetExtended
+
+
+###See Also###
+@@MsdnLink@@ TabbedTextOut
+
+
+###Example###
+@@IncludeExample@@

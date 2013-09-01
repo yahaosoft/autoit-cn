@@ -1,0 +1,47 @@
+###Method###
+PixelSearch
+
+###Description###
+Searches a rectangle of pixels for the pixel color provided.
+
+###Syntax###
+PixelSearch left, top, right, bottom, color [, shade-variation] [, step]]
+
+
+###Parameters###
+@@ParamTable@@
+left
+	left coordinate of rectangle.
+top
+	top coordinate of rectangle.
+right
+	right coordinate of rectangle.
+bottom
+	bottom coordinate of rectangle.
+color
+	color value of pixel to find (in decimal or hex).
+shade-variation
+	<b>Optional:</b> A number between 0 and 255 to indicate the allowed number of shades of variation of the red, green, and blue components of the color. Default is 0 (exact match).
+step
+	<b>Optional:</b> Instead of searching each pixel use a value larger than 1 to skip pixels (for speed).  E.g. A value of 2 will only check every other pixel.  Default is 1.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a 2 element array containing the pixel's coordinates
+Failure:	Sets oAutoIt.error to 1 if color is not found.
+@@End@@
+
+
+###Remarks###
+The search is performed top-to-bottom, left-to-right, and the first match is returned.
+
+Performing a search of a region can be time consuming, so use the smallest region you are able to reduce CPU load.
+
+
+###Related###
+PixelChecksum, PixelGetColor, PixelCoordMode (Option)
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,57 @@
+###User Defined Function###
+_WinAPI_BeginBufferedPaint
+
+###Description###
+Begins a buffered paint operation.
+
+###Syntax###
+#include <WinAPITheme.au3>
+_WinAPI_BeginBufferedPaint ( $hDC, $tTarget, ByRef $hNewDC [, $iFormat = 0 [, $iFlags = 0 [, $tExclude = 0 [, $iAlpha = -1]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle of the target DC on which the buffer will be painted.
+$tTarget
+	$tagRECT structure that specifies the area of the target DC in which to paint.
+$hNewDC
+	Handle of the new device context.
+$iFormat
+	[optional] The format of the buffer. This parameter can be one of the following values.
+	$BPBF_COMPATIBLEBITMAP (Default)
+	$BPBF_DIB
+	$BPBF_TOPDOWNDIB
+	$BPBF_TOPDOWNMONODIB
+$iFlags
+	[optional] The additional flags, one or more of the following values.
+	$BPPF_ERASE
+	$BPPF_NOCLIP
+	$BPPF_NONCLIENT
+$tExclude
+	[optional] $tagRECT structure that specifies the area which is excluded from the clipping region.
+$iAlpha
+	[optional] The alpha transparency value to be used on the entire source bitmap. If this parameter is not
+	specified or (-1) (Default), the source buffer is copied to the destination with no blending.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The handle to the buffered paint context.
+Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+This function requires Windows Vista or later.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ BeginBufferedPaint
+
+
+###Example###
+@@IncludeExample@@

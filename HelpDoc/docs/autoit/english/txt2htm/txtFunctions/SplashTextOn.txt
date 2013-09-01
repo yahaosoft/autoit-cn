@@ -1,0 +1,83 @@
+###Function###
+SplashTextOn
+
+###Description###
+Creates a customizable text popup window.
+
+###Syntax###
+SplashTextOn ( "title", "text" [, w = 500 [, h = 400 [, x pos [, y pos [, opt = 0 [, "fontname" [, fontsz = 12 [, fontwt]]]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	Title for splash window.
+text
+	Text for splash window.
+w
+	[optional] Width of window in pixels. (default 500)
+h
+	[optional] Height of window in pixels. (default 400)
+x pos
+	[optional] Position from left (in pixels) of splash window. (default is centered)
+y pos
+	[optional] Position from top (in pixels) of splash window. (default is centered)
+opt
+	[optional] Add them up - default is 'center justified/always on top/with title'
+	0 = Center justified/always on top/with title (default)
+	$DLG_NOTITLE (1) = Thin bordered titleless window
+	$DLG_NOTONTOP (2) = Without "always on top" attribute
+	$DLG_TEXTLEFT (4) = Left justified text
+	$DLG_TEXTRIGHT (8) = Right justified text
+	$DLG_MOVEABLE (16) = Windows can be moved
+	$DLG_TEXTVCENTER (32) = Center text vertically
+	Constants are defined in Constants.au3
+fontname
+	[optional] Name of the font to use. (OS default GUI font is used if the font is "" or is not found)
+fontsz
+	[optional] Font size. (default is 12; standard sizes are 6 8 9 10 11 12 14 16 18 20 22 24 26 28 36 48 72)
+fontwt
+	[optional] The weight of the font in the range 0 through 1000. For example, 400 is normal and 700 is bold. If this value is zero, a default weight is used.
+	The following values are defined for convenience.
+	$FW_DONTCARE = 0 (Use the default font weight)
+	$FW_THIN = 100
+	$FW_EXTRALIGHT = 200
+	$FW_LIGHT = 300
+	$FW_NORMAL = 400
+	$FW_MEDIUM = 500
+	$FW_SEMIBOLD = 600
+	$FW_BOLD = 700
+	$FW_EXTRABOLD = 800
+	$FW_HEAVY = 900
+	Constants are defined in FontConstants.au3
+@@End@@
+
+###ReturnValue###
+Return the Handle of the splash window that can be used in ControlSetText.
+
+
+###Remarks###
+To skip an optional parameter, leaving its default value intact, use:
+	"" for string parameters
+	-1 for numeric parameters
+
+Only one SplashImage/Text window is allowed at one time; so if you wish to cycle through multiple images/text, simply call <a href="SplashImageOn.htm">SplashImageOn()</a>/<a href="SplashTextOn.htm">SplashTextOn()</a> again with the new information.
+
+Even better is to use <a href="ControlSetText.htm">ControlSetText()</a> to update text without flicker...
+If the text is center and multiline, the <a href="ControlSetText.htm">ControlSetText()</a> will not override the number of lines created by the <a href="SplashTextOn.htm">SplashTextOn()</a>.
+
+Splash with opt=1 cannot be moved and cannot be activated  by click.
+
+Standard font names include:
+	Arial, Comic Sans MS, Courier New, Lucida Console, Microsoft Sans Serif, System, Tahoma, Times New Roman, and WingDings
+See Appendix for a complete font list
+
+Use @LF to display several lines.
+
+
+###Related###
+SplashOff, SplashImageOn, ControlSetText, ToolTip, MsgBox
+
+
+###Example###
+@@IncludeExample@@

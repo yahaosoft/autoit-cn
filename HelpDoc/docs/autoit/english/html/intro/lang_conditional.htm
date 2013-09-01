@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Language Reference - Conditional Statements</title>
+  <meta charset="ISO-8859-1">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h1>Language Reference - Conditional Statements</h1>
+  <p>You will often want to change the flow of your script based on a <em>condition</em> or series of conditions. Is one number bigger than another? Or, does a string contain a certain value?</p>
+  <p>Conditions are evaluated as <strong>True</strong> (non-zero) or <strong>False</strong> (zero). Conditions generally use comparison <a href="lang_operators.htm">operators</a> like <strong>==</strong>, <strong>&lt;&gt;</strong>,
+  <strong>&gt;=</strong>.</p>
+  <p>&nbsp;</p>
+  <p>The following conditional statements are available in AutoIt:</p>
+  <ul>
+    <li><a href="../keywords/IfElseEndIf.htm">If...Then...Else</a></li>
+    <li><a href="../keywords/Select.htm">Select...Case</a></li>
+    <li><a href="../keywords/Switch.htm">Switch...Case</a></li>
+    <li><a href="../keywords/Ternary.htm">Ternary</a></li>
+  </ul>
+  <p>All three statements are similar and decide which code to execute depending on the condition(s) given. Here is an example of an <a href="../keywords/IfElseEndIf.htm">If</a> statement that pops up a <a href="../functions/MsgBox.htm">message box</a>
+  depending on the value of a variable.</p>
+  <p class="codebox"><span><span class="S11">#include</span> <span class="S7">&lt;Constants.au3&gt;</span><br>
+  <br>
+  <span class="S5">Local</span> <span class="S9">$iNumber</span> <span class="S8">=</span> <span class="S8">-</span><span class="S3">20</span><br>
+  <br>
+  <span class="S5">If</span> <span class="S9">$iNumber</span> <span class="S8">&gt;</span> <span class="S3">0</span> <span class="S5">Then</span><br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">MsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Example"</span><span class="S8">,</span> <span class=
+  "S7">"$iNumber was positive!"</span><span class="S8">)</span><br>
+  <span class="S5">ElseIf</span> <span class="S9">$iNumber</span> <span class="S8">&lt;</span> <span class="S3">0</span> <span class="S5">Then</span><br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">MsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Example"</span><span class="S8">,</span> <span class=
+  "S7">"$iNumber was negative!"</span><span class="S8">)</span><br>
+  <span class="S5">Else</span><br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">MsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Example"</span><span class="S8">,</span> <span class=
+  "S7">"$iNumber was zero."</span><span class="S8">)</span><br>
+  <span class="S5">EndIf</span></span></p>
+  <p>&nbsp;</p>
+  <p>A <a href="../keywords/Select.htm">Select</a> statement is very similar, but is generally used for situations where you want to test a large number of conditions as it is generally easier to read than a large If/ElseIf type block.&nbsp; e.g.</p>
+  <p class="codebox"><span><span class="S11">#include</span> <span class="S7">&lt;Constants.au3&gt;</span><br>
+  <br>
+  <span class="S5">Local</span> <span class="S9">$iNumber</span> <span class="S8">=</span> <span class="S3">30</span><br>
+  <br>
+  <span class="S5">Select</span><br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">Case</span> <span class="S9">$iNumber</span> <span class="S8">&gt;</span> <span class="S3">1</span> <span class="S5">And</span> <span class="S9">$iNumber</span> <span class=
+  "S8">&lt;=</span> <span class="S3">10</span><br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">MsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Example"</span><span class="S8">,</span>
+  <span class="S7">"$iNumber was greater than 1"</span><span class="S8">)</span><br>
+  <br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">Case</span> <span class="S9">$iNumber</span> <span class="S8">&gt;</span> <span class="S3">10</span> <span class="S5">And</span> <span class="S9">$iNumber</span> <span class=
+  "S8">&lt;=</span> <span class="S3">20</span><br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">MsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Example"</span><span class="S8">,</span>
+  <span class="S7">"$iNumber was greater than 10"</span><span class="S8">)</span><br>
+  <br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">Case</span> <span class="S9">$iNumber</span> <span class="S8">&gt;</span> <span class="S3">20</span> <span class="S5">And</span> <span class="S9">$iNumber</span> <span class=
+  "S8">&lt;=</span> <span class="S3">30</span><br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">MsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Example"</span><span class="S8">,</span>
+  <span class="S7">"$iNumber was greater than 20"</span><span class="S8">)</span><br>
+  <br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">Case</span> <span class="S9">$iNumber</span> <span class="S8">&gt;</span> <span class="S3">30</span> <span class="S5">And</span> <span class="S9">$iNumber</span> <span class=
+  "S8">&lt;=</span> <span class="S3">40</span><br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">MsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Example"</span><span class="S8">,</span>
+  <span class="S7">"$iNumber was greater than 30"</span><span class="S8">)</span><br>
+  <br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">Case</span> <span class="S9">$iNumber</span> <span class="S8">&gt;</span> <span class="S3">40</span><br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">MsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Example"</span><span class="S8">,</span>
+  <span class="S7">"$iNumber was greater than 40"</span><span class="S8">)</span><br>
+  <span class="S5">EndSelect</span></span></p>
+  <p>&nbsp;</p>
+  <p>A <a href="../keywords/Switch.htm">Switch</a> statement is very similar to Select statement, but is generally used for situations where the same expression is tested against some different possible values.</p>
+  <p class="codebox"><span><span class="S11">#include</span> <span class="S7">&lt;Constants.au3&gt;</span><br>
+  <br>
+  <span class="S5">Local</span> <span class="S9">$iNumber</span> <span class="S8">=</span> <span class="S3">30</span><br>
+  <br>
+  <span class="S5">Switch</span> <span class="S4">Int</span><span class="S8">(</span><span class="S9">$iNumber</span><span class="S8">)</span><br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">Case</span> <span class="S3">1</span> <span class="S5">To</span> <span class="S3">10</span><br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">MsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Example"</span><span class="S8">,</span>
+  <span class="S7">"$iNumber was greater than 1"</span><span class="S8">)</span><br>
+  <br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">Case</span> <span class="S3">11</span> <span class="S5">To</span> <span class="S3">20</span><br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">MsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Example"</span><span class="S8">,</span>
+  <span class="S7">"$iNumber was greater than 10"</span><span class="S8">)</span><br>
+  <br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">Case</span> <span class="S3">21</span> <span class="S5">To</span> <span class="S3">30</span><br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">MsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Example"</span><span class="S8">,</span>
+  <span class="S7">"$iNumber was greater than 20"</span><span class="S8">)</span><br>
+  <br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">Case</span> <span class="S3">31</span> <span class="S5">To</span> <span class="S3">40</span><br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">MsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Example"</span><span class="S8">,</span>
+  <span class="S7">"$iNumber was greater than 30"</span><span class="S8">)</span><br>
+  <br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">Case</span> <span class="S5">Else</span><br>
+  <span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S4">MsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Example"</span><span class="S8">,</span>
+  <span class="S7">"$iNumber was greater than 40 or less or equal to 0"</span><span class="S8">)</span><br>
+  <br>
+  <span class="S5">EndSwitch</span></span></p>
+  <p>With each of these structures, the first condition that is true controls which group of statements get executed. All subsequent conditions and their associated statements get ignored.</p>
+  <p>&nbsp;</p>
+  <p>A <a href="../keywords/Ternary.htm">Ternary</a> statement can be used when there is a simple binary choice to be made it avoids the overhead of the structures associated with the other conditional statements.</p>
+  <p class="codebox"><span><span class="S11">#include</span> <span class="S7">&lt;Constants.au3&gt;</span><br>
+  <br>
+  <span class="S4">MsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Result: 1=1"</span><span class="S8">,</span> <span class="S8">(</span><span class="S3">1</span> <span class=
+  "S8">=</span> <span class="S3">1</span><span class="S8">)</span> <span class="S8">?</span> <span class="S7">"True!"</span> <span class="S8">:</span> <span class="S7">"False!"</span><span class="S8">)</span><br>
+  <span class="S4">MsgBox</span><span class="S8">(</span><span class="S9">$MB_SYSTEMMODAL</span><span class="S8">,</span> <span class="S7">"Result: 1=2"</span><span class="S8">,</span> <span class="S8">(</span><span class="S3">1</span> <span class=
+  "S8">=</span> <span class="S3">2</span><span class="S8">)</span> <span class="S8">?</span> <span class="S7">"True!"</span> <span class="S8">:</span> <span class="S7">"False!"</span><span class="S8">)</span></span></p>
+</body>
+</html>

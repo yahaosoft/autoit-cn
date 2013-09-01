@@ -1,0 +1,48 @@
+###User Defined Function###
+_ArrayDisplay
+
+###Description###
+Displays given 1D or 2D array array in a listview.
+
+###Syntax###
+#include <Array.au3>
+_ArrayDisplay ( Const ByRef $avArray [, $sTitle = "Array: ListView Display" [, $iItemLimit = -1 [, $iTranspose = 0 [, $sSeparator = "" [, $sReplace = "|" [, $sHeader = ""]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$avArray
+	Array to display
+$sTitle
+	[optional] Title to use for window
+$iItemLimit
+	[optional] Maximum number of listview items (rows) to show
+$iTranspose
+	[optional] If set differently than default, will transpose the array if 2D
+$sSeparator
+	[optional] Change Opt("GUIDataSeparatorChar") on-the-fly
+$sReplace
+	[optional] String to replace any occurrence of $sSeparator with in each array element
+$sHeader
+	[optional] Header column names (column headers separated by "|")
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	1
+Failure:	0 and sets @error
+@error:	1 - $avArray is not an array
+	2 - $avArray has too many dimensions (only up to 2D supported)
+@@End@@
+
+
+###Remarks###
+The maximum number of items that can be displayed using _ArrayDisplay() is 65530.
+This due to the limitation with the number of controls that can be displayed in a GUI box.
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

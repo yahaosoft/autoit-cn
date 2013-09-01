@@ -1,0 +1,52 @@
+###Structure Name###
+$tagMCHITTESTINFO
+
+###Description###
+Carries information specific to hit-testing points for a month calendar control
+
+###Syntax###
+Global Const $tagMCHITTESTINFO = "uint Size;" & $tagPOINT & ";uint Hit;" & $tagSYSTEMTIME & _
+	";" & $tagRECT & ";int iOffset;int iRow;int iCol"
+
+
+###Fields###
+@@ParamTable@@
+Size
+	Size of this structure, in bytes
+$tagPOINT
+	X,Y position of the point to be hit tested
+Hit
+	Results of the hit test operation. This value will be one of the following:
+	$MCHT_CALENDARBK - The given point was in the calendar's background
+	$MCHT_CALENDARDATE - The given point was on a particular date within the calendar
+	$MCHT_CALENDARDATENEXT - The given point was over a date from the next month
+	$MCHT_CALENDARDATEPREV - The given point was over a date from the previous month
+	$MCHT_CALENDARDAY - The given point was over a day abbreviation
+	$MCHT_CALENDARWEEKNUM - The given point was over a week number
+	$MCHT_NOWHERE - The given point was not on the month calendar control
+	$MCHT_TITLEBK - The given point was over the background of a month's title
+	$MCHT_TITLEBTNNEXT - The given point was over the button at the top right corner
+	$MCHT_TITLEBTNPREV - The given point was over the button at the top left corner
+	$MCHT_TITLEMONTH - The given point was in a month's title bar, over a month name
+	$MCHT_TITLEYEAR - The given point was in a month's title bar, over the year value
+$tagSYSTEMTIME
+	Year
+	Month
+	DOW
+	Day
+	Hour
+	Minute
+	Seconds
+	MSeconds
+$tagRECT
+	The RECT of the hit-tested location.
+iOffset
+	When displaying more than one calendar, this is the offset of the calendar at the hit-tested point (zero-based).
+iRow
+	The row number for the calendar grid that the given hit point was over. Example: If you hit-tested the 8th of a month, which is in the second week of the month, iRow will be one since the index of the row is zero-based row index.
+iCol
+	The column number for the calendar grid that the given point was over. For example, if your week starts on Sunday and the 1st of the month is Friday, hit testing the 1st will return five (5) for iCol, since Friday is in the fifth column from the beginning of the row, using a zero-based column index.
+@@End@@
+
+###Remarks###
+None.

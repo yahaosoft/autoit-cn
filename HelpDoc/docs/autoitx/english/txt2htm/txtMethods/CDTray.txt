@@ -1,0 +1,39 @@
+###Method###
+CDTray
+
+###Description###
+Opens or closes the CD tray.
+
+###Syntax###
+CDTray "drive", "status"
+
+
+###Parameters###
+@@ParamTable@@
+drive
+	The drive letter of the CD tray to control, in the format <b>D:</b>, <b>E:</b>, etc.
+status
+	Specifies if you want the CD tray to be open or closed: <b>"open"</b> or <b>"closed"</b>
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 if drive is locked via CD burning software or if the drive letter is not a CD drive.
+@@End@@
+
+
+###Remarks###
+CDTray works as expected with virtual CD drives such as DAEMON Tools.
+CDTray does not work on non-local/mapped CD drives; CDTray must be run from the computer whose drive it affects.
+CDTray("X:", "close") tends to return 0 even on laptop-style cd trays that can only be closed manually.
+
+
+###Related###
+None.
+
+
+###Example###
+' Open the CD tray on drive E:
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oAutoIt.CDTray "E:", "open"

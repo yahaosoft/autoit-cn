@@ -1,0 +1,38 @@
+###User Defined Function###
+_WinAPI_GetApplicationRestartSettings
+
+###Description###
+Retrieves the restart information registered for the specified process.
+
+###Syntax###
+#include <WinAPIDiag.au3>
+_WinAPI_GetApplicationRestartSettings ( [$PID = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$PID
+	[optional] The PID of the process. Default (0) is the current process.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The array that contains the following information:
+	[0] - The restart command line.
+	[1] - The flags.
+Failure 	Sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+@@End@@
+
+
+###Remarks###
+This information is available only for the current process; you cannot call _WinAPI_GetApplicationRestartSettings()
+function after your program is restarted to get the restart command line.
+
+This function requires Windows Vista or later.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetApplicationRestartSettings

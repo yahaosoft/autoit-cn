@@ -1,0 +1,40 @@
+###User Defined Function###
+_SQLite_Escape
+
+###Description###
+Escapes a string or number for use as TEXT in SQLite statements
+
+###Syntax###
+#include <SQLite.au3>
+_SQLite_Escape ( $sString )
+
+
+###Parameters###
+@@ParamTable@@
+$sString
+	string to escape
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns escaped string
+Failure:	Returns empty string and sets @error
+@error:	1 - Error Calling SQLite API 'sqlite3_mprintf'
+	2 - Error converting string to UTF-8
+	3 - Error reading escaped string
+@@End@@
+
+
+###Remarks###
+The escaped string is already wrapped with single quotes.
+For example "It's a fine day" is turned into "'It''s a fine day'".
+For binary data use _SQLite_Encode().
+For numeric value to be stored as such, use simple concatenation.
+
+
+###Related###
+_SQLite_Encode
+
+
+###Example###
+@@IncludeExample@@

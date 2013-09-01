@@ -1,0 +1,42 @@
+###User Defined Function###
+_WinAPI_GetDiskFreeSpaceEx
+
+###Description###
+Retrieves information about the amount of space that is available on a disk volume.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_GetDiskFreeSpaceEx ( $sDrive )
+
+
+###Parameters###
+@@ParamTable@@
+$sDrive
+	The drive to retrieve information, in the format D:, E:, etc.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The array containing the following information:
+	[0] - The total number of available free bytes on a disk. If per-user quotas are being used, this value
+	may be less than the total number of free bytes on a disk.
+	[1] - The total number of available bytes on a disk. If per-user quotas are being used, this value
+	may be less than the total number of bytes on a disk.
+	[2] - The total number of free bytes on a disk.
+Failure 	Sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetDiskFreeSpaceEx
+
+
+###Example###
+@@IncludeExample@@

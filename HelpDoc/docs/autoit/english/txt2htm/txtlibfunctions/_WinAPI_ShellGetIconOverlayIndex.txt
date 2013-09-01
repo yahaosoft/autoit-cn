@@ -1,0 +1,43 @@
+###User Defined Function###
+_WinAPI_ShellGetIconOverlayIndex
+
+###Description###
+Retrieves the index of the overlay icon in the system image list.
+
+###Syntax###
+#include <WinAPIShellEx.au3>
+_WinAPI_ShellGetIconOverlayIndex ( $sIcon, $iIndex )
+
+
+###Parameters###
+@@ParamTable@@
+$sIcon
+	The fully qualified path of the file that contains the icon.
+$iIndex
+	The index of the icon. To request a standard overlay icon, set the path to an empty string,
+	and index to one of the following values.
+	$IDO_SHGIOI_LINK
+	$IDO_SHGIOI_SHARE
+	$IDO_SHGIOI_SLOWFILE
+
+	Windows 7 or later
+	$IDO_SHGIOI_DEFAULT
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The index of the overlay icon.
+Failure 	(-1).
+@@End@@
+
+
+###Remarks###
+To use this function, you must call _WinAPI_FileIconInit() at application launch.
+
+
+###Related###
+_WinAPI_FileIconInit
+
+
+###See Also###
+@@MsdnLink@@ SHGetIconOverlayIndex

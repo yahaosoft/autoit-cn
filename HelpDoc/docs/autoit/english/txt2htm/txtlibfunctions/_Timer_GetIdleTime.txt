@@ -1,0 +1,33 @@
+###User Defined Function###
+_Timer_GetIdleTime
+
+###Description###
+Returns the number of ticks since last user activity (i.e. KYBD/Mouse)
+
+###Syntax###
+#include <Timers.au3>
+_Timer_GetIdleTime (  )
+
+
+###Parameters###
+None.
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	integer ticks since last (approx. milliseconds) since last activity
+Failure:	Sets @extended = 1 if rollover occurs (see remarks)
+@@End@@
+
+
+###Remarks###
+The current ticks since last system restart will roll over to 0 every 50 days or so,
+which makes it possible for last user activity to be before the rollover, but run time
+of this function to be after the rollover. If this happens, @extended = 1 and the
+returned value is ticks since rollover occured.
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

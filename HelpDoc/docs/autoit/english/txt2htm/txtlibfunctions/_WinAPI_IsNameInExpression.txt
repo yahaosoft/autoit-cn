@@ -1,0 +1,42 @@
+###User Defined Function###
+_WinAPI_IsNameInExpression
+
+###Description###
+Determines whether a string matches the specified pattern.
+
+###Syntax###
+#include <WinAPIShPath.au3>
+_WinAPI_IsNameInExpression ( $sString, $sPattern [, $fCaseSensitive = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$sString
+	The string to be compared against the pattern. This string cannot contain wildcard characters.
+$sPattern
+	The pattern string. This string can contain wildcard characters.
+$fCaseSensitive
+	[optional] Specifies whether to treat the string as case sensitive when matching, valid values:
+	True  - The case-sensitive matching.
+	False - The case-insensitive matching (Default).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True - The string matches the specified pattern.
+Failure 	False.
+@@End@@
+
+
+###Remarks###
+If only one of the parameters is an empty string, the function returns 0 (False). This means that "*" does not
+match an empty string. If both parameters are empty strings, the function returns 1 (True).
+
+This function requires Windows 7 or later.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ RtlIsNameInExpression

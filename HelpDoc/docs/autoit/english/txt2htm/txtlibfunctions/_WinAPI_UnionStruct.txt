@@ -1,0 +1,38 @@
+###User Defined Function###
+_WinAPI_UnionStruct
+
+###Description###
+Creates the structure of two structures.
+
+###Syntax###
+#include <WinAPIMisc.au3>
+_WinAPI_UnionStruct ( $tStruct1, $tStruct2 [, $sStruct = ''] )
+
+
+###Parameters###
+@@ParamTable@@
+$tStruct1
+	The structure that contains the first source data.
+$tStruct2
+	The structure that contains the second source data.
+$sStruct
+	[optional] The string representing the final structure (same as for the DllStructCreate() function).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	"byte[n]" structure that contains the union data of the $tStruct1 and $tStruct2.
+Failure 	Sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+Important, you have to take into account the alignments of the structures. For example, "byte" & "dword" is
+not equivalent to "byte;dword", but equivalent to "align 1;byte;dword".
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,46 @@
+###User Defined Function###
+_GUICtrlRichEdit_SetCharBkColor
+
+###Description###
+Sets the background color of selected text or, if none selected, sets the background color of text inserted at the insertion point
+
+###Syntax###
+#include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetCharBkColor ( $hWnd [, $iColor] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iColor
+	[optional] one of the following:
+	a number - a COLORREF value
+	Default keyword - the system color (default)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and set @error
+@error:	101 - $hWnd is not a handle
+	1021 - $vColor: not 2 semicolons
+	1022 - $vColor: value not 0 to 100
+	1023 - $vColor: invalid character
+@@End@@
+
+
+###Remarks###
+If you need to create a COLORREF value from an color array use _ColorSetCOLORREF() not _ColorSetRGB().
+
+
+###Related###
+_GUICtrlRichEdit_GetCharBkColor
+
+
+###See Also###
+@@MsdnLink@@ EM_SETCHARFORMAT
+
+
+###Example###
+@@IncludeExample@@

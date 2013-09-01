@@ -1,0 +1,38 @@
+###User Defined Function###
+_WinAPI_ShellExtractAssociatedIcon
+
+###Description###
+Returns a handle to the icon that associated with the specified file's.
+
+###Syntax###
+#include <WinAPIShellEx.au3>
+_WinAPI_ShellExtractAssociatedIcon ( $sFile [, $fSmall = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$sFile
+	The full path and file name of the file that contains the icon, or its extension, such as ".txt".
+$fSmall
+	[optional] Specifies whether to extract a small icon, valid values:
+	True   - Extract a small icon.
+	False  - Extract a large icon (Default).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The icon handle.
+Failure 	0 and sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+When you are finished using the icon, destroy it using the _WinAPI_DestroyIcon() function.
+
+
+###Related###
+_WinAPI_DestroyIcon
+
+
+###Example###
+@@IncludeExample@@

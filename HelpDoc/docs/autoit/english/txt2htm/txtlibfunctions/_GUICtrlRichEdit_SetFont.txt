@@ -1,0 +1,66 @@
+###User Defined Function###
+_GUICtrlRichEdit_SetFont
+
+###Description###
+Sets the font attributes of selected text or, if none selected, sets those of text inserted at the insertion point
+
+###Syntax###
+#include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetFont ( $hWnd [, $iPoints = Default [, $sName = Default [, $iCharset = Default [, $iLcid = Default]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iPoints
+	[optional] point size
+$sName
+	[optional] the name of the font face, e.g. "Courier" not "Courier Bold"
+$iCharSet
+	[optional] the character set - one of:
+	$ANSI_CHARSET - 0
+	$BALTIC_CHARSET - 186
+	$CHINESEBIG5_CHARSET - 136
+	$DEFAULT_CHARSET - 1
+	$EASTEUROPE_CHARSET - 238
+	$GB2312_CHARSET - 134
+	$GREEK_CHARSET - 161
+	$HANGEUL_CHARSET - 129
+	$MAC_CHARSET - 77
+	$OEM_CHARSET - 255
+	$RUSSIAN_CHARSET - 204
+	$SHIFTJIS_CHARSET - 128
+	$SYMBOL_CHARSET - 2
+	$TURKISH_CHARSET - 162
+	$VIETNAMESE_CHARSET - 163
+$iLcid
+	[optional] see http://www.microsoft.com/globaldev/reference/lcid-all.mspx
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and set @error
+@error:	101 - $hWnd is not a handle
+	102 - $iPoints is not a positive number
+	103 - $sName is not alphabetic
+	104 - $iCharSet is not a number
+	105 - $iLcid is not a number
+@@End@@
+
+
+###Remarks###
+If a parameter is omitted (or is Default), the value is unchanged
+
+
+###Related###
+_GUICtrlRichEdit_GetFont, _GUICtrlRichEdit_ChangeFontSize
+
+
+###See Also###
+@@MsdnLink@@ EM_SETCHARFORMAT, @@MsdnLink@@ LOGFONT, http://www.hep.wisc.edu/~pinghc/books/apirefeng/l/logfont.html
+
+
+###Example###
+@@IncludeExample@@

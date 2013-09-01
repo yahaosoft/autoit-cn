@@ -1,0 +1,44 @@
+###User Defined Function###
+_WinAPI_ShowCaret
+
+###Description###
+Makes the caret visible on the screen at the caret's current position.
+
+###Syntax###
+#include <WinAPIRes.au3>
+_WinAPI_ShowCaret ( $hWnd )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window that owns the caret. If this parameter is 0, _WinAPI_ShowCaret() searches the
+	current task for the window that owns the caret.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True
+Failure 	False
+@@End@@
+
+
+###Remarks###
+_WinAPI_ShowCaret() shows the caret only if the specified window owns the caret, the caret has a shape,
+and the caret has not been hidden two or more times in a row. If one or more of these conditions is not met,
+_WinAPI_ShowCaret() does nothing and returns 0.
+
+Hiding is cumulative. If your application calls _WinAPI_HideCaret() five times in a row, it must also call
+_WinAPI_ShowCaret() five times before the caret reappears.
+
+
+###Related###
+_WinAPI_HideCaret
+
+
+###See Also###
+@@MsdnLink@@ ShowCaret
+
+
+###Example###
+@@IncludeExample@@

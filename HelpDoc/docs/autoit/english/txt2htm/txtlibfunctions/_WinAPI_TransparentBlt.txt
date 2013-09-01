@@ -1,0 +1,63 @@
+###User Defined Function###
+_WinAPI_TransparentBlt
+
+###Description###
+Performs a bit-block transfer of the color data corresponding to a rectangle of pixels.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_TransparentBlt ( $hDestDC, $iXDest, $iYDest, $iWidthDest, $iHeightDest, $hSrcDC, $iXSrc, $iYSrc, $iWidthSrc, $iHeightSrc, $iRGB )
+
+
+###Parameters###
+@@ParamTable@@
+$hDestDC
+	Handle to the destination device context.
+$iXDest
+	The x-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+$iYDest
+	The y-coordinate, in logical units, of the upper-left corner of the destination rectangle.
+$iWidthDest
+	The width, in logical units, of the destination rectangle.
+$iHeightDest
+	The height, in logical units, of the destination rectangle.
+$hSrcDC
+	Handle to the source device context.
+$iXSrc
+	The x-coordinate, in logical units, of the upper-left corner of the source rectangle.
+$iYSrc
+	The y-coordinate, in logical units, of the upper-left corner of the source rectangle.
+$iWidthSrc
+	The width, in logical units, of the source rectangle.
+$iHeightSrc
+	The height, in logical units, of the source rectangle.
+$iRGB
+	The RGB color in the source bitmap to treat as transparent.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True.
+Failure 	False.
+@@End@@
+
+
+###Remarks###
+If the source and destination rectangles are not the same size, the source bitmap is stretched to match the
+destination rectangle. When the _WinAPI_SetStretchBltMode() function is used, the stretching modes of
+$BLACKONWHITE and $WHITEONBLACK are converted to $COLORONCOLOR for the _WinAPI_TransparentBlt() function.
+
+This function supports all formats of source bitmaps. However, for 32 bpp bitmaps, it just copies the alpha
+value over. Use _WinAPI_AlphaBlend() to specify 32 bits-per-pixel bitmaps with transparency.
+
+
+###Related###
+_WinAPI_SetStretchBltMode, _WinAPI_AlphaBlend
+
+
+###See Also###
+@@MsdnLink@@ GdiTransparentBlt
+
+
+###Example###
+@@IncludeExample@@

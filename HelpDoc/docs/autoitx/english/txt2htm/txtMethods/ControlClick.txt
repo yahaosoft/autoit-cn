@@ -1,0 +1,47 @@
+###Method###
+ControlClick
+
+###Description###
+Sends a mouse click command to a given control.
+
+###Syntax###
+ControlClick "title", "text", "controlID" [, button [, clicks [, x [, y ]]]]
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to access.
+text
+	The text of the window to access.
+controlID
+	The control to interact with.  See <a href="../../intro/controls.htm">Controls</a>.
+button
+	<b>Optional:</b> The button to click, "left", "right" or "middle".  Default is the left button.
+clicks
+	<b>Optional:</b> The number of times to click the mouse.  Default is 1.
+x
+	<b>Optional:</b> The x position to click within the control.  Default is center.
+y
+	<b>Optional:</b> The y position to click within the control.  Default is center.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+Some controls will resist clicking unless they are the active window. Use the WinActive() function to force the control's window to the top before using ControlClick().
+Using 2 for the number of clicks will send a double-click message to the control - this can even be used to launch programs from an explorer control!
+
+
+###Related###
+ControlCommand, MouseClick, WinActivate
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oAutoIt.ControlClick "Untitled -", "", "MDIClient1"

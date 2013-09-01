@@ -1,0 +1,44 @@
+###Function###
+GUIGetCursorInfo
+
+###Description###
+Gets the mouse cursor position relative to GUI window.
+
+###Syntax###
+GUIGetCursorInfo ( [winhandle] )
+
+
+###Parameters###
+@@ParamTable@@
+winhandle
+	[optional] The handle of the window to use.  If omitted the "current" window will be used.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	returns a five-element array that containing the mouse cursor information:
+	$aArray[0] = X coord (horizontal)
+	$aArray[1] = Y coord (vertical)
+	$aArray[2] = Primary down (1 if pressed, 0 if not pressed)
+	$aArray[3] = Secondary down (1 if pressed, 0 if not pressed)
+	$aArray[4] = ID of the control that the mouse cursor is hovering over (or 0 if none)
+Failure:	0 and set @error to 1
+@@End@@
+
+
+###Remarks###
+The coordinates given are relative to the GUI window (known as client coords).
+
+If the "winhandle" parameter is used then the specified window becomes the new "current" window.
+
+The mouse cursor position is successful only on an window created by a <a href="GUICreate.htm">GUICreate()</a>. When no winhandle it will be successful if the GUI Windows is <b>active</b>.
+
+ListViewItem or TreeViewItem controlID will never be returned, only the parent Listview or TreeView control ID is.
+
+
+###Related###
+GUICreate, GUIGetMsg
+
+
+###Example###
+@@IncludeExample@@

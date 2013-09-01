@@ -1,0 +1,52 @@
+###Function###
+GUICtrlCreateProgress
+
+###Description###
+Creates a Progress control for the GUI.
+
+###Syntax###
+GUICtrlCreateProgress ( left, top [, width [, height [, style = -1 [, exStyle = -1]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+left
+	The left side of the control. If -1 is used then left will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a>.
+top
+	The top of the control. If -1 is used then top will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a>.
+width
+	[optional] The width of the control (default is the previously used width).
+height
+	[optional] The height of the control (default is the previously used height).
+style
+	[optional] Defines the style of the control. See <a href="../appendix/GUIStyles.htm#Progress">GUI Control Styles Appendix</a>.
+exStyle
+	[optional] Defines the extended style of the control. See <a href="../appendix/GUIStyles.htm#Extended">Extended Style Table</a>.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the identifier (controlID) of the new control.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+To obtain the value of the control see <a href="GUICtrlRead.htm">GUICtrlRead()</a>.
+To set or change information in the control see <a href="GUICtrlUpdate Management.htm">GUICtrlUpdate...</a>.
+
+To update the bar position just use <a href="GUICtrlSetData.htm">GUICtrlSetData()</a>.
+
+To combine styles with the default style use <b><a href="BitOR.htm">BitOR()</a></b>($GUI_SS_DEFAULT_PROGRESS, newstyle,...).
+
+To use the values specified above you must #include <ProgressConstants.au3> in your script.
+
+Default resizing is $GUI_DOCKAUTO size and position will occur.
+
+
+###Related###
+GUICoordMode (Option), GUICtrlSetData, GUICtrlUpdate..., GUIGetMsg
+
+
+###Example###
+@@IncludeExample@@

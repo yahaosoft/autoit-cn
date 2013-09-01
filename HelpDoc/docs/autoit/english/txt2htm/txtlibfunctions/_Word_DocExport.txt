@@ -1,0 +1,58 @@
+###User Defined Function###
+_Word_DocExport
+
+###Description###
+Exports the document or a range as PDF or XPS.
+
+###Syntax###
+#include <Word.au3>
+_Word_DocExport ( $oDoc, $sFilename [, $iFormat = $WdExportFormatPDF [, $iRange = $WdExportAllDocument [, $iFrom = Default [, $iTo = Default [, $bOpenAfterExport = False [, $bIncludeProperties = True [, $iCreateBookmarks = Default [, $bUseISO19005 = False]]]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$oDoc
+	Word document object to be exported
+$sFilename
+	Path/name of the exported file
+$iFormat
+	[optional] Format to use for the export. Can be any of the WdExportFormat enumeration
+	(default = $WdExportFormatPDF)
+$iRange
+	[optional] Specifies what to export. Can be any of the WdExportRange enumeration
+	(default = $WdExportAllDocument)
+$iFrom
+	[optional] The page number at which to start publishing (default = start at the beginning)
+$iTo
+	[optional] The page number at which to end publishing (default = end at the last page)
+$bOpenAfterExport
+	[optional] True displays the file in a viewer after it is published (default = False)
+$bIncludeProperties
+	[optional] True indicates that document properties should be included (default = True)
+$iCreateBookmarks
+	[optional] Specifies whether to export bookmarks and the type of bookmarks to export.
+	Can be any of the WdExportCreateBookmarks enumeration (default)
+$bUseISO19005
+	[optional] Specifies whether the export should be created as PDF/A (self-contained PDF) (default = False)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1
+Failure:	Returns 0 and sets @error:
+@error:	1 - $oDoc is not an object
+	2 - $sFilename is empty
+	3 - Error returned when exporting the object. @extended is set to the COM error code
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_Word_DocPrint
+
+
+###Example###
+@@IncludeExample@@

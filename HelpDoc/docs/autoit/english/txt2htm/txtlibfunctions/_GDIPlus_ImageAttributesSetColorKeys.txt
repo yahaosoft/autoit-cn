@@ -1,0 +1,53 @@
+###User Defined Function###
+_GDIPlus_ImageAttributesSetColorKeys
+
+###Description###
+Sets or clears the color key (transparency range) for a specified category
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_ImageAttributesSetColorKeys ( $hImageAttributes [, $iColorAdjustType = 0 [, $fEnable = False [, $iARGBLow = 0 [, $iARGBHigh = 0]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hImageAttributes
+	Pointer to an ImageAttribute object
+$iColorAdjustType
+	[optional] The category for which the color key is set or cleared:
+	0 - Color adjustment applies to all categories that do not have adjustment settings of their own
+	1 - Color adjustment applies to bitmapped images
+	2 - Color adjustment applies to brush operations in metafiles
+	3 - Color adjustment applies to pen operations in metafiles
+	4 - Color adjustment applies to text drawn in metafiles
+$fEnable
+	[optional] If True, transparency range for the specified category is applied; otherwise, transparency
+$iARGBLow
+	[optional] Alpha, Red, Green and Blue components of a color that specifies the low color-key value
+$iARGBHigh
+	[optional] Alpha, Red, Green and Blue components of a color that specifies the high color-key value
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False and either:
+
+	@error and @extended are set if DllCall failed
+	$GDIP_STATUS contains a non zero value specifying the error code
+
+
+###Remarks###
+Any color that has each of its three components (red, green, blue) between the corresponding components of the
+high and low color keys is made transparent
+
+
+###Related###
+None
+
+
+###See Also###
+@@MsdnLink@@ GdipSetImageAttributesColorKeys
+
+
+###Example###
+@@IncludeExample@@

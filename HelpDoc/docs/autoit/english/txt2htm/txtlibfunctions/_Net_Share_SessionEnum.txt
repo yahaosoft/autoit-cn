@@ -1,0 +1,56 @@
+###User Defined Function###
+_Net_Share_SessionEnum
+
+###Description###
+Provides information about sessions established on a server
+
+###Syntax###
+#include <NetShare.au3>
+_Net_Share_SessionEnum ( [$sServer = "" [, $sClientName = "" [, $sUserName = ""]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sServer
+	[optional] String that specifies the DNS or NetBIOS name of the remote server on which the function is to
+	execute. If this parameter is blank the local computer is used.
+$sClientName
+	[optional] Specifies the name of the computer session for which information is to be returned. If this
+	parameter is blank, the function returns information for all computer sessions on the server.
+$sUserName
+	[optional] Specifies the name of the user for which information is to be returned. If this parameter is
+	blank, the function returns information for all users.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Array with the following format:
+	[0][0] - Number of entries in array
+	[1][0] - Name of the computer that established the session
+	[1][1] - Name of the user who established the session
+	[1][2] - Number of files, devices, and pipes opened during the session
+	[1][3] - Number of seconds the session has been active
+	[1][4] - Number of seconds the session has been idle
+	[1][5] - Specifies how the user established the session:
+	1 - User established session using a guest account
+	2 - User established session without using password encryption
+	[1][6] - Specifies the type of client that established the session
+	[1][7] - Name of the transport that the client is using
+Failure:	Sets @error
+@@End@@
+
+
+###Remarks###
+Only members of the Administrators or Server Operators local group can execute this function
+
+
+###Related###
+_Net_Share_ConnectionEnum, _Net_Share_FileEnum, _Net_Share_ShareEnum
+
+
+###See Also###
+@@MsdnLink@@ NetSessionEnum
+
+
+###Example###
+@@IncludeExample@@

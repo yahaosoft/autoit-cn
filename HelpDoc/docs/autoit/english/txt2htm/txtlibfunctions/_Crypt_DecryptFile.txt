@@ -1,0 +1,45 @@
+###User Defined Function###
+_Crypt_DecryptFile
+
+###Description###
+Decrypts a file with specified key and algorithm
+
+###Syntax###
+#include <Crypt.au3>
+_Crypt_DecryptFile ( $sSourceFile, $sDestinationFile, $vCryptKey, $iALG_ID )
+
+
+###Parameters###
+@@ParamTable@@
+$sSourceFile
+	File to process
+$sDestinationFile
+	File to save the processed file
+$vCryptKey
+	Password or handle to a key if the CALG_USERKEY flag is specified
+$iALG_ID
+	The algorithm to use
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True.
+Failure:	False and sets the @error flag to non-zero.
+@error:	10+ - Failed to create key
+	2 - Failed to open source file
+	3 - Failed to open destination file
+	400+ - Failed to decrypt final piece
+	500+ - Failed to decrypt piece
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_Crypt_EncryptFile, _Crypt_DeriveKey
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,42 @@
+###User Defined Function###
+_FTP_DirPutContents
+
+###Description###
+Puts an folder on an FTP server. Recursivley if selected.
+
+###Syntax###
+#include <FTPEx.au3>
+_FTP_DirPutContents ( $hFTPSession, $sLocalFolder, $sRemoteFolder, $bRecursivePut [, $iContext = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hFTPSession
+	as returned by _FTP_Connect().
+$sLocalFolder
+	The local folder i.e. "c:\temp".
+$sRemoteFolder
+	The remote folder i.e. '/website/home'.
+$bRecursivePut
+	Recurse through sub-dirs. 0=Non recursive, 1=Recursive
+$iContext
+	[optional] A variable that contains the application-defined value that associates this search with any application data.
+	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Directory Name
+Failure:	0 and sets @error
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_FTP_Connect, _FTP_SetStatusCallback
+
+
+###Example###

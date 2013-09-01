@@ -1,0 +1,68 @@
+###Function###
+GUIRegisterMsg
+
+###Description###
+Register a user defined function for a known Windows Message ID (WM_MSG).
+
+###Syntax###
+GUIRegisterMsg ( msgID, "function" )
+
+
+###Parameters###
+@@ParamTable@@
+msgID
+	A Windows Message ID (see Appendix: <a href="../appendix/WinMsgCodes.htm">Windows Message Codes</a>).
+function
+	The name of the user function to call when the message appears or an empty string "" to unregister a message.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	1
+Failure:	0
+@@End@@
+
+
+###Remarks###
+!!! To make the user function workable you have to define it with <strong>maximum 4 function parameters</strong> otherwise the function won't be called !!!
+i.e:
+Func MyUserFunction($hWndGUI, $MsgID, $WParam, $LParam)
+...
+EndFunc
+
+Or
+
+Func MyUserFunction($hWndGUI, $MsgID)
+...
+EndFunc
+
+When the user function is called then these 4 parameters have the following values:
+
+@@StandardTable1@@
+<b>Position</b>	<b>Parameter</b>	<b>Meaning</b>
+1	hWnd	The Window handle of the GUI in which the message appears.
+2	Msg	The Windows message ID.
+3	wParam	The first message parameter as hex value.
+4	lParam	The second message parameter as hex value.
+@@End@@
+
+Up to 256 user functions can be registered for message IDs.
+
+By default after finishing the user function the AutoIt internal message handler will be proceed.
+That won't be if your <strong>Return</strong> a value (See WM_COMMAND in example) or if you use the keyword 'Return' without any value.
+By using 'Return' without any return value the AutoIt internal message handler (if there is one for this message) will NOT be proceed!
+
+!!! If you want AutoIt to run its internal handler for a message, return the variable <strong>$GUI_RUNDEFMSG</strong> (in GUIConstantsEx.au3) from the function (see also examples) !!!
+I.e. if you want to return earlier than the user function ends and also proceed the AutoIt internal message handler.
+
+<strong>Warning:</strong> blocking of running user functions which executes window messages with commands such as "<a href="MsgBox.htm">MsgBox()</a>" can lead to unexpected behavior, the return to the system should be as fast as possible !!!
+
+Some controls consume internally specific Windows Message ID, so registering them will have no effect, e.g; WM_CHAR, WM_KEYDOWN, WM_KEYUP are consumed by an edit control.
+
+
+###Related###
+GUICtrlGetHandle
+
+
+###Example###
+@@IncludeExample@@

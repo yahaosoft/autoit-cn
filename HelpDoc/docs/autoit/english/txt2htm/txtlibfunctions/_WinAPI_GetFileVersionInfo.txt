@@ -1,0 +1,46 @@
+###User Defined Function###
+_WinAPI_GetFileVersionInfo
+
+###Description###
+Retrieves version information for the specified file.
+
+###Syntax###
+#include <WinAPIRes.au3>
+_WinAPI_GetFileVersionInfo ( $sFile, ByRef $pBuffer [, $iFlags = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$sFile
+	The name of the file.
+$pBuffer
+	Returns a pointer to a memory block (buffer) that receives the file-version information. Optionaly, you can
+	set this parameter to 0 before function call, then the function will allocate the required memory block
+	itself. Otherwise, it must be a valid memory pointer returned by the _WinAPI_CreateBuffer()
+	function, or by previously calling this function.
+$iFlags
+	[optional] The flags that controls which MUI DLLs (if any) from which the version resource is extracted.
+	It can be 0 or more of the following values (valid only for Windows Vista or later).
+	$FILE_VER_GET_LOCALISED
+	$FILE_VER_GET_NEUTRAL
+	$FILE_VER_GET_PREFETCHED
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The number of bytes copied to the buffer.
+Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+When you no longer need the buffer allocated by this function, you must call the _WinAPI_FreeMemory() function
+(do not use any other memory routines) to release occupied memory.
+
+
+###Related###
+_WinAPI_FreeMemory, _WinAPI_CreateBuffer
+
+
+###See Also###
+@@MsdnLink@@ GetFileVersionInfo

@@ -1,0 +1,46 @@
+###User Defined Function###
+_WinAPI_SetWindowDisplayAffinity
+
+###Description###
+Stores the display affinity setting in kernel mode on the specified window.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_SetWindowDisplayAffinity ( $hWnd, $iAffinity )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window.
+$iAffinity
+	The display affinity setting. This setting specifies where the window's contents are allowed
+	to be displayed. This parameter can be a combination of the following values.
+	$WDA_MONITOR
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True.
+Failure 	False.
+@@End@@
+
+
+###Remarks###
+_WinAPI_SetWindowDisplayAffinity() are designed to support the window content protection. This functions
+enables applications to protect their own onscreen window content from being captured or copied through a specific
+set of public operating system features and APIs. However, it works only when the Desktop Window Manager(DWM)
+is composing the desktop.
+
+This function requires Windows 7 or later.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ SetWindowDisplayAffinity
+
+
+###Example###
+@@IncludeExample@@

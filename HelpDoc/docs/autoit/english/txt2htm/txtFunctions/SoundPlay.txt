@@ -1,0 +1,36 @@
+###Function###
+SoundPlay
+
+###Description###
+Play a sound file.
+
+###Syntax###
+SoundPlay ( "filename" [, wait = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	Name of the file to be played (typically a WAV or MP3)
+wait
+	[optional] This flag determines if the script should wait for the sound to finish before continuing:
+	1 = wait until sound has finished
+	0 = continue script while sound is playing (default)
+@@End@@
+
+###ReturnValue###
+None.  (Always returns 1 regardless of success.)
+
+
+###Remarks###
+Terminating the script will stop the sound (if it is still playing).
+Calling <a href="SoundPlay.htm">SoundPlay</a>("") can be used to stop a currently playing sound.  This has the side effect of also closing the open handle.
+If you need to delete a sound file which you have played in the script, you should call <a href="SoundPlay.htm">SoundPlay</a>("") first to ensure the handle is closed.
+
+
+###Related###
+SoundSetWaveVolume, Beep
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,48 @@
+###User Defined Function###
+_WinAPI_Arc
+
+###Description###
+Draws an elliptical arc.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_Arc ( $hDC, $tRECT, $iXStartArc, $iYStartArc, $iXEndArc, $iYEndArc )
+
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context.
+$tRECT
+	$tagRECT structure that contains the logical coordinates of the bounding rectangle.
+$iXStartArc
+	The x-coordinate, in logical units, of the ending point of the radial line defining the starting point of the arc.
+$iYStartArc
+	The y-coordinate, in logical units, of the ending point of the radial line defining the starting point of the arc.
+$iXEndArc
+	The x-coordinate, in logical units, of the ending point of the radial line defining the ending point of the arc.
+$iYEndArc
+	The y-coordinate, in logical units, of the ending point of the radial line defining the ending point of the arc.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True
+Failure 	False
+@@End@@
+
+
+###Remarks###
+The arc is drawn using the current pen; it is not filled. The current position is neither used nor updated by
+_WinAPI_Arc() function.
+
+Use the _WinAPI_GetArcDirection() and _WinAPI_SetArcDirection() functions to get and set the current drawing
+direction for a device context. The default drawing direction is counterclockwise.
+
+
+###Related###
+_WinAPI_GetArcDirection, _WinAPI_SetArcDirection
+
+
+###See Also###
+@@MsdnLink@@ Arc

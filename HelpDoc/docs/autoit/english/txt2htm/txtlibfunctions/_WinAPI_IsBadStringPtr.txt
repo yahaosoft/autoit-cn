@@ -1,0 +1,37 @@
+###User Defined Function###
+_WinAPI_IsBadStringPtr
+
+###Description###
+Verifies that the calling process has read access to the specified range of memory.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_IsBadStringPtr ( $pAddress, $iLength )
+
+
+###Parameters###
+@@ParamTable@@
+$pAddress
+	A pointer to a null-terminated string, either Unicode or ASCII.
+$iLength
+	The maximum size of the string, in TCHARs.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True - The calling process does not have read access to all characters up to the string's terminating null
+	character or up to the number of specified characters.
+Failure 	False.
+@@End@@
+
+
+###Remarks###
+This function checks for read access in all characters up to the string's terminating null character or up to the
+number of characters specified by this parameter, whichever is smaller.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ IsBadStringPtr

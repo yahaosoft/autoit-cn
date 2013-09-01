@@ -1,0 +1,46 @@
+###Method###
+ControlMove
+
+###Description###
+Moves a control within a window.
+
+###Syntax###
+ControlMove "title", "text", "controlID", x, y [, width [, height]]
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to move.
+text
+	The text of the window to move.
+controlID
+	The control to interact with.  See <a href="../../intro/controls.htm">Controls</a>.
+x
+	X coordinate to move to.
+y
+	Y coordinate to move to.
+width
+	<b>Optional:</b> New width of the window.
+height
+	<b>Optional:</b> New height of the window.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 if window/control is not found.
+@@End@@
+
+
+###Remarks###
+When using a control name in the Control functions, you need to add a number to the end of the name to indicate which control.  For example, if there two controls listed called "MDIClient", you would refer to these as "MDIClient1" and "MDIClient2".
+
+
+###Related###
+ControlCommand, WinMove
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oAutoIt.ControlMove "Untitled -", "", "MDIClient1", 0, 0, 200, 200

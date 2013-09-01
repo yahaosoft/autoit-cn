@@ -1,0 +1,46 @@
+###User Defined Function###
+_WinAPI_OpenMutex
+
+###Description###
+Opens an existing named mutex object.
+
+###Syntax###
+#include <WinAPIProc.au3>
+_WinAPI_OpenMutex ( $sMutex [, $iAccess = 0 [, $fInherit = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sMutex
+	The name of the mutex to be opened. Name comparisons are case sensitive.
+$iAccess
+	[optional] The access to the mutex object. The function fails if the security descriptor of the specified object
+	does not permit the requested access for the calling process.
+	This parameter can be one of the following values.
+	$MUTEX_ALL_ACCESS
+	$MUTEX_MODIFY_STATE
+$fInherit
+	[optional] Specifies whether inherites the handle by a processes, valid values:
+	True     - The processes created by this process will inherit the handle.
+	False    - The processes do not inherit this handle (Default).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The handle to the mutex object.
+Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+The function succeeds only if some process has already created the mutex by using the _WinAPI_CreateMutex()
+function. The calling process can use the returned handle in any function that requires a handle to
+a mutex object.
+
+
+###Related###
+_WinAPI_CreateMutex
+
+
+###See Also###
+@@MsdnLink@@ OpenMutex

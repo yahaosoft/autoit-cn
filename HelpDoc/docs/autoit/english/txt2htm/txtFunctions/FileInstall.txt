@@ -1,0 +1,51 @@
+###Function###
+FileInstall
+
+###Description###
+Include and install a file with the compiled script.
+
+###Syntax###
+FileInstall ( "source", "dest" [, flag = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+source
+	The source path of the file to compile.  <b>This must be a literal string; it cannot be a variable or the result of a function call.</b>  It can be a relative path (using .\ or ..\ in the path) to the source file (.au3).
+dest
+	The destination path of the file with trailing backslash if only the directory is used.  This can be a variable.
+flag
+	[optional] this flag determines whether to overwrite files if they already exist:
+	$FC_NOOVERWRITE (0) = (default) do not overwrite existing files
+	$FC_OVERWRITE (1) = overwrite existing files
+	Constants are defined in FileConstants.au3
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+The <a href="FileInstall.htm">FileInstall()</a> function is designed to include files into a compiled AutoIt script.  These included files can then be "extracted" during execution of the compiled script if the statement is executed.  Keep in mind that files such as images can greatly increase the size of a compiled script.
+The source file must be specified using a string literal and can <b>not</b> be a variable, a macro, a calculation nor function call.  The file must be able to be found during compiling, however variables, calculations and function calls do not get resolved until the script itself is running, long after compiling, making them unsuitable to define the source file.
+The source cannot contain wildcards.
+
+The only exception to the above, is that the source file may be @ScriptFullPath - this allows you to include the source script.
+
+When this function is used from a non-compiled script, a copy operation is performed instead (to allow for easy testing pre-compilation).
+Files maintain their original creation/modification timestamps when installed.
+
+The destination directory path must already exist before this function is called, or the <a href="FileInstall.htm">FileInstall()</a> will fail, returning 0 and not creating the file, nor path.  See <a href="DirCreate.htm">DirCreate()</a> for information about creating the directory path.
+
+The file attributes on an existing file may prevent the file from being overwritten.  Use <a href="FileDelete.htm">FileDelete()</a> or <a href="FileSetAttrib.htm">FileSetAttrib()</a> to ensure the file can be installed without issue.
+
+
+###Related###
+DirCreate, FileDelete, FileSetAttrib
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,44 @@
+###Method###
+WinMove
+
+###Description###
+Moves and/or resizes a window.
+
+###Syntax###
+WinMove "title", "text", x, y [, width [, height]]
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to move/resize.
+text
+	The text of the window to move/resize.
+x
+	X coordinate to move to.
+y
+	Y coordinate to move to.
+width
+	<b>Optional:</b>  New width of the window.
+height
+	<b>Optional:</b>  New height of the window.
+@@End@@
+
+###ReturnValue###
+None.
+
+
+###Remarks###
+WinMove has no effect on minimized windows, but WinMove works on hidden windows.
+If very width and height are small (or negative), the window will go no smaller than 112 x 27 pixels.  If width and height are large, the window will go no larger than approximately [12+@DesktopWidth] x [12+@DesktopHeight] pixels.
+Negative values are allowed for the x and y coordinates.  In fact, you can move a window off screen; and if the window's program is one that remembers its last window position, the window will appear in the corner (but fully on-screen) the next time you launch the program.
+If multiple windows match the criteria, the most recently active window is used.
+
+
+###Related###
+WinActivate, WinClose, WinGetClientSizeHeight, WinGetClientSizeWidth, WinGetPosX, WinGetPosY, WinSetState
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oAutoIt.WinMove "Untitled -", "", 0, 0, 200, 200

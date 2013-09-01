@@ -1,0 +1,40 @@
+###User Defined Function###
+_WinAPI_RegCloseKey
+
+###Description###
+Closes a handle to the specified registry key.
+
+###Syntax###
+#include <WinAPIReg.au3>
+_WinAPI_RegCloseKey ( $hKey [, $fFlush = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to the open key to be closed. The handle must have been opened by the _WinAPI_RegCreateKey()
+	or _WinAPI_RegOpenKey() function.
+$fFlush
+	[optional] Specifies whether writes all the attributes of the specified registry key into the registry,
+	valid values:
+	True   - Write changes to disk before close the handle.
+	False  - Don't write (Default).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1.
+Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+_WinAPI_RegCreateKey
+
+
+###See Also###
+@@MsdnLink@@ RegCloseKey

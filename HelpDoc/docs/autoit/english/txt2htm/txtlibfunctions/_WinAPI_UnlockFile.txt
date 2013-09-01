@@ -1,0 +1,40 @@
+###User Defined Function###
+_WinAPI_UnlockFile
+
+###Description###
+Unlocks a region in an open file.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_UnlockFile ( $hFile, $iOffset, $iLength )
+
+
+###Parameters###
+@@ParamTable@@
+$hFile
+	Handle to the file that contains a region locked with _WinAPI_LockFile() function.
+$iOffset
+	The starting byte offset in the file where the locked region begins.
+$iLength
+	The length of the byte range to be unlocked.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True
+Failure 	False
+@@End@@
+
+
+###Remarks###
+Unlocking a region of a file releases a previously acquired lock on the file. The region to unlock must correspond
+exactly to an existing locked region. Two adjacent regions of a file cannot be locked separately and then unlocked
+using a single region that spans both locked regions.
+
+
+###Related###
+_WinAPI_LockFile
+
+
+###See Also###
+@@MsdnLink@@ UnlockFile

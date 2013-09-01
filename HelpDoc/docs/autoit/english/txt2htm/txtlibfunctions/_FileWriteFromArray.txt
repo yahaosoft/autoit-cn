@@ -1,0 +1,49 @@
+###User Defined Function###
+_FileWriteFromArray
+
+###Description###
+Writes an array to a specified file.
+
+###Syntax###
+#include <File.au3>
+_FileWriteFromArray ( $sFilePath, ByRef Const $aArray [, $iBase = Default [, $iUBound = Default [, $sDelimeter = "|"]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sFilePath
+	Path of the file to write to, or a file handle returned by FileOpen().
+$aArray
+	The array to be written to the specified file.
+$iBase
+	[optional] Start array index to read, normally set to 0 or 1. Default is the Default keyword.
+$iUbound
+	[optional] Set to the last record you want to write to the File. Default is the Default keyword (whole array.)
+$sDelimeter
+	[optional] Delimiter character(s) for 2-dimension arrays. Default is "|".
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	1
+Failure:	0 and set @error
+@error:	1 = Error opening specified file
+	2 = Input is not an Array
+	3 = Error writing to file
+	4 = Array dimensions > 2
+	5 = Start index is greater than the $iUbound parameter
+@@End@@
+
+
+###Remarks###
+If a string path is provided, the file is overwritten and closed.
+To use other write modes, like append or Unicode formats, open the file with FileOpen() first and pass the file handle instead.
+If a file handle is passed, the file will still be open after writing.
+
+
+###Related###
+_FileReadToArray
+
+
+###Example###
+@@IncludeExample@@

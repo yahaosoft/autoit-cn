@@ -1,0 +1,53 @@
+###User Defined Function###
+_GUICtrlMenu_GetMenuBarInfo
+
+###Description###
+Retrieves information about the specified menu bar
+
+###Syntax###
+#include <GuiMenu.au3>
+_GUICtrlMenu_GetMenuBarInfo ( $hWnd [, $iItem = 0 [, $iObject = 1]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window whose information is to be retrieved
+$iItem
+	[optional] Specifies the item for which to retrieve information. If 0, the function retrieves information
+	about the menu itself. If 1, the function retrieves information about the first item on the menu, and so on.
+$iObject
+	[optional] Specifies the menu object:
+	0 - The popup menu associated with the window
+	1 - The menu bar associated with the window
+	2 - The system menu associated with the window
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Array with the following format:
+	[0] - X coordinate of the upper left corner of the rectangle
+	[1] - Y coordinate of the upper left corner of the rectangle
+	[2] - X coordinate of the lower right corner of the rectangle
+	[3] - Y coordinate of the lower right corner of the rectangle
+	[4] - Handle to the menu bar or popup menu
+	[5] - Handle to the submenu
+	[6] - True if the menu bar has focus, otherwise False
+	[7] - True if the menu item has focus, otherwise False
+Failure:	set @error
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetMenuBarInfo
+
+
+###Example###
+@@IncludeExample@@

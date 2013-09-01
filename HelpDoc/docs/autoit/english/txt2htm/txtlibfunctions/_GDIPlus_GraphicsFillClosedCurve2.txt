@@ -1,0 +1,55 @@
+###User Defined Function###
+_GDIPlus_GraphicsFillClosedCurve2
+
+###Description###
+Creates a closed cardinal spline from an array of points and uses a brush to fill the interior of the spline
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_GraphicsFillClosedCurve2 ( $hGraphics, $aPoints, $nTension [, $hBrush = 0 [, $iFillMode = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hGraphics
+	Pointer to a Graphics object
+$aPoints
+	Array of points that specify the coordinates of the closed cardinal spline:
+	[0][0] - Number of points
+	[1][0] - Point 1 X position
+	[1][1] - Point 1 Y position
+	[2][0] - Point 2 X position
+	[2][1] - Point 2 Y position
+	[n][0] - Point n X position
+	[n][1] - Point n Y position
+$nTension
+	Number that specifies how tightly the spline bends as it passes through the points
+$hBrush
+	[optional] Handle to a brush object that is used to fill the cardinal spline. If 0, a black brush will be used.
+$iFillMode
+	[optional] Fill mode of the interior of the spline:
+	0 - The areas are filled according to the even-odd parity rule
+	1 - The areas are filled according to the nonzero winding rule
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False and either:
+
+	@error and @extended are set if DllCall failed
+
+
+###Remarks###
+None
+
+
+###Related###
+_GDIPlus_GraphicsFillClosedCurve
+
+
+###See Also###
+@@MsdnLink@@ GdipFillClosedCurve2
+
+
+###Example###
+@@IncludeExample@@

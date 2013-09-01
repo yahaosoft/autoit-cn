@@ -1,0 +1,40 @@
+###User Defined Function###
+_WinAPI_CreateCompatibleBitmapEx
+
+###Description###
+Creates a bitmap compatible with the device and fills it the specified color.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_CreateCompatibleBitmapEx ( $hDC, $iWidth, $iHeight, $iRGB )
+
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to a device context.
+$iWidth
+	The bitmap width, in pixels.
+$iHeight
+	The bitmap height, in pixels.
+$iRGB
+	The bitmap color, in RGB.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	Handle to the compatible solid bitmap (DDB).
+Failure 	0 and sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+The color format of the bitmap created by the _WinAPI_CreateCompatibleBitmapEx() function matches the color
+format of the device identified by the hdc parameter. This bitmap can be selected into any memory device context
+that is compatible with the original device.
+
+When you no longer need the bitmap, call the _WinAPI_DeleteObject() function to delete it.
+
+
+###Related###
+_WinAPI_DeleteObject

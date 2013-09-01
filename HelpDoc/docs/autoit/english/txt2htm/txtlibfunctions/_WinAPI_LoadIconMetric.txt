@@ -1,0 +1,54 @@
+###User Defined Function###
+_WinAPI_LoadIconMetric
+
+###Description###
+Loads a specified icon resource with a client-specified system metric.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_LoadIconMetric ( $hInstance, $sName, $iMetric )
+
+
+###Parameters###
+@@ParamTable@@
+$hInstance
+	Handle to the module of either a DLL or executable (.exe) file that contains the icon to be loaded.
+$sName
+	The information about the icon to load. If $hInstance is not 0, $sName specifies the icon resource
+	either by name or ordinal, otherwise, $sName specifies either the name of a standalone icon (.ico)
+	file or the identifier of a predefined icon to load.
+	$IDI_APPLICATION
+	$IDI_HAND
+	$IDI_QUESTION
+	$IDI_EXCLAMATION
+	$IDI_ASTERISK
+	$IDI_WINLOGO
+	$IDI_SHIELD
+	$IDI_ERROR
+	$IDI_INFORMATION
+	$IDI_WARNING
+$iMetric
+	The desired metric. It can be one of the following values.
+	$LIM_SMALL
+	$LIM_LARGE
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The icon handle.
+Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+@@End@@
+
+
+###Remarks###
+When you are finished using the icon, destroy it using the _WinAPI_DestroyIcon() function.
+
+This function requires Windows Vista or later.
+
+
+###Related###
+_WinAPI_DestroyIcon
+
+
+###See Also###
+@@MsdnLink@@ LoadIconMetric

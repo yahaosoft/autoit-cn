@@ -1,0 +1,39 @@
+###Method###
+DriveMapGet
+
+###Description###
+Retreives the details of a mapped drive.
+
+###Syntax###
+DriveMapGet"device"
+
+
+###Parameters###
+@@ParamTable@@
+device
+	The device (drive or printer) letter to query.  Eg. "O:" or "LPT1:"
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns details of the mapping, e.g. \\server\share
+Failure:	Returns a blank string "" and sets oAutoIt.error to 1.
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+DriveMapAdd, DriveMapDel
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+
+' Map X drive to \\myserver\stuff using current user
+oAutoIt.DriveMapAdd "X:", "\\myserver\stuff"
+
+' Get details of the mapping
+WScript.Echo "Drive X: is mapped to " & DriveMapGet("X:")

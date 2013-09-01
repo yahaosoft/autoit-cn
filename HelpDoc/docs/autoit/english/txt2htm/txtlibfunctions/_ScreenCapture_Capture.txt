@@ -1,0 +1,43 @@
+###User Defined Function###
+_ScreenCapture_Capture
+
+###Description###
+Captures a region of the screen
+
+###Syntax###
+#include <ScreenCapture.au3>
+_ScreenCapture_Capture ( [$sFileName = "" [, $iLeft = 0 [, $iTop = 0 [, $iRight = -1 [, $iBottom = -1 [, $fCursor = True]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sFileName
+	[optional] Full path and extension of the image file
+$iLeft
+	[optional] X coordinate of the upper left corner of the rectangle
+$iTop
+	[optional] Y coordinate of the upper left corner of the rectangle
+$iRight
+	[optional] X coordinate of the lower right corner of the rectangle. If this is -1, the current screen
+	width will be used.
+$iBottom
+	[optional] Y coordinate of the lower right corner of the rectangle. If this is -1, the current screen
+	height will be used.
+$fCursor
+	[optional] If True the cursor will be captured with the image
+@@End@@
+
+###ReturnValue###
+If $sFileName is empty then the function returns a handle to an HBITMAP.  This handle must be released using _WinAPI_DeleteObject.  If called with $sFileName then the image is saved to the file and nothing is returned.
+
+
+###Remarks###
+None.
+
+
+###Related###
+_WinAPI_DeleteObject, _ScreenCapture_SaveImage
+
+
+###Example###
+@@IncludeExample@@

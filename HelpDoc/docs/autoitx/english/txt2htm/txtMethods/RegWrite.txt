@@ -1,0 +1,60 @@
+###Method###
+RegWrite
+
+###Description###
+Creates a key or value in the registry.
+
+###Syntax###
+RegWrite "keyname" [,"valuename", "type", value]
+
+
+###Parameters###
+@@ParamTable@@
+keyname
+	The registry key to write to.  If no other parameters are specified this key will simply be created.
+valuename
+	The valuename to write to.
+type
+	Type of key to write: "REG_SZ", "REG_MULTI_SZ", "REG_EXPAND_SZ", "REG_DWORD", or "REG_BINARY".
+value
+	The value to write.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 if error writing registry key or value.
+@@End@@
+
+
+###Remarks###
+A registry key must start with "HKEY_LOCAL_MACHINE" ("HKLM") or "HKEY_USERS" ("HKU") or "HKEY_CURRENT_USER" ("HKCU") or "HKEY_CLASSES_ROOT" ("HKCR") or "HKEY_CURRENT_CONFIG" ("HKCC").
+
+AutoIt supports registry keys of type REG_BINARY, REG_SZ, REG_MULTI_SZ, REG_EXPAND_SZ, and REG_DWORD.
+
+To access the <b>(Default)</b> value use <b>""</b> (a blank string) for the valuename.
+
+When writing a REG_BINARY key use a string of hex characters, e.g. the REG_BINARY value of 01,a9,ff,77 can be written by using the string "01A9FF77".
+
+When writing a REG_MULTI_SZ key you must separate each value with @LF.  The value must NOT end with @LF and no "blank" entries are allowed (see example).
+
+It is possible to access remote registries by using a keyname in the form "\\computername\keyname".  To use this feature you must have the correct access rights on XP/2003.
+
+
+###Related###
+RegDeleteKey, RegDeleteVal, RegRead
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+
+' Write a single REG_SZ value
+oAutoIt.RegWrite "HKEY_LOCAL_MACHINE\SOFTWARE", "TestKey", "REG_SZ", "Hello this is a test"
+
+
+' Write the REG_MULTI_SZ value of "line1" and "line2"
+oAutoIt.RegWrite "HKEY_LOCAL_MACHINE\SOFTWARE", "TestKey", "REG_MULTI_SZ", "line1" & @LF & "line2"
+
+' INCORRECT uses of REG_MULTI_SZ
+oAutoIt.RegWrite "HKEY_LOCAL_MACHINE\SOFTWARE", "TestKey", "REG_MULTI_SZ", "line1" & @LF & "line2" & @LF
+oAutoIt.RegWrite "HKEY_LOCAL_MACHINE\SOFTWARE", "TestKey", "REG_MULTI_SZ", "line1" & @LF & @LF & "line2" & @LF

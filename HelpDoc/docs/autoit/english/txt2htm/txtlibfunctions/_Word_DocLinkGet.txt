@@ -1,0 +1,42 @@
+###User Defined Function###
+_Word_DocLinkGet
+
+###Description###
+Returns a collection object containing all links in the document or a single link object.
+
+###Syntax###
+#include <Word.au3>
+_Word_DocLinkGet ( $oDoc [, $iIndex = Default] )
+
+
+###Parameters###
+@@ParamTable@@
+$oDoc
+	Word document object
+$iIndex
+	[optional] Specifies what to return:
+	Default - Returns a collection of all links (default)
+	n - The index number of the link to return (1 based)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a variable pointing to the collection of links or a single link object.
+	@extended is set to the total number of links
+Failure:	Returns 0 and sets @error
+@error:	1 - $oDoc is not an object
+	2 - $vIndex is invalid (must be an integer &gt; 0 and &lt;= Hyperlinks.Count) or the keyword Default
+	3 - Error occurred when accessing the Hyperlinks collection. @extended is set to the COM error code
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_Word_DocLinkAdd
+
+
+###Example###
+@@IncludeExample@@

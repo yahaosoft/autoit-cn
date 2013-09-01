@@ -1,0 +1,40 @@
+###User Defined Function###
+_WinAPI_Wow64EnableWow64FsRedirection
+
+###Description###
+Enables or disables file system redirection for the calling thread.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_Wow64EnableWow64FsRedirection ( $fEnable )
+
+
+###Parameters###
+@@ParamTable@@
+$fEnable
+	Specifies whether enable or disable the WOW64 system folder redirection, valid values:
+	True    - Enable.
+	False   - Disable.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True
+Failure 	False
+@@End@@
+
+
+###Remarks###
+This function is useful for 32-bit applications that want to gain access to the native system32 directory.
+By default, WOW64 file system redirection is enabled.
+
+This function may not work reliably when there are nested calls.
+Therefore, this function has been replaced
+by the Wow64DisableWow64FsRedirection and Wow64RevertWow64FsRedirection functions.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ Wow64EnableWow64FsRedirection

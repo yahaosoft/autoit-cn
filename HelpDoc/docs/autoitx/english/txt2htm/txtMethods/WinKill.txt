@@ -1,0 +1,33 @@
+###Method###
+WinKill
+
+###Description###
+Forces a window to close.
+
+###Syntax###
+WinKill "title" [, "text"]
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to close.
+text
+	<b>Optional:</b> The text of the window to close.
+@@End@@
+
+###ReturnValue###
+None.  (Always returns 1 regardless of success.)
+
+
+###Remarks###
+The difference between this function and WinClose is that WinKill will forcibly terminate the window if it doesn't close quickly enough.  Consequently, a user might not have time to respond to dialogs prompting the user to save data.  Although WinKill can work on both minimized and hidden windows, some windows (notably explorer windows) can only be terminated using WinClose.
+
+
+###Related###
+WinActivate, WinClose, WinSetState, ProcessClose
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oAutoIt.WinKill "Untitled - ", ""

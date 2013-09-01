@@ -1,0 +1,43 @@
+###Method###
+IniRead
+
+###Description###
+Reads a value from a standard format .ini file.
+
+###Syntax###
+IniRead "filename", "section", "key", "default"
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	The filename of the .ini file.
+section
+	The section name in the .ini file.
+key
+	The key name in the .ini file.
+default
+	The default value to return if the requested key is not found.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the requested key value.
+Failure:	Returns the <i>default</i> string if requested key not found.
+@@End@@
+
+
+###Remarks###
+A standard ini file looks like:
+<i>[SectionName]
+Key=Value</i>
+
+
+###Related###
+IniDelete, IniWrite
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+var = IniRead "C:\Temp\myfile.ini", "section2", "key", "NotFound"
+WScript.Echo "Result: " & var

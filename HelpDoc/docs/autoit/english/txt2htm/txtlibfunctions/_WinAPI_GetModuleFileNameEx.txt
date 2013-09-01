@@ -1,0 +1,39 @@
+###User Defined Function###
+_WinAPI_GetModuleFileNameEx
+
+###Description###
+Retrieves the fully-qualified path for the file containing the specified module.
+
+###Syntax###
+#include <WinAPIProc.au3>
+_WinAPI_GetModuleFileNameEx ( $hProcess [, $hModule = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hProcess
+	Handle to the process that contains the module. The handle must have the $PROCESS_QUERY_INFORMATION or
+	$PROCESS_QUERY_LIMITED_INFORMATION access right and the $PROCESS_VM_READ access right.
+$hModule
+	[optional] Handle to the module. If this parameter is 0 (Default), the function retrieves the path of the executable
+	file of the process.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The fully-qualified path to the module.
+Failure 	Sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+This function does not retrieve the path for modules that were loaded using the $LOAD_LIBRARY_AS_DATAFILE flag.
+For more information, see _WinAPI_LoadLibraryEx().
+
+
+###Related###
+_WinAPI_LoadLibraryEx
+
+
+###See Also###
+@@MsdnLink@@ GetModuleFileNameEx

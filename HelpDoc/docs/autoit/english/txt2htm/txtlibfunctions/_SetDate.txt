@@ -1,0 +1,42 @@
+###User Defined Function###
+_SetDate
+
+###Description###
+Sets the current date of the system
+
+###Syntax###
+#include <Date.au3>
+_SetDate ( $iDay [, $iMonth = 0 [, $iYear = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$iDay
+	Day of the month. Values: 1-31
+$iMonth
+	[optional] month. Values: 1-12
+$iYear
+	[optional] year. Values: > 0 (windows might restrict this further!!)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	1
+Failure:	0 and set @error
+@error:	0 - No error
+	1 - Failure
+@extended:	GetLastError()
+	Error code(s): http://msdn.microsoft.com/en-us/library/ms681381.aspx
+@@End@@
+
+
+###Remarks###
+If the optional parameters (iMonth,iYear) are NOT defined, the function will not change the current value!
+
+
+###Related###
+_SetTime
+
+
+###Example###
+@@IncludeExample@@

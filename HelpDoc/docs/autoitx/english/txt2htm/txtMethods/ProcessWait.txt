@@ -1,0 +1,38 @@
+###Method###
+ProcessWait
+
+###Description###
+Pauses script execution until a given process exists.
+
+###Syntax###
+ProcessWait "process" [, timeout]
+
+
+###Parameters###
+@@ParamTable@@
+process
+	The name of the process to check.
+timeout
+	<b>Optional:</b> Specifies how long to wait (default is to wait indefinitely).
+@@End@@
+
+###ReturnValue###
+Success:  Returns 1.
+Failure:  Returns 0 if the wait timed out.
+
+
+###Remarks###
+Process names are executables without the full path, e.g., "notepad.exe" or "winword.exe"
+In order to work under Windows NT 4.0, ProcessWait requires the file PSAPI.DLL (included in the AutoIt installation directory).
+The process is polled approximately every 250 milliseconds.
+
+This function is the only process function not to accept a PID.  Because PIDs are allocated randomly, waiting for a particular PID to exist doesn't make sense.
+
+
+###Related###
+ProcessClose, ProcessExists, ProcessWaitClose, RunWait, WinWait, WinWaitActive
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oAutoIt.ProcessWait "notepad.exe"

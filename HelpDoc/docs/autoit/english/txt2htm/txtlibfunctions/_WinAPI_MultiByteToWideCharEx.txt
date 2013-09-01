@@ -1,0 +1,42 @@
+###User Defined Function###
+_WinAPI_MultiByteToWideCharEx
+
+###Description###
+Maps a character string to a wide-character (Unicode) string
+
+###Syntax###
+#include <WinAPI.au3>
+_WinAPI_MultiByteToWideCharEx ( $sText, $pText [, $iCodePage = 0 [, $iFlags = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sText
+	Text to be converted
+$pText
+	Pointer to a byte structure where the converted string will be stored
+$iCodePage
+	[optional] Specifies the code page to be used to perform the conversion:
+	0 - ANSI code page
+	1 - OEM code page
+	2 - Macintosh code page
+$iFlags
+	[optional] Flags that indicate whether to translate to precomposed or composite wide characters:
+	$MB_PRECOMPOSED - Always use precomposed characters
+	$MB_COMPOSITE - Always use composite characters
+	$MB_USEGLYPHCHARS - Use glyph characters instead of control characters
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False, call _WinAPI_GetLastError() to get extended error information
+@@End@@
+
+
+###Remarks###
+The byte structure must be at least twice the length of $sText
+
+
+###Related###
+_WinAPI_MultiByteToWideChar

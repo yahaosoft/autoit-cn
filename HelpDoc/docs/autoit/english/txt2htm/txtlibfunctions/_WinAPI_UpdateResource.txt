@@ -1,0 +1,64 @@
+###User Defined Function###
+_WinAPI_UpdateResource
+
+###Description###
+Adds, deletes, or replaces a resource in a portable executable (PE) file.
+
+###Syntax###
+#include <WinAPIRes.au3>
+_WinAPI_UpdateResource ( $hUpdate, $sType, $sName, $iLanguage, $pData, $iSize )
+
+
+###Parameters###
+@@ParamTable@@
+$hUpdate
+	A module handle returned by the _WinAPI_BeginUpdateResource(), referencing the file to be updated.
+$sType
+	The resource type to be updated. Alternatively, rather than a pointer, this parameter can be an
+	integer value representing a predefined resource type. If the first character of the string is a
+	pound sign (#), then the remaining characters represent a decimal number that specifies the integer
+	identifier of the resource type. For example, the string "#258" represents the identifier 258.
+	Also, you can use a predefined resource types ($RT_*).
+$sName
+	The name of the resource to be updated. This parameter can be string or integer value.
+$iLanguage
+	The language identifier of the resource.
+$pData
+	The resource data to be inserted into the file indicated by $hUpdate parameter. If the resource is
+	one of the predefined types, the data must be valid and properly aligned. Note that this is the raw
+	binary data, not the data provided by _WinAPI_LoadIcon(), _WinAPI_LoadString(), or other resource-
+	specific load functions. All data containing strings or text must be in Unicode format. If $pData
+	is 0 and $iSize is 0, the specified resource is deleted from the file indicated by $hUpdate.
+$iSize
+	The size, in bytes, of the resource data at $pData.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True.
+Failure 	False.
+@@End@@
+
+
+###Remarks###
+It is recommended that the resource file is not loaded before this function is called. However, if that file
+is already loaded, it will not cause an error to be returned.
+
+An application can use _WinAPI_UpdateResource() repeatedly to make changes to the resource data. Each call
+to _WinAPI_UpdateResource() contributes to an internal list of additions, deletions, and replacements but does
+not actually write the data to the file. The application must use the _WinAPI_EndUpdateResource() function to
+write the accumulated changes.
+
+If $pData is 0 and $iSize is 0, the specified resource is deleted from the file indicated by $hUpdate.
+
+
+###Related###
+_WinAPI_BeginUpdateResource, _WinAPI_EndUpdateResource, _WinAPI_LoadIcon, _WinAPI_LoadString
+
+
+###See Also###
+@@MsdnLink@@ UpdateResource
+
+
+###Example###
+@@IncludeExample@@

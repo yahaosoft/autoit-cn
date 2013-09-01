@@ -1,0 +1,96 @@
+###Structure Name###
+$tagNMLVCUSTOMDRAW
+
+###Description###
+Contains information specific to an NM_CUSTOMDRAW (list view) notification message sent by a list-view control
+
+###Syntax###
+Global Const $tagNMLVCUSTOMDRAW = "struct;" & $tagNMHDR & ";dword dwDrawStage;handle hdc;" & $tagRECT & _
+	";dword_ptr dwItemSpec;uint uItemState;lparam lItemlParam;endstruct" & _
+	";dword clrText;dword clrTextBk;int iSubItem;dword dwItemType;dword clrFace;int iIconEffect;" & _
+	"int iIconPhase;int iPartId;int iStateId;struct;long TextLeft;long TextTop;long TextRight;long TextBottom;endstruct;uint uAlign"
+
+
+###Fields###
+@@ParamTable@@
+$tagNMHDR
+	Contains information about a notification message
+dwDrawStage
+	The current drawing stage. This is one of the following values:
+	Global Values:
+	$CDDS_POSTERASE - After the erasing cycle is complete.
+	$CDDS_POSTPAINT - After the painting cycle is complete.
+	$CDDS_PREERASE - Before the erasing cycle begins.
+	$CDDS_PREPAINT - Before the painting cycle begins.
+	Item-specific Values:
+	$CDDS_ITEM - Indicates that the dwItemSpec, uItemState, and lItemlParam members are valid.
+	$CDDS_ITEMPOSTERASE - After an item has been erased.
+	$CDDS_ITEMPOSTPAINT - After an item has been drawn.
+	$CDDS_ITEMPREERASE - Before an item is erased.
+	$CDDS_ITEMPREPAINT - Before an item is drawn.
+	$CDDS_SUBITEM - Flag combined with $CDDS_ITEMPREPAINT or $CDDS_ITEMPOSTPAINT if a subitem is being drawn.
+	This will only be set if $CDRF_NOTIFYITEMDRAW is returned from $CDDS_PREPAINT.
+hdc
+	A handle to the control's device context.
+	Use this handle to a device context (HDC) to perform any Microsoft Windows Graphics Device Interface (GDI) functions.
+$tagRECT
+	Left,Top coordinate of the upper left corner of the rectangle of the area being drawn. This member is initialized only by the $CDDS_ITEMPREPAINT notification
+	Right,Bottom coordinate of the lower right corner of the rectangle of the area being drawn. This member is initialized only by the $CDDS_ITEMPREPAINT notification
+dwItemSpec
+	The item number
+uItemState
+	The current item state. This value is a combination of the following flags:
+	$CDIS_CHECKED - The item is checked.
+	$CDIS_DEFAULT - The item is in its default state.
+	$CDIS_DISABLED - The item is disabled.
+	$CDIS_FOCUS - The item is in focus.
+	$CDIS_GRAYED - The item is grayed.
+	$CDIS_HOT - The item is currently under the pointer ("hot").
+	$CDIS_INDETERMINATE - The item is in an indeterminate state.
+	$CDIS_MARKED - The item is marked. The meaning of this is determined by the implementation.
+	$CDIS_SELECTED - The item is selected.
+	$CDIS_SHOWKEYBOARDCUES - Version 6.0 Comctl32. The item is a keyboard cue.
+	$CDIS_NEARHOT - The item is part of a control that is currently under the mouse pointer ("hot"), but the item is not "hot" itself.
+	The meaning of this is determined by the implementation.
+	$CDIS_OTHERSIDEHOT - The item is part of a splitbutton that is currently under the mouse pointer ("hot"), but the item is not "hot" itself.
+	The meaning of this is determined by the implementation.
+	$CDIS_DROPHILITED - The item is currently the drop target of a drag-and-drop operation.
+lItemlParam
+	Application-defined item data.
+clrText
+	COLORREF value representing the color that will be used to display text foreground in the list-view control.
+clrTextBk
+	COLORREF value representing the color that will be used to display text background in the list-view control.
+iSubItem
+	Index of the subitem that is being drawn. If the main item is being drawn, this member will be zero.
+dwItemType
+	Version 6.0. DWORD that contains the type of the item to draw. This member can be one of the following values:
+	$LVCDI_ITEM - An item is to be drawn.
+	$LVCDI_GROUP - A group is to be drawn.
+clrFace
+	Version 6.0. COLORREF value representing the color that will be used to display the face of an item.
+iIconEffect
+	Version 6.0. Value of type int that specifies the effect that is applied to an icon, such as Glow, Shadow, or Pulse.
+iIconPhase
+	Version 6.0. Value of type int that specifies the phase of an icon.
+iPartId
+	Version 6.0. Value of type int that specifies the ID of the part of an item to draw.
+iStateId
+	Version 6.0. Value of type int that specifies the ID of the state of an item to draw.
+TextLeft
+	X coordinate of the upper left corner of the rectangle in which the text is to be drawn
+TextTop
+	Y coordinate of the upper left corner of the rectangle in which the text is to be drawn
+TextRight
+	X coordinate of the lower right corner of the rectangle in which the text is to be drawn
+TextBottom
+	Y coordinate of the lower right corner of the rectangle in which the text is to be drawn
+uAlign
+	Version 6.0. UINT that specifies how a group should be aligned. This member can be one of the following values:
+	$LVGA_HEADER_CENTER - Center the group.
+	$LVGA_HEADER_LEFT - Align the group on the left.
+	$LVGA_HEADER_RIGHT - Align the group on the right.
+@@End@@
+
+###Remarks###
+$LVxxx_ constants require #include <ListViewConstants.au3>, $CDxx_ constants require #include <WindowsConstants.au3>

@@ -1,0 +1,41 @@
+###Method###
+ProcessSetPriority
+
+###Description###
+Changes the priority of a process
+
+###Syntax###
+ProcessSetPriority "process", priority
+
+
+###Parameters###
+@@ParamTable@@
+process
+	The name or PID of the process to check.
+priority
+	A flag which determines what priority to set
+	0 - Idle/Low
+	1 - Below Normal (Not supported on Windows 95/98/ME)
+	2 - Normal
+	3 - Above Normal (Not supported on Windows 95/98/ME)
+	4 - High
+	5 - Realtime (Use with caution, may make the system unstable)
+@@End@@
+
+###ReturnValue###
+Success:  Returns 1.
+Failure:  Returns 0 and sets oAutoIt.error to 1.  May set oAutoIt.error to 2 if attempting to use an unsupported priority class.
+
+
+###Remarks###
+Above Normal and Below Normal priority classes are not supported on Windows 95/98/ME.  If you try to use them on those platforms, the function will fail and oAutoIt.error will be set to 2.
+
+
+###Related###
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oAutoIt.Run "Notepad.exe"
+oAutoIt.ProcessSetPriority "notepad.exe", 0
+' Notepad should now have Idle/Low priority

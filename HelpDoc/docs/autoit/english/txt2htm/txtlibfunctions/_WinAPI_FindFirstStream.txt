@@ -1,0 +1,49 @@
+###User Defined Function###
+_WinAPI_FindFirstStream
+
+###Description###
+Enumerates the first stream with a ::$DATA stream type in the specified file or directory.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_FindFirstStream ( $sPath, $pData )
+
+
+###Parameters###
+@@ParamTable@@
+$sPath
+	The fully-qualified file name.
+$pData
+	A pointer to the $tagWIN32_FIND_STREAM_DATA structure that receives information about the stream.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The search handle.
+Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+
+###Remarks###
+This function function opens a search handle and returns information about the first stream in the specified file
+or directory. For files, this is always the default data stream, "::$DATA". After the search handle has been established,
+use it in the _WinAPI_FindNextStream() function to search for other streams in the specified file or directory.
+
+If the function fails because no streams can be found, the @extended flag will contain ERROR_HANDLE_EOF (38)
+system error code.
+
+When the search handle is no longer needed, it should be closed using the _WinAPI_FindClose() function.
+
+This function requires Windows Vista or later.
+
+
+###Related###
+_WinAPI_FindNextStream, _WinAPI_FindClose
+
+
+###See Also###
+@@MsdnLink@@ FindFirstStreamW
+
+
+###Example###
+@@IncludeExample@@

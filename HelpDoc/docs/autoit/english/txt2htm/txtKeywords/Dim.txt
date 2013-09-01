@@ -1,0 +1,76 @@
+###Keyword###
+Dim / Global / Local / Const
+
+###Description###
+Declare a variable, a constant, or create an array.
+
+###Syntax###
+<b>Dim</b> [Const] $variable [ = initializer ]
+<b>Dim</b> [Const] $aArray<b>[</b>subscript 1<b>]</b>...<b>[</b>subscript n<b>]</b> [ = initializer ]
+
+
+###Parameters###
+@@ParamTable@@
+Const
+	[optional] If present, the Const keyword creates a constant rather than a variable.
+$variable
+	The name of the variable/constant to declare.
+initializer
+	The value that will be initially assigned to the variable. A Const must include the initializer. The initializer can be a function call.
+subscript
+	The number of elements to create for the array dimension, indexed 0 to n-1.
+@@End@@
+
+###Remarks###
+The Dim/Local/Global keywords perform similar functions:
+1. Declare a variable before you use it (similar to VBScript)
+2. Create an array
+
+<b>Note</b>: In AutoIt you can create a variable simply by assigning a value ($myvar = 0) but many people like to explicitly declare them. If <b><a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption("MustDeclareVars", 1)</a></b> is active, then variables must be declared prior to use.
+
+You can also declare multiple variables on a single line:
+<p class="code">Dim $a, $b, $c</p>
+And initialize the variables:
+<p class="code">Dim $a = 2, $b = 10, $c = 20</p>
+Creating constants can be done in a similar way:
+<p class="code">Const $a = 2, $b = 10, $c = 20
+Dim Const $d = 21, $e = Exp(1)
+Local Const $f = 5, $g = 7, $h = -2
+</p>
+Once created, you cannot change the value of a constant. Also, you cannot change an existing variable into a constant.
+
+To initialize an array, specify the values for each element inside square brackets, separated by commas. For multiple dimensions, nest the initializers. You can specify fewer elements in the initializer than declared, but not more. Function calls can also be placed in the initializers of an array. If the function call returns an array, then the one array element will contain that returned array.
+<p class="code">Dim $Array1[12]=[3, 7.5, "string"], $aArray[5] = [8, 4, 5, 9, 1]
+Dim $Grid[2][4]=[["Paul", "Jim", "Richard", "Louis"], [485.44, 160.68, 275.16, 320.00]]
+Dim $Test[5] = [3, 1, StringSplit("Abe|Jack|Bobby|Marty", "|"), Cos(0)]
+</p>
+The difference between Dim, Local and Global is the scope in which they are created:
+<b>Dim</b> = Local scope if the variable name doesn't already exist globally (in which case it reuses the global variable!)
+<b>Global</b> = Forces creation of the variable in the Global scope
+<b>Local</b> = Forces creation of the variable in the Local/Function scope
+
+You should use Local or Global, instead of Dim, to explicitly state which scope is desired for a variable/constant/array.
+
+When using variables, the local scope is checked first and then the global scope second.
+
+When creating arrays you are limited to up to 64 dimensions and/or a total of 16 million elements.
+
+A unique feature in AutoIt is the ability to copy arrays like this:
+$mycopy = $myarray
+In this case $mycopy will be an exact copy of $myarray and will have the same dimensions - no Dim statement is required to size the array first. If <b><a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption("MustDeclareVars", 1)</a></b> is active then the variable $mycopy would still need to be declared first, but would not need to be sized. If the variable $mycopy was already an array or single value it will be erased before the copy takes place.
+
+To erase an array (maybe because it is a large global array and you want to free the memory), simply assign a single value to it:
+$aArray = 0
+This will free the array and convert it back to the single value of 0.
+
+Declaring the same variable name again will erase all array values and reset the dimensions to the new definition. Declaring a variable with a simple value in the same scope will not change the value in the variable.
+
+If you declare a variable with the same name as a parameter, using <b>Local</b> inside a user function, an error will occur. <b>Global</b> can be used to assign to global variables inside a function, but if a local variable (or parameter) has the same name as a global variable, the local variable will be the only one used. It is recommended that local and global variables have distinct names.
+
+
+###Related###
+<a href="../functions/UBound.htm">UBound</a>, ReDim, Static, <a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption</a>
+
+
+###Example###
+@@IncludeExample@@

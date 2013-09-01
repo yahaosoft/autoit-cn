@@ -1,0 +1,41 @@
+###Function###
+ControlGetPos
+
+###Description###
+Retrieves the position and size of a control relative to its window.
+
+###Syntax###
+ControlGetPos ( "title", "text", controlID )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title/hWnd/class of the window to access. See <a href="../intro/windowsadvanced.htm">Title special definition</a>.
+text
+	The text of the window to access.
+controlID
+	The control to interact with.  See <a href="../intro/controls.htm">Controls</a>.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an array containing the size and the control's position relative to its client window:
+	$aArray[0] = X position
+	$aArray[1] = Y position
+	$aArray[2] = Width
+	$aArray[3] = Height
+Failure:	Sets @error to 1.
+@@End@@
+
+
+###Remarks###
+The title/text is referencing the parent window, so be careful with "","" which references the active window which may not be the one containing the controlID control.
+
+
+###Related###
+ControlCommand, ControlMove
+
+
+###Example###
+@@IncludeExample@@

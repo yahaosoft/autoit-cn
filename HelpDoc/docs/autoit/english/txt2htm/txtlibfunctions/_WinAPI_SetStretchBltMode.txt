@@ -1,0 +1,46 @@
+###User Defined Function###
+_WinAPI_SetStretchBltMode
+
+###Description###
+Sets the bitmap stretching mode in the specified device context.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_SetStretchBltMode ( $hDC, $iMode )
+
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context.
+$iMode
+	The stretching mode. This parameter can be one of the following values.
+	$BLACKONWHITE
+	$COLORONCOLOR
+	$HALFTONE
+	$WHITEONBLACK
+	$STRETCH_ANDSCANS
+	$STRETCH_DELETESCANS
+	$STRETCH_HALFTONE
+	$STRETCH_ORSCANS
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The previous stretching mode.
+Failure 	0 and sets the @error flag to non-zero, @extended may contain ERROR_INVALID_PARAMETER.
+@@End@@
+
+
+###Remarks###
+The $BLACKONWHITE ($STRETCH_ANDSCANS) and $WHITEONBLACK ($STRETCH_ORSCANS) modes are typically used to
+preserve foreground pixels in monochrome bitmaps. The $COLORONCOLOR ($STRETCH_DELETESCANS) mode is typically
+used to preserve color in color bitmaps. The $HALFTONE ($STRETCH_HALFTONE) mode is slower and requires more
+processing of the source image than the other three modes; but produces higher quality images.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ SetStretchBltMode

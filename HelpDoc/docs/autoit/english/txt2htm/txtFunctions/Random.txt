@@ -1,0 +1,63 @@
+###Function###
+Random
+
+###Description###
+Generates a pseudo-random float-type number.
+
+###Syntax###
+Random ( [Min = 0 [, Max = 1 [, Flag = 0]]] )
+
+
+###Parameters###
+@@ParamTable@@
+Min
+	[optional] The smallest number to be generated. The default is 0.
+Max
+	[optional] The largest number to be generated. The default is 1.
+Flag
+	[optional] If this is set to 1 then an integer result will be returned.  Default is a floating point number.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a pseudo-random number between Min and Max.
+Failure:	Returns 0 and sets @error to non-zero.
+@@End@@
+
+
+###Remarks###
+By default the <a href="Random.htm">Random()</a> function works with decimal/floating point numbers. If you want to return an integer/whole number result then set the Flag parameter to 1.
+
+If only one argument is provided, then this is interpreted to be the Max parameter.
+
+The result will be in the range of Min to Max INCLUSIVE when using integers (just short of Max when using floats).
+
+If Min and Max are the same value then <a href="Random.htm">Random()</a> will return 0 and set @error to non-zero.
+
+When using integers Max-Min must be less than 2^31.
+
+<br><b>Comments based on the original source</b>
+
+This function uses the Mersenne Twister random number generator, MT19937, written by Takuji Nishimura, Makoto Matsumoto, Shawn Cokus, Matthe Bellew and Isaku Wada.
+
+The Mersenne Twister is an algorithm for generating random numbers. It was designed with consideration of the flaws in various other generators. The period, 2<sup>19937</sup>-1, and the order of equidistribution, 623 dimensions, are far greater. The generator is also fast; it avoids multiplication and division, and it benefits from caches and pipelines. For more information see the inventors' web page at http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html
+
+Copyright (C) 1997 - 2002, Makoto Matsumoto and Takuji Nishimura, All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1.  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2.  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3.  The names of its contributors may not be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+###Related###
+Round, SRandom
+
+
+###Example###
+@@IncludeExample@@

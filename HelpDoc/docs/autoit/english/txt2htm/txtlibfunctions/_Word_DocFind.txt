@@ -1,0 +1,68 @@
+###User Defined Function###
+_Word_DocFind
+
+###Description###
+Runs or repeats the specified find operation.
+
+###Syntax###
+#include <Word.au3>
+_Word_DocFind ( $oDoc [, $sFindText = "" [, $vSearchRange = 0 [, $oFindRange = Default [, $bForward = True [, $bMatchCase = False [, $bMatchWholeWord = False [, $bMatchWildcards = False [, $bMatchSoundsLike = False [, $bMatchAllWordForms = False [, $bFormat = False]]]]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$oDoc
+	Word document object
+$sFindText
+	[optional] The text to be searched for. Use an empty string ("") to search for formatting only.
+	You can search for special characters by specifying appropriate character codes.
+	For example, "^p" corresponds to a paragraph mark and "^t" corresponds to a tab character (default = "")
+$vSearchRange
+	[optional] Specifies the selection or range to search. Can be:
+	-1 - Specifies the current selection
+	0 - Specifies the entire document (default)
+	1 - Find next occurrence of $sFindText
+	2 - Find previous occurrence of $sFindText
+	Any Word range object
+$oFindRange
+	[optional] Specifies the range returned by the last call to _Word_DocFind. This is required if
+	you want to search for the next or previous occurrence of $sFindText.
+	If set to Default then the search starts at the start of the $vSearchRange (default)
+$bForward
+	[optional] True to search forward (toward the end of the document) (default = True)
+$bMatchCase
+	[optional] If True the find is case sensitive (default = False)
+$bMatchWholeWord
+	[optional] If True only find entire words (default = False)
+$bMatchWildcards
+	[optional] If True the find text has special search operators (default = False)
+$bMatchSoundsLike
+	[optional] If True finds words that sound similar to the find text (default = False)
+$bMatchAllWordForms
+	[optional] If True finds all forms of the find text
+	(e.g. "sit" locates "sitting" and "sat") (default = False)
+$bFormat
+	[optional] True to have the find operation locate formatting in addition to or instead of the find text (default = False)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1
+Failure:	Returns 0 and sets @error
+@error:	1 - $oDoc is not an object
+	2 - $vSearchRange is not an object
+	3 - $oFindRange is not an object
+	4 - $sFindText could not be found
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_Word_DocFindReplace
+
+
+###Example###
+@@IncludeExample@@

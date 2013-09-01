@@ -1,0 +1,45 @@
+###User Defined Function###
+_WinAPI_GetSystemDEPPolicy
+
+###Description###
+Gets the data execution prevention (DEP) policy setting for the system.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_GetSystemDEPPolicy (  )
+
+
+###Parameters###
+None
+
+###ReturnValue###
+Returns The DEP policy setting, which can be one of the following values.
+
+	0 - AlwaysOff
+	DEP is disabled for all parts of the system, regardless of hardware support for DEP. The processor
+	runs in PAE mode with 32-bit versions of Windows unless PAE is disabled in the boot configuration data.
+
+	1 - AlwaysOn
+	DEP is enabled for all parts of the system. All processes always run with DEP enabled. DEP cannot
+	be explicitly disabled for selected applications. System compatibility fixes are ignored.
+
+	2 - OptIn
+	On systems with processors that are capable of hardware-enforced DEP, DEP is automatically enabled
+	only for operating system components. This is the default setting for client versions of Windows.
+	DEP can be explicitly enabled for selected applications or the current process.
+
+	3 - OptOut
+	DEP is automatically enabled for operating system components and all processes. This is the default
+	setting for Windows Server versions. DEP can be explicitly disabled for selected applications or
+	the current process. System compatibility fixes for DEP are in effect.
+
+
+###Remarks###
+This function requires Windows XP with SP3, Windows Vista with SP1 or later.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetSystemDEPPolicy

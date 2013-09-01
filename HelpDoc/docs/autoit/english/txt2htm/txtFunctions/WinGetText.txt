@@ -1,0 +1,37 @@
+###Function###
+WinGetText
+
+###Description###
+Retrieves the text from a window.
+
+###Syntax###
+WinGetText ( "title" [, "text"] )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title/hWnd/class of the window to read. See <a href="../intro/windowsadvanced.htm">Title special definition</a>.
+text
+	[optional] The text of the window to read.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a string containing the window text read.
+Failure:	Returns numeric 0 if no title match.
+@@End@@
+
+
+###Remarks###
+Up to 64KB of window text can be retrieved.  <a href="WinGetText.htm">WinGetText()</a> works on minimized windows, but only works on hidden windows if you've set <a href="AutoItSetOption.htm">AutoItSetOption</a>("WinDetectHiddenText", 1)
+If multiple windows match the criteria for <a href="WinGetText.htm">WinGetText()</a>, the information for the most recently active match is returned.
+Use <a href="WinGetText.htm">WinGetText</a>("[active]") to get the active window's text.
+
+
+###Related###
+WinGetTitle, ControlGetText, WinGetClassList
+
+
+###Example###
+@@IncludeExample@@

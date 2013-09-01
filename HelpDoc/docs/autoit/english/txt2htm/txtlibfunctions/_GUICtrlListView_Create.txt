@@ -1,0 +1,93 @@
+###User Defined Function###
+_GUICtrlListView_Create
+
+###Description###
+Create a ListView control
+
+###Syntax###
+#include <GuiListView.au3>
+_GUICtrlListView_Create ( $hWnd, $sHeaderText, $iX, $iY [, $iWidth = 150 [, $iHeight = 150 [, $iStyle = 0x0000000D [, $iExStyle = 0x00000000 [, $fCoInit = False]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to parent or owner window
+$sHeaderText
+	Text to be displayed in the header. Pipe "|" delimited.
+$iX
+	Horizontal position of the control
+$iY
+	Vertical position of the control
+$iWidth
+	[optional] Control width
+$iHeight
+	[optional] Control height
+$iStyle
+	[optional] Control styles:
+	$LVS_ALIGNLEFT - Items are left aligned in icon and small icon view
+	$LVS_ALIGNTOP - Items are aligned with the top of the control in icon and small icon view
+	$LVS_AUTOARRANGE - Icons are automatically kept arranged in icon and small icon view
+	$LVS_EDITLABELS - Item text can be edited in place
+	$LVS_ICON - This style specifies icon view
+	$LVS_LIST - This style specifies list view
+	$LVS_NOCOLUMNHEADER - Column headers are not displayed in report view
+	$LVS_NOLABELWRAP - Item text is displayed on a single line in icon view
+	$LVS_NOSCROLL - Scrolling is disabled
+	$LVS_NOSORTHEADER - Column headers do not work like buttons
+	$LVS_OWNERDATA - This style specifies a virtual control
+	$LVS_OWNERDRAWFIXED - The owner window can paint items in report view
+	$LVS_REPORT - This style specifies report view
+	$LVS_SHAREIMAGELISTS - The image list will not be deleted
+	$LVS_SHOWSELALWAYS - The selection, if any, is always shown
+	$LVS_SINGLESEL - Only one item at a time can be selected
+	$LVS_SMALLICON - This style specifies small icon view
+	$LVS_SORTASCENDING - Item indexes are sorted in ascending order
+	$LVS_SORTDESCENDING - Item indexes are sorted in descending order
+
+	Default: $LVS_REPORT, $LVS_SINGLESEL, $LVS_SHOWSELALWAYS
+	Forced : $WS_CHILD, $WS_VISIBLE
+$iExStyle
+	[optional] Extended control styles. Can be a combination of the following:
+	$LVS_EX_BORDERSELECT - When an item is selected the border color of the item changes
+	$LVS_EX_CHECKBOXES - Enables check boxes for items in a list-view control
+	$LVS_EX_DOUBLEBUFFER - Paints via double-buffering, which reduces flicker
+	$LVS_EX_FLATSB - Enables flat scroll bars in the list view
+	$LVS_EX_FULLROWSELECT - When an item is selected, the item and all its subitems are highlighted
+	$LVS_EX_GRIDLINES - Displays gridlines around items and subitems
+	$LVS_EX_HEADERDRAGDROP - Enables drag-and-drop reordering of columns
+	$LVS_EX_INFOTIP - The $LVN_GETINFOTIP notification message is sent before displaying a ToolTip
+	$LVS_EX_LABELTIP - If not set, the unfolds partly hidden labels only for the large icon mode
+	$LVS_EX_MULTIWORKAREAS - The control will not autoarrange its icons until one or more work areas are defined
+	$LVS_EX_ONECLICKACTIVATE - The control sends an $LVN_ITEMACTIVATE messages when the user clicks an item
+	$LVS_EX_REGIONAL - Sets the control region to include only the item icons and text
+	$LVS_EX_SIMPLESELECT - In icon view moves the state image of the control to the top right
+	$LVS_EX_SUBITEMIMAGES - Allows images to be displayed for subitems
+	$LVS_EX_TRACKSELECT - Enables hot-track selection in the control
+	$LVS_EX_TWOCLICKACTIVATE - The control sends an $LVN_ITEMACTIVATE message when the user double-clicks an item
+	$LVS_EX_UNDERLINECOLD - Causes non-hot items that may be activated to be displayed with underlined text
+	$LVS_EX_UNDERLINEHOT - Causes hot items that may be activated to be displayed with underlined text
+
+$fCoInit
+	[optional] Initializes the COM library for use by the calling thread.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Handle to the ListView control
+Failure:	Returns 0 and set @error to:
+	1 = Invalid Window handle
+	2 = Header text is not a string
+@@End@@
+
+
+###Remarks###
+This function is for Advanced users and for learning how the control works.
+
+
+###Related###
+_GUICtrlListView_Destroy, _GUICtrlListView_SetBkImage
+
+
+###Example###
+@@IncludeExample@@

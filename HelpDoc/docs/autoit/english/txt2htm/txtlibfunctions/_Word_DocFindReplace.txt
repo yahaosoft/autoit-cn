@@ -1,0 +1,69 @@
+###User Defined Function###
+_Word_DocFindReplace
+
+###Description###
+Runs the specified find and replace operation.
+
+###Syntax###
+#include <Word.au3>
+_Word_DocFindReplace ( $oDoc [, $sFindText = "" [, $sReplaceWith = "" [, $iReplace = $WdReplaceAll [, $vSearchRange = 0 [, $bMatchCase = False [, $bMatchWholeWord = False [, $bMatchWildcards = False [, $bMatchSoundsLike = False [, $bMatchAllWordForms = False [, $bForward = True [, $iWrap = $WdFindContinue [, $bFormat = False]]]]]]]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$oDoc
+	Word document object
+$sFindText
+	[optional] The text to be searched for. Use an empty string ("") to search for formatting only.
+	You can search for special characters by specifying appropriate character codes.
+	For example, "^p" corresponds to a paragraph mark and "^t" corresponds to a tab character (default = "")
+$sReplaceWith
+	[optional] The replacement text. To delete found text use an empty string ("").
+	You specify special characters and advanced search criteria just as you do for the Find argument (default = "")
+$iReplace
+	[optional] How many replacements are to be made: one, all, or none.
+	Can be anyWdReplace constant (default = $WdReplaceAll)
+$vSearchRange
+	[optional] Specifies the selection or range to search. Can be:
+	-1 - Specifies the current selection
+	0 - Specifies the entire document (default)
+	Any Word range object
+$bMatchCase
+	[optional] If True the find is case sensitive (default = False)
+$bMatchWholeWord
+	[optional] If True only find entire words (default = False)
+$bMatchWildcards
+	[optional] If True the find text has special search operators (default = False)
+$bMatchSoundsLike
+	[optional] If True finds words that sound similar to the find text (default = False)
+$bMatchAllWordForms
+	[optional] If True finds all forms of the find text
+	(e.g. "sit" locates "sitting" and "sat") (default = False)
+$bForward
+	[optional] True to search forward (toward the end of the document) (default = True)
+$iWrap
+	[optional] True wraps when the bottom or top of the document, selection or range is reached.
+	Can be one of the WdFindWrap constants (default = $WdFindContinue)
+$bFormat
+	[optional] True to have the find operation locate formatting in addition to or instead of the find text (default = False)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1
+Failure:	Returns 0 and sets @error
+@error:	1 - $oDoc is not an object
+	2 - $vSearchRange is not an object
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_Word_DocFind
+
+
+###Example###
+@@IncludeExample@@

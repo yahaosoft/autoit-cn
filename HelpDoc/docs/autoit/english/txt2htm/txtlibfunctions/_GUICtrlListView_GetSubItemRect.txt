@@ -1,0 +1,42 @@
+###User Defined Function###
+_GUICtrlListView_GetSubItemRect
+
+###Description###
+Retrieves information about an item bounding rectangle
+
+###Syntax###
+#include <GuiListView.au3>
+_GUICtrlListView_GetSubItemRect ( $hWnd, $iIndex, $iSubItem [, $iPart = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Control ID/Handle to the control
+$iIndex
+	Zero based index of the subitem's parent item
+$iSubItem
+	One based index of the subitem
+$iPart
+	[optional] The portion of the subitem item to retrieve:
+	0 - The rectangle of the entire subitem, including the icon and label
+	1 - The rectangle of the icon or small icon
+@@End@@
+
+###ReturnValue###
+Returns an Array with the following format:
+	[0] - X coordinate of the upper left corner of the rectangle
+	[1] - Y coordinate of the upper left corner of the rectangle
+	[2] - X coordinate of the lower right corner of the rectangle
+	[3] - Y coordinate of the lower right corner of the rectangle
+
+
+###Remarks###
+This function is used only with controls that use the $LVS_REPORT style
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

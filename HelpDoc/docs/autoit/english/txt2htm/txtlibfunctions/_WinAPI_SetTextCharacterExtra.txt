@@ -1,0 +1,38 @@
+###User Defined Function###
+_WinAPI_SetTextCharacterExtra
+
+###Description###
+Sets the intercharacter spacing for the specified device context.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_SetTextCharacterExtra ( $hDC, $iCharExtra )
+
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context.
+$iCharExtra
+	The amount of extra space, in logical units, to be added to each character.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The previous intercharacter spacing.
+Failure 	(-1).
+@@End@@
+
+
+###Remarks###
+This function is supported mainly for compatibility with existing applications?
+
+The recommended approach is that instead of calling this function and then TextOut,
+applications should call ExtTextOut and use its lpDx parameter to supply widths.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ SetTextCharacterExtra

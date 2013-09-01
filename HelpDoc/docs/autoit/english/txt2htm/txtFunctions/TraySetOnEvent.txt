@@ -1,0 +1,56 @@
+###Function###
+TraySetOnEvent
+
+###Description###
+Defines a user function to be called when a special tray action happens.
+
+###Syntax###
+TraySetOnEvent ( specialID, "function" )
+
+
+###Parameters###
+@@ParamTable@@
+specialID
+	See the <a href="#SpecialIDTable">Special ID table</a> below.
+function
+	The name of the user function to call.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@error:	1 if the "function" is not defined.
+@@End@@
+
+
+###Remarks###
+OnEvent functions are only called when the option TrayOnEventMode is set to 1 - when in this mode <a href="TrayGetMsg.htm">TrayGetMsg()</a> is NOT used at all.
+
+<a name="SpecialIDTable"></a><b>Special ID table</b>
+@@StandardTable1@@
+<b>Special Id</b>	<b>Value</b>	<b>Comments</b>
+$TRAY_EVENT_SHOWICON	-3	The tray icon will be shown.
+$TRAY_EVENT_HIDEICON	-4	The tray icon will be hidden.
+$TRAY_EVENT_FLASHICON	-5	The user turned the tray icon flashing on.
+$TRAY_EVENT_NOFLASHICON	-6	The user turned the tray icon flashing off.
+$TRAY_EVENT_PRIMARYDOWN	-7	The primary mouse button was pressed on the tray icon.
+$TRAY_EVENT_PRIMARYUP	-8	The primary mouse button was released on the tray icon.
+$TRAY_EVENT_SECONDARYDOWN	-9	The secondary mouse button was pressed on the tray icon.
+$TRAY_EVENT_SECONDARYUP	-10	The secondary mouse button was released on the tray icon.
+$TRAY_EVENT_MOUSEOVER	-11	The mouse moves over the tray icon.
+$TRAY_EVENT_PRIMARYDOUBLE	-13	The primary mouse button was double pressed on the tray icon.
+$TRAY_EVENT_SECONDARYDOUBLE	-14	The secondary mouse button was double pressed on the tray icon.
+@@End@@
+
+If the function is an empty string "" the previous user-defined is disabled.
+
+The above constants are defined in #include <Constants.au3>
+
+
+###Related###
+TrayOnEventMode (Option), TrayItemSetOnEvent, TraySetClick
+
+
+###Example###
+@@IncludeExample@@

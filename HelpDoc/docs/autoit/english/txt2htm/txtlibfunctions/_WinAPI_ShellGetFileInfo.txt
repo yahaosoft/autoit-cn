@@ -1,0 +1,73 @@
+###User Defined Function###
+_WinAPI_ShellGetFileInfo
+
+###Description###
+Retrieves information about an object in the file system.
+
+###Syntax###
+#include <WinAPIShellEx.au3>
+_WinAPI_ShellGetFileInfo ( $sPath, $iFlags, $iAttributes, ByRef $tSHFILEINFO )
+
+
+###Parameters###
+@@ParamTable@@
+$sPath
+	String that contains the absolute or relative path and file name. This string can use either
+	short (the 8.3 form) or long file names.
+
+	If the $iFlags parameter includes the $SHGFI_PIDL flag, this parameter must be the address of an
+	ITEMIDLIST (PIDL) structure that contains the list of item identifiers that uniquely identifies the
+	file within the Shell's namespace. The pointer to an item identifier list (PIDL) must be a fully
+	qualified PIDL. Relative PIDLs are not allowed.
+
+	If the $iFlags parameter includes the $SHGFI_USEFILEATTRIBUTES flag, this parameter does not have
+	to be a valid file name. The function will proceed as if the file exists with the specified name and
+	with the file attributes passed in the $iAttributes parameter. This allows you to obtain information
+	about a file type by passing just the extension for $sPath and passing $FILE_ATTRIBUTE_NORMAL
+	in $iAttributes.
+
+$iFlags
+	The flags that specify the file information to retrieve. This parameter can be a combination of the
+	following values.
+	$SHGFI_ATTR_SPECIFIED
+	$SHGFI_ATTRIBUTES
+	$SHGFI_DISPLAYNAME
+	$SHGFI_EXETYPE
+	$SHGFI_ICON
+	$SHGFI_ICONLOCATION
+	$SHGFI_LARGEICON
+	$SHGFI_LINKOVERLAY
+	$SHGFI_OPENICON
+	$SHGFI_OVERLAYINDEX
+	$SHGFI_PIDL
+	$SHGFI_SELECTED
+	$SHGFI_SHELLICONSIZE
+	$SHGFI_SMALLICON
+	$SHGFI_SYSICONINDEX
+	$SHGFI_TYPENAME
+	$SHGFI_USEFILEATTRIBUTES
+$iAttributes
+	A combination of one or more file attribute flags ($FILE_ATTRIBUTE_*).
+$tSHFILEINFO
+	$tagSHFILEINFO structure to receive the file information. This structure must be created before function call.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	If $iFlags contains the $SHGFI_EXETYPE flag, return type of the executable file. If $iFlags contains the
+	$SHGFI_SYSICONINDEX flag, return handle to the system image list.
+Failure 	0.
+@@End@@
+
+
+###Remarks###
+If this function returns an icon handle in the "hIcon" member of the $tagSHFILEINFO structure, you are responsible
+for freeing it with _WinAPI_DestroyIcon() when you no longer need it.
+
+
+###Related###
+_WinAPI_DestroyIcon
+
+
+###See Also###
+@@MsdnLink@@ SHGetFileInfo

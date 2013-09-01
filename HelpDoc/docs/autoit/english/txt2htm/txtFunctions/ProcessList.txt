@@ -1,0 +1,43 @@
+###Function###
+ProcessList
+
+###Description###
+Returns an array listing the currently running processes (names and PIDs).
+
+###Syntax###
+ProcessList ( ["name"] )
+
+
+###Parameters###
+@@ParamTable@@
+name
+	[optional] If a name is given only processes of the same name will be returned.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	An array of process names and PIDs (See Remarks).
+Failure:	@error is set to 1 when the array cannot be built.
+@@End@@
+
+
+###Remarks###
+The array returned is two-dimensional and is made up as follows:
+$aArray[0][0] = Number of processes
+$aArray[1][0] = 1st Process name
+$aArray[1][1] = 1st Process ID (PID)
+$aArray[2][0] = 2nd Process name
+$aArray[2][1] = 2nd Process ID (PID)
+...
+$aArray[n][0] = nth Process name
+$aArray[n][1] = nth Process ID (PID)
+
+The list can be empty if $aArray[0][0] = 0. No @error set in this case.
+
+
+###Related###
+ProcessClose, ProcessExists, ProcessSetPriority, ProcessWait, ProcessWaitClose, ProcessGetStats, WinGetProcess
+
+
+###Example###
+@@IncludeExample@@

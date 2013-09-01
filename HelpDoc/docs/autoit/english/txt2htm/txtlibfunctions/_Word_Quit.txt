@@ -1,0 +1,46 @@
+###User Defined Function###
+_Word_Quit
+
+###Description###
+Closes all documents, the Word application and removes the object reference to it.
+
+###Syntax###
+#include <Word.au3>
+_Word_Quit ( $oAppl [, $iSaveChanges = $WdDoNotSaveChanges [, $iOriginalFormat = $WdWordDocument [, $bForceClose = False]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$oAppl
+	Word object returned by a preceding call to _Word_Create()
+$iSaveChanges
+	[optional] Specifies if changed documents should be saved before closing.
+	Can be one of the WdSaveOptions enumeration (default = $WdDoNotSaveChanges)
+$iOriginalFormat
+	[optional] Specifies how Word saves documents whose original format was not Word document format.
+	Can be any of the WdOriginalFormat enumeration (default = $WdWordDocument)
+$bForceClose
+	[optional] If True the Word application is closed even when it was running at _Word_Create time (default = False)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1
+Failure:	Returns 0 and sets @error
+@error:	1 - $oAppl is not an object
+	2 - Error returned by method Application.Quit. @extended is set to the COM error code
+@@End@@
+
+
+###Remarks###
+If Word was not running when _Word_Create() was called then _Word_Quit() closes all documents of the specified
+instance (even those opened manually by the user after _Word_Create() ) and the Word application.
+If Word was running you have to set $bForceClose to True to do the same.
+
+
+###Related###
+_Word_Create
+
+
+###Example###
+@@IncludeExample@@

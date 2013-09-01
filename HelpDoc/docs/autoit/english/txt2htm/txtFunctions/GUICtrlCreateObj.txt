@@ -1,0 +1,46 @@
+###Function###
+GUICtrlCreateObj
+
+###Description###
+Creates an ActiveX control in the GUI.
+
+###Syntax###
+GUICtrlCreateObj ( ObjectVar, left, top [, width [, height]] )
+
+
+###Parameters###
+@@ParamTable@@
+ObjectVar
+	A variable pointing to a previously opened object
+left
+	The left side of the control. If -1 is used then left will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a>.
+top
+	The top of the control. If -1 is used then top will be computed according to <a href="AutoItSetOption.htm#GUICoordMode">GUICoordMode</a>.
+width
+	[optional] The width of the control (default is the previously used width).
+height
+	[optional] The height of the control (default is the previously used height).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the identifier (controlID) of the new control.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+This function attempts to embed an 'ActiveX Control' or a 'Document Object' inside the GUI.
+Not every control can be embedded. They must at least support an 'IDispatch' interface.
+
+'Document Objects' will only be visible if the Windows style $WS_CLIPCHILDREN has been used in <a href="GUICreate.htm">GUICreate()</a>.
+
+The GUI functions <a href="GUICtrlRead.htm">GUICtrlRead()</a> and GUICtrlSet have no effect on this control. The object can only be controlled using 'methods' or 'properties' on the $ObjectVar.
+
+
+###Related###
+ObjCreate, ObjGet, ObjEvent, IsObj
+
+
+###Example###
+@@IncludeExample@@

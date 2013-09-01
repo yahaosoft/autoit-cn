@@ -1,0 +1,50 @@
+###Method###
+RunAsSet
+
+###Description###
+Initialise a set of user credentials to use during Run and RunWait operations. 2000/XP or later ONLY.
+
+###Syntax###
+RunAsSet ["user", "domain", "password"] [, options]
+
+
+###Parameters###
+@@ParamTable@@
+username
+	The user name to use.
+domain
+	The domain name to use.
+password
+	The password to use.
+options
+	<b>Optional:</b> 0 = do not load the user profile, 1 = (default) load the user profile, 2 = use for net credentials only
+@@End@@
+
+###ReturnValue###
+Returns 0 if the operating system does not support this function.
+Otherwise returns 1--regardless of success.  (If the login information was invalid, subsequent Run/RunWait commands will fail....)
+
+
+###Remarks###
+This function allows subsequent Run and RunWait functions to run as a different user (e.g. Administrator).
+
+The "Secondary Logon service" or "RunAs service" must not be disabled if you want this function to work.
+
+To unset the RunAs details, use the function with no parameters: RunAsSet().
+
+
+###Related###
+RunAsSet, RunWait
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+
+' Set the RunAs parameters to use local administrator account
+oAutoIt.RunAsSet "Administrator", "MyDom", "adminpassword"
+
+' Run registry editor as admin
+oAutoIt.RunWait "regedit.exe"
+
+' Reset user's permissions
+oAutoIt.RunAsSet

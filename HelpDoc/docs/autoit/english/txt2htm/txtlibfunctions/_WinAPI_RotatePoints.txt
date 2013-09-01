@@ -1,0 +1,44 @@
+###User Defined Function###
+_WinAPI_RotatePoints
+
+###Description###
+Rotates a points from the array by the specified angle.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_RotatePoints ( ByRef $aPoint, $iXC, $iYC, $iAngle [, $iStart = 0 [, $iEnd = -1]] )
+
+
+###Parameters###
+@@ParamTable@@
+$aPoint
+	The 2D array ([x1, y1, ...], [x2, y2, ...], ... [xN, yN, ...]). Every first two elements from this
+	array specifies a point to be rotate. Other array elements (if any) do not change.
+$iXC
+	The x-coordinates of the point on which there is a rotation, in logical units.
+$iYC
+	The y-coordinates of the point on which there is a rotation, in logical units.
+$iAngle
+	The angle to rotate, in degree.
+$iStart
+	[optional] The index of array to start rotating at.
+$iEnd
+	[optional] The index of array to stop rotating at.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1.
+Failure 	0 and sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+This function does not round a coordinate values after transformation, it can be a float type.
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

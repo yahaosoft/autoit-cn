@@ -1,0 +1,45 @@
+###User Defined Function###
+_Word_DocAdd
+
+###Description###
+Adds a new or empty document to the specified Word application.
+
+###Syntax###
+#include <Word.au3>
+_Word_DocAdd ( $oAppl [, $iDocumentType = $WdNewBlankDocument [, $sDocumentTemplate = "" [, $bNewTemplate = False]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$oAppl
+	Word object returned by a preceding call to _Word_Create
+$iDocumentType
+	[optional] Can be one of the following WdNewDocumentType constants:
+	$WdNewBlankDocument, $WdNewEmailMessage, $WdNewFrameset or $WdNewWebPage (default = $WdNewBlankDocument)
+$sDocumentTemplate
+	[optional] The name of the template to be used for the new document.
+	If this argument is omitted, the Normal template is used (default = "")
+$bNewTemplate
+	[optional] True to open the document as a template (default = False)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a variable pointing to the new document object
+Failure:	Returns 0 and sets @error
+@error:	1 - $oAppl is not an object
+	2 - The specified template file does not exist
+	3 - Error returned by method Documents.Add. @extended is set to the COM error code
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_Word_DocSave, _Word_DocSaveAs, _Word_DocClose
+
+
+###Example###
+@@IncludeExample@@

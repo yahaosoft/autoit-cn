@@ -1,0 +1,94 @@
+###User Defined Function###
+_WinAPI_SaveFileDlg
+
+###Description###
+Creates a dialog box that lets the user specify the drive, directory, and name of a file to save.
+
+###Syntax###
+#include <WinAPIDlg.au3>
+_WinAPI_SaveFileDlg ( [$sTitle ='' [, $sInitDir = '' [, $sFilters = '' [, $iDefFilter = 0 [, $sDefFile = '' [, $sDefExt = '' [, $iFlags = 0 [, $iFlagsEx = 0 [, $pOFNProc = 0 [, $pData = 0 [, $hParent = 0]]]]]]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sTitle
+	[optional] A string to be placed in the title bar of the dialog box. If this parameter is empty string (Default), the system
+	uses the default title (that is, "Save As").
+$sInitDir
+	[optional] The initial directory.
+$sFilters
+	[optional] The pairs of filter strings (for example, "Text Files (*.txt)"). To specify multiple filter patterns
+	for a single display string, use a semicolon to separate the patterns (for example, "*.txt;*.doc;*.bak").
+	Do not include spaces in the pattern. To specify multiple groups of filters, use the "|" character as a
+	delimiter (for example, "Text Files (*.txt)|All Files (*.*)"). If this parameter is omitted or an
+	empty string (Default), the dialog box does not display any filters
+$iDefFilter
+	[optional] The 1-based index of the currently selected filter to initialize the combo box control.
+$sDefFile
+	[optional] The file name to initialize the edit control.
+$sDefExt
+	[optional] The default extension that appends to the file name if the user fails to type an extension.
+	This string can be any length, but only the first three characters are appended. The string should
+	not contain a period (.). If this parameter is empty string (Default), no extension is appended.
+$iFlags
+	[optional] A set of bit flags you can use to initialize the dialog box. This parameter can be 0 or
+	combination of the following values.
+	$OFN_ALLOWMULTISELECT
+	$OFN_CREATEPROMPT
+	$OFN_DONTADDTORECENT
+	$OFN_ENABLEHOOK
+	$OFN_ENABLEINCLUDENOTIFY
+	$OFN_ENABLESIZING
+	$OFN_EXPLORER
+	$OFN_FORCESHOWHIDDEN
+	$OFN_HIDEREADONLY
+	$OFN_LONGNAMES
+	$OFN_NOCHANGEDIR
+	$OFN_NODEREFERENCELINKS
+	$OFN_NOLONGNAMES
+	$OFN_NONETWORKBUTTON
+	$OFN_NOREADONLYRETURN
+	$OFN_NOTESTFILECREATE
+	$OFN_NOVALIDATE
+	$OFN_OVERWRITEPROMPT
+	$OFN_PATHMUSTEXIST
+	$OFN_READONLY
+	$OFN_SHAREAWARE
+	$OFN_SHOWHELP
+$iFlagsEx
+	[optional] A set of bit flags you can use to initialize the dialog box. It can be 0 or the following value.
+	$OFN_EX_NOPLACESBAR
+$pOFNProc
+	[optional] A pointer to a hook procedure. This parameter is ignored unless the $OFN_ENABLEHOOK flag is set.
+$pData
+	[optional] Application-defined data that the system passes to the hook procedure.
+$hParent
+	[optional] A handle to the parent window for the dialog box.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	If the $OFN_ALLOWMULTISELECT flag is not set, the function returns the full path of the input file,
+	otherwise always an array of paths. The zeroth array element contains the number of files.
+Failure 	Sets the @error flag to non-zero, @extended flag may contain the dialog box
+	error code ($CDERR_* or $FNERR_*).
+@@End@@
+
+
+###Remarks###
+Call _WinAPI_GetExtended() to retrieve internal $tagOPENFILENAME structure containing the user's selection
+information after closing the dialog box.
+
+If you use a hook, you can not preserve the UI of the dialog box like in Windows Vista and later.
+
+
+###Related###
+_WinAPI_GetExtended
+
+
+###See Also###
+@@MsdnLink@@ GetSaveFileName
+
+
+###Example###
+@@IncludeExample@@

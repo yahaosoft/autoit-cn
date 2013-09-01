@@ -1,0 +1,48 @@
+###User Defined Function###
+_GDIPlus_PathAddCurve2
+
+###Description###
+Adds a cardinal spline to the current figure of a path
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_PathAddCurve2 ( $hPath, $aPoints [, $fTension = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hPath
+	Pointer to a GraphicsPath object
+$aPoints
+	Array of points that define the cardinal spline:
+	[0][0] - Number of points
+	[1][0] - Point 1 X position
+	[1][1] - Point 1 Y position
+	[2][0] - Point 2 X position
+	[2][1] - Point 2 Y position
+	[n][0] - Point n X position
+	[n][1] - Point n Y position
+$fTension
+	[optional] Nonnegative real number that controls the length of the curve and how the curve bends. A value of
+	0 specifies that the spline is a sequence of straight lines. As the value increases, the curve becomes fuller
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False
+
+
+###Remarks###
+A cardinal spline is a curve that passes through each point in the array
+
+
+###Related###
+_GDIPlus_PathAddCurve
+
+
+###See Also###
+@@MsdnLink@@ GdipAddPathCurve2
+
+
+###Example###
+@@IncludeExample@@

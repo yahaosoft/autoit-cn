@@ -1,0 +1,37 @@
+###Function###
+FileDelete
+
+###Description###
+Delete one or more files.
+
+###Syntax###
+FileDelete ( "path" )
+
+
+###Parameters###
+@@ParamTable@@
+Path
+	The path of the file(s) to delete. (* and ? wildcards accepted - See Remarks)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Return 1.
+Failure:	Returns 0 if files are not deleted or do not exist.
+@@End@@
+
+
+###Remarks###
+See <a href="FileFindFirstFile.htm">FileFindFirstFile()</a> for a discussion about wildcards.
+
+Note: If the "path" passed to <a href="FileDelete.htm">FileDelete()</a> is a folder, the files therein will be deleted just as if you had used the *.* mask.
+
+Some file attributes can make the deletion impossible, if this is the case look at <a href="FileSetAttrib.htm">FileSetAttrib()</a> to change the attributes of a file.
+
+
+###Related###
+FileCopy, FileMove, FileRecycle, DirRemove, FileRecycleEmpty
+
+
+###Example###
+@@IncludeExample@@

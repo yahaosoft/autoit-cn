@@ -1,0 +1,36 @@
+###User Defined Function###
+_SQLite_Changes
+
+###Description###
+Returns the number of database rows that were changed by the most recently completed statement with this connection
+
+###Syntax###
+#include <SQLite.au3>
+_SQLite_Changes ( [$hDB = -1] )
+
+
+###Parameters###
+@@ParamTable@@
+$hDB
+	[optional] An open database, default is the last opened database
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns number of changes
+Failure:	Returns 0
+@error:	1 - Error calling SQLite API 'sqlite3_changes'
+	2 - Call prevented by SafeMode
+@@End@@
+
+
+###Remarks###
+Changes due to action of triggers or foreign keys are not part of this count.  See _SQLite_TotalChanges()
+
+
+###Related###
+_SQLite_TotalChanges
+
+
+###Example###
+@@IncludeExample@@

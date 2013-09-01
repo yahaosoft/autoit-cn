@@ -1,0 +1,44 @@
+###User Defined Function###
+_WinAPI_CallWindowProcW
+
+###Description###
+Passes message information to the specified window procedure.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_CallWindowProcW ( $pPrevWndProc, $hWnd, $iMsg, $wParam, $lParam )
+
+
+###Parameters###
+@@ParamTable@@
+$pPrevWndProc
+	The address of a previous window procedure, or a special internal value meaningful only to
+	_WinAPI_CallWindowProcW() function.
+$hWnd
+	A handle to the window procedure that received the message.
+$iMsg
+	The message.
+$wParam
+	Additional message-specific information. The content of this parameter depends on the message.
+$lParam
+	Additional message-specific information. The content of this parameter depends on the message.
+@@End@@
+
+###ReturnValue###
+Returns the result of the message processing and depends on the message sent.
+
+
+###Remarks###
+Use this function for window subclassing. Usually, all windows with the same class share one window procedure.
+A subclass is a window or set of windows with the same class whose messages are intercepted and processed by
+another window procedure (or procedures) before being passed to the window procedure of the class.
+
+The _WinAPI_CallWindowProcW() function handles Unicode-to-ANSI conversion. You cannot take advantage
+of this conversion if you call the window procedure directly.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ CallWindowProc

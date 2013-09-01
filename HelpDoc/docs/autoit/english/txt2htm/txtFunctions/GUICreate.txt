@@ -1,0 +1,81 @@
+###Function###
+GUICreate
+
+###Description###
+Create a GUI window.
+
+###Syntax###
+GUICreate ( "title" [, width [, height [, left = -1 [, top = -1 [, style = -1 [, exStyle = -1 [, parent = 0]]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the dialog box.
+width
+	[optional] The width of the window.
+height
+	[optional] The height of the window.
+left
+	[optional] The left side of the dialog box.  By default (-1), the window is centered. If defined, top must also be defined.
+top
+	[optional] The top of the dialog box. Default (-1) is centered
+style
+	[optional] defines the style of the window. See <a href="../appendix/GUIStyles.htm">GUI Control Styles Appendix</a>.
+	Use -1 for the default style which includes a combination of $WS_MINIMIZEBOX, $WS_CAPTION, $WS_POPUP, $WS_SYSMENU styles.
+	Some styles are always included: $WS_CLIPSIBLINGS, and $WS_SYSMENU if $WS_MAXIMIZEBOX or $WS_SIZEBOX is specified.
+exStyle
+	[optional] defines the extended style of the window. See the <a href="GUICreate.htm#Extended Style Table">Extended Style Table</a> below.
+	Use -1 for the default, which is no extended styles.
+	Forced styles: $WS_EX_WINDOWEDGE
+parent
+	[optional] The handle of another previously created window - this new window then becomes a child of that window.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a windows handle.
+Failure:	Returns 0 if the window cannot be created and sets @error to 1.
+@@End@@
+
+
+###Remarks###
+By default the dialog box is non sizable and non maximizable. So WS_SIZEBOX or WS_MAXIMIZEBOX can be used in the style parameter.
+As defining only one style just set this style don't forget to combine it with default ones, i.e. just defining WS_SIZEBOX will not set WS_MINIMIZEBOX, WS_CAPTION, WS_POPUP, WS_SYSMENU. So the best method to define a resizeable window is to use WS_OVERLAPPEDWINDOW.
+When using $WS_EX_MDICHILD the position is relative to client area of the parent window. With $WS_EX_LAYERED it is possible to have a transparent picture on a background picture defined in the parent window.
+Adding $WS_CLIPCHILDREN style can avoid some flickering when resizing GUI containing Edit control for example.
+You can enable window dragging for GUI without $WS_CAPTION by using $WS_EX_CONTROLPARENT in the exStyle parameter.
+
+To combine styles with the default style use <b><a href="BitOR.htm">BitOR()</a></b>($GUI_SS_DEFAULT_GUI, newstyle,...).
+The size specified is the size of the client area of the window.  The border and title bar will make the window slightly larger than specified. Using menu controls will also change the windows height.
+
+<a name="Extended Style table"></a><b>Extended Style table</b>
+
+@@StandardTable1@@
+Extended Style	result
+$WS_EX_ACCEPTFILES	Allow an edit or input control within the created GUI window to receive filenames via drag and drop. The control must have also the $GUI_DROPACCEPTED state set by <a href="GUICtrlSetState.htm">GUICtrlSetState()</a>. for other controls the drag&drop info  can be retrieved with @GUI_DragId, @GUI_DragFile, @GUI_DropId.
+$WS_EX_APPWINDOW	Forces a top-level window onto the taskbar when the window is visible.
+$WS_EX_CLIENTEDGE	Specifies that a window has a border with a sunken edge.
+$WS_EX_CONTEXTHELP	Includes a question mark in the title bar of the window. Cannot be used with the WS_MAXIMIZEBOX or WS_MINIMIZEBOX.
+$WS_EX_DLGMODALFRAME	Creates a window that has a double border; the window can, optionally, be created with a title bar by specifying the WS_CAPTION style in the style parameter.
+$WS_EX_MDICHILD	Create a child window included in its parent window (simulation not real MDI).
+$WS_EX_OVERLAPPEDWINDOW	Combines the WS_EX_CLIENTEDGE and WS_EX_WINDOWEDGE styles.
+$WS_EX_STATICEDGE	Creates a window with a three-dimensional border style intended to be used for items that do not accept user input.
+$WS_EX_TOPMOST	Specifies that a window created with this style should be placed above all non-topmost windows and should stay above them, even when the window is deactivated.
+$WS_EX_TRANSPARENT	The window appears transparent because the bits of underlying sibling windows have already been painted.
+$WS_EX_TOOLWINDOW	Creates a tool window; that is, a window intended to be used as a floating toolbar. A tool window has a title bar that is shorter than a normal title bar, and the window title is drawn using a smaller font. A tool window does not appear in the taskbar or in the dialog box that appears when the user presses ALT+TAB. If a tool window has a system menu, its icon is not displayed on the title bar. However, you can display the system menu by typing ALT+SPACE.
+$WS_EX_WINDOWEDGE	Specifies that a window has a border with a raised edge.
+$WS_EX_LAYERED	Creates a layered window. Note that this cannot be used for child windows.
+@@End@@
+
+To use the values specified above you must #include <WindowsConstants.au3> in your script.
+
+Note: The handle returned from this function is a real windows handle, which means it can be used in the same way as the result of <a href="WinGetHandle.htm">WinGetHandle()</a>.
+
+
+###Related###
+GUISetParameters..., GUICtrlCreate..., GUIGetMsg, GUISwitch, GUIGetStyle, GUIDelete, WinGetHandle, GUICtrlSetDefBkColor, GUICtrlSetDefColor, GUIGetCursorInfo
+
+
+###Example###
+@@IncludeExample@@

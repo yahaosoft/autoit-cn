@@ -1,0 +1,48 @@
+###User Defined Function###
+_ExcelHorizontalAlignSet
+
+###Description###
+Set the horizontal alignment of each cell in a range.
+
+###Syntax###
+#include <Excel.au3>
+_ExcelHorizontalAlignSet ( $oExcel, $sRangeOrRowStart [, $iColStart = 1 [, $iRowEnd = 1 [, $iColEnd = 1 [, $sHorizAlign = "left"]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$oExcel
+	An Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+$sRangeOrRowStart
+	Either an A1 range, or an integer row number to start from if using R1C1
+$iColStart
+	[optional] The starting column for the number format(left) (default=1)
+$iRowEnd
+	[optional] The ending row for the number format (bottom) (default=1)
+$iColEnd
+	[optional] The ending column for the number format (right) (default=1)
+$sHorizAlign
+	[optional] Horizontal alignment ("left"|"center"|"right") (default="left")
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	1
+Failure:	0 and sets @error
+@error:	1 - Specified object does not exist
+	2 - Starting row or column invalid
+	3 - Ending row or column invalid
+@extended:	0 - Row invalid
+	1 - Column invalid
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

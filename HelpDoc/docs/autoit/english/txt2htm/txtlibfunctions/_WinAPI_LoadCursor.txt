@@ -1,0 +1,54 @@
+###User Defined Function###
+_WinAPI_LoadCursor
+
+###Description###
+Loads the specified cursor resource from the executable (.EXE) file.
+
+###Syntax###
+#include <WinAPIRes.au3>
+_WinAPI_LoadCursor ( $hInstance, $sName )
+
+
+###Parameters###
+@@ParamTable@@
+$hInstance
+	Handle to an instance of the module whose executable file contains the cursor to be loaded.
+$sName
+	The name of the cursor resource or resource identifier to be loaded. To use one of the predefined
+	cursors, the application must set the $hInstance parameter to 0
+	and the $sName parameter to oneof the following values.
+	$IDC_ARROW
+	$IDC_IBEAM
+	$IDC_WAIT
+	$IDC_CROSS
+	$IDC_UPARROW
+	$IDC_SIZE
+	$IDC_ICON
+	$IDC_SIZENWSE
+	$IDC_SIZENESW
+	$IDC_SIZEWE
+	$IDC_SIZENS
+	$IDC_SIZEALL
+	$IDC_NO
+	$IDC_HAND
+	$IDC_APPSTARTING
+	$IDC_HELP
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	Handle to the newly loaded cursor.
+Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+This function loads the cursor resource only if it has not been loaded; otherwise, it retrieves the handle to
+the existing resource.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ LoadCursor

@@ -1,0 +1,76 @@
+###User Defined Function###
+_WinAPI_BrowseForFolderDlg
+
+###Description###
+Displays a dialog box that enables the user to select a Shell folder.
+
+###Syntax###
+#include <WinAPIDlg.au3>
+_WinAPI_BrowseForFolderDlg ( [$sRoot = '' [, $sText = '' [, $iFlags = 0 [, $pBrowseProc = 0 [, $lParam = 0 [, $hParent = 0]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sRoot
+	[optional] The root folder from which to start browsing. Only the specified folder and its subfolders in the
+	namespace hierarchy appear in the dialog box. If this parameter is 0, the namespace root
+	(the Desktop folder) is used.
+$sText
+	[optional] The string that is displayed above the tree view control in the dialog box.
+$iFlags
+	[optional] Flags that specify the options for the dialog box. This parameter can a combination of the
+	following values.
+	$BIF_BROWSEFORCOMPUTER
+	$BIF_BROWSEFORPRINTER
+	$BIF_BROWSEINCLUDEFILES
+	$BIF_BROWSEINCLUDEURLS
+	$BIF_DONTGOBELOWDOMAIN
+	$BIF_EDITBOX
+	$BIF_NEWDIALOGSTYLE
+	$BIF_NONEWFOLDERBUTTON
+	$BIF_NOTRANSLATETARGETS
+	$BIF_RETURNFSANCESTORS
+	$BIF_RETURNONLYFSDIRS
+	$BIF_SHAREABLE
+	$BIF_STATUSTEXT
+	$BIF_USENEWUI
+	$BIF_UAHINT
+	$BIF_VALIDATE
+
+	Windows 7 or later
+	$BIF_BROWSEFILEJUNCTIONS
+$pBrowseProc
+	[optional] Pointer to a callback function that the dialog box calls when an event occurs. This function will
+	receive one of the following event messages.
+	$BFFM_INITIALIZED
+	$BFFM_IUNKNOWN
+	$BFFM_SELCHANGED
+	$BFFM_VALIDATEFAILED
+
+	(See MSDN for more information)
+$lParam
+	[optional] The value that the dialog box passes to the callback function.
+$hParent
+	[optional] Handle to the parent window for the dialog box.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The full path for chosen folder, or an empty string if user cancels/closes the dialog.
+Failure 	Empty string.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ SHBrowseForFolder
+
+
+###Example###
+@@IncludeExample@@

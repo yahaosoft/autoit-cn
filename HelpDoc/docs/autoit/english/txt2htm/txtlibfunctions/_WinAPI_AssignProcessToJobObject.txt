@@ -1,0 +1,46 @@
+###User Defined Function###
+_WinAPI_AssignProcessToJobObject
+
+###Description###
+Assigns a process to an existing job object.
+
+###Syntax###
+#include <WinAPIProc.au3>
+_WinAPI_AssignProcessToJobObject ( $hJob, $hProcess )
+
+
+###Parameters###
+@@ParamTable@@
+$hJob
+	Handle to the job object to which the process will be associated. The handle must have the
+	$JOB_OBJECT_ASSIGN_PROCESS access right.
+$hProcess
+	Handle to the process to associate with the job object. The process must not already be assigned to a job.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True.
+Failure 	False, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+After you associate a process with a job object, the process is subject to the limits set for the job. To set
+limits for a job, use the _WinAPI_SetInformationJobObject() function.
+
+The process can be associated only with a single job. The process inherits limits from the job it is associated
+with and adds its accounting information to the job. If a process is associated with a job, all processes it
+creates are associated with that job by default.
+
+
+###Related###
+_WinAPI_SetInformationJobObject
+
+
+###See Also###
+@@MsdnLink@@ AssignProcessToJobObject
+
+
+###Example###
+@@IncludeExample@@

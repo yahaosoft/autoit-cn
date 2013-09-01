@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Controls</title>
+  <meta charset="ISO-8859-1">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+span.c1 {text-decoration: underline}
+  </style>
+</head>
+<body>
+  <h1>Controls</h1>
+  <p>One of the best new features with AutoIt v3 is the ability to work directly with certain types of Window <em>Controls</em>. Almost everything you see on a window is a control of some kind: buttons, listboxes, edit fields, static text are all
+  controls. In fact Notepad is just one big "Edit" control! Because AutoIt works directly with a control they provide a more reliable way to automate than just sending keystrokes.</p>
+  <p>&nbsp;</p>
+  <p><strong><em>Note</em></strong><em>: AutoIt only works with standard Microsoft controls - some applications write their own custom controls which may look like a standard MS control but may resist automation. Experiment!</em></p>
+  <p>&nbsp;</p>
+  <p>Using the <a href="au3spy.htm">AutoIt Window Info Tool</a> you can move your mouse around the window you are interested in and you will be given information of the control that is currently under your mouse. Information on controls is given in a
+  number of ways, these are:</p>
+  <ul>
+    <li>Control ID</li>
+    <li>ClassNameNN</li>
+    <li>Text</li>
+  </ul>
+  <p>Whenever you see a <a href="../com_interface/methods/Controls%20Management.htm">Control...(</a>) command expecting a <strong>ControlID</strong> parameter (most of them) you can use any <strong>one</strong> of these methods. The method you choose
+  will vary by personal preference and the information you are able to retrieve from the AutoIt Window Info Tool. In general, the best method to use is the <strong>Control ID</strong>, with the other methods being used when a Control ID is not available
+  or is not unique (usually with static text each piece of text actually has the same Control ID so you will need to use one of the other methods to work with those controls).</p>
+  <h2>Control ID</h2>
+  <p>The Control ID is the internal numeric identifier that windows gives to each control. It is generally the best method of indentifying controls. In addition to the AutoIt Window Info Tool, other applications such as screenreaders for the blind and
+  Microsoft tools/APIs may allow you to get this Control ID.</p>
+  <h2>ClassNameNN</h2>
+  <p>Each Microsoft standard control has a "classname" such as "button" or "edit". In AutoIt this is combined with the "instance" of that control to give the "ClassNameNN" method. If you have a simple dialog with a few buttons on it they will generally
+  be referred to as "Button1", "Button2", "Button3", etc.</p>
+  <p>This method is useful when the Control ID is not applicable (for static text or custom controls).</p>
+  <h2>Text</h2>
+  <p>You will notice that Au3Info gives you the text it can see on a control, for example on a <strong><span class="c1">N</span>ext</strong> button you might see the text <strong>&amp;Next</strong> - the &amp; indicates that the next letter is underlined
+  and is common when working with menus and controls. You can use this text to identify a control in place of the "ClassNameNN" if you like - however if many controls have the same text you will run into problems.</p>
+  <p>&nbsp;</p>
+  <p>Look under the contents for <strong><a href="../com_interface/methods/ControlCommand.htm">Method Reference \ Window Management \ Controls</a></strong> for a list of the functions that work with controls.</p>
+</body>
+</html>

@@ -1,0 +1,101 @@
+###Method###
+AutoItSetOption
+
+###Description###
+Changes the operation of various AutoIt functions/parameters.
+
+###Syntax###
+AutoItSetOption "option", param
+
+
+###Parameters###
+@@ParamTable@@
+option
+	The option to change.  See Remarks.
+param
+	The parameter (varies by option).  See Remarks.
+@@End@@
+
+###ReturnValue###
+Returns the value of the previous setting.
+
+
+###Remarks###
+You may use Opt as an alternative to AutoItSetOption.
+
+AutoIt will halt with an error message if the requested option is unknown.  Options are as follows:
+
+@@ParamTable@@
+<b>Option</b>
+	<b>Param</b>
+CaretCoordMode
+	<a name="CaretCoordMode"></a>Sets the way coords are used in the caret functions, either absolute coords or coords relative to the current active window:
+	0 = relative coords to the active window
+	1 = absolute screen coordinates (default)
+	2 = relative coords to the client area of the active window
+MouseClickDelay
+	<a name="MouseClickDelay"></a>Alters the length of the brief pause in between mouse clicks.
+	Time in milliseconds to pause (default=10).
+MouseClickDownDelay
+	<a name="MouseClickDownDelay"></a>Alters the length a click is held down before release.
+	Time in milliseconds to pause (default=10).
+MouseClickDragDelay
+	<a name="MouseClickDragDelay"></a>Alters the length of the brief pause at the start and end of a mouse drag operation.
+	Time in milliseconds to pause (default=250).
+MouseCoordMode
+	<a name="MouseCoordMode"></a>Sets the way coords are used in the mouse functions, either absolute coords or coords relative to the current active window:
+	0 = relative coords to the active window
+	1 = absolute screen coordinates (default)
+	2 = relative coords to the client area of the active window
+PixelCoordMode
+	<a name="PixelCoordMode"></a>Sets the way coords are used in the pixel functions, either absolute coords or coords relative to the current active window:
+	0 = relative coords to the active window
+	1 = absolute screen coordinates (default)
+	2 = relative coords to the client area of the active window
+SendAttachMode
+	<a name="SendAttachMode"></a>Specifies if AutoIt attaches input threads when using then Send() function.  When not attaching (default mode=0) detecting the state of capslock/scrolllock and numlock can be unreliable under NT4.  However, when you specify attach mode=1 the Send("{... down/up}") syntax will not work and there may be problems with sending keys to "hung" windows.  ControlSend() ALWAYS attaches and is not affected by this mode.
+	0 = don't attach (default)
+	1 = attach
+SendCapslockMode
+	<a name="SendCapslockMode"></a>Specifies if AutoIt should store the state of capslock before a Send function and restore it afterwards.
+	0 = don't store/restore
+	1 = store and restore (default)
+SendKeyDelay
+	<a name="SendKeyDelay"></a>Alters the the length of the brief pause in between sent keystrokes.
+	Time in milliseconds to pause (default=5).  Sometimes a value of 0 does not work; use 1 instead.
+SendKeyDownDelay
+	<a name="SendKeyDownDelay"></a>Alters the length of time a key is held down before released during a keystroke.  For applications that take a while to register keypresses (and many games) you may need to raise this value from the default.
+	Time in milliseconds to pause (default=1).
+WinDetectHiddenText
+	<a name="WinDetectHiddenText"></a>Specifies if hidden window text can be "seen" by the window matching functions.
+	0 = Do not detect hidden text (default)
+	1 = Detect hidden text
+WinSearchChildren
+	<a name="WinSearchChildren"></a>Allows the window search routines to search child windows as well as top-level windows.
+	0 = Only search top-level windows (default)
+	1 = Search top-level and child windows
+WinTextMatchMode
+	<a name="WinTextMatchMode"></a>Alters the method that is used to match window text during search operations.
+	1 = Complete / Slow mode (default)
+	2 = Quick mode
+	In quick mode AutoIt can usually only "see" dialog text, button text and the captions of some controls.  In the default mode much more text can be seen (for instance the contents of the Notepad window).
+	If you are having performance problems when performing many window searches then changing to the "quick" mode may help.
+WinTitleMatchMode
+	<a name="WinTitleMatchMode"></a>Alters the method that is used to match window titles during search operations.
+	1 = Match the title from the start (default)
+	2 = Match any substring in the title
+	3 = Exact title match
+	4 = Advanced mode, see <a href="../../intro/windowsadvanced.htm">Window Titles & Text (Advanced)</a>
+WinWaitDelay
+	<a name="WinWaitDelay"></a>Alters how long a script should briefly pause after a successful window-related operation.
+	Time in milliseconds to pause (default=250).
+@@End@@
+
+
+###Related###
+Many.
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oldvalue = oAutoIt.Opt("SendAttachMode", 0)

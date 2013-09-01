@@ -1,0 +1,52 @@
+###Function###
+ControlSend
+
+###Description###
+Sends a string of characters to a control.
+
+###Syntax###
+ControlSend ( "title", "text", controlID, "string" [, flag = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title/hWnd/class of the window to access. See <a href="../intro/windowsadvanced.htm">Title special definition</a>.
+text
+	The text of the window to access.
+controlID
+	The control to interact with.  See <a href="../intro/controls.htm">Controls</a>.
+string
+	String of characters to send to the control.
+flag
+	[optional] Changes how "keys" is processed:
+	flag = 0 (default), Text contains special characters like + to indicate SHIFT and {LEFT} to indicate left arrow.
+	flag = 1, keys are sent raw.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 if window/control is not found.
+@@End@@
+
+
+###Remarks###
+<a href="ControlSend.htm">ControlSend()</a> works in a similar way to <a href="Send.htm">Send()</a> but it can send key strokes directly to a window/control, rather than just to the active window.
+
+<a href="ControlSend.htm">ControlSend()</a> is only unreliable for command prompts as that works differently to normal windows (seems to check physical states rather than accepting the keystroke messages).  For normal windows <a href="ControlSend.htm">ControlSend()</a> should be way more reliable than a normal <a href="Send.htm">Send()</a> - and yes it does send shift, ctrl, alt etc.
+
+As mention in the <a href="Send.htm">Send()</a> help the keyboard that send different chars when in CAPS LOCK and using the Shift Key cannot be simulated. An example is the Czech Keyboard. A good workaround is to use the <a href="ControlSetText.htm">ControlSetText()</a>.
+
+The control might first need to be given focus with the <a href="ControlFocus.htm">ControlFocus()</a> command, specially when referencing an controlID created by the script itself.
+
+<a href="AutoItSetOption.htm">Opt</a>("SendKeyDelay",...) alters the length of the brief pause in between sent keystrokes.
+<a href="AutoItSetOption.htm">Opt</a>("SendKeyDownDelay",...) alters the length of time a key is held down before being released during a keystroke.
+
+
+###Related###
+ControlCommand, Send, ControlSetText, ControlFocus, SendKeyDelay (Option), SendKeyDownDelay (Option)
+
+
+###Example###
+@@IncludeExample@@

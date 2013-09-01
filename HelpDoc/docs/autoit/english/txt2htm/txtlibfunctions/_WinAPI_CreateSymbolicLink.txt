@@ -1,0 +1,50 @@
+###User Defined Function###
+_WinAPI_CreateSymbolicLink
+
+###Description###
+Creates a symbolic link.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_CreateSymbolicLink ( $sSymlink, $sTarget [, $fDirectory = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$sSymlink
+	The name of the new file.
+$sTarget
+	The name of the existing file.
+$fDirectory
+	[optional] Specifies whether the link target is a directory.
+	True       - The link target is a directory.
+	False      - The link target is a file (Default).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True.
+Failure 	False, call _WinAPI_GetLastError() to get extended error information
+@@End@@
+
+
+###Remarks###
+To remove a symbolic link, delete the file (using _WinAPI_DeleteFile() or similar APIs) or remove the directory
+(using _WinAPI_RemoveDirectory() or similar APIs) depending on what type of symbolic link is used.
+
+The calling process must have $SE_CREATE_SYMBOLIC_LINK_NAME privilege, otherwise, the function fails, and
+_WinAPI_GetLastError() returns ERROR_PRIVILEGE_NOT_HELD (1314).
+
+This function requires Windows Vista or later.
+
+
+###Related###
+_WinAPI_DeleteFile, _WinAPI_RemoveDirectory
+
+
+###See Also###
+@@MsdnLink@@ CreateSymbolicLink
+
+
+###Example###
+@@IncludeExample@@

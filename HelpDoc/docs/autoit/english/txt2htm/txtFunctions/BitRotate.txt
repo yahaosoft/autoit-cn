@@ -1,0 +1,48 @@
+###Function###
+BitRotate
+
+###Description###
+Performs a bit shifting operation, with rotation.
+
+###Syntax###
+BitRotate ( value [, shift = 1 [, size = "W"]] )
+
+
+###Parameters###
+@@ParamTable@@
+value
+	The number to be operate on.
+shift
+	[optional] Number of bits to rotate to the left (negative numbers rotate right). If not given, the default is 1.
+size
+	[optional] A string that determines the rotation size, the default is (16 bits). See below.
+@@End@@
+<br>
+Size parameter :
+@@ParamTable@@
+"B"
+	rotate bits within the low-order byte (8 bits).
+"W"
+	rotate bits within the low-order word (16 bits).
+"D"
+	rotate bits within the entire double-word (32 bits).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the value rotated by the required number of bits.
+Failure:	Set @error if size is invalid
+@@End@@
+Bit operations are performed as 32-bit integers.
+
+
+###Remarks###
+Remember hex notation can be used for numbers.
+
+
+###Related###
+BitShift, BitAND, BitNOT, BitOR, BitXOR, Hex
+
+
+###Example###
+@@IncludeExample@@

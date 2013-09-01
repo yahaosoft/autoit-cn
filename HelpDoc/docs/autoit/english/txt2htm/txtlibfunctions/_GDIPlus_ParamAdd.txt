@@ -1,0 +1,57 @@
+###User Defined Function###
+_GDIPlus_ParamAdd
+
+###Description###
+Add a value to an encoder parameter list
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_ParamAdd ( ByRef $tParams, $sGUID, $iCount, $iType, $pValues )
+
+
+###Parameters###
+@@ParamTable@@
+$tParams
+	$tagGDIPPENCODERPARAMS structure returned from _GDIPlus_ParamInit
+$sGUID
+	Encoder parameter GUID. Can be one of the following:
+	$GDIP_EPGCHROMINANCETABLE - Chrominance table settings
+	$GDIP_EPGCOLORDEPTH - Color depth settings
+	$GDIP_EPGCOMPRESSION - Compression settings
+	$GDIP_EPGLUMINANCETABLE - Luminance table settings
+	$GDIP_EPGQUALITY - Quality settings
+	$GDIP_EPGRENDERMETHOD - Render method settings
+	$GDIP_EPGSAVEFLAG - Save flag settings
+	$GDIP_EPGSCANMETHOD - Scan mode settings
+	$GDIP_EPGTRANSFORMATION - Transformation settings
+	$GDIP_EPGVERSION - Software version settings
+$iCount
+	Number of elements in the $pValues array
+$iType
+	Encoder parameter value type. Can be one of the following:
+	$GDIP_EPTBYTE - 8 bit unsigned integer
+	$GDIP_EPTASCII - Null terminated character string
+	$GDIP_EPTSHORT - 16 bit unsigned integer
+	$GDIP_EPTLONG - 32 bit unsigned integer
+	$GDIP_EPTRATIONAL - Two longs (numerator, denominator)
+	$GDIP_EPTLONGRANGE - Two longs (low, high)
+	$GDIP_EPTUNDEFINED - Array of bytes of any type
+	$GDIP_EPTRATIONALRANGE - Two longs (low, high)
+$pValues
+	Pointer to an array of values. Each value has the type specified by the $iType data member.
+@@End@@
+
+###ReturnValue###
+None.
+
+
+###Remarks###
+None.
+
+
+###Related###
+_GDIPlus_ParamInit, $tagGDIPPENCODERPARAMS
+
+
+###Example###
+@@IncludeExample@@

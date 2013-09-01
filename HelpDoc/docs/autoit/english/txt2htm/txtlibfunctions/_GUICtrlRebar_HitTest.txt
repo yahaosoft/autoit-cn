@@ -1,0 +1,43 @@
+###User Defined Function###
+_GUICtrlRebar_HitTest
+
+###Description###
+Determines which band is at a specified position
+
+###Syntax###
+#include <GuiReBar.au3>
+_GUICtrlRebar_HitTest ( $hWnd [, $iX = -1 [, $iY = -1]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the rebar control
+$iX
+	[optional] X position, in client coordinates, to be tested or -1 to use the current mouse position
+$iY
+	[optional] Y position, in client coordinates, to be tested or -1 to use the current mouse position
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Array with the following format:
+	[0] - Zero based index of the band at the specified position, or -1
+	[1] - If True, position is in control's client window but not on an band
+	[2] - If True, position is in control's client window
+	[3] - If True, position is over the rebar band's caption
+	[4] - If True, position is over the rebar band's chevron (version 5.80 and greater)
+	[5] - If True, position is over the rebar band's gripper
+Failure:	Set @error
+@@END@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

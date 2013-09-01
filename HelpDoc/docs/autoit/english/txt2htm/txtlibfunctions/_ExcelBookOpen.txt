@@ -1,0 +1,44 @@
+###User Defined Function###
+_ExcelBookOpen
+
+###Description###
+Opens an existing workbook and returns its object identifier.
+
+###Syntax###
+#include <Excel.au3>
+_ExcelBookOpen ( $sFilePath [, $fVisible = 1 [, $fReadOnly = False [, $sPassword = "" [, $sWritePassword = ""]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sFilePath
+	Path and filename of the file to be opened
+$fVisible
+	[optional] Flag, whether to show or hide the workbook (0=not visible, 1=visible) (default=1)
+$fReadOnly
+	[optional] Flag, whether to open the workbook as read-only (True or False) (default=False)
+$sPassword
+	[optional] The password that was used to read-protect the workbook, if any (default is none)
+$sWritePassword
+	[optional] The password that was used to write-protect the workbook, if any (default is none)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns new object identifier
+Failure:	0 and sets @error
+@error:	1 - Unable to create the object
+	2 - File does not exist
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+_ExcelBookAttach
+
+
+###Example###
+@@IncludeExample@@

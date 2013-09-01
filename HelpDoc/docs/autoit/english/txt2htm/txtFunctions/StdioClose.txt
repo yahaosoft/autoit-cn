@@ -1,0 +1,33 @@
+###Function###
+StdioClose
+
+###Description###
+Closes all resources associated with a process previously run with STDIO redirection.
+
+###Syntax###
+StdioClose ( process_id )
+
+
+###Parameters###
+@@ParamTable@@
+process_id
+	The process ID of a child process, as returned by a previous call to Run.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Non-zero.
+Failure:	0 if the process did not have STDIO redirection or was already closed.
+@@End@@
+
+
+###Remarks###
+This function closes all handles and releases all resources related to STDIO.  It will no longer be possible to read the STDIO data from the process.  Any pending data will be lost.
+
+
+###Related###
+StdoutRead, StderrRead, StdinWrite, Run, RunAs
+
+
+###Example###
+@@IncludeExample@@

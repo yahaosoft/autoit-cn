@@ -1,0 +1,47 @@
+###Structure Name###
+$tagNMDATETIMEFORMAT
+
+###Description###
+Contains information about a portion of the format string that defines a callback field within a date and time picker (DTP) control
+
+###Syntax###
+Global Const $tagNMDATETIMEFORMAT = $tagNMHDR & ";ptr Format;short Year;short Month;short DOW;short Day;" & _
+	"short Hour;short Minute;short Second;short MSecond;ptr pDisplay;char Display[64]"
+
+
+###Fields###
+@@ParamTable@@
+$tagNMHDR
+	Contains information about a notification message
+Format
+	Pointer to a null terminated string that defines the control callback field. The string comprises
+	one or more "X" characters.
+Year
+	Year
+Month
+	Month
+DOW
+	Day of week
+Day
+	Day
+Hour
+	Hour
+Minute
+	Minute
+Second
+	Second
+MSecond
+	Milliseconds
+pDisplay
+	Pointer to a null terminated string that contains the display text of the control. By default, this
+	is the address of the Display member of this structure. It is acceptable to have pDisplay point to an
+	existing string. In this case, you don't need to assign a value to Display. However, the string that pDisplay
+	points to must remain valid until another $DTN_FORMAT notification is sent or until the control is destroyed.
+Display
+	64 character buffer that is to receive the null terminated string that the control will display. It
+	is not necessary to fill the entire buffer.
+@@End@@
+
+###Remarks###
+It carries the string that defines the callback field and contains a buffer to receive the string that will
+be displayed in the callback field. This structure is used with the $DTN_FORMAT notification message.

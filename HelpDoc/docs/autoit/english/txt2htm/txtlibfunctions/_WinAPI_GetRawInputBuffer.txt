@@ -1,0 +1,39 @@
+###User Defined Function###
+_WinAPI_GetRawInputBuffer
+
+###Description###
+Performs a buffered read of the raw input data.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_GetRawInputBuffer ( $pBuffer, $iLength )
+
+
+###Parameters###
+@@ParamTable@@
+$pBuffer
+	A pointer to the buffer to receive a $tagRAWINPUT structures containing the raw input data.
+$iLength
+	The size of the buffer, in bytes.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The number of $tagRAWINPUT structures written to the buffer.
+Failure 	0 and sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+To obtain the minimum required buffer size to call this function, use _WinAPI_GetRawInputBufferLength().
+
+To ensure the _WinAPI_GetRawInputBuffer() function behaves properly on WOW64, you must align the
+$tagRAWINPUT structure by 8 bytes.
+
+
+###Related###
+_WinAPI_GetRawInputBufferLength
+
+
+###See Also###
+@@MsdnLink@@ GetRawInputBuffer

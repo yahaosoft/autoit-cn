@@ -1,0 +1,39 @@
+###User Defined Function###
+_GUICtrlSlider_GetTicPos
+
+###Description###
+Retrieves the current physical position of a tick mark
+
+###Syntax###
+#include <GuiSlider.au3>
+_GUICtrlSlider_GetTicPos ( $hWnd, $iTic )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Control ID/Handle to the control
+$iTic
+	Zero-based index identifying a tick mark. The positions of the first and last tick
+	marks are not directly available via this message.
+@@End@@
+
+###ReturnValue###
+Success: The following values for type of slider:
+
+	horizontal - The x-coordinate of the tick mark
+	vertical - The y-coordinate of the tick mark
+Failure: -1
+
+
+###Remarks###
+Because the first and last tick marks are not available through this function, valid indexes are offset
+from their tick position on the slider. If the difference between _GUICtrlSlider_GetRangeMin and
+_GUICtrlSlider_GetRangeMax is less than two, then there is no valid index and this message will fail.
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

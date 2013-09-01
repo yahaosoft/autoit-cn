@@ -1,0 +1,66 @@
+###Function###
+InetGet
+
+###Description###
+Downloads a file from the internet using the HTTP, HTTPS or FTP protocol.
+
+###Syntax###
+InetGet ( "URL", "filename" [, options = 0 [, background = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+URL
+	URL of the file to download.  See remarks below.
+filename
+	Local filename to download to.
+options
+	[optional]$INET_LOCALCACHE (0) = Get the file from local cache if available (default).
+	$INET_FORCERELOAD (1) = Forces a reload from the remote site.
+	$INET_IGNORESSL (2) = Ignore all SSL errors (with HTTPS connections).
+	$INET_ASCIITRANSFER (4) = Use ASCII when transferring files with the FTP protocol (Can not be combined with flag $INET_BINARYTRANSFER (8)).
+	$INET_BINARYTRANSFER (8) = Use BINARY when transferring files with the FTP protocol (Can not be combined with flag $INET_ASCIITRANSFER (4)).  This is the default transfer mode if none are provided.
+	$INET_FORCEBYPASS (16) = By-pass forcing the connection online (See remarks).
+	Constants are defined in InetConstants.au3
+background
+	[optional] $INET_DOWNLOADWAIT (0) = Wait until the download is complete before continuing (default).
+	$INET_DOWNLOADBACKGROUND (1) = return immediately and download in the background (see remarks).
+	Constants are defined in InetConstants.au3
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	The return value changes depending on if the download is in the background:
+	Background: A handle is returned.  The handle can be used with InetGetInfo().  The handle must be closed with InetClose().
+	Wait: The number of bytes downloaded.
+Failure:	Background: A handle is returned.  To determine if there was an error with the download, use InetGetInfo().  The handle must be closed with InetClose().
+	Wait: Sets @error to non-zero and returns 0.
+@@End@@
+
+
+###Remarks###
+Internet Explorer 3 or greater must be installed for this function to work.
+
+The URL parameter should be in the form "http://www.somesite.com/path/file.html" - just like an address you would type into your web browser.
+
+To use a username and password when connecting simply prefix the servername with "username:password@", e.g.
+"http://myuser:mypassword@www.somesite.com"
+
+
+<b>Notes about the &quot;background&quot; Parameter</b>
+
+By default the function waits until the download has finished before returning.  If the <b>background</b> parameter is set to $INET_DOWNLOADBACKGROUND (1) the function returns immediately and the download continues in the background.  The function <a href="InetGetInfo.htm">InetGetInfo()</a> can be used to check the status of the download.  It takes the handle returned from <a href="InetGet.htm">InetGet()</a>.
+
+Multiple downloads are supported if they are started in background mode.
+
+To abort a download call <a href="InetClose.htm">InetClose()</a> and pass it the handle returned by <a href="InetGet.htm">InetGet()</a>.
+
+By default AutoIt forces a connection before starting a download.  For dial-up users this will prompt to go online or dial the modem (depending on how the system is configured).  The options value $INET_FORCEBYPASS (16) disables this behavior.  Disabling the behavior can be useful for persistent connects (Broadband, LAN).  However, it is also required to work around certain issues in Windows Vista and Windows 7.
+
+
+###Related###
+InetGetSize, InetRead, InetGetInfo, InetClose, HttpSetProxy, FtpSetProxy, HttpSetUserAgent
+
+
+###Example###
+@@IncludeExample@@

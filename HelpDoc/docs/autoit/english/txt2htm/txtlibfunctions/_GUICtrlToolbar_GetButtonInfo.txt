@@ -1,0 +1,56 @@
+###User Defined Function###
+_GUICtrlToolbar_GetButtonInfo
+
+###Description###
+Retrieves information for a button
+
+###Syntax###
+#include <GuiToolbar.au3>
+_GUICtrlToolbar_GetButtonInfo ( $hWnd, $iCommandID )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iCommandID
+	Button command ID
+@@End@@
+
+###ReturnValue###
+Success: Array with the following format:
+	[0] - Zero based button image index
+	[1] - Button state. Can be a combination of the following:
+	$TBSTATE_CHECKED - The button has is being clicked
+	$TBSTATE_PRESSED - The button is being clicked
+	$TBSTATE_ENABLED - The button accepts user input
+	$TBSTATE_HIDDEN - The button is not visible
+	$TBSTATE_INDETERMINATE - The button is grayed
+	$TBSTATE_WRAP - The button is followed by a line break
+	$TBSTATE_ELLIPSES - The button's text is cut off
+	$TBSTATE_MARKED - The button is marked
+	[2] - Button style. Can be a combination of the following:
+	$BTNS_AUTOSIZE - The control should not assign the standard width
+	$BTNS_BUTTON - Standard button
+	$BTNS_CHECK - Toggles between the pressed and nonpressed
+	$BTNS_CHECKGROUP - Button that stays pressed until another button is pressed
+	$BTNS_DROPDOWN - Creates a drop-down style button that can display a list
+	$BTNS_GROUP - Button that stays pressed until another button is pressed
+	$BTNS_NOPREFIX - The button text will not have an accelerator prefix
+	$BTNS_SEP - Creates a separator
+	$BTNS_SHOWTEXT - Specifies that button text should be displayed
+	$BTNS_WHOLEDROPDOWN - Specifies that the button will have a drop-down arrow
+	[3] - Button width
+	[4] - Button parameter
+
+
+###Remarks###
+None.
+
+
+###Related###
+_GUICtrlToolbar_SetButtonInfo
+
+
+###Example###
+@@IncludeExample@@

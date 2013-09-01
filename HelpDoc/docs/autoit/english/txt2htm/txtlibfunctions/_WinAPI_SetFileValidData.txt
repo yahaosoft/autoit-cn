@@ -1,0 +1,44 @@
+###User Defined Function###
+_WinAPI_SetFileValidData
+
+###Description###
+Sets the valid data length of the specified file.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_SetFileValidData ( $hFile, $iLength )
+
+
+###Parameters###
+@@ParamTable@@
+$hFile
+	A handle to the file. This file must have been opened with the $GENERIC_WRITE access right, and the
+	$SE_MANAGE_VOLUME_NAME privilege enabled. The file cannot be a network file, or be compressed,
+	sparse, or transacted.
+$iLength
+	The new valid data length. This parameter must be a positive value that is greater than the current
+	valid data length, but less than the current file size.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True
+Failure 	False
+@@End@@
+
+
+###Remarks###
+This function sets the logical end of a file. To set the size of a file, use the _WinAPI_SetEndOfFile()
+function. The physical file size is also referred to as the end of the file.
+
+Typically, the _WinAPI_SetFileValidData() function is used by system-level applications on their own private
+data. Not all file systems use valid data length. Some file systems can track multiple valid data ranges.
+In general, most applications will never need to call this function.
+
+
+###Related###
+_WinAPI_SetEndOfFile
+
+
+###See Also###
+@@MsdnLink@@ SetFileValidData

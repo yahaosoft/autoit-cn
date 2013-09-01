@@ -1,0 +1,76 @@
+###User Defined Function###
+_WinAPI_RegCreateKey
+
+###Description###
+Creates the specified registry key.
+
+###Syntax###
+#include <WinAPIReg.au3>
+_WinAPI_RegCreateKey ( $hKey [, $sSubKey = '' [, $iAccess = 0 [, $iOptions = 0 [, $tSecurity = 0]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to an open registry key. If the key already exists, the function opens it. The calling process
+	must have $KEY_CREATE_SUB_KEY access to the key. This handle is returned by the _WinAPI_RegCreateKey()
+	or _WinAPI_RegOpenKey() function, or it can be one of the following predefined keys.
+	$HKEY_CLASSES_ROOT
+	$HKEY_CURRENT_CONFIG
+	$HKEY_CURRENT_USER
+	$HKEY_LOCAL_MACHINE
+	$HKEY_USERS
+$sSubKey
+	[optional] The name of a subkey that this function opens or creates. The subkey specified must be a subkey of
+	the key identified by the $hKey parameter; it can be up to 32 levels deep in the registry tree.
+	If an empty string (Default), the return is a new handle to the key specified by hKey.
+$iAccess
+	[optional] The mask that specifies the access rights for the key.
+	This parameter can be one or more of the following values.
+	$KEY_ALL_ACCESS
+	$KEY_CREATE_LINK
+	$KEY_CREATE_SUB_KEY
+	$KEY_ENUMERATE_SUB_KEYS
+	$KEY_EXECUTE
+	$KEY_NOTIFY
+	$KEY_QUERY_VALUE
+	$KEY_READ
+	$KEY_SET_VALUE
+	$KEY_WOW64_32KEY
+	$KEY_WOW64_64KEY
+	$KEY_WRITE
+$iOptions
+	[optional] This parameter can be one of the following values.
+	$REG_OPTION_BACKUP_RESTORE
+	$REG_OPTION_CREATE_LINK
+	$REG_OPTION_NON_VOLATILE (Default)
+	$REG_OPTION_VOLATILE
+$tSecurity
+	[optional] $tagSECURITY_ATTRIBUTES structure that determines whether the returned handle can be inherited by
+	child processes. If this parameter is 0 (Default), the handle cannot be inherited.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	Handle to the opened or created key, @extended flag will contain one of the following
+	disposition values:
+	0 (False) - The key existed and was simply opened without being changed.
+	1 (True)  - The key did not exist and was created.
+Failure 	Sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+
+###Remarks###
+An application cannot create a key that is a direct child of HKEY_USERS or HKEY_LOCAL_MACHINE. An application
+can create subkeys in lower levels of the HKEY_USERS or HKEY_LOCAL_MACHINE trees.
+
+If the key is not one of the predefined registry keys ($HKEY_*) you must call the _WinAPI_RegCloseKey()
+function after finished using the handle.
+
+
+###Related###
+_WinAPI_RegOpenKey
+
+
+###See Also###
+@@MsdnLink@@ RegCreateKeyEx

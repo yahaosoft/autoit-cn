@@ -1,0 +1,43 @@
+###Method###
+ProcessWaitClose
+
+###Description###
+Pauses script execution until a given process does not exist.
+
+###Syntax###
+ProcessWaitClose "process" [, timeout]
+
+
+###Parameters###
+@@ParamTable@@
+process
+	The name or PID of the process to check.
+timeout
+	<b>Optional:</b> Specifies how long to wait (default is to wait indefinitely).
+@@End@@
+
+###ReturnValue###
+Success:  Returns 1.
+Failure:  Returns 0 if wait timed out.
+
+
+###Remarks###
+Process names are executables without the full path, e.g., "notepad.exe" or "winword.exe"
+PID is the unique number which identifies a Process.  A PID can be obtained through the ProcessExists or Run commands.
+In order to work under Windows NT 4.0, ProcessWaitClose requires the file PSAPI.DLL (included in the AutoIt installation directory).
+The process is polled approximately every 250 milliseconds.
+
+
+###Related###
+ProcessClose, ProcessExists, ProcessWaitClose, RunWait, WinWaitClose
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+
+'waits until no instance of notepad.exe exists
+oAutoIt.ProcessWaitClose "notepad.exe"
+
+' This will wait until this particular instance of notepad has exited
+PID = oAutoIt.Run("notepad.exe")
+oAutoIt.ProcessWaitClose(PID)

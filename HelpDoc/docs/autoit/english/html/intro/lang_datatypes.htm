@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Language Reference - Datatypes</title>
+  <meta charset="ISO-8859-1">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h1>Language Reference - Datatypes</h1>
+  <p>In AutoIt there is only one datatype called a <strong>Variant</strong>. A variant can contain numeric or string data and decides how to use the data depending on the situation it is being used in. For example, if you try and multiply two variants
+  they will be treated as numbers, if you try and concatenate (join) two variants they will be treated as strings.</p>
+  <p>Some examples:</p>
+  <p>&nbsp;&nbsp;&nbsp; 10 * 20 equals the <strong>number</strong> 200 (<strong>*</strong> is used to multiply two numbers)</p>
+  <p>&nbsp;&nbsp;&nbsp; 10 * "20" equals the <strong>number</strong> 200</p>
+  <p>&nbsp;&nbsp;&nbsp; "10" * "20" equals the <strong>number</strong> 200</p>
+  <p>&nbsp;&nbsp;&nbsp; 10 &amp; 20 equals the <strong>string</strong> "1020" (<strong>&amp;</strong> is used to join strings)</p>
+  <p>&nbsp;</p>
+  <p>If a string is used as a number, an implicit call to <strong><a href="../functions/Number.htm">Number()</a></strong> function is done. So if it doesn't contain a valid number, it will be assumed to equal 0. For example,</p>
+  <p>&nbsp;&nbsp;&nbsp; 10 * "fgh" equals the number <strong>0</strong>.</p>
+  <p>If a string is used as a boolean and it is an empty string "" , it will be assumed to equal False (see below). For example,</p>
+  <p>&nbsp;&nbsp;&nbsp; Not "" equals the Boolean <strong>True</strong>.</p>
+  <h2>Numbers</h2>
+  <p>Numbers can be standard decimal numbers like <strong>2</strong>, <strong>4.566</strong>, and <strong>-7</strong>.</p>
+  <p>Scientific notation is also supported; therefore, you could write <strong>1.5e3</strong> instead of <strong>1500</strong>.</p>
+  <p>Integers (whole numbers) can also be represented in hexadecimal notation by preceding the integer with <strong>0x</strong> as in <strong>0x409</strong> or <strong>0x4fff</strong>.</p>
+  <h2>Strings</h2>
+  <p>Strings are enclosed in double-quotes like <strong>"this"</strong>. If you want a string to actually contain a double-quote use it twice like:</p>
+  <p>&nbsp;&nbsp;&nbsp; <strong>"here is a ""double-quote"" - ok?"</strong></p>
+  <p>You can also use single-quotes like <strong>'this'</strong> and <strong>'here is a ' 'single-quote' ' - ok?'</strong></p>
+  <p>&nbsp;</p>
+  <p>You can mix quote types to make for easier working and to avoid having to double-up your quotes to get what you want. For example if you want to use a lot of double-quotes in your strings then you should use single-quotes for declaring them:</p>
+  <p>&nbsp;&nbsp;&nbsp; <strong>'This "sentence" contains "lots" of "double-quotes" does it not?'</strong></p>
+  <p>is much simpler than:</p>
+  <p>&nbsp;&nbsp;&nbsp; <strong>"This ""sentence"" contains ""lots"" of ""double-quotes"" does it not?"</strong></p>
+  <p>When evaluated, strings can have Env variables or Var variables substitution according to <a href="../functions/AutoItSetOption.htm#ExpandEnvStrings">Opt()</a> function definition.</p>
+  <p>All AutoIt strings use UTF-16 (in fact and more precisely UCS-2) encoding.</p>
+  <h2>Booleans</h2>
+  <p>Booleans are <strong>logical</strong> values. Only two Boolean values exist: <strong>True</strong> and <strong>False</strong>.<br>
+  <br>
+  They can be used in variable assignments, together with the Boolean operators <strong>And</strong>, <strong>Or</strong> and <strong>Not</strong>.<br>
+  <br>
+  Examples:<br>
+  $fBoolean1 = True<br>
+  $fBoolean2 = False<br>
+  $fBoolean3 = $fBoolean1 AND $fBoolean2<br>
+  <br>
+  This will result in $fBoolean3 being <strong>False</strong><br>
+  <br>
+  $fBoolean1 = False<br>
+  $fBoolean2 = Not $fBoolean1<br>
+  <br>
+  This will result in $fBoolean2 being <strong>True</strong><br>
+  <br>
+  <br>
+  If Boolean values are used together with numbers, the following rules apply:<br>
+  <br>
+  A value 0 will be equal to Boolean <strong>False</strong><br>
+  Any other number value will be equal to Boolean <strong>True</strong><br>
+  <br>
+  Example:<br>
+  $iNumber1 = 0<br>
+  $fBoolean1 = True<br>
+  $fBoolean2 = $iNumber1 And $fBoolean1<br>
+  <br>
+  This will result in $fBoolean2 being <strong>False</strong><br>
+  <br>
+  <br>
+  If you use arithmetics together with Boolean values (<strong>which is not advisable!</strong>), the following rules apply:<br>
+  <br>
+  A Boolean True will be converted into the numeric value <strong>1</strong><br>
+  A Boolean False will be converted into the numeric value <strong>0</strong><br>
+  <br>
+  Example:<br>
+  $fBoolean1 = True<br>
+  $iNumber1 = 100<br>
+  $iNumber2 = $fBoolean1 + $iNumber1<br>
+  <br>
+  This will result in $iNumber2 to be the numeric value 101<br>
+  <br>
+  <br>
+  If you use strings together with Boolean values, they will be converted as follows:<br>
+  <br>
+  A Boolean True will be the string value <strong>"True"</strong><br>
+  A Boolean False will be the string value <strong>"False"</strong><br>
+  <br>
+  Example:<br>
+  $fBoolean1=True<br>
+  $sString1="Test is: "<br>
+  $sString2=$sString1 &amp; $fBoolean1<br>
+  <br>
+  This will result in $sString2 being the string value "Test is: True"<br>
+  <br>
+  The other way around however is different. When you use string comparisons with Boolean values, the following rules apply:<br>
+  Only an empty string ("") will be a Boolean <strong>False</strong><br>
+  Any other string values (including a string equal "0") will be a Boolean <strong>True</strong><br></p>
+  <h2>Binary</h2>
+  <p>Binary type can store any byte value. they are converted in hexadecimal representation when stored in a string variable. Example:<br>
+  $bin = Binary("abc")<br>
+  $str = String($bin)&nbsp;&nbsp;&nbsp; ; "0x616263"</p><br>
+  <h2>Pointer</h2>
+  <p>Pointer types store a memory address which is 32bits or 64bits depending on if the 32bit or 64 bit of AutoIt is used. They are converted to hexadecimal representation when stored in a string variable. Window handles (HWnd) as returned from <a href=
+  "../functions/WinGetHandle.htm">WinGetHandle</a> are a pointer type.</p>
+  <h2>Datatypes and Ranges</h2>
+  <p>The following table shows the internal variant datatypes and their ranges.</p>
+  <table>
+    <tr>
+      <th>Data Sub-type</th>
+      <th>Range and Notes</th>
+    </tr>
+    <tr>
+      <td nowrap>Int32</td>
+      <td>A 32bit signed integer number.</td>
+    </tr>
+    <tr>
+      <td nowrap>Int64</td>
+      <td>A 64bit signed integer number</td>
+    </tr>
+    <tr>
+      <td nowrap>Double</td>
+      <td>A double-precision floating point number.</td>
+    </tr>
+    <tr>
+      <td nowrap>String</td>
+      <td>Can contain strings of up to 2147483647 characters.</td>
+    </tr>
+    <tr>
+      <td nowrap>Binary</td>
+      <td>Binary data, can contain up to 2147483647 bytes.</td>
+    </tr>
+    <tr>
+      <td nowrap>Pointer</td>
+      <td>A memory address pointer. 32bit or 64bit depending on the version of AutoIt used.</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>Some functions in AutoIt only work with 32 bit numbers (e.g. <a href="../functions/BitAND.htm">BitAND</a>) and are converted automatically - these functions are documented where required.</p>
+</body>
+</html>

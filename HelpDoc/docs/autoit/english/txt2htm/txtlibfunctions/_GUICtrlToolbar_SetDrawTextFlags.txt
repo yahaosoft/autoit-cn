@@ -1,0 +1,35 @@
+###User Defined Function###
+_GUICtrlToolbar_SetDrawTextFlags
+
+###Description###
+Sets the text drawing flags for the toolbar
+
+###Syntax###
+#include <GuiToolbar.au3>
+_GUICtrlToolbar_SetDrawTextFlags ( $hWnd, $iMask, $iDTFlags )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iMask
+	One or more of the DT_ flags, specified in DrawText, that indicate which bits in iDTFlags will
+	be used when drawing the text.
+$iDTFlags
+	One or more of the DT_ flags, specified in DrawText, that indicate how the button text will be
+	drawn. This value will be passed to the DrawText API when the button text is drawn.
+@@End@@
+
+###ReturnValue###
+Success: Returns the previous text drawing flags
+
+
+###Remarks###
+The iMask parameter allows you to specify which flags will be used when drawing the text, even if these flags
+are turned off. For example, if you don't want the $DT_CENTER flag used when drawing text you would add the
+$DT_CENTER flag to iMask and not specify the $DT_CENTER flag in iDTFlags. This prevents the control from
+passing the $DT_CENTER flag to the DrawText API.
+
+
+###Related###

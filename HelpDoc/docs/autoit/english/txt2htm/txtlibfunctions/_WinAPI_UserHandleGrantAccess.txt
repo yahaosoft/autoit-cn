@@ -1,0 +1,41 @@
+###User Defined Function###
+_WinAPI_UserHandleGrantAccess
+
+###Description###
+Grants or denies access to a handle to a User object to a job that has a user-interface restriction.
+
+###Syntax###
+#include <WinAPIProc.au3>
+_WinAPI_UserHandleGrantAccess ( $hObject, $hJob, $fGrant )
+
+
+###Parameters###
+@@ParamTable@@
+$hObject
+	Handle to the User object.
+$hJob
+	Handle to the job to be granted access to the User handle.
+$fGrant
+	Specifies whether to grant or deny access to the User handle, valid values:
+	True    - The processes associated with the job can recognize and use the handle.
+	False   - The processes cannot use the handle.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True
+Failure 	False
+@@End@@
+
+
+###Remarks###
+The _WinAPI_UserHandleGrantAccess() function can be called only from a process not associated with the job
+specified by the hJob parameter. The User handle must not be owned by a process or thread associated
+with the job.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ UserHandleGrantAccess

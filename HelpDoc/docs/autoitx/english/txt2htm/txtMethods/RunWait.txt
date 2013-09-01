@@ -1,0 +1,48 @@
+###Method###
+RunWait
+
+###Description###
+Runs an external program and pauses script execution until the program finishes.
+
+###Syntax###
+RunWait "filename" [, "workingdir" [, flag]]
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	The name of the executable (EXE, BAT, COM, PIF) to run.
+workingdir
+	<b>Optional:</b> The working directory.
+flag
+	<b>Optional:</b> The "show" flag of the executed program:
+	SW_HIDE = Hidden window
+	SW_MINIMIZE = Minimized window
+	SW_MAXIMIZE = Maximized window
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the exit code of the program that was run.
+Failure:	see Remarks.
+@@End@@
+
+
+###Remarks###
+After running the requested program the script pauses until the program terminates.  To run a program and then immediately continue script execution use the Run function instead.
+
+Some programs will appear to return immediately even though they are still running; these programs spawn another process - you may be able to use the ProcessWaitClose function to handle these cases.
+
+The <b>error<b> property is set to 1 as an indication of failure.
+
+
+###Related###
+ProcessWait, ProcessWaitClose, RunAsSet, RunWait
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+val = oAutoIt.RunWait("Notepad.exe", "C:\WINDOWS", oAutoIt.SW_MAXIMIZE)
+
+' script waits until Notepad closes
+WScript.Echo "Program returned with exit code:" & val

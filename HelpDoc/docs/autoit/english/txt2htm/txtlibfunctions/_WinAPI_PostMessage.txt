@@ -1,0 +1,41 @@
+###User Defined Function###
+_WinAPI_PostMessage
+
+###Description###
+Places a message in the message queue and then returns
+
+###Syntax###
+#include <WinAPI.au3>
+_WinAPI_PostMessage ( $hWnd, $iMsg, $iwParam, $ilParam )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Identifies the window whose window procedure will receive the message. If this parameter is
+	0xFFFF (HWND_BROADCAST), the message is sent to all top-level windows in the system, including disabled or invisible
+	unknowned windows, overlapped windows, and pop-up windows; but the message is not sent to child windows.
+$iMsg
+	Specifies the message to be sent
+$iwParam
+	First message parameter
+$ilParam
+	Second message parameter
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False, call _WinAPI_GetLastError() to get extended error information
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ PostMessage

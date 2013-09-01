@@ -1,0 +1,42 @@
+###Function###
+GUICtrlSetOnEvent
+
+###Description###
+Defines a user-defined function to be called when a control is clicked.
+
+###Syntax###
+GUICtrlSetOnEvent ( controlID, "function" )
+
+
+###Parameters###
+@@ParamTable@@
+controlID
+	The control identifier (controlID) as returned by a <a href="GUICtrlCreate Management.htm">GUICtrlCreate...</a> function, or -1 for the last created control.
+function
+	The name of the user function to call.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0,
+@@End@@
+
+
+###Remarks###
+OnEvent functions are only called when the option GUIOnEventMode is set to 1 - when in this mode <a href="GUIGetMsg.htm">GUIGetMsg()</a> is NOT used at all.
+
+You can not call a function using parameters.
+
+Within the called user function the control identifier can be retrieved with @GUI_CtrlId.
+If needed the windows handle and the control handle can be retrieved with @GUI_WinHandle or @GUI_CtrlHandle.
+
+If the function is an empty string "" the previous user-defined is disabled.
+
+
+###Related###
+GUICtrlCreate..., GUIGetMsg, GUIOnEventMode (Option), GUISetOnEvent, GUICtrlCreateDummy, GUICtrlSendToDummy
+
+
+###Example###
+@@IncludeExample@@

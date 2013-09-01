@@ -1,0 +1,44 @@
+###Function###
+ObjGet
+
+###Description###
+Retrieves a reference to a COM object from an existing process or filename.
+
+###Syntax###
+ObjGet ( "filename" [, "classname" [, instance]] )
+
+
+###Parameters###
+@@ParamTable@@
+filename
+	The full path and name to the file containing the object (See remarks).
+classname
+	[optional] Class identifier. Can be in either ProgID or the string representation of the CLSID.
+instance
+	[optional] Instance of the object for ROT objects of the same (co)class.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an object.
+Failure:	Returns empty string and sets @error.
+@@End@@
+
+
+###Remarks###
+The filename is optional if you want to use only the class identifier, but the parameter can't be omitted.
+Use an empty string if you want to access objects from running objects table (ROT). You can use third parameter to specify wanted instance in that case.
+In all other cases third parameter is ignored.
+
+If you use a filename, the classname is optional. It's only required when you want to load an object of a specific class.
+Classname parameter <b>does not</b> have default value. If it's specified then it's processed.
+
+See the <a href="../intro/ComRef.htm">Obj/COM Reference</a> for more information about Objects.
+
+
+###Related###
+GUICtrlCreateObj, IsObj, ObjCreate, ObjEvent, ObjName
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,41 @@
+###Method###
+RegEnumVal
+
+###Description###
+Reads the name of a value according to it's instance.
+
+###Syntax###
+RegEnumVal "keyname", instance
+
+
+###Parameters###
+@@ParamTable@@
+keyname
+	The registry key to read.
+instance
+	The 1-based value instance to retrieve
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the requested value name.
+Failure:	Returns "" and sets the @error flag:
+	1 if unable to open requested key
+	-1 if unable to retrieve requested value name (value instance out of range)
+@@End@@
+
+
+###Remarks###
+A registry key must start with "HKEY_LOCAL_MACHINE" ("HKLM") or "HKEY_USERS" ("HKU") or "HKEY_CURRENT_USER" ("HKCU") or "HKEY_CLASSES_ROOT" ("HKCR") or "HKEY_CURRENT_CONFIG" ("HKCC").
+
+
+###Related###
+RegEnumKey, RegDeleteKey, RegDeleteVal, RegWrite
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+var = oAutoIt.RegEnumVal("HKEY_CURRENT_USER\Software\AutoIt v3", 1)
+WScript.Echo "First Value Name under in AutoIt3 key" & var
+var = oAutoIt.RegEnumVal("HKEY_CURRENT_USER\Software\AutoIt v3", 2)
+WScript.Echo "Second Value Name under in AutoIt3 key: " & var

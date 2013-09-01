@@ -1,0 +1,89 @@
+###User Defined Function###
+_FileListToArrayRec
+
+###Description###
+Lists files and\or folders in specified path with optional recursion to defined level and result sorting
+
+###Syntax###
+#include <File.au3>
+_FileListToArrayRec ( $sPath [, $sMask = "*" [, $iReturn = 0 [, $iRecur = 0 [, $iSort = 0 [, $iReturnPath = 1]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sPath
+	Initial path used to generate filelist.
+	If path ends in \ then folders will be returned with an ending \
+	If path lengths > 260 chars, prefix path with "\\?\" - return paths are not affected
+$sMask
+	[optional] Filter for result. Multiple filters must be separated by ";"
+	Use "|" to separate 3 possible sets of filters: "Include|Exclude|Exclude_Folders"
+	Include = Files/Folders to include (default = "*" [all])
+	Exclude = Files/Folders to exclude (default = "" [none])
+	Exclude_Folders = only used if $iRecur = 1 AND $iReturn &lt;&gt; 2 to exclude defined folders (default = "" [none])
+$iReturn
+	[optional] Specifies whether to return files, folders or both and omit those with certain attributes
+	$iFlag = 0 (Default) Return both files and folders
+	$iFlag = 1 Return files only
+	$iFlag = 2 Return Folders only
+	Add one or more of the following to $iReturn to omit files/folders with that attribute
+	+ 4 - Hidden files and folders
+	+ 8 - System files and folders
+	+ 16 - Link/junction folders
+$iRecur
+	[optional] Specifies whether to search recursively in subfolders and to what level
+	1 - Search in all subfolders (unlimited recursion)
+	0 - Do not search in subfolders (Default)
+	Negative integer - Search in subfolders to specified depth
+$iSort
+	[optional] Sort results in alphabetical and depth order
+	0 - Not sorted (Default)
+	1 - Sorted
+	2 - Sorted with faster algorithm (assumes files in folder returned sorted - requires NTFS and not guaranteed)
+$iReturnPath
+	[optional] Specifies displayed path of results
+	0 - File/folder name only
+	1 - Relative to initial path (Default)
+	2 - Full path included
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	One-dimensional array made up as follows:
+	[0] = Number of Files/Folders returned
+	[1] = 1st File/Folder
+	[2] = 2nd File/Folder
+	...
+	[n] = nth File\Folder
+Failure:	Empty string and sets @error = 1 with @extended set as follows:
+	1 = Path not found or invalid
+	2 = Invalid Include parameter
+	3 = Invalid Exclude parameter
+	4 = Invalid Exclude_Folders parameter
+	5 = Invalid $iReturn parameter
+	6 = Invalid $iRecur parameter
+	7 = Invalid $iSort parameter
+	8 = Invalid $iReturnPath parameter
+	9 = No files/folders found
+@@End@@
+
+
+###Remarks###
+Compatible with existing _FileListToArray syntax
+Include/Exclude/Exclude_Folders logic:
+	Non-recursive:
+	Include/Exclude: Files and/or folders
+	Exclude_Folders: Ignored
+	Recursive:
+	Include/Exclude: $iReturn = 0/1 - Files only; $iReturn = 2 - Folders only
+	Exclude_Folders: $iReturn = 0/1 - Folders only ; $iReturn = 2 - Ignored
+Sorting the results will significantly increase the time required for the UDF to return the array
+Despite the name, the UDF is iterative, not recursive
+
+
+###Related###
+_FileListToArray
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,39 @@
+###User Defined Function###
+_Word_Create
+
+###Description###
+Connects to an existing Word instance or creates a new Word application object.
+
+###Syntax###
+#include <Word.au3>
+_Word_Create ( [$bVisible = True [, $bForceNew = False]] )
+
+
+###Parameters###
+@@ParamTable@@
+$bVisible
+	[optional] True specifies that the window will be visible (default)
+$bForceNew
+	[optional] True forces to create a new Word instance even if there is already a running instance (default = False)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a variable pointing to a Word.Application object. Sets @extended to:
+	0 - Word was already running
+	1 - Word was not running or $bForceNew was set to True. Word has been started by this function
+Failure:	Returns 0 and sets @error
+	1 - Error returned by function ObjCreate(). @extended is set to the COM error code
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_Word_Quit
+
+
+###Example###
+@@IncludeExample@@

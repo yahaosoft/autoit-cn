@@ -1,0 +1,42 @@
+###User Defined Function###
+_WinAPI_LoadResource
+
+###Description###
+Loads the specified resource into global memory.
+
+###Syntax###
+#include <WinAPIRes.au3>
+_WinAPI_LoadResource ( $hInstance, $hResource )
+
+
+###Parameters###
+@@ParamTable@@
+$hInstance
+	Handle to the module whose executable file contains the resource. If this parameter is 0, the system
+	loads the resource from the module that was used to create the current process.
+$hResource
+	Handle to the resource to be loaded. This handle is returned by the _WinAPI_FindResource()
+	or _WinAPI_FindResourceEx() function.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	Handle to the data associated with the resource.
+Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+To obtain a pointer to the resource data, call the _WinAPI_LockResource() function.
+
+
+###Related###
+_WinAPI_FindResource, _WinAPI_FindResourceEx, _WinAPI_LockResource
+
+
+###See Also###
+@@MsdnLink@@ LoadResource
+
+
+###Example###
+@@IncludeExample@@

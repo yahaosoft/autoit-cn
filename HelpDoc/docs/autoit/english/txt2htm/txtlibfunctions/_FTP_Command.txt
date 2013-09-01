@@ -1,0 +1,49 @@
+###User Defined Function###
+_FTP_Command
+
+###Description###
+Sends a command to an FTP server.
+
+###Syntax###
+#include <FTPEx.au3>
+_FTP_Command ( $hFTPSession, $sFTPCommand [, $iFlags = 0x00000001 [, $iExpectResponse = 0 [, $iContext = 0]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hFTPSession
+	as returned by _FTP_Connect()
+$sFTPCommand
+	Command string to send to FTP Server
+$iFlags
+	[optional] $FTP_TRANSFER_TYPE_ASCII or $FTP_TRANSFER_TYPE_BINARY
+$iExpectResponse
+	[optional] Data socket for response in Async mode. See remarks.
+$iContext
+	[optional] A variable that contains the application-defined value that associates this search with any application data.
+	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an identifier.
+Failure:	0 and sets @error.
+@@End@@
+
+
+###Remarks###
+Command Examples: depends on server syntax/
+The following is for Binary transfer, ASCII transfer, Passive transfer mode (used with firewalls) 'type I' 'type A'  'pasv'
+
+If $iExpectResponse is set to True, a pointer to a handle that is created if a valid data socket is opened is returned in @extended.
+
+
+###Related###
+_FTP_Connect, _FTP_SetStatusCallback
+
+
+###See Also###
+@@MsdnLink@@ FtpCommand
+
+
+###Example###

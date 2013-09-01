@@ -1,0 +1,44 @@
+###User Defined Function###
+_WinAPI_GetThemePropertyOrigin
+
+###Description###
+Retrieves the location of the theme property definition for a property.
+
+###Syntax###
+#include <WinAPITheme.au3>
+_WinAPI_GetThemePropertyOrigin ( $hTheme, $iPartId, $iStateId, $iPropId )
+
+
+###Parameters###
+@@ParamTable@@
+$hTheme
+	Handle to a window's specified theme data.
+$iPartId
+	The part that contains the theme.
+$iStateId
+	The state of the part.
+$iPropId
+	The property to retrieve ($TMT_*).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The value that indicates where the property was found. It can be one of the following values.
+	0 - Property was found in the state section.
+	1 - Property was found in the part section.
+	2 - Property was found in the class section.
+	3 - Property was found in the list of global variables.
+	4 - Property was not found.
+Failure 	Sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetThemePropertyOrigin

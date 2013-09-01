@@ -1,0 +1,47 @@
+###Function###
+Shutdown
+
+###Description###
+Shuts down the system.
+
+###Syntax###
+Shutdown ( code )
+
+
+###Parameters###
+@@ParamTable@@
+code
+	A combination of shutdown codes.  See "remarks".
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 and @error is set to GetLastError().
+@@End@@
+
+
+###Remarks###
+The shutdown code is a combination of the following values:
+	$SD_LOGOFF (0) = Logoff
+	$SD_SHUTDOWN (1) = <a href="Shutdown.htm">Shutdown()</a>
+	$SD_REBOOT (2) = Reboot
+	$SD_FORCE (4) = Force
+	$SD_POWERDOWN (8) = Power down
+	$SD_FORCEHUNG (16) = Force if hung
+	$SD_STANDBY (32) = Standby
+	$SD_HIBERNATE (64) = Hibernate
+
+Constants are defined in Constants.au3
+
+Required values should be <a href="BitOR.htm">BitOR()</a>'ed together. To shutdown and power down, for example, the code would be <a href="BitOR.htm">BitOR</a>($SD_SHUTDOWN, $SD_POWERDOWN).
+
+Standby or Hibernate are ignored if other codes are set.
+
+
+###Related###
+ProcessClose
+
+
+###Example###
+@@IncludeExample@@

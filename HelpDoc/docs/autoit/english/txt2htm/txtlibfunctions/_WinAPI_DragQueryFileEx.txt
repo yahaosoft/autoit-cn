@@ -1,0 +1,44 @@
+###User Defined Function###
+_WinAPI_DragQueryFileEx
+
+###Description###
+Retrieves the names of dropped files that result from a successful drag-and-drop operation.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_DragQueryFileEx ( $hDrop [, $iFlag = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hDrop
+	Handle of the drop structure that describes the dropped file. This parameter is passed to
+	WM_DROPFILES message with WPARAM parameter.
+$iFlag
+	[optional] The flag that specifies whether to return files folders or both, valid values:
+	0 - Return both files and folders (Default).
+	1 - Return files only.
+	2 - Return folders only.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The array of the names of a dropped files. The zeroth array element contains the number of file names.
+	If no files that satisfy the condition ($iFlag), the function fails.
+Failure 	Sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ DragQueryFile
+
+
+###Example###
+@@IncludeExample@@

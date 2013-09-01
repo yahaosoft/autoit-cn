@@ -1,0 +1,53 @@
+###User Defined Function###
+_WinAPI_SetTextAlign
+
+###Description###
+Sets the text-alignment flags for the specified device context.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_SetTextAlign ( $hDC [, $iMode = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to the device context.
+$iMode
+	[optional] The text alignment by using a mask of the values in the following list. Only one flag can be chosen
+	from those that affect horizontal and vertical alignment. In addition, only one of the two flags that
+	alter the current position can be chosen.
+	$TA_BASELINE
+	$TA_BOTTOM
+	$TA_TOP (Default)
+	$TA_CENTER
+	$TA_LEFT (Default)
+	$TA_RIGHT
+	$TA_NOUPDATECP (Default)
+	$TA_RTLREADING
+	$TA_UPDATECP
+
+	When the current font has a vertical default base line, as with Kanji, the following values must be
+	used instead of $TA_BASELINE and $TA_CENTER.
+	$VTA_BASELINE
+	$VTA_CENTER
+
+	The default values are $TA_LEFT, $TA_TOP, and $TA_NOUPDATECP.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The previous text-alignment setting ($TA_* and $VTA_*).
+Failure 	(-1) GDI_ERROR.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ SetTextAlign

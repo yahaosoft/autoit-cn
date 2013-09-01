@@ -1,0 +1,50 @@
+###User Defined Function###
+_WinAPI_ShellSetKnownFolderPath
+
+###Description###
+Redirects a known folder to a new location.
+
+###Syntax###
+#include <WinAPIShellEx.au3>
+_WinAPI_ShellSetKnownFolderPath ( $GUID, $sPath [, $iFlags = 0 [, $hToken = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$GUID
+	The GUID ($FOLDERID_*) that identifies the known folder.
+$sPath
+	The folder's new path.
+$iFlags
+	[optional] This parameter can be 0 or the following value.
+	$KF_FLAG_DONT_UNEXPAND
+$hToken
+	[optional] The access token that represents a particular user. If this parameter is 0, the function requests
+	the known folder for the current user. Assigning the $hToken parameter a value of (-1) indicates the
+	Default User. Note that access to the Default User folders requires administrator privileges.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1.
+Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+@@End@@
+
+
+###Remarks###
+To call this function on public known folders, the caller must have Administrator privileges. For per-user known
+folders the caller only requires User privileges.
+
+To call this function on a folder of type $KF_CATEGORY_COMMON, the calling application must be running with
+elevated privileges.
+
+This function cannot be called on folders of type $KF_CATEGORY_FIXED and $KF_CATEGORY_VIRTUAL.
+
+This function requires Windows Vista or later.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ SHSetKnownFolderPath

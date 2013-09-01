@@ -1,0 +1,52 @@
+###Method###
+MouseClick
+
+###Description###
+Perform a mouse click operation.
+
+###Syntax###
+MouseClick "button" [, x, y [, clicks [, speed ]]]
+
+
+###Parameters###
+@@ParamTable@@
+button
+	The button to click: "left", "right", "middle", "main", "menu", "primary", "secondary".
+x, y
+	<b>Optional:</b> The x/y coordinates to move the mouse to.  If no x and y coords are given, the current position is used.
+clicks
+	<b>Optional:</b> The number of times to click the mouse.  Default is 1.
+speed
+	<b>Optional:</b> the speed to move the mouse in the range 1 (fastest) to 100 (slowest).  A speed of 0 will move the mouse instantly.  Default speed is 10.
+@@End@@
+
+###ReturnValue###
+None.
+
+
+###Remarks###
+If the button is an empty string, the left button will be clicked.
+
+If the button is not in the list, then oAutoIt.error will be set to 1.
+
+If the user has swapped the left and right mouse buttons in the control panel, then the behaviour of the buttons is different.  "Left" and "right" always click those buttons, whether the buttons are swapped or not.  The "primary" or "main" button will be the main click, whether or not the buttons are swapped.  The "secondary" or "menu" buttons will usually bring up the context menu, whether the buttons are swapped or not.
+
+@@StandardTable@@
+<b>Button</b>	<b>Normal</b>	<b>Swapped</b>
+""	Left	Left
+"left"	Left	Left
+"middle"	Middle	Middle
+"right"	Right	Right
+"primary"	Left	Right
+"main"	Left	Right
+"secondary"	Right	Left
+"menu"	Right	Left
+@@End@@
+
+
+###Related###
+MouseClickDrag, MouseGetPosX, MouseGetPosY, MouseMove, MouseCoordMode (Option)
+
+
+###Example###
+@@IncludeExample@@

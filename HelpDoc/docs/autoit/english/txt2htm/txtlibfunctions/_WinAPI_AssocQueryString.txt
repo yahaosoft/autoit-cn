@@ -1,0 +1,78 @@
+###User Defined Function###
+_WinAPI_AssocQueryString
+
+###Description###
+Searches for and retrieves a file or protocol association-related string from the registry.
+
+###Syntax###
+#include <WinAPIReg.au3>
+_WinAPI_AssocQueryString ( $sAssoc, $iType [, $iFlags = 0 [, $sExtra = '']] )
+
+
+###Parameters###
+@@ParamTable@@
+$sAssoc
+	The string that is used to determine the root key. The following four types of strings can be used.
+	The file name extension, such as ".txt".
+	The class identifier (CLSID) GUID in the standard "{GUID}" format.
+	The application's ProgID, such as Word.Document.8.
+	The name of an application's .exe file. The $ASSOCF_OPEN_BYEXENAME flag must be set.
+$iType
+	The value that specifies the type of string that is to be returned. This parameter can be one of the
+	following values.
+	$ASSOCSTR_COMMAND
+	$ASSOCSTR_EXECUTABLE
+	$ASSOCSTR_FRIENDLYDOCNAME
+	$ASSOCSTR_FRIENDLYAPPNAME
+	$ASSOCSTR_NOOPEN
+	$ASSOCSTR_SHELLNEWVALUE
+	$ASSOCSTR_DDECOMMAND
+	$ASSOCSTR_DDEIFEXEC
+	$ASSOCSTR_DDEAPPLICATION
+	$ASSOCSTR_DDETOPIC
+	$ASSOCSTR_INFOTIP
+	$ASSOCSTR_QUICKTIP
+	$ASSOCSTR_TILEINFO
+	$ASSOCSTR_CONTENTTYPE
+	$ASSOCSTR_DEFAULTICON
+	$ASSOCSTR_SHELLEXTENSION
+$iFlags
+	[optional] The flags that can be used to control the search. It can be any combination of the following
+	values, except that only one $ASSOCF_INIT_* value can be included.
+	$ASSOCF_INIT_NOREMAPCLSID
+	$ASSOCF_INIT_BYEXENAME
+	$ASSOCF_OPEN_BYEXENAME
+	$ASSOCF_INIT_DEFAULTTOSTAR
+	$ASSOCF_INIT_DEFAULTTOFOLDER
+	$ASSOCF_NOUSERSETTINGS
+	$ASSOCF_NOTRUNCATE
+	$ASSOCF_VERIFY
+	$ASSOCF_REMAPRUNDLL
+	$ASSOCF_NOFIXUPS
+	$ASSOCF_IGNOREBASECLASS
+	$ASSOCF_INIT_IGNOREUNKNOWN
+$sExtra
+	[optional] The string with additional information about the location of the string. It is typically
+	set to a Shell verb such as open.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The string that contains the requested ($ASSOCSTR_*) information.
+Failure 	Empty string and sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ AssocQueryString
+
+
+###Example###
+@@IncludeExample@@

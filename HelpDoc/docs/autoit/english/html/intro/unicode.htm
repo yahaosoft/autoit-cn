@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unicode Support</title>
+  <meta charset="ISO-8859-1">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h1>Unicode Support</h1>
+  <p>From version 3.2.4.0 AutoIt is supplied as a Unicode program. The Unicode versions will allow our international friends to finally use AutoIt with extended characters and scripts!</p>
+  <p><strong>Note: the Unicode version of AutoIt (AutoIt3.exe) and scripts compiled in Unicode mode will only run on Windows NT/2000/XP/2003/Vista and later machines. To allow scripts to run on Windows 9x scripts you must use an older version of AutoIt.
+  The last version compatible with Windows 9x was 3.2.12.x.</strong></p>
+  <p>AutoIt will read script files in ANSI or UTF16 (big or little endian) / UTF8 formats with a valid <a href="http://en.wikipedia.org/wiki/Byte_Order_Mark">BOM</a>. In addition, functions such as <a href="../functions/FileReadLine.htm">FileReadLine</a>
+  will automatically read text from ANSI and UTF16/UTF8 text files providing a valid <a href="http://en.wikipedia.org/wiki/Byte_Order_Mark">BOM</a> is found. UTF8 files with or without a BOM are also supported.</p>
+  <p>Output functions such as <a href="../functions/FileWriteLine.htm">FileWriteLine</a> can use ANSI, UTF16 and UTF8 formats - but the file must be opened in the desired mode using the desired <a href="../functions/FileOpen.htm">FileOpen</a> flags
+  otherwise the default ANSI mode is used.</p>
+  <p>The supported file formats for text files and scripts and their notation in popular editors are shown in this table:</p>
+  <table>
+    <tr>
+      <th>AutoIt Notation</th>
+      <th>Notepad</th>
+      <th>Notepad++</th>
+      <th>SciTE (AutoIt Default Editor)</th>
+    </tr>
+    <tr>
+      <td>ANSI</td>
+      <td>ANSI</td>
+      <td>ANSI</td>
+      <td>8 bit / Code Page Property</td>
+    </tr>
+    <tr>
+      <td>UTF16 Little Endian</td>
+      <td>Unicode</td>
+      <td>UCS-2 Little Endian</td>
+      <td>UCS-2 Little Endian</td>
+    </tr>
+    <tr>
+      <td>UTF16 Big Endian</td>
+      <td>Unicode big endian</td>
+      <td>UCS-2 Big Endian</td>
+      <td>UCS-2 Big Endian</td>
+    </tr>
+    <tr>
+      <td>UTF8 with BOM</td>
+      <td>UTF-8</td>
+      <td>UTF-8</td>
+      <td>UTF-8 with BOM</td>
+    </tr>
+    <tr>
+      <td>UTF8 without BOM</td>
+      <td>Not supported</td>
+      <td>UTF-8 without BOM</td>
+      <td>UTF-8</td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>The recommended script format is UTF-8 with BOM. ANSI formats are not recommended for languages other than English as they can cause problems when run on machines with different locales.</p>
+  <p>All AutoIt strings use UTF-16 (in fact and more precisely UCS-2) encoding.</p>
+  <h2>Current Limitations</h2>
+  <p>There are a few parts of AutoIt that don't yet have full Unicode support. These are:</p>
+  <ul>
+    <li><a href="../functions/Send.htm">Send</a> and <a href="../functions/ControlSend.htm">ControlSend</a> - Instead, Use <a href="../functions/ControlSetText.htm">ControlSetText</a> or the <a href="../functions/ClipPut.htm">Clipboard</a>
+    functions.</li>
+    <li><a href="../functions/ConsoleWrite.htm">Console</a> operations are converted to ANSI.</li>
+  </ul>
+  <p>These limits will be addressed in future versions if possible.</p>
+</body>
+</html>

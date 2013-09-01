@@ -1,0 +1,45 @@
+###User Defined Function###
+_WinAPI_GetConnectedDlg
+
+###Description###
+Launches the Get Connected wizard within the calling application to enable network connectivity.
+
+###Syntax###
+#include <WinAPIDlg.au3>
+_WinAPI_GetConnectedDlg ( $iDlg [, $iFlags = 0 [, $hParent = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$iDlg
+	Specifies which the dialog should be launched, valid values:
+	0 - Local area network connectivity.
+	1 - Internet connectivity.
+	2 - Virtual private network (VPN) connectivity.
+$iFlags
+	[optional] Specifies an additional options. This parameter can be one or more of the following values.
+	0 - Default.
+	1 - Do not display the Get Connected wizard page that shows whether or not the user has a working or active Internet connection.
+	2 - Do not display the Get Connected wizard page that shows a list of existing internet connections.
+	4 - Hide the finish page of the Get Connected wizard.
+$hParent
+	[optional] Handle to the parent window that called this API.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1 - The Internet is connected.
+	0 - Otherwise.
+Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+@@End@@
+
+
+###Remarks###
+This function requires Windows Vista or later.
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

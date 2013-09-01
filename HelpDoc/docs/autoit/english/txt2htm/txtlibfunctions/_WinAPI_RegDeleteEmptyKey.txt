@@ -1,0 +1,41 @@
+###User Defined Function###
+_WinAPI_RegDeleteEmptyKey
+
+###Description###
+Deletes an empty key.
+
+###Syntax###
+#include <WinAPIReg.au3>
+_WinAPI_RegDeleteEmptyKey ( $hKey [, $sSubKey = ''] )
+
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to an open registry key, or any of the following predefined keys.
+	$HKEY_CLASSES_ROOT
+	$HKEY_CURRENT_CONFIG
+	$HKEY_CURRENT_USER
+	$HKEY_LOCAL_MACHINE
+	$HKEY_USERS
+$sSubKey
+	[optional] The name of the key to delete.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1.
+Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+
+###Remarks###
+_WinAPI_RegDeleteEmptyKey() does not delete a key if it contains any subkeys or values. Use _WinAPI_RegDeleteTree() instead.
+
+
+###Related###
+_WinAPI_RegDeleteTree
+
+
+###See Also###
+@@MsdnLink@@ SHDeleteEmptyKey

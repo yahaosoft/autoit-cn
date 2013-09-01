@@ -1,0 +1,44 @@
+###User Defined Function###
+_WinAPI_CreateDIBitmap
+
+###Description###
+Creates a compatible bitmap (DDB) from a DIB and, optionally, sets the bitmap bits.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_CreateDIBitmap ( $hDC, $tBITMAPINFO, $iUsage [, $pBits = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hDC
+	Handle to a device context.
+$tBITMAPINFO
+	$tagBITMAPINFO structure that specifies various attributes of the DIB, including the bitmap
+	dimensions and colors. Note that a positive value for the height indicates a bottom-up DIB while
+	a negative value for the height indicates a top-down DIB.
+$iUsage
+	The type of colors used. This parameter must be one of the following values.
+	$DIB_PAL_COLORS
+	$DIB_RGB_COLORS
+$pBits
+	[optional] A pointer to an array of bytes containing the initial bitmap data.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	Handle to the compatible bitmap that will be whatever bit depth a reference DC is.
+Failure 	0.
+@@End@@
+
+
+###Remarks###
+When you no longer need the bitmap, call the _WinAPI_DeleteObject() function to delete it.
+
+
+###Related###
+_WinAPI_DeleteObject
+
+
+###See Also###
+@@MsdnLink@@ CreateDIBitmap

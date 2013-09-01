@@ -1,0 +1,43 @@
+###Function###
+GUICtrlCreateTabItem
+
+###Description###
+Creates a TabItem control within an existing tab control in the GUI.
+
+###Syntax###
+GUICtrlCreateTabItem ( "text" )
+
+
+###Parameters###
+@@ParamTable@@
+text
+	The text of the control.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the identifier (controlID) of the new control.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+To select a specific tabitem to be shown when the GUI opens use <a href="GUICtrlSetState.htm">GUICtrlSetState</a>(-1, $GUI_SHOW) as shown in the example.
+
+It is important to close the tab structure by creating a final tabitem control with a null text - <a href="GUICtrlCreateTabItem.htm">GUICtrlCreateTabItem</a>("").
+
+Controls for a specific tabitem should be created after the tabitem and before the creating a further tabitem or closing the tab structure. To create a new control on an existing tabitem, use <a href="GUISwitch.htm">GUISwitch</a>($hWin, $tabitem) to select the correct tabitem and then create the new control. Do not forget to close the tabitem structure once again with <a href="GUICtrlCreateTabItem.htm">GUICtrlCreateTabItem</a>("").
+
+The tabitem control cannot be colored (too much code ...).
+
+<a href="GUICtrlRead.htm">GUICtrlRead()</a> will return the index of the clicked tab item, or the controlID when advanced mode is used.
+
+To set or change information in the control see <a href="GUICtrlUpdate Management.htm">GUICtrlUpdate...</a>.
+
+
+###Related###
+GUICtrlSetState, GUISwitch, GUIGetMsg, GUICtrlRead, GUIEventOptions (Option), GUICtrlCreateTab
+
+
+###Example###
+@@IncludeExample@@

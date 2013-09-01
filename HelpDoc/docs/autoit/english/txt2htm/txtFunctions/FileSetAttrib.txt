@@ -1,0 +1,49 @@
+###Function###
+FileSetAttrib
+
+###Description###
+Sets the attributes of one or more files/directories
+
+###Syntax###
+FileSetAttrib ( "file pattern", "+-RASHNOT" [, recurse = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+file pattern
+	The path of the file(s) to set, e.g. C:\*.au3, C:\Dir. (* and ? wildcards accepted - See Remarks)
++-RASHNOT
+	Attribute(s) to set/clear.  e.g. "+A", "+RA-SH"
+recurse
+	[optional] If this is set to 1, then directories are recursed into.  Default is 0 (no recursion).
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 if encountered any errors.
+@@End@@
+
+
+###Remarks###
+See <a href="FileFindFirstFile.htm">FileFindFirstFile()</a> for a discussion about wildcards.
+
+The <i>file pattern</i> cannot contain spaces!
+The attributes that can be modified with the function are + or -:
+"R" = READONLY
+"A" = ARCHIVE
+"S" = SYSTEM
+"H" = HIDDEN
+"N" = NORMAL
+"O" = OFFLINE
+"T" = TEMPORARY
+
+(Note that you cannot set the compressed/directory attributes with this function.)
+
+
+###Related###
+FileGetAttrib, FileGetTime, FileSetTime
+
+
+###Example###
+@@IncludeExample@@

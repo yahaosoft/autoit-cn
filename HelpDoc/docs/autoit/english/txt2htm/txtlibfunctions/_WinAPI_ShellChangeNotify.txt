@@ -1,0 +1,79 @@
+###User Defined Function###
+_WinAPI_ShellChangeNotify
+
+###Description###
+Notifies the system of an event that an application has performed.
+
+###Syntax###
+#include <WinAPIShellEx.au3>
+_WinAPI_ShellChangeNotify ( $iEvent, $iFlags [, $iItem1 = 0 [, $iItem2 = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$iEvent
+	Describes the event that has occurred. Typically, only one event is specified at a time. If more than
+	one event is specified, the values contained in the $iItem1 and $iItem2 parameters must be the same,
+	respectively, for all specified events. This parameter can be one or more of the following values.
+	$SHCNE_ALLEVENTS
+	$SHCNE_ASSOCCHANGED
+	$SHCNE_ATTRIBUTES
+	$SHCNE_CREATE
+	$SHCNE_DELETE
+	$SHCNE_DRIVEADD
+	$SHCNE_DRIVEADDGUI
+	$SHCNE_DRIVEREMOVED
+	$SHCNE_EXTENDED_EVENT
+	$SHCNE_FREESPACE
+	$SHCNE_MEDIAINSERTED
+	$SHCNE_MEDIAREMOVED
+	$SHCNE_MKDIR
+	$SHCNE_NETSHARE
+	$SHCNE_NETUNSHARE
+	$SHCNE_RENAMEFOLDER
+	$SHCNE_RENAMEITEM
+	$SHCNE_RMDIR
+	$SHCNE_SERVERDISCONNECT
+	$SHCNE_UPDATEDIR
+	$SHCNE_UPDATEIMAGE
+	$SHCNE_UPDATEITEM
+	$SHCNE_DISKEVENTS
+	$SHCNE_GLOBALEVENTS
+	$SHCNE_INTERRUPT
+
+	(See MSDN for more information)
+$iFlags
+	Flags that indicate the meaning of the $iItem1 and $iItem2 parameters. This parameter must be one
+	of the following values.
+	$SHCNF_DWORD
+	$SHCNF_IDLIST
+	$SHCNF_PATH
+	$SHCNF_PRINTER
+	$SHCNF_FLUSH
+	$SHCNF_FLUSHNOWAIT
+	$SHCNF_NOTIFYRECURSIVE
+
+	(See MSDN for more information)
+$iItem1
+	[optional] First event-dependent value. Default is 0.
+$iItem2
+	[optional] Second event-dependent value. Default is 0.
+@@End@@
+
+###ReturnValue###
+None
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ SHChangeNotify
+
+
+###Example###
+@@IncludeExample@@

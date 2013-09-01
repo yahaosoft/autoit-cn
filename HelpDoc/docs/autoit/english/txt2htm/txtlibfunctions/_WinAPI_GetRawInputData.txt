@@ -1,0 +1,47 @@
+###User Defined Function###
+_WinAPI_GetRawInputData
+
+###Description###
+Retrieves the raw input from the specified device.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_GetRawInputData ( $hRawInput, $pBuffer, $iLength, $iFlag )
+
+
+###Parameters###
+@@ParamTable@@
+$hRawInput
+	A handle to the $tagRAWINPUT structure (not a pointer). This comes from the "lParam" in WM_INPUT.
+$pBuffer
+	A pointer to the buffer to receive a data that comes from the $tagRAWINPUT structure. This depends
+	on the value of a command flag (see below). If this parameter is 0, the function returns the
+	required size of the buffer, in bytes.
+$iLength
+	The size of the buffer, in bytes.
+$iFlag
+	The command flag. This parameter can be one of the following values.
+	$RID_HEADER
+	$RID_INPUT
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The number of bytes required or copied into the buffer.
+Failure 	0 and sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetRawInputData
+
+
+###Example###
+@@IncludeExample@@

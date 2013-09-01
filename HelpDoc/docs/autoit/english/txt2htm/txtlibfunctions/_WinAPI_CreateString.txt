@@ -1,0 +1,50 @@
+###User Defined Function###
+_WinAPI_CreateString
+
+###Description###
+Copies a specified string to the newly allocated memory block and returns its pointer.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_CreateString ( $sString [, $pString = 0 [, $iLength = 1 [, $fUnicode = 1 [, $fAbort = 1]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sString
+	The source string to be copied.
+$pString
+	[optional] A pointer to the existing string that to be replaced by a new string. If this parameter is a valid
+	string pointer, the memory will be reallocated for a new string. However, the new memory is allocated
+	at a different location. Therefore, you should always use the pointer that returns this function.
+	If this parameter is 0 (Default) or invalid string pointer, the function just allocates a new memory.
+$iLength
+	[optional] The required buffer length, in TCHARs, without null-terminating character. If this parameter is (-1),
+	the buffer length will be equal to the length of the source string. If $iLength is less than
+	a source string, the string will be truncated to the specified length. Default is 1.
+$fUnicode
+	[optional] Specifies whether a string is Unicode or ASCII code of a character, valid values:
+	True     - Unicode (Default).
+	False    - ASCII.
+$fAbort
+	[optional] Specifies whether to exit the script if not enough memory, valid values:
+	True     - Displaying an error message and exit the script with error code 1 (Default).
+	False    - Continue the script and return an error.
+@@End@@
+
+###ReturnValue###
+A pointer to the new null-terminated string, @extended returns the length of the string buffer, in TCHARs
+(not including the null-terminating character).
+Failure - 0.
+
+
+###Remarks###
+When a string is no longer needed, you must destroy it by calling the _WinAPI_FreeMemory() function.
+
+
+###Related###
+_WinAPI_FreeMemory
+
+
+###Example###
+@@IncludeExample@@

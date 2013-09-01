@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Language Reference - Variables</title>
+  <meta charset="ISO-8859-1">
+  <link href="../css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h1>Language Reference - Variables</h1>
+  <p>A variable is just a place to store data in memory so that it can be accessed quickly. Think of it as a mailbox in memory that you can put information in or take information out of. For example you might create a variable to store the number a
+  user's response to a question, or the result to a math equation.</p>
+  <p>Each variable has a name (again, similar to a mailbox) and must start with the <strong>$</strong> character and may only contain <strong>letters</strong>, <strong>numbers</strong> and the underscore <strong>_</strong> character. Here are some
+  example names:</p>
+  <p>&nbsp;&nbsp;&nbsp; $Var1</p>
+  <p>&nbsp;&nbsp;&nbsp; $vVariable</p>
+  <p>&nbsp;&nbsp;&nbsp; $my_Variable</p><br>
+  <p>Each variable is stored as a <a href="lang_datatypes.htm">variant</a>.</p>
+  <h2>Declaring Variables</h2>
+  <p>Variables are declared and created with the <a href="../keywords/Dim.htm">Dim</a> (though not recommended), <a href="../keywords/Dim.htm">Local</a> and <a href="../keywords/Dim.htm">Global</a> keywords:</p>
+  <p class="codebox"><span><span class="S5">Local</span> <span class="S9">$vVariable</span><br></span></p>
+  <p>Or you can declare multiple variables at once:</p>
+  <p class="codebox"><span class="S5">Global</span> <span class="S9">$vVariable1</span><span class="S8">,</span> <span class="S9">$vVariable2</span><br></p>
+  <p>&nbsp;</p>
+  <p>You can also assign a variable <strong>without</strong> declaring it first, but many prefer explicit declarations.</p>
+  <p class="codebox"><span class="S9">$vVariable</span> <span class="S8">=</span> <span class="S7">"Create and Assign"</span><br></p>
+  <h2>Declaring Constants</h2>
+  <p>Constants are declared and created using <a href="../keywords/Dim.htm">Const</a> keyword and must be initialised with a value:<br></p>
+  <p class="codebox"><span class="S5">Const</span> <span class="S9">$iConst1</span> <span class="S8">=</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$iConst2</span> <span class="S8">=</span> <span class="S3">12</span><br></p>
+  <p>Constants can also be declared and initialized using the <a href="../keywords/Enum.htm">Enum</a> keyword:</p>
+  <p class="codebox"><span class="S5">Enum</span> <span class="S9">$iConst1</span> <span class="S8">=</span> <span class="S3">1</span><span class="S8">,</span> <span class="S9">$iConst2</span><span class="S8">,</span> <span class="S9">$iConst3</span>
+  <span class="S1">; 1, 2, 3</span><br>
+  <span class="S5">Enum</span> <span class="S5">Step</span> <span class="S3">2</span> <span class="S9">$iIncr0</span><span class="S8">,</span> <span class="S9">$iIncr2</span><span class="S8">,</span> <span class="S9">$iIncr4</span> <span class="S1">; 0,
+  2, 4</span><br>
+  <span class="S5">Enum</span> <span class="S5">Step</span> <span class="S8">*</span><span class="S3">2</span> <span class="S9">$iMult1</span><span class="S8">,</span> <span class="S9">$iMult2</span><span class="S8">,</span> <span class=
+  "S9">$iMult4</span> <span class="S1">; 1, 2, 4</span><br></p>
+  <p>&nbsp;</p>
+  <p>Once a constant has been assigned, it can't be changed.<br></p>
+  <h2>Scope</h2>
+  <p>A variable's scope is controlled by when and how you declare the variable. If you declare a variable at the start of your script and outside any functions it exists in the <strong>global</strong> scope and can be read or changed from anywhere in the
+  script.</p>
+  <p>If you declare a variable <em>inside</em> a <a href="lang_functions.htm">function</a> it is in <strong>local</strong> scope and can only be used <em>within that same function</em>. Variables created inside functions are automatically destroyed when
+  the function ends.</p>
+  <p>By default when variables are declared using <a href="../keywords/Dim.htm">Dim</a> or assigned in a function they have <strong>local</strong> scope <strong>unless</strong> there is a global variable of the same name (in which case the global
+  variable is reused). This can be altered by using the <a href="../keywords/Dim.htm">Local</a> and <a href="../keywords/Dim.htm">Global</a> keywords to declare variables and <strong>force</strong> the scope you want.</p>
+  <h2>Arrays</h2>
+  <p>An Array is a variable containing series of data elements. Each element in this variable can be accessed by an index number.<br>
+  <br>
+  An example:<br>
+  <br>
+  You want to store a series of characters: "A", "U", "T", "O", "I", "T" and "3".<br>
+  You could use seven separate variables to do so, but using an Array is more efficient:</p>
+  <p class="codebox"><span class="S9">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"A"</span><br>
+  <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"U"</span><br>
+  <span class="S8">..</span><span class="S14">etc</span><span class="S8">..</span><br>
+  <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">6</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"3"</span><br></p>
+  <p>To access a specific value in an Array, you use the index number:</p>
+  <p class="codebox"><span class="S9">$sString</span> <span class="S8">=</span> <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><br></p>
+  <p>This results in $sString containing the letter "T" (See also: <strong>'Operators'</strong>).<br>
+  <br>
+  <br>
+  The index number can also be substituted by another variable or an expression, so you can build complex ways to assign or access elements in an array.<br>
+  <br>
+  <br>
+  Arrays can also be multidimensional, when you use multiple series of index numbers.&nbsp; Think of rows and columns in a grid:</p>
+  <p class="codebox"><span class="S9">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">][</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Upper-Left"</span><br>
+  <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">][</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Lower-Left"</span><br>
+  <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">][</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Upper-Right"</span><br>
+  <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">][</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Lower-Right"</span><br></p>
+  <p>(These values are just examples)<br>
+  <br>
+  You can use up to 64 dimensions in an Array. The total number of entries cannot be greater than 2^24 (16 777 216).<br>
+  <br>
+  Before you can start using Arrays in your script, you must define their bounds using the '<a href="../keywords/Dim.htm">Global/Local/Static</a>' keywords and define the bounds or assign some of the elements.<br>
+  <br></p>
+  <p class="codebox"><span><span class="S1">; Array with 2 elements, none assigned</span><br>
+  <span class="S5">Local</span> <span class="S9">$aArray1</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span><br></span><span class="S1">; Array with 5 elements, all assigned</span><br>
+  <span><span class="S5">Local</span> <span class="S9">$aArray</span><span class="S8">[]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">8</span><span class="S8">,</span> <span class="S3">4</span><span class="S8">,</span>
+  <span class="S3">5</span><span class="S8">,</span> <span class="S3">9</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">]</span><br>
+  <span class="S1">; Array with 7 elements, only first 3 assigned</span><br>
+  <span class="S5">Local</span> <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">7</span><span class="S8">]</span> <span class="S8">=</span> <span class="S8">[</span><span class="S3">3</span><span class="S8">,</span> <span class=
+  "S3">7.5</span><span class="S8">,</span> <span class="S7">"string"</span><span class="S8">]</span></span></p>
+  <h2>Data types in Arrays</h2>
+  <p>An array normally contains only one datatype in all elements. But technically speaking a variant in AutoIt can contain any AutoIt datatype:</p>
+  <p class="codebox"><span><span class="S0">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">1</span><br>
+  <span class="S0">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S5">True</span><br>
+  <span class="S0">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Text"</span><br>
+  <span class="S0">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S0">$aAnotherArray</span></span></p>
+  <p>The use of an Array inside another Array can affect the execution speed of your script.</p>
+</body>
+</html>

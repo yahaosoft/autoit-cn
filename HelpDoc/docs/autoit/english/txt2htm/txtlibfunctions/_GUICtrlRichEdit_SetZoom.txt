@@ -1,0 +1,45 @@
+###User Defined Function###
+_GUICtrlRichEdit_SetZoom
+
+###Description###
+Sets zoom level of the control
+
+###Syntax###
+#include <GuiRichEdit.au3>
+_GUICtrlRichEdit_SetZoom ( $hWnd, $iPercent )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iPercent
+	percentage zoom
+	values: 100 and 200 to 6400
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True
+Failure:	False and sets @error
+@error:	101 - $hWnd is not a handle
+	1021 - $iPercent is not a positive number
+	1022 - $iPercent neither 100 nor in the range 200 to 6400
+@@End@@
+
+
+###Remarks###
+MSDN claims that EM_SETZOOM works from 1.56% (1/64) to 6400$ (64/1) but testing shows that
+it only works reliably for the values shown above
+
+
+###Related###
+_GUICtrlRichEdit_GetZoom
+
+
+###See Also###
+@@MsdnLink@@ EM_SETZOOM
+
+
+###Example###
+@@IncludeExample@@

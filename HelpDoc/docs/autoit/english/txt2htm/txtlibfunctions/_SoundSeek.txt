@@ -1,0 +1,43 @@
+###User Defined Function###
+_SoundSeek
+
+###Description###
+Seeks the sound to the specified position
+
+###Syntax###
+#include <Sound.au3>
+_SoundSeek ( ByRef $aSnd_id, $iHour, $iMin, $iSec )
+
+
+###Parameters###
+@@ParamTable@@
+$aSnd_id
+	Sound ID array as returned by _SoundOpen()
+$iHour
+	Hour to seek to
+$iMin
+	Minute to seek to
+$iSec
+	Second to seek to
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	1
+Failure:	0 and sets @error
+@error:	1 = Failure
+	3 = Invalid Sound ID. Use return array from _SoundOpen().
+@@End@@
+
+
+###Remarks###
+After using _SoundSeek on a sound, _SoundPlay must be used to resume playing.
+The use of the ID array returned from _SoundOpen is mandatory with this function to ensure that the file plays from the correct position regardless of encoding type.  The ID array should be updated by the function as the VBR timing correction factor may have been altered.
+
+
+###Related###
+_SoundPlay
+
+
+###Example###
+@@IncludeExample@@

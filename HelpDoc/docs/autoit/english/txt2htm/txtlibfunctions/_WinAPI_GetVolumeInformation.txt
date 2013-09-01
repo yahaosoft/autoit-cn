@@ -1,0 +1,47 @@
+###User Defined Function###
+_WinAPI_GetVolumeInformation
+
+###Description###
+Retrieves information about the file system and volume associated with the specified root directory.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_GetVolumeInformation ( [$sRoot = ''] )
+
+
+###Parameters###
+@@ParamTable@@
+$sRoot
+	[optional] The root directory of the volume to be described. If this parameter is empty string, the root
+	of the current directory is used. A trailing backslash is required. For example, you specify
+	"\\MyServer\MyShare" as "\\MyServer\MyShare\", or the "C" drive as "C:\".
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The array that contains the following information:
+	[0] - The name of a volume.
+	[2] - The serial number of a volume.
+	[1] - The maximum length, in TCHARs, of a file name component that a file system supports.
+	[3] - The flags associated with the file system ($FILE_*).
+	[4] - The name of the file system, for example, "FAT", "NTFS", etc.
+Failure 	Sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+When a user attempts to get information about a floppy drive that does not have a floppy disk, or a CD-ROM
+drive that does not have a compact disc, the system displays a message box for the user to insert a floppy disk
+or a compact disc, respectively. To prevent the system from displaying this message box, call the
+_WinAPI_SetErrorMode() function with $SEM_FAILCRITICALERRORS.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetVolumeInformation
+
+
+###Example###
+@@IncludeExample@@

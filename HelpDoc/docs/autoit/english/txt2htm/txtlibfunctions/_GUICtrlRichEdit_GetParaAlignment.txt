@@ -1,0 +1,50 @@
+###User Defined Function###
+_GUICtrlRichEdit_GetParaAlignment
+
+###Description###
+Gets the alignment of selected paragraph(s), or (if no selection) of the current paragraph
+
+###Syntax###
+#include <GuiRichEdit.au3>
+_GUICtrlRichEdit_GetParaAlignment ( $hWnd )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	a string consisting of a value, a semicolon (;), and a scope character:
+	alignment:
+	l - aligned with the left margin.
+	r - aligned with the right margin.
+	c - centered between margins
+	j - justified between margins
+	f - justified between margins
+	w - justified between margins by only expanding spaces
+	scope:
+	a - all (or only) selected paragraphs have this alignment
+	f - the first selected paragraph has this alignment, but other(s) don't
+	c - the current paragraph has this alignment
+Failure:	"" and sets @error
+@error:	101 - $hWnd is not a handle
+@@End@@
+
+
+###Remarks###
+In Richedit 2.0, justify does not display
+
+
+###Related###
+_GUICtrlRichEdit_SetParaAlignment
+
+
+###See Also###
+@@MsdnLink@@ EM_SETPARAFORMAT
+
+
+###Example###
+@@IncludeExample@@

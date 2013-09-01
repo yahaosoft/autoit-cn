@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>History</title>
+	<meta charset="ISO-8859-1">
+	<link href="css/default.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<h1>History</h1>
+	<p class="c1"><strong>IMPORTANT:</strong> <a href="script_breaking_changes.htm">See here</a> for recent script-breaking changes.</p>
+	<p>&nbsp;</p>
+	<p>Here is the summarized history of the changes to AutoIt v3.</p>
+	<p class="c2">(For the complete technical history click <a href="autoit_changelog.txt">here</a>. For the complete history including <strong>all changes between beta versions</strong> click <a href="autoit_changelog_complete.txt">here</a>.)</p>
+	<p>&nbsp;</p>
+	<p class="c4"><strong class="c3">3.3.10.0 (?? ????, 2013) (Release)</strong></p>
+	<p><strong>AutoIt:</strong></p>
+	<ul>
+		<li>Added: <a href="functions/DriveGetType.htm">DriveGetType()</a> updated so that it can detect SSD, and also bus types (SATA, USB, etc.).</li>
+		<li>Added: Interpreter accepts 64bit hex numbers.</li>
+		<li>Added: Keyword Null.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/488">#488</a>: Third parameter for <a href="functions/ObjGet.htm">ObjGet()</a> function to specify object instance.</li>
+		<li>Added: Compound assignment operators for object properties.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1191">#1191</a>: Explicit size of arrays optional for explicit initialization.</li>
+		<li>Added: Array access on expression: StringSplit("a,b", ",")[1]</li>
+		<li>Added: Dot access on expression: ObjCreate("Shell.Application").GetSystemInformation("DirectoryServiceAvailable")</li>
+		<li>Added: Empty arrays.</li>
+		<li>Added: Functions can now be referenced in variables and the function can be called through the variable.</li>
+		<li>Added: <a href="functions/FuncName.htm">FuncName()</a>.</li>
+		<li>Added: Built-in functions that take a callback now be passed directly in addition to the old method of passing as a string.  Built-in functions can also be passed now (be careful that the function you pass matches what the caller expects).</li>
+		<li>Added: C++ style ternary operators: Local $fResult = ("foo" = "bar") ? True : False</li>
+		<li>Added: Expression as default function parameter.</li>
+		<li>Added: With...EndWith can be used on expressions having dot-access.</li>
+		<li>Added: Nested "With...EndWith".</li>
+		<li>Added: <a href="functions/Call.htm">Call()</a> calls built-in functions.</li>
+		<li>Added: ByRef with <a href="functions/Call.htm">Call()</a> function.</li>
+		<li>Added: Support for more COM VARIANT types.</li>
+		<li>Added: <a href="macros.htm#@OSVersion">@OSVersion</a> supports Windows 8.1</li>
+		<li>Added: Regular expressions (PCRE engine) now using the new native 16bit mode and also compiled with full UCP support. Prefix patterns with (*UCP) to enable.</li>
+		<li>Added: <a href="macros.htm#@LocalAppDataDir">@LocalAppDataDir</a> for local AppData (<a href="macros.htm#@AppDataDir">@AppDataDir</a> is the roaming location)</li>
+		<li>Added: <a href="functions/StringReverse.htm">StringReverse()</a> - a UTF16 compatible string reversal function.</li>
+		<li>Added: <a href="functions/FileReadToArray.htm">FileReadToArray()</a> - native version of <a href="libfunctions/_FileReadToArray.htm">_FileReadToArray()</a>.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/2358">#2358</a>: <a href="functions/FileInstall.htm">FileInstall()</a> accepts <a href="macros.htm#@ScriptFullPath">@ScriptFullPath</a> as the first parameter to allow easy inclusion of the script source.</li>
+	</ul>
+	<ul>
+		<li>Changed: Removed Windows 2000 support. Minimum supported OS is now Windows XP RTM / Windows Server 2003.</li>
+		<li>Changed: upx.exe from 3.07 -&gt; 3.09.</li>
+		<li>Changed: PCRE regular expression engine updated to 8.33.</li>
+		<li>Changed: Default newline character for PCRE regexes changed from LF to CRLF.</li>
+		<li>Changed: ReDim works on arrays declared as static.</li>
+		<li>Changed: Run-time errors on objects no longer fatal (execution of the script is not halted).</li>
+		<li>Changed: Allowing multiple COM Error Handlers. Last one registered and alive gets called.</li>
+		<li>Changed: VT_NULL VARIANT converts to Null keyword (previously empty string).</li>
+		<li>Changed: Default manifest file on AutoIt and compiled exes is set for "AsInvoker" and tagged with compatibility for Vista/Win7/Win8 and Win8.1.</li>
+		<li>Changed: #NoAutoIt3Execute option replaced with #pragma compile(AutoItExecuteAllowed, false).  Default is false.</li>
+		<li>Changed: <a href="functions/IsAdmin.htm">IsAdmin()</a> function changed to be based on token membership. Maybe more acurate for Sandbox type environments.</li>
+		<li>Changed: <a href="functions/ShellExecute.htm">ShellExecute()</a> will return the process ID.</li>
+	</ul>
+	<ul>
+		<li>Removed: PluginOpen() and PlugInClose() removed to do not being used and never having progressed past the experimental stage.</li>
+	</ul>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2067">#2067</a>: -2147483648 not stored as int32.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2003">#2003</a>: <a href="functions/ProcessWaitClose.htm">ProcessWaitClose()</a> using too much CPU.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2076">#2076</a>: COM VARIANT not correctly set for boolean True.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2015">#2015</a>: <a href="functions/DllCallbackRegister.htm">DllCallbackRegister()</a> mangles floating point numbers under x64.</li>
+		<li>Fixed: x64 DllCall not setting double type parameters correctly.</li>
+		<li>Fixed: <a href="functions/DllCallbackRegister.htm">DllCallbackRegister()</a> not returning floating point types correctly.</li>
+		<li>Fixed: Different issues with Static keyword.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2078">#2078</a>: Error in com expression.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2073">#2073</a>: Unexpected termination with ContinueLoop.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1485">#1485</a>: Unexpected termination with ContinueCase.</li>
+		<li>Fixed: Crash in <a href="functions/ObjEvent.htm">ObjEvent()</a> for ByRef object parameters.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2068">#2068</a>: Repeated calls to Acos() no longer produce strange results.  NOTE: This fix increases the size of AutoIt by approximately 60KB.</li>
+		<li>Fixed: <a href="functions/ObjGet.htm">ObjGet()</a> fails validating class identifier properly when first parameter for the function is specified.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2111">#2111</a>: <a href="functions/RunAs.htm">RunAs()</a> could fail even if a user had the correct permissions to use it.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1395">#1395</a>: DLLCallbacks on Exit.</li>
+		<li>Fixed: <a href="functions/Ptr.htm">Ptr()</a> returns null pointer for objects.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1319">#1319</a>: Hang at exit for RichEdit user controls.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2138">#2138</a>: Fixed <a href="functions/GUICtrlRead.htm">GUICtrlRead()</a> on dummy controls was corrupting strings and possibly crashing AutoIt.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1760">#1760</a>: #OnAutoItStartRegister ignores single quoted function names.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2146">#2146</a>: Crash when closing AutoIt when started from a console window.</li>
+		<li>Fixed: DLLStruct type forgotten in comparison operations.</li>
+		<li>Fixed: "struct" type parameter in <a href="functions/DllCall.htm">DllCall()</a> overwrites possibly following parameters.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1566">#1566</a>: Array as its own element issue.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1551">#1551</a>: Crash the script when changing array.</li>
+		<li>Fixed: ReDim allows initialization to non-array.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2166">#2166</a>: <a href="functions/StringToASCIIArray.htm">StringToASCIIArray()</a> and <a href="functions/StringFromASCIIArray.htm">StringFromASCIIArray()</a> did not correctly return an empty string when the start index is greater than the end index.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1901">#1901</a>: 32-bit compiled scripts now work from the system32 directory on 64-bit Windows.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2157">#2157</a>: <a href="functions/ProcessList.htm">ProcessList()</a> would crash if there were more than 512 running processes.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2215">#2215</a>: Bad syntax check for default function parameters.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2222">#2222</a>: Non-ASCII characters not allowed in object properties/methods.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2235">#2235</a>: <a href="functions/ProcessGetStats.htm">ProcessGetStats()</a> defaulted to using the current process if an invalid process was specified.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2253">#2253</a>: <a href="functions/Ping.htm">Ping()</a> returns success with no connection.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1498">#1498</a>: #RequireAdmin endless loop for disabled UAC.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1698">#1698</a>: <a href="functions/GUICtrlSetLimit.htm">GUICtrlSetLimit()</a>, limit 32767</li>
+		<li>Fixed: Subtle bugs with <a href="functions/Ping.htm">Ping()</a></li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2286">#2286</a>: GUICtrtlGetState() without a controlID parameter runs but aborts AutoIt.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2350">#2350</a>: Strange issue when using $SS_ETCHEDVERT and $SS_ETCHEDHORZ.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2311">#2311</a>: Wrong handling of casesense parameter in <a href="functions/StringReplace.htm">StringReplace()</a></li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2361">#2361</a>: <a href="functions/RegRead.htm">RegRead()</a> doesn't read REG_QWORD values.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2362">#2362</a>: <a href="functions/WinGetText.htm">WinGetText()</a> and <a href="functions/ControlGetText.htm">ControlGetText()</a> would sometimes give invalid results due to the target application's handling of WM_GETTEXT.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2075">#2075</a>: <a href="functions/GUICtrlSetImage.htm">GUICtrlSetImage()</a> changes icon position on resizable window.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1667">#1667</a>: <a href="functions/WinMove.htm">WinMove()</a> Child window.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2367">#2367</a>: Sometimes two COM objects wouldn't be classed as equal during comparisons.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1024">#1024</a>: <a href="functions/GUICtrlSetTip.htm">GUICtrlSetTip()</a> for tabitems sets incorrectly in certain situations.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2366">#2366</a>: For loop not working as expected.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2384">#2384</a>: <a href="functions/UDPRecv.htm">UDPRecv()</a> and <a href="functions/TCPRecv.htm">TCPRecv()</a> not setting <a href="macros.htm#@error">@error</a> correctly in some instances.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>UDFs:</strong></p>
+	<ul>
+		<li>Added: <a href="libfunctions/_WinAPI_GetProcAddress.htm">_WinAPI_GetProcAddress()</a> function.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/2126">#2126</a>: Documentation remark about <a href="libfunctions/_ArrayDisplay.htm">_ArrayDisplay()</a> being able to display a maximum of 65530 items.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1158">#1158</a>: WinAPIEx integrated, split under WinAPI*.au3.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/2250">#2250</a>: <a href="functions/DirMove.htm">DirMove()</a> to the related section of <a href="functions/DirCopy.htm">DirCopy()</a>.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/2155">#2155</a>: Missing documentation for the default working directory of <a href="functions/Run.htm">Run()</a> / <a href="functions/RunWait.htm">RunWait()</a>.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/2224">#2224</a>: Optional parameter to <a href="libfunctions/_FileReadToArray.htm">_FileReadToArray()</a> to return the array count in the first element.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/2114">#2114</a>: Disabling and enabling the redrawing message to increase the speed of displaying <a href="libfunctions/_ArrayDisplay.htm">_ArrayDisplay()</a>. (Only noticeable on large arrays.)</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/2120">#2120</a>: Disabling and enabling the redrawing message to increase the speed of deleting items with <a href="libfunctions/_GUICtrlListView_DeleteAllItems.htm">_GUICtrlListView_DeleteAllItems()</a>. (Only noticeable when deleting many items in a ListView.)</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/966">#966</a>: Optional parameter to return the full path of the file/folder in <a href="libfunctions/_FileListToArray.htm">_FileListToArray()</a>.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/2193">#2193</a>: <a href="libfunctions/_StringTitleCase.htm">_StringTitleCase()</a>, to create a title case string.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/2263">#2263</a>: <a href="libfunctions/_Crypt_GenRandom.htm">_Crypt_GenRandom()</a>, fills a buffer with random data.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/2354">#2354</a>: <a href="libfunctions/_ArrayTranspose.htm">_ArrayTranspose()</a> to the Array UDF.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/2338">#2338</a>: Regular expression pattern matching. See the documentation of <a href="libfunctions/_ArraySearch.htm">_ArraySearch()</a> for more details.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/2340">#2340</a>: Optional parameter to <a href="libfunctions/_GUICtrlListView_SimpleSort.htm">_GUICtrlListView_SimpleSort()</a> of whether or not to reverse $vSortSense (previously $vDescending.)</li>
+		<li>Added: <a href="libfunctions/_FileListToArrayRec.htm">_FileListToArrayRec()</a> to the UDFs. A recursive file search by Melba23. See the documentation for more details.</li>
+		<li>Added: Example for <a href="libfunctions/_VersionCompare.htm">_VersionCompare()</a>.</li>
+		<li>Added: Graphic SmoothingMode constants (GDIPlusConstants).</li>
+		<li>Added: <a href="libfunctions/_GDIPlus_CustomLineCapCreate.htm">_GDIPlus_CustomLineCapCreate()</a>, _GDIPlus_BitmapCreateFromScan() functions.</li>
+		<li>Added: Constants for <a href="functions/DriveGetType.htm">DriveGetType()</a> and <a href="functions/StringSplit.htm">StringSplit()</a>. See related function documentation for more details.</li>
+		<li>Added: InetConstants.au3 for use with Inet functions. See related function documentation for more details.</li>
+		<li>Added: GDIPlus functions and their respective documentation and example.</li>
+	</ul>
+	<ul>
+		<li>Changed <a href="http://www.autoitscript.com/trac/autoit/ticket/2117">#2117</a>: <a href="libfunctions/_FileCountLines.htm">_FileCountLines()</a> writing to a temporary array to calculate the number of lines in a file.</li>
+		<li>Changed: <a href="libfunctions/_FileListToArray.htm">_FileListToArray()</a> to accept the Default keyword to use the default parameters.</li>
+		<li>Changed: <a href="libfunctions/_FileReadToArray.htm">_FileReadToArray()</a> to parse the file using a regular expression. Now various line endings (not recommended) are displayed correctly in the array.</li>
+		<li>Changed: Word UDF was completely re-written. Function names changed from _Word* to _Word_*. THIS IS A SCRIPT BREAKING CHANGE.</li>
+		<li>Changed: <a href="libfunctions/_Max.htm">_Max()</a> and <a href="libfunctions/_Min.htm">_Min()</a> functions now use the ternary operator.</li>
+		<li>Changed: Re-wrote <a href="libfunctions/_ReplaceStringInFile.htm">_ReplaceStringInFile()</a> by removing the need to write to a temporary array. (<a href="macros.htm#@error">@error</a> values 4, 5 and 6 have been removed, please check the documentation.)</li>
+		<li>Changed: Re-wrote <a href="libfunctions/_GetIP.htm">_GetIP()</a> for improved efficency and added http://www.myexternalip.com/raw to find the external IP address.</li>
+		<li>Changed: _SQLite 3.7.2.0 -&gt; 3.7.16.2</li>
+		<li>Changed: IE3.au3 v3.0-0 to v3.0-1 (see header info for changes)</li>
+		<li>Changed: Array UDF now takes into consideration empty arrays.</li>
+		<li>Changed: Re-wrote <a href="libfunctions/_ProcessGetName.htm">_ProcessGetName()</a> for speed enhancements.</li>
+		<li>Changed: Re-wrote <a href="libfunctions/_PathSplit.htm">_PathSplit()</a> by using a regular expression. Contributed by DXRW4E.</li>
+		<li>Changed: <a href="libfunctions/_GDIPlus_GraphicsGetSmoothingMode.htm">_GDIPlus_GraphicsGetSmoothingMode()</a>, <a href="libfunctions/_GDIPlus_GraphicsSetSmoothingMode.htm">_GDIPlus_GraphicsSetSmoothingMode()</a> functions.</li>
+		<li>Changed: <a href="libfunctions/_FileWriteToLine.htm">_FileWriteToLine()</a> can read a file with various line endings (not recommended).</li>
+	</ul>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2077">#2077</a>: hwnd safety check in <a href="libfunctions/_GUICtrlRichEdit_Create.htm">_GUICtrlRichEdit_Create()</a></li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2088">#2088</a>: <a href="libfunctions/_ArrayDisplay.htm">_ArrayDisplay()</a> not handling Default parameters correctly.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2112">#2112</a>: "Report Log Window" unresponsive when the script is closed.</li>
+		<li>Fixed: _GUICtrlRichEdit_* documentation error return codes.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1970">#1970</a>: <a href="libfunctions/_FTP_ListToArray.htm">_FTP_ListToArray()</a> fails to retrieve Dir or File only.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2084">#2084</a>: Clipboard not being closed if an error occurred with <a href="libfunctions/_ClipBoard_SetDataEx.htm">_ClipBoard_SetDataEx()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2125">#2125</a>: Writing a 2-dimensional array would only write the first two columns of the array.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2070">#2070</a>: Unexpected crash on certain systems when using <a href="libfunctions/_GUICtrlStatusBar_GetText.htm">_GUICtrlStatusBar_GetText()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2132">#2132</a>: Documentation of <a href="libfunctions/_WinAPI_GetModuleHandle.htm">_WinAPI_GetModuleHandle()</a> and the parameter to return the handle of the calling process. (Use the Null keyword, not 0.)</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2162">#2162</a>: Documentation link in the IE Management section was broken for <a href="libfunctions/_IEFormElementCheckBoxSelect.htm">_IEFormElementCheckBoxSelect()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2170">#2170</a>: <a href="libfunctions/_ArrayDisplay.htm">_ArrayDisplay()</a> fails handling arrays with no elements.</li>
+		<li>Fixed: <a href="libfunctions/_PathMake.htm">_PathMake()</a> not appending backslash to the root path.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2223">#2223</a>: Incorrect UDF being referenced in _WordErrorHandlerRegister().</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2252">#2252</a>: <a href="libfunctions/_GUICtrlListView_DeleteAllItems.htm">_GUICtrlListView_DeleteAllItems()</a> failed to remove items created using <a href="libfunctions/_GUICtrlListView_AddItem.htm">_GUICtrlListView_AddItem()</a> on an AutoIt native listview.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1861">#1861</a>: <a href="libfunctions/_ArrayDisplay.htm">_ArrayDisplay()</a> incorrectly displayed an array when using the $sHeader parameter and the array contained the default separator.</li>
+		<li>Fixed: Using non-supported characters in the file prefix for <a href="libfunctions/_TempFile.htm">_TempFile()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2186">#2186</a>: Documentation of <a href="libfunctions/_WinNet_AddConnection.htm">_WinNet_AddConnection()</a>* and $sLocalName. (Use the Null keyword or an empty string, not 0.)</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2148">#2148</a>: Crash when passing a number instead of a string.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2219">#2219</a>: <a href="libfunctions/_ExcelReadSheetToArray.htm">_ExcelReadSheetToArray()</a> would cause AutoIt to hang when reading a protected worksheet.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2242">#2242</a>: Unable to write the 0th element in <a href="libfunctions/_FileWriteFromArray.htm">_FileWriteFromArray()</a>. Now the Default keyword is supported for the parameters $iBase and $iUBound, therefore use this instead of the value 0 for default parameters. (Please check the documentation.)</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2218">#2218</a>: AutoIt crash when using <a href="libfunctions/_GUICtrlListView_SetGroupInfo.htm">_GUICtrlListView_SetGroupInfo()</a> before <a href="libfunctions/_GUICtrlListView_SetItemGroupID.htm">_GUICtrlListView_SetItemGroupID()</a> had been called.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1996">#1996</a>: <a href="libfunctions/_GUICtrlListView_SimpleSort.htm">_GUICtrlListView_SimpleSort()</a> failed to retain the ItemParam of an item.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1759">#1759</a>: Strange listview sort.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2298">#2298</a>: Failing to detect when EnumDisplayDevices returns 0.</li>
+		<li>Fixed: <a href="libfunctions/_FileWriteFromArray.htm">_FileWriteFromArray()</a> failing to pass the $aArray parameter as a constant reference.</li>
+		<li>Fixed: $tagREBARBANDINFO not working on XP, due referencing parameters intended for Vista and above.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2305">#2305</a>: Reports the wrong width and height of the desktop when using default parameters.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2335">#2335</a>: <a href="libfunctions/_WinAPI_EnumWindows.htm">_WinAPI_EnumWindows()</a> and <a href="libfunctions/_WinAPI_EnumWindowsPopup.htm">_WinAPI_EnumWindowsPopup()</a> order</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2347">#2347</a>: <a href="libfunctions/_WinAPI_GetMonitorInfo.htm">_WinAPI_GetMonitorInfo()</a> wrong data.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2320">#2320</a>: Incorrect return values for certain IE functions.</li>
+		<li>Fixed: <a href="libfunctions/_GUICtrlListView_InsertItem.htm">_GUICtrlListView_InsertItem()</a> would fail to insert -1 if passed as the $sText parameter.</li>
+	</ul>
+	<ul>
+		<li>Removed <a href="http://www.autoitscript.com/trac/autoit/ticket/2174">#2174</a>: Explicitly checking if the source and insert strings for <a href="libfunctions/_StringInsert.htm">_StringInsert()</a> were strings and forcing an <a href="macros.htm#@error">@error</a> return value. (<a href="macros.htm#@error">@error</a> values 2 and 3 have been removed, please check the documentation.)</li>
+		<li>Removed <a href="http://www.autoitscript.com/trac/autoit/ticket/2187">#2187</a>: Forcing <a href="libfunctions/_GUICtrlRichEdit_Create.htm">_GUICtrlRichEdit_Create()</a> to create a richedit control in a positive position. (<a href="macros.htm#@error">@error</a> values 103 and 104 have been removed, please check the documentation.)</li>
+		<li>Removed <a href="http://www.autoitscript.com/trac/autoit/ticket/2172">#2172</a>: Select...EndSelect statement from <a href="libfunctions/_StringRepeat.htm">_StringRepeat()</a> and replaced with an If...EndIf as well as optimised the code.</li>
+		<li>Removed: Documentation and example for _Iif(). Scripts should be updated to use ternary operators instead.</li>
+		<li>Removed: Documentation and example for _StringEncrypt(). Scripts should be updated to use the Crypt functions instead. Look at <a href="libfunctions/_Crypt_EncryptData.htm">_Crypt_EncryptData()</a> for an alternative example.</li>
+		<li>Removed: _ArrayCreate() from Array.au3.</li>
+		<li>Removed: Function headers in the UDFs, as information about the function can be found in the help file, This removal resulted in a 32.23% size reduction to the includes folder (7.01MB -&gt;&gt; 4.40MB).</li>
+		<li>Removed: Documentation and example for _StringReverse(). Scripts should be updated to use the native function <a href="functions/StringReverse.htm">StringReverse()</a> instead.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>AutoItX:</strong></p>
+	<ul>
+		<li>Added: Visual Studio 2010 C++ Project files (easy to use in 2010 or later).</li>
+	</ul>
+	<ul>
+		<li>Changed: Renamed AutoIt3.h to AutoItX3_DLL.h.</li>
+	</ul>
+	<ul>
+		<li>Fixed: Crash in AU3_PixelSearch when function fails.</li>
+		<li>Fixed: AutoItX3.lib files weren't correctly being copied to the install file.</li>
+	</ul>
+	<ul>
+		<li>Removed: Removed DevC files and Visual Studio 6 files.</li>
+		<li>Removed: ANSI versions of Send/WinWait functions from the native DLL.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>Au3Check:</strong></p>
+	<ul>
+		<li>Added: Generating error for hex numbers longer than 16 characters.</li>
+		<li>Added: Compound assignment operators for object properties.</li>
+		<li>Added: Array access on expression</li>
+		<li>Added: Dot access on expression</li>
+	</ul>
+	<ul>
+		<li>Changed: Message case changed to support SciTE inline errors.</li>
+		<li>Changed: An error is now generated for non-supported file encodings (Previous behavior was to silently pass the script).</li>
+		<li>Changed: Au3Check version numbers now match AutoIt's.</li>
+		<li>Changed: Explicit size of arrays optional for explicit initialization.</li>
+	</ul>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2113">#2113</a>: Object's properties in names of keywords treated as keywords.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2141">#2141</a>: #IgnoreFunc was generating an incorrect error.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>Others:</strong></p>
+	<ul>
+		<li>Added: Notepad++ autoit.xml file to the Extras\Editors folder. This contains a list of up to date functions.</li>
+		<li>Added: Sublime Text AutoIt.tmLanguage file to the Extras\Editors folder. This contains a list of up to date functions.</li>
+		<li>Added: 3rd party syntax files in Extras\Editors now include UDF functions.</li>
+	</ul>
+	<ul>
+		<li>Fixed: StringRegExpGUI missing from the help file index menu.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>Au3Record:</strong></p>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2083">#2083</a>: There is no longer an error about a missing DLL.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2337">#2337</a>: Support of non english keyboard.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>AutoIt3Help:</strong></p>
+	<ul>
+		<li>Changed: Manifest resource suggests Windows common controls v6.0.</li>
+		<li>Changed: Version number to 1.0.0.3.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.3.8.1 (29th January, 2012) (Release)</strong></p>
+	<p><strong>AutoIt:</strong></p>
+	<ul>
+		<li>Fixed: Built-in editor would not compile/go when installed on x64 or in a non-standard location.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.3.8.0 (23rd December, 2011) (Release)</strong></p>
+	<p><strong>AutoIt:</strong></p>
+	<ul>
+		<li>Added: Struct/EndStruct in <a href="functions/DllStructCreate.htm">DllStructCreate()</a> to solve X86/X64 data alignment.</li>
+		<li>Added: COM support for pure "OUT" parameters.</li>
+		<li>Added: Additional flags added to <a href="functions/ObjName.htm">ObjName()</a>.</li>
+		<li>Added: <a href="functions/DllCallAddress.htm">DllCallAddress()</a>.</li>
+		<li>Added: <a href="functions/ObjCreateInterface.htm">ObjCreateInterface()</a></li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1947">#1947</a>: CHM help files now have a Forward button.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1813">#1813</a>: Better cross referencing for <a href="functions/Int.htm">Int()</a> and <a href="functions/Mod.htm">Mod()</a>.</li>
+		<li>Added: "struct" as <a href="functions/DllCall.htm">DllCall()</a> and InterfaceDispatch data type.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/2042">#2042</a>: <a href="macros.htm#@OSVersion">@OSVersion</a> returns "Win_8" on Windows 8.</li>
+	</ul>
+	<ul>
+		<li>Changed: Compiling with VC10. Added workarounds for Win2000/XP RTM to allow execution of AutoIt, Aut2Exe, Au3Info, Au3Check and AutoItHelp.</li>
+		<li>Changed: COM Error handler passes error object as first parameter to user defined error function.</li>
+		<li>Changed: COM Error handler properties are read-only.</li>
+		<li>Changed: <a href="functions/Dec.htm">Dec()</a> and <a href="functions/Hex.htm">Hex()</a> work with 64bit integers.</li>
+		<li>Changed: Parentheses are required when invoking objects after all method names in order to have correct internal handling.</li>
+		<li>Changed: <a href="functions/Dec.htm">Dec()</a>, <a href="functions/Int.htm">Int()</a>, <a href="functions/Number.htm">Number()</a> have second optional parameter defining non-default behavior.</li>
+		<li>Changed: <a href="functions/Hex.htm">Hex()</a> detects doubles internally and processes them respecting binary format.</li>
+		<li>Changed: New visual style for the documetnation.</li>
+		<li>Changed: 64bit integers have 16 characters display by default.</li>
+	</ul>
+	<ul>
+		<li>Removed: COM Error object no longer exposes methods Raise() and Clear().</li>
+		<li>Removed: <a href="functions/Int.htm">Int()</a> and <a href="functions/Hex.htm">Hex()</a> no longer set <a href="macros.htm#@error">@error</a>.</li>
+	</ul>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1040">#1040</a>: <a href="libfunctions/_ScreenCapture_Capture.htm">_ScreenCapture_Capture()</a>: GDI object leak with cursor capture.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1599">#1599</a>: TraySetItemText() regression for default menu item.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1282">#1282</a>: WinMove before GUICtrlSetPos during GUICreation.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1397">#1397</a>: Bad <a href="functions/HotKeySet.htm">HotKeySet()</a> not detected on keyboard as Russian one.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1531">#1531</a>: default txtcolor for iput edit list combo updown with black theme.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1617">#1617</a>: <a href="functions/GUICreate.htm">GUICreate()</a> failure after <a href="functions/GUIDelete.htm">GUIDelete()</a> can lead to a loop on Autoit exit.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1596">#1596</a>: <a href="functions/GUICtrlSetPos.htm">GUICtrlSetPos()</a> default = no change.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1626">#1626</a>: <a href="functions/TCPRecv.htm">TCPRecv()</a>/<a href="functions/TCPSend.htm">TCPSend()</a> doc about Unicode transmission.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1633">#1633</a>: Second <a href="functions/AdlibRegister.htm">AdlibRegister()</a> function starts at once when first function is too slow.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1653">#1653</a>: Doc for WM_KEYLAST Windows 2000 message.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1669">#1669</a>: <a href="functions/StringRegExpReplace.htm">StringRegExpReplace()</a> doc about doubling of "\" in replace string.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1673">#1673</a>: <a href="functions/WinGetProcess.htm">WinGetProcess()</a> doc example.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1677">#1677</a>: Invalid ContinueLoop with multiple levels.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1684">#1684</a>: <a href="functions/FileRead.htm">FileRead()</a> binary read memory allocation error.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1685">#1685</a>: <a href="functions/BitRotate.htm">BitRotate()</a> shift parameter.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1734">#1734</a>: <a href="functions/GUICtrlCreateAvi.htm">GUICtrlCreateAvi()</a> crash with negative subfield.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1923">#1923</a>: Memory consumption while FileOpen/FileClose.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1883">#1883</a>: <a href="functions/IsHWnd.htm">IsHWnd()</a>, Return Value. (Nitpick: Value = Bool).</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1860">#1860</a>: <a href="functions/DriveStatus.htm">DriveStatus()</a> Returns Ready with blank value.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1854">#1854</a>: <a href="functions/StringIsFloat.htm">StringIsFloat()</a> returns 1 on non float numbers.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1910">#1910</a>: Please change $TTN_GETDISPINFO to $TTN_GETDISPINFOW.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1844">#1844</a>: <a href="functions/SplashTextOn.htm">SplashTextOn()</a> crops variable when used with opt 32 and <a href="macros.htm#@CR">@CR</a>LF / <a href="macros.htm#@LF">@LF</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1932">#1932</a>: Uninstaller, windows-register, App Paths. (+beta).</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1929">#1929</a>: SetMenuColor() does not work on 64bit OS.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1479">#1479</a>: X64 ListView WM_NOTIFY Message.</li>
+		<li>Fixed: <a href="functions/GUICtrlCreateLabel.htm">GUICtrlCreateLabel()</a> related text sizing bug when no height was used.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1586">#1586</a>: DllStructSetData(char, 1, string-with-NUL-character), junk data(?)</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1908">#1908</a>: <a href="functions/ObjName.htm">ObjName()</a> returns empty string for HTMLDocument with IE9.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1658">#1658</a>: COM / OLE object access causes error code 80020003 - member not found.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1410">#1410</a>: Using Pointer type with COM-object throws error.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1565">#1565</a>: Arrays as object properties; memory leak.</li>
+		<li>Fixed: <a href="functions/ObjCreate.htm">ObjCreate()</a> memory leak when using a remote computer.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/865">#865</a>: winhttp.winhttprequest.5.1 ObjEvent unhandled exception.</li>
+		<li>Fixed: Remote COM bug caused by incorrect CoCreateInstanceEx() parameter.</li>
+		<li>Fixed: Potential memory leak in COM error event code.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1660">#1660</a>: Crash on <a href="functions/Mod.htm">Mod()</a> with a divisor of 0.</li>
+		<li>Fixed: COM methods no longer change the type of AutoIt variables.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2001">#2001</a>: Example for <a href="libfunctions/_GUICtrlToolbar_SetButtonText.htm">_GUICtrlToolbar_SetButtonText()</a> did not work correctly.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1994">#1994</a>: Documentation for <a href="libfunctions/_ScreenCapture_Capture.htm">_ScreenCapture_Capture()</a> and <a href="libfunctions/_ScreenCapture_CaptureWnd.htm">_ScreenCapture_CaptureWnd()</a> incorrectly stated the functions had no return value.  Moved information from Remarks up to Return area.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1948">#1948</a>: Documentation for <a href="libfunctions/_GUICtrlButton_SetImage.htm">_GUICtrlButton_SetImage()</a> had the wrong description.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1519">#1519</a>, <a href="http://www.autoitscript.com/trac/autoit/ticket/1694">#1694</a>: <a href="functions/Int.htm">Int()</a> and <a href="functions/Number.htm">Number()</a> returning wrong.</li>
+		<li>Fixed: Various documentation typos and grammatical errors.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1982">#1982</a>: Crash in <a href="functions/FileGetShortName.htm">FileGetShortName()</a> and <a href="functions/FileGetLongName.htm">FileGetLongName()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2046">#2046</a>: DirGetSize("") was returning the size of the working directory root instead of -1 and setting <a href="macros.htm#@error">@error</a>.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>AutoItX:</strong></p>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1686">#1686</a>: AU3_PixelSearch crashes.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>Au3Info:</strong></p>
+	<ul>
+		<li>Added: Option "Use Spy++ control detection logic" toggle added to Au3Info (this was the mode always used in recent</li>
+		<li>releases, but the very old method that used to be used is useful in certain applications (for example, putty.exe)</li>
+	</ul>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1746">#1746</a>: Option "Use Spy++ control detection logic" toggle added to Au3Info.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>UDFs:</strong></p>
+	<ul>
+		<li>Added: <a href="libfunctions/_DebugSetup.htm">_DebugSetup()</a> can report to a Notepad Window.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1371">#1371</a>: Allow Default keyword in <a href="libfunctions/_TempFile.htm">_TempFile()</a>.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1527">#1527</a>: Test example to have doc example working.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1636">#1636</a>: <a href="libfunctions/_Security__LookupAccountSid.htm">_Security__LookupAccountSid()</a> for Remote Systems.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1569">#1569</a>: <a href="libfunctions/_ArraySearch.htm">_ArraySearch()</a> $iPartial (-&gt;$iCompare) extended to match on variables of same type.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1557">#1557</a>: VK_xBUTTON in Constants.au3.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1890">#1890</a>: Better cross-referencing for <a href="libfunctions/_WinAPI_GetParent.htm">_WinAPI_GetParent()</a> and <a href="libfunctions/_WinAPI_GetAncestor.htm">_WinAPI_GetAncestor()</a>.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1925">#1925</a>: $WS_EX_LAYOUTRTL control style to the documentation.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/2049">#2049</a>: Missing windows message codes to WindowsConstants.au3.</li>
+		<li>Added: <a href="libfunctions/_WinAPI_StringLenA.htm">_WinAPI_StringLenA()</a> and <a href="libfunctions/_WinAPI_StringLenW.htm">_WinAPI_StringLenW()</a> functions.</li>
+		<li>Added: <a href="libfunctions/_WinAPI_DuplicateHandle.htm">_WinAPI_DuplicateHandle()</a> function.</li>
+		<li>Added: <a href="libfunctions/_Security__CreateProcessWithToken.htm">_Security__CreateProcessWithToken()</a>, <a href="libfunctions/_Security__DuplicateTokenEx.htm">_Security__DuplicateTokenEx()</a> and <a href="libfunctions/_Security__SetTokenInformation.htm">_Security__SetTokenInformation()</a> functions.</li>
+	</ul>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1542">#1542</a>: <a href="libfunctions/_DebugSetup.htm">_DebugSetup()</a> closing when use with GUI handling events.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1549">#1549</a>: <a href="libfunctions/_SQLite_Escape.htm">_SQLite_Escape()</a> crash for strings &gt; 64K (&gt; 3.3.0.0).</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1517">#1517</a>: <a href="libfunctions/_GUICtrlListView_SimpleSort.htm">_GUICtrlListView_SimpleSort()</a> with checkbox.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1588">#1588</a>: AutoIt3.exe stay active for all processes using the Window report.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1615">#1615</a>: <a href="libfunctions/_GUICtrlTreeView_SetStateImageIndex.htm">_GUICtrlTreeView_SetStateImageIndex()</a> with index = 0.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1620">#1620</a>: <a href="libfunctions/_DebugOut.htm">_DebugOut()</a> or <a href="libfunctions/_DebugReportVar.htm">_DebugReportVar()</a> containing '.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1513">#1513</a>: Allow _GUI...() to use notification callback (LPSTR_TEXTCALLBACK).</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1608">#1608</a>: <a href="libfunctions/_Crypt_EncryptFile.htm">_Crypt_EncryptFile()</a> for file &gt;1Mb.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1644">#1644</a>: <a href="libfunctions/_INetMail.htm">_INetMail()</a> with Windows Live mail.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1453">#1453</a>: <a href="libfunctions/_Net_Share_ShareCheck.htm">_Net_Share_ShareCheck()</a> return always 0.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1664">#1664</a>: <a href="libfunctions/_GUICtrlTab_GetItem.htm">_GUICtrlTab_GetItem()</a> does not return text.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1671">#1671</a>: <a href="libfunctions/_WinAPI_WideCharToMultiByte.htm">_WinAPI_WideCharToMultiByte()</a> doc.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1672">#1672</a>: <a href="libfunctions/_WinAPI_GetObject.htm">_WinAPI_GetObject()</a> reference ANSI version.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1665">#1665</a>: <a href="libfunctions/_ScreenCapture_CaptureWnd.htm">_ScreenCapture_CaptureWnd()</a> when running with Aero theme.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1689">#1689</a>: _Debug...() cannot be obfuscated.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1712">#1712</a>: <a href="libfunctions/_FileWriteFromArray.htm">_FileWriteFromArray()</a> crash on array.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1754">#1754</a>: <a href="libfunctions/_PathFull.htm">_PathFull()</a> optional parameter doc.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1756">#1756</a>: <a href="libfunctions/_GDIPlus_Startup.htm">_GDIPlus_Startup()</a> Flaw on error.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1920">#1920</a>: Script crashes with error reported in Security.au3 at line 85.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1895">#1895</a>: Bugs in <a href="libfunctions/_GUIScrollBars_Init.htm">_GUIScrollBars_Init()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1891">#1891</a>: <a href="libfunctions/_ArrayDisplay.htm">_ArrayDisplay()</a> (......,i$iTranspose,...) wrong description.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1933">#1933</a>: <a href="libfunctions/_GetIP.htm">_GetIP()</a> is outdated and could possibly fail.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1859">#1859</a>: Bug in <a href="libfunctions/_WeekNumberISO.htm">_WeekNumberISO()</a>?</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2009">#2009</a>: Incorrect styles listed in <a href="libfunctions/_GUICtrlToolbar_Create.htm">_GUICtrlToolbar_Create()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1009">#1009</a>: SQLite library needs to support a user-defined callback for diagnostic messages instead of hard-coding <a href="functions/ConsoleWrite.htm">ConsoleWrite()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1985">#1985</a>: <a href="libfunctions/_IECreate.htm">_IECreate()</a> now ensures focus is given to the document when an about URI is loaded (such as about:blank).  IE9 gives focus to the URL bar which can cause later issues setting focus to elements.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2004">#2004</a>: Functions that accept Control ID/Handle were not correctly documented.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1951">#1951</a>: Missing parameter in documentation for <a href="libfunctions/_SQLite_SQLiteExe.htm">_SQLite_SQLiteExe()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1442">#1442</a>: File handle can now be passed to <a href="libfunctions/_FileWriteLog.htm">_FileWriteLog()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1777">#1777</a>: Issues with Security.au3.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2055">#2055</a>: replaced DllStructGetPtr with "struct*" throughout UDFs.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2048">#2048</a>: Windows constants $WM_RBUTTONDBLCLK and $WM_MBUTTONDBLCLK were named incorrectly.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2034">#2034</a>: <a href="libfunctions/_GUICtrlMenu_AppendMenu.htm">_GUICtrlMenu_AppendMenu()</a> DllCall type set wrong.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/2060">#2060</a>: Various documentation errors.</li>
+	</ul>
+	<ul>
+		<li>Changed: _SQLite 3.6.22 -&gt; 3.7.2.0</li>
+		<li>Changed: <a href="libfunctions/_IEFormElementSetValue.htm">_IEFormElementSetValue()</a> examples <a href="http://www.autoitscript.com/trac/autoit/ticket/3">#3</a> removed (login to Hotmail).</li>
+		<li>Changed: <a href="libfunctions/_IEFormElementSetValue.htm">_IEFormElementSetValue()</a> examples <a href="http://www.autoitscript.com/trac/autoit/ticket/4">#4</a> and <a href="http://www.autoitscript.com/trac/autoit/ticket/5">#5</a> (now <a href="http://www.autoitscript.com/trac/autoit/ticket/3">#3</a> and <a href="http://www.autoitscript.com/trac/autoit/ticket/4">#4</a>) use the text input instead of the file input.  The file input is read-only on IE9 so the <a href="functions/Send.htm">Send()</a>/<a href="functions/ControlSend.htm">ControlSend()</a> produced no results.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>Au3Check:</strong></p>
+	<ul>
+		<li>Added: #forcedef directive to force var definition as after <a href="functions/Assign.htm">Assign()</a>.</li>
+		<li>Added: -w 7 to check ByRef parameter passing.</li>
+	</ul>
+	<ul>
+		<li>Fixed: Const Enum wrong ERROR.</li>
+		<li>Fixed: Global declared in func not detected.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1051">#1051</a>: no ERROR if keyword not followed by a separator as Local$a.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.3.6.1 (16th April, 2010) (Release)</strong></p>
+	<p><strong>AutoIt:</strong></p>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1515">#1515</a>: FileOpen still opening in exclusive mode in some situations.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.3.6.0 (7th March, 2010) (Release)</strong></p>
+	<p><strong>AutoIt:</strong></p>
+	<ul>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1376">#1376</a>: <a href="functions/FileOpen.htm">FileOpen()</a> mode parameter is now optional. Default mode is read.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1054">#1054</a>: Added <a href="functions/FileGetEncoding.htm">FileGetEncoding()</a>.</li>
+		<li>Added: <a href="functions/ControlCommand.htm">ControlCommand()</a> "SendCommandID" - used to send WM_COMMAND Control ID messages. Allows the</li>
+		<li>automation of ToolBarWindow32 controls (amongst others). For example, the "Back" button of</li>
+		<li>Internet Explorer. Use Au3Info to get the Command ID from the ToolBar tab.</li>
+	</ul>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1428">#1428</a>: AdlibRegister/Unregister() were incorrectly using case-sensitive function names.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1448">#1448</a>: #OnAutoItStartRegister did not work in compiled scripts.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/961">#961</a>: <a href="functions/RegDelete.htm">RegDelete()</a> was not working properly on 64bit keys when using the 32bit version of AutoIt and HKLM64.</li>
+		<li>Fixed: Regression in <a href="functions/FileOpen.htm">FileOpen()</a> where it wasn't allowed to open files in read mode if they were already open in write mode.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1449">#1449</a>: <a href="functions/GUICtrlDelete.htm">GUICtrlDelete()</a> not working for <a href="functions/GUICtrlCreateDummy.htm">GUICtrlCreateDummy()</a> types.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1458">#1458</a>: Inet sizes were capped to 32-bits.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1459">#1459</a>: Hard crash when too much recursion is used.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1464">#1464</a>: Regular expressions with a single character * pattern were stopping after the first null match.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1463">#1463</a>: <a href="functions/StringToASCIIArray.htm">StringToASCIIArray()</a> working incorrectly with UTF8 characters.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1475">#1475</a>: TrayItemSetState($Value, $Tray_Checked) incorrectly enables a disabled TrayItem.</li>
+	</ul>
+	<ul>
+		<li>Changed: <a href="functions/Send.htm">Send()</a> and <a href="functions/ControlSend.htm">ControlSend()</a> code reworked to allow for more Unicode characters to be used.</li>
+		<li>Changed: <a href="functions/FileWriteLine.htm">FileWriteLine()</a> performance improved.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>Aut2Exe:</strong></p>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1409">#1409</a>: Ctrl+C is no longer the shortcut for Convert. It is now Ctrl+G (Go) to avoid clashing with a Ctrl+C copy operation.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>Au3Info:</strong></p>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1444">#1444</a>: Controls in applications like RegEdit were left highlighted.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1391">#1391</a>: ToolbarWindow32 info only showing the first toolbar.</li>
+	</ul>
+	<ul>
+		<li>Changed: Better identification of the control under the mouse.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>AutoIt3Help:</strong></p>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1423">#1423</a>: "Open Script" button stopped working.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>AutoItX:</strong></p>
+	<ul>
+		<li>Fixed: Missing .lib files readded.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>UDFs:</strong></p>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1438">#1438</a>: AutoIt error when using <a href="libfunctions/_ArrayCombinations.htm">_ArrayCombinations()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1454">#1454</a>: StringBetween() not working correctly.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1441">#1441</a>: <a href="libfunctions/_GUICtrlRichEdit_GetText.htm">_GUICtrlRichEdit_GetText()</a> using wrong buffer length.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1446">#1446</a>: <a href="libfunctions/_ScreenCapture_Capture.htm">_ScreenCapture_Capture()</a> was using height/width of 1 pixel less.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1445">#1445</a>: Documentation updated for <a href="libfunctions/_MemGlobalFree.htm">_MemGlobalFree()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1469">#1469</a>: <a href="libfunctions/_GDIPlus_BitmapCloneArea.htm">_GDIPlus_BitmapCloneArea()</a> documentation updated.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1466">#1466</a>: <a href="libfunctions/_GUICtrlEdit_GetLine.htm">_GUICtrlEdit_GetLine()</a> returns an unexpected character.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1487">#1487</a>: <a href="libfunctions/_DateToDayOfWeekISO.htm">_DateToDayOfWeekISO()</a> returned 0-6 but should be 1-7 where Monday = 1</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.3.4.0 (15th January, 2010) (Release)</strong></p>
+	<p><strong>AutoIt:</strong></p>
+	<ul>
+		<li>Added: Ability to read and write UTF-8 files with no BOM including automatic detection during reading.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/682">#682</a>: Removed the 64KB limitation for <a href="functions/FileReadLine.htm">FileReadLine()</a></li>
+		<li>Added: AutoIt scripts using the line continuation character "_" are no longer limited to a combined line length of 4095 characters.</li>
+		<li>Added: <a href="functions/FileRead.htm">FileRead()</a> returns the number of characters/bytes read in <a href="macros.htm#@extended">@extended</a>.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1311">#1311</a>: <a href="functions/MouseGetCursor.htm">MouseGetCursor()</a> returns hand cursor.</li>
+	</ul>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/384">#384</a>: Under certain circumstances the network credentials flag would prevent the process from starting when launched with <a href="functions/RunAs.htm">RunAs()</a> or <a href="functions/RunAsWait.htm">RunAsWait()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1370">#1370</a>: <a href="functions/StringInStr.htm">StringInStr()</a> would crash with a negative occurrence and start position greater than the string length.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1367">#1367</a>: Calling <a href="functions/GUIDelete.htm">GUIDelete()</a> from a <a href="functions/GUIRegisterMsg.htm">GUIRegisterMsg()</a> callback that returns $GUI_RUNDEFMSG would crash AutoIt.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1363">#1363</a>: <a href="functions/FileSetPos.htm">FileSetPos()</a> did not work when the origin was the current position.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1355">#1355</a>: Regression in how unsigned numbers are displayed when returned from <a href="functions/DllCall.htm">DllCall()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1396">#1396</a>: Crash in <a href="functions/DllCallbackGetPtr.htm">DllCallbackGetPtr()</a> with invalid handle.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1352">#1352</a>: <a href="functions/StringSplit.htm">StringSplit()</a> hard crash with binary data.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1398">#1398</a>: Fixed declaration of $tagPARAFORMAT2 from GuiRichEdit.au3.</li>
+	</ul>
+	<ul>
+		<li>Removed: The "RAW" reading mode from <a href="functions/FileOpen.htm">FileOpen()</a> has been removed.</li>
+		<li>Removed: InetGet("abort"), @InetGetActive and @InetGetBytesRead have been removed.</li>
+		<li>Removed: AdlibEnable() and AdlibDisable() have been removed.</li>
+		<li>Removed: OnAutoItStart and OnAutoItExit have been removed.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>UDFs:</strong></p>
+	<ul>
+		<li>Changed: _SQLite 3.6.19 -&gt; 3.6.22</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1338">#1338</a>: bad <a href="libfunctions/_ArrayDisplay.htm">_ArrayDisplay()</a> GUI position error.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1362">#1362</a>: <a href="libfunctions/_WinAPI_WindowFromPoint.htm">_WinAPI_WindowFromPoint()</a> did not work with 64-bit AutoIt.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1389">#1389</a>: <a href="libfunctions/_IEAttach.htm">_IEAttach()</a> could fail if called multiple times.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1353">#1353</a>: <a href="libfunctions/_FileWriteToLine.htm">_FileWriteToLine()</a> excessively strict on input text type.</li>
+		<li>Fixed: SQLite.au3 various errors in <a href="libfunctions/_SQLite_FetchData.htm">_SQLite_FetchData()</a>, $iCharSize, <a href="libfunctions/_SQLite_QuerySingleRow.htm">_SQLite_QuerySingleRow()</a>, <a href="libfunctions/_SQLite_GetTable2d.htm">_SQLite_GetTable2d()</a>, <a href="libfunctions/_SQLite_Display2DResult.htm">_SQLite_Display2DResult()</a> by jchd.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>AutoIt3Help:</strong></p>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1327">#1327</a>: Some keywords would fail to open correctly in rare cases.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.3.2.0 (18th December, 2009) (Release)</strong></p>
+	<p><strong>AutoIt:</strong></p>
+	<ul>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/529">#529</a>: Added the "NAME" property to allow direct search for .NET WinForm control names.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/757">#757</a>: Set defaults for <a href="functions/MouseClick.htm">MouseClick()</a>'s x/y parameters.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/764">#764</a>: Return Pid on <a href="functions/ProcessWait.htm">ProcessWait()</a> and handle on <a href="functions/WinWait.htm">WinWait()</a>, WinWaitActive, <a href="functions/WinActivate.htm">WinActivate()</a>, <a href="functions/WinActive.htm">WinActive()</a>, <a href="functions/WinMove.htm">WinMove()</a> when successful.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/414">#414</a>: better handling of OnAutoItStart/OnAutoItExit, now #OnAutoItStartRegister, <a href="functions/OnAutoItExitRegister.htm">OnAutoItExitRegister()</a> and <a href="functions/OnAutoItExitUnRegister.htm">OnAutoItExitUnRegister()</a>.</li>
+		<li>Added: Better handling of AdlibEnable/AdlibDisable, now <a href="functions/AdlibRegister.htm">AdlibRegister()</a>, <a href="functions/AdlibUnRegister.htm">AdlibUnRegister()</a> and AdlibDisable().</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/351">#351</a>: Reverse <a href="functions/PixelSearch.htm">PixelSearch()</a>.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/769">#769</a>: <a href="functions/FileFlush.htm">FileFlush()</a> function.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/333">#333</a>: #NoAutoIt3Execute Directive for disabling /AutoIt3ExecuteScript or /AutoIt3ExecuteLine.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/604">#604</a>: $GUI_BKCOLOR_TRANSPARENT can be used with label, group, radio, checkbox controls.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/135">#135</a>: <a href="functions/FileSetPos.htm">FileSetPos()</a>, <a href="functions/FileGetPos.htm">FileGetPos()</a> functions for moving the file pointer around.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/582">#582</a>: <a href="functions/GUICtrlSetTip.htm">GUICtrlSetTip()</a> can be used on TabItem controls.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/699">#699</a>: <a href="functions/Shutdown.htm">Shutdown()</a> now return <a href="macros.htm#@error">@error</a>=GetLastError() when failing.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/461">#461</a>: <a href="functions/StringReplace.htm">StringReplace()</a> from right to left if occurrence &lt;0 as for <a href="functions/StringInStr.htm">StringInStr()</a>.</li>
+		<li>Added: <a href="functions/GUICtrlSetColor.htm">GUICtrlSetColor()</a> and <a href="functions/GUICtrlSetBkColor.htm">GUICtrlSetBkColor()</a> for Combo Controls.</li>
+		<li>Added: GUI without title bar (no $WS_CAPTION) can be moved with the mouse.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/815">#815</a>: Temporary variables can be passed ByRef.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/837">#837</a>: <a href="functions/FileFindNextFile.htm">FileFindNextFile()</a> set <a href="macros.htm#@extended">@extended</a> if a directory is returned.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/839">#839</a>: <a href="functions/Shutdown.htm">Shutdown()</a> rewritten and now works properly when run as a non-interactive user.</li>
+		<li>Added: <a href="functions/Shutdown.htm">Shutdown()</a> now takes an optional reason code.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/846">#846</a>: <a href="libfunctions/_PathFull.htm">_PathFull()</a> now supports strange but valid syntax where drives do not  have a trailing slash.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/869">#869</a>: <a href="macros.htm#@MUILang">@MUILang</a> macro to help MUI environment scripts.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/918">#918</a>: Added Quality parameter to <a href="functions/GUICtrlSetFont.htm">GUICtrlSetFont()</a> and <a href="functions/GUISetFont.htm">GUISetFont()</a>.</li>
+		<li>Added: <a href="functions/ProcessClose.htm">ProcessClose()</a> return info on error.</li>
+		<li>Added: <a href="functions/PixelChecksum.htm">PixelChecksum()</a> extra parameter to select CRC32 instead of ADLER.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/984">#984</a>: <a href="macros.htm#@OSVersion">@OSVersion</a> now returns "WIN_XPe" for Windows XP Embedded.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/938">#938</a>: <a href="functions/UDPOpen.htm">UDPOpen()</a> flag to allow broadcasting  with 255.255.255.255.</li>
+		<li>Added: new types to DllCall and DllStruct to avoid confusion with MSDN description. That avoid specially X64 errors.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/351">#351</a>: <a href="functions/PixelSearch.htm">PixelSearch()</a> now supports both right-to-left and bottom-to-top searches.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/508">#508</a>: Static keyword.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1056">#1056</a>: New Inet option to by-pass forcing the connection online.</li>
+		<li>Added: <a href="functions/DllStructSetData.htm">DllStructSetData()</a> and <a href="functions/DllStructGetData.htm">DllStructGetData()</a> index parameter now supports the Default keyword.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1270">#1270</a>: <a href="functions/GUISetIcon.htm">GUISetIcon()</a> now finds suitable large and small icons.</li>
+	</ul>
+	<ul>
+		<li>Fixed: CtrlSetStyle listview on non selected tab.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/763">#763</a>: <a href="functions/GUICtrlCreateIcon.htm">GUICtrlCreateIcon()</a> create an empty icon on error.</li>
+		<li>Fixed: no mouse move when invalid button used in <a href="functions/MouseClick.htm">MouseClick()</a> or <a href="functions/MouseClickDrag.htm">MouseClickDrag()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/779">#779</a>: infinite loop on Exit due to <a href="functions/GUICreate.htm">GUICreate()</a> child badly created.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/774">#774</a>: <a href="functions/GUICtrlSetBkColor.htm">GUICtrlSetBkColor()</a> bad label display.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/790">#790</a>: Windows region constant $ERROR rename in $ERRORREGION.</li>
+		<li>Fixed: StringInStr("aaa", "aa", 2) does not return 0.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/802">#802</a>: Searching for controls by Height property.</li>
+		<li>Fixed: Checkbox or radio painting on tab.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/816">#816</a>: data for GUI date control doc clarification.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/819">#819</a>: Crash with EventLog functions.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/814">#814</a>: <a href="functions/InetGet.htm">InetGet()</a> through a proxy requiring authentication did not work.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/813">#813</a>: bad handling of Windows advanced matching for [HANDLE:...] in X64 version.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/863">#863</a>: <a href="functions/DirMove.htm">DirMove()</a> extra dot.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/867">#867</a>: <a href="functions/UDPRecv.htm">UDPRecv()</a> can return from IP/Port.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/886">#886</a>: More explicit documentation that operator == is a forced string comparison.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/885">#885</a>: Default compared to False returned True instead of False.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/888">#888</a>: Send("{}}") Extra null char.</li>
+		<li>Fixed: <a href="functions/DllCall.htm">DllCall()</a> returning 64-bit int.</li>
+		<li>Fixed: <a href="functions/GUICtrlSetImage.htm">GUICtrlSetImage()</a> after GUI resized.</li>
+		<li>Fixed: <a href="functions/DirMove.htm">DirMove()</a> return code wrong under XP.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/931">#931</a>: bad <a href="functions/GUICtrlSetResizing.htm">GUICtrlSetResizing()</a> for graphic control.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/934">#934</a>: <a href="functions/MouseGetCursor.htm">MouseGetCursor()</a> hogging mouse double click.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/615">#615</a>: License updated to be less restrictive.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/919">#919</a>: Remarks added to <a href="functions/ConsoleWrite.htm">ConsoleWrite()</a>, <a href="functions/ConsoleWriteError.htm">ConsoleWriteError()</a> and <a href="functions/StdinWrite.htm">StdinWrite()</a> regarding how those functions handle binary data and non-ANSI characters.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/897">#897</a>: Documented that <a href="functions/StringToASCIIArray.htm">StringToASCIIArray()</a> does not accept binary input (convert to a string first).</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/937">#937</a>: Bad event handling of Opt("TrayMenuMode",1)</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/969">#969</a>: <a href="functions/FileFindNextFile.htm">FileFindNextFile()</a> does not set <a href="macros.htm#@extended">@extended</a> if first found is a dir.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1006">#1006</a>: <a href="macros.htm#@MSEC">@MSEC</a> returned wrong value for values &lt; 100.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1010">#1010</a>: <a href="functions/FileRead.htm">FileRead()</a> UTF8 with BOM files return too many chars.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1013">#1013</a>: MDI childs doesn't adjust to parent windows client area.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1005">#1005</a>: TraySetClick(64) = hovering.</li>
+		<li>Fixed: ClipPut("") not emptying.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1068">#1068</a>: Binary to Int.</li>
+		<li>Fixed: Bad painting on double <a href="functions/GUICtrlSetPos.htm">GUICtrlSetPos()</a> for label.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1094">#1094</a>: Send("{LSHIFT UP}") stay down.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1074">#1074</a>: <a href="functions/InputBox.htm">InputBox()</a> positionning on multi monitor.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1105">#1105</a>: disable colored Multiline button not properly displayed.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1077">#1077</a>: <a href="functions/GUICtrlSetBkColor.htm">GUICtrlSetBkColor()</a> bad recoloring.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1116">#1116</a>: GUICtrlCreateGraphic don't follow ResizeMode.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1102">#1102</a>: Better documentation of the <a href="functions/StringInStr.htm">StringInStr()</a> count parameter.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1161">#1161</a>: Removed all documentation references to ColorMode.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1156">#1156</a>: <a href="functions/AutoItSetOption.htm">AutoItSetOption()</a>/<a href="functions/Opt.htm">Opt()</a> now set <a href="macros.htm#@error">@error</a> instead of generating a fatal error with invalid input.</li>
+		<li>Fixed: Comparing pointers now works correctly.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/906">#906</a>: ActiveX controls were not told what their initial size was.</li>
+		<li>Fixed: Boolean tests on binary strings now behaves properly.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1234">#1234</a>: COM methods that modified boolean arguments could change them to ints.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1258">#1258</a>: System menu could display when trying to dismiss a control menu.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1288">#1288</a>: Documented how <a href="functions/DllStructSetData.htm">DllStructSetData()</a> and <a href="functions/DllStructGetData.htm">DllStructGetData()</a> work with arrays when omitting the index parameter.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1300">#1300</a>: DLLs could unload when calling <a href="functions/DllCall.htm">DllCall()</a> with an invalid function.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1295">#1295</a>: Unicode to ANSI conversion was crashing in certain situations.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1304">#1304</a>: <a href="libfunctions/_GDIPlus_BitmapLockBits.htm">_GDIPlus_BitmapLockBits()</a> now correctly takes a Width and Height parameter instead of a Right and Bottom.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1294">#1294</a>: Fixed AutoIt deadlock when using the following functions with hanged windows: WinGetTitle, WinSetTitle, WinGetText, WinFlash, WinSetOnTop</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1332">#1332</a>: <a href="functions/Mod.htm">Mod()</a> forced a conversion to floating point numbers when it didn't need to which can cause unexpected output.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1321">#1321</a>: <a href="functions/DllStructCreate.htm">DllStructCreate()</a> did not support _ in data names.  Documented valid characters for data name.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1322">#1322</a>: Crash when using ControlCommand("GetSelected") on non-Edit controls.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1325">#1325</a>: Some date functions could attempt to access an invalid array.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1345">#1345</a>: <a href="functions/Number.htm">Number()</a> failed to handle numbers with a trailing decimal point.</li>
+	</ul>
+	<ul>
+		<li>Changed: It is now possible to read from files opened for writing.</li>
+		<li>Changed: PCRE regular expression engine updated to 8.00.</li>
+		<li>Changed <a href="http://www.autoitscript.com/trac/autoit/ticket/899">#899</a>: ShellExecute[Wait]() no longer uses "open" as the default verb.  See remarks section for those functions for more information.</li>
+		<li>Changed: Inet functions rewritten with the following additions and changes:</li>
+		<li>Removed: Long deprecate URLDownloadToFile() alias for <a href="functions/InetGet.htm">InetGet()</a>.</li>
+		<li>Added: <a href="functions/HttpSetUserAgent.htm">HttpSetUserAgent()</a>, <a href="functions/InetClose.htm">InetClose()</a>, <a href="functions/InetGetInfo.htm">InetGetInfo()</a> and <a href="functions/InetRead.htm">InetRead()</a> functions.</li>
+		<li>Added: Multiple background downloads are now supported with <a href="functions/InetGet.htm">InetGet()</a>.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/408">#408</a>: New flag for ignoring SSL errors for HTTPS connections.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/884">#884</a>: Better proxy support with mode 0.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/949">#949</a>: The user-agent can be changed.</li>
+		<li>Changed: <a href="functions/InetGet.htm">InetGet()</a> returns a handle which must be closed.</li>
+		<li>Changed: @InetGetBytes, @InetGetActive and InetGet("abort") are deprecated and will be removed in the future.</li>
+		<li>Changed <a href="http://www.autoitscript.com/trac/autoit/ticket/968">#968</a>: AutoUpdateIt updated by ProgAndy to use new Inet features.</li>
+		<li>Changed: <a href="macros.htm#@YDAY">@YDAY</a> now returns values in the range 001 - 366 instead of 1 - 366.  This makes the macro more consistent with other languages (like C/C++) and more consistent with all other date related macros which return strings with leading 0s to pad the length.  THIS IS A SCRIPT BREAKING CHANGE.</li>
+		<li>Changed <a href="http://www.autoitscript.com/trac/autoit/ticket/1080">#1080</a>: InetGet background downloads now return immediately instead of connecting to the remote host first.</li>
+		<li>Changed <a href="http://www.autoitscript.com/trac/autoit/ticket/1137">#1137</a>: <a href="functions/RegEnumKey.htm">RegEnumKey()</a> and <a href="functions/RegEnumVal.htm">RegEnumVal()</a> now correctly return an empty string on failure instead of an error message string.</li>
+		<li>Changed: <a href="functions/PixelChecksum.htm">PixelChecksum()</a> can calculate checksums from right-to-left and bottom-to-top.</li>
+		<li>Changed: <a href="functions/InputBox.htm">InputBox()</a> no longer requires passing both x and y or w and h.</li>
+		<li>Changed <a href="http://www.autoitscript.com/trac/autoit/ticket/1056">#1056</a>: Added new Inet option to by-pass forcing the connection online.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>AutoItX:</strong></p>
+	<ul>
+		<li>Removed: ColorMode option removed from <a href="functions/AutoItSetOption.htm">AutoItSetOption()</a>.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>Au3Info:</strong></p>
+	<ul>
+		<li>Removed: ColorMode BGR option removed since AutoIt no longer supports the option to use BGR mode.</li>
+	</ul>
+	<ul>
+		<li>Added: Control information now includes the .NET WinForm if available.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/140">#140</a>: ToolsBar button info.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>Aut2Exe:</strong></p>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1283">#1283</a>: Added new option /x86 to force a 32-bit build and re-added /unicode which also forces a 32-bit build.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>Au3Check:</strong></p>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1239">#1239</a>: Incorrect library search order.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>Others:</strong></p>
+	<ul>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1050">#1050</a>: TextPad v5 syntax files installation.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>UDFs:</strong></p>
+	<ul>
+		<li>Added: <a href="libfunctions/_GDIPlus_BrushGetSolidColor.htm">_GDIPlus_BrushGetSolidColor()</a>, <a href="libfunctions/_GDIPlus_BrushSetSolidColor.htm">_GDIPlus_BrushSetSolidColor()</a> (smashly)</li>
+		<li>Added: $tagWIN32_FIND_DATA and corresponding attribute constants.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/868">#868</a>: <a href="libfunctions/_WinAPI_GetLayeredWindowAttributes.htm">_WinAPI_GetLayeredWindowAttributes()</a>, <a href="libfunctions/_WinAPI_SetLayeredWindowAttributes.htm">_WinAPI_SetLayeredWindowAttributes()</a>.</li>
+		<li>Added: _Date_Time_ ... Str() can return date as yyyy/mm/dd.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/271">#271</a>: FTPEx.au3 for _FTP_...().</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/932">#932</a>: mouse event constants in WinDowsConstants.au3.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/952">#952</a>: <a href="libfunctions/_ArrayDisplay.htm">_ArrayDisplay()</a> extra parameter for column header text.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/957">#957</a>: <a href="libfunctions/_Assert.htm">_Assert()</a> in Debug.au3.</li>
+		<li>Added: <a href="libfunctions/_WinAPI_GetGuiResources.htm">_WinAPI_GetGuiResources()</a></li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/981">#981</a>: <a href="libfunctions/_WinAPI_WideCharToMultiByte.htm">_WinAPI_WideCharToMultiByte()</a>, <a href="libfunctions/_WinAPI_MultiByteToWideChar.htm">_WinAPI_MultiByteToWideChar()</a> support IN/OUT as "strings"</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1157">#1157</a>: Encryption functions in Crypt.au3.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1128">#1128</a>: <a href="libfunctions/_WinAPI_PathFindOnPath.htm">_WinAPI_PathFindOnPath()</a> in WinAPI.au3.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/1228">#1228</a>: <a href="libfunctions/_FTP_SetStatusCallback.htm">_FTP_SetStatusCallback()</a>, <a href="libfunctions/_FTP_DecodeInternetStatus.htm">_FTP_DecodeInternetStatus()</a> in FTPEx.au3.</li>
+	</ul>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/755">#755</a>: <a href="libfunctions/_FileReadToArray.htm">_FileReadToArray()</a> removing empty end lines.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/773">#773</a>: Doc for <a href="libfunctions/_GUICtrlStatusBar_SetParts.htm">_GUICtrlStatusBar_SetParts()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/786">#786</a>: <a href="libfunctions/_SQLite_Exec.htm">_SQLite_Exec()</a> does not return <a href="macros.htm#@error">@error</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/809">#809</a>: _Soundxxx() with first parameter as filename.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/887">#887</a>: Related section based on Tweaky work.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/951">#951</a>: <a href="libfunctions/_ArrayDisplay.htm">_ArrayDisplay()</a> speed improvement for nb entries &gt;4000.</li>
+		<li>Fixed: <a href="libfunctions/_SoundOpen.htm">_SoundOpen()</a> set <a href="macros.htm#@error">@error</a> on MCI Error.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1015">#1015</a>: _SQLite_SaveMode() renamed as <a href="libfunctions/_SQLite_SafeMode.htm">_SQLite_SafeMode()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1016">#1016</a>: _WordDocSaveAs() Doc for error handling.</li>
+		<li>Fixed: Sound positioning in case of VBR Format Sound.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1028">#1028</a>: <a href="libfunctions/_ClipBoard_GetData.htm">_ClipBoard_GetData()</a> fix.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1031">#1031</a>: <a href="libfunctions/_ClipBoard_SetData.htm">_ClipBoard_SetData()</a> fix.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1040">#1040</a>: <a href="libfunctions/_ScreenCapture_Capture.htm">_ScreenCapture_Capture()</a> leak memory.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1026">#1026</a>: _Gdiplus_BitmapCreate*() doc examples.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1092">#1092</a>: _Timer_...() datatype for X64.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1059">#1059</a>: Incorrect error handling in <a href="libfunctions/_FileListToArray.htm">_FileListToArray()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1101">#1101</a>: <a href="libfunctions/_NowTime.htm">_NowTime()</a>, <a href="libfunctions/_NowDate.htm">_NowDate()</a> Doc.</li>
+		<li>Fixed: <a href="libfunctions/_WinAPI_GetWindowLong.htm">_WinAPI_GetWindowLong()</a>, <a href="libfunctions/_WinAPI_SetWindowLong.htm">_WinAPI_SetWindowLong()</a> support X64.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1111">#1111</a>: Bad grammar in comments for <a href="libfunctions/_DateAdd.htm">_DateAdd()</a>.</li>
+		<li>Fixed: UDF library now uses #include "" instead of #include &lt;&gt;.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1033">#1033</a>: UDF library now has better and more consistent error handling when <a href="functions/DllCall.htm">DllCall()</a> is used.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1215">#1215</a>: <a href="libfunctions/_ArraySearch.htm">_ArraySearch()</a> not searching on 2D array.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1168">#1168</a>: <a href="libfunctions/_ExcelBookOpen.htm">_ExcelBookOpen()</a> now selects the first visible worksheet to prevent a COM error.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1247">#1247</a>: Documented that some _GUICtrlComboBoxEx_* functions don't work with certain ComboBox styles.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1260">#1260</a>: Potential buffer overflow in <a href="libfunctions/_WinAPI_GetLastErrorMessage.htm">_WinAPI_GetLastErrorMessage()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1276">#1276</a>: <a href="libfunctions/_TicksToTime.htm">_TicksToTime()</a> incorrectly rounded seconds up.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1277">#1277</a>: Resource clean-up in example script for <a href="libfunctions/_GDIPlus_ImageGetGraphicsContext.htm">_GDIPlus_ImageGetGraphicsContext()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1290">#1290</a>: Invalid Left coordinate when using <a href="libfunctions/_GUICtrlTreeView_DisplayRectEx.htm">_GUICtrlTreeView_DisplayRectEx()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1296">#1296</a>: <a href="libfunctions/_GUICtrlTreeView_ClickItem.htm">_GUICtrlTreeView_ClickItem()</a> could click outside the control's parent window.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1312">#1312</a>: Errors with <a href="libfunctions/_GUIImageList_BeginDrag.htm">_GUIImageList_BeginDrag()</a> example.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/1320">#1320</a>: <a href="libfunctions/_GUIImageList_DragMove.htm">_GUIImageList_DragMove()</a> documentation contained a parameter that doesn't exist.</li>
+	</ul>
+	<ul>
+		<li>Changed: <a href="libfunctions/_StringBetween.htm">_StringBetween()</a> removed last optional param (not needed after change)(SmOke_N)</li>
+		<li>Changed: <a href="libfunctions/_StringToHex.htm">_StringToHex()</a>, <a href="libfunctions/_HexToString.htm">_HexToString()</a> and _StringReverse() have been rewritten and are faster.</li>
+		<li>Changed: _SQLite 3.6.7 -&gt; 3.6.19 (SQL statement support UNICODE characters)</li>
+		<li>Changed: <a href="libfunctions/_INetGetSource.htm">_INetGetSource()</a> now uses <a href="functions/InetRead.htm">InetRead()</a>.</li>
+	</ul>
+	<ul>
+		<li>Removed: _StringAddThousandsSep() has been removed.  Too many opinions on how the function should work means nobody is happy with it.</li>
+		<li>Removed <a href="http://www.autoitscript.com/trac/autoit/ticket/1112">#1112</a>: __WinAPI_Check() has been removed as have all calls to it.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.3.0.0 (24th December, 2008) (Release)</strong></p>
+	<p><strong>AutoIt:</strong></p>
+	<ul>
+		<li>Windows 9x and Windows NT 4.0 Operating System support has been removed.</li>
+	</ul>
+	<ul>
+		<li>Added: New flag for <a href="functions/StringSplit.htm">StringSplit()</a> to not return the count in element 0.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/328">#328</a>: <a href="functions/StringToASCIIArray.htm">StringToASCIIArray()</a>, <a href="functions/StringFromASCIIArray.htm">StringFromASCIIArray()</a> functions.</li>
+		<li>Added: New flag to <a href="functions/Run.htm">Run()</a>/<a href="functions/RunAs.htm">RunAs()</a> to fix issue <a href="http://www.autoitscript.com/trac/autoit/ticket/415">#415</a> (Adds new Constants.au3 constant: $STDIO_INHERIT_PARENT).</li>
+		<li>Added: New flag to all Run functions for better CUI compatibility (Adds new Constants.au3 constant: $RUN_CREATE_NEW_CONSOLE).</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/481">#481</a>: 11 pixel margin around the text in <a href="functions/SplashTextOn.htm">SplashTextOn()</a> (Meets Vista UI guidelines).</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/468">#468</a>: Added <a href="macros.htm#@MSEC">@MSEC</a> macro for obtaining the current milliseconds for the current second.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/277">#277</a>: <a href="macros.htm#@CPUArch">@CPUArch</a> macro to return the capability of the processor.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/454">#454</a>: $FO_UTF8 allowing <a href="functions/FileOpen.htm">FileOpen()</a> in Read mode for reading UTF8 files without BOM.</li>
+		<li>Added: $FO_UTF16_LE, $FO_UTF16_BE allowing <a href="functions/FileOpen.htm">FileOpen()</a> in Read mode for reading UTF16 files without BOM.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/407">#407</a>: Documented that For...In loops are read-only.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/645">#645</a>: <a href="functions/IniDelete.htm">IniDelete()</a> now supports the Default keyword for the 3rd parameter.</li>
+	</ul>
+	<ul>
+		<li>Fixed: <a href="functions/Send.htm">Send()</a> was incorrectly inserting a leading zero when using the {ASC 0xNNNN} format.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/305">#305</a>: <a href="functions/GUICtrlSetFont.htm">GUICtrlSetFont()</a> for Combo causing highlight.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/318">#318</a>: <a href="functions/GUICtrlSetTip.htm">GUICtrlSetTip()</a> on TreeViewItem must return 0.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/339">#339</a>: <a href="functions/GUICtrlDelete.htm">GUICtrlDelete()</a> crashes.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/345">#345</a>: <a href="macros.htm#@OSVersion">@OSVersion</a> for Windows 2008.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/366">#366</a>: AutoIt crash on bad syntax.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/380">#380</a>: <a href="macros.htm#@OSVersion">@OSVersion</a> for Windows XP 64-bit Edition.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/346">#346</a>: FileOpenDialog/FileSaveDialog filter length limit.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/387">#387</a>: <a href="functions/DllClose.htm">DllClose()</a> and <a href="functions/DllCallbackFree.htm">DllCallbackFree()</a> crashing when an invalid handle used.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/449">#449</a>: <a href="macros.htm#@SystemDir">@SystemDir</a> does not return SysWOW64 under X64 in 32-bit mode.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/440">#440</a>: Fatal error when script ends with EOF (0x1A).</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/464">#464</a>: Example script for <a href="functions/GUICtrlCreateAvi.htm">GUICtrlCreateAvi()</a> did not work on Vista.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/484">#484</a>: <a href="functions/ObjGet.htm">ObjGet()</a> would crash when invalid files were specified.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/501">#501</a>: <a href="functions/ProcessGetStats.htm">ProcessGetStats()</a> failed for processes running as other users (including SYSTEM).</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/92">#92</a>: DllStruct data truncated with char[]/wchar[].</li>
+		<li>Fixed: GUICtrlSetState($graphic, $GUI_HIDE) does not hide.</li>
+		<li>Fixed: GUICtrlSetResizing($graphic, ) not moving.</li>
+		<li>Fixed: GUICreate(...,Style without caption) does not resize properly.</li>
+		<li>Fixed: GUISetStyle(caption change) does not resize properly.</li>
+		<li>Fixed: GUICtrlSetState($listviewitem) does not return error.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/562">#562</a>: Specifying the TITLE property caused all other properties to be lost (Window title matching).</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/569">#569</a> TCPRecv doc example.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/589">#589</a>: Some comparison operators did not return a boolean value.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/583">#583</a>: Bad formatting of <a href="macros.htm#@MSEC">@MSEC</a> in documentation.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/574">#574</a>: Using 0 for the SendKeyDelay or SendKeyDownDelay removes the respective delay when using <a href="functions/Send.htm">Send()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/542">#542</a>: Crash with regular expressions.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/531">#531</a>: Clarification of some of the remarks for <a href="functions/GUICtrlSetGraphic.htm">GUICtrlSetGraphic()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/539">#539</a>: <a href="functions/StringSplit.htm">StringSplit()</a> with flag 2 and no matching delimiters wasn't returning the full string.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/601">#601</a>: Tooltip return 0 when title length &gt;99.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/608">#608</a>: listView GUICtrlSetBkColor not redrawn.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/628">#628</a>: GUICtrlRead($ctxmenu, $adv) bad return (Saunders)</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/640">#640</a>: PCRE does not support \L, \l, \N, \U, or \u : doc updated</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/642">#642</a>: Installer now correctly opens the merged helpfile to the history page instead of the AutoIt-only helpfile.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/646">#646</a>: <a href="functions/Call.htm">Call()</a> now sets specific <a href="macros.htm#@error">@error</a> and <a href="macros.htm#@extended">@extended</a> values when it fails to find a function.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/669">#669</a>: Typo in <a href="functions/Dec.htm">Dec()</a> example.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/659">#659</a>: Documented that UNC paths are not supported when using <a href="functions/FileSelectFolder.htm">FileSelectFolder()</a>.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/671">#671</a>: Crash when using $WS_EX_MDICHILD without specifying a valid parent.</li>
+		<li>Fixed: Crash when using <a href="functions/BinaryToString.htm">BinaryToString()</a> with invalid UTF16 input string.  <a href="functions/BinaryToString.htm">BinaryToString()</a> now has new <a href="macros.htm#@error">@error</a> codes to support diagnosing invalid input.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/743">#743</a>: AutoIt Crash when Tray functions are use with invalid ID.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/748">#748</a>: AutoIt Crash with DllCall(0,...).</li>
+	</ul>
+	<ul>
+		<li>Changed <a href="http://www.autoitscript.com/trac/autoit/ticket/393">#393</a>: Documented that <a href="functions/SoundSetWaveVolume.htm">SoundSetWaveVolume()</a> works differently in Windows Vista.</li>
+		<li>Changed: PCRE regular expression engine updated to 7.8.</li>
+		<li>Changed: @ProcessorArch changed to <a href="macros.htm#@OSArch">@OSArch</a> as it was misleading.</li>
+		<li>Changed: Size limits removed from <a href="functions/RegRead.htm">RegRead()</a> and <a href="functions/RegWrite.htm">RegWrite()</a> (previously 64KB for some registry types).</li>
+		<li>Changed: <a href="functions/RegRead.htm">RegRead()</a> and <a href="functions/RegWrite.htm">RegWrite()</a> no longer use hex strings for REG_BINARY types - native binary datatypes are enforced.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>Aut2Exe:</strong></p>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/436">#436</a>: Compression level was ignored when performing compilation from the GUI.</li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/460">#460</a>: More verbose UPX errors.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>AutoItX:</strong></p>
+	<ul>
+		<li>Changed: Native DLL: All string methods in the native API are now Unicode. The majority of functions no longer have ANSI versions.</li>
+		<li>Added: COM: WinList method.</li>
+		<li>Fixed: Native DLL: Return strings were sometimes incorrectly terminated.</li>
+		<li>Fixed: <a href="functions/PixelChecksum.htm">PixelChecksum()</a> not returning correct values.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>UDFs:</strong></p>
+	<ul>
+		<li>Added: <a href="libfunctions/_GDIPlus_StringFormatSetAlign.htm">_GDIPlus_StringFormatSetAlign()</a></li>
+		<li>Added: <a href="libfunctions/_StringExplode.htm">_StringExplode()</a></li>
+		<li>Added: <a href="libfunctions/_GDIPlus_ImageGetFlags.htm">_GDIPlus_ImageGetFlags()</a>, <a href="libfunctions/_GDIPlus_ImageGetHorizontalResolution.htm">_GDIPlus_ImageGetHorizontalResolution()</a>, <a href="libfunctions/_GDIPlus_ImageGetPixelFormat.htm">_GDIPlus_ImageGetPixelFormat()</a>, <a href="libfunctions/_GDIPlus_ImageGetRawFormat.htm">_GDIPlus_ImageGetRawFormat()</a></li>
+		<li><a href="libfunctions/_GDIPlus_ImageGetType.htm">_GDIPlus_ImageGetType()</a>, <a href="libfunctions/_GDIPlus_ImageGetVerticalResolution.htm">_GDIPlus_ImageGetVerticalResolution()</a></li>
+		<li>Added: <a href="libfunctions/_PathGetRelative.htm">_PathGetRelative()</a></li>
+		<li>Added: <a href="libfunctions/_ArrayCombinations.htm">_ArrayCombinations()</a>, <a href="libfunctions/_ArrayPermute.htm">_ArrayPermute()</a>, <a href="libfunctions/_ArrayUnique.htm">_ArrayUnique()</a></li>
+		<li>Added: <a href="libfunctions/_WinAPI_CreatePen.htm">_WinAPI_CreatePen()</a>, <a href="libfunctions/_WinAPI_DrawLine.htm">_WinAPI_DrawLine()</a>, <a href="libfunctions/_WinAPI_LineTo.htm">_WinAPI_LineTo()</a>, <a href="libfunctions/_WinAPI_MoveTo.htm">_WinAPI_MoveTo()</a>, <a href="libfunctions/_WinAPI_GetBkMode.htm">_WinAPI_GetBkMode()</a>, <a href="libfunctions/_WinAPI_SetBkMode.htm">_WinAPI_SetBkMode()</a></li>
+		<li>Added: <a href="libfunctions/_WinAPI_CombineRgn.htm">_WinAPI_CombineRgn()</a>, <a href="libfunctions/_WinAPI_CreateRectRgn.htm">_WinAPI_CreateRectRgn()</a>, <a href="libfunctions/_WinAPI_CreateRoundRectRgn.htm">_WinAPI_CreateRoundRectRgn()</a>, <a href="libfunctions/_WinAPI_SetWindowRgn.htm">_WinAPI_SetWindowRgn()</a></li>
+		<li>Added: <a href="libfunctions/_ExcelHorizontalAlignSet.htm">_ExcelHorizontalAlignSet()</a>, <a href="libfunctions/_ExcelFontSetProperties.htm">_ExcelFontSetProperties()</a>, <a href="libfunctions/_ExcelBookAttach.htm">_ExcelBookAttach()</a></li>
+		<li>Added: <a href="libfunctions/_WinAPI_SetEndOfFile.htm">_WinAPI_SetEndOfFile()</a>, <a href="libfunctions/_WinAPI_SetFilePointer.htm">_WinAPI_SetFilePointer()</a></li>
+		<li>Added: Missing FrameConstants.au3</li>
+		<li>Added: Excel UDFs</li>
+		<li>Added: <a href="libfunctions/_Timer_GetIdleTime.htm">_Timer_GetIdleTime()</a>, <a href="libfunctions/_WinAPI_GetWindowPlacement.htm">_WinAPI_GetWindowPlacement()</a>, <a href="libfunctions/_WinAPI_SetWindowPlacement.htm">_WinAPI_SetWindowPlacement()</a></li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/332">#332</a>: Remarks to <a href="libfunctions/_GUICtrlStatusBar_Create.htm">_GUICtrlStatusBar_Create()</a></li>
+		<li>Added <a href="http://www.autoitscript.com/trac/autoit/ticket/275">#275</a>: <a href="libfunctions/_GDIPlus_GraphicsFillPolygon.htm">_GDIPlus_GraphicsFillPolygon()</a></li>
+		<li>Added: <a href="libfunctions/_GUICtrlTab_ClickTab.htm">_GUICtrlTab_ClickTab()</a></li>
+		<li>Added: <a href="libfunctions/_GUICtrlComboBoxEx_GetUnicode.htm">_GUICtrlComboBoxEx_GetUnicode()</a>, <a href="libfunctions/_GUICtrlComboBoxEx_SetUnicode.htm">_GUICtrlComboBoxEx_SetUnicode()</a></li>
+	</ul>
+	<ul>
+		<li>Removed: _StringSplit, no longer needed</li>
+	</ul>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/693">#693</a>: <a href="libfunctions/_DateTimeFormat.htm">_DateTimeFormat()</a> time format</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/701">#701</a>: <a href="libfunctions/_GUICtrlListView_ClickItem.htm">_GUICtrlListView_ClickItem()</a> Clicks in the wrong place when $fMove = True</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/700">#700</a>: <a href="libfunctions/_GUICtrlTreeView_ClickItem.htm">_GUICtrlTreeView_ClickItem()</a> Clicks in the wrong place when $fMove = True</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/703">#703</a>: <a href="libfunctions/_GUICtrlListBox_ClickItem.htm">_GUICtrlListBox_ClickItem()</a> Clicks in the wrong place when $fMove = True</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/705">#705</a>: <a href="libfunctions/_GUICtrlToolbar_ClickButton.htm">_GUICtrlToolbar_ClickButton()</a> Clicks in the wrong place when $fMove = True</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/707">#707</a>: <a href="libfunctions/_GUICtrlMonthCal_Create.htm">_GUICtrlMonthCal_Create()</a> width and height</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/674">#674</a>: <a href="libfunctions/_GUICtrlTab_ClickTab.htm">_GUICtrlTab_ClickTab()</a> Clicks in the wrong place when $fMove = True</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/610">#610</a>: <a href="libfunctions/_WinAPI_CreateFile.htm">_WinAPI_CreateFile()</a> wrong return value upon failure</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/619">#619</a>: <a href="libfunctions/_GUICtrlListView_SetItemSelected.htm">_GUICtrlListView_SetItemSelected()</a> memory allocation</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/617">#617</a>: corrections to six GDI+ ImageGet help file examples</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/621">#621</a>: _StringAddThousandsSep don't work with negative number</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/635">#635</a>: <a href="libfunctions/_GUICtrlTab_ClickTab.htm">_GUICtrlTab_ClickTab()</a> docs list unused $fPopupScan parameter</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/650">#650</a>: Missing BorderConstants.au3</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/656">#656</a>: <a href="libfunctions/_FileCountLines.htm">_FileCountLines()</a> returns 0 if file only contains 1 line</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/600">#600</a>: <a href="libfunctions/_ArraySearch.htm">_ArraySearch()</a> fails with 2D array.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/603">#603</a>: <a href="libfunctions/_FileReadToArray.htm">_FileReadToArray()</a> does not return an array if the file contains only a single line of text.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/495">#495</a>: <a href="libfunctions/_GUICtrlTreeView_GetTree.htm">_GUICtrlTreeView_GetTree()</a> returns only 1 parent</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/503">#503</a>: <a href="libfunctions/_Date_Time_FileTimeToLocalFileTime.htm">_Date_Time_FileTimeToLocalFileTime()</a> example</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/510">#510</a>: <a href="libfunctions/_GUICtrlListView_ClickItem.htm">_GUICtrlListView_ClickItem()</a>: If columns inside listview exceed visible area, clicks outside of the control</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/500">#500</a>: <a href="libfunctions/_ChooseColor.htm">_ChooseColor()</a> run on 64bit</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/517">#517</a>: WinAPI UDF - bad error checking after <a href="functions/DllCall.htm">DllCall()</a></li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/533">#533</a>: Array functions dimension check</li>
+		<li>Fixed: various Timer Functions</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/506">#506</a>: <a href="libfunctions/_FileCountLines.htm">_FileCountLines()</a> deal with all common line-end-chars</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/485">#485</a>: WinAPI missing related links in helpfile</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/571">#571</a>: return value doc for <a href="libfunctions/_GUICtrlListBox_FindString.htm">_GUICtrlListBox_FindString()</a>, <a href="libfunctions/_GUICtrlListBox_GetAnchorIndex.htm">_GUICtrlListBox_GetAnchorIndex()</a> and <a href="libfunctions/_GUICtrlListBox_GetText.htm">_GUICtrlListBox_GetText()</a></li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/586">#586</a>: <a href="libfunctions/_GUICtrlListView_SetGroupInfo.htm">_GUICtrlListView_SetGroupInfo()</a> destroyed group ID's.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/516">#516</a>: <a href="libfunctions/_ChooseFont.htm">_ChooseFont()</a> run on 64bit</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/595">#595</a>: <a href="libfunctions/_WinAPI_SetWindowsHookEx.htm">_WinAPI_SetWindowsHookEx()</a> help file description of $WH_KEYBOARD_LL</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/465">#465</a>: <a href="libfunctions/_DateTimeSplit.htm">_DateTimeSplit()</a> if seconds omitted defaulted to -1, now defaults to 0</li>
+		<li>Fixed: Excel Examples</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/422">#422</a>: <a href="libfunctions/_GDIPlus_GraphicsSetSmoothingMode.htm">_GDIPlus_GraphicsSetSmoothingMode()</a> $iSmooth accepts only 0 - 4, doc updated</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/388">#388</a>: <a href="libfunctions/_GUICtrlToolbar_SetButtonSize.htm">_GUICtrlToolbar_SetButtonSize()</a> Example</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/400">#400</a>: SQLite.dll.au3 @ProcessorArch replaced with <a href="macros.htm#@OSArch">@OSArch</a></li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/390">#390</a>: _viPrintf replaced return type</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/371">#371</a>: <a href="libfunctions/_GDIPlus_Startup.htm">_GDIPlus_Startup()</a> return value</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/368">#368</a>: <a href="libfunctions/_ArrayToClip.htm">_ArrayToClip()</a> return value</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/361">#361</a>, <a href="http://www.autoitscript.com/trac/autoit/ticket/362">#362</a>: <a href="libfunctions/_GUICtrlListView_InsertItem.htm">_GUICtrlListView_InsertItem()</a> doc</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/285">#285</a>: <a href="libfunctions/_ChooseColor.htm">_ChooseColor()</a> Example</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/299">#299</a>: <a href="libfunctions/_GUICtrlTab_SetItemText.htm">_GUICtrlTab_SetItemText()</a> buffer length for Unicode</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/292">#292</a>: <a href="libfunctions/_EventLog__Clear.htm">_EventLog__Clear()</a> not clearing log when backup parameter is empty</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/258">#258</a>: <a href="libfunctions/_ClipBoard_GetData.htm">_ClipBoard_GetData()</a></li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/294">#294</a>: <a href="libfunctions/_FileReadToArray.htm">_FileReadToArray()</a> where the file contains no <a href="macros.htm#@LF">@LF</a></li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/303">#303</a>: Clock.au3 in Examples\GUI\Advanced</li>
+		<li>Fixed: <a href="libfunctions/_GUICtrlListView_SetItemEx.htm">_GUICtrlListView_SetItemEx()</a> text buffer</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/320">#320</a>: <a href="libfunctions/_WinNet_EnumResource.htm">_WinNet_EnumResource()</a> struct pointers</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/321">#321</a>: <a href="libfunctions/_GUICtrlStatusBar_GetText.htm">_GUICtrlStatusBar_GetText()</a> buffer length for Unicode</li>
+	</ul>
+	<ul>
+		<li>Changed: StringAddThousandsSep params in regards to <a href="http://www.autoitscript.com/trac/autoit/ticket/442">#442</a></li>
+		<li>Changed <a href="http://www.autoitscript.com/trac/autoit/ticket/733">#733</a>: Doc for <a href="libfunctions/_GUICtrlButton_SetImageList.htm">_GUICtrlButton_SetImageList()</a></li>
+		<li>Changed: _SQLite -&gt; 3.6.7</li>
+		<li>Changed <a href="http://www.autoitscript.com/trac/autoit/ticket/442">#442</a>: _StringAddThousandsSep() allows for regional settings</li>
+		<li>Changed <a href="http://www.autoitscript.com/trac/autoit/ticket/290">#290</a>: <a href="libfunctions/_GDIPlus_DrawImagePoints.htm">_GDIPlus_DrawImagePoints()</a></li>
+		<li>Changed: _Soundxxxx functions</li>
+		<li>Changed <a href="http://www.autoitscript.com/trac/autoit/ticket/599">#599</a>: <a href="libfunctions/_FileListToArray.htm">_FileListToArray()</a> speed optimization</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.12.1 (12th June, 2008) (Release)</strong></p>
+	<p><strong>AutoIt:</strong></p>
+	<ul>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/309">#309</a>: <a href="functions/RunAs.htm">RunAs()</a> and <a href="functions/RunAsWait.htm">RunAsWait()</a> now use <a href="macros.htm#@SystemDir">@SystemDir</a> as the working directory instead of <a href="macros.htm#@WorkingDir">@WorkingDir</a> when a user-supplied working directory is not specified.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/325">#325</a>: contextmenuitem not firing events.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/282">#282</a>: Icon transparency refresh when on tab regression.</li>
+		<li>Fixed <a href="http://www.autoitscript.com/trac/autoit/ticket/360">#360</a>: <a href="functions/RunAs.htm">RunAs()</a> under Windows 2000.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.12.0 (16th May, 2008) (Release)</strong></p>
+	<p><strong>AutoIt:</strong></p>
+	<ul>
+		<li>Removed: Unnecessary optional parameter from <a href="functions/ProcessClose.htm">ProcessClose()</a>.</li>
+		<li>Removed: RunAsSet().  (Replaced with <a href="functions/RunAs.htm">RunAs()</a> and <a href="functions/RunAsWait.htm">RunAsWait())</a></li>
+		<li>Removed: RunErrorsFatal option ( <a href="functions/Opt.htm">Opt()</a> ).</li>
+		<li>Removed: ColorMode option ( <a href="functions/Opt.htm">Opt()</a> ).</li>
+	</ul>
+	<ul>
+		<li>Changed: @Unicode renamed in @AutoItUnicode. @Unicode is an alias for now. It will be removed &gt; 3.2.14.0</li>
+		<li>Changed: The behavior of <a href="functions/StdoutRead.htm">StdoutRead()</a>, <a href="functions/StderrRead.htm">StderrRead()</a>, <a href="functions/StdinWrite.htm">StdinWrite()</a> and <a href="functions/ConsoleRead.htm">ConsoleRead()</a> has been changed.</li>
+		<li>Changed: PCRE regular expression engine updated to 7.6.</li>
+		<li>Changed: AutoIt internet functions (e.g. <a href="functions/InetGet.htm">InetGet())</a> now use "AutoIt" as a user-agent.  Previously using blank</li>
+		<li>which was blocked by many websites.</li>
+		<li>Changed: <a href="functions/ControlClick.htm">ControlClick()</a> now accepts the same mouse buttons as <a href="functions/MouseClick.htm">MouseClick()</a> - left/right/middle/primary/secondary/main/menu.</li>
+		<li>Changed: Maximum controls in a GUI window 4093 -&gt; 65532.</li>
+		<li>Changed: <a href="macros.htm#@OSVersion">@OSVersion</a> can now return "WIN_2008" for Windows Server 2008.</li>
+	</ul>
+	<ul>
+		<li>Added: <a href="functions/RunAs.htm">RunAs()</a>, <a href="functions/RunAsWait.htm">RunAsWait()</a>.</li>
+		<li>Added: <a href="functions/GUISetAccelerators.htm">GUISetAccelerators()</a>.</li>
+		<li>Added: REGEXPCLASS in Advanced Window and control definitions.</li>
+		<li>Added: X, Y, W, H in advanced window/control definitions.</li>
+		<li>Added: <a href="functions/DllCall.htm">DllCall()</a> new types int_ptr, uint_ptr, long_ptr, ulong_ptr. Special types that change size on x86/x64.</li>
+		<li>Added: "REG_QWORD" type for <a href="functions/RegWrite.htm">RegWrite()</a>.</li>
+		<li>Added: <a href="functions/HotKeySet.htm">HotKeySet()</a> modified to work with the {} notation.</li>
+		<li>Added: FileReadLine( ,-1) read last line.</li>
+		<li>Added: Std I/O redirection works with RunAs...().</li>
+		<li>Added: Std I/O merged flag for using the same stream for stdout/stderr.</li>
+		<li>Added: Std I/O supports binary data.</li>
+		<li>Added: <a href="functions/ConsoleWrite.htm">ConsoleWrite()</a>/<a href="functions/ConsoleWriteError.htm">ConsoleWriteError()</a> now return the amount of data written.</li>
+		<li>Added: Remarks in <a href="functions/Run.htm">Run()</a> about how to close streams/release resources associated with STDIO.</li>
+		<li>Added: <a href="functions/StdioClose.htm">StdioClose()</a> function to force STDIO data closed for a process.</li>
+		<li>Added: <a href="functions/ProcessClose.htm">ProcessClose()</a> now closes processes started by other users.</li>
+		<li>Added: <a href="functions/ProcessWaitClose.htm">ProcessWaitClose()</a> returns exitcode in <a href="macros.htm#@extended">@extended</a></li>
+		<li>Added: Pixel...() can specified a window handle as last parameter.</li>
+		<li>Added: "start" and "count" parameters added to <a href="functions/StringInStr.htm">StringInStr()</a>.</li>
+		<li>Added: <a href="functions/GUICtrlSetDefColor.htm">GUICtrlSetDefColor()</a>, <a href="functions/GUICtrlSetDefBkColor.htm">GUICtrlSetDefBkColor()</a>.</li>
+		<li>Added: Added parent window parameter to <a href="functions/MsgBox.htm">MsgBox()</a>, <a href="functions/FileSelectFolder.htm">FileSelectFolder()</a>, <a href="functions/FileOpenDialog.htm">FileOpenDialog()</a>, <a href="functions/FileSaveDialog.htm">FileSaveDialog()</a>.</li>
+	</ul>
+	<ul>
+		<li>Fixed: <a href="functions/DllCall.htm">DllCall()</a> setting wrong <a href="macros.htm#@error">@error</a> values.</li>
+		<li>Fixed: <a href="functions/BlockInput.htm">BlockInput()</a> returns errors.</li>
+		<li>Fixed: <a href="functions/WinWaitActive.htm">WinWaitActive()</a> not matching (more frequent with Windows Vista).</li>
+		<li>Fixed: GUICtrlSetState($GUI_SHOW) on hidden radio on an active tab.</li>
+		<li>Fixed: SciTE Lite not installed in the AutoIt Choosen release dir.</li>
+		<li>Fixed: <a href="functions/WinMove.htm">WinMove()</a> with Speed = 0 crash the script.</li>
+		<li>Fixed: Mysterious return value of 1 when no explicit value was set.</li>
+		<li>Fixed: <a href="functions/ControlCommand.htm">ControlCommand()</a>, "GetLineCount"</li>
+		<li>Fixed: <a href="libfunctions/_FileListToArray.htm">_FileListToArray()</a> when using root drive dir as c:\ under Win9x.</li>
+		<li>Fixed: TraySetState(4) flashing tray icon for Windows Vista.</li>
+		<li>Fixed: <a href="functions/ProcessExists.htm">ProcessExists()</a> wrong return.</li>
+		<li>Fixed: <a href="functions/StringRegExp.htm">StringRegExp()</a> crashing under Win95.</li>
+		<li>Fixed: Handle leak when using <a href="functions/Run.htm">Run()</a> with I/O redirection.</li>
+		<li>Fixed: Disabled input control background on Tab.</li>
+		<li>Fixed: <a href="functions/GUICtrlDelete.htm">GUICtrlDelete()</a> of a tab if two GUI windows are used.</li>
+		<li>Fixed: AutoIt crash in <a href="functions/Random.htm">Random()</a> when range exceeds 2^31.</li>
+		<li>Fixed: #include parsing error detection.</li>
+		<li>Fixed: Array entry passed ByRef to a UDF.</li>
+		<li>Fixed: <a href="functions/FileSetTime.htm">FileSetTime()</a> erronously rounds UP on non NTFS partition.</li>
+		<li>Fixed: STDIO redirection sometimes failed on Windows 9x.</li>
+		<li>Fixed: <a href="functions/IniReadSectionNames.htm">IniReadSectionNames()</a> returning incorrect number of sections under Win9x.</li>
+		<li>Fixed: AutoIt tray icon removal on script exiting.</li>
+		<li>Fixed: AutoIt crash when removing <a href="functions/ObjEvent.htm">ObjEvent()</a> object.</li>
+		<li>Fixed: <a href="functions/ObjEvent.htm">ObjEvent()</a> handler can destroy return of AutoIt Function : as WinWait("title") can return 0.</li>
+		<li>Fixed: <a href="functions/DirMove.htm">DirMove()</a> on different volume.</li>
+		<li>Fixed: Crash with <a href="functions/RegRead.htm">RegRead()</a> and REG_MULTI_SZ on x64.</li>
+		<li>Fixed: GuiCtrlListView() behind BG Picture. Doc updated.</li>
+		<li>Fixed: Various Edit control focus and DefPushButton issues.</li>
+		<li>Fixed: <a href="functions/ControlTreeView.htm">ControlTreeView()</a> returning <a href="macros.htm#@error">@error</a>=1 on success.</li>
+		<li>Fixed: COM objects could lose numeric precision.</li>
+		<li>Fixed: <a href="functions/StringReplace.htm">StringReplace()</a> with start float number.</li>
+		<li>Fixed: <a href="functions/ControlCommand.htm">ControlCommand()</a> "SelectString" wrong selection.</li>
+		<li>Fixed: <a href="functions/StringSplit.htm">StringSplit()</a> flag=1 delimiters not case sensitive.</li>
+		<li>Fixed: In advanced Window descriptions only semi-colon must be escaped.</li>
+		<li>Fixed: <a href="functions/ObjGet.htm">ObjGet()</a> memory leak.</li>
+		<li>Fixed: Modified AutoUpdateIt.au3 to work under x64.</li>
+		<li>Fixed: Resizing GUI before <a href="functions/GUISetState.htm">GUISetState()</a>.</li>
+		<li>Fixed: Radio events fired when GUI reactivated.</li>
+		<li>Fixed: <a href="functions/GUICtrlDelete.htm">GUICtrlDelete()</a> on contextMenuItem.</li>
+		<li>Fixed: An attempt to <a href="functions/FileDelete.htm">FileDelete()</a> a file that was just executed with <a href="functions/RunWait.htm">RunWait()</a> would sometimes fail.</li>
+		<li>Fixed: GUI performance problem when creating a large number of windows.</li>
+		<li>Fixed: <a href="functions/GUIGetCursorInfo.htm">GUIGetCursorInfo()</a> with swapped mouse buttons.</li>
+		<li>Fixed: Random(Min,Max,1). Previously this would never actually return Max,</li>
+		<li>so if Max was artificially incremented by one the script will now need to be changed.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>AutoItX:</strong></p>
+	<ul>
+		<li>Added: <a href="functions/ControlTreeView.htm">ControlTreeView()</a>.</li>
+		<li>Fixed: <a href="functions/ControlListView.htm">ControlListView()</a> for native DLL version.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>Aut2Exe:</strong></p>
+	<ul>
+		<li>Added: Option to compile scripts as console applications.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>Au3Info:</strong></p>
+	<ul>
+		<li>Changed: Controls are always highlighted when using the finder tool.</li>
+		<li>Changed: Controls are not highlighted by default.</li>
+		<li>Changed: Control description gives the advanced version of class and instance.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>SciTE "lite":</strong></p>
+	<ul>
+		<li>Updated the source to version 1.76</li>
+		<li>Added Save Dialog extension.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>UDFs:</strong></p>
+	<ul>
+		<li>See the script breaking changes page.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.10.0 (25th November, 2007) (Release)</strong></p>
+	<ul>
+		<li>Changed: <a href="functions/DllCall.htm">DllCall()</a> new method of passing types by reference using *.</li>
+		<li>Changed: <a href="functions/DllCall.htm">DllCall()</a>: short_ptr, long_ptr, int_ptr types deprecated.  Use short*, long* and int* respectively.</li>
+		<li>Changed: Limits on <a href="functions/Execute.htm">Execute()</a> removed.</li>
+	</ul>
+	<ul>
+		<li>Changed: PCRE regular expression engine updated to 7.4.</li>
+	</ul>
+	<ul>
+		<li>Added: 64bit (x64) versions of AutoIt, Aut2Exe, Au3Info and AutoItX.</li>
+		<li>Added: <a href="functions/DllCallbackRegister.htm">DllCallbackRegister()</a>, <a href="functions/DllCallbackGetPtr.htm">DllCallbackGetPtr()</a> and <a href="functions/DllCallbackFree.htm">DllCallbackFree()</a></li>
+		<li>Added: <a href="functions/DllCall.htm">DllCall()</a> now accept doubles, int64, uint64, wparam and lparam types.</li>
+		<li>Added: <a href="functions/SendKeepActive.htm">SendKeepActive()</a>.</li>
+		<li>Added: <a href="functions/ControlTreeView.htm">ControlTreeView()</a>.</li>
+		<li>Added: <a href="functions/ProcessGetStats.htm">ProcessGetStats()</a>.</li>
+		<li>Added: <a href="functions/VarGetType.htm">VarGetType()</a>.</li>
+		<li>Added: <a href="macros.htm#@AutoItX64">@AutoItX64</a> macro.</li>
+		<li>Added: Au3Info : Handle info for windows and controls.</li>
+		<li>Added: <a href="functions/DllStructCreate.htm">DllStructCreate()</a> added "align" keyword to set structure alignment.</li>
+	</ul>
+	<ul>
+		<li>Fixed: Control...() functions using CLASS and TEXT together sometimes incorrect.</li>
+		<li>Fixed: Control...() functions using CLASSNN sometimes incorrect.</li>
+		<li>Fixed: Windows Vista taskbar previews causing problems with windows matching.</li>
+		<li>Fixed: $var = $var was not giving an error when $var didn't already exist.</li>
+		<li>Fixed: <a href="functions/GUICtrlSetImage.htm">GUICtrlSetImage()</a> sizing regression from 3.2.4.9.</li>
+		<li>Fixed: <a href="functions/GUICtrlCreateListView.htm">GUICtrlCreateListView()</a> with no column.</li>
+		<li>Fixed: _GUICtrlListViewInsertColumn() after _GUICtrlListViewDeleteColumn() of the first column of a ListView control.</li>
+		<li>Fixed: Extra notification on colored button.</li>
+		<li>Fixed: <a href="functions/IniReadSectionNames.htm">IniReadSectionNames()</a> for [] sections.</li>
+		<li>Fixed: Opt("WinTitleMatchMode", Default) fatal error.</li>
+		<li>Fixed: <a href="functions/GUICtrlSetStyle.htm">GUICtrlSetStyle()</a> with $ES_READONLY bad $WS_TABSTOP.</li>
+		<li>Fixed: AutoIt Crash on exit if Win...() used with a Title being a COM object.</li>
+		<li>Fixed: <a href="functions/ProcessExists.htm">ProcessExists()</a> on service process under Win2K.</li>
+		<li>Fixed: DefPushButton behavior.</li>
+		<li>Fixed: ControlCommand(SelectString) order selection.</li>
+		<li>Fixed: Array cannot have 2^24 entries.</li>
+		<li>Fixed: GuiCreateMenu() on a windows without title and without client area.</li>
+		<li>Fixed: <a href="functions/WinWaitActive.htm">WinWaitActive()</a> sometimes failing after a <a href="functions/WinActivate.htm">WinActivate()</a>.</li>
+		<li>Fixed: <a href="libfunctions/_SQLite_SQLiteExe.htm">_SQLite_SQLiteExe()</a> referencing by default "Extras\SQLite\SQlite3.exe".</li>
+		<li>Fixed: _Sound...() when refering to a file with "!" characters.</li>
+		<li>Fixed: Looping <a href="functions/GUIRegisterMsg.htm">GUIRegisterMsg()</a> doesn't unregister.</li>
+		<li>Fixed: Focus on ES_READONLY edit control.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.8.1 (10th September, 2007) (Release)</strong></p>
+	<ul>
+		<li>Fixed: Possible crash with <a href="functions/StringRegExp.htm">StringRegExp()</a>.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.8.0 (8th September, 2007) (Release)</strong></p>
+	<ul>
+		<li>Changed: General speed improvements (currently up to 24% in some cases compared to 3.2.6.0).</li>
+		<li>Changed: PCRE regular expression engine updated to 7.3.</li>
+		<li>Changed: Recursion-based code limits relaxed.</li>
+	</ul>
+	<ul>
+		<li>Added: wchar type added to <a href="functions/DllStructCreate.htm">DllStructCreate()</a>.</li>
+		<li>Added: <a href="functions/WinMove.htm">WinMove()</a> speed parameter.</li>
+	</ul>
+	<ul>
+		<li>Fixed: Crash on AutoIt exit if <a href="functions/TrayCreateItem.htm">TrayCreateItem()</a> is not deleted.</li>
+		<li>Fixed: AutoIt crash on bad parameter when calling <a href="functions/TrayCreateMenu.htm">TrayCreateMenu()</a></li>
+		<li>Fixed: Character positions used in <a href="functions/StringRegExp.htm">StringRegExp()</a> not correct for characters &gt; 127 (accents, non-Western)</li>
+		<li>Fixed: ProcessExist() under Windows 9x.</li>
+		<li>Fixed: GUISetState(<a href="macros.htm#@SW_DISABLE">@SW_DISABLE</a>) not disabling keyboard input.</li>
+		<li>Fixed: Sometimes AutoIt crashes on <a href="functions/DllStructGetData.htm">DllStructGetData()</a> with char[] types.</li>
+		<li>Fixed: Au3Info restoring last settings at startup.</li>
+		<li>Fixed: Better handling of notifications when using colored buttons.</li>
+		<li>Fixed: <a href="functions/ControlGetText.htm">ControlGetText()</a> crash on SciTE windows.</li>
+		<li>Fixed: $LVSCW_AUTOSIZE column truncates display string.</li>
+		<li>Fixed: Incorrect listview creation with <a href="functions/GUICtrlCreateListView.htm">GUICtrlCreateListView()</a>.</li>
+		<li>Fixed: Memory leak when AutoIt needed to get long file name.</li>
+		<li>Fixed: ListviewItem not created after other child Window creation/deletion.</li>
+		<li>Fixed: <a href="functions/ControlGetFocus.htm">ControlGetFocus()</a> returning bad ClassNN values.</li>
+		<li>Fixed: Detection of invalid ContinueLoop statement.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.6.0 (25th August, 2007) (Release)</strong></p>
+	<ul>
+		<li>Changed: IconId in all GUI functions is now the same as <a href="functions/GUICtrlSetImage.htm">GUICtrlSetImage()</a>.</li>
+	</ul>
+	<ul>
+		<li>WARNING: Previous scripts using <a href="functions/GUICtrlSetImage.htm">GUICtrlSetImage()</a>, <a href="functions/GUISetIcon.htm">GUISetIcon()</a>, <a href="functions/TraySetIcon.htm">TraySetIcon()</a> and <a href="functions/TraySetPauseIcon.htm">TraySetPauseIcon()</a></li>
+		<li>may display a wrong Icon. To get the same icon "if nId &gt; 0 Then newId = - nId - 1".</li>
+	</ul>
+	<ul>
+		<li>Changed: AutoIt .a3x and compiled script format.  Exe2Aut will only decompile 3.2.5.1</li>
+		<li>and earlier files. No ExeAut utility is supplied for ongoing versions.</li>
+	</ul>
+	<ul>
+		<li>Changed: General performance improvements (currently around 30-40% over 3.2.4.9)</li>
+		<li>Changed: Limited Unicode support added in regular expressions.</li>
+		<li>Changed: <a href="functions/ControlMove.htm">ControlMove()</a> just resizing as <a href="functions/WinMove.htm">WinMove()</a> if X=Y=Default.</li>
+		<li>Changed: PCRE engine updated from 7.0 to 7.1</li>
+		<li>Changed: Suppress delay when speed=0 in <a href="functions/MouseMove.htm">MouseMove()</a>.</li>
+	</ul>
+	<ul>
+		<li>Added: <a href="functions/GUIGetStyle.htm">GUIGetStyle()</a>.</li>
+		<li>Added: byte and ubyte type to <a href="functions/DllCall.htm">DllCall()</a>.</li>
+		<li>Added: ClassnameNN in control and summary info in Au3Info.</li>
+		<li>Added: Float type to DllCall.</li>
+		<li>Added: AU3Check v1.54.8 support for both "#AutoIt3Wrapper_plugin_funcs" and "#Compiler_plugin_funcs".</li>
+		<li>Added: Extra parameter in <a href="functions/ProcessClose.htm">ProcessClose()</a> to close Stream handles.</li>
+	</ul>
+	<ul>
+		<li>Fixed: AutoIt crash on WinWait("","text") when a SciTE is open.</li>
+		<li>Fixed: Some crashes on Chinese systems during Unicode/ANSI conversions.</li>
+		<li>Fixed: Aut2Exe crashing on Chinese systems when running in ANSI.</li>
+		<li>Fixed: Wrong Notification on {ENTER} after clicking on a listviewItem.</li>
+		<li>Fixed: Wrong resetting of image on listviewitems if image set on the listview.</li>
+		<li>Fixed: Resizing of listview control.</li>
+		<li>Fixed: <a href="macros.htm#@error">@error</a> not set on bad <a href="functions/WinGetPos.htm">WinGetPos()</a> return.</li>
+		<li>Fixed: LVM_EDITLABEL hogging cpu.</li>
+		<li>Fixed: AutoIt (non UNICODE version) crash with some COM objects.</li>
+		<li>Fixed: <a href="functions/GUISetState.htm">GUISetState()</a> on GUI with W=0 or H=0.</li>
+		<li>Fixed: GUI control Tip not reappearing after a click or timeout.</li>
+		<li>Fixed: GUI controls not at the right position if a Control menu is in use.</li>
+		<li>Fixed: <a href="functions/EnvUpdate.htm">EnvUpdate()</a> in UNICODE AutoIt version not working since 3.2.3.3.</li>
+		<li>Fixed: FileRead(..., count) returning count-1 chars.</li>
+		<li>Fixed: Unicode filenames in <a href="functions/FileInstall.htm">FileInstall()</a>.</li>
+		<li>Fixed: LVS_EX_HEADERDRAGDROP extendedstyle.</li>
+		<li>Fixed: UpDown control shows through tabbed pages.</li>
+		<li>Fixed: GUICtrlSetState on UPDOWN control without changing the state.</li>
+		<li>Fixed: <a href="functions/FileInstall.htm">FileInstall()</a> in compiled scripts causing GUI problems.</li>
+		<li>Fixed: <a href="functions/ControlGetFocus.htm">ControlGetFocus()</a> on control not created with AutoIt GUI.</li>
+		<li>Fixed: <a href="macros.htm#@AutoItPID">@AutoItPID</a> and ProcessList coherency under Win9x.</li>
+		<li>Fixed: GUICtrlSetResizing not returning error on non resizable control.</li>
+		<li>Fixed: Regression for ControlSend SHIFTDOWN/UP since 3.2.3.13.</li>
+		<li>Fixed: Drag and drop on a listview control after clicking on its header.</li>
+		<li>Fixed: Support "resource only" dlls for GUISetImage().</li>
+		<li>Fixed: Default minimum for <a href="functions/GUICtrlSetLimit.htm">GUICtrlSetLimit()</a> set to 0.</li>
+		<li>Fixed: Z order after <a href="functions/GUICtrlSetStyle.htm">GUICtrlSetStyle()</a> on edit or input control.</li>
+		<li>Fixed: <a href="functions/FileReadLine.htm">FileReadLine()</a> getting bad cached data when reading specific line numbers with file handles.</li>
+		<li>Fixed: Slight lag in <a href="functions/GUIGetMsg.htm">GUIGetMsg()</a> under certain circumstances.</li>
+		<li>Fixed: <a href="functions/StringReplace.htm">StringReplace()</a> and occurances parameter.</li>
+		<li>Fixed: <a href="functions/GUICtrlSetFont.htm">GUICtrlSetFont()</a> on Tab control.</li>
+		<li>Fixed: Leading blanks before #include cannot be compiled.</li>
+		<li>Fixed: Notification on ENTER on Colored button.</li>
+		<li>Fixed: <a href="functions/RegWrite.htm">RegWrite()</a> setting bad registry entry in certain circumstances.</li>
+		<li>Fixed: AutoIt hogging CPU when text MsgBox too big.</li>
+		<li>Fixed: <a href="functions/ControlSend.htm">ControlSend()</a> sometime to wrong control when using empty controlid.</li>
+		<li>Fixed: <a href="functions/ProcessExists.htm">ProcessExists()</a> under Win2K with processname &gt;15 chars.</li>
+		<li>Fixed: <a href="functions/Int.htm">Int()</a> with string comparison wrong match.</li>
+		<li>Fixed: <a href="functions/InetGetSize.htm">InetGetSize()</a> in unicode version returns 0.</li>
+		<li>Fixed: <a href="functions/GUICtrlCreateListView.htm">GUICtrlCreateListView()</a> with more than 254 columns.</li>
+		<li>Fixed: AutoIt Crash on recursive RegExp.</li>
+		<li>Fixed: <a href="functions/BitRotate.htm">BitRotate()</a> with left bit set.</li>
+		<li>Fixed: <a href="functions/FileMove.htm">FileMove()</a> returning 1 without any move.</li>
+		<li>Fixed: <a href="functions/FileRead.htm">FileRead()</a> returning Chr(0) in ANSI mode.</li>
+		<li>Fixed: Au3Info control coords relative to client.</li>
+		<li>Fixed: <a href="functions/StringInStr.htm">StringInStr()</a> not returning 0 when searching backward and search length greater than string.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.4.9 (25th May, 2007) (Release)</strong></p>
+	<ul>
+		<li>Added: <a href="functions/StringCompare.htm">StringCompare()</a></li>
+	</ul>
+	<ul>
+		<li>Fixed: Basic string comparisons were not working with locale as in previous versions.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.4.8 (23rd May, 2007) (Release)</strong></p>
+	<ul>
+		<li>Fixed: Errors with non-western codepages and ANSI format scripts.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.4.7 (22nd May, 2007) (Release)</strong></p>
+	<ul>
+		<li>Added: Aut2Exe options for forcing ANSI mode compilation (/ansi and /unicode)</li>
+		<li>Added: <a href="functions/StringToBinary.htm">StringToBinary()</a></li>
+		<li>Added: Additional unicode related options for <a href="functions/BinaryToString.htm">BinaryToString()</a></li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.4.6 (20th May, 2007) (Release)</strong></p>
+	<ul>
+		<li>Fixed: <a href="functions/StringReplace.htm">StringReplace()</a> and occurances parameter.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.4.5 (20th May, 2007) (Release)</strong></p>
+	<ul>
+		<li>Added: <a href="functions/BinaryToString.htm">BinaryToString()</a> for binary buffer to ANSI string quick conversions.</li>
+		<li>Added: @Unicode to show if AutoIt is being run in Unicode or ANSI mode.</li>
+	</ul>
+	<ul>
+		<li>Changed: <a href="functions/StringReplace.htm">StringReplace()</a> speeded up - a lot.</li>
+		<li>Changed: Au3Info is now resizable.</li>
+	</ul>
+	<ul>
+		<li>Fixed: Chr(0) now properly works with <a href="functions/Binary.htm">Binary()</a></li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.4.4 (17th May, 2007) (Release)</strong></p>
+	<ul>
+		<li>Fixed: Chr(0) now acting more sensible (now acts in a similar way to VBScript).</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.4.3 (17th May, 2007) (Release)</strong></p>
+	<ul>
+		<li>Fixed: <a href="functions/FileRead.htm">FileRead()</a> not working properly with unicode files.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.4.2 (15th May, 2007) (Release)</strong></p>
+	<ul>
+		<li>Changed: Au3Info graphical tweaks and Summary tab.</li>
+	</ul>
+	<ul>
+		<li>Fixed: <a href="functions/FileReadLine.htm">FileReadLine()</a> getting bad cached data when reading specific line numbers with file handles.</li>
+		<li>Fixed: Slight lag in <a href="functions/GUIGetMsg.htm">GUIGetMsg()</a> under certain circumstances.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.4.1 (13th May, 2007) (Release)</strong></p>
+	<ul>
+		<li>Added: <a href="functions/ChrW.htm">ChrW()</a> and <a href="functions/AscW.htm">AscW()</a> for unicode operations.</li>
+	</ul>
+	<ul>
+		<li>Fixed: <a href="functions/Chr.htm">Chr()</a> and <a href="functions/Asc.htm">Asc()</a> for character codes 128-255 in unicode mode.</li>
+		<li>Fixed: Unicode BOM was not being written in file append modes if the file was empty.</li>
+		<li>Fixed: Error in Include\GuiCombo.au3 and Include\IE.au3.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.4.0 (10th May, 2007) (Release)</strong></p>
+	<p><strong>Big Changes:</strong></p>
+	<ul>
+		<li>AutoIt is now compiled for Unicode!  AutoIt3.exe is Unicode - AutoIt3A.exe is ANSI.</li>
+		<li>Au3Info tool rewritten.</li>
+		<li>Binary data functions completely rewritten - scripts using these functions will need to be changed.</li>
+	</ul>
+	<ul>
+	</ul>
+	<p><strong>Other Changes:</strong></p>
+	<ul>
+		<li>Added: New modes for <a href="functions/FileOpen.htm">FileOpen()</a> to force Unicode and binary operations.</li>
+		<li>Added: <a href="functions/BinaryLen.htm">BinaryLen()</a>, <a href="functions/BinaryMid.htm">BinaryMid()</a></li>
+		<li>Added: Colored GUI buttons.</li>
+		<li>Added: DllStruct...() can reference elements by name rather than index.</li>
+	</ul>
+	<ul>
+		<li>Changed: Removed restrictions on the maximum number of #include directives.</li>
+		<li>Changed: Removed restrictions on the maximum number of <a href="functions/DllOpen.htm">DllOpen()</a> handles.</li>
+		<li>Changed: Removed restrictions on the maximum number of open files.</li>
+		<li>Changed: Removed restrictions on the maximum number of hotkeys.</li>
+		<li>Changed: Performance improvements in <a href="functions/StringStripWS.htm">StringStripWS()</a>.</li>
+		<li>Changed: Binary data in variants are now treated as a special type, separate from normal strings.</li>
+		<li>Changed: BinaryString() renamed to <a href="functions/Binary.htm">Binary()</a></li>
+		<li>Changed: IsBinaryString() renamed to <a href="functions/IsBinary.htm">IsBinary()</a></li>
+		<li>Changed: <a href="functions/ControlClick.htm">ControlClick()</a> can now click a control at a certain position.</li>
+		<li>Changed: <a href="functions/ControlClick.htm">ControlClick()</a> can now properly simulate double-clicks.</li>
+		<li>Changed: <a href="functions/ControlClick.htm">ControlClick()</a> no longer forces the activation of the parent window (up to the user now).</li>
+		<li>Changed: <a href="functions/ControlClick.htm">ControlClick()</a> related coordinates added to Au3Info.</li>
+		<li>Changed: Improved the searches that can be done for windows/controls/instances.</li>
+		<li>Changed: From DEFAULT_QUALITY to PROOF_QUALITY for Change/Set Font functions.</li>
+		<li>Changed: x^y compatible with C99 standard.</li>
+	</ul>
+	<ul>
+		<li>Fixed: Possible crash when using <a href="functions/StringStripWS.htm">StringStripWS()</a>, flag 4 and empty strings.</li>
+		<li>Fixed: <a href="functions/GUICtrlSetLimit.htm">GUICtrlSetLimit()</a> for UpDown controls wher min = max.</li>
+		<li>Fixed: <a href="functions/GUICtrlSetTip.htm">GUICtrlSetTip()</a> not always working correctly.</li>
+		<li>Fixed: Slow GUI tab redrawing under Windows Vista fixed.</li>
+		<li>Fixed: HotKeySet bad notification.</li>
+		<li>Fixed: <a href="functions/FileGetAttrib.htm">FileGetAttrib()</a> on pagefile.sys.</li>
+		<li>Fixed: Invalid default parameter in <a href="functions/GUICtrlSetData.htm">GUICtrlSetData()</a> not detected.</li>
+		<li>Fixed: Assign does return error on array element.</li>
+		<li>Fixed: FileOpen("test.txt", 2+8) returning error.</li>
+		<li>Fixed: Error detection in Enum statement.</li>
+		<li>Fixed: Opt("WinTitleMatchMode").</li>
+		<li>Fixed: Stack corruption resulting from improper use of <a href="functions/DllCall.htm">DllCall()</a> now gracefully aborts the script instead of hard crashing.</li>
+		<li>Fixed: Crash when reading empty REG_MULTI_SZ.</li>
+		<li>Fixed: <a href="functions/Round.htm">Round()</a> not returning an integer.</li>
+		<li>Fixed: <a href="functions/ControlSend.htm">ControlSend()</a> to empty "" ctrl fixed for inactive window. Also shift state behavior.</li>
+		<li>Fixed: O^(-1).</li>
+		<li>Fixed: Non detection of illegal statement.</li>
+		<li>Fixed: HotKeySet("^{PAUSE]",... notification.</li>
+		<li>Fixed: {CTRLBREAK} -&gt;{BREAK} as ctrl is user responsability.</li>
+		<li>Fixed: $var = Default passed as parameter to Com object.</li>
+		<li>Fixed: Edit control would always have focus the first time the GUI was displayed even if it shouldn't.  This behavior also ignored $GUI_FOCUS.</li>
+		<li>Fixed: range value for seed Number in <a href="functions/SRandom.htm">SRandom()</a>.</li>
+		<li>Fixed: FileRead crash if no count in raw mode.</li>
+		<li>Fixed: Opt("WinTitleMatchMode", &lt;0) really matching case insensitive.</li>
+		<li>Fixed: FileSetAttrib/FileSetTime wrong setting.</li>
+		<li>Fixed: Execute/Call recursive overflow display error message.</li>
+		<li>Fixed: Aut2exe warning message if icon not found.</li>
+		<li>Fixed: <a href="functions/WinGetTitle.htm">WinGetTitle()</a> returns 1 on error.</li>
+		<li>Fixed: Memory leak on keyword variable deallocation.</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.2.0 (23rd December, 2006) (Release)</strong></p>
+	<ul>
+		<li>Added: <a href="functions/StringRegExp.htm">StringRegExp()</a> and <a href="functions/StringRegExpReplace.htm">StringRegExpReplace()</a> regular expression support (Perl compatible)</li>
+		<li>Added: Regular expression support for Window title matching.</li>
+		<li>Added: <a href="functions/ShellExecute.htm">ShellExecute()</a> and <a href="functions/ShellExecuteWait.htm">ShellExecuteWait()</a> functions.</li>
+		<li>Added: #RequireAdmin for UAC/Windows Vista</li>
+		<li>Added: Windows Vista help file entry.</li>
+		<li>Added: <a href="functions/GUICtrlSetState.htm">GUICtrlSetState()</a> $GUI_DROPNOTACCEPTED.</li>
+		<li>Added: $GUI_FOCUS, $GUINOFOCUS for listviewitem control.</li>
+		<li>Added: <a href="functions/IsDllStruct.htm">IsDllStruct()</a></li>
+		<li>Added: <a href="functions/SRandom.htm">SRandom()</a> to set seed for random number generation.</li>
+		<li>Added: WinTitleMatchMode for case insensitive matching.</li>
+		<li>Added: IconId can be reference by ordinal value if negative 1-based index is use.</li>
+		<li>Added: CompiledScript string file info for compiled script.</li>
+		<li>Added: Support &gt;32x32 icon from .exe/.dll in GUICtrlCreateIcon or GUICtrlSetImage.</li>
+		<li>Added: Expanded <a href="functions/GUICtrlSetTip.htm">GUICtrlSetTip()</a> to allow creation of tooltips with titles, icons and using the balloon tip style.</li>
+		<li>Added: Tooltip supports Default keyword.</li>
+		<li>Added: Remark added to <a href="libfunctions/_PathSplit.htm">_PathSplit()</a> mentioning that it does not accept command line strings, only paths.</li>
+		<li>Added: 2 UDF's to GUIStatusBar.au3.</li>
+		<li>Added: GUICtrlCreateIcon and GUICtrlSetImage can select in multiple icon file by name.</li>
+		<li>Added: <a href="macros.htm#@KBLayout">@KBLayout</a> to retrieve the current keyboard configuration.</li>
+		<li>Added: <a href="functions/ToolTip.htm">ToolTip()</a> option to ensure the tooltip is always displaying on a monitor.</li>
+		<li>Added: <a href="functions/IniWriteSection.htm">IniWriteSection()</a> function.</li>
+		<li>Added: <a href="macros.htm#@extended">@extended</a> error code on DriveMapAdd error.</li>
+		<li>Added: Listview Alternate coloring with $GUI_BKCOLOR_LV_ALTERNATE.</li>
+	</ul>
+	<ul>
+		<li>Removed: old WinShow, TimerStart and TimerStop functions.</li>
+	</ul>
+	<ul>
+		<li>Changed: Performance improvements (up to 100% on some scripts!).</li>
+		<li>Changed: <a href="macros.htm#@error">@error</a> set to WinAPI GetLastError() for <a href="functions/Run.htm">Run()</a>.</li>
+		<li>Changed: Small tweak to <a href="functions/Floor.htm">Floor()</a> to ensure it is not as susceptible to floating point precision errors.</li>
+		<li>Changed: Small tweak to <a href="functions/Ceiling.htm">Ceiling()</a> to ensure it is not as susceptible to floating point precision errors.</li>
+		<li>Changed: <a href="functions/PixelChecksum.htm">PixelChecksum()</a> is now over 30x faster.</li>
+		<li>Changed: <a href="functions/FileGetVersion.htm">FileGetVersion()</a> extra parameter to retrieve string file info.</li>
+	</ul>
+	<ul>
+		<li>Fixed: <a href="functions/MsgBox.htm">MsgBox()</a> timeout on Windows Vista.</li>
+		<li>Fixed: GUICtrlRead on listview control when sorted.</li>
+		<li>Fixed: <a href="macros.htm#@OSVersion">@OSVersion</a> on Windows 9x.</li>
+		<li>Fixed: <a href="functions/GUIGetCursorInfo.htm">GUIGetCursorInfo()</a> with Handle not retrieving mouse click info.</li>
+		<li>Fixed: <a href="functions/DllCall.htm">DllCall()</a> crashes when using uint, ushort.</li>
+		<li>Fixed: List control height when font size changes.</li>
+		<li>Fixed: <a href="functions/GUICtrlSetImage.htm">GUICtrlSetImage()</a> not testing icon on error.</li>
+		<li>Fixed: <a href="macros.htm#@ScriptDir">@ScriptDir</a> equal <a href="macros.htm#@WorkingDir">@WorkingDir</a> for rootdir (x:\).</li>
+		<li>Fixed: <a href="functions/GUIGetCursorInfo.htm">GUIGetCursorInfo()</a> (winhandle) when child not active.</li>
+		<li>Fixed: _StringAddComma().</li>
+		<li>Fixed: drag &amp; drop $GUI_EVENT_DROPPED notification on edit control.</li>
+		<li>Fixed: Coherency of type parameter for <a href="functions/DllCall.htm">DllCall()</a> and DLLSructCreate()</li>
+		<li>Fixed: Default keyword didn't always work correctly with COM objects.</li>
+		<li>Fixed: COM property write fails when using arguments</li>
+		<li>Fixed: Send/ControlSend for US international keyboard</li>
+		<li>Fixed: Send/ControlSend char&gt;=Chr(128) for english keyboards.</li>
+		<li>Fixed: COM property write fails when using arguments.</li>
+		<li>Fixed: <a href="functions/MsgBox.htm">MsgBox()</a> with task modal flag left GUI's disabled on timeout.</li>
+		<li>Fixed: Error reporting by messagebox even with /ErrorStdOut.</li>
+		<li>Fixed: GUICtrlSetImage default icon value for Icon Ctrl.</li>
+		<li>Fixed: <a href="functions/GUIRegisterMsg.htm">GUIRegisterMsg()</a> destroyed <a href="macros.htm#@error">@error</a>.</li>
+		<li>Fixed: $LVS_SORTASCENDING with GUICtrlSetImage icon gave bad display.</li>
+		<li>Fixed: Some Object Collections could not be parsed in one AutoIt statement.</li>
+		<li>Fixed: Bad screen updating of already unchecked radiobuttons.</li>
+		<li>Fixed: Tray icon tooltip not displaying the scriptname when compiled.</li>
+		<li>Fixed: UDP... return code on error.</li>
+		<li>Fixed: <a href="functions/UDPRecv.htm">UDPRecv()</a> crashed on bad parameter.</li>
+		<li>Fixed: COM was corrupting floating point values.</li>
+		<li>Fixed: GUICtrlSetState doc remarks about menu control.</li>
+		<li>Fixed: Refresh after a <a href="functions/GUICtrlSetBkColor.htm">GUICtrlSetBkColor()</a>.</li>
+		<li>Fixed: Crash on line beginning with ~  : "Unable to parse line".</li>
+		<li>Fixed: <a href="functions/IniReadSectionNames.htm">IniReadSectionNames()</a> returned bogus data in Windows 98 when the INI file was empty or did not exist.</li>
+		<li>Fixed: <a href="macros.htm#@Compiled">@Compiled</a> when the script is compiled.</li>
+		<li>Fixed: <a href="functions/Send.htm">Send()</a> to italian keyboard.</li>
+		<li>Fixed: <a href="functions/MouseMove.htm">MouseMove()</a> in secondary screen.</li>
+		<li>Fixed: <a href="functions/StringInStr.htm">StringInStr()</a> not converting to string search parameter.</li>
+		<li>Fixed: <a href="functions/Int.htm">Int()</a> of a binarystring.</li>
+		<li>Fixed: ControlSend sending() special characters.</li>
+		<li>Fixed: Crash in Au3exe with badly formed input file in <a href="functions/FileInstall.htm">FileInstall()</a>.</li>
+		<li>Fixed: Wrong execution of a compiled script containing <a href="functions/FileInstall.htm">FileInstall()</a> inside #CS-#CE.</li>
+		<li>Fixed: <a href="functions/FileInstall.htm">FileInstall()</a> referencing a file without any path will reference it from the ScriptDir to be coherent with the compiled script.</li>
+		<li>Fixed: Aut2exe crashed using cmdline with shortnames.</li>
+		<li>Fixed: Tooltip state (such as icon or title) was showing up on subsequent tooltips that didn't want those items.  This affected both <a href="functions/ToolTip.htm">ToolTip()</a> and <a href="functions/GUICtrlSetTip.htm">GUICtrlSetTip()</a>.</li>
+		<li>Fixed: <a href="functions/GUIRegisterMsg.htm">GUIRegisterMsg()</a> destroy <a href="macros.htm#@error">@error</a>.</li>
+		<li>Fixed: $LVS_SORTASCENDING with <a href="functions/GUICtrlSetImage.htm">GUICtrlSetImage()</a> icon bad display.</li>
+		<li>Fixed: Wrong default arguments for <a href="libfunctions/_ArrayToString.htm">_ArrayToString()</a>.</li>
+		<li>Fixed: Bad "#" instruction inhibit whole script.</li>
+		<li>Fixed: Installer SciTE bad link creation.</li>
+		<li>Fixed: Uninstaller include file removal</li>
+	</ul>
+	<br>
+	<p class="c4"><strong class="c3">3.2.0.1 (13th August, 2006) (Release)</strong></p>
+	<ul>
+		<li>Fixed: (Au3Info) Buffer overrun in control code.</li>
+		<li>Fixed: Exe2Aut.exe was missing its digital signature.</li>
+	</ul>
+</body>
+</html>

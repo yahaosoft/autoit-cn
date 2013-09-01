@@ -1,0 +1,38 @@
+###Method###
+WinGetClientSizeWidth
+
+###Description###
+Retrieves the size of a given window's client area.
+
+###Syntax###
+WinGetClientSizeWidth "title" [, "text"]
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to read.
+text
+	<b>Optional:</b> The text of the window to read.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the width of the window's client area
+Failure:	Returns numeric 1 and sets oAutoIt.error to 1 if windows is not found.
+@@End@@
+
+
+###Remarks###
+If the window is minimized, the returned width and height values are both zero.  However, WinGetClientSize works correctly on (non-minimized) hidden windows.  If the window title "Program Manager" is used, the function will return the size of the desktop.  WinGetClientSize("") matches the active window.  If multiple windows match the criteria, the most recently active window is used.
+
+
+###Related###
+WinGetPosX, WinGetPosY, WinMove
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+
+$width = oAutoIt.WinGetClientSizeWidth("")
+$height = oAutoIt.WinGetClientSizeHeight("")

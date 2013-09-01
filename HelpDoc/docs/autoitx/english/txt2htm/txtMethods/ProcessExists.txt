@@ -1,0 +1,37 @@
+###Method###
+ProcessExists
+
+###Description###
+Checks to see if a specified process exists.
+
+###Syntax###
+ProcessExists "process"
+
+
+###Parameters###
+@@ParamTable@@
+process
+	The name or PID of the process to check.
+@@End@@
+
+###ReturnValue###
+Success:  Returns the PID of the process.
+Failure:  Returns 0 if process does not exist.
+
+
+###Remarks###
+Process names are executables without the full path, e.g., "notepad.exe" or "winword.exe"
+PID is the unique number which identifies a Process.
+In order to work under Windows NT 4.0, ProcessExists requires the file PSAPI.DLL (included in the AutoIt installation directory).
+The process is polled approximately every 250 milliseconds.
+
+
+###Related###
+ProcessClose, ProcessWait, ProcessWaitClose, WinExists
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+If ProcessExists("notepad.exe") Then
+	WScript.Echo "Notepad is running."
+End If

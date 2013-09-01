@@ -1,0 +1,35 @@
+###Function###
+WinClose
+
+###Description###
+Closes a window.
+
+###Syntax###
+WinClose ( "title" [, "text"] )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title/hWnd/class of the window to close. See <a href="../intro/windowsadvanced.htm">Title special definition</a>.
+text
+	[optional] The text of the window to close.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0 if window is not found.
+@@End@@
+
+
+###Remarks###
+This function sends a close message to a window, the result depends on the window (it may ask to save data, etc.).  To force a window to close, use the <a href="WinKill.htm">WinKill()</a> function.  If multiple windows match the criteria, the window that was most recently active is closed.
+
+
+###Related###
+WinActivate, WinExists, WinKill, WinSetState, WinTitleMatchMode (Option), ProcessClose, WinMove
+
+
+###Example###
+@@IncludeExample@@

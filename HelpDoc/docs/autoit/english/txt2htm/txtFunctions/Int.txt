@@ -1,0 +1,41 @@
+###Function###
+Int
+
+###Description###
+Returns the integer (whole number) representation of an expression.
+
+###Syntax###
+Int ( expression [, flag = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+expression
+	An expression to convert into an integer.
+flag
+	[optional] Defines behavior.
+	Can be one of the following:
+	Default = the result is auto-sized integer. See remarks.
+	1 = the result is 32bit integer.
+	2 = the result is 64bit integer.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an integer.
+@@End@@
+
+
+###Remarks###
+Default behavior is that if the result is within range of 32bit integer then 32bit integer is returned. If not, 64bit integer is returned. Both signed.
+Fractional portions are truncated, so <a href="Int.htm">Int</a>(1.999999) returns 1
+<a href="Int.htm">Int</a>(0/0) returns -9223372036854775807, if you were wondering.
+This function makes minor corrects to floating point numbers to account for the imprecise nature of floating point numbers.  For example, the floating point expression 0.7 + 0.2 + 0.1 produces a floating point number that is not quite 1.0.  <a href="Int.htm">Int()</a> corrects for this anomaly, however, certain extremely rare circumstances may lead to <a href="Int.htm">Int()</a> returning an unexpected value (the odds of getting an unexpected value are less than if <a href="Int.htm">Int()</a> did not attempt any correction at all).
+
+
+###Related###
+Number, String, Round, HWnd, Binary, Ceiling, Floor, Ptr, Mod
+
+
+###Example###
+@@IncludeExample@@

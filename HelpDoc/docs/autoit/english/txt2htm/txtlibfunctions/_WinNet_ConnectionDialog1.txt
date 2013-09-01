@@ -1,0 +1,43 @@
+###User Defined Function###
+_WinNet_ConnectionDialog1
+
+###Description###
+Starts a general browsing dialog box for connecting to network resources
+
+###Syntax###
+#include <WinNet.au3>
+_WinNet_ConnectionDialog1 ( $hWnd [, $sRemoteName = "" [, $iFlags = 2]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the owner window for the dialog box
+$sRemoteName
+	[optional] Name of the network resource to connect to
+$iFlags
+	[optional] Dialog box options. Can be one or more of the following:
+	1 - Display a read-only path instead of allowing the user to type in a path
+	2 - Enter the most recently used paths into the combination box
+	4 - Do not show the restore the connection at logon checkbox
+	8 - Restore the connection at logon
+	16 - Do not restore the connection at logon
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the number of the connected device. The value is 1 for A:, 2 for B:, 3 for C: and so on. If the user made a deviceless connection, the value is –1.
+Failure:	Set @error
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_WinNet_ConnectionDialog
+
+
+###See Also###
+@@MsdnLink@@ WNetConnectionDialog1

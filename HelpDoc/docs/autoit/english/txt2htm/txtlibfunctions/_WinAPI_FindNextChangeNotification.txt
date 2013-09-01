@@ -1,0 +1,43 @@
+###User Defined Function###
+_WinAPI_FindNextChangeNotification
+
+###Description###
+Requests that the operating system signal a change notification handle the next time it detects an appropriate change.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_FindNextChangeNotification ( $hChange )
+
+
+###Parameters###
+@@ParamTable@@
+$hChange
+	A handle to a change notification handle created by the _WinAPI_FindFirstChangeNotification() function.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True.
+Failure 	False, call _WinAPI_GetLastError() to get extended error information
+@@End@@
+
+
+###Remarks###
+After the _WinAPI_FindNextChangeNotification() function returns successfully, the application can wait for
+notification that a change has occurred by using the _WinAPI_Wait... functions.
+
+The _WinAPI_FindNextChangeNotification() function should not be used more than once on the same handle without using
+one of the wait functions. An application may miss a change notification if it uses _WinAPI_FindNextChangeNotification()
+when there is a change request outstanding.
+
+
+###Related###
+_WinAPI_FindFirstChangeNotification
+
+
+###See Also###
+@@MsdnLink@@ FindNextChangeNotification
+
+
+###Example###
+@@IncludeExample@@

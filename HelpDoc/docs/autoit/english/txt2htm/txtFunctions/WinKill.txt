@@ -1,0 +1,32 @@
+###Function###
+WinKill
+
+###Description###
+Forces a window to close.
+
+###Syntax###
+WinKill ( "title" [, "text"] )
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title/hWnd/class of the window to close. See <a href="../intro/windowsadvanced.htm">Title special definition</a>.
+text
+	[optional] The text of the window to close.
+@@End@@
+
+###ReturnValue###
+None.  (Always returns 1 regardless of success.)
+
+
+###Remarks###
+The difference between this function and <a href="WinClose.htm">WinClose()</a> is that <a href="WinKill.htm">WinKill()</a> will forcibly terminate the window if it doesn't close quickly enough.  Consequently, a user might not have time to respond to dialogs prompting the user to save data.  Although <a href="WinKill.htm">WinKill()</a> can work on both minimized and hidden windows, some windows (notably explorer windows) can only be terminated using <a href="WinClose.htm">WinClose()</a>.
+
+
+###Related###
+WinActivate, WinClose, WinSetState, ProcessClose
+
+
+###Example###
+@@IncludeExample@@

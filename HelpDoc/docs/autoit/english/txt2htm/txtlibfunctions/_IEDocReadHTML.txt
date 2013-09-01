@@ -1,0 +1,36 @@
+###User Defined Function###
+_IEDocReadHTML
+
+###Description###
+Returns the full HTML source of a document.
+
+###Syntax###
+#include <IE.au3>
+_IEDocReadHTML ( ByRef $o_object )
+
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	Object variable of an InternetExplorer.Application, Window or Frame object
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns the HTML included in the &lt;HTML&gt; of the document, including the &lt;html&gt; and &lt;/html&gt; tags
+Failure:	Returns 0 and sets @error
+@error:	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
+@extended:	Contains invalid parameter number
+@@End@@
+
+
+###Remarks###
+This function returns the document source after any client-side modifications (e.g. by AutoIt or by client-side JavaScript).  It may therefore be different than what is shown by the browser View Source or by _INetGetSource().
+
+
+###Related###
+_IEDocWriteHTML, _IEBodyReadHTML, _INetGetSource, _IEDocInsertHTML, _IEDocInsertText
+
+
+###Example###
+@@IncludeExample@@

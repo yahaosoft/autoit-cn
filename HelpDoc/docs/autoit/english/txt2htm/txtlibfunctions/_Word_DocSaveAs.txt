@@ -1,0 +1,49 @@
+###User Defined Function###
+_Word_DocSaveAs
+
+###Description###
+Saves the specified Word document with a new name or format.
+
+###Syntax###
+#include <Word.au3>
+_Word_DocSaveAs ( $oDoc [, $sFileName = Default [, $iFileFormat = $WdFormatDocument [, $bReadOnlyRecommended = False [, $bAddToRecentFiles = True [, $sPassword = "" [, $sWritePassword = ""]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$oDoc
+	Word document object
+$sFileName
+	[optional] The full path name for the document (default = Current folder and current file name).
+	If the document has never been saved, the default name is used (for example, Doc1.doc)
+$iFileFormat
+	[optional] The format in which the document is saved. Can be any WdSaveFormat constant (default = $WdFormatDocument)
+$bReadOnlyRecommended
+	[optional] True to have Word suggest read-only status whenever the document is opened (default = False)
+$bAddToRecentFiles
+	[optional] True to add the document to the list of recently used files (default = True)
+$sPassword
+	[optional] A password string for opening the document (default = "")
+$sWritePassword
+	[optional] A password string for saving changes to the document (default = "")
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1
+Failure:	Returns 0 and sets @error
+@error:	1 - $oDoc is not an object
+	2 - Error occurred when saving the specified document. @extended is set to the COM error code
+@@End@@
+
+
+###Remarks###
+If a document with the specified file name already exists, the document is overwritten without the user being prompted first.
+
+
+###Related###
+_Word_DocSave
+
+
+###Example###
+@@IncludeExample@@

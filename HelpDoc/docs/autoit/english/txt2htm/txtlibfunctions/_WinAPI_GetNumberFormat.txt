@@ -1,0 +1,57 @@
+###User Defined Function###
+_WinAPI_GetNumberFormat
+
+###Description###
+Formats a number string as a number string customized for a locale specified by identifier.
+
+###Syntax###
+#include <WinAPILocale.au3>
+_WinAPI_GetNumberFormat ( $LCID, $sNumber [, $tNUMBERFMT = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$LCID
+	The locale identifier (LCID) that specifies the locale or one of the following predefined values.
+	$LOCALE_INVARIANT
+	$LOCALE_SYSTEM_DEFAULT
+	$LOCALE_USER_DEFAULT
+
+	Windows Vista or later
+	$LOCALE_CUSTOM_DEFAULT
+	$LOCALE_CUSTOM_UI_DEFAULT
+	$LOCALE_CUSTOM_UNSPECIFIED
+$sNumber
+	The string containing the number string to format. This string can only contain the following
+	characters. All other characters are invalid.
+
+	Characters "0" through "9".
+	A minus sign in the first character position if the number is a negative value.
+	One decimal point (dot) if the number is a floating-point value.
+$tNUMBERFMT
+	[optional] $tagNUMBERFMT structure that contains number formatting information. If this parameter is 0 (Default),
+	the function returns the string according to the number format for the specified locale.
+	You can use the _WinAPI_CreateNumberFormatInfo() function to create this structure.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The formatted number string.
+Failure 	Empty string, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+_WinAPI_CreateNumberFormatInfo
+
+
+###See Also###
+@@MsdnLink@@ GetNumberFormat
+
+
+###Example###
+@@IncludeExample@@

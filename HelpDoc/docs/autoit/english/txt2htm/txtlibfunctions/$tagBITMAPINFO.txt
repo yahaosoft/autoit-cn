@@ -1,0 +1,24 @@
+###Structure Name###
+$tagBITMAPINFO
+
+###Description###
+This structure defines the dimensions and color information of a Windows-based device-independent bitmap (DIB).
+
+###Syntax###
+Global Const $tagBITMAPINFO = $tagBITMAPINFOHEADER & ";dword biRGBQuad[1]"
+
+
+###Fields###
+@@ParamTable@@
+$tagBITMAPINFOHEADER
+	Contains information about dimensions of a bitmap.
+biRGBQuad
+	An array of tagRGBQUAD structures. The elements of the array that make up the color table.
+@@End@@
+
+###Remarks###
+This structure should not be used for declaration as the biRGBQuad field does not have the right dimension.
+It is provided just for documentation.
+
+Concatenation of a suitable sized array to $tagBITMAPINFOHEADER must be used.
+Take care of the right initialization of 'biSize' field.

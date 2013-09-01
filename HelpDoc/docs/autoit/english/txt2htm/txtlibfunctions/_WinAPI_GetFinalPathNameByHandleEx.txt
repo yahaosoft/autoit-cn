@@ -1,0 +1,47 @@
+###User Defined Function###
+_WinAPI_GetFinalPathNameByHandleEx
+
+###Description###
+Retrieves the final path of the specified file.
+
+###Syntax###
+#include <WinAPIFiles.au3>
+_WinAPI_GetFinalPathNameByHandleEx ( $hFile [, $iFlags = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hFile
+	Handle to a file or directory.
+$iFlags
+	[optional] The type of result to return.
+	This parameter can be combination of one $FILE_NAME_* and one $VOLUME_NAME_* values.
+	$FILE_NAME_NORMALIZED
+	$FILE_NAME_OPENED
+
+	$VOLUME_NAME_DOS
+	$VOLUME_NAME_GUID
+	$VOLUME_NAME_NONE
+	$VOLUME_NAME_NT
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The path of the file.
+Failure 	Sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+This function requires Windows Vista or later.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ GetFinalPathNameByHandle
+
+
+###Example###
+@@IncludeExample@@

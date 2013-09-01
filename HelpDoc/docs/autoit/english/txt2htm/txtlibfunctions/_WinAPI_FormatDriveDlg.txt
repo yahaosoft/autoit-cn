@@ -1,0 +1,48 @@
+###User Defined Function###
+_WinAPI_FormatDriveDlg
+
+###Description###
+Opens the Shell's Format dialog.
+
+###Syntax###
+#include <WinAPIDlg.au3>
+_WinAPI_FormatDriveDlg ( $sDrive [, $iOption = 0 [, $hParent = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$sDrive
+	The drive to format, in the format D:, E:, etc.
+$iOption
+	[optional] This parameter must be 0 or one of the following values that alter the default format options in the dialog.
+	$SHFMT_OPT_FULL (Default)
+	$SHFMT_OPT_QUICKFORMAT
+	$SHFMT_OPT_SYSONLY
+$hParent
+	[optional] Handle of the parent window of the dialog.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The format ID of the last successful format. The LOWORD of this value can be passed on subsequent calls as the fmtID parameter to repeat the last format.
+Failure 	0 and sets the @error flag to one of the following constant.
+	$SHFMT_ERROR
+	$SHFMT_CANCEL
+	$SHFMT_NOFORMAT
+@@End@@
+
+
+###Remarks###
+The format is controlled by the dialog interface. That is, the user must click the OK button to actually begin the
+format—the format cannot be started programmatically.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ SHFormatDrive
+
+
+###Example###
+@@IncludeExample@@

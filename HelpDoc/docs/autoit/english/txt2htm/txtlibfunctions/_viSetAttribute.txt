@@ -1,0 +1,82 @@
+###User Defined Function###
+_viSetAttribute
+
+###Description###
+Set any VISA attribute This function, which is called by _viSetTimeout, can ALSO be used to set the other VISA specific attributes. Read the VISA documentation for more information and a list of VISA attributes and their corresponding values.
+
+###Syntax###
+#include <Visa.au3>
+_viSetAttribute ( $h_session, $i_attribute, $i_value )
+
+
+###Parameters###
+@@ParamTable@@
+$h_session
+	A VISA descriptor (STRING) OR a VISA session handle (INTEGER).
+	See the Remarks of the _viExecCommand for more info.
+$i_attribute
+	The index of the attribute that must be changed.
+	Attributes are defined in the VISA library.
+	This AutoIt library only defines a CONSTANT for the TIMEOUT attribute ($VI_ATTR_TMO_VALUE) and for the Serial Interface attributes and
+	values (see the remarks) but you can pass any other valid index (as an integer) if you want to.
+$i_value
+	The value of the attribute. It must be an integer and the possible values depend on the attribute type and are defined in the VISA documentation.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 0
+Failure:	Returns -1and sets @rror to 1 if the VISA DLL could not be open or a NON ZERO value representing the VISA error code (see the VISA programmer's guide).
+@@End@@
+
+
+###Remarks###
+This is a list of the currently pre-defined attributes and values. Remember that you can use any other valid attribute/value by passing the corresponding integer index (as defined in the VISA programmer's guide) to this function.
+
+* Attribute: $VI_ATTR_TMO_VALUE -> Set Timeout
+* Values:
+	A timeout in MILLISECONDS or
+	$VI_TMO_IMMEDIATE (or 0) for "Return immediatly"
+	VI_TMO_INFINITE (or "INF") for "No timeout"
+
+* Attribute: $VI_ATTR_ASRL_BAUD
+* Values:
+	Any valid baudrate (9600, 115200, etc)
+
+* Attribute: $VI_ATTR_ASRL_DATA_BITS
+* Values:
+	From 5 to 8
+
+* Attribute: $VI_ATTR_ASRL_PARITY
+* Values:
+	$VI_ASRL_PAR_NONE
+	$VI_ASRL_PAR_ODD
+	$VI_ASRL_PAR_EVEN
+	$VI_ASRL_PAR_MARK
+	$VI_ASRL_PAR_SPACE
+
+* Attribute: $VI_ATTR_ASRL_STOP_BITS
+* Values:
+	$VI_ASRL_STOP_ONE
+	$VI_ASRL_STOP_ONE5
+	$VI_ASRL_STOP_TWO
+
+* Attribute: $VI_ATTR_ASRL_FLOW_CNTRL
+* Values:
+	$VI_ASRL_FLOW_NONE
+	$VI_ASRL_FLOW_XON_XOFF
+	$VI_ASRL_FLOW_RTS_CTS
+	$VI_ASRL_FLOW_DTR_DSR
+
+As for all the VISA functions the VISA libraries must be installed (you can check whether visa32.dll is in {WINDOWS}\system32).
+You onlly need a GPIB card (such as a National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card) if you use the GPIB related functions.
+
+* For a detailed description of the most common VISA DESCRIPTORS look at the Remarks of the help on the _viExecCommand function
+
+
+###Related###
+_viSetTimeout, _viExecCommand, _viOpen, _viClose
+
+
+###Example###
+@@IncludeExample@@

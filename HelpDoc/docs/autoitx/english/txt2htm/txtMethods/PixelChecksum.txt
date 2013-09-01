@@ -1,0 +1,42 @@
+###Method###
+PixelChecksum
+
+###Description###
+Generates a checksum for a region of pixels.
+
+###Syntax###
+PixelChecksum left, top, right, bottom [, step]
+
+
+###Parameters###
+@@ParamTable@@
+left
+	left coordinate of rectangle.
+top
+	top coordinate of rectangle.
+right
+	right coordinate of rectangle.
+bottom
+	bottom coordinate of rectangle.
+step
+	<b>Optional:</b> Instead of checksumming each pixel use a value larger than 1 to skip pixels (for speed).  E.g. A value of 2 will only check every other pixel.  Default is 1.
+@@End@@
+
+###ReturnValue###
+Returns the checksum value of the region.
+
+
+###Remarks###
+Performing a checksum of a region is very time consuming, so use the smallest region you are able to reduce CPU load.  On some machines a checksum of the whole screen could take many seconds!
+
+A checksum only allows you to see if "something" has changed in a region - it does not tell you exactly what has changed.
+
+When using a step value greater than 1 you must bear in mind that the checksumming becomes less reliable for small changes as not every pixel is checked.
+
+
+###Related###
+PixelChecksum, PixelGetColor, PixelCoordMode (Option), PixelSearch
+
+
+###Example###
+@@IncludeExample@@

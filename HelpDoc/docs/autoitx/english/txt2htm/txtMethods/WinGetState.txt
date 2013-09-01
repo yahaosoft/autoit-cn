@@ -1,0 +1,43 @@
+###Method###
+WinGetState
+
+###Description###
+Retrieves the state of a given window.
+
+###Syntax###
+WinGetState "title" [, "text"]
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to read.
+text
+	<b>Optional:</b> The text of the window to read.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a value indicating the state of the window.  Multiple values are added together so use BitAND() to examine the part you are interested in:
+	1 = Window exists
+	2 = Window is visible
+	4 = Windows is enabled
+	8 = Window is active
+	16 = Window is minimized
+	32 = Windows is maximized
+
+Failure:	Returns 0 and sets oAutoIt.error to 1 if the window is not found.
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+WinGetPosX, WinGetPosY
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+state = oAutoIt.WinGetState "Untitled", ""

@@ -1,0 +1,58 @@
+###User Defined Function###
+_WinAPI_DwmUpdateThumbnailProperties
+
+###Description###
+Specifies Desktop Window Manager (DWM) thumbnail properties.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_DwmUpdateThumbnailProperties ( $hThumbnail [, $fVisible = 1 [, $fClientAreaOnly = 0 [, $iOpacity = 255 [, $tRectDest = 0 [, $tRectSrc = 0]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hThumbnail
+	Handle of the thumbnail to retrieve the source window size from.
+$fVisible
+	[optional] Specifies whether make the thumbnail visible or invisible, valid values:
+	True            - Visible (Default).
+	False           - Invisible.
+$fClientAreaOnly
+	[optional] Specifies whether use only the thumbnail source's client area or entire window, valid values:
+	True            - Use only source's client area.
+	False           - Use entire window (Default).
+$iOpacity
+	[optional] The opacity with which to render the thumbnail. 0 is fully transparent while 255 (Default) is fully opaque.
+$tRectDest
+	[optional] $tagRECT structure containing the rectangle in the destination window the thumbnail will be
+	rendered. By default, the size of this rectangle equal to the source size of the DWM thumbnail
+	which returns the _WinAPI_DwmQueryThumbnailSourceSize() function.
+$tRectSrc
+	[optional] $tagRECT structure containing the rectangle that specifies the region of the source window
+	to use as the thumbnail. By default, the entire window is used as the thumbnail.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1.
+Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+@@End@@
+
+
+###Remarks###
+Thumbnail relationships created by _WinAPI_DwmRegisterThumbnail() will not be rendered to the destination window
+until this function is called. Subsequent calls will update the thumbnail according to the properties.
+
+This function requires Windows Vista or later.
+
+
+###Related###
+_WinAPI_DwmQueryThumbnailSourceSize, _WinAPI_DwmRegisterThumbnail
+
+
+###See Also###
+@@MsdnLink@@ DwmUpdateThumbnailProperties
+
+
+###Example###
+@@IncludeExample@@

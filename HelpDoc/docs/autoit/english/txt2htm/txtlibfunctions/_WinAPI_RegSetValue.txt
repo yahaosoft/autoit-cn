@@ -1,0 +1,68 @@
+###User Defined Function###
+_WinAPI_RegSetValue
+
+###Description###
+Sets the data and type of a specified value under a registry key.
+
+###Syntax###
+#include <WinAPIReg.au3>
+_WinAPI_RegSetValue ( $hKey, $sValueName, $iType, $tValueData, $iBytes )
+
+
+###Parameters###
+@@ParamTable@@
+$hKey
+	Handle to an open registry key. The key must have been opened with the $KEY_SET_VALUE access right.
+	This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey() function. It can also
+	be one of the following predefined keys.
+	$HKEY_CLASSES_ROOT
+	$HKEY_CURRENT_CONFIG
+	$HKEY_CURRENT_USER
+	$HKEY_LOCAL_MACHINE
+	$HKEY_PERFORMANCE_DATA
+	$HKEY_USERS
+$sValueName
+	The name of the value to be set. If a value with this name is not already present in the key,
+	the function adds it to the key. If $sValueName is empty string, the function sets the type and
+	data for the key's unnamed or default value.
+$iType
+	The type of data. This parameter can be one of the following values.
+	$REG_BINARY
+	$REG_DWORD
+	$REG_DWORD_BIG_ENDIAN
+	$REG_DWORD_LITTLE_ENDIAN
+	$REG_EXPAND_SZ
+	$REG_LINK
+	$REG_MULTI_SZ
+	$REG_NONE
+	$REG_QWORD
+	$REG_QWORD_LITTLE_ENDIAN
+	$REG_SZ
+$tValueData
+	The structure (buffer) that contains the data to be stored. For string-based types, such as REG_SZ,
+	the string must be null-terminated. With the REG_MULTI_SZ data type, the string must be terminated
+	with two null characters. A backslash must be preceded by another backslash as an escape character.
+	For example, specify "C:\\mydir\\myfile" to store the string "C:\mydir\myfile".
+$iBytes
+	The size of the data, in bytes. If the data has the REG_SZ, REG_MULTI_SZ or REG_EXPAND_SZ type,
+	this size includes any terminating null character or characters unless the data was stored
+	without them.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1.
+Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+_WinAPI_RegCreateKey, _WinAPI_RegOpenKey
+
+
+###See Also###
+@@MsdnLink@@ RegSetValueEx

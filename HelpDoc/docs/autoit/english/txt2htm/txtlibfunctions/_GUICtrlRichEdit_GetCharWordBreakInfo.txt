@@ -1,0 +1,51 @@
+###User Defined Function###
+_GUICtrlRichEdit_GetCharWordBreakInfo
+
+###Description###
+Gets inter-character position before the Previous word/
+
+###Syntax###
+#include <GuiRichEdit.au3>
+_GUICtrlRichEdit_GetCharWordBreakInfo ( $hWnd, $iCp )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the control
+$iCP
+	Inter-character position to left of character of interest
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	String consisting of comma-separated values:
+	value 1 - word-break flag(s):
+	c - line may be broken after this character
+	d - character is an end-of-word delimiter. Lines may be broken after delimiters
+	w - character is white-space. (Trailing white-spaces are not included in line length.)
+	value 2 - character class: a number
+Failure:	"" and sets @error
+@error:	101 - $hWnd is not a handle
+	102 - $iCp is not a number
+@@End@@
+
+
+###Remarks###
+Lines may be broken at delimiters or between characters od different classes.
+
+Character classes are defined in word-break procedures. The classes in the default
+procedure are: 0 = alphanumeric character, 1 = other printing character (except hyphen),
+2 = space, 3 = tab, 4 = hyphen or end-of-paragraph.
+
+
+###Related###
+_GUICtrlRichEdit_GetCharPosOfNextWord, _GUICtrlRichEdit_GetCharPosOfPreviousWord
+
+
+###See Also###
+@@MsdnLink@@ EM_FINDWORDBREAK
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,37 @@
+###User Defined Function###
+_WinAPI_DwmInvalidateIconicBitmaps
+
+###Description###
+Indicates that all previously provided iconic bitmaps from a window, both thumbnails and peek representations, should be refreshed.
+
+###Syntax###
+#include <WinAPIGdi.au3>
+_WinAPI_DwmInvalidateIconicBitmaps ( $hWnd )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window or tab whose bitmaps are being invalidated through this call.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	1.
+Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+@@End@@
+
+
+###Remarks###
+Calling this function causes the Desktop Window Manager (DWM) to invalidate its current bitmaps for the window
+and request new bitmaps from the window when they are next needed. _WinAPI_DwmInvalidateIconicBitmaps() should
+not be called frequently. Doing so can lead to poor performance as new bitmaps are created and retrieved.
+
+This function requires Windows 7 or later.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ DwmInvalidateIconicBitmaps

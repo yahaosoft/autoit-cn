@@ -1,0 +1,51 @@
+###Structure Name###
+$tagWINDOWPLACEMENT
+
+###Description###
+The WINDOWPLACEMENT structure contains information about the placement of a window on the screen
+
+###Syntax###
+Global Const $tagWINDOWPLACEMENT = "UINT length; UINT flags; UINT showCmd; int ptMinPosition[2]; int ptMaxPosition[2]; int rcNormalPosition[4]"
+
+
+###Fields###
+@@ParamTable@@
+length
+	Specifies the length, in bytes, of the structure
+flags
+	Specifies flags that control the position of the minimized window and the method by which the window is restored. This member can be one or more of the following values
+	$WPF_ASYNCWINDOWPLACEMENT - If the calling thread and the thread that owns the window are attached to different input queues, the system posts the request to the thread that owns the window.
+	$WPF_RESTORETOMAXIMIZED - Specifies that the restored window will be maximized, regardless of whether it was maximized before it was minimized.
+	This setting is only valid the next time the window is restored. It does not change the default restoration behavior.
+	This flag is only valid when the @SW_SHOWMINIMIZED value is specified for the showCmd member.
+	$WPF_SETMINPOSITION - Specifies that the coordinates of the minimized window may be specified.
+	This flag must be specified if the coordinates are set in the ptMinPosition member.
+showCmd
+	Specifies the current show state of the window. This member can be one of the following values:
+	@SW_HIDE - Hides the window and activates another window.
+	@SW_MAXIMIZE - Maximizes the specified window.
+	@SW_MINIMIZE - Minimizes the specified window and activates the next top-level window in the z-order.
+	@SW_RESTORE - Activates and displays the window. If the window is minimized or maximized, the system restores it to its original size and position.
+	An application should specify this flag when restoring a minimized window.
+	@SW_SHOW - Activates the window and displays it in its current size and position.
+	@SW_SHOWMAXIMIZED - Activates the window and displays it as a maximized window.
+	@SW_SHOWMINIMIZED - Activates the window and displays it as a minimized window.
+	@SW_SHOWMINNOACTIVE - Displays the window as a minimized window.
+	This value is similar to @SW_SHOWMINIMIZED, except the window is not activated.
+	@SW_SHOWNA - Displays the window in its current size and position.
+	This value is similar to @SW_SHOW, except the window is not activated.
+	@SW_SHOWNOACTIVATE - Displays a window in its most recent size and position.
+	This value is similar to @SW_SHOWNORMAL, except the window is not activated.
+	@SW_SHOWNORMAL - Activates and displays a window.
+	If the window is minimized or maximized, the system restores it to its original size and position.
+	An application should specify this flag when displaying the window for the first time.
+ptMinPosition
+	Specifies the coordinates of the window's upper-left corner when the window is minimized.
+ptMaxPosition
+	Specifies the coordinates of the window's upper-left corner when the window is maximized.
+rcNormalPosition
+	Specifies the window's coordinates when the window is in the restored position.
+@@End@@
+
+###Remarks###
+None.

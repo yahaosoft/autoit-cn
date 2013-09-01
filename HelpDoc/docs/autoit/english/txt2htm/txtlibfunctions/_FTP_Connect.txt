@@ -1,0 +1,58 @@
+###User Defined Function###
+_FTP_Connect
+
+###Description###
+Connects to an FTP server.
+
+###Syntax###
+#include <FTPEx.au3>
+_FTP_Connect ( $hInternetSession, $sServerName, $sUsername, $sPassword [, $iPassive = 0 [, $iServerPort = 0 [, $iService = $INTERNET_SERVICE_FTP [, $iFlags = 0 [, $iContext = 0]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hInternetSession
+	as returned by _FTP_Open()
+$sServerName
+	Server name/ip.
+$sUsername
+	Username.
+$sPassword
+	Password.
+$iPassive
+	[optional] Passive mode.
+$iServerPort
+	[optional] Server port ( 0 is default (21) )
+$iService
+	[optional] This can be one of the following constant values:
+	$INTERNET_SERVICE_FTP - FTP service.
+	$INTERNET_SERVICE_GOPHER - Gopher service. Available only on Windows XP, Windows Server 2003 R2 or earlier.
+	$INTERNET_SERVICE_HTTP - HTTP service.
+$iFlags
+	[optional] Special flags.
+$iContext
+	[optional] A variable that contains the application-defined value that associates this search with any application data.
+	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns an handle to connected session
+Failure:	0 and sets @error
+@@End@@
+
+
+###Remarks###
+The return handle must be closed with _FTP_Close().
+
+
+###Related###
+_FTP_Open, _FTP_Close, _FTP_SetStatusCallback, _FTP_Command, _FTP_DirCreate, _FTP_DirDelete, _FTP_DirGetCurrent, _FTP_DirPutContents, _FTP_DirSetCurrent, _FTP_FileDelete, _FTP_FileGet, _FTP_FileGetSize, _FTP_FilePut, _FTP_FileRename, _FTP_ListToArray, _FTP_ListToArray2D, _FTP_ListToArrayEx
+
+
+###See Also###
+@@MsdnLink@@ InternetConnect
+
+
+###Example###
+@@IncludeExample@@

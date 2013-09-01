@@ -1,0 +1,52 @@
+###User Defined Function###
+_WinAPI_ShellGetStockIconInfo
+
+###Description###
+Retrieves information about system-defined Shell icons.
+
+###Syntax###
+#include <WinAPIShellEx.au3>
+_WinAPI_ShellGetStockIconInfo ( $SIID, $iFlags )
+
+
+###Parameters###
+@@ParamTable@@
+$SIID
+	One of the $SIID_* constants that specifies which icon should be retrieved.
+$iFlags
+	The flags that specify which information is requested. This parameter can be a combination of the
+	following values.
+	$SHGSI_ICONLOCATION
+	$SHGSI_ICON
+	$SHGSI_SYSICONINDEX
+	$SHGSI_LINKOVERLAY
+	$SHGSI_SELECTED
+	$SHGSI_LARGEICON
+	$SHGSI_SMALLICON
+	$SHGSI_SHELLICONSIZE
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	$tagSHSTOCKICONINFO structure that contains the requested information.
+Failure 	Sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+@@End@@
+
+
+###Remarks###
+If this function returns an icon handle in the "hIcon" member of the $tagSHSTOCKICONINFO structure, you are
+responsible for freeing the icon with _WinAPI_DestroyIcon() when you no longer need it.
+
+This function requires Windows Vista or later.
+
+
+###Related###
+_WinAPI_DestroyIcon
+
+
+###See Also###
+@@MsdnLink@@ SHGetStockIconInfo
+
+
+###Example###
+@@IncludeExample@@

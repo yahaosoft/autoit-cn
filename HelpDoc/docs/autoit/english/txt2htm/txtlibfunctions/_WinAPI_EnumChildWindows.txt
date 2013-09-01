@@ -1,0 +1,46 @@
+###User Defined Function###
+_WinAPI_EnumChildWindows
+
+###Description###
+Enumerates a child windows that belong to the specified parent window.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_EnumChildWindows ( $hWnd [, $fVisible = 1] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the parent window whose child windows are to be enumerated. If this parameter is 0,
+	this function is equivalent to _WinAPI_EnumWindows().
+$fVisible
+	[optional] Specifies whether enumerates the invisible window, valid values:
+	True     - Enumerate only visible windows (Default).
+	False    - Enumerate all windows.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The 2D array of the handles to the child windows and classes for the specified parent window.
+	[0][0] - Number of rows in array (n)
+	[0][1] - Unused
+	[n][0] - Window handle
+	[n][1] - Window class name
+Failure 	Sets the @error flag to non-zero.
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ EnumChildWindows
+
+
+###Example###
+@@IncludeExample@@

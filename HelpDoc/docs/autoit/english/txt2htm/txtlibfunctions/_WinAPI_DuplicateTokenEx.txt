@@ -1,0 +1,54 @@
+###User Defined Function###
+_WinAPI_DuplicateTokenEx
+
+###Description###
+Creates a new primary or impersonation access token that duplicates an existing token.
+
+###Syntax###
+#include <WinAPIProc.au3>
+_WinAPI_DuplicateTokenEx ( $hToken, $iAccess, $iLevel [, $iType = 1 [, $tSecurity = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hToken
+	A handle to an access token opened with $TOKEN_DUPLICATE access.
+$iAccess
+	The requested access rights for the new token. To request the same access rights as the existing
+	token, specify zero. To request all access rights that are valid for the caller, specify the
+	$TOKEN_ALL_ACCESS access.
+$iLevel
+	The security impersonation levels.
+	$SECURITYANONYMOUS
+	$SECURITYIDENTIFICATION
+	$SECURITYIMPERSONATION
+	$SECURITYDELEGATION
+$iType
+	[optional] The token type.
+	$TOKENPRIMARY
+	$TOKENIMPERSONATION
+$tSecurity
+	[optional] $tagSECURITY_ATTRIBUTES structure that specifies a security descriptor for the new token and
+	determines whether child processes can inherit the token. If this parameter is 0 (Default), the token gets
+	a default security descriptor and the handle cannot be inherited. If the security descriptor
+	contains a system access control list, the token gets $ACCESS_SYSTEM_SECURITY access right,
+	even if it was not requested.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The handle to the new token.
+Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+When you have finished using the new token, call the _WinAPI_CloseHandle() function to close the token handle.
+
+
+###Related###
+_WinAPI_CloseHandle
+
+
+###See Also###
+@@MsdnLink@@ DuplicateTokenEx

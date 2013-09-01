@@ -1,0 +1,38 @@
+###Method###
+WinGetClassList
+
+###Description###
+Retrieves the classes from a window.
+
+###Syntax###
+WinGetClassList "title" [, "text"]
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to read.
+text
+	<b>Optional:</b> The text of the window to read.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a string containing the window classes read.
+Failure:	Returns numeric 1 and sets oAutoIt.error to 1 if no window matches the criteria.
+@@End@@
+
+
+###Remarks###
+Class names are linefeed separated.  WinGetClassList works on both minimized and hidden windows.  Up to 64KB of text can be retrieved.    If multiple windows match the criteria, the classes are read from the most recently active window.
+
+
+###Related###
+WinGetText, ControlCommand
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+
+text = oAutoIt.WinGetClassList("Untitled -", "")
+WScript.Echo "Text read was:" & text

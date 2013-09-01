@@ -1,0 +1,49 @@
+###Function###
+FileCreateNTFSLink
+
+###Description###
+Creates an NTFS hardlink to a file or a directory
+
+###Syntax###
+FileCreateNTFSLink ( "source", "hardlink" [, flag = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+source
+	Path of the source to which the hardlink will be created.
+hardlink
+	Path of the hardlink.
+flag
+	[optional] this flag determines whether to overwrite link if they already exist.
+	Can be a combination of the following:
+	0 = (default) do not overwrite existing link
+	1 = overwrite existing link
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns 1.
+Failure:	Returns 0.
+@@End@@
+
+
+###Remarks###
+The destination directory must already exist.
+
+This function works only on volumes with the NTFS File system.
+
+If the source is a file, the hardlink must be on the same volume.
+If the source is a directory cross volume is allowed.
+
+<a href="FileDelete.htm">FileDelete()</a> or <a href="FileMove.htm">FileMove()</a> can be used on hardlink.
+
+To manage the link with the explorer you can use the shell extension <a href="http://elsdoerfer.name/ntfslink">NTFSLink</a>
+
+
+###Related###
+FileCreateShortcut
+
+
+###Example###
+@@IncludeExample@@

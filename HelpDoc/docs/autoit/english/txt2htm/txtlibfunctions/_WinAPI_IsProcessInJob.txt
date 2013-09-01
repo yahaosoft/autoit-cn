@@ -1,0 +1,38 @@
+###User Defined Function###
+_WinAPI_IsProcessInJob
+
+###Description###
+Determines whether the process is running in the specified job.
+
+###Syntax###
+#include <WinAPIProc.au3>
+_WinAPI_IsProcessInJob ( $hProcess [, $hJob = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hProcess
+	Handle to the process to be tested. The handle must have the $PROCESS_QUERY_INFORMATION or
+	$PROCESS_QUERY_LIMITED_INFORMATION access right.
+$hJob
+	[optional] Handle to the job. If this parameter is 0 (Default), the function tests if the process is running under any job.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True - The process is running in the job.
+Failure 	False, call _WinAPI_GetLastError() to get extended error information
+@@End@@
+
+
+###Remarks###
+An application cannot obtain a handle to the job object in which it is running unless it has the name of the job
+object. However, an application can call the _WinAPI_QueryInformationJobObject() function with 0 to obtain
+information about the job object.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ IsProcessInJob

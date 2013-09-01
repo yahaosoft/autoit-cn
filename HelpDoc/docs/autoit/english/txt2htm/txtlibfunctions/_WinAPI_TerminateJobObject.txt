@@ -1,0 +1,38 @@
+###User Defined Function###
+_WinAPI_TerminateJobObject
+
+###Description###
+Terminates all processes currently associated with the job.
+
+###Syntax###
+#include <WinAPIProc.au3>
+_WinAPI_TerminateJobObject ( $hJob [, $iExitCode = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hJob
+	A handle to the job whose processes will be terminated. This handle must have the $JOB_OBJECT_TERMINATE
+	access right. Furthermore, the handle for each process in the job object must have the
+	$PROCESS_TERMINATE access right.
+$iExitCode
+	[optional] The exit code to be used by all processes and threads in the job object.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	True
+Failure 	False
+@@End@@
+
+
+###Remarks###
+If the job is nested, the function terminates all processes currently associated with the job and all of its
+child jobs in the hierarchy.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ TerminateJobObject

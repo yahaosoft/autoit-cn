@@ -1,0 +1,131 @@
+###User Defined Function###
+_WinAPI_CreateFont
+
+###Description###
+Creates a logical font with the specified characteristics
+
+###Syntax###
+#include <WinAPI.au3>
+_WinAPI_CreateFont ( $nHeight, $nWidth [, $nEscape = 0 [, $nOrientn = 0 [, $fnWeight = $FW_NORMAL [, $bItalic = False [, $bUnderline = False [, $bStrikeout = False [, $nCharset = $DEFAULT_CHARSET [, $nOutputPrec = $OUT_DEFAULT_PRECIS [, $nClipPrec = $CLIP_DEFAULT_PRECIS [, $nQuality = $DEFAULT_QUALITY [, $nPitch = 0 [, $szFace = 'Arial']]]]]]]]]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$nHeight
+	height of font
+$nWidth
+	average character width
+$nEscape
+	[optional] angle of escapement
+$nOrientn
+	[optional] base-line orientation angle
+$fnWeight
+	[optional] font weight, The following values are defined for convenience:
+	$FW_DONTCARE - 0
+	$FW_THIN - 100
+	$FW_EXTRALIGHT - 200
+	$FW_LIGHT - 300
+	$FW_NORMAL - 400
+	$FW_MEDIUM - 500
+	$FW_SEMIBOLD - 600
+	$FW_BOLD - 700
+	$FW_EXTRABOLD - 800
+	$FW_HEAVY - 900
+$bItalic
+	[optional] italic attribute option
+$bUnderline
+	[optional] underline attribute option
+$bStrikeout
+	[optional] strikeout attribute option
+$nCharset
+	[optional] Specifies the character set. The following values are predefined:
+	$ANSI_CHARSET - 0
+	$BALTIC_CHARSET - 186
+	$CHINESEBIG5_CHARSET - 136
+	$DEFAULT_CHARSET - 1
+	$EASTEUROPE_CHARSET - 238
+	$GB2312_CHARSET - 134
+	$GREEK_CHARSET - 161
+	$HANGEUL_CHARSET - 129
+	$MAC_CHARSET - 77
+	$OEM_CHARSET - 255
+	$RUSSIAN_CHARSET - 204
+	$SHIFTJIS_CHARSET - 128
+	$SYMBOL_CHARSET - 2
+	$TURKISH_CHARSET - 162
+	$VIETNAMESE_CHARSET - 163
+$nOutputPrec
+	[optional] Specifies the output precision, It can be one of the following values:
+	$OUT_CHARACTER_PRECIS - Not used
+	$OUT_DEFAULT_PRECIS - Specifies the default font mapper behavior
+	$OUT_DEVICE_PRECIS - Instructs the font mapper to choose a Device font when the system contains multiple fonts with the same name
+	$OUT_OUTLINE_PRECIS - This value instructs the font mapper to choose from TrueType and other outline-based fonts
+	$OUT_PS_ONLY_PRECIS - Instructs the font mapper to choose from only PostScript fonts.
+	If there are no PostScript fonts installed in the system, the font mapper returns to default behavior
+	$OUT_RASTER_PRECIS - Instructs the font mapper to choose a raster font when the system contains multiple fonts with the same name
+	$OUT_STRING_PRECIS - This value is not used by the font mapper, but it is returned when raster fonts are enumerated
+	$OUT_STROKE_PRECIS - This value is not used by the font mapper, but it is returned when TrueType,
+	other outline-based fonts, and vector fonts are enumerated
+	$OUT_TT_ONLY_PRECIS - Instructs the font mapper to choose from only TrueType fonts. If there are no TrueType fonts installed in the system,
+	the font mapper returns to default behavior
+	$OUT_TT_PRECIS - Instructs the font mapper to choose a TrueType font when the system contains multiple fonts with the same name
+$nClipPrec
+	[optional] Specifies the clipping precision, It can be one or more of the following values:
+	$CLIP_CHARACTER_PRECIS - Not used
+	$CLIP_DEFAULT_PRECIS - Specifies default clipping behavior
+	$CLIP_EMBEDDED - You must specify this flag to use an embedded read-only font
+	$CLIP_LH_ANGLES - When this value is used, the rotation for all fonts depends on whether the orientation of the coordinate system is left-handed or right-handed.
+	If not used, device fonts always rotate counterclockwise, but the rotation of other fonts is dependent on the orientation of the coordinate system.
+	$CLIP_MASK - Not used
+	$CLIP_STROKE_PRECIS - Not used by the font mapper, but is returned when raster, vector, or TrueType fonts are enumerated
+	For compatibility, this value is always returned when enumerating fonts
+	$CLIP_TT_ALWAYS - Not used
+$nQuality
+	[optional] Specifies the output quality, It can be one of the following values:
+	$ANTIALIASED_QUALITY - Font is antialiased, or smoothed, if the font supports it and the size of the font is not too small or too large.
+	In addition, you must select a TrueType font into a screen DC prior to using it in a DIBSection, otherwise antialiasing does not happen
+	$DEFAULT_QUALITY - Appearance of the font does not matter
+	$DRAFT_QUALITY - Appearance of the font is less important than when the PROOF_QUALITY value is used.
+	For GDI raster fonts, scaling is enabled, which means that more font sizes are available, but the quality may be lower.
+	Bold, italic, underline, and strikeout fonts are synthesized, if necessary
+	$NONANTIALIASED_QUALITY - Font is never antialiased, that is, font smoothing is not done
+	$PROOF_QUALITY - Character quality of the font is more important than exact matching of the logical-font attributes.
+	For GDI raster fonts, scaling is disabled and the font closest in size is chosen.
+	Although the chosen font size may not be mapped exactly when PROOF_QUALITY is used, the quality of the font is high and there is no distortion of appearance.
+	Bold, italic, underline, and strikeout fonts are synthesized, if necessary
+$nPitch
+	[optional] Specifies the pitch and family of the font. The two low-order bits specify the pitch of the font and can be one of the following values:
+	$DEFAULT_PITCH, $FIXED_PITCH, $VARIABLE_PITCH
+	The four high-order bits specify the font family and can be one of the following values:
+	$FF_DECORATIVE - Novelty fonts. Old English is an example
+	$FF_DONTCARE - Use default font
+	$FF_MODERN - Fonts with constant stroke width, with or without serifs. Pica, Elite, and Courier New are examples
+	$FF_ROMAN - Fonts with variable stroke width and with serifs. MS Serif is an example
+	$FF_SCRIPT - Fonts designed to look like handwriting. Script and Cursive are examples
+	$FF_SWISS - Fonts with variable stroke width and without serifs. MS Sans Serif is an example
+$szFace
+	[optional] typeface name
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	The handle to a logical font
+Failure:	0
+@@End@@
+
+
+###Remarks###
+When you no longer need the font, call the _WinAPI_DeleteObject function to delete it
+
+Above constants require #include <FontConstants.au3>
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ CreateFont
+
+
+###Example###
+@@IncludeExample@@

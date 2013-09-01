@@ -1,0 +1,44 @@
+###User Defined Function###
+_GDIPlus_PathAddPath
+
+###Description###
+Adds a path to another path
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_PathAddPath ( $hPath1, $hPath2 [, $bConnect = True] )
+
+
+###Parameters###
+@@ParamTable@@
+$hPath1
+	Pointer to a GraphicsPath object
+$hPath2
+	Pointer to a GraphicsPath object to be added to $hPath1
+$bConnect
+	[optional] Specifies whether the first figure in the added path is part of the last figure in this path:
+	True - The first figure in the added $hPath2 is part of the last figure in the $hPath1 path
+	False - The first figure in the added $hPath2 is separated from the last figure in the $hPath1 path
+@@End@@
+
+###ReturnValue###
+Success: True
+Failure: False
+
+
+###Remarks###
+Even if the value of the $bConnect parameter is True, this function might not be able to make the first figure
++of the added $hPath2 path part of the last figure of the $hPath1 path. If either of those figures is closed,
++then they must remain separated figures
+
+
+###Related###
+None
+
+
+###See Also###
+@@MsdnLink@@ GdipAddPathPath
+
+
+###Example###
+@@IncludeExample@@

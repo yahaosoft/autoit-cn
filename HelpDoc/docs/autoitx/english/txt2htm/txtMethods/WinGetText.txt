@@ -1,0 +1,36 @@
+###Method###
+WinGetText
+
+###Description###
+Retrieves the text from a window.
+
+###Syntax###
+WinGetText "title" [, "text"]
+
+
+###Parameters###
+@@ParamTable@@
+title
+	The title of the window to read.
+text
+	<b>Optional:</b> The text of the window to read.
+@@End@@
+
+###ReturnValue###
+Returns a string containing the window text read.
+
+
+###Remarks###
+Up to 64KB of window text can be retrieved.  WinGetText works on minimized windows, but only works on hidden windows if you've set AutoItSetOption("WinDetectHiddenText", 1)
+If multiple windows match the criteria for WinGetText, the information for the most recently active match is returned.
+Use WinGetText("") to get the active window's text.
+
+
+###Related###
+WinGetTitle, ControlGetText
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+text = oAutoIt.WinGetText("Untitled -", "")
+WScript.Echo "Text read was:" & text

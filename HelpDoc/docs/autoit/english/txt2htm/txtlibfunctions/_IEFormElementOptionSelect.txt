@@ -1,0 +1,55 @@
+###User Defined Function###
+_IEFormElementOptionSelect
+
+###Description###
+Set the value of a specified form element.
+
+###Syntax###
+#include <IE.au3>
+_IEFormElementOptionSelect ( ByRef $o_object, $s_string [, $f_select = 1 [, $s_mode = "byValue" [, $f_fireEvent = 1]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$o_object
+	Form Element Object of type "Select Option"
+$s_string
+	Value used to match element - treatment based on $s_mode
+$f_select
+	[optional] specifies whether element should be selected or deselected
+	-1 = Return selected state
+	0 = Deselect the element
+	1 = (Default) Select the element
+$s_mode
+	[optional] specifies search mode
+	"byValue" = (Default) value of the option you wish to select
+	"byText" = text of the option you wish to select
+	"byIndex" = 0-based index of option you wish to select
+$f_fireEvent
+	[optional] specifies whether to fire OnChange and OnClick events after changing value
+	0 = do not fire OnChange or OnClick event after setting value
+	1 = (Default) fire OnChange and OnClick events after setting value
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	If $f_select = -1, returns the current selected state, else returns 1
+Failure:	Returns 0 and sets @error
+@error:	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
+	4 ($_IEStatus_InvalidObjectType) = Invalid Object Type
+	5 ($_IEStatus_InvalidValue) = Invalid Value
+	7 ($_IEStatus_NoMatch) = No Match
+@extended:	Contains invalid parameter number
+@@End@@
+
+
+###Remarks###
+The $f_fireEvent parameter is significant only if the form element has an onChange event associated with it.
+
+
+###Related###
+_IEFormElementCheckBoxSelect, _IEFormElementRadioSelect, _IEFormElementGetValue, _IEFormElementSetValue
+
+
+###Example###
+@@IncludeExample@@

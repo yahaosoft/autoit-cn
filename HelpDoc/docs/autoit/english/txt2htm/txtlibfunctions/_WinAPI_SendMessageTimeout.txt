@@ -1,0 +1,56 @@
+###User Defined Function###
+_WinAPI_SendMessageTimeout
+
+###Description###
+Sends the specified message to one of more windows.
+
+###Syntax###
+#include <WinAPISys.au3>
+_WinAPI_SendMessageTimeout ( $hWnd, $iMsg [, $wParam = 0 [, $lParam = 0 [, $iTimeout = 1000 [, $iFlags = 0]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to the window whose window procedure will receive the message.
+$iMsg
+	The message to be sent.
+$wParam
+	[optional] The message-specific information.
+$lParam
+	[optional] The message-specific information.
+$iTimeout
+	[optional] The duration, in milliseconds, of the time-out period. If the message is a broadcast message, each
+	window can use the full time-out period. Default is 1000.
+$iFlags
+	[optional] The flags that specifies how to send the message.
+	This parameter can be one or more of the following values.
+	$SMTO_BLOCK
+	$SMTO_NORMAL
+	$SMTO_ABORTIFHUNG
+	$SMTO_NOTIMEOUTIFNOTHUNG
+	$SMTO_ERRORONEXIT
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The result of the message processing, depends on the message sent.
+Failure 	Sets the @error flag to non-zero, @extended contains _WinAPI_GetLastError().
+@@End@@
+
+
+###Remarks###
+This function does not provide information about individual windows timing out if $HWND_BROADCAST is used.
+
+If times out, function fails. If @extended is $ERROR_TIMEOUT (1460), then the function timed out.
+This function considers a thread is not responding if it has not responds within five seconds.
+
+The system only does marshalling for system messages (those in the range 0 to (WM_USER-1)). To send other messages
+(those >= WM_USER) to another process, you must do custom marshalling.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ SendMessageTimeout

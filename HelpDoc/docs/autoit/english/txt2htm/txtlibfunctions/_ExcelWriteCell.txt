@@ -1,0 +1,43 @@
+###User Defined Function###
+_ExcelWriteCell
+
+###Description###
+Write information to a cell on the active worksheet of the specified Excel object.
+
+###Syntax###
+#include <Excel.au3>
+_ExcelWriteCell ( $oExcel, $sValue, $sRangeOrRow [, $iColumn = 1] )
+
+
+###Parameters###
+@@ParamTable@@
+$oExcel
+	Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+$sValue
+	Value to be written
+$sRangeOrRow
+	Either an A1 range, or an integer row number to write to if using R1C1
+$iColumn
+	[optional] The column to write to if using R1C1 (default = 1)
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	1
+Failure:	0 and sets @error
+@error:	1 - Specified object does not exist
+	2 - Parameter out of range
+@extended:	0 - Row out of range
+	1 - Column out of range
+@@End@@
+
+
+###Remarks###
+None
+
+
+###Related###
+
+
+###Example###
+@@IncludeExample@@

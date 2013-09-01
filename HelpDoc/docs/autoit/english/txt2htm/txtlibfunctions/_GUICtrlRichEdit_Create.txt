@@ -1,0 +1,68 @@
+###User Defined Function###
+_GUICtrlRichEdit_Create
+
+###Description###
+Create an Edit control
+
+###Syntax###
+#include <GuiRichEdit.au3>
+_GUICtrlRichEdit_Create ( $hWnd, $sText, $iLeft, $iTop [, $iWidth = 150 [, $iHeight = 150 [, $iStyle = -1 [, $iExStyle = -1]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hWnd
+	Handle to parent or owner window
+$sText
+	Text to be displayed in the control
+$iLeft
+	Horizontal position of the control
+$iTop
+	Vertical position of the control
+$iWidth
+	[optional] Control width
+$iHeight
+	[optional] Control height
+$iStyle
+	[optional] Control styles:
+	$ES_AUTOHSCROLL - Automatically scrolls text to the right by 10 characters when the user types a character at the end of the line.
+	$ES_AUTOVSCROLL - Automatically scrolls text up one page when the user presses the ENTER key on the last line.
+	$WS_HSCROLL - Control has horizontal scroll bar
+	$WS_VSCROLL - Control has vertical scroll bar
+	$ES_CENTER - Centers text in an edit control.
+	$ES_LEFT - Aligns text with the left margin.
+	$ES_MULTILINE - Generates a multi-line control (Default)
+	$ES_NOHIDESEL - The selected text is inverted, even if the control does not have the focus.
+	$ES_NUMBER - Allows only digits to be entered into the edit control.
+	$ES_READONLY - Prevents the user from typing or editing text in the edit control.
+	$ES_RIGHT - Right-aligns text edit control.
+	$ES_WANTRETURN - Specifies that a carriage return be inserted when the user presses the ENTER key. (Default)
+	$ES_PASSWORD - Displays an asterisk (*) for each character that is typed into the edit control
+
+	Default: 0
+	Forced : WS_CHILD, $WS_VISIBLE, $WS_TABSTOP unless $ES_READONLY
+$iExStyle
+	[optional] Control extended style. These correspond to the standard $WS_EX_ constants.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Handle to the Rich Edit control
+Failure:	0 and sets @error
+@error:	105 - $iWidth is neither a positive number nor -1
+	106 - $iHeight is neither a positive number nor -1
+	107 - $iStyle is is neither a positive number nor zero nor -1
+	108 - $iExStyle is is neither a positive number nor zero nor -1
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_GUICtrlRichEdit_Destroy
+
+
+###Example###
+@@IncludeExample@@

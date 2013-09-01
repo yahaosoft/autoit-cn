@@ -1,0 +1,55 @@
+###User Defined Function###
+_GDIPlus_LineBrushCreate
+
+###Description###
+Creates a LinearGradientBrush object from a set of boundary points and boundary colors
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_LineBrushCreate ( $nX1, $nY1, $nX2, $nY2, $iARGBClr1, $iARGBClr2 [, $iWrapMode = 0] )
+
+
+###Parameters###
+@@ParamTable@@
+$nX1
+	X coordinate of the starting point of the gradient. The starting boundary line passes through the
+$nY1
+	Y coordinate of the starting point of the gradient. The starting boundary line passes through the
+$nX2
+	X coordinate of the ending point of the gradient. The ending boundary line passes through the
+$nY2
+	Y coordinate of the ending point of the gradient. The ending boundary line passes through the
+$iARGBClr1
+	Alpha, Red, Green and Blue components of the starting color of the line
+$iARGBClr2
+	Alpha, Red, Green and Blue components of the ending color of the line
+$iWrapMode
+	[optional] Wrap mode that specifies how areas filled with the brush are tiled:
+	0 - Tiling without flipping
+	1 - Tiles are flipped horizontally as you move from one tile to the next in a row
+	2 - Tiles are flipped vertically as you move from one tile to the next in a column
+	3 - Tiles are flipped horizontally as you move along a row and flipped vertically as you move along a column
+	4 - No tiling takes place
+@@End@@
+
+###ReturnValue###
+Success: Pointer to a new LinearGradientBrush object
+Failure: 0 and either:
+
+	@error and @extended are set if DllCall failed
+
+
+###Remarks###
+After you are done with the object, call _GDIPlus_BrushDispose to release the object resources
+
+
+###Related###
+_GDIPlus_BrushDispose
+
+
+###See Also###
+@@MsdnLink@@ GdipCreateLineBrush
+
+
+###Example###
+@@IncludeExample@@

@@ -1,0 +1,39 @@
+###User Defined Function###
+_WinAPI_SetCaretBlinkTime
+
+###Description###
+Sets the caret blink time.
+
+###Syntax###
+#include <WinAPIRes.au3>
+_WinAPI_SetCaretBlinkTime ( $iDuration )
+
+
+###Parameters###
+@@ParamTable@@
+$iDuration
+	The new blink time, in milliseconds. If this parameter is (-1), caret does not blink.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success 	The previous blink time, in milliseconds.
+Failure 	Sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+@@End@@
+
+
+###Remarks###
+The user can set the blink time using the Control Panel. Applications should respect the setting that the user
+has chosen. This function should only be used by application that allow the user to set the blink time, such
+as a Control Panel applet.
+
+
+###Related###
+
+
+###See Also###
+@@MsdnLink@@ SetCaretBlinkTime
+
+
+###Example###
+@@IncludeExample@@
