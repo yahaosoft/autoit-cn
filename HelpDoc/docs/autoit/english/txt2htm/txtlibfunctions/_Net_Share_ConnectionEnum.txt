@@ -12,32 +12,32 @@ _Net_Share_ConnectionEnum ( $sServer, $sQualifier )
 ###Parameters###
 @@ParamTable@@
 $sServer
-	String that specifies the DNS or NetBIOS name of the remote server on which the function is to
-	execute. If this parameter is blank the local computer is used.
+	String that specifies the DNS or NetBIOS name of the remote server on which the function is to execute.
+	If this parameter is blank the local computer is used.
 $sQualifier
-	Specifies a share name or computer name of interest. If it is a share name, then all of the
-	connections made to that share name are listed. If it is a computer name, the function lists all connections
-	made from that computer to the server specified.
+	Specifies a share name or computer name of interest.
+	If it is a share name, then all of the connections made to that share name are listed.
+	If it is a computer name, the function lists all connections made from that computer to the server specified.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	[0][0] - Number of entries in array
-	[1][0] - Connection identification number
-	[1][1] - Type of connection. Can be combination of:
-	$STYPE_DISKTREE - Disk drive
-	$STYPE_PRINTQ - Print queue
-	$STYPE_DEVICE - Communication device
-	$STYPE_IPC - IPC
-	$STYPE_SPECIAL - Special share reserved for IPC$ or remote administration of the server
-	$STYPE_TEMPORARY - A temporary share
-	[1][2] - Number of files currently open as a result of the connection
-	[1][3] - Number of users on the connection
-	[1][4] - Number of seconds that the connection has been established
-	[1][5] - If the server sharing the resource is running with user level security, this member describes	which user made the connection. If the server is running with share level security, this member describes	which computer made the connection.
-	[1][6] - Specifies either the share name of the server's shared resource or the computername of the client
-Failure:	Sets @error
+Success:	an array with the following format:
+		[0][0] - Number of entries in array
+		[1][0] - Connection identification number
+		[1][1] - Type of connection. Can be combination of:
+			$STYPE_DISKTREE - Disk drive
+			$STYPE_PRINTQ - Print queue
+			$STYPE_DEVICE - Communication device
+			$STYPE_IPC - IPC
+			$STYPE_SPECIAL - Special share reserved for IPC$ or remote administration of the server
+			$STYPE_TEMPORARY - A temporary share
+		[1][2] - Number of files currently open as a result of the connection
+		[1][3] - Number of users on the connection
+		[1][4] - Number of seconds that the connection has been established
+		[1][5] - If the server sharing the resource is running with user level security, this member describes	which user made the connection. If the server is running with share level security, this member describes	which computer made the connection.
+		[1][6] - Specifies either the share name of the server's shared resource or the computername of the client
+Failure:	sets the @error flag to non-zero.
 @@End@@
 
 

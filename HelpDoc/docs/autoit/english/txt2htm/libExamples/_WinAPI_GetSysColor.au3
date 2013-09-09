@@ -31,5 +31,4 @@ Func Example()
 	_WinAPI_SetSysColors($aElements, $aSaveColors)
 
 	Exit
-
 EndFunc   ;==>Example

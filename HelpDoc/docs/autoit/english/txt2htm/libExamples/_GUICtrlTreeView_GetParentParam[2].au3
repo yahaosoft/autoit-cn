@@ -6,7 +6,6 @@
 Example_External()
 
 Func Example_External()
-
 	Local $GUI, $hItem, $hChild, $iParam = 1, $hTreeView
 	Local $iStyle = BitOR($TVS_EDITLABELS, $TVS_HASBUTTONS, $TVS_HASLINES, $TVS_LINESATROOT, $TVS_DISABLEDRAGDROP, $TVS_SHOWSELALWAYS, $TVS_CHECKBOXES)
 

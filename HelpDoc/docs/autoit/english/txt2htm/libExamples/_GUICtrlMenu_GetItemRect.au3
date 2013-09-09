@@ -18,7 +18,6 @@ Func Example()
 	Writeln("File Y1: " & $aRect[1])
 	Writeln("File X2: " & $aRect[2])
 	Writeln("File Y2: " & $aRect[3])
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

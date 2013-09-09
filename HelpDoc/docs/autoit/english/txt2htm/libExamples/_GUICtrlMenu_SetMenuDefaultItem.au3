@@ -16,7 +16,6 @@ Func Example()
 	Writeln("File menu default item: " & _GUICtrlMenu_GetMenuDefaultItem($hFile))
 	_GUICtrlMenu_SetMenuDefaultItem($hFile, 1)
 	Writeln("File menu default item: " & _GUICtrlMenu_GetMenuDefaultItem($hFile))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

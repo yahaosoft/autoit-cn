@@ -47,9 +47,9 @@ Func Example()
 	MemoWrite("Item Text : " & $sText)
 	MemoWrite("Item Len ..........................: " & $iLen)
 	MemoWrite("# image widths to indent ..........: " & DllStructGetData($tItem, "Indent"))
-	MemoWrite("Zero based item image index .......: " & DllStructGetData($tItem, "Image"))
-	MemoWrite("Zero based item state image index .: " & DllStructGetData($tItem, "SelectedImage"))
-	MemoWrite("Zero based item image overlay index: " & DllStructGetData($tItem, "OverlayImage"))
+	MemoWrite("0-based item image index .......: " & DllStructGetData($tItem, "Image"))
+	MemoWrite("0-based item state image index .: " & DllStructGetData($tItem, "SelectedImage"))
+	MemoWrite("0-based item image overlay index: " & DllStructGetData($tItem, "OverlayImage"))
 	MemoWrite("Item application defined value ....: " & DllStructGetData($tItem, "Param"))
 
 	Do

@@ -6,7 +6,7 @@ The following is an example with explanations:
 Name goes here.  The above title could also be ###Keyword###
 
 ###Description###
-One-line description.
+One-line description
 
 ###Syntax###
 One-line syntax spec.
@@ -20,22 +20,25 @@ Description
 	but the second column can be many lines.
 How To Denote
 	Any information that appears in the second
-	column must be indented with one tab.
+	column must be indented with at least one tab.
 	Each entry that is NOT indented begins a new row.
 	DO NOT LEAVE ANY BLANK LINE BETWEEN HERE AND "@@End@"
 @@End@@
 
 ###ReturnValue###
-@@ReturnTables@@
+@@ReturnTable@@
 Success:	@TAB followed by info for second column as 1.
+; if several line are needed to describe they must start  with @TAB. More than one @TAB allows small extra indentation.
 Failure:	@TAB followed by info for second column as 0.
+@error:	@TAB followed by value explanation
 @@End@@
+
 
 
 ###Remarks###
 In general, whitespace outside of tables is ignored.
-The exception is the Remarks Section:  Lines can be indented, and non-consecutive blank lines are converted
-as HTML <br>'s.
+@TAB are converted to 4 blanks which allow small identation.
+IN the Remarks Section:  non-consecutive blank lines are converted as HTML <br>'s.
 
 You can also use <b>bold</b> and <i>italic</i> tags.  Pretty much any HTML formatting can be used, since this text is more or less copied directly over to the htm file.
 

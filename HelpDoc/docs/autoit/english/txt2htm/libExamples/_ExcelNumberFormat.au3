@@ -8,7 +8,6 @@ Example()
 Exit
 
 Func Example()
-
 	Local $oExcel = _ExcelBookNew() ; Create new book, make it visible
 	; Fill some cells with random numbers
 	For $y = 1 To 10
@@ -22,5 +21,4 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Exiting", "Press OK to Exit Example 1")
 	_ExcelBookClose($oExcel, 0) ; Close and drop changes
 	Return
-
 EndFunc   ;==>Example

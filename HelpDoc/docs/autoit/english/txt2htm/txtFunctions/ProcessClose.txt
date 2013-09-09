@@ -16,13 +16,13 @@ process
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns 1.
-Failure:	Returns 0 and set @error to:
-	1 = OpenProcess failed
+Success:	1.
+Failure:	0 and sets the @error flag to non-zero.
+@error:	1 = OpenProcess failed
 	2 = AdjustTokenPrivileges Failed
 	3 = TerminateProcess Failed
 	4 = Cannot verify if process exists
-@extended is set to Win API GetLastError()
+@extended:	sets to Windows API GetLastError()
 @@End@@
 
 

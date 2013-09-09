@@ -39,7 +39,6 @@ Func Example()
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 
 	FileDelete(@ScriptDir & "\Test.xyz")
-
 EndFunc   ;==>Example
 
 ; Write a line to the memo control

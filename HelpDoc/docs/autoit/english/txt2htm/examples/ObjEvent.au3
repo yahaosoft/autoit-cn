@@ -3,7 +3,6 @@
 Example()
 
 Func Example()
-
 	; Error monitoring. This will trap all COM errors while alive.
 	; This particular object is declared as local, meaning after the function returns it will not exist.
 	Local $oErrorHandler = ObjEvent("AutoIt.Error", "_ErrFunc")
@@ -45,7 +44,6 @@ Func Example()
 	$oIE.Quit()
 
 	#forceref $oErrorHandler, $oIEEvents
-
 EndFunc   ;==>Example
 
 ; BeforeNavigate2 method definition

@@ -14,18 +14,18 @@ expression
 	An expression to convert into a string.
 flag
 	[optional] Changes how the binary data is converted:
-	flag = 1 (default), binary data is taken to be ANSI
-	flag = 2, binary data is taken to be UTF16 Little Endian
-	flag = 3, binary data is taken to be UTF16 Big Endian
-	flag = 4, binary data is taken to be UTF8
+		1 = (default) binary data is taken to be ANSI
+		2 = binary data is taken to be UTF16 Little Endian
+		3 = binary data is taken to be UTF16 Big Endian
+		4 = binary data is taken to be UTF8
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The string representation of the binary data.
-Failure:	An empty string.  @error will bet set as follows:
-@error:	1 - Input string had zero length.
-	2 - Input string had an odd number of bytes but was supposed to be UTF16 (must contain an even number of bytes to be valid UTF16).
+Success:	the string representation of the binary data.
+Failure:	an empty string and sets the @error flag to non-zero.
+@error:	1 = Input string had zero length.
+	2 = Input string had an odd number of bytes but was supposed to be UTF16 (must contain an even number of bytes to be valid UTF16).
 @@End@@
 
 

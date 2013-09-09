@@ -10,7 +10,6 @@ Global $hStatus, $iMemo
 Example()
 
 Func Example()
-
 	Local $hGUI, $hIcons[2], $hImage
 	Local $aParts[4] = [75, 150, 300, 400]
 

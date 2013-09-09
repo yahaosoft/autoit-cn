@@ -4,7 +4,6 @@
 Example()
 
 Func Example()
-
 	_GDIPlus_Startup() ;initialize GDI+
 	Local Const $iWidth = 600, $iHeight = 600, $iBgColor = 0x303030 ;$iBGColor format RRGGBB
 

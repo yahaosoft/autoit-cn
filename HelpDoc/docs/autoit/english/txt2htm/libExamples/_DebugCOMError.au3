@@ -10,7 +10,6 @@ Example()
 ; Generate a COM error and let _DebugCOMError display the error
 ; *****************************************************************************
 Func Example()
-
 	; Create application object for the Microsoft Internet Explorer
 	Local $oIE = ObjCreate("InternetExplorer.Application")
 	If @error <> 0 Then Exit MsgBox($MB_SYSTEMMODAL, "_DebugCOMError UDF", "Error creating a new IE application object." & _
@@ -24,5 +23,4 @@ Func Example()
 	; Close the IE
 	$oIE.Quit()
 	$oIE = 0
-
 EndFunc   ;==>Example

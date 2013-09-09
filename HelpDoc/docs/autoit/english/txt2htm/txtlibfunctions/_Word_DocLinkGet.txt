@@ -15,15 +15,15 @@ $oDoc
 	Word document object
 $iIndex
 	[optional] Specifies what to return:
-	Default - Returns a collection of all links (default)
-	n - The index number of the link to return (1 based)
+		Default - Returns a collection of all links (default)
+		n - The index number of the link to return (1 based)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns a variable pointing to the collection of links or a single link object.
+Success:	a variable pointing to the collection of links or a single link object.
 	@extended is set to the total number of links
-Failure:	Returns 0 and sets @error
+Failure:	0 and sets the @error flag to non-zero.
 @error:	1 - $oDoc is not an object
 	2 - $vIndex is invalid (must be an integer &gt; 0 and &lt;= Hyperlinks.Count) or the keyword Default
 	3 - Error occurred when accessing the Hyperlinks collection. @extended is set to the COM error code

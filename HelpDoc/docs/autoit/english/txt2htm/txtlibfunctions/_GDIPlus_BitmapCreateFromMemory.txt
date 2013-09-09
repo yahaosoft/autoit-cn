@@ -19,8 +19,8 @@ $hHBITMAP
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	handle to bitmap (GDI+ bitmap format) or hbitmap (WinAPI bitmap format)
-Failure:	0 and sets the @error flag to the following values,
+Success:	a handle to bitmap (GDI+ bitmap format) or hbitmap (WinAPI bitmap format).
+Failure:	0 and sets the @error flag to non-zero.
 @error:	1 - $bImage is not a binary string
 	2 - unable to create stream on HGlobal
 	3 - unable to create bitmap from stream
@@ -30,10 +30,10 @@ Failure:	0 and sets the @error flag to the following values,
 @@End@@
 
 ###Remarks###
-After you are done with the object, call _GDIPlus_ImageDispose() to release the object resources
+After you are done with the object, call _GDIPlus_ImageDispose() to release the object resources.
 
 ###Related###
-_GDIPlus_BitmapCreateFromStream, _GDIPlus_BitmapDispose, _WinAPI_DeleteObject
+_GDIPlus_BitmapCreateFromStream, _GDIPlus_BitmapDispose
 
 
 ###See Also###

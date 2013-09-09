@@ -14,7 +14,6 @@ Func Example()
 	; Check return value
 	Writeln("Is Menu: " & _GUICtrlMenu_IsMenu($hWnd))
 	Writeln("Is Menu: " & _GUICtrlMenu_IsMenu($hMain))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

@@ -34,5 +34,4 @@ Func Example()
 	_GDIPlus_GraphicsDispose($hGraphic)
 	_WinAPI_ReleaseDC($hGUI, $hDC)
 	_GDIPlus_Shutdown()
-
 EndFunc   ;==>Example

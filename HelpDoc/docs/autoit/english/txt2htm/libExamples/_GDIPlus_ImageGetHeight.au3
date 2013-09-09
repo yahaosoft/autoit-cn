@@ -30,5 +30,4 @@ Func Example()
 
 	; Shut down GDI+ library
 	_GDIPlus_Shutdown()
-
 EndFunc   ;==>Example

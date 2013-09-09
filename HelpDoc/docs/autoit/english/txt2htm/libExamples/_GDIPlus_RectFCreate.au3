@@ -32,5 +32,4 @@ Func Example()
 
 	_GDIPlus_GraphicsDispose($hGraphic)
 	_GDIPlus_Shutdown()
-
 EndFunc   ;==>Example

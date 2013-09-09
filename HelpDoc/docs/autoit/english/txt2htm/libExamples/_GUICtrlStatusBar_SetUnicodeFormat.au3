@@ -8,7 +8,6 @@ Global $iMemo
 Example()
 
 Func Example()
-
 	Local $hGUI, $hStatus
 
 	; Create GUI

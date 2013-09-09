@@ -46,11 +46,13 @@
   <p class="codeheader">#ignorefunc funcname [, ...]</p>
   <div class="indent">
     #ignorefunc can be used inside functions, like the following:<br>
-    <p class="codebox"><span><span class="S0">#ignoreFunc DllFunc</span><br>
-    <span class="S5">Local</span> <span class="S9">$hDllDLL</span> <span class="S8">=</span> <span class="S4">DllOpen</span><span class="S8">(</span><span class="S7">"example.dll"</span><span class="S8">)</span><br>
-    <span class="S0">DllFunc</span><span class="S8">(</span><span class="S3">0.1</span><span class="S8">,</span> <span class="S3">0.2</span><span class="S8">)</span> <span class="S1">; Will call the user defined function "DllFunc" with 2
-    parameters</span><br>
-    <span class="S4">DllClose</span><span class="S8">(</span><span class="S9">$hDllDLL</span><span class="S8">)</span></span></p>
+    <p class="codebox"><span><span class="S12">#ignorefunc Not_Defined_Func</span><br>
+    <br>
+    <span class="S5">Local</span><span class="S0"> </span><span class="S9">$vCallRet</span><span class="S0"> </span><span class="S8">=</span><span class="S0"> </span><span class="S4">Call</span><span class="S8">(</span><span class="S7">'Not_Defined_Func'</span><span class="S8">)</span><br>
+    <span class="S5">Local</span><span class="S0"> </span><span class="S9">$iError</span><span class="S0"> </span><span class="S8">=</span><span class="S0"> </span><span class="S6">@error</span><br>
+    <span class="S5">Local</span><span class="S0"> </span><span class="S9">$iExtended</span><span class="S0"> </span><span class="S8">=</span><span class="S0"> </span><span class="S6">@extended</span><br>
+    <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span><span class="S0"> </span><span class="S7">'Not defined func example'</span><span class="S8">,</span><span class="S0"> </span><span class="S7">'$vCallRet = '</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$vCallRet</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S8">_</span><br>
+    <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S7">' &nbsp;&nbsp;@error = 0x'</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S4">Hex</span><span class="S8">(</span><span class="S9">$iError</span><span class="S8">)</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">' @extended = 0x'</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S4">Hex</span><span class="S8">(</span><span class="S9">$iExtended</span><span class="S8">)</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S6">@CRLF</span><span class="S8">)</span></span></p>
   </div><br>
   <p class="codeheader">#forceref $varname [, ...]</p>
   <div class="indent">

@@ -26,7 +26,6 @@ Opt("TrayIconDebug", 1)
 OnAutoItExitRegister("OnQuit") ;### Debug Console
 _OutputWindowCreate() ;### Debug Console
 
-Global $L_MSG = ""
 FileChangeDir(@ScriptDir)
 
 _OutputBuildWrite("Generate HTM files for all changed UDFs" & @CRLF)
@@ -54,7 +53,7 @@ Func Main()
 	; **********************************************************
 	;
 
-	Local $FO_TOC_HND = FileOpen("UDFs3 TOC.hhc", 2)
+	Local $FO_TOC_HND = FileOpen("UDFs3 TOC.hhc", $FO_OVERWRITE)
 	FileWriteLine($FO_TOC_HND, '<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">')
 	FileWriteLine($FO_TOC_HND, '<HTML>')
 	FileWriteLine($FO_TOC_HND, '<HEAD>')
@@ -104,7 +103,7 @@ Func Main()
 	Local $FI_DIR_HND = FileOpen($HELPFILEDIR & "\txt2htm\txtlibfunctions\Categories.toc", 0)
 	; Check if file opened for reading OK
 	If $FI_DIR_HND = -1 Then
-		MsgBox(0, "Error", "Unable to open:" & $HELPFILEDIR & "\txt2htm\txtlibfunctions\Categories.toc")
+		MsgBox($MB_SYSTEMMODAL, "Error", "Unable to open:" & $HELPFILEDIR & "\txt2htm\txtlibfunctions\Categories.toc")
 		Exit
 	EndIf
 
@@ -220,12 +219,7 @@ Func Main()
 	If $SAVE_SUBCATEGORY <> "" Then FileWriteLine($FO_TOC_HND, "</UL>")
 	If $SAVE_SUBSUBCATEGORY <> "" Then FileWriteLine($FO_TOC_HND, "</UL>")
 	FileWriteLine($FO_TOC_HND, "</UL>")
-	; Add entry for libfunction_renaming.htm
-	; FileWriteLine($FO_TOC_HND, '<LI> <OBJECT type="text/sitemap">') - Removed by guinness - 19/07/2013
-	; FileWriteLine($FO_TOC_HND, '<param name="Name" value="UDFs renaming">')
-	; FileWriteLine($FO_TOC_HND, '<param name="Local" value="html\libfunction_renaming.htm">')
-	; FileWriteLine($FO_TOC_HND, '</OBJECT>')
-	;
+
 	; end the TOC UL for UDF's
 	FileWriteLine($FO_TOC_HND, "</UL>")
 	FileWriteLine($FO_TOC_HND, "</UL>")
@@ -238,27 +232,7 @@ Func Main()
 
 	FileClose($FI_DIR_HND)
 EndFunc   ;==>Main
-;
-Func _FileRead2Array($SFILEPATH, ByRef $AARRAY)
-	Local $HFILE = FileOpen($SFILEPATH, 0)
-	If $HFILE = -1 Then
-		SetError(1)
-		Return 0
-	EndIf
-	$AARRAY = StringSplit(StringStripCR(FileRead($HFILE, _
-			FileGetSize($SFILEPATH))), @LF)
-	FileClose($HFILE)
-	Return 1
-EndFunc   ;==>_FileRead2Array
-;
-Func Debug($MESSAGE)
-	MsgBox($MB_SYSTEMMODAL, 'debug', $MESSAGE)
-EndFunc   ;==>Debug
-;
+
 Func WriteLog($LMSG)
 	FileWriteLine(@ScriptDir & "\genindex.log", $LMSG)
 EndFunc   ;==>WriteLog
-;
-Func GetUDFDesc($NFname)
-	Return FileReadLine('html\libfunctions\' & $NFname & '.htm', 13)
-EndFunc   ;==>GetUDFDesc

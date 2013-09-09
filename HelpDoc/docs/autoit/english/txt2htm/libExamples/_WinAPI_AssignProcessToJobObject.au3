@@ -19,7 +19,6 @@ _RunWaitEx(@AutoItExe & ' /AutoIt3ExecuteScript "' & $sTemp & '"')
 FileDelete($sTemp)
 
 Func _RunWaitEx($sCmd)
-
 	; Original idea by amel27
 
 	Local $tProcess = DllStructCreate($tagPROCESS_INFORMATION)

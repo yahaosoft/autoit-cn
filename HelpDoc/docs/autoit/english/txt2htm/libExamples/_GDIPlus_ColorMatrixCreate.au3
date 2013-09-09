@@ -20,13 +20,14 @@ Func Example()
 
 	Local $tColorMatrix = _GDIPlus_ColorMatrixCreate() ;create color matrix
 
+	Local $iX, $iY
 	For $iX = 0 To 3 ;manipulate some values in the color matrix
 		For $iY = 0 To 3
 			DllStructSetData($tColorMatrix, "m", Random(0, 0.5), $iY * 5 + $iX + 1)
 		Next
 	Next
 
-	_GDIPlus_ImageAttributesSetColorMatrix($hIA, 0, True, DllStructGetPtr($tColorMatrix)) ;adapt the modified color matrix
+	_GDIPlus_ImageAttributesSetColorMatrix($hIA, 0, True, $tColorMatrix) ;adapt the modified color matrix
 
 	_GDIPlus_GraphicsDrawImageRectRect($hGraphics, $hBitmap, 0, 0, $iWidth, $iHeight, 0, 0, $iWidth, $iHeight, $hIA) ;draw the bitmap while applying the color adjustment
 

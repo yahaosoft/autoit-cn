@@ -15,17 +15,17 @@ $oAppl
 	Word object returned by a preceding call to _Word_Create
 $vIndex
 	[optional] Specifies what to return:
-	-1 - Returns a collection of all documents (default)
-	0 - Returns the active document
-	n - The index number of the document to return (1 based)
-	x - The name of the document to return
+		-1 - Returns a collection of all documents (default)
+		 0 - Returns the active document
+		 n - The index number of the document to return (1 based)
+		 x - The name of the document to return
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns a variable pointing to the collection of documents or a single document object.
+Success:	a variable pointing to the collection of documents or a single document object.
 	@extended is set to the total number of documents
-Failure:	Returns 0 and sets @error
+Failure:	0 and sets the @error flag to non-zero.
 @error:	1 - $oAppl is not an object
 	2 - $vIndex is invalid (&lt; -1 or &gt; Documents.Count)
 	3 - Specified document could not be found or error occurred. @extended is set to the COM error code

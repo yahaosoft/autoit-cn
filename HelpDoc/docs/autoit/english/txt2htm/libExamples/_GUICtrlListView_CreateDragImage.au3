@@ -7,7 +7,6 @@ Global $iMemo
 Example()
 
 Func Example()
-
 	Local $GUI, $hImage, $aDrag, $hListView
 
 	$GUI = GUICreate("(UDF Created) ListView Create Drag Image", 400, 300)

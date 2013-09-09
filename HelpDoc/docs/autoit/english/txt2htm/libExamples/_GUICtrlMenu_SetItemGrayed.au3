@@ -16,7 +16,6 @@ Func Example()
 	Writeln("Open is grayed: " & _GUICtrlMenu_GetItemGrayed($hFile, 1))
 	_GUICtrlMenu_SetItemGrayed($hFile, 1)
 	Writeln("Open is grayed: " & _GUICtrlMenu_GetItemGrayed($hFile, 1))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

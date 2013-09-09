@@ -114,11 +114,11 @@ For more Windows API types see <a href="http://msdn.microsoft.com/en-us/library/
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	@error = 0.
-Failure:	set @error
-@error:	2 unknown "return type",
-	4 bad number of parameters,
-	5 bad parameter
+Success:	an array. See remarks.
+Failure:	sets the @error flag to non-zero.
+@error:	2 = unknown "return type",
+	4 = bad number of parameters,
+	5 = bad parameter
 @@End@@
 See remarks.
 
@@ -126,7 +126,8 @@ See remarks.
 ###Remarks###
 By default, AutoIt uses the 'stdcall' calling method. To use the 'cdecl' method place ':cdecl' after the return type.
 
-If the function call fails then @error is set to non-zero.  Otherwise an array is returned that contains the function return value and a copy of all the parameters (including parameters that the function may have modified when passed by reference).
+If the function call fails then the @error flag is set to non-zero.
+Otherwise an array is returned that contains the function return value and a copy of all the parameters (including parameters that the function may have modified when passed by reference).
 $return[0] = function return value
 $return[1] = param1
 $return[2] = param2

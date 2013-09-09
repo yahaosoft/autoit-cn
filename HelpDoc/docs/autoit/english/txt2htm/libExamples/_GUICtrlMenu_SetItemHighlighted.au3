@@ -16,7 +16,6 @@ Func Example()
 	Writeln("Open is highlighted: " & _GUICtrlMenu_GetItemHighlighted($hFile, 1))
 	_GUICtrlMenu_SetItemHighlighted($hFile, 1)
 	Writeln("Open is highlighted: " & _GUICtrlMenu_GetItemHighlighted($hFile, 1))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

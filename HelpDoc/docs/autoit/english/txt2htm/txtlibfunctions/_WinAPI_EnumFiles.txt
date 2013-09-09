@@ -14,11 +14,11 @@ _WinAPI_EnumFiles ( $sDir [, $iFlag= 0 [, $sTemplate = '' [, $fExclude = 0]]] )
 $sDir
 	The path to the directory.
 $iFlag
-	[optional] The flag that specifies whether to enumerate files, subdirectories, or both. This parameter can be
-	one of the following values.
-	0 - Enumerate both files and subdirectories (Default).
-	1 - Enumerate files only.
-	2 - Enumerate subdirectories only.
+	[optional] The flag that specifies whether to enumerate files, subdirectories, or both.
+	This parameter can be one of the following values:
+		0 - Enumerate both files and subdirectories (Default).
+		1 - Enumerate files only.
+		2 - Enumerate subdirectories only.
 $sTemplate
 	[optional] A template that using to enumerating files and directories. For example, "*.jpe;*.jpeg;*.jpg".
 $fExclude
@@ -29,16 +29,16 @@ $fExclude
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	The 2D array containing the following information:
-	[0][0] - Number of rows in array (n)
-	[0][i] - Unused
-	[n][0] - The name of the file.
-	[n][1] - The time (UTC) when the file was created.
-	[n][2] - The time (UTC) when the file was last accessed.
-	[n][3] - The time (UTC) when the file was last changed.
-	[n][4] - The size of the file, in bytes.
-	[n][5] - The allocation size of the file, in bytes.
-	[n][6] - The file attributes ($FILE_ATTRIBUTE_*).
+Success 	a 2D array containing the following information:
+		[0][0] - Number of rows in array (n)
+		[0][i] - Unused
+		[n][0] - The name of the file.
+		[n][1] - The time (UTC) when the file was created.
+		[n][2] - The time (UTC) when the file was last accessed.
+		[n][3] - The time (UTC) when the file was last changed.
+		[n][4] - The size of the file, in bytes.
+		[n][5] - The allocation size of the file, in bytes.
+		[n][6] - The file attributes ($FILE_ATTRIBUTE_*).
 Failure 	Sets the @error flag to non-zero, @extended flag may contain the NTSTATUS error code.
 @@End@@
 

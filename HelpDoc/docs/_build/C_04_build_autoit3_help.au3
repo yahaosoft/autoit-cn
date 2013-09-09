@@ -13,8 +13,6 @@
 Global Const $g_sProjectLang = "english"
 Global Const $g_sProject = "autoit3 help"
 Global Const $g_sProjectDir = "docs\autoit"
-;Global Const $g_aBuildFiles[1] = [ "AutoIt.chm" ]
-;Global Const $g_aInstallFiles[1] = [ "AutoIt.chm" ]
 #endregion Global Variables
 
 #region Main body of code
@@ -48,14 +46,6 @@ Func _Main()
 	FileChangeDir($gBuildDir & "\" & $g_sProjectDir & "\" & $g_sProjectLang)
 	RunWait('"' & @AutoItExe & '" All_Gen_AutoIt3.au3')
 
-	#cs
-		; Udpate index_chm.htm based on index.htm
-		Local $sFileRead = FileRead("html\index.htm")
-		$sFileRead = StringReplace($sFileRead, '"history.htm"', '"history_chm.htm"')
-		FileDelete("html\index_chm.htm")
-		FileWrite("html\index_chm.htm", $sFileRead)
-	#ce
-
 	; Holds the return value.
 	Local $nReturn = 0
 
@@ -71,8 +61,6 @@ Func _Main()
 	Else
 		; Copy the files install
 		FileChangeDir($gBuildDir)
-		FileDelete("install\AutoIt3.chm") ; Delete AutoIt3.chm as it's now merged into AutoIt.chm. This can be removed in later versions of AutoIt.
-		FileDelete("install\UDFs3.chm") ; Delete UDFs3.chm as it's now merged into AutoIt.chm. This can be removed in later versions of AutoIt.
 		FileMove($g_sProjectDir & "\" & $g_sProjectLang & "\AutoIt3.chm", "install\AutoItCHS.chm", $FC_OVERWRITE) ; Move AutoIt3.chm to the install folder as AutoIt.chm.
 
 		; Delete all temp files ready for source code packaging
@@ -91,29 +79,6 @@ Func _Main()
 	UnMergeHelpFiles($hBackupTOC)
 	UnMergeHelpFiles($hBackupHHK)
 
-	; Previous approach to creating just AutoIt3.chm.
-	#cs
-		; Create the helpfile.
-		CompileDocumentation("AutoIt3.hhp")
-		If @error Then
-		_OutputProgressWrite("Error: Unable to compile documentation." & @CRLF)
-		$nReturn = 1
-		Else
-		; Copy the files install
-		FileChangeDir($gBuildDir)
-		FileMove($g_sProjectDir & "\" & $g_sProjectLang & "\AutoIt3.chm", "install\AutoIt3.chm", 1)
-
-		; Delete all temp files ready for source code packaging
-		FileDelete($g_sProjectDir & "\" & $g_sProjectLang & "\Debug.log")
-		FileDelete($g_sProjectDir & "\" & $g_sProjectLang & "\_errorlog3.txt")
-		FileDelete($g_sProjectDir & "\" & $g_sProjectLang & "\fileList.tmp")
-		FileDelete($g_sProjectDir & "\" & $g_sProjectLang & "\genindex.log")
-
-		; Write closing message and wait for close (if applicable).
-		_OutputProgressWrite("Finished." & @CRLF & @CRLF) ; Two CRLF's in case of chained output.
-		EndIf
-	#ce
-
 	_OutputWaitClosed($nReturn)
 
 	Return $nReturn
@@ -131,6 +96,7 @@ Func MergeHelpFiles($sParent, $sChild)
 		$aSRE[0] = StringReplace($aSRE[0], '\', '\\')
 		Local $sAutoIt3TOC = StringRegExpReplace(FileRead($sParent), _
 				'(*BSR_ANYCRLF)(</UL>\R)(?=</BODY></HTML>)', '\1' & $aSRE[0] & @CRLF)
+		_StripEmptyLines($sAutoIt3TOC)
 		_StripWhitespace($sAutoIt3TOC)
 		If FileDelete($sParent) Then FileWrite($sParent, $sAutoIt3TOC)
 		Local Const $hTimer = TimerInit()

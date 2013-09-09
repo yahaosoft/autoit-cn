@@ -15,25 +15,27 @@ $hGraphics
 	Handle to a Graphics object
 $aPoints
 	Array that specifies the points of the curve:
-	[0][0] - Number of points
-	[1][0] - Point 1 X position
-	[1][1] - Point 1 Y position
-	[2][0] - Point 2 X position
-	[2][1] - Point 2 Y position
-	[n][0] - Point n X position
-	[n][1] - Point n Y position
+		[0][0] - Number of points
+		[1][0] - Point 1 X position
+		[1][1] - Point 1 Y position
+		[2][0] - Point 2 X position
+		[2][1] - Point 2 Y position
+		[n][0] - Point n X position
+		[n][1] - Point n Y position
 $hPen
 	[optional] Handle to a pen object that is used to draw the spline. If 0, a solid black pen with a width of
 @@End@@
 
 ###ReturnValue###
-Success: True
-Failure: False
+@@ReturnTable@@
+Success:	True?
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+@@End@@
 
 
 ###Remarks###
-A segment is defined as a curve that connects two consecutive points in the cardinal spline. The ending point
-of each segment is the starting point for the next.
+A segment is defined as a curve that connects two consecutive points in the cardinal spline.
+The ending point of each segment is the starting point for the next.
 
 
 ###Related###

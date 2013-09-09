@@ -5,7 +5,6 @@
 Example()
 
 Func Example()
-
 	Local $hGUI, $HandleBefore, $hStatus
 	Local $aParts[3] = [75, 150, -1]
 

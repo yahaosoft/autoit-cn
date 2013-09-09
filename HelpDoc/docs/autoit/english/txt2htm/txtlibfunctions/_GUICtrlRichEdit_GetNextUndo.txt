@@ -20,16 +20,16 @@ $fName
 ###ReturnValue###
 @@ReturnTable@@
 Success:	depends on value of $fName:
-	If $fName is True: "Unknown", "Typing", "Delete", "Drag and drop", "Cut" or "Paste"
-	If $Name is False: the corresponding number (0 to 5)
-Failure:	"" and sets @error
+		If $fName is True: "Unknown", "Typing", "Delete", "Drag and drop", "Cut" or "Paste"
+		If $Name is False: the corresponding number (0 to 5)
+Failure:	"" and sets the @error flag to non-zero.
 @error:	101 - $hWnd is not a handle
 	102 - $fName is neither True nor False
 @@End@@
 
 
 ###Remarks###
-Note that EM_GETUNDONAME does not distinguish between Unknown and Undo queue empty
+Note that EM_GETUNDONAME does not distinguish between Unknown and Undo queue empty.
 
 
 ###Related###

@@ -14,9 +14,8 @@ Func Example()
 	Local $hIA = _GDIPlus_ImageAttributesCreate() ;create an ImageAttribute object
 
 	Local $tColorMatrix = _GDIPlus_ColorMatrixCreateSaturation(15.0) ;create saturation color matrix
-	Local $pColorMatrix = DllStructGetPtr($tColorMatrix)
 
-	_GDIPlus_ImageAttributesSetColorMatrix($hIA, 0, True, $pColorMatrix) ;set saturation color matrix
+	_GDIPlus_ImageAttributesSetColorMatrix($hIA, 0, True, $tColorMatrix) ;set saturation color matrix
 
 	Local $hHBmp = _ScreenCapture_Capture("", 0, 0, $iWidth, $iHeight) ;create a GDI bitmap by capturing an area on desktop
 	Local $hBitmap = _GDIPlus_BitmapCreateFromHBITMAP($hHBmp) ;convert GDI to GDI+ bitmap

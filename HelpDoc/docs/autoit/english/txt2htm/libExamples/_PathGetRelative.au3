@@ -20,5 +20,4 @@ Func Example()
 		ConsoleWrite("Relative Path: " & $path & @CRLF)
 		ConsoleWrite("Resolved Path: " & _PathFull($from & "\" & $path) & @CRLF)
 	EndIf
-
 EndFunc   ;==>Example

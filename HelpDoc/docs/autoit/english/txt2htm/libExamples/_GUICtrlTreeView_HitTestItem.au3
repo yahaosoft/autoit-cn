@@ -9,7 +9,6 @@ Global $hImage, $hStateImage
 Example()
 
 Func Example()
-
 	Local $hItem[10], $hChildItem[30], $iYItem = 0, $iYRand, $iXRand, $hTreeView
 	Local $iStyle = BitOR($TVS_EDITLABELS, $TVS_HASBUTTONS, $TVS_HASLINES, $TVS_LINESATROOT, $TVS_DISABLEDRAGDROP, $TVS_SHOWSELALWAYS)
 

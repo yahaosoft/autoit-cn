@@ -14,32 +14,34 @@ _GDIPlus_PathCreate2 ( $aPathData [, $iFillMode = 0] )
 $aPathData
 	Array of points and types that specifies the endpoints and control points of the lines and bezier
 	splines that are used to draw the path and the points types:
-	[0][0] - Number of points and types
-	[1][0] - Point 1 X position
-	[1][1] - Point 1 Y position
-	[1][2] - Point 1 type
-	[n][0] - Point n X position
-	[n][1] - Point n Y position
-	[1][2] - Point n type
+		[0][0] - Number of points and types
+		[1][0] - Point 1 X position
+		[1][1] - Point 1 Y position
+		[1][2] - Point 1 type
+		[n][0] - Point n X position
+		[n][1] - Point n Y position
+		[1][2] - Point n type
 	Each point type is one of the following values:
-	0x00 - The point is the start of a figure
-	0x01 - The point is one of the two endpoints of a line
-	0x03 - The point is an endpoint or control point of a cubic bezier spline
-	0x20 - The point is a marker
-	0x80 - The point is the last point in a closed subpath (figure)
+		0x00 - The point is the start of a figure
+		0x01 - The point is one of the two endpoints of a line
+		0x03 - The point is an endpoint or control point of a cubic bezier spline
+		0x20 - The point is a marker
+		0x80 - The point is the last point in a closed subpath (figure)
 $iFillMode
 	[optional] Fill mode of the interior of the path figures:
-	0 - The areas are filled according to the even-odd parity rule
-	1 - The areas are filled according to the nonzero winding rule
+		0 - The areas are filled according to the even-odd parity rule
+		1 - The areas are filled according to the nonzero winding rule
 @@End@@
 
 ###ReturnValue###
-Success: Pointer to a new GraphicsPath object
-Failure: 0
+@@ReturnTable@@
+Success:	a pointer to a new GraphicsPath object.
+Failure:	0 and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+@@End@@
 
 
 ###Remarks###
-After you are done with the object, call _GDIPlus_PathDispose to release the object resources
+After you are done with the object, call _GDIPlus_PathDispose() to release the object resources.
 
 
 ###Related###

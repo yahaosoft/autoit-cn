@@ -39,5 +39,4 @@ Func Example()
 	Else
 		MsgBox($MB_SYSTEMMODAL, "Information", "System clock restored")
 	EndIf
-
 EndFunc   ;==>Example

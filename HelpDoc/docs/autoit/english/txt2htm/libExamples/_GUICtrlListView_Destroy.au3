@@ -5,7 +5,6 @@
 Example()
 
 Func Example()
-
 	Local $GUI, $HandleBefore, $hListView
 
 	$GUI = GUICreate("(UDF Created) ListView Destroy", 400, 300)

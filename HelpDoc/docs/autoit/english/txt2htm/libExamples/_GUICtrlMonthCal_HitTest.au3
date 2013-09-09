@@ -7,7 +7,6 @@ Global $hMonthCal, $iMemo, $hGUI
 Example()
 
 Func Example()
-
 	; Create GUI
 	$hGUI = GUICreate("Month Calendar Hit Test", 400, 300)
 	$hMonthCal = GUICtrlCreateMonthCal("", 4, 4, -1, -1, $WS_BORDER, 0x00000000)

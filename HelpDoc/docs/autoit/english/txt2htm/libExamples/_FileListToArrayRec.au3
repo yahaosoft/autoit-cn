@@ -5,7 +5,6 @@
 Example()
 
 Func Example()
-
 	Local $sAutoItDir = StringLeft(@AutoItExe, StringInStr(@AutoItExe, "\", Default, -1))
 	If StringRight($sAutoItDir, 5) = "beta\" Then
 		$sAutoItDir = StringTrimRight($sAutoItDir, 5)

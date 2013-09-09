@@ -18,7 +18,12 @@ $sRemotePath
 $hFTPFind
 	returns Handle to be used in _FTP_FindFileNext() or _FTP_FindFileClose().
 $iFlags
-	[optional] see remarks.
+	[optional] $iFlags can be a combination of :
+		$INTERNET_FLAG_HYPERLINK
+		$INTERNET_FLAG_NEED_FILE
+		$INTERNET_FLAG_NO_CACHE_WRITE
+		$INTERNET_FLAG_RELOAD
+		$INTERNET_FLAG_RESYNCHRONIZE
 $iContext
 	[optional] A variable that contains the application-defined value that associates this search with any application data.
 	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
@@ -26,32 +31,25 @@ $iContext
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	an array, see remarks.
-Failure:	0  and sets @error
+Success:	an array:
+		[0]  - Number of elements
+		[1]  - File Attributes
+		[2]  - Creation Time Low
+		[3]  - Creation Time Hi
+		[4]  - Access Time Low
+		[5]  - Access Time Hi
+		[6]  - Last Write Low
+		[7]  - Last Write Hi
+		[8]  - File Size High
+		[9]  - File Size Low
+		[10] - File Name
+		[11] - Altername
+Failure:	0  and sets the @error flag to non-zero.
 @@End@@
 
 
 ###Remarks###
-If successfull a return array:
-[0]  - Number of elements
-[1]  - File Attributes
-[2]  - Creation Time Low
-[3]  - Creation Time Hi
-[4]  - Access Time Low
-[5]  - Access Time Hi
-[6]  - Last Write Low
-[7]  - Last Write Hi
-[8]  - File Size High
-[9]  - File Size Low
-[10] - File Name
-[11] - Altername
-
-$iFlags can be a combination of :
-	$INTERNET_FLAG_HYPERLINK
-	$INTERNET_FLAG_NEED_FILE
-	$INTERNET_FLAG_NO_CACHE_WRITE
-	$INTERNET_FLAG_RELOAD
-	$INTERNET_FLAG_RESYNCHRONIZE
+None.
 
 
 ###Related###

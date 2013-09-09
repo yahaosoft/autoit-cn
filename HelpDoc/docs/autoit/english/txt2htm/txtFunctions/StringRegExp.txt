@@ -24,7 +24,7 @@ offset
 <b>Flag</b>
 	<b>Values</b>
 0
-	Returns 1 (matched) or 0 (no match)
+	Returns 1 (match) or 0 (no match)
 1
 	Return array of matches.
 2
@@ -39,236 +39,496 @@ offset
 <i>Flag = 0 :</i>
 
 @@ReturnTable@@
-@error	Meaning
-2 	Bad pattern. @extended = offset of error in pattern.
+	@error	Meaning
+		2 	Bad pattern. @extended = offset of error in pattern.
 @@End@@
 
 <br>
 <i>Flag = 1 or 2 :</i>
 
 @@ReturnTable@@
-@error	Meaning
-0	Array is valid.  Check @extended for next offset
-1	Array is invalid.  No matches.
-2	Bad pattern, array is invalid.  @extended = offset of error in pattern.
+	@error	Meaning
+		0	Array is valid.  Check @extended for next offset
+		1	Array is invalid.  No matches.
+		2	Bad pattern, array is invalid.  @extended = offset of error in pattern.
 @@End@@
 
 <br>
 <i>Flag = 3 or 4 :</i>
 
 @@ReturnTable@@
-@error	Meaning
-0	Array is valid.
-1	Array is invalid.  No matches.
-2	Bad pattern, array is invalid.  @extended = offset of error in pattern.
+	@error	Meaning
+		0	Array is valid.
+		1	Array is invalid.  No matches.
+		2	Bad pattern, array is invalid.  @extended = offset of error in pattern.
 @@End@@
 
 
 ###Remarks###
-The flag parameter can have one of 5 values (0 through 4).  0 gives a true (1) or false (0) as to whether the pattern was found or not.  1 and 2 find the first match and returns it in an array.  3 and 4 find multiple hits and fills the array with all the matching text.  2 and 4 include the full matching text as the first record, not just the capturing groups, which is all you get with flag 1 and 3.
+The flag parameter can have one of 5 values (0 through 4).  Flag 0 returns 1 (true) or 0 (false) as to whether the pattern was found or not.  Flags 1 and 2 find the first match and return captured groups in an array; when the pattern has no capturing groups, the first match is returned in the array.  Flags 3 and 4 find multiple hits and fills the array with every matching text.  Flags 2 and 4 include the full matching text as the first element of the return array, not just the captured groups, which is all you get with flag 1 and 3.
 
-Regular expression notation is a compact way of specifying a pattern for strings that can be searched.  Regular expressions are character strings in which plain text characters indicate what text should exist in the target string, and a some characters are given special meanings to indicate what variability is allowed in the target string.  AutoIt regular expressions are normally case-sensitive.
+Regular expression notation is a compact way of specifying a pattern for subject strings that can be searched and from where specific parts can be extracted by StringRegExp() or replaced when using StringRegExpReplace().
+More precisely, the regular expression engine tries to match a pattern (a kind of programmatic format) with a subject string, both from left to right.  Should a mismatch occur, the engines tries to backtrack (return to successively previous states) as much as needed, expecting that the rest of the pattern will match as well.  Backtracking is a fundamental feature of PCRE expressions and one that every novice programmer already understand and uses daily.  It is like leaving a specific mark on every fork in the road and going back to the last one when the choosen path turns into a dead end: you backtrack as needed until you find the right point (match success) or explore every path without reaching your goal (match failure).  Searching a given filename with optional wildcards inside a directory tree is no different.
 
-Regular expressions are constructed of one or more of the following simple regular expression specifiers.  If the character is not in the following table, then it will match only itself.
+AutoIt uses the PCRE engine.  PCRE means "Perl-Compatible Regular Expressions" and is the most comprehensive open-source engine available.  This implementation includes Unicode Category Properties (UCP) support, which allows fine-grain processing of most human languages.
+However to maintain compatibility with previous versions and keep matching speed at its best, <b>the UCP support is not enabled by default</b>.  You can enable it by prepending the string <b>(*UCP)</b> at the very start of your pattern.  When enabled, the UCP setting changes the extend of a number of regular expression elements, as documented below where applicable.
 
-Repeating characters (*, +, ?, {...} ) will try to match the largest set possible, which allows the following characters to match as well, unless followed immediately by a question mark; then it will find the smallest pattern that allows the following characters to match as well.
-
-Nested groups are allowed, but keep in mind that all the groups, except non-capturing groups, assign to the returned array, with the outer groups assigning after the inner groups.
-
-Complete description can be found <b><a href="http://www.autoitscript.com/autoit3/pcrepattern.html" target="_blank">here</a></b>
+This page is only a summary for the most used pattern elements.  For full in-depth discussion of regular expressions as implemented in AutoIt, refer to the <b><a href="http://www.autoitscript.com/autoit3/pcrepattern v8.33.html" target="_blank">complete description of PCRE patterns</a></b>.
+Unless you are already familiar with regular expressions you will probably need to read several parts of this summary more than once to grasp how they work and inter-relate.
 
 <b>Caution</b>: bad regular expressions can produce a quasi-infinite loop hogging the CPU, and can even cause a crash.
 
-<b><u>Matching Characters</u></b>
+
+<b><u>Global settings</u></b>
+
+These settings are only recognized at the start of the pattern and affect it globally.
+
+<u>Newline conventions</u>
+Newline sequences affect where the <b>^</b> and <b>$</b> anchors match. By default the newline sequence is @CRLF as an unbreakable sequence.
+The default can be changed by prepending one of the following sequence at the start of a pattern.
+@@ParamTable@@
+<b>(*CR)</b>
+	Carriage return (@CR).
+<b>(*LF)</b>
+	Line feed (@LF).
+<b>(*CRLF)</b>
+	Carriage return immediately followed by linefeed (@CRLF).  This is the default convention.
+<b>(*ANYCRLF)</b>
+	Any of @CRLF, @CR or @LF.
+<b>(*ANY)</b>
+	Any Unicode newline sequence: CRLF, LF, VT, FF, CR or x85.
+@@End@@
+
+<u>What <b>\R</b> matches</u>
+@@ParamTable@@
+<b>(*BSR_ANYCRLF)</b>
+	Restrict <b>\R</b> to match CRLF, CR or LF only.
+<b>(*BSR_UNICODE)</b>
+	By default <b>\R</b> matches any Unicode newline sequence: CRLF, LF, VT, FF, CR or x85.
+@@End@@
+
+
+<b><u>Options</u></b>
+
+PCRE patterns may contain options, which are enclosed in <b>(? )</b> sequences.  Options can be grouped together: "(?imx)".  Options following an hyphen are negated: "(?im-sx)".
+Options appearing outside a group affect the remaining of the pattern.  Options appearing in a group affect this group only.  Options loose their special meaning inside a character class, where they mean themselves.
 
 @@ParamTable@@
-[ ... ]
-	Match any character in the set.  e.g. <b>[aeiou]</b> matches any lower-case vowel.  A contiguous set can be defined using a dash between the starting and ending characters.  e.g. <b>[a-z]</b> matches any lower case character.  To include a dash (<b>-</b>) in a set, use it as the first or last character of the set.  To include a closing bracket in a set, use it as the first character of the set.  e.g. <b>[][]</b> will match either [ or ].  Note that special characters <b>do not</b> retain their special meanings inside a set, with the exception of <b>\\</b>,  <b>\^</b>, <b>\-</b>,<b>\[</b> and <b>\]</b> match the escaped character inside a set.
-[^ ... ]
-	Match any character <b>not</b> in the set.  e.g. <b>[^0-9]</b> matches any non-digit.  To include a caret (<b>^</b>) in a set, put it after the beginning of the set or escape it (\^).
-[:class:]
-	Match a character in the given class of characters.  Valid classes are: alpha (any alphabetic character), alnum (any alphanumeric character), lower (any lower-case letter), upper (any upper-case letter), digit (any decimal digit 0-9), xdigit (any hexadecimal digit, 0-9, A-F, a-f), space (any whitespace character), blank (only a space or tab), print (any printable character), graph (any printable character except spaces), cntrl (any control character [ascii 127 or <32]) or punct (any punctuation character). So [0-9] is equivalent to [[:digit:]].
-[^:class:]
-	Match any character <b>not</b> in the class, but only if the first character.
-( ... )
-	Group. The elements in the group are treated in order and can be repeated together.  e.g. <b>(ab)+</b> will match "ab" or "abab", but not "aba".  A group will also store the text matched for use in back-references and in the array returned by the function, depending on flag value.
-(?#....)
-	comment (not nestable).
-(?i)
-	Case-insensitivity flag.  This does not operate as a group.  It tells the regular expression engine to do case-insensitive matching from that point on.
-(?-i)
-	(default) Case-sensitivity flag.  This does not operate as a group.  It tells the regular expression engine to do case-sensitive matching from that point on.
-(?: ... )
-	Non-capturing group.  Behaves just like a normal group, but does not record the matching characters in the array nor can the matched text be used for back-referencing.
-(?i: ... )
-	Case-insensitive non-capturing group.  Behaves just like a non-capturing group, but performs case-insensitive matches within the group.
-(?-i: ... )
-	Case-sensitive non-capturing group.  Behaves just like a non-capturing group, but performs case-sensitive matches within the group.
-(?J)
-	allow duplicate names.
-(?m)
-	^ and $ match newlines within data.
-(?s)
-	. matches anything including newline. (by default "." don't match newline)
-(?U)
-	Invert greediness of quantifiers.
-(?x)
-	Ignore whitespace and # comments.
-(?-...)
-	unset option(s).
+<b>(?i)</b>
+	Caseless: matching becomes case-insensitive from that point on.  By default, matching is case-sensitive.  When UCP is enabled casing applies to the entire Unicode plane 0, else applies by default to ASCII letters A-Z and a-z only. 
+<b>(?m)</b>
+	Multiline: <b>^</b> and <b>$</b> match at newline sequences within data.  By default, multiline is off.
+<b>(?s)</b>
+	Single-line or <i>DotAll</i>: <b>.</b> matches anything including a newline sequence.  By default <b>.</b> doesn't match a newline sequence.
+<b>(?U)</b>
+	Ungreedy: quantifiers become lazy (non-greedy) from that point on.  By default, matching is greedy.
+<b>(?x)</b>
+	eXtended: whitespaces outside character classes are ignored and <b>#</b> starts a comment up to the next solid newline in pattern.  Meaningless whitespaces between components make regular expressions much more readable.  By default, whitespaces match themselves and <b>#</b> is a literal character.
+@@End@@
+
+
+<b><u>Characters, metacharacters and quoting</u></b>
+
+Regular expressions patterns consist of literal text parts which match themselves, intermixed with regular expression specifiers or options.  Specifiers and options use a few <u>metacharacters</u> which have a special meaning described in the tables below.  If a character is not in the following tables, then it will match only itself.
+PCRE metacharacters are <b>\ . ^ $ | [ ( { * + ? #</b> which have one or more special meaning, depending on context.
+The special sequences below are used to represent certain characters literally.
+
+@@ParamTable@@
+<b>\a</b>
+	Represents "alarm", the BEL character (Chr(7)).
+<b>\c</b><i>X</i>
+	Represents "control-<i>X</i>", where <i>X</i> is any 7-bit ASCII character.  For example, "\cM" represents ctrl-M, same as \x0D or \r (Chr(13)).
+<b>\e</b>
+	Represents "escape" (Chr(27)).
+<b>\f</b>
+	Represents "formfeed" (Chr(12)).
+<b>\n</b>
+	Represents "linefeed" (@LF, Chr(10)).
+<b>\r</b>
+	Represents "carriage return" (@CR, Chr(13)).
+<b>\t</b>
+	Represents "tab" (@TAB, Chr(9)).
+<b>\</b><i>ddd</i>
+	Represents character with octal code <i>ddd</i>, OR backreference to capturing group number <i>ddd</i> in decimal.  For example, <b>([a-z])\1</b> would match a doubled letter.
+	<b>Best avoided</b> as it can be ambiguous! Favor the hex representations below.
+<b>\x</b><i>hh</i>
+	Represents character with hex code <i>hh</i>: "\x7E" represents a tilde, "~".
+<b>\x{</b><i>hhhh</i><b>}</b>
+	Represents character with hex codepoint <i>hhhh</i>: "\x{20AC}" represents the Unicode Euro symbol, "€" (ChrW(0x20AC)).
+<b>\</b><i>x</i>
+	where <i>x</i> is non-alphanumeric, stands for a literal <i>x</i>.  Used to represent metacharacters literally: "\.\[" represents a dot followed by a left square bracket, ".[".
+<b>\Q</b> ... <b>\E</b>
+	Verbatim sequence: metacharacters loose their special meaning between <b>\Q</b> and <b>\E</b>: "\Q(.)\E" matches "(.)" and is equivalent to, but more readable than, "\(\.\)".
+@@End@@
+
+
+<b><u>Character types</u></b>
+
+@@ParamTable@@
 <b>.</b>
-	Match any single character (except newline).
-|
-	Or.  The expression on one side <b>or</b> the other can be matched.
-\
-	<i>Escape</i> a special character (have it match the actual character) or introduce a special character type (see below).
-\\
-	Match an actual backslash (\).
-\a
-	Alarm, that is, the BEL character (<a href="Chr.htm">Chr</a>(7)).
-\A
-	Match only at beginning of string.
-\b
-	Matches at a word boundary.
-\B
-	Matches when not at a word boundary.
-\c
-	Match a control character, based on the next character.  For example, <b>\cM</b> matches ctrl-M.
-\d
-	Match any digit (0-9).
-\D
-	Match any non-digit.
-\e
-	Match an escape character (<a href="Chr.htm">Chr</a>(27)).
-\E
-	end case modification.
-\f
-	Match an formfeed character (<a href="Chr.htm">Chr</a>(12)).
-\G
-	first matching position in subject.
-\h
-	any horizontal whitespace character.
-\H
-	any character that is not a horizontal whitespace character.
-\n
-	Match a linefeed (@LF, <a href="Chr.htm">Chr</a>(10)).
-\K
-	reset start of match.
-\N
-	a character that is not a newline
-\Q
-	quote (disable) pattern metacharacters till \E.
-\r
-	Match a carriage return (@CR, <a href="Chr.htm">Chr</a>(13)).
-\R
-	a newline sequence.
-\s
-	Match any whitespace character: <a href="Chr.htm">Chr</a>(9) through <a href="Chr.htm">Chr</a>(13) which are Horizontal Tab, Line Feed, Vertical Tab, Form Feed, and Carriage Return, and the standard space ( <a href="Chr.htm">Chr</a>(32) ).
-\S
-	Match any non-whitespace character.
-\t
-	Match a tab character (<a href="Chr.htm">Chr</a>(9)).
-\v
-	any vertical whitespace character.
-\V
-	any character that is not a vertical whitespace character.
-\w
-	Match any "word" character: a-z, A-Z, 0-9 or underscore (_).
-\W
-	Match any non-word character.
-\X
-	A Unicode extended grapheme cluster, that is an unbreakable sequence of codepoints which represent a single character for the user.
-\ddd
-	Match character with octal code ddd, or backreference if found. Match the prior group number given exactly. For example, <b>([:alpha:])\1</b> would match a double letter.
-\xhh
-	character with hex code hh.
-\x{hhh..}
-	Match character with hex code hhh..
-\z
-	Match only at end of string.
-\Z
-	Match only at end of string, or before newline at the end.
-(?= ... )
-	Positive look ahead.
-(?&lt;= ... )
-	Positive look behind.
-(?! ... )
-	Negative look ahead.
-(?&lt;! ... )
-	Negative look behind.
+	Matches any single character except, by default, a newline sequence.  Matches newlines as well when option <b>(?s)</b> is active.
+<b>\d</b>
+	Matches any decimal digit (any Unicode decimal digit in any language when UCP is enabled).
+<b>\D</b>
+	Matches any non-digit.
+<b>\h</b>
+	Matches any horizontal whitespace character (see table below).
+<b>\H</b>
+	Matches any character that is not a horizontal whitespace character.
+<b>\N</b>
+	Matches any character except a newline sequence regardless of option <b>(?s)</b>.
+<b>\p{</b><i>ppp</i><b>}</b>
+	Only when UCP is enabled: matches any Unicode character having the property <i>ppp</i>.  E.g. "\b\p{Cyrillic}+" matches any cyrillic word; "\p{Sc}" matches any currency symbol.  See reference documentation for details.
+<b>\P{</b><i>ppp</i><b>}</b>
+	Only when UCP is enabled: matches any Unicode character not having the property <i>ppp</i>.
+<b>\R</b>
+	Matches any Unicode newline sequence by default, or the currently active (*BSR_...) setting.  By default <b>\R</b> matches "(?>\r\n|\n|\x0b|\f|\r|\x85)" where "(?>...)" is an atomic group, making the sequence "\r\n" (@CRLF) unbreakable.
+<b>\s</b>
+	Matches any whitespace character (see table below).
+<b>\S</b>
+	Matches any non-whitespace character.
+<b>\v</b>
+	Matches any vertical whitespace character (see table below).
+<b>\V</b>
+	Matches any character that is not a vertical whitespace character.
+<b>\w</b>
+	Matches any "word" character: any digit, any letter or underscore "_" (any Unicode digit, any Unicode letter in any language or underscore "_" when UCP is enabled).
+<b>\W</b>
+	Matches any non-word character.
+<b>\X</b>
+	Only when UCP is enabled: matches any Unicode extended grapheme cluster, that is an unbreakable sequence of codepoints which represent a single character for the user.  As a consequence <b>\X</b> may match more than one character in the subject string, contrary to all other sequences in this table.
 @@End@@
 
-<u><b>Repeating Characters</u></b>
+
+<b><u>Sets of "whitespaces characters"</u></b>
+
+<b>Horizontal whitespace characters matched by "\h"</b>
+
+<b>\h</b> is equivalent to "[\x09 \xA0]" by default (or "[\x09 \xA0\x{1680}\x{180E}\x{2000}-\x{200A}\x{202F}\x{205F}\x{3000}]" when UCP is enabled.)
+This set is: Horizontal tab (HT), Space, Non-break space (adding: Ogham space mark, Mongolian vowel separator, En quad, Em quad, En space, Em space, Three-per-em space, Four-per-em space, Six-per-em space, Figure space, Punctuation space, Thin space, Hair space, Narrow no-break space, Medium mathematical space, Ideographic space when UCP is enabled.)
+
+<b>Vertical whitespace characters matched by "\v"</b>
+
+<b>\v</b> is equivalent to "[\x0A-\x0D]" by default (or "[\x0A-\x0D\x{0085}\x{2028}\x{2029}]" when UCP is enabled.)
+This set is: Linefeed (LF), Vertical tab (VT), Form feed (FF), Carriage return (CR) (adding: Next line (NEL), Line separator, Paragraph separator when UCP is enabled.)
+
+<b>Whitespace characters matched by "\s"</b>
+
+<b>\s</b> is equivalent to "[\h\x0A\x0C\x0D]".
+This set is: all characters in <b>\h</b> plus Linefeed (LF), Form feed (FF), Carriage return (CR).
+
+<b>Whitespace characters matched by "[[:space:]]"</b>
+
+<b>[[:space:]]</b> is equivalent to "[\h\x0A-\x0D]".
+This set is: all characters in <b>\s</b> plus Vertical tab (VT).
+
+
+<u><b>Character classes and POSIX classes</u></b>
+
+<b>Character classes</b>
+
+A character classes defines a set of allowed (resp. disallowed) characters, which the next character in subject is expected to match (resp. not to match).
 
 @@ParamTable@@
-{<i>x</i>}
-	Repeat the previous character, set or group exactly <i>x</i> times.
-{<i>x</i>,}
-	Repeat the previous character, set or group at least <i>x</i> times.
-{0,<i>x</i>}
-	Repeat the previous character, set or group at most <i>x</i> times.
-{<i>x</i>, <i>y</i>}
-	Repeat the previous character, set or group between <i>x</i> and <i>y</i> times, inclusive.
-*
-	Repeat the previous character, set or group 0 or more times.  Equivalent to {0,}
-+
-	Repeat the previous character, set or group 1 or more times.  Equivalent to {1,}
-?
-	The previous character, set or group may or may not appear.  Equivalent to {0, 1}
-? (after a repeating character)
-	Find the smallest match instead of the largest.
+<b>[</b> ... <b>]</b>
+	Matches any character in the set: "[aeiou]" matches any lowercase vowel.  A contiguous set can be defined by putting an hyphen between the starting and ending characters: "[a-z]" matches any lowercase ASCII letter.  To include a hyphen (-) in a set, put it as the first or last character of the set or escape it <b>\-</b>.
+	To include a closing bracket in a set, use it as the first character of the set:  "[][]" will match either "[" or "]".
+	Note that in a character class, only <b>\d</b>, <b>\D</b>, <b>\h</b>, <b>\H</b>, <b>\p{}</b>, <b>\P{}</b>, <b>\s</b>, <b>\Q</b>...<b>\E</b>, <b>\S</b>, <b>\v</b>, <b>\V</b>, <b>\w</b>, <b>\W</b>, and <b>\x</b> sequences retain their special meaning; <b>\b</b> means the backspace character (Chr(8)).
+<b>[^</b> ... <b>]</b>
+	Matches any character <b>not</b> in the set: "[^0-9]" matches any non-digit.  To include a caret (^) in a set, put it after the beginning of the set or escape it (\^).
 @@End@@
 
-<u><b>Character Classes</u></b>
+<b>POSIX classes</b>
+
+These are named sets specifications to be used themselves within a character class: "[z[:digit:]w-y]" is the same as "[w-z0-9]".  To negate a POSIX character class, put a caret (^) after the first colon: "[[:^digit:]]".
+When UCP is enabled, several POSIX classes extend to some Unicode character subset, else they restrict to 7-bit ASCII.
 
 @@ParamTable@@
-[:alnum:]
-	letters and digits (same as [0-9A-Za-z])
-[:alpha:]
-	letters (same as [A-Za-z])
-[:ascii:]
-	character codes (same as <a href="Chr.htm">Chr</a>(0) ... <a href="Chr.htm">Chr</a>(127))
-[:blank:]
-	space or tab only (same as <a href="Chr.htm">Chr</a>(9) and <a href="Chr.htm">Chr</a>(32))
-[:cntrl:]
-	control characters (same as <a href="Chr.htm">Chr</a>(0) ... <a href="Chr.htm">Chr</a>(31) and <a href="Chr.htm">Chr</a>(127))
-[:digit:]
-	decimal digits (same as \d or [0-9])
-[:graph:]
-	printing characters, excluding space (same as <a href="Chr.htm">Chr</a>(33) ... <a href="Chr.htm">Chr</a>(126))
-[:lower:]
-	lower case letters (same as [a-z])
-[:print:]
-	printing characters, including space (same as <a href="Chr.htm">Chr</a>(32) ... <a href="Chr.htm">Chr</a>(126))
-[:punct:]
-	printing characters, excluding [:alnum:] and [:cntrl:], (33-47, 58-64, 91-96, 123-126)
-[:space:]
-	white space (not quite the same as \s, it includes VT: <a href="Chr.htm">Chr</a>(11)) (same as [\f\n\r\t\v ])
-[:upper:]
-	upper case letters (same as [A-Z])
-[:word:]
-	"word" characters (same as \w)
-[:xdigit:]
+<b>[:alnum:]</b>
+	ASCII letters and digits (same as [^\W_] or [A-Za-z0-9])
+	When UCP is enabled: Unicode letters and digits (same as [^\W_] or \p{Xan})
+<b>[:alpha:]</b>
+	ASCII letters (same as [^\W\d_] or [A-Za-z])
+	When UCP is enabled: Unicode letters (same as [^\W\d_] or \p{L})
+<b>[:ascii:]</b>
+	ASCII characters (same as [\x00-\x7F])
+<b>[:blank:]</b>
+	Space or Tab (@TAB) (same as \h or [\x09\x20]).
+	When UCP is enabled: Unicode horizontal whitespaces (same as \h).
+<b>[:cntrl:]</b>
+	ASCII control characters (same as Chr(0) ... Chr(31) and Chr(127))
+<b>[:digit:]</b>
+	ASCII decimal digits (same as \d or [0-9])
+	When UCP is enabled: Unicode decimal digits (same as \d or \p{Nd})
+<b>[:graph:]</b>
+	ASCII printing characters, excluding space (same as Chr(33) ... Chr(126))
+<b>[:lower:]</b>
+	ASCII lowercase letters (same as [a-z])
+	When UCP is enabled: Unicode lowercase letters (same as \p{Ll})
+<b>[:print:]</b>
+	ASCII printing characters, including space (same as Chr(32) ... Chr(126))
+<b>[:punct:]</b>
+	ASCII printing characters, excluding [:alnum:] and [:cntrl:], (33-47, 58-64, 91-96, 123-126)
+<b>[:space:]</b>
+	ASCII white space (same as [\h\x0A-\x0D]).  <b>[:space:]</b> is not quite the same as <b>\s</b>: it includes VT, Chr(11))
+<b>[:upper:]</b>
+	ASCII uppercase letters (same as [A-Z])
+	When UCP is enabled: Unicode uppercase letters (same as \p{Lu})
+<b>[:word:]</b>
+	ASCII "Word" characters (same as \w or [[:alnum:]_])
+	When UCP is enabled: Unicode "word" characters (same as \w or [[:alnum:]_] or \p{Xwd})
+<b>[:xdigit:]</b>
 	hexadecimal digits (same as [0-9A-Fa-f])
 @@End@@
 
-<u><b>General comments about UTF-8 mode</b></u> (use internaly by AutoIt to translate pattern) :
 
-	1. An unbraced hexadecimal escape sequence (such as \xb3) matches a two-byte UTF-8 character if the value is greater than 127.
+<b><u>Groups</u></b>
 
-	2. Octal numbers up to \777 are recognized, and match two-byte UTF-8 characters for values greater than \177.
+Groups are used to delimit subpatterns and are the building blocks of powerful expressions.  Groups can be either capturing or not and may be nested irrespective of their nature, except comments groups.  A regular expression can contain up to 65535 capturing groups.
+Option letters (discussed above) can be conveniently inserted between the "?" and the ":" of non-capturing groups: "(?-i:[aeiou]{5})" matches 5 lowercase vowels.  In this case options are local to the group.
 
-	3. Repeat quantifiers apply to complete UTF-8 characters, not to individual bytes, for example: \x{100}{3}.
+@@ParamTable@@
+<b>(</b> ... <b>)</b>
+	Capturing group. The elements in the group are treated in order and can be repeated as a block.  E.g. "(ab)+c" will match "abc" or "ababc", but not "abac".
+	Capturing groups remember the text they matched for use in backreferences and they populate the optionally returned array.  They are numbered starting from 1 in the order of appearance of their opening parenthesis.
+	Capturing groups may also be treated as subroutines elsewhere in the pattern, possibly recursively.
+<b>(?&lt;</b><i>name</i><b>&gt;</b> ... <b>)</b>
+	Named capturing group. Can be later referenced by name as well as by number.  Avoid using the name "DEFINE" (see "conditional patterns").
+<b>(?:</b> ... <b>)</b>
+	Non-capturing group.  Does not record the matching characters in the array and cannot be re-used as backreference.
+<b>(?|</b> ... <b>)</b>
+	Non-capturing group with reset.  Resets capturing group numbers in each top-level alternative it contains: "(?|(Mon)|(Tue)s|(Wed)nes|(Thu)rs|(Fri)|(Sat)ur|(Sun))day" matches a weekday name and captures its abbreviation in group number 1.
+<b>(?></b> ... <b>)</b>
+	Atomic non-capturing group: locks and never backtracks into (gives back from) what has been matched (see also Quantifiers and greediness below).  Atomic groups, like possessive quantifiers, are always greedy.
+<b>(?#</b> ... <b>)</b>
+	Comment group: always ignored (but may not contain a closing parenthesis, hence comment groups are not nestable).
+@@End@@
 
-	4. The dot metacharacter matches one UTF-8 character instead of a single byte.
 
-	5. The character escapes \b, \B, \d, \D, \s, \S, \w, and \W correctly test characters of any code value, but the characters that PCRE recognizes as digits, spaces, or word characters remain the same set as before, all with values less than 256. Note that this also applies to \b, because it is defined in terms of \w and \W.
+<u><b>Quantifiers and greediness</u></b>
 
-	6. Similarly, characters that match the POSIX named character classes are all low-valued characters.
+Quantifiers (or repetition specifiers) specify how many of the preceding character, class, reference or group are expected to match.  Optional greediness qualifiers denote how aggressively the repetition will behave.  For instance "\d{3,5}" will match at least 3 and no more than 5 decimal digits.
+By default, patterns are "<u>greedy</u>", which means that quantifiers <b>* + ? {</b>...<b>}</b> will match the longest string which doesn't cause the rest of the pattern to fail.  Greediness can be inverted for the entire pattern by giving option (?U) at the head of the pattern, or locally by placing a question mark following a quantifier.
+Non-greedy (<u>lazy</u>) repetitions will match the smallest string that still allows the rest of the pattern to match.  E.g. given the subject "aaab", the pattern "(a*)([ab]+)" will capture "aaa" then "b", but "(?U)(a*)([ab]+)" will capture "" then "a": indeed, capturing an empty string is good enough to satisfy the lazy "(a*)" and capturing "a" matches the lazy "([ab]+)" subpattern.
+Possessive quantifiers are atomic and greedy.  In fact they are a short notation for simple atomic groups.  "\d++" is a shorthand notation for "(?>\d+)" and its behavior is "match a complete sequence of one or more digits, but never give back any".  As a consequence "\d++<b>(\d</b>)" can never match since the last digit (in bold) is already matched and locked by "\d++".  This is in contrast with simple greediness, where "\d+(\d)" will first match a complete sequence of digits with "\d+", but then backtrack the last one to allow "<b>(\d)</b>" to capture it.
+There are two reasons for using an atomic group or a possessive quantifier: either for matching a sequence of characters that may also appear individually (e.g. "\r\n" in the definition of <b>\R</b>), or for forcing a quick failure in certain situations involving unbounded repetitions, where the engine would normally spend a very long time trying a huge number of grouping combinations before failing.
 
-	7. However, the Perl 5.10 horizontal and vertical whitespace matching escapes (\h, \H, \v, and \V) do match all the appropriate Unicode characters.
+@@ParamTable@@
+<b>?</b>
+	0 or 1, greedy.
+<b>?+</b>
+	0 or 1, possessive.
+<b>??</b>
+	0 or 1, lazy.
+<b>*</b>
+	0 or more, greedy.
+<b>*+</b>
+	0 or more, possessive.
+<b>*?</b>
+	0 or more, lazy.
+<b>+</b>
+	1 or more, greedy.
+<b>++</b>
+	1 or more, possessive.
+<b>+?</b>
+	1 or more, lazy.
+<b>{</b><i>x</i><b>}</b>
+	exactly <i>x</i>.
+<b>{</b><i>x</i><b>,</b><i>y</i><b>}</b>
+	at least <i>x</i> and no more than <i>y</i>, greedy.
+<b>{</b><i>x</i><b>,</b><i>y</i><b>}+</b>
+	at least <i>x</i> and no more than <i>y</i>, possessive.
+<b>{</b><i>x</i><b>,</b><i>y</i><b>}?</b>
+	at least <i>x</i> and no more than <i>y</i>, lazy.
+<b>{</b><i>x</i><b>,}</b>
+	<i>x</i> or more, greedy.
+<b>{</b><i>x</i><b>,}+</b>
+	<i>x</i> or more, possessive.
+<b>{</b><i>x</i><b>,}?</b>
+	<i>x</i> or more, lazy.
+@@End@@
 
-	8. Case-insensitive matching applies only to characters whose values are less than 128. PCRE supports case-insensitive matching only when there is a one-to-one mapping between a letter's cases. There are a small number of many-to-one mappings in Unicode; these are not supported by PCRE.
+
+<b><u>Alternation</u></b>
+
+@@ParamTable@@
+<i>X</i><b>|</b><i>Y</i>
+	Matches either subpattern <i>X</i> or <i>Y</i>: "ac|dc|ground" matches "ac" or "dc" or "ground".
+@@End@@
+
+
+<b><u>Backreferences and references to subroutines</u></b>
+
+<b>Backreferences</b> permit reuse of the content of a previously captured group.
+
+@@ParamTable@@
+<b>\</b><i>n</i>
+	References a previous capturing group by its absolute number.  WARNING: if no group number <i>n</i> exists, it evaluates as the character with value <i>n</i> provided <i>n</i> is a valid octal value, else errors out.
+	Due to this ambiguity, this form is not recommended.  Favor the next forms for a safe semantic.
+<b>\g</b><i>n</i>
+	References a previous capturing group by its absolute number.
+<b>\g{</b><i>n</i><b>}</b>
+	References a previous capturing group by its absolute number.  Similar to above but clearly delimits where <i>n</i> ends: useful when the following character(s) is(are) digits.
+<b>\g-</b><i>n</i>
+	References a previous capturing group by its relative number.
+<b>\k&lt;</b><i>name</i><b>&gt;</b>
+	References a previous capturing group by its name.
+@@End@@
+
+<b>References to subroutines</b>
+
+Capturing groups are subpatterns that can be invoked (possibly recursively) exactly like subroutines in a programming language.  The subpattern is simply re-run at the current matching point.  See reference documentation for details and examples.
+
+@@ParamTable@@
+<b>(?R)</b> or <b>(?0)</b>
+	Recurses into the entire regular expression.
+<b>(?</b><i>n</i><b>)</b>
+	Calls subpattern by absolute number.
+<b>(?+</b><i>n</i><b>)</b>
+	Calls subpattern by relative number.
+<b>(?-</b><i>n</i><b>)</b>
+	Calls subpattern by relative number.
+<b>(?&amp;</b><i>name</i><b>)</b>
+	Calls subpattern by name.
+@@End@@
+
+
+<b><u>Anchors and assertions</u></b>
+
+Anchors and assertions are tests that do not change the matching position and therefore do not consume nor capture anything.
+
+<b>Anchors</b> test the position of the current matching point.
+
+@@ParamTable@@
+<b>^</b>
+	Outside a character class, the caret matches at the start of the subject text, and also just after a non-final newline sequence if option <b>(?m)</b> is active. By default the newline sequence is @CRLF.
+	Inside a character class, a leading <b>^</b> complements the class (excludes the characters listed there).
+<b>$</b>
+	Outside a character class, the dollar matches at the end of the subject text, and also just before a newline sequence if option <b>(?m)</b> is active.
+	Inside a character class, <b>$</b> means itself, a dollar sign.
+<b>\A</b>
+	Matches only at the absolute beginning of subject string, irrespective of the multiline option <b>(?m)</b>.  Will never match if offset is not 1.
+<b>\G</b>
+	Matches when the current position is the first matching position in subject.
+<b>\z</b>
+	Matches only at end of subject string, irrespective of the multiline option <b>(?m)</b>.
+<b>\Z</b>
+	Matches only at end of subject string, or before a newline sequence at the end, irrespective of the multiline option <b>(?m)</b>.
+@@End@@
+
+<b>Assertions</b> test the character(s) preceding (look-behind), at (word boundary) or following (look-ahead) the current matching point.
+
+@@ParamTable@@
+<b>\b</b>
+	Matches at a "word" boundary, i.e. between characters not both <b>\w</b> or <b>\W</b>.  See <b>\w</b> for the meaning of "word".  Inside a character class, <b>\b</b> means "backspace" (Chr(8)).
+<b>\B</b>
+	Matches when not at a word boundary.
+<b>(?=</b><i>X</i><b>)</b>
+	Positive look-ahead: matches when the subpattern <i>X</i> matches starting at the current position.
+<b>(?!</b><i>X</i>)</b>
+	Negative look-ahead: matches when the subpattern <i>X</i> does not match starting at the current position.
+<b>(?&lt;=</b><i>X</i><b>)</b>
+	Positive look-behind: matches when the subpattern <i>X</i> matches characters preceding the current position.  Pattern <i>X</i> must match a fixed-length string, i.e. may not use any undefinite quantifier <b>* + or ?</b>.
+<b>(?&lt;!</b><i>X</i><b>)</b>
+	Negative look-behind: matches when the subpattern <i>X</i> does not match characters preceding the current position.  Pattern <i>X</i> must match a fixed-length string, i.e. may not use any undefinite quantifier <b>* + or ?</b>.
+@@End@@
+
+
+<u><b>Resetting the match</u></b>
+
+There are situations where it is necessary to "forget" that something has matched so far, in order to match more pertinent data later in the subject string.
+
+@@ParamTable@@
+<b>\K</b>
+	Resets start of match at the current point in subject string.  Note that groups already captured are left alone and still populate the returned array; it is therefore always possible to backreference to them later on.  Action of <b>\K</b> is similar but not identical to a look-behind, in that <b>\K</b> can work on alternations of varying lengths.
+@@End@@
+
+
+<u><b>Conditional patterns</b></u>
+
+These constructs are similar to If...EndIf and If...Else...EndIf blocks.
+
+@@ParamTable@@
+<b>(?</b><i>(condition)yes-pattern</i><b>)</b>
+	Allows conditional execution of pattern.
+<b>(?</b><i>(condition)yes-pattern</i><b>|</b><i>no-pattern</i><b>)</b>
+	Chooses between distinct patterns depending on the result of <i>(condition)</i>.
+@@End@@
+    where <i>(condition)</i> can be any of the following form:
+@@ParamTable@@
+<b>(</b><i>n</i><b>)</b>
+	Tests whether the capturing group with absolute number <i>n</i> matched.
+<b>(+</b><i>n</i><b>)</b>
+	Tests whether the capturing group with relative number <i>+n</i> matched.
+<b>(-</b><i>n</i><b>)</b>
+	Tests whether the capturing group with relative number <i>-n</i> matched.
+<b>(&lt;</b><i>name</i><b>&gt;)</b>
+	Tests whether the capturing group with name <i>name</i> matched.
+<b>(R)</b>
+	Tests whether any kind of recursion occured.
+<b>(R</b><i>n</i><b>)</b>
+	Tests whether the most recent recursion was for capturing group with absolute number <i>n</i>.
+<b>(R&amp;</b><i>name</i><b>)</b>
+	Tests whether the most recent recursion was for capturing group with name <i>name</i>.
+<b>(DEFINE)</b>
+	Used without <i>no-pattern</i>, permits definition of a subroutine useable from elsewhere.  "(?x) (?(DEFINE) (?&lt;byte&gt; 2[0-4]\d | 25[0-5] | 1\d\d | [1-9]?\d) )" defines a subroutine named "byte" which matches any component of an IPv4 address.  Then an actual address can be matched by "\b (?&amp;byte) (\.(?&amp;byte)){3} \b".
+<b>(</b><i>assertion</i><b>)</b>
+	Here <i>assertion</i> is one of positive or negative, look-ahead or look-behind assertion.
+@@End@@
+
+
+<u><b>Miscellaneous advanced features</u></b>
+
+These options, escapes and constructs are simply mentionned here; see reference documentation for detail on why, when and how to use them, if at all.
+
+<u>Uncommon settings and options</u>
+@@ParamTable@@
+<b>(?J)</b>
+	Enables duplicate group or subroutine names (not discussed further here).
+<b>(?X)</b>
+	Causes some out-of-context sequences to raise an error, instead of being benign.
+<b>(*J)</b>
+	Enables Javascript compatibility (not discussed further here).
+<b>(*LIMIT_MATCH=</b><i>n</i><b>)</b>
+	Limits number of matches to <i>n</i>.
+<b>(*LIMIT_RECURSION=</b><i>n</i><b>)</b>
+	Limits recursion to <i>n</i> levels.
+<b>(*NO_START_OPT)</b>
+	Disables several optimizations (not discussed further here).
+@@End@@
+
+<u>Backtracking control</u>
+@@ParamTable@@
+<b>(*ACCEPT)</b>
+	Forces an immediate match success in the current subroutine or top-level pattern.
+<b>(*FAIL)</b> or <b>(*F)</b>
+	Forces an immediate match failure.
+<b>(*MARK:</b><i>name</i><b>)</b> or <b>(*:</b><i>name</i><b>)</b>
+	<i>(See reference documentation.)</i>
+<b>(*COMMIT)</b>
+	<i>(See reference documentation.)</i>
+<b>(*PRUNE)</b>
+	<i>(See reference documentation.)</i>
+<b>(*PRUNE:</b><i>name</i><b>)</b>
+	<i>(See reference documentation.)</i>
+<b>(*SKIP)</b>
+	<i>(See reference documentation.)</i>
+<b>(*SKIP:</b><i>name</i><b>)</b>
+	<i>(See reference documentation.)</i>
+<b>(*THEN)</b>
+	<i>(See reference documentation.)</i>
+<b>(*THEN:</b><i>name</i><b>)</b>
+	<i>(See reference documentation.)</i>
+@@End@@
+
+
+<u><b>General comments about PCRE regular expressions</b></u>:
+
+	1. When UCP is active, case sense matching applies to the full Unicode plane 0.  There are also a small number of many-to-one mappings in Unicode, like the Greek lowercase letter sigma; these are supported by PCRE with UCP.
+
+	2. Alternate forms of several escapes exist for compatibility with Perl, Ruby, Python, JavaScript, .NET and other engines.  Do not use constructs not listed here: some will simply not work, some will supply wrong results, some will cause severe issues or merely crash.
+	
+	3. The default newline convention is the unbreakable sequence @CRLF.
 
 See also the <a href="../tutorials/regexp/regexp.htm">Regular Expression</a> tutorial, in which you can run a script to test your regular expression(s).
 

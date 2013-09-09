@@ -16,7 +16,6 @@ Func Example()
 	Writeln("File help context ID: " & _GUICtrlMenu_GetMenuContextHelpID($hFile))
 	_GUICtrlMenu_SetMenuContextHelpID($hFile, 1234)
 	Writeln("File help context ID: " & _GUICtrlMenu_GetMenuContextHelpID($hFile))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

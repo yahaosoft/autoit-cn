@@ -27,7 +27,6 @@ Func Example()
 	$iIndex = _GUICtrlMenu_MenuItemFromPoint($hWnd, $hFile)
 	Send("{ESC 2}")
 	Writeln("Menu item under cursor was: " & $iIndex)
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

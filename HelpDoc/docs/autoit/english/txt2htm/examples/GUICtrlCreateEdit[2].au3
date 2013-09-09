@@ -68,7 +68,6 @@ Func RichEditExample()
 EndFunc   ;==>RichEditExample
 
 Func MyErrFunc()
-
 	MsgBox($MB_SYSTEMMODAL, "AutoItCOM Test", "We intercepted a COM Error !" & @CRLF & @CRLF & _
 			"err.description is: " & @TAB & $oMyError.description & @CRLF & _
 			"err.windescription:" & @TAB & $oMyError.windescription & @CRLF & _

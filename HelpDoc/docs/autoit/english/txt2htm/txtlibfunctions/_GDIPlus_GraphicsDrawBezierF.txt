@@ -32,17 +32,19 @@ $fX4
 $fY4
 	Y coordinate of the ending point
 $hPen
-	[optional] Handle to a pen object that is used to draw the bezier. If 0, a solid black pen with a width of
+	[optional] Handle to a pen object that is used to draw the bezier. If 0, a solid black pen with a width of 1 will be used.
 @@End@@
 
 ###ReturnValue###
-Success: True
-Failure: False
+@@ReturnTable@@
+Success:	True
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+@@End@@
 
 
 ###Remarks###
-A Bezier spline does not pass through its control points. The control points act as magnets, pulling the curve
-in certain directions to influence the way the spline bends.
+A Bezier spline does not pass through its control points.
+The control points act as magnets, pulling the curve in certain directions to influence the way the spline bends.
 
 
 ###Related###

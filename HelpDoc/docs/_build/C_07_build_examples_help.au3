@@ -11,8 +11,6 @@
 Global Const $g_sProjectLang = "english"
 Global Const $g_sProject = "AutoIt Example Help"
 Global Const $g_sProjectDir = "docs\autoit"
-;Global Const $g_aBuildFiles[1] = [ "AutoIt.chm" ]
-;Global Const $g_aInstallFiles[1] = [ "AutoIt.chm" ]
 #endregion Global Variables
 
 #region Main body of code

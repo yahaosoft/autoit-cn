@@ -14,7 +14,8 @@ _Word_DocTableWrite ( $oRange, ByRef $asArray [, $iIndexBase = Default [, $sSepa
 $oRange
 	Word range object where the table should be inserted
 $asArray
-	one or two-dimensional array to be converted to a table. Can be zero or one based
+	one or two-dimensional array to be converted to a table.
+	Can be zero or 1-based
 $iIndexBase
 	[optional] Can be 0 or 1 and specifies if the array starts with row 0 or 1 (default = 1)
 $sSeparator
@@ -23,8 +24,8 @@ $sSeparator
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns the Word table object
-Failure:	Returns 0 and sets @error
+Success:	the Word table object.
+Failure:	0 and sets the @error flag to non-zero.
 @error:	1 - $oRange is not an object
 	2 - $asArray is not an array or has more than 2 dimensions
 	3 - Error occurred when accessing the specified range object. @extended is set to the COM error code

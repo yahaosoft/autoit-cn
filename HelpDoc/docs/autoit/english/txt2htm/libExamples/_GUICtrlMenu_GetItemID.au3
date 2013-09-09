@@ -16,7 +16,6 @@ Func Example()
 	Writeln("Open command ID: " & _GUICtrlMenu_GetItemID($hFile, 1))
 	_GUICtrlMenu_SetItemID($hFile, 1, 0)
 	Writeln("Open command ID: " & _GUICtrlMenu_GetItemID($hFile, 1))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

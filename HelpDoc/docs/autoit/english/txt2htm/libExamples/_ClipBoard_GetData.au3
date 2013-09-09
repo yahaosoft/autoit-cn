@@ -28,7 +28,6 @@ Func Example()
 				MemoWrite(_ClipBoard_GetData())
 		EndSwitch
 	WEnd
-
 EndFunc   ;==>Example
 
 ; Write message to memo

@@ -910,7 +910,6 @@ Func _Sign($sFile, $sDesc)
 	$cmdLine &= " /q """ & $sFile & """"
 
 	Return RunWait($cmdLine, "", @SW_HIDE)
-
 EndFunc   ;==>_Sign
 #endregion _Sign()
 

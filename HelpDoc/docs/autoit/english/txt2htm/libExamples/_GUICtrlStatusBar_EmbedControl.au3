@@ -6,7 +6,6 @@
 Example()
 
 Func Example()
-
 	Local $hGUI, $hProgress, $hInput, $input, $progress, $hStatus
 	Local $aParts[4] = [80, 160, 300, -1]
 

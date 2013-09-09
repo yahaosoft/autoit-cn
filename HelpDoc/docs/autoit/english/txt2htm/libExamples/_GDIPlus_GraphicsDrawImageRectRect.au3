@@ -4,7 +4,6 @@
 Example()
 
 Func Example()
-
 	_GDIPlus_Startup() ;initialize GDI+
 	Local Const $iWidth = 600, $iHeight = 600
 
@@ -15,10 +14,9 @@ Func Example()
 	Local $hIA = _GDIPlus_ImageAttributesCreate() ;create an ImageAttribute object
 
 	;create the color matrix used to adjust the colors of the image
-	Local $tColorMatrix = _GDIPlus_ColorMatrixCreateTranslate(-1, -1, 0) ;use translation color matrix to increase the image brightness
-	Local $pColorMatrix = DllStructGetPtr($tColorMatrix)
+	Local $tColorMatrix = _GDIPlus_ColorMatrixCreateTranslate(-1, -1, 0) ;use translation color matrix to create a blue scaled image
 
-	_GDIPlus_ImageAttributesSetColorMatrix($hIA, 0, True, $pColorMatrix) ;adjust the ImageAttribute color-key color matrix
+	_GDIPlus_ImageAttributesSetColorMatrix($hIA, 0, True, $tColorMatrix) ;adjust the ImageAttribute color-key color matrix
 
 	Local $hHBmp = _ScreenCapture_Capture("", 0, 0, $iWidth, $iHeight) ;create a GDI bitmap by capturing an area on desktop
 	Local $hBitmap = _GDIPlus_BitmapCreateFromHBITMAP($hHBmp) ;convert GDI to GDI+ bitmap

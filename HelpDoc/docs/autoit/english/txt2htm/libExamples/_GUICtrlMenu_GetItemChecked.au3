@@ -16,7 +16,6 @@ Func Example()
 	Writeln("Open is checked: " & _GUICtrlMenu_GetItemChecked($hFile, 1))
 	_GUICtrlMenu_SetItemChecked($hFile, 1)
 	Writeln("Open is checked: " & _GUICtrlMenu_GetItemChecked($hFile, 1))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

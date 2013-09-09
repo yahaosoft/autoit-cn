@@ -19,23 +19,23 @@ $s_name
 	[optional] Name or Id of checkbox(es)
 $f_select
 	[optional] specifies whether element should be checked or unchecked
-	-1 = Return checked state
-	0 = Uncheck the element
-	1 = (Default) Check the element
+		-1 = Return checked state
+		 0 = Uncheck the element
+		 1 = (Default) Check the element
 $s_mode
 	[optional] specify search mode
-	"byValue" = (Default) value of the checkbox you wish to select
-	"byIndex" = 0-based index of checkbox you wish to select
+		"byValue" = (Default) value of the checkbox you wish to select
+		"byIndex" = 0-based index of checkbox you wish to select
 $f_fireEvent
 	[optional] specifies whether to fire OnChange and OnClick events after changing value
-	0 = do not fire OnChange or OnClick event after setting value
-	1 = (Default) fire OnChange and OnClick events after setting value
+		0 = do not fire OnChange or OnClick event after setting value
+		1 = (Default) fire OnChange and OnClick events after setting value
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	If $f_select = -1, returns the current checked state, else returns 1
-Failure:	Returns 0 and sets @error
+Success:	the current checked state if $f_select = -1, else returns 1.
+Failure:	0 and sets the @error flag to non-zero.
 @error:	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
 	4 ($_IEStatus_InvalidObjectType) = Invalid Object Type
 	5 ($_IEStatus_InvalidValue) = Invalid Value
@@ -47,7 +47,9 @@ Failure:	Returns 0 and sets @error
 ###Remarks###
 The $f_fireEvent parameter is significant only if the form element has an onChange event associated with it.
 
-$s_name is optional for this function.  If it is omitted, the function will operate on a collection of all &lt;input type=checkbox&gt; elements in the form.  If specified, the function will operate on a collection of &lt;input type=checkbox&gt; elements with that name.
+$s_name is optional for this function.
+If it is omitted, the function will operate on a collection of all &lt;input type=checkbox&gt; elements in the form.
+If specified, the function will operate on a collection of &lt;input type=checkbox&gt; elements with that name.
 
 
 ###Related###

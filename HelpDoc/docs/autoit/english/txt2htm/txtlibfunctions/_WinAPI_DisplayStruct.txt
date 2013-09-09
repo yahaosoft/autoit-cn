@@ -30,29 +30,29 @@ $iSubItem
 $iFlags
 	[optional] A set of bit flags that specifies an additional displaying options.
 	This parameter can be 0, or any combination of the following values :
-	1 - Prevent displaying "<struct>" and "<endstruct>" fields at the beginning and end of the list.
-	2 - Prevent displaying "<alignment>" fields.
-	4 - Prevent displaying "<unnamed>" in "Member" column of the list if the structure element has no name.
-	8 - Prevent highlighting structure elements that are defined as an array.
-	16 - Prevent perceiving structure elements named "Reserved*" as unused elements.
-	32 - Prevent using double-click to copy values of the structure elements to the clipboard.
-	64 - Forced to expand structure elements of BYTE[n], UBYTE[n], and BOOLEAN[n] types (elements of CHAR[n] and WCHAR[n] types always displays as a string).
-	128 - Forced to display the values of the structure elements in the hexadecimal representation, if possibly.
-	256 - Forced to return error code instead of displaying a message box if a memory access error occurred.
-	512 - Forced to disable checking the read access memory allocated to a given structure.
+		1 - Prevent displaying "<struct>" and "<endstruct>" fields at the beginning and end of the list.
+		2 - Prevent displaying "<alignment>" fields.
+		4 - Prevent displaying "<unnamed>" in "Member" column of the list if the structure element has no name.
+		8 - Prevent highlighting structure elements that are defined as an array.
+		16 - Prevent perceiving structure elements named "Reserved*" as unused elements.
+		32 - Prevent using double-click to copy values of the structure elements to the clipboard.
+		64 - Forced to expand structure elements of BYTE[n], UBYTE[n], and BOOLEAN[n] types (elements of CHAR[n] and WCHAR[n] types always displays as a string).
+		128 - Forced to display the values of the structure elements in the hexadecimal representation, if possibly.
+		256 - Forced to return error code instead of displaying a message box if a memory access error occurred.
+		512 - Forced to disable checking the read access memory allocated to a given structure.
 $fTop
 	[optional] Specifies whether create a window with "Always On Top" attribute, valid values:
-	True     - The window is created with the $WS_EX_TOPMOST extended style (Default).
-	False    - The window will not have the "TOPMOST" flag set.
+		True     - The window is created with the $WS_EX_TOPMOST extended style (Default).
+		False    - The window will not have the "TOPMOST" flag set.
 $hParent
 	[optional] Handle to the parent window.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	1.
-Failure 	0 and sets the @error flag to the one of the following values:
-@error 	10 - The $sStruct parameter is not a string.
+Success: 	1.
+Failure: 	0 and sets the @error flag to non-zero.
+@error:	10 - The $sStruct parameter is not a string.
 	2 - There is an unknown data type in the string passed.
 	3 - Failed to allocate the memory needed for the structure, or invalid pointer.
 	4 - Error allocating memory for the passed string.

@@ -31,7 +31,6 @@ Func Example()
 
 	Local $sFunctionToCall = "_UpdateGUIProgressBar"
 	_FTP_ProgressDownload($hFTPSession, $sLocalFile, $sRemoteFile, $sFunctionToCall)
-
 EndFunc   ;==>Example
 
 Func _UpdateGUIProgressBar($iPercent)

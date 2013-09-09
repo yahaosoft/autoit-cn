@@ -20,7 +20,6 @@ Func Example()
 	Writeln("Submenu Handle ..: 0x" & Hex($aInfo[5]))
 	Writeln("Menu bar focused : " & $aInfo[6])
 	Writeln("Menu item focused: " & $aInfo[7])
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

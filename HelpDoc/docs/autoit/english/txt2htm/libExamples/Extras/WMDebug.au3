@@ -132,7 +132,6 @@ EndFunc   ;==>_WM_Debug
 #region Internal Functions
 
 Func __WMGetArray()
-
 	Local $WM[0x0400]
 
 	$WM[0x0000] = 'WM_NULL'

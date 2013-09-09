@@ -22,10 +22,11 @@ $iEnd
 $iCase
 	[optional] If set to 1, search is case sensitive
 $iCompare
-	[optional] 0 Casting of variables to the same type (default), "string" = 0, "" = 0 or "0" = 0 match (If $iCase = 0)
-	1 executes a partial search
-	2 comparison match if variables have same type and same value
-	3 compares using a regular expression pattern provided as $vValue
+	[optional] 
+		0 Casting of variables to the same type (default), "string" = 0, "" = 0 or "0" = 0 match (If $iCase = 0)
+		1 executes a partial search
+		2 comparison match if variables have same type and same value
+		3 compares using a regular expression pattern provided as $vValue
 $iForward
 	[optional] If set to 0, searches the array from end to beginning (instead of beginning to end)
 $iSubItem
@@ -34,8 +35,8 @@ $iSubItem
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The index that $vValue was found at
-Failure:	-1 and sets @error
+Success:	the index that $vValue was found at.
+Failure:	-1 and sets the @error flag to non-zero.
 @error:	1 - $avArray is not an array
 	2 - $avArray is not a 1 or 2 dimensional array
 	3 - $avArray is empty

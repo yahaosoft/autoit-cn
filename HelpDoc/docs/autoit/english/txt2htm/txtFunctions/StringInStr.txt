@@ -16,9 +16,9 @@ substring
 	The substring to search for.
 casesense
 	[optional] Flag to indicate if the operations should be case sensitive.
-	$STR_NOCASESENSE (0) = not case sensitive, using the user's locale (default)
-	$STR_CASESENSE (1) = case sensitive
-	$STR_NOCASESENSEBASIC (2) = not case sensitive, using a basic/faster comparison
+		$STR_NOCASESENSE (0) = not case sensitive, using the user's locale (default)
+		$STR_CASESENSE (1) = case sensitive
+		$STR_NOCASESENSEBASIC (2) = not case sensitive, using a basic/faster comparison
 	Constants are defined in StringConstants.au3
 occurrence
 	[optional] Which occurrence of the substring to find in the string.  Use a negative occurrence to search from the right side.  The default value is 1 (finds first occurrence).
@@ -30,11 +30,9 @@ count
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns the position of the substring.
-Failure:	Returns 0 if substring not found.
-
-@error	0 - Normal operation
-	1 - Invalid "start" or "occurrence" parameter given.
+Success:	the position of the substring.
+Failure:	0 if substring not found.
+@error:	1 = Invalid "start" or "occurrence" parameter given.
 @@End@@
 
 
@@ -44,8 +42,6 @@ The first character position is 1.
 The count parameter must not be shorter than the substring being searched for. The count parameter (combined with the start parameter) effectively limits the search to a substring of the full string.  The following two statements are equivalent:
 <a href="StringInStr.htm">StringInStr</a>("the string to search", "string", 0, 1, 1, 11)
 <a href="StringInStr.htm">StringInStr</a>(<a href="StringMid.htm">StringMid</a>("the string to search", 1, 11), "string")
-
-To use the values specified above you must #include <StringConstants.au3> in your script.
 
 
 ###Related###

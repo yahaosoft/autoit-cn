@@ -25,7 +25,6 @@ Func Example()
 	While 1
 		Sleep(10)
 	WEnd
-
 EndFunc   ;==>Example
 
 Func OKPressed()

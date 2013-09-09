@@ -7,7 +7,6 @@
 Example()
 
 Func Example()
-
 	GUICreate("My GUI Context Menu", 300, 200)
 
 	Local $contextmenu = GUICtrlCreateContextMenu()

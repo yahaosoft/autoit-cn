@@ -16,7 +16,6 @@ Func Example()
 	Writeln("File menu max height: " & _GUICtrlMenu_GetMenuHeight($hFile))
 	_GUICtrlMenu_SetMenuHeight($hFile, 100)
 	Writeln("File menu max height: " & _GUICtrlMenu_GetMenuHeight($hFile))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

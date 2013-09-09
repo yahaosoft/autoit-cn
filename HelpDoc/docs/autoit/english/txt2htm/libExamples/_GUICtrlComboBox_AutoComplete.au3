@@ -7,7 +7,6 @@ Global $hCombo
 Example()
 
 Func Example()
-
 	; Create GUI
 	GUICreate("ComboBox Auto Complete", 400, 296)
 	$hCombo = GUICtrlCreateCombo("", 2, 2, 396, 296)

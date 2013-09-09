@@ -19,8 +19,8 @@ $fState
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False, and sets @error
+Success:	True.
+Failure:	False and sets the @error flag to non-zero.
 @error:	101 - $hWnd is not a handle
 	102 - $fState is neither True nor False
 	700 - internal error, e.g. insufficient memory
@@ -28,13 +28,12 @@ Failure:	False, and sets @error
 
 
 ###Remarks###
-If enabled, any modified text is scanned for text that matches the format of a URL. It recognizes strings
-starting with the following as URLs: http:, file:, mailto:, ftp:, https:, gopher:, nntp:, prospero:,
-telnet:, news:, wais:. When a URL is detected, Windows sets the link attribute for all characters in the
-URL string, and highlights the string.
+If enabled, any modified text is scanned for text that matches the format of a URL.
+It recognizes strings starting with the following as URLs: http:, file:, mailto:, ftp:, https:, gopher:,
+nntp:, prospero:, telnet:, news:, wais:.
+When a URL is detected, Windows sets the link attribute for all characters in the URL string, and highlights the string.
 
-When automatic URL detection is on and a URL is detected, Windows removes the link attribute of all
-characters that are not URLs.
+When automatic URL detection is on and a URL is detected, Windows removes the link attribute of all characters that are not URLs.
 
 For notification to happen, call _GUICtrlRichEdit_SetEventMask with $ENM_LINK
 

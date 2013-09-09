@@ -15,7 +15,6 @@ Func Example()
 	; Get Open item state
 	_GUICtrlMenu_SetItemState($hFile, 1, $MFS_CHECKED)
 	Writeln("Open item state: " & _GUICtrlMenu_GetItemStateEx($hFile, 1))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

@@ -89,6 +89,7 @@ AutoIt:
 - Fixed #1024: GUICtrlSetTip() for tabitems sets incorrectly in certain situations.
 - Fixed #2366: For loop not working as expected.
 - Fixed #2384: UDPRecv() and TCPRecv() not setting @error correctly in some instances.
+- Fixed #2314: Cursor flickers when moving over certain GUI controls.
 
 UDFs:
 - Added: _WinAPI_GetProcAddress() function.
@@ -170,8 +171,16 @@ UDFs:
 - Removed: Documentation and example for _StringReverse(). Scripts should be updated to use the native function StringReverse() instead.
 
 AutoItX:
+- Added: AutoItX3.Assembly.dll - a .NET Assembly wrapper for the DLL.
+- Added: AutoItX3.PowerShell.dll and AutoItX3.psd1 - a set of PowerShell CmdLets.
 - Added: Visual Studio 2010 C++ Project files (easy to use in 2010 or later).
-
+- Added: DLL Import: AU3_WinGetPos.
+- Added: DLL Import: AU3_ControlGetPos.
+- Added: DLL Imports: AU3_MouseGetPos.
+- Added: DLL Import: AU3_WinGetClientSize.
+- Added: DLL Import: AU3_WinGetCaretPos.
+- Added: DLL Imports: AU3_RunAs, AU3_RunAsWait.
+- Added: COM Methods: RunAs, RunAsWait.
 - Changed: Renamed AutoIt3.h to AutoItX3_DLL.h.
 
 - Fixed: Crash in AU3_PixelSearch when function fails.
@@ -179,6 +188,17 @@ AutoItX:
 
 - Removed: Removed DevC files and Visual Studio 6 files.
 - Removed: ANSI versions of Send/WinWait functions from the native DLL.
+- Removed: DLL Imports: AU3_WinGetPosX, AU3_WinGetPosY, AU3_WinGetPosWidth, AU3_WinGetPosHeight.
+- Removed: DLL Imports: AU3_ControlGetPosX, AU3_ControlGetPosY, AU3_ControlGetPosWidth, AU3_ControlGetPosHeight.
+- Removed: DLL Imports: AU3_MousePosX, AU3_MouseGetPosY
+- Removed: DLL Imports: AU3_WinGetClientSizeWidth, AU3_WinGetClientSizeHeight.
+- Removed: DLL Imports: AU3_WinGetCaretPosX, AU3_WinGetCaretPosY.
+- Removed: DLL Imports: AU3_CDTray, AU3_BlockInput.
+- Removed: DLL Imports: AU3_RunAsSet.
+- Removed: COM Methods: CDTray, BlockInput.
+- Removed: COM Methods: RunAsSet.
+- Removed: All registry functions. The support was limited and the host language will certainly have registry functions.
+- Removed: All Ini file functions. As per registry functions.
 
 Au3Check:
 - Added: Generating error for hex numbers longer than 16 characters.

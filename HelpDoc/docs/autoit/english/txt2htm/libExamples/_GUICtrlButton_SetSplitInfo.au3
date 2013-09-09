@@ -40,7 +40,6 @@ Func Example()
 	WEnd
 
 	Exit
-
 EndFunc   ;==>Example
 
 ; Write a line to the memo control

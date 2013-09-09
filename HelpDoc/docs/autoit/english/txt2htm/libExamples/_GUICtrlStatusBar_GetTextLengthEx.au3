@@ -8,7 +8,6 @@ Global $iMemo
 Example()
 
 Func Example()
-
 	Global $hGUI, $iI, $hStatus
 	Global $aParts[3] = [75, 150, -1]
 

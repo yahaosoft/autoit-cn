@@ -36,7 +36,6 @@ Func CancelPressed()
 EndFunc   ;==>CancelPressed
 
 Func SpecialEvents()
-
 	Select
 		Case @GUI_CtrlId = $GUI_EVENT_CLOSE
 			MsgBox($MB_SYSTEMMODAL, "Close Pressed", "ID=" & @GUI_CtrlId & " WinHandle=" & @GUI_WinHandle)
@@ -51,5 +50,4 @@ Func SpecialEvents()
 			MsgBox($MB_SYSTEMMODAL, "Window Restored", "ID=" & @GUI_CtrlId & " WinHandle=" & @GUI_WinHandle)
 
 	EndSelect
-
 EndFunc   ;==>SpecialEvents

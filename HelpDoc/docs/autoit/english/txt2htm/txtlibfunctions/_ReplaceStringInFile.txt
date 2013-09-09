@@ -6,12 +6,12 @@ Replaces substrings in a file.
 
 ###Syntax###
 #include <File.au3>
-_ReplaceStringInFile ( $sFileName, $sSearchString, $sReplaceString [, $iCaseSensitive = 0 [, $iOccurance = 1]] )
+_ReplaceStringInFile ( $sFilePath, $sSearchString, $sReplaceString [, $iCaseSensitive = 0 [, $iOccurance = 1]] )
 
 
 ###Parameters###
 @@ParamTable@@
-$sFileName
+$sFilePath
 	Full path of file to replace substrings.
 $sSearchString
 	The string to evaluate.
@@ -19,18 +19,18 @@ $sReplaceString
 	The replacement string.
 $iCaseSensitive
 	[optional] Flag to indicate if the operations should be case sensitive.
-	$STR_NOCASESENSE (0) = not case sensitive, using the user's locale (default)
-	$STR_CASESENSE (1) = case sensitive
-	$STR_NOCASESENSEBASIC (2) = not case sensitive, using a basic/faster comparison
-	Constants are defined in Constants.au3
+		$STR_NOCASESENSE (0) = not case sensitive, using the user's locale (default)
+		$STR_CASESENSE (1) = case sensitive
+		$STR_NOCASESENSEBASIC (2) = not case sensitive, using a basic/faster comparison
+	Constants are defined in StringConstants.au3
 $iOccurance
 	[optional] 0 - Only the first occurrence is replaced or 1 - all occurrences are replaced (default)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns the number of occurrences found
-Failure:	Returns -1 and sets @error to non-zero
+Success:	the number of occurrences found.
+Failure:	-1 and sets the @error flag to non-zero.
 @error:	1 - File is read-only
 	2 - Unable to open the file
 	3 - Unable to write to the file
@@ -38,7 +38,7 @@ Failure:	Returns -1 and sets @error to non-zero
 
 
 ###Remarks###
-To use the values specified above you must #include <StringConstants.au3> in your script.
+None.
 
 
 ###Related###

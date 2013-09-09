@@ -17,7 +17,6 @@ Func Example()
 	_GUICtrlMenu_SetItemType($hFile, 1, $MFT_RADIOCHECK)
 	_GUICtrlMenu_CheckRadioItem($hFile, 0, 8, 1)
 	Writeln("Open item type: 0x" & Hex(_GUICtrlMenu_GetItemType($hFile, 1)))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

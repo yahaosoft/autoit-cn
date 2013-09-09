@@ -21,7 +21,6 @@ Func Example()
 	For $iI = 0 To $iCount - 1
 		Writeln("Item " & $iI & " text ......: " & _GUICtrlMenu_GetItemText($hMenu, $iI))
 	Next
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

@@ -22,24 +22,23 @@ $pOutBuf
 $iOutSize
 	Size of the read buffer, in bytes
 $pOverlapped
-	[optional] Pointer to a $tagOVERLAPPED structure. This structure is required if hNamedPipe was opened with
-	$PIPE_FLAG_OVERLAPPED. If hNamedPipe was opened with $PIPE_FLAG_OVERLAPPED, pOverlapped must not be 0. If
-	hNamedPipe was opened with $PIPE_FLAG_OVERLAPPED and pOverlapped is not 0, TransactNamedPipe is executed as
-	an overlapped operation. The $tagOVERLAPPED structure should contain a manual reset event object. If the
-	operation cannot be completed immediately, TransactNamedPipe returns False and GetLastError will return
-	ERROR_IO_PENDING.
+	[optional] Pointer to a $tagOVERLAPPED structure.
+		This structure is required if hNamedPipe was opened with $PIPE_FLAG_OVERLAPPED.
+		If hNamedPipe was opened with $PIPE_FLAG_OVERLAPPED, pOverlapped must not be 0.
+		If hNamedPipe was opened with $PIPE_FLAG_OVERLAPPED and pOverlapped is not 0, TransactNamedPipe is executed as an overlapped operation.
+		The $tagOVERLAPPED structure should contain a manual reset event object.
+		If the operation cannot be completed immediately, TransactNamedPipe returns False and GetLastError will return ERROR_IO_PENDING.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	The Number of bytes read from the pipe
-Failure:	Sets @error to non-zero
+Success:	the number of bytes read from the pipe.
+Failure:	sets the @error flag to non-zero.
 @@End@@
 
 
 ###Remarks###
-TransactNamedPipe fails if the server did not create the pipe as a message-type pipe or if the pipe handle is
-not in message-read mode.
+TransactNamedPipe fails if the server did not create the pipe as a message-type pipe or if the pipe handle is not in message-read mode.
 
 
 ###Related###

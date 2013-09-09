@@ -33,5 +33,4 @@ Func Example()
 	_GDIPlus_BrushDispose($hBrush)
 	_GDIPlus_GraphicsDispose($hGraphic)
 	_GDIPlus_Shutdown()
-
 EndFunc   ;==>Example

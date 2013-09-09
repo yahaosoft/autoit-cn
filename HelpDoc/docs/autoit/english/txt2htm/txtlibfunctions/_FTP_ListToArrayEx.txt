@@ -18,7 +18,9 @@ $iReturntype
 $iFlags
 	[optional] see _FTP_FindFileFirst().
 $bFmt
-	[optional] type on the date strings : 1 = yyyy/mm/dd, 0 = mm/dd/yyyy.
+	[optional] type on the date strings:
+		1 = yyyy/mm/dd
+		0 = mm/dd/yyyy
 $iContext
 	[optional] A variable that contains the application-defined value that associates this search with any application data.
 	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
@@ -26,20 +28,21 @@ $iContext
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	returns a 2D Array, see remarks.
+Success:	a 2D Array:
+		$Array[0][0] = number of found entries
+		...
+		$Array[n][0] Filename
+		$Array[n][1] Filesize
+		$Array[n][2] FileAttribute
+		$Array[n][3] File Modification datetime
+		$Array[n][4] File Creation datetime
+		$Array[n][5] File Access datetime
 Failure:	$Array[0][0] = 0.
 @@End@@
 
 
 ###Remarks###
-$Array[0][0] = number of found entries
-
-$Array[x][0] Filename
-$Array[x][1] Filesize
-$Array[x][2] FileAttribute
-$Array[x][3] File Modification datetime
-$Array[x][4] File Creation datetime
-$Array[x][5] File Access datetime
+None.
 
 
 ###Related###

@@ -17,31 +17,31 @@ $sFilter
 	[optional] the filter to use, default is *. Search the helpfile for the word "WildCards" For details.
 $iFlag
 	[optional] specifies whether to return files folders or both
-	$iFlag = 0 (Default) Return both files and folders
-	$iFlag = 1 Return files only
-	$iFlag = 2 Return Folders only
+		0 = (Default) Return both files and folders
+		1 = Return files only
+		2 = Return Folders only
 $fReturnPath
 	[optional] If True the full path is appended to the file\folder path, otherwise it's relative to the $sFilePath folder. Default is False.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	an Array, see remarks
-Failure:	Sets @error
-@error:	1 = Folder not found or invalid
-	2 = Invalid $sFilter
-	3 = Invalid $iFlag
-	4 = No File(s) Found
+Success:	an one-dimensional array.
+		$aArray[0] = Number of Files\Folders returned
+		$aArray[1] = 1st File\Folder
+		$aArray[2] = 2nd File\Folder
+		$aArray[3] = 3rd File\Folder
+		$aArray[n] = nth File\Folder
+Failure:	sets the @error flag to non-zero.
+@error:	1 - Folder not found or invalid
+	2 - Invalid $sFilter
+	3 - Invalid $iFlag
+	4 - No File(s) Found
 @@End@@
 
 
 ###Remarks###
-The array returned is one-dimensional and is made up as follows:
-$aArray[0] = Number of Files\Folders returned
-$aArray[1] = 1st File\Folder
-$aArray[2] = 2nd File\Folder
-$aArray[3] = 3rd File\Folder
-$aArray[n] = nth File\Folder
+None.
 
 
 ###Related###

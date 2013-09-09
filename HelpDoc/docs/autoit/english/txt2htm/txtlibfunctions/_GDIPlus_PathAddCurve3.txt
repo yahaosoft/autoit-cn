@@ -15,32 +15,32 @@ $hPath
 	Pointer to a GraphicsPath object
 $aPoints
 	Array of points that define the cardinal spline:
-	[0][0] - Number of points
-	[1][0] - Point 1 X position
-	[1][1] - Point 1 Y position
-	[2][0] - Point 2 X position
-	[2][1] - Point 2 Y position
-	[n][0] - Point n X position
-	[n][1] - Point n Y position
+		[0][0] - Number of points
+		[1][0] - Point 1 X position
+		[1][1] - Point 1 Y position
+		[2][0] - Point 2 X position
+		[2][1] - Point 2 Y position
+		[n][0] - Point n X position
+		[n][1] - Point n Y position
 $iOffset
-	The index of the array element that is used as the first point of the cardinal spline, this
-	is the index of the specific point in the array minus 1
+	The index of the array element that is used as the first point of the cardinal spline,
+	this is the index of the specific point in the array minus 1
 $iNumOfSegments
-	Number of segments in the cardinal spline. Segments are the curves that connect consecutive
-	points in the array
+	Number of segments in the cardinal spline. Segments are the curves that connect consecutive points in the array
 $fTension
 	[optional] Nonnegative real number that controls the length of the curve and how the curve bends.
-	becomes fuller
+	As the value increases, the curve becomes fuller.
 @@End@@
 
 ###ReturnValue###
-Success: True
-Failure: False
+@@ReturnTable@@
+Success:	True.
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+@@End@@
 
 
 ###Remarks###
-The cardinal spline is a curve that passes through a subset
-+(specified by the $iOffset and $iNumOfSegments parameters) of the points in the array
+The cardinal spline is a curve that passes through a subset (specified by the $iOffset and $iNumOfSegments parameters) of the points in the array
 
 
 ###Related###

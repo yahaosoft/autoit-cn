@@ -10,5 +10,4 @@ Func Example()
 
 	; Save bitmap to file
 	_ScreenCapture_SaveImage(@MyDocumentsDir & "\GDIPlus_Image.jpg", $hBmp)
-
 EndFunc   ;==>Example

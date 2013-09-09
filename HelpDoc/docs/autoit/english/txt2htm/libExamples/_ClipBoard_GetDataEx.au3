@@ -42,7 +42,6 @@ Func Example()
 				EndIf
 		EndSwitch
 	WEnd
-
 EndFunc   ;==>Example
 
 ; Write message to memo

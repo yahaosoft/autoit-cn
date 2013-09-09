@@ -12,27 +12,27 @@ Global Const $tagNETRESOURCE = "int Scope;int Type;int DisplayType;int Usage;ptr
 @@ParamTable@@
 Scope
 	Scope of the enumeration:
-	$RESOURCE_CONNECTED - Enumerate currently connected resources
-	$RESOURCE_GLOBALNET - Enumerate all resources on the network
-	$RESOURCE_REMEMBERED - Enumerate remembered connections
+		$RESOURCE_CONNECTED - Enumerate currently connected resources
+		$RESOURCE_GLOBALNET - Enumerate all resources on the network
+		$RESOURCE_REMEMBERED - Enumerate remembered connections
 Type
 	Set of bit flags identifying the type of resource:
-	$RESOURCETYPE_ANY - All resources
-	$RESOURCETYPE_DISK - Disk resources
-	$RESOURCETYPE_PRINT - Print resources
+		$RESOURCETYPE_ANY - All resources
+		$RESOURCETYPE_DISK - Disk resources
+		$RESOURCETYPE_PRINT - Print resources
 DisplayType
 	Display options for the network object in a network browsing user interface:
-	$RESOURCEDISPLAYTYPE_DOMAIN - The object should be displayed as a domain
-	$RESOURCEDISPLAYTYPE_SERVER - The object should be displayed as a server
-	$RESOURCEDISPLAYTYPE_SHARE - The object should be displayed as a share
-	$RESOURCEDISPLAYTYPE_GENERIC - The method used to display the object does not matter
+		$RESOURCEDISPLAYTYPE_DOMAIN - The object should be displayed as a domain
+		$RESOURCEDISPLAYTYPE_SERVER - The object should be displayed as a server
+		$RESOURCEDISPLAYTYPE_SHARE - The object should be displayed as a share
+		$RESOURCEDISPLAYTYPE_GENERIC - The method used to display the object does not matter
 Usage
 	Set of bit flags describing how the resource can be used. Note that this member can be specified
 	only if the Scope member is equal to $RESOURCE_GLOBALNET. This member can be one of the following values:
-	$RESOURCEUSAGE_CONNECTABLE - The resource is a connectable resource; the name pointed to by RemoteName can be
-	passed to the _WNet_AddConnection function to make a network connection.
-	$RESOURCEUSAGE_CONTAINER - The resource is a container resource; the name pointed to by RemoteName can be
-	passed to the WNet_OpenEnum function to enumerate the resources in the container.
+		$RESOURCEUSAGE_CONNECTABLE - The resource is a connectable resource; the name pointed to by RemoteName can be
+			passed to the _WNet_AddConnection function to make a network connection.
+		$RESOURCEUSAGE_CONTAINER - The resource is a container resource; the name pointed to by RemoteName can be
+			passed to the WNet_OpenEnum function to enumerate the resources in the container.
 LocalName
 	If the Scope member is equal to $RESOURCE_CONNECTED or $RESOURCE_REMEMBERED, this member is a
 	pointer to a null terminated character string that specifies the name of a local device. This member is 0 if

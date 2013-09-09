@@ -12,5 +12,4 @@ Func Example()
 	Sleep(1000)
 	$hToolbar = _GUICtrlToolbar_FindToolbar("[CLASS:CabinetWClass]", "&File")
 	MsgBox($MB_SYSTEMMODAL, "Information", "File Toolbar handle: 0x" & Hex($hToolbar))
-
 EndFunc   ;==>Example

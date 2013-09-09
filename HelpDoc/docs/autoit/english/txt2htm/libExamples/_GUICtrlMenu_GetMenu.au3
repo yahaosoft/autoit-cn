@@ -27,5 +27,4 @@ Func Example()
 	; Insert new menu into Notepad
 	_GUICtrlMenu_InsertMenuItem($hMain, 6, "&AutoIt", 0, $hItem2)
 	_GUICtrlMenu_DrawMenuBar($hWnd)
-
 EndFunc   ;==>Example

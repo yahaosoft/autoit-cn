@@ -39,9 +39,9 @@ Func Example()
 	MemoWrite("Item Text : " & $aItem[0])
 	MemoWrite("Item Len ..........................: " & $aItem[1])
 	MemoWrite("# image widths to indent ..........: " & $aItem[2])
-	MemoWrite("Zero based item image index .......: " & $aItem[3])
-	MemoWrite("Zero based item state image index .: " & $aItem[4])
-	MemoWrite("Zero based item image overlay index: " & $aItem[5])
+	MemoWrite("0-based item image index .......: " & $aItem[3])
+	MemoWrite("0-based item state image index .: " & $aItem[4])
+	MemoWrite("0-based item image overlay index: " & $aItem[5])
 	MemoWrite("Item application defined value ....: " & $aItem[6])
 
 	Do

@@ -11,5 +11,4 @@ Func Example()
 
 	; Capture window
 	_ScreenCapture_CaptureWnd(@MyDocumentsDir & "\GDIPlus_Image.jpg", $hGUI)
-
 EndFunc   ;==>Example

@@ -13,5 +13,4 @@ Func Example()
 
 	; Remove Help menu
 	_GUICtrlMenu_RemoveMenu($hMain, 4)
-
 EndFunc   ;==>Example

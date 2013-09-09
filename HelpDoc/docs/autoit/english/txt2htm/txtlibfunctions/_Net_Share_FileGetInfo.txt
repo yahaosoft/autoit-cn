@@ -12,34 +12,34 @@ _Net_Share_FileGetInfo ( $sServer, $iFileID )
 ###Parameters###
 @@ParamTable@@
 $sServer
-	Specifies the DNS or NetBIOS name of the remote server on which the function is to execute. If
-	this parameter is blank, the local computer is used.
+	Specifies the DNS or NetBIOS name of the remote server on which the function is to execute.
+	If this parameter is blank, the local computer is used.
 $iFileID
-	File identifier of the resource for which to return information. The value of this parameter
-	must have been returned in a previous enumeration call.
+	File identifier of the resource for which to return information.
+	The value of this parameter must have been returned in a previous enumeration call.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	[0] - ID number assigned to the resource when it is opened
-	[1] - Access permissions associated with the opening application:
-	1 - Permission to read a resource and execute the resource
-	2 - Permission to write to a resource.
-	4 - Permission to create a resource
-	8 - Execute permission
-	16 - Delete permission
-	32 - Change attribute permission
-	64 - Change ACL permission
-	[2] - Contains the number of file locks on the resource
-	[3] - Specifies the path of the opened resource
-	[4] - Specifies which user or which computer opened the resource
-Failure:	Sets @error
+Success:	an array with the following format:
+		[0] - ID number assigned to the resource when it is opened
+		[1] - Access permissions associated with the opening application:
+			1 - Permission to read a resource and execute the resource
+			2 - Permission to write to a resource.
+			4 - Permission to create a resource
+			8 - Execute permission
+			16 - Delete permission
+			32 - Change attribute permission
+			64 - Change ACL permission
+		[2] - Contains the number of file locks on the resource
+		[3] - Specifies the path of the opened resource
+		[4] - Specifies which user or which computer opened the resource
+Failure:	sets the @error flag to non-zero.
 @@End@@
 
 
 ###Remarks###
-Administrator, Server or Print Operator or Power User group membership is required to execute this function
+Administrator, Server or Print Operator or Power User group membership is required to execute this function.
 
 
 ###Related###

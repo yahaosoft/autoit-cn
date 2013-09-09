@@ -6,7 +6,6 @@
 Example()
 
 Func Example()
-
 	Local $hItem[100], $hChildItem[100], $iRand, $iChildRand, $iYItem, $hTreeView
 	Local $iStyle = BitOR($TVS_EDITLABELS, $TVS_HASBUTTONS, $TVS_HASLINES, $TVS_LINESATROOT, $TVS_DISABLEDRAGDROP, $TVS_SHOWSELALWAYS, $TVS_CHECKBOXES)
 

@@ -14,26 +14,26 @@ _GDIPlus_GraphicsSetClipPath ( $hGraphics, $hPath [, $iCombineMode = 0] )
 $hGraphics
 	Pointer to a Graphics object
 $hPath
-	Pointer to a GraphicsPath object that specifies the region to be combined with the clipping
-	region of the Graphics object
+	Pointer to a GraphicsPath object that specifies the region to be combined with the clipping region of the Graphics object
 $iCombineMode
 	[optional] Regions combination mode:
-	0 - The existing region is replaced by the new region
-	1 - The existing region is replaced by the intersection of itself and the new region
-	2 - The existing region is replaced by the union of itself and the new region
-	3 - The existing region is replaced by the result of performing an XOR on the two regions
-	4 - The existing region is replaced by the portion of itself that is outside of the new region
-	5 - The existing region is replaced by the portion of the new region that is outside of the existing region
+		0 - The existing region is replaced by the new region
+		1 - The existing region is replaced by the intersection of itself and the new region
+		2 - The existing region is replaced by the union of itself and the new region
+		3 - The existing region is replaced by the result of performing an XOR on the two regions
+		4 - The existing region is replaced by the portion of itself that is outside of the new region
+		5 - The existing region is replaced by the portion of the new region that is outside of the existing region
 @@End@@
 
 ###ReturnValue###
-Success: True
-Failure: False
+@@ReturnTable@@
+Success:	True.
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+@@End@@
 
 
 ###Remarks###
-If a figure in the path is not closed, this method treats the nonclosed figure as if it were closed by a
-+straight line that connects the figure's starting and ending points
+If a figure in the path is not closed, this method treats the nonclosed figure as if it were closed by a straight line that connects the figure's starting and ending points.
 
 
 ###Related###

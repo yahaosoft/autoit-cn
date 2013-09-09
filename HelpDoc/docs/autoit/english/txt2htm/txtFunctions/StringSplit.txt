@@ -16,16 +16,16 @@ delimiters
 	One or more characters to use as delimiters (case sensitive).
 flag
 	[optional] Changes how the string split works, add multiple flag values together if required:
-	$STR_CHRSPLIT (0) = each character in the delimiter string will mark where to split the string (default)
-	$STR_ENTIRESPLIT (1) = entire delimiter string is needed to mark the split
-	$STR_NOCOUNT (2) = disable the return count in the first element - effectively makes the array 0-based (must use <a href="UBound.htm">UBound()</a> to get the size of the array in 	this case).
-	Constants are defined in Constants.au3
+		$STR_CHRSPLIT (0) = each character in the delimiter string will mark where to split the string (default)
+		$STR_ENTIRESPLIT (1) = entire delimiter string is needed to mark the split
+		$STR_NOCOUNT (2) = disable the return count in the first element - effectively makes the array 0-based (must use <a href="UBound.htm">UBound()</a> to get the size of the array in 	this case).
+	Constants are defined in StringConstants.au3
 @@End@@
 
 ###ReturnValue###
 Returns an array, by default the first element ($aArray[0]) contains the number of strings returned, the remaining elements ($aArray[1], $aArray[2], etc.) contain the delimited strings. If the flag parameter is set to $STR_NOCOUNT (2) then the count is not returned in the first element.
 
-If no delimiters were found then @error is set to 1, count is equal to 1 ($aArray[0]) and the full string is returned ($aArray[1]).
+If no delimiters were found then the @error flag is set to 1, count is equal to 1 ($aArray[0]) and the full string is returned ($aArray[1]).
 
 
 ###Remarks###
@@ -36,8 +36,6 @@ If the delimiter you wish to use is a substring instead of individual single cha
 <a href="StringSplit.htm">StringSplit()</a> is very useful as an alternative to <a href="StringInStr.htm">StringInStr()</a> as well as a means to populate an array.
 
 Note that if you use the macro @CRLF you are referring to a 2 character string, so this will generate extra blanks lines. Therefore it is recommended to set the flag parameter to $STR_ENTIRESPLIT (1).
-
-To use the values specified above you must #include <StringConstants.au3> in your script.
 
 
 ###Related###

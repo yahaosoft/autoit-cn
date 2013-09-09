@@ -6,7 +6,7 @@ Sets or clears the color- and grayscale-adjustment matrices for a specified cate
 
 ###Syntax###
 #include <GDIPlus.au3>
-_GDIPlus_ImageAttributesSetColorMatrix ( $hImageAttributes [, $iColorAdjustType = 0 [, $fEnable = False,[$pClrMatrix = 0 [, $pGrayMatrix = 0 [, $iColorMatrixFlags = 0]]]]] )
+_GDIPlus_ImageAttributesSetColorMatrix ( $hImageAttributes [, $iColorAdjustType = 0 [, $fEnable = False [, $tClrMatrix = 0 [, $tGrayMatrix = 0 [, $iColorMatrixFlags = 0]]]]] )
 
 
 ###Parameters###
@@ -15,33 +15,33 @@ $hImageAttributes
 	Pointer to an ImageAttribute object
 $iColorAdjustType
 	[optional] The category for which the color- and grayscale-adjustment matrices are set or cleared:
-	0 - Color or grayscale adjustment applies to all categories that do not have adjustment settings of their own
-	1 - Color or grayscale adjustment applies to bitmapped images
-	2 - Color or grayscale adjustment applies to brush operations in metafiles
-	3 - Color or grayscale adjustment applies to pen operations in metafiles
-	4 - Color or grayscale adjustment applies to text drawn in metafiles
+		0 - Color or grayscale adjustment applies to all categories that do not have adjustment settings of their own
+		1 - Color or grayscale adjustment applies to bitmapped images
+		2 - Color or grayscale adjustment applies to brush operations in metafiles
+		3 - Color or grayscale adjustment applies to pen operations in metafiles
+		4 - Color or grayscale adjustment applies to text drawn in metafiles
 $fEnable
 	[optional] If True, the specified matrices (color, grayscale or both) adjustments for the specified
-$pClrMatrix
-	[optional] Pointer to a $tagGDIPCOLORMATRIX structure that specifies a color-adjustment matrix
-$pGrayMatrix
-	[optional] Pointer to a $tagGDIPCOLORMATRIX structure that specifies a grayscale-adjustment matrix
+$tClrMatrix
+	[optional] $tagGDIPCOLORMATRIX structure that specifies a color-adjustment matrix
+$tGrayMatrix
+	[optional] $tagGDIPCOLORMATRIX structure that specifies a grayscale-adjustment matrix
 $iColorMatrixFlags
 	[optional] Type of image and color that will be affected by the adjustment matrices:
-	0 - All color values (including grays) are adjusted by the same color-adjustment matrix
-	1 - Colors are adjusted but gray shades are not adjusted.
-	2 - Colors are adjusted by one matrix and gray shades are adjusted by another matrix
+		0 - All color values (including grays) are adjusted by the same color-adjustment matrix
+		1 - Colors are adjusted but gray shades are not adjusted.
+		2 - Colors are adjusted by one matrix and gray shades are adjusted by another matrix
 @@End@@
 
 ###ReturnValue###
-Success: True
-Failure: False and either:
-
-	@error and @extended are set if DllCall failed
+@@ReturnTable@@
+Success:	True.
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+@@End@@
 
 
 ###Remarks###
-None
+None.
 
 
 ###Related###

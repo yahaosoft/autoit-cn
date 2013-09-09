@@ -19,7 +19,6 @@ Func Example()
 	$hBrush = _WinAPI_GetSysColorBrush($COLOR_INFOBK)
 	_GUICtrlMenu_SetMenuBackground($hFile, $hBrush)
 	Writeln("File menu background: 0x" & Hex(_GUICtrlMenu_GetMenuBackground($hFile)))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

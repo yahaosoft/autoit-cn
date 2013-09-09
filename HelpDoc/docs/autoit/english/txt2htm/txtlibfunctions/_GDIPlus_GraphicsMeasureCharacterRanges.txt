@@ -20,22 +20,22 @@ $hFont
 $tLayout
 	$tagGDIPRECTF structure that defines the string boundaries
 $hStringFormat
-	Pointer to a StringFormat object that specifies the character ranges and layout information,
-	such as alignment, trimming, tab stops, and so forth
+	Pointer to a StringFormat object that specifies the character ranges and layout information, such as alignment, trimming, tab stops, and so forth
 @@End@@
 
 ###ReturnValue###
-Success: Array of region objects:
-
-	[0] - Number of regions:
-	[1] - Region 1
-	[2] - Region 2
-	[3] - Region 3
-Failure: false
+@@ReturnTable@@
+Success:	an array of region objects:
+		[0] - Number of regions:
+		[1] - Region 1
+		[2] - Region 2
+		[3] - Region 3
+Failure:	sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+@@End@@
 
 
 ###Remarks###
-If the function succeeds, it's the responsibility of the user to release these regions
+If the function succeeds, it's the responsibility of the user to release these regions.
 
 
 ###Related###

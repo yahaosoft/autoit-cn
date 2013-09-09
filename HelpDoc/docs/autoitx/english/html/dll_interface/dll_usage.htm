@@ -9,19 +9,21 @@
   <h1>Using the DLL Interface</h1>
   <p>AutoItX can be used as a standard DLL from any language capable of calling functions in external DLLs.</p>
   <p>&nbsp;</p>
-  <p>The following files are provided to allow you to use the DLL (for the C/C++ language):</p>
+  <p>The following files are provided to allow you to use the DLL in C++:</p>
   <p><strong>AutoItX3_DLL.h</strong> - C language header file showing the exported functions and parameters</p>
-  <p><strong>AutoItX3.lib</strong> - Microsoft format import library</p>
+  <p><strong>AutoItX3_DLL.lib</strong> - Microsoft format import library (x86)</p>
+  <p><strong>AutoItX3_x64_DLL.lib</strong> - Microsoft format import library (x64)</p>
+  <p><strong>AutoItX3.dll</strong> - The main AutoItX DLL (x86)</p>
+  <p><strong>AutoItX3_x64.dll</strong> - The main AutoItX DLL (x64)</p>
   <p>&nbsp;</p>
-  <p>Files to ease the support of other languages may be provided with AutoItX if submitted by users (needed: VB, Delphi, etc.)</p>
-  <p>&nbsp;</p>
-  <p>Documentation for each function is not provided as the function calls are identical to the COM version and it should be easy to work out what is required with the COM documentation and the AutoItX3_DLL.h file. The only difference to the COM version is
+  
+  <p>Documentation for each function is not provided as the function calls are similar to the COM version and it should be easy to work out what is required with the COM documentation and the header file. The main difference to the COM version is
   that the functions that <strong>receive</strong> text - such as AU3_WinGetTitle have an additional parameter called <strong>nBufSize</strong> - this should be set to the available size of the output text buffer.</p>
   <p>e.g. The prototype for AU3_WinGetText is:</p>
-  <p class="code">void AU3_WinGetTitle(const char *szTitle, const char *szText, char *szRetText, int nBufSize);</p>
+  <p class="code">void AU3_WinGetTitle(LPCWSTR szTitle, LPCWSTR szText, LPWSTR szRetText, int nBufSize);</p>
   <p>&nbsp;</p>
-  <p>The return buffer is szRetText, and an example (C language) usage would be:</p>
-  <p class="code">char szMyTitle[200];</p>
+  <p>The return buffer is szRetText, and an example (C++ language) usage would be:</p>
+  <p class="code">WCHAR szMyTitle[200];</p>
   <p class="code">AU3_WinGetTitle("Untitled - Notepad", "", szMyTitle, 200);</p>
   <p class="code">MessageBox(NULL, szMyTitle, "Returned window title was:", MB_OK);</p>
   <p>&nbsp;</p>

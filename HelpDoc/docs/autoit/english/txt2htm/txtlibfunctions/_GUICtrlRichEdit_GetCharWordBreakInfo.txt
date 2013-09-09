@@ -19,13 +19,13 @@ $iCP
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	String consisting of comma-separated values:
-	value 1 - word-break flag(s):
-	c - line may be broken after this character
-	d - character is an end-of-word delimiter. Lines may be broken after delimiters
-	w - character is white-space. (Trailing white-spaces are not included in line length.)
-	value 2 - character class: a number
-Failure:	"" and sets @error
+Success:	a string consisting of comma-separated values:
+		value 1 - word-break flag(s):
+			c - line may be broken after this character
+			d - character is an end-of-word delimiter. Lines may be broken after delimiters
+			w - character is white-space. (Trailing white-spaces are not included in line length.)
+		value 2 - character class: a number
+Failure:	"" and sets the @error flag to non-zero.
 @error:	101 - $hWnd is not a handle
 	102 - $iCp is not a number
 @@End@@
@@ -34,8 +34,8 @@ Failure:	"" and sets @error
 ###Remarks###
 Lines may be broken at delimiters or between characters od different classes.
 
-Character classes are defined in word-break procedures. The classes in the default
-procedure are: 0 = alphanumeric character, 1 = other printing character (except hyphen),
+Character classes are defined in word-break procedures.
+The classes in the default procedure are: 0 = alphanumeric character, 1 = other printing character (except hyphen),
 2 = space, 3 = tab, 4 = hyphen or end-of-paragraph.
 
 

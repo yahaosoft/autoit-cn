@@ -13,20 +13,20 @@ WinWaitNotActive ( "title" [, "text" [, timeout = 0]] )
 title
 	The title/hWnd/class of the window to check.  See <a href="../intro/windowsadvanced.htm">Title special definition</a>.
 text
-	[optional] The text of the window to check.
+	[optional] The text of the window to check. Default is an empty string.
 timeout
-	[optional] Timeout in seconds
+	[optional] Timeout in seconds if the window is still active. Default is 0 (no timeout).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns 1.
-Failure:	Returns 0 if timeout occurred.
+Success:	1.
+Failure:	0 if timeout occurred.
 @@End@@
 
 
 ###Remarks###
-The script polls for a window match every 250 milliseconds or so.
+The window is polled every 250 milliseconds or so.
 
 
 ###Related###

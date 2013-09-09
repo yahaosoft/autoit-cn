@@ -12,5 +12,4 @@ Func Example()
 
 	; Disable/Gray Help menu
 	_GUICtrlMenu_EnableMenuItem($hMain, 4, 3)
-
 EndFunc   ;==>Example

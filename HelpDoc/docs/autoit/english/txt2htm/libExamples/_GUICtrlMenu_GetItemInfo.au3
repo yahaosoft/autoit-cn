@@ -19,7 +19,6 @@ Func Example()
 	_GUICtrlMenu_SetItemInfo($hFile, 1, $tInfo)
 	$tInfo = _GUICtrlMenu_GetItemInfo($hFile, 1)
 	Writeln("Open command ID: " & DllStructGetData($tInfo, "ID"))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

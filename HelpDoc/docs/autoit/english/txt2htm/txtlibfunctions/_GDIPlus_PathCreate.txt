@@ -13,17 +13,19 @@ _GDIPlus_PathCreate ( [$iFillMode = 0] )
 @@ParamTable@@
 $iFillMode
 	[optional] Fill mode of the interior of the path figures:
-	0 - The areas are filled according to the even-odd parity rule
-	1 - The areas are filled according to the nonzero winding rule
+		0 - The areas are filled according to the even-odd parity rule
+		1 - The areas are filled according to the nonzero winding rule
 @@End@@
 
 ###ReturnValue###
-Success: Handle to a new GraphicsPath object
-Failure: 0
+@@ReturnTable@@
+Success:	a handle to a new GraphicsPath object.
+Failure:	0 and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+@@End@@
 
 
 ###Remarks###
-After you are done with the object, call _GDIPlus_PathDispose to release the object resources
+After you are done with the object, call _GDIPlus_PathDispose() to release the object resources.
 
 
 ###Related###

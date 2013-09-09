@@ -5,7 +5,6 @@
 Example_UDF_Created()
 
 Func Example_UDF_Created()
-
 	Local $GUI, $hImage, $aDrag, $hListView
 
 	$GUI = GUICreate("(UDF Created) ListView Draw Drag Image", 400, 300)

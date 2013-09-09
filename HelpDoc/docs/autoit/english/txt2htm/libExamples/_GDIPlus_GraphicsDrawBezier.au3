@@ -23,5 +23,4 @@ Func Example()
 	; Clean up resources
 	_GDIPlus_GraphicsDispose($hGraphic)
 	_GDIPlus_Shutdown()
-
 EndFunc   ;==>Example

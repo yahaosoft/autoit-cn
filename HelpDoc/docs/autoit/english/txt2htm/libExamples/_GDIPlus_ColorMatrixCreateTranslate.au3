@@ -13,10 +13,9 @@ Func Example()
 	Local $hGraphics = _GDIPlus_GraphicsCreateFromHWND($hGUI) ;create a graphics object from a window handle
 	Local $hIA = _GDIPlus_ImageAttributesCreate() ;create an ImageAttribute object
 
-	Local $tColorMatrix = _GDIPlus_ColorMatrixCreateTranslate(0.75, 0.75, 0.75) ;create the brightness color matrix
-	Local $pColorMatrix = DllStructGetPtr($tColorMatrix)
+	Local $tColorMatrix = _GDIPlus_ColorMatrixCreateTranslate(0.75, 0.75, 0.75) ;create the brightness color matrix (RGB)
 
-	_GDIPlus_ImageAttributesSetColorMatrix($hIA, 0, True, $pColorMatrix) ;adjust the image brightness to be 75% brighter
+	_GDIPlus_ImageAttributesSetColorMatrix($hIA, 0, True, $tColorMatrix) ;adjust the image brightness to be 75% brighter
 
 	Local $hHBmp = _ScreenCapture_Capture("", 0, 0, $iWidth, $iHeight) ;create a GDI bitmap by capturing an area on desktop
 	Local $hBitmap = _GDIPlus_BitmapCreateFromHBITMAP($hHBmp) ;convert GDI to GDI+ bitmap

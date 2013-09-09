@@ -15,18 +15,19 @@ $hGraphics
 	Pointer to a Graphics object
 $iPixelOffsetMode
 	Pixel offset mode:
-	0,1,3 - Pixel centers have integer coordinates
-	2,4	- Pixel centers have coordinates that are half way between integer values (i.e. 0.5, 20, 105.5, etc...)
+		0,1,3 - Pixel centers have integer coordinates
+		2,4	- Pixel centers have coordinates that are half way between integer values (i.e. 0.5, 20, 105.5, etc...)
 @@End@@
 
 ###ReturnValue###
-Success: True
-Failure: False and either:
-			@error and @extended are set if DllCall failed
+@@ReturnTable@@
+Success:	True.
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+@@End@@
 
 
 ###Remarks###
-None
+None.
 
 
 ###Related###

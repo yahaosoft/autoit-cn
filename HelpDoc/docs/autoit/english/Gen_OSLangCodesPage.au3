@@ -145,7 +145,6 @@ Func WriteHtm()
 	Next
 
 	putFooter()
-
 EndFunc   ;==>WriteHtm
 
 Func putHeader()
@@ -158,8 +157,8 @@ Func putHeader()
 	put('</head>')
 	put('')
 	put('<body>')
-	put('<h1>@OSLang values/codes</h1>')
-	put('  <p>Possible return values (strings) of <a href="../macros/SystemInfo.htm">@OSLang</a><br>')
+	put('<h1>@KBLayout, @MUILang, @OSLang values/codes</h1>')
+	put('  <p>Possible return values (strings) of <a href="../macros/SystemInfo.htm#@KBLayout">@KBLayout</a>, <a href="../macros/SystemInfo.htm#@MUILang">@MUILang</a>, <a href="../macros/SystemInfo.htm#@OSLang">@OSLang</a><br>')
 	put('  <br>')
 	put('  List was generated from <a href="' & $gsMSDNhyperlink & ' " class="ext">"' & $gsMSDNpage & '"</a> in MSDN.<br>')
 	put('  <br')
@@ -265,7 +264,6 @@ Func GetLocaleName($iLCID)
 	If $iLCID = 0x7C04 Then Return "zh-CHT"
 
 	Return SetError(1, 0, "")
-
 EndFunc   ;==>GetLocaleName
 
 Func LCIDToLocaleName($iLCID)

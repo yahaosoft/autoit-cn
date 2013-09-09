@@ -17,22 +17,24 @@ $fWidth
 	[optional] The width of the pen measured in the units specified in the $iUnit parameter
 $iUnit
 	[optional] Unit of measurement for the pen size:
-	0 - World coordinates, a nonphysical unit
-	1 - Display units
-	2 - A unit is 1 pixel
-	3 - A unit is 1 point or 1/72 inch
-	4 - A unit is 1 inch
-	5 - A unit is 1/300 inch
-	6 - A unit is 1 millimeter
+		0 - World coordinates, a nonphysical unit
+		1 - Display units
+		2 - A unit is 1 pixel
+		3 - A unit is 1 point or 1/72 inch
+		4 - A unit is 1 inch
+		5 - A unit is 1/300 inch
+		6 - A unit is 1 millimeter
 @@End@@
 
 ###ReturnValue###
-Success: Pointer to a new Pen object
-Failure: 0
+@@ReturnTable@@
+Success:	a pointer to a new Pen object.
+Failure:	0 and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+@@End@@
 
 
 ###Remarks###
-After you are done with the object, call _GDIPlus_PenDispose to release the object resources
+After you are done with the object, call _GDIPlus_PenDispose() to release the object resources.
 
 
 ###Related###

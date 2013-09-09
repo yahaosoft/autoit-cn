@@ -18,7 +18,6 @@ Func Example()
 	Writeln("File Y1: " & DllStructGetData($tRect, "Top"))
 	Writeln("File X2: " & DllStructGetData($tRect, "Right"))
 	Writeln("File Y2: " & DllStructGetData($tRect, "Bottom"))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

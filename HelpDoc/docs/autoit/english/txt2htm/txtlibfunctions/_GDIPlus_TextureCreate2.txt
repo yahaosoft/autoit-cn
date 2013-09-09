@@ -23,22 +23,22 @@ $fHeight
 	Height of the brush and height of the image portion to be used by the brush
 $iWrapMode
 	[optional] Wrap mode that specifies how repeated copies of an image are used to tile an area when it is
-	0 - Tiling without flipping
-	1 - Tiles are flipped horizontally as you move from one tile to the next in a row
-	2 - Tiles are flipped vertically as you move from one tile to the next in a column
-	3 - Tiles are flipped horizontally as you move along a row and flipped vertically as you move along a column
-	4 - No tiling takes place
+		0 - Tiling without flipping
+		1 - Tiles are flipped horizontally as you move from one tile to the next in a row
+		2 - Tiles are flipped vertically as you move from one tile to the next in a column
+		3 - Tiles are flipped horizontally as you move along a row and flipped vertically as you move along a column
+		4 - No tiling takes place
 @@End@@
 
 ###ReturnValue###
-Success: Pointer to a new TextureBrush object
-Failure: 0 and either:
-
-	@error and @extended are set if DllCall failed
+@@ReturnTable@@
+Success:	a pointer to a new TextureBrush object.
+Failure:	0 and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+@@End@@
 
 
 ###Remarks###
-After you are done with the object, call _GDIPlus_BrushDispose to release the object resources
+After you are done with the object, call _GDIPlus_BrushDispose() to release the object resources.
 
 
 ###Related###

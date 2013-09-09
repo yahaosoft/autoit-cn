@@ -27,8 +27,7 @@ _OutputWindowHandle() - Returns the handle to the output window.
 
 #region Global Variables
 Global Enum $OUTPUT_PROGRESS, $OUTPUT_BUILD
-If Not IsDeclared("WM_COPYDATA") Then Assign("WM_COPYDATA", 0x4A, 2)
-Global Const $COPYDATASTRUCT = "ulong_ptr;dword;ptr"
+Global Const $tagCOPYDATASTRUCT = "ulong_ptr;dword;ptr"
 Global Const $g_sOutputWindowTitle = "AutoIt Build Script Output"
 Global Const $g_sOutputWindowText = "This is hidden text"
 Global $g_hWndOutputWindow = 0, $g_idEditProgress, $g_idEditBuild, $g_idCheckAutoClose, $g_sOutputBuffer = ""
@@ -230,13 +229,13 @@ EndFunc   ;==>_OutputWindowHandle
 ;	$hWnd - IN - UNUSED.
 ;	$nMsg - IN - UNUSED.
 ;	$wParam - IN - UNUSED.
-;	$lParam - IN - Pointer to the $COPYDATASTRUCT.
+;	$lParam - IN - Pointer to the $tagCOPYDATASTRUCT.
 ; Returns:
 ;	Non-zero if handled, 0 otherwise.
 ; ===================================================================
 Func __OutputOnWM_COPYDATA($hWnd, $nMsg, $wParam, $lParam)
 	#forceref $hWnd, $nMsg, $wParam
-	Local $cds = DllStructCreate($COPYDATASTRUCT, $lParam)
+	Local $cds = DllStructCreate($tagCOPYDATASTRUCT, $lParam)
 	Local $string = DllStructCreate("char[" & DllStructGetData($cds, 2) & "]", DllStructGetData($cds, 3))
 	Local $sData = DllStructGetData($string, 1)
 	Local $nID
@@ -297,7 +296,7 @@ Func __OutputWrite($nOutput, Const ByRef $sData)
 	Local $hSource = WinGetHandle(AutoItWinGetTitle())
 
 	; Create the structures
-	Local $cds = DllStructCreate($COPYDATASTRUCT)
+	Local $cds = DllStructCreate($tagCOPYDATASTRUCT)
 	Local $nSize = StringLen($sData) + 1
 	Local $string = DllStructCreate("char[" & $nSize & "]")
 

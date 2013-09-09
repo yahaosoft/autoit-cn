@@ -10,8 +10,6 @@
 Global $g_sProject = "Build All Help files"
 
 ; This array contains a list of all build script names.
-; 		"C_05_build_autoit_help.au3", _
-
 Global $g_aScripts[5] = [ _
 		"C_02_build_syntax_files.au3", _
 		"C_03_build_UDFs_help.au3", _

@@ -14,7 +14,6 @@ Func Example()
 
 	; Map Open accelerator ID
 	Writeln("Open command ID: " & _GUICtrlMenu_MapAccelerator($hFile, "O"))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

@@ -14,31 +14,31 @@ filename
 	Filename to check.
 option
 	[optional] Flag to indicate which timestamp
-	$FT_MODIFIED (0) = Last modified (default)
-	$FT_CREATED (1) = Created
-	$FT_ACCESSED (2) = Last accessed
+		$FT_MODIFIED (0) = Last modified (default)
+		$FT_CREATED (1) = Created
+		$FT_ACCESSED (2) = Last accessed
 	Constants are defined in FileConstants.au3
 format
 	[optional] to specify type of return
-	0 = return an array (default)
-	1 = return a string YYYYMMDDHHMMSS
+		0 = return an array (default)
+		1 = return a string YYYYMMDDHHMMSS
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns an array or string that contains the file time information.  See Remarks.
-Failure:	Returns 0 and sets @error to 1.
+Success:	an array or string that contains the file time information.  See Remarks.
+Failure:	sets the @error flag to non-zero.
 @@End@@
 
 
 ###Remarks###
 The array is a single dimension array containing six elements:
-$aArray[0] = year  (four digits)
-$aArray[1] = month (range 01 - 12)
-$aArray[2] = day   (range 01 - 31)
-$aArray[3] = hour (range 00 - 23)
-$aArray[4] = min  (range 00 - 59)
-$aArray[5] = sec  (range 00 - 59)
+	$aArray[0] = year  (four digits)
+	$aArray[1] = month (range 01 - 12)
+	$aArray[2] = day   (range 01 - 31)
+	$aArray[3] = hour  (range 00 - 23)
+	$aArray[4] = min   (range 00 - 59)
+	$aArray[5] = sec   (range 00 - 59)
 Notice that return values are zero-padded.
 
 

@@ -18,7 +18,6 @@ Func Example()
 	Writeln("Open is disabled: " & _GUICtrlMenu_GetItemDisabled($hFile, 1))
 	_GUICtrlMenu_SetItemEnabled($hFile, 1)
 	Writeln("Open is enabled : " & _GUICtrlMenu_GetItemEnabled($hFile, 1))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

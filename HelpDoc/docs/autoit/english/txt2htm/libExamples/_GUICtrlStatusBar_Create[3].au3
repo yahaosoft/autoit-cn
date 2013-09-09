@@ -9,7 +9,6 @@ Global $iMemo, $MainGUI, $hStatus
 Example()
 
 Func Example()
-
 	Local $hGUI
 	Local $aText[3] = ["Left Justified", @TAB & "Centered", @TAB & @TAB & "Right Justified"]
 	Local $aParts[3] = [100, 175, -1]

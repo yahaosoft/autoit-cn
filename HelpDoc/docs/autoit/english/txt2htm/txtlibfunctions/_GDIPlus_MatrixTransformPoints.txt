@@ -15,23 +15,25 @@ $hMatrix
 	Pointer to a Matrix object
 $aPoints
 	Array of points to be transformed:
-	[0][0] - Number of points
-	[1][0] - Point 1 X coordinate
-	[1][1] - Point 1 Y coordinate
-	[2][0] - Point 2 X coordinate
-	[2][1] - Point 2 Y coordinate
-	[n][0] - Point n X coordinate
-	[n][1] - Point n Y coordinate
+		[0][0] - Number of points
+		[1][0] - Point 1 X coordinate
+		[1][1] - Point 1 Y coordinate
+		[2][0] - Point 2 X coordinate
+		[2][1] - Point 2 Y coordinate
+		[n][0] - Point n X coordinate
+		[n][1] - Point n Y coordinate
 @@End@@
 
 ###ReturnValue###
-Success: True
-Failure: False
+@@ReturnTable@@
+Success:	True.
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+@@End@@
 
 
 ###Remarks###
-Each point in the array is treated as a row matrix. The multiplication is performed with the row matrix on the
-+left and the matrix on the right
+Each point in the array is treated as a row matrix.
+The multiplication is performed with the row matrix on the left and the matrix on the right.
 
 
 ###Related###

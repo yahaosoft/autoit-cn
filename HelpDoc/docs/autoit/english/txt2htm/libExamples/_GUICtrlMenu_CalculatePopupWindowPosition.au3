@@ -42,5 +42,4 @@ Func _PopupDlg($hParent)
 
 	GUISetState(@SW_ENABLE, $hParent)
 	GUIDelete($hDlg)
-
 EndFunc   ;==>_PopupDlg

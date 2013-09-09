@@ -96,7 +96,7 @@ Func Example()
 	; Close the file handle.
 	FileClose($hFile)
 
-	; Tell the server the file is fully sent with a code.
+	; Tell the client the file is fully sent with a code.
 	TCPSend($iSocket, @CRLF & "{EOF}")
 
 	; Display the successful message.

@@ -16,14 +16,14 @@ $pStream
 @@End@@
 
 ###ReturnValue###
-Success: Returns a handle to a new Bitmap object
-Failure: 0 and either:
-
-	@error and @extended are set if DllCall failed
+@@ReturnTable@@
+Success:	a handle to a new Bitmap object.
+Failure:	0 and sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@@End@@
 
 
 ###Remarks###
-After you are done with the object, call _GDIPlus_ImageDispose to release the object resources
+After you are done with the object, call _GDIPlus_ImageDispose() to release the object resources.
 
 
 ###Related###

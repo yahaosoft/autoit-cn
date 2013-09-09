@@ -13,7 +13,6 @@ Func Example()
 
 	; Show Main menu item count
 	Writeln("Main menu item count: " & _GUICtrlMenu_GetItemCount($hMain))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

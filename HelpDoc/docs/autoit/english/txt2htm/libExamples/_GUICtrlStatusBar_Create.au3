@@ -9,7 +9,6 @@ Global $iMemo, $MainGUI, $hStatus
 Example()
 
 Func Example()
-
 	Local $hGUI
 	Local $aParts[3] = [75, 150, -1]
 

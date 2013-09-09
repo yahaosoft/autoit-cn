@@ -23,8 +23,8 @@ $iSec
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	1
-Failure:	0 and sets @error
+Success:	1.
+Failure:	0 and sets the @error flag to non-zero.
 @error:	1 = Failure
 	3 = Invalid Sound ID. Use return array from _SoundOpen().
 @@End@@
@@ -32,7 +32,8 @@ Failure:	0 and sets @error
 
 ###Remarks###
 After using _SoundSeek on a sound, _SoundPlay must be used to resume playing.
-The use of the ID array returned from _SoundOpen is mandatory with this function to ensure that the file plays from the correct position regardless of encoding type.  The ID array should be updated by the function as the VBR timing correction factor may have been altered.
+The use of the ID array returned from _SoundOpen is mandatory with this function to ensure that the file plays from the correct position regardless of encoding type.
+The ID array should be updated by the function as the VBR timing correction factor may have been altered.
 
 
 ###Related###

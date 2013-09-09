@@ -7,7 +7,6 @@ Global $cListView, $fSortSense = False ; Set initial ascending sort
 Example()
 
 Func Example()
-
 	GUICreate("SimpleSort", 300, 300)
 	$cListView = GUICtrlCreateListView("Item", 10, 10, 280, 240)
 	_GUICtrlListView_SetColumnWidth($cListView, 0, 260)

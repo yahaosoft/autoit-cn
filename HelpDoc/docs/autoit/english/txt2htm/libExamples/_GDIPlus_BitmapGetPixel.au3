@@ -4,7 +4,6 @@
 Example()
 
 Func Example()
-
 	_GDIPlus_Startup() ;initialize GDI+
 	Local Const $iWidth = 150, $iHeight = 150
 	Local $iColor = 0

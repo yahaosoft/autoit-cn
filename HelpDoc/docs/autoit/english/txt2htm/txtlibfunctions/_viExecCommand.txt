@@ -48,25 +48,23 @@ $i_timeout_ms
 @@End@@
 
 ###ReturnValue###
-The return value depends on whether the command is a QUERY
+Returns a value which depends on whether the command is a QUERY
 or not and in whether the operation was successful or not.
 
 * Command, NON QUERY:
 @@ReturnTable@@
-Success:	Returns ZERO
-Failure:	Returns -1 if the VISA DLL could not be open
-	or a NON ZERO value representing the VISA
-	error code (see the VISA programmer's guide)
+Success:	0.
+Failure:	-1 if the VISA DLL could not be open
+	or a NON ZERO value representing the VISA error code (see the VISA programmer's guide)
 @@End@@
 * QUERY:
 @@ReturnTable@@
-Success:	Returns the answer of the instrument to the QUERY
-Failure:	Returns -1 if the VISA DLL could not be open
-	Returns -3 if the VISA DLL returned an unexpected number of results
-	or returns a NON ZERO value representing the VISA
-	error code (see the VISA programmer's guide)
+Success:	the answer of the instrument to the QUERY
+Failure:	-1 if the VISA DLL could not be open
+	-3 if the VISA DLL returned an unexpected number of results
+	or a NON ZERO value representing the VISA error code (see the VISA programmer's guide)
 @@End@@
-This function always sets @error to 1 in case of error.
+This function always sets the @error flag to non-zero in case of error.
 
 
 ###Remarks###

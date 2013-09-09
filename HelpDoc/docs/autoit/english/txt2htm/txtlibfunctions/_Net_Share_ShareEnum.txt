@@ -12,42 +12,41 @@ _Net_Share_ShareEnum ( [$sServer = ""] )
 ###Parameters###
 @@ParamTable@@
 $sServer
-	[optional] String that specifies the DNS or NetBIOS name of the remote server on which the function is to
-	execute. If this parameter is blank the local computer is used.
+	[optional] String that specifies the DNS or NetBIOS name of the remote server on which the function is to execute.
+	If this parameter is blank the local computer is used.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Array with the following format:
-	[0][0] - Number of entries in array
-	[1][0] - Share name of a resource
-	[1][1] - Type of the shared resource. Can be a combination of:
-	$STYPE_DISKTREE - Print queue
-	$STYPE_PRINTQ - Disk drive
-	$STYPE_DEVICE - Communication device
-	$STYPE_IPC - IPC
-	$STYPE_SPECIAL - Special share reserved for IPC$ or remote administration of the server
-	$STYPE_TEMPORARY - A temporary share
-	[1][2] - Contains an optional comment about the shared resource
-	[1][3] - Indicates the shared resource's permissions:
-	1 - Permission to read data from a resource and to execute
-	2 - Permission to write data to the resource
-	4 - Permission to create an instance of the resource
-	8 - Permission to execute the resource
-	16 - Permission to delete the resource
-	32 - Permission to modify the resource's attributes
-	64 - Permission to modify the permissions assigned to a resource
-	[1][4] - Maximum number of concurrent connections for the resource
-	[1][5] - Indicates the number of current connections to the resource
-	[1][6] - Specifies the local path for the shared resource
-	[1][7] - Specifies the share's password
-Failure:	Sets @error
+Success:	an array with the following format:
+		[0][0] - Number of entries in array
+		[1][0] - Share name of a resource
+		[1][1] - Type of the shared resource. Can be a combination of:
+			$STYPE_DISKTREE - Print queue
+			$STYPE_PRINTQ - Disk drive
+			$STYPE_DEVICE - Communication device
+			$STYPE_IPC - IPC
+			$STYPE_SPECIAL - Special share reserved for IPC$ or remote administration of the server
+			$STYPE_TEMPORARY - A temporary share
+		[1][2] - Contains an optional comment about the shared resource
+		[1][3] - Indicates the shared resource's permissions:
+			1 - Permission to read data from a resource and to execute
+			2 - Permission to write data to the resource
+			4 - Permission to create an instance of the resource
+			8 - Permission to execute the resource
+			16 - Permission to delete the resource
+			32 - Permission to modify the resource's attributes
+			64 - Permission to modify the permissions assigned to a resource
+		[1][4] - Maximum number of concurrent connections for the resource
+		[1][5] - Indicates the number of current connections to the resource
+		[1][6] - Specifies the local path for the shared resource
+		[1][7] - Specifies the share's password
+Failure:	sets the @error flag to non-zero.
 @@End@@
 
 
 ###Remarks###
-Administrator, Power User, Print Operator, or Server Operator group membership is required to execute this
-function.
+Administrator, Power User, Print Operator, or Server Operator group membership is required to execute this function.
 
 
 ###Related###

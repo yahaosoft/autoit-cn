@@ -56,7 +56,7 @@ If $ReGen_AutoIt Then
 	$htmlDir = IniRead($TXT2HTM_INI, "Output", "functions", "ERR")
 	genFile()
 	;
-	$RefType = "Keyword/Statement"
+	$RefType = "Keyword"
 	$hOut = FileOpen($OUTPUT_DIR & "keywords.htm", 2) ;overwrite mode
 	$INPUT_DIR = IniRead($TXT2HTM_INI, "Input", "keywords", "ERR")
 	; ### Added this to determine the link to the htm file

@@ -11,7 +11,7 @@ If @error <> 0 Then Exit MsgBox($MB_SYSTEMMODAL, "Word UDF: _Word_DocTableWrite 
 		"Error opening '.\Extras\Test.doc'." & @CRLF & "@error = " & @error & ", @extended = " & @extended)
 
 ; *****************************************************************************
-; Write the content of a zero-based two dimensional array to a Word table
+; Write the content of a 0-based two dimensional array to a Word table
 ; *****************************************************************************
 Global $asArray[3][3] = [[1, 2, 3],["a", "b", "c"],["x", "y", "z"]]
 Global $oRange = _Word_DocRangeSet($oDoc, -2)

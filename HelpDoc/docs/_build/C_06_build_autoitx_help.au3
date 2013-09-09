@@ -12,8 +12,6 @@
 Global Const $g_sProjectLang = "english"
 Global Const $g_sProject = "autoitx-docs"
 Global Const $g_sProjectDir = "docs\autoitx"
-;Global Const $g_aBuildFiles[1] = [ "AutoItX.chm" ]
-;Global Const $g_aInstallFiles[1] = [ "AutoItX.chm" ]
 #endregion Global Variables
 
 #region Main body of code
@@ -56,7 +54,7 @@ Func _Main()
 	Else
 		; Move the files install
 		FileChangeDir($gBuildDir)
-		FileMove($g_sProjectDir & "\" & $g_sProjectLang & "\AutoItX.chm", "install\AutoItX\AutoItX.chm", 1)
+		FileMove($g_sProjectDir & "\" & $g_sProjectLang & "\AutoItX.chm", "install\AutoItX\AutoItX.chm", $FC_OVERWRITE)
 
 		; Delete all temp files ready for source code packaging
 		FileDelete($g_sProjectDir & "\" & $g_sProjectLang & "\Debug.log")

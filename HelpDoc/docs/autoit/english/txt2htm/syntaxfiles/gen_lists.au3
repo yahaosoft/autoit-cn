@@ -196,6 +196,7 @@ Func GetFunctionParams($sFilePath, ByRef $sDescription, $fUDFLibrary = False)
 
 	$sDescription = ""
 	Local $sData = FileRead($sFilePath)
+	_StripEmptyLines($sData)
 	_StripWhitespace($sData)
 	Local $aArray = StringSplit($sData, @CRLF, $STRINGSPLIT_ENTIRE), $iIndex = 0, $sLine
 	For $i = 1 To $aArray[0]

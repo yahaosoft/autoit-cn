@@ -29,5 +29,4 @@ Func Example()
 	; Loop until user exits
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
-
 EndFunc   ;==>Example

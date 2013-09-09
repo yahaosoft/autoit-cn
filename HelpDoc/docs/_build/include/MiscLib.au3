@@ -43,10 +43,16 @@ Func _MacroListToArray(ByRef $sData, ByRef $aArray, ByRef $hAssocArray)
 EndFunc   ;==>_MacroListToArray
 
 ; ------------------------------------------------------------------------------
-; Strip empty lines and leading/trailing whitespace.
+; Strip empty lines.
+; ------------------------------------------------------------------------------
+Func _StripEmptyLines(ByRef $sData)
+	$sData = StringRegExpReplace($sData, '(?m)^\s*[\r\n]{2,}', @CRLF) ; Strip double empty lines. By guinness.
+EndFunc   ;==>_StripEmptyLines
+
+; ------------------------------------------------------------------------------
+; Strip leading/trailing whitespace.
 ; ------------------------------------------------------------------------------
 Func _StripWhitespace(ByRef $sData)
-	$sData = StringRegExpReplace($sData, '(?m)^\s*[\r\n]{2,}', @CRLF) ; Strip double empty lines. By guinness.
 	$sData = StringRegExpReplace($sData, '\h+(?=[\r\n])', '') ; Trailing whitespace. By DXRW4E.
 	$sData = StringRegExpReplace($sData, '[\r\n]\h+', @LF) ; Strip leading whitespace. By DXRW4E.
 EndFunc   ;==>_StripWhitespace

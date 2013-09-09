@@ -30,5 +30,4 @@ Func Example()
 	WEnd
 
 	Exit
-
 EndFunc   ;==>Example

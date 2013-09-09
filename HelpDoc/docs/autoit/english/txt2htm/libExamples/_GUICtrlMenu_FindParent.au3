@@ -13,7 +13,6 @@ Func Example()
 	; Show that Menu handle belongs to Notepad
 	Writeln("Notepad handle: 0x" & Hex($hWnd))
 	Writeln("Menu Parent ..: 0x" & Hex(_GUICtrlMenu_FindParent($hMain)))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

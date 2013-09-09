@@ -16,7 +16,6 @@ Func Example()
 	Writeln("File data: " & _GUICtrlMenu_GetMenuData($hFile))
 	_GUICtrlMenu_SetMenuData($hFile, 1234)
 	Writeln("File data: " & _GUICtrlMenu_GetMenuData($hFile))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

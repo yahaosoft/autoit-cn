@@ -8,7 +8,6 @@ Global $hListView
 Example()
 
 Func Example()
-
 	Local $GUI, $hImage
 	$GUI = GUICreate("(UDF Created) ListView Create", 400, 300)
 

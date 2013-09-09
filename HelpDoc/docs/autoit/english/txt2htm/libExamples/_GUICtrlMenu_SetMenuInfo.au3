@@ -34,7 +34,6 @@ Func Example()
 	Writeln("Menu context help ID : " & DllStructGetData($tInfo, "ContextHelpID"))
 	Writeln("Menu data ...........: " & DllStructGetData($tInfo, "MenuData"))
 	Writeln("")
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

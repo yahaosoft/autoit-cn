@@ -218,5 +218,4 @@ Func WM_VSCROLL($hWnd, $Msg, $wParam, $lParam)
 	EndIf
 
 	Return $GUI_RUNDEFMSG
-
 EndFunc   ;==>WM_VSCROLL

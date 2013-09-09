@@ -4,7 +4,6 @@
 Example()
 
 Func Example()
-
 	; Create GUI
 	Local $hGUI = GUICreate("GDI+", 640, 220)
 	GUISetState()
@@ -23,7 +22,7 @@ Func Example()
 	Local $sString = "Measure Character Ranges"
 
 	Local $aRanges[4][2] = [[3]]
-	$aRanges[1][0] = 0 ;Measure first char (zero-based)
+	$aRanges[1][0] = 0 ;Measure first char (0-ased)
 	$aRanges[1][1] = 1 ;One char to measure
 	$aRanges[2][0] = 4 ;5th char
 	$aRanges[2][1] = 5 ;measure 5 chars

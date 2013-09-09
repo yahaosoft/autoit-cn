@@ -15,5 +15,4 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", "Anchor highlight enabled: " & $fEnabled)
 	_GUICtrlToolbar_SetAnchorHighlight($hToolbar, Not $fEnabled)
 	MsgBox($MB_SYSTEMMODAL, "Information", "Anchor highlight enabled: " & _GUICtrlToolbar_GetAnchorHighlight($hToolbar))
-
 EndFunc   ;==>Example

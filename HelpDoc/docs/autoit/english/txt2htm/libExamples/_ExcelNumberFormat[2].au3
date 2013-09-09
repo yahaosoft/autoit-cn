@@ -8,7 +8,6 @@ Example()
 Exit
 
 Func Example()
-
 	Local $oExcel = _ExcelBookNew() ; Create new book, make it visible
 	Local $aFormatExamples[5] = ["Format Examples", "General", "hh:mm:ss", "$#,##0.00", "[Red]($#,##0.00)"] ; Array of formatting strings
 	For $i = 0 To UBound($aFormatExamples) - 1 ; Write formatting strings as column headers
@@ -30,5 +29,4 @@ Func Example()
 	Next
 	MsgBox($MB_SYSTEMMODAL, "Exiting", "Press OK to Exit Example 2")
 	_ExcelBookClose($oExcel, 0) ; Close and drop changes
-
 EndFunc   ;==>Example

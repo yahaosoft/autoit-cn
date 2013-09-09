@@ -19,14 +19,14 @@ $sFindText
 	For example, "^p" corresponds to a paragraph mark and "^t" corresponds to a tab character (default = "")
 $vSearchRange
 	[optional] Specifies the selection or range to search. Can be:
-	-1 - Specifies the current selection
-	0 - Specifies the entire document (default)
-	1 - Find next occurrence of $sFindText
-	2 - Find previous occurrence of $sFindText
+		-1 - Specifies the current selection
+	 	 0 - Specifies the entire document (default)
+		 1 - Find next occurrence of $sFindText
+		 2 - Find previous occurrence of $sFindText
 	Any Word range object
 $oFindRange
-	[optional] Specifies the range returned by the last call to _Word_DocFind. This is required if
-	you want to search for the next or previous occurrence of $sFindText.
+	[optional] Specifies the range returned by the last call to _Word_DocFind().
+	This is required if you want to search for the next or previous occurrence of $sFindText.
 	If set to Default then the search starts at the start of the $vSearchRange (default)
 $bForward
 	[optional] True to search forward (toward the end of the document) (default = True)
@@ -47,8 +47,8 @@ $bFormat
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns 1
-Failure:	Returns 0 and sets @error
+Success:	1.
+Failure:	0 and sets the @error flag to non-zero.
 @error:	1 - $oDoc is not an object
 	2 - $vSearchRange is not an object
 	3 - $oFindRange is not an object

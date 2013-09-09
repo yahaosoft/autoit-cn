@@ -9,7 +9,6 @@
 Example_Internal()
 
 Func Example_Internal()
-
 	Local $hItem[10], $hItemChild[30], $iYIndex = 0, $iRand, $hTreeView
 	Local $iStyle = BitOR($TVS_EDITLABELS, $TVS_HASBUTTONS, $TVS_HASLINES, $TVS_LINESATROOT, $TVS_DISABLEDRAGDROP, $TVS_SHOWSELALWAYS, $TVS_CHECKBOXES)
 

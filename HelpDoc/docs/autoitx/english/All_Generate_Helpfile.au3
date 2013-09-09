@@ -161,7 +161,6 @@ Func Main()
 	;
 	FileClose($FI_TOC_HND)
 	FileClose($FO_INDEX_HND)
-
 EndFunc   ;==>Main
 ;
 Func _FileRead2Array($SFILEPATH, ByRef $AARRAY)

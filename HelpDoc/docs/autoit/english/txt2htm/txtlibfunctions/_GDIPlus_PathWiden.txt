@@ -14,23 +14,23 @@ _GDIPlus_PathWiden ( $hPath, $hPen [, $hMatrix = 0 [, $fFlatness = 0.25]] )
 $hPath
 	Pointer to a GraphicsPath object
 $hPen
-	Pointer to a Pen object. The path is made as wide as it would be when drawn by this pen. If 0,
-	a solid black pen with a width of 1 will be used
+	Pointer to a Pen object. The path is made as wide as it would be when drawn by this pen. If 0, a solid black pen with a width of 1 will be used
 $hMatrix
-	[optional] Pointer to a Matrix object that represents a transformation to be applied along with the
-	widening. If 0, no transformation is applied
+	[optional] Pointer to a Matrix object that represents a transformation to be applied along with the widening. If 0, no transformation is applied
 $fFlatness
 	[optional] Real number that specifies the maximum error between the path and its flattened approximation.
 	Reducing the flatness increases the number of line segments in the approximation
 @@End@@
 
 ###ReturnValue###
-Success: True
-Failure: False
+@@ReturnTable@@
+Success:	True.
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+@@End@@
 
 
 ###Remarks###
-None
+None.
 
 
 ###Related###

@@ -13,19 +13,20 @@ InetRead ( "URL" [, options = 0] )
 URL
 	URL of the file to download.  See remarks below.
 options
-	[optional] $INET_LOCALCACHE (0) = Get the file from local cache if available (default).
-	$INET_FORCERELOAD (1) = Forces a reload from the remote site.
-	$INET_IGNORESSL (2) = Ignore all SSL errors (with HTTPS connections).
-	$INET_ASCIITRANSFER (4) = Use ASCII when transferring files with the FTP protocol (Can not be combined with flag $INET_BINARYTRANSFER (8)).
-	$INET_BINARYTRANSFER (8) = Use BINARY when transferring files with the FTP protocol (Can not be combined with flag $INET_ASCIITRANSFER (4)).  This is the default transfer mode if none are provided.
-	$INET_FORCEBYPASS (16) = By-pass forcing the connection online (See remarks).
+	[optional]
+		$INET_LOCALCACHE (0) = Get the file from local cache if available (default).
+		$INET_FORCERELOAD (1) = Forces a reload from the remote site.
+		$INET_IGNORESSL (2) = Ignore all SSL errors (with HTTPS connections).
+		$INET_ASCIITRANSFER (4) = Use ASCII when transferring files with the FTP protocol (Can not be combined with flag $INET_BINARYTRANSFER (8)).
+		$INET_BINARYTRANSFER (8) = Use BINARY when transferring files with the FTP protocol (Can not be combined with flag $INET_ASCIITRANSFER (4)).  This is the default transfer mode if none are provided.
+		$INET_FORCEBYPASS (16) = By-pass forcing the connection online (See remarks).
 	Constants are defined in InetConstants.au3
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	A binary string and @extended set to the number of bytes downloaded.
-Failure:	Sets @error to non-zero and returns an empty string.
+Success:	a binary string and @extended set to the number of bytes downloaded.
+Failure:	"" (empty string) and sets the @error flag to non-zero.
 @@End@@
 
 

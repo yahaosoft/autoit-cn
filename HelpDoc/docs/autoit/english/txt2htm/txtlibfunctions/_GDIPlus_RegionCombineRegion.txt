@@ -17,22 +17,24 @@ $hRegionSrc
 	Pointer to a Region object to use to update the $hRegionDst Region object
 $iCombineMode
 	[optional] Combine mode that specifies how the regions are combined:
-	0 - The existing region is replaced by the new region
-	1 - The existing region is replaced by the intersection of itself and the new region
-	2 - The existing region is replaced by the union of itself and the new region
-	3 - The existing region is replaced by the result of performing an XOR on the two regions.
+		0 - The existing region is replaced by the new region
+		1 - The existing region is replaced by the intersection of itself and the new region
+		2 - The existing region is replaced by the union of itself and the new region
+		3 - The existing region is replaced by the result of performing an XOR on the two regions.
 	A point is in the XOR of two regions if it is in one region or the other but not in both regions
-	4 - The existing region is replaced by the portion of itself that is outside of the new region
-	5 - The existing region is replaced by the portion of the new region that is outside of the existing region
+		4 - The existing region is replaced by the portion of itself that is outside of the new region
+		5 - The existing region is replaced by the portion of the new region that is outside of the existing region
 @@End@@
 
 ###ReturnValue###
-Success: True
-Failure: False
+@@ReturnTable@@
+Success:	True.
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+@@End@@
 
 
 ###Remarks###
-None
+None.
 
 
 ###Related###

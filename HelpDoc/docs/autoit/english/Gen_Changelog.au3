@@ -57,6 +57,7 @@ Func HTMLChangelog($sChangeLogPath, $sHTMLOutPath, $sNativeList, $sUDFList, $sMa
 	$sData = StringRegExpReplace($sData, '(?m)^\h*\-\h*', '')
 
 	; Remove double blank lines and trailing whitespace.
+	_StripEmptyLines($sData)
 	_StripWhitespace($sData)
 
 	; Convert native functions to a URL. Case-sensitive so it matches correctly. Matches Function().

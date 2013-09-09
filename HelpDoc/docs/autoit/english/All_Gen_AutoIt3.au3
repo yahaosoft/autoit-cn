@@ -27,8 +27,6 @@ Opt("TrayIconDebug", 1)
 OnAutoItExitRegister("OnQuit") ;### Debug Console
 _OutputWindowCreate() ;### Debug Console
 
-Global $L_MSG = ""
-
 FileChangeDir(@ScriptDir)
 
 _OutputBuildWrite("Generate HTM files for all changed Functions/Keywords" & @CRLF)
@@ -50,15 +48,15 @@ _OutputBuildWrite("Converting autoit_changelog.txt to history.htm file" & @CRLF)
 RunWait('"' & @AutoItExe & '"' & ' Gen_ChangeLog.au3')
 
 Func OnQuit()
-	; _OutputWaitClosed() ;### Debug Console
+	_OutputWaitClosed() ;### Debug Console
 EndFunc   ;==>OnQuit
 
 Func Main()
-	Local $FI_TOC_HND = FileOpen("AutoIt3 TOC.hhc", 0)
-	Local $FO_INDEX_HND = FileOpen("AutoIt3 Index.hhk", 2)
+	Local $FI_TOC_HND = FileOpen("AutoIt3 TOC.hhc", $FO_READ)
+	Local $FO_INDEX_HND = FileOpen("AutoIt3 Index.hhk", $FO_OVERWRITE)
 	; Check if file opened for reading OK
 	If $FI_TOC_HND = -1 Then
-		MsgBox(0, "Error", "Unable to open file.")
+		MsgBox($MB_SYSTEMMODAL, "Error", "Unable to open file.")
 		Exit
 	EndIf
 	; start
@@ -136,6 +134,13 @@ Func Main()
 						FileWriteLine($FO_INDEX_HND, '		</OBJECT>')
 					EndIf
 				EndIf
+				; Add StringRegExpGUI
+				If StringInStr($LINE, "tutorials\regexp\") Then
+						FileWriteLine($FO_INDEX_HND, '<LI> <OBJECT type="text/sitemap">')
+						FileWriteLine($FO_INDEX_HND, '   <param name="Name" value="StringRegExpGUI">')
+						FileWriteLine($FO_INDEX_HND, '   ' & StringReplace($LINE, Chr(09), ""))
+						FileWriteLine($FO_INDEX_HND, '		</OBJECT>')
+				EndIf
 				; Skip link to sub-sections for the Project file
 				If StringInStr($LINE, "#") = 0 Then
 					$FN = StringTrimRight(StringTrimLeft($LINE, StringInStr(StringLower($LINE), 'value="') + 6), 2)
@@ -174,11 +179,3 @@ Func Main()
 	FileClose($FI_TOC_HND)
 	FileClose($FO_INDEX_HND)
 EndFunc   ;==>Main
-;
-Func Debug($MESSAGE)
-	MsgBox($MB_SYSTEMMODAL, 'debug', $MESSAGE)
-EndFunc   ;==>Debug
-;
-Func WriteLog($LMSG)
-	FileWriteLine(@ScriptDir & "\genindex.log", $LMSG)
-EndFunc   ;==>WriteLog

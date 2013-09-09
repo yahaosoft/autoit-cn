@@ -7,7 +7,6 @@ Global $iMemo
 Example()
 
 Func Example()
-
 	Local $hGUI, $tRect, $hStatus
 	Local $aParts[3] = [75, 150, -1]
 

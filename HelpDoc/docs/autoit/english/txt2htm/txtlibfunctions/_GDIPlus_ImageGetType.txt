@@ -17,13 +17,12 @@ $hImage
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Integer of image type
-	$GDIP_IMAGETYPE_UNKNOWN - Non bitmap file or not identified as bitmap by GDI+
-	$GDIP_IMAGETYPE_BITMAP - Bitmap types: BMP, PNG, GIF, JPEG, TIFF, ICO, EXIF
-	$GDIP_IMAGETYPE_METAFILE - Metafile types: EMF, WMF
-Failure:	Returns -1 and @error is set
-@error:	0 - No error.
-	10 - Invalid image handle
+Success:	an integer of image type
+		$GDIP_IMAGETYPE_UNKNOWN - Non bitmap file or not identified as bitmap by GDI+
+		$GDIP_IMAGETYPE_BITMAP - Bitmap types: BMP, PNG, GIF, JPEG, TIFF, ICO, EXIF
+		$GDIP_IMAGETYPE_METAFILE - Metafile types: EMF, WMF
+Failure:	-1 and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+@error:	10 - Invalid image handle
 @@End@@
 
 

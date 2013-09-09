@@ -17,19 +17,18 @@ $sLocalName
 	Name of a local device, such as "F:" or "LPT1"
 $sRemoteName
 	[optional] Name of the network resource to disconnect. This member can be 0 if $LocalName is specified.
-	When sLocalName is specified, the connection to the network resource redirected from sLocalName is
-	disconnected.
+	When sLocalName is specified, the connection to the network resource redirected from sLocalName is disconnected.
 $iFlags
 	[optional] Flags describing the connection. Can be a combination of:
-	1 - If this value is set, the specified connection is no longer a persistent one. This flag is valid only if
-	sLocalName specifies a local device.
+	1 - If this value is set, the specified connection is no longer a persistent one.
+		This flag is valid only if $sLocalName specifies a local device.
 	2 - If this value is NOT set, the system applies force when disconnecting
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns 1. If the user cancels the dialog box, the return value is –1.
-Failure:	Returns 0 and set @error.
+Success:	1. If the user cancels the dialog box, the return value is –1.
+Failure:	0 and sets the @error flag to non-zero.
 @@End@@
 
 

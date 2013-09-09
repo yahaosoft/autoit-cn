@@ -15,11 +15,11 @@ $hImageAttributes
 	Pointer to an ImageAttribute object
 $iColorAdjustType
 	[optional] The category for which the color key is set or cleared:
-	0 - Color adjustment applies to all categories that do not have adjustment settings of their own
-	1 - Color adjustment applies to bitmapped images
-	2 - Color adjustment applies to brush operations in metafiles
-	3 - Color adjustment applies to pen operations in metafiles
-	4 - Color adjustment applies to text drawn in metafiles
+		0 - Color adjustment applies to all categories that do not have adjustment settings of their own
+		1 - Color adjustment applies to bitmapped images
+		2 - Color adjustment applies to brush operations in metafiles
+		3 - Color adjustment applies to pen operations in metafiles
+		4 - Color adjustment applies to text drawn in metafiles
 $fEnable
 	[optional] If True, transparency range for the specified category is applied; otherwise, transparency
 $iARGBLow
@@ -29,16 +29,14 @@ $iARGBHigh
 @@End@@
 
 ###ReturnValue###
-Success: True
-Failure: False and either:
-
-	@error and @extended are set if DllCall failed
-	$GDIP_STATUS contains a non zero value specifying the error code
+@@ReturnTable@@
+Success:	True.
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+@@End@@
 
 
 ###Remarks###
-Any color that has each of its three components (red, green, blue) between the corresponding components of the
-high and low color keys is made transparent
+Any color that has each of its three components (red, green, blue) between the corresponding components of the high and low color keys is made transparent
 
 
 ###Related###

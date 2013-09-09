@@ -14,16 +14,19 @@ None.
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	Returns a Webbrowser object reference
-Failure:	Returns 0 and sets @error
-@error:	1 ($_IEStatus_GeneralError) = General Error
+Success:	a Webbrowser object reference.
+Failure:	sets the @error flag to non-zero.
+@error:	1 ($_IEStatus_GeneralError) - General Error
 @@End@@
 
 
 ###Remarks###
-No actions can be performed on this object until it has been embedded into a parent application (e.g. you cannot perform an _IENavigate()).  Because of this restriction, the browser is not automatically navigated to 'about:blank' as is a browser created with _IECreate().  You must therefore use _IENavigate() to navigate this browser to 'about:blank' after it has been embedded into the parent application and before you attempt any operations that rely on having a document loaded (e.g. _IEBodyWriteHTML()).
+No actions can be performed on this object until it has been embedded into a parent application (e.g. you cannot perform an _IENavigate()).
+Because of this restriction, the browser is not automatically navigated to 'about:blank' as is a browser created with _IECreate().
+You must therefore use _IENavigate() to navigate this browser to 'about:blank' after it has been embedded into the parent application and before you attempt any operations that rely on having a document loaded (e.g. _IEBodyWriteHTML()).
 
-There are several properties related to an InternetExplorer object (e.g. returned by _IECreate()) that do not apply to this object.  These include status text, addressbar and others that may exist for a browser, but do not exist for an embedded control.
+There are several properties related to an InternetExplorer object (e.g. returned by _IECreate()) that do not apply to this object.
+These include status text, addressbar and others that may exist for a browser, but do not exist for an embedded control.
 
 You may have object visibility issues unless you use the Windows style $WS_CLIPCHILDREN in GUICreate().
 

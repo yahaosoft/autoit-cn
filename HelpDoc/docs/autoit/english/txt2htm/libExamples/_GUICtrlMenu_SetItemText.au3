@@ -16,7 +16,6 @@ Func Example()
 	Writeln("Open item text: " & _GUICtrlMenu_GetItemText($hFile, 1))
 	_GUICtrlMenu_SetItemText($hFile, 1, "&Closed")
 	Writeln("Open item text: " & _GUICtrlMenu_GetItemText($hFile, 1))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

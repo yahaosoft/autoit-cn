@@ -24,25 +24,24 @@ $iOutSize
 $iRead
 	On return, contains the number of bytes read from the pipe
 $iTimeOut
-	[optional] Number of milliseconds to wait for the named pipe to be available. In addition to numeric
-	values, the following special values can be specified:
-	-1 - Wait indefinitely
-	0 - Uses the default time-out specified in the call to the CreateNamedPipe
-	1 - Do not wait. If the pipe is not available, return an error
+	[optional] Number of milliseconds to wait for the named pipe to be available.
+	In addition to numeric values, the following special values can be specified:
+		-1 - Wait indefinitely
+		 0 - Uses the default time-out specified in the call to the CreateNamedPipe
+		 1 - Do not wait. If the pipe is not available, return an error
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True
-Failure:	False
+Success:	True.
+Failure:	False.
 @@End@@
 
 
 ###Remarks###
-Calling CallNamedPipe is equivalent to calling the CreateFile (or WaitNamedPipe, if CreateFile cannot open
-the pipe immediately), TransactNamedPipe, and CloseHandle functions. CreateFile is called with an access flag
-of GENERIC_READ | GENERIC_WRITE, and an inherit handle flag of False. CallNamedPipe fails if the pipe is a
-byte-type pipe.
+Calling CallNamedPipe is equivalent to calling the CreateFile (or WaitNamedPipe, if CreateFile cannot open the pipe immediately), TransactNamedPipe, and CloseHandle functions.
+CreateFile is called with an access flag of GENERIC_READ | GENERIC_WRITE, and an inherit handle flag of False.
+CallNamedPipe fails if the pipe is a byte-type pipe.
 
 
 ###Related###

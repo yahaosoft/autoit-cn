@@ -16,7 +16,6 @@ Func Example()
 	Writeln("File menu style: 0x" & Hex(_GUICtrlMenu_GetMenuStyle($hFile)))
 	_GUICtrlMenu_SetMenuStyle($hFile, $MNS_NOCHECK)
 	Writeln("File menu style: 0x" & Hex(_GUICtrlMenu_GetMenuStyle($hFile)))
-
 EndFunc   ;==>Example
 
 ; Write a line of text to Notepad

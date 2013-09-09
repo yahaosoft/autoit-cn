@@ -27,14 +27,14 @@ $iBottom
 	[optional] Y coordinate of the lower right corner of the rectangle
 $iFlags
 	[optional] Flags that control the ToolTip display:
-	1 - Indicates that $iID is the window handle to the tool instead of the ID
-	2 - Centers the window below the tool specified by $iID
-	4 - Indicates that text will be displayed in the opposite direction
-	8 - Indicates that the control should subclass the tool's window to intercept messages
-	16 - Positions the control next to the tool to which it corresponds
-	32 - Positions the window at the same coordinates provided by TTM_TRACKPOSITION
-	64 - Causes the control to forward mouse messages to the parent window
-	128 - Indicates that links in the control text should be parsed
+		1 - Indicates that $iID is the window handle to the tool instead of the ID
+		2 - Centers the window below the tool specified by $iID
+		4 - Indicates that text will be displayed in the opposite direction
+		8 - Indicates that the control should subclass the tool's window to intercept messages
+		16 - Positions the control next to the tool to which it corresponds
+		32 - Positions the window at the same coordinates provided by TTM_TRACKPOSITION
+		64 - Causes the control to forward mouse messages to the parent window
+		128 - Indicates that links in the control text should be parsed
 $iParam
 	[optional] Application-defined value that is associated with the tool
 @@End@@
@@ -44,13 +44,11 @@ None.
 
 
 ###Remarks###
-Some internal properties of a tool are established when the tool is created, and are not recomputed when a
-$TTM_SETTOOLINFO message is sent. If you simply assign values to a TOOLINFO structure and pass it to the
-ToolTip control with a $TTM_SETTOOLINFO message, these properties may be lost. Instead your application should
-first request the tool's current TOOLINFO structure by sending a $TTM_GETTOOLINFO message. Then, modify the
-members of this structure as needed and pass it back to the ToolTip control with $TTM_SETTOOLINFO. When
-calling $TTM_SETTOOLINFO, the string pointed to by the Text member of the TOOLINFO structure must not exceed
-80 characters in length.
+Some internal properties of a tool are established when the tool is created, and are not recomputed when a $TTM_SETTOOLINFO message is sent.
+If you simply assign values to a TOOLINFO structure and pass it to the ToolTip control with a $TTM_SETTOOLINFO message, these properties may be lost.
+Instead your application should first request the tool's current TOOLINFO structure by sending a $TTM_GETTOOLINFO message.
+Then, modify the members of this structure as needed and pass it back to the ToolTip control with $TTM_SETTOOLINFO.
+When calling $TTM_SETTOOLINFO, the string pointed to by the Text member of the TOOLINFO structure must not exceed 80 characters in length.
 
 
 ###Related###

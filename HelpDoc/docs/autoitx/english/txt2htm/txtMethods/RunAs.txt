@@ -1,0 +1,49 @@
+###Method###
+RunAs
+
+###Description###
+Runs an external program.
+
+###Syntax###
+RunAs "user", "domain", "password", logon_flag, "filename" [, "workingdir" [, show_flag]]
+
+
+###Parameters###
+@@ParamTable@@
+username
+	The user name to use.
+domain
+	The domain name to use.
+password
+	The password to use.
+logon_flag
+	0 = do not load the user profile, 1 = (default) load the user profile, 2 = use for net credentials only
+filename
+	The name of the executable (EXE, BAT, COM, or PIF) to run.
+workingdir
+	<b>Optional:</b> The working directory.
+show_flag
+	<b>Optional:</b> The "show" flag of the executed program:
+	SW_HIDE = Hidden window
+	SW_MINIMIZE = Minimized window
+	SW_MAXIMIZE = Maximized window
+@@End@@
+
+###ReturnValue###
+Success:  The PID of the process that was launched.
+Failure:  see Remarks.
+
+
+###Remarks###
+After running the requested program the script continues.  To pause execution of the script until the spawned program has finished use the RunWait function instead.
+
+The <b>error</b> property is set to 1 as an indication of failure.
+
+
+###Related###
+Run, RunAsWait, RunWait
+
+
+###Example###
+Set oAutoIt = WScript.CreateObject("AutoItX3.Control")
+oAutoIt.Run "Notepad.exe", "", oAutoIt.SW_MAXIMIZE
