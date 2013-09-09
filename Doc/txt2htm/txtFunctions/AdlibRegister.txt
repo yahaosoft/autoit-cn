@@ -5,7 +5,7 @@ AdlibRegister
 注册一个 Adlib 函数.
 
 ###Syntax###
-AdlibRegister ( "函数" [, 时间] )
+AdlibRegister ( "函数" [, 时间 = 250] )
 
 
 ###Parameters###
@@ -17,7 +17,10 @@ AdlibRegister ( "函数" [, 时间] )
 @@End@@
 
 ###ReturnValue###
-None.
+@@ReturnTable@@
+成功:	1.
+失败:	0.
+@@End@@
 
 
 ###Remarks###
@@ -26,6 +29,7 @@ adlib 函数应该保持简单,而不会因为多次调用导致主函数挂起.
 你不能注册一个带有参数的函数.
 
 几个 Adlib 函数可以同时注册,不会相互干扰.重新注册一个已经注册的 Adlib 函数只会更新它的调用时间.
+
 
 ###Related###
 AdlibUnRegister

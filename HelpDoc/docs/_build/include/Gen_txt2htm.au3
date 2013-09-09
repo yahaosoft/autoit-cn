@@ -182,8 +182,9 @@ Func SciTECreate() ; Fixed by guinness - 27/08/2013
 	Local $sAu3KeywordsProperties = "..\..\..\install\SciTe\au3.keywords.properties"
 	; Use the generated version of au3.keywords.properties when it exists. Otherwise copy from Program Files\AutoIt3.
 	If Not FileExists($sAu3KeywordsProperties) Then
-		FileCopy(@ProgramFilesDir & "\AutoIt3\SciTE\au3.keywords.properties", $sAu3KeywordsProperties, $FC_OVERWRITE + $FC_CREATEPATH)
-		FileCopy(@ProgramFilesDir & "\AutoIt3\SciTE\Properties\au3.keywords.properties", $sAu3KeywordsProperties, $FC_OVERWRITE + $FC_CREATEPATH)
+;		FileCopy(@ProgramFilesDir & "\AutoIt3\SciTE\au3.keywords.properties", $sAu3KeywordsProperties, $FC_OVERWRITE + $FC_CREATEPATH)
+;		FileCopy(@ProgramFilesDir & "\AutoIt3\SciTE\Properties\au3.keywords.properties", $sAu3KeywordsProperties, $FC_OVERWRITE + $FC_CREATEPATH)
+;		FileCopy("c:\app\AutoIt\SciTE\ÊôÐÔÎÄ¼þ\au3.keywords.properties", $sAu3KeywordsProperties, 9)
 	EndIf
 
 	; Look for a running instance of SciTE. If it is found then ask the user to close it.
@@ -199,7 +200,7 @@ Func SciTECreate() ; Fixed by guinness - 27/08/2013
 	If FileExists($sSciTEProgram) Then
 		; Set the SciTE_HOME environment variable to override the user's.
 		; This prevents the user's property files from getting loaded and causing issues.
-		EnvSet("SciTE_HOME", @TempDir)
+;~ 		EnvSet("SciTE_HOME", @TempDir)
 		Run($sSciTEProgram)
 		WinWait(_SciTE_GetSciTETitle())
 	Else
@@ -210,7 +211,7 @@ Func SciTECreate() ; Fixed by guinness - 27/08/2013
 	_SciTE_Startup()
 
 	; Load the Au3 properties file in the install\SciTE directory.
-	_SciTE_LoadPropertiesFile($sAu3KeywordsProperties)
+;~ 	_SciTE_LoadPropertiesFile($sAu3KeywordsProperties)
 	; Reload the SciTE properties.
 	_SciTE_ReloadProperties()
 
@@ -309,7 +310,7 @@ Func Convert($sFilePath, $sHTMLFile)
 	Else
 		put($hFileOpen, '  <title>Keyword ' & $sFunctionOrKeyword & '</title>')
 	EndIf
-	put($hFileOpen, '  <meta charset="ISO-8859-1">')
+	put($hFileOpen, '  <meta charset="gb2312">')
 	If $ReGen_AutoItX Then
 		put($hFileOpen, '  <link href="../../css/default.css" rel="stylesheet" type="text/css">')
 	Else

@@ -2,33 +2,33 @@
 AdlibRegister
 
 ###Description###
-Registers an Adlib function.
+注册一个 Adlib 函数.
 
 ###Syntax###
-AdlibRegister ( "function" [, time = 250] )
+AdlibRegister ( "函数" [, 时间 = 250] )
 
 
 ###Parameters###
 @@ParamTable@@
-function
-	The name of the adlib function to be registered.
-time
-	[optional] how often in milliseconds to call the function.   Default is 250 ms.
+函数
+	要注册的 Adlib 函数名称.
+时间
+	[可选参数] 多长时间调用一次函数(单位为毫秒).  默认(Default)为 250 毫秒.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	1.
-Failure:	0.
+成功:	1.
+失败:	0.
 @@End@@
 
 
 ###Remarks###
-Every 250 ms (or <i>time</i> ms) the specified "function" is called--typically to check for unforeseen errors.  For example, you could use adlib in a  script which causes an error window to pop up unpredictably.
-The adlib function should be kept simple as it is executed often and during this time the main script is paused.  Also, the time parameter should be used carefully to avoid CPU load.
-You can not register a function using parameters.
+每当 250 毫秒 (或者 <i>时间</i> 毫秒) 就调用指定的"函数"--通常用于检查不可预知的错误. 举个例子, 你可以在脚本中使用 adlib 来检测不可预知的错误弹出窗口等等.
+adlib 函数应该保持简单,而不会因为多次调用导致主函数挂起. 同样的, 每次调用时间过短会导致加重CPU负担.
+你不能注册一个带有参数的函数.
 
-Several Adlib functions can be registered.  Re-registering an already existing Adlib function will update it with a new time.
+几个 Adlib 函数可以同时注册,不会相互干扰.重新注册一个已经注册的 Adlib 函数只会更新它的调用时间.
 
 
 ###Related###

@@ -127,9 +127,16 @@ EndFunc   ;==>putHeader
 
 Func GetIncludeAU3($sName)
 	$sName = StringReplace($sName, " Reference", "")
+
 	For $i = 1 To $aIncludeAU3[0][0]
-		If $aIncludeAU3[$i][0] = $sName Then Return $aIncludeAU3[$i][1]
+		If $aIncludeAU3[$i][0] = $sName Then
+			Return $aIncludeAU3[$i][1]
+		EndIf
 	Next
+	If StringRegExp($sName,'.+\(\w+\).*') Then
+		Local $aName=StringRegExp($sName,'.+\((\w+)\).*',3)
+		$sName=$aName[0]
+	EndIf
 	Return $sName
 EndFunc   ;==>GetIncludeAU3
 
@@ -240,8 +247,7 @@ Func GetNextManagement()
 		Return 1
 	EndIf
 
-	If StringInStr($FNAME, " Management") = 0 Then GetFileName()
-	If StringInStr($FNAME, "管理") = 0 Then GetFileName()
+	If StringInStr($FNAME, " Management") = 0 And StringInStr($FNAME, "管理") = 0 Then GetFileName()
 	$FTOC = $FNAME
 	Return StringInStr($FNAME, " Management") Or StringInStr($NAME, " Reference") Or StringInStr($FNAME, "管理") Or StringInStr($NAME, "参考")
 EndFunc   ;==>GetNextManagement

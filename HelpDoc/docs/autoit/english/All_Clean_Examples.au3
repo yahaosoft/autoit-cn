@@ -39,7 +39,7 @@ Clean("keywords")
 
 $INPUT_DIR = IniRead("txt2htm.ini", "Input", "libfunctions", "ERR")
 $OUTPUT_DIR = IniRead("txt2htm.ini", "Output", "libfunctions", "ERR")
-Clean("libfunctions")
+;~ Clean("libfunctions")
 
 FileDelete($TEMP_LIST)
 

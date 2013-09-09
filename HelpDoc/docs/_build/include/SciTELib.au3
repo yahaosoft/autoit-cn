@@ -43,7 +43,7 @@ Func _SciTE_LoadPropertiesFile($sFilePath)
 	Local $sAu3Properties = FileRead($sFilePath)
 	$sAu3Properties = StringRegExpReplace($sAu3Properties, '\\(.*?)\r\n', '')
 	$sAu3Properties = StringRegExpReplace($sAu3Properties, '(\h+?)', ' ')
-	Local $aArray = StringSplit($sAu3Properties, @CRLF, $STR_ENTIRESPLIT), _
+	Local $aArray = StringSplit($sAu3Properties, @CRLF, 1), _
 			$iStringLen = StringLen('#')
 	For $i = 1 To $aArray[0]
 		If Not (StringLeft($aArray[$i], $iStringLen) = '#') Then UpdateVar($aArray[$i])
