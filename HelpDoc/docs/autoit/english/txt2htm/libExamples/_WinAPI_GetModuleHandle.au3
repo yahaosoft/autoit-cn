@@ -1,7 +1,7 @@
+#include <MsgBoxConstants.au3>
+#include <StructureConstants.au3>
 #include <WinAPI.au3>
 #include <WindowsConstants.au3>
-#include <StructureConstants.au3>
-#include <MsgBoxConstants.au3>
 
 Global $hHook, $hStub_KeyProc, $buffer = ""
 

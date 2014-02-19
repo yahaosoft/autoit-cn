@@ -8,7 +8,7 @@ Func Example()
 	Local Const $iWidth = 600, $iHeight = 600
 
 	Local $hGUI = GUICreate("GDI+ example", $iWidth, $iHeight) ;create a test GUI
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	Local $hGraphics = _GDIPlus_GraphicsCreateFromHWND($hGUI) ;create a graphics object from a window handle
 	Local $hIA = _GDIPlus_ImageAttributesCreate() ;create an ImageAttribute object

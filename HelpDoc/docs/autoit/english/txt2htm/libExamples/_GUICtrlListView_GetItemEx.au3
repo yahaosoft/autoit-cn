@@ -10,7 +10,7 @@ Func Example()
 	GUICreate("ListView Get ItemEX", 400, 300)
 
 	$hListView = GUICtrlCreateListView("Items", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUICtrlCreateListViewItem("Item 1", $hListView)
 	GUICtrlCreateListViewItem("Item 2", $hListView)
@@ -31,7 +31,7 @@ Func Example()
 	_GUICtrlListView_GetItemEx($hListView, $tItem)
 	MsgBox($MB_SYSTEMMODAL, "Information", "Item 2 State: " & DllStructGetData($tItem, "State"))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

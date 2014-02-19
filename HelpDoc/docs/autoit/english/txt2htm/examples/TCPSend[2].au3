@@ -1,7 +1,7 @@
 ; I am the server, start me first! (Start in second the example 2 of the TCPRecv function).
 
-#include <MsgBoxConstants.au3>
 #include <FileConstants.au3>
+#include <MsgBoxConstants.au3>
 
 Example()
 

@@ -12,16 +12,20 @@ _GUIToolTip_SetTitle ( $hWnd, $sTitle [, $iIcon = 0] )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	Handle to the ToolTip control (returned by <a href ="_GUIToolTip_Create.htm">_GUIToolTip_Create.</a>)
 $sTitle
 	Title string
 $iIcon
 	[optional] Set to one of the values below:.
-		0 - No icon
-		1 - Information icon
-		2 - Warning icon
-		3 - Error Icon
+		$TTI_NONE (0) - No icon [default]
+		$TTI_INFO (1) - Information icon
+		$TTI_WARNING (2) - Warning icon
+		$TTI_ERROR (3) - Error Icon
+		$TTI_INFO_LARGE (4) - Large Information Icon
+		$TTI_WARNING_LARGE (5) - Large Warning Icon
+		$TTI_ERROR_LARGE (6) - Large Error Icon
 @@End@@
+Constants are defined in ToolTipConstants.au3
 
 ###ReturnValue###
 @@ReturnTable@@
@@ -32,6 +36,14 @@ Failure:	False.
 
 ###Remarks###
 As of Windows XP SP2 and later, $iIcon can contain an HICON value. Any value greater than 3 is assumed to be an HICON.
+The title of a tooltip appears above the text, in a different font. It is not sufficient to have a title; the tooltip must have text as well, or it is not displayed.
+A title with an Icon but no text in the title won't display a title or the icon. You have to set the text of the title, even if it's only one character, if you plan on using an icon.
+The string entered in $sTitle must not exceed 99 characters in length.
 
 
 ###Related###
+_GUIToolTip_GetTitleText, _GUIToolTip_UpdateTipText
+
+
+###Example###
+@@IncludeExample@@

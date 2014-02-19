@@ -6,37 +6,39 @@ Creates a ToolTip control
 
 ###Syntax###
 #include <GuiToolTip.au3>
-_GUIToolTip_Create ( $hWnd [, $iStyle = 0x00000003] )
+_GUIToolTip_Create ( $hWnd [, $iStyle = $_TT_ghTTDefaultStyle] )
 
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control that will own the tool tip window
+	Handle to the window that will own the tool tip control. See remarks.
 $iStyle
 	[optional] ToolTip style:
-		$TTS_ALWAYSTIP - Indicates that the ToolTip control appears when the cursor is on a tool even if the ToolTip control's owner window is inactive. 
-			Without this style, the ToolTip appears only when the tool's owner window is active.
-		$TTS_BALLOON - Indicates that the ToolTip control has the appearance of a cartoon "balloon," with rounded corners and a stem pointing to the item.
-		$TTS_NOANIMATE - Disables sliding ToolTip animation.
-		$TTS_NOFADE - Disables fading ToolTip animation.
-		$TTS_NOPREFIX - Prevents the system from stripping the ampersand character from a string.
-			Without this style the system automatically strips ampersand characters.
-			This allows an application to use the same string as both a menu item and as text in a ToolTip control.
-		$TTS_CLOSE - Displays a close icon so that the tooltip can be canceled
-	Default: $TTS_ALWAYSTIP, $TTS_NOPREFIX
+	$TTS_ALWAYSTIP (0x01)- Indicates that the ToolTip control appears when the cursor is on a tool even if the ToolTip control's owner window is inactive. Without this style, the ToolTip appears only when the tool's owner window is active.
+	$TTS_NOPREFIX (0x02) - Prevents the system from stripping the ampersand character from a string. Without this style the system automatically strips ampersand characters. This allows an application to use the same string as both a menu item and as text in a ToolTip control.
+	$TTS_NOANIMATE (0x10) - Disables sliding ToolTip animation.
+	$TTS_NOFADE (0x20) - Disables fading ToolTip animation.
+	$TTS_BALLOON (0x40) - Indicates that the ToolTip control has the appearance of a cartoon "balloon"
+	$TTS_CLOSE (0x80) - Displays a close icon so that the tooltip can be cancelled
+	Default: $_TT_ghTTDefaultStyle = BitOr($TTS_ALWAYSTIP, $TTS_NOPREFIX)
 @@End@@
+Constants are defined in ToolTipConstants.au3
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	the handle to the Tooltip window.
+Success:	The handle to the Tooltip control.
 Failure:	0.
 @@End@@
 
 
 ###Remarks###
-None.
+$hWnd is usually set to zero (0), or a handle to the parent or owner window of the window being created. To create a child window or an owned window, supply a valid window handle.
 
 
 ###Related###
 _GUIToolTip_Destroy
+
+
+###Example###
+@@IncludeExample@@

@@ -1,8 +1,8 @@
 #include <GUIConstantsEx.au3>
-#include <GuiTreeView.au3>
 #include <GuiImageList.au3>
-#include <WindowsConstants.au3>
+#include <GuiTreeView.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Global $hImage, $hStateImage
 
@@ -15,7 +15,7 @@ Func Example()
 	GUICreate("TreeView Set Insert Mark", 400, 300)
 
 	$hTreeView = GUICtrlCreateTreeView(2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_CreateNormalImageList()
 	_GUICtrlTreeView_SetNormalImageList($hTreeView, $hImage)
@@ -38,7 +38,7 @@ Func Example()
 	$iRand = Random(0, 9, 1)
 	MsgBox($MB_SYSTEMMODAL, "Information", StringFormat("Set Insert Mark at Item Index[%d]: %s", $iRand, _GUICtrlTreeView_SetInsertMark($hTreeView, $hItem[$iRand])))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

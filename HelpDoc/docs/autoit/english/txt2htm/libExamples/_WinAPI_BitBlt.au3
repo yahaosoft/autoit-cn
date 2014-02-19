@@ -1,5 +1,6 @@
 #include <GDIPlus.au3>
 #include <GUIConstantsEx.au3>
+#include <WinAPI.au3>
 #include <WindowsConstants.au3>
 
 Example()
@@ -12,7 +13,7 @@ Func Example()
 
 	Global $hGUI = GUICreate("GDI+ example", $iWidth, $iHeight) ;create a test GUI
 	GUISetBkColor($iBgColor, $hGUI) ;set GUI background color
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	;create a faster buffered graphics frame set for smoother gfx object movements
 	Local $hBitmap = _GDIPlus_BitmapCreateFromScan0($iWidth, $iHeight) ;create an empty bitmap
@@ -43,16 +44,16 @@ Func Example()
 			$aCoordinates[$i][1] = $iYPos
 			_GDIPlus_PenSetColor($hPen, 0xFFFFFF00) ;set pen color for inner lines
 			_GDIPlus_PenSetWidth($hPen, 2) ;set pen size for outer lines
-			_GDIPlus_GraphicsDrawLineF($hGfxCtxt, $aCoordinates[$i][0], $aCoordinates[$i][1], _ ;draw inner lines
+			_GDIPlus_GraphicsDrawLine($hGfxCtxt, $aCoordinates[$i][0], $aCoordinates[$i][1], _ ;draw inner lines
 					$aCoordinates[Mod(($i + $iDots / 2), $iDots)][0], $aCoordinates[Mod(($i + $iDots / 2), $iDots)][1], $hPen) ;draw to opposite side
 			_GDIPlus_PenSetColor($hPen, 0xFFFF8000) ;set pen color
 			_GDIPlus_PenSetWidth($hPen, 3) ;set pen size
 			;array of coordinates should be filled before first draw to screen
-			If $i < $iDots - 1 Then _GDIPlus_GraphicsDrawLineF($hGfxCtxt, $aCoordinates[$i][0], $aCoordinates[$i][1], $aCoordinates[$i + 1][0], $aCoordinates[$i + 1][1], $hPen) ;;draw outer lines
+			If $i < $iDots - 1 Then _GDIPlus_GraphicsDrawLine($hGfxCtxt, $aCoordinates[$i][0], $aCoordinates[$i][1], $aCoordinates[$i + 1][0], $aCoordinates[$i + 1][1], $hPen) ;;draw outer lines
 			$iAngle += $iAngelDist ;increase angle to next dot
 		Next
 		;draw last line to 1st line
-		_GDIPlus_GraphicsDrawLineF($hGfxCtxt, $aCoordinates[$i - 1][0], $aCoordinates[$i - 1][1], $aCoordinates[0][0], $aCoordinates[0][1], $hPen)
+		_GDIPlus_GraphicsDrawLine($hGfxCtxt, $aCoordinates[$i - 1][0], $aCoordinates[$i - 1][1], $aCoordinates[0][0], $aCoordinates[0][1], $hPen)
 
 		If $iRound Then _WinAPI_BitBlt($hDC, 0, 0, $iWidth, $iHeight, $hDC_Backbuffer, 0, 0, $SRCCOPY) ;copy backbuffer to screen (GUI)
 		$iAngle -= 0.5 ;decrease overall angle

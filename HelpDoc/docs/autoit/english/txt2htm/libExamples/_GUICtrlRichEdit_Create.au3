@@ -1,5 +1,5 @@
-#include <GuiRichEdit.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiRichEdit.au3>
 #include <WindowsConstants.au3>
 
 Example()
@@ -10,7 +10,7 @@ Func Example()
 	$hRichEdit = _GUICtrlRichEdit_Create($hGui, "This is a test.", 10, 10, 300, 220, _
 			BitOR($ES_MULTILINE, $WS_VSCROLL, $ES_AUTOVSCROLL))
 	_GUICtrlRichEdit_AppendText($hRichEdit, @CRLF & "This is more text")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	While True
 		$iMsg = GUIGetMsg()

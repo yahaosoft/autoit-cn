@@ -2,7 +2,7 @@
 _GDIPlus_ParamInit
 
 ###Description###
-Initialize an encoder parameter list
+Allocate an empty encoder parameter list
 
 ###Syntax###
 #include <GDIPlus.au3>
@@ -12,23 +12,23 @@ _GDIPlus_ParamInit ( $iCount )
 ###Parameters###
 @@ParamTable@@
 $iCount
-	The total number of parameters that the list will contain
+	The total number of $tagGDIPENCODERPARAM that the list can contain
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	a $tagGDIPPENCODERPARAMS structure.
-Failure:	0 and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+Success:	a $tagGDIPENCODERPARAMS structure.
+Failure:	sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
 @@End@@
 
 
 ###Remarks###
 In order to pass parameters to any of the encoder functions, you must use an encoder parameter list.
-This function is used to initialize an encoder parameter list that can then be passed to _GDIPlus_ParamAdd() to add the actual parameters.
+This function is used to allocate an encoder parameter list that can then be passed to <a href="_GDIPlus_ParamAdd.htm">_GDIPlus_ParamAdd()</a> to add the actual parameters.
 
 
 ###Related###
-_GDIPlus_ParamAdd, $tagGDIPPENCODERPARAMS
+$tagGDIPENCODERPARAM, $tagGDIPENCODERPARAMS, _GDIPlus_ParamAdd
 
 
 ###Example###

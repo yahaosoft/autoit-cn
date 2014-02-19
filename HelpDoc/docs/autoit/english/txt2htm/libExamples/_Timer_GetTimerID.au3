@@ -1,8 +1,8 @@
-#include <WindowsConstants.au3>
 #include <GUIConstantsEx.au3>
-#include <Timers.au3>
 #include <GuiStatusBar.au3>
 #include <ProgressConstants.au3>
+#include <Timers.au3>
+#include <WindowsConstants.au3>
 
 Global $iMemo, $hStatusBar, $progress, $percent = 0, $direction = 1
 Global $iTimer1, $iTimer2
@@ -25,7 +25,7 @@ Func _Example_Events()
 	$progress = GUICtrlCreateProgress(0, 0, -1, -1, $PBS_SMOOTH)
 	GUICtrlSetColor($progress, 0xff0000)
 	_GUICtrlStatusBar_EmbedControl($hStatusBar, 1, GUICtrlGetHandle($progress))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUIRegisterMsg($WM_TIMER, "WM_TIMER")
 

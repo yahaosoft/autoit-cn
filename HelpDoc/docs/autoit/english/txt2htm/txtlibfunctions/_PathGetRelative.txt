@@ -20,9 +20,9 @@ $sTo
 ###ReturnValue###
 @@ReturnTable@@
 Success:	the path to the destination.
-Failure:	the destination and sets the @error flag to non-zero.
-@error:	1 - $sFrom equlas $sTo
-	2 - Root drives of $sFrom and $sTo are different, a relative path is impossible.
+Failure:	the destination and sets @error to non-zero.
+@error:	1 - $sFrom equals $sTo
+	2 - An unexpected error occurred with the dll call or the relative path was an empty string
 @@End@@
 
 
@@ -31,6 +31,7 @@ The returned path will not have a trailing "\", even if it is a root drive retur
 
 
 ###Related###
+_WinAPI_PathRelativePathTo
 
 
 ###Example###

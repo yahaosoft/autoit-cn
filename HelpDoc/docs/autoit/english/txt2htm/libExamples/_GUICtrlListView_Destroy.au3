@@ -11,7 +11,7 @@ Func Example()
 
 	$hListView = _GUICtrlListView_Create($GUI, "", 2, 2, 394, 268)
 	$HandleBefore = $hListView
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add columns
 	_GUICtrlListView_InsertColumn($hListView, 0, "Column 1", 100)
@@ -31,7 +31,7 @@ Func Example()
 			"Handel Before Destroy: " & $HandleBefore & @CRLF & _
 			"Handle After Destroy: " & $hListView)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
 
 Example()
 
@@ -10,7 +10,7 @@ Func Example()
 
 	$hGUI = GUICreate("GDI+", 620, 100)
 	GUISetBkColor(0x80) ;Set window background color to blue
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$hPath = _GDIPlus_PathCreate() ;Create new path object
 

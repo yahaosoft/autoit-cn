@@ -4,20 +4,20 @@
 Example()
 
 Func Example()
-	Local $n, $msg
-
 	GUICreate("My GUI (GetControlState)")
-	$n = GUICtrlCreateCheckbox("checkbox", 10, 10)
+	Local $idCheckbox = GUICtrlCreateCheckbox("checkbox", 10, 10)
 	GUICtrlSetState(-1, 1) ; checked
 
-	GUISetState() ; will display an empty dialog box
+	GUISetState(@SW_SHOW) ; will display an empty dialog box
 
-	; Run the GUI until the dialog is closed
+	; Loop until the user exits.
 	While 1
-		$msg = GUIGetMsg()
+		Switch GUIGetMsg()
+			Case $GUI_EVENT_CLOSE
+				ExitLoop
 
-		If $msg = $GUI_EVENT_CLOSE Then ExitLoop
+		EndSwitch
 	WEnd
 
-	MsgBox($MB_SYSTEMMODAL, "state", StringFormat("GUICtrlRead=%d\nGUICtrlGetState=%d", GUICtrlRead($n), GUICtrlGetState($n)))
+	MsgBox($MB_SYSTEMMODAL, "state", StringFormat("GUICtrlRead=%d\nGUICtrlGetState=%d", GUICtrlRead($idCheckbox), GUICtrlGetState($idCheckbox)))
 EndFunc   ;==>Example

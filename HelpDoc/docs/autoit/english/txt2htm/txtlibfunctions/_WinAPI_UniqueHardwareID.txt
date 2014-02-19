@@ -2,7 +2,7 @@
 _WinAPI_UniqueHardwareID
 
 ###Description###
-Generates a unique hardware identifier (ID) for local computer.
+Generates a unique hardware identifier (ID) for local computer
 
 ###Syntax###
 #include <WinAPIDiag.au3>
@@ -12,32 +12,20 @@ _WinAPI_UniqueHardwareID ( [$iFlags = 0] )
 ###Parameters###
 @@ParamTable@@
 $iFlags
-	[optional] The flags that specifies what information would be used to generate ID. This parameter can be one
-	or more of the following values.
-
-	$UHID_MB
-	Uses information about your motherboard. This flag is used by default regardless of whether specified or not.
-
-	$UHID_BIOS
-	Uses information from BIOS.
-
-	$UHID_CPU
-	Uses information about your processor(s). Note that $UHID_CPU flag reduces the function speed.
-
-	$UHID_HDD
-	Uses information about the installed hard drives. Any change in the configuration disks will change ID
-	returned by this function. Taken into account only non-removable disks with an ATA or SATA interfaces.
-
-	$UHID_All
-	The sum of all the previous flags.
+	[optional] The flags that specifies what information would be used to generate ID. This parameter can be one or more of the following values.
+	$UHID_MB - Uses information about your motherboard. This flag is used by default regardless of whether specified or not.
+	$UHID_BIOS - Uses information from BIOS.
+	$UHID_CPU - Uses information about your processor(s). Note that $UHID_CPU flag reduces the function speed.
+	$UHID_HDD - Uses information about the installed hard drives. Any change in the configuration disks will change ID returned by this function. Taken into account only non-removable disks with an ATA or SATA interfaces.
+	$UHID_All - The sum of all the previous flags.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	The string representation of the ID. @extended returns the value that contains a combination of flags
+Success:	The string representation of the ID. @extended returns the value that contains a combination of flags
 	specified in the $iFlags parameter. If flag is set, appropriate information is received successfully,
 	otherwise fails. The function checks only flags that were specified in the $iFlags parameter.
-Failure 	Empty string and sets the @error flag to non-zero.
+Failure:	Empty string and sets the @error flag to non-zero.
 @@End@@
 
 
@@ -46,6 +34,7 @@ This function uses the Windows Management Instrumentation (WMI).
 
 
 ###Related###
+None.
 
 
 ###Example###

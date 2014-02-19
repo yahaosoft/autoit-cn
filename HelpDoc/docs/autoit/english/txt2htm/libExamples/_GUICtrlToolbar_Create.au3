@@ -1,5 +1,5 @@
-#include <GuiToolbar.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiToolbar.au3>
 #include <WindowsConstants.au3>
 
 Global $hToolbar, $iMemo
@@ -18,7 +18,7 @@ Func Example()
 
 	$iMemo = GUICtrlCreateEdit("", 2, $aSize[1] + 20, 596, 396 - ($aSize[1] + 20), $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 	GUIRegisterMsg($WM_NOTIFY, "_WM_NOTIFY")
 
 	; Add standard system bitmaps
@@ -31,7 +31,7 @@ Func Example()
 	_GUICtrlToolbar_AddButtonSep($hToolbar)
 	_GUICtrlToolbar_AddButton($hToolbar, $id_Help, $STD_HELP)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

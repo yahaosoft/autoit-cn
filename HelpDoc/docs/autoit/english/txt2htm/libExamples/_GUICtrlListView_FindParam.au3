@@ -3,7 +3,7 @@
 #include <MsgBoxConstants.au3>
 
 ; Warning should not use SetItemParam on items created with GUICtrlCreateListViewItem
-; Param is the controlId of the item
+; Param is the controlID of the item
 
 Example()
 
@@ -13,7 +13,7 @@ Func Example()
 	; Create GUI
 	$GUI = GUICreate("(UDF Created) ListView Find Param", 400, 300)
 	$hListView = _GUICtrlListView_Create($GUI, "", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add columns
 	_GUICtrlListView_AddColumn($hListView, "Items", 100)
@@ -33,7 +33,7 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", "Target Item Index: " & $iI)
 	_GUICtrlListView_EnsureVisible($hListView, $iI)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

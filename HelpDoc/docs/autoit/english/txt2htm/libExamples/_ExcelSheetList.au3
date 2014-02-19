@@ -1,7 +1,7 @@
 ; After opening a workbook and returning its object identifier, create and display an array of all the Sheet Names in the workbook
 
-#include <Excel.au3>
 #include <Array.au3>
+#include <Excel.au3>
 #include <MsgBoxConstants.au3>
 
 Local $oExcel = _ExcelBookNew() ;Create new book, make it visible

@@ -13,7 +13,7 @@ Func Example()
 	$hGUI = GUICreate("Header", 400, 300)
 	$hHeader = _GUICtrlHeader_Create($hGUI)
 	_GUICtrlHeader_SetUnicodeFormat($hHeader, True)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
@@ -26,7 +26,7 @@ Func Example()
 	; Clear all filters
 	_GUICtrlHeader_ClearFilterAll($hHeader)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

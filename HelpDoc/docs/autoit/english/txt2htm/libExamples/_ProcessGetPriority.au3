@@ -1,5 +1,5 @@
-#include <Process.au3>
 #include <MsgBoxConstants.au3>
+#include <Process.au3>
 
 Local $i_Priority_Level, $i_Notepad_PID, $i_ArrayItem
 Local $a_RunLevels[3] = [0, 2, 4] ;low, normal, high priorities

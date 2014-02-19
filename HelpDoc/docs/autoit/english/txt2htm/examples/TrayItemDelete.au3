@@ -6,30 +6,30 @@ Opt("TrayMenuMode", 3) ; The default tray menu items will not be shown and items
 Example()
 
 Func Example()
-	Local $iDelete = TrayCreateItem("Delete")
+	Local $idDelete = TrayCreateItem("Delete")
 	TrayCreateItem("") ; Create a separator line.
 
-	Local $iAbout = TrayCreateItem("About")
+	Local $idAbout = TrayCreateItem("About")
 	TrayCreateItem("") ; Create a separator line.
 
-	Local $iExit = TrayCreateItem("Exit")
+	Local $idExit = TrayCreateItem("Exit")
 
 	TraySetState(1) ; Show the tray menu.
 
 	While 1
 		Switch TrayGetMsg()
-			Case $iAbout ; Display a message box about the AutoIt version and installation path of the AutoIt executable.
+			Case $idAbout ; Display a message box about the AutoIt version and installation path of the AutoIt executable.
 				MsgBox($MB_SYSTEMMODAL, "", "AutoIt tray menu example." & @CRLF & @CRLF & _
 						"Version: " & @AutoItVersion & @CRLF & _
 						"Install Path: " & StringLeft(@AutoItExe, StringInStr(@AutoItExe, "\", 0, -1) - 1)) ; Find the folder of a full path.
 
-			Case $iDelete
+			Case $idDelete
 				; Display a message box to ask whether or not to delete the 'Delete' item. If the return value of MsgBox is equal to $IDYES then delete the item.
 				If MsgBox(BitOR($MB_YESNO, $MB_SYSTEMMODAL), "", "Do you want to delete the 'Delete' tray menu item?") = $IDYES Then
-					TrayItemDelete($iDelete) ; Delete the tray menu item.
+					TrayItemDelete($idDelete) ; Delete the tray menu item.
 				EndIf
 
-			Case $iExit ; Exit the loop.
+			Case $idExit ; Exit the loop.
 				ExitLoop
 		EndSwitch
 	WEnd

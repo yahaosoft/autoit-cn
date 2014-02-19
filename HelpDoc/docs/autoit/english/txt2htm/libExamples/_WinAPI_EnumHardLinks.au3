@@ -1,6 +1,6 @@
-#include <WinAPIFiles.au3>
 #include <Array.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIFiles.au3>
 
 Global Const $sFile = @DesktopDir & '\' & StringRegExpReplace(_WinAPI_PathFindFileName(@ScriptName), '\A_+', '@')
 

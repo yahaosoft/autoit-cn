@@ -6,12 +6,12 @@ Lists files and\or folders in specified path with optional recursion to defined 
 
 ###Syntax###
 #include <File.au3>
-_FileListToArrayRec ( $sPath [, $sMask = "*" [, $iReturn = 0 [, $iRecur = 0 [, $iSort = 0 [, $iReturnPath = 1]]]]] )
+_FileListToArrayRec ( $sFilePath [, $sMask = "*" [, $iReturn = $FLTAR_FILESFOLDERS [, $iRecur = $FLTAR_NORECUR [, $iSort = $FLTAR_NOSORT [, $iReturnPath = $FLTAR_RELPATH]]]]] )
 
 
 ###Parameters###
 @@ParamTable@@
-$sPath
+$sFilePath
 	Initial path used to generate filelist.
 	If path ends in \ then folders will be returned with an ending \
 	If path lengths > 260 chars, prefix path with "\\?\" - return paths are not affected
@@ -23,28 +23,28 @@ $sMask
 		Exclude_Folders = only used if $iRecur = 1 AND $iReturn &lt;&gt; 2 to exclude defined folders (default = "" [none])
 $iReturn
 	[optional] Specifies whether to return files, folders or both and omit those with certain attributes
-		0 - (Default) Return both files and folders
-		1 - Return files only
-		2 - Return Folders only
+		$FLTAR_FILESFOLDERS (0) - (Default) Return both files and folders
+		$FLTAR_FILES (1) - Return files only
+		$FLTAR_FOLDERS (2) - Return Folders only
 	Add one or more of the following to $iReturn to omit files/folders with that attribute
-		+ 4 - Hidden files and folders
-		+ 8 - System files and folders
-		+ 16 - Link/junction folders
+		+ $FLTAR_NOHIDDEN (4) - Hidden files and folders
+		+ $FLTAR_NOSYSTEM (8) - System files and folders
+		+ $FLTAR_NOLINK (16) - Link/junction folders
 $iRecur
 	[optional] Specifies whether to search recursively in subfolders and to what level
-		1 - Search in all subfolders (unlimited recursion)
-		0 - Do not search in subfolders (Default)
+		$FLTAR_NORECUR (0) - Do not search in subfolders (Default)
+		$FLTAR_RECUR (1) - Search in all subfolders (unlimited recursion)
 	Negative integer - Search in subfolders to specified depth
 $iSort
 	[optional] Sort results in alphabetical and depth order
-		0 - Not sorted (Default)
-		1 - Sorted
-		2 - Sorted with faster algorithm (assumes files in folder returned sorted - requires NTFS and not guaranteed)
+		$FLTAR_NOSORT (0) - Not sorted (Default)
+		$FLTAR_SORT (1) - Sorted
+		$FLTAR_FASTSORT (2) - Sorted with faster algorithm (assumes files in folder returned sorted - requires NTFS and not guaranteed)
 $iReturnPath
 	[optional] Specifies displayed path of results
-		0 - File/folder name only
-		1 - Relative to initial path (Default)
-		2 - Full path included
+		$FLTAR_NOPATH (0) - File/folder name only
+		$FLTAR_RELPATH (1) - Relative to initial path (Default)
+		$FLTAR_FULLPATH (2) - Full path included
 @@End@@
 
 ###ReturnValue###
@@ -56,29 +56,36 @@ Success:	 a one-dimensional array made up as follows:
 		...
 		[n] = nth File\Folder
 Failure:	an empty string and sets the @error flag to 1 with @extended set as follows:
-	1 - Path not found or invalid
-	2 - Invalid Include parameter
-	3 - Invalid Exclude parameter
-	4 - Invalid Exclude_Folders parameter
-	5 - Invalid $iReturn parameter
-	6 - Invalid $iRecur parameter
-	7 - Invalid $iSort parameter
-	8 - Invalid $iReturnPath parameter
-	9 - No files/folders found
+		1 - Path not found or invalid
+		2 - Invalid Include parameter
+		3 - Invalid Exclude parameter
+		4 - Invalid Exclude_Folders parameter
+		5 - Invalid $iReturn parameter
+		6 - Invalid $iRecur parameter
+		7 - Invalid $iSort parameter
+		8 - Invalid $iReturnPath parameter
+		9 - No files/folders found
 @@End@@
 
 
 ###Remarks###
-Compatible with existing _FileListToArray syntax
+If the files and/or folders to be returned are all within the same folder and can be specified with a single simple filter the <a href="_FileListToArray.htm">_FileListToArray()</a> function might be better suited as it is considerably faster.
+
 Include/Exclude/Exclude_Folders logic:
 	Non-recursive:
-	Include/Exclude: Files and/or folders
-	Exclude_Folders: Ignored
+		Include/Exclude: Files and/or folders
+		Exclude_Folders: Ignored
 	Recursive:
-	Include/Exclude: $iReturn = 0/1 - Files only; $iReturn = 2 - Folders only
-	Exclude_Folders: $iReturn = 0/1 - Folders only ; $iReturn = 2 - Ignored
+		Include/Exclude:
+			$iReturn = $FLTAR_FILESFOLDERS/$FLTAR_FILES - Files only
+			$iReturn = $FLTAR_FOLDERS - Folders only
+		Exclude_Folders:
+			$iReturn = $FLTAR_FILESFOLDERS/$FLTAR_FILES - Folders only
+			$iReturn = $FLTAR_FOLDERS - Ignored
+
 Sorting the results will significantly increase the time required for the UDF to return the array
-Despite the name, the UDF is iterative, not recursive
+
+Despite the name, this UDF is iterative, not recursive
 
 
 ###Related###

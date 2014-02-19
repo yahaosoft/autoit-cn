@@ -12,12 +12,12 @@
 ; Different separator charactor used in GUICtrlSetData (thanks FichteFoll)
 ; Display formating fixed when number of results from StringRegExp = 9, or 99, or 999 etc (thanks FichteFoll)
 ; =======================================================================
-#include <GuiConstantsEx.au3>
-#include <EditConstants.au3>
-#include <WindowsConstants.au3>
 #include <ButtonConstants.au3>
-#include <StaticConstants.au3>
+#include <EditConstants.au3>
+#include <GuiConstantsEx.au3>
 #include <MsgBoxConstants.au3>
+#include <StaticConstants.au3>
+#include <WindowsConstants.au3>
 
 Global Const $sSep = Chr(11) ; --> 0x0B = VT - use as a separator for use in the combo control. By default this uses a "|" and this charactor is likely to be used in a pattern file
 Opt("GUIDataSeparatorChar", $sSep)
@@ -93,7 +93,7 @@ Else
 	GUICtrlSetTip($hGui_Offset, "[optional] The string position to start the match (starts at 1) The default is 1.")
 EndIf
 
-GUISetState()
+GUISetState(@SW_SHOW)
 While 1
 	Switch GUIGetMsg()
 		Case $GUI_EVENT_CLOSE
@@ -191,6 +191,7 @@ Func doStringRegExpTest()
 		EndIf
 	EndIf
 EndFunc   ;==>doStringRegExpTest
+
 Func getReturnFlag()
 	$bArrayOfArraysExpected = False
 	$bResultTrueFalseExpected = False
@@ -209,6 +210,7 @@ Func getReturnFlag()
 			Return 4
 	EndSwitch
 EndFunc   ;==>getReturnFlag
+
 Func getOffset()
 	Local $x
 	$x = Int(GUICtrlRead($hGui_Offset))
@@ -218,6 +220,7 @@ Func getOffset()
 		Return $x
 	EndIf
 EndFunc   ;==>getOffset
+
 Func doBrowseForFile()
 	Local $sFilePath, $sFileTxt
 	$sFilePath = FileOpenDialog("Select text file to test", $sInitialDir, "Text files (*.*)", 1)
@@ -231,6 +234,7 @@ Func doBrowseForFile()
 	GUICtrlSetData($hGUI_StatusBar, "")
 	GUICtrlSetBkColor($hGUI_StatusBar, $iGrey)
 EndFunc   ;==>doBrowseForFile
+
 Func readDatFile()
 	Local $sDat, $sOut = ""
 	Local $sHeader = "[do not delete this file - Patterns are listed below]" & @CRLF
@@ -254,6 +258,7 @@ Func readDatFile()
 	EndIf
 	Return $sOut
 EndFunc   ;==>readDatFile
+
 Func doPtnDel($x)
 	Local $sDat
 	Local $sDatFile = @AppDataDir & "\StringRegExpGUIPattern.dat"
@@ -276,6 +281,7 @@ Func doPtnDel($x)
 	$sPatterns = readDatFile()
 	GUICtrlSetData($hGui_Pattern, $sSep & $sPatterns, "(.*)")
 EndFunc   ;==>doPtnDel
+
 Func doPtnAdd($x)
 	Local $sDat
 	Local $sDatFile = @AppDataDir & "\StringRegExpGUIPattern.dat"
@@ -293,33 +299,27 @@ Func doPtnAdd($x)
 	$sPatterns = readDatFile()
 	GUICtrlSetData($hGui_Pattern, $sSep & $sPatterns, $x)
 EndFunc   ;==>doPtnAdd
+
 Func doDisplayHelp()
-	Local $sPathToHelpFile
-	Local $sPathToAutoIt
 	Local $iErr = 0
 	If @Compiled = 0 Then
-		$sPathToHelpFile = StringLeft(@AutoItExe, StringInStr(@AutoItExe, "\", 0, -1))
+		Local $sPathToHelpFile = StringLeft(@AutoItExe, StringInStr(@AutoItExe, "\", 0, -1))
 		Run($sPathToHelpFile & "AutoIt3Help.exe StringRegExp")
-		If @error = 1 Then $iErr = 1
+		$iErr = @error
 	Else
+		; X64 running support
+		Local $sWow64 = ""
+		If @AutoItX64 Then $sWow64 = "\Wow6432Node"
+
 		;Try and file to help file (if available at all)
-		If @OSArch = "X86" Then
-			$sPathToAutoIt = RegRead('HKLM\Software\AutoIt v3\AutoIt', 'InstallDir')
+		;get AutoIt install dir
+		Local $sPathToAutoIt = RegRead("HKEY_LOCAL_MACHINE\SOFTWARE" & $sWow64 & "\AutoIt v3\AutoIt", "InstallDir")
+		$iErr = @error
+
+		If $iErr = 0 Then
 			Run($sPathToAutoIt & "\AutoIt3Help.exe StringRegExp")
-			If @error Then $iErr = 1
-		Else
-			$sPathToAutoIt = RegRead('HKLM64\Software\AutoIt v3\AutoIt', 'InstallDir')
-			If $sPathToAutoIt = "" Then
-				$sPathToAutoIt = RegRead('HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\AutoIt v3\AutoIt', 'InstallDir')
-				If $sPathToAutoIt = "" Then
-					$iErr = 1
-				EndIf
-			EndIf
-			If $iErr = 0 Then ; we picked up a location from the registry queires above
-				Run($sPathToAutoIt & "\AutoIt3Help.exe StringRegExp")
-				If @error Then $iErr = 1
-			EndIf
+			$iErr = @error
 		EndIf
 	EndIf
-	If $iErr = 1 Then MsgBox($MB_SYSTEMMODAL, "error", "Cannot find help file - sorry")
+	If $iErr Then MsgBox($MB_SYSTEMMODAL, "error", "Cannot find help file - sorry")
 EndFunc   ;==>doDisplayHelp

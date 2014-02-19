@@ -1,7 +1,7 @@
-#include <GUIConstantsEx.au3>
 #include <GuiButton.au3>
-#include <WindowsConstants.au3>
+#include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
@@ -9,7 +9,7 @@ Func Example()
 	Local $btn, $btn2
 
 	GUICreate("Buttons", 400, 400)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$btn = GUICtrlCreateButton("Button1", 10, 10, 90, 50)
 

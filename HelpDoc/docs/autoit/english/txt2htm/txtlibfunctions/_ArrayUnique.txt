@@ -2,40 +2,40 @@
 _ArrayUnique
 
 ###Description###
-Returns the Unique Elements of a 1-dimensional array.
+Returns the Elements from a column of a 1 or 2 dimensional array, removing all duplicates
 
 ###Syntax###
 #include <Array.au3>
-_ArrayUnique ( $aArray [, $iDimension = 1 [, $iBase = 0 [, $iCase = 0 [, $vDelim = "|"]]]] )
+_ArrayUnique ( $aArray [, $iColumn = 1 [, $iBase = Default [, $iCase = Default [, $iFlags = Default]]]] )
 
 
 ###Parameters###
 @@ParamTable@@
 $aArray
 	The Array to use
-$iDimension
-	[[optional] The Dimension of the Array to use
+$iColumn
+	[optional] Column to be used for 2-dimension array (1-based). Default is 1.
 $iBase
-	[optional] Is the Array 0-base or 1-base index. 0-base by default
+	[optional] The array is 0-based or 1-based. Default 0 : 0-based.
 $iCase
-	[optional] Flag to indicate if the operations should be case sensitive.
-$vDelim
-	[optional] One or more characters to use as delimiters. However, cannot forsee its usefullness
+	[optional] Flag to indicate if the operations should be case sensitive. Default 0 : not case sensitive.
+$iFlags
+	[optional] Flag to indicate whether the count of returned elements should be returned in the [0] element.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	a 1-dimensional array containing only the unique elements of that Dimension.
+Success:	a 1-dimensional array containing only the unique elements of that Column.
 Failure:	sets the @error flag to non-zero.
-@error:	1 - if parameter is not an array.
-	2 - _ArrayUnique() failed for some other reason
-	3 - Array dimension is invalid, should be an integer greater than 0
-	4 - Array is empty
+@error:	1 - if parameter is not an array or is an empty array.
+	2 - $iBase or $iCase contains an invalid value
+	3 - Array column is invalid
+	4 - $iFlags contains an invalid value
 @@End@@
 
 
 ###Remarks###
-Returns an array, the first element ($aArray[0]) contains the number of strings returned, the remaining elements ($aArray[1], $aArray[2], etc.) contain the unique strings.
+Returns an array containing the unique strings. If the parameter $iFlags is set to 1, the first element $aArrayRet[0] contains the number of strings returned.
 
 
 ###Related###

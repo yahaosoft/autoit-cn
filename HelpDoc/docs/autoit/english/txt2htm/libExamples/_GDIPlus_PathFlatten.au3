@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
 
 Example()
 
@@ -8,7 +8,7 @@ Func Example()
 
 	; Create GUI
 	$hGUI = GUICreate("GDI+", 800, 400)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GDIPlus_Startup()
 	$hGraphic = _GDIPlus_GraphicsCreateFromHWND($hGUI) ;Create a graphics object from a window handle
@@ -45,7 +45,7 @@ Func Example()
 		_GDIPlus_GraphicsDrawEllipse($hGraphic, $aPoints[$i][0] - 4, $aPoints[$i][1] - 4, 8, 8, $hPen2)
 	Next
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

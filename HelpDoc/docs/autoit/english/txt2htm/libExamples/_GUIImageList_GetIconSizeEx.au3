@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <WinAPI.au3>
 #include <GuiImageList.au3>
+#include <WinAPI.au3>
 
 Global $iMemo
 
@@ -12,7 +12,7 @@ Func Example()
 	$hGUI = GUICreate("ImageList Get Icon SizeEx", 400, 300)
 	$iMemo = GUICtrlCreateEdit("", 2, 32, 396, 266, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create(32, 24)
@@ -33,7 +33,7 @@ Func Example()
 	MemoWrite("Image width : " & DllStructGetData($tSize, "X"))
 	MemoWrite("Image height: " & DllStructGetData($tSize, "Y"))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

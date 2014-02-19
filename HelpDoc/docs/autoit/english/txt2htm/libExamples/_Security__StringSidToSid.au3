@@ -1,5 +1,5 @@
-#include <SecurityConstants.au3>
 #include <Security.au3>
+#include <SecurityConstants.au3>
 
 Local $tSID = _Security__StringSidToSid($SID_ADMINISTRATORS)
 If Not @error Then

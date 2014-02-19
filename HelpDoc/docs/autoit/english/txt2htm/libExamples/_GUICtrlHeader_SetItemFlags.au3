@@ -12,7 +12,7 @@ Func Example()
 	$hGUI = GUICreate("Header", 400, 300)
 	$hHeader = _GUICtrlHeader_Create($hGUI)
 	_GUICtrlHeader_SetUnicodeFormat($hHeader, True)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add columns
 	_GUICtrlHeader_AddItem($hHeader, "Column 1", 100)
@@ -26,7 +26,7 @@ Func Example()
 	; Show column 1 flags
 	MemoWrite("Column 1 flags: " & _GUICtrlHeader_GetItemFlags($hHeader, 0))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

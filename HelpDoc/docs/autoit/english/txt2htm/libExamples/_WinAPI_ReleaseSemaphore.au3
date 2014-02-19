@@ -1,7 +1,7 @@
-#include <WinAPIProc.au3>
-#include <WinAPI.au3>
 #include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPI.au3>
+#include <WinAPIProc.au3>
 
 If Not @Compiled Then
 	MsgBox($MB_SYSTEMMODAL, '', 'To run this script, you must first compile it and then run the (.exe) file.')
@@ -17,7 +17,7 @@ _WinAPI_CloseHandle($hSemaphore)
 
 Func _MyGUI()
 	GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE

@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
 #include <WinAPI.au3>
+#include <WindowsConstants.au3>
 
 ; get height of window title and width of window frame - may be different when XP theme is ON/OFF
 Global $htit = _WinAPI_GetSystemMetrics($SM_CYCAPTION)

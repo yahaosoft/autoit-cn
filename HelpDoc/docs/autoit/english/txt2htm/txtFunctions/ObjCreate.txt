@@ -5,22 +5,19 @@ ObjCreate
 Creates a reference to a COM object from the given classname.
 
 ###Syntax###
-ObjCreate ( "classname" [, "servername" [, "username",["password"]]] )
+ObjCreate ( "classname" [, "servername" [, "username" [, "password"]]] )
 
 
 ###Parameters###
 @@ParamTable@@
 classname
-	The class of the object in the following format:
-	"appname.objectype"
+	The class of the object in the following format:  "appname.objectype"
 	It can also be a string representation of the CLSID.
 servername
-	[optional] name of a remote computer from which the
-	object must be obtained.
+	[optional] name of a remote computer from which the object must be obtained.
 username
-	[optional] name of a usercode on the remote computer
-	You have to enter this in the format "computer\usercode" or
-	"domain\usercode".
+	[optional] name of a usercode on the remote computer.
+	You have to enter this in the format "computer\usercode" or "domain\usercode".
 password
 	[optional] password for the usercode on the remote computer.
 @@End@@
@@ -36,12 +33,14 @@ Failure:	sets the @error flag to non-zero.
 Use <a href="ObjCreate.htm">ObjCreate()</a> if you want to have a new instance of the referring application.
 If you want to connect to an existing process, use <a href="ObjGet.htm">ObjGet()</a> instead.
 
-Keep in mind that not all computers have the same set of Objects. So <b>always</b> check for errors after calling <a href="ObjCreate.htm">ObjCreate()</a>.
+Keep in mind that not all computers have the same set of Objects. So <strong>always</strong> check for errors after calling <a href="ObjCreate.htm">ObjCreate()</a>. To check errors use <a href="ObjEvent.htm">ObjEvent()</a>.
 
-The following requirements apply if you want to access objects on <i>remote</i> computers:
--The user running the script must have the appropriate permissions.
--The Object on the remote computer must support DCOM (Distributed COM)
--The remote computer must have 'Remote Registry Service' and 'File and Printer sharing' services running.
+The following requirements apply if you want to access objects on <em>remote</em> computers:
+<ul>
+<li>The user running the script must have the appropriate permissions.</li>
+<li>The Object on the remote computer must support DCOM (Distributed COM)</li>
+<li>The remote computer must have 'Remote Registry Service' and 'File and Printer sharing' services running.</li>
+</ul>
 
 See the <a href="../intro/ComRef.htm">Obj/COM Reference</a> for more information about Objects.
 

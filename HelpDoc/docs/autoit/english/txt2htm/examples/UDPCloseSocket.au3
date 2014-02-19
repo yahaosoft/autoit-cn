@@ -1,29 +1,28 @@
 #include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
 
-; If you select the client button, start this script after and select the server button on:
-; the second instance of this script OR on the script TCPRecv and vice versa.
+; Start First clicking on "1. Server"
+; Then start a second instance of the script selecting "2. Client"
 
 Example()
 
 Func Example()
-	TCPStartup() ; Start the TCP service.
+	UDPStartup() ; Start the UDP service.
 
 	; Register OnAutoItExit to be called when the script is closed.
 	OnAutoItExitRegister("OnAutoItExit")
 
 	; Assign Local variables the loopback IP Address and the Port.
 	Local $sIPAddress = "127.0.0.1" ; This IP Address only works for testing on your own computer.
-	Local $iPort = 65432 ; Port used for the connection.
+	Local $iPort = 65532 ; Port used for the connection.
 
-	#region GUI
-	Local $hGUI = 0, $iBtnServer = 0, $iBtnClient = 0
+	#Region GUI
+	Local $sTitle = "UDP Start"
+	Local $hGUI = GUICreate($sTitle, 250, 70)
 
-	$hGUI = GUICreate("TCPSend", 150, 70)
+	Local $idBtnServer = GUICtrlCreateButton("1. Server", 65, 10, 130, 22)
 
-	$iBtnClient = GUICtrlCreateButton("2. Client", 10, 10, 130, 22)
-
-	$iBtnServer = GUICtrlCreateButton("1. Server", 10, 40, 130, 22)
+	Local $idBtnClient = GUICtrlCreateButton("2. Client", 65, 40, 130, 22)
 
 	GUISetState(@SW_SHOW, $hGUI)
 
@@ -31,26 +30,57 @@ Func Example()
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE
 				ExitLoop
-			Case $iBtnClient
-				GUISetState(@SW_DISABLE, $hGUI)
-				_TCPSend_Client($sIPAddress, $iPort)
-				GUISetState(@SW_ENABLE, $hGUI)
-			Case $iBtnServer
-				GUISetState(@SW_DISABLE, $hGUI)
-				_TCPSend_Server($sIPAddress, $iPort)
-				GUISetState(@SW_ENABLE, $hGUI)
+			Case $idBtnServer
+				WinSetTitle($sTitle, "", "UDP Server started")
+				GUICtrlSetState($idBtnClient, $GUI_HIDE)
+				GUICtrlSetState($idBtnServer, $GUI_DISABLE)
+				If Not MyUDP_Server($sIPAddress, $iPort) Then ExitLoop
+			Case $idBtnClient
+				WinSetTitle($sTitle, "", "UDP Client started")
+				GUICtrlSetState($idBtnServer, $GUI_HIDE)
+				GUICtrlSetState($idBtnClient, $GUI_DISABLE)
+				If Not MyUDP_Client($sIPAddress, $iPort) Then ExitLoop
 		EndSwitch
 
 		Sleep(10)
 	WEnd
 
-	GUIDelete($hGUI)
-	#endregion GUI
+	#EndRegion GUI
 EndFunc   ;==>Example
 
-Func _TCPSend_Client($sIPAddress, $iPort)
+Func MyUDP_Server($sIPAddress, $iPort)
+	; Assign a Local variable the socket and bind to the IP Address and Port specified.
+	Local $iSocket = UDPBind($sIPAddress, $iPort)
+
+	; If an error occurred display the error code and return False.
+	If @error Then
+		; Someone is probably already binded on this IP Address and Port (script already running?).
+		Local $iError = @error
+		MsgBox(BitOR($MB_SYSTEMMODAL, $MB_ICONHAND), "", "Server:" & @CRLF & "Could not bind, Error code: " & $iError)
+		Return False
+	EndIf
+
+	; Assign a Local variable to store the data received.
+	Local $sReceived = ""
+
+	Do
+		; We are waiting for the string "toto" OR "tata" (example script UDPSend): 4 bytes length.
+		$sReceived = UDPRecv($iSocket, 4)
+	Until $sReceived <> ""
+
+	; Notes: If you don't know how much length will be the data,
+	; use e.g: 2048 for maxlen parameter and call the function until the it returns nothing/error.
+
+	; Display the string received.
+	MsgBox($MB_SYSTEMMODAL, "", "Server:" & @CRLF & "Received: " & $sReceived)
+
+	; Close the socket.
+	UDPCloseSocket($iSocket)
+EndFunc   ;==>MyUDP_Server
+
+Func MyUDP_Client($sIPAddress, $iPort)
 	; Assign a Local variable the socket and connect to a listening socket with the IP Address and Port specified.
-	Local $iSocket = TCPConnect($sIPAddress, $iPort)
+	Local $iSocket = UDPOpen($sIPAddress, $iPort)
 	Local $iError = 0
 
 	; If an error occurred display the error code and return False.
@@ -61,8 +91,8 @@ Func _TCPSend_Client($sIPAddress, $iPort)
 		Return False
 	EndIf
 
-	; Send the string "tata" to the server.
-	TCPSend($iSocket, "tata")
+	; Send the string "toto" converted to binary to the server.
+	UDPSend($iSocket, StringToBinary("toto"))
 
 	; If an error occurred display the error code and return False.
 	If @error Then
@@ -72,53 +102,9 @@ Func _TCPSend_Client($sIPAddress, $iPort)
 	EndIf
 
 	; Close the socket.
-	TCPCloseSocket($iSocket)
-EndFunc   ;==>_TCPSend_Client
-
-Func _TCPSend_Server($sIPAddress, $iPort)
-	; Assign a Local variable the socket and bind to the IP Address and Port specified with a maximum of 100 pending connexions.
-	Local $iListenSocket = TCPListen($sIPAddress, $iPort, 100)
-	Local $iError = 0
-
-	; If an error occurred display the error code and return False.
-	If @error Then
-		; Someone is probably already listening on this IP Address and Port (script already running?).
-		$iError = @error
-		MsgBox(BitOR($MB_SYSTEMMODAL, $MB_ICONHAND), "", "Server:" & @CRLF & "Could not listen, Error code: " & $iError)
-		Return False
-	EndIf
-
-	; Assign a Local variable to be used by the Client socket.
-	Local $iSocket = 0
-
-	Do ; Wait for someone to connect (Unlimited).
-		; Accept incomming connexions if present (Socket to close when finished; one socket per client).
-		$iSocket = TCPAccept($iListenSocket)
-
-		; If an error occurred display the error code and return False.
-		If @error Then
-			$iError = @error
-			MsgBox(BitOR($MB_SYSTEMMODAL, $MB_ICONHAND), "", "Server:" & @CRLF & "Could not accept the incoming connection, Error code: " & $iError)
-			Return False
-		EndIf
-	Until $iSocket <> -1 ;if different from -1 a client is connected.
-
-	; Close the Listening socket to allow afterward binds.
-	TCPCloseSocket($iListenSocket)
-
-	; Assign a Local variable the data received.
-	Local $sReceived = TCPRecv($iSocket, 4) ;we're waiting for the string "tata" OR "toto" (example script TCPRecv): 4 bytes length.
-
-	; Notes: If you don't know how much length will be the data,
-	; use e.g: 2048 for maxlen parameter and call the function until the it returns nothing/error.
-
-	; Display the string received.
-	MsgBox($MB_SYSTEMMODAL, "", "Server:" & @CRLF & "Received: " & $sReceived)
-
-	; Close the socket.
-	TCPCloseSocket($iSocket)
-EndFunc   ;==>_TCPSend_Server
+	UDPCloseSocket($iSocket)
+EndFunc   ;==>MyUDP_Client
 
 Func OnAutoItExit()
-	TCPShutdown() ; Close the TCP service.
+	UDPShutdown() ; Close the UDP service.
 EndFunc   ;==>OnAutoItExit

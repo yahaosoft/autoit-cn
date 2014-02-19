@@ -1,8 +1,8 @@
-#include <WinAPIFiles.au3>
-#include <WinAPI.au3>
-#include <WinAPIDiag.au3>
 #include <Array.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPI.au3>
+#include <WinAPIDiag.au3>
+#include <WinAPIFiles.au3>
 
 Global $List[101][2] = [[0]]
 

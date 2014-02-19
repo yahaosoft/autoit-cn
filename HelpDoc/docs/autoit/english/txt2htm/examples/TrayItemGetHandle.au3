@@ -8,32 +8,32 @@ Global Const $MIM_APPLYTOSUBMENUS = 0x80000000, $MIM_BACKGROUND = 0x00000002 ; C
 Example()
 
 Func Example()
-	Local $iSettings = TrayCreateMenu("Settings") ; Create a tray menu sub menu with two sub items.
-	Local $iDisplay = TrayCreateItem("Display", $iSettings)
-	Local $iPrinter = TrayCreateItem("Printer", $iSettings)
+	Local $idSettings = TrayCreateMenu("Settings") ; Create a tray menu sub menu with two sub items.
+	Local $idDisplay = TrayCreateItem("Display", $idSettings)
+	Local $idPrinter = TrayCreateItem("Printer", $idSettings)
 	TrayCreateItem("") ; Create a separator line.
 
-	Local $iAbout = TrayCreateItem("About")
+	Local $idAbout = TrayCreateItem("About")
 	TrayCreateItem("") ; Create a separator line.
 
-	Local $iExit = TrayCreateItem("Exit")
+	Local $idExit = TrayCreateItem("Exit")
 
 	TraySetState(1) ; Show the tray menu.
 
 	SetMenuColor(0, 0xEEBB99) ; BGR color value, '0' refers to the tray menu itself.
-	SetMenuColor($iSettings, 0x66BB99); BGR color value for the 'Settings' menu.
+	SetMenuColor($idSettings, 0x66BB99); BGR color value for the 'Settings' menu.
 
 	While 1
 		Switch TrayGetMsg()
-			Case $iAbout ; Display a message box about the AutoIt version and installation path of the AutoIt executable.
+			Case $idAbout ; Display a message box about the AutoIt version and installation path of the AutoIt executable.
 				MsgBox($MB_SYSTEMMODAL, "", "AutoIt tray menu example." & @CRLF & @CRLF & _
 						"Version: " & @AutoItVersion & @CRLF & _
 						"Install Path: " & StringLeft(@AutoItExe, StringInStr(@AutoItExe, "\", 0, -1) - 1)) ; Find the folder of a full path.
 
-			Case $iDisplay, $iPrinter
+			Case $idDisplay, $idPrinter
 				MsgBox($MB_SYSTEMMODAL, "", "A sub menu item was selected from the tray menu.")
 
-			Case $iExit ; Exit the loop.
+			Case $idExit ; Exit the loop.
 				ExitLoop
 		EndSwitch
 	WEnd
@@ -50,5 +50,5 @@ Func SetMenuColor($iMenuID, $iColor)
 	DllStructSetData($tMenuInfo, 2, BitOR($MIM_APPLYTOSUBMENUS, $MIM_BACKGROUND))
 	DllStructSetData($tMenuInfo, 5, $hBrush)
 
-	DllCall("user32.dll", "int", "SetMenuInfo", "hwnd", $hMenu, "ptr", DllStructGetPtr($tMenuInfo))
+	DllCall("user32.dll", "int", "SetMenuInfo", "hwnd", $hMenu, "struct*", $tMenuInfo)
 EndFunc   ;==>SetMenuColor

@@ -1,8 +1,8 @@
 #include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
 
-; If you select the client button, start this script after and select the server button on:
-; the second instance of this script OR on the script TCPRecv and vice versa.
+; Start First clicking on "1. Server"
+; Then start a second instance of the script selecting "2. Client"
 
 Example()
 
@@ -16,12 +16,13 @@ Func Example()
 	Local $sIPAddress = "127.0.0.1" ; This IP Address only works for testing on your own computer.
 	Local $iPort = 65432 ; Port used for the connection.
 
-	#region GUI
-	Local $hGUI = GUICreate("TCPSend", 150, 70)
+	#Region GUI
+	Local $sTitle = "TCP Start"
+	Local $hGUI = GUICreate($sTitle, 250, 70)
 
-	Local $iBtnClient = GUICtrlCreateButton("2. Client", 10, 10, 130, 22)
+	Local $idBtnServer = GUICtrlCreateButton("1. Server", 65, 10, 130, 22)
 
-	Local $iBtnServer = GUICtrlCreateButton("1. Server", 10, 40, 130, 22)
+	Local $idBtnClient = GUICtrlCreateButton("2. Client", 65, 40, 130, 22)
 
 	GUISetState(@SW_SHOW, $hGUI)
 
@@ -29,24 +30,25 @@ Func Example()
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE
 				ExitLoop
-			Case $iBtnClient
-				GUISetState(@SW_DISABLE, $hGUI)
-				_TCPSend_Client($sIPAddress, $iPort)
-				GUISetState(@SW_ENABLE, $hGUI)
-			Case $iBtnServer
-				GUISetState(@SW_DISABLE, $hGUI)
-				_TCPSend_Server($sIPAddress, $iPort)
-				GUISetState(@SW_ENABLE, $hGUI)
+			Case $idBtnServer
+				WinSetTitle($sTitle, "", "TCP Server started")
+				GUICtrlSetState($idBtnClient, $GUI_HIDE)
+				GUICtrlSetState($idBtnServer, $GUI_DISABLE)
+				If Not MyTCP_Server($sIPAddress, $iPort) Then ExitLoop
+			Case $idBtnClient
+				WinSetTitle($sTitle, "", "TCP Client started")
+				GUICtrlSetState($idBtnServer, $GUI_HIDE)
+				GUICtrlSetState($idBtnClient, $GUI_DISABLE)
+				If Not MyTCP_Client($sIPAddress, $iPort) Then ExitLoop
 		EndSwitch
 
 		Sleep(10)
 	WEnd
 
-	GUIDelete($hGUI)
-	#endregion GUI
+	#EndRegion GUI
 EndFunc   ;==>Example
 
-Func _TCPSend_Client($sIPAddress, $iPort)
+Func MyTCP_Client($sIPAddress, $iPort)
 	; Assign a Local variable the socket and connect to a listening socket with the IP Address and Port specified.
 	Local $iSocket = TCPConnect($sIPAddress, $iPort)
 	Local $iError = 0
@@ -71,14 +73,13 @@ Func _TCPSend_Client($sIPAddress, $iPort)
 
 	; Close the socket.
 	TCPCloseSocket($iSocket)
-EndFunc   ;==>_TCPSend_Client
+EndFunc   ;==>MyTCP_Client
 
-Func _TCPSend_Server($sIPAddress, $iPort)
+Func MyTCP_Server($sIPAddress, $iPort)
 	; Assign a Local variable the socket and bind to the IP Address and Port specified with a maximum of 100 pending connexions.
 	Local $iListenSocket = TCPListen($sIPAddress, $iPort, 100)
 	Local $iError = 0
 
-	; If an error occurred display the error code and return False.
 	If @error Then
 		; Someone is probably already listening on this IP Address and Port (script already running?).
 		$iError = @error
@@ -99,6 +100,8 @@ Func _TCPSend_Server($sIPAddress, $iPort)
 			MsgBox(BitOR($MB_SYSTEMMODAL, $MB_ICONHAND), "", "Server:" & @CRLF & "Could not accept the incoming connection, Error code: " & $iError)
 			Return False
 		EndIf
+
+		If GUIGetMsg() = $GUI_EVENT_CLOSE Then Return False
 	Until $iSocket <> -1 ;if different from -1 a client is connected.
 
 	; Close the Listening socket to allow afterward binds.
@@ -115,7 +118,7 @@ Func _TCPSend_Server($sIPAddress, $iPort)
 
 	; Close the socket.
 	TCPCloseSocket($iSocket)
-EndFunc   ;==>_TCPSend_Server
+EndFunc   ;==>MyTCP_Server
 
 Func OnAutoItExit()
 	TCPShutdown() ; Close the TCP service.

@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Slider Set Sel End", 400, 296)
 	$hSlider = GUICtrlCreateSlider(2, 2, 396, 20, BitOR($TBS_TOOLTIPS, $TBS_AUTOTICKS, $TBS_ENABLESELRANGE))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set Sel End
 	_GUICtrlSlider_SetSelEnd($hSlider, 50)
@@ -18,7 +18,7 @@ Func Example()
 	; Get Sel End
 	MsgBox($MB_SYSTEMMODAL, "Information", "Sel End: " & _GUICtrlSlider_GetSelEnd($hSlider))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

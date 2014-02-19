@@ -1,7 +1,7 @@
-#include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
 #include <GuiButton.au3>
+#include <GUIConstantsEx.au3>
 #include <GuiImageList.au3>
+#include <WindowsConstants.au3>
 
 Global $iMemo
 
@@ -13,7 +13,7 @@ Func Example()
 	GUICreate("Buttons", 510, 400)
 	$iMemo = GUICtrlCreateEdit("", 119, 10, 376, 374, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$hImage = _GUIImageList_Create(32, 32, 5, 3, 6)
 	For $x = 6 To 11

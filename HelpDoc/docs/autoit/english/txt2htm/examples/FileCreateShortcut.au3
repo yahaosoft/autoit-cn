@@ -8,7 +8,7 @@ Func Example()
 
 	; Create a shortcut on the desktop to explorer.exe and set the hotkey combination Ctrl+Alt+T or in AutoIt ^!t to the shortcut.
 	FileCreateShortcut(@WindowsDir & "\explorer.exe", $sFilePath, @WindowsDir, "/e,c:\", _
-			"Tooltip description of the shortcut.", @SystemDir & "\shell32.dll", "^!t", "15", @SW_MINIMIZE)
+			"Tooltip description of the shortcut.", @SystemDir & "\shell32.dll", "^!t", "15", @SW_SHOWMAXIMIZED)
 
 	; Retrieve details about the shortcut.
 	Local $aDetails = FileGetShortcut($sFilePath)

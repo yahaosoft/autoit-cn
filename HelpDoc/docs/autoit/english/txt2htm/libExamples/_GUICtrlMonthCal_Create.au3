@@ -12,11 +12,11 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("Month Calendar Create", 400, 300)
 	$hMonthCal = _GUICtrlMonthCal_Create($hGUI, 4, 4, $WS_BORDER)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

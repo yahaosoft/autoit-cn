@@ -1,7 +1,7 @@
 #include <GUIConstantsEx.au3>
 #include <GuiMonthCal.au3>
-#include <WindowsConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Global $iMemo
 
@@ -17,12 +17,12 @@ Func Example()
 	; Create memo control
 	$iMemo = GUICtrlCreateEdit("", 4, 168, 392, 128, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get/Set calendar border
 	MemoWrite("Calendar Count: " & _GUICtrlMonthCal_GetCalendarCount($hMonthCal))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

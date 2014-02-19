@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Tab Control Get Row Count", 400, 300)
 	$hTab = GUICtrlCreateTab(2, 2, 396, 296, $TCS_MULTILINE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add tabs
 	For $x = 0 To 10
@@ -20,7 +20,7 @@ Func Example()
 	; Get row count
 	MsgBox($MB_SYSTEMMODAL, "Information", "Row count: " & _GUICtrlTab_GetRowCount($hTab))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

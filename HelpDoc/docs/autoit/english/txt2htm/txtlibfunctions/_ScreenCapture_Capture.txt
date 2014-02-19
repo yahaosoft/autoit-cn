@@ -6,7 +6,7 @@ Captures a region of the screen
 
 ###Syntax###
 #include <ScreenCapture.au3>
-_ScreenCapture_Capture ( [$sFileName = "" [, $iLeft = 0 [, $iTop = 0 [, $iRight = -1 [, $iBottom = -1 [, $fCursor = True]]]]]] )
+_ScreenCapture_Capture ( [$sFileName = "" [, $iLeft = 0 [, $iTop = 0 [, $iRight = -1 [, $iBottom = -1 [, $bCursor = True]]]]]] )
 
 
 ###Parameters###
@@ -18,27 +18,24 @@ $iLeft
 $iTop
 	[optional] Y coordinate of the upper left corner of the rectangle
 $iRight
-	[optional] X coordinate of the lower right corner of the rectangle. If this is -1, the current screen
-	width will be used.
+	[optional] X coordinate of the lower right corner of the rectangle. If this is -1, the current screen width will be used.
 $iBottom
-	[optional] Y coordinate of the lower right corner of the rectangle. If this is -1, the current screen
-	height will be used.
-$fCursor
+	[optional] Y coordinate of the lower right corner of the rectangle. If this is -1, the current screen height will be used.
+$bCursor
 	[optional] If True the cursor will be captured with the image
 @@End@@
 
 ###ReturnValue###
 Returns a handle to an HBITMAP if $sFileName is empty.
-	This handle must be released using _WinAPI_DeleteObject().
 	If called with $sFileName then the image is saved to the file and nothing is returned.
 
 
 ###Remarks###
-None.
+If a handle is returned, it must be released using <a href="_WinAPI_DeleteObject.htm">_WinAPI_DeleteObject()</a>.
 
 
 ###Related###
-_WinAPI_DeleteObject, _ScreenCapture_SaveImage
+_ScreenCapture_SaveImage, _WinAPI_DeleteObject
 
 
 ###Example###

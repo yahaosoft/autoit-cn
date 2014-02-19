@@ -10,12 +10,12 @@ Func Example()
 	GUICreate("DateTimePick Set Format", 400, 300)
 	$hDTP = GUICtrlGetHandle(GUICtrlCreateDate("", 2, 6, 190))
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set the display format
 	_GUICtrlDTP_SetFormat($hDTP, "ddd MMM dd, yyyy hh:mm ttt")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

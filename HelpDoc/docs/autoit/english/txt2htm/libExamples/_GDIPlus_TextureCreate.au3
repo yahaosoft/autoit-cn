@@ -1,12 +1,16 @@
-#include <Constants.au3>
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
+#include <MsgboxConstants.au3>
 
 Example()
 
 Func Example()
-	Local $sRegPath = "HKLM\SOFTWARE\AutoIt v3\AutoIt"
-	If StringInStr("X64IA64", @OSArch) Then $sRegPath = StringReplace($sRegPath, "SOFTWARE", "SOFTWARE\Wow6432Node") ;get AutoIt install dir
+	; X64 running support
+	Local $sWow64 = ""
+	If @AutoItX64 Then $sWow64 = "\Wow6432Node"
+
+	;get AutoIt install dir
+	Local $sRegPath = "HKLM\SOFTWARE" & $sWow64 & "\AutoIt v3\AutoIt"
 
 	Local $sFile = RegRead($sRegPath, "InstallDir") & "\Examples\GUI\logo4.gif"
 	If Not FileExists($sFile) Then
@@ -23,7 +27,7 @@ Func Example()
 	EndIf
 
 	Local $hGUI = GUICreate("GDI+ Example", 320, 200)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	Local $hGraphics = _GDIPlus_GraphicsCreateFromHWND($hGUI) ;create a Graphics object from a window handle
 	_GDIPlus_GraphicsClear($hGraphics, 0xFF404040) ;clear graphic handle with dark grey (background)

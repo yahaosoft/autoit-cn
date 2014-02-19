@@ -1,7 +1,7 @@
+#include <GUIConstantsEx.au3>
 #include <WinAPIGdi.au3>
 #include <WinAPIShellEx.au3>
 #include <WindowsConstants.au3>
-#include <GUIConstantsEx.au3>
 
 Global Const $STM_SETIMAGE = 0x0172
 Global Const $STM_GETIMAGE = 0x0173
@@ -64,7 +64,7 @@ Next
 GUICtrlSendMsg($Icon, $STM_SETIMAGE, 1, $hIcon)
 
 ; Show GUI
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE

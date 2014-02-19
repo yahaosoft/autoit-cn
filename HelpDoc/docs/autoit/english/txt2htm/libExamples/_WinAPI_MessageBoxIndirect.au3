@@ -1,6 +1,6 @@
-#include <WinAPIDlg.au3>
-#include <WinAPI.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPI.au3>
+#include <WinAPIDlg.au3>
 
 Local Const $Title = 'Message'
 Local Const $Text = 'This is a simple message box with a custom icon.'

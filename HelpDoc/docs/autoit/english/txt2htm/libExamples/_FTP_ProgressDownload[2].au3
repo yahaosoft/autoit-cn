@@ -1,7 +1,7 @@
 #include <FTPEx.au3>
+#include <GUIConstantsEx.au3>
 #include <Misc.au3>
 #include <ProgressConstants.au3>
-#include <GUIConstantsEx.au3>
 
 Global $sRemoteFile = "/pub/software/databases/rt/SRPMS/ucs-local-modperl-2.0.3-1.src.rpm"
 Global $sLocalFile = @TempDir & "\temp.tmp"
@@ -27,7 +27,7 @@ Func Example()
 	$idProgressBarCtrl = GUICtrlCreateProgress(10, 40, 200, 20, $PBS_SMOOTH)
 	GUICtrlSetColor(-1, 32250); not working with Windows XP Style
 	$idBtn_Cancel = GUICtrlCreateButton("Cancel", 75, 70, 70, 20)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	Local $sFunctionToCall = "_UpdateGUIProgressBar"
 	_FTP_ProgressDownload($hFTPSession, $sLocalFile, $sRemoteFile, $sFunctionToCall)

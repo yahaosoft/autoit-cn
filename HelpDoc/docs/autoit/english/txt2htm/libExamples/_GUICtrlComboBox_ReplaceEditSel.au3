@@ -9,7 +9,7 @@ Func Example()
 	; Create GUI
 	GUICreate("ComboBox Replace Edit Sel", 400, 296)
 	$hCombo = GUICtrlCreateCombo("", 2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set Edit Text
 	_GUICtrlComboBox_SetEditText($hCombo, "Old Edit Text")
@@ -29,7 +29,7 @@ Func Example()
 	; Replace the text in the edit box
 	_GUICtrlComboBox_ReplaceEditSel($hCombo, "New Edit Text")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

@@ -10,14 +10,14 @@ Func Example()
 	; Create GUI
 	GUICreate("Slider Get Channel Rect", 400, 296)
 	$hSlider = GUICtrlCreateSlider(2, 2, 396, 20, BitOR($TBS_TOOLTIPS, $TBS_AUTOTICKS, $TBS_ENABLESELRANGE))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get Channel Rect
 	$aRect = _GUICtrlSlider_GetChannelRect($hSlider)
 
 	MsgBox($MB_SYSTEMMODAL, "Information", StringFormat("[%d][%d][%d][%d]", $aRect[0], $aRect[1], $aRect[2], $aRect[3]))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

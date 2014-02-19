@@ -1,7 +1,7 @@
-#include <SecurityConstants.au3>
-#include <Security.au3>
-#include <WinAPI.au3>
 #include <MsgBoxConstants.au3>
+#include <Security.au3>
+#include <SecurityConstants.au3>
+#include <WinAPI.au3>
 
 Local $hToken = _Security__OpenProcessToken(_WinAPI_GetCurrentProcess(), $TOKEN_QUERY)
 If $hToken Then

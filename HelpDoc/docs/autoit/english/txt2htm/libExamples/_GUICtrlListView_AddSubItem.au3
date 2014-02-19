@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 
 Example()
 
@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("ListView Add SubItem", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268, -1, BitOR($LVS_EX_FULLROWSELECT, $LVS_EX_SUBITEMIMAGES))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create()
@@ -32,7 +32,7 @@ Func Example()
 	_GUICtrlListView_AddSubItem($hListView, 1, "Row 2: Col 2", 1, 2)
 	_GUICtrlListView_AddItem($hListView, "Row 3: Col 1", 2)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

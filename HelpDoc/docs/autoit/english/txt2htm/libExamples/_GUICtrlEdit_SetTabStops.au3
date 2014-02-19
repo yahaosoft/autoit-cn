@@ -1,8 +1,8 @@
+#include <GUIConstantsEx.au3>
 #include <GuiEdit.au3>
 #include <GuiStatusBar.au3>
-#include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
@@ -15,7 +15,7 @@ Func Example()
 	$hEdit = GUICtrlCreateEdit("", 2, 2, 394, 268, BitOR($ES_WANTRETURN, $WS_VSCROLL))
 	$StatusBar = _GUICtrlStatusBar_Create($hGUI, $aPartRightSide)
 	_GUICtrlStatusBar_SetIcon($StatusBar, 2, 97, "shell32.dll")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set Margins
 	_GUICtrlEdit_SetMargins($hEdit, BitOR($EC_LEFTMARGIN, $EC_RIGHTMARGIN), 10, 10)
@@ -27,7 +27,7 @@ Func Example()
 	; Set Tab Stops
 	_GUICtrlEdit_SetTabStops($hEdit, $aTabStops)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

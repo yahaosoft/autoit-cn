@@ -2,7 +2,7 @@
 _WinAPI_CreateCaret
 
 ###Description###
-Creates a new shape for the system caret and assigns ownership of the caret to the specified window.
+Creates a new shape for the system caret and assigns ownership of the caret to the specified window
 
 ###Syntax###
 #include <WinAPIRes.au3>
@@ -14,38 +14,38 @@ _WinAPI_CreateCaret ( $hWnd, $hBitmap [, $iWidth = 0 [, $iHeight = 0]] )
 $hWnd
 	Handle to the window that owns the caret.
 $hBitmap
-	Handle to the bitmap that defines the caret shape. If this parameter is 0, the caret is solid.
-	If this parameter is 1, the caret is gray. If this parameter is a bitmap handle, the caret is
-	the specified bitmap.
+	Handle to the bitmap that defines the caret shape.
+	If this parameter is 0, the caret is solid.
+	If this parameter is 1, the caret is gray. If this parameter is a bitmap handle, the caret is the specified bitmap.
 $iWidth
-	[optional] The width of the caret in logical units. If this parameter is 0 (Default), the width is set to the system-defined
-	window border width. If $hBitmap is a bitmap handle, _WinAPI_CreateCaret() ignores this parameter.
+	[optional] The width of the caret in logical units.
+	If this parameter is 0 (Default), the width is set to the system-defined window border width.
+	If $hBitmap is a bitmap handle, <a href="_WinAPI_CreateCaret.htm">_WinAPI_CreateCaret()</a> ignores this parameter.
 $iHeight
-	[optional] The height of the caret in logical units. If this parameter is 0 (Default), the height is set to the system-defined
-	window border height. If $hBitmap  is a bitmap handle, _WinAPI_CreateCaret() ignores this parameter.
+	[optional] The height of the caret in logical units.
+	If this parameter is 0 (Default), the height is set to the system-defined window border height.
+	If $hBitmap  is a bitmap handle, <a href="_WinAPI_CreateCaret.htm">_WinAPI_CreateCaret()</a> ignores this parameter.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	True.
-Failure 	False, call _WinAPI_GetLastError() to get extended error information.
+Success:	True.
+Failure:	False, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information.
 @@End@@
 
 
 ###Remarks###
-_WinAPI_CreateCaret() automatically destroys the previous caret shape, if any, regardless of the window that owns the caret.
-The caret is hidden until the application calls the _WinAPI_ShowCaret() function to make the caret visible.
+<a href="_WinAPI_CreateCaret.htm">_WinAPI_CreateCaret()</a> automatically destroys the previous caret shape, if any, regardless of the window that owns the caret.
+The caret is hidden until the application calls the <a href="_WinAPI_ShowCaret.htm">_WinAPI_ShowCaret()</a> function to make the caret visible.
 
 The system provides one caret per queue. A window should create a caret only when it has the keyboard focus or is active.
 The window should destroy the caret before losing the keyboard focus or becoming inactive.
 
-You can retrieve the width or height of the system's window border by using the _WinAPI_GetSystemMetrics() function,
-specifying the $SM_CXBORDER and $SM_CYBORDER values. Using the window border width or height guarantees that the
-caret will be visible on a high-resolution screen.
+You can retrieve the width or height of the system's window border by using the <a href="_WinAPI_GetSystemMetrics.htm">_WinAPI_GetSystemMetrics()</a> function, specifying the $SM_CXBORDER and $SM_CYBORDER values. Using the window border width or height guarantees that the caret will be visible on a high-resolution screen.
 
 
 ###Related###
-_WinAPI_ShowCaret, _WinAPI_GetSystemMetrics
+_WinAPI_GetSystemMetrics, _WinAPI_ShowCaret
 
 
 ###See Also###

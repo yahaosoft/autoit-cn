@@ -1,8 +1,8 @@
-#include <WinAPIGdi.au3>
-#include <WindowsConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <SliderConstants.au3>
 #include <StaticConstants.au3>
+#include <WinAPIGdi.au3>
+#include <WindowsConstants.au3>
 
 Opt('TrayAutoPause', 0)
 
@@ -23,7 +23,7 @@ GUICtrlSetData(-1, 0)
 
 ; Register WM_HSCROLL message for live scrolling and show GUI
 GUIRegisterMsg($WM_HSCROLL, 'WM_HSCROLL')
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE

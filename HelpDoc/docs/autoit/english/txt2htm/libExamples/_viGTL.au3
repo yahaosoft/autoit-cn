@@ -5,8 +5,8 @@
 ; VISA device handler. We use _viExecCommand first to force the instrument to go
 ; into "Remote mode"
 
-#include <Visa.au3>
 #include <MsgBoxConstants.au3>
+#include <Visa.au3>
 
 Local $h_session = 0
 

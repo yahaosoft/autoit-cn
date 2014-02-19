@@ -1,7 +1,7 @@
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
-#include <StructureConstants.au3>
 #include <GuiScrollBars.au3>
+#include <StructureConstants.au3>
+#include <WindowsConstants.au3>
 
 Global $iMemo
 
@@ -16,7 +16,7 @@ Func Example()
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	GUISetBkColor(0x88AABB)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUIScrollBars_Init($hGUI)
 

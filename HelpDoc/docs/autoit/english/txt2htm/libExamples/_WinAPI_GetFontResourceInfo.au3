@@ -1,8 +1,8 @@
-#include <WinAPIGdi.au3>
-#include <WinAPIShellEx.au3>
 #include <APIShellExConstants.au3>
 #include <Array.au3>
 #include <File.au3>
+#include <WinAPIGdi.au3>
+#include <WinAPIShellEx.au3>
 
 Local $FileList = _FileListToArray(_WinAPI_ShellGetSpecialFolderPath($CSIDL_FONTS), '*.ttf', 1)
 Local $FontList[UBound($FileList) - 1][2]

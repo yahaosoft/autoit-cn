@@ -2,11 +2,11 @@
 _WinAPI_EnumFiles
 
 ###Description###
-Enumerates the files and subdirectories for the specified directory with a name that matches the template.
+Enumerates the files and subdirectories for the specified directory with a name that matches the template
 
 ###Syntax###
 #include <WinAPIFiles.au3>
-_WinAPI_EnumFiles ( $sDir [, $iFlag= 0 [, $sTemplate = '' [, $fExclude = 0]]] )
+_WinAPI_EnumFiles ( $sDir [, $iFlag = 0 [, $sTemplate = '' [, $fExclude = 0]]] )
 
 
 ###Parameters###
@@ -23,13 +23,13 @@ $sTemplate
 	[optional] A template that using to enumerating files and directories. For example, "*.jpe;*.jpeg;*.jpg".
 $fExclude
 	[optional] Specifies whether the specified template is used to exclude files, valid values:
-	True  - The files matching the template will not be enumerated.
-	False - The only those files that match the template will be enumerated (Default).
+		True  - The files matching the template will not be enumerated.
+		False - The only those files that match the template will be enumerated (Default).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	a 2D array containing the following information:
+Success:	a 2D array containing the following information:
 		[0][0] - Number of rows in array (n)
 		[0][i] - Unused
 		[n][0] - The name of the file.
@@ -39,16 +39,16 @@ Success 	a 2D array containing the following information:
 		[n][4] - The size of the file, in bytes.
 		[n][5] - The allocation size of the file, in bytes.
 		[n][6] - The file attributes ($FILE_ATTRIBUTE_*).
-Failure 	Sets the @error flag to non-zero, @extended flag may contain the NTSTATUS error code.
+Failure:	Sets the @error flag to non-zero, @extended flag may contain the NTSTATUS error code.
 @@End@@
 
 
 ###Remarks###
-If the target directory is empty or no files matched the specified criteria, the function still returns an array
-where zeroth array element set to 0.
+If the target directory is empty or no files matched the specified criteria, the function still returns an array where zeroth array element set to 0.
 
 
 ###Related###
+None.
 
 
 ###See Also###

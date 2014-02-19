@@ -1,7 +1,7 @@
-#include <GuiListBox.au3>
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
+#include <GuiListBox.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
@@ -11,7 +11,7 @@ Func Example()
 	; Create GUI
 	GUICreate("List Box Sort", 400, 296)
 	$hListBox = GUICtrlCreateList("", 2, 2, 396, 296, BitOR($WS_BORDER, $WS_VSCROLL, $LBS_NOTIFY, $LBS_MULTIPLESEL, $LBS_SORT))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add strings
 	_GUICtrlListBox_BeginUpdate($hListBox)
@@ -29,7 +29,7 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", "Sort Data")
 	_GUICtrlListBox_Sort($hListBox)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

@@ -2,7 +2,7 @@
 _WinAPI_RegQueryMultipleValues
 
 ###Description###
-Retrieves the type and data for a list of value names associated with an open registry key.
+Retrieves the type and data for a list of value names associated with an open registry key
 
 ###Syntax###
 #include <WinAPIReg.au3>
@@ -13,7 +13,7 @@ _WinAPI_RegQueryMultipleValues ( $hKey, ByRef $aValent, ByRef $pBuffer [, $iStar
 @@ParamTable@@
 $hKey
 	Handle to an open registry key. The key must have been opened with the KEY_QUERY_VALUE access right.
-	This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey() function. It can also
+	This handle is returned by the <a href="_WinAPI_RegCreateKey.htm">_WinAPI_RegCreateKey()</a> or <a href="_WinAPI_RegOpenKey.htm">_WinAPI_RegOpenKey()</a> function. It can also
 	be one of the following predefined keys.
 	$HKEY_CLASSES_ROOT
 	$HKEY_CURRENT_CONFIG
@@ -37,12 +37,12 @@ $iEnd
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	The number of bytes copied to the buffer. The $aValent array will contain the following data:
+Success:	The number of bytes copied to the buffer. The $aValent array will contain the following data:
 	[n][0] - The name of the value (remain unchanged).
 	[n][1] - The size of the data, in bytes.
 	[n][2] - The pointer to the data in buffer pointed to by the $pBuffer parameter.
 	[n][3] - The type of data ($REG_*).
-Failure 	Sets the @error flag to non-zero, @extended flag may contain the system error code.
+Failure:	Sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 
@@ -50,7 +50,7 @@ Failure 	Sets the @error flag to non-zero, @extended flag may contain the system
 To prevent excessive serialization, the aggregate data returned by the function cannot exceed one megabyte.
 
 When a returned registry data are no longer needed, you must free the allocated memory pointed to by the
-$pBuffer parameter by calling the _WinAPI_FreeMemory() function.
+$pBuffer parameter by calling the <a href="_WinAPI_FreeMemory.htm">_WinAPI_FreeMemory()</a> function.
 
 
 ###Related###

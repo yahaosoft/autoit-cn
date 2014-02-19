@@ -1,9 +1,9 @@
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
 
 ; Create GUI
 Local $hWnd = GUICreate("GDI+ Example", 400, 300)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 ; Start GDI+
 _GDIPlus_Startup()

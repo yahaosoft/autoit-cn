@@ -1,9 +1,9 @@
 #NoTrayIcon
 
-#include <WinAPIShellEx.au3>
-#include <WinAPISys.au3>
 #include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIShellEx.au3>
+#include <WinAPISys.au3>
 
 If _WinAPI_GetVersion() < '6.1' Then
 	MsgBox(BitOR($MB_ICONERROR, $MB_SYSTEMMODAL), 'Error', 'Require Windows 7 or later.')

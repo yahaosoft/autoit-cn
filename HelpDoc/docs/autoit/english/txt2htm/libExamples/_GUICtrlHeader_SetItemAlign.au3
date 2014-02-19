@@ -14,7 +14,7 @@ Func Example()
 	_GUICtrlHeader_SetUnicodeFormat($hHeader, True)
 	$iMemo = GUICtrlCreateEdit("", 2, 24, 396, 274, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add columns
 	_GUICtrlHeader_AddItem($hHeader, "Column 1", 100)
@@ -28,7 +28,7 @@ Func Example()
 	; Show column 1 alignment
 	MemoWrite("Column 1 alignment: " & _GUICtrlHeader_GetItemAlign($hHeader, 0))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

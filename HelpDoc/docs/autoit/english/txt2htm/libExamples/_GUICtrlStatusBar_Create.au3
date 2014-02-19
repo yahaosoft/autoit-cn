@@ -1,7 +1,7 @@
-#include <GUIConstantsEx.au3>
-#include <GuiStatusBar.au3>
 #include <ComboConstants.au3>
 #include <EditConstants.au3>
+#include <GUIConstantsEx.au3>
+#include <GuiStatusBar.au3>
 #include <WindowsConstants.au3>
 
 Global $iMemo, $MainGUI, $hStatus
@@ -26,7 +26,7 @@ Func Example()
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	GUICtrlSendMsg($iMemo, $EM_SETREADONLY, True, 0)
 	GUICtrlSetBkColor($iMemo, 0xFFFFFF)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	MemoWrite("StatusBar Created with:" & @CRLF & _
 			@TAB & "Handle to GUI window" & @CRLF)
@@ -38,7 +38,7 @@ Func Example()
 	MemoWrite("Vertical border width ...: " & _GUICtrlStatusBar_GetBordersVert($hStatus))
 	MemoWrite("Width between rectangles : " & _GUICtrlStatusBar_GetBordersRect($hStatus))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUISetState(@SW_ENABLE, $MainGUI)

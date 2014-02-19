@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 #include <MsgBoxConstants.au3>
 
 Example()
@@ -11,7 +11,7 @@ Func Example()
 	GUICreate("ListView Get Extended List View Style", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268)
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, BitOR($LVS_EX_FULLROWSELECT, $LVS_EX_GRIDLINES, $LVS_EX_SUBITEMIMAGES))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create()
@@ -35,7 +35,7 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", "Extended List View Style(s): 0x" & _GUICtrlListView_GetExtendedListViewStyle($hListView) & @CRLF & _
 			_DisplayExtendStringList($hListView))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

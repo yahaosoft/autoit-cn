@@ -4,57 +4,54 @@
 Example()
 
 Func Example()
-	Local $iButton_1 = 0, $iRadio_1 = 0, $iRadio_2 = 0, $iRadio_3 = 0
-	Local $iRadio_4 = 0, $iRadio_5 = 0, $iRadio_6 = 0, $iInput_1 = 0, $iInput_2 = 0
-
 	Opt("GUICoordMode", 1)
 
 	GUICreate("Radio Box Grouping Demo", 400, 280)
 
 	; Create the controls
-	$iButton_1 = GUICtrlCreateButton("B&utton 1", 30, 20, 120, 40)
+	Local $idButton_1 = GUICtrlCreateButton("B&utton 1", 30, 20, 120, 40)
 	GUICtrlCreateGroup("Group 1", 30, 90, 165, 160)
 	GUIStartGroup()
-	$iRadio_1 = GUICtrlCreateRadio("Radio &0", 50, 120, 70, 20)
-	$iRadio_2 = GUICtrlCreateRadio("Radio &1", 50, 150, 60, 20)
-	$iRadio_3 = GUICtrlCreateRadio("Radio &2", 50, 180, 60, 20)
+	Local $idRadio_1 = GUICtrlCreateRadio("Radio &0", 50, 120, 70, 20)
+	Local $idRadio_2 = GUICtrlCreateRadio("Radio &1", 50, 150, 60, 20)
+	Local $idRadio_3 = GUICtrlCreateRadio("Radio &2", 50, 180, 60, 20)
 	GUIStartGroup()
-	$iRadio_4 = GUICtrlCreateRadio("Radio &A", 120, 120, 70, 20)
-	$iRadio_5 = GUICtrlCreateRadio("Radio &B", 120, 150, 60, 20)
-	$iRadio_6 = GUICtrlCreateRadio("Radio &C", 120, 180, 60, 20)
+	Local $idRadio_4 = GUICtrlCreateRadio("Radio &A", 120, 120, 70, 20)
+	Local $idRadio_5 = GUICtrlCreateRadio("Radio &B", 120, 150, 60, 20)
+	Local $idRadio_6 = GUICtrlCreateRadio("Radio &C", 120, 180, 60, 20)
 	GUIStartGroup()
-	$iInput_1 = GUICtrlCreateInput("Input 1", 200, 20, 160, 30)
-	$iInput_2 = GUICtrlCreateInput("Input 2", 200, 70, 160, 30)
+	Local $idInput_1 = GUICtrlCreateInput("Input 1", 200, 20, 160, 30)
+	Local $idInput_2 = GUICtrlCreateInput("Input 2", 200, 70, 160, 30)
 
 	; Set the defaults (radio buttons clicked, default button, etc)
-	GUICtrlSetState($iRadio_1, $GUI_CHECKED)
-	GUICtrlSetState($iRadio_6, $GUI_CHECKED)
-	GUICtrlSetState($iButton_1, $GUI_FOCUS + $GUI_DEFBUTTON)
+	GUICtrlSetState($idRadio_1, $GUI_CHECKED)
+	GUICtrlSetState($idRadio_6, $GUI_CHECKED)
+	GUICtrlSetState($idButton_1, $GUI_FOCUS + $GUI_DEFBUTTON)
 
 	; Init our vars that we will use to keep track of radio events
 	Local $iRadioVal1 = 0 ; We will assume 0 = first radio button selected, 2 = last button
 	Local $iRadioVal2 = 2
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
-	Local $iMsg = 0
+	Local $idMsg
 	; In this message loop we use variables to keep track of changes to the radios, another
 	; way would be to use GUICtrlRead() at the end to read in the state of each control.  Both
 	; methods are equally valid
 	While 1
-		$iMsg = GUIGetMsg()
+		$idMsg = GUIGetMsg()
 		Select
-			Case $iMsg = $GUI_EVENT_CLOSE
+			Case $idMsg = $GUI_EVENT_CLOSE
 				ExitLoop
 
-			Case $iMsg = $iButton_1
-				MsgBox($MB_SYSTEMMODAL, "", "Radio " & $iRadioVal1 & @CRLF & "Radio " & Chr($iRadioVal2 + Asc("A")) & @CRLF & GUICtrlRead($iInput_1) & @CRLF & GUICtrlRead($iInput_2))
+			Case $idMsg = $idButton_1
+				MsgBox($MB_SYSTEMMODAL, "", "Radio " & $iRadioVal1 & @CRLF & "Radio " & Chr($iRadioVal2 + Asc("A")) & @CRLF & GUICtrlRead($idInput_1) & @CRLF & GUICtrlRead($idInput_2))
 
-			Case $iMsg = $iRadio_1 Or $iMsg = $iRadio_2 Or $iMsg = $iRadio_3
-				$iRadioVal1 = $iMsg - $iRadio_1
+			Case $idMsg = $idRadio_1 Or $idMsg = $idRadio_2 Or $idMsg = $idRadio_3
+				$iRadioVal1 = $idMsg - $idRadio_1
 
-			Case $iMsg = $iRadio_4 Or $iMsg = $iRadio_5 Or $iMsg = $iRadio_6
-				$iRadioVal2 = $iMsg - $iRadio_4
+			Case $idMsg = $idRadio_4 Or $idMsg = $idRadio_5 Or $idMsg = $idRadio_6
+				$iRadioVal2 = $idMsg - $idRadio_4
 
 		EndSelect
 	WEnd

@@ -19,7 +19,7 @@ Func Example()
 	$hButton = _GUICtrlButton_Create($hGUI, "Button1", 10, 10, 160, 60, BitOR($BS_COMMANDLINK, $BS_DEFCOMMANDLINK))
 	_GUICtrlButton_SetNote($hButton, "This is a test of Vista")
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	MemoWrite("Note: " & _GUICtrlButton_GetNote($hButton))
 	MemoWrite("Note Length: " & _GUICtrlButton_GetNoteLength($hButton))

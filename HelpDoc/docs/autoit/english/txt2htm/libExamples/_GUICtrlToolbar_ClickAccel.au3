@@ -1,5 +1,5 @@
-#include <GuiToolbar.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiToolbar.au3>
 #include <WindowsConstants.au3>
 
 Global $hToolbar, $iMemo
@@ -18,7 +18,7 @@ Func Example()
 
 	$iMemo = GUICtrlCreateEdit("", 2, $aSize[1] + 30, 596, 396 - ($aSize[1] + 30), $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 	GUIRegisterMsg($WM_NOTIFY, "_WM_NOTIFY")
 
 	; Add standard system bitmaps
@@ -40,7 +40,7 @@ Func Example()
 	; Click Save button using accelerator
 	_GUICtrlToolbar_ClickAccel($hToolbar, "s", "left", True)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

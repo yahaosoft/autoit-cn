@@ -1,7 +1,7 @@
-#include <GuiRichEdit.au3>
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
 #include <GuiMenu.au3>
+#include <GuiRichEdit.au3>
+#include <WindowsConstants.au3>
 
 Global $hRichEdit, $mnu, $mnuUndo, $mnuRedo, $mnuEmpty
 

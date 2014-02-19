@@ -1,5 +1,5 @@
-#include <GuiListBox.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiListBox.au3>
 
 Example()
 
@@ -10,7 +10,7 @@ Func Example()
 	GUICreate("List Box Delete String", 400, 296)
 	$hListBox = GUICtrlCreateList("", 2, 2, 396, 296)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add strings
 	_GUICtrlListBox_BeginUpdate($hListBox)
@@ -22,7 +22,7 @@ Func Example()
 	; Delete middle string
 	_GUICtrlListBox_DeleteString($hListBox, 4)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

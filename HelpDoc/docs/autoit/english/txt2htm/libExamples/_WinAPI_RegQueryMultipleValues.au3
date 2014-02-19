@@ -1,9 +1,9 @@
-#include <WinAPIReg.au3>
 #include <APIRegConstants.au3>
-#include <WinAPIDiag.au3>
-#include <WinAPISys.au3>
 #include <Array.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIDiag.au3>
+#include <WinAPIReg.au3>
+#include <WinAPISys.au3>
 
 Global $aValent[19][4]
 

@@ -1,8 +1,8 @@
 #RequireAdmin
 
-#include <WinAPIProc.au3>
-#include <WinAPI.au3>
 #include <Array.au3>
+#include <WinAPI.au3>
+#include <WinAPIProc.au3>
 
 Global $aAdjust, $aList = 0
 

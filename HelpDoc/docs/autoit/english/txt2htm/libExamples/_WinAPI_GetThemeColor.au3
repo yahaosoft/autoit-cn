@@ -1,8 +1,8 @@
-#include <WinAPITheme.au3>
 #include <APIThemeConstants.au3>
-#include <WinAPI.au3>
-#include <WindowsConstants.au3>
 #include <GUIConstantsEx.au3>
+#include <WinAPI.au3>
+#include <WinAPITheme.au3>
+#include <WindowsConstants.au3>
 
 Local $hForm = GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 400, 400)
 GUISetFont(8.5, 400, 0, 'MS Shell Dlg', $hForm)
@@ -11,7 +11,7 @@ GUICtrlCreateTab(7, 7, 388, 354)
 GUICtrlCreateTabItem('About')
 Local $Slider = GUICtrlCreateSlider(20, 45, 360, 26)
 GUICtrlCreateTabItem('')
-GUISetState()
+GUISetState(@SW_SHOW)
 
 While 1
 	Switch GUIGetMsg()

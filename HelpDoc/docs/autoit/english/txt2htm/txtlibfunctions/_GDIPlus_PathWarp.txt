@@ -6,7 +6,7 @@ Applies a warp transformation to a path. The function also flattens (converts to
 
 ###Syntax###
 #include <GDIPlus.au3>
-_GDIPlus_PathWarp ( $hPath, $hMatrix, $aPoints, $fX, $fY, $fWidth, $fHeight [, $iWarpMode = 0 [, $fFlatness = 0.25]] )
+_GDIPlus_PathWarp ( $hPath, $hMatrix, $aPoints, $iX, $iY, $iWidth, $iHeight [, $iWarpMode = 0 [, $fFlatness = 0.25]] )
 
 
 ###Parameters###
@@ -24,13 +24,13 @@ $aPoints
 		[2][1] - Point 2 Y coordinate
 		[n][0] - Point n X coordinate
 		[n][1] - Point n Y coordinate
-$fX
+$iX
 	X coordinate of the upper left corner of the rectangle to be transformed into a parallelogram defined by $aPoints
-$fY
+$iY
 	Y coordinate of the upper left corner of the rectangle to be transformed into a parallelogram defined by $aPoints
-$fWidth
+$iWidth
 	Width of the rectangle to be transformed into a parallelogram defined by $aPoints
-$fHeight
+$iHeight
 	Height of the rectangle to be transformed into a parallelogram defined by $aPoints
 $iWarpMode
 	[optional] Kind of warp to be applied:
@@ -44,7 +44,7 @@ $fFlatness
 ###ReturnValue###
 @@ReturnTable@@
 Success:	True.
-Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
 @@End@@
 
 

@@ -1,5 +1,5 @@
-#include <WinAPI.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPI.au3>
 
 ; Make the string buffer. It's "wchar" type structure. Choosing the size of 64 characters.
 Local $tStringBuffer = DllStructCreate("wchar Data[64]")

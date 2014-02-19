@@ -1,5 +1,5 @@
-#include <WinAPISys.au3>
 #include <Misc.au3>
+#include <WinAPISys.au3>
 
 Opt('TrayAutoPause', 0)
 

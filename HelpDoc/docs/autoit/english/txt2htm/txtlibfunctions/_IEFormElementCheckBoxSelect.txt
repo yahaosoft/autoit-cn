@@ -2,31 +2,31 @@
 _IEFormElementCheckBoxSelect
 
 ###Description###
-Set the value of a specified form element.
+Set the value of a specified form element
 
 ###Syntax###
 #include <IE.au3>
-_IEFormElementCheckBoxSelect ( ByRef $o_object, $s_string [, $s_name = "" [, $f_select = 1 [, $s_mode = "byValue" [, $f_fireEvent = 1]]]] )
+_IEFormElementCheckBoxSelect ( ByRef $oObject, $sString [, $sName = "" [, $fSelect = 1 [, $sMode = "byValue" [, $fFireEvent = 1]]]] )
 
 
 ###Parameters###
 @@ParamTable@@
-$o_object
+$oObject
 	Object variable of an InternetExplorer.Application, Form object
-$s_string
-	Value used to match element - treatment based on $s_mode
-$s_name
+$sString
+	Value used to match element - treatment based on $sMode
+$sName
 	[optional] Name or Id of checkbox(es)
-$f_select
+$fSelect
 	[optional] specifies whether element should be checked or unchecked
 		-1 = Return checked state
 		 0 = Uncheck the element
 		 1 = (Default) Check the element
-$s_mode
+$sMode
 	[optional] specify search mode
 		"byValue" = (Default) value of the checkbox you wish to select
 		"byIndex" = 0-based index of checkbox you wish to select
-$f_fireEvent
+$fFireEvent
 	[optional] specifies whether to fire OnChange and OnClick events after changing value
 		0 = do not fire OnChange or OnClick event after setting value
 		1 = (Default) fire OnChange and OnClick events after setting value
@@ -34,7 +34,7 @@ $f_fireEvent
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	the current checked state if $f_select = -1, else returns 1.
+Success:	the current checked state if $fSelect = -1, else returns 1.
 Failure:	0 and sets the @error flag to non-zero.
 @error:	3 ($_IEStatus_InvalidDataType) = Invalid Data Type
 	4 ($_IEStatus_InvalidObjectType) = Invalid Object Type
@@ -45,15 +45,15 @@ Failure:	0 and sets the @error flag to non-zero.
 
 
 ###Remarks###
-The $f_fireEvent parameter is significant only if the form element has an onChange event associated with it.
+The $fFireEvent parameter is significant only if the form element has an onChange event associated with it.
 
-$s_name is optional for this function.
+$sName is optional for this function.
 If it is omitted, the function will operate on a collection of all &lt;input type=checkbox&gt; elements in the form.
 If specified, the function will operate on a collection of &lt;input type=checkbox&gt; elements with that name.
 
 
 ###Related###
-_IEFormElementOptionSelect, _IEFormElementRadioSelect, _IEFormElementGetValue, _IEFormElementSetValue
+_IEFormElementGetValue, _IEFormElementOptionSelect, _IEFormElementRadioSelect, _IEFormElementSetValue
 
 
 ###Example###

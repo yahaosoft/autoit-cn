@@ -1,7 +1,7 @@
-#include <MsgBoxConstants.au3>
+#include "include-TIME.au3"
 
 MsgBox($MB_SYSTEMMODAL, "", "Example")
-#include "include-TIME.au3"
+#include <MsgBoxConstants.au3>
 Exit
 
 ; Running script.au3 will output two message boxes:

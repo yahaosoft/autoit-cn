@@ -5,26 +5,33 @@
 Example()
 
 Func Example()
-	Local $aItems[10][3], $hListView
-
-	GUICreate("ListView Delete Items Selected", 400, 300)
-	$hListView = GUICtrlCreateListView("col1|col2|col3", 2, 2, 394, 268, BitOR($LVS_SHOWSELALWAYS, $LVS_NOSORTHEADER, $LVS_REPORT))
+	GUICreate("ListView Delete Items Selected", 400, 500)
+	Local $hListView = GUICtrlCreateListView("Col 1               |Col 2      |Col 3      ", 10, 10, 380, 480, BitOR($LVS_SHOWSELALWAYS, $LVS_NOSORTHEADER, $LVS_REPORT))
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, BitOR($LVS_EX_GRIDLINES, $LVS_EX_FULLROWSELECT))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
-	; 3 column load
-	For $iI = 0 To 9
-		GUICtrlCreateListViewItem("Item " & $iI & "|Item " & $iI & "-1|Item " & $iI & "-2", $hListView)
+	For $i = 0 To 9
+		GUICtrlCreateListViewItem("Native Item " & $i & "|Item " & $i & "-1|Item " & $i & "-2", $hListView)
+	Next
+	For $i = 10 To 20
+		_GUICtrlListView_AddItem($hListView, "UDF Item " & $i, -1, 1000 + $i)
+		_GUICtrlListView_AddSubItem($hListView, $i, "Item " & $i & "-1", 1)
+		_GUICtrlListView_AddSubItem($hListView, $i, "Item " & $i & "-2", 2)
 	Next
 
-	_GUICtrlListView_SetItemSelected($hListView, Random(0, UBound($aItems) - 1, 1))
+	MsgBox($MB_SYSTEMMODAL, "Selected", "Select one or more Items" & @CRLF & "Then press 'OK'")
+	; Pass the controlID of a native-created ListView to delete both native- and UDF-created Items
+	_GUICtrlListView_DeleteItemsSelected($hListView)
 
-	MsgBox($MB_SYSTEMMODAL, "Information", "Delete Item Selected")
-	; Delete the selected item.
-	MsgBox($MB_SYSTEMMODAL, "Deleted?", _GUICtrlListView_DeleteItemsSelected(GUICtrlGetHandle($hListView)))
+	; Loop until the user exits
+	While 1
+		Switch GUIGetMsg()
+			Case $GUI_EVENT_CLOSE
+				ExitLoop
 
-	; Loop until user exits
-	Do
-	Until GUIGetMsg() = $GUI_EVENT_CLOSE
+		EndSwitch
+	WEnd
+
+	; Delete the previous GUI and all controls.
 	GUIDelete()
 EndFunc   ;==>Example

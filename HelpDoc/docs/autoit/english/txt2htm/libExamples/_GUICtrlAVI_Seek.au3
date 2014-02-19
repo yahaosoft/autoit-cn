@@ -1,7 +1,7 @@
 ; usinf AutoIt Function
 
-#include <GUIConstantsEx.au3>
 #include <GuiAVI.au3>
+#include <GUIConstantsEx.au3>
 
 Global $hAVI
 
@@ -11,9 +11,9 @@ Func _Example_Internal()
 	; Create GUI
 	GUICreate("(Internal) AVI Seek", 300, 100)
 	$hAVI = GUICtrlCreateAvi(@SystemDir & "\shell32.dll", 160, 10, 10)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 		Sleep(100)
 		; Seek to a random frame in the AVI Clip

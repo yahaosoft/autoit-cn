@@ -2,11 +2,11 @@
 _FileWriteToLine
 
 ###Description###
-Writes text to a specific line in a file.
+Writes text to a specific line in a file
 
 ###Syntax###
 #include <File.au3>
-_FileWriteToLine ( $sFilePath, $iLine, $sText [, $iOverWrite = 0] )
+_FileWriteToLine ( $sFilePath, $iLine, $sText [, $fOverwrite = 0] )
 
 
 ###Parameters###
@@ -17,7 +17,7 @@ $iLine
 	The line number to write to
 $sText
 	The text to write
-$iOverWrite
+$fOverwrite
 	[optional]
 		1 - will overwrite the old line
 		0 - (default) will not overwrite
@@ -27,17 +27,17 @@ $iOverWrite
 @@ReturnTable@@
 Success:	1.
 Failure:	0 and sets the @error flag to non-zero.
-@error:	1 - File has less lines than $iLine
+@error:	1 - File has fewer lines than $iLine
 	2 - File does not exist
 	3 - Error when opening file
 	4 - $iLine is invalid
-	5 - $iOverWrite is invalid
+	5 - $fOverwrite is invalid
 	6 - $sText is invalid
 @@End@@
 
 
 ###Remarks###
-If _FileWriteToLine() is called with $iOverWrite as 1 and $sText as "", it will delete the line.
+If <a href="_FileWriteToLine.htm">_FileWriteToLine()</a> is called with $fOverwrite as 1 and $sText as "", it will delete the line.
 
 
 ###Related###

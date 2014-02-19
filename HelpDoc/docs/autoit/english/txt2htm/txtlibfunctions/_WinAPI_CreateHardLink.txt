@@ -2,7 +2,7 @@
 _WinAPI_CreateHardLink
 
 ###Description###
-Establishes a hard link between an existing file and a new file.
+Establishes a hard link between an existing file and a new file
 
 ###Syntax###
 #include <WinAPIFiles.au3>
@@ -19,21 +19,19 @@ $sExistingFile
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	True.
-Failure 	False, call _WinAPI_GetLastError() to get extended error information
+Success:	True.
+Failure:	False, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information
 @@End@@
 
 
 ###Remarks###
-The _WinAPI_CreateHardLink() is only supported on the NTFS file system, and only for files, not directories.
+The <a href="_WinAPI_CreateHardLink.htm">_WinAPI_CreateHardLink()</a> is only supported on the NTFS file system, and only for files, not directories.
 
-The security descriptor belongs to the file to which a hard link points. The link itself is only a directory entry,
-and does not have a security descriptor. Therefore, when you change the security descriptor of a hard link, you
-a change the security descriptor of the underlying file, and all hard links that point to the file allow the newly
-specified access. You cannot give a file different security descriptors on a per-hard-link basis.
+The security descriptor belongs to the file to which a hard link points. The link itself is only a directory entry, and does not have a security descriptor.
+Therefore, when you change the security descriptor of a hard link, you a change the security descriptor of the underlying file, and all hard links that point to the file allow the newly specified access.
+You cannot give a file different security descriptors on a per-hard-link basis.
 
-Use _WinAPI_DeleteFile() function to delete hard links. You can delete them in any order regardless of the
-order in which they are created.
+Use <a href="_WinAPI_DeleteFile.htm">_WinAPI_DeleteFile()</a> function to delete hard links. You can delete them in any order regardless of the order in which they are created.
 
 
 ###Related###

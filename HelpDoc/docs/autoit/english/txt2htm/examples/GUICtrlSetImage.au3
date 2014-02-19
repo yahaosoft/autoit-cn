@@ -1,22 +1,22 @@
-#include <GUIConstantsEx.au3>
 #include <ButtonConstants.au3>
+#include <GUIConstantsEx.au3>
 
 Example()
 
 Func Example()
-	Local $msg
-
 	GUICreate("My GUI") ; will create a dialog box that when displayed is centered
 
 	GUICtrlCreateButton("my picture button", 10, 20, 40, 40, $BS_ICON)
 	GUICtrlSetImage(-1, "shell32.dll", 22)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
-	; Run the GUI until the dialog is closed
+	; Loop until the user exits.
 	While 1
-		$msg = GUIGetMsg()
+		Switch GUIGetMsg()
+			Case $GUI_EVENT_CLOSE
+				ExitLoop
 
-		If $msg = $GUI_EVENT_CLOSE Then ExitLoop
+		EndSwitch
 	WEnd
 EndFunc   ;==>Example

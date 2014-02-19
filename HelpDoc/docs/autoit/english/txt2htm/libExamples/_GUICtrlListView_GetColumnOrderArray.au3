@@ -14,14 +14,14 @@ Func Example()
 	_GUICtrlListView_SetColumnWidth($hListView, 1, 100)
 	_GUICtrlListView_SetColumnWidth($hListView, 2, 100)
 	_GUICtrlListView_SetColumnWidth($hListView, 3, 100)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlListView_SetColumnOrderArray($hListView, $a_order)
 
 	$a_order = _GUICtrlListView_GetColumnOrderArray($hListView)
 	MsgBox($MB_SYSTEMMODAL, "Information", StringFormat("Column order: [%d, %d, %d, %d]", $a_order[1], $a_order[2], $a_order[3], $a_order[4]))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

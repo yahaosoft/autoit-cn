@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 #include <MsgBoxConstants.au3>
 
 Example()
@@ -12,7 +12,7 @@ Func Example()
 
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268)
 	GUICtrlSetStyle($hListView, $LVS_ICON)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create()
@@ -30,7 +30,7 @@ Func Example()
 	; Get incremental search string
 	MsgBox($MB_SYSTEMMODAL, "Information", "Incremental Search String: " & _GUICtrlListView_GetISearchString($hListView))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

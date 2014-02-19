@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
 #include <GuiScrollBars.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
@@ -10,7 +10,7 @@ Func Example()
 	$hGUI = GUICreate("ScrollBar Example", 400, 400, -1, -1, BitOR($WS_MINIMIZEBOX, $WS_CAPTION, $WS_POPUP, $WS_SYSMENU, $WS_SIZEBOX))
 	GUISetBkColor(0x88AABB)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUIScrollBars_Init($hGUI)
 

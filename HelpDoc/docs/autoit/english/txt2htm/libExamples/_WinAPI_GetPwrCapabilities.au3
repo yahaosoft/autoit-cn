@@ -1,5 +1,5 @@
-#include <WinAPISys.au3>
 #include <Array.au3>
+#include <WinAPISys.au3>
 
 Local $Info[25][2] = _
 		[['Power button', 0], _

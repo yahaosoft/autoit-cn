@@ -3,8 +3,8 @@
 ; (expect COM errors to be sent to the console)
 
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
 #include <IE.au3>
+#include <WindowsConstants.au3>
 
 Local $oIE = _IECreateEmbedded()
 GUICreate("Embedded Web control Test", 640, 580, _
@@ -19,7 +19,7 @@ Global $GUI_Button_Stop = GUICtrlCreateButton("Stop", 340, 420, 100, 30)
 Global $GUI_Error_Message = GUICtrlCreateLabel("", 100, 500, 500, 30)
 GUICtrlSetColor(-1, 0xff0000)
 
-GUISetState() ;Show GUI
+GUISetState(@SW_SHOW) ;Show GUI
 
 _IENavigate($oIE, "http://www.autoitscript.com")
 _IEAction($oIE, "stop")

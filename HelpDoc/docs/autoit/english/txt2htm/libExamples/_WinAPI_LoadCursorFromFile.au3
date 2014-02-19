@@ -1,6 +1,6 @@
+#include <GUIConstantsEx.au3>
 #include <WinAPIRes.au3>
 #include <WindowsConstants.au3>
-#include <GUIConstantsEx.au3>
 
 Global $hCursor = _WinAPI_LoadCursorFromFile(@ScriptDir & '\Extras\Lens.cur')
 
@@ -11,7 +11,7 @@ Global $Label = GUICtrlCreateLabel('', 100, 100, 200, 200)
 GUICtrlSetBkColor(-1, 0xD3D8EF)
 GUICtrlSetState(-1, $GUI_DISABLE)
 GUIRegisterMsg($WM_SETCURSOR, 'WM_SETCURSOR')
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE

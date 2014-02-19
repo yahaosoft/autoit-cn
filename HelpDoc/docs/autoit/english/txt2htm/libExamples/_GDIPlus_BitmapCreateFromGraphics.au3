@@ -11,7 +11,7 @@ Func Example()
 
 	Global $hGUI = GUICreate("GDI+ example", $iWidth, $iHeight) ;create a test GUI
 	GUISetBkColor($iBgColor, $hGUI) ;set GUI background color
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	;create buffered graphics frame set for smoother gfx object movements
 	Global $hGfx = _GDIPlus_GraphicsCreateFromHWND($hGUI) ;create a graphics object from a window handle
@@ -32,7 +32,7 @@ Func Example()
 		For $i = 1 To $iDots
 			$iXPos = $iX_Center + Cos($iAngle * $iDeg) * $iRadius
 			$iYPos = $iY_Center + Sin($iAngle * $iDeg) * $iRadius
-			_GDIPlus_GraphicsFillEllipseF($hGfxCtxt, $iXPos, $iYPos, $iSize, $iSize, $hBrush) ;draw dots in a circle
+			_GDIPlus_GraphicsFillEllipse($hGfxCtxt, $iXPos, $iYPos, $iSize, $iSize, $hBrush) ;draw dots in a circle
 			$iAngle += $iAngelDist ;increase angle to next dot
 		Next
 		$iAngle += 1 ;increase overall angle

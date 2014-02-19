@@ -2,7 +2,7 @@
 _GDIPlus_ImageGetPixelFormat
 
 ###Description###
-Returns pixel format of an image: Bits per pixel, Alpha channels, RGB, Grayscale, Indexed etc.
+Returns pixel format of an image: Bits per pixel, Alpha channels, RGB, Grayscale, Indexed etc
 
 ###Syntax###
 #include <GDIPlus.au3>
@@ -20,17 +20,19 @@ $hImage
 Success:	an array with the following format:
 		[0] - Integer of pixel format constant
 		[1] - String of pixel format
-Failure:	sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
-@error:	10 - Invalid image handle
+Failure:	sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@error:	10 - Invalid pixel format.
+	11 - Invalid image handle.
+	12 - Unknown pixel format.
 @@End@@
 
 
 ###Remarks###
-@error 4 relies on GDI+ UDF return of -1 or 0 instead of image handle for errors
+None.
 
 
 ###Related###
-_GDIPlus_ImageGetFlags, _GDIPlus_BitmapLockBits, _GDIPlus_BitmapCloneArea
+_GDIPlus_BitmapCloneArea, _GDIPlus_BitmapLockBits, _GDIPlus_ImageGetFlags
 
 
 ###See Also###

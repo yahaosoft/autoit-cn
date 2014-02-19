@@ -3,7 +3,7 @@
 #include <MsgBoxConstants.au3>
 
 ; Warning do not use SetItemParam on items created with GUICtrlCreateTabItem
-; Param is the controlId for items created with built-in functions
+; Param is the controlID for items created with built-in functions
 
 Example()
 
@@ -13,7 +13,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("(UDF Created) Tab Control Set Item Param", 400, 300)
 	$hTab = _GUICtrlTab_Create($hGUI, 2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add tabs
 	_GUICtrlTab_InsertItem($hTab, 0, "Tab 1")
@@ -24,7 +24,7 @@ Func Example()
 	_GUICtrlTab_SetItemParam($hTab, 0, 1234)
 	MsgBox($MB_SYSTEMMODAL, "Information", "Tab 1 parameter: " & _GUICtrlTab_GetItemParam($hTab, 0))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

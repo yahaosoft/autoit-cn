@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
 
 Example()
 
@@ -13,7 +13,7 @@ Func Example()
 	$hGUI = GUICreate("GDI+", $iW, $iH)
 	GUISetOnEvent($GUI_EVENT_CLOSE, "_Exit")
 	GUISetOnEvent($GUI_EVENT_MOUSEMOVE, "_MouseMove")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GDIPlus_Startup()
 	$hGraphics = _GDIPlus_GraphicsCreateFromHWND($hGUI)

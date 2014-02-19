@@ -7,13 +7,14 @@ Func Example()
 
 	GUISetHelp("notepad.exe") ; will run notepad if F1 is typed
 
-	GUISetState() ; will display an empty dialog box
+	GUISetState(@SW_SHOW) ; will display an empty dialog box
 
-	; Run the GUI until the dialog is closed
+	; Loop until the user exits.
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE
 				ExitLoop
+
 		EndSwitch
 	WEnd
 

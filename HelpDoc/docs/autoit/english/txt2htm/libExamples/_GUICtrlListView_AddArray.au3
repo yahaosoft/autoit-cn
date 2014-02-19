@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("ListView Add Array", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add columns
 	_GUICtrlListView_AddColumn($hListView, "Items", 100)
@@ -43,7 +43,7 @@ Func Example()
 	_GUICtrlListView_AddArray($hListView, $aItems)
 	MsgBox($MB_SYSTEMMODAL, "Information", "Load time: " & TimerDiff($iTimer) / 1000 & " seconds")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

@@ -2,7 +2,7 @@
 _GetIP
 
 ###Description###
-Get public IP address of a network/computer.
+Get public IP address of a network/computer
 
 ###Syntax###
 #include <Inet.au3>
@@ -10,11 +10,11 @@ _GetIP (  )
 
 
 ###Parameters###
-None
+None.
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	the public IP address.
+Success:	the public IP address. (See remarks.)
 Failure:	-1 and sets the @error flag to non-zero.
 @@End@@
 
@@ -22,7 +22,7 @@ Failure:	-1 and sets the @error flag to non-zero.
 ###Remarks###
 This only returns the public IP address of a computer or network (i.e. the public IP on the WAN link of your NAT router). The address is determined by accessing an external IP discovery web site. The sites used are http://checkip.dyndns.org/, http://exip.org and http://www.myexternalip.com/.
 
-Please refrain from using _GetIP in short time periods as not to overload the IP discovery sites.
+To reduce overloading the IP discovery sites a 5 second timer is used between each function call. If <a href="_GetIP.htm">_GetIP()</a> is used during this 5 second period, the previous IP is returned and @extended set to 1.
 
 
 ###Related###

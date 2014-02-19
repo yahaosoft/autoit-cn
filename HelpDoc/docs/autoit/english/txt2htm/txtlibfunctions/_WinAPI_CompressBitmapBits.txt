@@ -2,7 +2,7 @@
 _WinAPI_CompressBitmapBits
 
 ###Description###
-Creates a compressed data block from the specified bitmap.
+Creates a compressed data block from the specified bitmap
 
 ###Syntax###
 #include <WinAPIGdi.au3>
@@ -14,40 +14,35 @@ _WinAPI_CompressBitmapBits ( $hBitmap, ByRef $pBuffer [, $iCompression = 0 [, $i
 $hBitmap
 	A handle to the bitmap to be compressed.
 $pBuffer
-	A pointer to a memory block (buffer) that receives the compressed data. Optionaly, you can set this
-	parameter to 0 before function call, then the function will allocate the required memory block itself.
-	Otherwise, it must be a valid memory pointer returned by the _WinAPI_CreateBuffer() function, or
-	by previously calling this function.
+	A pointer to a memory block (buffer) that receives the compressed data. Optionaly, you can set this parameter to 0 before function call, then the function will allocate the required memory block itself.
+	Otherwise, it must be a valid memory pointer returned by the <a href="_WinAPI_CreateBuffer.htm">_WinAPI_CreateBuffer()</a> function, or by previously calling this function.
 $iCompression
 	[optional] The compression method. This parameter can be one of the following values.
-	$COMPRESSION_BITMAP_PNG (Default)
-	$COMPRESSION_BITMAP_JPEG
+		$COMPRESSION_BITMAP_PNG (Default)
+		$COMPRESSION_BITMAP_JPEG
 $iQuality
 	[optional] The quality of JPEG image, in percent. This value is ignored for non JPEG compression. Default is 100.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	The number of bytes copied to the buffer.
-Failure 	0 and sets the @error flag to non-zero.
+Success:	The number of bytes copied to the buffer.
+Failure:	0 and sets the @error flag to non-zero.
 @@End@@
 
 
 ###Remarks###
-In fact, the data that returns this function represent .jpeg or .png image file in binary form. You can use the
-_WinAPI_WriteFile() function to create the appropriate image file directly from this data.
+In fact, the data that returns this function represent .jpeg or .png image file in binary form. You can use the <a href="_WinAPI_WriteFile.htm">_WinAPI_WriteFile()</a> function to create the appropriate image file directly from this data.
 
-The returned data always represent a 24-bit color depth .jpeg image, or 32-bit color depth (with or without
-alpha chanel) .png image independent on the color depth of the source bitmap.
+The returned data always represent a 24-bit color depth .jpeg image, or 32-bit color depth (with or without alpha chanel) .png image independent on the color depth of the source bitmap.
 
-When you no longer need the buffer allocated by this function, you must call the _WinAPI_FreeMemory() function
-(do not use any other memory routines) to release occupied memory.
+When you no longer need the buffer allocated by this function, you must call the <a href="_WinAPI_FreeMemory.htm">_WinAPI_FreeMemory()</a> function (do not use any other memory routines) to release occupied memory.
 
 This function internally uses the GDI+ DLL library.
 
 
 ###Related###
-_WinAPI_WriteFile, _WinAPI_FreeMemory
+_WinAPI_FreeMemory, _WinAPI_WriteFile
 
 
 ###Example###

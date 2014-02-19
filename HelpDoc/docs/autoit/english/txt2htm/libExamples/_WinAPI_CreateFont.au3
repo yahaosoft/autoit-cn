@@ -1,6 +1,6 @@
+#include <FontConstants.au3>
 #include <WinAPI.au3>
 #include <WindowsConstants.au3>
-#include <FontConstants.au3>
 
 Global $tRECT, $hFont, $hOldFont, $hDC
 

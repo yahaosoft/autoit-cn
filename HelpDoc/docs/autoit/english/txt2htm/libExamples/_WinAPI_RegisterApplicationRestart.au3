@@ -1,9 +1,9 @@
-#include <WinAPIDiag.au3>
 #include <APIDiagConstants.au3>
-#include <WinAPISys.au3>
-#include <StaticConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
+#include <StaticConstants.au3>
+#include <WinAPIDiag.au3>
+#include <WinAPISys.au3>
 
 If _WinAPI_GetVersion() < '6.0' Then
 	MsgBox(BitOR($MB_ICONERROR, $MB_SYSTEMMODAL), 'Error', 'Require Windows Vista or later.')
@@ -14,7 +14,7 @@ Global $Count = 10
 
 Local $hForm = GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 300, 100)
 Local $Label = GUICtrlCreateLabel('The application will be crashes after ' & $Count & ' seconds.', 10, 43, 280, 14, $SS_CENTER)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 If $CmdLine[0] And ($CmdLine[1] = '/crash') Then
 	MsgBox(BitOR($MB_ICONWARNING, $MB_SYSTEMMODAL), 'Attention', 'The application has been restarted after an abnormal exit.', 0, $hForm)

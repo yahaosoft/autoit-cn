@@ -1,9 +1,8 @@
+#include <GuiComboBox.au3>
 #include <GUIConstantsEx.au3>
 #include <GuiReBar.au3>
 #include <GuiToolbar.au3>
-#include <GuiComboBox.au3>
 #include <WindowsConstants.au3>
-#include <Constants.au3>
 
 Global $iMemo
 

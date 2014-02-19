@@ -1,8 +1,8 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
-#include <WindowsConstants.au3>
+#include <GuiListView.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
@@ -13,7 +13,7 @@ Func Example()
 	GUICreate("ImageList Remove", 400, 300)
 	$listview = GUICtrlCreateListView("", 2, 2, 394, 268, BitOR($LVS_SHOWSELALWAYS, $LVS_NOSORTHEADER, $LVS_REPORT))
 	_GUICtrlListView_SetExtendedListViewStyle($listview, $exStyles)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create(16, 16, 5, 3)
@@ -63,7 +63,7 @@ Func Example()
 	_GUICtrlListView_AddSubItem($listview, 5, "Row 6: Col 2", 1, 4)
 	_GUICtrlListView_AddSubItem($listview, 5, "Row 6: Col 3", 2, 3)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

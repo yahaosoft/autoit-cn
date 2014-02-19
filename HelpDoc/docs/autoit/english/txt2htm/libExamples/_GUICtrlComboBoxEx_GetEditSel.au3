@@ -1,6 +1,6 @@
 #include <GuiComboBoxEx.au3>
-#include <GuiImageList.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiImageList.au3>
 #include <WindowsConstants.au3>
 
 Global $iMemo
@@ -15,7 +15,7 @@ Func Example()
 	$hCombo = _GUICtrlComboBoxEx_Create($hGUI, "", 2, 2, 394, 70, BitOR($CBS_SIMPLE, $WS_VSCROLL, $WS_BORDER))
 	$iMemo = GUICtrlCreateEdit("", 2, 72, 396, 226, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$hImage = _GUIImageList_Create(16, 16, 5, 3)
 	_GUIImageList_AddIcon($hImage, @SystemDir & "\shell32.dll", 110)

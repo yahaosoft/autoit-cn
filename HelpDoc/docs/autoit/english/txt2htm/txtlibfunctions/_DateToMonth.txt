@@ -2,35 +2,46 @@
 _DateToMonth
 
 ###Description###
-Returns the name of the Month, based on the specified month number.
+Returns the name of the month, based on the specified month
 
 ###Syntax###
 #include <Date.au3>
-_DateToMonth ( $iMonth [, $ishort = 0] )
+_DateToMonth ( $iMonNum [, $iFormat = 0] )
 
 
 ###Parameters###
 @@ParamTable@@
-$iMonth
-	Month number (1 = January, 12 = December).
-$ishort
-	[optional] 0 - Long name of the Month.
-	1 - Abbreviated name of the Month.
+$iMonNum
+	Month number
+		1 = January
+		2 = February
+		3 = March
+		...
+		11 = November
+		12 = December
+		7 = Saturday
+$iFormat
+	[optional] Format:
+	$DOW_LOCALE_USER (0) - Long name of the month (Default)
+	$DOW_SHORTNAME (1) - Short name of the month e.g. Jan
+	$DOW_LOCALE_LONGNAME (2) - Long name of the month in the user's default language
+	$DOW_LOCALE_SHORTNAME (3) - Short name of the month in the user's default language
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	the name of the given Month.
-Failure:	an empty string and sets the @error flag to non-zero.
-@error:	1 - Invalid month number or format.
+Success:	Month name
+Failure:	An empty string and sets @error to non-zero
+@error:	1 - Invalid month number.
 @@End@@
 
 
 ###Remarks###
-This function returns English day names only.
+The function returns month names in English or the user's default language.
 
 
 ###Related###
+None.
 
 
 ###Example###

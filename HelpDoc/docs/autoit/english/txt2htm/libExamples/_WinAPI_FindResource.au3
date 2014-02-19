@@ -1,11 +1,11 @@
-#include <WinAPIRes.au3>
-#include <APIResConstants.au3>
-#include <WinAPIMisc.au3>
 #include <APIMiscConstants.au3>
+#include <APIResConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <Memory.au3>
-#include <StaticConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <StaticConstants.au3>
+#include <WinAPIMisc.au3>
+#include <WinAPIRes.au3>
 
 Global Const $sJpg = @TempDir & '\~Tech.jpg'
 
@@ -64,7 +64,7 @@ GUICtrlSetFont(-1, 30, -1, -1, 'Technovia Caps')
 GUICtrlSetBkColor(-1, $GUI_BKCOLOR_TRANSPARENT)
 GUICtrlSetColor(-1, 0xF06000)
 Local $Button = GUICtrlCreateButton('Play Sound', 125, 316, 100, 23)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 While 1
 	Switch GUIGetMsg()

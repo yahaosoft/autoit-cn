@@ -1,5 +1,5 @@
-#include <GuiRichEdit.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiRichEdit.au3>
 #include <WindowsConstants.au3>
 
 Global $lblMsg, $hRichEdit
@@ -13,7 +13,7 @@ Func Example()
 			BitOR($ES_MULTILINE, $WS_VSCROLL, $ES_AUTOVSCROLL))
 	$lblMsg = GUICtrlCreateLabel("", 10, 235, 300, 60)
 	$btnNext = GUICtrlCreateButton("Next", 270, 310, 40, 30)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlRichEdit_SetText($hRichEdit, "First paragraph")
 

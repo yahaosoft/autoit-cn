@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 
 Global $iMemo
@@ -13,7 +13,7 @@ Func Example()
 	GUICreate("GDI+", 400, 300)
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 596, 396, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Create brushes
 	_GDIPlus_Startup()
@@ -31,7 +31,7 @@ Func Example()
 	_GDIPlus_BrushDispose($hBrush1)
 	_GDIPlus_Shutdown()
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

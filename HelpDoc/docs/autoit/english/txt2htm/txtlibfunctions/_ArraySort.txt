@@ -2,16 +2,16 @@
 _ArraySort
 
 ###Description###
-Sort a 1D or 2D array on a specific index using the dualpivotsort/quicksort/insertionsort algorithms.
+Sort a 1D or 2D array on a specific index using the dualpivotsort/quicksort/insertionsort algorithms
 
 ###Syntax###
 #include <Array.au3>
-_ArraySort ( ByRef $avArray [, $iDescending = 0 [, $iStart = 0 [, $iEnd = 0 [, $iSubItem = 0 [, $iPivot = 0]]]]] )
+_ArraySort ( ByRef $aArray [, $iDescending = 0 [, $iStart = 0 [, $iEnd = 0 [, $iSubItem = 0 [, $iPivot = 0]]]]] )
 
 
 ###Parameters###
 @@ParamTable@@
-$avArray
+$aArray
 	Array to sort
 $iDescending
 	[optional] If set to 1, sort descendingly
@@ -29,23 +29,23 @@ $iPivot
 @@ReturnTable@@
 Success:	1.
 Failure:	0 and sets the @error flag to non-zero.
-@error: 1 - $avArray is not an array
+@error: 	1 - $aArray is not an array
 	2 - $iStart is greater than $iEnd
 	3 - $iSubItem is greater than subitem count
-	4 - $avArray has too many dimensions
-	5 - $avArray is empty
+	4 - $aArray has too many dimensions
+	5 - $aArray is empty
 	6 - $iPivot used with 2D array
 @@End@@
 
 
 ###Remarks###
-By default the UDF uses a QuickSort algorithm to sort the array.  Setting the $iPivot parameter uses a DualPivotSort algorithm on 1D arrays - this can be significantly
-
-faster for large arrays (> 50 elements) - but sorting 2D arrays with this algorithm is very much slower and the UDF will return an error in this case.  In both algorithms, relatively short arrays will be sorted using an insertion sort (< 15 elements with QuickSort; < 45 elements with Dual PivotSort).
+By default the UDF uses a QuickSort algorithm to sort the array.  Setting the $iPivot parameter uses a DualPivotSort algorithm on 1D arrays - this can be significantly faster for large arrays (> 50 elements) - but sorting 2D arrays with this algorithm is very much slower and the UDF will return an error in this case.
+In both algorithms, relatively short arrays will be sorted using an insertion sort (< 15 elements with QuickSort; < 45 elements with Dual PivotSort).
 Note that there is no guarantee that a specific algorithm will be faster in a given case.
 
 
 ###Related###
+None.
 
 
 ###Example###

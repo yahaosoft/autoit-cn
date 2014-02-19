@@ -2,7 +2,7 @@
 _WinAPI_RegConnectRegistry
 
 ###Description###
-Establishes a connection to a predefined registry key on another computer.
+Establishes a connection to a predefined registry key on another computer
 
 ###Syntax###
 #include <WinAPIReg.au3>
@@ -25,21 +25,21 @@ $hKey
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	Handle to the key on the remote computer.
-Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+Success:	Handle to the key on the remote computer.
+Failure:	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 
 ###Remarks###
 This function requires the Remote Registry service to be running on the remote computer.
 
-If the current user does not have proper access to the remote computer, the call to _WinAPI_RegConnectRegistry()
+If the current user does not have proper access to the remote computer, the call to <a href="_WinAPI_RegConnectRegistry.htm">_WinAPI_RegConnectRegistry()</a>
 fails. If the computer is joined to a workgroup and the "Force network logons using local accounts to authenticate
 as Guest" policy is enabled, the function fails. Note that this policy is enabled by default if the computer is
 joined to a workgroup.
 
-When a handle returned by _WinAPI_RegConnectRegistry() is no longer needed, it should be closed by
-calling _WinAPI_RegCloseKey().
+When a handle returned by <a href="_WinAPI_RegConnectRegistry.htm">_WinAPI_RegConnectRegistry()</a> is no longer needed, it should be closed by
+calling <a href="_WinAPI_RegCloseKey.htm">_WinAPI_RegCloseKey()</a>.
 
 
 ###Related###

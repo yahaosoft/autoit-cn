@@ -9,7 +9,7 @@ Func Example()
 
 	GUICreate("ListView Get Item Count", 400, 300)
 	$hListView = GUICtrlCreateListView("col1|col2|col3", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUICtrlCreateListViewItem("line1|data1|more1", $hListView)
 	GUICtrlCreateListViewItem("line2|data2|more2", $hListView)
@@ -19,7 +19,7 @@ Func Example()
 
 	MsgBox($MB_SYSTEMMODAL, "Information", "Item Count: " & _GUICtrlListView_GetItemCount($hListView))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

@@ -1,8 +1,8 @@
 #NoTrayIcon
 
-#include <WinAPIFiles.au3>
-#include <WinAPI.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPI.au3>
+#include <WinAPIFiles.au3>
 
 Opt('WinWaitDelay', 0)
 

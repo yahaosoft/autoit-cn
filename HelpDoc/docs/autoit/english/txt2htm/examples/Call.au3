@@ -10,11 +10,11 @@ Func Example()
 	Call("Test2", "Message from Call()!")
 
 	; This demonstrates how to use the special array argument.
-	Global $aArgs[4]
+	Local $aArgs[4]
 	$aArgs[0] = "CallArgArray" ; This is required, otherwise, Call() will not recognize the array as containing arguments
 	$aArgs[1] = "This is a string" ; Parameter one is a string
 	$aArgs[2] = 47 ; Parameter two is a number
-	Global $aArray[2]
+	Local $aArray[2]
 	$aArray[0] = "Array Element 0"
 	$aArray[1] = "Array Element 1"
 	$aArgs[3] = $aArray ; Parameter three is an array

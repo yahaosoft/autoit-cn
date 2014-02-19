@@ -1,5 +1,5 @@
-#include <WinAPITheme.au3>
 #include <GUIConstantsEx.au3>
+#include <WinAPITheme.au3>
 
 GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 310, 360)
 GUICtrlCreateGroup('Group', 10, 10, 140, 95)
@@ -17,7 +17,7 @@ GUICtrlCreateTabItem('Tab1')
 GUICtrlCreateTabItem('Tab2')
 GUICtrlCreateTabItem('')
 
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE

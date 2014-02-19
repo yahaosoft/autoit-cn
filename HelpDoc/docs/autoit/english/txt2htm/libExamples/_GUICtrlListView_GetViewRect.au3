@@ -9,7 +9,7 @@ Func Example()
 
 	GUICreate("ListView Get View Rect", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add columns
 	_GUICtrlListView_AddColumn($hListView, "Items", 100)
@@ -28,7 +28,7 @@ Func Example()
 	$aRect = _GUICtrlListView_GetViewRect($hListView)
 	MsgBox($MB_SYSTEMMODAL, "Information", StringFormat("View Tile: [%d, %d, %d, %d]", $aRect[0], $aRect[1], $aRect[2], $aRect[3]))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

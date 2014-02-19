@@ -1,5 +1,5 @@
-#include <WinAPIShPath.au3>
 #include <APIShPathConstants.au3>
+#include <WinAPIShPath.au3>
 
 Local $Url = 'http://social.msdn.microsoft.com/search/en-us?query=UrlGetPart'
 

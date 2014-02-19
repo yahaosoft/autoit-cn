@@ -2,7 +2,7 @@
 _GUIToolTip_SetTipBkColor
 
 ###Description###
-Sets the background color
+Sets the background color of a ToolTip
 
 ###Syntax###
 #include <GuiToolTip.au3>
@@ -12,9 +12,9 @@ _GUIToolTip_SetTipBkColor ( $hWnd, $iColor )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	Handle to the ToolTip control (returned by <a href ="_GUIToolTip_Create.htm">_GUIToolTip_Create.</a>)
 $iColor
-	New background color
+	New text color (see remarks)
 @@End@@
 
 ###ReturnValue###
@@ -22,8 +22,13 @@ None.
 
 
 ###Remarks###
-None.
+The color value used in the <a href="_GUIToolTip_SetTipBkColor.htm">_GUIToolTip_SetTipBkColor()</a> function is a COLORREF (BGR) value in the format 0x00bbggrr. The low-order byte contains a value for the relative intensity of red, the second byte contains a value for green, and the third byte contains a value for blue.
+The high-order byte must be zero.
 
 
 ###Related###
-_GUIToolTip_GetTipBkColor
+_GUIToolTip_GetTipBkColor, _GUIToolTip_SetTipTextColor
+
+
+###Example###
+@@IncludeExample@@

@@ -13,7 +13,7 @@ Func Example()
 	$hDTP = GUICtrlGetHandle(GUICtrlCreateDate("", 2, 6, 190))
 	$iMemo = GUICtrlCreateEdit("", 2, 32, 396, 266, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set the display format
 	_GUICtrlDTP_SetFormat($hDTP, "ddd MMM dd, yyyy hh:mm ttt")
@@ -43,7 +43,7 @@ Func Example()
 	MemoWrite("Minimum time: " & GetTimeStr("Min"))
 	MemoWrite("Maximum time: " & GetTimeStr("Max"))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

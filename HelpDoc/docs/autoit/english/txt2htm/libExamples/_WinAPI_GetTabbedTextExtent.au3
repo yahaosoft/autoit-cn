@@ -1,6 +1,6 @@
+#include <GUIConstantsEx.au3>
 #include <WinAPIGdi.au3>
 #include <WindowsConstants.au3>
-#include <GUIConstantsEx.au3>
 
 Global Const $Text = 'String' & @TAB & 'with' & @TAB & 'tab' & @TAB & 'characters'
 
@@ -20,7 +20,7 @@ If IsArray($Size) Then
 EndIf
 
 ; Show GUI
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE

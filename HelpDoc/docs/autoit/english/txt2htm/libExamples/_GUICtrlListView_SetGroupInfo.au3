@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 #include <MsgBoxConstants.au3>
 
 Example()
@@ -11,7 +11,7 @@ Func Example()
 	GUICreate("ListView Set Group Info", 400, 300)
 
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create()
@@ -46,7 +46,7 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", "Group 1 Text: " & $aInfo[0])
 	_GUICtrlListView_SetGroupInfo($hListView, 1, "New Group 1")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

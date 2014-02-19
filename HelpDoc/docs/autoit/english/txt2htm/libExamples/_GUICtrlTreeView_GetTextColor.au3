@@ -1,8 +1,8 @@
 #include <GUIConstantsEx.au3>
-#include <GuiTreeView.au3>
 #include <GuiImageList.au3>
-#include <WindowsConstants.au3>
+#include <GuiTreeView.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Global Const $Turquoise = 0x40e0d0
 Global Const $Crimson = 0xDC143C
@@ -16,7 +16,7 @@ Func Example()
 	GUICreate("TreeView Get Text Color", 400, 300)
 
 	$hTreeView = GUICtrlCreateTreeView(2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlTreeView_SetBkColor($hTreeView, $Turquoise)
 	_GUICtrlTreeView_SetTextColor($hTreeView, $Crimson)
@@ -41,7 +41,7 @@ Func Example()
 			"Text Color: " & _GUICtrlTreeView_GetTextColor($hTreeView) & @CRLF & _
 			"Line Color: " & _GUICtrlTreeView_GetLineColor($hTreeView))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

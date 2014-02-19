@@ -12,15 +12,26 @@ _GUIToolTip_GetTitleBitMap ( $hWnd )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	Handle to the ToolTip control (returned by <a href ="_GUIToolTip_Create.htm">_GUIToolTip_Create.</a>)
 @@End@@
 
 ###ReturnValue###
-Returns the Handle to the ToolTip icon.
+Returns the reference number of the ToolTip title icon. See remarks
 
 
 ###Remarks###
-None.
+The icon reference number returned by this function is related to the icons used to set the title icon, see <a href="_GUIToolTip_SetTitle.htm">_GUIToolTip_SetTitle()</a>.
+If using the standard icons, the return values will be
+		$TTI_NONE = 0
+		$TTI_INFO or $TTI_INFO_LARGE = 1
+		$TTI_WARNING or $TTI_WARNING_LARGE = 2
+		$TTI_ERROR or $TTI_ERROR_LARGE = 3
+Any icon used that isn't one of these will return 4 signifying an HICON was used.
 
 
 ###Related###
+_GUIToolTip_SetTitle
+
+
+###Example###
+@@IncludeExample@@

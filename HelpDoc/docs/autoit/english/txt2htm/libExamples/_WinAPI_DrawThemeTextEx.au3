@@ -1,11 +1,11 @@
-#include <WinAPITheme.au3>
 #include <APIThemeConstants.au3>
-#include <WinAPI.au3>
-#include <WinAPIGdi.au3>
 #include <FontConstants.au3>
-#include <WindowsConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPI.au3>
+#include <WinAPIGdi.au3>
+#include <WinAPITheme.au3>
+#include <WindowsConstants.au3>
 
 If Not _WinAPI_DwmIsCompositionEnabled() Then
 	MsgBox(BitOR($MB_ICONERROR, $MB_SYSTEMMODAL), 'Error', 'Require Windows Vista or later with enabled Aero theme.')
@@ -32,7 +32,7 @@ Local $hProc = _WinAPI_SetWindowLong($hLabel, $GWL_WNDPROC, $pDll)
 ; Create the "sheet of glass" effect for the entire window. You must call this function whenever DWM composition is toggled.
 _WinAPI_DwmExtendFrameIntoClientArea($hForm)
 
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE

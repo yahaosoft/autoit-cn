@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <Clipboard.au3>
+#include <GUIConstantsEx.au3>
 #include <WinAPI.au3>
 #include <WindowsConstants.au3>
 
@@ -14,7 +14,7 @@ Func Example()
 	$hGUI = GUICreate("Clipboard", 600, 400)
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 596, 396, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Open the clipboard
 	If _ClipBoard_Open($hGUI) Then
@@ -37,7 +37,7 @@ Func Example()
 		_WinAPI_ShowError("_ClipBoard_Open failed")
 	EndIf
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

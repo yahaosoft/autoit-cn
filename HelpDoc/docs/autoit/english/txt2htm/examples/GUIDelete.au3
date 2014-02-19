@@ -3,17 +3,17 @@
 Example()
 
 Func Example()
-	Local $iMsg = 0
-
 	GUICreate("My GUI") ; will create a dialog box that when displayed is centered
 
-	GUISetState() ; will display an empty dialog box
+	GUISetState(@SW_SHOW) ; will display an empty dialog box
 
-	; Run the GUI until the dialog is closed
+	; Loop until the user exits.
 	While 1
-		$iMsg = GUIGetMsg()
+		Switch GUIGetMsg()
+			Case $GUI_EVENT_CLOSE
+				ExitLoop
 
-		If $iMsg = $GUI_EVENT_CLOSE Then ExitLoop
+		EndSwitch
 	WEnd
 
 	GUIDelete();	; will return 1

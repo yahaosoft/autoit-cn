@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Slider Get Channel RectEx", 400, 296)
 	$hSlider = GUICtrlCreateSlider(2, 2, 396, 20, BitOR($TBS_TOOLTIPS, $TBS_AUTOTICKS, $TBS_ENABLESELRANGE))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get Channel Rect
 	$tRect = _GUICtrlSlider_GetChannelRectEx($hSlider)
@@ -19,7 +19,7 @@ Func Example()
 			DllStructGetData($tRect, "Left"), DllStructGetData($tRect, "Top"), _
 			DllStructGetData($tRect, "Right"), DllStructGetData($tRect, "Bottom")))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

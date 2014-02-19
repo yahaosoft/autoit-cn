@@ -2,48 +2,44 @@
 _WinAPI_EnumDllProc
 
 ###Description###
-Enumerates an exported functions of the specified dynamic-link library (DLL).
+Enumerates an exported functions of the specified dynamic-link library (DLL)
 
 ###Syntax###
 #include <WinAPIDiag.au3>
-_WinAPI_EnumDllProc ( $sPath [, $sMask = '' [, $iFlags = 0]] )
+_WinAPI_EnumDllProc ( $sFilePath [, $sMask = '' [, $iFlags = 0]] )
 
 
 ###Parameters###
 @@ParamTable@@
-$sPath
-	The path to the library. Although this function searches for a file path when it specified as the relative
-	path or the name without a path, will better to specify a fully qualified path to the library for an
-	unequivocal result.
+$sFilePath
+	The path to the library.
+	Although this function searches for a file path when it specified as the relative path or the name without a path, will better to specify a fully qualified path to the library for an unequivocal result.
 $sMask
-	[optional] A wildcard string that indicates the function names to be enumerated. This string can optionally
-	contain the wildcards, "*" and "?". If this parameter is an empty string or omitted (Default), all the exported
-	functions will be enumerated.
+	[optional] A wildcard string that indicates the function names to be enumerated.
+	This string can optionally contain the wildcards, "*" and "?". If this parameter is an empty string or omitted (Default), all the exported functions will be enumerated.
 $iFlags
-	[optional] The optional flags. This parameter can be one or more of the following values.
-	$SYMOPT_CASE_INSENSITIVE
-	$SYMOPT_UNDNAME
+	[optional] The optional flags. This parameter can be one or more of the following values:
+		$SYMOPT_CASE_INSENSITIVE
+		$SYMOPT_UNDNAME
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	The 2D array containing the following information, @extended flag will contain one of the
-	$IMAGE_FILE_MACHINE_* constants.
-	[0][0] - Number of rows in array (n)
-	[0][1] - Unused
-	[n][0] - The function address relative to the library base address (UINT64).
-	[n][1] - The function name.
-Failure 	Sets the @error flag to non-zero.
+Success:	The 2D array containing the following information, @extended flag will contain one of the $IMAGE_FILE_MACHINE_* constants.
+		[0][0] - Number of rows in array (n)
+		[0][1] - Unused
+		[n][0] - The function address relative to the library base address (UINT64).
+		[n][1] - The function name.
+Failure:	Sets the @error flag to non-zero.
 @@End@@
 
 
 ###Remarks###
-This function works with 32- and 64-bit DLLs regardless of the system (32- or 64-bit), although 64-bit executables
-cannot load 32-bit DLLs and vice-versa.
+This function works with 32- and 64-bit DLLs regardless of the system (32- or 64-bit), although 64-bit executables cannot load 32-bit DLLs and vice-versa.
 
-Call _WinAPI_GetExtended() to retrieve a fully qualified path to the found DLL that was loaded for enumerating functions.
+Call <a href="_WinAPI_GetExtended.htm">_WinAPI_GetExtended()</a> to retrieve a fully qualified path to the found DLL that was loaded for enumerating functions.
 
-Note, use the fully qualified path to be sure that the _WinAPI_EnumDllProc() loads the DLL that is of interest.
+Note, use the fully qualified path to be sure that the <a href="_WinAPI_EnumDllProc.htm">_WinAPI_EnumDllProc()</a> loads the DLL that is of interest.
 In addition, this function does not use the file system redirection.
 
 This function requires dbghelp.dll version 5.1 or later.

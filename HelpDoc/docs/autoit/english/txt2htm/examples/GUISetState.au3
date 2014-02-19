@@ -3,16 +3,16 @@
 Example()
 
 Func Example()
-	Local $msg
-
 	GUICreate("My GUI") ; start the definition
 
-	GUISetState() ; will display an empty dialog box
+	GUISetState(@SW_SHOW) ; will display an empty dialog box
 
-	; Run the GUI until the dialog is closed
+	; Loop until the user exits.
 	While 1
-		$msg = GUIGetMsg()
+		Switch GUIGetMsg()
+			Case $GUI_EVENT_CLOSE
+				ExitLoop
 
-		If $msg = $GUI_EVENT_CLOSE Then ExitLoop
+		EndSwitch
 	WEnd
 EndFunc   ;==>Example

@@ -17,14 +17,14 @@ Func Example()
 	;===============================================================================
 	_GUICtrlStatusBar_SetParts($hStatus, $aParts)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	MsgBox($MB_SYSTEMMODAL, "Information", "Hide StatusBar")
 	_GUICtrlStatusBar_ShowHide($hStatus, @SW_HIDE)
 	MsgBox($MB_SYSTEMMODAL, "Information", "Show StatusBar")
 	_GUICtrlStatusBar_ShowHide($hStatus, @SW_SHOW)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

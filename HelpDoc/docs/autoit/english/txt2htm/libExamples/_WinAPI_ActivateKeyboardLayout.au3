@@ -1,16 +1,16 @@
-#include <WinAPISys.au3>
-#include <APISysConstants.au3>
-#include <WinAPILocale.au3>
 #include <APILocaleConstants.au3>
-#include <StaticConstants.au3>
+#include <APISysConstants.au3>
 #include <GUIConstantsEx.au3>
+#include <StaticConstants.au3>
+#include <WinAPILocale.au3>
+#include <WinAPISys.au3>
 
 GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 300, 200)
 Local $Label = GUICtrlCreateLabel('', 10, 66, 280, 40, $SS_CENTER)
 GUICtrlSetFont(-1, 12, 800, 0, 'Tahoma')
 Local $Prev = GUICtrlCreateButton('<', 82, 164, 60, 24)
 Local $Next = GUICtrlCreateButton('>', 158, 164, 60, 24)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Local $Update = 1
 While 1

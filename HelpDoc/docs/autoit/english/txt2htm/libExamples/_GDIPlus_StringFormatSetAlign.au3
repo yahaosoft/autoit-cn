@@ -2,7 +2,7 @@
 #include <GUIConstantsEx.au3>
 
 Local $hWnd = GUICreate("GDI+ Example", 400, 300)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 _GDIPlus_Startup()
 Local $hGraphics = _GDIPlus_GraphicsCreateFromHWND($hWnd)

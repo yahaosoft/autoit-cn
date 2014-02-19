@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 #include <WindowsConstants.au3>
 
 Global $hListView
@@ -13,7 +13,7 @@ Func Example()
 
 	$hListView = _GUICtrlListView_Create($GUI, "", 2, 2, 394, 268)
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, BitOR($LVS_EX_GRIDLINES, $LVS_EX_FULLROWSELECT, $LVS_EX_SUBITEMIMAGES))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
@@ -37,7 +37,7 @@ Func Example()
 	_GUICtrlListView_AddSubItem($hListView, 1, "Row 2: Col 2", 1)
 	_GUICtrlListView_AddItem($hListView, "Row 3: Col 1", 2)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

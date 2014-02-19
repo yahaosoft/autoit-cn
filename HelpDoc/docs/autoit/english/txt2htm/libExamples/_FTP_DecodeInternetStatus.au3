@@ -1,5 +1,5 @@
-#include <FTPEx.au3>
 #include <Debug.au3>
+#include <FTPEx.au3>
 
 _DebugSetup(StringTrimRight(@ScriptName, 4) & ' example', True)
 

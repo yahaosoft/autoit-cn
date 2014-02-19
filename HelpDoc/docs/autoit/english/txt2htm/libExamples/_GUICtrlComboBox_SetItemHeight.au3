@@ -13,7 +13,7 @@ Func Example()
 	$hCombo = GUICtrlCreateCombo("", 2, 2, 396, 296)
 	$iMemo = GUICtrlCreateEdit("", 2, 32, 396, 266, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add files
 	_GUICtrlComboBox_BeginUpdate($hCombo)
@@ -38,7 +38,7 @@ Func Example()
 	; Get Item Height (list items)
 	MemoWrite("Item Height (list items): " & _GUICtrlComboBox_GetItemHeight($hCombo, 0))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

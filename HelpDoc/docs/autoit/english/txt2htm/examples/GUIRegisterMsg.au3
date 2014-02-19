@@ -1,29 +1,29 @@
 ; Create an ownerdrawn/colored button
 
-#include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
 #include <ButtonConstants.au3>
+#include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
 Func Example()
 	Local Const $BS_OWNERDRAW = 0x0000000B
-	Local $iButton = 0, $iButton2 = 0, $iMsg = 0
 
 	GUICreate("My Ownerdrawn Created Button", 300, 200)
 
-	$iButton = GUICtrlCreateButton("", 90, 50, 120, 30)
-	GUICtrlSetStyle($iButton, BitOR($WS_TABSTOP, $BS_NOTIFY, $BS_OWNERDRAW)) ; Set the ownerdrawn flag
+	Local $idButton = GUICtrlCreateButton("", 90, 50, 120, 30)
+	GUICtrlSetStyle($idButton, BitOR($WS_TABSTOP, $BS_NOTIFY, $BS_OWNERDRAW)) ; Set the ownerdrawn flag
 
-	$iButton2 = GUICtrlCreateButton("Normal Button", 90, 110, 120, 30)
+	Local $idButton2 = GUICtrlCreateButton("Normal Button", 90, 110, 120, 30)
 
 	GUIRegisterMsg($WM_COMMAND, "MY_WM_COMMAND")
 	; WM_DRAWITEM has to registered before showing GUI otherwise the initial drawing isn't done
 	GUIRegisterMsg($WM_DRAWITEM, "MY_WM_DRAWITEM")
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
+	Local $iMsg
 	While 1
 		$iMsg = GUIGetMsg()
 
@@ -31,11 +31,11 @@ Func Example()
 			Case $GUI_EVENT_CLOSE
 				ExitLoop
 
-			Case $iButton
+			Case $idButton
 				; Normally should not run through cause of our MY_WM_COMMAND function
 				MsgBox($MB_SYSTEMMODAL, "Info", "Button pressed")
 
-			Case $iButton2
+			Case $idButton2
 				; Normally should not run through cause of our MY_WM_COMMAND function
 				MsgBox($MB_SYSTEMMODAL, "Info", "Button2 pressed")
 		EndSwitch

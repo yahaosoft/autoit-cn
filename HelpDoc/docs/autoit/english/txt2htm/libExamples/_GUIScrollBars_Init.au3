@@ -1,7 +1,7 @@
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
-#include <StructureConstants.au3>
 #include <GuiScrollBars.au3>
+#include <StructureConstants.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
@@ -25,7 +25,7 @@ Func Example()
 	$h_cGUI = GUICreate("Child GUI", 200, 200, 10, 200, $WS_CHILD, $WS_EX_CLIENTEDGE, $hGUI)
 	GUICtrlCreateButton("a button", 10, 10, 90, 20)
 	GUISetBkColor(0X006400)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 	GUICtrlSetResizing($h_cGUI, $GUI_DOCKALL)
 
 	GUISwitch($hGUI)
@@ -33,7 +33,7 @@ Func Example()
 	$h_cGUI2 = GUICreate("Child GUI", 200, 200, 215, 10, $WS_CHILD, $WS_EX_CLIENTEDGE, $hGUI)
 	GUICtrlCreateButton("a button", 10, 10, 90, 20)
 	GUISetBkColor(0X006400)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 	GUICtrlSetResizing($h_cGUI2, $GUI_DOCKALL)
 
 	GUISwitch($hGUI)
@@ -42,7 +42,7 @@ Func Example()
 	GUIRegisterMsg($WM_VSCROLL, "WM_VSCROLL")
 	GUIRegisterMsg($WM_HSCROLL, "WM_HSCROLL")
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUIScrollBars_Init($hGUI)
 	_GUIScrollBars_Init($h_cGUI)

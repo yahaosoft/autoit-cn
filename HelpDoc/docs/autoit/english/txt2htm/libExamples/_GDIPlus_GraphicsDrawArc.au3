@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
 
 Example()
 
@@ -8,7 +8,7 @@ Func Example()
 
 	; Create GUI
 	$hGUI = GUICreate("GDI+", 400, 300)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Draw arcs
 	_GDIPlus_Startup()
@@ -18,7 +18,7 @@ Func Example()
 	_GDIPlus_GraphicsDrawArc($hGraphic, 160, 104, 30, 30, 160, -140)
 	_GDIPlus_GraphicsDrawArc($hGraphic, 140, 80, 70, 70, 180, 360)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

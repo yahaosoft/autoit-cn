@@ -2,16 +2,16 @@
 _ArrayDelete
 
 ###Description###
-Deletes the specified element from the given array.
+Deletes the specified element from the given array
 
 ###Syntax###
 #include <Array.au3>
-_ArrayDelete ( ByRef $avArray, $iElement )
+_ArrayDelete ( ByRef $aArray, $iElement )
 
 
 ###Parameters###
 @@ParamTable@@
-$avArray
+$aArray
 	Array to modify
 $iElement
 	Element to delete
@@ -21,15 +21,15 @@ $iElement
 @@ReturnTable@@
 Success:	the new size of the array (see remarks)
 Failure:	-1 and sets the @error flag to non-zero.
-@error:	1 - $avArray is not an array
-	3 - $avArray has too many dimensions (only up to 2D supported)
+@error:	1 - $aArray is not an array
+	2 - $iElement is less than 0
+	3 - $iElement is greater than the array size
+	4 - $aArray has more than 2 dimensions (only up to 2D supported)
 @@End@@
 
 
 ###Remarks###
-If the array has one element left (or one row for 2D arrays), it will be set to "" after _ArrayDelete() is used on it.
-
-If the $iElement is greater than the array size then the last element is destroyed.
+If the array has one element left (or one row for 2D arrays), it will be set to "" after <a href="_ArrayDelete.htm">_ArrayDelete()</a> is used on it.
 
 
 ###Related###

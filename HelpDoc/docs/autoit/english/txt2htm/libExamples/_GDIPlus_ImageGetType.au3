@@ -1,8 +1,8 @@
-#include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
 #include <ScreenCapture.au3>
 #include <WinAPI.au3>
+#include <WindowsConstants.au3>
 
 Global $iMemo
 
@@ -15,7 +15,7 @@ Func Example()
 	GUICreate("GDI+", 600, 400)
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 596, 396, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Initialize GDI+ library
 	_GDIPlus_Startup()
@@ -44,7 +44,7 @@ Func Example()
 	; Shut down GDI+ library
 	_GDIPlus_Shutdown()
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

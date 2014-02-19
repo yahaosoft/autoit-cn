@@ -6,20 +6,20 @@ Creates a TextureBrush object based on an image, a wrap mode and a defining rect
 
 ###Syntax###
 #include <GDIPlus.au3>
-_GDIPlus_TextureCreate2 ( $hImage, $fX, $fY, $fWidth, $fHeight [, $iWrapMode = 0] )
+_GDIPlus_TextureCreate2 ( $hImage, $iX, $iY, $iWidth, $iHeight [, $iWrapMode = 0] )
 
 
 ###Parameters###
 @@ParamTable@@
 $hImage
 	Pointer to an Image object
-$fX
+$iX
 	Leftmost coordinate of the image portion to be used by this brush
-$fY
+$iY
 	Uppermost coordinate of the image portion to be used by this brush
-$fWidth
+$iWidth
 	Width of the brush and width of the image portion to be used by the brush
-$fHeight
+$iHeight
 	Height of the brush and height of the image portion to be used by the brush
 $iWrapMode
 	[optional] Wrap mode that specifies how repeated copies of an image are used to tile an area when it is
@@ -33,12 +33,12 @@ $iWrapMode
 ###ReturnValue###
 @@ReturnTable@@
 Success:	a pointer to a new TextureBrush object.
-Failure:	0 and sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+Failure:	0 and sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
 @@End@@
 
 
 ###Remarks###
-After you are done with the object, call _GDIPlus_BrushDispose() to release the object resources.
+After you are done with the object, call <a href="_GDIPlus_BrushDispose.htm">_GDIPlus_BrushDispose()</a> to release the object resources.
 
 
 ###Related###

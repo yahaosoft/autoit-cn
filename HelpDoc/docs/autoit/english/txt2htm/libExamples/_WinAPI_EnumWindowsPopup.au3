@@ -1,5 +1,5 @@
-#include <WinAPI.au3>
 #include <Array.au3>
+#include <WinAPI.au3>
 
 ToolTip("test Popup") ; to have at least one popup window
 

@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 #include <MsgBoxConstants.au3>
 
 Example()
@@ -12,7 +12,7 @@ Func Example()
 	GUICreate("ListView Set Icon Spacing", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268)
 	GUICtrlSetStyle($hListView, $LVS_ICON)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create()
@@ -30,7 +30,7 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", "Changing icon spacing")
 	_GUICtrlListView_SetIconSpacing($hListView, 32, 32)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

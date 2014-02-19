@@ -1,7 +1,7 @@
 #include <GUIConstantsEx.au3>
-#include <WinAPI.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
+#include <WinAPI.au3>
 #include <WindowsConstants.au3>
 
 Example()
@@ -15,7 +15,7 @@ Func Example()
 	GUICreate("ImageList AddBitmap", 400, 300)
 	$listview = GUICtrlCreateListView("", 2, 2, 394, 268, BitOR($LVS_SHOWSELALWAYS, $LVS_NOSORTHEADER, $LVS_REPORT))
 	_GUICtrlListView_SetExtendedListViewStyle($listview, BitOR($LVS_EX_FULLROWSELECT, $LVS_EX_GRIDLINES, $LVS_EX_DOUBLEBUFFER))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create(16, 32)
@@ -32,7 +32,7 @@ Func Example()
 	_GUICtrlListView_AddItem($listview, "Item 2", 1)
 	_GUICtrlListView_AddItem($listview, "Item 3", 2)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

@@ -6,7 +6,7 @@ Creates a Save dialog box that lets the user specify the drive, directory, and n
 
 ###Syntax###
 #include <WinAPI.au3>
-_WinAPI_GetSaveFileName ( [$sTitle = "" [, $sFilter = "All files ( *.* ) " [, $sInitalDir = "." [, $sDefaultFile = "" [, $sDefaultExt = "" [, $iFilterIndex = 1 [, $iFlags = 0 [, $iFlagsEx = 0 [, $hwndOwner = 0]]]]]]]]] )
+_WinAPI_GetSaveFileName ( [$sTitle = "" [, $sFilter = "All files ( *.* ) " [, $sInitalDir = "." [, $sDefaultFile = "" [, $sDefaultExt = "" [, $iFilterIndex = 1 [, $iFlags = 0 [, $iFlagsEx = 0 [, $hWndOwner = 0]]]]]]]]] )
 
 
 ###Parameters###
@@ -32,7 +32,7 @@ $iFlags
 	[optional] See Flags in $tagOPENFILENAME information
 $iFlagsEx
 	[optional] See FlagEx in $tagOPENFILENAME information
-$hwndOwner
+$hWndOwner
 	[optional] Handle to the window that owns the dialog box. This member can be any valid window handle, or it can be 0 if the dialog box has no owner
 @@End@@
 
@@ -42,7 +42,7 @@ Success:	an array in the following format:
 		[0] - Contains the number of strings (2)
 		[1] - Contains the path selected
 		[2] - Contains file selected
-Failure:	sets the @error flag to non-zero, call _WinAPI_CommDlgExtendedError() to get extended error information.
+Failure:	sets the @error flag to non-zero, call <a href="_WinAPI_CommDlgExtendedError.htm">_WinAPI_CommDlgExtendedError()</a> to get extended error information.
 @@End@@
 
 
@@ -51,7 +51,7 @@ None.
 
 
 ###Related###
-$tagOPENFILENAME, _WinAPI_GetOpenFileName, _WinAPI_CommDlgExtendedError
+$tagOPENFILENAME, _WinAPI_CommDlgExtendedError, _WinAPI_GetOpenFileName
 
 
 ###See Also###

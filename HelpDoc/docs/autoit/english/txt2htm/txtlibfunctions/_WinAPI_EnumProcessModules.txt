@@ -2,7 +2,7 @@
 _WinAPI_EnumProcessModules
 
 ###Description###
-Retrieves a handle and name for each module in the specified process.
+Retrieves a handle and name for each module in the specified process
 
 ###Syntax###
 #include <WinAPIProc.au3>
@@ -14,38 +14,37 @@ _WinAPI_EnumProcessModules ( [$PID = 0 [, $iFlag = 0]] )
 $PID
 	[optional] The PID of the process. Default (0) is the current process.
 $iFlag
-	[optional] The filter criteria. This parameter is valid only for Windows Vista and later, and can be one of the
-	following values.
-	$LIST_MODULES_32BIT
-	$LIST_MODULES_64BIT
-	$LIST_MODULES_ALL
-	$LIST_MODULES_DEFAULT (Default)
+	[optional] The filter criteria. This parameter is valid only for <strong>Windows Vista or later</strong>, and can be one of the following values:
+		$LIST_MODULES_32BIT
+		$LIST_MODULES_64BIT
+		$LIST_MODULES_ALL
+		$LIST_MODULES_DEFAULT (Default)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	The 2D array containing the following information:
-	[0][0] - Number of rows in array (n)
-	[0][1] - Unused
-	[n][0] - Handle to the module.
-	[n][1] - The path to the file that contains the module.
-Failure 	Sets the @error flag to non-zero.
+Success:	The 2D array containing the following information:
+		[0][0] - Number of rows in array (n)
+		[0][1] - Unused
+		[n][0] - Handle to the module.
+		[n][1] - The path to the file that contains the module.
+Failure:	Sets the @error flag to non-zero.
 @@End@@
 
 
 ###Remarks###
 This function does not retrieve handles for modules that were loaded with the $LOAD_LIBRARY_AS_DATAFILE flag.
-For more information, see _WinAPI_LoadLibraryEx().
+For more information, see <a href="_WinAPI_LoadLibraryEx.htm">_WinAPI_LoadLibraryEx()</a>.
 
-Do not call _WinAPI_CloseHandle() on any of the handles returned by this function. The information comes
-from a snapshot, so there are no resources to be freed.
+Do not call <a href="_WinAPI_CloseHandle.htm">_WinAPI_CloseHandle()</a> on any of the handles returned by this function.
+The information comes from a snapshot, so there are no resources to be freed.
 
-If _WinAPI_EnumProcessModules() is called from a 32-bit application running on WOW64, it can only
-enumerate the modules of a 32-bit process. If the process is a 64-bit process, this function fails and the
-last error code is ERROR_PARTIAL_COPY (299).
+If <a href="_WinAPI_EnumProcessModules.htm">_WinAPI_EnumProcessModules()</a> is called from a 32-bit application running on WOW64, it can only enumerate the modules of a 32-bit process.
+If the process is a 64-bit process, this function fails and the last error code is ERROR_PARTIAL_COPY (299).
 
 
 ###Related###
+None.
 
 
 ###See Also###

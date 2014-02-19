@@ -17,9 +17,9 @@ $iBytes
 $iFlags
 	[optional] The memory allocation attributes:
 		$GMEM_FIXED - Allocates fixed memory. The return value is a pointer.
-		$GMEM_MOVEABLE - Allocates movable memory. Memory blocks are never moved in physical memory, but
-			they can be moved within the default heap. The return value is a handle to the memory object.
-			To translate the handle into a pointer, use the _MemGlobalLock function.
+		$GMEM_MOVEABLE - Allocates movable memory. Memory blocks are never moved in physical memory, but they can be moved within the default heap.
+			The return value is a handle to the memory object.
+			To translate the handle into a pointer, use the <a href="_MemGlobalLock.htm">_MemGlobalLock()</a> function.
 			This value cannot be combined with $GMEM_FIXED.
 		$GMEM_ZEROINIT - Initializes memory contents to zero
 		$GHND - Combines $GMEM_MOVEABLE and $GMEM_ZEROINIT
@@ -37,15 +37,15 @@ Failure:	0.
 Windows memory management does not provide a separate local heap and global heap.
 If this function succeeds, it allocates at least the amount of memory requested.
 If the actual amount allocated is greater than the amount requested, the process can use the entire amount.
-To determine the actual number of bytes allocated, use the _MemGlobalSize() function.
+To determine the actual number of bytes allocated, use the <a href="_MemGlobalSize.htm">_MemGlobalSize()</a> function.
 If the heap does not contain sufficient free space to satisfy the request, this function returns NULL.
 Memory allocated with this function is guaranteed to be aligned on an 8 byte boundary.
-To execute dynamically generated code, use the _MemVirtualAlloc() function to allocate memory and the _Mem_VirtualProtect() function to grant $PAGE_EXECUTE access.
-To free the memory, use the _MemGlobalFree() function.
+To execute dynamically generated code, use the <a href="_MemVirtualAlloc.htm">_MemVirtualAlloc()</a> function to allocate memory and the _Mem_VirtualProtect() function to grant $PAGE_EXECUTE access.
+To free the memory, use the <a href="_MemGlobalFree.htm">_MemGlobalFree()</a> function.
 
 
 ###Related###
-_MemGlobalLock, _MemGlobalSize, _MemVirtualAlloc, _MemGlobalFree
+_MemGlobalFree, _MemGlobalLock, _MemGlobalSize, _MemVirtualAlloc
 
 
 ###See Also###

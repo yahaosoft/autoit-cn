@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("ComboBoxEx Get Locale Country Language id", 400, 300)
 	$hCombo = _GUICtrlComboBoxEx_Create($hGUI, "", 2, 2, 394, 100)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add files
 	_GUICtrlComboBoxEx_AddDir($hCombo, "", $DDL_DRIVES, False)

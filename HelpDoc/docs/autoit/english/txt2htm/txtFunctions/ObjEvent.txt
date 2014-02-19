@@ -31,21 +31,32 @@ Failure:	sets the @error flag to non-zero.
 
 ###Remarks###
 The first format is used to receive Events from the given Object.
-To receive a specific event, create an AutoIt function name using
-the given prefix appended with the event name.
+To receive a specific event, create an AutoIt function name using the given prefix appended with the event name.
 
-The second format is used for COM Error Handling. If any COM error
-occurs, the given function is being called. First parameter for the
-function will be error object. You can use it to access different properties
-of this object.
-If the second parameter is omitted, it will return the name of the
-current Error handler function or function, depending what was used when registering.
+The second format is used for COM Error Handling.
+If any COM error occurs, the given function is being called. First parameter for the function will be error object.
+You can use it to access different properties of this object.
+If the second parameter is omitted, it will return the name of the current Error handler function or function, depending what was used when registering.
+
+Properties of the AutoIt Error Object:
+
+@@StandardTable@@
+.number	The Windows HRESULT value from a COM call
+.windescription	The FormatWinError() text derived from .number
+.source	Name of the Object generating the error (contents from ExcepInfo.source)
+.description	Source Object's description of the error (contents from ExcepInfo.description)
+.helpfile	Source Object's helpfile for the error (contents from ExcepInfo.helpfile)
+.helpcontext	Source Object's helpfile context id number (contents from ExcepInfo.helpcontext)
+.lastdllerror	The number returned from GetLastError()
+.scriptline	The script line on which the error was generated
+@@End@@
+
 
 See the <a href="../intro/ComRef.htm">Obj/COM Reference</a> for a detailed explanation.
 
 
 ###Related###
-ObjGet, IsObj, ObjCreate, GUICtrlCreateObj
+GUICtrlCreateObj, IsObj, ObjCreate, ObjGet
 
 
 ###Example###

@@ -1,5 +1,5 @@
-#include <GuiListBox.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiListBox.au3>
 #include <MsgBoxConstants.au3>
 
 Example()
@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("(UDF Created) List Box Destroy", 400, 296)
 	$hListBox = _GUICtrlListBox_Create($hGUI, "", 2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add files
 	_GUICtrlListBox_BeginUpdate($hListBox)
@@ -25,7 +25,7 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", "Destroying ListBox")
 	_GUICtrlListBox_Destroy($hListBox)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

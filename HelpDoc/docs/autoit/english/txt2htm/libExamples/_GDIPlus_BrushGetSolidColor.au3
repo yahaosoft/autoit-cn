@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 
 Example()
@@ -11,7 +11,7 @@ Func Example()
 	$hGUI = GUICreate("GDI+", 345, 150)
 	$Label1 = GUICtrlCreateLabel("", 2, 2, 150, 20)
 	$label2 = GUICtrlCreateLabel("", 202, 2, 150, 20)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 	Sleep(100)
 
 	; Start GDIPlus
@@ -42,7 +42,7 @@ Func Example()
 	; Write the new brush color to Label2
 	GUICtrlSetData($label2, "Brush new color: " & Hex($iClr2))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

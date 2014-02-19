@@ -3,11 +3,9 @@
 Example()
 
 Func Example()
-	Local $sFont = ""
-
 	GUICreate("My GUI default font") ; will create a dialog box that when displayed is centered
 
-	$sFont = "Comic Sans MS"
+	Local $sFont = "Comic Sans MS"
 	GUISetFont(9, 400, 4, $sFont) ; will display underlined characters
 	GUICtrlCreateLabel("underlined label", 10, 20)
 
@@ -17,13 +15,14 @@ Func Example()
 	GUISetFont(9, 400, 8, $sFont) ; will display underlined characters
 	GUICtrlCreateLabel("strike label", 10, 60)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
-	; Run the GUI until the dialog is closed
+	; Loop until the user exits.
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE
 				ExitLoop
+
 		EndSwitch
 	WEnd
 

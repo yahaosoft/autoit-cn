@@ -1,8 +1,8 @@
-#include <WinAPISys.au3>
-#include <WinAPIGdi.au3>
 #include <GUIConstantsEx.au3>
 #include <GUIStatusBar.au3>
 #include <StaticConstants.au3>
+#include <WinAPIGdi.au3>
+#include <WinAPISys.au3>
 
 ; Create GUI
 Local $hForm = GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 600, 400)
@@ -20,7 +20,7 @@ GUICtrlSetFont(-1, 25, 400, 0, 'Tahoma')
 GUICtrlSetBkColor(-1, 0xFFD0D0)
 
 ; Show GUI
-GUISetState()
+GUISetState(@SW_SHOW)
 
 While 1
 	Switch GUIGetMsg()

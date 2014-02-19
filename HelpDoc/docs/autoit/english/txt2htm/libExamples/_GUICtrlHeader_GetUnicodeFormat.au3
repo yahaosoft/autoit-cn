@@ -13,7 +13,7 @@ Func Example()
 	$hHeader = _GUICtrlHeader_Create($hGUI)
 	$iMemo = GUICtrlCreateEdit("", 2, 24, 396, 274, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add columns
 	_GUICtrlHeader_AddItem($hHeader, "Column 1", 100)
@@ -30,7 +30,7 @@ Func Example()
 	; Show Unicode format
 	MemoWrite("Using Unicode characters: " & _GUICtrlHeader_GetUnicodeFormat($hHeader))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

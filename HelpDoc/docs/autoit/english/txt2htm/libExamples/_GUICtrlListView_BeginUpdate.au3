@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 
 Example()
 
@@ -10,7 +10,7 @@ Func Example()
 	GUICreate("ListView Begin Update", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268)
 	GUICtrlSetStyle($hListView, $LVS_ICON)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create(32, 32)
@@ -28,7 +28,7 @@ Func Example()
 	Next
 	_GUICtrlListView_EndUpdate($hListView)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

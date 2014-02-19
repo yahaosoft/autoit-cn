@@ -2,7 +2,7 @@
 _WinAPI_ReleaseSemaphore
 
 ###Description###
-Increases the count of the specified semaphore object by a specified amount.
+Increases the count of the specified semaphore object by a specified amount
 
 ###Syntax###
 #include <WinAPIProc.au3>
@@ -12,7 +12,7 @@ _WinAPI_ReleaseSemaphore ( $hSemaphore [, $iIncrease = 1] )
 ###Parameters###
 @@ParamTable@@
 $hSemaphore
-	Handle to the semaphore object. The _WinAPI_CreateSemaphore() or _WinAPI_OpenSemaphore() function
+	Handle to the semaphore object. The <a href="_WinAPI_CreateSemaphore.htm">_WinAPI_CreateSemaphore()</a> or <a href="_WinAPI_OpenSemaphore.htm">_WinAPI_OpenSemaphore()</a> function
 	returns this handle.
 $iIncrease
 	[optional] The amount by which the semaphore object's current count is to be increased. The value must be greater
@@ -22,14 +22,14 @@ $iIncrease
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	The previous count for the semaphore.
-Failure 	Sets the @error flag to non-zero, call _WinAPI_GetLastError() to et extendd error information.
+Success:	The previous count for the semaphore.
+Failure:	Sets the @error flag to non-zero, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to et extendd error information.
 @@End@@
 
 
 ###Remarks###
 The state of a semaphore object is signaled when its count is greater than zero and nonsignaled when its count
-is equal to zero. The process that calls the _WinAPI_CreateSemaphore() function specifies the semaphore's initial
+is equal to zero. The process that calls the <a href="_WinAPI_CreateSemaphore.htm">_WinAPI_CreateSemaphore()</a> function specifies the semaphore's initial
 count. Each time a waiting process is released because of the semaphore's signaled state, the count of the
 semaphore is decreased by one.
 

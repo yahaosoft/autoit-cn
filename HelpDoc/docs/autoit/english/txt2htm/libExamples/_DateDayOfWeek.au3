@@ -5,6 +5,6 @@
 Local $sLongDayName = _DateDayOfWeek(@WDAY)
 
 ; Retrieve the abbreviated name
-Local $sShortDayName = _DateDayOfWeek(@WDAY, 1)
+Local $sShortDayName = _DateDayOfWeek(@WDAY, $DOW_SHORTNAME)
 
 MsgBox($MB_SYSTEMMODAL, "Day of Week", "Today is: " & $sLongDayName & " (" & $sShortDayName & ")")

@@ -1,7 +1,7 @@
-#include <WinAPIShellEx.au3>
 #include <APIShellExConstants.au3>
-#include <WinAPI.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPI.au3>
+#include <WinAPIShellEx.au3>
 
 Opt('TrayAutoPause', 0)
 

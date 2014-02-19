@@ -1,7 +1,7 @@
 #include <GUIConstantsEx.au3>
 #include <GuiTreeView.au3>
-#include <WindowsConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
@@ -12,7 +12,7 @@ Func Example()
 	GUICreate("TreeView Get Sibling Count", 400, 300)
 
 	$hTreeView = GUICtrlCreateTreeView(2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlTreeView_BeginUpdate($hTreeView)
 	$iRand = Random(2, 9, 1)
@@ -33,7 +33,7 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", StringFormat("Sibling Count for Child item index %d: %d", $iRand, _GUICtrlTreeView_GetSiblingCount($hTreeView, $hChildItem[$iRand])))
 	_GUICtrlTreeView_Expand($hTreeView, _GUICtrlTreeView_GetParentHandle($hTreeView, $hChildItem[$iRand]))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

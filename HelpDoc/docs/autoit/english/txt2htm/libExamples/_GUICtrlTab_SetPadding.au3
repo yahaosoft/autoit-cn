@@ -1,7 +1,7 @@
 #include <GUIConstantsEx.au3>
+#include <GuiImageList.au3>
 #include <GuiTab.au3>
 #include <WinAPI.au3>
-#include <GuiImageList.au3>
 
 Example()
 
@@ -11,7 +11,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("Tab Control Set Padding", 400, 300)
 	$hTab = GUICtrlCreateTab(2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Create images
 	$hImage = _GUIImageList_Create()
@@ -26,7 +26,7 @@ Func Example()
 	_GUICtrlTab_InsertItem($hTab, 1, "Tab 2", 1)
 	_GUICtrlTab_InsertItem($hTab, 2, "Tab 3", 2)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

@@ -2,7 +2,7 @@
 _WinAPI_DisplayStruct
 
 ###Description###
-Displays data from the specified structure or memory address as a list.
+Displays data from the specified structure or memory address as a list
 
 ###Syntax###
 #include <WinAPIDiag.au3>
@@ -14,22 +14,20 @@ _WinAPI_DisplayStruct ( $tStruct [, $sStruct = '' [, $sTitle = '' [, $iItem = 0 
 $tStruct
 	A structure that was created by DllStructCreate(), or memory address to be display its data.
 $sStruct
-	[optional] A string representing the structure. If $tStruct is a structure, this parameter can be omitted or be
-	an empty string. In this case, the structure will display as "byte[n]" structure. If $tStruct is a
-	memory address, $sStruct should be a string representing the structure, otherwise, the function
-	fail, and @error set to 10.
+	[optional] A string representing the structure.
+	If $tStruct is a structure, this parameter can be omitted or be an empty string. In this case, the structure will display as "byte[n]" structure.
+	If $tStruct is a memory address, $sStruct should be a string representing the structure, otherwise, the function fail, and @error set to 10.
 $sTitle
 	[optional] The title of the window, deault is "Structure: ListView Display".
 $iItem
-	[optional] The 1-based index or name of the structure member to be selected in the list. If this parameter is 0 (Default),
-	or an incorrect index or name, the first element of the structure will be selected.
+	[optional] The 1-based index or name of the structure member to be selected in the list.
+	If this parameter is 0 (Default), or an incorrect index or name, the first element of the structure will be selected.
 $iSubItem
-	[optional] The 1-based index of the array in the structure member pointed to by the $iItem parameter to be
-	selected. If $iItem was not defined as an array in the $sStruct, or invalid array index, the element
-	pointed to by the $iItem parameter will be selected.
+	[optional] The 1-based index of the array in the structure member pointed to by the $iItem parameter to be selected.
+	If $iItem was not defined as an array in the $sStruct, or invalid array index, the element pointed to by the $iItem parameter will be selected.
 $iFlags
 	[optional] A set of bit flags that specifies an additional displaying options.
-	This parameter can be 0, or any combination of the following values :
+	This parameter can be 0, or any combination of the following values:
 		1 - Prevent displaying "<struct>" and "<endstruct>" fields at the beginning and end of the list.
 		2 - Prevent displaying "<alignment>" fields.
 		4 - Prevent displaying "<unnamed>" in "Member" column of the list if the structure element has no name.
@@ -52,20 +50,20 @@ $hParent
 @@ReturnTable@@
 Success: 	1.
 Failure: 	0 and sets the @error flag to non-zero.
-@error:	10 - The $sStruct parameter is not a string.
-	2 - There is an unknown data type in the string passed.
+@error:	2 - There is an unknown data type in the string passed.
 	3 - Failed to allocate the memory needed for the structure, or invalid pointer.
 	4 - Error allocating memory for the passed string.
+	10 - The $sStruct parameter is not a string.
 	15 - Error accessing memory to read data.
 @@End@@
 
 
 ###Remarks###
-This function is intended primarily for debugging and should not be used in the final script, since no useful
-information for the end user does not carry.
+This function is intended primarily for debugging and should not be used in the final script, since no useful information for the end user does not carry.
 
 
 ###Related###
+None.
 
 
 ###Example###

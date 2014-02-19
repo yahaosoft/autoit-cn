@@ -1,7 +1,7 @@
-#include <WinAPIReg.au3>
 #include <APIRegConstants.au3>
 #include <ComboConstants.au3>
 #include <GUIConstantsEx.au3>
+#include <WinAPIReg.au3>
 
 Local $hMRU = _WinAPI_CreateMRUList($HKEY_CURRENT_USER, 'Software\MyProg\MRU', 5)
 
@@ -22,7 +22,7 @@ For $i = 1 To $Count - 1
 Next
 GUICtrlSetData(-1, $Data)
 Local $Button = GUICtrlCreateButton('OK', 125, 58, 70, 23)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 While 1
 	Switch GUIGetMsg()

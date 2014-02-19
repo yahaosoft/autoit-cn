@@ -1,7 +1,7 @@
-#include <GUIConstantsEx.au3>
 #include <GuiButton.au3>
-#include <WindowsConstants.au3>
+#include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Global $iMemo
 
@@ -20,7 +20,7 @@ Func Example()
 
 	$chk = _GUICtrlButton_Create($hGUI, "Check1", 10, 120, 90, 50, BitOR($BS_AUTO3STATE, $BS_NOTIFY))
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	MemoWrite("$btn handle: " & $btn)
 	MemoWrite("$rdo handle: " & $rdo)

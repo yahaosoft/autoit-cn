@@ -1,5 +1,5 @@
-#include <WinAPIShellEx.au3>
 #include <File.au3>
+#include <WinAPIShellEx.au3>
 
 Local $Path
 If @AutoItX64 Then

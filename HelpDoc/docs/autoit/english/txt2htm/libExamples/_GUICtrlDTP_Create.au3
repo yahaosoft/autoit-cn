@@ -1,7 +1,7 @@
 #include <GUIConstantsEx.au3>
+#include <GUIConstantsEx.au3>
 #include <GuiDateTimePicker.au3>
 #include <WindowsConstants.au3>
-#include <GUIConstantsEx.au3>
 
 Global $hDTP
 
@@ -13,14 +13,14 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("(UDF Created) DateTimePick Create", 400, 300)
 	$hDTP = _GUICtrlDTP_Create($hGUI, 2, 6, 190)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set the display format
 	_GUICtrlDTP_SetFormat($hDTP, "ddd MMM dd, yyyy hh:mm ttt")
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

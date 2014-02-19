@@ -9,7 +9,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Tab Control Click Tab", 400, 300)
 	$hTab = GUICtrlCreateTab(2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add tabs
 	_GUICtrlTab_InsertItem($hTab, 0, "Tab 1")
@@ -19,7 +19,7 @@ Func Example()
 	; Click Tab
 	_GUICtrlTab_ClickTab($hTab, 1, "left", True, 100)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

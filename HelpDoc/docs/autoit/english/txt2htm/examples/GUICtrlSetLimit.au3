@@ -3,19 +3,19 @@
 Example()
 
 Func Example()
-	Local $msg
-
 	GUICreate("My GUI limit input 3 chars") ; will create a dialog box that when displayed is centered
 
 	GUICtrlCreateInput("", 10, 20)
 	GUICtrlSetLimit(-1, 3) ; to limit the entry to 3 chars
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
-	; Run the GUI until the dialog is closed
+	; Loop until the user exits.
 	While 1
-		$msg = GUIGetMsg()
+		Switch GUIGetMsg()
+			Case $GUI_EVENT_CLOSE
+				ExitLoop
 
-		If $msg = $GUI_EVENT_CLOSE Then ExitLoop
+		EndSwitch
 	WEnd
 EndFunc   ;==>Example

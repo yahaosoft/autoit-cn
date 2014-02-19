@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 #include <MsgBoxConstants.au3>
 
 Global $iMemo
@@ -14,7 +14,7 @@ Func Example()
 	$listview = GUICtrlCreateListView("", 2, 2, 394, 199, BitOR($LVS_SHOWSELALWAYS, $LVS_NOSORTHEADER, $LVS_REPORT))
 	$iMemo = GUICtrlCreateEdit("", 2, 200, 396, 266, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$hImage = _GUIImageList_Create(32, 32, 5, 3)
 	_GUIImageList_AddIcon($hImage, @SystemDir & "\shell32.dll", 110, True)
@@ -51,7 +51,7 @@ Func Example()
 	MemoWrite("Image width : " & $aSize[0])
 	MemoWrite("Image height: " & $aSize[1])
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

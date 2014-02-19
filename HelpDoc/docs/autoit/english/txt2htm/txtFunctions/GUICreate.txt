@@ -41,25 +41,25 @@ Failure:	0 if the window cannot be created and sets the @error flag to 1.
 
 ###Remarks###
 By default the dialog box is non sizable and non maximizable. So WS_SIZEBOX or WS_MAXIMIZEBOX can be used in the style parameter.
-As defining only one style just set this style don't forget to combine it with default ones, i.e. just defining WS_SIZEBOX will not set WS_MINIMIZEBOX, WS_CAPTION, WS_POPUP, WS_SYSMENU. So the best method to define a resizeable window is to use WS_OVERLAPPEDWINDOW.
+As defining only one style just set this style don't forget to combine it with default ones, i.e. just defining WS_SIZEBOX will not set $WS_MINIMIZEBOX, $WS_CAPTION, $WS_POPUP, $WS_SYSMENU. So the best method to define a resizeable window is to use $WS_OVERLAPPEDWINDOW.
 When using $WS_EX_MDICHILD the position is relative to client area of the parent window. With $WS_EX_LAYERED it is possible to have a transparent picture on a background picture defined in the parent window.
 Adding $WS_CLIPCHILDREN style can avoid some flickering when resizing GUI containing Edit control for example.
 You can enable window dragging for GUI without $WS_CAPTION by using $WS_EX_CONTROLPARENT in the exStyle parameter.
 
-To combine styles with the default style use <b><a href="BitOR.htm">BitOR()</a></b>($GUI_SS_DEFAULT_GUI, newstyle,...).
+To combine styles with the default style use <a href="BitOR.htm">BitOR</a>($GUI_SS_DEFAULT_GUI, newstyle, ...).
 The size specified is the size of the client area of the window.  The border and title bar will make the window slightly larger than specified. Using menu controls will also change the windows height.
 
-<a name="Extended Style table"></a><b>Extended Style table</b>
+<a id="Extended Style table"></a><strong>Extended Style table</strong>
 
 @@StandardTable1@@
 Extended Style	result
 $WS_EX_ACCEPTFILES	Allow an edit or input control within the created GUI window to receive filenames via drag and drop. The control must have also the $GUI_DROPACCEPTED state set by <a href="GUICtrlSetState.htm">GUICtrlSetState()</a>. for other controls the drag&drop info  can be retrieved with @GUI_DragId, @GUI_DragFile, @GUI_DropId.
 $WS_EX_APPWINDOW	Forces a top-level window onto the taskbar when the window is visible.
 $WS_EX_CLIENTEDGE	Specifies that a window has a border with a sunken edge.
-$WS_EX_CONTEXTHELP	Includes a question mark in the title bar of the window. Cannot be used with the WS_MAXIMIZEBOX or WS_MINIMIZEBOX.
+$WS_EX_CONTEXTHELP	Includes a question mark in the title bar of the window. Cannot be used with the $WS_MAXIMIZEBOX or $WS_MINIMIZEBOX.
 $WS_EX_DLGMODALFRAME	Creates a window that has a double border; the window can, optionally, be created with a title bar by specifying the WS_CAPTION style in the style parameter.
 $WS_EX_MDICHILD	Create a child window included in its parent window (simulation not real MDI).
-$WS_EX_OVERLAPPEDWINDOW	Combines the WS_EX_CLIENTEDGE and WS_EX_WINDOWEDGE styles.
+$WS_EX_OVERLAPPEDWINDOW	Combines the $WS_EX_CLIENTEDGE and $WS_EX_WINDOWEDGE styles.
 $WS_EX_STATICEDGE	Creates a window with a three-dimensional border style intended to be used for items that do not accept user input.
 $WS_EX_TOPMOST	Specifies that a window created with this style should be placed above all non-topmost windows and should stay above them, even when the window is deactivated.
 $WS_EX_TRANSPARENT	The window appears transparent because the bits of underlying sibling windows have already been painted.
@@ -74,7 +74,7 @@ Note: The handle returned from this function is a real windows handle, which mea
 
 
 ###Related###
-GUISetParameters..., GUICtrlCreate..., GUIGetMsg, GUISwitch, GUIGetStyle, GUIDelete, WinGetHandle, GUICtrlSetDefBkColor, GUICtrlSetDefColor, GUIGetCursorInfo
+GUICtrlCreate..., GUICtrlSetDefBkColor, GUICtrlSetDefColor, GUIDelete, GUIGetCursorInfo, GUIGetMsg, GUIGetStyle, GUISetParameters..., GUISwitch, WinGetHandle
 
 
 ###Example###

@@ -14,7 +14,7 @@ Func Example()
 	For $x = 1 To 30
 		GUICtrlCreateListViewItem("item" & $x & "|col" & $x & "2|col" & $x & "3", $listview)
 	Next
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$iIndex = Random(0, 29, 1)
 	MsgBox($MB_SYSTEMMODAL, "Information", $iIndex & " is Visible: " & _GUICtrlListView_IsItemVisible($listview, $iIndex))

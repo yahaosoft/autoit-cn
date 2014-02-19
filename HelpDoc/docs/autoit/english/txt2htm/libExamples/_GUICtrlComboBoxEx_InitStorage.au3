@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("ComboBoxEx Init Storage", 400, 300)
 	$hCombo = _GUICtrlComboBoxEx_Create($hGUI, "", 2, 2, 396, 296, $CBS_SIMPLE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	MsgBox($MB_SYSTEMMODAL, "Information", "Init Storage Pre-Allocated Memory For: " & _GUICtrlComboBoxEx_InitStorage($hCombo, 150, 300) & " Items")
 	_GUICtrlComboBoxEx_BeginUpdate($hCombo)

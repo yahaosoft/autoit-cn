@@ -1,6 +1,6 @@
-#include <WinAPIShellEx.au3>
 #include <Extras\WMDebug.au3>
 #include <GUIConstantsEx.au3>
+#include <WinAPIShellEx.au3>
 
 OnAutoItExitRegister('OnAutoItExit')
 
@@ -14,7 +14,7 @@ Local $pDll = DllCallbackGetPtr($hDll)
 ; Install window subclass callback
 _WinAPI_SetWindowSubclass($hForm, $pDll, 1000, 0)
 
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE

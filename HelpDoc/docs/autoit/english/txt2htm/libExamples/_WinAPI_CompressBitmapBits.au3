@@ -1,5 +1,5 @@
-#include <WinAPIGdi.au3>
 #include <APIGdiConstants.au3>
+#include <WinAPIGdi.au3>
 #include <WinAPISys.au3>
 
 ; Load image

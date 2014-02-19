@@ -1,8 +1,8 @@
 #include <GUIConstantsEx.au3>
 #include <GuiListView.au3>
 #include <GuiStatusBar.au3>
-#include <WindowsConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Global $hListView, $Status
 
@@ -18,7 +18,7 @@ Func Example()
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, $exStyles)
 	$hListView = GUICtrlGetHandle($hListView)
 	$Status = _GUICtrlStatusBar_Create($GUI, -1, "")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 

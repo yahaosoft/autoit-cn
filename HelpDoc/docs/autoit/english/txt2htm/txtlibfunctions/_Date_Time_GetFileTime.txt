@@ -12,8 +12,7 @@ _Date_Time_GetFileTime ( $hFile )
 ###Parameters###
 @@ParamTable@@
 $hFile
-	Handle to the file for which dates and times are to be retrieved. The file handle must have
-	been created using the CreateFile function with the GENERIC_READ access right.
+	Handle to the file for which dates and times are to be retrieved. The file handle must have been created using the CreateFile function with the GENERIC_READ access right.
 @@End@@
 
 ###ReturnValue###
@@ -24,15 +23,13 @@ Returns an array with the following format:
 
 
 ###Remarks###
-Not all file systems can record creation and last access times and not all file systems record them in the
-same manner. For example, on FAT, create time has a resolution of 10 milliseconds, write time has a resolution
-of 2 seconds, and access time has a resolution of 1 day (really, the access date). Therefore, the GetFileTime
-function may not return the same file time information set using SetFileTime. NTFS delays updates to the last
-access time for a file by up to one hour after the last access.
+Not all file systems can record creation and last access times and not all file systems record them in the same manner.
+For example, on FAT, create time has a resolution of 10 milliseconds, write time has a resolution of 2 seconds, and access time has a resolution of 1 day (really, the access date). Therefore, the <a href="_Date_Time_GetFileTime.htm">_Date_Time_GetFileTime()</a> function may not return the same file time information set using <a href="_Date_Time_SetFileTime.htm">_Date_Time_SetFileTime()</a>.
+NTFS delays updates to the last access time for a file by up to one hour after the last access.
 
 
 ###Related###
-_Date_Time_SetFileTime, $tagFILETIME
+$tagFILETIME, _Date_Time_SetFileTime
 
 
 ###Example###

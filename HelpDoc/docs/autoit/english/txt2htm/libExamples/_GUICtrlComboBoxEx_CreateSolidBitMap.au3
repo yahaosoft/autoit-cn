@@ -1,6 +1,6 @@
 #include <GuiComboBoxEx.au3>
-#include <GuiImageList.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiImageList.au3>
 
 Example()
 
@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("ComboBoxEx Create Solid BitMap", 400, 300)
 	$hCombo = _GUICtrlComboBoxEx_Create($hGUI, "", 2, 2, 394, 100)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$hImage = _GUIImageList_Create(16, 16, 5, 3)
 	_GUIImageList_Add($hImage, _GUICtrlComboBoxEx_CreateSolidBitMap($hCombo, 0xFF0000, 16, 16))

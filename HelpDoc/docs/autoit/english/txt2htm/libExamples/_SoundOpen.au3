@@ -1,5 +1,5 @@
-#include <Sound.au3>
 #include <MsgBoxConstants.au3>
+#include <Sound.au3>
 
 Local $aSound = _SoundOpen(@WindowsDir & "\media\tada.wav")
 If @error = 2 Then

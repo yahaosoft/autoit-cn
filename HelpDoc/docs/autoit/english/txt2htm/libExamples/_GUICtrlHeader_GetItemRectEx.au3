@@ -14,7 +14,7 @@ Func Example()
 	_GUICtrlHeader_SetUnicodeFormat($hHeader, True)
 	$iMemo = GUICtrlCreateEdit("", 2, 24, 396, 274, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add columns
 	_GUICtrlHeader_AddItem($hHeader, "Column 1", 100)
@@ -29,7 +29,7 @@ Func Example()
 	MemoWrite("Column 1 right : " & DllStructGetData($tRect, "Right"))
 	MemoWrite("Column 1 bottom: " & DllStructGetData($tRect, "Bottom"))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

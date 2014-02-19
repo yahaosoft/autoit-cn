@@ -1,5 +1,5 @@
-#include <String.au3>
 #include <Array.au3>
+#include <String.au3>
 
 Local $text = "one##two##three##four##five##six##seven##eight"
 Local $aArray1 = _StringExplode($text, "##", 0)

@@ -1,6 +1,6 @@
 #include <GuiComboBoxEx.au3>
-#include <GuiImageList.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiImageList.au3>
 #include <MsgBoxConstants.au3>
 
 Example()
@@ -11,7 +11,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("ComboBoxEx Get Combo Control", 400, 300)
 	$hCombo = _GUICtrlComboBoxEx_Create($hGUI, "", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$hImage = _GUIImageList_Create(16, 16, 5, 3)
 	_GUIImageList_AddIcon($hImage, @SystemDir & "\shell32.dll", 110)
@@ -30,7 +30,7 @@ Func Example()
 			"Combo Control Handle: " & _GUICtrlComboBoxEx_GetComboControl($hCombo) & @CRLF & _
 			"Edit Control Handle: " & _GUICtrlComboBoxEx_GetEditControl($hCombo))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

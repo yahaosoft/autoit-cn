@@ -10,12 +10,13 @@ Func Example()
 	GUICtrlCreateRadio("Radio 2", 210, 110, 60, 50)
 	GUICtrlCreateGroup("", -99, -99, 1, 1) ;close group
 
-	GUISetState() ; will display an empty dialog box
+	GUISetState(@SW_SHOW) ; will display an empty dialog box
 
-	; Run the GUI until the dialog is closed
+	; Loop until the user exits.
 	While 1
-		Local $msg = GUIGetMsg()
-
-		If $msg = $GUI_EVENT_CLOSE Then ExitLoop
+		Switch GUIGetMsg()
+			Case $GUI_EVENT_CLOSE
+				ExitLoop
+		EndSwitch
 	WEnd
 EndFunc   ;==>Example

@@ -1,5 +1,5 @@
-#include <GuiMenu.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiMenu.au3>
 #include <MsgBoxConstants.au3>
 
 Example()
@@ -10,7 +10,7 @@ Func Example()
 
 	; Create GUI
 	$hGUI = GUICreate("Menu", 400, 300)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Create File menu
 	$hFile = _GUICtrlMenu_CreateMenu()
@@ -43,7 +43,7 @@ Func Example()
 	$iIndex = _GUICtrlMenu_FindItem($hMain, "Help")
 	MsgBox($MB_SYSTEMMODAL, "Information", "Index for Help Menu: " & $iIndex)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

@@ -1,10 +1,10 @@
-#include <WinAPIDlg.au3>
 #include <GUIConstantsEx.au3>
+#include <WinAPIDlg.au3>
 
 Local $hForm = GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 400, 400)
 Local $Button = GUICtrlCreateButton('About', 165, 366, 70, 23)
 GUICtrlSetState($Button, $GUI_DEFBUTTON)
-GUISetState()
+GUISetState(@SW_SHOW)
 Send('{Enter}')
 
 While 1

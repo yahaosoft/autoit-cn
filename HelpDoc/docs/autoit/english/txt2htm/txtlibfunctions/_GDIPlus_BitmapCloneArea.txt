@@ -6,12 +6,12 @@ Create a clone of a Bitmap object from the coordinates and format specified
 
 ###Syntax###
 #include <GDIPlus.au3>
-_GDIPlus_BitmapCloneArea ( $hBmp, $iLeft, $iTop, $iWidth, $iHeight [, $iFormat = 0x00021808] )
+_GDIPlus_BitmapCloneArea ( $hBitmap, $iLeft, $iTop, $iWidth, $iHeight [, $iFormat = 0x00021808] )
 
 
 ###Parameters###
 @@ParamTable@@
-$hBmp
+$hBitmap
 	Handle to a Bitmap object
 $iLeft
 	X coordinate of upper left corner of the rectangle to copy
@@ -33,7 +33,7 @@ $iFormat
 		$GDIP_PXF24RGB = 24 bits per pixel; 8 bits for each RGB component
 		$GDIP_PXF32RGB = 32 bits per pixel; 8 bits for each RGB component. No alpha component.
 		$GDIP_PXF32ARGB = 32 bits per pixel; 8 bits for each RGB and alpha component
-		$GDIP_PXF32PARGB = 32 bits per pixel; 8 bits for each RGB and alpha component, pre-mulitiplied
+		$GDIP_PXF32PARGB = 32 bits per pixel; 8 bits for each RGB and alpha component, pre-multiplied
 		$GDIP_PXF48RGB = 48 bits per pixel; 16 bits for each RGB component
 		$GDIP_PXF64ARGB = 64 bits per pixel; 16 bits for each RGB and alpha component
 		$GDIP_PXF64PARGB = 64 bits per pixel; 16 bits for each RGB and alpha component, pre-multiplied
@@ -47,7 +47,7 @@ Failure:	0 and sets the @error flag to non-zero, @extended may contain GPSTATUS 
 
 
 ###Remarks###
-When you are done with the Bitmap object, call _GDIPlus_BitmapDispose() to release the resources
+When you are done with the Bitmap object, call <a href="_GDIPlus_BitmapDispose.htm">_GDIPlus_BitmapDispose()</a> to release the resources
 
 
 ###Related###

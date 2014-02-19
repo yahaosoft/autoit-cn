@@ -2,7 +2,7 @@
 $tagOVERLAPPED
 
 ###Description###
-Contains information used in asynchronous (or overlapped) input and output (I/O).
+Contains information used in asynchronous (or overlapped) input and output (I/O)
 
 ###Syntax###
 Global Const $tagOVERLAPPED = "ulong_ptr Internal;ulong_ptr InternalHigh;struct; dword Offset;dword OffsetHigh; endstruct;handle hEvent"
@@ -11,22 +11,19 @@ Global Const $tagOVERLAPPED = "ulong_ptr Internal;ulong_ptr InternalHigh;struct;
 ###Fields###
 @@ParamTable@@
 Internal
-	Reserved for operating system use. This member, which specifies a system-dependent status, is
-	valid when the GetOverlappedResult function returns without setting the extended error information to ERROR_IO_PENDING.
+	Reserved for operating system use. This member, which specifies a system-dependent status, is valid when the GetOverlappedResult function returns without setting the extended error information to ERROR_IO_PENDING.
 InternalHigh
-	Reserved for operating system use. This member, which specifies the length of the data
-	transferred, is valid when the GetOverlappedResult function returns True.
+	Reserved for operating system use. This member, which specifies the length of the data transferred, is valid when the GetOverlappedResult function returns True.
 Offset
-	File position at which to start the transfer. The file position is a byte offset from the start
-	of the file. The calling process must set this member before calling the ReadFile or WriteFile function. This
-	member is used only when the device is a file. Otherwise, this member must be zero.
+	File position at which to start the transfer. The file position is a byte offset from the start of the file.
+	The calling process must set this member before calling the ReadFile or WriteFile function.
+	This member is used only when the device is a file. Otherwise, this member must be zero.
 OffsetHigh
-	High-order word of the file position at which to start the transfer. This member is used only
-	when the device is a file. Otherwise, this member must be zero.
+	High-order word of the file position at which to start the transfer.
+	This member is used only when the device is a file. Otherwise, this member must be zero.
 hEvent
-	Handle to an event that will be set to the signaled state when the operation has completed. The
-	calling process must set this member either to zero or a valid event handle before calling any overlapped
-	functions.
+	Handle to an event that will be set to the signaled state when the operation has completed.
+	The calling process must set this member either to zero or a valid event handle before calling any overlapped functions.
 @@End@@
 
 ###Remarks###

@@ -1,5 +1,5 @@
-#include <GuiListBox.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiListBox.au3>
 
 Example()
 
@@ -9,12 +9,12 @@ Func Example()
 	; Create GUI
 	GUICreate("List Box Add File", 400, 296)
 	$hListBox = GUICtrlCreateList("", 2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add file
 	_GUICtrlListBox_AddFile($hListBox, @WindowsDir & "\notepad.exe")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

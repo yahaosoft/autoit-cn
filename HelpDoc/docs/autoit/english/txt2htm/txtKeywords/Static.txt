@@ -5,14 +5,14 @@ Static
 Declare a static variable or create a static array.
 
 ###Syntax###
-<b>Static</b> [Scope] $variable [ = initializer ]
-<b>Static</b> [Scope] $aArray<b>[</b>subscript 1<b>]</b>...<b>[</b>subscript n<b>]</b> [ = initializer ]
+<strong>Static</strong> [Scope] $variable [ = initializer ]
+<strong>Static</strong> [Scope] $aArray<strong>[</strong>subscript 1<strong>]</strong>...<strong>[</strong>subscript n<strong>]</strong> [ = initializer ]
 
 
 ###Parameters###
 @@ParamTable@@
 Scope
-	An optional modifier, <b>Local</b> or <b>Global</b> that indicates where the variable is visible.
+	An optional modifier, <strong>Local</strong> or <strong>Global</strong> that indicates where the variable is visible.
 $variable
 	The name of the static variable to declare.
 initializer
@@ -22,17 +22,17 @@ subscript
 @@End@@
 
 ###Remarks###
-The Static keyword can appear on the line before the optional scope specifier, or after. e.g. <b>Local Static</b> or <b>Static Local</b> are both acceptable.
+The Static keyword can appear on the line before the optional scope specifier, or after. e.g. <strong>Local Static</strong> or <strong>Static Local</strong> are both acceptable.
 
-If the scope specifier <b>Local</b> is used, then the static variable is visible and usable only in the function in which it is declared and it's resolved in the environment of execution (logical scope). This means that conditionally declared variable is visible only when declaraion condition is met. If the scope specifier <b>Global</b> is used, then the static variable is visible and usable in all parts of the script; in this regard, a Global Static has very little difference from a Global variable. If the scope specifier is not used, then the static variable will be created in the local scope; in this way, Static is similar to Dim.
+If the scope specifier <strong>Local</strong> is used, then the static variable is visible and usable only in the function in which it is declared and it's resolved in the environment of execution (logical scope). This means that conditionally declared variable is visible only when declaraion condition is met. If the scope specifier <strong>Global</strong> is used, then the static variable is visible and usable in all parts of the script; in this regard, a Global Static has very little difference from a Global variable. If the scope specifier is not used, then the static variable will be created in the local scope; in this way, Static is similar to <a href="Dim.htm">Dim</a>.
 
 The difference between Local and Static is variable lifetime. Local variables are only stored while the function is called and are visible only within the function in which they are declared; when the function returns, all its local variables are released. Static variables are likewise visible only in the function in which they are declared, but they continue to exist, retaining their last value, after the function finishes execution. When looking for variables, the local scope is checked first and then the global scope second.
 
-The Static keyword performs similar functions to the Global/Local/Dim keywords.
+The Static keyword performs similar functions to the <a href="Dim.htm">Global/Local/Dim</a> keywords.
 <ol><li>They all declare a variable before you use it.</li>
 <li>They all can create an array.</li></ol>
 
-<b>Note</b>: Static variables <i>must</i> be declared using the <b>Static</b> keyword prior to use, no matter how AutoItSetOption("MustDeclareVars") is set. Static variables can not be <b><a href="Dim.htm">Const</a></b>.
+<strong>Note</strong>: Static variables <em>must</em> be declared using the <strong>Static</strong> keyword prior to use, no matter how AutoItSetOption("<a href="../functions/AutoItSetOption.htm#MustDeclareVars">MustDeclareVars</a>") is set. Static variables can not be <strong><a href="Dim.htm">Const</a></strong>.
 
 You can also declare multiple static variables on a single line:
 <p class="code">Static $a, $b, $c</p>
@@ -45,11 +45,11 @@ See <a href="Dim.htm">Local</a> for more information about using arrays, which h
 <ol><li>Reinitializing a Static variable has no effect.</li>
 <li>You can not change a static variable to a local or global variable nor vice-versa.</li></ol>
 
-If you want to resize an array use ReDim.
+If you want to resize an array use <a href="ReDim.htm">ReDim</a>.
 
 
 ###Related###
-<a href="Dim.htm">Local</a>, UBound, ReDim, <a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption</a></b>
+<a href="Dim.htm">Local</a>, UBound, ReDim, <a href="../functions/AutoItSetOption.htm#MustDeclareVars">AutoItSetOption</a></strong>
 
 
 ###Example###

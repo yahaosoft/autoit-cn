@@ -2,22 +2,22 @@
 _WinAPI_GetThemeBitmap
 
 ###Description###
-Retrieves the bitmap associated with a particular theme, part, state, and property.
+Retrieves the bitmap associated with a particular theme, part, state, and property
 
 ###Syntax###
 #include <WinAPITheme.au3>
-_WinAPI_GetThemeBitmap ( $hTheme, $iPartId, $iStateId, $iPropId [, $iFlag = 0x01] )
+_WinAPI_GetThemeBitmap ( $hTheme, $iPartID, $iStateID, $iPropID [, $iFlag = 0x01] )
 
 
 ###Parameters###
 @@ParamTable@@
 $hTheme
 	Handle to a window's specified theme data.
-$iPartId
+$iPartID
 	The part that contains the bitmap.
-$iStateId
+$iStateID
 	The state of the part.
-$iPropId
+$iPropID
 	The property to retrieve. Set this parameter to 0 to automatically select the first available bitmap
 	for this part and state, or use one of the following values.
 	$TMT_DIBDATA
@@ -32,16 +32,16 @@ $iFlag
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	Handle to the requested bitmap.
-Failure 	Sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+Success:	Handle to the requested bitmap.
+Failure:	Sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
 @@End@@
 
 
 ###Remarks###
 If $iFlag is set to $GBF_COPY, release the bitmap returned by this function when no longer needed by calling
-_WinAPI_DeleteObject().
+<a href="_WinAPI_DeleteObject.htm">_WinAPI_DeleteObject()</a>.
 
-This function requires Windows Vista or later.
+This function requires <strong>Windows Vista or later</strong>.
 
 
 ###Related###

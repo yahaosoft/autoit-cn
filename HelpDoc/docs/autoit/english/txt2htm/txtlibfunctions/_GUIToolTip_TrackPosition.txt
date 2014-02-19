@@ -12,7 +12,7 @@ _GUIToolTip_TrackPosition ( $hWnd, $iX, $iY )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	Handle to the ToolTip control (returned by <a href ="_GUIToolTip_Create.htm">_GUIToolTip_Create.</a>)
 $iX
 	X position in screen coordinates
 $iY
@@ -24,10 +24,13 @@ None.
 
 
 ###Remarks###
-The ToolTip chooses where to display the window based on the coordinates you provide with this message.
-This causes the ToolTip window to appear beside the tool to which it corresponds.
-To have ToolTip windows displayed at specific coordinates,
-include the $TTM_TRACKPOSITION flag in the $iFlags member of the TOOLINFO structure when adding the tool.
+The ToolTip will display the window based on the coordinates you provide with this message.
+You must use <a href="_GUIToolTip_TrackActivate.htm">_GUIToolTip_TrackActivate()</a> in combination with <a href="_GUIToolTip_TrackPosition.htm">_GUIToolTip_TrackPosition()</a> otherwise this function has no effect on the ToolTip.
 
 
 ###Related###
+_GUIToolTip_TrackActivate
+
+
+###Example###
+@@IncludeExample@@

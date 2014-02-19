@@ -9,4 +9,17 @@ Func Example()
 
 	; Display the results in _ArrayDisplay.
 	_ArrayDisplay($aArray, "Default Search")
+
+	; Create an array of all the values between "|" and "|" - note $sStart and $sEnd are identical
+	Local $sString = "-----|Both Modes|$STR_ENDISSTART only|Both Modes|-----"
+
+	; Mode $STR_ENDISSTART - default - $sEnd is next $sStart
+    Local $aArray = _StringBetween($sString, "|", "|")
+	; Display the results in _ArrayDisplay.
+    _ArrayDisplay($aArray, "$STR_ENDISSTART")
+
+    ; Mode $STR_ENDNOTSTART - $sEnd is not next $sStart
+    Local $aArray = _StringBetween($sString, "|", "|", $STR_ENDNOTSTART)
+	; Display the results in _ArrayDisplay.
+    _ArrayDisplay($aArray, "$STR_ENDNOTSTART")
 EndFunc   ;==>Example

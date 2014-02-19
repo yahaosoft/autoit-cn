@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Tab Control Deselect All", 400, 300)
 	$hTab = GUICtrlCreateTab(2, 2, 396, 296, $TCS_BUTTONS)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add tabs
 	_GUICtrlTab_InsertItem($hTab, 0, "Tab 1")
@@ -24,7 +24,7 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", "Resetting tab selection")
 	_GUICtrlTab_DeselectAll($hTab, False)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

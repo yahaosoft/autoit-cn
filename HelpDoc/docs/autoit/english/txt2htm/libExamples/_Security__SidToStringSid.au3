@@ -1,5 +1,5 @@
-#include <Security.au3>
 #include <MsgBoxConstants.au3>
+#include <Security.au3>
 
 Local $sAccount = @UserName
 Local $tSID = _Security__GetAccountSid($sAccount)

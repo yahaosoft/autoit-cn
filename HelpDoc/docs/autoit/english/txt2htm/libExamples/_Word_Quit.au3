@@ -1,14 +1,14 @@
-#include <Word.au3>
 #include <MsgBoxConstants.au3>
+#include <Word.au3>
 
 ; Create application object
-Global $oWord = _Word_Create()
-If @error <> 0 Then Exit MsgBox($MB_SYSTEMMODAL, "Word UDF: _Word_DocQuit Example", _
+Local $oWord = _Word_Create()
+If @error Then Exit MsgBox($MB_SYSTEMMODAL, "Word UDF: _Word_DocQuit Example", _
 		"Error creating a new Word application object." & @CRLF & "@error = " & @error & ", @extended = " & @extended)
-Global $bWordClose = @extended
+Local $bWordClose = @extended
 ; Open the test document read-only
 _Word_DocOpen($oWord, @ScriptDir & "\Extras\Test.doc", Default, Default, True)
-If @error <> 0 Then Exit MsgBox($MB_SYSTEMMODAL, "Word UDF: _Word_DocQuit Example", _
+If @error Then Exit MsgBox($MB_SYSTEMMODAL, "Word UDF: _Word_DocQuit Example", _
 		"Error opening '.\Extras\Test.doc'." & @CRLF & "@error = " & @error & ", @extended = " & @extended)
 
 ; *****************************************************************************
@@ -16,7 +16,7 @@ If @error <> 0 Then Exit MsgBox($MB_SYSTEMMODAL, "Word UDF: _Word_DocQuit Exampl
 ; object will be removed.
 ; If Word was started by this example all documents and Word will be closed.
 ; *****************************************************************************
-Global $iResult
+Local $iResult
 If $bWordClose Then
 	$iResult = MsgBox(BitOR($MB_OKCANCEL, $MB_SYSTEMMODAL), "Word UDF: _Word_Quit Example", _
 			"If you click OK ALL unsaved changes in ALL open documents of this Word instance will be lost and the instance will be closed.")
@@ -26,5 +26,5 @@ Else
 EndIf
 If $iResult = 2 Then Exit
 _Word_Quit($oWord)
-If @error <> 0 Then MsgBox($MB_SYSTEMMODAL, "Word UDF: _Word_Quit Example", _
+If @error Then MsgBox($MB_SYSTEMMODAL, "Word UDF: _Word_Quit Example", _
 		"Error closing the Word application object." & @CRLF & "@error = " & @error & ", @extended = " & @extended)

@@ -3,41 +3,41 @@
 #include <GUIConstantsEx.au3>
 #include <ListViewConstants.au3>
 
-Global $nCurCol = -1
-Global $nSortDir = 1
-Global $bSet = 0
-Global $nCol = -1
+Global $giCurCol = -1
+Global $giSortDir = 1
+Global $gbSet = False
+Global $giCol = -1
 
 Example()
 
 Func Example()
-	Local $lv, $msg
-
 	GUICreate("Test", 300, 200)
 
-	$lv = GUICtrlCreateListView("Column1|Col2|Col3", 10, 10, 280, 180)
+	Local $idLv = GUICtrlCreateListView("Column1|Col2|Col3", 10, 10, 280, 180)
 	GUICtrlRegisterListViewSort(-1, "LVSort") ; Register the function "SortLV" for the sorting callback
 
-	GUICtrlCreateListViewItem("ABC|666|10.05.2004", $lv)
+	GUICtrlCreateListViewItem("ABC|666|10.05.2004", $idLv)
 	GUICtrlSetImage(-1, "shell32.dll", 7)
-	GUICtrlCreateListViewItem("DEF|444|11.05.2005", $lv)
+	GUICtrlCreateListViewItem("DEF|444|11.05.2005", $idLv)
 	GUICtrlSetImage(-1, "shell32.dll", 12)
-	GUICtrlCreateListViewItem("CDE|444|12.05.2004", $lv)
+	GUICtrlCreateListViewItem("CDE|444|12.05.2004", $idLv)
 	GUICtrlSetImage(-1, "shell32.dll", 3)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
+	Local $idMsg
+	; Loop until the user exits.
 	While 1
-		$msg = GUIGetMsg()
-		Switch $msg
+		$idMsg = GUIGetMsg()
+		Switch $idMsg
 			Case $GUI_EVENT_CLOSE
 				ExitLoop
 
-			Case $lv
-				$bSet = 0
-				$nCurCol = $nCol
-				GUICtrlSendMsg($lv, $LVM_SETSELECTEDCOLUMN, GUICtrlGetState($lv), 0)
-				DllCall("user32.dll", "int", "InvalidateRect", "hwnd", GUICtrlGetHandle($lv), "int", 0, "int", 1)
+			Case $idLv
+				$gbSet = False
+				$giCurCol = $giCol
+				GUICtrlSendMsg($idLv, $LVM_SETSELECTEDCOLUMN, GUICtrlGetState($idLv), 0)
+;~ 				DllCall("user32.dll", "int", "InvalidateRect", "hwnd", GUICtrlGetHandle($idLv), "int", 0, "int", 1)
 		EndSwitch
 	WEnd
 
@@ -45,69 +45,64 @@ Func Example()
 EndFunc   ;==>Example
 
 ; Our sorting callback funtion
-Func LVSort($hWnd, $nItem1, $nItem2, $nColumn)
-	Local $val1, $val2, $nResult
+Func LVSort($hWnd, $nItem1, $nItem2, $iColumn)
+	Local $sVal1, $sVal2, $iResult
 
 	; Switch the sorting direction
-	If $nColumn = $nCurCol Then
-		If Not $bSet Then
-			$nSortDir = $nSortDir * -1
-			$bSet = 1
+	If $iColumn = $giCurCol Then
+		If Not $gbSet Then
+			$giSortDir = $giSortDir * -1
+			$gbSet = True
 		EndIf
 	Else
-		$nSortDir = 1
+		$giSortDir = 1
 	EndIf
-	$nCol = $nColumn
+	$giCol = $iColumn
 
-	$val1 = GetSubItemText($hWnd, $nItem1, $nColumn)
-	$val2 = GetSubItemText($hWnd, $nItem2, $nColumn)
+	$sVal1 = GetSubItemText($hWnd, $nItem1, $iColumn)
+	$sVal2 = GetSubItemText($hWnd, $nItem2, $iColumn)
 
 	; If it is the 3rd colum (column starts with 0) then compare the dates
-	If $nColumn = 2 Then
-		$val1 = StringRight($val1, 4) & StringMid($val1, 4, 2) & StringLeft($val1, 2)
-		$val2 = StringRight($val2, 4) & StringMid($val2, 4, 2) & StringLeft($val2, 2)
+	If $iColumn = 2 Then
+		$sVal1 = StringRight($sVal1, 4) & StringMid($sVal1, 4, 2) & StringLeft($sVal1, 2)
+		$sVal2 = StringRight($sVal2, 4) & StringMid($sVal2, 4, 2) & StringLeft($sVal2, 2)
 	EndIf
 
-	$nResult = 0 ; No change of item1 and item2 positions
+	$iResult = 0 ; No change of item1 and item2 positions
 
-	If $val1 < $val2 Then
-		$nResult = -1 ; Put item2 before item1
-	ElseIf $val1 > $val2 Then
-		$nResult = 1 ; Put item2 behind item1
+	If $sVal1 < $sVal2 Then
+		$iResult = -1 ; Put item2 before item1
+	ElseIf $sVal1 > $sVal2 Then
+		$iResult = 1 ; Put item2 behind item1
 	EndIf
 
-	$nResult = $nResult * $nSortDir
+	$iResult = $iResult * $giSortDir
 
-	Return $nResult
+	Return $iResult
 EndFunc   ;==>LVSort
 
 ; Retrieve the text of a listview item in a specified column
-Func GetSubItemText($nCtrlID, $nItemID, $nColumn)
-	Local $stLvfi = DllStructCreate("uint;ptr;int;int[2];int")
-	Local $nIndex, $stBuffer, $stLvi, $sItemText
+Func GetSubItemText($idCtrl, $idItem, $iColumn)
+	Local $tLvfi = DllStructCreate("uint;ptr;int;int[2];int")
 
-	DllStructSetData($stLvfi, 1, $LVFI_PARAM)
-	DllStructSetData($stLvfi, 3, $nItemID)
+	DllStructSetData($tLvfi, 1, $LVFI_PARAM)
+	DllStructSetData($tLvfi, 3, $idItem)
 
-	$stBuffer = DllStructCreate("char[260]")
+	Local $tBuffer = DllStructCreate("char[260]")
 
-	$nIndex = GUICtrlSendMsg($nCtrlID, $LVM_FINDITEM, -1, DllStructGetPtr($stLvfi));
+	Local $nIndex = GUICtrlSendMsg($idCtrl, $LVM_FINDITEM, -1, DllStructGetPtr($tLvfi));
 
-	$stLvi = DllStructCreate("uint;int;int;uint;uint;ptr;int;int;int;int")
+	Local $tLvi = DllStructCreate("uint;int;int;uint;uint;ptr;int;int;int;int")
 
-	DllStructSetData($stLvi, 1, $LVIF_TEXT)
-	DllStructSetData($stLvi, 2, $nIndex)
-	DllStructSetData($stLvi, 3, $nColumn)
-	DllStructSetData($stLvi, 6, DllStructGetPtr($stBuffer))
-	DllStructSetData($stLvi, 7, 260)
+	DllStructSetData($tLvi, 1, $LVIF_TEXT)
+	DllStructSetData($tLvi, 2, $nIndex)
+	DllStructSetData($tLvi, 3, $iColumn)
+	DllStructSetData($tLvi, 6, DllStructGetPtr($tBuffer))
+	DllStructSetData($tLvi, 7, 260)
 
-	GUICtrlSendMsg($nCtrlID, $LVM_GETITEMA, 0, DllStructGetPtr($stLvi));
+	GUICtrlSendMsg($idCtrl, $LVM_GETITEMA, 0, DllStructGetPtr($tLvi));
 
-	$sItemText = DllStructGetData($stBuffer, 1)
-
-	$stLvi = 0
-	$stLvfi = 0
-	$stBuffer = 0
+	Local $sItemText = DllStructGetData($tBuffer, 1)
 
 	Return $sItemText
 EndFunc   ;==>GetSubItemText

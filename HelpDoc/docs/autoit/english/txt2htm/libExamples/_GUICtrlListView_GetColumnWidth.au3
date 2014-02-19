@@ -9,7 +9,7 @@ Func Example()
 
 	GUICreate("ListView Get Column Width", 400, 300)
 	$hListView = GUICtrlCreateListView("Column 1|Column 2|Column 3", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlListView_SetColumnWidth($hListView, 0, 100)
 
@@ -18,7 +18,7 @@ Func Example()
 	_GUICtrlListView_SetColumnWidth($hListView, 0, 150)
 	MsgBox($MB_SYSTEMMODAL, "Information", "Column 1 Width: " & _GUICtrlListView_GetColumnWidth($hListView, 0))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

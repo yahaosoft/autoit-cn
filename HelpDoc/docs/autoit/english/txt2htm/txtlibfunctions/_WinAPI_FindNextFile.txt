@@ -2,7 +2,7 @@
 _WinAPI_FindNextFile
 
 ###Description###
-Continues a file or directory search.
+Continues a file or directory search
 
 ###Syntax###
 #include <WinAPIFiles.au3>
@@ -12,24 +12,23 @@ _WinAPI_FindNextFile ( $hSearch, $pData )
 ###Parameters###
 @@ParamTable@@
 $hSearch
-	The search handle returned by a previous call to the _WinAPI_FindFirstFile() function.
+	The search handle returned by a previous call to the <a href="_WinAPI_FindFirstFile.htm">_WinAPI_FindFirstFile()</a> function.
 $pData
 	A pointer to the $tagWIN32_FIND_DATA structure that receives information about a found file or directory.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	True.
-Failure 	False and sets the @error flag to non-zero, @extended flag may contain the system error code.
+Success:	True.
+Failure:	False and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 
 ###Remarks###
-The order in which the search returns the files, such as alphabetical order, is not guaranteed. If the data
-must be sorted, the application must do the ordering after obtaining all the results.
+The order in which the search returns the files, such as alphabetical order, is not guaranteed.
+If the data must be sorted, the application must do the ordering after obtaining all the results.
 
-If the function fails because no more matching files can be found, the @extended flag will contain
-ERROR_NO_MORE_FILES (18) system error code.
+If the function fails because no more matching files can be found, the @extended flag will contain ERROR_NO_MORE_FILES (18) system error code.
 
 
 ###Related###

@@ -18,7 +18,7 @@ Func Example()
 	_GUICtrlStatusBar_SetMinHeight($hStatus, 20)
 
 	;===============================================================================
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Initialize parts
 	_GUICtrlStatusBar_SetParts($hStatus, $aParts)
@@ -41,7 +41,7 @@ Func Example()
 	$hInput = GUICtrlGetHandle($input)
 	_GUICtrlStatusBar_EmbedControl($hStatus, 3, $hInput, 3)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

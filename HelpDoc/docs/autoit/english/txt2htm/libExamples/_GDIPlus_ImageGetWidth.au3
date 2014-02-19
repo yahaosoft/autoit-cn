@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
 #include <ScreenCapture.au3>
 #include <WinAPI.au3>
 
@@ -30,4 +30,6 @@ Func Example()
 
 	; Shut down GDI+ library
 	_GDIPlus_Shutdown()
+
+	ShellExecute(@MyDocumentsDir & "\GDIPlus_Image.jpg")
 EndFunc   ;==>Example

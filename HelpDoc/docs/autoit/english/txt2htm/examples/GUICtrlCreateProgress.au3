@@ -1,46 +1,47 @@
 #include <GUIConstantsEx.au3>
-#include <ProgressConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <ProgressConstants.au3>
 
 Example()
 
 Func Example()
-	Local $progressbar1, $progressbar2, $button, $wait, $s, $msg, $m
-
 	GUICreate("My GUI Progressbar", 220, 100, 100, 200)
-	$progressbar1 = GUICtrlCreateProgress(10, 10, 200, 20)
+	Local $idProgressbar1 = GUICtrlCreateProgress(10, 10, 200, 20)
 	GUICtrlSetColor(-1, 32250); not working with Windows XP Style
-	$progressbar2 = GUICtrlCreateProgress(10, 40, 200, 20, $PBS_SMOOTH)
-	$button = GUICtrlCreateButton("Start", 75, 70, 70, 20)
-	GUISetState()
+	Local $idProgressbar2 = GUICtrlCreateProgress(10, 40, 200, 20, $PBS_SMOOTH)
+	Local $idButton = GUICtrlCreateButton("Start", 75, 70, 70, 20)
+	GUISetState(@SW_SHOW)
 
-	$wait = 20; wait 20ms for next progressstep
-	$s = 0; progressbar-saveposition
+	Local $iWait = 20; wait 20ms for next progressstep
+	Local $iSavPos = 0; progressbar-saveposition
+
+	Local $idMsg, $idM
+	; Loop until the user exits.
 	Do
-		$msg = GUIGetMsg()
-		If $msg = $button Then
-			GUICtrlSetData($button, "Stop")
-			For $i = $s To 100
-				If GUICtrlRead($progressbar1) = 50 Then MsgBox($MB_SYSTEMMODAL, "Info", "The half is done...", 1)
-				$m = GUIGetMsg()
+		$idMsg = GUIGetMsg()
+		If $idMsg = $idButton Then
+			GUICtrlSetData($idButton, "Stop")
+			For $i = $iSavPos To 100
+				If GUICtrlRead($idProgressbar1) = 50 Then MsgBox($MB_SYSTEMMODAL, "Info", "The half is done...", 1)
+				$idM = GUIGetMsg()
 
-				If $m = -3 Then ExitLoop
+				If $idM = -3 Then ExitLoop
 
-				If $m = $button Then
-					GUICtrlSetData($button, "Next")
-					$s = $i;save the current bar-position to $s
+				If $idM = $idButton Then
+					GUICtrlSetData($idButton, "Next")
+					$iSavPos = $i;save the current bar-position to $iSavPos
 					ExitLoop
 				Else
-					$s = 0
-					GUICtrlSetData($progressbar1, $i)
-					GUICtrlSetData($progressbar2, (100 - $i))
-					Sleep($wait)
+					$iSavPos = 0
+					GUICtrlSetData($idProgressbar1, $i)
+					GUICtrlSetData($idProgressbar2, (100 - $i))
+					Sleep($iWait)
 				EndIf
 			Next
 			If $i > 100 Then
-				;		$s=0
-				GUICtrlSetData($button, "Start")
+				;		$iSavPos=0
+				GUICtrlSetData($idButton, "Start")
 			EndIf
 		EndIf
-	Until $msg = $GUI_EVENT_CLOSE
+	Until $idMsg = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

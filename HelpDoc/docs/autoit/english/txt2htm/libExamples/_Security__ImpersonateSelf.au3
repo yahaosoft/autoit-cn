@@ -1,5 +1,5 @@
-#include <SecurityConstants.au3>
 #include <Security.au3>
+#include <SecurityConstants.au3>
 #include <WinAPI.au3>
 
 Local $hToken = _Security__OpenThreadToken($TOKEN_ADJUST_PRIVILEGES)

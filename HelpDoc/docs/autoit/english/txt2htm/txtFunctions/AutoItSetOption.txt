@@ -19,7 +19,7 @@ param
 ###ReturnValue###
 @@ReturnTable@@
 Success:	the value of the previous setting for the option.
-Failure:	sets the @error flag to non-zero. Failure will occur if the parameters are invalid (such as an option that doesn't exist).
+Failure:	sets the @error flag to non-zero. Failure will occur if the parameters are invalid (such as an option that does not exist).
 @@End@@
 
 
@@ -28,134 +28,134 @@ You may use <a href="AutoItSetOption.htm">Opt()</a> as an alternative to <a href
 
 Options are as follows:
 @@ParamTable@@
-<b>Option</b>
-	<b>Param</b>
+<strong>Option</strong>
+	<strong>Param</strong>
 CaretCoordMode
-	<a name="CaretCoordMode"></a>Sets the way coords are used in the caret functions, either absolute coords or coords relative to the current active window:
+	<a id="CaretCoordMode"></a>Sets the way coords are used in the caret functions, either absolute coords or coords relative to the current active window:
 	0 = relative coords to the active window
-	1 = absolute screen coordinates (default)
+	1 = (default) absolute screen coordinates
 	2 = relative coords to the client area of the active window
 ExpandEnvStrings
-	<a name="ExpandEnvStrings"></a>Changes how literal strings and % symbols are interpreted. By default strings are treated literally, this option allows you to use %environment% variables inside strings, e.g., "The temp directory is: %temp%".
-	0 = do not expand environment variables (default)
+	<a id="ExpandEnvStrings"></a>Changes how literal strings and % symbols are interpreted. By default strings are treated literally, this option allows you to use %environment% variables inside strings, e.g., "The temp directory is: %temp%".
+	0 = (default) do not expand environment variables
 	1 = expand environment variables
 	Without this option the usual way would be: 	"The temp directory is: " & <a href="EnvGet.htm">EnvGet</a>("temp")
 ExpandVarStrings
-	<a name="ExpandVarStrings"></a>Changes how literal strings and variable/macro ($ and @) symbols are interpreted. By default strings are treated literally, this option allows you to use variables and macros inside strings, e.g., "The value of var1 is $var1$".
-	0 = do not expand variables (default)
+	<a id="ExpandVarStrings"></a>Changes how literal strings and variable/macro ($ and @) symbols are interpreted. By default strings are treated literally, this option allows you to use variables and macros inside strings, e.g., "The value of var1 is $var1$".
+	0 = (default) do not expand variables
 	1 = expand variables (when in this mode and you want to use a literal $ or @ then double it up: "This is a single dollar $$ sign".
 GUICloseOnESC
-	<a name="GUICloseOnESC"></a>When ESC is pressed on a GUI the $GUI_EVENT_CLOSE message is sent. This option toggles this behavior on and off.
+	<a id="GUICloseOnESC"></a>When ESC is pressed on a GUI the $GUI_EVENT_CLOSE message is sent. This option toggles this behavior on and off.
 	0 = Don't send the $GUI_EVENT_CLOSE message when ESC is pressed.
-	1 = <a href="Send.htm">Send()</a> the $GUI_EVENT_CLOSE message when ESC is pressed (default).
+	1 = (default) <a href="Send.htm">Send()</a> the $GUI_EVENT_CLOSE message when ESC is pressed.
 GUICoordMode
-	<a name="GUICoordMode"></a>Alters the position of a control defined by <a href="GUICtrlSetPos.htm">GUICtrlSetPos()</a>.
+	<a id="GUICoordMode"></a>Alters the position of a control defined by <a href="GUICtrlSetPos.htm">GUICtrlSetPos()</a>.
 	0 = relative position to the start of the last control (upper left corner).
-	1 = absolute coordinates (default) still relative to the dialog box.
+	1 = (default) absolute coordinates still relative to the dialog box.
 	2 = cell positioning relative to current cell. A -1 for left or top parameter don't increment the start.
 	So next line is -1, offset; next cell is offset,-1; current cell is -1,-1.
 	Obviously "offset" cannot be -1 which reserved to indicate the no increment. But if you can use a multiple of the width you choose to skip or go back.
 GUIDataSeparatorChar
-	<a name="GUIDataSeparatorChar"></a>Define the character which delimits subitems in <a href="GUICtrlSetData.htm">GUICtrlSetData()</a>.
+	<a id="GUIDataSeparatorChar"></a>Define the character which delimits subitems in <a href="GUICtrlSetData.htm">GUICtrlSetData()</a>.
 	The default character is '|'.
 GUIOnEventMode
-	<a name="GUIOnEventMode"></a>Enable/disable OnEvent functions notifications.
+	<a id="GUIOnEventMode"></a>Enable/disable OnEvent functions notifications.
 	0 = (default) disable.
 	1 = enable.
 GUIResizeMode
-	<a name="GUIResizeMode"></a>Change default resizing for a control.
+	<a id="GUIResizeMode"></a>Change default resizing for a control.
 	0 = (default) keep default control resizing.
 	&lt;1024 = any type of resizing see <a href="GUICtrlSetResizing.htm">GUICtrlSetResizing()</a>.
 GUIEventOptions
-	<a name="GUIEventOptions"></a>Change special event behavior or GUI function return values.
+	<a id="GUIEventOptions"></a>Change special event behavior or GUI function return values.
 	0 = (default) Windows behavior on click on Minimize,Restore, Maximize, Resize.
 	1 = suppress windows behavior on minimize, restore or maximize click button or window resize. Just sends the notification.
 MouseClickDelay
-	<a name="MouseClickDelay"></a>Alters the length of the brief pause in between mouse clicks.
+	<a id="MouseClickDelay"></a>Alters the length of the brief pause in between mouse clicks.
 	Time in milliseconds to pause (default=10).
 MouseClickDownDelay
-	<a name="MouseClickDownDelay"></a>Alters the length a click is held down before release.
+	<a id="MouseClickDownDelay"></a>Alters the length a click is held down before release.
 	Time in milliseconds to pause (default=10).
 MouseClickDragDelay
-	<a name="MouseClickDragDelay"></a>Alters the length of the brief pause at the start and end of a mouse drag operation.
+	<a id="MouseClickDragDelay"></a>Alters the length of the brief pause at the start and end of a mouse drag operation.
 	Time in milliseconds to pause (default=250).
 MouseCoordMode
-	<a name="MouseCoordMode"></a>Sets the way coords are used in the mouse functions, either absolute coords or coords relative to the current active window:
+	<a id="MouseCoordMode"></a>Sets the way coords are used in the mouse functions, either absolute coords or coords relative to the current active window:
 	0 = relative coords to the active window
-	1 = absolute screen coordinates (default)
+	1 = (default) absolute screen coordinates
 	2 = relative coords to the client area of the active window
 MustDeclareVars
-	<a name="MustDeclareVars"></a>If this option is used then all variables must be pre-declared with Local, Global or in some cases Dim before they can be used - removes the chance for misspelled variables causing bugs.
-	0 = Variables don't need to be pre-declared (default)
-	1 = Variables must be pre-declared. See <a href="..\Keywords\Dim.htm">Dim / Global / Local / Const</a> for details on declaring variables.
+	<a id="MustDeclareVars"></a>If this option is used then all variables must be pre-declared with Local, Global or in some cases Dim before they can be used - removes the chance for misspelled variables causing bugs.
+	0 = (default) Variables don't need to be pre-declared
+	1 = Variables must be pre-declared. See <a href="../keywords/Dim.htm">Dim / Global / Local / Const</a> for details on declaring variables.
 PixelCoordMode
-	<a name="PixelCoordMode"></a>Sets the way coords are used in the pixel functions, either absolute coords or coords relative to the window defined by hwnd (default active window):
+	<a id="PixelCoordMode"></a>Sets the way coords are used in the pixel functions, either absolute coords or coords relative to the window defined by hwnd (default active window):
 	0 = relative coords to the defined window
-	1 = absolute screen coordinates (default)
+	1 = (default) absolute screen coordinates
 	2 = relative coords to the client area of the defined window
 SendAttachMode
-	<a name="SendAttachMode"></a>Specifies if AutoIt attaches input threads when using <a href="Send.htm">Send()</a> function. When not attaching (default mode=0) detecting the state of capslock/scrolllock and numlock can be unreliable under NT4. However, when you specify attach mode=1 the <a href="Send.htm">Send</a>("{... down/up}") syntax will not work and there may be problems with sending keys to "hung" windows. <a href="ControlSend.htm">ControlSend()</a> ALWAYS attaches and is not affected by this mode.
-	0 = don't attach (default)
+	<a id="SendAttachMode"></a>Specifies if AutoIt attaches input threads when using <a href="Send.htm">Send()</a> function. When not attaching (default mode=0) detecting the state of capslock/scrolllock and numlock can be unreliable under NT4. However, when you specify attach mode=1 the <a href="Send.htm">Send</a>("{... down/up}") syntax will not work and there may be problems with sending keys to "hung" windows. <a href="ControlSend.htm">ControlSend()</a> ALWAYS attaches and is not affected by this mode.
+	0 = (default) don't attach
 	1 = attach
 SendCapslockMode
-	<a name="SendCapslockMode"></a>Specifies if AutoIt should store the state of capslock before a <a href="Send.htm">Send()</a> function and restore it afterwards.
+	<a id="SendCapslockMode"></a>Specifies if AutoIt should store the state of capslock before a <a href="Send.htm">Send()</a> function and restore it afterwards.
 	0 = don't store/restore
-	1 = store and restore (default)
+	1 = (default) store and restore
 SendKeyDelay
-	<a name="SendKeyDelay"></a>Alters the length of the brief pause in between sent keystrokes. A value of 0 removes the delay completely.
+	<a id="SendKeyDelay"></a>Alters the length of the brief pause in between sent keystrokes. A value of 0 removes the delay completely.
 	Time in milliseconds to pause (default=5).
 SendKeyDownDelay
-	<a name="SendKeyDownDelay"></a>Alters the length of time a key is held down before being released during a keystroke. For applications that take a while to register keypresses you may need to raise this value from the default. A value of 0 removes the delay completely.
+	<a id="SendKeyDownDelay"></a>Alters the length of time a key is held down before being released during a keystroke. For applications that take a while to register keypresses you may need to raise this value from the default. A value of 0 removes the delay completely.
 	Time in milliseconds to pause (default=5).
 TCPTimeout
-	<a name="TCPTimeout"></a>Defines the time before TCP functions stop if no communication.
+	<a id="TCPTimeout"></a>Defines the time before TCP functions stop if no communication.
 	Time in milliseconds before timeout (default=100).
 TrayAutoPause
-	<a name="TrayAutoPause"></a>Script pauses when click on tray icon.
+	<a id="TrayAutoPause"></a>Script pauses when click on tray icon.
 	0 = no pause
-	1 = pause (default). If there is no DefaultMenu no pause will occurs.
+	1 = (default) pause. If there is no DefaultMenu no pause will occurs.
 TrayIconDebug
-	<a name="TrayIconDebug"></a>If enabled shows the current script line in the tray icon tip to help debugging.
-	0 = no debug information (default)
+	<a id="TrayIconDebug"></a>If enabled shows the current script line in the tray icon tip to help debugging.
+	0 = (default) no debug information
 	1 = show debug
 TrayIconHide
-	<a name="TrayIconHide"></a>Hides the AutoIt tray icon. Note: The icon will still initially appear ~750 milliseconds.
-	0 = show icon (default)
+	<a id="TrayIconHide"></a>Hides the AutoIt tray icon. Note: The icon will still initially appear for ~750 milliseconds.
+	0 = (default) show icon
 	1 = hide icon
 TrayMenuMode
-	<a name="TrayMenuMode"></a>Extend the behaviour of the script tray icon/menu. This can be done with a combination (adding) of the following values.
-	0 = default menu items (Script Paused/Exit) are appended to the usercreated menu; usercreated checked items will automatically unchecked; if you double click the tray icon then the controlid is returned which has the "Default"-style (default).
+	<a id="TrayMenuMode"></a>Extend the behaviour of the script tray icon/menu. This can be done with a combination (adding) of the following values.
+	0 = (default) default menu items (Script Paused/Exit) are appended to the usercreated menu; usercreated checked items will automatically unchecked; if you double click the tray icon then the controlID is returned which has the "Default"-style.
 	1 = no default menu
 	2 = user created checked items will not automatically unchecked if you click it
 	4 = don't return the menuitemID which has the "default"-style in the main contextmenu if you double click the tray icon
 	8 = turn off auto check of radio item groups
 TrayOnEventMode
-	<a name="TrayOnEventMode"></a>Enable/disable OnEvent functions notifications for the tray.
+	<a id="TrayOnEventMode"></a>Enable/disable OnEvent functions notifications for the tray.
 	0 = (default) disable
 	1 = enable
 WinDetectHiddenText
-	<a name="WinDetectHiddenText"></a>Specifies if hidden window text can be "seen" by the window matching functions.
-	0 = Do not detect hidden text (default)
+	<a id="WinDetectHiddenText"></a>Specifies if hidden window text can be "seen" by the window matching functions.
+	0 = (default) Do not detect hidden text
 	1 = Detect hidden text
 WinSearchChildren
-	<a name="WinSearchChildren"></a>Allows the window search routines to search child windows as well as top-level windows.
-	0 = Only search top-level windows (default)
+	<a id="WinSearchChildren"></a>Allows the window search routines to search child windows as well as top-level windows.
+	0 = (default) Only search top-level windows
 	1 = Search top-level and child windows
 WinTextMatchMode
-	<a name="WinTextMatchMode"></a>Alters the method that is used to match window text during search operations.
-	1 = Complete / Slow mode (default)
+	<a id="WinTextMatchMode"></a>Alters the method that is used to match window text during search operations.
+	1 = (default) Complete / Slow mode
 	2 = Quick mode
 	In quick mode AutoIt can usually only "see" dialog text, button text and the captions of some controls. In the default mode much more text can be seen (for instance the contents of the Notepad window).
 	If you are having performance problems when performing many window searches then changing to the "quick" mode may help.
 WinTitleMatchMode
-	<a name="WinTitleMatchMode"></a>Alters the method that is used to match window titles during search operations.
-	1 = Match the title from the start (default)
+	<a id="WinTitleMatchMode"></a>Alters the method that is used to match window titles during search operations.
+	1 = (default) Match the title from the start
 	2 = Match any substring in the title
 	3 = Exact title match
-	4 = Advanced mode, see <a href="../intro/windowsadvanced.htm">Window Titles & Text (Advanced)</a>
+	4 = Advanced mode (retained for backwards compatibility only - see <a href="../intro/windowsadvanced.htm">Window Titles & Text (Advanced)</a>)
 	-1 to -4 = Case insensitive match according to the other type of match.
 WinWaitDelay
-	<a name="WinWaitDelay"></a>Alters how long a script should briefly pause after a successful window-related operation.
+	<a id="WinWaitDelay"></a>Alters how long a script should briefly pause after a successful window-related operation.
 	Time in milliseconds to pause (default=250).
 @@End@@
 

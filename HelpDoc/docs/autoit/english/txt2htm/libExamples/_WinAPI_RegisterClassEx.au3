@@ -1,5 +1,5 @@
-#include <WinAPISys.au3>
 #include <WinAPIRes.au3>
+#include <WinAPISys.au3>
 #include <WindowsConstants.au3>
 
 Global Const $sClass = 'MyWindowClass'

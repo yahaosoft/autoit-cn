@@ -2,7 +2,7 @@
 _WinAPI_ChangeWindowMessageFilterEx
 
 ###Description###
-Modifies the User Interface Privilege Isolation (UIPI) message filter for a specified window.
+Modifies the User Interface Privilege Isolation (UIPI) message filter for a specified window
 
 ###Syntax###
 #include <WinAPISys.au3>
@@ -12,46 +12,43 @@ _WinAPI_ChangeWindowMessageFilterEx ( $hWnd, $iMsg, $iAction )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the window whose UIPI message filter is to be modified. If this parameter is 0, the UIPI
-	message filter will be modified in a process-wide manner. Moreover, under Windows Vista this parameter
-	is not used and should be set to 0.
+	Handle to the window whose UIPI message filter is to be modified.
+	If this parameter is 0, the UIPI message filter will be modified in a process-wide manner.
+	Moreover, under Windows Vista this parameter is not used and should be set to 0.
 $iMsg
 	The message that the message filter allows through or blocks.
 $iAction
-	The action to be performed. This parameter can be one of the following values.
-	$MSGFLT_ALLOW
-	$MSGFLT_DISALLOW
+	The action to be performed. This parameter can be one of the following values:
+		$MSGFLT_ALLOW
+		$MSGFLT_DISALLOW
 
 	Windows 7 or later
-	$MSGFLT_RESET
+		$MSGFLT_RESET
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	1 and sets the @extended flag to 0 or one of the following values (only under Windows 7 and later).
+Success:	1 and sets the @extended flag to 0 or one of the following values (only under Windows 7 and later).
 	$MSGFLTINFO_ALLOWED_HIGHER
 	$MSGFLTINFO_ALREADYALLOWED_FORWND
 	$MSGFLTINFO_ALREADYDISALLOWED_FORWND
 	$MSGFLTINFO_NONE
-
 	(See MSDN for more information)
-Failure 	0 and sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended code information.
+Failure:	0 and sets the @error flag to non-zero, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended code information.
 @@End@@
 
 
 ###Remarks###
 UIPI is a security feature that prevents messages from being received from a lower-integrity-level sender.
-You can use this function to allow specific messages to be delivered to a window even if the message originates
-from a process at a lower integrity level.
+You can use this function to allow specific messages to be delivered to a window even if the message originates from a process at a lower integrity level.
 
-Certain messages whose value is smaller than WM_USER are required to be passed through the filter, regardless
-of the filter setting. There will be no effect when you attempt to use this function to allow or block such
-messages.
+Certain messages whose value is smaller than WM_USER are required to be passed through the filter, regardless of the filter setting. There will be no effect when you attempt to use this function to allow or block such messages.
 
-This function requires Windows Vista or later.
+This function requires <strong>Windows Vista or later</strong>.
 
 
 ###Related###
+None.
 
 
 ###See Also###

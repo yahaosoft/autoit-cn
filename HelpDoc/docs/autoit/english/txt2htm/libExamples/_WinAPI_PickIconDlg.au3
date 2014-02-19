@@ -1,12 +1,12 @@
-#include <WinAPIDlg.au3>
 #include <GUIConstantsEx.au3>
+#include <WinAPIDlg.au3>
 
 Local $Last[2] = [@SystemDir & '\shell32.dll', 3]
 
 Local $hForm = GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 160, 160)
 Local $Button = GUICtrlCreateButton('Change Icon...', 25, 130, 110, 23)
 Local $Icon = GUICtrlCreateIcon($Last[0], -(1 + $Last[1]), 64, 54, 32, 32)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Local $Data
 While 1

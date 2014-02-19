@@ -1,11 +1,11 @@
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
 
 Example()
 
 Func Example()
 	Local $hGUI = GUICreate("GDI+", 200, 180)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GDIPlus_Startup()
 	Local $hGraphics = _GDIPlus_GraphicsCreateFromHWND($hGUI)
@@ -25,7 +25,7 @@ Func Example()
 	Local $aRect = _GDIPlus_PathBrushGetRect($hBrush)
 	_GDIPlus_GraphicsFillRect($hGraphics, $aRect[0], $aRect[1], $aRect[2], $aRect[3], $hBrush)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

@@ -1,6 +1,6 @@
+#include <ColorConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <GuiListView.au3>
-#include <ColorConstants.au3>
 #include <MsgBoxConstants.au3>
 
 Example()
@@ -10,7 +10,7 @@ Func Example()
 
 	GUICreate("ListView Get BkColor", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set colors
 	_GUICtrlListView_SetBkColor($hListView, $CLR_MONEYGREEN)
@@ -32,7 +32,7 @@ Func Example()
 			"Text Color ....: " & _GUICtrlListView_GetTextColor($hListView) & @CRLF & _
 			"Text Back Color: " & _GUICtrlListView_GetTextBkColor($hListView))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

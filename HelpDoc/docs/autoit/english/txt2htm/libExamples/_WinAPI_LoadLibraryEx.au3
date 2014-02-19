@@ -1,8 +1,7 @@
+#include <GUIConstantsEx.au3>
 #include <GuiReBar.au3>
 #include <WinAPI.au3>
-#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
-#include <Constants.au3>
 
 Global $iMemo
 
@@ -29,7 +28,7 @@ Func Example()
 	;add band containing the  control
 	_GUICtrlRebar_AddBand($hReBar, GUICtrlGetHandle($btn_get), 120, 200)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	While 1
 		Switch GUIGetMsg()

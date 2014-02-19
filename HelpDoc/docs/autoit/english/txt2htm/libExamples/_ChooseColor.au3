@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
 #include <Misc.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
@@ -13,7 +13,7 @@ Func Example()
 	$Btn_COLORREF = GUICtrlCreateButton("COLORREF", 70, 10, 80, 40)
 	$Btn_BGR = GUICtrlCreateButton("BGR", 160, 10, 80, 40)
 	$Btn_RGB = GUICtrlCreateButton("RGB", 250, 10, 80, 40)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	While 1
 		Switch GUIGetMsg()

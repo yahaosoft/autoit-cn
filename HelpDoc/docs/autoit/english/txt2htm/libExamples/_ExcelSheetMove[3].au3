@@ -17,9 +17,9 @@ _ExcelSheetMove($oExcel, $sSheetName5, 5, False) ;Move $sSheetName4 5th position
 MsgBox($MB_SYSTEMMODAL, "Show", "Take note of the order of the Worksheets" & @CRLF & @CRLF & "Press OK to Continue")
 
 _ExcelSheetMove($oExcel, $sSheetName5, "Sheet3", True) ;Move the 5th sheet to the relative before position of the sheet named: 'Sheet3'
-MsgBox($MB_SYSTEMMODAL, "Exiting", "'" & $sSheetName5 & "'" & " when the $fBefore paramter is True (Relative to 'Sheet3')" & @CRLF & @CRLF & "Press OK to Continue")
+MsgBox($MB_SYSTEMMODAL, "Exiting", "'" & $sSheetName5 & "'" & " when the $fBefore parameter is True (Relative to 'Sheet3')" & @CRLF & @CRLF & "Press OK to Continue")
 _ExcelSheetMove($oExcel, $sSheetName5, "Sheet3", False) ;Move the 5th sheet to the relative before position of the sheet named: 'Sheet3'
-MsgBox($MB_SYSTEMMODAL, "Exiting", "'" & $sSheetName5 & "'" & " when the $fBefore paramter is False (Relative to 'Sheet3')" & @CRLF & @CRLF & "Now Press OK to Save File and Exit")
+MsgBox($MB_SYSTEMMODAL, "Exiting", "'" & $sSheetName5 & "'" & " when the $fBefore parameter is False (Relative to 'Sheet3')" & @CRLF & @CRLF & "Now Press OK to Save File and Exit")
 
 _ExcelBookSaveAs($oExcel, @TempDir & "\Temp.xls", "xls", 0, 1) ; Now we save it into the temp directory; overwrite existing file if necessary
 _ExcelBookClose($oExcel) ; And finally we close out

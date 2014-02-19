@@ -48,13 +48,13 @@ You can set SendCapslockMode to make CAPS LOCK disabled at the start of a <a hre
 However, if a user is holding down the Shift key when a <a href="Send.htm">Send()</a> function begins, text may be sent in uppercase.
 One workaround is to <a href="Send.htm">Send</a>("{SHIFTDOWN}{SHIFTUP}")  before the other <a href="Send.htm">Send()</a> operations.
 
-Certain keyboards as the Czech keyboard sends different characters when using the Shift Key or with CAPS LOCK enabled while sending a character. Due to the send AutoIt implementation the CAPS LOCKed character will be sent as a Shifted character so <b>it will not work.</b>
+Certain keyboards as the Czech keyboard sends different characters when using the Shift Key or with CAPS LOCK enabled while sending a character. Due to the send AutoIt implementation the CAPS LOCKed character will be sent as a Shifted character so <strong>it will not work.</strong>
 Certain special keys can be sent and should be enclosed in braces:
 
 N.B. Windows does not allow the simulation of the "CTRL-ALT-DEL" combination!
 
 @@StandardTable1@@
-<b><a href="Send.htm">Send()</a> Command (if zero flag)</b>	<b>Resulting Keypress</b>
+<strong><a href="Send.htm">Send()</a> Command (if zero flag)</strong>	<strong>Resulting Keypress</strong>
 {!}	!
 {#}	#
 {+}	+
@@ -84,7 +84,7 @@ N.B. Windows does not allow the simulation of the "CTRL-ALT-DEL" combination!
 {NUMLOCK on}	NUMLOCK (on/off/toggle)
 {CAPSLOCK off}	CAPSLOCK (on/off/toggle)
 {SCROLLLOCK toggle}	SCROLLLOCK (on/off/toggle)
-{BREAK}	for Ctrl+<a href="Break.htm">Break()</a> processing
+{BREAK}	for Ctrl+Break processing
 {PAUSE}	PAUSE
 
 {NUMPAD0} - {NUMPAD9}	Numpad digits
@@ -107,7 +107,7 @@ N.B. Windows does not allow the simulation of the "CTRL-ALT-DEL" combination!
 {CTRLDOWN}	Holds the CTRL key down until {CTRLUP} is sent
 {LWINDOWN}	Holds the left Windows key down until {LWINUP} is sent
 {RWINDOWN}	Holds the right Windows key down until {RWINUP} is sent
-{ASC nnnn}	<a href="Send.htm">Send()</a> the ALT+nnnn key combination
+{ASC nnnn}	Send the ALT+nnnn key combination
 {BROWSER_BACK}	Select the browser "back" button
 {BROWSER_FORWARD}	Select the browser "forward" button
 {BROWSER_REFRESH}	Select the browser "refresh" button
@@ -137,15 +137,17 @@ To send UNICODE characters enter the character code (decimal or hex), for exampl
 	<a href="Send.htm">Send</a>("{ASC 2709}") or <a href="Send.htm">Send</a>("{ASC 0xA95}")
 
 
-Single keys can also be repeated, e.g.
+Single keys can also be sent repeated:
 	<a href="Send.htm">Send</a>("{DEL 4}")    ;Presses the DEL key 4 times
-	<a href="Send.htm">Send</a>("{S 30}")      ;Sends 30 'S' characters
+	<a href="Send.htm">Send</a>("{S 30}")     ;Sends 30 'S' characters
 	<a href="Send.htm">Send</a>("+{TAB 4}")   ;Presses SHIFT+TAB 4 times
 
-The key will be send at least once even if the count is zero.
+No key is sent if the count is zero allowing the count to be set programatically:
+	<a href="Send.htm">Send</a>("{M " & $iCount & "}")    ;Presses the M key as many times as set in the $iCount variable
+
 
 To hold a key down
-	<a href="Send.htm">Send</a>("{a down}")    ;Holds the A key down
+	<a href="Send.htm">Send</a>("{a down}")      ;Holds the A key down
 	<a href="Send.htm">Send</a>("{a up}")        ;Releases the A key
 
 To set the state of the capslock, numlock and scrolllock keys
@@ -190,7 +192,7 @@ Use Alt-key combos to access menu items.  Also, open Notepad and try the followi
 @@End@@
 See Windows' Help--press Win+F1--for a complete list of keyboard shortcuts if you don't know the importance of Alt+F4, PrintScreen, Ctrl+C, and so on.
 
-When running a script on a remote computer through a program as psexec (www.sysinternals.com) or beyondexec (www.beyondlogic.org) it is necessary, specially when sending strokes to a program launch by the script with a <a href="Run.htm">Run()</a> function, to use <b><a href="ControlSend.htm">ControlSend()</a></b> or other ControlXXX functions to directly communicate with the control. <a href="Send.htm">Send()</a> even with <a href="AutoItSetOption.htm">Opt</a>("SendAttachMode", 1) will not work.
+When running a script on a remote computer through a program as psexec (www.sysinternals.com) or beyondexec (www.beyondlogic.org) it is necessary, specially when sending strokes to a program launch by the script with a <a href="Run.htm">Run()</a> function, to use <strong><a href="ControlSend.htm">ControlSend()</a></strong> or other ControlXXX functions to directly communicate with the control. <a href="Send.htm">Send()</a> even with <a href="AutoItSetOption.htm">Opt</a>("SendAttachMode", 1) will not work.
 Using the -s mode when submitting can help to have better rights on the remote computer.
 
 <a href="AutoItSetOption.htm">Opt</a>("SendKeyDelay",...) alters the the length of the brief pause in between sent keystrokes.
@@ -199,7 +201,7 @@ Set both "SendKeyDelay" and "SendKeyDownDelay" to 0 to remove all delays when se
 
 
 ###Related###
-SendAttachMode (Option), SendKeepActive, SendKeyDelay (Option), SendKeyDownDelay (Option), ControlSend, BlockInput, HotKeySet, WinMenuSelectItem
+BlockInput, ControlSend, HotKeySet, SendAttachMode (Option), SendKeepActive, SendKeyDelay (Option), SendKeyDownDelay (Option), WinMenuSelectItem
 
 
 ###Example###

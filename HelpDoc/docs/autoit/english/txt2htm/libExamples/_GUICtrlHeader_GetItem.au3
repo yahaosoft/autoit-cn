@@ -16,7 +16,7 @@ Func Example()
 	_GUICtrlHeader_SetUnicodeFormat($hHeader, True)
 	$iMemo = GUICtrlCreateEdit("", 2, 24, 396, 274, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Create an image list with images
 	$hImage = _GUIImageList_Create(11, 11)
@@ -37,7 +37,7 @@ Func Example()
 	_GUICtrlHeader_GetItem($hHeader, 2, $tItem)
 	MemoWrite("Column 3 image index: " & DllStructGetData($tItem, "Image"))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

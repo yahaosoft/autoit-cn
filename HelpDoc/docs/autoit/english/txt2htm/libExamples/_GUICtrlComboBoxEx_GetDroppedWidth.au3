@@ -1,6 +1,6 @@
 #include <GuiComboBoxEx.au3>
-#include <GuiImageList.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiImageList.au3>
 
 Global $iMemo
 
@@ -14,7 +14,7 @@ Func Example()
 	$hCombo = _GUICtrlComboBoxEx_Create($hGUI, "", 2, 2, 394, 100)
 	$iMemo = GUICtrlCreateEdit("", 2, 32, 396, 266, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$hImage = _GUIImageList_Create(16, 16, 5, 3)
 	_GUIImageList_AddIcon($hImage, @SystemDir & "\shell32.dll", 110)
@@ -63,7 +63,7 @@ Func Example()
 	; hide drop down
 	_GUICtrlComboBoxEx_ShowDropDown($hCombo)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

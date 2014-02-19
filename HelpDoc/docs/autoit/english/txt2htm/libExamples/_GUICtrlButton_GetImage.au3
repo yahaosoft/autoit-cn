@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GuiButton.au3>
+#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 
 Global $iMemo
@@ -15,7 +15,7 @@ Func Example()
 	GUICreate("Buttons", 300, 300)
 	$iMemo = GUICtrlCreateEdit("", 2, 60, 296, 236, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$btn = GUICtrlCreateButton("Button1", 10, 10, 40, 40, $BS_BITMAP)
 	_GUICtrlButton_SetImage($btn, $sPath & "\blue.bmp")

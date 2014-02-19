@@ -11,7 +11,7 @@ Func Example()
 	GUICreate("TreeView Set Item Height", 400, 300)
 
 	$hTreeView = GUICtrlCreateTreeView(2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlTreeView_BeginUpdate($hTreeView)
 	For $x = 0 To UBound($hItem) - 1
@@ -21,7 +21,7 @@ Func Example()
 
 	_GUICtrlTreeView_SetItemHeight($hTreeView, $hItem[2], 2)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

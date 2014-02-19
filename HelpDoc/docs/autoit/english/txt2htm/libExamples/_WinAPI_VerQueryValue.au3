@@ -1,6 +1,6 @@
+#include <Array.au3>
 #include <WinAPIRes.au3>
 #include <WinAPISys.au3>
-#include <Array.au3>
 
 Local $pData = 0
 If Not _WinAPI_GetFileVersionInfo(@SystemDir & '\shell32.dll', $pData) Then

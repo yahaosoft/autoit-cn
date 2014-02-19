@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiTreeView.au3>
 #include <GuiImageList.au3>
+#include <GuiTreeView.au3>
 #include <WinAPI.au3>
 #include <WindowsConstants.au3>
 
@@ -13,7 +13,7 @@ Func Example()
 	$GUI = GUICreate("TreeView Create Drage Image", 400, 300)
 	$hTreeView = GUICtrlGetHandle(GUICtrlCreateTreeView(2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE))
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create(16, 16, 5, 3)
@@ -40,7 +40,7 @@ Func Example()
 	_GUICtrlTreeView_EndUpdate($hTreeView)
 	_GUICtrlTreeView_SelectItem($hTreeView, 0)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_MOUSEMOVE

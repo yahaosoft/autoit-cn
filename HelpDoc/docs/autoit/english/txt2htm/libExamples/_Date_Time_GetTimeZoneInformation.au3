@@ -1,7 +1,7 @@
-#include <GUIConstantsEx.au3>
 #include <Date.au3>
-#include <WindowsConstants.au3>
+#include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 ; Under Vista the Windows API "SetTimeZoneInformation" may be rejected due to system security
 
@@ -16,7 +16,7 @@ Func Example()
 	GUICreate("Time", 400, 300)
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 296, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Show current time zone information
 	$aOld = _Date_Time_GetTimeZoneInformation()
@@ -39,7 +39,7 @@ Func Example()
 	$aOld = _Date_Time_GetTimeZoneInformation()
 	ShowTimeZoneInformation($aOld, "Reset")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Slider Get Thumb Length", 400, 296)
 	$hSlider = GUICtrlCreateSlider(2, 2, 396, 25, BitOR($TBS_TOOLTIPS, $TBS_AUTOTICKS, $TBS_FIXEDLENGTH))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get Thumb Length
 	MsgBox($MB_SYSTEMMODAL, "Information", "Thumb Length: " & _GUICtrlSlider_GetThumbLength($hSlider))
@@ -21,7 +21,7 @@ Func Example()
 	; Get Thumb Length
 	MsgBox($MB_SYSTEMMODAL, "Information", "Thumb Length: " & _GUICtrlSlider_GetThumbLength($hSlider))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

@@ -1,6 +1,6 @@
-#include <WinAPIFiles.au3>
 #include <APIFilesConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIFiles.au3>
 
 Local $sDevice = 'Z:'
 Local $sPath = @ScriptDir

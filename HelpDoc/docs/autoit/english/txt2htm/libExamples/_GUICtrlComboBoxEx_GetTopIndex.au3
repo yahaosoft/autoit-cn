@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("ComboBoxEx Get Top Index", 400, 300)
 	$hCombo = _GUICtrlComboBoxEx_Create($hGUI, "", 2, 2, 394, 100, $CBS_SIMPLE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlComboBoxEx_InitStorage($hCombo, 150, 300)
 	_GUICtrlComboBoxEx_BeginUpdate($hCombo)

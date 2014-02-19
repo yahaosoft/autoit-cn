@@ -1,5 +1,5 @@
-#include <GuiListBox.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiListBox.au3>
 #include <MsgBoxConstants.au3>
 
 Example()
@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("List Box Set Sel", 400, 296)
 	$hListBox = GUICtrlCreateList("", 2, 2, 396, 296, BitOR($LBS_STANDARD, $LBS_EXTENDEDSEL))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add strings
 	_GUICtrlListBox_BeginUpdate($hListBox)
@@ -27,7 +27,7 @@ Func Example()
 	; Show the item selection state
 	MsgBox($MB_SYSTEMMODAL, "Information", "Item 5 Selected: " & _GUICtrlListBox_GetSel($hListBox, 4))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

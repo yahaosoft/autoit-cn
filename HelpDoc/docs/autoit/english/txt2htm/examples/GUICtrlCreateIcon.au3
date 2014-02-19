@@ -8,13 +8,15 @@ Func Example()
 	GUICtrlCreateIcon("shell32.dll", 10, 20, 20)
 	GUICtrlCreateIcon(@ScriptDir & '\Extras\horse.ani', -1, 20, 40, 32, 32)
 	GUICtrlCreateIcon("shell32.dll", 7, 20, 75, 32, 32)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
-	; Run the GUI until the dialog is closed
+	; Loop until the user exits.
 	While 1
-		Local $msg = GUIGetMsg()
-
-		If $msg = $GUI_EVENT_CLOSE Then ExitLoop
+		Switch GUIGetMsg()
+			Case $GUI_EVENT_CLOSE
+				ExitLoop
+		EndSwitch
 	WEnd
+
 	GUIDelete()
 EndFunc   ;==>Example

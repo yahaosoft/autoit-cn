@@ -1,6 +1,6 @@
+#include <GUIConstantsEx.au3>
 #include <GuiEdit.au3>
 #include <GuiStatusBar.au3>
-#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 
 Example()
@@ -18,7 +18,7 @@ Func Example()
 	$hStatusBar = _GUICtrlStatusBar_Create($hGUI, $aPartRightSide)
 	_GUICtrlStatusBar_SetIcon($hStatusBar, 5, 97, "shell32.dll")
 	_GUICtrlStatusBar_SetText($hStatusBar, "Rect")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get Rect
 	$aRect = _GUICtrlEdit_GetRECT($hEdit)
@@ -41,7 +41,7 @@ Func Example()
 	_GUICtrlStatusBar_SetText($hStatusBar, "Right: " & $aRect[2], 3)
 	_GUICtrlStatusBar_SetText($hStatusBar, "Bottom: " & $aRect[3], 4)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

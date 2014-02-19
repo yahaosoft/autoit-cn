@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("ComboBox Init Storage", 400, 296)
 	$hCombo = GUICtrlCreateCombo("", 2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Init Storaged
 	MsgBox($MB_SYSTEMMODAL, "Information", "Pre-Allocated Memory For: " & _GUICtrlComboBox_InitStorage($hCombo, 50, 500) & " items")
@@ -20,7 +20,7 @@ Func Example()
 	_GUICtrlComboBox_AddDir($hCombo, @WindowsDir & "\*.exe")
 	_GUICtrlComboBox_EndUpdate($hCombo)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

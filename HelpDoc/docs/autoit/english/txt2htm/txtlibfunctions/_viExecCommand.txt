@@ -6,50 +6,36 @@ Send a Command/Query to an Instrument/Device through the VISA interface (GPIB / 
 
 ###Syntax###
 #include <Visa.au3>
-_viExecCommand ( $h_session, $s_command [, $i_timeout_ms = -1] )
+_viExecCommand ( $hSession, $sCommand [, $iTimeoutMS = -1] )
 
 
 ###Parameters###
 @@ParamTable@@
-$h_session
+$hSession
 	A VISA descriptor (STRING) OR a VISA session handle (INTEGER)
 	This it can be a string or an integer (a handle):
-	* STRING -&gr; A VISA DESCRIPTOR is a string which specifies the resource with
-	which to establish a communication session.
+	* STRING -&gr; A VISA DESCRIPTOR is a string which specifies the resource with which to establish a communication session.
 	An example descriptor is "GPIB::20::0".
-	This function supports all valid VISA descriptors, including GPIB, TCP, VXI
-	and Serial Interface instruments (ASRL).
-	A detailed explanation of VISA descriptors is shown in the Remarks section
-	of this function.
-	As a SHORTCUT you can also use a STRING containing the address number
-	(e.g. "20") of a GPIB instrument instead of typing the full descriptor
-	(in that case, "GPIB::20::0")
-	* INTEGER -&gr; A VISA session handle is an integer value returned by _viOpen.
-	It is recommended that instead you use _viOpen and VISA session handles
-	instead of descriptors if you plan to communicate repeteadly with an
-	Instrument or Device, as otherwise each time that you contact the instrument
-	you would incur the overhead of opening and closing the communication link.
-	Once you are done using the instrument you must remember to close the link
-	with _viClose.
-$s_command
+	This function supports all valid VISA descriptors, including GPIB, TCP, VXI and Serial Interface instruments (ASRL).
+	A detailed explanation of VISA descriptors is shown in the Remarks section of this function.
+	As a SHORTCUT you can also use a STRING containing the address number (e.g. "20") of a GPIB instrument instead of typing the full descriptor (in that case, "GPIB::20::0")
+	* INTEGER -&gr; A VISA session handle is an integer value returned by <a href="_viOpen.htm">_viOpen()</a>.
+	It is recommended that instead you use <a href="_viOpen.htm">_viOpen()</a> and VISA session handles instead of descriptors if you plan to communicate repeteadly with an Instrument or Device, as otherwise each time that you contact the instrument you would incur the overhead of opening and closing the communication link.
+	Once you are done using the instrument you must remember to close the link with <a href="_viClose.htm">_viClose()</a>.
+$sCommand
 	Command/Query to execute (e.g. "*IDN?" or "SOURCE:POWER -20 dBM")
 	A query MUST contain a QUESTION MARK (?)
-	When the command is a QUERY the function will automatically wait for the
-	instrument's answer (or until the operation times out)
-$i_timeout_ms
+	When the command is a QUERY the function will automatically wait for the instrument's answer (or until the operation times out)
+$iTimeoutMS
 	[optional] The operation timeout in MILISECONDS.
 	This is mostly important for QUERIES only.
-	If it is not specified the last set timeout will be used. If it was never set
-	before the default timeout (which depends on the VISA implementation) will be used.
-	Timeouts can also be set separatelly with the _viSetTimeout function.
-	Depending on the bus type (GPIB, TCP, etc) the timeout might not be set to the
-	exact value that you request. Instead the closest valid timeout bigger than
-	the one that you requested will be used.
+	If it is not specified the last set timeout will be used. If it was never set before the default timeout (which depends on the VISA implementation) will be used.
+	Timeouts can also be set separatelly with the <a href="_viSetTimeout.htm">_viSetTimeout()</a> function.
+	Depending on the bus type (GPIB, TCP, etc) the timeout might not be set to the exact value that you request. Instead the closest valid timeout bigger than the one that you requested will be used.
 @@End@@
 
 ###ReturnValue###
-Returns a value which depends on whether the command is a QUERY
-or not and in whether the operation was successful or not.
+Returns a value which depends on whether the command is a QUERY or not and in whether the operation was successful or not.
 
 * Command, NON QUERY:
 @@ReturnTable@@
@@ -130,7 +116,7 @@ GPIB-VXI::9::INSTR    A VXI device at logical address 9 in a
 
 
 ###Related###
-_viFindGpib, _viOpen, _viClose, _viSetTimeout, _viGTL, _viGpibBusReset, _viSetAttribute
+_viClose, _viFindGpib, _viGpibBusReset, _viGTL, _viOpen, _viSetAttribute, _viSetTimeout
 
 
 ###Example###

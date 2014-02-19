@@ -1,9 +1,9 @@
-#include <WinAPISys.au3>
 #include <APISysConstants.au3>
+#include <GUIConstantsEx.au3>
 #include <WinAPIGdi.au3>
 #include <WinAPIMisc.au3>
+#include <WinAPISys.au3>
 #include <WindowsConstants.au3>
-#include <GUIConstantsEx.au3>
 
 Opt('TrayAutoPause', 0)
 
@@ -50,7 +50,7 @@ _WinAPI_RegisterRawInputDevices($pRID)
 ; Register WM_INPUT message
 GUIRegisterMsg($WM_INPUT, 'WM_INPUT')
 
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE

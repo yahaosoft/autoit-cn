@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GuiButton.au3>
+#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 
 Global $iMemo
@@ -12,7 +12,7 @@ Func Example()
 	GUICreate("Buttons", 510, 400)
 	$iMemo = GUICtrlCreateEdit("", 119, 10, 276, 374, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$btn[0] = GUICtrlCreateButton("Button1", 10, 10, 90, 50)
 	_GUICtrlButton_SetTextMargin($btn[0], 10, 5, 10, 5)

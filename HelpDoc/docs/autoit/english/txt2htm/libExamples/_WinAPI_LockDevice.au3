@@ -1,5 +1,5 @@
-#include <WinAPIFiles.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIFiles.au3>
 
 Local $Drive = DriveGetDrive('CDROM')
 

@@ -8,7 +8,7 @@ Func Example()
 	; Create a GUI with an edit control.
 	Local $hGUI = GUICreate("Example")
 	Local $iEdit = GUICtrlCreateEdit("Line 0" & @CRLF, 0, 0, 400, 350)
-	Local $iOK = GUICtrlCreateButton("OK", 310, 370, 85, 25)
+	Local $idOK = GUICtrlCreateButton("OK", 310, 370, 85, 25)
 
 	; Set data of the edit control.
 	For $i = 1 To 25
@@ -23,12 +23,14 @@ Func Example()
 
 	; Initialize the variable $aCtrlRecvMsg for storing the value returned by GUICtrlRecvMsg.
 	Local $aCtrlRecvMsg = 0
+
+	; Loop until the user exits.
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE
 				ExitLoop
 
-			Case $iOK
+			Case $idOK
 				; Send the message EM_GETSEL, to retrieve the current selection of the edit control.
 				$aCtrlRecvMsg = GUICtrlRecvMsg($iEdit, $EM_GETSEL)
 

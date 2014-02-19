@@ -14,13 +14,13 @@ Func Example()
 	GUICtrlCreateListViewItem("line3|data3|more3", $hListView)
 	GUICtrlCreateListViewItem("line4|data4|more4", $hListView)
 	GUICtrlCreateListViewItem("line5|data5|more5", $hListView)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Select column 2
 	_GUICtrlListView_SetSelectedColumn($hListView, 1)
 	MsgBox($MB_SYSTEMMODAL, "Information", "Selected Column: " & _GUICtrlListView_GetSelectedColumn($hListView))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

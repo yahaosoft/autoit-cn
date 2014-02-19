@@ -1,5 +1,5 @@
-#include <WinAPISys.au3>
 #include <WinAPIGdi.au3>
+#include <WinAPISys.au3>
 
 Local $tPos = _WinAPI_GetMousePos()
 Local $hMonitor = _WinAPI_MonitorFromPoint($tPos)

@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
 #include <GUIListView.au3>
+#include <WindowsConstants.au3>
 
 Global $cListView, $fSortSense = False ; Set initial ascending sort
 

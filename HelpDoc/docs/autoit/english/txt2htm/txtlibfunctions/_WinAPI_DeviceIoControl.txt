@@ -2,7 +2,7 @@
 _WinAPI_DeviceIoControl
 
 ###Description###
-Sends a control code directly to a specified device driver.
+Sends a control code directly to a specified device driver
 
 ###Syntax###
 #include <WinAPIFiles.au3>
@@ -12,14 +12,13 @@ _WinAPI_DeviceIoControl ( $hDevice, $iControlCode [, $pInBuffer = 0 [, $iInBuffe
 ###Parameters###
 @@ParamTable@@
 $hDevice
-	Handle to the device on which the operation is to be performed. The device is typically a volume,
-	directory, file, or stream. To retrieve a device handle, use the _WinAPI_CreateFileEx() function.
+	Handle to the device on which the operation is to be performed.
+	The device is typically a volume, directory, file, or stream. To retrieve a device handle, use the <a href="_WinAPI_CreateFileEx.htm">_WinAPI_CreateFileEx()</a> function.
 	To specify a device name, use the following format:
-
-	_WinAPI_CreateFileEx("\\.\DeviceName", ...)
+		<a href="_WinAPI_CreateFileEx.htm">_WinAPI_CreateFileEx</a>("\\.\DeviceName", ...)
 $iControlCode
-	The control code for the operation. This value identifies the specific operation to be performed
-	and the type of device on which to perform it.
+	The control code for the operation.
+	This value identifies the specific operation to be performed and the type of device on which to perform it.
 $pInBuffer
 	[optional] A pointer to the input buffer that contains the data required to perform the operation.
 $iInBufferSize
@@ -32,13 +31,13 @@ $iOutBufferSize
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	True and @extended flag contains the size of the data stored in the output buffer, in bytes.
-Failure 	False, call _WinAPI_GetLastError() to get extended error information.
+Success:	True and @extended flag contains the size of the data stored in the output buffer, in bytes.
+Failure:	False, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information.
 @@End@@
 
 
 ###Remarks###
-None
+None.
 
 
 ###Related###

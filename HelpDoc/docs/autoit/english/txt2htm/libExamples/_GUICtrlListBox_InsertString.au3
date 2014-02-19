@@ -1,5 +1,5 @@
-#include <GuiListBox.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiListBox.au3>
 #include <WindowsConstants.au3>
 
 Example()
@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("List Box Insert String", 400, 296)
 	$hListBox = GUICtrlCreateList("", 2, 2, 396, 296, BitOR($WS_BORDER, $LBS_NOTIFY, $LBS_DISABLENOSCROLL, $WS_HSCROLL))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add strings
 	_GUICtrlListBox_BeginUpdate($hListBox)
@@ -22,7 +22,7 @@ Func Example()
 	_GUICtrlListBox_UpdateHScroll($hListBox)
 	_GUICtrlListBox_EndUpdate($hListBox)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

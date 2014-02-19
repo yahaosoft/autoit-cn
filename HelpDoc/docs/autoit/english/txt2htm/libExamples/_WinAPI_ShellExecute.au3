@@ -1,5 +1,5 @@
-#include <WinAPIShellEx.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIShellEx.au3>
 
 Global $File = InputBox('Run', 'Type the name of a program, folder, document, or Internet resource to open it', '', '', 368, 152)
 

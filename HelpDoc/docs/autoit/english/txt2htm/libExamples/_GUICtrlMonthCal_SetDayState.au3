@@ -19,9 +19,9 @@ Func Example()
 	$aMasks[1] = 0x8081
 	_GUICtrlMonthCal_SetDayState($hMonthCal, $aMasks)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

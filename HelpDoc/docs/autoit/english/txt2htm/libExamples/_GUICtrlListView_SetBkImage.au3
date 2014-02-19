@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 #include <MsgBoxConstants.au3>
 
 Example_UDF_Created() ;use UDF built listview
@@ -56,11 +56,11 @@ Func Example_UDF_Created()
 	_GUICtrlListView_SetBkImage($hListView, $sFilePath)
 	$aImage = _GUICtrlListView_GetBkImage($hListView)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	MsgBox($MB_SYSTEMMODAL, "Information", "Background Image: " & $aImage[1])
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	;=========================================================================================================

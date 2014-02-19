@@ -1,5 +1,5 @@
-#include <GuiListBox.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiListBox.au3>
 
 Example()
 
@@ -9,7 +9,7 @@ Func Example()
 	; Create GUI
 	GUICreate("List Box Set Tab Stops", 400, 296)
 	$hListBox = GUICtrlCreateList("", 2, 2, 396, 296, BitOR($LBS_STANDARD, $LBS_USETABSTOPS))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set tab stops
 	_GUICtrlListBox_SetTabStops($hListBox, $aTabs)
@@ -17,7 +17,7 @@ Func Example()
 	; Add tabbed string
 	_GUICtrlListBox_AddString($hListBox, "Column 1" & @TAB & "Column 2" & @TAB & "Column 3")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

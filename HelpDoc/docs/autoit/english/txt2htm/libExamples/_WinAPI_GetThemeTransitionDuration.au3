@@ -1,7 +1,7 @@
-#include <WinAPITheme.au3>
 #include <APIThemeConstants.au3>
-#include <WinAPISys.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPISys.au3>
+#include <WinAPITheme.au3>
 
 Global Const $BP_PUSHBUTTON = 1
 Global Const $PBS_NORMAL = 1

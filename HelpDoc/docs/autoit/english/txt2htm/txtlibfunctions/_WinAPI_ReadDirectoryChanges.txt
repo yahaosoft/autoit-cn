@@ -2,7 +2,7 @@
 _WinAPI_ReadDirectoryChanges
 
 ###Description###
-Retrieves information that describes the changes within the specified directory.
+Retrieves information that describes the changes within the specified directory
 
 ###Syntax###
 #include <WinAPIFiles.au3>
@@ -27,7 +27,7 @@ $iFilter
 	$FILE_NOTIFY_CHANGE_SECURITY
 $pBuffer
 	A pointer to the DWORD-aligned formatted buffer that internally used by this function to retrieve the
-	data. To create a buffer, you can use _WinAPI_CreateBuffer() function. To prevent the crash of the script,
+	data. To create a buffer, you can use <a href="_WinAPI_CreateBuffer.htm">_WinAPI_CreateBuffer()</a> function. To prevent the crash of the script,
 	use the buffer at least not less than 64 KB. If the buffer is greater than 64 KB and the application is
 	monitoring a directory over the network, the function fails. This is due to a packet size limitation
 	with the underlying file sharing protocols.
@@ -41,24 +41,24 @@ $fSubtree
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	The 2D array containing the following information:
+Success:	The 2D array containing the following information:
 	[0][0] - Number of rows in array (n)
 	[0][1] - Unused
 	[n][0] - The file name relative to the directory handle.
 	[n][1] - The type of change that has occurred (one of the $FILE_ACTION_* constants).
-Failure 	Sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+Failure:	Sets the @error flag to non-zero, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information.
 @@End@@
 
 
 ###Remarks###
-When you first call _WinAPI_ReadDirectoryChanges() function, the system allocates a buffer to store change
+When you first call <a href="_WinAPI_ReadDirectoryChanges.htm">_WinAPI_ReadDirectoryChanges()</a> function, the system allocates a buffer to store change
 information. This buffer is associated with the directory handle until it is closed and its size does not change
 during its lifetime. Directory changes that occur between calls to this function are added to the buffer
 and then returned with the next call. If the buffer overflows, the entire contents are discarded.
 
-To obtain a handle to a directory, use _WinAPI_CreateFileEx() function with $FILE_FLAG_BACKUP_SEMANTICS flag.
+To obtain a handle to a directory, use <a href="_WinAPI_CreateFileEx.htm">_WinAPI_CreateFileEx()</a> function with $FILE_FLAG_BACKUP_SEMANTICS flag.
 
-The _WinAPI_ReadDirectoryChanges() function works only in synchronous mode.
+The <a href="_WinAPI_ReadDirectoryChanges.htm">_WinAPI_ReadDirectoryChanges()</a> function works only in synchronous mode.
 
 
 ###Related###

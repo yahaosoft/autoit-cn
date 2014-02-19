@@ -8,7 +8,7 @@ Func Example()
 
 	GUICreate("ListView Scroll", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add column
 	_GUICtrlListView_AddColumn($hListView, "Items", 100)
@@ -23,7 +23,7 @@ Func Example()
 	; Scroll control 500 pixels
 	_GUICtrlListView_Scroll($hListView, 0, 500)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

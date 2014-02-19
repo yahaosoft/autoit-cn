@@ -2,23 +2,23 @@
 _FTP_ProgressDownload
 
 ###Description###
-Downloads a file in Binary Mode and shows a Progress window or by Calling a User defined Function.
+Downloads a file in Binary Mode and shows a Progress window or by Calling a User defined Function
 
 ###Syntax###
 #include <FTPEx.au3>
-_FTP_ProgressDownload ( $hFTPSession, $sLocalFile, $sRemoteFile [, $sFunctionToCall = ""] )
+_FTP_ProgressDownload ( $hFTPSession, $sLocalFile, $sRemoteFile [, $hFunctionToCall = 0] )
 
 
 ###Parameters###
 @@ParamTable@@
 $hFTPSession
-	as returned by _FTP_Connect().
+	as returned by <a href="_FTP_Connect.htm">_FTP_Connect()</a>.
 $sLocalFile
 	The local file to create.
 $sRemoteFile
 	The remote source file.
-$sFunctionToCall
-	[optional] A function which can update a Progressbar and react on UserInput like Click on Abort or Close App. (More info in the end of this comment)
+$hFunctionToCall
+	[optional] A variable assigned to the user defined function to update a progress bar or react on user interation, such as aborting or exiting the process. Default = none. See remarks.
 @@End@@
 
 ###ReturnValue###
@@ -36,15 +36,16 @@ Failure:	0 and sets the @error flag to non-zero.
 
 
 ###Remarks###
-Information about $sFunctionToCall:
+Information about $hFunctionToCall:
 	Parameter: $iPercentage - The Percentage of Progress
-	Return Values: Continue Download - 1
-		Abort Download    - 0 Or negative
-		These Return Values are returned by _FTP_ProgressDownload(), too,
-		so you can react on different Actions like Aborting by User, closing App or TimeOut of whatever
+	Return Values:
+		Continue Download - 1
+		Abort Download    - zero or less than zero e.g. 0 or -1
+	These Return Values are returned by <a href="_FTP_ProgressUpload.htm">_FTP_ProgressUpload()</a>, too, so you can react on different Actions like Aborting by User, closing App or TimeOut of the process.
 
 
 ###Related###
+None.
 
 
 ###Example###

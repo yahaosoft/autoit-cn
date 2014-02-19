@@ -1,7 +1,7 @@
-#include <WinAPIProc.au3>
 #include <APIProcConstants.au3>
 #include <WinAPI.au3>
 #include <WinAPIMisc.au3>
+#include <WinAPIProc.au3>
 
 Global Const $sTemp = @TempDir & '\Test.au3'
 

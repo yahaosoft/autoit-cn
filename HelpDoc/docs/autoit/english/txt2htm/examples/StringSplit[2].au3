@@ -1,12 +1,12 @@
-#include <StringConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <StringConstants.au3>
 
 Example()
 
 Func Example()
 	Local $sText = "This\nline\ncontains\nC-style breaks." ; Define a variable with a string of text.
-	Local $aArray = StringSplit($sText, '\n', $STR_ENTIRESPLIT) ; Pass the variable to StringSplit and using the delimeter "\n".
-	; Note that flag paramter is set to $STR_ENTIRESPLIT (1) as it would split at \ or n otherwise.
+	Local $aArray = StringSplit($sText, '\n', $STR_ENTIRESPLIT) ; Pass the variable to StringSplit and using the delimiter "\n".
+	; Note that flag parameter is set to $STR_ENTIRESPLIT (1) as it would split at \ or n otherwise.
 	#cs
 		The array returned will contain the following values:
 		$aArray[1] = "This"

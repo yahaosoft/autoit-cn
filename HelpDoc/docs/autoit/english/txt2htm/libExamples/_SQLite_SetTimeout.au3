@@ -1,7 +1,7 @@
-#include <SQLite.au3>
-#include <SQLite.dll.au3>
 #include <File.au3>
 #include <MsgBoxConstants.au3>
+#include <SQLite.au3>
+#include <SQLite.dll.au3>
 
 _SQLite_Startup()
 ConsoleWrite("_SQLite_LibVersion=" & _SQLite_LibVersion() & @CRLF)

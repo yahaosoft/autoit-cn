@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Slider Get Num Tics", 400, 296)
 	$hSlider = GUICtrlCreateSlider(2, 2, 396, 20, BitOR($TBS_TOOLTIPS, $TBS_AUTOTICKS, $TBS_ENABLESELRANGE))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get Num Tics
 	MsgBox($MB_SYSTEMMODAL, "Information", "Num Tics: " & _GUICtrlSlider_GetNumTics($hSlider))
@@ -21,7 +21,7 @@ Func Example()
 	; Get Num Tics
 	MsgBox($MB_SYSTEMMODAL, "Information", "Num Tics: " & _GUICtrlSlider_GetNumTics($hSlider))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

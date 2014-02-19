@@ -1,9 +1,9 @@
-#include <WinAPIGdi.au3>
 #include <APIGdiConstants.au3>
-#include <WinAPISys.au3>
-#include <WindowsConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIGdi.au3>
+#include <WinAPISys.au3>
+#include <WindowsConstants.au3>
 
 If (_WinAPI_GetVersion() < '6.1') Or (Not _WinAPI_DwmIsCompositionEnabled()) Then
 	MsgBox(BitOR($MB_ICONERROR, $MB_SYSTEMMODAL), 'Error', 'Require Windows 7 or later with enabled Aero theme.')
@@ -26,7 +26,7 @@ GUIRegisterMsg($WM_DWMSENDICONICLIVEPREVIEWBITMAP, 'WM_DWMSENDICONICLIVEPREVIEWB
 ; Register WM_DWMSENDICONICTHUMBNAIL window message to display thumbnail
 GUIRegisterMsg($WM_DWMSENDICONICTHUMBNAIL, 'WM_DWMSENDICONICTHUMBNAIL')
 
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE

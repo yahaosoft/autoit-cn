@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
 
 Example()
 
@@ -8,7 +8,7 @@ Func Example()
 
 	; Create GUI
 	$hGUI = GUICreate("GDI+", 300, 220)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GDIPlus_Startup()
 	$hGraphic = _GDIPlus_GraphicsCreateFromHWND($hGUI) ;Create a graphics object from a window handle
@@ -26,7 +26,7 @@ Func Example()
 	_GDIPlus_GraphicsFillPath($hGraphic, $hPath, $hBrush) ;Fill path to graphics handle (GUI)
 	_GDIPlus_GraphicsDrawPath($hGraphic, $hPath, $hPen) ;Draw path to graphics handle (GUI)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Local $iTimer = TimerInit()
 	Do
 		If TimerDiff($iTimer) > 1000 Then

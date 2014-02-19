@@ -4,17 +4,19 @@
 Example()
 
 Func Example()
-	Local $date, $msg
-
 	GUICreate("My GUI get date", 200, 200, 800, 200)
-	$date = GUICtrlCreateDate("1953/04/25", 10, 10, 185, 20)
-	GUISetState()
+	Local $idDate = GUICtrlCreateDate("1953/04/25", 10, 10, 185, 20)
+	GUISetState(@SW_SHOW)
 
-	; Run the GUI until the dialog is closed
-	Do
-		$msg = GUIGetMsg()
-	Until $msg = $GUI_EVENT_CLOSE
+	; Loop until the user exits.
+	While 1
+		Switch GUIGetMsg()
+			Case $GUI_EVENT_CLOSE
+				ExitLoop
 
-	MsgBox($MB_SYSTEMMODAL, "Date", GUICtrlRead($date))
+		EndSwitch
+	WEnd
+
+	MsgBox($MB_SYSTEMMODAL, "Date", GUICtrlRead($idDate))
 	GUIDelete()
 EndFunc   ;==>Example

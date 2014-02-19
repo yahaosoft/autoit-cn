@@ -1,6 +1,6 @@
-#include <WinAPIDlg.au3>
 #include <APIDlgConstants.au3>
 #include <Memory.au3>
+#include <WinAPIDlg.au3>
 
 ; Create PAGESETUPDLG structure and set initial margin values for 10.00 mm at all
 Local $tPAGESETUPDLG = DllStructCreate($tagPAGESETUPDLG)

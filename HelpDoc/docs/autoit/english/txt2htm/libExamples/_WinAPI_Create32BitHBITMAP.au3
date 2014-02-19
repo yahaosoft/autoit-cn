@@ -1,10 +1,10 @@
 #NoTrayIcon
 
-#include <WinAPIGdi.au3>
-#include <WinAPISys.au3>
-#include <WinAPIShellEx.au3>
 #include <GUIMenu.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIGdi.au3>
+#include <WinAPIShellEx.au3>
+#include <WinAPISys.au3>
 
 Opt('TrayMenuMode', 3)
 

@@ -1,5 +1,5 @@
-#include <WinAPIProc.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIProc.au3>
 
 Run(@SystemDir & '\taskmgr.exe')
 Sleep(1000)

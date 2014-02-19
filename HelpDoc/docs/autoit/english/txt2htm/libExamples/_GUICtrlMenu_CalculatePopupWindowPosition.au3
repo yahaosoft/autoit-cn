@@ -1,10 +1,10 @@
-#include <GuiMenu.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiMenu.au3>
 #include <MsgBoxConstants.au3>
 
 Local $hForm = GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 400, 400)
 Local $Button = GUICtrlCreateButton('New Window', 145, 366, 110, 23)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 While 1
 	Switch GUIGetMsg()

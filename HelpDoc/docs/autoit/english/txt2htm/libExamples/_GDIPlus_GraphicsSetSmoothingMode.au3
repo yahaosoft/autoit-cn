@@ -1,12 +1,12 @@
-#include <GUIConstantsEx.au3>
-#include <Constants.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
+#include <MsgBoxConstants.au3>
 
 Example()
 
 Func Example()
 	Local $hGUI = GUICreate("GDI+ test", 640, 480)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GDIPlus_Startup()
 	Local $hGraphics = _GDIPlus_GraphicsCreateFromHWND($hGUI)

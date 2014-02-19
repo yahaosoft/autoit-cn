@@ -2,28 +2,28 @@
 _FTP_ListToArrayEx
 
 ###Description###
-Get names, sizes, attributes and times of files/dir of current remote directory.
+Get names, sizes, attributes and times of files/dir of current remote directory
 
 ###Syntax###
 #include <FTPEx.au3>
-_FTP_ListToArrayEx ( $hFTPSession [, $iReturnType = 0 [, $iFlags = 0 [, $bFmt = 1 [, $iContext = 0]]]] )
+_FTP_ListToArrayEx ( $hFTPSession [, $iReturnType = 0 [, $iFlags = $INTERNET_FLAG_NO_CACHE_WRITE [, $bFmt = 1 [, $iContext = 0]]]] )
 
 
 ###Parameters###
 @@ParamTable@@
 $hFTPSession
-	as returned by _FTP_Connect().
+	as returned by <a href="_FTP_Connect.htm">_FTP_Connect()</a>.
 $iReturntype
 	[optional] 0 = Both Files and Directories, 1 = Directories, 2 = Files.
 $iFlags
-	[optional] see _FTP_FindFileFirst().
+	[optional] default = $INTERNET_FLAG_NO_CACHE_WRITE. See <a href="_FTP_FindFileFirst.htm">_FTP_FindFileFirst()</a>.
 $bFmt
 	[optional] type on the date strings:
 		1 = yyyy/mm/dd
 		0 = mm/dd/yyyy
 $iContext
 	[optional] A variable that contains the application-defined value that associates this search with any application data.
-	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
+	This is only used if the application has already called <a  href="_FTP_SetStatusCallback.htm">_FTP_SetStatusCallback()</a> to set up a status callback function.
 @@End@@
 
 ###ReturnValue###

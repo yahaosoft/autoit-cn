@@ -1,6 +1,6 @@
 #include <GuiComboBoxEx.au3>
-#include <GuiImageList.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiImageList.au3>
 #include <WindowsConstants.au3>
 
 Example()
@@ -11,7 +11,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("ComboBoxEx Replace Edit Sel", 400, 300)
 	$hCombo = _GUICtrlComboBoxEx_Create($hGUI, "", 2, 2, 394, 100, BitOR($CBS_SIMPLE, $WS_VSCROLL, $WS_BORDER))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$hImage = _GUIImageList_Create(16, 16, 5, 3)
 	_GUIImageList_AddIcon($hImage, @SystemDir & "\shell32.dll", 110)

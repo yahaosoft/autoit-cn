@@ -1,5 +1,5 @@
-#include <WinAPIReg.au3>
 #include <APIRegConstants.au3>
+#include <WinAPIReg.au3>
 
 Local $Ext = '.au3'
 

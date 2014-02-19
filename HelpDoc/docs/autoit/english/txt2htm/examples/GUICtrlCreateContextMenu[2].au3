@@ -1,49 +1,50 @@
-#include <GUIConstantsEx.au3>
 #include <ButtonConstants.au3>
+#include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
 
 Example()
 
 Func Example()
-	Local $hGui, $OptionsBtn, $OptionsDummy, $OptionsContext, $msg
-	Local $OptionsExit, $HelpBtn, $HelpDummy, $HelpContext, $HelpAbout
-	$hGui = GUICreate("My GUI", 170, 40)
+	Local $hGui = GUICreate("My GUI", 170, 40)
 
-	$OptionsBtn = GUICtrlCreateButton("&Options", 10, 10, 70, 20, $BS_FLAT)
+	Local $idOptionsBtn = GUICtrlCreateButton("&Options", 10, 10, 70, 20, $BS_FLAT)
 
 	; At first create a dummy control for the options and a contextmenu for it
-	$OptionsDummy = GUICtrlCreateDummy()
-	$OptionsContext = GUICtrlCreateContextMenu($OptionsDummy)
-	GUICtrlCreateMenuItem("Common", $OptionsContext)
-	GUICtrlCreateMenuItem("File", $OptionsContext)
-	GUICtrlCreateMenuItem("", $OptionsContext)
-	$OptionsExit = GUICtrlCreateMenuItem("Exit", $OptionsContext)
+	Local $idOptionsDummy = GUICtrlCreateDummy()
+	Local $idOptionsContext = GUICtrlCreateContextMenu($idOptionsDummy)
+	GUICtrlCreateMenuItem("Common", $idOptionsContext)
+	GUICtrlCreateMenuItem("File", $idOptionsContext)
+	GUICtrlCreateMenuItem("", $idOptionsContext)
+	Local $idOptionsExit = GUICtrlCreateMenuItem("Exit", $idOptionsContext)
 
-	$HelpBtn = GUICtrlCreateButton("&Help", 90, 10, 70, 20, $BS_FLAT)
+	Local $idHelpBtn = GUICtrlCreateButton("&Help", 90, 10, 70, 20, $BS_FLAT)
 
 	; Create a dummy control and a contextmenu for the help too
-	$HelpDummy = GUICtrlCreateDummy()
-	$HelpContext = GUICtrlCreateContextMenu($HelpDummy)
-	GUICtrlCreateMenuItem("Website", $HelpContext)
-	GUICtrlCreateMenuItem("", $HelpContext)
-	$HelpAbout = GUICtrlCreateMenuItem("About...", $HelpContext)
+	Local $idHelpDummy = GUICtrlCreateDummy()
+	Local $idHelpContext = GUICtrlCreateContextMenu($idHelpDummy)
+	GUICtrlCreateMenuItem("Website", $idHelpContext)
+	GUICtrlCreateMenuItem("", $idHelpContext)
+	Local $idHelpAbout = GUICtrlCreateMenuItem("About...", $idHelpContext)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
+	Local $idMsg
+
+	; Loop until the user exits.
 	While 1
-		$msg = GUIGetMsg()
+		$idMsg = GUIGetMsg()
 
-		Switch $msg
-			Case $OptionsExit, $GUI_EVENT_CLOSE
+		Switch $idMsg
+			Case $idOptionsExit, $GUI_EVENT_CLOSE
 				ExitLoop
 
-			Case $OptionsBtn
-				ShowMenu($hGui, $msg, $OptionsContext)
+			Case $idOptionsBtn
+				ShowMenu($hGui, $idMsg, $idOptionsContext)
 
-			Case $HelpBtn
-				ShowMenu($hGui, $msg, $HelpContext)
+			Case $idHelpBtn
+				ShowMenu($hGui, $idMsg, $idHelpContext)
 
-			Case $HelpAbout
+			Case $idHelpAbout
 				MsgBox($MB_SYSTEMMODAL, "About...", "GUICtrlGetHandle-Sample")
 		EndSwitch
 	WEnd
@@ -51,11 +52,11 @@ Func Example()
 EndFunc   ;==>Example
 
 ; Show a menu in a given GUI window which belongs to a given GUI ctrl
-Func ShowMenu($hWnd, $CtrlID, $nContextID)
+Func ShowMenu($hWnd, $idCtrl, $idContext)
 	Local $arPos, $x, $y
-	Local $hMenu = GUICtrlGetHandle($nContextID)
+	Local $hMenu = GUICtrlGetHandle($idContext)
 
-	$arPos = ControlGetPos($hWnd, "", $CtrlID)
+	$arPos = ControlGetPos($hWnd, "", $idCtrl)
 
 	$x = $arPos[0]
 	$y = $arPos[1] + $arPos[3]

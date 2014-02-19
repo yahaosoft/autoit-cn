@@ -2,38 +2,37 @@
 _WinAPI_BeginUpdateResource
 
 ###Description###
-Retrieves a handle that can be used to add, delete, or replace resources in a binary module.
+Retrieves a handle that can be used to add, delete, or replace resources in a binary module
 
 ###Syntax###
 #include <WinAPIRes.au3>
-_WinAPI_BeginUpdateResource ( $sFile [, $fDelete = 0] )
+_WinAPI_BeginUpdateResource ( $sFilePath [, $fDelete = 0] )
 
 
 ###Parameters###
 @@ParamTable@@
-$sFile
-	The binary file in which to update resources. An application must be able to obtain write-access to
-	this file; the file referenced by $sFile cannot be currently executing.
+$sFilePath
+	The binary file in which to update resources.
+	An application must be able to obtain write-access to this file; the file referenced by $sFilePath cannot be currently executing.
 $fDelete
 	[optional] Specifies whether to delete existing resources, valid values:
-	True    - The resources are deleted and the updated file includes only resources added with the _WinAPI_UpdateResource().
+	True    - The resources are deleted and the updated file includes only resources added with the <a href="_WinAPI_UpdateResource.htm">_WinAPI_UpdateResource()</a>.
 	False   - The updated file includes existing resources (Default).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	Handle that can be used by the _WinAPI_UpdateResource() and _WinAPI_EndUpdateResource() functions.
-Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+Success:	Handle that can be used by the <a href="_WinAPI_UpdateResource.htm">_WinAPI_UpdateResource()</a> and _WinAPI_EndUpdateResource() functions.
+Failure:	0, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information.
 @@End@@
 
 
 ###Remarks###
-It is recommended that the resource file is not loaded before this function is called. However, if that file
-is already loaded, it will not cause an error to be returned.
+It is recommended that the resource file is not loaded before this function is called. However, if that file is already loaded, it will not cause an error to be returned.
 
 
 ###Related###
-_WinAPI_UpdateResource, _WinAPI_EndUpdateResource
+_WinAPI_EndUpdateResource, _WinAPI_UpdateResource
 
 
 ###See Also###

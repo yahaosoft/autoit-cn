@@ -11,7 +11,7 @@ Func Example()
 
 	Global $hGUI = GUICreate("GDI+ example", $iWidth, $iHeight) ;create a test GUI
 	GUISetBkColor($iBgColor, $hGUI) ;set GUI background color
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	;create buffered graphics frame set for smoother gfx object movements
 	Global $hGraphics = _GDIPlus_GraphicsCreateFromHWND($hGUI) ;create a graphics object from a window handle

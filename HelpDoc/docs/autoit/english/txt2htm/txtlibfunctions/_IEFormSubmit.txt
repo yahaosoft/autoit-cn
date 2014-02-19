@@ -2,18 +2,18 @@
 _IEFormSubmit
 
 ###Description###
-Submit a specified Form.
+Submit a specified Form
 
 ###Syntax###
 #include <IE.au3>
-_IEFormSubmit ( ByRef $o_object [, $f_wait = 1] )
+_IEFormSubmit ( ByRef $oObject [, $fWait = 1] )
 
 
 ###Parameters###
 @@ParamTable@@
-$o_object
+$oObject
 	Object variable of an InternetExplorer.Application, Form object
-$f_wait
+$fWait
 	[optional] specifies whether to wait for page to load before returning
 		0 = Return immediately, not waiting for page to load
 		1 = (Default) Wait for page load to complete before returning
@@ -35,15 +35,15 @@ Failure:	0 or -1 and sets the @error flag to non-zero.
 
 
 ###Remarks###
-For many HTML forms it is not sufficient to use _IEFormSubmit() because there is often custom JavaScript tied to an onClick event for its Submit button.
-In these cases you'll need to simulate a click of the submit button instead of using _IEFormSubmit().  See the example for the "click" action of _IEAction().
+For many HTML forms it is not sufficient to use <a href="_IEFormSubmit.htm">_IEFormSubmit()</a> because there is often custom JavaScript tied to an onClick event for its Submit button.
+In these cases you'll need to simulate a click of the submit button instead of using <a href="_IEFormSubmit.htm">_IEFormSubmit()</a>.  See the example for the "click" action of <a href="_IEAction.htm">_IEAction()</a>.
 As well, some form processing relies on the "value" of the submit button being passed along with the rest of the form data (often when there is more than one submit button in the form and they are designed to trigger different results).
-This function will not result in a submit button value being passed.  The solution is to use the "click" action of _IEAction() as above.
-If you experience trouble with the automatic _IELoadWait() called by default, please set $f_wait parameter to 0 and call _IELoadWait() from your script, passing it the InternetExplorer object.
+This function will not result in a submit button value being passed.  The solution is to use the "click" action of <a href="_IEAction.htm">_IEAction()</a> as above.
+If you experience trouble with the automatic <a href="_IELoadWait.htm">_IELoadWait()</a> called by default, please set $fWait parameter to 0 and call <a href="_IELoadWait.htm">_IELoadWait()</a> from your script, passing it the InternetExplorer object.
 
 
 ###Related###
-_IEFormReset, _IEFormGetObjByName, _IEFormGetCollection, _IEFormElementGetObjByName, _IEFormElementGetCollection, _IELoadWait
+_IEFormElementGetCollection, _IEFormElementGetObjByName, _IEFormGetCollection, _IEFormGetObjByName, _IEFormReset, _IELoadWait
 
 
 ###Example###

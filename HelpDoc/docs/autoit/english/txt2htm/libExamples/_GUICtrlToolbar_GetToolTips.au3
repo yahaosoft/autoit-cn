@@ -1,8 +1,8 @@
+#include <GUIConstantsEx.au3>
 #include <GuiToolbar.au3>
 #include <GuiToolTip.au3>
-#include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Global Enum $id_New = 1000, $id_Open, $id_Save, $id_Help
 
@@ -14,7 +14,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("Toolbar", 400, 300)
 	$hToolbar = _GUICtrlToolbar_Create($hGUI)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Create ToolTip
 	$hToolTip = _GUIToolTip_Create($hToolbar)
@@ -39,10 +39,9 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", "ToolTip handle .: 0x" & Hex(_GUICtrlToolbar_GetToolTips($hToolbar)) & @CRLF & _
 			"IsPtr = " & IsPtr(_GUICtrlToolbar_GetToolTips($hToolbar)) & " IsHWnd = " & IsHWnd(_GUICtrlToolbar_GetToolTips($hToolbar)))
 
-	; Loop until user exits
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

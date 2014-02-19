@@ -1,12 +1,12 @@
-#include <GUIConstantsEx.au3>
-#include <Constants.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
+#include <MsgBoxConstants.au3>
 
 Example()
 
 Func Example()
 	Local $hGUI = GUICreate("GDI+ test", 800, 400)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	If @OSBuild < 6000 Then MsgBox($MB_SYSTEMMODAL, "", "Antialiasing is automatically turned on for your operating system - no visible differences!")
 

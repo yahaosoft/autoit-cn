@@ -1,6 +1,6 @@
-#include <WinAPITheme.au3>
 #include <APIThemeConstants.au3>
 #include <GUIConstantsEx.au3>
+#include <WinAPITheme.au3>
 
 Local $Theme = _WinAPI_GetThemeAppProperties()
 
@@ -22,7 +22,7 @@ GUICtrlCreateTabItem('Tab2')
 GUICtrlCreateTabItem('')
 _WinAPI_SetThemeAppProperties($Theme)
 
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE

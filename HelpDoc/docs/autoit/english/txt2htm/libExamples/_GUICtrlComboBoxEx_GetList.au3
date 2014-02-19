@@ -16,7 +16,7 @@ Func Example()
 	$hCombo = _GUICtrlComboBoxEx_Create($hGUI, "", 2, 2, 394, 100)
 	$iMemo = GUICtrlCreateEdit("", 2, 32, 396, 266, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add files
 	_GUICtrlComboBoxEx_AddDir($hCombo, "", $DDL_DRIVES, False)

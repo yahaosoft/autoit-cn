@@ -7,15 +7,15 @@ Func Example()
 	GUICreate("Custom MsgBox", 225, 80)
 
 	GUICtrlCreateLabel("Please select a button.", 10, 10)
-	Local $iYesID = GUICtrlCreateButton("Yes", 10, 50, 65, 25)
-	Local $iNoID = GUICtrlCreateButton("No", 80, 50, 65, 25)
-	Local $iExitID = GUICtrlCreateButton("Exit", 150, 50, 65, 25)
+	Local $idYes = GUICtrlCreateButton("Yes", 10, 50, 65, 25)
+	Local $idNo = GUICtrlCreateButton("No", 80, 50, 65, 25)
+	Local $idExit = GUICtrlCreateButton("Exit", 150, 50, 65, 25)
 
 	; Set GUIAccelerators for the button controlIDs, these being Ctrl + y and Ctrl + n
-	Local $aAccelKeys[2][2] = [["^y", $iYesID],["^n", $iNoID]]
+	Local $aAccelKeys[2][2] = [["^y", $idYes],["^n", $idNo]]
 	GUISetAccelerators($aAccelKeys)
 
-	GUISetState() ; Display the GUI.
+	GUISetState(@SW_SHOW) ; Display the GUI.
 
 	While 1
 		Switch GUIGetMsg()
@@ -23,13 +23,13 @@ Func Example()
 				MsgBox($MB_SYSTEMMODAL, "You selected", "Close")
 				ExitLoop
 
-			Case $iYesID
+			Case $idYes
 				MsgBox($MB_SYSTEMMODAL, "You selected", "Yes") ; Displays if the button was selected or the hotkey combination Ctrl + y was pressed.
 
-			Case $iNoID
+			Case $idNo
 				MsgBox($MB_SYSTEMMODAL, "You selected", "No") ; Displays if the button was selected or the hotkey combination Ctrl + n was pressed.
 
-			Case $iExitID
+			Case $idExit
 				MsgBox($MB_SYSTEMMODAL, "You selected", "Exit")
 				ExitLoop
 

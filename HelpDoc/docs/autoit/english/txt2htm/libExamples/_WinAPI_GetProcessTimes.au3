@@ -1,6 +1,6 @@
-#include <WinAPIProc.au3>
-#include <WinAPILocale.au3>
 #include <Date.au3>
+#include <WinAPILocale.au3>
+#include <WinAPIProc.au3>
 
 Global $aFT, $tFT, $tST, $ID = ProcessExists('SciTE.exe')
 

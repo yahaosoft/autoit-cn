@@ -1,5 +1,5 @@
-#include <GuiMenu.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiMenu.au3>
 #include <WinAPI.au3>
 #include <WindowsConstants.au3>
 
@@ -44,12 +44,12 @@ Func Example()
 	; Create memo control
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 276, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	GUIRegisterMsg($WM_COMMAND, "WM_COMMAND")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

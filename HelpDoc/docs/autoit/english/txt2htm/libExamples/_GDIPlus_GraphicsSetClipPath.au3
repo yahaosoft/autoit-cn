@@ -1,6 +1,6 @@
+#include <GDIPlus.au3>
 #include <GUIConstantsEx.au3>
 #include <ScreenCapture.au3>
-#include <GDIPlus.au3>
 
 Example()
 
@@ -8,7 +8,7 @@ Func Example()
 	Local $hBMP = _ScreenCapture_Capture()
 
 	Local $hGUI = GUICreate("GDI+", 400, 400)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GDIPlus_Startup()
 	Local $hGraphics = _GDIPlus_GraphicsCreateFromHWND($hGUI) ;Create a graphics object from a window handle
@@ -31,7 +31,7 @@ Func Example()
 	_GDIPlus_RegionCombinePath($hRegion, $hPath, 4)
 
 	Local $iTimer = TimerInit()
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 		If TimerDiff($iTimer) > 20 Then
 			_GDIPlus_GraphicsResetClip($hGfx_Buffer)

@@ -4,8 +4,8 @@
 ; It shows how to use the _viSetAttribute. In this example we use _viSetAttribute
 ; instead of _viSetTimeout to set the GPIB timeout of a _viExecCommand operation.
 
-#include <Visa.au3>
 #include <MsgBoxConstants.au3>
+#include <Visa.au3>
 
 Local $h_session = 0
 

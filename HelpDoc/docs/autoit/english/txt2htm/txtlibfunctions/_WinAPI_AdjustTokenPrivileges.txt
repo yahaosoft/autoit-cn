@@ -2,7 +2,7 @@
 _WinAPI_AdjustTokenPrivileges
 
 ###Description###
-Enables or disables privileges in the specified access token.
+Enables or disables privileges in the specified access token
 
 ###Syntax###
 #include <WinAPIProc.au3>
@@ -12,11 +12,12 @@ _WinAPI_AdjustTokenPrivileges ( $hToken, $aPrivileges, $iAttributes, ByRef $aAdj
 ###Parameters###
 @@ParamTable@@
 $hToken
-	Handle to the access token that contains the privileges to be modified. The handle must have
-	$TOKEN_ADJUST_PRIVILEGES and $TOKEN_QUERY accesses to the token.
+	Handle to the access token that contains the privileges to be modified.
+	The handle must have 	$TOKEN_ADJUST_PRIVILEGES and $TOKEN_QUERY accesses to the token.
 $aPrivileges
-	The variable that specifies a privileges. If this parameter is (-1), the function disables of the token's
-	privileges and ignores the $iAttributes parameter. $aPrivileges can be one of the following types.
+	The variable that specifies a privileges.
+	If this parameter is (-1), the function disables of the token's privileges and ignores the $iAttributes parameter.
+	$aPrivileges can be one of the following types.
 
 	The privilege constant ($SE_*).
 	1D array of $SE_* constants.
@@ -26,34 +27,30 @@ $aPrivileges
 	[n][0] - Privilege
 	[n][1] - Attributes
 $iAttributes
-	The privilege attributes. If $aPrivileges parameter is 1D array, $iAttributes applied to the entire
-	array. If $aPrivileges parameter is (-1) or 2D array, the function ignores this parameter and will
-	use the attributes that specified in this array. This parameter can be 0 (disables privilege)
-	or any combination of the following values.
-	$SE_PRIVILEGE_ENABLED
-	$SE_PRIVILEGE_ENABLED_BY_DEFAULT
-	$SE_PRIVILEGE_REMOVED
-	$SE_PRIVILEGE_USED_FOR_ACCESS
+	The privilege attributes. If $aPrivileges parameter is 1D array, $iAttributes applied to the entire array.
+	If $aPrivileges parameter is (-1) or 2D array, the function ignores this parameter and will use the attributes that specified in this array.
+	This parameter can be 0 (disables privilege) or any combination of the following values:
+		$SE_PRIVILEGE_ENABLED
+		$SE_PRIVILEGE_ENABLED_BY_DEFAULT
+		$SE_PRIVILEGE_REMOVED
+		$SE_PRIVILEGE_USED_FOR_ACCESS
 $aAdjust
-	2D array of the previous state of any privileges that the function modifies. That is, if a privilege has
-	been modified by this function, the privilege and its previous state are contained in this array.
+	2D array of the previous state of any privileges that the function modifies. That is, if a privilege has been modified by this function, the privilege and its previous state are contained in this array.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	1 and sets the @extended flag to the following values.
+Success:	1 and sets the @extended flag to the following values.
 @extended 	0 - The function adjusted all specified privileges.
 	1 - The token does not have one or more of the privileges specified in the $aPrivileges parameter.
-Failure 	0 and sets the @error flag to non-zero.
+Failure:	0 and sets the @error flag to non-zero.
 @@End@@
 
 
 ###Remarks###
-This function cannot add new privileges to the access token. It can only enable or disable the token's
-existing privileges.
+This function cannot add new privileges to the access token. It can only enable or disable the token's existing privileges.
 
-To determine whether the function success and adjusted all of the specified privileges, check the
-@error and @extended flags both, for example:
+To determine whether the function success and adjusted all of the specified privileges, check the @error and @extended flags both, for example:
 
 If Not (@error Or @extended) Then
 	...
@@ -61,6 +58,7 @@ EndIf
 
 
 ###Related###
+None.
 
 
 ###See Also###

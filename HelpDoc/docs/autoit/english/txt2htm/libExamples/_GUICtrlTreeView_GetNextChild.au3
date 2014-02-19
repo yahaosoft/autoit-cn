@@ -1,7 +1,7 @@
 #include <GUIConstantsEx.au3>
 #include <GuiTreeView.au3>
-#include <WindowsConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
@@ -12,7 +12,7 @@ Func Example()
 	GUICreate("TreeView Get Next Child", 400, 300)
 
 	$hTreeView = GUICtrlCreateTreeView(2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlTreeView_BeginUpdate($hTreeView)
 	For $x = 0 To 3
@@ -35,7 +35,7 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", "Index 2, Next Child: " & _GUICtrlTreeView_GetNextChild($hTreeView, $hFirstChild))
 	_GUICtrlTreeView_SelectItem($hTreeView, _GUICtrlTreeView_GetNextChild($hTreeView, $hFirstChild))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

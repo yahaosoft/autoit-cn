@@ -1,5 +1,5 @@
-#include <WinAPI.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPI.au3>
 
 MsgBox($MB_SYSTEMMODAL, "PathFindOnPath Example", _
 		StringFormat("Full path of notepad.exe:\n%s\n\n" & _

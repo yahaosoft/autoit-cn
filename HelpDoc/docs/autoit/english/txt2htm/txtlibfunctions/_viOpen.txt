@@ -6,15 +6,15 @@ Opens a VISA connection to an Instrument/Device
 
 ###Syntax###
 #include <Visa.au3>
-_viOpen ( $s_visa_address [, $s_visa_secondary_address = 0] )
+_viOpen ( $sVisa_Address [, $sVisa_Secondary_Address = 0] )
 
 
 ###Parameters###
 @@ParamTable@@
-$s_visa_address
-	A VISA resource descriptor STRING (see the NOTES of _viExecCommand above for more info)
+$sVisa_Address
+	A VISA resource descriptor STRING (see the NOTES of <a href="_viExecCommand.htm">_viExecCommand()</a> above for more info)
 	As as shortcut you can also directly pass a GPIB address as an integer
-$s_visa_secondary_address
+$sVisa_Secondary_Address
 	[optional] The "secondary GPIB address". Only used if the primary address is passed as an integer.
 	Only some GPIB instruments have secondary addresses. In those cases this optional parameter can be used to specify it.
 	This parameter is ZERO by default, which means NO SECONDARY ADDRESS.
@@ -30,7 +30,7 @@ Failure:	-1 and sets the @error flag to non-zero.
 ###Remarks###
 As for all the VISA functions the VISA libraries must be installed (you can check whether visa32.dll is in {WINDOWS}\system32) and a GPIB card (such as a National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card) must be installed
 
-* For a detailed description of the most common VISA DESCRIPTORS look at the Remarks of the help on the _viExecCommand function
+* For a detailed description of the most common VISA DESCRIPTORS look at the Remarks of the help on the <a href="_viExecCommand.htm">_viExecCommand()</a> function
 
 
 ###Related###

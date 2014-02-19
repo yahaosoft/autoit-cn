@@ -6,31 +6,31 @@ Sets the pixels in a compatible bitmap using the color data found in a DIB
 
 ###Syntax###
 #include <WinAPI.au3>
-_WinAPI_SetDIBits ( $hDC, $hBmp, $iStartScan, $iScanLines, $pBits, $pBMI [, $iColorUse = 0] )
+_WinAPI_SetDIBits ( $hDC, $hBitmap, $iStartScan, $iScanLines, $pBits, $pBMI [, $iColorUse = 0] )
 
 
 ###Parameters###
 @@ParamTable@@
 $hDC
 	Handle to a device context
-$hBmp
+$hBitmap
 	Handle to the compatible bitmap (DDB) that is to be altered using the color data from the DIB
 $iStartScan
 	Specifies the starting scan line for the device-independent color data in the array pointed to
-	by the pBits parameter.
+	by the $pBits parameter.
 $iScanLines
 	Specifies the number of scan lines found in the array containing device-independent color data
 $pBits
 	Pointer to the DIB color data, stored as an array of bytes. The format of the bitmap values
-	depends on the biBitCount member of the $tagBITMAPINFO structure pointed to by the pBMI parameter.
+	depends on the biBitCount member of the $tagBITMAPINFO structure pointed to by the $pBMI parameter.
 $pBMI
 	Pointer to a $tagBITMAPINFO structure that contains information about the DIB
 $iColorUse
 	[optional] Specifies whether the iColors member of the $tagBITMAPINFO structure was provided and, if so,
-	whether iColors contains explicit red, green, blue (RGB) values or palette indexes. The iColorUse parameter
+	whether iColors contains explicit red, green, blue (RGB) values or palette indexes. The $iColorUse parameter
 	must be one of the following values:
 		0 - The color table is provided and contains literal RGB values
-		1 - The color table consists of an array of 16-bit indexes into the logical palette of hDC
+		1 - The color table consists of an array of 16-bit indexes into the logical palette of $hDC
 @@End@@
 
 ###ReturnValue###
@@ -41,7 +41,7 @@ Failure:	False
 
 
 ###Remarks###
-The device context identified by the hDC parameter is used only if the iColorUse is set to 1, otherwise it is
+The device context identified by the $hDC parameter is used only if the $iColorUse is set to 1, otherwise it is
 ignored. The bitmap identified by the hBmp parameter must not be selected into a device context when this
 function is called. The scan lines must be aligned on a DWORD except for RLE compressed bitmaps. The origin
 for bottom up DIBs is the lower left corner of the bitmap; the origin for top down DIBs is the upper left

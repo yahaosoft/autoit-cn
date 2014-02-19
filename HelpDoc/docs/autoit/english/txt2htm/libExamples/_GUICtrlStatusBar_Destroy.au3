@@ -17,15 +17,15 @@ Func Example()
 	;===============================================================================
 	_GUICtrlStatusBar_SetParts($hStatus, $aParts)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$HandleBefore = $hStatus
 	MsgBox($MB_SYSTEMMODAL, "Information", "Destroying the Control for Handle: " & $hStatus)
 	MsgBox($MB_SYSTEMMODAL, "Information", "Control Destroyed: " & _GUICtrlStatusBar_Destroy($hStatus) & @CRLF & _
-			"Handel Before Destroy: " & $HandleBefore & @CRLF & _
+			"Handle Before Destroy: " & $HandleBefore & @CRLF & _
 			"Handle After Destroy: " & $hStatus)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

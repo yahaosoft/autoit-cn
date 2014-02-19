@@ -2,7 +2,7 @@
 _GUIToolTip_SetDelayTime
 
 ###Description###
-Sets the initial, pop-up, and reshow durations
+Sets the initial, pop-up, and reshow durations of a ToolTip
 
 ###Syntax###
 #include <GuiToolTip.au3>
@@ -12,25 +12,32 @@ _GUIToolTip_SetDelayTime ( $hWnd, $iDuration, $iTime )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	Handle to the ToolTip control (returned by <a href ="_GUIToolTip_Create.htm">_GUIToolTip_Create.</a>)
 $iDuration
 	Flag that specifies which duration value will be set:
-		0 - Set all three delay times to default settings
-		1 - Time it takes for subsequent ToolTip windows to appear as the pointer moves from one tool to another
-		2 - Time the ToolTip window remains visible if the pointer is stationary within a tool's bounding rectangle
-		3 - Time the pointer must remain stationary within a tool's bounding rectangle before the window appears
+		$TTDT_AUTOMATIC (0) - Set all three delay times to default proportions. (see remarks)
+		$TTDT_RESHOW    (1) - Time it takes for subsequent ToolTip windows to appear as the pointer moves from one tool to another
+		$TTDT_AUTOPOP   (2) - Time the ToolTip window remains visible if the pointer is stationary within a tool's bounding rectangle
+		$TTDT_INITIAL   (3) - Time the pointer must remain stationary within a tool's bounding rectangle before the window appears
 $iTime
 	Delay time in milliseconds
 @@End@@
+Constants are defined in ToolTipConstants.au3
 
 ###ReturnValue###
 None.
 
 
 ###Remarks###
-The default delay times are based on the double-click time.
+The default delay times are based on the double-click time. The autopop time will be ten times the initial time and the reshow time will be one fifth the initial time.
 For the default double-click time of 500 ms, the initial, autopop, and reshow delay times are 500ms, 5000ms, and 100ms respectively.
+
+If the $iDuration flag is set to $TTDT_AUTOMATIC, use a positive value of $iTime to specify the initial time, in milliseconds. Set $iTime to a negative value to return all three delay times to their default values.
 
 
 ###Related###
 _GUIToolTip_GetDelayTime
+
+
+###Example###
+@@IncludeExample@@

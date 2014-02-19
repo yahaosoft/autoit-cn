@@ -2,23 +2,23 @@
 _Word_DocTableWrite
 
 ###Description###
-Writes a one or two dimensional array to a Word table.
+Writes a one or two dimensional array to a Word table
 
 ###Syntax###
 #include <Word.au3>
-_Word_DocTableWrite ( $oRange, ByRef $asArray [, $iIndexBase = Default [, $sSeparator = Default]] )
+_Word_DocTableWrite ( $oRange, ByRef $aArray [, $iIndexBase = Default [, $sDelimiter = Default]] )
 
 
 ###Parameters###
 @@ParamTable@@
 $oRange
 	Word range object where the table should be inserted
-$asArray
+$aArray
 	one or two-dimensional array to be converted to a table.
 	Can be zero or 1-based
 $iIndexBase
 	[optional] Can be 0 or 1 and specifies if the array starts with row 0 or 1 (default = 1)
-$sSeparator
+$sDelimiter
 	[optional] Specifies the character used to separate text into cells (default = @TAB)
 @@End@@
 
@@ -27,7 +27,7 @@ $sSeparator
 Success:	the Word table object.
 Failure:	0 and sets the @error flag to non-zero.
 @error:	1 - $oRange is not an object
-	2 - $asArray is not an array or has more than 2 dimensions
+	2 - $aArray is not an array or has more than 2 dimensions
 	3 - Error occurred when accessing the specified range object. @extended is set to the COM error code
 	4 - Error occurred when converting the text to a table. @extended is set to the COM error code
 @@End@@
@@ -35,7 +35,7 @@ Failure:	0 and sets the @error flag to non-zero.
 
 ###Remarks###
 The array can not contain @CR, @CRLF or @LF in any cell.
-If the array contains @TAB characters you have to set parameter $sSeparator to another character.
+If the array contains @TAB characters you have to set parameter $sDelimiter to another character.
 
 
 ###Related###

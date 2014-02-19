@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GuiButton.au3>
+#include <GUIConstantsEx.au3>
 
 Global $btn[6], $iMemo, $iRand
 
@@ -26,7 +26,7 @@ Func Example()
 	$iRand = Random(0, 5, 1)
 	_GUICtrlButton_SetText($btn[$iRand], "New Text" & $iRand + 1)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	While 1
 		Switch GUIGetMsg()

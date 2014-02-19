@@ -4,24 +4,24 @@
 Example()
 
 Func Example()
-	Local $radio1, $radio2, $msg
 	GUICreate("My GUI radio") ; will create a dialog box that when displayed is centered
 
-	$radio1 = GUICtrlCreateRadio("Radio 1", 10, 10, 120, 20)
-	$radio2 = GUICtrlCreateRadio("Radio 2", 10, 40, 120, 20)
-	GUICtrlSetState($radio2, $GUI_CHECKED)
+	Local $idRadio1 = GUICtrlCreateRadio("Radio 1", 10, 10, 120, 20)
+	Local $idRadio2 = GUICtrlCreateRadio("Radio 2", 10, 40, 120, 20)
+	GUICtrlSetState($idRadio2, $GUI_CHECKED)
 
-	GUISetState() ; will display an  dialog box with 1 checkbox
+	GUISetState(@SW_SHOW) ; will display an  dialog box with 1 checkbox
 
-	; Run the GUI until the dialog is closed
+	Local $idMsg
+	; Loop until the user exits.
 	While 1
-		$msg = GUIGetMsg()
+		$idMsg = GUIGetMsg()
 		Select
-			Case $msg = $GUI_EVENT_CLOSE
+			Case $idMsg = $GUI_EVENT_CLOSE
 				ExitLoop
-			Case $msg = $radio1 And BitAND(GUICtrlRead($radio1), $GUI_CHECKED) = $GUI_CHECKED
+			Case $idMsg = $idRadio1 And BitAND(GUICtrlRead($idRadio1), $GUI_CHECKED) = $GUI_CHECKED
 				MsgBox($MB_SYSTEMMODAL, 'Info:', 'You clicked the Radio 1 and it is Checked.')
-			Case $msg = $radio2 And BitAND(GUICtrlRead($radio2), $GUI_CHECKED) = $GUI_CHECKED
+			Case $idMsg = $idRadio2 And BitAND(GUICtrlRead($idRadio2), $GUI_CHECKED) = $GUI_CHECKED
 				MsgBox($MB_SYSTEMMODAL, 'Info:', 'You clicked on Radio 2 and it is Checked.')
 		EndSelect
 	WEnd

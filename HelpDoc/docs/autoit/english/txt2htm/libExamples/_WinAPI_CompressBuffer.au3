@@ -1,5 +1,5 @@
-#include <WinAPISys.au3>
 #include <APISysConstants.au3>
+#include <WinAPISys.au3>
 
 ; Create compressed and uncompressed buffers
 Local $pBuffer[2]

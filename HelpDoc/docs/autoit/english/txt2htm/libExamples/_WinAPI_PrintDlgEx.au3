@@ -1,7 +1,7 @@
-#include <WinAPIDlg.au3>
 #include <APIDlgConstants.au3>
-#include <WinAPIFiles.au3>
 #include <Memory.au3>
+#include <WinAPIDlg.au3>
+#include <WinAPIFiles.au3>
 
 Opt('WinTitleMatchMode', 3)
 

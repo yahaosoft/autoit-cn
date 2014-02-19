@@ -2,7 +2,7 @@
 _WinAPI_RegFlushKey
 
 ###Description###
-Writes all the attributes of the specified open registry key into the registry.
+Writes all the attributes of the specified open registry key into the registry
 
 ###Syntax###
 #include <WinAPIReg.au3>
@@ -13,7 +13,7 @@ _WinAPI_RegFlushKey ( $hKey )
 @@ParamTable@@
 $hKey
 	Handle to an open registry key. The key must have been opened with the $KEY_QUERY_VALUE access right.
-	This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey() function. It can also
+	This handle is returned by the <a href="_WinAPI_RegCreateKey.htm">_WinAPI_RegCreateKey()</a> or <a href="_WinAPI_RegOpenKey.htm">_WinAPI_RegOpenKey()</a> function. It can also
 	be one of the following predefined keys.
 	$HKEY_CLASSES_ROOT
 	$HKEY_CURRENT_CONFIG
@@ -25,20 +25,20 @@ $hKey
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	1.
-Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+Success:	1.
+Failure:	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 
 ###Remarks###
-The _WinAPI_RegFlushKey() function returns only when all the data for the hive that contains the specified key
-has been written to the registry store on disk. The _WinAPI_RegFlushKey() function writes out the data for other
-keys in the hive that have been modified since the last lazy flush or system start. After _WinAPI_RegFlushKey()
-returns, use _WinAPI_RegCloseKey() to close the handle to the registry key.
+The <a href="_WinAPI_RegFlushKey.htm">_WinAPI_RegFlushKey()</a> function returns only when all the data for the hive that contains the specified key
+has been written to the registry store on disk. The <a href="_WinAPI_RegFlushKey.htm">_WinAPI_RegFlushKey()</a> function writes out the data for other
+keys in the hive that have been modified since the last lazy flush or system start. After <a href="_WinAPI_RegFlushKey.htm">_WinAPI_RegFlushKey()</a>
+returns, use <a href="_WinAPI_RegCloseKey.htm">_WinAPI_RegCloseKey()</a> to close the handle to the registry key.
 
 
 ###Related###
-_WinAPI_RegCreateKey, _WinAPI_RegOpenKey, _WinAPI_RegCloseKey
+_WinAPI_RegCloseKey, _WinAPI_RegCreateKey, _WinAPI_RegOpenKey
 
 
 ###See Also###

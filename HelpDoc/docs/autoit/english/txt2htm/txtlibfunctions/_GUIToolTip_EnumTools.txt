@@ -12,24 +12,24 @@ _GUIToolTip_EnumTools ( $hWnd, $iIndex )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	Handle to the ToolTip control (returned by <a href ="_GUIToolTip_Create.htm">_GUIToolTip_Create.</a>)
 $iIndex
 	0-based index of the tool for which to retrieve information
 @@End@@
 
 ###ReturnValue###
 Returns an array with the following format:
-	[0] - Flags that control the ToolTip display:
-		1 - Indicates that $iID is the window handle to the tool instead of the ID
-		2 - Centers the window below the tool specified by $iID
-		4 - Indicates that text will be displayed in the opposite direction
-		8 - Indicates that the control should subclass the tool's window to intercept messages
-		16 - Positions the control next to the tool to which it corresponds
-		32 - Positions the window at the same coordinates provided by TTM_TRACKPOSITION
-		64 - Causes the control to forward mouse messages to the parent window
-		128 - Indicates that links in the control text should be parsed
-	[1] - Handle to the window that contains the tool
-	[2] - Identifier of the tool
+	[0] - Comma separated string displaying TTF_ flags used
+		TTF_IDISHWND = Indicates that $iID is the window handle to the tool instead of the ID
+		TTF_CENTERTIP = Centers the window below the tool specified by $iID
+		TTF_RTLREADING = Indicates that text will be displayed in the opposite direction
+		TTF_SUBCLASS = Indicates that the control should subclass the tool's window to intercept messages
+		TTF_TRACK = Positions the control next to the tool to which it corresponds
+		TTF_ABSOLUTE = Positions the window at the same coordinates provided by TTM_TRACKPOSITION
+		TTF_TRANSPARENT = 	Causes the control to forward mouse messages to the parent window
+		TTF_PARSELINKS = Indicates that links in the control text should be parsed
+	[1] - Handle to the window that contains the tool ($hWnd)
+	[2] - Identifier of the tool ($iID)
 	[3] - X coordinate of the upper left corner of the rectangle
 	[4] - Y coordinate of the upper left corner of the rectangle
 	[5] - X coordinate of the lower right corner of the rectangle
@@ -44,3 +44,8 @@ None.
 
 
 ###Related###
+_GUIToolTip_GetCurrentTool, _GUIToolTip_GetToolInfo
+
+
+###Example###
+@@IncludeExample@@

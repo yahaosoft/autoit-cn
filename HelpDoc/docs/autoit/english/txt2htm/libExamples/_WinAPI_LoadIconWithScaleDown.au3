@@ -1,6 +1,6 @@
-#include <WinAPISys.au3>
 #include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPISys.au3>
 
 Global Const $STM_SETIMAGE = 0x0172
 
@@ -12,7 +12,7 @@ EndIf
 GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 324, 324)
 GUICtrlCreateIcon('', 0, 64, 64, 196, 196)
 Local $Icon = GUICtrlGetHandle(-1)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Local $hIcon = _WinAPI_LoadIconWithScaleDown(0, @ScriptDir & '\Extras\Soccer.ico', 196, 196)
 Local $hPrev = _SendMessage($Icon, $STM_SETIMAGE, 1, $hIcon)

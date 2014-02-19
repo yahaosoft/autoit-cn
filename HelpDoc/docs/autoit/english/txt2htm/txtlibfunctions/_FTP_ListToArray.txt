@@ -2,24 +2,24 @@
 _FTP_ListToArray
 
 ###Description###
-Get Filenames, Directories or Both of current remote directory.
+Get Filenames, Directories or Both of current remote directory
 
 ###Syntax###
 #include <FTPEx.au3>
-_FTP_ListToArray ( $hFTPSession [, $iReturnType = 0 [, $iFlags = 0 [, $iContext = 0]]] )
+_FTP_ListToArray ( $hFTPSession [, $iReturnType = 0 [, $iFlags = $INTERNET_FLAG_NO_CACHE_WRITE [, $iContext = 0]]] )
 
 
 ###Parameters###
 @@ParamTable@@
 $hFTPSession
-	as returned by _FTP_Connect().
+	as returned by <a href="_FTP_Connect.htm">_FTP_Connect()</a>.
 $iReturntype
 	[optional] 0 = Both Files and Directories, 1 = Directories, 2 = Files.
 $iFlags
-	[optional] see _FTP_FindFileFirst().
+	[optional] default = $INTERNET_FLAG_NO_CACHE_WRITE. See <a href="_FTP_FindFileFirst.htm">_FTP_FindFileFirst()</a>.
 $iContext
 	[optional] A variable that contains the application-defined value that associates this search with any application data.
-	This is only used if the application has already called _FTP_SetStatusCallback() to set up a status callback function.
+	This is only used if the application has already called <a  href="_FTP_SetStatusCallback.htm">_FTP_SetStatusCallback()</a> to set up a status callback function.
 @@End@@
 
 ###ReturnValue###

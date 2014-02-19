@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 #include <WindowsConstants.au3>
 
 Global $hListView
@@ -12,7 +12,7 @@ Func Example()
 
 	GUICreate("ListView Cancel Edit", 392, 322)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268, BitOR($LVS_EDITLABELS, $LVS_REPORT))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
@@ -40,7 +40,7 @@ Func Example()
 	_GUICtrlListView_EditLabel($hListView, 0)
 	$iTime = TimerInit()
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 		If _GUICtrlListView_GetEditControl($hListView) <> 0 Then
 			If TimerDiff($iTime) > 3000 Then _GUICtrlListView_CancelEditLabel($hListView)

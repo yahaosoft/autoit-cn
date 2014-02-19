@@ -11,7 +11,7 @@ HotKeySet ( "key" [, "function"] )
 ###Parameters###
 @@ParamTable@@
 key
-	The key combination to use as the hotkey. <b>Same format as <a href="Send.htm">Send()</a>.</b>
+	The key combination to use as the hotkey. <strong>Same format as <a href="Send.htm">Send()</a>.</strong>
 function
 	[optional] The name of the function to call when the key is pressed. Not specifying this parameter will unset a previous hotkey.
 @@End@@
@@ -24,15 +24,16 @@ Failure:	0.
 
 
 ###Remarks###
-It is better to use the lower keyboard key as for keyboard as Russian one, the unshifted key is not the lower value. I.E. "D" is not the upper case of "B". The Hotkey will not be set and a failure will occur.
+It is recommended to use lower-case keys/characters (e.g. "b" and not "B") when setting hotkeys to avoid errors as with some keyboard layouts upper and lower case keys may be mapped differently.
 
-If two AutoIt scripts set the same HotKeys, you should avoid running those scripts simultaneously.  (The second script cannot capture the hotkey unless the first script terminates or unregisters the key prior to the second script setting the hotkey.)
+
+If two AutoIt scripts set the same hotkeys, you should avoid running those scripts simultaneously as the second script cannot capture the hotkey unless the first script terminates or unregisters the key prior to the second script setting the hotkey.  If the scripts use GUIs, then consider using GUISetAccelerators as these keys are only active when the parent GUI is active.
 
 A hotkey-press *typically* interrupts the active AutoIt function/statement and runs its user function until it completes or is interrupted.  Exceptions are as follows:
 1)  If the current function is a "blocking" function, then the key-presses are buffered and execute as soon as the blocking function completes.  <a href="MsgBox.htm">MsgBox()</a> and <a href="FileSelectFolder.htm">FileSelectFolder()</a> are examples of blocking functions.  Try the behavior of Shift-Alt-d in the Example.
 2)  If you have paused the script by clicking on the AutoIt Tray icon, any hotkeys pressed during this paused state are ignored.
 
-<b>The following hotkeys cannot be set:</b>
+<strong>The following hotkeys cannot be set:</strong>
 
 @@ParamTable@@
 Ctrl+Alt+Delete
@@ -53,22 +54,22 @@ When you set a hotkey, AutoIt captures the key-press and does not pass it on to 
 To <a href="Send.htm">Send()</a> a key combination which will trigger a <a href="HotKeySet.htm">HotKeySet()</a> event, either use <a href="ControlSend.htm">ControlSend()</a> or unregister the <a href="HotKeySet.htm">HotKeySet()</a> event, otherwise, the <a href="Send.htm">Send()</a> event may trigger an infinite loop.
 
 ; capture and pass along a keypress
-<i><a href="HotKeySet.htm">HotKeySet</a>("{Esc}", "captureEsc")
+<em><a href="HotKeySet.htm">HotKeySet</a>("{Esc}", "captureEsc")
 Func captureEsc()
 	; ... can do stuff here
 	<a href="HotKeySet.htm">HotKeySet</a>("{Esc}")
 	<a href="Send.htm">Send</a>("{Esc}")
 	<a href="HotKeySet.htm">HotKeySet</a>("{Esc}", "captureEsc")
 EndFunc
-</i>
+</em>
 
-The called function can <b>not</b> be given parameters. They will be ignored.
+The called function can <strong>not</strong> be given parameters. They will be ignored.
 
 @HotKeyPressed macro can be used inside the function to handle several keys in the same function.
 
 
 ###Related###
-Send, GUISetAccelerators
+GUISetAccelerators, Send
 
 
 ###Example###

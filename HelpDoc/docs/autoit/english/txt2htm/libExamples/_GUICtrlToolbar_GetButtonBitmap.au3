@@ -1,7 +1,7 @@
-#include <GuiToolbar.au3>
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
+#include <GuiToolbar.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
@@ -12,7 +12,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("Toolbar", 400, 300)
 	$hToolbar = _GUICtrlToolbar_Create($hGUI)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add standard system bitmaps
 	Switch _GUICtrlToolbar_GetBitmapFlags($hToolbar)
@@ -34,7 +34,7 @@ Func Example()
 	_GUICtrlToolbar_SetButtonBitMap($hToolbar, $idSave, $STD_PRINT)
 	MsgBox($MB_SYSTEMMODAL, "Information", "Save button bitmap index: " & _GUICtrlToolbar_GetButtonBitmap($hToolbar, $idSave))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

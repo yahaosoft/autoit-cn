@@ -6,27 +6,26 @@ Places a message in the message queue and then returns
 
 ###Syntax###
 #include <WinAPI.au3>
-_WinAPI_PostMessage ( $hWnd, $iMsg, $iwParam, $ilParam )
+_WinAPI_PostMessage ( $hWnd, $iMsg, $wParam, $lParam )
 
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Identifies the window whose window procedure will receive the message. If this parameter is
-	0xFFFF (HWND_BROADCAST), the message is sent to all top-level windows in the system, including disabled or invisible
-	unknowned windows, overlapped windows, and pop-up windows; but the message is not sent to child windows.
+	Identifies the window whose window procedure will receive the message.
+	If this parameter is 0xFFFF (HWND_BROADCAST), the message is sent to all top-level windows in the system, including disabled or invisible windows, overlapped windows, and pop-up windows; but the message is not sent to child windows.
 $iMsg
 	Specifies the message to be sent
-$iwParam
+$wParam
 	First message parameter
-$ilParam
+$lParam
 	Second message parameter
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 Success:	True
-Failure:	False, call _WinAPI_GetLastError() to get extended error information
+Failure:	False, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information
 @@End@@
 
 
@@ -35,6 +34,7 @@ None.
 
 
 ###Related###
+None.
 
 
 ###See Also###

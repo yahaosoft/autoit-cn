@@ -1,7 +1,7 @@
 #include <GUIConstantsEx.au3>
 #include <GuiTreeView.au3>
-#include <WindowsConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Example_External()
 
@@ -12,7 +12,7 @@ Func Example_External()
 	$GUI = GUICreate("(UDF Created) TreeView Get Parent Param", 400, 300)
 
 	$hTreeView = _GUICtrlTreeView_Create($GUI, 2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlTreeView_BeginUpdate($hTreeView)
 	For $x = 0 To 20
@@ -30,7 +30,7 @@ Func Example_External()
 	_GUICtrlTreeView_SelectItem($hTreeView, $hChild)
 	MsgBox($MB_SYSTEMMODAL, "Information", "Parent Param: " & _GUICtrlTreeView_GetParentParam($hTreeView, $hChild))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

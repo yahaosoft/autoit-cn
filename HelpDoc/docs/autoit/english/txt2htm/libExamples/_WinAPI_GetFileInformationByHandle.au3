@@ -1,5 +1,5 @@
-#include <WinAPIFiles.au3>
 #include <Date.au3>
+#include <WinAPIFiles.au3>
 
 Local $hFile = _WinAPI_CreateFile(@ScriptFullPath, 2, 0, 6)
 Local $aInfo = _WinAPI_GetFileInformationByHandle($hFile)

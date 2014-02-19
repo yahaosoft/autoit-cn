@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("List Box Get ListBox Info", 400, 296)
 	$hListBox = GUICtrlCreateList("", 2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add strings
 	_GUICtrlListBox_BeginUpdate($hListBox)
@@ -22,7 +22,7 @@ Func Example()
 	; Show items per column
 	MsgBox($MB_SYSTEMMODAL, "Information", "Items per column: " & _GUICtrlListBox_GetListBoxInfo($hListBox))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

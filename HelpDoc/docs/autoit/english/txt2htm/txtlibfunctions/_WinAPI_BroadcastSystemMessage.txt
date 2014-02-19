@@ -2,7 +2,7 @@
 _WinAPI_BroadcastSystemMessage
 
 ###Description###
-Sends a message to the specified recipients.
+Sends a message to the specified recipients
 
 ###Syntax###
 #include <WinAPISys.au3>
@@ -18,43 +18,42 @@ $wParam
 $lParam
 	[optional] The message-specific information.
 $iFlags
-	[optional] The broadcast option. This parameter can be one or more of the following values.
-	$BSF_ALLOWSFW
-	$BSF_FLUSHDISK
-	$BSF_FORCEIFHUNG
-	$BSF_IGNORECURRENTTASK
-	$BSF_NOHANG
-	$BSF_NOTIMEOUTIFNOTHUNG
-	$BSF_POSTMESSAGE
-	$BSF_QUERY
-	$BSF_SENDNOTIFYMESSAGE
+	[optional] The broadcast option. This parameter can be one or more of the following values:
+		$BSF_ALLOWSFW
+		$BSF_FLUSHDISK
+		$BSF_FORCEIFHUNG
+		$BSF_IGNORECURRENTTASK
+		$BSF_NOHANG
+		$BSF_NOTIMEOUTIFNOTHUNG
+		$BSF_POSTMESSAGE
+		$BSF_QUERY
+		$BSF_SENDNOTIFYMESSAGE
 $iRecipients
-	[optional] The recipients of the message. This parameter can be one or more of the following values.
-	$BSM_ALLCOMPONENTS (Default)
-	$BSM_ALLDESKTOPS
-	$BSM_APPLICATIONS
-	$BSM_INSTALLABLEDRIVERS
-	$BSM_NETDRIVER
-	$BSM_VXDS
+	[optional] The recipients of the message. This parameter can be one or more of the following values:
+		$BSM_ALLCOMPONENTS (Default)
+		$BSM_ALLDESKTOPS
+		$BSM_APPLICATIONS
+		$BSM_INSTALLABLEDRIVERS
+		$BSM_NETDRIVER
+		$BSM_VXDS
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	>0 or 0 (see below), @extended flag receives a combination of $BSM_* values identifying which
-	recipients actually received the message.
-Failure 	(-1), call _WinAPI_GetLastError() to get extended error information.
+Success:	>0 or 0 (see below), @extended flag receives a combination of $BSM_* values identifying which recipients actually received the message.
+Failure:	(-1), call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information.
 @@End@@
 
 
 ###Remarks###
-If the $iFlags parameter is $BSF_QUERY and at least one recipient returned BROADCAST_QUERY_DENY to the corresponding
-message, the return value is 0.
+If the $iFlags parameter is $BSF_QUERY and at least one recipient returned BROADCAST_QUERY_DENY to the corresponding message, the return value is 0.
 
-The system only does marshalling for system messages (those in the range 0 to (WM_USER-1)). To send other messages
-(those >= WM_USER) to another process, you must do custom marshalling.
+The system only does marshalling for system messages (those in the range 0 to (WM_USER-1)).
+To send other messages (those >= WM_USER) to another process, you must do custom marshalling.
 
 
 ###Related###
+None.
 
 
 ###See Also###

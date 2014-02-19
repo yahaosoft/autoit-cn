@@ -1,7 +1,7 @@
 #include <GUIConstantsEx.au3>
+#include <GuiImageList.au3>
 #include <GuiTab.au3>
 #include <WinAPI.au3>
-#include <GuiImageList.au3>
 #include <WindowsConstants.au3>
 
 Global $iMemo
@@ -14,7 +14,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Tab Control Get Item", 400, 300)
 	$hTab = GUICtrlCreateTab(2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Create images
 	$hImage = _GUIImageList_Create(16, 16, 5, 3)
@@ -52,7 +52,7 @@ Func Example()
 	Next
 	GUISetState(@SW_UNLOCK)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

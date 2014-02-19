@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 #include <WindowsConstants.au3>
 
 Global $hListView
@@ -13,7 +13,7 @@ Func Example()
 	; Create GUI
 	GUICreate("ListView Click Item", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
@@ -36,7 +36,7 @@ Func Example()
 
 	_GUICtrlListView_ClickItem($hListView, 1, "left", False, 2)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

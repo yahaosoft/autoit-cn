@@ -1,8 +1,8 @@
 #include <GUIConstantsEx.au3>
-#include <GuiTreeView.au3>
 #include <GuiImageList.au3>
-#include <WindowsConstants.au3>
+#include <GuiTreeView.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Global $hStateImage
 
@@ -15,7 +15,7 @@ Func Example()
 	GUICreate("TreeView Set State Image Index", 400, 300)
 
 	$hTreeView = GUICtrlCreateTreeView(2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_CreateStateImageList()
 	_GUICtrlTreeView_SetStateImageList($hTreeView, $hStateImage)
@@ -37,7 +37,7 @@ Func Example()
 
 	MsgBox($MB_SYSTEMMODAL, "Information", "State Image Index for Item 0: " & _GUICtrlTreeView_GetStateImageIndex($hTreeView, $hItem[0]))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

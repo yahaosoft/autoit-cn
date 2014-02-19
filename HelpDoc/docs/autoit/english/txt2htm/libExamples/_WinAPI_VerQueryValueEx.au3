@@ -1,7 +1,7 @@
-#include <WinAPIRes.au3>
-#include <WinAPILocale.au3>
 #include <APILocaleConstants.au3>
 #include <Array.au3>
+#include <WinAPILocale.au3>
+#include <WinAPIRes.au3>
 
 Local $Data = _WinAPI_VerQueryValueEx(@ScriptDir & '\Extras\Resources.dll', 'FileDescription|FileVersion|OriginalFilename', -1)
 

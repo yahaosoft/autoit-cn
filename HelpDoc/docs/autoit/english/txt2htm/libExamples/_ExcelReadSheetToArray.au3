@@ -1,8 +1,8 @@
 ; After opening a workbook and returning its object identifier,
 ; Fill some cells and Read the Values into an Array, using various paramaters.
 
-#include <Excel.au3>
 #include <Array.au3>
+#include <Excel.au3>
 #include <MsgBoxConstants.au3>
 
 Local $oExcel = _ExcelBookNew() ;Create new book, make it visible

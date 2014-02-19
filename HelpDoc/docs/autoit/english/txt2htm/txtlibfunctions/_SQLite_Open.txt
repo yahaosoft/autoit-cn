@@ -2,7 +2,7 @@
 _SQLite_Open
 
 ###Description###
-Opens/creates a SQLite database.
+Opens/creates a SQLite database
 
 ###Syntax###
 #include <SQLite.au3>
@@ -26,7 +26,7 @@ Failure:	0.
 @error:	-1 - SQLite Reported an Error (Check @extended Value)
 	1 - Error Calling SQLite API 'sqlite3_open_v2'
 	2 - Error while converting filename to UTF-8
-	3 - SQLiteStartup() not yet called
+	3 - <a href="_SQLite_Startup.htm">_SQLite_Startup()</a> not yet called
 @extended:	value can be compared against $SQLITE_* constants
 @@End@@
 
@@ -38,16 +38,16 @@ Functions that use the handle are using the last opened by default.
 To create a database encoded in UFT16 just create it with $iEncoding = $SQLITE_ENCODING_UTF16.
 
 Memory, temporary and permanent databases can be opened:
-	$hDb = _SQLite_Open()                      ; opens a temporary private memory DB
-	$hDb = _SQLite_Open(Default, ...)          ; ditto
-	$hDb = _SQLite_Open(':memory:', ...)       ; ditto
+	$hDb = <a href="_SQLite_Open.htm">_SQLite_Open()</a>                      ; opens a temporary private memory DB
+	$hDb = <a href="_SQLite_Open.htm">_SQLite_Open</a>(Default, ...)          ; ditto
+	$hDb = <a href="_SQLite_Open.htm">_SQLite_Open</a>(':memory:', ...)       ; ditto
 
-	$hDb = _SQLite_Open('', ...)               ; opens a temporary private on-disk DB
+	$hDb = <a href="_SQLite_Open.htm">_SQLite_Open</a>('', ...)               ; opens a temporary private on-disk DB
 
-	$hDb = _SQLite_Open('abc.db', ...)         ; opens or creates a permanent shareable on-disk DB named 'abc.db'
+	$hDb = <a href="_SQLite_Open.htm">_SQLite_Open</a>('abc.db', ...)         ; opens or creates a permanent shareable on-disk DB named 'abc.db'
 
 	In case you insist confusing yourself:
-	$hDb = _SQLite_Open('./:memory:', ...)     ; opens or creates a permanent shareable on-disk DB named ':memory:'
+	$hDb = <a href="_SQLite_Open.htm">_SQLite_Open</a>('./:memory:', ...)     ; opens or creates a permanent shareable on-disk DB named ':memory:'
 
 Contrary to permanent disk-based DBs, memory and temporary DBs can't be shared nor be used for IPC (Inter Process Communication) and are destroyed at the end of the connection.
 

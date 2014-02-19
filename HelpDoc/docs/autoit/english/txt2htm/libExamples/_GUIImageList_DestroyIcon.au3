@@ -1,9 +1,9 @@
 #include <GUIConstantsEx.au3>
-#include <GuiStatusBar.au3>
-#include <WinAPI.au3>
 #include <GuiImageList.au3>
-#include <WindowsConstants.au3>
+#include <GuiStatusBar.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPI.au3>
+#include <WindowsConstants.au3>
 
 Global $hStatus, $iMemo
 
@@ -20,7 +20,7 @@ Func Example()
 	; Create memo control
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 274, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
@@ -45,7 +45,7 @@ Func Example()
 	MemoWrite("Part 1 icon handle .: 0x" & Hex($hIcons[0]))
 	MemoWrite("Part 2 icon handle .: 0x" & Hex($hIcons[1]))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	; Free icons

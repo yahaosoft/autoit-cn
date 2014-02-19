@@ -2,7 +2,7 @@
 _WinAPI_ChildWindowFromPointEx
 
 ###Description###
-Determines which, if any, of the child windows belonging to the specified parent window contains the specified point.
+Determines which, if any, of the child windows belonging to the specified parent window contains the specified point
 
 ###Syntax###
 #include <WinAPISys.au3>
@@ -14,34 +14,30 @@ _WinAPI_ChildWindowFromPointEx ( $hWnd, $tPOINT [, $iFlags = 0] )
 $hWnd
 	Handle to the parent window.
 $tPOINT
-	$tagPOINT structure that defines the client coordinates (relative to hwndParent) of the point to
-	be checked.
+	$tagPOINT structure that defines the client coordinates (relative to hwndParent) of the point to be checked.
 $iFlags
-	[optional] The flags that specify which child windows to skip. This parameter can be one or more of the
-	following values.
-	$CWP_ALL (Default)
-	$CWP_SKIPINVISIBLE
-	$CWP_SKIPDISABLED
-	$CWP_SKIPTRANSPARENT
+	[optional] The flags that specify which child windows to skip. This parameter can be one or more of the following values:
+		$CWP_ALL (Default)
+		$CWP_SKIPINVISIBLE
+		$CWP_SKIPDISABLED
+		$CWP_SKIPTRANSPARENT
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	Handle to the first child window. If the point is within the parent window but not within any child
-	window that meets the criteria, the return value is a handle to the parent window. If the point lies
-	outside the parent window, the return value is 0.
-Failure 	0.
+Success:	Handle to the first child window. If the point is within the parent window but not within any child window that meets the criteria, the return value is a handle to the parent window. If the point lies outside the parent window, the return value is 0.
+Failure:	0.
 @@End@@
 
 
 ###Remarks###
-The system maintains an internal list that contains the handles of the child windows associated with a
-parent window. The order of the handles in the list depends on the Z order of the child windows. If more than
-one child window contains the specified point, the system returns a handle to the first window in the list
-that contains the point and meets the criteria specified by $iFlags.
+The system maintains an internal list that contains the handles of the child windows associated with a parent window.
+The order of the handles in the list depends on the Z order of the child windows.
+If more than one child window contains the specified point, the system returns a handle to the first window in the list that contains the point and meets the criteria specified by $iFlags.
 
 
 ###Related###
+None.
 
 
 ###See Also###

@@ -6,16 +6,16 @@ Determines whether a specified point touches the outline of a path with the spec
 
 ###Syntax###
 #include <GDIPlus.au3>
-_GDIPlus_PathIsOutlineVisiblePoint ( $hPath, $fX, $fY [, $hPen = 0 [, $hGraphics = 0]] )
+_GDIPlus_PathIsOutlineVisiblePoint ( $hPath, $iX, $iY [, $hPen = 0 [, $hGraphics = 0]] )
 
 
 ###Parameters###
 @@ParamTable@@
 $hPath
 	Pointer to a GraphicsPath object
-$fX
+$iX
 	X coordinate of the point to test
-$fY
+$iY
 	Y coordinate of the point to test
 $hPen
 	[optional] Pointer to a Pen object that define the width of point to test. If 0, a solid black pen with a width of 1 will be used
@@ -25,8 +25,9 @@ $hGraphics
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	True if the point touches the outline of the path, False otherwise
-Failure:	sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
+Success:	True if the point touches the outline of the path,
+	False otherwise.
+Failure:	sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
 @@End@@
 
 
@@ -35,7 +36,7 @@ None.
 
 
 ###Related###
-None
+None.
 
 
 ###See Also###

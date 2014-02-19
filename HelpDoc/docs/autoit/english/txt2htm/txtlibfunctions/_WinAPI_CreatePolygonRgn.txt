@@ -2,38 +2,37 @@
 _WinAPI_CreatePolygonRgn
 
 ###Description###
-Creates a polygonal region.
+Creates a polygonal region
 
 ###Syntax###
 #include <WinAPIGdi.au3>
-_WinAPI_CreatePolygonRgn ( Const ByRef $aPoint [, $iStart = 0 [, $iEnd = -1 [, $iMode = 1]]] )
+_WinAPI_CreatePolygonRgn ( ByRef $aPoint [, $iStart = 0 [, $iEnd = -1 [, $iMode = 1]]] )
 
 
 ###Parameters###
 @@ParamTable@@
 $aPoint
-	The 2D array ([x1, y1], [x2, y2], ... [xN, yN]) that contains the vertices of the polygon in logical
-	units. The polygon is presumed closed. Each vertex can be specified only once.
+	The 2D array ([x1, y1], [x2, y2], ... [xN, yN]) that contains the vertices of the polygon in logical units.
+	The polygon is presumed closed. Each vertex can be specified only once.
 $iStart
 	[optional] The index of array to start creating at.
 $iEnd
 	[optional] The index of array to stop creating at.
 $iMode
-	[optional] The fill mode used to determine which pixels are in the region. This parameter can be one of the
-	following values.
-	$ALTERNATE (Default)
-	$WINDING
+	[optional] The fill mode used to determine which pixels are in the region. This parameter can be one of the following values:
+		$ALTERNATE (Default)
+		$WINDING
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	The handle to the region.
-Failure 	0.
+Success:	The handle to the region.
+Failure:	0.
 @@End@@
 
 
 ###Remarks###
-When you no longer need the HRGN object, call the _WinAPI_DeleteObject() function to delete it.
+When you no longer need the HRGN object, call the <a href="_WinAPI_DeleteObject.htm">_WinAPI_DeleteObject()</a> function to delete it.
 
 
 ###Related###

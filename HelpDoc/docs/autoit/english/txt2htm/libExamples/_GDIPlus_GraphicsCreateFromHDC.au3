@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
 #include <WinAPI.au3>
 
 Example()
@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("GDI+", 400, 300)
 	$hDC = _WinAPI_GetWindowDC($hGUI)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Draw a string
 	_GDIPlus_Startup()
@@ -22,7 +22,7 @@ Func Example()
 	$tLayout = _GDIPlus_RectFCreate(140, 110, 100, 20)
 	_GDIPlus_GraphicsDrawStringEx($hGraphic, "Hello world", $hFont, $tLayout, $hFormat, $hBrush)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

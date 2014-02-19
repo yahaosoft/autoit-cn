@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
 
-Global $iIDC = -1, $iNewIDC = 0
+Global $giIDC = -1, $giNewIDC = 0
 
 Example()
 
@@ -9,20 +9,20 @@ Func Example()
 
 	GUICreate("Press ESC to Increment", 400, 400, 0, 0)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	While GUIGetMsg() <> $GUI_EVENT_CLOSE
-		If $iNewIDC <> $iIDC Then
-			$iIDC = $iNewIDC
-			GUISetCursor($iIDC)
+		If $giNewIDC <> $giIDC Then
+			$giIDC = $giNewIDC
+			GUISetCursor($giIDC)
 		EndIf
-		ToolTip("GUI Cursor #" & $iIDC)
+		ToolTip("GUI Cursor #" & $giIDC)
 	WEnd
 
 	GUIDelete()
 EndFunc   ;==>Example
 
 Func Increment()
-	$iNewIDC = $iIDC + 1
-	If $iNewIDC > 15 Then $iNewIDC = 0
+	$giNewIDC = $giIDC + 1
+	If $giNewIDC > 15 Then $giNewIDC = 0
 EndFunc   ;==>Increment

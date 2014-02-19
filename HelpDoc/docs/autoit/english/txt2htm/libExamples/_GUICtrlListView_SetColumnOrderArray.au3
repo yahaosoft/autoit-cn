@@ -9,7 +9,7 @@ Func Example()
 
 	GUICreate("ListView Set Column Order Array", 400, 300)
 	$hListView = GUICtrlCreateListView("Column 1|Column 2|Column 3|Column 4", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set column order
 	MsgBox($MB_SYSTEMMODAL, "Information", "Changing column order")
@@ -19,7 +19,7 @@ Func Example()
 	$a_order = _GUICtrlListView_GetColumnOrderArray($hListView)
 	MsgBox($MB_SYSTEMMODAL, "Information", StringFormat("Column order: [%d, %d, %d, %d]", $a_order[1], $a_order[2], $a_order[3], $a_order[4]))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

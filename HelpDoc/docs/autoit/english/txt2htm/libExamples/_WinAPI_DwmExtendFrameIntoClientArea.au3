@@ -1,9 +1,9 @@
+#include <GUIConstantsEx.au3>
+#include <GUITab.au3>
+#include <MsgBoxConstants.au3>
 #include <WinAPIGdi.au3>
 #include <WinAPITheme.au3>
 #include <WindowsConstants.au3>
-#include <GUITab.au3>
-#include <GUIConstantsEx.au3>
-#include <MsgBoxConstants.au3>
 
 Opt('TrayAutoPause', 0)
 
@@ -38,7 +38,7 @@ Global $hProc = _WinAPI_SetWindowLong($hTab, $GWL_WNDPROC, $pDll)
 ; Create the "sheet of glass" effect for the Tab client area. You must call this function whenever DWM composition is toggled.
 _WinAPI_DwmExtendFrameIntoClientArea($hForm, _WinAPI_CreateMargins(2, 2, 82, 2))
 
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE

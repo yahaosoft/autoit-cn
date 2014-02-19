@@ -1,6 +1,6 @@
+#include <EditConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <GuiMonthCal.au3>
-#include <EditConstants.au3>
 #include <WindowsConstants.au3>
 
 Global $iMemo
@@ -19,12 +19,12 @@ Func Example()
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	GUICtrlSendMsg($iMemo, $EM_SETREADONLY, True, 0)
 	GUICtrlSetBkColor($iMemo, 0xFFFFFF)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get minimum required height/width
 	MemoWrite(_FormatOutPut(_GUICtrlMonthCal_GetMinReqRectArray($hMonthCal)))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

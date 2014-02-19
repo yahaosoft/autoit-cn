@@ -1,5 +1,5 @@
-#include <GuiListBox.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiListBox.au3>
 #include <MsgBoxConstants.au3>
 
 Example()
@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("List Box Get Locale Sub-Language id", 400, 296)
 	$hListBox = GUICtrlCreateList("", 2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Show locale, country code, language identifier, primary language id, sub-language id
 	MsgBox($MB_SYSTEMMODAL, "Information", _
@@ -20,7 +20,7 @@ Func Example()
 			"Primary Language id : " & _GUICtrlListBox_GetLocalePrimLang($hListBox) & @CRLF & _
 			"Sub-Language id ....: " & _GUICtrlListBox_GetLocaleSubLang($hListBox))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

@@ -3,7 +3,7 @@
 Example()
 
 Func Example()
-	Local $aDays = StringSplit("Mon,Tues,Wed,Thur,Fri,Sat,Sun", ",") ; Split the string of days using the delimeter "," and the default flag value.
+	Local $aDays = StringSplit("Mon,Tues,Wed,Thur,Fri,Sat,Sun", ",") ; Split the string of days using the delimiter "," and the default flag value.
 	#cs
 		The array returned will contain the following values:
 		$aDays[1] = "Mon"

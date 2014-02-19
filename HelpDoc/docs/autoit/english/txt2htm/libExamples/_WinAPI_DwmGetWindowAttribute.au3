@@ -1,6 +1,6 @@
-#include <WinAPIGdi.au3>
 #include <APIGdiConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIGdi.au3>
 
 If Not _WinAPI_DwmIsCompositionEnabled() Then
 	MsgBox(BitOR($MB_ICONERROR, $MB_SYSTEMMODAL), 'Error', 'Require Windows Vista or later with enabled Aero theme.')

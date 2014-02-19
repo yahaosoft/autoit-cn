@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
 
 Example()
 
@@ -8,7 +8,7 @@ Func Example()
 
 	; Create GUI
 	$hGUI = GUICreate("GDI+", 400, 300)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Create resources
 	_GDIPlus_Startup()
@@ -30,7 +30,7 @@ Func Example()
 	_GDIPlus_PenSetCustomEndCap($hPen, $hEndCap)
 	_GDIPlus_GraphicsDrawLine($hGraphic, 10, 190, 390, 190, $hPen)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

@@ -16,13 +16,13 @@ Func Example()
 	; Create memo control
 	$iMemo = GUICtrlCreateEdit("", 4, 168, 392, 128, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get/Set maximum selection count
 	_GUICtrlMonthCal_SetMaxSelCount($hMonthCal, 7)
 	MemoWrite("Maximum selction count: " & _GUICtrlMonthCal_GetMaxSelCount($hMonthCal))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

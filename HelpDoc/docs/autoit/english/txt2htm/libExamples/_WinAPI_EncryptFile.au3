@@ -1,6 +1,6 @@
-#include <WinAPIFiles.au3>
 #include <APIFilesConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIFiles.au3>
 
 Local $File = FileOpenDialog('Select File', @ScriptDir, 'All Files (*.*)', 1 + 2)
 If @error Then Exit

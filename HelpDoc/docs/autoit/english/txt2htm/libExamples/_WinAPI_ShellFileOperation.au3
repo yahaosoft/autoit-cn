@@ -1,6 +1,6 @@
-#include <WinAPIShellEx.au3>
 #include <APIShellExConstants.au3>
 #include <WinAPIFiles.au3>
+#include <WinAPIShellEx.au3>
 
 ; Create temporary file
 Local $sTemp = _WinAPI_GetTempFileName(@TempDir)

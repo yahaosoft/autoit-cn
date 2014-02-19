@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GuiAVI.au3>
+#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 
 Global $hAVI
@@ -14,14 +14,14 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("(External 1) AVI Create", 300, 100)
 	$hAVI = _GUICtrlAVI_Create($hGUI, $sFile, -1, 10, 10)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUIRegisterMsg($WM_COMMAND, "WM_COMMAND")
 
 	; Play the sample AutoIt AVI
 	_GUICtrlAVI_Play($hAVI)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

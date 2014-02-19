@@ -1,8 +1,8 @@
-#include <WinAPISys.au3>
-#include <WinAPIProc.au3>
-#include <APISysConstants.au3>
 #include <APIProcConstants.au3>
+#include <APISysConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIProc.au3>
+#include <WinAPISys.au3>
 
 ; Retrieve a handle to the current desktop and create a new desktop named "MyDesktop"
 Local $hPrev = _WinAPI_GetThreadDesktop(_WinAPI_GetCurrentThreadId())

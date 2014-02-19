@@ -2,16 +2,16 @@
 _SoundOpen
 
 ###Description###
-Opens a sound file for use with other _Sound functions.
+Opens a sound file for use with other _Sound functions
 
 ###Syntax###
 #include <Sound.au3>
-_SoundOpen ( $sFile )
+_SoundOpen ( $sFilePath )
 
 
 ###Parameters###
 @@ParamTable@@
-$sFile
+$sFilePath
 	Path to sound file
 @@End@@
 
@@ -30,7 +30,7 @@ Failure:	0 and sets the @error flag to non-zero.
 
 
 ###Remarks###
-Although many of the _Sound...() functions will accept the filename as a parameter, if there is a possibility of the file being VBR (variable bit rate) encoded it is highly recommended to use _SoundOpen() initially and then use the returned array as the identity parameter in other _Sound...() functions.  This is because the MCI DLL assumes all files are CBR (constant bit rate) encoded and produces incorrect results from those _Sound...() functions dealing with length and position when the sound file has been VBR (variable bit rate) encoded.  If using the array as the ID parameter with the _Sound...() functions which alter the VBR correction factors (_SoundStop()) the ID array will be updated when needed.
+Although many of the _Sound...() functions will accept the filename as a parameter, if there is a possibility of the file being VBR (variable bit rate) encoded it is highly recommended to use <a href="_SoundOpen.htm">_SoundOpen()</a> initially and then use the returned array as the identity parameter in other _Sound...() functions.  This is because the MCI DLL assumes all files are CBR (constant bit rate) encoded and produces incorrect results from those _Sound...() functions dealing with length and position when the sound file has been VBR (variable bit rate) encoded.  If using the array as the ID parameter with the _Sound...() functions which alter the VBR correction factors (<a href="_SoundStop.htm">_SoundStop()</a>) the ID array will be updated when needed.
 The individual elements of the returned array have no utility outside the _Sound functions and their internal use is transparent to the user.
 
 

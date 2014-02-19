@@ -1,5 +1,5 @@
-#include <GuiEdit.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiEdit.au3>
 
 Example()
 
@@ -13,7 +13,7 @@ Func Example()
 	$hGUI = GUICreate("Edit Begin Update", 400, 300)
 	$hEdit = GUICtrlCreateEdit("", 2, 2, 394, 268)
 	$hStatusBar = _GUICtrlStatusBar_Create($hGUI, -1)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlEdit_BeginUpdate($hEdit)
 	_GUICtrlEdit_SetText($hEdit, FileRead($sFile))
@@ -22,7 +22,7 @@ Func Example()
 	_GUICtrlStatusBar_SetText($hStatusBar, @TAB & "Lines: " & _GUICtrlEdit_GetLineCount($hEdit))
 	_GUICtrlStatusBar_SetIcon($hStatusBar, 0, 97, "shell32.dll")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

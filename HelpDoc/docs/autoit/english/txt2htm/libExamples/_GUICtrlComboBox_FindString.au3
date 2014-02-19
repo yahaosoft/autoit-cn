@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("ComboBox Find String", 400, 296)
 	$hCombo = GUICtrlCreateCombo("", 2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add files
 	_GUICtrlComboBox_BeginUpdate($hCombo)
@@ -22,7 +22,7 @@ Func Example()
 	; Find string
 	MsgBox($MB_SYSTEMMODAL, "Information", "Find String: " & _GUICtrlComboBox_FindString($hCombo, "this"))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

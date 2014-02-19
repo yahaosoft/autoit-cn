@@ -1,5 +1,5 @@
 #NoTrayIcon
-#include <Constants.au3> ; Required for the $TRAY_EVENT_PRIMARYDOUBLE and $TRAY_EVENT_SECONDARYUP constants.
+#include <TrayConstants.au3> ; Required for the $TRAY_EVENT_PRIMARYDOUBLE and $TRAY_EVENT_SECONDARYUP constants.
 #include <MsgBoxConstants.au3>
 
 Opt("TrayMenuMode", 3) ; The default tray menu items will not be shown and items are not checked when selected. These are options 1 and 2 for TrayMenuMode.

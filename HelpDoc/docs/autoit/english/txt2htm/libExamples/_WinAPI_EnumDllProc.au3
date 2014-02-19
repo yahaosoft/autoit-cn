@@ -1,6 +1,6 @@
-#include <WinAPIDiag.au3>
 #include <APIDiagConstants.au3>
 #include <Array.au3>
+#include <WinAPIDiag.au3>
 
 Local $Data = _WinAPI_EnumDllProc('ntdll.dll', 'Rtl*', $SYMOPT_CASE_INSENSITIVE)
 

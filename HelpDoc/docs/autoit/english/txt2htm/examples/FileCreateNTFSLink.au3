@@ -29,7 +29,7 @@ EndFunc   ;==>Example
 
 ; Create a file.
 Func FileCreate($sFilePath, $sString)
-	Local $fReturn = True ; Create a variable to store a boolean value.
-	If FileExists($sFilePath) = 0 Then $fReturn = FileWrite($sFilePath, $sString) = 1 ; If FileWrite returned 1 this will be True otherwise False.
-	Return $fReturn ; Return the boolean value of either True of False, depending on the return value of FileWrite.
+	Local $bReturn = True ; Create a variable to store a boolean value.
+	If FileExists($sFilePath) = 0 Then $bReturn = FileWrite($sFilePath, $sString) = 1 ; If FileWrite returned 1 this will be True otherwise False.
+	Return $bReturn ; Return the boolean value of either True of False, depending on the return value of FileWrite.
 EndFunc   ;==>FileCreate

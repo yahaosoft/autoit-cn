@@ -12,23 +12,23 @@ _WinAPI_WaitForMultipleObjects ( $iCount, $pHandles [, $fWaitAll = False [, $iTi
 ###Parameters###
 @@ParamTable@@
 $iCount
-	The number of object handles in the array pointed to by pHandles
+	The number of object handles in the array pointed to by $pHandles
 $pHandles
 	Pointer to an array of object handles
 $fWaitAll
-	[optional] If True, the function returns when the state of all objects in the pHandles array is signaled.
+	[optional] If True, the function returns when the state of all objects in the $pHandles array is signaled.
 	If False, the function returns when the state of any one of the objects is set to signaled. In the latter
 	case, the return value indicates the object whose state caused the function to return.
 $iTimeout
 	[optional] The time-out interval, in milliseconds. The function returns if the interval elapses, even if
-	the conditions specified by the fWaitAll parameter are not met. If 0, the function tests the states of the
+	the conditions specified by the $fWaitAll parameter are not met. If 0, the function tests the states of the
 	specified objects and returns immediately. If -1, the function's time-out interval never elapses.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 Success:	indicates the event that caused the function to return.
-Failure:	(-1) WAIT_FAILED, call _WinAPI_GetLastError() to get extended error information.
+Failure:	(-1) WAIT_FAILED, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information.
 @@End@@
 
 

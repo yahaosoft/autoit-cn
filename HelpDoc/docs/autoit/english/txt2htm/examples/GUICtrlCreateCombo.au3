@@ -8,22 +8,25 @@ Func Example()
 	Local $hGUI = GUICreate("Example", 300, 200)
 
 	; Create a combobox control.
-	Local $iComboBox = GUICtrlCreateCombo("Item 1", 10, 10, 185, 20)
-	Local $iClose = GUICtrlCreateButton("Close", 210, 170, 85, 25)
+	Local $idComboBox = GUICtrlCreateCombo("Item 1", 10, 10, 185, 20)
+	Local $idClose = GUICtrlCreateButton("Close", 210, 170, 85, 25)
 
 	; Add additional items to the combobox.
-	GUICtrlSetData($iComboBox, "Item 2|Item 3", "Item 2")
+	GUICtrlSetData($idComboBox, "Item 2|Item 3", "Item 2")
 
 	; Display the GUI.
 	GUISetState(@SW_SHOW, $hGUI)
 
+	Local $sComboRead = ""
+
+	; Loop until the user exits.
 	While 1
 		Switch GUIGetMsg()
-			Case $GUI_EVENT_CLOSE, $iClose
+			Case $GUI_EVENT_CLOSE, $idClose
 				ExitLoop
 
-			Case $iComboBox
-				Local $sComboRead = GUICtrlRead($iComboBox)
+			Case $idComboBox
+				$sComboRead = GUICtrlRead($idComboBox)
 				MsgBox($MB_SYSTEMMODAL, "", "The combobox is currently displaying: " & $sComboRead, 0, $hGUI)
 
 		EndSwitch

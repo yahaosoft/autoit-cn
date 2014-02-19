@@ -1,7 +1,7 @@
 #include <GuiComboBox.au3>
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
@@ -11,7 +11,7 @@ Func Example()
 	; Create GUI
 	GUICreate("ComboBox Select String", 400, 296)
 	$hCombo = GUICtrlCreateCombo("", 2, 2, 396, 296, BitOR($CBS_SIMPLE, $CBS_DISABLENOSCROLL, $WS_VSCROLL))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add files
 	_GUICtrlComboBox_BeginUpdate($hCombo)
@@ -25,7 +25,7 @@ Func Example()
 	; select string
 	_GUICtrlComboBox_SelectString($hCombo, "This")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

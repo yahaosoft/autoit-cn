@@ -6,7 +6,7 @@ Updates the position, size, shape, content, and translucency of a layered window
 
 ###Syntax###
 #include <WinAPI.au3>
-_WinAPI_UpdateLayeredWindow ( $hWnd, $hDCDest, $pPTDest, $pSize, $hDCSrce, $pPTSrce, $iRGB, $pBlend, $iFlags )
+_WinAPI_UpdateLayeredWindow ( $hWnd, $hDestDC, $pPTDest, $pSize, $hSrcDC, $pPTSrce, $iRGB, $pBlend, $iFlags )
 
 
 ###Parameters###
@@ -14,7 +14,7 @@ _WinAPI_UpdateLayeredWindow ( $hWnd, $hDCDest, $pPTDest, $pSize, $hDCSrce, $pPTS
 $hWnd
 	Handle to a layered window. A layered window is created by specifying $WS_EX_LAYERED when
 	creating the window.
-$hDCDest
+$hDestDC
 	Handle to a device context for the screen
 $pPTDest
 	Pointer to a $tagPOINT structure that specifies the new screen position of the layered window.
@@ -22,9 +22,9 @@ $pPTDest
 $pSize
 	Pointer to a $tagSIZE structure that specifies the new size of the layered window. If the size
 	of the window is not changing, this can be 0.
-$hDCSrce
+$hSrcDC
 	Handle to a device context for the surface that defines the layered window. This handle can be
-	obtained by calling the _WinAPI_CreateCompatibleDC function.
+	obtained by calling the <a href="_WinAPI_CreateCompatibleDC.htm">_WinAPI_CreateCompatibleDC()</a> function.
 $pPTSrce
 	Pointer to a $tagPOINT structure that specifies the location of the layer in the device context
 $iRGB
@@ -42,7 +42,7 @@ $iFlags
 ###ReturnValue###
 @@ReturnTable@@
 Success:	True
-Failure:	False, call _WinAPI_GetLastError() to get extended error information
+Failure:	False, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information
 @@End@@
 
 

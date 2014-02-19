@@ -1,6 +1,6 @@
+#include <File.au3>
 #include <SQLite.au3>
 #include <SQLite.dll.au3>
-#include <File.au3>
 
 ; Filenames
 Local $sTsvFile = FileGetShortName(_TempFile(@ScriptDir, "~", ".tsv"))

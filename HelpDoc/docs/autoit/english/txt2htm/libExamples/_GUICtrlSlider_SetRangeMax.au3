@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Slider Set Range Max", 400, 296)
 	$hSlider = GUICtrlCreateSlider(2, 2, 396, 20, BitOR($TBS_TOOLTIPS, $TBS_AUTOTICKS, $TBS_ENABLESELRANGE))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get Range Max
 	MsgBox($MB_SYSTEMMODAL, "Information", "Range Max: " & _GUICtrlSlider_GetRangeMax($hSlider))
@@ -21,7 +21,7 @@ Func Example()
 	; Get Range Max
 	MsgBox($MB_SYSTEMMODAL, "Information", "Range Max: " & _GUICtrlSlider_GetRangeMax($hSlider))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

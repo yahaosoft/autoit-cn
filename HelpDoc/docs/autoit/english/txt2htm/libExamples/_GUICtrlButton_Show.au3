@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GuiButton.au3>
+#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 
 Example()
@@ -8,7 +8,7 @@ Func Example()
 	Local $y = 70, $btn[6], $rdo[6], $chk[6]
 
 	GUICreate("Buttons", 510, 400)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$btn[0] = GUICtrlCreateButton("Button1", 10, 10, 90, 50)
 

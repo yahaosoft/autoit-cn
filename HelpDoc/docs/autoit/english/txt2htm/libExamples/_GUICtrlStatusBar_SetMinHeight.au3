@@ -11,7 +11,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("StatusBar Set Min Height", 400, 300)
 	$hStatus = _GUICtrlStatusBar_Create($hGUI)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set parts
 	_GUICtrlStatusBar_SetParts($hStatus, $aParts)
@@ -21,7 +21,7 @@ Func Example()
 	; Set minimum height
 	_GUICtrlStatusBar_SetMinHeight($hStatus, 30)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

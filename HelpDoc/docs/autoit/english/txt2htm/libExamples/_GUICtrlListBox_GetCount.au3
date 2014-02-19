@@ -1,5 +1,5 @@
-#include <GuiListBox.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiListBox.au3>
 #include <MsgBoxConstants.au3>
 
 Example()
@@ -11,7 +11,7 @@ Func Example()
 	GUICreate("List Box Get Count", 400, 296)
 	$hListBox = GUICtrlCreateList("", 2, 2, 396, 296)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add strings
 	_GUICtrlListBox_BeginUpdate($hListBox)
@@ -23,7 +23,7 @@ Func Example()
 	; Get item count
 	MsgBox($MB_SYSTEMMODAL, "Information", "Item count: " & _GUICtrlListBox_GetCount($hListBox))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

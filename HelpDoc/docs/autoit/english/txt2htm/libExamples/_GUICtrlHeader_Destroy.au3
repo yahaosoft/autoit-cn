@@ -1,7 +1,7 @@
 #include <GUIConstantsEx.au3>
 #include <GuiHeader.au3>
-#include <WindowsConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Global $hHeader
 
@@ -14,7 +14,7 @@ Func Example()
 	$hGUI = GUICreate("Header", 400, 300)
 	$hHeader = _GUICtrlHeader_Create($hGUI)
 	_GUICtrlHeader_SetUnicodeFormat($hHeader, True)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
@@ -31,7 +31,7 @@ Func Example()
 
 	_GUICtrlHeader_Destroy($hHeader)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

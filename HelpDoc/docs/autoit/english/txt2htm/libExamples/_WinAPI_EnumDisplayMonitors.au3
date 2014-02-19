@@ -1,5 +1,5 @@
-#include <WinAPIGdi.au3>
 #include <Array.au3>
+#include <WinAPIGdi.au3>
 
 Local $Pos, $Data = _WinAPI_EnumDisplayMonitors()
 

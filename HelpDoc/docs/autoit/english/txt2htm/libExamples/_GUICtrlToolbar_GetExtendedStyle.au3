@@ -1,6 +1,6 @@
-#include <GuiToolbar.au3>
-#include <GuiMenu.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiMenu.au3>
+#include <GuiToolbar.au3>
 #include <WindowsConstants.au3>
 
 Global $hGUI, $iMemo
@@ -17,7 +17,7 @@ Func Example()
 	_GUICtrlToolbar_SetExtendedStyle($hToolbar, $TBSTYLE_EX_DRAWDDARROWS)
 	$iMemo = GUICtrlCreateEdit("", 2, 36, 396, 262, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 10, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add standard system bitmaps
 	Switch _GUICtrlToolbar_GetBitmapFlags($hToolbar)
@@ -37,10 +37,9 @@ Func Example()
 	; Show extended styles in use
 	MemoWrite("Extended sytles: " & _GUICtrlToolbar_GetExtendedStyle($hToolbar))
 
-	; Loop until user exits
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

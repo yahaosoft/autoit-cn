@@ -2,46 +2,42 @@
 _WinAPI_FindFirstFile
 
 ###Description###
-Searches a directory for a file or subdirectory with a name that matches a specific name.
+Searches a directory for a file or subdirectory with a name that matches a specific name
 
 ###Syntax###
 #include <WinAPIFiles.au3>
-_WinAPI_FindFirstFile ( $sPath, $pData )
+_WinAPI_FindFirstFile ( $sFilePath, $pData )
 
 
 ###Parameters###
 @@ParamTable@@
-$sPath
-	The directory or path, and the file name, which can include wildcard characters, for example, an asterisk
-	"*" or a question mark "?". If the string ends with a wildcard, period ".", or directory name, the user
-	must have access permissions to the root and all subdirectories on the path.
+$sFilePath
+	The directory or path, and the file name, which can include wildcard characters, for example, an asterisk "*" or a question mark "?".
+	If the string ends with a wildcard, period ".", or directory name, the user must have access permissions to the root and all subdirectories on the path.
 $pData
 	A pointer to the $tagWIN32_FIND_DATA structure that receives information about a found file or directory.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	The search handle.
-Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+Success:	The search handle.
+Failure:	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 
 ###Remarks###
-This function opens a search handle and returns information about the first file that the file system finds with
-a name that matches the specified pattern. This may or may not be the first file or directory that appears in
-a directory-listing application when given the same file name string pattern.
+This function opens a search handle and returns information about the first file that the file system finds with a name that matches the specified pattern.
+This may or may not be the first file or directory that appears in a directory-listing application when given the same file name string pattern.
 
-After the search handle is established, you can use it to search for other files that match the same pattern by
-using the _WinAPI_FindNextFile() function.
+After the search handle is established, you can use it to search for other files that match the same pattern by using the <a href="_WinAPI_FindNextFile.htm">_WinAPI_FindNextFile()</a> function.
 
-If the function fails because no matching files can be found, the @extended flag will contain ERROR_FILE_NOT_FOUND (2)
-system error code.
+If the function fails because no matching files can be found, the @extended flag will contain ERROR_FILE_NOT_FOUND (2) system error code.
 
-When the search handle is no longer needed, close it by using the _WinAPI_FindClose() function.
+When the search handle is no longer needed, close it by using the <a href="_WinAPI_FindClose.htm">_WinAPI_FindClose()</a> function.
 
 
 ###Related###
-_WinAPI_FindNextFile, _WinAPI_FindClose
+_WinAPI_FindClose, _WinAPI_FindNextFile
 
 
 ###See Also###

@@ -16,14 +16,14 @@ Func Example()
 	; Create memo control
 	$iMemo = GUICtrlCreateEdit("", 4, 168, 392, 128, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get minimum required height/width
 	$tRect = _GUICtrlMonthCal_GetMinReqRect($hMonthCal)
 	MemoWrite("Minimum required height: " & DllStructGetData($tRect, "Bottom"))
 	MemoWrite("Minimum required width : " & DllStructGetData($tRect, "Right"))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

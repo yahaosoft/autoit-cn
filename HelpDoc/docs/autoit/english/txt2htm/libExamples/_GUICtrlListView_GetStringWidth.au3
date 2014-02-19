@@ -9,7 +9,7 @@ Func Example()
 
 	GUICreate("ListView Get String Width", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268, BitOR($LVS_SHOWSELALWAYS, $LVS_REPORT))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add columns
 	_GUICtrlListView_AddColumn($hListView, "Column 1", 100)
@@ -22,7 +22,7 @@ Func Example()
 	; Get width of string
 	MsgBox($MB_SYSTEMMODAL, "Information", 'Width of "Test": ' & _GUICtrlListView_GetStringWidth($hListView, "Test"))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

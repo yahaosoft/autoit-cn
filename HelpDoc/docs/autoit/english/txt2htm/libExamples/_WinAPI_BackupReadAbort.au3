@@ -1,8 +1,8 @@
+#include <MsgBoxConstants.au3>
+#include <WinAPI.au3>
 #include <WinAPIFiles.au3>
 #include <WinAPIProc.au3>
 #include <WinAPISys.au3>
-#include <WinAPI.au3>
-#include <MsgBoxConstants.au3>
 
 Global Const $sFile = @ScriptFullPath
 

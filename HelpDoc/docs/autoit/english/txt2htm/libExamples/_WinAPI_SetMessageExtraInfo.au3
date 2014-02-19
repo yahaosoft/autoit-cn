@@ -1,5 +1,5 @@
-#include <WinAPISys.au3>
 #include <GUIConstantsEx.au3>
+#include <WinAPISys.au3>
 
 Global Const $WM_MYMESSAGE = _WinAPI_RegisterWindowMessage('MyMessage')
 
@@ -7,7 +7,7 @@ Local $hForm = GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 400
 Local $Input = GUICtrlCreateInput('', 20, 20, 360, 20)
 Local $Button = GUICtrlCreateButton('Send', 165, 59, 70, 23)
 GUIRegisterMsg($WM_MYMESSAGE, 'WM_MYMESSAGE')
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Local $pString
 While 1

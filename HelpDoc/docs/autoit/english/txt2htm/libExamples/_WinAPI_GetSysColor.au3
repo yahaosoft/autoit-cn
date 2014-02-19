@@ -16,7 +16,7 @@ Func Example()
 
 	_WinAPI_SetSysColors($aElements, $aColors)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	While 1
 		Switch GUIGetMsg()

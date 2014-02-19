@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <EventLog.au3>
+#include <GUIConstantsEx.au3>
 
 Global $iMemo
 
@@ -12,7 +12,7 @@ Func Example()
 	GUICreate("EventLog", 400, 300)
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 300, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Read most current event record
 	$hEventLog = _EventLog__Open("", "Application")
@@ -33,7 +33,7 @@ Func Example()
 	MemoWrite("Description .......: " & $aEvent[13])
 	_EventLog__Close($hEventLog)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

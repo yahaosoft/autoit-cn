@@ -1,8 +1,8 @@
 ; After opening a workbook and returning its object identifier, create an array of all the Sheet Names in the workbook
 ; and Activate each Sheet by Index.  On each sheet Write the array to the worksheet and put in some random numbers
 
-#include <Excel.au3>
 #include <Array.au3>
+#include <Excel.au3>
 #include <MsgBoxConstants.au3>
 
 Local $oExcel = _ExcelBookNew() ;Create new book, make it visible

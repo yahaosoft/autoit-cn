@@ -1,34 +1,36 @@
 #include <GUIConstantsEx.au3>
-#include <StaticConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <StaticConstants.au3>
 
-Global $MAXGr = 6, $del
+Global Const $MAXGr = 6
 Global $a[$MAXGr + 1] ; 0 and $MAXGr entries not used to allow GUICtrlDelete result
+Global $gidDel
 
 Example()
 
 Func Example()
-	Local $msg, $inc, $i
+	Local $idMsg, $inc, $i
 
 	CreateChild()
 
 	$i = 1
 	$inc = 1
+	; Loop until the user exits.
 	Do
-		$msg = GUIGetMsg()
+		$idMsg = GUIGetMsg()
 
-		If $msg = $del Then
+		If $idMsg = $gidDel Then
 			GUICtrlDelete($a[$i])
 			$i = $i + $inc
 			If $i < 0 Or $i > $MAXGr Then Exit
 		EndIf
-		If $msg > 0 Then MsgBox($MB_SYSTEMMODAL, "clicked", $msg & @CRLF & $a[5], 2)
-	Until $msg = $GUI_EVENT_CLOSE
+		If $idMsg > 0 Then MsgBox($MB_SYSTEMMODAL, "clicked", $idMsg & @CRLF & $a[5], 2)
+	Until $idMsg = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example
 
 Func CreateChild()
 	GUICreate("My Draw")
-	$del = GUICtrlCreateButton("Delete", 50, 165, 50)
+	$gidDel = GUICtrlCreateButton("Delete", 50, 165, 50)
 
 	$a[1] = GUICtrlCreateGraphic(20, 50, 100, 100)
 	GUICtrlSetBkColor(-1, 0xffffff)
@@ -86,5 +88,5 @@ Func CreateChild()
 	GUICtrlSetGraphic(-1, $GUI_GR_LINE, 40, 40)
 	GUICtrlSetGraphic(-1, $GUI_GR_DOT, 40, 40)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 EndFunc   ;==>CreateChild

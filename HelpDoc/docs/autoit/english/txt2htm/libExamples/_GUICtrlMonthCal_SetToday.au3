@@ -16,7 +16,7 @@ Func Example()
 	; Create memo control
 	$iMemo = GUICtrlCreateEdit("", 4, 168, 392, 128, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get/Set today
 	_GUICtrlMonthCal_SetToday($hMonthCal, @YEAR, 8, 19)
@@ -25,7 +25,7 @@ Func Example()
 			DllStructGetData($tToday, "Day"), _
 			DllStructGetData($tToday, "Year")))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

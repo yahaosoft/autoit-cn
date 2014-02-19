@@ -1,1 +1,3 @@
-ProcessWait("notepad.exe") ; Wait for the Notepad process to exist.
+; Wait for the Notepad process to exist.
+
+ProcessWait("notepad.exe")

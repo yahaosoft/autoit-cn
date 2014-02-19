@@ -1,6 +1,6 @@
+#include <GUIConstantsEx.au3>
 #include <WinAPIGdi.au3>
 #include <WindowsConstants.au3>
-#include <GUIConstantsEx.au3>
 
 ; Create GUI
 Local $hForm = GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 500, 475, -1, -1, $WS_POPUP, $WS_EX_TOPMOST)
@@ -13,7 +13,7 @@ Global $aPoint[10][2] = [[0, 180],[190, 180],[250, 0],[308, 180],[500, 180],[344
 Local $hRgn = _WinAPI_CreatePolygonRgn($aPoint)
 _WinAPI_SetWindowRgn($hForm, $hRgn, 0)
 
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $Button

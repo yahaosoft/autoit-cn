@@ -11,7 +11,7 @@ Func Example()
 	$hListView = GUICtrlCreateListView("Items", 2, 2, 394, 268)
 	_GUICtrlListView_SetColumnWidth($hListView, 0, 100)
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, BitOR($LVS_EX_GRIDLINES, $LVS_EX_FULLROWSELECT))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlListView_BeginUpdate($hListView)
 	For $i = 1 To 100
@@ -22,7 +22,7 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", "Making item 50 visible")
 	_GUICtrlListView_EnsureVisible($hListView, 49)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

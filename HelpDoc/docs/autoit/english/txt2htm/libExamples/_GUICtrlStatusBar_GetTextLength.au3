@@ -17,7 +17,7 @@ Func Example()
 	; Create memo control
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 274, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set parts
 	_GUICtrlStatusBar_SetParts($hStatus, $aParts)
@@ -31,7 +31,7 @@ Func Example()
 		MemoWrite()
 	Next
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

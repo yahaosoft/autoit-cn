@@ -2,16 +2,16 @@
 _WinAPI_ShellGetFileInfo
 
 ###Description###
-Retrieves information about an object in the file system.
+Retrieves information about an object in the file system
 
 ###Syntax###
 #include <WinAPIShellEx.au3>
-_WinAPI_ShellGetFileInfo ( $sPath, $iFlags, $iAttributes, ByRef $tSHFILEINFO )
+_WinAPI_ShellGetFileInfo ( $sFilePath, $iFlags, $iAttributes, ByRef $tSHFILEINFO )
 
 
 ###Parameters###
 @@ParamTable@@
-$sPath
+$sFilePath
 	String that contains the absolute or relative path and file name. This string can use either
 	short (the 8.3 form) or long file names.
 
@@ -23,7 +23,7 @@ $sPath
 	If the $iFlags parameter includes the $SHGFI_USEFILEATTRIBUTES flag, this parameter does not have
 	to be a valid file name. The function will proceed as if the file exists with the specified name and
 	with the file attributes passed in the $iAttributes parameter. This allows you to obtain information
-	about a file type by passing just the extension for $sPath and passing $FILE_ATTRIBUTE_NORMAL
+	about a file type by passing just the extension for $sFilePath and passing $FILE_ATTRIBUTE_NORMAL
 	in $iAttributes.
 
 $iFlags
@@ -54,15 +54,15 @@ $tSHFILEINFO
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	If $iFlags contains the $SHGFI_EXETYPE flag, return type of the executable file. If $iFlags contains the
+Success:	If $iFlags contains the $SHGFI_EXETYPE flag, return type of the executable file. If $iFlags contains the
 	$SHGFI_SYSICONINDEX flag, return handle to the system image list.
-Failure 	0.
+Failure:	0.
 @@End@@
 
 
 ###Remarks###
 If this function returns an icon handle in the "hIcon" member of the $tagSHFILEINFO structure, you are responsible
-for freeing it with _WinAPI_DestroyIcon() when you no longer need it.
+for freeing it with <a href="_WinAPI_DestroyIcon.htm">_WinAPI_DestroyIcon()</a> when you no longer need it.
 
 
 ###Related###

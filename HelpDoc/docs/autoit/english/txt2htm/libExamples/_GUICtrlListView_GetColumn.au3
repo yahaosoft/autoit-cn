@@ -11,7 +11,7 @@ Func Example()
 	$hListView = GUICtrlCreateListView("col1|col2|col3", 2, 2, 394, 268)
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, BitOR($LVS_EX_FULLROWSELECT, $LVS_EX_CHECKBOXES))
 	_GUICtrlListView_SetColumnWidth($hListView, 0, 100)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUICtrlCreateListViewItem("index 0|data1|more1", $hListView)
 	GUICtrlCreateListViewItem("index 1|data2|more2", $hListView)
@@ -26,7 +26,7 @@ Func Example()
 	$aInfo = _GUICtrlListView_GetColumn($hListView, 0)
 	MsgBox($MB_SYSTEMMODAL, "Information", "Column 1 Width: " & $aInfo[4])
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

@@ -26,9 +26,8 @@ Failure:	0.
 When label editing begins, an edit control is created, positioned, and initialized.
 Before displayed, the control sends its parent window an $LVN_BEGINLABELEDIT notification message.
 
-If you want to customize label editing implement a handler for $LVN_BEGINLABELEDITA, $LVN_BEGINLABELEDITAW
-and have it send an $LVM_GETEDITCONTROL message to the control.
-If a label is being edited, the return value will be a handle to the edit control. 
+If you want to customize label editing implement a handler for $LVN_BEGINLABELEDITA, $LVN_BEGINLABELEDITAW and have it send an $LVM_GETEDITCONTROL message to the control.
+If a label is being edited, the return value will be a handle to the edit control.
 Use this handle to customize the edit control by sending the usual EM_XXX messages.
 
 When the user completes or cancels editing, the edit control is destroyed and the handle is no longer valid.

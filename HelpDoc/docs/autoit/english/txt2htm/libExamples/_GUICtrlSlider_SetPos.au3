@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Slider Set Pos", 400, 296)
 	$hSlider = GUICtrlCreateSlider(2, 2, 396, 20, BitOR($TBS_TOOLTIPS, $TBS_AUTOTICKS, $TBS_ENABLESELRANGE))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set Pos
 	_GUICtrlSlider_SetPos($hSlider, Random(0, 100, 1))
@@ -18,7 +18,7 @@ Func Example()
 	; Get Pos
 	MsgBox($MB_SYSTEMMODAL, "Information", "Pos: " & _GUICtrlSlider_GetPos($hSlider))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

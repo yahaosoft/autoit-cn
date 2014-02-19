@@ -1,8 +1,8 @@
-#include <WinAPISys.au3>
-#include <WindowsConstants.au3>
 #include <ButtonConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPISys.au3>
+#include <WindowsConstants.au3>
 
 If _WinAPI_GetVersion() < '6.0' Then
 	MsgBox(BitOR($MB_ICONERROR, $MB_SYSTEMMODAL), 'Error', 'Require Windows Vista or later.')
@@ -15,7 +15,7 @@ GUICtrlSetImage(-1, @SystemDir & '\shell32.dll', 45)
 GUICtrlSetTip(-1, 'Log off ' & @UserName)
 Local $Check = GUICtrlCreateCheckbox('Block Windows shutdown', 10, 173, 144, 21)
 GUIRegisterMsg($WM_QUERYENDSESSION, 'WM_QUERYENDSESSION')
-GUISetState()
+GUISetState(@SW_SHOW)
 
 ; Set the highest shutdown priority for the current process to prevent closure the other processes.
 _WinAPI_SetProcessShutdownParameters(0x03FF)

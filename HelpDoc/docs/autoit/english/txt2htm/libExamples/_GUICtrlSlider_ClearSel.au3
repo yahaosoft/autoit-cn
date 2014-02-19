@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("(Internal) Slider Clear Sel", 400, 296)
 	$hSlider = GUICtrlCreateSlider(2, 2, 396, 20, BitOR($TBS_TOOLTIPS, $TBS_AUTOTICKS, $TBS_ENABLESELRANGE))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set Sel
 	_GUICtrlSlider_SetSel($hSlider, 10, 50)
@@ -19,7 +19,7 @@ Func Example()
 	; Clear Sel
 	_GUICtrlSlider_ClearSel($hSlider)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

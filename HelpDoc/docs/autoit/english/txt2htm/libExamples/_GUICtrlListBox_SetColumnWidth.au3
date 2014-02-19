@@ -1,5 +1,5 @@
-#include <GuiListBox.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiListBox.au3>
 
 Example()
 
@@ -9,7 +9,7 @@ Func Example()
 	; Create GUI
 	GUICreate("List Box Set Column Width", 400, 296)
 	$hListBox = GUICtrlCreateList("", 2, 2, 396, 296, BitOR($LBS_STANDARD, $LBS_MULTICOLUMN))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set the width of the columns
 	_GUICtrlListBox_SetColumnWidth($hListBox, 100)
@@ -21,7 +21,7 @@ Func Example()
 	Next
 	_GUICtrlListBox_EndUpdate($hListBox)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

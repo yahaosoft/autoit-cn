@@ -2,7 +2,7 @@
 _WinAPI_EnumDisplaySettings
 
 ###Description###
-Retrieves information about one of the graphics modes for a display device.
+Retrieves information about one of the graphics modes for a display device
 
 ###Syntax###
 #include <WinAPIGdi.au3>
@@ -12,42 +12,38 @@ _WinAPI_EnumDisplaySettings ( $sDevice, $iMode )
 ###Parameters###
 @@ParamTable@@
 $sDevice
-	The display device about whose graphics mode the function will obtain information. An empty string
-	specifies the current display device on the computer on which the calling process is running.
+	The display device about whose graphics mode the function will obtain information.
+	An empty string specifies the current display device on the computer on which the calling process is running.
 $iMode
-	The type of information to be retrieved. This value can be a graphics mode index or one of the
-	following values.
-	$ENUM_CURRENT_SETTINGS
-	$ENUM_REGISTRY_SETTINGS
-
-	The graphics mode indexes start at zero. To obtain information for all of a display device's graphics
-	modes, make a series of calls to _WinAPI_EnumDisplaySettings(). Set $iMode to zero for the first call,
-	and increment $iMode by one for each subsequent call. Continue calling the function until the return
-	value is zero.
-
-	When you call _WinAPI_EnumDisplaySettings() with $iMode set to zero, the operating system initializes
-	and caches information about the display device. When you call _WinAPI_EnumDisplaySettings() with
-	$iMode set to a non-zero value, the function returns the information that was cached the last time
-	the function was called with $iMode set to zero.
+	The type of information to be retrieved. This value can be a graphics mode index or one of the following values:
+		$ENUM_CURRENT_SETTINGS
+		$ENUM_REGISTRY_SETTINGS
+	The graphics mode indexes start at zero.
+	To obtain information for all of a display device's graphics modes, make a series of calls to <a href="_WinAPI_EnumDisplaySettings.htm">_WinAPI_EnumDisplaySettings()</a>.
+	Set $iMode to zero for the first call, and increment $iMode by one for each subsequent call.
+	Continue calling the function until the return value is zero.
+	When you call <a href="_WinAPI_EnumDisplaySettings.htm">_WinAPI_EnumDisplaySettings()</a> with $iMode set to zero, the operating system initializes and caches information about the display device.
+	When you call <a href="_WinAPI_EnumDisplaySettings.htm">_WinAPI_EnumDisplaySettings()</a> with $iMode set to a non-zero value, the function returns the information that was cached the last time the function was called with $iMode set to zero.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	The array containing the following information:
-	[0] - The width, in pixels, of the visible device surface.
-	[1] - The height, in pixels, of the visible device surface.
-	[2] - The color resolution, in bits per pixel, of the display device.
-	[3] - The frequency, in hertz (cycles per second), of the display device in a particular mode.
-	[4] - The device's display mode ($DM_*).
-Failure 	Sets the @error flag to non-zero.
+Success:	The array containing the following information:
+		[0] - The width, in pixels, of the visible device surface.
+		[1] - The height, in pixels, of the visible device surface.
+		[2] - The color resolution, in bits per pixel, of the display device.
+		[3] - The frequency, in hertz (cycles per second), of the display device in a particular mode.
+		[4] - The device's display mode ($DM_*).
+Failure:	Sets the @error flag to non-zero.
 @@End@@
 
 
 ###Remarks###
-None
+None.
 
 
 ###Related###
+None.
 
 
 ###See Also###

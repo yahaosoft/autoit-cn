@@ -1,5 +1,5 @@
-#include <GuiListBox.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiListBox.au3>
 
 Example()
 
@@ -9,7 +9,7 @@ Func Example()
 	; Create GUI
 	GUICreate("List Box Click Item_GUICtrlListBox_ClickItem", 400, 296)
 	$hListBox = GUICtrlCreateList("", 2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add strings
 	_GUICtrlListBox_BeginUpdate($hListBox)
@@ -21,7 +21,7 @@ Func Example()
 	; Click an item
 	_GUICtrlListBox_ClickItem($hListBox, 4, "left", True)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

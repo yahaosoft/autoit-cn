@@ -1,11 +1,11 @@
-#include <GUIConstantsEx.au3>
 #include <GuiButton.au3>
-#include <WindowsConstants.au3>
+#include <GUIConstantsEx.au3>
 #include <GuiMenu.au3>
+#include <WindowsConstants.au3>
 
 Global $btn, $iMemo, $btn2
 
-; Note the controlId from these buttons can NOT be read with GUICtrlRead
+; Note the controlID from these buttons can NOT be read with GUICtrlRead
 
 Example()
 
@@ -23,7 +23,7 @@ Func Example()
 	GUIRegisterMsg($WM_COMMAND, "WM_COMMAND")
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$aInfo = _GUICtrlButton_GetSplitInfo($btn)
 	MemoWrite("Split Info" & @CRLF & "----------------")

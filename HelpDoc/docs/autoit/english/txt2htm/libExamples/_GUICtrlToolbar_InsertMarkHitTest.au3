@@ -1,5 +1,5 @@
-#include <GuiToolbar.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiToolbar.au3>
 #include <WindowsConstants.au3>
 
 Global $iMemo
@@ -15,7 +15,7 @@ Func Example()
 	$hToolbar = _GUICtrlToolbar_Create($hGUI)
 	$iMemo = GUICtrlCreateEdit("", 2, 36, 396, 262, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 10, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add standard system bitmaps
 	Switch _GUICtrlToolbar_GetBitmapFlags($hToolbar)
@@ -52,7 +52,7 @@ Func Example()
 	MemoWrite("Index ........: " & $aMark[0])
 	MemoWrite("Relationship .: " & $aMark[1])
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

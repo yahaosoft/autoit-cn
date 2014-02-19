@@ -6,7 +6,7 @@ Sets the border of paragraph(s) in the current selection or, if no selection, of
 
 ###Syntax###
 #include <GuiRichEdit.au3>
-_GUICtrlRichEdit_SetParaBorder ( $hWnd [, $sLocation [, $vLineStyle [, $sColor [, $iSpace]]]] )
+_GUICtrlRichEdit_SetParaBorder ( $hWnd [, $sLocation = Default [, $iLineStyle = Default [, $sColor = Default [, $iSpace = Default]]]] )
 
 
 ###Parameters###
@@ -22,7 +22,7 @@ $sLocation
 		i - inside border
 		o - outside border
 		or "" - no border (initial value)
-$vLineStyle
+$iLineStyle
 	[optional] line style - one of:
 		"none" - no line (initial value)
 		.75 - 3/4 point
@@ -64,14 +64,14 @@ Success:	True.
 Failure:	False and sets the @error flag to non-zero.
 @error:	101 - $hWnd is not a handle
 	102 - value of $sLocation is invalid
-	103 - value of $ivLineStyle is invalid
+	103 - value of $iLineStyle is invalid
 	104 - value of $sColor is invalid
 	105 - $iSpace is neither a positive number nor zero
 @@End@@
 
 
 ###Remarks###
-To set "space units", call _GUICtrlRichEdit_SetSpaceUnit. Initially inches.
+To set "space units", call <a href="_GUICtrlRichEdit_SetSpaceUnit.htm">_GUICtrlRichEdit_SetSpaceUnit()</a>. Initially inches.
 
 If text is selected, the defaults are the values of the first paragraph with text selected.
 If none is selected, the defaults are the values of the current paragraph.

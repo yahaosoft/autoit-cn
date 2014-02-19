@@ -6,12 +6,12 @@ Installs an application-defined hook procedure into a hook chain
 
 ###Syntax###
 #include <WinAPI.au3>
-_WinAPI_SetWindowsHookEx ( $idHook, $lpfn, $hmod [, $dwThreadId = 0] )
+_WinAPI_SetWindowsHookEx ( $iHook, $pProc, $hDll [, $iThreadID = 0] )
 
 
 ###Parameters###
 @@ParamTable@@
-$idHook
+$iHook
 	Specifies the type of hook procedure to be installed. This parameter can be one of the following values:
 	$WH_CALLWNDPROC - Installs a hook procedure that monitors messages before the system sends them to the destination window procedure
 	$WH_CALLWNDPROCRET - Installs a hook procedure that monitors messages after they have been processed by the destination window procedure
@@ -28,15 +28,15 @@ $idHook
 	$WH_MSGFILTER - Installs a hook procedure that monitors messages generated as a result of an input event in a dialog box, message box, menu, or scroll bar
 	$WH_SHELL - Installs a hook procedure that receives notifications useful to shell applications
 	$WH_SYSMSGFILTER - Installs a hook procedure that monitors messages generated as a result of an input event in a dialog box, message box, menu, or scroll bar
-$lpfn
-	Pointer to the hook procedure. If the $dwThreadId parameter is zero or specifies the identifier of a thread created by a different process,
-	the $lpfn parameter must point to a hook procedure in a DLL.
-	Otherwise, $lpfn can point to a hook procedure in the code associated with the current process
-$hmod
-	Handle to the DLL containing the hook procedure pointed to by the $lpfn parameter.
-	The $hMod parameter must be set to NULL if the $dwThreadId parameter specifies a thread created by the current process and if the hook procedure is within the
+$pProc
+	Pointer to the hook procedure. If the $iThreadID parameter is zero or specifies the identifier of a thread created by a different process,
+	the $pProc parameter must point to a hook procedure in a DLL.
+	Otherwise, $pProc can point to a hook procedure in the code associated with the current process
+$hDll
+	Handle to the DLL containing the hook procedure pointed to by the $pProc parameter.
+	The $hMod parameter must be set to NULL if the $iThreadID parameter specifies a thread created by the current process and if the hook procedure is within the
 	code associated with the current process
-$dwThreadId
+$iThreadID
 	[optional] Specifies the identifier of the thread with which the hook procedure is to be associated.
 	If this parameter is zero, the hook procedure is associated with all existing threads running in the same desktop as the calling thread
 @@End@@
@@ -44,7 +44,7 @@ $dwThreadId
 ###ReturnValue###
 @@ReturnTable@@
 Success:	Handle to the hook procedure
-Failure:	0, call _WinAPI_GetLastError() to get extended error informationt
+Failure:	0, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error informationt
 @@End@@
 
 
@@ -53,7 +53,7 @@ None.
 
 
 ###Related###
-_WinAPI_UnhookWindowsHookEx, _WinAPI_CallNextHookEx
+_WinAPI_CallNextHookEx, _WinAPI_UnhookWindowsHookEx
 
 
 ###See Also###

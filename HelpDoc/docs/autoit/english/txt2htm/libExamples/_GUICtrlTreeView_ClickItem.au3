@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiTreeView.au3>
 #include <GuiImageList.au3>
+#include <GuiTreeView.au3>
 #include <WindowsConstants.au3>
 
 Global $hTreeView
@@ -14,7 +14,7 @@ Func Example()
 	GUICreate("TreeView Click Item", 400, 300)
 
 	$hTreeView = GUICtrlCreateTreeView(2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
@@ -40,7 +40,7 @@ Func Example()
 
 	_GUICtrlTreeView_ClickItem($hTreeView, $hItem, "left", False, 2)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

@@ -7,14 +7,14 @@ Func Example()
 	; Create a GUI.
 	Local $hGUI1 = GUICreate("Example GUI1")
 	; Create a button.
-	Local $iButton1 = GUICtrlCreateButton("Button1", 10, 10, 80, 22)
+	Local $idButton1 = GUICtrlCreateButton("Button1", 10, 10, 80, 22)
 	; Display the GUI
 	GUISetState(@SW_SHOW, $hGUI1)
 
 	; Create a GUI.
 	Local $hGUI2 = GUICreate("Example GUI2", 300, 300)
 	; Create a button.
-	Local $iButton2 = GUICtrlCreateButton("Button2", 10, 10, 80, 22)
+	Local $idButton2 = GUICtrlCreateButton("Button2", 10, 10, 80, 22)
 	; Display the GUI
 	GUISetState(@SW_SHOW, $hGUI2)
 
@@ -34,7 +34,7 @@ Func Example()
 				Switch $aMsg[0]
 					Case $GUI_EVENT_CLOSE
 						ExitLoop
-					Case $iButton1
+					Case $idButton1
 						MsgBox($MB_SYSTEMMODAL, "", "Button1 clicked.")
 				EndSwitch
 			Case $hGUI2
@@ -44,13 +44,10 @@ Func Example()
 				Switch $aMsg[0]
 					Case $GUI_EVENT_CLOSE
 						GUIDelete($hGUI2)
-					Case $iButton2
+					Case $idButton2
 						MsgBox($MB_SYSTEMMODAL, "", "Button2 clicked.")
 				EndSwitch
 		EndSwitch
-
-		; Avoid high CPU usage.
-		Sleep(10)
 	WEnd
 
 	; Delete the previous GUIs and all controls.

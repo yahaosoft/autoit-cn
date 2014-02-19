@@ -1,7 +1,7 @@
 ; using AutoIt Function
 
-#include <GuiEdit.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiEdit.au3>
 #include <WindowsConstants.au3>
 
 Example_Internal()
@@ -17,7 +17,7 @@ Func Example_Internal()
 			BitOR($ES_AUTOVSCROLL, $WS_VSCROLL, $ES_MULTILINE, $WS_HSCROLL, $ES_NOHIDESEL))
 	$Button1 = GUICtrlCreateButton("Find", 176, 288, 121, 33, 0)
 	$Button2 = GUICtrlCreateButton("Find And Replace", 368, 288, 121, 33, 0)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	While 1
 		$msg = GUIGetMsg()

@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GuiAVI.au3>
+#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 
 Global $hAVI, $iMemo
@@ -18,12 +18,12 @@ Func Example()
 	$btn_StartStop = GUICtrlCreateButton("Start", 50, 10, 75, 25)
 	$iMemo = GUICtrlCreateEdit("", 10, 50, 276, 144, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Play the sample AutoIt AVI
 	_GUICtrlAVI_Open($hAVI, $sFile)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	While 1
 		Switch GUIGetMsg()
 			Case $btn_StartStop

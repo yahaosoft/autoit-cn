@@ -1,7 +1,7 @@
+#include <GUIConstantsEx.au3>
 #include <WinAPIGdi.au3>
 #include <WinAPIMisc.au3>
 #include <WinAPISys.au3>
-#include <GUIConstantsEx.au3>
 
 Global Const $STM_SETIMAGE = 0x0172
 Global Const $STM_GETIMAGE = 0x0173
@@ -47,7 +47,7 @@ If $hObj <> $hDev Then
 EndIf
 
 ; Show GUI
-GUISetState()
+GUISetState(@SW_SHOW)
 
 ; Save 8 bits-per-pixel bitmap to .bmp file
 Local $Path = FileSaveDialog('Save Image', @TempDir, 'Bitmap Image Files (*.bmp)', 2 + 16, 'MyImage.bmp', $hForm)

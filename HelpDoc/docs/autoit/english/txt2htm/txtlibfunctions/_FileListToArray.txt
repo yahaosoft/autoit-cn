@@ -6,7 +6,7 @@ Lists files and\or folders in a specified folder (Similar to using Dir with the 
 
 ###Syntax###
 #include <File.au3>
-_FileListToArray ( $sFilePath [, $sFilter = "*" [, $iFlag = 0 [, $fReturnPath = False]]] )
+_FileListToArray ( $sFilePath [, $sFilter = "*" [, $iFlag = $FLTA_FILESFOLDERS [, $fReturnPath = False]]] )
 
 
 ###Parameters###
@@ -17,16 +17,16 @@ $sFilter
 	[optional] the filter to use, default is *. Search the helpfile for the word "WildCards" For details.
 $iFlag
 	[optional] specifies whether to return files folders or both
-		0 = (Default) Return both files and folders
-		1 = Return files only
-		2 = Return Folders only
+		$FLTA_FILESFOLDERS (0) = (Default) Return both files and folders
+		$FLTA_FILES (1) = Return files only
+		$FLTA_FOLDERS (2) = Return Folders only
 $fReturnPath
-	[optional] If True the full path is appended to the file\folder path, otherwise it's relative to the $sFilePath folder. Default is False.
+	[optional] If True the full path is appended to the file\folder path, otherwise it is relative to the $sFilePath folder. Default is False.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	an one-dimensional array.
+Success:	A one-dimensional array.
 		$aArray[0] = Number of Files\Folders returned
 		$aArray[1] = 1st File\Folder
 		$aArray[2] = 2nd File\Folder
@@ -41,7 +41,7 @@ Failure:	sets the @error flag to non-zero.
 
 
 ###Remarks###
-None.
+This function uses the Windows OS to return subfolders matching the specified filter. This works perfectly for simple filters, using a complex filter with multiple wildcards may return some unexpected results (for example *test*.* will match both testX and testX.X subfolders). If this occurs, the <a href="_FileListToArrayRec.htm">_FileListToArrayRec()</a> function might be better suited as it compares all subfolders to the specified filter using a RegEx, although the time taken to run the function can be noticeably greater
 
 
 ###Related###

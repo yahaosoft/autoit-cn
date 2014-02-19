@@ -2,7 +2,7 @@
 _WinAPI_RegOpenKey
 
 ###Description###
-Opens the specified registry key.
+Opens the specified registry key
 
 ###Syntax###
 #include <WinAPIReg.au3>
@@ -12,7 +12,7 @@ _WinAPI_RegOpenKey ( $hKey [, $sSubKey = '' [, $iAccess = 0x000F003F]] )
 ###Parameters###
 @@ParamTable@@
 $hKey
-	Handle to an open registry key. This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey()
+	Handle to an open registry key. This handle is returned by the <a href="_WinAPI_RegCreateKey.htm">_WinAPI_RegCreateKey()</a> or <a href="_WinAPI_RegOpenKey.htm">_WinAPI_RegOpenKey()</a>
 	function, or it can be one of the following predefined keys.
 	$HKEY_CLASSES_ROOT
 	$HKEY_CURRENT_USER
@@ -28,31 +28,31 @@ $iAccess
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	Handle to the opened key.
-Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+Success:	Handle to the opened key.
+Failure:	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 
 ###Remarks###
-Unlike the _WinAPI_RegCreateKey() function, the _WinAPI_RegOpenKey() function does not create the specified key
+Unlike the <a href="_WinAPI_RegCreateKey.htm">_WinAPI_RegCreateKey()</a> function, the <a href="_WinAPI_RegOpenKey.htm">_WinAPI_RegOpenKey()</a> function does not create the specified key
 if the key does not exist in the registry.
 
-If the key is not one of the predefined registry keys ($HKEY_*) you must call the _WinAPI_RegCloseKey()
+If the key is not one of the predefined registry keys ($HKEY_*) you must call the <a href="_WinAPI_RegCloseKey.htm">_WinAPI_RegCloseKey()</a>
 function after finished using the handle.
 
 Key names are not case sensitive.
 
 The $sSubKey parameter can be an an empty string.
-If $sSubKey is an empty string and $hKey is HKEY_CLASSES_ROOT, the return is the same hKey handle passed into the function.
-Otherwise, the return is a new handle to the key specified by hKey.
+If $sSubKey is an empty string and $hKey is HKEY_CLASSES_ROOT, the return is the same $hKey handle passed into the function.
+Otherwise, the return is a new handle to the key specified by $hKey.
 
 The $sSubKey parameter can be NULL only if $hKey is one of the predefined keys.
 If $sSubKey is NULL and $hKey is HKEY_CLASSES_ROOT, the return is a new handle to the key specified by $hKey.
-Otherwise, the return is the same hKey handle passed in to the function.
+Otherwise, the return is the same $hKey handle passed in to the function.
 
 
 ###Related###
-_WinAPI_RegCreateKey, _WinAPI_RegCloseKey
+_WinAPI_RegCloseKey, _WinAPI_RegCreateKey
 
 
 ###See Also###

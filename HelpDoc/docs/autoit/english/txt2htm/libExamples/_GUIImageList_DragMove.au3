@@ -1,15 +1,15 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 #include <WindowsConstants.au3>
 
-#region Globals *************************************************************************
+#Region Globals *************************************************************************
 Global $hDragImageList, $hListView, $bDragging = False, $LV_Height
 Global $a_index[2] ; from and to
 
 Global Const $DebugIt = 1
 
-#endregion Globals *************************************************************************
+#EndRegion Globals *************************************************************************
 
 Opt("WinTitleMatchMode", 2)
 
@@ -59,7 +59,7 @@ Func Example()
 		$y += 2
 	Next
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	While 1
 
@@ -85,7 +85,7 @@ Func Example()
 	GUIDelete()
 EndFunc   ;==>Example
 
-#region Item Function(s) **********************************************************************************************
+#Region Item Function(s) **********************************************************************************************
 ; ------------------------------------------------------
 ; ------------------------------------------------------
 ; ------------------------------------------------------
@@ -164,9 +164,9 @@ Func _LVCopyItem($i_FromItem, $i_ToItem, $i_SubItem = 0)
 	DllStructSetData($struct_LVITEM, "State", $LVIF_PARAM)
 	_GUICtrlListView_SetItemEx($hListView, $struct_LVITEM)
 EndFunc   ;==>_LVCopyItem
-#endregion Item Function(s) **********************************************************************************************
+#EndRegion Item Function(s) **********************************************************************************************
 
-#region Event Function(s) **********************************************************************************************
+#Region Event Function(s) **********************************************************************************************
 ; ------------------------------------------------------
 ; ------------------------------------------------------
 ; ------------------------------------------------------
@@ -317,7 +317,7 @@ Func WM_NOTIFY($hWndGUI, $MsgID, $wParam, $lParam)
 	EndSwitch
 	Return $GUI_RUNDEFMSG
 EndFunc   ;==>WM_NOTIFY
-#endregion Event Function(s) **********************************************************************************************
+#EndRegion Event Function(s) **********************************************************************************************
 
 Func _DebugPrint($s_text)
 	$s_text = StringReplace($s_text, @CRLF, @CRLF & "-->")

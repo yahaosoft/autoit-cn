@@ -1,6 +1,6 @@
-#include <WinAPIGdi.au3>
 #include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIGdi.au3>
 
 If Not _WinAPI_DwmIsCompositionEnabled() Then
 	MsgBox(BitOR($MB_ICONERROR, $MB_SYSTEMMODAL), 'Error', 'Require Windows Vista or later with enabled Aero theme.')
@@ -30,7 +30,7 @@ Local $tDestRect = _WinAPI_CreateRectEx((400 - $Width / 2) / 2, (400 - $Height /
 Local $tSrcRect = _WinAPI_CreateRectEx(-20, -20, $Width + 40, $Height + 40)
 _WinAPI_DwmUpdateThumbnailProperties($hThumbnail, 1, 0, 255, $tDestRect, $tSrcRect)
 
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE

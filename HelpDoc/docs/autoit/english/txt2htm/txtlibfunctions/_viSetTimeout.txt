@@ -6,15 +6,15 @@ Sets the VISA timeout in MILISECONDS
 
 ###Syntax###
 #include <Visa.au3>
-_viSetTimeout ( $h_session, $i_timeout_ms )
+_viSetTimeout ( $hSession, $iTimeoutMS )
 
 
 ###Parameters###
 @@ParamTable@@
-$h_session
+$hSession
 	A VISA descriptor (STRING) OR a VISA session handle (INTEGER).
-	See the Remarks of the _viExecCommand for more info.
-$i_timeout_ms
+	See the Remarks of the <a href="_viExecCommand.htm">_viExecCommand()</a> for more info.
+$iTimeoutMS
 	The timeout IN MILISECONDS for VISA operations (mainly for GPIB queries)
 	If you set it to 0 the tiemouts are DISABLED.
 	If you set it to "INF" the VISA operations will NEVER timeout.
@@ -31,15 +31,15 @@ Failure:	-1 and sets the @error flag to non-zero if the VISA DLL could not be op
 
 
 ###Remarks###
-Most of the time it is not necessary to call this function, as _viExecCommand() has a third OPTIONAL parameter $i_timeout_ms which can also be used to set the VISA timeout.
+Most of the time it is not necessary to call this function, as <a href="_viExecCommand.htm">_viExecCommand()</a> has a third OPTIONAL parameter $iTimeoutMS which can also be used to set the VISA timeout.
 
 As for all the VISA functions the VISA libraries must be installed (you can check whether visa32.dll is in {WINDOWS}\system32) and a GPIB card (such as a National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card) must be installed
 
-* For a detailed description of the most common VISA DESCRIPTORS look at the Remarks of the help on the _viExecCommand function
+* For a detailed description of the most common VISA DESCRIPTORS look at the Remarks of the help on the <a href="_viExecCommand.htm">_viExecCommand()</a> function
 
 
 ###Related###
-_viSetAttribute, _viExecCommand, _viOpen, _viClose
+_viClose, _viExecCommand, _viOpen, _viSetAttribute
 
 
 ###Example###

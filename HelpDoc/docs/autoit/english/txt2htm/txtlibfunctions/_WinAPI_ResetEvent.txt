@@ -2,7 +2,7 @@
 _WinAPI_ResetEvent
 
 ###Description###
-Sets the specified event object to the nonsignaled state.
+Sets the specified event object to the nonsignaled state
 
 ###Syntax###
 #include <WinAPIProc.au3>
@@ -12,22 +12,22 @@ _WinAPI_ResetEvent ( $hEvent )
 ###Parameters###
 @@ParamTable@@
 $hEvent
-	Handle to the event object. The _WinAPI_CreateEvent() function returns this handle.
+	Handle to the event object. The <a href="_WinAPI_CreateEvent.htm">_WinAPI_CreateEvent()</a> function returns this handle.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	True.
-Failure 	False, call _WinAPI_GetLastError() to get extended error information.
+Success:	True.
+Failure:	False, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information.
 @@End@@
 
 
 ###Remarks###
-The state of an event object remains nonsignaled until it is explicitly set to signaled by the _WinAPI_SetEvent()
+The state of an event object remains nonsignaled until it is explicitly set to signaled by the <a href="_WinAPI_SetEvent.htm">_WinAPI_SetEvent()</a>
 function. This nonsignaled state blocks the execution of any threads that have specified the event object in a call to
 one of the _WinAPI_Wait... functions.
 
-The _WinAPI_ResetEvent() function is used primarily for manual-reset event objects, which must be set explicitly to the
+The <a href="_WinAPI_ResetEvent.htm">_WinAPI_ResetEvent()</a> function is used primarily for manual-reset event objects, which must be set explicitly to the
 nonsignaled state. Auto-reset event objects automatically change from signaled to nonsignaled after a single waiting
 thread is released.
 

@@ -1,7 +1,7 @@
 ; I am the client, start me after the server! (Start first the example 2 of the TCPSend function).
 
-#include <MsgBoxConstants.au3>
 #include <FileConstants.au3>
+#include <MsgBoxConstants.au3>
 
 Example()
 

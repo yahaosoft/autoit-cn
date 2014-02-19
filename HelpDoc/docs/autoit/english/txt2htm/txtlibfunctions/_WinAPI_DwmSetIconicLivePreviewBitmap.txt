@@ -2,7 +2,7 @@
 _WinAPI_DwmSetIconicLivePreviewBitmap
 
 ###Description###
-Sets a static, iconic bitmap to display a live preview (also known as a Peek preview) of a window or tab.
+Sets a static, iconic bitmap to display a live preview (also known as a Peek preview) of a window or tab
 
 ###Syntax###
 #include <WinAPIGdi.au3>
@@ -17,34 +17,32 @@ $hBitmap
 	Handle to the device-independent bitmap (DIB) to represent the specified window.
 $fFrame
 	[optional] Specifies whether display a frame around the provided bitmap, valid values:
-	True    - Display frame.
-	False   - Do not display frame (Default).
+		True    - Display frame.
+		False   - Do not display frame (Default).
 $tClient
-	[optional] $tagPOINT structure that contains The offset of a tab window's client region from the host window's
-	frame. This offset enables the tab window's contents to be drawn correctly in a live preview when
-	it is drawn without its frame.
+	[optional] $tagPOINT structure that contains The offset of a tab window's client region from the host window's frame.
+	This offset enables the tab window's contents to be drawn correctly in a live preview when it is drawn without its frame.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	1.
-Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+Success:	1.
+Failure:	0 and sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
 @@End@@
 
 
 ###Remarks###
-A window typically calls the _WinAPI_DwmSetIconicLivePreviewBitmap() function in response to a
-WM_DWMSENDICONICLIVEPREVIEWBITMAP message. The returned bitmap must not be larger than the client area of the
-window or frame and must have 32-bit color depth.
+A window typically calls the <a href="_WinAPI_DwmSetIconicLivePreviewBitmap.htm">_WinAPI_DwmSetIconicLivePreviewBitmap()</a> function in response to a WM_DWMSENDICONICLIVEPREVIEWBITMAP message.
+The returned bitmap must not be larger than the client area of the window or frame and must have 32-bit color depth.
 
-The DWM uses a copy of the bitmap, but the caller retains ownership of the original bitmap and is responsible
-for freeing the resources that it uses when it is no longer needed. The DWM does not keep its copy of the
-bitmap when the DWM stops displaying the live preview representation.
+The DWM uses a copy of the bitmap, but the caller retains ownership of the original bitmap and is responsible for freeing the resources that it uses when it is no longer needed.
+The DWM does not keep its copy of the bitmap when the DWM stops displaying the live preview representation.
 
 This function requires Windows 7 or later.
 
 
 ###Related###
+None.
 
 
 ###See Also###

@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Slider Get Page Size", 400, 296)
 	$hSlider = GUICtrlCreateSlider(2, 2, 396, 20, BitOR($TBS_TOOLTIPS, $TBS_AUTOTICKS, $TBS_ENABLESELRANGE))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get Page Size
 	MsgBox($MB_SYSTEMMODAL, "Information", "Page Size: " & _GUICtrlSlider_GetPageSize($hSlider))
@@ -21,7 +21,7 @@ Func Example()
 	; Get Page Size
 	MsgBox($MB_SYSTEMMODAL, "Information", "Page Size: " & _GUICtrlSlider_GetPageSize($hSlider))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

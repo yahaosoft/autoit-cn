@@ -2,11 +2,11 @@
 _WinAPI_GradientFill
 
 ###Description###
-Fills rectangle or triangle gradient.
+Fills rectangle or triangle gradient
 
 ###Syntax###
 #include <WinAPIGdi.au3>
-_WinAPI_GradientFill ( $hDC, Const ByRef $aVertex [, $iStart = 0 [, $iEnd = -1 [, $fRotate = 0]]] )
+_WinAPI_GradientFill ( $hDC, ByRef $aVertex [, $iStart = 0 [, $iEnd = -1 [, $fRotate = 0]]] )
 
 
 ###Parameters###
@@ -14,7 +14,7 @@ _WinAPI_GradientFill ( $hDC, Const ByRef $aVertex [, $iStart = 0 [, $iEnd = -1 [
 $hDC
 	Handle to the device context.
 $aVertex
-	The 2D array ([x1, y1, $rgb1], [x2, y2, $rgb2], ... [xN, yN, $rgbN]) that contains the necessary
+	The 2D array ([x1, y1, $iRGB1], [x2, y2, $iRGB2], ... [xN, yN, $iRGBN]) that contains the necessary
 	gradient vertices. Each vertex in this array contains the following parameters.
 	x   - The x-coordinate, in logical units.
 	y   - The y-coordinate, in logical units
@@ -33,23 +33,24 @@ $fRotate
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	1.
-Failure 	0.
+Success:	1.
+Failure:	0.
 @@End@@
 
 
 ###Remarks###
-If the number of vertices defined by using $iStart and $iEnd parameters is 2, _WinAPI_GradientFill() function
+If the number of vertices defined by using $iStart and $iEnd parameters is 2, <a href="_WinAPI_GradientFill.htm">_WinAPI_GradientFill()</a> function
 fills a rectangle. If the number of vertices is 3, fills a triangle. For the rectangle, the vertices must
 specify its upper left and lower right corners. Note that $aVertex array may contain any number of vertices
 of the gradient, but only 2 or 3 vertices may be used at the same time from this array.
 Otherwise, the function is fails.
 
-_WinAPI_GradientFill() function can only fill the rectangle or triangle at one call. Use multiple calls this
+<a href="_WinAPI_GradientFill.htm">_WinAPI_GradientFill()</a> function can only fill the rectangle or triangle at one call. Use multiple calls this
 function to fill a complex gradients.
 
 
 ###Related###
+None.
 
 
 ###See Also###

@@ -1,11 +1,11 @@
-#include <GUIConstantsEx.au3>
 #include <GuiButton.au3>
-#include <WindowsConstants.au3>
+#include <GUIConstantsEx.au3>
 #include <GuiMenu.au3>
+#include <WindowsConstants.au3>
 
 Global $btn, $iMemo
 
-; Note the controlId from these button(s) can NOT be read with GUICtrlRead
+; Note the controlID from these button(s) can NOT be read with GUICtrlRead
 
 Example()
 
@@ -19,7 +19,7 @@ Func Example()
 	$btn = _GUICtrlButton_Create($hGUI, "Button1", 10, 10, 160, 40, BitOR($BS_COMMANDLINK, $BS_DEFPUSHBUTTON, $BS_PUSHLIKE))
 	_GUICtrlButton_SetNote($btn, "This is a test of Vista")
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	MemoWrite("Note: " & _GUICtrlButton_GetNote($btn))
 	MemoWrite("Note Length: " & _GUICtrlButton_GetNoteLength($btn))

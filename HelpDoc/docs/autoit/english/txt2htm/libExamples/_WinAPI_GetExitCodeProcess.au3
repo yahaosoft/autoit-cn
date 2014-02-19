@@ -1,5 +1,5 @@
-#include <WinAPIProc.au3>
 #include <ProcessConstants.au3>
+#include <WinAPIProc.au3>
 #include <WinAPISys.au3>
 
 ; _WinAPI_CreateProcess() will be the best solution

@@ -15,13 +15,14 @@ Func Example()
 	GUICtrlCreateButton("Cancel #4", 10, -1)
 	GUICtrlSetState(-1, $GUI_FOCUS)
 
-	GUISetState() ; will display an empty dialog box
+	GUISetState(@SW_SHOW) ; will display an empty dialog box
 
-	; Run the GUI until the dialog is closed
+	; Loop until the user exits.
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE
 				ExitLoop
+
 		EndSwitch
 	WEnd
 

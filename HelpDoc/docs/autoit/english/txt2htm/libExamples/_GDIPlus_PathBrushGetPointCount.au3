@@ -1,12 +1,12 @@
-#include <Constants.au3>
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
+#include <MsgBoxConstants.au3>
 
 Example()
 
 Func Example()
 	Local $hGUI = GUICreate("GDI+", 200, 180, -1, 50)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GDIPlus_Startup()
 	Local $hGraphics = _GDIPlus_GraphicsCreateFromHWND($hGUI)
@@ -29,7 +29,7 @@ Func Example()
 	Local $iPoints = _GDIPlus_PathBrushGetPointCount($hBrush)
 	MsgBox($MB_SYSTEMMODAL, "", "Number of point in the array of points that defines the brush's boundary path: " & $iPoints)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

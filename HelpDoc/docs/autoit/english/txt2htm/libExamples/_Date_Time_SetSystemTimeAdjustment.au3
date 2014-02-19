@@ -1,6 +1,6 @@
 #include <Date.au3>
-#include <WinAPI.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPI.au3>
 
 ; Under Vista the Windows API "SetSystemTimeAdjustment" may be rejected due to system security
 

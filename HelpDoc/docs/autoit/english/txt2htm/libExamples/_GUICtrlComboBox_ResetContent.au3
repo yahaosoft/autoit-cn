@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("ComboBox Reset Content", 400, 296)
 	$hCombo = GUICtrlCreateCombo("", 2, 2, 396, 296, BitOR($CBS_SIMPLE, $CBS_DISABLENOSCROLL, $WS_VSCROLL))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set Edit Text
 	_GUICtrlComboBox_SetEditText($hCombo, "Edit Text")
@@ -25,7 +25,7 @@ Func Example()
 	; Reset content
 	_GUICtrlComboBox_ResetContent($hCombo)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

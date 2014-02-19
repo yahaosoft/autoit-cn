@@ -13,7 +13,7 @@ Func Example()
 	$hDTP = _GUICtrlDTP_Create($hGui, 2, 6, 190)
 	$iMemo = GUICtrlCreateEdit("", 2, 32, 396, 266, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set the display format
 	_GUICtrlDTP_SetFormat($hDTP, "ddd MMM dd, yyyy hh:mm ttt")
@@ -30,7 +30,7 @@ Func Example()
 	MemoWrite("Font Handle: " & "0x" & Hex(_GUICtrlDTP_GetMCFont($hDTP), 6))
 	MemoWrite("IsPtr  = " & IsPtr(_GUICtrlDTP_GetMCFont($hDTP)) & " IsHWnd  = " & IsHWnd(_GUICtrlDTP_GetMCFont($hDTP)))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

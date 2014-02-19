@@ -1,7 +1,7 @@
 #include <GUIConstantsEx.au3>
-#include <WinAPI.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
+#include <WinAPI.au3>
 #include <WindowsConstants.au3>
 
 Example()
@@ -14,7 +14,7 @@ Func Example()
 
 	GUICreate("ImageList Copy", 410, 300)
 	$listview = GUICtrlCreateListView("", 2, 2, 404, 268, BitOR($LVS_SHOWSELALWAYS, $LVS_NOSORTHEADER, $LVS_REPORT))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Create an image list with images
 	$hImage = _GUIImageList_Create(11, 11)
@@ -31,7 +31,7 @@ Func Example()
 	_GUICtrlListView_AddColumn($listview, "Column 3", 100, 2, 2, True)
 	_GUICtrlListView_AddColumn($listview, "Column 4", 100, 0, 3)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

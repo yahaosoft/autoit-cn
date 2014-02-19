@@ -5,7 +5,7 @@ ControlTreeView
 Sends a command to a TreeView32 control.
 
 ###Syntax###
-ControlTreeView ( "title", "text", controlID, "command" [, option1 [, option2]] )
+ControlTreeView ( "title", "text", controlID, "command" [, option1] )
 
 
 ###Parameters###
@@ -13,14 +13,12 @@ ControlTreeView ( "title", "text", controlID, "command" [, option1 [, option2]] 
 title
 	The title/hWnd/class of the window to access. See <a href="../intro/windowsadvanced.htm">Title special definition</a>.
 text
-	The text of the window to access.
+	The text of the window to access. See <a href="../intro/windowsbasic.htm#specialtext">Text special definition</a>.
 controlID
 	The control to interact with.  See <a href="../intro/controls.htm">Controls</a>.
 command
 	The command to send to the control (see below).
 option1
-	[optional] Additional parameter required by some commands.
-option2
 	[optional] Additional parameter required by some commands.
 @@End@@
 
@@ -28,8 +26,8 @@ option2
 Return depends on the command as table below shows.  In case of an error (such as an invalid command or window/control could not be found) then @error is set to 1.
 
 @@ControlCommandTable@@
-<b>Command, Option1, Option2</b>
-	<b>Operation</b>
+<strong>Command, Option1</strong>
+	<strong>Operation</strong>
 "Check", "item"
 	Checks an item (if the item supports it).
 "Collapse", "item"
@@ -54,7 +52,7 @@ Return depends on the command as table below shows.  In case of an error (such a
 
 The "item" parameter is a string-based parameter that is used to reference a particular treeview item using a combination of text and indices.  Indices are 0-based.  For example:
 
-<br>Heading1
+<br />Heading1
 ----> H1SubItem1
 ----> H1SubItem2
 ----> H1SubItem3
@@ -62,9 +60,9 @@ The "item" parameter is a string-based parameter that is used to reference a par
 Heading2
 Heading3
 
-<br>Each "level" is separated by |. An index is preceded with #.  Examples:
+<br />Each "level" is separated by |. An index is preceded with #.  Examples:
 @@StandardTable1@@
-<b>Item</b>	<b>Item Reference</b>
+<strong>Item</strong>	<strong>Item Reference</strong>
 Heading2	"Heading2" or "#1"
 H1SubItem2	"Heading1|H1SubItem2" or "#0|#1"
 H1S1SubItem1	"Heading1|H1SubItem3|H1S1SubItem1" or "#0|#2|#0"

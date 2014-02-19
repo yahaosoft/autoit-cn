@@ -1,14 +1,19 @@
-#include <Constants.au3>
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
+#include <MsgBoxConstants.au3>
 
 Example()
 
 Func Example()
 	AutoItSetOption("MouseCoordMode", $OPT_COORDSCLIENT)
 
-	Local $sRegPath = "HKLM\SOFTWARE\AutoIt v3\AutoIt"
-	If StringInStr("X64IA64", @OSArch) Then $sRegPath = StringReplace($sRegPath, "SOFTWARE", "SOFTWARE\Wow6432Node") ;get AutoIt install dir
+	; X64 running support
+	Local $sWow64 = ""
+	If @AutoItX64 Then $sWow64 = "\Wow6432Node"
+
+	;get AutoIt install dir
+	Local $sRegPath = "HKLM\SOFTWARE" & $sWow64 & "\AutoIt v3\AutoIt"
+
 	Local $sFile = RegRead($sRegPath, "InstallDir") & "\Examples\GUI\logo4.gif"
 	If Not FileExists($sFile) Then
 		MsgBox(BitOR($MB_SYSTEMMODAL, $MB_ICONHAND), "", $sFile & " not found!", 30)
@@ -16,7 +21,7 @@ Func Example()
 	EndIf
 
 	Local $hGUI = GUICreate("GDI+ move mouse over transformed image and watch green cursor", 800, 400)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GDIPlus_Startup()
 	Local $hGraphics = _GDIPlus_GraphicsCreateFromHWND($hGUI) ;Create a graphics object from a window handle
@@ -41,7 +46,7 @@ Func Example()
 	Local $hPen = _GDIPlus_PenCreate(0xFF00FF00, 2)
 	Local $aMouse[2][2] = [[1]]
 	Local $iTimer = TimerInit()
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 		If TimerDiff($iTimer) > 100 Then
 			$aMouse[1][0] = MouseGetPos(0)

@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 #include <WindowsConstants.au3>
 
 Global $hListView, $hListView2
@@ -34,7 +34,7 @@ Func Example()
 	_AddRow($hListView, "DEF|444|11.05.2005", $aIcons, 1)
 	_AddRow($hListView, "CDE|555|12.05.2004", $aIcons, 2)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlListView_RegisterSortCallBack($hListView)
 

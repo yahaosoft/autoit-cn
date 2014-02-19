@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("ComboBox Set Min Visible", 400, 296)
 	$hCombo = GUICtrlCreateCombo("", 2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add files
 	_GUICtrlComboBox_BeginUpdate($hCombo)
@@ -40,7 +40,7 @@ Func Example()
 	; Get Min Visible
 	MsgBox($MB_SYSTEMMODAL, "Information", "Min Visible:" & @TAB & _GUICtrlComboBox_GetMinVisible($hCombo), 3)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

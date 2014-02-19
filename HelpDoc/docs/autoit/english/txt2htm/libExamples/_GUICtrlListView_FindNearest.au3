@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 #include <MsgBoxConstants.au3>
 
 Example()
@@ -12,7 +12,7 @@ Func Example()
 	GUICreate("ListView Find Nearest", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268)
 	GUICtrlSetStyle($hListView, $LVS_ICON)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create()
@@ -33,7 +33,7 @@ Func Example()
 	$iIndex = _GUICtrlListView_FindNearest($hListView, 200, 10)
 	MsgBox($MB_SYSTEMMODAL, "Information", "Item nearest [200, 10]: " & $iIndex)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

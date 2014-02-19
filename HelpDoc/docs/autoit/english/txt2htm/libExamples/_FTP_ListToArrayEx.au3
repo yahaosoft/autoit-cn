@@ -1,5 +1,5 @@
-#include <FTPEx.au3>
 #include <Array.au3>
+#include <FTPEx.au3>
 #include <MsgBoxConstants.au3>
 
 Local $sServer = 'ftp.csx.cam.ac.uk1'

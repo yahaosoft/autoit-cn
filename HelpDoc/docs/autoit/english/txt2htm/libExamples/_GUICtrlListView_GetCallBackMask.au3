@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 #include <MsgBoxConstants.au3>
 
 Example_UDF_Created()
@@ -11,7 +11,7 @@ Func Example_UDF_Created()
 	$GUI = GUICreate("(UDF Created) ListView Get CallBack Mask", 400, 300)
 
 	$hListView = _GUICtrlListView_Create($GUI, "", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlListView_SetCallBackMask($hListView, 32)
 	MsgBox($MB_SYSTEMMODAL, "Information", "CallBackMask: " & _GUICtrlListView_GetCallbackMask($hListView))
@@ -37,7 +37,7 @@ Func Example_UDF_Created()
 	_GUICtrlListView_AddItem($hListView, -1, 1)
 	_GUICtrlListView_AddItem($hListView, -1, 2)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

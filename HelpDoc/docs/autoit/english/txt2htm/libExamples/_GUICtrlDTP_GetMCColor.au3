@@ -1,6 +1,6 @@
+#include <ColorConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <GuiDateTimePicker.au3>
-#include <ColorConstants.au3>
 #include <MsgBoxConstants.au3>
 
 Global $iMemo
@@ -15,7 +15,7 @@ Func Example()
 	$hDTP = GUICtrlGetHandle(GUICtrlCreateDate("", 2, 6, 190))
 	$iMemo = GUICtrlCreateEdit("", 2, 32, 396, 266, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set the display format
 	_GUICtrlDTP_SetFormat($hDTP, "ddd MMM dd, yyyy hh:mm ttt")
@@ -31,7 +31,7 @@ Func Example()
 	MemoWrite("Background within months : " & "0x" & Hex(_GUICtrlDTP_GetMCColor($hDTP, 4), 6))
 	MemoWrite("Header trailing .........: " & "0x" & Hex(_GUICtrlDTP_GetMCColor($hDTP, 5), 6))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

@@ -6,7 +6,7 @@ Captures a screen shot of a specified window or controlID
 
 ###Syntax###
 #include <ScreenCapture.au3>
-_ScreenCapture_CaptureWnd ( $sFileName, $hWnd [, $iLeft = 0 [, $iTop = 0 [, $iRight = -1 [, $iBottom = -1 [, $fCursor = True]]]]] )
+_ScreenCapture_CaptureWnd ( $sFileName, $hWnd [, $iLeft = 0 [, $iTop = 0 [, $iRight = -1 [, $iBottom = -1 [, $bCursor = True]]]]] )
 
 
 ###Parameters###
@@ -23,18 +23,19 @@ $iRight
 	[optional] X coordinate of the lower right corner of the rectangle
 $iBottom
 	[optional] Y coordinate of the lower right corner of the rectangle
-$fCursor
+$bCursor
 	[optional] If True the cursor will be captured with the image
 @@End@@
 
 ###ReturnValue###
 Returns a handle to an HBITMAP if $sFileName is empty.
-	This handle must be released using _WinAPI_DeleteObject.
 	If called with $sFileName then the image is saved to the file and nothing is returned.
 
 
 ###Remarks###
 All coordinates are in client coordinate mode.
+
+If a handle is returned, it must be released using <a href="_WinAPI_DeleteObject.htm">_WinAPI_DeleteObject()</a>.
 
 
 ###Related###

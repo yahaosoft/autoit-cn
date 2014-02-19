@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 
 Global $iMemo
 
@@ -13,7 +13,7 @@ Func Example()
 
 	$hListView = _GUICtrlListView_Create($GUI, "", 2, 2, 394, 118)
 	$iMemo = GUICtrlCreateEdit("", 2, 124, 396, 174, 0)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create()

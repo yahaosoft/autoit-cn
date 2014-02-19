@@ -1,8 +1,8 @@
 ; Write to a Cell using a Loop, after opening a workbook and returning its object identifier.  Read the cells into an array, display array,
 ; then Save and Close file.
 
-#include <Excel.au3>
 #include <Array.au3>
+#include <Excel.au3>
 #include <MsgBoxConstants.au3>
 
 Local $oExcel = _ExcelBookNew() ;Create new book, make it visible

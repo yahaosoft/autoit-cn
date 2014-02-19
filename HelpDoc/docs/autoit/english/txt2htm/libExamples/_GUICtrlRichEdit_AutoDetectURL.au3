@@ -1,7 +1,7 @@
-#include <GuiRichEdit.au3>
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
+#include <GuiRichEdit.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Global $hRichEdit
 
@@ -12,7 +12,7 @@ Func Example()
 	$hGui = GUICreate("Example (" & StringTrimRight(@ScriptName, 4) & ")", 320, 350, -1, -1)
 	$hRichEdit = _GUICtrlRichEdit_Create($hGui, "This is a test.", 10, 10, 300, 220, _
 			BitOR($ES_MULTILINE, $WS_VSCROLL, $ES_AUTOVSCROLL))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 	_GUICtrlRichEdit_SetEventMask($hRichEdit, $ENM_LINK)

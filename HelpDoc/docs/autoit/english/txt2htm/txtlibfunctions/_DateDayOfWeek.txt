@@ -2,32 +2,42 @@
 _DateDayOfWeek
 
 ###Description###
-Returns the name of the weekday, based on the specified day.
+Returns the name of the weekday, based on the specified day
 
 ###Syntax###
 #include <Date.au3>
-_DateDayOfWeek ( $iDayNum [, $iShort = 0] )
+_DateDayOfWeek ( $iDayNum [, $iFormat = 0] )
 
 
 ###Parameters###
 @@ParamTable@@
 $iDayNum
-	Day number (1 = Sunday, 7 = Saturday).
-$iShort
+	Day number
+		1 = Sunday
+		2 = Monday
+		3 = Tuesday
+		4 = Wednesday
+		5 = Thursday
+		6 = Friday
+		7 = Saturday
+$iFormat
 	[optional] Format:
-	0 - Long name of the weekday
-	1 - Abbreviated name of the weekday
+	$DOW_LOCALE_USER (0) - Long name of the weekday (Default)
+	$DOW_SHORTNAME (1) - Short name of the weekday e.g. Mon
+	$DOW_LOCALE_LONGNAME (2) - Long name of the weekday in the user's default language
+	$DOW_LOCALE_SHORTNAME (3) - Short name of the weekday in the user's default language
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 Success:	Weekday name
-Failure:	A NULL string and sets the @error flag to non-zero
+Failure:	An empty string and sets @error to non-zero
+@error:	1 - Invalid weekday number.
 @@End@@
 
 
 ###Remarks###
-This function returns English day names only.
+The function returns weekday names in English or the user's default language.
 
 
 ###Related###

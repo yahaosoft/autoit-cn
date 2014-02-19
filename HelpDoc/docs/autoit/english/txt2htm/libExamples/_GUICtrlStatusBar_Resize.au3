@@ -15,11 +15,11 @@ Func Example()
 
 	$hStatus = _GUICtrlStatusBar_Create($hGUI)
 	_GUICtrlStatusBar_SetParts($hStatus, $aParts)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUIRegisterMsg($WM_SIZE, "WM_SIZE")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

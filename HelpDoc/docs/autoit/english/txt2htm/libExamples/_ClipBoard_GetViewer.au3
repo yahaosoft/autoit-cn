@@ -1,7 +1,7 @@
-#include <GUIConstantsEx.au3>
 #include <Clipboard.au3>
-#include <WindowsConstants.au3>
+#include <GUIConstantsEx.au3>
 #include <SendMessage.au3>
+#include <WindowsConstants.au3>
 
 Global $iMemo, $hNext = 0
 
@@ -14,7 +14,7 @@ Func Example()
 	$hGUI = GUICreate("Clipboard", 600, 400)
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 596, 396, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Initialize clipboard viewer
 	$hNext = _ClipBoard_SetViewer($hGUI)
@@ -25,7 +25,7 @@ Func Example()
 	MemoWrite("GUI handle ....: " & $hGUI)
 	MemoWrite("Viewer handle .: " & _ClipBoard_GetViewer())
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

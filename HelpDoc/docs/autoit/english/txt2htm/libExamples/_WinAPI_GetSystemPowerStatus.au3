@@ -1,6 +1,6 @@
+#include <GUIConstantsEx.au3>
 #include <WinAPISys.au3>
 #include <WindowsConstants.au3>
-#include <GUIConstantsEx.au3>
 
 Local $hForm = GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 180, 135, -1, -1, -1, $WS_EX_TOPMOST)
 Local $Button = GUICtrlCreateButton('OK', 55, 101, 70, 23)
@@ -12,7 +12,7 @@ Local $Label[4]
 For $i = 0 To 3
 	$Label[$i] = GUICtrlCreateLabel('Unknown', 110, 14 + 20 * $i, 60, 14)
 Next
-GUISetState()
+GUISetState(@SW_SHOW)
 
 AdlibRegister('_BatteryStatus', 1000)
 

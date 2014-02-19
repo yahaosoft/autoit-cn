@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 #include <MsgBoxConstants.au3>
 
 Example()
@@ -11,7 +11,7 @@ Func Example()
 	GUICreate("ListView Get Group View Enabled", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268)
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, $LVS_EX_FULLROWSELECT)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create()
@@ -44,7 +44,7 @@ Func Example()
 	; Is group view enabled
 	MsgBox($MB_SYSTEMMODAL, "Information", "Group View Enabled: " & _GUICtrlListView_GetGroupViewEnabled($hListView))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

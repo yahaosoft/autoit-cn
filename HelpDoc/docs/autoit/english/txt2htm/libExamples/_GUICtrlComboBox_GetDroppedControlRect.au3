@@ -14,7 +14,7 @@ Func Example()
 	$hCombo = GUICtrlCreateCombo("", 2, 2, 396, 296)
 	$iMemo = GUICtrlCreateEdit("", 2, 32, 396, 266, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add files
 	_GUICtrlComboBox_BeginUpdate($hCombo)
@@ -29,7 +29,7 @@ Func Example()
 	MemoWrite("X coordinate of the lower right corner .....: " & $aRect[2])
 	MemoWrite("Y coordinate of the lower right corner .....: " & $aRect[3])
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

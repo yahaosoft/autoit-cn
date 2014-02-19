@@ -6,7 +6,7 @@ Creates a Bitmap object based on an array of bytes along with size and format in
 
 ###Syntax###
 #include <GDIPlus.au3>
-_GDIPlus_BitmapCreateFromScan0 ( $iWidth, $iHeight [, $iStride = 0 [, $iPixelFormat = $GDIP_PXF32ARGB [, $pScan0 = 0]]] )
+_GDIPlus_BitmapCreateFromScan0 ( $iWidth, $iHeight [, $iPixelFormat = $GDIP_PXF32ARGB [, $iStride = 0 [, $pScan0 = 0]]] )
 
 
 ###Parameters###
@@ -15,8 +15,6 @@ $iWidth
 	The bitmap width, in pixels.
 $iHeight
 	The bitmap height, in pixels.
-$iStride
-	[optional] Integer that specifies the byte offset between the beginning of one scan line and the next.
 $iPixelFormat
 	[optional] Specifies the format of the pixel data.
 		$GDIP_PXF01INDEXED = 1 bit per pixel, indexed
@@ -29,7 +27,9 @@ $iPixelFormat
 		$GDIP_PXF24RGB = 24 bits per pixel; 8 bits for each RGB component
 		$GDIP_PXF32RGB = 32 bits per pixel; 8 bits for each RGB component. No alpha component.
 		$GDIP_PXF32ARGB = 32 bits per pixel; 8 bits for each RGB and alpha component
-		$GDIP_PXF32PARGB = 32 bits per pixel; 8 bits for each RGB and alpha component, pre-mulitiplied
+		$GDIP_PXF32PARGB = 32 bits per pixel; 8 bits for each RGB and alpha component, pre-multiplied
+$iStride
+	[optional] Integer that specifies the byte offset between the beginning of one scan line and the next.
 $pScan0
 	[optional] Pointer to an array of bytes that contains the pixel data.
 @@End@@
@@ -42,7 +42,7 @@ Failure:	0 and sets the @error flag to non-zero, @extended may contain GPSTATUS 
 
 
 ###Remarks###
-After you are done with the object, call _GDIPlus_BitmapDispose() to release the object resources.
+After you are done with the object, call <a href="_GDIPlus_BitmapDispose.htm">_GDIPlus_BitmapDispose()</a> to release the object resources.
 
 
 ###Related###

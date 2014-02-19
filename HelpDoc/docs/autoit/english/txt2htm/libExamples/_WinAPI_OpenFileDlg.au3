@@ -1,5 +1,5 @@
-#include <WinAPIDlg.au3>
 #include <WinAPI.au3>
+#include <WinAPIDlg.au3>
 
 ; Single file selection (returns the fully qualified path)
 Local $File = _WinAPI_OpenFileDlg('', @WorkingDir, 'AutoIt v3 Scripts (*.au3)|All Files (*.*)', 1, '', '', BitOR($OFN_PATHMUSTEXIST, $OFN_FILEMUSTEXIST, $OFN_HIDEREADONLY))

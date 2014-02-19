@@ -1,6 +1,6 @@
-#include <WinAPIShPath.au3>
 #include <APIREgConstants.au3>
 #include <WinAPIReg.au3>
+#include <WinAPIShPath.au3>
 
 Local $Path = _WinAPI_AssocQueryString('.txt', $ASSOCSTR_COMMAND)
 

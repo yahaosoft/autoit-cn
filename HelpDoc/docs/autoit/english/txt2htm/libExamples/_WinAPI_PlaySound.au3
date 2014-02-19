@@ -1,7 +1,7 @@
-#include <WinAPIMisc.au3>
 #include <APIMiscConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIMisc.au3>
 
 Local Const $sWav = @ScriptDir & '\Extras\Airplane.wav'
 
@@ -18,7 +18,7 @@ Local $pWav = DllStructGetPtr($tWav)
 ; Create GUI
 Local $hForm = GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 200, 200)
 Local $Button = GUICtrlCreateButton('Play', 70, 70, 60, 60)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Local $Play = False
 While 1

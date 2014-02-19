@@ -2,11 +2,11 @@
 _WinAPI_CopyImage
 
 ###Description###
-Creates a new image (icon, cursor, or bitmap) and copies the attributes of the specified image to the new one.
+Creates a new image (icon, cursor, or bitmap) and copies the attributes of the specified image to the new one
 
 ###Syntax###
 #include <WinAPIGdi.au3>
-_WinAPI_CopyImage ( $hImage [, $iType = 0 [, $xDesired = 0 [, $yDesired = 0 [, $iFlags = 0]]]] )
+_WinAPI_CopyImage ( $hImage [, $iType = 0 [, $iXDesiredPixels = 0 [, $iYDesiredPixels = 0 [, $iFlags = 0]]]] )
 
 
 ###Parameters###
@@ -14,16 +14,14 @@ _WinAPI_CopyImage ( $hImage [, $iType = 0 [, $xDesired = 0 [, $yDesired = 0 [, $
 $hImage
 	Handle to the image to be copied.
 $iType
-	[optional] Specifies the type of image to be copied. This parameter can be one of the following values.
-	$IMAGE_BITMAP 'Default)
-	$IMAGE_CURSOR
-	$IMAGE_ICON
-$xDesired
-	[optional] Specifies the desired width, in pixels, of the image. If this is zero (Default), then the returned image will
-	have the same width as the original $hImage.
-$yDesired
-	[optional] Specifies the desired height, in pixels, of the image. If this is zero (Default), then the returned image will
-	have the same height as the original $hImage.
+	[optional] Specifies the type of image to be copied. This parameter can be one of the following values:
+		$IMAGE_BITMAP 'Default)
+		$IMAGE_CURSOR
+		$IMAGE_ICON
+$iXDesiredPixels
+	[optional] Specifies the desired width, in pixels, of the image. If this is zero (Default), then the returned image will have the same width as the original $hImage.
+$iYDesiredPixels
+	[optional] Specifies the desired height, in pixels, of the image. If this is zero (Default), then the returned image will have the same height as the original $hImage.
 $iFlags
 	[optional] This parameter can be one or more of the following values.
 	$LR_DEFAULTCOLOR (Default)
@@ -37,19 +35,18 @@ $iFlags
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	Handle to the newly created image.
-Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+Success:	Handle to the newly created image.
+Failure:	0, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information.
 @@End@@
 
 
 ###Remarks###
-When you are finished using the resource, you can release its associated memory by calling _WinAPI_DeleteObject()
-function respectively for bitmaps, cursors, or icons. The system automatically deletes the resource when its
-process terminates, however, calling the appropriate function saves memory and decreases the size of the
-process's working set.
+When you are finished using the resource, you can release its associated memory by calling <a href="_WinAPI_DeleteObject.htm">_WinAPI_DeleteObject()</a> function respectively for bitmaps, cursors, or icons.
+The system automatically deletes the resource when its process terminates, however, calling the appropriate function saves memory and decreases the size of the process's working set.
 
 
 ###Related###
+None.
 
 
 ###See Also###

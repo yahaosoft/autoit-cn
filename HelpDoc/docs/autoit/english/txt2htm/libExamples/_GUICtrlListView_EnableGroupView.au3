@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 
 Example()
 
@@ -9,7 +9,7 @@ Func Example()
 
 	GUICreate("ListView Enable Group View", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create()
@@ -39,7 +39,7 @@ Func Example()
 	_GUICtrlListView_SetItemGroupID($hListView, 1, 2)
 	_GUICtrlListView_SetItemGroupID($hListView, 2, 2)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

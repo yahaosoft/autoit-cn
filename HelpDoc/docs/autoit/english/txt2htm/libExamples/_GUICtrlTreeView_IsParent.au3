@@ -1,8 +1,8 @@
 #include <GUIConstantsEx.au3>
-#include <GuiTreeView.au3>
 #include <GuiImageList.au3>
-#include <WindowsConstants.au3>
+#include <GuiTreeView.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Global $hImage, $hStateImage
 
@@ -15,7 +15,7 @@ Func Example()
 	GUICreate("TreeView Is Parent", 400, 300)
 
 	$hTreeView = GUICtrlCreateTreeView(2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_CreateNormalImageList()
 	_GUICtrlTreeView_SetNormalImageList($hTreeView, $hImage)
@@ -41,7 +41,7 @@ Func Example()
 
 	MsgBox($MB_SYSTEMMODAL, "Information", "Is Index 0 Parent of Child Index 2: " & _GUICtrlTreeView_IsParent($hTreeView, $hItem[0], $hChildItem[2]))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

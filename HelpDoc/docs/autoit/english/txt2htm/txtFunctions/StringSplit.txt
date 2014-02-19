@@ -31,11 +31,11 @@ If no delimiters were found then the @error flag is set to 1, count is equal to 
 ###Remarks###
 If you use an empty string "" for the delimiters, each character will be returned as an element.
 
-If the delimiter you wish to use is a substring instead of individual single characters, see the example below.
+If the delimiter string contains several characters function behaviour depends on the flag setting.  If set to $STR_CHRSPLIT the string will be split at every instance of each of the individual characters in the delimiter - if set to $STR_ENTIRESPLIT then the string will only be split when the entire delimiter string is encountered.  See second example below.
+
+Note that the macro @CRLF is actually a 2 character string, so unless the flag parameter to $STR_ENTIRESPLIT extra blank lines will be generated as the string is split on both @CR and @LF.
 
 <a href="StringSplit.htm">StringSplit()</a> is very useful as an alternative to <a href="StringInStr.htm">StringInStr()</a> as well as a means to populate an array.
-
-Note that if you use the macro @CRLF you are referring to a 2 character string, so this will generate extra blanks lines. Therefore it is recommended to set the flag parameter to $STR_ENTIRESPLIT (1).
 
 
 ###Related###

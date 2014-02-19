@@ -12,7 +12,7 @@ Func Example()
 	$GUI = GUICreate("(UDF Created) TreeView Create", 400, 300)
 
 	$hTreeView = _GUICtrlTreeView_Create($GUI, 2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
@@ -25,7 +25,7 @@ Func Example()
 	Next
 	_GUICtrlTreeView_EndUpdate($hTreeView)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

@@ -2,7 +2,7 @@
 _WinAPI_UpdateResource
 
 ###Description###
-Adds, deletes, or replaces a resource in a portable executable (PE) file.
+Adds, deletes, or replaces a resource in a portable executable (PE) file
 
 ###Syntax###
 #include <WinAPIRes.au3>
@@ -12,7 +12,7 @@ _WinAPI_UpdateResource ( $hUpdate, $sType, $sName, $iLanguage, $pData, $iSize )
 ###Parameters###
 @@ParamTable@@
 $hUpdate
-	A module handle returned by the _WinAPI_BeginUpdateResource(), referencing the file to be updated.
+	A module handle returned by the <a href="_WinAPI_BeginUpdateResource.htm">_WinAPI_BeginUpdateResource()</a>, referencing the file to be updated.
 $sType
 	The resource type to be updated. Alternatively, rather than a pointer, this parameter can be an
 	integer value representing a predefined resource type. If the first character of the string is a
@@ -26,7 +26,7 @@ $iLanguage
 $pData
 	The resource data to be inserted into the file indicated by $hUpdate parameter. If the resource is
 	one of the predefined types, the data must be valid and properly aligned. Note that this is the raw
-	binary data, not the data provided by _WinAPI_LoadIcon(), _WinAPI_LoadString(), or other resource-
+	binary data, not the data provided by <a href="_WinAPI_LoadIcon.htm">_WinAPI_LoadIcon()</a>, <a href="_WinAPI_LoadString.htm">_WinAPI_LoadString()</a>, or other resource-
 	specific load functions. All data containing strings or text must be in Unicode format. If $pData
 	is 0 and $iSize is 0, the specified resource is deleted from the file indicated by $hUpdate.
 $iSize
@@ -35,8 +35,8 @@ $iSize
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	True.
-Failure 	False.
+Success:	True.
+Failure:	False.
 @@End@@
 
 
@@ -44,9 +44,9 @@ Failure 	False.
 It is recommended that the resource file is not loaded before this function is called. However, if that file
 is already loaded, it will not cause an error to be returned.
 
-An application can use _WinAPI_UpdateResource() repeatedly to make changes to the resource data. Each call
-to _WinAPI_UpdateResource() contributes to an internal list of additions, deletions, and replacements but does
-not actually write the data to the file. The application must use the _WinAPI_EndUpdateResource() function to
+An application can use <a href="_WinAPI_UpdateResource.htm">_WinAPI_UpdateResource()</a> repeatedly to make changes to the resource data. Each call
+to <a href="_WinAPI_UpdateResource.htm">_WinAPI_UpdateResource()</a> contributes to an internal list of additions, deletions, and replacements but does
+not actually write the data to the file. The application must use the <a href="_WinAPI_EndUpdateResource.htm">_WinAPI_EndUpdateResource()</a> function to
 write the accumulated changes.
 
 If $pData is 0 and $iSize is 0, the specified resource is deleted from the file indicated by $hUpdate.

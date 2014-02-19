@@ -1,5 +1,5 @@
-#include <Word.au3>
 #include <MsgBoxConstants.au3>
+#include <Word.au3>
 
 ; *****************************************************************************
 ; Create a new Word object

@@ -3,8 +3,6 @@
 Example()
 
 Func Example()
-	Local $msg
-
 	GUICreate("My GUI Tab") ; will create a dialog box that when displayed is centered
 
 	GUISetBkColor(0x00E0FFFF)
@@ -20,7 +18,7 @@ Func Example()
 	GUICtrlCreateTabItem("tab----1")
 	GUICtrlCreateLabel("label1", 30, 80, 50, 20)
 	GUICtrlCreateCombo("", 20, 50, 60, 120)
-	GUICtrlSetData(-1, "Trids|CyberSlug|Larry|Jon|Tylo", "Jon") ; default Jon
+	GUICtrlSetData(-1, "Trids|CyberSlug|Larry|Jon|Tylo|guinness", "Jon") ; default Jon
 	GUICtrlCreateButton("OK1", 80, 50, 50, 20)
 
 	GUICtrlCreateTabItem("tab2")
@@ -32,12 +30,13 @@ Func Example()
 
 	GUICtrlCreateLabel("label3", 20, 130, 50, 20)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
-	; Run the GUI until the dialog is closed
+	Local $idMsg
+	; Loop until the user exits.
 	While 1
-		$msg = GUIGetMsg()
+		$idMsg = GUIGetMsg()
 
-		If $msg = $GUI_EVENT_CLOSE Then ExitLoop
+		If $idMsg = $GUI_EVENT_CLOSE Then ExitLoop
 	WEnd
 EndFunc   ;==>Example

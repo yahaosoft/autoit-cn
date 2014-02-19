@@ -2,23 +2,23 @@
 _GUIToolTip_AddTool
 
 ###Description###
-Registers a tool with the control
+Registers a tool with the ToolTip control
 
 ###Syntax###
 #include <GuiToolTip.au3>
-_GUIToolTip_AddTool ( $hTool, $hWnd, $sText [, $iID = 0 [, $iLeft = 0 [, $iTop = 0 [, $iRight = 0 [, $iBottom = 0 [, $iFlags = 8 [, $iParam = 0]]]]]]] )
+_GUIToolTip_AddTool ( $hTool, $hWnd, $sText [, $iID = 0 [, $iLeft = 0 [, $iTop = 0 [, $iRight = 0 [, $iBottom = 0 [, $iFlags = Default [, $iParam = 0]]]]]]] )
 
 
 ###Parameters###
 @@ParamTable@@
 $hTool
-	ToolTip handle
+	Handle to the ToolTip control (returned by <a href ="_GUIToolTip_Create.htm">_GUIToolTip_Create.</a>)
 $hWnd
-	Handle to the window that contains the tool
+	Handle of the window that contains the tool, or 0
 $sText
 	Text for the ToolTip control. See remark.
 $iID
-	[optional] Identifier or window handle of the tool
+	[optional] 	Identifier of the tool, or Window handle of the control the tool is to be assigned to
 $iLeft
 	[optional] X coordinate of the upper left corner of the rectangle
 $iTop
@@ -29,17 +29,19 @@ $iBottom
 	[optional] Y coordinate of the lower right corner of the rectangle
 $iFlags
 	[optional] Flags that control the ToolTip display:
-		1 - Indicates that $iID is the window handle to the tool instead of the ID
-		2 - Centers the window below the tool specified by $iID
-		4 - Indicates that text will be displayed in the opposite direction
-		8 - Indicates that the control should subclass the tool's window
-		16 - Positions the control next to the tool to which it corresponds
-		32 - Positions the window at the same coordinates provided by TTM_TRACKPOSITION
-		64 - Causes the control to forward mouse messages to the parent window
-		128 - Indicates that links in the control text should be parsed
+	$TTF_IDISHWND	- Indicates that $iID is a window or control handle, instead of the ID of the tool
+	$TTF_CENTERTIP	- Centers the tooltip below the control specified by $iID
+	$TTF_RTLREADING	- Indicates that text will be displayed in the opposite direction of the parent window (see remarks)
+	$TTF_SUBCLASS	- Indicates that the control should subclass the tool's window
+	$TTF_TRACK		- Positions the tooltip window next to the tool to which it corresponds
+	$TTF_ABSOLUTE	- Positions the window at the same coordinates provided by TTM_TRACKPOSITION. (see remarks)
+	$TTF_TRANSPARENT- Causes the control to forward mouse messages to the parent window
+	$TTF_PARSELINKS	- Indicates that links in the control text should be displayed as links
+	Default = BitOr($TTF_SUBCLASS, $TTF_IDISHWND)
 $iParam
 	[optional] Application-defined value that is associated with the tool
 @@End@@
+Constants are defined in ToolTipConstants.au3
 
 ###ReturnValue###
 @@ReturnTable@@
@@ -49,8 +51,17 @@ Failure:	False.
 
 
 ###Remarks###
-If a notification callback is needed, you have to specify $sText = -1 (LPSTR_TEXTCALLBACK).
+If a notification callback is needed, you have to set $sText = -1 (LPSTR_TEXTCALLBACK).
+
+If you use the flag $TTF_IDISHWND then the coordinates in $iLeft, $iTop, $iRight and $iBottom are ignored.
+
+If you use the flag $TTF_ABSOLUTE it must be used with the $TTF_TRACK flag.
+Normal windows display text left-to-right (LTR). Windows can be mirrored to display languages such as Hebrew or Arabic that read right-to-left (RTL). Normally, tooltip text is displayed in the same direction as the text in its parent window. If $TTF_RTLREADING is set, tooltip text will read in the opposite direction from the text in the parent window.
 
 
 ###Related###
 _GUIToolTip_DelTool
+
+
+###Example###
+@@IncludeExample@@

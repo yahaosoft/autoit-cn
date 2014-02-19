@@ -1,5 +1,5 @@
-#include <WinAPIDlg.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIDlg.au3>
 
 Local $Result = _WinAPI_MessageBoxCheck($MB_ICONINFORMATION, 'MyProg', '_WinAPI_MessageBoxCheck()', 'MyProg')
 

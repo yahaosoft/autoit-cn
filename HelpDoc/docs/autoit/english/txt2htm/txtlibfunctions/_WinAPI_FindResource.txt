@@ -2,7 +2,7 @@
 _WinAPI_FindResource
 
 ###Description###
-Determines the location of a resource with the specified type and name in the specified module.
+Determines the location of a resource with the specified type and name in the specified module
 
 ###Syntax###
 #include <WinAPIRes.au3>
@@ -12,8 +12,8 @@ _WinAPI_FindResource ( $hInstance, $sType, $sName )
 ###Parameters###
 @@ParamTable@@
 $hInstance
-	Handle to the module whose executable file contains the resource. A value of 0 specifies the module
-	handle associated with the image file that the operating system used to create the current process.
+	Handle to the module whose executable file contains the resource.
+	A value of 0 specifies the module handle associated with the image file that the operating system used to create the current process.
 $sType
 	The type of the resource. This parameter can be string or integer value.
 $sName
@@ -22,22 +22,19 @@ $sName
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	Handle to the specified resource's information block. To obtain a handle to the resource, pass this
-	handle to the _WinAPI_LoadResource() function.
-Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+Success:	Handle to the specified resource's information block.
+	To obtain a handle to the resource, pass this handle to the <a href="_WinAPI_LoadResource.htm">_WinAPI_LoadResource()</a> function.
+Failure:	0, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information.
 @@End@@
 
 
 ###Remarks###
-If the first character of the string of the $sName or $sType parameter is a pound sign (#), the remaining
-characters represent a decimal number that specifies the integer identifier of the resource's name or type.
+If the first character of the string of the $sName or $sType parameter is a pound sign (#), the remaining characters represent a decimal number that specifies the integer identifier of the resource's name or type.
 For example, the string "#258" represents the integer identifier 258.
 
-To reduce the amount of memory required for a resource, an application should refer to it by integer identifier
-instead of by name.
+To reduce the amount of memory required for a resource, an application should refer to it by integer identifier instead of by name.
 
-An application can use _WinAPI_FindResource() to find any type of resource, but this function should be used
-only if the application must access the binary resource data when making subsequent calls to _WinAPI_LockResource().
+An application can use <a href="_WinAPI_FindResource.htm">_WinAPI_FindResource()</a> to find any type of resource, but this function should be used only if the application must access the binary resource data when making subsequent calls to <a href="_WinAPI_LockResource.htm">_WinAPI_LockResource()</a>.
 
 
 ###Related###

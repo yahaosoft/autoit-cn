@@ -1,7 +1,7 @@
-#include <GuiListBox.au3>
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
+#include <GuiListBox.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Global $hListBox
 
@@ -13,7 +13,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("(UDF Created) List Box Create", 400, 296)
 	$hListBox = _GUICtrlListBox_Create($hGUI, "String upon creation", 2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	MsgBox($MB_SYSTEMMODAL, "Information", "Adding Items")
 
@@ -29,7 +29,7 @@ Func Example()
 	_GUICtrlListBox_Dir($hListBox, "", $DDL_DRIVES, False)
 	_GUICtrlListBox_EndUpdate($hListBox)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

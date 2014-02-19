@@ -1,5 +1,5 @@
-#include <WinAPIRes.au3>
 #include <GUIConstantsEx.au3>
+#include <WinAPIRes.au3>
 
 Global Const $STM_SETIMAGE = 0x0172
 
@@ -90,7 +90,7 @@ Local $hIcon = _WinAPI_CreateIcon(0, 32, 32, 1, 1, $pANDBits, $pXORBits)
 GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 128, 128)
 GUICtrlCreateIcon('', 0, 48, 48, 32, 32)
 GUICtrlSendMsg(-1, $STM_SETIMAGE, 1, $hIcon)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE

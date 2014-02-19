@@ -1,6 +1,6 @@
-#include <Constants.au3>
 #include <GDIPlus.au3>
 #include <GUIConstantsEx.au3>
+#include <MsgBoxConstants.au3>
 
 Example()
 
@@ -10,7 +10,7 @@ Func Example()
 
 	Local $hGUI = GUICreate("GDI+ example", $fWidth, $fHeight) ;create a test GUI
 	GUISetBkColor($iBgColor, $hGUI) ;set GUI background color
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	Local $hGraphics = _GDIPlus_GraphicsCreateFromHWND($hGUI) ;create a graphics object from a window handle
 	_GDIPlus_GraphicsSetSmoothingMode($hGraphics, $GDIP_SMOOTHINGMODE_HIGHQUALITY) ;sets the graphics object rendering quality (antialiasing)

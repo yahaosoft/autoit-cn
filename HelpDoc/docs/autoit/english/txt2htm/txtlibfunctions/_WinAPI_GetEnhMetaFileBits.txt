@@ -2,7 +2,7 @@
 _WinAPI_GetEnhMetaFileBits
 
 ###Description###
-Retrieves the contents of the specified enhanced-format metafile.
+Retrieves the contents of the specified enhanced-format metafile
 
 ###Syntax###
 #include <WinAPIGdi.au3>
@@ -14,29 +14,26 @@ _WinAPI_GetEnhMetaFileBits ( $hEmf, ByRef $pBuffer )
 $hEmf
 	Handle to the enhanced metafile.
 $pBuffer
-	Returns a pointer to a memory block (buffer) that receives the metafile data. Optionaly, you can set this
-	parameter to 0 before function call, then the function will allocate the required memory block itself.
-	Otherwise, it must be a valid memory pointer returned by the _WinAPI_CreateBuffer() function, or
-	by previously calling this function.
+	Returns a pointer to a memory block (buffer) that receives the metafile data.
+	Optionaly, you can set this parameter to 0 before function call, then the function will allocate the required memory block itself.
+	Otherwise, it must be a valid memory pointer returned by the <a href="_WinAPI_CreateBuffer.htm">_WinAPI_CreateBuffer()</a> function, or by previously calling this function.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	The number of bytes copied to the buffer.
-Failure 	0 and sets the @error flag to non-zero.
+Success:	The number of bytes copied to the buffer.
+Failure:	0 and sets the @error flag to non-zero.
 @@End@@
 
 
 ###Remarks###
-After the enhanced-metafile bits are retrieved, they can be used to create a memory-based metafile by calling the
-_WinAPI_SetEnhMetaFileBits() function.
+After the enhanced-metafile bits are retrieved, they can be used to create a memory-based metafile by calling the <a href="_WinAPI_SetEnhMetaFileBits.htm">_WinAPI_SetEnhMetaFileBits()</a> function.
 
-When you no longer need the buffer allocated by this function, you must call the _WinAPI_FreeMemory() function
-(do not use any other memory routines) to release occupied memory.
+When you no longer need the buffer allocated by this function, you must call the <a href="_WinAPI_FreeMemory.htm">_WinAPI_FreeMemory()</a> function (do not use any other memory routines) to release occupied memory.
 
 
 ###Related###
-_WinAPI_SetEnhMetaFileBits, _WinAPI_FreeMemory, _WinAPI_CreateBuffer
+_WinAPI_CreateBuffer, _WinAPI_FreeMemory, _WinAPI_SetEnhMetaFileBits
 
 
 ###See Also###

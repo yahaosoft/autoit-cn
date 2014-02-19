@@ -1,8 +1,8 @@
 #include <GUIConstantsEx.au3>
-#include <GuiTab.au3>
-#include <WinAPI.au3>
 #include <GuiImageList.au3>
+#include <GuiTab.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPI.au3>
 
 Example()
 
@@ -12,7 +12,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("Tab Control Get Image List", 400, 300)
 	$hTab = _GUICtrlTab_Create($hGUI, 2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Create images
 	$hImage = _GUIImageList_Create()
@@ -30,7 +30,7 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", "Image list handle: 0x" & Hex(_GUICtrlTab_GetImageList($hTab)) & @CRLF & _
 			"IsPtr = " & IsPtr(_GUICtrlTab_GetImageList($hTab)) & " IsHWnd = " & IsHWnd(_GUICtrlTab_GetImageList($hTab)))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

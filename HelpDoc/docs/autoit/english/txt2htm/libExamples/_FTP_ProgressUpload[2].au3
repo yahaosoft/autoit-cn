@@ -1,7 +1,7 @@
 #include <FTPEx.au3>
+#include <GUIConstantsEx.au3>
 #include <Misc.au3>
 #include <ProgressConstants.au3>
-#include <GUIConstantsEx.au3>
 
 ; This example NEED TO BE ADAPTED to valid $sRemoteFile/s$erver/$sUsername/$sPass
 
@@ -28,7 +28,7 @@ Func Example()
 	$idProgressBarCtrl = GUICtrlCreateProgress(10, 40, 200, 20, $PBS_SMOOTH)
 	GUICtrlSetColor(-1, 32250); not working with Windows XP Style
 	$idBtn_Cancel = GUICtrlCreateButton("Cancel", 75, 70, 70, 20)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	Local $sFunctionToCall = "_UpdateGUIProgressBar"
 	_FTP_ProgressUpload($hFTPSession, $s_LocalFile, $sRemoteFile, $sFunctionToCall)

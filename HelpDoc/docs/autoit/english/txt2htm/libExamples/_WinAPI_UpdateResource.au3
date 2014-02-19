@@ -1,6 +1,6 @@
-#include <WinAPIRes.au3>
 #include <APIResConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIRes.au3>
 
 Global Const $sExe = @TempDir & '\MyProg.exe'
 
@@ -18,7 +18,7 @@ If Not FileCopy(@ScriptDir & '\Extras\MyProg.exe', $sExe) Then
 	If MsgBox(BitOR($MB_OKCANCEL, $MB_ICONERROR, $MB_SYSTEMMODAL), 'Error', 'Unable to copy MyProg.exe or file already exist in the current directory.') <> 1 Then
 		Exit
 	EndIf
-	FileCopy(@ScriptDir & '\Extras\MyProg.exe', $sExe, 1)
+	FileCopy(@ScriptDir & '\Extras\MyProg.exe', $sExe, $FC_OVERWRITE)
 EndIf
 
 Global $Error = 1

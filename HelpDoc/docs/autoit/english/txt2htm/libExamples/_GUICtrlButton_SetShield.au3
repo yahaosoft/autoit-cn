@@ -1,11 +1,11 @@
-#include <GUIConstantsEx.au3>
 #include <GuiButton.au3>
-#include <WindowsConstants.au3>
+#include <GUIConstantsEx.au3>
 #include <GuiMenu.au3>
+#include <WindowsConstants.au3>
 
 Global $btn, $btn2
 
-; Note the controlId from these buttons can NOT be read with GUICtrlRead
+; Note the controlID from these buttons can NOT be read with GUICtrlRead
 
 Example()
 
@@ -20,7 +20,7 @@ Func Example()
 	$btn2 = _GUICtrlButton_Create($hGUI, "Button2", 10, 60, 90, 30, $BS_SPLITBUTTON)
 	_GUICtrlButton_SetShield($btn2)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	While 1
 		Switch GUIGetMsg()

@@ -1,6 +1,6 @@
+#include <GUIConstantsEx.au3>
 #include <WinAPISys.au3>
 #include <WindowsConstants.au3>
-#include <GUIConstantsEx.au3>
 
 OnAutoItExitRegister('OnAutoItExit')
 
@@ -26,7 +26,7 @@ Global $hDll = DllCallbackRegister('_WinProc', 'ptr', 'hwnd;uint;wparam;lparam')
 Global $pDll = DllCallbackGetPtr($hDll)
 Global $hProc = _WinAPI_SetWindowLong($hLabel, $GWL_WNDPROC, $pDll)
 
-GUISetState()
+GUISetState(@SW_SHOW)
 
 While 1
 	Switch GUIGetMsg()

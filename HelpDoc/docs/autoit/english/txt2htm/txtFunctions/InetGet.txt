@@ -32,9 +32,9 @@ background
 ###ReturnValue###
 @@ReturnTable@@
 Success:	the return value changes depending on if the download is in the background:
-	Background: a handle is returned.  The handle can be used with InetGetInfo().  The handle must be closed with InetClose().
+	Background: a handle is returned.
 	Wait: the number of bytes downloaded.
-Failure:	Background: a handle is returned.  To determine if there was an error with the download, use InetGetInfo().  The handle must be closed with InetClose().
+Failure:	Background: a handle is returned.
 	Wait: 0 and sets the flag to non-zero.
 @@End@@
 
@@ -42,15 +42,18 @@ Failure:	Background: a handle is returned.  To determine if there was an error w
 ###Remarks###
 Internet Explorer 3 or greater must be installed for this function to work.
 
+Use the returned handle with <a href="InetGetInfo.htm">InetGetInfo()</a> to determine if there was an error with the download.
+The returned handle must be closed with <a href="InetClose.htm">InetClose()</a>.
+
 The URL parameter should be in the form "http://www.somesite.com/path/file.html" - just like an address you would type into your web browser.
 
 To use a username and password when connecting simply prefix the servername with "username:password@", e.g.
 "http://myuser:mypassword@www.somesite.com"
 
 
-<b>Notes about the &quot;background&quot; Parameter</b>
+<strong>Notes about the &quot;background&quot; Parameter</strong>
 
-By default the function waits until the download has finished before returning.  If the <b>background</b> parameter is set to $INET_DOWNLOADBACKGROUND (1) the function returns immediately and the download continues in the background.  The function <a href="InetGetInfo.htm">InetGetInfo()</a> can be used to check the status of the download.  It takes the handle returned from <a href="InetGet.htm">InetGet()</a>.
+By default the function waits until the download has finished before returning.  If the <strong>background</strong> parameter is set to $INET_DOWNLOADBACKGROUND (1) the function returns immediately and the download continues in the background.  The function <a href="InetGetInfo.htm">InetGetInfo()</a> can be used to check the status of the download.  It takes the handle returned from <a href="InetGet.htm">InetGet()</a>.
 
 Multiple downloads are supported if they are started in background mode.
 
@@ -60,7 +63,7 @@ By default AutoIt forces a connection before starting a download.  For dial-up u
 
 
 ###Related###
-InetGetSize, InetRead, InetGetInfo, InetClose, HttpSetProxy, FtpSetProxy, HttpSetUserAgent
+FtpSetProxy, HttpSetProxy, HttpSetUserAgent, InetClose, InetGetInfo, InetGetSize, InetRead
 
 
 ###Example###

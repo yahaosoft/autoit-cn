@@ -1,7 +1,7 @@
-#include <WinAPIDlg.au3>
 #include <APIDlgConstants.au3>
-#include <WinAPISys.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIDlg.au3>
+#include <WinAPISys.au3>
 
 Global Const $InitDir = @ProgramFilesDir
 

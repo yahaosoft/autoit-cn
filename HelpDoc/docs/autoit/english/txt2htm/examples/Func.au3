@@ -6,11 +6,11 @@ Func Example()
 	; Sample script with three user-defined functions
 	; Notice the use of variables, ByRef, and Return
 
-	Local $foo = 2
-	Local $bar = 5
-	MsgBox($MB_SYSTEMMODAL, "", "Today is " & today() & @CRLF & "$foo equals " & $foo)
-	swap($foo, $bar)
-	MsgBox($MB_SYSTEMMODAL, "", "After swapping $foo and $bar:" & @CRLF & "$foo now contains " & $foo)
+	Local $iFoo = 2
+	Local $iBar = 5
+	MsgBox($MB_SYSTEMMODAL, "", "Today is " & today() & @CRLF & "$iFoo equals " & $iFoo)
+	swap($iFoo, $iBar)
+	MsgBox($MB_SYSTEMMODAL, "", "After swapping $iFoo and $iBar:" & @CRLF & "$iFoo now contains " & $iFoo)
 	MsgBox($MB_SYSTEMMODAL, "", "Finally:" & @CRLF & "The larger of 3 and 4 is " & max(3, 4))
 EndFunc   ;==>Example
 

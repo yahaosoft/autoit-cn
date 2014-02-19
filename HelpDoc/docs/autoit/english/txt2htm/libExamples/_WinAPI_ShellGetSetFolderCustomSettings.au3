@@ -1,6 +1,6 @@
-#include <WinAPIShellEx.au3>
 #include <APIShellExConstants.au3>
 #include <WinAPIDlg.au3>
+#include <WinAPIShellEx.au3>
 
 ; Select folder
 Local $sPath = FileSelectFolder('Select Folder', '', 0, @ScriptDir)

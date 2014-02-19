@@ -12,13 +12,13 @@ _GUIToolTip_SetMaxTipWidth ( $hWnd, $iWidth )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	Handle to the ToolTip control (returned by <a href ="_GUIToolTip_Create.htm">_GUIToolTip_Create.</a>)
 $iWidth
-	Maximum ToolTip window width to be set
+	Maximum ToolTip window width to be set (in pixels)
 @@End@@
 
 ###ReturnValue###
-Returns the previous maximum ToolTip width.
+Returns the previous maximum ToolTip width in pixels.
 
 
 ###Remarks###
@@ -27,6 +27,12 @@ Rather, if a ToolTip string exceeds the maximum width, the control breaks the te
 If the text cannot be segmented into multiple lines, it will be displayed on a single line.
 The length of this line may exceed the maximum ToolTip width.
 
+A ToolTip control needs this setting if you want to have a multi-line ToolTip. Without this setting, if you put a line break (@CR, @LF, @CRLF) in the text of a tool, the text will be truncated at that line break.
+
 
 ###Related###
 _GUIToolTip_GetMaxTipWidth
+
+
+###Example###
+@@IncludeExample@@

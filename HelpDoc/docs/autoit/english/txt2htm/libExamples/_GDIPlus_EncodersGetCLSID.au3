@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
 #include <ScreenCapture.au3>
 #include <WindowsConstants.au3>
 
@@ -14,7 +14,7 @@ Func Example()
 	GUICreate("GDI+", 600, 400)
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 596, 396, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Initialize GDI+ library
 	_GDIPlus_Startup()
@@ -38,7 +38,7 @@ Func Example()
 	; Shut down GDI+ library
 	_GDIPlus_Shutdown()
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example
@@ -50,7 +50,7 @@ EndFunc   ;==>MemoWrite
 
 ; Show encoder information
 Func ShowEncoder($sTitle)
-	Local $iI, $iJ, $iK, $sCLSID, $tData, $tParam, $tParams
+	Local $iI, $iJ, $iK, $sCLSID, $tData, $tParam, $tParams, $iParamSize = _GDIPlus_ParamSize()
 
 	For $iI = 1 To $aEncoder[0][0]
 		$sCLSID = _GDIPlus_EncodersGetCLSID($aEncoder[$iI][5])
@@ -76,15 +76,15 @@ Func ShowEncoder($sTitle)
 
 		For $iJ = 0 To DllStructGetData($tParams, "Count") - 1
 			MemoWrite("  Image " & $sTitle & " Parameter " & $iJ)
-			$tParam = DllStructCreate($tagGDIPENCODERPARAM, DllStructGetPtr($tParams, "Params") + ($iJ * 28))
+			$tParam = DllStructCreate($tagGDIPENCODERPARAM, DllStructGetPtr($tParams, "GUID") + ($iJ * $iParamSize))
 			MemoWrite("    Parameter GUID ......: " & _WinAPI_StringFromGUID(DllStructGetPtr($tParam, "GUID")))
-			MemoWrite("    Number of values ....: " & DllStructGetData($tParam, "Count"))
+			MemoWrite("    Number of values ....: " & DllStructGetData($tParam, "NumberOfValues"))
 			MemoWrite("    Parameter type.......: " & DllStructGetData($tParam, "Type"))
 			MemoWrite("    Parameter pointer ...: 0x" & Hex(DllStructGetData($tParam, "Values")))
 			Switch DllStructGetData($tParam, "Type")
 				Case 4
-					$tData = DllStructCreate("int Data[" & DllStructGetData($tParam, "Count") & "]", DllStructGetData($tParam, "Values"))
-					For $iK = 1 To DllStructGetData($tParam, "Count")
+					$tData = DllStructCreate("int Data[" & DllStructGetData($tParam, "NumberOfValues") & "]", DllStructGetData($tParam, "Values"))
+					For $iK = 1 To DllStructGetData($tParam, "NumberOfValues")
 						MemoWrite("      Value .............: " & DllStructGetData($tData, 1, $iK))
 					Next
 				Case 6

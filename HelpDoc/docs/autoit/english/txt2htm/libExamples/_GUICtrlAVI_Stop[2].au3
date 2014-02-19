@@ -1,7 +1,7 @@
 ; using Standard UDF
 
-#include <GUIConstantsEx.au3>
 #include <GuiAVI.au3>
+#include <GUIConstantsEx.au3>
 
 Global $hAVI
 
@@ -15,9 +15,9 @@ Func _Example_External()
 	$hAVI = _GUICtrlAVI_Create($hGUI, @SystemDir & "\Shell32.dll", 160, 10, 10)
 	$btn_start = GUICtrlCreateButton("start", 50, 150, 70, 22)
 	$btn_stop = GUICtrlCreateButton("stop", 150, 150, 70, 22)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE

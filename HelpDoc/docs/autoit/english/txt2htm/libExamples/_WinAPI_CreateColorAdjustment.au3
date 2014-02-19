@@ -1,15 +1,15 @@
-#include <WinAPIGdi.au3>
 #include <APIGdiConstants.au3>
-#include <WinAPIShPath.au3>
-#include <WindowsConstants.au3>
 #include <ComboConstants.au3>
 #include <EditConstants.au3>
 #include <GDIPlus.au3>
 #include <GUIComboBox.au3>
 #include <GUIConstantsEx.au3>
+#include <MsgBoxConstants.au3>
 #include <SliderConstants.au3>
 #include <StaticConstants.au3>
-#include <MsgBoxConstants.au3>
+#include <WinAPIGdi.au3>
+#include <WinAPIShPath.au3>
+#include <WindowsConstants.au3>
 
 Opt('GUICloseOnESC', 0)
 Opt('TrayAutoPause', 0)

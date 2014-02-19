@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Tab Control HitTest", 400, 300)
 	$hTab = GUICtrlCreateTab(2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add tabs
 	_GUICtrlTab_InsertItem($hTab, 0, "Tab 1")
@@ -21,7 +21,7 @@ Func Example()
 	$aHit = _GUICtrlTab_HitTest($hTab, 80, 10)
 	MsgBox($MB_SYSTEMMODAL, "Information", "Point [80,10] is over tab " & $aHit[0])
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

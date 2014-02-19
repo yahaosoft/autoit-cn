@@ -12,7 +12,7 @@ Func Example()
 	$hSlider = GUICtrlCreateSlider(95, 2, 205, 20, BitOR($TBS_TOOLTIPS, $TBS_AUTOTICKS, $TBS_ENABLESELRANGE))
 	$hInput = GUICtrlCreateInput("0", 2, 25, 90, 20)
 	$hInput2 = GUICtrlCreateInput("0", 2, 25, 90, 20)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set buddy to left
 	_GUICtrlSlider_SetBuddy($hSlider, True, $hInput)
@@ -22,7 +22,7 @@ Func Example()
 	; Get Buddy from the left
 	MsgBox($MB_SYSTEMMODAL, "Information", "Buddy Handle: " & _GUICtrlSlider_GetBuddy($hSlider, True))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

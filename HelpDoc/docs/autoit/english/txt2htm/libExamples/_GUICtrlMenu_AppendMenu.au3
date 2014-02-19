@@ -1,5 +1,5 @@
-#include <GuiMenu.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiMenu.au3>
 
 Example()
 
@@ -35,12 +35,12 @@ Func Example()
 
 	; Set window menu
 	_GUICtrlMenu_SetMenu($hGUI, $hMain)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add About menu item
 	_GUICtrlMenu_AppendMenu($hHelp, $MF_STRING, $idAbout, "&About")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

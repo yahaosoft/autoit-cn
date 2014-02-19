@@ -2,40 +2,40 @@
 _WinAPI_RegRestoreKey
 
 ###Description###
-Reads the registry information in a specified file and copies it over the specified key.
+Reads the registry information in a specified file and copies it over the specified key
 
 ###Syntax###
 #include <WinAPIReg.au3>
-_WinAPI_RegRestoreKey ( $hKey, $sFile )
+_WinAPI_RegRestoreKey ( $hKey, $sFilePath )
 
 
 ###Parameters###
 @@ParamTable@@
 $hKey
-	Handle to an open registry key. This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey()
+	Handle to an open registry key. This handle is returned by the <a href="_WinAPI_RegCreateKey.htm">_WinAPI_RegCreateKey()</a> or <a href="_WinAPI_RegOpenKey.htm">_WinAPI_RegOpenKey()</a>
 	function. It can also be one of the following predefined keys.
 	$HKEY_CLASSES_ROOT
 	$HKEY_CURRENT_CONFIG
 	$HKEY_CURRENT_USER
 	$HKEY_LOCAL_MACHINE
 	$HKEY_USERS
-$sFile
+$sFilePath
 	The name of the file with the registry information. This file is typically created by
-	using the _WinAPI_RegSaveKey() function.
+	using the <a href="_WinAPI_RegSaveKey.htm">_WinAPI_RegSaveKey()</a> function.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	1.
-Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+Success:	1.
+Failure:	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 
 ###Remarks###
-The calling process must have $SE_RESTORE_NAME privilege, otherwise, the function fails, and _WinAPI_GetLastError()
+The calling process must have $SE_RESTORE_NAME privilege, otherwise, the function fails, and <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a>
 returns ERROR_PRIVILEGE_NOT_HELD (1314).
 
-If any subkeys of the specified registry key are open, the _WinAPI_RegRestoreKey() fails.
+If any subkeys of the specified registry key are open, the <a href="_WinAPI_RegRestoreKey.htm">_WinAPI_RegRestoreKey()</a> fails.
 
 
 ###Related###

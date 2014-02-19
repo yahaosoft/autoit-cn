@@ -9,7 +9,7 @@ Func Example()
 
 	GUICreate("ListView Get Next Item", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add columns
 	_GUICtrlListView_AddColumn($hListView, "Items", 100)
@@ -25,7 +25,7 @@ Func Example()
 	; Find selected item
 	MsgBox($MB_SYSTEMMODAL, "Information", "Selected Item: " & _GUICtrlListView_GetNextItem($hListView))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

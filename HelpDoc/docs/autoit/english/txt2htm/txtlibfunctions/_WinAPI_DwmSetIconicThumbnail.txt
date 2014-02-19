@@ -2,7 +2,7 @@
 _WinAPI_DwmSetIconicThumbnail
 
 ###Description###
-Sets a static, iconic bitmap on a window or tab to use as a thumbnail representation.
+Sets a static, iconic bitmap on a window or tab to use as a thumbnail representation
 
 ###Syntax###
 #include <WinAPIGdi.au3>
@@ -17,31 +17,31 @@ $hBitmap
 	Handle to the device-independent bitmap (DIB) to represent the specified window.
 $fFrame
 	[optional] Specifies whether display a frame around the provided thumbnail, valid values:
-	True    - Display frame.
-	False   - Do not display frame (Default).
+		True    - Display frame.
+		False   - Do not display frame (Default).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	1.
-Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+Success:	1.
+Failure:	0 and sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
 @@End@@
 
 
 ###Remarks###
-A window typically calls the _WinAPI_DwmSetIconicThumbnail() function after it receives a WM_DWMSENDICONICTHUMBNAIL
-message. The thumbnail should not exceed the maximum x-coordinate and y-cordinate that are specified in the
-WM_DWMSENDICONICTHUMBNAIL. The thumbnail must also have a 32-bit color depth.
+A window typically calls the <a href="_WinAPI_DwmSetIconicThumbnail.htm">_WinAPI_DwmSetIconicThumbnail()</a> function after it receives a WM_DWMSENDICONICTHUMBNAIL message.
+The thumbnail should not exceed the maximum x-coordinate and y-cordinate that are specified in the WM_DWMSENDICONICTHUMBNAIL.
+The thumbnail must also have a 32-bit color depth.
 
-The DWM uses a copy of the bitmap, but the application can release this copy at any time because of memory
-constraints. If this occurs, the window is not notified but it might receive a subsequent WM_DWMSENDICONICTHUMBNAIL
-request when its thumbnail is needed again. The caller retains ownership of the original bitmap and is responsible
-for freeing the resources that it uses when it is no longer needed.
+The DWM uses a copy of the bitmap, but the application can release this copy at any time because of memory constraints.
+If this occurs, the window is not notified but it might receive a subsequent WM_DWMSENDICONICTHUMBNAIL request when its thumbnail is needed again.
+The caller retains ownership of the original bitmap and is responsible for freeing the resources that it uses when it is no longer needed.
 
 This function requires Windows 7 or later.
 
 
 ###Related###
+None.
 
 
 ###See Also###

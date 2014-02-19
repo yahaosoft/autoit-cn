@@ -17,14 +17,14 @@ Func Example()
 	; Create memo control
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 274, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get/Set Unicode format
 	MemoWrite("Unicode format .: " & _GUICtrlStatusBar_GetUnicodeFormat($hStatus))
 	_GUICtrlStatusBar_SetUnicodeFormat($hStatus, False)
 	MemoWrite("Unicode format .: " & _GUICtrlStatusBar_GetUnicodeFormat($hStatus))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

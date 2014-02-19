@@ -1,8 +1,8 @@
+#include <ColorConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <GuiStatusBar.au3>
-#include <WinAPI.au3>
-#include <ColorConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPI.au3>
 
 Example()
 
@@ -13,7 +13,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("StatusBar Set BkColor", 400, 300)
 	$hStatus = _GUICtrlStatusBar_Create($hGUI)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set parts
 	_GUICtrlStatusBar_SetParts($hStatus, $aParts)
@@ -23,7 +23,7 @@ Func Example()
 	; Set background color
 	_GUICtrlStatusBar_SetBkColor($hStatus, $CLR_MONEYGREEN)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

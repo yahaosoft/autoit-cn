@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GuiButton.au3>
+#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 
 Global $iMemo
@@ -21,7 +21,7 @@ Func Example()
 	$chk = GUICtrlCreateCheckbox("Check1", 10, 120, 90, 50, BitOR($BS_AUTO3STATE, $BS_NOTIFY))
 	_GUICtrlButton_SetCheck($chk, $BST_INDETERMINATE)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	MemoWrite("Disabled Button: " & _GUICtrlButton_Enable($rdo2, False))
 	Sleep(1000)

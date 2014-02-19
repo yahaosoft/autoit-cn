@@ -9,7 +9,7 @@ Func Example()
 
 	GUICreate("ListView Hide Column", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add columns
 	_GUICtrlListView_AddColumn($hListView, "Column 1", 100)
@@ -19,7 +19,7 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", "Hiding Column 2")
 	MsgBox($MB_SYSTEMMODAL, "Information", "Column 2 Hid: " & _GUICtrlListView_HideColumn($hListView, 1))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

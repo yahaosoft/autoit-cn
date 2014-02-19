@@ -11,12 +11,12 @@ FileFindNextFile ( search )
 ###Parameters###
 @@ParamTable@@
 search
-	The search handle, as returned by FileFindFirstFile.
+	The search handle, as returned by <a href="FileFindFirstFile.htm">FileFindFirstFile()</a>.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	a filename according to a previous call to FileFindFirstFile, @extended set to 1 if filename is a directory.
+Success:	a filename according to a previous call to <a href="FileFindFirstFile.htm">FileFindFirstFile()</a>, @extended set to 1 if filename is a directory.
 Failure:	sets the @error flag to 1 if no more files/directories match the search.
 @@End@@
 
@@ -25,6 +25,9 @@ Failure:	sets the @error flag to 1 if no more files/directories match the search
 A previous call to <a href="FileFindFirstFile.htm">FileFindFirstFile()</a> is necessary to setup the search and get a search handle. Every subsequent call to <a href="FileFindNextFile.htm">FileFindNextFile()</a> will return the next file found according to the search string supplied to <a href="FileFindFirstFile.htm">FileFindFirstFile()</a>.  When @error = 1, no more files found matching the original search string.
 
 When you have finished searching with the FileFind... functions you must call <a href="FileClose.htm">FileClose()</a> to release the search handle.
+
+Due to the underlying Windows API used (FindFirstFile), this function actually searches both the long and short filenames when looking for matches. If you get unexepected results
+then verfiy that it's not the short filename that is being matched.
 
 
 ###Related###

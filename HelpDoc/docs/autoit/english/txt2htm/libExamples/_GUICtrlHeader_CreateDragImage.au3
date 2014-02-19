@@ -14,7 +14,7 @@ Func Example()
 	$hHeader = _GUICtrlHeader_Create($hGUI)
 	_GUICtrlHeader_SetUnicodeFormat($hHeader, True)
 	$iMemo = GUICtrlCreateEdit("", 2, 32, 396, 266, 0)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add columns
 	_GUICtrlHeader_AddItem($hHeader, "Column 1", 100)

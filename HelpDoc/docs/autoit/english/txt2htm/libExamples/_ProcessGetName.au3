@@ -1,5 +1,5 @@
-#include <Process.au3>
 #include <MsgBoxConstants.au3>
+#include <Process.au3>
 
 Run("notepad.exe")
 WinWaitActive("[CLASS:Notepad]", "")

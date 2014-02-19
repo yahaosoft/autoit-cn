@@ -1,62 +1,61 @@
 #include <GUIConstantsEx.au3>
-#include <StaticConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <StaticConstants.au3>
 
 Example()
 
 Func Example()
-	Local $iCancel, $iExit, $iFileItem, $iFileMenu, $iHelpMenu, $iInfoItem
-	Local $iRecentFilesMenu, $iStatusLabel, $iViewMenu, $iViewStatusItem, $sFilePath, $sStatus = "Ready"
-
 	GUICreate("My GUI menu", 300, 200)
 
-	$sStatus = "Ready"
+	Local $sStatus = "Ready"
 
-	$iFileMenu = GUICtrlCreateMenu("&File")
-	$iFileItem = GUICtrlCreateMenuItem("Open", $iFileMenu)
+	Local $idFileMenu = GUICtrlCreateMenu("&File")
+	Local $idFileItem = GUICtrlCreateMenuItem("Open", $idFileMenu)
 	GUICtrlSetState(-1, $GUI_DEFBUTTON)
-	$iHelpMenu = GUICtrlCreateMenu("?")
-	GUICtrlCreateMenuItem("Save", $iFileMenu)
+	Local $idHelpMenu = GUICtrlCreateMenu("?")
+	GUICtrlCreateMenuItem("Save", $idFileMenu)
 	GUICtrlSetState(-1, $GUI_DISABLE)
-	$iInfoItem = GUICtrlCreateMenuItem("Info", $iHelpMenu)
-	$iExit = GUICtrlCreateMenuItem("Exit", $iFileMenu)
-	$iRecentFilesMenu = GUICtrlCreateMenu("Recent Files", $iFileMenu, 1)
+	Local $idInfoItem = GUICtrlCreateMenuItem("Info", $idHelpMenu)
+	Local $idExit = GUICtrlCreateMenuItem("Exit", $idFileMenu)
+	Local $idRecentFilesMenu = GUICtrlCreateMenu("Recent Files", $idFileMenu, 1)
 
-	GUICtrlCreateMenuItem("", $iFileMenu, 2) ; Create a separator line
+	GUICtrlCreateMenuItem("", $idFileMenu, 2) ; Create a separator line
 
-	$iViewMenu = GUICtrlCreateMenu("View", -1, 1) ; Is created before "?" menu
-	$iViewStatusItem = GUICtrlCreateMenuItem("Statusbar", $iViewMenu)
+	Local $idViewMenu = GUICtrlCreateMenu("View", -1, 1) ; Is created before "?" menu
+	Local $idViewStatusItem = GUICtrlCreateMenuItem("Statusbar", $idViewMenu)
 	GUICtrlSetState(-1, $GUI_CHECKED)
 	GUICtrlCreateButton("OK", 50, 130, 70, 20)
 	GUICtrlSetState(-1, $GUI_FOCUS)
-	$iCancel = GUICtrlCreateButton("Cancel", 180, 130, 70, 20)
+	Local $idCancel = GUICtrlCreateButton("Cancel", 180, 130, 70, 20)
 
-	$iStatusLabel = GUICtrlCreateLabel($sStatus, 0, 165, 300, 16, BitOR($SS_SIMPLE, $SS_SUNKEN))
+	Local $idStatusLabel = GUICtrlCreateLabel($sStatus, 0, 165, 300, 16, BitOR($SS_SIMPLE, $SS_SUNKEN))
 
 	GUISetState(@SW_SHOW)
 
+	Local $sFilePath
+	; Loop until the user exits.
 	While 1
 		Switch GUIGetMsg()
-			Case $GUI_EVENT_CLOSE, $iCancel, $iExit
+			Case $GUI_EVENT_CLOSE, $idCancel, $idExit
 				Exit
 
-			Case $iInfoItem
+			Case $idInfoItem
 				MsgBox($MB_SYSTEMMODAL, "Info", "Only a test...")
 
-			Case $iFileItem
+			Case $idFileItem
 				$sFilePath = FileOpenDialog("Choose a file...", @TempDir, "All (*.*)")
 				If @error Then
 					ContinueLoop
 				EndIf
-				GUICtrlCreateMenuItem($sFilePath, $iRecentFilesMenu)
+				GUICtrlCreateMenuItem($sFilePath, $idRecentFilesMenu)
 
-			Case $iViewStatusItem
-				If BitAND(GUICtrlRead($iViewStatusItem), $GUI_CHECKED) = $GUI_CHECKED Then
-					GUICtrlSetState($iViewStatusItem, $GUI_UNCHECKED)
-					GUICtrlSetState($iStatusLabel, $GUI_HIDE)
+			Case $idViewStatusItem
+				If BitAND(GUICtrlRead($idViewStatusItem), $GUI_CHECKED) = $GUI_CHECKED Then
+					GUICtrlSetState($idViewStatusItem, $GUI_UNCHECKED)
+					GUICtrlSetState($idStatusLabel, $GUI_HIDE)
 				Else
-					GUICtrlSetState($iViewStatusItem, $GUI_CHECKED)
-					GUICtrlSetState($iStatusLabel, $GUI_SHOW)
+					GUICtrlSetState($idViewStatusItem, $GUI_CHECKED)
+					GUICtrlSetState($idStatusLabel, $GUI_SHOW)
 				EndIf
 		EndSwitch
 	WEnd

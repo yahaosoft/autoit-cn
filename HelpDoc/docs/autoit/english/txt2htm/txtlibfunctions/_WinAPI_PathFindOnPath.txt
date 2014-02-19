@@ -6,17 +6,17 @@ Searchs for a file in the default system paths
 
 ###Syntax###
 #include <WinAPI.au3>
-_WinAPI_PathFindOnPath ( $szFile, $aExtraPaths="", $szPathDelimiter=@LF )
+_WinAPI_PathFindOnPath ( $sFilePath [, $aExtraPaths = "" [, $sPathDelimiter = @LF]] )
 
 
 ###Parameters###
 @@ParamTable@@
-$szFile
+$sFilePath
 	Filename to search for
 $aExtraPaths
-	Extra paths to check before any others.
-$szPathDelimiter
-	Delimiter used to split $aExtraPaths if it's an non-empty string (StringSplit with flag 2).
+	[optional] Extra paths to check before any others.
+$sPathDelimiter
+	[optional] Delimiter used to split $aExtraPaths if it's an non-empty string (StringSplit() with flag $STR_NOCOUNT (2)).
 @@End@@
 
 ###ReturnValue###
@@ -29,14 +29,15 @@ Failure:	sets the @error flag to non-zero, filename Unchanged.
 ###Remarks###
 $aExtraPaths can contain a list of paths to be checked before any system defaults.
 It can be an array or a string. If the former, it shall not have a count in it's first element.
-If the latter, it will be split using $szPathDelimiter as the delimiter, that defaults to @LF.
+If the latter, it will be split using $sPathDelimiter as the delimiter, that defaults to @LF.
 
 
 ###Related###
+None.
 
 
 ###See Also###
-@@MsdnLink@@ PathFindOnpath
+@@MsdnLink@@ PathFindOnPath
 
 
 ###Example###

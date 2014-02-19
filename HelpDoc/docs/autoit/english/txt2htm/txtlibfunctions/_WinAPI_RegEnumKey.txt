@@ -2,7 +2,7 @@
 _WinAPI_RegEnumKey
 
 ###Description###
-Enumerates the subkeys of the specified open registry key.
+Enumerates the subkeys of the specified open registry key
 
 ###Syntax###
 #include <WinAPIReg.au3>
@@ -13,7 +13,7 @@ _WinAPI_RegEnumKey ( $hKey, $iIndex )
 @@ParamTable@@
 $hKey
 	Handle to an open registry key. The key must have been opened with the $KEY_ENUMERATE_SUB_KEYS access
-	right. This handle is returned by the _WinAPI_RegCreateKey() or _WinAPI_RegOpenKey() function.
+	right. This handle is returned by the <a href="_WinAPI_RegCreateKey.htm">_WinAPI_RegCreateKey()</a> or <a href="_WinAPI_RegOpenKey.htm">_WinAPI_RegOpenKey()</a> function.
 	It can also be one of the following predefined keys.
 	$HKEY_CLASSES_ROOT
 	$HKEY_CURRENT_CONFIG
@@ -22,27 +22,27 @@ $hKey
 	$HKEY_PERFORMANCE_DATA
 	$HKEY_USERS
 $iIndex
-	The index of the subkey to retrieve. This parameter should be zero for the first call to the _WinAPI_RegEnumKey()
+	The index of the subkey to retrieve. This parameter should be zero for the first call to the <a href="_WinAPI_RegEnumKey.htm">_WinAPI_RegEnumKey()</a>
 	function and then incremented for subsequent calls.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	The string that contains the name of the subkey.
-Failure 	Sets the @error flag to non-zero, @extended flag may contain the system error code.
+Success:	The string that contains the name of the subkey.
+Failure:	Sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 
 ###Remarks###
-To enumerate subkeys, an application should initially call the _WinAPI_RegEnumKey() function with the $iIndex
-parameter set to zero. The application should then increment the $iIndex parameter and call _WinAPI_RegEnumKey()
+To enumerate subkeys, an application should initially call the <a href="_WinAPI_RegEnumKey.htm">_WinAPI_RegEnumKey()</a> function with the $iIndex
+parameter set to zero. The application should then increment the $iIndex parameter and call <a href="_WinAPI_RegEnumKey.htm">_WinAPI_RegEnumKey()</a>
 until there are no more subkeys (meaning the @extended flag sets to ERROR_NO_MORE_ITEMS (259)).
 
 The application can also set $iIndex to the index of the last subkey on the first call to the function and
 decrement the index until the subkey with the index 0 is enumerated. To retrieve the index of the last subkey,
-use the _WinAPI_RegQueryInfoKey() function.
+use the <a href="_WinAPI_RegQueryInfoKey.htm">_WinAPI_RegQueryInfoKey()</a> function.
 
-While an application is using the _WinAPI_RegEnumKey() function, it should not make calls to any registration
+While an application is using the <a href="_WinAPI_RegEnumKey.htm">_WinAPI_RegEnumKey()</a> function, it should not make calls to any registration
 functions that might change the key being enumerated.
 
 

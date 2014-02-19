@@ -1,8 +1,8 @@
+#include <GUIConstantsEx.au3>
+#include <GUIImageList.au3>
+#include <GUIListView.au3>
 #include <WinAPIShellEx.au3>
 #include <WindowsConstants.au3>
-#include <GUIListView.au3>
-#include <GUIImageList.au3>
-#include <GUIConstantsEx.au3>
 
 Local $hIcon, $Key, $Count = 1, $First = False
 Local $tSHFILEINFO = DllStructCreate($tagSHFILEINFO)
@@ -49,7 +49,7 @@ For $i = 1 To $Ext[0]
 	_WinAPI_DestroyIcon($hIcon)
 Next
 
-GUISetState()
+GUISetState(@SW_SHOW)
 
 While 1
 	Switch GUIGetMsg()

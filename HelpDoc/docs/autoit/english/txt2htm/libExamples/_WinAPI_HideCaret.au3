@@ -1,7 +1,7 @@
-#include <WinAPIRes.au3>
-#include <WindowsConstants.au3>
 #include <EditConstants.au3>
 #include <GUIConstantsEx.au3>
+#include <WinAPIRes.au3>
+#include <WindowsConstants.au3>
 
 Global $Duration = Default, $hBitmap = _WinAPI_CreateSolidBitmap(0, 0x00AEFF, 10, 14)
 
@@ -11,7 +11,7 @@ Local $hForm = GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 400
 Local $Input = GUICtrlCreateInput('', 20, 20, 360, 20)
 Local $Button = GUICtrlCreateButton('Exit', 165, 59, 70, 23)
 GUIRegisterMsg($WM_COMMAND, 'WM_COMMAND')
-GUISetState()
+GUISetState(@SW_SHOW)
 
 While 1
 	Switch GUIGetMsg()

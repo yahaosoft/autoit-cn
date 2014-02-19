@@ -1,4 +1,4 @@
-#region Header
+#Region Header
 
 #cs
 
@@ -19,9 +19,9 @@
 
 #include-once
 
-#endregion Header
+#EndRegion Header
 
-#region Global Variables and Constants
+#Region Global Variables and Constants
 
 Global Const $WMD_HWND = 0x0001
 Global Const $WMD_ID = 0x0002
@@ -31,17 +31,17 @@ Global Const $WMD_MSG = 0x0010
 Global Const $WMD_ALL = BitOR($WMD_HWND, $WMD_ID, $WMD_WPARAM, $WMD_LPARAM, $WMD_MSG)
 Global Const $WMD_DEFAULT = BitOR($WMD_WPARAM, $WMD_LPARAM, $WMD_MSG)
 
-#endregion Global Variables and Constants
+#EndRegion Global Variables and Constants
 
-#region Local Variables and Constants
+#Region Local Variables and Constants
 
 Global Const $__tInt64 = DllStructCreate('int64')
 Global Const $__tDWord = DllStructCreate('dword;dword', DllStructGetPtr($__tInt64))
 Global Const $__WM = __WMGetArray()
 
-#endregion Local Variables and Constants
+#EndRegion Local Variables and Constants
 
-#region Public Functions
+#Region Public Functions
 
 ; #FUNCTION# ====================================================================================================================
 ; Name...........: _WM_Debug
@@ -127,9 +127,9 @@ Func _WM_Debug($iVal1, $iVal2, $iVal3, $iVal4, $iFlags = 0x001C, $aInclude = 0, 
 	ConsoleWrite(StringFormat($Pattern, __WMHex64($Param[0]), $Param[1], __WMHex64($Param[2]), __WMHex64($Param[3]), $Param[4]) & @CRLF)
 EndFunc   ;==>_WM_Debug
 
-#endregion Public Functions
+#EndRegion Public Functions
 
-#region Internal Functions
+#Region Internal Functions
 
 Func __WMGetArray()
 	Local $WM[0x0400]
@@ -455,4 +455,4 @@ Func __WMHex64(ByRef $iValue)
 	EndIf
 EndFunc   ;==>__WMHex64
 
-#endregion Internal Functions
+#EndRegion Internal Functions

@@ -1,11 +1,11 @@
 #RequireAdmin ; for this example to have sense
 
-#include <ProcessConstants.au3>
-#include <StructureConstants.au3>
-#include <SecurityConstants.au3>
-#include <Security.au3>
-#include <WinAPI.au3>
 #include <MsgBoxConstants.au3>
+#include <ProcessConstants.au3>
+#include <Security.au3>
+#include <SecurityConstants.au3>
+#include <StructureConstants.au3>
+#include <WinAPI.au3>
 
 Example_ProcessWithTok()
 

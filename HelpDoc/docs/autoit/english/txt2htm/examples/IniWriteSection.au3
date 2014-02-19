@@ -3,7 +3,7 @@
 Example()
 
 Func Example()
-	; Create an INI section structure as an array. The 0th element is how many items are in the array, in this case 3.
+	; Create an INI section structure as an array. The zeroth element is how many items are in the array, in this case 3.
 	Local $aSection[4][2] = [[3, ""],["Title", "AutoIt"],["Version", @AutoItVersion],["OS", @OSVersion]]
 
 	; Write the array to the section labelled 'General'.

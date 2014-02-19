@@ -1,9 +1,9 @@
+#include <GUIConstantsEx.au3>
 #include <GuiEdit.au3>
 #include <GuiStatusBar.au3>
-#include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
-#include <ScrollBarsConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <ScrollBarsConstants.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
@@ -13,7 +13,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Edit Scroll", 400, 300)
 	$hEdit = GUICtrlCreateEdit("", 2, 2, 394, 268, BitOR($ES_WANTRETURN, $WS_VSCROLL))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set Text
 	For $i = 1 To 50
@@ -39,7 +39,7 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", "Scroll Caret")
 	_GUICtrlEdit_Scroll($hEdit, $SB_SCROLLCARET)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

@@ -1,5 +1,5 @@
-#include <GuiRichEdit.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiRichEdit.au3>
 #include <WindowsConstants.au3>
 
 Global $lblMsg, $hRichEdit
@@ -12,7 +12,7 @@ Func Example()
 	$hRichEdit = _GUICtrlRichEdit_Create($hGui, "This is a test.", 10, 10, 300, 220, _
 			BitOR($ES_MULTILINE, $WS_VSCROLL, $ES_AUTOVSCROLL))
 	$lblMsg = GUICtrlCreateLabel("", 10, 235, 300, 60)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	For $i = 2 To 10
 		_GUICtrlRichEdit_AppendText($hRichEdit, @CRLF & "Line " & $i)

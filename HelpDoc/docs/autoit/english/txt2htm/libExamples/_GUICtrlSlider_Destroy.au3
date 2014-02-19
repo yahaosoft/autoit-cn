@@ -10,12 +10,12 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("(UDF Created) Slider Destroy", 400, 296)
 	$hSlider = _GUICtrlSlider_Create($hGUI, 2, 2, 396, 20, BitOR($TBS_TOOLTIPS, $TBS_AUTOTICKS))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	MsgBox($MB_SYSTEMMODAL, "Information", "Destroy Slider")
 	_GUICtrlSlider_Destroy($hSlider)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

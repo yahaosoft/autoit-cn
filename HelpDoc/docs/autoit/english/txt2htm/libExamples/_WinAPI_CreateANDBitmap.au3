@@ -1,7 +1,7 @@
-#include <WinAPIGdi.au3>
-#include <WinAPIShPath.au3>
 #include <GDIPlus.au3>
 #include <GUIConstantsEx.au3>
+#include <WinAPIGdi.au3>
+#include <WinAPIShPath.au3>
 
 Global Const $sPng = @ScriptDir & '\Extras\Silverlight.png'
 
@@ -32,7 +32,7 @@ For $i = 0 To 1
 Next
 
 ; Show GUI
-GUISetState()
+GUISetState(@SW_SHOW)
 
 ; Create and save icon to .ico file
 Local $hIcon

@@ -1,5 +1,5 @@
-#include <String.au3>
 #include <MsgBoxConstants.au3>
+#include <String.au3>
 
 Local $sString = "This is a sample string"
 Local $sHex = _StringToHex($sString) ; Convert the string to a hex string.

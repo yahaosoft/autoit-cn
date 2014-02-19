@@ -9,7 +9,7 @@ Func Example()
 
 	; Create GUI
 	$hGUI = GUICreate("GDI+", 400, 300)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Create resources
 	_GDIPlus_Startup()
@@ -28,7 +28,7 @@ Func Example()
 	_GDIPlus_PenSetWidth($hPen, 6)
 	_GDIPlus_GraphicsDrawLine($hGraphic, 10, 180, 390, 180, $hPen)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

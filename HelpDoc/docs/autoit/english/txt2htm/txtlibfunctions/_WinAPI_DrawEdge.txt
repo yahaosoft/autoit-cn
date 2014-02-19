@@ -6,16 +6,16 @@ Draws one or more edges of rectangle
 
 ###Syntax###
 #include <WinAPI.au3>
-_WinAPI_DrawEdge ( $hDC, $ptrRect, $nEdgeType, $grfFlags )
+_WinAPI_DrawEdge ( $hDC, $pRect, $iEdgeType, $iFlags )
 
 
 ###Parameters###
 @@ParamTable@@
 $hDC
 	Handle to the device context into which the edge is drawn
-$ptrRect
+$pRect
 	Pointer to a $tagRECT structure that contains the logical coordinates of the rectangle
-$nEdgeType
+$iEdgeType
 	Specifies the type of inner and outer edges to draw. This parameter must be a combination of one inner-border flag and one outer-border flag.
 	The inner-border flags are as follows:
 	$BDR_RAISEDINNER - Raised inner edge
@@ -28,10 +28,10 @@ $nEdgeType
 	$EDGE_ETCHED - Combination of $BDR_SUNKENOUTER and $BDR_RAISEDINNER
 	$EDGE_RAISED - Combination of $BDR_RAISEDOUTER and $BDR_RAISEDINNER
 	$EDGE_SUNKEN - Combination of $BDR_SUNKENOUTER and $BDR_SUNKENINNER
-$grfFlags
+$iFlags
 	Specifies the type of border. This parameter can be a combination of the following values:
-	$BF_ADJUST - If this flag is passed, shrink the rectangle pointed to by the $ptrRect parameter to exclude the edges that were drawn.
-	If this flag is not passed, then do not change the rectangle pointed to by the $ptrRect parameter
+	$BF_ADJUST - If this flag is passed, shrink the rectangle pointed to by the $pRect parameter to exclude the edges that were drawn.
+	If this flag is not passed, then do not change the rectangle pointed to by the $pRect parameter
 	$BF_BOTTOM - Bottom of border rectangle
 	$BF_BOTTOMLEFT - Bottom and left side of border rectangle
 	$BF_BOTTOMRIGHT - Bottom and right side of border rectangle

@@ -1,5 +1,5 @@
-#include <WinAPISys.au3>
 #include <Array.au3>
+#include <WinAPISys.au3>
 
 Local $hForm = GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 310, 360)
 GUISetFont(8.5, 400, 0, 'MS Shell Dlg', $hForm)
@@ -16,7 +16,7 @@ GUICtrlCreateTab(10, 118, 292, 206)
 GUICtrlCreateTabItem('Tab1')
 GUICtrlCreateTabItem('Tab2')
 GUICtrlCreateTabItem('')
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Local $Data = _WinAPI_EnumChildWindows($hForm)
 

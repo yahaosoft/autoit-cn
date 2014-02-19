@@ -1,5 +1,5 @@
-#include <String.au3>
 #include <MsgBoxConstants.au3>
+#include <String.au3>
 
 ; Will return : Somebody Lastnames
 MsgBox($MB_SYSTEMMODAL, '', _StringProper("somebody lastnames"))

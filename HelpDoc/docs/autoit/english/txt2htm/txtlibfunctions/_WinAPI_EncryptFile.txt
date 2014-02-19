@@ -2,36 +2,35 @@
 _WinAPI_EncryptFile
 
 ###Description###
-Encrypts a file or directory.
+Encrypts a file or directory
 
 ###Syntax###
 #include <WinAPIFiles.au3>
-_WinAPI_EncryptFile ( $sFile )
+_WinAPI_EncryptFile ( $sFilePath )
 
 
 ###Parameters###
 @@ParamTable@@
-$sFile
-	The name of the file or directory to be encrypted. If $sFile specifies a read-only file, the function
-	fails and the last error code is ERROR_FILE_READ_ONLY (6009). If $sFile specifies a directory that
-	contains a read-only file, the functions succeeds but the directory is not encrypted.
+$sFilePath
+	The name of the file or directory to be encrypted.
+	If $sFilePath specifies a read-only file, the function fails and the last error code is ERROR_FILE_READ_ONLY (6009).
+	If $sFilePath specifies a directory that contains a read-only file, the functions succeeds but the directory is not encrypted.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	True.
-Failure 	False, call _WinAPI_GetLastError() to get extended error information
+Success:	True.
+Failure:	False, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information
 @@End@@
 
 
 ###Remarks###
-The _WinAPI_EncryptFile() function requires exclusive access to the file being encrypted, and will fail
-if another process is using the file.
+The <a href="_WinAPI_EncryptFile.htm">_WinAPI_EncryptFile()</a> function requires exclusive access to the file being encrypted, and will fail if another process is using the file.
 
 If the file is already encrypted, the function simply returns a nonzero value, which indicates success.
 If the file is compressed, the function will decompress the file before encrypting it.
 
-To decrypt an encrypted file, use the _WinAPI_DecryptFile() function.
+To decrypt an encrypted file, use the <a href="_WinAPI_DecryptFile.htm">_WinAPI_DecryptFile()</a> function.
 
 
 ###Related###

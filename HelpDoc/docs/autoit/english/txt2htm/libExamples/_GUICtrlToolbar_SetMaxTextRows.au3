@@ -1,7 +1,7 @@
-#include <GuiToolbar.au3>
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
+#include <GuiToolbar.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
@@ -12,7 +12,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("Toolbar", 400, 300)
 	$hToolbar = _GUICtrlToolbar_Create($hGUI)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Enable multi line button labels
 	_GUICtrlToolbar_SetButtonWidth($hToolbar, 32, 40)
@@ -42,7 +42,7 @@ Func Example()
 	; Show number of text rows
 	MsgBox($MB_SYSTEMMODAL, "Information", "Number of text rows:" & _GUICtrlToolbar_GetTextRows($hToolbar))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

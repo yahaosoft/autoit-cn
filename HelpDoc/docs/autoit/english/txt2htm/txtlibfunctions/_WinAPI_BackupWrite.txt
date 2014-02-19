@@ -2,55 +2,50 @@
 _WinAPI_BackupWrite
 
 ###Description###
-Restore a file or directory that was backed up using _WinAPI_BackupRead().
+Restore a file or directory that was backed up using _WinAPI_BackupRead()
 
 ###Syntax###
 #include <WinAPIFiles.au3>
-_WinAPI_BackupWrite ( $hFile, $pBuffer, $iLength, ByRef $iBytes, ByRef $pContext [, $fSecurity =  0] )
+_WinAPI_BackupWrite ( $hFile, $pBuffer, $iLength, ByRef $iBytes, ByRef $pContext [, $fSecurity = 0] )
 
 
 ###Parameters###
 @@ParamTable@@
 $hFile
-	Handle to the file or directory to be restored. To obtain the handle, call the _WinAPI_CreateFileEx()
-	function. The SACLs are not restored unless the file handle was created with the $ACCESS_SYSTEM_SECURITY
-	access right. To ensure that the integrity ACEs are restored correctly, the file handle must also
-	have been created with the $WRITE_OWNER access right.
+	Handle to the file or directory to be restored. To obtain the handle, call the <a href="_WinAPI_CreateFileEx.htm">_WinAPI_CreateFileEx()</a> function.
+	The SACLs are not restored unless the file handle was created with the $ACCESS_SYSTEM_SECURITY access right.
+	To ensure that the integrity ACEs are restored correctly, the file handle must also have been created with the $WRITE_OWNER access right.
 $pBuffer
 	A pointer to a buffer that the function writes data from.
 $iLength
-	The size of the buffer, in bytes. The buffer size must be greater than the size of the
-	$tagWIN32_STREAM_ID structure.
-
+	The size of the buffer, in bytes. The buffer size must be greater than the size of the $tagWIN32_STREAM_ID structure.
 	(see MSDN for more information)
 $iBytes
 	The number of bytes written.
 $pContext
-	A pointer to an internal data structure used by this function to maintain context information during
-	a restore operation. You must set this variable to 0 before the first call to _WinAPI_BackupWrite()
-	for the specified file or directory. The function allocates memory for the data structure, and then
-	sets the variable to point to that structure. You must not change this variable or the variable
-	that it points to between calls to _WinAPI_BackupWrite().
+	A pointer to an internal data structure used by this function to maintain context information during a restore operation.
+	You must set this variable to 0 before the first call to <a href="_WinAPI_BackupWrite.htm">_WinAPI_BackupWrite()</a> for the specified file or directory.
+	The function allocates memory for the data structure, and then sets the variable to point to that structure.
+	You must not change this variable or the variable that it points to between calls to <a href="_WinAPI_BackupWrite.htm">_WinAPI_BackupWrite()</a>.
 $fSecurity
 	[optional] Specifies whether the function will restore the access-control list (ACL) data, valid values:
-	True      - The ACL data will be restored. Furthermore, you need to specify $WRITE_OWNER and $WRITE_DAC access when
-	opening the file or directory handle. If the handle does not have those access rights, the operating
-	system denies access to the ACL data, and ACL data restoration will not occur.
+	True      - The ACL data will be restored.
+	Furthermore, you need to specify $WRITE_OWNER and $WRITE_DAC access when opening the file or directory handle.
+	If the handle does not have those access rights, the operating system denies access to the ACL data, and ACL data restoration will not occur.
 	False     - The ACL data will be omitted (Default).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	True.
-Failure 	False, call _WinAPI_GetLastError() to get extended error information.
+Success:	True.
+Failure:	False, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information.
 @@End@@
 
 
 ###Remarks###
-The _WinAPI_BackupWrite() is not intended for use in restoring files encrypted under the Encrypted File System (EFS).
+The <a href="_WinAPI_BackupWrite.htm">_WinAPI_BackupWrite()</a> is not intended for use in restoring files encrypted under the Encrypted File System (EFS).
 
-When you are done using _WinAPI_BackupWrite(), you must call _WinAPI_BackupWriteAbort() function with the
-appropriate parameter to release the memory used by the internal data structure.
+When you are done using <a href="_WinAPI_BackupWrite.htm">_WinAPI_BackupWrite()</a>, you must call <a href="_WinAPI_BackupWriteAbort.htm">_WinAPI_BackupWriteAbort()</a> function with the appropriate parameter to release the memory used by the internal data structure.
 
 
 ###Related###

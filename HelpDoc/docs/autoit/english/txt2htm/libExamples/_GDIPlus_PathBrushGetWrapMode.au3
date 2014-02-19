@@ -1,12 +1,12 @@
-#include <Constants.au3>
-#include <GUIConstantsEx.au3>
 #include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
+#include <MsgBoxConstants.au3>
 
 Example()
 
 Func Example()
 	Local $hGUI = GUICreate("GDI+", 600, 400)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GDIPlus_Startup()
 	Local $hGraphics = _GDIPlus_GraphicsCreateFromHWND($hGUI)
@@ -49,7 +49,7 @@ Func Example()
 
 	MsgBox($MB_SYSTEMMODAL, "", "Wrap mode: " & $sWarpMode)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 

@@ -1,5 +1,5 @@
-#include <GuiMenu.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiMenu.au3>
 
 Global $iMemo
 
@@ -42,14 +42,14 @@ Func Example()
 	; Create memo control
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 276, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get/Set Help menu
 	MemoWrite("Help submenu handle: " & _GUICtrlMenu_GetItemSubMenu($hMain, 2))
 	_GUICtrlMenu_SetItemSubMenu($hMain, 2, $hHelp)
 	MemoWrite("Help submenu handle: " & _GUICtrlMenu_GetItemSubMenu($hMain, 2))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

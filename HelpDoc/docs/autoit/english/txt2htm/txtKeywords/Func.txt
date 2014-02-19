@@ -5,10 +5,10 @@ Func...Return...EndFunc
 Defines a user-defined function that takes zero or more arguments and optionally returns a result.
 
 ###Syntax###
-<b>Func</b> functioname ( [<b>Const</b>] [<b>ByRef</b>] $param1, ..., [<b>Const</b>] [<b>ByRef</b>] $paramN, $optionalpar1 = value, ...)
+<strong>Func</strong> functioname ( [<strong>Const</strong>] [<strong>ByRef</strong>] $param1, ..., [<strong>Const</strong>] [<strong>ByRef</strong>] $paramN, $optionalpar1 = value, ...)
 	...
-	[<b>Return</b> [<i>value</i>]]
-<b>EndFunc</b>
+	[<strong>Return</strong> [<em>value</em>]]
+<strong>EndFunc</strong>
 
 
 ###Parameters###
@@ -19,15 +19,15 @@ Variables and functions are case-insensitive, therefore SomeFunc() is the same a
 
 The Const keyword is optional and indicates that the value of the parameter will not change during the execution of the function. A variable declared Const can only be passed to a function using a Const parameter.
 
-The ByRef keyword indicates the parameter should be treated as a reference to the original object. The default behavior copies the parameter into a new variable however ByRef links the new variable to the original parameter. ByRef is typically preferred when a function expects large amounts of data, such as a large array, where copying all the data would impose a significant performance penalty. Note that not only a named variable can be passed for a ByRef parameter; unnamed temporary variables, such as function return values, may be passed as ByRef parameters as well. A literal can not be passed to a ByRef parameter.
+The ByRef keyword indicates that the parameter should be treated as a reference to the original. By default the parameter is copied into a new variable but ByRef links the new variable to the original. Note that not only a named variable can be passed for a ByRef parameter - unnamed temporary variables, such as function return values, may be passed as ByRef parameters as well. However, a literal cannot be passed to a ByRef parameter.  ByRef should be used when passing large amounts of data (such as the contents of a file) where copying all the data would impose a significant performance penalty. Another advantage is that passing a parameter ByRef when the function is intended to change the content of the parameter removes any requirement to Return the changed value as the original is directly affected.
 
-If using both keywords ByRef and Const with a function parameter, the order of the keywords is not important, so long as they are both in front of the variable they modify.
+Declaring parameters as both ByRef and Const is useful when the large original variable must remain unchanged as AutoIt will return an error if the function attempts to alter it inadvertantly.  The order of the keywords is not important, as long as they are both in front of the parameter they modify.
 
-Entire arrays can be passed to functions (and returned from them) by simply using the array name without any brackets. Arrays should be passed to user-defined functions using the ByRef keyword to avoid the overhead of copying all the data in the array.
+Entire arrays can be passed to functions (and returned from them) by simply using the array name without any brackets. Arrays should be passed to user-defined functions using the ByRef keyword to avoid the overhead of copying all the data in the array. Note that AutoIt only copies an array parameter if the contents are changed, so it is only in this case that ByRef offers an advantage, although it is recommended that to use it in all cases.
 
 Optional parameters are defined by assigning a default value to them. The value may be a global variable, macro or literal value. Optional parameters always appear last in the function definition. All parameters added after the first optional parameter must also be optional. Inside the function, the number of parameters given when the function was called can be retrieved with the @NumParams macro (see example 2).
 
-Use the Return keyword to exit the function. Unlike built-in functions, user-defined functions return 0 unless another return value is specified.
+Use the Return keyword to exit the function. Unlike built-in functions, user-defined functions return 0 unless another return value is specified. Using Return with <a href="../functions/SetError.htm">SetError</a> allows @error and @extended values to be returned as well as a value.
 
 Note that function declarations cannot appear inside other function declarations.
 

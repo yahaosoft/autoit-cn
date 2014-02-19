@@ -19,14 +19,14 @@ section
 ###ReturnValue###
 @@ReturnTable@@
 Success:	a 2 dimensional array where element[n][0] is the key and element[n][1] is the value.
-Failure:	sets the @error flag to non-zero if unable to read the section (The INI file may not exist or the section may not exist)
+Failure:	sets the @error flag to non-zero if unable to read the section (The INI file may not exist or the section may not exist or is empty)
 @@End@@
 
 
 ###Remarks###
 A standard ini file looks like:
-<i>[SectionName]
-Key=Value</i>
+<em>[SectionName]
+Key=Value</em>
 
 The number of elements returned will be in $aArray[0][0]. If an @error occurs, no array is created.
 	$aArray[0][0] = Number
@@ -42,7 +42,7 @@ Only the first 32767 chars are read for legacy reasons.
 
 
 ###Related###
-IniDelete, IniWrite, IniRead, IniReadSectionNames, IniRenameSection, IniWriteSection
+IniDelete, IniRead, IniReadSectionNames, IniRenameSection, IniWrite, IniWriteSection
 
 
 ###Example###

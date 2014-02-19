@@ -12,13 +12,13 @@ _GUIToolTip_TrackActivate ( $hWnd [, $fActivate = True [, $hTool = 0 [, $iID = 0
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	Handle to the ToolTip control (returned by <a href ="_GUIToolTip_Create.htm">_GUIToolTip_Create.</a>)
 $fActivate
 	[optional] True to activate, False to deactivate
 $hTool
 	[optional] Handle to the window that contains the tool
 $iID
-	[optional] Application-defined identifier of the tool
+	[optional] Control handle that the tool is assigned to, or application-defined identifier of the tool
 @@End@@
 
 ###ReturnValue###
@@ -26,7 +26,13 @@ None.
 
 
 ###Remarks###
-None.
+You must use this function to activate a tracking tooltip prior to attempting to update its position using <a href="_GUIToolTip_TrackPosition.htm">_GUIToolTip_TrackPosition()</a>
+If you use <a href="_GUIToolTip_TrackPosition.htm">_GUIToolTip_TrackPosition()</a> without using <a href="_GUIToolTip_TrackActivate.htm">_GUIToolTip_TrackActivate()</a> then the tool will only display when the mouse if over the assigned window or control, if applicable.
 
 
 ###Related###
+_GUIToolTip_TrackPosition
+
+
+###Example###
+@@IncludeExample@@

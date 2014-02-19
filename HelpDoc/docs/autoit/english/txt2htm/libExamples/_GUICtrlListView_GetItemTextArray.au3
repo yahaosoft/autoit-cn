@@ -16,7 +16,7 @@ Func Example()
 	GUICtrlCreateListViewItem("line4|data4|more4", $hListView)
 	GUICtrlCreateListViewItem("line5|data5|more5", $hListView)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get item 2 text
 	$aItem = _GUICtrlListView_GetItemTextArray($hListView, 1)
@@ -26,7 +26,7 @@ Func Example()
 
 	MsgBox($MB_SYSTEMMODAL, "Information", "Item 2 (All Columns) Text: " & @CRLF & @CRLF & $sText)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

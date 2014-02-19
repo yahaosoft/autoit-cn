@@ -1,5 +1,5 @@
-#include <WinAPIFiles.au3>
 #include <APIFilesConstants.au3>
+#include <WinAPIFiles.au3>
 
 Local $Bus, $Text, $Drive = DriveGetDrive('ALL')
 For $i = 1 To $Drive[0]

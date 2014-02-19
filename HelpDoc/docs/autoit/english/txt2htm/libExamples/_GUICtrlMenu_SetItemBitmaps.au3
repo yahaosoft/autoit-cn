@@ -1,5 +1,5 @@
-#include <GuiMenu.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiMenu.au3>
 #include <WinAPI.au3>
 
 Global $iMemo
@@ -43,7 +43,7 @@ Func Example()
 	; Create memo control
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 276, 0)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set File menu checked/unchecked bitmaps
 	$hBmp1 = _WinAPI_CreateSolidBitmap($hGUI, 0xFF0000, 11, 11)
@@ -61,7 +61,7 @@ Func Example()
 	MemoWrite("Open checked handle .: 0x" & Hex(_GUICtrlMenu_GetItemBmpChecked($hFile, 0)))
 	MemoWrite("Open unchecked handle: 0x" & Hex(_GUICtrlMenu_GetItemBmpUnchecked($hFile, 0)))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

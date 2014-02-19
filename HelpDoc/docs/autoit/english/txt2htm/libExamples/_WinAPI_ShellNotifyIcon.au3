@@ -1,5 +1,5 @@
-#include <WinAPIShellEx.au3>
 #include <APIShellExConstants.au3>
+#include <WinAPIShellEx.au3>
 
 Local $tNOTIFYICONDATA = DllStructCreate($tagNOTIFYICONDATA)
 

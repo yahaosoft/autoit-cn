@@ -1,7 +1,7 @@
-#include <StructureConstants.au3>
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
+#include <StructureConstants.au3>
 #include <WinAPI.au3>
+#include <WindowsConstants.au3>
 
 Global $iMemo
 
@@ -18,7 +18,7 @@ Func _Example_Defaults()
 	$iMemo = GUICtrlCreateEdit("", 2, 32, 396, 226, $WS_HSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	$btn_dialog = GUICtrlCreateButton("Save Dialog", 155, 270, 90, 20)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	While 1
 		Switch GUIGetMsg()
@@ -47,7 +47,7 @@ Func _Example_ExplorerStyle()
 	$iMemo = GUICtrlCreateEdit("", 2, 32, 396, 226, $WS_HSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	$btn_dialog = GUICtrlCreateButton("Save Dialog", 155, 270, 90, 20)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	While 1
 		Switch GUIGetMsg()
@@ -78,7 +78,7 @@ Func _Example_OldStyle()
 	$iMemo = GUICtrlCreateEdit("", 2, 32, 396, 226, $WS_HSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	$btn_dialog = GUICtrlCreateButton("Save Dialog", 155, 270, 90, 20)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	While 1
 		Switch GUIGetMsg()
@@ -109,7 +109,7 @@ Func _Example_ExplorerStyle_NoPlaceBar()
 	$iMemo = GUICtrlCreateEdit("", 2, 32, 396, 226, $WS_HSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	$btn_dialog = GUICtrlCreateButton("Save Dialog", 155, 270, 90, 20)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	While 1
 		Switch GUIGetMsg()

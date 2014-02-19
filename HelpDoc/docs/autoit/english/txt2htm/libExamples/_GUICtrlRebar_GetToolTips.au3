@@ -2,9 +2,8 @@
 #include <GuiReBar.au3>
 #include <GuiToolbar.au3>
 #include <GuiToolTip.au3>
-#include <WindowsConstants.au3>
-#include <Constants.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Global $iMemo
 

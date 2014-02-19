@@ -2,7 +2,7 @@
 _WinAPI_TerminateProcess
 
 ###Description###
-Terminates the specified process and all of its threads.
+Terminates the specified process and all of its threads
 
 ###Syntax###
 #include <WinAPIProc.au3>
@@ -19,18 +19,18 @@ $iExitCode
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	True
-Failure 	False
+Success:	True
+Failure:	False
 @@End@@
 
 
 ###Remarks###
 This function stops execution of all threads within the process and requests cancellation of all pending I/O.
-The terminated process cannot exit until all pending I/O has been completed or canceled. When a process terminates,
+The terminated process cannot exit until all pending I/O has been completed or cancelled. When a process terminates,
 its kernel object is not destroyed until all processes released their open handles.
 
 This function is asynchronous; it initiates termination and returns immediately. If you need to be sure the
-process has terminated, call the _WinAPI_WaitForSingleObject() function with a handle to the process.
+process has terminated, call the <a href="_WinAPI_WaitForSingleObject.htm">_WinAPI_WaitForSingleObject()</a> function with a handle to the process.
 
 A process cannot prevent itself from being terminated.
 

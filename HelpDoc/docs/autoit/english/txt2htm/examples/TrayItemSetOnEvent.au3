@@ -1,7 +1,7 @@
 #NoTrayIcon
 
-#include <Constants.au3>
 #include <MsgBoxConstants.au3>
+#include <TrayConstants.au3>
 
 Opt("TrayMenuMode", 3) ; The default tray menu items will not be shown and items are not checked when selected. These are options 1 and 2 for TrayMenuMode.
 Opt("TrayOnEventMode", 1) ; Enable TrayOnEventMode.

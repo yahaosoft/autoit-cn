@@ -12,9 +12,9 @@ _GUIToolTip_SetTipTextColor ( $hWnd, $iColor )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	Handle to the ToolTip control (returned by <a href ="_GUIToolTip_Create.htm">_GUIToolTip_Create.</a>)
 $iColor
-	New text color
+	New text color (see remarks)
 @@End@@
 
 ###ReturnValue###
@@ -22,8 +22,13 @@ None.
 
 
 ###Remarks###
-None.
+The color value used in the <a href="_GUIToolTip_SetTipTextColor.htm">_GUIToolTip_SetTipTextColor()</a> function is a COLORREF (BGR) value in the format 0x00bbggrr. The low-order byte contains a value for the relative intensity of red, the second byte contains a value for green, and the third byte contains a value for blue.
+The high-order byte must be zero.
 
 
 ###Related###
 _GUIToolTip_GetTipTextColor
+
+
+###Example###
+@@IncludeExample@@

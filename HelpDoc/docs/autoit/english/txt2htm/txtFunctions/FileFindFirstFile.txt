@@ -23,15 +23,17 @@ Failure:	-1 if nothing is found. The value of the @error flag is set to 1 only i
 
 ###Remarks###
 The search string is not case sensitive.
-Wildcards:  In general, <b>*</b> denotes zero or more characters, and <b>?</b> denotes zero or one character.  If your file search string contains only wildcards (or is "*.*"), then see the example below for the return value!
+Wildcards:  In general, <strong>*</strong> denotes zero or more characters, and <strong>?</strong> denotes zero or one character.  If your file search string contains only wildcards (or is "*.*"), then see the example below for the return value!
 
 You can use only one wildcard in the filename part or in the extension part i.e. a*.b?.
-?? seems equivalent to * (not described in Microsoft documentation).
 When using a 3-char extension any extension starting with those 3 chars will match, .e.g. "*.log" will match "test.log_1". (not described either in Microsoft documentation).
 
 When you have finished searching with the FileFind... functions you must call <a href="FileClose.htm">FileClose()</a> to release the search handle.
 
-Directory name are return according to the wildcards if any.
+Directory name are returned according to the wildcards if any.
+
+Due to the underlying Windows API used (FindFirstFile), this function actually searches both the long and short filenames when looking for matches. If you get unexepected results
+then verfiy that it's not the short filename that is being matched.
 
 
 ###Related###

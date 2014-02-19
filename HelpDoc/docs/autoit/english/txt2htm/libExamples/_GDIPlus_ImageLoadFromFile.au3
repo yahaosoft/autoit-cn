@@ -32,4 +32,6 @@ Func Example()
 
 	; Shut down GDI+ library
 	_GDIPlus_Shutdown()
+
+	ShellExecute(@MyDocumentsDir & "\GDIPlus_Image2.jpg")
 EndFunc   ;==>Example

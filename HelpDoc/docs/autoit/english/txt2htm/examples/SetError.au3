@@ -1,10 +1,10 @@
 #include <MsgBoxConstants.au3>
 
-Local $iResult = myDiv(5, 0)
+Local $fResult = myDiv(5, 0)
 If @error Then
 	MsgBox($MB_SYSTEMMODAL, "Error", "Division by Zero")
 Else
-	MsgBox($MB_SYSTEMMODAL, "Result", $iResult)
+	MsgBox($MB_SYSTEMMODAL, "Result", $fResult)
 EndIf
 Exit
 

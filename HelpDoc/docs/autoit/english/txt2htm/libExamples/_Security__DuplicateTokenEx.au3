@@ -1,8 +1,8 @@
-#include <ProcessConstants.au3>
-#include <SecurityConstants.au3>
-#include <Security.au3>
-#include <WinAPI.au3>
 #include <MsgBoxConstants.au3>
+#include <ProcessConstants.au3>
+#include <Security.au3>
+#include <SecurityConstants.au3>
+#include <WinAPI.au3>
 
 Local $hProcess = _WinAPI_OpenProcess($PROCESS_ALL_ACCESS, 0, ProcessExists("explorer.exe"))
 ; If successful

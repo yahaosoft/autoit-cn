@@ -4,29 +4,29 @@
 Example()
 
 Func Example()
-	Local $fNewStyle = False, $hGUI = 0, $iBtnStyle = 0, $aGUIStyle = 0, $iMsg = 0
 
-	$hGUI = GUICreate("Gui Style", 260, 100)
-	$iBtnStyle = GUICtrlCreateButton("Set Style", 45, 50, 150, 20)
+	Local $hGUI = GUICreate("Gui Style", 260, 100)
+	Local $idBtnStyle = GUICtrlCreateButton("Set Style", 45, 50, 150, 20)
 
-	$aGUIStyle = GUIGetStyle($hGUI) ; be careful the style change after opening
+	Local $aGUIStyle = GUIGetStyle($hGUI) ; be careful the style change after opening
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
+	Local $bNewStyle = False, $idMsg
 	While 1
-		$iMsg = GUIGetMsg()
-		Switch $iMsg
+		$idMsg = GUIGetMsg()
+		Switch $idMsg
 			Case $GUI_EVENT_CLOSE
 				ExitLoop
-			Case $iBtnStyle
-				If Not $fNewStyle Then
+			Case $idBtnStyle
+				If Not $bNewStyle Then
 					GUISetStyle(BitOR($WS_POPUPWINDOW, $WS_THICKFRAME), BitOR($WS_EX_CLIENTEDGE, $WS_EX_TOOLWINDOW))
-					GUICtrlSetData($iBtnStyle, 'Undo Style')
-					$fNewStyle = True
+					GUICtrlSetData($idBtnStyle, 'Undo Style')
+					$bNewStyle = True
 				Else
 					GUISetStyle($aGUIStyle[0], $aGUIStyle[1])
-					GUICtrlSetData($iBtnStyle, 'Set Style')
-					$fNewStyle = False
+					GUICtrlSetData($idBtnStyle, 'Set Style')
+					$bNewStyle = False
 				EndIf
 			Case Else
 		EndSwitch

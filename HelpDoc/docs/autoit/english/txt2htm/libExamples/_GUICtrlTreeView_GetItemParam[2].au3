@@ -1,10 +1,10 @@
 #include <GUIConstantsEx.au3>
 #include <GuiTreeView.au3>
-#include <WindowsConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 ; Warning do not use SetItemParam on items created with GUICtrlCreateTreeViewItem
-; Param is the controlId for items created with the built-in function
+; Param is the controlID for items created with the built-in function
 
 Example_External()
 
@@ -15,7 +15,7 @@ Func Example_External()
 	$GUI = GUICreate("(UDF Created) TreeView Get Item Param", 400, 300)
 
 	$hTreeView = _GUICtrlTreeView_Create($GUI, 2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlTreeView_BeginUpdate($hTreeView)
 	For $x = 0 To 9
@@ -37,7 +37,7 @@ Func Example_External()
 	$iRand = Random(0, 29, 1)
 	MsgBox($MB_SYSTEMMODAL, "Information", StringFormat("Item Param for child index %d: %s", $iRand, _GUICtrlTreeView_GetItemParam($hTreeView, $hItemChild[$iRand])))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

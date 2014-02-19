@@ -1,5 +1,5 @@
-#include <WinAPIGdi.au3>
 #include <FontConstants.au3>
+#include <WinAPIGdi.au3>
 
 Local Const $FaceName = 'Arial'
 

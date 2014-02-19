@@ -2,7 +2,7 @@
 _WinAPI_CreateWindowStation
 
 ###Description###
-Creates a window station object, associates it with the calling process, and assigns it to the current session.
+Creates a window station object, associates it with the calling process, and assigns it to the current session
 
 ###Syntax###
 #include <WinAPISys.au3>
@@ -12,41 +12,37 @@ _WinAPI_CreateWindowStation ( [$sName = '' [, $iAccess = 0 [, $iFlags = 0 [, $tS
 ###Parameters###
 @@ParamTable@@
 $sName
-	[optional] The name of the window station to be created. Window station names are case-insensitive and cannot
-	contain backslash characters (\). Only members of the Administrators group are allowed to  specify
-	a name. If this parameter is empty string (Default), the system forms a window station name using the logon
-	session identifier for the calling process.
+	[optional] The name of the window station to be created. Window station names are case-insensitive and cannot contain backslash characters (\).
+	Only members of the Administrators group are allowed to  specify a name.
+	If this parameter is empty string (Default), the system forms a window station name using the logon session identifier for the calling process.
 $iAccess
-	[optional] The type of access the returned handle has to the window station. This parameter can be one or
-	more of the following values.
-	$WINSTA_ALL_ACCESS
-	$WINSTA_ACCESSCLIPBOARD
-	$WINSTA_ACCESSGLOBALATOMS
-	$WINSTA_CREATEDESKTOP
-	$WINSTA_ENUMDESKTOPS
-	$WINSTA_ENUMERATE
-	$WINSTA_EXITWINDOWS
-	$WINSTA_READATTRIBUTES
-	$WINSTA_READSCREEN
-	$WINSTA_WRITEATTRIBUTES
+	[optional] The type of access the returned handle has to the window station. This parameter can be one or more of the following values:
+		$WINSTA_ALL_ACCESS
+		$WINSTA_ACCESSCLIPBOARD
+		$WINSTA_ACCESSGLOBALATOMS
+		$WINSTA_CREATEDESKTOP
+		$WINSTA_ENUMDESKTOPS
+		$WINSTA_ENUMERATE
+		$WINSTA_EXITWINDOWS
+		$WINSTA_READATTRIBUTES
+		$WINSTA_READSCREEN
+		$WINSTA_WRITEATTRIBUTES
 $iFlags
-	[optional] The optional flags. It can be zero (Default) or the following value.
-	$CWF_CREATE_ONLY
+	[optional] The optional flags. It can be zero (Default) or the following value:
+		$CWF_CREATE_ONLY
 $tSecurity
-	[optional] $tagSECURITY_ATTRIBUTES structure that determines whether the returned handle can be inherited by
-	child processes. If this parameter is 0 (Default), the handle cannot be inherited.
+	[optional] $tagSECURITY_ATTRIBUTES structure that determines whether the returned handle can be inherited by child processes. If this parameter is 0 (Default), the handle cannot be inherited.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	Handle to the newly created window station. If the specified window station already exists,
-	the function succeeds and returns a handle to the existing window station.
-Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+Success:	Handle to the newly created window station. If the specified window station already exists, the function succeeds and returns a handle to the existing window station.
+Failure:	0, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information.
 @@End@@
 
 
 ###Remarks###
-After you are done with the handle, you must call _WinAPI_CloseWindowStation() to free the handle.
+After you are done with the handle, you must call <a href="_WinAPI_CloseWindowStation.htm">_WinAPI_CloseWindowStation()</a> to free the handle.
 
 
 ###Related###

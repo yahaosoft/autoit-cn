@@ -2,32 +2,45 @@
 _GUIToolTip_GetBubbleSize
 
 ###Description###
-Returns the width and height of the control
+Returns the width and height of a ToolTip control
 
 ###Syntax###
 #include <GuiToolTip.au3>
-_GUIToolTip_GetBubbleSize ( $hWnd, $hTool, $iID [, $iFlags = 0x000000A0] )
+_GUIToolTip_GetBubbleSize ( $hWnd, $hTool, $iID [, $iFlags = 0x00000001 + 0x00000010] )
 
 
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	Handle to the ToolTip control (returned by <a href ="_GUIToolTip_Create.htm">_GUIToolTip_Create.</a>)
 $hTool
 	Handle to the window that contains the tool
 $iID
-	Identifier of the tool
+	Handle of the control that the tool is associated with, or the ID of the tool
 $iFlags
 	[optional] Flags that control the ToolTip display
+	$TTF_IDISHWND = Indicates that $iID is the window handle to the tool instead of the ID
+	$TTF_CENTERTIP = Centers the window below the tool specified by $iID
+	$TTF_RTLREADING = Indicates that text will be displayed in the opposite direction
+	$TTF_SUBCLASS = Indicates that the control should subclass the tool's window to intercept messages
+	$TTF_TRACK = Positions the control next to the tool to which it corresponds
+	$TTF_ABSOLUTE = Positions the window at the same coordinates provided by TTM_TRACKPOSITION
+	$TTF_TRANSPARENT = 	Causes the control to forward mouse messages to the parent window
+	$TTF_PARSELINKS = Indicates that links in the control text should be parsed
 @@End@@
+Constants are defined in ToolTipConstants.au3
 
 ###ReturnValue###
 Returns the width of the ToolTip in the low word and the height in the high word.
 
 
 ###Remarks###
-None.
+This function works correctly only on a tracking tooltip, if the tracking hasn't been activated for the tooltip you will get incorrect values returned.
 
 
 ###Related###
 _GUIToolTip_GetBubbleHeight, _GUIToolTip_GetBubbleWidth
+
+
+###Example###
+@@IncludeExample@@

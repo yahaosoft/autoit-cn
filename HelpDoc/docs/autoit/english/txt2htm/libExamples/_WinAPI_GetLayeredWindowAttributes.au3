@@ -1,7 +1,7 @@
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
-#include <WinAPI.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPI.au3>
+#include <WindowsConstants.au3>
 
 Local $gui = GUICreate("trans", 300, 400, -1, -1, -1, $WS_EX_LAYERED)
 GUICtrlCreateLabel("This is text on a transparent Layered GUI", 10, 10, 200, 20, -1, $GUI_WS_EX_PARENTDRAG)
@@ -9,7 +9,7 @@ GUICtrlSetTip(-1, "Click label to drag layered window")
 Local $layButt = GUICtrlCreateButton("Button", 10, 40, 40)
 GUISetBkColor(0xABCDEF)
 _WinAPI_SetLayeredWindowAttributes($gui, 0x010101)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Local $guicontrol = GUICreate("ControlGUI", 300, 400, 100, 100)
 Local $checkTrans = GUICtrlCreateCheckbox("Transparent color 0xABCDEF (Checked) Or 0x010101", 10, 10)
@@ -18,7 +18,7 @@ GUICtrlCreateLabel("Transparency for Layered GUI", 10, 50)
 Local $slidTrans = GUICtrlCreateSlider(10, 70, 200, 30)
 GUICtrlSetLimit($slidTrans, 255, 0)
 GUICtrlSetData(-1, 255)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 While 1
 	Local $extMsg = GUIGetMsg(1)

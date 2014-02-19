@@ -2,7 +2,7 @@
 _WinAPI_CompareString
 
 ###Description###
-Compares two character strings for a specified locale.
+Compares two character strings for a specified locale
 
 ###Syntax###
 #include <WinAPILocale.au3>
@@ -12,57 +12,54 @@ _WinAPI_CompareString ( $LCID, $sString1, $sString2 [, $iFlags = 0] )
 ###Parameters###
 @@ParamTable@@
 $LCID
-	The locale identifier (LCID) that specifies the locale or one of the following predefined values.
-	$LOCALE_INVARIANT
-	$LOCALE_SYSTEM_DEFAULT
-	$LOCALE_USER_DEFAULT
-
-	Windows Vista or later
-	$LOCALE_CUSTOM_DEFAULT
-	$LOCALE_CUSTOM_UI_DEFAULT
-	$LOCALE_CUSTOM_UNSPECIFIED
+	The locale identifier (LCID) that specifies the locale or one of the following predefined values:
+		$LOCALE_INVARIANT
+		$LOCALE_SYSTEM_DEFAULT
+		$LOCALE_USER_DEFAULT
+	<strong>Windows Vista or later</strong>
+		$LOCALE_CUSTOM_DEFAULT
+		$LOCALE_CUSTOM_UI_DEFAULT
+		$LOCALE_CUSTOM_UNSPECIFIED
 $sString1
 	The first string to compare.
 $sString2
 	The second string to compare.
 $iFlags
-	[optional] The flags that indicate how the function compares the two strings. This parameter can be 0 or
-	combination of the following values.
-	$LINGUISTIC_IGNORECASE
-	$LINGUISTIC_IGNOREDIACRITIC
+	[optional] The flags that indicate how the function compares the two strings. This parameter can be 0 or combination of the following values:
+		$LINGUISTIC_IGNORECASE
+		$LINGUISTIC_IGNOREDIACRITIC
 
-	$NORM_IGNORECASE
-	$NORM_IGNOREKANATYPE
-	$NORM_IGNORENONSPACE
-	$NORM_IGNORESYMBOLS
-	$NORM_IGNOREWIDTH
-	$NORM_LINGUISTIC_CASING
+		$NORM_IGNORECASE
+		$NORM_IGNOREKANATYPE
+		$NORM_IGNORENONSPACE
+		$NORM_IGNORESYMBOLS
+		$NORM_IGNOREWIDTH
+		$NORM_LINGUISTIC_CASING
 
-	$SORT_STRINGSORT
+		$SORT_STRINGSORT
 
 	Windows 7 or later
-	$SORT_DIGITSASNUMBERS
+		$SORT_DIGITSASNUMBERS
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	The one of the following values that indicates a result of the comparison strings.
-	$CSTR_LESS_THAN
-	$CSTR_EQUAL
-	$CSTR_GREATER_THAN
-Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+Success:	The one of the following values that indicates a result of the comparison strings.
+		$CSTR_LESS_THAN
+		$CSTR_EQUAL
+		$CSTR_GREATER_THAN
+Failure:	0, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information.
 @@End@@
 
 
 ###Remarks###
-Normally, for case-insensitive comparisons, _WinAPI_CompareString() maps the lowercase "i" to the uppercase "I",
-even when the locale is Turkish or Azeri. The $NORM_LINGUISTIC_CASING flag overrides this behavior for Turkish
-or Azeri. If this flag is specified in conjunction with Turkish or Azeri, LATIN SMALL LETTER DOTLESS I (U+0131)
-is the lowercase form of LATIN CAPITAL LETTER I (U+0049) and LATIN SMALL LETTER I (U+0069) is the lowercase
-form of LATIN CAPITAL LETTER I WITH DOT ABOVE (U+0130).
+Normally, for case-insensitive comparisons, <a href="_WinAPI_CompareString.htm">_WinAPI_CompareString()</a> maps the lowercase "i" to the uppercase "I", even when the locale is Turkish or Azeri.
+The $NORM_LINGUISTIC_CASING flag overrides this behavior for Turkish or Azeri.
+If this flag is specified in conjunction with Turkish or Azeri, LATIN SMALL LETTER DOTLESS I (U+0131) is the lowercase form of LATIN CAPITAL LETTER I (U+0049) and LATIN SMALL LETTER I (U+0069) is the lowercase form of LATIN CAPITAL LETTER I WITH DOT ABOVE (U+0130).
 
 
 ###Related###
+None.
 
 
 ###See Also###

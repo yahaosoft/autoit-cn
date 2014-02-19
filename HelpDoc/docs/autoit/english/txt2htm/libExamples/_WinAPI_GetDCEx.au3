@@ -1,10 +1,10 @@
-#include <WinAPIGdi.au3>
 #include <APIGdiConstants.au3>
-#include <WinAPISys.au3>
 #include <FontConstants.au3>
-#include <WindowsConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIGdi.au3>
+#include <WinAPISys.au3>
+#include <WindowsConstants.au3>
 
 Global $hFont = _WinAPI_CreateFont(16, 0, 0, 0, $FW_BOLD, 0, 0, 0, $DEFAULT_CHARSET, $OUT_DEFAULT_PRECIS, $CLIP_DEFAULT_PRECIS, $DEFAULT_PITCH, $ANTIALIASED_QUALITY, 'Arial')
 
@@ -28,7 +28,7 @@ Global $hDll = DllCallbackRegister('_WinProc', 'ptr', 'hwnd;uint;long;ptr')
 Local $pDll = DllCallbackGetPtr($hDll)
 Global $hProc = _WinAPI_SetWindowLong($hForm, $GWL_WNDPROC, $pDll)
 
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE

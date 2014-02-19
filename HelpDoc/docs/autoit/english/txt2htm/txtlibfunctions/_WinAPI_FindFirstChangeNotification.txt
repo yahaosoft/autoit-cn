@@ -2,7 +2,7 @@
 _WinAPI_FindFirstChangeNotification
 
 ###Description###
-Creates a change notification handle and sets up initial change notification filter conditions.
+Creates a change notification handle and sets up initial change notification filter conditions
 
 ###Syntax###
 #include <WinAPIFiles.au3>
@@ -14,40 +14,38 @@ _WinAPI_FindFirstChangeNotification ( $sDirectory, $iFlags [, $fSubtree = 0] )
 $sDirectory
 	The full path of the directory to be watched.
 $iFlags
-	The filter conditions that satisfy a change notification wait. This parameter can be one or more of the
-	following values.
-	$FILE_NOTIFY_CHANGE_FILE_NAME
-	$FILE_NOTIFY_CHANGE_DIR_NAME
-	$FILE_NOTIFY_CHANGE_ATTRIBUTES
-	$FILE_NOTIFY_CHANGE_SIZE
-	$FILE_NOTIFY_CHANGE_LAST_WRITE
-	$FILE_NOTIFY_CHANGE_SECURITY
+	The filter conditions that satisfy a change notification wait. This parameter can be one or more of the following values:
+		$FILE_NOTIFY_CHANGE_FILE_NAME
+		$FILE_NOTIFY_CHANGE_DIR_NAME
+		$FILE_NOTIFY_CHANGE_ATTRIBUTES
+		$FILE_NOTIFY_CHANGE_SIZE
+		$FILE_NOTIFY_CHANGE_LAST_WRITE
+		$FILE_NOTIFY_CHANGE_SECURITY
 $fSubtree
 	[optional] Specifies whether to monitor the subdirectories of the specified directory, valid values:
-	True  - Monitor the directory tree rooted at the specified directory.
-	False - Monitor only the specified directory (Default).
+		True  - Monitor the directory tree rooted at the specified directory.
+		False - Monitor only the specified directory (Default).
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	A handle to a find change notification object.
-Failure 	0 and sets the @error flag to non-zero.
+Success:	A handle to a find change notification object.
+Failure:	0 and sets the @error flag to non-zero.
 @@End@@
 
 
 ###Remarks###
-The _WinAPI_Wait... functions can monitor the specified directory or subtree by using the handle returned by this
-function. A wait is satisfied when one of the filter conditions occurs in the monitored directory or subtree.
+The _WinAPI_Wait... functions can monitor the specified directory or subtree by using the handle returned by this function.
+A wait is satisfied when one of the filter conditions occurs in the monitored directory or subtree.
 
-After the wait has been satisfied, the application can respond to this condition and continue monitoring the directory
-by calling the _WinAPI_FindNextChangeNotification() function and the appropriate wait function. When the handle is
-no longer needed, it can be closed by using the _WinAPI_FindCloseChangeNotification() function.
+After the wait has been satisfied, the application can respond to this condition and continue monitoring the directory by calling the <a href="_WinAPI_FindNextChangeNotification.htm">_WinAPI_FindNextChangeNotification()</a> function and the appropriate wait function.
+When the handle is no longer needed, it can be closed by using the <a href="_WinAPI_FindCloseChangeNotification.htm">_WinAPI_FindCloseChangeNotification()</a> function.
 
-Notifications may not be returned when calling _WinAPI_FindFirstChangeNotification() for a remote file system.
+Notifications may not be returned when calling <a href="_WinAPI_FindFirstChangeNotification.htm">_WinAPI_FindFirstChangeNotification()</a> for a remote file system.
 
 
 ###Related###
-_WinAPI_FindNextChangeNotification, _WinAPI_FindCloseChangeNotification
+_WinAPI_FindCloseChangeNotification, _WinAPI_FindNextChangeNotification
 
 
 ###See Also###

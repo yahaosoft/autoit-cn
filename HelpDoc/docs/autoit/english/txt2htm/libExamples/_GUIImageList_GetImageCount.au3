@@ -1,8 +1,8 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
-#include <WindowsConstants.au3>
+#include <GuiListView.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
@@ -13,7 +13,7 @@ Func Example()
 	GUICreate("ImageList Get Image Count", 400, 300)
 	$listview = GUICtrlCreateListView("", 2, 2, 394, 268, BitOR($LVS_SHOWSELALWAYS, $LVS_NOSORTHEADER, $LVS_REPORT))
 	_GUICtrlListView_SetExtendedListViewStyle($listview, $exStyles)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create(16, 16, 5, 3)
@@ -44,7 +44,7 @@ Func Example()
 
 	MsgBox($MB_SYSTEMMODAL, "Information", "Image Count: " & _GUIImageList_GetImageCount($hImage))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

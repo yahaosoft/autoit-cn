@@ -2,7 +2,7 @@
 _WinAPI_OpenFileById
 
 ###Description###
-Opens the file that matches the specified object identifier.
+Opens the file that matches the specified object identifier
 
 ###Syntax###
 #include <WinAPIFiles.au3>
@@ -21,7 +21,6 @@ $iAccess
 	application can query file and device attributes without accessing a device.
 	$GENERIC_READ
 	$GENERIC_WRITE
-
 	(See MSDN for more information)
 $iShare
 	[optional] The sharing mode of an object, which can be read, write, both, or none. If this parameter is 0 (Default) and
@@ -30,7 +29,7 @@ $iShare
 	$FILE_SHARE_READ
 	$FILE_SHARE_WRITE
 $iFlags
-	[optional] The file flags. When _WinAPI_OpenFileById() opens a file, it combines the file flags with existing
+	[optional] The file flags. When <a href="_WinAPI_OpenFileById.htm">_WinAPI_OpenFileById()</a> opens a file, it combines the file flags with existing
 	file attributes, and ignores any supplied file attributes. This parameter can include any
 	combination of the following values.
 	$FILE_FLAG_BACKUP_SEMANTICS
@@ -45,17 +44,17 @@ $iFlags
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	Handle to a specified file.
-Failure 	0 and sets the @error flag to non-zero, call _WinAPI_GetLastError() to get extended error information.
+Success:	Handle to a specified file.
+Failure:	0 and sets the @error flag to non-zero, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information.
 @@End@@
 
 
 ###Remarks###
-When an application is finished using the object handle returned by this function, use the _WinAPI_CloseHandle()
+When an application is finished using the object handle returned by this function, use the <a href="_WinAPI_CloseHandle.htm">_WinAPI_CloseHandle()</a>
 function to close the handle. This not only frees up system resources, but can have wider influence on things
 like sharing the file or device and committing data to disk.
 
-This function requires Windows Vista or later.
+This function requires <strong>Windows Vista or later</strong>.
 
 
 ###Related###

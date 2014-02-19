@@ -10,7 +10,7 @@ Func Example()
 	GUICreate("Slider Set Tip Side", 400, 296)
 	$hSlider = GUICtrlCreateSlider(2, 2, 375, 20, BitOR($TBS_TOOLTIPS, $TBS_AUTOTICKS))
 	$hSlider2 = GUICtrlCreateSlider(380, 2, 20, 292, BitOR($TBS_TOOLTIPS, $TBS_AUTOTICKS, $TBS_VERT))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUICtrlCreateGroup("Tip Side Horiz", 2, 25, 120, 120)
 	$rdoBottom = GUICtrlCreateRadio("Bottom", 5, 40, 108, 20)
@@ -24,7 +24,7 @@ Func Example()
 	GUICtrlCreateGroup("", -99, -99, 1, 1)
 	GUICtrlSetState($rdoLeft, $GUI_CHECKED)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE

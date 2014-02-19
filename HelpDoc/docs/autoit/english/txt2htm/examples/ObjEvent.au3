@@ -47,15 +47,15 @@ Func Example()
 EndFunc   ;==>Example
 
 ; BeforeNavigate2 method definition
-Func _IEEvent_BeforeNavigate2($IEpDisp, $IEURL, $IEFlags, $IETargetFrameName, $IEPostData, $IEHeaders, $IECancel)
+Func _IEEvent_BeforeNavigate2($oIEpDisp, $sIEURL, $iIEFlags, $sIETargetFrameName, $sIEPostData, $iIEHeaders, $bIECancel)
 	ConsoleWrite("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--BeforeNavigate2 fired--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " & @CRLF & _
-			"$IEpDisp = " & $IEpDisp() & "  -  " & ObjName($IEpDisp) & @CRLF & _ ; e.g. default property and name for the object
-			"$IEURL = " & $IEURL & @CRLF & _
-			"$IEFlags = " & $IEFlags & @CRLF & _
-			"$IETargetFrameName = " & $IETargetFrameName & @CRLF & _
-			"$IEPostData = " & $IEPostData & @CRLF & _
-			"$IEHeaders = " & $IEHeaders & @CRLF & _
-			"$IECancel = " & $IECancel & @CRLF & _
+			"$oIEpDisp = " & $oIEpDisp() & "  -  " & ObjName($oIEpDisp) & @CRLF & _ ; e.g. default property and name for the object
+			"$sIEURL = " & $sIEURL & @CRLF & _
+			"$iIEFlags = " & $iIEFlags & @CRLF & _
+			"$sIETargetFrameName = " & $sIETargetFrameName & @CRLF & _
+			"$sIEPostData = " & $sIEPostData & @CRLF & _
+			"$iIEHeaders = " & $iIEHeaders & @CRLF & _
+			"$bIECancel = " & $bIECancel & @CRLF & _
 			"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " & @CRLF & @CRLF)
 EndFunc   ;==>_IEEvent_BeforeNavigate2
 

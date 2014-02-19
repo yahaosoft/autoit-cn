@@ -38,8 +38,11 @@ Func Example()
 	_GDIPlus_ImageDispose($hImage2)
 	_WinAPI_DeleteObject($hBitmap1)
 	_WinAPI_DeleteObject($hBitmap2)
+
 	; Shut down GDI+ library
 	_GDIPlus_Shutdown()
+
+	ShellExecute(@MyDocumentsDir & "\GDIPlus_Image.jpg")
 EndFunc   ;==>Example
 
 ; #FUNCTION# ==================================================================================================

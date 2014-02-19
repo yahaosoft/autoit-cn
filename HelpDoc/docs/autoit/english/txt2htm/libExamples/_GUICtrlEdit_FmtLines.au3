@@ -1,7 +1,7 @@
-#include <GuiEdit.au3>
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
+#include <GuiEdit.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
@@ -15,7 +15,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Edit FmtLines", 400, 300)
 	$hEdit = GUICtrlCreateEdit("", 2, 2, 394, 268, BitOR($ES_WANTRETURN, $WS_VSCROLL))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set Text
 	_GUICtrlEdit_SetText($hEdit, FileRead($sFile, 500))
@@ -33,7 +33,7 @@ Func Example()
 			'--------------------------------------------------------------' & @CRLF & _
 			"After:" & @CRLF & @CRLF & $sAfter)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

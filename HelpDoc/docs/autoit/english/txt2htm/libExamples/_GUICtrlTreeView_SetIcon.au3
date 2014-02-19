@@ -11,7 +11,7 @@ Func Example()
 	GUICreate("TreeView Set Icon", 400, 300)
 
 	$hTreeView = GUICtrlCreateTreeView(2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlTreeView_BeginUpdate($hTreeView)
 	For $x = 0 To 9
@@ -25,7 +25,7 @@ Func Example()
 
 	_GUICtrlTreeView_SetIcon($hTreeView, $hItem[0], "shell32.dll", 4)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

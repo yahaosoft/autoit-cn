@@ -1,7 +1,7 @@
-#include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
 #include <GuiButton.au3>
+#include <GUIConstantsEx.au3>
 #include <GuiImageList.au3>
+#include <WindowsConstants.au3>
 
 Global $iMemo
 
@@ -22,7 +22,7 @@ Func Example()
 	$btn = GUICtrlCreateButton("Button1", 10, 10, 90, 50)
 	_GUICtrlButton_SetImageList($btn, $hImage)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$aIdealSize = _GUICtrlButton_GetIdealSize($btn)
 	MemoWrite("Button1 Ideal width: " & $aIdealSize[0] & " height: " & $aIdealSize[1])

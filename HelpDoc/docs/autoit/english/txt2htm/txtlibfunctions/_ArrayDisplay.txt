@@ -2,46 +2,87 @@
 _ArrayDisplay
 
 ###Description###
-Displays given 1D or 2D array array in a listview.
+Displays a 1D or 2D array array in a ListView
 
 ###Syntax###
 #include <Array.au3>
-_ArrayDisplay ( Const ByRef $avArray [, $sTitle = "Array: ListView Display" [, $iItemLimit = -1 [, $iTranspose = 0 [, $sSeparator = "" [, $sReplace = "|" [, $sHeader = ""]]]]]] )
+_ArrayDisplay ( ByRef $aArray [, $sTitle = "ArrayDisplay" [, $sArrayRange = "" [, $iFlags = 0 [, $vUser_Separator = Default [, $sHeader = Default [, $iMax_ColWidth = Default [, $iAlt_Color = Default [, $hUser_Function = ""]]]]]]]] )
 
 
 ###Parameters###
 @@ParamTable@@
-$avArray
+$aArray
 	Array to display
 $sTitle
-	[optional] Title to use for window
-$iItemLimit
-	[optional] Maximum number of listview items (rows) to show
-$iTranspose
-	[optional] If set differently than default, will transpose the array if 2D
-$sSeparator
-	[optional] Change Opt("GUIDataSeparatorChar") on-the-fly
-$sReplace
-	[optional] String to replace any occurrence of $sSeparator with in each array element
+	[optional] Title for dialog.  Default = "ArrayDisplay".
+$sArrayRange
+	[optional] Range of rows/columns to display.  Default = entire array (see below for display limits).
+$iFlags
+	[optional] Determine UDF options. Add required values together - default = 0
+	1 - transposes a 2D array
+	2 (right) or 4 (center) - column alignment
+	8 - verbose = display MsgBox on error and splash screens during processing of large arrays
+$vUser_Separator
+	[optional] Sets column display option when copying data to clipboard.
+	Character = delimiter between columns.
+	Number    = fixed column width - longer items will be truncated.
+	Default   = current separator character (usually "|").
 $sHeader
-	[optional] Header column names (column headers separated by "|")
+	[optional] Column names in header (string of names separated by current separator character - usually "|"). Default see Remarks.
+$iMax_Colwidth
+	[optional] Max width to which a ListView column will expand to show content.  Default = 350 pixels.
+$iAlt_Color
+	[optional] ListView alternate rows set to defined color. Default = all rows ListView background color.
+$hUser_Function
+	[optional] A variable assigned to the user defined function to run. Default = none. See remarks.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success:	1.
-Failure:	0 and sets the @error flag to non-zero.
-@error:	1 - $avArray is not an array
-	2 - $avArray has too many dimensions (only up to 2D supported)
+Success:	1
+Failure:	0 and @error flag set as follows:
+@error:	1 - $aArray is not an array
+	2 - $aArray has too many dimensions (only 1D and 2D supported)
 @@End@@
 
 
 ###Remarks###
-The maximum number of items that can be displayed using _ArrayDisplay() is 65530.
-This due to the limitation with the number of controls that can be displayed in a GUI box.
+If the function is passed a non-array variable or an array of more than 2 dimensions the function returns an error and the script continues.  If the "verbose" parameter is set in $iFlags a MsgBox will be displayed which offers the chance to exit the script immediately or to continue the script with the normal error return.
+
+The array dimensions are displayed at lower left.  This is displayed in red text if any the following occur: row/column truncation (see below), array transposition, or displaying only a range of elements - a tooltip displays the particular occurence(s).
+
+Only 65525 rows of an array can be displayed - this is an AutoIt limitation on the total number of controls that can be displayed in a GUI - and an abitrary display limit of 250 columns has also been set.  If the user tries to display an array larger than these limits an "*" is added to the truncated dimension value which will be displayed in red text. Note that using $iArrayRange to dtermine the elements to be displayed allows arrays larger than the display limits to be displayed in sections.
+
+The $sArrayRange parameter syntax is as follows:
+
+	"7"        - Show rows 0-7 with all columns
+	"7:"       - Show rows 7-end with all columns
+	"|7"       - Show all rows with columns 0-7
+	"|7:"      - Show all rows with columns 7-end
+	"7|7"      - Show rows 0-7 with columns 0-7
+	"5:7"      - Show rows 5-7 with all columns
+	"|5:7"     - Show all rows with columns 5-7
+	"7|5:7"    - Show rows 0-7 with columns 5-7
+	"5:7|7"    - Show rows 5-7 with columns 0-7
+	"5:7|5:7"  - Show rows 5-7 with columns 5-7
+
+$sHeader names (separated by the current separator character) will be used for as many columns as there are names.  If no, or not enough, custom names are specified then the default header of "Row|Col0" for 1D arrays or "Row|Col0|Col1|...|Col n" for 2D is substituted.
+
+The 4 buttons at the bottom of the dialog have the following functions:
+
+- Copy Data & Hdr/Row - copy the array or the selected row(s) to the clipboard adding full header and row identification.
+
+- Copy Data Only - copy the array or the selected row(s) to the clipboard with no header or row identification.
+
+- Run User Func - run the user-defined function passed in $sUser_Function.  This function is entirely separate from the UDF and must be created and coded by the user to accept 2 parameters: the full array and a 1D array holding the selected rows indices with a count in the [0] element. The button is disabled if no function is specified.
+
+- Exit script - Exit the script immediately.
+
+If the "verbose" parameter is set in $iFlags a splash dialog is displayed during initial processing when the array to display has more than 10000 elements.  A similar dialog is displayed when the "Copy Data" buttons are used on a 10000+ element display - in this case consideration should be given to given to using a "User Function" to store the array for later processing.
 
 
 ###Related###
+None.
 
 
 ###Example###

@@ -20,14 +20,15 @@ $hImage
 Success:	an array with the following format:
 		[0] - Integer flag set of pixel data attributes
 		[1] - String of pixel data attributes separated by delimiter "|"
-Failure:	sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
-@error:	10 - Invalid image handle
+Failure:	sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@error:	10 - Flags cannot be retrieved
+	11 - Invalid image handle
+	12 - No pixel data
 @@End@@
 
 
 ###Remarks###
-@error 4 relies on GDI+ UDF return of -1 or 0 instead of image handle for errors.
-Use BitAND on returned integer flag set with GdipGetImageFlags constants.
+Use BitAND on returned integer flag set with $GDIP_IMAGEFLAGS_* constants.
 
 
 ###Related###

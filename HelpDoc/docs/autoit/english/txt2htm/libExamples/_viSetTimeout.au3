@@ -4,8 +4,8 @@
 ; It shows how to use the _viExecCommand function with a timeout or how to
 ; call _viSetTimeout instead.
 
-#include <Visa.au3>
 #include <MsgBoxConstants.au3>
+#include <Visa.au3>
 
 Local $h_session = 0
 

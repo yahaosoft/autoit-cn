@@ -2,7 +2,7 @@
 _GUIToolTip_GetDelayTime
 
 ###Description###
-Retrieves the initial, pop-up or reshow durations
+Retrieves the initial, pop-up or reshow durations of a ToolTip control
 
 ###Syntax###
 #include <GuiToolTip.au3>
@@ -12,13 +12,14 @@ _GUIToolTip_GetDelayTime ( $hWnd, $iDuration )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	Handle to the ToolTip control (returned by <a href ="_GUIToolTip_Create.htm">_GUIToolTip_Create.</a>)
 $iDuration
 	Flag that specifies which duration value will be retrieved:
-		0 - Time it takes for subsequent ToolTip windows to appear as the pointer moves from one tool to another
-		1 - Time the ToolTip window remains visible if the pointer is stationary within a tool's bounding rectangle
-		2 - Time the pointer must remain stationary within a tool's bounding rectangle before the window appears
+		$TTDT_RESHOW  (1) = Time it takes for subsequent ToolTip windows to appear as the pointer moves from one tool to another
+		$TTDT_AUTOPOP (2) = Time the ToolTip window remains visible if the pointer is stationary within a tool's bounding rectangle
+		$TTDT_INITIAL (3) = Time the pointer must remain stationary within a tool's bounding rectangle before the window appears
 @@End@@
+Constants are defined in ToolTipConstants.au3
 
 ###ReturnValue###
 Returns the specified duration, in milliseconds.
@@ -30,3 +31,7 @@ None.
 
 ###Related###
 _GUIToolTip_SetDelayTime
+
+
+###Example###
+@@IncludeExample@@

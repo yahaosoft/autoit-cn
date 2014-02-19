@@ -17,8 +17,7 @@ $sText
 	Item text. If set to -1, the item text is set via the $LVN_GETDISPINFO notification message.
 $iIndex
 	[optional] 0-based index at which the new item should be inserted.
-	If this value is greater than the number of items currently contained by the control,
-	the new item will be appended to the end of the list and assigned the correct index.
+	If this value is greater than the number of items currently contained by the control, the new item will be appended to the end of the list and assigned the correct index.
 $iImage
 	[optional] 0-based index of the item's icon in the control's image list
 $iParam
@@ -33,7 +32,9 @@ Failure:	-1.
 
 
 ###Remarks###
-You can not use this function to insert subitems. Use _GUICtrlListView_SetItemText() to insert subitems.
+You can not use this function to insert subitems. Use <a href="_GUICtrlListView_SetItemText.htm">_GUICtrlListView_SetItemText()</a> to insert subitems.
+
+As AutoIt uses the $iParam parameter to store the controlID of native-created ListView items, this value should be set sufficiently high for UDF-created items to avoid possible conflict with any existing controls - a starting value of 1000 is recommended.
 
 
 ###Related###

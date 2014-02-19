@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 #include <MsgBoxConstants.au3>
 
 Example()
@@ -13,7 +13,7 @@ Func Example()
 	GUICtrlSetStyle($hListView, $LVS_ICON)
 	; Enable extended control styles
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, $LVS_EX_BORDERSELECT)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create()
@@ -34,7 +34,7 @@ Func Example()
 	_GUICtrlListView_SetOutlineColor($hListView, 0x0000FF)
 	MsgBox($MB_SYSTEMMODAL, "Information", "Outline Color: " & Hex(_GUICtrlListView_GetOutlineColor($hListView)))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

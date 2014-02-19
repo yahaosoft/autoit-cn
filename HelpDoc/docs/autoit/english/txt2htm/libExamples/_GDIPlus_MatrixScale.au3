@@ -4,7 +4,7 @@
 
 ; Create GUI
 Local $hWnd = GUICreate("GDI+ Example", 500, 500)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 ; Start GDI+
 _GDIPlus_Startup()

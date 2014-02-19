@@ -1,7 +1,7 @@
-#include <GuiEdit.au3>
-#include <WinAPI.au3> ; used for Lo/Hi word
-#include <WindowsConstants.au3>
 #include <GUIConstantsEx.au3>
+#include <WinAPI.au3> ; used for Lo/Hi word
+#include <GuiEdit.au3>
+#include <WindowsConstants.au3>
 
 Global $hEdit
 
@@ -13,13 +13,13 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("Edit Create", 400, 300)
 	$hEdit = _GUICtrlEdit_Create($hGUI, "", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	GUIRegisterMsg($WM_COMMAND, "WM_COMMAND")
 
 	_GUICtrlEdit_SetText($hEdit, "This is a test" & @CRLF & "Another Line")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

@@ -1,8 +1,8 @@
 ; Same as Example 1, except transpose the output array and display
 ; the results with _ArrayDisplay()
 
-#include <IE.au3>
 #include <Array.au3>
+#include <IE.au3>
 
 Local $oIE = _IE_Example("table")
 Local $oTable = _IETableGetCollection($oIE, 1)

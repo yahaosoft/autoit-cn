@@ -2,7 +2,7 @@
 _WinAPI_MoveFileEx
 
 ###Description###
-Moves a file or directory, notifying the application of its progress through a callback function.
+Moves a file or directory, notifying the application of its progress through a callback function
 
 ###Syntax###
 #include <WinAPIFiles.au3>
@@ -25,7 +25,7 @@ $sNewFile
 
 	When moving a directory, $sExistingFile and $sNewFile  must be on the same drive.
 
-	If $iFlags specifies $MOVE_FILE_DELAY_UNTIL_REBOOT and $sNewFile is 0, _WinAPI_MoveFileEx()
+	If $iFlags specifies $MOVE_FILE_DELAY_UNTIL_REBOOT and $sNewFile is 0, <a href="_WinAPI_MoveFileEx.htm">_WinAPI_MoveFileEx()</a>
 	registers $sExistingFile to be deleted when the system restarts. If $sExistingFile refers to
 	a directory, the system removes the directory at restart only if the directory is empty.
 
@@ -40,7 +40,6 @@ $iFlags
 $pProgressProc
 	[optional] The address of a callback function that is called each time another portion of the file
 	has been moved.
-
 	(See MSDN for more information)
 $pData
 	[optional] The argument to be passed to the callback function.
@@ -48,13 +47,13 @@ $pData
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	True.
-Failure 	False, call _WinAPI_GetLastError() to get extended error information
+Success:	True.
+Failure:	False, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information
 @@End@@
 
 
 ###Remarks###
-If the $iFlags parameter specifies $MOVE_FILE_DELAY_UNTIL_REBOOT, _WinAPI_MoveFileEx() fails if it cannot
+If the $iFlags parameter specifies $MOVE_FILE_DELAY_UNTIL_REBOOT, <a href="_WinAPI_MoveFileEx.htm">_WinAPI_MoveFileEx()</a> fails if it cannot
 access the registry. The function stores the locations of the files to be renamed at restart in the
 following registry value:
 
@@ -62,6 +61,7 @@ HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\PendingFileR
 
 
 ###Related###
+None.
 
 
 ###See Also###

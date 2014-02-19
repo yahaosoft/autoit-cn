@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GuiButton.au3>
+#include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 
 Global $iMemo
@@ -32,7 +32,7 @@ Func Example()
 	$chk3 = GUICtrlCreateCheckbox("Check3", 10, 350, 90, 25, BitOR($BS_AUTO3STATE, $BS_NOTIFY))
 	_GUICtrlButton_SetCheck($chk3, $BST_CHECKED)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	MemoWrite("Button1 status:" & @CRLF & "--------------------------------" & _
 			_ExplainState(_GUICtrlButton_GetState($btn), True))

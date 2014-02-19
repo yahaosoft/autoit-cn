@@ -2,7 +2,7 @@
 _GUIToolTip_Destroy
 
 ###Description###
-Delete the ToolTip control
+Delete a ToolTip control
 
 ###Syntax###
 #include <GuiToolTip.au3>
@@ -12,19 +12,25 @@ _GUIToolTip_Destroy ( ByRef $hWnd )
 ###Parameters###
 @@ParamTable@@
 $hWnd
-	Handle to the control
+	Handle to the ToolTip control (returned by <a href ="_GUIToolTip_Create.htm">_GUIToolTip_Create.</a>)
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 Success:	True, $hWnd is set to 0.
-Failure:	False.
+Failure:	False, and @error set to
+			1 - Not Allowed to Destroy Other Applications' Control(s)
+			2 - $hWnd Not a Tooltip Control Handle
 @@End@@
 
 
 ###Remarks###
-Restricted to only be used on ToolTip controls created with _GUIToolTip_Create().
+Restricted to only be used on ToolTip controls created with <a href ="_GUIToolTip_Create.htm">_GUIToolTip_Create.</a>
 
 
 ###Related###
 _GUIToolTip_Create
+
+
+###Example###
+@@IncludeExample@@

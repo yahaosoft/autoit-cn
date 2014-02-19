@@ -1,5 +1,5 @@
-#include <WinAPITheme.au3>
 #include <APIThemeConstants.au3>
+#include <WinAPITheme.au3>
 
 Local $Data = _WinAPI_GetCurrentThemeName()
 If IsArray($Data) Then

@@ -1,6 +1,6 @@
 ; *** Demo to show a timer window
-#include <GUIConstantsEx.au3>
 #include <Date.au3>
+#include <GUIConstantsEx.au3>
 
 Opt("TrayIconDebug", 1)
 
@@ -12,7 +12,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Timer", 120, 50)
 	GUICtrlCreateLabel("00:00:00", 10, 10)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 	; Start timer
 	$timer = TimerInit()
 	AdlibRegister("Timer", 50)

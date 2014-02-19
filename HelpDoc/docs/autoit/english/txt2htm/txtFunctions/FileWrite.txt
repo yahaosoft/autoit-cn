@@ -2,7 +2,7 @@
 FileWrite
 
 ###Description###
-Append a text/data to the end of a previously opened file.
+Write text/data to the end of a previously opened file.
 
 ###Syntax###
 FileWrite ( "filehandle/filename", "text/data" )
@@ -11,7 +11,7 @@ FileWrite ( "filehandle/filename", "text/data" )
 ###Parameters###
 @@ParamTable@@
 filehandle/filename
-	The handle of a file, as returned by a previous call to FileOpen.  Alternatively, you may use a string filename as the first parameter.
+	The handle of a file, as returned by a previous call to <a href="FileOpen.htm">FileOpen()</a>. Alternatively, you may use a string filename as the first parameter.
 text/data
 	The text/data to write to the file. The text is written as is - no @CR or @LF characters are added. See remark for data type.
 @@End@@
@@ -32,11 +32,12 @@ Note: Do not mix filehandles and filenames, i.e., don't <a href="FileOpen.htm">F
 
 When writing text AutoIt will write using ANSI by default. To write in Unicode mode the file must be opened with <a href="FileOpen.htm">FileOpen()</a> and the relevant flags.
 
+
 If the data is a binary type variant (and not text) it will be written to the file byte by byte. Binary operation can also be forced by using <a href="FileOpen.htm">FileOpen()</a> with the binary flag.
 
 
 ###Related###
-FileFlush, FileOpen, FileRead, FileReadLine, FileWriteLine, Binary, FileSetPos, FileGetPos
+Binary, FileFlush, FileGetPos, FileOpen, FileRead, FileReadLine, FileSetPos, FileWriteLine
 
 
 ###Example###

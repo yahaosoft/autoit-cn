@@ -1,7 +1,7 @@
-#include <WinAPIShPath.au3>
-#include <WinAPIRes.au3>
-#include <GUIImageList.au3>
 #include <GUIConstantsEx.au3>
+#include <GUIImageList.au3>
+#include <WinAPIRes.au3>
+#include <WinAPIShPath.au3>
 
 Global Const $STM_SETIMAGE = 0x0172
 Global Const $STM_GETIMAGE = 0x0173
@@ -63,7 +63,7 @@ If $hObj <> $hBitmap Then
 EndIf
 
 ; Show GUI
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE

@@ -1,5 +1,5 @@
-#include <ScreenCapture.au3>
 #include <GUIConstantsEx.au3>
+#include <ScreenCapture.au3>
 
 Example()
 
@@ -18,7 +18,7 @@ Func Example()
 		Next
 	Next
 	Local $hGUI = GUICreate("GDI+ example", $iWidth, $iHeight) ;create a test GUI
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	Local $hGraphics = _GDIPlus_GraphicsCreateFromHWND($hGUI) ;create a graphics object from a window handle
 	_GDIPlus_GraphicsDrawImage($hGraphics, $hBitmap, 0, 0) ;copy negative bitmap to graphics object (GUI)

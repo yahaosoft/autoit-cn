@@ -1,7 +1,6 @@
-#include <GuiToolbar.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiToolbar.au3>
 #include <WindowsConstants.au3>
-#include <Constants.au3>
 
 Global $iMemo
 
@@ -16,7 +15,7 @@ Func Example()
 	$hToolbar = _GUICtrlToolbar_Create($hGUI)
 	$iMemo = GUICtrlCreateEdit("", 2, 36, 396, 262, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 10, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Set control style
 	_GUICtrlToolbar_SetStyle($hToolbar, BitOR($TBSTYLE_LIST, $CCS_TOP))
@@ -39,7 +38,7 @@ Func Example()
 	; Show control style
 	MemoWrite("Toolbar style .: 0x" & Hex(_GUICtrlToolbar_GetStyle($hToolbar)))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 #include <WindowsConstants.au3>
 
 Global $hListView, $iMemo
@@ -14,7 +14,7 @@ Func Example()
 	$hListView = _GUICtrlListView_Create($hGui, "", 2, 2, 394, 118, BitOR($LVS_EDITLABELS, $LVS_REPORT))
 	$iMemo = GUICtrlCreateEdit("", 2, 124, 396, 174, 0)
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, BitOR($LVS_EX_GRIDLINES, $LVS_EX_FULLROWSELECT, $LVS_EX_DOUBLEBUFFER))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create()
@@ -43,7 +43,7 @@ Func Example()
 	MemoWrite("Edit Handle: 0x" & Hex(_GUICtrlListView_GetEditControl($hListView)) & _
 			" IsPtr = " & IsPtr(_GUICtrlListView_GetEditControl($hListView)) & " IsHWnd = " & IsHWnd(_GUICtrlListView_GetEditControl($hListView)))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

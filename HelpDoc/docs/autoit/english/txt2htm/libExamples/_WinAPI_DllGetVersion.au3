@@ -1,5 +1,5 @@
-#include <WinAPIShellEx.au3>
 #include <APIShellExConstants.au3>
+#include <WinAPIShellEx.au3>
 
 Global Const $sDll = @SystemDir & '\comctl32.dll'
 

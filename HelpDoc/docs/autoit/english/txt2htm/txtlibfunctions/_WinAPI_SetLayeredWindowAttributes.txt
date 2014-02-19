@@ -6,27 +6,27 @@ Sets Layered Window Attributes
 
 ###Syntax###
 #include <WinAPI.au3>
-_WinAPI_SetLayeredWindowAttributes ( $hWnd, $i_transcolor [, $Transparency = 255 [, $dwFlags = 0x03 [, $isColorRef = False]]] )
+_WinAPI_SetLayeredWindowAttributes ( $hWnd, $iTransColor [, $hTransGUI = 255 [, $iFlags = 0x03 [, $fColorRef = False]]] )
 
 
 ###Parameters###
 @@ParamTable@@
-$hwnd
+$hWnd
 	Handle of GUI to work on
-$i_transcolor
+$iTransColor
 	Transparent color
-$Transparency
+$hTransGUI
 	[optional] Set Transparancy of GUI
-$dwFlags
+$iFlags
 	[optional] Flags.
-$isColorRef
-	[optional] If True, $i_transcolor is a COLORREF( 0x00bbggrr ), else an RGB-Color
+$fColorRef
+	[optional] If True, $iTransColor is a COLORREF( 0x00bbggrr ), else an RGB-Color
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 Success:	True
-Failure:	False, call _WinAPI_GetLastError() to get extended error information
+Failure:	False, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information
 @@End@@
 
 
@@ -35,7 +35,7 @@ None.
 
 
 ###Related###
-_WinAPI_GetLayeredWindowAttributes, _WinAPI_GetLastError
+_WinAPI_GetLastError, _WinAPI_GetLayeredWindowAttributes
 
 
 ###See Also###

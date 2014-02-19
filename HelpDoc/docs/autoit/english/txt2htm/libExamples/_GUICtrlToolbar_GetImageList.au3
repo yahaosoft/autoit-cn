@@ -1,7 +1,7 @@
-#include <GuiToolbar.au3>
-#include <GuiImageList.au3>
-#include <WinAPI.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiImageList.au3>
+#include <GuiToolbar.au3>
+#include <WinAPI.au3>
 #include <WindowsConstants.au3>
 
 Global $iMemo
@@ -18,7 +18,7 @@ Func Example()
 	$hToolbar = _GUICtrlToolbar_Create($hGUI)
 	$iMemo = GUICtrlCreateEdit("", 2, 36, 396, 262, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 10, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Create normal image list
 	$hNormal = _GUIImageList_Create(32, 24)
@@ -55,7 +55,7 @@ Func Example()
 	MemoWrite("Normal list handle ...: 0x" & Hex(_GUICtrlToolbar_GetImageList($hToolbar)))
 	MemoWrite("IsPtr = " & IsPtr(_GUICtrlToolbar_GetImageList($hToolbar)) & " IsHWnd = " & IsHWnd(_GUICtrlToolbar_GetImageList($hToolbar)))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

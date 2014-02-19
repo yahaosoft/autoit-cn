@@ -1,5 +1,5 @@
-#include <GuiMenu.au3>
 #include <GUIConstantsEx.au3>
+#include <GuiMenu.au3>
 #include <WinAPI.au3>
 #include <WindowsConstants.au3>
 
@@ -10,13 +10,13 @@ Example()
 Func Example()
 	; Create GUI
 	GUICreate("Menu", 400, 300)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Register message handlers
 	GUIRegisterMsg($WM_COMMAND, "WM_COMMAND")
 	GUIRegisterMsg($WM_CONTEXTMENU, "WM_CONTEXTMENU")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

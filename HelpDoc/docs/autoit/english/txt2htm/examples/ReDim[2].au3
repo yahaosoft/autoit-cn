@@ -3,15 +3,15 @@
 Example()
 
 Func Example()
-	Local $aArray[1] = [0], $hTimer = 0, $iArrayTotal = 5000, $iCount = 0, $iDimension = 0
+	Local $aArray[1] = [0], $iArrayTotal = 5000, $iCount = 0, $iDimension = 0
 
-	$hTimer = TimerInit() ; Start the timer.
+	Local $hTimer = TimerInit() ; Start the timer.
 	For $i = 1 To $iArrayTotal
 		; Returns True if ReDimmed or False if it wasn"t. This uses ByRef, so just pass the Array and a previously declared variable for monitoring the dimension.
 		If ReDim1D($aArray, $iDimension) Then
 			$iCount += 1 ; If the array was ReDimmed then add to the ReDim count for output at the end of the example.
 		EndIf
-		$aArray[0] += 1 ; Increase 0th index [0] by a value of 1.
+		$aArray[0] += 1 ; Increase zeroth index [0] by a value of 1.
 		$aArray[$i] = "Row " & $i & ": Col 0" ; Add random data.
 	Next
 	$hTimer = Round(TimerDiff($hTimer)) ; End the timer and find the difference from start to finish.
@@ -24,7 +24,7 @@ Func Example()
 EndFunc   ;==>Example
 
 ; ReDim when required by increasing the total array size as totalsize * 1.3 and rounding to the next highest integer.
-Func ReDim1D(ByRef $aArray, ByRef $iDimension) ; Where 0th index [0] is the element count.
+Func ReDim1D(ByRef $aArray, ByRef $iDimension) ; Where zeroth index [0] is the element count.
 	Local $fReturn = False
 	If ($aArray[0] + 1) >= $iDimension Then
 		$fReturn = True

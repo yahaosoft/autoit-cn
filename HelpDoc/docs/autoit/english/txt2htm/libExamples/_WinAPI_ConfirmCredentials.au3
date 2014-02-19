@@ -1,8 +1,8 @@
 #include <APIDlgConstants.au3>
 #include <Crypt.au3>
+#include <MsgBoxConstants.au3>
 #include <WinAPI.au3>
 #include <WinAPIDlg.au3>
-#include <MsgBoxConstants.au3>
 
 Local $hBitmap = _WinAPI_LoadImage(0, @ScriptDir & '\Extras\Authentication.bmp', $IMAGE_BITMAP, 0, 0, $LR_LOADFROMFILE)
 Local $Data[3] = ['', '', 0]

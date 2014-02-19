@@ -2,24 +2,24 @@
 _ExcelBookSaveAs
 
 ###Description###
-Saves the active workbook of the specified Excel object with a new filename and/or type.
+Saves the active workbook of the specified Excel object with a new filename and/or type
 
 ###Syntax###
 #include <Excel.au3>
-_ExcelBookSaveAs ( $oExcel, $sFilePath [, $sType = "xls" [, $fAlerts = 0 [, $fOverWrite = 0 [, $sPassword = "" [, $sWritePassword = "" [, $iAccessMode = 1 [, $iConflictResolution = 2]]]]]]] )
+_ExcelBookSaveAs ( $oExcel, $sFilePath [, $sType = "xls" [, $fAlerts = 0 [, $fOverwrite = 0 [, $sPassword = "" [, $sWritePassword = "" [, $iAccessMode = 1 [, $iConflictResolution = 2]]]]]]] )
 
 
 ###Parameters###
 @@ParamTable@@
 $oExcel
-	Excel object opened by a preceding call to _ExcelBookOpen() or _ExcelBookNew()
+	Excel object opened by a preceding call to <a href="_ExcelBookOpen.htm">_ExcelBookOpen()</a> or <a href="_ExcelBookNew.htm">_ExcelBookNew()</a>
 $sFilePath
 	Path and filename of the file to be read
 $sType
 	[optional] Excel writable filetype string = "xls|csv|txt|template|html", default "xls"
 $fAlerts
 	[optional] Flag for disabling/enabling Excel message alerts (0=disable, 1=enable)
-$fOverWrite
+$fOverwrite
 	[optional] Flag for overwriting the file, if it already exists (0=no, 1=yes)
 $sPassword
 	[optional] The string password to protect the sheet with; if blank, no password will be used (default = blank)
@@ -27,20 +27,14 @@ $sWritePassword
 	[optional] The string write-access password to protect the sheet with; if blank, no password will be used (default = blank)
 $iAccessMode
 	[optional] The document sharing mode to assign to the workbook:
-$xlNoChange
-	[optional] Leaves the sharing mode as it is (default) (numeric value = 1)
-$xlExclusive
-	[optional] Disables sharing on the workbook (numeric value = 3)
-$xlShared
-	[optional] Enable sharing on the workbook (numeric value = 2)
+		$xlNoChange(1) - Leaves the sharing mode as it is (default)
+		$xlShared (2) - Enable sharing on the workbook
+		$xlExclusive (3) - Disables sharing on the workbook
 $iConflictResolution
 	[optional] For shared documents, how to resolve sharing conflicts:
-$xlUserResolution
-	[optional] Pop up a dialog box asking the user how to resolve (numeric value = 1)
-$xlLocalSessionChanges
-	[optional] The local user's changes are always accepted (default) (numeric value = 2)
-$xlOtherSessionChanges
-	[optional] The local user's changes are always rejected (numeric value = 3)
+		$xlUserResolution(1) - Pop up a dialog box asking the user how to resolve
+		$xlLocalSessionChanges (2) - The local user's changes are always accepted (default)
+		$xlOtherSessionChanges (3) - The local user's changes are always rejected
 @@End@@
 
 ###ReturnValue###
@@ -59,6 +53,7 @@ You can only SaveAs back to the same working path the workbook was originally op
 
 
 ###Related###
+None.
 
 
 ###Example###

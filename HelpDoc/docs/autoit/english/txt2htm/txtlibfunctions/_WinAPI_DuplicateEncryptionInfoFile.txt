@@ -2,53 +2,51 @@
 _WinAPI_DuplicateEncryptionInfoFile
 
 ###Description###
-Copies the EFS metadata from one file or directory to another.
+Copies the EFS metadata from one file or directory to another
 
 ###Syntax###
 #include <WinAPIFiles.au3>
-_WinAPI_DuplicateEncryptionInfoFile ( $sSrcFile, $sDestFile [, $iCreation = 2 [, $iAttributes = 0 [, $tSecurity = 0]]] )
+_WinAPI_DuplicateEncryptionInfoFile ( $sSrcFilePath, $sDestFilePath [, $iCreation = 2 [, $iAttributes = 0 [, $tSecurity = 0]]] )
 
 
 ###Parameters###
 @@ParamTable@@
-$sSrcFile
-	The name of the file or directory from which the EFS metadata is to be copied. This source
-	file or directory must be encrypted.
-$sDestFile
-	The name of the file or directory to which the EFS metadata is to be copied. This destination file
-	or directory does not have to be encrypted before the call to this function. If the source is
-	a file, this parameter must also specify a file, and likewise for directories.
+$sSrcFilePath
+	The name of the file or directory from which the EFS metadata is to be copied.
+	This source file or directory must be encrypted.
+$sDestFilePath
+	The name of the file or directory to which the EFS metadata is to be copied.
+	This destination file or directory does not have to be encrypted before the call to this function.
+	If the source is a file, this parameter must also specify a file, and likewise for directories.
 $iCreation
 	[optional] Specifies how the destination file or directory is to be opened.
-	The following are the valid values of this parameter.
-	$CREATE_NEW
-	$CREATE_ALWAYS (Default)
+	The following are the valid values of this parameter:
+		$CREATE_NEW
+		$CREATE_ALWAYS (Default)
 $iAttributes
-	[optional] The file attributes of the destination file or directory. The $FILE_READ_ONLY attribute is currently
-	not processed by this function.
+	[optional] The file attributes of the destination file or directory.
+	The $FILE_READ_ONLY attribute is currently not processed by this function.
 $tSecurity
-	[optional] $tagSECURITY_ATTRIBUTES structure that specifies the security attributes of the destination file
-	or directory, if it does not already exist. If this parameter is 0 (Default), the file or directory gets
-	a default security descriptor. The access-control lists (ACL) in the default security descriptor
-	for a file or directory are inherited from its parent directory.
+	[optional] $tagSECURITY_ATTRIBUTES structure that specifies the security attributes of the destination file or directory, if it does not already exist.
+	If this parameter is 0 (Default), the file or directory gets a default security descriptor.
+	The access-control lists (ACL) in the default security descriptor for a file or directory are inherited from its parent directory.
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	1.
-Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
+Success:	1.
+Failure:	0 and sets the @error flag to non-zero, @extended flag may contain the system error code.
 @@End@@
 
 
 ###Remarks###
-The caller should have the EFS key for the source file or directory, and at least the $READ_ATTRIBUTE ACL for the
-source file or directory.
+The caller should have the EFS key for the source file or directory, and at least the $READ_ATTRIBUTE ACL for the source file or directory.
 
-The specified source and destination file or directories should reside on the same computer; otherwise,
-the function fails.
+The specified source and destination file or directories should reside on the same computer; otherwise, the function fails.
 
 
 ###Related###
+None.
 
 
 ###See Also###

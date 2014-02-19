@@ -8,7 +8,7 @@ Func Example()
 
 	$GUI = GUICreate("Mouse Trap Example", 392, 323)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	While 1
 		$coords = WinGetPos($GUI)

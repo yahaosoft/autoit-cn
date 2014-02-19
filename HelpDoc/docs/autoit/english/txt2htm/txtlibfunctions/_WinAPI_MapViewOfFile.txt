@@ -2,23 +2,23 @@
 _WinAPI_MapViewOfFile
 
 ###Description###
-Maps a view of a file mapping into the address space of a calling process.
+Maps a view of a file mapping into the address space of a calling process
 
 ###Syntax###
 #include <WinAPIFiles.au3>
-_WinAPI_MapViewOfFile ( $hMapping [, $iOffset [, $iBytes [, $iAccess = 0x0006]]] )
+_WinAPI_MapViewOfFile ( $hMapping [, $iOffset = 0 [, $iBytes = 0 [, $iAccess = 0x0006]]] )
 
 
 ###Parameters###
 @@ParamTable@@
 $hMapping
-	Handle to a file mapping object. The _WinAPI_CreateFileMapping() and _WinAPI_OpenFileMapping()
+	Handle to a file mapping object. The <a href="_WinAPI_CreateFileMapping.htm">_WinAPI_CreateFileMapping()</a> and <a href="_WinAPI_OpenFileMapping.htm">_WinAPI_OpenFileMapping()</a>
 	functions return this handle.
 $iOffset
 	[optional] The file offset where the view is to begin.
 $iBytes
 	[optional] The number of bytes of a file mapping to map to a view. All bytes must be within the maximum size
-	specified by _WinAPI_CreateFileMapping(). If $iBytes is 0, the mapping extends from the specified
+	specified by <a href="_WinAPI_CreateFileMapping.htm">_WinAPI_CreateFileMapping()</a>. If $iBytes is 0, the mapping extends from the specified
 	offset to the end of the file mapping.
 $iAccess
 	[optional] The access to the file mapping object. This parameter can be one of the following values.
@@ -33,8 +33,8 @@ $iAccess
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	The starting address of the mapped view.
-Failure 	0, call _WinAPI_GetLastError() to get extended error information.
+Success:	The starting address of the mapped view.
+Failure:	0, call <a href="_WinAPI_GetLastError.htm">_WinAPI_GetLastError()</a> to get extended error information.
 @@End@@
 
 
@@ -44,6 +44,7 @@ When the first view is complete, then you unmap it and map a new view.
 
 
 ###Related###
+None.
 
 
 ###See Also###

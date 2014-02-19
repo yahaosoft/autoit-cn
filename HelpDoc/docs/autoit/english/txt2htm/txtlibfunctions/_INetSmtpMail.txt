@@ -2,36 +2,36 @@
 _INetSmtpMail
 
 ###Description###
-Sends an email without using an external email program.
+Sends an email without using an external email program
 
 ###Syntax###
 #include <Inet.au3>
-_INetSmtpMail ( $s_SmtpServer, $s_FromName, $s_FromAddress, $s_ToAddress [, $s_Subject [, $as_Body [, $s_helo [, $s_first [, $b_trace]]]]] )
+_INetSmtpMail ( $sSMTPServer, $sFromName, $sFromAddress, $sToAddress [, $sSubject = "" [, $sBody = "" [, $sEHLO = "" [, $sFirst = "" [, $bTrace = 0]]]]] )
 
 
 ###Parameters###
 @@ParamTable@@
-$s_SmtpServer
+$sSMTPServer
 	Smtp server the eMail is to be sent though  May be either alpha or a numeric IP address.   In order to fight spam, many ISPs require this to be their server.
 	eg "smtp.ispdomain.com", "mail.ispdomain.com" or "192.168.1.1"
-$s_FromName
+$sFromName
 	The name you wish the message to appear to be sent from.
 	eg "Bob Smith"
-$s_FromAddress
+$sFromAddress
 	The email address you wish the message to appear to be sent from.
 	eg "bob.smith@mydomain.com".
-$s_ToAddress
+$sToAddress
 	The email address the message is to go to.
 	eg "jane.brown@yourdomain.com"
-$s_Subject
+$sSubject
 	[optional] The subject of the email.
-$as_Body
+$sBody
 	[optional] The body of the email as a single dimensional array of strings.   Each value in the array will be terminated with a @CRLF in the email.
-$s_helo
+$sEHLO
 	[optional] identifier for the smtp server connection (by default @ComputerName). If Smtp server require a "EHLO" string just set the string to "EHLO " & @ComputerName.
-$s_first
+$sFirst
 	[optional] string sent before helo for the smtp server connection (by default {SPACE}). To not send any character this parameter must equal -1, some SMTP server required it.
-$b_trace
+$bTrace
 	[optional] trace the dialog in a splash window
 @@End@@
 
@@ -44,14 +44,13 @@ Failure:	0 and sets the @error flag to non-zero.
 	3    - Unable to resolve IP
 	4    - Unable to create socket
 	5x   - Cannot open SMTP session.  x indicates the index number of last command issued to the SMTP server.
-	50x  - Cannot send body.  x indicates the line number of $as_Body (first line is 0).
+	50x  - Cannot send body.  x indicates the line number of $sBody (first line is 0).
 	5000 - Cannot close SMTP session
 @@End@@
 
 
 ###Remarks###
 This function sends an email directly through an SMTP server without the use of a third party email client.
-Requires AutoIt3 v 3.1.1.97 or better.
 
 
 ###Related###

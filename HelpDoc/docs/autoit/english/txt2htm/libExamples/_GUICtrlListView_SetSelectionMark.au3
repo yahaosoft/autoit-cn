@@ -9,7 +9,7 @@ Func Example()
 
 	GUICreate("ListView Set Selection Mark", 400, 300)
 	$hListView = GUICtrlCreateListView("", 2, 2, 394, 268, BitOR($LVS_SHOWSELALWAYS, $LVS_REPORT))
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add columns
 	_GUICtrlListView_AddColumn($hListView, "Column 1", 100)
@@ -23,7 +23,7 @@ Func Example()
 	_GUICtrlListView_SetSelectionMark($hListView, 1)
 	MsgBox($MB_SYSTEMMODAL, "Information", "Selected Mark: " & _GUICtrlListView_GetSelectionMark($hListView))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

@@ -1,7 +1,7 @@
+#include <GUIConstantsEx.au3>
 #include <WinAPIGdi.au3>
 #include <WinAPIShellEx.au3>
 #include <WindowsConstants.au3>
-#include <GUIConstantsEx.au3>
 
 Opt('MouseCoordMode', 2)
 
@@ -48,7 +48,7 @@ If $hObj <> $hBitmap Then
 	_WinAPI_DeleteObject($hBitmap)
 EndIf
 
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Local $Pos
 While 1

@@ -15,7 +15,7 @@ Func Example()
 	; Create memo control
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 296, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get server statistics
 	$aInfo = _Net_Share_StatisticsGetSvr(@ComputerName)
@@ -35,7 +35,7 @@ Func Example()
 	MemoWrite("Req buffer failures .....: " & $aInfo[13])
 	MemoWrite("Big buffer failures .....: " & $aInfo[14])
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 EndFunc   ;==>Example

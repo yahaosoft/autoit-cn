@@ -14,7 +14,7 @@ Func Example()
 	_GUICtrlComboBox_SetCueBanner($hCombo, "Select an Item")
 	$iMemo = GUICtrlCreateEdit("", 10, 50, 376, 234, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add files
 	_GUICtrlComboBox_BeginUpdate($hCombo)
@@ -23,7 +23,7 @@ Func Example()
 
 	MemoWrite("Cue Banner: " & _GUICtrlComboBox_GetCueBanner($hCombo))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

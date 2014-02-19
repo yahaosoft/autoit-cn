@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <WinAPI.au3>
 #include <GuiImageList.au3>
+#include <WinAPI.au3>
 
 Example()
 
@@ -8,7 +8,7 @@ Func Example()
 	Local $hImage, $hGUI, $hDC
 
 	$hGUI = GUICreate("ImageList DrawEx", 400, 300)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create(32, 24)
@@ -24,7 +24,7 @@ Func Example()
 
 	_WinAPI_ReleaseDC($hGUI, $hDC)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

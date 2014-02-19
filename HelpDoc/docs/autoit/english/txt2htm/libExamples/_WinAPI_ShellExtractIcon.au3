@@ -1,6 +1,6 @@
-#include <WinAPIShellEx.au3>
-#include <WinAPI.au3>
 #include <GUIConstantsEx.au3>
+#include <WinAPI.au3>
+#include <WinAPIShellEx.au3>
 
 Global Const $STM_SETIMAGE = 0x0172
 
@@ -10,7 +10,7 @@ Local $hForm = GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 160
 Local $Button = GUICtrlCreateButton('Next', 50, 130, 70, 23)
 Local $Icon = GUICtrlCreateIcon(@SystemDir & '\shell32.dll', 0, 69, 54, 32, 32)
 Local $hIcon = GUICtrlGetHandle(-1)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 While 1
 	Switch GUIGetMsg()

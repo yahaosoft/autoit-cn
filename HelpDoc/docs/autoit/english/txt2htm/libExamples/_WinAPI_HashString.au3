@@ -1,15 +1,15 @@
-#include <WinAPIMisc.au3>
-#include <WinAPI.au3>
-#include <WindowsConstants.au3>
 #include <EditConstants.au3>
 #include <GUIConstantsEx.au3>
+#include <WinAPI.au3>
+#include <WinAPIMisc.au3>
+#include <WindowsConstants.au3>
 
 Global $hForm = GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 400, 96)
 Global $Input1 = GUICtrlCreateInput('', 20, 20, 360, 20)
 GUICtrlSetLimit(-1, 255)
 Global $Input2 = GUICtrlCreateInput('', 20, 56, 360, 20, BitOR($GUI_SS_DEFAULT_INPUT, $ES_READONLY))
 GUIRegisterMsg($WM_COMMAND, 'WM_COMMAND')
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Do
 Until GUIGetMsg() = $GUI_EVENT_CLOSE

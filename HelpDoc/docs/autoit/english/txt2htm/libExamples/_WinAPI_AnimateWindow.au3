@@ -1,12 +1,12 @@
 #NoTrayIcon
 
-#include <WinAPISys.au3>
 #include <APISysConstants.au3>
-#include <WinAPIGdi.au3>
-#include <Constants.au3>
-#include <WindowsConstants.au3>
-#include <MenuConstants.au3>
 #include <GUIConstantsEx.au3>
+#include <MenuConstants.au3>
+#include <TrayConstants.au3>
+#include <WinAPIGdi.au3>
+#include <WinAPISys.au3>
+#include <WindowsConstants.au3>
 
 Opt('TrayMenuMode', 1)
 
@@ -21,7 +21,7 @@ TraySetClick(8)
 Local $hForm = GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'))
 Local $Dummy = GUICtrlCreateDummy()
 GUIRegisterMsg($WM_SYSCOMMAND, 'WM_SYSCOMMAND')
-GUISetState()
+GUISetState(@SW_SHOW)
 
 While 1
 	Switch TrayGetMsg()

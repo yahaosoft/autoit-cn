@@ -1,7 +1,7 @@
-#include <GUIConstantsEx.au3>
 #include <Clipboard.au3>
-#include <WindowsConstants.au3>
+#include <GUIConstantsEx.au3>
 #include <WinAPI.au3>
+#include <WindowsConstants.au3>
 
 Global $iMemo
 
@@ -16,9 +16,9 @@ Func Example()
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
 	$btn_SetData = GUICtrlCreateButton("Set ClipBoard Data", 150, 410, 120, 30)
 	$btn_GetData = GUICtrlCreateButton("Get ClipBoard Data", 300, 410, 120, 30)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE

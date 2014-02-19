@@ -4,29 +4,31 @@
 Example()
 
 Func Example()
-	Local $n, $msg
-
 	GUICreate("My GUI picture", 350, 300, -1, -1, $WS_SIZEBOX + $WS_SYSMENU) ; will create a dialog box that when displayed is centered
 
 	GUISetBkColor(0xE0FFFF)
-	$n = GUICtrlCreatePic("..\GUI\mslogo.jpg", 50, 50, 200, 50)
+	Local $idPic = GUICtrlCreatePic("..\GUI\mslogo.jpg", 50, 50, 200, 50)
 
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
-	; Run the GUI until the dialog is closed
+	; Loop until the user exits.
 	While 1
-		$msg = GUIGetMsg()
+		Switch GUIGetMsg()
+			Case $GUI_EVENT_CLOSE
+				ExitLoop
 
-		If $msg = $GUI_EVENT_CLOSE Then ExitLoop
+		EndSwitch
 	WEnd
 
 	; resize the control
-	$n = GUICtrlSetPos($n, 50, 50, 200, 100)
-	; Run the GUI until the dialog is closed
-	While 1
-		$msg = GUIGetMsg()
+	GUICtrlSetPos($idPic, 50, 50, 200, 100)
 
-		If $msg = $GUI_EVENT_CLOSE Then ExitLoop
+	Local $idMsg
+	; Loop until the user exits.
+	While 1
+		$idMsg = GUIGetMsg()
+
+		If $idMsg = $GUI_EVENT_CLOSE Then ExitLoop
 	WEnd
 
 	GUIDelete()

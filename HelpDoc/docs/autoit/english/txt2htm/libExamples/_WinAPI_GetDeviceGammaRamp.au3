@@ -1,8 +1,8 @@
-#include <WinAPIGdi.au3>
 #include <APIGdiConstants.au3>
 #include <Array.au3>
 #include <GUIConstantsEx.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIGdi.au3>
 
 Global Const $STM_SETIMAGE = 0x0172
 Global Const $STM_GETIMAGE = 0x0173
@@ -54,7 +54,7 @@ If $hObj <> $hBitmap Then
 	_WinAPI_DeleteObject($hBitmap)
 EndIf
 
-GUISetState()
+GUISetState(@SW_SHOW)
 
 If IsArray($Ramp) Then
 	_ArrayDisplay($Ramp, '_WinAPI_GetDeviceGammaRamp')

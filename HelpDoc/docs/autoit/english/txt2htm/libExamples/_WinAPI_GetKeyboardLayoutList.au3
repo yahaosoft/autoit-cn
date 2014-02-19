@@ -1,7 +1,7 @@
-#include <WinAPISys.au3>
-#include <WinAPILocale.au3>
 #include <APILocaleConstants.au3>
 #include <Array.au3>
+#include <WinAPILocale.au3>
+#include <WinAPISys.au3>
 
 Local $Data = _WinAPI_GetKeyboardLayoutList()
 If IsArray($Data) Then

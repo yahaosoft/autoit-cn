@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("(UDF Created) Tab Control Destroy", 400, 300)
 	$hTab = _GUICtrlTab_Create($hGUI, 2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add tabs
 	_GUICtrlTab_InsertItem($hTab, 0, "Tab 1")
@@ -20,7 +20,7 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", "Destroy Tab Control")
 	_GUICtrlTab_Destroy($hTab)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

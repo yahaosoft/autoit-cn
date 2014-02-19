@@ -1,8 +1,8 @@
 #include <GUIConstantsEx.au3>
 #include <GuiListView.au3>
 #include <GuiStatusBar.au3>
-#include <WindowsConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Global $hListView, $hStatus
 
@@ -16,7 +16,7 @@ Func Example()
 	_GUICtrlListView_SetExtendedListViewStyle($hListView, BitOR($LVS_EX_FULLROWSELECT, $LVS_EX_GRIDLINES, $LVS_EX_TRACKSELECT))
 	$hStatus = _GUICtrlStatusBar_Create($hGUI)
 	_GUICtrlStatusBar_SetSimple($hStatus, True)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add columns
 	_GUICtrlListView_AddColumn($hListView, "Column 1", 100)
@@ -37,7 +37,7 @@ Func Example()
 	;Register WM_NOTIFY  events
 	GUIRegisterMsg($WM_NOTIFY, "WM_NOTIFY")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

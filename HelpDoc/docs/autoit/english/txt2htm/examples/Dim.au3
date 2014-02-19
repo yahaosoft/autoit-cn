@@ -1,11 +1,11 @@
 ; Example 1 - Declaring variables
 Local $i, $j = 23, $k
-Global $nPI = 3.14159, $iRADIUS
-Local $_DaysWorking = 5
+Global $fPI = 3.14159, $iRADIUS
+Local $iDaysWorking = 5
 
 ; Example 2 - Declaring arrays
 Global $aChessBoard[8][8]
-Local $a_States[2], $WindowsStats[4]
+Local $aStates[2], $aWindowsStats[4]
 
 ; Example 3 - Declaring constant variables
 Const $x1 = 11, $y1 = 23, $z1 = 55

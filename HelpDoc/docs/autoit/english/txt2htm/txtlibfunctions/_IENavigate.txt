@@ -2,20 +2,20 @@
 _IENavigate
 
 ###Description###
-Directs an existing browser window to navigate to the specified URL.
+Directs an existing browser window to navigate to the specified URL
 
 ###Syntax###
 #include <IE.au3>
-_IENavigate ( ByRef $o_object, $s_url [, $f_wait = 1] )
+_IENavigate ( ByRef $oObject, $sUrl [, $fWait = 1] )
 
 
 ###Parameters###
 @@ParamTable@@
-$o_object
+$oObject
 	Object variable of an InternetExplorer.Application, Window or Frame object
-$s_url
+$sUrl
 	URL to navigate to (e.g. "http://www.autoitscript.com")
-$f_wait
+$fWait
 	[optional] specifies whether to wait for page to load before returning
 		0 = Return immediately, not waiting for page to load
 		1 = (Default) Wait for page load to complete before returning
@@ -42,10 +42,10 @@ This is because the navigate method has no useful return value and therefore not
 You will need to employ other methods to determine success or failure of the navigation.
 
 New security in Windows Vista causes a new browser window to be created when a browser is instructed to navigate to a URL in a different security zone.
-This occurs as well with the initial creation and navigation initiated with _IECreate(). The new window is a new browser instance and the previous browser object variable no longer points to it.
+This occurs as well with the initial creation and navigation initiated with <a href="_IECreate.htm">_IECreate()</a>. The new window is a new browser instance and the previous browser object variable no longer points to it.
 There are several workarounds:
 	1) add #RequireAdmin to your code (this is required even if the account is part of the Administrator's Group and will prompt for credentials if necessary),
-	2) use _IEAttach() to connect to the new browser window
+	2) use <a href="_IEAttach.htm">_IEAttach()</a> to connect to the new browser window
 	3) add the target website to the Trusted Sites security zone in IE,
 	4) turn off "Protected Mode" in IE,
 	or 5) disable UAC.  Care must be taken to understand the implications of disabling IE security features when accessing untrusted sites.

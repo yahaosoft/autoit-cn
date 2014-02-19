@@ -20,13 +20,16 @@ $hImage
 Success:	an array with the following format:
 		[0] - String of file format GUID
 		[1] - String of image format name
-Failure:	sets the @error flag to non-zero, @extended may contain GPSTATUS ($GPID_ERR*).
-@error:	10 - Invalid image handle
+Failure:	sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@error:	10 - Invalid raw format.
+	11 - Invalid image handle.
+	12 - Invalid file format GUID.
+	13 - Unknown file format GUID.
 @@End@@
 
 
 ###Remarks###
-@error 4 relies on GDI+ UDF return of -1 or 0 instead of image handle for errors
+None.
 
 
 ###Related###

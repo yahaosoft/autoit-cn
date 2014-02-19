@@ -1,8 +1,8 @@
-#include <WinAPIRes.au3>
-#include <APIResConstants.au3>
-#include <WinAPILocale.au3>
 #include <APILocaleConstants.au3>
+#include <APIResConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPILocale.au3>
+#include <WinAPIRes.au3>
 
 Local $hInstance = _WinAPI_LoadLibraryEx(@ScriptDir & '\Extras\Resources.dll', $LOAD_LIBRARY_AS_DATAFILE)
 If Not $hInstance Then

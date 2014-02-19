@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Tab Control Set Current Focus", 400, 300)
 	$hTab = GUICtrlCreateTab(2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add tabs
 	_GUICtrlTab_InsertItem($hTab, 0, "Tab 1")
@@ -21,7 +21,7 @@ Func Example()
 	_GUICtrlTab_SetCurFocus($hTab, 1)
 	MsgBox($MB_SYSTEMMODAL, "Information", "Current Focus: " & _GUICtrlTab_GetCurFocus($hTab))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

@@ -5,16 +5,41 @@ $tagGDIPENCODERPARAMS
 $tagGDIPENCODERPARAMS structure
 
 ###Syntax###
-Global Const $tagGDIPENCODERPARAMS = "uint Count;byte Params[1]"
+Global Const $tagGDIPENCODERPARAMS = "uint Count;" & $tagGDIPENCODERPARAM
 
 
 ###Fields###
 @@ParamTable@@
 Count
 	Number of $tagGDIPENCODERPARAM structures in the array
-Params
-	Start of $tagGDIPENCODERPARAM structures
+$tagGDIPENCODERPARAM
+	First $tagGDIPENCODERPARAM structure of the array
 @@End@@
 
 ###Remarks###
-None.
+Use such kind of code to $i entry being less than the $ibEntries in the $tagGDIPENCODERPARAMS (Count)
+
+; Just to calculate entry size to be OK under x86 or x64
+Local $tParam = DllStructCreate($tagGDIPENCODERPARAM)
+Local $iParamSize = DllStructGetSize($tParam)
+
+; allocate a $tagGDIPENCODERPARAMS structure with $ibEntries
+Local $ibEntries = 3;
+Local $tParams = DllStructCreate($tagGDIPENCODERPARAMS & "byte[$iEntrySize * ($ibEntries - 1))
+DLLStructSetData($tParams, "Count", $ibEntries)
+
+; Reallocate entry structure to point to the desired $i entry (0-based)
+Local $i = 1;
+Local $tParamI = DllStructCreate($tagGDIPENCODERPARAM, DllStructGetPtr($tParams, "GUID") + ($i * $iParamSize))
+
+; we can access the $tagGDIPENCODERPARAM  selected entry just using $tParam structure which has been reallocated
+
+; if we only use <strong>one entry</strong> the code is <strong>greatly simplified</strong>
+Local $tParams = DllStructCreate($tagGDIPENCODERPARAMS)
+DLLStructSetData($tParams, "Count", 1)
+
+; the entry can be access directly thru $tParams structure
+
+
+##Related##
+$tagGDIPENCODERPARAM

@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("(UDF Created) DateTimePick Destroy", 400, 300)
 	$hDTP = _GUICtrlDTP_Create($hGUI, 2, 6, 190)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	MsgBox($MB_SYSTEMMODAL, "Information", "Destroying the Control for Handle: " & $hDTP)
 	$HandleBefore = $hDTP
@@ -18,7 +18,7 @@ Func Example()
 			"Handel Before Destroy: " & $HandleBefore & @CRLF & _
 			"Handle After Destroy: " & $hDTP)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

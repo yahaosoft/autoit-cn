@@ -1,7 +1,7 @@
 ; using AutoIt Function
 
-#include <GUIConstantsEx.au3>
 #include <GuiAVI.au3>
+#include <GUIConstantsEx.au3>
 
 Global $hAVI
 
@@ -16,9 +16,9 @@ Func _Example_Internal()
 	$btn_start = GUICtrlCreateButton("start", 25, 150, 70, 22)
 	$btn_stop = GUICtrlCreateButton("stop", 125, 150, 70, 22)
 	$btn_show = GUICtrlCreateButton("hide", 225, 150, 70, 22)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE

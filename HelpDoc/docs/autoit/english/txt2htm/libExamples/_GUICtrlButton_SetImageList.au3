@@ -1,5 +1,5 @@
-#include <GUIConstantsEx.au3>
 #include <GuiButton.au3>
+#include <GUIConstantsEx.au3>
 #include <GuiImageList.au3>
 
 Example()
@@ -8,7 +8,7 @@ Func Example()
 	Local $hImage, $y = 70, $iIcon = 125, $btn[6], $rdo[6], $chk[6], $hImageSmall
 
 	GUICreate("Buttons", 510, 400)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	$hImage = _GUIImageList_Create(32, 32, 5, 3, 6)
 	For $x = 6 To 11

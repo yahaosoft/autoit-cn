@@ -1,5 +1,5 @@
-#include <WinAPIProc.au3>
 #include <Array.au3>
+#include <WinAPIProc.au3>
 
 Local $Info, $Data = _WinAPI_EnumDeviceDrivers()
 If IsArray($Data) Then

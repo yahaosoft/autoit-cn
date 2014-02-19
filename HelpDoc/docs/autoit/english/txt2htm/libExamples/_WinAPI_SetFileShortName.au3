@@ -1,8 +1,8 @@
-#include <WinAPIFiles.au3>
 #include <APIFilesConstants.au3>
-#include <WinAPIProc.au3>
-#include <WinAPI.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPI.au3>
+#include <WinAPIFiles.au3>
+#include <WinAPIProc.au3>
 
 Global Const $sTemp = @TempDir & '\Temporary File.txt'
 

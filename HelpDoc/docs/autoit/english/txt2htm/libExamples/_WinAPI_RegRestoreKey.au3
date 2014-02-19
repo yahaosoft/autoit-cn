@@ -1,7 +1,7 @@
-#include <WinAPIReg.au3>
 #include <APIRegConstants.au3>
-#include <WinAPIDiag.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIDiag.au3>
+#include <WinAPIReg.au3>
 
 Global $aPrivileges[2] = [$SE_BACKUP_NAME, $SE_RESTORE_NAME]
 

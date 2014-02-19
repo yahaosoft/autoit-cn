@@ -1,7 +1,7 @@
 #include <GuiComboBox.au3>
 #include <GUIConstantsEx.au3>
-#include <WindowsConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Global $hCombo
 
@@ -13,7 +13,7 @@ Func Example()
 	; Create GUI
 	$hGUI = GUICreate("(UDF) ComboBox Create", 400, 296)
 	$hCombo = _GUICtrlComboBox_Create($hGUI, "", 2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add files
 	_GUICtrlComboBox_BeginUpdate($hCombo)
@@ -22,7 +22,7 @@ Func Example()
 
 	GUIRegisterMsg($WM_COMMAND, "WM_COMMAND")
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

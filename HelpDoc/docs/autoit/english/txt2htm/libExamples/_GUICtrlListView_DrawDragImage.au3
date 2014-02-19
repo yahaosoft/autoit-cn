@@ -1,6 +1,6 @@
 #include <GUIConstantsEx.au3>
-#include <GuiListView.au3>
 #include <GuiImageList.au3>
+#include <GuiListView.au3>
 
 Example_UDF_Created()
 
@@ -10,7 +10,7 @@ Func Example_UDF_Created()
 	$GUI = GUICreate("(UDF Created) ListView Draw Drag Image", 400, 300)
 
 	$hListView = _GUICtrlListView_Create($GUI, "", 2, 2, 394, 268)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Load images
 	$hImage = _GUIImageList_Create()

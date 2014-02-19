@@ -2,18 +2,18 @@
 _WinAPI_ShellSetKnownFolderPath
 
 ###Description###
-Redirects a known folder to a new location.
+Redirects a known folder to a new location
 
 ###Syntax###
 #include <WinAPIShellEx.au3>
-_WinAPI_ShellSetKnownFolderPath ( $GUID, $sPath [, $iFlags = 0 [, $hToken = 0]] )
+_WinAPI_ShellSetKnownFolderPath ( $GUID, $sFilePath [, $iFlags = 0 [, $hToken = 0]] )
 
 
 ###Parameters###
 @@ParamTable@@
 $GUID
 	The GUID ($FOLDERID_*) that identifies the known folder.
-$sPath
+$sFilePath
 	The folder's new path.
 $iFlags
 	[optional] This parameter can be 0 or the following value.
@@ -26,8 +26,8 @@ $hToken
 
 ###ReturnValue###
 @@ReturnTable@@
-Success 	1.
-Failure 	0 and sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
+Success:	1.
+Failure:	0 and sets the @error flag to non-zero, @extended flag may contain the HRESULT error code.
 @@End@@
 
 
@@ -40,10 +40,11 @@ elevated privileges.
 
 This function cannot be called on folders of type $KF_CATEGORY_FIXED and $KF_CATEGORY_VIRTUAL.
 
-This function requires Windows Vista or later.
+This function requires <strong>Windows Vista or later</strong>.
 
 
 ###Related###
+None.
 
 
 ###See Also###

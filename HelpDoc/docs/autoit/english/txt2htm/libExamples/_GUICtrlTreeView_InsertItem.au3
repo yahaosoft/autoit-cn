@@ -1,7 +1,7 @@
 #include <GUIConstantsEx.au3>
 #include <GuiTreeView.au3>
-#include <WindowsConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Global $hImage, $hStateImage
 
@@ -14,7 +14,7 @@ Func Example()
 	GUICreate("TreeView Insert Item", 400, 300)
 
 	$hTreeView = GUICtrlCreateTreeView(2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlTreeView_BeginUpdate($hTreeView)
 	For $x = 0 To 9
@@ -37,7 +37,7 @@ Func Example()
 	MsgBox($MB_SYSTEMMODAL, "Information", StringFormat("Inserted child index %d firsts: %s", $iRand, $hInsert))
 	_GUICtrlTreeView_SelectItem($hTreeView, $hInsert)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

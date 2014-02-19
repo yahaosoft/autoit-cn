@@ -2,19 +2,19 @@
 
 ; Press Esc to terminate script, Pause/Break to "pause"
 
-Global $fPaused = False
+Global $gbPaused = False
 
 HotKeySet("{PAUSE}", "TogglePause")
 HotKeySet("{ESC}", "Terminate")
-HotKeySet("+!d", "ShowMessage") ;Shift-Alt-d
+HotKeySet("+!d", "ShowMessage") ; Shift-Alt-d
 
 While 1
 	Sleep(100)
 WEnd
 
 Func TogglePause()
-	$fPaused = Not $fPaused
-	While $fPaused
+	$gbPaused = Not $gbPaused
+	While $gbPaused
 		Sleep(100)
 		ToolTip('Script is "Paused"', 0, 0)
 	WEnd

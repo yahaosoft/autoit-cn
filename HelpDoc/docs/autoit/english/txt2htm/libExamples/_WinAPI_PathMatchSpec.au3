@@ -1,6 +1,6 @@
-#include <WinAPIShPath.au3>
 #include <Array.au3>
 #include <File.au3>
+#include <WinAPIShPath.au3>
 
 Local $FileList = _FileListToArray(@SystemDir, '*.dll', 1)
 Local $SortList[UBound($FileList) - 1]

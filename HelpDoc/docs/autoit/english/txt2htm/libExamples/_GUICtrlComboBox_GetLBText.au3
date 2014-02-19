@@ -10,7 +10,7 @@ Func Example()
 	; Create GUI
 	GUICreate("ComboBox Get LB Text", 400, 296)
 	$hCombo = GUICtrlCreateCombo("", 2, 2, 396, 296)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add files
 	_GUICtrlComboBox_BeginUpdate($hCombo)
@@ -21,7 +21,7 @@ Func Example()
 	_GUICtrlComboBox_GetLBText($hCombo, 2, $sText)
 	MsgBox($MB_SYSTEMMODAL, "Information", "LB Text: " & $sText)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

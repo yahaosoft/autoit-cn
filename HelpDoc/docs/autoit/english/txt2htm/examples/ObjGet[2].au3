@@ -1,12 +1,12 @@
 ; Example getting an Object using a file name
-; ; An Excel file with filename Worksheet.xls must be created in the root directory
-; of the C:\ drive in order for this example to work.
+; ; An Excel file with filename Worksheet.xls must be created in the scrpt directory
+; in order for this example to work.
 #include <MsgBoxConstants.au3>
 
 Example()
 
 Func Example()
-	Local $sFileName = "C:\Worksheet.xls"
+	Local $sFileName = @ScriptDir & "\Worksheet.xls"
 
 	If Not FileExists($sFileName) Then
 		MsgBox($MB_SYSTEMMODAL, "", "Excel File Test" & @CRLF & "Can't run this test, because you didn't create the Excel file " & $sFileName)

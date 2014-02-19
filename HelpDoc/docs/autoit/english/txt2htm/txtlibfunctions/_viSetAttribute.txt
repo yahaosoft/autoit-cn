@@ -2,24 +2,23 @@
 _viSetAttribute
 
 ###Description###
-Set any VISA attribute This function, which is called by _viSetTimeout, can ALSO be used to set the other VISA specific attributes. Read the VISA documentation for more information and a list of VISA attributes and their corresponding values.
+Set any VISA attribute This function, which is called by _viSetTimeout, can ALSO be used to set the other VISA specific attributes. Read the VISA documentation for more information and a list of VISA attributes and their corresponding values
 
 ###Syntax###
 #include <Visa.au3>
-_viSetAttribute ( $h_session, $i_attribute, $i_value )
+_viSetAttribute ( $hSession, $iAttribute, $iValue )
 
 
 ###Parameters###
 @@ParamTable@@
-$h_session
+$hSession
 	A VISA descriptor (STRING) OR a VISA session handle (INTEGER).
-	See the Remarks of the _viExecCommand for more info.
-$i_attribute
+	See the Remarks of the <a href="_viExecCommand.htm">_viExecCommand()</a> for more info.
+$iAttribute
 	The index of the attribute that must be changed.
 	Attributes are defined in the VISA library.
-	This AutoIt library only defines a CONSTANT for the TIMEOUT attribute ($VI_ATTR_TMO_VALUE) and for the Serial Interface attributes and
-	values (see the remarks) but you can pass any other valid index (as an integer) if you want to.
-$i_value
+	This AutoIt library only defines a CONSTANT for the TIMEOUT attribute ($VI_ATTR_TMO_VALUE) and for the Serial Interface attributes and values (see the remarks) but you can pass any other valid index (as an integer) if you want to.
+$iValue
 	The value of the attribute. It must be an integer and the possible values depend on the attribute type and are defined in the VISA documentation.
 @@End@@
 
@@ -72,11 +71,11 @@ This is a list of the currently pre-defined attributes and values. Remember that
 As for all the VISA functions the VISA libraries must be installed (you can check whether visa32.dll is in {WINDOWS}\system32).
 You onlly need a GPIB card (such as a National Instruments NI PCI-GPIB card or an Agilent 82350B PCI High-Performance GPIB card) if you use the GPIB related functions.
 
-* For a detailed description of the most common VISA DESCRIPTORS look at the Remarks of the help on the _viExecCommand function
+* For a detailed description of the most common VISA DESCRIPTORS look at the Remarks of the help on the <a href="_viExecCommand.htm">_viExecCommand()</a> function
 
 
 ###Related###
-_viSetTimeout, _viExecCommand, _viOpen, _viClose
+_viClose, _viExecCommand, _viOpen, _viSetTimeout
 
 
 ###Example###

@@ -21,6 +21,7 @@ Func Example()
 	; Display the child GUI.
 	GUISetState(@SW_SHOW)
 
+	; Loop until the user exits.
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE

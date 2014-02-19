@@ -1,9 +1,9 @@
-#include <WinAPIShellEx.au3>
 #include <APIShellExConstants.au3>
-#include <WinAPISys.au3>
 #include <GUIConstantsEx.au3>
-#include <StaticConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <StaticConstants.au3>
+#include <WinAPIShellEx.au3>
+#include <WinAPISys.au3>
 
 Global Const $STM_SETIMAGE = 0x0172
 
@@ -19,7 +19,7 @@ GUICtrlSetState(-1, $GUI_DISABLE)
 Local $Label = GUICtrlCreateLabel('', 70, 174, 60, 14, $SS_CENTER)
 Local $Prev = GUICtrlCreateButton('<', 32, 200, 60, 24)
 Local $Next = GUICtrlCreateButton('>', 108, 200, 60, 24)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 Local $tSHSTOCKICONINFO, $hIcon, $hOld, $Count = 0, $Update = True
 While 1

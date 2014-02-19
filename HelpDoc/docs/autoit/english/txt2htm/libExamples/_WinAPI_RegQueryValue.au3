@@ -1,7 +1,7 @@
-#include <WinAPIReg.au3>
 #include <APIRegConstants.au3>
-#include <WinAPIDiag.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPIDiag.au3>
+#include <WinAPIReg.au3>
 
 Local $hKey = _WinAPI_RegOpenKey($HKEY_LOCAL_MACHINE, 'SOFTWARE\AutoIt v3\AutoIt', $KEY_QUERY_VALUE)
 If @error Then

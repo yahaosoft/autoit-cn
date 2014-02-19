@@ -1,7 +1,7 @@
 #include <GUIConstantsEx.au3>
 #include <GuiTreeView.au3>
-#include <WindowsConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <WindowsConstants.au3>
 
 Example()
 
@@ -12,7 +12,7 @@ Func Example()
 	GUICreate("TreeView Set Drop Target", 400, 300)
 
 	$hTreeView = GUICtrlCreateTreeView(2, 2, 396, 268, $iStyle, $WS_EX_CLIENTEDGE)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	_GUICtrlTreeView_BeginUpdate($hTreeView)
 	For $x = 0 To UBound($hItem) - 1
@@ -25,7 +25,7 @@ Func Example()
 	_GUICtrlTreeView_SetDropTarget($hTreeView, $hItem[$hRandomItem])
 	MsgBox($MB_SYSTEMMODAL, "Information", StringFormat("Item %d Drop Target? %s", $hRandomItem, _GUICtrlTreeView_GetDropTarget($hTreeView, $hItem[$hRandomItem])))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

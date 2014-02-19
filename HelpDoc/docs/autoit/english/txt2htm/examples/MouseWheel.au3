@@ -1,1 +1,3 @@
-MouseWheel("up", 10) ; Move the mouse wheel up ten times.
+; Move the mouse wheel up ten times.
+
+MouseWheel("up", 10)

@@ -1,11 +1,11 @@
-#include <WinAPISys.au3>
-#include <APISysConstants.au3>
-#include <WinAPIGdi.au3>
 #include <APIGdiConstants.au3>
-#include <WindowsConstants.au3>
+#include <APISysConstants.au3>
 #include <GUIConstantsEx.au3>
-#include <ScreenCapture.au3>
 #include <MsgBoxConstants.au3>
+#include <ScreenCapture.au3>
+#include <WinAPIGdi.au3>
+#include <WinAPISys.au3>
+#include <WindowsConstants.au3>
 
 Global Const $STM_SETIMAGE = 0x0172
 Global Const $STM_GETIMAGE = 0x0173
@@ -24,7 +24,7 @@ Local $hPic = GUICtrlGetHandle(-1)
 Local $Check = GUICtrlCreateCheckbox('Protect against capture of window', 14, $Height + 23, 182, 21)
 Local $Button = GUICtrlCreateButton('Capture', $Widht + 29, 13, 74, 25)
 GUICtrlSetState(-1, BitOR($GUI_DEFBUTTON, $GUI_FOCUS))
-GUISetState()
+GUISetState(@SW_SHOW)
 
 While 1
 	Switch GUIGetMsg()

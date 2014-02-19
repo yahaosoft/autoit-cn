@@ -1,5 +1,5 @@
-#include <Timers.au3>
 #include <MsgBoxConstants.au3>
+#include <Timers.au3>
 
 ; Mouse/Keyboard action during this 10 sec delay will change reported idle time
 Sleep(10 * 1000); 10sec

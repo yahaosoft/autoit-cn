@@ -19,14 +19,14 @@ Func Example()
 	; Create memo control
 	$iMemo = GUICtrlCreateEdit("", 2, 2, 396, 274, $WS_VSCROLL)
 	GUICtrlSetFont($iMemo, 9, 400, 0, "Courier New")
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Get/Set simple format
 	MemoWrite("Simple mode on .: " & _GUICtrlStatusBar_IsSimple($hStatus))
 	_GUICtrlStatusBar_SetSimple($hStatus, True)
 	MemoWrite("Simple mode on .: " & _GUICtrlStatusBar_IsSimple($hStatus))
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

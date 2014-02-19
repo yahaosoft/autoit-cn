@@ -2,27 +2,27 @@
 _IEImgClick
 
 ###Description###
-Simulate a mouse click on an image.  Match by sub-string match of alt text, name, or src.
+Simulate a mouse click on an image.  Match by sub-string match of alt text, name, or src
 
 ###Syntax###
 #include <IE.au3>
-_IEImgClick ( ByRef $o_object, $s_linkText [, $s_mode = "src" [, $i_index = 0 [, $f_wait = 1]]] )
+_IEImgClick ( ByRef $oObject, $sLinkText [, $sMode = "src" [, $iIndex = 0 [, $fWait = 1]]] )
 
 
 ###Parameters###
 @@ParamTable@@
-$o_object
+$oObject
 	Object variable of an InternetExplorer.Application, Window or Frame object
-$s_linkText
-	Text to match the content of the attribute specified in $s_mode
-$s_mode
+$sLinkText
+	Text to match the content of the attribute specified in $sMode
+$sMode
 	[optional] specifies search mode
 		"src" = (Default) match the url of the image
 		"id" = match the id of the image (see remarks)
 		"alt" = match the alternate text of the image
-$i_index
+$iIndex
 	[optional] If the img text occurs more than once, specify which instance you want by 0-based index
-$f_wait
+$fWait
 	[optional] specifies whether to wait for page to load before returning
 		0 = Return immediately, not waiting for page to load
 		1 = (Default) Wait for page load to complete before returning
@@ -50,7 +50,7 @@ Failure:	0 or -1 and sets the @error flag to non-zero.
 
 
 ###Related###
-_IEImgGetCollection, _IEFormImageClick, _IELoadWait
+_IEFormImageClick, _IEImgGetCollection, _IELoadWait
 
 
 ###Example###

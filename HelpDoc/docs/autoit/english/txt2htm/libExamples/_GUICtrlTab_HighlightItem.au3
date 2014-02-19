@@ -9,7 +9,7 @@ Func Example()
 	; Create GUI
 	GUICreate("Tab Control Get Highlight Item", 400, 300)
 	$hTab = GUICtrlCreateTab(2, 2, 396, 296, $TCS_BUTTONS)
-	GUISetState()
+	GUISetState(@SW_SHOW)
 
 	; Add tabs
 	_GUICtrlTab_InsertItem($hTab, 0, "Tab 1")
@@ -19,7 +19,7 @@ Func Example()
 	; Highlight tab 2
 	_GUICtrlTab_HighlightItem($hTab, 1)
 
-	; Loop until user exits
+	; Loop until the user exits.
 	Do
 	Until GUIGetMsg() = $GUI_EVENT_CLOSE
 	GUIDelete()

@@ -1,7 +1,7 @@
-#include <WinAPIDlg.au3>
 #include <Array.au3>
 #include <ComboConstants.au3>
 #include <GUIConstantsEx.au3>
+#include <WinAPIDlg.au3>
 
 Local $hForm = GUICreate('Test ' & StringReplace(@ScriptName, '.au3', '()'), 200, 100)
 Local $Drive = DriveGetDrive('ALL')
@@ -10,7 +10,7 @@ GUICtrlCreateLabel('Select drive:', 15, 29, 62, 14)
 Local $Combo = GUICtrlCreateCombo('', 79, 25, 40, 21, $CBS_DROPDOWNLIST)
 GUICtrlSetData(-1, $Drive, StringLeft($Drive, 2))
 Local $Button = GUICtrlCreateButton('Format...', 65, 70, 70, 23)
-GUISetState()
+GUISetState(@SW_SHOW)
 
 While 1
 	Switch GUIGetMsg()

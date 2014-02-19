@@ -6,22 +6,22 @@ Loads an image (JPG, BMP, PNG, etc.) which is saved as a binary string and conve
 
 ###Syntax###
 #include <GDIPlus.au3>
-_GDIPlus_BitmapCreateFromMemory ( $bImage [, $hHBITMAP = False] )
+_GDIPlus_BitmapCreateFromMemory ( $dImage [, $bhHBITMAP = False] )
 
 
 ###Parameters###
 @@ParamTable@@
-$bImage
-	Handle to an instance of a module whose executable file contains a bitmap resource
-$hHBITMAP
-	[optional] The resource name string or identifier
+$dImage
+	The binary string which contains any valid image which is supported by GDI+
+$bhHBITMAP
+	[optional] If False a bitmap will be created, if True a hbitmap (GDI) will be created
 @@End@@
 
 ###ReturnValue###
 @@ReturnTable@@
 Success:	a handle to bitmap (GDI+ bitmap format) or hbitmap (WinAPI bitmap format).
 Failure:	0 and sets the @error flag to non-zero.
-@error:	1 - $bImage is not a binary string
+@error:	1 - $dImage is not a binary string
 	2 - unable to create stream on HGlobal
 	3 - unable to create bitmap from stream
 	4 - unable to allocate moveable memory block
@@ -29,8 +29,10 @@ Failure:	0 and sets the @error flag to non-zero.
 	6 - unable to unlock locked moveable memory block
 @@End@@
 
+
 ###Remarks###
-After you are done with the object, call _GDIPlus_ImageDispose() to release the object resources.
+After you are done with the object, call <a href="_GDIPlus_ImageDispose.htm">_GDIPlus_ImageDispose()</a> to release the object resources.
+
 
 ###Related###
 _GDIPlus_BitmapCreateFromStream, _GDIPlus_BitmapDispose

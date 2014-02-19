@@ -1,5 +1,5 @@
-#include <WinAPI.au3>
 #include <MsgBoxConstants.au3>
+#include <WinAPI.au3>
 
 Example()
 
@@ -7,7 +7,7 @@ Func Example()
 	Local $aDevice, $i = 0, $text
 	While 1
 		$aDevice = _WinAPI_EnumDisplayDevices("", $i)
-		If Not $aDevice[0] Then ExitLoop
+		If @error Or Not $aDevice[0] Then ExitLoop
 		$text = "Successful? " & $aDevice[0] & @CRLF
 		$text &= "Device (Adapter or Monitor): " & $aDevice[1] & @CRLF
 		$text &= "Description (Adapter or Monitor): " & $aDevice[2] & @CRLF

@@ -2,22 +2,22 @@
 _IEHeadInsertEventScript
 
 ###Description###
-Inserts a Javascript into the Head of the document.
+Inserts a Javascript into the Head of the document
 
 ###Syntax###
 #include <IE.au3>
-_IEHeadInsertEventScript ( ByRef $o_object, $s_htmlFor, $s_event, $s_script )
+_IEHeadInsertEventScript ( ByRef $oObject, $sHTMLFor, $sEvent, $sScript )
 
 
 ###Parameters###
 @@ParamTable@@
-$o_object
+$oObject
 	Object variable of an InternetExplorer.Application, Window or Frame object
-$s_htmlFor
+$sHTMLFor
 	The HTML element for event monitoring (e.g. "document", "window" or an element ID)
-$s_event
+$sEvent
 	The event to monitor (e.g. "onclick" or "oncontextmenu")
-$s_script
+$sScript
 	Javascript string to be executed
 @@End@@
 
@@ -32,14 +32,14 @@ Failure:	0 and sets the @error flag to non-zero.
 
 
 ###Remarks###
-Using ObjEvent, AutoIt is able to be notified of events via COM, but it manages them asynchronously (rather than synchronously as they are handled in the browser context).
+Using <a href="../functions/ObjEvent.htm">ObjEvent()</a>, AutoIt is able to be notified of events via COM, but it manages them asynchronously (rather than synchronously as they are handled in the browser context).
 This routine allows you to inject code that is managed inside the browser context.
 
-Note that elements that do not have an ID assigned can still be used by obtaining their "uniqueID" property with _IEPropertyGet()
+Note that elements that do not have an ID assigned can still be used by obtaining their "uniqueID" property with <a href="_IEPropertyGet.htm">_IEPropertyGet()</a>
 
 
 ###Related###
-_IEDocInsertHTML, _IEPropertyGet, _IEDocInsertText
+_IEDocInsertHTML, _IEDocInsertText, _IEPropertyGet
 
 
 ###Example###

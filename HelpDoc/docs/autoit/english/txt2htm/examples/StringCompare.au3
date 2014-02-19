@@ -1,5 +1,5 @@
-#include <StringConstants.au3>
 #include <MsgBoxConstants.au3>
+#include <StringConstants.au3>
 
 Local $Str1 = "Tiësto"
 Local $Str2 = "TIËSTO"

@@ -1,8 +1,8 @@
 #include <GUIConstantsEx.au3>
 #include <GuiEdit.au3>
-#include <WindowsConstants.au3>
 #include <GuiMenu.au3>
 #include <WinAPI.au3>
+#include <WindowsConstants.au3>
 
 Global $ContextMenu, $CommonMenuItem, $FileMenuItem, $ExitMenuItem
 Global $hGui, $cInput, $wProcOld
