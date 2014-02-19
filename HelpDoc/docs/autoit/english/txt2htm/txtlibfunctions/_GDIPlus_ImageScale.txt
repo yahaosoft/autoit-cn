@@ -1,0 +1,49 @@
+###User Defined Function###
+_GDIPlus_ImageScale
+
+###Description###
+Scales an image by a given factor
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_ImageScale ( $hImage, $iScaleW, $iScaleH [, $iInterpolationMode = $GDIP_INTERPOLATIONMODE_HIGHQUALITYBICUBIC] )
+
+
+###Parameters###
+@@ParamTable@@
+$hImage
+	A handle value
+$iScaleW
+	A floating point value
+$iScaleH
+	A floating point value
+$iInterpolationMode
+	[optional] An integer value. Default is $GDIP_INTERPOLATIONMODE_HIGHQUALITYBICUBIC.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	Returns a handle to a new Bitmap object
+Failure:	0 and sets the @error flag to non-zero.
+@error:	1 - unable to get width of image
+	2 - unable to get height of image
+	3 - unable to create new bitmap
+	4 - unable to create graphics context
+	5 - unable to set interpolation mode on graphics context
+	6 - unable to copy image to scaled  bitmap
+@@End@@
+
+
+###Remarks###
+Scale factor greater than 1 means enlarging the image whereas smaller than 1 means decrease the size.
+
+
+###Related###
+_GDIPlus_BitmapCreateFromScan0, _GDIPlus_GraphicsDrawImageRect, _GDIPlus_GraphicsSetInterpolationMode, _GDIPlus_ImageGetGraphicsContext
+
+
+###See Also###
+
+
+###Example###
+@@IncludeExample@@

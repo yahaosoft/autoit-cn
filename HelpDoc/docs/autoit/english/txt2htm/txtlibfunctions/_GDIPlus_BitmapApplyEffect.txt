@@ -1,0 +1,44 @@
+###User Defined Function###
+_GDIPlus_BitmapApplyEffect
+
+###Description###
+Alters a Bitmap by applying a specified effect
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_BitmapApplyEffect ( $hBitmap, $hEffect [, $tRECT = Null] )
+
+
+###Parameters###
+@@ParamTable@@
+$hBitmap
+	Handle to a Bitmap to which the effect is applied.
+$hEffect
+	Handle to an Effect to be applied.
+$tRECT
+	[optional] a $tagRECT structure that specifies the portion of the input bitmap to which the effect is applied.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True.
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@error:	-1 - GDIPlus.dll does not support this function.
+	10 - Invalid parameters.
+@@End@@
+
+
+###Remarks###
+Pass Null to the $tRECT parameter to specify that the effect applies to the entire input bitmap (Default).
+
+
+###Related###
+$tagRECT, _GDIPlus_BitmapApplyEffectEx, _GDIPlus_EffectCreate
+
+
+###See Also###
+@@MsdnLink@@ GdipBitmapApplyEffect
+
+
+###Example###
+@@IncludeExample@@

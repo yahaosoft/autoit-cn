@@ -1,11 +1,11 @@
 ;
 ; Runs all the B_ scripts to compile all AutoIt related exes
 
-#region Includes
+#Region Includes
 #include "include\CompileLib.au3"
-#endregion Includes
+#EndRegion Includes
 
-#region Global Variables
+#Region Global Variables
 ; The project name to display in build progress output.
 Global $g_sProject = "Build All Help files"
 
@@ -17,9 +17,9 @@ Global $g_aScripts[5] = [ _
 		"C_06_build_autoitx_help.au3", _
 		"C_07_build_examples_help.au3" _
 		]
-#endregion Global Variables
+#EndRegion Global Variables
 
-#region Main body of code
+#Region Main body of code
 Global $g_nExitCode = Batch_Main($g_sProject, $g_aScripts)
 Exit $g_nExitCode
-#endregion Main body of code
+#EndRegion Main body of code

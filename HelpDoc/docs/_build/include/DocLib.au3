@@ -5,31 +5,31 @@
 ; ===================================================================
 #include-once
 
-#region Members Exported
+#Region Members Exported
 #cs Exported Functions
 CompileDocumentation($sProject, $sWorkingDir = @WorkingDir) - Compiles documentation for the specified project.
 CleanUnreferenced($sInputDir, $sOutputDir, $nIgnoreMode = $IGNORE_MANAGEMENT) - Cleans unreferenced HTM files.
 #ce Exported Functions
-#endregion Members Exported
+#EndRegion Members Exported
 
-#region Includes
-#include "UtilityLib.au3"
+#Region Includes
 #include "OutputLib.au3"
+#include "UtilityLib.au3"
 #include <Array.au3>
 #include <File.au3>
-#endregion Includes
+#EndRegion Includes
 
-#region Global Variables
+#Region Global Variables
 Global Enum $IGNORE_MANAGEMENT, $IGNORE_UDFS, $IGNORE_BUILTIN
-#endregion Global Variables
+#EndRegion Global Variables
 
-#region Library Initialization
+#Region Library Initialization
 
-#endregion Library Initialization
+#EndRegion Library Initialization
 
-#region Public Members
+#Region Public Members
 
-#region CompileDocumentation()
+#Region CompileDocumentation()
 ; ===================================================================
 ; CompileDocumentation($sProject, $sWorkingDir = @WorkingDir)
 ;
@@ -64,9 +64,9 @@ Func CompileDocumentation($sProject, $sWorkingDir = @WorkingDir)
 	SetError(Not $nResult)
 	Return SetError(@error, @extended, $nResult)
 EndFunc   ;==>CompileDocumentation
-#endregion CompileDocumentation()
+#EndRegion CompileDocumentation()
 
-#region CleanUnreferenced()
+#Region CleanUnreferenced()
 ; ===================================================================
 ; CleanUnreferenced($sInputDir, $sOutputDir, $nIgnoreMode = $IGNORE_MANAGEMENT)
 ;
@@ -126,11 +126,11 @@ Func CleanUnreferenced($sInputDir, $sOutputDir, $nIgnoreMode = $IGNORE_MANAGEMEN
 	; Return the number of files cleaned.
 	Return $nCleaned
 EndFunc   ;==>CleanUnreferenced
-#endregion CleanUnreferenced()
+#EndRegion CleanUnreferenced()
 
-#endregion Public Members
+#EndRegion Public Members
 
-#region Private Members
+#Region Private Members
 
 
-#endregion Private Members
+#EndRegion Private Members

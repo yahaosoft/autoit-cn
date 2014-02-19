@@ -1,23 +1,23 @@
 ;
 ; Builds AutoIt3 Editor Syntax files
-#region Includes
-#include <FileConstants.au3>
+#Region Includes
 #include "include\CompileLib.au3"
-#endregion Includes
+#include <FileConstants.au3>
+#EndRegion Includes
 
-#region Global Variables
+#Region Global Variables
 ; The name of the project.
 Global Const $g_sProjectLang = "english"
 Global Const $g_sProject = "syntaxfiles"
 Global Const $g_sProjectDir = "docs\autoit\" & $g_sProjectLang & "\txt2htm"
-#endregion Global Variables
+#EndRegion Global Variables
 
-#region Main body of code
+#Region Main body of code
 Global $g_nExitCode = _Main()
 Exit $g_nExitCode
-#endregion Main body of code
+#EndRegion Main body of code
 
-#region _Main()
+#Region _Main()
 ; ===================================================================
 ; _Main()
 ;
@@ -47,24 +47,28 @@ Func _Main()
 
 	FileChangeDir($gBuildDir & '\' & $g_sProjectDir & '\' & $g_sProject & '\Crimson')
 	RunWait('"' & @AutoItExe & '" gen_syntax.au3')
-	FileMove("autoit3.key", $gBuildDir & "\install\Extras\Editors\Crimson\autoit3.key", $FC_OVERWRITE)
+	FileMove("autoit3.key", $gBuildDir & "\install\Extras\Editors\Crimson\autoit3.key", $FC_OVERWRITE + $FC_CREATEPATH)
 
 	FileChangeDir($gBuildDir & '\' & $g_sProjectDir & '\' & $g_sProject & '\Notepad++')
 	RunWait('"' & @AutoItExe & '" gen_syntax.au3')
-	FileMove("autoit.xml", $gBuildDir & "\install\Extras\Editors\Notepad++\autoit.xml", $FC_OVERWRITE)
+	FileMove("autoit.xml", $gBuildDir & "\install\Extras\Editors\Notepad++\autoit.xml", $FC_OVERWRITE + $FC_CREATEPATH)
 
 	FileChangeDir($gBuildDir & '\' & $g_sProjectDir & '\' & $g_sProject & '\PSPad')
 	RunWait('"' & @AutoItExe & '" gen_syntax.au3') ; Includes gen_def.au3
-	FileMove("AutoIt3.ini", $gBuildDir & "\install\Extras\Editors\PSPad\AutoIt3.ini", $FC_OVERWRITE)
-	FileMove("AutoIt3.def", $gBuildDir & "\install\Extras\Editors\PSPad\AutoIt3.def", $FC_OVERWRITE)
+	FileMove("AutoIt3.ini", $gBuildDir & "\install\Extras\Editors\PSPad\AutoIt3.ini", $FC_OVERWRITE + $FC_CREATEPATH)
+	FileMove("AutoIt3.def", $gBuildDir & "\install\Extras\Editors\PSPad\AutoIt3.def", $FC_OVERWRITE + $FC_CREATEPATH)
 
 	FileChangeDir($gBuildDir & '\' & $g_sProjectDir & '\' & $g_sProject & '\Sublime Text')
 	RunWait('"' & @AutoItExe & '" gen_syntax.au3')
-	FileMove("AutoIt.tmLanguage", $gBuildDir & "\install\Extras\Editors\Sublime Text\AutoIt.tmLanguage", $FC_OVERWRITE)
+	FileMove("AutoIt.tmLanguage", $gBuildDir & "\install\Extras\Editors\Sublime Text\AutoIt.tmLanguage", $FC_OVERWRITE + $FC_CREATEPATH)
 
 	FileChangeDir($gBuildDir & '\' & $g_sProjectDir & '\' & $g_sProject & '\Textpad')
 	RunWait('"' & @AutoItExe & '" gen_syntax.au3')
-	FileMove("autoit_v3.syn", $gBuildDir & "\install\Extras\Editors\TextPad\autoit_v3.syn", $FC_OVERWRITE)
+	FileMove("autoit_v3.syn", $gBuildDir & "\install\Extras\Editors\TextPad\autoit_v3.syn", $FC_OVERWRITE + $FC_CREATEPATH)
+
+	FileChangeDir($gBuildDir & '\' & $g_sProjectDir & '\' & $g_sProject & '\Geshi')
+	RunWait('"' & @AutoItExe & '" gen_syntax.au3')
+	FileMove("autoit.php", $gBuildDir & "\install\Extras\Geshi\autoit.php", $FC_OVERWRITE + $FC_CREATEPATH)
 
 	; Write closing message and wait for close (if applicable).
 	_OutputProgressWrite("Finished." & @CRLF & @CRLF) ; Two CRLF's in case of chained output.
@@ -72,4 +76,4 @@ Func _Main()
 
 	Return 0
 EndFunc   ;==>_Main
-#endregion _Main()
+#EndRegion _Main()

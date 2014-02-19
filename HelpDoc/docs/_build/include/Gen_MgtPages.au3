@@ -15,6 +15,7 @@
 
 #include "OutputLib.au3"
 #include <Array.au3>
+#include <Constants.au3>
 
 Opt("TrayIconDebug", 1)
 
@@ -49,7 +50,7 @@ If $ReGen_AutoIt Then
 
 	$RefType = "Function"
 	$RefTypeS = "Function"
-	$hIn = FileOpen("AutoIt3 TOC.hhc", 0) ;input mode
+	$hIn = FileOpen("AutoIt3 TOC.hhc") ; Input mode
 	GetFirstManagement()
 	genFiles()
 	FileClose($hIn)
@@ -63,7 +64,7 @@ If $ReGen_UDFs Then
 
 	$RefType = "User Defined Function"
 	$RefTypeS = "User Defined Functions"
-	$hIn = FileOpen("UDFs3 TOC.hhc", 0) ;input mode
+	$hIn = FileOpen("UDFs3 TOC.hhc") ; Input mode
 	GetFirstManagement()
 	genFiles()
 	FileClose($hIn)
@@ -76,7 +77,7 @@ If $ReGen_AutoItX Then
 
 	$RefType = "Method"
 	$RefTypeS = "Methods"
-	$hIn = FileOpen("AutoItX TOC.hhc", 0) ;input mode
+	$hIn = FileOpen("AutoItX TOC.hhc") ; Input mode
 	GetFirstManagement()
 	genFiles()
 	FileClose($hIn)
@@ -93,11 +94,11 @@ Func putHeader()
 	put('<html>')
 	put('<head>')
 	put('  <title>' & $RefType & "s" & '</title>')
-	put('  <meta charset="gb2312">')
+	put('  <meta charset="utf-8">')
 	If $ReGen_AutoItX Then
-		put('  <link href="..\..\css\default.css" rel="stylesheet" type="text/css">')
+		put('  <link href="../../css/default.css" rel="stylesheet">')
 	Else
-		put('  <link href="..\css\default.css" rel="stylesheet" type="text/css">')
+		put('  <link href="../css/default.css" rel="stylesheet">')
 	EndIf
 	put('</head>')
 	put('')
@@ -110,10 +111,10 @@ Func putHeader()
 	EndIf
 	put('Click on a ' & StringLower($RefType) & ' name for a detailed description.</p>')
 	If $RefType = "User Defined Function" Then
-		put('<p>When using them you need to add a <b>#include &lt;' & GetIncludeAU3($NAME) & '.au3&gt;</b>.</p>')
+		put('<p>When using them you need to add a <strong>#include &lt;' & GetIncludeAU3($NAME) & '.au3&gt;</strong>.</p>')
 	Else
 		If StringInStr($NAME, "GUI") = 1 Then
-			put('<p>See <a href="..\guiref\GUIConstants.htm">Gui Constants include files</a> if you need to use the related controls Constants .</p>')
+			put('<p>See <a href="../guiref/GUIConstants.htm">Gui Constants include files</a> if you need to use the related controls Constants .</p>')
 		EndIf
 	EndIf
 	put('<p>&nbsp;</p>')
@@ -142,7 +143,7 @@ EndFunc   ;==>GetIncludeAU3
 
 Func SetIncludeAU3()
 	Local $INPUT_DIR = IniRead($TXT2HTM_INI, "Input", "libfunctions", "ERR")
-	Local $hToc = FileOpen($INPUT_DIR & "Categories.toc", 0)
+	Local $hToc = FileOpen($INPUT_DIR & "Categories.toc") ; Input mode
 	Local $sLine, $aSplit, $sPrevMgt = ""
 	$aIncludeAU3[0][0] = 0
 
@@ -270,7 +271,7 @@ EndFunc   ;==>GetNextEntry
 
 Func genFiles()
 	Do
-		$hOut = FileOpen($OUTPUT_DIR & StringReplace($FTOC, "&amp;", "&"), 2)
+		$hOut = FileOpen($OUTPUT_DIR & StringReplace($FTOC, "&amp;", "&"), BitOR($FO_OVERWRITE, $FO_UTF8))
 		$NestedMgt += 1
 		$ahOut[$NestedMgt] = $hOut
 		$anPrevFuncname_0[$NestedMgt] = $aFuncname[0] + 1

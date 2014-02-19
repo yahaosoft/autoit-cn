@@ -1,0 +1,54 @@
+###User Defined Function###
+_GDIPlus_LineBrushCreateFromRectWithAngle
+
+###Description###
+Creates a LinearGradientBrush object from a rectangle, boundary colors and angle of direction
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_LineBrushCreateFromRectWithAngle ( $tRectF, $iARGBClr1, $iARGBClr2, $fAngle [, $bIsAngleScalable = True [, $iWrapMode = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$tRectF
+	$tagGDIPRECTF that specifies the starting and ending points of the gradient
+$iARGBClr1
+	Alpha, Red, Green and Blue components of the starting color of the line
+$iARGBClr2
+	Alpha, Red, Green and Blue components of the ending color of the line
+$fAngle
+	Depending the value of $fIsAngleScalable, this is the angle, in degrees (see remarks)
+$bIsAngleScalable
+	[optional] If True, the angle of the directional line is scalable. Not scalable otherwise
+$iWrapMode
+	[optional] Specifies how areas filled with the brush are tiled:
+		0 - Tiling without flipping
+		1 - Tiles are flipped horizontally as you move from one tile to the next in a row
+		2 - Tiles are flipped vertically as you move from one tile to the next in a column
+		3 - Tiles are flipped horizontally as you move along a row and flipped vertically as you move along a column
+		4 - No tiling takes place
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	a pointer to a new LinearGradientBrush object.
+Failure:	0 and sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@@End@@
+
+
+###Remarks###
+If $fIsAngleScalable is True, $iAngle specifies the base angle from which the angle of the directional line is calculated. Otherwise, $iAngle specifies the angle of the directional line. The angle is measured from the top of the rectangle and must be in degrees. The gradient follows the directional line.
+After you are done with the object, call <a href="_GDIPlus_BrushDispose.htm">_GDIPlus_BrushDispose()</a> to release the object resources.
+
+
+###Related###
+_GDIPlus_BrushDispose
+
+
+###See Also###
+@@MsdnLink@@ GdipCreateLineBrushFromRectWithAngle
+
+
+###Example###
+@@IncludeExample@@

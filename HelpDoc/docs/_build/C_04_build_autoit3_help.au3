@@ -2,25 +2,25 @@
 ; Builds AutoIt3 help file
 ;
 
-#region Includes
+#Region Includes
 #include "include\CompileLib.au3"
 #include "include\DocLib.au3"
 #include "include\MiscLib.au3"
-#endregion Includes
+#EndRegion Includes
 
-#region Global Variables
+#Region Global Variables
 ; The name of the project.
 Global Const $g_sProjectLang = "english"
 Global Const $g_sProject = "autoit3 help"
 Global Const $g_sProjectDir = "docs\autoit"
-#endregion Global Variables
+#EndRegion Global Variables
 
-#region Main body of code
+#Region Main body of code
 Global $g_nExitCode = _Main()
 Exit $g_nExitCode
-#endregion Main body of code
+#EndRegion Main body of code
 
-#region _Main()
+#Region _Main()
 ; ===================================================================
 ; _Main()
 ;
@@ -39,12 +39,16 @@ Func _Main()
 	; Set the build directory based on the rules and the INI file value.
 	Local $gBuildDir = _BuildDirSet()
 
+	; Get Setting to check if Rebuild all help files is required
+	Local $sRegenAll = ""
+	If _SettingGet($SETTING_REBUILDHELPFILES, False, True, Default, True) Then $sRegenAll = "/RegenAll"
+
 	; Delete files in the install dir that we are about to change
 	FileDelete('install\AutoIt3.chm')
 
 	; Update the helpfile
 	FileChangeDir($gBuildDir & "\" & $g_sProjectDir & "\" & $g_sProjectLang)
-	RunWait('"' & @AutoItExe & '" All_Gen_AutoIt3.au3')
+	RunWait('"' & @AutoItExe & '" All_Gen_AutoIt3.au3 ' & $sRegenAll)
 
 	; Holds the return value.
 	Local $nReturn = 0
@@ -61,7 +65,7 @@ Func _Main()
 	Else
 		; Copy the files install
 		FileChangeDir($gBuildDir)
-		FileMove($g_sProjectDir & "\" & $g_sProjectLang & "\AutoIt3.chm", "install\AutoItCHS.chm", $FC_OVERWRITE) ; Move AutoIt3.chm to the install folder as AutoIt.chm.
+		FileMove($g_sProjectDir & "\" & $g_sProjectLang & "\AutoIt3.chm", "install\AutoIt.chm", $FC_OVERWRITE) ; Move AutoIt3.chm to the install folder as AutoIt.chm.
 
 		; Delete all temp files ready for source code packaging
 		FileDelete($g_sProjectDir & "\" & $g_sProjectLang & "\Debug.log")
@@ -83,22 +87,27 @@ Func _Main()
 
 	Return $nReturn
 EndFunc   ;==>_Main
-#endregion _Main()
+#EndRegion _Main()
 
 ; Merge AutoIt3 and UDFs3 related files into one.
 Func MergeHelpFiles($sParent, $sChild)
+	; Append _Backup between the filename and extension e.g. myScript_Backup.au3.
 	Local $sParentBackup = StringRegExpReplace($sParent, '(\.\w+)', '_Backup\1') ; Backup the file.
 	If FileCopy($sParent, $sParentBackup, $FC_OVERWRITE) = 0 Then Return False
 
-	Local $aSRE = StringRegExp(FileRead($sChild), _
+	Local $sData = FileRead($sChild)
+	Local $aSRE = StringRegExp($sData, _
 			'(?s)<UL>.+</UL>', 3)
 	If @error = 0 Then
-		$aSRE[0] = StringReplace($aSRE[0], '\', '\\')
+		$sData = StringReplace($aSRE[0], '\', '\\')
+		; Add child file to the end of the parent.
 		Local $sAutoIt3TOC = StringRegExpReplace(FileRead($sParent), _
-				'(*BSR_ANYCRLF)(</UL>\R)(?=</BODY></HTML>)', '\1' & $aSRE[0] & @CRLF)
+				'(</UL>\R)(?=</BODY></HTML>)', '\1' & $sData & @CRLF)
 		_StripEmptyLines($sAutoIt3TOC)
 		_StripWhitespace($sAutoIt3TOC)
-		If FileDelete($sParent) Then FileWrite($sParent, $sAutoIt3TOC)
+		If FileDelete($sParent) Then
+			FileWrite($sParent, $sAutoIt3TOC)
+		EndIf
 		Local Const $hTimer = TimerInit()
 		Do
 			Sleep(20)
@@ -109,6 +118,6 @@ EndFunc   ;==>MergeHelpFiles
 
 ; Revert a backup file.
 Func UnMergeHelpFiles($sParentBackup)
-	Local $sParent = StringReplace($sParentBackup, '_Backup', '') ; Revert the backup the file.
+	Local $sParent = StringReplace($sParentBackup, '_Backup', '') ; Revert the backup of the file.
 	Return FileMove($sParentBackup, $sParent, $FC_OVERWRITE)
 EndFunc   ;==>UnMergeHelpFiles

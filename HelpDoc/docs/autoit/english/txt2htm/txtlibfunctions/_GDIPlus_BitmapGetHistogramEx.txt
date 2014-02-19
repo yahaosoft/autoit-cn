@@ -1,0 +1,47 @@
+###User Defined Function###
+_GDIPlus_BitmapGetHistogramEx
+
+###Description###
+Returns histograms for the Bitmap´s color channels: Red, Green, Blue, Alpha and Grey
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_BitmapGetHistogramEx ( $hBitmap )
+
+
+###Parameters###
+@@ParamTable@@
+$hBitmap
+	Handle to a Bitmap to which the effect is applied.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	an histogram structure:
+		Size     - UINT number of elements in each of the histogram arrays
+		Red      - UINT[Size] struct array of colorchannel RED histogram
+		MaxRed   - UINT maximum value of the RED histogram
+		Green    - UINT[Size] struct array of colorchannel GREEN histogram
+		MaxGreen - UINT maximum value of the RED histogram
+		Blue     - UINT[Size] struct array of colorchannel BLUE histogram
+		MaxBlue  - UINT maximum value of the RED histogram
+		Alpha    - UINT[Size] struct array of colorchannel ALPHA histogram
+		MaxAlpha - UINT maximum value of the RED histogram
+		Grey     - UINT[Size] struct array of colorchannel GREY histogram
+		MaxGrey  - UINT maximum value of the RED histogram
+Failure:	Sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@error:	-1 - GDIPlus.dll does not support this function.
+	10 - Invalid parameter.
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_GDIPlus_BitmapGetHistogram
+
+
+###Example###
+@@IncludeExample@@

@@ -2,23 +2,23 @@
 ; Builds AutoIt3 help file
 ;
 
-#region Includes
+#Region Includes
 #include "include\CompileLib.au3"
-#endregion Includes
+#EndRegion Includes
 
-#region Global Variables
+#Region Global Variables
 ; The name of the project.
 Global Const $g_sProjectLang = "english"
 Global Const $g_sProject = "AutoIt Example Help"
 Global Const $g_sProjectDir = "docs\autoit"
-#endregion Global Variables
+#EndRegion Global Variables
 
-#region Main body of code
+#Region Main body of code
 Global $g_nExitCode = _Main()
 Exit $g_nExitCode
-#endregion Main body of code
+#EndRegion Main body of code
 
-#region _Main()
+#Region _Main()
 ; ===================================================================
 ; _Main()
 ;
@@ -59,4 +59,4 @@ Func _Main()
 
 	Return 0
 EndFunc   ;==>_Main
-#endregion _Main()
+#EndRegion _Main()

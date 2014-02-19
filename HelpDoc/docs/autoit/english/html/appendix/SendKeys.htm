@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <title>Send Key list</title>
-  <meta charset="ISO-8859-1">
-  <link href="../css/default.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
   <style type="text/css">
 th.c2 {width:20%}
   td.c1 {width:20%}
@@ -11,44 +11,44 @@ th.c2 {width:20%}
 </head>
 <body>
   <h1>Send Key list</h1>
-  <p><br>
+  <p><br />
   Quick reference for the <strong><a href="../functions/Send.htm">Send( "keys" [, flag] )</a></strong> Command.&nbsp;&nbsp;&nbsp; <strong>^</strong> Ctrl &nbsp;&nbsp; <strong>!</strong> Alt &nbsp;&nbsp; <strong>+</strong> Shift &nbsp;&nbsp;
-  <strong>#</strong> Win<br></p>
+  <strong>#</strong> Win<br /></p>
   <p>AutoIt can send all ASCII and Extended ASCII characters (0-255), to send UNICODE characters you must use the "ASC" option and the code of the character you wish to Send(see {ASC} below).</p>
-  <p><br>
-  <br>
+  <p><br />
+  <br />
   To send the ASCII value A (same as pressing ALT+065 on the numeric keypad)</p>
-  <p class="codebox"><span><span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{ASC 065}</span><span class="S7">"</span><span class="S8">)</span><br></span></p>
+  <p class="codebox"><span><span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{ASC 065}</span><span class="S7">"</span><span class="S8">)</span><br /></span></p>
   <p>(When using 2 digit ASCII codes you must use a leading 0, otherwise an obsolete 437 code page is used).</p>
   <p>&nbsp;</p>
   <p>To send UNICODE characters enter the character code, for example this sends a Chinese character</p>
-  <p class="codebox"><span><span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{ASC 2709}</span><span class="S7">"</span><span class="S8">)</span><br></span></p>
+  <p class="codebox"><span><span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{ASC 2709}</span><span class="S7">"</span><span class="S8">)</span><br /></span></p>
   <p>Single keys can also be repeated, e.g.</p>
-  <p class="codebox"><span><span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{DEL 4}</span><span class="S7">"</span><span class="S8">)</span> <span class="S1">; Presses the DEL key 4 times</span><br>
-  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{S 30}</span><span class="S7">"</span><span class="S8">)</span> <span class="S1">; Sends 30 'S' characters</span><br>
-  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">+{TAB 4}</span><span class="S7">"</span><span class="S8">)</span> <span class="S1">; Presses Shift + Tab 4 times</span><br></span></p>
+  <p class="codebox"><span><span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{DEL 4}</span><span class="S7">"</span><span class="S8">)</span> <span class="S1">; Presses the DEL key 4 times</span><br />
+  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{S 30}</span><span class="S7">"</span><span class="S8">)</span> <span class="S1">; Sends 30 'S' characters</span><br />
+  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">+{TAB 4}</span><span class="S7">"</span><span class="S8">)</span> <span class="S1">; Presses Shift + Tab 4 times</span><br /></span></p>
   <p>&nbsp;</p>
   <p>To hold a key down</p>
-  <p class="codebox"><span><span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{a down}</span><span class="S7">"</span><span class="S8">)</span> <span class="S1">; Holds the A key down</span><br>
-  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{a up}</span><span class="S7">"</span><span class="S8">)</span> <span class="S1">; Releases the A key</span><br></span></p>
+  <p class="codebox"><span><span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{a down}</span><span class="S7">"</span><span class="S8">)</span> <span class="S1">; Holds the A key down</span><br />
+  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"</span><span class="S10">{a up}</span><span class="S7">"</span><span class="S8">)</span> <span class="S1">; Releases the A key</span><br /></span></p>
   <p>&nbsp;</p>
   <p>If you with to use a variable for the count, try</p>
-  <p class="codebox"><span><span class="S5">Local</span> <span class="S9">$iCount</span> <span class="S8">=</span> <span class="S3">4</span><br>
-  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"+{TAB "</span> <span class="S8">&amp;</span> <span class="S9">$iCount</span> <span class="S8">&amp;</span> <span class="S7">"}"</span><span class="S8">)</span><br></span></p>
+  <p class="codebox"><span><span class="S5">Local</span> <span class="S9">$iCount</span> <span class="S8">=</span> <span class="S3">4</span><br />
+  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"+{TAB "</span> <span class="S8">&amp;</span> <span class="S9">$iCount</span> <span class="S8">&amp;</span> <span class="S7">"}"</span><span class="S8">)</span><br /></span></p>
   <p>&nbsp;</p>
   <p>If you wish to send the ASCII value A four times, then try</p>
-  <p class="codebox"><span><span class="S5">Local</span> <span class="S9">$iChr</span> <span class="S8">=</span> <span class="S4">Chr</span><span class="S8">(</span><span class="S3">65</span><span class="S8">)</span><br>
-  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"{"</span> <span class="S8">&amp;</span> <span class="S9">$iChr</span> <span class="S8">&amp;</span> <span class="S7">" 4}"</span><span class="S8">)</span><br></span></p>
+  <p class="codebox"><span><span class="S5">Local</span> <span class="S9">$iChr</span> <span class="S8">=</span> <span class="S4">Chr</span><span class="S8">(</span><span class="S3">65</span><span class="S8">)</span><br />
+  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"{"</span> <span class="S8">&amp;</span> <span class="S9">$iChr</span> <span class="S8">&amp;</span> <span class="S7">" 4}"</span><span class="S8">)</span><br /></span></p>
   <p>&nbsp;</p>
-  <p>Most laptop computer keyboards have a special Fn key. This key cannot be simulated.<br>
-  <br>
-  Note, by setting the flag parameter to 1 the "keys" parameter is sent RAW. This is useful when you want to send some text copied from a variable and you want the text sent exactly as written.<br>
-  <br>
-  <br>
-  <strong>Send is quite useful because windows can be navigated without needing a mouse.</strong><br>
-  <br>
-  For example, open Folder Options (in the control panel) and try the following:<br>
-  <br></p>
+  <p>Most laptop computer keyboards have a special Fn key. This key cannot be simulated.<br />
+  <br />
+  Note, by setting the flag parameter to 1 the "keys" parameter is sent RAW. This is useful when you want to send some text copied from a variable and you want the text sent exactly as written.<br />
+  <br />
+  <br />
+  <strong>Send is quite useful because windows can be navigated without needing a mouse.</strong><br />
+  <br />
+  For example, open Folder Options (in the control panel) and try the following:<br />
+  <br /></p>
   <table>
     <tr>
       <td class="c1">Send("{TAB}")</td>
@@ -82,14 +82,14 @@ th.c2 {width:20%}
       <td>Send("{NumPadMult}")</td>
       <td>Recursively expands folders in a SysTreeView32.</td>
     </tr>
-  </table><br>
-  <br>
-  Use Alt-key combos to access menu items. Also, open Notepad and try the following:<br>
-  <br>
+  </table><br />
+  <br />
+  Use Alt-key combos to access menu items. Also, open Notepad and try the following:<br />
+  <br />
   <table>
     <tr>
       <td class="c1">Send("!f")</td>
-      <td>Send Alt+f, the access key for Notepad's file menu. <em>Try other letters!</em><br></td>
+      <td>Send Alt+f, the access key for Notepad's file menu. <em>Try other letters!</em><br /></td>
     </tr>
     <tr>
       <td>Send("{DOWN}")</td>
@@ -107,11 +107,12 @@ th.c2 {width:20%}
       <td>Send("{RIGHT}")</td>
       <td>Move rightward to new menu or collapse a submenu.</td>
     </tr>
-  </table><br>
-  <br>
-  See Windows' Help--press <em>Win+F1</em>--for a complete list of keyboard shortcuts if you don't know the importance of Alt+F4, PrintScreen, Ctrl+C, and so on.<br>
-  <br>
-  <br>
+  </table><br />
+  <br />
+  See Windows' Help--press <em>Win+F1</em>--for a complete list of keyboard shortcuts if you don't know the importance of Alt+F4, PrintScreen, Ctrl+C, and so on.<br />
+  <br />
+  <br />
+  <a id="KeysList"></a>
   <table>
     <tr>
       <th class="c2">Send Command (if zero flag)</th>

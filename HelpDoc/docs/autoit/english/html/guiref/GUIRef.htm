@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <title>GUI Reference</title>
-  <meta charset="ISO-8859-1">
-  <link href="../css/default.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
   <style type="text/css">
 span.c1 {text-decoration: underline}
   </style>
@@ -204,7 +204,7 @@ span.c1 {text-decoration: underline}
       </td>
       <td>A dummy user control.</td>
     </tr>
-  </table><br>
+  </table><br />
   <p>Here is an example of a single window GUI that contains many of the controls available. As you can see it is possible to create very detailed GUIs!</p>
   <p><img src="../images/SampleGuiScreenshot.png" alt=""></p>
   <p>&nbsp;</p>
@@ -255,22 +255,22 @@ span.c1 {text-decoration: underline}
   <p>You will need to #include &lt;GUIConstantsEx.au3&gt; for basic GUI related constants. There are <a href="GUIConstants.htm">other files</a> containing constants related to the various controls you can create on the GUI.</p>
   <p>&nbsp;</p>
   <p>First let's create a window, call it "Hello World" and make it 200 by 100 pixels in size. When a new window is created it is hidden - so we must "show" it.</p>
-  <p class="codebox"><span><span class="S11">#include</span> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
-  <br>
-  <span class="S4">GUICreate</span><span class="S8">(</span><span class="S7">"Hello World"</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
-  <span class="S4">GUISetState</span><span class="S8">(</span><span class="S6">@SW_SHOW</span><span class="S8">)</span><br>
-  <span class="S4">Sleep</span><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br></span></p>
+  <p class="codebox"><span><span class="S11">#include</span> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br />
+  <br />
+  <span class="S4">GUICreate</span><span class="S8">(</span><span class="S7">"Hello World"</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br />
+  <span class="S4">GUISetState</span><span class="S8">(</span><span class="S6">@SW_SHOW</span><span class="S8">)</span><br />
+  <span class="S4">Sleep</span><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br /></span></p>
   <p>&nbsp;</p>
   <p>If your run the above script you will see a window open and close after 2 seconds. Not very interesting...let's add some text and an OK button. The text will be added at position 30, 10 and the button at 70, 50 and the button will be 60 pixels
   wide.</p>
-  <p class="codebox"><span><span class="S11">#include</span> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
-  <br>
-  <span class="S4">GUICreate</span><span class="S8">(</span><span class="S7">"Hello World"</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
-  <span class="S4">GUICtrlCreateLabel</span><span class="S8">(</span><span class="S7">"Hello world! How are you?"</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
+  <p class="codebox"><span><span class="S11">#include</span> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br />
+  <br />
+  <span class="S4">GUICreate</span><span class="S8">(</span><span class="S7">"Hello World"</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br />
+  <span class="S4">GUICtrlCreateLabel</span><span class="S8">(</span><span class="S7">"Hello world! How are you?"</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br />
   <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"OK"</span><span class="S8">,</span> <span class="S3">70</span><span class="S8">,</span> <span class="S3">50</span><span class="S8">,</span> <span class=
-  "S3">60</span><span class="S8">)</span><br>
-  <span class="S4">GUISetState</span><span class="S8">(</span><span class="S6">@SW_SHOW</span><span class="S8">)</span><br>
-  <span class="S4">Sleep</span><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br></span></p>
+  "S3">60</span><span class="S8">)</span><br />
+  <span class="S4">GUISetState</span><span class="S8">(</span><span class="S6">@SW_SHOW</span><span class="S8">)</span><br />
+  <span class="S4">Sleep</span><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br /></span></p>
   <p>&nbsp;</p>
   <p>That's pretty good, but how do we make the GUI react to us clicking the button? Well, this is where we must make a decision as to how we will process events - via a <strong>MessageLoop</strong> <span class="c1">or</span> via <strong>OnEvent</strong>
   functions.</p>

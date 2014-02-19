@@ -2,24 +2,24 @@
 ; Builds AutoItX Help file and copies example scripts to installer
 ;
 
-#region Includes
+#Region Includes
 #include "include\CompileLib.au3"
 #include "include\DocLib.au3"
-#endregion Includes
+#EndRegion Includes
 
-#region Global Variables
+#Region Global Variables
 ; The name of the project.
 Global Const $g_sProjectLang = "english"
 Global Const $g_sProject = "autoitx-docs"
 Global Const $g_sProjectDir = "docs\autoitx"
-#endregion Global Variables
+#EndRegion Global Variables
 
-#region Main body of code
+#Region Main body of code
 Global $g_nExitCode = _Main()
 Exit $g_nExitCode
-#endregion Main body of code
+#EndRegion Main body of code
 
-#region _Main()
+#Region _Main()
 ; ===================================================================
 ; _Main()
 ;
@@ -41,9 +41,13 @@ Func _Main()
 	; Delete files in the install dir that we are about to change
 	FileDelete('install\AutoItX\AutoItX.chm')
 
+	; Get Setting to check if Rebuild all help files is required
+	Local $sRegenAll = ""
+	If _SettingGet($SETTING_REBUILDHELPFILES, False, True, Default, True) Then $sRegenAll = "/RegenAll"
+
 	; Update the helpfile
 	FileChangeDir($gBuildDir & "\" & $g_sProjectDir & "\" & $g_sProjectLang)
-	RunWait('"' & @AutoItExe & '" All_Generate_Helpfile.au3')
+	RunWait('"' & @AutoItExe & '" All_Generate_Helpfile.au3 ' & $sRegenAll)
 
 	Local $nReturn = 0
 	; Create the helpfile.
@@ -70,4 +74,4 @@ Func _Main()
 
 	Return $nReturn
 EndFunc   ;==>_Main
-#endregion _Main()
+#EndRegion _Main()

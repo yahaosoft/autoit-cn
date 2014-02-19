@@ -1,0 +1,39 @@
+###User Defined Function###
+_GDIPlus_EffectCreateSharpen
+
+###Description###
+Creates a Sharpen class effect object
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_EffectCreateSharpen ( [$fRadius = 10.0 [, $fAmount = 50.0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$fRadius
+	[optional] Real number that specifies the sharpening radius (the radius of the convolution kernel) in pixels.
+	The radius must be in the range 0.0 through 255.0
+$fAmount
+	[optional] Real number in the range 0.0 through 100.0 that specifies the amount of sharpening to be applied
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	a handle to an Effect object.
+Failure:	0 and sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@error:	-1 - GDIPlus.dll does not support this function.
+	10 - Invalid parameters.
+@@End@@
+
+
+###Remarks###
+When you are done with the Effect object, call <a href="_GDIPlus_EffectDispose.htm">_GDIPlus_EffectDispose()</a> to release the resources.
+
+
+###Related###
+_GDIPlus_EffectCreate, _GDIPlus_EffectDispose
+
+
+###Example###
+@@IncludeExample@@

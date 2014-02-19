@@ -1,0 +1,44 @@
+###User Defined Function###
+_GDIPlus_PenSetMiterLimit
+
+###Description###
+Sets the miter limit of a Pen object
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_PenSetMiterLimit ( $hPen, $fMiterLimit )
+
+
+###Parameters###
+@@ParamTable@@
+$hPen
+	Pointer to a Pen object
+$fMiterLimit
+	Real number that specifies the miter limit of the Pen object.
+	A real number value that is less than 1.0 will be replaced with 1.0.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True.
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@@End@@
+
+
+###Remarks###
+The miter length is the distance from the intersection of the line walls on the inside of the join to the intersection of the line walls outside of the join.
+The miter length can be large when the angle between two lines is small.
+The miter limit is the maximum allowed ratio of miter length to stroke width. The default value is 10.0.
+If the miter length of the join of the intersection exceeds the limit of the join, then the join will be beveled to keep it within the limit of the join of the intersection.
+
+
+###Related###
+_GDIPlus_PenGetMiterLimit
+
+
+###See Also###
+@@MsdnLink@@ GdipSetPenMiterLimit
+
+
+###Example###
+@@IncludeExample@@

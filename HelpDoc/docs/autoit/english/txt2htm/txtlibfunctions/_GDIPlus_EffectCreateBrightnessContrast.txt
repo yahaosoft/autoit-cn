@@ -1,0 +1,38 @@
+###User Defined Function###
+_GDIPlus_EffectCreateBrightnessContrast
+
+###Description###
+Creates a BrightnessContrast class effect object
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_EffectCreateBrightnessContrast ( [$iBrightnessLevel = 0 [, $iContrastLevel = 0]] )
+
+
+###Parameters###
+@@ParamTable@@
+$iBrightnessLevel
+	[optional] Integer in the range -255 through 255 that specifies the brightness level.
+$iContrastLevel
+	[optional] Integer in the range -100 through 100 that specifies the contrast level.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	a handle to an Effect object.
+Failure:	0 and sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@error:	-1 - GDIPlus.dll does not support this function.
+	10 - Invalid parameters.
+@@End@@
+
+
+###Remarks###
+When you are done with the Effect object, call <a href="_GDIPlus_EffectDispose.htm">_GDIPlus_EffectDispose()</a> to release the resources.
+
+
+###Related###
+_GDIPlus_EffectCreate, _GDIPlus_EffectDispose
+
+
+###Example###
+@@IncludeExample@@

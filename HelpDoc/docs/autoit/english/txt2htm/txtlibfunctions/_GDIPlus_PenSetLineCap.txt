@@ -1,0 +1,69 @@
+###User Defined Function###
+_GDIPlus_PenSetLineCap
+
+###Description###
+Sets the cap styles for the start, end, and dashes in a line drawn with the pen
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_PenSetLineCap ( $hPen, $iStartCap, $iEndCap, $iDashCap )
+
+
+###Parameters###
+@@ParamTable@@
+$hPen
+	Pointer to a Pen object
+$iStartCap
+	Line cap style for the start cap:
+		0x00 - Line ends at the last point. The end is squared off
+		0x01 - Square cap. The center of the square is the last point in the line.
+			The height and width of the square are the line width.
+		0x02 - Circular cap. The center of the circle is the last point in the line.
+			The diameter of the circle is the line width.
+		0x03 - Triangular cap.
+			The base of the triangle is the last point in the line.
+			The base of the triangle is the line width.
+		0x10 - Line ends are not anchored.
+		0x11 - Line ends are anchored with a square.
+			The center of the square is the last point in the line.
+			The height and width of the square are the line width.
+		0x12 - Line ends are anchored with a circle.
+			The center of the circle is at the last point in the line.
+			The circle is wider than the line.
+		0x13 - Line ends are anchored with a diamond (a square turned at 45 degrees).
+			The center of the diamond is at the last point in the line.
+			The diamond is wider than the line.
+		0x14 - Line ends are anchored with arrowheads.
+			The arrowhead point is located at the last point in the line.
+			The arrowhead is wider than the line.
+		0xff - Line ends are made from a CustomLineCap object
+$iEndCap
+	Line cap style for the end cap (same values as $iStartCap)
+$iDashCap
+	Start and end caps for a dashed line:
+		0 - A square cap that squares off both ends of each dash
+		2 - A circular cap that rounds off both ends of each dash
+		3 - A triangular cap that points both ends of each dash
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True.
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_GDIPlus_PenSetDashCap, _GDIPlus_PenSetEndCap, _GDIPlus_PenSetStartCap
+
+
+###See Also###
+@@MsdnLink@@ GdipSetPenLineCap197819
+
+
+###Example###
+None.

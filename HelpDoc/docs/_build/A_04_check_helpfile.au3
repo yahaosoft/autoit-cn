@@ -1,19 +1,19 @@
 ;
 ; Checks the documentation for various errors
 
-#region Includes
+#Region Includes
 #include "include\compilelib.au3"
-#endregion Includes
+#EndRegion Includes
 
-#region Global Variables
-#endregion Global Variables
+#Region Global Variables
+#EndRegion Global Variables
 
-#region Main body of code
+#Region Main body of code
 Global $g_nExitCode = Main()
 Exit $g_nExitCode
-#endregion Main body of code
+#EndRegion Main body of code
 
-#region Main()
+#Region Main()
 ; ===================================================================
 ; Main()
 ;
@@ -35,7 +35,7 @@ Func Main()
 	Local Const $sPath = @ScriptDir & "\include\Help Check"
 
 	; The path to the Help Check script.
-	Local Const $sScript = $sPath & "\Hilfe Checken.au3"
+	Local Const $sScript = $sPath & "\Help File Check.au3"
 
 	; Build the full command to execute.
 	Local Const $sCmd = '"' & @AutoItExe & '" /AutoIt3ExecuteScript "' & $sScript & '"'
@@ -57,4 +57,4 @@ Func Main()
 	; Return the value.
 	Return $nReturn
 EndFunc   ;==>Main
-#endregion Main()
+#EndRegion Main()

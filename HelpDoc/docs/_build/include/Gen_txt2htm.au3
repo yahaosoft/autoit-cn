@@ -1,5 +1,5 @@
 ;  AutoIt:  3.0.91 with "smart boolean comparison" and FileChangeDir
-;Platform:  Tested on "American" Windows XP sp1
+; Platform:  Tested on "American" Windows XP sp1
 ;  Author:  CyberSlug - philipgump@yahoo.com
 ;    Date:  31 Jan 2004
 ; Updated:  02 Feb 2004 jpm
@@ -84,7 +84,7 @@
 Opt("TrayIconDebug", 1)
 
 OnAutoItExitRegister("OnQuit") ; ### Debug Console
-_OutputWindowCreate() ;### Debug Console
+_OutputWindowCreate() ; ### Debug Console
 
 Global $ReGen_All = StringInStr($CmdLineRaw, "/RegenAll") > 0
 Global $ReGen_AutoIt = StringInStr($CmdLineRaw, "/AutoIt") > 0
@@ -111,19 +111,24 @@ Global $CROSS_DIR = "", _
 		$EXAMPLE_EXT = ""
 
 Global $g_aArrayInput = 0 ; Array containing each line of the txt-file to convert
-Global $g_sFileName = "" ; Name of the file being converted
-
-If Not $ReGen_AutoItX Then SciTECreate()
+Global $g_sFilePath = "" ; Name of the file being converted
 
 ; Clear previous log
 FileDelete(@WorkingDir & "\txt2htm_error.log")
 
 _OutputBuildWrite("txt2htm Conversion" & @CRLF)
 
+Global $RefType_Main = ""
+
+; TestingOnly()
+; OnAutoItExitUnRegister("OnQuit") ; ### Debug Console
+; Exit
+
 Global $EXAMPLE_DIRO = IniRead($TXT2HTM_INI, "Output", "Examples", "ERR")
 DirCreate($EXAMPLE_DIRO)
 
-Global $RefType_Main = ""
+If Not $ReGen_AutoItX Then SciTECreate()
+
 If $ReGen_AutoIt Then
 	$RefType_Main = "Function"
 	$EXAMPLE_EXT = ".au3"
@@ -134,12 +139,12 @@ If $ReGen_AutoIt Then
 	If Not FileExists($OUTPUT_DIR) Then DirCreate($OUTPUT_DIR)
 	$EXAMPLE_DIR = @WorkingDir & "\" & IniRead($TXT2HTM_INI, "Input", "Examples", "ERR")
 	_OutputBuildWrite("Scanning Functions..." & @CRLF)
-	Rebuild()
+	ReBuild()
 	$INPUT_DIR = IniRead($TXT2HTM_INI, "Input", "keywords", "ERR")
 	$OUTPUT_DIR = IniRead($TXT2HTM_INI, "Output", "keywords", "ERR")
 	If Not FileExists($OUTPUT_DIR) Then DirCreate($OUTPUT_DIR)
 	_OutputBuildWrite("Scanning Keywords..." & @CRLF)
-	Rebuild()
+	ReBuild()
 EndIf
 
 If $ReGen_UDFs Then
@@ -152,7 +157,7 @@ If $ReGen_UDFs Then
 	If Not FileExists($OUTPUT_DIR) Then DirCreate($OUTPUT_DIR)
 	$EXAMPLE_DIR = @WorkingDir & "\" & IniRead($TXT2HTM_INI, "Input", "LibExamples", "ERR")
 	_OutputBuildWrite("Scanning UDF's..." & @CRLF)
-	Rebuild()
+	ReBuild()
 EndIf
 
 If $ReGen_AutoItX Then
@@ -163,7 +168,7 @@ If $ReGen_AutoItX Then
 	If Not FileExists($OUTPUT_DIR) Then DirCreate($OUTPUT_DIR)
 	$EXAMPLE_DIR = @WorkingDir & "\" & IniRead($TXT2HTM_INI, "Input", "Examples", "ERR")
 	_OutputBuildWrite("Scanning Methods..." & @CRLF)
-	Rebuild()
+	ReBuild()
 EndIf
 Exit
 
@@ -219,7 +224,7 @@ Func SciTECreate() ; Fixed by guinness - 27/08/2013
 	WinSetState(_SciTE_WinGetSciTE(), "", @SW_MINIMIZE)
 EndFunc   ;==>SciTECreate
 
-Func Rebuild()
+Func ReBuild()
 	; Pipe the list of sorted file names to fileList.tmp:
 	_RunCmd("dir " & $INPUT_DIR & "*.txt /b | SORT > " & $TEMP_LIST)
 	Local $hFileList = FileOpen($TEMP_LIST)
@@ -227,65 +232,64 @@ Func Rebuild()
 		Exit MsgBox($MB_SYSTEMMODAL, "Error", $TEMP_LIST & " could not be opened and/or found.")
 	EndIf
 
-	Local $fReBuild = False, _
-			$hFindFilePath = 0, $hFileOpen = 0, _
-			$sFileNameOnly = "", $sFilePath = "", $sFindFilePath = "", $sHTMLFile = ""
+	Local $sFilePath = ""
 	While 1 ; Loop through each filename contained in fileList.tmp
-		$g_sFileName = FileReadLine($hFileList)
+		$g_sFilePath = FileReadLine($hFileList)
 		If @error = -1 Then ExitLoop ; EOF reached
 
-		$sFilePath = $INPUT_DIR & $g_sFileName
-		; If $g_sFileName = "CVS" Then ContinueLoop ; Skip CVS
-		; If $g_sFileName = "Changelog.txt" Then ContinueLoop ; Skip ChangeLog.txt
-		If StringStripWS($sFilePath, $STR_STRIPLEADING + $STR_STRIPTRAILING) = "" Then ExitLoop
+		$sFilePath = $INPUT_DIR & $g_sFilePath
+		If StringStripWS($sFilePath, $STR_STRIPALL) = "" Then ExitLoop
 
-		If Not FileExists($sFilePath) Then
-			_OutputBuildWrite($sFilePath & " Was not found; skipping it." & @CRLF)
-			FileWriteLine(@WorkingDir & "\txt2htm_error.log", $sFilePath & " Was not found; skipping it.")
-			ContinueLoop
-		EndIf
-		If Not _FileReadToArrayEx($sFilePath, $g_aArrayInput) Then
-			_OutputBuildWrite($sFilePath & " was not found; skipping it." & @CRLF)
-			FileWriteLine(@WorkingDir & "\txt2htm_error.log", $sFilePath & " was not found; skipping it.")
-			ContinueLoop
-		EndIf
-
-		If Not $ReGen_All Then
-			$fReBuild = False
-			$sFileNameOnly = StringTrimRight($g_sFileName, StringLen($EXAMPLE_EXT))
-			$sHTMLFile = $OUTPUT_DIR & $sFileNameOnly & ".htm"
-			If FileExists($EXAMPLE_DIR & $sFileNameOnly & "[2]" & $EXAMPLE_EXT) Then
-				; Multiple files exist
-				$hFindFilePath = FileFindFirstFile($EXAMPLE_DIR & $sFileNameOnly & "[*]" & $EXAMPLE_EXT)
-				While 1
-					$sFindFilePath = FileFindNextFile($hFindFilePath)
-					If @error Then ExitLoop
-					If Not IsGreaterFileTime($EXAMPLE_DIR & $sFindFilePath, $sHTMLFile) Then $fReBuild = True
-				WEnd
-
-				FileClose($hFindFilePath)
-			EndIf
-
-			If Not $fReBuild And IsGreaterFileTime($INPUT_DIR & $g_sFileName, $sHTMLFile) Then
-				If FileExists($EXAMPLE_DIR & $sFileNameOnly & $EXAMPLE_EXT) Then
-					If IsGreaterFileTime($EXAMPLE_DIR & $sFileNameOnly & $EXAMPLE_EXT, $sHTMLFile) Then ContinueLoop
-				Else
-					ContinueLoop
-				EndIf
-			EndIf
-		EndIf
-
-		Convert($sFilePath, $sHTMLFile)
+		ConvertTextToHTML($sFilePath)
 	WEnd
 
 	FileClose($hFileList)
-EndFunc   ;==>Rebuild
+EndFunc   ;==>ReBuild
 
 ;------------------------------------------------------------------------------
 ; The main conversion function
 ;------------------------------------------------------------------------------
-Func Convert($sFilePath, $sHTMLFile)
-	Local $hFileOpen = FileOpen($sHTMLFile, $FO_OVERWRITE)
+Func ConvertTextToHTML($sFilePath)
+	If Not FileExists($sFilePath) Then
+		_OutputBuildWrite($sFilePath & " was not found; skipping it." & @CRLF)
+		FileWriteLine(@WorkingDir & "\txt2htm_error.log", $sFilePath & " was not found; skipping it.")
+		Return 0
+	EndIf
+	If Not _FileReadToArrayEx($sFilePath, $g_aArrayInput) Then
+		_OutputBuildWrite($sFilePath & " was not found; skipping it." & @CRLF)
+		FileWriteLine(@WorkingDir & "\txt2htm_error.log", $sFilePath & " was not found; skipping it.")
+		Return 0
+	EndIf
+
+	Local $sFileName = _GetFileName($sFilePath)
+	Local $sHTMLFile = $OUTPUT_DIR & $sFileName & ".htm"
+
+	Local $fReBuild = False, _
+			$hFindFilePath = 0, _
+			$sFindFilePath = ""
+	If Not $ReGen_All Then
+		If FileExists($EXAMPLE_DIR & $sFileName & "[2]" & $EXAMPLE_EXT) Then
+			; Multiple files exist
+			$hFindFilePath = FileFindFirstFile($EXAMPLE_DIR & $sFileName & "[*]" & $EXAMPLE_EXT)
+			While 1
+				$sFindFilePath = FileFindNextFile($hFindFilePath)
+				If @error Then ExitLoop
+				If Not IsGreaterFileTime($EXAMPLE_DIR & $sFindFilePath, $sHTMLFile) Then $fReBuild = True
+			WEnd
+
+			FileClose($hFindFilePath)
+		EndIf
+
+		If Not $fReBuild And IsGreaterFileTime($sFilePath, $sHTMLFile) Then
+			If FileExists($EXAMPLE_DIR & $sFileName & $EXAMPLE_EXT) Then
+				If IsGreaterFileTime($EXAMPLE_DIR & $sFileName & $EXAMPLE_EXT, $sHTMLFile) Then Return 0
+			Else
+				Return 0
+			EndIf
+		EndIf
+	EndIf
+
+	Local $hFileOpen = FileOpen($sHTMLFile, BitOR($FO_OVERWRITE, $FO_UTF8))
 	Local $sRefType = StringStripWS(get(""), $STR_STRIPLEADING + $STR_STRIPTRAILING)
 
 	If $sRefType <> "###" & $RefType_Main & "###" And $sRefType <> "###Keyword###" And $sRefType <> "###User Defined Function###" And $sRefType <> "###Structure Name###" And $sRefType <> "###Operator###" And $sRefType <> "###Macro###" Then
@@ -298,109 +302,104 @@ Func Convert($sFilePath, $sHTMLFile)
 		_OutputBuildWrite($sFilePath & @CRLF)
 	EndIf
 
-	Local $sFunctionOrKeyword = StringReplace(get($sRefType), '<br>', '') ; Name of the function or keyword
+	Local $sFunctionOrKeyword = StringReplace(get($sRefType), '<br />', '') ; Name of the function or keyword
 
-	put($hFileOpen, '<!DOCTYPE html>')
-	put($hFileOpen, '<html>')
-	put($hFileOpen, '<head>')
+	FileWrite($hFileOpen, '<!DOCTYPE html>' & @CRLF)
+	FileWrite($hFileOpen, '<html>' & @CRLF)
+	FileWrite($hFileOpen, '<head>' & @CRLF)
 	If StringInStr($sRefType, $RefType_Main) > 0 Then
-		put($hFileOpen, '  <title>' & $RefType_Main & ' ' & $sFunctionOrKeyword & '</title>')
+		FileWrite($hFileOpen, '  <title>' & $RefType_Main & ' ' & $sFunctionOrKeyword & '</title>' & @CRLF)
 	ElseIf StringInStr($sRefType, "Operator") Then
-		put($hFileOpen, '  <title>Operator ' & $sFunctionOrKeyword & '</title>')
+		FileWrite($hFileOpen, '  <title>Operator ' & $sFunctionOrKeyword & '</title>' & @CRLF)
 	Else
-		put($hFileOpen, '  <title>Keyword ' & $sFunctionOrKeyword & '</title>')
+		FileWrite($hFileOpen, '  <title>Keyword ' & $sFunctionOrKeyword & '</title>' & @CRLF)
 	EndIf
-	put($hFileOpen, '  <meta charset="gb2312">')
+	FileWrite($hFileOpen, '  <meta charset="utf-8">' & @CRLF)
 	If $ReGen_AutoItX Then
-		put($hFileOpen, '  <link href="../../css/default.css" rel="stylesheet" type="text/css">')
+		FileWrite($hFileOpen, '  <link href="../../css/default.css" rel="stylesheet">' & @CRLF)
 	Else
-		put($hFileOpen, '  <link href="../css/default.css" rel="stylesheet" type="text/css">')
+		FileWrite($hFileOpen, '  <link href="../css/default.css" rel="stylesheet">' & @CRLF)
 	EndIf
-	put($hFileOpen, '</head>')
-	put($hFileOpen, '')
-	put($hFileOpen, '<body>')
+	FileWrite($hFileOpen, '</head>' & @CRLF)
+	FileWrite($hFileOpen, '' & @CRLF)
+	FileWrite($hFileOpen, '<body>' & @CRLF)
 
 	; Insert the experimental section if required.
 	If get("###Experimental###") Then
-		put($hFileOpen, '<div class="experimental">Warning: This feature is experimental.  It may not work, may contain bugs or may be changed or removed without notice.<br><br>DO NOT REPORT BUGS OR REQUEST NEW FEATURES FOR THIS FEATURE.</div><br/>')
+		FileWrite($hFileOpen, '<div class="experimental">Warning: This feature is experimental.  It may not work, may contain bugs or may be changed or removed without notice.<br /><br />DO NOT REPORT BUGS OR REQUEST NEW FEATURES FOR THIS FEATURE.</div><br/>' & @CRLF)
 	EndIf
 
 	If StringInStr($sRefType, $RefType_Main) > 0 Then
-		put($hFileOpen, '<h1 class="small">' & $RefType_Main & ' Reference</h1>')
+		FileWrite($hFileOpen, '<h1 class="small">' & $RefType_Main & ' Reference</h1>' & @CRLF)
 	ElseIf StringInStr($sRefType, "Operator") Then
-		put($hFileOpen, '<h1 class="small">Operator Reference</h1>')
+		FileWrite($hFileOpen, '<h1 class="small">Operator Reference</h1>' & @CRLF)
 	Else
-		put($hFileOpen, '<h1 class="small">Keyword Reference</h1>')
+		FileWrite($hFileOpen, '<h1 class="small">Keyword Reference</h1>' & @CRLF)
 	EndIf
-	put($hFileOpen, '<hr style="height:0px">')
-	put($hFileOpen, '<h1>' & $sFunctionOrKeyword & '</h1>')
-	put($hFileOpen, '<p class="funcdesc">' & get("###Description###") & '</p>')
-	put($hFileOpen, '')
+	FileWrite($hFileOpen, '<hr style="height:0px">' & @CRLF)
+	FileWrite($hFileOpen, '<h1>' & $sFunctionOrKeyword & '</h1>' & @CRLF)
+	FileWrite($hFileOpen, '<p class="funcdesc">' & get("###Description###") & '</p>' & @CRLF)
+	FileWrite($hFileOpen, '')
 
-	put($hFileOpen, '<p class="codeheader">')
-	put($hFileOpen, get("###Syntax###"))
-	put($hFileOpen, '</p>')
+	FileWrite($hFileOpen, '<p class="codeheader">' & @CRLF)
+	FileWrite($hFileOpen, get("###Syntax###") & @CRLF)
+	FileWrite($hFileOpen, '</p>' & @CRLF)
 
-	put($hFileOpen, '')
-	put($hFileOpen, '<h2>Parameters</h2>')
-	put($hFileOpen, '' & get("###Parameters###") & '')
-	put($hFileOpen, '' & get("###Fields###") & '')
-	put($hFileOpen, '')
+	FileWrite($hFileOpen, '' & @CRLF)
+	FileWrite($hFileOpen, '<h2>Parameters</h2>' & @CRLF)
+	FileWrite($hFileOpen, '' & get("###Parameters###") & '' & @CRLF)
+	FileWrite($hFileOpen, '' & get("###Fields###") & '' & @CRLF)
+	FileWrite($hFileOpen, '' & @CRLF)
 	If StringInStr($sRefType, $RefType_Main) > 0 Then
-		put($hFileOpen, '<h2>Return Value</h2>')
-		put($hFileOpen, '' & get("###ReturnValue###") & '')
-		put($hFileOpen, '')
+		FileWrite($hFileOpen, '<h2>Return Value</h2>' & @CRLF)
+		FileWrite($hFileOpen, '' & get("###ReturnValue###") & '' & @CRLF)
+		FileWrite($hFileOpen, '' & @CRLF)
 	EndIf
-	put($hFileOpen, '<h2>Remarks</h2>')
-	put($hFileOpen, '' & get("###Remarks###") & '')
-	put($hFileOpen, '')
+	FileWrite($hFileOpen, '<h2>Remarks</h2>' & @CRLF)
+	FileWrite($hFileOpen, '' & get("###Remarks###") & '' & @CRLF)
+	FileWrite($hFileOpen, '' & @CRLF)
 	Local $sRelated = get("###Related###")
 	If StringStripWS($sRelated, $STR_STRIPLEADING + $STR_STRIPTRAILING) <> "" Then
-		put($hFileOpen, '<h2>Related</h2>')
-		put($hFileOpen, '' & $sRelated & '')
-		put($hFileOpen, '')
+		FileWrite($hFileOpen, '<h2>Related</h2>' & @CRLF)
+		FileWrite($hFileOpen, '' & $sRelated & '' & @CRLF)
+		FileWrite($hFileOpen, '' & @CRLF)
 	EndIf
 	; only add "See also" section if requested
 	Local $sSeeAlso = get("###See Also###")
 	If StringStripWS($sSeeAlso, $STR_STRIPLEADING + $STR_STRIPTRAILING) <> "" Then
-		put($hFileOpen, '<h2>See Also</h2>')
-		put($hFileOpen, '' & $sSeeAlso & '')
+		FileWrite($hFileOpen, '<h2>See Also</h2>' & @CRLF)
+		FileWrite($hFileOpen, '' & $sSeeAlso & '' & @CRLF)
 	EndIf
 
 	; only add example box when example file is available
 	Local $vExample = get("###Example###")
 	If UBound($vExample) Or StringStripWS($vExample, $STR_STRIPLEADING + $STR_STRIPTRAILING) <> "" Then
-		put($hFileOpen, '')
-		put($hFileOpen, '<h2 class="bottom">Example</h2>')
-		put($hFileOpen, '<script type="text/javascript">')
-		put($hFileOpen, 'if ((navigator.appName=="Microsoft Internet Explorer") && (parseInt(navigator.appVersion)>=4)) // IE (4+) only')
-		put($hFileOpen, '    function copyToClipboard(s){if (window.clipboardData && clipboardData.setData){clipboardData.setData("text", s + "\r\n");}}')
-		put($hFileOpen, '</script>')
+		FileWrite($hFileOpen, '' & @CRLF)
+		FileWrite($hFileOpen, '<h2 class="bottom">Example</h2>' & @CRLF)
+		FileWrite($hFileOpen, '<script type="text/javascript">' & @CRLF)
+		FileWrite($hFileOpen, 'if ((navigator.appName=="Microsoft Internet Explorer") && (parseInt(navigator.appVersion)>=4)) // IE (4+) only' & @CRLF)
+		FileWrite($hFileOpen, '    function copyToClipboard(s){if (window.clipboardData && clipboardData.setData){clipboardData.setData("text", s + "\r\n");alert("Copied to clipboard");}}' & @CRLF)
+		FileWrite($hFileOpen, '</script>' & @CRLF)
 
 		If UBound($vExample) Then
 			; More than one example
 			For $i = 0 To UBound($vExample) - 1
-				put($hFileOpen, '<h3>' & $vExample[$i][0] & '</h3>')
-				put($hFileOpen, $vExample[$i][1])
-				put($hFileOpen, '')
+				FileWrite($hFileOpen, '<h3>' & $vExample[$i][0] & '</h3>' & @CRLF)
+				FileWrite($hFileOpen, $vExample[$i][1] & @CRLF)
+				FileWrite($hFileOpen, '' & @CRLF)
 			Next
 		ElseIf StringStripWS($vExample, $STR_STRIPLEADING + $STR_STRIPTRAILING) <> "" Then
-			put($hFileOpen, $vExample)
-			put($hFileOpen, '')
+			FileWrite($hFileOpen, $vExample & @CRLF)
+			FileWrite($hFileOpen, '' & @CRLF)
 		EndIf
 	EndIf
 
-	put($hFileOpen, '</body>')
-	put($hFileOpen, '</html>')
+	FileWrite($hFileOpen, '</body>' & @CRLF)
+	FileWrite($hFileOpen, '</html>' & @CRLF)
 	FileClose($hFileOpen)
-EndFunc   ;==>Convert
 
-;------------------------------------------------------------------------------
-; Write a new line to the output file
-;------------------------------------------------------------------------------
-Func put($hFileOpen, $sString)
-	FileWrite($hFileOpen, $sString & @CRLF)
-EndFunc   ;==>put
+	Return True
+EndFunc   ;==>ConvertTextToHTML
 
 ;------------------------------------------------------------------------------
 ; Retrieve text from $g_aArrayInput to put into html file
@@ -435,7 +434,7 @@ Func get($sSection)
 		Case "###Special###" ;Random.htm has a special section
 			$sTempString = '<p>' & @CRLF
 			For $k = $iCount To $iUBoundInput - 1
-				$sTempString = $sTempString & $g_aArrayInput[$k] & '<br>' & @CRLF
+				$sTempString = $sTempString & $g_aArrayInput[$k] & '<br />' & @CRLF
 			Next
 			Return $sTempString & '</p>'
 	EndSwitch
@@ -462,13 +461,12 @@ Func get($sSection)
 			If StringStripWS($g_aArrayInput[$iCount], $STR_STRIPLEADING + $STR_STRIPTRAILING) <> "" Or $sSection = "###" & $RefType_Main & "###" Then
 				;In case of a include <...> Also translate < and >
 				If StringInStr($g_aArrayInput[$iCount], "#include <") Then
-					$g_aArrayInput[$iCount] = StringReplace($g_aArrayInput[$iCount], "<", "&lt;")
-					$g_aArrayInput[$iCount] = StringReplace($g_aArrayInput[$iCount], ">", "&gt;")
+					$g_aArrayInput[$iCount] = StringRegExpReplace($g_aArrayInput[$iCount], '(.*#include )<(.*)>(.*)', ' $1&lt;$2&gt;$3')
 				EndIf
-				$sTempString = $sTempString & spaceToNBSP($g_aArrayInput[$iCount]) & '<br>' & @CRLF
+				$sTempString = $sTempString & spaceToNBSP($g_aArrayInput[$iCount]) & '<br />' & @CRLF
 			Else
 				If $sSection = "###Remarks###" And $iCount + 1 < $iUBoundInput - 1 Then
-					If StringStripWS($g_aArrayInput[$iCount + 1], $STR_STRIPLEADING + $STR_STRIPTRAILING) <> "" Then $sTempString = $sTempString & '<br>' & @CRLF
+					If StringStripWS($g_aArrayInput[$iCount + 1], $STR_STRIPLEADING + $STR_STRIPTRAILING) <> "" Then $sTempString = $sTempString & '<br />' & @CRLF
 				EndIf
 			EndIf
 		EndIf
@@ -481,23 +479,23 @@ EndFunc   ;==>get
 ;------------------------------------------------------------------------------
 ; Makes the names of related functions into links
 ;------------------------------------------------------------------------------
-Func makeRelatedLinks($index)
+Func makeRelatedLinks($iIndex)
 	;links already containing '<a href' are pasted as is
 	;normal function names and AutoItSetOption '(Option)' are "linkified"
 	;assumes that multiple links are comma-separated
 
 	;Handle special cases when no links
 
-	Local $links = StringSplit(StringReplace($g_aArrayInput[$index], ", ", "|"), "|")
+	Local $links = StringSplit(StringReplace($g_aArrayInput[$iIndex], ", ", "|"), "|")
 	Local $errFlag = @error
-	If $errFlag And StringInStr($g_aArrayInput[$index], "none") Then
+	If $errFlag And StringInStr($g_aArrayInput[$iIndex], "none") Then
 		Return "None."
-	ElseIf $errFlag And StringInStr($g_aArrayInput[$index], "many") Then
+	ElseIf $errFlag And StringInStr($g_aArrayInput[$iIndex], "many") Then
 		Return "Many!" ;special instance in AutoItSetOption
 	ElseIf $errFlag Then
 		;StringSplit did not create array since only one link (no comma)
 		Dim $links[2]
-		$links[1] = $g_aArrayInput[$index]
+		$links[1] = $g_aArrayInput[$iIndex]
 	EndIf
 
 	;Create links
@@ -533,8 +531,8 @@ Func makeRelatedLinks($index)
 						$tempdir_In = IniRead($TXT2HTM_INI, "Input", "methods", "ERR")
 						$tempdir_Out = IniRead($TXT2HTM_INI, "Output", "methods", "ERR")
 						If Not FileExists($tempdir_Out & $sHTMLName & ".htm") And Not FileExists($tempdir_In & $sHTMLName & ".txt") Then
-							_OutputBuildWrite('** Error in ' & $g_sFileName & ' => Invalid Method reference to:' & $sHTMLName & @CRLF)
-							FileWriteLine(@WorkingDir & "\txt2htm_error.log", '** Error in ' & $g_sFileName & ' => Invalid Method reference to:' & $sHTMLName)
+							_OutputBuildWrite('** Error in ' & $g_sFilePath & ' => Invalid Method reference to:' & $sHTMLName & @CRLF)
+							FileWriteLine(@WorkingDir & "\txt2htm_error.log", '** Error in ' & $g_sFilePath & ' => Invalid Method reference to:' & $sHTMLName)
 							;ContinueLoop
 						EndIf
 						$sHTMLName = "../../" & $tempdir_Out & $sHTMLName
@@ -549,8 +547,8 @@ Func makeRelatedLinks($index)
 									$tempdir_In = IniRead($TXT2HTM_INI, "Input", "libfunctions", "ERR")
 									$tempdir_Out = IniRead($TXT2HTM_INI, "Output", "libfunctions", "ERR")
 									If Not FileExists($tempdir_Out & $sHTMLName & ".htm") And Not FileExists($tempdir_In & $sHTMLName & ".txt") Then
-										_OutputBuildWrite('** Error in ' & $g_sFileName & ' => Invalid Function reference to:' & $sHTMLName & @CRLF)
-										FileWriteLine(@WorkingDir & "\txt2htm_error.log", '** Error in ' & $g_sFileName & ' => Invalid Function reference to:' & $sHTMLName)
+										_OutputBuildWrite('** Error in ' & $g_sFilePath & ' => Invalid Function reference to:' & $sHTMLName & @CRLF)
+										FileWriteLine(@WorkingDir & "\txt2htm_error.log", '** Error in ' & $g_sFilePath & ' => Invalid Function reference to:' & $sHTMLName)
 										;ContinueLoop
 									EndIf
 								EndIf
@@ -564,7 +562,7 @@ Func makeRelatedLinks($index)
 				EndIf
 			EndIf
 			$sHTMLName = StringReplace($sHTMLName, "../../html\functions\", "../functions/") ; Workaround for incorrect links in keywords HTML file.
-			$tmp = $tmp & '<a href="' & $sHTMLName & '.htm">' & $links[$i] & '</a>, '
+			$tmp = $tmp & '<a href="' & $sHTMLName & '.htm">' & $links[$i] & '()</a>, '
 		EndIf
 	Next
 
@@ -576,8 +574,8 @@ EndFunc   ;==>makeRelatedLinks
 ; 11 Oct 2007 @@MsdnLink@@ search_string
 ; 18 Aug 2013 special case for GdiPlus function
 ;------------------------------------------------------------------------------
-Func makeMsdnLink($index)
-	Local $vName = StringSplit($g_aArrayInput[$index], " ")
+Func makeMsdnLink($iIndex)
+	Local $vName = StringSplit($g_aArrayInput[$iIndex], " ")
 	$vName = $vName[$vName[0]]
 	If StringLeft($vName, 4) = "GDIP" Then Return 'Search <a href="http://search.msdn.microsoft.com/search/Default.aspx?brand=msdn&query=' & _
 			$vName & '">' & _
@@ -617,7 +615,7 @@ Func makeExample(ByRef $i, $fromInclude = 0)
 
 	If $i = -1 Then Return includeExample($i)
 
-	$tmp = StringTrimRight($tmp, 0 + StringLen(@CRLF)) ;remove very last <br> @CRLF stuff
+	$tmp = StringTrimRight($tmp, 0 + StringLen(@CRLF)) ;remove very last <br /> @CRLF stuff
 	If StringStripWS($tmp, $STR_STRIPLEADING + $STR_STRIPTRAILING) <> "" And Not $fromInclude Then makeExample_AddButtons($tmp, "", 0)
 	Return $tmp
 EndFunc   ;==>makeExample
@@ -665,13 +663,13 @@ EndFunc   ;==>makeExample_AddButtons
 ; 17 Jan 2013 Added ability to use multiple examples of the form <filename>[n].au3
 ;------------------------------------------------------------------------------
 Func includeExample(ByRef $i)
-	Local $tFilename = StringReplace($EXAMPLE_DIR & $g_sFileName, ".txt", "")
+	Local $tFilename = StringReplace($EXAMPLE_DIR & $g_sFilePath, ".txt", "")
 
 	If FileExists($tFilename & "[2]" & $EXAMPLE_EXT) Then
 		; Multiple files exist
 		Local $hFind = FileFindFirstFile($tFilename & "[*]" & $EXAMPLE_EXT)
 
-		Local $aFiles[1] = [StringReplace($g_sFileName, ".txt", $EXAMPLE_EXT)], $count = 0, $sFile
+		Local $aFiles[1] = [StringReplace($g_sFilePath, ".txt", $EXAMPLE_EXT)], $count = 0, $sFile
 		While 1
 			$sFile = FileFindNextFile($hFind)
 			If @error Then ExitLoop
@@ -699,10 +697,10 @@ Func includeExample(ByRef $i)
 			$aRet[$ex - 1][1] = makeExample_ReadFile($i, $EXAMPLE_DIR & $aFiles[$n])
 
 			; Check if a custom title is used.
-			If StringLeft($aRet[$ex - 1][0], 4) = ";== " Then
+			If StringLeft($aRet[$ex - 1][0], 5) = "; == " Then
 				$aRet[$ex - 1][1] = StringReplace($aRet[$ex - 1][1], $aRet[$ex - 1][0], "")
 				$aRet[$ex - 1][1] = StringRegExpReplace($aRet[$ex - 1][1], "\<span\s+class\=""[^""]*""\s*\>\</span\>\r\n", "")
-				$aRet[$ex - 1][1] = StringReplace($aRet[$ex - 1][1], "<br>", "", 1)
+				$aRet[$ex - 1][1] = StringReplace($aRet[$ex - 1][1], "<br />", "", 1)
 
 				$aRet[$ex - 1][0] = StringStripWS(StringTrimLeft(StringStripWS($aRet[$ex - 1][0], $STR_STRIPLEADING + $STR_STRIPTRAILING), 4), $STR_STRIPLEADING + $STR_STRIPTRAILING)
 			Else
@@ -730,8 +728,8 @@ Func makeExample_ReadFile(ByRef $i, $tFilename)
 	If FileExists($tFilename) Then makeExampleHTML($tFilename)
 
 	If Not _FileReadToArrayEx($tFilename, $g_aArrayInput) Then
-		_OutputBuildWrite("** Warning in:" & $g_sFileName & " ==> Include Example file was not found; skipping it:" & StringReplace($g_sFileName, ".txt", $EXAMPLE_EXT) & @CRLF)
-		FileWriteLine(@WorkingDir & "\txt2htm_error.log", "** Warning in:" & $g_sFileName & " ==> Include Example file was not found; skipping it:" & StringReplace($g_sFileName, ".txt", $EXAMPLE_EXT))
+		_OutputBuildWrite("** Warning in:" & $g_sFilePath & " ==> Include Example file was not found; skipping it:" & StringReplace($g_sFilePath, ".txt", $EXAMPLE_EXT) & @CRLF)
+		FileWriteLine(@WorkingDir & "\txt2htm_error.log", "** Warning in:" & $g_sFilePath & " ==> Include Example file was not found; skipping it:" & StringReplace($g_sFilePath, ".txt", $EXAMPLE_EXT))
 		Return ""
 	Else
 		$i = 1
@@ -743,7 +741,7 @@ EndFunc   ;==>makeExample_ReadFile
 ; Uses SciTE to convert an Au3 file to html
 ;------------------------------------------------------------------------------
 Func makeExampleHTML(ByRef $sSource) ; Fixed by guinness - 27/08/2013
-	Local $sDestination = @WorkingDir & "\" & $EXAMPLE_DIRO & $g_sFileName & ".htm"
+	Local $sDestination = @WorkingDir & "\" & $EXAMPLE_DIRO & $g_sFilePath & ".htm"
 	If Not $ReGen_AutoItX Then
 		_SciTE_ExportToHTML($sSource, $sDestination)
 	Else
@@ -768,49 +766,49 @@ EndFunc   ;==>makeExampleHTML
 ;------------------------------------------------------------------------------
 ; Convert tab-delimited text to an html table
 ;------------------------------------------------------------------------------
-Func makeStandardTable(ByRef $index)
-	;Assumes one line per row with tab-separated columns
-	$index = $index + 1
+Func makeStandardTable(ByRef $iIndex)
+	; Assumes one line per row with tab-separated columns
+	$iIndex += 1
 
-	Local $x, $tbl = @CRLF ;will contain final html table code
+	Local $aTabSplit = 0, $sTable = @CRLF ;will contain final html table code
 
-	While Not StringInStr($g_aArrayInput[$index], "@@End@@")
-		;StringSplit each row into an array for easy parsing
-		$x = StringSplit($g_aArrayInput[$index], @TAB)
+	While Not StringInStr($g_aArrayInput[$iIndex], "@@End@@")
+		; StringSplit each row into an array for easy parsing.
+		$aTabSplit = StringSplit($g_aArrayInput[$iIndex], @TAB)
 		If @error Then
-			$index = $index + 1
+			$iIndex += 1
 			ContinueLoop
 		EndIf
 
-		$tbl = $tbl & '  <tr>' & @CRLF
-		For $i = 1 To $x[0]
-			$tbl = $tbl & '    <td>' & $x[$i] & '</td>' & @CRLF
+		$sTable &= '  <tr>' & @CRLF
+		For $i = 1 To $aTabSplit[0]
+			$sTable &= '    <td>' & $aTabSplit[$i] & '</td>' & @CRLF
 		Next
-		$tbl = $tbl & '  </tr>' & @CRLF
+		$sTable &= '  </tr>' & @CRLF
 
-		$index = $index + 1
+		$iIndex += 1
 	WEnd
 
-	Return '<table>' & $tbl & '</table>'
+	Return '<table>' & $sTable & '</table>'
 EndFunc   ;==>makeStandardTable
 
 ;------------------------------------------------------------------------------
 ; Convert tab-delimited text to an html table
 ; 28 Feb version change table look to have a separating line after first row only
 ;------------------------------------------------------------------------------
-Func makeStandardTable1(ByRef $index)
+Func makeStandardTable1(ByRef $iIndex)
 	;Assumes one line per row with tab-separated columns
-	$index = $index + 1
+	$iIndex = $iIndex + 1
 
 	Local $x, $tbl = @CRLF ;will contain final html table code
 	; to generate a separation line after the first row
 	Local $tr = '  <tr>'
 	Local $td = "th"
-	While Not StringInStr($g_aArrayInput[$index], "@@End@@")
+	While Not StringInStr($g_aArrayInput[$iIndex], "@@End@@")
 		;StringSplit each row into an array for easy parsing
-		$x = StringSplit($g_aArrayInput[$index], @TAB)
+		$x = StringSplit($g_aArrayInput[$iIndex], @TAB)
 		If @error Then
-			$index = $index + 1
+			$iIndex = $iIndex + 1
 			ContinueLoop
 		EndIf
 
@@ -822,10 +820,10 @@ Func makeStandardTable1(ByRef $index)
 		;reset separation line for next lines
 		$tr = '  <tr>'
 		$td = 'td'
-		$index = $index + 1
+		$iIndex = $iIndex + 1
 	WEnd
 
-	Return '<br><table>' & $tbl & '</table>'
+	Return '<br /><table>' & $tbl & '</table>'
 EndFunc   ;==>makeStandardTable1
 
 ;------------------------------------------------------------------------------
@@ -833,34 +831,34 @@ EndFunc   ;==>makeStandardTable1
 ;    Each indented line indicates contents of column 2 for that row.
 ; Column 1 has 10% width and Column 2 has 90% width
 ;------------------------------------------------------------------------------
-Func makeReturnTable(ByRef $index)
+Func makeReturnTable(ByRef $iIndex)
 	;Assumes one line per row with tab-separated columns
-	$index = $index + 1
+	$iIndex = $iIndex + 1
 
 	Local $tbl = @CRLF & '  <tr>' & @CRLF ;will contain final html table code
-	Local $x = StringSplit($g_aArrayInput[$index], @TAB)
+	Local $x = StringSplit($g_aArrayInput[$iIndex], @TAB)
 	If Not StringInStr($x[1], ':') Then $x[1] &= ':'
-	$tbl &= '    <td style="width:10%" valign="top">' & $x[1] & '</td>' & @CRLF
+	$tbl &= '    <td style="width:10%" class="valign-top">' & $x[1] & '</td>' & @CRLF
 	$tbl &= '    <td style="width:90%">' & $x[2]
-	$index += 1
+	$iIndex += 1
 
-	While Not StringInStr($g_aArrayInput[$index], "@@End@@")
+	While Not StringInStr($g_aArrayInput[$iIndex], "@@End@@")
 		;StringSplit each row into an array for easy parsing
-		$x = StringSplit($g_aArrayInput[$index], @TAB)
+		$x = StringSplit($g_aArrayInput[$iIndex], @TAB)
 		If @error Then
-			$index += 1
+			$iIndex += 1
 			ContinueLoop
 		EndIf
 
 		If $x[1] = "" Then
-			$tbl &= '<br>' & @CRLF & "       " & spaceToNBSP(StringTrimLeft($g_aArrayInput[$index], 1))
+			$tbl &= '<br />' & @CRLF & "       " & spaceToNBSP(StringTrimLeft($g_aArrayInput[$iIndex], 1))
 		Else
 			$tbl &= '</td>' & @CRLF & '  </tr>' & @CRLF & '  <tr>' & @CRLF
 			If Not StringInStr($x[1], ':') Then $x[1] &= ':' ; force : if missing
-			$tbl &= '    <td valign="top">' & $x[1] & '</td>' & @CRLF
+			$tbl &= '    <td class="valign-top">' & $x[1] & '</td>' & @CRLF
 			$tbl &= '    <td>' & $x[2]
 		EndIf
-		$index += 1
+		$iIndex += 1
 	WEnd
 
 	Return '<table class="noborder">' & $tbl & '</td>' & @CRLF & '  </tr>' & @CRLF & '</table>'
@@ -872,19 +870,19 @@ EndFunc   ;==>makeReturnTable
 ;    Each indented line indicates contents of column 2 for that row.
 ; Column 1 has 15% width and Column 2 has 85% width
 ;------------------------------------------------------------------------------
-Func makeParamTable(ByRef $index)
+Func makeParamTable(ByRef $iIndex)
 	;make a pass to determine how many rows and columns the table has
 	Local $indention, $rows = 0
-	Local $i = $index + 1
+	Local $i = $iIndex + 1
 	While Not StringInStr($g_aArrayInput[$i], "@@End@@")
 		$indention = stringCount($g_aArrayInput[$i], @TAB)
 		If $indention = 0 Then $rows = $rows + 1
 		$i = $i + 1
 	WEnd
-	Local $start = $index + 1
+	Local $start = $iIndex + 1
 	Local $stop = $i - 1
 
-	$index = $stop + 1 ;note that $index was ByRef'ed
+	$iIndex = $stop + 1 ;note that $iIndex was ByRef'ed
 
 	Local $matrix[$rows][2]
 
@@ -905,10 +903,10 @@ Func makeParamTable(ByRef $index)
 		$data = spaceToNBSP(StringTrimLeft($g_aArrayInput[$i], $indention))
 
 		; Ensure [optional] is bold.
-		If StringInStr($g_aArrayInput[$i], "[optional]") Then $data = StringReplace($g_aArrayInput[$i], "[optional]", "<b>[optional]</b>")
+		If StringInStr($g_aArrayInput[$i], "[optional]") Then $data = StringReplace($g_aArrayInput[$i], "[optional]", "<strong>[optional]</strong>")
 
 		If $matrix[$r][$c] <> "" Then
-			$matrix[$r][$c] = $matrix[$r][$c] & '<br>' & $data
+			$matrix[$r][$c] = $matrix[$r][$c] & '<br />' & $data
 		Else
 			$matrix[$r][$c] = $data
 		EndIf
@@ -921,7 +919,7 @@ Func makeParamTable(ByRef $index)
 		$tbl = $tbl & '  <tr>' & @CRLF
 
 		For $c = 0 To 1
-			$data = StringReplace($matrix[$r][$c], "<br>", "<br>" & @CRLF & "       ")
+			$data = StringReplace($matrix[$r][$c], "<br />", "<br />" & @CRLF & "       ")
 			Select
 				Case $r = 0 And $c = 0 ;only put width%-info on first row
 					$tbl = $tbl & '    <td style="width:15%">' & $data & '</td>' & @CRLF
@@ -943,19 +941,19 @@ EndFunc   ;==>makeParamTable
 ;    Each indented line indicates contents of column 2 for that row.
 ; Column 1 has 40% width and Column 2 has 60% width
 ;------------------------------------------------------------------------------
-Func makeControlCommandTable(ByRef $index)
+Func makeControlCommandTable(ByRef $iIndex)
 	;make a pass to determine how many rows and columns the table has
 	Local $indention, $rows = 0
-	Local $i = $index + 1
+	Local $i = $iIndex + 1
 	While Not StringInStr($g_aArrayInput[$i], "@@End@@")
 		$indention = stringCount($g_aArrayInput[$i], @TAB)
 		If $indention = 0 Then $rows = $rows + 1
 		$i = $i + 1
 	WEnd
-	Local $start = $index + 1
+	Local $start = $iIndex + 1
 	Local $stop = $i - 1
 
-	$index = $stop + 1 ;note that $index was ByRef'ed
+	$iIndex = $stop + 1 ;note that $iIndex was ByRef'ed
 
 	Local $matrix[$rows][2]
 
@@ -972,7 +970,7 @@ Func makeControlCommandTable(ByRef $index)
 			$c = 1
 		EndIf
 		If $matrix[$r][$c] <> "" Then
-			$matrix[$r][$c] = $matrix[$r][$c] & '<br>' & $data
+			$matrix[$r][$c] = $matrix[$r][$c] & '<br />' & $data
 		Else
 			$matrix[$r][$c] = $data
 		EndIf
@@ -985,7 +983,7 @@ Func makeControlCommandTable(ByRef $index)
 		$tbl = $tbl & '  <tr>' & @CRLF
 
 		For $c = 0 To 1
-			$data = StringReplace($matrix[$r][$c], "<br>", "<br>" & @CRLF & "       ")
+			$data = StringReplace($matrix[$r][$c], "<br />", "<br />" & @CRLF & "       ")
 			Select
 				Case $r = 0 And $c = 0 ;only put width%-info on first row
 					$tbl = $tbl & '    <td style="width:40%">' & $data & '</td>' & @CRLF
@@ -1068,7 +1066,7 @@ Func _AutoIt3_Helpfile_Link(ByRef $sExampleData)
 	; Functions
 	$sExampleData = StringRegExpReplace($sExampleData, '<span class="S4">([\w]+?)</span>', '<a class="codeSnippetLink" href="../functions/\1.htm"><span class="S4">\1</span></a>')
 	$sExampleData = StringReplace($sExampleData, 'href="../functions/Opt.htm">', 'href="../functions/AutoItSetOption.htm">')
-	; Exception for UDPStartup, UDPShutdown
+	; Exception for UDPStartup(), UDPShutdown()
 	$sExampleData = StringReplace($sExampleData, '<a class="codeSnippetLink" href="UDPStartup.htm"><span class="S4">UDPStartup</span></a>', '<a class="codeSnippetLink" href="TCPStartup.htm"><span class="S4">UDPStartup</span></a>')
 	$sExampleData = StringReplace($sExampleData, '<a class="codeSnippetLink" href="UDPShutdown.htm"><span class="S4">UDPShutdown</span></a>', '<a class="codeSnippetLink" href="TCPShutdown.htm"><span class="S4">UDPShutdown</span></a>')
 	; Macros
@@ -1119,7 +1117,32 @@ Func _FileReadToArrayEx($sFilePath, ByRef $aArray)
 EndFunc   ;==>_FileReadToArrayEx
 
 Func _GetFileName($sFilePath)
-	Local $sDrive = "", $sDir = "", $sFilename = "", $sExtension = ""
-	_PathSplit($sFilePath, $sDrive, $sDir, $sFilename, $sExtension)
-	Return $sFilename
+	Local $sDrive = "", $sDir = "", $sFileName = "", $sExtension = ""
+	_PathSplit($sFilePath, $sDrive, $sDir, $sFileName, $sExtension)
+	Return $sFileName
 EndFunc   ;==>_GetFileName
+
+Func TestingOnly()
+	Local $sFilePath = FileOpenDialog("Choose an AutoIt text file to convert", @ScriptDir & "\..\..\autoit\english\txt2htm", "AutoIt Text File (*.txt)")
+	If @error Then Return False
+
+	$ReGen_All = False
+	$ReGen_AutoIt = True
+	$ReGen_UDFs = False
+	$ReGen_AutoItX = False
+
+	$RefType_Main = "Function"
+	$EXAMPLE_EXT = ".au3"
+	$CROSS_DIR = ""
+	$CROSSLINK = ""
+
+	Local $sDrive = "", $sFolder = "", $sFileName = "", $sExtension = ""
+	_PathSplit($sFilePath, $sDrive, $sFolder, $sFileName, $sExtension)
+	$sFolder = StringRegExpReplace($sDrive & $sFolder, "[\\/]+$", "") & "\"
+
+	$INPUT_DIR = $sFolder
+	$OUTPUT_DIR = $sFolder
+
+	$EXAMPLE_DIR = _PathFull($sFolder & "..\examples\")
+	ConvertTextToHTML($sFilePath)
+EndFunc   ;==>TestingOnly

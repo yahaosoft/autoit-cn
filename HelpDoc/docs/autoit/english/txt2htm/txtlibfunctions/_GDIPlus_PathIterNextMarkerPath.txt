@@ -1,0 +1,40 @@
+###User Defined Function###
+_GDIPlus_PathIterNextMarkerPath
+
+###Description###
+Gets the next marker-delimited section of an iterator's associated path
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_PathIterNextMarkerPath ( $hPathIter, $hPath )
+
+
+###Parameters###
+@@ParamTable@@
+$hPathIter
+	Pointer to a GraphicsPathIterator object
+$hPath
+	Pointer to a GraphicsPath object
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	the number of point in the retrieved section or 0 if no more sections to be retrieved
+Failure:	-1 and sets the @error flag to non-zero, @extended may contains GPSTATUS error code ($GDI_ERR*).
+@@End@@
+
+
+###Remarks###
+This function sets the data points of the specified GraphicsPath object to match the data points of the retrieved section.
+
+
+###Related###
+_GDIPlus_PathIterRewind, _GDIPlus_PathSetMarker
+
+
+###See Also###
+@@MsdnLink@@ GdipPathIterNextMarkerPath
+
+
+###Example###
+@@IncludeExample@@

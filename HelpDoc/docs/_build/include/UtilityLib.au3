@@ -5,7 +5,7 @@
 ; ===================================================================
 #include-once
 
-#region Members Exported
+#Region Members Exported
 #cs Exported Functions
 _OpenProcess($nFlags, $pid, $bInherit = False) - Open a handle to the specified process.
 _CloseHandle($handle) - Closes a handle.
@@ -19,23 +19,23 @@ _RunWaitScript($sScript, $sParams = "", $sWorkingDir = "", $nFlag = @SW_SHOWNORM
 _CreateEvent($sName, $bManualReset = 1, $bInitialState = 1) - Creates a named event.
 _WaitForSingleObject($hHandle, $iTimeout = -1) - Waits for a single object to be signaled or for the timeout to occur.
 #ce Exported Functions
-#endregion Members Exported
+#EndRegion Members Exported
 
-#region Includes
-#endregion Includes
+#Region Includes
+#EndRegion Includes
 
-#region Global Variables
+#Region Global Variables
 Global Const $__UTILITY_PROCESS_QUERY_INFORMATION = 0x0400
 Global Const $WAIT_TIMEOUT = 258
 Global Const $WAIT_FAILED = 0xFFFFFFFF
 Global Const $WAIT_ABANDONED = 0x00000080
 
 Global Const $WAIT_OBJECT_0 = 0
-#endregion Global Variables
+#EndRegion Global Variables
 
-#region Public Members
+#Region Public Members
 
-#region _OpenProcess()
+#Region _OpenProcess()
 ; ===================================================================
 ; _OpenProcess($nFlags, $pid, $bInherit = False)
 ;
@@ -53,9 +53,9 @@ Func _OpenProcess($nFlags, $pid, $bInherit = False)
 	If @error Then Return SetError(@error, @extended, 0)
 	Return $aRet[0]
 EndFunc   ;==>_OpenProcess
-#endregion _OpenProcess()
+#EndRegion _OpenProcess()
 
-#region _CloseHandle()
+#Region _CloseHandle()
 ; ===================================================================
 ; _CloseHandle($handle)
 ;
@@ -71,9 +71,9 @@ Func _CloseHandle($handle)
 	If @error Then Return SetError(@error, @extended, False)
 	Return $aRet[0]
 EndFunc   ;==>_CloseHandle
-#endregion _CloseHandle()
+#EndRegion _CloseHandle()
 
-#region _GetExitCodeProcess()
+#Region _GetExitCodeProcess()
 ; ===================================================================
 ; _GetExitCodeProcess($hProcess)
 ;
@@ -91,9 +91,9 @@ Func _GetExitCodeProcess($hProcess)
 	If @error Then Return SetError(@error, @extended, 0x7FFFFFFF)
 	Return SetError(0, $aRet[0], $aRet[2])
 EndFunc   ;==>_GetExitCodeProcess
-#endregion _GetExitCodeProcess()
+#EndRegion _GetExitCodeProcess()
 
-#region _WaitForInputIdleByPID()
+#Region _WaitForInputIdleByPID()
 ; ===================================================================
 ; _WaitForInputIdleByPID($pid, $nTimeout)
 ;
@@ -115,9 +115,9 @@ Func _WaitForInputIdleByPID($pid, $nTimeout)
 	If $nError Then Return SetError($nError, $nExtended, 0xFFFFFFFF)
 	Return $aRet[0]
 EndFunc   ;==>_WaitForInputIdleByPID
-#endregion _WaitForInputIdleByPID()
+#EndRegion _WaitForInputIdleByPID()
 
-#region _ProcessWaitStdHandleRead()
+#Region _ProcessWaitStdHandleRead()
 ; ===================================================================
 ; _ProcessWaitStdHandleRead($pid, ByRef $sStdOut, ByRef $sStdErr)
 ;
@@ -143,9 +143,9 @@ Func _ProcessWaitStdHandleRead($pid, ByRef $sStdOut, ByRef $sStdErr)
 		Sleep(10)
 	Until Not ProcessExists($pid) And $bExit1 And $bExit2
 EndFunc   ;==>_ProcessWaitStdHandleRead
-#endregion _ProcessWaitStdHandleRead()
+#EndRegion _ProcessWaitStdHandleRead()
 
-#region _RunWaitStdHandleRead()
+#Region _RunWaitStdHandleRead()
 ; ===================================================================
 ; _RunWaitStdHandleRead($sCmd, ByRef $sStdOut, ByRef $sStdErr, $sWorkingDir = "", $nFlags = 0, $sStdIn = "")
 ;
@@ -174,9 +174,9 @@ Func _RunWaitStdHandleRead($sCmd, ByRef $sStdOut, ByRef $sStdErr, $sWorkingDir =
 	_CloseHandle($hProcess)
 	Return $nReturn
 EndFunc   ;==>_RunWaitStdHandleRead
-#endregion _RunWaitStdHandleRead()
+#EndRegion _RunWaitStdHandleRead()
 
-#region _RunWaitForwardOutput()
+#Region _RunWaitForwardOutput()
 ; ===================================================================
 ; _RunWaitForwardOutput($sCallback, $sCmd, $sWorkingDir = "", $nShow = @SW_SHOWNORMAL)
 ;
@@ -209,9 +209,9 @@ Func _RunWaitForwardOutput($sCallback, $sCmd, $sWorkingDir = "", $nShow = @SW_SH
 	_CloseHandle($hProcess)
 	Return $nReturn
 EndFunc   ;==>_RunWaitForwardOutput
-#endregion _RunWaitForwardOutput()
+#EndRegion _RunWaitForwardOutput()
 
-#region _RunWaitForwardFileOutput()
+#Region _RunWaitForwardFileOutput()
 ; ===================================================================
 ; _RunWaitForwardFileOutput($sCallback, $sFile, $sCmd, $sWorkingDir = "", $nShow = @SW_SHOWNORMAL)
 ;
@@ -253,9 +253,9 @@ Func _RunWaitForwardFileOutput($sCallback, $sFile, $sCmd, $sWorkingDir = "", $nS
 	_CloseHandle($hProcess)
 	Return $nReturn
 EndFunc   ;==>_RunWaitForwardFileOutput
-#endregion _RunWaitForwardFileOutput()
+#EndRegion _RunWaitForwardFileOutput()
 
-#region _RunWaitScript()
+#Region _RunWaitScript()
 ; ===================================================================
 ; _RunWaitScript($sScript, $sParams = "", $sWorkingDir = "", $nFlag = @SW_SHOWNORMAL, $sExe = @AutoItExe, $bExecuteScript = False)
 ;
@@ -275,9 +275,9 @@ Func _RunWaitScript($sScript, $sParams = "", $sWorkingDir = "", $nFlag = @SW_SHO
 	If $bExecuteScript Then $sMid = '" /AutoIt3ExecuteScript "'
 	Return RunWait('"' & $sExe & $sMid & $sScript & '" ' & $sParams, $sWorkingDir, $nFlag)
 EndFunc   ;==>_RunWaitScript
-#endregion _RunWaitScript()
+#EndRegion _RunWaitScript()
 
-#region _CreateEvent()
+#Region _CreateEvent()
 ; ===================================================================
 ; _CreateEvent($sName, $bManualReset = 1, $bInitialState = 1)
 ;
@@ -295,9 +295,9 @@ Func _CreateEvent($sName, $bManualReset = 1, $bInitialState = 1)
 	If @error Then Return SetError(@error, @extended, 0)
 	Return $aResult[0]
 EndFunc   ;==>_CreateEvent
-#endregion _CreateEvent()
+#EndRegion _CreateEvent()
 
-#region _WaitForSingleObject()
+#Region _WaitForSingleObject()
 ; ===================================================================
 ; _WaitForSingleObject($hHandle, $iTimeout = -1)
 ;
@@ -314,10 +314,10 @@ Func _WaitForSingleObject($hHandle, $iTimeout = -1)
 	If @error Then Return SetError(@error, @extended, $WAIT_FAILED)
 	Return $aResult[0]
 EndFunc   ;==>_WaitForSingleObject
-#endregion _WaitForSingleObject()
+#EndRegion _WaitForSingleObject()
 
-#endregion Public Members
+#EndRegion Public Members
 
-#region Private Members
+#Region Private Members
 
-#endregion Private Members
+#EndRegion Private Members

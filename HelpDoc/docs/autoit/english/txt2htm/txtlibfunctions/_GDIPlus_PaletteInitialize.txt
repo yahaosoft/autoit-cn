@@ -1,0 +1,53 @@
+###User Defined Function###
+_GDIPlus_PaletteInitialize
+
+###Description###
+Initializes a standard, optimal, or custom color palette
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_PaletteInitialize ( $iEntries [, $iPaletteType = $GDIP_PaletteTypeOptimal [, $iOptimalColors = 0 [, $bUseTransparentColor = True [, $hBitmap = Null]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$iEntries
+	Number of Entries.
+$iPaletteType
+	[optional] PaletteType constant that specifies the palette type ($GDIP_PaletteType*).
+$iOptimalColors
+	[optional] Integer that specifies the number of colors you want to have in an optimal palette based on a specified bitmap.
+	If this parameter is greater than 0, the palettetype parameter must be set to PaletteTypeOptimal and the bitmap parameter must point to a Bitmap object.
+$bUseTransparentColor
+	[optional] Boolean value that specifies whether to include the transparent color in the palette.
+	Set to TRUE to include the transparent color; otherwise FALSE.
+$hBitmap
+	[optional] Handle of a Bitmap object for which an optimal palette will be created.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	a DllStruct Palette:
+		Flags - $iPaletteFlags
+		Count - $iEntries
+		ARGB  - UINT Array of ARGB colors
+Failure:	sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@error:	-1 - GDIPlus.dll does not support this function.
+	10 - Invalid parameters.
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+_GDIPlus_BitmapConvertFormat
+
+
+###See Also###
+@@MsdnLink@@ GdipInitializePalette
+
+
+###Example###
+@@IncludeExample@@

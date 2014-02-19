@@ -13,7 +13,7 @@ If @AutoItX64 Then
 ;~ 	Exit
 EndIf
 
-#region Members Exported
+#Region Members Exported
 #cs Exported Functions
 Compile_Main($sProject, Const ByRef $aBuildFiles, Const ByRef $aInstallFiles, $sBuildSuccessCallback = "", $sProjectDir = "", $bDisplayFullOutput = True, $bSkipInitialOutput = False) - The main function responsible for building a project.
 Compile_Main_CS($sProject, Const ByRef $aBuildFiles, Const ByRef $aInstallFiles, $sBuildSuccessCallback = "", $sProjectDir = "", $bDisplayFullOutput = True, $bSkipInitialOutput = False)
@@ -46,14 +46,14 @@ _ConfigurationName($vConfiguration) - Returns the name of the specified configur
 _ReleaseName($vConfiguration, $vPlatform) - Returns the composited release name.
 _RegRead64($sKeyname, $sValue) - Returns the registry value
 #ce Exported Functions
-#endregion Members Exported
+#EndRegion Members Exported
 
-#region Includes
+#Region Includes
 #include "OutputLib.au3"
 #include "UtilityLib.au3"
-#endregion Includes
+#EndRegion Includes
 
-#region Global Variables
+#Region Global Variables
 ; This variable should be updated whenever INI-breaking
 ; changes are introduced.  This is to alert the user that
 ; the INI file is out of date and a new INI needs generated.
@@ -138,12 +138,13 @@ Global Const $SETTING_SCPPRIVATEKEY = "SCPPrivateKey"
 Global Const $SETTING_SCPSYNCBYSIZE = "SCPSyncBySize"
 Global Const $SETTING_SCPSYNCBYDATE = "SCPSyncByDate"
 Global Const $SETTING_PFXPASSWORD = "PFXPassword"
+Global Const $SETTING_REBUILDHELPFILES = "RebuildHelpFiles"
 
 ; Define the Build Types supported.
 Global Enum $BUILDTYPE_RELEASE, $BUILDTYPE_BETA, $BUILDTYPE_RELEASECANDIDATE
-#endregion Global Variables
+#EndRegion Global Variables
 
-#region Library Initialization
+#Region Library Initialization
 
 ; Always show debugging information
 AutoItSetOption("TrayIconDebug", True)
@@ -154,7 +155,7 @@ __IsIniValid()
 ; Global variable to get BuildSuccessCallback return value
 Global $g_nReturnBuildSuccessCallback = 0
 
-#region __IsIniValid()
+#Region __IsIniValid()
 ; ===================================================================
 ; __IsIniValid()
 ;
@@ -166,21 +167,23 @@ Global $g_nReturnBuildSuccessCallback = 0
 ;	None.
 ; ===================================================================
 Func __IsIniValid()
-	Local $sIni = _SettingGetIniFile()
-	If Not FileExists($sIni) Then FileCopy($sIni & ".dist", $sIni)
+	Local $sIni = _SettingGetIniFile(True) ; use the redirected Config.ini not the doc\_build one
+	If Not FileExists($sIni) Then
+		If Not FileCopy($sIni & ".dist", $sIni) Then Return
+	EndIf
 	Local $nVersion = Number(IniRead($sIni, "IniVersion", "IniVersion", 0))
 	If $nVersion <> $g_nExpectedIniVersion Then
 		MsgBox(4112, "CompileLib Error", "Error, the INI file is out of date:" & @CRLF & $sIni)
 		Exit -1
 	EndIf
 EndFunc   ;==>__IsIniValid
-#endregion __IsIniValid()
+#EndRegion __IsIniValid()
 
-#endregion Library Initialization
+#EndRegion Library Initialization
 
-#region Script Entry Points
+#Region Script Entry Points
 
-#region Compile_Main()
+#Region Compile_Main()
 ; ===================================================================
 ; Compile_Main($sProject, Const ByRef $aBuildFiles, Const ByRef $aInstallFiles, $sBuildSuccessCallback = "", $sProjectDir = "", $bDisplayFullOutput = True, $bSkipInitialOutput = False)
 ;
@@ -311,9 +314,9 @@ Func Compile_Main($sProject, Const ByRef $aBuildFiles, Const ByRef $aInstallFile
 
 	Return $nReturnCode
 EndFunc   ;==>Compile_Main
-#endregion Compile_Main()
+#EndRegion Compile_Main()
 
-#region Compile_Main_CS()
+#Region Compile_Main_CS()
 ; ===================================================================
 ; Compile_Main_CS($sProject, Const ByRef $aBuildFiles, Const ByRef $aInstallFiles, $sBuildSuccessCallback = "", $sProjectDir = "", $bDisplayFullOutput = True, $bSkipInitialOutput = False)
 ;
@@ -353,18 +356,18 @@ Func Compile_Main_CS($sProject, Const ByRef $aBuildFiles, Const ByRef $aInstallF
 
 	; Get solutionPath
 	Local $sSolutionPath = _SolutionPath($vCompiler, $sProjectDir & "\build", $sProject)
-	
+
 	; Try again with no build directory (CS projects)
 	If $sSolutionPath = "" Then
 		$sSolutionPath = _SolutionPath($vCompiler, $sProjectDir, $sProject)
 	EndIf
-	
+
 	; Try again with default compiler
 	If $sSolutionPath = "" Then
 		$vCompiler = $COMPILER_DEFAULT
 		$sSolutionPath = _SolutionPath($vCompiler, $sProjectDir & "\build", $sProject)
 	EndIf
-	
+
 	If $sSolutionPath Then
 		; Before making any changes, make sure the compiler isn't running.
 		If Not _CompilerIsRunning($vCompiler) Then
@@ -412,10 +415,10 @@ Func Compile_Main_CS($sProject, Const ByRef $aBuildFiles, Const ByRef $aInstallF
 
 	Return $nReturnCode
 EndFunc   ;==>Compile_Main_CS
-#endregion Compile_Main_CS()
+#EndRegion Compile_Main_CS()
 
 
-#region Batch_Main()
+#Region Batch_Main()
 ; ===================================================================
 ; Batch_Main($sProject, Const ByRef $aScripts)
 ;
@@ -467,13 +470,13 @@ Func Batch_Main($sProject, Const ByRef $aScripts)
 
 	Return $nReturn
 EndFunc   ;==>Batch_Main
-#endregion Batch_Main()
+#EndRegion Batch_Main()
 
-#endregion Script Entry Points
+#EndRegion Script Entry Points
 
-#region Public Members
+#Region Public Members
 
-#region _CompilerIsRunning()
+#Region _CompilerIsRunning()
 ; ===================================================================
 ; _CompilerIsRunning($vCompiler)
 ;
@@ -502,9 +505,9 @@ Func _CompilerIsRunning($vCompiler)
 	Until Not $bExists
 	Return $bExists
 EndFunc   ;==>_CompilerIsRunning
-#endregion _CompilerIsRunning()
+#EndRegion _CompilerIsRunning()
 
-#region _Compile()
+#Region _Compile()
 ; ===================================================================
 ; _Compile($sSolutionPath, $vCompiler = "", $vPlatform = "", $vConfiguration = "", $bRebuild = True)
 ;
@@ -553,9 +556,9 @@ Func _Compile($sSolutionPath, $vCompiler = "", $vPlatform = "", $vConfiguration 
 	; Visual Studio returns 0 on success but we return a boolean.
 	Return $nReturn = 0
 EndFunc   ;==>_Compile
-#endregion _Compile()
+#EndRegion _Compile()
 
-#region _SolutionPath()
+#Region _SolutionPath()
 ; ===================================================================
 ; _SolutionPath($vCompiler, $sBuildRoot, $sName)
 ;
@@ -571,7 +574,7 @@ EndFunc   ;==>_Compile
 ; ===================================================================
 Func _SolutionPath($vCompiler, $sBuildRoot, $sName)
 	Local $sSolutionPath
-	
+
 	; First try the standard structure we use for C++ \VC11.0\ProjectName.sln
 	For $i = 0 To UBound($g_aCompilerMap) - 1
 		If $g_aCompilerMap[$i][$COMPILER_NAME] = $vCompiler Then
@@ -580,7 +583,7 @@ Func _SolutionPath($vCompiler, $sBuildRoot, $sName)
 		EndIf
 	Next
 	If FileExists($sSolutionPath) Then Return $sSolutionPath
-	
+
 	; If that doesn't work try just ProjectName.sln with no compiler specific directory/name (used in C# projects)
 	For $i = 0 To UBound($g_aCompilerMap) - 1
 		If $g_aCompilerMap[$i][$COMPILER_NAME] = $vCompiler Then
@@ -588,12 +591,12 @@ Func _SolutionPath($vCompiler, $sBuildRoot, $sName)
 		EndIf
 	Next
 	If FileExists($sSolutionPath) Then Return $sSolutionPath
-	
+
 	Return ""
 EndFunc   ;==>_SolutionPath
-#endregion _SolutionPath()
+#EndRegion _SolutionPath()
 
-#region _SolutionHasX64()
+#Region _SolutionHasX64()
 ; ===================================================================
 ; _SolutionHasX64($sSolutionPath)
 ;
@@ -607,9 +610,9 @@ Func _SolutionHasX64($sSolutionPath)
 	Local $sFile = FileRead($sSolutionPath)
 	Return StringRegExp($sFile, "(?i)Release\|x64")
 EndFunc   ;==>_SolutionHasX64
-#endregion _SolutionHasX64()
+#EndRegion _SolutionHasX64()
 
-#region _CleanOutputDirs()
+#Region _CleanOutputDirs()
 ; ===================================================================
 ; _CleanOutputDirs($sRoot)
 ;
@@ -642,9 +645,9 @@ Func _CleanOutputDirs($sRoot)
 		DirRemove($sRoot & "\" & $aSubDirs[$i], 1)
 	Next
 EndFunc   ;==>_CleanOutputDirs
-#endregion _CleanOutputDirs()
+#EndRegion _CleanOutputDirs()
 
-#region _CleanFiles()
+#Region _CleanFiles()
 ; ===================================================================
 ; _CleanFiles($sRoot)
 ;
@@ -676,9 +679,9 @@ Func _CleanFiles($sRoot)
 		If $aFiles[$i] Then FileDelete($sRoot & "\" & $aFiles[$i])
 	Next
 EndFunc   ;==>_CleanFiles
-#endregion _CleanFiles()
+#EndRegion _CleanFiles()
 
-#region _CleanInstallOutput()
+#Region _CleanInstallOutput()
 ; ===================================================================
 ; _CleanInstallOutput(Const ByRef $aInstallFiles, $sRoot = @WorkingDir)
 ;
@@ -694,9 +697,9 @@ Func _CleanInstallOutput(Const ByRef $aInstallFiles, $sRoot = @WorkingDir)
 		If $aInstallFiles[$i] Then FileDelete($sRoot & "\install\" & $aInstallFiles[$i])
 	Next
 EndFunc   ;==>_CleanInstallOutput
-#endregion _CleanInstallOutput()
+#EndRegion _CleanInstallOutput()
 
-#region _CopyBuildOutput()
+#Region _CopyBuildOutput()
 ; ===================================================================
 ; _CopyBuildOutput(Const ByRef $aBuildOutput, Const ByRef $aInstallFiles, $sProject, $sRoot = @WorkingDir)
 ;
@@ -725,10 +728,10 @@ Func _CopyBuildOutput(Const ByRef $aBuildOutput, Const ByRef $aInstallFiles, $sP
 	Next
 	Return $ret
 EndFunc   ;==>_CopyBuildOutput
-#endregion _CopyBuildOutput()
+#EndRegion _CopyBuildOutput()
 
 
-#region _BuildOutputResult()
+#Region _BuildOutputResult()
 ; ===================================================================
 ; _BuildOutputResult($nReturn, $nError, $nExtended, $vPlatform = $PLATFORM_WIN32)
 ;
@@ -767,9 +770,9 @@ Func _BuildOutputResult($nReturn, $nError, $nExtended, $vPlatform = $PLATFORM_WI
 	; Add the trailing CRLF
 	_OutputProgressWrite(@CRLF)
 EndFunc   ;==>_BuildOutputResult
-#endregion _BuildOutputResult()
+#EndRegion _BuildOutputResult()
 
-#region _BuildDirSet()
+#Region _BuildDirSet()
 ; ===================================================================
 ; _BuildDirSet()
 ;
@@ -784,10 +787,10 @@ Func _BuildDirSet()
 	FileChangeDir(_SettingGet($SETTING_BUILDDIR))
 	Return @WorkingDir
 EndFunc   ;==>_BuildDirSet
-#endregion _BuildDirSet()
+#EndRegion _BuildDirSet()
 
 
-#region _SettingGet()
+#Region _SettingGet()
 ; ===================================================================
 ; _SettingGet($vSetting, $vDefault = "", $bNumber = False, $sSection = $g_sSection)
 ;
@@ -801,17 +804,18 @@ EndFunc   ;==>_BuildDirSet
 ;	Success: The setting optionally cast to a number.
 ;	Failure: The default value.
 ; ===================================================================
-Func _SettingGet($vSetting, $vDefault = "", $bNumber = False, $sSection = $g_sSection)
+Func _SettingGet($vSetting, $vDefault = "", $bNumber = False, $sSection = Default, $fRedirected = False)
 	; Check the environment first, it overrides.
 	Local $vResult = EnvGet("Env" & $vSetting)
 	; Nothing in the environment, read the INI file.
-	If Not $vResult Then $vResult = IniRead(_SettingGetIniFile(), $sSection, $vSetting, $vDefault)
+	If $sSection = Default Then $sSection = $g_sSection
+	If Not $vResult Then $vResult = IniRead(_SettingGetIniFile($fRedirected), $sSection, $vSetting, $vDefault)
 	If $bNumber Then Return Number($vResult)
 	Return $vResult
 EndFunc   ;==>_SettingGet
-#endregion _SettingGet()
+#EndRegion _SettingGet()
 
-#region _SettingGetSection()
+#Region _SettingGetSection()
 ; ===================================================================
 ; _SettingGetSection($sSection)
 ;
@@ -826,9 +830,9 @@ Func _SettingGetSection($sSection)
 	Local $aRet = IniReadSection(_SettingGetIniFile(), $sSection)
 	Return SetError(@error, @extended, $aRet)
 EndFunc   ;==>_SettingGetSection
-#endregion _SettingGetSection()
+#EndRegion _SettingGetSection()
 
-#region _SettingSet()
+#Region _SettingSet()
 ; ===================================================================
 ; _SettingSet($vSetting, $vValue, $sSection = $g_sSection)
 ;
@@ -843,9 +847,9 @@ EndFunc   ;==>_SettingGetSection
 Func _SettingSet($vSetting, $vValue, $sSection = $g_sSection)
 	IniWrite(_SettingGetIniFile(), $sSection, $vSetting, $vValue)
 EndFunc   ;==>_SettingSet
-#endregion _SettingSet()
+#EndRegion _SettingSet()
 
-#region _SettingSetEnv()
+#Region _SettingSetEnv()
 ; ===================================================================
 ; _SettingSetEnv($vSetting, $vValue = "")
 ;
@@ -865,9 +869,9 @@ Func _SettingSetEnv($vSetting, $vValue = "")
 		EnvSet($vSetting, $vValue)
 	EndIf
 EndFunc   ;==>_SettingSetEnv
-#endregion _SettingSetEnv()
+#EndRegion _SettingSetEnv()
 
-#region _SettingGetIniFile()
+#Region _SettingGetIniFile()
 ; ===================================================================
 ; _SettingGetIniFile()
 ;
@@ -877,12 +881,24 @@ EndFunc   ;==>_SettingSetEnv
 ; Returns:
 ;	The path to the configuration file.
 ; ===================================================================
-Func _SettingGetIniFile()
+Func _SettingGetIniFile($fRedirected = False)
+	If $fRedirected Then
+		Local $sTemp = IniRead($g_sIni, "IniVersion", "RedirectedIni", "")
+		If $sTemp Then
+			; Config.ini need to be redirected
+			If Not FileExists($sTemp) Then
+				; use Config.ini located in the trunk\_build
+				$sTemp = IniRead($g_sIni, "Build", "BuildDir", "") & "\" & $sTemp
+			EndIf
+			Return $sTemp
+		EndIf
+	EndIf
+
 	Return $g_sIni
 EndFunc   ;==>_SettingGetIniFile
-#endregion _SettingGetIniFile()
+#EndRegion _SettingGetIniFile()
 
-#region _Sign()
+#Region _Sign()
 ; ===================================================================
 ; _Sign($sFile, $sDesc)
 ;
@@ -911,9 +927,9 @@ Func _Sign($sFile, $sDesc)
 
 	Return RunWait($cmdLine, "", @SW_HIDE)
 EndFunc   ;==>_Sign
-#endregion _Sign()
+#EndRegion _Sign()
 
-#region _ArchiveDir()
+#Region _ArchiveDir()
 ; ===================================================================
 ; _ArchiveDir($sDir, $sArchiveName, $aExcludes = "", $bSFX = True, $bZip = False)
 ;
@@ -948,9 +964,9 @@ Func _ArchiveDir($sDir, $sArchiveName, $aExcludes = "", $bSFX = True, $bZip = Fa
 	EndIf
 	Return $nReturn
 EndFunc   ;==>_ArchiveDir
-#endregion _ArchiveDir()
+#EndRegion _ArchiveDir()
 
-#region _WinRAR()
+#Region _WinRAR()
 ; ===================================================================
 ; _WinRAR($sDir, $sArchiveName, $aExcludes = "", $bSFX = True, $bZip = False)
 ;
@@ -1015,9 +1031,9 @@ Func _WinRAR($sDir, $sArchiveName, $aExcludes = "", $bSFX = True, $bZip = False)
 
 	Return RunWait('"' & $sWinRAR & '" ' & $sCmd)
 EndFunc   ;==>_WinRAR
-#endregion _WinRAR()
+#EndRegion _WinRAR()
 
-#region _7Zip()
+#Region _7Zip()
 ; ===================================================================
 ; _7Zip($sDir, $sArchiveName, $aExcludes = "", $bSFX = True, $bZip = False)
 ;
@@ -1082,9 +1098,9 @@ Func _7Zip($sDir, $sArchiveName, $aExcludes = "", $bSFX = True, $bZip = False)
 	; Add the rest of the command string.
 	Return RunWait('"' & $s7Zip & '" ' & $sCmd, @WorkingDir, @SW_HIDE)
 EndFunc   ;==>_7Zip
-#endregion _7Zip()
+#EndRegion _7Zip()
 
-#region _CompilerProcess()
+#Region _CompilerProcess()
 ; ===================================================================
 ; _CompilerProcess($vCompiler)
 ;
@@ -1097,9 +1113,9 @@ EndFunc   ;==>_7Zip
 Func _CompilerProcess($vCompiler)
 	Return __CompilerGetAttribute($vCompiler, $COMPILER_BINARY)
 EndFunc   ;==>_CompilerProcess
-#endregion _CompilerProcess()
+#EndRegion _CompilerProcess()
 
-#region _CompilerFullName()
+#Region _CompilerFullName()
 ; ===================================================================
 ; _CompilerFullName($vCompiler)
 ;
@@ -1112,9 +1128,9 @@ EndFunc   ;==>_CompilerProcess
 Func _CompilerFullName($vCompiler)
 	Return __CompilerGetAttribute($vCompiler, $COMPILER_FULLNAME)
 EndFunc   ;==>_CompilerFullName
-#endregion _CompilerFullName()
+#EndRegion _CompilerFullName()
 
-#region _CompilerGetProjectSuffix()
+#Region _CompilerGetProjectSuffix()
 ; ===================================================================
 ; _CompilerGetProjectSuffix($vCompiler)
 ;
@@ -1128,9 +1144,9 @@ EndFunc   ;==>_CompilerFullName
 Func _CompilerGetProjectSuffix($vCompiler)
 	Return __CompilerGetAttribute($vCompiler, $COMPILER_PROJECTSUFFIX)
 EndFunc   ;==>_CompilerGetProjectSuffix
-#endregion _CompilerGetProjectSuffix()
+#EndRegion _CompilerGetProjectSuffix()
 
-#region _CompilerGetSolutionDir()
+#Region _CompilerGetSolutionDir()
 ; ===================================================================
 ; _CompilerGetSolutionDir($vCompiler)
 ;
@@ -1144,9 +1160,9 @@ EndFunc   ;==>_CompilerGetProjectSuffix
 Func _CompilerGetSolutionDir($vCompiler)
 	Return __CompilerGetAttribute($vCompiler, $COMPILER_SOLUTIONDIR)
 EndFunc   ;==>_CompilerGetSolutionDir
-#endregion _CompilerGetSolutionDir()
+#EndRegion _CompilerGetSolutionDir()
 
-#region _PlatformName()
+#Region _PlatformName()
 ; ===================================================================
 ; _PlatformName($vPlatform)
 ;
@@ -1159,9 +1175,9 @@ EndFunc   ;==>_CompilerGetSolutionDir
 Func _PlatformName($vPlatform)
 	Return $vPlatform
 EndFunc   ;==>_PlatformName
-#endregion _PlatformName()
+#EndRegion _PlatformName()
 
-#region _ConfigurationName()
+#Region _ConfigurationName()
 ; ===================================================================
 ; _ConfigurationName($vConfiguration)
 ;
@@ -1174,9 +1190,9 @@ EndFunc   ;==>_PlatformName
 Func _ConfigurationName($vConfiguration)
 	Return $vConfiguration
 EndFunc   ;==>_ConfigurationName
-#endregion _ConfigurationName()
+#EndRegion _ConfigurationName()
 
-#region _ReleaseName()
+#Region _ReleaseName()
 ; ===================================================================
 ; _ReleaseName($vConfiguration, $vPlatform)
 ;
@@ -1190,9 +1206,9 @@ EndFunc   ;==>_ConfigurationName
 Func _ReleaseName($vConfiguration, $vPlatform)
 	Return _ConfigurationName($vConfiguration) & '|' & _PlatformName($vPlatform)
 EndFunc   ;==>_ReleaseName
-#endregion _ReleaseName()
+#EndRegion _ReleaseName()
 
-#region _RegRead64()
+#Region _RegRead64()
 ; ===================================================================
 ; _RegRead64($sKeyname, $sValue)
 ;
@@ -1218,13 +1234,13 @@ Func _RegRead64($sKeyname, $sValue)
 	SetError(0)
 	Return $res
 EndFunc   ;==>_RegRead64
-#endregion _RegRead64()
+#EndRegion _RegRead64()
 
-#endregion Public Members
+#EndRegion Public Members
 
-#region Private Members
+#Region Private Members
 
-#region __CompilerGetAttribute()
+#Region __CompilerGetAttribute()
 ; ===================================================================
 ; __CompilerGetAttribute($vCompiler, $iAttribute)
 ;
@@ -1244,6 +1260,6 @@ Func __CompilerGetAttribute($vCompiler, $iAttribute)
 	EndIf
 	Return SetError(1, 0, "")
 EndFunc   ;==>__CompilerGetAttribute
-#endregion __CompilerGetAttribute()
+#EndRegion __CompilerGetAttribute()
 
-#endregion Private Members
+#EndRegion Private Members

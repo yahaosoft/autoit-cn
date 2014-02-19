@@ -1,0 +1,55 @@
+###User Defined Function###
+_GDIPlus_BitmapGetHistogram
+
+###Description###
+Returns one or more histograms for specified color channels of the specified Bitmap
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_BitmapGetHistogram ( $hBitmap, $iHistogramFormat, $iHistogramSize, $tChannel_0 [, $tChannel_1 = 0 [, $tChannel_2 = 0 [, $tChannel_3 = 0]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hBitmap
+	Handle to a Bitmap to which the effect is applied.
+$iHistogramFormat
+	HistogramFormat constant that specifies the channels for which histograms will be created ($GDIP_HistogramFormat*).
+$iHistogramSize
+	Number of elements in each of the arrays pointed to by $tChannel_0, $tChannel_1, $tChannel_2, and $tChannel_3?
+$tChannel_0
+	A DLL struct array of UINTs that receives the first histogram.
+$tChannel_1
+	[optional] A DLL struct array of UINTs that receives the second histogram if there is a second histogram.
+	Pass NULL if there is no second histogram.
+$tChannel_2
+	[optional] A DLL struct array of UINTs that receives the third histogram if there is a third histogram.
+	Pass NULL if there is no third histogram.
+$tChannel_3
+	[optional] A DLL struct array of UINTs that receives the fourth histogram if there is a fourth histogram.
+	Pass NULL if there is no fourth histogram.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True.
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@error:	-1 - GDIPlus.dll does not support this function.
+	10 - Invalid parameters.
+@@End@@
+
+
+###Remarks###
+The number of histograms returned depends on the $iHistogramFormat parameter. For example, if format is equal to $GDIP_HistogramFormatRGB, then three histograms are returned: one each for the red, green, and blue channels. In that case, $tChannel_0 receives the red-channel histogram, $tChannel_1 receives the green-channel histogram, and $tChannel_2 receives the blue-channel histogram. For $GDIP_HistogramFormatRGB, $tChannel_3 must be set to NULL because there is no fourth histogram
+
+
+###Related###
+_GDIPlus_BitmapGetHistogramEx, _GDIPlus_BitmapGetHistogramSize
+
+
+###See Also###
+@@MsdnLink@@ GdipBitmapGetHistogram
+
+
+###Example###
+@@IncludeExample@@

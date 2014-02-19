@@ -1,0 +1,52 @@
+###User Defined Function###
+_GDIPlus_DrawImageFX
+
+###Description###
+Draws a portion of an image after applying a specified effect
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_DrawImageFX ( $hGraphics, $hImage, $hEffect [, $tRECTF = 0 [, $hMatrix = 0 [, $hImgAttributes = 0 [, $iUnit = 2]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hGraphics
+	Handle to a Graphics object.
+$hImage
+	Handle to an Image object.
+$hEffect
+	Handle to an Effect that is applied to the image before rendering. The image is not permanently altered by the effect.
+$tRECTF
+	[optional] $tagGDIPRECTF structure that specifies the portion of the image to be drawn.
+$hMatrix
+	[optional] Handle to a Matrix object that specifies the parallelogram in which the image portion is rendered.
+$hImgAttributes
+	[optional] Handle to an ImageAttributes object that specifies color adjustments to be applied when the image is rendered.
+$iUnit
+	[optional] Specifies the unit of measure for the image.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True.
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@error:	-1 - GDIPlus.dll does not support this function.
+	10 - Invalid parameters.
+@@End@@
+
+
+###Remarks###
+None.
+
+
+###Related###
+$tagGDIPRECTF, _GDIPlus_DrawImageFXEx, _GDIPlus_EffectCreate
+
+
+###See Also###
+@@MsdnLink@@ GdipDrawImageFX
+
+
+###Example###
+@@IncludeExample@@

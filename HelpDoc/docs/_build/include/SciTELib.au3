@@ -41,9 +41,9 @@ EndFunc   ;==>_SciTE_IsExists
 
 Func _SciTE_LoadPropertiesFile($sFilePath)
 	Local $sAu3Properties = FileRead($sFilePath)
-	$sAu3Properties = StringRegExpReplace($sAu3Properties, '\\(.*?)\r\n', '')
+	$sAu3Properties = StringRegExpReplace($sAu3Properties, '\\(.*?)\R', '')
 	$sAu3Properties = StringRegExpReplace($sAu3Properties, '(\h+?)', ' ')
-	Local $aArray = StringSplit($sAu3Properties, @CRLF, 1), _
+	Local $aArray = StringSplit($sAu3Properties, @CRLF, $STR_ENTIRESPLIT), _
 			$iStringLen = StringLen('#')
 	For $i = 1 To $aArray[0]
 		If Not (StringLeft($aArray[$i], $iStringLen) = '#') Then UpdateVar($aArray[$i])
@@ -58,7 +58,7 @@ EndFunc   ;==>_SciTE_Quit
 Func _SciTE_ParseHTML(ByRef $sData)
 	Local $fReturn = False
 	; Parse the HTML output.
-	Local $aSRE = StringRegExp($sData, '(*BSR_ANYCRLF)(?s)<body bgcolor="#[[:xdigit:]]{6}">\R(.*)\R</body>\R', 3)
+	Local $aSRE = StringRegExp($sData, '(?s)<body bgcolor="#[[:xdigit:]]{6}">\R(.*)\R</body>\R', 3)
 	If @error = 0 Then
 		$sData = $aSRE[0]
 		$sData = StringReplace($sData, '<br />', '')

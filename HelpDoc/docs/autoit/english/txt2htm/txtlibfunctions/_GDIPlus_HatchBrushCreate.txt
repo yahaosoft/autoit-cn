@@ -1,0 +1,43 @@
+###User Defined Function###
+_GDIPlus_HatchBrushCreate
+
+###Description###
+Creates a HatchBrush object based on a hatch style, a foreground color, and a background color
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_HatchBrushCreate ( [$iHatchStyle = 0 [, $iARGBForeground = 0xFFFFFFFF [, $iARGBBackground = 0xFFFFFFFF]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$iHatchStyle
+	[optional] Pattern of hatch lines that will be used, see remarks. Default = $GDIP_HATCHSTYLE_HORIZONTAL (0).
+$iARGBForeground
+	[optional] Alpha, Red, Green and Blue components of the hatch lines
+$iARGBBackground
+	[optional] Alpha, Red, Green and Blue components of the hatch background
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	a pointer to a new HatchBrush object.
+Failure:	0 and sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@@End@@
+
+
+###Remarks###
+The pattern constants are declared in GDIPlusConstants.au3, those that start with $GDIP_HATCHSTYLE_*.
+When you are done with the HatchBrush object, call <a href="_GDIPlus_BrushDispose.htm">_GDIPlus_BrushDispose()</a> to release the resources.
+
+
+###Related###
+_GDIPlus_BrushDispose
+
+
+###See Also###
+@@MsdnLink@@ GdipCreateHatchBrush
+
+
+###Example###
+@@IncludeExample@@

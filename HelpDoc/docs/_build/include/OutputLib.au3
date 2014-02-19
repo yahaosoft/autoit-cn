@@ -6,7 +6,7 @@
 ; ===================================================================
 #include-once
 
-#region Members Exported
+#Region Members Exported
 #cs Exported Functions
 _OutputWindowCreate() - Creates the output window and both output panes.
 _OutputWaitClosed() - When called in the same process as the window exists, waits for the window to be closed, otherwise returns immediately.
@@ -17,25 +17,26 @@ _OutputBuildWriteLineError($sData) - Writes data to the build pane (by entire li
 _OutputWindowSetState($nState) - Changes the state of the output window.
 _OutputWindowHandle() - Returns the handle to the output window.
 #ce Exported Functions
-#endregion Members Exported
+#EndRegion Members Exported
 
-#region Includes
-#include <WindowsConstants.au3>
+#Region Includes
 #include <EditConstants.au3>
 #include <GUIConstantsEx.au3>
-#endregion Includes
+#include <WindowsConstants.au3>
+#EndRegion Includes
 
-#region Global Variables
+#Region Global Variables
 Global Enum $OUTPUT_PROGRESS, $OUTPUT_BUILD
-Global Const $tagCOPYDATASTRUCT = "ulong_ptr;dword;ptr"
+If Not IsDeclared("WM_COPYDATA") Then Assign("WM_COPYDATA", 0x4A, 2)
+Global Const $COPYDATASTRUCT = "ulong_ptr;dword;ptr"
 Global Const $g_sOutputWindowTitle = "AutoIt Build Script Output"
 Global Const $g_sOutputWindowText = "This is hidden text"
 Global $g_hWndOutputWindow = 0, $g_idEditProgress, $g_idEditBuild, $g_idCheckAutoClose, $g_sOutputBuffer = ""
-#endregion Global Variables
+#EndRegion Global Variables
 
-#region Public Members
+#Region Public Members
 
-#region _OutputWindowCreate()
+#Region _OutputWindowCreate()
 ; ===================================================================
 ; _OutputWindowCreate()
 ;
@@ -80,9 +81,9 @@ Func _OutputWindowCreate()
 	GUISetState(@SW_SHOWNORMAL, $g_hWndOutputWindow)
 	Return $g_hWndOutputWindow
 EndFunc   ;==>_OutputWindowCreate
-#endregion _OutputWindowCreate()
+#EndRegion _OutputWindowCreate()
 
-#region _OutputWaitClosed()
+#Region _OutputWaitClosed()
 ; ===================================================================
 ; _OutputWaitClosed()
 ;
@@ -103,9 +104,9 @@ Func _OutputWaitClosed($nReturn = 0)
 		If GUIGetMsg() = $GUI_EVENT_CLOSE Then GUIDelete($g_hWndOutputWindow)
 	WEnd
 EndFunc   ;==>_OutputWaitClosed
-#endregion _OutputWaitClosed()
+#EndRegion _OutputWaitClosed()
 
-#region _OutputProgressWrite()
+#Region _OutputProgressWrite()
 ; ===================================================================
 ; _OutputProgressWrite($sData)
 ;
@@ -118,9 +119,9 @@ EndFunc   ;==>_OutputWaitClosed
 Func _OutputProgressWrite($sData)
 	Return __OutputWrite($OUTPUT_PROGRESS, $sData)
 EndFunc   ;==>_OutputProgressWrite
-#endregion _OutputProgressWrite()
+#EndRegion _OutputProgressWrite()
 
-#region _OutputBuildWrite()
+#Region _OutputBuildWrite()
 ; ===================================================================
 ; _OutputBuildWrite($sData)
 ;
@@ -133,9 +134,9 @@ EndFunc   ;==>_OutputProgressWrite
 Func _OutputBuildWrite($sData)
 	Return __OutputWrite($OUTPUT_BUILD, $sData)
 EndFunc   ;==>_OutputBuildWrite
-#endregion _OutputBuildWrite()
+#EndRegion _OutputBuildWrite()
 
-#region _OutputBuildWriteLine()
+#Region _OutputBuildWriteLine()
 ; ===================================================================
 ; _OutputBuildWriteLine($sData)
 ;
@@ -157,9 +158,9 @@ Func _OutputBuildWriteLine($sData)
 	$g_sOutputBuffer = $asLine[$asLine[0]]
 	Return
 EndFunc   ;==>_OutputBuildWriteLine
-#endregion _OutputBuildWriteLine()
+#EndRegion _OutputBuildWriteLine()
 
-#region _OutputBuildWriteLineError()
+#Region _OutputBuildWriteLineError()
 ; ===================================================================
 ; _OutputBuildWriteLineError($sData)
 ;
@@ -181,9 +182,9 @@ Func _OutputBuildWriteLineError($sData)
 	$g_sOutputBuffer = $asLine[$asLine[0]]
 	Return
 EndFunc   ;==>_OutputBuildWriteLineError
-#endregion _OutputBuildWriteLineError()
+#EndRegion _OutputBuildWriteLineError()
 
-#region _OutputWindowSetState()
+#Region _OutputWindowSetState()
 ; ===================================================================
 ; _OutputWindowSetState($nState)
 ;
@@ -199,9 +200,9 @@ Func _OutputWindowSetState($nState)
 	If $nState = @SW_RESTORE Then WinActivate($g_sOutputWindowTitle, $g_sOutputWindowText)
 	Opt("WinDetectHiddenText", $nOld)
 EndFunc   ;==>_OutputWindowSetState
-#endregion _OutputWindowSetState()
+#EndRegion _OutputWindowSetState()
 
-#region _OutputWindowHandle()
+#Region _OutputWindowHandle()
 ; ===================================================================
 ; _OutputWindowHandle()
 ;
@@ -214,13 +215,13 @@ EndFunc   ;==>_OutputWindowSetState
 Func _OutputWindowHandle()
 	Return WinGetHandle($g_sOutputWindowTitle, $g_sOutputWindowText)
 EndFunc   ;==>_OutputWindowHandle
-#endregion _OutputWindowHandle()
+#EndRegion _OutputWindowHandle()
 
-#endregion Public Members
+#EndRegion Public Members
 
-#region Callback Functions
+#Region Callback Functions
 
-#region __OutputOnWM_COPYDATA()
+#Region __OutputOnWM_COPYDATA()
 ; ===================================================================
 ; __OutputOnWM_COPYDATA($hWnd, $nMsg, $wParam, $lParam)
 ;
@@ -229,13 +230,13 @@ EndFunc   ;==>_OutputWindowHandle
 ;	$hWnd - IN - UNUSED.
 ;	$nMsg - IN - UNUSED.
 ;	$wParam - IN - UNUSED.
-;	$lParam - IN - Pointer to the $tagCOPYDATASTRUCT.
+;	$lParam - IN - Pointer to the $COPYDATASTRUCT.
 ; Returns:
 ;	Non-zero if handled, 0 otherwise.
 ; ===================================================================
 Func __OutputOnWM_COPYDATA($hWnd, $nMsg, $wParam, $lParam)
 	#forceref $hWnd, $nMsg, $wParam
-	Local $cds = DllStructCreate($tagCOPYDATASTRUCT, $lParam)
+	Local $cds = DllStructCreate($COPYDATASTRUCT, $lParam)
 	Local $string = DllStructCreate("char[" & DllStructGetData($cds, 2) & "]", DllStructGetData($cds, 3))
 	Local $sData = DllStructGetData($string, 1)
 	Local $nID
@@ -252,13 +253,13 @@ Func __OutputOnWM_COPYDATA($hWnd, $nMsg, $wParam, $lParam)
 	GUICtrlSetData($nID, $sData, True)
 	Return 1
 EndFunc   ;==>__OutputOnWM_COPYDATA
-#endregion __OutputOnWM_COPYDATA()
+#EndRegion __OutputOnWM_COPYDATA()
 
-#endregion Callback Functions
+#EndRegion Callback Functions
 
-#region Private Members
+#Region Private Members
 
-#region __OutputSetEditLimit()
+#Region __OutputSetEditLimit()
 ; ===================================================================
 ; __OutputSetEditLimit($idControl)
 ;
@@ -272,9 +273,9 @@ Func __OutputSetEditLimit($idControl)
 	Local Const $EM_LIMITTEXT = 0xC5
 	GUICtrlSendMsg($idControl, $EM_LIMITTEXT, 0, 0)
 EndFunc   ;==>__OutputSetEditLimit
-#endregion __OutputSetEditLimit()
+#EndRegion __OutputSetEditLimit()
 
-#region __OutputWrite()
+#Region __OutputWrite()
 ; ===================================================================
 ; __OutputWrite($nOutput, Const ByRef $sData)
 ;
@@ -296,7 +297,7 @@ Func __OutputWrite($nOutput, Const ByRef $sData)
 	Local $hSource = WinGetHandle(AutoItWinGetTitle())
 
 	; Create the structures
-	Local $cds = DllStructCreate($tagCOPYDATASTRUCT)
+	Local $cds = DllStructCreate($COPYDATASTRUCT)
 	Local $nSize = StringLen($sData) + 1
 	Local $string = DllStructCreate("char[" & $nSize & "]")
 
@@ -315,6 +316,6 @@ Func __OutputWrite($nOutput, Const ByRef $sData)
 		Return $aRet[0] = 1
 	EndIf
 EndFunc   ;==>__OutputWrite
-#endregion __OutputWrite()
+#EndRegion __OutputWrite()
 
-#endregion Private Members
+#EndRegion Private Members

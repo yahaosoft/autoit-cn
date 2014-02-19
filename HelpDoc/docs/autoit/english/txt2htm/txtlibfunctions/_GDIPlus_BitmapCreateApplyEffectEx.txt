@@ -1,0 +1,46 @@
+###User Defined Function###
+_GDIPlus_BitmapCreateApplyEffectEx
+
+###Description###
+Creates a new Bitmap by applying a specified effect to an existing Bitmap
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_BitmapCreateApplyEffectEx ( $hBitmap, $hEffect [, $iX = 0 [, $iY = 0 [, $iW = 0 [, $iH = 0]]]] )
+
+
+###Parameters###
+@@ParamTable@@
+$hBitmap
+	Handle to a Bitmap to which the effect is applied.
+$hEffect
+	Handle to an Effect to be applied.
+$iX
+	[optional] The X coordinate of the upper left corner of the portion to which the effect is applied.
+$iY
+	[optional] The Y coordinate of the upper left corner of the portion to which the effect is applied.
+$iW
+	[optional] Specifies the width of the portion to which the effect is applied.
+$iH
+	[optional] Specifies the height of the portion to which the effect is applied.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	a handle to a Bitmap object.
+Failure:	0 and sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@error:	-1 - GDIPlus.dll does not support this function.
+	10 - Invalid parameters.
+@@End@@
+
+
+###Remarks###
+When you are done with the Effect object, call <a href="_GDIPlus_EffectDispose.htm">_GDIPlus_EffectDispose()</a> to release the resources.
+
+
+###Related###
+_GDIPlus_BitmapCreateApplyEffect, _GDIPlus_EffectCreate
+
+
+###Example###
+@@IncludeExample@@

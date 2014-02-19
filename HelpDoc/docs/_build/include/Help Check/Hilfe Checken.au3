@@ -1,18 +1,21 @@
+#Region ;************ Includes ************
 #include <Array.au3>
 #include <ArrayMore.au3>
 #include <File.au3>
 #include <String.au3>
 #include <StructureConstants.au3>
-#region ;**** Directives created by AutoIt3Wrapper_GUI ****
+#EndRegion ;************ Includes ************
+
+#Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_Res_Description=Hilfe checken
-#AutoIt3Wrapper_Res_Fileversion=1.0.0.27
+#AutoIt3Wrapper_Res_Fileversion=1.0.0.28
 #AutoIt3Wrapper_Res_Language=1031
 #AutoIt3Wrapper_Res_Field=AutoIt Version|%AutoItVer%
 #AutoIt3Wrapper_Res_Field=Author|Tweaky
-#endregion ;**** Directives created by AutoIt3Wrapper_GUI ****
+#EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 
 ; Variables must be declared.
-Opt("MustDeclareVars", True)
+Opt("MustDeclareVars", 1)
 
 ; Path to the ini file
 Global Const $sIni = @ScriptDir & "\" & "Hilfe Checken.ini"
@@ -64,19 +67,16 @@ Global Const $pfad_5 = $grundpfad_txt_rel & $wort_libexamples & "\"
 ; Load the text string for optional.
 Global Const $wort_optional = IniRead($sIni, "Settings", "Optional", "[optional]")
 
-Global $array_txt
-Global $zeile_syntax, $zeile_include
-Global $name_funktion_dateiname, $name_funktion_dateiname_merken, $anzahl_fehler, $file, $line
+Global $name_funktion_dateiname, $name_funktion_dateiname_merken, $anzahl_fehler, $file
 
 ; These variables control which checks are active.	If they are non-empty then
 ; they contain an error string for that particular test and that test is active.
-Global $1 = "", $2 = "", $3 = "", $4 = "", $5 = "", $6 = "", $7 = "", $8 = "", $9 = "", $10 = "", $11 = "", $12 = "", $13 = "", $14 = "", $15 = "", $16 = "", $17 = "", $18 = "", $19 = "", $20 = "", $21 = ""
-
+Global $1 = "", $2 = "", $3 = "", $4 = "", $5 = "", $6 = "", $7 = "", $8 = "", $9 = "", $10 = "", $11 = "", $12 = "", $13 = "", $14 = "", $15 = "", $16 = "", $17 = "", $18 = "", $19 = "", $20 = "", $21 = "", $22 = "", $23 = ""
 
 ; This loop iterates each test loading the appropriate string if the test is
 ; enabled.  The lower and upper bounds of this test should correspond to the
 ; numbered variables declared above.
-For $i = 1 To 21
+For $i = 1 To 23
 	If IniRead($sIni, $i, "Enabled", 0) = 1 Then Assign($i, IniRead($sIni, $i, $sLangId, ""))
 Next
 
@@ -96,9 +96,7 @@ Global Const $array_auslassen_optional[5] = [0, "DllCall.txt", "DllCallAddress.t
 ;************************************************************************************************************************************************************************************************************************************************
 ;************************************************************************************************************************************************************************************************************************************************
 
-
 If $output = "file" Then $file = FileOpen(@ScriptDir & "\" & "Hilfe Checken Ergebnis.txt", 2)
-
 
 Global $array_dateien = _FileListToArray($pfad_1, "*.txt", 1) ; basic Functions
 _ermitteln($pfad_1)
@@ -107,16 +105,14 @@ _ermitteln($pfad_2)
 $array_dateien = _FileListToArray($pfad_3, "*.txt", 1) ; UDFs
 _ermitteln($pfad_3)
 
-
 If $output = "file" Then FileClose($file)
-
-
 
 ;******************************
 ; main function
 ;******************************
 
 Func _ermitteln($pfad)
+	Local $array_txt[1]
 	For $i = 1 To UBound($array_dateien) - 1
 		Local $name = $pfad & $array_dateien[$i] ; complete path of each file
 		_FileReadToArray($name, $array_txt) ; Write lines of the file into an array
@@ -133,12 +129,11 @@ Func _ermitteln($pfad)
 		Local $verwandte_funcs = 0 ; Related Headline available?
 		Local $beschreibung = 0 ; Description Heading available?
 		Local $rueckgabewert = 0 ; ReturnValue Heading available?
+		Local $returntable = 0 ; In Returnvalue (###ReturnValue###) there is an @@ReturnTable@@ but at least 1 tabulator is missing
 		Local $bemerkungen = 0 ; Remarks Headline available?
 		Local $beispiel = 0 ; Example Heading available?
 		Local $beispiel_include = 0 ; IncludeExample Heading available?
 		$name_funktion_dateiname = StringTrimRight($array_dateien[$i], 4) ; File name without extension
-
-
 
 		;*******************************************************************************
 		; It is checked whether the word "@@End@@" is included sufficient
@@ -147,7 +142,9 @@ Func _ermitteln($pfad)
 		;*******************************************************************************
 		For $z = 1 To UBound($array_txt) - 1
 			Local $link_nicht_onlinefaehig = 0 ; Link online capability?
-			If StringInStr($array_txt[$z], '@@ParamTable@@') Or StringInStr($array_txt[$z], '@@ControlCommandTable@@') Or StringInStr($array_txt[$z], '@@StandardTable1@@') Or StringInStr($array_txt[$z], '@@ReturnTable@@') Or StringInStr($array_txt[$z], '@@ParamTable@@') Then $tabelle_beginn += 1
+			If StringInStr($array_txt[$z], '@@ParamTable@@') Or StringInStr($array_txt[$z], '@@ControlCommandTable@@') _
+					Or StringInStr($array_txt[$z], '@@StandardTable1@@') Or StringInStr($array_txt[$z], '@@StandardTable@@') _
+					Or StringInStr($array_txt[$z], '@@ReturnTable@@') Then $tabelle_beginn += 1
 			If StringInStr($array_txt[$z], '@@End@@') Then
 				$tabelle_ende += 1
 				If $array_txt[$z - 1] = "" Then _log_schreiben($18, "")
@@ -156,60 +153,74 @@ Func _ermitteln($pfad)
 			; test links
 			If $20 <> "" And StringInStr($array_txt[$z], 'href=') Then
 				Local $link_tmp = _StringBetween($array_txt[$z], 'href="', '"') ; Link to filter out
-				Local $link = $link_tmp[0]
-				Local $link_ori = $link
-				If StringInStr($link, '#') Then ; # if a link contains filter out
-					$link_tmp = StringSplit($link, '#')
-					$link = $link_tmp[1]
-				EndIf
+				If IsArray($link_tmp) Then
+					Local $link = $link_tmp[0]
+					Local $link_ori = $link
+					If StringInStr($link, '#') Then ; # if a link contains filter out
+						$link_tmp = StringSplit($link, '#')
+						$link = $link_tmp[1]
+					EndIf
 
-				Local $grundpfad_html_abs = _PathFull($grundpfad_html_rel)
+					Local $grundpfad_html_abs = _PathFull($grundpfad_html_rel)
 
-				If Not StringInStr($link, "\") And Not StringInStr($link, "/") Then
-					If StringInStr($pfad, $wort_txtfunctions) Then
-						$link = $grundpfad_html_abs & $wort_functions & "\" & $link ; set new path
-					ElseIf StringInStr($pfad, $wort_txtkeywords) Then
-						$link = $grundpfad_html_abs & $wort_keywords & "\" & $link ; set new path
-					ElseIf StringInStr($pfad, $wort_txtlibfunctions) Then
-						$link = $grundpfad_html_abs & $wort_libfunctions & "\" & $link ; set new path
+					If Not StringInStr($link, "\") And Not StringInStr($link, "/") Then
+						If StringInStr($pfad, $wort_txtfunctions) Then
+							$link = $grundpfad_html_abs & $wort_functions & "\" & $link ; set new path
+						ElseIf StringInStr($pfad, $wort_txtkeywords) Then
+							$link = $grundpfad_html_abs & $wort_keywords & "\" & $link ; set new path
+						ElseIf StringInStr($pfad, $wort_txtlibfunctions) Then
+							$link = $grundpfad_html_abs & $wort_libfunctions & "\" & $link ; set new path
+						EndIf
+					Else
+						$link = StringReplace($link, "../", $grundpfad_html_abs) ; set new path
+						$link = StringReplace($link, "..\..\..\docs\autoit\english\html\", $grundpfad_html_abs) ; set new path
+						$link = StringReplace($link, "..\", $grundpfad_html_abs) ; set new path
+					EndIf
+
+					If Not StringInStr($link_ori, 'http://') Then
+						If Not FileExists($link) Then
+							_log_schreiben($20, $link) ; Link errors
+						EndIf
+
+						Local $szDrive, $szDir, $szFName, $szExt
+						Local $TestPath = _PathSplit($link, $szDrive, $szDir, $szFName, $szExt)
+						Local $h_file = FileFindNextFile(FileFindFirstFile($link))
+
+						If FileExists($link) Then
+							If $h_file == $TestPath[3] & $TestPath[4] Then
+								; Capital and lowercase fit
+							Else
+								; Capital and lowercase does not fit
+								$link_nicht_onlinefaehig = 1
+							EndIf
+						EndIf
+
+						If $link_nicht_onlinefaehig = 1 Then _log_schreiben($21, $link_ori) ; Link works not online (maybe you used \ instead of / or casesense is not ok)
 					EndIf
 				Else
-					$link = StringReplace($link, "../", $grundpfad_html_abs) ; set new path
-					$link = StringReplace($link, "..\..\..\docs\autoit\english\html\", $grundpfad_html_abs) ; set new path
-					$link = StringReplace($link, "..\", $grundpfad_html_abs) ; set new path
+					_log_schreiben($22, $array_txt[$z]) ; Link badly formatted
 				EndIf
-
-				If Not StringInStr($link_ori, 'http://') Then
-					If Not FileExists($link) Then
-						_log_schreiben($20, $link) ; Link errors
-					EndIf
-
-					Local $szDrive, $szDir, $szFName, $szExt
-					Local $TestPath = _PathSplit($link, $szDrive, $szDir, $szFName, $szExt)
-					Local $h_file = FileFindNextFile(FileFindFirstFile($link))
-
-					If FileExists($link) Then
-						If $h_file == $TestPath[3] & $TestPath[4] Then
-							; Capital and lowercase fit
-						Else
-							; Capital and lowercase does not fit
-							$link_nicht_onlinefaehig = 1
-						EndIf
-					EndIf
-
-					If $link_nicht_onlinefaehig = 1 Then _log_schreiben($21, $link_ori) ; Link works not online (maybe you used \ instead of / or casesense is not ok)
-				EndIf
-
 			EndIf
 		Next
-
-
 
 		Local $anzahl_variablen_soll
 
 		For $z = 1 To UBound($array_txt) - 1
 
-
+			;*******************************************************************************
+			; It is checked whether the return value (###ReturnValue###) with @@ReturnTable@@ tabs missing
+			;*******************************************************************************
+			If $rueckgabewert = 1 Then
+				If $returntable = 1 Or $array_txt[$z] = "@@ReturnTable@@" Then
+					$returntable = 1
+					If $array_txt[$z] = "@@End@@" Then
+						$returntable = 0
+					ElseIf ($array_txt[$z] <> "@@ReturnTable@@") And ($array_txt[$z] <> "") And (Not StringInStr($array_txt[$z], @TAB)) Then
+						_log_schreiben($23, "") ; In Returnvalue (###ReturnValue###) there is an @@ReturnTable@@ but at least 1 tabulator is missing
+						$returntable = 0
+					EndIf
+				EndIf
+			EndIf
 
 			;*******************************************************************************
 			; Detect function name
@@ -235,8 +246,6 @@ Func _ermitteln($pfad)
 					EndIf
 				EndIf
 
-
-
 				;*******************************************************************************
 				; Determine the line in which the word syntax is
 				; Line in the first include is
@@ -257,8 +266,6 @@ Func _ermitteln($pfad)
 
 				$z = $zeile_syntax_wort ; Reset line again
 
-
-
 				;*******************************************************************************
 				; Check function name in the syntax
 				;*******************************************************************************
@@ -278,8 +285,6 @@ Func _ermitteln($pfad)
 
 					If $syntax_funktion <> $name_funktion_dateiname Then _log_schreiben($2, "") ; Function name in the syntax wrong
 
-
-
 					;*******************************************************************************
 					; Identify variables in syntax
 					; Check which variable in the syntax is optional
@@ -291,39 +296,38 @@ Func _ermitteln($pfad)
 						Local $verbinden = 0
 						Local $var_tmp = 0
 
-
 						Do ; necessary because the syntax is sometimes in multiple lines
 							Local $array_tmp = $array_txt[$z]
+
 							$nur_var[0] = $syntax_variablen
 							If $verbinden = 1 Then ; necessary if the syntax is in multiple rows
-								$nur_var[0] = $var_tmp & $array_tmp
+;~ 								$nur_var = _StringBetween($array_tmp, '"', '"')
+								$nur_var[0] = StringStripWS($array_tmp, 1)
+								$nur_var[0] = $var_tmp & $nur_var[0]
 							EndIf
 
 							If StringRight($array_txt[$z], 1) = '_' Then
 								$verbinden = 1
 								$z += 1
-								$var_tmp = StringTrimRight($nur_var[0], 1)
+								$var_tmp = $nur_var[0]
+								$var_tmp = StringTrimRight($var_tmp, 1)
 							Else
 								ExitLoop
 							EndIf
 						Until Not StringRight($array_txt[$z], 1) = '_' ; not until the line "_" is closing, which means that the end of the syntax and is not continued on the next line
 
-						$nur_var[0] = StringReplace($nur_var[0], '&', '')
-						$nur_var[0] = StringReplace($nur_var[0], '"', '')
+						$nur_var[0] = StringReplace($nur_var[0], '; endstruct', "")
+						$nur_var[0] = StringReplace($nur_var[0], ';endstruct', "")
+						$nur_var[0] = StringReplace($nur_var[0], '"struct;" & ', "")
+						$nur_var[0] = StringReplace($nur_var[0], 'struct; ', "")
+						$nur_var[0] = StringReplace($nur_var[0], 'struct;', "")
+						$nur_var[0] = StringReplace($nur_var[0], 'struct ;', " ")
+						$nur_var[0] = StringReplace($nur_var[0], ';handle ', "; ")
+						$nur_var[0] = StringRegExpReplace($nur_var[0], '(align \d+;)', "")
+						$nur_var[0] = StringReplace($nur_var[0], ';lparam ', "; ")
+						$nur_var[0] = StringRegExpReplace($nur_var[0], '(\[\d+\])', "")
+
 						$exp_tmp = StringSplit($nur_var[0], ";")
-
-						; Remove Struct/EndStruct/Align
-						Local $part, $nPart = 0
-						For $b = 1 To $exp_tmp[0]
-							$part = StringStripWS($exp_tmp[$b], 3)
-							If Not ($part = "Struct" Or $part = "EndStruct" Or StringInStr($part, "Align")) Then
-								$nPart += 1
-								$exp_tmp[$nPart] = $part
-							EndIf
-						Next
-						$exp_tmp[0] = $nPart
-						ReDim $exp_tmp[$nPart + 1]
-
 					Else ; in other functions
 						Local $entf = $array_txt[$z]
 						$entf = StringReplace($entf, "]", "")
@@ -365,7 +369,7 @@ Func _ermitteln($pfad)
 							$array_var_syn[$b][0] = StringRegExpReplace($array_var_syn[$b][0], '(ByRef)|(Const)', "") ; Remove everything in the brackets
 
 							If StringInStr($array_dateien[$i], "$tag") Then ; at $tag functions
-								$array_var_syn[$b][0] = StringRegExpReplace($array_var_syn[$b][0], '(INT )|(uint_ptr )|(uint )|(UINT )|(int64 )|(int )|(int_ptr )|(ulong_ptr )|(dword_ptr )|(ptr )|(handle )|(dword )|(word )|(bool )|(long )|(ulong )|(ushort )|(short )|(ubyte )|(byte )|(hwnd )|(float )|(lparam )|(wchar )|(char )', "") ;     alles was in den Klammern steht entfernen
+								$array_var_syn[$b][0] = StringRegExpReplace($array_var_syn[$b][0], '(?<!tagPO)(INT )|(uint_ptr )|(uint )|(UINT )|(int64 )|(int )|(int_ptr )|(ulong_ptr )|(dword_ptr )|(ptr )|(handle )|(dword )|(word )|(bool )|(long )|(ulong )|(ushort )|(short )|(ubyte )|(byte )|(hwnd )|(float )|(lparam )|(wchar )|(char )|(& _)|(& )|( & )', "") ; remove everything in the brackets
 							EndIf
 
 							$array_var_syn[$b][0] = StringStripWS($array_var_syn[$b][0], 3) ; Remove spaces at the beginning and end
@@ -377,8 +381,6 @@ Func _ermitteln($pfad)
 					EndIf
 				EndIf
 
-
-
 				;*******************************************************************************
 				; checks whether the includes the syntax shown in the also exist
 				;*******************************************************************************
@@ -388,15 +390,13 @@ Func _ermitteln($pfad)
 						If StringInStr($array_txt[$z], "#Include") Then
 							Local $include_between = _StringBetween($array_txt[$z], "<", ">")
 							If IsArray($include_between) Then
-								If Not FileExists($pfad_include & $include_between[0]) Then _log_schreiben($3, "") ; angegebene Include-Datei existiert nicht
+								If Not FileExists($pfad_include & $include_between[0]) Then _log_schreiben($3, "") ; specified include file does not exist							EndIf
 							EndIf
 						EndIf
 						$z += 1
 					Until Not StringInStr($array_txt[$z], "#Include")
 					$z -= 1
 				EndIf
-
-
 
 				;******************************************************************************************************************
 				; Variables in the description identify (is), and this with the variables in syntax (to) compare
@@ -459,8 +459,6 @@ Func _ermitteln($pfad)
 					EndIf
 				EndIf
 
-
-
 				;******************************************************************************************************************
 				; The following functions exist in the related functions
 				; The link to at least a related function is duplicated
@@ -496,8 +494,6 @@ Func _ermitteln($pfad)
 					EndIf
 				EndIf
 
-
-
 				;******************************************************************************************************************
 				; Description Heading available?
 				; Parameters Heading available?
@@ -520,8 +516,6 @@ Func _ermitteln($pfad)
 				$beispiel_include = 1 ; Heading to the IncludeExample is available
 			EndIf
 		Next
-
-
 
 		;******************************************************************************************************************
 		; Function Heading available?
@@ -560,12 +554,11 @@ Func _ermitteln($pfad)
 	Next
 EndFunc   ;==>_ermitteln
 
-
-
 ;*********************************************************
 ; send all the errors to the Console
 ;*********************************************************
 Func _log_schreiben($text, $zusatz)
+	Local $line
 	If $text <> "" Then ; If this parameter is blank, nothing is written (this is useful if only a certain error should be sought)
 		If $name_funktion_dateiname <> $name_funktion_dateiname_merken Then $anzahl_fehler += 1
 		If $zusatz = "" Then

@@ -47,17 +47,19 @@ Global $hOut ;handle to the output file
 Global $hIn ;handle to current input file
 Global $INPUT_DIR, $htmlDir
 Global $OUTPUT_DIR = IniRead($TXT2HTM_INI, "Output", "mainHtml", "ERR")
+Global $RefTypeNotes ; Func Notes.
 
 If $ReGen_AutoIt Then
 	$RefType = "Function"
-	$hOut = FileOpen($OUTPUT_DIR & "functions.htm", 2) ;overwrite mode
+	$RefTypeNotes = "function_notes"
+	$hOut = FileOpen($OUTPUT_DIR & "functions.htm", BitOR($FO_OVERWRITE, $FO_UTF8)) ;overwrite mode
 	$INPUT_DIR = IniRead($TXT2HTM_INI, "Input", "functions", "ERR")
 	; ### Added this to determine the link to the htm file
 	$htmlDir = IniRead($TXT2HTM_INI, "Output", "functions", "ERR")
 	genFile()
 	;
 	$RefType = "Keyword"
-	$hOut = FileOpen($OUTPUT_DIR & "keywords.htm", 2) ;overwrite mode
+	$hOut = FileOpen($OUTPUT_DIR & "keywords.htm", BitOR($FO_OVERWRITE, $FO_UTF8)) ;overwrite mode
 	$INPUT_DIR = IniRead($TXT2HTM_INI, "Input", "keywords", "ERR")
 	; ### Added this to determine the link to the htm file
 	$htmlDir = IniRead($TXT2HTM_INI, "Output", "keywords", "ERR")
@@ -68,7 +70,8 @@ If $ReGen_UDFs Then
 	; ### Added this section for UDFS
 	;
 	$RefType = "User Defined Function"
-	$hOut = FileOpen($OUTPUT_DIR & "libfunctions.htm", 2) ;overwrite mode
+	$RefTypeNotes = "libfunction_notes"
+	$hOut = FileOpen($OUTPUT_DIR & "libfunctions.htm", BitOR($FO_OVERWRITE, $FO_UTF8)) ;overwrite mode
 	$INPUT_DIR = IniRead($TXT2HTM_INI, "Input", "libfunctions", "ERR")
 	; ### Added this to determine the link to the htm file
 	$htmlDir = IniRead($TXT2HTM_INI, "Output", "libfunctions", "ERR")
@@ -80,7 +83,7 @@ EndIf
 
 If $ReGen_AutoItX Then
 	$RefType = "Method"
-	$hOut = FileOpen($OUTPUT_DIR & "methods.htm", 2) ;overwrite mode
+	$hOut = FileOpen($OUTPUT_DIR & "methods.htm", BitOR($FO_OVERWRITE, $FO_UTF8)) ;overwrite mode
 	$INPUT_DIR = IniRead($TXT2HTM_INI, "Input", "methods", "ERR")
 	; ### Added this to determine the link to the htm file
 	$htmlDir = IniRead($TXT2HTM_INI, "Output", "methods", "ERR")
@@ -98,11 +101,11 @@ Func genFile()
 	put('<html>')
 	put('<head>')
 	put('  <title>' & $RefType & "s" & '</title>')
-	put('  <meta charset="gb2312">')
+	put('  <meta charset="utf-8">')
 	If $ReGen_AutoItX Then
-		put('  <link href="../css/default.css" rel="stylesheet" type="text/css">')
+		put('  <link href="../css/default.css" rel="stylesheet">')
 	Else
-		put('  <link href="css/default.css" rel="stylesheet" type="text/css">')
+		put('  <link href="css/default.css" rel="stylesheet">')
 	EndIf
 	put('</head>')
 	put('<body>')
@@ -113,6 +116,9 @@ Func genFile()
 		put('<p>Below is a complete list of the ' & StringLower($RefType) & 's available in AutoIt.')
 	EndIf
 	put('Click on a ' & StringLower($RefType) & ' name for a detailed description.</p>')
+	If $RefTypeNotes Then
+		put('<p>See <a href="' & $RefTypeNotes & '.htm">' & $RefType & ' Notes</a> for details on usage.')
+	EndIf
 	put('<p>&nbsp;</p>')
 	put('')
 	put('<table>')
@@ -126,7 +132,7 @@ Func genFile()
 	;pipe the list of sorted file names to fileList.tmp:
 	_RunCmd('dir ' & $INPUT_DIR & '*.txt /b | SORT > "' & $TEMP_LIST & '"')
 
-	Local $hList = FileOpen($TEMP_LIST, 0) ;readmode
+	Local $hList = FileOpen($TEMP_LIST) ;readmode
 	If $hList = -1 Then
 		MsgBox($MB_SYSTEMMODAL, "Error", $TEMP_LIST & " cannot be read")
 		Exit
@@ -143,7 +149,7 @@ Func genFile()
 		If $filename = "CVS" Then ContinueLoop
 		If StringInStr($filename, "$Tag") Then ContinueLoop
 		$path = $INPUT_DIR & $filename
-		$hIn = FileOpen($path, 0) ;read mode
+		$hIn = FileOpen($path) ;read mode
 
 		; Loop thru each line in the current input file
 		$line = FileReadLine($hIn)
@@ -197,13 +203,13 @@ EndFunc   ;==>genFile
 Func GenSubRefs()
 	Local $CATALOG_TOC = $INPUT_DIR & "Categories.toc"
 
-	Local $hList = FileOpen($CATALOG_TOC, 0) ;readmode
+	Local $hList = FileOpen($CATALOG_TOC) ;readmode
 	If $hList = -1 Then
 		MsgBox($MB_SYSTEMMODAL, "Error", $CATALOG_TOC & " cannot be read")
 		Exit
 	EndIf
 
-	Local $sLine = "", $aField, $RefType = "", $sSubMgt = ""
+	Local $sLine = "", $aField, $RefType = "", $sSubMgt = "", $iSplit
 	$hOut = -1
 	While 1
 		If $sLine = "" Then $sLine = FileReadLine($hList)
@@ -215,24 +221,23 @@ Func GenSubRefs()
 			If $RefType <> $aField[1] Then
 				PutFooter()
 				$RefType = $aField[1]
-				If StringInStr($RefType, "WinAPIEx") Then
-					$hOut = FileOpen($OUTPUT_DIR & "libfunctions\WinAPIEx Reference.htm", 2) ;overwrite mode
-				Else
-					$hOut = FileOpen($OUTPUT_DIR & "libfunctions\GUI Reference.htm", 2) ;overwrite mode
-				EndIf
+				$hOut = FileOpen($OUTPUT_DIR & "libfunctions\" & $RefType & ".htm", BitOR($FO_OVERWRITE, $FO_UTF8)) ;overwrite mode
 				PutHeader($RefType)
 			EndIf
+
+			$iSplit = StringInStr($aField[1], " ")
+			$aField[1] = StringLeft($aField[1], $iSplit)
 
 			If $hOut <> -1 Then
 				If $aField[2] <> $sSubMgt Then
 					$sSubMgt = $aField[2]
-					put('      <li><a href="' & $sSubMgt & '.htm">' & $sSubMgt & '</a></li>')
+					put('      <li><a href="' & $aField[1] & $sSubMgt & '.htm">' & $sSubMgt & '</a></li>')
 				EndIf
 
 				If $aField[0] >= 4 Then
 					Local $hSav = $hOut
-					$hOut = FileOpen($htmlDir & $aField[2] & ".htm", 2) ;overwrite mode
-					$sLine = GenSubSubRef($hList, $aField[2], $aField[3])
+					$hOut = FileOpen($htmlDir & $aField[1] & $aField[2] & ".htm", BitOR($FO_OVERWRITE, $FO_UTF8)) ;overwrite mode
+					$sLine = GenSubSubRef($hList, $aField[1], $aField[2], $aField[3])
 					FileClose($hOut)
 					$hOut = $hSav
 				EndIf
@@ -250,8 +255,8 @@ Func PutHeader($sRefType)
 	put('<html>')
 	put('<head>')
 	put('  <title>' & $sRefType & '</title>')
-	put('  <meta charset="gb2312">')
-	put('  <link href="../css/default.css" rel="stylesheet" type="text/css">')
+	put('  <meta charset="utf-8">')
+	put('  <link href="../css/default.css" rel="stylesheet">')
 	put('</head>')
 	put('')
 	put('<body>')
@@ -269,9 +274,9 @@ Func PutFooter()
 	$hOut = -1
 EndFunc   ;==>PutFooter
 
-Func GenSubSubRef($hList, $sRefType, $sSubMgt)
+Func GenSubSubRef($hList, $sPrefix, $sRefType, $sSubMgt)
 	PutHeader($sRefType)
-	put('      <li><a href="' & $sSubMgt & '.htm">' & $sSubMgt & '</a></li>')
+	put('      <li><a href="' & $sPrefix & $sSubMgt & '.htm">' & $sSubMgt & '</a></li>')
 
 	Local $sLine, $aField
 	While 1
@@ -281,7 +286,7 @@ Func GenSubSubRef($hList, $sRefType, $sSubMgt)
 			$aField = StringSplit($sLine, '|')
 			If $aField[3] <> $sSubMgt Then
 				$sSubMgt = $aField[3]
-				put('      <li><a href="' & $sSubMgt & '.htm">' & $sSubMgt & '</a></li>')
+				put('      <li><a href="' & $sPrefix & $sSubMgt & '.htm">' & $sSubMgt & '</a></li>')
 			EndIf
 		Else
 			ExitLoop

@@ -1,0 +1,50 @@
+###User Defined Function###
+_GDIPlus_BitmapConvertFormat
+
+###Description###
+Converts a bitmap to a specified pixel format
+
+###Syntax###
+#include <GDIPlus.au3>
+_GDIPlus_BitmapConvertFormat ( $hBitmap, $iPixelFormat, $iDitherType, $iPaletteType, $tPalette [, $fAlphaThresholdPercent = 0.0] )
+
+
+###Parameters###
+@@ParamTable@@
+$hBitmap
+	Handle to a Bitmap to which the effect is applied.
+$iPixelFormat
+	Pixel format constant that specifies the new pixel format ($GDIP_PXF*).
+$iDitherType
+	DitherType constant that specifies the dithering algorithm ($GDIP_DitherType*).
+$iPaletteType
+	PaletteType constant that specifies a standard palette to be used for dithering ($GDIP_PaletteType*).
+$tPalette
+	Structure that specifies the palette whose indexes are stored in the pixel data of the converted bitmap.
+$fAlphaThresholdPercent
+	[optional] Real number in the range 0.0 through 100.0 that specifies which pixels in the source bitmap will map to the transparent color in the converted bitmap.
+@@End@@
+
+###ReturnValue###
+@@ReturnTable@@
+Success:	True.
+Failure:	False and sets the @error flag to non-zero, @extended may contain GPSTATUS error code ($GPID_ERR*).
+@error:	-1 - GDIPlus.dll does not support this function.
+	10 - Invalid parameters.
+@@End@@
+
+
+###Remarks###
+The original pixel data in the bitmap is replaced by the new pixel data.
+
+
+###Related###
+_GDIPlus_PaletteInitialize
+
+
+###See Also###
+@@MsdnLink@@ GdipBitmapConvertFormat
+
+
+###Example###
+@@IncludeExample@@

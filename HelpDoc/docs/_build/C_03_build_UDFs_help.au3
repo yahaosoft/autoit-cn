@@ -2,23 +2,23 @@
 ; Builds UDFs3 help file
 ;
 
-#region Includes
+#Region Includes
 #include "include\CompileLib.au3"
-#endregion Includes
+#EndRegion Includes
 
-#region Global Variables
+#Region Global Variables
 ; The name of the project.
 Global Const $g_sProjectLang = "english"
 Global Const $g_sProject = "UDFs3 help"
 Global Const $g_sProjectDir = "docs\autoit"
-#endregion Global Variables
+#EndRegion Global Variables
 
-#region Main body of code
+#Region Main body of code
 Global $g_nExitCode = _Main()
 Exit $g_nExitCode
-#endregion Main body of code
+#EndRegion Main body of code
 
-#region _Main()
+#Region _Main()
 ; ===================================================================
 ; _Main()
 ;
@@ -37,9 +37,13 @@ Func _Main()
 	; Set the build directory based on the rules and the INI file value.
 	Local $gBuildDir = _BuildDirSet()
 
+	; Get Setting to check if Rebuild all help files is required
+	Local $sRegenAll = ""
+	If _SettingGet($SETTING_REBUILDHELPFILES, False, True, Default, True) Then $sRegenAll = "/RegenAll"
+
 	; Update the helpfile
 	FileChangeDir($gBuildDir & "\" & $g_sProjectDir & "\" & $g_sProjectLang)
-	RunWait('"' & @AutoItExe & '" All_Gen_UDFs3.au3')
+	RunWait('"' & @AutoItExe & '" All_Gen_UDFs3.au3 ' & $sRegenAll)
 
 	; Holds the return value.
 	Local $nReturn = 0
@@ -58,4 +62,4 @@ Func _Main()
 
 	Return $nReturn
 EndFunc   ;==>_Main
-#endregion _Main()
+#EndRegion _Main()
