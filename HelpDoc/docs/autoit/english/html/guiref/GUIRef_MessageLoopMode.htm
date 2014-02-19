@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <title>GUI Reference - MessageLoop Mode</title>
-  <meta charset="ISO-8859-1">
-  <link href="../css/default.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
 </head>
 <body>
   <h1>GUI Reference - MessageLoop Mode</h1>
@@ -13,11 +13,11 @@
   <p><strong>In the MessageLoop mode you will only receive events while you are actively polling the GUIGetMsg function so you must ensure that you call it many times a second otherwise your GUI will be unresponsive.</strong></p>
   <h2>Basic MessageLoop Format</h2>
   <p>The general layout of MessageLoop code is:</p>
-  <p class="codebox"><span><span class="S5">While</span> <span class="S3">1</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S9">$iMsg</span> <span class="S8">=</span> <span class="S4">GUIGetMsg</span><span class="S8">()</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S8">...</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S8">...</span><br>
-  <span class="S5">WEnd</span><br></span></p>
+  <p class="codebox"><span><span class="S5">While</span> <span class="S3">1</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S9">$iMsg</span> <span class="S8">=</span> <span class="S4">GUIGetMsg</span><span class="S8">()</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S8">...</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S8">...</span><br />
+  <span class="S5">WEnd</span><br /></span></p>
   <p>&nbsp;</p>
   <p>Usually a tight loop like the one shown would send the CPU to 100% - fortunately the <a href="../functions/GUIGetMsg.htm">GUIGetMsg</a> function automatically idles the CPU when there are no events waiting. Do <strong>not</strong> put a manual sleep
   in the loop for fear of stressing the CPU - this will only cause the GUI to become unresponsive.</p>
@@ -38,97 +38,97 @@
   <p>&nbsp;</p>
   <p><strong>System Event</strong></p>
   <p>System events - such as the GUI closing - are <strong>negative</strong> numbers. The different events are shown below and are defined in <strong>GUIConstantsEx.au3</strong>:</p>
-  <p class="code">$GUI_EVENT_CLOSE<br>
-  $GUI_EVENT_MINIMIZE<br>
-  $GUI_EVENT_RESTORE<br>
-  $GUI_EVENT_MAXIMIZE<br>
-  $GUI_EVENT_PRIMARYDOWN<br>
-  $GUI_EVENT_PRIMARYUP<br>
-  $GUI_EVENT_SECONDARYDOWN<br>
-  $GUI_EVENT_SECONDARYUP<br>
-  $GUI_EVENT_MOUSEMOVE<br>
-  $GUI_EVENT_RESIZED<br>
+  <p class="code">$GUI_EVENT_CLOSE<br />
+  $GUI_EVENT_MINIMIZE<br />
+  $GUI_EVENT_RESTORE<br />
+  $GUI_EVENT_MAXIMIZE<br />
+  $GUI_EVENT_PRIMARYDOWN<br />
+  $GUI_EVENT_PRIMARYUP<br />
+  $GUI_EVENT_SECONDARYDOWN<br />
+  $GUI_EVENT_SECONDARYUP<br />
+  $GUI_EVENT_MOUSEMOVE<br />
+  $GUI_EVENT_RESIZED<br />
   $GUI_EVENT_DROPPED</p>
   <h2>Example GUI</h2>
   <p>In the main <a href="GUIRef.htm">GUI Reference page</a> we started a simple Hello World example that looked like this:</p>
-  <p class="codebox"><span><span class="S11">#include</span> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
-  <br>
-  <span class="S4">GUICreate</span><span class="S8">(</span><span class="S7">"Hello World"</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
-  <span class="S4">GUICtrlCreateLabel</span><span class="S8">(</span><span class="S7">"Hello world! How are you?"</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
+  <p class="codebox"><span><span class="S11">#include</span> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br />
+  <br />
+  <span class="S4">GUICreate</span><span class="S8">(</span><span class="S7">"Hello World"</span><span class="S8">,</span> <span class="S3">200</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br />
+  <span class="S4">GUICtrlCreateLabel</span><span class="S8">(</span><span class="S7">"Hello world! How are you?"</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br />
   <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"OK"</span><span class="S8">,</span> <span class="S3">70</span><span class="S8">,</span> <span class="S3">50</span><span class="S8">,</span> <span class=
-  "S3">60</span><span class="S8">)</span><br>
-  <span class="S4">GUISetState</span><span class="S8">(</span><span class="S6">@SW_SHOW</span><span class="S8">)</span><br>
-  <span class="S4">Sleep</span><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br></span></p>
+  "S3">60</span><span class="S8">)</span><br />
+  <span class="S4">GUISetState</span><span class="S8">(</span><span class="S6">@SW_SHOW</span><span class="S8">)</span><br />
+  <span class="S4">Sleep</span><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span><br /></span></p>
   <p>&nbsp;</p>
   <p>Now we will finish the code using a MessageLoop and some of the event messages described above. It is usual because of the number of possible messages to use a Switch statement for readability.</p>
-  <p class="codebox"><span><span class="S11">#include</span> <span class="S7">&lt;Constants.au3&gt;</span></span><br>
-  <span><span class="S11">#include</span> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br>
-  <br>
+  <p class="codebox"><span><span class="S11">#include</span> <span class="S7">&lt;Constants.au3&gt;</span></span><br />
+  <span><span class="S11">#include</span> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span><br />
+  <br />
   <span class="S5">Local</span> <span class="S9">$hGUI</span> <span class="S8">=</span> <span class="S4">GUICreate</span><span class="S8">(</span><span class="S7">"Hello World"</span><span class="S8">,</span> <span class="S3">200</span><span class=
-  "S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
-  <span class="S4">GUICtrlCreateLabel</span><span class="S8">(</span><span class="S7">"Hello world! How are you?"</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
+  "S8">,</span> <span class="S3">100</span><span class="S8">)</span><br />
+  <span class="S4">GUICtrlCreateLabel</span><span class="S8">(</span><span class="S7">"Hello world! How are you?"</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br />
   <span class="S5">Local</span> <span class="S9">$iOKButton</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"OK"</span><span class="S8">,</span> <span class="S3">70</span><span class=
-  "S8">,</span> <span class="S3">50</span><span class="S8">,</span> <span class="S3">60</span><span class="S8">)</span><br>
-  <span class="S4">GUISetState</span><span class="S8">(</span><span class="S6">@SW_SHOW</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span><br>
-  <br>
-  <span class="S5">Local</span> <span class="S9">$iMsg</span> <span class="S8">=</span> <span class="S3">0</span><br>
-  <span class="S5">While</span> <span class="S3">1</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S9">$iMsg</span> <span class="S8">=</span> <span class="S4">GUIGetMsg</span><span class="S8">()</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Switch</span> <span class="S9">$iMsg</span><br>
-  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$iOKButton</span><br>
+  "S8">,</span> <span class="S3">50</span><span class="S8">,</span> <span class="S3">60</span><span class="S8">)</span><br />
+  <span class="S4">GUISetState</span><span class="S8">(</span><span class="S6">@SW_SHOW</span><span class="S8">,</span> <span class="S9">$hGUI</span><span class="S8">)</span><br />
+  <br />
+  <span class="S5">Local</span> <span class="S9">$iMsg</span> <span class="S8">=</span> <span class="S3">0</span><br />
+  <span class="S5">While</span> <span class="S3">1</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S9">$iMsg</span> <span class="S8">=</span> <span class="S4">GUIGetMsg</span><span class="S8">()</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Switch</span> <span class="S9">$iMsg</span><br />
+  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$iOKButton</span><br />
   <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span></span><span class="S9">$MB_SYSTEMMODAL</span><span><span class="S8">,</span> <span class="S7">"GUI Event"</span><span class=
-  "S8">,</span> <span class="S7">"You selected the OK button."</span><span class="S8">)</span><br>
-  <br>
-  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$GUI_EVENT_CLOSE</span><br>
+  "S8">,</span> <span class="S7">"You selected the OK button."</span><span class="S8">)</span><br />
+  <br />
+  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$GUI_EVENT_CLOSE</span><br />
   <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span></span><span class="S9">$MB_SYSTEMMODAL</span><span><span class="S8">,</span> <span class="S7">"GUI Event"</span><span class=
-  "S8">,</span> <span class="S7">"You selected the Close button. Exiting..."</span><span class="S8">)</span><br>
-  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">ExitLoop</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">EndSwitch</span><br>
-  <span class="S5">WEnd</span><br>
-  <br>
+  "S8">,</span> <span class="S7">"You selected the Close button. Exiting..."</span><span class="S8">)</span><br />
+  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">ExitLoop</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">EndSwitch</span><br />
+  <span class="S5">WEnd</span><br />
+  <br />
   <span class="S4">GUIDelete</span><span class="S8">(</span><span class="S9">$hGUI</span><span class="S8">)</span></span></p>
   <p>It's that simple. Obviously the more windows and controls you create the more complicated it gets but the above shows you the basics.</p>
   <h2>Advanced GUIGetMsg and Multiple Windows</h2>
   <p>Control IDs are unique, even when you have multiple windows, so the above code with work fine with controls and multiple windows. However, when processing events such as $GUI_EVENT_CLOSE or $GUI_MOUSEMOVE you need to know which GUI window generated
   the event. To do this you must call GUIGetMsg like so:</p>
-  <p class="codebox"><span><span class="S9">$iMsg</span> <span class="S8">=</span> <span class="S4">GUIGetMsg</span><span class="S8">(</span><span class="S3">1</span><span class="S8">)</span><br></span></p>
+  <p class="codebox"><span><span class="S9">$iMsg</span> <span class="S8">=</span> <span class="S4">GUIGetMsg</span><span class="S8">(</span><span class="S3">1</span><span class="S8">)</span><br /></span></p>
   <p>&nbsp;</p>
   <p>When called with the <strong>1</strong> parameter instead of returning an event value an <strong>array</strong> will be returned, the array contains the event ( in $aArray[0] ) and extra information such as the window handle ( in $aArray[1] ). If
   two windows were created in the previous example then the correct way to write the code would be:</p>
-  <p class="codebox"><span><span class="S11">#include</span> <span class="S7">&lt;Constants.au3&gt;</span><br></span><span><span class="S11">#include</span> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span></span><br>
-  <span><br>
+  <p class="codebox"><span><span class="S11">#include</span> <span class="S7">&lt;Constants.au3&gt;</span><br /></span><span><span class="S11">#include</span> <span class="S7">&lt;GUIConstantsEx.au3&gt;</span></span><br />
+  <span><br />
   <span class="S5">Local</span> <span class="S9">$hMainGUI</span> <span class="S8">=</span> <span class="S4">GUICreate</span><span class="S8">(</span><span class="S7">"Hello World"</span><span class="S8">,</span> <span class="S3">200</span><span class=
-  "S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
-  <span class="S4">GUICtrlCreateLabel</span><span class="S8">(</span><span class="S7">"Hello world! How are you?"</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br>
+  "S8">,</span> <span class="S3">100</span><span class="S8">)</span><br />
+  <span class="S4">GUICtrlCreateLabel</span><span class="S8">(</span><span class="S7">"Hello world! How are you?"</span><span class="S8">,</span> <span class="S3">30</span><span class="S8">,</span> <span class="S3">10</span><span class="S8">)</span><br />
   <span class="S5">Local</span> <span class="S9">$iOKButton</span> <span class="S8">=</span> <span class="S4">GUICtrlCreateButton</span><span class="S8">(</span><span class="S7">"OK"</span><span class="S8">,</span> <span class="S3">70</span><span class=
-  "S8">,</span> <span class="S3">50</span><span class="S8">,</span> <span class="S3">60</span><span class="S8">)</span><br>
-  <br>
+  "S8">,</span> <span class="S3">50</span><span class="S8">,</span> <span class="S3">60</span><span class="S8">)</span><br />
+  <br />
   <span class="S5">Local</span> <span class="S9">$hDummyGUI</span> <span class="S8">=</span> <span class="S4">GUICreate</span><span class="S8">(</span><span class="S7">"Dummy window for testing"</span><span class="S8">,</span> <span class=
-  "S3">200</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br>
-  <br>
-  <span class="S4">GUISwitch</span><span class="S8">(</span><span class="S9">$hMainGUI</span><span class="S8">)</span><br>
-  <span class="S4">GUISetState</span><span class="S8">(</span><span class="S6">@SW_SHOW</span><span class="S8">)</span><br>
-  <br>
-  <span class="S5">Local</span> <span class="S9">$aMsg</span> <span class="S8">=</span> <span class="S3">0</span><br>
-  <span class="S5">While</span> <span class="S3">1</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S9">$aMsg</span> <span class="S8">=</span> <span class="S4">GUIGetMsg</span><span class="S8">(</span><span class="S3">1</span><span class="S8">)</span><br>
-  <br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Select</span><br>
-  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$aMsg</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S9">$iOKButton</span><br>
+  "S3">200</span><span class="S8">,</span> <span class="S3">100</span><span class="S8">)</span><br />
+  <br />
+  <span class="S4">GUISwitch</span><span class="S8">(</span><span class="S9">$hMainGUI</span><span class="S8">)</span><br />
+  <span class="S4">GUISetState</span><span class="S8">(</span><span class="S6">@SW_SHOW</span><span class="S8">)</span><br />
+  <br />
+  <span class="S5">Local</span> <span class="S9">$aMsg</span> <span class="S8">=</span> <span class="S3">0</span><br />
+  <span class="S5">While</span> <span class="S3">1</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S9">$aMsg</span> <span class="S8">=</span> <span class="S4">GUIGetMsg</span><span class="S8">(</span><span class="S3">1</span><span class="S8">)</span><br />
+  <br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Select</span><br />
+  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$aMsg</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S9">$iOKButton</span><br />
   <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span></span><span class="S9">$MB_SYSTEMMODAL</span><span><span class="S8">,</span> <span class="S7">"GUI Event"</span><span class=
-  "S8">,</span> <span class="S7">"You selected OK!"</span><span class="S8">)</span><br>
-  <br>
+  "S8">,</span> <span class="S7">"You selected OK!"</span><span class="S8">)</span><br />
+  <br />
   <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">Case</span> <span class="S9">$aMsg</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S9">$GUI_EVENT_CLOSE</span>
-  <span class="S5">And</span> <span class="S9">$aMsg</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S9">$hMainGUI</span><br>
+  <span class="S5">And</span> <span class="S9">$aMsg</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S9">$hMainGUI</span><br />
   <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span></span><span class="S9">$MB_SYSTEMMODAL</span><span><span class="S8">,</span> <span class="S7">"GUI Event"</span><span class=
-  "S8">,</span> <span class="S7">"You selected CLOSE on the main GUI! Exiting..."</span><span class="S8">)</span><br>
-  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">ExitLoop</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">EndSelect</span><br>
-  <span class="S5">WEnd</span><br></span></p>
+  "S8">,</span> <span class="S7">"You selected CLOSE on the main GUI! Exiting..."</span><span class="S8">)</span><br />
+  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S5">ExitLoop</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">EndSelect</span><br />
+  <span class="S5">WEnd</span><br /></span></p>
   <p>&nbsp;</p>
   <p>The first major change is the <a href="../functions/GUISwitch.htm">GUISwitch</a> function call - when a new window is created it becomes the "default" window for future GUI operations (including control creation). In our case we want to work with
   the main "Hello World" window, not the test window, so we "switch". Some GUI functions allow you to use the window handle in the function call itself - these functions will do the switch automatically. In our example we could have done this with:</p>
-  <p class="codebox"><span><span class="S4">GUISetState</span><span class="S8">(</span><span class="S6">@SW_SHOW</span><span class="S8">,</span> <span class="S9">$hMainGUI</span><span class="S8">)</span><br></span></p>
+  <p class="codebox"><span><span class="S4">GUISetState</span><span class="S8">(</span><span class="S6">@SW_SHOW</span><span class="S8">,</span> <span class="S9">$hMainGUI</span><span class="S8">)</span><br /></span></p>
   <p>&nbsp;</p>
   <p>The next change is the way GUIGetMsg is called and how the events are checked - notice the use of $msg[0] and $msg[1] - now we only exit the script if the close event is sent <strong>and</strong> the event is from our main window.</p>
 </body>

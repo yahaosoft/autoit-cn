@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Window Titles and Text (Advanced)</title>
-  <meta charset="ISO-8859-1">
-  <link href="../css/default.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
 </head>
 <body>
   <h1>Window Titles and Text (Advanced)</h1>
@@ -14,13 +14,13 @@
   <p>Matches partial titles from the start.</p>
   <p>In this mode, a window titled <strong>Untitled - Notepad</strong> would be matched by "Untitled - Notepad", "Untitled", "Un", etc.</p>
   <p>e.g.</p>
-  <p class="codebox"><span><span class="S4">WinWait</span><span class="S8">(</span><span class="S7">"Untitled"</span><span class="S8">)</span><br></span></p>
+  <p class="codebox"><span><span class="S4">WinWait</span><span class="S8">(</span><span class="S7">"Untitled"</span><span class="S8">)</span><br /></span></p>
   <p>&nbsp;</p>
   <p><strong>Mode 2</strong></p>
   <p>Matches any substring in the title.</p>
   <p>In this mode, a window titled <strong>Untitled - Notepad</strong> would be matched by "Untitled - Notepad", "Untitled", "Notepad", "pad", etc.</p>
   <p>e.g.</p>
-  <p class="codebox"><span class="S4">WinWait</span><span class="S8">(</span><span class="S7">"Notepad"</span><span class="S8">)</span><br></p>
+  <p class="codebox"><span class="S4">WinWait</span><span class="S8">(</span><span class="S7">"Notepad"</span><span class="S8">)</span><br /></p>
   <p>&nbsp;</p>
   <p><strong>Mode 3</strong></p>
   <p>Exact title match.</p>
@@ -28,7 +28,7 @@
   <p>&nbsp;</p>
   <p><strong>Mode 4</strong> (Kept for backward compatibility)</p>
   <p>Advanced mode</p>
-  <p>Must be replaced with Advanced Window Descriptions which does not need any mode to be set.</p>
+  <p> Replaced by Advanced Window Descriptions which work in any mode.</p>
   <p>&nbsp;</p>
   <p><strong>Mode -1 to -4</strong></p>
   <p>Case insensitive match according to the other type of match.</p>
@@ -49,16 +49,16 @@
   <p>&nbsp;</p>
   <p><strong>Note</strong> : if a Value must contain a ";" it must be doubled.</p>
   <p>e.g. Wait for a window with the classname "Notepad".</p>
-  <p class="codebox"><span class="S4">WinWaitActive</span><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br></p>
+  <p class="codebox"><span class="S4">WinWaitActive</span><span class="S8">(</span><span class="S7">"[CLASS:Notepad]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br /></p>
   <p>&nbsp;</p>
   <p>e.g. Close the currently active window</p>
-  <p class="codebox"><span class="S4">WinClose</span><span class="S8">(</span><span class="S7">"[ACTIVE]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br></p>
+  <p class="codebox"><span class="S4">WinClose</span><span class="S8">(</span><span class="S7">"[ACTIVE]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br /></p>
   <p>&nbsp;</p>
   <p>e.g. Wait for the 2nd instance of a window with title "My Window" <strong>and</strong> classname "My Class"</p>
-  <p class="codebox"><span class="S4">WinWaitActive</span><span class="S8">(</span><span class="S7">"[TITLE:My Window; CLASS:My Class; INSTANCE:2]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br></p>
+  <p class="codebox"><span class="S4">WinWaitActive</span><span class="S8">(</span><span class="S7">"[TITLE:My Window; CLASS:My Class; INSTANCE:2]"</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">)</span><br /></p>
   <p>&nbsp;</p>
   <p>e.g. List windows matching Title defined by a regular expression</p>
-  <p class="codebox"><span><span class="S4">WinList</span><span class="S8">(</span><span class="S7">"[REGEXPTITLE:(?i)(.*SciTE.*|.*Internet Explorer.*)]"</span><span class="S8">)</span></span><br></p>
+  <p class="codebox"><span><span class="S4">WinList</span><span class="S8">(</span><span class="S7">"[REGEXPTITLE:(?i)(.*SciTE.*|.*Internet Explorer.*)]"</span><span class="S8">)</span></span><br /></p>
   <h2>Window Handles / HWNDs</h2>
   <p>The variant datatype in AutoIt natively supports window handles (HWNDs).&nbsp; A window handle is a special value that Windows assigns to windows each time they are created.&nbsp; When you have a handle you may use it in place of the title parameter
   in any of the function calls that use the title/text convention.&nbsp; The advantage of using window handles is that if you have multiple copies of an application open which have the same title/text then you can uniquely identify them using handles.
@@ -68,7 +68,7 @@
   <p><strong>Note: Window handles will work no matter what WinTitleMatchMode is currently in use.</strong></p>
   <p><strong>Example</strong></p>
   <p class="codebox"><span class="S5">Local</span> <span class="S9">$hWnd</span> <span class="S8">=</span> <span class="S4">WinGetHandle</span><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">,</span> <span class=
-  "S7">""</span><span class="S8">)</span><br>
-  <span class="S4">WinClose</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><br></p>
+  "S7">""</span><span class="S8">)</span><br />
+  <span class="S4">WinClose</span><span class="S8">(</span><span class="S9">$hWnd</span><span class="S8">)</span><br /></p>
 </body>
 </html>

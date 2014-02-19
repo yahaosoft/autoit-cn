@@ -2,15 +2,13 @@
 <html>
 <head>
   <title>Compiling Scripts with Aut2Exe</title>
-  <meta charset="ISO-8859-1">
-  <link href="../css/default.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
 </head>
 <body>
   <h1>Compiling Scripts with Aut2Exe</h1>
-  <p>It is possible to take your <em>.au3</em> script and compile it into a <strong>standalone</strong> executable; this executable can be used without the need for AutoIt to be installed and without the need to have <em>AutoIt3.exe</em> on the machine.
-  In addition, the compiled script is compressed and encrypted and there is the option to bind additional files (also compressed/encrypted) to the exe using the <a href="../functions/FileInstall.htm">FileInstall</a> function. Also, any <a href=
-  "../keywords/include.htm">#include</a> files will also be compiled into the script so they are not required at run-time.</p>
-  <p><strong>Caution</strong>: the script to be compiled must be free of syntax error as the compilation will not check the syntax.</p>
+  <p>It is possible to take your <em>.au3</em> script and compile it into a <strong>standalone</strong> executable; this executable can be used without the need for AutoIt to be installed and without the need to have <em>AutoIt3.exe</em> on the machine. The compilation process converts the script and its <a href="../keywords/include.htm">#include</a> files, plus any files added by the <a href="../functions/FileInstall.htm">FileInstall</a> function, into a tokenised form which is then compressed and encrypted. In that way none of these additional files are required at runtime. Depending on the compilation option chosen, this "<em>compiled</em>" script will either be inserted into the resources of a stand-alone executable interpreter which will run it directly or saved in <em>.a3x</em> format.  An <em>.a3x</em> file can be included in another script or run by an AutoIt interpreter - either <em>Autoit3.exe</em> itself or another compiled script with the <em>AutoItExecuteAllowed</em> flag set.</p>
+  <p><strong>Caution</strong>: the script to be compiled must be free of syntax error as the compilation process does not check the syntax.</p>
   <p>&nbsp;</p>
   <p>Aut2Exe can be used in three ways:</p>
   <h2>Method 1 - Start Menu</h2>
@@ -53,18 +51,18 @@
       </tr>
       <tr>
         <td>/out</td>
-        <td>&lt;outfile.exe&gt; Specifies the path and name of the compiled file.<br>
+        <td>&lt;outfile.exe&gt; Specifies the path and name of the compiled file.<br />
         &lt;outfile.a3x&gt; Specifies the path and file name when creating an *.a3x file.</td>
         <td class="center">The input filename with a .exe extension</td>
       </tr>
       <tr>
         <td>/icon</td>
         <td>&lt;iconfile.ico&gt; Specifies the path and file name of the icon to use for the compiled file.</td>
-        <td class="center">The AutoIt icon</td>
+        <td class="center">Default icon</td>
       </tr>
       <tr>
         <td>/comp</td>
-        <td>Specifies the compression level to be used when encoding the script (This is NOT related to UPX).<br>
+        <td>Specifies the compression level to be used when encoding the script (This is NOT related to UPX).<br />
         It must be a number between 0 (none) and 4 (maximum).</td>
         <td class="center">2</td>
       </tr>

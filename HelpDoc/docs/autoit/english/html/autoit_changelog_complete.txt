@@ -1,12 +1,214 @@
 AutoIt Changelog (including beta version changes)
 =================================================
 
-3.3.9.20 (xx August, 2013) (Beta)
+3.3.11.3 (15th January, 2014) (Beta)
+AutoIt:
+- Fixed #2613: AutoIt crashes whenever an array value returned from a WMI query is null.
+- Fixed #2309: Bad conversion of VT_BSTR COM variants when the referenced string is null.
+
+UDFs:
+- Changed: Re-wrote _PathFull() and _PathGetRelative() to use native WinAPI functions.
+- Changed: Re-wrote _DateDayOfWeek() using new syntax.
+- Changed: Re-wrote _FileWriteToLine() to use FileReadToArray().
+- Changed: Re-wrote _DateDayOfWeek() which can now return the days of the week of the user's locale.
+- Changed: _FileReadToArray() now returns a 1D/2D array.
+- Changed: Re-wrote _DateToMonth() which can now return the months of the user's locale.
+
+- Added: 5 second timer to _GetIP() between each public IP retrieval. This is to reduce overloading the IP discovery sites.
+- Added: $STR_REGEXP* contants in StringConstants.au3 for StringRegExp().
+
+- Fixed: _INetSmtpMail() SmtpServer IPaddr checking.
+- Fixed #2618: _StringBetween() behaviour when $sStart and $sEnd are identical.
+
+
+3.3.11.2 (5th January, 2014) (Beta)
+AutoIt:
+- Fixed #2316: PowerPoint COM event handler initialization error.
+- Fixed: FileSelectFolder() uses the parent parameter.
+- Fixed #2512: ObjName() crash.
+
+UDFs:
+- Added: Example for _WinAPI_SystemParametersInfo().
+
+- Fixed: UBound() default was regarded as $UBOUND_DIMENSIONS (0) and not $UBOUND_ROWS (1).
+- Fixed: _FileListToArrayRec() array concatenation bug.
+
+AutoIt3Help:
+- Changed: Version number to 1.0.0.6.
+
+- Added: Windows activation when already open.
+
+Others:
+- Changed: Help file syntax variable names to a standard naming convention for easier understanding and consitency in the calltip syntax files.
+
+
+3.3.11.1 (4th January, 2014) (Beta)
+AutoIt:
+- Fixed: Stack overflow with deep nested includes.
+- Fixed: FileSelectFolder() not working correctly with title and root parameters.
+- Fixed: StringIsSpace() for null characters.
+- Fixed #2478: Assign() and Eval() do not restrict variable names.
+
+UDFs:
+- Changed: Constant variables are now used in the UDFs rather than their value.
+
+
+3.3.11.0 (3rd January, 2014) (Beta)
+AutoIt:
+- Changed: PCRE regular expression engine updated to 8.34.
+
+- Added #2557: Send() special control strings will no longer treat 0 repetitions as 1. No keys will be sent.
+- Added #2489: HttpSetUserAgent() now returns the previous user agent string.
+- Added #2481: FileSelectFolder() will use the Windows Vista style if available.
+
+- Fixed #2562: StringRegExp() & Null character.
+- Fixed #2581: Dec() wasn't working correctly for flags 0, 1, 2.
+- Fixed #2568: StringStripWS() and StringIsSpace() now treats null as a whitespace character.
+- Fixed #2566: "override" cursor in GUISetCursor() fails inside client area.
+- Fixed #2573: "override" cursor in GUISetCursor() fails outside of client area.
+
+
+UDFs:
+- Removed: Usage of Call() in _FTP_ProgressDownload(), _FTP_ProgressUpload() and _SQLite_Startup(). See documentation for changes to $hFunctionCall and $hPrintCallback parameters. THIS IS A SCRIPT BREAKING CHANGE.
+
+- Added: Error checking to _ArrayDelete() when $iElement was out of bounds.
+
+Others:
+- Added: Keywords and Macros to the Notepad++ autoit.xml file.
+
+
+3.3.10.2 (30th December, 2013) (Release)
+AutoIt:
+- Fixed #2576: All AutoIt EXEs and tools not working on older Athlon XP processors due to SSE compiler options.
+
+Aut2Exe:
+- Fixed #2580: Aut2Exe failing to run multiple times on Windows XP prior to SP3.
+
+Others:
+- Fixed #2571: Notepad++ autoit.xml was incorrectly formatted and not displaying calltips.
+
+
+3.3.10.1 (28th December, 2013) (Release)
+Aut2Exe:
+- Fixed: Aut2Exe was leaving a temporary file around.
+
+UDFs:
+- Added: Error checking to _GDIPlus_GraphicsDrawString() in case _GDIPlus_GraphicsMeasureString() fails to return an array.
+
+- Fixed: Incorrect function being called for _GDIPlus_BitmapCloneArea().
+- Fixed: _ArrayDisplay() user function call and range bug.
+
+
+3.3.10.0 (23rd December, 2013) (Release)
+
+
+3.3.9.26 (Unreleased) (Beta)
+UDFs:
+- Changed: _ArrayDisplay() - dialog layout changed
+
+
+3.3.9.25 (17th December, 2013) (Beta)
+AutoIt:
+
+UDFs:
+- Changed: _SQLite 3.8.1.0 -> 3.8.2.0.
+- Changed: _ArrayDisplay() - new function with new functionalities
+- Changed: GUIListView() - new _Delete* functions
+
+- Fixed #2550: _GUICtrlComboBox_GetEditText() struct sizing
+
+
+3.3.9.24 (7th December, 2013) (Beta)
+AutoIt:
+- Fixed: Regression caused by the fix to 2541 in previous beta.
+
+
+3.3.9.23 (28th November, 2013) (Beta)
+AutoIt:
+- Fixed #2518: Static keyword not working correctly.
+- Fixed #2541: Accessing object methods or properties on a non-object when error handler is installed.
+- Fixed: StringStripCR() and StringAddCR() not working with strings that contain nulls.
+
+UDFs:
+- Changed: $INTERNET_FLAG_NO_CACHE_WRITE default value for _FTP_ListToArray*().
+
+- Added #2540: _ArrayDisplay() can copy Header and Row.
+- Added: _GDIPlusTextureCreateIA().
+
+- Fixed #2539: _ArrayUnique() doc precision.
+- Fixed #2521: Removed  _IEFormElementSetValue[5].au3 example.
+- Fixed: _SQLite_...() running in X64 Mode.
+- Fixed: _SQLite_Startup() parameter checking and doc.
+
+AutoIt3Help:
+- Changed: Version number to 1.0.0.5.
+
+- Fixed #2519: Wrong page opening if launch without parameter.
+
+
+3.3.9.22 (5th November, 2013) (Beta)
+AutoIt:
+- Added: @OSVersion WIN_2012R2 support.
+
+- Changed: upx.exe from 3.09 -> 3.91.
+
+- Fixed: Regression with ^ in previous beta.
+- Fixed #2461: GUICtrlSetImage() doesn't handle certain types of .gif file.
+- Fixed #2167: $WS_EX_LAYOUTRTL and GUICtrlCreateMenu causes bug.
+- Fixed #2468: #OnAutoItStartRegister function doc precision.
+- Fixed #2315: @OSVersion WIN_2012 support.
+- Fixed #2171: TCPTimeout inconsistent.
+
+UDFs:
+- Added: _GDIPlus_ParamSize() to handle X64 compatibility.
+- Added #2426: TrayConstants.au3 for use with Tray functions. See related function documentation for more details.
+- Added: more GDIPlus functions and their respective documentation and example.
+- Added #2506: _GUICtrlListView...() doc formating + links.
+- Added #2508: doc formating + links
+
+- Changed: _SQLite 3.8.0.0 -> 3.8.1.0.
+- Changed: Swapped PixelFormat with Stride parameter for the _GDIPlus_BitmapCreateFromScan0() function.
+- Changed: $tagGDIPENCODERPARAMS using $tagGDIPENCODERPARAM.
+- Changed: _GDIPlus...() using integer or float for positioning.
+- Changed: Modified _ArrayUnique() with a faster version and improved error checking.
+
+- Removed: $tagGDIPPENCODERPARAMS (duplicate of $tagGDIPENCODERPARAMS).
+- Removed: _GDIPlus...F() beta functions as they can be handle by corresponding without F.
+
+- Fixed #2460: _StringBetween() $sStart = $sSend.
+- Fixed #2459: _StringBetween() doc Description info.
+- Fixed #2465: _IEPropertyGet() - out of date links in "ClientInfo Properties".
+- Fixed: _GDIPlus_...() functions compatible with X64.
+- Fixed #2486: _GUICtrlRichEdit_GetFont() bad multi Font return. Solved also #2485.
+- Fixed #2492: _GUIToolbar_... doc example.
+- Fixed #2493: _GUIToolbar_Get/SetMetrics() examples.
+- Fixed #2494: _GUIToolbar_Get/SetHotItems() examples.
+
+
+3.3.9.21 (11th September, 2013) (Beta)
+AutoIt:
+- Added #2433: Monospaced in Fonts appendix.
+
+- Changed: Documentation for StringRegExp() re-written by jchd.
+- Changed: Default newline character for PCRE regexes changed to ANYCRLF.
+
+- Fixed #2066: DllStructSetData() returning int64 instead of int32 in some cases.
+- Fixed #2427: ControlTreeView() does not used Option2.
+- Fixed #2455: Mouse Cursor not changing on resizable GUIs.
+- Fixed #2105: RegRead() and DWORD types incorrectly stored as double.
+- Fixed #2299: GUI Button Text Left-Justify for colored button.
+- Fixed #1954: ListViewItem returns 0 (failure) even though it populates the ListView.
+- Fixed #2152: X^2 Not Working in Hex().
+- Fixed #1870: @GUI_DRAGFILE.
+
+UDFs:
+- Added: some more GDI+ functions and examples.
+
+
+3.3.9.20 (6th September, 2013) (Beta)
 AutoIt:
 - Fixed #2405: Documentation bug for FileGetVersion() and compiled scripts.
 - Fixed #2314: Cursor flickers when moving over certain GUI controls.
-
-UDFs:
 
 AutoItX:
 - Added: AutoItX3.Assembly.dll - a .NET Assembly wrapper for the DLL.
@@ -25,6 +227,9 @@ AutoItX:
 - Removed: COM Methods: CDTray, BlockInput. 
 - Removed: All registry functions. The support was limited and the host language will certainly have registry functions.
 - Removed: All Ini file functions. As per registry functions.
+
+UDFs:
+- Changed: _SQLite 3.7.17.0 -> 3.8.0.0
 
 
 3.3.9.19 (24th August, 2013) (Beta)
@@ -102,9 +307,9 @@ AutoIt:
 
 UDFs:
 - Added: Graphic SmoothingMode constants (GDIPlusConstants).
-- Added: _GDIPlus_CustomLineCapCreate, _GDIPlus_BitmapCreateFromScan0 functions.
+- Added: _GDIPlus_CustomLineCapCreate(), _GDIPlus_BitmapCreateFromScan0() functions.
 
-- Changed: _GDIPlus_GraphicsGetSmoothingMode, _GDIPlus_GraphicsSetSmoothingMode functions.
+- Changed: _GDIPlus_GraphicsGetSmoothingMode(), _GDIPlus_GraphicsSetSmoothingMode() functions.
 
 
 3.3.9.14 (2nd August, 2013) (Beta)
@@ -131,7 +336,7 @@ AutoIt:
 
 - Changed: SciTe compiled in high dpi aware mode. Looks epic on a retina resolution display.
 
-- Removed: PluginOpen() and PlugInClosed() removed to do not being used and never having progressed past the experimental stage.
+- Removed: PluginOpen() and PlugInClose() removed to due to not being used and never having progressed past the experimental stage.
 
 
 3.3.9.12 (24th July, 2013) (Beta)
@@ -280,7 +485,7 @@ UDFs:
 - Changed: _Max() and _Min() functions now use the ternary operator.
 - Changed: Re-wrote _ReplaceStringInFile() by removing the need to write to a temporary array. (@error values 4, 5 and 6 have been removed, please check the documentation.)
 - Changed: Re-wrote _GetIP() for improved efficency and added http://www.myexternalip.com/raw to find the external IP address.
-- Changed: _SQLite 3.7.2.0 -> 3.7.16.2
+- Changed: _SQLite 3.7.16.1 -> 3.7.17.0
 - Changed: WinAPIEx.au3 split under WinAPI*.au3 + Doc
 - Changed: IE3.au3 v3.0-0 to v3.0-1 (see header info for changes)
 
@@ -341,6 +546,8 @@ AutoIt:
 UDFs:
 - Added #1158: WinAPIEx integrated (Files-only, no documentation currently).
 
+- Changed: _SQLite 3.7.15.2 -> 3.7.16.1
+
 - Fixed #2162: Documentation link in the IE Management section was broken for _IEFormElementCheckBoxSelect().
 - Fixed #2170: _ArrayDisplay() fails handling arrays with no elements.
 - Fixed: _PathMake() not appending backslash to the root path.
@@ -361,6 +568,9 @@ AutoIt:
 - Fixed #2146: Crash when closing AutoIt when started from a console window.
 - Fixed: DLLStruct type forgotten in comparison operations.
 - Fixed: "struct" type parameter in DllCall overwrites possibly following parameters.
+
+UDFs:
+- Changed: _SQLite 3.7.2.0 -> 3.7.15.2
 
 
 3.3.9.1 (29th February, 2012) (Beta)
@@ -2141,7 +2351,7 @@ WARNING Previous scripts using GUICtrlSetImage(), GUISetIcon(), TraySetIcon() an
 - Fixed: suppress delay when speed=0 in MouseMove.
 - Fixed: RegWrite() setting bad registry entry.
 - Fixed: AutoIt hogging CPU when text MsgBox too big.
-- Fixed: ControlSend() sometime to wrong control when using empty controlid.
+- Fixed: ControlSend() sometime to wrong control when using empty controlID.
 - Fixed: ProcesExists() under Win2K with processname >15 chars.
 - Fixed: Int() with string comparison wrong match.
 - Fixed: InetGetSize() in unicode version returns 0.
@@ -2628,7 +2838,7 @@ Aborted upload due to last minute bugs.
 - Fixed: GUIRegisterMsg() unregister a message
 - Changed: GUICtrlRead() in advanced mode - returns extended info as single value. This change will possible break scripts! (Valik/changed by Holger)
 - Added: Binary support for COM functions. It works only with variables passed between COM functions (so you can't display, convert or do mathematical actions with these variables yet). (by SvenP)
-- Changed: GUICtrlRead() in advanced mode for Tab control return the controlId of the select tabitem. The Opt("GuiEventOption",2) is suppressed. This change will break scripts!
+- Changed: GUICtrlRead() in advanced mode for Tab control return the controlID of the select tabitem. The Opt("GuiEventOption",2) is suppressed. This change will break scripts!
 - Updated: GUI Standard includes split for better small inclusion. GUIConstants.au3 still give the whole stuff perhaps a little more. (by Valik)
 - Fixed: Problem with Util_DoesFileExist and pagefile.sys .
 - Fixed: GUICtrlSetGraphic,GUISetOnEvent,GUICtrlSetResizing, AutoItSetOption, MouseClick,Finc...EndFunc, For...in...Next, _GUICtrlTreeViewDeleteItem doc brolken links.
@@ -2993,7 +3203,7 @@ Due to new #include search algorithm some problems can occurs with AU3Check.
 - Fixed: Some hangups and undefined closes by using GUIRegisterMsg(). (Fixed by holger)
 - Changed: No more proceeding of Autoit's internal message procedures by default, see GUIRegisterMsg() for more infos. (by holger)
 - Changed: GUI's internal system timer, so only userdefined Timers can be 'monitored'; fixes also interacting problem between WM_TIMER-monitoring and TrayIcon-handling. (by holger)
-- Changed: GUIRegisterMsg() paramters maximum are 4 - less are OK. (by holger)
+- Changed: GUIRegisterMsg() parameters maximum are 4 - less are OK. (by holger)
 
 
 3.1.1.105 (28th January, 2006) (beta)
@@ -4191,7 +4401,7 @@ the index of the 1st instance, now correctly returns the index of item selected.
 3.1.1.4 (11th April, 2005) (beta)
 
 - Changed: Opt("GUISpecialEventMode',1) by Opt("GUIEventCompatibilityMode',1).
-- Added: GUICtrlRead return ControlID if Opt("GUIEventCompatibilityMode',2).
+- Added: GUICtrlRead return controlID if Opt("GUIEventCompatibilityMode',2).
 
 
 3.1.1.3 (10th April, 2005) (beta) COM18 merge

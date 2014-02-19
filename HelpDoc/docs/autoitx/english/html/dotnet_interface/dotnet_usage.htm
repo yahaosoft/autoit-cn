@@ -1,19 +1,36 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <title>Using the .NET Interface</title>
-  <meta charset="ISO-8859-1">
-  <link href="../css/default.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
 </head>
 <body>
   <h1>Using the .NET Interface</h1>
-  <p>AutoItX can be used to provide certain functions to .NET applications.</p>
+  <p>A .NET Assembly interface is provided to allow the use of AutoItX DLL functions without the trouble of working with DllImport. The 
+  assembly uses .NET 2.0 / CLR 2.0 and is strongly signed for maximum compatibility with your projects.</p>
   <p>&nbsp;</p>
   <p>The following files are provided to allow .NET use:</p>
   <p><strong>AutoItX3.Assembly.dll</strong> - The .NET Assembly for using AutoItX.</p>
+  <p><strong>AutoItX3.Assembly.xml</strong> - The Visual Studio Intellisense help file for the .NET Assembly.</p>
   <p><strong>AutoItX3.dll</strong> - The main AutoItX DLL (x86)</p>
   <p><strong>AutoItX3_x64.dll</strong> - The main AutoItX DLL (x64)</p>
   <p>&nbsp;</p>
-  
+  <p>Using the Assembly from VB/C# within in Visual Studio is very easy:</p>
+  <p>- Add a reference to <strong>AutoItX3.Assembly.dll</strong> to your project</p>
+  <p>- Add a <strong>using AutoIt;</strong> statement in the files you want to use AutoIt functions</p>
+  <p>- Write code like this C# example:</p>
+<pre>
+    using AutoIt;
+    ...
+
+    // Wow, this is C#!
+    AutoItX.Run("notepad.exe");
+    AutoItX.WinWaitActive("Untitled");
+    AutoItX.Send("I'm in notepad");
+    IntPtr winHandle = AutoItX.WinGetHandle("Untitled");
+    AutoItX.WinKill(winHandle);
+</pre>
+<p>- Distribute your final executable with the files <strong>AutoItX3.Assembly.dll, AutoItX3.dll, AutoItX3_x64.dll</strong>.</p>
 </body>
 </html>

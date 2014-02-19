@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <title>Tutorial - Notepad</title>
-  <meta charset="ISO-8859-1">
-  <link href="../../css/default.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <link href="../../css/default.css" rel="stylesheet">
 </head>
 <body>
   <h1>Tutorial - Notepad</h1>
@@ -15,7 +15,7 @@
   <p>The first thing we need to know is the name of the Notepad executable. It is <strong>notepad.exe</strong> - you can get this information by looking at the properties of the Notepad shortcut icon in the Start Menu. To execute Notepad we use the
   AutoIt <a href="../../functions/Run.htm">Run</a> function. This function simply launches a given executable and then continues.</p>
   <p>Type in the first line of script as:</p>
-  <p class="codebox"><span><span class="S4">Run</span><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">)</span></span><br></p>
+  <p class="codebox"><span><span class="S4">Run</span><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">)</span></span><br /></p>
   <p>&nbsp;</p>
   <p>Run the script - if all goes well then a new instance of Notepad should open.</p>
   <p>When automating applications AutoIt can check for window title so that it knows which window it should work with. With Notepad the window title is obviously <strong>Untitled - Notepad</strong>. AutoIt is case-sensitive when using window titles so
@@ -27,42 +27,42 @@
   <p>After <a href="../../functions/Run.htm">Run</a>ning a copy of Notepad we need to wait for it to appear and become active before we send any keystrokes. We can wait for a window using the <a href="../../functions/WinWaitActive.htm">WinWaitActive</a>
   function. Most window-related functions in AutoIt take a window <strong>title</strong> as a parameter.</p>
   <p>Enter the following as the second line in the script (use <strong>CTRL-V</strong> or <strong>Edit\Paste</strong> to paste our window title from the clipboard).</p>
-  <p class="codebox"><span><span class="S4">WinWaitActive</span><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span></span><br></p>
+  <p class="codebox"><span><span class="S4">WinWaitActive</span><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span></span><br /></p>
   <p>&nbsp;</p>
   <p>After we are sure the Notepad window is visible we want to type in some text. This is done with the <a href="../../functions/Send.htm">Send</a> function.</p>
   <p>Add this line to our script.</p>
-  <p class="codebox"><span><span class="S4">Send</span><span class="S8">(</span><span class="S7">"This is some text."</span><span class="S8">)</span></span><br></p>
+  <p class="codebox"><span><span class="S4">Send</span><span class="S8">(</span><span class="S7">"This is some text."</span><span class="S8">)</span></span><br /></p>
   <p>&nbsp;</p>
   <p>The entire script will now look like this:</p>
-  <p class="codebox"><span><span class="S4">Run</span><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">)</span><br>
-  <span class="S4">WinWaitActive</span><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span><br>
-  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"This is some text."</span><span class="S8">)</span></span><br></p>
+  <p class="codebox"><span><span class="S4">Run</span><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">)</span><br />
+  <span class="S4">WinWaitActive</span><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span><br />
+  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"This is some text."</span><span class="S8">)</span></span><br /></p>
   <p>&nbsp;</p>
   <p>Close the copy of Notepad that we previously opened (you will need to do this every time you run the script otherwise you will end up with lots of copies running!). Run the script.</p>
   <p>You should see Notepad open, and then some text will magically appear!</p>
   <p><img src="notepad1.png" alt=""></p>
-  <p><br>
+  <p><br />
   Next we want to close notepad, we can do this with the <a href="../../functions/WinClose.htm">WinClose</a> function.</p>
-  <p class="codebox"><span><span class="S4">WinClose</span><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span></span><br></p>
+  <p class="codebox"><span><span class="S4">WinClose</span><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span></span><br /></p>
   <p>&nbsp;</p>
   <p>When Notepad tries to close you will get a message asking you to save the changes. Use the Window Info Tool to get details of the dialog that has popped up so that we can respond to it :)</p>
   <p><img src="savechanges.png" alt=""></p>
   <p>&nbsp;</p>
   <p>So, we add a line to wait for this dialog to become active (we will also use the window text to make the function more reliable and to distinguish this new window from the original Notepad window):</p>
-  <p class="codebox"><span><span class="S4">WinWaitActive</span><span class="S8">(</span><span class="S7">"Notepad"</span><span class="S8">,</span> <span class="S7">"Save"</span><span class="S8">)</span></span><br></p>
+  <p class="codebox"><span><span class="S4">WinWaitActive</span><span class="S8">(</span><span class="S7">"Notepad"</span><span class="S8">,</span> <span class="S7">"Save"</span><span class="S8">)</span></span><br /></p>
   <p>&nbsp;</p>
   <p>Next we want to automatically press <strong>Alt-N</strong> to select the <strong>No/Don't save</strong> button (Underlined letters in windows usually indicate that you can use the ALT key and that letter as a keyboard shortcut). In the <a href=
   "../../functions/Send.htm">Send</a> function to send an ALT key we use <strong>!</strong> <strong>.</strong></p>
-  <p class="codebox"><span><span class="S4">Send</span><span class="S8">(</span><span class="S7">"!n"</span><span class="S8">)</span></span><br></p>
+  <p class="codebox"><span><span class="S4">Send</span><span class="S8">(</span><span class="S7">"!n"</span><span class="S8">)</span></span><br /></p>
   <p>&nbsp;</p>
   <p>Our complete script now looks like this:</p>
-  <p class="codebox"><span><span class="S4">Run</span><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">)</span><br>
-  <span class="S4">WinWaitActive</span><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span><br>
-  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"This is some text."</span><span class="S8">)</span><br>
-  <span class="S4">WinClose</span><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span><br>
-  <span class="S4">WinWaitActive</span><span class="S8">(</span><span class="S7">"Notepad"</span><span class="S8">,</span> <span class="S7">"Save"</span><span class="S8">)</span><br>
-  <span class="S1">;WinWaitActive("Notepad", "Do you want to save") ; When running under Windows XP</span><br>
-  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"!n"</span><span class="S8">)</span></span><br></p>
+  <p class="codebox"><span><span class="S4">Run</span><span class="S8">(</span><span class="S7">"notepad.exe"</span><span class="S8">)</span><br />
+  <span class="S4">WinWaitActive</span><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span><br />
+  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"This is some text."</span><span class="S8">)</span><br />
+  <span class="S4">WinClose</span><span class="S8">(</span><span class="S7">"Untitled - Notepad"</span><span class="S8">)</span><br />
+  <span class="S4">WinWaitActive</span><span class="S8">(</span><span class="S7">"Notepad"</span><span class="S8">,</span> <span class="S7">"Save"</span><span class="S8">)</span><br />
+  <span class="S1">;WinWaitActive("Notepad", "Do you want to save") ; When running under Windows XP</span><br />
+  <span class="S4">Send</span><span class="S8">(</span><span class="S7">"!n"</span><span class="S8">)</span></span><br /></p>
   <p>&nbsp;</p>
   <p>Run the script and you'll see Notepad open, some text appear and then close! You should be able to use the techniques learned in this tutorial to automate many other applications.</p>
 </body>

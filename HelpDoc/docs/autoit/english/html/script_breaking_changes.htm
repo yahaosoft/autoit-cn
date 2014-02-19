@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>History</title>
-  <meta charset="ISO-8859-1">
-  <link href="css/default.css" rel="stylesheet" type="text/css">
+  <title>Script Breaking Changes in Recent Versions</title>
+  <meta charset="utf-8">
+  <link href="css/default.css" rel="stylesheet">
   <style type="text/css">
 li.c1 {list-style: none; display: inline}
   </style>
@@ -12,7 +12,22 @@ li.c1 {list-style: none; display: inline}
   <h1>Script Breaking Changes in Recent Versions</h1>
   <p>This page contains a list of all changes made in recent updates that will almost certainly <strong>break existing scripts</strong>. Please read this list carefully when upgrading if you have not been keeping up with developments in the beta
   versions. If any of these issues affect you then <strong>you will need to modify your scripts</strong>.</p>
-  <h2>?? ????, 2013 - v3.3.10.0</h2>
+  <h2>XXXX XXXX, 2014 - v3.3.12.0</h2>
+  <p><strong>UDFs:</strong></p>
+  <ul>
+    <li>The parameter $hPrintCallback (formerly $sPrintCallback) in <a href="libfunctions/_SQLite_Startup.htm">_SQLite_Startup()</a> now requires a function object rather than a function string. This is due to the usage of <a href="functions/Call.htm">Call()</a> being removed from the UDF.</li>
+    <li>The parameter $hFunctionCall (formerly $sFunctionCall) in <a href="libfunctions/_FTP_ProgressDownload.htm">_FTP_ProgressDownload()</a> and <a href="libfunctions/_FTP_ProgressUpload.htm">_FTP_ProgressUpload()</a> now requires a function object rather than a function string. This is due to the usage of <a href="functions/Call.htm">Call()</a> being removed from the UDF.</li>
+    <li><a href="libfunctions/_ArrayDelete.htm">_ArrayDelete()</a> sets @error to non-zero if $iElement is out of bounds. Please see documentation for more details.</li>
+    <li><a href="libfunctions/_StringBetween.htm">_StringBetween()</a> change in behaviour and parameter order change. Please see documentation for more details.</li>
+    <li><a href="libfunctions/_FileReadToArray.htm">_FileReadToArray()</a> now returns a 1D/2D array (no longer need to pass a predeclared array ) and has additional parameters. Please see documentation for more details.</li>
+  </ul>
+  <h2>28th December, 2013 - v3.3.10.1</h2>
+  <p><strong>UDFs:</strong></p>
+  <p>Missing information from the v3.3.10.0 notes:</p>
+  <ul>
+    <li><a href="libfunctions/$tagBITMAPINFO.htm">$tagBITMAPINFO</a> fields changed by using the prefix of "bi".</li>
+  </ul>
+  <h2>23rd December, 2013 - v3.3.10.0</h2>
   <p><strong>AutoIt:</strong></p>
   <ul>
     <li>The return value of ShellExecute() has now changed. Instead of returning 1, it returns the PID of the executed process or -1 if no PID exists.</li>
@@ -21,11 +36,17 @@ li.c1 {list-style: none; display: inline}
   <ul>
     <li>_Iif() documentation has been removed. The function is still present in Misc.au3, but may be removed at a later date. Scripts should be updated to use ternary operators instead.</li>
     <li>_IEErrorHandlerRegister() has been removed. It's not required due to COM errors no longer being fatal.</li>
-    <li>_StringEncrypt() documentation has been removed. The function is still present in String.au3, but may be removed at a later date. Scripts should be updated to use the Crypt functions instead.<br>
+    <li>_StringEncrypt() documentation has been removed. The function is still present in String.au3, but may be removed at a later date. Scripts should be updated to use the Crypt functions instead.<br />
     Look at <a href="libfunctions/_Crypt_EncryptData.htm">_Crypt_EncryptData()</a> for an example of an alternative _StringEncrypt.</li>
     <li>_StringReverse() documentation has been removed. The function is still present in String.au3, but may be removed at a later date. Scripts should be updated to use the native function <a href="functions/StringReverse.htm">StringReverse()</a> instead.</li>
     <li>With the introduction of WinAPIEx functions some constants of Constants.au3 include file have been moved to WinAPIConstants.au3.</li>
-    <li>Word UDF was completely re-written. Functions and parameters have been renamed, removed or added. A detailed list can be found <a href="script_breaking_changes_word_udf.htm">here</a>.</li> 
+    <li>Word UDF was completely re-written. Functions and parameters have been renamed, removed or added. A detailed list can be found <a href="script_breaking_changes_word_udf.htm">here</a>.</li>
+    <li>$tagGDIPPENCODERPARAMS removed, use <a href="libfunctions/$tagGDIPENCODERPARAMS.htm">$tagGDIPENCODERPARAMS</a>.</li>
+    <li><a href="libfunctions/$tagGDIPENCODERPARAMS.htm">$tagGDIPENCODERPARAMS</a> use $tagGDIPENCODERPARAM as a first structure of the array.</li>
+    <li>$tagGDIPENCODERPARAM "count" field renamed in "nbOfValues".</li>
+    <li><a href="libfunctions/$tagBITMAPINFO.htm">$tagBITMAPINFO</a> fields changed by using the prefix of "bi".</li>
+    <li><a href="libfunctions/_ArrayUnique.htm">_ArrayUnique()</a> updated function to be faster, final parameter is used to select whether to return count of returned strings in $aArray[0]</li>
+    <li>ToolTip UDF was re-written. Functions and/or parameters have been renamed, removed or added. A detailed list can be found <a href="script_breaking_changes_tooltip_udf.htm">here</a>.</li>
   </ul>
   <h2>23rd December, 2011 - v3.3.8.0</h2>
   <p><strong>AutoIt:</strong></p>

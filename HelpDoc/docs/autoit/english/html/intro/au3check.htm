@@ -1,122 +1,123 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <title>Au3check syntax Tool</title>
-  <meta charset="ISO-8859-1">
-  <link href="../css/default.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
 </head>
 <body>
   <h1>AutoIt Syntax Checker (Au3Check)</h1>
-  <p>Checks the script for syntax errors.<br>
-  Checks all symbols used:<br>
-  <br></p>
+  <p>Checks the script for syntax errors.<br />
+  Checks all symbols used:<br />
+  <br /></p>
   <ul>
     <li><strong>Macros</strong> :</li>
   </ul>
   <div class="indent">
     Usage of non-defined macros are reported as errors.
-  </div><br>
+  </div><br />
   <ul>
     <li><strong>Variables</strong> :</li>
   </ul>
   <div class="indent">
-    Au3Check issues warning if variables are used before they are declared.<br>
+    Au3Check issues warning if variables are used before they are declared.<br />
     It's possible that the program is still correct, like the following:
-    <p class="codebox"><span><span class="S5">For</span> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S5">To</span> <span class="S3">2</span><br>
+    <p class="codebox"><span><span class="S5">For</span> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S5">To</span> <span class="S3">2</span><br />
     <span class="S0">&nbsp; &nbsp;</span> <span class="S5">If</span> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">2</span> <span class="S5">Then</span> <span class="S4">MsgBox</span><span class="S8">(</span></span><span class=
-    "S9">$MB_OK</span><span><span class="S8">,</span> <span class="S7">"OK"</span><span class="S8">,</span> <span class="S9">$sHello</span><span class="S8">)</span><br>
-    <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Global</span> <span class="S9">$sHello</span> <span class="S8">=</span> <span class="S7">"Goodbye"</span><br>
-    <span class="S5">Next</span><br></span></p>However, this is bad programming style and Au3Check will issue a warning that $sHello is possibly used before it is declared.<br>
-    Likewise, Global variables should never be declared within functions and always declared at the top of the script.<br>
-    If one is used higher up in the code, a warning is issued.<br>
-    Finally, Au3Check issues an error if a variable is used but is never either explicitly or implicitly declared.<br>
-  </div><br>
+    "S9">$MB_OK</span><span><span class="S8">,</span> <span class="S7">"OK"</span><span class="S8">,</span> <span class="S9">$sHello</span><span class="S8">)</span><br />
+    <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Global</span> <span class="S9">$sHello</span> <span class="S8">=</span> <span class="S7">"Goodbye"</span><br />
+    <span class="S5">Next</span><br /></span></p>However, this is bad programming style and Au3Check will issue a warning that $sHello is possibly used before it is declared.<br />
+    Likewise, Global variables should never be declared within functions and always declared at the top of the script.<br />
+    If one is used higher up in the code, a warning is issued.<br />
+    Finally, Au3Check issues an error if a variable is used but is never either explicitly or implicitly declared.<br />
+  </div><br />
   <ul>
     <li><strong>Functions</strong> :</li>
   </ul>
   <div class="indent">
-    Functions may be defined later than where they are called. Au3Check checks that all functions are called with the correct number of parameters.<br>
-    It also checks that ByRef parameters are called with variables (not l-values, expressions).<br>
+    Functions may be defined later than where they are initially called. Au3Check checks that all functions are called with the correct number of parameters.<br />
+    It also checks that ByRef parameters are called with variables (not l-values, expressions).<br />
     Finally, non-defined functions are reported.
-  </div><br>
-  Specific directives can be included in the script to manage some warnings/errors that can not be avoided.<br>
-  <br>
-  <strong>Directives</strong><br>
-  --------------
+  </div><br />
+  Specific directives can be included in the script to manage some warnings/errors that can not be avoided.<br />
+  <br />
+  <strong>Directives</strong><br />
+  --------------<br />
+  These directives prevent Au3Check from reporting errors when the code is correct but too complex for the tool's parser.  As shown in the examples below they are usually used when variables are implicitly declared - such as in a function definition or by a string parameter - and would otherwise not be recognised.  In particular, #forceref can be used to prevent warnings where parameters are mandatory (such as in Windows message handlers) but are not used inside the function.<br />
   <p class="codeheader">#ignorefunc funcname [, ...]</p>
   <div class="indent">
-    #ignorefunc can be used inside functions, like the following:<br>
-    <p class="codebox"><span><span class="S12">#ignorefunc Not_Defined_Func</span><br>
-    <br>
-    <span class="S5">Local</span><span class="S0"> </span><span class="S9">$vCallRet</span><span class="S0"> </span><span class="S8">=</span><span class="S0"> </span><span class="S4">Call</span><span class="S8">(</span><span class="S7">'Not_Defined_Func'</span><span class="S8">)</span><br>
-    <span class="S5">Local</span><span class="S0"> </span><span class="S9">$iError</span><span class="S0"> </span><span class="S8">=</span><span class="S0"> </span><span class="S6">@error</span><br>
-    <span class="S5">Local</span><span class="S0"> </span><span class="S9">$iExtended</span><span class="S0"> </span><span class="S8">=</span><span class="S0"> </span><span class="S6">@extended</span><br>
-    <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span><span class="S0"> </span><span class="S7">'Not defined func example'</span><span class="S8">,</span><span class="S0"> </span><span class="S7">'$vCallRet = '</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$vCallRet</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S8">_</span><br>
+    #ignorefunc can be used inside functions, like the following:<br />
+    <p class="codebox"><span><span class="S12">#ignorefunc Not_Defined_Func</span><br />
+    <br />
+    <span class="S5">Local</span><span class="S0"> </span><span class="S9">$vCallRet</span><span class="S0"> </span><span class="S8">=</span><span class="S0"> </span><span class="S4">Call</span><span class="S8">(</span><span class="S7">'Not_Defined_Func'</span><span class="S8">)</span><br />
+    <span class="S5">Local</span><span class="S0"> </span><span class="S9">$iError</span><span class="S0"> </span><span class="S8">=</span><span class="S0"> </span><span class="S6">@error</span><br />
+    <span class="S5">Local</span><span class="S0"> </span><span class="S9">$iExtended</span><span class="S0"> </span><span class="S8">=</span><span class="S0"> </span><span class="S6">@extended</span><br />
+    <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span><span class="S0"> </span><span class="S7">'Not defined func example'</span><span class="S8">,</span><span class="S0"> </span><span class="S7">'$vCallRet = '</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S9">$vCallRet</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S8">_</span><br />
     <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="S7">' &nbsp;&nbsp;@error = 0x'</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S4">Hex</span><span class="S8">(</span><span class="S9">$iError</span><span class="S8">)</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S7">' @extended = 0x'</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S4">Hex</span><span class="S8">(</span><span class="S9">$iExtended</span><span class="S8">)</span><span class="S0"> </span><span class="S8">&amp;</span><span class="S0"> </span><span class="S6">@CRLF</span><span class="S8">)</span></span></p>
-  </div><br>
+  </div><br />
   <p class="codeheader">#forceref $varname [, ...]</p>
   <div class="indent">
-    #forceref can be used inside functions, like the following:<br>
+    #forceref can be used inside functions, like the following:<br />
     <p class="codebox"><span><span class="S5">Func</span> <span class="S0">Test_NumParams</span><span class="S8">(</span><span class="S9">$v1</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$v2</span>
     <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$v3</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$v4</span> <span class="S8">=</span> <span class=
     "S3">0</span><span class="S8">,</span> <span class="S9">$v5</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$v6</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span>
     <span class="S9">$v7</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$v8</span> <span class="S8">=</span> <span class="S3">0</span><span class="S8">,</span> <span class="S9">$v9</span> <span class=
-    "S8">=</span> <span class="S3">0</span><span class="S8">)</span><br>
-    <span class="S0">&nbsp; &nbsp;</span> <span class="S12">#forceref $v1, $v2, $v3, $v4, $v5, $v6, $v7, $v8, $v9</span><br>
-    <br>
-    <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Local</span> <span class="S9">$iVal</span> <span class="S8">=</span> <span class="S3">0</span><br>
-    <br>
-    <span class="S0">&nbsp; &nbsp;</span> <span class="S5">For</span> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S5">To</span> <span class="S6">@NumParams</span><br>
+    "S8">=</span> <span class="S3">0</span><span class="S8">)</span><br />
+    <span class="S0">&nbsp; &nbsp;</span> <span class="S12">#forceref $v1, $v2, $v3, $v4, $v5, $v6, $v7, $v8, $v9</span><br />
+    <br />
+    <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Local</span> <span class="S9">$iVal</span> <span class="S8">=</span> <span class="S3">0</span><br />
+    <br />
+    <span class="S0">&nbsp; &nbsp;</span> <span class="S5">For</span> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S5">To</span> <span class="S6">@NumParams</span><br />
     <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S9">$iVal</span> <span class="S8">&amp;=</span> <span class="S4">Eval</span><span class="S8">(</span><span class="S7">"v"</span> <span class="S8">&amp;</span> <span class=
-    "S9">$i</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">" "</span><br>
-    <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Next</span><br>
+    "S9">$i</span><span class="S8">)</span> <span class="S8">&amp;</span> <span class="S7">" "</span><br />
+    <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Next</span><br />
     <span class="S0">&nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"@NumParams example"</span><span class="S8">,</span> <span class="S7">"@NumParams =
     "</span> <span class="S8">&amp;</span> <span class="S6">@NumParams</span> <span class="S8">&amp;</span> <span class="S6">@CRLF</span> <span class="S8">&amp;</span> <span class="S6">@CRLF</span> <span class="S8">&amp;</span> <span class=
-    "S9">$iVal</span><span class="S8">)</span><br>
-    <span class="S5">EndFunc</span> <span class="S0">&nbsp;&nbsp;</span><span class="S1">;==&gt;Test_NumParams</span><br></span></p>
-  </div><br>
+    "S9">$iVal</span><span class="S8">)</span><br />
+    <span class="S5">EndFunc</span> <span class="S0">&nbsp;&nbsp;</span><span class="S1">;==&gt;Test_NumParams</span><br /></span></p>
+  </div><br />
   <p class="codeheader">#forcedef $varname [, ...]</p>
   <div class="indent">
-    #forcedef can be used after Assign() functions, like the following:<br>
+    #forcedef can be used after Assign() functions, like the following:<br />
     <p class="codebox"><span><span class="S5">Local</span> <span class="S9">$n</span> <span class="S8">=</span> <span class="S4">Assign</span><span class="S8">(</span><span class="S7">"y"</span><span class="S8">,</span> <span class=
-    "S3">3</span><span class="S8">)</span><br>
-    <span class="S12">#forcedef $y</span><br>
-    <span class="S9">$n</span> <span class="S8">=</span> <span class="S9">$y</span> <span class="S1">;===&gt; $y = 3</span><br></span></p>
-  </div><br>
-  This command line utility can be invoked through an editor add-on. It is located in the same directory as AutoIt3.exe.<br>
-  The <a href="http://www.autoitscript.com/site/autoit-script-editor/" class="ext">SciTE4AutoIt3</a> editor provides such an environment.<br>
-  <br>
-  <strong>Usage</strong><br>
-  --------<br>
+    "S3">3</span><span class="S8">)</span><br />
+    <span class="S12">#forcedef $y</span><br />
+    <span class="S9">$n</span> <span class="S8">=</span> <span class="S9">$y</span> <span class="S1">;===&gt; $y = 3</span><br /></span></p>
+  </div><br />
+  This command line utility can be invoked through an editor add-on. It is located in the same directory as AutoIt3.exe.<br />
+  The <a href="http://www.autoitscript.com/site/autoit-script-editor/" class="ext">SciTE4AutoIt3</a> editor provides such an environment.<br />
+  <br />
+  <strong>Usage</strong><br />
+  --------<br />
   <p class="codeheader">Au3Check [-q] [-d] [-w[-] n]... [-v[-] n]... [-I dir]... file.au3</p>
   <div class="indent">
-    -q : quiet (only error/warn output)<br>
-    -d : as Opt("MustDeclareVars", 1)<br>
-    -w 1: already included file (on)<br>
-    -w 2: missing #comments-end (on)<br>
-    -w 3: already declared var (off)<br>
-    -w 4: local var used in global scope (off)<br>
-    -w 5: local var declared but not used (off)<br>
-    -w 6: warn when using Dim (off)<br>
-    -w 7: warn when passing Const or expression on ByRef param(s) (on)<br>
-    -I dir: additional directories for searching include files<br>
-    <br>
-    -v 1: show include paths/files (off)<br>
-    -v 2: show lexer tokens (off)<br>
+    -q : quiet (only error/warn output)<br />
+    -d : as Opt("MustDeclareVars", 1)<br />
+    -w 1: already included file (on)<br />
+    -w 2: missing #comments-end (on)<br />
+    -w 3: already declared var (off)<br />
+    -w 4: local var used in global scope (off)<br />
+    -w 5: local var declared but not used (off)<br />
+    -w 6: warn when using Dim (off)<br />
+    -w 7: warn when passing Const or expression on ByRef param(s) (on)<br />
+    -I dir: additional directories for searching include files<br />
+    <br />
+    -v 1: show include paths/files (off)<br />
+    -v 2: show lexer tokens (off)<br />
     -v 3: show unreferenced UDFs and global variables (off)
   </div>Exit codes:
   <div class="indent">
-    0: success: no errors or warnings<br>
-    1: warning(s) only<br>
-    2: syntax error(s)<br>
+    0: success: no errors or warnings<br />
+    1: warning(s) only<br />
+    2: syntax error(s)<br />
     3: usage or input error
-  </div><br>
-  <strong>What is not checked</strong><br>
+  </div><br />
+  <strong>What is not checked</strong><br />
   --------------------------
   <div class="indent">
-    Basically runtime information:<br>
-    - No checks are made for array dimensions or indices. This can only be done during runtime.<br>
-    - Logical errors, illegal parameters to functions and division by zero.<br>
+    Basically runtime information:<br />
+    - No checks are made for array dimensions or indices. This can only be done during runtime.<br />
+    - Logical errors, illegal parameters to functions and division by zero.<br />
   </div>
 </body>
 </html>

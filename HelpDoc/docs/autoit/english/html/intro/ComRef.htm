@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <title>COM Reference</title>
-  <meta charset="ISO-8859-1">
-  <link href="../css/default.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
   <style type="text/css">
 td.c2 {width:85%}
   td.c1 {width:15%}
@@ -23,9 +23,9 @@ td.c2 {width:85%}
   Scripters have to be aware that the existence of COM Objects depend HEAVILY on the Operating System AND the installed software. The examples below have all been tested under a 'plain' Windows XP professional version with Microsoft Office 2000.</p>
   <h1>An example usage of COM in AutoIt</h1>
   <p>Let's say you want to minimize all open windows. You could do this using regular AutoIt functions like WinList and WinSetState. However, two lines of COM-code can give you the same result:</p>
-  <p class="codebox"><span><span class="S9">$oShell</span> <span class="S8">=</span> <span class="S4">ObjCreate</span><span class="S8">(</span><span class="S7">"shell.application"</span><span class="S8">)</span><br>
-  <br>
-  <span class="S9">$oShell</span><span class="S8">.</span><span class="S14">MinimizeAll</span><br></span></p>
+  <p class="codebox"><span><span class="S9">$oShell</span> <span class="S8">=</span> <span class="S4">ObjCreate</span><span class="S8">(</span><span class="S7">"shell.application"</span><span class="S8">)</span><br />
+  <br />
+  <span class="S9">$oShell</span><span class="S8">.</span><span class="S14">MinimizeAll</span><br /></span></p>
   <p>Side note: The example is no longer the shortest way to minimize all windows after the introduction of the WinMinimizeAll() function in AutoIt.</p>
   <p>&nbsp;</p>
   <p>On the first line we create a new object called <span>"shell.application"</span>. This is an internal Windows object, defined in <span>shell32.dll</span>. The pointer to this new object is assigned to the variable $oShell. $oShell is from now on an
@@ -34,18 +34,18 @@ td.c2 {width:85%}
   <p>All Windows versions have a huge amount of internal Objects for various purposes. And applications like Excel or Word have also their own set of Objects.</p>
   <p>However, it is sometimes difficult to get a list of all existing Objects defined on your system with their corresponding properties and methods. Searching at Microsoft.com or Google.com might give you some clues about the Object 'X' you want to
   use.</p>
-  <p>For instance, you can find information about the <span>"shell.application"</span> object at:<br>
+  <p>For instance, you can find information about the <span>"shell.application"</span> object at:<br />
   <a href="http://msdn.microsoft.com/en-us/library/bb774094.aspx" target="_blank">http://msdn.microsoft.com/en-us/library/bb774094.aspx</a></p>
-  <p><br>
+  <p><br />
   To get a peek on all objects currently installed on your system, the <span>"<strong>OLE/COM Object Viewer</strong>"</span> is a very helpful tool. This tool will be explained in a separate section below.</p>
   <p>Let's do another example. We would like to get a HTML source code from a certain web page. You could use the internal InetGet() function to save the result to a file and retrieve it back again with FileRead(). But these lines of code do the
   same:</p>
-  <p class="codebox"><span><span class="S9">$oHTTP</span> <span class="S8">=</span> <span class="S4">ObjCreate</span><span class="S8">(</span><span class="S7">"winhttp.winhttprequest.5.1"</span><span class="S8">)</span><br>
-  <span class="S9">$oHTTP</span><span class="S8">.</span><span class="S14">Open</span><span class="S8">(</span><span class="S7">"GET"</span><span class="S8">,</span> <span class="S7">"http://www.AutoItScript.com"</span><span class="S8">)</span><br>
-  <span class="S9">$oHTTP</span><span class="S8">.</span><span class="S14">Send</span><span class="S8">()</span><br>
-  <span class="S9">$HTMLSource</span> <span class="S8">=</span> <span class="S9">$oHTTP</span><span class="S8">.</span><span class="S14">Responsetext</span><br></span></p>
+  <p class="codebox"><span><span class="S9">$oHTTP</span> <span class="S8">=</span> <span class="S4">ObjCreate</span><span class="S8">(</span><span class="S7">"winhttp.winhttprequest.5.1"</span><span class="S8">)</span><br />
+  <span class="S9">$oHTTP</span><span class="S8">.</span><span class="S14">Open</span><span class="S8">(</span><span class="S7">"GET"</span><span class="S8">,</span> <span class="S7">"http://www.AutoItScript.com"</span><span class="S8">)</span><br />
+  <span class="S9">$oHTTP</span><span class="S8">.</span><span class="S14">Send</span><span class="S8">()</span><br />
+  <span class="S9">$HTMLSource</span> <span class="S8">=</span> <span class="S9">$oHTTP</span><span class="S8">.</span><span class="S14">Responsetext</span><br /></span></p>
   <p>The (string) variable $HTMLSource now contains the complete HTML code of the AutoItScript.com home page (that is, the top HTML-Frame).</p>
-  <p>(Information about the <span>"winhttp.winhttprequest"</span> object can be found at:<br>
+  <p>(Information about the <span>"winhttp.winhttprequest"</span> object can be found at:<br />
   <a href="http://msdn.microsoft.com/en-us/library/aa384106.aspx" target="_blank">http://msdn.microsoft.com/en-us/library/aa384106.aspx</a> )</p>
   <p>&nbsp;</p>
   <p><strong>Please mind this:</strong> The existence of Objects depend on the computer's operating system and installed programs. For example, the <span>winhttp.winhttprequest.5.1</span> object only exists on computers that have at least Internet
@@ -53,8 +53,8 @@ td.c2 {width:85%}
   <p>Object variables behave a bit different than other types of AutoIt variables. An Object is not a real value, but a 'pointer' to something outside the script. So you can't perform arithmetic's, nor equations on Object variables. When you assign an
   Object variable a different value, the 'pointer' will automatically be released. You can, for instance, force deletion of an Object by assigning it any number or any text value.</p>
   <p class="codebox"><span><span class="S9">$oHTTP</span> <span class="S8">=</span> <span class="S4">ObjCreate</span><span class="S8">(</span><span class="S7">"winhttp.winhttprequest.5.1"</span><span class="S8">)</span> <span class="S1">; Object is
-  created</span><br>
-  <span class="S9">$oHTTP</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S1">; Object is deleted</span><br></span></p>
+  created</span><br />
+  <span class="S9">$oHTTP</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S1">; Object is deleted</span><br /></span></p>
   <p>You don't <strong>need</strong> to delete Objects when you are finished. If a script exits, AutoIt tries to release all active references to Objects that had been created in the script. Same thing happens when you had defined a local Object variable
   inside a function, and the function ends with a return.</p>
   <p>&nbsp;</p>
@@ -62,15 +62,15 @@ td.c2 {width:85%}
   <p>A very popular application of COM is to 'automate' programs. Instead of using the regular AutoIt functions like Send() or WinActivate(), you can make use of the Objects that are defined inside the program.</p>
   <p>Here is an example that 'automates' Microsoft Excel:</p>
   <p class="codebox"><span><span class="S9">$oExcel</span> <span class="S8">=</span> <span class="S4">ObjCreate</span><span class="S8">(</span><span class="S7">"Excel.Application"</span><span class="S8">)</span> <span class="S1">; Create an Excel
-  Object</span><br>
-  <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">Visible</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S1">; Let Excel show itself</span><br>
-  <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">WorkBooks</span><span class="S8">.</span><span class="S14">Add</span> <span class="S1">; Add a new workbook</span><br>
+  Object</span><br />
+  <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">Visible</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S1">; Let Excel show itself</span><br />
+  <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">WorkBooks</span><span class="S8">.</span><span class="S14">Add</span> <span class="S1">; Add a new workbook</span><br />
   <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">ActiveWorkBook</span><span class="S8">.</span><span class="S14">ActiveSheet</span><span class="S8">.</span><span class="S14">Cells</span><span class="S8">(</span><span class=
-  "S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">).</span><span class="S14">Value</span> <span class="S8">=</span> <span class="S7">"Text"</span> <span class="S1">; Fill a cell</span><br>
-  <span class="S4">Sleep</span><span class="S8">(</span><span class="S3">4000</span><span class="S8">)</span> <span class="S1">; Display the results for 4 seconds</span><br>
+  "S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">).</span><span class="S14">Value</span> <span class="S8">=</span> <span class="S7">"Text"</span> <span class="S1">; Fill a cell</span><br />
+  <span class="S4">Sleep</span><span class="S8">(</span><span class="S3">4000</span><span class="S8">)</span> <span class="S1">; Display the results for 4 seconds</span><br />
   <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">ActiveWorkBook</span><span class="S8">.</span><span class="S14">Saved</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S1">; Simulate a save of the
-  Workbook</span><br>
-  <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">Quit</span> <span class="S1">; Quit Excel</span><br></span></p>
+  Workbook</span><br />
+  <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">Quit</span> <span class="S1">; Quit Excel</span><br /></span></p>
   <p>The complexity of controlling other programs depends on that specific program, not on the AutoIt script. If something does not work as expected you might need to consult the applications' documentation and not the AutoIt help.</p>
   <p>&nbsp;</p>
   <h1>Special Statements</h1>
@@ -79,72 +79,72 @@ td.c2 {width:85%}
   <h1>With..EndWith</h1>
   <p>The With/EndWith statement does not add functionality, but it makes your script easier to read. For instance, the previous example using Excel can also be written as:</p>
   <p class="codebox"><span><span class="S9">$oExcel</span> <span class="S8">=</span> <span class="S4">ObjCreate</span><span class="S8">(</span><span class="S7">"Excel.Application"</span><span class="S8">)</span> <span class="S1">; Create an Excel
-  Object</span><br>
-  <br>
-  <span class="S5">With</span> <span class="S9">$oExcel</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S8">.</span><span class="S14">Visible</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S1">; Let Excel show itself</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S8">.</span><span class="S14">WorkBooks</span><span class="S8">.</span><span class="S14">Add</span> <span class="S1">; Add a new workbook</span><br>
+  Object</span><br />
+  <br />
+  <span class="S5">With</span> <span class="S9">$oExcel</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S8">.</span><span class="S14">Visible</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S1">; Let Excel show itself</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S8">.</span><span class="S14">WorkBooks</span><span class="S8">.</span><span class="S14">Add</span> <span class="S1">; Add a new workbook</span><br />
   <span class="S0">&nbsp; &nbsp;</span> <span class="S8">.</span><span class="S14">ActiveWorkBook</span><span class="S8">.</span><span class="S14">ActiveSheet</span><span class="S8">.</span><span class="S14">Cells</span><span class=
-  "S8">(</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">).</span><span class="S14">Value</span> <span class="S8">=</span> <span class="S7">"Text"</span> <span class="S1">; Fill a cell</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S4">Sleep</span><span class="S8">(</span><span class="S3">4000</span><span class="S8">)</span> <span class="S1">; Display the results for 4 seconds</span><br>
+  "S8">(</span><span class="S3">1</span><span class="S8">,</span> <span class="S3">1</span><span class="S8">).</span><span class="S14">Value</span> <span class="S8">=</span> <span class="S7">"Text"</span> <span class="S1">; Fill a cell</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S4">Sleep</span><span class="S8">(</span><span class="S3">4000</span><span class="S8">)</span> <span class="S1">; Display the results for 4 seconds</span><br />
   <span class="S0">&nbsp; &nbsp;</span> <span class="S8">.</span><span class="S14">ActiveWorkBook</span><span class="S8">.</span><span class="S14">Saved</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S1">; Simulate a save of the
-  Workbook</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S8">.</span><span class="S14">Quit</span> <span class="S1">; Quit Excel</span><br>
-  <span class="S5">EndWith</span><br></span></p>
+  Workbook</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S8">.</span><span class="S14">Quit</span> <span class="S1">; Quit Excel</span><br />
+  <span class="S5">EndWith</span><br /></span></p>
   <p>This example does not save you a lot of text, but when your object uses long lines of properties/methods, you can shorten it heavily within a With statement.</p>
   <h1>For..In</h1>
   <p>The FOR...IN loop is required when using Collections. Collections are a special type of Object, that exist out of multiple sub-Objects. You could see them as Arrays (Actually, the For..In statement also works on Array-type variables).</p>
   <h2>For..In loop using an Array</h2>
   <p>Below is an example of an For..In loop. This example uses a normal AutoIt array, so it has nothing to do with COM. It's just to show you the principle:</p>
-  <p class="codebox"><span><span class="S5">Local</span> <span class="S9">$sString</span> <span class="S8">=</span> <span class="S7">""</span> <span class="S1">; A string for displaying purposes</span><br>
-  <br>
-  <span class="S5">Local</span> <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><br>
-  <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"A"</span> <span class="S1">; We fill an array</span><br>
-  <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S1">; with several</span><br>
-  <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">1.3434</span> <span class="S1">; different</span><br>
-  <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Example Text"</span> <span class="S1">; example values.</span><br>
-  <br>
-  <span class="S5">For</span> <span class="S9">$iElement</span> <span class="S5">In</span> <span class="S9">$aArray</span> <span class="S1">; Here it starts...</span><br>
+  <p class="codebox"><span><span class="S5">Local</span> <span class="S9">$sString</span> <span class="S8">=</span> <span class="S7">""</span> <span class="S1">; A string for displaying purposes</span><br />
+  <br />
+  <span class="S5">Local</span> <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">4</span><span class="S8">]</span><br />
+  <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">0</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"A"</span> <span class="S1">; We fill an array</span><br />
+  <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">1</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S1">; with several</span><br />
+  <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">2</span><span class="S8">]</span> <span class="S8">=</span> <span class="S3">1.3434</span> <span class="S1">; different</span><br />
+  <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">3</span><span class="S8">]</span> <span class="S8">=</span> <span class="S7">"Example Text"</span> <span class="S1">; example values.</span><br />
+  <br />
+  <span class="S5">For</span> <span class="S9">$iElement</span> <span class="S5">In</span> <span class="S9">$aArray</span> <span class="S1">; Here it starts...</span><br />
   <span class="S0">&nbsp; &nbsp;</span> <span class="S9">$sString</span> <span class="S8">=</span> <span class="S9">$sString</span> <span class="S8">&amp;</span> <span class="S9">$iElement</span> <span class="S8">&amp;</span> <span class=
-  "S6">@CRLF</span><br>
-  <span class="S5">Next</span><br>
-  <br>
-  <span class="S1">; Display the results</span><br>
+  "S6">@CRLF</span><br />
+  <span class="S5">Next</span><br />
+  <br />
+  <span class="S1">; Display the results</span><br />
   <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">"For..In Array Example"</span><span class="S8">,</span> <span class="S7">"Result: "</span> <span class="S8">&amp;</span>
-  <span class="S6">@CRLF</span> <span class="S8">&amp;</span> <span class="S9">$sString</span><span class="S8">)</span><br></span></p>
+  <span class="S6">@CRLF</span> <span class="S8">&amp;</span> <span class="S9">$sString</span><span class="S8">)</span><br /></span></p>
   <h2>For..In loop using an Object</h2>
   <p>In most cases you can't use 'normal' Object methods to retrieve the elements of a collection. In 'COM'-terms they say you have to 'enumerate' them. This is where the For..In loop comes in.</p>
   <p>The Excel example below loops on cells A1:O16 on the current active sheet. If one of the cells has a value less than 5, the code replaces the value with 0 (zero):</p>
   <p class="codebox"><span><span class="S9">$oExcel</span> <span class="S8">=</span> <span class="S4">ObjCreate</span><span class="S8">(</span><span class="S7">"Excel.Application"</span><span class="S8">)</span> <span class="S1">; Create an Excel
-  Object</span><br>
-  <br>
-  <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">Visible</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S1">; Let Excel show itself</span><br>
-  <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">WorkBooks</span><span class="S8">.</span><span class="S14">Add</span> <span class="S1">; Add a new workbook</span><br>
-  <br>
-  <span class="S5">Local</span> <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">16</span><span class="S8">][</span><span class="S3">16</span><span class="S8">]</span> <span class="S1">; These lines</span><br>
-  <span class="S5">For</span> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S5">To</span> <span class="S3">15</span> <span class="S1">; are just</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">For</span> <span class="S9">$j</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S5">To</span> <span class="S3">15</span> <span class="S1">; an example to</span><br>
+  Object</span><br />
+  <br />
+  <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">Visible</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S1">; Let Excel show itself</span><br />
+  <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">WorkBooks</span><span class="S8">.</span><span class="S14">Add</span> <span class="S1">; Add a new workbook</span><br />
+  <br />
+  <span class="S5">Local</span> <span class="S9">$aArray</span><span class="S8">[</span><span class="S3">16</span><span class="S8">][</span><span class="S3">16</span><span class="S8">]</span> <span class="S1">; These lines</span><br />
+  <span class="S5">For</span> <span class="S9">$i</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S5">To</span> <span class="S3">15</span> <span class="S1">; are just</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">For</span> <span class="S9">$j</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S5">To</span> <span class="S3">15</span> <span class="S1">; an example to</span><br />
   <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S9">$aArray</span><span class="S8">[</span><span class="S9">$i</span><span class="S8">][</span><span class="S9">$j</span><span class="S8">]</span> <span class="S8">=</span> <span class=
-  "S9">$i</span> <span class="S1">; create some</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Next</span> <span class="S1">; cell contents.</span><br>
-  <span class="S5">Next</span><br>
-  <br>
+  "S9">$i</span> <span class="S1">; create some</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">Next</span> <span class="S1">; cell contents.</span><br />
+  <span class="S5">Next</span><br />
+  <br />
   <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">activesheet</span><span class="S8">.</span><span class="S14">range</span><span class="S8">(</span><span class="S7">"A1:O16"</span><span class="S8">).</span><span class=
-  "S14">value</span> <span class="S8">=</span> <span class="S9">$aArray</span> <span class="S1">; Fill cells with example numbers</span><br>
-  <br>
-  <span class="S4">Sleep</span><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span> <span class="S1">; Wait a while before continuing</span><br>
-  <br>
+  "S14">value</span> <span class="S8">=</span> <span class="S9">$aArray</span> <span class="S1">; Fill cells with example numbers</span><br />
+  <br />
+  <span class="S4">Sleep</span><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span> <span class="S1">; Wait a while before continuing</span><br />
+  <br />
   <span class="S5">For</span> <span class="S9">$iCell</span> <span class="S5">In</span> <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">ActiveSheet</span><span class="S8">.</span><span class="S14">Range</span><span class=
-  "S8">(</span><span class="S7">"A1:O16"</span><span class="S8">)</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">If</span> <span class="S9">$iCell</span><span class="S8">.</span><span class="S14">Value</span> <span class="S8">&lt;</span> <span class="S3">5</span> <span class="S5">Then</span><br>
-  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S9">$iCell</span><span class="S8">.</span><span class="S14">Value</span> <span class="S8">=</span> <span class="S3">0</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">EndIf</span><br>
-  <span class="S5">Next</span><br>
-  <br>
+  "S8">(</span><span class="S7">"A1:O16"</span><span class="S8">)</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">If</span> <span class="S9">$iCell</span><span class="S8">.</span><span class="S14">Value</span> <span class="S8">&lt;</span> <span class="S3">5</span> <span class="S5">Then</span><br />
+  <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S9">$iCell</span><span class="S8">.</span><span class="S14">Value</span> <span class="S8">=</span> <span class="S3">0</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S5">EndIf</span><br />
+  <span class="S5">Next</span><br />
+  <br />
   <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">ActiveWorkBook</span><span class="S8">.</span><span class="S14">Saved</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S1">; Simulate a save of the
-  Workbook</span><br>
-  <span class="S4">Sleep</span><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span> <span class="S1">; Wait a while before closing</span><br>
-  <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">Quit</span> <span class="S1">; Quit Excel</span><br></span></p>
+  Workbook</span><br />
+  <span class="S4">Sleep</span><span class="S8">(</span><span class="S3">2000</span><span class="S8">)</span> <span class="S1">; Wait a while before closing</span><br />
+  <span class="S9">$oExcel</span><span class="S8">.</span><span class="S14">Quit</span> <span class="S1">; Quit Excel</span><br /></span></p>
   <p>&nbsp;</p>
   <h1>Advanced COM usage</h1>
   <p>The following features of AutoItCOM requires profound knowledge of COM Events and COM Error handling.</p>
@@ -170,54 +170,54 @@ td.c2 {width:85%}
   <p>Only when you have all this information, you can start building an AutoIt script using COM Events.</p>
   <p>Below is a snippet from a script that demonstrates how to receive Events from the Internet Explorer:</p>
   <p class="codebox"><span><span class="S9">$oIE</span> <span class="S8">=</span> <span class="S4">ObjCreate</span><span class="S8">(</span><span class="S7">"InternetExplorer.Application.1"</span><span class="S8">)</span> <span class="S1">; Create an
-  Internet Explorer Object</span><br>
-  <br>
+  Internet Explorer Object</span><br />
+  <br />
   <span class="S9">$EventObject</span> <span class="S8">=</span> <span class="S4">ObjEvent</span><span class="S8">(</span><span class="S9">$oIE</span><span class="S8">,</span> <span class="S7">"IEEvent_"</span><span class="S8">,</span> <span class=
-  "S7">"DWebBrowserEvents"</span><span class="S8">)</span> <span class="S1">; Start receiving Events.</span><br>
-  <br>
-  <span class="S9">$oIE</span><span class="S8">.</span><span class="S14">url</span> <span class="S8">=</span> <span class="S7">"http://www.autoitscript.com"</span> <span class="S1">; Load an example web page</span><br>
-  <span class="S1">; From now on, the $oIE Object generates events during web page load.</span><br>
-  <span class="S1">; They are handled in the event functions shown below.</span><br>
-  <br>
-  <span class="S1">; Here you can let the script wait until the user wants to finish.</span><br>
-  <span class="S8">...(</span><span class="S0">your code here</span><span class="S8">)...</span><br>
-  <br>
-  <span class="S9">$EventObject</span><span class="S8">.</span><span class="S14">stop</span> <span class="S1">; Tell IE we want to stop receiving Events</span><br>
-  <span class="S9">$EventObject</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S1">; Kill the Event Object</span><br>
-  <span class="S9">$oIE</span><span class="S8">.</span><span class="S14">quit</span> <span class="S1">; Quit IE</span><br>
-  <span class="S9">$oIE</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S1">; Remove IE from memory (not really necessary)</span><br>
-  <span class="S5">Exit</span> <span class="S1">; End of main script</span><br>
-  <br>
-  <br>
-  <span class="S1">; A few Internet Explorer Event Functions.</span><br>
-  <span class="S1">;</span><br>
-  <span class="S1">; For the full list of IE Event Functions, see the MSDN WebBrowser documentation at:</span><br>
-  <span class="S1">; http://msdn.microsoft.com/en-us/library/system.windows.forms.webbrowser.aspx</span><br>
-  <br>
-  <span class="S5">Func</span> <span class="S0">IEEvent_StatusTextChange</span><span class="S8">(</span><span class="S9">$Text</span><span class="S8">)</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S1">; In the complete script (see link below) we show the contents in a GUI Edit box.</span><br>
+  "S7">"DWebBrowserEvents"</span><span class="S8">)</span> <span class="S1">; Start receiving Events.</span><br />
+  <br />
+  <span class="S9">$oIE</span><span class="S8">.</span><span class="S14">url</span> <span class="S8">=</span> <span class="S7">"http://www.autoitscript.com"</span> <span class="S1">; Load an example web page</span><br />
+  <span class="S1">; From now on, the $oIE Object generates events during web page load.</span><br />
+  <span class="S1">; They are handled in the event functions shown below.</span><br />
+  <br />
+  <span class="S1">; Here you can let the script wait until the user wants to finish.</span><br />
+  <span class="S8">...(</span><span class="S0">your code here</span><span class="S8">)...</span><br />
+  <br />
+  <span class="S9">$EventObject</span><span class="S8">.</span><span class="S14">stop</span> <span class="S1">; Tell IE we want to stop receiving Events</span><br />
+  <span class="S9">$EventObject</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S1">; Kill the Event Object</span><br />
+  <span class="S9">$oIE</span><span class="S8">.</span><span class="S14">quit</span> <span class="S1">; Quit IE</span><br />
+  <span class="S9">$oIE</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S1">; Remove IE from memory (not really necessary)</span><br />
+  <span class="S5">Exit</span> <span class="S1">; End of main script</span><br />
+  <br />
+  <br />
+  <span class="S1">; A few Internet Explorer Event Functions.</span><br />
+  <span class="S1">;</span><br />
+  <span class="S1">; For the full list of IE Event Functions, see the MSDN WebBrowser documentation at:</span><br />
+  <span class="S1">; http://msdn.microsoft.com/en-us/library/system.windows.forms.webbrowser.aspx</span><br />
+  <br />
+  <span class="S5">Func</span> <span class="S0">IEEvent_StatusTextChange</span><span class="S8">(</span><span class="S9">$Text</span><span class="S8">)</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S1">; In the complete script (see link below) we show the contents in a GUI Edit box.</span><br />
   <span class="S0">&nbsp; &nbsp;</span> <span class="S4">GUICtrlSetData</span><span class="S8">(</span><span class="S9">$GUIEdit</span><span class="S8">,</span> <span class="S7">"IE Status text changed to: "</span> <span class="S8">&amp;</span>
-  <span class="S9">$Text</span> <span class="S8">&amp;</span> <span class="S6">@CRLF</span><span class="S8">,</span> <span class="S7">"append"</span><span class="S8">)</span><br>
-  <span class="S5">EndFunc</span> <span class="S0">&nbsp;&nbsp;</span><span class="S1">;==&gt;IEEvent_StatusTextChange</span><br>
-  <br>
+  <span class="S9">$Text</span> <span class="S8">&amp;</span> <span class="S6">@CRLF</span><span class="S8">,</span> <span class="S7">"append"</span><span class="S8">)</span><br />
+  <span class="S5">EndFunc</span> <span class="S0">&nbsp;&nbsp;</span><span class="S1">;==&gt;IEEvent_StatusTextChange</span><br />
+  <br />
   <span class="S5">Func</span> <span class="S0">IEEvent_BeforeNavigate</span><span class="S8">(</span><span class="S9">$URL</span><span class="S8">,</span> <span class="S9">$Flags</span><span class="S8">,</span> <span class=
-  "S9">$TargetFrameName</span><span class="S8">,</span> <span class="S9">$PostData</span><span class="S8">,</span> <span class="S9">$Headers</span><span class="S8">,</span> <span class="S9">$Cancel</span><span class="S8">)</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S1">; In the complete script (see link below) we show the contents in a GUI Edit box.</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S1">; Note: the declaration is different from the one on MSDN.</span><br>
+  "S9">$TargetFrameName</span><span class="S8">,</span> <span class="S9">$PostData</span><span class="S8">,</span> <span class="S9">$Headers</span><span class="S8">,</span> <span class="S9">$Cancel</span><span class="S8">)</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S1">; In the complete script (see link below) we show the contents in a GUI Edit box.</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S1">; Note: the declaration is different from the one on MSDN.</span><br />
   <span class="S0">&nbsp; &nbsp;</span> <span class="S4">GUICtrlSetData</span><span class="S8">(</span><span class="S9">$GUIEdit</span><span class="S8">,</span> <span class="S7">"BeforeNavigate: "</span> <span class="S8">&amp;</span> <span class=
   "S9">$URL</span> <span class="S8">&amp;</span> <span class="S7">" Flags: "</span> <span class="S8">&amp;</span> <span class="S9">$Flags</span> <span class="S8">&amp;</span> <span class="S6">@CRLF</span><span class="S8">,</span> <span class=
-  "S7">"append"</span><span class="S8">)</span><br>
-  <span class="S5">EndFunc</span> <span class="S0">&nbsp;&nbsp;</span><span class="S1">;==&gt;IEEvent_BeforeNavigate</span><br></span></p>
+  "S7">"append"</span><span class="S8">)</span><br />
+  <span class="S5">EndFunc</span> <span class="S0">&nbsp;&nbsp;</span><span class="S1">;==&gt;IEEvent_BeforeNavigate</span><br /></span></p>
   <p>Click <a href="IE6Example.htm" target="_blank"><strong>here</strong></a> to view the complete script.</p>
-  <p>The main line in this script is: <span>$EventObject=ObjEvent($oIE,"IEEvent_",...)</span>.<br>
-  This function takes the object $<span>oIE</span> and reroutes it's events to AutoIt functions whose names start with <span>MYEvent_</span>. The third parameter is optional. It is used when an Object has multiple Event interfaces and you don't want
-  AutoIt to choose one automatically.<br>
-  <br>
+  <p>The main line in this script is: <span>$EventObject = <a href="../functions/ObjEvent.htm">ObjEvent</a> ($oIE, "IEEvent_", ...)</span>.<br />
+  This function takes the object $<span>oIE</span> and reroutes it's events to AutoIt functions whose names start with <span>IEEvent_</span>. The third parameter is optional. It is used when an Object has multiple Event interfaces and you don't want
+  AutoIt to choose one automatically.<br />
+  <br />
   The Object responsible for the continuous rerouting is <span>$EventObject</span>. This variable does not require any further attention, unless you want to stop the events.</p>
-  <p>To stop rerouting Events, you can not just delete the variable like <span>$EventObject=""</span>. The reason is that the 'calling' Object is still holding a reference to this variable, and it won't loose it until the Object itself quits. You could
+  <p>To stop rerouting Events, you can not just delete the variable like <span>$EventObject = ""</span>. The reason is that the 'calling' Object is still holding a reference to this variable, and it won't loose it until the Object itself quits. You could
   solve this problem by killing the 'calling' Object, but you can also tell the Object that you don't want to receive any events by using: <span>$EventObject.Stop</span>. Then you can (but not really necessary) kill the Event by assigning it any value,
-  like: <span>$EventObject=""</span></p>
-  <p>If you know the names of the Events <span>$oIE</span> fires, you can implement the Events you are interested in by creating AutoIt UDF's with the name <span>IE</span> <span>Event_<em>Eventname</em>(<em>optional arguments</em>)</span>. Be sure you
+  like: <span>$EventObject = ""</span></p>
+  <p>If you know the names of the Events <span>$oIE</span> fires, you can implement the Events you are interested in by creating AutoIt UDF's with the name <span>IEEvent_<em>Eventname</em>(<em>optional arguments</em>)</span>. Be sure you
   use the correct number of arguments and in their correct order as specified for THAT Event function. Otherwise you might end up with unexpected values.</p>
   <p>You don't have to implement ALL event functions. Those not implemented will just be ignored.</p>
   <p>More script examples using COM Event functions can be found in the tests directory in the AutoIt 3.1.1.xx beta ZIP distribution file, downloadable from: <a href="http://www.autoitscript.com/autoit3/files/beta/autoit/COM/" target=
@@ -232,34 +232,34 @@ td.c2 {width:85%}
   Neither does it catch non-COM related script errors (e.g. declaration and syntax errors).</p>
   <p>Error handling is implemented in the same way as a normal COM Event, using ObjEvent() and a user defined COM Event Function. The only difference is the usage of the fixed string "AutoIt.Error" as the name of the object.</p>
   <p>An example:</p>
-  <p class="codebox"><span><span class="S5">Global</span> <span class="S9">$iEventError</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S1">; to be checked to know if com error occurs. Must be reset after handling.</span><br>
-  <br>
+  <p class="codebox"><span><span class="S5">Global</span> <span class="S9">$iEventError</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S1">; to be checked to know if com error occurs. Must be reset after handling.</span><br />
+  <br />
   <span class="S9">$oMyError</span> <span class="S8">=</span> <span class="S4">ObjEvent</span><span class="S8">(</span><span class="S7">"AutoIt.Error"</span><span class="S8">,</span> <span class="S7">"ErrFunc"</span><span class="S8">)</span> <span class=
-  "S1">; Install a custom error handler</span><br>
-  <br>
-  <span class="S1">; Perform a deliberate failure (the object doesn't exist)</span><br>
-  <span class="S9">$oIE</span> <span class="S8">=</span> <span class="S4">ObjCreate</span><span class="S8">(</span><span class="S7">"InternetExplorer.Application"</span><span class="S8">)</span><br>
-  <span class="S9">$oIE</span><span class="S8">.</span><span class="S14">visible</span> <span class="S8">=</span> <span class="S3">1</span><br>
-  <span class="S9">$oIE</span><span class="S8">.</span><span class="S14">bogus</span><br>
-  <span class="S5">If</span> <span class="S9">$iEventError</span> <span class="S5">Then</span><br>
+  "S1">; Install a custom error handler</span><br />
+  <br />
+  <span class="S1">; Perform a deliberate failure (the object doesn't exist)</span><br />
+  <span class="S9">$oIE</span> <span class="S8">=</span> <span class="S4">ObjCreate</span><span class="S8">(</span><span class="S7">"InternetExplorer.Application"</span><span class="S8">)</span><br />
+  <span class="S9">$oIE</span><span class="S8">.</span><span class="S14">visible</span> <span class="S8">=</span> <span class="S3">1</span><br />
+  <span class="S9">$oIE</span><span class="S8">.</span><span class="S14">bogus</span><br />
+  <span class="S5">If</span> <span class="S9">$iEventError</span> <span class="S5">Then</span><br />
   <span class="S0">&nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"There was an error on the previous
-  line."</span><span class="S8">)</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S9">$iEventError</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S1">; Reset after displaying a COM Error occurred</span><br>
-  <span class="S5">EndIf</span><br>
-  <span class="S5">Exit</span><br>
-  <br>
-  <span class="S1">; This is a custom error handler</span><br>
-  <span class="S5">Func</span> <span class="S0">ErrFunc</span><span class="S8">()</span><br>
+  line."</span><span class="S8">)</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S9">$iEventError</span> <span class="S8">=</span> <span class="S3">0</span> <span class="S1">; Reset after displaying a COM Error occurred</span><br />
+  <span class="S5">EndIf</span><br />
+  <span class="S5">Exit</span><br />
+  <br />
+  <span class="S1">; This is a custom error handler</span><br />
+  <span class="S5">Func</span> <span class="S0">ErrFunc</span><span class="S8">()</span><br />
   <span class="S0">&nbsp; &nbsp;</span> <span class="S9">$HexNumber</span> <span class="S8">=</span> <span class="S4">Hex</span><span class="S8">(</span><span class="S9">$oMyError</span><span class="S8">.</span><span class="S14">number</span><span class=
-  "S8">,</span> <span class="S3">8</span><span class="S8">)</span><br>
+  "S8">,</span> <span class="S3">8</span><span class="S8">)</span><br />
   <span class="S0">&nbsp; &nbsp;</span> <span class="S4">MsgBox</span><span class="S8">(</span><span class="S3">0</span><span class="S8">,</span> <span class="S7">""</span><span class="S8">,</span> <span class="S7">"We intercepted a COM Error !"</span>
-  <span class="S8">&amp;</span> <span class="S6">@CRLF</span> <span class="S8">&amp;</span> <span class="S8">_</span><br>
+  <span class="S8">&amp;</span> <span class="S6">@CRLF</span> <span class="S8">&amp;</span> <span class="S8">_</span><br />
   <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S7">"Number is: "</span> <span class="S8">&amp;</span> <span class="S9">$HexNumber</span> <span class="S8">&amp;</span> <span class="S6">@CRLF</span> <span class=
-  "S8">&amp;</span> <span class="S8">_</span><br>
+  "S8">&amp;</span> <span class="S8">_</span><br />
   <span class="S0">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> <span class="S7">"WinDescription is: "</span> <span class="S8">&amp;</span> <span class="S9">$oMyError</span><span class="S8">.</span><span class="S14">windescription</span><span class=
-  "S8">)</span><br>
-  <span class="S0">&nbsp; &nbsp;</span> <span class="S9">$iEventError</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S1">; Use to check when a COM Error occurs</span><br>
-  <span class="S5">EndFunc</span> <span class="S0">&nbsp;&nbsp;</span><span class="S1">;==&gt;ErrFunc</span><br></span></p>
+  "S8">)</span><br />
+  <span class="S0">&nbsp; &nbsp;</span> <span class="S9">$iEventError</span> <span class="S8">=</span> <span class="S3">1</span> <span class="S1">; Use to check when a COM Error occurs</span><br />
+  <span class="S5">EndFunc</span> <span class="S0">&nbsp;&nbsp;</span><span class="S1">;==&gt;ErrFunc</span><br /></span></p>
   <p>&nbsp;</p>
   <p>One thing is special about the Error Event Handler, and that is the Object it returns. This is an AutoIt Error Object that contains some useful properties and methods. It's implementation is partly based on the "Err" Object in VB(script):</p>
   <p>Properties of the AutoIt Error Object:</p>
@@ -313,7 +313,7 @@ td.c2 {width:85%}
   <p><img src="../images/oleview1.png" alt=""></p>
   <p>&nbsp;</p>
   <p>In the left column you see all COM Interfaces that have been defined for this object. We talk about those later. Take a closer look at the right column. It contains a lot of information to use this object in an AutoIt script. Most important is the
-  "<span>VersionIndependentProgID</span>". This is the name to be used in an ObjCreate, ObjGet or ObjEvent function. Furthermore it contains the directory and filename that contains the object. This can be an EXE, a DLL or an OCX file.
+  "<span>VersionIndependentProgID</span>". This is the name to be used in an <a href="../functions/ObjCreate.htm">ObjCreate()</a>, <a href="../functions/ObjGet.htm">ObjGet()</a> or <a href="../functions/ObjEvent.htm">ObjEvent()</a>. Furthermore it contains the directory and filename that contains the object. This can be an EXE, a DLL or an OCX file.
   <span>InProcServer32</span> means that the object runs in the same thread as your script (in-process). When you see <span>LocalServer32</span>, the object runs as a separate process. The object must also contain a type library (the lines following
   "<span>TypeLib=</span>"), otherwise it can't be used in an AutoIt script.</p>
   <p>The interfaces in the left column are used for several ways of interacting with the object. Some are used for storage (IStorage, IPersist), others for embedding in a GUI (IOleObject, IOleControl). AutoIt uses the <span>IDispatch</span> interface for
