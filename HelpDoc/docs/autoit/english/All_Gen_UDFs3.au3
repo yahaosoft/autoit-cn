@@ -28,8 +28,12 @@ _OutputWindowCreate() ;### Debug Console
 
 FileChangeDir(@ScriptDir)
 
+; to be used for passing the /RegenAll
+Local $Cmd1 = ""
+If $CmdLine[0] Then $Cmd1 = $CmdLine[1]
+
 _OutputBuildWrite("Generate HTM files for all changed UDFs" & @CRLF)
-RunWait('"' & @AutoItExe & '"' & ' ..\..\_build\include\Gen_txt2Htm.au3 /UDFs')
+RunWait('"' & @AutoItExe & '"' & ' ..\..\_build\include\Gen_txt2Htm.au3 /UDFs ' & $Cmd1)
 
 _OutputBuildWrite("Generate Reference HTM files for UDFs" & @CRLF)
 RunWait('"' & @AutoItExe & '"' & ' ..\..\_build\include\Gen_RefPages.au3 /UDFs')
@@ -53,7 +57,7 @@ Func Main()
 	; **********************************************************
 	;
 
-	Local $FO_TOC_HND = FileOpen("UDFs3 TOC.hhc", $FO_OVERWRITE)
+	Local $FO_TOC_HND = FileOpen("UDFs3 TOC.hhc", BitOR($FO_OVERWRITE, $FO_UTF8))
 	FileWriteLine($FO_TOC_HND, '<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">')
 	FileWriteLine($FO_TOC_HND, '<HTML>')
 	FileWriteLine($FO_TOC_HND, '<HEAD>')
@@ -75,7 +79,7 @@ Func Main()
 	FileWriteLine($FO_TOC_HND, '<param name="Local" value="html\libfunction_notes.htm">')
 	FileWriteLine($FO_TOC_HND, '</OBJECT>')
 
-	Local $FO_INDEX_HND = FileOpen("UDFs3 Index.hhk", 2)
+	Local $FO_INDEX_HND = FileOpen("UDFs3 Index.hhk", BitOR($FO_OVERWRITE, $FO_UTF8))
 	FileWriteLine($FO_INDEX_HND, '<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">')
 	FileWriteLine($FO_INDEX_HND, '<HTML>')
 	FileWriteLine($FO_INDEX_HND, '<HEAD>')
@@ -100,7 +104,7 @@ Func Main()
 
 	Local $HELPFILEDIR = @ScriptDir ; specify the root of the helpfiles
 
-	Local $FI_DIR_HND = FileOpen($HELPFILEDIR & "\txt2htm\txtlibfunctions\Categories.toc", 0)
+	Local $FI_DIR_HND = FileOpen($HELPFILEDIR & "\txt2htm\txtlibfunctions\Categories.toc")
 	; Check if file opened for reading OK
 	If $FI_DIR_HND = -1 Then
 		MsgBox($MB_SYSTEMMODAL, "Error", "Unable to open:" & $HELPFILEDIR & "\txt2htm\txtlibfunctions\Categories.toc")
@@ -111,7 +115,7 @@ Func Main()
 
 	; write the top of the page of the userfunctions page
 	Local $SAVE_CATEGORY = "", $SAVE_SUBCATEGORY = "", $SAVE_SUBSUBCATEGORY = ""
-	Local $FLINE, $FTOC, $FSUBTOC, $FSUBSUBTOC, $FNAME, $iSplit
+	Local $FLINE, $FTOC, $FSUBTOC, $FSUBSUBTOC, $FNAME, $iSplit, $FSUBTOCPRE
 	While 1
 		; get filename from include subdir
 		$FLINE = FileReadLine($FI_DIR_HND)
@@ -120,6 +124,12 @@ Func Main()
 		EndIf
 		$FLINE = StringReplace($FLINE, "&", "&amp;")
 		$FTOC = StringLeft($FLINE, StringInStr($FLINE, "|", 0, -1) - 1)
+		$iSplit = StringInStr($FTOC, " Reference")
+		If $iSplit Then
+			$FSUBTOCPRE = StringLeft($FTOC, $iSplit)
+		Else
+			$FSUBTOCPRE = ""
+		EndIf
 		$iSplit = StringInStr($FTOC, "|")
 		If $iSplit Then
 			$FSUBTOC = StringTrimLeft($FTOC, $iSplit)
@@ -187,7 +197,7 @@ Func Main()
 			$SAVE_SUBCATEGORY = $FSUBTOC
 			FileWriteLine($FO_TOC_HND, '<LI> <OBJECT type="text/sitemap">')
 			FileWriteLine($FO_TOC_HND, '<param name="Name" value="' & $FSUBTOC & '">')
-			FileWriteLine($FO_TOC_HND, '<param name="Local" value="html\libfunctions\' & $FSUBTOC & '.htm">')
+			FileWriteLine($FO_TOC_HND, '<param name="Local" value="html\libfunctions\' & StringReplace($FSUBTOCPRE & $FSUBTOC, "&amp;","&") & '.htm">')
 			FileWriteLine($FO_TOC_HND, '</OBJECT>')
 			FileWriteLine($FO_TOC_HND, "<UL>")
 		EndIf
@@ -195,7 +205,7 @@ Func Main()
 			$SAVE_SUBSUBCATEGORY = $FSUBSUBTOC
 			FileWriteLine($FO_TOC_HND, '<LI> <OBJECT type="text/sitemap">')
 			FileWriteLine($FO_TOC_HND, '<param name="Name" value="' & $FSUBSUBTOC & '">')
-			FileWriteLine($FO_TOC_HND, '<param name="Local" value="html\libfunctions\' & $FSUBSUBTOC & '.htm">')
+			FileWriteLine($FO_TOC_HND, '<param name="Local" value="html\libfunctions\' & StringReplace($FSUBTOCPRE & $FSUBSUBTOC, "&amp;","&") & '.htm">')
 			FileWriteLine($FO_TOC_HND, '</OBJECT>')
 			FileWriteLine($FO_TOC_HND, "<UL>")
 		EndIf

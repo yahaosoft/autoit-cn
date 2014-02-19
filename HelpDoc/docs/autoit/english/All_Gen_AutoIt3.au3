@@ -29,8 +29,12 @@ _OutputWindowCreate() ;### Debug Console
 
 FileChangeDir(@ScriptDir)
 
+; to be used for passing the /RegenAll
+Local $Cmd1 = ""
+If $CmdLine[0] Then $Cmd1 = $CmdLine[1]
+
 _OutputBuildWrite("Generate HTM files for all changed Functions/Keywords" & @CRLF)
-RunWait('"' & @AutoItExe & '"' & ' ..\..\_build\include\Gen_txt2Htm.au3 /AutoIt')
+RunWait('"' & @AutoItExe & '"' & ' ..\..\_build\include\Gen_txt2Htm.au3 /AutoIt ' & $Cmd1)
 
 _OutputBuildWrite("Generate Reference HTM files for Functions/Keywords" & @CRLF)
 RunWait('"' & @AutoItExe & '"' & ' ..\..\_build\include\Gen_RefPages.au3 /AutoIt')
@@ -52,8 +56,8 @@ Func OnQuit()
 EndFunc   ;==>OnQuit
 
 Func Main()
-	Local $FI_TOC_HND = FileOpen("AutoIt3 TOC.hhc", $FO_READ)
-	Local $FO_INDEX_HND = FileOpen("AutoIt3 Index.hhk", $FO_OVERWRITE)
+	Local $FI_TOC_HND = FileOpen("AutoIt3 TOC.hhc")
+	Local $FO_INDEX_HND = FileOpen("AutoIt3 Index.hhk", BitOR($FO_OVERWRITE, $FO_UTF8))
 	; Check if file opened for reading OK
 	If $FI_TOC_HND = -1 Then
 		MsgBox($MB_SYSTEMMODAL, "Error", "Unable to open file.")
@@ -136,10 +140,10 @@ Func Main()
 				EndIf
 				; Add StringRegExpGUI
 				If StringInStr($LINE, "tutorials\regexp\") Then
-						FileWriteLine($FO_INDEX_HND, '<LI> <OBJECT type="text/sitemap">')
-						FileWriteLine($FO_INDEX_HND, '   <param name="Name" value="StringRegExpGUI">')
-						FileWriteLine($FO_INDEX_HND, '   ' & StringReplace($LINE, Chr(09), ""))
-						FileWriteLine($FO_INDEX_HND, '		</OBJECT>')
+					FileWriteLine($FO_INDEX_HND, '<LI> <OBJECT type="text/sitemap">')
+					FileWriteLine($FO_INDEX_HND, '   <param name="Name" value="StringRegExpGUI">')
+					FileWriteLine($FO_INDEX_HND, '   ' & StringReplace($LINE, Chr(09), ""))
+					FileWriteLine($FO_INDEX_HND, '		</OBJECT>')
 				EndIf
 				; Skip link to sub-sections for the Project file
 				If StringInStr($LINE, "#") = 0 Then
@@ -147,7 +151,7 @@ Func Main()
 					; Read the HTM file for all @ MAcros and generate index entry for them
 					If $MACROSECTION = 1 Then
 						; open the HTM file for Input
-						$FI_TOC_HNDI = FileOpen($FN, 0)
+						$FI_TOC_HNDI = FileOpen($FN)
 						If $FI_TOC_HNDI = -1 Then
 							MsgBox(0, "Error", "Unable to open: " & $FN)
 						EndIf

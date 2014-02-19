@@ -43,33 +43,29 @@ Func HTMLChangelog($sChangeLogPath, $sHTMLOutPath, $sNativeList, $sUDFList, $sMa
 	; Remove old entries (v3.2.0 and older). These aren't supported with this script.
 	$sData = StringRegExpReplace($sData, '(?ms)^3\.2\.0\h+.+', '')
 
-	; By Melba23, convert \r & \n to \r\n.
-	$sData = StringRegExpReplace($sData, '((?<!\r)\n|\r(?!\n))', @CRLF) ; Using \R caused unexpected issues.
+	; Convert \r & \n to \r\n.
+	_ConvertEOLToCRLF($sData)
 
-	; Convert & to &amp;.
-	$sData = StringRegExpReplace($sData, '&(?!(?:amp|gt|lt);)', '&amp;') ; Convert &.
-
-	; Convert < and >.
-	$sData = StringReplace($sData, '<', '&lt;') ; Convert <.
-	$sData = StringReplace($sData, '>', '&gt;') ; Convert >.
+	; Convert symbols to entities.
+	_ConvertSymbolsToHTMLEntity($sData)
 
 	; Strip <space> and dash at the start of the line.
 	$sData = StringRegExpReplace($sData, '(?m)^\h*\-\h*', '')
 
 	; Remove double blank lines and trailing whitespace.
-	_StripEmptyLines($sData)
+	_StripEmptyLinesDouble($sData)
 	_StripWhitespace($sData)
 
 	; Convert native functions to a URL. Case-sensitive so it matches correctly. Matches Function().
 	Local $aAu3API = StringRegExp(FileRead($sNativeList), '(?m)^(\w+)', 3)
 	For $i = 0 To UBound($aAu3API) - 1
-		$sData = StringRegExpReplace($sData, '\b' & $aAu3API[$i] & '\b([(][)]+)+', '<a href="functions/' & $aAu3API[$i] & '.htm">' & $aAu3API[$i] & '\1</a>')
+		$sData = StringRegExpReplace($sData, '\b' & $aAu3API[$i] & '\b(\)\)|\()', '<a href="functions/' & $aAu3API[$i] & '.htm">' & $aAu3API[$i] & '\1</a>')
 	Next
 
 	; Convert UDF functions to a URL. Case-sensitive so it matches correctly. Matches _Function().
 	$aAu3API = StringRegExp(FileRead($sUDFList), '(?m)^(\w+)', 3)
 	For $i = 0 To UBound($aAu3API) - 1
-		$sData = StringRegExpReplace($sData, '\b' & $aAu3API[$i] & '\b([(][)]+)+', '<a href="' & $sLocalRef & 'libfunctions/' & $aAu3API[$i] & '.htm">' & $aAu3API[$i] & '\1</a>')
+		$sData = StringRegExpReplace($sData, '\b' & $aAu3API[$i] & '\b(\)\)|\()', '<a href="' & $sLocalRef & 'libfunctions/' & $aAu3API[$i] & '.htm">' & $aAu3API[$i] & '\1</a>')
 	Next
 
 	; Convert macros. Case-sensitive so it matches correctly. Matches @Macro.
@@ -92,8 +88,8 @@ Func HTMLChangelog($sChangeLogPath, $sHTMLOutPath, $sNativeList, $sUDFList, $sMa
 	$sHTML &= '<html>' & @CRLF
 	$sHTML &= '<head>' & @CRLF
 	$sHTML &= @TAB & '<title>History</title>' & @CRLF
-	$sHTML &= @TAB & '<meta charset="ISO-8859-1">' & @CRLF
-	$sHTML &= @TAB & '<link href="css/default.css" rel="stylesheet" type="text/css">' & @CRLF
+	$sHTML &= @TAB & '<meta charset="utf-8">' & @CRLF
+	$sHTML &= @TAB & '<link href="css/default.css" rel="stylesheet">' & @CRLF
 	$sHTML &= '</head>' & @CRLF
 	$sHTML &= '<body>' & @CRLF
 	$sHTML &= @TAB & '<h1>History</h1>' & @CRLF
@@ -105,12 +101,12 @@ Func HTMLChangelog($sChangeLogPath, $sHTMLOutPath, $sNativeList, $sUDFList, $sMa
 
 	Local $fStart = True
 	For $i = 0 To UBound($aSRE) - 1 ; Commented out UBound for current release only.
-		$aSRE[$i] = StringRegExpReplace($aSRE[$i], '^\v+', '') ; Remove blank lines at the start.
-		$aSRE[$i] = StringRegExpReplace($aSRE[$i], '\v+$', '') ; Remove blank lines at the end.
-		$aSplit = StringSplit($aSRE[$i], @CRLF, 1)
+		_StripEmptyLinesStartOfFile($aSRE[$i])
+		_StripEmptyLinesEndOfFile($aSRE[$i])
+		$aSplit = StringSplit($aSRE[$i], @CRLF, $STR_ENTIRESPLIT)
 		If @error = 0 Then
 			$iIndex = 2
-			If Not $fStart Then $sHTML &= @TAB & '<br>' & @CRLF
+			If Not $fStart Then $sHTML &= @TAB & '<br />' & @CRLF
 			$fStart = False
 			$sHTML &= @TAB & '<p class="c4"><strong class="c3">' & $aSplit[1] & '</strong></p>' & @CRLF ; Release and date.
 			If StringStripWS($aSplit[2], $STR_STRIPALL) = '' Then
@@ -119,7 +115,9 @@ Func HTMLChangelog($sChangeLogPath, $sHTMLOutPath, $sNativeList, $sUDFList, $sMa
 			EndIf
 			For $j = $iIndex To $aSplit[0]
 				Switch $aSplit[$j] ; Check if the array entry is a section or other.
-					Case 'Au3Check:', 'Au3Info:', 'Au3Record:', 'Aut2Exe:', 'AutoIt:', 'AutoIt3Help:', 'AutoItX:', 'Big Changes:', 'Others:', 'Other Changes:', 'SciTE "lite":', 'UDFs:'
+					Case 'Au3Check:', 'Au3Info:', 'Au3Record:', 'Aut2Exe:', 'AutoIt:', 'AutoIt3Help:', 'AutoItX:', _
+							'Big Changes:', 'Exe2Aut:', 'Others:', 'Other Changes:', 'SciTE "lite":', 'UDFs:', _
+							'WARNING:'
 						If $fFirstRun Then ; If this is the first time manipulating the following release, then do the following.
 							$fFirstRun = False
 						Else
@@ -167,7 +165,10 @@ Func HTMLChangelog($sChangeLogPath, $sHTMLOutPath, $sNativeList, $sUDFList, $sMa
 	Next
 	$sHTML &= '</body>' & @CRLF
 	$sHTML &= '</html>' & @CRLF
-	Local $hFileOpen = FileOpen($sHTMLOutPath, $FO_OVERWRITE)
+
+	; Quick workaround for stray <ul> tags.
+	$sHTML = StringRegExpReplace($sHTML, '\h*<ul>\R(\h*<p><strong>)', '\1')
+	Local $hFileOpen = FileOpen($sHTMLOutPath, BitOR($FO_OVERWRITE, $FO_UTF8))
 	If $hFileOpen > -1 Then
 		FileWrite($sHTMLOutPath, $sHTML)
 		FileClose($hFileOpen)

@@ -1,6 +1,6 @@
-#include <File.au3>
-#include "gen_def.au3"
 #include "..\gen_editorfuncs.au3"
+#include "gen_def.au3"
+#include <File.au3>
 
 GenerateSyntax()
 GenerateDefSyntax() ; Included in gen_def.au3.

@@ -1,5 +1,5 @@
-#include <File.au3>
 #include "..\gen_editorfuncs.au3"
+#include <File.au3>
 
 GenerateSyntax()
 

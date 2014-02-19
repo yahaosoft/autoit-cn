@@ -28,8 +28,12 @@ _OutputWindowCreate() ;### Debug Console
 
 FileChangeDir(@ScriptDir)
 
+; to be used for passing the /RegenAll
+Local $Cmd1 = ""
+If $CmdLine[0] Then $Cmd1 = $CmdLine[1]
+
 _OutputBuildWrite("Generate HTM files for all changed Methods" & @CRLF)
-RunWait('"' & @AutoItExe & '"' & ' ..\..\_build\include\Gen_txt2htm.au3')
+RunWait('"' & @AutoItExe & '"' & ' ..\..\_build\include\Gen_txt2htm.au3 ' & $Cmd1)
 
 _OutputBuildWrite("Generate Reference HTM files for Methods" & @CRLF)
 RunWait('"' & @AutoItExe & '"' & ' ..\..\_build\include\Gen_RefPages.au3')
@@ -162,23 +166,3 @@ Func Main()
 	FileClose($FI_TOC_HND)
 	FileClose($FO_INDEX_HND)
 EndFunc   ;==>Main
-;
-Func _FileRead2Array($SFILEPATH, ByRef $AARRAY)
-	Local $HFILE = FileOpen($SFILEPATH, 0)
-	If $HFILE = -1 Then
-		SetError(1)
-		Return 0
-	EndIf
-	$AARRAY = StringSplit(StringStripCR(FileRead($HFILE, _
-			FileGetSize($SFILEPATH))), @LF)
-	FileClose($HFILE)
-	Return 1
-EndFunc   ;==>_FileRead2Array
-;
-Func Debug($MESSAGE)
-	MsgBox($MB_SYSTEMMODAL, 'debug', $MESSAGE)
-EndFunc   ;==>Debug
-;
-Func WriteLog($LMSG)
-	FileWriteLine(@ScriptDir & "\genindex.log", $LMSG)
-EndFunc   ;==>WriteLog

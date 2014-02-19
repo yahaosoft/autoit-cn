@@ -27,7 +27,7 @@ If $APPENDIX_OUT_DIR = "ERR" Then
 	Exit
 EndIf
 
-Global $hOut = FileOpen($APPENDIX_OUT_DIR & "OSLangCodes.htm", 2) ;handle to the output file
+Global $hOut = FileOpen($APPENDIX_OUT_DIR & "OSLangCodes.htm", BitOR($FO_OVERWRITE, $FO_UTF8))
 _OutputProgressWrite("OSLangCodes.htm Creation...") ;### Debug Console
 
 Local $sLangListFile = "OSLangCodes.csv"
@@ -152,8 +152,8 @@ Func putHeader()
 	put('<html>')
 	put('<head>')
 	put('  <title>OS Language Values-Codes</title>')
-	put('  <meta charset="ISO-8859-1">')
-	put('  <link href="..\css\default.css" rel="stylesheet" type="text/css">')
+	put('  <meta charset="utf-8">')
+	put('  <link href="../css/default.css" rel="stylesheet">')
 	put('</head>')
 	put('')
 	put('<body>')

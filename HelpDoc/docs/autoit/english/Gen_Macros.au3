@@ -1,8 +1,8 @@
 #cs
 	Credit: Created by guinness - 2013/07/28
 #ce
-#include '..\..\_build\include\OutputLib.au3'
 #include '..\..\_build\include\MiscLib.au3'
+#include '..\..\_build\include\OutputLib.au3'
 #include <Array.au3>
 #include <File.au3>
 
@@ -39,12 +39,12 @@ Func HTMLMacro($sMacroPath, $sHTMLOutPath)
 	$sHTML &= '<html>' & @CRLF
 	$sHTML &= '<head>' & @CRLF
 	$sHTML &= @TAB & '<title>Macros</title>' & @CRLF
-	$sHTML &= @TAB & '<meta charset="gb2312">' & @CRLF
-	$sHTML &= @TAB & '<link href="css/default.css" rel="stylesheet" type="text/css">' & @CRLF
+	$sHTML &= @TAB & '<meta charset="utf-8">' & @CRLF
+	$sHTML &= @TAB & '<link href="css/default.css" rel="stylesheet">' & @CRLF
 	$sHTML &= '</head>' & @CRLF
 	$sHTML &= '<body>' & @CRLF
 	$sHTML &= @TAB & '<h1>Macro Reference</h1>' & @CRLF
-	$sHTML &= @TAB & '<p>Below is an alphabetized list of all the macros available in AutoIt.<br></p>' & @CRLF
+	$sHTML &= @TAB & '<p>Below is an alphabetized list of all the macros available in AutoIt.<br /></p>' & @CRLF
 	$sHTML &= @TAB & '<p>&nbsp;</p>' & @CRLF
 	$sHTML &= @TAB & '<table>' & @CRLF
 	$sHTML &= @TAB & '<tr>' & @CRLF
@@ -64,7 +64,7 @@ Func HTMLMacro($sMacroPath, $sHTMLOutPath)
 	For $i = 1 To $aMacroList[0][0]
 		$hMacroList($aMacroList[$i][0]) = _URLsToRelative($hMacroList($aMacroList[$i][0]))
 		$sHTML &= @TAB & '<tr>' & @CRLF
-		$sHTML &= @TAB & @TAB & '<td><a name="' & $aMacroList[$i][0] & '"></a><strong>' & $aMacroList[$i][0] & '</strong></td>' & @CRLF
+		$sHTML &= @TAB & @TAB & '<td><a id="' & $aMacroList[$i][0] & '"></a><strong>' & $aMacroList[$i][0] & '</strong></td>' & @CRLF
 		$sHTML &= @TAB & @TAB & '<td>' & $hMacroList($aMacroList[$i][0]) & '</td>' & @CRLF
 		$sHTML &= @TAB & '</tr>' & @CRLF
 	Next
@@ -72,7 +72,7 @@ Func HTMLMacro($sMacroPath, $sHTMLOutPath)
 	$sHTML &= @TAB & '</table>' & @CRLF
 	$sHTML &= '</body>' & @CRLF
 	$sHTML &= '</html>' & @CRLF
-	Local $hFileOpen = FileOpen($sHTMLOutPath, $FO_OVERWRITE)
+	Local $hFileOpen = FileOpen($sHTMLOutPath, BitOR($FO_OVERWRITE, $FO_UTF8))
 	If $hFileOpen > -1 Then
 		FileWrite($sHTMLOutPath, $sHTML)
 		FileClose($hFileOpen)

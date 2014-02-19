@@ -1,5 +1,5 @@
-#include '..\..\..\..\..\_build\include\MiscLib.au3'
 #include "..\gen_editorfuncs.au3"
+#include '..\..\..\..\..\_build\include\MiscLib.au3'
 
 #include <File.au3>
 

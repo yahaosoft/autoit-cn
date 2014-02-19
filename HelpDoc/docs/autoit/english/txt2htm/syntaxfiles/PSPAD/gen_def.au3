@@ -1,6 +1,8 @@
 #include-once
+
 #include <FileConstants.au3>
-#include <Constants.au3>
+#include <StringConstants.au3>
+; #include "..\gen_editorfuncs.au3"
 
 Global Const $ASCII_ACK = Chr(6), _
 		$FUNCTIONLIST_FULL = '..\function_full.txt', _

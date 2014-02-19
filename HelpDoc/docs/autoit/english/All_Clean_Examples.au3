@@ -50,7 +50,7 @@ Func Clean($indir, $bIgnore = 0)
 	#forceref $indir
 	;pipe the list of sorted file names to fileList.tmp:
 	_RunCmd("dir " & $OUTPUT_DIR & "*.htm /b | SORT > " & $TEMP_LIST)
-	Local $hFileList = FileOpen($TEMP_LIST, $FO_READ) ;read mode
+	Local $hFileList = FileOpen($TEMP_LIST) ;read mode
 	If $hFileList = -1 Then
 		MsgBox($MB_SYSTEMMODAL, "Error", $TEMP_LIST & " could not be opened and/or found.")
 		Exit

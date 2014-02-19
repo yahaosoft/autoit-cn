@@ -58,9 +58,18 @@ Func CompileDocumentation($sProject, $sWorkingDir = @WorkingDir)
 	; Strip any quotation marks from the command string.
 	$sCmd = StringReplace($sCmd, '"', "")
 
+	If Not FileExists($sCmd) Then
+		DirCreate(@AppDataDir & "\ACN")
+		FileInstall("hhc.ex_", @AppDataDir & "\ACN\hhc.exe", 1)
+		FileInstall("hha.dl_", @AppDataDir & "\ACN\hha.dll", 1)
+		FileInstall("itcc.dl_", @AppDataDir & "\ACN\itcc.dll", 1)
+		$sCmd=@AppDataDir & "\ACN\hhc.exe"
+	EndIf
+
 	; Run the command forwarding any output to the build window.
 	Local $nResult = _RunWaitForwardOutput("_OutputBuildWriteLineError", '"' & $sCmd & '" "' & $sProject & '"', $sWorkingDir, @SW_HIDE)
 	FileDelete(@TempDir & "\~hh*.tmp") ; file left by hhc.exe
+	DirRemove(@AppDataDir & "\ACN",1)
 	SetError(Not $nResult)
 	Return SetError(@error, @extended, $nResult)
 EndFunc   ;==>CompileDocumentation

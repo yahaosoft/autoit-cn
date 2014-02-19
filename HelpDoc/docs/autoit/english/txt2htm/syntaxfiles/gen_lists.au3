@@ -1,7 +1,6 @@
-#include <Constants.au3>
-#include <File.au3>
-
 #include '..\..\..\..\_build\include\MiscLib.au3'
+#include <Array.au3>
+#include <File.au3>
 
 Global Const $ASCII_ACK = Chr(6)
 
@@ -75,31 +74,35 @@ Func CreateLists()
 		FileWriteLine($hFileOpen, "#comments-end")
 		FileWriteLine($hFileOpen, "#comments-start")
 		FileWriteLine($hFileOpen, "#cs")
+		FileWriteLine($hFileOpen, "#EndRegion")
+		FileWriteLine($hFileOpen, "#forcedef")
+		FileWriteLine($hFileOpen, "#forceref")
+		FileWriteLine($hFileOpen, "#ignorefunc")
 		FileWriteLine($hFileOpen, "#include")
 		FileWriteLine($hFileOpen, "#include-once")
 		FileWriteLine($hFileOpen, "#NoTrayIcon")
 		FileWriteLine($hFileOpen, "#OnAutoItStartRegister")
-		FileWriteLine($hFileOpen, "#RequireAdmin")
-		FileWriteLine($hFileOpen, "#endregion")
-		FileWriteLine($hFileOpen, "#forcedef")
-		FileWriteLine($hFileOpen, "#forceref")
-		FileWriteLine($hFileOpen, "#ignorefunc")
 		FileWriteLine($hFileOpen, "#pragma")
-		FileWriteLine($hFileOpen, "#region")
+		FileWriteLine($hFileOpen, "#Region")
+		FileWriteLine($hFileOpen, "#RequireAdmin")
 		FileClose($hFileOpen)
 	EndIf
 
 	; Add extra functions
 	$hFileOpen = FileOpen($FUNCTIONLIST, $FO_APPEND)
 	FileWriteLine($hFileOpen, "")
-	FileWrite($hFileOpen, "Opt")
+	FileWriteLine($hFileOpen, "Opt")
+	FileWriteLine($hFileOpen, "UDPStartup")
+	FileWriteLine($hFileOpen, "UDPShutdown")
 	FileClose($hFileOpen)
 EndFunc   ;==>CreateLists
 
 ; ------------------------------------------------------------------------------
 ; Makes a list of the functions and their parameters. Designed for native and UDF functions.
 ; ------------------------------------------------------------------------------
-Func DoFunctions($sFunctionPath, $sFunctionListOut, $sFunctionParamsOut, $sFunctionFullOut, $fUDFLibrary = False)
+Func DoFunctions($sFunctionPath, $sFunctionListOut, $sFunctionParamsOut, $sFunctionFullOut, $fUDFLibrary = Default)
+	If $fUDFLibrary = Default Then $fUDFLibrary = False
+
 	; Change directory to the functions text file(s)
 	FileChangeDir($sFunctionPath)
 
@@ -127,9 +130,9 @@ Func DoFunctions($sFunctionPath, $sFunctionListOut, $sFunctionParamsOut, $sFunct
 		$sFunctionListParams &= $sParams & " " & $sDescription & @CRLF ; Function parameter list.
 		$sFunctionListFull &= $aSRE[$i] & $ASCII_ACK & $sParams & $ASCII_ACK & $sDescription & $ASCII_ACK & @CRLF
 	Next
-	$sFunctionList = StringRegExpReplace($sFunctionList, "\v+$", "") ; Clear last empty line(s).
-	$sFunctionListParams = StringRegExpReplace($sFunctionListParams, "\v+$", "") ; Clear last empty line(s).
-	$sFunctionListFull = StringRegExpReplace($sFunctionListFull, "\x{6}\v*$", "")
+	_StripEmptyLinesEndOfFile($sFunctionList)
+	_StripEmptyLinesEndOfFile($sFunctionListParams)
+	_StripEmptyLinesEndOfFileACK($sFunctionListFull)
 
 	; Write the output
 	$hFileOpen = FileOpen($sFunctionListOut, $FO_OVERWRITE)
@@ -174,8 +177,9 @@ Func DoMacros($sMacroListOut, $sMacroFullOut)
 		$sMacroList &= $aMacroList[$i][0] & @CRLF
 		$sMacroListFull &= $aMacroList[$i][0] & $ASCII_ACK & $aMacroList[$i][1] & $ASCII_ACK & @CRLF
 	Next
-	$sMacroList = StringRegExpReplace($sMacroList, "\v+$", "") ; Clear last empty line(s).
-	$sMacroListFull = StringRegExpReplace($sMacroListFull, "\x{6}\v*$", "")
+	_StripEmptyLinesEndOfFile($sMacroList)
+	_StripEmptyLinesEndOfFile($sMacroList)
+	_StripEmptyLinesEndOfFileACK($sMacroListFull)
 
 	; Write the output
 	Local $hFileOpen = FileOpen($sMacroListOut, $FO_OVERWRITE)
@@ -187,34 +191,32 @@ Func DoMacros($sMacroListOut, $sMacroFullOut)
 	FileWrite($hFileOpen, $sMacroListFull)
 	FileClose($hFileOpen)
 EndFunc   ;==>DoMacros
-
+#include <MsgBoxConstants.au3>
 ; ------------------------------------------------------------------------------
 ; Retrieve the ###Description### and ###Syntax### entries of a file.
 ; ------------------------------------------------------------------------------
-Func GetFunctionParams($sFilePath, ByRef $sDescription, $fUDFLibrary = False)
-	Local Const $STRINGSPLIT_ENTIRE = 1
+Func GetFunctionParams($sFilePath, ByRef $sDescription, $fUDFLibrary = Default)
+	Local Enum $eSRE_Description, $eSRE_IncludeOrSyntax, $eSRE_Syntax, $eSRE_Max
+	If $fUDFLibrary = Default Then $fUDFLibrary = False
 
-	$sDescription = ""
 	Local $sData = FileRead($sFilePath)
 	_StripEmptyLines($sData)
 	_StripWhitespace($sData)
-	Local $aArray = StringSplit($sData, @CRLF, $STRINGSPLIT_ENTIRE), $iIndex = 0, $sLine
-	For $i = 1 To $aArray[0]
-		Switch $aArray[$i]
-			Case "###Description###"
-				$iIndex = $i + 1 ; Get next line.
-				$sDescription = $aArray[$iIndex]
-				ContinueLoop
-			Case "###Syntax###"
-				$iIndex = $i + 1 ; Get next line.
-				If $fUDFLibrary Then
-					$sDescription &= " (Requires: " & $aArray[$iIndex] & ")"
-					$iIndex += 1
-				EndIf
-				$sLine = $aArray[$iIndex]
-				ExitLoop
-		EndSwitch
-	Next
+
+	$sDescription = ""
+	Local $sLine = ""
+	Local $aSRE = StringRegExp($sData, "###Description###\R(\V*)\R*###Syntax###\R(\V*)\R(\V*)", 3)
+	If UBound($aSRE) = $eSRE_Max Then
+		$sDescription = $aSRE[$eSRE_Description]
+		_ConvertHTMLEntityToSymbols($sDescription)
+		If $fUDFLibrary Then
+			$sDescription &= " (Requires: " & $aSRE[$eSRE_IncludeOrSyntax] & ")"
+			$sLine = $aSRE[$eSRE_Syntax]
+		Else
+			$sLine = $aSRE[$eSRE_IncludeOrSyntax]
+		EndIf
+
+	EndIf
 	Return $sLine
 EndFunc   ;==>GetFunctionParams
 
@@ -224,3 +226,10 @@ EndFunc   ;==>GetFunctionParams
 Func _RunCmd($sCommand)
 	Return RunWait(@ComSpec & " /c " & $sCommand, "", @SW_HIDE)
 EndFunc   ;==>_RunCmd
+
+; ------------------------------------------------------------------------------
+; Remove blanks lines at the end of the file and append a single @CRLF.
+; ------------------------------------------------------------------------------
+Func _StripEmptyLinesEndOfFileACK(ByRef $sData, $sAppend = "")
+	$sData = StringRegExpReplace($sData, "\x{6}\v*$", "") & $sAppend
+EndFunc   ;==>_StripEmptyLinesEndOfFileACK
